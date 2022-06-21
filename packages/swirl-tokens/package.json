@@ -1,0 +1,24 @@
+{
+  "name": "@flip-corp/swirl-tokens",
+  "version": "0.0.1",
+  "description": "Design tokens represent design decisions such as color, spacing, and typography. Each token has a unique name that references a specific value.",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "author": "Flip GmbH <dev@flipapp.de>",
+  "repository": "https://github.com/Flip-corp/swirl",
+  "bugs": {
+    "url": "https://github.com/flip-corp/swirl/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js"
+    },
+    "./json/*": "./dist/json/*",
+    "./css/*": "./dist/css/*",
+    "./scss/*": "./dist/scss/*"
+  },
+  "files": [
+    "dist"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@flip/swirl-icons",
+  "version": "1.0.0",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "author": "Flip GmbH <dev@flipapp.de>",
+  "repository": "https://github.com/flip-corp/swirl",
+  "bugs": {
+    "url": "https://github.com/flip-corp/swirl/issues"
+  }
+}

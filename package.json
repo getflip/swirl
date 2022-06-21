@@ -1,0 +1,16 @@
+{
+  "name": "swirl",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Flip GmbH",
+  "workspaces": {
+    "packages": [
+      "swirl-tokens"
+    ]
+  },
+  "devDependencies": {
+    "prettier": "^2.5.0",
+    "turbo": "^1.2.8",
+    "typescript": ">=3.0.0"
+  }
+}
