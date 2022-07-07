@@ -3,14 +3,17 @@
   "version": "0.0.1",
   "private": true,
   "author": "Flip GmbH",
-  "workspaces": {
-    "packages": [
-      "swirl-tokens"
-    ]
-  },
   "devDependencies": {
+    "@types/node": "^18.0.3",
+    "gulp": "^4.0.2",
+    "gulp-theo": "^2.0.1",
+    "plugin-error": "^2.0.0",
     "prettier": "^2.5.0",
+    "theo": "^8.1.5",
     "turbo": "^1.2.8",
     "typescript": ">=3.0.0"
-  }
+  },
+  "workspaces": [
+    "packages/swirl-tokens"
+  ]
 }

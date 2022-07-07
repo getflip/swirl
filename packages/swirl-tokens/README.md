@@ -19,7 +19,7 @@ npm install @flip/swirl-tokens
 Accessing all of the available token groups
 
 ```js
-import { tokens } from "@flip/swirl-tokens";
+import { tokens } from "@flip-app/swirl-tokens";
 
 console.log(tokens.colors);
 ```
@@ -29,7 +29,7 @@ console.log(tokens.colors);
 Importing all of the css variables. CSS variables are prefixed with `--s`
 
 ```js
-import '@flip/swirl-tokens/css/styles.css';
+import '@flip-app/swirl-tokens/css/styles.css';
 
 div {
   background: var(--s-background);

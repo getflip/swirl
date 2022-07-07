@@ -1,5 +1,5 @@
 {
-  "name": "@flip-corp/swirl-tokens",
+  "name": "@flip-app/swirl-tokens",
   "version": "0.0.1",
   "description": "Design tokens represent design decisions such as color, spacing, and typography. Each token has a unique name that references a specific value.",
   "license": "SEE LICENSE IN LICENSE.md",
@@ -20,5 +20,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "scripts": {
+    "build": "node -e \"console.log('command not implemented')\"",
+    "gulp": "gulp"
+  } 
 }
