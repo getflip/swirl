@@ -8,3 +8,5 @@ props:
     value: "#0000ff"
   bar:
     value: "#123123"
+  s-test:
+    value: "#ff1239"
