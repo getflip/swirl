@@ -1,4 +1,7 @@
-on: push
+name: Publish Swirl Tokens to NPM-Registry
+on: push:
+  branches: 
+    - main
 
 jobs:
   publish:
