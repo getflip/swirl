@@ -10,6 +10,9 @@ jobs:
           node-version: 16
       - run: npm install
       - run: npx turbo run gulp
-      # - uses: JS-DevTools/npm-publish@v1
-      #   with:
-      #     token: ${{ secrets.NPM_TOKEN }}
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          package: "../packages/swirl-tokens/package.json"
+          token: ${{ secrets.NPM_TOKEN }}
+          access: "public"
+          greater-version-only: true

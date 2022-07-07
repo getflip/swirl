@@ -1,6 +1,6 @@
 {
   "name": "@flip-app/swirl-tokens",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Design tokens represent design decisions such as color, spacing, and typography. Each token has a unique name that references a specific value.",
   "license": "SEE LICENSE IN LICENSE.md",
   "author": "Flip GmbH <dev@flipapp.de>",
