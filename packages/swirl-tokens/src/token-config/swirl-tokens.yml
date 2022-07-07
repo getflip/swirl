@@ -1,6 +1,8 @@
 global:
-  category: "web"
-  type: "color"
+  category: "index"
+  type: "colors"
+imports:
+  - ./global/index.yml
 props:
   foo:
     value: "#ff0000"

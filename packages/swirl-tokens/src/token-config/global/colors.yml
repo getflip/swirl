@@ -1,0 +1,10 @@
+global:
+  type: "color"
+  category: "background-color"
+imports:
+  - ../aliases/color-palette.yml
+props:
+  # base background
+  color-background:
+    value: "{!palette-blue-10}"
+    comment: Background color used for containers.

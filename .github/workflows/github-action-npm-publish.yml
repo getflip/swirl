@@ -19,7 +19,7 @@ jobs:
           package: "packages/swirl-tokens/package.json"
           token: ${{ secrets.NPM_TOKEN }}
           access: "public"
-      - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
+      - uses: EndBug/add-and-commit@v9
         with:
           add: "./packages/swirl-tokens/package.json"
           author_name: Flip-Github-Action
