@@ -12,7 +12,7 @@ jobs:
       - run: npx turbo run gulp
       - uses: JS-DevTools/npm-publish@v1
         with:
-          package: "../packages/swirl-tokens/package.json"
+          package: "./../packages/swirl-tokens/package.json"
           token: ${{ secrets.NPM_TOKEN }}
           access: "public"
-          greater-version-only: true
+          greater-version-only: "package"
