@@ -1,0 +1,9 @@
+
+global: 
+    type: color
+    category: focus
+props:
+
+    focus-default:
+        value: rgba(0, 226, 173, 1)
+    

@@ -1,0 +1,17 @@
+
+global: 
+    type: color
+    category: on-surface
+props:
+
+    on-surface-default:
+        value: rgba(242, 242, 245, 1)
+    
+
+    on-surface-hovered:
+        value: rgba(232, 232, 235, 1)
+    
+
+    on-surface-pressed:
+        value: rgba(209, 209, 214, 1)
+    

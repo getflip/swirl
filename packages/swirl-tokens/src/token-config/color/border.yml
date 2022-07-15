@@ -1,0 +1,25 @@
+
+global: 
+    type: color
+    category: border
+props:
+
+    border-neutral:
+        value: rgba(0, 6, 29, 0.18)
+    
+
+    border-neutral-subdued:
+        value: rgba(0, 6, 29, 0.09)
+    
+
+    border-critical:
+        value: rgba(220, 38, 80, 1)
+    
+
+    border-success:
+        value: rgba(52, 199, 89, 1)
+    
+
+    border-on-secondary:
+        value: rgba(190, 255, 240, 0.2)
+    

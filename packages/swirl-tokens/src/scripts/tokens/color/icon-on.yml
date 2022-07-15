@@ -1,0 +1,25 @@
+
+global: 
+    type: color
+    category: icon-on
+props:
+
+    icon-on-primary:
+        value: rgba(0, 13, 87, 1)
+    
+
+    icon-on-secondary:
+        value: rgba(190, 255, 240, 1)
+    
+
+    icon-on-critical:
+        value: rgba(255, 255, 255, 1)
+    
+
+    icon-on-success:
+        value: rgba(255, 255, 255, 1)
+    
+
+    icon-on-image:
+        value: rgba(255, 255, 255, 1)
+    

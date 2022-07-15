@@ -1,0 +1,21 @@
+
+global: 
+    type: color
+    category: interactive-secondary
+props:
+
+    interactive-secondary-default:
+        value: rgba(0, 61, 175, 1)
+    
+
+    interactive-secondary-hovered:
+        value: rgba(38, 90, 187, 1)
+    
+
+    interactive-secondary-pressed:
+        value: rgba(77, 119, 199, 1)
+    
+
+    interactive-secondary-disabled:
+        value: rgba(209, 209, 214, 1)
+    

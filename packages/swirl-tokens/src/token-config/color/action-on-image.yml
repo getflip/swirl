@@ -1,0 +1,17 @@
+
+global: 
+    type: color
+    category: action-on-image
+props:
+
+    action-on-image-default:
+        value: undefined
+    
+
+    action-on-image-hovered:
+        value: undefined
+    
+
+    action-on-image-pressed:
+        value: undefined
+    

@@ -1,0 +1,21 @@
+
+global: 
+    type: color
+    category: action-neutral
+props:
+
+    action-neutral-default:
+        value: rgba(242, 242, 245, 1)
+    
+
+    action-neutral-hovered:
+        value: rgba(232, 232, 235, 1)
+    
+
+    action-neutral-pressed:
+        value: rgba(209, 209, 214, 1)
+    
+
+    action-neutral-disabled:
+        value: rgba(242, 242, 245, 1)
+    

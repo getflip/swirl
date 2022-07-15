@@ -6,6 +6,7 @@
   "devDependencies": {
     "@types/node": "^18.0.3",
     "gulp": "^4.0.2",
+    "gulp-json-to-yaml": "^0.0.2",
     "gulp-theo": "^2.0.1",
     "plugin-error": "^2.0.0",
     "prettier": "^2.5.0",

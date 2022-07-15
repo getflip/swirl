@@ -1,0 +1,9 @@
+
+global: 
+    type: color
+    category: surface-on-image
+props:
+
+    surface-on-image-default:
+        value: rgba(0, 0, 0, 0.4)
+    

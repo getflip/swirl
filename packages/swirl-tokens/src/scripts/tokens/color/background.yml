@@ -1,0 +1,18 @@
+
+global: 
+    type: color
+    category: background
+props:
+
+    background-default:
+        value: rgba(255, 255, 255, 1)
+        comment: lets test the description
+    
+
+    background-hovered:
+        value: rgba(242, 242, 245, 1)
+    
+
+    background-pressed:
+        value: rgba(232, 232, 235, 1)
+    

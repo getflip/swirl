@@ -1,0 +1,33 @@
+
+global: 
+    type: color
+    category: icon
+props:
+
+    icon-default:
+        value: rgba(0, 0, 0, 1)
+    
+
+    icon-subdued:
+        value: rgba(142, 142, 147, 1)
+    
+
+    icon-disabled:
+        value: rgba(209, 209, 214, 1)
+    
+
+    icon-secondary:
+        value: rgba(0, 61, 175, 1)
+    
+
+    icon-primary:
+        value: rgba(0, 201, 186, 1)
+    
+
+    icon-critical:
+        value: rgba(220, 38, 80, 1)
+    
+
+    icon-success:
+        value: rgba(52, 199, 89, 1)
+    

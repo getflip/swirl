@@ -1,0 +1,33 @@
+
+global: 
+    type: color
+    category: text
+props:
+
+    text-default:
+        value: rgba(0, 0, 0, 1)
+    
+
+    text-subdued:
+        value: rgba(142, 142, 147, 1)
+    
+
+    text-disabled:
+        value: rgba(209, 209, 214, 1)
+    
+
+    text-secondary:
+        value: rgba(0, 61, 175, 1)
+    
+
+    text-primary:
+        value: rgba(0, 201, 186, 1)
+    
+
+    text-critical:
+        value: rgba(220, 38, 80, 1)
+    
+
+    text-success:
+        value: rgba(52, 199, 89, 1)
+    

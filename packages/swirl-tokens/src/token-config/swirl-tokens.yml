@@ -1,14 +1,4 @@
 global:
-  category: "index"
-  type: "colors"
+  category: index
 imports:
-  - ./global/index.yml
-props:
-  foo:
-    value: "#ff0000"
-  baz:
-    value: "#0000ff"
-  bar:
-    value: "#123123"
-  s-test:
-    value: "#ff1239"
+  - ./color/index.yml

@@ -2,8 +2,23 @@
 const gulp = require('gulp');
 const theo = require('gulp-theo');
 const bump = require('gulp-bump');
+const jsonToYaml = require('gulp-json-to-yaml');
+const renameCssCustomProperties = require('./src/scripts/renameCssCustomProperties');
+const transformJsonConfigToTheoYml = require('./src/scripts/transformJsonConfigToTheoYml');
 
 const configSrc = 'src/token-config/swirl-tokens.yml';
+
+/**
+ * HELPER TASKS
+ */
+gulp.task('transformConfig', () => {
+  const designTokenObjects = require('./src/token-config/design-tokens.json');
+  return transformJsonConfigToTheoYml(designTokenObjects, 'src/token-config')
+});
+
+gulp.task('tokens:renameproperties', () =>
+  renameCssCustomProperties('dist/swirl-tokens.custom-properties.css')
+)
 
 /**
  * GENERATE TOKENS
@@ -24,6 +39,12 @@ gulp.task('tokens:json', () =>
       format: { type: 'json' }
     }))
     .pipe(gulp.dest('dist'))
+);
+
+gulp.task('convert-json', () => 
+  gulp.src('./src/token-config/design-tokens.json')
+    .pipe(jsonToYaml())
+    .pipe(gulp.dest('./dist/'))
 );
 
 /**
@@ -49,7 +70,7 @@ gulp.task('update-package-json:major', () =>
 /**
  * BUILD TASKS
  */
-gulp.task('default', gulp.series('tokens:css', 'tokens:json'));
+gulp.task('default', gulp.series('tokens:css', 'tokens:renameproperties', 'tokens:json'));
 gulp.task('patch-release', gulp.series('update-package-json:patch', 'default'));
 gulp.task('minor-release', gulp.series('update-package-json:minor', 'default'));
 gulp.task('major-release', gulp.series('update-package-json:major', 'default'));

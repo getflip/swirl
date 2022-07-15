@@ -1,0 +1,17 @@
+
+global: 
+    type: color
+    category: surface-toast
+props:
+
+    surface-toast-neutral:
+        value: rgba(27, 28, 29, 1)
+    
+
+    surface-toast-critical:
+        value: rgba(220, 38, 80, 1)
+    
+
+    surface-toast-success:
+        value: rgba(52, 199, 89, 1)
+    

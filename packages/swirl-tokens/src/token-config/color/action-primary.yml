@@ -1,0 +1,21 @@
+
+global: 
+    type: color
+    category: action-primary
+props:
+
+    action-primary-default:
+        value: rgba(0, 226, 173, 1)
+    
+
+    action-primary-hovered:
+        value: rgba(38, 230, 185, 1)
+    
+
+    action-primary-pressed:
+        value: rgba(77, 235, 198, 1)
+    
+
+    action-primary-disabled:
+        value: rgba(242, 242, 245, 1)
+    

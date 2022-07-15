@@ -1,0 +1,17 @@
+
+global: 
+    type: color
+    category: surface-overlay
+props:
+
+    surface-overlay-default:
+        value: rgba(255, 255, 255, 1)
+    
+
+    surface-overlay-hovered:
+        value: rgba(242, 242, 245, 1)
+    
+
+    surface-overlay-pressed:
+        value: rgba(232, 232, 235, 1)
+    
