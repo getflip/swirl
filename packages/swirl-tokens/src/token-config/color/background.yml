@@ -6,13 +6,15 @@ props:
 
     background-default:
         value: rgba(255, 255, 255, 1)
-        comment: lets test the description
+        comment: Usually used for the page background and elements that should not elevate from the background.
     
 
     background-hovered:
         value: rgba(242, 242, 245, 1)
+        comment: Used if a component with “background-default” has a hovered state.
     
 
     background-pressed:
         value: rgba(232, 232, 235, 1)
+        comment: Used if a component with “background-default” has a pressed state.
     

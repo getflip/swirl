@@ -1,0 +1,10 @@
+
+global: 
+    type: color
+    category: surface-neutral
+props:
+
+    surface-neutral-default:
+        value: rgba(27, 28, 29, 1)
+        comment: Used as a background for neutral surfaces.
+    

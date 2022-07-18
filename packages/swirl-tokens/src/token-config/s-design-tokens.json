@@ -1,0 +1,549 @@
+{
+  "color": {
+    "background": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Usually used for the page background and elements that should not elevate from the background.",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      },
+      "hovered": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “background-default” has a hovered state.",
+        "value": "rgba(242, 242, 245, 1)",
+        "type": "color"
+      },
+      "pressed": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “background-default” has a pressed state.",
+        "value": "rgba(232, 232, 235, 1)",
+        "type": "color"
+      }
+    },
+    "surface": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Usually used for containers that need to be elevated.",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      },
+      "hovered": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “surface-default” has a hovered state.",
+        "value": "rgba(242, 242, 245, 1)",
+        "type": "color"
+      },
+      "pressed": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “surface-default” has a pressed state.",
+        "value": "rgba(232, 232, 235, 1)",
+        "type": "color"
+      }
+    },
+    "surface-overlay": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Usually used for containers that need to be more elevated.",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      },
+      "hovered": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “surface-overla-default” has a hovered state.",
+        "value": "rgba(242, 242, 245, 1)",
+        "type": "color"
+      },
+      "pressed": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “surface-overla-default” has a pressed state.",
+        "value": "rgba(232, 232, 235, 1)",
+        "type": "color"
+      }
+    },
+    "on-surface": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Usually used for elements that need contrast on surfaces or background",
+        "value": "rgba(242, 242, 245, 1)",
+        "type": "color"
+      },
+      "hovered": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “on-surface-default” has a hovered state.",
+        "value": "rgba(232, 232, 235, 1)",
+        "type": "color"
+      },
+      "pressed": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “on-surface-default” has a pressed state.",
+        "value": "rgba(209, 209, 214, 1)",
+        "type": "color"
+      }
+    },
+    "surface-highlight": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Usually used for containers that need to be highlighted.",
+        "value": "rgba(0, 38, 255, 1)",
+        "type": "color"
+      },
+      "hovered": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “surface-highlight-default” has a hovered state.",
+        "value": "rgba(38, 71, 255, 1)",
+        "type": "color"
+      },
+      "pressed": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “surface-highlight-default” has a pressed state.",
+        "value": "rgba(77, 103, 255, 1)",
+        "type": "color"
+      }
+    },
+    "on-surface-highlight": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used to place containers on “surface-highlight-default”.",
+        "value": "rgba(25, 60, 255, 1)",
+        "type": "color"
+      }
+    },
+    "surface-critical": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a background for critical surfaces.",
+        "value": "rgba(220, 38, 80, 1)",
+        "type": "color"
+      }
+    },
+    "surface-success": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a background for success surfaces.",
+        "value": "rgba(52, 199, 89, 1)",
+        "type": "color"
+      }
+    },
+    "surface-neutral": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a background for neutral surfaces.",
+        "value": "rgba(27, 28, 29, 1)",
+        "type": "color"
+      }
+    },
+    "surface-on-image": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Usually used for containers on images",
+        "value": "rgba(0, 0, 0, 0.6)",
+        "type": "color"
+      }
+    },
+    "border": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Usually used for low emphasis borders and espacially divider elements.",
+        "value": "rgba(232, 232, 235, 1)",
+        "type": "color"
+      },
+      "strong": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Usually used for high emphasis borders.",
+        "value": "rgba(142, 142, 147, 1)",
+        "type": "color"
+      },
+      "critical": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Usally used as an border on critical components.",
+        "value": "rgba(220, 38, 80, 1)",
+        "type": "color"
+      },
+      "success": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Usally used as an border on success components.",
+        "value": "rgba(52, 199, 89, 1)",
+        "type": "color"
+      },
+      "on-secondary": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as border color on containers that have an highlight surface",
+        "value": "rgba(190, 255, 240, 0.2)",
+        "type": "color"
+      },
+      "highlight": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as border color on containers that need to be highlighted (e.g. form fields).",
+        "value": "rgba(0, 61, 175, 1)",
+        "type": "color"
+      }
+    },
+    "text": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used for high emphasis text.",
+        "value": "rgba(0, 0, 0, 1)",
+        "type": "color"
+      },
+      "subdued": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used for low emphasis text.",
+        "value": "rgba(142, 142, 147, 1)",
+        "type": "color"
+      },
+      "disabled": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a text element is disabled.",
+        "value": "rgba(209, 209, 214, 1)",
+        "type": "color"
+      },
+      "highlight": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used to highlight text.",
+        "value": "rgba(0, 61, 175, 1)",
+        "type": "color"
+      },
+      "critical": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as critical text color",
+        "value": "rgba(220, 38, 80, 1)",
+        "type": "color"
+      },
+      "success": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as success text color",
+        "value": "rgba(52, 199, 89, 1)",
+        "type": "color"
+      }
+    },
+    "text-on": {
+      "action-primary": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a text color on containers with action primary color.",
+        "value": "rgba(0, 13, 87, 1)",
+        "type": "color"
+      },
+      "surface-highlight": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as text color on containers with highlight color.",
+        "value": "rgba(190, 255, 240, 1)",
+        "type": "color"
+      },
+      "critical": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a text color on containers with critical color.",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      },
+      "success": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a text color on containers with success color.",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      },
+      "image": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a text color on “Surface On Image/Default”.",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      }
+    },
+    "icon": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used for low emphasis icons.",
+        "value": "rgba(142, 142, 147, 1)",
+        "type": "color"
+      },
+      "strong": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used for high emphasis icons.",
+        "value": "rgba(0, 0, 0, 1)",
+        "type": "color"
+      },
+      "disabled": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a icon element is disabled.",
+        "value": "rgba(209, 209, 214, 1)",
+        "type": "color"
+      },
+      "highlight": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used to highlight icons.",
+        "value": "rgba(0, 61, 175, 1)",
+        "type": "color"
+      },
+      "critical": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as critical icon color",
+        "value": "rgba(220, 38, 80, 1)",
+        "type": "color"
+      },
+      "success": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as success icon color",
+        "value": "rgba(52, 199, 89, 1)",
+        "type": "color"
+      }
+    },
+    "icon-on": {
+      "action-primary": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a icon color on containers with action primary color.",
+        "value": "rgba(0, 13, 87, 1)",
+        "type": "color"
+      },
+      "surface-highlight": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as icon color on containers with highlight color.",
+        "value": "rgba(190, 255, 240, 1)",
+        "type": "color"
+      },
+      "critical": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a icon color on containers with critical color.",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      },
+      "success": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a icon color on containers with success color.",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      },
+      "image": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a icon color on “Surface On Image/Default”.",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      }
+    },
+    "action-primary": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used for containers that are high emphasis action elements.",
+        "value": "rgba(0, 226, 173, 1)",
+        "type": "color"
+      },
+      "hovered": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “action-primary-default” has a hovered state.",
+        "value": "rgba(38, 230, 185, 1)",
+        "type": "color"
+      },
+      "pressed": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “action-primary-default” has a pressed state.",
+        "value": "rgba(77, 235, 198, 1)",
+        "type": "color"
+      },
+      "disabled": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “action-primary-default” has a disabled state.",
+        "value": "rgba(242, 242, 245, 1)",
+        "type": "color"
+      }
+    },
+    "action-neutral": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used for containers that are low emphasis action elements.",
+        "value": "rgba(242, 242, 245, 1)",
+        "type": "color"
+      },
+      "hovered": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “action-neutral-default” has a hovered state.",
+        "value": "rgba(232, 232, 235, 1)",
+        "type": "color"
+      },
+      "pressed": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “action-neutral-default” has a pressed state.",
+        "value": "rgba(209, 209, 214, 1)",
+        "type": "color"
+      },
+      "disabled": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “action-neutral-default” has a disabled state.",
+        "value": "rgba(242, 242, 245, 1)",
+        "type": "color"
+      }
+    },
+    "interactive-primary": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used for icon and text that are high emphasis interactive elements.",
+        "value": "rgba(0, 61, 175, 1)",
+        "type": "color"
+      },
+      "hovered": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “interactive-primary-default” has a hovered state.",
+        "value": "rgba(38, 90, 187, 1)",
+        "type": "color"
+      },
+      "pressed": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “interactive-primary-default” has a pressed state.",
+        "value": "rgba(77, 119, 199, 1)",
+        "type": "color"
+      },
+      "disabled": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “interactive-primary-default” has a disabled state.",
+        "value": "rgba(209, 209, 214, 1)",
+        "type": "color"
+      }
+    },
+    "interactive-neutral": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used for icon and text that are low emphasis interactive elements.",
+        "value": "rgba(142, 142, 147, 1)",
+        "type": "color"
+      },
+      "hovered": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “interactive-neutral-default” has a hovered state.",
+        "value": "rgba(174, 174, 178, 1)",
+        "type": "color"
+      },
+      "pressed": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “interactive-neutral-default” has a pressed state.",
+        "value": "rgba(209, 209, 214, 1)",
+        "type": "color"
+      },
+      "disabled": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used if a component with “interactive-neutral-default” has a disabled state.",
+        "value": "rgba(209, 209, 214, 1)",
+        "type": "color"
+      }
+    },
+    "focus": {
+      "default": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(0, 226, 173, 1)",
+        "type": "color"
+      }
+    },
+    "decorative": {
+      "1-default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a decorative color.",
+        "value": "rgba(255, 87, 77, 1)",
+        "type": "color"
+      },
+      "2-default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a decorative color.",
+        "value": "rgba(255, 131, 64, 1)",
+        "type": "color"
+      },
+      "3-default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a decorative color.",
+        "value": "rgba(246, 196, 49, 1)",
+        "type": "color"
+      },
+      "4-default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a decorative color.",
+        "value": "rgba(235, 132, 161, 1)",
+        "type": "color"
+      },
+      "5-default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a decorative color.",
+        "value": "rgba(150, 50, 250, 1)",
+        "type": "color"
+      },
+      "6-default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a decorative color.",
+        "value": "rgba(96, 178, 156, 1)",
+        "type": "color"
+      },
+      "7-default": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Used as a decorative color.",
+        "value": "rgba(51, 135, 255, 1)",
+        "type": "color"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+
+global: 
+    type: color
+    category: surface-highlight
+props:
+
+    surface-highlight-default:
+        value: rgba(0, 38, 255, 1)
+        comment: Usually used for containers that need to be highlighted.
+    
+
+    surface-highlight-hovered:
+        value: rgba(38, 71, 255, 1)
+        comment: Used if a component with “surface-highlight-default” has a hovered state.
+    
+
+    surface-highlight-pressed:
+        value: rgba(77, 103, 255, 1)
+        comment: Used if a component with “surface-highlight-default” has a pressed state.
+    

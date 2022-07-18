@@ -1,0 +1,25 @@
+
+global: 
+    type: color
+    category: interactive-primary
+props:
+
+    interactive-primary-default:
+        value: rgba(0, 61, 175, 1)
+        comment: Used for icon and text that are high emphasis interactive elements.
+    
+
+    interactive-primary-hovered:
+        value: rgba(38, 90, 187, 1)
+        comment: Used if a component with “interactive-primary-default” has a hovered state.
+    
+
+    interactive-primary-pressed:
+        value: rgba(77, 119, 199, 1)
+        comment: Used if a component with “interactive-primary-default” has a pressed state.
+    
+
+    interactive-primary-disabled:
+        value: rgba(209, 209, 214, 1)
+        comment: Used if a component with “interactive-primary-default” has a disabled state.
+    

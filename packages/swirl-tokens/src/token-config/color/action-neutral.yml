@@ -6,16 +6,20 @@ props:
 
     action-neutral-default:
         value: rgba(242, 242, 245, 1)
+        comment: Used for containers that are low emphasis action elements.
     
 
     action-neutral-hovered:
         value: rgba(232, 232, 235, 1)
+        comment: Used if a component with “action-neutral-default” has a hovered state.
     
 
     action-neutral-pressed:
         value: rgba(209, 209, 214, 1)
+        comment: Used if a component with “action-neutral-default” has a pressed state.
     
 
     action-neutral-disabled:
         value: rgba(242, 242, 245, 1)
+        comment: Used if a component with “action-neutral-default” has a disabled state.
     

@@ -2,10 +2,13 @@
 imports:
   - ./background.yml
   - ./surface.yml
-  - ./on-surface.yml
   - ./surface-overlay.yml
-  - ./surface-secondary.yml
-  - ./surface-toast.yml
+  - ./on-surface.yml
+  - ./surface-highlight.yml
+  - ./on-surface-highlight.yml
+  - ./surface-critical.yml
+  - ./surface-success.yml
+  - ./surface-neutral.yml
   - ./surface-on-image.yml
   - ./border.yml
   - ./text.yml
@@ -14,8 +17,7 @@ imports:
   - ./icon-on.yml
   - ./action-primary.yml
   - ./action-neutral.yml
-  - ./action-on-image.yml
-  - ./interactive-secondary.yml
+  - ./interactive-primary.yml
   - ./interactive-neutral.yml
   - ./focus.yml
-  - ./decorative-surface.yml
+  - ./decorative.yml

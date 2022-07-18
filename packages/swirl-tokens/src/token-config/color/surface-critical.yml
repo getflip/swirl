@@ -1,0 +1,10 @@
+
+global: 
+    type: color
+    category: surface-critical
+props:
+
+    surface-critical-default:
+        value: rgba(220, 38, 80, 1)
+        comment: Used as a background for critical surfaces.
+    

@@ -6,16 +6,20 @@ props:
 
     action-primary-default:
         value: rgba(0, 226, 173, 1)
+        comment: Used for containers that are high emphasis action elements.
     
 
     action-primary-hovered:
         value: rgba(38, 230, 185, 1)
+        comment: Used if a component with “action-primary-default” has a hovered state.
     
 
     action-primary-pressed:
         value: rgba(77, 235, 198, 1)
+        comment: Used if a component with “action-primary-default” has a pressed state.
     
 
     action-primary-disabled:
         value: rgba(242, 242, 245, 1)
+        comment: Used if a component with “action-primary-default” has a disabled state.
     

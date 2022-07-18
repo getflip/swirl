@@ -6,16 +6,20 @@ props:
 
     interactive-neutral-default:
         value: rgba(142, 142, 147, 1)
+        comment: Used for icon and text that are low emphasis interactive elements.
     
 
     interactive-neutral-hovered:
         value: rgba(174, 174, 178, 1)
+        comment: Used if a component with “interactive-neutral-default” has a hovered state.
     
 
     interactive-neutral-pressed:
         value: rgba(209, 209, 214, 1)
+        comment: Used if a component with “interactive-neutral-default” has a pressed state.
     
 
     interactive-neutral-disabled:
         value: rgba(209, 209, 214, 1)
+        comment: Used if a component with “interactive-neutral-default” has a disabled state.
     

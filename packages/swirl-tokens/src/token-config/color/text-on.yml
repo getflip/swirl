@@ -4,22 +4,27 @@ global:
     category: text-on
 props:
 
-    text-on-primary:
+    text-on-action-primary:
         value: rgba(0, 13, 87, 1)
+        comment: Used as a text color on containers with action primary color.
     
 
-    text-on-secondary:
+    text-on-surface-highlight:
         value: rgba(190, 255, 240, 1)
+        comment: Used as text color on containers with highlight color.
     
 
     text-on-critical:
         value: rgba(255, 255, 255, 1)
+        comment: Used as a text color on containers with critical color.
     
 
     text-on-success:
         value: rgba(255, 255, 255, 1)
+        comment: Used as a text color on containers with success color.
     
 
     text-on-image:
         value: rgba(255, 255, 255, 1)
+        comment: Used as a text color on “Surface On Image/Default”.
     

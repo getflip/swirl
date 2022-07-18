@@ -6,12 +6,15 @@ props:
 
     surface-overlay-default:
         value: rgba(255, 255, 255, 1)
+        comment: Usually used for containers that need to be more elevated.
     
 
     surface-overlay-hovered:
         value: rgba(242, 242, 245, 1)
+        comment: Used if a component with “surface-overla-default” has a hovered state.
     
 
     surface-overlay-pressed:
         value: rgba(232, 232, 235, 1)
+        comment: Used if a component with “surface-overla-default” has a pressed state.
     

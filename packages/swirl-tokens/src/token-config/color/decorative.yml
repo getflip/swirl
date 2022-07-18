@@ -1,0 +1,40 @@
+
+global: 
+    type: color
+    category: decorative
+props:
+
+    decorative-1-default:
+        value: rgba(255, 87, 77, 1)
+        comment: Used as a decorative color.
+    
+
+    decorative-2-default:
+        value: rgba(255, 131, 64, 1)
+        comment: Used as a decorative color.
+    
+
+    decorative-3-default:
+        value: rgba(246, 196, 49, 1)
+        comment: Used as a decorative color.
+    
+
+    decorative-4-default:
+        value: rgba(235, 132, 161, 1)
+        comment: Used as a decorative color.
+    
+
+    decorative-5-default:
+        value: rgba(150, 50, 250, 1)
+        comment: Used as a decorative color.
+    
+
+    decorative-6-default:
+        value: rgba(96, 178, 156, 1)
+        comment: Used as a decorative color.
+    
+
+    decorative-7-default:
+        value: rgba(51, 135, 255, 1)
+        comment: Used as a decorative color.
+    

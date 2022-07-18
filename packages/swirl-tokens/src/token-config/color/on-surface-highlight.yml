@@ -1,0 +1,10 @@
+
+global: 
+    type: color
+    category: on-surface-highlight
+props:
+
+    on-surface-highlight-default:
+        value: rgba(25, 60, 255, 1)
+        comment: Used to place containers on “surface-highlight-default”.
+    

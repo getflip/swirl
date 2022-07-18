@@ -6,12 +6,15 @@ props:
 
     on-surface-default:
         value: rgba(242, 242, 245, 1)
+        comment: Usually used for elements that need contrast on surfaces or background
     
 
     on-surface-hovered:
         value: rgba(232, 232, 235, 1)
+        comment: Used if a component with “on-surface-default” has a hovered state.
     
 
     on-surface-pressed:
         value: rgba(209, 209, 214, 1)
+        comment: Used if a component with “on-surface-default” has a pressed state.
     

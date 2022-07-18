@@ -12,7 +12,7 @@ const configSrc = 'src/token-config/swirl-tokens.yml';
  * HELPER TASKS
  */
 gulp.task('transformConfig', () => {
-  const designTokenObjects = require('./src/token-config/design-tokens.json');
+  const designTokenObjects = require('./src/token-config/s-design-tokens.json');
   return transformJsonConfigToTheoYml(designTokenObjects, 'src/token-config')
 });
 

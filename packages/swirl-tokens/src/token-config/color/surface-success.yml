@@ -1,0 +1,10 @@
+
+global: 
+    type: color
+    category: surface-success
+props:
+
+    surface-success-default:
+        value: rgba(52, 199, 89, 1)
+        comment: Used as a background for success surfaces.
+    
