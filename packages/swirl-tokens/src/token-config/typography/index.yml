@@ -1,0 +1,55 @@
+global:
+  type: typography
+  category: typography
+props:
+  font-size-sm:
+    value: "0.875rem"
+    comment: "–"
+  font-size-base:
+    value: "1rem"
+    comment: "–"
+  font-size-lg:
+    value: "1.125rem"
+    comment: "–"
+  font-size-xl:
+    value: "1.25rem"
+    comment: "–"
+  font-size-2xl:
+    value: "1.75rem"
+    comment: "–"
+  font-weight-regular:
+    value: "400"
+    comment: "–"
+  font-weight-medium:
+    value: "500"
+    comment: "–"
+  font-weight-semibold:
+    value: "600"
+    comment: "–"
+  font-weight-bold:
+    value: "700"
+    comment: "–"
+  line-height-sm:
+    value: "1.25rem"
+    comment: "-"
+  line-height-base:
+    value: "1.375rem"
+    comment: "-"
+  line-height-lg:
+    value: "1.5rem"
+    comment: "-"
+  line-height-xl:
+    value: "1.625rem"
+    comment: "-"
+  line-height-2xl:
+    value: "2.125rem"
+    comment: "-"
+  letter-spacing-tighter:
+    value: "-0.02rem"
+    comment: "-"
+  letter-spacing-tight:
+    value: "-0.014rem"
+    comment: "–"
+  letter-spacing-base:
+    value: "0"
+    comment: "–"

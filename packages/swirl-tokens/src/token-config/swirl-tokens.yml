@@ -1,5 +1,5 @@
-
 global:
   category: index
 imports:
   - ./color/index.yml
+  - ./typography/index.yml
