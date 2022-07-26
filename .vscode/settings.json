@@ -1,0 +1,14 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "css.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "javascript.validate.enable": false,
+  "jest.autoRun": "off",
+  "scss.validate": false,
+  "stylelint.validate": ["scss", "css"],
+  "typescript.tsdk": "./node_modules/typescript/lib"
+}

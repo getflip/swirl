@@ -1,0 +1,35 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "build": {
+      "outputs": ["dist/**", "build/**"],
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "outputs": [],
+      "dependsOn": []
+    },
+    "lint": {
+      "outputs": [".eslintcache"]
+    },
+    "dev": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "gulp": {
+      "outputs": ["dist/**"]
+    },
+    "gulp:patch": {
+      "outputs": ["dist/**"]
+    },
+    "gulp:minor": {
+      "outputs": ["dist/**"]
+    },
+    "gulp:major": {
+      "outputs": ["dist/**"]
+    }
+  }
+}

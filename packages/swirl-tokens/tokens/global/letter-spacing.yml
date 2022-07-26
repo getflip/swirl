@@ -1,0 +1,13 @@
+global:
+  category: font-weight
+  type: font-weight
+props:
+  letter-spacing-tighter:
+    value: "-0.02rem"
+    comment: "Constant letter-spacing token for letter spacing tighter"
+  letter-spacing-tight:
+    value: "-0.014rem"
+    comment: "Constant letter-spacing token for letter spacing tight"
+  letter-spacing-base:
+    value: "0"
+    comment: "Constant letter-spacing token for letter spacing base"

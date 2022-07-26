@@ -1,0 +1,22 @@
+global:
+  type: size
+  category: radius
+props:
+  border-radius-0:
+    value: "0"
+    comment: Border radius reset
+  border-radius-sm:
+    value: "0.125rem" #2px
+    comment: Small border radius
+  border-radius-default:
+    value: "0.25rem" #4px
+    comment: Default border radius
+  border-radius-md:
+    value: "0.375rem" #6px
+    comment: Large border radius
+  border-radius-lg:
+    value: "0.5rem" #8px
+    comment: Larger border radius
+  border-radius-full:
+    value: "9999px"
+    comment: Full border radius
