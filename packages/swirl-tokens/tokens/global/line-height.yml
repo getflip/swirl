@@ -2,7 +2,7 @@ global:
   category: line-height
   type: number
 props:
- line-height-sm:
+  line-height-sm:
     value: "1.25rem" # 12px * 1.4 = 20px / 16 = 1.25
     comment: "Constant line-height token for line-height sm"
   line-height-base:

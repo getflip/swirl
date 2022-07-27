@@ -12,5 +12,5 @@ props:
     value: "600"
     comment: Font weight for semibold weight
   font-weight-bold:
-    value: "700
+    value: "700"
     comment: Font weight for bold weight

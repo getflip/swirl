@@ -19,5 +19,8 @@
     "gulp": "^4.0.2",
     "gulp-theo": "^2.0.1",
     "theo": "^8.1.5"
+  },
+  "dependencies": {
+    "plugin-error": "^2.0.0"
   }
 }

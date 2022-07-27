@@ -5,11 +5,10 @@
   "engines": {
     "node": "^14.17.0 || ^16.13.0"
   },
-  "workspaces": {
-    "packages": [
-      "swirl-tokens"
-    ]
-  },
+  "workspaces": [
+    "apps/swirl-docs",
+    "packages/swirl-tokens"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --filter=@getflip/swirl... --parallel",
