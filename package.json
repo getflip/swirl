@@ -6,7 +6,6 @@
     "node": "^14.17.0 || ^16.13.0"
   },
   "workspaces": [
-    "apps/swirl-docs",
     "packages/swirl-tokens"
   ],
   "scripts": {
