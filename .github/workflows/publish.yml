@@ -14,23 +14,19 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
-
-      - name: Setup Node.js 12.x, install and build files
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 12.x
-          cache: "npm"
-          cache-dependency-path: ./packages/swirl-tokens/package-lock.json
+          node-version: 16
+        - run: npm install
+        - run: npx turbo run gulp
+        - run: ls -l
 
-      - name: Install & build
-        run: npm install && npx turbo run gulp
-
-      - name: Publish to npm
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: npx changeset publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Publish to npm
+      #   id: changesets
+      #   uses: changesets/action@v1
+      #   with:
+      #     # This expects you to have a script called release which does a build for your packages and calls changeset publish
+      #     publish: npx changeset publish
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
