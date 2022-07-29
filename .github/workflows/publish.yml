@@ -21,8 +21,7 @@ jobs:
           node-version: 12.x
 
       - name: Install Dependencies & Build Files
-        run: npm install
-        run: npx turbo run gulp
+        run: npm install && npx turbo run gulp
 
       - name: Publish to npm
         id: changesets
