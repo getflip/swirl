@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 12.x
           cache: "npm"
-          cache-dependency-path: ./package-lock.json
+          cache-dependency-path: ./packages/swirl-tokens/package-lock.json
 
       - name: Install & build
         run: npm install && npx turbo run gulp
