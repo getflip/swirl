@@ -32,7 +32,7 @@ Importing all of the css variables. CSS variables are prefixed with `--s`
 import '@getflip/swirl-tokens/css/styles.css';
 
 div {
-  background: var(--s-background/default);
+  background: var(--s-background-default);
 }
 ```
 
