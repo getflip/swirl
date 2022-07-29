@@ -1,5 +1,11 @@
 # swirl-tokens
 
+## 0.2.1
+
+### Patch Changes
+
+- [`d7b69ee`](https://github.com/flip-corp/swirl/commit/d7b69ee1009e97a673d7e1aabc6e77ce47a8c7cd) Thanks [@webspaceadam](https://github.com/webspaceadam)! - Readme updated
+
 ## 0.2.0
 
 ### Minor Changes
