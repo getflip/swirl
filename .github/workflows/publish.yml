@@ -22,8 +22,8 @@ jobs:
 
       - name: Install Dependencies & Build Files
         run: npm install
-        
-      -name: Build files
+
+      - name: Build files
         run: npx turbo run gulp
 
       - name: Publish to npm
