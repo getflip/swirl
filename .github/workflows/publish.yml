@@ -15,18 +15,12 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 12.x, install and build files
         uses: actions/setup-node@v2
         with:
           node-version: 12.x
-          cache: npm
-          path: |
-            **/node_modules
-
-      - name: Install Dependencies & Build Files
+          cache: "npm"
         run: npm install
-
-      - name: Build files
         run: npx turbo run gulp
 
       - name: Publish to npm
