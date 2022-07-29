@@ -22,6 +22,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        run: npx turbo run gulp
 
       - name: Create Release Pull Request
         uses: changesets/action@v1

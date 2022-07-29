@@ -20,6 +20,9 @@
     "gulp-theo": "^2.0.1",
     "theo": "^8.1.5"
   },
+  "scripts": {
+    "gulp": "gulp"
+  },
   "dependencies": {
     "plugin-error": "^2.0.0"
   }
