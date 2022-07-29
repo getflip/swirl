@@ -5,7 +5,7 @@
   "main": "dist/tokens.common.js",
   "module": "dist/tokens.es6.js",
   "types": "dist/tokens.common.d.ts",
-  "author": "Flip GmbH",
+  "author": "flip-corp",
   "repository": "https://github.com/getflip/swirl",
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {

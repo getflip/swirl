@@ -1,7 +1,7 @@
 {
   "name": "swirl",
   "version": "0.0.0",
-  "author": "Flip GmbH",
+  "author": "flip-corp",
   "engines": {
     "node": "^14.17.0 || ^16.13.0"
   },
