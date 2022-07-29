@@ -1,6 +1,6 @@
 {
   "name": "swirl-tokens",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Swirl Design System Tokens package with a number of different formats for Web and Mobile.",
   "main": "dist/tokens.common.js",
   "module": "dist/tokens.es6.js",
