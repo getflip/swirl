@@ -22,7 +22,7 @@ jobs:
           cache: "npm"
           cache-dependency-path: ./package-lock.json
 
-      - step: Install & build
+      - name: Install & build
         run: npm install && npx turbo run gulp
 
       - name: Publish to npm
