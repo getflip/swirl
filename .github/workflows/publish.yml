@@ -20,6 +20,8 @@ jobs:
         with:
           node-version: 12.x
           cache: npm
+          path: |
+            **/node_modules
 
       - name: Install Dependencies & Build Files
         run: npm install
