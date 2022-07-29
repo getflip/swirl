@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 12.x
           cache: "npm"
+          cache-dependency-path: ./package-lock.json
+
+      - step: Install & build
         run: npm install && npx turbo run gulp
 
       - name: Publish to npm
