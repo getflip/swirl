@@ -1,17 +1,15 @@
 // gulpfile.js
 const gulp = require("gulp");
 const theo = require("gulp-theo");
-// const bump = require("gulp-bump");
-// const jsonToYaml = require("gulp-json-to-yaml");
 const renameCssCustomProperties = require("./tokens/scripts/renameCssCustomProperties");
 
-const configSrc = "./tokens/tokens.yml";
+const configSrc = "./tokens/styles.yml";
 
 /**
  * HELPER TASKS
  */
 gulp.task("tokens:renameproperties", () =>
-  renameCssCustomProperties("dist/tokens.custom-properties.css")
+  renameCssCustomProperties("dist/css/styles.custom-properties.css")
 );
 
 /**
@@ -26,7 +24,7 @@ gulp.task("tokens:css", () =>
         format: { type: "custom-properties.css" },
       })
     )
-    .pipe(gulp.dest("dist"))
+    .pipe(gulp.dest("dist/css"))
 );
 
 gulp.task("tokens:json", () =>
@@ -38,7 +36,31 @@ gulp.task("tokens:json", () =>
         format: { type: "json" },
       })
     )
-    .pipe(gulp.dest("dist"))
+    .pipe(gulp.dest("dist/"))
+);
+
+gulp.task("tokens:scss", () =>
+  gulp
+    .src(configSrc)
+    .pipe(
+      theo({
+        transform: { type: "web" },
+        format: { type: "scss" },
+      })
+    )
+    .pipe(gulp.dest("dist/scss"))
+);
+
+gulp.task("tokens:scss", () =>
+  gulp
+    .src(configSrc)
+    .pipe(
+      theo({
+        transform: { type: "web" },
+        format: { type: "less" },
+      })
+    )
+    .pipe(gulp.dest("dist/less"))
 );
 
 /**
@@ -46,5 +68,10 @@ gulp.task("tokens:json", () =>
  */
 gulp.task(
   "default",
-  gulp.series("tokens:css", "tokens:renameproperties", "tokens:json")
+  gulp.series(
+    "tokens:css",
+    "tokens:renameproperties",
+    "tokens:json",
+    "tokens:scss"
+  )
 );

@@ -19,9 +19,9 @@ npm install @getflip/swirl-tokens
 Accessing all of the available token groups
 
 ```js
-import { tokens } from "@getflip/swirl-tokens";
+import { styles } from "@getflip/swirl-tokens";
 
-console.log(tokens.colors);
+console.log(styles.colors);
 ```
 
 #### CSS
