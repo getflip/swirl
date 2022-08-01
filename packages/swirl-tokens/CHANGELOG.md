@@ -1,5 +1,11 @@
 # swirl-tokens
 
+## 0.2.3
+
+### Patch Changes
+
+- [`da8cb31`](https://github.com/flip-corp/swirl/commit/da8cb313ef9778e11280b189f86b4c3d4efbb994) Thanks [@webspaceadam](https://github.com/webspaceadam)! - TOKENS: added sass
+
 ## 0.2.2
 
 ### Patch Changes
