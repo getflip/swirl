@@ -63,6 +63,18 @@ gulp.task("tokens:scss", () =>
     .pipe(gulp.dest("dist/less"))
 );
 
+gulp.task("tokens:scss", () =>
+  gulp
+    .src(configSrc)
+    .pipe(
+      theo({
+        transform: { type: "web" },
+        format: { type: "sass" },
+      })
+    )
+    .pipe(gulp.dest("dist/sass"))
+);
+
 /**
  * BUILD TASKS
  */
