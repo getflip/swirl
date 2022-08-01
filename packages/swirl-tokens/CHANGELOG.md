@@ -1,5 +1,11 @@
 # swirl-tokens
 
+## 0.2.2
+
+### Patch Changes
+
+- [`49b068e`](https://github.com/flip-corp/swirl/commit/49b068e794c2290ee431c9909a8cb54fd6df7484) Thanks [@webspaceadam](https://github.com/webspaceadam)! - TOKENS: Renaming styles and adding output dirs and more formats
+
 ## 0.2.1
 
 ### Patch Changes
