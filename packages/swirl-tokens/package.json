@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-tokens",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Swirl Design System Tokens package with a number of different formats for Web and Mobile.",
   "main": "dist/tokens.common.js",
   "module": "dist/tokens.es6.js",
