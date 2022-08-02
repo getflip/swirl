@@ -22,15 +22,6 @@
     },
     "gulp": {
       "outputs": ["dist/**"]
-    },
-    "gulp:patch": {
-      "outputs": ["dist/**"]
-    },
-    "gulp:minor": {
-      "outputs": ["dist/**"]
-    },
-    "gulp:major": {
-      "outputs": ["dist/**"]
     }
   }
 }

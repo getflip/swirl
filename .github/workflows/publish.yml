@@ -16,9 +16,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm install
+      - run: yarn
       - run: npx turbo run gulp
-      - run: ls -l
 
       - name: Publish to npm
         id: changesets
