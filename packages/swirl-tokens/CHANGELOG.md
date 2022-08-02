@@ -1,5 +1,11 @@
 # swirl-tokens
 
+## 0.2.5
+
+### Patch Changes
+
+- [`4843f44`](https://github.com/flip-corp/swirl/commit/4843f44288ff7de6e1893df9e3baafa086c156d8) Thanks [@webspaceadam](https://github.com/webspaceadam)! - Added more types and changed everything to yarn
+
 ## 0.2.4
 
 ### Patch Changes
