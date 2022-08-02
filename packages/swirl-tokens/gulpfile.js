@@ -51,7 +51,7 @@ gulp.task("tokens:scss", () =>
     .pipe(gulp.dest("dist/scss"))
 );
 
-gulp.task("tokens:scss", () =>
+gulp.task("tokens:less", () =>
   gulp
     .src(configSrc)
     .pipe(
@@ -63,7 +63,7 @@ gulp.task("tokens:scss", () =>
     .pipe(gulp.dest("dist/less"))
 );
 
-gulp.task("tokens:scss", () =>
+gulp.task("tokens:sass", () =>
   gulp
     .src(configSrc)
     .pipe(
@@ -84,6 +84,8 @@ gulp.task(
     "tokens:css",
     "tokens:renameproperties",
     "tokens:json",
-    "tokens:scss"
+    "tokens:scss",
+    "tokens:sass",
+    "tokens:less"
   )
 );

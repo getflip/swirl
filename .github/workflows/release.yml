@@ -18,10 +18,10 @@ jobs:
       - name: Setup Node.js 12.x
         uses: actions/setup-node@v2
         with:
-          node-version: 12.x
+          node-version: 16.x
 
       - name: Install Dependencies
-        run: npm install
+        run: yarn
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
