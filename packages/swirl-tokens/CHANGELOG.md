@@ -1,5 +1,11 @@
 # swirl-tokens
 
+## 0.2.4
+
+### Patch Changes
+
+- [`ec8a25f`](https://github.com/flip-corp/swirl/commit/ec8a25f52446bec5403817678c61e93e31317aca) Thanks [@webspaceadam](https://github.com/webspaceadam)! - added spacing instead of aliases
+
 ## 0.2.3
 
 ### Patch Changes
