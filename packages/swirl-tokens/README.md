@@ -14,19 +14,23 @@ npm install @getflip/swirl-tokens
 
 ## Usage
 
-#### Javascript
+#### JSON
 
 Accessing all of the available token groups
 
-```js
-import { styles } from "@getflip/swirl-tokens";
+- [List of JSON tokens](https://unpkg.com/browse/@getflip/swirl-tokens@0.2.5/dist/styles.json)
 
-console.log(styles.colors);
+```js
+import styles from "@getflip/swirl-tokens/dist/styles.json";
+
+console.log("background-default", styles["background-default"]);
 ```
 
 #### CSS
 
 Importing all of the css variables. CSS variables are prefixed with `--s`
+
+- [List of CSS-Custom-Properties](https://unpkg.com/browse/@getflip/swirl-tokens@0.2.5/dist/css/styles.custom-properties.css)
 
 ```css
 @import "@getflip/swirl-tokens/dist/css/styles.custom-properties.css";
@@ -36,16 +40,14 @@ div {
 }
 ```
 
-#### JSON
-
-Accessing a specific token group file via the dist folder
-
-```js
-const spacing = require("@getflip/swirl-tokens/json/spacing.json");
-```
-
 #### SCSS
+
+- [List of SCSS variables](https://unpkg.com/browse/@getflip/swirl-tokens@0.2.5/dist/scss/styles.scss)
+
+#### LESS
+
+- [List of Less variables](https://unpkg.com/browse/@getflip/swirl-tokens@0.2.5/dist/less/styles.less)
 
 #### SASS
 
-#### LESS
+- [List of SASS Variables](https://unpkg.com/browse/@getflip/swirl-tokens@0.2.5/dist/sass/styles.sass)
