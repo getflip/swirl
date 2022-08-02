@@ -28,11 +28,11 @@ console.log(styles.colors);
 
 Importing all of the css variables. CSS variables are prefixed with `--s`
 
-```js
-import '@getflip/swirl-tokens/css/styles.css';
+```css
+@import "@getflip/swirl-tokens/dist/css/styles.custom-properties.css";
 
 div {
-  background: var(--s-background-default);
+  background-color: var(--s-background-default);
 }
 ```
 
