@@ -69,10 +69,10 @@ props:
     comment: "144px"
   space-40:
     value: "{!space-40}"
-    comment: "128px"
+    comment: "160px"
   space-44:
     value: "{!space-44}"
-    comment: "160px"
+    comment: "176px"
   space-48:
     value: "{!space-48}"
     comment: "192px"
