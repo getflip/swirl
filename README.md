@@ -6,7 +6,7 @@
 
 | Status | Owner          | Help                                                     |
 | ------ |----------------|----------------------------------------------------------|
-| Active | @getflip/swirl | [New issue](https://github.com/getflip/swirl/issues/new) |
+| Active | @getflip/swirl | [New issue](https://github.com/getflip/swirl/issues/new?assignees=&labels=bug&template=ISSUE.md) |
 
 ## About this repo
 
