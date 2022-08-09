@@ -11,7 +11,8 @@ export const config: Config = {
       type: "dist-custom-elements",
     },
     {
-      type: "docs-readme",
+      file: "components.json",
+      type: "docs-json",
     },
   ],
 };

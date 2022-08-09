@@ -5,20 +5,36 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { FlipIconSize } from "./components/flip-icon/flip-icon";
 export namespace Components {
+    interface FlipIcon {
+        "size": FlipIconSize;
+    }
 }
 declare global {
+    interface HTMLFlipIconElement extends Components.FlipIcon, HTMLStencilElement {
+    }
+    var HTMLFlipIconElement: {
+        prototype: HTMLFlipIconElement;
+        new (): HTMLFlipIconElement;
+    };
     interface HTMLElementTagNameMap {
+        "flip-icon": HTMLFlipIconElement;
     }
 }
 declare namespace LocalJSX {
+    interface FlipIcon {
+        "size"?: FlipIconSize;
+    }
     interface IntrinsicElements {
+        "flip-icon": FlipIcon;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "flip-icon": LocalJSX.FlipIcon & JSXBase.HTMLAttributes<HTMLFlipIconElement>;
         }
     }
 }

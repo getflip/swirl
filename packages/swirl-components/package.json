@@ -19,19 +19,31 @@
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "start": "concurrently \"npm:*:start\"",
+    "stencil:build": "stencil build",
+    "stencil:start": "stencil build --watch",
+    "stencil:test": "stencil test --spec --e2e",
+    "stencil:test:watch": "stencil test --spec --e2e --watchAll",
+    "stencil:generate": "stencil generate",
+    "storybook:start": "start-storybook -p 6006",
+    "storybook:build": "build-storybook"
   },
   "dependencies": {
     "@stencil/core": "^2.13.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@pxtrn/storybook-addon-docs-stencil": "^6.4.1",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/html": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
     "@types/jest": "^27.0.3",
+    "babel-loader": "^8.2.5",
+    "concurrently": "^7.3.0",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
+    "lit-html": "^2.2.7",
     "puppeteer": "^10.0.0"
   },
   "license": "SEE LICENSE IN LICENSE.md"
