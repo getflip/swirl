@@ -11,8 +11,8 @@ const Template = (args) => {
   return `<flip-icon ${props}></flip-icon>`;
 };
 
-export const Example = Template.bind({});
+export const FlipIcon = Template.bind({});
 
-Example.args = {
+FlipIcon.args = {
   size: "m",
 };

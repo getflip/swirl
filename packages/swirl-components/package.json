@@ -19,14 +19,14 @@
     "loader/"
   ],
   "scripts": {
-    "start": "concurrently \"npm:*:start\"",
+    "start": "yarn stencil:build && concurrently \"npm:*:start\"",
     "stencil:build": "stencil build",
     "stencil:start": "stencil build --watch",
     "stencil:test": "stencil test --spec --e2e",
     "stencil:test:watch": "stencil test --spec --e2e --watchAll",
-    "stencil:generate": "stencil generate",
     "storybook:start": "start-storybook -p 6006",
-    "storybook:build": "build-storybook"
+    "storybook:build": "build-storybook",
+    "generate": "plop"
   },
   "dependencies": {
     "@stencil/core": "^2.13.0"
@@ -44,6 +44,7 @@
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "lit-html": "^2.2.7",
+    "plop": "^3.1.1",
     "puppeteer": "^10.0.0"
   },
   "license": "SEE LICENSE IN LICENSE.md"
