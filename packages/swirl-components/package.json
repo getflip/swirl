@@ -20,13 +20,14 @@
   ],
   "scripts": {
     "start": "yarn stencil:build && concurrently \"npm:*:start\"",
+    "test": "yarn stencil:test:watch",
+    "generate": "plop",
     "stencil:build": "stencil build",
     "stencil:start": "stencil build --watch",
     "stencil:test": "stencil test --spec --e2e",
     "stencil:test:watch": "stencil test --spec --e2e --watchAll",
     "storybook:start": "start-storybook -p 6006",
-    "storybook:build": "build-storybook",
-    "generate": "plop"
+    "storybook:build": "build-storybook"
   },
   "dependencies": {
     "@stencil/core": "^2.13.0"
