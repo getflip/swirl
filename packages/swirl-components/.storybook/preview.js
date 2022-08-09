@@ -1,4 +1,4 @@
-import { defineCustomElements } from "../dist/esm/loader";
+import { defineCustomElements } from "../loader";
 import { setStencilDocJson } from "@pxtrn/storybook-addon-docs-stencil";
 
 import docJson from "../components.json";
