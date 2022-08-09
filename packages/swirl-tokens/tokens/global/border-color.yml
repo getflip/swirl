@@ -5,8 +5,8 @@ props:
   border-default:
     value: rgba(232, 232, 235, 1)
     comment: Usually used for low emphasis borders and espacially divider elements.
-  border-strong:
-    value: rgba(142, 142, 147, 1)
+  border-default-subdued:
+    value: rgba(0, 6, 29, 0.18)
     comment: Usually used for high emphasis borders.
   border-critical:
     value: rgba(220, 38, 80, 1)
@@ -14,11 +14,11 @@ props:
   border-success:
     value: rgba(52, 199, 89, 1)
     comment: Usally used as an border on success components.
-  border-on-secondary:
-    value: rgba(190, 255, 240, 0.2)
-    comment: Used as border color on containers that have an highlight surface
-  border-highlight:
+  border-on-highlight:
     value: rgba(0, 61, 175, 1)
     comment: Used as border color on containers that need to be highlighted (e.g. form fields).
-  focus-default:
-    value: rgba(0, 226, 173, 1)
+
+  # focus
+  focus:
+    value: rgba(0, 61, 175, 1)
+    comment: Used as color for the focus state of all elements

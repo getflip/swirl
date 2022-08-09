@@ -23,32 +23,6 @@ props:
   surface-pressed:
     value: rgba(232, 232, 235, 1)
     comment: Used if a component with “surface-default” has a pressed state.
-  surface-neutral-default:
-    value: rgba(27, 28, 29, 1)
-    comment: Used as a background for neutral surfaces.
-  surface-secondary-default:
-    value: rgba(0, 38, 255, 1)
-  surface-secondary-hovered:
-    value: rgba(38, 71, 255, 1)
-  surface-secondary-pressed:
-    value: rgba(77, 103, 255, 1)
-  surface-secondary-on-surface-secondary:
-    value: rgba(25, 60, 255, 1)
-  surface-highlight-default:
-    value: rgba(0, 38, 255, 1)
-    comment: Usually used for containers that need to be highlighted.
-  surface-highlight-hovered:
-    value: rgba(38, 71, 255, 1)
-    comment: Used if a component with “surface-highlight-default” has a hovered state.
-  surface-highlight-pressed:
-    value: rgba(77, 103, 255, 1)
-    comment: Used if a component with “surface-highlight-default” has a pressed state.
-  surface-success-default:
-    value: rgba(52, 199, 89, 1)
-    comment: Used as a background for success surfaces.
-  surface-critical-default:
-    value: rgba(220, 38, 80, 1)
-    comment: Used as a background for critical surfaces.
   surface-overlay-default:
     value: rgba(255, 255, 255, 1)
     comment: Usually used for containers that need to be more elevated.
@@ -58,6 +32,15 @@ props:
   surface-overlay-pressed:
     value: rgba(232, 232, 235, 1)
     comment: Used if a component with “surface-overlay-default” has a pressed state.
+  surface-neutral-default:
+    value: rgba(27, 28, 29, 1)
+    comment: Used as a background for neutral surfaces.
+  surface-critical-default:
+    value: rgba(220, 38, 80, 1)
+    comment: Used as a background for critical surfaces.
+  surface-success-default:
+    value: rgba(52, 199, 89, 1)
+    comment: Used as a background for success surfaces.
 
   # on surface
   on-surface-default:
@@ -69,24 +52,23 @@ props:
   on-surface-pressed:
     value: rgba(209, 209, 214, 1)
     comment: Used if a component with “on-surface-default” has a pressed state.
-
   surface-on-image-default:
     value: rgba(0, 0, 0, 0.6)
     comment: Usually used for containers on images
 
+  # surface highlight
+  surface-highlight-default:
+    value: rgba(0, 38, 255, 1)
+    comment: Usually used for containers that need to be highlighted.
+  surface-highlight-hovered:
+    value: rgba(38, 71, 255, 1)
+    comment: Used if a component with “surface-highlight-default” has a hovered state.
+  surface-highlight-pressed:
+    value: rgba(77, 103, 255, 1)
+    comment: Used if a component with “surface-highlight-default” has a pressed state.
   on-surface-highlight-default:
     value: rgba(25, 60, 255, 1)
     comment: Used to place containers on “surface-highlight-default”.
-
-  # toast
-  surface-toast-neutral:
-    value: rgba(27, 28, 29, 1)
-
-  surface-toast-critical:
-    value: rgba(220, 38, 80, 1)
-
-  surface-toast-success:
-    value: rgba(52, 199, 89, 1)
 
   # action
   action-primary-default:
@@ -116,19 +98,19 @@ props:
     comment: Used if a component with “action-neutral-default” has a disabled state.
 
   # decorative
-  decorative-surface-1:
+  decorative-one-default:
     value: rgba(255, 87, 77, 1)
-  decorative-surface-2:
+  decorative-two-default:
     value: rgba(255, 131, 64, 1)
-  decorative-surface-3:
+  decorative-three-default:
     value: rgba(246, 196, 49, 1)
-  decorative-surface-4:
+  decorative-four-default:
     value: rgba(235, 132, 161, 1)
-  decorative-surface-5:
+  decorative-five-default:
     value: rgba(150, 50, 250, 1)
-  decorative-surface-6:
+  decorative-six-default:
     value: rgba(96, 178, 156, 1)
-  decorative-surface-7:
+  decorative-seven-default:
     value: rgba(51, 135, 255, 1)
 
   # interactive
@@ -144,14 +126,6 @@ props:
   interactive-primary-disabled:
     value: rgba(209, 209, 214, 1)
     comment: Used if a component with “interactive-primary-default” has a disabled state.
-  interactive-secondary-default:
-    value: rgba(0, 61, 175, 1)
-  interactive-secondary-hovered:
-    value: rgba(38, 90, 187, 1)
-  interactive-secondary-pressed:
-    value: rgba(77, 119, 199, 1)
-  interactive-secondary-disabled:
-    value: rgba(209, 209, 214, 1)
   interactive-neutral-default:
     value: rgba(142, 142, 147, 1)
     comment: Used for icon and text that are low emphasis interactive elements.

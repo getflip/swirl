@@ -1,13 +1,13 @@
 global:
   type: color
-  category: icon-color
+  category: background-color
 props:
-  icon-default:
-    value: rgba(142, 142, 147, 1)
-    comment: Used for low emphasis icons.
   icon-strong:
     value: rgba(0, 0, 0, 1)
     comment: Used for high emphasis icons.
+  icon-default:
+    value: rgba(142, 142, 147, 1)
+    comment: Used for low emphasis icons.
   icon-disabled:
     value: rgba(209, 209, 214, 1)
     comment: Used if a icon element is disabled.
@@ -22,7 +22,7 @@ props:
     comment: Used as success icon color
 
   # icon on
-  icon-on-action-primary:
+  icon-on-action:
     value: rgba(0, 13, 87, 1)
     comment: Used as a icon color on containers with action primary color.
   icon-on-surface-highlight:
