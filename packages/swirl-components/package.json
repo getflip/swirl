@@ -22,6 +22,7 @@
     "start": "yarn stencil:build && concurrently \"npm:*:start\"",
     "test": "yarn stencil:test:watch",
     "generate": "plop",
+    "lint": "eslint src/**/*{.ts,.tsx}",
     "stencil:build": "stencil build",
     "stencil:start": "stencil build --watch",
     "stencil:test": "stencil test --spec --e2e",
@@ -30,23 +31,33 @@
     "storybook:build": "build-storybook"
   },
   "dependencies": {
+    "@getflip/swirl-tokens": "file:./../swirl-tokens",
     "@stencil/core": "^2.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@pxtrn/storybook-addon-docs-stencil": "^6.4.1",
+    "@stencil/eslint-plugin": "^0.4.0",
+    "@stencil/postcss": "^2.1.0",
+    "@storybook/addon-a11y": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addons": "^6.5.10",
     "@storybook/builder-vite": "^0.2.2",
     "@storybook/html": "^6.5.10",
     "@storybook/theming": "^6.5.10",
+    "@types/autoprefixer": "^10.2.0",
     "@types/jest": "^27.0.3",
+    "@typescript-eslint/parser": "^5.33.0",
+    "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
     "concurrently": "^7.3.0",
+    "eslint-plugin-react": "^7.30.1",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "plop": "^3.1.1",
+    "postcss-nested": "^5.0.6",
     "puppeteer": "^10.0.0",
+    "typescript": "^4.7.4",
     "vite": "^3.0.5"
   },
   "license": "SEE LICENSE IN LICENSE.md"
