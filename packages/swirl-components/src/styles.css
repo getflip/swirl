@@ -1,0 +1,15 @@
+@import "~@getflip/swirl-tokens/dist/css/styles.custom-properties.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: var(--s-font-size-base);
+  font-weight: var(--s-font-weight-normal);
+  line-height: var(--s-line-height-lg);
+}

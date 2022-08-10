@@ -1,3 +1,11 @@
+import {
+  componentTemplate,
+  cssTemplate,
+  docsTemplate,
+  storiesTemplate,
+  unitTestTemplate,
+} from "./templates.mjs";
+
 export default function (
   /** @type {import('plop').NodePlopAPI} */
   plop
@@ -34,69 +42,27 @@ export default function (
       {
         type: "add",
         path: "src/components/{{name}}/{{name}}.tsx",
-        template: `import { Component, h, Host } from '@stencil/core';
-
-@Component({
-  tag: "{{name}}",
-  styleUrl: "{{name}}.css",
-  shadow: true,
-})
-export class {{pascalCase name}} {
-  render() {
-    return <Host>Hello World</Host>;
-  }
-}`,
+        template: componentTemplate,
       },
       {
         type: "add",
         path: "src/components/{{name}}/{{name}}.css",
-        template: `:host {
-  display: block;
-}`,
+        template: cssTemplate,
       },
       {
         type: "add",
         path: "src/components/{{name}}/{{name}}.spec.tsx",
-        template: `import { newSpecPage } from '@stencil/core/testing';
-
-import { {{pascalCase name}} } from './{{name}}';
-
-describe("{{name}}", () => {
-  it("renders", async () => {
-    const page = await newSpecPage({
-      components: [{{pascalCase name}}],
-      html: \`<{{name}}></{{name}}>\`,
-    });
-
-    expect(page.root).toEqualHtml(\`
-      <{{name}}>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </{{name}}>
-    \`);
-  });
-});`,
+        template: unitTestTemplate,
       },
       {
         type: "add",
         path: "src/components/{{name}}/{{name}}.stories.ts",
-        template: `import { storybookArgsToProps } from '../../utils';
-
-export default {
-  component: "{{name}}",
-  title: "Components/{{pascalCase name}}",
-};
-
-const Template = (args) => {
-  const props = storybookArgsToProps(args);
-
-  return \`<{{name}} \$\{props\}></{{name}}>\`;
-};
-
-export const {{pascalCase name}} = Template.bind({});
-
-{{pascalCase name}}.args = {};`,
+        template: storiesTemplate,
+      },
+      {
+        type: "add",
+        path: "src/components/{{name}}/{{name}}.mdx",
+        template: docsTemplate,
       },
     ],
   });

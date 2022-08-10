@@ -1,0 +1,21 @@
+:host {
+  display: inline-block;
+}
+
+.button {
+  height: 2.5rem;
+  padding: var(--s-space-2) var(--s-space-4);
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--s-text-on-action-primary);
+  background-color: var(--s-action-primary-default);
+  font: inherit;
+  font-weight: var(--s-font-weight-medium);
+  cursor: pointer;
+
+  &:disabled {
+    color: var(--s-text-disabled);
+    background-color: var(--s-action-primary-disabled);
+    cursor: default;
+  }
+}

@@ -1,7 +1,13 @@
 module.exports = {
   addons: [
-    "@storybook/addon-essentials",
+    {
+      name: "@storybook/addon-essentials",
+      options: {
+        actions: false,
+      },
+    },
     "@pxtrn/storybook-addon-docs-stencil",
+    "@storybook/addon-a11y",
   ],
   core: {
     builder: "@storybook/builder-vite",

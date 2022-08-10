@@ -1,8 +1,12 @@
-export function storybookArgsToProps(args: { [arg: string]: any }): string {
-  return Object.entries(args)
-    .map(
-      ([key, value]) =>
-        `${key.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase()}="${value}"`
-    )
-    .join(" ");
+export function generateStoryElement(
+  tag: string,
+  args: { [arg: string]: any }
+): HTMLElement {
+  const element = document.createElement(tag);
+
+  Object.entries(args).forEach(([attr, value]) =>
+    element.setAttribute(attr, String(value))
+  );
+
+  return element;
 }

@@ -1,0 +1,51 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipButton" />
+
+# FlipButton
+
+The FlipButton component is used to …
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipbutton--flip-button" />
+</Canvas>
+
+<ArgsTable />
+
+## Stories
+
+### Disabled
+
+<Canvas>
+  <Story id="components-flipbutton--disabled" />
+</Canvas>
+
+## Theming
+
+| Variable                          | Usage                     |
+| --------------------------------- | ------------------------- |
+| `--s-interactive-primary-default` | Background color          |
+| `--s-action-primary-default`      | Text color                |
+| `--s-action-primary-disabled`     | Disabled background color |
+| `--s-text-disabled`               | Disabled text color       |
+
+## Accessibility
+
+### ARIA
+
+The component follows the [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
+
+| ARIA            | Usage                                                                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `role="button"` | Implicitly through the use of <code>&lt;button /></code>.                                                         |
+| `aria-label`    | If no accessible label is provided via the button's text, the `aria-label` or `aria-labelledby` attribute is set. |
+| `aria-disabled` | If the button is disabled, the `aria-disabled` attribute is set to `true`.                                        |
+
+### Keyboard
+
+| Key              | Action                |
+| ---------------- | --------------------- |
+| <kbd>ENTER</kbd> | Activates the button. |
+| <kbd>SPACE</kbd> | Activates the button. |

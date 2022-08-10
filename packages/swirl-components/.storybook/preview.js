@@ -5,6 +5,8 @@ import { themes } from "@storybook/theming";
 import swirlTheme from "./theme";
 import docJson from "../components.json";
 
+import "../dist/swirl-components/swirl-components.css";
+
 defineCustomElements();
 
 if (docJson) {
