@@ -24,6 +24,7 @@
     "plugin-error": "^2.0.0"
   },
   "scripts": {
+    "build": "gulp",
     "gulp": "gulp"
   }
 }

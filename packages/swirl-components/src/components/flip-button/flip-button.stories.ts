@@ -27,10 +27,3 @@ export const FlipButton = Template.bind({});
 FlipButton.args = {
   label: "Label",
 };
-
-export const Disabled = Template.bind({});
-
-Disabled.args = {
-  disabled: true,
-  label: "Disabled",
-};

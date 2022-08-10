@@ -31,7 +31,7 @@ The {{pascalCase name}} component is used to …
   <Story id="components-{{lowerCase (pascalCase name)}}--{{name}}" />
 </Canvas>
 
-<ArgsTable />
+<ArgsTable story="." />
 
 ## Theming
 

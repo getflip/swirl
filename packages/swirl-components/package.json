@@ -31,7 +31,7 @@
     "storybook:build": "build-storybook"
   },
   "dependencies": {
-    "@getflip/swirl-tokens": "file:./../swirl-tokens",
+    "@getflip/swirl-tokens": "^0.3.0",
     "@stencil/core": "^2.13.0"
   },
   "devDependencies": {
