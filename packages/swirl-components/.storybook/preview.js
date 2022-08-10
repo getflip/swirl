@@ -25,4 +25,5 @@ export const parameters = {
   docs: {
     theme: swirlTheme,
   },
+  viewMode: "docs",
 };
