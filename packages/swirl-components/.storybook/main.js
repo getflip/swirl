@@ -6,6 +6,6 @@ module.exports = {
   core: {
     builder: "@storybook/builder-vite",
   },
-  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   framework: "@storybook/html",
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
 };

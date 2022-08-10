@@ -138,3 +138,6 @@ dist
 **/.stencil
 **/dist
 **/loader
+
+# Storybook
+**/components.json
