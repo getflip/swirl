@@ -8,6 +8,8 @@
     max-width: 47rem;
   }
 
+  .sbdocs.sbdocs-ol,
+  .sbdocs.sbdocs-ul,
   .sbdocs.sbdocs-p,
   .sbdocs.sbdocs-preview,
   .sbdocs.sbdocs-table,
@@ -26,10 +28,17 @@
     margin-top: 1.5rem;
   }
 
+  .sbdocs.sbdocs-ul:not(:first-child),
+  .sbdocs.sbdocs-ol:not(:first-child),
   .sbdocs.sbdocs-p:not(:first-child),
   .sbdocs.sbdocs-preview:not(:first-child),
   .sbdocs.sbdocs-table:not(:first-child) {
     margin-top: 1rem;
+  }
+
+  .sbdocs.sbdocs-ul:not(:first-child),
+  .sbdocs.sbdocs-ol:not(:first-child) {
+    list-style-position: inside;
   }
 
   .sbdocs.sbdocs-table {

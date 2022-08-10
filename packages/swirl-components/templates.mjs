@@ -1,4 +1,4 @@
-export const componentTemplate = `import { Component, h, Host } from '@stencil/core';
+export const componentTemplate = `import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   shadow: true,
@@ -6,8 +6,10 @@ export const componentTemplate = `import { Component, h, Host } from '@stencil/c
   tag: "{{name}}",
 })
 export class {{pascalCase name}} {
+  @Prop() label: string;
+
   render() {
-    return <Host>Hello World</Host>;
+    return <Host>Hello World {this.label}</Host>;
   }
 }
 `;
@@ -24,6 +26,9 @@ export const docsTemplate = `import { ArgsTable, Canvas, Meta, Story } from "@st
 # {{pascalCase name}}
 
 The {{pascalCase name}} component is used to …
+
+- **[Figma Design Specs](#)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/swirl-components/packages/swirl-components/src/components/{{name}})**
 
 ## Usage
 

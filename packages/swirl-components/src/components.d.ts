@@ -12,6 +12,9 @@ export namespace Components {
         "label": string;
         "type"?: FlipButtonType;
     }
+    interface FlipTest {
+        "label": string;
+    }
 }
 declare global {
     interface HTMLFlipButtonElement extends Components.FlipButton, HTMLStencilElement {
@@ -20,8 +23,15 @@ declare global {
         prototype: HTMLFlipButtonElement;
         new (): HTMLFlipButtonElement;
     };
+    interface HTMLFlipTestElement extends Components.FlipTest, HTMLStencilElement {
+    }
+    var HTMLFlipTestElement: {
+        prototype: HTMLFlipTestElement;
+        new (): HTMLFlipTestElement;
+    };
     interface HTMLElementTagNameMap {
         "flip-button": HTMLFlipButtonElement;
+        "flip-test": HTMLFlipTestElement;
     }
 }
 declare namespace LocalJSX {
@@ -30,8 +40,12 @@ declare namespace LocalJSX {
         "label": string;
         "type"?: FlipButtonType;
     }
+    interface FlipTest {
+        "label"?: string;
+    }
     interface IntrinsicElements {
         "flip-button": FlipButton;
+        "flip-test": FlipTest;
     }
 }
 export { LocalJSX as JSX };
@@ -39,6 +53,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
+            "flip-test": LocalJSX.FlipTest & JSXBase.HTMLAttributes<HTMLFlipTestElement>;
         }
     }
 }
