@@ -1,8 +1,30 @@
-import { Meta } from "@storybook/addon-docs";
-import colors from "@getflip/swirl-tokens/dist/styles.json";
+import { ColorPalette, ColorItem, Meta } from "@storybook/addon-docs";
 
 <Meta title="Requirements/Theming" />
 
 # 🌈 Theming
+
+To satisfy our multi-tenant apps, all components have to be themeable. Therefore all components must use the design tokens provided by the [@getflip/swirl-tokens](https://www.npmjs.com/package/@getflip/swirl-tokens) package. An overview of all tokens is provided via Figma.
+
+## Design Tokens
+
+Design tokens are the overarching design characteristics that are required for creating and maintaining a design system. These are, for example, the basic values for colors, spacings, typography, etc., which are defined globally and maintained independently of individual components.
+
+As mentioned before, the Swirl design tokens are provided via the [@getflip/swirl-tokens](https://www.npmjs.com/package/@getflip/swirl-tokens) package. It contains the tokens in all common formats for use on the web (CSS, SCSS, Sass, Less).
+
+_TODO: token overview_
+
+## Themes
+
+A theme is a defined set of design tokens. The "Light" and "Dark" themes are the basis of all tenant themes. A tenant theme is created by overwriting specific design tokens via our [Theme Provider](#).
+
+| Theme | Figma                                                                                        |
+| ----- | -------------------------------------------------------------------------------------------- |
+| Light | [Light Theme Specs](https://www.figma.com/file/tdZazSM2WcgwfXvdCV3LV5/Light-Color-Tokens-V2) |
+| Dark  | [Dark Theme Specs](https://www.figma.com/file/HmXvEMMerFjqgUqLeq4rjt/Dimmed-Color-Tokens-V2) |
+
+Each component should work in combination with the "Light" and "Dark" theme. The themes can be changed via the theme switch in the storybook canvas.
+
+## Theme Provider
 
 tbd.
