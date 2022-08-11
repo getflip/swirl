@@ -21,7 +21,7 @@
   "scripts": {
     "start": "yarn stencil:build && concurrently \"npm:*:start\"",
     "test": "yarn stencil:test:watch",
-    "build": "yarn stencil:build && yar storybook:build",
+    "build": "yarn stencil:build && yarn storybook:build",
     "generate": "plop",
     "lint": "eslint src/**/*{.ts,.tsx}",
     "stencil:build": "stencil build",
