@@ -75,6 +75,18 @@ gulp.task("tokens:sass", () =>
     .pipe(gulp.dest("dist/sass"))
 );
 
+gulp.task("tokens:raw", () =>
+  gulp
+    .src(configSrc)
+    .pipe(
+      theo({
+        transform: { type: "raw" },
+        format: { type: "raw.json" },
+      })
+    )
+    .pipe(gulp.dest("dist/raw"))
+);
+
 /**
  * BUILD TASKS
  */
@@ -86,6 +98,7 @@ gulp.task(
     "tokens:json",
     "tokens:scss",
     "tokens:sass",
-    "tokens:less"
+    "tokens:less",
+    "tokens:raw"
   )
 );
