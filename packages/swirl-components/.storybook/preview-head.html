@@ -4,11 +4,22 @@
 />
 
 <style>
+  .theme-default-light,
+  .theme-default-light .docs-story {
+    background-color: #fff;
+  }
+
+  .theme-default-dark,
+  .theme-default-dark .docs-story {
+    background-color: #232426;
+  }
+
   .sbdocs.sbdocs-content {
     max-width: 47rem;
   }
 
   .sbdocs .docblock-source,
+  .sbdocs.sbdocs-hr,
   .sbdocs.sbdocs-ol,
   .sbdocs.sbdocs-ul,
   .sbdocs.sbdocs-p,
@@ -21,6 +32,10 @@
     padding: 0;
   }
 
+  .sbdocs.sbdocs-h1 {
+    margin-bottom: 2rem;
+  }
+
   .sbdocs.sbdocs-h2:not(:first-child) {
     margin-top: 3rem;
     padding-bottom: 0.25rem;
@@ -31,6 +46,7 @@
   }
 
   .sbdocs .docblock-source,
+  .sbdocs.sbdocs-hr:not(:first-child),
   .sbdocs.sbdocs-ul:not(:first-child),
   .sbdocs.sbdocs-ol:not(:first-child),
   .sbdocs.sbdocs-p:not(:first-child),
@@ -42,6 +58,12 @@
   .sbdocs.sbdocs-ul:not(:first-child),
   .sbdocs.sbdocs-ol:not(:first-child) {
     list-style-position: inside;
+  }
+
+  .sbdocs.sbdocs-ul:not(:first-child) .sbdocs-ul,
+  .sbdocs.sbdocs-ol:not(:first-child) .sbdocs-ol {
+    margin-top: 0;
+    margin-left: 1.3rem;
   }
 
   .sbdocs.sbdocs-table {

@@ -140,4 +140,5 @@ dist
 **/loader
 
 # Storybook
+**/storybook-static
 **/components.json

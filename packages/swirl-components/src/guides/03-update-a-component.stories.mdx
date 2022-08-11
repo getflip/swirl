@@ -1,0 +1,35 @@
+import { Meta } from "@storybook/addon-docs";
+import colors from "@getflip/swirl-tokens/dist/styles.json";
+
+<Meta title="Guides/Update a Component" />
+
+# ✍️ Update a Component
+
+Our components are used in various applications. Therefore, care must be taken when modifying existing components.
+
+We generally try to avoid breaking changes and keep changes to existing component APIs as limited as possible. Non-breaking changes include adding new **optional** properties and events, or adding new property values, as well as bug fixes and styling tweaks. Breaking changes include adding or removing (mandatory) properties and events, and changes that fundamentally alter the way the component works or looks.
+
+**If in doubt, changes should be discussed with the frontend team.**
+
+<hr />
+
+Create a new branch if you want to update a component.
+
+```bash
+git checkout -b add-icon-prop-to-button-component
+```
+
+Each component has its own directory under `src/components`. For a summary of the various component files, see [🆕 Create a Component](http://localhost:6006/?path=?path=/docs/requirements-create-a-component--page).
+
+Please ensure that your changes are correctly reflected in the component tests, documentation (.mdx file) and storybook stories.
+
+**Please refer to the following guides when updating a component:**
+
+- [💅 Style Guide](?path=/docs/requirements-style-guide--page)
+- [🤖 Testing](?path=/docs/requirements-testing--page)
+- [🧏‍♀️ Accessibility](?path=/docs/requirements-accessibility--page)
+- [🌈 Theming](?path=/docs/requirements-theming--page)
+- [📱 Responsive Design](?path=/docs/requirements-responsive-design--page)
+- [🌍 Internationalization](?path=/docs/requirements-internationalization--page)
+
+Create a new PR when you are ready and assign a reviewer. After your PR is approved and merged, a new version of the library can be published. See [🏁 Publish](?path=/docs/requirements-publish--page)

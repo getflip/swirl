@@ -25,5 +25,45 @@ export const parameters = {
   docs: {
     theme: swirlTheme,
   },
+  themes: {
+    default: "default-light",
+    list: [
+      { name: "default-light", class: "theme-default-light", color: "#fff" },
+      { name: "default-dark", class: "theme-default-dark", color: "#232426" },
+      { name: "tenant-light", class: "theme-tenant-light", color: "#c3002d" },
+    ],
+  },
   viewMode: "docs",
+  viewport: {
+    viewports: {
+      smallMobile: {
+        name: "Small Mobile",
+        styles: {
+          width: "320px",
+          height: "480px",
+        },
+      },
+      mobile: {
+        name: "Mobile",
+        styles: {
+          width: "375px",
+          height: "667px",
+        },
+      },
+      tablet: {
+        name: "Tablet",
+        styles: {
+          width: "1024px",
+          height: "768px",
+        },
+      },
+      smallDesktop: {
+        name: "Desktop",
+        styles: {
+          width: "1200px",
+          height: "992px",
+        },
+      },
+    },
+  },
 };
