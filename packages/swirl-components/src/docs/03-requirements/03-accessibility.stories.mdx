@@ -50,3 +50,26 @@ links for accessiblity.
 The documentation of our components includes an accessibility section that
 should be populated with the applicable ARIA properties and the implemented
 keyboard interactions. Furthermore, all used references can be linked here.
+
+## Respect user preferences
+
+Browsers allow the user to override settings that can improve accessibility.
+
+### Font size settings and page zoom
+
+We use relative size units (rem) in our component styles to allow users to use
+the global font size setting and page zoom of their browser.
+
+### Reduced motion
+
+Users can indicate that they prefer an app to minimize the amount of
+non-essential movement in its user interface. We respect this preference by
+using the `prefers-reduced-motion` media query to disable transitions and
+animations that are not essential for our components to work.
+
+```css
+@media (prefers-reduced-motion) {
+  transition: none;
+  animation: none;
+}
+```
