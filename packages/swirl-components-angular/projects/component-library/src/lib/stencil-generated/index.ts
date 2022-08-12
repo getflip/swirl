@@ -1,3 +1,6 @@
-import * as d from "./components";
 
-export const DIRECTIVES = [d.FlipButton];
+import * as d from './components';
+
+export const DIRECTIVES = [
+  d.FlipButton
+];
