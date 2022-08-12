@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "start": "yarn stencil:build && concurrently \"npm:*:start\"",
+    "dev": "yarn start",
     "test": "yarn stencil:test:watch",
     "build": "yarn stencil:build && yarn storybook:build",
     "generate": "plop",
@@ -56,6 +57,7 @@
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "plop": "^3.1.1",
+    "postcss-custom-media": "^8.0.2",
     "postcss-nested": "^5.0.6",
     "puppeteer": "^10.0.0",
     "storybook-addon-themes": "^6.1.0",

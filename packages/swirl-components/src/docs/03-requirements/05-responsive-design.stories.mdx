@@ -1,0 +1,40 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Requirements/Responsive Design" />
+
+# 📱 Responsive Design
+
+Our components are used on a wide range of devices and viewports. To ensure that
+the user interface of our applications is usable everywhere and looks good at
+the same time, we develop our components in such a way that they adapt
+"responsively" to the supported devices and viewports.
+
+We prioritize mobile devices according to the "mobile-first" principle. This is
+reflected in particular in the styling of components. The standard styles of a
+component always refer to the mobile viewports; media queries are used in
+addition to adapt the styles for larger viewports, if necessary.
+
+## Media queries
+
+Media queries are used to adjust component styles for larger viewports.
+
+| Media Query        | Condition         | Usage                              | Description                          |
+| ------------------ | ----------------- | ---------------------------------- | ------------------------------------ |
+| - none -           |                   |                                    | Targets all viewports                |
+| from-tablet        | min-width: 768px  | `@media (--from-tablet) {}`        | Targets tablet viewports and larger  |
+| from-desktop       | min-width: 992px  | `@media (--from-desktop) {}`       | Targets desktop viewports and larger |
+| from-large-desktop | min-width: 1440px | `@media (--from-large-desktop) {}` | Targets large desktop viewports      |
+
+**Here is an usage example:**
+
+```css
+@import "../../styles/media-queries.css";
+
+.flip-button {
+  font-size: 1rem;
+
+  @media (--from-desktop) {
+    font-size: 1.5rem;
+  }
+}
+```

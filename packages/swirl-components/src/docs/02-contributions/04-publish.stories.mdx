@@ -1,0 +1,47 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Contributions/Publish" />
+
+# 🏁 Publish a new Library Version
+
+All changes to the Component Library are made via Pull Requests (PRs). PRs are
+assigned to at least one reviewer from the frontend team.
+
+**The review is performed according to the following checklist:**
+
+- The changes **do not** contain any breaking changes.
+- The changes **do not** introduce new components that don't belong in the
+  library (e.g. non-reusable components, highly specialized components,
+  components including business logic)
+- The component documentation is updated.
+- The submitted code is organized and formatted according to our
+  [💅 Style Guide](?path=/docs/requirements-style-guide--page).
+  - The code is formatted with Prettier.
+  - There are no linting errors.
+- The changes meet the
+  [🤖 testing requirements](?path=/docs/requirements-testing--page).
+  - New features are tested.
+  - In case of bug fixes, regression tests have been added.
+  - All tests are 🟢.
+- The changes meet the
+  [🧏‍♀️ accessibility requirements](?path=/docs/requirements-accessibility--page).
+  - WCAG 2.1 Level A and Level AA requirements are met.
+  - The Storybook a11y addon shows no errors.
+  - The changes have been tested with a screen reader.
+  - Keyboard controls have been tested, if applicable.
+- The changes use our
+  [🌈 theming concept](?path=/docs/requirements-theming--page).
+  - Design tokens have been used where appropriate.
+  - The component has been visually checked in combination with the "Light" and
+    "Dark" theme.
+- The changes meet our
+  [🌍 internationalization requirements](?path=/docs/requirements-internationalization--page).
+  - The i18n library is used.
+  - No static text is used.
+  - Number, currency and date values can be formatted appropriately.
+- The changes work in all supported browsers and viewports. See
+  [📱 Responsive Design](?path=/docs/requirements-responsive-design--page)
+
+<hr />
+
+_TODO: Changelog generation + publication workflow (Github Actions)_
