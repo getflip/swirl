@@ -1,21 +1,8 @@
-# Swirl Components
+# Swirl Web Component Library
 
-## Install and use components
+The Swirl Web Component Library provides a framework-agnostic foundation for UI
+development for the Flip App. It implements a set of solid UI components that
+are composable, performant, accessbile and well-tested, while also satisfying
+the UX and UI design requirements of the Swirl Design System.
 
-The Swirl Web Components Library is made up of multiple components which you can
-import separately. All you need to do is install the @getflip/swirl-components
-package:
-
-```bash
-yarn add @getflip/swirl-components
-# or
-npm install --save @getflip/swirl-components
-```
-
-Then you can import and use the components:
-
-```js
-import { defineCustomElements } from "@getflip/swirl-components/loader";
-
-defineCustomElements();
-```
+[Documentation](https://swirl-storybook.flip-app.dev/)
