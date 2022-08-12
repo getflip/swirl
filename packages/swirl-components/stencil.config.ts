@@ -1,11 +1,11 @@
-import autoprefixer from 'autoprefixer';
-import postcssCustomMedia from 'postcss-custom-media';
-import postcssNested from 'postcss-nested';
+import autoprefixer from "autoprefixer";
+import postcssCustomMedia from "postcss-custom-media";
+import postcssNested from "postcss-nested";
 
-import { angularOutputTarget } from '@stencil/angular-output-target';
-import { Config } from '@stencil/core';
-import { postcss } from '@stencil/postcss';
-import { reactOutputTarget } from '@stencil/react-output-target';
+import { angularOutputTarget } from "@stencil/angular-output-target";
+import { Config } from "@stencil/core";
+import { postcss } from "@stencil/postcss";
+import { reactOutputTarget } from "@stencil/react-output-target";
 
 export const config: Config = {
   globalStyle: "src/styles/global.css",

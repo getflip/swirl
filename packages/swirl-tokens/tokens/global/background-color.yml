@@ -5,7 +5,9 @@ props:
   # background
   background-default:
     value: rgba(255, 255, 255, 1)
-    comment: Usually used for the page background and elements that should not elevate from the background.
+    comment:
+      Usually used for the page background and elements that should not elevate
+      from the background.
   background-hovered:
     value: rgba(242, 242, 245, 1)
     comment: Used if a component with “background-default” has a hovered state.
@@ -28,10 +30,12 @@ props:
     comment: Usually used for containers that need to be more elevated.
   surface-overlay-hovered:
     value: rgba(242, 242, 245, 1)
-    comment: Used if a component with “surface-overlay-default” has a hovered state.
+    comment:
+      Used if a component with “surface-overlay-default” has a hovered state.
   surface-overlay-pressed:
     value: rgba(232, 232, 235, 1)
-    comment: Used if a component with “surface-overlay-default” has a pressed state.
+    comment:
+      Used if a component with “surface-overlay-default” has a pressed state.
   surface-neutral-default:
     value: rgba(27, 28, 29, 1)
     comment: Used as a background for neutral surfaces.
@@ -45,7 +49,8 @@ props:
   # on surface
   on-surface-default:
     value: rgba(242, 242, 245, 1)
-    comment: Usually used for elements that need contrast on surfaces or background
+    comment:
+      Usually used for elements that need contrast on surfaces or background
   on-surface-hovered:
     value: rgba(232, 232, 235, 1)
     comment: Used if a component with “on-surface-default” has a hovered state.
@@ -62,10 +67,12 @@ props:
     comment: Usually used for containers that need to be highlighted.
   surface-highlight-hovered:
     value: rgba(38, 71, 255, 1)
-    comment: Used if a component with “surface-highlight-default” has a hovered state.
+    comment:
+      Used if a component with “surface-highlight-default” has a hovered state.
   surface-highlight-pressed:
     value: rgba(77, 103, 255, 1)
-    comment: Used if a component with “surface-highlight-default” has a pressed state.
+    comment:
+      Used if a component with “surface-highlight-default” has a pressed state.
   on-surface-highlight-default:
     value: rgba(25, 60, 255, 1)
     comment: Used to place containers on “surface-highlight-default”.
@@ -76,26 +83,32 @@ props:
     comment: Used for containers that are high emphasis action elements.
   action-primary-hovered:
     value: rgba(38, 230, 185, 1)
-    comment: Used if a component with “action-primary-default” has a hovered state.
+    comment:
+      Used if a component with “action-primary-default” has a hovered state.
   action-primary-pressed:
     value: rgba(77, 235, 198, 1)
-    comment: Used if a component with “action-primary-default” has a pressed state.
+    comment:
+      Used if a component with “action-primary-default” has a pressed state.
   action-primary-disabled:
     value: rgba(242, 242, 245, 1)
-    comment: Used if a component with “action-primary-default” has a disabled state.
+    comment:
+      Used if a component with “action-primary-default” has a disabled state.
 
   action-neutral-default:
     value: rgba(242, 242, 245, 1)
     comment: Used for containers that are low emphasis action elements.
   action-neutral-hovered:
     value: rgba(232, 232, 235, 1)
-    comment: Used if a component with “action-neutral-default” has a hovered state.
+    comment:
+      Used if a component with “action-neutral-default” has a hovered state.
   action-neutral-pressed:
     value: rgba(209, 209, 214, 1)
-    comment: Used if a component with “action-neutral-default” has a pressed state.
+    comment:
+      Used if a component with “action-neutral-default” has a pressed state.
   action-neutral-disabled:
     value: rgba(242, 242, 245, 1)
-    comment: Used if a component with “action-neutral-default” has a disabled state.
+    comment:
+      Used if a component with “action-neutral-default” has a disabled state.
 
   # decorative
   decorative-one-default:
@@ -119,22 +132,34 @@ props:
     comment: Used for icon and text that are high emphasis interactive elements.
   interactive-primary-hovered:
     value: rgba(38, 90, 187, 1)
-    comment: Used if a component with “interactive-primary-default” has a hovered state.
+    comment:
+      Used if a component with “interactive-primary-default” has a hovered
+      state.
   interactive-primary-pressed:
     value: rgba(77, 119, 199, 1)
-    comment: Used if a component with “interactive-primary-default” has a pressed state.
+    comment:
+      Used if a component with “interactive-primary-default” has a pressed
+      state.
   interactive-primary-disabled:
     value: rgba(209, 209, 214, 1)
-    comment: Used if a component with “interactive-primary-default” has a disabled state.
+    comment:
+      Used if a component with “interactive-primary-default” has a disabled
+      state.
   interactive-neutral-default:
     value: rgba(142, 142, 147, 1)
     comment: Used for icon and text that are low emphasis interactive elements.
   interactive-neutral-hovered:
     value: rgba(174, 174, 178, 1)
-    comment: Used if a component with “interactive-neutral-default” has a hovered state.
+    comment:
+      Used if a component with “interactive-neutral-default” has a hovered
+      state.
   interactive-neutral-pressed:
     value: rgba(209, 209, 214, 1)
-    comment: Used if a component with “interactive-neutral-default” has a pressed state.
+    comment:
+      Used if a component with “interactive-neutral-default” has a pressed
+      state.
   interactive-neutral-disabled:
     value: rgba(209, 209, 214, 1)
-    comment: Used if a component with “interactive-neutral-default” has a disabled state.
+    comment:
+      Used if a component with “interactive-neutral-default” has a disabled
+      state.

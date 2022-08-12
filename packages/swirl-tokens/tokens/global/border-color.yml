@@ -4,7 +4,8 @@ global:
 props:
   border-default:
     value: rgba(232, 232, 235, 1)
-    comment: Usually used for low emphasis borders and espacially divider elements.
+    comment:
+      Usually used for low emphasis borders and espacially divider elements.
   border-default-subdued:
     value: rgba(0, 6, 29, 0.18)
     comment: Usually used for high emphasis borders.
@@ -16,7 +17,9 @@ props:
     comment: Usally used as an border on success components.
   border-on-highlight:
     value: rgba(0, 61, 175, 1)
-    comment: Used as border color on containers that need to be highlighted (e.g. form fields).
+    comment:
+      Used as border color on containers that need to be highlighted (e.g. form
+      fields).
 
   # focus
   focus:

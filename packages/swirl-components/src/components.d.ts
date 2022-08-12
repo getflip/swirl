@@ -7,38 +7,40 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipButtonType } from "./components/flip-button/flip-button";
 export namespace Components {
-    interface FlipButton {
-        "disabled"?: boolean;
-        "label": string;
-        "type"?: FlipButtonType;
-    }
+  interface FlipButton {
+    disabled?: boolean;
+    label: string;
+    type?: FlipButtonType;
+  }
 }
 declare global {
-    interface HTMLFlipButtonElement extends Components.FlipButton, HTMLStencilElement {
-    }
-    var HTMLFlipButtonElement: {
-        prototype: HTMLFlipButtonElement;
-        new (): HTMLFlipButtonElement;
-    };
-    interface HTMLElementTagNameMap {
-        "flip-button": HTMLFlipButtonElement;
-    }
+  interface HTMLFlipButtonElement
+    extends Components.FlipButton,
+      HTMLStencilElement {}
+  var HTMLFlipButtonElement: {
+    prototype: HTMLFlipButtonElement;
+    new (): HTMLFlipButtonElement;
+  };
+  interface HTMLElementTagNameMap {
+    "flip-button": HTMLFlipButtonElement;
+  }
 }
 declare namespace LocalJSX {
-    interface FlipButton {
-        "disabled"?: boolean;
-        "label": string;
-        "type"?: FlipButtonType;
-    }
-    interface IntrinsicElements {
-        "flip-button": FlipButton;
-    }
+  interface FlipButton {
+    disabled?: boolean;
+    label: string;
+    type?: FlipButtonType;
+  }
+  interface IntrinsicElements {
+    "flip-button": FlipButton;
+  }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
-    export namespace JSX {
-        interface IntrinsicElements {
-            "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
-        }
+  export namespace JSX {
+    interface IntrinsicElements {
+      "flip-button": LocalJSX.FlipButton &
+        JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
     }
+  }
 }

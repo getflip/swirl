@@ -1,6 +1,6 @@
-import { generateStoryElement } from '../../utils';
+import { generateStoryElement } from "../../utils";
 // @ts-ignore
-import Docs from './flip-button.mdx';
+import Docs from "./flip-button.mdx";
 
 export default {
   component: "flip-button",

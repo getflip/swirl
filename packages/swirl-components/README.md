@@ -2,7 +2,9 @@
 
 ## Install and use components
 
-The Swirl Web Components Library is made up of multiple components which you can import separately. All you need to do is install the @getflip/swirl-components package:
+The Swirl Web Components Library is made up of multiple components which you can
+import separately. All you need to do is install the @getflip/swirl-components
+package:
 
 ```bash
 yarn add @getflip/swirl-components
