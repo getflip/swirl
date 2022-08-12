@@ -5,6 +5,7 @@ import postcssNested from 'postcss-nested';
 import { angularOutputTarget } from '@stencil/angular-output-target';
 import { Config } from '@stencil/core';
 import { postcss } from '@stencil/postcss';
+import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
   globalStyle: "src/styles/global.css",
@@ -21,6 +22,11 @@ export const config: Config = {
       file: "components.json",
       type: "docs-json",
     },
+    reactOutputTarget({
+      componentCorePackage: "@getflip/swirl-components",
+      proxiesFile: "../swirl-components-react/lib/stencil-generated/index.ts",
+      includeDefineCustomElements: true,
+    }),
     angularOutputTarget({
       componentCorePackage: "@getflip/swirl-components",
       directivesProxyFile:

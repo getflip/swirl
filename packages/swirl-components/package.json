@@ -42,6 +42,7 @@
     "@stencil/angular-output-target": "^0.4.0",
     "@stencil/eslint-plugin": "^0.4.0",
     "@stencil/postcss": "^2.1.0",
+    "@stencil/react-output-target": "^0.3.1",
     "@storybook/addon-a11y": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addons": "^6.5.10",

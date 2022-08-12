@@ -89,18 +89,21 @@ The library can be installed by either [Yarn](https://classic.yarnpkg.com/) or
 [NPM](https://npmjs.com/).
 
 ```bash
-yarn add @getflip/swirl-components-react
+yarn add @getflip/swirl-components @getflip/swirl-components-react
 # or
-npm install --save @getflip/swirl-components-react
+npm install --save @getflip/swirl-components @getflip/swirl-components-react
 ```
 
 ### Usage
 
 The React wrapper components can be imported and used separately. **Please note
 that the element, event, and prop names for the React components are converted
-to PascalCase and camelCase notation, respectively.**
+to PascalCase and camelCase notation, respectively.** In addition, you need to
+import the global stylesheet.
 
 ```tsx
+import "@getflip/swirl-components/dist/swirl-components/swirl-components.css";
+
 import { FlipButton } from "@getflip/swirl-components-react";
 
 export default function MyApp() {
