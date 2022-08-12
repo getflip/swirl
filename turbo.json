@@ -3,7 +3,13 @@
   "baseBranch": "origin/main",
   "pipeline": {
     "build": {
-      "outputs": ["dist/**", "build/**", "loader/**", "storybook-static/**"],
+      "outputs": [
+        "dist/**",
+        "build/**",
+        "loader/**",
+        "storybook-static/**",
+        "stencil-generated/**"
+      ],
       "dependsOn": ["^build"]
     },
     "test": {

@@ -46,9 +46,9 @@ The library can be installed by either [Yarn](https://classic.yarnpkg.com/) or
 [NPM](https://npmjs.com/).
 
 ```bash
-yarn add @getflip/swirl-components-angular
+yarn add @getflip/swirl-components @getflip/swirl-components-angular
 # or
-npm install --save @getflip/swirl-components-angular
+npm install --save @getflip/swirl-components @getflip/swirl-components-angular
 ```
 
 ### Usage
@@ -58,12 +58,24 @@ use the components.
 
 ```typescript
 import { SwirlComponentsModule } from "@getflip/swirl-components-angular";
+import { defineCustomElements } from "@getflip/swirl-components/loader";
+
+defineCustomElements(window);
 
 @NgModule({
   imports: [SwirlComponentsModule],
 })
 export class FeatureModule {}
 ```
+
+In addition, you have to import the global styles in your Angular application's
+`styles.css`.
+
+```css
+@import "@getflip/swirl-components/dist/swirl-components/swirl-components.css";
+```
+
+Then you can start using the components.
 
 ```html
 <flip-button label="My first button"></flip-button>
