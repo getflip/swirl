@@ -142,3 +142,6 @@ dist
 # Storybook
 **/storybook-static
 **/components.json
+
+# Angular
+**/.angular/cache

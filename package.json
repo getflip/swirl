@@ -6,7 +6,9 @@
     "node": "^14.17.0 || ^16.13.0"
   },
   "workspaces": [
-    "./packages/*"
+    "./packages/swirl-tokens",
+    "./packages/swirl-components",
+    "./packages/swirl-components-angular"
   ],
   "private": true,
   "scripts": {
