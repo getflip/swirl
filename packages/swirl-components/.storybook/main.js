@@ -16,5 +16,6 @@ module.exports = {
     builder: "@storybook/builder-vite",
   },
   framework: "@storybook/html",
+  staticDirs: ["../src/assets"],
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
 };

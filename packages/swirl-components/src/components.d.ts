@@ -269,9 +269,6 @@ export namespace Components {
     interface FlipIconVisibilityOff {
         "size": FlipIconSize;
     }
-    interface FlipTest {
-        "label": string;
-    }
 }
 declare global {
     interface HTMLFlipButtonElement extends Components.FlipButton, HTMLStencilElement {
@@ -664,12 +661,6 @@ declare global {
         prototype: HTMLFlipIconVisibilityOffElement;
         new (): HTMLFlipIconVisibilityOffElement;
     };
-    interface HTMLFlipTestElement extends Components.FlipTest, HTMLStencilElement {
-    }
-    var HTMLFlipTestElement: {
-        prototype: HTMLFlipTestElement;
-        new (): HTMLFlipTestElement;
-    };
     interface HTMLElementTagNameMap {
         "flip-button": HTMLFlipButtonElement;
         "flip-icon-add": HTMLFlipIconAddElement;
@@ -736,7 +727,6 @@ declare global {
         "flip-icon-user-assign": HTMLFlipIconUserAssignElement;
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
-        "flip-test": HTMLFlipTestElement;
     }
 }
 declare namespace LocalJSX {
@@ -938,9 +928,6 @@ declare namespace LocalJSX {
     interface FlipIconVisibilityOff {
         "size"?: FlipIconSize;
     }
-    interface FlipTest {
-        "label"?: string;
-    }
     interface IntrinsicElements {
         "flip-button": FlipButton;
         "flip-icon-add": FlipIconAdd;
@@ -1007,7 +994,6 @@ declare namespace LocalJSX {
         "flip-icon-user-assign": FlipIconUserAssign;
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
-        "flip-test": FlipTest;
     }
 }
 export { LocalJSX as JSX };
@@ -1079,7 +1065,6 @@ declare module "@stencil/core" {
             "flip-icon-user-assign": LocalJSX.FlipIconUserAssign & JSXBase.HTMLAttributes<HTMLFlipIconUserAssignElement>;
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
-            "flip-test": LocalJSX.FlipTest & JSXBase.HTMLAttributes<HTMLFlipTestElement>;
         }
     }
 }

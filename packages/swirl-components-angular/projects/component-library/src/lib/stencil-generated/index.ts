@@ -66,6 +66,5 @@ export const DIRECTIVES = [
   d.FlipIconToday,
   d.FlipIconUserAssign,
   d.FlipIconVideoCamera,
-  d.FlipIconVisibilityOff,
-  d.FlipTest
+  d.FlipIconVisibilityOff
 ];

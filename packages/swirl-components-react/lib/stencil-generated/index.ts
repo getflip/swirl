@@ -73,4 +73,3 @@ export const FlipIconToday = /*@__PURE__*/createReactComponent<JSX.FlipIconToday
 export const FlipIconUserAssign = /*@__PURE__*/createReactComponent<JSX.FlipIconUserAssign, HTMLFlipIconUserAssignElement>('flip-icon-user-assign');
 export const FlipIconVideoCamera = /*@__PURE__*/createReactComponent<JSX.FlipIconVideoCamera, HTMLFlipIconVideoCameraElement>('flip-icon-video-camera');
 export const FlipIconVisibilityOff = /*@__PURE__*/createReactComponent<JSX.FlipIconVisibilityOff, HTMLFlipIconVisibilityOffElement>('flip-icon-visibility-off');
-export const FlipTest = /*@__PURE__*/createReactComponent<JSX.FlipTest, HTMLFlipTestElement>('flip-test');
