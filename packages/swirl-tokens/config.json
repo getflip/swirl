@@ -3,7 +3,7 @@
   "platforms": {
     "css": {
       "transformGroup": "css",
-      "prefix": "",
+      "prefix": "s",
       "buildPath": "dist/css/",
       "files": [
         {
@@ -25,7 +25,7 @@
       ]
     },
     "json": {
-      "prefix": "",
+      "prefix": "s",
       "buildPath": "dist/",
       "files": [
         {
@@ -36,7 +36,7 @@
     },
     "less": {
       "transformGroup": "less",
-      "prefix": "",
+      "prefix": "s",
       "buildPath": "dist/less/",
       "files": [
         {
@@ -47,7 +47,7 @@
     },
     "scss": {
       "transformGroup": "scss",
-      "prefix": "",
+      "prefix": "s",
       "buildPath": "dist/scss/",
       "files": [
         {
