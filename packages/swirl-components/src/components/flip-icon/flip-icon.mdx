@@ -1,0 +1,35 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipIcon" />
+
+# FlipIcon
+
+Icons are visual symbols used to represent ideas, objects or actions.
+
+- **[Figma Design Specs](https://www.figma.com/file/3NYdzc6VzKvig29y82fQKI/Icons)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/swirl-components/packages/swirl-components/src/components/flip-icon)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipicon--flip-icon" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Icons
+
+<Canvas withSource="none">
+  <Story id="components-flipicon--icons" />
+</Canvas>
+
+## Theming
+
+All icon components use the text color of its parent elements by using the
+`currentColor` fill value.
+
+## Accessibility
+
+| ARIA         | Usage                                                                                                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `aria-label` | Make sure to provide an accessible label for your icons by using the `aria-label` or `aria-labelledby` attributes. |

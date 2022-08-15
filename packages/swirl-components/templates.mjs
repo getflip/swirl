@@ -65,6 +65,38 @@ The component follows the [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/
 | <kbd>SPACE</kbd> | Activates the button. |
 `;
 
+export const iconComponentTemplate = `// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
+
+import { Component, Fragment, h, Prop } from '@stencil/core';
+
+export type FlipIconSize = 16 | 24 | 28;
+
+@Component({
+  shadow: true,
+  styleUrl: "../flip-icon.css",
+  tag: "flip-icon-{{iconNameKebab}}",
+})
+export class FlipIcon{{iconName}} {
+  @Prop() size: FlipIconSize = 24;
+
+  render() {
+    return (
+      <svg
+        class="flip-icon"
+        fill="none"
+        height={this.size}
+        width={this.size}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {this.size === 16 && <Fragment>{{{iconSvg16}}}</Fragment>}
+        {this.size === 24 && <Fragment>{{{iconSvg24}}}</Fragment>}
+        {this.size === 28 && <Fragment>{{{iconSvg28}}}</Fragment>}
+      </svg>
+    );
+  }
+}
+`;
+
 export const storiesTemplate = `import { generateStoryElement } from '../../utils';
 // @ts-ignore
 import Docs from './{{name}}.mdx';

@@ -1,0 +1,21 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Contributions/Update Icons" />
+
+# 🖋 Update Icons
+
+The library automatically creates a separate Web Component for each icon. The
+icons are generated from the corresponding SVG files, which can be found at
+`src/assets/icons`.
+
+**The icon components should therefore not be edited manually.** Instead, the
+`yarn generate` command can be used to update the icon components. In addition
+to generating the code, the generator also takes care of optimizing the SVGs.
+
+To create a new icon, the SVG file can be copied to the `src/assets/icons`
+directory. Then execute `yarn generate`.
+
+```bash
+cd packages/swirl-components
+yarn generate  # then choose the "icons" option
+```

@@ -2,9 +2,15 @@ import {
   componentTemplate,
   cssTemplate,
   docsTemplate,
+  iconComponentTemplate,
   storiesTemplate,
   unitTestTemplate,
 } from "./templates.mjs";
+
+import Handlebars from "handlebars";
+
+import { readdirSync, readFileSync, writeFileSync } from "fs";
+import { optimize } from "svgo";
 
 export default function (
   /** @type {import('plop').NodePlopAPI} */
@@ -63,6 +69,94 @@ export default function (
         type: "add",
         path: "src/components/{{name}}/{{name}}.mdx",
         template: docsTemplate,
+      },
+    ],
+  });
+
+  plop.setGenerator("icons", {
+    description: "Generate icon components from SVG",
+    prompts: [],
+    actions: [
+      function (answers, config, plop) {
+        const svgFileNames = readdirSync("./src/assets/icons");
+        const optimizedIcons = {};
+
+        for (const svgFileName of svgFileNames) {
+          const path = `./src/assets/icons/${svgFileName}`;
+          const svg = readFileSync(path);
+          const optimized = optimize(svg, {
+            path,
+            plugins: [
+              {
+                name: "convertColors",
+                params: {
+                  currentColor: true,
+                },
+              },
+            ],
+          });
+
+          optimizedIcons[svgFileName] = optimized.data
+            .replace(/^<svg [^>]*>/, "")
+            .replace(/<\/svg>/, "");
+        }
+
+        const iconNames = Array.from(
+          new Set(
+            svgFileNames.map((svgFileName) =>
+              svgFileName
+                .replace("16", "")
+                .replace("24", "")
+                .replace("28", "")
+                .replace(".svg", "")
+            )
+          )
+        );
+
+        writeFileSync(
+          `./icons.json`,
+          JSON.stringify(
+            iconNames.reduce(
+              (content, iconName) => ({
+                ...content,
+                [iconName]: {
+                  id: iconName,
+                  name: iconName.replace(
+                    /[A-Z]+(?![a-z])|[A-Z]/g,
+                    ($, ofs) => (ofs ? "-" : "") + $.toLowerCase()
+                  ),
+                },
+              }),
+              {}
+            )
+          )
+        );
+
+        for (const iconName of iconNames) {
+          const componentTemplate = Handlebars.compile(iconComponentTemplate);
+
+          const iconNameKebab = iconName.replace(
+            /[A-Z]+(?![a-z])|[A-Z]/g,
+            ($, ofs) => (ofs ? "-" : "") + $.toLowerCase()
+          );
+
+          const templateData = {
+            iconName,
+            iconNameKebab,
+            iconSvg16: optimizedIcons[`${iconName}16.svg`],
+            iconSvg24: optimizedIcons[`${iconName}24.svg`],
+            iconSvg28: optimizedIcons[`${iconName}28.svg`],
+          };
+
+          const component = componentTemplate(templateData);
+
+          writeFileSync(
+            `./src/components/flip-icon/icons/flip-icon-${iconNameKebab}.tsx`,
+            component
+          );
+        }
+
+        return "success status message";
       },
     ],
   });
