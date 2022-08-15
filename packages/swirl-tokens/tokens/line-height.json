@@ -1,0 +1,22 @@
+{
+  "line-height-sm": {
+    "value": "1.25rem",
+    "comment": "Constant line-height token for line-height sm"
+  },
+  "line-height-base": {
+    "value": "1.375rem",
+    "comment": "Constant line-height token for line-height base"
+  },
+  "line-height-lg": {
+    "value": "1.5rem",
+    "comment": "Constant line-height token for line-height lg"
+  },
+  "line-height-xl": {
+    "value": "1.75rem",
+    "comment": "Constant line-height token for line-height xl"
+  },
+  "line-height-2xl": {
+    "value": "2.125rem",
+    "comment": "Constant line-height token for line-height 2xl"
+  }
+}

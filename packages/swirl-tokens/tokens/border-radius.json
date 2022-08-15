@@ -1,0 +1,26 @@
+{
+  "border-radius-0": {
+    "value": "0",
+    "comment": "Border radius reset"
+  },
+  "border-radius-sm": {
+    "value": "0.125rem",
+    "comment": "Small border radius"
+  },
+  "border-radius-default": {
+    "value": "0.25rem",
+    "comment": "Default border radius"
+  },
+  "border-radius-md": {
+    "value": "0.375rem",
+    "comment": "Large border radius"
+  },
+  "border-radius-lg": {
+    "value": "0.5rem",
+    "comment": "Larger border radius"
+  },
+  "border-radius-full": {
+    "value": "9999px",
+    "comment": "Full border radius"
+  }
+}
