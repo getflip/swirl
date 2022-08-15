@@ -4,10 +4,13 @@
 }
 
 .button {
+  display: inline-flex;
   overflow: hidden;
   max-width: 100%;
   height: 2.5rem;
+  gap: var(--s-space-1);
   padding: var(--s-space-2) var(--s-space-4);
+  align-items: center;
   border: none;
   border-radius: 0.75rem;
   color: var(--s-text-on-action-primary);
@@ -23,4 +26,16 @@
     background-color: var(--s-action-primary-disabled);
     cursor: default;
   }
+}
+
+.button--has-left-icon {
+  padding-left: var(--s-space-2);
+
+  & .button__left-icon {
+    display: inline-flex;
+  }
+}
+
+.button__left-icon {
+  display: none;
 }

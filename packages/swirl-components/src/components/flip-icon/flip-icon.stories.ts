@@ -19,9 +19,9 @@ const Template = (args) => {
   return element;
 };
 
-export const FlipIcon = Template.bind({});
+export const Default = Template.bind({});
 
-FlipIcon.args = {
+Default.args = {
   size: "24",
 };
 
