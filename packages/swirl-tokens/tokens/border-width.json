@@ -1,0 +1,22 @@
+{
+  "border-width-0": {
+    "value": "0",
+    "comment": "Border width reset"
+  },
+  "border-width-default": {
+    "value": "1px",
+    "comment": "Constant border width token for border width 1"
+  },
+  "border-width-2": {
+    "value": "2px",
+    "comment": "Constant border width token for border width 2"
+  },
+  "border-width-4": {
+    "value": "4px",
+    "comment": "Constant border width token for border width 4"
+  },
+  "border-width-8": {
+    "value": "8px",
+    "comment": "Constant border width token for border width 8"
+  }
+}

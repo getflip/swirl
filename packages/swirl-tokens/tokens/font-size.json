@@ -1,0 +1,22 @@
+{
+  "font-size-sm": {
+    "value": "0.875rem",
+    "comment": "Constant typography token for font size sm"
+  },
+  "font-size-base": {
+    "value": "1rem",
+    "comment": "Constant typography token for font size base"
+  },
+  "font-size-lg": {
+    "value": "1.125rem",
+    "comment": "Constant typography token for font size lg"
+  },
+  "font-size-xl": {
+    "value": "1.5rem",
+    "comment": "Constant typography token for font size xl"
+  },
+  "font-size-2xl": {
+    "value": "1.75rem",
+    "comment": "Constant typography token for font size 2xl"
+  }
+}
