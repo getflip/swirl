@@ -26,16 +26,13 @@
     background-color: var(--s-action-primary-disabled);
     cursor: default;
   }
-}
 
-.button--has-left-icon {
-  padding-left: var(--s-space-2);
-
-  & .button__left-icon {
-    display: inline-flex;
+  &:focus {
+    outline-color: var(--s-focus);
   }
 }
 
 .button__left-icon {
-  display: none;
+  display: inline-flex;
+  margin-left: calc(-1 * var(--s-space-1));
 }

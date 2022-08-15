@@ -12,13 +12,13 @@ export declare interface FlipButton extends Components.FlipButton {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['disabled', 'label', 'type']
+  inputs: ['disabled', 'label', 'leftIcon', 'type']
 })
 @Component({
   selector: 'flip-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'label', 'type']
+  inputs: ['disabled', 'label', 'leftIcon', 'type']
 })
 export class FlipButton {
   protected el: HTMLElement;
@@ -1365,6 +1365,27 @@ export declare interface FlipIconVisibilityOff extends Components.FlipIconVisibi
   inputs: ['size']
 })
 export class FlipIconVisibilityOff {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface FlipTest extends Components.FlipTest {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['label']
+})
+@Component({
+  selector: 'flip-test',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['label']
+})
+export class FlipTest {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

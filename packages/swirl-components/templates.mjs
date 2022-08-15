@@ -33,7 +33,7 @@ The {{pascalCase name}} component is used to …
 ## Usage
 
 <Canvas withSource="open">
-  <Story id="components-{{lowerCase (pascalCase name)}}--default" />
+  <Story id="components-{{lowerCase (pascalCase name)}}--{{name}}" />
 </Canvas>
 
 <ArgsTable story="." />
@@ -117,9 +117,9 @@ const Template = (args) => {
   return element;
 };
 
-export const Default = Template.bind({});
+export const {{pascalCase name}} = Template.bind({});
 
-Default.args = {
+{{pascalCase name}}.args = {
   label: "Label",
 };
 `;

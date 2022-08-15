@@ -74,6 +74,7 @@ export namespace Components {
     interface FlipButton {
         "disabled"?: boolean;
         "label": string;
+        "leftIcon"?: string;
         "type"?: FlipButtonType;
     }
     interface FlipIconAdd {
@@ -742,6 +743,7 @@ declare namespace LocalJSX {
     interface FlipButton {
         "disabled"?: boolean;
         "label": string;
+        "leftIcon"?: string;
         "type"?: FlipButtonType;
     }
     interface FlipIconAdd {
