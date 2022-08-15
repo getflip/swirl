@@ -13,7 +13,10 @@ The Flip/swirl repository is a monorepo made up of NPM packages and websites.
 
 ```sh
 swirl/
-├── swirl-tokens                # Design tokens for Swirl
+├── swirl-tokens                # Design Tokens for Swirl
+├── swirl-components            # Web Components Library for Swirl
+├── swirl-components-angular    # Angular Components Wrapper
+├── swirl-components-react      # React Components Wrapper
 ```
 
 ## Commands
@@ -39,6 +42,7 @@ Run commands across all workspaces. This uses
 
 | Command           | Runs                                  |
 | ----------------- | ------------------------------------- |
+| `yarn dev`        | Start dev environment (Storybook)     |
 | `yarn changeset`  | Adds a new changelog entry            |
 | `yarn lint`       | Lints all workspaces                  |
 | `yarn test`       | Tests all workspaces                  |
