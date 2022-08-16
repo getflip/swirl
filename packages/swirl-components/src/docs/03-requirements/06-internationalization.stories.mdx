@@ -4,4 +4,31 @@ import { Meta } from "@storybook/addon-docs";
 
 # 🌍 Internationalization
 
-tbd.
+Flip App is translated into over 20 languages and used in different regions of
+the world. Our components must be able to adapt to different localizations
+accordingly.
+
+Here are some requirements and guidelines for developing components for use in
+an international context.
+
+**Do not use static texts** <br/> All texts of our components (labels, tooltips,
+etc.), whether visible or invisible, must be configurable by component props or
+slots.
+
+**Consider text expansion** <br/> Languages have different spellings, grammar
+rules and typograhpic conventions. Text can therefore sometimes be shorter and
+sometimes be significantly longer. Our components should be built to handle
+varying text lengths and wrappings.
+
+**Avoid forced formatting in CSS** <br/> Do not force capitalization through CSS
+styles (e.g. in headings). Different languages have different rules here, and
+these kinds of styles are difficult to override.
+
+**Colors & Icons** <br/> The perception of colors and icons can differ depending
+on the user's culture. Understanding our components should never be based on the
+use of colors or icons alone.
+
+**Value formatting**<br /> Values such as numbers, currencies and dates are
+formatted differently depending on the localization. Our components must allow
+the configuration of the formattings (e.g. by configuring the associated ISO
+standard as Prop).
