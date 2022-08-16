@@ -1,0 +1,60 @@
+{
+  "source": ["tokens/*.json", "tokens/dark/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "prefix": "s",
+      "buildPath": "dist/css/",
+      "files": [
+        {
+          "destination": "styles.dark.custom-properties.css",
+          "format": "css/variables"
+        }
+      ]
+    },
+    "flutter": {
+      "transformGroup": "flutter",
+      "prefix": "",
+      "buildPath": "dist/flutter/",
+      "files": [
+        {
+          "className": "SwirlDesignTokens",
+          "destination": "styles.dark.dart",
+          "format": "flutter/class.dart"
+        }
+      ]
+    },
+    "json": {
+      "prefix": "s",
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "styles.dark.json",
+          "format": "json"
+        }
+      ]
+    },
+    "less": {
+      "transformGroup": "less",
+      "prefix": "s",
+      "buildPath": "dist/less/",
+      "files": [
+        {
+          "destination": "styles.dark.less",
+          "format": "less/variables"
+        }
+      ]
+    },
+    "scss": {
+      "transformGroup": "scss",
+      "prefix": "s",
+      "buildPath": "dist/scss/",
+      "files": [
+        {
+          "destination": "styles.dark.scss",
+          "format": "scss/variables"
+        }
+      ]
+    }
+  }
+}
