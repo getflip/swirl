@@ -2,9 +2,6 @@
   "name": "@getflip/swirl-tokens",
   "version": "0.3.0",
   "description": "Swirl Design System Tokens package with a number of different formats for Web and Mobile.",
-  "main": "dist/tokens.common.js",
-  "module": "dist/tokens.es6.js",
-  "types": "dist/tokens.common.d.ts",
   "author": "Flip GmbH",
   "repository": "https://github.com/getflip/swirl",
   "license": "SEE LICENSE IN LICENSE.md",
@@ -12,8 +9,8 @@
     "url": "https://github.com/getflip/swirl/issues"
   },
   "files": [
-    "dist",
-    "types"
+    "assets",
+    "dist"
   ],
   "devDependencies": {
     "style-dictionary": "^3.7.1"
