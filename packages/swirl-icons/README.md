@@ -1,53 +1,43 @@
-# Swirl Tokens
+# Swirl Icons
 
-When using design systems colors, you would usually start with a color palette consisting of values from 100 to 900, like green600. These values are static and are not themable. In Swirl, we intentionally skip this core layer and instead work with the semantic color tokens.
-
-Semantic color tokens represent not just a color value but also a semantic role it's used for. By assigning semantic roles to colors, we achieve predictable theming and dark mode support.
-
-We use generic names for the color tokens, which means that color names don't rely on our component inventory. So you can build your custom components using the same color tokens, and they will still automatically support theming and dark mode.
+This package contains the Swirl icon set in different formats. **To use the icons as Web Components or Angular/React components, please use @getflip/swirl-components.**
 
 ## Installation
 
 ```bash
-npm install @getflip/swirl-tokens
+yarn add @getflip/swirl-icons
+# or
+npm install @getflip/swirl-icons
 ```
 
 ## Usage
 
-#### JSON
+### Use as Web Fonts
 
-Accessing all of the available token groups
+You can find different (web) font formats in the `dist` directory. Corresponsing `.css`, `.less`, `.scss` and `.styl` files include the necessary styles to use the icon fonts.
 
-- [List of JSON tokens](https://unpkg.com/browse/@getflip/swirl-tokens/dist/styles.json)
+### Use SVG symbols
 
-```js
-import styles from "@getflip/swirl-tokens/dist/styles.json";
+The `dist` directory includes a `swirl-icons.symbol.svg` file which defines all icons as SVG symbols.
 
-console.log("background-default", styles["background-default"]);
+```html
+<svg viewBox="0 0 16 16">
+  <use xlink:href="#swirl-icons-Add16" />
+</svg>
+
+<svg viewBox="0 0 24 24">
+  <use xlink:href="#swirl-icons-Add24" />
+</svg>
+
+<svg viewBox="0 0 28 28">
+  <use xlink:href="#swirl-icons-Add28" />
+</svg>
 ```
 
-#### CSS
+### Use the separate SVG files
 
-Importing all of the css variables. CSS variables are prefixed with `--s`
+The `icons` directory includes all icons as separate files.
 
-- [List of CSS-Custom-Properties](https://unpkg.com/browse/@getflip/swirl-tokens/dist/css/styles.custom-properties.css)
-
-```css
-@import "@getflip/swirl-tokens/dist/css/styles.custom-properties.css";
-
-div {
-  background-color: var(--s-background-default);
-}
+```html
+<img src="icons/Add16.svg" alt="" />
 ```
-
-#### SCSS
-
-- [List of SCSS variables](https://unpkg.com/browse/@getflip/swirl-tokens/dist/scss/styles.scss)
-
-#### LESS
-
-- [List of Less variables](https://unpkg.com/browse/@getflip/swirl-tokens/dist/less/styles.less)
-
-#### SASS
-
-- [List of SASS Variables](https://unpkg.com/browse/@getflip/swirl-tokens/dist/sass/styles.sass)
