@@ -19,6 +19,8 @@
     "build": "rm -rf dist && yarn build:light && yarn build:dark",
     "build:light": "style-dictionary build --config ./config.light.json",
     "build:dark": "style-dictionary build --config ./config.dark.json",
-    "clean": "style-dictionary clean"
+    "clean": "yarn clean:light && yarn clean:dark",
+    "clean:light": "style-dictionary clean --config ./config.light.json",
+    "clean:dark": "style-dictionary clean --config ./config.dark.json"
   }
 }

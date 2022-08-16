@@ -5,15 +5,15 @@ import { Meta } from "@storybook/addon-docs";
 # 🖋 Update Icons
 
 The library automatically creates a separate Web Component for each icon. The
-icons are generated from the corresponding SVG files, which can be found at
-`src/assets/icons`.
+icons are generated from the corresponding SVG files, which are pulled from the
+`@getflip/swirl-icons` package.
 
 **The icon components should therefore not be edited manually.** Instead, the
 `yarn generate` command can be used to update the icon components. In addition
 to generating the code, the generator also takes care of optimizing the SVGs.
 
-To create a new icon, the SVG file can be copied to the `src/assets/icons`
-directory. Then execute `yarn generate`.
+To create a new icon, the SVG file should be added to the `@getflip/swirl-icons`
+package. Then install the new package version and execute `yarn generate`.
 
 ```bash
 cd packages/swirl-components

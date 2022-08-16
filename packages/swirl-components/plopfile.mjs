@@ -78,11 +78,14 @@ export default function (
     prompts: [],
     actions: [
       function (answers, config, plop) {
-        const svgFileNames = readdirSync("./src/assets/icons");
+        const iconsPath = "../../node_modules/@getflip/swirl-icons/icons";
+
+        const svgFileNames = readdirSync(iconsPath);
+
         const optimizedIcons = {};
 
         for (const svgFileName of svgFileNames) {
-          const path = `./src/assets/icons/${svgFileName}`;
+          const path = `${iconsPath}/${svgFileName}`;
           const svg = readFileSync(path);
           const optimized = optimize(svg, {
             path,
