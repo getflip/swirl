@@ -13,6 +13,7 @@ The Flip/swirl repository is a monorepo made up of NPM packages and websites.
 
 ```sh
 swirl/
+├── swirl-icons                 # Icon Set for Swirl
 ├── swirl-tokens                # Design Tokens for Swirl
 ├── swirl-components            # Web Components Library for Swirl
 ├── swirl-components-angular    # Angular Components Wrapper
