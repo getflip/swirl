@@ -61,7 +61,7 @@ it("renders the label", async () => {
     html: `<flip-button label="Label"></flip-button>`,
   });
 
-  expect(page.root.outerHTML).toMatchInlineSnapshot();
+  expect(page.root.shadowRoot.innerHTML).toMatchInlineSnapshot();
 });
 ```
 
@@ -76,7 +76,7 @@ it("renders the label", async () => {
   });
 
   expect(page.root.outerHTML).toMatchInlineSnapshot(
-    `"<flip-button label=\\"Label\\"></flip-button>"`
+    `"<button class=\\"button\\" type=\\"button\\">Label</button>"`
   );
 });
 ```
