@@ -14359,10 +14359,10 @@ svg2ttf@~6.0.3:
     microbuffer "^1.0.0"
     svgpath "^2.1.5"
 
-svgicons2svgfont@~12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/svgicons2svgfont/-/svgicons2svgfont-12.0.0.tgz#80dfb5f20a4e83403f893a30320194dc380690b3"
-  integrity sha512-fjyDkhiG0M1TPBtZzD12QV3yDcG2fUgiqHPOCYzf7hHE40Hl3GhnE6P1njsJCCByhwM7MiufyDW3L7IOR5dg9w==
+svgicons2svgfont@^11.0.0, svgicons2svgfont@~12.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/svgicons2svgfont/-/svgicons2svgfont-11.0.0.tgz#0d3266a37bdda62f95ef18c8134c5d62e9ebdae4"
+  integrity sha512-TqDT+LqQ18kPuDwgGmLFTrAqxQIDNBmSCW6Utao4RGsUiH0yjYKBHeBe0p+ySQlvJWz0KfS+2X9kvNyZAoCM0w==
   dependencies:
     commander "^9.3.0"
     glob "^8.0.3"
