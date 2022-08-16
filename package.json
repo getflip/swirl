@@ -6,6 +6,7 @@
     "node": "^14.17.0 || ^16.13.0"
   },
   "workspaces": [
+    "./packages/swirl-icons",
     "./packages/swirl-tokens"
   ],
   "private": true,
