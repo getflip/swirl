@@ -8,7 +8,7 @@
       "files": [
         {
           "destination": "styles.custom-properties.css",
-          "format": "css/variables"
+          "format": "css/variables-design-token-comments"
         }
       ]
     },
