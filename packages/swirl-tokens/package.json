@@ -16,7 +16,9 @@
     "style-dictionary": "^3.7.1"
   },
   "scripts": {
-    "build": "style-dictionary build",
+    "build": "rm -rf dist && yarn build:light && yarn build:dark",
+    "build:light": "style-dictionary build --config ./config.light.json",
+    "build:dark": "style-dictionary build --config ./config.dark.json",
     "clean": "style-dictionary clean"
   }
 }
