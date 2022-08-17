@@ -142,6 +142,7 @@ dist
 # Storybook
 **/storybook-static
 **/components.json
+**/design-tokens.source.json
 
 # Angular
 **/.angular/cache
