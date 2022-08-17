@@ -1,11 +1,14 @@
 :host {
   display: inline-block;
   max-width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
 }
 
 .button {
   display: inline-flex;
-  overflow: hidden;
   max-width: 100%;
   height: 2.5rem;
   gap: var(--s-space-1);
@@ -17,8 +20,6 @@
   background-color: var(--s-action-primary-default);
   font: inherit;
   font-weight: var(--s-font-weight-medium);
-  white-space: nowrap;
-  text-overflow: ellipsis;
   cursor: pointer;
 
   &:disabled {
@@ -35,4 +36,11 @@
 .button__left-icon {
   display: inline-flex;
   margin-left: calc(-1 * var(--s-space-1));
+}
+
+.button__label {
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

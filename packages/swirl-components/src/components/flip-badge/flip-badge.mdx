@@ -1,0 +1,43 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipBadge" />
+
+# FlipBadge
+
+The FlipBadge component is used to inform about the status of an object or
+action.
+
+- **[Figma Design Specs](https://www.figma.com/file/l498Zs9zdZ1qrFJ8aYs47G/Components-V2?node-id=35%3A1122)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-badge)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipbadge--flip-badge" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                       | Usage                                      |
+| ------------------------------ | ------------------------------------------ |
+| `--s-background-default`       | Border color                               |
+| `--s-surface-critical-default` | Background color for intent "critical"     |
+| `--s-decorative-one-default`   | Background color for intent "decorative-1" |
+| `--s-decorative-two-default`   | Background color for intent "decorative-2" |
+| `--s-decorative-three-default` | Background color for intent "decorative-3" |
+| `--s-decorative-four-default`  | Background color for intent "decorative-4" |
+| `--s-decorative-five-default`  | Background color for intent "decorative-5" |
+| `--s-decorative-six-default`   | Background color for intent "decorative-6" |
+| `--s-decorative-seven-default` | Background color for intent "decorative-7" |
+| `--s-text-default`             | Alternate text color for light backgrounds |
+
+## Accessibility
+
+### ARIA
+
+| ARIA            | Usage                                                                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `role="status"` | All badges have the aria role "status" added.                                                                                               |
+| `aria-label`    | If no accessible label is provided via the label prop (e.g. a plain number), the `aria-label` or `aria-labelledby` attribute has to be set. |
