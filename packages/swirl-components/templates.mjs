@@ -28,7 +28,7 @@ export const docsTemplate = `import { ArgsTable, Canvas, Meta, Story } from "@st
 The {{pascalCase name}} component is used to …
 
 - **[Figma Design Specs](#)**
-- **[Source Code](https://github.com/flip-corp/swirl/tree/swirl-components/packages/swirl-components/src/components/{{name}})**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/{{name}})**
 
 ## Usage
 
