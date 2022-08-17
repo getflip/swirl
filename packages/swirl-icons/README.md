@@ -14,11 +14,11 @@ npm install @getflip/swirl-icons
 
 ### Use as Web Fonts
 
-You can find different (web) font formats in the `dist` directory. Corresponsing `.css`, `.less`, `.scss` and `.styl` files include the necessary styles to use the icon fonts.
+You can find different (web) font formats in the `dist` directory. Corresponding `.css`, `.less`, `.scss` and `.styl` files include the necessary styles to use the icon fonts.
 
 ### Use SVG symbols
 
-The `dist` directory includes a `swirl-icons.symbol.svg` file which defines all icons as SVG symbols.
+The `dist` directory includes a `swirl-icons.symbol.svg` file which defines all icons as SVG symbols. The symbols can be used as follows:
 
 ```html
 <svg viewBox="0 0 16 16">
@@ -36,7 +36,7 @@ The `dist` directory includes a `swirl-icons.symbol.svg` file which defines all 
 
 ### Use the separate SVG files
 
-The `icons` directory includes all icons as separate files.
+The `icons` directory includes all icons as separate files, which can be used via the `img` tag.
 
 ```html
 <img src="icons/Add16.svg" alt="" />
