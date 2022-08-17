@@ -3,7 +3,13 @@
   "baseBranch": "origin/main",
   "pipeline": {
     "build": {
-      "outputs": ["dist/**", "build/**"],
+      "outputs": [
+        "dist/**",
+        "build/**",
+        "loader/**",
+        "storybook-static/**",
+        "stencil-generated/**"
+      ],
       "dependsOn": ["^build"]
     },
     "test": {
@@ -15,7 +21,8 @@
     },
     "dev": {
       "cache": false,
-      "outputs": [".next/**"]
+      "outputs": [".next/**"],
+      "dependsOn": ["@getflip/swirl-tokens#build"]
     },
     "clean": {
       "cache": false

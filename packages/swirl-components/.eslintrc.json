@@ -1,0 +1,7 @@
+{
+  "extends": ["plugin:@stencil/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "@stencil/decorators-context": "off"
+  }
+}

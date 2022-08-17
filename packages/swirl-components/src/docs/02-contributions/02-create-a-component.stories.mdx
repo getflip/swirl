@@ -1,0 +1,64 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Contributions/Create a Component" />
+
+# 🆕 Create a Component
+
+Before you create a new component, you should make sure that a similar component
+does not already exist and that the component makes sense in the context of the
+component library.
+
+The library should only provide reusable UI components. Highly specialized
+components, as well as components implementing business logic, should not be
+part of the library.
+
+**If in doubt, please discuss with the frontend team.**
+
+<hr />
+
+We use [Stencil.js](https://stenciljs.com/) to implement our Web Components.
+Please refer to the offiicial [documentation](https://stenciljs.com/docs/api) if
+you are not familiar with Stencil.
+
+Create a new branch if you want to add a new component. Except for components
+that depend on each other (e.g. List and ListItem), only a single new component
+should be created per branch.
+
+```bash
+git checkout -b new-checkbox-component
+```
+
+Run the following commands to create boilerplate code for a new component. The
+component name has to start with "flip-" and must be in kebab-case.
+
+```bash
+cd packages/swirl-components
+yarn generate
+```
+
+The command will automatically create a new directory under `src/components`
+including all necessary files for your component. Here is an overview:
+
+| File                | Contents                                  |
+| ------------------- | ----------------------------------------- |
+| flip-\*.tsx         | The Stencil class component               |
+| flip-\*.css         | The component stylesheet                  |
+| flip-\*.mdx         | Markdown documentation for your component |
+| flip-\*.spec.tsx    | Unit tests for your component             |
+| flip-\*.stories.tsx | Storybook stories for your component      |
+
+Storybook should show your new component immediately after generation.
+
+**Please refer to the following pages when creating a new component:**
+
+- [💅 Style Guide](?path=/docs/requirements-style-guide--page)
+- [🤖 Testing](?path=/docs/requirements-testing--page)
+- [🧏‍♀️ Accessibility](?path=/docs/requirements-accessibility--page)
+- [🌈 Theming](?path=/docs/requirements-theming--page)
+- [📱 Responsive Design](?path=/docs/requirements-responsive-design--page)
+- [🌍 Internationalization](?path=/docs/requirements-internationalization--page)
+
+Create a new PR when you are ready and assign a reviewer. After your PR is
+approved and merged, a new version of the library can be published. See
+[🏁 Merge & Publish](?path=/docs/contributions-merge-publish--page) for more
+information.

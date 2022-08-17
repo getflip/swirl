@@ -1,0 +1,112 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Usage/Get Started" />
+
+# 🚀 Get Started
+
+The Swirl Web Component Library provides a collection of reusable components to
+build user interfaces for the Flip App ecosystem. Adopting the library allows
+developers to use consistent markup, styles, and behaviors in development and
+create user interfaces that match the look and feel of the Flip App. You can use
+the Web Components directly, or one of the wrapper libraries for **Angular** and
+**React**.
+
+## Web Components Library
+
+### Install
+
+The library can be installed by either [Yarn](https://classic.yarnpkg.com/) or
+[NPM](https://npmjs.com/).
+
+```bash
+yarn add @getflip/swirl-components
+# or
+npm install --save @getflip/swirl-components
+```
+
+### Usage
+
+Import and register the components to start using them:
+
+```javascript
+import { defineCustomElements } from "@getflip/swirl-components/loader";
+
+defineCustomElements();
+```
+
+```html
+<flip-button label="My first button"></flip-button>
+```
+
+## Angular Wrapper Library
+
+### Install
+
+The library can be installed by either [Yarn](https://classic.yarnpkg.com/) or
+[NPM](https://npmjs.com/).
+
+```bash
+yarn add @getflip/swirl-components @getflip/swirl-components-angular
+# or
+npm install --save @getflip/swirl-components @getflip/swirl-components-angular
+```
+
+### Usage
+
+The Angular wrapper is distributed via a primary NgModule that you can import to
+use the components.
+
+```typescript
+import { SwirlComponentsModule } from "@getflip/swirl-components-angular";
+import { defineCustomElements } from "@getflip/swirl-components/loader";
+
+defineCustomElements(window);
+
+@NgModule({
+  imports: [SwirlComponentsModule],
+})
+export class FeatureModule {}
+```
+
+In addition, you have to import the global styles in your Angular application's
+`styles.css`.
+
+```css
+@import "@getflip/swirl-components/dist/swirl-components/swirl-components.css";
+```
+
+Then you can start using the components.
+
+```html
+<flip-button label="My first button"></flip-button>
+```
+
+## React Wrapper Library
+
+### Install
+
+The library can be installed by either [Yarn](https://classic.yarnpkg.com/) or
+[NPM](https://npmjs.com/).
+
+```bash
+yarn add @getflip/swirl-components @getflip/swirl-components-react
+# or
+npm install --save @getflip/swirl-components @getflip/swirl-components-react
+```
+
+### Usage
+
+The React wrapper components can be imported and used separately. **Please note
+that the element, event, and prop names for the React components are converted
+to PascalCase and camelCase notation, respectively.** In addition, you need to
+import the global stylesheet.
+
+```tsx
+import "@getflip/swirl-components/dist/swirl-components/swirl-components.css";
+
+import { FlipButton } from "@getflip/swirl-components-react";
+
+export default function MyApp() {
+  return <FlipButton label="My first button" />;
+}
+```

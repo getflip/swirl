@@ -1,0 +1,75 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Requirements/Accessibility" />
+
+# 🧏‍♀️ Accessibility
+
+We consider accessibility of our components as a basic requirement and an
+obligation towards our users. Our components meet at least WCAG 2.1 Level A and
+Level AA requirements, and are tested with screen readers and alternative input
+options. Compliance is ensured by automated tests (e.g. storybook-addon-a11y)
+and manual tests.
+
+The accessibility of components is often not trivial to evaluate. In the
+following sections, some requirements and guidelines are defined to facilitate
+the assessment.
+
+## The Storybook a11y addon
+
+A good starting point in development is to review the Accessibility addon in the
+Storybook Addon panel. It automatically checks many basic properties of the
+components that are relevant for accessibility, such as color contrasts,
+semantic markup, and sufficient labeling of elements. Internally, the addon uses
+the [axe-core](https://github.com/dequelabs/axe-core), which claims to detect an
+average of 57% of WCAG-relevant issues. You should make sure that the addon does
+not display any violations.
+
+## ARIA Authoring Practices Guide
+
+The [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/) provides
+a great reference for the accessibility of many UI components. You should check
+the [Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/) and
+[Practices](https://www.w3.org/WAI/ARIA/apg/practices/) pages as a starting
+point for new components. They define the necessary markup structures, ARIA
+properties and keyboard interactions for many components.
+
+## WCAG 2.1
+
+tbd. https://www.w3.org/WAI/standards-guidelines/wcag/
+
+## Testing with the MacOS screen reader
+
+MacOS comes with a built-in screen reader that can be used to test our
+components.
+[Here is a nice introduction for frontend developers](https://get-evinced.com/blog/screen-readers-101-for-front-end-developers-mac/)
+that explains how to use it, and how to test HTML landmarks, headings, forms and
+links for accessiblity.
+
+## Documentation
+
+The documentation of our components includes an accessibility section that
+should be populated with the applicable ARIA properties and the implemented
+keyboard interactions. Furthermore, all used references can be linked here.
+
+## Respect user preferences
+
+Browsers allow the user to override settings that can improve accessibility.
+
+### Font size settings and page zoom
+
+We use relative size units (rem) in our component styles to allow users to use
+the global font size setting and page zoom of their browser.
+
+### Reduced motion
+
+Users can indicate that they prefer an app to minimize the amount of
+non-essential movement in its user interface. We respect this preference by
+using the `prefers-reduced-motion` media query to disable transitions and
+animations that are not essential for our components to work.
+
+```css
+@media (prefers-reduced-motion) {
+  transition: none;
+  animation: none;
+}
+```

@@ -2,5 +2,8 @@
 * @Sqrrl
 
 # Packages
-packages/swirl-icons/*  @Sqrrl
-packages/swirl-tokens/* @webspaceadam
+packages/swirl-components/*          @Sqrrl
+packages/swirl-components-angular/*  @Sqrrl
+packages/swirl-components-react/*    @Sqrrl
+packages/swirl-icons/*               @Sqrrl
+packages/swirl-tokens/*              @webspaceadam

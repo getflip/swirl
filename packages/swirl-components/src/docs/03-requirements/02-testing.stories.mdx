@@ -1,0 +1,106 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Requirements/Testing" />
+
+# 🤖 Testing
+
+With the help of tests we make sure that all components do what they are
+supposed to do and changes to the code do not lead to unexpected behavior or
+errors. Furthermore, we write regression tests to prevent bugs that have been
+fixed from occurring again.
+
+All components are tested using [Jest](https://jestjs.io/) unit tests. We
+deliberately do not define minimum requirements for code coverage, but test at
+least the functionality of the external component API (attributes, props and
+events), as well as the generated markup. Snapshot tests are permitted here.
+
+**The error-free passing of all tests is a basic requirement for the merging of
+code changes, and the release of a new library version.**
+
+## Unit tests
+
+A basic unit test skeleton is automatically generated for each component when
+using the `yarn generate` command.
+
+```tsx
+import { newSpecPage } from "@stencil/core/testing";
+
+import { FlipButton } from "./flip-button";
+
+describe("flip-button", () => {
+  it("renders", async () => {
+    const page = await newSpecPage({
+      components: [FlipButton],
+      html: `<flip-button></flip-button>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <flip-button label=\"Label\">
+        <mock:shadow-root>
+          Hello World
+        </mock:shadow-root>
+      </flip-button>
+    `);
+  });
+});
+```
+
+### Snapshot tests
+
+To test the rendered markup of a component, snapshot tests can be used by adding
+an empty `toMatchInlineSnapshot()` condition. On the next test run, the snapshot
+will automatically generated and added to the test. It is up to you to check the
+snapshot after each code change and verify that the resulting markup is correct.
+
+Add the empty condition:
+
+```tsx
+it("renders the label", async () => {
+  const page = await newSpecPage({
+    components: [FlipButton],
+    html: `<flip-button label="Label"></flip-button>`,
+  });
+
+  expect(page.root.shadowRoot.innerHTML).toMatchInlineSnapshot();
+});
+```
+
+After the next test run the rendered markup was automatically added to the test
+by Jest:
+
+```tsx
+it("renders the label", async () => {
+  const page = await newSpecPage({
+    components: [FlipButton],
+    html: `<flip-button label="Label"></flip-button>`,
+  });
+
+  expect(page.root.shadowRoot.innerHTML).toMatchInlineSnapshot(
+    `"<button class=\\"button\\" type=\\"button\\">Label</button>"`
+  );
+});
+```
+
+### Testing custom events
+
+The following example demonstrates testing a custom event, assuming you have a
+component with the custom event "testEvent" that is triggered by clicking on a
+button inside the component.
+
+```tsx
+it("fires", async () => {
+  const page = await newSpecPage({
+    components: [FlipButton],
+    html: `<flip-button label="Label"></flip-button>`,
+  });
+
+  const buttonSpy = jest.fn();
+
+  page.root.addEventListener("testEvent", buttonSpy);
+  page.root.shadowRoot.querySelector("button").click();
+
+  await page.waitForChanges();
+
+  expect(buttonSpy).toHaveBeenCalled();
+});
+```

@@ -1,6 +1,7 @@
 # Swirl
 
-> Flips’s design system to help us work together to build a great experience for all of our customers.
+> Flips’s design system to help us work together to build a great experience for
+> all of our customers.
 
 | Status | Owner          | Help                                                                                             |
 | ------ | -------------- | ------------------------------------------------------------------------------------------------ |
@@ -13,7 +14,10 @@ The Flip/swirl repository is a monorepo made up of NPM packages and websites.
 ```sh
 swirl/
 ├── swirl-icons                 # Icon Set for Swirl
-├── swirl-tokens                # Design tokens for Swirl
+├── swirl-tokens                # Design Tokens for Swirl
+├── swirl-components            # Web Components Library for Swirl
+├── swirl-components-angular    # Angular Components Wrapper
+├── swirl-components-react      # React Components Wrapper
 ```
 
 ## Commands
@@ -28,14 +32,18 @@ yarn && yarn build
 
 **One workspace**
 
-Run commands from a selected workspace using [`turbo run <command> --filter=<workspace>...`](https://turborepo.org/docs/core-concepts/filtering) flag.
+Run commands from a selected workspace using
+[`turbo run <command> --filter=<workspace>...`](https://turborepo.org/docs/core-concepts/filtering)
+flag.
 
 **All workspaces**
 
-Run commands across all workspaces. This uses [`turbo run <command>`](https://turborepo.org/docs/reference/command-line-reference#turbo-run-task).
+Run commands across all workspaces. This uses
+[`turbo run <command>`](https://turborepo.org/docs/reference/command-line-reference#turbo-run-task).
 
 | Command           | Runs                                  |
 | ----------------- | ------------------------------------- |
+| `yarn dev`        | Start dev environment (Storybook)     |
 | `yarn changeset`  | Adds a new changelog entry            |
 | `yarn lint`       | Lints all workspaces                  |
 | `yarn test`       | Tests all workspaces                  |
@@ -45,4 +53,6 @@ Run commands across all workspaces. This uses [`turbo run <command>`](https://tu
 
 ## Licenses
 
-Source code is under a custom license based on MIT. The license restricts Swirl usage to applications that integrate or interoperate with Flip software or services, with additional restrictions for external, stand-alone applications.
+Source code is under a custom license based on MIT. The license restricts Swirl
+usage to applications that integrate or interoperate with Flip software or
+services, with additional restrictions for external, stand-alone applications.

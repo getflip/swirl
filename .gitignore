@@ -133,3 +133,16 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Stencil
+**/.stencil
+**/dist
+**/loader
+
+# Storybook
+**/storybook-static
+**/components.json
+**/design-tokens.source.json
+
+# Angular
+**/.angular/cache

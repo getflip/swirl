@@ -36,7 +36,9 @@ What actually happens?
 - Device:
 - Operating System:
 
-Or run `npx envinfo --system --binaries --browsers --npmPackages` to provide specifications on your environment including version numbers, browser, device, and operating system.
+Or run `npx envinfo --system --binaries --browsers --npmPackages` to provide
+specifications on your environment including version numbers, browser, device,
+and operating system.
 
 Paste the results here:
 

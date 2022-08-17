@@ -1,0 +1,3 @@
+@custom-media --from-tablet (min-width: 768px);
+@custom-media --from-desktop (min-width: 992px);
+@custom-media --from-large-desktop (min-width: 1440px);

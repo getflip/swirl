@@ -1,5 +1,5 @@
-import { readdirSync } from 'fs';
-import StyleDictionary, { TransformedToken } from 'style-dictionary';
+import { readdirSync } from "fs";
+import StyleDictionary, { TransformedToken } from "style-dictionary";
 
 const { fileHeader, createPropertyFormatter } = StyleDictionary.formatHelpers;
 

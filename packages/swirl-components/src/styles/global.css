@@ -1,0 +1,23 @@
+@import "~@getflip/swirl-tokens/dist/css/styles.custom-properties.css";
+
+@font-face {
+  font-family: "Inter var experimental";
+  font-weight: 100 900;
+  font-style: oblique 0deg 10deg;
+  font-display: swap;
+  src: url("/fonts/Inter.var.woff2") format("woff2-variations"),
+    url("/fonts/Inter.var.woff2") format("woff2");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--s-font-family-text);
+  font-size: var(--s-font-size-base);
+  font-weight: var(--s-font-weight-normal);
+  line-height: var(--s-line-height-lg);
+}

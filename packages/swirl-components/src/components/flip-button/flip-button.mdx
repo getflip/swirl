@@ -1,0 +1,49 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { extractArgTypes } from "@pxtrn/storybook-addon-docs-stencil";
+
+<Meta title="Components/FlipButton" />
+
+# FlipButton
+
+The FlipButton component is used to trigger actions or events. It is **not**
+used if a link is more appropriate.
+
+- **[Figma Design Specs](https://www.figma.com/file/l498Zs9zdZ1qrFJ8aYs47G/Components-V2?node-id=9%3A20)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/swirl-components/packages/swirl-components/src/components/flip-button)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipbutton--flip-button" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                          | Usage                     |
+| --------------------------------- | ------------------------- |
+| `--s-interactive-primary-default` | Background color          |
+| `--s-action-primary-default`      | Text color                |
+| `--s-action-primary-disabled`     | Disabled background color |
+| `--s-text-disabled`               | Disabled text color       |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
+
+| ARIA            | Usage                                                                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `role="button"` | Implicitly through the use of <code>&lt;button /></code>.                                                         |
+| `aria-label`    | If no accessible label is provided via the button's text, the `aria-label` or `aria-labelledby` attribute is set. |
+| `aria-disabled` | If the button is disabled, the `aria-disabled` attribute is set to `true`.                                        |
+
+### Keyboard
+
+| Key              | Action                |
+| ---------------- | --------------------- |
+| <kbd>ENTER</kbd> | Activates the button. |
+| <kbd>SPACE</kbd> | Activates the button. |
