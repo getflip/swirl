@@ -2,4 +2,5 @@
 * @Sqrrl
 
 # Packages
+packages/swirl-icons/*  @Sqrrl
 packages/swirl-tokens/* @webspaceadam
