@@ -93,3 +93,49 @@ export class FlipButton {
   }
 }
 ```
+
+## CSS
+
+We write our CSS styles structured according to the
+[BEM method](https://css-tricks.com/bem-101/). Here, each element of our
+components gets its own class name. To keep the specificity of our selectors
+low, we avoid nesting class selectors.
+
+Because of Stencil's scoping, we do not need prefixes for our class names.
+
+Here is a structural example of a button component that includes a label and an
+icon, and has different sizes:
+
+```css
+:host {
+  /* ... styles */
+}
+
+.button {
+  /* ... styles */
+
+  &:disabled {
+    /* ... styles */
+  }
+
+  &:focus {
+    /* ... styles */
+  }
+}
+
+.button--size-s {
+  /* ... styles */
+}
+
+.button--size-m {
+  /* ... styles */
+}
+
+.button__icon {
+  /* ... styles */
+}
+
+.button__label {
+  /* ... styles */
+}
+```
