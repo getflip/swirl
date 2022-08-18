@@ -19,7 +19,7 @@
   border-radius: 2rem;
   color: #fff;
   font-size: var(--s-font-size-sm);
-  font-weigh: var(--s-font-weight-medium);
+  font-weight: var(--s-font-weight-medium);
 }
 
 .badge--size-s {
