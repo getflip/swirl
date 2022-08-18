@@ -138,6 +138,7 @@ dist
 **/.stencil
 **/dist
 **/loader
+**/components.d.ts
 
 # Storybook
 **/storybook-static
