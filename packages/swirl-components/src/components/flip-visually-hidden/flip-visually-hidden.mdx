@@ -1,0 +1,22 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipVisuallyHidden" />
+
+# FlipVisuallyHidden
+
+The FlipVisuallyHidden component is used to hide content visually, but keep it
+readable for screen readers.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-visually-hidden)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipvisuallyhidden--flip-visually-hidden" />
+</Canvas>
+
+## Accessibility
+
+The component styles its children so that they are visually hidden, but the
+contents are still readable by assistive technology like screen readers. Do not
+use this component to hide interactive elements.

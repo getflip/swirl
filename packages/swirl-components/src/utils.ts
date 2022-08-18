@@ -1,6 +1,7 @@
 export function generateStoryElement(
   tag: string,
-  args: { [arg: string]: any }
+  args: { [arg: string]: any },
+  content?: string
 ): HTMLElement {
   const element = document.createElement(tag);
 
@@ -13,6 +14,10 @@ export function generateStoryElement(
       String(value)
     )
   );
+
+  if (Boolean(content)) {
+    element.innerHTML = content;
+  }
 
   return element;
 }
