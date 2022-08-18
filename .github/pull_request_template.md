@@ -9,6 +9,10 @@
 ### General
 
 - [ ] [Changeset added](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)
+- [ ] The submitted code is organized and formatted according to our
+      [💅 Style Guide](https://swirl-storybook.flip-app.dev/?path=/docs/requirements-style-guide--page).
+  - [ ] The code is formatted with Prettier.
+  - [ ] There are no linting errors.
 
 ### For new or updated components
 
@@ -19,10 +23,6 @@ https://swirl-storybook.flip-app.dev/?path=/docs/contributions-merge-publish--pa
       library (e.g. non-reusable components, highly specialized components,
       components including business logic)
 - [ ] The component documentation is updated.
-- [ ] The submitted code is organized and formatted according to our
-      [💅 Style Guide](https://swirl-storybook.flip-app.dev/?path=/docs/requirements-style-guide--page).
-  - [ ] The code is formatted with Prettier.
-  - [ ] There are no linting errors.
 - [ ] The changes meet the
       [🤖 testing requirements](https://swirl-storybook.flip-app.dev/?path=/docs/requirements-testing--page).
   - [ ] New features are tested.
