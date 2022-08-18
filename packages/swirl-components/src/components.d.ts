@@ -71,1130 +71,1013 @@ import { FlipIconSize as FlipIconSize61 } from "./components/flip-icon/icons/fli
 import { FlipIconSize as FlipIconSize62 } from "./components/flip-icon/icons/flip-icon-video-camera";
 import { FlipIconSize as FlipIconSize63 } from "./components/flip-icon/icons/flip-icon-visibility-off";
 export namespace Components {
-  interface FlipButton {
-    disabled?: boolean;
-    label: string;
-    leftIcon?: string;
-    type?: FlipButtonType;
-  }
-  interface FlipIconAdd {
-    size: FlipIconSize;
-  }
-  interface FlipIconAddPhoto {
-    size: FlipIconSize;
-  }
-  interface FlipIconAdminPanelSettings {
-    size: FlipIconSize;
-  }
-  interface FlipIconArrowBack {
-    size: FlipIconSize;
-  }
-  interface FlipIconArrowForward {
-    size: FlipIconSize;
-  }
-  interface FlipIconArrowRightSmall {
-    size: FlipIconSize;
-  }
-  interface FlipIconAttachment {
-    size: FlipIconSize;
-  }
-  interface FlipIconChatBubble {
-    size: FlipIconSize;
-  }
-  interface FlipIconCheck {
-    size: FlipIconSize;
-  }
-  interface FlipIconCheckSmall {
-    size: FlipIconSize;
-  }
-  interface FlipIconCheckStrong {
-    size: FlipIconSize;
-  }
-  interface FlipIconChevronLeft {
-    size: FlipIconSize;
-  }
-  interface FlipIconChevronRight {
-    size: FlipIconSize;
-  }
-  interface FlipIconClose {
-    size: FlipIconSize;
-  }
-  interface FlipIconCloseSmall {
-    size: FlipIconSize;
-  }
-  interface FlipIconComment {
-    size: FlipIconSize;
-  }
-  interface FlipIconCopy {
-    size: FlipIconSize;
-  }
-  interface FlipIconDateRange {
-    size: FlipIconSize;
-  }
-  interface FlipIconDelete {
-    size: FlipIconSize;
-  }
-  interface FlipIconDescription {
-    size: FlipIconSize;
-  }
-  interface FlipIconDownload {
-    size: FlipIconSize;
-  }
-  interface FlipIconEdit {
-    size: FlipIconSize;
-  }
-  interface FlipIconEmojiMood {
-    size: FlipIconSize;
-  }
-  interface FlipIconEmojiSatisfied {
-    size: FlipIconSize;
-  }
-  interface FlipIconExpandLess {
-    size: FlipIconSize;
-  }
-  interface FlipIconExpandMore {
-    size: FlipIconSize;
-  }
-  interface FlipIconFile {
-    size: FlipIconSize;
-  }
-  interface FlipIconFolderShared {
-    size: FlipIconSize;
-  }
-  interface FlipIconGroupAssign {
-    size: FlipIconSize;
-  }
-  interface FlipIconGroups {
-    size: FlipIconSize;
-  }
-  interface FlipIconGroupsCustom {
-    size: FlipIconSize;
-  }
-  interface FlipIconImage {
-    size: FlipIconSize;
-  }
-  interface FlipIconInfo {
-    size: FlipIconSize;
-  }
-  interface FlipIconInventory {
-    size: FlipIconSize;
-  }
-  interface FlipIconLike {
-    size: FlipIconSize;
-  }
-  interface FlipIconLink {
-    size: FlipIconSize;
-  }
-  interface FlipIconLock {
-    size: FlipIconSize;
-  }
-  interface FlipIconLogout {
-    size: FlipIconSize;
-  }
-  interface FlipIconMail {
-    size: FlipIconSize;
-  }
-  interface FlipIconManageAccounts {
-    size: FlipIconSize;
-  }
-  interface FlipIconMention {
-    size: FlipIconSize;
-  }
-  interface FlipIconMessage {
-    size: FlipIconSize;
-  }
-  interface FlipIconMoreHorizontal {
-    size: FlipIconSize;
-  }
-  interface FlipIconMoreVertikal {
-    size: FlipIconSize;
-  }
-  interface FlipIconNotifications {
-    size: FlipIconSize;
-  }
-  interface FlipIconNotificationsActive {
-    size: FlipIconSize;
-  }
-  interface FlipIconNotificationsOff {
-    size: FlipIconSize;
-  }
-  interface FlipIconPeopleAlt {
-    size: FlipIconSize;
-  }
-  interface FlipIconPerson {
-    size: FlipIconSize;
-  }
-  interface FlipIconPersonOff {
-    size: FlipIconSize;
-  }
-  interface FlipIconPhone {
-    size: FlipIconSize;
-  }
-  interface FlipIconPoll {
-    size: FlipIconSize;
-  }
-  interface FlipIconRecieved {
-    size: FlipIconSize;
-  }
-  interface FlipIconReport {
-    size: FlipIconSize;
-  }
-  interface FlipIconSearch {
-    size: FlipIconSize;
-  }
-  interface FlipIconSearchStrong {
-    size: FlipIconSize;
-  }
-  interface FlipIconSend {
-    size: FlipIconSize;
-  }
-  interface FlipIconSettings {
-    size: FlipIconSize;
-  }
-  interface FlipIconTimeFilled {
-    size: FlipIconSize;
-  }
-  interface FlipIconTimeOutlined {
-    size: FlipIconSize;
-  }
-  interface FlipIconToday {
-    size: FlipIconSize;
-  }
-  interface FlipIconUserAssign {
-    size: FlipIconSize;
-  }
-  interface FlipIconVideoCamera {
-    size: FlipIconSize;
-  }
-  interface FlipIconVisibilityOff {
-    size: FlipIconSize;
-  }
+    interface FlipButton {
+        "disabled"?: boolean;
+        "label": string;
+        "leftIcon"?: string;
+        "type"?: FlipButtonType;
+    }
+    interface FlipIconAdd {
+        "size": FlipIconSize;
+    }
+    interface FlipIconAddPhoto {
+        "size": FlipIconSize;
+    }
+    interface FlipIconAdminPanelSettings {
+        "size": FlipIconSize;
+    }
+    interface FlipIconArrowBack {
+        "size": FlipIconSize;
+    }
+    interface FlipIconArrowForward {
+        "size": FlipIconSize;
+    }
+    interface FlipIconArrowRightSmall {
+        "size": FlipIconSize;
+    }
+    interface FlipIconAttachment {
+        "size": FlipIconSize;
+    }
+    interface FlipIconChatBubble {
+        "size": FlipIconSize;
+    }
+    interface FlipIconCheck {
+        "size": FlipIconSize;
+    }
+    interface FlipIconCheckSmall {
+        "size": FlipIconSize;
+    }
+    interface FlipIconCheckStrong {
+        "size": FlipIconSize;
+    }
+    interface FlipIconChevronLeft {
+        "size": FlipIconSize;
+    }
+    interface FlipIconChevronRight {
+        "size": FlipIconSize;
+    }
+    interface FlipIconClose {
+        "size": FlipIconSize;
+    }
+    interface FlipIconCloseSmall {
+        "size": FlipIconSize;
+    }
+    interface FlipIconComment {
+        "size": FlipIconSize;
+    }
+    interface FlipIconCopy {
+        "size": FlipIconSize;
+    }
+    interface FlipIconDateRange {
+        "size": FlipIconSize;
+    }
+    interface FlipIconDelete {
+        "size": FlipIconSize;
+    }
+    interface FlipIconDescription {
+        "size": FlipIconSize;
+    }
+    interface FlipIconDownload {
+        "size": FlipIconSize;
+    }
+    interface FlipIconEdit {
+        "size": FlipIconSize;
+    }
+    interface FlipIconEmojiMood {
+        "size": FlipIconSize;
+    }
+    interface FlipIconEmojiSatisfied {
+        "size": FlipIconSize;
+    }
+    interface FlipIconExpandLess {
+        "size": FlipIconSize;
+    }
+    interface FlipIconExpandMore {
+        "size": FlipIconSize;
+    }
+    interface FlipIconFile {
+        "size": FlipIconSize;
+    }
+    interface FlipIconFolderShared {
+        "size": FlipIconSize;
+    }
+    interface FlipIconGroupAssign {
+        "size": FlipIconSize;
+    }
+    interface FlipIconGroups {
+        "size": FlipIconSize;
+    }
+    interface FlipIconGroupsCustom {
+        "size": FlipIconSize;
+    }
+    interface FlipIconImage {
+        "size": FlipIconSize;
+    }
+    interface FlipIconInfo {
+        "size": FlipIconSize;
+    }
+    interface FlipIconInventory {
+        "size": FlipIconSize;
+    }
+    interface FlipIconLike {
+        "size": FlipIconSize;
+    }
+    interface FlipIconLink {
+        "size": FlipIconSize;
+    }
+    interface FlipIconLock {
+        "size": FlipIconSize;
+    }
+    interface FlipIconLogout {
+        "size": FlipIconSize;
+    }
+    interface FlipIconMail {
+        "size": FlipIconSize;
+    }
+    interface FlipIconManageAccounts {
+        "size": FlipIconSize;
+    }
+    interface FlipIconMention {
+        "size": FlipIconSize;
+    }
+    interface FlipIconMessage {
+        "size": FlipIconSize;
+    }
+    interface FlipIconMoreHorizontal {
+        "size": FlipIconSize;
+    }
+    interface FlipIconMoreVertikal {
+        "size": FlipIconSize;
+    }
+    interface FlipIconNotifications {
+        "size": FlipIconSize;
+    }
+    interface FlipIconNotificationsActive {
+        "size": FlipIconSize;
+    }
+    interface FlipIconNotificationsOff {
+        "size": FlipIconSize;
+    }
+    interface FlipIconPeopleAlt {
+        "size": FlipIconSize;
+    }
+    interface FlipIconPerson {
+        "size": FlipIconSize;
+    }
+    interface FlipIconPersonOff {
+        "size": FlipIconSize;
+    }
+    interface FlipIconPhone {
+        "size": FlipIconSize;
+    }
+    interface FlipIconPoll {
+        "size": FlipIconSize;
+    }
+    interface FlipIconRecieved {
+        "size": FlipIconSize;
+    }
+    interface FlipIconReport {
+        "size": FlipIconSize;
+    }
+    interface FlipIconSearch {
+        "size": FlipIconSize;
+    }
+    interface FlipIconSearchStrong {
+        "size": FlipIconSize;
+    }
+    interface FlipIconSend {
+        "size": FlipIconSize;
+    }
+    interface FlipIconSettings {
+        "size": FlipIconSize;
+    }
+    interface FlipIconTimeFilled {
+        "size": FlipIconSize;
+    }
+    interface FlipIconTimeOutlined {
+        "size": FlipIconSize;
+    }
+    interface FlipIconToday {
+        "size": FlipIconSize;
+    }
+    interface FlipIconUserAssign {
+        "size": FlipIconSize;
+    }
+    interface FlipIconVideoCamera {
+        "size": FlipIconSize;
+    }
+    interface FlipIconVisibilityOff {
+        "size": FlipIconSize;
+    }
+    interface FlipVisuallyHidden {
+    }
 }
 declare global {
-  interface HTMLFlipButtonElement
-    extends Components.FlipButton,
-      HTMLStencilElement {}
-  var HTMLFlipButtonElement: {
-    prototype: HTMLFlipButtonElement;
-    new (): HTMLFlipButtonElement;
-  };
-  interface HTMLFlipIconAddElement
-    extends Components.FlipIconAdd,
-      HTMLStencilElement {}
-  var HTMLFlipIconAddElement: {
-    prototype: HTMLFlipIconAddElement;
-    new (): HTMLFlipIconAddElement;
-  };
-  interface HTMLFlipIconAddPhotoElement
-    extends Components.FlipIconAddPhoto,
-      HTMLStencilElement {}
-  var HTMLFlipIconAddPhotoElement: {
-    prototype: HTMLFlipIconAddPhotoElement;
-    new (): HTMLFlipIconAddPhotoElement;
-  };
-  interface HTMLFlipIconAdminPanelSettingsElement
-    extends Components.FlipIconAdminPanelSettings,
-      HTMLStencilElement {}
-  var HTMLFlipIconAdminPanelSettingsElement: {
-    prototype: HTMLFlipIconAdminPanelSettingsElement;
-    new (): HTMLFlipIconAdminPanelSettingsElement;
-  };
-  interface HTMLFlipIconArrowBackElement
-    extends Components.FlipIconArrowBack,
-      HTMLStencilElement {}
-  var HTMLFlipIconArrowBackElement: {
-    prototype: HTMLFlipIconArrowBackElement;
-    new (): HTMLFlipIconArrowBackElement;
-  };
-  interface HTMLFlipIconArrowForwardElement
-    extends Components.FlipIconArrowForward,
-      HTMLStencilElement {}
-  var HTMLFlipIconArrowForwardElement: {
-    prototype: HTMLFlipIconArrowForwardElement;
-    new (): HTMLFlipIconArrowForwardElement;
-  };
-  interface HTMLFlipIconArrowRightSmallElement
-    extends Components.FlipIconArrowRightSmall,
-      HTMLStencilElement {}
-  var HTMLFlipIconArrowRightSmallElement: {
-    prototype: HTMLFlipIconArrowRightSmallElement;
-    new (): HTMLFlipIconArrowRightSmallElement;
-  };
-  interface HTMLFlipIconAttachmentElement
-    extends Components.FlipIconAttachment,
-      HTMLStencilElement {}
-  var HTMLFlipIconAttachmentElement: {
-    prototype: HTMLFlipIconAttachmentElement;
-    new (): HTMLFlipIconAttachmentElement;
-  };
-  interface HTMLFlipIconChatBubbleElement
-    extends Components.FlipIconChatBubble,
-      HTMLStencilElement {}
-  var HTMLFlipIconChatBubbleElement: {
-    prototype: HTMLFlipIconChatBubbleElement;
-    new (): HTMLFlipIconChatBubbleElement;
-  };
-  interface HTMLFlipIconCheckElement
-    extends Components.FlipIconCheck,
-      HTMLStencilElement {}
-  var HTMLFlipIconCheckElement: {
-    prototype: HTMLFlipIconCheckElement;
-    new (): HTMLFlipIconCheckElement;
-  };
-  interface HTMLFlipIconCheckSmallElement
-    extends Components.FlipIconCheckSmall,
-      HTMLStencilElement {}
-  var HTMLFlipIconCheckSmallElement: {
-    prototype: HTMLFlipIconCheckSmallElement;
-    new (): HTMLFlipIconCheckSmallElement;
-  };
-  interface HTMLFlipIconCheckStrongElement
-    extends Components.FlipIconCheckStrong,
-      HTMLStencilElement {}
-  var HTMLFlipIconCheckStrongElement: {
-    prototype: HTMLFlipIconCheckStrongElement;
-    new (): HTMLFlipIconCheckStrongElement;
-  };
-  interface HTMLFlipIconChevronLeftElement
-    extends Components.FlipIconChevronLeft,
-      HTMLStencilElement {}
-  var HTMLFlipIconChevronLeftElement: {
-    prototype: HTMLFlipIconChevronLeftElement;
-    new (): HTMLFlipIconChevronLeftElement;
-  };
-  interface HTMLFlipIconChevronRightElement
-    extends Components.FlipIconChevronRight,
-      HTMLStencilElement {}
-  var HTMLFlipIconChevronRightElement: {
-    prototype: HTMLFlipIconChevronRightElement;
-    new (): HTMLFlipIconChevronRightElement;
-  };
-  interface HTMLFlipIconCloseElement
-    extends Components.FlipIconClose,
-      HTMLStencilElement {}
-  var HTMLFlipIconCloseElement: {
-    prototype: HTMLFlipIconCloseElement;
-    new (): HTMLFlipIconCloseElement;
-  };
-  interface HTMLFlipIconCloseSmallElement
-    extends Components.FlipIconCloseSmall,
-      HTMLStencilElement {}
-  var HTMLFlipIconCloseSmallElement: {
-    prototype: HTMLFlipIconCloseSmallElement;
-    new (): HTMLFlipIconCloseSmallElement;
-  };
-  interface HTMLFlipIconCommentElement
-    extends Components.FlipIconComment,
-      HTMLStencilElement {}
-  var HTMLFlipIconCommentElement: {
-    prototype: HTMLFlipIconCommentElement;
-    new (): HTMLFlipIconCommentElement;
-  };
-  interface HTMLFlipIconCopyElement
-    extends Components.FlipIconCopy,
-      HTMLStencilElement {}
-  var HTMLFlipIconCopyElement: {
-    prototype: HTMLFlipIconCopyElement;
-    new (): HTMLFlipIconCopyElement;
-  };
-  interface HTMLFlipIconDateRangeElement
-    extends Components.FlipIconDateRange,
-      HTMLStencilElement {}
-  var HTMLFlipIconDateRangeElement: {
-    prototype: HTMLFlipIconDateRangeElement;
-    new (): HTMLFlipIconDateRangeElement;
-  };
-  interface HTMLFlipIconDeleteElement
-    extends Components.FlipIconDelete,
-      HTMLStencilElement {}
-  var HTMLFlipIconDeleteElement: {
-    prototype: HTMLFlipIconDeleteElement;
-    new (): HTMLFlipIconDeleteElement;
-  };
-  interface HTMLFlipIconDescriptionElement
-    extends Components.FlipIconDescription,
-      HTMLStencilElement {}
-  var HTMLFlipIconDescriptionElement: {
-    prototype: HTMLFlipIconDescriptionElement;
-    new (): HTMLFlipIconDescriptionElement;
-  };
-  interface HTMLFlipIconDownloadElement
-    extends Components.FlipIconDownload,
-      HTMLStencilElement {}
-  var HTMLFlipIconDownloadElement: {
-    prototype: HTMLFlipIconDownloadElement;
-    new (): HTMLFlipIconDownloadElement;
-  };
-  interface HTMLFlipIconEditElement
-    extends Components.FlipIconEdit,
-      HTMLStencilElement {}
-  var HTMLFlipIconEditElement: {
-    prototype: HTMLFlipIconEditElement;
-    new (): HTMLFlipIconEditElement;
-  };
-  interface HTMLFlipIconEmojiMoodElement
-    extends Components.FlipIconEmojiMood,
-      HTMLStencilElement {}
-  var HTMLFlipIconEmojiMoodElement: {
-    prototype: HTMLFlipIconEmojiMoodElement;
-    new (): HTMLFlipIconEmojiMoodElement;
-  };
-  interface HTMLFlipIconEmojiSatisfiedElement
-    extends Components.FlipIconEmojiSatisfied,
-      HTMLStencilElement {}
-  var HTMLFlipIconEmojiSatisfiedElement: {
-    prototype: HTMLFlipIconEmojiSatisfiedElement;
-    new (): HTMLFlipIconEmojiSatisfiedElement;
-  };
-  interface HTMLFlipIconExpandLessElement
-    extends Components.FlipIconExpandLess,
-      HTMLStencilElement {}
-  var HTMLFlipIconExpandLessElement: {
-    prototype: HTMLFlipIconExpandLessElement;
-    new (): HTMLFlipIconExpandLessElement;
-  };
-  interface HTMLFlipIconExpandMoreElement
-    extends Components.FlipIconExpandMore,
-      HTMLStencilElement {}
-  var HTMLFlipIconExpandMoreElement: {
-    prototype: HTMLFlipIconExpandMoreElement;
-    new (): HTMLFlipIconExpandMoreElement;
-  };
-  interface HTMLFlipIconFileElement
-    extends Components.FlipIconFile,
-      HTMLStencilElement {}
-  var HTMLFlipIconFileElement: {
-    prototype: HTMLFlipIconFileElement;
-    new (): HTMLFlipIconFileElement;
-  };
-  interface HTMLFlipIconFolderSharedElement
-    extends Components.FlipIconFolderShared,
-      HTMLStencilElement {}
-  var HTMLFlipIconFolderSharedElement: {
-    prototype: HTMLFlipIconFolderSharedElement;
-    new (): HTMLFlipIconFolderSharedElement;
-  };
-  interface HTMLFlipIconGroupAssignElement
-    extends Components.FlipIconGroupAssign,
-      HTMLStencilElement {}
-  var HTMLFlipIconGroupAssignElement: {
-    prototype: HTMLFlipIconGroupAssignElement;
-    new (): HTMLFlipIconGroupAssignElement;
-  };
-  interface HTMLFlipIconGroupsElement
-    extends Components.FlipIconGroups,
-      HTMLStencilElement {}
-  var HTMLFlipIconGroupsElement: {
-    prototype: HTMLFlipIconGroupsElement;
-    new (): HTMLFlipIconGroupsElement;
-  };
-  interface HTMLFlipIconGroupsCustomElement
-    extends Components.FlipIconGroupsCustom,
-      HTMLStencilElement {}
-  var HTMLFlipIconGroupsCustomElement: {
-    prototype: HTMLFlipIconGroupsCustomElement;
-    new (): HTMLFlipIconGroupsCustomElement;
-  };
-  interface HTMLFlipIconImageElement
-    extends Components.FlipIconImage,
-      HTMLStencilElement {}
-  var HTMLFlipIconImageElement: {
-    prototype: HTMLFlipIconImageElement;
-    new (): HTMLFlipIconImageElement;
-  };
-  interface HTMLFlipIconInfoElement
-    extends Components.FlipIconInfo,
-      HTMLStencilElement {}
-  var HTMLFlipIconInfoElement: {
-    prototype: HTMLFlipIconInfoElement;
-    new (): HTMLFlipIconInfoElement;
-  };
-  interface HTMLFlipIconInventoryElement
-    extends Components.FlipIconInventory,
-      HTMLStencilElement {}
-  var HTMLFlipIconInventoryElement: {
-    prototype: HTMLFlipIconInventoryElement;
-    new (): HTMLFlipIconInventoryElement;
-  };
-  interface HTMLFlipIconLikeElement
-    extends Components.FlipIconLike,
-      HTMLStencilElement {}
-  var HTMLFlipIconLikeElement: {
-    prototype: HTMLFlipIconLikeElement;
-    new (): HTMLFlipIconLikeElement;
-  };
-  interface HTMLFlipIconLinkElement
-    extends Components.FlipIconLink,
-      HTMLStencilElement {}
-  var HTMLFlipIconLinkElement: {
-    prototype: HTMLFlipIconLinkElement;
-    new (): HTMLFlipIconLinkElement;
-  };
-  interface HTMLFlipIconLockElement
-    extends Components.FlipIconLock,
-      HTMLStencilElement {}
-  var HTMLFlipIconLockElement: {
-    prototype: HTMLFlipIconLockElement;
-    new (): HTMLFlipIconLockElement;
-  };
-  interface HTMLFlipIconLogoutElement
-    extends Components.FlipIconLogout,
-      HTMLStencilElement {}
-  var HTMLFlipIconLogoutElement: {
-    prototype: HTMLFlipIconLogoutElement;
-    new (): HTMLFlipIconLogoutElement;
-  };
-  interface HTMLFlipIconMailElement
-    extends Components.FlipIconMail,
-      HTMLStencilElement {}
-  var HTMLFlipIconMailElement: {
-    prototype: HTMLFlipIconMailElement;
-    new (): HTMLFlipIconMailElement;
-  };
-  interface HTMLFlipIconManageAccountsElement
-    extends Components.FlipIconManageAccounts,
-      HTMLStencilElement {}
-  var HTMLFlipIconManageAccountsElement: {
-    prototype: HTMLFlipIconManageAccountsElement;
-    new (): HTMLFlipIconManageAccountsElement;
-  };
-  interface HTMLFlipIconMentionElement
-    extends Components.FlipIconMention,
-      HTMLStencilElement {}
-  var HTMLFlipIconMentionElement: {
-    prototype: HTMLFlipIconMentionElement;
-    new (): HTMLFlipIconMentionElement;
-  };
-  interface HTMLFlipIconMessageElement
-    extends Components.FlipIconMessage,
-      HTMLStencilElement {}
-  var HTMLFlipIconMessageElement: {
-    prototype: HTMLFlipIconMessageElement;
-    new (): HTMLFlipIconMessageElement;
-  };
-  interface HTMLFlipIconMoreHorizontalElement
-    extends Components.FlipIconMoreHorizontal,
-      HTMLStencilElement {}
-  var HTMLFlipIconMoreHorizontalElement: {
-    prototype: HTMLFlipIconMoreHorizontalElement;
-    new (): HTMLFlipIconMoreHorizontalElement;
-  };
-  interface HTMLFlipIconMoreVertikalElement
-    extends Components.FlipIconMoreVertikal,
-      HTMLStencilElement {}
-  var HTMLFlipIconMoreVertikalElement: {
-    prototype: HTMLFlipIconMoreVertikalElement;
-    new (): HTMLFlipIconMoreVertikalElement;
-  };
-  interface HTMLFlipIconNotificationsElement
-    extends Components.FlipIconNotifications,
-      HTMLStencilElement {}
-  var HTMLFlipIconNotificationsElement: {
-    prototype: HTMLFlipIconNotificationsElement;
-    new (): HTMLFlipIconNotificationsElement;
-  };
-  interface HTMLFlipIconNotificationsActiveElement
-    extends Components.FlipIconNotificationsActive,
-      HTMLStencilElement {}
-  var HTMLFlipIconNotificationsActiveElement: {
-    prototype: HTMLFlipIconNotificationsActiveElement;
-    new (): HTMLFlipIconNotificationsActiveElement;
-  };
-  interface HTMLFlipIconNotificationsOffElement
-    extends Components.FlipIconNotificationsOff,
-      HTMLStencilElement {}
-  var HTMLFlipIconNotificationsOffElement: {
-    prototype: HTMLFlipIconNotificationsOffElement;
-    new (): HTMLFlipIconNotificationsOffElement;
-  };
-  interface HTMLFlipIconPeopleAltElement
-    extends Components.FlipIconPeopleAlt,
-      HTMLStencilElement {}
-  var HTMLFlipIconPeopleAltElement: {
-    prototype: HTMLFlipIconPeopleAltElement;
-    new (): HTMLFlipIconPeopleAltElement;
-  };
-  interface HTMLFlipIconPersonElement
-    extends Components.FlipIconPerson,
-      HTMLStencilElement {}
-  var HTMLFlipIconPersonElement: {
-    prototype: HTMLFlipIconPersonElement;
-    new (): HTMLFlipIconPersonElement;
-  };
-  interface HTMLFlipIconPersonOffElement
-    extends Components.FlipIconPersonOff,
-      HTMLStencilElement {}
-  var HTMLFlipIconPersonOffElement: {
-    prototype: HTMLFlipIconPersonOffElement;
-    new (): HTMLFlipIconPersonOffElement;
-  };
-  interface HTMLFlipIconPhoneElement
-    extends Components.FlipIconPhone,
-      HTMLStencilElement {}
-  var HTMLFlipIconPhoneElement: {
-    prototype: HTMLFlipIconPhoneElement;
-    new (): HTMLFlipIconPhoneElement;
-  };
-  interface HTMLFlipIconPollElement
-    extends Components.FlipIconPoll,
-      HTMLStencilElement {}
-  var HTMLFlipIconPollElement: {
-    prototype: HTMLFlipIconPollElement;
-    new (): HTMLFlipIconPollElement;
-  };
-  interface HTMLFlipIconRecievedElement
-    extends Components.FlipIconRecieved,
-      HTMLStencilElement {}
-  var HTMLFlipIconRecievedElement: {
-    prototype: HTMLFlipIconRecievedElement;
-    new (): HTMLFlipIconRecievedElement;
-  };
-  interface HTMLFlipIconReportElement
-    extends Components.FlipIconReport,
-      HTMLStencilElement {}
-  var HTMLFlipIconReportElement: {
-    prototype: HTMLFlipIconReportElement;
-    new (): HTMLFlipIconReportElement;
-  };
-  interface HTMLFlipIconSearchElement
-    extends Components.FlipIconSearch,
-      HTMLStencilElement {}
-  var HTMLFlipIconSearchElement: {
-    prototype: HTMLFlipIconSearchElement;
-    new (): HTMLFlipIconSearchElement;
-  };
-  interface HTMLFlipIconSearchStrongElement
-    extends Components.FlipIconSearchStrong,
-      HTMLStencilElement {}
-  var HTMLFlipIconSearchStrongElement: {
-    prototype: HTMLFlipIconSearchStrongElement;
-    new (): HTMLFlipIconSearchStrongElement;
-  };
-  interface HTMLFlipIconSendElement
-    extends Components.FlipIconSend,
-      HTMLStencilElement {}
-  var HTMLFlipIconSendElement: {
-    prototype: HTMLFlipIconSendElement;
-    new (): HTMLFlipIconSendElement;
-  };
-  interface HTMLFlipIconSettingsElement
-    extends Components.FlipIconSettings,
-      HTMLStencilElement {}
-  var HTMLFlipIconSettingsElement: {
-    prototype: HTMLFlipIconSettingsElement;
-    new (): HTMLFlipIconSettingsElement;
-  };
-  interface HTMLFlipIconTimeFilledElement
-    extends Components.FlipIconTimeFilled,
-      HTMLStencilElement {}
-  var HTMLFlipIconTimeFilledElement: {
-    prototype: HTMLFlipIconTimeFilledElement;
-    new (): HTMLFlipIconTimeFilledElement;
-  };
-  interface HTMLFlipIconTimeOutlinedElement
-    extends Components.FlipIconTimeOutlined,
-      HTMLStencilElement {}
-  var HTMLFlipIconTimeOutlinedElement: {
-    prototype: HTMLFlipIconTimeOutlinedElement;
-    new (): HTMLFlipIconTimeOutlinedElement;
-  };
-  interface HTMLFlipIconTodayElement
-    extends Components.FlipIconToday,
-      HTMLStencilElement {}
-  var HTMLFlipIconTodayElement: {
-    prototype: HTMLFlipIconTodayElement;
-    new (): HTMLFlipIconTodayElement;
-  };
-  interface HTMLFlipIconUserAssignElement
-    extends Components.FlipIconUserAssign,
-      HTMLStencilElement {}
-  var HTMLFlipIconUserAssignElement: {
-    prototype: HTMLFlipIconUserAssignElement;
-    new (): HTMLFlipIconUserAssignElement;
-  };
-  interface HTMLFlipIconVideoCameraElement
-    extends Components.FlipIconVideoCamera,
-      HTMLStencilElement {}
-  var HTMLFlipIconVideoCameraElement: {
-    prototype: HTMLFlipIconVideoCameraElement;
-    new (): HTMLFlipIconVideoCameraElement;
-  };
-  interface HTMLFlipIconVisibilityOffElement
-    extends Components.FlipIconVisibilityOff,
-      HTMLStencilElement {}
-  var HTMLFlipIconVisibilityOffElement: {
-    prototype: HTMLFlipIconVisibilityOffElement;
-    new (): HTMLFlipIconVisibilityOffElement;
-  };
-  interface HTMLElementTagNameMap {
-    "flip-button": HTMLFlipButtonElement;
-    "flip-icon-add": HTMLFlipIconAddElement;
-    "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
-    "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
-    "flip-icon-arrow-back": HTMLFlipIconArrowBackElement;
-    "flip-icon-arrow-forward": HTMLFlipIconArrowForwardElement;
-    "flip-icon-arrow-right-small": HTMLFlipIconArrowRightSmallElement;
-    "flip-icon-attachment": HTMLFlipIconAttachmentElement;
-    "flip-icon-chat-bubble": HTMLFlipIconChatBubbleElement;
-    "flip-icon-check": HTMLFlipIconCheckElement;
-    "flip-icon-check-small": HTMLFlipIconCheckSmallElement;
-    "flip-icon-check-strong": HTMLFlipIconCheckStrongElement;
-    "flip-icon-chevron-left": HTMLFlipIconChevronLeftElement;
-    "flip-icon-chevron-right": HTMLFlipIconChevronRightElement;
-    "flip-icon-close": HTMLFlipIconCloseElement;
-    "flip-icon-close-small": HTMLFlipIconCloseSmallElement;
-    "flip-icon-comment": HTMLFlipIconCommentElement;
-    "flip-icon-copy": HTMLFlipIconCopyElement;
-    "flip-icon-date-range": HTMLFlipIconDateRangeElement;
-    "flip-icon-delete": HTMLFlipIconDeleteElement;
-    "flip-icon-description": HTMLFlipIconDescriptionElement;
-    "flip-icon-download": HTMLFlipIconDownloadElement;
-    "flip-icon-edit": HTMLFlipIconEditElement;
-    "flip-icon-emoji-mood": HTMLFlipIconEmojiMoodElement;
-    "flip-icon-emoji-satisfied": HTMLFlipIconEmojiSatisfiedElement;
-    "flip-icon-expand-less": HTMLFlipIconExpandLessElement;
-    "flip-icon-expand-more": HTMLFlipIconExpandMoreElement;
-    "flip-icon-file": HTMLFlipIconFileElement;
-    "flip-icon-folder-shared": HTMLFlipIconFolderSharedElement;
-    "flip-icon-group-assign": HTMLFlipIconGroupAssignElement;
-    "flip-icon-groups": HTMLFlipIconGroupsElement;
-    "flip-icon-groups-custom": HTMLFlipIconGroupsCustomElement;
-    "flip-icon-image": HTMLFlipIconImageElement;
-    "flip-icon-info": HTMLFlipIconInfoElement;
-    "flip-icon-inventory": HTMLFlipIconInventoryElement;
-    "flip-icon-like": HTMLFlipIconLikeElement;
-    "flip-icon-link": HTMLFlipIconLinkElement;
-    "flip-icon-lock": HTMLFlipIconLockElement;
-    "flip-icon-logout": HTMLFlipIconLogoutElement;
-    "flip-icon-mail": HTMLFlipIconMailElement;
-    "flip-icon-manage-accounts": HTMLFlipIconManageAccountsElement;
-    "flip-icon-mention": HTMLFlipIconMentionElement;
-    "flip-icon-message": HTMLFlipIconMessageElement;
-    "flip-icon-more-horizontal": HTMLFlipIconMoreHorizontalElement;
-    "flip-icon-more-vertikal": HTMLFlipIconMoreVertikalElement;
-    "flip-icon-notifications": HTMLFlipIconNotificationsElement;
-    "flip-icon-notifications-active": HTMLFlipIconNotificationsActiveElement;
-    "flip-icon-notifications-off": HTMLFlipIconNotificationsOffElement;
-    "flip-icon-people-alt": HTMLFlipIconPeopleAltElement;
-    "flip-icon-person": HTMLFlipIconPersonElement;
-    "flip-icon-person-off": HTMLFlipIconPersonOffElement;
-    "flip-icon-phone": HTMLFlipIconPhoneElement;
-    "flip-icon-poll": HTMLFlipIconPollElement;
-    "flip-icon-recieved": HTMLFlipIconRecievedElement;
-    "flip-icon-report": HTMLFlipIconReportElement;
-    "flip-icon-search": HTMLFlipIconSearchElement;
-    "flip-icon-search-strong": HTMLFlipIconSearchStrongElement;
-    "flip-icon-send": HTMLFlipIconSendElement;
-    "flip-icon-settings": HTMLFlipIconSettingsElement;
-    "flip-icon-time-filled": HTMLFlipIconTimeFilledElement;
-    "flip-icon-time-outlined": HTMLFlipIconTimeOutlinedElement;
-    "flip-icon-today": HTMLFlipIconTodayElement;
-    "flip-icon-user-assign": HTMLFlipIconUserAssignElement;
-    "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
-    "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
-  }
+    interface HTMLFlipButtonElement extends Components.FlipButton, HTMLStencilElement {
+    }
+    var HTMLFlipButtonElement: {
+        prototype: HTMLFlipButtonElement;
+        new (): HTMLFlipButtonElement;
+    };
+    interface HTMLFlipIconAddElement extends Components.FlipIconAdd, HTMLStencilElement {
+    }
+    var HTMLFlipIconAddElement: {
+        prototype: HTMLFlipIconAddElement;
+        new (): HTMLFlipIconAddElement;
+    };
+    interface HTMLFlipIconAddPhotoElement extends Components.FlipIconAddPhoto, HTMLStencilElement {
+    }
+    var HTMLFlipIconAddPhotoElement: {
+        prototype: HTMLFlipIconAddPhotoElement;
+        new (): HTMLFlipIconAddPhotoElement;
+    };
+    interface HTMLFlipIconAdminPanelSettingsElement extends Components.FlipIconAdminPanelSettings, HTMLStencilElement {
+    }
+    var HTMLFlipIconAdminPanelSettingsElement: {
+        prototype: HTMLFlipIconAdminPanelSettingsElement;
+        new (): HTMLFlipIconAdminPanelSettingsElement;
+    };
+    interface HTMLFlipIconArrowBackElement extends Components.FlipIconArrowBack, HTMLStencilElement {
+    }
+    var HTMLFlipIconArrowBackElement: {
+        prototype: HTMLFlipIconArrowBackElement;
+        new (): HTMLFlipIconArrowBackElement;
+    };
+    interface HTMLFlipIconArrowForwardElement extends Components.FlipIconArrowForward, HTMLStencilElement {
+    }
+    var HTMLFlipIconArrowForwardElement: {
+        prototype: HTMLFlipIconArrowForwardElement;
+        new (): HTMLFlipIconArrowForwardElement;
+    };
+    interface HTMLFlipIconArrowRightSmallElement extends Components.FlipIconArrowRightSmall, HTMLStencilElement {
+    }
+    var HTMLFlipIconArrowRightSmallElement: {
+        prototype: HTMLFlipIconArrowRightSmallElement;
+        new (): HTMLFlipIconArrowRightSmallElement;
+    };
+    interface HTMLFlipIconAttachmentElement extends Components.FlipIconAttachment, HTMLStencilElement {
+    }
+    var HTMLFlipIconAttachmentElement: {
+        prototype: HTMLFlipIconAttachmentElement;
+        new (): HTMLFlipIconAttachmentElement;
+    };
+    interface HTMLFlipIconChatBubbleElement extends Components.FlipIconChatBubble, HTMLStencilElement {
+    }
+    var HTMLFlipIconChatBubbleElement: {
+        prototype: HTMLFlipIconChatBubbleElement;
+        new (): HTMLFlipIconChatBubbleElement;
+    };
+    interface HTMLFlipIconCheckElement extends Components.FlipIconCheck, HTMLStencilElement {
+    }
+    var HTMLFlipIconCheckElement: {
+        prototype: HTMLFlipIconCheckElement;
+        new (): HTMLFlipIconCheckElement;
+    };
+    interface HTMLFlipIconCheckSmallElement extends Components.FlipIconCheckSmall, HTMLStencilElement {
+    }
+    var HTMLFlipIconCheckSmallElement: {
+        prototype: HTMLFlipIconCheckSmallElement;
+        new (): HTMLFlipIconCheckSmallElement;
+    };
+    interface HTMLFlipIconCheckStrongElement extends Components.FlipIconCheckStrong, HTMLStencilElement {
+    }
+    var HTMLFlipIconCheckStrongElement: {
+        prototype: HTMLFlipIconCheckStrongElement;
+        new (): HTMLFlipIconCheckStrongElement;
+    };
+    interface HTMLFlipIconChevronLeftElement extends Components.FlipIconChevronLeft, HTMLStencilElement {
+    }
+    var HTMLFlipIconChevronLeftElement: {
+        prototype: HTMLFlipIconChevronLeftElement;
+        new (): HTMLFlipIconChevronLeftElement;
+    };
+    interface HTMLFlipIconChevronRightElement extends Components.FlipIconChevronRight, HTMLStencilElement {
+    }
+    var HTMLFlipIconChevronRightElement: {
+        prototype: HTMLFlipIconChevronRightElement;
+        new (): HTMLFlipIconChevronRightElement;
+    };
+    interface HTMLFlipIconCloseElement extends Components.FlipIconClose, HTMLStencilElement {
+    }
+    var HTMLFlipIconCloseElement: {
+        prototype: HTMLFlipIconCloseElement;
+        new (): HTMLFlipIconCloseElement;
+    };
+    interface HTMLFlipIconCloseSmallElement extends Components.FlipIconCloseSmall, HTMLStencilElement {
+    }
+    var HTMLFlipIconCloseSmallElement: {
+        prototype: HTMLFlipIconCloseSmallElement;
+        new (): HTMLFlipIconCloseSmallElement;
+    };
+    interface HTMLFlipIconCommentElement extends Components.FlipIconComment, HTMLStencilElement {
+    }
+    var HTMLFlipIconCommentElement: {
+        prototype: HTMLFlipIconCommentElement;
+        new (): HTMLFlipIconCommentElement;
+    };
+    interface HTMLFlipIconCopyElement extends Components.FlipIconCopy, HTMLStencilElement {
+    }
+    var HTMLFlipIconCopyElement: {
+        prototype: HTMLFlipIconCopyElement;
+        new (): HTMLFlipIconCopyElement;
+    };
+    interface HTMLFlipIconDateRangeElement extends Components.FlipIconDateRange, HTMLStencilElement {
+    }
+    var HTMLFlipIconDateRangeElement: {
+        prototype: HTMLFlipIconDateRangeElement;
+        new (): HTMLFlipIconDateRangeElement;
+    };
+    interface HTMLFlipIconDeleteElement extends Components.FlipIconDelete, HTMLStencilElement {
+    }
+    var HTMLFlipIconDeleteElement: {
+        prototype: HTMLFlipIconDeleteElement;
+        new (): HTMLFlipIconDeleteElement;
+    };
+    interface HTMLFlipIconDescriptionElement extends Components.FlipIconDescription, HTMLStencilElement {
+    }
+    var HTMLFlipIconDescriptionElement: {
+        prototype: HTMLFlipIconDescriptionElement;
+        new (): HTMLFlipIconDescriptionElement;
+    };
+    interface HTMLFlipIconDownloadElement extends Components.FlipIconDownload, HTMLStencilElement {
+    }
+    var HTMLFlipIconDownloadElement: {
+        prototype: HTMLFlipIconDownloadElement;
+        new (): HTMLFlipIconDownloadElement;
+    };
+    interface HTMLFlipIconEditElement extends Components.FlipIconEdit, HTMLStencilElement {
+    }
+    var HTMLFlipIconEditElement: {
+        prototype: HTMLFlipIconEditElement;
+        new (): HTMLFlipIconEditElement;
+    };
+    interface HTMLFlipIconEmojiMoodElement extends Components.FlipIconEmojiMood, HTMLStencilElement {
+    }
+    var HTMLFlipIconEmojiMoodElement: {
+        prototype: HTMLFlipIconEmojiMoodElement;
+        new (): HTMLFlipIconEmojiMoodElement;
+    };
+    interface HTMLFlipIconEmojiSatisfiedElement extends Components.FlipIconEmojiSatisfied, HTMLStencilElement {
+    }
+    var HTMLFlipIconEmojiSatisfiedElement: {
+        prototype: HTMLFlipIconEmojiSatisfiedElement;
+        new (): HTMLFlipIconEmojiSatisfiedElement;
+    };
+    interface HTMLFlipIconExpandLessElement extends Components.FlipIconExpandLess, HTMLStencilElement {
+    }
+    var HTMLFlipIconExpandLessElement: {
+        prototype: HTMLFlipIconExpandLessElement;
+        new (): HTMLFlipIconExpandLessElement;
+    };
+    interface HTMLFlipIconExpandMoreElement extends Components.FlipIconExpandMore, HTMLStencilElement {
+    }
+    var HTMLFlipIconExpandMoreElement: {
+        prototype: HTMLFlipIconExpandMoreElement;
+        new (): HTMLFlipIconExpandMoreElement;
+    };
+    interface HTMLFlipIconFileElement extends Components.FlipIconFile, HTMLStencilElement {
+    }
+    var HTMLFlipIconFileElement: {
+        prototype: HTMLFlipIconFileElement;
+        new (): HTMLFlipIconFileElement;
+    };
+    interface HTMLFlipIconFolderSharedElement extends Components.FlipIconFolderShared, HTMLStencilElement {
+    }
+    var HTMLFlipIconFolderSharedElement: {
+        prototype: HTMLFlipIconFolderSharedElement;
+        new (): HTMLFlipIconFolderSharedElement;
+    };
+    interface HTMLFlipIconGroupAssignElement extends Components.FlipIconGroupAssign, HTMLStencilElement {
+    }
+    var HTMLFlipIconGroupAssignElement: {
+        prototype: HTMLFlipIconGroupAssignElement;
+        new (): HTMLFlipIconGroupAssignElement;
+    };
+    interface HTMLFlipIconGroupsElement extends Components.FlipIconGroups, HTMLStencilElement {
+    }
+    var HTMLFlipIconGroupsElement: {
+        prototype: HTMLFlipIconGroupsElement;
+        new (): HTMLFlipIconGroupsElement;
+    };
+    interface HTMLFlipIconGroupsCustomElement extends Components.FlipIconGroupsCustom, HTMLStencilElement {
+    }
+    var HTMLFlipIconGroupsCustomElement: {
+        prototype: HTMLFlipIconGroupsCustomElement;
+        new (): HTMLFlipIconGroupsCustomElement;
+    };
+    interface HTMLFlipIconImageElement extends Components.FlipIconImage, HTMLStencilElement {
+    }
+    var HTMLFlipIconImageElement: {
+        prototype: HTMLFlipIconImageElement;
+        new (): HTMLFlipIconImageElement;
+    };
+    interface HTMLFlipIconInfoElement extends Components.FlipIconInfo, HTMLStencilElement {
+    }
+    var HTMLFlipIconInfoElement: {
+        prototype: HTMLFlipIconInfoElement;
+        new (): HTMLFlipIconInfoElement;
+    };
+    interface HTMLFlipIconInventoryElement extends Components.FlipIconInventory, HTMLStencilElement {
+    }
+    var HTMLFlipIconInventoryElement: {
+        prototype: HTMLFlipIconInventoryElement;
+        new (): HTMLFlipIconInventoryElement;
+    };
+    interface HTMLFlipIconLikeElement extends Components.FlipIconLike, HTMLStencilElement {
+    }
+    var HTMLFlipIconLikeElement: {
+        prototype: HTMLFlipIconLikeElement;
+        new (): HTMLFlipIconLikeElement;
+    };
+    interface HTMLFlipIconLinkElement extends Components.FlipIconLink, HTMLStencilElement {
+    }
+    var HTMLFlipIconLinkElement: {
+        prototype: HTMLFlipIconLinkElement;
+        new (): HTMLFlipIconLinkElement;
+    };
+    interface HTMLFlipIconLockElement extends Components.FlipIconLock, HTMLStencilElement {
+    }
+    var HTMLFlipIconLockElement: {
+        prototype: HTMLFlipIconLockElement;
+        new (): HTMLFlipIconLockElement;
+    };
+    interface HTMLFlipIconLogoutElement extends Components.FlipIconLogout, HTMLStencilElement {
+    }
+    var HTMLFlipIconLogoutElement: {
+        prototype: HTMLFlipIconLogoutElement;
+        new (): HTMLFlipIconLogoutElement;
+    };
+    interface HTMLFlipIconMailElement extends Components.FlipIconMail, HTMLStencilElement {
+    }
+    var HTMLFlipIconMailElement: {
+        prototype: HTMLFlipIconMailElement;
+        new (): HTMLFlipIconMailElement;
+    };
+    interface HTMLFlipIconManageAccountsElement extends Components.FlipIconManageAccounts, HTMLStencilElement {
+    }
+    var HTMLFlipIconManageAccountsElement: {
+        prototype: HTMLFlipIconManageAccountsElement;
+        new (): HTMLFlipIconManageAccountsElement;
+    };
+    interface HTMLFlipIconMentionElement extends Components.FlipIconMention, HTMLStencilElement {
+    }
+    var HTMLFlipIconMentionElement: {
+        prototype: HTMLFlipIconMentionElement;
+        new (): HTMLFlipIconMentionElement;
+    };
+    interface HTMLFlipIconMessageElement extends Components.FlipIconMessage, HTMLStencilElement {
+    }
+    var HTMLFlipIconMessageElement: {
+        prototype: HTMLFlipIconMessageElement;
+        new (): HTMLFlipIconMessageElement;
+    };
+    interface HTMLFlipIconMoreHorizontalElement extends Components.FlipIconMoreHorizontal, HTMLStencilElement {
+    }
+    var HTMLFlipIconMoreHorizontalElement: {
+        prototype: HTMLFlipIconMoreHorizontalElement;
+        new (): HTMLFlipIconMoreHorizontalElement;
+    };
+    interface HTMLFlipIconMoreVertikalElement extends Components.FlipIconMoreVertikal, HTMLStencilElement {
+    }
+    var HTMLFlipIconMoreVertikalElement: {
+        prototype: HTMLFlipIconMoreVertikalElement;
+        new (): HTMLFlipIconMoreVertikalElement;
+    };
+    interface HTMLFlipIconNotificationsElement extends Components.FlipIconNotifications, HTMLStencilElement {
+    }
+    var HTMLFlipIconNotificationsElement: {
+        prototype: HTMLFlipIconNotificationsElement;
+        new (): HTMLFlipIconNotificationsElement;
+    };
+    interface HTMLFlipIconNotificationsActiveElement extends Components.FlipIconNotificationsActive, HTMLStencilElement {
+    }
+    var HTMLFlipIconNotificationsActiveElement: {
+        prototype: HTMLFlipIconNotificationsActiveElement;
+        new (): HTMLFlipIconNotificationsActiveElement;
+    };
+    interface HTMLFlipIconNotificationsOffElement extends Components.FlipIconNotificationsOff, HTMLStencilElement {
+    }
+    var HTMLFlipIconNotificationsOffElement: {
+        prototype: HTMLFlipIconNotificationsOffElement;
+        new (): HTMLFlipIconNotificationsOffElement;
+    };
+    interface HTMLFlipIconPeopleAltElement extends Components.FlipIconPeopleAlt, HTMLStencilElement {
+    }
+    var HTMLFlipIconPeopleAltElement: {
+        prototype: HTMLFlipIconPeopleAltElement;
+        new (): HTMLFlipIconPeopleAltElement;
+    };
+    interface HTMLFlipIconPersonElement extends Components.FlipIconPerson, HTMLStencilElement {
+    }
+    var HTMLFlipIconPersonElement: {
+        prototype: HTMLFlipIconPersonElement;
+        new (): HTMLFlipIconPersonElement;
+    };
+    interface HTMLFlipIconPersonOffElement extends Components.FlipIconPersonOff, HTMLStencilElement {
+    }
+    var HTMLFlipIconPersonOffElement: {
+        prototype: HTMLFlipIconPersonOffElement;
+        new (): HTMLFlipIconPersonOffElement;
+    };
+    interface HTMLFlipIconPhoneElement extends Components.FlipIconPhone, HTMLStencilElement {
+    }
+    var HTMLFlipIconPhoneElement: {
+        prototype: HTMLFlipIconPhoneElement;
+        new (): HTMLFlipIconPhoneElement;
+    };
+    interface HTMLFlipIconPollElement extends Components.FlipIconPoll, HTMLStencilElement {
+    }
+    var HTMLFlipIconPollElement: {
+        prototype: HTMLFlipIconPollElement;
+        new (): HTMLFlipIconPollElement;
+    };
+    interface HTMLFlipIconRecievedElement extends Components.FlipIconRecieved, HTMLStencilElement {
+    }
+    var HTMLFlipIconRecievedElement: {
+        prototype: HTMLFlipIconRecievedElement;
+        new (): HTMLFlipIconRecievedElement;
+    };
+    interface HTMLFlipIconReportElement extends Components.FlipIconReport, HTMLStencilElement {
+    }
+    var HTMLFlipIconReportElement: {
+        prototype: HTMLFlipIconReportElement;
+        new (): HTMLFlipIconReportElement;
+    };
+    interface HTMLFlipIconSearchElement extends Components.FlipIconSearch, HTMLStencilElement {
+    }
+    var HTMLFlipIconSearchElement: {
+        prototype: HTMLFlipIconSearchElement;
+        new (): HTMLFlipIconSearchElement;
+    };
+    interface HTMLFlipIconSearchStrongElement extends Components.FlipIconSearchStrong, HTMLStencilElement {
+    }
+    var HTMLFlipIconSearchStrongElement: {
+        prototype: HTMLFlipIconSearchStrongElement;
+        new (): HTMLFlipIconSearchStrongElement;
+    };
+    interface HTMLFlipIconSendElement extends Components.FlipIconSend, HTMLStencilElement {
+    }
+    var HTMLFlipIconSendElement: {
+        prototype: HTMLFlipIconSendElement;
+        new (): HTMLFlipIconSendElement;
+    };
+    interface HTMLFlipIconSettingsElement extends Components.FlipIconSettings, HTMLStencilElement {
+    }
+    var HTMLFlipIconSettingsElement: {
+        prototype: HTMLFlipIconSettingsElement;
+        new (): HTMLFlipIconSettingsElement;
+    };
+    interface HTMLFlipIconTimeFilledElement extends Components.FlipIconTimeFilled, HTMLStencilElement {
+    }
+    var HTMLFlipIconTimeFilledElement: {
+        prototype: HTMLFlipIconTimeFilledElement;
+        new (): HTMLFlipIconTimeFilledElement;
+    };
+    interface HTMLFlipIconTimeOutlinedElement extends Components.FlipIconTimeOutlined, HTMLStencilElement {
+    }
+    var HTMLFlipIconTimeOutlinedElement: {
+        prototype: HTMLFlipIconTimeOutlinedElement;
+        new (): HTMLFlipIconTimeOutlinedElement;
+    };
+    interface HTMLFlipIconTodayElement extends Components.FlipIconToday, HTMLStencilElement {
+    }
+    var HTMLFlipIconTodayElement: {
+        prototype: HTMLFlipIconTodayElement;
+        new (): HTMLFlipIconTodayElement;
+    };
+    interface HTMLFlipIconUserAssignElement extends Components.FlipIconUserAssign, HTMLStencilElement {
+    }
+    var HTMLFlipIconUserAssignElement: {
+        prototype: HTMLFlipIconUserAssignElement;
+        new (): HTMLFlipIconUserAssignElement;
+    };
+    interface HTMLFlipIconVideoCameraElement extends Components.FlipIconVideoCamera, HTMLStencilElement {
+    }
+    var HTMLFlipIconVideoCameraElement: {
+        prototype: HTMLFlipIconVideoCameraElement;
+        new (): HTMLFlipIconVideoCameraElement;
+    };
+    interface HTMLFlipIconVisibilityOffElement extends Components.FlipIconVisibilityOff, HTMLStencilElement {
+    }
+    var HTMLFlipIconVisibilityOffElement: {
+        prototype: HTMLFlipIconVisibilityOffElement;
+        new (): HTMLFlipIconVisibilityOffElement;
+    };
+    interface HTMLFlipVisuallyHiddenElement extends Components.FlipVisuallyHidden, HTMLStencilElement {
+    }
+    var HTMLFlipVisuallyHiddenElement: {
+        prototype: HTMLFlipVisuallyHiddenElement;
+        new (): HTMLFlipVisuallyHiddenElement;
+    };
+    interface HTMLElementTagNameMap {
+        "flip-button": HTMLFlipButtonElement;
+        "flip-icon-add": HTMLFlipIconAddElement;
+        "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
+        "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
+        "flip-icon-arrow-back": HTMLFlipIconArrowBackElement;
+        "flip-icon-arrow-forward": HTMLFlipIconArrowForwardElement;
+        "flip-icon-arrow-right-small": HTMLFlipIconArrowRightSmallElement;
+        "flip-icon-attachment": HTMLFlipIconAttachmentElement;
+        "flip-icon-chat-bubble": HTMLFlipIconChatBubbleElement;
+        "flip-icon-check": HTMLFlipIconCheckElement;
+        "flip-icon-check-small": HTMLFlipIconCheckSmallElement;
+        "flip-icon-check-strong": HTMLFlipIconCheckStrongElement;
+        "flip-icon-chevron-left": HTMLFlipIconChevronLeftElement;
+        "flip-icon-chevron-right": HTMLFlipIconChevronRightElement;
+        "flip-icon-close": HTMLFlipIconCloseElement;
+        "flip-icon-close-small": HTMLFlipIconCloseSmallElement;
+        "flip-icon-comment": HTMLFlipIconCommentElement;
+        "flip-icon-copy": HTMLFlipIconCopyElement;
+        "flip-icon-date-range": HTMLFlipIconDateRangeElement;
+        "flip-icon-delete": HTMLFlipIconDeleteElement;
+        "flip-icon-description": HTMLFlipIconDescriptionElement;
+        "flip-icon-download": HTMLFlipIconDownloadElement;
+        "flip-icon-edit": HTMLFlipIconEditElement;
+        "flip-icon-emoji-mood": HTMLFlipIconEmojiMoodElement;
+        "flip-icon-emoji-satisfied": HTMLFlipIconEmojiSatisfiedElement;
+        "flip-icon-expand-less": HTMLFlipIconExpandLessElement;
+        "flip-icon-expand-more": HTMLFlipIconExpandMoreElement;
+        "flip-icon-file": HTMLFlipIconFileElement;
+        "flip-icon-folder-shared": HTMLFlipIconFolderSharedElement;
+        "flip-icon-group-assign": HTMLFlipIconGroupAssignElement;
+        "flip-icon-groups": HTMLFlipIconGroupsElement;
+        "flip-icon-groups-custom": HTMLFlipIconGroupsCustomElement;
+        "flip-icon-image": HTMLFlipIconImageElement;
+        "flip-icon-info": HTMLFlipIconInfoElement;
+        "flip-icon-inventory": HTMLFlipIconInventoryElement;
+        "flip-icon-like": HTMLFlipIconLikeElement;
+        "flip-icon-link": HTMLFlipIconLinkElement;
+        "flip-icon-lock": HTMLFlipIconLockElement;
+        "flip-icon-logout": HTMLFlipIconLogoutElement;
+        "flip-icon-mail": HTMLFlipIconMailElement;
+        "flip-icon-manage-accounts": HTMLFlipIconManageAccountsElement;
+        "flip-icon-mention": HTMLFlipIconMentionElement;
+        "flip-icon-message": HTMLFlipIconMessageElement;
+        "flip-icon-more-horizontal": HTMLFlipIconMoreHorizontalElement;
+        "flip-icon-more-vertikal": HTMLFlipIconMoreVertikalElement;
+        "flip-icon-notifications": HTMLFlipIconNotificationsElement;
+        "flip-icon-notifications-active": HTMLFlipIconNotificationsActiveElement;
+        "flip-icon-notifications-off": HTMLFlipIconNotificationsOffElement;
+        "flip-icon-people-alt": HTMLFlipIconPeopleAltElement;
+        "flip-icon-person": HTMLFlipIconPersonElement;
+        "flip-icon-person-off": HTMLFlipIconPersonOffElement;
+        "flip-icon-phone": HTMLFlipIconPhoneElement;
+        "flip-icon-poll": HTMLFlipIconPollElement;
+        "flip-icon-recieved": HTMLFlipIconRecievedElement;
+        "flip-icon-report": HTMLFlipIconReportElement;
+        "flip-icon-search": HTMLFlipIconSearchElement;
+        "flip-icon-search-strong": HTMLFlipIconSearchStrongElement;
+        "flip-icon-send": HTMLFlipIconSendElement;
+        "flip-icon-settings": HTMLFlipIconSettingsElement;
+        "flip-icon-time-filled": HTMLFlipIconTimeFilledElement;
+        "flip-icon-time-outlined": HTMLFlipIconTimeOutlinedElement;
+        "flip-icon-today": HTMLFlipIconTodayElement;
+        "flip-icon-user-assign": HTMLFlipIconUserAssignElement;
+        "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
+        "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
+        "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
+    }
 }
 declare namespace LocalJSX {
-  interface FlipButton {
-    disabled?: boolean;
-    label: string;
-    leftIcon?: string;
-    type?: FlipButtonType;
-  }
-  interface FlipIconAdd {
-    size?: FlipIconSize;
-  }
-  interface FlipIconAddPhoto {
-    size?: FlipIconSize;
-  }
-  interface FlipIconAdminPanelSettings {
-    size?: FlipIconSize;
-  }
-  interface FlipIconArrowBack {
-    size?: FlipIconSize;
-  }
-  interface FlipIconArrowForward {
-    size?: FlipIconSize;
-  }
-  interface FlipIconArrowRightSmall {
-    size?: FlipIconSize;
-  }
-  interface FlipIconAttachment {
-    size?: FlipIconSize;
-  }
-  interface FlipIconChatBubble {
-    size?: FlipIconSize;
-  }
-  interface FlipIconCheck {
-    size?: FlipIconSize;
-  }
-  interface FlipIconCheckSmall {
-    size?: FlipIconSize;
-  }
-  interface FlipIconCheckStrong {
-    size?: FlipIconSize;
-  }
-  interface FlipIconChevronLeft {
-    size?: FlipIconSize;
-  }
-  interface FlipIconChevronRight {
-    size?: FlipIconSize;
-  }
-  interface FlipIconClose {
-    size?: FlipIconSize;
-  }
-  interface FlipIconCloseSmall {
-    size?: FlipIconSize;
-  }
-  interface FlipIconComment {
-    size?: FlipIconSize;
-  }
-  interface FlipIconCopy {
-    size?: FlipIconSize;
-  }
-  interface FlipIconDateRange {
-    size?: FlipIconSize;
-  }
-  interface FlipIconDelete {
-    size?: FlipIconSize;
-  }
-  interface FlipIconDescription {
-    size?: FlipIconSize;
-  }
-  interface FlipIconDownload {
-    size?: FlipIconSize;
-  }
-  interface FlipIconEdit {
-    size?: FlipIconSize;
-  }
-  interface FlipIconEmojiMood {
-    size?: FlipIconSize;
-  }
-  interface FlipIconEmojiSatisfied {
-    size?: FlipIconSize;
-  }
-  interface FlipIconExpandLess {
-    size?: FlipIconSize;
-  }
-  interface FlipIconExpandMore {
-    size?: FlipIconSize;
-  }
-  interface FlipIconFile {
-    size?: FlipIconSize;
-  }
-  interface FlipIconFolderShared {
-    size?: FlipIconSize;
-  }
-  interface FlipIconGroupAssign {
-    size?: FlipIconSize;
-  }
-  interface FlipIconGroups {
-    size?: FlipIconSize;
-  }
-  interface FlipIconGroupsCustom {
-    size?: FlipIconSize;
-  }
-  interface FlipIconImage {
-    size?: FlipIconSize;
-  }
-  interface FlipIconInfo {
-    size?: FlipIconSize;
-  }
-  interface FlipIconInventory {
-    size?: FlipIconSize;
-  }
-  interface FlipIconLike {
-    size?: FlipIconSize;
-  }
-  interface FlipIconLink {
-    size?: FlipIconSize;
-  }
-  interface FlipIconLock {
-    size?: FlipIconSize;
-  }
-  interface FlipIconLogout {
-    size?: FlipIconSize;
-  }
-  interface FlipIconMail {
-    size?: FlipIconSize;
-  }
-  interface FlipIconManageAccounts {
-    size?: FlipIconSize;
-  }
-  interface FlipIconMention {
-    size?: FlipIconSize;
-  }
-  interface FlipIconMessage {
-    size?: FlipIconSize;
-  }
-  interface FlipIconMoreHorizontal {
-    size?: FlipIconSize;
-  }
-  interface FlipIconMoreVertikal {
-    size?: FlipIconSize;
-  }
-  interface FlipIconNotifications {
-    size?: FlipIconSize;
-  }
-  interface FlipIconNotificationsActive {
-    size?: FlipIconSize;
-  }
-  interface FlipIconNotificationsOff {
-    size?: FlipIconSize;
-  }
-  interface FlipIconPeopleAlt {
-    size?: FlipIconSize;
-  }
-  interface FlipIconPerson {
-    size?: FlipIconSize;
-  }
-  interface FlipIconPersonOff {
-    size?: FlipIconSize;
-  }
-  interface FlipIconPhone {
-    size?: FlipIconSize;
-  }
-  interface FlipIconPoll {
-    size?: FlipIconSize;
-  }
-  interface FlipIconRecieved {
-    size?: FlipIconSize;
-  }
-  interface FlipIconReport {
-    size?: FlipIconSize;
-  }
-  interface FlipIconSearch {
-    size?: FlipIconSize;
-  }
-  interface FlipIconSearchStrong {
-    size?: FlipIconSize;
-  }
-  interface FlipIconSend {
-    size?: FlipIconSize;
-  }
-  interface FlipIconSettings {
-    size?: FlipIconSize;
-  }
-  interface FlipIconTimeFilled {
-    size?: FlipIconSize;
-  }
-  interface FlipIconTimeOutlined {
-    size?: FlipIconSize;
-  }
-  interface FlipIconToday {
-    size?: FlipIconSize;
-  }
-  interface FlipIconUserAssign {
-    size?: FlipIconSize;
-  }
-  interface FlipIconVideoCamera {
-    size?: FlipIconSize;
-  }
-  interface FlipIconVisibilityOff {
-    size?: FlipIconSize;
-  }
-  interface IntrinsicElements {
-    "flip-button": FlipButton;
-    "flip-icon-add": FlipIconAdd;
-    "flip-icon-add-photo": FlipIconAddPhoto;
-    "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
-    "flip-icon-arrow-back": FlipIconArrowBack;
-    "flip-icon-arrow-forward": FlipIconArrowForward;
-    "flip-icon-arrow-right-small": FlipIconArrowRightSmall;
-    "flip-icon-attachment": FlipIconAttachment;
-    "flip-icon-chat-bubble": FlipIconChatBubble;
-    "flip-icon-check": FlipIconCheck;
-    "flip-icon-check-small": FlipIconCheckSmall;
-    "flip-icon-check-strong": FlipIconCheckStrong;
-    "flip-icon-chevron-left": FlipIconChevronLeft;
-    "flip-icon-chevron-right": FlipIconChevronRight;
-    "flip-icon-close": FlipIconClose;
-    "flip-icon-close-small": FlipIconCloseSmall;
-    "flip-icon-comment": FlipIconComment;
-    "flip-icon-copy": FlipIconCopy;
-    "flip-icon-date-range": FlipIconDateRange;
-    "flip-icon-delete": FlipIconDelete;
-    "flip-icon-description": FlipIconDescription;
-    "flip-icon-download": FlipIconDownload;
-    "flip-icon-edit": FlipIconEdit;
-    "flip-icon-emoji-mood": FlipIconEmojiMood;
-    "flip-icon-emoji-satisfied": FlipIconEmojiSatisfied;
-    "flip-icon-expand-less": FlipIconExpandLess;
-    "flip-icon-expand-more": FlipIconExpandMore;
-    "flip-icon-file": FlipIconFile;
-    "flip-icon-folder-shared": FlipIconFolderShared;
-    "flip-icon-group-assign": FlipIconGroupAssign;
-    "flip-icon-groups": FlipIconGroups;
-    "flip-icon-groups-custom": FlipIconGroupsCustom;
-    "flip-icon-image": FlipIconImage;
-    "flip-icon-info": FlipIconInfo;
-    "flip-icon-inventory": FlipIconInventory;
-    "flip-icon-like": FlipIconLike;
-    "flip-icon-link": FlipIconLink;
-    "flip-icon-lock": FlipIconLock;
-    "flip-icon-logout": FlipIconLogout;
-    "flip-icon-mail": FlipIconMail;
-    "flip-icon-manage-accounts": FlipIconManageAccounts;
-    "flip-icon-mention": FlipIconMention;
-    "flip-icon-message": FlipIconMessage;
-    "flip-icon-more-horizontal": FlipIconMoreHorizontal;
-    "flip-icon-more-vertikal": FlipIconMoreVertikal;
-    "flip-icon-notifications": FlipIconNotifications;
-    "flip-icon-notifications-active": FlipIconNotificationsActive;
-    "flip-icon-notifications-off": FlipIconNotificationsOff;
-    "flip-icon-people-alt": FlipIconPeopleAlt;
-    "flip-icon-person": FlipIconPerson;
-    "flip-icon-person-off": FlipIconPersonOff;
-    "flip-icon-phone": FlipIconPhone;
-    "flip-icon-poll": FlipIconPoll;
-    "flip-icon-recieved": FlipIconRecieved;
-    "flip-icon-report": FlipIconReport;
-    "flip-icon-search": FlipIconSearch;
-    "flip-icon-search-strong": FlipIconSearchStrong;
-    "flip-icon-send": FlipIconSend;
-    "flip-icon-settings": FlipIconSettings;
-    "flip-icon-time-filled": FlipIconTimeFilled;
-    "flip-icon-time-outlined": FlipIconTimeOutlined;
-    "flip-icon-today": FlipIconToday;
-    "flip-icon-user-assign": FlipIconUserAssign;
-    "flip-icon-video-camera": FlipIconVideoCamera;
-    "flip-icon-visibility-off": FlipIconVisibilityOff;
-  }
+    interface FlipButton {
+        "disabled"?: boolean;
+        "label": string;
+        "leftIcon"?: string;
+        "type"?: FlipButtonType;
+    }
+    interface FlipIconAdd {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconAddPhoto {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconAdminPanelSettings {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconArrowBack {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconArrowForward {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconArrowRightSmall {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconAttachment {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconChatBubble {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconCheck {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconCheckSmall {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconCheckStrong {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconChevronLeft {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconChevronRight {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconClose {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconCloseSmall {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconComment {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconCopy {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconDateRange {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconDelete {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconDescription {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconDownload {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconEdit {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconEmojiMood {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconEmojiSatisfied {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconExpandLess {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconExpandMore {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconFile {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconFolderShared {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconGroupAssign {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconGroups {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconGroupsCustom {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconImage {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconInfo {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconInventory {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconLike {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconLink {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconLock {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconLogout {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconMail {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconManageAccounts {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconMention {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconMessage {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconMoreHorizontal {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconMoreVertikal {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconNotifications {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconNotificationsActive {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconNotificationsOff {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconPeopleAlt {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconPerson {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconPersonOff {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconPhone {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconPoll {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconRecieved {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconReport {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconSearch {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconSearchStrong {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconSend {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconSettings {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconTimeFilled {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconTimeOutlined {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconToday {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconUserAssign {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconVideoCamera {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconVisibilityOff {
+        "size"?: FlipIconSize;
+    }
+    interface FlipVisuallyHidden {
+    }
+    interface IntrinsicElements {
+        "flip-button": FlipButton;
+        "flip-icon-add": FlipIconAdd;
+        "flip-icon-add-photo": FlipIconAddPhoto;
+        "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
+        "flip-icon-arrow-back": FlipIconArrowBack;
+        "flip-icon-arrow-forward": FlipIconArrowForward;
+        "flip-icon-arrow-right-small": FlipIconArrowRightSmall;
+        "flip-icon-attachment": FlipIconAttachment;
+        "flip-icon-chat-bubble": FlipIconChatBubble;
+        "flip-icon-check": FlipIconCheck;
+        "flip-icon-check-small": FlipIconCheckSmall;
+        "flip-icon-check-strong": FlipIconCheckStrong;
+        "flip-icon-chevron-left": FlipIconChevronLeft;
+        "flip-icon-chevron-right": FlipIconChevronRight;
+        "flip-icon-close": FlipIconClose;
+        "flip-icon-close-small": FlipIconCloseSmall;
+        "flip-icon-comment": FlipIconComment;
+        "flip-icon-copy": FlipIconCopy;
+        "flip-icon-date-range": FlipIconDateRange;
+        "flip-icon-delete": FlipIconDelete;
+        "flip-icon-description": FlipIconDescription;
+        "flip-icon-download": FlipIconDownload;
+        "flip-icon-edit": FlipIconEdit;
+        "flip-icon-emoji-mood": FlipIconEmojiMood;
+        "flip-icon-emoji-satisfied": FlipIconEmojiSatisfied;
+        "flip-icon-expand-less": FlipIconExpandLess;
+        "flip-icon-expand-more": FlipIconExpandMore;
+        "flip-icon-file": FlipIconFile;
+        "flip-icon-folder-shared": FlipIconFolderShared;
+        "flip-icon-group-assign": FlipIconGroupAssign;
+        "flip-icon-groups": FlipIconGroups;
+        "flip-icon-groups-custom": FlipIconGroupsCustom;
+        "flip-icon-image": FlipIconImage;
+        "flip-icon-info": FlipIconInfo;
+        "flip-icon-inventory": FlipIconInventory;
+        "flip-icon-like": FlipIconLike;
+        "flip-icon-link": FlipIconLink;
+        "flip-icon-lock": FlipIconLock;
+        "flip-icon-logout": FlipIconLogout;
+        "flip-icon-mail": FlipIconMail;
+        "flip-icon-manage-accounts": FlipIconManageAccounts;
+        "flip-icon-mention": FlipIconMention;
+        "flip-icon-message": FlipIconMessage;
+        "flip-icon-more-horizontal": FlipIconMoreHorizontal;
+        "flip-icon-more-vertikal": FlipIconMoreVertikal;
+        "flip-icon-notifications": FlipIconNotifications;
+        "flip-icon-notifications-active": FlipIconNotificationsActive;
+        "flip-icon-notifications-off": FlipIconNotificationsOff;
+        "flip-icon-people-alt": FlipIconPeopleAlt;
+        "flip-icon-person": FlipIconPerson;
+        "flip-icon-person-off": FlipIconPersonOff;
+        "flip-icon-phone": FlipIconPhone;
+        "flip-icon-poll": FlipIconPoll;
+        "flip-icon-recieved": FlipIconRecieved;
+        "flip-icon-report": FlipIconReport;
+        "flip-icon-search": FlipIconSearch;
+        "flip-icon-search-strong": FlipIconSearchStrong;
+        "flip-icon-send": FlipIconSend;
+        "flip-icon-settings": FlipIconSettings;
+        "flip-icon-time-filled": FlipIconTimeFilled;
+        "flip-icon-time-outlined": FlipIconTimeOutlined;
+        "flip-icon-today": FlipIconToday;
+        "flip-icon-user-assign": FlipIconUserAssign;
+        "flip-icon-video-camera": FlipIconVideoCamera;
+        "flip-icon-visibility-off": FlipIconVisibilityOff;
+        "flip-visually-hidden": FlipVisuallyHidden;
+    }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
-  export namespace JSX {
-    interface IntrinsicElements {
-      "flip-button": LocalJSX.FlipButton &
-        JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
-      "flip-icon-add": LocalJSX.FlipIconAdd &
-        JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
-      "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto &
-        JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
-      "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings &
-        JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
-      "flip-icon-arrow-back": LocalJSX.FlipIconArrowBack &
-        JSXBase.HTMLAttributes<HTMLFlipIconArrowBackElement>;
-      "flip-icon-arrow-forward": LocalJSX.FlipIconArrowForward &
-        JSXBase.HTMLAttributes<HTMLFlipIconArrowForwardElement>;
-      "flip-icon-arrow-right-small": LocalJSX.FlipIconArrowRightSmall &
-        JSXBase.HTMLAttributes<HTMLFlipIconArrowRightSmallElement>;
-      "flip-icon-attachment": LocalJSX.FlipIconAttachment &
-        JSXBase.HTMLAttributes<HTMLFlipIconAttachmentElement>;
-      "flip-icon-chat-bubble": LocalJSX.FlipIconChatBubble &
-        JSXBase.HTMLAttributes<HTMLFlipIconChatBubbleElement>;
-      "flip-icon-check": LocalJSX.FlipIconCheck &
-        JSXBase.HTMLAttributes<HTMLFlipIconCheckElement>;
-      "flip-icon-check-small": LocalJSX.FlipIconCheckSmall &
-        JSXBase.HTMLAttributes<HTMLFlipIconCheckSmallElement>;
-      "flip-icon-check-strong": LocalJSX.FlipIconCheckStrong &
-        JSXBase.HTMLAttributes<HTMLFlipIconCheckStrongElement>;
-      "flip-icon-chevron-left": LocalJSX.FlipIconChevronLeft &
-        JSXBase.HTMLAttributes<HTMLFlipIconChevronLeftElement>;
-      "flip-icon-chevron-right": LocalJSX.FlipIconChevronRight &
-        JSXBase.HTMLAttributes<HTMLFlipIconChevronRightElement>;
-      "flip-icon-close": LocalJSX.FlipIconClose &
-        JSXBase.HTMLAttributes<HTMLFlipIconCloseElement>;
-      "flip-icon-close-small": LocalJSX.FlipIconCloseSmall &
-        JSXBase.HTMLAttributes<HTMLFlipIconCloseSmallElement>;
-      "flip-icon-comment": LocalJSX.FlipIconComment &
-        JSXBase.HTMLAttributes<HTMLFlipIconCommentElement>;
-      "flip-icon-copy": LocalJSX.FlipIconCopy &
-        JSXBase.HTMLAttributes<HTMLFlipIconCopyElement>;
-      "flip-icon-date-range": LocalJSX.FlipIconDateRange &
-        JSXBase.HTMLAttributes<HTMLFlipIconDateRangeElement>;
-      "flip-icon-delete": LocalJSX.FlipIconDelete &
-        JSXBase.HTMLAttributes<HTMLFlipIconDeleteElement>;
-      "flip-icon-description": LocalJSX.FlipIconDescription &
-        JSXBase.HTMLAttributes<HTMLFlipIconDescriptionElement>;
-      "flip-icon-download": LocalJSX.FlipIconDownload &
-        JSXBase.HTMLAttributes<HTMLFlipIconDownloadElement>;
-      "flip-icon-edit": LocalJSX.FlipIconEdit &
-        JSXBase.HTMLAttributes<HTMLFlipIconEditElement>;
-      "flip-icon-emoji-mood": LocalJSX.FlipIconEmojiMood &
-        JSXBase.HTMLAttributes<HTMLFlipIconEmojiMoodElement>;
-      "flip-icon-emoji-satisfied": LocalJSX.FlipIconEmojiSatisfied &
-        JSXBase.HTMLAttributes<HTMLFlipIconEmojiSatisfiedElement>;
-      "flip-icon-expand-less": LocalJSX.FlipIconExpandLess &
-        JSXBase.HTMLAttributes<HTMLFlipIconExpandLessElement>;
-      "flip-icon-expand-more": LocalJSX.FlipIconExpandMore &
-        JSXBase.HTMLAttributes<HTMLFlipIconExpandMoreElement>;
-      "flip-icon-file": LocalJSX.FlipIconFile &
-        JSXBase.HTMLAttributes<HTMLFlipIconFileElement>;
-      "flip-icon-folder-shared": LocalJSX.FlipIconFolderShared &
-        JSXBase.HTMLAttributes<HTMLFlipIconFolderSharedElement>;
-      "flip-icon-group-assign": LocalJSX.FlipIconGroupAssign &
-        JSXBase.HTMLAttributes<HTMLFlipIconGroupAssignElement>;
-      "flip-icon-groups": LocalJSX.FlipIconGroups &
-        JSXBase.HTMLAttributes<HTMLFlipIconGroupsElement>;
-      "flip-icon-groups-custom": LocalJSX.FlipIconGroupsCustom &
-        JSXBase.HTMLAttributes<HTMLFlipIconGroupsCustomElement>;
-      "flip-icon-image": LocalJSX.FlipIconImage &
-        JSXBase.HTMLAttributes<HTMLFlipIconImageElement>;
-      "flip-icon-info": LocalJSX.FlipIconInfo &
-        JSXBase.HTMLAttributes<HTMLFlipIconInfoElement>;
-      "flip-icon-inventory": LocalJSX.FlipIconInventory &
-        JSXBase.HTMLAttributes<HTMLFlipIconInventoryElement>;
-      "flip-icon-like": LocalJSX.FlipIconLike &
-        JSXBase.HTMLAttributes<HTMLFlipIconLikeElement>;
-      "flip-icon-link": LocalJSX.FlipIconLink &
-        JSXBase.HTMLAttributes<HTMLFlipIconLinkElement>;
-      "flip-icon-lock": LocalJSX.FlipIconLock &
-        JSXBase.HTMLAttributes<HTMLFlipIconLockElement>;
-      "flip-icon-logout": LocalJSX.FlipIconLogout &
-        JSXBase.HTMLAttributes<HTMLFlipIconLogoutElement>;
-      "flip-icon-mail": LocalJSX.FlipIconMail &
-        JSXBase.HTMLAttributes<HTMLFlipIconMailElement>;
-      "flip-icon-manage-accounts": LocalJSX.FlipIconManageAccounts &
-        JSXBase.HTMLAttributes<HTMLFlipIconManageAccountsElement>;
-      "flip-icon-mention": LocalJSX.FlipIconMention &
-        JSXBase.HTMLAttributes<HTMLFlipIconMentionElement>;
-      "flip-icon-message": LocalJSX.FlipIconMessage &
-        JSXBase.HTMLAttributes<HTMLFlipIconMessageElement>;
-      "flip-icon-more-horizontal": LocalJSX.FlipIconMoreHorizontal &
-        JSXBase.HTMLAttributes<HTMLFlipIconMoreHorizontalElement>;
-      "flip-icon-more-vertikal": LocalJSX.FlipIconMoreVertikal &
-        JSXBase.HTMLAttributes<HTMLFlipIconMoreVertikalElement>;
-      "flip-icon-notifications": LocalJSX.FlipIconNotifications &
-        JSXBase.HTMLAttributes<HTMLFlipIconNotificationsElement>;
-      "flip-icon-notifications-active": LocalJSX.FlipIconNotificationsActive &
-        JSXBase.HTMLAttributes<HTMLFlipIconNotificationsActiveElement>;
-      "flip-icon-notifications-off": LocalJSX.FlipIconNotificationsOff &
-        JSXBase.HTMLAttributes<HTMLFlipIconNotificationsOffElement>;
-      "flip-icon-people-alt": LocalJSX.FlipIconPeopleAlt &
-        JSXBase.HTMLAttributes<HTMLFlipIconPeopleAltElement>;
-      "flip-icon-person": LocalJSX.FlipIconPerson &
-        JSXBase.HTMLAttributes<HTMLFlipIconPersonElement>;
-      "flip-icon-person-off": LocalJSX.FlipIconPersonOff &
-        JSXBase.HTMLAttributes<HTMLFlipIconPersonOffElement>;
-      "flip-icon-phone": LocalJSX.FlipIconPhone &
-        JSXBase.HTMLAttributes<HTMLFlipIconPhoneElement>;
-      "flip-icon-poll": LocalJSX.FlipIconPoll &
-        JSXBase.HTMLAttributes<HTMLFlipIconPollElement>;
-      "flip-icon-recieved": LocalJSX.FlipIconRecieved &
-        JSXBase.HTMLAttributes<HTMLFlipIconRecievedElement>;
-      "flip-icon-report": LocalJSX.FlipIconReport &
-        JSXBase.HTMLAttributes<HTMLFlipIconReportElement>;
-      "flip-icon-search": LocalJSX.FlipIconSearch &
-        JSXBase.HTMLAttributes<HTMLFlipIconSearchElement>;
-      "flip-icon-search-strong": LocalJSX.FlipIconSearchStrong &
-        JSXBase.HTMLAttributes<HTMLFlipIconSearchStrongElement>;
-      "flip-icon-send": LocalJSX.FlipIconSend &
-        JSXBase.HTMLAttributes<HTMLFlipIconSendElement>;
-      "flip-icon-settings": LocalJSX.FlipIconSettings &
-        JSXBase.HTMLAttributes<HTMLFlipIconSettingsElement>;
-      "flip-icon-time-filled": LocalJSX.FlipIconTimeFilled &
-        JSXBase.HTMLAttributes<HTMLFlipIconTimeFilledElement>;
-      "flip-icon-time-outlined": LocalJSX.FlipIconTimeOutlined &
-        JSXBase.HTMLAttributes<HTMLFlipIconTimeOutlinedElement>;
-      "flip-icon-today": LocalJSX.FlipIconToday &
-        JSXBase.HTMLAttributes<HTMLFlipIconTodayElement>;
-      "flip-icon-user-assign": LocalJSX.FlipIconUserAssign &
-        JSXBase.HTMLAttributes<HTMLFlipIconUserAssignElement>;
-      "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera &
-        JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
-      "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff &
-        JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
+    export namespace JSX {
+        interface IntrinsicElements {
+            "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
+            "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
+            "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
+            "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
+            "flip-icon-arrow-back": LocalJSX.FlipIconArrowBack & JSXBase.HTMLAttributes<HTMLFlipIconArrowBackElement>;
+            "flip-icon-arrow-forward": LocalJSX.FlipIconArrowForward & JSXBase.HTMLAttributes<HTMLFlipIconArrowForwardElement>;
+            "flip-icon-arrow-right-small": LocalJSX.FlipIconArrowRightSmall & JSXBase.HTMLAttributes<HTMLFlipIconArrowRightSmallElement>;
+            "flip-icon-attachment": LocalJSX.FlipIconAttachment & JSXBase.HTMLAttributes<HTMLFlipIconAttachmentElement>;
+            "flip-icon-chat-bubble": LocalJSX.FlipIconChatBubble & JSXBase.HTMLAttributes<HTMLFlipIconChatBubbleElement>;
+            "flip-icon-check": LocalJSX.FlipIconCheck & JSXBase.HTMLAttributes<HTMLFlipIconCheckElement>;
+            "flip-icon-check-small": LocalJSX.FlipIconCheckSmall & JSXBase.HTMLAttributes<HTMLFlipIconCheckSmallElement>;
+            "flip-icon-check-strong": LocalJSX.FlipIconCheckStrong & JSXBase.HTMLAttributes<HTMLFlipIconCheckStrongElement>;
+            "flip-icon-chevron-left": LocalJSX.FlipIconChevronLeft & JSXBase.HTMLAttributes<HTMLFlipIconChevronLeftElement>;
+            "flip-icon-chevron-right": LocalJSX.FlipIconChevronRight & JSXBase.HTMLAttributes<HTMLFlipIconChevronRightElement>;
+            "flip-icon-close": LocalJSX.FlipIconClose & JSXBase.HTMLAttributes<HTMLFlipIconCloseElement>;
+            "flip-icon-close-small": LocalJSX.FlipIconCloseSmall & JSXBase.HTMLAttributes<HTMLFlipIconCloseSmallElement>;
+            "flip-icon-comment": LocalJSX.FlipIconComment & JSXBase.HTMLAttributes<HTMLFlipIconCommentElement>;
+            "flip-icon-copy": LocalJSX.FlipIconCopy & JSXBase.HTMLAttributes<HTMLFlipIconCopyElement>;
+            "flip-icon-date-range": LocalJSX.FlipIconDateRange & JSXBase.HTMLAttributes<HTMLFlipIconDateRangeElement>;
+            "flip-icon-delete": LocalJSX.FlipIconDelete & JSXBase.HTMLAttributes<HTMLFlipIconDeleteElement>;
+            "flip-icon-description": LocalJSX.FlipIconDescription & JSXBase.HTMLAttributes<HTMLFlipIconDescriptionElement>;
+            "flip-icon-download": LocalJSX.FlipIconDownload & JSXBase.HTMLAttributes<HTMLFlipIconDownloadElement>;
+            "flip-icon-edit": LocalJSX.FlipIconEdit & JSXBase.HTMLAttributes<HTMLFlipIconEditElement>;
+            "flip-icon-emoji-mood": LocalJSX.FlipIconEmojiMood & JSXBase.HTMLAttributes<HTMLFlipIconEmojiMoodElement>;
+            "flip-icon-emoji-satisfied": LocalJSX.FlipIconEmojiSatisfied & JSXBase.HTMLAttributes<HTMLFlipIconEmojiSatisfiedElement>;
+            "flip-icon-expand-less": LocalJSX.FlipIconExpandLess & JSXBase.HTMLAttributes<HTMLFlipIconExpandLessElement>;
+            "flip-icon-expand-more": LocalJSX.FlipIconExpandMore & JSXBase.HTMLAttributes<HTMLFlipIconExpandMoreElement>;
+            "flip-icon-file": LocalJSX.FlipIconFile & JSXBase.HTMLAttributes<HTMLFlipIconFileElement>;
+            "flip-icon-folder-shared": LocalJSX.FlipIconFolderShared & JSXBase.HTMLAttributes<HTMLFlipIconFolderSharedElement>;
+            "flip-icon-group-assign": LocalJSX.FlipIconGroupAssign & JSXBase.HTMLAttributes<HTMLFlipIconGroupAssignElement>;
+            "flip-icon-groups": LocalJSX.FlipIconGroups & JSXBase.HTMLAttributes<HTMLFlipIconGroupsElement>;
+            "flip-icon-groups-custom": LocalJSX.FlipIconGroupsCustom & JSXBase.HTMLAttributes<HTMLFlipIconGroupsCustomElement>;
+            "flip-icon-image": LocalJSX.FlipIconImage & JSXBase.HTMLAttributes<HTMLFlipIconImageElement>;
+            "flip-icon-info": LocalJSX.FlipIconInfo & JSXBase.HTMLAttributes<HTMLFlipIconInfoElement>;
+            "flip-icon-inventory": LocalJSX.FlipIconInventory & JSXBase.HTMLAttributes<HTMLFlipIconInventoryElement>;
+            "flip-icon-like": LocalJSX.FlipIconLike & JSXBase.HTMLAttributes<HTMLFlipIconLikeElement>;
+            "flip-icon-link": LocalJSX.FlipIconLink & JSXBase.HTMLAttributes<HTMLFlipIconLinkElement>;
+            "flip-icon-lock": LocalJSX.FlipIconLock & JSXBase.HTMLAttributes<HTMLFlipIconLockElement>;
+            "flip-icon-logout": LocalJSX.FlipIconLogout & JSXBase.HTMLAttributes<HTMLFlipIconLogoutElement>;
+            "flip-icon-mail": LocalJSX.FlipIconMail & JSXBase.HTMLAttributes<HTMLFlipIconMailElement>;
+            "flip-icon-manage-accounts": LocalJSX.FlipIconManageAccounts & JSXBase.HTMLAttributes<HTMLFlipIconManageAccountsElement>;
+            "flip-icon-mention": LocalJSX.FlipIconMention & JSXBase.HTMLAttributes<HTMLFlipIconMentionElement>;
+            "flip-icon-message": LocalJSX.FlipIconMessage & JSXBase.HTMLAttributes<HTMLFlipIconMessageElement>;
+            "flip-icon-more-horizontal": LocalJSX.FlipIconMoreHorizontal & JSXBase.HTMLAttributes<HTMLFlipIconMoreHorizontalElement>;
+            "flip-icon-more-vertikal": LocalJSX.FlipIconMoreVertikal & JSXBase.HTMLAttributes<HTMLFlipIconMoreVertikalElement>;
+            "flip-icon-notifications": LocalJSX.FlipIconNotifications & JSXBase.HTMLAttributes<HTMLFlipIconNotificationsElement>;
+            "flip-icon-notifications-active": LocalJSX.FlipIconNotificationsActive & JSXBase.HTMLAttributes<HTMLFlipIconNotificationsActiveElement>;
+            "flip-icon-notifications-off": LocalJSX.FlipIconNotificationsOff & JSXBase.HTMLAttributes<HTMLFlipIconNotificationsOffElement>;
+            "flip-icon-people-alt": LocalJSX.FlipIconPeopleAlt & JSXBase.HTMLAttributes<HTMLFlipIconPeopleAltElement>;
+            "flip-icon-person": LocalJSX.FlipIconPerson & JSXBase.HTMLAttributes<HTMLFlipIconPersonElement>;
+            "flip-icon-person-off": LocalJSX.FlipIconPersonOff & JSXBase.HTMLAttributes<HTMLFlipIconPersonOffElement>;
+            "flip-icon-phone": LocalJSX.FlipIconPhone & JSXBase.HTMLAttributes<HTMLFlipIconPhoneElement>;
+            "flip-icon-poll": LocalJSX.FlipIconPoll & JSXBase.HTMLAttributes<HTMLFlipIconPollElement>;
+            "flip-icon-recieved": LocalJSX.FlipIconRecieved & JSXBase.HTMLAttributes<HTMLFlipIconRecievedElement>;
+            "flip-icon-report": LocalJSX.FlipIconReport & JSXBase.HTMLAttributes<HTMLFlipIconReportElement>;
+            "flip-icon-search": LocalJSX.FlipIconSearch & JSXBase.HTMLAttributes<HTMLFlipIconSearchElement>;
+            "flip-icon-search-strong": LocalJSX.FlipIconSearchStrong & JSXBase.HTMLAttributes<HTMLFlipIconSearchStrongElement>;
+            "flip-icon-send": LocalJSX.FlipIconSend & JSXBase.HTMLAttributes<HTMLFlipIconSendElement>;
+            "flip-icon-settings": LocalJSX.FlipIconSettings & JSXBase.HTMLAttributes<HTMLFlipIconSettingsElement>;
+            "flip-icon-time-filled": LocalJSX.FlipIconTimeFilled & JSXBase.HTMLAttributes<HTMLFlipIconTimeFilledElement>;
+            "flip-icon-time-outlined": LocalJSX.FlipIconTimeOutlined & JSXBase.HTMLAttributes<HTMLFlipIconTimeOutlinedElement>;
+            "flip-icon-today": LocalJSX.FlipIconToday & JSXBase.HTMLAttributes<HTMLFlipIconTodayElement>;
+            "flip-icon-user-assign": LocalJSX.FlipIconUserAssign & JSXBase.HTMLAttributes<HTMLFlipIconUserAssignElement>;
+            "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
+            "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
+            "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
+        }
     }
-  }
 }
