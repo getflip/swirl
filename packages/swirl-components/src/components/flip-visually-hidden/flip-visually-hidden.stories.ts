@@ -1,6 +1,6 @@
-import { generateStoryElement } from '../../utils';
+import { generateStoryElement } from "../../utils";
 // @ts-ignore
-import Docs from './flip-visually-hidden.mdx';
+import Docs from "./flip-visually-hidden.mdx";
 
 export default {
   component: "flip-visually-hidden",
