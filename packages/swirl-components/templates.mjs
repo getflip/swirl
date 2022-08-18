@@ -1,4 +1,4 @@
-export const componentTemplate = `import { Component, h, Host, Prop } from '@stencil/core';
+export const componentTemplate = `import { Component, h, Host, Prop } from "@stencil/core";
 
 @Component({
   shadow: true,
@@ -67,7 +67,7 @@ The component follows the [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/
 
 export const iconComponentTemplate = `// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
 
-import { Component, Fragment, h, Prop } from '@stencil/core';
+import { Component, Fragment, h, Prop } from "@stencil/core";
 
 export type FlipIconSize = 16 | 24 | 28;
 
@@ -97,9 +97,9 @@ export class FlipIcon{{iconName}} {
 }
 `;
 
-export const storiesTemplate = `import { generateStoryElement } from '../../utils';
+export const storiesTemplate = `import { generateStoryElement } from "../../utils";
 // @ts-ignore
-import Docs from './{{name}}.mdx';
+import Docs from "./{{name}}.mdx";
 
 export default {
   component: "{{name}}",
@@ -124,9 +124,9 @@ export const {{pascalCase name}} = Template.bind({});
 };
 `;
 
-export const unitTestTemplate = `import { newSpecPage } from '@stencil/core/testing';
+export const unitTestTemplate = `import { newSpecPage } from "@stencil/core/testing";
 
-import { {{pascalCase name}} } from './{{name}}';
+import { {{pascalCase name}} } from "./{{name}}";
 
 describe("{{name}}", () => {
   it("renders", async () => {
