@@ -1,6 +1,6 @@
-import { newSpecPage } from "@stencil/core/testing";
+import { newSpecPage } from '@stencil/core/testing';
 
-import { FlipButton } from "./flip-button";
+import { FlipButton } from './flip-button';
 
 describe("flip-button", () => {
   it("renders", async () => {
@@ -13,7 +13,9 @@ describe("flip-button", () => {
       <flip-button label=\"Label\">
         <mock:shadow-root>
           <button class=\"button\" type=\"button\">
-            Label
+            <span class="button__label">
+              Label
+            </span>
           </button>
         </mock:shadow-root>
       </flip-button>

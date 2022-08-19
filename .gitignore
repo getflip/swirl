@@ -138,6 +138,7 @@ dist
 **/.stencil
 **/dist
 **/loader
+**/stencil-generated
 
 # Storybook
 **/storybook-static

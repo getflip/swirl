@@ -5,72 +5,17 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipButtonType } from "./components/flip-button/flip-button";
-import { FlipIconSize } from "./components/flip-icon/icons/flip-icon-add";
-import { FlipIconSize as FlipIconSize1 } from "./components/flip-icon/icons/flip-icon-add-photo";
-import { FlipIconSize as FlipIconSize2 } from "./components/flip-icon/icons/flip-icon-admin-panel-settings";
-import { FlipIconSize as FlipIconSize3 } from "./components/flip-icon/icons/flip-icon-arrow-back";
-import { FlipIconSize as FlipIconSize4 } from "./components/flip-icon/icons/flip-icon-arrow-forward";
-import { FlipIconSize as FlipIconSize5 } from "./components/flip-icon/icons/flip-icon-arrow-right-small";
-import { FlipIconSize as FlipIconSize6 } from "./components/flip-icon/icons/flip-icon-attachment";
-import { FlipIconSize as FlipIconSize7 } from "./components/flip-icon/icons/flip-icon-chat-bubble";
-import { FlipIconSize as FlipIconSize8 } from "./components/flip-icon/icons/flip-icon-check";
-import { FlipIconSize as FlipIconSize9 } from "./components/flip-icon/icons/flip-icon-check-small";
-import { FlipIconSize as FlipIconSize10 } from "./components/flip-icon/icons/flip-icon-check-strong";
-import { FlipIconSize as FlipIconSize11 } from "./components/flip-icon/icons/flip-icon-chevron-left";
-import { FlipIconSize as FlipIconSize12 } from "./components/flip-icon/icons/flip-icon-chevron-right";
-import { FlipIconSize as FlipIconSize13 } from "./components/flip-icon/icons/flip-icon-close";
-import { FlipIconSize as FlipIconSize14 } from "./components/flip-icon/icons/flip-icon-close-small";
-import { FlipIconSize as FlipIconSize15 } from "./components/flip-icon/icons/flip-icon-comment";
-import { FlipIconSize as FlipIconSize16 } from "./components/flip-icon/icons/flip-icon-copy";
-import { FlipIconSize as FlipIconSize17 } from "./components/flip-icon/icons/flip-icon-date-range";
-import { FlipIconSize as FlipIconSize18 } from "./components/flip-icon/icons/flip-icon-delete";
-import { FlipIconSize as FlipIconSize19 } from "./components/flip-icon/icons/flip-icon-description";
-import { FlipIconSize as FlipIconSize20 } from "./components/flip-icon/icons/flip-icon-download";
-import { FlipIconSize as FlipIconSize21 } from "./components/flip-icon/icons/flip-icon-edit";
-import { FlipIconSize as FlipIconSize22 } from "./components/flip-icon/icons/flip-icon-emoji-mood";
-import { FlipIconSize as FlipIconSize23 } from "./components/flip-icon/icons/flip-icon-emoji-satisfied";
-import { FlipIconSize as FlipIconSize24 } from "./components/flip-icon/icons/flip-icon-expand-less";
-import { FlipIconSize as FlipIconSize25 } from "./components/flip-icon/icons/flip-icon-expand-more";
-import { FlipIconSize as FlipIconSize26 } from "./components/flip-icon/icons/flip-icon-file";
-import { FlipIconSize as FlipIconSize27 } from "./components/flip-icon/icons/flip-icon-folder-shared";
-import { FlipIconSize as FlipIconSize28 } from "./components/flip-icon/icons/flip-icon-group-assign";
-import { FlipIconSize as FlipIconSize29 } from "./components/flip-icon/icons/flip-icon-groups";
-import { FlipIconSize as FlipIconSize30 } from "./components/flip-icon/icons/flip-icon-groups-custom";
-import { FlipIconSize as FlipIconSize31 } from "./components/flip-icon/icons/flip-icon-image";
-import { FlipIconSize as FlipIconSize32 } from "./components/flip-icon/icons/flip-icon-info";
-import { FlipIconSize as FlipIconSize33 } from "./components/flip-icon/icons/flip-icon-inventory";
-import { FlipIconSize as FlipIconSize34 } from "./components/flip-icon/icons/flip-icon-like";
-import { FlipIconSize as FlipIconSize35 } from "./components/flip-icon/icons/flip-icon-link";
-import { FlipIconSize as FlipIconSize36 } from "./components/flip-icon/icons/flip-icon-lock";
-import { FlipIconSize as FlipIconSize37 } from "./components/flip-icon/icons/flip-icon-logout";
-import { FlipIconSize as FlipIconSize38 } from "./components/flip-icon/icons/flip-icon-mail";
-import { FlipIconSize as FlipIconSize39 } from "./components/flip-icon/icons/flip-icon-manage-accounts";
-import { FlipIconSize as FlipIconSize40 } from "./components/flip-icon/icons/flip-icon-mention";
-import { FlipIconSize as FlipIconSize41 } from "./components/flip-icon/icons/flip-icon-message";
-import { FlipIconSize as FlipIconSize42 } from "./components/flip-icon/icons/flip-icon-more-horizontal";
-import { FlipIconSize as FlipIconSize43 } from "./components/flip-icon/icons/flip-icon-more-vertikal";
-import { FlipIconSize as FlipIconSize44 } from "./components/flip-icon/icons/flip-icon-notifications";
-import { FlipIconSize as FlipIconSize45 } from "./components/flip-icon/icons/flip-icon-notifications-active";
-import { FlipIconSize as FlipIconSize46 } from "./components/flip-icon/icons/flip-icon-notifications-off";
-import { FlipIconSize as FlipIconSize47 } from "./components/flip-icon/icons/flip-icon-people-alt";
-import { FlipIconSize as FlipIconSize48 } from "./components/flip-icon/icons/flip-icon-person";
-import { FlipIconSize as FlipIconSize49 } from "./components/flip-icon/icons/flip-icon-person-off";
-import { FlipIconSize as FlipIconSize50 } from "./components/flip-icon/icons/flip-icon-phone";
-import { FlipIconSize as FlipIconSize51 } from "./components/flip-icon/icons/flip-icon-poll";
-import { FlipIconSize as FlipIconSize52 } from "./components/flip-icon/icons/flip-icon-recieved";
-import { FlipIconSize as FlipIconSize53 } from "./components/flip-icon/icons/flip-icon-report";
-import { FlipIconSize as FlipIconSize54 } from "./components/flip-icon/icons/flip-icon-search";
-import { FlipIconSize as FlipIconSize55 } from "./components/flip-icon/icons/flip-icon-search-strong";
-import { FlipIconSize as FlipIconSize56 } from "./components/flip-icon/icons/flip-icon-send";
-import { FlipIconSize as FlipIconSize57 } from "./components/flip-icon/icons/flip-icon-settings";
-import { FlipIconSize as FlipIconSize58 } from "./components/flip-icon/icons/flip-icon-time-filled";
-import { FlipIconSize as FlipIconSize59 } from "./components/flip-icon/icons/flip-icon-time-outlined";
-import { FlipIconSize as FlipIconSize60 } from "./components/flip-icon/icons/flip-icon-today";
-import { FlipIconSize as FlipIconSize61 } from "./components/flip-icon/icons/flip-icon-user-assign";
-import { FlipIconSize as FlipIconSize62 } from "./components/flip-icon/icons/flip-icon-video-camera";
-import { FlipIconSize as FlipIconSize63 } from "./components/flip-icon/icons/flip-icon-visibility-off";
+import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 export namespace Components {
+    interface FlipBadge {
+        "icon"?: string;
+        "intent"?: FlipBadgeIntent;
+        "label": string;
+        "size"?: FlipBadgeSize;
+        "variant"?: FlipBadgeVariant;
+    }
     interface FlipButton {
         "disabled"?: boolean;
         "label": string;
@@ -273,6 +218,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFlipBadgeElement extends Components.FlipBadge, HTMLStencilElement {
+    }
+    var HTMLFlipBadgeElement: {
+        prototype: HTMLFlipBadgeElement;
+        new (): HTMLFlipBadgeElement;
+    };
     interface HTMLFlipButtonElement extends Components.FlipButton, HTMLStencilElement {
     }
     var HTMLFlipButtonElement: {
@@ -670,6 +621,7 @@ declare global {
         new (): HTMLFlipVisuallyHiddenElement;
     };
     interface HTMLElementTagNameMap {
+        "flip-badge": HTMLFlipBadgeElement;
         "flip-button": HTMLFlipButtonElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
@@ -739,6 +691,13 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FlipBadge {
+        "icon"?: string;
+        "intent"?: FlipBadgeIntent;
+        "label": string;
+        "size"?: FlipBadgeSize;
+        "variant"?: FlipBadgeVariant;
+    }
     interface FlipButton {
         "disabled"?: boolean;
         "label": string;
@@ -940,6 +899,7 @@ declare namespace LocalJSX {
     interface FlipVisuallyHidden {
     }
     interface IntrinsicElements {
+        "flip-badge": FlipBadge;
         "flip-button": FlipButton;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
@@ -1012,6 +972,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
