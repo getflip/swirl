@@ -1,6 +1,6 @@
-import { newSpecPage } from '@stencil/core/testing';
+import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipIconClose } from './icons/flip-icon-close';
+import { FlipIconClose } from "./icons/flip-icon-close";
 
 describe("flip-icon", () => {
   it("renders", async () => {

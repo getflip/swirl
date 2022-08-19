@@ -1,6 +1,6 @@
-import { newSpecPage } from '@stencil/core/testing';
+import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipButton } from './flip-button';
+import { FlipButton } from "./flip-button";
 
 describe("flip-button", () => {
   it("renders", async () => {
