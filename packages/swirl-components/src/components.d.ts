@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipButtonType } from "./components/flip-button/flip-button";
+import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 export namespace Components {
     interface FlipBadge {
@@ -21,6 +22,14 @@ export namespace Components {
         "label": string;
         "leftIcon"?: string;
         "type"?: FlipButtonType;
+    }
+    interface FlipCheckbox {
+        "checked"?: FlipCheckboxState;
+        "disabled"?: boolean;
+        "inputId": string;
+        "inputName": string;
+        "label"?: string;
+        "value"?: string;
     }
     interface FlipIconAdd {
         "size": FlipIconSize;
@@ -217,6 +226,10 @@ export namespace Components {
     interface FlipVisuallyHidden {
     }
 }
+export interface FlipCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipCheckboxElement;
+}
 declare global {
     interface HTMLFlipBadgeElement extends Components.FlipBadge, HTMLStencilElement {
     }
@@ -229,6 +242,12 @@ declare global {
     var HTMLFlipButtonElement: {
         prototype: HTMLFlipButtonElement;
         new (): HTMLFlipButtonElement;
+    };
+    interface HTMLFlipCheckboxElement extends Components.FlipCheckbox, HTMLStencilElement {
+    }
+    var HTMLFlipCheckboxElement: {
+        prototype: HTMLFlipCheckboxElement;
+        new (): HTMLFlipCheckboxElement;
     };
     interface HTMLFlipIconAddElement extends Components.FlipIconAdd, HTMLStencilElement {
     }
@@ -623,6 +642,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "flip-badge": HTMLFlipBadgeElement;
         "flip-button": HTMLFlipButtonElement;
+        "flip-checkbox": HTMLFlipCheckboxElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
         "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
@@ -703,6 +723,15 @@ declare namespace LocalJSX {
         "label": string;
         "leftIcon"?: string;
         "type"?: FlipButtonType;
+    }
+    interface FlipCheckbox {
+        "checked"?: FlipCheckboxState;
+        "disabled"?: boolean;
+        "inputId": string;
+        "inputName": string;
+        "label"?: string;
+        "onValueChange"?: (event: FlipCheckboxCustomEvent<boolean>) => void;
+        "value"?: string;
     }
     interface FlipIconAdd {
         "size"?: FlipIconSize;
@@ -901,6 +930,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "flip-badge": FlipBadge;
         "flip-button": FlipButton;
+        "flip-checkbox": FlipCheckbox;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
         "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
@@ -974,6 +1004,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
+            "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
             "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
