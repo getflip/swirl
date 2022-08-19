@@ -1,4 +1,4 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, h, Prop } from '@stencil/core';
 
 export type FlipButtonType = "button" | "submit";
 
@@ -24,7 +24,7 @@ export class FlipButton {
         {this.leftIcon && (
           <span class="button__left-icon" innerHTML={this.leftIcon}></span>
         )}
-        {this.label}
+        <span class="button__label">{this.label}</span>
       </button>
     );
   }
