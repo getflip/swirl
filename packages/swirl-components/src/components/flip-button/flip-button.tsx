@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop } from "@stencil/core";
 
 export type FlipButtonType = "button" | "submit";
 

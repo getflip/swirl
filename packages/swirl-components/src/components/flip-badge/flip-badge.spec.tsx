@@ -1,6 +1,6 @@
-import { newSpecPage } from '@stencil/core/testing';
+import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipBadge } from './flip-badge';
+import { FlipBadge } from "./flip-badge";
 
 describe("flip-badge", () => {
   it("shows its label", async () => {
