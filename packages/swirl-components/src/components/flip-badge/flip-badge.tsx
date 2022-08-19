@@ -1,6 +1,6 @@
-import classnames from 'classnames';
+import classnames from "classnames";
 
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, h, Host, Prop } from "@stencil/core";
 
 export type FlipBadgeIntent =
   | "critical"
