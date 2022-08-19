@@ -1,0 +1,113 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  border: 0.25rem solid var(--s-background-default);
+  border-radius: 2rem;
+  color: #fff;
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-medium);
+}
+
+.badge--size-s {
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding-right: var(--s-space-1);
+  padding-left: var(--s-space-1);
+  font-size: 0.75rem;
+
+  & .badge__icon {
+    & > *::part(icon) {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+  }
+}
+
+.badge--size-m {
+  min-width: 2rem;
+  height: 2rem;
+  padding-right: var(--s-space-2);
+  padding-left: var(--s-space-2);
+}
+
+.badge--has-icon {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.badge--intent-critical {
+  background-color: var(--s-surface-critical-default);
+}
+
+.badge--intent-decorative-1 {
+  background-color: var(--s-decorative-one-default);
+}
+
+.badge--intent-decorative-2 {
+  background-color: var(--s-decorative-two-default);
+}
+
+.badge--intent-decorative-3 {
+  color: var(--s-text-default);
+  background-color: var(--s-decorative-three-default);
+}
+
+.badge--intent-decorative-4 {
+  color: var(--s-text-default);
+  background-color: var(--s-decorative-four-default);
+}
+
+.badge--intent-decorative-5 {
+  background-color: var(--s-decorative-five-default);
+}
+
+.badge--intent-decorative-6 {
+  background-color: var(--s-decorative-six-default);
+}
+
+.badge--intent-decorative-7 {
+  background-color: var(--s-decorative-seven-default);
+}
+
+.badge--variant-dot {
+  width: 1.25rem;
+  min-width: 0;
+  height: 1.25rem;
+  padding-right: 0;
+  padding-left: 0;
+
+  & .badge__label,
+  & .badge__icon {
+    display: none;
+  }
+}
+
+.badge__icon {
+  display: inline-flex;
+
+  & > *::part(icon) {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.badge__label {
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

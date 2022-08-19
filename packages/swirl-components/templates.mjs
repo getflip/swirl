@@ -16,6 +16,10 @@ export class {{pascalCase name}} {
 
 export const cssTemplate = `:host {
   display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
 }
 `;
 
@@ -68,8 +72,7 @@ The component follows the [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/
 export const iconComponentTemplate = `// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
 
 import { Component, Fragment, h, Prop } from "@stencil/core";
-
-export type FlipIconSize = 16 | 24 | 28;
+import { FlipIconSize } from "../flip-icon.types";
 
 @Component({
   shadow: true,
@@ -85,6 +88,8 @@ export class FlipIcon{{iconName}} {
         class="flip-icon"
         fill="none"
         height={this.size}
+        part="icon"
+        viewBox={\`0 0 \${this.size} \${this.size}\`}
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"
       >
