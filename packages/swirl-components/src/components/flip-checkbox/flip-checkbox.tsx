@@ -66,7 +66,7 @@ export class FlipCheckbox {
             <span aria-hidden="true" class="checkbox__backdrop"></span>
             <span aria-hidden="true" class="checkbox__box">
               <span class="checkbox__icon">
-                {checked && <span>T</span>}
+                {checked && <flip-icon-check-strong></flip-icon-check-strong>}
                 {indeterminate && (
                   <span class="checkbox__indeterminate-icon"></span>
                 )}
