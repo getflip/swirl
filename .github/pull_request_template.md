@@ -29,6 +29,7 @@ https://swirl-storybook.flip-app.dev/?path=/docs/contributions-merge-publish--pa
   - [ ] The Storybook a11y addon shows no errors.
   - [ ] The changes have been tested with a screen reader.
   - [ ] Keyboard controls have been tested, if applicable.
+  - [ ] Components implementing form controls (inputs, buttons, selects, etc.) do not use Shadow DOM, and instead use Stencil's scoping mechanism
 - [ ] The changes use our [🌈 theming concept](https://swirl-storybook.flip-app.dev/?path=/docs/requirements-theming--page).
   - [ ] Design tokens have been used where appropriate.
   - [ ] The component has been visually checked in combination with the "Light" and "Dark" theme.

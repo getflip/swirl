@@ -73,3 +73,27 @@ animations that are not essential for our components to work.
   animation: none;
 }
 ```
+
+## Forms
+
+Form elements within the Shadow DOM are not automatically linked to their `form`
+parent element, as is common in the light DOM. Theoretically, the custom
+elements standard allows the creation of custom form elements using special API.
+Unfortunately, the standard is not supported by Safari, and it is questionable
+whether Safari will ever implement it.
+
+See [caniuse.com](https://caniuse.com/?search=attachInternals).
+
+**For this reason, we refrain from using Shadow DOM for form elements (inputs,
+buttons, selects, etc.) for the time being and use the scoping mechanism of
+Stencil.**
+
+```typescript
+@Component({
+  scoped: true,
+  shadow: false,
+  tag: "flip-button",
+  styleUrl: "flip-button.css",
+})
+// ...
+```
