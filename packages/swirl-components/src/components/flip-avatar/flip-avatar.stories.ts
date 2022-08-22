@@ -19,10 +19,6 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("flip-avatar", args);
 
-  element.addEventListener("click", () => {
-    console.log("activated");
-  });
-
   return element;
 };
 
