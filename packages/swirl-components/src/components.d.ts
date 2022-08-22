@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
+import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
     interface FlipBadge {
         "icon"?: string;
@@ -213,6 +214,12 @@ export namespace Components {
     }
     interface FlipIconVisibilityOff {
         "size": FlipIconSize;
+    }
+    interface FlipTooltip {
+        "delay": number;
+        "position": FlipTooltipPosition;
+        "tooltip": string;
+        "tooltipId": string;
     }
 }
 declare global {
@@ -612,6 +619,12 @@ declare global {
         prototype: HTMLFlipIconVisibilityOffElement;
         new (): HTMLFlipIconVisibilityOffElement;
     };
+    interface HTMLFlipTooltipElement extends Components.FlipTooltip, HTMLStencilElement {
+    }
+    var HTMLFlipTooltipElement: {
+        prototype: HTMLFlipTooltipElement;
+        new (): HTMLFlipTooltipElement;
+    };
     interface HTMLElementTagNameMap {
         "flip-badge": HTMLFlipBadgeElement;
         "flip-button": HTMLFlipButtonElement;
@@ -679,6 +692,7 @@ declare global {
         "flip-icon-user-assign": HTMLFlipIconUserAssignElement;
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
+        "flip-tooltip": HTMLFlipTooltipElement;
     }
 }
 declare namespace LocalJSX {
@@ -887,6 +901,12 @@ declare namespace LocalJSX {
     interface FlipIconVisibilityOff {
         "size"?: FlipIconSize;
     }
+    interface FlipTooltip {
+        "delay"?: number;
+        "position"?: FlipTooltipPosition;
+        "tooltip": string;
+        "tooltipId": string;
+    }
     interface IntrinsicElements {
         "flip-badge": FlipBadge;
         "flip-button": FlipButton;
@@ -954,6 +974,7 @@ declare namespace LocalJSX {
         "flip-icon-user-assign": FlipIconUserAssign;
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
+        "flip-tooltip": FlipTooltip;
     }
 }
 export { LocalJSX as JSX };
@@ -1026,6 +1047,7 @@ declare module "@stencil/core" {
             "flip-icon-user-assign": LocalJSX.FlipIconUserAssign & JSXBase.HTMLAttributes<HTMLFlipIconUserAssignElement>;
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
+            "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
         }
     }
 }
