@@ -3,6 +3,11 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./flip-avatar.mdx";
 
 export default {
+  argTypes: {
+    badge: {
+      description: 'Only visible with default size "m".',
+    },
+  },
   component: "flip-avatar",
   parameters: {
     docs: {
