@@ -28,7 +28,7 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("flip-tooltip", args);
 
-  element.innerHTML = "Trigger";
+  element.innerHTML = "Hover or focus me";
 
   return element;
 };
