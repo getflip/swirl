@@ -1,5 +1,4 @@
 import { generateStoryElement } from "../../utils";
-// @ts-ignore
 import Docs from "./flip-checkbox.mdx";
 
 export default {
@@ -20,10 +19,6 @@ export default {
 
 const Template = (args) => {
   const element = generateStoryElement("flip-checkbox", args);
-
-  element.addEventListener("valueChange", (event: CustomEvent) => {
-    console.log(event.detail);
-  });
 
   return element;
 };
