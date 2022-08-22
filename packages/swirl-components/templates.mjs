@@ -103,7 +103,6 @@ export class FlipIcon{{iconName}} {
 `;
 
 export const storiesTemplate = `import { generateStoryElement } from "../../utils";
-// @ts-ignore
 import Docs from "./{{name}}.mdx";
 
 export default {

@@ -1,5 +1,4 @@
 import { generateStoryElement } from "../../utils";
-// @ts-ignore
 import Docs from "./flip-visually-hidden.mdx";
 
 export default {

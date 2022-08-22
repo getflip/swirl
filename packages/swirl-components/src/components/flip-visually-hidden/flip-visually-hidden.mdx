@@ -15,6 +15,17 @@ readable for screen readers.
   <Story id="components-flipvisuallyhidden--flip-visually-hidden" />
 </Canvas>
 
+In some cases, you may want to hide elements that should be readable by a screen
+reader but are visually redundant. For example, icon buttons that need an
+accessible label, but the icon is sufficient in the visual representation.
+
+```html
+<button>
+  <flip-icon-close></flip-icon-close>
+  <flip-visually-hidden>Close</flip-visually-hidden>
+</button>
+```
+
 ## Accessibility
 
 The component styles its children so that they are visually hidden, but the
