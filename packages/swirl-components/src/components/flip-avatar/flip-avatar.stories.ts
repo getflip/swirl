@@ -1,5 +1,4 @@
 import { generateStoryElement } from "../../utils";
-// @ts-ignore
 import Docs from "./flip-avatar.mdx";
 
 export default {
