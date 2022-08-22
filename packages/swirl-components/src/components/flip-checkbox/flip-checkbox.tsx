@@ -7,7 +7,8 @@ export type FlipCheckboxState = boolean | "true" | "false" | "indeterminate";
   /**
    * Form controls in shadow dom can still not be associated with labels in the
    * light dom, cross browser. So for now we disable shadow dom for form
-   * controls. Instead we use Stencil's scoping.
+   * controls (inputs, buttons, selects, etc.). Instead we use Stencil's scoping.
+   * https://caniuse.com/?search=attachInternals
    */
   scoped: true,
   shadow: false,
@@ -65,7 +66,7 @@ export class FlipCheckbox {
             <span aria-hidden="true" class="checkbox__backdrop"></span>
             <span aria-hidden="true" class="checkbox__box">
               <span class="checkbox__icon">
-                {checked && <flip-icon-check-strong></flip-icon-check-strong>}
+                {checked && <span>T</span>}
                 {indeterminate && (
                   <span class="checkbox__indeterminate-icon"></span>
                 )}
