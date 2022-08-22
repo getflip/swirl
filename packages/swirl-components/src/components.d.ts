@@ -16,6 +16,8 @@ export namespace Components {
         "size"?: FlipBadgeSize;
         "variant"?: FlipBadgeVariant;
     }
+    interface FlipBanner {
+    }
     interface FlipButton {
         "disabled"?: boolean;
         "label": string;
@@ -223,6 +225,12 @@ declare global {
     var HTMLFlipBadgeElement: {
         prototype: HTMLFlipBadgeElement;
         new (): HTMLFlipBadgeElement;
+    };
+    interface HTMLFlipBannerElement extends Components.FlipBanner, HTMLStencilElement {
+    }
+    var HTMLFlipBannerElement: {
+        prototype: HTMLFlipBannerElement;
+        new (): HTMLFlipBannerElement;
     };
     interface HTMLFlipButtonElement extends Components.FlipButton, HTMLStencilElement {
     }
@@ -622,6 +630,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "flip-badge": HTMLFlipBadgeElement;
+        "flip-banner": HTMLFlipBannerElement;
         "flip-button": HTMLFlipButtonElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
@@ -697,6 +706,8 @@ declare namespace LocalJSX {
         "label": string;
         "size"?: FlipBadgeSize;
         "variant"?: FlipBadgeVariant;
+    }
+    interface FlipBanner {
     }
     interface FlipButton {
         "disabled"?: boolean;
@@ -900,6 +911,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "flip-badge": FlipBadge;
+        "flip-banner": FlipBanner;
         "flip-button": FlipButton;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
@@ -973,6 +985,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
+            "flip-banner": LocalJSX.FlipBanner & JSXBase.HTMLAttributes<HTMLFlipBannerElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
