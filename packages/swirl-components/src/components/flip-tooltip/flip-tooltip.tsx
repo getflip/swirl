@@ -9,8 +9,8 @@ export type FlipTooltipPosition = "top" | "right" | "bottom" | "left";
   tag: "flip-tooltip",
 })
 export class FlipTooltip {
-  @Prop() delay: number = 300;
-  @Prop() position: FlipTooltipPosition = "top";
+  @Prop() delay?: number = 300;
+  @Prop() position?: FlipTooltipPosition = "top";
   @Prop() tooltip!: string;
   @Prop() tooltipId!: string;
 
