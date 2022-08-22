@@ -16,6 +16,8 @@ export const config: Config = {
       esmLoaderPath: "../loader",
     },
     {
+      autoDefineCustomElements: true,
+      generateTypeDeclarations: true,
       type: "dist-custom-elements",
     },
     {
@@ -28,11 +30,12 @@ export const config: Config = {
       includeDefineCustomElements: true,
     }),
     angularOutputTarget({
-      componentCorePackage: "@getflip/swirl-components",
+      componentCorePackage: "@getflip/swirl-components/dist",
       directivesProxyFile:
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/components.ts",
       directivesArrayFile:
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/index.ts",
+      includeImportCustomElements: true,
     }),
   ],
   plugins: [
