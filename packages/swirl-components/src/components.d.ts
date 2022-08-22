@@ -221,6 +221,8 @@ export namespace Components {
         "tooltip": string;
         "tooltipId": string;
     }
+    interface FlipVisuallyHidden {
+    }
 }
 declare global {
     interface HTMLFlipBadgeElement extends Components.FlipBadge, HTMLStencilElement {
@@ -625,6 +627,12 @@ declare global {
         prototype: HTMLFlipTooltipElement;
         new (): HTMLFlipTooltipElement;
     };
+    interface HTMLFlipVisuallyHiddenElement extends Components.FlipVisuallyHidden, HTMLStencilElement {
+    }
+    var HTMLFlipVisuallyHiddenElement: {
+        prototype: HTMLFlipVisuallyHiddenElement;
+        new (): HTMLFlipVisuallyHiddenElement;
+    };
     interface HTMLElementTagNameMap {
         "flip-badge": HTMLFlipBadgeElement;
         "flip-button": HTMLFlipButtonElement;
@@ -693,6 +701,7 @@ declare global {
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
         "flip-tooltip": HTMLFlipTooltipElement;
+        "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
 }
 declare namespace LocalJSX {
@@ -907,6 +916,8 @@ declare namespace LocalJSX {
         "tooltip": string;
         "tooltipId": string;
     }
+    interface FlipVisuallyHidden {
+    }
     interface IntrinsicElements {
         "flip-badge": FlipBadge;
         "flip-button": FlipButton;
@@ -975,6 +986,7 @@ declare namespace LocalJSX {
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
         "flip-tooltip": FlipTooltip;
+        "flip-visually-hidden": FlipVisuallyHidden;
     }
 }
 export { LocalJSX as JSX };
@@ -1048,6 +1060,7 @@ declare module "@stencil/core" {
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
+            "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }
     }
 }
