@@ -18,7 +18,14 @@ export default {
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-checkbox", args);
+  const element = generateStoryElement(
+    "flip-checkbox",
+    args
+  ) as HTMLFlipCheckboxElement;
+
+  element.addEventListener("valueChange", () => {
+    element.checked = !element.checked;
+  });
 
   return element;
 };
