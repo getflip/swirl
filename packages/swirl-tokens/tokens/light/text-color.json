@@ -4,7 +4,7 @@
     "comment": "Used for high emphasis text."
   },
   "text-subdued": {
-    "value": "rgba(142, 142, 147, 1)",
+    "value": "rgba(109, 110, 114, 1)",
     "comment": "Used for low emphasis text."
   },
   "text-disabled": {
@@ -34,5 +34,8 @@
   "text-on-image": {
     "value": "rgba(255, 255, 255, 1)",
     "comment": "Used as a text color on “Surface On Image/Default”."
+  },
+  "text-on-status": {
+    "value": "#ffffff"
   }
 }
