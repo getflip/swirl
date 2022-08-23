@@ -18,10 +18,9 @@ export default {
 const Template = (args) => {
   const container = document.createElement("ul");
 
-  container.style.display = "flex";
-  container.style.flexDirection = "column";
-  container.style.gap = "0.5rem";
+  container.style.columns = "2";
   container.style.margin = "0";
+  container.style.marginBottom = "-0.5rem";
   container.style.padding = "0";
 
   const elements = Object.values(IconsJSON).map((icon: any) => {
@@ -34,6 +33,8 @@ const Template = (args) => {
     row.style.display = "flex";
     row.style.alignItems = "center";
     row.style.gap = "0.5rem";
+    row.style.marginBottom = "0.5rem";
+    row.style.paddingRight = "0.5rem";
 
     row.append(iconElement);
     row.append(label);
