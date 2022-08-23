@@ -16,7 +16,8 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "vscode-data.json"
   ],
   "scripts": {
     "start": "yarn stencil:build && concurrently \"npm:*:start\"",
@@ -58,6 +59,7 @@
     "@typescript-eslint/parser": "^5.33.0",
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.7.4",
     "concurrently": "^7.3.0",
     "eslint-plugin-react": "^7.30.1",
     "jest": "^27.4.5",

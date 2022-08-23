@@ -17,7 +17,7 @@
   align-items: center;
   border: 0.25rem solid var(--s-background-default);
   border-radius: 2rem;
-  color: #fff;
+  color: var(--s-text-on-status);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
 }
