@@ -24,6 +24,10 @@ export const config: Config = {
       file: "components.json",
       type: "docs-json",
     },
+    {
+      type: "docs-vscode",
+      file: "vscode-data.json",
+    },
     reactOutputTarget({
       componentCorePackage: "@getflip/swirl-components",
       proxiesFile: "../swirl-components-react/lib/stencil-generated/index.ts",
