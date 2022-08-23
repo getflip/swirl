@@ -16,7 +16,8 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "vscode-data.json"
   ],
   "scripts": {
     "start": "yarn stencil:build && concurrently \"npm:*:start\"",
