@@ -19,7 +19,7 @@
 .checkbox--indeterminate {
   & .checkbox__box {
     border-color: var(--s-icon-highlight);
-    color: #fff;
+    color: var(--s-text-on-status);
     background-color: var(--s-icon-highlight);
   }
 }
