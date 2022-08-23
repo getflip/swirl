@@ -1,6 +1,5 @@
 import IconsJSON from "../../../icons.json";
 import { generateStoryElement } from "../../utils";
-// @ts-ignore
 import Docs from "./flip-icon.mdx";
 
 export default {
@@ -8,30 +7,20 @@ export default {
   parameters: {
     docs: {
       page: Docs,
+      source: {
+        code: "<flip-icon-emoji-satisfied></flip-icon-emoji-satisfied>",
+      },
     },
   },
   title: "Components/FlipIcon",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-icon-emoji-satisfied", args);
-
-  return element;
-};
-
-export const Default = Template.bind({});
-
-Default.args = {
-  size: "24",
-};
-
-const OverviewTemplate = (args) => {
   const container = document.createElement("ul");
 
-  container.style.display = "flex";
-  container.style.flexDirection = "column";
-  container.style.gap = "0.5rem";
+  container.style.columns = "2";
   container.style.margin = "0";
+  container.style.marginBottom = "-0.5rem";
   container.style.padding = "0";
 
   const elements = Object.values(IconsJSON).map((icon: any) => {
@@ -44,6 +33,8 @@ const OverviewTemplate = (args) => {
     row.style.display = "flex";
     row.style.alignItems = "center";
     row.style.gap = "0.5rem";
+    row.style.marginBottom = "0.5rem";
+    row.style.paddingRight = "0.5rem";
 
     row.append(iconElement);
     row.append(label);
@@ -56,8 +47,8 @@ const OverviewTemplate = (args) => {
   return container;
 };
 
-export const Icons = OverviewTemplate.bind({});
+export const FlipIcon = Template.bind({});
 
-Icons.args = {
-  size: "16",
+FlipIcon.args = {
+  size: "24",
 };
