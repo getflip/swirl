@@ -4,7 +4,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 
 # FlipBanner
 
-The FlipBanner component is used to display prominent messages ath the top of
+The FlipBanner component is used to display a prominent message at the top of
 the screen.
 
 - **[Figma Design Specs](https://www.figma.com/file/l498Zs9zdZ1qrFJ8aYs47G/Components-V2?node-id=2127%3A24816)**
@@ -20,9 +20,19 @@ the screen.
 
 ## Theming
 
-| Variable                          | Usage                       |
-| --------------------------------- | --------------------------- |
-| `--s-interactive-primary-default` | The button background color |
+| Variable                       | Usage                                                          |
+| ------------------------------ | -------------------------------------------------------------- |
+| `--s-background-default`       | Background color for intent "default"                          |
+| `--s-surface-neutral-default`  | Background color for intent "neutral"                          |
+| `--s-surface-critical-default` | Background color for intent "critical"                         |
+| `--s-surface-success-default`  | Background color for intent "success"                          |
+| `--s-surface-warning-default`  | Background color for intent "warning"                          |
+| `--s-surface-info-default`     | Background color for intent "info"                             |
+| `--s-border-default`           | Border color for intent "default"                              |
+| `--s-text-subdued`             | Text color for intent "default"                                |
+| `--s-text-default`             | Text color for intent "warning"                                |
+| `--s-text-on-status`           | Text color for intent "neutral", "critical", "success", "info" |
+| `--s-text-highlight`           | Text color action button on intent "default"                   |
 
 ## Accessibility
 
@@ -31,9 +41,8 @@ the screen.
 The component follows the
 [WAI-ARIA Alert Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alert/).
 
-| ARIA                 | Usage                                                                                         |
-| -------------------- | --------------------------------------------------------------------------------------------- |
-| `role="alert"`       | The banner gets the `alert` role if it contains critical info or warnings.                    |
-| `role="status"`      | The banner gets the `status` role for non-critical info.                                      |
-| `aria-live="polite"` | If the banner contents change without page reloads, the `aria-live` attribute has to be set.  |
-| `aria-describedby`   | The `aria-describedby` property is automatically set to reference the banner's title or body. |
+| ARIA               | Usage                                                                                         |
+| ------------------ | --------------------------------------------------------------------------------------------- |
+| `role="alert"`     | The banner gets the `alert` role if it contains critical info or warnings.                    |
+| `role="status"`    | The banner gets the `status` role for non-critical info.                                      |
+| `aria-describedby` | The `aria-describedby` property is automatically set to reference the banner's title or body. |

@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
+import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
 import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 export namespace Components {
@@ -17,6 +18,11 @@ export namespace Components {
         "variant"?: FlipBadgeVariant;
     }
     interface FlipBanner {
+        "actionLabel"?: string;
+        "heading": string;
+        "icon"?: string;
+        "importance"?: FlipBannerAriaRole;
+        "intent"?: FlipBannerIntent;
     }
     interface FlipButton {
         "disabled"?: boolean;
@@ -218,6 +224,10 @@ export namespace Components {
     }
     interface FlipVisuallyHidden {
     }
+}
+export interface FlipBannerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipBannerElement;
 }
 declare global {
     interface HTMLFlipBadgeElement extends Components.FlipBadge, HTMLStencilElement {
@@ -708,6 +718,12 @@ declare namespace LocalJSX {
         "variant"?: FlipBadgeVariant;
     }
     interface FlipBanner {
+        "actionLabel"?: string;
+        "heading": string;
+        "icon"?: string;
+        "importance"?: FlipBannerAriaRole;
+        "intent"?: FlipBannerIntent;
+        "onActionClick"?: (event: FlipBannerCustomEvent<MouseEvent>) => void;
     }
     interface FlipButton {
         "disabled"?: boolean;

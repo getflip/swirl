@@ -1,7 +1,141 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: block;
 
   & * {
     box-sizing: border-box;
+  }
+}
+
+.banner {
+  max-width: 100%;
+  padding: var(--s-space-3);
+
+  &:focus {
+    outline-color: var(--s-focus);
+  }
+
+  @media (--from-tablet) {
+    padding: var(--s-space-4);
+  }
+}
+
+.banner--has-body {
+  & .banner__body {
+    display: block;
+  }
+}
+
+.banner--intent-default {
+  border: 0.0625rem solid var(--s-border-default);
+  background-color: var(--s-background-default);
+}
+
+.banner--intent-neutral,
+.banner--intent-critical,
+.banner--intent-success,
+.banner--intent-info {
+  & .banner__icon,
+  & .banner__heading,
+  & .banner__action,
+  & .banner__body {
+    color: var(--s-text-on-status);
+  }
+}
+
+.banner--intent-neutral {
+  background-color: var(--s-surface-neutral-default);
+}
+
+.banner--intent-critical {
+  background-color: var(--s-surface-critical-default);
+}
+
+.banner--intent-success {
+  background-color: var(--s-surface-success-default);
+}
+
+.banner--intent-info {
+  background-color: var(--s-surface-info-default);
+}
+
+.banner--intent-warning {
+  background-color: var(--s-surface-warning-default);
+
+  & .banner__icon,
+  & .banner__heading,
+  & .banner__action,
+  & .banner__body {
+    color: var(--s-text-default);
+  }
+}
+
+.banner__top {
+  @media (--from-mobile) {
+    display: flex;
+    align-items: center;
+    gap: var(--s-space-2);
+  }
+}
+
+.banner__icon {
+  display: inline-block;
+  margin-right: var(--s-space-2);
+  color: var(--s-icon-strong);
+  vertical-align: middle;
+
+  @media (--from-mobile) {
+    display: inline-flex;
+    margin-right: 0;
+  }
+}
+
+.banner__heading {
+  margin-right: var(--s-space-2);
+  flex-grow: 1;
+  color: var(--s-text-subdued);
+
+  @media (--from-mobile) {
+    margin-right: 0;
+  }
+}
+
+.banner__action {
+  overflow: hidden;
+  padding: 0;
+  flex-shrink: 0;
+  border: none;
+  color: var(--s-text-highlight);
+  background-color: transparent;
+  font: inherit;
+  font-weight: var(--s-font-weight-medium);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+
+  &:focus {
+    outline-color: var(--s-focus);
+  }
+
+  @media (--from-mobile) {
+    max-width: 7rem;
+    margin-left: var(--s-space-2);
+  }
+
+  @media (--from-tablet) {
+    max-width: 12rem;
+    margin-left: var(--s-space-2);
+  }
+}
+
+.banner__body {
+  display: none;
+  margin-top: var(--s-space-2);
+  color: var(--s-text-subdued);
+  font-size: var(--s-font-size-sm);
+
+  &:has(*:empty) {
+    display: none;
   }
 }

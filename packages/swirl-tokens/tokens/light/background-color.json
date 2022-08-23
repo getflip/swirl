@@ -44,7 +44,7 @@
     "comment": "Used as a background for critical surfaces."
   },
   "surface-success-default": {
-    "value": "rgba(52, 199, 89, 1)",
+    "value": "rgba(8, 129, 8, 1)",
     "comment": "Used as a background for success surfaces."
   },
   "on-surface-default": {
@@ -74,6 +74,14 @@
   "surface-highlight-pressed": {
     "value": "rgba(77, 103, 255, 1)",
     "comment": "Used if a component with “surface-highlight-default” has a pressed state."
+  },
+  "surface-info-default": {
+    "value": "rgba(20, 90, 245, 1)",
+    "comment": "Used as a background for info surfaces."
+  },
+  "surface-warning-default": {
+    "value": "rgba(243, 183, 3, 1)",
+    "comment": "Used as a background for warning surfaces."
   },
   "on-surface-highlight-default": {
     "value": "rgba(25, 60, 255, 1)",

@@ -19,4 +19,8 @@ const Template = (args) => {
 
 export const FlipBanner = Template.bind({});
 
-FlipBanner.args = {};
+FlipBanner.args = {
+  actionLabel: "Action",
+  heading: "This is a banner.",
+  icon: "<flip-icon-info></flip-icon-info>",
+};
