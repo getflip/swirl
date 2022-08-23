@@ -216,8 +216,8 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipTooltip {
-        "delay": number;
-        "position": FlipTooltipPosition;
+        "delay"?: number;
+        "position"?: FlipTooltipPosition;
         "tooltip": string;
         "tooltipId": string;
     }

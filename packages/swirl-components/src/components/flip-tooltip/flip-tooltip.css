@@ -28,7 +28,7 @@
   padding-bottom: var(--s-space-2);
   padding-left: var(--s-space-3);
   border-radius: var(--s-border-radius-lg);
-  color: #fff;
+  color: var(--s-text-on-status);
   background-color: var(--s-surface-neutral-default);
   font-size: var(--s-font-size-sm);
   line-height: 1.4;
