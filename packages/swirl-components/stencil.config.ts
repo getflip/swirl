@@ -34,12 +34,12 @@ export const config: Config = {
       includeDefineCustomElements: true,
     }),
     angularOutputTarget({
-      componentCorePackage: "@getflip/swirl-components/dist",
+      componentCorePackage: "@getflip/swirl-components",
       directivesProxyFile:
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/components.ts",
       directivesArrayFile:
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/index.ts",
-      includeImportCustomElements: true,
+      includeImportCustomElements: false,
     }),
   ],
   plugins: [
