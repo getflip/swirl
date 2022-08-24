@@ -219,7 +219,6 @@ export namespace Components {
         "delay"?: number;
         "position"?: FlipTooltipPosition;
         "tooltip": string;
-        "tooltipId": string;
     }
     interface FlipVisuallyHidden {
     }
@@ -914,7 +913,6 @@ declare namespace LocalJSX {
         "delay"?: number;
         "position"?: FlipTooltipPosition;
         "tooltip": string;
-        "tooltipId": string;
     }
     interface FlipVisuallyHidden {
     }

@@ -969,10 +969,6 @@
         {
           "name": "tooltip",
           "description": ""
-        },
-        {
-          "name": "tooltip-id",
-          "description": ""
         }
       ]
     },

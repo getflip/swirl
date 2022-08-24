@@ -12,7 +12,6 @@ export class FlipTooltip {
   @Prop() delay?: number = 300;
   @Prop() position?: FlipTooltipPosition = "top";
   @Prop() tooltip!: string;
-  @Prop() tooltipId!: string;
 
   @State() actualPosition: PositionMatch;
   @State() visible = false;
@@ -155,7 +154,7 @@ export class FlipTooltip {
         <span class="tooltip">
           <span
             class="tooltip__reference"
-            aria-describedby={this.tooltipId}
+            aria-describedby="tooltip"
             onBlur={this.hide}
             onClick={this.hide}
             onFocus={this.show}
@@ -166,7 +165,7 @@ export class FlipTooltip {
           </span>
           <span class="tooltip__popper" ref={(el) => (this.popperEl = el)}>
             {this.visible && (
-              <span class="tooltip__bubble" id={this.tooltipId} role="tooltip">
+              <span class="tooltip__bubble" id="tooltip" role="tooltip">
                 <span class="tooltip__content" innerHTML={this.tooltip}></span>
                 <span class="tooltip__arrow" style={arrowStyles}></span>
               </span>
