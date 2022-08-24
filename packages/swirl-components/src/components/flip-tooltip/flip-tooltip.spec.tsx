@@ -29,7 +29,7 @@ describe("flip-tooltip", () => {
   it("renders the reference", async () => {
     const page = await newSpecPage({
       components: [FlipTooltip],
-      html: `<flip-tooltip position="top" tooltip="Tooltip" tooltip-id="tooltip"><flip-badge label="Trigger"></flip-badge></flip-tooltip>`,
+      html: `<flip-tooltip position="top" tooltip="Tooltip"><flip-badge label="Trigger"></flip-badge></flip-tooltip>`,
     });
 
     expect(page.root.children[0]).toEqualHtml(
@@ -40,7 +40,7 @@ describe("flip-tooltip", () => {
   it("shows/hides the positioned popper on focus/blur", async () => {
     const page = await newSpecPage({
       components: [FlipTooltip],
-      html: `<flip-tooltip delay="0" position="bottom" tooltip="Tooltip" tooltip-id="tooltip"><flip-badge label="Trigger"></flip-badge></flip-tooltip>`,
+      html: `<flip-tooltip delay="0" position="bottom" tooltip="Tooltip"><flip-badge label="Trigger"></flip-badge></flip-tooltip>`,
     });
 
     const referenceEl = page.root.shadowRoot.querySelector(
@@ -65,7 +65,7 @@ describe("flip-tooltip", () => {
   it("shows/hides the positioned popper on mouseenter/mouseleave", async () => {
     const page = await newSpecPage({
       components: [FlipTooltip],
-      html: `<flip-tooltip delay="0" position="bottom" tooltip="Tooltip" tooltip-id="tooltip"><flip-badge label="Trigger"></flip-badge></flip-tooltip>`,
+      html: `<flip-tooltip delay="0" position="bottom" tooltip="Tooltip"><flip-badge label="Trigger"></flip-badge></flip-tooltip>`,
     });
 
     page.root.dispatchEvent(new MouseEvent("mouseenter"));
