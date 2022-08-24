@@ -5,10 +5,22 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 export namespace Components {
+    interface FlipAvatar {
+        "badge"?: string;
+        "badgePosition"?: FlipAvatarBadgePosition;
+        "icon"?: string;
+        "initials"?: string;
+        "interactive"?: boolean;
+        "label": string;
+        "size"?: FlipAvatarSize;
+        "src"?: string;
+        "variant"?: FlipAvatarVariant;
+    }
     interface FlipBadge {
         "icon"?: string;
         "intent"?: FlipBadgeIntent;
@@ -218,6 +230,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
+    }
+    var HTMLFlipAvatarElement: {
+        prototype: HTMLFlipAvatarElement;
+        new (): HTMLFlipAvatarElement;
+    };
     interface HTMLFlipBadgeElement extends Components.FlipBadge, HTMLStencilElement {
     }
     var HTMLFlipBadgeElement: {
@@ -621,6 +639,7 @@ declare global {
         new (): HTMLFlipVisuallyHiddenElement;
     };
     interface HTMLElementTagNameMap {
+        "flip-avatar": HTMLFlipAvatarElement;
         "flip-badge": HTMLFlipBadgeElement;
         "flip-button": HTMLFlipButtonElement;
         "flip-icon-add": HTMLFlipIconAddElement;
@@ -691,6 +710,17 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FlipAvatar {
+        "badge"?: string;
+        "badgePosition"?: FlipAvatarBadgePosition;
+        "icon"?: string;
+        "initials"?: string;
+        "interactive"?: boolean;
+        "label": string;
+        "size"?: FlipAvatarSize;
+        "src"?: string;
+        "variant"?: FlipAvatarVariant;
+    }
     interface FlipBadge {
         "icon"?: string;
         "intent"?: FlipBadgeIntent;
@@ -899,6 +929,7 @@ declare namespace LocalJSX {
     interface FlipVisuallyHidden {
     }
     interface IntrinsicElements {
+        "flip-avatar": FlipAvatar;
         "flip-badge": FlipBadge;
         "flip-button": FlipButton;
         "flip-icon-add": FlipIconAdd;
@@ -972,6 +1003,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
