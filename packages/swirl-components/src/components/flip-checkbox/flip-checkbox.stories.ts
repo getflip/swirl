@@ -23,10 +23,6 @@ const Template = (args) => {
     args
   ) as HTMLFlipCheckboxElement;
 
-  element.addEventListener("valueChange", () => {
-    element.checked = !element.checked;
-  });
-
   return element;
 };
 

@@ -16,7 +16,7 @@ export type FlipCheckboxState = boolean | "true" | "false" | "indeterminate";
   tag: "flip-checkbox",
 })
 export class FlipCheckbox {
-  @Prop() checked?: FlipCheckboxState = false;
+  @Prop({ mutable: true }) checked?: FlipCheckboxState = false;
   @Prop() disabled?: boolean = false;
   @Prop() inputId!: string;
   @Prop() inputName!: string;
@@ -26,9 +26,10 @@ export class FlipCheckbox {
   @Event() valueChange: EventEmitter<boolean>;
 
   private onChange = () => {
-    const checked = this.checked === true || this.checked === "true";
+    this.checked =
+      this.checked === true || this.checked === "true" ? false : true;
 
-    this.valueChange.emit(!checked);
+    this.valueChange.emit(this.checked);
   };
 
   render() {
