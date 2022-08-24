@@ -57,7 +57,10 @@ The Angular wrapper is distributed via a primary NgModule that you can import to
 use the components.
 
 ```typescript
-import { SwirlComponentsModule } from "@getflip/swirl-components-angular";
+import { SwirlComponentsModule } from "@getflip/swirl-components-angular/dist/component-library";
+import { defineCustomElements } from "@getflip/swirl-components/loader";
+
+defineCustomElements();
 
 @NgModule({
   imports: [SwirlComponentsModule],
