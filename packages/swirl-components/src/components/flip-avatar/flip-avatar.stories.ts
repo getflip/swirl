@@ -4,7 +4,8 @@ import Docs from "./flip-avatar.mdx";
 export default {
   argTypes: {
     badge: {
-      description: 'Only visible with default size "m".',
+      description:
+        'Visible with default size "m". Only pass a single <flip-badge /> element as value.',
     },
   },
   component: "flip-avatar",
