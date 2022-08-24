@@ -64,6 +64,7 @@
   position: relative;
   width: 1.875rem;
   height: 1.125rem;
+  flex-shrink: 0;
   border-radius: calc(1.125rem / 2);
   background-color: var(--s-interactive-primary-disabled);
   transition: background-color 0.2s;
