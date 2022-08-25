@@ -154,6 +154,28 @@ describe("flip-avatar", () => {
     `);
   });
 
+  it("renders with a visible label", async () => {
+    const page = await newSpecPage({
+      components: [FlipAvatar],
+      html: `<flip-avatar label="John Doe" show-label></flip-avatar>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <flip-avatar aria-label="John Doe" label="John Doe" role="img" show-label="">
+        <mock:shadow-root>
+          <span class="avatar avatar--has-icon avatar--size-m avatar--variant-round">
+            <span class="avatar__icon">
+              <flip-icon-person></flip-icon-person>
+            </span>
+          </span>
+          <span aria-hidden="" class="avatar__label">
+            John Doe
+          </span>
+        </mock:shadow-root>
+      </flip-avatar>
+    `);
+  });
+
   it("activates when interactive", async () => {
     const page = await newSpecPage({
       components: [FlipAvatar],

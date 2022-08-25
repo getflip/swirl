@@ -28,6 +28,7 @@ export class FlipAvatar {
   @Prop() initials?: string;
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
+  @Prop() showLabel?: boolean = false;
   @Prop() size?: FlipAvatarSize = "m";
   @Prop() src?: string;
   @Prop() variant?: FlipAvatarVariant = "round";
@@ -131,6 +132,12 @@ export class FlipAvatar {
             <span class={badgeClassName} innerHTML={this.badge}></span>
           )}
         </span>
+
+        {this.showLabel && (
+          <span aria-hidden class="avatar__label">
+            {this.label}
+          </span>
+        )}
       </Host>
     );
   }

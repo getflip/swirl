@@ -1,5 +1,7 @@
 :host {
   display: inline-flex;
+  flex-direction: column;
+  align-items: center;
 
   & * {
     box-sizing: border-box;
@@ -179,4 +181,12 @@
   top: 0;
   bottom: auto;
   transform: translate3d(25%, -25%, 0);
+}
+
+.avatar__label {
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-medium);
+  text-align: center;
+  margin-top: var(--s-space-2);
+  color: var(--s-icon-default);
 }

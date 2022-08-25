@@ -41,6 +41,10 @@
           "description": ""
         },
         {
+          "name": "show-label",
+          "description": ""
+        },
+        {
           "name": "size",
           "description": "",
           "values": [

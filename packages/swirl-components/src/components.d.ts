@@ -17,6 +17,7 @@ export namespace Components {
         "initials"?: string;
         "interactive"?: boolean;
         "label": string;
+        "showLabel"?: boolean;
         "size"?: FlipAvatarSize;
         "src"?: string;
         "variant"?: FlipAvatarVariant;
@@ -717,6 +718,7 @@ declare namespace LocalJSX {
         "initials"?: string;
         "interactive"?: boolean;
         "label": string;
+        "showLabel"?: boolean;
         "size"?: FlipAvatarSize;
         "src"?: string;
         "variant"?: FlipAvatarVariant;
