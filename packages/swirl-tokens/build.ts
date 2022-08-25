@@ -44,9 +44,9 @@ StyleDictionary.registerFormat({
     const formattedTokens: string[] = [];
 
     for (const category of categories) {
-      const tokensOfCategory = dictionary.allTokens.filter((token) =>
-        token.filePath.includes(category)
-      );
+      const tokensOfCategory = dictionary.allTokens.filter((token) => {
+        return token.filePath.includes(`/${category}.json`);
+      });
 
       formattedTokens.push(`
 /**
