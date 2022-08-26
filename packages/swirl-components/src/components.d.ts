@@ -230,9 +230,11 @@ export namespace Components {
     }
     interface FlipRadio {
         "checked"?: FlipRadioState;
+        "description"?: string;
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
+        "invalid"?: boolean;
         "label"?: string;
         "value": string;
     }
@@ -964,9 +966,11 @@ declare namespace LocalJSX {
     }
     interface FlipRadio {
         "checked"?: FlipRadioState;
+        "description"?: string;
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
+        "invalid"?: boolean;
         "label"?: string;
         "onValueChange"?: (event: FlipRadioCustomEvent<string>) => void;
         "value": string;

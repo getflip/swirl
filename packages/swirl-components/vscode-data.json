@@ -1042,6 +1042,10 @@
           ]
         },
         {
+          "name": "description",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },
@@ -1051,6 +1055,10 @@
         },
         {
           "name": "input-name",
+          "description": ""
+        },
+        {
+          "name": "invalid",
           "description": ""
         },
         {

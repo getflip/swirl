@@ -21,6 +21,7 @@ export const FlipRadio = Template.bind({});
 
 FlipRadio.args = {
   checked: false,
+  description: "Optional description of the item",
   inputId: "radio",
   inputName: "radio",
   label: "Radio button",
