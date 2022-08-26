@@ -1023,6 +1023,47 @@
       ]
     },
     {
+      "name": "flip-radio",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "checked",
+          "description": "",
+          "values": [
+            {
+              "name": "false"
+            },
+            {
+              "name": "true"
+            }
+          ]
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "input-id",
+          "description": ""
+        },
+        {
+          "name": "input-name",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-visually-hidden",
       "description": {
         "kind": "markdown",

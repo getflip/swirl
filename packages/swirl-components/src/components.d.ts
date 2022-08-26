@@ -9,6 +9,7 @@ import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./co
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
+import { FlipRadioState } from "./components/flip-radio/flip-radio";
 export namespace Components {
     interface FlipAvatar {
         "badge"?: string;
@@ -227,8 +228,20 @@ export namespace Components {
     interface FlipIconVisibilityOff {
         "size": FlipIconSize;
     }
+    interface FlipRadio {
+        "checked"?: FlipRadioState;
+        "disabled"?: boolean;
+        "inputId": string;
+        "inputName": string;
+        "label"?: string;
+        "value"?: string;
+    }
     interface FlipVisuallyHidden {
     }
+}
+export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipRadioElement;
 }
 declare global {
     interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
@@ -633,6 +646,12 @@ declare global {
         prototype: HTMLFlipIconVisibilityOffElement;
         new (): HTMLFlipIconVisibilityOffElement;
     };
+    interface HTMLFlipRadioElement extends Components.FlipRadio, HTMLStencilElement {
+    }
+    var HTMLFlipRadioElement: {
+        prototype: HTMLFlipRadioElement;
+        new (): HTMLFlipRadioElement;
+    };
     interface HTMLFlipVisuallyHiddenElement extends Components.FlipVisuallyHidden, HTMLStencilElement {
     }
     var HTMLFlipVisuallyHiddenElement: {
@@ -707,6 +726,7 @@ declare global {
         "flip-icon-user-assign": HTMLFlipIconUserAssignElement;
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
+        "flip-radio": HTMLFlipRadioElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
 }
@@ -928,6 +948,15 @@ declare namespace LocalJSX {
     interface FlipIconVisibilityOff {
         "size"?: FlipIconSize;
     }
+    interface FlipRadio {
+        "checked"?: FlipRadioState;
+        "disabled"?: boolean;
+        "inputId": string;
+        "inputName": string;
+        "label"?: string;
+        "onValueChange"?: (event: FlipRadioCustomEvent<boolean>) => void;
+        "value"?: string;
+    }
     interface FlipVisuallyHidden {
     }
     interface IntrinsicElements {
@@ -998,6 +1027,7 @@ declare namespace LocalJSX {
         "flip-icon-user-assign": FlipIconUserAssign;
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
+        "flip-radio": FlipRadio;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
 }
@@ -1072,6 +1102,7 @@ declare module "@stencil/core" {
             "flip-icon-user-assign": LocalJSX.FlipIconUserAssign & JSXBase.HTMLAttributes<HTMLFlipIconUserAssignElement>;
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
+            "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }
     }
