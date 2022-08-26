@@ -234,6 +234,9 @@ export namespace Components {
         "inputId": string;
         "inputName": string;
         "label"?: string;
+        "value": string;
+    }
+    interface FlipRadioGroup {
         "value"?: string;
     }
     interface FlipVisuallyHidden {
@@ -242,6 +245,10 @@ export namespace Components {
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioElement;
+}
+export interface FlipRadioGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipRadioGroupElement;
 }
 declare global {
     interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
@@ -652,6 +659,12 @@ declare global {
         prototype: HTMLFlipRadioElement;
         new (): HTMLFlipRadioElement;
     };
+    interface HTMLFlipRadioGroupElement extends Components.FlipRadioGroup, HTMLStencilElement {
+    }
+    var HTMLFlipRadioGroupElement: {
+        prototype: HTMLFlipRadioGroupElement;
+        new (): HTMLFlipRadioGroupElement;
+    };
     interface HTMLFlipVisuallyHiddenElement extends Components.FlipVisuallyHidden, HTMLStencilElement {
     }
     var HTMLFlipVisuallyHiddenElement: {
@@ -727,6 +740,7 @@ declare global {
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
         "flip-radio": HTMLFlipRadioElement;
+        "flip-radio-group": HTMLFlipRadioGroupElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
 }
@@ -954,7 +968,11 @@ declare namespace LocalJSX {
         "inputId": string;
         "inputName": string;
         "label"?: string;
-        "onValueChange"?: (event: FlipRadioCustomEvent<boolean>) => void;
+        "onValueChange"?: (event: FlipRadioCustomEvent<string>) => void;
+        "value": string;
+    }
+    interface FlipRadioGroup {
+        "onValueChange"?: (event: FlipRadioGroupCustomEvent<string>) => void;
         "value"?: string;
     }
     interface FlipVisuallyHidden {
@@ -1028,6 +1046,7 @@ declare namespace LocalJSX {
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
         "flip-radio": FlipRadio;
+        "flip-radio-group": FlipRadioGroup;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
 }
@@ -1103,6 +1122,7 @@ declare module "@stencil/core" {
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
+            "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }
     }

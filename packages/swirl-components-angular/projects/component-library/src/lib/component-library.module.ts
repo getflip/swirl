@@ -1,10 +1,11 @@
 import { NgModule } from "@angular/core";
 
 import { DIRECTIVES } from "./stencil-generated";
+import { TextValueAccessor } from "./stencil-generated/text-value-accessor";
 
 @NgModule({
-  declarations: [...DIRECTIVES],
+  declarations: [...DIRECTIVES, TextValueAccessor],
   imports: [],
-  exports: [...DIRECTIVES],
+  exports: [...DIRECTIVES, TextValueAccessor],
 })
 export class SwirlComponentsModule {}

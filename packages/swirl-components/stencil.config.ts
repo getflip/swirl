@@ -2,10 +2,22 @@ import autoprefixer from "autoprefixer";
 import postcssCustomMedia from "postcss-custom-media";
 import postcssNested from "postcss-nested";
 
-import { angularOutputTarget } from "@stencil/angular-output-target";
+import {
+  angularOutputTarget,
+  ValueAccessorConfig,
+} from "@stencil/angular-output-target";
 import { Config } from "@stencil/core";
 import { postcss } from "@stencil/postcss";
 import { reactOutputTarget } from "@stencil/react-output-target";
+
+const angularValueAccessorBindings: ValueAccessorConfig[] = [
+  {
+    elementSelectors: ["flip-radio-group"],
+    event: "valueChange",
+    targetAttr: "value",
+    type: "text",
+  },
+];
 
 export const config: Config = {
   globalStyle: "src/styles/global.css",
@@ -40,6 +52,7 @@ export const config: Config = {
       directivesArrayFile:
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/index.ts",
       includeImportCustomElements: false,
+      valueAccessorConfigs: angularValueAccessorBindings,
     }),
   ],
   plugins: [

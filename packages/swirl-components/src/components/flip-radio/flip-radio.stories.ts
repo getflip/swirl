@@ -24,4 +24,5 @@ FlipRadio.args = {
   inputId: "radio",
   inputName: "radio",
   label: "Radio button",
+  value: "Value",
 };

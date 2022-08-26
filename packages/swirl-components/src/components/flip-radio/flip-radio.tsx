@@ -21,15 +21,13 @@ export class FlipRadio {
   @Prop() inputId!: string;
   @Prop() inputName!: string;
   @Prop() label?: string;
-  @Prop() value?: string;
+  @Prop() value!: string;
 
-  @Event() valueChange: EventEmitter<boolean>;
+  @Event() valueChange: EventEmitter<string>;
 
   private onChange = () => {
-    this.checked =
-      this.checked === true || this.checked === "true" ? false : true;
-
-    this.valueChange.emit(this.checked);
+    this.checked = true;
+    this.valueChange.emit(this.value);
   };
 
   render() {

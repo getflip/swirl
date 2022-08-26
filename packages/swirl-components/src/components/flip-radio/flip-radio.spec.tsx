@@ -30,7 +30,7 @@ describe("flip-radio", () => {
   it("can be selected", async () => {
     const page = await newSpecPage({
       components: [FlipRadio],
-      html: `<flip-radio checked="false" input-id="radio" input-name="radio" label="Label"></flip-radio>`,
+      html: `<flip-radio checked="false" input-id="radio" input-name="radio" label="Label" value="Value"></flip-radio>`,
     });
 
     const spy = jest.fn();
@@ -41,6 +41,6 @@ describe("flip-radio", () => {
     await page.waitForChanges();
 
     expect(spy).toHaveBeenCalled();
-    expect(spy.mock.calls[0][0].detail).toBe(true);
+    expect(spy.mock.calls[0][0].detail).toBe("Value");
   });
 });
