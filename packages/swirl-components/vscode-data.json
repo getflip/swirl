@@ -1023,6 +1023,31 @@
       ]
     },
     {
+      "name": "flip-inline-error",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "message",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "flip-visually-hidden",
       "description": {
         "kind": "markdown",

@@ -9,6 +9,7 @@ import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./co
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
+import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
 export namespace Components {
     interface FlipAvatar {
         "badge"?: string;
@@ -226,6 +227,10 @@ export namespace Components {
     }
     interface FlipIconVisibilityOff {
         "size": FlipIconSize;
+    }
+    interface FlipInlineError {
+        "message": string;
+        "size"?: FlipInlineErrorSize;
     }
     interface FlipVisuallyHidden {
     }
@@ -633,6 +638,12 @@ declare global {
         prototype: HTMLFlipIconVisibilityOffElement;
         new (): HTMLFlipIconVisibilityOffElement;
     };
+    interface HTMLFlipInlineErrorElement extends Components.FlipInlineError, HTMLStencilElement {
+    }
+    var HTMLFlipInlineErrorElement: {
+        prototype: HTMLFlipInlineErrorElement;
+        new (): HTMLFlipInlineErrorElement;
+    };
     interface HTMLFlipVisuallyHiddenElement extends Components.FlipVisuallyHidden, HTMLStencilElement {
     }
     var HTMLFlipVisuallyHiddenElement: {
@@ -707,6 +718,7 @@ declare global {
         "flip-icon-user-assign": HTMLFlipIconUserAssignElement;
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
+        "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
 }
@@ -928,6 +940,10 @@ declare namespace LocalJSX {
     interface FlipIconVisibilityOff {
         "size"?: FlipIconSize;
     }
+    interface FlipInlineError {
+        "message": string;
+        "size"?: FlipInlineErrorSize;
+    }
     interface FlipVisuallyHidden {
     }
     interface IntrinsicElements {
@@ -998,6 +1014,7 @@ declare namespace LocalJSX {
         "flip-icon-user-assign": FlipIconUserAssign;
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
+        "flip-inline-error": FlipInlineError;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
 }
@@ -1072,6 +1089,7 @@ declare module "@stencil/core" {
             "flip-icon-user-assign": LocalJSX.FlipIconUserAssign & JSXBase.HTMLAttributes<HTMLFlipIconUserAssignElement>;
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
+            "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }
     }
