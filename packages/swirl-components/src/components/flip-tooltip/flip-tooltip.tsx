@@ -9,9 +9,9 @@ export type FlipTooltipPosition = "top" | "right" | "bottom" | "left";
   tag: "flip-tooltip",
 })
 export class FlipTooltip {
+  @Prop() content!: string;
   @Prop() delay?: number = 300;
   @Prop() position?: FlipTooltipPosition = "top";
-  @Prop() tooltip!: string;
 
   @State() actualPosition: PositionMatch;
   @State() visible = false;
@@ -166,7 +166,7 @@ export class FlipTooltip {
           <span class="tooltip__popper" ref={(el) => (this.popperEl = el)}>
             {this.visible && (
               <span class="tooltip__bubble" id="tooltip" role="tooltip">
-                <span class="tooltip__content" innerHTML={this.tooltip}></span>
+                <span class="tooltip__content" innerHTML={this.content}></span>
                 <span class="tooltip__arrow" style={arrowStyles}></span>
               </span>
             )}

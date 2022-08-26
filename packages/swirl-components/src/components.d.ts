@@ -216,9 +216,9 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipTooltip {
+        "content": string;
         "delay"?: number;
         "position"?: FlipTooltipPosition;
-        "tooltip": string;
     }
     interface FlipVisuallyHidden {
     }
@@ -910,9 +910,9 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipTooltip {
+        "content": string;
         "delay"?: number;
         "position"?: FlipTooltipPosition;
-        "tooltip": string;
     }
     interface FlipVisuallyHidden {
     }

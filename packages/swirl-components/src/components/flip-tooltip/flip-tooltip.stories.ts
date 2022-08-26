@@ -36,7 +36,6 @@ const Template = (args) => {
 export const FlipTooltip = Template.bind({});
 
 FlipTooltip.args = {
+  content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid officia, enim reiciendis esse minus impedit earum veniam, sunt eveniet.`,
   position: "top",
-  tooltip: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid officia, enim reiciendis esse minus impedit earum veniam, sunt eveniet.`,
-  tooltipId: "tooltip",
 };

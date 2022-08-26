@@ -945,6 +945,10 @@
       },
       "attributes": [
         {
+          "name": "content",
+          "description": ""
+        },
+        {
           "name": "delay",
           "description": ""
         },
@@ -965,10 +969,6 @@
               "name": "top"
             }
           ]
-        },
-        {
-          "name": "tooltip",
-          "description": ""
         }
       ]
     },
