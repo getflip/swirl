@@ -16,11 +16,12 @@ describe("flip-radio", () => {
             <flip-visually-hidden>
               <input aria-checked="true" checked="" class="radio__input" disabled="" id="radio" name="radio" type="radio" value="Value">
             </flip-visually-hidden>
-            <span aria-hidden="true" class="radio__backdrop"></span>
             <span aria-hidden="true" class="radio__box"></span>
           </span>
-          <span class="radio__label">
-            Label
+          <span class="radio__label-container">
+            <span class="radio__label">
+              Label
+            </span>
           </span>
         </label>
       </flip-radio>
