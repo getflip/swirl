@@ -17,9 +17,11 @@ export type FlipCheckboxState = boolean | "true" | "false" | "indeterminate";
 })
 export class FlipCheckbox {
   @Prop({ mutable: true }) checked?: FlipCheckboxState = false;
+  @Prop() description?: string;
   @Prop() disabled?: boolean = false;
   @Prop() inputId!: string;
   @Prop() inputName!: string;
+  @Prop() invalid?: boolean;
   @Prop() label?: string;
   @Prop() value?: string;
 
@@ -38,11 +40,18 @@ export class FlipCheckbox {
     const indeterminate = this.checked === "indeterminate";
 
     const ariaCheckedLabel = checked ? "true" : unchecked ? "false" : "mixed";
+    const ariaInvalid =
+      this.invalid === true
+        ? "true"
+        : this.invalid === false
+        ? "false"
+        : undefined;
 
     const className = classnames("checkbox", {
       "checkbox--checked": checked,
       "checkbox--disabled": this.disabled,
       "checkbox--indeterminate": indeterminate,
+      "checkbox--invalid": this.invalid,
       "checkbox--unchecked": unchecked,
     });
 
@@ -53,6 +62,7 @@ export class FlipCheckbox {
             <flip-visually-hidden>
               <input
                 aria-checked={ariaCheckedLabel}
+                aria-invalid={ariaInvalid}
                 checked={checked}
                 class="checkbox__input"
                 disabled={this.disabled}
@@ -64,7 +74,6 @@ export class FlipCheckbox {
                 value={this.value}
               />
             </flip-visually-hidden>
-            <span aria-hidden="true" class="checkbox__backdrop"></span>
             <span aria-hidden="true" class="checkbox__box">
               <span class="checkbox__icon">
                 {checked && <flip-icon-check-strong></flip-icon-check-strong>}
@@ -74,7 +83,12 @@ export class FlipCheckbox {
               </span>
             </span>
           </span>
-          {this.label && <span class="checkbox__label">{this.label}</span>}
+          <span class="checkbox__label-container">
+            {this.label && <span class="checkbox__label">{this.label}</span>}
+            {this.description && (
+              <span class="checkbox__description">{this.description}</span>
+            )}
+          </span>
         </label>
       </Host>
     );

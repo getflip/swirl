@@ -25,9 +25,11 @@ export namespace Components {
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
+        "description"?: string;
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
+        "invalid"?: boolean;
         "label"?: string;
         "value"?: string;
     }
@@ -726,9 +728,11 @@ declare namespace LocalJSX {
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
+        "description"?: string;
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
+        "invalid"?: boolean;
         "label"?: string;
         "onValueChange"?: (event: FlipCheckboxCustomEvent<boolean>) => void;
         "value"?: string;

@@ -18,10 +18,7 @@ export default {
 };
 
 const Template = (args) => {
-  const element = generateStoryElement(
-    "flip-checkbox",
-    args
-  ) as HTMLFlipCheckboxElement;
+  const element = generateStoryElement("flip-checkbox", args);
 
   return element;
 };
@@ -30,6 +27,7 @@ export const FlipCheckbox = Template.bind({});
 
 FlipCheckbox.args = {
   checked: true,
+  description: "Optional description of the item.",
   inputId: "checkbox",
   inputName: "Checkbox",
   label: "Checkbox",
