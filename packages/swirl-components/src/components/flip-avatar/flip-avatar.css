@@ -1,7 +1,7 @@
 :host {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 
   & * {
     box-sizing: border-box;
@@ -22,10 +22,9 @@
 }
 
 .avatar--has-initials {
-  padding-right: var(--s-space-1);
-  padding-left: var(--s-space-1);
+  padding-right: 0;
+  padding-left: 0;
   color: #fff;
-  background-color: var(--s-decorative-five-default);
 }
 
 .avatar--interactive {
@@ -47,7 +46,8 @@
   }
 
   &.avatar--variant-square,
-  &.avatar--variant-square .avatar__image {
+  &.avatar--variant-square .avatar__image,
+  &.avatar--variant-square .avatar__initials {
     border-radius: 0.5rem;
   }
 }
@@ -63,7 +63,8 @@
   }
 
   &.avatar--variant-square,
-  &.avatar--variant-square .avatar__image {
+  &.avatar--variant-square .avatar__image,
+  &.avatar--variant-square .avatar__initials {
     border-radius: 0.5rem;
   }
 }
@@ -79,7 +80,8 @@
   }
 
   &.avatar--variant-square,
-  &.avatar--variant-square .avatar__image {
+  &.avatar--variant-square .avatar__image,
+  &.avatar--variant-square .avatar__initials {
     border-radius: 0.625rem;
   }
 }
@@ -95,7 +97,8 @@
   }
 
   &.avatar--variant-square,
-  &.avatar--variant-square .avatar__image {
+  &.avatar--variant-square .avatar__image,
+  &.avatar--variant-square .avatar__initials {
     border-radius: 0.75rem;
   }
 }
@@ -111,7 +114,8 @@
   }
 
   &.avatar--variant-square,
-  &.avatar--variant-square .avatar__image {
+  &.avatar--variant-square .avatar__image,
+  &.avatar--variant-square .avatar__initials {
     border-radius: 1rem;
   }
 }
@@ -127,7 +131,8 @@
   }
 
   &.avatar--variant-square,
-  &.avatar--variant-square .avatar__image {
+  &.avatar--variant-square .avatar__image,
+  &.avatar--variant-square .avatar__initials {
     border-radius: 2.25rem;
   }
 }
@@ -161,10 +166,22 @@
 }
 
 .avatar__initials {
-  overflow: hidden;
-  max-width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  display: inline-flex;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding-right: var(--s-space-1);
+  padding-left: var(--s-space-1);
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--s-decorative-six-default);
+
+  & > span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 .avatar__badge {
@@ -184,9 +201,9 @@
 }
 
 .avatar__label {
+  margin-top: var(--s-space-2);
+  color: var(--s-icon-default);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   text-align: center;
-  margin-top: var(--s-space-2);
-  color: var(--s-icon-default);
 }

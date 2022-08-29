@@ -27,7 +27,7 @@ export const FlipAvatar = Template.bind({});
 
 FlipAvatar.args = {
   badge:
-    '<flip-badge aria-label="3 new messages" label="3" size="s"><flip-badge>',
+    '<flip-badge aria-label="3 new messages" label="3" size="s"></flip-badge>',
   label: "John Doe",
   src: "https://picsum.photos/id/433/144/144",
 };
