@@ -8,6 +8,7 @@
 
 .checkbox {
   display: inline-flex;
+  cursor: pointer;
 
   &:focus-within .checkbox__box {
     box-shadow: 0 0 0 0.0625rem var(--s-background-default),
