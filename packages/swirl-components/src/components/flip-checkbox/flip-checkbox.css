@@ -140,11 +140,10 @@
   display: inline-flex;
   margin-left: var(--s-space-3);
   flex-direction: column;
+  padding-top: 0.125rem;
 }
 
 .checkbox__label {
-  position: relative;
-  z-index: 1;
   font-weight: var(--s-font-weight-medium);
 }
 
