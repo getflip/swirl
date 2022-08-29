@@ -1075,6 +1075,122 @@
       ]
     },
     {
+      "name": "flip-stack",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "align",
+          "description": "",
+          "values": [
+            {
+              "name": "center"
+            },
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            },
+            {
+              "name": "stretch"
+            }
+          ]
+        },
+        {
+          "name": "as",
+          "description": ""
+        },
+        {
+          "name": "justify",
+          "description": "",
+          "values": [
+            {
+              "name": "center"
+            },
+            {
+              "name": "end"
+            },
+            {
+              "name": "space-around"
+            },
+            {
+              "name": "space-between"
+            },
+            {
+              "name": "space-evenly"
+            },
+            {
+              "name": "start"
+            }
+          ]
+        },
+        {
+          "name": "orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
+        },
+        {
+          "name": "spacing",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "05"
+            },
+            {
+              "name": "1"
+            },
+            {
+              "name": "10"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "3"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "5"
+            },
+            {
+              "name": "6"
+            },
+            {
+              "name": "7"
+            },
+            {
+              "name": "8"
+            },
+            {
+              "name": "9"
+            },
+            {
+              "name": "px"
+            }
+          ]
+        },
+        {
+          "name": "wrap",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-tooltip",
       "description": {
         "kind": "markdown",
