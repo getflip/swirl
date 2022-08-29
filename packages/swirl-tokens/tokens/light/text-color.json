@@ -20,7 +20,7 @@
     "comment": "Used as critical text color"
   },
   "text-success": {
-    "value": "rgba(52, 199, 89, 1)",
+    "value": "rgba(8, 129, 8, 1)",
     "comment": "Used as success text color"
   },
   "text-on-action-primary": {

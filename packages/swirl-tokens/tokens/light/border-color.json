@@ -12,7 +12,7 @@
     "comment": "Usally used as an border on critical components."
   },
   "border-success": {
-    "value": "rgba(52, 199, 89, 1)",
+    "value": "rgba(8, 129, 8, 1)",
     "comment": "Usally used as an border on success components."
   },
   "border-on-highlight": {
