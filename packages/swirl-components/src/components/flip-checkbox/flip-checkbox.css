@@ -48,6 +48,8 @@
 }
 
 .checkbox--disabled {
+  cursor: default;
+
   &.checkbox--checked,
   &.checkbox--indeterminate {
     & .checkbox__control {
