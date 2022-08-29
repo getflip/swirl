@@ -59,6 +59,8 @@
 }
 
 .radio--disabled {
+  cursor: default;
+
   &.radio--checked {
     & .radio__control {
       &:hover {
