@@ -8,6 +8,7 @@
 
 .radio {
   display: inline-flex;
+  cursor: pointer;
 
   &:focus-within .radio__box {
     box-shadow: 0 0 0 0.0625rem var(--s-background-default),
