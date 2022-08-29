@@ -1,0 +1,53 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipAvatar" />
+
+# FlipAvatar
+
+The FlipAvatar component is used to represent a user via an image, icon or
+initials.
+
+- **[Figma Design Specs](https://www.figma.com/file/l498Zs9zdZ1qrFJ8aYs47G/Components-V2?node-id=2067%3A20489)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-avatar)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipavatar--flip-avatar" />
+</Canvas>
+
+<ArgsTable story="." />
+
+The component renders an image if the `src` prop is set and the image is
+available. Otherwise, a fallback is rendered according to the following
+prioritization.
+
+`initials` ➡ `icon` ➡ `<flip-icon-person></flip-icon-person>`
+
+## Theming
+
+| Variable                      | Usage                                      |
+| ----------------------------- | ------------------------------------------ |
+| `--s-decorative-five-default` | Background color for avatar with initials  |
+| `--s-on-surface-default`      | Background color for avatar with icon      |
+| `--s-icon-default`            | Icon color                                 |
+| `--s-focus`                   | Focus outline color for interactive avatar |
+
+## Accessibility
+
+### ARIA
+
+| ARIA            | Usage                                                   |
+| --------------- | ------------------------------------------------------- |
+| `role="img"`    | Role set for the avatar.                                |
+| `role="button"` | Role set for the interactive avatar.                    |
+| `aria-label`    | The `aria-label` is set to provide an accessible label. |
+
+### Keyboard
+
+Only applicable for interactive avatars:
+
+| Key              | Action                            |
+| ---------------- | --------------------------------- |
+| <kbd>ENTER</kbd> | Activates the interactive avatar. |
+| <kbd>SPACE</kbd> | Activates the interactive avatar. |

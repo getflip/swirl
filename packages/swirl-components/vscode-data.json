@@ -2,6 +2,91 @@
   "version": 1.1,
   "tags": [
     {
+      "name": "flip-avatar",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "badge",
+          "description": ""
+        },
+        {
+          "name": "badge-position",
+          "description": "",
+          "values": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "top"
+            }
+          ]
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "initials",
+          "description": ""
+        },
+        {
+          "name": "interactive",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "show-label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "2xl"
+            },
+            {
+              "name": "l"
+            },
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            },
+            {
+              "name": "xl"
+            },
+            {
+              "name": "xs"
+            }
+          ]
+        },
+        {
+          "name": "src",
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "round"
+            },
+            {
+              "name": "square"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "flip-badge",
       "description": {
         "kind": "markdown",
@@ -986,6 +1071,41 @@
         {
           "name": "size",
           "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-tooltip",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "content",
+          "description": ""
+        },
+        {
+          "name": "delay",
+          "description": ""
+        },
+        {
+          "name": "position",
+          "description": "",
+          "values": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "left"
+            },
+            {
+              "name": "right"
+            },
+            {
+              "name": "top"
+            }
+          ]
         }
       ]
     },
