@@ -10,6 +10,7 @@ import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/f
 import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
+import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
     interface FlipAvatar {
         "badge"?: string;
@@ -240,6 +241,11 @@ export namespace Components {
     }
     interface FlipRadioGroup {
         "value"?: string;
+    }
+    interface FlipTooltip {
+        "content": string;
+        "delay"?: number;
+        "position"?: FlipTooltipPosition;
     }
     interface FlipVisuallyHidden {
     }
@@ -667,6 +673,12 @@ declare global {
         prototype: HTMLFlipRadioGroupElement;
         new (): HTMLFlipRadioGroupElement;
     };
+    interface HTMLFlipTooltipElement extends Components.FlipTooltip, HTMLStencilElement {
+    }
+    var HTMLFlipTooltipElement: {
+        prototype: HTMLFlipTooltipElement;
+        new (): HTMLFlipTooltipElement;
+    };
     interface HTMLFlipVisuallyHiddenElement extends Components.FlipVisuallyHidden, HTMLStencilElement {
     }
     var HTMLFlipVisuallyHiddenElement: {
@@ -743,6 +755,7 @@ declare global {
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
+        "flip-tooltip": HTMLFlipTooltipElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
 }
@@ -979,6 +992,11 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: FlipRadioGroupCustomEvent<string>) => void;
         "value"?: string;
     }
+    interface FlipTooltip {
+        "content": string;
+        "delay"?: number;
+        "position"?: FlipTooltipPosition;
+    }
     interface FlipVisuallyHidden {
     }
     interface IntrinsicElements {
@@ -1051,6 +1069,7 @@ declare namespace LocalJSX {
         "flip-icon-visibility-off": FlipIconVisibilityOff;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
+        "flip-tooltip": FlipTooltip;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
 }
@@ -1127,6 +1146,7 @@ declare module "@stencil/core" {
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
+            "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }
     }

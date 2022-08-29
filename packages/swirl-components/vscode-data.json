@@ -1085,6 +1085,41 @@
       ]
     },
     {
+      "name": "flip-tooltip",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "content",
+          "description": ""
+        },
+        {
+          "name": "delay",
+          "description": ""
+        },
+        {
+          "name": "position",
+          "description": "",
+          "values": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "left"
+            },
+            {
+              "name": "right"
+            },
+            {
+              "name": "top"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "flip-visually-hidden",
       "description": {
         "kind": "markdown",
