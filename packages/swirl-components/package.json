@@ -16,7 +16,8 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "vscode-data.json"
   ],
   "scripts": {
     "start": "yarn stencil:build && concurrently \"npm:*:start\"",
@@ -36,7 +37,8 @@
     "@getflip/swirl-icons": "^0.1.0",
     "@getflip/swirl-tokens": "^0.3.0",
     "@stencil/core": "^2.13.0",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "nanopop": "^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
@@ -57,6 +59,7 @@
     "@typescript-eslint/parser": "^5.33.0",
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.7.4",
     "concurrently": "^7.3.0",
     "eslint-plugin-react": "^7.30.1",
     "jest": "^27.4.5",

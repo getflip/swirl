@@ -1,0 +1,50 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipCheckbox" />
+
+# FlipCheckbox
+
+The FlipCheckbox component is used as a form control to allow a user to select
+one or multiple choices from a list of options.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=34%3A3493)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-checkbox)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipcheckbox--flip-checkbox" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable             | Usage                                                                                                      |
+| -------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `--s-icon-default`   | Border color of the unchecked checkbox                                                                     |
+| `--s-icon-highlight` | Border and background color of checked and indeterminate checkbox                                          |
+| `--s-icon-critical`  | Border color of invalid checkbox; background color of invalid, checked/indeterminate checkbox              |
+| `--s-icon-disabled`  | Border color of disabled, unchecked checkbox; background color of disabled, checked/indeterminate checkbox |
+| `--s-text-disabled`  | Text color of disabled checkbox                                                                            |
+| `--s-text-subdued`   | Text color of the description                                                                              |
+| `--s-focus`          | Outline color of focused checkbox                                                                          |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Checkbox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/).
+
+| ARIA              | Usage                                                                                                                                                |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `role="checkbox"` |                                                                                                                                                      |
+| `aria-label`      | If no accessible label is provided via the checkbox's label prop, the `aria-label` or `aria-labelledby` attribute has to be set.                     |
+| `aria-checked`    | The checkbox gets the `aria-checked` attribute set to `true` in checked state, to `false` in unchecked state, and to `mixed` in indeterminate state. |
+
+### Keyboard
+
+| Key              | Action                             |
+| ---------------- | ---------------------------------- |
+| <kbd>SPACE</kbd> | Changes the state of the checkbox. |
