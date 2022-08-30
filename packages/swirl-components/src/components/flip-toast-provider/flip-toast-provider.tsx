@@ -89,13 +89,15 @@ export class FlipToastProvider {
   render() {
     return (
       <Host role="status">
-        {this.toasts.map((toast) => (
-          <flip-toast
-            key={toast.toastId}
-            onDismiss={this.onDismiss}
-            {...toast}
-          ></flip-toast>
-        ))}
+        <flip-stack spacing="2">
+          {this.toasts.map((toast) => (
+            <flip-toast
+              key={toast.toastId}
+              onDismiss={this.onDismiss}
+              {...toast}
+            ></flip-toast>
+          ))}
+        </flip-stack>
       </Host>
     );
   }
