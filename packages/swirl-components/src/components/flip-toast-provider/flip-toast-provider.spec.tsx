@@ -29,8 +29,10 @@ describe("flip-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <flip-toast-provider role="status">
         <mock:shadow-root>
-        <flip-toast content="Toast 1" toastid="toast-1"></flip-toast>
-          <flip-toast content="Toast 2" dismisslabel="Dismiss" icon="<lip-icon-mail></flip-icon-mail>" intent="warning" toastid="toast-2"></flip-toast>
+          <flip-stack spacing="2">
+            <flip-toast content="Toast 1" toastid="toast-1"></flip-toast>
+            <flip-toast content="Toast 2" dismisslabel="Dismiss" icon="<lip-icon-mail></flip-icon-mail>" intent="warning" toastid="toast-2"></flip-toast>
+          </flip-stack>
         </mock:shadow-root>
       </flip-toast-provider>
     `);
@@ -42,7 +44,9 @@ describe("flip-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <flip-toast-provider role="status">
         <mock:shadow-root>
-          <flip-toast content="Toast 1" toastid="toast-1"></flip-toast>
+          <flip-stack spacing="2">
+            <flip-toast content="Toast 1" toastid="toast-1"></flip-toast>
+          </flip-stack>
         </mock:shadow-root>
       </flip-toast-provider>
     `);
@@ -54,6 +58,7 @@ describe("flip-toast-provider", () => {
     expect(page.root).toEqualHtml(`
       <flip-toast-provider role="status">
         <mock:shadow-root>
+          <flip-stack spacing="2"></flip-stack>
         </mock:shadow-root>
       </flip-toast-provider>
     `);
