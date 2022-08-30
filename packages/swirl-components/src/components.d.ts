@@ -10,6 +10,7 @@ import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/f
 import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
+import { FlipToastIntent } from "./components/flip-toast/flip-toast";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
     interface FlipAvatar {
@@ -239,6 +240,13 @@ export namespace Components {
     interface FlipIconVisibilityOff {
         "size": FlipIconSize;
     }
+    interface FlipToast {
+        "accessibleDismissLabel"?: string;
+        "content": string;
+        "dismissLabel"?: string;
+        "icon"?: string;
+        "intent"?: FlipToastIntent;
+    }
     interface FlipTooltip {
         "content": string;
         "delay"?: number;
@@ -250,6 +258,10 @@ export namespace Components {
 export interface FlipCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipCheckboxElement;
+}
+export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipToastElement;
 }
 declare global {
     interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
@@ -660,6 +672,12 @@ declare global {
         prototype: HTMLFlipIconVisibilityOffElement;
         new (): HTMLFlipIconVisibilityOffElement;
     };
+    interface HTMLFlipToastElement extends Components.FlipToast, HTMLStencilElement {
+    }
+    var HTMLFlipToastElement: {
+        prototype: HTMLFlipToastElement;
+        new (): HTMLFlipToastElement;
+    };
     interface HTMLFlipTooltipElement extends Components.FlipTooltip, HTMLStencilElement {
     }
     var HTMLFlipTooltipElement: {
@@ -741,6 +759,7 @@ declare global {
         "flip-icon-user-assign": HTMLFlipIconUserAssignElement;
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
+        "flip-toast": HTMLFlipToastElement;
         "flip-tooltip": HTMLFlipTooltipElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
@@ -974,6 +993,14 @@ declare namespace LocalJSX {
     interface FlipIconVisibilityOff {
         "size"?: FlipIconSize;
     }
+    interface FlipToast {
+        "accessibleDismissLabel"?: string;
+        "content": string;
+        "dismissLabel"?: string;
+        "icon"?: string;
+        "intent"?: FlipToastIntent;
+        "onDismiss"?: (event: FlipToastCustomEvent<MouseEvent>) => void;
+    }
     interface FlipTooltip {
         "content": string;
         "delay"?: number;
@@ -1050,6 +1077,7 @@ declare namespace LocalJSX {
         "flip-icon-user-assign": FlipIconUserAssign;
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
+        "flip-toast": FlipToast;
         "flip-tooltip": FlipTooltip;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
@@ -1126,6 +1154,7 @@ declare module "@stencil/core" {
             "flip-icon-user-assign": LocalJSX.FlipIconUserAssign & JSXBase.HTMLAttributes<HTMLFlipIconUserAssignElement>;
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
+            "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }

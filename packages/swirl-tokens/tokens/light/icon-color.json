@@ -42,5 +42,8 @@
   "icon-on-image": {
     "value": "rgba(255, 255, 255, 1)",
     "comment": "Used as a icon color on “Surface On Image/Default”."
+  },
+  "icon-on-status": {
+    "value": "#ffffff"
   }
 }

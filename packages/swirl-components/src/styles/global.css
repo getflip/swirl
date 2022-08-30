@@ -19,4 +19,6 @@ body {
   font-family: var(--s-font-family-text);
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-normal);
+
+  -webkit-font-smoothing: antialiased;
 }

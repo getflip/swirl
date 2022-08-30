@@ -1075,6 +1075,52 @@
       ]
     },
     {
+      "name": "flip-toast",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "accessible-dismiss-label",
+          "description": ""
+        },
+        {
+          "name": "content",
+          "description": ""
+        },
+        {
+          "name": "dismiss-label",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "flip-tooltip",
       "description": {
         "kind": "markdown",
