@@ -1,4 +1,12 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  Watch,
+} from "@stencil/core";
 import classnames from "classnames";
 
 export type FlipToastIntent =
@@ -17,20 +25,54 @@ export class FlipToast {
   @Prop() accessibleDismissLabel?: string = "Dismiss";
   @Prop() content!: string;
   @Prop() dismissLabel?: string;
+  @Prop() duration?: number;
   @Prop() icon?: string;
   @Prop() intent?: FlipToastIntent = "default";
+  @Prop() toastId!: string;
 
-  @Event() dismiss: EventEmitter<MouseEvent>;
+  @Event() dismiss: EventEmitter<string>;
 
-  private onDismiss = (event: MouseEvent) => {
-    this.dismiss.emit(event);
+  private timeout: NodeJS.Timeout;
+
+  @Watch("duration")
+  watchDuration() {
+    this.startTimer();
+  }
+
+  componentDidLoad() {
+    this.startTimer();
+  }
+
+  private startTimer() {
+    this.clearTimer();
+
+    if (this.duration === undefined) {
+      return;
+    }
+
+    this.timeout = setTimeout(() => {
+      this.dismiss.emit(this.toastId);
+    }, this.duration);
+  }
+
+  private clearTimer() {
+    if (!Boolean(this.timeout)) {
+      return;
+    }
+
+    clearTimeout(this.timeout);
+    this.timeout = undefined;
+  }
+
+  private onDismiss = () => {
+    this.dismiss.emit(this.toastId);
   };
 
   render() {
     const className = classnames("toast", `toast--intent-${this.intent}`);
 
     return (
-      <Host role="status">
+      <Host>
         <div class={className}>
           {this.icon && <span class="toast__icon" innerHTML={this.icon}></span>}
           <span class="toast__content">{this.content}</span>

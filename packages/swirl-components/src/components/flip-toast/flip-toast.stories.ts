@@ -20,6 +20,6 @@ const Template = (args) => {
 export const FlipToast = Template.bind({});
 
 FlipToast.args = {
-  content: `This is banner text with multiple lines. Try to keep the info as short as possible.`,
+  content: `This is toast text with multiple lines. Try to keep the info as short as possible.`,
   icon: `<flip-icon-mail></flip-icon-mail>`,
 };

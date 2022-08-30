@@ -11,6 +11,7 @@ import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipToastIntent } from "./components/flip-toast/flip-toast";
+import { FlipToastConfig, FlipToastMessage } from "./components/flip-toast-provider/flip-toast-provider";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
     interface FlipAvatar {
@@ -244,8 +245,34 @@ export namespace Components {
         "accessibleDismissLabel"?: string;
         "content": string;
         "dismissLabel"?: string;
+        "duration"?: number;
         "icon"?: string;
         "intent"?: FlipToastIntent;
+        "toastId": string;
+    }
+    interface FlipToastProvider {
+        /**
+          * Clear all toasts
+          * @param newToast
+          * @returns
+         */
+        "clearAll": () => Promise<void>;
+        /**
+          * Dismiss a toast
+          * @param toastId
+          * @returns
+         */
+        "dismiss": (toastId: string) => Promise<void>;
+        /**
+          * Optional global duration for all toasts. Overrides any durations set via the `toast` method. Set to 0 to disable automatic closing of toasts.
+         */
+        "globalDuration"?: number;
+        /**
+          * Create a new toast
+          * @param newToast
+          * @returns
+         */
+        "toast": (newToast: FlipToastConfig) => Promise<FlipToastMessage>;
     }
     interface FlipTooltip {
         "content": string;
@@ -678,6 +705,12 @@ declare global {
         prototype: HTMLFlipToastElement;
         new (): HTMLFlipToastElement;
     };
+    interface HTMLFlipToastProviderElement extends Components.FlipToastProvider, HTMLStencilElement {
+    }
+    var HTMLFlipToastProviderElement: {
+        prototype: HTMLFlipToastProviderElement;
+        new (): HTMLFlipToastProviderElement;
+    };
     interface HTMLFlipTooltipElement extends Components.FlipTooltip, HTMLStencilElement {
     }
     var HTMLFlipTooltipElement: {
@@ -760,6 +793,7 @@ declare global {
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
         "flip-toast": HTMLFlipToastElement;
+        "flip-toast-provider": HTMLFlipToastProviderElement;
         "flip-tooltip": HTMLFlipTooltipElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
@@ -997,9 +1031,17 @@ declare namespace LocalJSX {
         "accessibleDismissLabel"?: string;
         "content": string;
         "dismissLabel"?: string;
+        "duration"?: number;
         "icon"?: string;
         "intent"?: FlipToastIntent;
-        "onDismiss"?: (event: FlipToastCustomEvent<MouseEvent>) => void;
+        "onDismiss"?: (event: FlipToastCustomEvent<string>) => void;
+        "toastId": string;
+    }
+    interface FlipToastProvider {
+        /**
+          * Optional global duration for all toasts. Overrides any durations set via the `toast` method. Set to 0 to disable automatic closing of toasts.
+         */
+        "globalDuration"?: number;
     }
     interface FlipTooltip {
         "content": string;
@@ -1078,6 +1120,7 @@ declare namespace LocalJSX {
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
         "flip-toast": FlipToast;
+        "flip-toast-provider": FlipToastProvider;
         "flip-tooltip": FlipTooltip;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
@@ -1155,6 +1198,7 @@ declare module "@stencil/core" {
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
             "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
+            "flip-toast-provider": LocalJSX.FlipToastProvider & JSXBase.HTMLAttributes<HTMLFlipToastProviderElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }

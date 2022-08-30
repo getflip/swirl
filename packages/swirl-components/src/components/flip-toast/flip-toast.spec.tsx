@@ -10,7 +10,7 @@ describe("flip-toast", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-toast content="Content" icon="<flip-icon-mail></flip-icon-mail>" role="status">
+      <flip-toast content="Content" icon="<flip-icon-mail></flip-icon-mail>">
         <mock:shadow-root>
           <div class="toast toast--intent-default">
             <span class="toast__icon">
