@@ -42,8 +42,8 @@
   font-size: 0.75rem;
 
   &.avatar--has-icon {
-    padding-right: var(--s-space-1);
-    padding-left: var(--s-space-1);
+    padding-right: 0.4375rem;
+    padding-left: 0.4375rem;
   }
 
   &.avatar--variant-square,
@@ -58,8 +58,8 @@
   font-size: 0.75rem;
 
   &.avatar--has-icon {
-    padding-right: var(--s-space-1);
-    padding-left: var(--s-space-1);
+    padding-right: var(--s-space-2);
+    padding-left: var(--s-space-2);
   }
 
   &.avatar--variant-square,
@@ -74,8 +74,8 @@
   font-size: var(--s-font-size-base);
 
   &.avatar--has-icon {
-    padding-right: var(--s-space-1);
-    padding-left: var(--s-space-1);
+    padding-right: 0.625rem;
+    padding-left: 0.625rem;
   }
 
   &.avatar--variant-square,
@@ -90,8 +90,8 @@
   font-size: var(--s-font-size-lg);
 
   &.avatar--has-icon {
-    padding-right: var(--s-space-2);
-    padding-left: var(--s-space-2);
+    padding-right: var(--s-space-3);
+    padding-left: var(--s-space-3);
   }
 
   &.avatar--variant-square,
@@ -106,8 +106,8 @@
   font-size: var(--s-font-size-xl);
 
   &.avatar--has-icon {
-    padding-right: var(--s-space-3);
-    padding-left: var(--s-space-3);
+    padding-right: var(--s-space-4);
+    padding-left: var(--s-space-4);
   }
 
   &.avatar--variant-square,
@@ -122,8 +122,8 @@
   font-size: 3.375rem;
 
   &.avatar--has-icon {
-    padding-right: var(--s-space-6);
-    padding-left: var(--s-space-6);
+    padding-right: var(--s-space-9);
+    padding-left: var(--s-space-9);
   }
 
   &.avatar--variant-square,
