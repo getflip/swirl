@@ -1,5 +1,5 @@
 import { readdirSync } from "fs";
-import StyleDictionary, { TransformedToken } from "style-dictionary";
+import StyleDictionary from "style-dictionary";
 
 const { fileHeader, createPropertyFormatter } = StyleDictionary.formatHelpers;
 
@@ -44,9 +44,9 @@ StyleDictionary.registerFormat({
     const formattedTokens: string[] = [];
 
     for (const category of categories) {
-      const tokensOfCategory = dictionary.allTokens.filter((token) =>
-        token.filePath.includes(category)
-      );
+      const tokensOfCategory = dictionary.allTokens.filter((token) => {
+        return token.filePath.includes(`/${category}.json`);
+      });
 
       formattedTokens.push(`
 /**
