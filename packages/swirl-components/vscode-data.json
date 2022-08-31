@@ -191,6 +191,58 @@
       ]
     },
     {
+      "name": "flip-checkbox",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "checked",
+          "description": "",
+          "values": [
+            {
+              "name": "false"
+            },
+            {
+              "name": "indeterminate"
+            },
+            {
+              "name": "true"
+            }
+          ]
+        },
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "input-id",
+          "description": ""
+        },
+        {
+          "name": "input-name",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-add",
       "description": {
         "kind": "markdown",
@@ -1042,6 +1094,41 @@
             },
             {
               "name": "s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flip-tooltip",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "content",
+          "description": ""
+        },
+        {
+          "name": "delay",
+          "description": ""
+        },
+        {
+          "name": "position",
+          "description": "",
+          "values": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "left"
+            },
+            {
+              "name": "right"
+            },
+            {
+              "name": "top"
             }
           ]
         }
