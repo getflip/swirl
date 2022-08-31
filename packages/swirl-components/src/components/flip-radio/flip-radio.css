@@ -102,8 +102,10 @@
 
 .radio__control {
   position: relative;
-  width: 1.125rem;
-  height: 1.125rem;
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: var(--s-space-05);
   flex-shrink: 0;
 
   &:hover {
