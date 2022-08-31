@@ -67,6 +67,7 @@
   flex-shrink: 0;
   border-radius: calc(1.125rem / 2);
   background-color: var(--s-interactive-primary-disabled);
+  cursor: pointer;
   transition: background-color 0.2s;
 
   @media (prefers-reduced-motion) {
