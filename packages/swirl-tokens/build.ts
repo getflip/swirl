@@ -1,31 +1,90 @@
-import { readdirSync } from "fs";
 import StyleDictionary from "style-dictionary";
 
 const { fileHeader, createPropertyFormatter } = StyleDictionary.formatHelpers;
 
-const categories = [
-  ...readdirSync("./tokens"),
-  ...readdirSync("./tokens/light"),
-]
-  .filter((fileName) => fileName.endsWith(".json"))
-  .map((fileName) => fileName.replace(".json", ""));
-
-const presenters: { [category: string]: string } = {
-  "background-color": "Color",
-  "border-color": "Color",
-  "border-width": "Spacing",
-  "font-family": "FontFamily",
-  "font-size": "FontSize",
-  "font-weight": "FontWeight",
-  "icon-color": "Color",
-  "letter-spacing": "LetterSpacing",
-  "line-height": "LineHeight",
-  spacing: "Spacing",
-  "text-color": "Color",
-  "z-index": "",
-  "border-radius": "BorderRadius",
+const tokenGroups: {
+  [group: string]: { label: string; prefixes: string[]; presenter: string };
+} = {
+  backgroundColors: {
+    label: "Background Colors",
+    prefixes: [
+      "background-",
+      "surface-",
+      "on-surface",
+      "action-",
+      "decorative-",
+      "interactive-",
+    ],
+    presenter: "Color",
+  },
+  borderColors: {
+    label: "Border Colors",
+    prefixes: ["border-", "focus"],
+    presenter: "Color",
+  },
+  borderRadius: {
+    label: "Border Radius",
+    prefixes: ["border-radius-"],
+    presenter: "BorderRadius",
+  },
+  borderWidth: {
+    label: "Border Width",
+    prefixes: ["border-width-"],
+    presenter: "Spacing",
+  },
+  fontFamilies: {
+    label: "Font Families",
+    prefixes: ["font-family-"],
+    presenter: "FontFamily",
+  },
+  fontSizes: {
+    label: "Font Sizes",
+    prefixes: ["font-size-"],
+    presenter: "FontSize",
+  },
+  fontWeights: {
+    label: "Font Weights",
+    prefixes: ["font-weight-"],
+    presenter: "FontWeight",
+  },
+  iconColors: {
+    label: "Icon Colors",
+    prefixes: ["icon-"],
+    presenter: "Color",
+  },
+  letterSpacings: {
+    label: "Letter Spacings",
+    prefixes: ["letter-spacing-"],
+    presenter: "LetterSpacing",
+  },
+  lineHeights: {
+    label: "Line Heights",
+    prefixes: ["line-height-"],
+    presenter: "LineHeight",
+  },
+  spacings: {
+    label: "Spacings",
+    prefixes: ["space-"],
+    presenter: "Spacing",
+  },
+  textColors: {
+    label: "Text Colors",
+    prefixes: ["text-"],
+    presenter: "Color",
+  },
+  other: {
+    label: "Other",
+    prefixes: [],
+    presenter: "",
+  },
 };
 
+/**
+ * Custom CSS formatter for style dictionary to generate design token
+ * annotations for https://github.com/UX-and-I/storybook-design-token
+ *
+ * It uses the default css formatter internally.
+ */
 StyleDictionary.registerFormat({
   name: "css/variables-design-token-comments",
   formatter: function ({ dictionary, options = {}, file }) {
@@ -43,20 +102,31 @@ StyleDictionary.registerFormat({
 
     const formattedTokens: string[] = [];
 
-    for (const category of categories) {
-      const tokensOfCategory = dictionary.allTokens.filter((token) => {
-        return token.filePath.includes(`/${category}.json`);
-      });
+    let unassignedTokens = [...dictionary.allTokens];
+
+    for (const tokenGroup of Object.values(tokenGroups)) {
+      const tokensOfGroup =
+        tokenGroup.prefixes.length === 0
+          ? unassignedTokens
+          : unassignedTokens.filter((token) => {
+              return tokenGroup.prefixes.some((prefix) =>
+                token.path[0].startsWith(prefix)
+              );
+            });
 
       formattedTokens.push(`
-/**
- * @tokens ${category}
- * @presenter ${presenters[category] || ""}
- */
-      `);
+  /**
+   * @tokens ${tokenGroup.label}
+   * @presenter ${tokenGroup.presenter}
+   */
+          `);
 
-      for (const token of tokensOfCategory) {
+      for (const token of tokensOfGroup) {
         formattedTokens.push(propertyFormatter(token));
+
+        unassignedTokens = unassignedTokens.filter(
+          (t) => token.path[0] !== t.path[0]
+        );
       }
     }
 
