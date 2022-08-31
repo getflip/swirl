@@ -9,5 +9,5 @@
 .radio-group {
   display: flex;
   flex-direction: column;
-  gap: var(--s-space-3);
+  gap: var(--s-space-4);
 }
