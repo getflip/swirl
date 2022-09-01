@@ -1,0 +1,1841 @@
+{
+  "core": {
+    "font-family-default": {
+      "value": "Inter",
+      "type": "fontFamilies"
+    },
+    "font-size-sm": {
+      "value": "14",
+      "type": "fontSizes",
+      "description": "Usually used for labels and captions"
+    },
+    "font-size-base": {
+      "value": "16",
+      "type": "fontSizes",
+      "description": "Usually used for the body, links and buttons "
+    },
+    "font-size-lg": {
+      "value": "18",
+      "type": "fontSizes",
+      "description": "Usually used as level 3 headline"
+    },
+    "font-size-xl": {
+      "value": "20",
+      "type": "fontSizes",
+      "description": "Usually used as level 2 headline"
+    },
+    "font-size-2xl": {
+      "value": "28",
+      "type": "fontSizes",
+      "description": "Usually used as main headline"
+    },
+    "font-weight-normal": {
+      "value": "Regular",
+      "type": "fontWeights"
+    },
+    "font-weight-medium": {
+      "value": "Medium",
+      "type": "fontWeights"
+    },
+    "font-weight-semibold": {
+      "value": "Semi Bold",
+      "type": "fontWeights"
+    },
+    "font-weight-bold": {
+      "value": "Bold",
+      "type": "fontWeights"
+    },
+    "line-height-s": {
+      "value": "130%",
+      "type": "lineHeights"
+    },
+    "line-height-sm": {
+      "value": "135%",
+      "type": "lineHeights"
+    },
+    "line-height-base": {
+      "value": "140%",
+      "type": "lineHeights"
+    },
+    "line-height-lg": {
+      "value": "150%",
+      "type": "lineHeights"
+    },
+    "letter-spacing-tighter": {
+      "value": "-0.32",
+      "type": "letterSpacing"
+    },
+    "letter-spacing-tight": {
+      "value": "-0.22",
+      "type": "letterSpacing"
+    },
+    "letter-spacing-normal": {
+      "value": "0",
+      "type": "letterSpacing"
+    },
+    "headline": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-bold}",
+        "lineHeight": "{line-height-s}",
+        "fontSize": "{font-size-2xl}",
+        "letterSpacing": "{letter-spacing-tight}",
+        "textDecoration": "{decoration-none}"
+      },
+      "type": "typography"
+    },
+    "title": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "lineHeight": "{line-height-s}",
+        "fontWeight": "{font-weight-bold}",
+        "fontSize": "{font-size-xl}",
+        "letterSpacing": "{letter-spacing-normal}",
+        "textDecoration": "{decoration-none}"
+      },
+      "type": "typography"
+    },
+    "subheader": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-semibold}",
+        "lineHeight": "{line-height-sm}",
+        "fontSize": "{font-size-lg}",
+        "letterSpacing": "{letter-spacing-normal}",
+        "textDecoration": "{decoration-none}"
+      },
+      "type": "typography"
+    },
+    "body-semibold": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-semibold}",
+        "lineHeight": "{line-height-base}",
+        "fontSize": "{font-size-base}",
+        "letterSpacing": "{letter-spacing-normal}",
+        "textDecoration": "{decoration-none}"
+      },
+      "type": "typography"
+    },
+    "body-medium": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-medium}",
+        "lineHeight": "{line-height-base}",
+        "fontSize": "{font-size-base}",
+        "textDecoration": "{decoration-none}"
+      },
+      "type": "typography"
+    },
+    "body-normal": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-normal}",
+        "lineHeight": "{line-height-base}",
+        "fontSize": "{font-size-base}"
+      },
+      "type": "typography"
+    },
+    "decoration-underline": {
+      "value": "underline",
+      "type": "textDecoration"
+    },
+    "link": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-normal}",
+        "lineHeight": "{line-height-base}",
+        "fontSize": "{font-size-base}",
+        "letterSpacing": "{letter-spacing-normal}",
+        "textDecoration": "{decoration-underline}"
+      },
+      "type": "typography"
+    },
+    "button-semibold": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-semibold}",
+        "lineHeight": "{line-height-lg}",
+        "letterSpacing": "{letter-spacing-normal}"
+      },
+      "type": "typography"
+    },
+    "button-medium": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-medium}",
+        "lineHeight": "{line-height-lg}",
+        "letterSpacing": "{letter-spacing-normal}"
+      },
+      "type": "typography"
+    },
+    "button-medium-underline": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-medium}",
+        "lineHeight": "{line-height-lg}",
+        "letterSpacing": "{letter-spacing-normal}",
+        "textDecoration": "{decoration-underline}"
+      },
+      "type": "typography"
+    },
+    "button-semibold-underline": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-semibold}",
+        "lineHeight": "{line-height-lg}",
+        "letterSpacing": "{letter-spacing-normal}",
+        "textDecoration": "{decoration-underline}"
+      },
+      "type": "typography"
+    },
+    "caption": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-normal}",
+        "lineHeight": "{line-height-sm}",
+        "fontSize": "{font-size-sm}",
+        "letterSpacing": "{letter-spacing-normal}",
+        "textDecoration": "{decoration-none}"
+      },
+      "type": "typography"
+    },
+    "label-semibold": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-semibold}",
+        "lineHeight": "{line-height-sm}",
+        "fontSize": "{font-size-sm}",
+        "letterSpacing": "{letter-spacing-tighter}",
+        "textDecoration": "{decoration-none}"
+      },
+      "type": "typography"
+    },
+    "label-medium": {
+      "value": {
+        "fontFamily": "{font-family-default}",
+        "fontWeight": "{font-weight-medium}",
+        "lineHeight": "{line-height-sm}",
+        "fontSize": "{font-size-base}",
+        "letterSpacing": "{letter-spacing-tighter}",
+        "textDecoration": "{decoration-none}"
+      },
+      "type": "typography"
+    },
+    "border-radius-xs": {
+      "value": "2",
+      "type": "borderRadius"
+    },
+    "border-radius-s": {
+      "value": "4",
+      "type": "borderRadius"
+    },
+    "border-radius-sm": {
+      "value": "8",
+      "type": "borderRadius"
+    },
+    "border-radius-base": {
+      "value": "12",
+      "type": "borderRadius"
+    },
+    "border-radius-l": {
+      "value": "16",
+      "type": "borderRadius"
+    },
+    "border-radius-xl": {
+      "value": "20",
+      "type": "borderRadius"
+    },
+    "border-radius-full-round": {
+      "value": "99999",
+      "type": "borderRadius"
+    },
+    "space-0": {
+      "value": "0",
+      "type": "spacing"
+    },
+    "space-2": {
+      "value": "2",
+      "type": "spacing"
+    },
+    "space-4": {
+      "value": "4",
+      "type": "spacing"
+    },
+    "space-8": {
+      "value": "8",
+      "type": "spacing"
+    },
+    "space-12": {
+      "value": "12",
+      "type": "spacing"
+    },
+    "space-16": {
+      "value": "16",
+      "type": "spacing"
+    },
+    "space-24": {
+      "value": "24",
+      "type": "spacing"
+    },
+    "space-32": {
+      "value": "32",
+      "type": "spacing"
+    },
+    "decoration-none": {
+      "value": "None",
+      "type": "textDecoration"
+    }
+  },
+  "core-colors": {
+    "core": {
+      "gray": {
+        "10": {
+          "value": "#2a2b2d",
+          "type": "color"
+        },
+        "11": {
+          "value": "#232426",
+          "type": "color"
+        },
+        "12": {
+          "value": "#191a1c",
+          "type": "color"
+        },
+        "black": {
+          "value": "#000000",
+          "type": "color"
+        },
+        "09": {
+          "value": "#323335",
+          "type": "color"
+        },
+        "08": {
+          "value": "#3a3b3d",
+          "type": "color"
+        },
+        "07": {
+          "value": "#4f5054",
+          "type": "color"
+        },
+        "06": {
+          "value": "#6d6e72",
+          "type": "color"
+        },
+        "05": {
+          "value": "#a1a2a5",
+          "type": "color"
+        },
+        "04": {
+          "value": "#cccdd1",
+          "type": "color"
+        },
+        "03": {
+          "value": "#dddee0",
+          "type": "color"
+        },
+        "02": {
+          "value": "#e8e9eb",
+          "type": "color"
+        },
+        "01": {
+          "value": "#f2f3f5",
+          "type": "color"
+        },
+        "white": {
+          "value": "#ffffff",
+          "type": "color"
+        }
+      },
+      "customer-color-light": {
+        "1-hovered": {
+          "value": "#26e6b9",
+          "type": "color"
+        },
+        "1-default": {
+          "value": "#00e2ad",
+          "type": "color"
+        },
+        "1-pressed": {
+          "value": "#4debc6",
+          "type": "color"
+        },
+        "2-default": {
+          "value": "#0026ff",
+          "type": "color"
+        },
+        "2-hovered": {
+          "value": "#2647ff",
+          "type": "color"
+        },
+        "2-pressed": {
+          "value": "#4d67ff",
+          "type": "color"
+        },
+        "3-default": {
+          "value": "#003daf",
+          "type": "color"
+        },
+        "3-hovered": {
+          "value": "#265abb",
+          "type": "color"
+        },
+        "3-pressed": {
+          "value": "#4d77c7",
+          "type": "color"
+        }
+      },
+      "on-customer-color-light": {
+        "1": {
+          "value": "#000d57",
+          "type": "color"
+        },
+        "2": {
+          "value": "#befff0",
+          "type": "color"
+        }
+      },
+      "customer-color-dark": {
+        "1-default": {
+          "value": "#8eebe2",
+          "type": "color"
+        },
+        "1-hovered": {
+          "value": "#79c8c0",
+          "type": "color"
+        },
+        "1-pressed": {
+          "value": "#63a49e",
+          "type": "color"
+        },
+        "2-default": {
+          "value": "#7394d3",
+          "type": "color"
+        },
+        "2-hovered": {
+          "value": "#627eb3",
+          "type": "color"
+        },
+        "2-pressed": {
+          "value": "#506894",
+          "type": "color"
+        },
+        "3-default": {
+          "value": "#7394d3",
+          "type": "color"
+        },
+        "3-hovered": {
+          "value": "#627eb3",
+          "type": "color"
+        },
+        "3-pressed": {
+          "value": "#506894",
+          "type": "color"
+        }
+      },
+      "on-customer-color-dark": {
+        "1": {
+          "value": "#000000",
+          "type": "color"
+        },
+        "2": {
+          "value": "#000000",
+          "type": "color"
+        }
+      },
+      "status-light": {
+        "critical-default": {
+          "value": "#d50636",
+          "type": "color"
+        },
+        "critical-subdued": {
+          "value": "#fce7ed",
+          "type": "color"
+        },
+        "success-default": {
+          "value": "#088108",
+          "type": "color"
+        },
+        "success-subdued": {
+          "value": "#dcf7dc",
+          "type": "color"
+        },
+        "info-default": {
+          "value": "#145af5",
+          "type": "color"
+        },
+        "info-subdued": {
+          "value": "#e6f1ff",
+          "type": "color"
+        },
+        "warning-strong": {
+          "value": "#935806",
+          "type": "color"
+        },
+        "warning-default": {
+          "value": "#f3b703",
+          "type": "color"
+        },
+        "warning-subdued": {
+          "value": "#faf1c8",
+          "type": "color"
+        }
+      },
+      "status-dark": {
+        "info-default": {
+          "value": "#73a7f2",
+          "type": "color"
+        },
+        "info-subdued": {
+          "value": "#102648",
+          "type": "color"
+        },
+        "success-default": {
+          "value": "#68c468",
+          "type": "color"
+        },
+        "success-subdued": {
+          "value": "#123a12",
+          "type": "color"
+        },
+        "warning-default": {
+          "value": "#f9c763",
+          "type": "color"
+        },
+        "warning-subdued": {
+          "value": "#392e11",
+          "type": "color"
+        },
+        "critical-default": {
+          "value": "#fb6486",
+          "type": "color"
+        },
+        "critical-subdued": {
+          "value": "#470e1b",
+          "type": "color"
+        }
+      },
+      "decorative-light": {
+        "1-default": {
+          "value": "#ff574d",
+          "type": "color"
+        },
+        "2-default": {
+          "value": "#ff8340",
+          "type": "color"
+        },
+        "3-default": {
+          "value": "#f6c431",
+          "type": "color"
+        },
+        "4-default": {
+          "value": "#eb84a1",
+          "type": "color"
+        },
+        "5-default": {
+          "value": "#9632fa",
+          "type": "color"
+        },
+        "6-default": {
+          "value": "#60b29c",
+          "type": "color"
+        },
+        "7-default": {
+          "value": "#3387ff",
+          "type": "color"
+        }
+      },
+      "decorative-dark": {
+        "1-default": {
+          "value": "#ff6e66",
+          "type": "color"
+        },
+        "2-default": {
+          "value": "#ffa473",
+          "type": "color"
+        },
+        "3-default": {
+          "value": "#f9da7a",
+          "type": "color"
+        },
+        "4-default": {
+          "value": "#eb84a1",
+          "type": "color"
+        },
+        "5-default": {
+          "value": "#bc7dfc",
+          "type": "color"
+        },
+        "6-default": {
+          "value": "#94cbbc",
+          "type": "color"
+        },
+        "7-default": {
+          "value": "#66a6ff",
+          "type": "color"
+        }
+      }
+    }
+  },
+  "light": {
+    "background": {
+      "default": {
+        "value": "{core.gray.white}",
+        "type": "color",
+        "description": "Usually used for the page background and elements that should not elevate from the background."
+      },
+      "hovered": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Used if a component with “Background/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.02}",
+        "type": "color",
+        "description": "Used if a component with “Background/Default” has a pressed state."
+      }
+    },
+    "surface": {
+      "default": {
+        "value": "{core.gray.white}",
+        "type": "color",
+        "description": "Usually used for containers that need to be elevated."
+      },
+      "hovered": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Used if a component with “Surface/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.02}",
+        "type": "color",
+        "description": "Used if a component with “Surface/Default” has a pressed state."
+      }
+    },
+    "surface-overlay": {
+      "default": {
+        "value": "{core.gray.white}",
+        "type": "color",
+        "description": "Usually used for containers that need to be more elevated."
+      },
+      "hovered": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Used if a component with “Surface Overlay/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.02}",
+        "type": "color",
+        "description": "Used if a component with “Surface Overlay/Default” has a pressed state."
+      }
+    },
+    "on-surface": {
+      "default": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Usually used for elements that need contrast on surfaces or background"
+      },
+      "hovered": {
+        "value": "{core.gray.02}",
+        "type": "color",
+        "description": "Used if a component with “On Surface/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.03}",
+        "type": "color",
+        "description": "Used if a component with “On Surface/Default” has a pressed state."
+      }
+    },
+    "surface-highlight": {
+      "default": {
+        "value": "{core.customer-color-light.2-default}",
+        "type": "color",
+        "description": "Usually used for containers that need to be highlighted."
+      },
+      "hovered": {
+        "value": "{core.customer-color-light.2-hovered}",
+        "type": "color",
+        "description": "Used if a component with “Surface Highlight/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.customer-color-light.2-pressed}",
+        "type": "color",
+        "description": "Used if a component with “Surface Highlight/Default” has a pressed state."
+      }
+    },
+    "on-surface-highlight": {
+      "default": {
+        "value": "{core.customer-color-light.2-hovered}",
+        "type": "color",
+        "description": "Used to place containers on “Surface Highlight/Default”."
+      }
+    },
+    "surface-critical": {
+      "default": {
+        "value": "{core.status-light.critical-default}",
+        "type": "color",
+        "description": "Used as a background for critical surfaces."
+      },
+      "subdued": {
+        "value": "{core.status-light.critical-subdued}",
+        "type": "color",
+        "description": "Used for low prio critical background."
+      }
+    },
+    "surface-warning": {
+      "default": {
+        "value": "{core.status-light.warning-default}",
+        "type": "color",
+        "description": "Used as a background for warning surfaces."
+      },
+      "subdued": {
+        "value": "{core.status-light.warning-subdued}",
+        "type": "color",
+        "description": "Used for low prio warning background."
+      }
+    },
+    "surface-success": {
+      "default": {
+        "value": "{core.status-light.success-default}",
+        "type": "color",
+        "description": "Used as a background for success surfaces."
+      },
+      "subdued": {
+        "value": "{core.status-light.success-subdued}",
+        "type": "color",
+        "description": "Used for low prio success background."
+      }
+    },
+    "surface-info": {
+      "default": {
+        "value": "{core.status-light.info-default}",
+        "type": "color",
+        "description": "Used as a background for info surfaces."
+      },
+      "subdued": {
+        "value": "{core.status-light.info-subdued}",
+        "type": "color",
+        "description": "Used for low prio info background."
+      }
+    },
+    "surface-neutral": {
+      "default": {
+        "value": "{core.gray.08}",
+        "type": "color",
+        "description": "Used as a background for neutral surfaces."
+      },
+      "subdued": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Used for low prio neutral background."
+      }
+    },
+    "surface-on-image": {
+      "default": {
+        "value": "#00000099",
+        "type": "color",
+        "description": "Usually used for containers on images"
+      }
+    },
+    "border": {
+      "strong": {
+        "value": "{core.gray.04}",
+        "type": "color",
+        "description": "Usually used for high emphasis borders."
+      },
+      "default": {
+        "value": "{core.gray.02}",
+        "type": "color",
+        "description": "Usually used for low emphasis borders and espacially divider elements."
+      },
+      "highlight": {
+        "value": "{core.customer-color-light.3-default}",
+        "type": "color",
+        "description": "Used as border color on containers that need to be highlighted (e.g. form fields)."
+      },
+      "critical": {
+        "value": "{core.status-light.critical-default}",
+        "type": "color",
+        "description": "Usally used as an border on critical components."
+      },
+      "success": {
+        "value": "{core.status-light.success-default}",
+        "type": "color",
+        "description": "Usally used as an border on success components."
+      },
+      "warning": {
+        "value": "{core.status-light.warning-strong}",
+        "type": "color",
+        "description": "Usally used as an border on warning components."
+      },
+      "info": {
+        "value": "{core.status-light.info-default}",
+        "type": "color",
+        "description": "Usally used as an border on info components."
+      },
+      "on-highlight": {
+        "value": "#befff033",
+        "type": "color",
+        "description": "Used as border color on containers that have an highlight surface"
+      }
+    },
+    "text": {
+      "default": {
+        "value": "{core.gray.12}",
+        "type": "color",
+        "description": "Used for high emphasis text."
+      },
+      "subdued": {
+        "value": "{core.gray.06}",
+        "type": "color",
+        "description": "Used for low emphasis text."
+      },
+      "disabled": {
+        "value": "{core.gray.04}",
+        "type": "color",
+        "description": "Used if a text element is disabled."
+      },
+      "highlight": {
+        "value": "{core.customer-color-light.3-default}",
+        "type": "color",
+        "description": "Used to highlight text."
+      },
+      "critical": {
+        "value": "{core.status-light.critical-default}",
+        "type": "color",
+        "description": "Used as critical text color"
+      },
+      "success": {
+        "value": "{core.status-light.success-default}",
+        "type": "color",
+        "description": "Used as success text color"
+      },
+      "warning": {
+        "value": "{core.status-light.warning-strong}",
+        "type": "color",
+        "description": "Used as warning text color"
+      },
+      "info": {
+        "value": "{core.status-light.info-default}",
+        "type": "color",
+        "description": "Used as info text color"
+      }
+    },
+    "text-on": {
+      "action-primary": {
+        "value": "{core.on-customer-color-light.1}",
+        "type": "color",
+        "description": "Used as a text color on containers with action primary color."
+      },
+      "surface-highlight": {
+        "value": "{core.on-customer-color-light.2}",
+        "type": "color",
+        "description": "Used as text color on containers with highlight color."
+      },
+      "status": {
+        "value": "{core.gray.white}",
+        "type": "color",
+        "description": "Used as a text color on containers with a default status color except on warning."
+      },
+      "image": {
+        "value": "{core.gray.white}",
+        "type": "color",
+        "description": "Used as a text color on “Surface On Image/Default”."
+      }
+    },
+    "icon": {
+      "strong": {
+        "value": "{core.gray.12}",
+        "type": "color",
+        "description": "Used for high emphasis icons."
+      },
+      "default": {
+        "value": "{core.gray.06}",
+        "type": "color",
+        "description": "Used for low emphasis icons."
+      },
+      "disabled": {
+        "value": "{core.gray.04}",
+        "type": "color",
+        "description": "Used if a icon element is disabled."
+      },
+      "highlight": {
+        "value": "{core.customer-color-light.3-default}",
+        "type": "color",
+        "description": "Used to highlight icons."
+      },
+      "critical": {
+        "value": "{core.status-light.critical-default}",
+        "type": "color",
+        "description": "Used as critical icon color"
+      },
+      "success": {
+        "value": "{core.status-light.success-default}",
+        "type": "color",
+        "description": "Used as success icon color"
+      },
+      "warning": {
+        "value": "{core.status-light.warning-strong}",
+        "type": "color",
+        "description": "Used as warning icon color"
+      },
+      "info": {
+        "value": "{core.status-light.info-default}",
+        "type": "color",
+        "description": "Used as info icon color"
+      }
+    },
+    "icon-on": {
+      "action-primary": {
+        "value": "{core.on-customer-color-light.1}",
+        "type": "color",
+        "description": "Used as a icon color on containers with action primary color."
+      },
+      "surface-highlight": {
+        "value": "{core.on-customer-color-light.2}",
+        "type": "color",
+        "description": "Used as icon color on containers with highlight color."
+      },
+      "status": {
+        "value": "{core.gray.white}",
+        "type": "color",
+        "description": "Used as a icon color on containers with a default status color except on warning."
+      },
+      "image": {
+        "value": "{core.gray.white}",
+        "type": "color",
+        "description": "Used as a icon color on “Surface On Image/Default”."
+      }
+    },
+    "action-primary": {
+      "default": {
+        "value": "{core.customer-color-light.1-default}",
+        "type": "color",
+        "description": "Used for containers that are high emphasis action elements."
+      },
+      "hovered": {
+        "value": "{core.customer-color-light.1-hovered}",
+        "type": "color",
+        "description": "Used if a component with “Action Primary/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.customer-color-light.1-pressed}",
+        "type": "color",
+        "description": "Used if a component with “Action Primary/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Used if a component with “Action Primary/Default” has a disabled state."
+      }
+    },
+    "action-neutral": {
+      "default": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Used for containers that are low emphasis action elements."
+      },
+      "hovered": {
+        "value": "{core.gray.02}",
+        "type": "color",
+        "description": "Used if a component with “Action Neutral/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.03}",
+        "type": "color",
+        "description": "Used if a component with “Action Neutral/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Used if a component with “Action Neutral/Default” has a disabled state."
+      }
+    },
+    "interactive-primary": {
+      "default": {
+        "value": "#003daf",
+        "type": "color",
+        "description": "Used for icon and text that are high emphasis interactive elements."
+      },
+      "hovered": {
+        "value": "{core.customer-color-light.3-hovered}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Primary/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "#4d77c7",
+        "type": "color",
+        "description": "Used if a component with “Interactive Primary/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "#cccdd1",
+        "type": "color",
+        "description": "Used if a component with “Interactive Primary/Default” has a disabled state."
+      }
+    },
+    "interactive-neutral": {
+      "default": {
+        "value": "{core.gray.06}",
+        "type": "color",
+        "description": "Used for icon and text that are low emphasis interactive elements."
+      },
+      "hovered": {
+        "value": "{core.gray.05}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Neutral/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.05}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Neutral/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.04}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Neutral/Default” has a disabled state."
+      }
+    },
+    "focus": {
+      "default": {
+        "value": "{core.customer-color-light.3-default}",
+        "type": "color"
+      }
+    },
+    "decorative": {
+      "1-default": {
+        "value": "{core.decorative-light.1-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "2-default": {
+        "value": "{core.decorative-light.2-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "3-default": {
+        "value": "{core.decorative-light.3-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "4-default": {
+        "value": "{core.decorative-light.4-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "5-default": {
+        "value": "{core.decorative-light.5-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "6-default": {
+        "value": "{core.decorative-light.6-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "7-default": {
+        "value": "{core.decorative-light.7-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      }
+    }
+  },
+  "dark": {
+    "background": {
+      "default": {
+        "value": "{core.gray.black}",
+        "type": "color",
+        "description": "Usually used for the page background and elements that should not elevate from the background."
+      },
+      "hovered": {
+        "value": "{core.gray.12}",
+        "type": "color",
+        "description": "Used if a component with “Background/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.11}",
+        "type": "color",
+        "description": "Used if a component with “Background/Default” has a pressed state."
+      }
+    },
+    "surface": {
+      "default": {
+        "value": "{core.gray.12}",
+        "type": "color",
+        "description": "Usually used for containers that need to be elevated."
+      },
+      "hovered": {
+        "value": "{core.gray.11}",
+        "type": "color",
+        "description": "Used if a component with “Surface/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.10}",
+        "type": "color",
+        "description": "Used if a component with “Surface/Default” has a pressed state."
+      }
+    },
+    "surface-overlay": {
+      "default": {
+        "value": "{core.gray.11}",
+        "type": "color",
+        "description": "Usually used for containers that need to be more elevated."
+      },
+      "hovered": {
+        "value": "{core.gray.10}",
+        "type": "color",
+        "description": "Used if a component with “Surface Overlay/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.09}",
+        "type": "color",
+        "description": "Used if a component with “Surface Overlay/Default” has a pressed state."
+      }
+    },
+    "on-surface": {
+      "default": {
+        "value": "{core.gray.10}",
+        "type": "color",
+        "description": "Usually used for elements that need contrast on surfaces or background"
+      },
+      "hovered": {
+        "value": "{core.gray.09}",
+        "type": "color",
+        "description": "Used if a component with “On Surface/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.08}",
+        "type": "color",
+        "description": "Used if a component with “On Surface/Default” has a pressed state."
+      }
+    },
+    "surface-highlight": {
+      "default": {
+        "value": "{core.customer-color-dark.2-default}",
+        "type": "color",
+        "description": "Usually used for containers that need to be highlighted."
+      },
+      "hovered": {
+        "value": "{core.customer-color-dark.2-hovered}",
+        "type": "color",
+        "description": "Used if a component with “Surface Highlight/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.customer-color-dark.2-pressed}",
+        "type": "color",
+        "description": "Used if a component with “Surface Highlight/Default” has a pressed state."
+      }
+    },
+    "on-surface-highlight": {
+      "default": {
+        "value": "{core.customer-color-dark.2-hovered}",
+        "type": "color",
+        "description": "Used to place containers on “Surface Highlight/Default”."
+      }
+    },
+    "surface-critical": {
+      "default": {
+        "value": "{core.status-dark.critical-default}",
+        "type": "color",
+        "description": "Used as a background for critical surfaces."
+      },
+      "subdued": {
+        "value": "{core.status-dark.critical-subdued}",
+        "type": "color",
+        "description": "Used for low prio critical background."
+      }
+    },
+    "surface-success": {
+      "default": {
+        "value": "{core.status-dark.success-default}",
+        "type": "color",
+        "description": "Used as a background for success surfaces."
+      },
+      "subdued": {
+        "value": "{core.status-dark.success-subdued}",
+        "type": "color",
+        "description": "Used for low prio success background."
+      }
+    },
+    "surface-warning": {
+      "default": {
+        "value": "{core.status-dark.warning-default}",
+        "type": "color",
+        "description": "Used as a background for warning surfaces."
+      },
+      "subdued": {
+        "value": "{core.status-dark.warning-subdued}",
+        "type": "color",
+        "description": "Used for low prio warning background."
+      }
+    },
+    "surface-info": {
+      "default": {
+        "value": "{core.status-dark.info-default}",
+        "type": "color",
+        "description": "Used as a background for info surfaces."
+      },
+      "subdued": {
+        "value": "{core.status-dark.info-subdued}",
+        "type": "color",
+        "description": "Used for low prio info background."
+      }
+    },
+    "surface-neutral": {
+      "default": {
+        "value": "{core.gray.04}",
+        "type": "color",
+        "description": "Used as a background for neutral surfaces."
+      },
+      "subdued": {
+        "value": "{core.gray.10}",
+        "type": "color",
+        "description": "Used for low prio neutral background."
+      }
+    },
+    "surface-on-image": {
+      "default": {
+        "value": "rgba(0, 0, 0, 0.4)",
+        "type": "color",
+        "description": "Usually used for containers on images"
+      }
+    },
+    "border": {
+      "strong": {
+        "value": "rgba(0, 6, 29, 0.18)",
+        "type": "color",
+        "description": "Usually used for high emphasis borders."
+      },
+      "default": {
+        "value": "rgba(0, 6, 29, 0.09)",
+        "type": "color",
+        "description": "Usually used for low emphasis borders and espacially divider elements."
+      },
+      "highlight": {
+        "value": "{core.customer-color-dark.3-default}",
+        "type": "color",
+        "description": "Used as border color on containers that need to be highlighted (e.g. form fields)."
+      },
+      "critical": {
+        "value": "{core.status-dark.critical-default}",
+        "type": "color",
+        "description": "Usally used as an border on critical components."
+      },
+      "success": {
+        "value": "{core.status-dark.success-default}",
+        "type": "color",
+        "description": "Usally used as an border on success components."
+      },
+      "warning": {
+        "value": "{core.status-dark.warning-default}",
+        "type": "color",
+        "description": "Usally used as an border on warning components."
+      },
+      "info": {
+        "value": "{core.status-dark.info-default}",
+        "type": "color",
+        "description": "Usally used as an border on info components."
+      },
+      "on-highlight": {
+        "value": "rgba(190, 255, 240, 0.2)",
+        "type": "color",
+        "description": "Used as border color on containers that have an highlight surface"
+      }
+    },
+    "text": {
+      "default": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Used for high emphasis text."
+      },
+      "subdued": {
+        "value": "{core.gray.05}",
+        "type": "color",
+        "description": "Used for low emphasis text."
+      },
+      "disabled": {
+        "value": "{core.gray.07}",
+        "type": "color",
+        "description": "Used if a text element is disabled."
+      },
+      "highlight": {
+        "value": "{core.customer-color-dark.3-default}",
+        "type": "color",
+        "description": "Used to highlight text."
+      },
+      "critical": {
+        "value": "{core.status-dark.critical-default}",
+        "type": "color",
+        "description": "Used as critical text color"
+      },
+      "warning": {
+        "value": "{core.status-dark.warning-default}",
+        "type": "color",
+        "description": "Used as warning text color"
+      },
+      "success": {
+        "value": "{core.status-dark.success-default}",
+        "type": "color",
+        "description": "Used as success text color"
+      },
+      "info": {
+        "value": "{core.status-dark.info-default}",
+        "type": "color",
+        "description": "Used as info text color"
+      }
+    },
+    "text-on": {
+      "action-primary": {
+        "value": "{core.on-customer-color-dark.1}",
+        "type": "color",
+        "description": "Used as a text color on containers with action primary color."
+      },
+      "surface-highlight": {
+        "value": "{core.on-customer-color-dark.2}",
+        "type": "color",
+        "description": "Used as text color on containers with highlight color."
+      },
+      "status": {
+        "value": "{core.gray.black}",
+        "type": "color",
+        "description": "Used as a text color on containers with a status color."
+      },
+      "image": {
+        "value": "{core.gray.white}",
+        "type": "color",
+        "description": "Used as a text color on “Surface On Image/Default”."
+      }
+    },
+    "icon": {
+      "strong": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Used for high emphasis icons."
+      },
+      "default": {
+        "value": "{core.gray.05}",
+        "type": "color",
+        "description": "Used for low emphasis icons."
+      },
+      "disabled": {
+        "value": "{core.gray.07}",
+        "type": "color",
+        "description": "Used if a icon element is disabled."
+      },
+      "highlight": {
+        "value": "{core.customer-color-dark.3-default}",
+        "type": "color",
+        "description": "Used to highlight icons."
+      },
+      "critical": {
+        "value": "{core.status-dark.critical-default}",
+        "type": "color",
+        "description": "Used as critical icon color"
+      },
+      "warning": {
+        "value": "{core.status-dark.warning-default}",
+        "type": "color",
+        "description": "Used as warning icon color"
+      },
+      "success": {
+        "value": "{core.status-dark.success-default}",
+        "type": "color",
+        "description": "Used as success icon color"
+      },
+      "info": {
+        "value": "{core.status-dark.info-default}",
+        "type": "color",
+        "description": "Used as info icon color"
+      }
+    },
+    "icon-on": {
+      "action-primary": {
+        "value": "{core.on-customer-color-dark.1}",
+        "type": "color",
+        "description": "Used as a icon color on containers with action primary color."
+      },
+      "surface-highlight": {
+        "value": "{core.on-customer-color-dark.2}",
+        "type": "color",
+        "description": "Used as icon color on containers with highlight color."
+      },
+      "status": {
+        "value": "{core.gray.black}",
+        "type": "color",
+        "description": "Used as a icon color on containers with a status color."
+      },
+      "image": {
+        "value": "{core.gray.white}",
+        "type": "color",
+        "description": "Used as a icon color on “Surface On Image/Default”."
+      }
+    },
+    "action-primary": {
+      "default": {
+        "value": "{core.customer-color-dark.1-default}",
+        "type": "color",
+        "description": "Used for containers that are high emphasis action elements."
+      },
+      "hovered": {
+        "value": "{core.customer-color-dark.1-hovered}",
+        "type": "color",
+        "description": "Used if a component with “Action Primary/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.customer-color-dark.1-pressed}",
+        "type": "color",
+        "description": "Used if a component with “Action Primary/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.10}",
+        "type": "color",
+        "description": "Used if a component with “Action Primary/Default” has a disabled state."
+      }
+    },
+    "action-neutral": {
+      "default": {
+        "value": "{core.gray.10}",
+        "type": "color",
+        "description": "Used for containers that are low emphasis action elements."
+      },
+      "hovered": {
+        "value": "{core.gray.09}",
+        "type": "color",
+        "description": "Used if a component with “Action Neutral/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.08}",
+        "type": "color",
+        "description": "Used if a component with “Action Neutral/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.10}",
+        "type": "color",
+        "description": "Used if a component with “Action Neutral/Default” has a disabled state."
+      }
+    },
+    "interactive-primary": {
+      "default": {
+        "value": "{core.customer-color-dark.3-default}",
+        "type": "color",
+        "description": "Used for icon and text that are high emphasis interactive elements."
+      },
+      "hovered": {
+        "value": "{core.customer-color-dark.3-hovered}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Primary/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.customer-color-dark.3-pressed}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Primary/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.07}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Primary/Default” has a disabled state."
+      }
+    },
+    "interactive-neutral": {
+      "default": {
+        "value": "{core.gray.05}",
+        "type": "color",
+        "description": "Used for icon and text that are low emphasis interactive elements."
+      },
+      "hovered": {
+        "value": "{core.gray.06}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Neutral/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.gray.06}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Neutral/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.07}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Neutral/Default” has a disabled state."
+      }
+    },
+    "focus": {
+      "default": {
+        "value": "{core.customer-color-dark.3-default}",
+        "type": "color"
+      }
+    },
+    "decorative": {
+      "1-default": {
+        "value": "{core.decorative-dark.1-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "2-default": {
+        "value": "{core.decorative-dark.2-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "3-default": {
+        "value": "{core.decorative-dark.3-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "4-default": {
+        "value": "{core.decorative-dark.4-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "5-default": {
+        "value": "{core.decorative-dark.5-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "6-default": {
+        "value": "{core.decorative-dark.6-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      },
+      "7-default": {
+        "value": "{core.decorative-dark.7-default}",
+        "type": "color",
+        "description": "Used as a decorative color."
+      }
+    }
+  },
+  "$themes": [
+    {
+      "id": "f4c7659549aa25d5ab75f63512e73fa7283d5f05",
+      "name": "Light",
+      "selectedTokenSets": {
+        "core-colors": "enabled",
+        "core": "enabled",
+        "light": "enabled",
+        "dark": "disabled"
+      },
+      "$figmaStyleReferences": {
+        "Background.Default": "S:e454005c933e34b1d819a82f39b5510145722624,",
+        "Background.Hovered": "S:e261ff1c642354562ee3c94a4b5545f4a38f08ae,",
+        "Background.Pressed": "S:b047d006e99e11f0d88f0fedd8505c9b72bbce42,",
+        "Surface.Default": "S:7f403220b469b0f6a0892c9c0d664850c1ba0171,",
+        "Surface.Hovered": "S:246e86ee8a26cbbbb340e2da5c4922064434c49e,",
+        "Surface.Pressed": "S:a0fdd0619608b58c3b5646a282cfa18273334ec2,",
+        "Surface Overlay.Default": "S:6d766933098dcee328914554ca2c514f13c6b6d8,",
+        "Surface Overlay.Hovered": "S:8707324e0ab52f4c48fc5aac3cf979d7c3e9d3e3,",
+        "Surface Overlay.Pressed": "S:7f3b27b2076f87c051c6ba5203d8f67c4957356e,",
+        "On Surface.Default": "S:e8c2b6f6f183e6fabb664381d3b83596a0bdbce7,",
+        "On Surface.Hovered": "S:ad4c73dc9e29edcf0cd6a25e988349bc18181c69,",
+        "On Surface.Pressed": "S:c2f4cd327b06b8b9859f7968b7fb15bd028f1d56,",
+        "Surface Highlight.Default": "S:06029e8a0df4d23c3411f057a75fc40e8871d1e3,",
+        "Surface Highlight.Hovered": "S:afee8d07d86fabb539c110bba0cc02067cb93dd2,",
+        "Surface Highlight.Pressed": "S:1c8426bb483a0a57d2d9b8a6b4d85b18e20fe099,",
+        "On Surface Highlight.Default": "S:5df0b6399baad57356988a368f0c60f776e664dd,",
+        "Surface Critical.Default": "S:aa910f10b606aa21fef4989cb7ab53f4c6a82ffc,",
+        "Surface Critical.Subdued": "S:79e7ccd08801ad21acc240ba0443c2b00654df7d,",
+        "Surface Success.Default": "S:a1e670af6112fac3985a7fc13ecba50bd55e168f,",
+        "Surface Success.Subdued": "S:c94fa52580e1cdf09a686ae385d5d556e4e0d95f,",
+        "Surface Neutral.Default": "S:9dab9a7a9d15befb3d62cf752a64438c768897b4,",
+        "Surface Neutral.Subdued": "S:26608d659be2f823ad8a4cc514bc9ecffa91de0b,",
+        "Surface On Image.Default": "S:04cae56ea5a3acfa5155720eedb618d05f2b6d8c,",
+        "Border.Strong": "S:fd7d2779b24abe7f8e56878c246b74337996d5a4,",
+        "Border.Default": "S:9a12a6c029df728fc5ded8572e7e8d66b654535a,",
+        "Border.Highlight": "S:81b2fecb0714b492e9367da4eff578db033249eb,",
+        "Border.Critical": "S:3174ea8794f25e35e590beecc5d479b96e2dc948,",
+        "Border.Success": "S:b1f7002555c038aa0bd381863b51b46ebdad70df,",
+        "Border.Warning": "S:1489c27e94c10c778f80f941d0abf65d3756b229,",
+        "Border.Info": "S:cc82eafa3f1de4f99a14f92cf9fc58ca7d515af4,",
+        "Border.On Highlight": "S:b5383ae79796871850064652428de6a6f8b4bbd1,",
+        "Text.Default": "S:4ba6334cccf4c3c1307e0caf287532e346f08a00,",
+        "Text.Subdued": "S:0fb3c3d309a847d49d652cbac484b68a5ab0ee4e,",
+        "Text.Disabled": "S:b555bc84101350e57421b9796e636abb9fb92940,",
+        "Text.Highlight": "S:9b50b7fc990f008a62d0d148f598a8a3f8f1f0e7,",
+        "Text.Critical": "S:49e214d1ef1a6ad292b3531745bc89c1f6bb9960,",
+        "Text.Success": "S:ed263e1dc132e74ed998d3fc74ba0166d03b643a,",
+        "Text.Warning": "S:fd514a9041833907eb0e8a3913083756a4118833,",
+        "Text.Info": "S:3d0423132a1babf543d4c69bc6c707b7e930b74b,",
+        "Text On.Action Primary": "S:57df15dfb37317522b0283e0ff74251853ea8cbd,",
+        "Text On.Surface Highlight": "S:2a24548040810f40933cdaa7232f81f94b63a67a,",
+        "Text On.Status": "S:cd22b49f4de505bbb3c6f9f08bb0f6adab10f45d,",
+        "Text On.Image": "S:ca04dfbd559d2e506ec1318bc11afc2194c46a78,",
+        "Icon.Strong": "S:4d59329d107b6b57e7067dbae3d13b5010e6a6d1,",
+        "Icon.Default": "S:440c83c8d076eb613ffd11cac286351519b82108,",
+        "Icon.Disabled": "S:f5782002693fd86e353ffd8c9bf87acf2cb7643e,",
+        "Icon.Highlight": "S:ef688ceea6d225db04e78dde1d2024c3c7ce7ded,",
+        "Icon.Critical": "S:7758cc195f11c32447b7d9d8232862e8c7aa66d2,",
+        "Icon.Success": "S:fec83f2eeb9f139997cc03ffcbbd9d2633847f5f,",
+        "Icon.Warning": "S:bfc63d76d0f1b4380a30660aa036dd1f5e4cfb06,",
+        "Icon.Info": "S:0bb7fe7ed5dec5a2de468539f66d8c7c593af887,",
+        "Icon On.Action Primary": "S:b13ee4fd5669a9359785a1955023eb6a15779d85,",
+        "Icon On.Surface Highlight": "S:e4b0ec79195ea77d73a20c44bb1de21f1ab59007,",
+        "Icon On.Status": "S:86733c3a714628bd78f80d4ba2c205f8091168a5,",
+        "Icon On.Image": "S:faac67228b441a7c2220fb39f68e409b44a22171,",
+        "Action Primary.Default": "S:9077fafde84206ba3e746b0da1c19cb85125b4a1,",
+        "Action Primary.Hovered": "S:0a173abfaa9e32af2e1dc18568993c03884d41da,",
+        "Action Primary.Pressed": "S:dcd7375d1740355fbda4bf9070663a2977b71e0d,",
+        "Action Primary.Disabled": "S:0bce75f5024197fcc7a7ef5bde91258177b13391,",
+        "Action Neutral.Default": "S:8aaf1472022c702f6ca73d77ffc798229bc89d44,",
+        "Action Neutral.Hovered": "S:115bc953c113d61dea9db1e2f1c9805813aad1f7,",
+        "Action Neutral.Pressed": "S:57cfa1580791b83c9d409204cfdf3a27a67899c7,",
+        "Action Neutral.Disabled": "S:c34b78fd084110879d1ee1c741dd8ba910704266,",
+        "Interactive Primary.Default": "S:7bdf6e1f768199889e601643f6b844877f7d8721,",
+        "Interactive Primary.Hovered": "S:4b10b38778e8c0ef021c79067e84173e10608ae5,",
+        "Interactive Primary.Pressed": "S:722c739e1b00f252a20ef3dff7ff728fedd777a2,",
+        "Interactive Primary.Disabled": "S:02cd172c2ced19c1dc1498ec7ab96b72262b5a06,",
+        "Interactive Neutral.Default": "S:aedba546676d031484eab43072452f3fa99672f0,",
+        "Interactive Neutral.Hovered": "S:73ca1dc7bd86a366f57ae55915351751cd4a06e2,",
+        "Interactive Neutral.Pressed": "S:01cda55e872b5f37522816cc2f693d7ee825c183,",
+        "Interactive Neutral.Disabled": "S:44b07dfd946e1793647b1ba77dda9f2747ed1814,",
+        "Focus.Default": "S:1e81db09d68c8da5e84aa4a8b16570d1f433df9a,",
+        "Decorative.1 Default": "S:f344ba51f780424e5df40cfa1cd60c117ece819d,",
+        "Decorative.2 Default": "S:47244f8fb99a8b50c64ac1cd0c89995681c69b25,",
+        "Decorative.3 Default": "S:7af3ca4b1db91660d751c8ce72291e7b6d8b1cff,",
+        "Decorative.4 Default": "S:309fc504240bd886a3a57e9f06e9f6bf6715b2c4,",
+        "Decorative.5 Default": "S:214366c1e7db5f3b603ecdb7505a7be63c907618,",
+        "Decorative.6 Default": "S:691f64e358ee0bf82779aabb607b6d3a065f0583,",
+        "Decorative.7 Default": "S:2f6e7cc449c908aeecbe17801602ffd6f35959c1,",
+        "Surface Info.Default": "S:b7d5e22a04b848738ed1107ef4c2018995495ab0,",
+        "Surface Info.Subdued": "S:badfb290c239395797d17eb7b7710c8d1c660735,",
+        "Surface Warning.Default": "S:6072c618479395ee0d3e1838f185bfc9d1d347fa,",
+        "Surface Warning.Subdued": "S:21fee6d5f1df3bd0577906d1839855fc1a0bec00,",
+        "Core.Gray.10": "S:0fbd566670e37b322e35729d5656a313eb00db53,",
+        "Core.Gray.11": "S:8ad7f1d612e77700b7b9a1df1e9486f8c490ce15,",
+        "Core.Gray.12": "S:33a5b95fefc89cd6384147500c1ed3f240af7cfe,",
+        "Core.Gray.Black": "S:eede12399f87d65de9661b41586e26ef1c7fe0c5,",
+        "Core.Gray.09": "S:ad388f847018ce3b0c35de4ceb3a292bd0edda34,",
+        "Core.Gray.08": "S:c0b087c91ac05dc72e6a2304db8287572d1b2098,",
+        "Core.Gray.07": "S:28819e59c598a0beb2693b7b2bb0ef8279c7121f,",
+        "Core.Gray.06": "S:d1d99016c0b87cfe344d8251097c00c803734e91,",
+        "Core.Gray.05": "S:193e0bba190c726c68b27cd9384aac7b7ddc3606,",
+        "Core.Gray.04": "S:5576b35a992664ccaff120ffdd409994d5e2d3cc,",
+        "Core.Gray.03": "S:a896be95e4bdfb366007ad663193a893f8e27c44,",
+        "Core.Gray.02": "S:9ce3a4b6d095286fcb9ac6119c1778d7bd5a7882,",
+        "Core.Gray.01": "S:9b097c86e8052dde50f87e244b9a04fd052693af,",
+        "Core.Gray.White": "S:b92b82fa1867119fb37accba44af6534939c47f8,",
+        "Core.Customer Color Light.1 Default": "S:aa4770dc2c13f331933ee4baba6bdacd90433af0,",
+        "Core.Customer Color Light.1 Hovered": "S:ed8a0cd31d733d6a43e298913b91712c88555290,",
+        "Core.Customer Color Light.1 Pressed": "S:e65219a5640c882d5e581420dda774b0bc437594,",
+        "Core.Customer Color Light.2 Default": "S:40fbd1d71d6b142004a874f7390d6c2ec83e2ff3,",
+        "Core.Customer Color Light.2 Hovered": "S:0fdb84921b3a05ed24c87b2c1576e840634159e7,",
+        "Core.Customer Color Light.2 Pressed": "S:fdbb0e7f8db877d552e567ea3ba1017d1f163044,",
+        "Core.Customer Color Light.3 Default": "S:27e7eaa3037f33e6ce6196bfae3078f2c7d91ffe,",
+        "Core.Customer Color Light.3 Hovered": "S:73a21f4fbd46064256de581ed01bc5bd74bd1cd1,",
+        "Core.Customer Color Light.3 Pressed": "S:78666562b218eb49d76d98bbd5f40723c52e0c2a,",
+        "Core.On Customer Color Light.1": "S:a90d559fc8772232da6dd3843784db6aa60b83e2,",
+        "Core.On Customer Color Light.2": "S:77489ec31878cc7d377dc809bbb0d87fb9dcb91e,",
+        "Core.Customer Color Dark.1 Default": "S:073c9ec1ecd67b104da7e674d129c774bcf75673,",
+        "Core.Customer Color Dark.1 Hovered": "S:6f0514de18ef73f637dc8b393f326a4a53faa8c4,",
+        "Core.Customer Color Dark.1 Pressed": "S:03102f7d21532a9ce54e60c367ef8fe37da96dea,",
+        "Core.Customer Color Dark.2 Default": "S:ee213ceab34cd87abb9760aa20d9000a6829b3ce,",
+        "Core.Customer Color Dark.2 Hovered": "S:dc7411ed1831fc3c34533cd3d417031eb81e6aaa,",
+        "Core.Customer Color Dark.2 Pressed": "S:8328846a2916757eb648f233cbd1842b88a99e3a,",
+        "Core.Customer Color Dark.3 Default": "S:ba5d2ad8d7b66cfa7a6ea793045317d1e666f00e,",
+        "Core.Customer Color Dark.3 Hovered": "S:96dc46c454a438cbb7f1719c27faf3fe07d3552a,",
+        "Core.Customer Color Dark.3 Pressed": "S:ffd6f8b6b4c1d689d7f52f2fd2a50006a6481dd2,",
+        "Core.On Customer Color Dark.1": "S:2539ec837d279e4facb2d020602325ca03193fa6,",
+        "Core.On Customer Color Dark.2": "S:00bc7f68e83703f0d940917bc8df2d8f199db23a,",
+        "Core.Status Light.Critical Default": "S:4e54bb20602f5b2ae37ab3e2d7f244d01d493df0,",
+        "Core.Status Light.Critical Subdued": "S:a37d7b67b88ea37b2678efe66e24d5526a286083,",
+        "Core.Status Light.Success Default": "S:790dc95f27623aa88be79a32aa0f3e3279ac24d3,",
+        "Core.Status Light.Success Subdued": "S:a90a7b49ba53adae3684e3f0550077f952131bf7,",
+        "Core.Status Light.Info Default": "S:a067712c88d4315ef35956252decfdf1676d4361,",
+        "Core.Status Light.Info Subdued": "S:53c15f69ff9a62d5c7d0446ead12440d34ad7153,",
+        "Core.Status Light.Warning Strong": "S:dbc2c44c832bdb04e2263ce705be4004a46f0a8c,",
+        "Core.Status Light.Warning Default": "S:8d6186b4aa9fb211210a7262faad4ba3af6a8519,",
+        "Core.Status Light.Warning Subdued": "S:b90189b181337663d396b959f9821b12cb439b26,",
+        "Core.Status Dark.Critical Default": "S:c33aba063a3ffdd419a2190c918c3c654bebc482,",
+        "Core.Status Dark.Critical Subdued": "S:2eecf42c920dc3e2f7d14856ae17688018cd2984,",
+        "Core.Status Dark.Success Default": "S:c910dc973caba213bd76bd2e1d73527c8586e791,",
+        "Core.Status Dark.Success Subdued": "S:3f2e0508ceeb8541169c8ac5674043305267d887,",
+        "Core.Status Dark.Warning Default": "S:4f8d3736a94fd4b51d7e86994180b9fc2e91a948,",
+        "Core.Status Dark.Warning Subdued": "S:2458df2e0362bbf428b1d15bec4e763bd98c4758,",
+        "Core.Status Dark.Info Default": "S:e55140f7525901f11a546a503f729ca15046b491,",
+        "Core.Status Dark.Info Subdued": "S:5ec9679ac4375f8d0825eec6bcde55d1a10621ad,",
+        "Core.Decorative Light.1 Default": "S:4bc32b1c91657d5af25f57c4f499c374fb196d66,",
+        "Core.Decorative Light.2 Default": "S:6a1c6c0c295af9020e09a8a5787db102e84e6d13,",
+        "Core.Decorative Light.3 Default": "S:71823966774bae578d711e93f4446315f61df31e,",
+        "Core.Decorative Light.4 Default": "S:671c3ff4836db6fc19b36a303937826effab28f1,",
+        "Core.Decorative Light.5 Default": "S:5c3036312df9b79999cdec0401a88b0f40ff25b5,",
+        "Core.Decorative Light.6 Default": "S:d41f662401c838633630bf4cea0550749129b3a0,",
+        "Core.Decorative Light.7 Default": "S:53e8e8a7f8cde9ae908c4fa640ffb7253d528ab7,",
+        "Core.Decorative Dark.1 Default": "S:ca401577fa422bd0ae725457d8498b088f49c5f9,",
+        "Core.Decorative Dark.2 Default": "S:7079f4923e36335b37a8b6c984a6d3e6dec801c2,",
+        "Core.Decorative Dark.3 Default": "S:9cc3d817829dc078fccc5db02d022c023918b452,",
+        "Core.Decorative Dark.4 Default": "S:d20f3e51809fd297d9c773cde142c8ec8e352086,",
+        "Core.Decorative Dark.5 Default": "S:15b3c26c4052ec37869ab7f5ca262f42604e8311,",
+        "Core.Decorative Dark.6 Default": "S:35f4aa28e019cd801061db94797e21b438eaba93,",
+        "Core.Decorative Dark.7 Default": "S:4a44d345e3409516ba6104371d25650943708099,",
+        "background.default": "S:f4922e3dd41a747c9d699c1694aa740203f5b8b4,",
+        "background.Hovered": "S:306d70c139f5e045adae2a3a8911656a94eaf91a,",
+        "background.Pressed": "S:03444a768b19201b8b6d96ef4038e3e0775f69a2,"
+      }
+    },
+    {
+      "id": "42468b6ed8dc2332e804197d2777f0a3046af3d3",
+      "name": "Dark",
+      "selectedTokenSets": {
+        "core-colors": "enabled",
+        "core": "enabled",
+        "light": "disabled",
+        "dark": "enabled"
+      },
+      "$figmaStyleReferences": {
+        "Core.Gray.10": "S:93d0168de56c3edb6c7ced769b80db583331d852,",
+        "Core.Gray.11": "S:aa0ec7363826d2d3e9bdd6992b0c5e3463a858e9,",
+        "Core.Gray.12": "S:7f2ed3c35a681f97ff654764b58753854b670dea,",
+        "Core.Gray.Black": "S:e5e48afd0550e993955fe19ff20377023037604d,",
+        "Core.Gray.09": "S:d4de9e1dc9c46633f336fef17508b4fe561a9000,",
+        "Core.Gray.08": "S:383beb8891faefd8375f66617067c9113f09d317,",
+        "Core.Gray.07": "S:c65c28a8782b0d4fed53e289e61063855a655d2f,",
+        "Core.Gray.06": "S:d59579c02ea411b998829aef8b32f0d41f80d351,",
+        "Core.Gray.05": "S:2142ff1ff2b922e8c02143647352044d150d5f44,",
+        "Core.Gray.04": "S:0cd8c2968946a808a14e4be559ee3352f9e9ac7d,",
+        "Core.Gray.03": "S:19ead869a641aa364957233a24be2c97d072ac58,",
+        "Core.Gray.02": "S:458878e88ed68ab5fb7ad8bb8a98f1f770dcd617,",
+        "Core.Gray.01": "S:6a007a3fb17d42779464991cb18dcf5e967a03af,",
+        "Core.Gray.White": "S:f12edea887311516b89b476531df2a64f8d4b73c,",
+        "Core.Customer Color Light.1 Default": "S:769c483fe4432b7c30a61004628fd9904f59f58d,",
+        "Core.Customer Color Light.1 Hovered": "S:bb2b241d3a39fdbf056ef13f16a2a7c7ac9ac563,",
+        "Core.Customer Color Light.1 Pressed": "S:503e38c0c35d6fe7723ab2dbd7cb4cf92d2e2ac2,",
+        "Core.Customer Color Light.2 Default": "S:2c930842847bff36ffcf25fa3fffc708216a5a60,",
+        "Core.Customer Color Light.2 Hovered": "S:f6ccccfb7613ddd9e2eb3202d079326c04022d40,",
+        "Core.Customer Color Light.2 Pressed": "S:bc8f79367a99642473a2388e67201105535625a9,",
+        "Core.Customer Color Light.3 Default": "S:16716d1bff2f5ba4fea66f01cea4ab675adb64e3,",
+        "Core.Customer Color Light.3 Hovered": "S:b468049b3d0dc6fe70132c9f107d981ffdc4ea50,",
+        "Core.Customer Color Light.3 Pressed": "S:7ebdc88d800d481cab8922084b7cfc52f069c67d,",
+        "Core.On Customer Color Light.1": "S:ee3324f7574368df77232a1aa07db61142315c23,",
+        "Core.On Customer Color Light.2": "S:d955f2d578de8192a3e6a5a5ceab0d9409dcf514,",
+        "Core.Customer Color Dark.1 Default": "S:f12715a48c13cabf7b8a5268e1c879296a4f4069,",
+        "Core.Customer Color Dark.1 Hovered": "S:240d91a8383842aba0b65566e56ee66f72b567c5,",
+        "Core.Customer Color Dark.1 Pressed": "S:4c6398e1fcd91c02bcefdcbca0bf942487a5a2d2,",
+        "Core.Customer Color Dark.2 Default": "S:d0dce69ecff35f575f5a0c9984aa5e8fe782cb5b,",
+        "Core.Customer Color Dark.2 Hovered": "S:fd6a9e170691ae78f8bccaddd4dcef3e8771afbf,",
+        "Core.Customer Color Dark.2 Pressed": "S:0027ef50d80eaee71291289b58b4e8201f5a53aa,",
+        "Core.Customer Color Dark.3 Default": "S:ef2c7c7e3a5b7c07f05f3b1ed6fcf2745d8b6719,",
+        "Core.Customer Color Dark.3 Hovered": "S:7595edde15f2da9aebf2318c51923135314efb50,",
+        "Core.Customer Color Dark.3 Pressed": "S:0d8519b416d666e9643050c58578535e0fcdfdbb,",
+        "Core.On Customer Color Dark.1": "S:58774793c8f786831ba3d610ee41500b1f68d095,",
+        "Core.On Customer Color Dark.2": "S:e24588a398e2dc2b33219d8fbcb6d30669ee4030,",
+        "Core.Status Light.Critical Default": "S:a104edf06015c76641f6d57907fb19898b361e2b,",
+        "Core.Status Light.Critical Subdued": "S:2fcb5f819e899e7bdadcb69a5b781644b15428c5,",
+        "Core.Status Light.Success Default": "S:a18c3098076a9e0048e8526e561ea3b5cbb9833b,",
+        "Core.Status Light.Success Subdued": "S:b3bf394711b8393371d6a8bc5dfdab5613ecc276,",
+        "Core.Status Light.Info Default": "S:8c94de34fe12bd6c0de3bdef36b2ccbb76467f81,",
+        "Core.Status Light.Info Subdued": "S:0f1eafdc1b851d152507a71064d42e8edc26622d,",
+        "Core.Status Light.Warning Strong": "S:5809715a232dc829c026cbbfbd8e768cc65fa8b2,",
+        "Core.Status Light.Warning Default": "S:d6de3f339b9cebd9cd9ff3ea319e39d1f18af66f,",
+        "Core.Status Light.Warning Subdued": "S:645b6f2f74f8a14082c5ff3a4f09de5c8f28dc06,",
+        "Core.Status Dark.Critical Default": "S:78ebb5405c11b76349d0e01e2742ebe9c1a953a3,",
+        "Core.Status Dark.Critical Subdued": "S:7ccc2002c2557549963ca6ec90b573edb433ef0f,",
+        "Core.Status Dark.Success Default": "S:70dce9e3832dc99bfbb38fd4afa68dac3ac1a4e6,",
+        "Core.Status Dark.Success Subdued": "S:b44bbca63644f99954f68ccd5986a99066f0c8af,",
+        "Core.Status Dark.Warning Default": "S:8d5c4b326fee15f9258631ef9b52b40d519ceac2,",
+        "Core.Status Dark.Warning Subdued": "S:01b300e34a4261378e1979d0aa97b58a7a342bd5,",
+        "Core.Status Dark.Info Default": "S:f6510b5fc8eeda07ffbc65520f1883d80828415c,",
+        "Core.Status Dark.Info Subdued": "S:08ba199799cfc7ed695fe8bd1761148b5c385c88,",
+        "Core.Decorative Light.1 Default": "S:d7a25c8d49e0ce6649f0de1fe23289bdd4fb324f,",
+        "Core.Decorative Light.2 Default": "S:bd49fd7a3dfd6fa4789e5d4be3c286e68dc68248,",
+        "Core.Decorative Light.3 Default": "S:688120a3e482ac50b25dffbb3d87228eef00aabe,",
+        "Core.Decorative Light.4 Default": "S:b100c1cabfe1f75f7ab07bfc277ef349a2739504,",
+        "Core.Decorative Light.5 Default": "S:569bae982e14841e75893e738193dd7e4cff3bda,",
+        "Core.Decorative Light.6 Default": "S:271e60bedec95fd16a52c4b0a809e145aa3cfdba,",
+        "Core.Decorative Light.7 Default": "S:e5d36ddb46109f3cef6fcbc8d68bb3222ba04baa,",
+        "Core.Decorative Dark.1 Default": "S:27924e16fc75e119affe30a501a8562345bc8cb0,",
+        "Core.Decorative Dark.2 Default": "S:da050eeb22ab145ba19217b367f1e0d31608844b,",
+        "Core.Decorative Dark.3 Default": "S:7207d0014c3cf85b9958d0828f49aeaade616856,",
+        "Core.Decorative Dark.4 Default": "S:b0d5bd4928550ceb72f6040a8e31e2abaeccf8f1,",
+        "Core.Decorative Dark.5 Default": "S:b18443c9764ee3a86c58e78b33e962d5941670cb,",
+        "Core.Decorative Dark.6 Default": "S:75e47400b60d26f7268626dcd1f3fd5af69e7a42,",
+        "Core.Decorative Dark.7 Default": "S:ac09b9b1ffde27e57f5ec2735c3fc081f0a96ded,",
+        "Background.Default": "S:4c195d59e81308c0e369fce336c0c71a8d6067c8,",
+        "Background.Hovered": "S:7ed30a6fa7416b2a7d187eadbec54c433bffab50,",
+        "Background.Pressed": "S:c6de2492110c236cf092e4133ed711e3ed039d6a,",
+        "Surface.Default": "S:8b829346fc033c589d1cfe15a1bc5bfbc005c3fb,",
+        "Surface.Hovered": "S:c356fbc9e56189f599d6cf52e4ee37af92e5fb3c,",
+        "Surface.Pressed": "S:f5d816e3c718643296dd02a5ce5aadc6fd578bb1,",
+        "Surface Overlay.Default": "S:b2c57151a8403520a0dad3a19df1a33a004bd134,",
+        "Surface Overlay.Hovered": "S:7fcaa1cb12e5083335f53b414ba3377c3e0af7fc,",
+        "Surface Overlay.Pressed": "S:2b25ae16df94567004c2f21c67d72f0675408a3d,",
+        "On Surface.Default": "S:4f00de9e356c2132f9be110588797ee9f6528d31,",
+        "On Surface.Hovered": "S:af9f48b7eabca5ae4ee9f1e81db2053e2328e413,",
+        "On Surface.Pressed": "S:2e7cf915d028823eb5e4bc6bb55d70f3a9799d88,",
+        "Surface Highlight.Default": "S:3449e3d5f9d5a1b6305740544135a01a330cad9f,",
+        "Surface Highlight.Hovered": "S:5c83916dbc46e20be4b7701de930f14f371b1d57,",
+        "Surface Highlight.Pressed": "S:d57625e606a01f12dd671046e3f2b4a519e3a7f5,",
+        "On Surface Highlight.Default": "S:d5eccf2da8e0975068fe9a161cdbf76c304b5ced,",
+        "Surface Critical.Default": "S:777ada5f4f5f521922137bbc6ba4e9494f2bd38e,",
+        "Surface Critical.Subdued": "S:eefe4c6ef23cc5e52d80bcd2320d6d39f9afed12,",
+        "Surface Success.Default": "S:a35921636072689730ee0fae963128dbfba42f9f,",
+        "Surface Success.Subdued": "S:40ca0008bef0e068bd85643c3ac5291657d2170e,",
+        "Surface Warning.Default": "S:c4504630f4216c6a04ee6a8afb1872140d896ba8,",
+        "Surface Warning.Subdued": "S:fcdb59abf259bbc77129a77bd335ce0a7e154c80,",
+        "Surface Info.Default": "S:de6f5f1b2f5900bdb166f9b5ff933a3b5abb26fc,",
+        "Surface Info.Subdued": "S:73642a3b26e60afdfb29636279956ca88cb900b7,",
+        "Surface Neutral.Default": "S:35f34c8f12d84676b3ebe867eb8371a8ececf43b,",
+        "Surface Neutral.Subdued": "S:a5aabca709a8dea1a21f913e244c8444da3340d2,",
+        "Surface On Image.Default": "S:2ecd55fb797917b769cc442b19cf645dc20c5459,",
+        "Border.Strong": "S:aaa36ee9f4a9058187fff92299eb21b4f243f42f,",
+        "Border.Default": "S:a6d4940b7aaf0137a527218f91a739f7156782b2,",
+        "Border.Highlight": "S:94fb92c4032e3f1d8dd26cf088132abad8fbd0a5,",
+        "Border.Critical": "S:37ae9fdbc0bd32fdd0c9dd5ce9746e78ec9512db,",
+        "Border.Success": "S:bcab23a7724bca2cdd81c7fd62df76cc9e71e670,",
+        "Border.Warning": "S:6b811b2e3bda322cf600672453bd4364de3d2c27,",
+        "Border.Info": "S:2f335832eefde544c149b42b70521737b07bc6f2,",
+        "Border.On Highlight": "S:10d897d7ad9f53bc4323b05afee28c9fdb89bf79,",
+        "Text.Default": "S:a014b59283c2080683799b9465198c4b4ee87e49,",
+        "Text.Subdued": "S:6220eac1eac95091351022170ae239567cae8594,",
+        "Text.Disabled": "S:80f4191767aaa9a4ddd1182157b6d18c94e46319,",
+        "Text.Highlight": "S:9e9000b6b2b30777a6cff181f20bfd37f76ab519,",
+        "Text.Critical": "S:d0f77d3fc45ec766ac7514dfa6c9e6737429958a,",
+        "Text.Warning": "S:deafed83a4cdd41679a18ee3738d45ca24d4834f,",
+        "Text.Success": "S:cd1cc10b96a90bc51f999f290880af32cb0fc95a,",
+        "Text.Info": "S:9cb78ff0e79e4c9b7466b3ec0e25ba6184bf79f1,",
+        "Text On.Action Primary": "S:12f1986b55c1858af4eb6c58848e64b3d222b523,",
+        "Text On.Surface Highlight": "S:08fbdafe8ae01adf377aed7b9ff0fa4a1377e1c3,",
+        "Text On.Status": "S:ea83e1dd1eeb3152d89e2ea446a3195621b9ffb0,",
+        "Text On.Image": "S:454649e05b7968d495bc5634048b8be5d0ae2bdd,",
+        "Icon.Strong": "S:14ca01890e7386dbaa2eff4c86e57fd64d37d8a8,",
+        "Icon.Default": "S:f23e47768f4d5c623f22ac00376947724639b8ec,",
+        "Icon.Disabled": "S:5ace5f88ed88b63b53cbf2c19982b669102c9f24,",
+        "Icon.Highlight": "S:ddda9f9042454d61cd251f9fd8d4bd021090b822,",
+        "Icon.Critical": "S:71fc590fc024e5c920fe17be8d21d412a6ea590e,",
+        "Icon.Warning": "S:02a372b415c15c88b5cefa8adf371cd2c55e4eac,",
+        "Icon.Success": "S:d54645d96fe805d4062dfc51a4736ae03cc0ddbb,",
+        "Icon.Info": "S:e933476eda235e2db5cc19f86fdb3ea1ff0be515,",
+        "Icon On.Action Primary": "S:7fd904ce09fe3455a3624c2d82bbe604a9d9468f,",
+        "Icon On.Surface Highlight": "S:2a4469702446bffcb4dd392e40a007804acdad70,",
+        "Icon On.Status": "S:9bdc817522a22376e16c6edcaf293f54c12f6010,",
+        "Icon On.Image": "S:4cc3e99703e7b50478efaea23937fa962e2b9293,",
+        "Action Primary.Default": "S:f6d01fdb6320eb3546ee205378cf3f2943a238e1,",
+        "Action Primary.Hovered": "S:b8daefc3ddff3796f10dc930bcee9622d964b788,",
+        "Action Primary.Pressed": "S:a3bbfbe57b2c1ce8573bd26b02f2155f073bc131,",
+        "Action Primary.Disabled": "S:99afb423c1d510fe6cff11fb299ffc3fb0676f8a,",
+        "Action Neutral.Default": "S:74935abc2788709d5841a7187035584f2c41e1c5,",
+        "Action Neutral.Hovered": "S:b8b629e3d804f31ca0aa154aaab368c472b424c5,",
+        "Action Neutral.Pressed": "S:4a89cb1aaa00f97d0d365841bb583c418d9b438a,",
+        "Action Neutral.Disabled": "S:434a4de6caa8b023a6e2853efe764e5e4478b928,",
+        "Interactive Primary.Default": "S:b1cee16981b0adcead45551cc906c075373964f9,",
+        "Interactive Primary.Hovered": "S:d30d9805f178ffc900e6d0cefec1756cf76b9650,",
+        "Interactive Primary.Pressed": "S:032ac496eeafac2089e96748154cd4880fcfab16,",
+        "Interactive Primary.Disabled": "S:50496f6033e186fff1aac5cecfa3478a3cdd2663,",
+        "Interactive Neutral.Default": "S:29d317e2d5d67c0b3315b1b52b4fffdf3c2140e0,",
+        "Interactive Neutral.Hovered": "S:c85cd3ebdff5be0cc534be55c44648af526b8b62,",
+        "Interactive Neutral.Pressed": "S:c7dbb528dce955952eac469132d4e51c4decac02,",
+        "Interactive Neutral.Disabled": "S:09e28071a5d8fa88b6889bb89b0423c71cf7c919,",
+        "Focus.Default": "S:513ffc2c0bed92a467b8e9640bbdf9e99eeba1d4,",
+        "Decorative.1 Default": "S:b4389fe71ae436ea1decf9607bf96e7541c0061c,",
+        "Decorative.2 Default": "S:0e92a00c9b0a6164ef71651a2f31e46386896231,",
+        "Decorative.3 Default": "S:8e0a749b525f4085392ec0ceecbd69670049fa3f,",
+        "Decorative.4 Default": "S:971adc4c73b59b09e097a8969da11d5f3f6255c8,",
+        "Decorative.5 Default": "S:deffbcc3d4b22c2688943c52a263b9f8f64a6883,",
+        "Decorative.6 Default": "S:e0e99ebc91e015ff50921c14eb4fdb16f691f440,",
+        "Decorative.7 Default": "S:7716164482a7029c41fb7d63e819f8c855ccca66,"
+      }
+    }
+  ],
+  "$metadata": {
+    "tokenSetOrder": [
+      "core",
+      "core-colors",
+      "light",
+      "dark"
+    ]
+  }
+}

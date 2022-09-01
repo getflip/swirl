@@ -3,6 +3,16 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./flip-button.mdx";
 
 export default {
+  argTypes: {
+    leftIcon: {
+      table: {
+        type: {
+          detail: "e.g. <flip-icon-close></flip-icon-close>",
+          summary: "flip-icon-*",
+        },
+      },
+    },
+  },
   component: "flip-button",
   parameters: {
     docs: {
