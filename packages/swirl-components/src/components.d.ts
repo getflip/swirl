@@ -12,6 +12,7 @@ import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
+import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
     interface FlipAvatar {
@@ -251,6 +252,10 @@ export namespace Components {
     interface FlipInlineError {
         "message": string;
         "size"?: FlipInlineErrorSize;
+    }
+    interface FlipSpinner {
+        "label"?: string;
+        "size"?: FlipSpinnerSize;
     }
     interface FlipTooltip {
         "content": string;
@@ -685,6 +690,12 @@ declare global {
         prototype: HTMLFlipInlineErrorElement;
         new (): HTMLFlipInlineErrorElement;
     };
+    interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
+    }
+    var HTMLFlipSpinnerElement: {
+        prototype: HTMLFlipSpinnerElement;
+        new (): HTMLFlipSpinnerElement;
+    };
     interface HTMLFlipTooltipElement extends Components.FlipTooltip, HTMLStencilElement {
     }
     var HTMLFlipTooltipElement: {
@@ -768,6 +779,7 @@ declare global {
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
+        "flip-spinner": HTMLFlipSpinnerElement;
         "flip-tooltip": HTMLFlipTooltipElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
@@ -1012,6 +1024,10 @@ declare namespace LocalJSX {
         "message": string;
         "size"?: FlipInlineErrorSize;
     }
+    interface FlipSpinner {
+        "label"?: string;
+        "size"?: FlipSpinnerSize;
+    }
     interface FlipTooltip {
         "content": string;
         "delay"?: number;
@@ -1090,6 +1106,7 @@ declare namespace LocalJSX {
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
         "flip-inline-error": FlipInlineError;
+        "flip-spinner": FlipSpinner;
         "flip-tooltip": FlipTooltip;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
@@ -1168,6 +1185,7 @@ declare module "@stencil/core" {
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
+            "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }
