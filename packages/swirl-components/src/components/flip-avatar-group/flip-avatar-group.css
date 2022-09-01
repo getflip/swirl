@@ -1,0 +1,46 @@
+:host {
+  display: inline-flex;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.avatar-group {
+  position: relative;
+  display: inline-grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+
+  & ::slotted(*:first-of-type) {
+    z-index: 1;
+    display: inline-flex;
+    border: 0.25rem solid var(--s-background-default);
+    border-radius: 50%;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 9;
+  }
+
+  & ::slotted(*:nth-of-type(2)) {
+    z-index: 0;
+    display: inline-flex;
+    border: 0.25rem solid var(--s-background-default);
+    border-radius: 50%;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 7;
+  }
+}
+
+.avatar-group__badge {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+}
