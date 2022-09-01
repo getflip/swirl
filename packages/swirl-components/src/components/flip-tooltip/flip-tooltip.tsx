@@ -103,7 +103,7 @@ export class FlipTooltip {
   private updateOptions = () => {
     const margin =
       +getComputedStyle(document.documentElement)
-        .getPropertyValue("--s-space-3")
+        .getPropertyValue("--s-space-12")
         .replace("rem", "") * 16;
 
     this.options = {

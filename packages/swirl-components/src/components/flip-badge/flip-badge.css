@@ -1,9 +1,9 @@
 :host {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
   min-width: 0;
   max-width: 100%;
+  justify-content: center;
+  align-items: center;
 
   & * {
     box-sizing: border-box;
@@ -25,9 +25,12 @@
 .badge--size-s {
   min-width: 1.5rem;
   height: 1.5rem;
-  padding-right: var(--s-space-1);
-  padding-left: var(--s-space-1);
   font-size: 0.75rem;
+
+  & .badge__label {
+    padding-right: 0.1875rem;
+    padding-left: 0.1875rem;
+  }
 
   & .badge__icon {
     & > *::part(icon) {
@@ -40,8 +43,11 @@
 .badge--size-m {
   min-width: 2rem;
   height: 2rem;
-  padding-right: 0.375rem;
-  padding-left: 0.375rem;
+
+  & .badge__label {
+    padding-right: 0.375rem;
+    padding-left: 0.375rem;
+  }
 }
 
 .badge--has-icon {
@@ -54,41 +60,44 @@
 }
 
 .badge--intent-decorative-1 {
-  background-color: var(--s-decorative-one-default);
+  background-color: var(--s-decorative-1-default);
 }
 
 .badge--intent-decorative-2 {
-  background-color: var(--s-decorative-two-default);
+  background-color: var(--s-decorative-2-default);
 }
 
 .badge--intent-decorative-3 {
   color: var(--s-text-default);
-  background-color: var(--s-decorative-three-default);
+  background-color: var(--s-decorative-3-default);
 }
 
 .badge--intent-decorative-4 {
   color: var(--s-text-default);
-  background-color: var(--s-decorative-four-default);
+  background-color: var(--s-decorative-4-default);
 }
 
 .badge--intent-decorative-5 {
-  background-color: var(--s-decorative-five-default);
+  background-color: var(--s-decorative-5-default);
 }
 
 .badge--intent-decorative-6 {
-  background-color: var(--s-decorative-six-default);
+  background-color: var(--s-decorative-6-default);
 }
 
 .badge--intent-decorative-7 {
-  background-color: var(--s-decorative-seven-default);
+  background-color: var(--s-decorative-7-default);
 }
 
 .badge--variant-dot {
   width: 1.25rem;
   min-width: 0;
   height: 1.25rem;
-  padding-right: 0;
-  padding-left: 0;
+
+  & .badge__label {
+    padding-right: 0;
+    padding-left: 0;
+  }
 
   & .badge__label,
   & .badge__icon {

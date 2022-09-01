@@ -3,7 +3,12 @@ import StyleDictionary from "style-dictionary";
 const { fileHeader, createPropertyFormatter } = StyleDictionary.formatHelpers;
 
 const tokenGroups: {
-  [group: string]: { label: string; prefixes: string[]; presenter: string };
+  [group: string]: {
+    excludePrefixed?: string[];
+    label: string;
+    prefixes: string[];
+    presenter: string;
+  };
 } = {
   backgroundColors: {
     label: "Background Colors",
@@ -18,6 +23,7 @@ const tokenGroups: {
     presenter: "Color",
   },
   borderColors: {
+    excludePrefixed: ["border-width", "border-radius"],
     label: "Border Colors",
     prefixes: ["border-", "focus"],
     presenter: "Color",
@@ -109,8 +115,13 @@ StyleDictionary.registerFormat({
         tokenGroup.prefixes.length === 0
           ? unassignedTokens
           : unassignedTokens.filter((token) => {
-              return tokenGroup.prefixes.some((prefix) =>
-                token.path[0].startsWith(prefix)
+              return (
+                tokenGroup.prefixes.some((prefix) =>
+                  token.path[0].startsWith(prefix)
+                ) &&
+                !tokenGroup.excludePrefixed?.some((prefix) =>
+                  token.path[0].startsWith(prefix)
+                )
               );
             });
 
