@@ -9,7 +9,9 @@ import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./co
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
+import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
+import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
@@ -24,6 +26,9 @@ export namespace Components {
         "size"?: FlipAvatarSize;
         "src"?: string;
         "variant"?: FlipAvatarVariant;
+    }
+    interface FlipAvatarGroup {
+        "badge"?: string;
     }
     interface FlipBadge {
         "icon"?: string;
@@ -47,6 +52,13 @@ export namespace Components {
         "invalid"?: boolean;
         "label"?: string;
         "value"?: string;
+    }
+    interface FlipChip {
+        "avatar"?: string;
+        "icon"?: string;
+        "intent"?: FlipChipIntent;
+        "interactive"?: boolean;
+        "label": string;
     }
     interface FlipIconAdd {
         "size": FlipIconSize;
@@ -240,6 +252,10 @@ export namespace Components {
     interface FlipIconVisibilityOff {
         "size": FlipIconSize;
     }
+    interface FlipSpinner {
+        "label"?: string;
+        "size"?: FlipSpinnerSize;
+    }
     interface FlipSwitch {
         "checked"?: boolean;
         "disabled"?: boolean;
@@ -272,6 +288,12 @@ declare global {
         prototype: HTMLFlipAvatarElement;
         new (): HTMLFlipAvatarElement;
     };
+    interface HTMLFlipAvatarGroupElement extends Components.FlipAvatarGroup, HTMLStencilElement {
+    }
+    var HTMLFlipAvatarGroupElement: {
+        prototype: HTMLFlipAvatarGroupElement;
+        new (): HTMLFlipAvatarGroupElement;
+    };
     interface HTMLFlipBadgeElement extends Components.FlipBadge, HTMLStencilElement {
     }
     var HTMLFlipBadgeElement: {
@@ -289,6 +311,12 @@ declare global {
     var HTMLFlipCheckboxElement: {
         prototype: HTMLFlipCheckboxElement;
         new (): HTMLFlipCheckboxElement;
+    };
+    interface HTMLFlipChipElement extends Components.FlipChip, HTMLStencilElement {
+    }
+    var HTMLFlipChipElement: {
+        prototype: HTMLFlipChipElement;
+        new (): HTMLFlipChipElement;
     };
     interface HTMLFlipIconAddElement extends Components.FlipIconAdd, HTMLStencilElement {
     }
@@ -674,6 +702,12 @@ declare global {
         prototype: HTMLFlipIconVisibilityOffElement;
         new (): HTMLFlipIconVisibilityOffElement;
     };
+    interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
+    }
+    var HTMLFlipSpinnerElement: {
+        prototype: HTMLFlipSpinnerElement;
+        new (): HTMLFlipSpinnerElement;
+    };
     interface HTMLFlipSwitchElement extends Components.FlipSwitch, HTMLStencilElement {
     }
     var HTMLFlipSwitchElement: {
@@ -694,9 +728,11 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "flip-avatar": HTMLFlipAvatarElement;
+        "flip-avatar-group": HTMLFlipAvatarGroupElement;
         "flip-badge": HTMLFlipBadgeElement;
         "flip-button": HTMLFlipButtonElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
+        "flip-chip": HTMLFlipChipElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
         "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
@@ -761,6 +797,7 @@ declare global {
         "flip-icon-user-assign": HTMLFlipIconUserAssignElement;
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
+        "flip-spinner": HTMLFlipSpinnerElement;
         "flip-switch": HTMLFlipSwitchElement;
         "flip-tooltip": HTMLFlipTooltipElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
@@ -778,6 +815,9 @@ declare namespace LocalJSX {
         "size"?: FlipAvatarSize;
         "src"?: string;
         "variant"?: FlipAvatarVariant;
+    }
+    interface FlipAvatarGroup {
+        "badge"?: string;
     }
     interface FlipBadge {
         "icon"?: string;
@@ -802,6 +842,13 @@ declare namespace LocalJSX {
         "label"?: string;
         "onValueChange"?: (event: FlipCheckboxCustomEvent<boolean>) => void;
         "value"?: string;
+    }
+    interface FlipChip {
+        "avatar"?: string;
+        "icon"?: string;
+        "intent"?: FlipChipIntent;
+        "interactive"?: boolean;
+        "label": string;
     }
     interface FlipIconAdd {
         "size"?: FlipIconSize;
@@ -995,6 +1042,10 @@ declare namespace LocalJSX {
     interface FlipIconVisibilityOff {
         "size"?: FlipIconSize;
     }
+    interface FlipSpinner {
+        "label"?: string;
+        "size"?: FlipSpinnerSize;
+    }
     interface FlipSwitch {
         "checked"?: boolean;
         "disabled"?: boolean;
@@ -1014,9 +1065,11 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "flip-avatar": FlipAvatar;
+        "flip-avatar-group": FlipAvatarGroup;
         "flip-badge": FlipBadge;
         "flip-button": FlipButton;
         "flip-checkbox": FlipCheckbox;
+        "flip-chip": FlipChip;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
         "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
@@ -1081,6 +1134,7 @@ declare namespace LocalJSX {
         "flip-icon-user-assign": FlipIconUserAssign;
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
+        "flip-spinner": FlipSpinner;
         "flip-switch": FlipSwitch;
         "flip-tooltip": FlipTooltip;
         "flip-visually-hidden": FlipVisuallyHidden;
@@ -1091,9 +1145,11 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
+            "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
+            "flip-chip": LocalJSX.FlipChip & JSXBase.HTMLAttributes<HTMLFlipChipElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
             "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
@@ -1158,6 +1214,7 @@ declare module "@stencil/core" {
             "flip-icon-user-assign": LocalJSX.FlipIconUserAssign & JSXBase.HTMLAttributes<HTMLFlipIconUserAssignElement>;
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
+            "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
