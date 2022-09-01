@@ -19,7 +19,7 @@ describe("flip-avatar-group", () => {
         <mock:shadow-root>
           <div class="avatar-group avatar-group--has-badge" role="group">
             <slot></slot>
-            <span class="avatar-group__badge avatar-group__badge--position-bottom">
+            <span class="avatar-group__badge">
               <flip-badge aria-label="3 new messages" label="3"></flip-badge>
             </span>
           </div>

@@ -92,18 +92,6 @@
         {
           "name": "badge",
           "description": ""
-        },
-        {
-          "name": "badge-position",
-          "description": "",
-          "values": [
-            {
-              "name": "bottom"
-            },
-            {
-              "name": "top"
-            }
-          ]
         }
       ]
     },

@@ -6,7 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
-import { FlipAvatarGroupBadgePosition } from "./components/flip-avatar-group/flip-avatar-group";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
@@ -24,7 +23,6 @@ export namespace Components {
     }
     interface FlipAvatarGroup {
         "badge"?: string;
-        "badgePosition"?: FlipAvatarGroupBadgePosition;
     }
     interface FlipBadge {
         "icon"?: string;
@@ -735,7 +733,6 @@ declare namespace LocalJSX {
     }
     interface FlipAvatarGroup {
         "badge"?: string;
-        "badgePosition"?: FlipAvatarGroupBadgePosition;
     }
     interface FlipBadge {
         "icon"?: string;

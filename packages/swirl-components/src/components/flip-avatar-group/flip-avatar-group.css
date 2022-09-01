@@ -44,8 +44,3 @@
   width: 1.5rem;
   height: 1.5rem;
 }
-
-.avatar-group__badge--position-top {
-  top: 0;
-  bottom: auto;
-}
