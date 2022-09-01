@@ -1,5 +1,8 @@
 name: CI
-on: [push]
+on:
+  push:
+    branches:
+      - figma-tokens
 
 jobs:
   figma_to_style_dictionary:
@@ -10,7 +13,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.4.0
       # Transform Figma Tokens JSON to something Style Dictionary can read + generate Style Dictionary output
-      - run: yarn build
+      - run: cd packages/swirl-tokens && yarn && yarn build
       # Commit generated JSON in Style Dictionary format
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
