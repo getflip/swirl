@@ -1,4 +1,5 @@
-name: CI
+name: Transform Figma Design Tokens
+
 on:
   push:
     branches:
@@ -11,7 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.4.0
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 16
       # Transform Figma Tokens JSON to something Style Dictionary can read + generate Style Dictionary output
       - run: cd packages/swirl-tokens && yarn && yarn build
       # Commit generated JSON in Style Dictionary format
