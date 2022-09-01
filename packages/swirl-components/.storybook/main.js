@@ -23,6 +23,6 @@ module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   viteFinal: viteFinalFactory({
     designTokenGlob:
-      "../../node_modules/@getflip/swirl-tokens/dist/css/styles.custom-properties.css",
+      "../../node_modules/@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css",
   }),
 };
