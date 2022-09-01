@@ -2,6 +2,16 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./flip-toast.mdx";
 
 export default {
+  argTypes: {
+    icon: {
+      table: {
+        type: {
+          detail: "e.g. <flip-icon-mail></flip-icon-mail>",
+          summary: "flip-icon-*",
+        },
+      },
+    },
+  },
   component: "flip-toast",
   parameters: {
     docs: {
