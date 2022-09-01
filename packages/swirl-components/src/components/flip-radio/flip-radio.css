@@ -9,10 +9,11 @@
 .radio {
   display: inline-flex;
   cursor: pointer;
+  line-height: var(--s-line-height-base);
 
   &:focus-within .radio__box {
     box-shadow: 0 0 0 0.0625rem var(--s-background-default),
-      0 0 0 0.1875rem var(--s-focus);
+      0 0 0 0.1875rem var(--s-focus-default);
   }
 }
 
@@ -105,7 +106,7 @@
   display: inline-flex;
   width: 1.5rem;
   height: 1.5rem;
-  padding: var(--s-space-05);
+  padding: var(--s-space-2);
   flex-shrink: 0;
 
   &:hover {
@@ -128,8 +129,8 @@
 
 .radio__label-container {
   display: inline-flex;
-  margin-left: var(--s-space-3);
-  padding-top: 0.1875rem;
+  margin-left: var(--s-space-12);
+  padding-top: var(--s-space-2);
   flex-direction: column;
 }
 
