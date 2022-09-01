@@ -13,6 +13,7 @@ import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
+import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
     interface FlipAvatar {
@@ -259,6 +260,14 @@ export namespace Components {
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
+    }
+    interface FlipStack {
+        "align"?: FlipStackAlign;
+        "as"?: string;
+        "justify"?: FlipStackJustify;
+        "orientation"?: FlipStackOrientation;
+        "spacing"?: FlipStackSpacing;
+        "wrap"?: boolean;
     }
     interface FlipTooltip {
         "content": string;
@@ -705,6 +714,12 @@ declare global {
         prototype: HTMLFlipSpinnerElement;
         new (): HTMLFlipSpinnerElement;
     };
+    interface HTMLFlipStackElement extends Components.FlipStack, HTMLStencilElement {
+    }
+    var HTMLFlipStackElement: {
+        prototype: HTMLFlipStackElement;
+        new (): HTMLFlipStackElement;
+    };
     interface HTMLFlipTooltipElement extends Components.FlipTooltip, HTMLStencilElement {
     }
     var HTMLFlipTooltipElement: {
@@ -790,6 +805,7 @@ declare global {
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-spinner": HTMLFlipSpinnerElement;
+        "flip-stack": HTMLFlipStackElement;
         "flip-tooltip": HTMLFlipTooltipElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
@@ -1041,6 +1057,14 @@ declare namespace LocalJSX {
         "label"?: string;
         "size"?: FlipSpinnerSize;
     }
+    interface FlipStack {
+        "align"?: FlipStackAlign;
+        "as"?: string;
+        "justify"?: FlipStackJustify;
+        "orientation"?: FlipStackOrientation;
+        "spacing"?: FlipStackSpacing;
+        "wrap"?: boolean;
+    }
     interface FlipTooltip {
         "content": string;
         "delay"?: number;
@@ -1121,6 +1145,7 @@ declare namespace LocalJSX {
         "flip-icon-visibility-off": FlipIconVisibilityOff;
         "flip-inline-error": FlipInlineError;
         "flip-spinner": FlipSpinner;
+        "flip-stack": FlipStack;
         "flip-tooltip": FlipTooltip;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
@@ -1201,6 +1226,7 @@ declare module "@stencil/core" {
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
+            "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }

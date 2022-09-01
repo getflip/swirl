@@ -1178,6 +1178,107 @@
       ]
     },
     {
+      "name": "flip-stack",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "align",
+          "description": "",
+          "values": [
+            {
+              "name": "center"
+            },
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            },
+            {
+              "name": "stretch"
+            }
+          ]
+        },
+        {
+          "name": "as",
+          "description": ""
+        },
+        {
+          "name": "justify",
+          "description": "",
+          "values": [
+            {
+              "name": "center"
+            },
+            {
+              "name": "end"
+            },
+            {
+              "name": "space-around"
+            },
+            {
+              "name": "space-between"
+            },
+            {
+              "name": "space-evenly"
+            },
+            {
+              "name": "start"
+            }
+          ]
+        },
+        {
+          "name": "orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
+        },
+        {
+          "name": "spacing",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
+          "name": "wrap",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-tooltip",
       "description": {
         "kind": "markdown",
