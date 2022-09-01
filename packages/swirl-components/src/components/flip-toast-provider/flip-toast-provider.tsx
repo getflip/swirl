@@ -89,7 +89,7 @@ export class FlipToastProvider {
   render() {
     return (
       <Host role="status">
-        <flip-stack spacing="2">
+        <flip-stack spacing="12">
           {this.toasts.map((toast) => (
             <flip-toast
               key={toast.toastId}
