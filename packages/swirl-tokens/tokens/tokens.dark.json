@@ -1,0 +1,825 @@
+{
+  "font-family-default": {
+    "value": "Inter",
+    "type": "fontFamilies"
+  },
+  "font-size-sm": {
+    "value": "0.875rem",
+    "type": "fontSizes",
+    "comment": "Usually used for labels and captions"
+  },
+  "font-size-base": {
+    "value": "1rem",
+    "type": "fontSizes",
+    "comment": "Usually used for the body, links and buttons "
+  },
+  "font-size-lg": {
+    "value": "1.125rem",
+    "type": "fontSizes",
+    "comment": "Usually used as level 3 headline"
+  },
+  "font-size-xl": {
+    "value": "1.25rem",
+    "type": "fontSizes",
+    "comment": "Usually used as level 2 headline"
+  },
+  "font-size-2xl": {
+    "value": "1.75rem",
+    "type": "fontSizes",
+    "comment": "Usually used as main headline"
+  },
+  "font-weight-normal": {
+    "value": 400,
+    "type": "fontWeights"
+  },
+  "font-weight-medium": {
+    "value": 500,
+    "type": "fontWeights"
+  },
+  "font-weight-semibold": {
+    "value": 600,
+    "type": "fontWeights"
+  },
+  "font-weight-bold": {
+    "value": 700,
+    "type": "fontWeights"
+  },
+  "line-height-s": {
+    "value": "130%",
+    "type": "lineHeights"
+  },
+  "line-height-sm": {
+    "value": "135%",
+    "type": "lineHeights"
+  },
+  "line-height-base": {
+    "value": "140%",
+    "type": "lineHeights"
+  },
+  "line-height-lg": {
+    "value": "150%",
+    "type": "lineHeights"
+  },
+  "letter-spacing-tighter": {
+    "value": "-0.02rem",
+    "type": "letterSpacing"
+  },
+  "letter-spacing-tight": {
+    "value": "-0.01375rem",
+    "type": "letterSpacing"
+  },
+  "letter-spacing-normal": {
+    "value": 0,
+    "type": "letterSpacing"
+  },
+  "decoration-underline": {
+    "value": "underline",
+    "type": "textDecoration"
+  },
+  "border-radius-xs": {
+    "value": "0.125rem",
+    "type": "borderRadius"
+  },
+  "border-radius-s": {
+    "value": "0.25rem",
+    "type": "borderRadius"
+  },
+  "border-radius-sm": {
+    "value": "0.5rem",
+    "type": "borderRadius"
+  },
+  "border-radius-base": {
+    "value": "0.75rem",
+    "type": "borderRadius"
+  },
+  "border-radius-l": {
+    "value": "1rem",
+    "type": "borderRadius"
+  },
+  "border-radius-xl": {
+    "value": "1.25rem",
+    "type": "borderRadius"
+  },
+  "border-radius-full-round": {
+    "value": "6249.9375rem",
+    "type": "borderRadius"
+  },
+  "space-0": {
+    "value": 0,
+    "type": "spacing"
+  },
+  "space-2": {
+    "value": "0.125rem",
+    "type": "spacing"
+  },
+  "space-4": {
+    "value": "0.25rem",
+    "type": "spacing"
+  },
+  "space-8": {
+    "value": "0.5rem",
+    "type": "spacing"
+  },
+  "space-12": {
+    "value": "0.75rem",
+    "type": "spacing"
+  },
+  "space-16": {
+    "value": "1rem",
+    "type": "spacing"
+  },
+  "space-24": {
+    "value": "1.5rem",
+    "type": "spacing"
+  },
+  "space-32": {
+    "value": "2rem",
+    "type": "spacing"
+  },
+  "decoration-none": {
+    "value": "none",
+    "type": "textDecoration"
+  },
+  "core-gray-10": {
+    "value": "rgba(42, 43, 45, 1)",
+    "type": "color"
+  },
+  "core-gray-11": {
+    "value": "rgba(35, 36, 38, 1)",
+    "type": "color"
+  },
+  "core-gray-12": {
+    "value": "rgba(25, 26, 28, 1)",
+    "type": "color"
+  },
+  "core-gray-black": {
+    "value": "rgba(0, 0, 0, 1)",
+    "type": "color"
+  },
+  "core-gray-09": {
+    "value": "rgba(50, 51, 53, 1)",
+    "type": "color"
+  },
+  "core-gray-08": {
+    "value": "rgba(58, 59, 61, 1)",
+    "type": "color"
+  },
+  "core-gray-07": {
+    "value": "rgba(79, 80, 84, 1)",
+    "type": "color"
+  },
+  "core-gray-06": {
+    "value": "rgba(109, 110, 114, 1)",
+    "type": "color"
+  },
+  "core-gray-05": {
+    "value": "rgba(161, 162, 165, 1)",
+    "type": "color"
+  },
+  "core-gray-04": {
+    "value": "rgba(204, 205, 209, 1)",
+    "type": "color"
+  },
+  "core-gray-03": {
+    "value": "rgba(221, 222, 224, 1)",
+    "type": "color"
+  },
+  "core-gray-02": {
+    "value": "rgba(232, 233, 235, 1)",
+    "type": "color"
+  },
+  "core-gray-01": {
+    "value": "rgba(242, 243, 245, 1)",
+    "type": "color"
+  },
+  "core-gray-white": {
+    "value": "rgba(255, 255, 255, 1)",
+    "type": "color"
+  },
+  "core-customer-color-light-1-hovered": {
+    "value": "rgba(38, 230, 185, 1)",
+    "type": "color"
+  },
+  "core-customer-color-light-1-default": {
+    "value": "rgba(0, 226, 173, 1)",
+    "type": "color"
+  },
+  "core-customer-color-light-1-pressed": {
+    "value": "rgba(77, 235, 198, 1)",
+    "type": "color"
+  },
+  "core-customer-color-light-2-default": {
+    "value": "rgba(0, 38, 255, 1)",
+    "type": "color"
+  },
+  "core-customer-color-light-2-hovered": {
+    "value": "rgba(38, 71, 255, 1)",
+    "type": "color"
+  },
+  "core-customer-color-light-2-pressed": {
+    "value": "rgba(77, 103, 255, 1)",
+    "type": "color"
+  },
+  "core-customer-color-light-3-default": {
+    "value": "rgba(0, 61, 175, 1)",
+    "type": "color"
+  },
+  "core-customer-color-light-3-hovered": {
+    "value": "rgba(38, 90, 187, 1)",
+    "type": "color"
+  },
+  "core-customer-color-light-3-pressed": {
+    "value": "rgba(77, 119, 199, 1)",
+    "type": "color"
+  },
+  "core-on-customer-color-light-1": {
+    "value": "rgba(0, 13, 87, 1)",
+    "type": "color"
+  },
+  "core-on-customer-color-light-2": {
+    "value": "rgba(190, 255, 240, 1)",
+    "type": "color"
+  },
+  "core-customer-color-dark-1-default": {
+    "value": "rgba(142, 235, 226, 1)",
+    "type": "color"
+  },
+  "core-customer-color-dark-1-hovered": {
+    "value": "rgba(121, 200, 192, 1)",
+    "type": "color"
+  },
+  "core-customer-color-dark-1-pressed": {
+    "value": "rgba(99, 164, 158, 1)",
+    "type": "color"
+  },
+  "core-customer-color-dark-2-default": {
+    "value": "rgba(115, 148, 211, 1)",
+    "type": "color"
+  },
+  "core-customer-color-dark-2-hovered": {
+    "value": "rgba(98, 126, 179, 1)",
+    "type": "color"
+  },
+  "core-customer-color-dark-2-pressed": {
+    "value": "rgba(80, 104, 148, 1)",
+    "type": "color"
+  },
+  "core-customer-color-dark-3-default": {
+    "value": "rgba(115, 148, 211, 1)",
+    "type": "color"
+  },
+  "core-customer-color-dark-3-hovered": {
+    "value": "rgba(98, 126, 179, 1)",
+    "type": "color"
+  },
+  "core-customer-color-dark-3-pressed": {
+    "value": "rgba(80, 104, 148, 1)",
+    "type": "color"
+  },
+  "core-on-customer-color-dark-1": {
+    "value": "rgba(0, 0, 0, 1)",
+    "type": "color"
+  },
+  "core-on-customer-color-dark-2": {
+    "value": "rgba(0, 0, 0, 1)",
+    "type": "color"
+  },
+  "core-status-light-critical-default": {
+    "value": "rgba(213, 6, 54, 1)",
+    "type": "color"
+  },
+  "core-status-light-critical-subdued": {
+    "value": "rgba(252, 231, 237, 1)",
+    "type": "color"
+  },
+  "core-status-light-success-default": {
+    "value": "rgba(8, 129, 8, 1)",
+    "type": "color"
+  },
+  "core-status-light-success-subdued": {
+    "value": "rgba(220, 247, 220, 1)",
+    "type": "color"
+  },
+  "core-status-light-info-default": {
+    "value": "rgba(20, 90, 245, 1)",
+    "type": "color"
+  },
+  "core-status-light-info-subdued": {
+    "value": "rgba(230, 241, 255, 1)",
+    "type": "color"
+  },
+  "core-status-light-warning-strong": {
+    "value": "rgba(147, 88, 6, 1)",
+    "type": "color"
+  },
+  "core-status-light-warning-default": {
+    "value": "rgba(243, 183, 3, 1)",
+    "type": "color"
+  },
+  "core-status-light-warning-subdued": {
+    "value": "rgba(250, 241, 200, 1)",
+    "type": "color"
+  },
+  "core-status-dark-info-default": {
+    "value": "rgba(115, 167, 242, 1)",
+    "type": "color"
+  },
+  "core-status-dark-info-subdued": {
+    "value": "rgba(16, 38, 72, 1)",
+    "type": "color"
+  },
+  "core-status-dark-success-default": {
+    "value": "rgba(104, 196, 104, 1)",
+    "type": "color"
+  },
+  "core-status-dark-success-subdued": {
+    "value": "rgba(18, 58, 18, 1)",
+    "type": "color"
+  },
+  "core-status-dark-warning-default": {
+    "value": "rgba(249, 199, 99, 1)",
+    "type": "color"
+  },
+  "core-status-dark-warning-subdued": {
+    "value": "rgba(57, 46, 17, 1)",
+    "type": "color"
+  },
+  "core-status-dark-critical-default": {
+    "value": "rgba(251, 100, 134, 1)",
+    "type": "color"
+  },
+  "core-status-dark-critical-subdued": {
+    "value": "rgba(71, 14, 27, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-1-default": {
+    "value": "rgba(255, 87, 77, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-2-default": {
+    "value": "rgba(255, 131, 64, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-3-default": {
+    "value": "rgba(246, 196, 49, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-4-default": {
+    "value": "rgba(235, 132, 161, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-5-default": {
+    "value": "rgba(150, 50, 250, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-6-default": {
+    "value": "rgba(96, 178, 156, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-7-default": {
+    "value": "rgba(51, 135, 255, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-1-default": {
+    "value": "rgba(255, 110, 102, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-2-default": {
+    "value": "rgba(255, 164, 115, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-3-default": {
+    "value": "rgba(249, 218, 122, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-4-default": {
+    "value": "rgba(235, 132, 161, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-5-default": {
+    "value": "rgba(188, 125, 252, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-6-default": {
+    "value": "rgba(148, 203, 188, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-7-default": {
+    "value": "rgba(102, 166, 255, 1)",
+    "type": "color"
+  },
+  "background-default": {
+    "value": "{core-gray-black}",
+    "type": "color",
+    "comment": "Usually used for the page background and elements that should not elevate from the background."
+  },
+  "background-hovered": {
+    "value": "{core-gray-12}",
+    "type": "color",
+    "comment": "Used if a component with “Background/Default” has a hovered state."
+  },
+  "background-pressed": {
+    "value": "{core-gray-11}",
+    "type": "color",
+    "comment": "Used if a component with “Background/Default” has a pressed state."
+  },
+  "surface-default": {
+    "value": "{core-gray-12}",
+    "type": "color",
+    "comment": "Usually used for containers that need to be elevated."
+  },
+  "surface-hovered": {
+    "value": "{core-gray-11}",
+    "type": "color",
+    "comment": "Used if a component with “Surface/Default” has a hovered state."
+  },
+  "surface-pressed": {
+    "value": "{core-gray-10}",
+    "type": "color",
+    "comment": "Used if a component with “Surface/Default” has a pressed state."
+  },
+  "surface-overlay-default": {
+    "value": "{core-gray-11}",
+    "type": "color",
+    "comment": "Usually used for containers that need to be more elevated."
+  },
+  "surface-overlay-hovered": {
+    "value": "{core-gray-10}",
+    "type": "color",
+    "comment": "Used if a component with “Surface Overlay/Default” has a hovered state."
+  },
+  "surface-overlay-pressed": {
+    "value": "{core-gray-09}",
+    "type": "color",
+    "comment": "Used if a component with “Surface Overlay/Default” has a pressed state."
+  },
+  "on-surface-default": {
+    "value": "{core-gray-10}",
+    "type": "color",
+    "comment": "Usually used for elements that need contrast on surfaces or background"
+  },
+  "on-surface-hovered": {
+    "value": "{core-gray-09}",
+    "type": "color",
+    "comment": "Used if a component with “On Surface/Default” has a hovered state."
+  },
+  "on-surface-pressed": {
+    "value": "{core-gray-08}",
+    "type": "color",
+    "comment": "Used if a component with “On Surface/Default” has a pressed state."
+  },
+  "surface-highlight-default": {
+    "value": "{core-customer-color-dark-2-default}",
+    "type": "color",
+    "comment": "Usually used for containers that need to be highlighted."
+  },
+  "surface-highlight-hovered": {
+    "value": "{core-customer-color-dark-2-hovered}",
+    "type": "color",
+    "comment": "Used if a component with “Surface Highlight/Default” has a hovered state."
+  },
+  "surface-highlight-pressed": {
+    "value": "{core-customer-color-dark-2-pressed}",
+    "type": "color",
+    "comment": "Used if a component with “Surface Highlight/Default” has a pressed state."
+  },
+  "on-surface-highlight-default": {
+    "value": "{core-customer-color-dark-2-hovered}",
+    "type": "color",
+    "comment": "Used to place containers on “Surface Highlight/Default”."
+  },
+  "surface-critical-default": {
+    "value": "{core-status-dark-critical-default}",
+    "type": "color",
+    "comment": "Used as a background for critical surfaces."
+  },
+  "surface-critical-subdued": {
+    "value": "{core-status-dark-critical-subdued}",
+    "type": "color",
+    "comment": "Used for low prio critical background."
+  },
+  "surface-success-default": {
+    "value": "{core-status-dark-success-default}",
+    "type": "color",
+    "comment": "Used as a background for success surfaces."
+  },
+  "surface-success-subdued": {
+    "value": "{core-status-dark-success-subdued}",
+    "type": "color",
+    "comment": "Used for low prio success background."
+  },
+  "surface-warning-default": {
+    "value": "{core-status-dark-warning-default}",
+    "type": "color",
+    "comment": "Used as a background for warning surfaces."
+  },
+  "surface-warning-subdued": {
+    "value": "{core-status-dark-warning-subdued}",
+    "type": "color",
+    "comment": "Used for low prio warning background."
+  },
+  "surface-info-default": {
+    "value": "{core-status-dark-info-default}",
+    "type": "color",
+    "comment": "Used as a background for info surfaces."
+  },
+  "surface-info-subdued": {
+    "value": "{core-status-dark-info-subdued}",
+    "type": "color",
+    "comment": "Used for low prio info background."
+  },
+  "surface-neutral-default": {
+    "value": "{core-gray-04}",
+    "type": "color",
+    "comment": "Used as a background for neutral surfaces."
+  },
+  "surface-neutral-subdued": {
+    "value": "{core-gray-10}",
+    "type": "color",
+    "comment": "Used for low prio neutral background."
+  },
+  "surface-on-image-default": {
+    "value": "rgba(NaN, 186, NaN, NaN)",
+    "type": "color",
+    "comment": "Usually used for containers on images"
+  },
+  "border-strong": {
+    "value": "rgba(NaN, 186, NaN, NaN)",
+    "type": "color",
+    "comment": "Usually used for high emphasis borders."
+  },
+  "border-default": {
+    "value": "rgba(NaN, 186, NaN, NaN)",
+    "type": "color",
+    "comment": "Usually used for low emphasis borders and espacially divider elements."
+  },
+  "border-highlight": {
+    "value": "{core-customer-color-dark-3-default}",
+    "type": "color",
+    "comment": "Used as border color on containers that need to be highlighted (e.g. form fields)."
+  },
+  "border-critical": {
+    "value": "{core-status-dark-critical-default}",
+    "type": "color",
+    "comment": "Usally used as an border on critical components."
+  },
+  "border-success": {
+    "value": "{core-status-dark-success-default}",
+    "type": "color",
+    "comment": "Usally used as an border on success components."
+  },
+  "border-warning": {
+    "value": "{core-status-dark-warning-default}",
+    "type": "color",
+    "comment": "Usally used as an border on warning components."
+  },
+  "border-info": {
+    "value": "{core-status-dark-info-default}",
+    "type": "color",
+    "comment": "Usally used as an border on info components."
+  },
+  "border-on-highlight": {
+    "value": "rgba(NaN, 186, NaN, 0.56)",
+    "type": "color",
+    "comment": "Used as border color on containers that have an highlight surface"
+  },
+  "text-default": {
+    "value": "{core-gray-01}",
+    "type": "color",
+    "comment": "Used for high emphasis text."
+  },
+  "text-subdued": {
+    "value": "{core-gray-05}",
+    "type": "color",
+    "comment": "Used for low emphasis text."
+  },
+  "text-disabled": {
+    "value": "{core-gray-07}",
+    "type": "color",
+    "comment": "Used if a text element is disabled."
+  },
+  "text-highlight": {
+    "value": "{core-customer-color-dark-3-default}",
+    "type": "color",
+    "comment": "Used to highlight text."
+  },
+  "text-critical": {
+    "value": "{core-status-dark-critical-default}",
+    "type": "color",
+    "comment": "Used as critical text color"
+  },
+  "text-warning": {
+    "value": "{core-status-dark-warning-default}",
+    "type": "color",
+    "comment": "Used as warning text color"
+  },
+  "text-success": {
+    "value": "{core-status-dark-success-default}",
+    "type": "color",
+    "comment": "Used as success text color"
+  },
+  "text-info": {
+    "value": "{core-status-dark-info-default}",
+    "type": "color",
+    "comment": "Used as info text color"
+  },
+  "text-on-action-primary": {
+    "value": "{core-on-customer-color-dark-1}",
+    "type": "color",
+    "comment": "Used as a text color on containers with action primary color."
+  },
+  "text-on-surface-highlight": {
+    "value": "{core-on-customer-color-dark-2}",
+    "type": "color",
+    "comment": "Used as text color on containers with highlight color."
+  },
+  "text-on-status": {
+    "value": "{core-gray-black}",
+    "type": "color",
+    "comment": "Used as a text color on containers with a status color."
+  },
+  "text-on-image": {
+    "value": "{core-gray-white}",
+    "type": "color",
+    "comment": "Used as a text color on “Surface On Image/Default”."
+  },
+  "icon-strong": {
+    "value": "{core-gray-01}",
+    "type": "color",
+    "comment": "Used for high emphasis icons."
+  },
+  "icon-default": {
+    "value": "{core-gray-05}",
+    "type": "color",
+    "comment": "Used for low emphasis icons."
+  },
+  "icon-disabled": {
+    "value": "{core-gray-07}",
+    "type": "color",
+    "comment": "Used if a icon element is disabled."
+  },
+  "icon-highlight": {
+    "value": "{core-customer-color-dark-3-default}",
+    "type": "color",
+    "comment": "Used to highlight icons."
+  },
+  "icon-critical": {
+    "value": "{core-status-dark-critical-default}",
+    "type": "color",
+    "comment": "Used as critical icon color"
+  },
+  "icon-warning": {
+    "value": "{core-status-dark-warning-default}",
+    "type": "color",
+    "comment": "Used as warning icon color"
+  },
+  "icon-success": {
+    "value": "{core-status-dark-success-default}",
+    "type": "color",
+    "comment": "Used as success icon color"
+  },
+  "icon-info": {
+    "value": "{core-status-dark-info-default}",
+    "type": "color",
+    "comment": "Used as info icon color"
+  },
+  "icon-on-action-primary": {
+    "value": "{core-on-customer-color-dark-1}",
+    "type": "color",
+    "comment": "Used as a icon color on containers with action primary color."
+  },
+  "icon-on-surface-highlight": {
+    "value": "{core-on-customer-color-dark-2}",
+    "type": "color",
+    "comment": "Used as icon color on containers with highlight color."
+  },
+  "icon-on-status": {
+    "value": "{core-gray-black}",
+    "type": "color",
+    "comment": "Used as a icon color on containers with a status color."
+  },
+  "icon-on-image": {
+    "value": "{core-gray-white}",
+    "type": "color",
+    "comment": "Used as a icon color on “Surface On Image/Default”."
+  },
+  "action-primary-default": {
+    "value": "{core-customer-color-dark-1-default}",
+    "type": "color",
+    "comment": "Used for containers that are high emphasis action elements."
+  },
+  "action-primary-hovered": {
+    "value": "{core-customer-color-dark-1-hovered}",
+    "type": "color",
+    "comment": "Used if a component with “Action Primary/Default” has a hovered state."
+  },
+  "action-primary-pressed": {
+    "value": "{core-customer-color-dark-1-pressed}",
+    "type": "color",
+    "comment": "Used if a component with “Action Primary/Default” has a pressed state."
+  },
+  "action-primary-disabled": {
+    "value": "{core-gray-10}",
+    "type": "color",
+    "comment": "Used if a component with “Action Primary/Default” has a disabled state."
+  },
+  "action-neutral-default": {
+    "value": "{core-gray-10}",
+    "type": "color",
+    "comment": "Used for containers that are low emphasis action elements."
+  },
+  "action-neutral-hovered": {
+    "value": "{core-gray-09}",
+    "type": "color",
+    "comment": "Used if a component with “Action Neutral/Default” has a hovered state."
+  },
+  "action-neutral-pressed": {
+    "value": "{core-gray-08}",
+    "type": "color",
+    "comment": "Used if a component with “Action Neutral/Default” has a pressed state."
+  },
+  "action-neutral-disabled": {
+    "value": "{core-gray-10}",
+    "type": "color",
+    "comment": "Used if a component with “Action Neutral/Default” has a disabled state."
+  },
+  "interactive-primary-default": {
+    "value": "{core-customer-color-dark-3-default}",
+    "type": "color",
+    "comment": "Used for icon and text that are high emphasis interactive elements."
+  },
+  "interactive-primary-hovered": {
+    "value": "{core-customer-color-dark-3-hovered}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Primary/Default” has a hovered state."
+  },
+  "interactive-primary-pressed": {
+    "value": "{core-customer-color-dark-3-pressed}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Primary/Default” has a pressed state."
+  },
+  "interactive-primary-disabled": {
+    "value": "{core-gray-07}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Primary/Default” has a disabled state."
+  },
+  "interactive-neutral-default": {
+    "value": "{core-gray-05}",
+    "type": "color",
+    "comment": "Used for icon and text that are low emphasis interactive elements."
+  },
+  "interactive-neutral-hovered": {
+    "value": "{core-gray-06}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Neutral/Default” has a hovered state."
+  },
+  "interactive-neutral-pressed": {
+    "value": "{core-gray-06}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Neutral/Default” has a pressed state."
+  },
+  "interactive-neutral-disabled": {
+    "value": "{core-gray-07}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Neutral/Default” has a disabled state."
+  },
+  "focus-default": {
+    "value": "{core-customer-color-dark-3-default}",
+    "type": "color"
+  },
+  "decorative-1-default": {
+    "value": "{core-decorative-dark-1-default}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-2-default": {
+    "value": "{core-decorative-dark-2-default}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-3-default": {
+    "value": "{core-decorative-dark-3-default}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-4-default": {
+    "value": "{core-decorative-dark-4-default}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-5-default": {
+    "value": "{core-decorative-dark-5-default}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-6-default": {
+    "value": "{core-decorative-dark-6-default}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-7-default": {
+    "value": "{core-decorative-dark-7-default}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  }
+}
