@@ -87,8 +87,9 @@
 .checkbox__control {
   position: relative;
   top: 0.125rem;
-  width: 1.125rem;
-  height: 1.125rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: var(--s-space-05);
   flex-shrink: 0;
 
   &:hover {
@@ -142,8 +143,8 @@
 .checkbox__label-container {
   display: inline-flex;
   margin-left: var(--s-space-3);
+  padding-top: 0.3125rem;
   flex-direction: column;
-  padding-top: 0.125rem;
 }
 
 .checkbox__label {

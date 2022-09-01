@@ -141,271 +141,271 @@
     "type": "textDecoration"
   },
   "core-gray-10": {
-    "value": "#2a2b2d",
+    "value": "rgba(42, 43, 45, 1)",
     "type": "color"
   },
   "core-gray-11": {
-    "value": "#232426",
+    "value": "rgba(35, 36, 38, 1)",
     "type": "color"
   },
   "core-gray-12": {
-    "value": "#191a1c",
+    "value": "rgba(25, 26, 28, 1)",
     "type": "color"
   },
   "core-gray-black": {
-    "value": "#000000",
+    "value": "rgba(0, 0, 0, 1)",
     "type": "color"
   },
   "core-gray-09": {
-    "value": "#323335",
+    "value": "rgba(50, 51, 53, 1)",
     "type": "color"
   },
   "core-gray-08": {
-    "value": "#3a3b3d",
+    "value": "rgba(58, 59, 61, 1)",
     "type": "color"
   },
   "core-gray-07": {
-    "value": "#4f5054",
+    "value": "rgba(79, 80, 84, 1)",
     "type": "color"
   },
   "core-gray-06": {
-    "value": "#6d6e72",
+    "value": "rgba(109, 110, 114, 1)",
     "type": "color"
   },
   "core-gray-05": {
-    "value": "#a1a2a5",
+    "value": "rgba(161, 162, 165, 1)",
     "type": "color"
   },
   "core-gray-04": {
-    "value": "#cccdd1",
+    "value": "rgba(204, 205, 209, 1)",
     "type": "color"
   },
   "core-gray-03": {
-    "value": "#dddee0",
+    "value": "rgba(221, 222, 224, 1)",
     "type": "color"
   },
   "core-gray-02": {
-    "value": "#e8e9eb",
+    "value": "rgba(232, 233, 235, 1)",
     "type": "color"
   },
   "core-gray-01": {
-    "value": "#f2f3f5",
+    "value": "rgba(242, 243, 245, 1)",
     "type": "color"
   },
   "core-gray-white": {
-    "value": "#ffffff",
+    "value": "rgba(255, 255, 255, 1)",
     "type": "color"
   },
   "core-customer-color-light-1-hovered": {
-    "value": "#26e6b9",
+    "value": "rgba(38, 230, 185, 1)",
     "type": "color"
   },
   "core-customer-color-light-1-default": {
-    "value": "#00e2ad",
+    "value": "rgba(0, 226, 173, 1)",
     "type": "color"
   },
   "core-customer-color-light-1-pressed": {
-    "value": "#4debc6",
+    "value": "rgba(77, 235, 198, 1)",
     "type": "color"
   },
   "core-customer-color-light-2-default": {
-    "value": "#0026ff",
+    "value": "rgba(0, 38, 255, 1)",
     "type": "color"
   },
   "core-customer-color-light-2-hovered": {
-    "value": "#2647ff",
+    "value": "rgba(38, 71, 255, 1)",
     "type": "color"
   },
   "core-customer-color-light-2-pressed": {
-    "value": "#4d67ff",
+    "value": "rgba(77, 103, 255, 1)",
     "type": "color"
   },
   "core-customer-color-light-3-default": {
-    "value": "#003daf",
+    "value": "rgba(0, 61, 175, 1)",
     "type": "color"
   },
   "core-customer-color-light-3-hovered": {
-    "value": "#265abb",
+    "value": "rgba(38, 90, 187, 1)",
     "type": "color"
   },
   "core-customer-color-light-3-pressed": {
-    "value": "#4d77c7",
+    "value": "rgba(77, 119, 199, 1)",
     "type": "color"
   },
   "core-on-customer-color-light-1": {
-    "value": "#000d57",
+    "value": "rgba(0, 13, 87, 1)",
     "type": "color"
   },
   "core-on-customer-color-light-2": {
-    "value": "#befff0",
+    "value": "rgba(190, 255, 240, 1)",
     "type": "color"
   },
   "core-customer-color-dark-1-default": {
-    "value": "#8eebe2",
+    "value": "rgba(142, 235, 226, 1)",
     "type": "color"
   },
   "core-customer-color-dark-1-hovered": {
-    "value": "#79c8c0",
+    "value": "rgba(121, 200, 192, 1)",
     "type": "color"
   },
   "core-customer-color-dark-1-pressed": {
-    "value": "#63a49e",
+    "value": "rgba(99, 164, 158, 1)",
     "type": "color"
   },
   "core-customer-color-dark-2-default": {
-    "value": "#7394d3",
+    "value": "rgba(115, 148, 211, 1)",
     "type": "color"
   },
   "core-customer-color-dark-2-hovered": {
-    "value": "#627eb3",
+    "value": "rgba(98, 126, 179, 1)",
     "type": "color"
   },
   "core-customer-color-dark-2-pressed": {
-    "value": "#506894",
+    "value": "rgba(80, 104, 148, 1)",
     "type": "color"
   },
   "core-customer-color-dark-3-default": {
-    "value": "#7394d3",
+    "value": "rgba(115, 148, 211, 1)",
     "type": "color"
   },
   "core-customer-color-dark-3-hovered": {
-    "value": "#627eb3",
+    "value": "rgba(98, 126, 179, 1)",
     "type": "color"
   },
   "core-customer-color-dark-3-pressed": {
-    "value": "#506894",
+    "value": "rgba(80, 104, 148, 1)",
     "type": "color"
   },
   "core-on-customer-color-dark-1": {
-    "value": "#000000",
+    "value": "rgba(0, 0, 0, 1)",
     "type": "color"
   },
   "core-on-customer-color-dark-2": {
-    "value": "#000000",
+    "value": "rgba(0, 0, 0, 1)",
     "type": "color"
   },
   "core-status-light-critical-default": {
-    "value": "#d50636",
+    "value": "rgba(213, 6, 54, 1)",
     "type": "color"
   },
   "core-status-light-critical-subdued": {
-    "value": "#fce7ed",
+    "value": "rgba(252, 231, 237, 1)",
     "type": "color"
   },
   "core-status-light-success-default": {
-    "value": "#088108",
+    "value": "rgba(8, 129, 8, 1)",
     "type": "color"
   },
   "core-status-light-success-subdued": {
-    "value": "#dcf7dc",
+    "value": "rgba(220, 247, 220, 1)",
     "type": "color"
   },
   "core-status-light-info-default": {
-    "value": "#145af5",
+    "value": "rgba(20, 90, 245, 1)",
     "type": "color"
   },
   "core-status-light-info-subdued": {
-    "value": "#e6f1ff",
+    "value": "rgba(230, 241, 255, 1)",
     "type": "color"
   },
   "core-status-light-warning-strong": {
-    "value": "#935806",
+    "value": "rgba(147, 88, 6, 1)",
     "type": "color"
   },
   "core-status-light-warning-default": {
-    "value": "#f3b703",
+    "value": "rgba(243, 183, 3, 1)",
     "type": "color"
   },
   "core-status-light-warning-subdued": {
-    "value": "#faf1c8",
+    "value": "rgba(250, 241, 200, 1)",
     "type": "color"
   },
   "core-status-dark-info-default": {
-    "value": "#73a7f2",
+    "value": "rgba(115, 167, 242, 1)",
     "type": "color"
   },
   "core-status-dark-info-subdued": {
-    "value": "#102648",
+    "value": "rgba(16, 38, 72, 1)",
     "type": "color"
   },
   "core-status-dark-success-default": {
-    "value": "#68c468",
+    "value": "rgba(104, 196, 104, 1)",
     "type": "color"
   },
   "core-status-dark-success-subdued": {
-    "value": "#123a12",
+    "value": "rgba(18, 58, 18, 1)",
     "type": "color"
   },
   "core-status-dark-warning-default": {
-    "value": "#f9c763",
+    "value": "rgba(249, 199, 99, 1)",
     "type": "color"
   },
   "core-status-dark-warning-subdued": {
-    "value": "#392e11",
+    "value": "rgba(57, 46, 17, 1)",
     "type": "color"
   },
   "core-status-dark-critical-default": {
-    "value": "#fb6486",
+    "value": "rgba(251, 100, 134, 1)",
     "type": "color"
   },
   "core-status-dark-critical-subdued": {
-    "value": "#470e1b",
+    "value": "rgba(71, 14, 27, 1)",
     "type": "color"
   },
   "core-decorative-light-1-default": {
-    "value": "#ff574d",
+    "value": "rgba(255, 87, 77, 1)",
     "type": "color"
   },
   "core-decorative-light-2-default": {
-    "value": "#ff8340",
+    "value": "rgba(255, 131, 64, 1)",
     "type": "color"
   },
   "core-decorative-light-3-default": {
-    "value": "#f6c431",
+    "value": "rgba(246, 196, 49, 1)",
     "type": "color"
   },
   "core-decorative-light-4-default": {
-    "value": "#eb84a1",
+    "value": "rgba(235, 132, 161, 1)",
     "type": "color"
   },
   "core-decorative-light-5-default": {
-    "value": "#9632fa",
+    "value": "rgba(150, 50, 250, 1)",
     "type": "color"
   },
   "core-decorative-light-6-default": {
-    "value": "#60b29c",
+    "value": "rgba(96, 178, 156, 1)",
     "type": "color"
   },
   "core-decorative-light-7-default": {
-    "value": "#3387ff",
+    "value": "rgba(51, 135, 255, 1)",
     "type": "color"
   },
   "core-decorative-dark-1-default": {
-    "value": "#ff6e66",
+    "value": "rgba(255, 110, 102, 1)",
     "type": "color"
   },
   "core-decorative-dark-2-default": {
-    "value": "#ffa473",
+    "value": "rgba(255, 164, 115, 1)",
     "type": "color"
   },
   "core-decorative-dark-3-default": {
-    "value": "#f9da7a",
+    "value": "rgba(249, 218, 122, 1)",
     "type": "color"
   },
   "core-decorative-dark-4-default": {
-    "value": "#eb84a1",
+    "value": "rgba(235, 132, 161, 1)",
     "type": "color"
   },
   "core-decorative-dark-5-default": {
-    "value": "#bc7dfc",
+    "value": "rgba(188, 125, 252, 1)",
     "type": "color"
   },
   "core-decorative-dark-6-default": {
-    "value": "#94cbbc",
+    "value": "rgba(148, 203, 188, 1)",
     "type": "color"
   },
   "core-decorative-dark-7-default": {
-    "value": "#66a6ff",
+    "value": "rgba(102, 166, 255, 1)",
     "type": "color"
   },
   "background-default": {
@@ -539,17 +539,17 @@
     "comment": "Used for low prio neutral background."
   },
   "surface-on-image-default": {
-    "value": "rgba(0, 0, 0, 0.4)",
+    "value": "rgba(NaN, 186, NaN, NaN)",
     "type": "color",
     "comment": "Usually used for containers on images"
   },
   "border-strong": {
-    "value": "rgba(0, 6, 29, 0.18)",
+    "value": "rgba(NaN, 186, NaN, NaN)",
     "type": "color",
     "comment": "Usually used for high emphasis borders."
   },
   "border-default": {
-    "value": "rgba(0, 6, 29, 0.09)",
+    "value": "rgba(NaN, 186, NaN, NaN)",
     "type": "color",
     "comment": "Usually used for low emphasis borders and espacially divider elements."
   },
@@ -579,7 +579,7 @@
     "comment": "Usally used as an border on info components."
   },
   "border-on-highlight": {
-    "value": "rgba(190, 255, 240, 0.2)",
+    "value": "rgba(NaN, 186, NaN, 0.56)",
     "type": "color",
     "comment": "Used as border color on containers that have an highlight surface"
   },
