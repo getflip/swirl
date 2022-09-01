@@ -28,6 +28,7 @@ export class FlipAvatar {
   @Prop() initials?: string;
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
+  @Prop() showLabel?: boolean = false;
   @Prop() size?: FlipAvatarSize = "m";
   @Prop() src?: string;
   @Prop() variant?: FlipAvatarVariant = "round";
@@ -105,7 +106,7 @@ export class FlipAvatar {
         role={role}
         tabIndex={this.interactive ? 0 : undefined}
       >
-        <span class={className}>
+        <span class={className} part="avatar">
           {showImage && (
             <span class="avatar__image">
               <img
@@ -119,7 +120,9 @@ export class FlipAvatar {
             </span>
           )}
           {showInitials && (
-            <span class="avatar__initials">{this.initials}</span>
+            <span class="avatar__initials">
+              <span>{this.initials}</span>
+            </span>
           )}
           {showIcon && <span class="avatar__icon" innerHTML={this.icon}></span>}
           {showFallbackIcon && (
@@ -131,6 +134,12 @@ export class FlipAvatar {
             <span class={badgeClassName} innerHTML={this.badge}></span>
           )}
         </span>
+
+        {this.showLabel && (
+          <span aria-hidden class="avatar__label">
+            {this.label}
+          </span>
+        )}
       </Host>
     );
   }

@@ -41,6 +41,10 @@
           "description": ""
         },
         {
+          "name": "show-label",
+          "description": ""
+        },
+        {
           "name": "size",
           "description": "",
           "values": [
@@ -196,6 +200,98 @@
               "name": "submit"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "flip-checkbox",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "checked",
+          "description": "",
+          "values": [
+            {
+              "name": "false"
+            },
+            {
+              "name": "indeterminate"
+            },
+            {
+              "name": "true"
+            }
+          ]
+        },
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "input-id",
+          "description": ""
+        },
+        {
+          "name": "input-name",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-chip",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "avatar",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "success"
+            }
+          ]
+        },
+        {
+          "name": "interactive",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
         }
       ]
     },
@@ -1028,6 +1124,66 @@
         {
           "name": "size",
           "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-spinner",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flip-tooltip",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "content",
+          "description": ""
+        },
+        {
+          "name": "delay",
+          "description": ""
+        },
+        {
+          "name": "position",
+          "description": "",
+          "values": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "left"
+            },
+            {
+              "name": "right"
+            },
+            {
+              "name": "top"
+            }
+          ]
         }
       ]
     },

@@ -1,0 +1,44 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipTooltip" />
+
+# FlipTooltip
+
+The FlipTooltip component is used to display a popup with information related to
+an element.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=70%3A6194)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-tooltip)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-fliptooltip--flip-tooltip" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                      | Usage            |
+| ----------------------------- | ---------------- |
+| `--s-surface-neutral-default` | Background color |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Tooltip Widget Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)
+(WIP).
+
+| ARIA               | Usage                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `role="tooltip"`   | The tooltip container has the `tooltip` role.                                                                |
+| `aria-describedby` | The element that triggers the tooltip gets the `aria-describedby` attribute referencing the tooltip element. |
+
+### Keyboard
+
+| Key            | Action                 |
+| -------------- | ---------------------- |
+| <kbd>ESC</kbd> | Dismisses the tooltip. |

@@ -1,0 +1,43 @@
+:host {
+  display: inline-flex;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.tooltip {
+  display: inline-flex;
+}
+
+.tooltip .tooltip__reference {
+  display: inline-flex;
+}
+
+.tooltip__popper {
+  position: fixed;
+  z-index: var(--s-z-40);
+  max-width: 17.5rem;
+}
+
+.tooltip__bubble {
+  position: relative;
+  display: block;
+  padding-top: var(--s-space-8);
+  padding-right: var(--s-space-12);
+  padding-bottom: var(--s-space-8);
+  padding-left: var(--s-space-12);
+  border-radius: var(--s-border-radius-sm);
+  color: var(--s-text-on-status);
+  background-color: var(--s-surface-neutral-default);
+  font-size: var(--s-font-size-sm);
+  line-height: 1.4;
+  backgrund-color: red;
+}
+
+.tooltip__arrow {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--s-surface-neutral-default);
+}
