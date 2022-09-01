@@ -11,7 +11,9 @@ import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
+import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
+import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
 import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
@@ -252,9 +254,21 @@ export namespace Components {
     interface FlipIconVisibilityOff {
         "size": FlipIconSize;
     }
+    interface FlipInlineError {
+        "message": string;
+        "size"?: FlipInlineErrorSize;
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
+    }
+    interface FlipStack {
+        "align"?: FlipStackAlign;
+        "as"?: string;
+        "justify"?: FlipStackJustify;
+        "orientation"?: FlipStackOrientation;
+        "spacing"?: FlipStackSpacing;
+        "wrap"?: boolean;
     }
     interface FlipSwitch {
         "checked"?: boolean;
@@ -702,11 +716,23 @@ declare global {
         prototype: HTMLFlipIconVisibilityOffElement;
         new (): HTMLFlipIconVisibilityOffElement;
     };
+    interface HTMLFlipInlineErrorElement extends Components.FlipInlineError, HTMLStencilElement {
+    }
+    var HTMLFlipInlineErrorElement: {
+        prototype: HTMLFlipInlineErrorElement;
+        new (): HTMLFlipInlineErrorElement;
+    };
     interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
     }
     var HTMLFlipSpinnerElement: {
         prototype: HTMLFlipSpinnerElement;
         new (): HTMLFlipSpinnerElement;
+    };
+    interface HTMLFlipStackElement extends Components.FlipStack, HTMLStencilElement {
+    }
+    var HTMLFlipStackElement: {
+        prototype: HTMLFlipStackElement;
+        new (): HTMLFlipStackElement;
     };
     interface HTMLFlipSwitchElement extends Components.FlipSwitch, HTMLStencilElement {
     }
@@ -797,7 +823,9 @@ declare global {
         "flip-icon-user-assign": HTMLFlipIconUserAssignElement;
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
+        "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-spinner": HTMLFlipSpinnerElement;
+        "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
         "flip-tooltip": HTMLFlipTooltipElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
@@ -1042,9 +1070,21 @@ declare namespace LocalJSX {
     interface FlipIconVisibilityOff {
         "size"?: FlipIconSize;
     }
+    interface FlipInlineError {
+        "message": string;
+        "size"?: FlipInlineErrorSize;
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
+    }
+    interface FlipStack {
+        "align"?: FlipStackAlign;
+        "as"?: string;
+        "justify"?: FlipStackJustify;
+        "orientation"?: FlipStackOrientation;
+        "spacing"?: FlipStackSpacing;
+        "wrap"?: boolean;
     }
     interface FlipSwitch {
         "checked"?: boolean;
@@ -1134,7 +1174,9 @@ declare namespace LocalJSX {
         "flip-icon-user-assign": FlipIconUserAssign;
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
+        "flip-inline-error": FlipInlineError;
         "flip-spinner": FlipSpinner;
+        "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
         "flip-tooltip": FlipTooltip;
         "flip-visually-hidden": FlipVisuallyHidden;
@@ -1214,7 +1256,9 @@ declare module "@stencil/core" {
             "flip-icon-user-assign": LocalJSX.FlipIconUserAssign & JSXBase.HTMLAttributes<HTMLFlipIconUserAssignElement>;
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
+            "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
+            "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
