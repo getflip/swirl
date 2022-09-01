@@ -29,6 +29,8 @@
 
   & .toast__icon,
   & .toast__dismiss-button {
+    color: var(--s-text-default);
+
     & ::part(icon) {
       color: var(--s-icon-strong);
     }
