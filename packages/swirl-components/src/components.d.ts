@@ -26,6 +26,9 @@ export namespace Components {
         "src"?: string;
         "variant"?: FlipAvatarVariant;
     }
+    interface FlipAvatarGroup {
+        "badge"?: string;
+    }
     interface FlipBadge {
         "icon"?: string;
         "intent"?: FlipBadgeIntent;
@@ -270,6 +273,12 @@ declare global {
     var HTMLFlipAvatarElement: {
         prototype: HTMLFlipAvatarElement;
         new (): HTMLFlipAvatarElement;
+    };
+    interface HTMLFlipAvatarGroupElement extends Components.FlipAvatarGroup, HTMLStencilElement {
+    }
+    var HTMLFlipAvatarGroupElement: {
+        prototype: HTMLFlipAvatarGroupElement;
+        new (): HTMLFlipAvatarGroupElement;
     };
     interface HTMLFlipBadgeElement extends Components.FlipBadge, HTMLStencilElement {
     }
@@ -699,6 +708,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "flip-avatar": HTMLFlipAvatarElement;
+        "flip-avatar-group": HTMLFlipAvatarGroupElement;
         "flip-badge": HTMLFlipBadgeElement;
         "flip-button": HTMLFlipButtonElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
@@ -784,6 +794,9 @@ declare namespace LocalJSX {
         "size"?: FlipAvatarSize;
         "src"?: string;
         "variant"?: FlipAvatarVariant;
+    }
+    interface FlipAvatarGroup {
+        "badge"?: string;
     }
     interface FlipBadge {
         "icon"?: string;
@@ -1021,6 +1034,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "flip-avatar": FlipAvatar;
+        "flip-avatar-group": FlipAvatarGroup;
         "flip-badge": FlipBadge;
         "flip-button": FlipButton;
         "flip-checkbox": FlipCheckbox;
@@ -1099,6 +1113,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
+            "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;

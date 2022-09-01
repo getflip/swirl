@@ -87,6 +87,19 @@
       ]
     },
     {
+      "name": "flip-avatar-group",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "badge",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-badge",
       "description": {
         "kind": "markdown",
