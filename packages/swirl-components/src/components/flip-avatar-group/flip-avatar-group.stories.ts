@@ -4,7 +4,13 @@ import Docs from "./flip-avatar-group.mdx";
 export default {
   argTypes: {
     badge: {
-      description: "Only pass a single <flip-badge /> element as value.",
+      table: {
+        type: {
+          detail:
+            'e.g. <flip-badge aria-label="3 new messages" label="3" size="s"><flip-badge>',
+          summary: "flip-badge",
+        },
+      },
     },
   },
   component: "flip-avatar-group",
