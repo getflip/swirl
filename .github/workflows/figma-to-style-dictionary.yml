@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js environment
-        - uses: actions/setup-node@v3
+        uses: actions/setup-node@v3
           with:
             node-version: 16
       # Transform Figma Tokens JSON to something Style Dictionary can read + generate Style Dictionary output
