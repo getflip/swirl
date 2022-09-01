@@ -23,24 +23,6 @@
   background-color: var(--s-surface-success-default);
 }
 
-.toast--intent-warning {
-  color: var(--s-text-default);
-  background-color: var(--s-surface-warning-default);
-
-  & .toast__icon,
-  & .toast__dismiss-button {
-    color: var(--s-text-default);
-
-    & ::part(icon) {
-      color: var(--s-icon-strong);
-    }
-  }
-}
-
-.toast--intent-info {
-  background-color: var(--s-surface-info-default);
-}
-
 .toast__icon {
   display: inline-flex;
   margin-top: calc(-1 * var(--s-space-2));

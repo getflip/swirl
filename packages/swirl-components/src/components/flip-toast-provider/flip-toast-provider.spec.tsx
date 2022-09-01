@@ -20,7 +20,7 @@ describe("flip-toast-provider", () => {
       content: "Toast 2",
       dismissLabel: "Dismiss",
       icon: "<lip-icon-mail></flip-icon-mail>",
-      intent: "warning",
+      intent: "success",
       toastId: "toast-2",
     });
 
@@ -31,7 +31,7 @@ describe("flip-toast-provider", () => {
         <mock:shadow-root>
           <flip-stack spacing="12">
             <flip-toast content="Toast 1" toastid="toast-1"></flip-toast>
-            <flip-toast content="Toast 2" dismisslabel="Dismiss" icon="<lip-icon-mail></flip-icon-mail>" intent="warning" toastid="toast-2"></flip-toast>
+            <flip-toast content="Toast 2" dismisslabel="Dismiss" icon="<lip-icon-mail></flip-icon-mail>" intent="success" toastid="toast-2"></flip-toast>
           </flip-stack>
         </mock:shadow-root>
       </flip-toast-provider>

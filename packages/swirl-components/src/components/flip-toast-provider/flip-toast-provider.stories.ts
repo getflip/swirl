@@ -36,13 +36,7 @@ const Template = () => {
     "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.",
   ];
 
-  const intents: FlipToastIntent[] = [
-    "default",
-    "critical",
-    "success",
-    "info",
-    "warning",
-  ];
+  const intents: FlipToastIntent[] = ["default", "critical", "success"];
 
   const container = document.createElement("div");
   const createButton = document.createElement("flip-button");

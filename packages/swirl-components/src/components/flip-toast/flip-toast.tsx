@@ -9,12 +9,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipToastIntent =
-  | "default"
-  | "critical"
-  | "success"
-  | "warning"
-  | "info";
+export type FlipToastIntent = "default" | "critical" | "success";
 
 @Component({
   shadow: true,

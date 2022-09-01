@@ -1316,13 +1316,7 @@
               "name": "default"
             },
             {
-              "name": "info"
-            },
-            {
               "name": "success"
-            },
-            {
-              "name": "warning"
             }
           ]
         },
