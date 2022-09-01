@@ -243,6 +243,46 @@
       ]
     },
     {
+      "name": "flip-chip",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "avatar",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "success"
+            }
+          ]
+        },
+        {
+          "name": "interactive",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-add",
       "description": {
         "kind": "markdown",
@@ -1133,6 +1173,31 @@
         {
           "name": "value",
           "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-spinner",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
         }
       ]
     },

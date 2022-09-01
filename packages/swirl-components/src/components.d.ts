@@ -9,8 +9,10 @@ import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./co
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipButtonType } from "./components/flip-button/flip-button";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
+import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
+import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
     interface FlipAvatar {
@@ -47,6 +49,13 @@ export namespace Components {
         "invalid"?: boolean;
         "label"?: string;
         "value"?: string;
+    }
+    interface FlipChip {
+        "avatar"?: string;
+        "icon"?: string;
+        "intent"?: FlipChipIntent;
+        "interactive"?: boolean;
+        "label": string;
     }
     interface FlipIconAdd {
         "size": FlipIconSize;
@@ -253,6 +262,10 @@ export namespace Components {
     interface FlipRadioGroup {
         "value"?: string;
     }
+    interface FlipSpinner {
+        "label"?: string;
+        "size"?: FlipSpinnerSize;
+    }
     interface FlipTooltip {
         "content": string;
         "delay"?: number;
@@ -297,6 +310,12 @@ declare global {
     var HTMLFlipCheckboxElement: {
         prototype: HTMLFlipCheckboxElement;
         new (): HTMLFlipCheckboxElement;
+    };
+    interface HTMLFlipChipElement extends Components.FlipChip, HTMLStencilElement {
+    }
+    var HTMLFlipChipElement: {
+        prototype: HTMLFlipChipElement;
+        new (): HTMLFlipChipElement;
     };
     interface HTMLFlipIconAddElement extends Components.FlipIconAdd, HTMLStencilElement {
     }
@@ -694,6 +713,12 @@ declare global {
         prototype: HTMLFlipRadioGroupElement;
         new (): HTMLFlipRadioGroupElement;
     };
+    interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
+    }
+    var HTMLFlipSpinnerElement: {
+        prototype: HTMLFlipSpinnerElement;
+        new (): HTMLFlipSpinnerElement;
+    };
     interface HTMLFlipTooltipElement extends Components.FlipTooltip, HTMLStencilElement {
     }
     var HTMLFlipTooltipElement: {
@@ -711,6 +736,7 @@ declare global {
         "flip-badge": HTMLFlipBadgeElement;
         "flip-button": HTMLFlipButtonElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
+        "flip-chip": HTMLFlipChipElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
         "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
@@ -777,6 +803,7 @@ declare global {
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
+        "flip-spinner": HTMLFlipSpinnerElement;
         "flip-tooltip": HTMLFlipTooltipElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
@@ -817,6 +844,13 @@ declare namespace LocalJSX {
         "label"?: string;
         "onValueChange"?: (event: FlipCheckboxCustomEvent<boolean>) => void;
         "value"?: string;
+    }
+    interface FlipChip {
+        "avatar"?: string;
+        "icon"?: string;
+        "intent"?: FlipChipIntent;
+        "interactive"?: boolean;
+        "label": string;
     }
     interface FlipIconAdd {
         "size"?: FlipIconSize;
@@ -1025,6 +1059,10 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: FlipRadioGroupCustomEvent<string>) => void;
         "value"?: string;
     }
+    interface FlipSpinner {
+        "label"?: string;
+        "size"?: FlipSpinnerSize;
+    }
     interface FlipTooltip {
         "content": string;
         "delay"?: number;
@@ -1037,6 +1075,7 @@ declare namespace LocalJSX {
         "flip-badge": FlipBadge;
         "flip-button": FlipButton;
         "flip-checkbox": FlipCheckbox;
+        "flip-chip": FlipChip;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
         "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
@@ -1103,6 +1142,7 @@ declare namespace LocalJSX {
         "flip-icon-visibility-off": FlipIconVisibilityOff;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
+        "flip-spinner": FlipSpinner;
         "flip-tooltip": FlipTooltip;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
@@ -1115,6 +1155,7 @@ declare module "@stencil/core" {
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
+            "flip-chip": LocalJSX.FlipChip & JSXBase.HTMLAttributes<HTMLFlipChipElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
             "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
@@ -1181,6 +1222,7 @@ declare module "@stencil/core" {
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
+            "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }
