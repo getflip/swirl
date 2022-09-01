@@ -3,6 +3,16 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./flip-badge.mdx";
 
 export default {
+  argTypes: {
+    icon: {
+      table: {
+        type: {
+          detail: "e.g. <flip-icon-close></flip-icon-close>",
+          summary: "flip-icon-*",
+        },
+      },
+    },
+  },
   component: "flip-badge",
   parameters: {
     docs: {

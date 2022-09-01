@@ -1,5 +1,5 @@
 {
-  "source": ["tokens/*.json", "tokens/light/*.json"],
+  "source": ["./tokens/tokens.light.json"],
   "platforms": {
     "css": {
       "transformGroup": "css",
@@ -7,7 +7,7 @@
       "buildPath": "dist/css/",
       "files": [
         {
-          "destination": "styles.custom-properties.css",
+          "destination": "styles.light.custom-properties.css",
           "format": "css/variables-design-token-comments"
         }
       ]
@@ -19,7 +19,7 @@
       "files": [
         {
           "className": "SwirlDesignTokens",
-          "destination": "styles.dart",
+          "destination": "styles.light.dart",
           "format": "flutter/class.dart"
         }
       ]
@@ -29,7 +29,7 @@
       "buildPath": "dist/",
       "files": [
         {
-          "destination": "styles.json",
+          "destination": "styles.light.json",
           "format": "json"
         }
       ]
@@ -40,7 +40,7 @@
       "buildPath": "dist/less/",
       "files": [
         {
-          "destination": "styles.less",
+          "destination": "styles.light.less",
           "format": "less/variables"
         }
       ]
@@ -51,7 +51,7 @@
       "buildPath": "dist/scss/",
       "files": [
         {
-          "destination": "styles.scss",
+          "destination": "styles.light.scss",
           "format": "scss/variables"
         }
       ]

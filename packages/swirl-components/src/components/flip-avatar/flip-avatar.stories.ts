@@ -4,8 +4,22 @@ import Docs from "./flip-avatar.mdx";
 export default {
   argTypes: {
     badge: {
-      description:
-        'Visible with default size "m". Only pass a single <flip-badge /> element as value.',
+      description: 'Visible with default size "m".',
+      table: {
+        type: {
+          detail:
+            'e.g. <flip-badge aria-label="3 new messages" label="3" size="s"></flip-badge>',
+          summary: "flip-badge",
+        },
+      },
+    },
+    icon: {
+      table: {
+        type: {
+          detail: "e.g. <flip-icon-close></flip-icon-close>",
+          summary: "flip-icon-*",
+        },
+      },
     },
   },
   component: "flip-avatar",
@@ -27,7 +41,7 @@ export const FlipAvatar = Template.bind({});
 
 FlipAvatar.args = {
   badge:
-    '<flip-badge aria-label="3 new messages" label="3" size="s"><flip-badge>',
+    '<flip-badge aria-label="3 new messages" label="3" size="s"></flip-badge>',
   label: "John Doe",
   src: "https://picsum.photos/id/433/144/144",
 };
