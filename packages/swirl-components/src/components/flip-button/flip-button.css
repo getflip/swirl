@@ -11,8 +11,8 @@
   display: inline-flex;
   max-width: 100%;
   height: 2.5rem;
-  gap: var(--s-space-1);
-  padding: var(--s-space-2) var(--s-space-4);
+  padding-right: var(--s-space-16);
+  padding-left: var(--s-space-16);
   align-items: center;
   border: none;
   border-radius: 0.75rem;
@@ -21,6 +21,7 @@
   font: inherit;
   font-weight: var(--s-font-weight-medium);
   cursor: pointer;
+  gap: var(--s-space-4);
 
   &:disabled {
     color: var(--s-text-disabled);
@@ -29,13 +30,13 @@
   }
 
   &:focus {
-    outline-color: var(--s-focus);
+    outline-color: var(--s-focus-default);
   }
 }
 
 .button__left-icon {
   display: inline-flex;
-  margin-left: calc(-1 * var(--s-space-1));
+  margin-left: calc(-1 * var(--s-space-4));
 }
 
 .button__label {

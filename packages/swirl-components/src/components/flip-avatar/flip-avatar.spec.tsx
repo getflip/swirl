@@ -12,7 +12,7 @@ describe("flip-avatar", () => {
     expect(page.root).toEqualHtml(`
       <flip-avatar aria-label="John Doe" label="John Doe" role="img">
         <mock:shadow-root>
-          <span class="avatar avatar--has-icon avatar--size-m avatar--variant-round">
+          <span class="avatar avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
               <flip-icon-person></flip-icon-person>
             </span>
@@ -38,7 +38,7 @@ describe("flip-avatar", () => {
     expect(page.root).toEqualHtml(`
       <flip-avatar aria-label="John Doe" label="John Doe" role="img" src="https://">
         <mock:shadow-root>
-          <span class="avatar avatar--size-m avatar--variant-round">
+          <span class="avatar avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__image">
               <img alt="" height="40" src="https://" width="40">
             </span>
@@ -57,9 +57,11 @@ describe("flip-avatar", () => {
     expect(page.root).toEqualHtml(`
       <flip-avatar aria-label="John Doe" initials="JD" label="John Doe" role="img">
         <mock:shadow-root>
-          <span class="avatar avatar--has-initials avatar--size-m avatar--variant-round">
+          <span class="avatar avatar--has-initials avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__initials">
-              JD
+              <span>
+                JD
+              </span>
             </span>
           </span>
         </mock:shadow-root>
@@ -76,7 +78,7 @@ describe("flip-avatar", () => {
     expect(page.root).toEqualHtml(`
       <flip-avatar aria-label="John Doe" icon="<flip-icon-close></flip-icon-close>" label="John Doe" role="img">
         <mock:shadow-root>
-          <span class="avatar avatar--has-icon avatar--size-m avatar--variant-round">
+          <span class="avatar avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
               <flip-icon-close></flip-icon-close>
             </span>
@@ -93,7 +95,7 @@ describe("flip-avatar", () => {
     });
 
     expect(
-      pageWithInitials.root.shadowRoot.querySelector(".avatar__initials")
+      pageWithInitials.root.shadowRoot.querySelector(".avatar__initials > span")
         .innerHTML
     ).toBe("JD");
 
@@ -141,7 +143,7 @@ describe("flip-avatar", () => {
     expect(page.root).toEqualHtml(`
       <flip-avatar aria-label="John Doe" badge="<flip-badge aria-label='3 new messages' label='3'></flip-badge>" badge-position="top" label="John Doe" role="img">
         <mock:shadow-root>
-          <span class="avatar avatar--has-icon avatar--size-m avatar--variant-round">
+          <span class="avatar avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
               <flip-icon-person></flip-icon-person>
             </span>
@@ -163,7 +165,7 @@ describe("flip-avatar", () => {
     expect(page.root).toEqualHtml(`
       <flip-avatar aria-label="John Doe" label="John Doe" role="img" show-label="">
         <mock:shadow-root>
-          <span class="avatar avatar--has-icon avatar--size-m avatar--variant-round">
+          <span class="avatar avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
               <flip-icon-person></flip-icon-person>
             </span>
