@@ -30,7 +30,7 @@
     background-color: var(--s-surface-overlay-hovered);
 
     & ::part(avatar) {
-      background-color: var(--s-on-surface-hovered);
+      background-color: var(--s-surface-raised-hovered);
     }
   }
 
@@ -38,7 +38,7 @@
     background-color: var(--s-surface-overlay-pressed);
 
     & ::part(avatar) {
-      background-color: var(--s-on-surface-pressed);
+      background-color: var(--s-surface-raised-pressed);
     }
   }
 }
