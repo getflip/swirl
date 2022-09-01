@@ -106,7 +106,7 @@ export class FlipAvatar {
         role={role}
         tabIndex={this.interactive ? 0 : undefined}
       >
-        <span class={className}>
+        <span class={className} part="avatar">
           {showImage && (
             <span class="avatar__image">
               <img
@@ -120,7 +120,9 @@ export class FlipAvatar {
             </span>
           )}
           {showInitials && (
-            <span class="avatar__initials">{this.initials}</span>
+            <span class="avatar__initials">
+              <span>{this.initials}</span>
+            </span>
           )}
           {showIcon && <span class="avatar__icon" innerHTML={this.icon}></span>}
           {showFallbackIcon && (

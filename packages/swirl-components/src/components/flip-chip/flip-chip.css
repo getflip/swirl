@@ -1,0 +1,88 @@
+:host {
+  display: inline-flex;
+  max-width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.chip {
+  display: inline-flex;
+  max-width: 100%;
+  height: 2.5rem;
+  padding-right: var(--s-space-4);
+  padding-left: var(--s-space-4);
+  align-items: center;
+  border: 0.0625rem solid var(--s-border-default);
+  border-radius: 1.25rem;
+  color: var(--s-text-subdued);
+  background-color: var(--s-surface-overlay-default);
+  font: inherit;
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-medium);
+}
+
+.chip--interactive {
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--s-surface-overlay-hovered);
+
+    & ::part(avatar) {
+      background-color: var(--s-on-surface-hovered);
+    }
+  }
+
+  &:active {
+    background-color: var(--s-surface-overlay-pressed);
+
+    & ::part(avatar) {
+      background-color: var(--s-on-surface-pressed);
+    }
+  }
+}
+
+.chip--intent-critical {
+  border-color: var(--s-border-critical);
+  color: var(--s-text-critical);
+
+  & .chip__icon {
+    color: var(--s-icon-critical);
+  }
+}
+
+.chip--intent-success {
+  border-color: var(--s-border-success);
+  color: var(--s-text-success);
+
+  & .chip__icon {
+    color: var(--s-icon-success);
+  }
+}
+
+.chip__avatar,
+.chip__icon {
+  display: inline-flex;
+  margin-right: var(--s-space-2);
+  flex-shrink: 0;
+}
+
+.chip__avatar {
+  overflow: hidden;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-left: -0.625rem;
+}
+
+.chip__icon {
+  margin-left: -0.25rem;
+  color: var(--s-icon-default);
+}
+
+.chip__label {
+  overflow: hidden;
+  flex-grow: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
