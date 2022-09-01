@@ -10,14 +10,14 @@
 
 .banner {
   max-width: 100%;
-  padding: var(--s-space-3);
+  padding: var(--s-space-12);
 
   &:focus {
-    outline-color: var(--s-focus);
+    outline-color: var(--s-focus-default);
   }
 
   @media (--from-tablet) {
-    padding: var(--s-space-4);
+    padding: var(--s-space-16);
   }
 }
 
@@ -27,12 +27,7 @@
   }
 }
 
-.banner--intent-default {
-  border: 0.0625rem solid var(--s-border-default);
-  background-color: var(--s-background-default);
-}
-
-.banner--intent-neutral,
+.banner--intent-default,
 .banner--intent-critical,
 .banner--intent-success,
 .banner--intent-info {
@@ -44,7 +39,7 @@
   }
 }
 
-.banner--intent-neutral {
+.banner--intent-default {
   background-color: var(--s-surface-neutral-default);
 }
 
@@ -75,13 +70,13 @@
   @media (--from-mobile) {
     display: flex;
     align-items: center;
-    gap: var(--s-space-2);
+    gap: var(--s-space-12);
   }
 }
 
 .banner__icon {
   display: inline-block;
-  margin-right: var(--s-space-2);
+  margin-right: var(--s-space-12);
   color: var(--s-icon-strong);
   vertical-align: middle;
 
@@ -92,7 +87,7 @@
 }
 
 .banner__heading {
-  margin-right: var(--s-space-2);
+  margin-right: var(--s-space-12);
   flex-grow: 1;
   color: var(--s-text-subdued);
 
@@ -115,23 +110,23 @@
   cursor: pointer;
 
   &:focus {
-    outline-color: var(--s-focus);
+    outline-color: var(--s-focus-default);
   }
 
   @media (--from-mobile) {
     max-width: 7rem;
-    margin-left: var(--s-space-2);
+    margin-left: var(--s-space-12);
   }
 
   @media (--from-tablet) {
     max-width: 12rem;
-    margin-left: var(--s-space-2);
+    margin-left: var(--s-space-212);
   }
 }
 
 .banner__body {
   display: none;
-  margin-top: var(--s-space-2);
+  margin-top: var(--s-space-12);
   color: var(--s-text-subdued);
   font-size: var(--s-font-size-sm);
 

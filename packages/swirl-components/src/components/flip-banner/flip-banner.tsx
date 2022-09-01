@@ -14,7 +14,6 @@ export type FlipBannerAriaRole = "alert" | "status";
 
 export type FlipBannerIntent =
   | "default"
-  | "neutral"
   | "critical"
   | "success"
   | "warning"
