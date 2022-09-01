@@ -11,8 +11,8 @@
   display: inline-flex;
   max-width: 100%;
   height: 2.5rem;
-  padding-right: var(--s-space-4);
-  padding-left: var(--s-space-4);
+  padding-right: var(--s-space-16);
+  padding-left: var(--s-space-16);
   align-items: center;
   border: 0.0625rem solid var(--s-border-default);
   border-radius: 1.25rem;
@@ -64,7 +64,7 @@
 .chip__avatar,
 .chip__icon {
   display: inline-flex;
-  margin-right: var(--s-space-2);
+  margin-right: var(--s-space-8);
   flex-shrink: 0;
 }
 
