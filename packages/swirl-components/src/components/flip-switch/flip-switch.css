@@ -13,7 +13,7 @@
 
   &:focus-within .switch__control {
     box-shadow: 0 0 0 0.0625rem var(--s-background-default),
-      0 0 0 0.1875rem var(--s-focus);
+      0 0 0 0.1875rem var(--s-focus-default);
   }
 }
 
@@ -33,7 +33,7 @@
 .switch--on {
   &.switch--size-m {
     & .switch__thumb {
-      left: calc(100% - 1.25rem - var(--s-space-05));
+      left: calc(100% - 1.25rem - var(--s-space-2));
     }
   }
 
@@ -42,7 +42,7 @@
   }
 
   & .switch__thumb {
-    left: calc(100% - 0.875rem - var(--s-space-05));
+    left: calc(100% - 0.875rem - var(--s-space-2));
   }
 }
 
@@ -77,8 +77,8 @@
 
 .switch__thumb {
   position: absolute;
-  top: var(--s-space-05);
-  left: var(--s-space-05);
+  top: var(--s-space-2);
+  left: var(--s-space-2);
   width: 0.875rem;
   height: 0.875rem;
   border-radius: 50%;
@@ -94,7 +94,7 @@
 .switch__label {
   position: relative;
   z-index: 1;
-  margin-left: var(--s-space-2);
+  margin-left: var(--s-space-12);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
 }
