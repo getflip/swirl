@@ -15,18 +15,13 @@ export type FlipStackOrientation = "horizontal" | "vertical";
 
 export type FlipStackSpacing =
   | "0"
-  | "px"
-  | "05"
-  | "1"
   | "2"
-  | "3"
   | "4"
-  | "5"
-  | "6"
-  | "7"
   | "8"
-  | "9"
-  | "10";
+  | "12"
+  | "16"
+  | "24"
+  | "32";
 
 @Component({
   shadow: true,
