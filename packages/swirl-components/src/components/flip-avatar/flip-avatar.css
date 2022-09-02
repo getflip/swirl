@@ -18,7 +18,7 @@
 
 .avatar--has-icon {
   color: var(--s-icon-default);
-  background-color: var(--s-on-surface-default);
+  background-color: var(--s-surface-raised-default);
 }
 
 .avatar--has-initials {
