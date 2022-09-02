@@ -1203,6 +1203,19 @@
       ]
     },
     {
+      "name": "flip-icon-warning",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-inline-error",
       "description": {
         "kind": "markdown",
