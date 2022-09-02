@@ -26,9 +26,6 @@ const flipBannerIconMapping: { [key in FlipBannerIntent]: string } = {
   info: "<flip-icon-info></flip-icon-info>",
 };
 
-/**
- * @slot slot - Provide optional details.
- */
 @Component({
   shadow: true,
   styleUrl: "flip-banner.css",
