@@ -146,6 +146,9 @@ export namespace Components {
     interface FlipIconEmojiSatisfied {
         "size": FlipIconSize;
     }
+    interface FlipIconError {
+        "size": FlipIconSize;
+    }
     interface FlipIconExpandLess {
         "size": FlipIconSize;
     }
@@ -231,9 +234,6 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconRecieved {
-        "size": FlipIconSize;
-    }
-    interface FlipIconReport {
         "size": FlipIconSize;
     }
     interface FlipIconSearch {
@@ -494,6 +494,12 @@ declare global {
         prototype: HTMLFlipIconEmojiSatisfiedElement;
         new (): HTMLFlipIconEmojiSatisfiedElement;
     };
+    interface HTMLFlipIconErrorElement extends Components.FlipIconError, HTMLStencilElement {
+    }
+    var HTMLFlipIconErrorElement: {
+        prototype: HTMLFlipIconErrorElement;
+        new (): HTMLFlipIconErrorElement;
+    };
     interface HTMLFlipIconExpandLessElement extends Components.FlipIconExpandLess, HTMLStencilElement {
     }
     var HTMLFlipIconExpandLessElement: {
@@ -668,12 +674,6 @@ declare global {
         prototype: HTMLFlipIconRecievedElement;
         new (): HTMLFlipIconRecievedElement;
     };
-    interface HTMLFlipIconReportElement extends Components.FlipIconReport, HTMLStencilElement {
-    }
-    var HTMLFlipIconReportElement: {
-        prototype: HTMLFlipIconReportElement;
-        new (): HTMLFlipIconReportElement;
-    };
     interface HTMLFlipIconSearchElement extends Components.FlipIconSearch, HTMLStencilElement {
     }
     var HTMLFlipIconSearchElement: {
@@ -803,6 +803,7 @@ declare global {
         "flip-icon-edit": HTMLFlipIconEditElement;
         "flip-icon-emoji-mood": HTMLFlipIconEmojiMoodElement;
         "flip-icon-emoji-satisfied": HTMLFlipIconEmojiSatisfiedElement;
+        "flip-icon-error": HTMLFlipIconErrorElement;
         "flip-icon-expand-less": HTMLFlipIconExpandLessElement;
         "flip-icon-expand-more": HTMLFlipIconExpandMoreElement;
         "flip-icon-file": HTMLFlipIconFileElement;
@@ -832,7 +833,6 @@ declare global {
         "flip-icon-phone": HTMLFlipIconPhoneElement;
         "flip-icon-poll": HTMLFlipIconPollElement;
         "flip-icon-recieved": HTMLFlipIconRecievedElement;
-        "flip-icon-report": HTMLFlipIconReportElement;
         "flip-icon-search": HTMLFlipIconSearchElement;
         "flip-icon-search-strong": HTMLFlipIconSearchStrongElement;
         "flip-icon-send": HTMLFlipIconSendElement;
@@ -984,6 +984,9 @@ declare namespace LocalJSX {
     interface FlipIconEmojiSatisfied {
         "size"?: FlipIconSize;
     }
+    interface FlipIconError {
+        "size"?: FlipIconSize;
+    }
     interface FlipIconExpandLess {
         "size"?: FlipIconSize;
     }
@@ -1069,9 +1072,6 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconRecieved {
-        "size"?: FlipIconSize;
-    }
-    interface FlipIconReport {
         "size"?: FlipIconSize;
     }
     interface FlipIconSearch {
@@ -1163,6 +1163,7 @@ declare namespace LocalJSX {
         "flip-icon-edit": FlipIconEdit;
         "flip-icon-emoji-mood": FlipIconEmojiMood;
         "flip-icon-emoji-satisfied": FlipIconEmojiSatisfied;
+        "flip-icon-error": FlipIconError;
         "flip-icon-expand-less": FlipIconExpandLess;
         "flip-icon-expand-more": FlipIconExpandMore;
         "flip-icon-file": FlipIconFile;
@@ -1192,7 +1193,6 @@ declare namespace LocalJSX {
         "flip-icon-phone": FlipIconPhone;
         "flip-icon-poll": FlipIconPoll;
         "flip-icon-recieved": FlipIconRecieved;
-        "flip-icon-report": FlipIconReport;
         "flip-icon-search": FlipIconSearch;
         "flip-icon-search-strong": FlipIconSearchStrong;
         "flip-icon-send": FlipIconSend;
@@ -1247,6 +1247,7 @@ declare module "@stencil/core" {
             "flip-icon-edit": LocalJSX.FlipIconEdit & JSXBase.HTMLAttributes<HTMLFlipIconEditElement>;
             "flip-icon-emoji-mood": LocalJSX.FlipIconEmojiMood & JSXBase.HTMLAttributes<HTMLFlipIconEmojiMoodElement>;
             "flip-icon-emoji-satisfied": LocalJSX.FlipIconEmojiSatisfied & JSXBase.HTMLAttributes<HTMLFlipIconEmojiSatisfiedElement>;
+            "flip-icon-error": LocalJSX.FlipIconError & JSXBase.HTMLAttributes<HTMLFlipIconErrorElement>;
             "flip-icon-expand-less": LocalJSX.FlipIconExpandLess & JSXBase.HTMLAttributes<HTMLFlipIconExpandLessElement>;
             "flip-icon-expand-more": LocalJSX.FlipIconExpandMore & JSXBase.HTMLAttributes<HTMLFlipIconExpandMoreElement>;
             "flip-icon-file": LocalJSX.FlipIconFile & JSXBase.HTMLAttributes<HTMLFlipIconFileElement>;
@@ -1276,7 +1277,6 @@ declare module "@stencil/core" {
             "flip-icon-phone": LocalJSX.FlipIconPhone & JSXBase.HTMLAttributes<HTMLFlipIconPhoneElement>;
             "flip-icon-poll": LocalJSX.FlipIconPoll & JSXBase.HTMLAttributes<HTMLFlipIconPollElement>;
             "flip-icon-recieved": LocalJSX.FlipIconRecieved & JSXBase.HTMLAttributes<HTMLFlipIconRecievedElement>;
-            "flip-icon-report": LocalJSX.FlipIconReport & JSXBase.HTMLAttributes<HTMLFlipIconReportElement>;
             "flip-icon-search": LocalJSX.FlipIconSearch & JSXBase.HTMLAttributes<HTMLFlipIconSearchElement>;
             "flip-icon-search-strong": LocalJSX.FlipIconSearchStrong & JSXBase.HTMLAttributes<HTMLFlipIconSearchStrongElement>;
             "flip-icon-send": LocalJSX.FlipIconSend & JSXBase.HTMLAttributes<HTMLFlipIconSendElement>;

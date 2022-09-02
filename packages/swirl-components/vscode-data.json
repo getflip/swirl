@@ -683,6 +683,19 @@
       ]
     },
     {
+      "name": "flip-icon-error",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-expand-less",
       "description": {
         "kind": "markdown",
@@ -1048,19 +1061,6 @@
     },
     {
       "name": "flip-icon-recieved",
-      "description": {
-        "kind": "markdown",
-        "value": ""
-      },
-      "attributes": [
-        {
-          "name": "size",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "flip-icon-report",
       "description": {
         "kind": "markdown",
         "value": ""

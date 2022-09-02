@@ -20,7 +20,7 @@ export type FlipBannerIntent =
 
 const flipBannerIconMapping: { [key in FlipBannerIntent]: string } = {
   default: undefined,
-  critical: "<flip-icon-report></flip-icon-report>",
+  critical: "<flip-icon-error></flip-icon-error>",
   success: "<flip-icon-check-circle></flip-icon-check-circle>",
   warning: "<flip-icon-warning></flip-icon-warning>",
   info: "<flip-icon-info></flip-icon-info>",

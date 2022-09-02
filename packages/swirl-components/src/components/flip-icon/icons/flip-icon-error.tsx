@@ -6,9 +6,9 @@ import { FlipIconSize } from "../flip-icon.types";
 @Component({
   shadow: true,
   styleUrl: "../flip-icon.css",
-  tag: "flip-icon-report",
+  tag: "flip-icon-error",
 })
-export class FlipIconReport {
+export class FlipIconError {
   @Prop() size: FlipIconSize = 24;
 
   render() {
