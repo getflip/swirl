@@ -39,10 +39,12 @@ export namespace Components {
     }
     interface FlipBanner {
         "actionLabel"?: string;
-        "heading": string;
-        "icon"?: string;
+        "content": string;
+        "dismissLabel"?: string;
+        "dismissable"?: boolean;
         "importance"?: FlipBannerAriaRole;
         "intent"?: FlipBannerIntent;
+        "showIcon"?: boolean;
     }
     interface FlipButton {
         "disabled"?: boolean;
@@ -92,6 +94,9 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconCheck {
+        "size": FlipIconSize;
+    }
+    interface FlipIconCheckCircle {
         "size": FlipIconSize;
     }
     interface FlipIconCheckSmall {
@@ -375,6 +380,12 @@ declare global {
     var HTMLFlipIconCheckElement: {
         prototype: HTMLFlipIconCheckElement;
         new (): HTMLFlipIconCheckElement;
+    };
+    interface HTMLFlipIconCheckCircleElement extends Components.FlipIconCheckCircle, HTMLStencilElement {
+    }
+    var HTMLFlipIconCheckCircleElement: {
+        prototype: HTMLFlipIconCheckCircleElement;
+        new (): HTMLFlipIconCheckCircleElement;
     };
     interface HTMLFlipIconCheckSmallElement extends Components.FlipIconCheckSmall, HTMLStencilElement {
     }
@@ -741,6 +752,7 @@ declare global {
         "flip-icon-attachment": HTMLFlipIconAttachmentElement;
         "flip-icon-chat-bubble": HTMLFlipIconChatBubbleElement;
         "flip-icon-check": HTMLFlipIconCheckElement;
+        "flip-icon-check-circle": HTMLFlipIconCheckCircleElement;
         "flip-icon-check-small": HTMLFlipIconCheckSmallElement;
         "flip-icon-check-strong": HTMLFlipIconCheckStrongElement;
         "flip-icon-chevron-left": HTMLFlipIconChevronLeftElement;
@@ -826,11 +838,14 @@ declare namespace LocalJSX {
     }
     interface FlipBanner {
         "actionLabel"?: string;
-        "heading": string;
-        "icon"?: string;
+        "content": string;
+        "dismissLabel"?: string;
+        "dismissable"?: boolean;
         "importance"?: FlipBannerAriaRole;
         "intent"?: FlipBannerIntent;
-        "onActionClick"?: (event: FlipBannerCustomEvent<MouseEvent>) => void;
+        "onAction"?: (event: FlipBannerCustomEvent<MouseEvent>) => void;
+        "onDismiss"?: (event: FlipBannerCustomEvent<MouseEvent>) => void;
+        "showIcon"?: boolean;
     }
     interface FlipButton {
         "disabled"?: boolean;
@@ -881,6 +896,9 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconCheck {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconCheckCircle {
         "size"?: FlipIconSize;
     }
     interface FlipIconCheckSmall {
@@ -1076,6 +1094,7 @@ declare namespace LocalJSX {
         "flip-icon-attachment": FlipIconAttachment;
         "flip-icon-chat-bubble": FlipIconChatBubble;
         "flip-icon-check": FlipIconCheck;
+        "flip-icon-check-circle": FlipIconCheckCircle;
         "flip-icon-check-small": FlipIconCheckSmall;
         "flip-icon-check-strong": FlipIconCheckStrong;
         "flip-icon-chevron-left": FlipIconChevronLeft;
@@ -1156,6 +1175,7 @@ declare module "@stencil/core" {
             "flip-icon-attachment": LocalJSX.FlipIconAttachment & JSXBase.HTMLAttributes<HTMLFlipIconAttachmentElement>;
             "flip-icon-chat-bubble": LocalJSX.FlipIconChatBubble & JSXBase.HTMLAttributes<HTMLFlipIconChatBubbleElement>;
             "flip-icon-check": LocalJSX.FlipIconCheck & JSXBase.HTMLAttributes<HTMLFlipIconCheckElement>;
+            "flip-icon-check-circle": LocalJSX.FlipIconCheckCircle & JSXBase.HTMLAttributes<HTMLFlipIconCheckCircleElement>;
             "flip-icon-check-small": LocalJSX.FlipIconCheckSmall & JSXBase.HTMLAttributes<HTMLFlipIconCheckSmallElement>;
             "flip-icon-check-strong": LocalJSX.FlipIconCheckStrong & JSXBase.HTMLAttributes<HTMLFlipIconCheckStrongElement>;
             "flip-icon-chevron-left": LocalJSX.FlipIconChevronLeft & JSXBase.HTMLAttributes<HTMLFlipIconChevronLeftElement>;

@@ -182,11 +182,15 @@
           "description": ""
         },
         {
-          "name": "heading",
+          "name": "content",
           "description": ""
         },
         {
-          "name": "icon",
+          "name": "dismiss-label",
+          "description": ""
+        },
+        {
+          "name": "dismissable",
           "description": ""
         },
         {
@@ -221,6 +225,10 @@
               "name": "warning"
             }
           ]
+        },
+        {
+          "name": "show-icon",
+          "description": ""
         }
       ]
     },
@@ -455,6 +463,19 @@
     },
     {
       "name": "flip-icon-check",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-check-circle",
       "description": {
         "kind": "markdown",
         "value": ""
