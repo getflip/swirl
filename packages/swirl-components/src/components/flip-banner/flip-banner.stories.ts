@@ -24,6 +24,5 @@ FlipBanner.args = {
   content:
     "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
   dismissable: true,
-  icon: "<flip-icon-info></flip-icon-info>",
   intent: "critical",
 };
