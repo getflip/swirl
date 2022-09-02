@@ -3,52 +3,64 @@ import { newSpecPage } from "@stencil/core/testing";
 import { FlipBanner } from "./flip-banner";
 
 describe("flip-banner", () => {
-  it("renders with heading, body and intent", async () => {
+  it("renders with content, intent, icon and controls", async () => {
     const page = await newSpecPage({
       components: [FlipBanner],
-      html: `<flip-banner heading="Heading" intent="info">Content</flip-banner>`,
+      html: `<flip-banner action-label="Action" content="Content" dismissable="true" intent="info" show-icon="true"></flip-banner>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-banner heading="Heading" intent="info">
+      <flip-banner action-label="Action" content="Content" dismissable="true" intent="info" show-icon="true">
         <mock:shadow-root>
-          <div aria-describedby="body" class="banner banner--has-body banner--intent-info" role="status" tabindex="0">
-            <span class="banner__top">
-              <span class="banner__heading" id="heading">
-                Heading
-              </span>
+          <div aria-describedby="content" class="banner banner--intent-info" role="status" tabindex="0">
+            <span aria-hidden="true" class="banner__icon">
+              <flip-icon-info></flip-icon-info>
             </span>
-            <span class="banner__body" id="body">
-              <slot></slot>
+            <span class="banner__content" id="content">Content</span>
+            <span class="banner__controls">
+              <button class="banner__action-button" type="button">
+                Action
+              </button>
+              <button aria-label="Dismiss" class="banner__dismiss-button" type="button">
+                <flip-icon-close></flip-icon-close>
+              </button>
             </span>
           </div>
         </mock:shadow-root>
-        Content
       </flip-banner>
     `);
   });
 
-  it("renders with action button", async () => {
+  it("fires custom action event", async () => {
     const page = await newSpecPage({
       components: [FlipBanner],
-      html: `<flip-banner action-label="Action" heading="Heading"></flip-banner>`,
-    });
-
-    expect(page.root.shadowRoot.querySelector("button").innerHTML).toEqual(
-      "Action"
-    );
-  });
-
-  it("fires custom actionClick event", async () => {
-    const page = await newSpecPage({
-      components: [FlipBanner],
-      html: `<flip-banner action-label="Action" heading="Heading"></flip-banner>`,
+      html: `<flip-banner action-label="Action" content="Content"></flip-banner>`,
     });
 
     const buttonSpy = jest.fn();
 
-    page.root.addEventListener("actionClick", buttonSpy);
-    page.root.shadowRoot.querySelector("button").click();
+    page.root.addEventListener("action", buttonSpy);
+    page.root.shadowRoot
+      .querySelector<HTMLButtonElement>(".banner__action-button")
+      .click();
+
+    await page.waitForChanges();
+
+    expect(buttonSpy).toHaveBeenCalled();
+  });
+
+  it("fires custom dismiss event", async () => {
+    const page = await newSpecPage({
+      components: [FlipBanner],
+      html: `<flip-banner content="Content" dismissable="true"></flip-banner>`,
+    });
+
+    const buttonSpy = jest.fn();
+
+    page.root.addEventListener("dismiss", buttonSpy);
+    page.root.shadowRoot
+      .querySelector<HTMLButtonElement>(".banner__dismiss-button")
+      .click();
 
     await page.waitForChanges();
 
