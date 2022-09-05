@@ -1,11 +1,17 @@
 import StyleDictionary from "style-dictionary";
-import { mappedTokensType, TailwindTokenMap, tokenGroups } from "./utils";
+import {
+  mappedTokensType,
+  TailwindTokenMap,
+  tokenGroups,
+  createSwirlTailwindTheme,
+} from "./utils";
 
 const { fileHeader, createPropertyFormatter } = StyleDictionary.formatHelpers;
 
 StyleDictionary.registerFormat({
   name: "css/tailwind",
-  formatter: function ({ dictionary }) {
+  formatter: function ({ dictionary, file }) {
+    const theme = file.destination.split(".")?.[0];
     let mappedTokens: any = {};
 
     dictionary.allTokens.forEach((token) => {
@@ -17,7 +23,16 @@ StyleDictionary.registerFormat({
           mappedTokens[mappedType as keyof mappedTokensType] = {};
         }
 
-        mappedTokens[mappedType as keyof mappedTokensType][name] = value;
+        if (theme === "light") {
+          mappedTokens[mappedType as keyof mappedTokensType][name] = {
+            DEFAULT: value,
+            [`${theme}`]: value,
+          };
+        } else {
+          mappedTokens[mappedType as keyof mappedTokensType][name] = {
+            [`${theme}`]: value,
+          };
+        }
       }
     });
 
@@ -92,3 +107,4 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.extend("config.light.json").buildAllPlatforms();
 StyleDictionary.extend("config.dark.json").buildAllPlatforms();
+createSwirlTailwindTheme();

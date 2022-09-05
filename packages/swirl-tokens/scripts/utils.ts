@@ -1,3 +1,5 @@
+import fs from "fs";
+
 export enum TailwindTypes {
   COLOR = "colors",
   SPACING = "spacing",
@@ -110,3 +112,45 @@ export const tokenGroups: {
     presenter: "",
   },
 };
+
+/**
+ * Bundle light and dark themes into a single theme
+ */
+export function createSwirlTailwindTheme() {
+  let oneTheme: any = {};
+  const lightTheme = require("../dist/tailwind/light.json");
+
+  for (const [key] of Object.entries(lightTheme)) {
+    if (!oneTheme[key]) {
+      oneTheme[key] = {};
+    }
+
+    oneTheme[key] = extendTokenGroup(key);
+  }
+
+  fs.writeFile(
+    "./dist/tailwind/swirl-tailwind.json",
+    JSON.stringify(oneTheme, null, 2),
+    () => {
+      console.log("one theme created");
+    }
+  );
+}
+
+export function extendTokenGroup(tokenGroup: string) {
+  const lightTheme = require("../dist/tailwind/light.json");
+  const darkTheme = require("../dist/tailwind/dark.json");
+
+  const tokenGroupKeys = Object.keys(lightTheme[tokenGroup]);
+
+  let extendedTokenGroup: any = {};
+
+  for (const tokenGroupKey of tokenGroupKeys) {
+    extendedTokenGroup[tokenGroupKey] = {
+      ...lightTheme[tokenGroup][tokenGroupKey],
+      dark: darkTheme[tokenGroup][tokenGroupKey].dark,
+    };
+  }
+
+  return extendedTokenGroup;
+}

@@ -6,5 +6,5 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "html.customData": ["./packages/swirl-components/vscode-data.json"],
-  "conventionalCommits.scopes": ["documentation"]
+  "conventionalCommits.scopes": ["documentation", "tokens"]
 }

@@ -1,4 +1,4 @@
-const LightTheme = require("@getflip/swirl-tokens/dist/tailwind/light.json");
+const SwirlTailwindTheme = require("@getflip/swirl-tokens/dist/tailwind/swirl-tailwind.json");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -6,9 +6,10 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
-      ...LightTheme,
+      ...SwirlTailwindTheme,
     },
   },
   plugins: [],
