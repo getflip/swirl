@@ -1,4 +1,5 @@
 @import "~@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css";
+@import "~@getflip/swirl-tokens/dist/css/styles.dark.custom-properties.css";
 
 @font-face {
   font-family: "Inter var experimental";
@@ -16,7 +17,9 @@
 }
 
 body {
+  background-color: var(--s-background-default);
   font-family: var(--s-font-family-text);
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-normal);
+  color: var(--s-text-default);
 }

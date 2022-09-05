@@ -14,6 +14,7 @@ import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
+import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
     interface FlipAvatar {
@@ -268,6 +269,27 @@ export namespace Components {
         "orientation"?: FlipStackOrientation;
         "spacing"?: FlipStackSpacing;
         "wrap"?: boolean;
+    }
+    interface FlipThemeProvider {
+        "config": FlipThemeProviderConfig;
+        /**
+          * Returns the active app theme.
+          * @returns FlipTheme
+         */
+        "getActiveTheme": () => Promise<FlipTheme>;
+        /**
+          * Returns the user's preferred theme stored in local storage.
+          * @returns FlipTheme
+         */
+        "getPreferredTheme": () => Promise<FlipTheme>;
+        /**
+          * Resets the user's preferred theme, using the OS theme instead.
+         */
+        "resetPreferredTheme": () => Promise<void>;
+        /**
+          * Sets the user's preferred theme and stores it in local storage. Overrides the OS theme.
+         */
+        "setPreferredTheme": (theme: FlipTheme) => Promise<void>;
     }
     interface FlipTooltip {
         "content": string;
@@ -720,6 +742,12 @@ declare global {
         prototype: HTMLFlipStackElement;
         new (): HTMLFlipStackElement;
     };
+    interface HTMLFlipThemeProviderElement extends Components.FlipThemeProvider, HTMLStencilElement {
+    }
+    var HTMLFlipThemeProviderElement: {
+        prototype: HTMLFlipThemeProviderElement;
+        new (): HTMLFlipThemeProviderElement;
+    };
     interface HTMLFlipTooltipElement extends Components.FlipTooltip, HTMLStencilElement {
     }
     var HTMLFlipTooltipElement: {
@@ -806,6 +834,7 @@ declare global {
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
+        "flip-theme-provider": HTMLFlipThemeProviderElement;
         "flip-tooltip": HTMLFlipTooltipElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
@@ -1065,6 +1094,9 @@ declare namespace LocalJSX {
         "spacing"?: FlipStackSpacing;
         "wrap"?: boolean;
     }
+    interface FlipThemeProvider {
+        "config"?: FlipThemeProviderConfig;
+    }
     interface FlipTooltip {
         "content": string;
         "delay"?: number;
@@ -1146,6 +1178,7 @@ declare namespace LocalJSX {
         "flip-inline-error": FlipInlineError;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
+        "flip-theme-provider": FlipThemeProvider;
         "flip-tooltip": FlipTooltip;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
@@ -1227,6 +1260,7 @@ declare module "@stencil/core" {
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
+            "flip-theme-provider": LocalJSX.FlipThemeProvider & JSXBase.HTMLAttributes<HTMLFlipThemeProviderElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }

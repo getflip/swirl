@@ -23,6 +23,14 @@
   cursor: pointer;
   gap: var(--s-space-4);
 
+  &:hover {
+    background-color: var(--s-action-primary-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-action-primary-pressed);
+  }
+
   &:disabled {
     color: var(--s-text-disabled);
     background-color: var(--s-action-primary-disabled);

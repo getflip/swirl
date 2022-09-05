@@ -1279,6 +1279,14 @@
       ]
     },
     {
+      "name": "flip-theme-provider",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
       "name": "flip-tooltip",
       "description": {
         "kind": "markdown",
