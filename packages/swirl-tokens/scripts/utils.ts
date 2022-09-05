@@ -120,7 +120,7 @@ export function createSwirlTailwindTheme() {
   let oneTheme: any = {};
   const lightTheme = require("../dist/tailwind/light.json");
 
-  for (const [key] of Object.entries(lightTheme)) {
+  for (const key of Object.keys(lightTheme)) {
     if (!oneTheme[key]) {
       oneTheme[key] = {};
     }
