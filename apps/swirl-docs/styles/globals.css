@@ -1,5 +1,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @import "@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css";
