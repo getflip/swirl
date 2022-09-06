@@ -16,6 +16,8 @@
     "incremental": true
   },
   "include": [
+    ".eslintrc.js",
+    "*.config.js",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
