@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+html.theme-dark {
+  color-scheme: dark;
+}
+
 body {
   background-color: var(--s-background-default);
   font-family: var(--s-font-family-text);
