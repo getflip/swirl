@@ -4,3 +4,4 @@ node_modules
 icons.json
 components.d.ts
 pull_request_template.md
+vscode-data.json

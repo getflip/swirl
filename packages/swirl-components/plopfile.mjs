@@ -7,8 +7,10 @@ import {
   unitTestTemplate,
 } from "./templates.mjs";
 
+import prettier from "prettier";
 import Handlebars from "handlebars";
 
+import { execSync } from "child_process";
 import { readdirSync, readFileSync, writeFileSync } from "fs";
 import { optimize } from "svgo";
 
@@ -159,7 +161,11 @@ export default function (
           );
         }
 
-        return "success status message";
+        execSync(
+          "PATH=$(npm bin):$PATH prettier ./src/components/flip-icon/icons/* --write"
+        );
+
+        return `${iconNames.length} icons generated.`;
       },
     ],
   });
