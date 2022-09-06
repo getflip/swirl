@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@getflip/swirl-icons": "^0.1.0",
     "@getflip/swirl-tokens": "^0.3.0",
     "next": "12.2.5",
     "react": "18.2.0",
