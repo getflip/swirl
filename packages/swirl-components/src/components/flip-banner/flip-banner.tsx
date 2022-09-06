@@ -58,7 +58,9 @@ export class FlipBanner {
     const showControls = Boolean(this.actionLabel) || this.dismissable;
     const showIcon = this.showIcon && Boolean(icon);
 
-    const className = classnames("banner", `banner--intent-${this.intent}`);
+    const className = classnames("banner", `banner--intent-${this.intent}`, {
+      "banner--has-icon": showIcon,
+    });
 
     return (
       <Host>

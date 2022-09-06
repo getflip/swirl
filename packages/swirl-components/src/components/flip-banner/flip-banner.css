@@ -11,9 +11,8 @@
 .banner {
   display: flex;
   max-width: 100%;
-  min-height: 3.5rem;
   padding: var(--s-space-12);
-  line-height: var(--s-line-height-sm);
+  align-items: flex-start;
 
   &:focus {
     outline-color: var(--s-focus-default);
@@ -66,28 +65,37 @@
   }
 }
 
+.banner--has-icon {
+  & .banner__content {
+    @media (--from-mobile) {
+      padding-top: var(--s-space-2);
+    }
+  }
+}
+
 .banner__icon {
-  display: inline-flex;
-  margin-top: calc(-1 * var(--s-space-4));
+  display: none;
   margin-right: var(--s-space-8);
-  padding: var(--s-space-2);
   color: var(--s-icon-on-status);
-  vertical-align: middle;
+
+  @media (--from-mobile) {
+    display: inline-flex;
+  }
 }
 
 .banner__content {
+  min-height: 1.5rem;
   margin-right: var(--s-space-12);
-  margin-right: 0;
   flex-grow: 1;
+  line-height: var(--s-line-height-sm);
 }
 
 .banner__controls {
   display: inline-flex;
-  margin-top: -0.0625rem;
   margin-left: var(--s-space-16);
   align-items: center;
   gap: var(--s-space-16);
-  align-self: flex-start;
+  line-height: var(--s-line-height-sm);
 
   @media (--from-tablet) {
     gap: var(--s-space-24);
