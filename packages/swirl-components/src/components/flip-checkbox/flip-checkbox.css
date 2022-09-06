@@ -8,8 +8,8 @@
 
 .checkbox {
   display: inline-flex;
-  cursor: pointer;
   line-height: var(--s-line-height-base);
+  cursor: pointer;
 
   &:focus-within .checkbox__box {
     box-shadow: 0 0 0 0.0625rem var(--s-background-default),
@@ -145,6 +145,7 @@
   display: inline-flex;
   margin-left: var(--s-space-12);
   padding-top: var(--s-space-4);
+  align-items: flex-start;
   flex-direction: column;
 }
 
