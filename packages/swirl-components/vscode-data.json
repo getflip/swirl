@@ -1153,6 +1153,23 @@
       ]
     },
     {
+      "name": "flip-link",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "href",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-spinner",
       "description": {
         "kind": "markdown",

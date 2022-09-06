@@ -1,0 +1,21 @@
+:host {
+  display: inline-flex;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.link {
+  color: var(--s-interactive-primary-default);
+  line-height: var(--s-line-height-sm);
+  text-underline-offset: var(--s-space-4);
+
+  &:hover {
+    color: var(--s-interactive-primary-hovered);
+  }
+
+  &:active {
+    color: var(--s-interactive-primary-pressed);
+  }
+}
