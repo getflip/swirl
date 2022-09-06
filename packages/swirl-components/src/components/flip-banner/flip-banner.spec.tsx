@@ -12,7 +12,7 @@ describe("flip-banner", () => {
     expect(page.root).toEqualHtml(`
       <flip-banner action-label="Action" content="Content" dismissable="true" intent="info" show-icon="true">
         <mock:shadow-root>
-          <div aria-describedby="content" class="banner banner--intent-info" role="status" tabindex="0">
+          <div aria-describedby="content" class="banner banner--has-icon banner--intent-info" role="status" tabindex="0">
             <span aria-hidden="true" class="banner__icon">
               <flip-icon-info></flip-icon-info>
             </span>
