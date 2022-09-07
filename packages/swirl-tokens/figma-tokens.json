@@ -79,7 +79,7 @@
     "title": {
       "value": {
         "fontFamily": "{font-family-text}",
-        "lineHeight": "{line-height-xl}",
+        "lineHeight": "{line-height-s}",
         "fontWeight": "{font-weight-bold}",
         "fontSize": "{font-size-xl}",
         "letterSpacing": "{letter-spacing-normal}",
@@ -345,14 +345,6 @@
     "border-width-default": {
       "value": "1",
       "type": "borderWidth"
-    },
-    "line-height-xl": {
-      "value": "26",
-      "type": "lineHeights"
-    },
-    "line-height-2xl": {
-      "value": "36",
-      "type": "lineHeights"
     }
   },
   "core-colors": {
@@ -1899,11 +1891,6 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": [
-      "core",
-      "core-colors",
-      "light",
-      "dark"
-    ]
+    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
   }
 }

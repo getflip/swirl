@@ -133,7 +133,7 @@
     "type": "textDecoration"
   },
   "border-width-0": {
-    "value": "0",
+    "value": 0,
     "type": "borderWidth"
   },
   "font-family-text": {
@@ -193,16 +193,8 @@
     "type": "other"
   },
   "border-width-default": {
-    "value": "1",
+    "value": "0.0625rem",
     "type": "borderWidth"
-  },
-  "line-height-xl": {
-    "value": "26",
-    "type": "lineHeights"
-  },
-  "line-height-2xl": {
-    "value": "36",
-    "type": "lineHeights"
   },
   "core-gray-10": {
     "value": "rgba(42, 43, 45, 1)",

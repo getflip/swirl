@@ -216,9 +216,13 @@ function transformTokenValues(
   }
 
   if (
-    ["borderRadius", "fontSizes", "letterSpacing", "spacing"].includes(
-      token.type
-    )
+    [
+      "borderRadius",
+      "borderWidth",
+      "fontSizes",
+      "letterSpacing",
+      "spacing",
+    ].includes(token.type)
   ) {
     return {
       ...token,
