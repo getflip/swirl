@@ -73,7 +73,14 @@ export class FlipPopover {
     this.updateTriggerAttributes();
 
     requestAnimationFrame(() => {
-      this.contentContainer.focus();
+      const childMenuItems = this.el.querySelectorAll('[role="menuitem"]');
+
+      if (childMenuItems.length > 0) {
+        (childMenuItems[0] as HTMLElement).focus();
+      } else {
+        this.contentContainer.focus();
+      }
+
       this.reposition();
     });
   };

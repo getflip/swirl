@@ -26,7 +26,10 @@ const Template = (args) => {
 
   element.innerHTML = `
     <flip-button label="Trigger popover" slot="trigger"></flip-button>
-    <div slot="content">Content</div>
+    <flip-action-list slot="content">
+      <li><button type="button" role="menuitem" tabindex="-1">Menu item #1</button></li>
+      <li><button type="button" role="menuitem" tabindex="-1">Menu item #2</button></li>
+    </flip-action-list>
   `;
 
   return element;

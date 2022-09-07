@@ -1,0 +1,14 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.action-list {
+  margin: 0;
+  padding: 0;
+  background-color: var(--s-surface-overlay-default);
+  list-style: none;
+}
