@@ -41,15 +41,15 @@
     "type": "fontWeights"
   },
   "line-height-sm": {
-    "value": "20",
+    "value": "1.25rem",
     "type": "lineHeights"
   },
   "line-height-base": {
-    "value": "22",
+    "value": "1.375rem",
     "type": "lineHeights"
   },
   "line-height-lg": {
-    "value": "24",
+    "value": "1.5rem",
     "type": "lineHeights"
   },
   "letter-spacing-tighter": {

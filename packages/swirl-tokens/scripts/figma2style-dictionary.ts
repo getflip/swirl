@@ -221,6 +221,7 @@ function transformTokenValues(
       "borderWidth",
       "fontSizes",
       "letterSpacing",
+      "lineHeights",
       "spacing",
     ].includes(token.type)
   ) {
