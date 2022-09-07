@@ -196,6 +196,14 @@
     "value": "0.0625rem",
     "type": "borderWidth"
   },
+  "line-height-xl": {
+    "value": "1.625rem",
+    "type": "lineHeights"
+  },
+  "line-height-2xl": {
+    "value": "2.25rem",
+    "type": "lineHeights"
+  },
   "core-gray-10": {
     "value": "rgba(42, 43, 45, 1)",
     "type": "color"

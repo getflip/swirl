@@ -345,6 +345,14 @@
     "border-width-default": {
       "value": "1",
       "type": "borderWidth"
+    },
+    "line-height-xl": {
+      "value": "26",
+      "type": "lineHeights"
+    },
+    "line-height-2xl": {
+      "value": "36",
+      "type": "lineHeights"
     }
   },
   "core-colors": {
