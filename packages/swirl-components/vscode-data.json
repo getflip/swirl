@@ -1153,6 +1153,19 @@
       ]
     },
     {
+      "name": "flip-popover",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-spinner",
       "description": {
         "kind": "markdown",

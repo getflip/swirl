@@ -3,8 +3,15 @@ import { Component, h, Prop } from "@stencil/core";
 export type FlipButtonType = "button" | "submit";
 
 @Component({
+  /**
+   * Form controls in shadow dom can still not be associated with labels in the
+   * light dom, cross browser. So for now we disable shadow dom for form
+   * controls (inputs, buttons, selects, etc.). Instead we use Stencil's scoping.
+   * https://caniuse.com/?search=attachInternals
+   */
+  scoped: true,
+  shadow: false,
   tag: "flip-button",
-  shadow: true,
   styleUrl: "flip-button.css",
 })
 export class FlipButton {

@@ -257,6 +257,9 @@ export namespace Components {
         "message": string;
         "size"?: FlipInlineErrorSize;
     }
+    interface FlipPopover {
+        "label": string;
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -708,6 +711,12 @@ declare global {
         prototype: HTMLFlipInlineErrorElement;
         new (): HTMLFlipInlineErrorElement;
     };
+    interface HTMLFlipPopoverElement extends Components.FlipPopover, HTMLStencilElement {
+    }
+    var HTMLFlipPopoverElement: {
+        prototype: HTMLFlipPopoverElement;
+        new (): HTMLFlipPopoverElement;
+    };
     interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
     }
     var HTMLFlipSpinnerElement: {
@@ -804,6 +813,7 @@ declare global {
         "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
+        "flip-popover": HTMLFlipPopoverElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-tooltip": HTMLFlipTooltipElement;
@@ -1053,6 +1063,9 @@ declare namespace LocalJSX {
         "message": string;
         "size"?: FlipInlineErrorSize;
     }
+    interface FlipPopover {
+        "label": string;
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -1144,6 +1157,7 @@ declare namespace LocalJSX {
         "flip-icon-video-camera": FlipIconVideoCamera;
         "flip-icon-visibility-off": FlipIconVisibilityOff;
         "flip-inline-error": FlipInlineError;
+        "flip-popover": FlipPopover;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-tooltip": FlipTooltip;
@@ -1225,6 +1239,7 @@ declare module "@stencil/core" {
             "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
+            "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;

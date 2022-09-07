@@ -11,13 +11,11 @@ describe("flip-button", () => {
 
     expect(page.root).toEqualHtml(`
       <flip-button label=\"Label\">
-        <mock:shadow-root>
-          <button class=\"button\" type=\"button\">
-            <span class="button__label">
-              Label
-            </span>
-          </button>
-        </mock:shadow-root>
+        <button class=\"button\" type=\"button\">
+          <span class="button__label">
+            Label
+          </span>
+        </button>
       </flip-button>
     `);
   });
