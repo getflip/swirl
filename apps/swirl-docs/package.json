@@ -13,7 +13,9 @@
     "@getflip/swirl-tokens": "^0.3.0",
     "@mdx-js/loader": "^2.1.3",
     "@next/mdx": "^12.2.5",
+    "gray-matter": "^4.0.3",
     "next": "12.2.5",
+    "next-mdx-remote": "^4.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
