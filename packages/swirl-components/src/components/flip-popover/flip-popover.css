@@ -57,7 +57,7 @@
     right: unset;
     bottom: unset;
     left: unset;
-    max-width: 28rem;
+    max-width: 22.5rem;
     border-radius: var(--s-border-radius-xl);
     animation: none;
     box-shadow: 0.125rem 0.25rem 2.5rem rgba(0, 0, 0, 0.14);
