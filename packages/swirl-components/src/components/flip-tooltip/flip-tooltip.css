@@ -30,8 +30,7 @@
   border-radius: var(--s-border-radius-sm);
   color: var(--s-text-on-status);
   background-color: var(--s-surface-neutral-default);
-  font-size: var(--s-font-size-sm);
-  line-height: 1.4;
+  line-height: var(--s-line-height-base);
   backgrund-color: red;
 }
 

@@ -205,5 +205,6 @@
   color: var(--s-icon-default);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-sm);
   text-align: center;
 }
