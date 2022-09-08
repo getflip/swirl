@@ -1241,6 +1241,68 @@
       ]
     },
     {
+      "name": "flip-radio",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "checked",
+          "description": "",
+          "values": [
+            {
+              "name": "false"
+            },
+            {
+              "name": "true"
+            }
+          ]
+        },
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "input-id",
+          "description": ""
+        },
+        {
+          "name": "input-name",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-radio-group",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-spinner",
       "description": {
         "kind": "markdown",
