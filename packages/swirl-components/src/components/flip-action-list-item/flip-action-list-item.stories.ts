@@ -3,6 +3,16 @@ import Docs from "./flip-action-list-item.mdx";
 
 export default {
   component: "flip-action-list-item",
+  decorators: [
+    (story) => {
+      const container = document.createElement("div");
+
+      container.setAttribute("role", "menu");
+      container.append(story());
+
+      return container;
+    },
+  ],
   parameters: {
     docs: {
       page: Docs,

@@ -54,6 +54,18 @@
   padding: var(--s-space-16);
 }
 
+.action-list-item--intent-critical {
+  &:not(:disabled) {
+    & .action-list-item__label {
+      color: var(--s-text-critical);
+    }
+
+    & .action-list-item__icon {
+      color: var(--s-icon-critical);
+    }
+  }
+}
+
 .action-list-item__icon {
   display: inline-flex;
   flex-shrink: 0;

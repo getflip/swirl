@@ -1,6 +1,8 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
+export type FlipActionListItemIntent = "default" | "critical";
+
 export type FlipActionListItemSize = "m" | "l";
 
 @Component({
@@ -12,6 +14,7 @@ export class FlipActionListItem {
   @Prop() disabled?: boolean;
   @Prop() description?: string;
   @Prop() icon?: string;
+  @Prop() intent?: FlipActionListItemIntent = "default";
   @Prop() label!: string;
   @Prop() size?: FlipActionListItemSize = "m";
   @Prop() suffix?: string;
@@ -21,6 +24,7 @@ export class FlipActionListItem {
 
     const className = classnames(
       "action-list-item",
+      `action-list-item--intent-${this.intent}`,
       `action-list-item--size-${this.size}`
     );
 

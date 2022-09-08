@@ -29,6 +29,18 @@
           "description": ""
         },
         {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            }
+          ]
+        },
+        {
           "name": "label",
           "description": ""
         },
