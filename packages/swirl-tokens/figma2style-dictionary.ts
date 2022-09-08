@@ -1,5 +1,4 @@
 import { readFileSync, writeFileSync } from "fs";
-import hexToRgba from "hex-to-rgba";
 
 type Theme = "light" | "dark";
 
@@ -208,22 +207,10 @@ function transformTokenValues(
     return token;
   }
 
-  if (token.type === "color") {
-    return {
-      ...token,
-      value: hexToRgba(String(token.value)),
-    };
-  }
-
   if (
-    [
-      "borderRadius",
-      "borderWidth",
-      "fontSizes",
-      "letterSpacing",
-      "lineHeights",
-      "spacing",
-    ].includes(token.type)
+    ["borderRadius", "fontSizes", "letterSpacing", "spacing"].includes(
+      token.type
+    )
   ) {
     return {
       ...token,
