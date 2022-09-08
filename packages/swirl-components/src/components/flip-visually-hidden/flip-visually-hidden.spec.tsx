@@ -1,6 +1,6 @@
-import { newSpecPage } from '@stencil/core/testing';
+import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipVisuallyHidden } from './flip-visually-hidden';
+import { FlipVisuallyHidden } from "./flip-visually-hidden";
 
 describe("flip-visually-hidden", () => {
   it("renders its contents", async () => {

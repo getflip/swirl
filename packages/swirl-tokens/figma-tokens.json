@@ -1,9 +1,5 @@
 {
   "core": {
-    "font-family-default": {
-      "value": "Inter",
-      "type": "fontFamilies"
-    },
     "font-size-sm": {
       "value": "14",
       "type": "fontSizes",
@@ -45,20 +41,16 @@
       "value": "Bold",
       "type": "fontWeights"
     },
-    "line-height-s": {
-      "value": "130%",
-      "type": "lineHeights"
-    },
     "line-height-sm": {
-      "value": "135%",
+      "value": "20",
       "type": "lineHeights"
     },
     "line-height-base": {
-      "value": "140%",
+      "value": "22",
       "type": "lineHeights"
     },
     "line-height-lg": {
-      "value": "150%",
+      "value": "24",
       "type": "lineHeights"
     },
     "letter-spacing-tighter": {
@@ -75,9 +67,9 @@
     },
     "headline": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-bold}",
-        "lineHeight": "{line-height-s}",
+        "lineHeight": "{line-height-2xl}",
         "fontSize": "{font-size-2xl}",
         "letterSpacing": "{letter-spacing-tight}",
         "textDecoration": "{decoration-none}"
@@ -86,7 +78,7 @@
     },
     "title": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "lineHeight": "{line-height-s}",
         "fontWeight": "{font-weight-bold}",
         "fontSize": "{font-size-xl}",
@@ -97,9 +89,9 @@
     },
     "subheader": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-semibold}",
-        "lineHeight": "{line-height-sm}",
+        "lineHeight": "{line-height-lg}",
         "fontSize": "{font-size-lg}",
         "letterSpacing": "{letter-spacing-normal}",
         "textDecoration": "{decoration-none}"
@@ -108,7 +100,7 @@
     },
     "body-semibold": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-semibold}",
         "lineHeight": "{line-height-base}",
         "fontSize": "{font-size-base}",
@@ -119,7 +111,7 @@
     },
     "body-medium": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-medium}",
         "lineHeight": "{line-height-base}",
         "fontSize": "{font-size-base}",
@@ -129,7 +121,7 @@
     },
     "body-normal": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-normal}",
         "lineHeight": "{line-height-base}",
         "fontSize": "{font-size-base}"
@@ -142,7 +134,7 @@
     },
     "link": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-normal}",
         "lineHeight": "{line-height-base}",
         "fontSize": "{font-size-base}",
@@ -153,45 +145,49 @@
     },
     "button-semibold": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-semibold}",
         "lineHeight": "{line-height-lg}",
-        "letterSpacing": "{letter-spacing-normal}"
+        "letterSpacing": "{letter-spacing-normal}",
+        "fontSize": "{font-size-base}"
       },
       "type": "typography"
     },
     "button-medium": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-medium}",
         "lineHeight": "{line-height-lg}",
-        "letterSpacing": "{letter-spacing-normal}"
+        "letterSpacing": "{letter-spacing-normal}",
+        "fontSize": "{font-size-base}"
       },
       "type": "typography"
     },
     "button-medium-underline": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-medium}",
         "lineHeight": "{line-height-lg}",
         "letterSpacing": "{letter-spacing-normal}",
-        "textDecoration": "{decoration-underline}"
+        "textDecoration": "{decoration-underline}",
+        "fontSize": "{font-size-base}"
       },
       "type": "typography"
     },
     "button-semibold-underline": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-semibold}",
         "lineHeight": "{line-height-lg}",
         "letterSpacing": "{letter-spacing-normal}",
-        "textDecoration": "{decoration-underline}"
+        "textDecoration": "{decoration-underline}",
+        "fontSize": "{font-size-base}"
       },
       "type": "typography"
     },
     "caption": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-normal}",
         "lineHeight": "{line-height-sm}",
         "fontSize": "{font-size-sm}",
@@ -202,7 +198,7 @@
     },
     "label-semibold": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-semibold}",
         "lineHeight": "{line-height-sm}",
         "fontSize": "{font-size-sm}",
@@ -213,7 +209,7 @@
     },
     "label-medium": {
       "value": {
-        "fontFamily": "{font-family-default}",
+        "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-medium}",
         "lineHeight": "{line-height-sm}",
         "fontSize": "{font-size-base}",
@@ -285,6 +281,78 @@
     "decoration-none": {
       "value": "None",
       "type": "textDecoration"
+    },
+    "border-width-0": {
+      "value": "0",
+      "type": "borderWidth"
+    },
+    "font-family-text": {
+      "value": "'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+      "type": "fontFamilies"
+    },
+    "font-family-code": {
+      "value": "'Fira Mono', Courier, monospace",
+      "type": "fontFamilies"
+    },
+    "font-family-text-japanese": {
+      "value": "'Inter var experimental', 'Inter var', Hiragino Sans, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, Osaka, 'MS PGothic', sans-serif",
+      "type": "fontFamilies"
+    },
+    "font-family-text-korean": {
+      "value": "'Inter var experimental', 'Inter var', 'Microsoft JhengHei', 微軟正黑體, 'Microsoft JhengHei UI', 'Microsoft YaHei', 微軟雅黑, 宋体, SimSun, sans-serif",
+      "type": "fontFamilies"
+    },
+    "font-family-text-chinese-traditional": {
+      "value": "'Inter var experimental', 'Inter var', 'Microsoft JhengHei', 微軟正黑體, 'Microsoft JhengHei UI', 'Microsoft YaHei', 微軟雅黑, 宋体, SimSun, sans-serif",
+      "type": "fontFamilies"
+    },
+    "font-family-text-chinese-simplified": {
+      "value": "'Inter var experimental', 'Inter var', 'Microsoft YaHei New', 微软雅黑, 'Microsoft Yahei', 'Microsoft JhengHei', 宋体, SimSun, sans-serif",
+      "type": "fontFamilies"
+    },
+    "font-family-text-arabic": {
+      "value": "-apple-system, system-ui",
+      "type": "fontFamilies"
+    },
+    "z-0": {
+      "value": "0",
+      "type": "other"
+    },
+    "z-10": {
+      "value": "10",
+      "type": "other"
+    },
+    "z-20": {
+      "value": "20",
+      "type": "other"
+    },
+    "z-30": {
+      "value": "30",
+      "type": "other"
+    },
+    "z-40": {
+      "value": "40",
+      "type": "other"
+    },
+    "z-50": {
+      "value": "50",
+      "type": "other"
+    },
+    "z-auto": {
+      "value": "auto",
+      "type": "other"
+    },
+    "border-width-default": {
+      "value": "1",
+      "type": "borderWidth"
+    },
+    "line-height-xl": {
+      "value": "26",
+      "type": "lineHeights"
+    },
+    "line-height-2xl": {
+      "value": "36",
+      "type": "lineHeights"
     }
   },
   "core-colors": {
@@ -629,7 +697,7 @@
         "description": "Used if a component with “Surface Overlay/Default” has a pressed state."
       }
     },
-    "on-surface": {
+    "surface-raised": {
       "default": {
         "value": "{core.gray.01}",
         "type": "color",
@@ -1091,7 +1159,7 @@
         "description": "Used if a component with “Surface Overlay/Default” has a pressed state."
       }
     },
-    "on-surface": {
+    "surface-raised": {
       "default": {
         "value": "{core.gray.10}",
         "type": "color",
@@ -1831,11 +1899,6 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": [
-      "core",
-      "core-colors",
-      "light",
-      "dark"
-    ]
+    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
   }
 }

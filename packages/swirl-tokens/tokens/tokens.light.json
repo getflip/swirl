@@ -1,8 +1,4 @@
 {
-  "font-family-default": {
-    "value": "Inter",
-    "type": "fontFamilies"
-  },
   "font-size-sm": {
     "value": "0.875rem",
     "type": "fontSizes",
@@ -44,20 +40,16 @@
     "value": 700,
     "type": "fontWeights"
   },
-  "line-height-s": {
-    "value": "130%",
-    "type": "lineHeights"
-  },
   "line-height-sm": {
-    "value": "135%",
+    "value": "1.25rem",
     "type": "lineHeights"
   },
   "line-height-base": {
-    "value": "140%",
+    "value": "1.375rem",
     "type": "lineHeights"
   },
   "line-height-lg": {
-    "value": "150%",
+    "value": "1.5rem",
     "type": "lineHeights"
   },
   "letter-spacing-tighter": {
@@ -139,6 +131,78 @@
   "decoration-none": {
     "value": "none",
     "type": "textDecoration"
+  },
+  "border-width-0": {
+    "value": 0,
+    "type": "borderWidth"
+  },
+  "font-family-text": {
+    "value": "'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+    "type": "fontFamilies"
+  },
+  "font-family-code": {
+    "value": "'Fira Mono', Courier, monospace",
+    "type": "fontFamilies"
+  },
+  "font-family-text-japanese": {
+    "value": "'Inter var experimental', 'Inter var', Hiragino Sans, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, Osaka, 'MS PGothic', sans-serif",
+    "type": "fontFamilies"
+  },
+  "font-family-text-korean": {
+    "value": "'Inter var experimental', 'Inter var', 'Microsoft JhengHei', 微軟正黑體, 'Microsoft JhengHei UI', 'Microsoft YaHei', 微軟雅黑, 宋体, SimSun, sans-serif",
+    "type": "fontFamilies"
+  },
+  "font-family-text-chinese-traditional": {
+    "value": "'Inter var experimental', 'Inter var', 'Microsoft JhengHei', 微軟正黑體, 'Microsoft JhengHei UI', 'Microsoft YaHei', 微軟雅黑, 宋体, SimSun, sans-serif",
+    "type": "fontFamilies"
+  },
+  "font-family-text-chinese-simplified": {
+    "value": "'Inter var experimental', 'Inter var', 'Microsoft YaHei New', 微软雅黑, 'Microsoft Yahei', 'Microsoft JhengHei', 宋体, SimSun, sans-serif",
+    "type": "fontFamilies"
+  },
+  "font-family-text-arabic": {
+    "value": "-apple-system, system-ui",
+    "type": "fontFamilies"
+  },
+  "z-0": {
+    "value": "0",
+    "type": "other"
+  },
+  "z-10": {
+    "value": "10",
+    "type": "other"
+  },
+  "z-20": {
+    "value": "20",
+    "type": "other"
+  },
+  "z-30": {
+    "value": "30",
+    "type": "other"
+  },
+  "z-40": {
+    "value": "40",
+    "type": "other"
+  },
+  "z-50": {
+    "value": "50",
+    "type": "other"
+  },
+  "z-auto": {
+    "value": "auto",
+    "type": "other"
+  },
+  "border-width-default": {
+    "value": "0.0625rem",
+    "type": "borderWidth"
+  },
+  "line-height-xl": {
+    "value": "1.625rem",
+    "type": "lineHeights"
+  },
+  "line-height-2xl": {
+    "value": "2.25rem",
+    "type": "lineHeights"
   },
   "core-gray-10": {
     "value": "rgba(42, 43, 45, 1)",
@@ -453,17 +517,17 @@
     "type": "color",
     "comment": "Used if a component with “Surface Overlay/Default” has a pressed state."
   },
-  "on-surface-default": {
+  "surface-raised-default": {
     "value": "{core-gray-01}",
     "type": "color",
     "comment": "Usually used for elements that need contrast on surfaces or background"
   },
-  "on-surface-hovered": {
+  "surface-raised-hovered": {
     "value": "{core-gray-02}",
     "type": "color",
     "comment": "Used if a component with “On Surface/Default” has a hovered state."
   },
-  "on-surface-pressed": {
+  "surface-raised-pressed": {
     "value": "{core-gray-03}",
     "type": "color",
     "comment": "Used if a component with “On Surface/Default” has a pressed state."

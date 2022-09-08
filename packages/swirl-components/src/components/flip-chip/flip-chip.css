@@ -21,6 +21,7 @@
   font: inherit;
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-sm);
 }
 
 .chip--interactive {
@@ -30,7 +31,7 @@
     background-color: var(--s-surface-overlay-hovered);
 
     & ::part(avatar) {
-      background-color: var(--s-on-surface-hovered);
+      background-color: var(--s-surface-raised-hovered);
     }
   }
 
@@ -38,7 +39,7 @@
     background-color: var(--s-surface-overlay-pressed);
 
     & ::part(avatar) {
-      background-color: var(--s-on-surface-pressed);
+      background-color: var(--s-surface-raised-pressed);
     }
   }
 }
