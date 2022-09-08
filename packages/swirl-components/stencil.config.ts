@@ -17,6 +17,12 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     targetAttr: "checked",
     type: "boolean",
   },
+  {
+    elementSelectors: ["flip-radio-group"],
+    event: "valueChange",
+    targetAttr: "value",
+    type: "text",
+  },
 ];
 
 export const config: Config = {
