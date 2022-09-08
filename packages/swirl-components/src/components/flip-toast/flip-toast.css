@@ -36,7 +36,7 @@
 
 .toast__content {
   flex-grow: 1;
-  line-height: 1.375;
+  line-height: var(--s-line-height-base);
 }
 
 .toast__dismiss-button {
