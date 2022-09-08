@@ -18,6 +18,13 @@ import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
     interface FlipActionList {
     }
+    interface FlipActionListItem {
+        "description"?: string;
+        "disabled"?: boolean;
+        "icon"?: string;
+        "label": string;
+        "suffix"?: string;
+    }
     interface FlipAvatar {
         "badge"?: string;
         "badgePosition"?: FlipAvatarBadgePosition;
@@ -292,6 +299,12 @@ declare global {
     var HTMLFlipActionListElement: {
         prototype: HTMLFlipActionListElement;
         new (): HTMLFlipActionListElement;
+    };
+    interface HTMLFlipActionListItemElement extends Components.FlipActionListItem, HTMLStencilElement {
+    }
+    var HTMLFlipActionListItemElement: {
+        prototype: HTMLFlipActionListItemElement;
+        new (): HTMLFlipActionListItemElement;
     };
     interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
     }
@@ -751,6 +764,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "flip-action-list": HTMLFlipActionListElement;
+        "flip-action-list-item": HTMLFlipActionListItemElement;
         "flip-avatar": HTMLFlipAvatarElement;
         "flip-avatar-group": HTMLFlipAvatarGroupElement;
         "flip-badge": HTMLFlipBadgeElement;
@@ -831,6 +845,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FlipActionList {
+    }
+    interface FlipActionListItem {
+        "description"?: string;
+        "disabled"?: boolean;
+        "icon"?: string;
+        "label": string;
+        "suffix"?: string;
     }
     interface FlipAvatar {
         "badge"?: string;
@@ -1098,6 +1119,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "flip-action-list": FlipActionList;
+        "flip-action-list-item": FlipActionListItem;
         "flip-avatar": FlipAvatar;
         "flip-avatar-group": FlipAvatarGroup;
         "flip-badge": FlipBadge;
@@ -1181,6 +1203,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "flip-action-list": LocalJSX.FlipActionList & JSXBase.HTMLAttributes<HTMLFlipActionListElement>;
+            "flip-action-list-item": LocalJSX.FlipActionListItem & JSXBase.HTMLAttributes<HTMLFlipActionListItemElement>;
             "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
             "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
