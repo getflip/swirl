@@ -171,6 +171,68 @@
       ]
     },
     {
+      "name": "flip-banner",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "action-label",
+          "description": ""
+        },
+        {
+          "name": "content",
+          "description": ""
+        },
+        {
+          "name": "dismiss-label",
+          "description": ""
+        },
+        {
+          "name": "dismissable",
+          "description": ""
+        },
+        {
+          "name": "importance",
+          "description": "",
+          "values": [
+            {
+              "name": "alert"
+            },
+            {
+              "name": "status"
+            }
+          ]
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "show-icon",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-button",
       "description": {
         "kind": "markdown",
@@ -434,6 +496,19 @@
       ]
     },
     {
+      "name": "flip-icon-check-circle",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-check-small",
       "description": {
         "kind": "markdown",
@@ -617,6 +692,19 @@
     },
     {
       "name": "flip-icon-emoji-satisfied",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-error",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1006,19 +1094,6 @@
       ]
     },
     {
-      "name": "flip-icon-report",
-      "description": {
-        "kind": "markdown",
-        "value": ""
-      },
-      "attributes": [
-        {
-          "name": "size",
-          "description": ""
-        }
-      ]
-    },
-    {
       "name": "flip-icon-search",
       "description": {
         "kind": "markdown",
@@ -1149,6 +1224,19 @@
       ]
     },
     {
+      "name": "flip-icon-warning",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-inline-error",
       "description": {
         "kind": "markdown",
@@ -1170,6 +1258,68 @@
               "name": "s"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "flip-radio",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "checked",
+          "description": "",
+          "values": [
+            {
+              "name": "false"
+            },
+            {
+              "name": "true"
+            }
+          ]
+        },
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "input-id",
+          "description": ""
+        },
+        {
+          "name": "input-name",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-radio-group",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "value",
+          "description": ""
         }
       ]
     },
