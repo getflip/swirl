@@ -1,4 +1,7 @@
 import { Component, h, Host, Prop } from "@stencil/core";
+import classnames from "classnames";
+
+export type FlipActionListItemSize = "m" | "l";
 
 @Component({
   shadow: true,
@@ -10,13 +13,21 @@ export class FlipActionListItem {
   @Prop() description?: string;
   @Prop() icon?: string;
   @Prop() label!: string;
+  @Prop() size?: FlipActionListItemSize = "m";
   @Prop() suffix?: string;
 
   render() {
+    const showSuffix = Boolean(this.suffix) && !this.disabled;
+
+    const className = classnames(
+      "action-list-item",
+      `action-list-item--size-${this.size}`
+    );
+
     return (
       <Host>
         <button
-          class="action-list-item"
+          class={className}
           disabled={this.disabled}
           role="menuitem"
           tabIndex={-1}
@@ -33,7 +44,7 @@ export class FlipActionListItem {
               </span>
             )}
           </span>
-          {this.suffix && (
+          {showSuffix && (
             <span
               class="action-list-item__suffix"
               innerHTML={this.suffix}

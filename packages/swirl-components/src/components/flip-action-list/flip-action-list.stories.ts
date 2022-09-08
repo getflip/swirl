@@ -15,8 +15,9 @@ const Template = (args) => {
   const element = generateStoryElement("flip-action-list", args);
 
   element.innerHTML = `
-    <li><button type="button" role="menuitem" tabindex="-1">Menu item #1</button></li>
-    <li><button type="button" role="menuitem" tabindex="-1">Menu item #2</button></li>
+    <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 1"></flip-action-list-item>
+    <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 2"></flip-action-list-item>
+    <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 3"></flip-action-list-item>
   `;
 
   return element;

@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { FlipActionListItemSize } from "./components/flip-action-list-item/flip-action-list-item";
 import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
@@ -27,6 +28,7 @@ export namespace Components {
         "disabled"?: boolean;
         "icon"?: string;
         "label": string;
+        "size"?: FlipActionListItemSize;
         "suffix"?: string;
     }
     interface FlipAvatar {
@@ -981,6 +983,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "icon"?: string;
         "label": string;
+        "size"?: FlipActionListItemSize;
         "suffix"?: string;
     }
     interface FlipAvatar {

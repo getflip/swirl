@@ -20,7 +20,8 @@ const Template = (args) => {
 export const FlipActionListItem = Template.bind({});
 
 FlipActionListItem.args = {
-  description: "Description",
+  description: "Description of the action list item",
   icon: `<flip-icon-mention></flip-icon-mention>`,
-  label: "Label",
+  label: "This is an action",
+  suffix: `<flip-icon-chevron-right></flip-icon-chevron-right>`,
 };

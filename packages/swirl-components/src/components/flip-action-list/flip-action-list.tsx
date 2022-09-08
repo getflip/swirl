@@ -1,4 +1,5 @@
 import { Component, Element, h, Host } from "@stencil/core";
+import { querySelectorAllDeep } from "query-selector-shadow-dom";
 
 @Component({
   shadow: true,
@@ -11,7 +12,7 @@ export class FlipActionList {
   private items: HTMLElement[];
 
   componentDidLoad() {
-    this.items = Array.from(this.el.querySelectorAll("[role='menuitem']"));
+    this.items = querySelectorAllDeep('[role="menuitem"]', this.el);
   }
 
   private onKeyDown = (event: KeyboardEvent) => {
@@ -25,37 +26,40 @@ export class FlipActionList {
   };
 
   private focusNextItem() {
-    const activeItemIndex = this.items.findIndex(
-      (item) => item === document.activeElement
-    );
-
+    const activeItemIndex = this.getActiveItemIndex();
     const newIndex = (activeItemIndex + 1) % this.items.length;
 
     this.items[newIndex].focus();
   }
 
   private focusPreviousItem() {
-    const activeItemIndex = this.items.findIndex(
-      (item) => item === document.activeElement
-    );
-
+    const activeItemIndex = this.getActiveItemIndex();
     const newIndex =
       activeItemIndex === 0 ? this.items.length - 1 : activeItemIndex - 1;
 
     this.items[newIndex].focus();
   }
 
+  private getActiveItemIndex(): number {
+    return this.items.findIndex(
+      (item) =>
+        item === document.activeElement ||
+        item ===
+          document.activeElement.shadowRoot?.querySelector('[role="menuitem"]')
+    );
+  }
+
   render() {
     return (
       <Host>
-        <ul
+        <div
           aria-orientation="vertical"
           class="action-list"
           onKeyDown={this.onKeyDown}
           role="menu"
         >
           <slot></slot>
-        </ul>
+        </div>
       </Host>
     );
   }

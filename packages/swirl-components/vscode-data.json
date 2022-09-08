@@ -33,6 +33,18 @@
           "description": ""
         },
         {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "l"
+            },
+            {
+              "name": "m"
+            }
+          ]
+        },
+        {
           "name": "suffix",
           "description": ""
         }
