@@ -49,6 +49,7 @@
 .switch--disabled {
   & .switch__control {
     background-color: var(--s-interactive-primary-disabled);
+    cursor: default;
   }
 
   & .switch__thumb {
