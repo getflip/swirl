@@ -17,6 +17,8 @@ import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
 import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
+import { FlipToastIntent } from "./components/flip-toast/flip-toast";
+import { FlipToastConfig, FlipToastMessage } from "./components/flip-toast-provider/flip-toast-provider";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
     interface FlipAvatar {
@@ -321,6 +323,39 @@ export namespace Components {
          */
         "setPreferredTheme": (theme: FlipTheme) => Promise<void>;
     }
+    interface FlipToast {
+        "accessibleDismissLabel"?: string;
+        "content": string;
+        "dismissLabel"?: string;
+        "duration"?: number;
+        "icon"?: string;
+        "intent"?: FlipToastIntent;
+        "toastId": string;
+    }
+    interface FlipToastProvider {
+        /**
+          * Clear all toasts
+          * @param newToast
+          * @returns
+         */
+        "clearAll": () => Promise<void>;
+        /**
+          * Dismiss a toast
+          * @param toastId
+          * @returns
+         */
+        "dismiss": (toastId: string) => Promise<void>;
+        /**
+          * Optional global duration for all toasts. Overrides any durations set via the `toast` method. Set to 0 to disable automatic closing of toasts.
+         */
+        "globalDuration"?: number;
+        /**
+          * Create a new toast
+          * @param newToast
+          * @returns
+         */
+        "toast": (newToast: FlipToastConfig) => Promise<FlipToastMessage>;
+    }
     interface FlipTooltip {
         "content": string;
         "delay"?: number;
@@ -344,6 +379,10 @@ export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
 export interface FlipRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioGroupElement;
+}
+export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipToastElement;
 }
 declare global {
     interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
@@ -820,6 +859,18 @@ declare global {
         prototype: HTMLFlipThemeProviderElement;
         new (): HTMLFlipThemeProviderElement;
     };
+    interface HTMLFlipToastElement extends Components.FlipToast, HTMLStencilElement {
+    }
+    var HTMLFlipToastElement: {
+        prototype: HTMLFlipToastElement;
+        new (): HTMLFlipToastElement;
+    };
+    interface HTMLFlipToastProviderElement extends Components.FlipToastProvider, HTMLStencilElement {
+    }
+    var HTMLFlipToastProviderElement: {
+        prototype: HTMLFlipToastProviderElement;
+        new (): HTMLFlipToastProviderElement;
+    };
     interface HTMLFlipTooltipElement extends Components.FlipTooltip, HTMLStencilElement {
     }
     var HTMLFlipTooltipElement: {
@@ -912,6 +963,8 @@ declare global {
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-theme-provider": HTMLFlipThemeProviderElement;
+        "flip-toast": HTMLFlipToastElement;
+        "flip-toast-provider": HTMLFlipToastProviderElement;
         "flip-tooltip": HTMLFlipTooltipElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
@@ -1206,6 +1259,22 @@ declare namespace LocalJSX {
     interface FlipThemeProvider {
         "config"?: FlipThemeProviderConfig;
     }
+    interface FlipToast {
+        "accessibleDismissLabel"?: string;
+        "content": string;
+        "dismissLabel"?: string;
+        "duration"?: number;
+        "icon"?: string;
+        "intent"?: FlipToastIntent;
+        "onDismiss"?: (event: FlipToastCustomEvent<string>) => void;
+        "toastId": string;
+    }
+    interface FlipToastProvider {
+        /**
+          * Optional global duration for all toasts. Overrides any durations set via the `toast` method. Set to 0 to disable automatic closing of toasts.
+         */
+        "globalDuration"?: number;
+    }
     interface FlipTooltip {
         "content": string;
         "delay"?: number;
@@ -1293,6 +1362,8 @@ declare namespace LocalJSX {
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-theme-provider": FlipThemeProvider;
+        "flip-toast": FlipToast;
+        "flip-toast-provider": FlipToastProvider;
         "flip-tooltip": FlipTooltip;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
@@ -1380,6 +1451,8 @@ declare module "@stencil/core" {
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-theme-provider": LocalJSX.FlipThemeProvider & JSXBase.HTMLAttributes<HTMLFlipThemeProviderElement>;
+            "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
+            "flip-toast-provider": LocalJSX.FlipToastProvider & JSXBase.HTMLAttributes<HTMLFlipToastProviderElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }

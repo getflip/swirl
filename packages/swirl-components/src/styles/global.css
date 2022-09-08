@@ -26,4 +26,6 @@ body {
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-normal);
   color: var(--s-text-default);
+
+  -webkit-font-smoothing: antialiased;
 }
