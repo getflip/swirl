@@ -19,9 +19,9 @@ describe("flip-action-list", () => {
     expect(page.root).toEqualHtml(`
       <flip-action-list>
         <mock:shadow-root>
-          <ul aria-orientation="vertical" class="action-list" role="menu">
+          <div aria-orientation="vertical" class="action-list" role="menu">
             <slot></slot>
-          </ul>
+          </div>
         </mock:shadow-root>
         <button role="menuitem" tabindex="-1" type="button">
           Item

@@ -9,7 +9,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { PositionMatch, reposition } from "nanopop";
-import { querySelectorAllDeep } from "query-selector-shadow-dom";
+import { querySelectorAllDeep } from "../../utils";
 
 /**
  * @slot trigger - The trigger element. Has to be a single interactive element. E.g. `<flip-button label="Trigger" slot="trigger"></flip-button>`
@@ -74,7 +74,7 @@ export class FlipPopover {
     this.updateTriggerAttributes();
 
     requestAnimationFrame(() => {
-      const childMenuItems = querySelectorAllDeep('[role="menuitem"]', this.el);
+      const childMenuItems = querySelectorAllDeep(this.el, '[role="menuitem"]');
 
       if (childMenuItems.length > 0) {
         (childMenuItems[0] as HTMLElement).focus();

@@ -23,3 +23,36 @@ export function generateStoryElement(
 
   return element;
 }
+
+export function querySelectorAllDeep(
+  root: HTMLElement,
+  selector: string
+): HTMLElement[] {
+  function collectAllElementsDeep(
+    selector: string,
+    root?: Element | ShadowRoot
+  ): HTMLElement[] {
+    if (!Boolean(root)) {
+      return [];
+    }
+
+    const lightDomMatches = Array.from(
+      root.querySelectorAll<HTMLElement>(selector)
+    );
+    const shadowRoot = (root as Element).shadowRoot;
+
+    const shadowRootElements = collectAllElementsDeep(selector, shadowRoot);
+
+    const matches: HTMLElement[] = [
+      ...lightDomMatches,
+      ...Array.from(root.children)
+        .map((match) => collectAllElementsDeep(selector, match))
+        .flat(),
+      ...shadowRootElements,
+    ];
+
+    return matches;
+  }
+
+  return collectAllElementsDeep(selector, root);
+}

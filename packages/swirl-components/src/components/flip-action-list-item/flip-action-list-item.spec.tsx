@@ -12,7 +12,11 @@ describe("flip-action-list-item", () => {
     expect(page.root).toEqualHtml(`
       <flip-action-list-item>
         <mock:shadow-root>
-          Hello World
+          <button class="action-list-item action-list-item--intent-default action-list-item--size-m" role="menuitem" tabindex="-1" type="button">
+            <span class="action-list-item__label-container">
+              <span class="action-list-item__label"></span>
+            </span>
+          </button>
         </mock:shadow-root>
       </flip-action-list-item>
     `);

@@ -1,5 +1,5 @@
 import { Component, Element, h, Host } from "@stencil/core";
-import { querySelectorAllDeep } from "query-selector-shadow-dom";
+import { querySelectorAllDeep } from "../../utils";
 
 @Component({
   shadow: true,
@@ -12,7 +12,7 @@ export class FlipActionList {
   private items: HTMLElement[];
 
   componentDidLoad() {
-    this.items = querySelectorAllDeep('[role="menuitem"]', this.el);
+    this.items = querySelectorAllDeep(this.el, '[role="menuitem"]');
   }
 
   private onKeyDown = (event: KeyboardEvent) => {
@@ -45,7 +45,7 @@ export class FlipActionList {
       (item) =>
         item === document.activeElement ||
         item ===
-          document.activeElement.shadowRoot?.querySelector('[role="menuitem"]')
+          document.activeElement?.shadowRoot?.querySelector('[role="menuitem"]')
     );
   }
 
