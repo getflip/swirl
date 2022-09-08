@@ -66,11 +66,13 @@
 
 .popover__scroll-container {
   overflow: auto;
-  max-height: 19rem;
+  width: 100%;
+  max-height: 90vh;
   margin-top: var(--s-space-24);
   padding-bottom: var(--s-space-24);
 
   @media (--from-tablet) {
+    max-height: 19rem;
     margin-top: 0;
     padding-top: var(--s-space-8);
     padding-bottom: var(--s-space-8);
