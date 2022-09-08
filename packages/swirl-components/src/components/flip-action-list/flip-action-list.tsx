@@ -1,6 +1,9 @@
 import { Component, Element, h, Host } from "@stencil/core";
 import { querySelectorAllDeep } from "../../utils";
 
+/**
+ * @slot slot - The action list items and sections
+ */
 @Component({
   shadow: true,
   styleUrl: "flip-action-list.css",
