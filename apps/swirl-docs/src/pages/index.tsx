@@ -6,7 +6,6 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
-import { Children } from "react";
 
 const Home: NextPage = ({ mdxSource, content }: any) => {
   return (
@@ -41,14 +40,10 @@ const Home: NextPage = ({ mdxSource, content }: any) => {
 export const getStaticProps: GetStaticProps<{
   mdxSource: MDXRemoteSerializeResult;
 }> = async () => {
-  const POST_PATH = path.join(process.cwd(), "posts", "test.mdx");
+  const POST_PATH = path.join(process.cwd(), "src/posts", "test.mdx");
   const source = fs.readFileSync(POST_PATH, "utf8");
 
   const { content } = matter(source);
-
-  const lineByLine = content.split("\n").filter((line) => line.startsWith("#"));
-
-  console.log(lineByLine);
 
   const mdxSource = await serialize(content, { parseFrontmatter: true });
   return { props: { mdxSource, content } };
