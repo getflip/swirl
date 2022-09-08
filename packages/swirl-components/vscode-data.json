@@ -63,6 +63,19 @@
       ]
     },
     {
+      "name": "flip-action-list-section",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-avatar",
       "description": {
         "kind": "markdown",

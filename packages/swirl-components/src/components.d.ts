@@ -32,6 +32,9 @@ export namespace Components {
         "size"?: FlipActionListItemSize;
         "suffix"?: string;
     }
+    interface FlipActionListSection {
+        "label": string;
+    }
     interface FlipAvatar {
         "badge"?: string;
         "badgePosition"?: FlipAvatarBadgePosition;
@@ -389,6 +392,12 @@ declare global {
     var HTMLFlipActionListItemElement: {
         prototype: HTMLFlipActionListItemElement;
         new (): HTMLFlipActionListItemElement;
+    };
+    interface HTMLFlipActionListSectionElement extends Components.FlipActionListSection, HTMLStencilElement {
+    }
+    var HTMLFlipActionListSectionElement: {
+        prototype: HTMLFlipActionListSectionElement;
+        new (): HTMLFlipActionListSectionElement;
     };
     interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
     }
@@ -891,6 +900,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "flip-action-list": HTMLFlipActionListElement;
         "flip-action-list-item": HTMLFlipActionListItemElement;
+        "flip-action-list-section": HTMLFlipActionListSectionElement;
         "flip-avatar": HTMLFlipAvatarElement;
         "flip-avatar-group": HTMLFlipAvatarGroupElement;
         "flip-badge": HTMLFlipBadgeElement;
@@ -987,6 +997,9 @@ declare namespace LocalJSX {
         "label": string;
         "size"?: FlipActionListItemSize;
         "suffix"?: string;
+    }
+    interface FlipActionListSection {
+        "label": string;
     }
     interface FlipAvatar {
         "badge"?: string;
@@ -1303,6 +1316,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "flip-action-list": FlipActionList;
         "flip-action-list-item": FlipActionListItem;
+        "flip-action-list-section": FlipActionListSection;
         "flip-avatar": FlipAvatar;
         "flip-avatar-group": FlipAvatarGroup;
         "flip-badge": FlipBadge;
@@ -1394,6 +1408,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "flip-action-list": LocalJSX.FlipActionList & JSXBase.HTMLAttributes<HTMLFlipActionListElement>;
             "flip-action-list-item": LocalJSX.FlipActionListItem & JSXBase.HTMLAttributes<HTMLFlipActionListItemElement>;
+            "flip-action-list-section": LocalJSX.FlipActionListSection & JSXBase.HTMLAttributes<HTMLFlipActionListSectionElement>;
             "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
             "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;

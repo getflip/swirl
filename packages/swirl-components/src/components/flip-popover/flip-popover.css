@@ -44,9 +44,6 @@
   bottom: 0;
   left: 0;
   overflow: hidden;
-  max-height: 20rem;
-  padding-top: var(--s-space-24);
-  padding-bottom: var(--s-space-24);
   border-top-left-radius: var(--s-border-radius-xl);
   border-top-right-radius: var(--s-border-radius-xl);
   background-color: var(--s-surface-overlay-default);
@@ -61,12 +58,22 @@
     bottom: unset;
     left: unset;
     max-width: 28rem;
-    max-height: none;
-    padding-top: var(--s-space-8);
-    padding-bottom: var(--s-space-8);
     border-radius: var(--s-border-radius-xl);
     animation: none;
     box-shadow: 0.125rem 0.25rem 2.5rem rgba(0, 0, 0, 0.14);
+  }
+}
+
+.popover__scroll-container {
+  overflow: auto;
+  max-height: 19rem;
+  margin-top: var(--s-space-24);
+  padding-bottom: var(--s-space-24);
+
+  @media (--from-tablet) {
+    margin-top: 0;
+    padding-top: var(--s-space-8);
+    padding-bottom: var(--s-space-8);
   }
 }
 

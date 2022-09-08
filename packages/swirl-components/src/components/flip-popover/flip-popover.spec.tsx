@@ -25,7 +25,9 @@ describe("flip-popover", () => {
             </div>
             <div aria-hidden="true" aria-label="Popover" class="popover__content" id="popover" role="dialog" tabindex="-1">
               <span class="popover__handle"></span>
-              <slot name="content"></slot>
+              <div class="popover__scroll-container">
+                <slot name="content"></slot>
+              </div>
             </div>
           </div>
         </mock:shadow-root>

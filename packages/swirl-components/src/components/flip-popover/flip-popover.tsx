@@ -174,7 +174,9 @@ export class FlipPopover {
             ref={(el) => (this.contentContainer = el)}
           >
             <span class="popover__handle"></span>
-            <slot name="content"></slot>
+            <div class="popover__scroll-container">
+              <slot name="content"></slot>
+            </div>
           </div>
           {this.active && <div class="popover__backdrop"></div>}
         </div>
