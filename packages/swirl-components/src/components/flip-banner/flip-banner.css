@@ -87,7 +87,7 @@
   min-height: 1.5rem;
   margin-right: var(--s-space-12);
   flex-grow: 1;
-  line-height: var(--s-line-height-sm);
+  line-height: var(--s-line-height-base);
 }
 
 .banner__controls {
@@ -95,7 +95,7 @@
   margin-left: var(--s-space-16);
   align-items: center;
   gap: var(--s-space-16);
-  line-height: var(--s-line-height-sm);
+  line-height: var(--s-line-height-base);
 
   @media (--from-tablet) {
     gap: var(--s-space-24);
