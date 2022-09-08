@@ -40,7 +40,7 @@ export class FlipBadge {
     );
 
     return (
-      <Host role="status" tabIndex="0">
+      <Host role="status">
         <span class={className}>
           {this.icon && <span class="badge__icon" innerHTML={this.icon}></span>}
           {this.icon === undefined && (

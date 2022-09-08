@@ -61,7 +61,7 @@ export class FlipTooltip {
   };
 
   private reposition = () => {
-    if (!this.referenceEl || !this.popperEl) {
+    if (!Boolean(this.referenceEl) || !Boolean(this.popperEl)) {
       return;
     }
 
@@ -81,7 +81,7 @@ export class FlipTooltip {
   };
 
   private showWithDelay = () => {
-    if (this.showTimeout) {
+    if (Boolean(this.showTimeout)) {
       clearTimeout(this.showTimeout);
       this.showTimeout = undefined;
     }
@@ -92,7 +92,7 @@ export class FlipTooltip {
   };
 
   private hide = () => {
-    if (this.showTimeout) {
+    if (Boolean(this.showTimeout)) {
       clearTimeout(this.showTimeout);
       this.showTimeout = undefined;
     }
