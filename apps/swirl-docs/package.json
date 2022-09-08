@@ -1,7 +1,13 @@
 {
   "name": "swirl-docs",
   "version": "0.1.0",
-  "private": true,
+  "author": "Flip GmbH",
+  "description": "Swirl documentation",
+  "licence": "SEE LICENCE IN LICENSE.md",
+  "repository": "https://github.com/getflip/swirl",
+  "bugs": {
+    "url": "https://github.com/getflip/swirl/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
