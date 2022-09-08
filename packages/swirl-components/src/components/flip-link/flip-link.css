@@ -8,7 +8,7 @@
 
 .link {
   color: var(--s-interactive-primary-default);
-  line-height: var(--s-line-height-sm);
+  line-height: var(--s-line-height-base);
   text-underline-offset: var(--s-space-4);
 
   &:hover {
