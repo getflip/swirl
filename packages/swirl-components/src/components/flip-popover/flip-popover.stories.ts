@@ -3,16 +3,6 @@ import Docs from "./flip-popover.mdx";
 
 export default {
   component: "flip-popover",
-  decorators: [
-    (story) => {
-      const container = document.createElement("div");
-
-      container.style.minHeight = "100px";
-      container.append(story());
-
-      return container;
-    },
-  ],
   parameters: {
     docs: {
       page: Docs,
@@ -27,8 +17,9 @@ const Template = (args) => {
   element.innerHTML = `
     <flip-button label="Trigger popover" slot="trigger"></flip-button>
     <flip-action-list slot="content">
-      <li><button type="button" role="menuitem" tabindex="-1">Menu item #1</button></li>
-      <li><button type="button" role="menuitem" tabindex="-1">Menu item #2</button></li>
+      <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 1"></flip-action-list-item>
+      <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 2"></flip-action-list-item>
+      <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 3"></flip-action-list-item>
     </flip-action-list>
   `;
 

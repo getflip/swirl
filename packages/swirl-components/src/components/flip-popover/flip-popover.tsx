@@ -9,6 +9,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { PositionMatch, reposition } from "nanopop";
+import { querySelectorAllDeep } from "query-selector-shadow-dom";
 
 /**
  * @slot trigger - The trigger element. Has to be a single interactive element. E.g. `<flip-button label="Trigger" slot="trigger"></flip-button>`
@@ -73,7 +74,7 @@ export class FlipPopover {
     this.updateTriggerAttributes();
 
     requestAnimationFrame(() => {
-      const childMenuItems = this.el.querySelectorAll('[role="menuitem"]');
+      const childMenuItems = querySelectorAllDeep('[role="menuitem"]', this.el);
 
       if (childMenuItems.length > 0) {
         (childMenuItems[0] as HTMLElement).focus();
@@ -97,6 +98,14 @@ export class FlipPopover {
     if (event.code === "Escape" && this.active) {
       this.close();
     }
+  };
+
+  private onContentClick = () => {
+    if (!this.active) {
+      return;
+    }
+
+    this.close();
   };
 
   private getTriggerElement(): HTMLElement | undefined {
@@ -123,11 +132,14 @@ export class FlipPopover {
   private reposition = () => {
     const mobile = !window.matchMedia("(min-width: 768px)").matches;
 
-    if (
-      mobile ||
-      !Boolean(this.triggerContainer) ||
-      !Boolean(this.contentContainer)
-    ) {
+    if (!Boolean(this.triggerContainer) || !Boolean(this.contentContainer)) {
+      return;
+    }
+
+    if (mobile) {
+      this.contentContainer.style.top = "";
+      this.contentContainer.style.left = "";
+
       return;
     }
 
@@ -151,12 +163,12 @@ export class FlipPopover {
           >
             <slot name="trigger"></slot>
           </div>
-          {this.active && <div class="popover__backdrop"></div>}
           <div
             aria-hidden={!this.active ? "true" : "false"}
             aria-label={this.label}
             class="popover__content"
             id="popover"
+            onClick={this.onContentClick}
             role="dialog"
             tabindex="-1"
             ref={(el) => (this.contentContainer = el)}
@@ -164,6 +176,7 @@ export class FlipPopover {
             <span class="popover__handle"></span>
             <slot name="content"></slot>
           </div>
+          {this.active && <div class="popover__backdrop"></div>}
         </div>
       </Host>
     );
