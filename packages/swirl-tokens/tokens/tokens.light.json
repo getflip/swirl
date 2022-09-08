@@ -40,20 +40,16 @@
     "value": 700,
     "type": "fontWeights"
   },
-  "line-height-s": {
-    "value": "130%",
-    "type": "lineHeights"
-  },
   "line-height-sm": {
-    "value": "135%",
+    "value": "1.25rem",
     "type": "lineHeights"
   },
   "line-height-base": {
-    "value": "140%",
+    "value": "1.375rem",
     "type": "lineHeights"
   },
   "line-height-lg": {
-    "value": "150%",
+    "value": "1.5rem",
     "type": "lineHeights"
   },
   "letter-spacing-tighter": {
@@ -199,6 +195,14 @@
   "border-width-default": {
     "value": "0.0625rem",
     "type": "borderWidth"
+  },
+  "line-height-xl": {
+    "value": "1.625rem",
+    "type": "lineHeights"
+  },
+  "line-height-2xl": {
+    "value": "2.25rem",
+    "type": "lineHeights"
   },
   "core-gray-10": {
     "value": "rgba(42, 43, 45, 1)",

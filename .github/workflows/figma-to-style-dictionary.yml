@@ -1,0 +1,24 @@
+name: Transform Figma Design Tokens
+
+on:
+  push:
+    branches:
+      - figma-tokens
+
+jobs:
+  figma_to_style_dictionary:
+    runs-on: ubuntu-latest
+    name: Transform Figma Design Tokens to Style Dictionary format
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+        name: Setup Node.js environment
+      # Transform Figma Tokens JSON to something Style Dictionary can read + generate Style Dictionary output
+      - run: cd packages/swirl-tokens && yarn && yarn build
+      # Commit generated JSON in Style Dictionary format
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message:
+            "feat(tokens): update design tokens (triggered by Figma)"
