@@ -16,6 +16,7 @@ import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
+import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
 import { FlipToastIntent } from "./components/flip-toast/flip-toast";
 import { FlipToastConfig, FlipToastMessage } from "./components/flip-toast-provider/flip-toast-provider";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
@@ -300,6 +301,27 @@ export namespace Components {
         "orientation"?: FlipStackOrientation;
         "spacing"?: FlipStackSpacing;
         "wrap"?: boolean;
+    }
+    interface FlipThemeProvider {
+        "config": FlipThemeProviderConfig;
+        /**
+          * Returns the active app theme.
+          * @returns FlipTheme
+         */
+        "getActiveTheme": () => Promise<FlipTheme>;
+        /**
+          * Returns the user's preferred theme stored in local storage.
+          * @returns FlipTheme
+         */
+        "getPreferredTheme": () => Promise<FlipTheme>;
+        /**
+          * Resets the user's preferred theme, using the OS theme instead.
+         */
+        "resetPreferredTheme": () => Promise<void>;
+        /**
+          * Sets the user's preferred theme and stores it in local storage. Overrides the OS theme.
+         */
+        "setPreferredTheme": (theme: FlipTheme) => Promise<void>;
     }
     interface FlipToast {
         "accessibleDismissLabel"?: string;
@@ -831,6 +853,12 @@ declare global {
         prototype: HTMLFlipStackElement;
         new (): HTMLFlipStackElement;
     };
+    interface HTMLFlipThemeProviderElement extends Components.FlipThemeProvider, HTMLStencilElement {
+    }
+    var HTMLFlipThemeProviderElement: {
+        prototype: HTMLFlipThemeProviderElement;
+        new (): HTMLFlipThemeProviderElement;
+    };
     interface HTMLFlipToastElement extends Components.FlipToast, HTMLStencilElement {
     }
     var HTMLFlipToastElement: {
@@ -934,6 +962,7 @@ declare global {
         "flip-radio-group": HTMLFlipRadioGroupElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
+        "flip-theme-provider": HTMLFlipThemeProviderElement;
         "flip-toast": HTMLFlipToastElement;
         "flip-toast-provider": HTMLFlipToastProviderElement;
         "flip-tooltip": HTMLFlipTooltipElement;
@@ -1227,6 +1256,9 @@ declare namespace LocalJSX {
         "spacing"?: FlipStackSpacing;
         "wrap"?: boolean;
     }
+    interface FlipThemeProvider {
+        "config"?: FlipThemeProviderConfig;
+    }
     interface FlipToast {
         "accessibleDismissLabel"?: string;
         "content": string;
@@ -1329,6 +1361,7 @@ declare namespace LocalJSX {
         "flip-radio-group": FlipRadioGroup;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
+        "flip-theme-provider": FlipThemeProvider;
         "flip-toast": FlipToast;
         "flip-toast-provider": FlipToastProvider;
         "flip-tooltip": FlipTooltip;
@@ -1417,6 +1450,7 @@ declare module "@stencil/core" {
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
+            "flip-theme-provider": LocalJSX.FlipThemeProvider & JSXBase.HTMLAttributes<HTMLFlipThemeProviderElement>;
             "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
             "flip-toast-provider": LocalJSX.FlipToastProvider & JSXBase.HTMLAttributes<HTMLFlipToastProviderElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
