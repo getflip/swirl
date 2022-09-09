@@ -24,7 +24,7 @@ export class FlipInlineError {
       <Host>
         <span class={className}>
           <span class="inline-error__icon">
-            <flip-icon-report size={iconSize}></flip-icon-report>
+            <flip-icon-error size={iconSize}></flip-icon-error>
           </span>
           <span class="inline-error__message">{this.message}</span>
         </span>
