@@ -24,7 +24,7 @@ export class FlipChip {
   }
 
   private forceAvatarProps() {
-    if (!this.avatarEl) {
+    if (!Boolean(this.avatarEl)) {
       return;
     }
 
@@ -39,7 +39,7 @@ export class FlipChip {
   }
 
   private forceIconProps() {
-    if (!this.iconEl) {
+    if (!Boolean(this.iconEl)) {
       return;
     }
 
