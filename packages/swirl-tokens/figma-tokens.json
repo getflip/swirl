@@ -270,6 +270,10 @@
       "value": "16",
       "type": "spacing"
     },
+    "space-20": {
+      "value": "20",
+      "type": "spacing"
+    },
     "space-24": {
       "value": "24",
       "type": "spacing"
