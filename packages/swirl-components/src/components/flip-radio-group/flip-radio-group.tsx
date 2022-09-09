@@ -44,7 +44,7 @@ export class FlipRadioGroup {
       (radio) => radio.value === this.value
     );
 
-    if (!radioWithValue) {
+    if (!Boolean(radioWithValue)) {
       return;
     }
 
@@ -54,7 +54,7 @@ export class FlipRadioGroup {
   private handleValueChanges() {
     for (const [key, radio] of Object.entries(this.radioButtons)) {
       radio.addEventListener("valueChange", () => {
-        if (radio.checked) {
+        if (radio.checked === true || radio.checked === "true") {
           this.valueChange.emit(radio.value);
 
           this.radioButtons.forEach((r, k) => {

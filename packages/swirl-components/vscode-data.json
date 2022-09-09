@@ -1474,6 +1474,14 @@
       ]
     },
     {
+      "name": "flip-theme-provider",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
       "name": "flip-toast",
       "description": {
         "kind": "markdown",
