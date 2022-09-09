@@ -7,7 +7,7 @@ export type FlipButtonSize = "m" | "l";
 
 export type FlipButtonType = "button" | "submit";
 
-export type FlipButtonVariant = "flat" | "ghost" | "plain";
+export type FlipButtonVariant = "flat" | "ghost" | "plain" | "on-image";
 
 @Component({
   /**

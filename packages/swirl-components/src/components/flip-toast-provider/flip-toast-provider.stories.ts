@@ -46,6 +46,7 @@ const Template = () => {
     {}
   ) as HTMLFlipToastProviderElement;
 
+  createButton.variant = "flat";
   createButton.label = "Create random toast";
   createButton.style.marginRight = "0.5rem";
   createButton.style.marginBottom = "1rem";

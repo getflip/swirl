@@ -305,6 +305,9 @@
               "name": "ghost"
             },
             {
+              "name": "on-image"
+            },
+            {
               "name": "plain"
             }
           ]

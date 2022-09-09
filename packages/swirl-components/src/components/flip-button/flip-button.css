@@ -8,6 +8,9 @@
 }
 
 .button {
+  --flip-ghost-button-background-hovered: var(--s-background-hovered);
+  --flip-ghost-button-background-pressed: var(--s-background-pressed);
+
   display: inline-flex;
   max-width: 100%;
   padding: var(--s-space-8) var(--s-space-16);
@@ -24,11 +27,11 @@
   gap: var(--s-space-8);
 
   &:hover {
-    background-color: var(--s-background-hovered);
+    background-color: var(--flip-ghost-button-background-hovered);
   }
 
   &:active {
-    background-color: var(--s-background-pressed);
+    background-color: var(--flip-ghost-button-background-pressed);
   }
 
   &:disabled {
@@ -48,9 +51,7 @@
 
 .button--variant-ghost {
   &.button--intent-primary:not(:disabled) {
-    & .button__label {
-      color: var(--s-text-highlight);
-    }
+    color: var(--s-text-highlight);
 
     & .button__left-icon {
       color: var(--s-icon-highlight);
@@ -58,13 +59,141 @@
   }
 
   &.button--intent-critical:not(:disabled) {
-    & .button__label {
-      color: var(--s-text-critical);
-    }
+    color: var(--s-text-critical);
 
     & .button__left-icon {
       color: var(--s-icon-critical);
     }
+  }
+
+  &.button--size-l {
+    padding: var(--s-space-12) var(--s-space-20);
+
+    &.button--icon-only {
+      padding: var(--s-space-12);
+    }
+  }
+}
+
+.button--variant-flat {
+  color: var(--s-text-on-action-primary);
+  background-color: var(--s-action-neutral-default);
+
+  &:hover {
+    background-color: var(--s-action-neutral-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-action-neutral-pressed);
+  }
+
+  &:disabled {
+    background-color: var(--s-action-neutral-disabled);
+  }
+
+  &.button--intent-primary:not(:disabled) {
+    background-color: var(--s-action-primary-default);
+
+    &:hover {
+      background-color: var(--s-action-primary-hovered);
+    }
+
+    &:active {
+      background-color: var(--s-action-primary-pressed);
+    }
+  }
+
+  & .button__left-icon {
+    color: var(--s-icon-on-action-primary);
+  }
+}
+
+.button--variant-plain {
+  padding: 0;
+  border-radius: 0;
+  color: var(--s-interactive-neutral-default);
+  background-color: transparent;
+
+  &:hover:not(:disabled) {
+    color: var(--s-interactive-neutral-default);
+    background-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: var(--s-space-4);
+
+    & .button__left-icon {
+      color: var(--s-interactive-neutral-default);
+    }
+  }
+
+  &:active:not(:disabled) {
+    color: var(--s-interactive-neutral-hovered);
+    background-color: transparent;
+
+    & .button__left-icon {
+      color: var(--s-interactive-neutral-hovered);
+    }
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--s-interactive-neutral-disabled);
+
+    & .button__left-icon {
+      color: var(--s-interactive-neutral-disabled);
+    }
+  }
+
+  &.button--intent-primary {
+    color: var(--s-interactive-primary-default);
+
+    &:hover {
+      color: var(--s-interactive-primary-default);
+
+      & .button__left-icon {
+        color: var(--s-interactive-primary-default);
+      }
+    }
+
+    &:active {
+      color: var(--s-interactive-primary-hovered);
+
+      & .button__left-icon {
+        color: var(--s-interactive-primary-hovered);
+      }
+    }
+
+    &:disabled {
+      color: var(--s-interactive-primary-disabled);
+
+      & .button__left-icon {
+        color: var(--s-interactive-primary-disabled);
+      }
+    }
+
+    & .button__left-icon {
+      color: var(--s-interactive-primary-default);
+    }
+  }
+
+  & .button__left-icon {
+    color: var(--s-interactive-neutral-default);
+  }
+}
+
+.button--variant-on-image {
+  background-color: var(--s-action-on-image-default);
+  color: var(--s-text-on-image);
+
+  &:hover {
+    background-color: var(--s-action-on-image-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-action-on-image-pressed);
+  }
+
+  & .button__left-icon {
+    color: var(--s-icon-on-image);
   }
 }
 
@@ -75,10 +204,6 @@
   & .button__left-icon {
     margin-left: 0;
   }
-}
-
-.button--size-l {
-  padding: var(--s-space-12) var(--s-space-20);
 }
 
 .button__left-icon {
