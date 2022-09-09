@@ -7,7 +7,12 @@ export type FlipButtonSize = "m" | "l";
 
 export type FlipButtonType = "button" | "submit";
 
-export type FlipButtonVariant = "flat" | "ghost" | "plain" | "on-image";
+export type FlipButtonVariant =
+  | "flat"
+  | "ghost"
+  | "plain"
+  | "floating"
+  | "on-image";
 
 @Component({
   /**
@@ -23,12 +28,18 @@ export type FlipButtonVariant = "flat" | "ghost" | "plain" | "on-image";
 })
 export class FlipButton {
   @Prop() disabled?: boolean;
+  @Prop() download?: string;
+  @Prop() form?: string;
   @Prop() hideLabel?: boolean;
+  @Prop() href?: string;
   @Prop() icon?: string;
   @Prop() intent?: FlipButtonIntent = "default";
   @Prop() label!: string;
+  @Prop() name?: string;
   @Prop() size?: FlipButtonSize = "m";
+  @Prop() target?: string;
   @Prop() type?: FlipButtonType = "button";
+  @Prop() value?: string;
   @Prop() variant?: FlipButtonVariant = "ghost";
 
   private iconEl: HTMLElement;
@@ -48,7 +59,11 @@ export class FlipButton {
   }
 
   render() {
-    const hideLabel = this.hideLabel && Boolean(this.icon);
+    const hideLabel =
+      (this.hideLabel && Boolean(this.icon)) ||
+      (this.variant === "floating" && this.intent === "default");
+
+    const isLink = Boolean(this.href);
 
     const className = classnames(
       "button",
@@ -60,13 +75,21 @@ export class FlipButton {
       }
     );
 
+    const Tag = isLink ? "a" : "button";
+
     return (
-      <button
-        aria-disabled={this.disabled ? "true" : undefined}
+      <Tag
+        aria-disabled={this.disabled && !isLink ? "true" : undefined}
         aria-label={hideLabel ? this.label : undefined}
         class={className}
-        disabled={this.disabled}
-        type={this.type}
+        disabled={isLink ? undefined : this.disabled}
+        download={isLink ? undefined : this.download}
+        form={isLink ? undefined : this.form}
+        href={this.href}
+        name={isLink ? undefined : this.name}
+        target={isLink ? this.target : undefined}
+        type={isLink ? undefined : this.type}
+        value={isLink ? undefined : this.value}
       >
         {this.icon && (
           <span
@@ -76,7 +99,7 @@ export class FlipButton {
           ></span>
         )}
         {!hideLabel && <span class="button__label">{this.label}</span>}
-      </button>
+      </Tag>
     );
   }
 }

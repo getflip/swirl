@@ -54,12 +54,18 @@ export namespace Components {
     }
     interface FlipButton {
         "disabled"?: boolean;
+        "download"?: string;
+        "form"?: string;
         "hideLabel"?: boolean;
+        "href"?: string;
         "icon"?: string;
         "intent"?: FlipButtonIntent;
         "label": string;
+        "name"?: string;
         "size"?: FlipButtonSize;
+        "target"?: string;
         "type"?: FlipButtonType;
+        "value"?: string;
         "variant"?: FlipButtonVariant;
     }
     interface FlipCheckbox {
@@ -1009,12 +1015,18 @@ declare namespace LocalJSX {
     }
     interface FlipButton {
         "disabled"?: boolean;
+        "download"?: string;
+        "form"?: string;
         "hideLabel"?: boolean;
+        "href"?: string;
         "icon"?: string;
         "intent"?: FlipButtonIntent;
         "label": string;
+        "name"?: string;
         "size"?: FlipButtonSize;
+        "target"?: string;
         "type"?: FlipButtonType;
+        "value"?: string;
         "variant"?: FlipButtonVariant;
     }
     interface FlipCheckbox {

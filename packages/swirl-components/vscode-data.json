@@ -244,7 +244,19 @@
           "description": ""
         },
         {
+          "name": "download",
+          "description": ""
+        },
+        {
+          "name": "form",
+          "description": ""
+        },
+        {
           "name": "hide-label",
+          "description": ""
+        },
+        {
+          "name": "href",
           "description": ""
         },
         {
@@ -271,6 +283,10 @@
           "description": ""
         },
         {
+          "name": "name",
+          "description": ""
+        },
+        {
           "name": "size",
           "description": "",
           "values": [
@@ -281,6 +297,10 @@
               "name": "m"
             }
           ]
+        },
+        {
+          "name": "target",
+          "description": ""
         },
         {
           "name": "type",
@@ -295,11 +315,18 @@
           ]
         },
         {
+          "name": "value",
+          "description": ""
+        },
+        {
           "name": "variant",
           "description": "",
           "values": [
             {
               "name": "flat"
+            },
+            {
+              "name": "floating"
             },
             {
               "name": "ghost"
