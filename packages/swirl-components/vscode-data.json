@@ -244,12 +244,43 @@
           "description": ""
         },
         {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "primary"
+            }
+          ]
+        },
+        {
           "name": "label",
           "description": ""
         },
         {
-          "name": "left-icon",
-          "description": ""
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "l"
+            },
+            {
+              "name": "m"
+            }
+          ]
         },
         {
           "name": "type",
@@ -260,6 +291,21 @@
             },
             {
               "name": "submit"
+            }
+          ]
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "flat"
+            },
+            {
+              "name": "ghost"
+            },
+            {
+              "name": "plain"
             }
           ]
         }

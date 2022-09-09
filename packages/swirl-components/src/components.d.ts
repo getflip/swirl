@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
-import { FlipButtonType } from "./components/flip-button/flip-button";
+import { FlipButtonIntent, FlipButtonSize, FlipButtonType, FlipButtonVariant } from "./components/flip-button/flip-button";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
@@ -54,9 +54,13 @@ export namespace Components {
     }
     interface FlipButton {
         "disabled"?: boolean;
+        "hideLabel"?: boolean;
+        "icon"?: string;
+        "intent"?: FlipButtonIntent;
         "label": string;
-        "leftIcon"?: string;
+        "size"?: FlipButtonSize;
         "type"?: FlipButtonType;
+        "variant"?: FlipButtonVariant;
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
@@ -1005,9 +1009,13 @@ declare namespace LocalJSX {
     }
     interface FlipButton {
         "disabled"?: boolean;
+        "hideLabel"?: boolean;
+        "icon"?: string;
+        "intent"?: FlipButtonIntent;
         "label": string;
-        "leftIcon"?: string;
+        "size"?: FlipButtonSize;
         "type"?: FlipButtonType;
+        "variant"?: FlipButtonVariant;
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;

@@ -10,31 +10,35 @@
 .button {
   display: inline-flex;
   max-width: 100%;
-  height: 2.5rem;
-  padding-right: var(--s-space-16);
-  padding-left: var(--s-space-16);
+  padding: var(--s-space-8) var(--s-space-16);
   align-items: center;
   border: none;
-  border-radius: 0.75rem;
-  color: var(--s-text-on-action-primary);
-  background-color: var(--s-action-primary-default);
+  border-radius: var(--s-border-radius-base);
+  color: var(--s-text-subdued);
+  background-color: var(--s-background-default);
   font: inherit;
   font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-lg);
+  text-align: left;
   cursor: pointer;
-  gap: var(--s-space-4);
+  gap: var(--s-space-8);
 
   &:hover {
-    background-color: var(--s-action-primary-hovered);
+    background-color: var(--s-background-hovered);
   }
 
   &:active {
-    background-color: var(--s-action-primary-pressed);
+    background-color: var(--s-background-pressed);
   }
 
   &:disabled {
     color: var(--s-text-disabled);
-    background-color: var(--s-action-primary-disabled);
+    background-color: var(--s-background-default);
     cursor: default;
+
+    & .button__left-icon {
+      color: var(--s-icon-disabled);
+    }
   }
 
   &:focus {
@@ -42,9 +46,45 @@
   }
 }
 
+.button--variant-ghost {
+  &.button--intent-primary:not(:disabled) {
+    & .button__label {
+      color: var(--s-text-highlight);
+    }
+
+    & .button__left-icon {
+      color: var(--s-icon-highlight);
+    }
+  }
+
+  &.button--intent-critical:not(:disabled) {
+    & .button__label {
+      color: var(--s-text-critical);
+    }
+
+    & .button__left-icon {
+      color: var(--s-icon-critical);
+    }
+  }
+}
+
+.button--icon-only {
+  padding: var(--s-space-8);
+  border-radius: 50%;
+
+  & .button__left-icon {
+    margin-left: 0;
+  }
+}
+
+.button--size-l {
+  padding: var(--s-space-12) var(--s-space-20);
+}
+
 .button__left-icon {
   display: inline-flex;
   margin-left: calc(-1 * var(--s-space-4));
+  color: var(--s-icon-default);
 }
 
 .button__label {
