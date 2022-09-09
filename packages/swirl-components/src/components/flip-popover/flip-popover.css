@@ -65,7 +65,8 @@
 }
 
 .popover__scroll-container {
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   width: 100%;
   max-height: 90vh;
   margin-top: var(--s-space-24);
