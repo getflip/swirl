@@ -26,12 +26,19 @@ export const parameters = {
     theme: swirlTheme,
   },
   themes: {
-    default: "default-light",
+    clearable: false,
+    default: "Light",
     list: [
-      { name: "default-light", class: "theme-default-light", color: "#fff" },
-      { name: "default-dark", class: "theme-default-dark", color: "#232426" },
-      { name: "tenant-light", class: "theme-tenant-light", color: "#c3002d" },
+      { name: "Light", class: "theme-light", color: "#fff" },
+      { name: "Dark", class: "theme-dark", color: "#232426" },
     ],
+    onChange: () => {
+      // fixes an issue where Storybook would override css custom properties
+      document.querySelector(
+        "#storybook-preview-iframe"
+      ).contentDocument.documentElement.style = "";
+    },
+    target: "root",
   },
   viewMode: "docs",
   viewport: {
