@@ -244,11 +244,62 @@
           "description": ""
         },
         {
+          "name": "download",
+          "description": ""
+        },
+        {
+          "name": "form",
+          "description": ""
+        },
+        {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
+          "name": "href",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "primary"
+            }
+          ]
+        },
+        {
           "name": "label",
           "description": ""
         },
         {
-          "name": "left-icon",
+          "name": "name",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "l"
+            },
+            {
+              "name": "m"
+            }
+          ]
+        },
+        {
+          "name": "target",
           "description": ""
         },
         {
@@ -260,6 +311,31 @@
             },
             {
               "name": "submit"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "flat"
+            },
+            {
+              "name": "floating"
+            },
+            {
+              "name": "ghost"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "plain"
             }
           ]
         }
