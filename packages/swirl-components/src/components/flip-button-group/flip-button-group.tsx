@@ -17,6 +17,7 @@ export type FlipButtonGroupOrientation = FlipStackOrientation;
 })
 export class FlipButtonGroup {
   @Prop() orientation: FlipButtonGroupOrientation = "horizontal";
+  @Prop() wrap: boolean;
 
   render() {
     return (
@@ -26,6 +27,7 @@ export class FlipButtonGroup {
           orientation={this.orientation}
           role="group"
           spacing="8"
+          wrap={this.wrap}
         >
           <slot></slot>
         </flip-stack>
