@@ -72,6 +72,7 @@ export namespace Components {
     }
     interface FlipButtonGroup {
         "orientation": FlipButtonGroupOrientation;
+        "stretch": boolean;
         "wrap": boolean;
     }
     interface FlipCheckbox {
@@ -1064,6 +1065,7 @@ declare namespace LocalJSX {
     }
     interface FlipButtonGroup {
         "orientation"?: FlipButtonGroupOrientation;
+        "stretch"?: boolean;
         "wrap"?: boolean;
     }
     interface FlipCheckbox {

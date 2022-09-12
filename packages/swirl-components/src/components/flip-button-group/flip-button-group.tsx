@@ -4,19 +4,13 @@ import { FlipStackOrientation } from "../flip-stack/flip-stack";
 export type FlipButtonGroupOrientation = FlipStackOrientation;
 
 @Component({
-  /**
-   * Form controls in shadow dom can still not be associated with labels in the
-   * light dom, cross browser. So for now we disable shadow dom for form
-   * controls (inputs, buttons, selects, etc.). Instead we use Stencil's scoping.
-   * https://caniuse.com/?search=attachInternals
-   */
-  scoped: true,
-  shadow: false,
+  shadow: true,
   styleUrl: "flip-button-group.css",
   tag: "flip-button-group",
 })
 export class FlipButtonGroup {
   @Prop() orientation: FlipButtonGroupOrientation = "horizontal";
+  @Prop() stretch: boolean;
   @Prop() wrap: boolean;
 
   render() {
@@ -24,6 +18,7 @@ export class FlipButtonGroup {
       <Host>
         <flip-stack
           class="button-group"
+          justify={this.stretch ? "stretch" : "start"}
           orientation={this.orientation}
           role="group"
           spacing="8"

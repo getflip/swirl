@@ -361,6 +361,10 @@
           ]
         },
         {
+          "name": "stretch",
+          "description": ""
+        },
+        {
           "name": "wrap",
           "description": ""
         }
@@ -1507,6 +1511,9 @@
             },
             {
               "name": "start"
+            },
+            {
+              "name": "stretch"
             }
           ]
         },

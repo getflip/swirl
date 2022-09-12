@@ -9,7 +9,8 @@ export type FlipStackJustify =
   | "end"
   | "space-between"
   | "space-around"
-  | "space-evenly";
+  | "space-evenly"
+  | "stretch";
 
 export type FlipStackOrientation = "horizontal" | "vertical";
 
