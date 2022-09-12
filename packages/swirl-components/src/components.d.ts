@@ -9,6 +9,7 @@ import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./co
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
 import { FlipButtonIntent, FlipButtonSize, FlipButtonType, FlipButtonVariant } from "./components/flip-button/flip-button";
+import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-button-group";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
@@ -67,6 +68,10 @@ export namespace Components {
         "type"?: FlipButtonType;
         "value"?: string;
         "variant"?: FlipButtonVariant;
+    }
+    interface FlipButtonGroup {
+        "orientation": FlipButtonGroupOrientation;
+        "wrap": boolean;
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
@@ -424,6 +429,12 @@ declare global {
     var HTMLFlipButtonElement: {
         prototype: HTMLFlipButtonElement;
         new (): HTMLFlipButtonElement;
+    };
+    interface HTMLFlipButtonGroupElement extends Components.FlipButtonGroup, HTMLStencilElement {
+    }
+    var HTMLFlipButtonGroupElement: {
+        prototype: HTMLFlipButtonGroupElement;
+        new (): HTMLFlipButtonGroupElement;
     };
     interface HTMLFlipCheckboxElement extends Components.FlipCheckbox, HTMLStencilElement {
     }
@@ -899,6 +910,7 @@ declare global {
         "flip-badge": HTMLFlipBadgeElement;
         "flip-banner": HTMLFlipBannerElement;
         "flip-button": HTMLFlipButtonElement;
+        "flip-button-group": HTMLFlipButtonGroupElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
         "flip-chip": HTMLFlipChipElement;
         "flip-icon-add": HTMLFlipIconAddElement;
@@ -1028,6 +1040,10 @@ declare namespace LocalJSX {
         "type"?: FlipButtonType;
         "value"?: string;
         "variant"?: FlipButtonVariant;
+    }
+    interface FlipButtonGroup {
+        "orientation"?: FlipButtonGroupOrientation;
+        "wrap"?: boolean;
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
@@ -1308,6 +1324,7 @@ declare namespace LocalJSX {
         "flip-badge": FlipBadge;
         "flip-banner": FlipBanner;
         "flip-button": FlipButton;
+        "flip-button-group": FlipButtonGroup;
         "flip-checkbox": FlipCheckbox;
         "flip-chip": FlipChip;
         "flip-icon-add": FlipIconAdd;
@@ -1397,6 +1414,7 @@ declare module "@stencil/core" {
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
             "flip-banner": LocalJSX.FlipBanner & JSXBase.HTMLAttributes<HTMLFlipBannerElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
+            "flip-button-group": LocalJSX.FlipButtonGroup & JSXBase.HTMLAttributes<HTMLFlipButtonGroupElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
             "flip-chip": LocalJSX.FlipChip & JSXBase.HTMLAttributes<HTMLFlipChipElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
