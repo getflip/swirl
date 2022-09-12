@@ -11,6 +11,9 @@ module.exports = {
     extend: {
       ...SwirlTailwindTheme,
     },
+    fontFamily: {
+      sans: ["Inter", "sans-serif"],
+    },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
