@@ -1,0 +1,54 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipDialog" />
+
+# FlipDialog
+
+The FlipDialog component is used to overlay the user interface with content that
+needs the user's confirmation or action.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=145%3A4232)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-dialog)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipdialog--flip-dialog" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                      | Usage                          |
+| ----------------------------- | ------------------------------ |
+| `--s-surface-overlay-default` | Background color of the dialog |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Alert and Message Dialogs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/).
+
+| ARIA                 | Usage                                               |
+| -------------------- | --------------------------------------------------- |
+| `role="alertdialog"` | The dialog has the `alertdialog` role.              |
+| `aria-hidden`        | Set to "true" if dialog is hidden.                  |
+| `aria-modal`         | Set to "true".                                      |
+| `aria-label`         | Set on the dialog if label is hidden.               |
+| `aria-labelledby`    | Set on the dialog to refer to the dialog's label.   |
+| `aria-describedby`   | Set on the dialog to refer to the dialog's content. |
+
+### Keyboard
+
+| Key                                    | Action                                                                                                  |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| <kbd>ESC</kbd>                         | Closes the dialog.                                                                                      |
+| <kbd>TAB</kbd>, <kbd>SHIFT + TAB</kbd> | Cycles through the focusable elements inside the dialog. Focus is trapped inside the dialog while open. |
+
+### Focus handling
+
+- Focus is moved to the secondary button when the dialog is opened. If no
+  secondary button is provided, the primary button is focused.
+- After closing, the focus is returned to last focused element.

@@ -1,0 +1,58 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.dialog {
+  position: fixed;
+  z-index: var(--s-z-40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+.dialog__backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.2);
+  inset: 0;
+}
+
+.dialog__body {
+  z-index: var(--s-z-40);
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 18.5rem;
+  max-height: 90vh;
+  padding-top: var(--s-space-24);
+  padding-right: var(--s-space-8);
+  padding-bottom: var(--s-space-8);
+  padding-left: var(--s-space-8);
+  border-radius: var(--s-border-radius-xl);
+  background-color: var(--s-surface-overlay-default);
+  text-align: center;
+  box-shadow: 0.125rem 0.25rem 1rem rgba(0, 0, 0, 0.14);
+}
+
+.dialog__heading {
+  margin: 0;
+  font-size: var(--s-font-size-lg);
+  font-weight: var(--s-font-weight-semibold);
+  line-height: var(--s-line-height-lg);
+  margin-bottom: var(--s-space-8);
+}
+
+.dialog__content {
+  margin-bottom: var(--s-space-24);
+
+  & ::slotted(*) {
+    margin: 0;
+  }
+}
