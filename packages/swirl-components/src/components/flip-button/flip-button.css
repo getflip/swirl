@@ -14,6 +14,7 @@
   display: inline-flex;
   max-width: 100%;
   padding: var(--s-space-8) var(--s-space-16);
+  justify-content: center;
   align-items: center;
   border: none;
   border-radius: var(--s-border-radius-base);
@@ -22,7 +23,6 @@
   font: inherit;
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-lg);
-  text-align: left;
   text-decoration: none;
   cursor: pointer;
   gap: var(--s-space-8);
@@ -93,8 +93,8 @@
   }
 
   &.button--intent-primary:not(:disabled) {
-    background-color: var(--s-action-primary-default);
     color: var(--s-text-on-action-primary);
+    background-color: var(--s-action-primary-default);
 
     &:hover {
       background-color: var(--s-action-primary-hovered);
@@ -237,8 +237,8 @@
 
   &.button--intent-primary {
     padding: var(--s-space-12) var(--s-space-20);
-    color: var(--s-text-on-action-primary);
     border-radius: 1.5rem;
+    color: var(--s-text-on-action-primary);
     background-color: var(--s-action-primary-default);
 
     &:hover:not(:disabled) {
@@ -276,6 +276,10 @@
   & .button__left-icon {
     margin-left: 0;
   }
+}
+
+.button--full-width {
+  width: 100%;
 }
 
 .button__left-icon {

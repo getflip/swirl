@@ -1,4 +1,4 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
 export type FlipButtonIntent = "default" | "primary" | "critical";
@@ -30,6 +30,7 @@ export class FlipButton {
   @Prop() disabled?: boolean;
   @Prop() download?: string;
   @Prop() form?: string;
+  @Prop() fullWidth?: boolean;
   @Prop() hideLabel?: boolean;
   @Prop() href?: string;
   @Prop() icon?: string;
@@ -71,6 +72,7 @@ export class FlipButton {
       `button--size-${this.size}`,
       `button--variant-${this.variant}`,
       {
+        "button--full-width": this.fullWidth,
         "button--icon-only": hideLabel,
       }
     );
@@ -78,28 +80,35 @@ export class FlipButton {
     const Tag = isLink ? "a" : "button";
 
     return (
-      <Tag
-        aria-disabled={this.disabled && !isLink ? "true" : undefined}
-        aria-label={hideLabel ? this.label : undefined}
-        class={className}
-        disabled={isLink ? undefined : this.disabled}
-        download={isLink ? undefined : this.download}
-        form={isLink ? undefined : this.form}
-        href={this.href}
-        name={isLink ? undefined : this.name}
-        target={isLink ? this.target : undefined}
-        type={isLink ? undefined : this.type}
-        value={isLink ? undefined : this.value}
+      <Host
+        style={{
+          display: this.fullWidth ? "block" : undefined,
+          width: this.fullWidth ? "100%" : undefined,
+        }}
       >
-        {this.icon && (
-          <span
-            class="button__left-icon"
-            innerHTML={this.icon}
-            ref={(el) => (this.iconEl = el)}
-          ></span>
-        )}
-        {!hideLabel && <span class="button__label">{this.label}</span>}
-      </Tag>
+        <Tag
+          aria-disabled={this.disabled && !isLink ? "true" : undefined}
+          aria-label={hideLabel ? this.label : undefined}
+          class={className}
+          disabled={isLink ? undefined : this.disabled}
+          download={isLink ? undefined : this.download}
+          form={isLink ? undefined : this.form}
+          href={this.href}
+          name={isLink ? undefined : this.name}
+          target={isLink ? this.target : undefined}
+          type={isLink ? undefined : this.type}
+          value={isLink ? undefined : this.value}
+        >
+          {this.icon && (
+            <span
+              class="button__left-icon"
+              innerHTML={this.icon}
+              ref={(el) => (this.iconEl = el)}
+            ></span>
+          )}
+          {!hideLabel && <span class="button__label">{this.label}</span>}
+        </Tag>
+      </Host>
     );
   }
 }
