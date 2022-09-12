@@ -77,7 +77,7 @@
 }
 
 .button--variant-flat {
-  color: var(--s-text-strong);
+  color: var(--s-text-default);
   background-color: var(--s-action-neutral-default);
 
   &:hover {
@@ -94,6 +94,7 @@
 
   &.button--intent-primary:not(:disabled) {
     background-color: var(--s-action-primary-default);
+    color: var(--s-text-on-action-primary);
 
     &:hover {
       background-color: var(--s-action-primary-hovered);
@@ -101,6 +102,10 @@
 
     &:active {
       background-color: var(--s-action-primary-pressed);
+    }
+
+    & .button__left-icon {
+      color: var(--s-icon-on-action-primary);
     }
   }
 
@@ -212,7 +217,7 @@
 }
 
 .button--variant-floating {
-  color: var(--s-text-on-action-primary);
+  color: var(--s-text-default);
   background-color: var(--s-background-default);
   box-shadow: 0.125rem 0.25rem 2.5rem rgba(0, 0, 0, 0.14);
 
@@ -232,6 +237,7 @@
 
   &.button--intent-primary {
     padding: var(--s-space-12) var(--s-space-20);
+    color: var(--s-text-on-action-primary);
     border-radius: 1.5rem;
     background-color: var(--s-action-primary-default);
 
@@ -252,10 +258,14 @@
         color: var(--s-icon-on-action-primary);
       }
     }
+
+    & .button__left-icon {
+      color: var(--s-icon-on-action-primary);
+    }
   }
 
   & .button__left-icon {
-    color: var(--s-icon-on-action-primary);
+    color: var(--s-icon-strong);
   }
 }
 
