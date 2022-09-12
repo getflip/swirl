@@ -28,8 +28,8 @@
     "lint": "eslint src/**/*{.ts,.tsx}",
     "stencil:build": "stencil build",
     "stencil:start": "stencil build --watch",
-    "stencil:test": "stencil test --spec --e2e",
-    "stencil:test:watch": "stencil test --spec --e2e --watchAll",
+    "stencil:test": "stencil test --spec",
+    "stencil:test:watch": "stencil test --spec --watchAll",
     "storybook:start": "start-storybook -p 6006 --no-manager-cache",
     "storybook:build": "build-storybook"
   },
