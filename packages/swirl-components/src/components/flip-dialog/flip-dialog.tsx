@@ -66,7 +66,7 @@ export class FlipDialog {
             <div class="dialog__content" id="content">
               <slot></slot>
             </div>
-            <flip-button-group class="dialog__controls" wrap>
+            <flip-button-group class="dialog__controls" stretch wrap>
               <flip-button data-a11y-dialog-hide label="Action 1"></flip-button>
               <flip-button
                 data-a11y-dialog-hide
