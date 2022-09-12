@@ -40,4 +40,6 @@ export const FlipDialog = Template.bind({});
 
 FlipDialog.args = {
   label: "Dialog",
+  primaryActionLabel: "Leave",
+  secondaryActionLabel: "Cancel",
 };

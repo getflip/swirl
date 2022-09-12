@@ -104,6 +104,8 @@ export namespace Components {
           * Open the dialog.
          */
         "open": () => Promise<void>;
+        "primaryActionLabel"?: string;
+        "secondaryActionLabel"?: string;
     }
     interface FlipIconAdd {
         "size": FlipIconSize;
@@ -1090,6 +1092,8 @@ declare namespace LocalJSX {
         "hideLabel"?: boolean;
         "intent"?: FlipDialogIntent;
         "label": string;
+        "primaryActionLabel"?: string;
+        "secondaryActionLabel"?: string;
     }
     interface FlipIconAdd {
         "size"?: FlipIconSize;

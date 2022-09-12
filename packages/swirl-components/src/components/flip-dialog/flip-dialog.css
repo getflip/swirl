@@ -1,4 +1,8 @@
 :host {
+  --flip-ghost-button-background-default: var(--s-surface-default);
+  --flip-ghost-button-background-hovered: var(--s-surface-hovered);
+  --flip-ghost-button-background-pressed: var(--s-surface-pressed);
+
   display: block;
 
   & * {
@@ -43,14 +47,15 @@
 
 .dialog__heading {
   margin: 0;
+  margin-bottom: var(--s-space-8);
   font-size: var(--s-font-size-lg);
   font-weight: var(--s-font-weight-semibold);
   line-height: var(--s-line-height-lg);
-  margin-bottom: var(--s-space-8);
 }
 
 .dialog__content {
   margin-bottom: var(--s-space-24);
+  line-height: var(--s-line-height-base);
 
   & ::slotted(*) {
     margin: 0;

@@ -1,4 +1,12 @@
-import { Component, h, Host, Method, Prop } from "@stencil/core";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+} from "@stencil/core";
 import A11yDialog from "a11y-dialog";
 
 export type FlipDialogIntent = "primary" | "critical";
@@ -15,6 +23,11 @@ export class FlipDialog {
   @Prop() hideLabel?: boolean;
   @Prop() intent?: FlipDialogIntent = "primary";
   @Prop() label!: string;
+  @Prop() primaryActionLabel?: string;
+  @Prop() secondaryActionLabel?: string;
+
+  @Event() primaryAction: EventEmitter<MouseEvent>;
+  @Event() seconadryAction: EventEmitter<MouseEvent>;
 
   private dialog: A11yDialog;
   private dialogEl: HTMLDivElement;
@@ -43,6 +56,14 @@ export class FlipDialog {
     this.dialog.hide();
   }
 
+  onPrimaryAction = (event: MouseEvent) => {
+    this.primaryAction.emit(event);
+  };
+
+  onSecondaryAction = (event: MouseEvent) => {
+    this.seconadryAction.emit(event);
+  };
+
   render() {
     return (
       <Host>
@@ -67,13 +88,22 @@ export class FlipDialog {
               <slot></slot>
             </div>
             <flip-button-group class="dialog__controls" stretch wrap>
-              <flip-button data-a11y-dialog-hide label="Action 1"></flip-button>
-              <flip-button
-                data-a11y-dialog-hide
-                intent={this.intent}
-                label="Action 2"
-                variant="flat"
-              ></flip-button>
+              {this.secondaryActionLabel && (
+                <flip-button
+                  data-a11y-dialog-hide
+                  label={this.secondaryActionLabel}
+                  onClick={this.onSecondaryAction}
+                ></flip-button>
+              )}
+              {this.primaryActionLabel && (
+                <flip-button
+                  data-a11y-dialog-hide
+                  intent={this.intent}
+                  label={this.primaryActionLabel}
+                  onClick={this.onPrimaryAction}
+                  variant="flat"
+                ></flip-button>
+              )}
             </flip-button-group>
           </div>
         </div>

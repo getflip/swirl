@@ -488,6 +488,14 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "primary-action-label",
+          "description": ""
+        },
+        {
+          "name": "secondary-action-label",
+          "description": ""
         }
       ]
     },
