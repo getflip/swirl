@@ -404,6 +404,10 @@ export interface FlipCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipCheckboxElement;
 }
+export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipDialogElement;
+}
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioElement;
@@ -1092,6 +1096,8 @@ declare namespace LocalJSX {
         "hideLabel"?: boolean;
         "intent"?: FlipDialogIntent;
         "label": string;
+        "onPrimaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
+        "onSeconadryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }

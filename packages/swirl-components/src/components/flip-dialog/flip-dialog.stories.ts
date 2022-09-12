@@ -39,6 +39,7 @@ const Template = (args) => {
 export const FlipDialog = Template.bind({});
 
 FlipDialog.args = {
+  intent: "critical",
   label: "Dialog",
   primaryActionLabel: "Leave",
   secondaryActionLabel: "Cancel",

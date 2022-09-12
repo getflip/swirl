@@ -29,11 +29,18 @@ export class FlipDialog {
   @Event() primaryAction: EventEmitter<MouseEvent>;
   @Event() seconadryAction: EventEmitter<MouseEvent>;
 
+  private controlsContainerEl: HTMLElement;
   private dialog: A11yDialog;
   private dialogEl: HTMLDivElement;
 
   componentDidLoad() {
     this.dialog = new A11yDialog(this.dialogEl);
+
+    this.dialog.on("show", () => {
+      this.controlsContainerEl
+        .querySelector<HTMLButtonElement>("flip-button button")
+        ?.focus();
+    });
   }
 
   disconnectedCallback() {
@@ -56,11 +63,17 @@ export class FlipDialog {
     this.dialog.hide();
   }
 
-  onPrimaryAction = (event: MouseEvent) => {
+  onKeyDown = (event: KeyboardEvent) => {
+    if (event.code === "Escape") {
+      this.close();
+    }
+  };
+
+  private onPrimaryAction = (event: MouseEvent) => {
     this.primaryAction.emit(event);
   };
 
-  onSecondaryAction = (event: MouseEvent) => {
+  private onSecondaryAction = (event: MouseEvent) => {
     this.seconadryAction.emit(event);
   };
 
@@ -74,6 +87,7 @@ export class FlipDialog {
           aria-label={this.hideLabel ? this.label : undefined}
           aria-modal="true"
           class="dialog"
+          onKeyDown={this.onKeyDown}
           ref={(el) => (this.dialogEl = el)}
           role="alertdialog"
         >
@@ -87,7 +101,12 @@ export class FlipDialog {
             <div class="dialog__content" id="content">
               <slot></slot>
             </div>
-            <flip-button-group class="dialog__controls" stretch wrap>
+            <flip-button-group
+              class="dialog__controls"
+              ref={(el) => (this.controlsContainerEl = el)}
+              stretch
+              wrap
+            >
               {this.secondaryActionLabel && (
                 <flip-button
                   data-a11y-dialog-hide
@@ -101,7 +120,7 @@ export class FlipDialog {
                   intent={this.intent}
                   label={this.primaryActionLabel}
                   onClick={this.onPrimaryAction}
-                  variant="flat"
+                  variant={this.intent === "critical" ? "ghost" : "flat"}
                 ></flip-button>
               )}
             </flip-button-group>
