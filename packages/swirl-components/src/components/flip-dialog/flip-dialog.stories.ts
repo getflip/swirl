@@ -7,9 +7,14 @@ export default {
     docs: {
       page: Docs,
       source: {
-        code: `<flip-dialog label="Dialog">
+        code: `<flip-dialog id="my-dialog" label="Dialog">
   <p>Do you really want to leave this group chat?</p>
-</flip-dialog>`,
+</flip-dialog>
+
+<script>
+  const dialog = document.body.querySelector('#my-dialog');
+  dialog.open();
+</script>`,
       },
     },
   },
