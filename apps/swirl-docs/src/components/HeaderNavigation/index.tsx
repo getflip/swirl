@@ -1,26 +1,25 @@
-const links: {
-  name: string;
-  href: string;
-}[] = [
+import { Link } from "@swirl/lib/navigation";
+
+const links: Link[] = [
   {
     name: "Home",
-    href: "/",
+    path: "/",
   },
   {
     name: "Foundations",
-    href: "foundations",
+    path: "/foundations",
   },
   {
     name: "Components",
-    href: "components",
+    path: "/components",
   },
   {
     name: "Tokens",
-    href: "tokens",
+    path: "/tokens",
   },
   {
     name: "Icons",
-    href: "icons",
+    path: "/icons",
   },
 ];
 
@@ -29,8 +28,8 @@ const HeaderNavigation = () => {
     <nav className="flex justify-center items-center h-16 w-screen">
       <ul className="flex flex-row">
         {links.map((link) => (
-          <li key={link.href} className="mr-4">
-            <a href={link.href}>{link.name}</a>
+          <li key={link.path} className="mr-4">
+            <a href={link.path}>{link.name}</a>
           </li>
         ))}
       </ul>

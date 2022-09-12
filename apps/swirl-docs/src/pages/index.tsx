@@ -14,10 +14,6 @@ const Home: NextPage = ({ mdxSource, storyBookSource, data }: any) => {
 
   return (
     <>
-      <Head>
-        <title>Swirl Docs for {data.title}</title>
-        <meta name="description" content="Swirl Docs" />
-      </Head>
       <main className="flex flex-col justify-center items-center h-screen w-screen">
         <h1 className="text-6xl font-bold">
           Storybook Doc dynamically sourced 🚀 {data.title}
