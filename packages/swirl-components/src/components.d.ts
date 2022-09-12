@@ -58,6 +58,7 @@ export namespace Components {
         "disabled"?: boolean;
         "download"?: string;
         "form"?: string;
+        "fullWidth"?: boolean;
         "hideLabel"?: boolean;
         "href"?: string;
         "icon"?: string;
@@ -1051,6 +1052,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "download"?: string;
         "form"?: string;
+        "fullWidth"?: boolean;
         "hideLabel"?: boolean;
         "href"?: string;
         "icon"?: string;
