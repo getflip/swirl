@@ -30,7 +30,6 @@ export class FlipButton {
   @Prop() disabled?: boolean;
   @Prop() download?: string;
   @Prop() form?: string;
-  @Prop() fullWidth?: boolean;
   @Prop() hideLabel?: boolean;
   @Prop() href?: string;
   @Prop() icon?: string;
@@ -72,7 +71,6 @@ export class FlipButton {
       `button--size-${this.size}`,
       `button--variant-${this.variant}`,
       {
-        "button--full-width": this.fullWidth,
         "button--icon-only": hideLabel,
       }
     );
@@ -80,12 +78,7 @@ export class FlipButton {
     const Tag = isLink ? "a" : "button";
 
     return (
-      <Host
-        style={{
-          display: this.fullWidth ? "block" : undefined,
-          width: this.fullWidth ? "100%" : undefined,
-        }}
-      >
+      <Host>
         <Tag
           aria-disabled={this.disabled && !isLink ? "true" : undefined}
           aria-label={hideLabel ? this.label : undefined}

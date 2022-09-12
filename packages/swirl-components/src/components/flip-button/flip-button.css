@@ -278,10 +278,6 @@
   }
 }
 
-.button--full-width {
-  width: 100%;
-}
-
 .button__left-icon {
   display: inline-flex;
   margin-left: calc(-1 * var(--s-space-4));
