@@ -1097,7 +1097,7 @@ declare namespace LocalJSX {
         "intent"?: FlipDialogIntent;
         "label": string;
         "onPrimaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
-        "onSeconadryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
+        "onSecondaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }

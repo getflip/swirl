@@ -27,7 +27,7 @@ export class FlipDialog {
   @Prop() secondaryActionLabel?: string;
 
   @Event() primaryAction: EventEmitter<MouseEvent>;
-  @Event() seconadryAction: EventEmitter<MouseEvent>;
+  @Event() secondaryAction: EventEmitter<MouseEvent>;
 
   private controlsContainerEl: HTMLElement;
   private dialog: A11yDialog;
@@ -74,7 +74,7 @@ export class FlipDialog {
   };
 
   private onSecondaryAction = (event: MouseEvent) => {
-    this.seconadryAction.emit(event);
+    this.secondaryAction.emit(event);
   };
 
   render() {
