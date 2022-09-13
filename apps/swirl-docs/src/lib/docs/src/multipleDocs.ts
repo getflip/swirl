@@ -1,20 +1,49 @@
-import { generatePath } from "@swirl/lib/navigation";
+import {
+  generatePagesPath,
+  generateSwirlComponentsPath,
+  SWIRL_COMPONENTS_PATH,
+} from "@swirl/lib/navigation";
 import fs from "fs";
+import { DocCategory, Document } from "./docs.model";
 
-type DocCategory = {
-  name: string;
-  path: string;
-  subpages?: any;
-};
+export function generateComponentsLinkList(): DocCategory[] {
+  const components = fs.readdirSync(SWIRL_COMPONENTS_PATH);
 
-export type Document = {
-  name: string;
-  basePath: string;
-};
+  const componentDocPaths = components.map((component) => {
+    return {
+      name: component.split("-").join(" "),
+      path: generateSwirlComponentsPath(component),
+    };
+  });
+  //   const componentPath = `${componentsPath}/${component}`;
+
+  //   const componentFiles = fs.readdirSync(componentPath);
+
+  //   const componentDocs = componentFiles.map((componentFile) => {
+  //     const componentDoc: Document = {
+  //       name: componentFile,
+  //       basePath: componentPath,
+  //     };
+
+  //     return componentDoc;
+  //   });
+
+  //   const componentLinkList: DocCategory = {
+  //     name: component,
+  //     path: componentPath,
+  //     subpages: componentDocs,
+  //   };
+
+  //   return componentLinkList;
+  // });
+
+  return componentDocPaths;
+}
 
 export function generateLinkList(document: Document): DocCategory {
   const { name, basePath } = document;
-  const cwdPath = generatePath(document.basePath);
+  const cwdPath = generatePagesPath(document.basePath);
+
   const files = fs.readdirSync(cwdPath);
 
   const hasSubdirectories = files.some((file) =>

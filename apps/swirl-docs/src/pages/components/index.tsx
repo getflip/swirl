@@ -1,5 +1,5 @@
-import { generateLinkList } from "@swirl/lib/docs";
-import { generatePath, Link } from "@swirl/lib/navigation";
+import { generateComponentsLinkList, generateLinkList } from "@swirl/lib/docs";
+import { generatePagesPath, Link } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 
@@ -46,6 +46,10 @@ const Components = ({ links }: any) => {
 export const getStaticProps: GetStaticProps<{
   links: Link[];
 }> = async () => {
+  const data = generateComponentsLinkList();
+
+  console.log("data", data);
+
   const categoryDocs = generateLinkList({
     name: "components",
     basePath: "components",
