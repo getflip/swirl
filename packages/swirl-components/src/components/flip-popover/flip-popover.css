@@ -8,7 +8,51 @@
   }
 }
 
-.popover {
+.popover--active:not(.popover--closing) {
+  & .popover__backdrop {
+    animation: 0.15s popover-fade-in;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+
+  & .popover__content {
+    animation: 0.15s popover-slide-in;
+
+    @media (--from-tablet) {
+      transform-origin: top left;
+      animation: 0.15s popover-fade-scale-in;
+    }
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+}
+
+.popover--closing {
+  & .popover__backdrop {
+    animation: 0.15s popover-fade-out;
+    animation-fill-mode: forwards;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+
+  & .popover__content {
+    animation: 0.15s popover-slide-out;
+    animation-fill-mode: forwards;
+
+    @media (--from-tablet) {
+      animation: 0.15s popover-fade-out;
+    }
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
 }
 
 .popover--inactive {
@@ -47,11 +91,6 @@
   border-top-left-radius: var(--s-border-radius-xl);
   border-top-right-radius: var(--s-border-radius-xl);
   background-color: var(--s-surface-overlay-default);
-  animation: 0.15s popover-slide-in;
-
-  @media (prefers-reduced-motion) {
-    animation: none;
-  }
 
   @media (--from-tablet) {
     right: unset;
@@ -104,11 +143,40 @@
   }
 }
 
-@keyframes popover-backdrop-fade-in {
+@keyframes popover-slide-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes popover-fade-in {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes popover-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes popover-fade-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

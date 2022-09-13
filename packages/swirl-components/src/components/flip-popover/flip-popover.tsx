@@ -26,6 +26,7 @@ export class FlipPopover {
   @Prop() label!: string;
 
   @State() active = false;
+  @State() closing = false;
   @State() position: PositionMatch;
 
   private contentContainer: HTMLDivElement;
@@ -61,12 +62,20 @@ export class FlipPopover {
   }
 
   close = () => {
-    this.active = false;
+    if (this.closing) {
+      return;
+    }
+
+    this.closing = true;
+
+    setTimeout(() => {
+      this.active = false;
+      this.closing = false;
+      this.updateTriggerAttributes();
+    }, 150);
 
     const trigger = this.getTriggerElement();
     trigger?.focus();
-
-    this.updateTriggerAttributes();
   };
 
   open = () => {
@@ -150,6 +159,8 @@ export class FlipPopover {
 
   render() {
     const className = classnames("popover", {
+      "popover--closing": this.closing,
+      "popover--active": this.active,
       "popover--inactive": !this.active,
     });
 

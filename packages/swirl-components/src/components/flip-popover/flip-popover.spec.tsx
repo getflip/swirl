@@ -65,6 +65,7 @@ describe("flip-popover", () => {
 
     // blur popover
     window.dispatchEvent(new FocusEvent("focusout"));
+    await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
     expect(isOpen()).toBeFalsy();
@@ -79,6 +80,8 @@ describe("flip-popover", () => {
     page.root.shadowRoot
       .querySelector(".popover")
       .dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
+
+    await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
     expect(isOpen()).toBeFalsy();
