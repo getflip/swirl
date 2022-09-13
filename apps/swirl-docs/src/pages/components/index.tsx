@@ -49,7 +49,6 @@ export const getStaticProps: GetStaticProps<{
   const categoryDocs = generateLinkList({
     name: "components",
     basePath: "components",
-    isRoot: true,
   });
 
   const links: Link[] = categoryDocs.subpages;

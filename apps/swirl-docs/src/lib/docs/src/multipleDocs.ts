@@ -1,4 +1,4 @@
-import { generatePath, Link } from "@swirl/lib/navigation";
+import { generatePath } from "@swirl/lib/navigation";
 import fs from "fs";
 
 type DocCategory = {
@@ -10,8 +10,6 @@ type DocCategory = {
 export type Document = {
   name: string;
   basePath: string;
-  isRoot?: boolean;
-  root?: string;
 };
 
 export function generateLinkList(document: Document): DocCategory {
