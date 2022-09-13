@@ -17,7 +17,7 @@ describe("flip-button-group", () => {
     expect(page.root).toEqualHtml(`
       <flip-button-group>
         <mock:shadow-root>
-          <flip-stack class="button-group" justify="start" orientation="horizontal" role="group" spacing="8">
+          <flip-stack align="start" class="button-group" justify="start" orientation="horizontal" role="group" spacing="8">
             <slot></slot>
           </flip-stack>
         </mock:shadow-root>
