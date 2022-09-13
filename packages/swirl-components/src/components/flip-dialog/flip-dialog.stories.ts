@@ -7,7 +7,7 @@ export default {
     docs: {
       page: Docs,
       source: {
-        code: `<flip-dialog id="my-dialog" label="Dialog">
+        code: `<flip-dialog id="my-dialog" label="Dialog" primary-action-label="Leave" secondary-action-label="Cancel">
   <p>Do you really want to leave this group chat?</p>
 </flip-dialog>
 
