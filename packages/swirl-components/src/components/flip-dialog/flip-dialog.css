@@ -26,7 +26,12 @@
 .dialog__backdrop {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.2);
+  animation: 0.15s dialog-backdrop-fade-in;
   inset: 0;
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
 }
 
 .dialog__body {
@@ -42,7 +47,12 @@
   border-radius: var(--s-border-radius-xl);
   background-color: var(--s-surface-overlay-default);
   text-align: center;
+  animation: 0.15s dialog-scale-in;
   box-shadow: 0.125rem 0.25rem 1rem rgba(0, 0, 0, 0.14);
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
 }
 
 .dialog__heading {
@@ -59,5 +69,23 @@
 
   & ::slotted(*) {
     margin: 0;
+  }
+}
+
+@keyframes dialog-scale-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes dialog-backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
