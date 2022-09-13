@@ -23,15 +23,37 @@
   }
 }
 
-.dialog__backdrop {
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.2);
-  animation: 0.15s dialog-backdrop-fade-in;
-  inset: 0;
+.dialog:not(.dialog--closing) {
+  & .dialog__backdrop {
+    animation: 0.15s dialog-backdrop-fade-in;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+
+  & .dialog__body {
+    animation: 0.15s dialog-scale-in;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+}
+
+.dialog--closing {
+  animation: 0.15s dialog-fade-out;
+  animation-fill-mode: forwards;
 
   @media (prefers-reduced-motion) {
     animation: none;
   }
+}
+
+.dialog__backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.2);
+  inset: 0;
 }
 
 .dialog__body {
@@ -47,12 +69,7 @@
   border-radius: var(--s-border-radius-xl);
   background-color: var(--s-surface-overlay-default);
   text-align: center;
-  animation: 0.15s dialog-scale-in;
   box-shadow: 0.125rem 0.25rem 1rem rgba(0, 0, 0, 0.14);
-
-  @media (prefers-reduced-motion) {
-    animation: none;
-  }
 }
 
 .dialog__heading {
@@ -87,5 +104,14 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes dialog-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
