@@ -13,7 +13,7 @@ describe("flip-dialog", () => {
       <flip-dialog label="Dialog">
         <mock:shadow-root>
           <div aria-describedby="content" aria-hidden="true" aria-labelledby="label" aria-modal="true" class="dialog" role="alertdialog" tabindex="-1">
-            <div class="dialog__backdrop" data-a11y-dialog-hide></div>
+            <div class="dialog__backdrop"></div>
             <div class="dialog__body" role="document">
               <h2 class="dialog__heading" id="label">
                 Dialog
