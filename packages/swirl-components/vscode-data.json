@@ -358,6 +358,27 @@
       ]
     },
     {
+      "name": "flip-description-list",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "flip-description-list-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "term",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-add",
       "description": {
         "kind": "markdown",
@@ -1424,6 +1445,51 @@
         },
         {
           "name": "wrap",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-switch",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "checked",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "input-id",
+          "description": ""
+        },
+        {
+          "name": "input-name",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "name": "value",
           "description": ""
         }
       ]
