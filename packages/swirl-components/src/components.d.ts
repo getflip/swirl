@@ -16,6 +16,7 @@ import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
+import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
 import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
 import { FlipToastIntent } from "./components/flip-toast/flip-toast";
 import { FlipToastConfig, FlipToastMessage } from "./components/flip-toast-provider/flip-toast-provider";
@@ -302,6 +303,15 @@ export namespace Components {
         "spacing"?: FlipStackSpacing;
         "wrap"?: boolean;
     }
+    interface FlipSwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "inputId": string;
+        "inputName": string;
+        "label"?: string;
+        "size"?: FlipSwitchSize;
+        "value"?: string;
+    }
     interface FlipThemeProvider {
         "config": FlipThemeProviderConfig;
         /**
@@ -379,6 +389,10 @@ export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
 export interface FlipRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioGroupElement;
+}
+export interface FlipSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipSwitchElement;
 }
 export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -853,6 +867,12 @@ declare global {
         prototype: HTMLFlipStackElement;
         new (): HTMLFlipStackElement;
     };
+    interface HTMLFlipSwitchElement extends Components.FlipSwitch, HTMLStencilElement {
+    }
+    var HTMLFlipSwitchElement: {
+        prototype: HTMLFlipSwitchElement;
+        new (): HTMLFlipSwitchElement;
+    };
     interface HTMLFlipThemeProviderElement extends Components.FlipThemeProvider, HTMLStencilElement {
     }
     var HTMLFlipThemeProviderElement: {
@@ -962,6 +982,7 @@ declare global {
         "flip-radio-group": HTMLFlipRadioGroupElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
+        "flip-switch": HTMLFlipSwitchElement;
         "flip-theme-provider": HTMLFlipThemeProviderElement;
         "flip-toast": HTMLFlipToastElement;
         "flip-toast-provider": HTMLFlipToastProviderElement;
@@ -1256,6 +1277,16 @@ declare namespace LocalJSX {
         "spacing"?: FlipStackSpacing;
         "wrap"?: boolean;
     }
+    interface FlipSwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "inputId": string;
+        "inputName": string;
+        "label"?: string;
+        "onValueChange"?: (event: FlipSwitchCustomEvent<boolean>) => void;
+        "size"?: FlipSwitchSize;
+        "value"?: string;
+    }
     interface FlipThemeProvider {
         "config"?: FlipThemeProviderConfig;
     }
@@ -1361,6 +1392,7 @@ declare namespace LocalJSX {
         "flip-radio-group": FlipRadioGroup;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
+        "flip-switch": FlipSwitch;
         "flip-theme-provider": FlipThemeProvider;
         "flip-toast": FlipToast;
         "flip-toast-provider": FlipToastProvider;
@@ -1450,6 +1482,7 @@ declare module "@stencil/core" {
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
+            "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
             "flip-theme-provider": LocalJSX.FlipThemeProvider & JSXBase.HTMLAttributes<HTMLFlipThemeProviderElement>;
             "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
             "flip-toast-provider": LocalJSX.FlipToastProvider & JSXBase.HTMLAttributes<HTMLFlipToastProviderElement>;
