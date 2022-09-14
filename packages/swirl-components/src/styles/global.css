@@ -10,6 +10,12 @@
     url("/fonts/Inter.var.woff2") format("woff2");
 }
 
+:root {
+  --flip-ghost-button-background-default: var(--s-background-default);
+  --flip-ghost-button-background-hovered: var(--s-background-hovered);
+  --flip-ghost-button-background-pressed: var(--s-background-pressed);
+}
+
 *,
 *::before,
 *::after {
