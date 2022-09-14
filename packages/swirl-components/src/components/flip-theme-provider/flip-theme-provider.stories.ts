@@ -50,6 +50,8 @@ const Template = (args) => {
   };
 
   const lightModeButton = document.createElement("flip-button");
+  lightModeButton.intent = "primary";
+  lightModeButton.variant = "flat";
   lightModeButton.label = "Set light mode";
   lightModeButton.style.marginRight = "1rem";
   lightModeButton.addEventListener("click", () => {
@@ -57,6 +59,8 @@ const Template = (args) => {
   });
 
   const darkModeButton = document.createElement("flip-button");
+  darkModeButton.intent = "primary";
+  darkModeButton.variant = "flat";
   darkModeButton.label = "Set dark mode";
   darkModeButton.style.marginRight = "1rem";
   darkModeButton.addEventListener("click", () => {
@@ -64,6 +68,8 @@ const Template = (args) => {
   });
 
   const tenantButton = document.createElement("flip-button");
+  tenantButton.intent = "primary";
+  tenantButton.variant = "flat";
   tenantButton.label = "Set tenant theme";
   tenantButton.style.marginRight = "1rem";
   tenantButton.addEventListener("click", () => {

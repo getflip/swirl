@@ -4,7 +4,7 @@ import Docs from "./flip-button.mdx";
 
 export default {
   argTypes: {
-    leftIcon: {
+    icon: {
       table: {
         type: {
           detail: "e.g. <flip-icon-close></flip-icon-close>",
@@ -25,15 +25,12 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("flip-button", args);
 
-  element.addEventListener("click", (event) => {
-    console.log(event);
-  });
-
   return element;
 };
 
 export const FlipButton = Template.bind({});
 
 FlipButton.args = {
+  icon: "<flip-icon-add></flip-icon-add>",
   label: "Label",
 };
