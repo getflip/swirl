@@ -28,8 +28,8 @@
     "lint": "eslint src/**/*{.ts,.tsx}",
     "stencil:build": "stencil build",
     "stencil:start": "stencil build --watch",
-    "stencil:test": "stencil test --spec --e2e",
-    "stencil:test:watch": "stencil test --spec --e2e --watchAll",
+    "stencil:test": "stencil test --spec",
+    "stencil:test:watch": "stencil test --spec --watchAll",
     "storybook:start": "start-storybook -p 6006 --no-manager-cache",
     "storybook:build": "build-storybook"
   },
@@ -37,7 +37,9 @@
     "@getflip/swirl-icons": "^0.1.0",
     "@getflip/swirl-tokens": "^0.3.0",
     "@stencil/core": "^2.13.0",
+    "a11y-dialog": "^7.5.2",
     "classnames": "^2.3.1",
+    "color2k": "^2.0.0",
     "nanopop": "^2.1.0"
   },
   "devDependencies": {
@@ -67,7 +69,6 @@
     "plop": "^3.1.1",
     "postcss-custom-media": "^8.0.2",
     "postcss-nested": "^5.0.6",
-    "puppeteer": "^10.0.0",
     "storybook-addon-themes": "^6.1.0",
     "storybook-design-token": "2.6.0-vite.1",
     "svgo": "^2.8.0",

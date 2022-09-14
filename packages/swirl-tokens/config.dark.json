@@ -5,6 +5,9 @@
       "transformGroup": "css",
       "prefix": "s",
       "buildPath": "dist/css/",
+      "options": {
+        "selector": "html.theme-dark"
+      },
       "files": [
         {
           "destination": "styles.dark.custom-properties.css",

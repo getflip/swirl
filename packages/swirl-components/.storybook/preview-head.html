@@ -1,12 +1,6 @@
 <style>
-  .theme-default-light,
-  .theme-default-light .docs-story {
-    background-color: #fff;
-  }
-
-  .theme-default-dark,
-  .theme-default-dark .docs-story {
-    background-color: #232426;
+  .docs-story {
+    background-color: var(--s-background-default);
   }
 
   .sbdocs.sbdocs-content {
@@ -64,5 +58,18 @@
   .sbdocs.sbdocs-table {
     table-layout: fixed;
     width: 100%;
+  }
+
+  kbd {
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.1875rem;
+    border: 0.0625rem solid rgb(204, 204, 204);
+    color: rgb(51, 51, 51);
+    line-height: 1.4;
+    font-size: 0.75rem;
+    display: inline-block;
+    box-shadow: 0 0.0625rem 0 rgba(0, 0, 0, 0.2), inset 0 0 0 0.125rem #fff;
+    background-color: rgb(247, 247, 247);
+    text-shadow: 0 0.0625rem 0 #fff;
   }
 </style>

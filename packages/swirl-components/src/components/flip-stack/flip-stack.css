@@ -59,6 +59,14 @@
   justify-content: space-evenly;
 }
 
+.stack--justify-stretch {
+  justify-content: stretch;
+
+  & ::slotted(*) {
+    flex-grow: 1;
+  }
+}
+
 .stack--orientation-vertical {
   flex-direction: column;
 }

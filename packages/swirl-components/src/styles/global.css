@@ -1,4 +1,5 @@
 @import "~@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css";
+@import "~@getflip/swirl-tokens/dist/css/styles.dark.custom-properties.css";
 
 @font-face {
   font-family: "Inter var experimental";
@@ -9,16 +10,28 @@
     url("/fonts/Inter.var.woff2") format("woff2");
 }
 
+:root {
+  --flip-ghost-button-background-default: var(--s-background-default);
+  --flip-ghost-button-background-hovered: var(--s-background-hovered);
+  --flip-ghost-button-background-pressed: var(--s-background-pressed);
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html.theme-dark {
+  color-scheme: dark;
+}
+
 body {
+  background-color: var(--s-background-default);
   font-family: var(--s-font-family-text);
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-normal);
+  color: var(--s-text-default);
 
   -webkit-font-smoothing: antialiased;
 }

@@ -14,7 +14,7 @@ describe("flip-inline-error", () => {
         <mock:shadow-root>
           <span class=\"inline-error inline-error--size-m\">
             <span class=\"inline-error__icon\">
-              <flip-icon-report size=\"24\"></flip-icon-report>
+              <flip-icon-error size=\"24\"></flip-icon-error>
             </span>
             <span class=\"inline-error__message\">
               The error message.

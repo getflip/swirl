@@ -5,6 +5,9 @@
       "transformGroup": "css",
       "prefix": "s",
       "buildPath": "dist/css/",
+      "options": {
+        "selector": ":root, html.theme-light"
+      },
       "files": [
         {
           "destination": "styles.light.custom-properties.css",

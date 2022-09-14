@@ -43,9 +43,9 @@ export class FlipChip {
       return;
     }
 
-    const avatar = this.iconEl.children[0];
+    const icon = this.iconEl.children[0];
 
-    avatar?.setAttribute("size", "24");
+    icon?.setAttribute("size", "24");
   }
 
   render() {
