@@ -6,36 +6,17 @@ import {
 import fs from "fs";
 import { DocCategory, Document } from "./docs.model";
 
-export function generateComponentsLinkList(): DocCategory[] {
+export function generateComponentsLinkList(basePath: string): DocCategory[] {
   const components = fs.readdirSync(SWIRL_COMPONENTS_PATH);
 
   const componentDocPaths = components.map((component) => {
     return {
+      htmlTag: component,
       name: component.split("-").join(" "),
       path: generateSwirlComponentsPath(component),
+      nextRoute: `/${basePath}/${component}`,
     };
   });
-  //   const componentPath = `${componentsPath}/${component}`;
-
-  //   const componentFiles = fs.readdirSync(componentPath);
-
-  //   const componentDocs = componentFiles.map((componentFile) => {
-  //     const componentDoc: Document = {
-  //       name: componentFile,
-  //       basePath: componentPath,
-  //     };
-
-  //     return componentDoc;
-  //   });
-
-  //   const componentLinkList: DocCategory = {
-  //     name: component,
-  //     path: componentPath,
-  //     subpages: componentDocs,
-  //   };
-
-  //   return componentLinkList;
-  // });
 
   return componentDocPaths;
 }
