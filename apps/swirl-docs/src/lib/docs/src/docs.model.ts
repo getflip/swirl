@@ -10,3 +10,9 @@ export type Document = {
   name: string;
   basePath: string;
 };
+
+export type DocHeadline = {
+  id: string;
+  name: string;
+  level?: number;
+};
