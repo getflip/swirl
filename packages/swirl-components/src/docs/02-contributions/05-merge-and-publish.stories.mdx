@@ -5,7 +5,8 @@ import { Meta } from "@storybook/addon-docs";
 # 🏁 Merge & Publish a new Library Version
 
 All changes to the Component Library are made via Pull Requests (PRs). PRs are
-assigned to at least one reviewer from the frontend team.
+assigned to at least one
+[code owner](https://github.com/getflip/swirl/blob/main/CODEOWNERS).
 
 **The review is performed according to the following checklist:**
 
@@ -13,6 +14,9 @@ assigned to at least one reviewer from the frontend team.
 - The changes **do not** introduce new components that don't belong in the
   library (e.g. non-reusable components, highly specialized components,
   components including business logic)
+- A
+  [changeset](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)
+  was added.
 - The component documentation is updated.
 - The submitted code is organized and formatted according to our
   [💅 Style Guide](?path=/docs/requirements-style-guide--page).
@@ -46,4 +50,7 @@ assigned to at least one reviewer from the frontend team.
 
 <hr />
 
-_TODO: Changelog generation + publication workflow (Github Actions)_
+Releases of our NPM packages are automatically carried out with each merge into
+the `main` branch. The versioning happens on the basis of the changesets. This
+prevents sluggish release cycles and makes it possible to integrate changes to
+the library at short notice.
