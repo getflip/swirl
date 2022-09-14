@@ -2,8 +2,6 @@ import { generateComponentsLinkList, generateLinkList } from "@swirl/lib/docs";
 import { Link } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import { generateMdxFromStorybook } from "@swirl/lib/docs/src/singleDoc";
 import { DocCategory } from "@swirl/lib/docs/src/docs.model";
 
 const RecursiveNavigation = (link: Link) => {
