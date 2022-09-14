@@ -23,11 +23,7 @@ function generateSerializableString(componentId: string) {
 
   const storyBookData = matterSource.content
     .split("\n")
-    .filter((line, index) => {
-      if (line.includes("## Usage")) {
-        console.log("line", line, index);
-      }
-
+    .filter((line) => {
       const isImportOrArgsTable =
         line.includes("import { ") ||
         line.includes("<ArgsTable") ||
