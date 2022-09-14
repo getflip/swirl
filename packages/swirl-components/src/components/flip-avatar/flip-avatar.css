@@ -186,18 +186,18 @@
 
 .avatar__badge {
   position: absolute;
-  right: 0;
   bottom: 0;
+  left: 55%;
   display: inline-flex;
-  width: 1.5rem;
+  min-width: 1.5rem;
   height: 1.5rem;
-  transform: translate3d(25%, 25%, 0);
+  transform: translate3d(0, 25%, 0);
 }
 
 .avatar__badge--position-top {
   top: 0;
   bottom: auto;
-  transform: translate3d(25%, -25%, 0);
+  transform: translate3d(0, -25%, 0);
 }
 
 .avatar__label {

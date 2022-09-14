@@ -342,6 +342,35 @@
       ]
     },
     {
+      "name": "flip-button-group",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
+        },
+        {
+          "name": "stretch",
+          "description": ""
+        },
+        {
+          "name": "wrap",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-checkbox",
       "description": {
         "kind": "markdown",
@@ -429,6 +458,64 @@
         },
         {
           "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-description-list",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "flip-description-list-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "term",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-dialog",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "primary"
+            }
+          ]
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "primary-action-label",
+          "description": ""
+        },
+        {
+          "name": "secondary-action-label",
           "description": ""
         }
       ]
@@ -1317,6 +1404,23 @@
       ]
     },
     {
+      "name": "flip-link",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "href",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-radio",
       "description": {
         "kind": "markdown",
@@ -1453,6 +1557,9 @@
             },
             {
               "name": "start"
+            },
+            {
+              "name": "stretch"
             }
           ]
         },
@@ -1500,6 +1607,51 @@
         },
         {
           "name": "wrap",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-switch",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "checked",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "input-id",
+          "description": ""
+        },
+        {
+          "name": "input-name",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "name": "value",
           "description": ""
         }
       ]
