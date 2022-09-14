@@ -1429,6 +1429,48 @@
       ]
     },
     {
+      "name": "flip-tag",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "removable",
+          "description": ""
+        },
+        {
+          "name": "removal-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-theme-provider",
       "description": {
         "kind": "markdown",
