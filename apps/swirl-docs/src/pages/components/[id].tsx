@@ -1,12 +1,11 @@
-// pages/posts/[id].js
-
 import { generateComponentsLinkList } from "@swirl/lib/docs";
 import { generateMdxFromStorybook } from "@swirl/lib/docs/src/singleDoc";
-import { generateSwirlComponentsPath } from "@swirl/lib/navigation";
 import { MDXRemote } from "next-mdx-remote";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import IframeResizer from "iframe-resizer-react";
 
 async function getComponentData(id: string) {
-  return await generateMdxFromStorybook(generateSwirlComponentsPath(id));
+  return await generateMdxFromStorybook(id);
 }
 
 export async function getStaticPaths() {
@@ -32,11 +31,14 @@ export async function getStaticProps(context: any) {
 }
 
 export default function Component({ component }: any) {
+  const components = {
+    IframeResizer,
+  };
   return (
     <main>
       <section className="flex flex-col justify-center items-center h-full w-screen">
         <div className="prose">
-          <MDXRemote {...component} />
+          <MDXRemote {...component} components={components} />
         </div>
       </section>
     </main>

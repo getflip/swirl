@@ -21,7 +21,7 @@ const RecursiveNavigation = (link: Link) => {
   );
 };
 
-const Components = ({ links, storyBookSource, swirlComponentLinks }: any) => {
+const Components = ({ links, swirlComponentLinks }: any) => {
   return (
     <>
       <Head>
@@ -32,7 +32,7 @@ const Components = ({ links, storyBookSource, swirlComponentLinks }: any) => {
           Components
         </section>
         <section className="flex justify-center w-screen">
-          {/* <nav>
+          <nav>
             sourcing from pages directroy
             <ul className="list-disc">
               <RecursiveNavigation
@@ -42,7 +42,7 @@ const Components = ({ links, storyBookSource, swirlComponentLinks }: any) => {
                 subpages={links}
               />
             </ul>
-          </nav> */}
+          </nav>
           <nav>
             sourcing from components within storybook project
             <ul className="list-disc">
@@ -63,7 +63,6 @@ const Components = ({ links, storyBookSource, swirlComponentLinks }: any) => {
 
 export const getStaticProps: GetStaticProps<{
   links: Link[];
-  storyBookSource: MDXRemoteSerializeResult;
   swirlComponentLinks: DocCategory[];
 }> = async () => {
   const swirlComponentLinks = generateComponentsLinkList("components");
@@ -73,16 +72,11 @@ export const getStaticProps: GetStaticProps<{
     basePath: "components",
   });
 
-  const storyBookSource = await generateMdxFromStorybook(
-    swirlComponentLinks[0].path
-  );
-
   const links: Link[] = categoryDocs.subpages;
 
   return {
     props: {
       links,
-      storyBookSource,
       swirlComponentLinks,
     },
   };
