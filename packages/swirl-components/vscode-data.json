@@ -470,6 +470,19 @@
       ]
     },
     {
+      "name": "flip-icon-cancel",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-chat-bubble",
       "description": {
         "kind": "markdown",
@@ -1211,6 +1224,19 @@
       ]
     },
     {
+      "name": "flip-icon-visibility",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-visibility-off",
       "description": {
         "kind": "markdown",
@@ -1356,6 +1382,10 @@
         },
         {
           "name": "placeholder",
+          "description": ""
+        },
+        {
+          "name": "value",
           "description": ""
         }
       ]
