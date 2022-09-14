@@ -343,6 +343,15 @@ export namespace Components {
         "flipAriaDescribedby"?: string;
         "value"?: string;
     }
+    interface FlipSearch {
+        "autoFocus"?: boolean;
+        "clearButtonLabel"?: string;
+        "disabled"?: boolean;
+        "inputId"?: string;
+        "inputName"?: string;
+        "label"?: string;
+        "placeholder"?: string;
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -445,6 +454,10 @@ export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
 export interface FlipRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioGroupElement;
+}
+export interface FlipSearchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipSearchElement;
 }
 export interface FlipSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -947,6 +960,12 @@ declare global {
         prototype: HTMLFlipRadioGroupElement;
         new (): HTMLFlipRadioGroupElement;
     };
+    interface HTMLFlipSearchElement extends Components.FlipSearch, HTMLStencilElement {
+    }
+    var HTMLFlipSearchElement: {
+        prototype: HTMLFlipSearchElement;
+        new (): HTMLFlipSearchElement;
+    };
     interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
     }
     var HTMLFlipSpinnerElement: {
@@ -1078,6 +1097,7 @@ declare global {
         "flip-link": HTMLFlipLinkElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
+        "flip-search": HTMLFlipSearchElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
@@ -1406,6 +1426,18 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: FlipRadioGroupCustomEvent<string>) => void;
         "value"?: string;
     }
+    interface FlipSearch {
+        "autoFocus"?: boolean;
+        "clearButtonLabel"?: string;
+        "disabled"?: boolean;
+        "inputId"?: string;
+        "inputName"?: string;
+        "label"?: string;
+        "onInputBlur"?: (event: FlipSearchCustomEvent<FocusEvent>) => void;
+        "onInputFocus"?: (event: FlipSearchCustomEvent<FocusEvent>) => void;
+        "onValueChange"?: (event: FlipSearchCustomEvent<string>) => void;
+        "placeholder"?: string;
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -1537,6 +1569,7 @@ declare namespace LocalJSX {
         "flip-link": FlipLink;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
+        "flip-search": FlipSearch;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
@@ -1633,6 +1666,7 @@ declare module "@stencil/core" {
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
+            "flip-search": LocalJSX.FlipSearch & JSXBase.HTMLAttributes<HTMLFlipSearchElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
