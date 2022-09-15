@@ -153,7 +153,7 @@ export class FlipPopover {
       return;
     }
 
-    this.triggerEl.setAttribute("aria-controls", "popover");
+    this.triggerEl.setAttribute("aria-controls", this.popoverId);
     this.triggerEl.setAttribute("aria-expanded", String(this.active));
     this.triggerEl.setAttribute("aria-haspopup", "dialog");
   }
