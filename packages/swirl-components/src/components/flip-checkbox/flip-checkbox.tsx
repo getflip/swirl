@@ -16,7 +16,6 @@ export type FlipCheckboxState = boolean | "true" | "false" | "indeterminate";
   tag: "flip-checkbox",
 })
 export class FlipCheckbox {
-  @Prop() ariaLabelledBy?: string;
   @Prop({ mutable: true }) checked?: FlipCheckboxState = false;
   @Prop() description?: string;
   @Prop() disabled?: boolean = false;
@@ -65,7 +64,6 @@ export class FlipCheckbox {
             <flip-visually-hidden>
               <input
                 aria-checked={ariaCheckedLabel}
-                aria-labelledby={this.ariaLabelledBy}
                 aria-invalid={ariaInvalid}
                 checked={checked}
                 class="checkbox__input"

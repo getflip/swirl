@@ -65,15 +65,6 @@ export class FlipResourceListItem {
     }
   }
 
-  private onChange = (event: CustomEvent<boolean>) => {
-    if (!this.selectable) {
-      return;
-    }
-
-    this.checked = event.detail;
-    this.valueChange.emit(event.detail);
-  };
-
   private onClick = () => {
     if (!this.selectable) {
       return;
@@ -101,6 +92,7 @@ export class FlipResourceListItem {
     const role = this.selectable ? "checkbox" : undefined;
 
     const className = classnames("resource-list-item", {
+      "resource-list-item--checked": this.checked,
       "resource-list-item--has-menu": hasMenu,
       "resource-list-item--hide-divider": this.hideDivider,
       "resource-list-item--selectable": this.selectable,
@@ -138,17 +130,12 @@ export class FlipResourceListItem {
             </span>
           </Tag>
           {this.selectable && (
-            <span class="resource-list-item__checkbox">
-              <flip-checkbox
-                ariaLabelledBy="label"
-                checked={this.checked}
-                disabled={this.disabled}
-                inputId="checkbox"
-                inputName="checkbox"
-                onValueChange={this.onChange}
-                role="presentation"
-                value={this.value}
-              ></flip-checkbox>
+            <span aria-hidden="true" class="resource-list-item__checkbox">
+              <span class="resource-list-item__checkbox-icon">
+                {this.checked && (
+                  <flip-icon-check-strong></flip-icon-check-strong>
+                )}
+              </span>
             </span>
           )}
           {showMeta && (

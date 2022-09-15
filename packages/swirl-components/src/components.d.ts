@@ -92,7 +92,6 @@ export namespace Components {
         "wrap": boolean;
     }
     interface FlipCheckbox {
-        "ariaLabelledBy"?: string;
         "checked"?: FlipCheckboxState;
         "description"?: string;
         "disabled"?: boolean;
@@ -1214,7 +1213,6 @@ declare namespace LocalJSX {
         "wrap"?: boolean;
     }
     interface FlipCheckbox {
-        "ariaLabelledBy"?: string;
         "checked"?: FlipCheckboxState;
         "description"?: string;
         "disabled"?: boolean;

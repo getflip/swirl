@@ -452,10 +452,6 @@
       },
       "attributes": [
         {
-          "name": "aria-labelled-by",
-          "description": ""
-        },
-        {
           "name": "checked",
           "description": "",
           "values": [
