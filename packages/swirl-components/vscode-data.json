@@ -1570,6 +1570,47 @@
       ]
     },
     {
+      "name": "flip-resource-list-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "hide-divider",
+          "description": ""
+        },
+        {
+          "name": "href",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "menu-trigger-label",
+          "description": ""
+        },
+        {
+          "name": "meta",
+          "description": ""
+        },
+        {
+          "name": "selectable",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-spinner",
       "description": {
         "kind": "markdown",

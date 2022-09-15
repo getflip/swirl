@@ -350,6 +350,16 @@ export namespace Components {
     interface FlipRadioGroup {
         "value"?: string;
     }
+    interface FlipResourceListItem {
+        "description"?: string;
+        "disabled"?: boolean;
+        "hideDivider"?: boolean;
+        "href"?: string;
+        "label": string;
+        "menuTriggerLabel"?: string;
+        "meta"?: string;
+        "selectable"?: boolean;
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -972,6 +982,12 @@ declare global {
         prototype: HTMLFlipRadioGroupElement;
         new (): HTMLFlipRadioGroupElement;
     };
+    interface HTMLFlipResourceListItemElement extends Components.FlipResourceListItem, HTMLStencilElement {
+    }
+    var HTMLFlipResourceListItemElement: {
+        prototype: HTMLFlipResourceListItemElement;
+        new (): HTMLFlipResourceListItemElement;
+    };
     interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
     }
     var HTMLFlipSpinnerElement: {
@@ -1106,6 +1122,7 @@ declare global {
         "flip-popover": HTMLFlipPopoverElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
+        "flip-resource-list-item": HTMLFlipResourceListItemElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
@@ -1441,6 +1458,16 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: FlipRadioGroupCustomEvent<string>) => void;
         "value"?: string;
     }
+    interface FlipResourceListItem {
+        "description"?: string;
+        "disabled"?: boolean;
+        "hideDivider"?: boolean;
+        "href"?: string;
+        "label": string;
+        "menuTriggerLabel"?: string;
+        "meta"?: string;
+        "selectable"?: boolean;
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -1575,6 +1602,7 @@ declare namespace LocalJSX {
         "flip-popover": FlipPopover;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
+        "flip-resource-list-item": FlipResourceListItem;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
@@ -1674,6 +1702,7 @@ declare module "@stencil/core" {
             "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
+            "flip-resource-list-item": LocalJSX.FlipResourceListItem & JSXBase.HTMLAttributes<HTMLFlipResourceListItemElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
