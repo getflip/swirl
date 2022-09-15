@@ -16,7 +16,8 @@ import { querySelectorAllDeep } from "../../utils";
  * @slot content - The popover content.
  */
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "flip-popover.css",
   tag: "flip-popover",
 })
@@ -29,6 +30,7 @@ export class FlipPopover {
   @State() closing = false;
   @State() position: PositionMatch;
 
+  private childMenuItems: HTMLElement[];
   private contentContainer: HTMLDivElement;
   private triggerContainer: HTMLDivElement;
 
@@ -48,9 +50,12 @@ export class FlipPopover {
       return;
     }
 
-    const popoverLostFocus = !this.el.contains(
-      event.relatedTarget as HTMLElement
-    );
+    const target = event.relatedTarget as HTMLElement;
+
+    const popoverLostFocus =
+      target === null ||
+      (!this.el.contains(target) &&
+        !this.childMenuItems.some((item) => target.shadowRoot.contains(item)));
 
     if (popoverLostFocus) {
       this.close();
@@ -58,6 +63,7 @@ export class FlipPopover {
   }
 
   componentDidLoad() {
+    this.updateChildMenuItems();
     this.updateTriggerAttributes();
   }
 
@@ -80,15 +86,14 @@ export class FlipPopover {
 
   open = () => {
     this.active = true;
+    this.updateChildMenuItems();
     this.updateTriggerAttributes();
 
     requestAnimationFrame(() => {
       this.reposition();
 
-      const childMenuItems = querySelectorAllDeep(this.el, '[role="menuitem"]');
-
-      if (childMenuItems.length > 0) {
-        (childMenuItems[0] as HTMLElement).focus();
+      if (this.childMenuItems.length > 0) {
+        (this.childMenuItems[0] as HTMLElement).focus();
       } else {
         this.contentContainer.focus();
       }
@@ -136,6 +141,10 @@ export class FlipPopover {
     trigger.setAttribute("aria-controls", "popover");
     trigger.setAttribute("aria-expanded", String(this.active));
     trigger.setAttribute("aria-haspopup", "dialog");
+  }
+
+  private updateChildMenuItems() {
+    this.childMenuItems = querySelectorAllDeep(this.el, '[role="menuitem"]');
   }
 
   private reposition = () => {
@@ -189,7 +198,9 @@ export class FlipPopover {
               <slot name="content"></slot>
             </div>
           </div>
-          {this.active && <div class="popover__backdrop"></div>}
+          {this.active && (
+            <div class="popover__backdrop" onClick={this.close}></div>
+          )}
         </div>
       </Host>
     );
