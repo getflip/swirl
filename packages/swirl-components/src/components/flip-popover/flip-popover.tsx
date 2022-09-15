@@ -22,8 +22,7 @@ import { querySelectorAllDeep } from "../../utils";
  * @slot content - The popover content.
  */
 @Component({
-  scoped: true,
-  shadow: false,
+  shadow: true,
   styleUrl: "flip-popover.css",
   tag: "flip-popover",
 })
