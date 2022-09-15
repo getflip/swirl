@@ -1,4 +1,8 @@
-import { generateSwirlComponentsPath } from "@swirl/lib/navigation";
+import {
+  generateDocumentationPath,
+  generateDocumentPath,
+  generateSwirlComponentsPath,
+} from "@swirl/lib/navigation";
 import fs from "fs";
 import matter from "gray-matter";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -81,6 +85,67 @@ const HeadingMap = new Map<string, number>([
 
 export function createDocLinkList(componentId: string): DocHeadline[] {
   const source = generateSerializableString(componentId);
+  const headlines = source.split("\n").filter((line) => line.startsWith("#"));
+
+  return headlines.map((headline) => {
+    const headlineId = headline
+      .split(" ")[1]
+      .toLowerCase()
+      .split(" ")
+      .join("-");
+    const headlineLevel = HeadingMap.get(headline.split(" ")[0]);
+
+    return {
+      id: headlineId,
+      name: headline.split(" ")[1],
+      level: headlineLevel,
+    };
+  });
+}
+
+export async function generateMdxFromDocumentation(
+  category: string,
+  document: string
+): Promise<
+  MDXRemoteSerializeResult<Record<string, unknown>, Record<string, string>>
+> {
+  const source = generateSerializableDocumentation(category, document);
+
+  const serializeAwait = serialize(source, {
+    parseFrontmatter: true,
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [],
+      format: "mdx",
+    },
+  });
+
+  return serializeAwait;
+}
+
+function generateSerializableDocumentation(category: string, document: string) {
+  const source = fs.readFileSync(
+    generateDocumentPath(category, document),
+    "utf8"
+  );
+  const matterSource = matter(source);
+
+  const markdownSource = matterSource.content
+    .split("\n")
+    .filter((line) => {
+      const isImportOrArgsTable = line.includes("import { ");
+      return !isImportOrArgsTable;
+    })
+    .join("\n");
+
+  return markdownSource;
+}
+
+export function createLinkListForDocument(
+  category: string,
+  document: string
+): DocHeadline[] {
+  const source = generateSerializableDocumentation(category, document);
   const headlines = source.split("\n").filter((line) => line.startsWith("#"));
 
   return headlines.map((headline) => {

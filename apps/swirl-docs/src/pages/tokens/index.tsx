@@ -1,4 +1,8 @@
-import { generateComponentsLinkList, generateLinkList } from "@swirl/lib/docs";
+import {
+  generateComponentsLinkList,
+  generateDocumentationLinkList,
+  generateLinkList,
+} from "@swirl/lib/docs";
 import { Link } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
@@ -27,7 +31,7 @@ const Components = ({ links }: any) => {
       </Head>
       <main className="prose">
         <section className="flex flex-col justify-center items-center h-full w-screen">
-          <h1>Tokens</h1>
+          <h1>Tokens Directory</h1>
         </section>
         <section className="flex justify-center w-screen">
           <nav>
@@ -50,7 +54,7 @@ const Components = ({ links }: any) => {
 export const getStaticProps: GetStaticProps<{
   links: Link[];
 }> = async () => {
-  const categoryDocs = generateLinkList({
+  const categoryDocs = generateDocumentationLinkList({
     name: "tokens",
     basePath: "tokens",
   });
