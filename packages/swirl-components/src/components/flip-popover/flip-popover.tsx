@@ -207,8 +207,8 @@ export class FlipPopover {
             tabindex="-1"
             ref={(el) => (this.contentContainer = el)}
             style={{
-              top: this.position?.x ? `${this.position?.y}px` : "",
-              left: this.position?.y ? `${this.position?.x}px` : "",
+              top: Boolean(this.position) ? `${this.position?.y}px` : "",
+              left: Boolean(this.position) ? `${this.position?.x}px` : "",
             }}
           >
             <span class="popover__handle"></span>
