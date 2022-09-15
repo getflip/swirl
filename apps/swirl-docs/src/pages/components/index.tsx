@@ -1,8 +1,11 @@
-import { generateComponentsLinkList, generateLinkList } from "@swirl/lib/docs";
+import {
+  createSwirlComponentDocCategories,
+  createDocCategory,
+} from "@swirl/lib/docs";
 import { Link } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
-import { DocCategory } from "@swirl/lib/docs/src/docs.model";
+import { DocCategory, DOCUMENTATION_SRC } from "@swirl/lib/docs/src/docs.model";
 
 const RecursiveNavigation = (link: Link) => {
   const hasSubpages = link.subpages && link.subpages.length;
@@ -60,17 +63,20 @@ const Components = ({ links, swirlComponentLinks }: any) => {
 };
 
 export const getStaticProps: GetStaticProps<{
-  links: Link[];
+  links: DocCategory[] | undefined;
   swirlComponentLinks: DocCategory[];
 }> = async () => {
-  const swirlComponentLinks = generateComponentsLinkList("components");
+  const swirlComponentLinks = createSwirlComponentDocCategories("components");
 
-  const categoryDocs = generateLinkList({
-    name: "components",
-    basePath: "components",
-  });
+  const categoryDocs = createDocCategory(
+    {
+      name: "components",
+      basePath: "components",
+    },
+    DOCUMENTATION_SRC.PAGES
+  );
 
-  const links: Link[] = categoryDocs.subpages;
+  const links: DocCategory[] | undefined = categoryDocs.subpages;
 
   return {
     props: {

@@ -1,12 +1,8 @@
-import {
-  generateComponentsLinkList,
-  generateDocumentationLinkList,
-  generateLinkList,
-} from "@swirl/lib/docs";
+import { createDocCategory } from "@swirl/lib/docs";
 import { Link } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
-import { DocCategory } from "@swirl/lib/docs/src/docs.model";
+import { DocCategory, DOCUMENTATION_SRC } from "@swirl/lib/docs/src/docs.model";
 
 const RecursiveNavigation = (link: Link) => {
   const hasSubpages = link.subpages && link.subpages.length;
@@ -35,7 +31,7 @@ const Components = ({ links }: any) => {
         </section>
         <section className="flex justify-center w-screen">
           <nav>
-            sourcing from pages directroy
+            sourcing from documentation directroy
             <ul className="list-disc">
               <RecursiveNavigation
                 name="tokens"
@@ -52,14 +48,17 @@ const Components = ({ links }: any) => {
 };
 
 export const getStaticProps: GetStaticProps<{
-  links: Link[];
+  links: DocCategory[] | undefined;
 }> = async () => {
-  const categoryDocs = generateDocumentationLinkList({
-    name: "tokens",
-    basePath: "tokens",
-  });
+  const categoryDocs = createDocCategory(
+    {
+      name: "tokens",
+      basePath: "tokens",
+    },
+    DOCUMENTATION_SRC.DOCUMENTATION
+  );
 
-  const links: Link[] = categoryDocs.subpages;
+  const links: DocCategory[] | undefined = categoryDocs.subpages;
 
   console.log("links", categoryDocs);
 

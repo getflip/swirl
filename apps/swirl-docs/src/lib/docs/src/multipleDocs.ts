@@ -5,10 +5,16 @@ import {
   SWIRL_COMPONENTS_PATH,
 } from "@swirl/lib/navigation";
 import fs from "fs";
-import path from "path";
-import { DocCategory, Document } from "./docs.model";
+import {
+  BasePath,
+  DocCategory,
+  Document,
+  DOCUMENTATION_SRC,
+} from "./docs.model";
 
-export function generateComponentsLinkList(basePath: string): DocCategory[] {
+export function createSwirlComponentDocCategories(
+  basePath: BasePath
+): DocCategory[] {
   const components = fs.readdirSync(SWIRL_COMPONENTS_PATH);
 
   const componentDocPaths = components.map((component) => {
@@ -23,55 +29,40 @@ export function generateComponentsLinkList(basePath: string): DocCategory[] {
   return componentDocPaths;
 }
 
-export function generateLinkList(document: Document): DocCategory {
-  const { name, basePath } = document;
-  const cwdPath = generatePagesPath(document.basePath);
-
-  const files = fs.readdirSync(cwdPath);
-
-  const hasSubdirectories = files.some((file) =>
-    fs.statSync(`${cwdPath}/${file}`).isDirectory()
-  );
-
-  const isBasePath = basePath === name;
-
-  if (hasSubdirectories || isBasePath) {
-    return {
-      name,
-      path: basePath,
-      subpages: files
-        .map((file) => {
-          const fileName = file.split(".")[0];
-          const isDirectory = fs.statSync(`${cwdPath}/${file}`).isDirectory();
-          if (isDirectory) {
-            return generateLinkList({
-              name: fileName,
-              basePath: `${document.basePath}/${file}`,
-            });
-          }
-          return {
-            name: fileName,
-            path: `/${document.basePath}/${fileName}`,
-          };
-        })
-        .filter((file) => file.name !== "index"),
-    };
-  }
-
-  return {
-    name: document.name,
-    path: document.basePath,
-  };
+export function createStaticPathsData(category: string):
+  | {
+      params: {
+        id: string;
+      };
+    }[]
+  | undefined {
+  return createDocCategory(
+    {
+      name: category,
+      basePath: category,
+    },
+    DOCUMENTATION_SRC.DOCUMENTATION
+  ).subpages?.map((document: DocCategory) => ({
+    params: {
+      id: document.name,
+    },
+  }));
 }
 
-export function generateDocumentationLinkList(document: Document): DocCategory {
+export function createDocCategory(
+  document: Document,
+  documentationSrc: string
+): DocCategory {
   const { name, basePath } = document;
-  const cwdPath = generateDocumentationPath(document.basePath);
+  const path =
+    documentationSrc === DOCUMENTATION_SRC.DOCUMENTATION
+      ? generateDocumentationPath(document.basePath)
+      : generatePagesPath(document.basePath);
 
-  const files = fs.readdirSync(cwdPath);
+  const files = fs.readdirSync(path);
 
   const hasSubdirectories = files.some((file) =>
-    fs.statSync(`${cwdPath}/${file}`).isDirectory()
+    fs.statSync(`${path}/${file}`).isDirectory()
   );
 
   const isBasePath = basePath === name;
@@ -83,12 +74,15 @@ export function generateDocumentationLinkList(document: Document): DocCategory {
       subpages: files
         .map((file) => {
           const fileName = file.split(".")[0];
-          const isDirectory = fs.statSync(`${cwdPath}/${file}`).isDirectory();
+          const isDirectory = fs.statSync(`${path}/${file}`).isDirectory();
           if (isDirectory) {
-            return generateLinkList({
-              name: fileName,
-              basePath: `${document.basePath}/${file}`,
-            });
+            return createDocCategory(
+              {
+                name: fileName,
+                basePath: `${document.basePath}/${file}`,
+              },
+              documentationSrc
+            );
           }
           return {
             name: fileName,
