@@ -45,7 +45,9 @@ export function querySelectorAllDeep(
     );
 
     const slottedChildren =
-      root instanceof HTMLSlotElement ? root.assignedElements() : [];
+      Boolean(window.HTMLSlotElement) && root instanceof HTMLSlotElement
+        ? root.assignedElements()
+        : [];
 
     const children = [...Array.from(root.children), ...slottedChildren];
 

@@ -10,6 +10,16 @@ describe("flip-popover", () => {
     </flip-popover>
   `;
 
+  beforeAll(() => {
+    class ResizeObserver {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    }
+
+    global.ResizeObserver = ResizeObserver;
+  });
+
   it("renders the trigger and content", async () => {
     const page = await newSpecPage({
       components: [FlipPopover],
