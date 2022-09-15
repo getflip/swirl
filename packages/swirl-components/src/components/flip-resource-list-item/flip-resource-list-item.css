@@ -98,7 +98,7 @@
   text-overflow: ellipsis;
 }
 
-.resource-list-item__menu {
+.resource-list-item__menu-trigger {
   position: absolute;
   top: 50%;
   right: var(--s-space-16);

@@ -3,7 +3,6 @@ import classnames from "classnames";
 
 /**
  * @slot media - Optional media; a FlipAvatar, FlipAvatarGroup or FlipThumbnail.
- * @slot menu - Optional menu.
  */
 @Component({
   shadow: true,
@@ -18,6 +17,7 @@ export class FlipResourceListItem {
   @Prop() hideDivider?: boolean;
   @Prop() href?: string;
   @Prop() label!: string;
+  @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
   @Prop() selectable?: boolean;
@@ -65,7 +65,7 @@ export class FlipResourceListItem {
     const Tag = Boolean(this.href) ? "a" : this.selectable ? "label" : "button";
 
     const disabled = this.disabled && !Boolean(this.href);
-    const hasMenu = Boolean(this.el.querySelector('[slot="menu"]'));
+    const hasMenu = Boolean(this.menuTriggerId);
     const showMenu = hasMenu && !Boolean(this.meta);
 
     const className = classnames("resource-list-item", {
@@ -99,19 +99,17 @@ export class FlipResourceListItem {
             <span class="resource-list-item__meta">{this.meta}</span>
           )}
           {showMenu && (
-            <flip-popover class="resource-list-item__menu" label="Popover">
-              <flip-button
-                aria-disabled={disabled ? "true" : undefined}
-                disabled={disabled}
-                hideLabel
-                icon="<flip-icon-more-horizontal></flip-icon-more-horizontal>"
-                intent="primary"
-                label={this.menuTriggerLabel}
-                onClick={this.onMenuTriggerClick}
-                slot="trigger"
-              ></flip-button>
-              <slot name="menu" slot="content"></slot>
-            </flip-popover>
+            <flip-button
+              aria-disabled={disabled ? "true" : undefined}
+              class="resource-list-item__menu-trigger"
+              disabled={disabled}
+              hideLabel
+              icon="<flip-icon-more-horizontal></flip-icon-more-horizontal>"
+              id={this.menuTriggerId}
+              intent="primary"
+              label={this.menuTriggerLabel}
+              onClick={this.onMenuTriggerClick}
+            ></flip-button>
           )}
         </div>
       </Host>

@@ -1605,6 +1605,10 @@
           "description": ""
         },
         {
+          "name": "menu-trigger-id",
+          "description": ""
+        },
+        {
           "name": "menu-trigger-label",
           "description": ""
         },
