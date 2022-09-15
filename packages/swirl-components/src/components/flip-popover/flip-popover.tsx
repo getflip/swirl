@@ -1,4 +1,11 @@
 import {
+  autoUpdate,
+  computePosition,
+  ComputePositionReturn,
+  flip,
+  shift,
+} from "@floating-ui/dom";
+import {
   Component,
   Element,
   h,
@@ -8,7 +15,6 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { PositionMatch, reposition } from "nanopop";
 import { querySelectorAllDeep } from "../../utils";
 
 /**
@@ -27,19 +33,16 @@ export class FlipPopover {
 
   @State() active = false;
   @State() closing = false;
-  @State() position: PositionMatch;
+  @State() position: ComputePositionReturn;
 
+  private childMenuItems: HTMLElement[];
+  private disableAutoUpdate: any;
   private contentContainer: HTMLDivElement;
   private triggerContainer: HTMLDivElement;
 
-  @Listen("resize", { target: "window" })
-  onWindowResize() {
-    this.reposition();
-  }
-
-  @Listen("scroll", { target: "window" })
-  onWindowScroll() {
-    this.reposition();
+  componentDidLoad() {
+    this.updateChildMenuItems();
+    this.updateTriggerAttributes();
   }
 
   @Listen("focusout", { target: "window" })
@@ -48,22 +51,25 @@ export class FlipPopover {
       return;
     }
 
-    const popoverLostFocus = !this.el.contains(
-      event.relatedTarget as HTMLElement
-    );
+    const target = event.relatedTarget as HTMLElement;
+
+    const popoverLostFocus =
+      target === null ||
+      (!this.el.contains(target) &&
+        !this.childMenuItems.some((item) => target.shadowRoot.contains(item)));
 
     if (popoverLostFocus) {
       this.close();
     }
   }
 
-  componentDidLoad() {
-    this.updateTriggerAttributes();
-  }
-
   close = () => {
     if (this.closing) {
       return;
+    }
+
+    if (this.disableAutoUpdate) {
+      this.disableAutoUpdate();
     }
 
     this.closing = true;
@@ -80,18 +86,28 @@ export class FlipPopover {
 
   open = () => {
     this.active = true;
+
+    this.updateChildMenuItems();
     this.updateTriggerAttributes();
 
-    requestAnimationFrame(() => {
-      this.reposition();
+    requestAnimationFrame(async () => {
+      await this.reposition();
 
-      const childMenuItems = querySelectorAllDeep(this.el, '[role="menuitem"]');
-
-      if (childMenuItems.length > 0) {
-        (childMenuItems[0] as HTMLElement).focus();
+      if (this.childMenuItems.length > 0) {
+        (this.childMenuItems[0] as HTMLElement).focus();
       } else {
         this.contentContainer.focus();
       }
+
+      if (this.disableAutoUpdate) {
+        this.disableAutoUpdate();
+      }
+
+      this.disableAutoUpdate = autoUpdate(
+        this.triggerContainer,
+        this.contentContainer,
+        this.reposition
+      );
     });
   };
 
@@ -138,7 +154,11 @@ export class FlipPopover {
     trigger.setAttribute("aria-haspopup", "dialog");
   }
 
-  private reposition = () => {
+  private updateChildMenuItems() {
+    this.childMenuItems = querySelectorAllDeep(this.el, '[role="menuitem"]');
+  }
+
+  private reposition = async () => {
     const mobile = !window.matchMedia("(min-width: 768px)").matches;
 
     if (!Boolean(this.triggerContainer) || !Boolean(this.contentContainer)) {
@@ -146,15 +166,19 @@ export class FlipPopover {
     }
 
     if (mobile) {
-      this.contentContainer.style.top = "";
-      this.contentContainer.style.left = "";
-
+      this.position = undefined;
       return;
     }
 
-    this.position = reposition(this.triggerContainer, this.contentContainer, {
-      position: "bottom-start",
-    });
+    this.position = await computePosition(
+      this.triggerContainer,
+      this.contentContainer,
+      {
+        middleware: [shift(), flip()],
+        placement: "bottom-start",
+        strategy: "fixed",
+      }
+    );
   };
 
   render() {
@@ -183,13 +207,19 @@ export class FlipPopover {
             role="dialog"
             tabindex="-1"
             ref={(el) => (this.contentContainer = el)}
+            style={{
+              top: this.position?.x ? `${this.position?.y}px` : "",
+              left: this.position?.y ? `${this.position?.x}px` : "",
+            }}
           >
             <span class="popover__handle"></span>
             <div class="popover__scroll-container">
               <slot name="content"></slot>
             </div>
           </div>
-          {this.active && <div class="popover__backdrop"></div>}
+          {this.active && (
+            <div class="popover__backdrop" onClick={this.close}></div>
+          )}
         </div>
       </Host>
     );
