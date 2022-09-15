@@ -43,13 +43,19 @@ export function querySelectorAllDeep(
     const lightDomMatches = Array.from(
       root.querySelectorAll<HTMLElement>(selector)
     );
+
+    const slottedChildren =
+      root instanceof HTMLSlotElement ? root.assignedElements() : [];
+
+    const children = [...Array.from(root.children), ...slottedChildren];
+
     const shadowRoot = (root as Element).shadowRoot;
 
     const shadowRootElements = collectAllElementsDeep(selector, shadowRoot);
 
     const matches: HTMLElement[] = [
       ...lightDomMatches,
-      ...Array.from(root.children)
+      ...children
         .map((match) => collectAllElementsDeep(selector, match))
         .flat(),
       ...shadowRootElements,
@@ -58,5 +64,10 @@ export function querySelectorAllDeep(
     return matches;
   }
 
-  return collectAllElementsDeep(selector, root);
+  const matches = collectAllElementsDeep(selector, root).filter(
+    (match, index, matches) =>
+      !matches.some((m, i) => m.isSameNode(match) && i > index)
+  );
+
+  return matches;
 }
