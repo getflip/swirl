@@ -31,7 +31,9 @@ export function generateLinkList(document: Document): DocCategory {
     fs.statSync(`${cwdPath}/${file}`).isDirectory()
   );
 
-  if (hasSubdirectories) {
+  const isBasePath = basePath === name;
+
+  if (hasSubdirectories || isBasePath) {
     return {
       name,
       path: basePath,
@@ -54,18 +56,8 @@ export function generateLinkList(document: Document): DocCategory {
     };
   }
 
-  const links = files
-    .map((file) => {
-      const fileName = file.split(".")[0];
-      return {
-        name: fileName,
-        path: `${document.basePath}`,
-      };
-    })
-    .filter((file) => file.name !== "index");
   return {
     name: document.name,
     path: document.basePath,
-    subpages: links,
   };
 }
