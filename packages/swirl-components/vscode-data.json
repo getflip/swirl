@@ -1504,6 +1504,14 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "popover-id",
+          "description": ""
+        },
+        {
+          "name": "trigger",
+          "description": ""
         }
       ]
     },
