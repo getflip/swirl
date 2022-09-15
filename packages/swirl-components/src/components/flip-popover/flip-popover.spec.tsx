@@ -4,10 +4,12 @@ import { FlipPopover } from "./flip-popover";
 
 describe("flip-popover", () => {
   const template = `
-    <flip-popover label="Popover">
-      <flip-button label="Trigger popover" slot="trigger"></flip-button>
-      <div slot="content">Content</div>
-    </flip-popover>
+    <div>
+      <button id="trigger">Trigger popover</button>
+      <flip-popover label="Popover" popover-id="popover" trigger="trigger">
+        <div>Content</div>
+      </flip-popover>
+    </div>
   `;
 
   beforeAll(() => {
@@ -26,26 +28,25 @@ describe("flip-popover", () => {
       html: template,
     });
 
-    expect(page.root).toEqualHtml(`
-      <flip-popover label="Popover">
-        <mock:shadow-root>
-          <div class="popover popover--inactive">
-            <div class="popover__trigger">
-              <slot name="trigger"></slot>
-            </div>
-            <div aria-hidden="true" aria-label="Popover" class="popover__content" id="popover" role="dialog" tabindex="-1">
-              <span class="popover__handle"></span>
-              <div class="popover__scroll-container">
-                <slot name="content"></slot>
+    expect(page.body).toEqualHtml(`
+      <div>
+        <button aria-controls="popover" aria-expanded="false" aria-haspopup="dialog" id="trigger">Trigger popover</button>
+        <flip-popover id="popover" label="Popover" popover-id="popover" trigger="trigger">
+          <mock:shadow-root>
+            <div class="popover popover--inactive">
+              <div aria-hidden="true" aria-label="Popover" class="popover__content" role="dialog" tabindex="-1">
+                <span class="popover__handle"></span>
+                <div class="popover__scroll-container">
+                  <slot></slot>
+                </div>
               </div>
             </div>
+          </mock:shadow-root>
+          <div>
+            Content
           </div>
-        </mock:shadow-root>
-        <flip-button label="Trigger popover" slot="trigger"></flip-button>
-        <div slot="content">
-          Content
-        </div>
-      </flip-popover>
+        </flip-popover>
+      </div>
     `);
   });
 
@@ -64,9 +65,7 @@ describe("flip-popover", () => {
     expect(isOpen()).toBeFalsy();
 
     // click trigger
-    const trigger = page.root.shadowRoot.querySelector(
-      ".popover__trigger"
-    ) as HTMLElement;
+    const trigger = page.body.querySelector("#trigger") as HTMLElement;
 
     trigger.click();
     await page.waitForChanges();

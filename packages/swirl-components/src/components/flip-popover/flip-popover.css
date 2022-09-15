@@ -61,10 +61,6 @@
   }
 }
 
-.popover__trigger {
-  display: inline-flex;
-}
-
 .popover__backdrop {
   position: fixed;
   z-index: 0;

@@ -18,8 +18,7 @@ import classnames from "classnames";
 import { querySelectorAllDeep } from "../../utils";
 
 /**
- * @slot trigger - The trigger element. Has to be a single interactive element. E.g. `<flip-button label="Trigger" slot="trigger"></flip-button>`
- * @slot content - The popover content.
+ * @slot slot - The popover content.
  */
 @Component({
   shadow: true,
@@ -30,6 +29,8 @@ export class FlipPopover {
   @Element() el: HTMLElement;
 
   @Prop() label!: string;
+  @Prop() popoverId!: string;
+  @Prop() trigger!: string;
 
   @State() active = false;
   @State() closing = false;
@@ -38,9 +39,10 @@ export class FlipPopover {
   private childMenuItems: HTMLElement[];
   private disableAutoUpdate: any;
   private contentContainer: HTMLDivElement;
-  private triggerContainer: HTMLDivElement;
+  private triggerEl: HTMLElement;
 
   componentDidLoad() {
+    this.connectTrigger();
     this.updateChildMenuItems();
     this.updateTriggerAttributes();
   }
@@ -56,7 +58,7 @@ export class FlipPopover {
     const popoverLostFocus =
       target === null ||
       (!this.el.contains(target) &&
-        !this.childMenuItems.some((item) => target.shadowRoot.contains(item)));
+        !this.childMenuItems.some((item) => target.shadowRoot?.contains(item)));
 
     if (popoverLostFocus) {
       this.close();
@@ -80,8 +82,7 @@ export class FlipPopover {
       this.updateTriggerAttributes();
     }, 150);
 
-    const trigger = this.getTriggerElement();
-    trigger?.focus();
+    this.triggerEl?.focus();
   };
 
   open = () => {
@@ -104,7 +105,7 @@ export class FlipPopover {
       }
 
       this.disableAutoUpdate = autoUpdate(
-        this.triggerContainer,
+        this.triggerEl,
         this.contentContainer,
         this.reposition
       );
@@ -118,6 +119,20 @@ export class FlipPopover {
       this.open();
     }
   };
+
+  private connectTrigger() {
+    const triggerComponent = document.querySelector(`#${this.trigger}`);
+
+    this.triggerEl = (triggerComponent?.children[0] ||
+      triggerComponent?.shadowRoot?.children[0] ||
+      triggerComponent) as HTMLElement;
+
+    if (!Boolean(this.triggerEl)) {
+      return;
+    }
+
+    this.triggerEl.addEventListener("click", this.toggle);
+  }
 
   private onKeydown = (event: KeyboardEvent) => {
     if (event.code === "Escape" && this.active) {
@@ -133,25 +148,14 @@ export class FlipPopover {
     this.close();
   };
 
-  private getTriggerElement(): HTMLElement | undefined {
-    const triggerComponent = this.el.querySelector('[slot="trigger"]');
-    const trigger =
-      triggerComponent?.children[0] ||
-      triggerComponent?.shadowRoot?.children[0];
-
-    return trigger as HTMLElement | undefined;
-  }
-
   private updateTriggerAttributes() {
-    const trigger = this.getTriggerElement();
-
-    if (!Boolean(trigger)) {
+    if (!Boolean(this.triggerEl)) {
       return;
     }
 
-    trigger.setAttribute("aria-controls", "popover");
-    trigger.setAttribute("aria-expanded", String(this.active));
-    trigger.setAttribute("aria-haspopup", "dialog");
+    this.triggerEl.setAttribute("aria-controls", "popover");
+    this.triggerEl.setAttribute("aria-expanded", String(this.active));
+    this.triggerEl.setAttribute("aria-haspopup", "dialog");
   }
 
   private updateChildMenuItems() {
@@ -161,7 +165,7 @@ export class FlipPopover {
   private reposition = async () => {
     const mobile = !window.matchMedia("(min-width: 768px)").matches;
 
-    if (!Boolean(this.triggerContainer) || !Boolean(this.contentContainer)) {
+    if (!Boolean(this.triggerEl) || !Boolean(this.contentContainer)) {
       return;
     }
 
@@ -171,7 +175,7 @@ export class FlipPopover {
     }
 
     this.position = await computePosition(
-      this.triggerContainer,
+      this.triggerEl,
       this.contentContainer,
       {
         middleware: [shift(), flip()],
@@ -189,20 +193,12 @@ export class FlipPopover {
     });
 
     return (
-      <Host>
+      <Host id={this.popoverId}>
         <div class={className} onKeyDown={this.onKeydown}>
-          <div
-            class="popover__trigger"
-            onClick={this.toggle}
-            ref={(el) => (this.triggerContainer = el)}
-          >
-            <slot name="trigger"></slot>
-          </div>
           <div
             aria-hidden={!this.active ? "true" : "false"}
             aria-label={this.label}
             class="popover__content"
-            id="popover"
             onClick={this.onContentClick}
             role="dialog"
             tabindex="-1"
@@ -214,7 +210,7 @@ export class FlipPopover {
           >
             <span class="popover__handle"></span>
             <div class="popover__scroll-container">
-              <slot name="content"></slot>
+              <slot></slot>
             </div>
           </div>
           {this.active && (

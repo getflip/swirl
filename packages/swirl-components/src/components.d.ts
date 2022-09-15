@@ -336,6 +336,8 @@ export namespace Components {
     }
     interface FlipPopover {
         "label": string;
+        "popoverId": string;
+        "trigger": string;
     }
     interface FlipRadio {
         "checked"?: FlipRadioState;
@@ -1442,6 +1444,8 @@ declare namespace LocalJSX {
     }
     interface FlipPopover {
         "label": string;
+        "popoverId": string;
+        "trigger": string;
     }
     interface FlipRadio {
         "checked"?: FlipRadioState;
