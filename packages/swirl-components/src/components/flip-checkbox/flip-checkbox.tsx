@@ -40,6 +40,8 @@ export class FlipCheckbox {
     const checked = this.checked === true || this.checked === "true";
     const indeterminate = this.checked === "indeterminate";
 
+    const showLabelContainer = Boolean(this.label) || Boolean(this.description);
+
     const ariaCheckedLabel = checked ? "true" : unchecked ? "false" : "mixed";
     const ariaInvalid =
       this.invalid === true
@@ -85,12 +87,14 @@ export class FlipCheckbox {
               </span>
             </span>
           </span>
-          <span class="checkbox__label-container">
-            {this.label && <span class="checkbox__label">{this.label}</span>}
-            {this.description && (
-              <span class="checkbox__description">{this.description}</span>
-            )}
-          </span>
+          {showLabelContainer && (
+            <span class="checkbox__label-container">
+              {this.label && <span class="checkbox__label">{this.label}</span>}
+              {this.description && (
+                <span class="checkbox__description">{this.description}</span>
+              )}
+            </span>
+          )}
         </label>
       </Host>
     );

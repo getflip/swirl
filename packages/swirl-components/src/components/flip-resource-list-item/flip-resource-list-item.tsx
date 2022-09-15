@@ -103,6 +103,7 @@ export class FlipResourceListItem {
     const className = classnames("resource-list-item", {
       "resource-list-item--has-menu": hasMenu,
       "resource-list-item--hide-divider": this.hideDivider,
+      "resource-list-item--selectable": this.selectable,
     });
 
     return (
