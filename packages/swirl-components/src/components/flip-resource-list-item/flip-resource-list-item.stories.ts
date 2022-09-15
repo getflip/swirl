@@ -6,6 +6,33 @@ export default {
   parameters: {
     docs: {
       page: Docs,
+      source: {
+        code: `<flip-resource-list-item
+  description="With a description"
+  label="This is a resource item"
+  menu-trigger-id="trigger"
+>
+  <flip-avatar
+    label="John Doe"
+    slot="media"
+    src="https://picsum.photos/id/433/144/144"
+  >
+  </flip-avatar>
+</flip-resource-list-item>
+
+<flip-popover label="Popover" popover-id="popover" trigger="trigger">
+  <flip-action-list>
+    <flip-action-list-item
+      icon="<flip-icon-mention></flip-icon-mention>"
+      label="Action item 1"
+    ></flip-action-list-item>
+    <flip-action-list-item
+      icon="<flip-icon-mention></flip-icon-mention>"
+      label="Action item 2"
+    ></flip-action-list-item>
+  </flip-action-list>
+</flip-popover>`,
+      },
     },
   },
   title: "Components/FlipResourceListItem",
