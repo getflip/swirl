@@ -10,14 +10,9 @@ export default {
         code: `<flip-resource-list-item
   description="With a description"
   label="This is a resource item"
+  media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></flip-avatar>"
   menu-trigger-id="trigger"
 >
-  <flip-avatar
-    label="John Doe"
-    slot="media"
-    src="https://picsum.photos/id/433/144/144"
-  >
-  </flip-avatar>
 </flip-resource-list-item>
 
 <flip-popover label="Popover" popover-id="popover" trigger="trigger">
@@ -74,5 +69,6 @@ export const FlipResourceListItem = Template.bind({});
 FlipResourceListItem.args = {
   description: "With a description",
   label: "This is a resource item",
+  media: `<flip-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></flip-avatar>`,
   menuTriggerId: "trigger",
 };

@@ -452,6 +452,10 @@
       },
       "attributes": [
         {
+          "name": "aria-labelled-by",
+          "description": ""
+        },
+        {
           "name": "checked",
           "description": "",
           "values": [
@@ -1585,6 +1589,10 @@
       },
       "attributes": [
         {
+          "name": "checked",
+          "description": ""
+        },
+        {
           "name": "description",
           "description": ""
         },
@@ -1605,6 +1613,10 @@
           "description": ""
         },
         {
+          "name": "media",
+          "description": ""
+        },
+        {
           "name": "menu-trigger-id",
           "description": ""
         },
@@ -1618,6 +1630,10 @@
         },
         {
           "name": "selectable",
+          "description": ""
+        },
+        {
+          "name": "value",
           "description": ""
         }
       ]

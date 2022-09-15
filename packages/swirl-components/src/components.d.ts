@@ -92,6 +92,7 @@ export namespace Components {
         "wrap": boolean;
     }
     interface FlipCheckbox {
+        "ariaLabelledBy"?: string;
         "checked"?: FlipCheckboxState;
         "description"?: string;
         "disabled"?: boolean;
@@ -353,15 +354,18 @@ export namespace Components {
         "value"?: string;
     }
     interface FlipResourceListItem {
+        "checked"?: boolean;
         "description"?: string;
         "disabled"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
         "label": string;
+        "media"?: string;
         "menuTriggerId"?: string;
         "menuTriggerLabel"?: string;
         "meta"?: string;
         "selectable"?: boolean;
+        "value"?: string;
     }
     interface FlipSpinner {
         "label"?: string;
@@ -465,6 +469,10 @@ export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
 export interface FlipRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioGroupElement;
+}
+export interface FlipResourceListItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipResourceListItemElement;
 }
 export interface FlipSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1206,6 +1214,7 @@ declare namespace LocalJSX {
         "wrap"?: boolean;
     }
     interface FlipCheckbox {
+        "ariaLabelledBy"?: string;
         "checked"?: FlipCheckboxState;
         "description"?: string;
         "disabled"?: boolean;
@@ -1464,15 +1473,19 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface FlipResourceListItem {
+        "checked"?: boolean;
         "description"?: string;
         "disabled"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
         "label": string;
+        "media"?: string;
         "menuTriggerId"?: string;
         "menuTriggerLabel"?: string;
         "meta"?: string;
+        "onValueChange"?: (event: FlipResourceListItemCustomEvent<boolean>) => void;
         "selectable"?: boolean;
+        "value"?: string;
     }
     interface FlipSpinner {
         "label"?: string;
