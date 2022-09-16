@@ -25,7 +25,7 @@ const links: Link[] = [
 
 const HeaderNavigation = () => {
   return (
-    <nav className="flex justify-center items-center h-16 w-screen">
+    <nav className="flex justify-center items-center h-16 w-screen border-b-1">
       <ul className="flex flex-row">
         {links.map((link) => (
           <li key={link.path} className="mr-4">

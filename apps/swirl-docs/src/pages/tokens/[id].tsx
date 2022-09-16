@@ -63,7 +63,7 @@ export default function Component({
         documentLinkList={documentLinkList}
         categoryLinkList={categoryLinkList}
       >
-        <article className="w-full px-4">
+        <article className="max-w-3xl px-4 mt-6">
           <MDXRemote {...document} components={components} />
         </article>
       </DocumentationLayout>

@@ -20,10 +20,6 @@
   --flip-ghost-button-background-pressed: var(--s-background-pressed);
 }
 
-.border-b-1 {
-  border-bottom: 1px solid var(--s-border-default);
-}
-
 *,
 *::before,
 *::after {
@@ -58,6 +54,15 @@ h3 {
   font-size: var(--s-font-size-lg);
 }
 
-a {
-  @apply underline;
+/** Custom Utility Classes */
+.border-b-1 {
+  border-bottom: 1px solid var(--s-border-default);
+}
+
+.border-r-1 {
+  border-right: 1px solid var(--s-border-default);
+}
+
+.border-l-1 {
+  border-left: 1px solid var(--s-border-default);
 }

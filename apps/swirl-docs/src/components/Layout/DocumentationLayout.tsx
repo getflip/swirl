@@ -1,4 +1,6 @@
 import { DocCategory, DocHeadline } from "@swirl/lib/docs/src/docs.model";
+import { CategoryNav } from "./CategoryNav";
+import { DocLinksNav } from "./DocLinksNav";
 
 export const DocumentationLayout = ({
   categoryLinkList,
@@ -11,31 +13,11 @@ export const DocumentationLayout = ({
 }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 h-full">
-      <nav className="hidden md:block col-span-2 px-4">
-        <h2 className="mb-4">Category Links</h2>
-        <ul className="list-disc">
-          {categoryLinkList?.map((category: DocCategory) => {
-            return (
-              <li key={category.name} className="list-disc">
-                <a href={`${category.path}`}>{category.name}</a>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-      <main className="col-span-8">{children}</main>
-      <nav className="hidden md:block col-span-2 px-4">
-        <h2 className="mb-4">Document Links</h2>
-        <ul className="list-disc">
-          {documentLinkList?.map((link: DocHeadline) => {
-            return (
-              <li key={link.id} className="list-disc">
-                <a href={`#${link.id}`}>{link.name}</a>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+      <CategoryNav categoryLinkList={categoryLinkList} />
+      <main className="col-span-8 flex justify-center items-start">
+        {children}
+      </main>
+      <DocLinksNav documentLinkList={documentLinkList} />
     </div>
   );
 };
