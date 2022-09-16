@@ -38,10 +38,6 @@ const Template = (args) => {
   const popover = document.createElement("flip-popover");
   const element = generateStoryElement("flip-resource-list-item", args);
 
-  element.innerHTML = `
-    <flip-avatar label="John Doe" slot="media" src="https://picsum.photos/id/433/144/144"></flip-avatar>
-  `;
-
   popover.label = "Options";
   popover.popoverId = "popover";
   popover.trigger = "trigger";
@@ -69,6 +65,9 @@ export const FlipResourceListItem = Template.bind({});
 FlipResourceListItem.args = {
   description: "With a description",
   label: "This is a resource item",
-  media: `<flip-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></flip-avatar>`,
+  media: `<flip-avatar-group badge="<flip-badge aria-label=&quot;3 new messages&quot; label=&quot;3&quot;></flip-badge>">
+  <flip-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" size="s"></flip-avatar>
+  <flip-avatar label="John Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/b.svg?size=144" size="s"></flip-avatar>
+</flip-avatar-group>`,
   menuTriggerId: "trigger",
 };

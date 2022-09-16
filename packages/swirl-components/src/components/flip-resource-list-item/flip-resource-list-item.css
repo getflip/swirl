@@ -49,6 +49,9 @@
 }
 
 .resource-list-item__content {
+  --flip-avatar-group-border-color: var(--s-background-default);
+  --flip-badge-border-color: var(--s-background-default);
+
   display: flex;
   width: 100%;
   padding-top: var(--s-space-12);
@@ -68,10 +71,20 @@
 
   &:hover:not(:disabled) {
     background-color: var(--s-background-hovered);
+
+    & .resource-list-item__media {
+      --flip-avatar-group-border-color: var(--s-background-hovered);
+      --flip-badge-border-color: var(--s-background-hovered);
+    }
   }
 
   &:active:not(:disabled) {
     background-color: var(--s-background-pressed);
+
+    & .resource-list-item__media {
+      --flip-avatar-group-border-color: var(--s-background-pressed);
+      --flip-badge-border-color: var(--s-background-pressed);
+    }
   }
 
   &:disabled {

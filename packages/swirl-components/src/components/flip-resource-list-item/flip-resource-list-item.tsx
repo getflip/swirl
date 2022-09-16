@@ -100,7 +100,7 @@ export class FlipResourceListItem {
 
     return (
       <Host>
-        <div class={className}>
+        <div class={className} role="row">
           <Tag
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}
