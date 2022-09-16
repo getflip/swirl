@@ -23,8 +23,8 @@ const TokenItem = ({ tokenName, description, value }: TokenItemProps) => {
           border/success
         </span>
       </div>
-      <div className="col-span-1 mb-2 md:mb-0">{value}</div>
-      <div className="col-span-2">{description}</div>
+      <div className="col-span-1 mb-2 md:mb-0 text-sm">{value}</div>
+      <div className="col-span-2 text-sm">{description}</div>
     </div>
   );
 };
