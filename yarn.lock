@@ -14294,10 +14294,10 @@ storybook-addon-themes@^6.1.0:
     global "^4.4.0"
     memoizerific "^1.11.3"
 
-storybook-design-token@2.6.0-vite.1:
-  version "2.6.0-vite.1"
-  resolved "https://registry.yarnpkg.com/storybook-design-token/-/storybook-design-token-2.6.0-vite.1.tgz#f6c5696a5a76b8666fa4bdec8351862116278340"
-  integrity sha512-X7rBoalnj6peT+y6CXYPcjnVfOXPXB+atleGH/X4fgreONE6tzYPMap4tjG1MVLiw3Rvyj1CFMkp8aNf2khv8g==
+storybook-design-token@2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/storybook-design-token/-/storybook-design-token-2.7.0.tgz#5770a70485504a051bb4186eed6f1def41ef0ad4"
+  integrity sha512-E24ZDOBz+Y60aZqJPLp0b2+dDWPbjUHk3h+lqLiWNg6ehnEba0d0RkOFz8uxiF1uQShg8NpMlHjIcgYlwTK3ug==
   dependencies:
     "@storybook/addons" "^6.3.12"
     "@storybook/components" "^6.3.12"
