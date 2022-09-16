@@ -20,6 +20,10 @@
   --flip-ghost-button-background-pressed: var(--s-background-pressed);
 }
 
+.border-b-1 {
+  border-bottom: 1px solid var(--s-border-default);
+}
+
 *,
 *::before,
 *::after {
@@ -38,6 +42,11 @@ body {
   color: var(--s-text-default);
 
   -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: var(--s-font-size-2xl);
+  font-weight: var(--s-font-weight-bold);
 }
 
 h2 {

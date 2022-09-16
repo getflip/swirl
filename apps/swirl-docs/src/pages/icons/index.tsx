@@ -1,5 +1,9 @@
 import { createDocCategory } from "@swirl/lib/docs";
-import { DocCategory, DOCUMENTATION_SRC } from "@swirl/lib/docs/src/docs.model";
+import {
+  BASE_PATHS,
+  DocCategory,
+  DOCUMENTATION_SRC,
+} from "@swirl/lib/docs/src/docs.model";
 import { Link } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
@@ -34,8 +38,8 @@ const Components = ({ links }: any) => {
             sourcing from pages directroy
             <ul className="list-disc">
               <RecursiveNavigation
-                name="icons"
-                path="icons"
+                name={BASE_PATHS.ICONS}
+                path={BASE_PATHS.ICONS}
                 key={JSON.stringify(links)}
                 subpages={links}
               />
@@ -52,8 +56,8 @@ export const getStaticProps: GetStaticProps<{
 }> = async () => {
   const categoryDocs = createDocCategory(
     {
-      name: "icons",
-      basePath: "icons",
+      name: BASE_PATHS.ICONS,
+      basePath: BASE_PATHS.ICONS,
     },
     DOCUMENTATION_SRC.DOCUMENTATION
   );

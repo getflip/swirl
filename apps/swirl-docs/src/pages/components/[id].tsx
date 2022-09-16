@@ -1,13 +1,13 @@
-import { createSwirlComponentDocCategories } from "@swirl/lib/docs";
 import {
   createDocLinkList,
   generateMdxFromStorybook,
 } from "@swirl/lib/docs/src/singleDoc";
-import { MDXRemote } from "next-mdx-remote";
-import IframeResizer from "iframe-resizer-react";
-import { DocHeadline } from "@swirl/lib/docs/src/docs.model";
+import { BASE_PATHS, DocHeadline } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
+import IframeResizer from "iframe-resizer-react";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
+import { MDXRemote } from "next-mdx-remote";
+import { createSwirlComponentDocCategories } from "@swirl/lib/docs";
 
 async function getComponentData(id: string) {
   return await generateMdxFromStorybook(id);
@@ -15,7 +15,7 @@ async function getComponentData(id: string) {
 
 export async function getStaticPaths() {
   const swirlComponentLinks = createSwirlComponentDocCategories(
-    "components"
+    BASE_PATHS.COMPONENTS
   ).map((component) => ({
     params: {
       id: component.htmlTag,

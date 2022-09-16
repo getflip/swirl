@@ -3,6 +3,12 @@ export enum DOCUMENTATION_SRC {
   DOCUMENTATION = "documentation",
 }
 
+export enum BASE_PATHS {
+  COMPONENTS = "components",
+  TOKENS = "tokens",
+  ICONS = "icons",
+}
+
 export type BasePath = "components" | "tokens" | "icons";
 
 export type DocCategory = {

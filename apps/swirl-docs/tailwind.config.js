@@ -8,6 +8,21 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
+    typography: {
+      default: {
+        css: {
+          code: {
+            "&::before": {
+              content: '""',
+            },
+            "&::after": {
+              content: '""',
+            },
+          },
+          // ...
+        },
+      },
+    },
     extend: {
       ...SwirlTailwindTheme,
     },

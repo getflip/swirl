@@ -6,6 +6,7 @@ import Head from "next/head";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
+import TokensList from "src/components/Tokens/TokensList";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation("tokens", document);
@@ -49,6 +50,8 @@ export default function Component({
   title: string;
 }) {
   const components = {
+    TokensList,
+    p: (props: any) => <p className="mb-4" {...props} />,
     ...LinkedHeaders,
   };
   return (
@@ -60,7 +63,7 @@ export default function Component({
         documentLinkList={documentLinkList}
         categoryLinkList={categoryLinkList}
       >
-        <article className="prose">
+        <article className="w-full px-4">
           <MDXRemote {...document} components={components} />
         </article>
       </DocumentationLayout>

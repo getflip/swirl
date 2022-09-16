@@ -1,9 +1,17 @@
 export const LinkedHeaders = {
   h1: (props: any) => {
-    return <h1 id={props.children.toLowerCase()}>{props.children}</h1>;
+    return (
+      <h1 className="mb-4" id={props.children.toLowerCase()}>
+        {props.children}
+      </h1>
+    );
   },
   h2: (props: any) => {
-    return <h2 id={props.children.toLowerCase()}>{props.children}</h2>;
+    return (
+      <h2 className="mb-4" id={props.children.toLowerCase()}>
+        {props.children}
+      </h2>
+    );
   },
   h3: (props: any) => {
     return <h3 id={props.children.toLowerCase()}>{props.children}</h3>;

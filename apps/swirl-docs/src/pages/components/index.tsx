@@ -5,7 +5,11 @@ import {
 import { Link } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
-import { DocCategory, DOCUMENTATION_SRC } from "@swirl/lib/docs/src/docs.model";
+import {
+  BASE_PATHS,
+  DocCategory,
+  DOCUMENTATION_SRC,
+} from "@swirl/lib/docs/src/docs.model";
 
 const RecursiveNavigation = (link: Link) => {
   const hasSubpages = link.subpages && link.subpages.length;
@@ -28,36 +32,19 @@ const Components = ({ links, swirlComponentLinks }: any) => {
       <Head>
         <title>Swirl Components</title>
       </Head>
-      <main className="prose">
-        <section className="flex flex-col justify-center items-center h-full w-screen">
-          Components
-        </section>
-        <section className="flex justify-center w-screen">
-          <nav>
-            sourcing from pages directroy
-            <ul className="list-disc">
-              <RecursiveNavigation
-                name="components"
-                path="components"
-                key={JSON.stringify(links)}
-                subpages={links}
-              />
-            </ul>
-          </nav>
-          <nav>
-            sourcing from components within storybook project
-            <ul className="list-disc">
-              {swirlComponentLinks.map((component: DocCategory) => {
-                return (
-                  <li key={component.path}>
-                    <a href={component.nextRoute}>{component.name}</a>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-        </section>
-      </main>
+      <section className="flex justify-center w-screen">
+        <nav>
+          <ul className="list-disc">
+            {swirlComponentLinks.map((component: DocCategory) => {
+              return (
+                <li key={component.path}>
+                  <a href={component.nextRoute}>{component.name}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </section>
     </>
   );
 };
@@ -66,12 +53,14 @@ export const getStaticProps: GetStaticProps<{
   links: DocCategory[] | undefined;
   swirlComponentLinks: DocCategory[];
 }> = async () => {
-  const swirlComponentLinks = createSwirlComponentDocCategories("components");
+  const swirlComponentLinks = createSwirlComponentDocCategories(
+    BASE_PATHS.COMPONENTS
+  );
 
   const categoryDocs = createDocCategory(
     {
-      name: "components",
-      basePath: "components",
+      name: BASE_PATHS.COMPONENTS,
+      basePath: BASE_PATHS.COMPONENTS,
     },
     DOCUMENTATION_SRC.PAGES
   );

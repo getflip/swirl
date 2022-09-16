@@ -10,8 +10,8 @@ export const DocumentationLayout = ({
   children: any;
 }) => {
   return (
-    <div className="grid grid-cols-12 h-full">
-      <nav className="col-span-2 px-4">
+    <div className="grid grid-cols-1 md:grid-cols-12 h-full">
+      <nav className="hidden md:block col-span-2 px-4">
         <h2 className="mb-4">Category Links</h2>
         <ul className="list-disc">
           {categoryLinkList?.map((category: DocCategory) => {
@@ -24,7 +24,7 @@ export const DocumentationLayout = ({
         </ul>
       </nav>
       <main className="col-span-8">{children}</main>
-      <nav className="col-span-2 px-4">
+      <nav className="hidden md:block col-span-2 px-4">
         <h2 className="mb-4">Document Links</h2>
         <ul className="list-disc">
           {documentLinkList?.map((link: DocHeadline) => {
