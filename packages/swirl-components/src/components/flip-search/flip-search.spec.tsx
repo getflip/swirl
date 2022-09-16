@@ -19,6 +19,31 @@ describe("flip-search", () => {
     `);
   });
 
+  it("fires events", async () => {
+    const page = await newSpecPage({
+      components: [FlipSearch],
+      html: `<flip-search label="Search"></flip-search>`,
+    });
+
+    const focusSpy = jest.fn();
+    const changeSpy = jest.fn();
+
+    page.root.addEventListener("valueChange", changeSpy);
+    page.root.addEventListener("inputFocus", focusSpy);
+    page.root.addEventListener("inputBlur", focusSpy);
+
+    const input = page.root.querySelector("input");
+
+    input.focus();
+    expect(focusSpy).toHaveBeenCalledTimes(1);
+
+    input.blur();
+    expect(focusSpy).toHaveBeenCalledTimes(2);
+
+    input.dispatchEvent(new Event("change"));
+    expect(changeSpy).toHaveBeenCalled();
+  });
+
   it("focuses with shortcuts", async () => {
     const page = await newSpecPage({
       components: [FlipSearch],
