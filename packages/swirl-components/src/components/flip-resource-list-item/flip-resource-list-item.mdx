@@ -38,10 +38,14 @@ media, a group or a chat within a collection. It should only be used inside the
 Depending on the purpose, the item can be used as a button, link or checkbox
 control.
 
-| ARIA            | Usage                                                                                           |
-| --------------- | ----------------------------------------------------------------------------------------------- |
-| `role`          | Set according to the item usage.                                                                |
-| `aria-disabled` | If not used as a link, the `aria-disabled` attribute is set to `true` for the disabled element. |
+| ARIA              | Usage                                                                                           |
+| ----------------- | ----------------------------------------------------------------------------------------------- |
+| `role="row"`      | Set on the element; for usage inside the FlipResourceList component.                            |
+| `role="gridcell"` | Set on the inner container element; for usage inside the FlipResourceList component.            |
+| `role="button"`   | Implicit when used as a button.                                                                 |
+| `role="link"`     | Implicit when used as a link.                                                                   |
+| `role="checkbox"` | Set on the interactive part if used as a checkbox.                                              |
+| `aria-disabled`   | If not used as a link, the `aria-disabled` attribute is set to `true` for the disabled element. |
 
 ### Keyboard
 

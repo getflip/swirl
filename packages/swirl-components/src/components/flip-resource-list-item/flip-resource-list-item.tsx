@@ -99,8 +99,8 @@ export class FlipResourceListItem {
     });
 
     return (
-      <Host>
-        <div class={className} role="row">
+      <Host role="row">
+        <div class={className} role="gridcell">
           <Tag
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}

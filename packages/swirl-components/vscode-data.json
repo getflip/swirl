@@ -1578,6 +1578,19 @@
       ]
     },
     {
+      "name": "flip-resource-list",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-resource-list-item",
       "description": {
         "kind": "markdown",

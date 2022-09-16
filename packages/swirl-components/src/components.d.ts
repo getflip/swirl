@@ -352,6 +352,9 @@ export namespace Components {
     interface FlipRadioGroup {
         "value"?: string;
     }
+    interface FlipResourceList {
+        "label"?: string;
+    }
     interface FlipResourceListItem {
         "checked"?: boolean;
         "description"?: string;
@@ -992,6 +995,12 @@ declare global {
         prototype: HTMLFlipRadioGroupElement;
         new (): HTMLFlipRadioGroupElement;
     };
+    interface HTMLFlipResourceListElement extends Components.FlipResourceList, HTMLStencilElement {
+    }
+    var HTMLFlipResourceListElement: {
+        prototype: HTMLFlipResourceListElement;
+        new (): HTMLFlipResourceListElement;
+    };
     interface HTMLFlipResourceListItemElement extends Components.FlipResourceListItem, HTMLStencilElement {
     }
     var HTMLFlipResourceListItemElement: {
@@ -1132,6 +1141,7 @@ declare global {
         "flip-popover": HTMLFlipPopoverElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
+        "flip-resource-list": HTMLFlipResourceListElement;
         "flip-resource-list-item": HTMLFlipResourceListItemElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
@@ -1470,6 +1480,9 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: FlipRadioGroupCustomEvent<string>) => void;
         "value"?: string;
     }
+    interface FlipResourceList {
+        "label"?: string;
+    }
     interface FlipResourceListItem {
         "checked"?: boolean;
         "description"?: string;
@@ -1619,6 +1632,7 @@ declare namespace LocalJSX {
         "flip-popover": FlipPopover;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
+        "flip-resource-list": FlipResourceList;
         "flip-resource-list-item": FlipResourceListItem;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
@@ -1719,6 +1733,7 @@ declare module "@stencil/core" {
             "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
+            "flip-resource-list": LocalJSX.FlipResourceList & JSXBase.HTMLAttributes<HTMLFlipResourceListElement>;
             "flip-resource-list-item": LocalJSX.FlipResourceListItem & JSXBase.HTMLAttributes<HTMLFlipResourceListItemElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;

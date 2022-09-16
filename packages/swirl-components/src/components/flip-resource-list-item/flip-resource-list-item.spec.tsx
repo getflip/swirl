@@ -16,9 +16,9 @@ describe("flip-resource-list-item", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-resource-list-item description="Description" label="Label" media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></flip-avatar>">
+      <flip-resource-list-item description="Description" label="Label" media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></flip-avatar>" role="row">
         <mock:shadow-root>
-          <div class="resource-list-item">
+          <div class="resource-list-item" role="gridcell">
             <button aria-labelledby="label" class="resource-list-item__content" tabindex="0">
               <span class="resource-list-item__media">
                 <flip-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></flip-avatar>
