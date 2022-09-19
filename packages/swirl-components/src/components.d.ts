@@ -15,6 +15,7 @@ import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
+import { FlipLinkTarget } from "./components/flip-link/flip-link";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
@@ -80,6 +81,7 @@ export namespace Components {
         "checked"?: FlipCheckboxState;
         "description"?: string;
         "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
@@ -112,6 +114,13 @@ export namespace Components {
         "open": () => Promise<void>;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface FlipFormControl {
+        "description"?: string;
+        "disabled"?: boolean;
+        "errorMessage"?: string;
+        "invalid"?: boolean;
+        "label": string;
     }
     interface FlipIconAdd {
         "size": FlipIconSize;
@@ -318,6 +327,7 @@ export namespace Components {
     interface FlipLink {
         "href": string;
         "label": string;
+        "target"?: FlipLinkTarget;
     }
     interface FlipRadio {
         "checked"?: FlipRadioState;
@@ -330,6 +340,7 @@ export namespace Components {
         "value": string;
     }
     interface FlipRadioGroup {
+        "flipAriaDescribedby"?: string;
         "value"?: string;
     }
     interface FlipSpinner {
@@ -509,6 +520,12 @@ declare global {
     var HTMLFlipDialogElement: {
         prototype: HTMLFlipDialogElement;
         new (): HTMLFlipDialogElement;
+    };
+    interface HTMLFlipFormControlElement extends Components.FlipFormControl, HTMLStencilElement {
+    }
+    var HTMLFlipFormControlElement: {
+        prototype: HTMLFlipFormControlElement;
+        new (): HTMLFlipFormControlElement;
     };
     interface HTMLFlipIconAddElement extends Components.FlipIconAdd, HTMLStencilElement {
     }
@@ -990,6 +1007,7 @@ declare global {
         "flip-description-list": HTMLFlipDescriptionListElement;
         "flip-description-list-item": HTMLFlipDescriptionListItemElement;
         "flip-dialog": HTMLFlipDialogElement;
+        "flip-form-control": HTMLFlipFormControlElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
         "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
@@ -1129,6 +1147,7 @@ declare namespace LocalJSX {
         "checked"?: FlipCheckboxState;
         "description"?: string;
         "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
@@ -1156,6 +1175,13 @@ declare namespace LocalJSX {
         "onSecondaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface FlipFormControl {
+        "description"?: string;
+        "disabled"?: boolean;
+        "errorMessage"?: string;
+        "invalid"?: boolean;
+        "label": string;
     }
     interface FlipIconAdd {
         "size"?: FlipIconSize;
@@ -1362,6 +1388,7 @@ declare namespace LocalJSX {
     interface FlipLink {
         "href": string;
         "label": string;
+        "target"?: FlipLinkTarget;
     }
     interface FlipRadio {
         "checked"?: FlipRadioState;
@@ -1375,6 +1402,7 @@ declare namespace LocalJSX {
         "value": string;
     }
     interface FlipRadioGroup {
+        "flipAriaDescribedby"?: string;
         "onValueChange"?: (event: FlipRadioGroupCustomEvent<string>) => void;
         "value"?: string;
     }
@@ -1438,6 +1466,7 @@ declare namespace LocalJSX {
         "flip-description-list": FlipDescriptionList;
         "flip-description-list-item": FlipDescriptionListItem;
         "flip-dialog": FlipDialog;
+        "flip-form-control": FlipFormControl;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
         "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
@@ -1533,6 +1562,7 @@ declare module "@stencil/core" {
             "flip-description-list": LocalJSX.FlipDescriptionList & JSXBase.HTMLAttributes<HTMLFlipDescriptionListElement>;
             "flip-description-list-item": LocalJSX.FlipDescriptionListItem & JSXBase.HTMLAttributes<HTMLFlipDescriptionListItemElement>;
             "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;
+            "flip-form-control": LocalJSX.FlipFormControl & JSXBase.HTMLAttributes<HTMLFlipFormControlElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
             "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
