@@ -612,12 +612,12 @@
     "comment": "Usually used for containers on images"
   },
   "border-strong": {
-    "value": "rgba(0, 6, 29, 0.18)",
+    "value": "rgba(255, 255, 255, 0.18)",
     "type": "color",
     "comment": "Usually used for high emphasis borders."
   },
   "border-default": {
-    "value": "rgba(0, 6, 29, 0.09)",
+    "value": "rgba(255, 255, 255, 0.09)",
     "type": "color",
     "comment": "Usually used for low emphasis borders and espacially divider elements."
   },
