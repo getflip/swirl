@@ -9,6 +9,9 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import remarkGfm from "remark-gfm";
 import { DocHeadline } from "./docs.model";
+import rehypeSlug from "rehype-slug";
+const sectionize = require("remark-sectionize");
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 function generateSerializableString(componentId: string) {
   const storyBookComponentId = `components-${componentId
@@ -114,8 +117,8 @@ export async function generateMdxFromDocumentation(
   const serializeAwait = serialize(source, {
     parseFrontmatter: true,
     mdxOptions: {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [],
+      rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+      remarkPlugins: [remarkGfm, sectionize],
       format: "mdx",
     },
   });
