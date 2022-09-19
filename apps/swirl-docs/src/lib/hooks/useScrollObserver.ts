@@ -17,11 +17,11 @@ const useScrollObserver = (
     }
 
     observer.current = new IntersectionObserver((entries) => {
-      const indexOfSectionToHighlight = entries.findIndex((entry) => {
+      const newHightlightIndex = entries.findIndex((entry) => {
         return entry.intersectionRatio > 0;
       });
 
-      setActiveIndex(indexOfSectionToHighlight);
+      setActiveIndex(newHightlightIndex);
     });
 
     const { current: currentObserver } = observer;
