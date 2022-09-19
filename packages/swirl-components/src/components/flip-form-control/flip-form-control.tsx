@@ -2,7 +2,7 @@ import { h, Component, Element, Host, Prop, Watch, State } from "@stencil/core";
 import classnames from "classnames";
 
 /**
- * @slot slot - The form element
+ * @slot slot - The input element, e.g. `<flip-text-input></flip-text-input>`
  */
 @Component({
   /**
@@ -38,6 +38,7 @@ export class FlipFormControl {
 
     this.associateDescriptionWithInputElement();
     this.setInputElementDisabledState();
+    this.setInputElementInvalidState();
     this.checkInputValue();
     this.listenToInputValueChanges();
   }
@@ -61,6 +62,19 @@ export class FlipFormControl {
       this.inputEl.setAttribute("disabled", "true");
     } else {
       this.inputEl.removeAttribute("disabled");
+    }
+  }
+
+  @Watch("invalid")
+  setInputElementInvalidState() {
+    if (!Boolean(this.inputEl)) {
+      return;
+    }
+
+    if (this.invalid) {
+      this.inputEl.setAttribute("invalid", "true");
+    } else {
+      this.inputEl.removeAttribute("invalid");
     }
   }
 

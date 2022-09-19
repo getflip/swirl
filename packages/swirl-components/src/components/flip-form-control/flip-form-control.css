@@ -41,7 +41,7 @@
 }
 
 .form-control--invalid {
-  &:focus-within {
+  &:focus-within:not(.form-control--disabled) {
     & .form-control__label {
       border-color: var(--s-border-critical);
       box-shadow: 0 0 0 var(--s-border-width-default) var(--s-border-critical);
@@ -67,7 +67,7 @@
 .form-control__label {
   display: flex;
   width: 100%;
-  min-height: 4.25rem;
+  min-height: 4.375rem;
   padding: var(--s-space-12) var(--s-space-16);
   justify-content: center;
   border: var(--s-border-width-default) solid var(--s-border-strong);
@@ -76,9 +76,6 @@
   font-size: var(--s-font-size-sm);
   flex-direction: column;
   gap: var(--s-space-2);
-}
-
-.form-control__input {
 }
 
 .form-control__description {

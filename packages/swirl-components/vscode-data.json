@@ -645,6 +645,19 @@
       ]
     },
     {
+      "name": "flip-icon-cancel",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-chat-bubble",
       "description": {
         "kind": "markdown",
@@ -1386,6 +1399,19 @@
       ]
     },
     {
+      "name": "flip-icon-visibility",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-visibility-off",
       "description": {
         "kind": "markdown",
@@ -1533,43 +1559,6 @@
         },
         {
           "name": "value",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "flip-search",
-      "description": {
-        "kind": "markdown",
-        "value": ""
-      },
-      "attributes": [
-        {
-          "name": "auto-focus",
-          "description": ""
-        },
-        {
-          "name": "clear-button-label",
-          "description": ""
-        },
-        {
-          "name": "disabled",
-          "description": ""
-        },
-        {
-          "name": "input-id",
-          "description": ""
-        },
-        {
-          "name": "input-name",
-          "description": ""
-        },
-        {
-          "name": "label",
-          "description": ""
-        },
-        {
-          "name": "placeholder",
           "description": ""
         }
       ]
@@ -1739,6 +1728,127 @@
             },
             {
               "name": "s"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-text-input",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-focus",
+          "description": ""
+        },
+        {
+          "name": "auto-select",
+          "description": ""
+        },
+        {
+          "name": "clear-button-label",
+          "description": ""
+        },
+        {
+          "name": "clearable",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "description": "",
+          "values": [
+            {
+              "name": "decimal"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "numeric"
+            },
+            {
+              "name": "search"
+            },
+            {
+              "name": "tel"
+            },
+            {
+              "name": "text"
+            },
+            {
+              "name": "url"
+            }
+          ]
+        },
+        {
+          "name": "prefix-label",
+          "description": ""
+        },
+        {
+          "name": "required",
+          "description": ""
+        },
+        {
+          "name": "rows",
+          "description": ""
+        },
+        {
+          "name": "spell-check",
+          "description": ""
+        },
+        {
+          "name": "suffix-label",
+          "description": ""
+        },
+        {
+          "name": "type",
+          "description": "",
+          "values": [
+            {
+              "name": "date"
+            },
+            {
+              "name": "datetime-local"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "number"
+            },
+            {
+              "name": "password"
+            },
+            {
+              "name": "reset"
+            },
+            {
+              "name": "tel"
+            },
+            {
+              "name": "text"
+            },
+            {
+              "name": "url"
             }
           ]
         },

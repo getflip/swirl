@@ -14,14 +14,7 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("flip-form-control", args);
 
-  // TODO: add a flip form element
-  element.innerHTML = `
-    <flip-radio-group aria-label="Radio group">
-      <flip-radio input-id="radio-1" input-name="radio" label="Radio button #1" value="1"></flip-radio>
-      <flip-radio input-id="radio-2" input-name="radio" label="Radio button #2" value="2"></flip-radio>
-      <flip-radio input-id="radio-3" input-name="radio" label="Radio button #3" value="3"></flip-radio>
-    </flip-radio-group>
-  `;
+  element.innerHTML = `<flip-text-input clearable prefix-label="$" type="number"></flip-text-input>`;
 
   return element;
 };
