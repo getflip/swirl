@@ -607,17 +607,17 @@
     "comment": "Used for low prio neutral background."
   },
   "surface-on-image-default": {
-    "value": "rgba(NaN, 186, NaN, NaN)",
+    "value": "rgba(0, 0, 0, 0.4)",
     "type": "color",
     "comment": "Usually used for containers on images"
   },
   "border-strong": {
-    "value": "rgba(NaN, 186, NaN, NaN)",
+    "value": "rgba(0, 6, 29, 0.18)",
     "type": "color",
     "comment": "Usually used for high emphasis borders."
   },
   "border-default": {
-    "value": "rgba(NaN, 186, NaN, NaN)",
+    "value": "rgba(0, 6, 29, 0.09)",
     "type": "color",
     "comment": "Usually used for low emphasis borders and espacially divider elements."
   },
@@ -647,7 +647,7 @@
     "comment": "Usally used as an border on info components."
   },
   "border-on-highlight": {
-    "value": "rgba(NaN, 186, NaN, 0.56)",
+    "value": "rgba(190, 255, 240, 0.2)",
     "type": "color",
     "comment": "Used as border color on containers that have an highlight surface"
   },
