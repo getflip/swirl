@@ -30,7 +30,7 @@ const HeaderNavigation = () => {
 
   return (
     <nav className="flex justify-start items-center h-[72px] w-screen px-6 border-b-1 font-semibold">
-      <a href="/" className="flex justify-center items-center mr-8">
+      <a href="/" className="hidden md:flex justify-center items-center mr-8">
         <Image
           alt="Flip Logo"
           src="/swirl-icon-temp.svg"
@@ -39,7 +39,12 @@ const HeaderNavigation = () => {
         />
         <span className="font-bold ml-3">Swirl</span>
       </a>
-      <ul className="flex flex-row">
+
+      <button className="block md:hidden p-2 bg-blue-500 text-white rounded-full">
+        TODO: Mobile Menu
+      </button>
+
+      <ul className="hidden md:flex flex-row">
         {links.map((link) => (
           <li
             key={link.path}
