@@ -21,8 +21,8 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
   const [currentActiveIndex] = useScrollObserver(documents);
 
   return (
-    <div>
-      <nav className="fixed hidden md:block col-span-2 px-4 border-l-1">
+    <div className="col-span-2">
+      <nav className="fixed hidden md:block px-4 border-l-1">
         <div className="mt-6 mb-4 font-sm font-semibold">On this Page</div>
         <ul>
           {documentLinkList?.map((link: DocHeadline, index: number) => {

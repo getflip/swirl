@@ -11,6 +11,7 @@ import { DocumentationLayout } from "../../components/Layout/DocumentationLayout
 import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import TokensList from "src/components/Tokens/TokensList";
+import PreFooter from "src/components/Layout/PreFooter";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation("tokens", document);
@@ -67,9 +68,11 @@ export default function Component({
         documentLinkList={documentLinkList}
         categoryLinkList={categoryLinkList}
       >
-        <article className="max-w-3xl px-4 mt-6">
-          <MDXRemote {...document} components={components} />
-        </article>
+        <main className="col-span-8 flex flex-col justify-center items-center">
+          <article className="max-w-3xl px-4 mt-6">
+            <MDXRemote {...document} components={components} />
+          </article>
+        </main>
       </DocumentationLayout>
     </>
   );
