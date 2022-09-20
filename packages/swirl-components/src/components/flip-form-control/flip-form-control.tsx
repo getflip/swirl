@@ -59,7 +59,6 @@ export class FlipFormControl {
     }
 
     if (this.disabled) {
-      console.log(this.inputEl);
       this.inputEl.setAttribute("disabled", "true");
     } else {
       this.inputEl.removeAttribute("disabled");
