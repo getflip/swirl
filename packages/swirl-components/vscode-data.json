@@ -1417,6 +1417,24 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "target",
+          "description": "",
+          "values": [
+            {
+              "name": "_blank"
+            },
+            {
+              "name": "_parent"
+            },
+            {
+              "name": "_self"
+            },
+            {
+              "name": "_top"
+            }
+          ]
         }
       ]
     },
