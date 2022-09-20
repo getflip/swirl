@@ -15,6 +15,8 @@ import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
+import { FlipLinkTarget } from "./components/flip-link/flip-link";
+import { FlipOptionListItemContext } from "./components/flip-option-list-item/flip-option-list-item";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
@@ -318,6 +320,14 @@ export namespace Components {
     interface FlipLink {
         "href": string;
         "label": string;
+        "target"?: FlipLinkTarget;
+    }
+    interface FlipOptionListItem {
+        "context"?: FlipOptionListItemContext;
+        "disabled"?: boolean;
+        "icon"?: string;
+        "label": string;
+        "selected"?: boolean;
     }
     interface FlipRadio {
         "checked"?: FlipRadioState;
@@ -918,6 +928,12 @@ declare global {
         prototype: HTMLFlipLinkElement;
         new (): HTMLFlipLinkElement;
     };
+    interface HTMLFlipOptionListItemElement extends Components.FlipOptionListItem, HTMLStencilElement {
+    }
+    var HTMLFlipOptionListItemElement: {
+        prototype: HTMLFlipOptionListItemElement;
+        new (): HTMLFlipOptionListItemElement;
+    };
     interface HTMLFlipRadioElement extends Components.FlipRadio, HTMLStencilElement {
     }
     var HTMLFlipRadioElement: {
@@ -1058,6 +1074,7 @@ declare global {
         "flip-icon-warning": HTMLFlipIconWarningElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-link": HTMLFlipLinkElement;
+        "flip-option-list-item": HTMLFlipOptionListItemElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
         "flip-spinner": HTMLFlipSpinnerElement;
@@ -1362,6 +1379,14 @@ declare namespace LocalJSX {
     interface FlipLink {
         "href": string;
         "label": string;
+        "target"?: FlipLinkTarget;
+    }
+    interface FlipOptionListItem {
+        "context"?: FlipOptionListItemContext;
+        "disabled"?: boolean;
+        "icon"?: string;
+        "label": string;
+        "selected"?: boolean;
     }
     interface FlipRadio {
         "checked"?: FlipRadioState;
@@ -1506,6 +1531,7 @@ declare namespace LocalJSX {
         "flip-icon-warning": FlipIconWarning;
         "flip-inline-error": FlipInlineError;
         "flip-link": FlipLink;
+        "flip-option-list-item": FlipOptionListItem;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
         "flip-spinner": FlipSpinner;
@@ -1601,6 +1627,7 @@ declare module "@stencil/core" {
             "flip-icon-warning": LocalJSX.FlipIconWarning & JSXBase.HTMLAttributes<HTMLFlipIconWarningElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
+            "flip-option-list-item": LocalJSX.FlipOptionListItem & JSXBase.HTMLAttributes<HTMLFlipOptionListItemElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;

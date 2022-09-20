@@ -1417,6 +1417,61 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "target",
+          "description": "",
+          "values": [
+            {
+              "name": "_blank"
+            },
+            {
+              "name": "_parent"
+            },
+            {
+              "name": "_self"
+            },
+            {
+              "name": "_top"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flip-option-list-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "context",
+          "description": "",
+          "values": [
+            {
+              "name": "multi-select"
+            },
+            {
+              "name": "single-select"
+            }
+          ]
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "selected",
+          "description": ""
         }
       ]
     },

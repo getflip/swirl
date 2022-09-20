@@ -1,0 +1,112 @@
+:host {
+  display: inline-flex;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.option-list-item {
+  display: inline-flex;
+  width: 100%;
+  padding: var(--s-space-12) var(--s-space-16);
+  align-items: center;
+  background-color: var(--s-surface-overlay-default);
+  cursor: pointer;
+  gap: var(--s-space-12);
+
+  &:hover:not(.option-list-item--disabled) {
+    background-color: var(--s-surface-overlay-hovered);
+  }
+
+  &:active:not(.option-list-item--disabled) {
+    background-color: var(--s-surface-overlay-pressed);
+  }
+}
+
+.option-list-item--selected {
+  & .option-list-item__label {
+    color: var(--s-text-highlight);
+  }
+
+  & .option-list-item__icon {
+    color: var(--s-icon-highlight);
+  }
+
+  & .option-list-item__checkbox-box {
+    border-color: var(--s-icon-highlight);
+    color: var(--s-text-on-status);
+    background-color: var(--s-icon-highlight);
+  }
+}
+
+.option-list-item--disabled {
+  cursor: default;
+
+  &.option-list-item--selected {
+    & .option-list-item__checkbox-box {
+      background-color: var(--s-icon-disabled);
+    }
+
+    & .option-list-item__checkbox-icon {
+      color: var(--s-text-on-status);
+    }
+  }
+
+  & .option-list-item__label {
+    color: var(--s-text-disabled);
+  }
+
+  & .option-list-item__icon,
+  & .option-list-item__selection-icon,
+  & .option-list-item__checkbox-icon {
+    color: var(--s-icon-disabled);
+  }
+
+  & .option-list-item__checkbox-box {
+    border-color: var(--s-icon-disabled);
+    background-color: var(--s-surface-overlay-default);
+  }
+}
+
+.option-list-item__label {
+  flex-grow: 1;
+  color: var(--s-text-default);
+  font-size: var(--s-font-size-base);
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-base);
+}
+
+.option-list-item__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--s-icon-default);
+}
+
+.option-list-item__selection-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--s-icon-highlight);
+}
+
+.option-list-item__checkbox {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: var(--s-space-2);
+}
+
+.option-list-item__checkbox-box {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border: 0.125rem solid var(--s-icon-default);
+  border-radius: var(--s-border-radius-s);
+}
+
+.option-list-item__checkbox-icon {
+  display: inline-flex;
+}
