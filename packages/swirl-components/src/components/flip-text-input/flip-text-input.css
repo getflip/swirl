@@ -21,6 +21,10 @@
   padding-right: calc(1.5rem + var(--s-space-8));
 }
 
+.text-input--type-number {
+  padding-right: calc(1.5rem + var(--s-space-8));
+}
+
 .text-input--disabled {
   & .text-input__character-counter {
     color: var(--s-text-disabled);

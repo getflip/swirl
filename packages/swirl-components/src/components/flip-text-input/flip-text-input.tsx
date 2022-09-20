@@ -158,10 +158,14 @@ export class FlipTextInput implements FlipFormInput {
       !showStepper &&
       !this.showCharacterCounter;
 
-    const className = classnames("text-input", {
-      "text-input--clearable": this.clearable,
-      "text-input--disabled": this.disabled,
-    });
+    const className = classnames(
+      "text-input",
+      `text-input--type-${this.type}`,
+      {
+        "text-input--clearable": this.clearable,
+        "text-input--disabled": this.disabled,
+      }
+    );
 
     return (
       <Host>
