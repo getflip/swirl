@@ -17,8 +17,8 @@ describe("flip-action-list-section", () => {
     expect(page.root).toEqualHtml(`
       <flip-action-list-section label="Label">
         <mock:shadow-root>
-          <div class="action-list-section">
-            <span class="action-list-section__label">
+          <div aria-labelledby="label" class="action-list-section" role="group">
+            <span class="action-list-section__label" id="label">
               Label
             </span>
             <div class="action-list-section__items">

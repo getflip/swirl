@@ -12,6 +12,10 @@ export default {
 };
 
 const Template = (args) => {
+  const container = document.createElement("div");
+
+  container.setAttribute("role", "menu");
+
   const element = generateStoryElement("flip-action-list-section", args);
 
   element.innerHTML = `
@@ -20,7 +24,9 @@ const Template = (args) => {
     <flip-action-list-item label="This is an action"></flip-action-list-item>
   `;
 
-  return element;
+  container.append("\n  ", element, "\n");
+
+  return container;
 };
 
 export const FlipActionListSection = Template.bind({});
