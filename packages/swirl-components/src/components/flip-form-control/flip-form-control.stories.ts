@@ -14,7 +14,9 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("flip-form-control", args);
 
-  element.innerHTML = `<flip-text-input clearable prefix-label="$" type="number"></flip-text-input>`;
+  element.innerHTML = `
+    <flip-text-input max-length="200" show-character-counter="true" type="text"></flip-text-input>
+  `;
 
   return element;
 };

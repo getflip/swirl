@@ -1773,6 +1773,18 @@
           "description": ""
         },
         {
+          "name": "max",
+          "description": ""
+        },
+        {
+          "name": "max-length",
+          "description": ""
+        },
+        {
+          "name": "min",
+          "description": ""
+        },
+        {
           "name": "mode",
           "description": "",
           "values": [
@@ -1812,7 +1824,15 @@
           "description": ""
         },
         {
+          "name": "show-character-counter",
+          "description": ""
+        },
+        {
           "name": "spell-check",
+          "description": ""
+        },
+        {
+          "name": "step",
           "description": ""
         },
         {

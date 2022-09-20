@@ -12,10 +12,19 @@
   display: flex;
   width: 100%;
   align-items: center;
+  color: var(--s-text-default);
+  font: inherit;
+  line-height: var(--s-line-height-sm);
 }
 
 .text-input--clearable {
   padding-right: calc(1.5rem + var(--s-space-8));
+}
+
+.text-input--disabled {
+  & .text-input__character-counter {
+    color: var(--s-text-disabled);
+  }
 }
 
 .text-input__input {
@@ -73,6 +82,38 @@ input.text-input__input {
   &:focus {
     outline-color: var(--s-focus-default);
   }
+}
+
+.text-input__stepper {
+  position: absolute;
+  top: -1.4375rem;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-input__step-button {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: var(--s-icon-default);
+  background-color: transparent;
+  cursor: pointer;
+
+  &:focus {
+    outline-color: var(--s-focus-default);
+  }
+}
+
+.text-input__character-counter {
+  position: absolute;
+  top: -1.375rem;
+  right: 0;
+  display: flex;
+  color: var(--s-text-subdued);
+  line-height: var(--s-line-height-sm);
+  flex-direction: column;
 }
 
 .text-input__prefix {
