@@ -329,6 +329,9 @@ export namespace Components {
         "label": string;
         "selected"?: boolean;
     }
+    interface FlipOptionListSection {
+        "label": string;
+    }
     interface FlipRadio {
         "checked"?: FlipRadioState;
         "description"?: string;
@@ -934,6 +937,12 @@ declare global {
         prototype: HTMLFlipOptionListItemElement;
         new (): HTMLFlipOptionListItemElement;
     };
+    interface HTMLFlipOptionListSectionElement extends Components.FlipOptionListSection, HTMLStencilElement {
+    }
+    var HTMLFlipOptionListSectionElement: {
+        prototype: HTMLFlipOptionListSectionElement;
+        new (): HTMLFlipOptionListSectionElement;
+    };
     interface HTMLFlipRadioElement extends Components.FlipRadio, HTMLStencilElement {
     }
     var HTMLFlipRadioElement: {
@@ -1075,6 +1084,7 @@ declare global {
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-link": HTMLFlipLinkElement;
         "flip-option-list-item": HTMLFlipOptionListItemElement;
+        "flip-option-list-section": HTMLFlipOptionListSectionElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
         "flip-spinner": HTMLFlipSpinnerElement;
@@ -1388,6 +1398,9 @@ declare namespace LocalJSX {
         "label": string;
         "selected"?: boolean;
     }
+    interface FlipOptionListSection {
+        "label": string;
+    }
     interface FlipRadio {
         "checked"?: FlipRadioState;
         "description"?: string;
@@ -1532,6 +1545,7 @@ declare namespace LocalJSX {
         "flip-inline-error": FlipInlineError;
         "flip-link": FlipLink;
         "flip-option-list-item": FlipOptionListItem;
+        "flip-option-list-section": FlipOptionListSection;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
         "flip-spinner": FlipSpinner;
@@ -1628,6 +1642,7 @@ declare module "@stencil/core" {
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
             "flip-option-list-item": LocalJSX.FlipOptionListItem & JSXBase.HTMLAttributes<HTMLFlipOptionListItemElement>;
+            "flip-option-list-section": LocalJSX.FlipOptionListSection & JSXBase.HTMLAttributes<HTMLFlipOptionListSectionElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
