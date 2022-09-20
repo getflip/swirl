@@ -12,11 +12,9 @@ export default {
 };
 
 const Template = (args) => {
-  const container = document.createElement("div");
+  const container = document.createElement("flip-stack");
 
-  container.style.display = "flex";
-  container.style.flexDirection = "column";
-  container.style.gap = "2rem";
+  container.spacing = "24";
 
   const textInput = generateStoryElement("flip-form-control", args);
 
