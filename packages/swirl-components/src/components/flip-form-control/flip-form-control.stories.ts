@@ -31,6 +31,15 @@ const Template = (args) => {
     <flip-text-input suffix-label="€" type="number"></flip-text-input>
   `;
 
+  const passwordInput = generateStoryElement("flip-form-control", {
+    ...args,
+    label: "Password Control",
+  });
+
+  passwordInput.innerHTML = `
+    <flip-text-input type="password"></flip-text-input>
+  `;
+
   const multilineInput = generateStoryElement("flip-form-control", {
     ...args,
     label: "Multiline Control",
@@ -45,6 +54,8 @@ const Template = (args) => {
     textInput,
     "\n  ",
     numberInput,
+    "\n  ",
+    passwordInput,
     "\n  ",
     multilineInput,
     "\n"

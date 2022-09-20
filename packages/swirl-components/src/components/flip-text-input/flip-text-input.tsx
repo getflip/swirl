@@ -74,7 +74,10 @@ export class FlipTextInput implements FlipFormInput {
     if (this.rows === 1) {
       this.inputEl.style.height = "";
       this.inputEl.style.width = "";
-      this.inputEl.style.width = this.inputEl.scrollWidth / 16 + "rem";
+
+      if (this.type !== "password") {
+        this.inputEl.style.width = this.inputEl.scrollWidth / 16 + "rem";
+      }
     }
   }
 

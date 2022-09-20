@@ -66,7 +66,7 @@
   }
 }
 
-input.text-input__input {
+input.text-input__input:not([type="password"]) {
   width: 0.25rem;
   min-width: 0.25rem;
 }
