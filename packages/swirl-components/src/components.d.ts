@@ -20,6 +20,7 @@ import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
 import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
+import { FlipTagIntent } from "./components/flip-tag/flip-tag";
 import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
 import { FlipThumbnailFormat, FlipThumbnailSize } from "./components/flip-thumbnail/flip-thumbnail";
 import { FlipToastIntent } from "./components/flip-toast/flip-toast";
@@ -356,6 +357,12 @@ export namespace Components {
         "size"?: FlipSwitchSize;
         "value"?: string;
     }
+    interface FlipTag {
+        "intent"?: FlipTagIntent;
+        "label": string;
+        "removable"?: boolean;
+        "removalButtonLabel"?: string;
+    }
     interface FlipThemeProvider {
         "config": FlipThemeProviderConfig;
         /**
@@ -447,6 +454,10 @@ export interface FlipRadioGroupCustomEvent<T> extends CustomEvent<T> {
 export interface FlipSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipSwitchElement;
+}
+export interface FlipTagCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipTagElement;
 }
 export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -957,6 +968,12 @@ declare global {
         prototype: HTMLFlipSwitchElement;
         new (): HTMLFlipSwitchElement;
     };
+    interface HTMLFlipTagElement extends Components.FlipTag, HTMLStencilElement {
+    }
+    var HTMLFlipTagElement: {
+        prototype: HTMLFlipTagElement;
+        new (): HTMLFlipTagElement;
+    };
     interface HTMLFlipThemeProviderElement extends Components.FlipThemeProvider, HTMLStencilElement {
     }
     var HTMLFlipThemeProviderElement: {
@@ -1078,6 +1095,7 @@ declare global {
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
+        "flip-tag": HTMLFlipTagElement;
         "flip-theme-provider": HTMLFlipThemeProviderElement;
         "flip-thumbnail": HTMLFlipThumbnailElement;
         "flip-toast": HTMLFlipToastElement;
@@ -1417,6 +1435,13 @@ declare namespace LocalJSX {
         "size"?: FlipSwitchSize;
         "value"?: string;
     }
+    interface FlipTag {
+        "intent"?: FlipTagIntent;
+        "label": string;
+        "onRemove"?: (event: FlipTagCustomEvent<MouseEvent>) => void;
+        "removable"?: boolean;
+        "removalButtonLabel"?: string;
+    }
     interface FlipThemeProvider {
         "config"?: FlipThemeProviderConfig;
     }
@@ -1534,6 +1559,7 @@ declare namespace LocalJSX {
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
+        "flip-tag": FlipTag;
         "flip-theme-provider": FlipThemeProvider;
         "flip-thumbnail": FlipThumbnail;
         "flip-toast": FlipToast;
@@ -1630,6 +1656,7 @@ declare module "@stencil/core" {
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
+            "flip-tag": LocalJSX.FlipTag & JSXBase.HTMLAttributes<HTMLFlipTagElement>;
             "flip-theme-provider": LocalJSX.FlipThemeProvider & JSXBase.HTMLAttributes<HTMLFlipThemeProviderElement>;
             "flip-thumbnail": LocalJSX.FlipThumbnail & JSXBase.HTMLAttributes<HTMLFlipThumbnailElement>;
             "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
