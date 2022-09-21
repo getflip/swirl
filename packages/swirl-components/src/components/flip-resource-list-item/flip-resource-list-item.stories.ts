@@ -38,6 +38,9 @@ const Template = (args) => {
   const popover = document.createElement("flip-popover");
   const element = generateStoryElement("flip-resource-list-item", args);
 
+  container.setAttribute("aria-label", "List");
+  container.setAttribute("role", "grid");
+
   popover.label = "Options";
   popover.popoverId = "popover";
   popover.trigger = "trigger";
