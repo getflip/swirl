@@ -39,6 +39,7 @@ export class FlipPopover {
   private childMenuItems: HTMLElement[];
   private disableAutoUpdate: any;
   private contentContainer: HTMLDivElement;
+  private scrollContainer: HTMLDivElement;
   private triggerEl: HTMLElement;
 
   componentDidLoad() {
@@ -109,6 +110,8 @@ export class FlipPopover {
         this.contentContainer,
         this.reposition
       );
+
+      this.scrollContainer.scrollTop = 0;
     });
   };
 
@@ -209,7 +212,10 @@ export class FlipPopover {
             }}
           >
             <span class="popover__handle"></span>
-            <div class="popover__scroll-container">
+            <div
+              class="popover__scroll-container"
+              ref={(el) => (this.scrollContainer = el)}
+            >
               <slot></slot>
             </div>
           </div>
