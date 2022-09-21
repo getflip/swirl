@@ -8,8 +8,8 @@ describe("flip-option-list-section", () => {
       components: [FlipOptionListSection],
       html: `
         <flip-option-list-section label="Label">
-          <flip-option-list-item label="This is an option"></flip-option-list-item>
-          <flip-option-list-item label="This is an option"></flip-option-list-item>
+          <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
+          <flip-option-list-item label="This is an option" value="2"></flip-option-list-item>
         </flip-option-list-section>
       `,
     });
@@ -26,8 +26,8 @@ describe("flip-option-list-section", () => {
             </div>
           </div>
         </mock:shadow-root>
-        <flip-option-list-item label="This is an option"></flip-option-list-item>
-        <flip-option-list-item label="This is an option"></flip-option-list-item>
+        <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
+        <flip-option-list-item label="This is an option" value="2"></flip-option-list-item>
       </flip-option-list-section>
     `);
   });

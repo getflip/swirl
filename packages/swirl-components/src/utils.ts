@@ -1,3 +1,14 @@
+import { EventEmitter } from "@stencil/core";
+
+export interface FlipFormInput<ValueType = string> {
+  flipAriaDescribedby?: string;
+  disabled?: boolean;
+  invalid?: boolean;
+  required?: boolean;
+  value?: ValueType;
+  valueChange: EventEmitter;
+}
+
 export function generateStoryElement(
   tag: string,
   args: { [arg: string]: any },
@@ -26,4 +37,50 @@ export function generateStoryElement(
   }
 
   return element;
+}
+
+export function querySelectorAllDeep<TargetType extends Element = HTMLElement>(
+  root: HTMLElement,
+  selector: string
+): TargetType[] {
+  function collectAllElementsDeep(
+    selector: string,
+    root?: Element | ShadowRoot
+  ): TargetType[] {
+    if (!Boolean(root)) {
+      return [];
+    }
+
+    const lightDomMatches = Array.from(
+      root.querySelectorAll<TargetType>(selector)
+    );
+
+    const slottedChildren =
+      Boolean(window.HTMLSlotElement) && root instanceof HTMLSlotElement
+        ? root.assignedElements()
+        : [];
+
+    const children = [...Array.from(root.children), ...slottedChildren];
+
+    const shadowRoot = (root as Element).shadowRoot;
+
+    const shadowRootElements = collectAllElementsDeep(selector, shadowRoot);
+
+    const matches: TargetType[] = [
+      ...lightDomMatches,
+      ...children
+        .map((match) => collectAllElementsDeep(selector, match))
+        .flat(),
+      ...shadowRootElements,
+    ];
+
+    return matches;
+  }
+
+  const matches = collectAllElementsDeep(selector, root).filter(
+    (match, index, matches) =>
+      !matches.some((m, i) => m.isSameNode(match) && i > index)
+  );
+
+  return matches;
 }

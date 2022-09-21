@@ -322,12 +322,19 @@ export namespace Components {
         "label": string;
         "target"?: FlipLinkTarget;
     }
+    interface FlipOptionList {
+        "disabled"?: boolean;
+        "label"?: string;
+        "multiSelect"?: boolean;
+        "value"?: string[];
+    }
     interface FlipOptionListItem {
         "context"?: FlipOptionListItemContext;
         "disabled"?: boolean;
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
+        "value": string;
     }
     interface FlipOptionListSection {
         "label": string;
@@ -439,6 +446,10 @@ export interface FlipCheckboxCustomEvent<T> extends CustomEvent<T> {
 export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipDialogElement;
+}
+export interface FlipOptionListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipOptionListElement;
 }
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -931,6 +942,12 @@ declare global {
         prototype: HTMLFlipLinkElement;
         new (): HTMLFlipLinkElement;
     };
+    interface HTMLFlipOptionListElement extends Components.FlipOptionList, HTMLStencilElement {
+    }
+    var HTMLFlipOptionListElement: {
+        prototype: HTMLFlipOptionListElement;
+        new (): HTMLFlipOptionListElement;
+    };
     interface HTMLFlipOptionListItemElement extends Components.FlipOptionListItem, HTMLStencilElement {
     }
     var HTMLFlipOptionListItemElement: {
@@ -1083,6 +1100,7 @@ declare global {
         "flip-icon-warning": HTMLFlipIconWarningElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-link": HTMLFlipLinkElement;
+        "flip-option-list": HTMLFlipOptionListElement;
         "flip-option-list-item": HTMLFlipOptionListItemElement;
         "flip-option-list-section": HTMLFlipOptionListSectionElement;
         "flip-radio": HTMLFlipRadioElement;
@@ -1391,12 +1409,20 @@ declare namespace LocalJSX {
         "label": string;
         "target"?: FlipLinkTarget;
     }
+    interface FlipOptionList {
+        "disabled"?: boolean;
+        "label"?: string;
+        "multiSelect"?: boolean;
+        "onValueChange"?: (event: FlipOptionListCustomEvent<string[]>) => void;
+        "value"?: string[];
+    }
     interface FlipOptionListItem {
         "context"?: FlipOptionListItemContext;
         "disabled"?: boolean;
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
+        "value": string;
     }
     interface FlipOptionListSection {
         "label": string;
@@ -1544,6 +1570,7 @@ declare namespace LocalJSX {
         "flip-icon-warning": FlipIconWarning;
         "flip-inline-error": FlipInlineError;
         "flip-link": FlipLink;
+        "flip-option-list": FlipOptionList;
         "flip-option-list-item": FlipOptionListItem;
         "flip-option-list-section": FlipOptionListSection;
         "flip-radio": FlipRadio;
@@ -1641,6 +1668,7 @@ declare module "@stencil/core" {
             "flip-icon-warning": LocalJSX.FlipIconWarning & JSXBase.HTMLAttributes<HTMLFlipIconWarningElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
+            "flip-option-list": LocalJSX.FlipOptionList & JSXBase.HTMLAttributes<HTMLFlipOptionListElement>;
             "flip-option-list-item": LocalJSX.FlipOptionListItem & JSXBase.HTMLAttributes<HTMLFlipOptionListItemElement>;
             "flip-option-list-section": LocalJSX.FlipOptionListSection & JSXBase.HTMLAttributes<HTMLFlipOptionListSectionElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;

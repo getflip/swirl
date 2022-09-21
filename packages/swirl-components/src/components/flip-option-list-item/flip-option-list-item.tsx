@@ -9,11 +9,13 @@ export type FlipOptionListItemContext = "single-select" | "multi-select";
   tag: "flip-option-list-item",
 })
 export class FlipOptionListItem {
-  @Prop() context?: FlipOptionListItemContext = "single-select";
+  @Prop({ mutable: true }) context?: FlipOptionListItemContext =
+    "single-select";
   @Prop() disabled?: boolean;
   @Prop() icon?: string;
   @Prop() label!: string;
-  @Prop() selected?: boolean = false;
+  @Prop({ mutable: true }) selected?: boolean = false;
+  @Prop() value!: string;
 
   private iconEl: HTMLElement;
 
@@ -33,12 +35,7 @@ export class FlipOptionListItem {
 
   render() {
     const ariaDisabled = this.disabled ? "true" : undefined;
-
-    const ariaChecked =
-      this.context === "multi-select" ? String(this.selected) : undefined;
-
-    const ariaSelected =
-      this.context === "single-select" ? String(this.selected) : undefined;
+    const ariaSelected = String(this.selected);
 
     const showCheckbox = this.context === "multi-select";
     const showIcon = Boolean(this.icon) && this.context === "single-select";
@@ -56,7 +53,6 @@ export class FlipOptionListItem {
     return (
       <Host>
         <div
-          aria-checked={ariaChecked}
           aria-disabled={ariaDisabled}
           aria-selected={ariaSelected}
           class={className}

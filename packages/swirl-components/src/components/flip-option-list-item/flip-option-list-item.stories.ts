@@ -29,4 +29,5 @@ export const FlipOptionListItem = Template.bind({});
 FlipOptionListItem.args = {
   icon: `<flip-icon-mention></flip-icon-mention>`,
   label: "Option List Item",
+  value: "Value",
 };

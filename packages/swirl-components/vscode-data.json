@@ -1439,6 +1439,27 @@
       ]
     },
     {
+      "name": "flip-option-list",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "multi-select",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-option-list-item",
       "description": {
         "kind": "markdown",
@@ -1471,6 +1492,10 @@
         },
         {
           "name": "selected",
+          "description": ""
+        },
+        {
+          "name": "value",
           "description": ""
         }
       ]

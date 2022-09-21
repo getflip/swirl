@@ -20,9 +20,9 @@ const Template = (args) => {
   const element = generateStoryElement("flip-option-list-section", args);
 
   element.innerHTML = `
-    <flip-option-list-item label="This is an option"></flip-option-list-item>
-    <flip-option-list-item label="This is an option" selected="true"></flip-option-list-item>
-    <flip-option-list-item label="This is an option"></flip-option-list-item>
+    <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
+    <flip-option-list-item label="This is an option" selected="true" value="2"></flip-option-list-item>
+    <flip-option-list-item label="This is an option" value="3"></flip-option-list-item>
   `;
 
   container.append("\n  ", element, "\n");

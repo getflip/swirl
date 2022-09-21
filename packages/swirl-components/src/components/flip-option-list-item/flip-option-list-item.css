@@ -10,6 +10,7 @@
 .option-list-item {
   display: inline-flex;
   width: 100%;
+  min-height: 3rem;
   padding: var(--s-space-12) var(--s-space-16);
   align-items: center;
   background-color: var(--s-surface-overlay-default);
@@ -22,6 +23,11 @@
 
   &:active:not(.option-list-item--disabled) {
     background-color: var(--s-surface-overlay-pressed);
+  }
+
+  &:focus {
+    background-color: var(--s-surface-overlay-hovered);
+    outline: none;
   }
 }
 
@@ -76,6 +82,7 @@
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-base);
+  text-align: left;
 }
 
 .option-list-item__icon {
