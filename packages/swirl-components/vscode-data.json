@@ -2,6 +2,80 @@
   "version": 1.1,
   "tags": [
     {
+      "name": "flip-action-list",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "flip-action-list-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            }
+          ]
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "l"
+            },
+            {
+              "name": "m"
+            }
+          ]
+        },
+        {
+          "name": "suffix",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-action-list-section",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-avatar",
       "description": {
         "kind": "markdown",
@@ -1435,6 +1509,27 @@
               "name": "_top"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "flip-popover",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "popover-id",
+          "description": ""
+        },
+        {
+          "name": "trigger",
+          "description": ""
         }
       ]
     },
