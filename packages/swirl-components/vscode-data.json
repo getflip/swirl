@@ -1683,6 +1683,53 @@
       "attributes": []
     },
     {
+      "name": "flip-thumbnail",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "alt",
+          "description": ""
+        },
+        {
+          "name": "format",
+          "description": "",
+          "values": [
+            {
+              "name": "landscape"
+            },
+            {
+              "name": "portrait"
+            },
+            {
+              "name": "square"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "l"
+            },
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "name": "src",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-toast",
       "description": {
         "kind": "markdown",
