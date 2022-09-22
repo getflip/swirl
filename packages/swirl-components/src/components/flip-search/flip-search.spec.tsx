@@ -11,7 +11,7 @@ describe("flip-search", () => {
 
     expect(page.root).toEqualHtml(`
       <flip-search auto-focus="" clear-button-label="Clear" disabled="" input-id="search" input-name="search" label="Label" placeholder="Placeholder" value="Value">
-        <span class="search">
+        <span class="search search--disabled">
           <flip-icon-search class="search__icon"></flip-icon-search>
           <input aria-disabled="true" aria-label="Label" autocomplete="off" autofocus="" class="search__input" disabled="" id="search" inputmode="search" name="search" placeholder="Placeholder" type="search" value="Value">
         </span>

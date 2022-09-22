@@ -7,6 +7,7 @@ import {
   Listen,
   Prop,
 } from "@stencil/core";
+import classnames from "classnames";
 
 @Component({
   /**
@@ -64,9 +65,13 @@ export class FlipSearch {
   };
 
   render() {
+    const className = classnames("search", {
+      "search--disabled": this.disabled,
+    });
+
     return (
       <Host>
-        <span class="search">
+        <span class={className}>
           <flip-icon-search class="search__icon"></flip-icon-search>
           <input
             aria-disabled={this.disabled ? "true" : undefined}

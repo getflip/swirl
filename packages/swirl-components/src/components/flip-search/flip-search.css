@@ -13,6 +13,20 @@
   width: 100%;
 }
 
+.search--disabled {
+  & .search__icon {
+    color: var(--s-icon-disabled);
+  }
+
+  & .search__input {
+    color: var(--s-text-disabled);
+
+    &::placeholder {
+      color: var(--s-text-disabled);
+    }
+  }
+}
+
 .search__icon {
   position: absolute;
   top: 50%;
