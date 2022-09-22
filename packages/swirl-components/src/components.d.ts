@@ -5,23 +5,43 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { FlipActionListItemIntent, FlipActionListItemSize } from "./components/flip-action-list-item/flip-action-list-item";
 import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
-import { FlipButtonType } from "./components/flip-button/flip-button";
+import { FlipButtonIntent, FlipButtonSize, FlipButtonType, FlipButtonVariant } from "./components/flip-button/flip-button";
+import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-button-group";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
+import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
+import { FlipLinkTarget } from "./components/flip-link/flip-link";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
 import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
+import { FlipTagIntent } from "./components/flip-tag/flip-tag";
 import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
+import { FlipThumbnailFormat, FlipThumbnailSize } from "./components/flip-thumbnail/flip-thumbnail";
 import { FlipToastIntent } from "./components/flip-toast/flip-toast";
 import { FlipToastConfig, FlipToastMessage } from "./components/flip-toast-provider/flip-toast-provider";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
+    interface FlipActionList {
+    }
+    interface FlipActionListItem {
+        "description"?: string;
+        "disabled"?: boolean;
+        "icon"?: string;
+        "intent"?: FlipActionListItemIntent;
+        "label": string;
+        "size"?: FlipActionListItemSize;
+        "suffix"?: string;
+    }
+    interface FlipActionListSection {
+        "label": string;
+    }
     interface FlipAvatar {
         "badge"?: string;
         "badgePosition"?: FlipAvatarBadgePosition;
@@ -55,9 +75,24 @@ export namespace Components {
     }
     interface FlipButton {
         "disabled"?: boolean;
+        "download"?: string;
+        "form"?: string;
+        "hideLabel"?: boolean;
+        "href"?: string;
+        "icon"?: string;
+        "intent"?: FlipButtonIntent;
         "label": string;
-        "leftIcon"?: string;
+        "name"?: string;
+        "size"?: FlipButtonSize;
+        "target"?: string;
         "type"?: FlipButtonType;
+        "value"?: string;
+        "variant"?: FlipButtonVariant;
+    }
+    interface FlipButtonGroup {
+        "orientation": FlipButtonGroupOrientation;
+        "stretch": boolean;
+        "wrap": boolean;
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
@@ -80,6 +115,21 @@ export namespace Components {
     }
     interface FlipDescriptionListItem {
         "term": string;
+    }
+    interface FlipDialog {
+        /**
+          * Close the dialog.
+         */
+        "close": () => Promise<void>;
+        "hideLabel"?: boolean;
+        "intent"?: FlipDialogIntent;
+        "label": string;
+        /**
+          * Open the dialog.
+         */
+        "open": () => Promise<void>;
+        "primaryActionLabel"?: string;
+        "secondaryActionLabel"?: string;
     }
     interface FlipIconAdd {
         "size": FlipIconSize;
@@ -289,6 +339,16 @@ export namespace Components {
         "message": string;
         "size"?: FlipInlineErrorSize;
     }
+    interface FlipLink {
+        "href": string;
+        "label": string;
+        "target"?: FlipLinkTarget;
+    }
+    interface FlipPopover {
+        "label": string;
+        "popoverId": string;
+        "trigger": string;
+    }
     interface FlipRadio {
         "checked"?: FlipRadioState;
         "description"?: string;
@@ -333,6 +393,12 @@ export namespace Components {
         "size"?: FlipSwitchSize;
         "value"?: string;
     }
+    interface FlipTag {
+        "intent"?: FlipTagIntent;
+        "label": string;
+        "removable"?: boolean;
+        "removalButtonLabel"?: string;
+    }
     interface FlipThemeProvider {
         "config": FlipThemeProviderConfig;
         /**
@@ -353,6 +419,12 @@ export namespace Components {
           * Sets the user's preferred theme and stores it in local storage. Overrides the OS theme.
          */
         "setPreferredTheme": (theme: FlipTheme) => Promise<void>;
+    }
+    interface FlipThumbnail {
+        "alt": string;
+        "format"?: FlipThumbnailFormat;
+        "size": FlipThumbnailSize;
+        "src": string;
     }
     interface FlipToast {
         "accessibleDismissLabel"?: string;
@@ -403,6 +475,10 @@ export interface FlipCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipCheckboxElement;
 }
+export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipDialogElement;
+}
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioElement;
@@ -419,11 +495,33 @@ export interface FlipSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipSwitchElement;
 }
+export interface FlipTagCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipTagElement;
+}
 export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipToastElement;
 }
 declare global {
+    interface HTMLFlipActionListElement extends Components.FlipActionList, HTMLStencilElement {
+    }
+    var HTMLFlipActionListElement: {
+        prototype: HTMLFlipActionListElement;
+        new (): HTMLFlipActionListElement;
+    };
+    interface HTMLFlipActionListItemElement extends Components.FlipActionListItem, HTMLStencilElement {
+    }
+    var HTMLFlipActionListItemElement: {
+        prototype: HTMLFlipActionListItemElement;
+        new (): HTMLFlipActionListItemElement;
+    };
+    interface HTMLFlipActionListSectionElement extends Components.FlipActionListSection, HTMLStencilElement {
+    }
+    var HTMLFlipActionListSectionElement: {
+        prototype: HTMLFlipActionListSectionElement;
+        new (): HTMLFlipActionListSectionElement;
+    };
     interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
     }
     var HTMLFlipAvatarElement: {
@@ -454,6 +552,12 @@ declare global {
         prototype: HTMLFlipButtonElement;
         new (): HTMLFlipButtonElement;
     };
+    interface HTMLFlipButtonGroupElement extends Components.FlipButtonGroup, HTMLStencilElement {
+    }
+    var HTMLFlipButtonGroupElement: {
+        prototype: HTMLFlipButtonGroupElement;
+        new (): HTMLFlipButtonGroupElement;
+    };
     interface HTMLFlipCheckboxElement extends Components.FlipCheckbox, HTMLStencilElement {
     }
     var HTMLFlipCheckboxElement: {
@@ -477,6 +581,12 @@ declare global {
     var HTMLFlipDescriptionListItemElement: {
         prototype: HTMLFlipDescriptionListItemElement;
         new (): HTMLFlipDescriptionListItemElement;
+    };
+    interface HTMLFlipDialogElement extends Components.FlipDialog, HTMLStencilElement {
+    }
+    var HTMLFlipDialogElement: {
+        prototype: HTMLFlipDialogElement;
+        new (): HTMLFlipDialogElement;
     };
     interface HTMLFlipIconAddElement extends Components.FlipIconAdd, HTMLStencilElement {
     }
@@ -892,6 +1002,18 @@ declare global {
         prototype: HTMLFlipInlineErrorElement;
         new (): HTMLFlipInlineErrorElement;
     };
+    interface HTMLFlipLinkElement extends Components.FlipLink, HTMLStencilElement {
+    }
+    var HTMLFlipLinkElement: {
+        prototype: HTMLFlipLinkElement;
+        new (): HTMLFlipLinkElement;
+    };
+    interface HTMLFlipPopoverElement extends Components.FlipPopover, HTMLStencilElement {
+    }
+    var HTMLFlipPopoverElement: {
+        prototype: HTMLFlipPopoverElement;
+        new (): HTMLFlipPopoverElement;
+    };
     interface HTMLFlipRadioElement extends Components.FlipRadio, HTMLStencilElement {
     }
     var HTMLFlipRadioElement: {
@@ -928,11 +1050,23 @@ declare global {
         prototype: HTMLFlipSwitchElement;
         new (): HTMLFlipSwitchElement;
     };
+    interface HTMLFlipTagElement extends Components.FlipTag, HTMLStencilElement {
+    }
+    var HTMLFlipTagElement: {
+        prototype: HTMLFlipTagElement;
+        new (): HTMLFlipTagElement;
+    };
     interface HTMLFlipThemeProviderElement extends Components.FlipThemeProvider, HTMLStencilElement {
     }
     var HTMLFlipThemeProviderElement: {
         prototype: HTMLFlipThemeProviderElement;
         new (): HTMLFlipThemeProviderElement;
+    };
+    interface HTMLFlipThumbnailElement extends Components.FlipThumbnail, HTMLStencilElement {
+    }
+    var HTMLFlipThumbnailElement: {
+        prototype: HTMLFlipThumbnailElement;
+        new (): HTMLFlipThumbnailElement;
     };
     interface HTMLFlipToastElement extends Components.FlipToast, HTMLStencilElement {
     }
@@ -959,15 +1093,20 @@ declare global {
         new (): HTMLFlipVisuallyHiddenElement;
     };
     interface HTMLElementTagNameMap {
+        "flip-action-list": HTMLFlipActionListElement;
+        "flip-action-list-item": HTMLFlipActionListItemElement;
+        "flip-action-list-section": HTMLFlipActionListSectionElement;
         "flip-avatar": HTMLFlipAvatarElement;
         "flip-avatar-group": HTMLFlipAvatarGroupElement;
         "flip-badge": HTMLFlipBadgeElement;
         "flip-banner": HTMLFlipBannerElement;
         "flip-button": HTMLFlipButtonElement;
+        "flip-button-group": HTMLFlipButtonGroupElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
         "flip-chip": HTMLFlipChipElement;
         "flip-description-list": HTMLFlipDescriptionListElement;
         "flip-description-list-item": HTMLFlipDescriptionListItemElement;
+        "flip-dialog": HTMLFlipDialogElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
         "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
@@ -1037,13 +1176,17 @@ declare global {
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
         "flip-icon-warning": HTMLFlipIconWarningElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
+        "flip-link": HTMLFlipLinkElement;
+        "flip-popover": HTMLFlipPopoverElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
         "flip-search": HTMLFlipSearchElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
+        "flip-tag": HTMLFlipTagElement;
         "flip-theme-provider": HTMLFlipThemeProviderElement;
+        "flip-thumbnail": HTMLFlipThumbnailElement;
         "flip-toast": HTMLFlipToastElement;
         "flip-toast-provider": HTMLFlipToastProviderElement;
         "flip-tooltip": HTMLFlipTooltipElement;
@@ -1051,6 +1194,20 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FlipActionList {
+    }
+    interface FlipActionListItem {
+        "description"?: string;
+        "disabled"?: boolean;
+        "icon"?: string;
+        "intent"?: FlipActionListItemIntent;
+        "label": string;
+        "size"?: FlipActionListItemSize;
+        "suffix"?: string;
+    }
+    interface FlipActionListSection {
+        "label": string;
+    }
     interface FlipAvatar {
         "badge"?: string;
         "badgePosition"?: FlipAvatarBadgePosition;
@@ -1086,9 +1243,24 @@ declare namespace LocalJSX {
     }
     interface FlipButton {
         "disabled"?: boolean;
+        "download"?: string;
+        "form"?: string;
+        "hideLabel"?: boolean;
+        "href"?: string;
+        "icon"?: string;
+        "intent"?: FlipButtonIntent;
         "label": string;
-        "leftIcon"?: string;
+        "name"?: string;
+        "size"?: FlipButtonSize;
+        "target"?: string;
         "type"?: FlipButtonType;
+        "value"?: string;
+        "variant"?: FlipButtonVariant;
+    }
+    interface FlipButtonGroup {
+        "orientation"?: FlipButtonGroupOrientation;
+        "stretch"?: boolean;
+        "wrap"?: boolean;
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
@@ -1112,6 +1284,15 @@ declare namespace LocalJSX {
     }
     interface FlipDescriptionListItem {
         "term": string;
+    }
+    interface FlipDialog {
+        "hideLabel"?: boolean;
+        "intent"?: FlipDialogIntent;
+        "label": string;
+        "onPrimaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
+        "onSecondaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
+        "primaryActionLabel"?: string;
+        "secondaryActionLabel"?: string;
     }
     interface FlipIconAdd {
         "size"?: FlipIconSize;
@@ -1321,6 +1502,16 @@ declare namespace LocalJSX {
         "message": string;
         "size"?: FlipInlineErrorSize;
     }
+    interface FlipLink {
+        "href": string;
+        "label": string;
+        "target"?: FlipLinkTarget;
+    }
+    interface FlipPopover {
+        "label": string;
+        "popoverId": string;
+        "trigger": string;
+    }
     interface FlipRadio {
         "checked"?: FlipRadioState;
         "description"?: string;
@@ -1371,8 +1562,21 @@ declare namespace LocalJSX {
         "size"?: FlipSwitchSize;
         "value"?: string;
     }
+    interface FlipTag {
+        "intent"?: FlipTagIntent;
+        "label": string;
+        "onRemove"?: (event: FlipTagCustomEvent<MouseEvent>) => void;
+        "removable"?: boolean;
+        "removalButtonLabel"?: string;
+    }
     interface FlipThemeProvider {
         "config"?: FlipThemeProviderConfig;
+    }
+    interface FlipThumbnail {
+        "alt": string;
+        "format"?: FlipThumbnailFormat;
+        "size"?: FlipThumbnailSize;
+        "src": string;
     }
     interface FlipToast {
         "accessibleDismissLabel"?: string;
@@ -1398,15 +1602,20 @@ declare namespace LocalJSX {
     interface FlipVisuallyHidden {
     }
     interface IntrinsicElements {
+        "flip-action-list": FlipActionList;
+        "flip-action-list-item": FlipActionListItem;
+        "flip-action-list-section": FlipActionListSection;
         "flip-avatar": FlipAvatar;
         "flip-avatar-group": FlipAvatarGroup;
         "flip-badge": FlipBadge;
         "flip-banner": FlipBanner;
         "flip-button": FlipButton;
+        "flip-button-group": FlipButtonGroup;
         "flip-checkbox": FlipCheckbox;
         "flip-chip": FlipChip;
         "flip-description-list": FlipDescriptionList;
         "flip-description-list-item": FlipDescriptionListItem;
+        "flip-dialog": FlipDialog;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
         "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
@@ -1476,13 +1685,17 @@ declare namespace LocalJSX {
         "flip-icon-visibility-off": FlipIconVisibilityOff;
         "flip-icon-warning": FlipIconWarning;
         "flip-inline-error": FlipInlineError;
+        "flip-link": FlipLink;
+        "flip-popover": FlipPopover;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
         "flip-search": FlipSearch;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
+        "flip-tag": FlipTag;
         "flip-theme-provider": FlipThemeProvider;
+        "flip-thumbnail": FlipThumbnail;
         "flip-toast": FlipToast;
         "flip-toast-provider": FlipToastProvider;
         "flip-tooltip": FlipTooltip;
@@ -1493,15 +1706,20 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "flip-action-list": LocalJSX.FlipActionList & JSXBase.HTMLAttributes<HTMLFlipActionListElement>;
+            "flip-action-list-item": LocalJSX.FlipActionListItem & JSXBase.HTMLAttributes<HTMLFlipActionListItemElement>;
+            "flip-action-list-section": LocalJSX.FlipActionListSection & JSXBase.HTMLAttributes<HTMLFlipActionListSectionElement>;
             "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
             "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
             "flip-banner": LocalJSX.FlipBanner & JSXBase.HTMLAttributes<HTMLFlipBannerElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
+            "flip-button-group": LocalJSX.FlipButtonGroup & JSXBase.HTMLAttributes<HTMLFlipButtonGroupElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
             "flip-chip": LocalJSX.FlipChip & JSXBase.HTMLAttributes<HTMLFlipChipElement>;
             "flip-description-list": LocalJSX.FlipDescriptionList & JSXBase.HTMLAttributes<HTMLFlipDescriptionListElement>;
             "flip-description-list-item": LocalJSX.FlipDescriptionListItem & JSXBase.HTMLAttributes<HTMLFlipDescriptionListItemElement>;
+            "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
             "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
@@ -1571,13 +1789,17 @@ declare module "@stencil/core" {
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
             "flip-icon-warning": LocalJSX.FlipIconWarning & JSXBase.HTMLAttributes<HTMLFlipIconWarningElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
+            "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
+            "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
             "flip-search": LocalJSX.FlipSearch & JSXBase.HTMLAttributes<HTMLFlipSearchElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
+            "flip-tag": LocalJSX.FlipTag & JSXBase.HTMLAttributes<HTMLFlipTagElement>;
             "flip-theme-provider": LocalJSX.FlipThemeProvider & JSXBase.HTMLAttributes<HTMLFlipThemeProviderElement>;
+            "flip-thumbnail": LocalJSX.FlipThumbnail & JSXBase.HTMLAttributes<HTMLFlipThumbnailElement>;
             "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
             "flip-toast-provider": LocalJSX.FlipToastProvider & JSXBase.HTMLAttributes<HTMLFlipToastProviderElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;

@@ -27,3 +27,49 @@ export function generateStoryElement(
 
   return element;
 }
+
+export function querySelectorAllDeep(
+  root: HTMLElement,
+  selector: string
+): HTMLElement[] {
+  function collectAllElementsDeep(
+    selector: string,
+    root?: Element | ShadowRoot
+  ): HTMLElement[] {
+    if (!Boolean(root)) {
+      return [];
+    }
+
+    const lightDomMatches = Array.from(
+      root.querySelectorAll<HTMLElement>(selector)
+    );
+
+    const slottedChildren =
+      Boolean(window.HTMLSlotElement) && root instanceof HTMLSlotElement
+        ? root.assignedElements()
+        : [];
+
+    const children = [...Array.from(root.children), ...slottedChildren];
+
+    const shadowRoot = (root as Element).shadowRoot;
+
+    const shadowRootElements = collectAllElementsDeep(selector, shadowRoot);
+
+    const matches: HTMLElement[] = [
+      ...lightDomMatches,
+      ...children
+        .map((match) => collectAllElementsDeep(selector, match))
+        .flat(),
+      ...shadowRootElements,
+    ];
+
+    return matches;
+  }
+
+  const matches = collectAllElementsDeep(selector, root).filter(
+    (match, index, matches) =>
+      !matches.some((m, i) => m.isSameNode(match) && i > index)
+  );
+
+  return matches;
+}

@@ -1,0 +1,51 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipActionList" />
+
+# FlipActionList
+
+The FlipActionList component is used to render a menu containing of
+[FlipActionListSections](?path=/docs/components-flipactionlistsection--flip-action-list-section)
+and
+[FlipActionListItems](?path=/docs/components-flipactionlistitem--flip-action-list-item).
+It should be used in combination with the
+[FlipPopover component](?path=/docs/components-flippopover--flip-popover).
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=2%3A10)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-action-list)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipactionlist--flip-action-list" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                      | Usage                               |
+| ----------------------------- | ----------------------------------- |
+| `--s-surface-overlay-default` | Background color of the action list |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Menu Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menu/).
+
+| ARIA               | Usage                                                                                                                            |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| `role="menu"`      | The action list has `role` set to `menu`.                                                                                        |
+| `role="menuitem"`  | Set for all menu items via the [FlipActionListItem](?path=/docs/components-flipactionlistitem--flip-action-list-item) component. |
+| `aria-orientation` | Set to `vertical`.                                                                                                               |
+
+### Keyboard
+
+| Key                                    | Action                                                                                            |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| <kbd>TAB</kbd>, <kbd>SHIFT + TAB</kbd> | Moves focus out of the menu, if it has focus.                                                     |
+| <kbd>ENTER</kbd>, <kbd>SPACE</kbd>     | Activates the focused menu item.                                                                  |
+| <kbd>RIGHT</kbd>, <kbd>DOWN</kbd>      | Focuses the next menu item; moves focus to the first menu item, if the last one was in focus.     |
+| <kbd>LEFT</kbd>, <kbd>UP</kbd>         | Focuses the previous menu item; moves focus to the last menu item, if the first one was in focus. |
