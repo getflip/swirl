@@ -1491,6 +1491,24 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "target",
+          "description": "",
+          "values": [
+            {
+              "name": "_blank"
+            },
+            {
+              "name": "_parent"
+            },
+            {
+              "name": "_self"
+            },
+            {
+              "name": "_top"
+            }
+          ]
         }
       ]
     },
@@ -1822,12 +1840,101 @@
       ]
     },
     {
+      "name": "flip-tag",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "removable",
+          "description": ""
+        },
+        {
+          "name": "removal-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-theme-provider",
       "description": {
         "kind": "markdown",
         "value": ""
       },
       "attributes": []
+    },
+    {
+      "name": "flip-thumbnail",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "alt",
+          "description": ""
+        },
+        {
+          "name": "format",
+          "description": "",
+          "values": [
+            {
+              "name": "landscape"
+            },
+            {
+              "name": "portrait"
+            },
+            {
+              "name": "square"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "l"
+            },
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "name": "src",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "flip-toast",

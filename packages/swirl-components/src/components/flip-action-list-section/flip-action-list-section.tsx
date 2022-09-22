@@ -14,8 +14,10 @@ export class FlipActionListSection {
   render() {
     return (
       <Host>
-        <div class="action-list-section">
-          <span class="action-list-section__label">{this.label}</span>
+        <div aria-labelledby="label" class="action-list-section" role="group">
+          <span class="action-list-section__label" id="label">
+            {this.label}
+          </span>
           <div class="action-list-section__items">
             <slot></slot>
           </div>

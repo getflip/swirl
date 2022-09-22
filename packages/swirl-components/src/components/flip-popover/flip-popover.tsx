@@ -16,6 +16,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { querySelectorAllDeep } from "../../utils";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 /**
  * @slot slot - The popover content.
@@ -39,12 +40,17 @@ export class FlipPopover {
   private childMenuItems: HTMLElement[];
   private disableAutoUpdate: any;
   private contentContainer: HTMLDivElement;
+  private scrollContainer: HTMLDivElement;
   private triggerEl: HTMLElement;
 
   componentDidLoad() {
     this.connectTrigger();
     this.updateChildMenuItems();
     this.updateTriggerAttributes();
+  }
+
+  disconnectedCallback() {
+    enableBodyScroll(this.scrollContainer);
   }
 
   @Listen("focusout", { target: "window" })
@@ -82,6 +88,8 @@ export class FlipPopover {
       this.updateTriggerAttributes();
     }, 150);
 
+    this.unlockBodyScroll();
+
     this.triggerEl?.focus();
   };
 
@@ -91,8 +99,8 @@ export class FlipPopover {
     this.updateChildMenuItems();
     this.updateTriggerAttributes();
 
-    requestAnimationFrame(() => {
-      this.reposition();
+    requestAnimationFrame(async () => {
+      await this.reposition();
 
       if (this.childMenuItems.length > 0) {
         (this.childMenuItems[0] as HTMLElement).focus();
@@ -109,6 +117,10 @@ export class FlipPopover {
         this.contentContainer,
         this.reposition
       );
+
+      this.scrollContainer.scrollTop = 0;
+
+      this.lockBodyScroll();
     });
   };
 
@@ -188,6 +200,20 @@ export class FlipPopover {
     );
   };
 
+  private lockBodyScroll() {
+    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+
+    if (!mobile) {
+      return;
+    }
+
+    disableBodyScroll(this.scrollContainer);
+  }
+
+  private unlockBodyScroll() {
+    enableBodyScroll(this.scrollContainer);
+  }
+
   render() {
     const className = classnames("popover", {
       "popover--closing": this.closing,
@@ -212,7 +238,10 @@ export class FlipPopover {
             }}
           >
             <span class="popover__handle"></span>
-            <div class="popover__scroll-container">
+            <div
+              class="popover__scroll-container"
+              ref={(el) => (this.scrollContainer = el)}
+            >
               <slot></slot>
             </div>
           </div>

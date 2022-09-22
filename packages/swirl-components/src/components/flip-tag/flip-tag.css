@@ -1,0 +1,70 @@
+:host {
+  display: inline-flex;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.tag {
+  display: inline-flex;
+  padding: var(--s-space-2) var(--s-space-8);
+  align-items: center;
+  border-radius: var(--s-border-radius-s);
+  color: var(--s-text-default);
+  background-color: var(--s-surface-neutral-subdued);
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-sm);
+  gap: var(--s-space-4);
+}
+
+.tag--intent-info {
+  color: var(--s-text-info);
+  background-color: var(--s-surface-info-subdued);
+
+  & .tag__removal-button {
+    color: var(--icon-info);
+  }
+}
+
+.tag--intent-critical {
+  color: var(--s-text-critical);
+  background-color: var(--s-surface-critical-subdued);
+
+  & .tag__removal-button {
+    color: var(--icon-critical);
+  }
+}
+
+.tag--intent-warning {
+  color: var(--s-text-warning);
+  background-color: var(--s-surface-warning-subdued);
+
+  & .tag__removal-button {
+    color: var(--icon-warning);
+  }
+}
+
+.tag--intent-success {
+  color: var(--s-text-success);
+  background-color: var(--s-surface-success-subdued);
+
+  & .tag__removal-button {
+    color: var(--icon-success);
+  }
+}
+
+.tag__removal-button {
+  display: inline-flex;
+  margin-right: calc(-1 * var(--s-space-4));
+  padding: 0;
+  border: none;
+  color: var(--s-icon-strong);
+  background-color: transparent;
+  cursor: pointer;
+
+  &:focus {
+    outline-color: var(--s-focus-default);
+  }
+}
