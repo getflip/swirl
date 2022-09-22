@@ -16,6 +16,11 @@
   background-color: var(--s-background-default);
   line-height: var(--s-line-height-base);
   gap: var(--s-space-12);
+
+  &:focus {
+    background-color: var(--s-background-hovered);
+    outline: none;
+  }
 }
 
 .resource-list-file-item--has-control {

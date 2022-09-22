@@ -28,7 +28,7 @@ const Template = (args) => {
   container.setAttribute("aria-label", "List");
   container.setAttribute("role", "grid");
 
-  container.append(element);
+  container.append("\n  ", element, "\n");
 
   return container;
 };
