@@ -1,0 +1,180 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  position: relative;
+  z-index: var(--s-z-40);
+  display: inline-flex;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.popover--active:not(.popover--closing) {
+  & .popover__backdrop {
+    animation: 0.15s popover-fade-in;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+
+  & .popover__content {
+    animation: 0.15s popover-slide-in;
+
+    @media (--from-tablet) {
+      transform-origin: top left;
+      animation: 0.15s popover-fade-scale-in;
+    }
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+}
+
+.popover--closing {
+  & .popover__backdrop {
+    animation: 0.15s popover-fade-out;
+    animation-fill-mode: forwards;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+
+  & .popover__content {
+    animation: 0.15s popover-slide-out;
+    animation-fill-mode: forwards;
+
+    @media (--from-tablet) {
+      animation: 0.15s popover-fade-out;
+    }
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+}
+
+.popover--inactive {
+  & .popover__content {
+    display: none;
+  }
+}
+
+.popover__backdrop {
+  position: fixed;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  animation: 0.15s popover-backdrop-fade-in;
+  inset: 0;
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+
+  @media (--from-tablet) {
+    display: none;
+  }
+}
+
+.popover__content {
+  position: fixed;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  border-top-left-radius: var(--s-border-radius-xl);
+  border-top-right-radius: var(--s-border-radius-xl);
+  background-color: var(--s-surface-overlay-default);
+
+  @media (--from-tablet) {
+    right: unset;
+    bottom: unset;
+    left: unset;
+    max-width: 22.5rem;
+    border-radius: var(--s-border-radius-xl);
+    animation: none;
+    box-shadow: 0.125rem 0.25rem 2.5rem rgba(0, 0, 0, 0.14);
+  }
+}
+
+.popover__scroll-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  max-height: 90vh;
+  padding-top: var(--s-space-24);
+  padding-bottom: var(--s-space-24);
+  overscroll-behavior: contain;
+
+  @media (--from-tablet) {
+    max-height: 19rem;
+    padding-top: var(--s-space-8);
+    padding-bottom: var(--s-space-8);
+  }
+}
+
+.popover__handle {
+  position: absolute;
+  top: var(--s-space-8);
+  left: 50%;
+  width: 2.5rem;
+  height: 0.375rem;
+  border-radius: 0.1875rem;
+  background-color: var(--s-border-default);
+  transform: translatex(-50%);
+
+  @media (--from-tablet) {
+    display: none;
+  }
+}
+
+@keyframes popover-slide-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes popover-slide-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes popover-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popover-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes popover-fade-scale-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
