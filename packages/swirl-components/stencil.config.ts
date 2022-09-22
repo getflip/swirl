@@ -22,7 +22,7 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     type: "boolean",
   },
   {
-    elementSelectors: ["flip-radio-group"],
+    elementSelectors: ["flip-radio-group", "flip-search"],
     event: "valueChange",
     targetAttr: "value",
     type: "text",

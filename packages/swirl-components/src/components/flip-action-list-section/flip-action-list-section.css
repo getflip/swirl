@@ -18,4 +18,5 @@
   color: var(--s-text-subdued);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-base);
+  text-align: left;
 }

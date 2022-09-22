@@ -686,6 +686,19 @@
       ]
     },
     {
+      "name": "flip-icon-cancel",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-chat-bubble",
       "description": {
         "kind": "markdown",
@@ -1427,6 +1440,19 @@
       ]
     },
     {
+      "name": "flip-icon-visibility",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-visibility-off",
       "description": {
         "kind": "markdown",
@@ -1657,6 +1683,47 @@
         },
         {
           "name": "selectable",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-search",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-focus",
+          "description": ""
+        },
+        {
+          "name": "clear-button-label",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "input-id",
+          "description": ""
+        },
+        {
+          "name": "input-name",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "placeholder",
           "description": ""
         },
         {

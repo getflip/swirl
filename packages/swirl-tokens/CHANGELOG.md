@@ -1,5 +1,12 @@
 # swirl-tokens
 
+## 1.0.0
+
+### Major Changes
+
+- [`dd8a8da`](https://github.com/getflip/swirl/commit/dd8a8dac1330b90f2e5d5bf4f5c620567ae20652) -
+  Integrate new and updated Figma tokens
+
 ## 0.2.6
 
 ### Patch Changes
