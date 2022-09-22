@@ -87,6 +87,16 @@
     }
   }
 
+  &:focus {
+    background-color: var(--s-background-hovered);
+    outline: none;
+
+    & .resource-list-item__media {
+      --flip-avatar-group-border-color: var(--s-background-hovered);
+      --flip-badge-border-color: var(--s-background-hovered);
+    }
+  }
+
   &:disabled {
     color: var(--s-text-disabled);
     background-color: var(--s-background-default);
