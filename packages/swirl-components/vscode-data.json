@@ -2,6 +2,80 @@
   "version": 1.1,
   "tags": [
     {
+      "name": "flip-action-list",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "flip-action-list-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            }
+          ]
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "l"
+            },
+            {
+              "name": "m"
+            }
+          ]
+        },
+        {
+          "name": "suffix",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-action-list-section",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-avatar",
       "description": {
         "kind": "markdown",
@@ -1498,6 +1572,27 @@
       ]
     },
     {
+      "name": "flip-popover",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "popover-id",
+          "description": ""
+        },
+        {
+          "name": "trigger",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-radio",
       "description": {
         "kind": "markdown",
@@ -1738,6 +1833,48 @@
       ]
     },
     {
+      "name": "flip-tag",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "removable",
+          "description": ""
+        },
+        {
+          "name": "removal-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-text-input",
       "description": {
         "kind": "markdown",
@@ -1885,6 +2022,53 @@
         "value": ""
       },
       "attributes": []
+    },
+    {
+      "name": "flip-thumbnail",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "alt",
+          "description": ""
+        },
+        {
+          "name": "format",
+          "description": "",
+          "values": [
+            {
+              "name": "landscape"
+            },
+            {
+              "name": "portrait"
+            },
+            {
+              "name": "square"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "l"
+            },
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "name": "src",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "flip-toast",

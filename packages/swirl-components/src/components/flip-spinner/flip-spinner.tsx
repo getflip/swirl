@@ -28,12 +28,20 @@ export class FlipSpinner {
             viewBox="0 0 50 50"
           >
             <circle
-              class="path"
+              class="spinner__background"
               cx="25"
               cy="25"
               r="20"
               fill="none"
-              stroke-width="5"
+              stroke-width="4"
+            />
+            <circle
+              class="spinner__circle"
+              cx="25"
+              cy="25"
+              r="20"
+              fill="none"
+              stroke-width="4"
             />
           </svg>
           {this.label && (
