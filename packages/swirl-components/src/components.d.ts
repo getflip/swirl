@@ -365,6 +365,15 @@ export namespace Components {
     interface FlipResourceList {
         "label"?: string;
     }
+    interface FlipResourceListFileItem {
+        "description"?: string;
+        "errorMessage"?: string;
+        "icon"?: string;
+        "label": string;
+        "loading": boolean;
+        "removable"?: boolean;
+        "removeButtonLabel"?: string;
+    }
     interface FlipResourceListItem {
         "checked"?: boolean;
         "description"?: string;
@@ -503,6 +512,10 @@ export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
 export interface FlipRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioGroupElement;
+}
+export interface FlipResourceListFileItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipResourceListFileItemElement;
 }
 export interface FlipResourceListItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1053,6 +1066,12 @@ declare global {
         prototype: HTMLFlipResourceListElement;
         new (): HTMLFlipResourceListElement;
     };
+    interface HTMLFlipResourceListFileItemElement extends Components.FlipResourceListFileItem, HTMLStencilElement {
+    }
+    var HTMLFlipResourceListFileItemElement: {
+        prototype: HTMLFlipResourceListFileItemElement;
+        new (): HTMLFlipResourceListFileItemElement;
+    };
     interface HTMLFlipResourceListItemElement extends Components.FlipResourceListItem, HTMLStencilElement {
     }
     var HTMLFlipResourceListItemElement: {
@@ -1214,6 +1233,7 @@ declare global {
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
         "flip-resource-list": HTMLFlipResourceListElement;
+        "flip-resource-list-file-item": HTMLFlipResourceListFileItemElement;
         "flip-resource-list-item": HTMLFlipResourceListItemElement;
         "flip-search": HTMLFlipSearchElement;
         "flip-spinner": HTMLFlipSpinnerElement;
@@ -1565,6 +1585,16 @@ declare namespace LocalJSX {
     interface FlipResourceList {
         "label"?: string;
     }
+    interface FlipResourceListFileItem {
+        "description"?: string;
+        "errorMessage"?: string;
+        "icon"?: string;
+        "label": string;
+        "loading"?: boolean;
+        "onRemove"?: (event: FlipResourceListFileItemCustomEvent<MouseEvent>) => void;
+        "removable"?: boolean;
+        "removeButtonLabel"?: string;
+    }
     interface FlipResourceListItem {
         "checked"?: boolean;
         "description"?: string;
@@ -1743,6 +1773,7 @@ declare namespace LocalJSX {
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
         "flip-resource-list": FlipResourceList;
+        "flip-resource-list-file-item": FlipResourceListFileItem;
         "flip-resource-list-item": FlipResourceListItem;
         "flip-search": FlipSearch;
         "flip-spinner": FlipSpinner;
@@ -1849,6 +1880,7 @@ declare module "@stencil/core" {
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
             "flip-resource-list": LocalJSX.FlipResourceList & JSXBase.HTMLAttributes<HTMLFlipResourceListElement>;
+            "flip-resource-list-file-item": LocalJSX.FlipResourceListFileItem & JSXBase.HTMLAttributes<HTMLFlipResourceListFileItemElement>;
             "flip-resource-list-item": LocalJSX.FlipResourceListItem & JSXBase.HTMLAttributes<HTMLFlipResourceListItemElement>;
             "flip-search": LocalJSX.FlipSearch & JSXBase.HTMLAttributes<HTMLFlipSearchElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;

@@ -116,7 +116,7 @@
   position: relative;
   display: flex;
   min-width: 0;
-  height: 2.75rem;
+  min-height: 2.875rem;
   padding-right: var(--s-space-16);
   flex-grow: 1;
   justify-content: center;
@@ -142,7 +142,10 @@
 
 .resource-list-item__description {
   overflow: hidden;
+  margin-top: var(--s-space-2);
   color: var(--s-text-subdued);
+  font-size: var(--s-font-size-sm);
+  line-height: var(--s-line-height-sm);
   white-space: nowrap;
   text-overflow: ellipsis;
 }

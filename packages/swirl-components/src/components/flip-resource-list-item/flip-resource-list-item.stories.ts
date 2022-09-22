@@ -68,9 +68,6 @@ export const FlipResourceListItem = Template.bind({});
 FlipResourceListItem.args = {
   description: "With a description",
   label: "This is a resource item",
-  media: `<flip-avatar-group badge="<flip-badge aria-label=&quot;3 new messages&quot; label=&quot;3&quot;></flip-badge>">
-  <flip-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" size="s"></flip-avatar>
-  <flip-avatar label="John Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/b.svg?size=144" size="s"></flip-avatar>
-</flip-avatar-group>`,
+  media: `<flip-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" size="s"></flip-avatar>`,
   menuTriggerId: "trigger",
 };

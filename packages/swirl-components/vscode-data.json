@@ -1635,6 +1635,43 @@
       ]
     },
     {
+      "name": "flip-resource-list-file-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "description": ""
+        },
+        {
+          "name": "removable",
+          "description": ""
+        },
+        {
+          "name": "remove-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-resource-list-item",
       "description": {
         "kind": "markdown",
