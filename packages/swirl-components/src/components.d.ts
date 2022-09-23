@@ -76,6 +76,7 @@ export namespace Components {
     interface FlipButton {
         "disabled"?: boolean;
         "download"?: string;
+        "flipAriaDescribedby"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
@@ -131,6 +132,23 @@ export namespace Components {
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
+    interface FlipFileUploader {
+        "accept"?: string;
+        "ctaLabel"?: string;
+        "description"?: string;
+        "disabled"?: boolean;
+        "dragDropLabel"?: string;
+        "inputId": string;
+        "inputName": string;
+        "label": string;
+        "multiple"?: boolean;
+        /**
+          * Reset the file input.
+         */
+        "reset": () => Promise<void>;
+        "showDropzone"?: boolean;
+        "uploadButtonLabel"?: string;
+    }
     interface FlipIconAdd {
         "size": FlipIconSize;
     }
@@ -180,6 +198,9 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconCloseSmall {
+        "size": FlipIconSize;
+    }
+    interface FlipIconCloudUpload {
         "size": FlipIconSize;
     }
     interface FlipIconComment {
@@ -505,6 +526,10 @@ export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipDialogElement;
 }
+export interface FlipFileUploaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipFileUploaderElement;
+}
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioElement;
@@ -622,6 +647,12 @@ declare global {
         prototype: HTMLFlipDialogElement;
         new (): HTMLFlipDialogElement;
     };
+    interface HTMLFlipFileUploaderElement extends Components.FlipFileUploader, HTMLStencilElement {
+    }
+    var HTMLFlipFileUploaderElement: {
+        prototype: HTMLFlipFileUploaderElement;
+        new (): HTMLFlipFileUploaderElement;
+    };
     interface HTMLFlipIconAddElement extends Components.FlipIconAdd, HTMLStencilElement {
     }
     var HTMLFlipIconAddElement: {
@@ -723,6 +754,12 @@ declare global {
     var HTMLFlipIconCloseSmallElement: {
         prototype: HTMLFlipIconCloseSmallElement;
         new (): HTMLFlipIconCloseSmallElement;
+    };
+    interface HTMLFlipIconCloudUploadElement extends Components.FlipIconCloudUpload, HTMLStencilElement {
+    }
+    var HTMLFlipIconCloudUploadElement: {
+        prototype: HTMLFlipIconCloudUploadElement;
+        new (): HTMLFlipIconCloudUploadElement;
     };
     interface HTMLFlipIconCommentElement extends Components.FlipIconComment, HTMLStencilElement {
     }
@@ -1159,6 +1196,7 @@ declare global {
         "flip-description-list": HTMLFlipDescriptionListElement;
         "flip-description-list-item": HTMLFlipDescriptionListItemElement;
         "flip-dialog": HTMLFlipDialogElement;
+        "flip-file-uploader": HTMLFlipFileUploaderElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
         "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
@@ -1176,6 +1214,7 @@ declare global {
         "flip-icon-chevron-right": HTMLFlipIconChevronRightElement;
         "flip-icon-close": HTMLFlipIconCloseElement;
         "flip-icon-close-small": HTMLFlipIconCloseSmallElement;
+        "flip-icon-cloud-upload": HTMLFlipIconCloudUploadElement;
         "flip-icon-comment": HTMLFlipIconCommentElement;
         "flip-icon-copy": HTMLFlipIconCopyElement;
         "flip-icon-date-range": HTMLFlipIconDateRangeElement;
@@ -1299,6 +1338,7 @@ declare namespace LocalJSX {
     interface FlipButton {
         "disabled"?: boolean;
         "download"?: string;
+        "flipAriaDescribedby"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
@@ -1349,6 +1389,20 @@ declare namespace LocalJSX {
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
+    interface FlipFileUploader {
+        "accept"?: string;
+        "ctaLabel"?: string;
+        "description"?: string;
+        "disabled"?: boolean;
+        "dragDropLabel"?: string;
+        "inputId": string;
+        "inputName": string;
+        "label": string;
+        "multiple"?: boolean;
+        "onValueChange"?: (event: FlipFileUploaderCustomEvent<FileList>) => void;
+        "showDropzone"?: boolean;
+        "uploadButtonLabel"?: string;
+    }
     interface FlipIconAdd {
         "size"?: FlipIconSize;
     }
@@ -1398,6 +1452,9 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconCloseSmall {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconCloudUpload {
         "size"?: FlipIconSize;
     }
     interface FlipIconComment {
@@ -1699,6 +1756,7 @@ declare namespace LocalJSX {
         "flip-description-list": FlipDescriptionList;
         "flip-description-list-item": FlipDescriptionListItem;
         "flip-dialog": FlipDialog;
+        "flip-file-uploader": FlipFileUploader;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
         "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
@@ -1716,6 +1774,7 @@ declare namespace LocalJSX {
         "flip-icon-chevron-right": FlipIconChevronRight;
         "flip-icon-close": FlipIconClose;
         "flip-icon-close-small": FlipIconCloseSmall;
+        "flip-icon-cloud-upload": FlipIconCloudUpload;
         "flip-icon-comment": FlipIconComment;
         "flip-icon-copy": FlipIconCopy;
         "flip-icon-date-range": FlipIconDateRange;
@@ -1806,6 +1865,7 @@ declare module "@stencil/core" {
             "flip-description-list": LocalJSX.FlipDescriptionList & JSXBase.HTMLAttributes<HTMLFlipDescriptionListElement>;
             "flip-description-list-item": LocalJSX.FlipDescriptionListItem & JSXBase.HTMLAttributes<HTMLFlipDescriptionListItemElement>;
             "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;
+            "flip-file-uploader": LocalJSX.FlipFileUploader & JSXBase.HTMLAttributes<HTMLFlipFileUploaderElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
             "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
@@ -1823,6 +1883,7 @@ declare module "@stencil/core" {
             "flip-icon-chevron-right": LocalJSX.FlipIconChevronRight & JSXBase.HTMLAttributes<HTMLFlipIconChevronRightElement>;
             "flip-icon-close": LocalJSX.FlipIconClose & JSXBase.HTMLAttributes<HTMLFlipIconCloseElement>;
             "flip-icon-close-small": LocalJSX.FlipIconCloseSmall & JSXBase.HTMLAttributes<HTMLFlipIconCloseSmallElement>;
+            "flip-icon-cloud-upload": LocalJSX.FlipIconCloudUpload & JSXBase.HTMLAttributes<HTMLFlipIconCloudUploadElement>;
             "flip-icon-comment": LocalJSX.FlipIconComment & JSXBase.HTMLAttributes<HTMLFlipIconCommentElement>;
             "flip-icon-copy": LocalJSX.FlipIconCopy & JSXBase.HTMLAttributes<HTMLFlipIconCopyElement>;
             "flip-icon-date-range": LocalJSX.FlipIconDateRange & JSXBase.HTMLAttributes<HTMLFlipIconDateRangeElement>;
