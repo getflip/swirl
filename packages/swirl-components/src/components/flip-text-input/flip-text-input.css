@@ -25,6 +25,12 @@
   padding-right: calc(1.5rem + var(--s-space-8));
 }
 
+.text-input--show-password {
+  & .text-input__input {
+    width: 100%;
+  }
+}
+
 .text-input--disabled {
   & .text-input__character-counter {
     color: var(--s-text-disabled);
@@ -71,7 +77,8 @@ input.text-input__input:not([type="password"]) {
   min-width: 0.25rem;
 }
 
-.text-input__clear-button {
+.text-input__clear-button,
+.text-input__password-toggle {
   position: absolute;
   top: calc(-1 * var(--s-space-12));
   right: 0;

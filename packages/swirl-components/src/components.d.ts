@@ -411,6 +411,7 @@ export namespace Components {
         "maxLength"?: number;
         "min"?: number;
         "mode"?: FlipTextInputMode;
+        "passwordToggleLabel"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
         "rows"?: number;
@@ -1607,6 +1608,7 @@ declare namespace LocalJSX {
         "min"?: number;
         "mode"?: FlipTextInputMode;
         "onValueChange"?: (event: FlipTextInputCustomEvent<string>) => void;
+        "passwordToggleLabel"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
         "rows"?: number;

@@ -76,6 +76,26 @@ describe("flip-text-input", () => {
     expect(page.root.value).toBe("");
   });
 
+  it("can toggle password", async () => {
+    const page = await newSpecPage({
+      components: [FlipTextInput],
+      html: `<flip-text-input type="password" value="Value"></flip-text-input>`,
+    });
+
+    const input =
+      page.root.querySelector<HTMLInputElement>(".text-input__input");
+
+    expect(input.getAttribute("type")).toBe("password");
+
+    page.root
+      .querySelector<HTMLButtonElement>(".text-input__password-toggle")
+      .click();
+
+    await page.waitForChanges();
+
+    expect(input.getAttribute("type")).toBe("text");
+  });
+
   it("fires valueChange events", async () => {
     const page = await newSpecPage({
       components: [FlipTextInput],

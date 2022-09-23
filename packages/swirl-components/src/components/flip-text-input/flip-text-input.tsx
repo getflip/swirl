@@ -1,4 +1,12 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+} from "@stencil/core";
 import classnames from "classnames";
 import { FlipFormInput } from "../../utils";
 
@@ -53,8 +61,11 @@ export class FlipTextInput implements FlipFormInput {
   @Prop() spellCheck?: boolean;
   @Prop() suffixLabel?: string;
   @Prop() step?: number;
+  @Prop() passwordToggleLabel?: string = "Toggle password display";
   @Prop() type?: FlipTextInputType = "text";
   @Prop({ mutable: true, reflect: true }) value?: string;
+
+  @State() showPassword = false;
 
   @Event() valueChange: EventEmitter<string>;
 
@@ -142,6 +153,14 @@ export class FlipTextInput implements FlipFormInput {
     (event.target as HTMLInputElement).select();
   }
 
+  private togglePassword = () => {
+    if (this.type !== "password") {
+      return;
+    }
+
+    this.showPassword = !this.showPassword;
+  };
+
   render() {
     const Tag = this.rows === 1 ? "input" : "textarea";
 
@@ -153,13 +172,18 @@ export class FlipTextInput implements FlipFormInput {
         : undefined;
 
     const showStepper = this.type === "number" && !this.disabled;
+    const showPasswordToggle = this.type === "password" && !this.disabled;
 
     const showClearButton =
       this.clearable &&
       !this.disabled &&
       Boolean(this.value) &&
+      !showPasswordToggle &&
       !showStepper &&
       !this.showCharacterCounter;
+
+    const type =
+      this.type === "password" && this.showPassword ? "text" : this.type;
 
     const className = classnames(
       "text-input",
@@ -167,6 +191,8 @@ export class FlipTextInput implements FlipFormInput {
       {
         "text-input--clearable": this.clearable,
         "text-input--disabled": this.disabled,
+        "text-input--show-password":
+          this.type === "password" && this.showPassword,
       }
     );
 
@@ -194,7 +220,7 @@ export class FlipTextInput implements FlipFormInput {
             rows={this.rows > 1 ? this.rows : undefined}
             spellcheck={this.spellCheck}
             step={this.type === "number" ? this.step : undefined}
-            type={this.type}
+            type={type}
             value={this.rows === 1 ? this.value : undefined}
           >
             {this.rows > 1 && this.value}
@@ -210,6 +236,20 @@ export class FlipTextInput implements FlipFormInput {
               type="button"
             >
               <flip-icon-cancel></flip-icon-cancel>
+            </button>
+          )}
+          {showPasswordToggle && (
+            <button
+              aria-label={this.passwordToggleLabel}
+              class="text-input__password-toggle"
+              onClick={this.togglePassword}
+              type="button"
+            >
+              {this.showPassword ? (
+                <flip-icon-visibility-off></flip-icon-visibility-off>
+              ) : (
+                <flip-icon-visibility></flip-icon-visibility>
+              )}
             </button>
           )}
           {showStepper && (
