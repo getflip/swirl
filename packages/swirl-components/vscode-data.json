@@ -322,6 +322,10 @@
           "description": ""
         },
         {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
           "name": "form",
           "description": ""
         },
@@ -595,6 +599,59 @@
       ]
     },
     {
+      "name": "flip-file-uploader",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "accept",
+          "description": ""
+        },
+        {
+          "name": "cta-label",
+          "description": ""
+        },
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "drag-drop-label",
+          "description": ""
+        },
+        {
+          "name": "input-id",
+          "description": ""
+        },
+        {
+          "name": "input-name",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "multiple",
+          "description": ""
+        },
+        {
+          "name": "show-dropzone",
+          "description": ""
+        },
+        {
+          "name": "upload-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-add",
       "description": {
         "kind": "markdown",
@@ -804,6 +861,19 @@
     },
     {
       "name": "flip-icon-close-small",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-cloud-upload",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1630,6 +1700,43 @@
       "attributes": [
         {
           "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-resource-list-file-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "description": ""
+        },
+        {
+          "name": "removable",
+          "description": ""
+        },
+        {
+          "name": "remove-button-label",
           "description": ""
         }
       ]

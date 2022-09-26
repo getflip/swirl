@@ -1,3 +1,14 @@
+import { EventEmitter } from "@stencil/core";
+
+export interface FlipFormInput<ValueType = string> {
+  flipAriaDescribedby?: string;
+  disabled?: boolean;
+  invalid?: boolean;
+  required?: boolean;
+  value?: ValueType;
+  valueChange: EventEmitter;
+}
+
 export function generateStoryElement(
   tag: string,
   args: { [arg: string]: any },
