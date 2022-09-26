@@ -31,6 +31,7 @@
   color: var(--s-text-on-status);
   background-color: var(--s-surface-neutral-default);
   line-height: var(--s-line-height-base);
+  animation: tooltip-fade-in 0.1s;
   backgrund-color: red;
 }
 
@@ -39,4 +40,13 @@
   width: 0.5rem;
   height: 0.5rem;
   background-color: var(--s-surface-neutral-default);
+}
+
+@keyframes tooltip-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
