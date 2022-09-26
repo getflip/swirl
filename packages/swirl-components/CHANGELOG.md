@@ -1,5 +1,38 @@
 # @getflip/swirl-components
 
+## 0.2.0
+
+### Minor Changes
+
+- [#49](https://github.com/getflip/swirl/pull/49)
+  [`0a0e632`](https://github.com/getflip/swirl/commit/0a0e63204f1e29aec56cf6e1466a2f0d79a4f8f0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-tabs and flip-tab
+  components
+
+* [#48](https://github.com/getflip/swirl/pull/48)
+  [`388dc25`](https://github.com/getflip/swirl/commit/388dc25a0bec10cf984e888c8ad84180719587c1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-resource-list-file-item
+  component
+
+- [#48](https://github.com/getflip/swirl/pull/48)
+  [`388dc25`](https://github.com/getflip/swirl/commit/388dc25a0bec10cf984e888c8ad84180719587c1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-cloud-upload icon
+
+* [#44](https://github.com/getflip/swirl/pull/44)
+  [`3ff5680`](https://github.com/getflip/swirl/commit/3ff568005639c0a016b55eff5042fb75ca606907)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-resource-list and
+  flip-resource-list-item components
+
+- [#48](https://github.com/getflip/swirl/pull/48)
+  [`388dc25`](https://github.com/getflip/swirl/commit/388dc25a0bec10cf984e888c8ad84180719587c1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-file-uploader component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`388dc25`](https://github.com/getflip/swirl/commit/388dc25a0bec10cf984e888c8ad84180719587c1)]:
+  - @getflip/swirl-icons@0.3.0
+
 ## 0.1.0
 
 ### Minor Changes
