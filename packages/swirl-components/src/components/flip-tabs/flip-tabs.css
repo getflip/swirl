@@ -81,4 +81,8 @@
   transition: background-color 0.15s, transform 0.15s, width 0.15s;
   transform: translate3d(0, 0, 0);
   pointer-events: none;
+
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
 }
