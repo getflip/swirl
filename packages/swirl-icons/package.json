@@ -13,7 +13,7 @@
     "icons"
   ],
   "devDependencies": {
-    "svgtofont": "^3.17.8"
+    "svgtofont": "^3.18.0"
   },
   "scripts": {
     "build": "svgtofont --sources ./icons --output ./dist"
