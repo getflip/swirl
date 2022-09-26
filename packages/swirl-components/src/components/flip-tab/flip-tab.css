@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.tab {
+  display: none;
+  width: 100%;
+  padding: var(--s-space-8);
+}
+
+.tab--active {
+  display: block;
+}
