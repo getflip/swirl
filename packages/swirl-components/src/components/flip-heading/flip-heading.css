@@ -19,6 +19,7 @@
   font-size: var(--s-font-size-2xl);
   font-weight: var(--s-font-weight-bold);
   line-height: var(--s-line-height-2xl);
+  letter-spacing: var(--s-letter-spacing-tight);
 }
 
 .heading--level-2 {
