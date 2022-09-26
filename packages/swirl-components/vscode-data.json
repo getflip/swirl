@@ -1622,6 +1622,76 @@
       ]
     },
     {
+      "name": "flip-resource-list",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-resource-list-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "checked",
+          "description": ""
+        },
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "hide-divider",
+          "description": ""
+        },
+        {
+          "name": "href",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "media",
+          "description": ""
+        },
+        {
+          "name": "menu-trigger-id",
+          "description": ""
+        },
+        {
+          "name": "menu-trigger-label",
+          "description": ""
+        },
+        {
+          "name": "meta",
+          "description": ""
+        },
+        {
+          "name": "selectable",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-search",
       "description": {
         "kind": "markdown",
