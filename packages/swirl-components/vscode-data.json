@@ -1837,6 +1837,44 @@
       ]
     },
     {
+      "name": "flip-tab",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "tab-id",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-tabs",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "initial-tab",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-tag",
       "description": {
         "kind": "markdown",

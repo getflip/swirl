@@ -393,6 +393,20 @@ export namespace Components {
         "size"?: FlipSwitchSize;
         "value"?: string;
     }
+    interface FlipTab {
+        "active"?: boolean;
+        "label": string;
+        "tabId": string;
+    }
+    interface FlipTabs {
+        /**
+          * Activate a tab.
+          * @param tabId
+         */
+        "activateTab": (tabId: string) => Promise<void>;
+        "initialTab"?: string;
+        "label": string;
+    }
     interface FlipTag {
         "intent"?: FlipTagIntent;
         "label": string;
@@ -494,6 +508,10 @@ export interface FlipSearchCustomEvent<T> extends CustomEvent<T> {
 export interface FlipSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipSwitchElement;
+}
+export interface FlipTabsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipTabsElement;
 }
 export interface FlipTagCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1050,6 +1068,18 @@ declare global {
         prototype: HTMLFlipSwitchElement;
         new (): HTMLFlipSwitchElement;
     };
+    interface HTMLFlipTabElement extends Components.FlipTab, HTMLStencilElement {
+    }
+    var HTMLFlipTabElement: {
+        prototype: HTMLFlipTabElement;
+        new (): HTMLFlipTabElement;
+    };
+    interface HTMLFlipTabsElement extends Components.FlipTabs, HTMLStencilElement {
+    }
+    var HTMLFlipTabsElement: {
+        prototype: HTMLFlipTabsElement;
+        new (): HTMLFlipTabsElement;
+    };
     interface HTMLFlipTagElement extends Components.FlipTag, HTMLStencilElement {
     }
     var HTMLFlipTagElement: {
@@ -1184,6 +1214,8 @@ declare global {
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
+        "flip-tab": HTMLFlipTabElement;
+        "flip-tabs": HTMLFlipTabsElement;
         "flip-tag": HTMLFlipTagElement;
         "flip-theme-provider": HTMLFlipThemeProviderElement;
         "flip-thumbnail": HTMLFlipThumbnailElement;
@@ -1562,6 +1594,16 @@ declare namespace LocalJSX {
         "size"?: FlipSwitchSize;
         "value"?: string;
     }
+    interface FlipTab {
+        "active"?: boolean;
+        "label": string;
+        "tabId": string;
+    }
+    interface FlipTabs {
+        "initialTab"?: string;
+        "label": string;
+        "onTabActivated"?: (event: FlipTabsCustomEvent<HTMLFlipTabElement>) => void;
+    }
     interface FlipTag {
         "intent"?: FlipTagIntent;
         "label": string;
@@ -1693,6 +1735,8 @@ declare namespace LocalJSX {
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
+        "flip-tab": FlipTab;
+        "flip-tabs": FlipTabs;
         "flip-tag": FlipTag;
         "flip-theme-provider": FlipThemeProvider;
         "flip-thumbnail": FlipThumbnail;
@@ -1797,6 +1841,8 @@ declare module "@stencil/core" {
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
+            "flip-tab": LocalJSX.FlipTab & JSXBase.HTMLAttributes<HTMLFlipTabElement>;
+            "flip-tabs": LocalJSX.FlipTabs & JSXBase.HTMLAttributes<HTMLFlipTabsElement>;
             "flip-tag": LocalJSX.FlipTag & JSXBase.HTMLAttributes<HTMLFlipTagElement>;
             "flip-theme-provider": LocalJSX.FlipThemeProvider & JSXBase.HTMLAttributes<HTMLFlipThemeProviderElement>;
             "flip-thumbnail": LocalJSX.FlipThumbnail & JSXBase.HTMLAttributes<HTMLFlipThumbnailElement>;
