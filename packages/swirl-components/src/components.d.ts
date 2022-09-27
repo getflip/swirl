@@ -365,6 +365,8 @@ export namespace Components {
         "label": string;
         "target"?: FlipLinkTarget;
     }
+    interface FlipList {
+    }
     interface FlipPopover {
         "label": string;
         "popoverId": string;
@@ -1097,6 +1099,12 @@ declare global {
         prototype: HTMLFlipLinkElement;
         new (): HTMLFlipLinkElement;
     };
+    interface HTMLFlipListElement extends Components.FlipList, HTMLStencilElement {
+    }
+    var HTMLFlipListElement: {
+        prototype: HTMLFlipListElement;
+        new (): HTMLFlipListElement;
+    };
     interface HTMLFlipPopoverElement extends Components.FlipPopover, HTMLStencilElement {
     }
     var HTMLFlipPopoverElement: {
@@ -1298,6 +1306,7 @@ declare global {
         "flip-icon-warning": HTMLFlipIconWarningElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-link": HTMLFlipLinkElement;
+        "flip-list": HTMLFlipListElement;
         "flip-popover": HTMLFlipPopoverElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
@@ -1651,6 +1660,8 @@ declare namespace LocalJSX {
         "label": string;
         "target"?: FlipLinkTarget;
     }
+    interface FlipList {
+    }
     interface FlipPopover {
         "label": string;
         "popoverId": string;
@@ -1870,6 +1881,7 @@ declare namespace LocalJSX {
         "flip-icon-warning": FlipIconWarning;
         "flip-inline-error": FlipInlineError;
         "flip-link": FlipLink;
+        "flip-list": FlipList;
         "flip-popover": FlipPopover;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
@@ -1981,6 +1993,7 @@ declare module "@stencil/core" {
             "flip-icon-warning": LocalJSX.FlipIconWarning & JSXBase.HTMLAttributes<HTMLFlipIconWarningElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
+            "flip-list": LocalJSX.FlipList & JSXBase.HTMLAttributes<HTMLFlipListElement>;
             "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
