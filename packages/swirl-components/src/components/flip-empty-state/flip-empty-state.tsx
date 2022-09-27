@@ -24,7 +24,11 @@ export class FlipEmptyState {
 
           <div class="empty-state__body">
             {this.heading && (
-              <flip-heading as="p" text={this.heading}></flip-heading>
+              <flip-heading
+                align="center"
+                as="p"
+                text={this.heading}
+              ></flip-heading>
             )}
 
             <div class="empty-state__content">

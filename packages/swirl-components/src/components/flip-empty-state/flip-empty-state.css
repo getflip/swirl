@@ -22,5 +22,5 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: var(--s-space-4);
+  gap: var(--s-space-8);
 }
