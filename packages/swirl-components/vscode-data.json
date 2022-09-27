@@ -669,6 +669,60 @@
       ]
     },
     {
+      "name": "flip-heading",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "as",
+          "description": "",
+          "values": [
+            {
+              "name": "div"
+            },
+            {
+              "name": "h1"
+            },
+            {
+              "name": "h2"
+            },
+            {
+              "name": "h3"
+            },
+            {
+              "name": "h4"
+            },
+            {
+              "name": "h5"
+            },
+            {
+              "name": "h6"
+            },
+            {
+              "name": "p"
+            },
+            {
+              "name": "span"
+            }
+          ]
+        },
+        {
+          "name": "heading-id",
+          "description": ""
+        },
+        {
+          "name": "level",
+          "description": ""
+        },
+        {
+          "name": "text",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-add",
       "description": {
         "kind": "markdown",

@@ -14,6 +14,7 @@ import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
+import { FlipHeadingLevel, FlipHeadingTag } from "./components/flip-heading/flip-heading";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
 import { FlipLinkTarget } from "./components/flip-link/flip-link";
@@ -152,6 +153,12 @@ export namespace Components {
         "reset": () => Promise<void>;
         "showDropzone"?: boolean;
         "uploadButtonLabel"?: string;
+    }
+    interface FlipHeading {
+        "as"?: FlipHeadingTag;
+        "headingId"?: string;
+        "level"?: FlipHeadingLevel;
+        "text": string;
     }
     interface FlipIconAdd {
         "size": FlipIconSize;
@@ -680,6 +687,12 @@ declare global {
     var HTMLFlipFileUploaderElement: {
         prototype: HTMLFlipFileUploaderElement;
         new (): HTMLFlipFileUploaderElement;
+    };
+    interface HTMLFlipHeadingElement extends Components.FlipHeading, HTMLStencilElement {
+    }
+    var HTMLFlipHeadingElement: {
+        prototype: HTMLFlipHeadingElement;
+        new (): HTMLFlipHeadingElement;
     };
     interface HTMLFlipIconAddElement extends Components.FlipIconAdd, HTMLStencilElement {
     }
@@ -1238,6 +1251,7 @@ declare global {
         "flip-dialog": HTMLFlipDialogElement;
         "flip-empty-state": HTMLFlipEmptyStateElement;
         "flip-file-uploader": HTMLFlipFileUploaderElement;
+        "flip-heading": HTMLFlipHeadingElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
         "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
@@ -1449,6 +1463,12 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: FlipFileUploaderCustomEvent<FileList>) => void;
         "showDropzone"?: boolean;
         "uploadButtonLabel"?: string;
+    }
+    interface FlipHeading {
+        "as"?: FlipHeadingTag;
+        "headingId"?: string;
+        "level"?: FlipHeadingLevel;
+        "text": string;
     }
     interface FlipIconAdd {
         "size"?: FlipIconSize;
@@ -1815,6 +1835,7 @@ declare namespace LocalJSX {
         "flip-dialog": FlipDialog;
         "flip-empty-state": FlipEmptyState;
         "flip-file-uploader": FlipFileUploader;
+        "flip-heading": FlipHeading;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
         "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
@@ -1927,6 +1948,7 @@ declare module "@stencil/core" {
             "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;
             "flip-empty-state": LocalJSX.FlipEmptyState & JSXBase.HTMLAttributes<HTMLFlipEmptyStateElement>;
             "flip-file-uploader": LocalJSX.FlipFileUploader & JSXBase.HTMLAttributes<HTMLFlipFileUploaderElement>;
+            "flip-heading": LocalJSX.FlipHeading & JSXBase.HTMLAttributes<HTMLFlipHeadingElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
             "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
