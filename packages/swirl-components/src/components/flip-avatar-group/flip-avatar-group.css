@@ -15,7 +15,7 @@
   & ::slotted(*:first-of-type) {
     z-index: 1;
     display: inline-flex;
-    border: 0.25rem solid var(--s-background-default);
+    border: 0.25rem solid var(--flip-avatar-group-border-color);
     border-radius: 50%;
     grid-column-start: 1;
     grid-column-end: 7;
@@ -26,7 +26,7 @@
   & ::slotted(*:nth-of-type(2)) {
     z-index: 0;
     display: inline-flex;
-    border: 0.25rem solid var(--s-background-default);
+    border: 0.25rem solid var(--flip-avatar-group-border-color);
     border-radius: 50%;
     grid-column-start: 3;
     grid-column-end: 9;

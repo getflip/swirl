@@ -133,7 +133,10 @@ export class FlipPopover {
   };
 
   private connectTrigger() {
-    const triggerComponent = document.querySelector(`#${this.trigger}`);
+    const triggerComponent = querySelectorAllDeep(
+      document.body,
+      `#${this.trigger}`
+    )[0];
 
     this.triggerEl = (triggerComponent?.children[0] ||
       triggerComponent?.shadowRoot?.children[0] ||
