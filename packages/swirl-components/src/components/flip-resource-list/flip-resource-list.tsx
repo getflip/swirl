@@ -20,14 +20,18 @@ export class FlipResourceList {
 
   private collectItems() {
     this.items = Array.from(
-      this.el.querySelectorAll("flip-resource-list-item")
+      this.el.querySelectorAll(
+        "flip-resource-list-item, flip-resource-list-file-item"
+      )
     );
   }
 
   private removeItemsFromTabOrder() {
     this.items.forEach((item) =>
       item.shadowRoot
-        ?.querySelector(".resource-list-item__content")
+        ?.querySelector(
+          ".resource-list-item__content, .resource-list-file-item"
+        )
         ?.setAttribute("tabIndex", "-1")
     );
   }
@@ -42,7 +46,7 @@ export class FlipResourceList {
     }
 
     const interactiveElement = item.shadowRoot.querySelector<HTMLElement>(
-      ".resource-list-item__content"
+      ".resource-list-item__content, .resource-list-file-item"
     );
 
     interactiveElement.setAttribute("tabIndex", "0");
