@@ -1,6 +1,8 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
+export type FlipHeadingAlign = "start" | "center" | "end";
+
 export type FlipHeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
 export type FlipHeadingTag =
@@ -20,6 +22,7 @@ export type FlipHeadingTag =
   tag: "flip-heading",
 })
 export class FlipHeading {
+  @Prop() align?: FlipHeadingAlign = "start";
   @Prop() as?: FlipHeadingTag;
   @Prop() headingId?: string;
   @Prop() level?: FlipHeadingLevel = 1;
@@ -28,7 +31,11 @@ export class FlipHeading {
   render() {
     const Tag = this.as || `h${this.level}`;
 
-    const className = classnames("heading", `heading--level-${this.level}`);
+    const className = classnames(
+      "heading",
+      `heading--align-${this.align}`,
+      `heading--level-${this.level}`
+    );
 
     return (
       <Host>
