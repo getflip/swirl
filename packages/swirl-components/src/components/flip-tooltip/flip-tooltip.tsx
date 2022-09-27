@@ -1,5 +1,12 @@
+import {
+  computePosition,
+  ComputePositionConfig,
+  ComputePositionReturn,
+  flip,
+  offset,
+  shift,
+} from "@floating-ui/dom";
 import { Component, h, Host, Listen, Prop, State, Watch } from "@stencil/core";
-import { NanoPopOptions, PositionMatch, reposition } from "nanopop";
 
 export type FlipTooltipPosition = "top" | "right" | "bottom" | "left";
 
@@ -13,11 +20,11 @@ export class FlipTooltip {
   @Prop() delay?: number = 300;
   @Prop() position?: FlipTooltipPosition = "top";
 
-  @State() actualPosition: PositionMatch;
+  @State() actualPosition: ComputePositionReturn;
   @State() visible = false;
 
   private showTimeout: NodeJS.Timeout;
-  private options: Partial<NanoPopOptions>;
+  private options: Partial<ComputePositionConfig>;
   private popperEl: HTMLSpanElement;
   private referenceEl: HTMLSpanElement;
 
@@ -60,12 +67,12 @@ export class FlipTooltip {
     }
   };
 
-  private reposition = () => {
+  private reposition = async () => {
     if (!Boolean(this.referenceEl) || !Boolean(this.popperEl)) {
       return;
     }
 
-    this.actualPosition = reposition(
+    this.actualPosition = await computePosition(
       this.referenceEl,
       this.popperEl,
       this.options
@@ -107,13 +114,14 @@ export class FlipTooltip {
         .replace("rem", "") * 16;
 
     this.options = {
-      margin,
-      position: this.position,
+      middleware: [offset(margin), shift(), flip()],
+      placement: this.position,
+      strategy: "fixed",
     };
   };
 
   private getArrowStyles = () => {
-    if (this.actualPosition === "tm") {
+    if (this.actualPosition?.placement === "top") {
       return {
         top: "100%",
         left: "50%",
@@ -121,7 +129,7 @@ export class FlipTooltip {
       };
     }
 
-    if (this.actualPosition === "bm") {
+    if (this.actualPosition?.placement === "bottom") {
       return {
         bottom: "100%",
         left: "50%",
@@ -129,7 +137,7 @@ export class FlipTooltip {
       };
     }
 
-    if (this.actualPosition === "rm") {
+    if (this.actualPosition?.placement === "right") {
       return {
         top: "50%",
         right: "100%",
@@ -137,7 +145,7 @@ export class FlipTooltip {
       };
     }
 
-    if (this.actualPosition === "lm") {
+    if (this.actualPosition?.placement === "left") {
       return {
         top: "50%",
         left: "100%",
@@ -163,7 +171,18 @@ export class FlipTooltip {
           >
             <slot></slot>
           </span>
-          <span class="tooltip__popper" ref={(el) => (this.popperEl = el)}>
+          <span
+            class="tooltip__popper"
+            ref={(el) => (this.popperEl = el)}
+            style={{
+              top: Boolean(this.actualPosition)
+                ? `${this.actualPosition?.y}px`
+                : "",
+              left: Boolean(this.actualPosition)
+                ? `${this.actualPosition?.x}px`
+                : "",
+            }}
+          >
             {this.visible && (
               <span class="tooltip__bubble" id="tooltip" role="tooltip">
                 <span class="tooltip__content" innerHTML={this.content}></span>

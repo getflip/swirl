@@ -57,6 +57,7 @@ The Angular wrapper is distributed via a primary NgModule that you can import to
 use the components.
 
 ```typescript
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { SwirlComponentsModule } from "@getflip/swirl-components-angular/dist/component-library";
 import { defineCustomElements } from "@getflip/swirl-components/loader";
 
@@ -64,6 +65,7 @@ defineCustomElements();
 
 @NgModule({
   imports: [SwirlComponentsModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FeatureModule {}
 ```

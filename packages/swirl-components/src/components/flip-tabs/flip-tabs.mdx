@@ -1,0 +1,55 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipTabs" />
+
+# FlipTabs
+
+The FlipTabs component is used to organize related content into multiple panels.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-tabs)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-fliptabs--flip-tabs" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                           | Usage                                               |
+| ---------------------------------- | --------------------------------------------------- |
+| `--s-interactive-neutral-default`  | Text color of inactive tabs                         |
+| `--s-interactive-neutral-hovered`  | Text color of hovered tabs                          |
+| `--s-interactive-neutral-pressed`  | Text color of active tabs                           |
+| `--s-interactive-neutral-disabled` | Text color of disabled tabs                         |
+| `--s-text-highlight`               | Text color of the active tab                        |
+| `--s-border-highlight`             | Border color of the active tab                      |
+| `--s-border-default`               | Border color of the tab bar and hovered/active tabs |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel/).
+
+| ARIA              | Usage                                                             |
+| ----------------- | ----------------------------------------------------------------- |
+| `role="tablist"`  | Set on the tab bar container.                                     |
+| `role="tab"`      | Set on each tab bar element.                                      |
+| `role="tabpanel"` | Set on each tab panel.                                            |
+| `aria-label`      | Provides an accessible label for the tab list.                    |
+| `aria-labelledby` | Set on each tab panel to associate it with its tab bar item.      |
+| `aria-controls`   | Associates each tab bar element with the corresponding tab panel. |
+| `aria-selected`   | Set to `true`/`false` on each active/inactive tab bar element.    |
+
+### Keyboard
+
+| Key              | Action                                                                                                         |
+| ---------------- | -------------------------------------------------------------------------------------------------------------- |
+| <kbd>TAB</kbd>   | Moves focus to the active tab, if tab list wasn't focused before. Otherwise focus is moved to the tab content. |
+| <kbd>LEFT</kbd>  | When focus is on the tab bar, the previous tab is focused and activated.                                       |
+| <kbd>RIGHT</kbd> | When focus is on the tab bar, the next tab is focused and activated.                                           |

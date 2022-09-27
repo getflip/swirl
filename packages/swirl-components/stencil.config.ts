@@ -12,7 +12,11 @@ import { reactOutputTarget } from "@stencil/react-output-target";
 
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
-    elementSelectors: ["flip-checkbox", "flip-switch"],
+    elementSelectors: [
+      "flip-checkbox",
+      "flip-resource-list-item",
+      "flip-switch",
+    ],
     event: "valueChange",
     targetAttr: "checked",
     type: "boolean",
@@ -24,7 +28,7 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     type: "select",
   },
   {
-    elementSelectors: ["flip-radio-group"],
+    elementSelectors: ["flip-radio-group", "flip-search"],
     event: "valueChange",
     targetAttr: "value",
     type: "text",

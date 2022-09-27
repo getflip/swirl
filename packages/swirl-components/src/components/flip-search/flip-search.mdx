@@ -1,0 +1,50 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipSearch" />
+
+# FlipSearch
+
+The FlipSearch component is used to provide a search input field.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=2%3A42)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-search)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipsearch--flip-search" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                     | Usage                                   |
+| ---------------------------- | --------------------------------------- |
+| `--s-surface-raised-default` | Background of the input field           |
+| `--s-text-default`           | Text color of the input field           |
+| `--s-icon-default`           | Icon color of the search and clear icon |
+| `--s-text-subdued`           | Text color of the placeholder           |
+| `--s-text-disabled`          | Text color of the disabled input field  |
+| `--s-icon-disabled`          | Icon color of the disabled search icon  |
+| `--s-border-highlight`       | Background color of the input caret     |
+
+## Accessibility
+
+Please consider the
+[W3C Search Landmark](https://www.w3.org/WAI/ARIA/apg/example-index/landmarks/search.html)
+recommendations when using this component.
+
+### ARIA
+
+| ARIA            | Usage                                                                           |
+| --------------- | ------------------------------------------------------------------------------- |
+| `aria-label`    | An accessible label is provided via the `aria-label` attribute.                 |
+| `aria-disabled` | If the input field is disabled, the `aria-disabled` attribute is set to `true`. |
+
+### Keyboard
+
+| Key                                | Action                          |
+| ---------------------------------- | ------------------------------- |
+| <kbd>CTRL/CMD</kbd> + <kbd>/</kbd> | Focuses the search input field. |
+| <kbd>CTRL/CMD</kbd> + <kbd>K</kbd> | Focuses the search input field. |

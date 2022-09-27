@@ -16,7 +16,7 @@
   font-size: var(--s-font-size-sm);
 
   & .inline-error__icon {
-    padding-top: 0.0625rem;
+    padding-top: 0.1875rem;
   }
 
   & .inline-error__message {

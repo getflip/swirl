@@ -211,7 +211,9 @@ function transformTokenValues(
   if (token.type === "color") {
     return {
       ...token,
-      value: hexToRgba(String(token.value)),
+      value: String(token.value).startsWith("rgb")
+        ? token.value
+        : hexToRgba(String(token.value)),
     };
   }
 
