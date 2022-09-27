@@ -27,5 +27,5 @@ export const FlipEmptyState = Template.bind({});
 
 FlipEmptyState.args = {
   heading: "Nothing to see here.",
-  illustration: "/assets/images/empty-state-1.svg",
+  illustration: "/images/empty-state-1.svg",
 };
