@@ -21,7 +21,7 @@ describe("flip-empty-state", () => {
           <div class="empty-state">
             <img alt="" class="empty-state__illustration" src="/assets/images/empty-state-1.svg">
             <div class="empty-state__body">
-              <flip-heading as="p" text="Nothing to see here."></flip-heading>
+              <flip-heading align="center" as="p" text="Nothing to see here."></flip-heading>
               <div class="empty-state__content">
                 <flip-text align="center" color="subdued">
                   <slot></slot>
