@@ -132,6 +132,10 @@ export namespace Components {
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
+    interface FlipEmptyState {
+        "heading"?: string;
+        "illustration"?: string;
+    }
     interface FlipFileUploader {
         "accept"?: string;
         "ctaLabel"?: string;
@@ -664,6 +668,12 @@ declare global {
     var HTMLFlipDialogElement: {
         prototype: HTMLFlipDialogElement;
         new (): HTMLFlipDialogElement;
+    };
+    interface HTMLFlipEmptyStateElement extends Components.FlipEmptyState, HTMLStencilElement {
+    }
+    var HTMLFlipEmptyStateElement: {
+        prototype: HTMLFlipEmptyStateElement;
+        new (): HTMLFlipEmptyStateElement;
     };
     interface HTMLFlipFileUploaderElement extends Components.FlipFileUploader, HTMLStencilElement {
     }
@@ -1226,6 +1236,7 @@ declare global {
         "flip-description-list": HTMLFlipDescriptionListElement;
         "flip-description-list-item": HTMLFlipDescriptionListItemElement;
         "flip-dialog": HTMLFlipDialogElement;
+        "flip-empty-state": HTMLFlipEmptyStateElement;
         "flip-file-uploader": HTMLFlipFileUploaderElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
@@ -1420,6 +1431,10 @@ declare namespace LocalJSX {
         "onSecondaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface FlipEmptyState {
+        "heading"?: string;
+        "illustration"?: string;
     }
     interface FlipFileUploader {
         "accept"?: string;
@@ -1798,6 +1813,7 @@ declare namespace LocalJSX {
         "flip-description-list": FlipDescriptionList;
         "flip-description-list-item": FlipDescriptionListItem;
         "flip-dialog": FlipDialog;
+        "flip-empty-state": FlipEmptyState;
         "flip-file-uploader": FlipFileUploader;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
@@ -1909,6 +1925,7 @@ declare module "@stencil/core" {
             "flip-description-list": LocalJSX.FlipDescriptionList & JSXBase.HTMLAttributes<HTMLFlipDescriptionListElement>;
             "flip-description-list-item": LocalJSX.FlipDescriptionListItem & JSXBase.HTMLAttributes<HTMLFlipDescriptionListItemElement>;
             "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;
+            "flip-empty-state": LocalJSX.FlipEmptyState & JSXBase.HTMLAttributes<HTMLFlipEmptyStateElement>;
             "flip-file-uploader": LocalJSX.FlipFileUploader & JSXBase.HTMLAttributes<HTMLFlipFileUploaderElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
