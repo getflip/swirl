@@ -12,15 +12,15 @@
 }
 
 .text--align-start {
-  tzext-align: start;
+  text-align: start;
 }
 
 .text--align-center {
-  tzext-align: center;
+  text-align: center;
 }
 
 .text--align-end {
-  tzext-align: end;
+  text-align: end;
 }
 
 .text--color-default {
