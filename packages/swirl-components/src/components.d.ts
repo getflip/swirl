@@ -14,7 +14,7 @@ import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
-import { FlipHeadingLevel, FlipHeadingTag } from "./components/flip-heading/flip-heading";
+import { FlipHeadingAlign, FlipHeadingLevel, FlipHeadingTag } from "./components/flip-heading/flip-heading";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
 import { FlipLinkTarget } from "./components/flip-link/flip-link";
@@ -156,6 +156,7 @@ export namespace Components {
         "uploadButtonLabel"?: string;
     }
     interface FlipHeading {
+        "align"?: FlipHeadingAlign;
         "as"?: FlipHeadingTag;
         "headingId"?: string;
         "level"?: FlipHeadingLevel;
@@ -1481,6 +1482,7 @@ declare namespace LocalJSX {
         "uploadButtonLabel"?: string;
     }
     interface FlipHeading {
+        "align"?: FlipHeadingAlign;
         "as"?: FlipHeadingTag;
         "headingId"?: string;
         "level"?: FlipHeadingLevel;

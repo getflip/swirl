@@ -15,6 +15,18 @@
   text-align: start;
 }
 
+.heading--align-start {
+  text-align: start;
+}
+
+.heading--align-center {
+  text-align: center;
+}
+
+.heading--align-end {
+  text-align: end;
+}
+
 .heading--level-1 {
   font-size: var(--s-font-size-2xl);
   font-weight: var(--s-font-weight-bold);
