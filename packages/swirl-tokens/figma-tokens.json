@@ -1273,12 +1273,12 @@
     },
     "border": {
       "strong": {
-        "value": "rgba(0, 6, 29, 0.18)",
+        "value": "rgba(255, 255, 255, 0.18)",
         "type": "color",
         "description": "Usually used for high emphasis borders."
       },
       "default": {
-        "value": "rgba(0, 6, 29, 0.09)",
+        "value": "rgba(255, 255, 255, 0.09)",
         "type": "color",
         "description": "Usually used for low emphasis borders and espacially divider elements."
       },

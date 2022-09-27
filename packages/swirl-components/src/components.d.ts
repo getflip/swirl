@@ -77,6 +77,7 @@ export namespace Components {
     interface FlipButton {
         "disabled"?: boolean;
         "download"?: string;
+        "flipAriaDescribedby"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
@@ -131,6 +132,23 @@ export namespace Components {
         "open": () => Promise<void>;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface FlipFileUploader {
+        "accept"?: string;
+        "ctaLabel"?: string;
+        "description"?: string;
+        "disabled"?: boolean;
+        "dragDropLabel"?: string;
+        "inputId": string;
+        "inputName": string;
+        "label": string;
+        "multiple"?: boolean;
+        /**
+          * Reset the file input.
+         */
+        "reset": () => Promise<void>;
+        "showDropzone"?: boolean;
+        "uploadButtonLabel"?: string;
     }
     interface FlipHeading {
         "as"?: FlipHeadingTag;
@@ -187,6 +205,9 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconCloseSmall {
+        "size": FlipIconSize;
+    }
+    interface FlipIconCloudUpload {
         "size": FlipIconSize;
     }
     interface FlipIconComment {
@@ -369,6 +390,32 @@ export namespace Components {
     interface FlipRadioGroup {
         "value"?: string;
     }
+    interface FlipResourceList {
+        "label"?: string;
+    }
+    interface FlipResourceListFileItem {
+        "description"?: string;
+        "errorMessage"?: string;
+        "icon"?: string;
+        "label": string;
+        "loading": boolean;
+        "removable"?: boolean;
+        "removeButtonLabel"?: string;
+    }
+    interface FlipResourceListItem {
+        "checked"?: boolean;
+        "description"?: string;
+        "disabled"?: boolean;
+        "hideDivider"?: boolean;
+        "href"?: string;
+        "label": string;
+        "media"?: string;
+        "menuTriggerId"?: string;
+        "menuTriggerLabel"?: string;
+        "meta"?: string;
+        "selectable"?: boolean;
+        "value"?: string;
+    }
     interface FlipSearch {
         "autoFocus"?: boolean;
         "clearButtonLabel"?: string;
@@ -399,6 +446,20 @@ export namespace Components {
         "label"?: string;
         "size"?: FlipSwitchSize;
         "value"?: string;
+    }
+    interface FlipTab {
+        "active"?: boolean;
+        "label": string;
+        "tabId": string;
+    }
+    interface FlipTabs {
+        /**
+          * Activate a tab.
+          * @param tabId
+         */
+        "activateTab": (tabId: string) => Promise<void>;
+        "initialTab"?: string;
+        "label": string;
     }
     interface FlipTag {
         "intent"?: FlipTagIntent;
@@ -486,6 +547,10 @@ export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipDialogElement;
 }
+export interface FlipFileUploaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipFileUploaderElement;
+}
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioElement;
@@ -494,6 +559,14 @@ export interface FlipRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioGroupElement;
 }
+export interface FlipResourceListFileItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipResourceListFileItemElement;
+}
+export interface FlipResourceListItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipResourceListItemElement;
+}
 export interface FlipSearchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipSearchElement;
@@ -501,6 +574,10 @@ export interface FlipSearchCustomEvent<T> extends CustomEvent<T> {
 export interface FlipSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipSwitchElement;
+}
+export interface FlipTabsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipTabsElement;
 }
 export interface FlipTagCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -594,6 +671,12 @@ declare global {
     var HTMLFlipDialogElement: {
         prototype: HTMLFlipDialogElement;
         new (): HTMLFlipDialogElement;
+    };
+    interface HTMLFlipFileUploaderElement extends Components.FlipFileUploader, HTMLStencilElement {
+    }
+    var HTMLFlipFileUploaderElement: {
+        prototype: HTMLFlipFileUploaderElement;
+        new (): HTMLFlipFileUploaderElement;
     };
     interface HTMLFlipHeadingElement extends Components.FlipHeading, HTMLStencilElement {
     }
@@ -702,6 +785,12 @@ declare global {
     var HTMLFlipIconCloseSmallElement: {
         prototype: HTMLFlipIconCloseSmallElement;
         new (): HTMLFlipIconCloseSmallElement;
+    };
+    interface HTMLFlipIconCloudUploadElement extends Components.FlipIconCloudUpload, HTMLStencilElement {
+    }
+    var HTMLFlipIconCloudUploadElement: {
+        prototype: HTMLFlipIconCloudUploadElement;
+        new (): HTMLFlipIconCloudUploadElement;
     };
     interface HTMLFlipIconCommentElement extends Components.FlipIconComment, HTMLStencilElement {
     }
@@ -1039,6 +1128,24 @@ declare global {
         prototype: HTMLFlipRadioGroupElement;
         new (): HTMLFlipRadioGroupElement;
     };
+    interface HTMLFlipResourceListElement extends Components.FlipResourceList, HTMLStencilElement {
+    }
+    var HTMLFlipResourceListElement: {
+        prototype: HTMLFlipResourceListElement;
+        new (): HTMLFlipResourceListElement;
+    };
+    interface HTMLFlipResourceListFileItemElement extends Components.FlipResourceListFileItem, HTMLStencilElement {
+    }
+    var HTMLFlipResourceListFileItemElement: {
+        prototype: HTMLFlipResourceListFileItemElement;
+        new (): HTMLFlipResourceListFileItemElement;
+    };
+    interface HTMLFlipResourceListItemElement extends Components.FlipResourceListItem, HTMLStencilElement {
+    }
+    var HTMLFlipResourceListItemElement: {
+        prototype: HTMLFlipResourceListItemElement;
+        new (): HTMLFlipResourceListItemElement;
+    };
     interface HTMLFlipSearchElement extends Components.FlipSearch, HTMLStencilElement {
     }
     var HTMLFlipSearchElement: {
@@ -1062,6 +1169,18 @@ declare global {
     var HTMLFlipSwitchElement: {
         prototype: HTMLFlipSwitchElement;
         new (): HTMLFlipSwitchElement;
+    };
+    interface HTMLFlipTabElement extends Components.FlipTab, HTMLStencilElement {
+    }
+    var HTMLFlipTabElement: {
+        prototype: HTMLFlipTabElement;
+        new (): HTMLFlipTabElement;
+    };
+    interface HTMLFlipTabsElement extends Components.FlipTabs, HTMLStencilElement {
+    }
+    var HTMLFlipTabsElement: {
+        prototype: HTMLFlipTabsElement;
+        new (): HTMLFlipTabsElement;
     };
     interface HTMLFlipTagElement extends Components.FlipTag, HTMLStencilElement {
     }
@@ -1120,6 +1239,7 @@ declare global {
         "flip-description-list": HTMLFlipDescriptionListElement;
         "flip-description-list-item": HTMLFlipDescriptionListItemElement;
         "flip-dialog": HTMLFlipDialogElement;
+        "flip-file-uploader": HTMLFlipFileUploaderElement;
         "flip-heading": HTMLFlipHeadingElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
@@ -1138,6 +1258,7 @@ declare global {
         "flip-icon-chevron-right": HTMLFlipIconChevronRightElement;
         "flip-icon-close": HTMLFlipIconCloseElement;
         "flip-icon-close-small": HTMLFlipIconCloseSmallElement;
+        "flip-icon-cloud-upload": HTMLFlipIconCloudUploadElement;
         "flip-icon-comment": HTMLFlipIconCommentElement;
         "flip-icon-copy": HTMLFlipIconCopyElement;
         "flip-icon-date-range": HTMLFlipIconDateRangeElement;
@@ -1194,10 +1315,15 @@ declare global {
         "flip-popover": HTMLFlipPopoverElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
+        "flip-resource-list": HTMLFlipResourceListElement;
+        "flip-resource-list-file-item": HTMLFlipResourceListFileItemElement;
+        "flip-resource-list-item": HTMLFlipResourceListItemElement;
         "flip-search": HTMLFlipSearchElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
+        "flip-tab": HTMLFlipTabElement;
+        "flip-tabs": HTMLFlipTabsElement;
         "flip-tag": HTMLFlipTagElement;
         "flip-theme-provider": HTMLFlipThemeProviderElement;
         "flip-thumbnail": HTMLFlipThumbnailElement;
@@ -1258,6 +1384,7 @@ declare namespace LocalJSX {
     interface FlipButton {
         "disabled"?: boolean;
         "download"?: string;
+        "flipAriaDescribedby"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
@@ -1307,6 +1434,20 @@ declare namespace LocalJSX {
         "onSecondaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface FlipFileUploader {
+        "accept"?: string;
+        "ctaLabel"?: string;
+        "description"?: string;
+        "disabled"?: boolean;
+        "dragDropLabel"?: string;
+        "inputId": string;
+        "inputName": string;
+        "label": string;
+        "multiple"?: boolean;
+        "onValueChange"?: (event: FlipFileUploaderCustomEvent<FileList>) => void;
+        "showDropzone"?: boolean;
+        "uploadButtonLabel"?: string;
     }
     interface FlipHeading {
         "as"?: FlipHeadingTag;
@@ -1363,6 +1504,9 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconCloseSmall {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconCloudUpload {
         "size"?: FlipIconSize;
     }
     interface FlipIconComment {
@@ -1547,6 +1691,34 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: FlipRadioGroupCustomEvent<string>) => void;
         "value"?: string;
     }
+    interface FlipResourceList {
+        "label"?: string;
+    }
+    interface FlipResourceListFileItem {
+        "description"?: string;
+        "errorMessage"?: string;
+        "icon"?: string;
+        "label": string;
+        "loading"?: boolean;
+        "onRemove"?: (event: FlipResourceListFileItemCustomEvent<MouseEvent>) => void;
+        "removable"?: boolean;
+        "removeButtonLabel"?: string;
+    }
+    interface FlipResourceListItem {
+        "checked"?: boolean;
+        "description"?: string;
+        "disabled"?: boolean;
+        "hideDivider"?: boolean;
+        "href"?: string;
+        "label": string;
+        "media"?: string;
+        "menuTriggerId"?: string;
+        "menuTriggerLabel"?: string;
+        "meta"?: string;
+        "onValueChange"?: (event: FlipResourceListItemCustomEvent<boolean>) => void;
+        "selectable"?: boolean;
+        "value"?: string;
+    }
     interface FlipSearch {
         "autoFocus"?: boolean;
         "clearButtonLabel"?: string;
@@ -1581,6 +1753,16 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: FlipSwitchCustomEvent<boolean>) => void;
         "size"?: FlipSwitchSize;
         "value"?: string;
+    }
+    interface FlipTab {
+        "active"?: boolean;
+        "label": string;
+        "tabId": string;
+    }
+    interface FlipTabs {
+        "initialTab"?: string;
+        "label": string;
+        "onTabActivated"?: (event: FlipTabsCustomEvent<HTMLFlipTabElement>) => void;
     }
     interface FlipTag {
         "intent"?: FlipTagIntent;
@@ -1636,6 +1818,7 @@ declare namespace LocalJSX {
         "flip-description-list": FlipDescriptionList;
         "flip-description-list-item": FlipDescriptionListItem;
         "flip-dialog": FlipDialog;
+        "flip-file-uploader": FlipFileUploader;
         "flip-heading": FlipHeading;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
@@ -1654,6 +1837,7 @@ declare namespace LocalJSX {
         "flip-icon-chevron-right": FlipIconChevronRight;
         "flip-icon-close": FlipIconClose;
         "flip-icon-close-small": FlipIconCloseSmall;
+        "flip-icon-cloud-upload": FlipIconCloudUpload;
         "flip-icon-comment": FlipIconComment;
         "flip-icon-copy": FlipIconCopy;
         "flip-icon-date-range": FlipIconDateRange;
@@ -1710,10 +1894,15 @@ declare namespace LocalJSX {
         "flip-popover": FlipPopover;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
+        "flip-resource-list": FlipResourceList;
+        "flip-resource-list-file-item": FlipResourceListFileItem;
+        "flip-resource-list-item": FlipResourceListItem;
         "flip-search": FlipSearch;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
+        "flip-tab": FlipTab;
+        "flip-tabs": FlipTabs;
         "flip-tag": FlipTag;
         "flip-theme-provider": FlipThemeProvider;
         "flip-thumbnail": FlipThumbnail;
@@ -1741,6 +1930,7 @@ declare module "@stencil/core" {
             "flip-description-list": LocalJSX.FlipDescriptionList & JSXBase.HTMLAttributes<HTMLFlipDescriptionListElement>;
             "flip-description-list-item": LocalJSX.FlipDescriptionListItem & JSXBase.HTMLAttributes<HTMLFlipDescriptionListItemElement>;
             "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;
+            "flip-file-uploader": LocalJSX.FlipFileUploader & JSXBase.HTMLAttributes<HTMLFlipFileUploaderElement>;
             "flip-heading": LocalJSX.FlipHeading & JSXBase.HTMLAttributes<HTMLFlipHeadingElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
@@ -1759,6 +1949,7 @@ declare module "@stencil/core" {
             "flip-icon-chevron-right": LocalJSX.FlipIconChevronRight & JSXBase.HTMLAttributes<HTMLFlipIconChevronRightElement>;
             "flip-icon-close": LocalJSX.FlipIconClose & JSXBase.HTMLAttributes<HTMLFlipIconCloseElement>;
             "flip-icon-close-small": LocalJSX.FlipIconCloseSmall & JSXBase.HTMLAttributes<HTMLFlipIconCloseSmallElement>;
+            "flip-icon-cloud-upload": LocalJSX.FlipIconCloudUpload & JSXBase.HTMLAttributes<HTMLFlipIconCloudUploadElement>;
             "flip-icon-comment": LocalJSX.FlipIconComment & JSXBase.HTMLAttributes<HTMLFlipIconCommentElement>;
             "flip-icon-copy": LocalJSX.FlipIconCopy & JSXBase.HTMLAttributes<HTMLFlipIconCopyElement>;
             "flip-icon-date-range": LocalJSX.FlipIconDateRange & JSXBase.HTMLAttributes<HTMLFlipIconDateRangeElement>;
@@ -1815,10 +2006,15 @@ declare module "@stencil/core" {
             "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
+            "flip-resource-list": LocalJSX.FlipResourceList & JSXBase.HTMLAttributes<HTMLFlipResourceListElement>;
+            "flip-resource-list-file-item": LocalJSX.FlipResourceListFileItem & JSXBase.HTMLAttributes<HTMLFlipResourceListFileItemElement>;
+            "flip-resource-list-item": LocalJSX.FlipResourceListItem & JSXBase.HTMLAttributes<HTMLFlipResourceListItemElement>;
             "flip-search": LocalJSX.FlipSearch & JSXBase.HTMLAttributes<HTMLFlipSearchElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
+            "flip-tab": LocalJSX.FlipTab & JSXBase.HTMLAttributes<HTMLFlipTabElement>;
+            "flip-tabs": LocalJSX.FlipTabs & JSXBase.HTMLAttributes<HTMLFlipTabsElement>;
             "flip-tag": LocalJSX.FlipTag & JSXBase.HTMLAttributes<HTMLFlipTagElement>;
             "flip-theme-provider": LocalJSX.FlipThemeProvider & JSXBase.HTMLAttributes<HTMLFlipThemeProviderElement>;
             "flip-thumbnail": LocalJSX.FlipThumbnail & JSXBase.HTMLAttributes<HTMLFlipThumbnailElement>;
