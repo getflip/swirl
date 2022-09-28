@@ -9,7 +9,7 @@ import { FlipActionListItemIntent, FlipActionListItemSize } from "./components/f
 import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
-import { FlipButtonIntent, FlipButtonSize, FlipButtonType, FlipButtonVariant } from "./components/flip-button/flip-button";
+import { FlipButtonIconPosition, FlipButtonIntent, FlipButtonSize, FlipButtonType, FlipButtonVariant } from "./components/flip-button/flip-button";
 import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-button-group";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
@@ -77,10 +77,12 @@ export namespace Components {
         "disabled"?: boolean;
         "download"?: string;
         "flipAriaDescribedby"?: string;
+        "flipAriaLabel"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
         "icon"?: string;
+        "iconPosition": FlipButtonIconPosition;
         "intent"?: FlipButtonIntent;
         "label": string;
         "name"?: string;
@@ -364,6 +366,13 @@ export namespace Components {
         "href": string;
         "label": string;
         "target"?: FlipLinkTarget;
+    }
+    interface FlipPagination {
+        "accessibleNextButtonLabel"?: string;
+        "accessiblePrevButtonLabel"?: string;
+        "label": string;
+        "nextButtonLabel"?: string;
+        "prevButtonLabel"?: string;
     }
     interface FlipPopover {
         "label": string;
@@ -1097,6 +1106,12 @@ declare global {
         prototype: HTMLFlipLinkElement;
         new (): HTMLFlipLinkElement;
     };
+    interface HTMLFlipPaginationElement extends Components.FlipPagination, HTMLStencilElement {
+    }
+    var HTMLFlipPaginationElement: {
+        prototype: HTMLFlipPaginationElement;
+        new (): HTMLFlipPaginationElement;
+    };
     interface HTMLFlipPopoverElement extends Components.FlipPopover, HTMLStencilElement {
     }
     var HTMLFlipPopoverElement: {
@@ -1298,6 +1313,7 @@ declare global {
         "flip-icon-warning": HTMLFlipIconWarningElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-link": HTMLFlipLinkElement;
+        "flip-pagination": HTMLFlipPaginationElement;
         "flip-popover": HTMLFlipPopoverElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
@@ -1371,10 +1387,12 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "download"?: string;
         "flipAriaDescribedby"?: string;
+        "flipAriaLabel"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
         "icon"?: string;
+        "iconPosition"?: FlipButtonIconPosition;
         "intent"?: FlipButtonIntent;
         "label": string;
         "name"?: string;
@@ -1651,6 +1669,13 @@ declare namespace LocalJSX {
         "label": string;
         "target"?: FlipLinkTarget;
     }
+    interface FlipPagination {
+        "accessibleNextButtonLabel"?: string;
+        "accessiblePrevButtonLabel"?: string;
+        "label": string;
+        "nextButtonLabel"?: string;
+        "prevButtonLabel"?: string;
+    }
     interface FlipPopover {
         "label": string;
         "popoverId": string;
@@ -1870,6 +1895,7 @@ declare namespace LocalJSX {
         "flip-icon-warning": FlipIconWarning;
         "flip-inline-error": FlipInlineError;
         "flip-link": FlipLink;
+        "flip-pagination": FlipPagination;
         "flip-popover": FlipPopover;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
@@ -1981,6 +2007,7 @@ declare module "@stencil/core" {
             "flip-icon-warning": LocalJSX.FlipIconWarning & JSXBase.HTMLAttributes<HTMLFlipIconWarningElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
+            "flip-pagination": LocalJSX.FlipPagination & JSXBase.HTMLAttributes<HTMLFlipPaginationElement>;
             "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
