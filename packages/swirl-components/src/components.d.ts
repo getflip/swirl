@@ -17,6 +17,7 @@ import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
 import { FlipLinkTarget } from "./components/flip-link/flip-link";
+import { FlipProgressIndicatorSize, FlipProgressIndicatorVariant } from "./components/flip-progress-indicator/flip-progress-indicator";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
@@ -369,6 +370,12 @@ export namespace Components {
         "label": string;
         "popoverId": string;
         "trigger": string;
+    }
+    interface FlipProgressIndicator {
+        "label": string;
+        "size"?: FlipProgressIndicatorSize;
+        "value"?: number;
+        "variant"?: FlipProgressIndicatorVariant;
     }
     interface FlipRadio {
         "checked"?: FlipRadioState;
@@ -1103,6 +1110,12 @@ declare global {
         prototype: HTMLFlipPopoverElement;
         new (): HTMLFlipPopoverElement;
     };
+    interface HTMLFlipProgressIndicatorElement extends Components.FlipProgressIndicator, HTMLStencilElement {
+    }
+    var HTMLFlipProgressIndicatorElement: {
+        prototype: HTMLFlipProgressIndicatorElement;
+        new (): HTMLFlipProgressIndicatorElement;
+    };
     interface HTMLFlipRadioElement extends Components.FlipRadio, HTMLStencilElement {
     }
     var HTMLFlipRadioElement: {
@@ -1299,6 +1312,7 @@ declare global {
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-link": HTMLFlipLinkElement;
         "flip-popover": HTMLFlipPopoverElement;
+        "flip-progress-indicator": HTMLFlipProgressIndicatorElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
         "flip-resource-list": HTMLFlipResourceListElement;
@@ -1656,6 +1670,12 @@ declare namespace LocalJSX {
         "popoverId": string;
         "trigger": string;
     }
+    interface FlipProgressIndicator {
+        "label": string;
+        "size"?: FlipProgressIndicatorSize;
+        "value"?: number;
+        "variant"?: FlipProgressIndicatorVariant;
+    }
     interface FlipRadio {
         "checked"?: FlipRadioState;
         "description"?: string;
@@ -1871,6 +1891,7 @@ declare namespace LocalJSX {
         "flip-inline-error": FlipInlineError;
         "flip-link": FlipLink;
         "flip-popover": FlipPopover;
+        "flip-progress-indicator": FlipProgressIndicator;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
         "flip-resource-list": FlipResourceList;
@@ -1982,6 +2003,7 @@ declare module "@stencil/core" {
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
             "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
+            "flip-progress-indicator": LocalJSX.FlipProgressIndicator & JSXBase.HTMLAttributes<HTMLFlipProgressIndicatorElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
             "flip-resource-list": LocalJSX.FlipResourceList & JSXBase.HTMLAttributes<HTMLFlipResourceListElement>;
