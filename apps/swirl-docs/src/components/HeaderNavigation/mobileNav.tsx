@@ -80,19 +80,19 @@ function ListItem({
         </>
       )}
 
-      {item.isRoot !== undefined && !item.children && (
+      {item.isRoot && !item.children && item.url && (
         <Link href={item.url} passHref>
           <a
             aria-current={item.url === currentPath ? "page" : "false"}
             onClick={handleCloseMenu}
-            className="flex justify-between py-2 px-10 w-full"
+            className="flex justify-between py-3 px-2 w-full"
           >
             <h3>{item.title}</h3>
           </a>
         </Link>
       )}
 
-      {!item.children && item.url && (
+      {!item.children && !item.isRoot && item.url && (
         <Link href={item.url} passHref>
           <a
             aria-current={item.url === currentPath ? "page" : "false"}
