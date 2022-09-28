@@ -50,7 +50,10 @@ assigned to at least one
 
 <hr />
 
-Releases of our NPM packages are automatically carried out with each merge into
-the `main` branch. The versioning happens on the basis of the changesets. This
-prevents sluggish release cycles and makes it possible to integrate changes to
-the library at short notice.
+The versioning happens on the basis of our
+[changesets](https://github.com/getflip/swirl/tree/main/.changeset). Every merge
+into the main branch will automatically create a versioning pull request (or
+update the existing one). This PR can then be merged at any time to
+automatically publish the new NPM package versions. This prevents sluggish
+release cycles and makes it possible to integrate changes to the library at
+short notice.
