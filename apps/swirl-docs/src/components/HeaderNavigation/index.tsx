@@ -1,54 +1,58 @@
 import { Link } from "@swirl/lib/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import icon from "@getflip/swirl-icons/icons/Close16.svg";
+import MobileNav from "./mobileNav";
 
-const links: Link[] = [
-  {
-    name: "Foundations",
-    path: "/foundations",
-  },
-  {
-    name: "Components",
-    path: "/components",
-  },
-  {
-    name: "Tokens",
-    path: "/tokens",
-  },
-  {
-    name: "Icons",
-    path: "/icons",
-  },
-];
+export type HeaderNavigationProps = {
+  links: Link[];
+};
 
-const HeaderNavigation = () => {
+const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
   const [activePath, setActivePath] = useState<string | null>(null);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   useEffect(() => {
     setActivePath(window.location.pathname);
   }, []);
 
+  const handleCloseMenu = () => {
+    setIsMobileNavOpen(false);
+  };
+
   return (
-    <nav className="flex justify-start items-center h-[72px] w-screen px-6 border-b-1 font-semibold">
-      <a href="/" className="hidden md:flex justify-center items-center mr-8">
-        <Image
-          alt="Flip Logo"
-          src="/swirl-icon-temp.svg"
-          width={32}
-          height={32}
-        />
-        <span className="font-bold ml-3">Swirl</span>
-      </a>
+    <>
+      <nav className="flex justify-between md:justify-start items-center h-[72px] w-screen px-6 border-b-1 font-semibold">
+        <a href="/" className="flex justify-center items-center mr-8">
+          <Image
+            alt="Flip Logo"
+            src="/swirl-icon-temp.svg"
+            width={32}
+            height={32}
+          />
+          <span className="font-bold ml-3">Swirl</span>
+        </a>
 
-      <button className="block md:hidden p-2 bg-blue-500 text-white rounded-full">
-        TODO: Mobile Menu
-      </button>
+        <div className="block md:hidden">
+          {isMobileNavOpen && (
+            <button onClick={() => setIsMobileNavOpen(false)}>
+              <Image alt="Close Icon" src={icon.src} width={24} height={24} />
+            </button>
+          )}
+          {!isMobileNavOpen && (
+            <button onClick={() => setIsMobileNavOpen(true)}>
+              <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
+              <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
+              <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
+            </button>
+          )}
+        </div>
 
-      <ul className="hidden md:flex flex-row">
-        {links.map((link) => (
-          <li
-            key={link.path}
-            className={`
+        <ul className="hidden md:flex flex-row">
+          {links.map((link) => (
+            <li
+              key={link.path}
+              className={`
               relative
               mr-4
               before:block before:absolute
@@ -61,12 +65,14 @@ const HeaderNavigation = () => {
                   ? "before:opacity-100"
                   : "before:opacity-0"
               }`}
-          >
-            <a href={link.path}>{link.name}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+            >
+              <a href={link.path}>{link.name}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      {isMobileNavOpen && <MobileNav handleCloseMenu={handleCloseMenu} />}
+    </>
   );
 };
 
