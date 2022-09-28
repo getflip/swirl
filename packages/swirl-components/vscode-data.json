@@ -1648,8 +1648,39 @@
           "description": ""
         },
         {
+          "name": "page",
+          "description": ""
+        },
+        {
+          "name": "page-label",
+          "description": ""
+        },
+        {
+          "name": "page-select-label",
+          "description": ""
+        },
+        {
+          "name": "pages",
+          "description": ""
+        },
+        {
           "name": "prev-button-label",
           "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "advanced"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "simple"
+            }
+          ]
         }
       ]
     },

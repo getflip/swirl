@@ -17,6 +17,7 @@ import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
 import { FlipLinkTarget } from "./components/flip-link/flip-link";
+import { FlipPaginationVariant } from "./components/flip-pagination/flip-pagination";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
@@ -372,7 +373,12 @@ export namespace Components {
         "accessiblePrevButtonLabel"?: string;
         "label": string;
         "nextButtonLabel"?: string;
+        "page": number;
+        "pageLabel"?: string;
+        "pageSelectLabel"?: string;
+        "pages": number;
         "prevButtonLabel"?: string;
+        "variant"?: FlipPaginationVariant;
     }
     interface FlipPopover {
         "label": string;
@@ -552,6 +558,10 @@ export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
 export interface FlipFileUploaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipFileUploaderElement;
+}
+export interface FlipPaginationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipPaginationElement;
 }
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1674,7 +1684,13 @@ declare namespace LocalJSX {
         "accessiblePrevButtonLabel"?: string;
         "label": string;
         "nextButtonLabel"?: string;
+        "onSetPage"?: (event: FlipPaginationCustomEvent<number>) => void;
+        "page": number;
+        "pageLabel"?: string;
+        "pageSelectLabel"?: string;
+        "pages": number;
         "prevButtonLabel"?: string;
+        "variant"?: FlipPaginationVariant;
     }
     interface FlipPopover {
         "label": string;
