@@ -8,9 +8,9 @@ export const TokensList = ({ tokens }: { tokens: any }) => {
         <h3 className="col-span-1 font-semibold">Value</h3>
         <h3 className="col-span-2 font-semibold">Description</h3>
       </div>
-      {tokens.map((token: any) => {
+      {tokens.map((token: any, index: number) => {
         return (
-          <div key={token.name}>
+          <div key={token.name + `-${index}`}>
             <TokenItem
               tokenName={{
                 codePreview: "border-radius: 123px",

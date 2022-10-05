@@ -22,7 +22,7 @@ const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
 
   return (
     <>
-      <nav className="flex justify-between md:justify-start items-center h-[72px] w-screen px-6 border-b-1 font-semibold">
+      <nav className="flex justify-between md:justify-start items-center h-[72px] w-screen px-6 border-b-1 font-normal text-base">
         <a href="/" className="flex justify-center items-center mr-8">
           <Image
             alt="Flip Logo"
@@ -59,14 +59,21 @@ const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
               before:bottom-[-23px]
               before:w-full
               before:h-1
-              before:bg-blue-500
+              before:bg-border-info
               ${
                 activePath?.includes(link.path)
                   ? "before:opacity-100"
                   : "before:opacity-0"
               }`}
             >
-              <a href={link.path}>{link.name}</a>
+              <a
+                className={`text-text-default text-base ${
+                  activePath?.includes(link.path) ? "text-border-info" : ""
+                }`}
+                href={link.path}
+              >
+                {link.name}
+              </a>
             </li>
           ))}
         </ul>

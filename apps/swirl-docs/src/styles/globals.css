@@ -43,15 +43,23 @@ body {
 h1 {
   font-size: var(--s-font-size-2xl);
   font-weight: var(--s-font-weight-bold);
+  color: var(--s-text-default);
 }
 
 h2 {
   font-size: var(--s-font-size-xl);
   font-weight: var(--s-font-weight-bold);
+  color: var(--s-text-default);
 }
 
 h3 {
   font-size: var(--s-font-size-lg);
+  color: var(--s-text-default);
+}
+
+p {
+  font-size: var(--s-font-size-base);
+  color: var(--s-text-default);
 }
 
 /** Custom Utility Classes */

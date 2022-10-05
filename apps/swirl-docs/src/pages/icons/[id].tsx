@@ -22,17 +22,13 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: any) {
-  const { documentLinkList, categoryLinkList } = createLinkLists(
-    "icons",
-    context.params.id
-  );
+  const { documentLinkList } = createLinkLists("icons", context.params.id);
   const document = await getComponentData(context.params.id);
 
   return {
     props: {
       document,
       documentLinkList,
-      categoryLinkList,
       title: context.params.id,
     },
   };
@@ -40,12 +36,10 @@ export async function getStaticProps(context: any) {
 
 export default function Component({
   document,
-  categoryLinkList,
   documentLinkList,
   title,
 }: {
   document: any;
-  categoryLinkList: DocCategory[];
   documentLinkList: DocHeadline[];
   title: string;
 }) {
@@ -57,10 +51,7 @@ export default function Component({
       <Head>
         <title>Swirl Components | {title}</title>
       </Head>
-      <DocumentationLayout
-        documentLinkList={documentLinkList}
-        categoryLinkList={categoryLinkList}
-      >
+      <DocumentationLayout documentLinkList={documentLinkList}>
         <article className="prose">
           <MDXRemote {...document} components={components} />
         </article>

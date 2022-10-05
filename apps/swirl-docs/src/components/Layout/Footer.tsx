@@ -28,9 +28,11 @@ const Footer = () => {
       <footer className="hidden md:flex sticky bottom-0 col-span-12 bg-white justify-between items-center h-20 px-4 w-full">
         <Image alt="Flip Logo" src="/flip-logo.svg" width={70} height={30} />
         <ul className="flex justify-center items-center">
-          {links.map((link) => (
-            <li key={link.path} className="mr-8">
-              <a href={link.path}>{link.name}</a>
+          {links.map((link, index) => (
+            <li key={link.path + `-${index}`} className="mr-8">
+              <a className="text-sm text-text-default" href={link.path}>
+                {link.name}
+              </a>
             </li>
           ))}
         </ul>

@@ -37,7 +37,6 @@ export async function getStaticProps(context: any) {
     props: {
       document,
       documentLinkList,
-      categoryLinkList,
       title: context.params.id,
     },
   };
@@ -46,12 +45,10 @@ export async function getStaticProps(context: any) {
 export default function Component({
   document,
   documentLinkList,
-  categoryLinkList,
   title,
 }: {
   document: any;
   documentLinkList: DocHeadline[];
-  categoryLinkList: DocCategory[];
   title: string;
 }) {
   const components = {
@@ -64,10 +61,7 @@ export default function Component({
       <Head>
         <title>Swirl Components | {title}</title>
       </Head>
-      <DocumentationLayout
-        documentLinkList={documentLinkList}
-        categoryLinkList={categoryLinkList}
-      >
+      <DocumentationLayout documentLinkList={documentLinkList}>
         <main className="col-span-8 flex flex-col justify-center items-center">
           <article className="max-w-3xl px-4 mt-6">
             <MDXRemote {...document} components={components} />
