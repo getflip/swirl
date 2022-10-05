@@ -22,8 +22,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: any) {
-  const { documentLinkList } = createLinkLists("icons", context.params.id);
   const document = await getComponentData(context.params.id);
+  const { documentLinkList } = createLinkLists("icons", context.params.id);
 
   return {
     props: {

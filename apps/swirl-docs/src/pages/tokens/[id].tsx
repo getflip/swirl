@@ -1,17 +1,12 @@
 import { createStaticPathsData } from "@swirl/lib/docs";
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 import { MDXRemote } from "next-mdx-remote";
-import {
-  BASE_PATHS,
-  DocCategory,
-  DocHeadline,
-} from "@swirl/lib/docs/src/docs.model";
+import { BASE_PATHS, DocHeadline } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import TokensList from "src/components/Tokens/TokensList";
-import PreFooter from "src/components/Layout/PreFooter";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation("tokens", document);
@@ -27,7 +22,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: any) {
-  const { documentLinkList, categoryLinkList } = createLinkLists(
+  const { documentLinkList } = createLinkLists(
     BASE_PATHS.TOKENS,
     context.params.id
   );

@@ -19,11 +19,9 @@ export const CategoryNav: FunctionComponent = () => {
         activePath?.includes(navItem.url!!) ? "text-border-info" : null
       }`}
     >
-      <a className="text-text-default text-sm" href={`${navItem.url}`}>
-        <h4 className="font-bold text-text-subdued text-sm">
-          {capitalizeFirstLetter(navItem.title)}
-        </h4>
-      </a>
+      <h4 className="font-bold text-text-subdued text-sm">
+        {capitalizeFirstLetter(navItem.title)}
+      </h4>
     </li>
   );
 
@@ -44,7 +42,6 @@ export const CategoryNav: FunctionComponent = () => {
     <nav className="hidden md:block col-span-2 px-4 border-r-1">
       <ul className="mt-6">
         {navItems?.map((navItem: NavItem) => {
-          console.log("navItem", navItem);
           if (navItem.children) {
             return (
               <>

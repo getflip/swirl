@@ -8,6 +8,8 @@ import IframeResizer from "iframe-resizer-react";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemote } from "next-mdx-remote";
 import { createSwirlComponentDocCategories } from "@swirl/lib/docs";
+import { CategoryNav } from "src/components/Layout/CategoryNav";
+import { DocLinksNav } from "src/components/Layout/DocLinksNav";
 
 async function getComponentData(id: string) {
   return await generateMdxFromStorybook(id);
@@ -29,50 +31,41 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: any) {
-  const component = await getComponentData(context.params.id);
+  const document = await getComponentData(context.params.id);
   const links = createDocLinkList(context.params.id);
 
   return {
-    props: { component, links, title: context.params.id },
+    props: { document, links, title: context.params.id },
   };
 }
 
 export default function Component({
-  component,
+  document,
   links,
   title,
 }: {
-  component: any;
+  document: any;
   links: DocHeadline[];
   title: string;
 }) {
   const components = {
-    IframeResizer,
     ...LinkedHeaders,
+    IframeResizer,
   };
   return (
     <>
       <Head>
         <title>Swirl Components | {title}</title>
       </Head>
-      <main>
-        <nav>
-          <ul className="list-disc">
-            {links.map((link: DocHeadline) => {
-              return (
-                <li key={link.id} className="list-disc">
-                  <a href={`#${link.id}`}>{link.name}</a>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-        <section className="flex flex-col justify-center items-center h-full w-screen">
-          <div className="prose">
-            <MDXRemote {...component} components={components} />
-          </div>
-        </section>
-      </main>
+      <div className="grid grid-cols-1 md:grid-cols-12 h-full">
+        <CategoryNav />
+        <main className="col-span-8 flex flex-col justify-center items-center">
+          <article className="max-w-3xl px-4 mt-6">
+            <MDXRemote {...document} components={components} />
+          </article>
+        </main>
+        <DocLinksNav documentLinkList={links} />
+      </div>
     </>
   );
 }

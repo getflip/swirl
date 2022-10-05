@@ -68,8 +68,8 @@ export async function generateMdxFromStorybook(
   const storyBookawait = serialize(source, {
     parseFrontmatter: true,
     mdxOptions: {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [],
+      remarkPlugins: [remarkGfm, sectionize],
+      rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
       format: "mdx",
     },
   });
