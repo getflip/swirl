@@ -1,5 +1,4 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import { DocCategory } from "@swirl/lib/docs/src/docs.model";
 import { NavItem, navItems } from "@swirl/lib/navigation/";
 
 function capitalizeFirstLetter(string: string) {
@@ -27,7 +26,6 @@ export const CategoryNav: FunctionComponent = () => {
 
   const SubElement = ({ navItem }: { navItem: NavItem }) => (
     <li
-      key={navItem.title}
       className={`font-sm mb-4 ${
         activePath?.includes(navItem.url!!) ? "text-border-info" : null
       }`}
@@ -41,29 +39,30 @@ export const CategoryNav: FunctionComponent = () => {
   return (
     <nav className="hidden md:block col-span-2 px-4 border-r-1">
       <ul className="mt-6">
-        {navItems?.map((navItem: NavItem) => {
+        {navItems?.map((navItem: NavItem, index) => {
           if (navItem.children) {
             return (
-              <>
+              <li key={navItem.title + `-${index}`}>
                 <RootElement navItem={navItem} />
-                <li key={navItem.title}>
-                  <ul>
-                    {navItem.children.map((child: NavItem) => (
-                      <SubElement key={child.title} navItem={child} />
-                    ))}
-                  </ul>
-                </li>
+                <ul>
+                  {navItem.children.map((child: NavItem, index) => (
+                    <SubElement
+                      key={child.title + `-${index}`}
+                      navItem={child}
+                    />
+                  ))}
+                </ul>
                 <hr className="bg-core-gray-02 mb-4" />
-              </>
+              </li>
             );
           }
           return (
-            <>
+            <li key={navItem.title + `-${index}`}>
               <RootElement key={navItem.title} navItem={navItem} />
               {navItems.length !== navItems.indexOf(navItem) + 1 && (
                 <hr className="bg-core-gray-02 mb-4" />
               )}
-            </>
+            </li>
           );
         })}
       </ul>
