@@ -10,6 +10,7 @@ import { MDXRemote } from "next-mdx-remote";
 import { createSwirlComponentDocCategories } from "@swirl/lib/docs";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import { DocLinksNav } from "src/components/Layout/DocLinksNav";
+import Footer from "src/components/Layout/Footer";
 
 async function getComponentData(id: string) {
   return await generateMdxFromStorybook(id);
@@ -42,7 +43,6 @@ export async function getStaticProps(context: any) {
 export default function Component({
   document,
   links,
-  title,
 }: {
   document: any;
   links: DocHeadline[];
@@ -55,7 +55,7 @@ export default function Component({
   return (
     <>
       <Head>
-        <title>Swirl Components | {title}</title>
+        <title>Swirl Components</title>
       </Head>
       <div className="grid grid-cols-1 md:grid-cols-12 h-full">
         <CategoryNav />
@@ -65,6 +65,7 @@ export default function Component({
           </article>
         </main>
         <DocLinksNav documentLinkList={links} />
+        <Footer />
       </div>
     </>
   );

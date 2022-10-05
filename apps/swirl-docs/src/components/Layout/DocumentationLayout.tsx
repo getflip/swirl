@@ -11,11 +11,15 @@ export const DocumentationLayout = ({
   children: any;
 }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 h-full">
+    <div className="flex h-full">
       <CategoryNav />
-      {children}
-      <DocLinksNav documentLinkList={documentLinkList} />
-      <Footer />
+      <div>
+        <div className="flex">
+          <div className="w-full max-w-[60rem]">{children}</div>
+          <DocLinksNav documentLinkList={documentLinkList} />
+        </div>
+        <Footer />
+      </div>
     </div>
   );
 };

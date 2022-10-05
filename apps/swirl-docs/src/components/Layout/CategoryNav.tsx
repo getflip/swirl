@@ -12,16 +12,18 @@ export const CategoryNav: FunctionComponent = () => {
   }, []);
 
   const RootElement = ({ navItem }: { navItem: NavItem }) => (
-    <li
-      key={navItem.title}
-      className={`font-sm mb-4 ${
-        activePath?.includes(navItem.url!!) ? "text-border-info" : null
-      }`}
-    >
-      <h4 className="font-bold text-text-subdued text-sm">
-        {capitalizeFirstLetter(navItem.title)}
-      </h4>
-    </li>
+    <ul>
+      <li
+        key={navItem.title}
+        className={`font-sm mb-4 ${
+          activePath?.includes(navItem.url!!) ? "text-border-info" : null
+        }`}
+      >
+        <h4 className="font-bold text-text-subdued text-sm">
+          {capitalizeFirstLetter(navItem.title)}
+        </h4>
+      </li>
+    </ul>
   );
 
   const SubElement = ({ navItem }: { navItem: NavItem }) => (
@@ -37,7 +39,7 @@ export const CategoryNav: FunctionComponent = () => {
   );
 
   return (
-    <nav className="hidden md:block col-span-2 px-4 border-r-1">
+    <nav className="hidden md:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs">
       <ul className="mt-6">
         {navItems?.map((navItem: NavItem, index) => {
           if (navItem.children) {

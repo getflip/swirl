@@ -13,11 +13,11 @@ export const navItems: NavItem[] = [
       },
     ],
   },
-  {
-    title: "Components",
-    url: "/components",
-    isRoot: true,
-  },
+  // {
+  //   title: "Components",
+  //   url: "/components",
+  //   isRoot: true,
+  // },
   {
     title: "Tokens",
     children: [

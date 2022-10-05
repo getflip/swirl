@@ -46,15 +46,19 @@ export default function Component({
   const components = {
     ...LinkedHeaders,
   };
+
+  console.log(documentLinkList);
   return (
     <>
       <Head>
         <title>Swirl Components | {title}</title>
       </Head>
       <DocumentationLayout documentLinkList={documentLinkList}>
-        <article className="prose">
-          <MDXRemote {...document} components={components} />
-        </article>
+        <main className="flex flex-col justify-center items-center">
+          <article className="max-w-3xl px-4 mt-6">
+            <MDXRemote {...document} components={components} />
+          </article>
+        </main>
       </DocumentationLayout>
     </>
   );

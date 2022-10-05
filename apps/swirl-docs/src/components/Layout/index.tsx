@@ -11,10 +11,10 @@ const Layout = ({ children }: LayoutProps) => {
       name: "Foundations",
       path: "/foundations",
     },
-    {
-      name: "Components",
-      path: "/components",
-    },
+    // {
+    //   name: "Components",
+    //   path: "/components",
+    // },
     {
       name: "Tokens",
       path: "/tokens",

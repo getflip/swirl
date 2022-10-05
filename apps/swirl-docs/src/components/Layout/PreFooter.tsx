@@ -3,7 +3,7 @@ import PreFooterTile from "./PreFooterTile";
 
 const PreFooter = () => {
   return (
-    <article className="hidden col-span-12 md:grid grid-cols-1 md:grid-cols-3 bg-gray-300 rounded-lg my-4 mx-10 p-10">
+    <article className="hidden col-start-3 col-span-10 md:grid grid-cols-1 md:grid-cols-3 bg-gray-300 rounded-lg my-4 mx-10 p-10">
       <PreFooterTile title="Platzhalter headline">
         <p>
           Imperdiet pellentesque sed massa augue elementum phasellus. Vulputate

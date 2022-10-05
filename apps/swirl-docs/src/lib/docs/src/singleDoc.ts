@@ -151,12 +151,15 @@ export function createLinkListForDocument(
   const source = generateSerializableDocumentation(category, document);
   const headlines = source.split("\n").filter((line) => line.startsWith("#"));
 
+  console.log("HEADLINES", headlines);
+
   return headlines.map((headline) => {
     const headlineId = headline
-      .split(" ")[1]
-      .toLowerCase()
       .split(" ")
-      .join("-");
+      .slice(1, headline.length)
+      .join("-")
+      .toLowerCase();
+
     const headlineLevel = HeadingMap.get(headline.split(" ")[0]);
 
     return {

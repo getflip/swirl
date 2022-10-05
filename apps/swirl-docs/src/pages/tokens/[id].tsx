@@ -57,7 +57,7 @@ export default function Component({
         <title>Swirl Components | {title}</title>
       </Head>
       <DocumentationLayout documentLinkList={documentLinkList}>
-        <main className="col-span-8 flex flex-col justify-center items-center">
+        <main className="flex flex-col justify-center items-center">
           <article className="max-w-3xl px-4 mt-6">
             <MDXRemote {...document} components={components} />
           </article>

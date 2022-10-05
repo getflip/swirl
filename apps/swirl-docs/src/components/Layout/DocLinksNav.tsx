@@ -21,9 +21,9 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
   const [currentActiveIndex] = useScrollObserver(documents);
 
   return (
-    <div className="col-span-2">
-      <nav className="fixed hidden md:block px-4 border-l-1">
-        <div className="mt-6 mb-4 font-sm font-semibold text-text-subdued text-sm">
+    <div className="hidden md:block min-w-[12rem]">
+      <nav className="fixed hidden md:block px-4 border-l-1 mt-6">
+        <div className="mb-4 font-sm font-semibold text-text-subdued text-sm">
           On this Page
         </div>
         <ul>
