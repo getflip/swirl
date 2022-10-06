@@ -17,28 +17,31 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
     setActivePath(window.location.pathname);
   }, []);
 
-  const RootElement = ({ navItem }: { navItem: NavItem }) => (
-    <ul>
-      <li
-        key={navItem.title}
-        className={`font-sm mb-4 ${
-          activePath?.includes(navItem.url!!) ? "text-border-info" : null
-        }`}
-      >
-        <h4 className="font-bold text-text-subdued text-sm">
-          {capitalizeFirstLetter(navItem.title)}
-        </h4>
-      </li>
-    </ul>
-  );
+  // TODO: Implement when "Foundations"-Category is created
+  // const RootElement = ({ navItem }: { navItem: NavItem }) => (
+  //   <ul>
+  //     <li
+  //       key={navItem.title}
+  //       className={`font-sm mb-4 ${
+  //         activePath?.includes(navItem.url!!) ? "text-border-info" : null
+  //       }`}
+  //     >
+  //       <h4 className="font-bold text-text-subdued text-sm">
+  //         {capitalizeFirstLetter(navItem.title)}
+  //       </h4>
+  //     </li>
+  //   </ul>
+  // );
 
   const SubElement = ({ navItem }: { navItem: NavItem }) => (
     <li
       className={`font-sm mb-4 ${
-        activePath?.includes(navItem.url!!) ? "text-border-info" : null
+        activePath?.includes(navItem.url!!)
+          ? "text-border-info"
+          : "text-text-default"
       }`}
     >
-      <a className="text-text-default text-sm" href={`${navItem.url}`}>
+      <a className=" text-sm" href={`${navItem.url}`}>
         {capitalizeFirstLetter(navItem.title)}
       </a>
     </li>
@@ -48,6 +51,7 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
     <nav className="hidden md:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs">
       <ul className="mt-6">
         {categoryLinkList?.map((navItem: NavItem, index) => {
+          console.log("navitem url", activePath?.includes(navItem.url!!));
           return (
             <SubElement key={navItem.title + `-${index}`} navItem={navItem} />
           );

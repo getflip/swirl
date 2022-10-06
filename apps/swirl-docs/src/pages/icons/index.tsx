@@ -75,7 +75,7 @@ const Components = ({ links }: any) => {
         <title>Swirl Components</title>
       </Head>
       <div className="flex min-h-[calc(100vh_-_72px)]">
-        <CategoryNav categoryLinkList={categoryLinks} />
+        <CategoryNav categoryLinkList={navItems[2].children} />
         <main className="w-full h-full">
           <section className="flex flex-col py-14 px-24">
             <div>

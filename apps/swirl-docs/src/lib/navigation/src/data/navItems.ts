@@ -18,7 +18,7 @@ export const navItems: NavItem[] = [
     children: [
       {
         title: "Overview",
-        url: "/tokens/overview",
+        url: "/tokens",
         description: "Learn about the tokens used in the swirl design system.",
       },
       {
@@ -60,7 +60,7 @@ export const navItems: NavItem[] = [
     children: [
       {
         title: "Overview",
-        url: "/icons/overview",
+        url: "/icons",
         description: "Learn about the icons used in the swirl design system.",
       },
       {
