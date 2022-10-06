@@ -1,11 +1,17 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import { NavItem, navItems } from "@swirl/lib/navigation/";
+import { NavItem } from "@swirl/lib/navigation/";
 
 function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export const CategoryNav: FunctionComponent = () => {
+interface CategoryNavProps {
+  categoryLinkList: NavItem[] | undefined;
+}
+
+export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
+  categoryLinkList,
+}) => {
   const [activePath, setActivePath] = useState<string | null>(null);
   useEffect(() => {
     setActivePath(window.location.pathname);
@@ -41,30 +47,9 @@ export const CategoryNav: FunctionComponent = () => {
   return (
     <nav className="hidden md:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs">
       <ul className="mt-6">
-        {navItems?.map((navItem: NavItem, index) => {
-          if (navItem.children) {
-            return (
-              <li key={navItem.title + `-${index}`}>
-                <RootElement navItem={navItem} />
-                <ul>
-                  {navItem.children.map((child: NavItem, index) => (
-                    <SubElement
-                      key={child.title + `-${index}`}
-                      navItem={child}
-                    />
-                  ))}
-                </ul>
-                <hr className="bg-core-gray-02 mb-4" />
-              </li>
-            );
-          }
+        {categoryLinkList?.map((navItem: NavItem, index) => {
           return (
-            <li key={navItem.title + `-${index}`}>
-              <RootElement key={navItem.title} navItem={navItem} />
-              {navItems.length !== navItems.indexOf(navItem) + 1 && (
-                <hr className="bg-core-gray-02 mb-4" />
-              )}
-            </li>
+            <SubElement key={navItem.title + `-${index}`} navItem={navItem} />
           );
         })}
       </ul>

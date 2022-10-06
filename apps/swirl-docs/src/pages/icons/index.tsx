@@ -4,9 +4,10 @@ import {
   DocCategory,
   DOCUMENTATION_SRC,
 } from "@swirl/lib/docs/src/docs.model";
-import { Link } from "@swirl/lib/navigation";
+import { Link, NavItem, navItems } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
+import { CategoryNav } from "src/components/Layout/CategoryNav";
 
 const RecursiveNavigation = (link: Link) => {
   const hasSubpages = link.subpages && link.subpages.length;
@@ -24,29 +25,82 @@ const RecursiveNavigation = (link: Link) => {
 };
 
 const Components = ({ links }: any) => {
+  const categoryLinks: NavItem[] = [
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+    {
+      title: "test",
+    },
+  ];
   return (
     <>
       <Head>
         <title>Swirl Components</title>
       </Head>
-      <main className="prose">
-        <section className="flex flex-col justify-center items-center h-full w-screen">
-          <h1>icons Directory</h1>
-        </section>
-        <section className="flex justify-center w-screen">
-          <nav>
-            sourcing from pages directroy
-            <ul className="list-disc">
-              <RecursiveNavigation
-                name={BASE_PATHS.ICONS}
-                path={BASE_PATHS.ICONS}
-                key={JSON.stringify(links)}
-                subpages={links}
-              />
-            </ul>
-          </nav>
-        </section>
-      </main>
+      <div className="flex min-h-[calc(100vh_-_72px)]">
+        <CategoryNav categoryLinkList={categoryLinks} />
+        <main className="w-full h-full">
+          <section className="flex flex-col py-14 px-24">
+            <div>
+              <h1 className="mb-4">Icons</h1>
+              <p className="mb-4">here will be a searchbar</p>
+            </div>
+            <div>
+              <h2 className="mb-4">Icon List</h2>
+              <nav>
+                <ul className="flex flex-wrap">
+                  {categoryLinks?.map((category: NavItem, index: number) => (
+                    <li
+                      className="basis-1/6 flex flex-col justify-center items-center border-1 rounded-lg min-w-[10rem] max-w-[10rem] min-h-[10rem] mr-4 mb-4 last:mr-0 last:mb-0"
+                      key={`${category.title}-${index}`}
+                    >
+                      <div>Icon Image</div>
+                      <div>Icon Name</div>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </section>
+        </main>
+      </div>
     </>
   );
 };

@@ -54,6 +54,7 @@ h2 {
 
 h3 {
   font-size: var(--s-font-size-lg);
+  font-weight: var(--s-font-weight-bold);
   color: var(--s-text-default);
 }
 
@@ -63,6 +64,10 @@ p {
 }
 
 /** Custom Utility Classes */
+.border-1 {
+  border: 1px solid var(--s-border-default);
+}
+
 .border-b-1 {
   border-bottom: 1px solid var(--s-border-default);
 }

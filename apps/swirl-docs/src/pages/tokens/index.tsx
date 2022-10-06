@@ -1,5 +1,5 @@
 import { createDocCategory } from "@swirl/lib/docs";
-import { Link } from "@swirl/lib/navigation";
+import { Link, NavItem, navItems } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import {
@@ -7,6 +7,7 @@ import {
   DocCategory,
   DOCUMENTATION_SRC,
 } from "@swirl/lib/docs/src/docs.model";
+import { CategoryNav } from "src/components/Layout/CategoryNav";
 
 const RecursiveNavigation = (link: Link) => {
   const hasSubpages = link.subpages && link.subpages.length;
@@ -24,29 +25,35 @@ const RecursiveNavigation = (link: Link) => {
 };
 
 const Components = ({ links }: any) => {
+  const categoryLinks = navItems[1].children;
   return (
     <>
       <Head>
         <title>Swirl Components</title>
       </Head>
-      <main className="prose">
-        <section className="flex flex-col justify-center items-center h-full w-screen">
-          <h1>Tokens Directory</h1>
-        </section>
-        <section className="flex justify-center w-screen">
-          <nav>
-            sourcing from documentation directroy
-            <ul className="list-disc">
-              <RecursiveNavigation
-                name={BASE_PATHS.TOKENS}
-                path={BASE_PATHS.TOKENS}
-                key={JSON.stringify(links)}
-                subpages={links}
-              />
-            </ul>
-          </nav>
-        </section>
-      </main>
+      <div className="flex min-h-[calc(100vh_-_72px)]">
+        <CategoryNav categoryLinkList={categoryLinks} />
+        <main className="w-full h-full">
+          <section className="flex flex-col py-14 px-24">
+            <h1 className="mb-4">Tokens</h1>
+            <p className="mb-4">
+              This is a directory of all tokens used in the Swirl Design System.
+            </p>
+            <nav>
+              <ul className="flex">
+                {categoryLinks?.map((category: NavItem, index: number) => (
+                  <li
+                    className="border-1 rounded-lg p-4 mr-4 font-bold"
+                    key={`${category.title}-${index}`}
+                  >
+                    <a href={category.url}>{category.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </section>
+        </main>
+      </div>
     </>
   );
 };

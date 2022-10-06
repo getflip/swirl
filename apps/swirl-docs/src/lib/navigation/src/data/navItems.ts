@@ -13,23 +13,29 @@ export const navItems: NavItem[] = [
       },
     ],
   },
-  // {
-  //   title: "Components",
-  //   url: "/components",
-  //   isRoot: true,
-  // },
   {
     title: "Tokens",
     children: [
       {
-        title: "Border",
-        url: "/tokens/border",
-        description:
-          "Border tokens are used to define the border of an element.",
+        title: "Overview",
+        url: "/tokens/overview",
+        description: "Learn about the tokens used in the swirl design system.",
       },
       {
         title: "Color",
         url: "/tokens/color",
+        description:
+          "The Tokens of our Color System. From Interaction to Surface Colors.",
+      },
+      {
+        title: "Typography",
+        url: "/tokens/typography",
+        description:
+          "Tokens regarding Font-Weight, Font-Family, Line-Height, Letter-Spacing.",
+      },
+      {
+        title: "Border",
+        url: "/tokens/border",
         description:
           "Border tokens are used to define the border of an element.",
       },
@@ -40,16 +46,10 @@ export const navItems: NavItem[] = [
           "Border tokens are used to define the border of an element.",
       },
       {
-        title: "Token List",
-        url: "/tokens/token-list",
+        title: "zIndex",
+        url: "/tokens/z-index",
         description:
-          "Border tokens are used to define the border of an element.",
-      },
-      {
-        title: "Typography",
-        url: "/tokens/typography",
-        description:
-          "Border tokens are used to define the border of an element.",
+          "zIndex tokens are used to define the z-index of an element.",
       },
     ],
   },
@@ -57,5 +57,27 @@ export const navItems: NavItem[] = [
     title: "Icons",
     url: "/icons",
     isRoot: true,
+    children: [
+      {
+        title: "Overview",
+        url: "/icons/overview",
+        description: "Learn about the icons used in the swirl design system.",
+      },
+      {
+        title: "Getting started",
+        url: "/icons/getting-started",
+        description: "Learn about the tokens used in the swirl design system.",
+      },
+      {
+        title: "How to build icons",
+        url: "/icons/how-to-build-icons",
+        description: "Learn how to build icons for the swirl design system.",
+      },
+    ],
   },
+  // {
+  //   title: "Components",
+  //   url: "/components",
+  //   isRoot: true,
+  // },
 ];

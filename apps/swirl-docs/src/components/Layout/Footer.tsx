@@ -23,9 +23,9 @@ const links: Link[] = [
 
 const Footer = () => {
   return (
-    <>
+    <footer id="footer">
       <PreFooter />
-      <footer className="hidden md:flex bottom-0 col-start-3 col-span-10 bg-white justify-between items-center h-20 px-4 w-full">
+      <div className="hidden md:flex bottom-0 col-start-3 col-span-10 bg-white justify-between items-center h-20 px-4 w-full">
         <Image alt="Flip Logo" src="/flip-logo.svg" width={70} height={30} />
         <ul className="flex justify-center items-center">
           {links.map((link, index) => (
@@ -36,8 +36,8 @@ const Footer = () => {
             </li>
           ))}
         </ul>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 };
 
