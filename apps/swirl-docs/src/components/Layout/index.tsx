@@ -7,10 +7,10 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const links: Link[] = [
-    {
-      name: "Foundations",
-      path: "/foundations",
-    },
+    // {
+    //   name: "Foundations",
+    //   path: "/foundations",
+    // },
     // {
     //   name: "Components",
     //   path: "/components",

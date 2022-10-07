@@ -7,7 +7,7 @@ import {
 import { Link, NavItem, navItems } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
-import React, { useEffect } from "react";
+import React from "react";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import SearchBar from "../components/SearchBar";
 import IconGrid from "./components/IconGrid";
@@ -42,7 +42,7 @@ const RecursiveNavigation = (link: Link) => {
   );
 };
 
-const Components = ({ links }: any) => {
+const IconsIndex = ({ links }: any) => {
   const icons: IconsMetaData = require("@getflip/swirl-icons/dist/metadata.js");
   const iconsArray = Object.keys(icons);
   const [searchWord, setSearchWord] = React.useState("");
@@ -57,7 +57,7 @@ const Components = ({ links }: any) => {
   return (
     <>
       <Head>
-        <title>Swirl Components</title>
+        <title>Swirl | Icons</title>
       </Head>
       <div className="flex min-h-[calc(100vh_-_72px)]">
         <CategoryNav categoryLinkList={navItems[2].children} />
@@ -110,4 +110,4 @@ export const getStaticProps: GetStaticProps<{
   };
 };
 
-export default Components;
+export default IconsIndex;

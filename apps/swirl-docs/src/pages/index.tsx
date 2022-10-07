@@ -9,7 +9,8 @@ const Home: NextPage = ({}: any) => {
       </Head>
       <main className="flex flex-col justify-center items-center h-screen w-screen">
         <h1 className="text-6xl font-bold">
-          Storybook Doc dynamically sourced 🚀
+          getflip.dev is the future home of our Developer Docs for our APIs and
+          Swirl 🌀 our Design System.
         </h1>
       </main>
     </>

@@ -31,6 +31,7 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
           </a>
         </li>
       ))}
+      {iconList.length === 0 && <p>No icons found</p>}
     </ul>
   );
 };
