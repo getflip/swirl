@@ -1,6 +1,11 @@
+import { FunctionComponent } from "react";
 import TokenItem from "./TokenItem";
 
-export const TokensList = ({ tokens }: { tokens: any }) => {
+interface TokensListProps {
+  tokens: any;
+}
+
+export const TokensList: FunctionComponent<TokensListProps> = ({ tokens }) => {
   return (
     <div className="mb-10">
       <div className="hidden lg:grid grid-cols-5 items-end border-b-1 pb-4">

@@ -7,9 +7,9 @@ const Home: NextPage = ({}: any) => {
       <Head>
         <title>Swirl | NextJS Bootstrap</title>
       </Head>
-      <main className="flex flex-col justify-center items-center h-screen w-screen">
-        <h1 className="text-6xl font-bold">
-          getflip.dev is the future home of our Developer Docs for our APIs and
+      <main className="flex flex-col justify-center items-center h-[calc(100vh_-_72px)] w-screen">
+        <h1 className="text-3xl font-bold max-w-lg text-center">
+          getflip.dev is the future 🏠 of our developer docs for our APIs and
           Swirl 🌀 our Design System.
         </h1>
       </main>

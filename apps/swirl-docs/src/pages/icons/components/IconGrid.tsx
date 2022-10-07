@@ -13,14 +13,11 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
   handleTileClick,
 }) => {
   return (
-    <ul className="grid grid-cols-2 md:grid-cols-fill-rows gap-4 w-full max-w-[50rem]">
+    <ul className="grid grid-cols-2 md:grid-cols-fill-rows gap-4 w-full">
       {iconList?.map((icon: string, index: number) => (
-        <li
-          className="mr-4 mb-4 last:mr-0 last:mb-0"
-          key={`${icons[icon].name}-${index}`}
-        >
+        <li key={`${icons[icon].name}-${index}`}>
           <a
-            href={`#${icons[icon].name.toLowerCase()}`}
+            href={`#${icons[icon].name}`}
             onClick={() => handleTileClick(icons[icon].name)}
             className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
           >

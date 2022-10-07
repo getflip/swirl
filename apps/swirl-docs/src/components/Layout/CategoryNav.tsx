@@ -14,6 +14,7 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
 }) => {
   const [activePath, setActivePath] = useState<string | null>(null);
   useEffect(() => {
+    console.log("active path", window.location.pathname);
     setActivePath(window.location.pathname);
   }, []);
 
@@ -36,9 +37,7 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
   const SubElement = ({ navItem }: { navItem: NavItem }) => (
     <li
       className={`font-sm mb-4 ${
-        activePath?.includes(navItem.url!!)
-          ? "text-border-info"
-          : "text-text-default"
+        activePath === navItem.url ? "text-border-info" : "text-text-default"
       }`}
     >
       <a className=" text-sm" href={`${navItem.url}`}>

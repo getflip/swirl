@@ -7,7 +7,7 @@ import {
 import { Link, NavItem, navItems } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
-import React from "react";
+import React, { useEffect } from "react";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import SearchBar from "../components/SearchBar";
 import IconGrid from "./components/IconGrid";
@@ -53,6 +53,14 @@ const IconsIndex = ({ links }: any) => {
   const filteredIcons = iconsArray.filter((icon) => {
     return icon.toLowerCase().includes(searchWord.toLowerCase());
   });
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const iconName = window.location.hash.replace("#", "");
+      console.log("iconName", iconName);
+      setSelectedIcon(icons[iconName]);
+    }
+  }, [icons]);
 
   return (
     <>
