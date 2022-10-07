@@ -4,6 +4,7 @@
 
 @import "~@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css";
 @import "~@getflip/swirl-tokens/dist/css/styles.dark.custom-properties.css";
+@import "~@getflip/swirl-icons/dist/swirl-icons.css";
 
 @font-face {
   font-family: "Inter var experimental";

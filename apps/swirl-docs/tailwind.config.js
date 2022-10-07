@@ -25,6 +25,9 @@ module.exports = {
     },
     extend: {
       ...SwirlTailwindTheme,
+      gridTemplateColumns: {
+        "fill-rows": "repeat(auto-fill, 10rem)",
+      },
     },
     fontFamily: {
       sans: ["Inter", "sans-serif"],

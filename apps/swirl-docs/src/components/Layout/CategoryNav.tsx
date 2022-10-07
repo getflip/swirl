@@ -51,7 +51,6 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
     <nav className="hidden md:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs">
       <ul className="mt-6">
         {categoryLinkList?.map((navItem: NavItem, index) => {
-          console.log("navitem url", activePath?.includes(navItem.url!!));
           return (
             <SubElement key={navItem.title + `-${index}`} navItem={navItem} />
           );
