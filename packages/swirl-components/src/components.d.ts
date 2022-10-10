@@ -23,6 +23,7 @@ import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
 import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
 import { FlipTagIntent } from "./components/flip-tag/flip-tag";
+import { FlipTextAlign, FlipTextColor, FlipTextFontStyle, FlipTextSize, FlipTextWeight } from "./components/flip-text/flip-text";
 import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
 import { FlipThumbnailFormat, FlipThumbnailSize } from "./components/flip-thumbnail/flip-thumbnail";
 import { FlipToastIntent } from "./components/flip-toast/flip-toast";
@@ -467,6 +468,14 @@ export namespace Components {
         "label": string;
         "removable"?: boolean;
         "removalButtonLabel"?: string;
+    }
+    interface FlipText {
+        "align"?: FlipTextAlign;
+        "as"?: string;
+        "color"?: FlipTextColor;
+        "fontStyle"?: FlipTextFontStyle;
+        "size"?: FlipTextSize;
+        "weight"?: FlipTextWeight;
     }
     interface FlipThemeProvider {
         "config": FlipThemeProviderConfig;
@@ -1189,6 +1198,12 @@ declare global {
         prototype: HTMLFlipTagElement;
         new (): HTMLFlipTagElement;
     };
+    interface HTMLFlipTextElement extends Components.FlipText, HTMLStencilElement {
+    }
+    var HTMLFlipTextElement: {
+        prototype: HTMLFlipTextElement;
+        new (): HTMLFlipTextElement;
+    };
     interface HTMLFlipThemeProviderElement extends Components.FlipThemeProvider, HTMLStencilElement {
     }
     var HTMLFlipThemeProviderElement: {
@@ -1326,6 +1341,7 @@ declare global {
         "flip-tab": HTMLFlipTabElement;
         "flip-tabs": HTMLFlipTabsElement;
         "flip-tag": HTMLFlipTagElement;
+        "flip-text": HTMLFlipTextElement;
         "flip-theme-provider": HTMLFlipThemeProviderElement;
         "flip-thumbnail": HTMLFlipThumbnailElement;
         "flip-toast": HTMLFlipToastElement;
@@ -1773,6 +1789,14 @@ declare namespace LocalJSX {
         "removable"?: boolean;
         "removalButtonLabel"?: string;
     }
+    interface FlipText {
+        "align"?: FlipTextAlign;
+        "as"?: string;
+        "color"?: FlipTextColor;
+        "fontStyle"?: FlipTextFontStyle;
+        "size"?: FlipTextSize;
+        "weight"?: FlipTextWeight;
+    }
     interface FlipThemeProvider {
         "config"?: FlipThemeProviderConfig;
     }
@@ -1906,6 +1930,7 @@ declare namespace LocalJSX {
         "flip-tab": FlipTab;
         "flip-tabs": FlipTabs;
         "flip-tag": FlipTag;
+        "flip-text": FlipText;
         "flip-theme-provider": FlipThemeProvider;
         "flip-thumbnail": FlipThumbnail;
         "flip-toast": FlipToast;
@@ -2018,6 +2043,7 @@ declare module "@stencil/core" {
             "flip-tab": LocalJSX.FlipTab & JSXBase.HTMLAttributes<HTMLFlipTabElement>;
             "flip-tabs": LocalJSX.FlipTabs & JSXBase.HTMLAttributes<HTMLFlipTabsElement>;
             "flip-tag": LocalJSX.FlipTag & JSXBase.HTMLAttributes<HTMLFlipTagElement>;
+            "flip-text": LocalJSX.FlipText & JSXBase.HTMLAttributes<HTMLFlipTextElement>;
             "flip-theme-provider": LocalJSX.FlipThemeProvider & JSXBase.HTMLAttributes<HTMLFlipThemeProviderElement>;
             "flip-thumbnail": LocalJSX.FlipThumbnail & JSXBase.HTMLAttributes<HTMLFlipThumbnailElement>;
             "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
