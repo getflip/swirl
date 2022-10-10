@@ -42,7 +42,7 @@ export class FlipModal {
   }
 
   /**
-   * Open the dialog.
+   * Open the modal.
    */
   @Method()
   async open() {
@@ -51,7 +51,7 @@ export class FlipModal {
   }
 
   /**
-   * Close the dialog.
+   * Close the modal.
    */
   @Method()
   async close() {
