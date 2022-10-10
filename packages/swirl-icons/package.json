@@ -13,9 +13,12 @@
     "icons"
   ],
   "devDependencies": {
-    "svgtofont": "^3.17.8"
+    "svgtofont": "^3.17.8",
+    "ts-node": "^10.9.1"
   },
   "scripts": {
-    "build": "svgtofont --sources ./icons --output ./dist"
+    "build:fonts": "svgtofont --sources ./icons --output ./dist",
+    "build:metadata": "ts-node ./scripts/createMetaData.ts",
+    "build": "yarn build:fonts && yarn build:metadata"
   }
 }

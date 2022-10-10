@@ -4,7 +4,7 @@ import {
   DocCategory,
   DOCUMENTATION_SRC,
 } from "@swirl/lib/docs/src/docs.model";
-import { Link, NavItem, navItems } from "@swirl/lib/navigation";
+import { Link, navItems } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import React, { useEffect } from "react";
