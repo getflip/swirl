@@ -373,6 +373,20 @@ export namespace Components {
         "label": string;
         "target"?: FlipLinkTarget;
     }
+    interface FlipModal {
+        /**
+          * Close the dialog.
+         */
+        "close": () => Promise<void>;
+        "closeButtonLabel"?: string;
+        "label": string;
+        /**
+          * Open the dialog.
+         */
+        "open": () => Promise<void>;
+        "primaryActionLabel"?: string;
+        "secondaryActionLabel"?: string;
+    }
     interface FlipPopover {
         "label": string;
         "popoverId": string;
@@ -551,6 +565,10 @@ export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
 export interface FlipFileUploaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipFileUploaderElement;
+}
+export interface FlipModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipModalElement;
 }
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1111,6 +1129,12 @@ declare global {
         prototype: HTMLFlipLinkElement;
         new (): HTMLFlipLinkElement;
     };
+    interface HTMLFlipModalElement extends Components.FlipModal, HTMLStencilElement {
+    }
+    var HTMLFlipModalElement: {
+        prototype: HTMLFlipModalElement;
+        new (): HTMLFlipModalElement;
+    };
     interface HTMLFlipPopoverElement extends Components.FlipPopover, HTMLStencilElement {
     }
     var HTMLFlipPopoverElement: {
@@ -1313,6 +1337,7 @@ declare global {
         "flip-icon-warning": HTMLFlipIconWarningElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-link": HTMLFlipLinkElement;
+        "flip-modal": HTMLFlipModalElement;
         "flip-popover": HTMLFlipPopoverElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
@@ -1673,6 +1698,14 @@ declare namespace LocalJSX {
         "label": string;
         "target"?: FlipLinkTarget;
     }
+    interface FlipModal {
+        "closeButtonLabel"?: string;
+        "label": string;
+        "onPrimaryAction"?: (event: FlipModalCustomEvent<MouseEvent>) => void;
+        "onSecondaryAction"?: (event: FlipModalCustomEvent<MouseEvent>) => void;
+        "primaryActionLabel"?: string;
+        "secondaryActionLabel"?: string;
+    }
     interface FlipPopover {
         "label": string;
         "popoverId": string;
@@ -1893,6 +1926,7 @@ declare namespace LocalJSX {
         "flip-icon-warning": FlipIconWarning;
         "flip-inline-error": FlipInlineError;
         "flip-link": FlipLink;
+        "flip-modal": FlipModal;
         "flip-popover": FlipPopover;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
@@ -2005,6 +2039,7 @@ declare module "@stencil/core" {
             "flip-icon-warning": LocalJSX.FlipIconWarning & JSXBase.HTMLAttributes<HTMLFlipIconWarningElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
+            "flip-modal": LocalJSX.FlipModal & JSXBase.HTMLAttributes<HTMLFlipModalElement>;
             "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
