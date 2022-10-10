@@ -1,4 +1,5 @@
 const SwirlTailwindTheme = require("@getflip/swirl-tokens/dist/tailwind/swirl-tailwind.json");
+const colors = require("./bgSafeList.json");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -34,4 +35,5 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/typography")],
+  safelist: [...colors.colors],
 };
