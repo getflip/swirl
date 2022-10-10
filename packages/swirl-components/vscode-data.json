@@ -599,6 +599,23 @@
       ]
     },
     {
+      "name": "flip-empty-state",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "heading",
+          "description": ""
+        },
+        {
+          "name": "illustration",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-file-uploader",
       "description": {
         "kind": "markdown",

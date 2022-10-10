@@ -39,6 +39,18 @@ export const config: Config = {
     },
     {
       autoDefineCustomElements: true,
+      copy: [
+        {
+          src: "assets/fonts/*",
+          dest: "dist/components/assets/fonts",
+          warn: true,
+        },
+        {
+          src: "assets/images/*",
+          dest: "dist/components/assets/images",
+          warn: true,
+        },
+      ],
       generateTypeDeclarations: true,
       type: "dist-custom-elements",
     },
