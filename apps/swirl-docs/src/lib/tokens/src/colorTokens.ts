@@ -21,15 +21,8 @@ export const getColorTokens = (): ColorTokens => {
     .filter((key) => tokensLight[key].type === "color")
     .map((key) => tokensLight[key]);
 
-  const colorTokensWithoutBg = lightTokenKeys
-    .filter((key) => tokensLight[key].type === "color")
-    .map((key) => `bg-${key}`);
-
-  console.log("colorTokensWithoutBg", colorTokensWithoutBg);
-
   basicColorTokens.forEach((token) => {
     const colorCategory = getColorCategory(token);
-
     colorTokens[colorCategory]?.push({
       name: token.name,
       type: token.type,

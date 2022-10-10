@@ -9,7 +9,7 @@ interface TokensListProps {
 export const TokensList: FunctionComponent<TokensListProps> = ({ tokens }) => {
   return (
     <div className="mb-10">
-      <div className="hidden lg:grid gap-2 grid-cols-5 items-end border-b-1 pb-4">
+      <div className="hidden md:grid gap-2 grid-cols-5 items-end border-b-1 pb-4">
         <h3 className="col-span-2 font-semibold">Token Name</h3>
         <h3 className="col-span-1 font-semibold">Value</h3>
         <h3 className="col-span-2 font-semibold">Description</h3>
