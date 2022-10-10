@@ -19,23 +19,13 @@ type metaDataObject = {
 
 const metadata: metaDataObject = {};
 
-console.log("pwd", process.cwd());
-const file = fs.readFileSync("dist/swirl-icons.css", "utf-8");
-
-const iconSet = new Set(
-  file
-    .split("\n")
-    .filter((line) => line.includes(".swirl-icons-"))
-    .map((line) =>
-      line
-        .split(":before")[0]
-        .replace(".", "")
-        .replace("swirl-icons-", "")
-        .slice(0, -2)
-    )
-);
-
 const idPrefix = "swirl-icons-";
+
+const iconSet = new Set<string>();
+
+fs.readdirSync("icons").forEach((file) => {
+  iconSet.add(file.substring(0, file.length - 6));
+});
 
 for (let icon of iconSet) {
   metadata[icon] = {

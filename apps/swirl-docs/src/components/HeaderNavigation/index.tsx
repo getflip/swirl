@@ -22,7 +22,7 @@ const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
 
   return (
     <>
-      <nav className="flex justify-between md:justify-start items-center h-[72px] w-screen px-6 border-b-1 font-normal text-base">
+      <nav className="flex justify-between md:justify-start items-center h-[72px] w-full px-6 border-b-1 font-normal text-base">
         <a href="/" className="flex justify-center items-center mr-8">
           <Image
             alt="Flip Logo"
