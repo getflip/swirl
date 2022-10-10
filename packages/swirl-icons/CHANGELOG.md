@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.3.0
+
+### Minor Changes
+
+- [#48](https://github.com/getflip/swirl/pull/48)
+  [`388dc25`](https://github.com/getflip/swirl/commit/388dc25a0bec10cf984e888c8ad84180719587c1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-cloud-upload icon
+
 ## 0.2.0
 
 ### Minor Changes
