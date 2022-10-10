@@ -376,13 +376,13 @@ export namespace Components {
     }
     interface FlipModal {
         /**
-          * Close the dialog.
+          * Close the modal.
          */
         "close": () => Promise<void>;
         "closeButtonLabel"?: string;
         "label": string;
         /**
-          * Open the dialog.
+          * Open the modal.
          */
         "open": () => Promise<void>;
         "primaryActionLabel"?: string;

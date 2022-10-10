@@ -123,7 +123,21 @@ export class FlipModal {
               onClick={this.onCloseButtonClick}
             ></flip-button>
             <header class="modal__header">
-              <flip-heading level={2} text={this.label}></flip-heading>
+              <flip-heading
+                as="h2"
+                class="modal__heading"
+                level={3}
+                text={this.label}
+              ></flip-heading>
+              {this.primaryActionLabel && (
+                <flip-button
+                  class="modal__mobile-primary-action"
+                  intent="primary"
+                  label={this.primaryActionLabel}
+                  onClick={this.onPrimaryAction}
+                  variant="flat"
+                ></flip-button>
+              )}
             </header>
             <div
               class="modal__content"
