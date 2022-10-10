@@ -22,6 +22,12 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     type: "boolean",
   },
   {
+    elementSelectors: ["flip-option-list"],
+    event: "valueChange",
+    targetAttr: "value",
+    type: "select",
+  },
+  {
     elementSelectors: ["flip-radio-group", "flip-search"],
     event: "valueChange",
     targetAttr: "value",
