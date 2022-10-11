@@ -18,6 +18,7 @@ import { FlipHeadingAlign, FlipHeadingLevel, FlipHeadingTag } from "./components
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
 import { FlipLinkTarget } from "./components/flip-link/flip-link";
+import { FlipOptionListItemContext } from "./components/flip-option-list-item/flip-option-list-item";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
@@ -133,6 +134,10 @@ export namespace Components {
         "open": () => Promise<void>;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface FlipEmptyState {
+        "heading"?: string;
+        "illustration"?: string;
     }
     interface FlipFileUploader {
         "accept"?: string;
@@ -388,6 +393,23 @@ export namespace Components {
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
+    interface FlipOptionList {
+        "disabled"?: boolean;
+        "label"?: string;
+        "multiSelect"?: boolean;
+        "value"?: string[];
+    }
+    interface FlipOptionListItem {
+        "context"?: FlipOptionListItemContext;
+        "disabled"?: boolean;
+        "icon"?: string;
+        "label": string;
+        "selected"?: boolean;
+        "value": string;
+    }
+    interface FlipOptionListSection {
+        "label": string;
+    }
     interface FlipPopover {
         "label": string;
         "popoverId": string;
@@ -579,6 +601,10 @@ export interface FlipModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipModalElement;
 }
+export interface FlipOptionListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipOptionListElement;
+}
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioElement;
@@ -699,6 +725,12 @@ declare global {
     var HTMLFlipDialogElement: {
         prototype: HTMLFlipDialogElement;
         new (): HTMLFlipDialogElement;
+    };
+    interface HTMLFlipEmptyStateElement extends Components.FlipEmptyState, HTMLStencilElement {
+    }
+    var HTMLFlipEmptyStateElement: {
+        prototype: HTMLFlipEmptyStateElement;
+        new (): HTMLFlipEmptyStateElement;
     };
     interface HTMLFlipFileUploaderElement extends Components.FlipFileUploader, HTMLStencilElement {
     }
@@ -1144,6 +1176,24 @@ declare global {
         prototype: HTMLFlipModalElement;
         new (): HTMLFlipModalElement;
     };
+    interface HTMLFlipOptionListElement extends Components.FlipOptionList, HTMLStencilElement {
+    }
+    var HTMLFlipOptionListElement: {
+        prototype: HTMLFlipOptionListElement;
+        new (): HTMLFlipOptionListElement;
+    };
+    interface HTMLFlipOptionListItemElement extends Components.FlipOptionListItem, HTMLStencilElement {
+    }
+    var HTMLFlipOptionListItemElement: {
+        prototype: HTMLFlipOptionListItemElement;
+        new (): HTMLFlipOptionListItemElement;
+    };
+    interface HTMLFlipOptionListSectionElement extends Components.FlipOptionListSection, HTMLStencilElement {
+    }
+    var HTMLFlipOptionListSectionElement: {
+        prototype: HTMLFlipOptionListSectionElement;
+        new (): HTMLFlipOptionListSectionElement;
+    };
     interface HTMLFlipPopoverElement extends Components.FlipPopover, HTMLStencilElement {
     }
     var HTMLFlipPopoverElement: {
@@ -1279,6 +1329,7 @@ declare global {
         "flip-description-list": HTMLFlipDescriptionListElement;
         "flip-description-list-item": HTMLFlipDescriptionListItemElement;
         "flip-dialog": HTMLFlipDialogElement;
+        "flip-empty-state": HTMLFlipEmptyStateElement;
         "flip-file-uploader": HTMLFlipFileUploaderElement;
         "flip-heading": HTMLFlipHeadingElement;
         "flip-icon-add": HTMLFlipIconAddElement;
@@ -1353,6 +1404,9 @@ declare global {
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-link": HTMLFlipLinkElement;
         "flip-modal": HTMLFlipModalElement;
+        "flip-option-list": HTMLFlipOptionListElement;
+        "flip-option-list-item": HTMLFlipOptionListItemElement;
+        "flip-option-list-section": HTMLFlipOptionListSectionElement;
         "flip-popover": HTMLFlipPopoverElement;
         "flip-radio": HTMLFlipRadioElement;
         "flip-radio-group": HTMLFlipRadioGroupElement;
@@ -1476,6 +1530,10 @@ declare namespace LocalJSX {
         "onSecondaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface FlipEmptyState {
+        "heading"?: string;
+        "illustration"?: string;
     }
     interface FlipFileUploader {
         "accept"?: string;
@@ -1722,6 +1780,24 @@ declare namespace LocalJSX {
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
+    interface FlipOptionList {
+        "disabled"?: boolean;
+        "label"?: string;
+        "multiSelect"?: boolean;
+        "onValueChange"?: (event: FlipOptionListCustomEvent<string[]>) => void;
+        "value"?: string[];
+    }
+    interface FlipOptionListItem {
+        "context"?: FlipOptionListItemContext;
+        "disabled"?: boolean;
+        "icon"?: string;
+        "label": string;
+        "selected"?: boolean;
+        "value": string;
+    }
+    interface FlipOptionListSection {
+        "label": string;
+    }
     interface FlipPopover {
         "label": string;
         "popoverId": string;
@@ -1877,6 +1953,7 @@ declare namespace LocalJSX {
         "flip-description-list": FlipDescriptionList;
         "flip-description-list-item": FlipDescriptionListItem;
         "flip-dialog": FlipDialog;
+        "flip-empty-state": FlipEmptyState;
         "flip-file-uploader": FlipFileUploader;
         "flip-heading": FlipHeading;
         "flip-icon-add": FlipIconAdd;
@@ -1951,6 +2028,9 @@ declare namespace LocalJSX {
         "flip-inline-error": FlipInlineError;
         "flip-link": FlipLink;
         "flip-modal": FlipModal;
+        "flip-option-list": FlipOptionList;
+        "flip-option-list-item": FlipOptionListItem;
+        "flip-option-list-section": FlipOptionListSection;
         "flip-popover": FlipPopover;
         "flip-radio": FlipRadio;
         "flip-radio-group": FlipRadioGroup;
@@ -1991,6 +2071,7 @@ declare module "@stencil/core" {
             "flip-description-list": LocalJSX.FlipDescriptionList & JSXBase.HTMLAttributes<HTMLFlipDescriptionListElement>;
             "flip-description-list-item": LocalJSX.FlipDescriptionListItem & JSXBase.HTMLAttributes<HTMLFlipDescriptionListItemElement>;
             "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;
+            "flip-empty-state": LocalJSX.FlipEmptyState & JSXBase.HTMLAttributes<HTMLFlipEmptyStateElement>;
             "flip-file-uploader": LocalJSX.FlipFileUploader & JSXBase.HTMLAttributes<HTMLFlipFileUploaderElement>;
             "flip-heading": LocalJSX.FlipHeading & JSXBase.HTMLAttributes<HTMLFlipHeadingElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
@@ -2065,6 +2146,9 @@ declare module "@stencil/core" {
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
             "flip-modal": LocalJSX.FlipModal & JSXBase.HTMLAttributes<HTMLFlipModalElement>;
+            "flip-option-list": LocalJSX.FlipOptionList & JSXBase.HTMLAttributes<HTMLFlipOptionListElement>;
+            "flip-option-list-item": LocalJSX.FlipOptionListItem & JSXBase.HTMLAttributes<HTMLFlipOptionListItemElement>;
+            "flip-option-list-section": LocalJSX.FlipOptionListSection & JSXBase.HTMLAttributes<HTMLFlipOptionListSectionElement>;
             "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
             "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
