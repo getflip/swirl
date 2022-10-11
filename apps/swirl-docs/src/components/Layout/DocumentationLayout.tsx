@@ -18,7 +18,7 @@ export const DocumentationLayout = ({
       <CategoryNav categoryLinkList={categoryLinkList} />
       <div>
         <div className="flex h-full">
-          <div className="w-full max-w-[60rem] grow shrink-0">{children}</div>
+          <div className="max-w-[60rem] grow shrink-0">{children}</div>
           <DocLinksNav documentLinkList={documentLinkList} />
         </div>
         <Footer />
