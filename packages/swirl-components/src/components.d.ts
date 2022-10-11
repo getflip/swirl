@@ -379,6 +379,8 @@ export namespace Components {
         "label": string;
         "target"?: FlipLinkTarget;
     }
+    interface FlipList {
+    }
     interface FlipOptionList {
         "disabled"?: boolean;
         "label"?: string;
@@ -1152,6 +1154,12 @@ declare global {
         prototype: HTMLFlipLinkElement;
         new (): HTMLFlipLinkElement;
     };
+    interface HTMLFlipListElement extends Components.FlipList, HTMLStencilElement {
+    }
+    var HTMLFlipListElement: {
+        prototype: HTMLFlipListElement;
+        new (): HTMLFlipListElement;
+    };
     interface HTMLFlipOptionListElement extends Components.FlipOptionList, HTMLStencilElement {
     }
     var HTMLFlipOptionListElement: {
@@ -1379,6 +1387,7 @@ declare global {
         "flip-icon-warning": HTMLFlipIconWarningElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-link": HTMLFlipLinkElement;
+        "flip-list": HTMLFlipListElement;
         "flip-option-list": HTMLFlipOptionListElement;
         "flip-option-list-item": HTMLFlipOptionListItemElement;
         "flip-option-list-section": HTMLFlipOptionListSectionElement;
@@ -1747,6 +1756,8 @@ declare namespace LocalJSX {
         "label": string;
         "target"?: FlipLinkTarget;
     }
+    interface FlipList {
+    }
     interface FlipOptionList {
         "disabled"?: boolean;
         "label"?: string;
@@ -1994,6 +2005,7 @@ declare namespace LocalJSX {
         "flip-icon-warning": FlipIconWarning;
         "flip-inline-error": FlipInlineError;
         "flip-link": FlipLink;
+        "flip-list": FlipList;
         "flip-option-list": FlipOptionList;
         "flip-option-list-item": FlipOptionListItem;
         "flip-option-list-section": FlipOptionListSection;
@@ -2111,6 +2123,7 @@ declare module "@stencil/core" {
             "flip-icon-warning": LocalJSX.FlipIconWarning & JSXBase.HTMLAttributes<HTMLFlipIconWarningElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
+            "flip-list": LocalJSX.FlipList & JSXBase.HTMLAttributes<HTMLFlipListElement>;
             "flip-option-list": LocalJSX.FlipOptionList & JSXBase.HTMLAttributes<HTMLFlipOptionListElement>;
             "flip-option-list-item": LocalJSX.FlipOptionListItem & JSXBase.HTMLAttributes<HTMLFlipOptionListItemElement>;
             "flip-option-list-section": LocalJSX.FlipOptionListSection & JSXBase.HTMLAttributes<HTMLFlipOptionListSectionElement>;
