@@ -23,7 +23,8 @@ import {
 export class FlipRadioGroup {
   @Element() el: HTMLElement;
 
-  @Prop({ mutable: true }) value?: string;
+  @Prop() flipAriaDescribedby?: string;
+  @Prop({ mutable: true, reflect: true }) value?: string;
 
   @Event() valueChange: EventEmitter<string>;
 
@@ -56,6 +57,7 @@ export class FlipRadioGroup {
       radio.addEventListener("valueChange", () => {
         if (radio.checked === true || radio.checked === "true") {
           this.valueChange.emit(radio.value);
+          this.value = radio.value;
 
           this.radioButtons.forEach((r, k) => {
             if (String(k) === key) {
@@ -71,7 +73,7 @@ export class FlipRadioGroup {
 
   render() {
     return (
-      <Host role="radiogroup">
+      <Host aria-describedby={this.flipAriaDescribedby} role="radiogroup">
         <div class="radio-group">
           <slot></slot>
         </div>
