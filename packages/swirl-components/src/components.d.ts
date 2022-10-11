@@ -13,6 +13,7 @@ import { FlipButtonIntent, FlipButtonSize, FlipButtonType, FlipButtonVariant } f
 import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-button-group";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
+import { AirDatepickerLocale } from "air-datepicker";
 import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
 import { FlipHeadingAlign, FlipHeadingLevel, FlipHeadingTag } from "./components/flip-heading/flip-heading";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
@@ -116,6 +117,14 @@ export namespace Components {
         "intent"?: FlipChipIntent;
         "interactive"?: boolean;
         "label": string;
+    }
+    interface FlipDatePicker {
+        "locale"?: Partial<AirDatepickerLocale>;
+        "maxDate"?: Date;
+        "minDate"?: Date;
+        "range"?: boolean;
+        "startDate"?: Date;
+        "value"?: Date | Date[];
     }
     interface FlipDescriptionList {
     }
@@ -611,6 +620,10 @@ export interface FlipCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipCheckboxElement;
 }
+export interface FlipDatePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipDatePickerElement;
+}
 export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipDialogElement;
@@ -729,6 +742,12 @@ declare global {
     var HTMLFlipChipElement: {
         prototype: HTMLFlipChipElement;
         new (): HTMLFlipChipElement;
+    };
+    interface HTMLFlipDatePickerElement extends Components.FlipDatePicker, HTMLStencilElement {
+    }
+    var HTMLFlipDatePickerElement: {
+        prototype: HTMLFlipDatePickerElement;
+        new (): HTMLFlipDatePickerElement;
     };
     interface HTMLFlipDescriptionListElement extends Components.FlipDescriptionList, HTMLStencilElement {
     }
@@ -1360,6 +1379,7 @@ declare global {
         "flip-button-group": HTMLFlipButtonGroupElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
         "flip-chip": HTMLFlipChipElement;
+        "flip-date-picker": HTMLFlipDatePickerElement;
         "flip-description-list": HTMLFlipDescriptionListElement;
         "flip-description-list-item": HTMLFlipDescriptionListItemElement;
         "flip-dialog": HTMLFlipDialogElement;
@@ -1553,6 +1573,15 @@ declare namespace LocalJSX {
         "intent"?: FlipChipIntent;
         "interactive"?: boolean;
         "label": string;
+    }
+    interface FlipDatePicker {
+        "locale"?: Partial<AirDatepickerLocale>;
+        "maxDate"?: Date;
+        "minDate"?: Date;
+        "onValueChange"?: (event: FlipDatePickerCustomEvent<Date | Date[]>) => void;
+        "range"?: boolean;
+        "startDate"?: Date;
+        "value"?: Date | Date[];
     }
     interface FlipDescriptionList {
     }
@@ -2014,6 +2043,7 @@ declare namespace LocalJSX {
         "flip-button-group": FlipButtonGroup;
         "flip-checkbox": FlipCheckbox;
         "flip-chip": FlipChip;
+        "flip-date-picker": FlipDatePicker;
         "flip-description-list": FlipDescriptionList;
         "flip-description-list-item": FlipDescriptionListItem;
         "flip-dialog": FlipDialog;
@@ -2134,6 +2164,7 @@ declare module "@stencil/core" {
             "flip-button-group": LocalJSX.FlipButtonGroup & JSXBase.HTMLAttributes<HTMLFlipButtonGroupElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
             "flip-chip": LocalJSX.FlipChip & JSXBase.HTMLAttributes<HTMLFlipChipElement>;
+            "flip-date-picker": LocalJSX.FlipDatePicker & JSXBase.HTMLAttributes<HTMLFlipDatePickerElement>;
             "flip-description-list": LocalJSX.FlipDescriptionList & JSXBase.HTMLAttributes<HTMLFlipDescriptionListElement>;
             "flip-description-list-item": LocalJSX.FlipDescriptionListItem & JSXBase.HTMLAttributes<HTMLFlipDescriptionListItemElement>;
             "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;

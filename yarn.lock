@@ -4279,6 +4279,11 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
+air-datepicker@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/air-datepicker/-/air-datepicker-3.3.0.tgz#fb56afa32a2907e2d0a64d120626bd02f7e32b4e"
+  integrity sha512-QrvZ3JIDkMcPT09SV1arvvm71KC/IdxDoEfcKJ1cmk8bAzAdrLp7RaJ449JbbUnEy0xSoMeYhBpMa3cUh8IiSw==
+
 airbnb-js-shims@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/airbnb-js-shims/-/airbnb-js-shims-2.2.1.tgz#db481102d682b98ed1daa4c5baa697a05ce5c040"

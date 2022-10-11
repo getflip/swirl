@@ -39,6 +39,7 @@
     "@getflip/swirl-tokens": "^1.0.0",
     "@stencil/core": "^2.13.0",
     "a11y-dialog": "^7.5.2",
+    "air-datepicker": "^3.3.0",
     "classnames": "^2.3.1",
     "color2k": "^2.0.0"
   },

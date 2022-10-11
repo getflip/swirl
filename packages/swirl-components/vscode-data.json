@@ -545,6 +545,19 @@
       ]
     },
     {
+      "name": "flip-date-picker",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "range",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-description-list",
       "description": {
         "kind": "markdown",
