@@ -27,6 +27,7 @@
 .inline-error__icon {
   display: inline-flex;
   color: var(--s-icon-critical);
+  align-self: flex-start;
 }
 
 .inline-error__message {
