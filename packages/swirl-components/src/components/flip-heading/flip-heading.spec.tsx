@@ -12,7 +12,7 @@ describe("flip-heading", () => {
     expect(page.root).toEqualHtml(`
       <flip-heading heading-id="id" level="3">
         <mock:shadow-root>
-          <h3 class="heading heading--align-start heading--level-3" id="id"></h3>
+          <h3 class="heading heading--align-start heading--level-3" id="id" part="heading"></h3>
         </mock:shadow-root>
         Heading
       </flip-heading>
@@ -28,7 +28,7 @@ describe("flip-heading", () => {
     expect(page.root).toEqualHtml(`
       <flip-heading as="h6" heading-id="id" level="3">
         <mock:shadow-root>
-          <h6 class="heading heading--align-start heading--level-3" id="id"></h6>
+          <h6 class="heading heading--align-start heading--level-3" id="id" part="heading"></h6>
         </mock:shadow-root>
         Heading
       </flip-heading>
