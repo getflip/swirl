@@ -52,14 +52,6 @@
   }
 }
 
-.modal--scrollable {
-  @media (--from-tablet) {
-    & .modal__content {
-      padding-top: var(--s-space-16);
-    }
-  }
-}
-
 .modal--scrolled {
   @media (--from-tablet) {
     & .modal__header {
