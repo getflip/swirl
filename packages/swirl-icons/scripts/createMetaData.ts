@@ -1,7 +1,5 @@
 import fs from "fs";
-
-const descriptionPlaceHolder =
-  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam";
+const descriptions = require("./descriptions.json");
 
 type Usage = "app" | "admin";
 
@@ -31,7 +29,7 @@ for (let icon of iconSet) {
   metadata[icon] = {
     id: idPrefix + icon,
     name: icon,
-    description: descriptionPlaceHolder,
+    description: descriptions[icon],
     usage: ["app", "admin"],
     keywords: [icon],
   };
