@@ -43,6 +43,7 @@ export type FlipTextInputMode =
   tag: "flip-text-input",
 })
 export class FlipTextInput implements FlipFormInput {
+  @Prop() autoComplete?: string = "on";
   @Prop() autoFocus?: boolean;
   @Prop() autoSelect?: boolean;
   @Prop() clearable?: boolean;
@@ -206,6 +207,7 @@ export class FlipTextInput implements FlipFormInput {
             aria-describedby={this.flipAriaDescribedby}
             aria-disabled={this.disabled ? "true" : undefined}
             aria-invalid={ariaInvalid}
+            autoComplete={this.autoComplete}
             autoFocus={this.autoFocus}
             class="text-input__input"
             disabled={this.disabled}

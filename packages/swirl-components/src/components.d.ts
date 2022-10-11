@@ -510,6 +510,7 @@ export namespace Components {
         "weight"?: FlipTextWeight;
     }
     interface FlipTextInput {
+        "autoComplete"?: string;
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
         "clearButtonLabel"?: string;
@@ -1934,6 +1935,7 @@ declare namespace LocalJSX {
         "weight"?: FlipTextWeight;
     }
     interface FlipTextInput {
+        "autoComplete"?: string;
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
         "clearButtonLabel"?: string;

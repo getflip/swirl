@@ -33,6 +33,7 @@ describe("flip-text-input", () => {
           <input aria-describedby="id"
                  aria-disabled="true"
                  aria-invalid="true"
+                 autocomplete="on"
                  autofocus=""
                  class="text-input__input"
                  disabled=""
