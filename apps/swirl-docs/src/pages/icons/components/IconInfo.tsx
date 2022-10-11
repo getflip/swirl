@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import Highlighter from "src/components/SyntaxHighlighter/Highlighter";
 import { IconData } from "..";
 
 interface IconInfoProps {
@@ -21,9 +22,15 @@ export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => (
       Non tristique amet, quam egestas ultricies etiam
     </p>
     <h2 className="mb-2">Code</h2>
-    <p className="text-sm font-normal mb-6">
-      Non tristique amet, quam egestas ultricies etiam
-    </p>
+    <div>
+      <Highlighter
+        code={`
+        import {
+          ${icon.name}
+        } from "@getflip/swirl-icons";
+      `}
+      />
+    </div>
   </div>
 );
 
