@@ -52,6 +52,18 @@
   }
 }
 
+.modal--scrollable {
+  @media (--from-tablet) {
+    & .modal__header {
+      border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+    }
+
+    & .modal__content {
+      padding-top: var(--s-space-16);
+    }
+  }
+}
+
 .modal__backdrop {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.2);
@@ -95,6 +107,7 @@
   padding-right: var(--s-space-16);
   padding-bottom: var(--s-space-8);
   padding-left: calc(var(--s-space-8) + 2.5rem + var(--s-space-8));
+  align-items: center;
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   gap: var(--s-space-16);
 
@@ -108,10 +121,12 @@
 }
 
 .modal__heading {
-  padding-top: var(--s-space-8);
+  overflow: hidden;
 
-  @media (--from-tablet) {
-    padding-top: 0;
+  &::part(heading) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

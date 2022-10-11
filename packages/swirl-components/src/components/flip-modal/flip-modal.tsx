@@ -4,6 +4,7 @@ import {
   EventEmitter,
   h,
   Host,
+  Listen,
   Method,
   Prop,
   State,
@@ -27,6 +28,7 @@ export class FlipModal {
   @Event() secondaryAction: EventEmitter<MouseEvent>;
 
   @State() closing = false;
+  @State() scrollable = false;
 
   private modal: A11yDialog;
   private modalEl: HTMLElement;
@@ -34,11 +36,17 @@ export class FlipModal {
 
   componentDidLoad() {
     this.modal = new A11yDialog(this.modalEl);
+    this.determineScrollableStatus();
   }
 
   disconnectedCallback() {
     this.modal?.destroy();
     this.unlockBodyScroll();
+  }
+
+  @Listen("resize", { target: "window" })
+  onWindowResize() {
+    this.determineScrollableStatus();
   }
 
   /**
@@ -48,6 +56,7 @@ export class FlipModal {
   async open() {
     this.modal.show();
     this.lockBodyScroll();
+    this.determineScrollableStatus();
   }
 
   /**
@@ -100,8 +109,20 @@ export class FlipModal {
     enableBodyScroll(this.scrollContainer);
   }
 
+  private determineScrollableStatus() {
+    const scrollable =
+      this.scrollContainer?.scrollHeight > this.scrollContainer?.clientHeight;
+
+    if (scrollable !== this.scrollable) {
+      this.scrollable = scrollable;
+    }
+  }
+
   render() {
-    const className = classnames("modal", { "modal--closing": this.closing });
+    const className = classnames("modal", {
+      "modal--closing": this.closing,
+      "modal--scrollable": this.scrollable,
+    });
 
     return (
       <Host>
