@@ -39,20 +39,20 @@ export function generateStoryElement(
   return element;
 }
 
-export function querySelectorAllDeep(
+export function querySelectorAllDeep<TargetType extends Element = HTMLElement>(
   root: HTMLElement,
   selector: string
-): HTMLElement[] {
+): TargetType[] {
   function collectAllElementsDeep(
     selector: string,
     root?: Element | ShadowRoot
-  ): HTMLElement[] {
+  ): TargetType[] {
     if (!Boolean(root)) {
       return [];
     }
 
     const lightDomMatches = Array.from(
-      root.querySelectorAll<HTMLElement>(selector)
+      root.querySelectorAll<TargetType>(selector)
     );
 
     const slottedChildren =
@@ -66,7 +66,7 @@ export function querySelectorAllDeep(
 
     const shadowRootElements = collectAllElementsDeep(selector, shadowRoot);
 
-    const matches: HTMLElement[] = [
+    const matches: TargetType[] = [
       ...lightDomMatches,
       ...children
         .map((match) => collectAllElementsDeep(selector, match))
