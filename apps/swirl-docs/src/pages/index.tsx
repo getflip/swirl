@@ -9,8 +9,16 @@ const Home: NextPage = ({}: any) => {
       </Head>
       <main className="flex flex-col justify-center items-center h-[calc(100vh_-_72px)] w-screen">
         <h1 className="text-3xl font-bold max-w-lg text-center">
-          getflip.dev is the future 🏠 of our developer docs for our APIs and
-          Swirl 🌀 our Design System.
+          Here arise the{" "}
+          <a
+            className="text-border-info hover:underline"
+            target="__blank"
+            href="https://www.flipapp.de/en/"
+          >
+            <b>Flip</b>
+          </a>{" "}
+          <i>developer docs</i> and the design system docs for{" "}
+          <code>swirl</code> 🌀.
         </h1>
       </main>
     </>

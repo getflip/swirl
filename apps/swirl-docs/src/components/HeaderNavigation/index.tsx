@@ -30,7 +30,11 @@ const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
             width={32}
             height={32}
           />
-          <span className="font-bold ml-3">Swirl</span>
+          <span className="font-bold ml-3">
+            {activePath?.includes("/tokens") || activePath?.includes("/icons")
+              ? "Swirl"
+              : "Dev"}
+          </span>
         </a>
 
         <div className="block md:hidden">
