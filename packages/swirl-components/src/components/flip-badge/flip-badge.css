@@ -15,7 +15,7 @@
   max-width: 100%;
   justify-content: center;
   align-items: center;
-  border: 0.25rem solid var(--s-background-default);
+  border: 0.25rem solid var(--flip-badge-border-color);
   border-radius: 2rem;
   color: var(--s-text-on-status);
   font-size: var(--s-font-size-sm);

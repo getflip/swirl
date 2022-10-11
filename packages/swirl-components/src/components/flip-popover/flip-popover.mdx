@@ -1,0 +1,51 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipPopover" />
+
+# FlipPopover
+
+The FlipPopover component is used to display small non-modal dialogs or menus.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=2%3A39)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-popover)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flippopover--flip-popover" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                      | Usage                                  |
+| ----------------------------- | -------------------------------------- |
+| `--s-surface-overlay-default` | Background color of the popover        |
+| `--s-border-default`          | Background color of the popover handle |
+
+## Accessibility
+
+### ARIA
+
+| ARIA            | Usage                                                   |
+| --------------- | ------------------------------------------------------- |
+| `role="dialog"` | The popover content has `role` set to `dialog`.         |
+| `aria-label`    | Describes the popover content.                          |
+| `aria-controls` | Associates the popover and its trigger.                 |
+| `aria-expanded` | Used on the trigger to convey the state of the popover. |
+| `aria-haspopup` | Set on the trigger to denote that it opens a popover.   |
+
+### Keyboard
+
+| Key              | Action                                       |
+| ---------------- | -------------------------------------------- |
+| <kbd>ENTER</kbd> | Activates the trigger and opens the popover. |
+| <kbd>SPACE</kbd> | Activates the trigger and opens the popover. |
+| <kbd>ESC</kbd>   | Closes the popover.                          |
+
+### Focus handling
+
+- Focus is moved to the popover content when opened.
+- After closing, the focus is returned to the trigger.
+- Moving focus outside the popover closes it.

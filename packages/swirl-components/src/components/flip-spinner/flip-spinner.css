@@ -18,7 +18,7 @@
   width: 1.5rem;
   height: 1.5rem;
 
-  & circle {
+  & .spinner__circle {
     stroke-width: 0.1875rem;
   }
 }
@@ -30,14 +30,19 @@
   height: 100%;
   transform-origin: center center;
   animation: spinner-rotate 2s linear infinite;
+}
 
-  & circle {
-    animation: spinner-dash 1.5s ease-in-out infinite;
-    stroke: var(--s-interactive-primary-default);
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-    stroke-linecap: round;
-  }
+.spinner__background {
+  stroke: var(--s-border-default);
+  stroke-linecap: round;
+}
+
+.spinner__circle {
+  animation: spinner-dash 1.5s ease-in-out infinite;
+  stroke: var(--s-interactive-primary-default);
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
 }
 
 @keyframes spinner-rotate {

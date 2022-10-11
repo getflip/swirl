@@ -7,7 +7,7 @@ const expectedVisible = `
   <span aria-describedby="tooltip" class="tooltip__reference" tabindex="0">
     <slot></slot>
   </span>
-  <span class="tooltip__popper" style="left: 0px; top: 0px;">
+  <span class="tooltip__popper">
     <span class="tooltip__bubble" id="tooltip" role="tooltip">
       <span class="tooltip__content">
         Tooltip
@@ -22,7 +22,7 @@ const expectedHidden = `
   <span aria-describedby="tooltip" class="tooltip__reference" tabindex="0">
     <slot></slot>
   </span>
-  <span class="tooltip__popper" style="left: 0px; top: 0px;"></span>
+  <span class="tooltip__popper" style="top: 0px; left: NaNpx;"></span>
 </span>`;
 
 describe("flip-tooltip", () => {
