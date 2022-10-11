@@ -34,6 +34,7 @@ export const getColorTokens = (): ColorTokens => {
   return colorTokens;
 };
 
+// TODO: refactor this function to use better mapping
 function getColorCategory(token: any): ColorTokenCategory {
   if (token.name.includes("background")) {
     return "background";
