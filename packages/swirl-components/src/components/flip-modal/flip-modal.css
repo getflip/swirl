@@ -54,12 +54,16 @@
 
 .modal--scrollable {
   @media (--from-tablet) {
-    & .modal__header {
-      border-bottom: var(--s-border-width-default) solid var(--s-border-default);
-    }
-
     & .modal__content {
       padding-top: var(--s-space-16);
+    }
+  }
+}
+
+.modal--scrolled {
+  @media (--from-tablet) {
+    & .modal__header {
+      border-bottom: var(--s-border-width-default) solid var(--s-border-default);
     }
   }
 }

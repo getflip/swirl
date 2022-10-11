@@ -29,6 +29,7 @@ export class FlipModal {
 
   @State() closing = false;
   @State() scrollable = false;
+  @State() scrolled = false;
 
   private modal: A11yDialog;
   private modalEl: HTMLElement;
@@ -36,7 +37,7 @@ export class FlipModal {
 
   componentDidLoad() {
     this.modal = new A11yDialog(this.modalEl);
-    this.determineScrollableStatus();
+    this.determineScrollStatus();
   }
 
   disconnectedCallback() {
@@ -46,7 +47,7 @@ export class FlipModal {
 
   @Listen("resize", { target: "window" })
   onWindowResize() {
-    this.determineScrollableStatus();
+    this.determineScrollStatus();
   }
 
   /**
@@ -56,7 +57,7 @@ export class FlipModal {
   async open() {
     this.modal.show();
     this.lockBodyScroll();
-    this.determineScrollableStatus();
+    this.determineScrollStatus();
   }
 
   /**
@@ -101,6 +102,21 @@ export class FlipModal {
     this.close();
   };
 
+  private determineScrollStatus = () => {
+    const scrollable =
+      this.scrollContainer?.scrollHeight > this.scrollContainer?.clientHeight;
+
+    if (scrollable !== this.scrollable) {
+      this.scrollable = scrollable;
+    }
+
+    const scrolled = this.scrollContainer?.scrollTop > 0;
+
+    if (scrolled !== this.scrolled) {
+      this.scrolled = scrolled;
+    }
+  };
+
   private lockBodyScroll() {
     disableBodyScroll(this.scrollContainer);
   }
@@ -109,19 +125,11 @@ export class FlipModal {
     enableBodyScroll(this.scrollContainer);
   }
 
-  private determineScrollableStatus() {
-    const scrollable =
-      this.scrollContainer?.scrollHeight > this.scrollContainer?.clientHeight;
-
-    if (scrollable !== this.scrollable) {
-      this.scrollable = scrollable;
-    }
-  }
-
   render() {
     const className = classnames("modal", {
       "modal--closing": this.closing,
       "modal--scrollable": this.scrollable,
+      "modal--scrolled": this.scrolled,
     });
 
     return (
@@ -162,6 +170,7 @@ export class FlipModal {
             </header>
             <div
               class="modal__content"
+              onScroll={this.determineScrollStatus}
               ref={(el) => (this.scrollContainer = el)}
             >
               <slot></slot>
