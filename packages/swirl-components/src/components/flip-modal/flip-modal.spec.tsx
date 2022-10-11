@@ -17,7 +17,7 @@ describe("flip-modal", () => {
             <div class="modal__body" role="document">
               <flip-button class="modal__close-button" hidelabel="" icon="<flip-icon-close></flip-icon-close>" label="Close modal"></flip-button>
               <header class="modal__header">
-                <flip-heading level="2" text="Dialog"></flip-heading>
+                <flip-heading as="h2" class="modal__heading" level="3" text="Dialog"></flip-heading>
               </header>
               <div class="modal__content">
                 <slot></slot>
@@ -42,16 +42,19 @@ describe("flip-modal", () => {
     const primarySpy = jest.fn();
     const secondarySpy = jest.fn();
 
-    const buttons = page.root.shadowRoot.querySelectorAll("flip-button");
+    const buttons =
+      page.root.shadowRoot.querySelectorAll<HTMLFlipButtonElement>(
+        ".modal__controls flip-button"
+      );
 
     page.root.addEventListener("primaryAction", primarySpy);
     page.root.addEventListener("secondaryAction", secondarySpy);
 
+    buttons[0].click();
     buttons[1].click();
-    buttons[2].click();
 
-    expect(buttons[1].getAttribute("label")).toEqual("Secondary");
-    expect(buttons[2].getAttribute("label")).toEqual("Primary");
+    expect(buttons[0].getAttribute("label")).toEqual("Secondary");
+    expect(buttons[1].getAttribute("label")).toEqual("Primary");
 
     expect(primarySpy).toHaveBeenCalled();
     expect(secondarySpy).toHaveBeenCalled();
