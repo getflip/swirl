@@ -12,14 +12,14 @@
   width: 100%;
   line-height: var(--s-line-height-sm);
 
-  &:focus-within:not(.form-control--disabled) {
+  &.form-control--has-focus:not(.form-control--disabled) {
     & .form-control__label {
       border-color: var(--s-border-highlight);
       box-shadow: 0 0 0 var(--s-border-width-default) var(--s-border-highlight);
     }
   }
 
-  &:not(:focus-within):not(.form-control--has-value) {
+  &:not(.form-control--has-value):not(.form-control--has-focus) {
     & .form-control__input {
       position: absolute;
       display: inline;
@@ -41,7 +41,7 @@
 }
 
 .form-control--invalid {
-  &:focus-within:not(.form-control--disabled) {
+  &.form-control--has-focus:not(.form-control--disabled) {
     & .form-control__label {
       border-color: var(--s-border-critical);
       box-shadow: 0 0 0 var(--s-border-width-default) var(--s-border-critical);
