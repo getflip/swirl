@@ -150,5 +150,35 @@ StyleDictionary.registerFormat({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: "attribute/custom",
+  type: "attribute",
+  transformer: function (token) {
+    const originalAttrs = token.attributes || {};
+
+    const sizeTypes = [
+      "borderRadius",
+      "borderWidth",
+      "fontSizes",
+      "letterSpacing",
+      "lineHeights",
+      "spacing",
+    ];
+
+    const category = sizeTypes.includes(token.type)
+      ? "size"
+      : token.type === "color"
+      ? "color"
+      : "content";
+
+    const generatedAttrs = {
+      category,
+      type: token.type,
+    };
+
+    return Object.assign(generatedAttrs, originalAttrs);
+  },
+});
+
 StyleDictionary.extend("config.light.json").buildAllPlatforms();
 StyleDictionary.extend("config.dark.json").buildAllPlatforms();
