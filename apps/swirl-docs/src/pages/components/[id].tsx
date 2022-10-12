@@ -11,6 +11,7 @@ import { createSwirlComponentDocCategories } from "@swirl/lib/docs";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import { DocLinksNav } from "src/components/Layout/DocLinksNav";
 import Footer from "src/components/Layout/Footer";
+import { NavItem, navItems } from "@swirl/lib/navigation";
 
 async function getComponentData(id: string) {
   return await generateMdxFromStorybook(id);
@@ -58,7 +59,7 @@ export default function Component({
         <title>Swirl Components</title>
       </Head>
       <div className="grid grid-cols-1 md:grid-cols-12 h-full">
-        <CategoryNav />
+        <CategoryNav categoryLinkList={navItems[1].children} />
         <main className="col-span-8 flex flex-col justify-center items-center">
           <article className="max-w-3xl px-4 mt-6">
             <MDXRemote {...document} components={components} />
