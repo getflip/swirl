@@ -1,6 +1,15 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
-import { format, isMatch, isValid, parse } from "date-fns";
-import IMask from "imask/esm/imask";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  Watch,
+} from "@stencil/core";
+import { format, isValid, parse } from "date-fns";
+import { create as createMask } from "maska/dist/es6/maska";
+import Maska from "maska/types/maska";
 
 const internalDateFormat = "yyyy-MM-dd";
 
@@ -25,34 +34,38 @@ export class FlipDateInput {
   @Prop() flipAriaDescribedby?: string;
   @Prop() format?: string = "yyyy-MM-dd";
   @Prop() invalid?: boolean;
-  @Prop() mask?: string = "y-`m-`d";
+  @Prop() placeholder?: string = "yyyy-mm-dd";
   @Prop() required?: boolean;
   @Prop({ mutable: true, reflect: true }) value?: string;
 
   @Event() valueChange: EventEmitter<string>;
 
   private id = `flip-date-input-${Math.round(Math.random() * 100000)}`;
-  private inputEl: HTMLInputElement;
-  private inputMask: IMask.InputMask<any>;
+  private mask: Maska;
   private pickerPopover: HTMLFlipPopoverElement;
 
   componentDidLoad() {
     this.setupMask();
   }
 
-  componentDidRender() {
-    this.inputMask?.updateValue();
-  }
-
   disconnectedCallback() {
-    this.inputMask?.destroy();
+    this.mask?.destroy();
   }
 
-  private onChange = () => {
-    const value = this.inputMask.value;
+  @Watch("format")
+  watchFormat() {
+    this.setupMask();
+  }
+
+  private onChange = (event: Event) => {
+    const value = (event.target as HTMLInputElement).value;
     const newDate = parse(value, this.format, new Date());
 
-    if (!isMatch(value, this.format) || !isValid(newDate)) {
+    const formatRegExp = new RegExp(
+      `^${this.format.replace(/y|d|M/g, "\\d")}$`
+    );
+
+    if (!Boolean(value.match(formatRegExp)) || !isValid(newDate)) {
       return;
     }
 
@@ -60,6 +73,10 @@ export class FlipDateInput {
 
     this.value = newValue;
     this.valueChange.emit(newValue);
+  };
+
+  private onInput = (event: Event) => {
+    this.onChange(event);
   };
 
   private onClick = (event: MouseEvent) => {
@@ -79,7 +96,6 @@ export class FlipDateInput {
     this.valueChange.emit(newValue);
 
     this.pickerPopover.close();
-    this.inputMask.updateValue();
   };
 
   private handleAutoSelect(event: FocusEvent) {
@@ -91,33 +107,11 @@ export class FlipDateInput {
   }
 
   private setupMask() {
-    this.inputMask = IMask(this.inputEl, {
-      blocks: {
-        d: {
-          mask: IMask.MaskedRange,
-          from: 1,
-          to: 31,
-          maxLength: 2,
-        },
-        m: {
-          mask: IMask.MaskedRange,
-          from: 1,
-          to: 12,
-          maxLength: 2,
-        },
-        y: {
-          mask: IMask.MaskedRange,
-          from: 1900,
-          to: 9999,
-        },
-      },
-      lazy: false,
-      mask: this.mask,
-      overwrite: true,
-      placeholderChar: "x",
-    });
+    this.mask?.destroy();
 
-    this.inputMask.on("accept", this.onChange);
+    this.mask = createMask(`#${this.id}`, {
+      mask: this.format.replace(/y|d|M/g, "#"),
+    });
   }
 
   render() {
@@ -146,9 +140,11 @@ export class FlipDateInput {
             autoFocus={this.autoFocus}
             class="date-input__input"
             disabled={this.disabled}
+            id={this.id}
             onClick={this.onClick}
             onFocus={this.onFocus}
-            ref={(el) => (this.inputEl = el)}
+            onInput={this.onInput}
+            placeholder={this.placeholder}
             required={this.required}
             type="text"
             value={displayValue}
@@ -158,7 +154,7 @@ export class FlipDateInput {
             aria-label={this.datePickerButtonLabel}
             class="date-input__date-picker-button"
             disabled={this.disabled}
-            id={this.id}
+            id={`${this.id}-trigger`}
             type="button"
           >
             <flip-icon-today></flip-icon-today>
@@ -171,7 +167,7 @@ export class FlipDateInput {
             placement="bottom-end"
             popoverId="popover"
             ref={(el) => (this.pickerPopover = el)}
-            trigger={this.id}
+            trigger={`${this.id}-trigger`}
           >
             <flip-date-picker
               onValueChange={this.onPickDate}

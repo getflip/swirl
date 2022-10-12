@@ -6,9 +6,6 @@ export default {
     format: {
       description: "See https://date-fns.org/v2.29.3/docs/format.",
     },
-    mask: {
-      description: "See https://imask.js.org/guide.html#masked-date.",
-    },
   },
   component: "flip-date-input",
   parameters: {

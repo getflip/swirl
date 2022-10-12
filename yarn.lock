@@ -8869,11 +8869,6 @@ image2uri@~1.0.5:
   resolved "https://registry.yarnpkg.com/image2uri/-/image2uri-1.0.5.tgz#b85919fb5accb42ab4db0ae30a0d00afa932ce99"
   integrity sha512-y0BKZgnoDLRIF2J0Pg/Wa6uhY5i6SqR7Wfagghf0UHRpnWJ5jm1IS0bZjAV5ADOxHAM2zdzYWmw8EbQgEUlvmw==
 
-imask@^6.4.3:
-  version "6.4.3"
-  resolved "https://registry.yarnpkg.com/imask/-/imask-6.4.3.tgz#b81b247043807995e048f559e98930c2fec8004a"
-  integrity sha512-aH2GHemGkr3cbRBfhogHMIx05eUxdHrZNlKTTLmz8VxpSopuHHJ8+85FsDlBVQqxPlDLhZuwj4lpHHWbLOdBSw==
-
 immutable@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.1.0.tgz#f795787f0db780183307b9eb2091fcac1f6fafef"
@@ -10637,6 +10632,11 @@ markdown-escapes@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/markdown-escapes/-/markdown-escapes-1.0.4.tgz#c95415ef451499d7602b91095f3c8e8975f78535"
   integrity sha512-8z4efJYk43E0upd0NbVXwgSTQs6cT3T06etieCMEg7dRbzCbxUCK/GHlX8mhHRDcp+OLlHkPKsvqQTCvsRl2cg==
+
+maska@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/maska/-/maska-1.5.0.tgz#6e2f6386d290ab7dc8b44cfc04f34891e06a1e25"
+  integrity sha512-BwZXzs5gHeu6wtn3iWFqrKRtcsM3sTpkHvfAngVNVNlN7tl9ZyQUeHTz11s9Sy7Bq1MoQ+xyR/+IzghY8nR84Q==
 
 maxstache-stream@^1.0.0:
   version "1.0.4"

@@ -128,7 +128,7 @@ export namespace Components {
         "flipAriaDescribedby"?: string;
         "format"?: string;
         "invalid"?: boolean;
-        "mask"?: string;
+        "placeholder"?: string;
         "required"?: boolean;
         "value"?: string;
     }
@@ -1619,8 +1619,8 @@ declare namespace LocalJSX {
         "flipAriaDescribedby"?: string;
         "format"?: string;
         "invalid"?: boolean;
-        "mask"?: string;
         "onValueChange"?: (event: FlipDateInputCustomEvent<string>) => void;
+        "placeholder"?: string;
         "required"?: boolean;
         "value"?: string;
     }
