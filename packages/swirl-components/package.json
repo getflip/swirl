@@ -41,7 +41,9 @@
     "a11y-dialog": "^7.5.2",
     "air-datepicker": "^3.3.0",
     "classnames": "^2.3.1",
-    "color2k": "^2.0.0"
+    "color2k": "^2.0.0",
+    "date-fns": "^2.29.3",
+    "imask": "^6.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
