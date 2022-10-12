@@ -7,11 +7,14 @@
 }
 
 .date-picker {
-  max-width: 17.5rem;
   background-color: var(--s-surface-overlay-default);
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
   letter-spacing: var(--s-letter-spacing-tighter);
+
+  @media (--from-tablet) {
+    max-width: 17.5rem;
+  }
 }
 
 .air-datepicker--pointer {

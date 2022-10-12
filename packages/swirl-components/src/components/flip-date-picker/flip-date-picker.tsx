@@ -24,7 +24,7 @@ export class FlipDatePicker {
   @Prop() startDate?: Date;
   @Prop({ mutable: true }) value?: Date | Date[];
 
-  @Event() valueChange: EventEmitter<Date | Date[]>;
+  @Event({ bubbles: false }) valueChange: EventEmitter<Date | Date[]>;
 
   private containerEl: HTMLDivElement;
   private picker: AirDatepicker<HTMLElement>;
@@ -74,9 +74,14 @@ export class FlipDatePicker {
     });
   }
 
+  private onClick = (event: MouseEvent) => {
+    event.stopPropagation();
+    event.preventDefault();
+  };
+
   render() {
     return (
-      <Host>
+      <Host onClick={this.onClick}>
         <div ref={(el) => (this.containerEl = el)}></div>
       </Host>
     );
