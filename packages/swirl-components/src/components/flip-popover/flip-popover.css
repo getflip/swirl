@@ -111,7 +111,7 @@
   overscroll-behavior: contain;
 
   @media (--from-tablet) {
-    max-height: 19rem;
+    max-height: 22rem;
     padding-top: var(--s-space-8);
     padding-bottom: var(--s-space-8);
   }

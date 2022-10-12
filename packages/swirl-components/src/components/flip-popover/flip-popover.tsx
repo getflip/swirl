@@ -3,6 +3,7 @@ import {
   computePosition,
   ComputePositionReturn,
   flip,
+  Placement,
   shift,
 } from "@floating-ui/dom";
 import {
@@ -30,6 +31,7 @@ export class FlipPopover {
   @Element() el: HTMLElement;
 
   @Prop() label!: string;
+  @Prop() placement?: Placement = "bottom-start";
   @Prop() popoverId!: string;
   @Prop() trigger!: string;
 
@@ -194,7 +196,7 @@ export class FlipPopover {
       this.contentContainer,
       {
         middleware: [shift(), flip()],
-        placement: "bottom-start",
+        placement: this.placement,
         strategy: "fixed",
       }
     );
