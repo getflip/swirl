@@ -1,5 +1,5 @@
 import { createDocCategory } from "@swirl/lib/docs";
-import { Link, NavItem, navItems } from "@swirl/lib/navigation";
+import { NavLink, NavItem, navItems } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import {
@@ -8,12 +8,15 @@ import {
   DOCUMENTATION_SRC,
 } from "@swirl/lib/docs/src/docs.model";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
+import Link from "next/link";
 
-const RecursiveNavigation = (link: Link) => {
+const RecursiveNavigation = (link: NavLink) => {
   const hasSubpages = link.subpages && link.subpages.length;
   return (
     <li className="list-disc">
-      <a href={link.path}>{link.name}</a>
+      <Link href={link.path}>
+        <a>{link.name}</a>
+      </Link>
       {hasSubpages &&
         link.subpages?.map((item) => (
           <ul key={item.path}>
@@ -46,7 +49,9 @@ const Components = ({ links }: any) => {
                     className="border-1 rounded-lg p-4 mr-4 font-bold"
                     key={`${category.title}-${index}`}
                   >
-                    <a href={category.url}>{category.title}</a>
+                    <Link href={category.url!!}>
+                      <a>{category.title}</a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -70,8 +75,6 @@ export const getStaticProps: GetStaticProps<{
   );
 
   const links: DocCategory[] | undefined = categoryDocs.subpages;
-
-  console.log("links", categoryDocs);
 
   return {
     props: {

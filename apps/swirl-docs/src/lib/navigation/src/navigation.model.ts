@@ -1,7 +1,7 @@
-export type Link = {
+export type NavLink = {
   name: string;
   path: string;
-  subpages?: Link[];
+  subpages?: NavLink[];
 };
 
 export type NavItem = {

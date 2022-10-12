@@ -4,8 +4,9 @@ import {
   DocCategory,
   DOCUMENTATION_SRC,
 } from "@swirl/lib/docs/src/docs.model";
-import { Link, navItems } from "@swirl/lib/navigation";
+import { NavLink, navItems } from "@swirl/lib/navigation";
 import Head from "next/head";
+import Link from "next/link";
 import { GetStaticProps } from "next/types";
 import React, { useEffect } from "react";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
@@ -27,11 +28,13 @@ export type IconsMetaData = {
   [key: string]: IconData;
 };
 
-const RecursiveNavigation = (link: Link) => {
+const RecursiveNavigation = (link: NavLink) => {
   const hasSubpages = link.subpages && link.subpages.length;
   return (
     <li className="list-disc">
-      <a href={link.path}>{link.name}</a>
+      <Link href={link.path}>
+        <a>{link.name}</a>
+      </Link>
       {hasSubpages &&
         link.subpages?.map((item) => (
           <ul key={item.path}>
@@ -57,7 +60,6 @@ const IconsIndex = ({ links }: any) => {
   useEffect(() => {
     if (window.location.hash) {
       const iconName = window.location.hash.replace("#", "");
-      console.log("iconName", iconName);
       setSelectedIcon(icons[iconName]);
     }
   }, [icons]);

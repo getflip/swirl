@@ -1,11 +1,12 @@
-import { Link } from "@swirl/lib/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import icon from "@getflip/swirl-icons/icons/Close16.svg";
 import MobileNav from "./mobileNav";
+import Link from "next/link";
+import { NavLink } from "@swirl/lib/navigation";
 
 export type HeaderNavigationProps = {
-  links: Link[];
+  links: NavLink[];
 };
 
 const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
@@ -23,19 +24,21 @@ const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
   return (
     <>
       <nav className="flex justify-between md:justify-start items-center h-[72px] w-full px-6 border-b-1 font-normal text-base">
-        <a href="/" className="flex justify-center items-center mr-8">
-          <Image
-            alt="Flip Logo"
-            src="/swirl-icon-temp.svg"
-            width={32}
-            height={32}
-          />
-          <span className="font-bold ml-3">
-            {activePath?.includes("/tokens") || activePath?.includes("/icons")
-              ? "Swirl"
-              : "Dev"}
-          </span>
-        </a>
+        <Link href="/">
+          <a className="flex justify-center items-center mr-8">
+            <Image
+              alt="Flip Logo"
+              src="/swirl-icon-temp.svg"
+              width={32}
+              height={32}
+            />
+            <span className="font-bold ml-3">
+              {activePath?.includes("/tokens") || activePath?.includes("/icons")
+                ? "Swirl"
+                : "Dev"}
+            </span>
+          </a>
+        </Link>
 
         <div className="block md:hidden">
           {isMobileNavOpen && (
@@ -70,14 +73,14 @@ const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
                   : "before:opacity-0"
               }`}
             >
-              <a
+              <Link
                 className={`text-text-default text-base ${
                   activePath?.includes(link.path) ? "text-border-info" : ""
                 }`}
                 href={link.path}
               >
-                {link.name}
-              </a>
+                <a>{link.name}</a>
+              </Link>
             </li>
           ))}
         </ul>

@@ -42,5 +42,3 @@ fs.writeFileSync(
   \n
   module.exports = metadata;`
 );
-
-console.log("🚀 metadata.js created 🚀");

@@ -151,8 +151,6 @@ export function createLinkListForDocument(
   const source = generateSerializableDocumentation(category, document);
   const headlines = source.split("\n").filter((line) => line.startsWith("#"));
 
-  console.log("HEADLINES", headlines);
-
   return headlines.map((headline) => {
     const headlineId = headline
       .split(" ")

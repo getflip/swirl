@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect } from "react";
 import { DocHeadline } from "@swirl/lib/docs/src/docs.model";
 import useScrollObserver from "@swirl/lib/hooks/useScrollObserver";
+import Link from "next/link";
 
 type DocLinksNavProps = {
   documentLinkList: DocHeadline[];
@@ -30,7 +31,7 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
           {documentLinkList?.map((link: DocHeadline, index: number) => {
             return (
               <li key={link.id} className="relative font-sm mb-2">
-                <a
+                <Link
                   className={`
                   transition-colors duration-500 ease-in-out
                   before:transition-colors before:duration-500 before:ease-in-out
@@ -43,8 +44,8 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
                 `}
                   href={`#${link.id}`}
                 >
-                  {link.name}
-                </a>
+                  <a>{link.name}</a>
+                </Link>
               </li>
             );
           })}

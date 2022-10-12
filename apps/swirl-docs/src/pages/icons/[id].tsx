@@ -48,7 +48,6 @@ export default function Component({
     ...LinkedHeaders,
   };
 
-  console.log(documentLinkList);
   return (
     <>
       <Head>

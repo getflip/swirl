@@ -1,4 +1,4 @@
-import { Link } from "@swirl/lib/navigation";
+import { NavLink } from "@swirl/lib/navigation";
 import HeaderNavigation from "../HeaderNavigation";
 
 interface LayoutProps {
@@ -6,7 +6,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const links: Link[] = [
+  const links: NavLink[] = [
     // {
     //   name: "Foundations",
     //   path: "/foundations",

@@ -1,8 +1,9 @@
-import { Link } from "@swirl/lib/navigation";
+import { NavLink } from "@swirl/lib/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import PreFooter from "./PreFooter";
 
-const links: Link[] = [
+const links: NavLink[] = [
   {
     name: "About Flip",
     path: "",
@@ -30,9 +31,9 @@ const Footer = () => {
         <ul className="flex justify-center items-center">
           {links.map((link, index) => (
             <li key={link.path + `-${index}`} className="mr-8">
-              <a className="text-sm text-text-default" href={link.path}>
-                {link.name}
-              </a>
+              <Link href={link.path}>
+                <a className="text-sm text-text-default">{link.name}</a>
+              </Link>
             </li>
           ))}
         </ul>
