@@ -23,7 +23,7 @@ describe("flip-date-input", () => {
       <flip-date-input>
         <div class="date-input">
           <input class="date-input__input" id="flip-date-input-1" placeholder="yyyy-mm-dd" type="text">
-          <button aria-label="Open date picker" class="date-input__date-picker-button" id="flip-date-input-1-trigger" type="button">
+          <button aria-hidden="true" class="date-input__date-picker-button" id="flip-date-input-1-trigger" tabIndex="-1" type="button">
             <flip-icon-today></flip-icon-today>
           </button>
         </div>
