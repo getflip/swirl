@@ -43,25 +43,22 @@ function ListItem({
     <li>
       {item.children && (
         <>
-          <h3>
-            <button
-              id={`accordion-${ariaId}`}
-              type="button"
-              aria-expanded={isExpanded}
-              aria-controls={`accordion-panel-${ariaId}`}
-              onClick={() => setIsExpanded((prevState) => !prevState)}
-              className="flex justify-between py-3 px-2 w-full"
-            >
-              <span>{item.title}</span>
-              <Image
-                className={isExpanded ? "rotate-90" : ""}
-                alt="Chevron"
-                src={icon.src}
-                width={24}
-                height={24}
-              />
-            </button>
-          </h3>
+          <button
+            id={`accordion-${ariaId}`}
+            type="button"
+            aria-expanded={isExpanded}
+            aria-controls={`accordion-panel-${ariaId}`}
+            onClick={() => setIsExpanded((prevState) => !prevState)}
+            className="flex justify-between py-3 px-2 w-full text-base font-normal"
+          >
+            <span>{item.title}</span>
+            <Image
+              className={isExpanded ? "rotate-90" : ""}
+              src={icon.src}
+              width={24}
+              height={24}
+            />
+          </button>
 
           <ul
             id={`accordion-panel-${ariaId}`}

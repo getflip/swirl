@@ -4,6 +4,7 @@ export const navItems: NavItem[] = [
   {
     title: "Foundations",
     isRoot: true,
+    url: "/foundations",
     children: [
       {
         title: "About Swirl",
@@ -15,6 +16,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "Tokens",
+    url: "/tokens",
     children: [
       {
         title: "Overview",

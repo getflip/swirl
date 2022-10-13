@@ -23,7 +23,10 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
 
   return (
     <div className="hidden md:block min-w-[12rem]">
-      <nav className="fixed hidden md:block px-4 border-l-1 mt-6">
+      <nav
+        aria-label="document navigation"
+        className="fixed hidden md:block px-4 border-l-1 mt-6"
+      >
         <div className="mb-4 font-sm font-semibold text-text-subdued text-sm">
           On this Page
         </div>

@@ -7,8 +7,8 @@ export type TokenItemProps = {
 
 const TokenItem = ({ token }: TokenItemProps) => {
   return (
-    <div className="grid gap-2 grid-cols-1 md:grid-cols-5 items-start p-4 border-b-1">
-      <div className="col-span-2 flex flex-col mb-2 md:mb-0">
+    <tr className="grid gap-2 grid-cols-1 md:grid-cols-5 items-start p-4 border-b-1">
+      <td className="col-span-2 flex flex-col mb-2 md:mb-0">
         <div className="inline-flex mb-2 md:mb-0">
           {token.type === "color" && <ColorPreview token={token} />}
           <div className="flex flex-col items-start">
@@ -17,10 +17,10 @@ const TokenItem = ({ token }: TokenItemProps) => {
             </code>
           </div>
         </div>
-      </div>
-      <div className="col-span-1 mb-2 md:mb-0 text-sm">{token.value}</div>
-      <div className="col-span-2 text-sm">{token.description}</div>
-    </div>
+      </td>
+      <td className="col-span-1 mb-2 md:mb-0 text-sm">{token.value}</td>
+      <td className="col-span-2 text-sm">{token.description}</td>
+    </tr>
   );
 };
 

@@ -6,14 +6,14 @@ import {
 } from "@swirl/lib/navigation";
 import fs from "fs";
 import {
-  BasePath,
+  BASE_PATHS,
   DocCategory,
   Document,
   DOCUMENTATION_SRC,
 } from "./docs.model";
 
 export function createSwirlComponentDocCategories(
-  basePath: BasePath
+  basePath: BASE_PATHS
 ): DocCategory[] {
   const components = fs.readdirSync(SWIRL_COMPONENTS_PATH);
 

@@ -42,7 +42,7 @@ const Components = ({ links }: any) => {
             <p className="mb-4">
               This is a directory of all tokens used in the Swirl Design System.
             </p>
-            <nav>
+            <nav aria-label="category links">
               <ul className="flex">
                 {categoryLinks?.map((category: NavItem, index: number) => (
                   <li

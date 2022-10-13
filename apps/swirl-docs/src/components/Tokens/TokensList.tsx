@@ -8,20 +8,22 @@ interface TokensListProps {
 
 export const TokensList: FunctionComponent<TokensListProps> = ({ tokens }) => {
   return (
-    <div className="mb-10">
-      <div className="hidden md:grid gap-2 grid-cols-5 items-end border-b-1 pb-4">
-        <h3 className="col-span-2 font-semibold">Token Name</h3>
-        <h3 className="col-span-1 font-semibold">Value</h3>
-        <h3 className="col-span-2 font-semibold">Description</h3>
-      </div>
+    <table className="mb-10">
+      <tr className="hidden md:grid gap-2 grid-cols-5 items-end border-b-1 pb-4">
+        <th className="col-span-2 font-semibold">
+          <h3>Token Name</h3>
+        </th>
+        <th className="col-span-1 font-semibold">
+          <h3>Value</h3>
+        </th>
+        <th className="col-span-2 font-semibold">
+          <h3>Description</h3>
+        </th>
+      </tr>
       {tokens.map((token: Token, index: number) => {
-        return (
-          <div key={token.name + `-${index}`}>
-            <TokenItem token={token} />
-          </div>
-        );
+        return <TokenItem key={token.name + `-${index}`} token={token} />;
       })}
-    </div>
+    </table>
   );
 };
 

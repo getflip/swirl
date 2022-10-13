@@ -7,6 +7,7 @@ import {
 import { NavLink, navItems } from "@swirl/lib/navigation";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
 import React, { useEffect } from "react";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
@@ -48,6 +49,8 @@ const RecursiveNavigation = (link: NavLink) => {
 const IconsIndex = ({ links }: any) => {
   const icons: IconsMetaData = require("@getflip/swirl-icons/dist/metadata.js");
   const iconsArray = Object.keys(icons);
+
+  const { asPath } = useRouter();
   const [searchWord, setSearchWord] = React.useState("");
   const [selectedIcon, setSelectedIcon] = React.useState<IconData>(
     icons["Add"]
@@ -58,11 +61,9 @@ const IconsIndex = ({ links }: any) => {
   });
 
   useEffect(() => {
-    if (window.location.hash) {
-      const iconName = window.location.hash.replace("#", "");
-      setSelectedIcon(icons[iconName]);
-    }
-  }, [icons]);
+    const iconName = asPath.split("#")[1];
+    setSelectedIcon(icons[iconName]);
+  }, [asPath, icons]);
 
   return (
     <>

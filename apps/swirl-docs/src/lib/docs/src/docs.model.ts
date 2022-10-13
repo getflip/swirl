@@ -9,8 +9,6 @@ export enum BASE_PATHS {
   ICONS = "icons",
 }
 
-export type BasePath = "components" | "tokens" | "icons";
-
 export type DocCategory = {
   name: string;
   path: string;
@@ -21,7 +19,7 @@ export type DocCategory = {
 
 export type Document = {
   name: string;
-  basePath: BasePath | string;
+  basePath: BASE_PATHS | string;
 };
 
 export type DocHeadline = {

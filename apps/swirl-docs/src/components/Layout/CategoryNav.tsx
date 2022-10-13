@@ -1,6 +1,7 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { NavItem } from "@swirl/lib/navigation/";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -13,10 +14,8 @@ interface CategoryNavProps {
 export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
   categoryLinkList,
 }) => {
-  const [activePath, setActivePath] = useState<string | null>(null);
-  useEffect(() => {
-    setActivePath(window.location.pathname);
-  }, []);
+  const router = useRouter();
+  const activePath = router.asPath;
 
   // TODO: Implement when "Foundations"-Category is created
   // const RootElement = ({ navItem }: { navItem: NavItem }) => (
@@ -47,7 +46,10 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
   );
 
   return (
-    <nav className="hidden md:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs">
+    <nav
+      aria-label="category navigation"
+      className="hidden md:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs"
+    >
       <ul className="mt-6">
         {categoryLinkList?.map((navItem: NavItem, index) => {
           return (

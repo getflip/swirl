@@ -13,19 +13,23 @@ const PreFooter = () => {
       </PreFooterTile>
 
       <PreFooterTile title="News and Updates">
-        <ul>
-          <li>Developer Changelog</li>
-          <li>Flip Status</li>
-        </ul>
+        <nav>
+          <ul>
+            <li>Developer Changelog</li>
+            <li>Flip Status</li>
+          </ul>
+        </nav>
       </PreFooterTile>
 
       <PreFooterTile title="Legal">
-        <ul>
-          <li>Terms of Service</li>
-          <li>API Terms of Service</li>
-          <li>Privacy Policy</li>
-          <li>Partner program agreement</li>
-        </ul>
+        <nav>
+          <ul>
+            <li>Terms of Service</li>
+            <li>API Terms of Service</li>
+            <li>Privacy Policy</li>
+            <li>Partner program agreement</li>
+          </ul>
+        </nav>
       </PreFooterTile>
     </article>
   );

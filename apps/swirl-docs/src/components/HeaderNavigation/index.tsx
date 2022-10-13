@@ -3,51 +3,54 @@ import { useEffect, useState } from "react";
 import icon from "@getflip/swirl-icons/icons/Close16.svg";
 import MobileNav from "./mobileNav";
 import Link from "next/link";
-import { NavLink } from "@swirl/lib/navigation";
+import { navItems } from "@swirl/lib/navigation";
+import { useRouter } from "next/router";
 
-export type HeaderNavigationProps = {
-  links: NavLink[];
-};
-
-const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
-  const [activePath, setActivePath] = useState<string | null>(null);
+const HeaderNavigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const router = useRouter();
 
-  useEffect(() => {
-    setActivePath(window.location.pathname);
-  }, []);
+  const links = navItems.slice(1, navItems.length);
+  const activePath = router.pathname;
+  const isSwirlDocs =
+    activePath?.includes("/tokens") || activePath?.includes("/icons");
 
   const handleCloseMenu = () => {
     setIsMobileNavOpen(false);
   };
 
   return (
-    <>
-      <nav className="flex justify-between md:justify-start items-center h-[72px] w-full px-6 border-b-1 font-normal text-base">
+    <header>
+      <nav
+        aria-label="main"
+        className="flex justify-between md:justify-start items-center h-[72px] w-full px-6 border-b-1 font-normal text-base"
+      >
         <Link href="/">
           <a className="flex justify-center items-center mr-8">
             <Image
-              alt="Flip Logo"
+              alt="Swirl home"
               src="/swirl-icon-temp.svg"
               width={32}
               height={32}
             />
             <span className="font-bold ml-3">
-              {activePath?.includes("/tokens") || activePath?.includes("/icons")
-                ? "Swirl"
-                : "Dev"}
+              {isSwirlDocs ? "Swirl" : "Dev"}
             </span>
           </a>
         </Link>
 
-        <div className="block md:hidden">
+        <div className="inline-flex md:hidden">
           {isMobileNavOpen && (
-            <button onClick={() => setIsMobileNavOpen(false)}>
-              <Image alt="Close Icon" src={icon.src} width={24} height={24} />
+            <button type="button" onClick={() => setIsMobileNavOpen(false)}>
+              <Image alt="Close Menu" src={icon.src} width={24} height={24} />
             </button>
           )}
           {!isMobileNavOpen && (
-            <button onClick={() => setIsMobileNavOpen(true)}>
+            <button
+              type="button"
+              aria-label="open menu"
+              onClick={() => setIsMobileNavOpen(true)}
+            >
               <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
               <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
               <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
@@ -58,7 +61,7 @@ const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
         <ul className="hidden md:flex flex-row">
           {links.map((link) => (
             <li
-              key={link.path}
+              key={link.url}
               className={`
               relative
               mr-4
@@ -68,25 +71,25 @@ const HeaderNavigation = ({ links }: HeaderNavigationProps) => {
               before:h-1
               before:bg-border-info
               ${
-                activePath?.includes(link.path)
+                activePath?.includes(link.url)
                   ? "before:opacity-100"
                   : "before:opacity-0"
               }`}
             >
               <Link
                 className={`text-text-default text-base ${
-                  activePath?.includes(link.path) ? "text-border-info" : ""
+                  activePath?.includes(link.url) ? "text-border-info" : ""
                 }`}
-                href={link.path}
+                href={link.url}
               >
-                <a>{link.name}</a>
+                <a>{link.title}</a>
               </Link>
             </li>
           ))}
         </ul>
       </nav>
       {isMobileNavOpen && <MobileNav handleCloseMenu={handleCloseMenu} />}
-    </>
+    </header>
   );
 };
 
