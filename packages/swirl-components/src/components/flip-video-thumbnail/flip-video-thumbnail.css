@@ -16,6 +16,8 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  container-type: inline-size;
+  container-name: video-thumbnail;
 
   &:after {
     position: absolute;
@@ -53,5 +55,14 @@
   z-index: 1;
   top: 50%;
   left: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
   transform: translate3d(-50%, -50%, 0);
+}
+
+@container video-thumbnail (min-width: 448px) {
+  .video-thumbnail__play-icon {
+    width: 3.5rem;
+    height: 4.5rem;
+  }
 }
