@@ -122,12 +122,12 @@ export namespace Components {
     interface FlipDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
-        "datePickerButtonLabel"?: string;
         "datePickerLabel"?: string;
         "disabled"?: boolean;
         "flipAriaDescribedby"?: string;
         "format"?: string;
         "invalid"?: boolean;
+        "locale"?: Partial<AirDatepickerLocale>;
         "placeholder"?: string;
         "required"?: boolean;
         "value"?: string;
@@ -1613,12 +1613,12 @@ declare namespace LocalJSX {
     interface FlipDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
-        "datePickerButtonLabel"?: string;
         "datePickerLabel"?: string;
         "disabled"?: boolean;
         "flipAriaDescribedby"?: string;
         "format"?: string;
         "invalid"?: boolean;
+        "locale"?: Partial<AirDatepickerLocale>;
         "onValueChange"?: (event: FlipDateInputCustomEvent<string>) => void;
         "placeholder"?: string;
         "required"?: boolean;
