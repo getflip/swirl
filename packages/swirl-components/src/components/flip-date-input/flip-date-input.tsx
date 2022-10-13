@@ -7,6 +7,7 @@ import {
   Prop,
   Watch,
 } from "@stencil/core";
+import { AirDatepickerLocale } from "air-datepicker";
 import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
@@ -28,21 +29,27 @@ const internalDateFormat = "yyyy-MM-dd";
 export class FlipDateInput {
   @Prop() autoFocus?: boolean;
   @Prop() autoSelect?: boolean;
-  @Prop() datePickerButtonLabel?: string = "Open date picker";
   @Prop() datePickerLabel?: string = "Date picker";
   @Prop() disabled?: boolean;
   @Prop() flipAriaDescribedby?: string;
   @Prop() format?: string = "yyyy-MM-dd";
   @Prop() invalid?: boolean;
+  @Prop() locale?: Partial<AirDatepickerLocale>;
   @Prop() placeholder?: string = "yyyy-mm-dd";
   @Prop() required?: boolean;
   @Prop({ mutable: true, reflect: true }) value?: string;
 
   @Event() valueChange: EventEmitter<string>;
 
-  private id = `flip-date-input-${Math.round(Math.random() * 100000)}`;
+  private id: string;
   private mask: Maska;
   private pickerPopover: HTMLFlipPopoverElement;
+
+  componentWillLoad() {
+    const index = document.querySelectorAll("flip-date-input").length;
+
+    this.id = `flip-date-input-${index}`;
+  }
 
   componentDidLoad() {
     this.setupMask();
@@ -151,10 +158,11 @@ export class FlipDateInput {
           />
 
           <button
-            aria-label={this.datePickerButtonLabel}
+            aria-hidden="true"
             class="date-input__date-picker-button"
             disabled={this.disabled}
             id={`${this.id}-trigger`}
+            tabIndex={-1}
             type="button"
           >
             <flip-icon-today></flip-icon-today>
@@ -170,6 +178,7 @@ export class FlipDateInput {
             trigger={`${this.id}-trigger`}
           >
             <flip-date-picker
+              locale={this.locale}
               onValueChange={this.onPickDate}
               value={dateValue}
             ></flip-date-picker>
