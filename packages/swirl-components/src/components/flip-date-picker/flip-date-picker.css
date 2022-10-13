@@ -11,6 +11,7 @@
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
   letter-spacing: var(--s-letter-spacing-tighter);
+  padding: var(--s-space-4);
 
   @media (--from-tablet) {
     max-width: 17.5rem;
