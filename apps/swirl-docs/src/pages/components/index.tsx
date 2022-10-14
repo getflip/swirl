@@ -36,7 +36,7 @@ const Components = ({ links, swirlComponentLinks }: any) => {
         <title>Swirl Components</title>
       </Head>
       <section className="flex justify-center w-screen">
-        <nav>
+        <nav aria-label="swirl component links">
           <ul className="list-disc">
             {swirlComponentLinks.map((component: DocCategory) => {
               return (
