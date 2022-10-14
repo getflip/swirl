@@ -2,15 +2,35 @@
   position: relative;
   display: inline-flex;
   width: 100%;
-  max-height: 100%;
+  height: 100%;
 
   & * {
     box-sizing: border-box;
   }
 }
 
+.file-viewer-pdf__pages {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  padding: var(--s-space-16);
+}
+
+.file-viewer-pdf__page {
+  margin-right: auto;
+  margin-left: auto;
+
+  &:not(:last-of-type) {
+    margin-bottom: var(--s-space-12);
+  }
+}
+
 .file-viewer-pdf__canvas {
   width: 100%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0.125rem 0.25rem 1rem rgba(0, 0, 0, 0.08);
 }
 
 .file-viewer-pdf__spinner,

@@ -24,6 +24,13 @@ const Template = (args) => {
   const element = generateStoryElement("flip-file-viewer", args);
   element.style.height = "400px";
 
+  const pdfFile = generateStoryElement("flip-file-viewer", {
+    ...args,
+    file: "/sample.pdf",
+    type: "application/pdf",
+  });
+  pdfFile.style.height = "600px";
+
   const videoFile = generateStoryElement("flip-file-viewer", {
     ...args,
     file: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
@@ -44,23 +51,17 @@ const Template = (args) => {
   });
   textFile.style.height = "400px";
 
-  const pdfFile = generateStoryElement("flip-file-viewer", {
-    ...args,
-    file: "/sample.pdf",
-    type: "application/pdf",
-  });
-
   container.append(
     "\n  ",
     element,
+    "\n  ",
+    pdfFile,
     "\n  ",
     videoFile,
     "\n  ",
     audioFile,
     "\n  ",
     textFile,
-    "\n  ",
-    pdfFile,
     "\n"
   );
 
