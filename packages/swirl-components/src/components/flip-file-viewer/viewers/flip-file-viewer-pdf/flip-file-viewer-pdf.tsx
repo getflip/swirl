@@ -136,7 +136,7 @@ export class FlipFileViewerPdf {
       .map((page) => +page.dataset.pageNumber);
 
     if (visiblePages.length === 0) {
-      visiblePages = [1];
+      visiblePages = [1, 2, 3, 4];
     }
 
     const visiblePagesChanged = !(

@@ -72,5 +72,5 @@ export const FlipFileViewer = Template.bind({});
 
 FlipFileViewer.args = {
   file: "https://picsum.photos/id/1025/1000/1000",
-  type: "image/jpg",
+  type: "image/jpeg",
 };
