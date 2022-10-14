@@ -1,0 +1,22 @@
+:host {
+  position: relative;
+  display: inline-flex;
+  max-height: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.file-viewer-image__image {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.file-viewer-image__spinner,
+.file-viewer-image__error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}

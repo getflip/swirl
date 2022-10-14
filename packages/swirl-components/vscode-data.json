@@ -673,6 +673,124 @@
       ]
     },
     {
+      "name": "flip-file-viewer",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "type",
+          "description": ""
+        },
+        {
+          "name": "type-unsupported-message",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-audio",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "type",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-image",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-pdf",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-text",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-video",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "type",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-form-control",
       "description": {
         "kind": "markdown",

@@ -1,0 +1,36 @@
+:host {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  max-height: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.file-viewer-pdf__canvas {
+  width: 100%;
+}
+
+.file-viewer-pdf__spinner,
+.file-viewer-pdf__error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.file-viewer-pdf__pagination {
+  position: absolute;
+  bottom: var(--s-space-32);
+  left: 50%;
+  padding: var(--s-space-4) var(--s-space-12);
+  border-radius: var(--s-border-radius-base);
+  color: var(--s-text-on-image);
+  background-color: rgba(0, 0, 0, 0.6);
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-base);
+  transform: translateX(-50%);
+  pointer-events: none;
+}

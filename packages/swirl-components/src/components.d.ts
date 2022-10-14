@@ -158,6 +158,34 @@ export namespace Components {
         "showDropzone"?: boolean;
         "uploadButtonLabel"?: string;
     }
+    interface FlipFileViewer {
+        "description"?: string;
+        "errorMessage"?: string;
+        "file": string;
+        "type": string;
+        "typeUnsupportedMessage"?: string;
+    }
+    interface FlipFileViewerAudio {
+        "file": string;
+        "type": string;
+    }
+    interface FlipFileViewerImage {
+        "description"?: string;
+        "errorMessage"?: string;
+        "file": string;
+    }
+    interface FlipFileViewerPdf {
+        "errorMessage"?: string;
+        "file": string;
+    }
+    interface FlipFileViewerText {
+        "errorMessage"?: string;
+        "file": string;
+    }
+    interface FlipFileViewerVideo {
+        "file": string;
+        "type": string;
+    }
     interface FlipFormControl {
         "description"?: string;
         "disabled"?: boolean;
@@ -759,6 +787,42 @@ declare global {
     var HTMLFlipFileUploaderElement: {
         prototype: HTMLFlipFileUploaderElement;
         new (): HTMLFlipFileUploaderElement;
+    };
+    interface HTMLFlipFileViewerElement extends Components.FlipFileViewer, HTMLStencilElement {
+    }
+    var HTMLFlipFileViewerElement: {
+        prototype: HTMLFlipFileViewerElement;
+        new (): HTMLFlipFileViewerElement;
+    };
+    interface HTMLFlipFileViewerAudioElement extends Components.FlipFileViewerAudio, HTMLStencilElement {
+    }
+    var HTMLFlipFileViewerAudioElement: {
+        prototype: HTMLFlipFileViewerAudioElement;
+        new (): HTMLFlipFileViewerAudioElement;
+    };
+    interface HTMLFlipFileViewerImageElement extends Components.FlipFileViewerImage, HTMLStencilElement {
+    }
+    var HTMLFlipFileViewerImageElement: {
+        prototype: HTMLFlipFileViewerImageElement;
+        new (): HTMLFlipFileViewerImageElement;
+    };
+    interface HTMLFlipFileViewerPdfElement extends Components.FlipFileViewerPdf, HTMLStencilElement {
+    }
+    var HTMLFlipFileViewerPdfElement: {
+        prototype: HTMLFlipFileViewerPdfElement;
+        new (): HTMLFlipFileViewerPdfElement;
+    };
+    interface HTMLFlipFileViewerTextElement extends Components.FlipFileViewerText, HTMLStencilElement {
+    }
+    var HTMLFlipFileViewerTextElement: {
+        prototype: HTMLFlipFileViewerTextElement;
+        new (): HTMLFlipFileViewerTextElement;
+    };
+    interface HTMLFlipFileViewerVideoElement extends Components.FlipFileViewerVideo, HTMLStencilElement {
+    }
+    var HTMLFlipFileViewerVideoElement: {
+        prototype: HTMLFlipFileViewerVideoElement;
+        new (): HTMLFlipFileViewerVideoElement;
     };
     interface HTMLFlipFormControlElement extends Components.FlipFormControl, HTMLStencilElement {
     }
@@ -1365,6 +1429,12 @@ declare global {
         "flip-dialog": HTMLFlipDialogElement;
         "flip-empty-state": HTMLFlipEmptyStateElement;
         "flip-file-uploader": HTMLFlipFileUploaderElement;
+        "flip-file-viewer": HTMLFlipFileViewerElement;
+        "flip-file-viewer-audio": HTMLFlipFileViewerAudioElement;
+        "flip-file-viewer-image": HTMLFlipFileViewerImageElement;
+        "flip-file-viewer-pdf": HTMLFlipFileViewerPdfElement;
+        "flip-file-viewer-text": HTMLFlipFileViewerTextElement;
+        "flip-file-viewer-video": HTMLFlipFileViewerVideoElement;
         "flip-form-control": HTMLFlipFormControlElement;
         "flip-heading": HTMLFlipHeadingElement;
         "flip-icon-add": HTMLFlipIconAddElement;
@@ -1585,6 +1655,34 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: FlipFileUploaderCustomEvent<FileList>) => void;
         "showDropzone"?: boolean;
         "uploadButtonLabel"?: string;
+    }
+    interface FlipFileViewer {
+        "description"?: string;
+        "errorMessage"?: string;
+        "file": string;
+        "type": string;
+        "typeUnsupportedMessage"?: string;
+    }
+    interface FlipFileViewerAudio {
+        "file": string;
+        "type": string;
+    }
+    interface FlipFileViewerImage {
+        "description"?: string;
+        "errorMessage"?: string;
+        "file": string;
+    }
+    interface FlipFileViewerPdf {
+        "errorMessage"?: string;
+        "file": string;
+    }
+    interface FlipFileViewerText {
+        "errorMessage"?: string;
+        "file": string;
+    }
+    interface FlipFileViewerVideo {
+        "file": string;
+        "type": string;
     }
     interface FlipFormControl {
         "description"?: string;
@@ -2019,6 +2117,12 @@ declare namespace LocalJSX {
         "flip-dialog": FlipDialog;
         "flip-empty-state": FlipEmptyState;
         "flip-file-uploader": FlipFileUploader;
+        "flip-file-viewer": FlipFileViewer;
+        "flip-file-viewer-audio": FlipFileViewerAudio;
+        "flip-file-viewer-image": FlipFileViewerImage;
+        "flip-file-viewer-pdf": FlipFileViewerPdf;
+        "flip-file-viewer-text": FlipFileViewerText;
+        "flip-file-viewer-video": FlipFileViewerVideo;
         "flip-form-control": FlipFormControl;
         "flip-heading": FlipHeading;
         "flip-icon-add": FlipIconAdd;
@@ -2139,6 +2243,12 @@ declare module "@stencil/core" {
             "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;
             "flip-empty-state": LocalJSX.FlipEmptyState & JSXBase.HTMLAttributes<HTMLFlipEmptyStateElement>;
             "flip-file-uploader": LocalJSX.FlipFileUploader & JSXBase.HTMLAttributes<HTMLFlipFileUploaderElement>;
+            "flip-file-viewer": LocalJSX.FlipFileViewer & JSXBase.HTMLAttributes<HTMLFlipFileViewerElement>;
+            "flip-file-viewer-audio": LocalJSX.FlipFileViewerAudio & JSXBase.HTMLAttributes<HTMLFlipFileViewerAudioElement>;
+            "flip-file-viewer-image": LocalJSX.FlipFileViewerImage & JSXBase.HTMLAttributes<HTMLFlipFileViewerImageElement>;
+            "flip-file-viewer-pdf": LocalJSX.FlipFileViewerPdf & JSXBase.HTMLAttributes<HTMLFlipFileViewerPdfElement>;
+            "flip-file-viewer-text": LocalJSX.FlipFileViewerText & JSXBase.HTMLAttributes<HTMLFlipFileViewerTextElement>;
+            "flip-file-viewer-video": LocalJSX.FlipFileViewerVideo & JSXBase.HTMLAttributes<HTMLFlipFileViewerVideoElement>;
             "flip-form-control": LocalJSX.FlipFormControl & JSXBase.HTMLAttributes<HTMLFlipFormControlElement>;
             "flip-heading": LocalJSX.FlipHeading & JSXBase.HTMLAttributes<HTMLFlipHeadingElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;

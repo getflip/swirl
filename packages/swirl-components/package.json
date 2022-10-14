@@ -40,7 +40,8 @@
     "@stencil/core": "^2.13.0",
     "a11y-dialog": "^7.5.2",
     "classnames": "^2.3.1",
-    "color2k": "^2.0.0"
+    "color2k": "^2.0.0",
+    "pdfjs-dist": "^2.16.105"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
