@@ -57,7 +57,7 @@ export default function Component({
   return (
     <>
       <Head>
-        <title>Swirl Components | {title}</title>
+        <title>{`Swril | ${title}`}</title>
       </Head>
       <DocumentationLayout
         categoryLinkList={navItems[1].children}

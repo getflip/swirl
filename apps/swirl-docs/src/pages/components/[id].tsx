@@ -56,7 +56,7 @@ export default function Component({
   return (
     <>
       <Head>
-        <title>Swirl Components</title>
+        <title>Swirl | Components</title>
       </Head>
       <div className="grid grid-cols-1 md:grid-cols-12 h-full">
         <CategoryNav categoryLinkList={navItems[1].children} />
