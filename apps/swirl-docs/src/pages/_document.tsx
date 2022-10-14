@@ -6,8 +6,11 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
-            rel="stylesheet"
+            rel="preload"
+            href="/fonts/Inter.var.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
           />
           <link rel="icon" href="/favicon.ico" sizes="any" />
           <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
