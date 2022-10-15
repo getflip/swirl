@@ -1832,6 +1832,47 @@
       ]
     },
     {
+      "name": "flip-progress-indicator",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "bar"
+            },
+            {
+              "name": "circle"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "flip-radio",
       "description": {
         "kind": "markdown",
