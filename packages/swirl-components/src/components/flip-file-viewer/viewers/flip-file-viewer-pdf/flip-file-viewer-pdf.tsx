@@ -91,7 +91,7 @@ export class FlipFileViewerPdf {
         ".file-viewer-pdf__page"
       );
 
-      const textContainer = container.querySelector<HTMLDivElement>(
+      const textContainer = container?.querySelector<HTMLDivElement>(
         ".file-viewer-pdf__text-container"
       );
 
