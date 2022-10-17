@@ -41,6 +41,7 @@
     "a11y-dialog": "^7.5.2",
     "classnames": "^2.3.1",
     "color2k": "^2.0.0",
+    "papaparse": "^5.3.2",
     "pdfjs-dist": "^2.16.105"
   },
   "devDependencies": {
@@ -60,6 +61,7 @@
     "@types/body-scroll-lock": "^3.1.0",
     "@types/jest": "^27.0.3",
     "@types/mdx": "^2.0.2",
+    "@types/papaparse": "^5.3.5",
     "@typescript-eslint/parser": "^5.33.0",
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",

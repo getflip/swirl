@@ -11,6 +11,7 @@ import {
 import pdf, {
   PDFDocumentProxy,
   PDFPageProxy,
+  renderTextLayer,
 } from "pdfjs-dist/legacy/build/pdf.js";
 import { getVisibleHeight } from "../../../../utils";
 
@@ -86,11 +87,16 @@ export class FlipFileViewerPdf {
     const canvases = Array.from(this.el.shadowRoot.querySelectorAll("canvas"));
 
     for (const canvas of canvases) {
+      const container = canvas.closest<HTMLDivElement>(
+        ".file-viewer-pdf__page"
+      );
+
+      const textContainer = container.querySelector<HTMLDivElement>(
+        ".file-viewer-pdf__text-container"
+      );
+
       const page = this.pages.find(
-        (page) =>
-          page?.pageNumber ===
-          +canvas.closest<HTMLDivElement>(".file-viewer-pdf__page")?.dataset
-            .pageNumber
+        (page) => page?.pageNumber === +container?.dataset.pageNumber
       );
 
       if (
@@ -122,6 +128,12 @@ export class FlipFileViewerPdf {
       };
 
       await page.render(renderContext).promise;
+
+      renderTextLayer({
+        container: textContainer,
+        textContent: await page.getTextContent(),
+        viewport,
+      });
 
       this.renderingPageNumbers = this.renderingPageNumbers.filter(
         (pageNumber) => pageNumber !== page.pageNumber
@@ -181,6 +193,7 @@ export class FlipFileViewerPdf {
           ></flip-inline-error>
         )}
         <div
+          aria-describedby="pagination"
           class="file-viewer-pdf__pages"
           onScroll={this.onScroll}
           ref={(el) => (this.scrollContainer = el)}
@@ -192,25 +205,30 @@ export class FlipFileViewerPdf {
 
             return (
               <div
+                aria-label={page.pageNumber}
                 class="file-viewer-pdf__page"
                 data-page-number={page.pageNumber}
                 id={`page-${page.pageNumber}`}
                 key={page.pageNumber}
+                role="region"
                 style={{
                   width: `${viewport.width}px`,
                   height: `${viewport.height}px`,
                 }}
+                tabIndex={0}
               >
                 {this.visiblePages.includes(page.pageNumber) && (
                   <canvas class="file-viewer-pdf__canvas"></canvas>
                 )}
+                <div class="file-viewer-pdf__text-container"></div>
               </div>
             );
           })}
         </div>
         {showPagination && (
-          <span class="file-viewer-pdf__pagination">
-            {this.visiblePages[0]} / {this.doc.numPages}
+          <span class="file-viewer-pdf__pagination" id="pagination">
+            <span aria-current="page">{this.visiblePages[0]}</span> /{" "}
+            {this.doc.numPages}
           </span>
         )}
       </Host>

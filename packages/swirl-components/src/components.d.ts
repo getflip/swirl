@@ -173,6 +173,10 @@ export namespace Components {
         "file": string;
         "type": string;
     }
+    interface FlipFileViewerCsv {
+        "errorMessage"?: string;
+        "file": string;
+    }
     interface FlipFileViewerImage {
         "description"?: string;
         "errorMessage"?: string;
@@ -811,6 +815,12 @@ declare global {
         prototype: HTMLFlipFileViewerAudioElement;
         new (): HTMLFlipFileViewerAudioElement;
     };
+    interface HTMLFlipFileViewerCsvElement extends Components.FlipFileViewerCsv, HTMLStencilElement {
+    }
+    var HTMLFlipFileViewerCsvElement: {
+        prototype: HTMLFlipFileViewerCsvElement;
+        new (): HTMLFlipFileViewerCsvElement;
+    };
     interface HTMLFlipFileViewerImageElement extends Components.FlipFileViewerImage, HTMLStencilElement {
     }
     var HTMLFlipFileViewerImageElement: {
@@ -1448,6 +1458,7 @@ declare global {
         "flip-file-uploader": HTMLFlipFileUploaderElement;
         "flip-file-viewer": HTMLFlipFileViewerElement;
         "flip-file-viewer-audio": HTMLFlipFileViewerAudioElement;
+        "flip-file-viewer-csv": HTMLFlipFileViewerCsvElement;
         "flip-file-viewer-image": HTMLFlipFileViewerImageElement;
         "flip-file-viewer-pdf": HTMLFlipFileViewerPdfElement;
         "flip-file-viewer-text": HTMLFlipFileViewerTextElement;
@@ -1685,6 +1696,10 @@ declare namespace LocalJSX {
     interface FlipFileViewerAudio {
         "file": string;
         "type": string;
+    }
+    interface FlipFileViewerCsv {
+        "errorMessage"?: string;
+        "file": string;
     }
     interface FlipFileViewerImage {
         "description"?: string;
@@ -2145,6 +2160,7 @@ declare namespace LocalJSX {
         "flip-file-uploader": FlipFileUploader;
         "flip-file-viewer": FlipFileViewer;
         "flip-file-viewer-audio": FlipFileViewerAudio;
+        "flip-file-viewer-csv": FlipFileViewerCsv;
         "flip-file-viewer-image": FlipFileViewerImage;
         "flip-file-viewer-pdf": FlipFileViewerPdf;
         "flip-file-viewer-text": FlipFileViewerText;
@@ -2272,6 +2288,7 @@ declare module "@stencil/core" {
             "flip-file-uploader": LocalJSX.FlipFileUploader & JSXBase.HTMLAttributes<HTMLFlipFileUploaderElement>;
             "flip-file-viewer": LocalJSX.FlipFileViewer & JSXBase.HTMLAttributes<HTMLFlipFileViewerElement>;
             "flip-file-viewer-audio": LocalJSX.FlipFileViewerAudio & JSXBase.HTMLAttributes<HTMLFlipFileViewerAudioElement>;
+            "flip-file-viewer-csv": LocalJSX.FlipFileViewerCsv & JSXBase.HTMLAttributes<HTMLFlipFileViewerCsvElement>;
             "flip-file-viewer-image": LocalJSX.FlipFileViewerImage & JSXBase.HTMLAttributes<HTMLFlipFileViewerImageElement>;
             "flip-file-viewer-pdf": LocalJSX.FlipFileViewerPdf & JSXBase.HTMLAttributes<HTMLFlipFileViewerPdfElement>;
             "flip-file-viewer-text": LocalJSX.FlipFileViewerText & JSXBase.HTMLAttributes<HTMLFlipFileViewerTextElement>;

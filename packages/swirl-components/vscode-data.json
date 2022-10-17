@@ -728,6 +728,23 @@
       ]
     },
     {
+      "name": "flip-file-viewer-csv",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-file-viewer-image",
       "description": {
         "kind": "markdown",

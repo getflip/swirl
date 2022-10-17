@@ -45,7 +45,9 @@ export class FlipFileViewerText {
             message={this.errorMessage}
           ></flip-inline-error>
         )}
-        <pre class="file-viewer-text__text">{this.text}</pre>
+        <pre class="file-viewer-text__text" tabIndex={0}>
+          {this.text}
+        </pre>
       </Host>
     );
   }

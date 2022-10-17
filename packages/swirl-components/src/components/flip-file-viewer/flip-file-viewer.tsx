@@ -32,18 +32,31 @@ export class FlipFileViewer {
               {this.type.startsWith("image/") && (
                 <flip-file-viewer-image
                   description={this.description}
+                  errorMessage={this.errorMessage}
                   file={this.file}
                 ></flip-file-viewer-image>
               )}
 
               {/* text files */}
-              {this.type.startsWith("text/") && (
-                <flip-file-viewer-text file={this.file}></flip-file-viewer-text>
+              {this.type === "text/plain" && (
+                <flip-file-viewer-text
+                  errorMessage={this.errorMessage}
+                  file={this.file}
+                ></flip-file-viewer-text>
+              )}
+
+              {/* csv files */}
+              {this.type === "text/csv" && (
+                <flip-file-viewer-csv
+                  errorMessage={this.errorMessage}
+                  file={this.file}
+                ></flip-file-viewer-csv>
               )}
 
               {/* pdf files */}
               {this.type === "application/pdf" && (
                 <flip-file-viewer-pdf
+                  errorMessage={this.errorMessage}
                   file={this.file}
                   zoom={this.zoom}
                 ></flip-file-viewer-pdf>
