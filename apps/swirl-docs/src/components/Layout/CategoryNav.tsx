@@ -47,7 +47,7 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
 
   return (
     <nav
-      aria-label="category navigation"
+      aria-label="category"
       className="hidden md:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs"
     >
       <ul className="mt-6">

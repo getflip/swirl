@@ -27,7 +27,7 @@ const Footer = () => {
     <footer id="footer">
       <PreFooter />
       <nav
-        aria-label="footer navigation"
+        aria-label="footer"
         className="hidden md:flex bottom-0 col-start-3 col-span-10 bg-white justify-between items-center h-20 px-4 w-full"
       >
         <Image alt="Flip Logo" src="/flip-logo.svg" width={70} height={30} />
