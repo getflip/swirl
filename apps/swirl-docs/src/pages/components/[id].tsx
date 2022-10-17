@@ -60,7 +60,10 @@ export default function Component({
       </Head>
       <div className="grid grid-cols-1 md:grid-cols-12 h-full">
         <CategoryNav categoryLinkList={navItems[1].children} />
-        <main className="col-span-8 flex flex-col justify-center items-center">
+        <main
+          id="main"
+          className="col-span-8 flex flex-col justify-center items-center"
+        >
           <article className="max-w-3xl px-4 mt-6">
             <MDXRemote {...document} components={components} />
           </article>

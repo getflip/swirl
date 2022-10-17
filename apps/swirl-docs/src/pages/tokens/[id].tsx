@@ -63,7 +63,7 @@ export default function Component({
         categoryLinkList={navItems[1].children}
         documentLinkList={documentLinkList}
       >
-        <main className="flex flex-col justify-center items-center">
+        <main id="main" className="flex flex-col justify-center items-center">
           <article className="max-w-3xl px-4 mt-6">
             <MDXRemote {...document} components={components} />
           </article>

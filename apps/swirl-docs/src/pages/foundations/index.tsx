@@ -6,7 +6,7 @@ const FoundationsIndexPage = () => {
       <Head>
         <title>Swirl Foundations</title>
       </Head>
-      <main>
+      <main id="main">
         <section className="flex flex-col justify-center items-center h-full w-screen">
           Foundations Index Page
         </section>

@@ -7,7 +7,10 @@ const Home: NextPage = ({}: any) => {
       <Head>
         <title>Swirl | NextJS Bootstrap</title>
       </Head>
-      <main className="flex flex-col justify-center items-center h-[calc(100vh_-_72px)] w-screen">
+      <main
+        id="main"
+        className="flex flex-col justify-center items-center h-[calc(100vh_-_72px)] w-screen"
+      >
         <h1 className="text-3xl font-bold max-w-lg text-center">
           Here arise the{" "}
           <a

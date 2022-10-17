@@ -36,7 +36,7 @@ const Components = ({ links }: any) => {
       </Head>
       <div className="flex min-h-[calc(100vh_-_72px)]">
         <CategoryNav categoryLinkList={categoryLinks} />
-        <main className="w-full h-full">
+        <main id="main" className="w-full h-full">
           <section className="flex flex-col py-14 px-24">
             <h1 className="mb-4">Tokens</h1>
             <p className="mb-4">

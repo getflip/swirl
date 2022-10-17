@@ -72,7 +72,7 @@ const IconsIndex = ({ links }: any) => {
       </Head>
       <div className="flex min-h-[calc(100vh_-_72px)]">
         <CategoryNav categoryLinkList={navItems[2].children} />
-        <main className="w-full h-full">
+        <main id="main" className="w-full h-full">
           <section className="flex flex-col px-4 md:py-14 md:px-24">
             <div className="mb-16">
               <h1 className="mb-4">Icons</h1>
