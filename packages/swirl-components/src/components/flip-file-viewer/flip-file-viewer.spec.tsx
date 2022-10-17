@@ -27,8 +27,10 @@ describe("flip-file-viewer", () => {
             <div class="file-viewer__file">
               <flip-file-viewer-image class="file-viewer-image">
                 <mock:shadow-root>
-                  <flip-spinner class="file-viewer-image__spinner"></flip-spinner>
                   <img alt="Description" class="file-viewer-image__image" src="https://picsum.photos/id/1025/1000/1000">
+                  <div class="file-viewer-image__spinner">
+                    <flip-spinner></flip-spinner>
+                  </div>
                 </mock:shadow-root>
               </flip-file-viewer-image>
             </div>
