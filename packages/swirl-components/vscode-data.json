@@ -698,6 +698,15 @@
         {
           "name": "type-unsupported-message",
           "description": ""
+        },
+        {
+          "name": "zoom",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            }
+          ]
         }
       ]
     },
@@ -753,6 +762,15 @@
         {
           "name": "file",
           "description": ""
+        },
+        {
+          "name": "zoom",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            }
+          ]
         }
       ]
     },

@@ -6,6 +6,10 @@ export default {
     file: {
       control: { type: "text" },
     },
+    zoom: {
+      control: { type: "text" },
+      description: "Applicable to PDFs only.",
+    },
   },
   component: "flip-file-viewer",
   parameters: {
@@ -17,60 +21,16 @@ export default {
 };
 
 const Template = (args) => {
-  const container = document.createElement("flip-stack");
-
-  container.spacing = "24";
-
   const element = generateStoryElement("flip-file-viewer", args);
-  element.style.height = "400px";
 
-  const pdfFile = generateStoryElement("flip-file-viewer", {
-    ...args,
-    file: "/sample.pdf",
-    type: "application/pdf",
-  });
-  pdfFile.style.height = "600px";
+  element.style.height = "clamp(400px, 90vh, 700px)";
 
-  const videoFile = generateStoryElement("flip-file-viewer", {
-    ...args,
-    file: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-    type: "video/mp4",
-  });
-  videoFile.style.height = "400px";
-
-  const audioFile = generateStoryElement("flip-file-viewer", {
-    ...args,
-    file: "https://raw.githubusercontent.com/exaile/exaile-test-files/master/art.mp3",
-    type: "audio/mp3",
-  });
-
-  const textFile = generateStoryElement("flip-file-viewer", {
-    ...args,
-    file: "https://www.w3.org/TR/2003/REC-PNG-20031110/iso_8859-1.txt",
-    type: "text/plain",
-  });
-  textFile.style.height = "400px";
-
-  container.append(
-    "\n  ",
-    element,
-    "\n  ",
-    pdfFile,
-    "\n  ",
-    videoFile,
-    "\n  ",
-    audioFile,
-    "\n  ",
-    textFile,
-    "\n"
-  );
-
-  return container;
+  return element;
 };
 
 export const FlipFileViewer = Template.bind({});
 
 FlipFileViewer.args = {
-  file: "https://picsum.photos/id/1025/1000/1000",
-  type: "image/jpeg",
+  file: "/sample.pdf",
+  type: "application/pdf",
 };

@@ -14,6 +14,8 @@ import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
+import { FlipFileViewerPdfZoom } from "./components/flip-file-viewer/viewers/flip-file-viewer-pdf/flip-file-viewer-pdf";
+import { FlipFileViewerPdfZoom as FlipFileViewerPdfZoom1 } from "./components/flip-file-viewer/viewers/flip-file-viewer-pdf/flip-file-viewer-pdf";
 import { FlipHeadingAlign, FlipHeadingLevel, FlipHeadingTag } from "./components/flip-heading/flip-heading";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
@@ -165,6 +167,7 @@ export namespace Components {
         "file": string;
         "type": string;
         "typeUnsupportedMessage"?: string;
+        "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerAudio {
         "file": string;
@@ -178,6 +181,7 @@ export namespace Components {
     interface FlipFileViewerPdf {
         "errorMessage"?: string;
         "file": string;
+        "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerText {
         "errorMessage"?: string;
@@ -1676,6 +1680,7 @@ declare namespace LocalJSX {
         "file": string;
         "type": string;
         "typeUnsupportedMessage"?: string;
+        "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerAudio {
         "file": string;
@@ -1689,6 +1694,7 @@ declare namespace LocalJSX {
     interface FlipFileViewerPdf {
         "errorMessage"?: string;
         "file": string;
+        "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerText {
         "errorMessage"?: string;

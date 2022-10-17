@@ -1,4 +1,5 @@
 import { Component, h, Host, Prop } from "@stencil/core";
+import { FlipFileViewerPdfZoom } from "./viewers/flip-file-viewer-pdf/flip-file-viewer-pdf";
 
 @Component({
   shadow: true,
@@ -11,6 +12,7 @@ export class FlipFileViewer {
   @Prop() file!: string;
   @Prop() type!: string;
   @Prop() typeUnsupportedMessage?: string = "File type is not supported.";
+  @Prop() zoom?: FlipFileViewerPdfZoom = 1;
 
   render() {
     const unsupportedType =
@@ -41,7 +43,10 @@ export class FlipFileViewer {
 
               {/* pdf files */}
               {this.type === "application/pdf" && (
-                <flip-file-viewer-pdf file={this.file}></flip-file-viewer-pdf>
+                <flip-file-viewer-pdf
+                  file={this.file}
+                  zoom={this.zoom}
+                ></flip-file-viewer-pdf>
               )}
 
               {/* video files */}

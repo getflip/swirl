@@ -16,6 +16,8 @@ import { getVisibleHeight } from "../../../../utils";
 
 pdf.GlobalWorkerOptions.workerSrc = "/pdfjs/pdf.worker.min.js";
 
+export type FlipFileViewerPdfZoom = number | "auto";
+
 @Component({
   shadow: true,
   styleUrl: "flip-file-viewer-pdf.css",
@@ -26,6 +28,7 @@ export class FlipFileViewerPdf {
 
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
+  @Prop() zoom?: FlipFileViewerPdfZoom = 1;
 
   @State() doc: PDFDocumentProxy;
   @State() error: boolean;
@@ -102,8 +105,10 @@ export class FlipFileViewerPdf {
         page.pageNumber,
       ];
 
+      const scale = this.getScale(page);
+
       const viewport = page.getViewport({
-        scale: this.scrollContainer.clientWidth / page.view[2],
+        scale,
       });
 
       const context = canvas.getContext("2d");
@@ -150,6 +155,12 @@ export class FlipFileViewerPdf {
     }
   }
 
+  private getScale(page: PDFPageProxy) {
+    return this.zoom === "auto"
+      ? (this.scrollContainer.clientWidth - 32) / page.view[2]
+      : this.zoom;
+  }
+
   private onScroll = () => {
     this.updateVisiblePages();
   };
@@ -176,7 +187,7 @@ export class FlipFileViewerPdf {
         >
           {this.pages.map((page) => {
             const viewport = page.getViewport({
-              scale: (this.scrollContainer.clientWidth - 32) / page.view[2],
+              scale: this.getScale(page),
             });
 
             return (
