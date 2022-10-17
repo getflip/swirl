@@ -495,6 +495,10 @@
           "description": ""
         },
         {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
           "name": "input-id",
           "description": ""
         },
@@ -680,6 +684,35 @@
         },
         {
           "name": "upload-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-form-control",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "label",
           "description": ""
         }
       ]
@@ -1711,6 +1744,14 @@
       ]
     },
     {
+      "name": "flip-list",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
       "name": "flip-option-list",
       "description": {
         "kind": "markdown",
@@ -1867,6 +1908,47 @@
       ]
     },
     {
+      "name": "flip-progress-indicator",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "bar"
+            },
+            {
+              "name": "circle"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "flip-radio",
       "description": {
         "kind": "markdown",
@@ -1922,6 +2004,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
         {
           "name": "value",
           "description": ""
@@ -2421,6 +2507,155 @@
               "name": "semibold"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "flip-text-input",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-complete",
+          "description": ""
+        },
+        {
+          "name": "auto-focus",
+          "description": ""
+        },
+        {
+          "name": "auto-select",
+          "description": ""
+        },
+        {
+          "name": "clear-button-label",
+          "description": ""
+        },
+        {
+          "name": "clearable",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "max",
+          "description": ""
+        },
+        {
+          "name": "max-length",
+          "description": ""
+        },
+        {
+          "name": "min",
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "description": "",
+          "values": [
+            {
+              "name": "decimal"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "numeric"
+            },
+            {
+              "name": "search"
+            },
+            {
+              "name": "tel"
+            },
+            {
+              "name": "text"
+            },
+            {
+              "name": "url"
+            }
+          ]
+        },
+        {
+          "name": "password-toggle-label",
+          "description": ""
+        },
+        {
+          "name": "prefix-label",
+          "description": ""
+        },
+        {
+          "name": "required",
+          "description": ""
+        },
+        {
+          "name": "rows",
+          "description": ""
+        },
+        {
+          "name": "show-character-counter",
+          "description": ""
+        },
+        {
+          "name": "spell-check",
+          "description": ""
+        },
+        {
+          "name": "step",
+          "description": ""
+        },
+        {
+          "name": "suffix-label",
+          "description": ""
+        },
+        {
+          "name": "type",
+          "description": "",
+          "values": [
+            {
+              "name": "date"
+            },
+            {
+              "name": "datetime-local"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "number"
+            },
+            {
+              "name": "password"
+            },
+            {
+              "name": "reset"
+            },
+            {
+              "name": "tel"
+            },
+            {
+              "name": "text"
+            },
+            {
+              "name": "url"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "description": ""
         }
       ]
     },
