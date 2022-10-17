@@ -18,9 +18,10 @@ export class FlipFileViewer {
     const unsupportedType =
       !Boolean(this.type) ||
       (!this.type.startsWith("image/") &&
-        !this.type.startsWith("text/") &&
         !this.type.startsWith("video/") &&
         !this.type.startsWith("audio/") &&
+        this.type !== "text/plain" &&
+        this.type !== "text/csv" &&
         this.type !== "application/pdf");
 
     return (
@@ -72,10 +73,10 @@ export class FlipFileViewer {
 
               {/* audio files */}
               {this.type.startsWith("audio/") && (
-                <flip-file-viewer-video
+                <flip-file-viewer-audio
                   file={this.file}
                   type={this.type}
-                ></flip-file-viewer-video>
+                ></flip-file-viewer-audio>
               )}
 
               {unsupportedType && (

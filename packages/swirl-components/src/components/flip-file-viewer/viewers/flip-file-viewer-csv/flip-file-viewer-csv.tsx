@@ -25,6 +25,7 @@ export class FlipFileViewerCsv {
 
     try {
       const response = await fetch(this.file);
+
       const parsed = parse<string[]>(await response.text(), {
         dynamicTyping: true,
         fastMode: false,
