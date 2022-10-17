@@ -326,6 +326,10 @@
           "description": ""
         },
         {
+          "name": "flip-aria-label",
+          "description": ""
+        },
+        {
           "name": "form",
           "description": ""
         },
@@ -340,6 +344,18 @@
         {
           "name": "icon",
           "description": ""
+        },
+        {
+          "name": "icon-position",
+          "description": "",
+          "values": [
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            }
+          ]
         },
         {
           "name": "intent",
@@ -1811,6 +1827,66 @@
       ]
     },
     {
+      "name": "flip-pagination",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "accessible-next-button-label",
+          "description": ""
+        },
+        {
+          "name": "accessible-prev-button-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "next-button-label",
+          "description": ""
+        },
+        {
+          "name": "page",
+          "description": ""
+        },
+        {
+          "name": "page-label",
+          "description": ""
+        },
+        {
+          "name": "page-select-label",
+          "description": ""
+        },
+        {
+          "name": "pages",
+          "description": ""
+        },
+        {
+          "name": "prev-button-label",
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "advanced"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "simple"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "flip-popover",
       "description": {
         "kind": "markdown",
@@ -1828,6 +1904,47 @@
         {
           "name": "trigger",
           "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-progress-indicator",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "bar"
+            },
+            {
+              "name": "circle"
+            }
+          ]
         }
       ]
     },

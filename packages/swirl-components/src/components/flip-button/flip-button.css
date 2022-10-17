@@ -37,7 +37,7 @@
     background-color: var(--flip-ghost-button-background-default);
     cursor: default;
 
-    & .button__left-icon {
+    & .button__icon {
       color: var(--s-icon-disabled);
     }
   }
@@ -51,7 +51,7 @@
   &.button--intent-primary:not(:disabled) {
     color: var(--s-text-highlight);
 
-    & .button__left-icon {
+    & .button__icon {
       color: var(--s-icon-highlight);
     }
   }
@@ -59,7 +59,7 @@
   &.button--intent-critical:not(:disabled) {
     color: var(--s-text-critical);
 
-    & .button__left-icon {
+    & .button__icon {
       color: var(--s-icon-critical);
     }
   }
@@ -101,12 +101,12 @@
       background-color: var(--s-action-primary-pressed);
     }
 
-    & .button__left-icon {
+    & .button__icon {
       color: var(--s-icon-on-action-primary);
     }
   }
 
-  & .button__left-icon {
+  & .button__icon {
     color: var(--s-icon-strong);
   }
 }
@@ -123,7 +123,7 @@
     text-decoration: underline;
     text-underline-offset: var(--s-space-4);
 
-    & .button__left-icon {
+    & .button__icon {
       color: var(--s-interactive-neutral-default);
     }
   }
@@ -132,7 +132,7 @@
     color: var(--s-interactive-neutral-hovered);
     background-color: transparent;
 
-    & .button__left-icon {
+    & .button__icon {
       color: var(--s-interactive-neutral-hovered);
     }
   }
@@ -141,7 +141,7 @@
     color: var(--s-interactive-neutral-disabled);
     background-color: transparent;
 
-    & .button__left-icon {
+    & .button__icon {
       color: var(--s-interactive-neutral-disabled);
     }
   }
@@ -152,7 +152,7 @@
     &:hover {
       color: var(--s-interactive-primary-default);
 
-      & .button__left-icon {
+      & .button__icon {
         color: var(--s-interactive-primary-default);
       }
     }
@@ -160,7 +160,7 @@
     &:active {
       color: var(--s-interactive-primary-hovered);
 
-      & .button__left-icon {
+      & .button__icon {
         color: var(--s-interactive-primary-hovered);
       }
     }
@@ -168,17 +168,17 @@
     &:disabled {
       color: var(--s-interactive-primary-disabled);
 
-      & .button__left-icon {
+      & .button__icon {
         color: var(--s-interactive-primary-disabled);
       }
     }
 
-    & .button__left-icon {
+    & .button__icon {
       color: var(--s-interactive-primary-default);
     }
   }
 
-  & .button__left-icon {
+  & .button__icon {
     color: var(--s-interactive-neutral-default);
   }
 }
@@ -203,12 +203,12 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
       rgba(255, 255, 255, 0.3);
 
-    & .button__left-icon {
+    & .button__icon {
       color: var(--s-icon-on-image);
     }
   }
 
-  & .button__left-icon {
+  & .button__icon {
     color: var(--s-icon-on-image);
   }
 }
@@ -251,18 +251,26 @@
     &:disabled {
       color: var(--s-text-on-action-primary);
 
-      & .button__left-icon {
+      & .button__icon {
         color: var(--s-icon-on-action-primary);
       }
     }
 
-    & .button__left-icon {
+    & .button__icon {
       color: var(--s-icon-on-action-primary);
     }
   }
 
-  & .button__left-icon {
+  & .button__icon {
     color: var(--s-icon-strong);
+  }
+}
+
+.button--icon-position-end {
+  & .button__icon {
+    margin-right: calc(-1 * var(--s-space-4));
+    margin-left: 0;
+    order: 2;
   }
 }
 
@@ -270,15 +278,17 @@
   padding: var(--s-space-8);
   border-radius: 50%;
 
-  & .button__left-icon {
+  & .button__icon {
+    margin-right: 0;
     margin-left: 0;
   }
 }
 
-.button__left-icon {
+.button__icon {
   display: inline-flex;
   margin-left: calc(-1 * var(--s-space-4));
   color: var(--s-icon-default);
+  order: 0;
 }
 
 .button__label {
@@ -286,4 +296,5 @@
   max-width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
+  order: 1;
 }
