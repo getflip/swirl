@@ -1,0 +1,38 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipProgressIndicator" />
+
+# FlipProgressIndicator
+
+The FlipProgressIndicator component is used to display the progress of a long
+running task.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=2%3A40)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-progress-indicator)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipprogressindicator--flip-progress-indicator" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                        | Usage                              |
+| ------------------------------- | ---------------------------------- |
+| `--s-surface-raised-default`    | Background color of the bar/circle |
+| `--s-surface-highlight-default` | Background color of the indicator  |
+
+## Accessibility
+
+### ARIA
+
+| ARIA                 | Usage                                                                                            |
+| -------------------- | ------------------------------------------------------------------------------------------------ |
+| `role="progressbar"` | Implicit through the `progress` element with `bar` variant; explicitly set for variant `circle`. |
+| `aria-label`         | Set to provide an accessible label.                                                              |
+| `aria-valuenow`      | Set to the current progress value.                                                               |
+| `aria-valuemax`      | Set if max. value is not 100.                                                                    |
+| `aria-valuemin`      | Set if min. value is not 0.                                                                      |
