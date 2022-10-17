@@ -36,9 +36,6 @@ export class FlipFileViewerText {
   render() {
     return (
       <Host class="file-viewer-text">
-        {this.loading && (
-          <flip-spinner class="file-viewer-text__spinner"></flip-spinner>
-        )}
         {this.error && (
           <flip-inline-error
             class="file-viewer-text__error"
@@ -48,6 +45,11 @@ export class FlipFileViewerText {
         <pre class="file-viewer-text__text" tabIndex={0}>
           {this.text}
         </pre>
+        {this.loading && (
+          <div class="file-viewer-text__spinner">
+            <flip-spinner></flip-spinner>
+          </div>
+        )}
       </Host>
     );
   }

@@ -163,8 +163,16 @@ export namespace Components {
     }
     interface FlipFileViewer {
         "description"?: string;
+        /**
+          * Download the file.
+         */
+        "download": () => Promise<void>;
         "errorMessage"?: string;
         "file": string;
+        /**
+          * Print the file. Applicable to PDFs only.
+         */
+        "print": () => Promise<void>;
         "type": string;
         "typeUnsupportedMessage"?: string;
         "zoom"?: FlipFileViewerPdfZoom;
@@ -185,6 +193,10 @@ export namespace Components {
     interface FlipFileViewerPdf {
         "errorMessage"?: string;
         "file": string;
+        /**
+          * Print the file.
+         */
+        "print": () => Promise<void>;
         "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerText {

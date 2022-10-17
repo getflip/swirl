@@ -13,7 +13,15 @@
   object-fit: contain;
 }
 
-.file-viewer-image__spinner,
+.file-viewer-image__spinner {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  inset: 0;
+}
+
 .file-viewer-image__error {
   position: absolute;
   top: 50%;

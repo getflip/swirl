@@ -41,6 +41,7 @@
     "a11y-dialog": "^7.5.2",
     "classnames": "^2.3.1",
     "color2k": "^2.0.0",
+    "file-saver": "^2.0.5",
     "papaparse": "^5.3.2",
     "pdfjs-dist": "^2.16.105"
   },
@@ -59,6 +60,7 @@
     "@storybook/theming": "^6.5.10",
     "@types/autoprefixer": "^10.2.0",
     "@types/body-scroll-lock": "^3.1.0",
+    "@types/file-saver": "^2.0.5",
     "@types/jest": "^27.0.3",
     "@types/mdx": "^2.0.2",
     "@types/papaparse": "^5.3.5",

@@ -32,9 +32,6 @@ export class FlipFileViewerImage {
   render() {
     return (
       <Host class="file-viewer-image">
-        {this.loading && (
-          <flip-spinner class="file-viewer-image__spinner"></flip-spinner>
-        )}
         {this.error && (
           <flip-inline-error
             class="file-viewer-image__error"
@@ -48,6 +45,11 @@ export class FlipFileViewerImage {
           onLoad={this.onLoad}
           src={this.file}
         />
+        {this.loading && (
+          <div class="file-viewer-image__spinner">
+            <flip-spinner></flip-spinner>
+          </div>
+        )}
       </Host>
     );
   }

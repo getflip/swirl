@@ -50,9 +50,6 @@ export class FlipFileViewerCsv {
   render() {
     return (
       <Host class="file-viewer-csv">
-        {this.loading && (
-          <flip-spinner class="file-viewer-csv__spinner"></flip-spinner>
-        )}
         {this.error && (
           <flip-inline-error
             class="file-viewer-csv__error"
@@ -77,6 +74,11 @@ export class FlipFileViewerCsv {
             </tbody>
           </table>
         </div>
+        {this.loading && (
+          <div class="file-viewer-csv__spinner">
+            <flip-spinner></flip-spinner>
+          </div>
+        )}
       </Host>
     );
   }

@@ -26,7 +26,15 @@
   border: var(--s-border-width-default) solid var(--s-border-default);
 }
 
-.file-viewer-csv__spinner,
+.file-viewer-csv__spinner {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  inset: 0;
+}
+
 .file-viewer-csv__error {
   position: absolute;
   top: 50%;

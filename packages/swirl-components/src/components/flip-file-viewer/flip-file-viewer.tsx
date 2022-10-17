@@ -1,4 +1,5 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, h, Host, Method, Prop } from "@stencil/core";
+import { saveAs } from "file-saver";
 import { FlipFileViewerPdfZoom } from "./viewers/flip-file-viewer-pdf/flip-file-viewer-pdf";
 
 @Component({
@@ -13,6 +14,28 @@ export class FlipFileViewer {
   @Prop() type!: string;
   @Prop() typeUnsupportedMessage?: string = "File type is not supported.";
   @Prop() zoom?: FlipFileViewerPdfZoom = 1;
+
+  private viewer: HTMLElement;
+
+  /**
+   * Download the file.
+   */
+  @Method()
+  async download() {
+    const fileName = this.file.split("/").pop();
+
+    saveAs(this.file, fileName);
+  }
+
+  /**
+   * Print the file. Applicable to PDFs only.
+   */
+  @Method()
+  async print() {
+    if (this.type === "application/pdf") {
+      (this.viewer as HTMLFlipFileViewerPdfElement).print();
+    }
+  }
 
   render() {
     const unsupportedType =
@@ -35,6 +58,7 @@ export class FlipFileViewer {
                   description={this.description}
                   errorMessage={this.errorMessage}
                   file={this.file}
+                  ref={(el) => (this.viewer = el)}
                 ></flip-file-viewer-image>
               )}
 
@@ -43,6 +67,7 @@ export class FlipFileViewer {
                 <flip-file-viewer-text
                   errorMessage={this.errorMessage}
                   file={this.file}
+                  ref={(el) => (this.viewer = el)}
                 ></flip-file-viewer-text>
               )}
 
@@ -51,6 +76,7 @@ export class FlipFileViewer {
                 <flip-file-viewer-csv
                   errorMessage={this.errorMessage}
                   file={this.file}
+                  ref={(el) => (this.viewer = el)}
                 ></flip-file-viewer-csv>
               )}
 
@@ -59,6 +85,7 @@ export class FlipFileViewer {
                 <flip-file-viewer-pdf
                   errorMessage={this.errorMessage}
                   file={this.file}
+                  ref={(el) => (this.viewer = el)}
                   zoom={this.zoom}
                 ></flip-file-viewer-pdf>
               )}
@@ -67,6 +94,7 @@ export class FlipFileViewer {
               {this.type.startsWith("video/") && (
                 <flip-file-viewer-video
                   file={this.file}
+                  ref={(el) => (this.viewer = el)}
                   type={this.type}
                 ></flip-file-viewer-video>
               )}
@@ -75,6 +103,7 @@ export class FlipFileViewer {
               {this.type.startsWith("audio/") && (
                 <flip-file-viewer-audio
                   file={this.file}
+                  ref={(el) => (this.viewer = el)}
                   type={this.type}
                 ></flip-file-viewer-audio>
               )}

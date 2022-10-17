@@ -4,6 +4,7 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
   Watch,
@@ -34,6 +35,7 @@ export class FlipFileViewerPdf {
   @State() doc: PDFDocumentProxy;
   @State() error: boolean;
   @State() loading: boolean = true;
+  @State() printing: boolean = false;
   @State() visiblePages: number[] = [];
 
   private pages: PDFPageProxy[] = [];
@@ -48,8 +50,12 @@ export class FlipFileViewerPdf {
     this.updateVisiblePages();
   }
 
-  componentDidRender() {
-    this.renderVisiblePages();
+  async componentDidRender() {
+    await this.renderVisiblePages();
+
+    if (this.printing) {
+      this.openPrintDialog();
+    }
   }
 
   @Listen("resize", { target: "window" })
@@ -62,6 +68,15 @@ export class FlipFileViewerPdf {
   watchProps() {
     this.getPages();
     this.updateVisiblePages();
+  }
+
+  /**
+   * Print the file.
+   */
+  @Method()
+  async print() {
+    this.updateVisiblePages(true);
+    this.printing = true;
   }
 
   private async getPages() {
@@ -141,12 +156,17 @@ export class FlipFileViewerPdf {
     }
   }
 
-  private updateVisiblePages() {
+  private updateVisiblePages(makeAllVisible?: boolean) {
     const pages = Array.from(
       this.el.shadowRoot.querySelectorAll<HTMLDivElement>(
         ".file-viewer-pdf__page"
       )
     );
+
+    if (makeAllVisible) {
+      this.visiblePages = pages.map((page) => +page.dataset.pageNumber);
+      return;
+    }
 
     let visiblePages = pages
       .filter((page) => getVisibleHeight(page, this.scrollContainer) > 0)
@@ -167,8 +187,53 @@ export class FlipFileViewerPdf {
     }
   }
 
+  private async openPrintDialog() {
+    const canvases = Array.from(
+      this.scrollContainer.querySelectorAll("canvas")
+    );
+
+    if (
+      this.printing &&
+      this.visiblePages.length === this.pages.length - 1 &&
+      this.visiblePages.length === canvases.length
+    ) {
+      this.printing = false;
+
+      let styles = `
+      *, *:before, *:after {
+        margin: 0;
+        padding: 0;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+      `;
+
+      let html = `<style>${styles}</style>`;
+
+      for (const canvas of canvases) {
+        html += `<img src="${canvas.toDataURL()}">`;
+      }
+
+      const win = window.open(" ");
+
+      win.document.write(html);
+      win.document.close();
+      win.focus();
+
+      await new Promise((resolve) => setTimeout(resolve));
+
+      win.print();
+      win.close();
+    }
+  }
+
   private getScale(page: PDFPageProxy) {
-    return this.zoom === "auto"
+    return this.printing
+      ? 2
+      : this.zoom === "auto"
       ? (this.scrollContainer.clientWidth - 32) / page.view[2]
       : this.zoom;
   }
@@ -181,11 +246,10 @@ export class FlipFileViewerPdf {
     const showPagination =
       !this.error && !this.loading && this.visiblePages.length > 0;
 
+    const showSpinner = this.loading || this.printing;
+
     return (
       <Host class="file-viewer-pdf">
-        {this.loading && (
-          <flip-spinner class="file-viewer-pdf__spinner"></flip-spinner>
-        )}
         {this.error && (
           <flip-inline-error
             class="file-viewer-pdf__error"
@@ -230,6 +294,11 @@ export class FlipFileViewerPdf {
             <span aria-current="page">{this.visiblePages[0]}</span> /{" "}
             {this.doc.numPages}
           </span>
+        )}
+        {showSpinner && (
+          <div class="file-viewer-pdf__spinner">
+            <flip-spinner></flip-spinner>
+          </div>
         )}
       </Host>
     );
