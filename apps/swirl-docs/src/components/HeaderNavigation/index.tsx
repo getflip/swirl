@@ -21,6 +21,11 @@ const HeaderNavigation = () => {
 
   return (
     <header>
+      <Link tabIndex={1} href="#main">
+        <a className="absolute translate-x-[-200px] focus:static focus:translate-x-0">
+          Skip Navigation Links
+        </a>
+      </Link>
       <nav
         aria-label="main"
         className="flex justify-between md:justify-start items-center h-[72px] w-full px-6 border-b-1 font-normal text-base"
