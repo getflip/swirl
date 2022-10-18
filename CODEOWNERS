@@ -7,3 +7,4 @@ packages/swirl-components-angular/*  @Sqrrl
 packages/swirl-components-react/*    @Sqrrl
 packages/swirl-icons/*               @Sqrrl
 packages/swirl-tokens/*              @webspaceadam
+apps/swirl-docs/*                    @webspaceadam
