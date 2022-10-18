@@ -98,4 +98,5 @@ export const config: Config = {
       plugins: [autoprefixer(), postcssNested(), postcssCustomMedia()],
     }),
   ],
+  sourceMap: true,
 };
