@@ -10,6 +10,7 @@ import {
   Watch,
 } from "@stencil/core";
 import pdf, {
+  getDocument,
   PDFDocumentProxy,
   PDFPageProxy,
   renderTextLayer,
@@ -35,39 +36,30 @@ export class FlipFileViewerPdf {
   @State() doc: PDFDocumentProxy;
   @State() error: boolean;
   @State() loading: boolean = true;
-  @State() printing: boolean = false;
   @State() visiblePages: number[] = [];
 
   private pages: PDFPageProxy[] = [];
+  private renderedPages: number[] = [];
   private renderingPageNumbers: number[] = [];
   private scrollContainer: HTMLDivElement;
 
-  componentWillLoad() {
-    this.getPages();
+  async componentWillLoad() {
+    await this.getPages();
   }
 
-  componentDidLoad() {
-    this.updateVisiblePages();
-  }
-
-  async componentDidRender() {
-    await this.renderVisiblePages();
-
-    if (this.printing) {
-      this.openPrintDialog();
-    }
+  async componentDidLoad() {
+    await this.updateVisiblePages();
   }
 
   @Listen("resize", { target: "window" })
-  onWindowResize() {
-    this.visiblePages = [];
-    this.updateVisiblePages();
+  async onWindowResize() {
+    await this.updateVisiblePages();
   }
 
   @Watch("file")
-  watchProps() {
-    this.getPages();
-    this.updateVisiblePages();
+  async watchProps() {
+    await this.getPages();
+    await this.updateVisiblePages();
   }
 
   /**
@@ -75,8 +67,12 @@ export class FlipFileViewerPdf {
    */
   @Method()
   async print() {
-    this.updateVisiblePages(true);
-    this.printing = true;
+    this.loading = true;
+
+    await this.updateVisiblePages(true);
+    await this.openPrintDialog();
+
+    this.loading = false;
   }
 
   private async getPages() {
@@ -84,7 +80,7 @@ export class FlipFileViewerPdf {
     this.loading = true;
 
     try {
-      this.doc = this.doc || (await pdf.getDocument(this.file).promise);
+      this.doc = await getDocument(this.file).promise;
 
       for (let i = 1; i <= this.doc.numPages; i++) {
         const page = await this.doc.getPage(i);
@@ -98,8 +94,9 @@ export class FlipFileViewerPdf {
     }
   }
 
-  private async renderVisiblePages() {
+  private async renderVisiblePages(forPrint?: boolean) {
     const canvases = Array.from(this.el.shadowRoot.querySelectorAll("canvas"));
+    const renderedPages = [];
 
     for (const canvas of canvases) {
       const container = canvas.closest<HTMLDivElement>(
@@ -116,9 +113,15 @@ export class FlipFileViewerPdf {
 
       if (
         !Boolean(page) ||
+        !this.visiblePages.includes(page.pageNumber) ||
         this.renderingPageNumbers.includes(page.pageNumber)
       ) {
-        return;
+        continue;
+      }
+
+      if (this.renderedPages.includes(page.pageNumber)) {
+        renderedPages.push(page.pageNumber);
+        continue;
       }
 
       this.renderingPageNumbers = [
@@ -126,7 +129,7 @@ export class FlipFileViewerPdf {
         page.pageNumber,
       ];
 
-      const scale = this.getScale(page);
+      const scale = forPrint ? 4 : this.getScale(page);
 
       const viewport = page.getViewport({
         scale,
@@ -150,41 +153,46 @@ export class FlipFileViewerPdf {
         viewport,
       });
 
+      renderedPages.push(page.pageNumber);
+
       this.renderingPageNumbers = this.renderingPageNumbers.filter(
         (pageNumber) => pageNumber !== page.pageNumber
       );
     }
+
+    this.renderedPages = renderedPages;
   }
 
-  private updateVisiblePages(makeAllVisible?: boolean) {
+  private async updateVisiblePages(forPrint?: boolean) {
     const pages = Array.from(
       this.el.shadowRoot.querySelectorAll<HTMLDivElement>(
         ".file-viewer-pdf__page"
       )
     );
 
-    if (makeAllVisible) {
-      this.visiblePages = pages.map((page) => +page.dataset.pageNumber);
-      return;
-    }
-
-    let visiblePages = pages
-      .filter((page) => getVisibleHeight(page, this.scrollContainer) > 0)
-      .map((page) => +page.dataset.pageNumber);
+    let visiblePages = forPrint
+      ? pages.map((page) => +page.dataset.pageNumber)
+      : pages
+          .filter((page) => getVisibleHeight(page, this.scrollContainer) > 0)
+          .map((page) => +page.dataset.pageNumber);
 
     if (visiblePages.length === 0) {
       visiblePages = [1, 2, 3, 4];
     }
 
-    const visiblePagesChanged = !(
-      visiblePages.every(
-        (pageNumber, index) => this.visiblePages[index] === pageNumber
-      ) && visiblePages.length === this.visiblePages.length
-    );
+    const visiblePagesDidNotChanged =
+      this.visiblePages.length === visiblePages.length &&
+      this.visiblePages.every((pageNumber) =>
+        visiblePages.includes(pageNumber)
+      );
 
-    if (visiblePagesChanged) {
-      this.visiblePages = visiblePages;
+    if (visiblePagesDidNotChanged) {
+      return;
     }
+
+    this.visiblePages = visiblePages;
+
+    await this.renderVisiblePages(forPrint);
   }
 
   private async openPrintDialog() {
@@ -192,14 +200,7 @@ export class FlipFileViewerPdf {
       this.scrollContainer.querySelectorAll("canvas")
     );
 
-    if (
-      this.printing &&
-      this.visiblePages.length === this.pages.length - 1 &&
-      this.visiblePages.length === canvases.length
-    ) {
-      this.printing = false;
-
-      let styles = `
+    let styles = `
       *, *:before, *:after {
         margin: 0;
         padding: 0;
@@ -211,30 +212,29 @@ export class FlipFileViewerPdf {
       }
       `;
 
-      let html = `<style>${styles}</style>`;
+    let html = `<style>${styles}</style>`;
 
-      for (const canvas of canvases) {
-        html += `<img src="${canvas.toDataURL()}">`;
-      }
-
-      const win = window.open(" ");
-
-      win.document.write(html);
-      win.document.close();
-      win.focus();
-
-      await new Promise((resolve) => setTimeout(resolve));
-
-      win.print();
-      win.close();
+    for (const canvas of canvases) {
+      html += `<img src="${canvas.toDataURL()}">`;
     }
+
+    const win = window.open(" ");
+
+    win.document.write(html);
+    win.document.close();
+    win.focus();
+
+    await new Promise((resolve) => setTimeout(resolve));
+
+    win.print();
+    win.close();
   }
 
   private getScale(page: PDFPageProxy) {
-    return this.printing
-      ? 2
-      : this.zoom === "auto"
-      ? (this.scrollContainer.clientWidth - 32) / page.view[2]
+    return this.zoom === "auto"
+      ? (this.scrollContainer?.clientWidth - 32) / page.view[2]
+      : isNaN(this.zoom)
+      ? 1
       : this.zoom;
   }
 
@@ -246,7 +246,7 @@ export class FlipFileViewerPdf {
     const showPagination =
       !this.error && !this.loading && this.visiblePages.length > 0;
 
-    const showSpinner = this.loading || this.printing;
+    const showSpinner = this.loading;
 
     return (
       <Host class="file-viewer-pdf">
@@ -276,14 +276,14 @@ export class FlipFileViewerPdf {
                 key={page.pageNumber}
                 role="region"
                 style={{
-                  width: `${viewport.width}px`,
-                  height: `${viewport.height}px`,
+                  width:
+                    this.zoom === "auto" ? undefined : `${viewport.width}px`,
+                  height:
+                    this.zoom === "auto" ? undefined : `${viewport.height}px`,
                 }}
                 tabIndex={0}
               >
-                {this.visiblePages.includes(page.pageNumber) && (
-                  <canvas class="file-viewer-pdf__canvas"></canvas>
-                )}
+                <canvas class="file-viewer-pdf__canvas"></canvas>
                 <div class="file-viewer-pdf__text-container"></div>
               </div>
             );

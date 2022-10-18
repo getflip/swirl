@@ -22,7 +22,7 @@
   margin-left: auto;
 
   &:not(:last-of-type) {
-    margin-bottom: var(--s-space-12);
+    margin-bottom: var(--s-space-8);
   }
 }
 
