@@ -1,89 +1,44 @@
 import StyleDictionary from "style-dictionary";
+import {
+  mappedTokensType,
+  TailwindTokenMap,
+  tokenGroups,
+  createSwirlTailwindTheme,
+} from "./utils";
 
 const { fileHeader, createPropertyFormatter } = StyleDictionary.formatHelpers;
 
-const tokenGroups: {
-  [group: string]: {
-    excludePrefixed?: string[];
-    label: string;
-    prefixes: string[];
-    presenter: string;
-  };
-} = {
-  backgroundColors: {
-    label: "Background Colors",
-    prefixes: [
-      "background-",
-      "surface-",
-      "on-surface",
-      "action-",
-      "decorative-",
-      "interactive-",
-    ],
-    presenter: "Color",
+StyleDictionary.registerFormat({
+  name: "css/tailwind",
+  formatter: function ({ dictionary, file }) {
+    const theme = file.destination.split(".")?.[0];
+    let mappedTokens: any = {};
+
+    dictionary.allTokens.forEach((token) => {
+      const { name, value, type } = token;
+      const mappedType = TailwindTokenMap.get(type);
+
+      if (mappedType !== undefined && mappedType !== null) {
+        if (!mappedTokens[mappedType as keyof mappedTokensType]) {
+          mappedTokens[mappedType as keyof mappedTokensType] = {};
+        }
+
+        if (theme === "light") {
+          mappedTokens[mappedType as keyof mappedTokensType][name] = {
+            DEFAULT: value,
+            [`${theme}`]: value,
+          };
+        } else {
+          mappedTokens[mappedType as keyof mappedTokensType][name] = {
+            [`${theme}`]: value,
+          };
+        }
+      }
+    });
+
+    return JSON.stringify(mappedTokens, null, 2);
   },
-  borderColors: {
-    excludePrefixed: ["border-width", "border-radius"],
-    label: "Border Colors",
-    prefixes: ["border-", "focus"],
-    presenter: "Color",
-  },
-  borderRadius: {
-    label: "Border Radius",
-    prefixes: ["border-radius-"],
-    presenter: "BorderRadius",
-  },
-  borderWidth: {
-    label: "Border Width",
-    prefixes: ["border-width-"],
-    presenter: "Spacing",
-  },
-  fontFamilies: {
-    label: "Font Families",
-    prefixes: ["font-family-"],
-    presenter: "FontFamily",
-  },
-  fontSizes: {
-    label: "Font Sizes",
-    prefixes: ["font-size-"],
-    presenter: "FontSize",
-  },
-  fontWeights: {
-    label: "Font Weights",
-    prefixes: ["font-weight-"],
-    presenter: "FontWeight",
-  },
-  iconColors: {
-    label: "Icon Colors",
-    prefixes: ["icon-"],
-    presenter: "Color",
-  },
-  letterSpacings: {
-    label: "Letter Spacings",
-    prefixes: ["letter-spacing-"],
-    presenter: "LetterSpacing",
-  },
-  lineHeights: {
-    label: "Line Heights",
-    prefixes: ["line-height-"],
-    presenter: "LineHeight",
-  },
-  spacings: {
-    label: "Spacings",
-    prefixes: ["space-"],
-    presenter: "Spacing",
-  },
-  textColors: {
-    label: "Text Colors",
-    prefixes: ["text-"],
-    presenter: "Color",
-  },
-  other: {
-    label: "Other",
-    prefixes: [],
-    presenter: "",
-  },
-};
+});
 
 /**
  * Custom CSS formatter for style dictionary to generate design token
@@ -150,5 +105,36 @@ StyleDictionary.registerFormat({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: "attribute/custom",
+  type: "attribute",
+  transformer: function (token) {
+    const originalAttrs = token.attributes || {};
+
+    const sizeTypes = [
+      "borderRadius",
+      "borderWidth",
+      "fontSizes",
+      "letterSpacing",
+      "lineHeights",
+      "spacing",
+    ];
+
+    const category = sizeTypes.includes(token.type)
+      ? "size"
+      : token.type === "color"
+      ? "color"
+      : "content";
+
+    const generatedAttrs = {
+      category,
+      type: token.type,
+    };
+
+    return Object.assign(generatedAttrs, originalAttrs);
+  },
+});
+
 StyleDictionary.extend("config.light.json").buildAllPlatforms();
 StyleDictionary.extend("config.dark.json").buildAllPlatforms();
+createSwirlTailwindTheme();

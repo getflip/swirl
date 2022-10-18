@@ -8,7 +8,8 @@
         "build/**",
         "loader/**",
         "storybook-static/**",
-        "stencil-generated/**"
+        "stencil-generated/**",
+        ".next/**"
       ],
       "dependsOn": ["^build"]
     },
@@ -22,7 +23,7 @@
     "dev": {
       "cache": false,
       "outputs": [".next/**"],
-      "dependsOn": ["@getflip/swirl-tokens#build"]
+      "dependsOn": ["@getflip/swirl-tokens#build", "@getflip/swirl-icons#build"]
     },
     "clean": {
       "cache": false
