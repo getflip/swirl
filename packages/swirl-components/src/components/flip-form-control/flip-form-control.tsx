@@ -132,7 +132,7 @@ export class FlipFormControl {
       <Host onFocusin={this.onFocusIn} onFocusout={this.onFocusOut}>
         <div class={className} role="group">
           <label class="form-control__label">
-            {this.label}
+            <span class="form-control__label-text">{this.label}</span>
             <span class="form-control__input">
               <slot></slot>
             </span>

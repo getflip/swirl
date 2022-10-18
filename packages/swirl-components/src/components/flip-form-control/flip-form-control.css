@@ -21,21 +21,14 @@
 
   &:not(.form-control--has-value):not(.form-control--has-focus) {
     & .form-control__input {
-      position: absolute;
-      display: inline;
       overflow: hidden;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      border: 0;
-      white-space: nowrap;
-      word-wrap: normal;
-      clip: rect(0, 0, 0, 0);
+      max-height: 0;
     }
 
-    & .form-control__label {
+    & .form-control__label-text {
+      bottom: 50%;
       font-size: var(--s-font-size-base);
+      transform: translateY(50%);
     }
   }
 }
@@ -65,17 +58,30 @@
 }
 
 .form-control__label {
+  position: relative;
   display: flex;
   width: 100%;
   min-height: 4.375rem;
-  padding: var(--s-space-12) var(--s-space-16);
+  padding: calc(var(--s-space-12) + 1.25rem) var(--s-space-16) var(--s-space-12);
   justify-content: center;
   border: var(--s-border-width-default) solid var(--s-border-strong);
   border-radius: var(--s-border-radius-sm);
   color: var(--s-text-subdued);
-  font-size: var(--s-font-size-sm);
   flex-direction: column;
   gap: var(--s-space-2);
+}
+
+.form-control__label-text {
+  position: absolute;
+  right: var(--s-space-16);
+  bottom: calc(100% - 1.25rem - var(--s-space-12));
+  left: var(--s-space-16);
+  overflow: hidden;
+  font-size: var(--s-font-size-sm);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: font-size 0.15s, transform 0.15s, top 0.15s;
+  transform: none;
 }
 
 .form-control__description {
