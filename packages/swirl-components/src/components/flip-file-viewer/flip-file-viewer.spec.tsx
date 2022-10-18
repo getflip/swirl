@@ -1,3 +1,9 @@
+const saveAsMock = jest.fn();
+
+jest.mock("file-saver", () => ({
+  saveAs: saveAsMock,
+}));
+
 import { mockFetch, newSpecPage } from "@stencil/core/testing";
 
 import { FlipFileViewer } from "./flip-file-viewer";
@@ -233,5 +239,23 @@ describe("flip-file-viewer", () => {
         </mock:shadow-root>
       </flip-file-viewer>
     `);
+  });
+
+  it("allows to download files", async () => {
+    const page = await newSpecPage({
+      components: [FlipFileViewer],
+      html: `
+        <flip-file-viewer
+          file="/sample.pdf"
+          type="application/pdf"
+        ></flip-file-viewer>
+      `,
+    });
+
+    (page.root as HTMLFlipFileViewerElement).download();
+
+    await page.waitForChanges();
+
+    expect(saveAsMock).toHaveBeenCalledWith("/sample.pdf", "sample.pdf");
   });
 });
