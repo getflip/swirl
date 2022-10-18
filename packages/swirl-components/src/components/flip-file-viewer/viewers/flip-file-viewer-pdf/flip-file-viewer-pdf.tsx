@@ -11,6 +11,7 @@ import {
 } from "@stencil/core";
 import pdf, {
   getDocument,
+  PageViewport,
   PDFDocumentProxy,
   PDFPageProxy,
   renderTextLayer,
@@ -147,11 +148,7 @@ export class FlipFileViewerPdf {
 
       await page.render(renderContext).promise;
 
-      renderTextLayer({
-        container: textContainer,
-        textContent: await page.getTextContent(),
-        viewport,
-      });
+      this.renderTextLayer(page, viewport, textContainer);
 
       renderedPages.push(page.pageNumber);
 
@@ -193,6 +190,18 @@ export class FlipFileViewerPdf {
     this.visiblePages = visiblePages;
 
     await this.renderVisiblePages(forPrint);
+  }
+
+  private async renderTextLayer(
+    page: PDFPageProxy,
+    viewport: PageViewport,
+    container: HTMLElement
+  ) {
+    renderTextLayer({
+      container,
+      textContent: await page.getTextContent(),
+      viewport,
+    });
   }
 
   private async openPrintDialog() {
