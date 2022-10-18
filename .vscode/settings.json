@@ -5,5 +5,6 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "html.customData": ["./packages/swirl-components/vscode-data.json"]
+  "html.customData": ["./packages/swirl-components/vscode-data.json"],
+  "conventionalCommits.scopes": ["documentation", "tokens"]
 }
