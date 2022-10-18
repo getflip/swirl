@@ -1,0 +1,93 @@
+:host {
+  display: block;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  line-height: var(--s-line-height-sm);
+
+  &:focus-within:not(.form-control--disabled) {
+    & .form-control__label {
+      border-color: var(--s-border-highlight);
+      box-shadow: 0 0 0 var(--s-border-width-default) var(--s-border-highlight);
+    }
+  }
+
+  &:not(:focus-within):not(.form-control--has-value) {
+    & .form-control__input {
+      position: absolute;
+      display: inline;
+      overflow: hidden;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      white-space: nowrap;
+      word-wrap: normal;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    & .form-control__label {
+      font-size: var(--s-font-size-base);
+    }
+  }
+}
+
+.form-control--invalid {
+  &:focus-within:not(.form-control--disabled) {
+    & .form-control__label {
+      border-color: var(--s-border-critical);
+      box-shadow: 0 0 0 var(--s-border-width-default) var(--s-border-critical);
+    }
+  }
+
+  & .form-control__label {
+    border-color: var(--s-border-critical);
+  }
+}
+
+.form-control--disabled {
+  & .form-control__label {
+    border-color: var(--s-border-disabled);
+    color: var(--s-text-disabled);
+  }
+
+  & .form-control__description {
+    color: var(--s-text-disabled);
+  }
+}
+
+.form-control__label {
+  display: flex;
+  width: 100%;
+  min-height: 4.375rem;
+  padding: var(--s-space-12) var(--s-space-16);
+  justify-content: center;
+  border: var(--s-border-width-default) solid var(--s-border-strong);
+  border-radius: var(--s-border-radius-sm);
+  color: var(--s-text-subdued);
+  font-size: var(--s-font-size-sm);
+  flex-direction: column;
+  gap: var(--s-space-2);
+}
+
+.form-control__description {
+  display: block;
+  margin-top: var(--s-space-4);
+  padding-left: var(--s-space-4);
+  color: var(--s-text-subdued);
+  font-size: var(--s-font-size-sm);
+}
+
+.form-control__error-message {
+  display: block;
+  margin-top: var(--s-space-4);
+  padding-left: var(--s-space-4);
+}

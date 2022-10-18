@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css";
+@import "~@getflip/swirl-tokens/dist/css/styles.dark.custom-properties.css";
+@import "~@getflip/swirl-icons/dist/swirl-icons.css";
+
+@font-face {
+  font-family: "Inter var experimental";
+  font-weight: 100 900;
+  font-style: oblique 0deg 10deg;
+  font-display: swap;
+  src: url("/fonts/Inter.var.woff2") format("woff2-variations"),
+    url("/fonts/Inter.var.woff2") format("woff2");
+}
+
+:root {
+  --flip-ghost-button-background-default: var(--s-background-default);
+  --flip-ghost-button-background-hovered: var(--s-background-hovered);
+  --flip-ghost-button-background-pressed: var(--s-background-pressed);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html.theme-dark {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--s-background-default);
+  font-family: var(--s-font-family-text);
+  font-size: var(--s-font-size-base);
+  font-weight: var(--s-font-weight-normal);
+  color: var(--s-text-default);
+
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: var(--s-font-size-2xl);
+  font-weight: var(--s-font-weight-bold);
+  color: var(--s-text-default);
+}
+
+h2 {
+  font-size: var(--s-font-size-xl);
+  font-weight: var(--s-font-weight-bold);
+  color: var(--s-text-default);
+}
+
+h3 {
+  font-size: var(--s-font-size-lg);
+  font-weight: var(--s-font-weight-bold);
+  color: var(--s-text-default);
+}
+
+p {
+  font-size: var(--s-font-size-base);
+  color: var(--s-text-default);
+}
+
+/** Custom Utility Classes */
+.border-1 {
+  border: 1px solid var(--s-border-default);
+}
+
+.border-b-1 {
+  border-bottom: 1px solid var(--s-border-default);
+}
+
+.border-r-1 {
+  border-right: 1px solid var(--s-border-default);
+}
+
+.border-l-1 {
+  border-left: 1px solid var(--s-border-default);
+}

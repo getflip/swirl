@@ -3,6 +3,7 @@
     "dbaeumer.vscode-eslint",
     "EditorConfig.editorconfig",
     "esbenp.prettier-vscode",
-    "csstools.postcss"
+    "csstools.postcss",
+    "vivaxy.vscode-conventional-commits"
   ]
 }

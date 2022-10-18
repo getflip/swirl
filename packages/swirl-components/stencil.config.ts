@@ -22,7 +22,13 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     type: "boolean",
   },
   {
-    elementSelectors: ["flip-radio-group", "flip-search"],
+    elementSelectors: ["flip-option-list"],
+    event: "valueChange",
+    targetAttr: "value",
+    type: "select",
+  },
+  {
+    elementSelectors: ["flip-radio-group", "flip-search", "flip-text-input"],
     event: "valueChange",
     targetAttr: "value",
     type: "text",
@@ -39,6 +45,18 @@ export const config: Config = {
     },
     {
       autoDefineCustomElements: true,
+      copy: [
+        {
+          src: "assets/fonts/*",
+          dest: "dist/components/assets/fonts",
+          warn: true,
+        },
+        {
+          src: "assets/images/*",
+          dest: "dist/components/assets/images",
+          warn: true,
+        },
+      ],
       generateTypeDeclarations: true,
       type: "dist-custom-elements",
     },

@@ -1,0 +1,41 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipPagination" />
+
+# FlipPagination
+
+The FlipPagination component is used to to split up content into pages and
+navigate between them.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=2%3A38)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-pagination)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flippagination--flip-pagination" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable             | Usage                      |
+| -------------------- | -------------------------- |
+| `--s-text-default`   | Text color of the label(s) |
+| `--s-text-highlight` | Text color of the buttons  |
+| `--s-icon-highlight` | Icon color of the buttons  |
+
+## Accessibility
+
+### ARIA
+
+The component uses a native HTML `nav` element. A label has to be provided to
+make the pagination distinguishable from other navigation blocks and the app's
+main navigation.
+
+| ARIA                  | Usage                                                  |
+| --------------------- | ------------------------------------------------------ |
+| `role="navigation"`   | Implicit through the use of the `nav` element.         |
+| `aria-current="page"` | Set on the current page label.                         |
+| `aria-label`          | Set to provide an accessible label for the pagination. |
