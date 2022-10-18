@@ -6,24 +6,24 @@
     "build": "ng build"
   },
   "dependencies": {
-    "@angular/animations": "^14.2.3",
-    "@angular/common": "^14.2.3",
-    "@angular/compiler": "^14.2.3",
-    "@angular/core": "^14.2.3",
-    "@angular/forms": "^14.2.3",
-    "@angular/platform-browser": "^14.2.3",
-    "@angular/platform-browser-dynamic": "^14.2.3",
-    "@angular/router": "^14.2.3",
+    "@angular/animations": "^14.2.6",
+    "@angular/common": "^14.2.6",
+    "@angular/compiler": "^14.2.6",
+    "@angular/core": "^14.2.6",
+    "@angular/forms": "^14.2.6",
+    "@angular/platform-browser": "^14.2.6",
+    "@angular/platform-browser-dynamic": "^14.2.6",
+    "@angular/router": "^14.2.6",
     "@getflip/swirl-components": "^0.2.0",
     "rxjs": "~7.5.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.2.3",
-    "@angular/cli": "~14.2.3",
-    "@angular/compiler-cli": "^14.2.3",
+    "@angular-devkit/build-angular": "^14.2.6",
+    "@angular/cli": "~14.2.6",
+    "@angular/compiler-cli": "^14.2.6",
     "ng-packagr": "^14.2.1",
-    "typescript": "~4.8.3"
+    "typescript": "~4.8.4"
   }
 }
