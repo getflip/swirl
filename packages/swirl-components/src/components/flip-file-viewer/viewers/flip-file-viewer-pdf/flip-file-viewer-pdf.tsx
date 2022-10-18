@@ -120,7 +120,7 @@ export class FlipFileViewerPdf {
         continue;
       }
 
-      if (this.renderedPages.includes(page.pageNumber)) {
+      if (this.renderedPages.includes(page.pageNumber) && !forPrint) {
         renderedPages.push(page.pageNumber);
         continue;
       }
@@ -221,11 +221,27 @@ export class FlipFileViewerPdf {
       }
       `;
 
-    let html = `<style>${styles}</style>`;
+    let html = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>${this.file}</title>
+        <style>${styles}</style>
+      </head>
+      <body>
+    `;
 
     for (const canvas of canvases) {
       html += `<img src="${canvas.toDataURL()}">`;
     }
+
+    html += `
+      </body>
+      </html>
+    `;
 
     const win = window.open(" ");
 
