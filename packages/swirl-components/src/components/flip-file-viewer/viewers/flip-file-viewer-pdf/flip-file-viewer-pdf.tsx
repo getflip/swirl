@@ -11,7 +11,6 @@ import {
 } from "@stencil/core";
 import pdf, {
   getDocument,
-  PageViewport,
   PDFDocumentProxy,
   PDFPageProxy,
   renderTextLayer,
@@ -54,6 +53,8 @@ export class FlipFileViewerPdf {
 
   @Listen("resize", { target: "window" })
   async onWindowResize() {
+    this.visiblePages = [];
+    this.renderedPages = [];
     await this.updateVisiblePages();
   }
 
@@ -148,7 +149,7 @@ export class FlipFileViewerPdf {
 
       await page.render(renderContext).promise;
 
-      this.renderTextLayer(page, viewport, textContainer);
+      this.renderTextLayer(page, textContainer);
 
       renderedPages.push(page.pageNumber);
 
@@ -192,15 +193,14 @@ export class FlipFileViewerPdf {
     await this.renderVisiblePages(forPrint);
   }
 
-  private async renderTextLayer(
-    page: PDFPageProxy,
-    viewport: PageViewport,
-    container: HTMLElement
-  ) {
+  private async renderTextLayer(page: PDFPageProxy, container: HTMLElement) {
     renderTextLayer({
       container,
       textContent: await page.getTextContent(),
-      viewport,
+      viewport: page.getViewport({
+        scale:
+          this.zoom === "auto" ? this.getScale(page) : this.getScale(page) / 2,
+      }),
     });
   }
 
@@ -259,8 +259,8 @@ export class FlipFileViewerPdf {
     return this.zoom === "auto"
       ? (this.scrollContainer?.clientWidth - 32) / page.view[2]
       : isNaN(this.zoom)
-      ? 1
-      : this.zoom;
+      ? 2
+      : this.zoom * 2;
   }
 
   private onScroll = () => {
@@ -289,7 +289,7 @@ export class FlipFileViewerPdf {
         >
           {this.pages.map((page) => {
             const viewport = page.getViewport({
-              scale: this.getScale(page),
+              scale: this.getScale(page) / 2,
             });
 
             return (
