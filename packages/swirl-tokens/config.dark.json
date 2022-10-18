@@ -16,7 +16,15 @@
       ]
     },
     "flutter": {
-      "transformGroup": "flutter",
+      "transforms": [
+        "attribute/custom",
+        "name/cti/camel",
+        "color/hex8flutter",
+        "size/flutter/remToDouble",
+        "content/flutter/literal",
+        "asset/flutter/literal",
+        "font/flutter/literal"
+      ],
       "prefix": "",
       "buildPath": "dist/flutter/",
       "files": [
@@ -56,6 +64,16 @@
         {
           "destination": "styles.dark.scss",
           "format": "scss/variables"
+        }
+      ]
+    },
+    "tailwind": {
+      "transformGroup": "css",
+      "buildPath": "dist/tailwind/",
+      "files": [
+        {
+          "destination": "dark.json",
+          "format": "css/tailwind"
         }
       ]
     }

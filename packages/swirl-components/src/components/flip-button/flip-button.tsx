@@ -1,6 +1,8 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
+export type FlipButtonIconPosition = "start" | "end";
+
 export type FlipButtonIntent = "default" | "primary" | "critical";
 
 export type FlipButtonSize = "m" | "l";
@@ -30,10 +32,12 @@ export class FlipButton {
   @Prop() disabled?: boolean;
   @Prop() download?: string;
   @Prop() flipAriaDescribedby?: string;
+  @Prop() flipAriaLabel?: string;
   @Prop() form?: string;
   @Prop() hideLabel?: boolean;
   @Prop() href?: string;
   @Prop() icon?: string;
+  @Prop() iconPosition: FlipButtonIconPosition = "start";
   @Prop() intent?: FlipButtonIntent = "default";
   @Prop() label!: string;
   @Prop() name?: string;
@@ -66,8 +70,15 @@ export class FlipButton {
 
     const isLink = Boolean(this.href);
 
+    const ariaLabel = Boolean(this.flipAriaLabel)
+      ? this.flipAriaLabel
+      : hideLabel
+      ? this.label
+      : undefined;
+
     const className = classnames(
       "button",
+      `button--icon-position-${this.iconPosition}`,
       `button--intent-${this.intent}`,
       `button--size-${this.size}`,
       `button--variant-${this.variant}`,
@@ -83,7 +94,7 @@ export class FlipButton {
         <Tag
           aria-describedby={this.flipAriaDescribedby}
           aria-disabled={this.disabled && !isLink ? "true" : undefined}
-          aria-label={hideLabel ? this.label : undefined}
+          aria-label={ariaLabel}
           class={className}
           disabled={isLink ? undefined : this.disabled}
           download={isLink ? undefined : this.download}
@@ -96,7 +107,7 @@ export class FlipButton {
         >
           {this.icon && (
             <span
-              class="button__left-icon"
+              class="button__icon"
               innerHTML={this.icon}
               ref={(el) => (this.iconEl = el)}
             ></span>
