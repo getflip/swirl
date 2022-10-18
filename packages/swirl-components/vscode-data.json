@@ -2811,6 +2811,31 @@
       ]
     },
     {
+      "name": "flip-video-thumbnail",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "duration",
+          "description": ""
+        },
+        {
+          "name": "duration-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "src",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-visually-hidden",
       "description": {
         "kind": "markdown",

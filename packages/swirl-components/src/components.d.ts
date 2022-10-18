@@ -622,6 +622,12 @@ export namespace Components {
         "delay"?: number;
         "position"?: FlipTooltipPosition;
     }
+    interface FlipVideoThumbnail {
+        "duration"?: string;
+        "durationLabel"?: string;
+        "label": string;
+        "src": string;
+    }
     interface FlipVisuallyHidden {
     }
 }
@@ -1380,6 +1386,12 @@ declare global {
         prototype: HTMLFlipTooltipElement;
         new (): HTMLFlipTooltipElement;
     };
+    interface HTMLFlipVideoThumbnailElement extends Components.FlipVideoThumbnail, HTMLStencilElement {
+    }
+    var HTMLFlipVideoThumbnailElement: {
+        prototype: HTMLFlipVideoThumbnailElement;
+        new (): HTMLFlipVideoThumbnailElement;
+    };
     interface HTMLFlipVisuallyHiddenElement extends Components.FlipVisuallyHidden, HTMLStencilElement {
     }
     var HTMLFlipVisuallyHiddenElement: {
@@ -1502,6 +1514,7 @@ declare global {
         "flip-toast": HTMLFlipToastElement;
         "flip-toast-provider": HTMLFlipToastProviderElement;
         "flip-tooltip": HTMLFlipTooltipElement;
+        "flip-video-thumbnail": HTMLFlipVideoThumbnailElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
 }
@@ -2061,6 +2074,12 @@ declare namespace LocalJSX {
         "delay"?: number;
         "position"?: FlipTooltipPosition;
     }
+    interface FlipVideoThumbnail {
+        "duration"?: string;
+        "durationLabel"?: string;
+        "label": string;
+        "src": string;
+    }
     interface FlipVisuallyHidden {
     }
     interface IntrinsicElements {
@@ -2179,6 +2198,7 @@ declare namespace LocalJSX {
         "flip-toast": FlipToast;
         "flip-toast-provider": FlipToastProvider;
         "flip-tooltip": FlipTooltip;
+        "flip-video-thumbnail": FlipVideoThumbnail;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
 }
@@ -2301,6 +2321,7 @@ declare module "@stencil/core" {
             "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
             "flip-toast-provider": LocalJSX.FlipToastProvider & JSXBase.HTMLAttributes<HTMLFlipToastProviderElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
+            "flip-video-thumbnail": LocalJSX.FlipVideoThumbnail & JSXBase.HTMLAttributes<HTMLFlipVideoThumbnailElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }
     }
