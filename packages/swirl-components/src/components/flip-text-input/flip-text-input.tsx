@@ -115,6 +115,16 @@ export class FlipTextInput implements FlipFormInput {
     this.onChange(event);
   };
 
+  private onKeyPress = (event: KeyboardEvent) => {
+    if (this.type !== "number") {
+      return;
+    }
+
+    if (["+", "-", "e"].includes(event.key)) {
+      event.preventDefault();
+    }
+  };
+
   private decreaseValue = () => {
     if (this.type !== "number") {
       return;
@@ -217,6 +227,7 @@ export class FlipTextInput implements FlipFormInput {
             min={this.type === "number" ? this.min : undefined}
             onFocus={this.onFocus}
             onInput={this.onInput}
+            onKeyPress={this.onKeyPress}
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             rows={this.rows > 1 ? this.rows : undefined}
