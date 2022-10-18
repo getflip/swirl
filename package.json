@@ -10,7 +10,8 @@
     "./packages/swirl-components-angular",
     "./packages/swirl-components-react",
     "./packages/swirl-icons",
-    "./packages/swirl-tokens"
+    "./packages/swirl-tokens",
+    "./apps/swirl-docs"
   ],
   "private": true,
   "scripts": {

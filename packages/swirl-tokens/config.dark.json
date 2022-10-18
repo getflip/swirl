@@ -66,6 +66,16 @@
           "format": "scss/variables"
         }
       ]
+    },
+    "tailwind": {
+      "transformGroup": "css",
+      "buildPath": "dist/tailwind/",
+      "files": [
+        {
+          "destination": "dark.json",
+          "format": "css/tailwind"
+        }
+      ]
     }
   }
 }
