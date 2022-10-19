@@ -63,6 +63,8 @@ export class FlipOptionList implements FlipFormInput<string[]> {
   };
 
   private onClick = (event: MouseEvent) => {
+    event.preventDefault();
+
     const target = event.target as HTMLElement;
     const item = target?.closest("flip-option-list-item");
 

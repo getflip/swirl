@@ -34,7 +34,6 @@ export class FlipPopover {
   @Element() el: HTMLElement;
 
   @Prop() label!: string;
-  @Prop() openOnFocus?: boolean;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() popoverId!: string;
   @Prop() trigger!: string;
@@ -43,8 +42,8 @@ export class FlipPopover {
   @State() closing = false;
   @State() position: ComputePositionReturn;
 
-  @Event() hide: EventEmitter<void>;
-  @Event() show: EventEmitter<void>;
+  @Event() popoverClose: EventEmitter<void>;
+  @Event() popoverOpen: EventEmitter<void>;
 
   private contentContainer: HTMLDivElement;
   private disableAutoUpdate: any;
@@ -60,6 +59,21 @@ export class FlipPopover {
 
   disconnectedCallback() {
     enableBodyScroll(this.scrollContainer);
+  }
+
+  @Listen("focusin", { target: "window" })
+  onWindowFocusIn(event: FocusEvent) {
+    if (!this.active) {
+      return;
+    }
+
+    const target = event.target as HTMLElement;
+
+    const popoverLostFocus = !this.el.contains(target);
+
+    if (popoverLostFocus) {
+      this.close();
+    }
   }
 
   @Listen("click", { target: "window" })
@@ -87,27 +101,6 @@ export class FlipPopover {
     }
   }
 
-  onFocusOut = (event: FocusEvent) => {
-    if (!this.active) {
-      return;
-    }
-
-    const target =
-      (event.relatedTarget as HTMLElement) || (event.target as HTMLElement);
-
-    const popoverLostFocus = !this.el.contains(target);
-
-    if (this.openOnFocus) {
-      if (popoverLostFocus && target !== this.triggerEl) {
-        this.close();
-      }
-    } else {
-      if (popoverLostFocus) {
-        this.close();
-      }
-    }
-  };
-
   /**
    * Close the popover.
    * @returns
@@ -118,7 +111,7 @@ export class FlipPopover {
       return;
     }
 
-    this.hide.emit();
+    this.popoverClose.emit();
 
     if (this.disableAutoUpdate) {
       this.disableAutoUpdate();
@@ -133,10 +126,7 @@ export class FlipPopover {
     }, 150);
 
     this.unlockBodyScroll();
-
-    if (!this.openOnFocus) {
-      this.triggerEl?.focus();
-    }
+    this.triggerEl?.focus();
   }
 
   /**
@@ -150,7 +140,7 @@ export class FlipPopover {
     }
 
     this.active = true;
-    this.show.emit();
+    this.popoverOpen.emit();
 
     this.updateFocusableChildren();
     this.updateTriggerAttributes();
@@ -203,15 +193,9 @@ export class FlipPopover {
       return;
     }
 
-    if (this.openOnFocus) {
-      this.triggerEl.addEventListener("focus", () => {
-        this.open();
-      });
-    } else {
-      this.triggerEl.addEventListener("click", (event) => {
-        this.toggle(event);
-      });
-    }
+    this.triggerEl.addEventListener("click", (event) => {
+      this.toggle(event);
+    });
   }
 
   private onKeydown = (event: KeyboardEvent) => {
@@ -282,7 +266,7 @@ export class FlipPopover {
     });
 
     return (
-      <Host id={this.popoverId} onFocusout={this.onFocusOut}>
+      <Host id={this.popoverId}>
         <div class={className} onKeyDown={this.onKeydown}>
           <div
             aria-hidden={!this.active ? "true" : "false"}
