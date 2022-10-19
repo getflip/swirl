@@ -9,6 +9,8 @@ import {
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -40,6 +42,9 @@ export class FlipPopover {
   @State() active = false;
   @State() closing = false;
   @State() position: ComputePositionReturn;
+
+  @Event() hide: EventEmitter<void>;
+  @Event() show: EventEmitter<void>;
 
   private contentContainer: HTMLDivElement;
   private disableAutoUpdate: any;
@@ -113,6 +118,8 @@ export class FlipPopover {
       return;
     }
 
+    this.hide.emit();
+
     if (this.disableAutoUpdate) {
       this.disableAutoUpdate();
     }
@@ -127,7 +134,9 @@ export class FlipPopover {
 
     this.unlockBodyScroll();
 
-    this.triggerEl?.focus();
+    if (!this.openOnFocus) {
+      this.triggerEl?.focus();
+    }
   }
 
   /**
@@ -136,7 +145,12 @@ export class FlipPopover {
    */
   @Method()
   public async open() {
+    if (this.active) {
+      return;
+    }
+
     this.active = true;
+    this.show.emit();
 
     this.updateFocusableChildren();
     this.updateTriggerAttributes();
@@ -161,7 +175,6 @@ export class FlipPopover {
       );
 
       this.scrollContainer.scrollTop = 0;
-
       this.lockBodyScroll();
     });
   }
