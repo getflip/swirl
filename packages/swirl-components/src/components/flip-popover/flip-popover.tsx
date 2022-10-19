@@ -40,15 +40,15 @@ export class FlipPopover {
   @State() closing = false;
   @State() position: ComputePositionReturn;
 
-  private childMenuItems: HTMLElement[];
-  private disableAutoUpdate: any;
   private contentContainer: HTMLDivElement;
+  private disableAutoUpdate: any;
+  private focusableChildren: HTMLElement[];
   private scrollContainer: HTMLDivElement;
   private triggerEl: HTMLElement;
 
   componentDidLoad() {
     this.connectTrigger();
-    this.updateChildMenuItems();
+    this.upadteFocusableChildren();
     this.updateTriggerAttributes();
   }
 
@@ -60,7 +60,17 @@ export class FlipPopover {
   onWindowClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
 
-    if (!this.el.contains(target)) {
+    const clickedChild = this.el.contains(target);
+
+    const clickedShadowChild = event
+      .composedPath()
+      .some((el) =>
+        Boolean(el) && el instanceof Node
+          ? this.el.contains(el as HTMLElement)
+          : false
+      );
+
+    if (!clickedChild && !clickedShadowChild) {
       this.close();
     }
   }
@@ -115,14 +125,14 @@ export class FlipPopover {
   public async open() {
     this.active = true;
 
-    this.updateChildMenuItems();
+    this.upadteFocusableChildren();
     this.updateTriggerAttributes();
 
     requestAnimationFrame(async () => {
       await this.reposition();
 
-      if (this.childMenuItems.length > 0) {
-        (this.childMenuItems[0] as HTMLElement).focus();
+      if (this.focusableChildren.length > 0) {
+        (this.focusableChildren[0] as HTMLElement).focus();
       } else {
         this.contentContainer.focus();
       }
@@ -186,8 +196,11 @@ export class FlipPopover {
     this.triggerEl.setAttribute("aria-haspopup", "dialog");
   }
 
-  private updateChildMenuItems() {
-    this.childMenuItems = querySelectorAllDeep(this.el, '[role="menuitem"]');
+  private upadteFocusableChildren() {
+    this.focusableChildren = querySelectorAllDeep(
+      this.el,
+      '[role="menuitem"], [role="listbox"]'
+    );
   }
 
   private reposition = async () => {
