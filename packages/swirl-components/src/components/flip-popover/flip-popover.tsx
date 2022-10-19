@@ -92,8 +92,14 @@ export class FlipPopover {
 
     const popoverLostFocus = !this.el.contains(target);
 
-    if (popoverLostFocus) {
-      this.close();
+    if (this.openOnFocus) {
+      if (popoverLostFocus && target !== this.triggerEl) {
+        this.close();
+      }
+    } else {
+      if (popoverLostFocus) {
+        this.close();
+      }
     }
   };
 
