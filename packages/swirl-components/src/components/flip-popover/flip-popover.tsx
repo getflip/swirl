@@ -32,6 +32,7 @@ export class FlipPopover {
   @Element() el: HTMLElement;
 
   @Prop() label!: string;
+  @Prop() openOnFocus?: boolean;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() popoverId!: string;
   @Prop() trigger!: string;
@@ -48,7 +49,7 @@ export class FlipPopover {
 
   componentDidLoad() {
     this.connectTrigger();
-    this.upadteFocusableChildren();
+    this.updateFocusableChildren();
     this.updateTriggerAttributes();
   }
 
@@ -58,6 +59,10 @@ export class FlipPopover {
 
   @Listen("click", { target: "window" })
   onWindowClick(event: MouseEvent) {
+    if (!this.active) {
+      return;
+    }
+
     const target = event.target as HTMLElement;
 
     const clickedChild = this.el.contains(target);
@@ -70,7 +75,9 @@ export class FlipPopover {
           : false
       );
 
-    if (!clickedChild && !clickedShadowChild) {
+    const clickedTrigger = event.target === this.triggerEl;
+
+    if (!clickedChild && !clickedShadowChild && !clickedTrigger) {
       this.close();
     }
   }
@@ -125,7 +132,7 @@ export class FlipPopover {
   public async open() {
     this.active = true;
 
-    this.upadteFocusableChildren();
+    this.updateFocusableChildren();
     this.updateTriggerAttributes();
 
     requestAnimationFrame(async () => {
@@ -177,7 +184,15 @@ export class FlipPopover {
       return;
     }
 
-    this.triggerEl.addEventListener("click", this.toggle);
+    if (this.openOnFocus) {
+      this.triggerEl.addEventListener("focus", () => {
+        this.open();
+      });
+    } else {
+      this.triggerEl.addEventListener("click", (event) => {
+        this.toggle(event);
+      });
+    }
   }
 
   private onKeydown = (event: KeyboardEvent) => {
@@ -196,7 +211,7 @@ export class FlipPopover {
     this.triggerEl.setAttribute("aria-haspopup", "dialog");
   }
 
-  private upadteFocusableChildren() {
+  private updateFocusableChildren() {
     this.focusableChildren = querySelectorAllDeep(
       this.el,
       '[role="menuitem"], [role="listbox"]'
