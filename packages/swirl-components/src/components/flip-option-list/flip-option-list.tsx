@@ -25,6 +25,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
   @Event() valueChange: EventEmitter<string[]>;
 
+  private focusedItem: HTMLElement;
   private items: HTMLFlipOptionListItemElement[];
 
   componentDidLoad() {
@@ -181,6 +182,8 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
     item.setAttribute("tabIndex", "0");
     item.focus();
+
+    this.focusedItem = item;
   }
 
   private focusNextItem() {
@@ -204,12 +207,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
   private getActiveItemIndex(): number {
     return this.items
       .map((item) => item.shadowRoot.children[0])
-      .findIndex(
-        (item) =>
-          item === document.activeElement ||
-          item ===
-            document.activeElement?.shadowRoot?.querySelector('[role="option"]')
-      );
+      .findIndex((item) => item === this.focusedItem);
   }
 
   render() {
