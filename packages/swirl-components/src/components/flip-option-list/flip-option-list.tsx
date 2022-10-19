@@ -55,7 +55,11 @@ export class FlipOptionList implements FlipFormInput<string[]> {
   }
 
   private onFocus = () => {
-    this.focusItem(0);
+    if (Boolean(this.focusedItem)) {
+      this.focusItem(this.getActiveItemIndex());
+    } else {
+      this.focusItem(0);
+    }
   };
 
   private onClick = (event: MouseEvent) => {
