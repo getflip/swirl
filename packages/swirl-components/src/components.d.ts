@@ -14,6 +14,7 @@ import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
 import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
+import { FlipFormGroupOrientation } from "./components/flip-form-group/flip-form-group";
 import { FlipHeadingAlign, FlipHeadingLevel, FlipHeadingTag } from "./components/flip-heading/flip-heading";
 import { FlipIconSize } from "./components/flip-icon/flip-icon.types";
 import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-error";
@@ -168,6 +169,9 @@ export namespace Components {
         "errorMessage"?: string;
         "invalid"?: boolean;
         "label": string;
+    }
+    interface FlipFormGroup {
+        "orientation": FlipFormGroupOrientation;
     }
     interface FlipHeading {
         "align"?: FlipHeadingAlign;
@@ -798,6 +802,12 @@ declare global {
         prototype: HTMLFlipFormControlElement;
         new (): HTMLFlipFormControlElement;
     };
+    interface HTMLFlipFormGroupElement extends Components.FlipFormGroup, HTMLStencilElement {
+    }
+    var HTMLFlipFormGroupElement: {
+        prototype: HTMLFlipFormGroupElement;
+        new (): HTMLFlipFormGroupElement;
+    };
     interface HTMLFlipHeadingElement extends Components.FlipHeading, HTMLStencilElement {
     }
     var HTMLFlipHeadingElement: {
@@ -1416,6 +1426,7 @@ declare global {
         "flip-empty-state": HTMLFlipEmptyStateElement;
         "flip-file-uploader": HTMLFlipFileUploaderElement;
         "flip-form-control": HTMLFlipFormControlElement;
+        "flip-form-group": HTMLFlipFormGroupElement;
         "flip-heading": HTMLFlipHeadingElement;
         "flip-icon-add": HTMLFlipIconAddElement;
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
@@ -1647,6 +1658,9 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "invalid"?: boolean;
         "label": string;
+    }
+    interface FlipFormGroup {
+        "orientation"?: FlipFormGroupOrientation;
     }
     interface FlipHeading {
         "align"?: FlipHeadingAlign;
@@ -2100,6 +2114,7 @@ declare namespace LocalJSX {
         "flip-empty-state": FlipEmptyState;
         "flip-file-uploader": FlipFileUploader;
         "flip-form-control": FlipFormControl;
+        "flip-form-group": FlipFormGroup;
         "flip-heading": FlipHeading;
         "flip-icon-add": FlipIconAdd;
         "flip-icon-add-photo": FlipIconAddPhoto;
@@ -2223,6 +2238,7 @@ declare module "@stencil/core" {
             "flip-empty-state": LocalJSX.FlipEmptyState & JSXBase.HTMLAttributes<HTMLFlipEmptyStateElement>;
             "flip-file-uploader": LocalJSX.FlipFileUploader & JSXBase.HTMLAttributes<HTMLFlipFileUploaderElement>;
             "flip-form-control": LocalJSX.FlipFormControl & JSXBase.HTMLAttributes<HTMLFlipFormControlElement>;
+            "flip-form-group": LocalJSX.FlipFormGroup & JSXBase.HTMLAttributes<HTMLFlipFormGroupElement>;
             "flip-heading": LocalJSX.FlipHeading & JSXBase.HTMLAttributes<HTMLFlipHeadingElement>;
             "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
