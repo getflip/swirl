@@ -153,7 +153,7 @@
     }
   }
 
-  &.-range-from-:not(.-month-):not(.-year-) {
+  &.-range-from-:not(.-month-):not(.-year-):not(.-range-to-) {
     &:hover {
       color: var(--s-text-on-surface-highlight);
       background-color: var(--s-surface-highlight-default);
@@ -172,7 +172,7 @@
     }
   }
 
-  &.-range-to-:not(.-month-):not(.-year-) {
+  &.-range-to-:not(.-month-):not(.-year-):not(.-range-from-) {
     &:hover {
       color: var(--s-text-on-surface-highlight);
       background-color: var(--s-surface-highlight-default);

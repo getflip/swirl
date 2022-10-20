@@ -70,6 +70,7 @@ export class FlipDatePicker {
           ? this.value
           : [this.value],
       startDate: this.startDate,
+      toggleSelected: !this.range,
       view: "days",
     });
   }
