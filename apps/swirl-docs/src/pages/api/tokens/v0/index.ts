@@ -1,13 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-
-type Data = {
-  hello: string;
-};
+import { OVERVIEW_HTML } from "./utils";
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<any>
 ) {
-  res.status(200).json({ hello: "world" });
+  res.setHeader("Content-Type", "text/html");
+  res.status(200).send(OVERVIEW_HTML);
 }

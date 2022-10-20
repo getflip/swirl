@@ -8,6 +8,7 @@ export enum TailwindTypes {
   LINE_HEIGHTS = "lineHeight",
   FONT_WEIGHTS = "fontWeight",
   FONT_FAMILIES = "fontFamily",
+  FONT_SIZES = "fontSize",
   LETTER_SPACING = "letterSpacing",
   OTHER = "zIndex",
 }
@@ -26,6 +27,7 @@ export const TailwindTokenMap = new Map<string, string>([
   ["lineHeights", TailwindTypes.LINE_HEIGHTS],
   ["fontWeights", TailwindTypes.FONT_WEIGHTS],
   ["fontFamilies", TailwindTypes.FONT_FAMILIES],
+  ["fontSizes", TailwindTypes.FONT_SIZES],
   ["letterSpacing", TailwindTypes.LETTER_SPACING],
   ["other", TailwindTypes.OTHER],
 ]);
@@ -124,6 +126,8 @@ export function createSwirlTailwindTheme() {
     if (!oneTheme[key]) {
       oneTheme[key] = {};
     }
+
+    console.log("key", key);
 
     oneTheme[key] = extendTokenGroup(key);
   }
