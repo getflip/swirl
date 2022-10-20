@@ -3,6 +3,7 @@ import {
   computePosition,
   ComputePositionReturn,
   flip,
+  Placement,
   shift,
 } from "@floating-ui/dom";
 import {
@@ -11,12 +12,13 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
 } from "@stencil/core";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import { querySelectorAllDeep } from "../../utils";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 /**
  * @slot slot - The popover content.
@@ -30,6 +32,7 @@ export class FlipPopover {
   @Element() el: HTMLElement;
 
   @Prop() label!: string;
+  @Prop() placement?: Placement = "bottom-start";
   @Prop() popoverId!: string;
   @Prop() trigger!: string;
 
@@ -53,25 +56,36 @@ export class FlipPopover {
     enableBodyScroll(this.scrollContainer);
   }
 
-  @Listen("focusout", { target: "window" })
-  onWindowFocusout(event: FocusEvent) {
-    if (!this.active) {
-      return;
-    }
+  @Listen("click", { target: "window" })
+  onWindowClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
 
-    const target = event.relatedTarget as HTMLElement;
-
-    const popoverLostFocus =
-      target === null ||
-      (!this.el.contains(target) &&
-        !this.childMenuItems.some((item) => target.shadowRoot?.contains(item)));
-
-    if (popoverLostFocus) {
+    if (!this.el.contains(target)) {
       this.close();
     }
   }
 
-  close = () => {
+  onFocusOut = (event: FocusEvent) => {
+    if (!this.active) {
+      return;
+    }
+
+    const target =
+      (event.relatedTarget as HTMLElement) || (event.target as HTMLElement);
+
+    const popoverLostFocus = !this.el.contains(target);
+
+    if (popoverLostFocus) {
+      this.close();
+    }
+  };
+
+  /**
+   * Close the popover.
+   * @returns
+   */
+  @Method()
+  public async close() {
     if (this.closing) {
       return;
     }
@@ -91,9 +105,14 @@ export class FlipPopover {
     this.unlockBodyScroll();
 
     this.triggerEl?.focus();
-  };
+  }
 
-  open = () => {
+  /**
+   * Open the popover.
+   * @returns
+   */
+  @Method()
+  public async open() {
     this.active = true;
 
     this.updateChildMenuItems();
@@ -122,9 +141,11 @@ export class FlipPopover {
 
       this.lockBodyScroll();
     });
-  };
+  }
 
-  toggle = () => {
+  toggle = (event: Event) => {
+    event.stopPropagation();
+
     if (this.active) {
       this.close();
     } else {
@@ -153,14 +174,6 @@ export class FlipPopover {
     if (event.code === "Escape" && this.active) {
       this.close();
     }
-  };
-
-  private onContentClick = () => {
-    if (!this.active) {
-      return;
-    }
-
-    this.close();
   };
 
   private updateTriggerAttributes() {
@@ -194,7 +207,7 @@ export class FlipPopover {
       this.contentContainer,
       {
         middleware: [shift(), flip()],
-        placement: "bottom-start",
+        placement: this.placement,
         strategy: "fixed",
       }
     );
@@ -222,13 +235,12 @@ export class FlipPopover {
     });
 
     return (
-      <Host id={this.popoverId}>
+      <Host id={this.popoverId} onFocusout={this.onFocusOut}>
         <div class={className} onKeyDown={this.onKeydown}>
           <div
             aria-hidden={!this.active ? "true" : "false"}
             aria-label={this.label}
             class="popover__content"
-            onClick={this.onContentClick}
             role="dialog"
             tabindex="-1"
             ref={(el) => (this.contentContainer = el)}

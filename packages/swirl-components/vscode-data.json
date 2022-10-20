@@ -561,6 +561,68 @@
       ]
     },
     {
+      "name": "flip-date-input",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-focus",
+          "description": ""
+        },
+        {
+          "name": "auto-select",
+          "description": ""
+        },
+        {
+          "name": "date-picker-label",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "format",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "description": ""
+        },
+        {
+          "name": "required",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-date-picker",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "range",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-description-list",
       "description": {
         "kind": "markdown",
@@ -714,6 +776,27 @@
         {
           "name": "label",
           "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-form-group",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
         }
       ]
     },
@@ -1896,6 +1979,48 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "placement",
+          "description": "",
+          "values": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "bottom-end"
+            },
+            {
+              "name": "bottom-start"
+            },
+            {
+              "name": "left"
+            },
+            {
+              "name": "left-end"
+            },
+            {
+              "name": "left-start"
+            },
+            {
+              "name": "right"
+            },
+            {
+              "name": "right-end"
+            },
+            {
+              "name": "right-start"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "top-end"
+            },
+            {
+              "name": "top-start"
+            }
+          ]
         },
         {
           "name": "popover-id",
