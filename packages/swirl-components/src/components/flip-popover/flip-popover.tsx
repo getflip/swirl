@@ -234,7 +234,9 @@ export class FlipPopover {
       ? false
       : this.useContainerWidth;
 
-    if (Boolean(useContainerWidth)) {
+    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+
+    if (Boolean(useContainerWidth) && !mobile) {
       const container =
         typeof useContainerWidth === "string"
           ? this.el.closest(useContainerWidth) || this.el.parentElement
