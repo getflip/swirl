@@ -780,6 +780,27 @@
       ]
     },
     {
+      "name": "flip-form-group",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "flip-heading",
       "description": {
         "kind": "markdown",

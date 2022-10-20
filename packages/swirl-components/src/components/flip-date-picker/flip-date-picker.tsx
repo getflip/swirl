@@ -57,11 +57,11 @@ export class FlipDatePicker {
       maxDate: this.maxDate,
       minDate: this.minDate,
       minView: "days",
-      nextHtml: "",
+      nextHtml: "<flip-icon-chevron-right></flip-icon-chevron-right>",
       onSelect: ({ date }) => {
         this.valueChange.emit(date);
       },
-      prevHtml: "",
+      prevHtml: "<flip-icon-chevron-left></flip-icon-chevron-left>",
       range: this.range,
       selectedDates:
         this.value === undefined
@@ -70,6 +70,7 @@ export class FlipDatePicker {
           ? this.value
           : [this.value],
       startDate: this.startDate,
+      toggleSelected: !this.range,
       view: "days",
     });
   }
