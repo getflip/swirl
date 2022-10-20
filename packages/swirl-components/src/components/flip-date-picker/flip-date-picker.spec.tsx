@@ -19,14 +19,18 @@ describe("flip-date-picker", () => {
               <i class="air-datepicker--pointer"></i>
               <div class="air-datepicker--navigation">
                 <nav class="air-datepicker-nav">
-                  <div class="air-datepicker-nav--action" data-action="prev"></div>
+                  <div class="air-datepicker-nav--action" data-action="prev">
+                    <flip-icon-chevron-left></flip-icon-chevron-left>
+                  </div>
                   <div class="air-datepicker-nav--title">
                     January,
                     <i>
                       2022
                     </i>
                   </div>
-                  <div class="air-datepicker-nav--action" data-action="next"></div>
+                  <div class="air-datepicker-nav--action" data-action="next">
+                   <flip-icon-chevron-right></flip-icon-chevron-right>
+                  </div>
                 </nav>
               </div>
               <div class="air-datepicker--content">
