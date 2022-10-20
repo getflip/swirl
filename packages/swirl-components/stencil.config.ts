@@ -28,7 +28,12 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     type: "select",
   },
   {
-    elementSelectors: ["flip-radio-group", "flip-search", "flip-text-input"],
+    elementSelectors: [
+      "flip-date-input",
+      "flip-radio-group",
+      "flip-search",
+      "flip-text-input",
+    ],
     event: "valueChange",
     targetAttr: "value",
     type: "text",

@@ -13,6 +13,7 @@ import { FlipButtonIconPosition, FlipButtonIntent, FlipButtonSize, FlipButtonTyp
 import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-button-group";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
 import { FlipChipIntent } from "./components/flip-chip/flip-chip";
+import { AirDatepickerLocale } from "air-datepicker";
 import { FlipDialogIntent } from "./components/flip-dialog/flip-dialog";
 import { FlipFileViewerPdfZoom } from "./components/flip-file-viewer/viewers/flip-file-viewer-pdf/flip-file-viewer-pdf";
 import { FlipFileViewerPdfZoom as FlipFileViewerPdfZoom1 } from "./components/flip-file-viewer/viewers/flip-file-viewer-pdf/flip-file-viewer-pdf";
@@ -23,6 +24,7 @@ import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-
 import { FlipLinkTarget } from "./components/flip-link/flip-link";
 import { FlipOptionListItemContext } from "./components/flip-option-list-item/flip-option-list-item";
 import { FlipPaginationVariant } from "./components/flip-pagination/flip-pagination";
+import { Placement } from "@floating-ui/dom";
 import { FlipProgressIndicatorSize, FlipProgressIndicatorVariant } from "./components/flip-progress-indicator/flip-progress-indicator";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
@@ -123,6 +125,27 @@ export namespace Components {
         "intent"?: FlipChipIntent;
         "interactive"?: boolean;
         "label": string;
+    }
+    interface FlipDateInput {
+        "autoFocus"?: boolean;
+        "autoSelect"?: boolean;
+        "datePickerLabel"?: string;
+        "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
+        "format"?: string;
+        "invalid"?: boolean;
+        "locale"?: Partial<AirDatepickerLocale>;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "value"?: string;
+    }
+    interface FlipDatePicker {
+        "locale"?: Partial<AirDatepickerLocale>;
+        "maxDate"?: Date;
+        "minDate"?: Date;
+        "range"?: boolean;
+        "startDate"?: Date;
+        "value"?: Date | Date[];
     }
     interface FlipDescriptionList {
     }
@@ -476,7 +499,18 @@ export namespace Components {
         "variant"?: FlipPaginationVariant;
     }
     interface FlipPopover {
+        /**
+          * Close the popover.
+          * @returns
+         */
+        "close": () => Promise<void>;
         "label": string;
+        /**
+          * Open the popover.
+          * @returns
+         */
+        "open": () => Promise<void>;
+        "placement"?: Placement;
         "popoverId": string;
         "trigger": string;
     }
@@ -691,6 +725,14 @@ export interface FlipCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipCheckboxElement;
 }
+export interface FlipDateInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipDateInputElement;
+}
+export interface FlipDatePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipDatePickerElement;
+}
 export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipDialogElement;
@@ -813,6 +855,18 @@ declare global {
     var HTMLFlipChipElement: {
         prototype: HTMLFlipChipElement;
         new (): HTMLFlipChipElement;
+    };
+    interface HTMLFlipDateInputElement extends Components.FlipDateInput, HTMLStencilElement {
+    }
+    var HTMLFlipDateInputElement: {
+        prototype: HTMLFlipDateInputElement;
+        new (): HTMLFlipDateInputElement;
+    };
+    interface HTMLFlipDatePickerElement extends Components.FlipDatePicker, HTMLStencilElement {
+    }
+    var HTMLFlipDatePickerElement: {
+        prototype: HTMLFlipDatePickerElement;
+        new (): HTMLFlipDatePickerElement;
     };
     interface HTMLFlipDescriptionListElement extends Components.FlipDescriptionList, HTMLStencilElement {
     }
@@ -1510,6 +1564,8 @@ declare global {
         "flip-button-group": HTMLFlipButtonGroupElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
         "flip-chip": HTMLFlipChipElement;
+        "flip-date-input": HTMLFlipDateInputElement;
+        "flip-date-picker": HTMLFlipDatePickerElement;
         "flip-description-list": HTMLFlipDescriptionListElement;
         "flip-description-list-item": HTMLFlipDescriptionListItemElement;
         "flip-dialog": HTMLFlipDialogElement;
@@ -1716,6 +1772,29 @@ declare namespace LocalJSX {
         "intent"?: FlipChipIntent;
         "interactive"?: boolean;
         "label": string;
+    }
+    interface FlipDateInput {
+        "autoFocus"?: boolean;
+        "autoSelect"?: boolean;
+        "datePickerLabel"?: string;
+        "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
+        "format"?: string;
+        "invalid"?: boolean;
+        "locale"?: Partial<AirDatepickerLocale>;
+        "onValueChange"?: (event: FlipDateInputCustomEvent<string>) => void;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "value"?: string;
+    }
+    interface FlipDatePicker {
+        "locale"?: Partial<AirDatepickerLocale>;
+        "maxDate"?: Date;
+        "minDate"?: Date;
+        "onValueChange"?: (event: FlipDatePickerCustomEvent<Date | Date[]>) => void;
+        "range"?: boolean;
+        "startDate"?: Date;
+        "value"?: Date | Date[];
     }
     interface FlipDescriptionList {
     }
@@ -2051,6 +2130,7 @@ declare namespace LocalJSX {
     }
     interface FlipPopover {
         "label": string;
+        "placement"?: Placement;
         "popoverId": string;
         "trigger": string;
     }
@@ -2239,6 +2319,8 @@ declare namespace LocalJSX {
         "flip-button-group": FlipButtonGroup;
         "flip-checkbox": FlipCheckbox;
         "flip-chip": FlipChip;
+        "flip-date-input": FlipDateInput;
+        "flip-date-picker": FlipDatePicker;
         "flip-description-list": FlipDescriptionList;
         "flip-description-list-item": FlipDescriptionListItem;
         "flip-dialog": FlipDialog;
@@ -2370,6 +2452,8 @@ declare module "@stencil/core" {
             "flip-button-group": LocalJSX.FlipButtonGroup & JSXBase.HTMLAttributes<HTMLFlipButtonGroupElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
             "flip-chip": LocalJSX.FlipChip & JSXBase.HTMLAttributes<HTMLFlipChipElement>;
+            "flip-date-input": LocalJSX.FlipDateInput & JSXBase.HTMLAttributes<HTMLFlipDateInputElement>;
+            "flip-date-picker": LocalJSX.FlipDatePicker & JSXBase.HTMLAttributes<HTMLFlipDatePickerElement>;
             "flip-description-list": LocalJSX.FlipDescriptionList & JSXBase.HTMLAttributes<HTMLFlipDescriptionListElement>;
             "flip-description-list-item": LocalJSX.FlipDescriptionListItem & JSXBase.HTMLAttributes<HTMLFlipDescriptionListItemElement>;
             "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;
