@@ -49,6 +49,36 @@ const Template = (args) => {
     <flip-text-input type="password"></flip-text-input>
   `;
 
+  const select = generateStoryElement("flip-form-control", {
+    ...args,
+    label: "Select",
+  });
+
+  select.innerHTML = `
+    <flip-select multi-select="true">
+      <flip-option-list-section label="Section 1">
+        <flip-option-list-item
+          label="This is an option 1"
+          value="1"
+        ></flip-option-list-item>
+        <flip-option-list-item
+          label="This is an option 2"
+          value="2"
+        ></flip-option-list-item>
+        <flip-option-list-item
+          label="This is an option 3"
+          value="3"
+        ></flip-option-list-item>
+      </flip-option-list-section>
+      <flip-option-list-section label="Section 2">
+        <flip-option-list-item
+          label="This is an option 4"
+          value="4"
+        ></flip-option-list-item>
+      </flip-option-list-section>
+    </flip-select>
+  `;
+
   const multilineInput = generateStoryElement("flip-form-control", {
     ...args,
     label: "Multiline Control",
@@ -67,6 +97,8 @@ const Template = (args) => {
     dateInput,
     "\n  ",
     passwordInput,
+    "\n  ",
+    select,
     "\n  ",
     multilineInput,
     "\n"

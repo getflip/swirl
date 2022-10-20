@@ -19,10 +19,24 @@
     }
   }
 
-  &:not(.form-control--has-value):not(.form-control--has-focus) {
+  &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select) {
     & .form-control__input {
       overflow: hidden;
       max-height: 0;
+    }
+
+    & .form-control__label-text {
+      bottom: 50%;
+      font-size: var(--s-font-size-base);
+      transform: translateY(50%);
+    }
+  }
+
+  &:not(.form-control--has-value).form-control--is-select {
+    & .select__label {
+      overflow: hidden;
+      max-height: 0;
+      pointer-events: none;
     }
 
     & .form-control__label-text {

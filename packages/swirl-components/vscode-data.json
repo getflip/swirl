@@ -1956,7 +1956,15 @@
       },
       "attributes": [
         {
+          "name": "enable-flip",
+          "description": ""
+        },
+        {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "offset",
           "description": ""
         },
         {
@@ -2007,6 +2015,10 @@
         },
         {
           "name": "trigger",
+          "description": ""
+        },
+        {
+          "name": "use-container-width",
           "description": ""
         }
       ]
@@ -2262,6 +2274,39 @@
         },
         {
           "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-select",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "multi-select",
+          "description": ""
+        },
+        {
+          "name": "required",
           "description": ""
         }
       ]

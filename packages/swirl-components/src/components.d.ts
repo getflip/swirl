@@ -452,7 +452,9 @@ export namespace Components {
           * @returns
          */
         "close": () => Promise<void>;
+        "enableFlip"?: boolean;
         "label": string;
+        "offset"?: number | number[];
         /**
           * Open the popover.
           * @returns
@@ -461,6 +463,7 @@ export namespace Components {
         "placement"?: Placement;
         "popoverId": string;
         "trigger": string;
+        "useContainerWidth"?: boolean | string;
     }
     interface FlipProgressIndicator {
         "label": string;
@@ -517,6 +520,15 @@ export namespace Components {
         "label"?: string;
         "placeholder"?: string;
         "value"?: string;
+    }
+    interface FlipSelect {
+        "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
+        "invalid"?: boolean;
+        "label": string;
+        "multiSelect"?: boolean;
+        "required"?: boolean;
+        "value"?: string[];
     }
     interface FlipSpinner {
         "label"?: string;
@@ -697,6 +709,10 @@ export interface FlipPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipPaginationElement;
 }
+export interface FlipPopoverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipPopoverElement;
+}
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioElement;
@@ -716,6 +732,10 @@ export interface FlipResourceListItemCustomEvent<T> extends CustomEvent<T> {
 export interface FlipSearchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipSearchElement;
+}
+export interface FlipSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipSelectElement;
 }
 export interface FlipSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1362,6 +1382,12 @@ declare global {
         prototype: HTMLFlipSearchElement;
         new (): HTMLFlipSearchElement;
     };
+    interface HTMLFlipSelectElement extends Components.FlipSelect, HTMLStencilElement {
+    }
+    var HTMLFlipSelectElement: {
+        prototype: HTMLFlipSelectElement;
+        new (): HTMLFlipSelectElement;
+    };
     interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
     }
     var HTMLFlipSpinnerElement: {
@@ -1557,6 +1583,7 @@ declare global {
         "flip-resource-list-file-item": HTMLFlipResourceListFileItemElement;
         "flip-resource-list-item": HTMLFlipResourceListItemElement;
         "flip-search": HTMLFlipSearchElement;
+        "flip-select": HTMLFlipSelectElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
@@ -1984,10 +2011,15 @@ declare namespace LocalJSX {
         "variant"?: FlipPaginationVariant;
     }
     interface FlipPopover {
+        "enableFlip"?: boolean;
         "label": string;
+        "offset"?: number | number[];
+        "onPopoverClose"?: (event: FlipPopoverCustomEvent<void>) => void;
+        "onPopoverOpen"?: (event: FlipPopoverCustomEvent<void>) => void;
         "placement"?: Placement;
         "popoverId": string;
         "trigger": string;
+        "useContainerWidth"?: boolean | string;
     }
     interface FlipProgressIndicator {
         "label": string;
@@ -2051,6 +2083,16 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: FlipSearchCustomEvent<string>) => void;
         "placeholder"?: string;
         "value"?: string;
+    }
+    interface FlipSelect {
+        "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
+        "invalid"?: boolean;
+        "label": string;
+        "multiSelect"?: boolean;
+        "onValueChange"?: (event: FlipSelectCustomEvent<string[]>) => void;
+        "required"?: boolean;
+        "value"?: string[];
     }
     interface FlipSpinner {
         "label"?: string;
@@ -2267,6 +2309,7 @@ declare namespace LocalJSX {
         "flip-resource-list-file-item": FlipResourceListFileItem;
         "flip-resource-list-item": FlipResourceListItem;
         "flip-search": FlipSearch;
+        "flip-select": FlipSelect;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
@@ -2392,6 +2435,7 @@ declare module "@stencil/core" {
             "flip-resource-list-file-item": LocalJSX.FlipResourceListFileItem & JSXBase.HTMLAttributes<HTMLFlipResourceListFileItemElement>;
             "flip-resource-list-item": LocalJSX.FlipResourceListItem & JSXBase.HTMLAttributes<HTMLFlipResourceListItemElement>;
             "flip-search": LocalJSX.FlipSearch & JSXBase.HTMLAttributes<HTMLFlipSearchElement>;
+            "flip-select": LocalJSX.FlipSelect & JSXBase.HTMLAttributes<HTMLFlipSelectElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;

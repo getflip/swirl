@@ -237,7 +237,7 @@ export class FlipPopover {
     if (Boolean(useContainerWidth)) {
       const container =
         typeof useContainerWidth === "string"
-          ? this.el.closest(useContainerWidth)
+          ? this.el.closest(useContainerWidth) || this.el.parentElement
           : this.el.parentElement;
 
       this.contentContainer.style.maxWidth = "none";
