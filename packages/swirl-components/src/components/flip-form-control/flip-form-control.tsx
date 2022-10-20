@@ -1,4 +1,13 @@
-import { h, Component, Element, Host, Prop, Watch, State } from "@stencil/core";
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
 import classnames from "classnames";
 
 /**
@@ -25,6 +34,7 @@ export class FlipFormControl {
   @Prop() invalid?: boolean;
   @Prop() label!: string;
 
+  @State() hasFocus: boolean;
   @State() inputValue: string;
 
   private descriptionId = `form-control-description-${Math.round(
@@ -78,6 +88,17 @@ export class FlipFormControl {
     }
   }
 
+  @Listen("click", { target: "window" })
+  onWindowClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+
+    if (this.el.contains(target)) {
+      return;
+    }
+
+    this.hasFocus = false;
+  }
+
   private listenToInputValueChanges = () => {
     this.inputEl.addEventListener("valueChange", this.checkInputValue);
   };
@@ -86,21 +107,32 @@ export class FlipFormControl {
     this.inputValue = (this.inputEl as HTMLInputElement)?.value;
   };
 
+  private onFocusIn = () => {
+    this.hasFocus = true;
+  };
+
+  private onFocusOut = (event: FocusEvent) => {
+    if (Boolean(event.relatedTarget)) {
+      this.hasFocus = false;
+    }
+  };
+
   render() {
     const showErrorMessage = Boolean(this.errorMessage);
     const showDescription = Boolean(this.description) && !showErrorMessage;
 
     const className = classnames("form-control", {
       "form-control--disabled": this.disabled,
+      "form-control--has-focus": this.hasFocus,
       "form-control--has-value": Boolean(this.inputValue),
       "form-control--invalid": this.invalid,
     });
 
     return (
-      <Host>
+      <Host onFocusin={this.onFocusIn} onFocusout={this.onFocusOut}>
         <div class={className} role="group">
           <label class="form-control__label">
-            {this.label}
+            <span class="form-control__label-text">{this.label}</span>
             <span class="form-control__input">
               <slot></slot>
             </span>

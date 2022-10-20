@@ -17,7 +17,9 @@ describe("flip-form-control", () => {
       <flip-form-control label="Label">
         <div class="form-control" role="group">
           <label class="form-control__label">
-            Label
+            <span class="form-control__label-text">
+              Label
+            </span>
             <span class="form-control__input">
               <flip-text-input></flip-text-input>
             </span>

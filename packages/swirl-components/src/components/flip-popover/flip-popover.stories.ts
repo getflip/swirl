@@ -37,7 +37,10 @@ export default {
 const Template = (args) => {
   const container = document.createElement("div");
   const trigger = document.createElement("flip-button");
-  const element = generateStoryElement("flip-popover", args);
+  const element = generateStoryElement(
+    "flip-popover",
+    args
+  ) as HTMLFlipPopoverElement;
 
   trigger.id = "trigger";
   trigger.label = "Trigger popover";
@@ -58,6 +61,14 @@ const Template = (args) => {
   `;
 
   container.append(trigger, element);
+
+  element.addEventListener("click", (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+
+    if (target?.tagName === "FLIP-ACTION-LIST-ITEM") {
+      element.close();
+    }
+  });
 
   return container;
 };

@@ -31,6 +31,15 @@ const Template = (args) => {
     <flip-text-input suffix-label="€" type="number"></flip-text-input>
   `;
 
+  const dateInput = generateStoryElement("flip-form-control", {
+    ...args,
+    label: "Date Control",
+  });
+
+  dateInput.innerHTML = `
+    <flip-date-input></flip-date-input>
+  `;
+
   const passwordInput = generateStoryElement("flip-form-control", {
     ...args,
     label: "Password Control",
@@ -54,6 +63,8 @@ const Template = (args) => {
     textInput,
     "\n  ",
     numberInput,
+    "\n  ",
+    dateInput,
     "\n  ",
     passwordInput,
     "\n  ",
