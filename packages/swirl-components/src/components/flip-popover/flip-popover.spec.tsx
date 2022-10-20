@@ -73,7 +73,10 @@ describe("flip-popover", () => {
     expect(isOpen()).toBeTruthy();
 
     // blur popover
-    window.dispatchEvent(new FocusEvent("focusout"));
+    page.root.dispatchEvent(
+      new FocusEvent("focusout", { relatedTarget: page.body })
+    );
+
     await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
