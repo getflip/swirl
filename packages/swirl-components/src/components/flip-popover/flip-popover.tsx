@@ -3,6 +3,7 @@ import {
   computePosition,
   ComputePositionReturn,
   flip,
+  offset,
   Placement,
   shift,
 } from "@floating-ui/dom";
@@ -33,10 +34,13 @@ import { querySelectorAllDeep } from "../../utils";
 export class FlipPopover {
   @Element() el: HTMLElement;
 
+  @Prop() enableFlip?: boolean = true;
   @Prop() label!: string;
+  @Prop() offset?: number | number[] = 0;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() popoverId!: string;
   @Prop() trigger!: string;
+  @Prop() useContainerWidth?: boolean | string;
 
   @State() active = false;
   @State() closing = false;
@@ -139,6 +143,8 @@ export class FlipPopover {
       return;
     }
 
+    this.adjustWidth();
+
     this.active = true;
     this.popoverOpen.emit();
 
@@ -221,6 +227,28 @@ export class FlipPopover {
     );
   }
 
+  private adjustWidth() {
+    const useContainerWidth = [true, "true"].includes(this.useContainerWidth)
+      ? true
+      : [false, "false"].includes(this.useContainerWidth)
+      ? false
+      : this.useContainerWidth;
+
+    if (Boolean(useContainerWidth)) {
+      const container =
+        typeof useContainerWidth === "string"
+          ? this.el.closest(useContainerWidth)
+          : this.el.parentElement;
+
+      this.contentContainer.style.maxWidth = "none";
+      this.contentContainer.style.width =
+        container.getBoundingClientRect().width + "px";
+    } else {
+      this.contentContainer.style.maxWidth = "";
+      this.contentContainer.style.width = "";
+    }
+  }
+
   private reposition = async () => {
     const mobile = !window.matchMedia("(min-width: 768px)").matches;
 
@@ -233,11 +261,20 @@ export class FlipPopover {
       return;
     }
 
+    const offsetOptions =
+      typeof this.offset === "number"
+        ? { mainAxis: this.offset, crossAxis: 0 }
+        : { mainAxis: this.offset[0], crossAxis: this.offset[1] };
+
+    const middleware = this.enableFlip
+      ? [offset(offsetOptions), shift(), flip()]
+      : [offset(offsetOptions), shift()];
+
     this.position = await computePosition(
       this.triggerEl,
       this.contentContainer,
       {
-        middleware: [shift(), flip()],
+        middleware,
         placement: this.placement,
         strategy: "fixed",
       }
@@ -273,12 +310,12 @@ export class FlipPopover {
             aria-label={this.label}
             class="popover__content"
             role="dialog"
-            tabindex="-1"
             ref={(el) => (this.contentContainer = el)}
             style={{
               top: Boolean(this.position) ? `${this.position?.y}px` : "",
               left: Boolean(this.position) ? `${this.position?.x}px` : "",
             }}
+            tabindex="-1"
           >
             <span class="popover__handle"></span>
             <div

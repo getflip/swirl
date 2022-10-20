@@ -3,8 +3,22 @@ import Docs from "./flip-popover.mdx";
 
 export default {
   argTypes: {
+    offset: {
+      description:
+        "Pass a number to specify the main axis offset. Use an array to provide the main axis and cross axis offsets.",
+      control: {
+        type: "number",
+      },
+    },
     trigger: {
       description: "ID of the trigger element.",
+    },
+    useContainerWidth: {
+      description:
+        "Pass true, if you want the popover to have the width of its container. You can also pass a selector string of the container.",
+      control: {
+        type: "boolean",
+      },
     },
   },
   component: "flip-popover",
