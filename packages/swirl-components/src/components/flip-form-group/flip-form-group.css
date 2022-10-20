@@ -1,0 +1,26 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: block;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-space-24);
+
+  @media (--from-tablet) {
+    gap: var(--s-space-32);
+  }
+}
+
+.form-group--orientation-horizontal {
+  @media (--from-tablet) {
+    flex-direction: row;
+  }
+}
