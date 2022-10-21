@@ -10,6 +10,7 @@ import {
 import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
+import { querySelectorAllDeep } from "../../utils";
 
 @Component({
   shadow: true,
@@ -33,6 +34,7 @@ export class FlipLightbox {
   private dragDelta: number;
   private modal: A11yDialog;
   private modalEl: HTMLElement;
+  private mediaPlayers: (HTMLVideoElement | HTMLAudioElement)[] = [];
 
   componentWillLoad() {
     this.registerSlides();
@@ -81,10 +83,13 @@ export class FlipLightbox {
    */
   @Method()
   async activateSlide(newActiveSlideIndex: number) {
+    this.stopAllMediaPlayers();
+
     this.dragging = false;
     this.activeSlideIndex = newActiveSlideIndex;
 
     this.slides.forEach((slide, index) => {
+      // TODO: stop audio/video if its slide is inactive
       if (
         index === this.activeSlideIndex ||
         index === this.activeSlideIndex - 1 ||
@@ -113,6 +118,8 @@ export class FlipLightbox {
         }
       });
     }, 300);
+
+    this.updateMediaPlayers();
   }
 
   private setSlideAttributes() {
@@ -159,7 +166,20 @@ export class FlipLightbox {
   private registerSlides = () => {
     this.slides = Array.from(this.el.children) as HTMLFlipFileViewerElement[];
     this.setSlideAttributes();
+    this.updateMediaPlayers();
   };
+
+  private updateMediaPlayers() {
+    const mediaPlayers = querySelectorAllDeep<
+      HTMLAudioElement | HTMLVideoElement
+    >(this.el, "video");
+
+    this.mediaPlayers = mediaPlayers;
+  }
+
+  private stopAllMediaPlayers() {
+    this.mediaPlayers.forEach((mediaPlayer) => mediaPlayer.pause());
+  }
 
   private onPointerDown = (event: MouseEvent | TouchEvent) => {
     this.dragging = true;
