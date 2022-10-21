@@ -8,6 +8,7 @@ import { FlipFileViewerPdfZoom } from "./viewers/flip-file-viewer-pdf/flip-file-
   tag: "flip-file-viewer",
 })
 export class FlipFileViewer {
+  @Prop() active?: boolean = true;
   @Prop() description?: string;
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
@@ -50,7 +51,7 @@ export class FlipFileViewer {
     return (
       <Host>
         <div class="file-viewer">
-          {this.type && (
+          {this.type && this.active && (
             <div class="file-viewer__file">
               {/* images */}
               {this.type.startsWith("image/") && (

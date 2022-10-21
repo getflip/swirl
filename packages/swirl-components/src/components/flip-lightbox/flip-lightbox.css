@@ -1,0 +1,145 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  z-index: var(--s-z-40);
+  background-color: rgba(0, 0, 0, 1);
+  inset: 0;
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  @media (--from-tablet) {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.lightbox:not(.lightbox--closing) {
+  & .lightbox__body {
+    animation: 0.15s lightbox-fade-in;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+}
+
+.lightbox--closing {
+  animation: 0.15s lightbox-fade-out;
+  animation-fill-mode: forwards;
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+}
+
+.lightbox__body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox__header {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  padding: var(--s-space-12) var(--s-space-16);
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.lightbox__controls {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 0;
+  left: 0;
+  display: none;
+  padding-right: var(--s-space-16);
+  padding-left: var(--s-space-16);
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+
+  @media (--from-tablet) {
+    display: flex;
+  }
+}
+
+.lightbox__close-button,
+.lightbox__previous-slide-button,
+.lightbox__next-slide-button {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  color: var(--s-icon-on-image);
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: opacity 0.15s;
+  pointer-events: auto;
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+.lightbox__content {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+.lightbox__slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  & ::slotted(*) {
+    flex-basis: 100%;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+
+    @media (--from-tablet) {
+      padding: 4rem 5rem;
+    }
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
+  }
+}
+
+@keyframes lightbox-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lightbox-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
