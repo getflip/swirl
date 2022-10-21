@@ -28,6 +28,9 @@ export class FlipLightbox {
   @State() closing = false;
   @State() slides: HTMLFlipFileViewerElement[];
 
+  private dragging: boolean = false;
+  private dragStartPosition: number;
+  private dragDelta: number;
   private modal: A11yDialog;
   private modalEl: HTMLElement;
 
@@ -78,10 +81,15 @@ export class FlipLightbox {
    */
   @Method()
   async activateSlide(newActiveSlideIndex: number) {
+    this.dragging = false;
     this.activeSlideIndex = newActiveSlideIndex;
 
     this.slides.forEach((slide, index) => {
-      if (index === this.activeSlideIndex) {
+      if (
+        index === this.activeSlideIndex ||
+        index === this.activeSlideIndex - 1 ||
+        index === this.activeSlideIndex + 1
+      ) {
         slide.removeAttribute("aria-hidden");
         slide.setAttribute("active", "true");
       } else {
@@ -96,11 +104,32 @@ export class FlipLightbox {
     // wait for slide animation before deactivating the slide
     setTimeout(() => {
       this.slides.forEach((slide, index) => {
-        if (index !== this.activeSlideIndex) {
+        if (
+          index !== this.activeSlideIndex &&
+          index !== this.activeSlideIndex - 1 &&
+          index !== this.activeSlideIndex + 1
+        ) {
           slide.setAttribute("active", "false");
         }
       });
     }, 300);
+  }
+
+  private setSlideAttributes() {
+    this.slides.forEach((slide) => {
+      slide.setAttribute("active", "false");
+      slide.setAttribute("aria-label", slide.file);
+      slide.setAttribute("aria-roledescription", "slide");
+      slide.setAttribute("role", "group");
+    });
+  }
+
+  private lockBodyScroll() {
+    disableBodyScroll(this.el);
+  }
+
+  private unlockBodyScroll() {
+    enableBodyScroll(this.el);
   }
 
   private onCloseButtonClick = () => {
@@ -132,22 +161,64 @@ export class FlipLightbox {
     this.setSlideAttributes();
   };
 
-  private setSlideAttributes() {
+  private onPointerDown = (event: MouseEvent | TouchEvent) => {
+    this.dragging = true;
+
+    this.dragStartPosition =
+      event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+
     this.slides.forEach((slide) => {
-      slide.setAttribute("active", "false");
-      slide.setAttribute("aria-label", slide.file);
-      slide.setAttribute("aria-roledescription", "slide");
-      slide.setAttribute("role", "group");
+      slide.style.transition = "none";
     });
-  }
+  };
 
-  private lockBodyScroll() {
-    disableBodyScroll(this.el);
-  }
+  private onPointerMove = (event: MouseEvent | TouchEvent) => {
+    if (this.dragging) {
+      event.preventDefault();
 
-  private unlockBodyScroll() {
-    enableBodyScroll(this.el);
-  }
+      const deltaX =
+        event instanceof MouseEvent
+          ? event.clientX - this.dragStartPosition
+          : event.touches[0].clientX - this.dragStartPosition;
+
+      this.slides.forEach((slide) => {
+        const pixelOffset =
+          this.activeSlideIndex * slide.getBoundingClientRect().width;
+
+        this.dragDelta = deltaX;
+
+        slide.style.transform = `translate3d(${
+          (-pixelOffset + this.dragDelta) / 16
+        }rem, 0, 0)`;
+      });
+    }
+  };
+
+  private onPointerUp = () => {
+    this.dragging = false;
+    this.dragStartPosition = undefined;
+
+    const dragRatio =
+      this.dragDelta /
+      this.slides[this.activeSlideIndex].getBoundingClientRect().width;
+
+    this.dragDelta = 0;
+
+    const shouldMoveToPreviousSlide = dragRatio > 0.2;
+    const shouldMoveToNextSlide = dragRatio < -0.2;
+
+    this.slides.forEach((slide) => {
+      slide.style.transition = "";
+    });
+
+    if (shouldMoveToPreviousSlide) {
+      this.onPreviousSlideClick();
+    } else if (shouldMoveToNextSlide) {
+      this.onNextSlideClick();
+    } else {
+      this.activateSlide(this.activeSlideIndex);
+    }
+  };
 
   render() {
     const className = classnames("lightbox", {
@@ -155,12 +226,20 @@ export class FlipLightbox {
     });
 
     return (
-      <Host onKeyDown={this.onKeyDown}>
+      <Host>
         <section
           aria-hidden="true"
           aria-label={this.label}
           class={className}
           id="lightbox"
+          onMouseDown={this.onPointerDown}
+          onMouseMove={this.onPointerMove}
+          onMouseOut={this.onPointerUp}
+          onMouseUp={this.onPointerUp}
+          onKeyDown={this.onKeyDown}
+          onTouchEnd={this.onPointerUp}
+          onTouchMove={this.onPointerMove}
+          onTouchStart={this.onPointerDown}
           ref={(el) => (this.modalEl = el)}
         >
           <div class="lightbox__body" role="document">
