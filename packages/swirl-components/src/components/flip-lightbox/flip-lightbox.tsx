@@ -83,13 +83,10 @@ export class FlipLightbox {
    */
   @Method()
   async activateSlide(newActiveSlideIndex: number) {
-    this.stopAllMediaPlayers();
-
     this.dragging = false;
     this.activeSlideIndex = newActiveSlideIndex;
 
     this.slides.forEach((slide, index) => {
-      // TODO: stop audio/video if its slide is inactive
       if (
         index === this.activeSlideIndex ||
         index === this.activeSlideIndex - 1 ||
@@ -119,6 +116,7 @@ export class FlipLightbox {
       });
     }, 300);
 
+    this.stopAllMediaPlayers();
     this.updateMediaPlayers();
   }
 
@@ -128,6 +126,14 @@ export class FlipLightbox {
       slide.setAttribute("aria-label", slide.file);
       slide.setAttribute("aria-roledescription", "slide");
       slide.setAttribute("role", "group");
+    });
+  }
+
+  private resetSlidePositions() {
+    this.slides.forEach((slide) => {
+      slide.style.transform = `translate3d(-${
+        100 * this.activeSlideIndex
+      }%, 0, 0)`;
     });
   }
 
@@ -182,6 +188,8 @@ export class FlipLightbox {
   }
 
   private onPointerDown = (event: MouseEvent | TouchEvent) => {
+    event.preventDefault();
+
     this.dragging = true;
 
     this.dragStartPosition =
@@ -236,7 +244,7 @@ export class FlipLightbox {
     } else if (shouldMoveToNextSlide) {
       this.onNextSlideClick();
     } else {
-      this.activateSlide(this.activeSlideIndex);
+      this.resetSlidePositions();
     }
   };
 
