@@ -10,8 +10,8 @@ import {
   State,
 } from "@stencil/core";
 import A11yDialog from "a11y-dialog";
-import classnames from "classnames";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import classnames from "classnames";
 
 @Component({
   shadow: true,
@@ -149,15 +149,6 @@ export class FlipModal {
                 level={3}
                 text={this.label}
               ></flip-heading>
-              {this.primaryActionLabel && (
-                <flip-button
-                  class="modal__mobile-primary-action"
-                  intent="primary"
-                  label={this.primaryActionLabel}
-                  onClick={this.onPrimaryAction}
-                  variant="flat"
-                ></flip-button>
-              )}
             </header>
             <div
               class="modal__content"

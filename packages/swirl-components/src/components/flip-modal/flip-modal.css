@@ -99,10 +99,12 @@
 
 .modal__header {
   display: flex;
+  height: 3.5rem;
   padding-top: var(--s-space-8);
   padding-right: var(--s-space-16);
   padding-bottom: var(--s-space-8);
   padding-left: calc(var(--s-space-8) + 2.5rem + var(--s-space-8));
+  flex-shrink: 0;
   align-items: center;
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   gap: var(--s-space-16);
@@ -120,15 +122,9 @@
   overflow: hidden;
 
   &::part(heading) {
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
-  }
-}
-
-.modal__mobile-primary-action {
-  @media (--from-tablet) {
-    display: none;
   }
 }
 
@@ -155,17 +151,14 @@
 }
 
 .modal__controls {
-  display: none;
+  display: flex;
   padding-top: var(--s-space-16);
   padding-right: var(--s-space-24);
   padding-bottom: var(--s-space-16);
   padding-left: var(--s-space-24);
+  flex-shrink: 0;
   justify-content: flex-end;
   border-top: var(--s-border-width-default) solid var(--s-border-default);
-
-  @media (--from-tablet) {
-    display: flex;
-  }
 }
 
 @keyframes modal-scale-in {
