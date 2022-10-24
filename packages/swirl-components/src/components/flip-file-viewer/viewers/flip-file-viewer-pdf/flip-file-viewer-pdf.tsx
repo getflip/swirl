@@ -15,7 +15,11 @@ import pdf, {
   PDFPageProxy,
   renderTextLayer,
 } from "pdfjs-dist/legacy/build/pdf.js";
-import { getVisibleHeight } from "../../../../utils";
+import {
+  debounce,
+  getVisibleHeight,
+  isMobileViewport,
+} from "../../../../utils";
 
 pdf.GlobalWorkerOptions.workerSrc = "/pdfjs/pdf.worker.min.js";
 
@@ -51,6 +55,10 @@ export class FlipFileViewerPdf {
     await this.updateVisiblePages();
   }
 
+  disconnectedCallback() {
+    this.doc?.destroy();
+  }
+
   @Listen("resize", { target: "window" })
   async onWindowResize() {
     this.visiblePages = [];
@@ -82,6 +90,10 @@ export class FlipFileViewerPdf {
     this.loading = true;
 
     try {
+      if (Boolean(this.doc)) {
+        this.doc.destroy();
+      }
+
       this.doc = await getDocument(this.file).promise;
 
       for (let i = 1; i <= this.doc.numPages; i++) {
@@ -198,8 +210,7 @@ export class FlipFileViewerPdf {
       container,
       textContent: await page.getTextContent(),
       viewport: page.getViewport({
-        scale:
-          this.zoom === "auto" ? this.getScale(page) : this.getScale(page) / 2,
+        scale: this.getScale(page) / 2,
       }),
     });
   }
@@ -256,16 +267,18 @@ export class FlipFileViewerPdf {
   }
 
   private getScale(page: PDFPageProxy) {
+    const padding = isMobileViewport() ? 0 : 32;
+
     return this.zoom === "auto"
-      ? (this.scrollContainer?.clientWidth - 32) / page.view[2]
+      ? ((this.scrollContainer?.clientWidth - padding) / page.view[2]) * 2
       : isNaN(this.zoom)
       ? 2
       : this.zoom * 2;
   }
 
-  private onScroll = () => {
+  private onScroll = debounce(() => {
     this.updateVisiblePages();
-  };
+  }, 60);
 
   render() {
     const showPagination =
@@ -301,10 +314,8 @@ export class FlipFileViewerPdf {
                 key={page.pageNumber}
                 role="region"
                 style={{
-                  width:
-                    this.zoom === "auto" ? undefined : `${viewport.width}px`,
-                  height:
-                    this.zoom === "auto" ? undefined : `${viewport.height}px`,
+                  width: `${viewport.width}px`,
+                  height: `${viewport.height}px`,
                 }}
                 tabIndex={0}
               >

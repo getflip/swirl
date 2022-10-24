@@ -9,6 +9,32 @@ export interface FlipFormInput<ValueType = string> {
   valueChange: EventEmitter;
 }
 
+export function debounce(
+  func: Function,
+  wait: number,
+  immediate: boolean = false
+) {
+  var timeout;
+
+  return function executedFunction() {
+    var context = this;
+    var args = arguments;
+
+    var later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+
+    var callNow = immediate && !timeout;
+
+    clearTimeout(timeout);
+
+    timeout = setTimeout(later, wait);
+
+    if (callNow) func.apply(context, args);
+  };
+}
+
 export function generateStoryElement(
   tag: string,
   args: { [arg: string]: any },
@@ -57,6 +83,10 @@ export function getVisibleHeight(element: HTMLElement, container: HTMLElement) {
   const visibleBot = eleBot > scrollBot ? scrollBot : eleBot;
 
   return visibleBot - visibleTop;
+}
+
+export function isMobileViewport() {
+  return !window.matchMedia("(min-width: 768px)").matches;
 }
 
 export function querySelectorAllDeep<TargetType extends Element = HTMLElement>(
