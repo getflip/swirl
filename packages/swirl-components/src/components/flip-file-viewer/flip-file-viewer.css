@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.file-viewer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-viewer__file {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}

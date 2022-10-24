@@ -43,7 +43,10 @@
     "classnames": "^2.3.2",
     "color2k": "^2.0.0",
     "date-fns": "^2.29.3",
-    "maska": "^1.5.0"
+    "file-saver": "^2.0.5",
+    "maska": "^1.5.0",
+    "papaparse": "^5.3.2",
+    "pdfjs-dist": "^2.16.105"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
@@ -60,8 +63,10 @@
     "@storybook/theming": "^6.5.12",
     "@types/autoprefixer": "^10.2.0",
     "@types/body-scroll-lock": "^3.1.0",
+    "@types/file-saver": "^2.0.5",
     "@types/jest": "^27.0.3",
     "@types/mdx": "^2.0.2",
+    "@types/papaparse": "^5.3.5",
     "@typescript-eslint/parser": "^5.40.1",
     "autoprefixer": "^10.4.12",
     "babel-loader": "^8.2.5",
