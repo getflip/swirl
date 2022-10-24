@@ -87,12 +87,14 @@ export class FlipLightbox {
     this.activeSlideIndex = newActiveSlideIndex;
 
     this.slides.forEach((slide, index) => {
-      if (
-        index === this.activeSlideIndex ||
+      if (index === this.activeSlideIndex) {
+        slide.removeAttribute("aria-hidden");
+        slide.setAttribute("active", "true");
+      } else if (
         index === this.activeSlideIndex - 1 ||
         index === this.activeSlideIndex + 1
       ) {
-        slide.removeAttribute("aria-hidden");
+        slide.setAttribute("aria-hidden", "true");
         slide.setAttribute("active", "true");
       } else {
         slide.setAttribute("aria-hidden", "true");
