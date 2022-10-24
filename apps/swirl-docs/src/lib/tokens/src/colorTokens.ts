@@ -17,11 +17,11 @@ export const getColorTokens = (): ColorTokens => {
 
   const lightTokenKeys = Object.keys(tokensLight);
 
-  const basicColorTokens = lightTokenKeys
+  const baseTokens = lightTokenKeys
     .filter((key) => tokensLight[key].type === "color")
     .map((key) => tokensLight[key]);
 
-  basicColorTokens.forEach((token) => {
+  baseTokens.forEach((token) => {
     const colorCategory = getColorCategory(token);
     colorTokens[colorCategory]?.push({
       name: token.name,

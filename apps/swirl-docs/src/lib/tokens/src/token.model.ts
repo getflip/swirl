@@ -19,6 +19,14 @@ export const typographyTypes = [
   "fontSizes",
 ];
 
+export const TypographyTokenCategories = [
+  "fontWeights",
+  "lineHeights",
+  "letterSpacing",
+  "fontFamily",
+  "fontSizes",
+];
+
 export type TypographyTokenCategory =
   | "fontWeights"
   | "lineHeights"

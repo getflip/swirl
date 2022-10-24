@@ -1,7 +1,15 @@
-import { getZIndexTokens } from "@swirl/lib/tokens/src/zIndexTokens";
+import { ZIndexTokenCategories } from "@swirl/lib/tokens";
+import { getTokens } from "@swirl/lib/tokens/src/utils";
 import { FunctionComponent } from "react";
 import TokensList from "./TokensList";
 
 export const ZIndexTokens: FunctionComponent = () => {
-  return <TokensList tokens={getZIndexTokens().zIndex} />;
+  const tokens = getTokens(
+    {
+      other: [],
+    },
+    (type: string) => ZIndexTokenCategories.includes(type)
+  );
+
+  return <TokensList tokens={tokens.other} />;
 };
