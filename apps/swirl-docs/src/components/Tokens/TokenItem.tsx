@@ -20,7 +20,9 @@ const TokenItem = ({ token }: TokenItemProps) => {
         </div>
       </td>
       <td className="col-span-1 mb-2 md:mb-0 text-sm">{token.value}</td>
-      <td className="col-span-2 text-sm">{token.description}</td>
+      <td className="col-span-2 text-sm">
+        {token.description ? token.description : "-"}
+      </td>
     </tr>
   );
 };
