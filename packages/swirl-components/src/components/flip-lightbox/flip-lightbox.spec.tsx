@@ -9,6 +9,7 @@ describe("flip-lightbox", () => {
       html: `
         <flip-lightbox
           close-button-label="Close"
+          download-button-label="Download"
           label="Lightbox"
           next-slide-button-label="Next"
           previous-slide-button-label="Previous"
@@ -23,13 +24,16 @@ describe("flip-lightbox", () => {
     await new Promise((resolve) => setTimeout(resolve, 300));
 
     expect(page.root).toEqualHtml(`
-      <flip-lightbox close-button-label="Close" label="Lightbox" next-slide-button-label="Next" previous-slide-button-label="Previous">
+      <flip-lightbox close-button-label="Close" download-button-label="Download" label="Lightbox" next-slide-button-label="Next" previous-slide-button-label="Previous">
         <mock:shadow-root>
           <section aria-hidden="true" aria-label="Lightbox" aria-modal="true" class="lightbox" id="lightbox" role="dialog" tabindex="-1">
             <div class="lightbox__body" role="document">
               <header class="lightbox__header">
                 <button aria-label="Close" class="lightbox__close-button">
                   <flip-icon-close></flip-icon-close>
+                </button>
+                <button aria-label="Download" class="lightbox__download-button">
+                  <flip-icon-download></flip-icon-download>
                 </button>
               </header>
               <div aria-roledescription="carousel" class="lightbox__content" role="group">

@@ -21,6 +21,7 @@ export class FlipLightbox {
   @Element() el: HTMLElement;
 
   @Prop() closeButtonLabel?: string = "Close modal";
+  @Prop() downloadButtonLabel?: string = "Download active slide content";
   @Prop() label!: string;
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
@@ -149,6 +150,10 @@ export class FlipLightbox {
 
   private onCloseButtonClick = () => {
     this.close();
+  };
+
+  private onDownloadButtonClick = () => {
+    this.slides[this.activeSlideIndex]?.download();
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
@@ -280,6 +285,13 @@ export class FlipLightbox {
                 onClick={this.onCloseButtonClick}
               >
                 <flip-icon-close></flip-icon-close>
+              </button>
+              <button
+                aria-label={this.downloadButtonLabel}
+                class="lightbox__download-button"
+                onClick={this.onDownloadButtonClick}
+              >
+                <flip-icon-download></flip-icon-download>
               </button>
             </header>
             <div

@@ -78,6 +78,7 @@
 }
 
 .lightbox__close-button,
+.lightbox__download-button,
 .lightbox__previous-slide-button,
 .lightbox__next-slide-button {
   display: inline-flex;

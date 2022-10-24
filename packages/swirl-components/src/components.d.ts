@@ -495,6 +495,7 @@ export namespace Components {
          */
         "close": () => Promise<void>;
         "closeButtonLabel"?: string;
+        "downloadButtonLabel"?: string;
         "label": string;
         "nextSlideButtonLabel"?: string;
         /**
@@ -2211,6 +2212,7 @@ declare namespace LocalJSX {
     }
     interface FlipLightbox {
         "closeButtonLabel"?: string;
+        "downloadButtonLabel"?: string;
         "label": string;
         "nextSlideButtonLabel"?: string;
         "previousSlideButtonLabel"?: string;
