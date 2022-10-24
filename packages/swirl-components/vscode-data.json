@@ -935,6 +935,32 @@
       ]
     },
     {
+      "name": "flip-icon-arrow-left",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-arrow-right",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-arrow-right-small",
       "description": {
         "kind": "markdown",
@@ -1286,6 +1312,32 @@
       ]
     },
     {
+      "name": "flip-icon-fullscreen",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-fullscreen-exit",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-group-assign",
       "description": {
         "kind": "markdown",
@@ -1533,6 +1585,19 @@
       ]
     },
     {
+      "name": "flip-icon-open-in-new",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-people-alt",
       "description": {
         "kind": "markdown",
@@ -1598,7 +1663,33 @@
       ]
     },
     {
+      "name": "flip-icon-print",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-recieved",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-remove",
       "description": {
         "kind": "markdown",
         "value": ""
