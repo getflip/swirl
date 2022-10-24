@@ -21,8 +21,6 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
 
   const [currentActiveIndex] = useScrollObserver(documents);
 
-  console.log("currentActiveIndex", currentActiveIndex);
-
   return (
     <div className="hidden md:block min-w-[12rem]">
       <nav
@@ -34,7 +32,6 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
         </div>
         <ul>
           {documentLinkList?.map((link: DocHeadline, index: number) => {
-            console.log("link", currentActiveIndex === index);
             return (
               <li key={link.id} className="relative font-sm mb-2">
                 <Link href={`#${link.id}`}>

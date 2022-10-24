@@ -9,6 +9,7 @@ import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import TokensList from "src/components/Tokens/TokensList";
 import { navItems } from "@swirl/lib/navigation";
 import { ColorTokens } from "src/components/Tokens/ColorTokens";
+import { TypographyTokens } from "src/components/Tokens/TypographyTokens";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation("tokens", document);
@@ -51,6 +52,7 @@ export default function Component({
   const components = {
     TokensList,
     ColorTokens,
+    TypographyTokens,
     p: (props: any) => <p className="mb-4" {...props} />,
     ...LinkedHeaders,
   };

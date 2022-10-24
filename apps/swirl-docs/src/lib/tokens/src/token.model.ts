@@ -1,8 +1,31 @@
 export type Token = {
   name: string;
-  type: "color" | "size";
+  type: "color" | "size" | TypographyTokenCategory;
   value: string;
   description: string;
+};
+
+export const typographyTypes = [
+  "fontWeights",
+  "lineHeights",
+  "letterSpacing",
+  "fontFamily",
+  "fontSizes",
+];
+
+export type TypographyTokenCategory =
+  | "fontWeights"
+  | "lineHeights"
+  | "letterSpacing"
+  | "fontFamily"
+  | "fontSizes";
+
+export type TypographyTokens = {
+  fontWeights: Token[];
+  lineHeights: Token[];
+  letterSpacing: Token[];
+  fontFamily: Token[];
+  fontSizes: Token[];
 };
 
 export type ColorTokenCategory =
