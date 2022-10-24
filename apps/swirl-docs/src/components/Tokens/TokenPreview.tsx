@@ -81,20 +81,20 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
       </div>
     );
   } else if (token.type === "other") {
-    const zIndexPlains = ["auto", "50", "40", "30", "20", "10", "0"].map(
-      (plain) => {
-        const backgroundColor =
-          plain === token.value ? "bg-border-info" : "bg-core-gray-02-dark";
-        return (
-          <div key={plain}>
-            <div
-              className={`w-24 h-2 mb-1 rounded-full
+    const zIndexPlains = ["50", "40", "30", "20", "10", "0"].map((plain) => {
+      const backgroundColor =
+        plain === token.value || token.value === "auto"
+          ? "bg-border-info"
+          : "bg-core-gray-02-dark";
+      return (
+        <div key={plain}>
+          <div
+            className={`w-24 h-2 mb-1 rounded-full
             ${backgroundColor}`}
-            ></div>
-          </div>
-        );
-      }
-    );
+          ></div>
+        </div>
+      );
+    });
     return <div className="mr-4">{zIndexPlains}</div>;
   } else {
     return <div className={`w-12 h-12 mr-2 text-lg`}></div>;
