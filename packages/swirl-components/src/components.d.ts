@@ -490,6 +490,20 @@ export namespace Components {
     }
     interface FlipList {
     }
+    interface FlipModal {
+        /**
+          * Close the modal.
+         */
+        "close": () => Promise<void>;
+        "closeButtonLabel"?: string;
+        "label": string;
+        /**
+          * Open the modal.
+         */
+        "open": () => Promise<void>;
+        "primaryActionLabel"?: string;
+        "secondaryActionLabel"?: string;
+    }
     interface FlipOptionList {
         "disabled"?: boolean;
         "label"?: string;
@@ -761,6 +775,10 @@ export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
 export interface FlipFileUploaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipFileUploaderElement;
+}
+export interface FlipModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipModalElement;
 }
 export interface FlipOptionListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1453,6 +1471,12 @@ declare global {
         prototype: HTMLFlipListElement;
         new (): HTMLFlipListElement;
     };
+    interface HTMLFlipModalElement extends Components.FlipModal, HTMLStencilElement {
+    }
+    var HTMLFlipModalElement: {
+        prototype: HTMLFlipModalElement;
+        new (): HTMLFlipModalElement;
+    };
     interface HTMLFlipOptionListElement extends Components.FlipOptionList, HTMLStencilElement {
     }
     var HTMLFlipOptionListElement: {
@@ -1723,6 +1747,7 @@ declare global {
         "flip-inline-error": HTMLFlipInlineErrorElement;
         "flip-link": HTMLFlipLinkElement;
         "flip-list": HTMLFlipListElement;
+        "flip-modal": HTMLFlipModalElement;
         "flip-option-list": HTMLFlipOptionListElement;
         "flip-option-list-item": HTMLFlipOptionListItemElement;
         "flip-option-list-section": HTMLFlipOptionListSectionElement;
@@ -2188,6 +2213,14 @@ declare namespace LocalJSX {
     }
     interface FlipList {
     }
+    interface FlipModal {
+        "closeButtonLabel"?: string;
+        "label": string;
+        "onPrimaryAction"?: (event: FlipModalCustomEvent<MouseEvent>) => void;
+        "onSecondaryAction"?: (event: FlipModalCustomEvent<MouseEvent>) => void;
+        "primaryActionLabel"?: string;
+        "secondaryActionLabel"?: string;
+    }
     interface FlipOptionList {
         "disabled"?: boolean;
         "label"?: string;
@@ -2506,6 +2539,7 @@ declare namespace LocalJSX {
         "flip-inline-error": FlipInlineError;
         "flip-link": FlipLink;
         "flip-list": FlipList;
+        "flip-modal": FlipModal;
         "flip-option-list": FlipOptionList;
         "flip-option-list-item": FlipOptionListItem;
         "flip-option-list-section": FlipOptionListSection;
@@ -2646,6 +2680,7 @@ declare module "@stencil/core" {
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
             "flip-list": LocalJSX.FlipList & JSXBase.HTMLAttributes<HTMLFlipListElement>;
+            "flip-modal": LocalJSX.FlipModal & JSXBase.HTMLAttributes<HTMLFlipModalElement>;
             "flip-option-list": LocalJSX.FlipOptionList & JSXBase.HTMLAttributes<HTMLFlipOptionListElement>;
             "flip-option-list-item": LocalJSX.FlipOptionListItem & JSXBase.HTMLAttributes<HTMLFlipOptionListItemElement>;
             "flip-option-list-section": LocalJSX.FlipOptionListSection & JSXBase.HTMLAttributes<HTMLFlipOptionListSectionElement>;

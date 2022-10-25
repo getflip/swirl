@@ -59,6 +59,10 @@ export function getVisibleHeight(element: HTMLElement, container: HTMLElement) {
   return visibleBot - visibleTop;
 }
 
+export function isMobileViewport() {
+  return !window.matchMedia("(min-width: 768px)").matches;
+}
+
 export function querySelectorAllDeep<TargetType extends Element = HTMLElement>(
   root: HTMLElement,
   selector: string
