@@ -227,6 +227,10 @@ export class FlipPopover {
     enableBodyScroll(this.scrollContainer);
   }
 
+  private onCloseButtonClick = () => {
+    this.close();
+  };
+
   render() {
     const className = classnames("popover", {
       "popover--closing": this.closing,
@@ -258,7 +262,10 @@ export class FlipPopover {
             </div>
           </div>
           {this.active && (
-            <div class="popover__backdrop" onClick={this.close}></div>
+            <div
+              class="popover__backdrop"
+              onClick={this.onCloseButtonClick}
+            ></div>
           )}
         </div>
       </Host>
