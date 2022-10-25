@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.3.1
+
+### Patch Changes
+
+- [`2e0dfc5`](https://github.com/getflip/swirl/commit/2e0dfc5b282eaac27e0bd353987eb3da92438f08)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix flip-popover backdrop click
+
 ## 0.3.0
 
 ### Minor Changes
