@@ -540,6 +540,25 @@ export namespace Components {
         "prevButtonLabel"?: string;
         "variant"?: FlipPaginationVariant;
     }
+    interface FlipPdfReader {
+        "autoZoomLabel"?: string;
+        /**
+          * Close the reader.
+         */
+        "close": () => Promise<void>;
+        "closeButtonLabel"?: string;
+        "downloadButtonLabel"?: string;
+        "file": string;
+        "label": string;
+        /**
+          * Open the reader.
+         */
+        "open": () => Promise<void>;
+        "printButtonLabel"?: string;
+        "zoomInButtonLabel"?: string;
+        "zoomOutButtonLabel"?: string;
+        "zoomSelectLabel"?: string;
+    }
     interface FlipPopover {
         /**
           * Close the popover.
@@ -782,6 +801,34 @@ export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
 export interface FlipFileUploaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipFileUploaderElement;
+}
+export interface FlipFileViewerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipFileViewerElement;
+}
+export interface FlipFileViewerAudioCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipFileViewerAudioElement;
+}
+export interface FlipFileViewerCsvCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipFileViewerCsvElement;
+}
+export interface FlipFileViewerImageCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipFileViewerImageElement;
+}
+export interface FlipFileViewerPdfCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipFileViewerPdfElement;
+}
+export interface FlipFileViewerTextCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipFileViewerTextElement;
+}
+export interface FlipFileViewerVideoCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipFileViewerVideoElement;
 }
 export interface FlipOptionListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1504,6 +1551,12 @@ declare global {
         prototype: HTMLFlipPaginationElement;
         new (): HTMLFlipPaginationElement;
     };
+    interface HTMLFlipPdfReaderElement extends Components.FlipPdfReader, HTMLStencilElement {
+    }
+    var HTMLFlipPdfReaderElement: {
+        prototype: HTMLFlipPdfReaderElement;
+        new (): HTMLFlipPdfReaderElement;
+    };
     interface HTMLFlipPopoverElement extends Components.FlipPopover, HTMLStencilElement {
     }
     var HTMLFlipPopoverElement: {
@@ -1755,6 +1808,7 @@ declare global {
         "flip-option-list-item": HTMLFlipOptionListItemElement;
         "flip-option-list-section": HTMLFlipOptionListSectionElement;
         "flip-pagination": HTMLFlipPaginationElement;
+        "flip-pdf-reader": HTMLFlipPdfReaderElement;
         "flip-popover": HTMLFlipPopoverElement;
         "flip-progress-indicator": HTMLFlipProgressIndicatorElement;
         "flip-radio": HTMLFlipRadioElement;
@@ -1931,34 +1985,41 @@ declare namespace LocalJSX {
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
+        "onActivate"?: (event: FlipFileViewerCustomEvent<HTMLElement>) => void;
         "type": string;
         "typeUnsupportedMessage"?: string;
         "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerAudio {
         "file": string;
+        "onActivate"?: (event: FlipFileViewerAudioCustomEvent<HTMLElement>) => void;
         "type": string;
     }
     interface FlipFileViewerCsv {
         "errorMessage"?: string;
         "file": string;
+        "onActivate"?: (event: FlipFileViewerCsvCustomEvent<HTMLElement>) => void;
     }
     interface FlipFileViewerImage {
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
+        "onActivate"?: (event: FlipFileViewerImageCustomEvent<HTMLElement>) => void;
     }
     interface FlipFileViewerPdf {
         "errorMessage"?: string;
         "file": string;
+        "onActivate"?: (event: FlipFileViewerPdfCustomEvent<HTMLElement>) => void;
         "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerText {
         "errorMessage"?: string;
         "file": string;
+        "onActivate"?: (event: FlipFileViewerTextCustomEvent<HTMLElement>) => void;
     }
     interface FlipFileViewerVideo {
         "file": string;
+        "onActivate"?: (event: FlipFileViewerVideoCustomEvent<HTMLElement>) => void;
         "type": string;
     }
     interface FlipFormControl {
@@ -2255,6 +2316,17 @@ declare namespace LocalJSX {
         "prevButtonLabel"?: string;
         "variant"?: FlipPaginationVariant;
     }
+    interface FlipPdfReader {
+        "autoZoomLabel"?: string;
+        "closeButtonLabel"?: string;
+        "downloadButtonLabel"?: string;
+        "file": string;
+        "label": string;
+        "printButtonLabel"?: string;
+        "zoomInButtonLabel"?: string;
+        "zoomOutButtonLabel"?: string;
+        "zoomSelectLabel"?: string;
+    }
     interface FlipPopover {
         "label": string;
         "placement"?: Placement;
@@ -2547,6 +2619,7 @@ declare namespace LocalJSX {
         "flip-option-list-item": FlipOptionListItem;
         "flip-option-list-section": FlipOptionListSection;
         "flip-pagination": FlipPagination;
+        "flip-pdf-reader": FlipPdfReader;
         "flip-popover": FlipPopover;
         "flip-progress-indicator": FlipProgressIndicator;
         "flip-radio": FlipRadio;
@@ -2688,6 +2761,7 @@ declare module "@stencil/core" {
             "flip-option-list-item": LocalJSX.FlipOptionListItem & JSXBase.HTMLAttributes<HTMLFlipOptionListItemElement>;
             "flip-option-list-section": LocalJSX.FlipOptionListSection & JSXBase.HTMLAttributes<HTMLFlipOptionListSectionElement>;
             "flip-pagination": LocalJSX.FlipPagination & JSXBase.HTMLAttributes<HTMLFlipPaginationElement>;
+            "flip-pdf-reader": LocalJSX.FlipPdfReader & JSXBase.HTMLAttributes<HTMLFlipPdfReaderElement>;
             "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
             "flip-progress-indicator": LocalJSX.FlipProgressIndicator & JSXBase.HTMLAttributes<HTMLFlipProgressIndicatorElement>;
             "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;

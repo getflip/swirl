@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -42,6 +44,8 @@ export class FlipFileViewerPdf {
   @State() loading: boolean = true;
   @State() visiblePages: number[] = [];
 
+  @Event() activate: EventEmitter<HTMLElement>;
+
   private pages: PDFPageProxy[] = [];
   private renderedPages: number[] = [];
   private renderingPageNumbers: number[] = [];
@@ -53,6 +57,7 @@ export class FlipFileViewerPdf {
 
   async componentDidLoad() {
     await this.updateVisiblePages();
+    this.activate.emit(this.el);
   }
 
   disconnectedCallback() {
@@ -70,6 +75,15 @@ export class FlipFileViewerPdf {
   async watchProps() {
     await this.getPages();
     await this.updateVisiblePages();
+  }
+
+  @Watch("zoom")
+  watchZoom() {
+    queueMicrotask(async () => {
+      this.visiblePages = [];
+      this.renderedPages = [];
+      await this.updateVisiblePages();
+    });
   }
 
   /**
