@@ -70,7 +70,6 @@ export class FlipDateInput {
     if (value === "") {
       this.value = undefined;
       this.valueChange.emit(undefined);
-      // TODO: check
     }
 
     const newDate = parse(value, this.format, new Date());
