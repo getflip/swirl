@@ -14,6 +14,7 @@ import { CategoryNav } from "src/components/Layout/CategoryNav";
 import SearchBar from "../components/SearchBar";
 import IconGrid from "./components/IconGrid";
 import IconInfo from "./components/IconInfo";
+import { FlipButton, FlipPopover } from "@getflip/swirl-components-react";
 
 type Usage = "app" | "admin";
 
@@ -92,7 +93,18 @@ const IconsIndex = ({ links }: any) => {
                   }
                 />
               </div>
-              <IconInfo icon={selectedIcon} />
+              {selectedIcon && (
+                <div className="hidden md:block">
+                  <IconInfo icon={selectedIcon} />
+                </div>
+              )}
+              <FlipPopover
+                label="Icon Info"
+                popoverId="popover"
+                trigger="popover"
+              >
+                <IconInfo icon={selectedIcon} />
+              </FlipPopover>
             </div>
           </section>
         </main>

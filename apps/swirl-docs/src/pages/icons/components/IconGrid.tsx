@@ -17,6 +17,7 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
       {iconList?.map((icon: string, index: number) => (
         <li key={`${icons[icon]?.name}-${index}`}>
           <a
+            id="popover"
             href={`#${icons[icon]?.name}`}
             onClick={() => handleTileClick(icons[icon]?.name)}
             className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
@@ -25,6 +26,7 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
               className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
             ></i>
             <span className="text-text-subdued">{icons[icon]?.name}</span>
+            <button id="popover">popover</button>
           </a>
         </li>
       ))}
