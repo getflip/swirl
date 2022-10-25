@@ -2112,6 +2112,31 @@
       "attributes": []
     },
     {
+      "name": "flip-modal",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "primary-action-label",
+          "description": ""
+        },
+        {
+          "name": "secondary-action-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-option-list",
       "description": {
         "kind": "markdown",
