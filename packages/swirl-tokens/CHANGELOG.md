@@ -1,5 +1,14 @@
 # swirl-tokens
 
+## 1.1.0
+
+### Minor Changes
+
+- [#34](https://github.com/getflip/swirl/pull/34)
+  [`988e800`](https://github.com/getflip/swirl/commit/988e800ec781af518500bd507aacbd3fe61e7211)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Added tailwind
+  format to build.ts
+
 ## 1.0.0
 
 ### Major Changes

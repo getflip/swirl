@@ -1,5 +1,114 @@
 # @getflip/swirl-components
 
+## 0.3.0
+
+### Minor Changes
+
+- [#45](https://github.com/getflip/swirl/pull/45)
+  [`8d8ca6e`](https://github.com/getflip/swirl/commit/8d8ca6edbf0c5b6563272623f9f939d190767042)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-text-input component
+
+* [#46](https://github.com/getflip/swirl/pull/46)
+  [`6cab655`](https://github.com/getflip/swirl/commit/6cab655ca05ed176c9d2c150e1dbe23a60b6018b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-option-list-item
+  component
+
+- [#46](https://github.com/getflip/swirl/pull/46)
+  [`6cab655`](https://github.com/getflip/swirl/commit/6cab655ca05ed176c9d2c150e1dbe23a60b6018b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-option-list component
+
+* [#63](https://github.com/getflip/swirl/pull/63)
+  [`95106b9`](https://github.com/getflip/swirl/commit/95106b9961b4f1b579a75cbbec0fd925354ebf34)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-date-input component
+
+- [#64](https://github.com/getflip/swirl/pull/64)
+  [`bac7373`](https://github.com/getflip/swirl/commit/bac73733ad8fe78b931391d6e693194f94f70e3a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-file-viewer component
+
+* [#57](https://github.com/getflip/swirl/pull/57)
+  [`6aa8e9d`](https://github.com/getflip/swirl/commit/6aa8e9d7d4e8605120b5f983807caded8513024d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "icon-position" prop to
+  flip-button component
+
+- [#52](https://github.com/getflip/swirl/pull/52)
+  [`e2a82fd`](https://github.com/getflip/swirl/commit/e2a82fd35b155273df3de9399ee24f3b1d9f765e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-text component
+
+* [#55](https://github.com/getflip/swirl/pull/55)
+  [`9a8ec54`](https://github.com/getflip/swirl/commit/9a8ec5463b068ab59f9587370900fad2e22b7825)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-empty-state component
+
+- [#54](https://github.com/getflip/swirl/pull/54)
+  [`2d1ad6f`](https://github.com/getflip/swirl/commit/2d1ad6f63645e2d89aceef2c8188f42e5e67bd1f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-list component
+
+* [#46](https://github.com/getflip/swirl/pull/46)
+  [`6cab655`](https://github.com/getflip/swirl/commit/6cab655ca05ed176c9d2c150e1dbe23a60b6018b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-option-list-section
+  component
+
+- [#62](https://github.com/getflip/swirl/pull/62)
+  [`0b0b52c`](https://github.com/getflip/swirl/commit/0b0b52c012fd99cdd34f74c9f9eee60e30099fda)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-form-group component
+
+* [#61](https://github.com/getflip/swirl/pull/61)
+  [`ce579a1`](https://github.com/getflip/swirl/commit/ce579a16de416fa0a417d39a33e0705cbffc25cb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-video-thumbnail
+  component
+
+- [#57](https://github.com/getflip/swirl/pull/57)
+  [`6aa8e9d`](https://github.com/getflip/swirl/commit/6aa8e9d7d4e8605120b5f983807caded8513024d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-pagination component
+
+* [#60](https://github.com/getflip/swirl/pull/60)
+  [`f67ac16`](https://github.com/getflip/swirl/commit/f67ac166fc4eb429fef411fc0f43c8d436cd05ca)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-modal component
+
+- [#63](https://github.com/getflip/swirl/pull/63)
+  [`95106b9`](https://github.com/getflip/swirl/commit/95106b9961b4f1b579a75cbbec0fd925354ebf34)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "placement" prop to
+  flip-popover component
+
+* [#45](https://github.com/getflip/swirl/pull/45)
+  [`8d8ca6e`](https://github.com/getflip/swirl/commit/8d8ca6edbf0c5b6563272623f9f939d190767042)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-form-control component
+
+- [#63](https://github.com/getflip/swirl/pull/63)
+  [`95106b9`](https://github.com/getflip/swirl/commit/95106b9961b4f1b579a75cbbec0fd925354ebf34)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-date-picker component
+
+* [#58](https://github.com/getflip/swirl/pull/58)
+  [`e3f116b`](https://github.com/getflip/swirl/commit/e3f116b329fbfba740473158ba4fcac0a8a69c41)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-progress-indicator
+  component
+
+- [#67](https://github.com/getflip/swirl/pull/67)
+  [`1601293`](https://github.com/getflip/swirl/commit/1601293635db5c1d54d53195d9cd46289578ba75)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add new icon components
+
+* [#51](https://github.com/getflip/swirl/pull/51)
+  [`a63bcef`](https://github.com/getflip/swirl/commit/a63bcef66d5a4f71d941beabed58dbed7fa66f27)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-heading component
+
+### Patch Changes
+
+- [`c8cd99d`](https://github.com/getflip/swirl/commit/c8cd99d7dc7cb88f6d77fb3f2306ffc4d3eb593e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix display of italic text
+
+* [#63](https://github.com/getflip/swirl/pull/63)
+  [`95106b9`](https://github.com/getflip/swirl/commit/95106b9961b4f1b579a75cbbec0fd925354ebf34)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Animate FlipFormControl labels
+
+- [`5f21bb4`](https://github.com/getflip/swirl/commit/5f21bb42467c0b32e4311db6ef46ff199b4068f0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a minor styling issue of
+  flip-resource-list-item and flip-resource-list-file-item
+- Updated dependencies
+  [[`988e800`](https://github.com/getflip/swirl/commit/988e800ec781af518500bd507aacbd3fe61e7211),
+  [`988e800`](https://github.com/getflip/swirl/commit/988e800ec781af518500bd507aacbd3fe61e7211),
+  [`1601293`](https://github.com/getflip/swirl/commit/1601293635db5c1d54d53195d9cd46289578ba75)]:
+  - @getflip/swirl-icons@0.4.0
+  - @getflip/swirl-tokens@1.1.0
+
 ## 0.2.0
 
 ### Minor Changes
