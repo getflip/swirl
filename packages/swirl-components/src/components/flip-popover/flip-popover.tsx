@@ -104,7 +104,7 @@ export class FlipPopover {
 
     this.unlockBodyScroll();
 
-    this.triggerEl?.focus();
+    this.getNativeTriggerElement()?.focus();
   }
 
   /**
@@ -154,20 +154,21 @@ export class FlipPopover {
   };
 
   private connectTrigger() {
-    const triggerComponent = querySelectorAllDeep(
-      document.body,
-      `#${this.trigger}`
-    )[0];
-
-    this.triggerEl = (triggerComponent?.children[0] ||
-      triggerComponent?.shadowRoot?.children[0] ||
-      triggerComponent) as HTMLElement;
+    this.triggerEl = querySelectorAllDeep(document.body, `#${this.trigger}`)[0];
 
     if (!Boolean(this.triggerEl)) {
       return;
     }
 
     this.triggerEl.addEventListener("click", this.toggle);
+  }
+
+  private getNativeTriggerElement() {
+    return this.triggerEl.tagName.startsWith("FLIP-")
+      ? ((this.triggerEl?.children[0] ||
+          this.triggerEl?.shadowRoot?.children[0] ||
+          this.triggerEl) as HTMLElement)
+      : this.triggerEl;
   }
 
   private onKeydown = (event: KeyboardEvent) => {
@@ -181,9 +182,11 @@ export class FlipPopover {
       return;
     }
 
-    this.triggerEl.setAttribute("aria-controls", this.popoverId);
-    this.triggerEl.setAttribute("aria-expanded", String(this.active));
-    this.triggerEl.setAttribute("aria-haspopup", "dialog");
+    const nativeTriggerEl = this.getNativeTriggerElement();
+
+    nativeTriggerEl.setAttribute("aria-controls", this.popoverId);
+    nativeTriggerEl.setAttribute("aria-expanded", String(this.active));
+    nativeTriggerEl.setAttribute("aria-haspopup", "dialog");
   }
 
   private updateChildMenuItems() {
