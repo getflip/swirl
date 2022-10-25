@@ -21,7 +21,7 @@ import {
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
-import { querySelectorAllDeep } from "../../utils";
+import { isMobileViewport, querySelectorAllDeep } from "../../utils";
 
 /**
  * @slot slot - The popover content.
@@ -252,7 +252,7 @@ export class FlipPopover {
   }
 
   private reposition = async () => {
-    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+    const mobile = isMobileViewport();
 
     if (!Boolean(this.triggerEl) || !Boolean(this.contentContainer)) {
       return;
@@ -284,7 +284,7 @@ export class FlipPopover {
   };
 
   private lockBodyScroll() {
-    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+    const mobile = isMobileViewport();
 
     if (!mobile) {
       return;
