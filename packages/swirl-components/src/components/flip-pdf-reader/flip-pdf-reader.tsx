@@ -35,15 +35,17 @@ export class FlipPdfReader {
   @State() active = false;
   @State() closing = false;
   @State() zoom: FlipFileViewerPdfZoom;
+  @State() zoomSteps: number[];
 
+  private desktopZoomSteps: number[] = [0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4];
+  private mobileZoomSteps: number[] = [0.5, 0.75, 1, 1.25, 1.5, 2];
   private modal: A11yDialog;
   private modalEl: HTMLElement;
   private viewer: HTMLFlipFileViewerElement;
-  private zoomSteps: number[] = [0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4];
-
-  // TODO: pinch
 
   componentWillLoad() {
+    this.updateZoomSteps();
+
     this.zoom = isMobileViewport() ? "auto" : 1;
   }
 
@@ -61,6 +63,8 @@ export class FlipPdfReader {
     if (!Boolean(this.viewer)) {
       return;
     }
+
+    this.updateZoomSteps();
 
     this.zoom = isMobileViewport() ? "auto" : 1;
   }
@@ -112,6 +116,12 @@ export class FlipPdfReader {
     if (Boolean(scrollContainer)) {
       enableBodyScroll(scrollContainer);
     }
+  }
+
+  private updateZoomSteps() {
+    this.zoomSteps = isMobileViewport()
+      ? this.mobileZoomSteps
+      : this.desktopZoomSteps;
   }
 
   private onKeyDown = (event: KeyboardEvent) => {
