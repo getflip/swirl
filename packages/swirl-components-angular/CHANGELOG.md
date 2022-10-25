@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.2.1
+
+### Patch Changes
+
+- [`df216dc`](https://github.com/getflip/swirl/commit/df216dcea298fe88dc7bebef30de6b5a155fb791)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix flip-popover backdrop click
+
+- Updated dependencies
+  [[`2e0dfc5`](https://github.com/getflip/swirl/commit/2e0dfc5b282eaac27e0bd353987eb3da92438f08)]:
+  - @getflip/swirl-components@0.3.1
+
 ## 0.2.0
 
 ### Minor Changes
