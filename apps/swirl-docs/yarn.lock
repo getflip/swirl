@@ -51,12 +51,12 @@
   dependencies:
     "@floating-ui/core" "^1.0.1"
 
-"@getflip/swirl-components-react@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@getflip/swirl-components-react/-/swirl-components-react-0.2.0.tgz#54d1c9e972e97dc13b21871ef6fc5b8593b6d552"
-  integrity sha512-xfANTXf1tMSxbhZG2sJXO3UEqfKR6+fCQbB5nE4z0O/AVIhj/cZN9mM9FMSkEOXAYA5xXa/Xw38zc0WODZajoQ==
+"@getflip/swirl-components-react@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@getflip/swirl-components-react/-/swirl-components-react-0.2.1.tgz#371fac9c3760e5f1a2bdc6c7a5c2d9b7da73d8de"
+  integrity sha512-BjGUs2WtetC0yj+L28p8qm8colP1kIJlo5kE9IhF53Ltf7MPbArend9cJqRz5ShaKOiEBxebdkSEwjyvsWU2Yg==
   dependencies:
-    "@getflip/swirl-components" "^0.3.0"
+    "@getflip/swirl-components" "^0.3.1"
     react "^18.2.0"
     react-dom "^18.2.0"
 
@@ -64,6 +64,26 @@
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@getflip/swirl-components/-/swirl-components-0.3.0.tgz#600a9a2ea2c447cb7014136b88464966f6f54620"
   integrity sha512-M+DBZUI1Pzcjx8GpOkK92hojWSf0lUjlEuObx4g/Xke/i9WxkOp12jqqxZZN8F/n2n3wc9dQaVc3sRuVE3NUSQ==
+  dependencies:
+    "@floating-ui/dom" "^1.0.1"
+    "@getflip/swirl-icons" "^0.4.0"
+    "@getflip/swirl-tokens" "^1.1.0"
+    "@stencil/core" "^2.13.0"
+    a11y-dialog "^7.5.2"
+    air-datepicker "^3.3.0"
+    body-scroll-lock "^4.0.0-beta.0"
+    classnames "^2.3.1"
+    color2k "^2.0.0"
+    date-fns "^2.29.3"
+    file-saver "^2.0.5"
+    maska "^1.5.0"
+    papaparse "^5.3.2"
+    pdfjs-dist "^2.16.105"
+
+"@getflip/swirl-components@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@getflip/swirl-components/-/swirl-components-0.3.1.tgz#74f772a35668be1ba39f5311d13c449e0d2f2bac"
+  integrity sha512-tIK5RiYi1LKfTkDNItwRW6/neKlvkr+7AbJSzzCn2BSDSsizfosvMISsHtVumv6P+uZm3EGWOHwW8dm0D3OJkw==
   dependencies:
     "@floating-ui/dom" "^1.0.1"
     "@getflip/swirl-icons" "^0.4.0"

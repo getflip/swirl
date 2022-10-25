@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "swirl-docs",
   "version": "0.1.1",
   "author": "Flip GmbH",
@@ -16,7 +17,7 @@
   },
   "dependencies": {
     "@getflip/swirl-components": "^0.3.0",
-    "@getflip/swirl-components-react": "^0.2.0",
+    "@getflip/swirl-components-react": "^0.2.1",
     "@getflip/swirl-icons": "^0.4.0",
     "@getflip/swirl-tokens": "^1.1.0",
     "@mdx-js/loader": "^2.1.3",
