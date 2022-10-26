@@ -56,6 +56,10 @@
 }
 
 .action-list-item--intent-critical {
+  & ::part(icon) {
+    color: var(--s-icon-critical);
+  }
+
   &:not(:disabled) {
     & .action-list-item__label {
       color: var(--s-text-critical);
