@@ -455,6 +455,10 @@
           ]
         },
         {
+          "name": "segmented",
+          "description": ""
+        },
+        {
           "name": "stretch",
           "description": ""
         },
