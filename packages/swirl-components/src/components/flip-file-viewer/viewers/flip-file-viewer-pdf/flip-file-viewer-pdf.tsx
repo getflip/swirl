@@ -175,6 +175,7 @@ export class FlipFileViewerPdf {
 
       await page.render(renderContext).promise;
 
+      textContainer.innerHTML = "";
       this.renderTextLayer(page, textContainer);
 
       renderedPages.push(page.pageNumber);
