@@ -42,6 +42,7 @@ export class FlipFileViewerPdf {
   @State() doc: PDFDocumentProxy;
   @State() error: boolean;
   @State() loading: boolean = true;
+  @State() scrolledDown: boolean = false;
   @State() visiblePages: number[] = [];
 
   @Event() activate: EventEmitter<HTMLElement>;
@@ -58,6 +59,8 @@ export class FlipFileViewerPdf {
   async componentDidLoad() {
     await this.updateVisiblePages();
     this.activate.emit(this.el);
+
+    this.determineScrollStatus();
   }
 
   disconnectedCallback() {
@@ -69,12 +72,16 @@ export class FlipFileViewerPdf {
     this.visiblePages = [];
     this.renderedPages = [];
     await this.updateVisiblePages();
+
+    this.determineScrollStatus();
   }
 
   @Watch("file")
   async watchProps() {
     await this.getPages();
     await this.updateVisiblePages();
+
+    this.determineScrollStatus();
   }
 
   @Watch("zoom")
@@ -83,6 +90,8 @@ export class FlipFileViewerPdf {
       this.visiblePages = [];
       this.renderedPages = [];
       await this.updateVisiblePages();
+
+      this.determineScrollStatus();
     });
   }
 
@@ -291,13 +300,29 @@ export class FlipFileViewerPdf {
       : this.zoom * 2;
   }
 
+  private determineScrollStatus = () => {
+    const scrolledDown =
+      Math.ceil(
+        this.scrollContainer?.scrollTop + this.scrollContainer?.offsetHeight
+      ) >= this.scrollContainer?.scrollHeight;
+
+    if (scrolledDown !== this.scrolledDown) {
+      this.scrolledDown = scrolledDown;
+    }
+  };
+
   private onScroll = debounce(() => {
     this.updateVisiblePages();
+    this.determineScrollStatus();
   }, 60);
 
   render() {
     const showPagination =
       !this.error && !this.loading && this.visiblePages.length > 0;
+
+    const currentPage = this.scrolledDown
+      ? this.pages.length - 1
+      : this.visiblePages[0];
 
     const showSpinner = this.loading;
 
@@ -342,8 +367,7 @@ export class FlipFileViewerPdf {
         </div>
         {showPagination && (
           <span class="file-viewer-pdf__pagination" id="pagination">
-            <span aria-current="page">{this.visiblePages[0]}</span> /{" "}
-            {this.doc.numPages}
+            <span aria-current="page">{currentPage}</span> / {this.doc.numPages}
           </span>
         )}
         {showSpinner && (
