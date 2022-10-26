@@ -124,6 +124,7 @@
   gap: var(--s-space-16);
 
   @media (--from-tablet) {
+    height: 4.125rem;
     padding-top: var(--s-space-24);
     padding-right: calc(var(--s-space-16) + 2.5rem + var(--s-space-8));
     padding-bottom: var(--s-space-16);
