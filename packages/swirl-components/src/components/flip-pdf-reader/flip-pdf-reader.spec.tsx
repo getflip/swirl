@@ -61,6 +61,9 @@ describe("flip-pdf-reader", () => {
               <div class="pdf-reader__content">
                 <flip-file-viewer file="/sample.pdf" type="application/pdf" zoom="auto"></flip-file-viewer>
                 <div class="pdf-reader__mobile-zoom-controls">
+                  <button aria-label="Full width" class="pdf-reader__mobile-zoom-button" type="button">
+                    <flip-icon-fullscreen-exit></flip-icon-fullscreen-exit>
+                  </button>
                   <button aria-label="Zoom in" class="pdf-reader__mobile-zoom-button" type="button">
                     <flip-icon-add></flip-icon-add>
                   </button>

@@ -168,6 +168,10 @@ export class FlipPdfReader {
         : this.zoomSteps[Math.max(0, currentZoomStepIndex - 1)];
   };
 
+  private onZoomAutoButtonClick = () => {
+    this.zoom = this.zoom === "auto" ? 1 : "auto";
+  };
+
   private onZoomChange = (event: Event) => {
     const value = (event.target as HTMLSelectElement).value;
 
@@ -274,6 +278,18 @@ export class FlipPdfReader {
               ></flip-file-viewer>
 
               <div class="pdf-reader__mobile-zoom-controls">
+                <button
+                  aria-label={this.autoZoomLabel}
+                  class="pdf-reader__mobile-zoom-button"
+                  onClick={this.onZoomAutoButtonClick}
+                  type="button"
+                >
+                  {this.zoom === "auto" ? (
+                    <flip-icon-fullscreen-exit></flip-icon-fullscreen-exit>
+                  ) : (
+                    <flip-icon-fullscreen></flip-icon-fullscreen>
+                  )}
+                </button>
                 <button
                   aria-label={this.zoomInButtonLabel}
                   class="pdf-reader__mobile-zoom-button"
