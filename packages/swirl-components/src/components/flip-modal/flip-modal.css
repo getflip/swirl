@@ -94,7 +94,7 @@
     max-width: 33.75rem;
     height: auto;
     max-height: 90vh;
-    border-radius: var(--s-border-radius-xl);
+    border-radius: var(--s-border-radius-base);
     box-shadow: 0.125rem 0.25rem 1rem rgba(0, 0, 0, 0.14);
   }
 }
