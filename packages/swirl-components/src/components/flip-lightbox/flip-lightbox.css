@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: block;
 
@@ -124,6 +126,24 @@
     @media (prefers-reduced-motion) {
       transition: none;
     }
+  }
+}
+
+.lightbox__pagination {
+  position: absolute;
+  bottom: var(--s-space-32);
+  left: 50%;
+  padding: var(--s-space-4) var(--s-space-12);
+  border-radius: var(--s-border-radius-base);
+  color: var(--s-text-on-image);
+  background-color: rgba(0, 0, 0, 0.6);
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-base);
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  @media (--from-tablet) {
+    display: none;
   }
 }
 

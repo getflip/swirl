@@ -256,6 +256,8 @@ export class FlipLightbox {
   };
 
   render() {
+    const showPagination = this.slides.length > 1;
+
     const className = classnames("lightbox", {
       "lightbox--closing": this.closing,
     });
@@ -325,6 +327,12 @@ export class FlipLightbox {
                 <flip-icon-arrow-right></flip-icon-arrow-right>
               </button>
             </div>
+            {showPagination && (
+              <span class="lightbox__pagination">
+                <span aria-current="page">{this.activeSlideIndex + 1}</span> /{" "}
+                {this.slides.length}
+              </span>
+            )}
           </div>
         </section>
       </Host>

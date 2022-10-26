@@ -49,6 +49,9 @@ describe("flip-lightbox", () => {
                   <flip-icon-arrow-right></flip-icon-arrow-right>
                 </button>
               </div>
+              <span class="lightbox__pagination">
+                <span aria-current="page">1</span> / 2
+              </span>
             </div>
           </section>
         </mock:shadow-root>
