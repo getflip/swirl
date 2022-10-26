@@ -13,6 +13,8 @@
   overflow: auto;
   width: 100%;
   max-height: 100%;
+  padding: var(--s-space-16);
+  background-color: var(--s-background-default);
 }
 
 .file-viewer-csv__table {

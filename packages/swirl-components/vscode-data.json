@@ -758,6 +758,10 @@
       },
       "attributes": [
         {
+          "name": "active",
+          "description": ""
+        },
+        {
           "name": "description",
           "description": ""
         },
@@ -2032,6 +2036,35 @@
               "name": "s"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "flip-lightbox",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "download-button-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "next-slide-button-label",
+          "description": ""
+        },
+        {
+          "name": "previous-slide-button-label",
+          "description": ""
         }
       ]
     },
