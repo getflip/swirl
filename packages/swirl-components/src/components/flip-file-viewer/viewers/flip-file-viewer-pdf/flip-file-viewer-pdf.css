@@ -139,7 +139,7 @@
 
 .file-viewer-pdf__pagination {
   position: absolute;
-  bottom: var(--s-space-32);
+  bottom: 2.5rem;
   left: 50%;
   padding: var(--s-space-4) var(--s-space-12);
   border-radius: var(--s-border-radius-base);

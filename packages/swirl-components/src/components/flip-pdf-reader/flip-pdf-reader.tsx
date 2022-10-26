@@ -272,6 +272,29 @@ export class FlipPdfReader {
                 type="application/pdf"
                 zoom={this.zoom}
               ></flip-file-viewer>
+
+              <div class="pdf-reader__mobile-zoom-controls">
+                <button
+                  aria-label={this.zoomInButtonLabel}
+                  class="pdf-reader__mobile-zoom-button"
+                  disabled={
+                    this.zoom === this.zoomSteps[this.zoomSteps.length - 1]
+                  }
+                  onClick={this.onZoomInButtonClick}
+                  type="button"
+                >
+                  <flip-icon-add></flip-icon-add>
+                </button>
+                <button
+                  aria-label={this.zoomOutButtonLabel}
+                  class="pdf-reader__mobile-zoom-button"
+                  disabled={this.zoom === this.zoomSteps[0]}
+                  onClick={this.onZoomOutButtonClick}
+                  type="button"
+                >
+                  <flip-icon-remove></flip-icon-remove>
+                </button>
+              </div>
             </div>
           </div>
         </section>

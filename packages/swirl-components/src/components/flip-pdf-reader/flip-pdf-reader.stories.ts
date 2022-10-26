@@ -6,6 +6,14 @@ export default {
   parameters: {
     docs: {
       page: Docs,
+      source: {
+        code: `<flip-pdf-reader file="/sample.pdf" id="pdf-reader" label="PDF Reader"></flip-pdf-reader>
+
+<script>
+  const pdfReader = document.body.querySelector('#pdf-reader');
+  pdfReader.open();
+</script>`,
+      },
     },
   },
   title: "Components/FlipPdfReader",

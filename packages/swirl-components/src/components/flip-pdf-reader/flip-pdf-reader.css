@@ -154,6 +154,40 @@
   height: calc(100% - 4rem);
 }
 
+.pdf-reader__mobile-zoom-controls {
+  position: absolute;
+  z-index: 1;
+  right: var(--s-space-16);
+  bottom: var(--s-space-32);
+  display: flex;
+  padding-bottom: var(--s-space-4);
+  flex-direction: column;
+  gap: var(--s-space-8);
+
+  @media (--from-tablet) {
+    display: none;
+  }
+}
+
+.pdf-reader__mobile-zoom-button {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  color: var(--s-icon-on-image);
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: opacity 0.15s;
+  pointer-events: auto;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
 @keyframes pdf-reader-fade-in {
   from {
     opacity: 0;
