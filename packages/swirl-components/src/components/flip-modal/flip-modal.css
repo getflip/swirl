@@ -52,6 +52,20 @@
   }
 }
 
+.modal--scrollable {
+  & .modal__content {
+    @media (--from-tablet) {
+      padding-bottom: 0;
+    }
+  }
+
+  &:not(.modal--scrolled-down) {
+    & .modal__controls {
+      border-top: var(--s-border-width-default) solid var(--s-border-default);
+    }
+  }
+}
+
 .modal--scrolled {
   @media (--from-tablet) {
     & .modal__header {
@@ -158,7 +172,6 @@
   padding-left: var(--s-space-24);
   flex-shrink: 0;
   justify-content: flex-end;
-  border-top: var(--s-border-width-default) solid var(--s-border-default);
 }
 
 @keyframes modal-scale-in {
