@@ -36,7 +36,7 @@ export class FlipPopover {
 
   @Prop() enableFlip?: boolean = true;
   @Prop() label!: string;
-  @Prop() offset?: number | number[] = 0;
+  @Prop() offset?: number | number[] = 8;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() popoverId!: string;
   @Prop() trigger!: string;
