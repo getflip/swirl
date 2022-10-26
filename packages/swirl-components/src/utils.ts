@@ -14,24 +14,29 @@ export function debounce(
   wait: number,
   immediate: boolean = false
 ) {
-  var timeout;
+  let timeout: NodeJS.Timeout;
 
   return function executedFunction() {
-    var context = this;
-    var args = arguments;
+    const context = this;
+    const args = arguments;
 
-    var later = function () {
+    const later = function () {
       timeout = null;
-      if (!immediate) func.apply(context, args);
+
+      if (!immediate) {
+        func.apply(context, args);
+      }
     };
 
-    var callNow = immediate && !timeout;
+    const callNow = immediate && !Boolean(timeout);
 
     clearTimeout(timeout);
 
     timeout = setTimeout(later, wait);
 
-    if (callNow) func.apply(context, args);
+    if (callNow) {
+      func.apply(context, args);
+    }
   };
 }
 
