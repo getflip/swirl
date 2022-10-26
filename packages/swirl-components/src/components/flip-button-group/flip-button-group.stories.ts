@@ -31,6 +31,4 @@ const Template = (args) => {
 
 export const FlipButtonGroup = Template.bind({});
 
-FlipButtonGroup.args = {
-  segmented: true,
-};
+FlipButtonGroup.args = {};
