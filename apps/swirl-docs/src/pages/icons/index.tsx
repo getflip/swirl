@@ -14,7 +14,6 @@ import { CategoryNav } from "src/components/Layout/CategoryNav";
 import SearchBar from "../components/SearchBar";
 import IconGrid from "./components/IconGrid";
 import IconInfo from "./components/IconInfo";
-import { FlipPopover } from "@getflip/swirl-components-react";
 
 type Usage = "app" | "admin";
 
@@ -94,11 +93,10 @@ const IconsIndex = ({ links }: any) => {
                 />
               </div>
               {selectedIcon && (
-                <div className="hidden md:block">
+                <div className="hidden md:block max-w-[280px]">
                   <IconInfo icon={selectedIcon} />
                 </div>
               )}
-              <button id="popover">laoaoa</button>
             </div>
           </section>
         </main>

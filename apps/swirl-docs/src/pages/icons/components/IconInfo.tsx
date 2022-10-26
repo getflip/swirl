@@ -7,7 +7,7 @@ interface IconInfoProps {
 }
 
 export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => (
-  <aside className="max-w-[280px]">
+  <aside>
     <h2 className="mb-2">{icon?.name}</h2>
     <p className="text-sm font-normal mb-6">{icon?.description}</p>
     <a

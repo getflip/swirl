@@ -1,6 +1,7 @@
 import { FlipPopover } from "@getflip/swirl-components-react";
 import { FunctionComponent } from "react";
 import { IconsMetaData } from "..";
+import IconInfo from "./IconInfo";
 
 interface IconGridProps {
   id: string;
@@ -15,7 +16,6 @@ export const IconGridItem: FunctionComponent<IconGridProps> = ({
   icons,
   handleTileClick,
 }) => {
-  console.log("id", id);
   return (
     <li>
       <a
@@ -30,7 +30,9 @@ export const IconGridItem: FunctionComponent<IconGridProps> = ({
         <span className="text-text-subdued">{icons[icon]?.name}</span>
       </a>
       <FlipPopover label="Icon Info" popoverId={`popover-${id}`} trigger={id}>
-        <h2>{id}</h2>
+        <div className="p-4">
+          <IconInfo icon={icons[icon]} />
+        </div>
       </FlipPopover>
     </li>
   );

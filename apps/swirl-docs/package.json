@@ -16,7 +16,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@getflip/swirl-components": "^0.3.0",
+    "@getflip/swirl-components": "^0.3.1",
     "@getflip/swirl-components-react": "^0.2.1",
     "@getflip/swirl-icons": "^0.4.0",
     "@getflip/swirl-tokens": "^1.1.0",
