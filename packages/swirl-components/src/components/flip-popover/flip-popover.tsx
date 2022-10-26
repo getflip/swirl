@@ -130,7 +130,8 @@ export class FlipPopover {
     }, 150);
 
     this.unlockBodyScroll();
-    this.triggerEl?.focus();
+
+    this.getNativeTriggerElement()?.focus();
   }
 
   /**
@@ -186,14 +187,7 @@ export class FlipPopover {
   };
 
   private connectTrigger() {
-    const triggerComponent = querySelectorAllDeep(
-      document.body,
-      `#${this.trigger}`
-    )[0];
-
-    this.triggerEl = (triggerComponent?.children[0] ||
-      triggerComponent?.shadowRoot?.children[0] ||
-      triggerComponent) as HTMLElement;
+    this.triggerEl = querySelectorAllDeep(document.body, `#${this.trigger}`)[0];
 
     if (!Boolean(this.triggerEl)) {
       return;
@@ -202,6 +196,14 @@ export class FlipPopover {
     this.triggerEl.addEventListener("click", (event) => {
       this.toggle(event);
     });
+  }
+
+  private getNativeTriggerElement() {
+    return this.triggerEl.tagName.startsWith("FLIP-")
+      ? ((this.triggerEl?.children[0] ||
+          this.triggerEl?.shadowRoot?.children[0] ||
+          this.triggerEl) as HTMLElement)
+      : this.triggerEl;
   }
 
   private onKeydown = (event: KeyboardEvent) => {
@@ -215,9 +217,11 @@ export class FlipPopover {
       return;
     }
 
-    this.triggerEl.setAttribute("aria-controls", this.popoverId);
-    this.triggerEl.setAttribute("aria-expanded", String(this.active));
-    this.triggerEl.setAttribute("aria-haspopup", "dialog");
+    const nativeTriggerEl = this.getNativeTriggerElement();
+
+    nativeTriggerEl.setAttribute("aria-controls", this.popoverId);
+    nativeTriggerEl.setAttribute("aria-expanded", String(this.active));
+    nativeTriggerEl.setAttribute("aria-haspopup", "dialog");
   }
 
   private updateFocusableChildren() {
@@ -297,6 +301,10 @@ export class FlipPopover {
     enableBodyScroll(this.scrollContainer);
   }
 
+  private onCloseButtonClick = () => {
+    this.close();
+  };
+
   render() {
     const className = classnames("popover", {
       "popover--closing": this.closing,
@@ -328,7 +336,10 @@ export class FlipPopover {
             </div>
           </div>
           {this.active && (
-            <div class="popover__backdrop" onClick={this.close}></div>
+            <div
+              class="popover__backdrop"
+              onClick={this.onCloseButtonClick}
+            ></div>
           )}
         </div>
       </Host>

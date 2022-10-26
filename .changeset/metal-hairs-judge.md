@@ -2,4 +2,4 @@
 "@getflip/swirl-components": minor
 ---
 
-Add flip-form-group component
+Add flip-lightbox component

@@ -189,6 +189,7 @@ export namespace Components {
         "uploadButtonLabel"?: string;
     }
     interface FlipFileViewer {
+        "active"?: boolean;
         "description"?: string;
         /**
           * Download the file.
@@ -482,6 +483,26 @@ export namespace Components {
     interface FlipInlineError {
         "message": string;
         "size"?: FlipInlineErrorSize;
+    }
+    interface FlipLightbox {
+        /**
+          * Activate a slide.
+          * @param newActiveSlideIndex
+         */
+        "activateSlide": (newActiveSlideIndex: number) => Promise<void>;
+        /**
+          * Close the lightbox.
+         */
+        "close": () => Promise<void>;
+        "closeButtonLabel"?: string;
+        "downloadButtonLabel"?: string;
+        "label": string;
+        "nextSlideButtonLabel"?: string;
+        /**
+          * Open the lightbox.
+         */
+        "open": () => Promise<void>;
+        "previousSlideButtonLabel"?: string;
     }
     interface FlipLink {
         "href": string;
@@ -1479,6 +1500,12 @@ declare global {
         prototype: HTMLFlipInlineErrorElement;
         new (): HTMLFlipInlineErrorElement;
     };
+    interface HTMLFlipLightboxElement extends Components.FlipLightbox, HTMLStencilElement {
+    }
+    var HTMLFlipLightboxElement: {
+        prototype: HTMLFlipLightboxElement;
+        new (): HTMLFlipLightboxElement;
+    };
     interface HTMLFlipLinkElement extends Components.FlipLink, HTMLStencilElement {
     }
     var HTMLFlipLinkElement: {
@@ -1771,6 +1798,7 @@ declare global {
         "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
         "flip-icon-warning": HTMLFlipIconWarningElement;
         "flip-inline-error": HTMLFlipInlineErrorElement;
+        "flip-lightbox": HTMLFlipLightboxElement;
         "flip-link": HTMLFlipLinkElement;
         "flip-list": HTMLFlipListElement;
         "flip-modal": HTMLFlipModalElement;
@@ -1951,6 +1979,7 @@ declare namespace LocalJSX {
         "uploadButtonLabel"?: string;
     }
     interface FlipFileViewer {
+        "active"?: boolean;
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
@@ -2232,6 +2261,13 @@ declare namespace LocalJSX {
     interface FlipInlineError {
         "message": string;
         "size"?: FlipInlineErrorSize;
+    }
+    interface FlipLightbox {
+        "closeButtonLabel"?: string;
+        "downloadButtonLabel"?: string;
+        "label": string;
+        "nextSlideButtonLabel"?: string;
+        "previousSlideButtonLabel"?: string;
     }
     interface FlipLink {
         "href": string;
@@ -2579,6 +2615,7 @@ declare namespace LocalJSX {
         "flip-icon-visibility-off": FlipIconVisibilityOff;
         "flip-icon-warning": FlipIconWarning;
         "flip-inline-error": FlipInlineError;
+        "flip-lightbox": FlipLightbox;
         "flip-link": FlipLink;
         "flip-list": FlipList;
         "flip-modal": FlipModal;
@@ -2721,6 +2758,7 @@ declare module "@stencil/core" {
             "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
             "flip-icon-warning": LocalJSX.FlipIconWarning & JSXBase.HTMLAttributes<HTMLFlipIconWarningElement>;
             "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
+            "flip-lightbox": LocalJSX.FlipLightbox & JSXBase.HTMLAttributes<HTMLFlipLightboxElement>;
             "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
             "flip-list": LocalJSX.FlipList & JSXBase.HTMLAttributes<HTMLFlipListElement>;
             "flip-modal": LocalJSX.FlipModal & JSXBase.HTMLAttributes<HTMLFlipModalElement>;
