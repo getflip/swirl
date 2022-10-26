@@ -3,7 +3,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import { FlipPdfReader } from "./flip-pdf-reader";
 
 describe("flip-pdf-reader", () => {
-  it("renders", async () => {
+  it("renders file viewer and controls", async () => {
     const page = await newSpecPage({
       components: [FlipPdfReader],
       html: `<flip-pdf-reader file="/sample.pdf" label="PDF Reader"></flip-pdf-reader>`,
@@ -49,12 +49,6 @@ describe("flip-pdf-reader", () => {
                       <option value="2">
                         200%
                       </option>
-                      <option value="3">
-                        300%
-                      </option>
-                      <option value="4">
-                        400%
-                      </option>
                     </select>
                     <flip-icon-expand-more class="pdf-reader__zoom-select-icon"></flip-icon-expand-more>
                   </span>
@@ -66,11 +60,56 @@ describe("flip-pdf-reader", () => {
               </header>
               <div class="pdf-reader__content">
                 <flip-file-viewer file="/sample.pdf" type="application/pdf" zoom="auto"></flip-file-viewer>
+                <div class="pdf-reader__mobile-zoom-controls">
+                  <button aria-label="Zoom in" class="pdf-reader__mobile-zoom-button" type="button">
+                    <flip-icon-add></flip-icon-add>
+                  </button>
+                  <button aria-label="Zoom out" class="pdf-reader__mobile-zoom-button" type="button">
+                    <flip-icon-remove></flip-icon-remove>
+                  </button>
+                </div>
               </div>
             </div>
           </section>
         </mock:shadow-root>
       </flip-pdf-reader>
     `);
+  });
+
+  it("allows to zoom", async () => {
+    const page = await newSpecPage({
+      components: [FlipPdfReader],
+      html: `<flip-pdf-reader file="/sample.pdf" label="PDF Reader"></flip-pdf-reader>`,
+    });
+
+    const viewer = page.root.shadowRoot.querySelector("flip-file-viewer");
+    const zoomSelect = page.root.shadowRoot.querySelector<HTMLSelectElement>(
+      '[aria-label="Select zoom"]'
+    );
+
+    expect(viewer.getAttribute("zoom")).toBe("auto");
+
+    page.root.shadowRoot
+      .querySelector<HTMLFlipButtonElement>('flip-button[label="Zoom in"]')
+      .click();
+
+    await page.waitForChanges();
+
+    expect(viewer.getAttribute("zoom")).toBe("1");
+
+    page.root.shadowRoot
+      .querySelector<HTMLFlipButtonElement>('flip-button[label="Zoom out"]')
+      .click();
+
+    await page.waitForChanges();
+
+    expect(viewer.getAttribute("zoom")).toBe("0.75");
+
+    zoomSelect.value = "auto";
+    zoomSelect.dispatchEvent(new Event("change"));
+
+    await page.waitForChanges();
+
+    expect(viewer.getAttribute("zoom")).toBe("auto");
   });
 });
