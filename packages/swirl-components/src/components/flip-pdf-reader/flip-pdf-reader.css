@@ -13,6 +13,7 @@
   z-index: var(--s-z-40);
   background-color: var(--s-surface-raised-default);
   inset: 0;
+  touch-action: pan-x pan-y;
 
   &[aria-hidden="true"] {
     display: none;

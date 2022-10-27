@@ -143,19 +143,19 @@ export class FlipFileViewerPdf {
         ".file-viewer-pdf__page"
       );
 
-      const textContainer = container?.querySelector<HTMLDivElement>(
-        ".file-viewer-pdf__text-container"
-      );
-
       const page = this.pages.find(
         (page) => page?.pageNumber === +container?.dataset.pageNumber
       );
 
       if (
         !Boolean(page) ||
-        !this.visiblePages.includes(page.pageNumber) ||
         this.renderingPageNumbers.includes(page.pageNumber)
       ) {
+        continue;
+      }
+
+      if (!this.visiblePages.includes(page.pageNumber)) {
+        this.destroyPage(page);
         continue;
       }
 
@@ -164,44 +164,69 @@ export class FlipFileViewerPdf {
         continue;
       }
 
-      this.renderingPageNumbers = [
-        ...this.renderingPageNumbers,
-        page.pageNumber,
-      ];
-
-      const scale = forPrint ? 2 : this.getScale(page);
-      const outputScale = window.devicePixelRatio || 1;
-
-      const transform =
-        outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
-
-      const viewport = page.getViewport({ scale });
-      const context = canvas.getContext("2d");
-
-      canvas.height = Math.floor(viewport.height * outputScale);
-      canvas.width = Math.floor(viewport.width * outputScale);
-
-      const renderContext = {
-        canvasContext: context,
-        transform,
-        viewport: viewport,
-      };
-
-      await page.render(renderContext).promise;
-
-      page.cleanup();
-
-      textContainer.innerHTML = "";
-      this.renderTextLayer(page, textContainer);
+      await this.renderPage(page, canvas, forPrint);
 
       renderedPages.push(page.pageNumber);
-
-      this.renderingPageNumbers = this.renderingPageNumbers.filter(
-        (pageNumber) => pageNumber !== page.pageNumber
-      );
     }
 
     this.renderedPages = renderedPages;
+  }
+
+  private async renderPage(
+    page: PDFPageProxy,
+    canvas: HTMLCanvasElement,
+    forPrint?: boolean
+  ) {
+    const container = canvas.closest<HTMLDivElement>(".file-viewer-pdf__page");
+
+    const textContainer = container?.querySelector<HTMLDivElement>(
+      ".file-viewer-pdf__text-container"
+    );
+
+    this.renderingPageNumbers = [...this.renderingPageNumbers, page.pageNumber];
+
+    const scale = forPrint ? 2 : this.getScale(page);
+    const outputScale = window.devicePixelRatio || 1;
+
+    const transform =
+      outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+
+    const viewport = page.getViewport({ scale });
+    const context = canvas.getContext("2d");
+
+    canvas.height = Math.floor(viewport.height * outputScale);
+    canvas.width = Math.floor(viewport.width * outputScale);
+
+    const renderContext = {
+      canvasContext: context,
+      transform,
+      viewport: viewport,
+    };
+
+    await page.render(renderContext).promise;
+
+    page.cleanup();
+
+    textContainer.innerHTML = "";
+    this.renderTextLayer(page, textContainer);
+
+    this.renderingPageNumbers = this.renderingPageNumbers.filter(
+      (pageNumber) => pageNumber !== page.pageNumber
+    );
+  }
+
+  private destroyPage(page: PDFPageProxy) {
+    const container = this.el.shadowRoot.querySelector(
+      `[data-page-number="${page.pageNumber}"]`
+    );
+
+    const canvas = container.querySelector("canvas");
+    const textLayer = container.querySelector(
+      ".file-viewer-pdf__text-container"
+    );
+
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    textLayer.innerHTML = "";
   }
 
   private async updateVisiblePages(forPrint?: boolean) {
@@ -350,6 +375,7 @@ export class FlipFileViewerPdf {
   }, 60);
 
   render() {
+    console.log("s");
     const showPagination =
       !this.error && !this.loading && this.visiblePages.length > 0;
 
