@@ -45,7 +45,7 @@ export class FlipAutocomplete implements FlipFormInput {
   @Prop() clearButtonLabel?: string = "Clear input";
   @Prop() disabled?: boolean;
   @Prop() flipAriaDescribedby?: string;
-  @Prop() generateSuggestions?: (
+  @Prop({ mutable: true }) generateSuggestions?: (
     currentValue: string
   ) => Promise<FlipAutocompleteSuggestion[]> = async () => [];
   @Prop() invalid?: boolean;
@@ -64,10 +64,16 @@ export class FlipAutocomplete implements FlipFormInput {
   @Event() valueChange: EventEmitter<string>;
 
   private disableAutoUpdate: any;
-  private id: string = `autocomplete-${Math.round(Math.random() * 100000)}`;
+  private id: string;
   private listboxContainerEl: HTMLDivElement;
   private listboxEl: HTMLFlipOptionListElement;
   private inputEl: HTMLFlipTextInputElement;
+
+  componentWillLoad() {
+    const index = document.querySelectorAll("flip-datepicker").length;
+
+    this.id = `autocomplete-${index}`;
+  }
 
   @Listen("click", { target: "window" })
   onWindowClick(event: MouseEvent) {
@@ -154,7 +160,7 @@ export class FlipAutocomplete implements FlipFormInput {
       this.valueChange.emit(this.value);
     }
 
-    this.inputEl.querySelector("input").focus();
+    this.inputEl.querySelector("input")?.focus();
     this.close();
   };
 
