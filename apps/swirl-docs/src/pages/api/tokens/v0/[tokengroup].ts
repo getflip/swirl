@@ -5,7 +5,7 @@ import {
   cssLight,
   flutterDark,
   flutterLight,
-  Formats,
+  FORMATS,
   lessDark,
   lessLight,
   scssDark,
@@ -47,10 +47,10 @@ export default function handler(
   const hasNoFormatOrIsJson = !format || format === "json";
 
   if (hasNoFormatOrIsJson) {
-    jsonResponse(res, tokengroup);
+    return jsonResponse(res, tokengroup);
   }
 
-  if (!Formats.includes(format as string)) {
+  if (!FORMATS.includes(format as string)) {
     res.status(404).json({
       error: "There is no format corresponding your request",
     });
@@ -59,35 +59,31 @@ export default function handler(
       case TokenFormats.CSS:
         res.setHeader("Content-Type", "text/css");
         if (scheme === "dark") {
-          res.status(200).send(cssDark);
+          return res.status(200).send(cssDark);
         } else {
-          res.status(200).send(cssLight);
+          return res.status(200).send(cssLight);
         }
-        break;
       case TokenFormats.FLUTTER:
-        res.setHeader("Content-Type", "text/dart");
+        res.setHeader("Content-Type", "text/plain");
         if (scheme === "dark") {
-          res.status(200).send(flutterDark);
+          return res.status(200).send(flutterDark);
         } else {
-          res.status(200).send(flutterLight);
+          return res.status(200).send(flutterLight);
         }
-        break;
       case TokenFormats.LESS:
-        res.setHeader("Content-Type", "text/less");
+        res.setHeader("Content-Type", "text/plain");
         if (scheme === "dark") {
-          res.status(200).send(lessDark);
+          return res.status(200).send(lessDark);
         } else {
-          res.status(200).send(lessLight);
+          return res.status(200).send(lessLight);
         }
-        break;
       case TokenFormats.SCSS:
-        res.setHeader("Content-Type", "text/scss");
+        res.setHeader("Content-Type", "text/plain");
         if (scheme === "dark") {
-          res.status(200).send(scssDark);
+          return res.status(200).send(scssDark);
         } else {
-          res.status(200).send(scssLight);
+          return res.status(200).send(scssLight);
         }
-        break;
     }
   }
 }
@@ -110,24 +106,24 @@ function jsonResponse(
   res: NextApiResponse<Object>,
   tokengroup: string | string[] | undefined
 ) {
+  res.setHeader("Content-Type", "application/json");
   switch (tokengroup) {
     case TokenGroup.COLORS:
-      res.status(200).json(getTokensForType(TokenGroup.COLORS));
-      break;
+      return res.status(200).json(getTokensForType(TokenGroup.COLORS));
     case TokenGroup.TYPOGRAPHY:
-      res.status(200).json(getTokensForType(TokenGroup.TYPOGRAPHY));
+      return res.status(200).json(getTokensForType(TokenGroup.TYPOGRAPHY));
     case TokenGroup.BORDER:
-      res.status(200).json(getTokensForType(TokenGroup.BORDER));
+      return res.status(200).json(getTokensForType(TokenGroup.BORDER));
     case TokenGroup.SPACING:
-      res.status(200).json(getTokensForType(TokenGroup.SPACING));
+      return res.status(200).json(getTokensForType(TokenGroup.SPACING));
     case TokenGroup.SPACING:
-      res.status(200).json(getTokensForType(TokenGroup.SPACING));
+      return res.status(200).json(getTokensForType(TokenGroup.SPACING));
     case TokenGroup.ZINDEX:
-      res.status(200).json(getTokensForType(TokenGroup.ZINDEX));
+      return res.status(200).json(getTokensForType(TokenGroup.ZINDEX));
     case TokenGroup.ALL:
-      res.status(200).json(getTokensForType(TokenGroup.ALL));
+      return res.status(200).json(getTokensForType(TokenGroup.ALL));
     default:
-      res.status(404).json({
+      return res.status(404).json({
         error: "There is no tokengroup corresponding your request",
       });
   }

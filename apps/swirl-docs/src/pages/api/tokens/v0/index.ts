@@ -7,5 +7,5 @@ export default function handler(
   res: NextApiResponse<any>
 ) {
   res.setHeader("Content-Type", "text/html");
-  res.status(200).send(OVERVIEW_HTML);
+  return res.status(200).send(OVERVIEW_HTML);
 }

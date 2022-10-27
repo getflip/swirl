@@ -127,8 +127,6 @@ export function createSwirlTailwindTheme() {
       oneTheme[key] = {};
     }
 
-    console.log("key", key);
-
     oneTheme[key] = extendTokenGroup(key);
   }
 

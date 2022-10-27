@@ -6,33 +6,21 @@ export const OVERVIEW_HTML = fs.readFileSync(
   path.resolve("./public/overview.html")
 );
 
-export const cssLight = fs.readFileSync(
-  SWIRL_TOKENS_DIST_PATH + "/css/styles.light.custom-properties.css"
-);
-export const cssDark = fs.readFileSync(
-  SWIRL_TOKENS_DIST_PATH + "/css/styles.light.custom-properties.css"
-);
+export const cssLight = loadFile("/css/styles.light.custom-properties.css");
+export const cssDark = loadFile("/css/styles.light.custom-properties.css");
 
-export const flutterLight = fs.readFileSync(
-  SWIRL_TOKENS_DIST_PATH + "/flutter/styles.light.dart"
-);
-export const flutterDark = fs.readFileSync(
-  SWIRL_TOKENS_DIST_PATH + "/flutter/styles.dark.dart"
-);
+export const flutterLight = loadFile("/flutter/styles.light.dart");
+export const flutterDark = loadFile("/flutter/styles.dark.dart");
 
-export const lessLight = fs.readFileSync(
-  SWIRL_TOKENS_DIST_PATH + "/less/styles.light.less"
-);
-export const lessDark = fs.readFileSync(
-  SWIRL_TOKENS_DIST_PATH + "/less/styles.dark.less"
-);
+export const lessLight = loadFile("/less/styles.light.less");
+export const lessDark = loadFile("/less/styles.dark.less");
 
-export const scssLight = fs.readFileSync(
-  SWIRL_TOKENS_DIST_PATH + "/scss/styles.light.scss"
-);
-export const scssDark = fs.readFileSync(
-  SWIRL_TOKENS_DIST_PATH + "/scss/styles.dark.scss"
-);
+export const scssLight = loadFile("/scss/styles.light.scss");
+export const scssDark = loadFile("/scss/styles.dark.scss");
+
+function loadFile(filePath: string) {
+  return fs.readFileSync(SWIRL_TOKENS_DIST_PATH + filePath);
+}
 
 export type TokenGroupType =
   | "colors"
@@ -42,7 +30,7 @@ export type TokenGroupType =
   | "zindex"
   | "all";
 
-export const Formats = ["json", "css", "scss", "less", "flutter"];
+export const FORMATS = ["json", "css", "scss", "less", "flutter"];
 export enum TokenFormats {
   JSON = "json",
   CSS = "css",
