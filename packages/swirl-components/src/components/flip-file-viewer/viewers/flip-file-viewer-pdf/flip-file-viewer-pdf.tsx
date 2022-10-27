@@ -51,6 +51,7 @@ export class FlipFileViewerPdf {
   private renderedPages: number[] = [];
   private renderingPageNumbers: number[] = [];
   private scrollContainer: HTMLDivElement;
+  private recentScrollPosition: { x: number; y: number } = { x: 0, y: 0 };
 
   async componentWillLoad() {
     await this.getPages();
@@ -87,6 +88,8 @@ export class FlipFileViewerPdf {
   @Watch("zoom")
   watchZoom() {
     queueMicrotask(async () => {
+      this.restoreScrollPosition();
+
       this.visiblePages = [];
       this.renderedPages = [];
       await this.updateVisiblePages();
@@ -166,23 +169,27 @@ export class FlipFileViewerPdf {
         page.pageNumber,
       ];
 
-      const scale = forPrint ? 4 : this.getScale(page);
+      const scale = forPrint ? 2 : this.getScale(page);
+      const outputScale = window.devicePixelRatio || 1;
 
-      const viewport = page.getViewport({
-        scale,
-      });
+      const transform =
+        outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
 
+      const viewport = page.getViewport({ scale });
       const context = canvas.getContext("2d");
 
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
+      canvas.height = Math.floor(viewport.height * outputScale);
+      canvas.width = Math.floor(viewport.width * outputScale);
 
       const renderContext = {
         canvasContext: context,
+        transform,
         viewport: viewport,
       };
 
       await page.render(renderContext).promise;
+
+      page.cleanup();
 
       textContainer.innerHTML = "";
       this.renderTextLayer(page, textContainer);
@@ -234,7 +241,7 @@ export class FlipFileViewerPdf {
       container,
       textContent: await page.getTextContent(),
       viewport: page.getViewport({
-        scale: this.getScale(page) / 2,
+        scale: this.getScale(page),
       }),
     });
   }
@@ -294,10 +301,18 @@ export class FlipFileViewerPdf {
     const padding = isMobileViewport() ? 0 : 32;
 
     return this.zoom === "auto"
-      ? ((this.scrollContainer?.clientWidth - padding) / page.view[2]) * 2
+      ? (this.scrollContainer?.clientWidth - padding) / page.view[2]
       : isNaN(this.zoom)
-      ? 2
-      : this.zoom * 2;
+      ? 1
+      : this.zoom;
+  }
+
+  private restoreScrollPosition() {
+    this.scrollContainer.scrollTop =
+      this.recentScrollPosition.y * this.scrollContainer?.scrollHeight;
+
+    this.scrollContainer.scrollLeft =
+      this.recentScrollPosition.x * this.scrollContainer?.scrollWidth;
   }
 
   private determineScrollStatus = () => {
@@ -311,9 +326,27 @@ export class FlipFileViewerPdf {
     }
   };
 
+  private storeRecentScrollPosition = () => {
+    this.recentScrollPosition = {
+      x:
+        Math.round(
+          (this.scrollContainer?.scrollLeft /
+            this.scrollContainer?.scrollWidth) *
+            100
+        ) / 100,
+      y:
+        Math.round(
+          (this.scrollContainer?.scrollTop /
+            this.scrollContainer?.scrollHeight) *
+            100
+        ) / 100,
+    };
+  };
+
   private onScroll = debounce(() => {
     this.updateVisiblePages();
     this.determineScrollStatus();
+    this.storeRecentScrollPosition();
   }, 60);
 
   render() {
@@ -342,8 +375,11 @@ export class FlipFileViewerPdf {
         >
           {this.pages.map((page) => {
             const viewport = page.getViewport({
-              scale: this.getScale(page) / 2,
+              scale: this.getScale(page),
             });
+
+            const height = viewport.height;
+            const width = viewport.width;
 
             return (
               <div
@@ -354,8 +390,8 @@ export class FlipFileViewerPdf {
                 key={page.pageNumber}
                 role="region"
                 style={{
-                  width: `${viewport.width}px`,
-                  height: `${viewport.height}px`,
+                  width: `${width}px`,
+                  height: `${height}px`,
                 }}
                 tabIndex={0}
               >
