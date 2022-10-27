@@ -201,10 +201,14 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     }
 
     this.items.forEach((item) =>
-      item.shadowRoot.children[0].removeAttribute("tabIndex")
+      item.shadowRoot
+        .querySelector('[role="option"]')
+        .removeAttribute("tabIndex")
     );
 
-    const item = this.items[index].shadowRoot.children[0] as HTMLElement;
+    const item = this.items[index].shadowRoot.querySelector(
+      '[role="option"]'
+    ) as HTMLElement;
 
     if (!Boolean(item)) {
       return;
@@ -234,7 +238,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
   private getActiveItemIndex(): number {
     return this.items
-      .map((item) => item.shadowRoot.children[0])
+      .map((item) => item.shadowRoot.querySelector('[role="option"]'))
       .findIndex(
         (item) =>
           item === document.activeElement ||
