@@ -46,9 +46,6 @@ describe("flip-pdf-reader", () => {
                       <option value="1.5">
                         150%
                       </option>
-                      <option value="2">
-                        200%
-                      </option>
                     </select>
                     <flip-icon-expand-more class="pdf-reader__zoom-select-icon"></flip-icon-expand-more>
                   </span>
