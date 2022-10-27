@@ -42,13 +42,13 @@ export class FlipFileViewerPdf {
   @State() doc: PDFDocumentProxy;
   @State() error: boolean;
   @State() loading: boolean = true;
+  @State() renderedPages: number[] = [];
   @State() scrolledDown: boolean = false;
   @State() visiblePages: number[] = [];
 
   @Event() activate: EventEmitter<HTMLElement>;
 
   private pages: PDFPageProxy[] = [];
-  private renderedPages: number[] = [];
   private renderingPageNumbers: number[] = [];
   private scrollContainer: HTMLDivElement;
   private recentScrollPosition: { x: number; y: number } = { x: 0, y: 0 };
@@ -375,7 +375,6 @@ export class FlipFileViewerPdf {
   }, 60);
 
   render() {
-    console.log("s");
     const showPagination =
       !this.error && !this.loading && this.visiblePages.length > 0;
 
@@ -384,6 +383,8 @@ export class FlipFileViewerPdf {
       : this.visiblePages[0];
 
     const showSpinner = this.loading;
+
+    console.log(showSpinner);
 
     return (
       <Host class="file-viewer-pdf">
@@ -407,6 +408,8 @@ export class FlipFileViewerPdf {
             const height = viewport.height;
             const width = viewport.width;
 
+            const rendered = this.renderedPages.includes(page.pageNumber);
+
             return (
               <div
                 aria-label={page.pageNumber}
@@ -421,7 +424,13 @@ export class FlipFileViewerPdf {
                 }}
                 tabIndex={0}
               >
-                <canvas class="file-viewer-pdf__canvas"></canvas>
+                {!rendered && (
+                  <flip-spinner class="file-viewer-pdf__page-spinner"></flip-spinner>
+                )}
+                <canvas
+                  class="file-viewer-pdf__canvas"
+                  style={{ opacity: rendered ? "1" : "0" }}
+                ></canvas>
                 <div class="file-viewer-pdf__text-container"></div>
               </div>
             );
