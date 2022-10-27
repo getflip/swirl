@@ -77,6 +77,13 @@ input.text-input__input:not([type="password"]) {
   min-width: 0.25rem;
 }
 
+.text-input--disable-dynamic-width {
+  input.text-input__input:not([type="password"]) {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 .text-input__clear-button,
 .text-input__password-toggle {
   position: absolute;
