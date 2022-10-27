@@ -30,7 +30,7 @@ export const IconGridItem: FunctionComponent<IconGridProps> = ({
         <span className="text-text-subdued">{icons[icon]?.name}</span>
       </a>
       <FlipPopover label="Icon Info" popoverId={`popover-${id}`} trigger={id}>
-        <div className="p-4">
+        <div className="md:hidden p-4">
           <IconInfo icon={icons[icon]} />
         </div>
       </FlipPopover>
