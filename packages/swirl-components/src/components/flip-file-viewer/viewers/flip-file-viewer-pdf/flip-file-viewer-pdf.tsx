@@ -208,7 +208,10 @@ export class FlipFileViewerPdf {
     page.cleanup();
 
     textContainer.innerHTML = "";
-    this.renderTextLayer(page, textContainer);
+
+    if (!isMobileViewport()) {
+      this.renderTextLayer(page, textContainer);
+    }
 
     this.renderingPageNumbers = this.renderingPageNumbers.filter(
       (pageNumber) => pageNumber !== page.pageNumber
