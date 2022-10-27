@@ -28,7 +28,12 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     type: "select",
   },
   {
-    elementSelectors: ["flip-radio-group", "flip-search", "flip-text-input"],
+    elementSelectors: [
+      "flip-date-input",
+      "flip-radio-group",
+      "flip-search",
+      "flip-text-input",
+    ],
     event: "valueChange",
     targetAttr: "value",
     type: "text",
@@ -47,6 +52,11 @@ export const config: Config = {
       autoDefineCustomElements: true,
       copy: [
         {
+          src: "../../../node_modules/pdfjs-dist/legacy/build/pdf.worker.min.js",
+          dest: "src/assets/pdfjs/pdf.worker.min.js",
+          warn: true,
+        },
+        {
           src: "assets/fonts/*",
           dest: "dist/components/assets/fonts",
           warn: true,
@@ -54,6 +64,11 @@ export const config: Config = {
         {
           src: "assets/images/*",
           dest: "dist/components/assets/images",
+          warn: true,
+        },
+        {
+          src: "assets/pdfjs/*",
+          dest: "dist/components/assets/pdfjs",
           warn: true,
         },
       ],
@@ -88,4 +103,5 @@ export const config: Config = {
       plugins: [autoprefixer(), postcssNested(), postcssCustomMedia()],
     }),
   ],
+  sourceMap: true,
 };

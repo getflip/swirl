@@ -1,5 +1,54 @@
 # @getflip/swirl-components-react
 
+## 0.2.1
+
+### Patch Changes
+
+- [`df216dc`](https://github.com/getflip/swirl/commit/df216dcea298fe88dc7bebef30de6b5a155fb791)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix flip-popover backdrop click
+
+- Updated dependencies
+  [[`2e0dfc5`](https://github.com/getflip/swirl/commit/2e0dfc5b282eaac27e0bd353987eb3da92438f08)]:
+  - @getflip/swirl-components@0.3.1
+
+## 0.2.0
+
+### Minor Changes
+
+- [`290577c`](https://github.com/getflip/swirl/commit/290577c0646bc790d32aede4693b5e6762ef2e07)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add TypeScript declarations
+
+* [`bd9b71b`](https://github.com/getflip/swirl/commit/bd9b71bd644909426abd0b00cf71fe1991dbf921)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add new component wrappers
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8d8ca6e`](https://github.com/getflip/swirl/commit/8d8ca6edbf0c5b6563272623f9f939d190767042),
+  [`6cab655`](https://github.com/getflip/swirl/commit/6cab655ca05ed176c9d2c150e1dbe23a60b6018b),
+  [`6cab655`](https://github.com/getflip/swirl/commit/6cab655ca05ed176c9d2c150e1dbe23a60b6018b),
+  [`95106b9`](https://github.com/getflip/swirl/commit/95106b9961b4f1b579a75cbbec0fd925354ebf34),
+  [`bac7373`](https://github.com/getflip/swirl/commit/bac73733ad8fe78b931391d6e693194f94f70e3a),
+  [`c8cd99d`](https://github.com/getflip/swirl/commit/c8cd99d7dc7cb88f6d77fb3f2306ffc4d3eb593e),
+  [`6aa8e9d`](https://github.com/getflip/swirl/commit/6aa8e9d7d4e8605120b5f983807caded8513024d),
+  [`e2a82fd`](https://github.com/getflip/swirl/commit/e2a82fd35b155273df3de9399ee24f3b1d9f765e),
+  [`9a8ec54`](https://github.com/getflip/swirl/commit/9a8ec5463b068ab59f9587370900fad2e22b7825),
+  [`2d1ad6f`](https://github.com/getflip/swirl/commit/2d1ad6f63645e2d89aceef2c8188f42e5e67bd1f),
+  [`6cab655`](https://github.com/getflip/swirl/commit/6cab655ca05ed176c9d2c150e1dbe23a60b6018b),
+  [`0b0b52c`](https://github.com/getflip/swirl/commit/0b0b52c012fd99cdd34f74c9f9eee60e30099fda),
+  [`ce579a1`](https://github.com/getflip/swirl/commit/ce579a16de416fa0a417d39a33e0705cbffc25cb),
+  [`95106b9`](https://github.com/getflip/swirl/commit/95106b9961b4f1b579a75cbbec0fd925354ebf34),
+  [`6aa8e9d`](https://github.com/getflip/swirl/commit/6aa8e9d7d4e8605120b5f983807caded8513024d),
+  [`f67ac16`](https://github.com/getflip/swirl/commit/f67ac166fc4eb429fef411fc0f43c8d436cd05ca),
+  [`95106b9`](https://github.com/getflip/swirl/commit/95106b9961b4f1b579a75cbbec0fd925354ebf34),
+  [`8d8ca6e`](https://github.com/getflip/swirl/commit/8d8ca6edbf0c5b6563272623f9f939d190767042),
+  [`5f21bb4`](https://github.com/getflip/swirl/commit/5f21bb42467c0b32e4311db6ef46ff199b4068f0),
+  [`95106b9`](https://github.com/getflip/swirl/commit/95106b9961b4f1b579a75cbbec0fd925354ebf34),
+  [`e3f116b`](https://github.com/getflip/swirl/commit/e3f116b329fbfba740473158ba4fcac0a8a69c41),
+  [`1601293`](https://github.com/getflip/swirl/commit/1601293635db5c1d54d53195d9cd46289578ba75),
+  [`a63bcef`](https://github.com/getflip/swirl/commit/a63bcef66d5a4f71d941beabed58dbed7fa66f27)]:
+  - @getflip/swirl-components@0.3.0
+
 ## 0.1.1
 
 ### Patch Changes

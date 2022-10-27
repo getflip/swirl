@@ -1,0 +1,45 @@
+:host {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  max-height: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.file-viewer-csv__csv {
+  overflow: auto;
+  width: 100%;
+  max-height: 100%;
+  padding: var(--s-space-16);
+  background-color: var(--s-background-default);
+}
+
+.file-viewer-csv__table {
+  margin-right: auto;
+  margin-left: auto;
+  border-collapse: collapse;
+}
+
+.file-viewer-csv__cell {
+  padding: var(--s-space-8);
+  border: var(--s-border-width-default) solid var(--s-border-default);
+}
+
+.file-viewer-csv__spinner {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  inset: 0;
+}
+
+.file-viewer-csv__error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}

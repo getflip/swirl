@@ -1,0 +1,32 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipDatePicker" />
+
+# FlipDatePicker
+
+The FlipDatePicker component allows users to select a date from a calendar.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=2%3A21)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-date-picker)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-flipdatepicker--flip-date-picker" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                        | Usage                                     |
+| ------------------------------- | ----------------------------------------- |
+| `--s-surface-overlay-default`   | Background color of the picker            |
+| `--s-text-default`              | Text color of the picker                  |
+| `--s-text-subdued`              | Text color of weekdays and inactive dates |
+| `--s-surface-overlay-hovered`   | Background color of the hovered date      |
+| `--s-surface-overlay-pressed`   | Background color of the active date       |
+| `--s-surface-highlight-default` | Background color of the selected date     |
+| `--s-text-on-surface-highlight` | Text color of the selected date           |
+| `--s-border-highlight`          | Border color of current date              |
+| `--s-icon-highlight`            | Icon color of the month steppers          |

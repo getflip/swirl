@@ -39,6 +39,30 @@ export function generateStoryElement(
   return element;
 }
 
+export function getVisibleHeight(element: HTMLElement, container: HTMLElement) {
+  const scrollTop = container.scrollTop;
+  const scrollBot = scrollTop + container.clientHeight;
+  const containerRect = container.getBoundingClientRect();
+  const eleRect = element.getBoundingClientRect();
+  const rect = {
+    top: eleRect.top - containerRect.top,
+    right: eleRect.right - containerRect.right,
+    bottom: eleRect.bottom - containerRect.bottom,
+    left: eleRect.left - containerRect.left,
+  };
+
+  const eleTop = rect.top + scrollTop;
+  const eleBot = eleTop + element.offsetHeight;
+  const visibleTop = eleTop < scrollTop ? scrollTop : eleTop;
+  const visibleBot = eleBot > scrollBot ? scrollBot : eleBot;
+
+  return visibleBot - visibleTop;
+}
+
+export function isMobileViewport() {
+  return !window.matchMedia("(min-width: 768px)").matches;
+}
+
 export function querySelectorAllDeep<TargetType extends Element = HTMLElement>(
   root: HTMLElement,
   selector: string
