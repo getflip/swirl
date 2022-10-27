@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipActionListItemIntent, FlipActionListItemSize } from "./components/flip-action-list-item/flip-action-list-item";
+import { FlipAutocompleteSuggestion } from "./components/flip-autocomplete/flip-autocomplete";
+import { FlipTextInputMode } from "./components/flip-text-input/flip-text-input";
 import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
@@ -32,7 +34,7 @@ import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacin
 import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
 import { FlipTagIntent } from "./components/flip-tag/flip-tag";
 import { FlipTextAlign, FlipTextColor, FlipTextFontStyle, FlipTextSize, FlipTextWeight } from "./components/flip-text/flip-text";
-import { FlipTextInputMode, FlipTextInputType } from "./components/flip-text-input/flip-text-input";
+import { FlipTextInputMode as FlipTextInputMode1, FlipTextInputType } from "./components/flip-text-input/flip-text-input";
 import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
 import { FlipThumbnailFormat, FlipThumbnailSize } from "./components/flip-thumbnail/flip-thumbnail";
 import { FlipToastIntent } from "./components/flip-toast/flip-toast";
@@ -52,6 +54,23 @@ export namespace Components {
     }
     interface FlipActionListSection {
         "label": string;
+    }
+    interface FlipAutocomplete {
+        "autoSelect"?: boolean;
+        "clearButtonLabel"?: string;
+        "clearable"?: boolean;
+        "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
+        "generateSuggestions"?: (
+    currentValue: string
+  ) => Promise<FlipAutocompleteSuggestion[]>;
+        "invalid"?: boolean;
+        "maxLength"?: number;
+        "menuLabel"?: string;
+        "mode"?: FlipTextInputMode;
+        "required"?: boolean;
+        "spellCheck"?: boolean;
+        "value"?: string;
     }
     interface FlipAvatar {
         "badge"?: string;
@@ -529,6 +548,7 @@ export namespace Components {
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
+        "optionListId"?: string;
         "value"?: string[];
     }
     interface FlipOptionListItem {
@@ -681,8 +701,13 @@ export namespace Components {
         "autoSelect"?: boolean;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
+        "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
+        "flipAriaAutocomplete"?: string;
+        "flipAriaControls"?: string;
         "flipAriaDescribedby"?: string;
+        "flipAriaExpanded"?: string;
+        "flipRole"?: string;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
@@ -772,6 +797,10 @@ export namespace Components {
     }
     interface FlipVisuallyHidden {
     }
+}
+export interface FlipAutocompleteCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipAutocompleteElement;
 }
 export interface FlipBannerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -867,6 +896,12 @@ declare global {
     var HTMLFlipActionListSectionElement: {
         prototype: HTMLFlipActionListSectionElement;
         new (): HTMLFlipActionListSectionElement;
+    };
+    interface HTMLFlipAutocompleteElement extends Components.FlipAutocomplete, HTMLStencilElement {
+    }
+    var HTMLFlipAutocompleteElement: {
+        prototype: HTMLFlipAutocompleteElement;
+        new (): HTMLFlipAutocompleteElement;
     };
     interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
     }
@@ -1670,6 +1705,7 @@ declare global {
         "flip-action-list": HTMLFlipActionListElement;
         "flip-action-list-item": HTMLFlipActionListItemElement;
         "flip-action-list-section": HTMLFlipActionListSectionElement;
+        "flip-autocomplete": HTMLFlipAutocompleteElement;
         "flip-avatar": HTMLFlipAvatarElement;
         "flip-avatar-group": HTMLFlipAvatarGroupElement;
         "flip-badge": HTMLFlipBadgeElement;
@@ -1819,6 +1855,24 @@ declare namespace LocalJSX {
     }
     interface FlipActionListSection {
         "label": string;
+    }
+    interface FlipAutocomplete {
+        "autoSelect"?: boolean;
+        "clearButtonLabel"?: string;
+        "clearable"?: boolean;
+        "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
+        "generateSuggestions"?: (
+    currentValue: string
+  ) => Promise<FlipAutocompleteSuggestion[]>;
+        "invalid"?: boolean;
+        "maxLength"?: number;
+        "menuLabel"?: string;
+        "mode"?: FlipTextInputMode;
+        "onValueChange"?: (event: FlipAutocompleteCustomEvent<string>) => void;
+        "required"?: boolean;
+        "spellCheck"?: boolean;
+        "value"?: string;
     }
     interface FlipAvatar {
         "badge"?: string;
@@ -2262,6 +2316,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "multiSelect"?: boolean;
         "onValueChange"?: (event: FlipOptionListCustomEvent<string[]>) => void;
+        "optionListId"?: string;
         "value"?: string[];
     }
     interface FlipOptionListItem {
@@ -2410,13 +2465,20 @@ declare namespace LocalJSX {
         "autoSelect"?: boolean;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
+        "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
+        "flipAriaAutocomplete"?: string;
+        "flipAriaControls"?: string;
         "flipAriaDescribedby"?: string;
+        "flipAriaExpanded"?: string;
+        "flipRole"?: string;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
         "min"?: number;
         "mode"?: FlipTextInputMode;
+        "onInputBlur"?: (event: FlipTextInputCustomEvent<FocusEvent>) => void;
+        "onInputFocus"?: (event: FlipTextInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: FlipTextInputCustomEvent<string>) => void;
         "passwordToggleLabel"?: string;
         "prefixLabel"?: string;
@@ -2471,6 +2533,7 @@ declare namespace LocalJSX {
         "flip-action-list": FlipActionList;
         "flip-action-list-item": FlipActionListItem;
         "flip-action-list-section": FlipActionListSection;
+        "flip-autocomplete": FlipAutocomplete;
         "flip-avatar": FlipAvatar;
         "flip-avatar-group": FlipAvatarGroup;
         "flip-badge": FlipBadge;
@@ -2613,6 +2676,7 @@ declare module "@stencil/core" {
             "flip-action-list": LocalJSX.FlipActionList & JSXBase.HTMLAttributes<HTMLFlipActionListElement>;
             "flip-action-list-item": LocalJSX.FlipActionListItem & JSXBase.HTMLAttributes<HTMLFlipActionListItemElement>;
             "flip-action-list-section": LocalJSX.FlipActionListSection & JSXBase.HTMLAttributes<HTMLFlipActionListSectionElement>;
+            "flip-autocomplete": LocalJSX.FlipAutocomplete & JSXBase.HTMLAttributes<HTMLFlipAutocompleteElement>;
             "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
             "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
