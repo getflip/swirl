@@ -245,7 +245,6 @@ export class FlipTextInput implements FlipFormInput {
             onFocus={this.onFocus}
             onInput={this.onInput}
             onKeyPress={this.onKeyPress}
-            part="input"
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             role={this.flipRole}
