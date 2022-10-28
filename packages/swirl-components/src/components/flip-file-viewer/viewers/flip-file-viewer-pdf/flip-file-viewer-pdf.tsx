@@ -387,8 +387,6 @@ export class FlipFileViewerPdf {
 
     const showSpinner = this.loading;
 
-    console.log(showSpinner);
-
     return (
       <Host class="file-viewer-pdf">
         {this.error && (
