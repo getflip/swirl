@@ -10,7 +10,7 @@ interface IconGridProps {
   handleTileClick: (iconName: string) => void;
 }
 
-export const IconGridItem: FunctionComponent<IconGridProps> = ({
+const IconGridItem: FunctionComponent<IconGridProps> = ({
   id,
   icon,
   icons,
@@ -37,3 +37,5 @@ export const IconGridItem: FunctionComponent<IconGridProps> = ({
     </li>
   );
 };
+
+export default IconGridItem;
