@@ -228,6 +228,8 @@ export class FlipFileViewerPdf {
       ".file-viewer-pdf__text-container"
     );
 
+    canvas.width = 1;
+    canvas.height = 1;
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
     textLayer.innerHTML = "";
   }
@@ -244,10 +246,6 @@ export class FlipFileViewerPdf {
       : pages
           .filter((page) => getVisibleHeight(page, this.scrollContainer) > 0)
           .map((page) => +page.dataset.pageNumber);
-
-    if (visiblePages.length === 0) {
-      visiblePages = [1, 2, 3, 4];
-    }
 
     const visiblePagesDidNotChanged =
       this.visiblePages.length === visiblePages.length &&
