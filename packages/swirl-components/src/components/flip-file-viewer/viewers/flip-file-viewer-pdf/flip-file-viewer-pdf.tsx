@@ -118,8 +118,8 @@ export class FlipFileViewerPdf {
    */
   @Method()
   async nextPage() {
-    this.setPage(this.singlePageModePage + 1);
-    this.updateVisiblePages();
+    await this.setPage(this.singlePageModePage + 1);
+    await this.updateVisiblePages();
   }
 
   /**
@@ -127,8 +127,8 @@ export class FlipFileViewerPdf {
    */
   @Method()
   async previousPage() {
-    this.setPage(this.singlePageModePage - 1);
-    this.updateVisiblePages();
+    await this.setPage(this.singlePageModePage - 1);
+    await this.updateVisiblePages();
   }
 
   /**
@@ -140,7 +140,8 @@ export class FlipFileViewerPdf {
       Math.max(page, 1),
       this.pages.length - 1
     );
-    this.updateVisiblePages();
+
+    await this.updateVisiblePages();
   }
 
   private async getPages() {
