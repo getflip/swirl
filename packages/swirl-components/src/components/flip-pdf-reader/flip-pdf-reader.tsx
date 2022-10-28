@@ -34,6 +34,7 @@ export class FlipPdfReader {
 
   @State() active = false;
   @State() closing = false;
+  @State() downloading = false;
   @State() zoom: FlipFileViewerPdfZoom;
   @State() zoomSteps: number[];
 
@@ -41,6 +42,7 @@ export class FlipPdfReader {
   private mobileZoomSteps: number[] = [0.5, 0.75, 1, 1.25, 1.5];
   private modal: A11yDialog;
   private modalEl: HTMLElement;
+  private pdfViewer: HTMLFlipFileViewerPdfElement;
   private viewer: HTMLFlipFileViewerElement;
 
   componentWillLoad() {
@@ -60,7 +62,7 @@ export class FlipPdfReader {
 
   @Listen("resize", { target: "window" })
   onWindowResize() {
-    if (!Boolean(this.viewer)) {
+    if (!Boolean(this.pdfViewer)) {
       return;
     }
 
@@ -99,7 +101,7 @@ export class FlipPdfReader {
   }
 
   private lockBodyScroll() {
-    const scrollContainer = this.viewer.shadowRoot.querySelector(
+    const scrollContainer = this.pdfViewer.shadowRoot.querySelector(
       ".file-viewer-pdf__pages"
     );
 
@@ -109,7 +111,7 @@ export class FlipPdfReader {
   }
 
   private unlockBodyScroll() {
-    const scrollContainer = this.viewer.shadowRoot.querySelector(
+    const scrollContainer = this.pdfViewer.shadowRoot.querySelector(
       ".file-viewer-pdf__pages"
     );
 
@@ -131,7 +133,7 @@ export class FlipPdfReader {
   };
 
   private onActivate = (event: CustomEvent<HTMLElement>) => {
-    this.viewer = event.detail as HTMLFlipFileViewerElement;
+    this.pdfViewer = event.detail as HTMLFlipFileViewerElement;
 
     this.lockBodyScroll();
   };
@@ -141,11 +143,13 @@ export class FlipPdfReader {
   };
 
   private onPrintButtonClick = () => {
-    this.viewer.print();
+    this.pdfViewer.print();
   };
 
-  private onDownloadButtonClick = () => {
-    this.viewer.download();
+  private onDownloadButtonClick = async () => {
+    this.downloading = true;
+    await this.viewer.download();
+    this.downloading = false;
   };
 
   private onZoomInButtonClick = () => {
@@ -260,8 +264,13 @@ export class FlipPdfReader {
                 ></flip-button>
                 <flip-button
                   class="pdf-reader__download-button"
+                  disabled={this.downloading}
                   hideLabel
-                  icon="<flip-icon-download></flip-icon-download>"
+                  icon={
+                    !this.downloading
+                      ? "<flip-icon-download></flip-icon-download>"
+                      : '<flip-spinner size="s"></flip-spinner>'
+                  }
                   label={this.downloadButtonLabel}
                   onClick={this.onDownloadButtonClick}
                 ></flip-button>

@@ -34,8 +34,9 @@ export class FlipFileViewer {
   @Method()
   async download() {
     const fileName = this.file.split("/").pop();
+    const file = await fetch(this.file);
 
-    saveAs(this.file, fileName);
+    saveAs(await file.blob(), fileName);
   }
 
   /**
