@@ -222,9 +222,22 @@ export namespace Components {
         "errorMessage"?: string;
         "file": string;
         /**
+          * Navigate to next page, if single page mode is enabled.
+         */
+        "nextPage": () => Promise<void>;
+        /**
+          * Navigate to previous page, if single page mode is enabled.
+         */
+        "previousPage": () => Promise<void>;
+        /**
           * Print the file.
          */
         "print": () => Promise<void>;
+        /**
+          * Navigate to specific page, if single page mode is enabled.
+         */
+        "setPage": (page: number) => Promise<void>;
+        "singlePageMode": boolean;
         "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerText {
@@ -2035,6 +2048,7 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: FlipFileViewerPdfCustomEvent<HTMLElement>) => void;
+        "singlePageMode"?: boolean;
         "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerText {

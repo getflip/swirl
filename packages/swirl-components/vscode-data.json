@@ -863,6 +863,10 @@
           "description": ""
         },
         {
+          "name": "single-page-mode",
+          "description": ""
+        },
+        {
           "name": "zoom",
           "description": "",
           "values": [

@@ -37,6 +37,7 @@ export class FlipFileViewerPdf {
 
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
+  @Prop() singlePageMode: boolean = navigator?.platform === "iPhone";
   @Prop() zoom?: FlipFileViewerPdfZoom = 1;
 
   @State() doc: PDFDocumentProxy;
@@ -44,6 +45,7 @@ export class FlipFileViewerPdf {
   @State() loading: boolean = true;
   @State() renderedPages: number[] = [];
   @State() scrolledDown: boolean = false;
+  @State() singlePageModePage: number = 1;
   @State() visiblePages: number[] = [];
 
   @Event() activate: EventEmitter<HTMLElement>;
@@ -109,6 +111,36 @@ export class FlipFileViewerPdf {
     await this.openPrintDialog();
 
     this.loading = false;
+  }
+
+  /**
+   * Navigate to next page, if single page mode is enabled.
+   */
+  @Method()
+  async nextPage() {
+    this.setPage(this.singlePageModePage + 1);
+    this.updateVisiblePages();
+  }
+
+  /**
+   * Navigate to previous page, if single page mode is enabled.
+   */
+  @Method()
+  async previousPage() {
+    this.setPage(this.singlePageModePage - 1);
+    this.updateVisiblePages();
+  }
+
+  /**
+   * Navigate to specific page, if single page mode is enabled.
+   */
+  @Method()
+  async setPage(page: number) {
+    this.singlePageModePage = Math.min(
+      Math.max(page, 1),
+      this.pages.length - 1
+    );
+    this.updateVisiblePages();
   }
 
   private async getPages() {
@@ -239,20 +271,26 @@ export class FlipFileViewerPdf {
       )
     );
 
-    let visiblePages = forPrint
-      ? pages.map((page) => +page.dataset.pageNumber)
-      : pages
-          .filter((page) => getVisibleHeight(page, this.scrollContainer) > 0)
-          .map((page) => +page.dataset.pageNumber);
+    let visiblePages: number[] = [];
 
-    const visiblePagesDidNotChanged =
-      this.visiblePages.length === visiblePages.length &&
-      this.visiblePages.every((pageNumber) =>
-        visiblePages.includes(pageNumber)
-      );
+    if (this.singlePageMode) {
+      visiblePages = [this.singlePageModePage];
+    } else {
+      visiblePages = forPrint
+        ? pages.map((page) => +page.dataset.pageNumber)
+        : pages
+            .filter((page) => getVisibleHeight(page, this.scrollContainer) > 0)
+            .map((page) => +page.dataset.pageNumber);
 
-    if (visiblePagesDidNotChanged) {
-      return;
+      const visiblePagesDidNotChanged =
+        this.visiblePages.length === visiblePages.length &&
+        this.visiblePages.every((pageNumber) =>
+          visiblePages.includes(pageNumber)
+        );
+
+      if (visiblePagesDidNotChanged) {
+        return;
+      }
     }
 
     this.visiblePages = visiblePages;
@@ -381,9 +419,10 @@ export class FlipFileViewerPdf {
     const showPagination =
       !this.error && !this.loading && this.visiblePages.length > 0;
 
-    const currentPage = this.scrolledDown
-      ? this.pages.length - 1
-      : this.visiblePages[0];
+    const currentPage =
+      this.scrolledDown && !this.singlePageMode
+        ? this.pages.length - 1
+        : this.visiblePages[0];
 
     const showSpinner = this.loading;
 
@@ -416,6 +455,12 @@ export class FlipFileViewerPdf {
                 aria-label={page.pageNumber}
                 class="file-viewer-pdf__page"
                 data-page-number={page.pageNumber}
+                hidden={
+                  !this.singlePageMode ||
+                  page.pageNumber === this.singlePageModePage
+                    ? undefined
+                    : true
+                }
                 id={`page-${page.pageNumber}`}
                 key={page.pageNumber}
                 role="region"

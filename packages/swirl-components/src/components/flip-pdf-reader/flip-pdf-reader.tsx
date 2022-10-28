@@ -133,7 +133,7 @@ export class FlipPdfReader {
   };
 
   private onActivate = (event: CustomEvent<HTMLElement>) => {
-    this.pdfViewer = event.detail as HTMLFlipFileViewerElement;
+    this.pdfViewer = event.detail as HTMLFlipFileViewerPdfElement;
 
     this.lockBodyScroll();
   };
