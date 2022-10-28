@@ -62,4 +62,3 @@ jobs:
             secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FC96BE97BCF6464080928AC4D61F6EFB
             }}
           package: .
-          startup-command: yarn start
