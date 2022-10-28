@@ -4,7 +4,7 @@
 name: flip-swirl-docs
 defaults:
   run:
-    working-directory: swirl-docs
+    working-directory: apps/swirl-docs
 
 on:
   push:
