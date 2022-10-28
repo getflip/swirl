@@ -1,3 +1,5 @@
+@import "../../../../styles/media-queries.css";
+
 :host {
   position: relative;
   display: inline-flex;
@@ -156,4 +158,12 @@
   line-height: var(--s-line-height-base);
   transform: translateX(-50%);
   pointer-events: none;
+}
+
+.file-viewer-pdf__text-container {
+  user-select: none;
+
+  @media (--from-tablet) {
+    user-select: auto;
+  }
 }
