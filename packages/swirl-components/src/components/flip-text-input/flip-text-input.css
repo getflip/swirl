@@ -129,10 +129,12 @@ input.text-input__input:not([type="password"]) {
 
 .text-input__prefix {
   padding-right: var(--s-space-4);
+  color: var(--s-text-subdued);
   font-size: var(--s-font-size-base);
 }
 
 .text-input__suffix {
   padding-left: var(--s-space-4);
+  color: var(--s-text-subdued);
   font-size: var(--s-font-size-base);
 }
