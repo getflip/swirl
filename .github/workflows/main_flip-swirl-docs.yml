@@ -27,7 +27,7 @@ jobs:
       - name: Build
         run: |
           yarn
-          yarn workspace swirl-docs build --if-present
+          yarn build --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
