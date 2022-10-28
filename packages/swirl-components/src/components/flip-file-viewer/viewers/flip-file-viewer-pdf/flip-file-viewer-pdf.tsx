@@ -288,6 +288,7 @@ export class FlipFileViewerPdf {
       img {
         display: block;
         width: 100%;
+        page-break-after: always;
       }
       `;
 
@@ -313,16 +314,19 @@ export class FlipFileViewerPdf {
       </html>
     `;
 
-    const win = window.open(" ");
+    const iframe = document.createElement("iframe");
+
+    this.el.append(iframe);
+
+    const win = iframe.contentWindow;
 
     win.document.write(html);
-    win.document.close();
     win.focus();
 
-    await new Promise((resolve) => setTimeout(resolve));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     win.print();
-    win.close();
+    iframe.remove();
   }
 
   private getScale(page: PDFPageProxy) {
