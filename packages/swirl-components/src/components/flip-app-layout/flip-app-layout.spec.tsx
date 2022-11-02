@@ -48,7 +48,9 @@ describe("flip-app-layout", () => {
                   <slot name="sidebar"></slot>
                 </div>
               </aside>
-              <flip-button class="app-layout__floating-cta" intent="primary" variant="floating"></flip-button>
+              <span class="app-layout__floating-cta">
+                <flip-button intent="primary" variant="floating"></flip-button>
+              </span>
             </div>
           </section>
         </mock:shadow-root>
