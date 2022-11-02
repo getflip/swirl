@@ -1,4 +1,4 @@
-import { ArgsTable, Meta, Source } from "@storybook/addon-docs";
+import { ArgsTable, Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/FlipAppLayout" />
 
@@ -15,23 +15,6 @@ arrange content on the screen.
 Please use the
 [canvas view](?path=/story/components-flipapplayout--flip-app-layout) to preview
 this component.
-
-<Source
-  language="html"
-  dark
-  code={`<flip-app-layout app-name="Documents" cta-icon="<flip-icon-add></flip-icon-add>" cta-label="Upload file" heading="sample.pdf" sidebar-heading="File info">
-  <flip-resource-list label="Items" slot="navigation">
-    <flip-resource-list-item label="This is a resource item" media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></flip-avatar>"></flip-resource-list-item>
-    <flip-resource-list-item label="This is a resource item" media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></flip-avatar>"></flip-resource-list-item>
-    <flip-resource-list-item label="This is a resource item" media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/1027/144/144&quot;></flip-avatar>"></flip-resource-list-item>
-  </flip-resource-list>
-  <div slot="app-bar-controls">
-    <flip-button hide-label class="info-button" icon="<flip-icon-info></flip-icon-info>" label="More information"></flip-button>
-  </div>
-  <div slot="content"></div>
-  <div slot="sidebar"></div>
-</flip-app-layout>`}
-/>
 
 <ArgsTable story="." />
 
