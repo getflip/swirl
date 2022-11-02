@@ -130,15 +130,16 @@ export class FlipAppLayout {
                 text={this.appName}
               ></flip-heading>
               {this.ctaLabel && (
-                <flip-button
-                  class="app-layout__cta"
-                  hideLabel={Boolean(this.ctaIcon)}
-                  icon={this.ctaIcon}
-                  intent="primary"
-                  label={this.ctaLabel}
-                  onClick={this.onCtaClick}
-                  variant="flat"
-                ></flip-button>
+                <span class="app-layout__cta">
+                  <flip-button
+                    hideLabel={Boolean(this.ctaIcon)}
+                    icon={this.ctaIcon}
+                    intent="primary"
+                    label={this.ctaLabel}
+                    onClick={this.onCtaClick}
+                    variant="flat"
+                  ></flip-button>
+                </span>
               )}
             </header>
             <nav
@@ -208,15 +209,16 @@ export class FlipAppLayout {
                 <slot name="sidebar"></slot>
               </div>
             </aside>
-            <flip-button
-              class="app-layout__floating-cta"
-              hideLabel={Boolean(this.ctaIcon)}
-              icon={this.ctaIcon}
-              intent="primary"
-              label={this.ctaLabel}
-              onClick={this.onCtaClick}
-              variant="floating"
-            ></flip-button>
+            <span class="app-layout__floating-cta">
+              <flip-button
+                hideLabel={Boolean(this.ctaIcon)}
+                icon={this.ctaIcon}
+                intent="primary"
+                label={this.ctaLabel}
+                onClick={this.onCtaClick}
+                variant="floating"
+              ></flip-button>
+            </span>
           </div>
         </section>
       </Host>
