@@ -76,6 +76,74 @@
       ]
     },
     {
+      "name": "flip-app-layout",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "app-bar-media",
+          "description": ""
+        },
+        {
+          "name": "app-name",
+          "description": ""
+        },
+        {
+          "name": "back-to-navigation-view-button-label",
+          "description": ""
+        },
+        {
+          "name": "cta-icon",
+          "description": ""
+        },
+        {
+          "name": "cta-label",
+          "description": ""
+        },
+        {
+          "name": "heading",
+          "description": ""
+        },
+        {
+          "name": "mobile-view",
+          "description": "",
+          "values": [
+            {
+              "name": "body"
+            },
+            {
+              "name": "navigation"
+            },
+            {
+              "name": "sidebar"
+            }
+          ]
+        },
+        {
+          "name": "navigation-label",
+          "description": ""
+        },
+        {
+          "name": "sidebar-active",
+          "description": ""
+        },
+        {
+          "name": "sidebar-close-button-label",
+          "description": ""
+        },
+        {
+          "name": "sidebar-heading",
+          "description": ""
+        },
+        {
+          "name": "subheading",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-avatar",
       "description": {
         "kind": "markdown",

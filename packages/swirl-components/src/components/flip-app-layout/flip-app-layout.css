@@ -1,0 +1,319 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.app-layout {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100rem;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  border: var(--s-border-width-default) solid var(--s-border-default);
+  background-color: var(--s-border-default);
+
+  @media (--from-large-desktop) {
+    border-radius: var(--s-border-radius-base);
+  }
+}
+
+.app-layout__grid {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: var(--s-border-width-default);
+  grid-template-columns: 100%;
+  grid-template-rows: 4rem 1fr;
+  grid-template-areas:
+    "body"
+    "body";
+}
+
+.app-layout:not(.app-layout--has-navigation) {
+  & .app-layout__header,
+  & .app-layout__navigation {
+    display: none;
+  }
+}
+
+.app-layout:not(.app-layout--has-sidebar) {
+  & .app-layout__sidebar {
+    display: none;
+  }
+}
+
+.app-layout:not(.app-layout--mobile-view-body) {
+  @media (--to-tablet) {
+    & .app-layout__body {
+      display: none;
+    }
+  }
+}
+
+.app-layout:not(.app-layout--mobile-view-sidebar) {
+  @media (--to-tablet) {
+    & .app-layout__sidebar {
+      display: none;
+    }
+  }
+}
+
+.app-layout--has-navigation {
+  & .app-layout__grid {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "navigation";
+
+    @media (--from-tablet) {
+      grid-template-columns: min(50%, 25rem) 1fr;
+      grid-template-areas:
+        "header body"
+        "navigation body";
+    }
+  }
+}
+
+.app-layout--has-sidebar {
+  &.app-layout--sidebar-active {
+    @media (--from-tablet) {
+      & .app-layout__grid {
+        grid-template-columns: 1fr min(50%, 25rem);
+        grid-template-areas:
+          "body sidebar"
+          "body sidebar";
+      }
+    }
+  }
+
+  & .app-layout__grid {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "body"
+      "body";
+  }
+}
+
+.app-layout--has-navigation.app-layout--has-sidebar {
+  &.app-layout--sidebar-active {
+    @media (--from-large-desktop) {
+      & .app-layout__grid {
+        grid-template-columns: 25rem 1fr 25rem;
+        grid-template-areas:
+          "header body sidebar"
+          "navigation body sidebar";
+      }
+    }
+  }
+
+  & .app-layout__grid {
+    @media (--from-tablet) {
+      grid-template-columns: min(50%, 25rem) 1fr;
+      grid-template-areas:
+        "header body"
+        "navigation body";
+    }
+
+    @media (--from-desktop) {
+      grid-template-columns: 25rem 1fr;
+      grid-template-areas:
+        "header body"
+        "navigation body";
+    }
+  }
+
+  @media (--from-tablet) and (--to-large-desktop) {
+    & .app-layout__sidebar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(40%, 25rem);
+      border-left: var(--s-border-width-default) solid var(--s-border-default);
+      box-shadow: 0.125rem 0.25rem 1rem rgba(0, 0, 0, 0.14);
+    }
+  }
+}
+
+.app-layout--mobile-view-navigation {
+  @media (--to-tablet) {
+    & .app-layout__grid {
+      grid-template-areas:
+        "header"
+        "navigation";
+    }
+
+    & .app-layout__body,
+    & .app-layout__sidebar {
+      display: none;
+    }
+  }
+}
+
+.app-layout--mobile-view-body {
+  @media (--to-tablet) {
+    & .app-layout__grid {
+      grid-template-areas:
+        "body"
+        "body";
+    }
+
+    & .app-layout__header,
+    & .app-layout__navigation,
+    & .app-layout__sidebar {
+      display: none;
+    }
+  }
+}
+
+.app-layout--mobile-view-sidebar {
+  @media (--to-tablet) {
+    & .app-layout__grid {
+      grid-template-areas:
+        "sidebar"
+        "sidebar";
+    }
+
+    & .app-layout__header,
+    & .app-layout__navigation,
+    & .app-layout__body {
+      display: none;
+    }
+  }
+}
+
+.app-layout--has-sidebar:not(.app-layout--sidebar-active) {
+  & .app-layout__sidebar {
+    display: none;
+  }
+}
+
+.app-layout__header {
+  display: flex;
+  padding: var(--s-space-12) var(--s-space-16);
+  align-items: center;
+  background-color: var(--s-background-default);
+  grid-area: header;
+}
+
+.app-layout__cta {
+  display: none;
+
+  @media (--from-tablet) {
+    display: inherit;
+  }
+}
+
+.app-layout__floating-cta {
+  position: absolute;
+  right: var(--s-space-16);
+  bottom: var(--s-space-16);
+
+  @media (--from-tablet) {
+    display: none;
+  }
+}
+
+.app-layout__navigation {
+  overflow-y: auto;
+  background-color: var(--s-background-default);
+  grid-area: navigation;
+}
+
+.app-layout__body {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: var(--s-border-width-default);
+  grid-area: body;
+  grid-template-rows: 4rem 1fr;
+  grid-template-areas:
+    "app-bar"
+    "content";
+}
+
+.app-layout__app-bar {
+  display: flex;
+  min-width: 0;
+  padding: var(--s-space-12) var(--s-space-16);
+  align-items: center;
+  background-color: var(--s-background-default);
+  grid-area: app-bar;
+  gap: var(--s-space-8);
+}
+
+.app-layout__back-to-navigation-button {
+  @media (--from-tablet) {
+    display: none;
+  }
+}
+
+.app-layout__app-bar-media {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.app-layout__app-bar-heading {
+  min-width: 0;
+  flex-grow: 1;
+
+  & ::part(heading) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.app-layout__app-bar-subheading {
+  display: block;
+  overflow: hidden;
+  max-width: 100%;
+  color: var(--s-text-subdued);
+  font-size: var(--s-font-size-sm);
+  line-height: var(--s-line-height-sm);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.app-layout__content {
+  overflow: auto;
+  background-color: var(--s-background-default);
+  grid-area: content;
+}
+
+.app-layout__sidebar {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: var(--s-border-width-default);
+  grid-area: sidebar;
+  grid-template-rows: 4rem 1fr;
+  grid-template-areas:
+    "sidebar-header"
+    "sidebar-content";
+}
+
+.app-layout__sidebar-header {
+  display: flex;
+  padding: var(--s-space-12) var(--s-space-16);
+  align-items: center;
+  background-color: var(--s-background-default);
+  grid-area: sidebar-header;
+  gap: var(--s-space-8);
+}
+
+.app-layout__sidebar-content {
+  overflow-y: auto;
+  background-color: var(--s-background-default);
+  grid-area: sidebar-content;
+}

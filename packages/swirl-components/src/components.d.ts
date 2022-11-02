@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipActionListItemIntent, FlipActionListItemSize } from "./components/flip-action-list-item/flip-action-list-item";
+import { FlipAppLayoutMobileView } from "./components/flip-app-layout/flip-app-layout";
 import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
@@ -52,6 +53,20 @@ export namespace Components {
     }
     interface FlipActionListSection {
         "label": string;
+    }
+    interface FlipAppLayout {
+        "appBarMedia"?: string;
+        "appName": string;
+        "backToNavigationViewButtonLabel"?: string;
+        "ctaIcon"?: string;
+        "ctaLabel"?: string;
+        "heading": string;
+        "mobileView": FlipAppLayoutMobileView;
+        "navigationLabel"?: string;
+        "sidebarActive"?: boolean;
+        "sidebarCloseButtonLabel"?: string;
+        "sidebarHeading"?: string;
+        "subheading"?: string;
     }
     interface FlipAvatar {
         "badge"?: string;
@@ -774,6 +789,10 @@ export namespace Components {
     interface FlipVisuallyHidden {
     }
 }
+export interface FlipAppLayoutCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipAppLayoutElement;
+}
 export interface FlipBannerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipBannerElement;
@@ -868,6 +887,12 @@ declare global {
     var HTMLFlipActionListSectionElement: {
         prototype: HTMLFlipActionListSectionElement;
         new (): HTMLFlipActionListSectionElement;
+    };
+    interface HTMLFlipAppLayoutElement extends Components.FlipAppLayout, HTMLStencilElement {
+    }
+    var HTMLFlipAppLayoutElement: {
+        prototype: HTMLFlipAppLayoutElement;
+        new (): HTMLFlipAppLayoutElement;
     };
     interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
     }
@@ -1671,6 +1696,7 @@ declare global {
         "flip-action-list": HTMLFlipActionListElement;
         "flip-action-list-item": HTMLFlipActionListItemElement;
         "flip-action-list-section": HTMLFlipActionListSectionElement;
+        "flip-app-layout": HTMLFlipAppLayoutElement;
         "flip-avatar": HTMLFlipAvatarElement;
         "flip-avatar-group": HTMLFlipAvatarGroupElement;
         "flip-badge": HTMLFlipBadgeElement;
@@ -1820,6 +1846,23 @@ declare namespace LocalJSX {
     }
     interface FlipActionListSection {
         "label": string;
+    }
+    interface FlipAppLayout {
+        "appBarMedia"?: string;
+        "appName": string;
+        "backToNavigationViewButtonLabel"?: string;
+        "ctaIcon"?: string;
+        "ctaLabel"?: string;
+        "heading": string;
+        "mobileView"?: FlipAppLayoutMobileView;
+        "navigationLabel"?: string;
+        "onBackToNavigationView"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
+        "onCtaClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
+        "onSidebarCloseButtonClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
+        "sidebarActive"?: boolean;
+        "sidebarCloseButtonLabel"?: string;
+        "sidebarHeading"?: string;
+        "subheading"?: string;
     }
     interface FlipAvatar {
         "badge"?: string;
@@ -2473,6 +2516,7 @@ declare namespace LocalJSX {
         "flip-action-list": FlipActionList;
         "flip-action-list-item": FlipActionListItem;
         "flip-action-list-section": FlipActionListSection;
+        "flip-app-layout": FlipAppLayout;
         "flip-avatar": FlipAvatar;
         "flip-avatar-group": FlipAvatarGroup;
         "flip-badge": FlipBadge;
@@ -2615,6 +2659,7 @@ declare module "@stencil/core" {
             "flip-action-list": LocalJSX.FlipActionList & JSXBase.HTMLAttributes<HTMLFlipActionListElement>;
             "flip-action-list-item": LocalJSX.FlipActionListItem & JSXBase.HTMLAttributes<HTMLFlipActionListItemElement>;
             "flip-action-list-section": LocalJSX.FlipActionListSection & JSXBase.HTMLAttributes<HTMLFlipActionListSectionElement>;
+            "flip-app-layout": LocalJSX.FlipAppLayout & JSXBase.HTMLAttributes<HTMLFlipAppLayoutElement>;
             "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
             "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
