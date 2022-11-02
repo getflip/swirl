@@ -23,13 +23,13 @@ export class FlipAppLayout {
 
   @Prop() appBarMedia?: string;
   @Prop() appName!: string;
-  @Prop() backToNavigationViewButtonLabel?: string;
+  @Prop() backToNavigationViewButtonLabel?: string = "Back to navigation";
   @Prop() ctaIcon?: string;
   @Prop() ctaLabel?: string;
   @Prop() heading!: string;
   @Prop({ mutable: true }) mobileView: FlipAppLayoutMobileView = "navigation";
   @Prop() navigationLabel?: string;
-  @Prop() sidebarCloseButtonLabel?: string;
+  @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
   @Prop() sidebarHeading?: string;
   @Prop({ mutable: true }) sidebarActive?: boolean;
   @Prop() subheading?: string;
@@ -120,12 +120,7 @@ export class FlipAppLayout {
 
     return (
       <Host>
-        <section
-          aria-labelledby="app-name"
-          class={className}
-          role="document"
-          tabIndex={0}
-        >
+        <section class={className} role="document" tabIndex={0}>
           <div class="app-layout__grid">
             <header class="app-layout__header">
               <flip-heading
@@ -134,15 +129,17 @@ export class FlipAppLayout {
                 level={2}
                 text={this.appName}
               ></flip-heading>
-              <flip-button
-                class="app-layout__cta"
-                hideLabel={Boolean(this.ctaIcon)}
-                icon={this.ctaIcon}
-                intent="primary"
-                label={this.ctaLabel}
-                onClick={this.onCtaClick}
-                variant="flat"
-              ></flip-button>
+              {this.ctaLabel && (
+                <flip-button
+                  class="app-layout__cta"
+                  hideLabel={Boolean(this.ctaIcon)}
+                  icon={this.ctaIcon}
+                  intent="primary"
+                  label={this.ctaLabel}
+                  onClick={this.onCtaClick}
+                  variant="flat"
+                ></flip-button>
+              )}
             </header>
             <nav
               aria-label={this.navigationLabel}
@@ -150,7 +147,7 @@ export class FlipAppLayout {
             >
               <slot name="navigation"></slot>
             </nav>
-            <section aria-labelledby="heading" class="app-layout__body">
+            <section class="app-layout__body">
               <header class="app-layout__app-bar">
                 {showBackToNavigationButton && (
                   <span class="app-layout__back-to-navigation-button">
@@ -190,10 +187,7 @@ export class FlipAppLayout {
                 <slot name="content"></slot>
               </div>
             </section>
-            <aside
-              aria-labelledby="sidebar-heading"
-              class="app-layout__sidebar"
-            >
+            <aside class="app-layout__sidebar">
               <header class="app-layout__sidebar-header">
                 <flip-button
                   class="app-layout__sidebar-close-button"
