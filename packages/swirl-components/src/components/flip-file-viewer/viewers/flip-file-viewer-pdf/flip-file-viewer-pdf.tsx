@@ -37,7 +37,7 @@ export class FlipFileViewerPdf {
 
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
-  @Prop() singlePageMode: boolean = navigator?.platform === "iPhone";
+  @Prop() singlePageMode: boolean;
   @Prop() zoom?: FlipFileViewerPdfZoom = 1;
 
   @State() doc: PDFDocumentProxy;
