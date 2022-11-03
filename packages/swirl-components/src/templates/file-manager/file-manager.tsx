@@ -132,13 +132,20 @@ export class FileManager {
               type={this.selectedFile.type}
             ></flip-file-viewer>
           ) : (
-            <flip-empty-state
-              heading="Nothing to see here."
-              illustration="/images/empty-state-1.svg"
+            <flip-box
+              cover
+              centerBlock
+              centerInline
+              padding="16"
               slot="content"
             >
-              Please select a file from the list.
-            </flip-empty-state>
+              <flip-empty-state
+                heading="Nothing to see here."
+                illustration="/images/empty-state-1.svg"
+              >
+                Please select a file from the list.
+              </flip-empty-state>
+            </flip-box>
           )}
 
           {/* App bar controls */}
@@ -155,7 +162,11 @@ export class FileManager {
           </div>
 
           {/* Sidebar */}
-          <div slot="sidebar">Sidebar</div>
+          <flip-box padding="16" slot="sidebar">
+            <flip-text color="subdued" weight="medium">
+              File info goes here …
+            </flip-text>
+          </flip-box>
         </flip-app-layout>
 
         <flip-popover
