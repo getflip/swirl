@@ -376,6 +376,8 @@
 }
 
 .app-layout__back-to-navigation-button {
+  margin-left: calc(-1 * var(--s-space-4));
+
   @media (--from-tablet) {
     display: none;
   }
