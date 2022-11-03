@@ -329,23 +329,15 @@
   margin-left: calc(-1 * var(--s-space-4));
 }
 
-.app-layout__cta {
-  display: none;
-
-  @media (--from-tablet) {
-    display: inherit;
-  }
-}
-
 .app-layout__floating-cta {
   position: absolute;
   z-index: 4;
   right: var(--s-space-16);
   bottom: var(--s-space-16);
+}
 
-  @media (--from-tablet) {
-    display: none;
-  }
+.app-layout__navigation-controls {
+  fles-shrink: 0;
 }
 
 .app-layout__navigation {

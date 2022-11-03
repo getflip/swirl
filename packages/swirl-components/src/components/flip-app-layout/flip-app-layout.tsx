@@ -254,18 +254,9 @@ export class FlipAppLayout {
                 level={2}
                 text={this.appName}
               ></flip-heading>
-              {this.ctaLabel && (
-                <span class="app-layout__cta">
-                  <flip-button
-                    hideLabel={Boolean(this.ctaIcon)}
-                    icon={this.ctaIcon}
-                    intent="primary"
-                    label={this.ctaLabel}
-                    onClick={this.onCtaClick}
-                    variant="flat"
-                  ></flip-button>
-                </span>
-              )}
+              <span class="app-layout__navigation-controls">
+                <slot name="navigation-controls"></slot>
+              </span>
             </header>
             <nav
               aria-label={this.navigationLabel}

@@ -22,6 +22,9 @@ describe("flip-app-layout", () => {
             <div class="app-layout__grid">
               <header class="app-layout__header">
                 <flip-heading as="h1" headingid="app-name" level="2"></flip-heading>
+                <span class="app-layout__navigation-controls">
+                  <slot name="navigation-controls"></slot>
+                </span>
               </header>
               <nav class="app-layout__navigation">
                 <slot name="navigation"></slot>

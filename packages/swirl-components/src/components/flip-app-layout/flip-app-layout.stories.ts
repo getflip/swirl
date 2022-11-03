@@ -43,6 +43,12 @@ const Template = (args) => {
       <flip-resource-list-item description="With a description" label="This is a resource item" class="item" media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></flip-avatar>"></flip-resource-list-item>
       <flip-resource-list-item description="With a description" label="This is a resource item" class="item" media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/1027/144/144&quot;></flip-avatar>"></flip-resource-list-item>
     </flip-resource-list>
+    <flip-button
+      hide-label
+      icon="<flip-icon-settings></flip-icon-settings>"
+      label="Settings"
+      slot="navigation-controls"
+    ></flip-button>
     <div slot="app-bar-controls">
       <flip-button hide-label class="info-button" icon="<flip-icon-info></flip-icon-info>" label="More information"></flip-button>
     </div>
