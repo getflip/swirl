@@ -100,7 +100,9 @@ export class FileManager {
       <Host>
         <flip-app-layout
           appName="Documents"
-          backToNavigationViewButtonLabel="back to documents list"
+          backToNavigationViewButtonLabel="Back to documents list"
+          ctaIcon="<flip-icon-add></flip-icon-add>"
+          ctaLabel="Upload file"
           heading={this.selectedFile?.name}
           navigationLabel="Documents"
           onNavigationBackButtonClick={this.resetSelectedDirectory}
@@ -114,6 +116,13 @@ export class FileManager {
           <flip-resource-list label="Documents" slot="navigation">
             {this.renderNavigation()}
           </flip-resource-list>
+
+          {/* Navigation controls */}
+          <flip-button
+            id="sort-button"
+            label="Sort items"
+            slot="navigation-controls"
+          ></flip-button>
 
           {/* Content */}
           {Boolean(this.selectedFile) ? (
@@ -148,6 +157,30 @@ export class FileManager {
           {/* Sidebar */}
           <div slot="sidebar">Sidebar</div>
         </flip-app-layout>
+
+        <flip-popover
+          label="Sort items"
+          popoverId="sort-menu"
+          trigger="sort-button"
+        >
+          <flip-option-list value={["ascending"]}>
+            <flip-option-list-item
+              icon="<flip-icon-expand-less></flip-icon-expand-less>"
+              label="Ascending"
+              value="ascending"
+            ></flip-option-list-item>
+            <flip-option-list-item
+              icon="<flip-icon-expand-more></flip-icon-expand-more>"
+              label="Descending"
+              value="descending"
+            ></flip-option-list-item>
+            <flip-option-list-item
+              icon="<flip-icon-time-outlined></flip-icon-time-outlined>"
+              label="By date"
+              value="date"
+            ></flip-option-list-item>
+          </flip-option-list>
+        </flip-popover>
       </Host>
     );
   }
