@@ -85,6 +85,8 @@ export class FlipAppLayout {
     }
 
     this.sidebarActive = true;
+    this.changeMobileView("sidebar");
+
     this.sidebarToggle.emit(true);
   }
 
@@ -101,6 +103,22 @@ export class FlipAppLayout {
     this.changeMobileView("body");
 
     this.sidebarToggle.emit(false);
+  }
+
+  /**
+   * Toggle the sidebar
+   */
+  @Method()
+  async toggleSidebar() {
+    if (!this.hasSidebar) {
+      return;
+    }
+
+    if (this.sidebarActive) {
+      this.hideSidebar();
+    } else {
+      this.showSidebar();
+    }
   }
 
   /**
@@ -264,7 +282,7 @@ export class FlipAppLayout {
                   {showBackToNavigationButton && (
                     <span class="app-layout__back-to-navigation-button">
                       <flip-button
-                        hideLabel={Boolean(this.ctaIcon)}
+                        hideLabel
                         icon="<flip-icon-arrow-back></flip-icon-arrow-back>"
                         intent="primary"
                         label={this.backToNavigationViewButtonLabel}
@@ -279,12 +297,14 @@ export class FlipAppLayout {
                     ></div>
                   )}
                   <div class="app-layout__app-bar-heading">
-                    <flip-heading
-                      as="h2"
-                      headingId="heading"
-                      level={4}
-                      text={this.heading}
-                    ></flip-heading>
+                    {this.heading && (
+                      <flip-heading
+                        as="h2"
+                        headingId="heading"
+                        level={4}
+                        text={this.heading}
+                      ></flip-heading>
+                    )}
                     {this.subheading && (
                       <span class="app-layout__app-bar-subheading">
                         {this.subheading}
@@ -325,7 +345,7 @@ export class FlipAppLayout {
               <header class="app-layout__sidebar-header">
                 <flip-button
                   class="app-layout__sidebar-close-button"
-                  hideLabel={Boolean(this.ctaIcon)}
+                  hideLabel
                   icon="<flip-icon-close></flip-icon-close>"
                   intent="primary"
                   label={this.sidebarCloseButtonLabel}
@@ -342,16 +362,18 @@ export class FlipAppLayout {
                 <slot name="sidebar"></slot>
               </div>
             </aside>
-            <span class="app-layout__floating-cta">
-              <flip-button
-                hideLabel={Boolean(this.ctaIcon)}
-                icon={this.ctaIcon}
-                intent="primary"
-                label={this.ctaLabel}
-                onClick={this.onCtaClick}
-                variant="floating"
-              ></flip-button>
-            </span>
+            {this.ctaLabel && (
+              <span class="app-layout__floating-cta">
+                <flip-button
+                  hideLabel={Boolean(this.ctaIcon)}
+                  icon={this.ctaIcon}
+                  intent="primary"
+                  label={this.ctaLabel}
+                  onClick={this.onCtaClick}
+                  variant="floating"
+                ></flip-button>
+              </span>
+            )}
           </div>
         </section>
       </Host>

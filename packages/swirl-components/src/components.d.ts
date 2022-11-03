@@ -40,6 +40,8 @@ import { FlipToastIntent } from "./components/flip-toast/flip-toast";
 import { FlipToastConfig, FlipToastMessage } from "./components/flip-toast-provider/flip-toast-provider";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
+    interface FileManager {
+    }
     interface FlipActionList {
     }
     interface FlipActionListItem {
@@ -80,6 +82,10 @@ export namespace Components {
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
         "subheading"?: string;
+        /**
+          * Toggle the sidebar
+         */
+        "toggleSidebar": () => Promise<void>;
     }
     interface FlipAvatar {
         "badge"?: string;
@@ -883,6 +889,12 @@ export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
     target: HTMLFlipToastElement;
 }
 declare global {
+    interface HTMLFileManagerElement extends Components.FileManager, HTMLStencilElement {
+    }
+    var HTMLFileManagerElement: {
+        prototype: HTMLFileManagerElement;
+        new (): HTMLFileManagerElement;
+    };
     interface HTMLFlipActionListElement extends Components.FlipActionList, HTMLStencilElement {
     }
     var HTMLFlipActionListElement: {
@@ -1706,6 +1718,7 @@ declare global {
         new (): HTMLFlipVisuallyHiddenElement;
     };
     interface HTMLElementTagNameMap {
+        "file-manager": HTMLFileManagerElement;
         "flip-action-list": HTMLFlipActionListElement;
         "flip-action-list-item": HTMLFlipActionListItemElement;
         "flip-action-list-section": HTMLFlipActionListSectionElement;
@@ -1846,6 +1859,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FileManager {
+    }
     interface FlipActionList {
     }
     interface FlipActionListItem {
@@ -2527,6 +2542,7 @@ declare namespace LocalJSX {
     interface FlipVisuallyHidden {
     }
     interface IntrinsicElements {
+        "file-manager": FileManager;
         "flip-action-list": FlipActionList;
         "flip-action-list-item": FlipActionListItem;
         "flip-action-list-section": FlipActionListSection;
@@ -2670,6 +2686,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "file-manager": LocalJSX.FileManager & JSXBase.HTMLAttributes<HTMLFileManagerElement>;
             "flip-action-list": LocalJSX.FlipActionList & JSXBase.HTMLAttributes<HTMLFlipActionListElement>;
             "flip-action-list-item": LocalJSX.FlipActionListItem & JSXBase.HTMLAttributes<HTMLFlipActionListItemElement>;
             "flip-action-list-section": LocalJSX.FlipActionListSection & JSXBase.HTMLAttributes<HTMLFlipActionListSectionElement>;
