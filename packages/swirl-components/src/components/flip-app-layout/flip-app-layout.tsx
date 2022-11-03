@@ -204,7 +204,12 @@ export class FlipAppLayout {
 
     return (
       <Host>
-        <section class={className} role="document" tabIndex={0}>
+        <section
+          aria-labelledby="app-name"
+          class={className}
+          role="document"
+          tabIndex={0}
+        >
           <div class="app-layout__grid">
             <header class="app-layout__header">
               <flip-heading
@@ -232,7 +237,10 @@ export class FlipAppLayout {
             >
               <slot name="navigation"></slot>
             </nav>
-            <section class="app-layout__body">
+            <section
+              aria-labelledby={this.hasNavigation ? "heading" : "app-name"}
+              class="app-layout__body"
+            >
               {this.hasNavigation ? (
                 <header class="app-layout__app-bar">
                   {showBackToNavigationButton && (

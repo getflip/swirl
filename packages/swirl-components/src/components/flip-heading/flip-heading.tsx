@@ -17,7 +17,8 @@ export type FlipHeadingTag =
   | "div";
 
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "flip-heading.css",
   tag: "flip-heading",
 })
