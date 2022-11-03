@@ -18,7 +18,7 @@ describe("flip-app-layout", () => {
     expect(page.root).toEqualHtml(`
       <flip-app-layout>
         <mock:shadow-root>
-          <section class="app-layout app-layout--mobile-view-body app-layout--transitioning-from-undefined app-layout--transitioning-to-undefined" role="document" tabindex="0">
+          <section aria-labelledby="app-name" class="app-layout app-layout--mobile-view-body app-layout--transitioning-from-undefined app-layout--transitioning-to-undefined" role="document" tabindex="0">
             <div class="app-layout__grid">
               <header class="app-layout__header">
                 <flip-heading as="h1" headingid="app-name" level="2"></flip-heading>
@@ -26,7 +26,7 @@ describe("flip-app-layout", () => {
               <nav class="app-layout__navigation">
                 <slot name="navigation"></slot>
               </nav>
-              <section class="app-layout__body">
+              <section aria-labelledby="app-name" class="app-layout__body">
                 <header class="app-layout__app-bar">
                   <flip-heading as="h1" headingid="app-name" level="2"></flip-heading>
                 </header>
