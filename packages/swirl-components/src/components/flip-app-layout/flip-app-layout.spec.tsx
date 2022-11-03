@@ -36,16 +36,13 @@ describe("flip-app-layout", () => {
               </section>
               <aside class="app-layout__sidebar">
                 <header class="app-layout__sidebar-header">
-                  <flip-button class="app-layout__sidebar-close-button" icon="<flip-icon-close></flip-icon-close>" intent="primary" label="Close sidebar"></flip-button>
+                  <flip-button class="app-layout__sidebar-close-button" hidelabel="" icon="<flip-icon-close></flip-icon-close>" intent="primary" label="Close sidebar"></flip-button>
                   <flip-heading as="h3" headingid="sidebar-heading" level="2"></flip-heading>
                 </header>
                 <div class="app-layout__sidebar-content">
                   <slot name="sidebar"></slot>
                 </div>
               </aside>
-              <span class="app-layout__floating-cta">
-                <flip-button intent="primary" variant="floating"></flip-button>
-              </span>
             </div>
           </section>
         </mock:shadow-root>
