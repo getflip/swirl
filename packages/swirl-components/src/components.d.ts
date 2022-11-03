@@ -87,6 +87,7 @@ export namespace Components {
           * Toggle the sidebar
          */
         "toggleSidebar": () => Promise<void>;
+        "transitionStyle"?: string;
     }
     interface FlipAvatar {
         "badge"?: string;
@@ -1908,6 +1909,7 @@ declare namespace LocalJSX {
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
         "subheading"?: string;
+        "transitionStyle"?: string;
     }
     interface FlipAvatar {
         "badge"?: string;

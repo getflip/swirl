@@ -137,6 +137,10 @@
         {
           "name": "subheading",
           "description": ""
+        },
+        {
+          "name": "transition-style",
+          "description": ""
         }
       ]
     },

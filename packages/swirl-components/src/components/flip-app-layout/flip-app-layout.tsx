@@ -15,6 +15,8 @@ import { isMobileViewport } from "../../utils";
 
 export type FlipAppLayoutMobileView = "navigation" | "body" | "sidebar";
 
+export type FlipAppLayoutTransitionStyle = "none" | "slides" | "dialog";
+
 @Component({
   shadow: true,
   styleUrl: "flip-app-layout.css",
@@ -35,6 +37,7 @@ export class FlipAppLayout {
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
   @Prop() sidebarHeading?: string;
   @Prop() subheading?: string;
+  @Prop() transitionStyle?: string = "slides";
 
   @State() hasNavigation: boolean;
   @State() hasSidebar: boolean;
@@ -153,13 +156,20 @@ export class FlipAppLayout {
     this.transitioningFrom = this.mobileView;
     this.transitioningTo = mobileView;
 
+    const delay =
+      this.transitionStyle === "slides"
+        ? 400
+        : this.transitionStyle === "dialog"
+        ? 300
+        : 0;
+
     this.transitionTimeout = setTimeout(() => {
       this.mobileView = mobileView;
       this.transitioningFrom = undefined;
       this.transitioningTo = undefined;
 
       this.mobileViewChange.emit(this.mobileView);
-    }, 400);
+    }, delay);
   }
 
   private checkMobileView() {
@@ -219,6 +229,7 @@ export class FlipAppLayout {
       `app-layout--mobile-view-${this.mobileView}`,
       `app-layout--transitioning-from-${this.transitioningFrom}`,
       `app-layout--transitioning-to-${this.transitioningTo}`,
+      `app-layout--transition-style-${this.transitionStyle}`,
       {
         "app-layout--has-navigation": this.hasNavigation,
         "app-layout--has-sidebar": this.hasSidebar,
@@ -276,7 +287,11 @@ export class FlipAppLayout {
                     <span class="app-layout__back-to-navigation-button">
                       <flip-button
                         hideLabel
-                        icon="<flip-icon-arrow-back></flip-icon-arrow-back>"
+                        icon={
+                          this.transitionStyle === "dialog"
+                            ? "<flip-icon-close></flip-icon-close>"
+                            : "<flip-icon-arrow-back></flip-icon-arrow-back>"
+                        }
                         intent="primary"
                         label={this.backToNavigationViewButtonLabel}
                         onClick={this.onBackToNavigationViewButtonClick}

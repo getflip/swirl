@@ -19,6 +19,10 @@ export default {
       description:
         "Displayed above the content area, if the navigation area is present. Otherwise replaced by the app name.",
     },
+    transitionStyle: {
+      control: "select",
+      options: ["none", "slides", "dialog"],
+    },
   },
   component: "flip-app-layout",
   decorators: [fullscreenStoryDecorator],
