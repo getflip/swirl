@@ -22,9 +22,6 @@ describe("flip-app-layout", () => {
             <div class="app-layout__grid">
               <header class="app-layout__header">
                 <flip-heading as="h1" headingid="app-name" level="2"></flip-heading>
-                <span class="app-layout__navigation-controls">
-                  <slot name="navigation-controls"></slot>
-                </span>
               </header>
               <nav class="app-layout__navigation">
                 <slot name="navigation"></slot>
@@ -32,6 +29,9 @@ describe("flip-app-layout", () => {
               <section aria-labelledby="app-name" class="app-layout__body">
                 <header class="app-layout__app-bar">
                   <flip-heading as="h1" headingid="app-name" level="2"></flip-heading>
+                  <span class="app-layout__navigation-controls">
+                    <slot name="navigation-controls"></slot>
+                  </span>
                 </header>
                 <div class="app-layout__content">
                   <slot name="content"></slot>
