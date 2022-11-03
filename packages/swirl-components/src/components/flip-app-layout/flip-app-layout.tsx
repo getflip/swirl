@@ -208,7 +208,6 @@ export class FlipAppLayout {
 
   private onCtaClick = (event: MouseEvent) => {
     this.ctaClick.emit(event);
-    this.mobileView = "navigation";
   };
 
   private onNavigationBackButtonClick = (event: MouseEvent) => {
