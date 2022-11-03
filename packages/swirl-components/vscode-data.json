@@ -307,6 +307,68 @@
       ]
     },
     {
+      "name": "flip-box",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "as",
+          "description": ""
+        },
+        {
+          "name": "bordered",
+          "description": ""
+        },
+        {
+          "name": "center-block",
+          "description": ""
+        },
+        {
+          "name": "center-inline",
+          "description": ""
+        },
+        {
+          "name": "cover",
+          "description": ""
+        },
+        {
+          "name": "padding",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "20"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "flip-button",
       "description": {
         "kind": "markdown",
