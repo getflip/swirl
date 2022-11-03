@@ -113,6 +113,7 @@ export class FileManager {
           sidebarHeading="File info"
           showNavigationBackButton={Boolean(this.selectedDirectory)}
           subheading={this.selectedFile?.description}
+          transitionStyle="dialog"
         >
           {/* Navigation */}
           <flip-resource-list label="Documents" slot="navigation">
