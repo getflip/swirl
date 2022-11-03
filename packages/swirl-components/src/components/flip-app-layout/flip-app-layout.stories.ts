@@ -2,6 +2,24 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./flip-app-layout.mdx";
 
 export default {
+  argTypes: {
+    appBarMedia: {
+      description:
+        "Displayed above the content area, if the navigation area is present. Otherwise replaced by the app name.",
+    },
+    appName: {
+      description:
+        "Displayed above the navigation area, if present. Otherwise displayed above the content area.",
+    },
+    heading: {
+      description:
+        "Displayed above the content area, if the navigation area is present. Otherwise replaced by the app name.",
+    },
+    subheading: {
+      description:
+        "Displayed above the content area, if the navigation area is present. Otherwise replaced by the app name.",
+    },
+  },
   component: "flip-app-layout",
   decorators: [
     (story) => {

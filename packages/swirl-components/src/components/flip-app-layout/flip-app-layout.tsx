@@ -28,7 +28,7 @@ export class FlipAppLayout {
   @Prop() backToNavigationViewButtonLabel?: string = "Back to navigation";
   @Prop() ctaIcon?: string;
   @Prop() ctaLabel?: string;
-  @Prop() heading!: string;
+  @Prop() heading?: string;
   @Prop() navigationLabel?: string;
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
   @Prop() sidebarHeading?: string;
@@ -233,41 +233,64 @@ export class FlipAppLayout {
               <slot name="navigation"></slot>
             </nav>
             <section class="app-layout__body">
-              <header class="app-layout__app-bar">
-                {showBackToNavigationButton && (
-                  <span class="app-layout__back-to-navigation-button">
-                    <flip-button
-                      hideLabel={Boolean(this.ctaIcon)}
-                      icon="<flip-icon-arrow-back></flip-icon-arrow-back>"
-                      intent="primary"
-                      label={this.backToNavigationViewButtonLabel}
-                      onClick={this.onBackToNavigationViewButtonClick}
-                    ></flip-button>
-                  </span>
-                )}
-                {this.appBarMedia && (
-                  <div
-                    class="app-layout__app-bar-media"
-                    innerHTML={this.appBarMedia}
-                  ></div>
-                )}
-                <div class="app-layout__app-bar-heading">
-                  <flip-heading
-                    as="h2"
-                    headingId="heading"
-                    level={4}
-                    text={this.heading}
-                  ></flip-heading>
-                  {this.subheading && (
-                    <span class="app-layout__app-bar-subheading">
-                      {this.subheading}
+              {this.hasNavigation ? (
+                <header class="app-layout__app-bar">
+                  {showBackToNavigationButton && (
+                    <span class="app-layout__back-to-navigation-button">
+                      <flip-button
+                        hideLabel={Boolean(this.ctaIcon)}
+                        icon="<flip-icon-arrow-back></flip-icon-arrow-back>"
+                        intent="primary"
+                        label={this.backToNavigationViewButtonLabel}
+                        onClick={this.onBackToNavigationViewButtonClick}
+                      ></flip-button>
                     </span>
                   )}
-                </div>
-                <div class="app-layout__app-bar-controls">
-                  <slot name="app-bar-controls"></slot>
-                </div>
-              </header>
+                  {this.appBarMedia && (
+                    <div
+                      class="app-layout__app-bar-media"
+                      innerHTML={this.appBarMedia}
+                    ></div>
+                  )}
+                  <div class="app-layout__app-bar-heading">
+                    <flip-heading
+                      as="h2"
+                      headingId="heading"
+                      level={4}
+                      text={this.heading}
+                    ></flip-heading>
+                    {this.subheading && (
+                      <span class="app-layout__app-bar-subheading">
+                        {this.subheading}
+                      </span>
+                    )}
+                  </div>
+                  <div class="app-layout__app-bar-controls">
+                    <slot name="app-bar-controls"></slot>
+                  </div>
+                </header>
+              ) : (
+                <header class="app-layout__app-bar">
+                  <flip-heading
+                    as="h1"
+                    headingId="app-name"
+                    level={2}
+                    text={this.appName}
+                  ></flip-heading>
+                  {this.ctaLabel && (
+                    <span class="app-layout__cta">
+                      <flip-button
+                        hideLabel={Boolean(this.ctaIcon)}
+                        icon={this.ctaIcon}
+                        intent="primary"
+                        label={this.ctaLabel}
+                        onClick={this.onCtaClick}
+                        variant="flat"
+                      ></flip-button>
+                    </span>
+                  )}
+                </header>
+              )}
               <div class="app-layout__content">
                 <slot name="content"></slot>
               </div>

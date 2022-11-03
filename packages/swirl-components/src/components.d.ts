@@ -65,7 +65,7 @@ export namespace Components {
         "changeMobileView": (mobileView: FlipAppLayoutMobileView, transition?: boolean) => Promise<void>;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
-        "heading": string;
+        "heading"?: string;
         /**
           * Hide the sidebar
          */
@@ -1864,7 +1864,7 @@ declare namespace LocalJSX {
         "backToNavigationViewButtonLabel"?: string;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
-        "heading": string;
+        "heading"?: string;
         "navigationLabel"?: string;
         "onCtaClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
         "onMobileViewChange"?: (event: FlipAppLayoutCustomEvent<FlipAppLayoutMobileView>) => void;
