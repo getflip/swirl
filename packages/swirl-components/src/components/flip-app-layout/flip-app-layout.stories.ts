@@ -25,6 +25,7 @@ export default {
     (story) => {
       const container = document.createElement("div");
       const styles = document.createElement("style");
+      const script = document.createElement("script");
 
       container.classList.add("container");
       container.style.backgroundColor = "var(--s-surface-raised-default)";
@@ -38,7 +39,16 @@ export default {
         }
       `;
 
-      container.append(styles, story());
+      script.innerHTML = `
+        const updateContainerHeight = () => {
+          document.querySelector('.container').style.height = window.innerHeight+'px';
+        };
+
+        window.addEventListener('resize', updateContainerHeight);
+        updateContainerHeight();
+      `;
+
+      container.append(styles, story(), script);
 
       return container;
     },
