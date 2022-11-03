@@ -12,7 +12,7 @@ export default {
     },
     viewMode: "story",
   },
-  title: "Templates/FileManager",
+  title: "Prototypes/FileManager",
 };
 
 const Template = () => {

@@ -89,9 +89,11 @@ export class FileManager {
         ></flip-resource-list-item>
       ))
     ) : (
-      <flip-text align="center" color="subdued" weight="medium">
-        This directory is empty.
-      </flip-text>
+      <flip-box padding="16">
+        <flip-text color="subdued" weight="medium">
+          This directory is empty.
+        </flip-text>
+      </flip-box>
     );
   }
 
