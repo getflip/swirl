@@ -62,7 +62,7 @@ export namespace Components {
           * Change the currently displayed view on mobile viewports
           * @param mobileView
          */
-        "changeMobileView": (mobileView: FlipAppLayoutMobileView) => Promise<void>;
+        "changeMobileView": (mobileView: FlipAppLayoutMobileView, transition?: boolean) => Promise<void>;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
         "heading": string;
@@ -72,7 +72,7 @@ export namespace Components {
         "hideSidebar": () => Promise<void>;
         "navigationLabel"?: string;
         /**
-          * Shows the sidebar
+          * Show the sidebar
          */
         "showSidebar": () => Promise<void>;
         "sidebarCloseButtonLabel"?: string;

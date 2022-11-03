@@ -73,7 +73,7 @@ export class FlipAppLayout {
   }
 
   /**
-   * Shows the sidebar
+   * Show the sidebar
    */
   @Method()
   async showSidebar() {
@@ -105,7 +105,10 @@ export class FlipAppLayout {
    * @param mobileView
    */
   @Method()
-  async changeMobileView(mobileView: FlipAppLayoutMobileView) {
+  async changeMobileView(
+    mobileView: FlipAppLayoutMobileView,
+    transition: boolean = true
+  ) {
     if (
       this.mobileView === mobileView ||
       (mobileView === "navigation" && !this.hasNavigation) ||
@@ -116,7 +119,7 @@ export class FlipAppLayout {
 
     const mobile = isMobileViewport();
 
-    if (!mobile) {
+    if (!mobile || !transition) {
       this.mobileView = mobileView;
       this.mobileViewChange.emit(this.mobileView);
       return;
