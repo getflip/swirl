@@ -70,7 +70,9 @@ export namespace Components {
           * Hide the sidebar
          */
         "hideSidebar": () => Promise<void>;
+        "navigationBackButtonLabel"?: string;
         "navigationLabel"?: string;
+        "showNavigationBackButton"?: boolean;
         /**
           * Show the sidebar
          */
@@ -1865,10 +1867,13 @@ declare namespace LocalJSX {
         "ctaIcon"?: string;
         "ctaLabel"?: string;
         "heading"?: string;
+        "navigationBackButtonLabel"?: string;
         "navigationLabel"?: string;
         "onCtaClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
         "onMobileViewChange"?: (event: FlipAppLayoutCustomEvent<FlipAppLayoutMobileView>) => void;
+        "onNavigationBackButtonClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
         "onSidebarToggle"?: (event: FlipAppLayoutCustomEvent<boolean>) => void;
+        "showNavigationBackButton"?: boolean;
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
         "subheading"?: string;

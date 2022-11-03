@@ -29,7 +29,9 @@ export class FlipAppLayout {
   @Prop() ctaIcon?: string;
   @Prop() ctaLabel?: string;
   @Prop() heading?: string;
+  @Prop() navigationBackButtonLabel?: string = "Go back";
   @Prop() navigationLabel?: string;
+  @Prop() showNavigationBackButton?: boolean;
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
   @Prop() sidebarHeading?: string;
   @Prop() subheading?: string;
@@ -43,6 +45,7 @@ export class FlipAppLayout {
 
   @Event() ctaClick: EventEmitter<MouseEvent>;
   @Event() mobileViewChange: EventEmitter<FlipAppLayoutMobileView>;
+  @Event() navigationBackButtonClick: EventEmitter<MouseEvent>;
   @Event() sidebarToggle: EventEmitter<boolean>;
 
   private mutationObserver: MutationObserver;
@@ -180,6 +183,10 @@ export class FlipAppLayout {
     this.mobileView = "navigation";
   };
 
+  private onNavigationBackButtonClick = (event: MouseEvent) => {
+    this.navigationBackButtonClick.emit(event);
+  };
+
   private onSidebarCloseButtonClick = () => {
     this.hideSidebar();
   };
@@ -212,6 +219,17 @@ export class FlipAppLayout {
         >
           <div class="app-layout__grid">
             <header class="app-layout__header">
+              {this.showNavigationBackButton && (
+                <span class="app-layout__navigation-back-button">
+                  <flip-button
+                    hideLabel
+                    icon="<flip-icon-arrow-back></flip-icon-arrow-back>"
+                    intent="primary"
+                    label={this.navigationBackButtonLabel}
+                    onClick={this.onNavigationBackButtonClick}
+                  ></flip-button>
+                </span>
+              )}
               <flip-heading
                 as="h1"
                 headingId="app-name"

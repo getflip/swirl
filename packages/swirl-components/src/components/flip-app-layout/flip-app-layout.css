@@ -322,6 +322,11 @@
   background-color: var(--s-background-default);
   grid-area: header;
   will-change: transform;
+  gap: var(--s-space-8);
+}
+
+.app-layout__navigation-back-button {
+  margin-left: calc(-1 * var(--s-space-4));
 }
 
 .app-layout__cta {

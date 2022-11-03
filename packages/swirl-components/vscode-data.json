@@ -107,7 +107,15 @@
           "description": ""
         },
         {
+          "name": "navigation-back-button-label",
+          "description": ""
+        },
+        {
           "name": "navigation-label",
+          "description": ""
+        },
+        {
+          "name": "show-navigation-back-button",
           "description": ""
         },
         {
