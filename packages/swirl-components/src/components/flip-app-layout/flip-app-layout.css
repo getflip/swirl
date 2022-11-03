@@ -198,12 +198,130 @@
   }
 }
 
+.app-layout--transitioning-to-body.app-layout--transitioning-from-navigation:not(.app-layout--mobile-view-body),
+.app-layout--transitioning-to-navigation.app-layout--transitioning-from-body:not(.app-layout--mobile-view-navigation) {
+  @media (--to-tablet) {
+    & .app-layout__grid {
+      grid-template-columns: 100%;
+      grid-template-areas:
+        "header"
+        "navigation";
+    }
+
+    & .app-layout__header,
+    & .app-layout__navigation {
+      animation: app-layout-slide-out 0.4s;
+    }
+
+    & .app-layout__body {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: grid;
+      width: 100%;
+      transform: translate3d(100%, 0, 0);
+      animation: app-layout-slide-in 0.4s;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 100%;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        content: "";
+        animation: app-layout-fade-in 0.4s;
+      }
+    }
+  }
+}
+
+.app-layout--transitioning-to-navigation.app-layout--transitioning-from-body:not(.app-layout--mobile-view-navigation) {
+  @media (--to-tablet) {
+    & .app-layout__header {
+      display: flex;
+      animation-direction: reverse;
+    }
+
+    & .app-layout__navigation {
+      display: block;
+      animation-direction: reverse;
+    }
+
+    & .app-layout__body {
+      animation-direction: reverse;
+
+      &:after {
+        animation-direction: reverse;
+      }
+    }
+  }
+}
+
+.app-layout--transitioning-to-sidebar.app-layout--transitioning-from-body:not(.app-layout--mobile-view-sidebar),
+.app-layout--transitioning-to-body.app-layout--transitioning-from-sidebar:not(.app-layout--mobile-view-body) {
+  @media (--to-desktop) {
+    & .app-layout__grid {
+      grid-template-columns: 100%;
+      grid-template-areas:
+        "body"
+        "body";
+    }
+
+    & .app-layout__body {
+      animation: app-layout-slide-out 0.4s;
+    }
+
+    & .app-layout__sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: grid;
+      border-left: var(--s-border-width-default) solid var(--s-border-default);
+      animation: app-layout-slide-in 0.4s;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 100%;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        content: "";
+        animation: app-layout-fade-in 0.4s;
+      }
+    }
+  }
+}
+
+.app-layout--transitioning-to-body.app-layout--transitioning-from-sidebar:not(.app-layout--mobile-view-body) {
+  @media (--to-desktop) {
+    & .app-layout__body {
+      display: grid;
+      animation-direction: reverse;
+    }
+
+    & .app-layout__sidebar {
+      display: grid;
+      animation-direction: reverse;
+
+      &:after {
+        animation-direction: reverse;
+      }
+    }
+  }
+}
+
 .app-layout__header {
+  z-index: 1;
   display: flex;
   padding: var(--s-space-12) var(--s-space-16);
   align-items: center;
   background-color: var(--s-background-default);
   grid-area: header;
+  will-change: transform;
 }
 
 .app-layout__cta {
@@ -216,6 +334,7 @@
 
 .app-layout__floating-cta {
   position: absolute;
+  z-index: 4;
   right: var(--s-space-16);
   bottom: var(--s-space-16);
 
@@ -225,12 +344,15 @@
 }
 
 .app-layout__navigation {
+  z-index: 1;
   overflow-y: auto;
   background-color: var(--s-background-default);
   grid-area: navigation;
+  will-change: transform;
 }
 
 .app-layout__body {
+  z-index: 2;
   display: grid;
   width: 100%;
   height: 100%;
@@ -240,6 +362,7 @@
   grid-template-areas:
     "app-bar"
     "content";
+  will-change: transform;
 }
 
 .app-layout__app-bar {
@@ -292,9 +415,11 @@
 }
 
 .app-layout__sidebar {
+  z-index: 3;
   display: grid;
   width: 100%;
   height: 100%;
+  will-change: transform;
   gap: var(--s-border-width-default);
   grid-area: sidebar;
   grid-template-rows: 4rem 1fr;
@@ -316,4 +441,31 @@
   overflow-y: auto;
   background-color: var(--s-background-default);
   grid-area: sidebar-content;
+}
+
+@keyframes app-layout-slide-in {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes app-layout-slide-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-20%, 0, 0);
+  }
+}
+
+@keyframes app-layout-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

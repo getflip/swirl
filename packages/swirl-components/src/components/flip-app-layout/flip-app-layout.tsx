@@ -5,11 +5,13 @@ import {
   EventEmitter,
   h,
   Host,
+  Method,
   Prop,
   State,
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
+import { isMobileViewport } from "../../utils";
 
 export type FlipAppLayoutMobileView = "navigation" | "body" | "sidebar";
 
@@ -27,21 +29,24 @@ export class FlipAppLayout {
   @Prop() ctaIcon?: string;
   @Prop() ctaLabel?: string;
   @Prop() heading!: string;
-  @Prop({ mutable: true }) mobileView: FlipAppLayoutMobileView = "navigation";
   @Prop() navigationLabel?: string;
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
   @Prop() sidebarHeading?: string;
-  @Prop({ mutable: true }) sidebarActive?: boolean;
   @Prop() subheading?: string;
 
   @State() hasNavigation: boolean;
   @State() hasSidebar: boolean;
+  @State() mobileView: FlipAppLayoutMobileView = "navigation";
+  @State() sidebarActive: boolean;
+  @State() transitioningFrom: string;
+  @State() transitioningTo: string;
 
-  @Event() backToNavigationView: EventEmitter<MouseEvent>;
   @Event() ctaClick: EventEmitter<MouseEvent>;
-  @Event() sidebarCloseButtonClick: EventEmitter<MouseEvent>;
+  @Event() mobileViewChange: EventEmitter<FlipAppLayoutMobileView>;
+  @Event() sidebarToggle: EventEmitter<boolean>;
 
   private mutationObserver: MutationObserver;
+  private transitionTimeout: NodeJS.Timeout;
 
   componentWillLoad() {
     this.mutationObserver = new MutationObserver(() => {
@@ -67,6 +72,72 @@ export class FlipAppLayout {
     this.checkMobileView();
   }
 
+  /**
+   * Shows the sidebar
+   */
+  @Method()
+  async showSidebar() {
+    if (this.sidebarActive || !this.hasSidebar) {
+      return;
+    }
+
+    this.sidebarActive = true;
+    this.sidebarToggle.emit(true);
+  }
+
+  /**
+   * Hide the sidebar
+   */
+  @Method()
+  async hideSidebar() {
+    if (!this.sidebarActive || !this.hasSidebar) {
+      return;
+    }
+
+    this.sidebarActive = false;
+    this.changeMobileView("body");
+
+    this.sidebarToggle.emit(false);
+  }
+
+  /**
+   * Change the currently displayed view on mobile viewports
+   * @param mobileView
+   */
+  @Method()
+  async changeMobileView(mobileView: FlipAppLayoutMobileView) {
+    if (
+      this.mobileView === mobileView ||
+      (mobileView === "navigation" && !this.hasNavigation) ||
+      (mobileView === "sidebar" && !this.hasSidebar)
+    ) {
+      return;
+    }
+
+    const mobile = isMobileViewport();
+
+    if (!mobile) {
+      this.mobileView = mobileView;
+      this.mobileViewChange.emit(this.mobileView);
+      return;
+    }
+
+    if (Boolean(this.transitionTimeout)) {
+      clearTimeout(this.transitionTimeout);
+    }
+
+    this.transitioningFrom = this.mobileView;
+    this.transitioningTo = mobileView;
+
+    this.transitionTimeout = setTimeout(() => {
+      this.mobileView = mobileView;
+      this.transitioningFrom = undefined;
+      this.transitioningTo = undefined;
+
+      this.mobileViewChange.emit(this.mobileView);
+    }, 400);
+  }
+
   private checkMobileView() {
     if (
       (this.mobileView === "navigation" && !this.hasNavigation) ||
@@ -76,7 +147,17 @@ export class FlipAppLayout {
       return;
     }
 
-    this.sidebarActive = this.mobileView === "sidebar" || this.sidebarActive;
+    const sidebarActive = this.mobileView === "sidebar" || this.sidebarActive;
+
+    if (sidebarActive === this.sidebarActive) {
+      return;
+    }
+
+    if (sidebarActive) {
+      this.showSidebar();
+    } else {
+      this.hideSidebar();
+    }
   }
 
   private updateNavigationStatus() {
@@ -87,9 +168,8 @@ export class FlipAppLayout {
     this.hasSidebar = Boolean(this.el.querySelector('[slot="sidebar"]'));
   }
 
-  private onBackToNavigationViewButtonClick = (event: MouseEvent) => {
-    this.backToNavigationView.emit(event);
-    this.mobileView = "navigation";
+  private onBackToNavigationViewButtonClick = () => {
+    this.changeMobileView("navigation");
   };
 
   private onCtaClick = (event: MouseEvent) => {
@@ -97,19 +177,20 @@ export class FlipAppLayout {
     this.mobileView = "navigation";
   };
 
-  private onSidebarCloseButtonClick = (event: MouseEvent) => {
-    this.sidebarCloseButtonClick.emit(event);
-    this.mobileView = "body";
-    this.sidebarActive = false;
+  private onSidebarCloseButtonClick = () => {
+    this.hideSidebar();
   };
 
   render() {
     const showBackToNavigationButton =
-      this.mobileView === "body" && this.hasNavigation;
+      (this.mobileView === "body" || this.transitioningTo) &&
+      this.hasNavigation;
 
     const className = classnames(
       "app-layout",
       `app-layout--mobile-view-${this.mobileView}`,
+      `app-layout--transitioning-from-${this.transitioningFrom}`,
+      `app-layout--transitioning-to-${this.transitioningTo}`,
       {
         "app-layout--has-navigation": this.hasNavigation,
         "app-layout--has-sidebar": this.hasSidebar,

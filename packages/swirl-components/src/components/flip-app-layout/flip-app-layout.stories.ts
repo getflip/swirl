@@ -35,7 +35,10 @@ export default {
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-app-layout", args);
+  const element = generateStoryElement(
+    "flip-app-layout",
+    args
+  ) as HTMLFlipAppLayoutElement;
 
   element.innerHTML = `
     <flip-resource-list label="Items" slot="navigation">
@@ -51,12 +54,12 @@ const Template = (args) => {
   `;
 
   element.querySelector(".info-button").addEventListener("click", () => {
-    element.setAttribute("mobile-view", "sidebar");
+    element.changeMobileView("sidebar");
   });
 
   element.querySelectorAll(".item").forEach((el) => {
     el.addEventListener("click", () => {
-      element.setAttribute("mobile-view", "body");
+      element.changeMobileView("body");
     });
   });
 

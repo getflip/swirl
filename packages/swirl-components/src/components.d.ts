@@ -58,12 +58,23 @@ export namespace Components {
         "appBarMedia"?: string;
         "appName": string;
         "backToNavigationViewButtonLabel"?: string;
+        /**
+          * Change the currently displayed view on mobile viewports
+          * @param mobileView
+         */
+        "changeMobileView": (mobileView: FlipAppLayoutMobileView) => Promise<void>;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
         "heading": string;
-        "mobileView": FlipAppLayoutMobileView;
+        /**
+          * Hide the sidebar
+         */
+        "hideSidebar": () => Promise<void>;
         "navigationLabel"?: string;
-        "sidebarActive"?: boolean;
+        /**
+          * Shows the sidebar
+         */
+        "showSidebar": () => Promise<void>;
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
         "subheading"?: string;
@@ -1854,12 +1865,10 @@ declare namespace LocalJSX {
         "ctaIcon"?: string;
         "ctaLabel"?: string;
         "heading": string;
-        "mobileView"?: FlipAppLayoutMobileView;
         "navigationLabel"?: string;
-        "onBackToNavigationView"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
         "onCtaClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
-        "onSidebarCloseButtonClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
-        "sidebarActive"?: boolean;
+        "onMobileViewChange"?: (event: FlipAppLayoutCustomEvent<FlipAppLayoutMobileView>) => void;
+        "onSidebarToggle"?: (event: FlipAppLayoutCustomEvent<boolean>) => void;
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
         "subheading"?: string;

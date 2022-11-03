@@ -107,26 +107,7 @@
           "description": ""
         },
         {
-          "name": "mobile-view",
-          "description": "",
-          "values": [
-            {
-              "name": "body"
-            },
-            {
-              "name": "navigation"
-            },
-            {
-              "name": "sidebar"
-            }
-          ]
-        },
-        {
           "name": "navigation-label",
-          "description": ""
-        },
-        {
-          "name": "sidebar-active",
           "description": ""
         },
         {
