@@ -43,6 +43,7 @@ export class FlipAppLayout {
   @State() hasSidebar: boolean;
   @State() mobileView: FlipAppLayoutMobileView = "navigation";
   @State() sidebarActive: boolean;
+  @State() sidebarClosing: boolean;
   @State() transitioningFrom: string;
   @State() transitioningTo: string;
 
@@ -52,6 +53,7 @@ export class FlipAppLayout {
   @Event() sidebarToggle: EventEmitter<boolean>;
 
   private mutationObserver: MutationObserver;
+  private sidebarClosingTimeout: NodeJS.Timeout;
   private transitionTimeout: NodeJS.Timeout;
 
   componentWillLoad() {
@@ -102,10 +104,21 @@ export class FlipAppLayout {
       return;
     }
 
-    this.sidebarActive = false;
-    this.changeMobileView("body");
+    if (Boolean(this.sidebarClosingTimeout)) {
+      clearTimeout(this.sidebarClosingTimeout);
+    }
 
-    this.sidebarToggle.emit(false);
+    this.sidebarClosing = true;
+
+    const delay = isMobileViewport() ? 0 : 300;
+
+    this.sidebarClosingTimeout = setTimeout(() => {
+      this.sidebarActive = false;
+      this.sidebarClosing = false;
+
+      this.changeMobileView("body");
+      this.sidebarToggle.emit(false);
+    }, delay);
   }
 
   /**
@@ -234,6 +247,7 @@ export class FlipAppLayout {
         "app-layout--has-sidebar": this.hasSidebar,
         "app-layout--sidebar-active":
           this.mobileView === "sidebar" || this.sidebarActive,
+        "app-layout--sidebar-closing": this.sidebarClosing,
       }
     );
 
