@@ -2,4 +2,4 @@
 "@getflip/swirl-components": minor
 ---
 
-Add flip-lightbox component
+Add flip-pdf-reader component

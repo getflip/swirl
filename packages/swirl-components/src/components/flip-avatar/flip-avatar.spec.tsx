@@ -148,7 +148,7 @@ describe("flip-avatar", () => {
               <flip-icon-person></flip-icon-person>
             </span>
             <span class="avatar__badge avatar__badge--position-top">
-              <flip-badge aria-label="3 new messages" label="3"></flip-badge>
+              <flip-badge aria-label="3 new messages" label="3" size="m"></flip-badge>
             </span>
           </span>
         </mock:shadow-root>

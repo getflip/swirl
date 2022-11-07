@@ -35,7 +35,6 @@ describe("flip-tabs", () => {
                 Tab Number 3
               </span>
             </button>
-            <span class="tabs__indicator" style="width: 0rem; transform: translate3d(NaNrem, 0, 0);"></span>
           </div>
           <flip-tab aria-labelledby="tab-tab-1" id="tab-1" label="Tab #1" role="tabpanel" tab-id="tab-1" tabindex="0">
             <mock:shadow-root>

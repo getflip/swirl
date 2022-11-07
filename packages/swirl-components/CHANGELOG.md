@@ -1,5 +1,29 @@
 # @getflip/swirl-components
 
+## 0.4.0
+
+### Minor Changes
+
+- [#69](https://github.com/getflip/swirl/pull/69)
+  [`c9431e8`](https://github.com/getflip/swirl/commit/c9431e81d9cde86b5e8d760bca04bb61a7769b21)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-lightbox component
+
+* [#75](https://github.com/getflip/swirl/pull/75)
+  [`1ade4b8`](https://github.com/getflip/swirl/commit/1ade4b8904cc8f0e88a89f20b434c549c7dea477)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "segmented" property to
+  flip-button-group
+
+### Patch Changes
+
+- [#74](https://github.com/getflip/swirl/pull/74)
+  [`69607f0`](https://github.com/getflip/swirl/commit/69607f061d62174d81a0d3c8c599709700ab14ac)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Minor Web Component style
+  adjustments
+
+* [`3a35e6f`](https://github.com/getflip/swirl/commit/3a35e6f3e5cf5f13316fc5c30de8f7c94bb3cdbd)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue preventing the
+  FlipFileUploader activation on click (Firefox)
+
 ## 0.3.1
 
 ### Patch Changes

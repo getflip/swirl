@@ -1,5 +1,22 @@
 # @getflip/swirl-components-angular
 
+## 0.3.0
+
+### Minor Changes
+
+- [`ceb8f14`](https://github.com/getflip/swirl/commit/ceb8f14445efa9d141070e719163bf6e2b902773)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Integrate new Web Components and
+  changes
+
+### Patch Changes
+
+- Updated dependencies
+  [[`69607f0`](https://github.com/getflip/swirl/commit/69607f061d62174d81a0d3c8c599709700ab14ac),
+  [`c9431e8`](https://github.com/getflip/swirl/commit/c9431e81d9cde86b5e8d760bca04bb61a7769b21),
+  [`1ade4b8`](https://github.com/getflip/swirl/commit/1ade4b8904cc8f0e88a89f20b434c549c7dea477),
+  [`3a35e6f`](https://github.com/getflip/swirl/commit/3a35e6f3e5cf5f13316fc5c30de8f7c94bb3cdbd)]:
+  - @getflip/swirl-components@0.4.0
+
 ## 0.2.1
 
 ### Patch Changes

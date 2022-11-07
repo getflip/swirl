@@ -35,9 +35,25 @@ export class FlipAvatar {
 
   @State() imageAvailable: boolean | undefined;
 
+  private badgeEl: HTMLElement;
+
+  componentDidLoad() {
+    this.forceBadgeProps();
+  }
+
   @Watch("src")
   watchSrcProp() {
     this.imageAvailable = undefined;
+  }
+
+  private forceBadgeProps() {
+    if (!Boolean(this.badge)) {
+      return;
+    }
+
+    const badge = this.badgeEl.querySelector("flip-badge");
+
+    badge?.setAttribute("size", "m");
   }
 
   private setImageAvailable = () => {
@@ -131,7 +147,11 @@ export class FlipAvatar {
             </span>
           )}
           {showBadge && (
-            <span class={badgeClassName} innerHTML={this.badge}></span>
+            <span
+              class={badgeClassName}
+              innerHTML={this.badge}
+              ref={(el) => (this.badgeEl = el)}
+            ></span>
           )}
         </span>
 
