@@ -1,6 +1,6 @@
 import { FlipPopover } from "@getflip/swirl-components-react";
 import { FunctionComponent } from "react";
-import { IconsMetaData } from "..";
+import { IconsMetaData } from "src/pages/icons";
 import IconInfo from "./IconInfo";
 
 interface IconGridProps {

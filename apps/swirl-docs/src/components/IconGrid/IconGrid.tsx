@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { IconsMetaData } from "..";
+import { IconsMetaData } from "../../pages/icons";
 import IconGridItem from "./IconGridItem";
 
 interface IconGridProps {
@@ -13,7 +13,6 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
   icons,
   handleTileClick,
 }) => {
-  // ToDo: einzelnes element icon grid item
   return (
     <ul className="grid grid-cols-2 md:grid-cols-fill-rows gap-4 w-full">
       {iconList?.map((icon: string, index: number) => (

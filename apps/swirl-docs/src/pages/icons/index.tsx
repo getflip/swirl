@@ -12,8 +12,8 @@ import { GetStaticProps } from "next/types";
 import React, { useEffect } from "react";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import SearchBar from "../components/SearchBar";
-import IconGrid from "./components/IconGrid";
-import IconInfo from "./components/IconInfo";
+import IconGrid from "../../components/IconGrid/IconGrid";
+import IconInfo from "src/components/IconGrid/IconInfo";
 
 type Usage = "app" | "admin";
 

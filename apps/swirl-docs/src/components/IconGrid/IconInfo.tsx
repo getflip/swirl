@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import Highlighter from "src/components/SyntaxHighlighter/Highlighter";
-import { IconData } from "..";
+import { IconData } from "src/pages/icons";
 
 interface IconInfoProps {
   icon: IconData;
