@@ -774,6 +774,11 @@
     "type": "color",
     "comment": "Used if a text element is disabled."
   },
+  "text-dark": {
+    "value": "{core-gray-12}",
+    "type": "color",
+    "comment": "Used for low contrast decorative colors."
+  },
   "text-highlight": {
     "value": "{core-customer-color-dark-3-default}",
     "type": "color",
@@ -833,6 +838,11 @@
     "value": "{core-gray-07}",
     "type": "color",
     "comment": "Used if a icon element is disabled."
+  },
+  "icon-dark": {
+    "value": "{core-gray-12}",
+    "type": "color",
+    "comment": "Used for low contrast decorative colors."
   },
   "icon-highlight": {
     "value": "{core-customer-color-dark-3-default}",
