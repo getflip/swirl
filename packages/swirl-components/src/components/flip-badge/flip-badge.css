@@ -56,37 +56,43 @@
 }
 
 .badge--intent-critical {
+  color: var(--s-text-on-status);
   background-color: var(--s-surface-critical-default);
 }
 
-.badge--intent-decorative-1 {
-  background-color: var(--s-decorative-1-default);
+.badge--intent-banana {
+  color: var(--s-text-dark);
+  background-color: var(--s-decorative-banana-surface);
 }
 
-.badge--intent-decorative-2 {
-  background-color: var(--s-decorative-2-default);
+.badge--intent-blueberry {
+  color: var(--s-text-on-status);
+  background-color: var(--s-decorative-blueberry-surface);
 }
 
-.badge--intent-decorative-3 {
-  color: var(--s-text-default);
-  background-color: var(--s-decorative-3-default);
+.badge--intent-chilli {
+  color: var(--s-text-on-status);
+  background-color: var(--s-decorative-chilli-surface);
 }
 
-.badge--intent-decorative-4 {
-  color: var(--s-text-default);
-  background-color: var(--s-decorative-4-default);
+.badge--intent-grape {
+  color: var(--s-text-on-status);
+  background-color: var(--s-decorative-grape-surface);
 }
 
-.badge--intent-decorative-5 {
-  background-color: var(--s-decorative-5-default);
+.badge--intent-kiwi {
+  color: var(--s-text-on-status);
+  background-color: var(--s-decorative-kiwi-surface);
 }
 
-.badge--intent-decorative-6 {
-  background-color: var(--s-decorative-6-default);
+.badge--intent-pumpkin {
+  color: var(--s-text-dark);
+  background-color: var(--s-decorative-pumpkin-surface);
 }
 
-.badge--intent-decorative-7 {
-  background-color: var(--s-decorative-7-default);
+.badge--intent-radish {
+  color: var(--s-text-on-status);
+  background-color: var(--s-decorative-radish-surface);
 }
 
 .badge--variant-dot {

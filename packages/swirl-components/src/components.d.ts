@@ -6,9 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipActionListItemIntent, FlipActionListItemSize } from "./components/flip-action-list-item/flip-action-list-item";
-import { FlipAvatarBadgePosition, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
+import { FlipAvatarBadgePosition, FlipAvatarColor, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
+import { FlipBoxPadding } from "./components/flip-box/flip-box";
 import { FlipButtonIconPosition, FlipButtonIntent, FlipButtonSize, FlipButtonType, FlipButtonVariant } from "./components/flip-button/flip-button";
 import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-button-group";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
@@ -56,6 +57,7 @@ export namespace Components {
     interface FlipAvatar {
         "badge"?: string;
         "badgePosition"?: FlipAvatarBadgePosition;
+        "color"?: FlipAvatarColor;
         "icon"?: string;
         "initials"?: string;
         "interactive"?: boolean;
@@ -83,6 +85,14 @@ export namespace Components {
         "importance"?: FlipBannerAriaRole;
         "intent"?: FlipBannerIntent;
         "showIcon"?: boolean;
+    }
+    interface FlipBox {
+        "as"?: string;
+        "bordered"?: boolean;
+        "centerBlock"?: boolean;
+        "centerInline"?: boolean;
+        "cover"?: boolean;
+        "padding"?: FlipBoxPadding;
     }
     interface FlipButton {
         "disabled"?: boolean;
@@ -953,6 +963,12 @@ declare global {
         prototype: HTMLFlipBannerElement;
         new (): HTMLFlipBannerElement;
     };
+    interface HTMLFlipBoxElement extends Components.FlipBox, HTMLStencilElement {
+    }
+    var HTMLFlipBoxElement: {
+        prototype: HTMLFlipBoxElement;
+        new (): HTMLFlipBoxElement;
+    };
     interface HTMLFlipButtonElement extends Components.FlipButton, HTMLStencilElement {
     }
     var HTMLFlipButtonElement: {
@@ -1741,6 +1757,7 @@ declare global {
         "flip-avatar-group": HTMLFlipAvatarGroupElement;
         "flip-badge": HTMLFlipBadgeElement;
         "flip-banner": HTMLFlipBannerElement;
+        "flip-box": HTMLFlipBoxElement;
         "flip-button": HTMLFlipButtonElement;
         "flip-button-group": HTMLFlipButtonGroupElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
@@ -1891,6 +1908,7 @@ declare namespace LocalJSX {
     interface FlipAvatar {
         "badge"?: string;
         "badgePosition"?: FlipAvatarBadgePosition;
+        "color"?: FlipAvatarColor;
         "icon"?: string;
         "initials"?: string;
         "interactive"?: boolean;
@@ -1920,6 +1938,14 @@ declare namespace LocalJSX {
         "onAction"?: (event: FlipBannerCustomEvent<MouseEvent>) => void;
         "onDismiss"?: (event: FlipBannerCustomEvent<MouseEvent>) => void;
         "showIcon"?: boolean;
+    }
+    interface FlipBox {
+        "as"?: string;
+        "bordered"?: boolean;
+        "centerBlock"?: boolean;
+        "centerInline"?: boolean;
+        "cover"?: boolean;
+        "padding"?: FlipBoxPadding;
     }
     interface FlipButton {
         "disabled"?: boolean;
@@ -2563,6 +2589,7 @@ declare namespace LocalJSX {
         "flip-avatar-group": FlipAvatarGroup;
         "flip-badge": FlipBadge;
         "flip-banner": FlipBanner;
+        "flip-box": FlipBox;
         "flip-button": FlipButton;
         "flip-button-group": FlipButtonGroup;
         "flip-checkbox": FlipCheckbox;
@@ -2706,6 +2733,7 @@ declare module "@stencil/core" {
             "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
             "flip-banner": LocalJSX.FlipBanner & JSXBase.HTMLAttributes<HTMLFlipBannerElement>;
+            "flip-box": LocalJSX.FlipBox & JSXBase.HTMLAttributes<HTMLFlipBoxElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
             "flip-button-group": LocalJSX.FlipButtonGroup & JSXBase.HTMLAttributes<HTMLFlipButtonGroupElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
