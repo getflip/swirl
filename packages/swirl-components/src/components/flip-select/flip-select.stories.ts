@@ -12,7 +12,10 @@ export default {
 };
 
 const Template = (args) => {
+  const formControl = document.createElement("flip-form-control");
   const element = generateStoryElement("flip-select", args);
+
+  formControl.label = "Select";
 
   element.innerHTML = `
     <flip-option-list-section label="Section 1">
@@ -37,7 +40,9 @@ const Template = (args) => {
     </flip-option-list-section>
   `;
 
-  return element;
+  formControl.append(element);
+
+  return formControl;
 };
 
 export const FlipSelect = Template.bind({});
