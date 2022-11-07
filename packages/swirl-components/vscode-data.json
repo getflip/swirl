@@ -99,6 +99,33 @@
           ]
         },
         {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
+              "name": "grape"
+            },
+            {
+              "name": "kiwi"
+            },
+            {
+              "name": "pumpkin"
+            },
+            {
+              "name": "radish"
+            }
+          ]
+        },
+        {
           "name": "icon",
           "description": ""
         },
