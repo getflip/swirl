@@ -1,4 +1,5 @@
 import { Component, h, Host, Prop } from "@stencil/core";
+import classnames from "classnames";
 import { FlipStackOrientation } from "../flip-stack/flip-stack";
 
 export type FlipButtonGroupOrientation = FlipStackOrientation;
@@ -9,11 +10,18 @@ export type FlipButtonGroupOrientation = FlipStackOrientation;
   tag: "flip-button-group",
 })
 export class FlipButtonGroup {
-  @Prop() orientation: FlipButtonGroupOrientation = "horizontal";
-  @Prop() stretch: boolean;
-  @Prop() wrap: boolean;
+  @Prop() orientation?: FlipButtonGroupOrientation = "horizontal";
+  @Prop() segmented?: boolean;
+  @Prop() stretch?: boolean;
+  @Prop() wrap?: boolean;
 
   render() {
+    const spacing = this.segmented ? "0" : "8";
+
+    const className = classnames("button-group", {
+      "button-group--segmented": this.segmented,
+    });
+
     return (
       <Host>
         <flip-stack
@@ -22,7 +30,7 @@ export class FlipButtonGroup {
               ? "stretch"
               : "start"
           }
-          class="button-group"
+          class={className}
           justify={
             this.orientation === "horizontal" && this.stretch
               ? "stretch"
@@ -30,7 +38,7 @@ export class FlipButtonGroup {
           }
           orientation={this.orientation}
           role="group"
-          spacing="8"
+          spacing={spacing}
           wrap={this.wrap}
         >
           <slot></slot>

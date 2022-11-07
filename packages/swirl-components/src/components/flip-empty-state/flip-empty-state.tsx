@@ -1,7 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 
 @Component({
-  assetsDirs: ["../../assets/images"],
   shadow: true,
   styleUrl: "flip-empty-state.css",
   tag: "flip-empty-state",

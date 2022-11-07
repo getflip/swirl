@@ -1,12 +1,13 @@
 {
   "name": "@getflip/swirl-components-react",
-  "version": "0.1.1",
+  "version": "0.3.0",
   "type": "module",
   "files": [
     "dist"
   ],
   "main": "./dist/swirl-components-react.umd.cjs",
   "module": "./dist/swirl-components-react.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/swirl-components-react.js",
@@ -17,7 +18,7 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@getflip/swirl-components": "^0.2.0",
+    "@getflip/swirl-components": "^0.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -26,6 +27,7 @@
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
     "typescript": "^4.6.4",
-    "vite": "^3.0.6"
+    "vite": "^3.0.6",
+    "vite-plugin-dts": "^1.6.6"
   }
 }

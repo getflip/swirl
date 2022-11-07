@@ -99,6 +99,33 @@
           ]
         },
         {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
+              "name": "grape"
+            },
+            {
+              "name": "kiwi"
+            },
+            {
+              "name": "pumpkin"
+            },
+            {
+              "name": "radish"
+            }
+          ]
+        },
+        {
           "name": "icon",
           "description": ""
         },
@@ -189,28 +216,28 @@
           "description": "",
           "values": [
             {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
               "name": "critical"
             },
             {
-              "name": "decorative-1"
+              "name": "grape"
             },
             {
-              "name": "decorative-2"
+              "name": "kiwi"
             },
             {
-              "name": "decorative-3"
+              "name": "pumpkin"
             },
             {
-              "name": "decorative-4"
-            },
-            {
-              "name": "decorative-5"
-            },
-            {
-              "name": "decorative-6"
-            },
-            {
-              "name": "decorative-7"
+              "name": "radish"
             }
           ]
         },
@@ -303,6 +330,68 @@
         {
           "name": "show-icon",
           "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-box",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "as",
+          "description": ""
+        },
+        {
+          "name": "bordered",
+          "description": ""
+        },
+        {
+          "name": "center-block",
+          "description": ""
+        },
+        {
+          "name": "center-inline",
+          "description": ""
+        },
+        {
+          "name": "cover",
+          "description": ""
+        },
+        {
+          "name": "padding",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "20"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
         }
       ]
     },
@@ -453,6 +542,10 @@
               "name": "vertical"
             }
           ]
+        },
+        {
+          "name": "segmented",
+          "description": ""
         },
         {
           "name": "stretch",
@@ -751,6 +844,167 @@
       ]
     },
     {
+      "name": "flip-file-viewer",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "type",
+          "description": ""
+        },
+        {
+          "name": "type-unsupported-message",
+          "description": ""
+        },
+        {
+          "name": "zoom",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-audio",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "type",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-csv",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-image",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-pdf",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "single-page-mode",
+          "description": ""
+        },
+        {
+          "name": "zoom",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-text",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-file-viewer-video",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "type",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-form-control",
       "description": {
         "kind": "markdown",
@@ -923,6 +1177,32 @@
     },
     {
       "name": "flip-icon-arrow-forward",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-arrow-left",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-arrow-right",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1286,6 +1566,32 @@
       ]
     },
     {
+      "name": "flip-icon-fullscreen",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-fullscreen-exit",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-group-assign",
       "description": {
         "kind": "markdown",
@@ -1533,6 +1839,19 @@
       ]
     },
     {
+      "name": "flip-icon-open-in-new",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-people-alt",
       "description": {
         "kind": "markdown",
@@ -1598,7 +1917,33 @@
       ]
     },
     {
+      "name": "flip-icon-print",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-recieved",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-remove",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1792,6 +2137,35 @@
       ]
     },
     {
+      "name": "flip-lightbox",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "download-button-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "next-slide-button-label",
+          "description": ""
+        },
+        {
+          "name": "previous-slide-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-link",
       "description": {
         "kind": "markdown",
@@ -1833,6 +2207,31 @@
         "value": ""
       },
       "attributes": []
+    },
+    {
+      "name": "flip-modal",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "primary-action-label",
+          "description": ""
+        },
+        {
+          "name": "secondary-action-label",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "flip-option-list",
@@ -1966,6 +2365,51 @@
               "name": "simple"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "flip-pdf-reader",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-zoom-label",
+          "description": ""
+        },
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "download-button-label",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "print-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-in-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-out-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-select-label",
+          "description": ""
         }
       ]
     },

@@ -18,7 +18,7 @@ import {
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
-import { querySelectorAllDeep } from "../../utils";
+import { isMobileViewport, querySelectorAllDeep } from "../../utils";
 
 /**
  * @slot slot - The popover content.
@@ -104,7 +104,7 @@ export class FlipPopover {
 
     this.unlockBodyScroll();
 
-    this.triggerEl?.focus();
+    this.getNativeTriggerElement()?.focus();
   }
 
   /**
@@ -154,20 +154,21 @@ export class FlipPopover {
   };
 
   private connectTrigger() {
-    const triggerComponent = querySelectorAllDeep(
-      document.body,
-      `#${this.trigger}`
-    )[0];
-
-    this.triggerEl = (triggerComponent?.children[0] ||
-      triggerComponent?.shadowRoot?.children[0] ||
-      triggerComponent) as HTMLElement;
+    this.triggerEl = querySelectorAllDeep(document.body, `#${this.trigger}`)[0];
 
     if (!Boolean(this.triggerEl)) {
       return;
     }
 
     this.triggerEl.addEventListener("click", this.toggle);
+  }
+
+  private getNativeTriggerElement() {
+    return this.triggerEl.tagName.startsWith("FLIP-")
+      ? ((this.triggerEl?.children[0] ||
+          this.triggerEl?.shadowRoot?.children[0] ||
+          this.triggerEl) as HTMLElement)
+      : this.triggerEl;
   }
 
   private onKeydown = (event: KeyboardEvent) => {
@@ -181,9 +182,11 @@ export class FlipPopover {
       return;
     }
 
-    this.triggerEl.setAttribute("aria-controls", this.popoverId);
-    this.triggerEl.setAttribute("aria-expanded", String(this.active));
-    this.triggerEl.setAttribute("aria-haspopup", "dialog");
+    const nativeTriggerEl = this.getNativeTriggerElement();
+
+    nativeTriggerEl.setAttribute("aria-controls", this.popoverId);
+    nativeTriggerEl.setAttribute("aria-expanded", String(this.active));
+    nativeTriggerEl.setAttribute("aria-haspopup", "dialog");
   }
 
   private updateChildMenuItems() {
@@ -191,7 +194,7 @@ export class FlipPopover {
   }
 
   private reposition = async () => {
-    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+    const mobile = isMobileViewport();
 
     if (!Boolean(this.triggerEl) || !Boolean(this.contentContainer)) {
       return;
@@ -214,7 +217,7 @@ export class FlipPopover {
   };
 
   private lockBodyScroll() {
-    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+    const mobile = isMobileViewport();
 
     if (!mobile) {
       return;
@@ -226,6 +229,10 @@ export class FlipPopover {
   private unlockBodyScroll() {
     enableBodyScroll(this.scrollContainer);
   }
+
+  private onCloseButtonClick = () => {
+    this.close();
+  };
 
   render() {
     const className = classnames("popover", {
@@ -258,7 +265,10 @@ export class FlipPopover {
             </div>
           </div>
           {this.active && (
-            <div class="popover__backdrop" onClick={this.close}></div>
+            <div
+              class="popover__backdrop"
+              onClick={this.onCloseButtonClick}
+            ></div>
           )}
         </div>
       </Host>

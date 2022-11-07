@@ -31,6 +31,7 @@
 }
 
 .inline-error__message {
+  width: max-content;
   margin-left: var(--s-space-4);
   padding-top: var(--s-space-2);
 }
