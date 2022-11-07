@@ -86,7 +86,7 @@
 }
 
 .badge--intent-pumpkin {
-  color: var(--s-text-on-status);
+  color: var(--s-text-dark);
   background-color: var(--s-decorative-pumpkin-surface);
 }
 
