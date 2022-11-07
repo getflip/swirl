@@ -3,14 +3,14 @@ import classnames from "classnames";
 import { Component, h, Host, Prop } from "@stencil/core";
 
 export type FlipBadgeIntent =
+  | "banana"
+  | "blueberry"
+  | "chilli"
   | "critical"
-  | "decorative-1"
-  | "decorative-2"
-  | "decorative-3"
-  | "decorative-4"
-  | "decorative-5"
-  | "decorative-6"
-  | "decorative-7";
+  | "grape"
+  | "kiwi"
+  | "pumpkin"
+  | "radish";
 
 export type FlipBadgeSize = "s" | "m";
 

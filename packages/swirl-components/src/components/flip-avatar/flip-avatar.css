@@ -137,6 +137,55 @@
   }
 }
 
+.avatar--color-banana {
+  & .avatar__initials {
+    color: var(--s-decorative-banana-text);
+    background-color: var(--s-decorative-banana-surface-subdued);
+  }
+}
+
+.avatar--color-blueberry {
+  & .avatar__initials {
+    color: var(--s-decorative-blueberry-text);
+    background-color: var(--s-decorative-blueberry-surface-subdued);
+  }
+}
+
+.avatar--color-chilli {
+  & .avatar__initials {
+    color: var(--s-decorative-chilli-text);
+    background-color: var(--s-decorative-chilli-surface-subdued);
+  }
+}
+
+.avatar--color-grape {
+  & .avatar__initials {
+    color: var(--s-decorative-grape-text);
+    background-color: var(--s-decorative-grape-surface-subdued);
+  }
+}
+
+.avatar--color-kiwi {
+  & .avatar__initials {
+    color: var(--s-decorative-kiwi-text);
+    background-color: var(--s-decorative-kiwi-surface-subdued);
+  }
+}
+
+.avatar--color-pumpkin {
+  & .avatar__initials {
+    color: var(--s-decorative-pumpkin-text);
+    background-color: var(--s-decorative-pumpkin-surface-subdued);
+  }
+}
+
+.avatar--color-radish {
+  & .avatar__initials {
+    color: var(--s-decorative-radish-text);
+    background-color: var(--s-decorative-radish-surface-subdued);
+  }
+}
+
 .avatar__image {
   overflow: hidden;
   width: 100%;
@@ -175,7 +224,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: var(--s-decorative-6-default);
+  font-weight: var(--s-font-weight-medium);
 
   & > span {
     overflow: hidden;

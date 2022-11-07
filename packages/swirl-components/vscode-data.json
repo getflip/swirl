@@ -99,6 +99,33 @@
           ]
         },
         {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
+              "name": "grape"
+            },
+            {
+              "name": "kiwi"
+            },
+            {
+              "name": "pumpkin"
+            },
+            {
+              "name": "radish"
+            }
+          ]
+        },
+        {
           "name": "icon",
           "description": ""
         },
@@ -189,28 +216,28 @@
           "description": "",
           "values": [
             {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
               "name": "critical"
             },
             {
-              "name": "decorative-1"
+              "name": "grape"
             },
             {
-              "name": "decorative-2"
+              "name": "kiwi"
             },
             {
-              "name": "decorative-3"
+              "name": "pumpkin"
             },
             {
-              "name": "decorative-4"
-            },
-            {
-              "name": "decorative-5"
-            },
-            {
-              "name": "decorative-6"
-            },
-            {
-              "name": "decorative-7"
+              "name": "radish"
             }
           ]
         },
