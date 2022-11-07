@@ -1,4 +1,12 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from "@stencil/core";
 
 @Component({
   shadow: true,
@@ -6,8 +14,16 @@ import { Component, h, Host, Prop } from "@stencil/core";
   tag: "flip-file-viewer-video",
 })
 export class FlipFileViewerVideo {
+  @Element() el: HTMLElement;
+
   @Prop() file!: string;
   @Prop() type!: string;
+
+  @Event() activate: EventEmitter<HTMLElement>;
+
+  componentDidLoad() {
+    this.activate.emit(this.el);
+  }
 
   render() {
     return (

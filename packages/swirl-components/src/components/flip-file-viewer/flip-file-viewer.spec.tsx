@@ -4,7 +4,12 @@ jest.mock("file-saver", () => ({
   saveAs: saveAsMock,
 }));
 
-import { mockFetch, newSpecPage } from "@stencil/core/testing";
+import {
+  mockFetch,
+  MockHeaders,
+  MockResponse,
+  newSpecPage,
+} from "@stencil/core/testing";
 
 import { FlipFileViewer } from "./flip-file-viewer";
 import { FlipFileViewerAudio } from "./viewers/flip-file-viewer-audio/flip-file-viewer-audio";
@@ -242,6 +247,16 @@ describe("flip-file-viewer", () => {
   });
 
   it("allows to download files", async () => {
+    const res = new MockResponse("", {
+      url: "/sample.pdf",
+      headers: new MockHeaders([
+        ["Content-Type", "application/pdf"],
+        ["Access-Control-Allow-Origin", "*"],
+      ]),
+    });
+
+    mockFetch.response(Object.assign(res, { blob: () => "Blob" }));
+
     const page = await newSpecPage({
       components: [FlipFileViewer],
       html: `
@@ -252,10 +267,9 @@ describe("flip-file-viewer", () => {
       `,
     });
 
-    (page.root as HTMLFlipFileViewerElement).download();
-
+    await (page.root as HTMLFlipFileViewerElement).download();
     await page.waitForChanges();
 
-    expect(saveAsMock).toHaveBeenCalledWith("/sample.pdf", "sample.pdf");
+    expect(saveAsMock).toHaveBeenCalledWith("Blob", "sample.pdf");
   });
 });
