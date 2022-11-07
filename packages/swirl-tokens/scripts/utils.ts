@@ -39,6 +39,17 @@ export const tokenGroups: {
   };
 } = {
   backgroundColors: {
+    excludePrefixed: [
+      "border-width",
+      "border-radius",
+      "decorative-chilli-text",
+      "decorative-pumpkin-text",
+      "decorative-banana-text",
+      "decorative-radish-text",
+      "decorative-grape-text",
+      "decorative-kiwi-text",
+      "decorative-blueberry-text",
+    ],
     label: "Background Colors",
     prefixes: [
       "background-",
@@ -103,7 +114,16 @@ export const tokenGroups: {
   },
   textColors: {
     label: "Text Colors",
-    prefixes: ["text-"],
+    prefixes: [
+      "text-",
+      "decorative-chilli-text",
+      "decorative-pumpkin-text",
+      "decorative-banana-text",
+      "decorative-radish-text",
+      "decorative-grape-text",
+      "decorative-kiwi-text",
+      "decorative-blueberry-text",
+    ],
     presenter: "Color",
   },
   other: {
