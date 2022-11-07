@@ -998,6 +998,10 @@
           "description": ""
         },
         {
+          "name": "single-page-mode",
+          "description": ""
+        },
+        {
           "name": "zoom",
           "description": "",
           "values": [
@@ -2403,6 +2407,51 @@
               "name": "simple"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "flip-pdf-reader",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-zoom-label",
+          "description": ""
+        },
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "download-button-label",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "print-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-in-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-out-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-select-label",
+          "description": ""
         }
       ]
     },

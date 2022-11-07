@@ -9,6 +9,37 @@ export interface FlipFormInput<ValueType = string> {
   valueChange: EventEmitter;
 }
 
+export function debounce(
+  func: Function,
+  wait: number,
+  immediate: boolean = false
+) {
+  let timeout: NodeJS.Timeout;
+
+  return function executedFunction() {
+    const context = this;
+    const args = arguments;
+
+    const later = function () {
+      timeout = null;
+
+      if (!immediate) {
+        func.apply(context, args);
+      }
+    };
+
+    const callNow = immediate && !Boolean(timeout);
+
+    clearTimeout(timeout);
+
+    timeout = setTimeout(later, wait);
+
+    if (callNow) {
+      func.apply(context, args);
+    }
+  };
+}
+
 export function fullscreenStoryDecorator(story: any) {
   const container = document.createElement("div");
   const styles = document.createElement("style");
