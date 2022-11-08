@@ -133,6 +133,7 @@ export class FlipSelect implements FlipFormInput<string[]> {
             )}
           </span>
           <flip-popover
+            animation="scale-in-y"
             class="select__popover"
             enableFlip={false}
             label={this.label}

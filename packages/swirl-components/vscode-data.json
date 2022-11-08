@@ -2505,6 +2505,18 @@
       },
       "attributes": [
         {
+          "name": "animation",
+          "description": "",
+          "values": [
+            {
+              "name": "scale-in-xy"
+            },
+            {
+              "name": "scale-in-y"
+            }
+          ]
+        },
+        {
           "name": "enable-flip",
           "description": ""
         },

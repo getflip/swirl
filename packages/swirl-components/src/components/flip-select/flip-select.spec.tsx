@@ -34,7 +34,7 @@ describe("flip-select", () => {
           <span class="select__indicator">
             <flip-icon-expand-more></flip-icon-expand-more>
           </span>
-          <flip-popover class="select__popover" label="Select" popoverid="select-options" trigger="trigger" usecontainerwidth="flip-form-control">
+          <flip-popover animation="scale-in-y" class="select__popover" label="Select" popoverid="select-options" trigger="trigger" usecontainerwidth="flip-form-control">
             <flip-option-list>
               <flip-option-list-item label="This is an option 1" value="1"></flip-option-list-item>
               <flip-option-list-item label="This is an option 2" value="2"></flip-option-list-item>

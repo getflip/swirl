@@ -23,6 +23,8 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import { isMobileViewport, querySelectorAllDeep } from "../../utils";
 
+export type FlipPopoverAnimation = "scale-in-xy" | "scale-in-y";
+
 /**
  * @slot slot - The popover content.
  */
@@ -34,6 +36,7 @@ import { isMobileViewport, querySelectorAllDeep } from "../../utils";
 export class FlipPopover {
   @Element() el: HTMLElement;
 
+  @Prop() animation?: FlipPopoverAnimation = "scale-in-xy";
   @Prop() enableFlip?: boolean = true;
   @Prop() label!: string;
   @Prop() offset?: number | number[] = 8;
@@ -306,11 +309,15 @@ export class FlipPopover {
   };
 
   render() {
-    const className = classnames("popover", {
-      "popover--closing": this.closing,
-      "popover--active": this.active,
-      "popover--inactive": !this.active,
-    });
+    const className = classnames(
+      "popover",
+      `popover--animation-${this.animation}`,
+      {
+        "popover--closing": this.closing,
+        "popover--active": this.active,
+        "popover--inactive": !this.active,
+      }
+    );
 
     return (
       <Host id={this.popoverId}>

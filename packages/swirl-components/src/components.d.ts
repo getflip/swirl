@@ -27,6 +27,7 @@ import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-
 import { FlipLinkTarget } from "./components/flip-link/flip-link";
 import { FlipOptionListItemContext } from "./components/flip-option-list-item/flip-option-list-item";
 import { FlipPaginationVariant } from "./components/flip-pagination/flip-pagination";
+import { FlipPopoverAnimation } from "./components/flip-popover/flip-popover";
 import { Placement } from "@floating-ui/dom";
 import { FlipProgressIndicatorSize, FlipProgressIndicatorVariant } from "./components/flip-progress-indicator/flip-progress-indicator";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
@@ -618,6 +619,7 @@ export namespace Components {
         "zoomSelectLabel"?: string;
     }
     interface FlipPopover {
+        "animation"?: FlipPopoverAnimation;
         /**
           * Close the popover.
           * @returns
@@ -2485,6 +2487,7 @@ declare namespace LocalJSX {
         "zoomSelectLabel"?: string;
     }
     interface FlipPopover {
+        "animation"?: FlipPopoverAnimation;
         "enableFlip"?: boolean;
         "label": string;
         "offset"?: number | number[];
