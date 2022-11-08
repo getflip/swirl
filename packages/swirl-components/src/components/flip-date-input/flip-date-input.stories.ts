@@ -29,8 +29,8 @@ const Template = (args) => {
   const formControl = document.createElement("flip-form-control");
   const element = generateStoryElement("flip-date-input", args);
 
-  formControl.label = "Date";
-  formControl.append(element);
+  formControl.setAttribute("label", "Date");
+  formControl.append("\n  ", element, "\n");
 
   return formControl;
 };

@@ -15,8 +15,8 @@ const Template = (args) => {
   const formControl = document.createElement("flip-form-control");
   const element = generateStoryElement("flip-text-input", args);
 
-  formControl.label = "Input";
-  formControl.append(element);
+  formControl.setAttribute("label", "Input");
+  formControl.append("\n  ", element, "\n");
 
   return formControl;
 };
