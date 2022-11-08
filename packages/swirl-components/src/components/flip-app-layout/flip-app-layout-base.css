@@ -351,11 +351,23 @@
 
 .app-layout__sidebar-header {
   display: flex;
+  min-width: 0;
   padding: var(--s-space-12) var(--s-space-16);
   align-items: center;
   background-color: var(--s-background-default);
   grid-area: sidebar-header;
   gap: var(--s-space-8);
+}
+
+.app-layout__sidebar-heading {
+  min-width: 0;
+  flex-grow: 1;
+
+  & .heading {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 .app-layout__sidebar-close-button {

@@ -366,6 +366,7 @@ export class FlipAppLayout {
                 ></flip-button>
                 <flip-heading
                   as="h3"
+                  class="app-layout__sidebar-heading"
                   headingId="sidebar-heading"
                   level={2}
                   text={this.sidebarHeading}
