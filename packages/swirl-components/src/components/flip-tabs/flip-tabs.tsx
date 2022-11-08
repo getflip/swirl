@@ -5,7 +5,6 @@ import {
   EventEmitter,
   h,
   Host,
-  Listen,
   Method,
   Prop,
   State,
@@ -25,24 +24,13 @@ export class FlipTabs {
   @Prop() label!: string;
 
   @State() activeTab?: string;
-  @State() highlightedTab: HTMLElement | undefined;
 
   @Event() tabActivated: EventEmitter<HTMLFlipTabElement>;
 
-  private indicatorEl: HTMLElement;
   private tabs: HTMLFlipTabElement[] = [];
 
   componentWillLoad() {
     this.collectTabs();
-  }
-
-  componentDidRender() {
-    this.updateIndicatorPosition();
-  }
-
-  @Listen("resize", { target: "window" })
-  onWindowResize() {
-    this.updateIndicatorPosition();
   }
 
   /**
@@ -63,8 +51,6 @@ export class FlipTabs {
     if (!Boolean(tab)) {
       return;
     }
-
-    this.highlightedTab = undefined;
 
     tab.active = true;
     this.tabActivated.emit(tab);
@@ -112,36 +98,6 @@ export class FlipTabs {
     );
   }
 
-  private updateIndicatorPosition() {
-    const activeTab = this.tabs.find((tab) => tab.tabId === this.activeTab);
-
-    if (!Boolean(activeTab) && !Boolean(this.highlightedTab)) {
-      this.indicatorEl.style.width = "";
-      this.indicatorEl.style.transform = "";
-      this.indicatorEl.style.backgroundColor = "";
-      return;
-    }
-
-    const activeTabEl =
-      this.highlightedTab ||
-      this.el.querySelector<HTMLButtonElement>(`#tab-${activeTab.tabId}`);
-
-    const activeTabLabelEl =
-      activeTabEl.querySelector<HTMLSpanElement>(".tabs__tab-label");
-
-    this.indicatorEl.style.width = `${
-      activeTabLabelEl.getBoundingClientRect().width / 16
-    }rem`;
-
-    this.indicatorEl.style.transform = `translate3d(${
-      activeTabLabelEl.offsetLeft / 16
-    }rem, 0, 0)`;
-
-    this.indicatorEl.style.backgroundColor = Boolean(this.highlightedTab)
-      ? "var(--s-border-default)"
-      : "";
-  }
-
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowLeft") {
       event.preventDefault();
@@ -150,20 +106,6 @@ export class FlipTabs {
       event.preventDefault();
       this.activateNextTab();
     }
-  };
-
-  private onMouseEnter = (event: MouseEvent, tab: HTMLFlipTabElement) => {
-    if (tab.tabId === this.activeTab) {
-      this.highlightedTab = undefined;
-      return;
-    }
-
-    this.highlightedTab =
-      (event.target as HTMLElement).closest(".tabs__tab") || undefined;
-  };
-
-  private onMouseLeave = () => {
-    this.highlightedTab = undefined;
   };
 
   render() {
@@ -191,9 +133,6 @@ export class FlipTabs {
                   key={tab.tabId}
                   // eslint-disable-next-line react/jsx-no-bind
                   onClick={() => this.activateTab(tab.tabId)}
-                  // eslint-disable-next-line react/jsx-no-bind
-                  onMouseEnter={(event) => this.onMouseEnter(event, tab)}
-                  onMouseLeave={this.onMouseLeave}
                   role="tab"
                   tabIndex={isActive ? 0 : -1}
                   type="button"
@@ -202,11 +141,6 @@ export class FlipTabs {
                 </button>
               );
             })}
-
-            <span
-              class="tabs__indicator"
-              ref={(el) => (this.indicatorEl = el)}
-            ></span>
           </div>
           <slot></slot>
         </div>

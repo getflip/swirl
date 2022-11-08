@@ -79,7 +79,7 @@
     "title": {
       "value": {
         "fontFamily": "{font-family-text}",
-        "lineHeight": "{line-height-s}",
+        "lineHeight": "{line-height-xl}",
         "fontWeight": "{font-weight-bold}",
         "fontSize": "{font-size-xl}",
         "letterSpacing": "{letter-spacing-normal}",
@@ -148,8 +148,7 @@
         "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-semibold}",
         "lineHeight": "{line-height-lg}",
-        "letterSpacing": "{letter-spacing-normal}",
-        "fontSize": "{font-size-base}"
+        "letterSpacing": "{letter-spacing-normal}"
       },
       "type": "typography"
     },
@@ -158,8 +157,7 @@
         "fontFamily": "{font-family-text}",
         "fontWeight": "{font-weight-medium}",
         "lineHeight": "{line-height-lg}",
-        "letterSpacing": "{letter-spacing-normal}",
-        "fontSize": "{font-size-base}"
+        "letterSpacing": "{letter-spacing-normal}"
       },
       "type": "typography"
     },
@@ -169,8 +167,7 @@
         "fontWeight": "{font-weight-medium}",
         "lineHeight": "{line-height-lg}",
         "letterSpacing": "{letter-spacing-normal}",
-        "textDecoration": "{decoration-underline}",
-        "fontSize": "{font-size-base}"
+        "textDecoration": "{decoration-underline}"
       },
       "type": "typography"
     },
@@ -180,8 +177,7 @@
         "fontWeight": "{font-weight-semibold}",
         "lineHeight": "{line-height-lg}",
         "letterSpacing": "{letter-spacing-normal}",
-        "textDecoration": "{decoration-underline}",
-        "fontSize": "{font-size-base}"
+        "textDecoration": "{decoration-underline}"
       },
       "type": "typography"
     },
@@ -420,16 +416,16 @@
         }
       },
       "customer-color-light": {
-        "1-hovered": {
-          "value": "#26e6b9",
+        "1-default": {
+          "value": "#15192F",
           "type": "color"
         },
-        "1-default": {
-          "value": "#00e2ad",
+        "1-hovered": {
+          "value": "#383C4E",
           "type": "color"
         },
         "1-pressed": {
-          "value": "#4debc6",
+          "value": "#5B5E6D",
           "type": "color"
         },
         "2-default": {
@@ -459,25 +455,25 @@
       },
       "on-customer-color-light": {
         "1": {
-          "value": "#000d57",
+          "value": "#ffffff",
           "type": "color"
         },
         "2": {
-          "value": "#befff0",
+          "value": "#ffffff",
           "type": "color"
         }
       },
       "customer-color-dark": {
         "1-default": {
-          "value": "#8eebe2",
+          "value": "#9191A2",
           "type": "color"
         },
         "1-hovered": {
-          "value": "#79c8c0",
+          "value": "#7B7B8A",
           "type": "color"
         },
         "1-pressed": {
-          "value": "#63a49e",
+          "value": "#666671",
           "type": "color"
         },
         "2-default": {
@@ -588,63 +584,203 @@
         }
       },
       "decorative-light": {
-        "1-default": {
-          "value": "#ff574d",
-          "type": "color"
+        "chilli": {
+          "text": {
+            "value": "#C31C1C",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#C31C1C",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#FCE7ED",
+            "type": "color"
+          }
         },
-        "2-default": {
-          "value": "#ff8340",
-          "type": "color"
+        "pumpkin": {
+          "text": {
+            "value": "#A74C25",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#F59031",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#FFE3CA",
+            "type": "color"
+          }
         },
-        "3-default": {
-          "value": "#f6c431",
-          "type": "color"
+        "banana": {
+          "text": {
+            "value": "#9A5C00",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#EABA2A",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#FAF1C8",
+            "type": "color"
+          }
         },
-        "4-default": {
-          "value": "#eb84a1",
-          "type": "color"
+        "radish": {
+          "text": {
+            "value": "#BA1D8E",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#BA1D8E",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#FFDDF5",
+            "type": "color"
+          }
         },
-        "5-default": {
-          "value": "#9632fa",
-          "type": "color"
+        "grape": {
+          "text": {
+            "value": "#822DA4",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#822DA4",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#E9DCFF",
+            "type": "color"
+          }
         },
-        "6-default": {
-          "value": "#60b29c",
-          "type": "color"
+        "kiwi": {
+          "text": {
+            "value": "#367745",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#367745",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#DCF7DC",
+            "type": "color"
+          }
         },
-        "7-default": {
-          "value": "#3387ff",
-          "type": "color"
+        "blueberry": {
+          "text": {
+            "value": "#3F5FA7",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#3F5FA7",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#E6F1FF",
+            "type": "color"
+          }
         }
       },
       "decorative-dark": {
-        "1-default": {
-          "value": "#ff6e66",
-          "type": "color"
+        "chilli": {
+          "text": {
+            "value": "#FF8080",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#FF8080",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#411B26",
+            "type": "color"
+          }
         },
-        "2-default": {
-          "value": "#ffa473",
-          "type": "color"
+        "pumpkin": {
+          "text": {
+            "value": "#ffa473",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#F3953E",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#412A15",
+            "type": "color"
+          }
         },
-        "3-default": {
-          "value": "#f9da7a",
-          "type": "color"
+        "banana": {
+          "text": {
+            "value": "#ECC140",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#ECC140",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#362F10",
+            "type": "color"
+          }
         },
-        "4-default": {
-          "value": "#eb84a1",
-          "type": "color"
+        "radish": {
+          "text": {
+            "value": "#E45FBF",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#E45FBF",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#421635",
+            "type": "color"
+          }
         },
-        "5-default": {
-          "value": "#bc7dfc",
-          "type": "color"
+        "grape": {
+          "text": {
+            "value": "#C271E2",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#C271E2",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#391C51",
+            "type": "color"
+          }
         },
-        "6-default": {
-          "value": "#94cbbc",
-          "type": "color"
+        "kiwi": {
+          "text": {
+            "value": "#88C897",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#88C897",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#182F18",
+            "type": "color"
+          }
         },
-        "7-default": {
-          "value": "#66a6ff",
-          "type": "color"
+        "blueberry": {
+          "text": {
+            "value": "#7B9CE8",
+            "type": "color"
+          },
+          "surface": {
+            "value": "#7B9CE8",
+            "type": "color"
+          },
+          "surface-subdued": {
+            "value": "#112947",
+            "type": "color"
+          }
         }
       }
     }
@@ -867,6 +1003,11 @@
         "type": "color",
         "description": "Used if a text element is disabled."
       },
+      "dark": {
+        "value": "{core.gray.12}",
+        "type": "color",
+        "description": "Used for low contrast decorative colors."
+      },
       "highlight": {
         "value": "{core.customer-color-light.3-default}",
         "type": "color",
@@ -930,6 +1071,11 @@
         "value": "{core.gray.04}",
         "type": "color",
         "description": "Used if a icon element is disabled."
+      },
+      "dark": {
+        "value": "{core.gray.12}",
+        "type": "color",
+        "description": "Used for low contrast decorative colors."
       },
       "highlight": {
         "value": "{core.customer-color-light.3-default}",
@@ -1074,40 +1220,124 @@
       }
     },
     "decorative": {
-      "1-default": {
-        "value": "{core.decorative-light.1-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "chilli": {
+        "text": {
+          "value": "{core.decorative-light.chilli.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-light.chilli.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-light.chilli.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "2-default": {
-        "value": "{core.decorative-light.2-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "pumpkin": {
+        "text": {
+          "value": "{core.decorative-light.pumpkin.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-light.pumpkin.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-light.pumpkin.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "3-default": {
-        "value": "{core.decorative-light.3-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "banana": {
+        "text": {
+          "value": "{core.decorative-light.banana.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-light.banana.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-light.banana.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "4-default": {
-        "value": "{core.decorative-light.4-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "radish": {
+        "text": {
+          "value": "{core.decorative-light.radish.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-light.radish.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-light.radish.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "5-default": {
-        "value": "{core.decorative-light.5-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "grape": {
+        "text": {
+          "value": "{core.decorative-light.grape.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-light.grape.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-light.grape.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "6-default": {
-        "value": "{core.decorative-light.6-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "kiwi": {
+        "text": {
+          "value": "{core.decorative-light.kiwi.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-light.kiwi.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-light.kiwi.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "7-default": {
-        "value": "{core.decorative-light.7-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "blueberry": {
+        "text": {
+          "value": "{core.decorative-light.blueberry.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-light.blueberry.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-light.blueberry.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       }
     }
   },
@@ -1329,6 +1559,11 @@
         "type": "color",
         "description": "Used if a text element is disabled."
       },
+      "dark": {
+        "value": "{core.gray.12}",
+        "type": "color",
+        "description": "Used for low contrast decorative colors."
+      },
       "highlight": {
         "value": "{core.customer-color-dark.3-default}",
         "type": "color",
@@ -1392,6 +1627,11 @@
         "value": "{core.gray.07}",
         "type": "color",
         "description": "Used if a icon element is disabled."
+      },
+      "dark": {
+        "value": "{core.gray.12}",
+        "type": "color",
+        "description": "Used for low contrast decorative colors."
       },
       "highlight": {
         "value": "{core.customer-color-dark.3-default}",
@@ -1536,40 +1776,124 @@
       }
     },
     "decorative": {
-      "1-default": {
-        "value": "{core.decorative-dark.1-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "chilli": {
+        "text": {
+          "value": "{core.decorative-dark.chilli.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-dark.chilli.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-dark.chilli.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "2-default": {
-        "value": "{core.decorative-dark.2-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "pumpkin": {
+        "text": {
+          "value": "{core.decorative-dark.pumpkin.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-dark.pumpkin.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-dark.pumpkin.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "3-default": {
-        "value": "{core.decorative-dark.3-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "banana": {
+        "text": {
+          "value": "{core.decorative-dark.banana.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-dark.banana.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-dark.banana.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "4-default": {
-        "value": "{core.decorative-dark.4-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "radish": {
+        "text": {
+          "value": "{core.decorative-dark.radish.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-dark.radish.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-dark.radish.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "5-default": {
-        "value": "{core.decorative-dark.5-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "grape": {
+        "text": {
+          "value": "{core.decorative-dark.grape.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-dark.grape.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-dark.grape.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "6-default": {
-        "value": "{core.decorative-dark.6-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "kiwi": {
+        "text": {
+          "value": "{core.decorative-dark.kiwi.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-dark.kiwi.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-dark.kiwi.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       },
-      "7-default": {
-        "value": "{core.decorative-dark.7-default}",
-        "type": "color",
-        "description": "Used as a decorative color."
+      "blueberry": {
+        "text": {
+          "value": "{core.decorative-dark.blueberry.text}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface": {
+          "value": "{core.decorative-dark.blueberry.surface}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        },
+        "surface-subdued": {
+          "value": "{core.decorative-dark.blueberry.surface-subdued}",
+          "type": "color",
+          "description": "Used as a decorative color."
+        }
       }
     }
   },
@@ -1578,8 +1902,8 @@
       "id": "f4c7659549aa25d5ab75f63512e73fa7283d5f05",
       "name": "Light",
       "selectedTokenSets": {
-        "core-colors": "enabled",
-        "core": "enabled",
+        "core-colors": "source",
+        "core": "source",
         "light": "enabled",
         "dark": "disabled"
       },
@@ -1734,17 +2058,113 @@
         "Core.Decorative Dark.5 Default": "S:15b3c26c4052ec37869ab7f5ca262f42604e8311,",
         "Core.Decorative Dark.6 Default": "S:35f4aa28e019cd801061db94797e21b438eaba93,",
         "Core.Decorative Dark.7 Default": "S:4a44d345e3409516ba6104371d25650943708099,",
-        "background.default": "S:f4922e3dd41a747c9d699c1694aa740203f5b8b4,",
+        "background.default": "S:e454005c933e34b1d819a82f39b5510145722624,",
         "background.Hovered": "S:306d70c139f5e045adae2a3a8911656a94eaf91a,",
-        "background.Pressed": "S:03444a768b19201b8b6d96ef4038e3e0775f69a2,"
+        "background.Pressed": "S:03444a768b19201b8b6d96ef4038e3e0775f69a2,",
+        "background.hovered": "S:e261ff1c642354562ee3c94a4b5545f4a38f08ae,",
+        "background.pressed": "S:b047d006e99e11f0d88f0fedd8505c9b72bbce42,",
+        "surface.default": "S:7f403220b469b0f6a0892c9c0d664850c1ba0171,",
+        "surface.hovered": "S:246e86ee8a26cbbbb340e2da5c4922064434c49e,",
+        "surface.pressed": "S:a0fdd0619608b58c3b5646a282cfa18273334ec2,",
+        "surface-overlay.default": "S:6d766933098dcee328914554ca2c514f13c6b6d8,",
+        "surface-overlay.hovered": "S:8707324e0ab52f4c48fc5aac3cf979d7c3e9d3e3,",
+        "surface-overlay.pressed": "S:7f3b27b2076f87c051c6ba5203d8f67c4957356e,",
+        "surface-raised.default": "S:e8c2b6f6f183e6fabb664381d3b83596a0bdbce7,",
+        "surface-raised.hovered": "S:ad4c73dc9e29edcf0cd6a25e988349bc18181c69,",
+        "surface-raised.pressed": "S:c2f4cd327b06b8b9859f7968b7fb15bd028f1d56,",
+        "surface-highlight.default": "S:06029e8a0df4d23c3411f057a75fc40e8871d1e3,",
+        "surface-highlight.hovered": "S:afee8d07d86fabb539c110bba0cc02067cb93dd2,",
+        "surface-highlight.pressed": "S:1c8426bb483a0a57d2d9b8a6b4d85b18e20fe099,",
+        "on-surface-highlight.default": "S:5df0b6399baad57356988a368f0c60f776e664dd,",
+        "surface-critical.default": "S:aa910f10b606aa21fef4989cb7ab53f4c6a82ffc,",
+        "surface-critical.subdued": "S:79e7ccd08801ad21acc240ba0443c2b00654df7d,",
+        "surface-warning.default": "S:6072c618479395ee0d3e1838f185bfc9d1d347fa,",
+        "surface-warning.subdued": "S:21fee6d5f1df3bd0577906d1839855fc1a0bec00,",
+        "surface-success.default": "S:a1e670af6112fac3985a7fc13ecba50bd55e168f,",
+        "surface-success.subdued": "S:c94fa52580e1cdf09a686ae385d5d556e4e0d95f,",
+        "surface-info.default": "S:b7d5e22a04b848738ed1107ef4c2018995495ab0,",
+        "surface-info.subdued": "S:badfb290c239395797d17eb7b7710c8d1c660735,",
+        "surface-neutral.default": "S:9dab9a7a9d15befb3d62cf752a64438c768897b4,",
+        "surface-neutral.subdued": "S:26608d659be2f823ad8a4cc514bc9ecffa91de0b,",
+        "surface-on-image.default": "S:04cae56ea5a3acfa5155720eedb618d05f2b6d8c,",
+        "border.strong": "S:fd7d2779b24abe7f8e56878c246b74337996d5a4,",
+        "border.default": "S:9a12a6c029df728fc5ded8572e7e8d66b654535a,",
+        "border.highlight": "S:81b2fecb0714b492e9367da4eff578db033249eb,",
+        "border.critical": "S:3174ea8794f25e35e590beecc5d479b96e2dc948,",
+        "border.success": "S:b1f7002555c038aa0bd381863b51b46ebdad70df,",
+        "border.warning": "S:1489c27e94c10c778f80f941d0abf65d3756b229,",
+        "border.info": "S:cc82eafa3f1de4f99a14f92cf9fc58ca7d515af4,",
+        "border.on-highlight": "S:b5383ae79796871850064652428de6a6f8b4bbd1,",
+        "text.default": "S:4ba6334cccf4c3c1307e0caf287532e346f08a00,",
+        "text.subdued": "S:0fb3c3d309a847d49d652cbac484b68a5ab0ee4e,",
+        "text.disabled": "S:b555bc84101350e57421b9796e636abb9fb92940,",
+        "text.highlight": "S:9b50b7fc990f008a62d0d148f598a8a3f8f1f0e7,",
+        "text.critical": "S:49e214d1ef1a6ad292b3531745bc89c1f6bb9960,",
+        "text.success": "S:ed263e1dc132e74ed998d3fc74ba0166d03b643a,",
+        "text.warning": "S:fd514a9041833907eb0e8a3913083756a4118833,",
+        "text.info": "S:3d0423132a1babf543d4c69bc6c707b7e930b74b,",
+        "text-on.action-primary": "S:57df15dfb37317522b0283e0ff74251853ea8cbd,",
+        "text-on.surface-highlight": "S:2a24548040810f40933cdaa7232f81f94b63a67a,",
+        "text-on.status": "S:cd22b49f4de505bbb3c6f9f08bb0f6adab10f45d,",
+        "text-on.image": "S:ca04dfbd559d2e506ec1318bc11afc2194c46a78,",
+        "icon.strong": "S:4d59329d107b6b57e7067dbae3d13b5010e6a6d1,",
+        "icon.default": "S:440c83c8d076eb613ffd11cac286351519b82108,",
+        "icon.disabled": "S:f5782002693fd86e353ffd8c9bf87acf2cb7643e,",
+        "icon.highlight": "S:ef688ceea6d225db04e78dde1d2024c3c7ce7ded,",
+        "icon.critical": "S:7758cc195f11c32447b7d9d8232862e8c7aa66d2,",
+        "icon.success": "S:fec83f2eeb9f139997cc03ffcbbd9d2633847f5f,",
+        "icon.warning": "S:bfc63d76d0f1b4380a30660aa036dd1f5e4cfb06,",
+        "icon.info": "S:0bb7fe7ed5dec5a2de468539f66d8c7c593af887,",
+        "icon-on.action-primary": "S:b13ee4fd5669a9359785a1955023eb6a15779d85,",
+        "icon-on.surface-highlight": "S:e4b0ec79195ea77d73a20c44bb1de21f1ab59007,",
+        "icon-on.status": "S:86733c3a714628bd78f80d4ba2c205f8091168a5,",
+        "icon-on.image": "S:faac67228b441a7c2220fb39f68e409b44a22171,",
+        "action-primary.default": "S:9077fafde84206ba3e746b0da1c19cb85125b4a1,",
+        "action-primary.hovered": "S:0a173abfaa9e32af2e1dc18568993c03884d41da,",
+        "action-primary.pressed": "S:dcd7375d1740355fbda4bf9070663a2977b71e0d,",
+        "action-primary.disabled": "S:0bce75f5024197fcc7a7ef5bde91258177b13391,",
+        "action-neutral.default": "S:8aaf1472022c702f6ca73d77ffc798229bc89d44,",
+        "action-neutral.hovered": "S:115bc953c113d61dea9db1e2f1c9805813aad1f7,",
+        "action-neutral.pressed": "S:57cfa1580791b83c9d409204cfdf3a27a67899c7,",
+        "action-neutral.disabled": "S:c34b78fd084110879d1ee1c741dd8ba910704266,",
+        "interactive-primary.default": "S:7bdf6e1f768199889e601643f6b844877f7d8721,",
+        "interactive-primary.hovered": "S:4b10b38778e8c0ef021c79067e84173e10608ae5,",
+        "interactive-primary.pressed": "S:722c739e1b00f252a20ef3dff7ff728fedd777a2,",
+        "interactive-primary.disabled": "S:02cd172c2ced19c1dc1498ec7ab96b72262b5a06,",
+        "interactive-neutral.default": "S:aedba546676d031484eab43072452f3fa99672f0,",
+        "interactive-neutral.hovered": "S:73ca1dc7bd86a366f57ae55915351751cd4a06e2,",
+        "interactive-neutral.pressed": "S:01cda55e872b5f37522816cc2f693d7ee825c183,",
+        "interactive-neutral.disabled": "S:44b07dfd946e1793647b1ba77dda9f2747ed1814,",
+        "focus.default": "S:1e81db09d68c8da5e84aa4a8b16570d1f433df9a,",
+        "decorative.chilli.text": "S:01a29d201fe1bb2d61a056c2847cfa3026b18b2e,",
+        "decorative.chilli.surface": "S:f344ba51f780424e5df40cfa1cd60c117ece819d,",
+        "decorative.chilli.surface-subdued": "S:f63924824a93e7aa4b75941e06aac1c710a3b733,",
+        "decorative.pumpkin.text": "S:bde2143771f1ee6aa7c32de3abb212c749a3dc7b,",
+        "decorative.pumpkin.surface": "S:47244f8fb99a8b50c64ac1cd0c89995681c69b25,",
+        "decorative.pumpkin.surface-subdued": "S:fd33423d735a9cbaaf780ec1a77c3cc81cb3ea3e,",
+        "decorative.banana.text": "S:9d1e9cf65e5e69c8c2caba1f1afa049231bf7268,",
+        "decorative.banana.surface": "S:7af3ca4b1db91660d751c8ce72291e7b6d8b1cff,",
+        "decorative.banana.surface-subdued": "S:8ac9dccf7b7204c2b100d4152e651c5c0f73f34a,",
+        "decorative.radish.text": "S:1408a3ab420a623b0db0683bd94c3aee16cb20d6,",
+        "decorative.radish.surface": "S:309fc504240bd886a3a57e9f06e9f6bf6715b2c4,",
+        "decorative.radish.surface-subdued": "S:408a9efc5086e7148b201ca94b3330f2c5751ae9,",
+        "decorative.grape.text": "S:0cefce7926561a727e103030576af4268a954a02,",
+        "decorative.grape.surface": "S:214366c1e7db5f3b603ecdb7505a7be63c907618,",
+        "decorative.grape.surface-subdued": "S:9166d397618224ba5103228a88186f6ce7bcc848,",
+        "decorative.kiwi.text": "S:44403e0157333e6427517fd900d63ec04aa4e21c,",
+        "decorative.kiwi.surface": "S:691f64e358ee0bf82779aabb607b6d3a065f0583,",
+        "decorative.kiwi.surface-subdued": "S:f66e203a5aedaa420029becaae274818779226f0,",
+        "decorative.blueberry.text": "S:1b025933e406c361054be299e38cdf8176b16530,",
+        "decorative.blueberry.surface": "S:2f6e7cc449c908aeecbe17801602ffd6f35959c1,",
+        "decorative.blueberry.surface-subdued": "S:138f59cb0a71d07ac8af647fdc805cb4b7c44508,"
       }
     },
     {
       "id": "42468b6ed8dc2332e804197d2777f0a3046af3d3",
       "name": "Dark",
       "selectedTokenSets": {
-        "core-colors": "enabled",
-        "core": "enabled",
+        "core-colors": "source",
+        "core": "source",
         "light": "disabled",
         "dark": "enabled"
       },
@@ -1903,6 +2323,11 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
+    "tokenSetOrder": [
+      "core",
+      "core-colors",
+      "light",
+      "dark"
+    ]
   }
 }

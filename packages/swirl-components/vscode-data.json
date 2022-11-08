@@ -179,6 +179,33 @@
           ]
         },
         {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
+              "name": "grape"
+            },
+            {
+              "name": "kiwi"
+            },
+            {
+              "name": "pumpkin"
+            },
+            {
+              "name": "radish"
+            }
+          ]
+        },
+        {
           "name": "icon",
           "description": ""
         },
@@ -269,28 +296,28 @@
           "description": "",
           "values": [
             {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
               "name": "critical"
             },
             {
-              "name": "decorative-1"
+              "name": "grape"
             },
             {
-              "name": "decorative-2"
+              "name": "kiwi"
             },
             {
-              "name": "decorative-3"
+              "name": "pumpkin"
             },
             {
-              "name": "decorative-4"
-            },
-            {
-              "name": "decorative-5"
-            },
-            {
-              "name": "decorative-6"
-            },
-            {
-              "name": "decorative-7"
+              "name": "radish"
             }
           ]
         },
@@ -383,6 +410,68 @@
         {
           "name": "show-icon",
           "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-box",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "as",
+          "description": ""
+        },
+        {
+          "name": "bordered",
+          "description": ""
+        },
+        {
+          "name": "center-block",
+          "description": ""
+        },
+        {
+          "name": "center-inline",
+          "description": ""
+        },
+        {
+          "name": "cover",
+          "description": ""
+        },
+        {
+          "name": "padding",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "20"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
         }
       ]
     },
@@ -533,6 +622,10 @@
               "name": "vertical"
             }
           ]
+        },
+        {
+          "name": "segmented",
+          "description": ""
         },
         {
           "name": "stretch",
@@ -940,6 +1033,10 @@
         },
         {
           "name": "file",
+          "description": ""
+        },
+        {
+          "name": "single-page-mode",
           "description": ""
         },
         {
@@ -2352,6 +2449,51 @@
               "name": "simple"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "flip-pdf-reader",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-zoom-label",
+          "description": ""
+        },
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "download-button-label",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "print-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-in-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-out-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-select-label",
+          "description": ""
         }
       ]
     },

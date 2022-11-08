@@ -264,16 +264,16 @@
     "value": "rgba(255, 255, 255, 1)",
     "type": "color"
   },
-  "core-customer-color-light-1-hovered": {
-    "value": "rgba(38, 230, 185, 1)",
+  "core-customer-color-light-1-default": {
+    "value": "rgba(21, 25, 47, 1)",
     "type": "color"
   },
-  "core-customer-color-light-1-default": {
-    "value": "rgba(0, 226, 173, 1)",
+  "core-customer-color-light-1-hovered": {
+    "value": "rgba(56, 60, 78, 1)",
     "type": "color"
   },
   "core-customer-color-light-1-pressed": {
-    "value": "rgba(77, 235, 198, 1)",
+    "value": "rgba(91, 94, 109, 1)",
     "type": "color"
   },
   "core-customer-color-light-2-default": {
@@ -301,23 +301,23 @@
     "type": "color"
   },
   "core-on-customer-color-light-1": {
-    "value": "rgba(0, 13, 87, 1)",
+    "value": "rgba(255, 255, 255, 1)",
     "type": "color"
   },
   "core-on-customer-color-light-2": {
-    "value": "rgba(190, 255, 240, 1)",
+    "value": "rgba(255, 255, 255, 1)",
     "type": "color"
   },
   "core-customer-color-dark-1-default": {
-    "value": "rgba(142, 235, 226, 1)",
+    "value": "rgba(145, 145, 162, 1)",
     "type": "color"
   },
   "core-customer-color-dark-1-hovered": {
-    "value": "rgba(121, 200, 192, 1)",
+    "value": "rgba(123, 123, 138, 1)",
     "type": "color"
   },
   "core-customer-color-dark-1-pressed": {
-    "value": "rgba(99, 164, 158, 1)",
+    "value": "rgba(102, 102, 113, 1)",
     "type": "color"
   },
   "core-customer-color-dark-2-default": {
@@ -420,60 +420,172 @@
     "value": "rgba(71, 14, 27, 1)",
     "type": "color"
   },
-  "core-decorative-light-1-default": {
-    "value": "rgba(255, 87, 77, 1)",
+  "core-decorative-light-chilli-text": {
+    "value": "rgba(195, 28, 28, 1)",
     "type": "color"
   },
-  "core-decorative-light-2-default": {
-    "value": "rgba(255, 131, 64, 1)",
+  "core-decorative-light-chilli-surface": {
+    "value": "rgba(195, 28, 28, 1)",
     "type": "color"
   },
-  "core-decorative-light-3-default": {
-    "value": "rgba(246, 196, 49, 1)",
+  "core-decorative-light-chilli-surface-subdued": {
+    "value": "rgba(252, 231, 237, 1)",
     "type": "color"
   },
-  "core-decorative-light-4-default": {
-    "value": "rgba(235, 132, 161, 1)",
+  "core-decorative-light-pumpkin-text": {
+    "value": "rgba(167, 76, 37, 1)",
     "type": "color"
   },
-  "core-decorative-light-5-default": {
-    "value": "rgba(150, 50, 250, 1)",
+  "core-decorative-light-pumpkin-surface": {
+    "value": "rgba(245, 144, 49, 1)",
     "type": "color"
   },
-  "core-decorative-light-6-default": {
-    "value": "rgba(96, 178, 156, 1)",
+  "core-decorative-light-pumpkin-surface-subdued": {
+    "value": "rgba(255, 227, 202, 1)",
     "type": "color"
   },
-  "core-decorative-light-7-default": {
-    "value": "rgba(51, 135, 255, 1)",
+  "core-decorative-light-banana-text": {
+    "value": "rgba(154, 92, 0, 1)",
     "type": "color"
   },
-  "core-decorative-dark-1-default": {
-    "value": "rgba(255, 110, 102, 1)",
+  "core-decorative-light-banana-surface": {
+    "value": "rgba(234, 186, 42, 1)",
     "type": "color"
   },
-  "core-decorative-dark-2-default": {
+  "core-decorative-light-banana-surface-subdued": {
+    "value": "rgba(250, 241, 200, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-radish-text": {
+    "value": "rgba(186, 29, 142, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-radish-surface": {
+    "value": "rgba(186, 29, 142, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-radish-surface-subdued": {
+    "value": "rgba(255, 221, 245, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-grape-text": {
+    "value": "rgba(130, 45, 164, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-grape-surface": {
+    "value": "rgba(130, 45, 164, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-grape-surface-subdued": {
+    "value": "rgba(233, 220, 255, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-kiwi-text": {
+    "value": "rgba(54, 119, 69, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-kiwi-surface": {
+    "value": "rgba(54, 119, 69, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-kiwi-surface-subdued": {
+    "value": "rgba(220, 247, 220, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-blueberry-text": {
+    "value": "rgba(63, 95, 167, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-blueberry-surface": {
+    "value": "rgba(63, 95, 167, 1)",
+    "type": "color"
+  },
+  "core-decorative-light-blueberry-surface-subdued": {
+    "value": "rgba(230, 241, 255, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-chilli-text": {
+    "value": "rgba(255, 128, 128, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-chilli-surface": {
+    "value": "rgba(255, 128, 128, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-chilli-surface-subdued": {
+    "value": "rgba(65, 27, 38, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-pumpkin-text": {
     "value": "rgba(255, 164, 115, 1)",
     "type": "color"
   },
-  "core-decorative-dark-3-default": {
-    "value": "rgba(249, 218, 122, 1)",
+  "core-decorative-dark-pumpkin-surface": {
+    "value": "rgba(243, 149, 62, 1)",
     "type": "color"
   },
-  "core-decorative-dark-4-default": {
-    "value": "rgba(235, 132, 161, 1)",
+  "core-decorative-dark-pumpkin-surface-subdued": {
+    "value": "rgba(65, 42, 21, 1)",
     "type": "color"
   },
-  "core-decorative-dark-5-default": {
-    "value": "rgba(188, 125, 252, 1)",
+  "core-decorative-dark-banana-text": {
+    "value": "rgba(236, 193, 64, 1)",
     "type": "color"
   },
-  "core-decorative-dark-6-default": {
-    "value": "rgba(148, 203, 188, 1)",
+  "core-decorative-dark-banana-surface": {
+    "value": "rgba(236, 193, 64, 1)",
     "type": "color"
   },
-  "core-decorative-dark-7-default": {
-    "value": "rgba(102, 166, 255, 1)",
+  "core-decorative-dark-banana-surface-subdued": {
+    "value": "rgba(54, 47, 16, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-radish-text": {
+    "value": "rgba(228, 95, 191, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-radish-surface": {
+    "value": "rgba(228, 95, 191, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-radish-surface-subdued": {
+    "value": "rgba(66, 22, 53, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-grape-text": {
+    "value": "rgba(194, 113, 226, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-grape-surface": {
+    "value": "rgba(194, 113, 226, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-grape-surface-subdued": {
+    "value": "rgba(57, 28, 81, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-kiwi-text": {
+    "value": "rgba(136, 200, 151, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-kiwi-surface": {
+    "value": "rgba(136, 200, 151, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-kiwi-surface-subdued": {
+    "value": "rgba(24, 47, 24, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-blueberry-text": {
+    "value": "rgba(123, 156, 232, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-blueberry-surface": {
+    "value": "rgba(123, 156, 232, 1)",
+    "type": "color"
+  },
+  "core-decorative-dark-blueberry-surface-subdued": {
+    "value": "rgba(17, 41, 71, 1)",
     "type": "color"
   },
   "background-default": {
@@ -666,6 +778,11 @@
     "type": "color",
     "comment": "Used if a text element is disabled."
   },
+  "text-dark": {
+    "value": "{core-gray-12}",
+    "type": "color",
+    "comment": "Used for low contrast decorative colors."
+  },
   "text-highlight": {
     "value": "{core-customer-color-light-3-default}",
     "type": "color",
@@ -725,6 +842,11 @@
     "value": "{core-gray-04}",
     "type": "color",
     "comment": "Used if a icon element is disabled."
+  },
+  "icon-dark": {
+    "value": "{core-gray-12}",
+    "type": "color",
+    "comment": "Used for low contrast decorative colors."
   },
   "icon-highlight": {
     "value": "{core-customer-color-light-3-default}",
@@ -855,38 +977,108 @@
     "value": "{core-customer-color-light-3-default}",
     "type": "color"
   },
-  "decorative-1-default": {
-    "value": "{core-decorative-light-1-default}",
+  "decorative-chilli-text": {
+    "value": "{core-decorative-light-chilli-text}",
     "type": "color",
     "comment": "Used as a decorative color."
   },
-  "decorative-2-default": {
-    "value": "{core-decorative-light-2-default}",
+  "decorative-chilli-surface": {
+    "value": "{core-decorative-light-chilli-surface}",
     "type": "color",
     "comment": "Used as a decorative color."
   },
-  "decorative-3-default": {
-    "value": "{core-decorative-light-3-default}",
+  "decorative-chilli-surface-subdued": {
+    "value": "{core-decorative-light-chilli-surface-subdued}",
     "type": "color",
     "comment": "Used as a decorative color."
   },
-  "decorative-4-default": {
-    "value": "{core-decorative-light-4-default}",
+  "decorative-pumpkin-text": {
+    "value": "{core-decorative-light-pumpkin-text}",
     "type": "color",
     "comment": "Used as a decorative color."
   },
-  "decorative-5-default": {
-    "value": "{core-decorative-light-5-default}",
+  "decorative-pumpkin-surface": {
+    "value": "{core-decorative-light-pumpkin-surface}",
     "type": "color",
     "comment": "Used as a decorative color."
   },
-  "decorative-6-default": {
-    "value": "{core-decorative-light-6-default}",
+  "decorative-pumpkin-surface-subdued": {
+    "value": "{core-decorative-light-pumpkin-surface-subdued}",
     "type": "color",
     "comment": "Used as a decorative color."
   },
-  "decorative-7-default": {
-    "value": "{core-decorative-light-7-default}",
+  "decorative-banana-text": {
+    "value": "{core-decorative-light-banana-text}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-banana-surface": {
+    "value": "{core-decorative-light-banana-surface}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-banana-surface-subdued": {
+    "value": "{core-decorative-light-banana-surface-subdued}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-radish-text": {
+    "value": "{core-decorative-light-radish-text}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-radish-surface": {
+    "value": "{core-decorative-light-radish-surface}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-radish-surface-subdued": {
+    "value": "{core-decorative-light-radish-surface-subdued}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-grape-text": {
+    "value": "{core-decorative-light-grape-text}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-grape-surface": {
+    "value": "{core-decorative-light-grape-surface}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-grape-surface-subdued": {
+    "value": "{core-decorative-light-grape-surface-subdued}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-kiwi-text": {
+    "value": "{core-decorative-light-kiwi-text}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-kiwi-surface": {
+    "value": "{core-decorative-light-kiwi-surface}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-kiwi-surface-subdued": {
+    "value": "{core-decorative-light-kiwi-surface-subdued}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-blueberry-text": {
+    "value": "{core-decorative-light-blueberry-text}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-blueberry-surface": {
+    "value": "{core-decorative-light-blueberry-surface}",
+    "type": "color",
+    "comment": "Used as a decorative color."
+  },
+  "decorative-blueberry-surface-subdued": {
+    "value": "{core-decorative-light-blueberry-surface-subdued}",
     "type": "color",
     "comment": "Used as a decorative color."
   }
