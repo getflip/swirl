@@ -76,6 +76,86 @@
       ]
     },
     {
+      "name": "flip-autocomplete",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-select",
+          "description": ""
+        },
+        {
+          "name": "clear-button-label",
+          "description": ""
+        },
+        {
+          "name": "clearable",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "max-length",
+          "description": ""
+        },
+        {
+          "name": "menu-label",
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "description": "",
+          "values": [
+            {
+              "name": "decimal"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "numeric"
+            },
+            {
+              "name": "search"
+            },
+            {
+              "name": "tel"
+            },
+            {
+              "name": "text"
+            },
+            {
+              "name": "url"
+            }
+          ]
+        },
+        {
+          "name": "required",
+          "description": ""
+        },
+        {
+          "name": "spell-check",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-avatar",
       "description": {
         "kind": "markdown",
@@ -2251,6 +2331,10 @@
         {
           "name": "multi-select",
           "description": ""
+        },
+        {
+          "name": "option-list-id",
+          "description": ""
         }
       ]
     },
@@ -3107,11 +3191,31 @@
           "description": ""
         },
         {
+          "name": "disable-dynamic-width",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },
         {
+          "name": "flip-aria-autocomplete",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-controls",
+          "description": ""
+        },
+        {
           "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-expanded",
+          "description": ""
+        },
+        {
+          "name": "flip-role",
           "description": ""
         },
         {
