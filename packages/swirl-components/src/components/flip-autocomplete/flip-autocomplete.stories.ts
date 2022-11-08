@@ -8,7 +8,7 @@ export default {
     docs: {
       page: Docs,
       source: {
-        code: `<flip-form-control description="Optional description of the control." label="Autocomplete">
+        code: `<flip-form-control label="Autocomplete">
   <flip-autocomplete id="autocomplete"></flip-autocomplete>
 </flip-form-control>
 
@@ -49,10 +49,13 @@ export default {
 };
 
 const Template = (args) => {
+  const formControl = document.createElement("flip-form-control");
   const element = generateStoryElement(
     "flip-autocomplete",
     args
   ) as HTMLFlipAutocompleteElement;
+
+  formControl.label = "Autocomplete";
 
   const suggestions: FlipAutocompleteSuggestion[] = [
     {
@@ -80,7 +83,9 @@ const Template = (args) => {
     );
   };
 
-  return element;
+  formControl.append(element);
+
+  return formControl;
 };
 
 export const FlipAutocomplete = Template.bind({});

@@ -86,7 +86,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     } else if (event.code === "ArrowUp") {
       event.preventDefault();
       this.focusPreviousItem();
-    } else if (event.code === "Space") {
+    } else if (event.code === "Space" || event.code === "Enter") {
       event.preventDefault();
       this.selectFocusedItem();
     } else if (event.code === "Home") {
