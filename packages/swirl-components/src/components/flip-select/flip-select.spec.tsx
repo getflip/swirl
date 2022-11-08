@@ -4,6 +4,12 @@ import { FlipPopover } from "../flip-popover/flip-popover";
 
 import { FlipSelect } from "./flip-select";
 
+(global as any).MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
+
 describe("flip-select", () => {
   it("renders its option list", async () => {
     const page = await newSpecPage({
