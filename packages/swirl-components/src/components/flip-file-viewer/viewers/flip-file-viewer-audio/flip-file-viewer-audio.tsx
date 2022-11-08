@@ -16,6 +16,7 @@ import {
 export class FlipFileViewerAudio {
   @Element() el: HTMLElement;
 
+  @Prop() autoplay?: boolean;
   @Prop() file!: string;
   @Prop() type!: string;
 
@@ -28,7 +29,11 @@ export class FlipFileViewerAudio {
   render() {
     return (
       <Host class="file-viewer-audio">
-        <audio class="file-viewer-audio__audio" controls>
+        <audio
+          autoplay={this.autoplay}
+          class="file-viewer-audio__audio"
+          controls
+        >
           <source src={this.file} type={this.type}></source>
         </audio>
       </Host>

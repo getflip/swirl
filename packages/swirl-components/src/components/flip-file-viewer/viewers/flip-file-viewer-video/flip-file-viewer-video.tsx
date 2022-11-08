@@ -16,6 +16,7 @@ import {
 export class FlipFileViewerVideo {
   @Element() el: HTMLElement;
 
+  @Prop() autoplay?: boolean;
   @Prop() file!: string;
   @Prop() type!: string;
 
@@ -28,7 +29,11 @@ export class FlipFileViewerVideo {
   render() {
     return (
       <Host class="file-viewer-video">
-        <video class="file-viewer-video__video" controls>
+        <video
+          autoplay={this.autoplay}
+          class="file-viewer-video__video"
+          controls
+        >
           <source src={this.file} type={this.type}></source>
         </video>
       </Host>

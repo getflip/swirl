@@ -935,6 +935,10 @@
           "description": ""
         },
         {
+          "name": "autoplay",
+          "description": ""
+        },
+        {
           "name": "description",
           "description": ""
         },
@@ -972,6 +976,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "autoplay",
+          "description": ""
+        },
         {
           "name": "file",
           "description": ""
@@ -1074,6 +1082,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "autoplay",
+          "description": ""
+        },
         {
           "name": "file",
           "description": ""

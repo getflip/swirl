@@ -17,6 +17,7 @@ import { FlipFileViewerPdfZoom } from "./viewers/flip-file-viewer-pdf/flip-file-
 })
 export class FlipFileViewer {
   @Prop() active?: boolean = true;
+  @Prop() autoplay?: boolean;
   @Prop() description?: string;
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
@@ -110,6 +111,7 @@ export class FlipFileViewer {
               {/* video files */}
               {this.type.startsWith("video/") && (
                 <flip-file-viewer-video
+                  autoplay={this.autoplay}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
                   type={this.type}
@@ -119,6 +121,7 @@ export class FlipFileViewer {
               {/* audio files */}
               {this.type.startsWith("audio/") && (
                 <flip-file-viewer-audio
+                  autoplay={this.autoplay}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
                   type={this.type}

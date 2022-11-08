@@ -220,6 +220,7 @@ export namespace Components {
     }
     interface FlipFileViewer {
         "active"?: boolean;
+        "autoplay"?: boolean;
         "description"?: string;
         /**
           * Download the file.
@@ -236,6 +237,7 @@ export namespace Components {
         "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerAudio {
+        "autoplay"?: boolean;
         "file": string;
         "type": string;
     }
@@ -275,6 +277,7 @@ export namespace Components {
         "file": string;
     }
     interface FlipFileViewerVideo {
+        "autoplay"?: boolean;
         "file": string;
         "type": string;
     }
@@ -2102,6 +2105,7 @@ declare namespace LocalJSX {
     }
     interface FlipFileViewer {
         "active"?: boolean;
+        "autoplay"?: boolean;
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
@@ -2111,6 +2115,7 @@ declare namespace LocalJSX {
         "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerAudio {
+        "autoplay"?: boolean;
         "file": string;
         "onActivate"?: (event: FlipFileViewerAudioCustomEvent<HTMLElement>) => void;
         "type": string;
@@ -2139,6 +2144,7 @@ declare namespace LocalJSX {
         "onActivate"?: (event: FlipFileViewerTextCustomEvent<HTMLElement>) => void;
     }
     interface FlipFileViewerVideo {
+        "autoplay"?: boolean;
         "file": string;
         "onActivate"?: (event: FlipFileViewerVideoCustomEvent<HTMLElement>) => void;
         "type": string;
