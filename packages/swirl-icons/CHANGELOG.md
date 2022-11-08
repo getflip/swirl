@@ -1,5 +1,18 @@
 # @getflip/swirl-icons
 
+## 0.4.0
+
+### Minor Changes
+
+- [#34](https://github.com/getflip/swirl/pull/34)
+  [`988e800`](https://github.com/getflip/swirl/commit/988e800ec781af518500bd507aacbd3fe61e7211)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Added metadata.js
+  as a dist file
+
+* [#67](https://github.com/getflip/swirl/pull/67)
+  [`1601293`](https://github.com/getflip/swirl/commit/1601293635db5c1d54d53195d9cd46289578ba75)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add new icons
+
 ## 0.3.0
 
 ### Minor Changes

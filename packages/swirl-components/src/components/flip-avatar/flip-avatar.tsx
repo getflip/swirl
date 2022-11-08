@@ -2,6 +2,14 @@ import { Component, Element, h, Host, Prop, State, Watch } from "@stencil/core";
 import classnames from "classnames";
 
 export type FlipAvatarBadgePosition = "bottom" | "top";
+export type FlipAvatarColor =
+  | "banana"
+  | "blueberry"
+  | "chilli"
+  | "grape"
+  | "kiwi"
+  | "pumpkin"
+  | "radish";
 export type FlipAvatarSize = "xs" | "s" | "m" | "l" | "xl" | "2xl";
 export type FlipAvatarVariant = "round" | "square";
 
@@ -24,6 +32,7 @@ export class FlipAvatar {
 
   @Prop() badge?: string;
   @Prop() badgePosition?: FlipAvatarBadgePosition = "bottom";
+  @Prop() color?: FlipAvatarColor = "kiwi";
   @Prop() icon?: string;
   @Prop() initials?: string;
   @Prop() interactive?: boolean = false;
@@ -35,9 +44,25 @@ export class FlipAvatar {
 
   @State() imageAvailable: boolean | undefined;
 
+  private badgeEl: HTMLElement;
+
+  componentDidLoad() {
+    this.forceBadgeProps();
+  }
+
   @Watch("src")
   watchSrcProp() {
     this.imageAvailable = undefined;
+  }
+
+  private forceBadgeProps() {
+    if (!Boolean(this.badge)) {
+      return;
+    }
+
+    const badge = this.badgeEl.querySelector("flip-badge");
+
+    badge?.setAttribute("size", "m");
   }
 
   private setImageAvailable = () => {
@@ -84,6 +109,7 @@ export class FlipAvatar {
 
     const className = classnames(
       "avatar",
+      `avatar--color-${this.color}`,
       `avatar--size-${this.size}`,
       `avatar--variant-${this.variant}`,
       {
@@ -131,7 +157,11 @@ export class FlipAvatar {
             </span>
           )}
           {showBadge && (
-            <span class={badgeClassName} innerHTML={this.badge}></span>
+            <span
+              class={badgeClassName}
+              innerHTML={this.badge}
+              ref={(el) => (this.badgeEl = el)}
+            ></span>
           )}
         </span>
 

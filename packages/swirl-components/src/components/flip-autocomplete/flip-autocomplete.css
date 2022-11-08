@@ -1,0 +1,29 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.autocomplete--inactive {
+  & .autocomplete__listbox-container {
+    display: none;
+  }
+}
+
+.autocomplete__listbox-container {
+  position: fixed;
+  z-index: var(--s-z-40);
+  overflow: hidden;
+  border-radius: var(--s-border-radius-sm);
+  background-color: var(--s-surface-overlay-default);
+  box-shadow: 0.125rem 0.25rem 2.5rem rgba(0, 0, 0, 0.14);
+}
+
+.autocomplete__spinner {
+  display: flex;
+  padding: var(--s-space-16);
+  justify-content: center;
+  align-items: center;
+}

@@ -28,7 +28,6 @@
   display: flex;
   margin-bottom: var(--s-space-8);
   align-items: center;
-  gap: var(--s-space-4);
 }
 
 .air-datepicker-nav--action {

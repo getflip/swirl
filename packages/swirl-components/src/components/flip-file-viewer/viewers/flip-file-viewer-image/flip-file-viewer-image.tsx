@@ -1,4 +1,14 @@
-import { Component, h, Host, Prop, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
 
 @Component({
   shadow: true,
@@ -6,12 +16,20 @@ import { Component, h, Host, Prop, State, Watch } from "@stencil/core";
   tag: "flip-file-viewer-image",
 })
 export class FlipFileViewerImage {
+  @Element() el: HTMLElement;
+
   @Prop() description?: string = "";
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
 
   @State() error: boolean;
   @State() loading: boolean = true;
+
+  @Event() activate: EventEmitter<HTMLElement>;
+
+  componentDidLoad() {
+    this.activate.emit(this.el);
+  }
 
   @Watch("file")
   watchFile() {

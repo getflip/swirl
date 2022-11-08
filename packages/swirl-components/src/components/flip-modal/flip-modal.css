@@ -52,6 +52,20 @@
   }
 }
 
+.modal--scrollable {
+  & .modal__content {
+    @media (--from-tablet) {
+      padding-bottom: 0;
+    }
+  }
+
+  &:not(.modal--scrolled-down) {
+    & .modal__controls {
+      border-top: var(--s-border-width-default) solid var(--s-border-default);
+    }
+  }
+}
+
 .modal--scrolled {
   @media (--from-tablet) {
     & .modal__header {
@@ -80,7 +94,7 @@
     max-width: 33.75rem;
     height: auto;
     max-height: 90vh;
-    border-radius: var(--s-border-radius-xl);
+    border-radius: var(--s-border-radius-base);
     box-shadow: 0.125rem 0.25rem 1rem rgba(0, 0, 0, 0.14);
   }
 }
@@ -110,6 +124,7 @@
   gap: var(--s-space-16);
 
   @media (--from-tablet) {
+    height: 4.125rem;
     padding-top: var(--s-space-24);
     padding-right: calc(var(--s-space-16) + 2.5rem + var(--s-space-8));
     padding-bottom: var(--s-space-16);
@@ -145,7 +160,7 @@
   @media (--from-tablet) {
     padding-top: 0;
     padding-right: var(--s-space-24);
-    padding-bottom: var(--s-space-32);
+    padding-bottom: var(--s-space-16);
     padding-left: var(--s-space-24);
   }
 }
@@ -158,7 +173,6 @@
   padding-left: var(--s-space-24);
   flex-shrink: 0;
   justify-content: flex-end;
-  border-top: var(--s-border-width-default) solid var(--s-border-default);
 }
 
 @keyframes modal-scale-in {

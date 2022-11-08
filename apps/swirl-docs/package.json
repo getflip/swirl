@@ -1,6 +1,6 @@
 {
   "name": "swirl-docs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Flip GmbH",
   "description": "Swirl documentation",
   "licence": "SEE LICENCE IN LICENSE.md",
@@ -15,8 +15,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@getflip/swirl-icons": "^0.3.0",
-    "@getflip/swirl-tokens": "^1.0.0",
+    "@getflip/swirl-icons": "^0.4.0",
+    "@getflip/swirl-tokens": "^1.1.0",
     "@mdx-js/loader": "^2.1.5",
     "@next/mdx": "^12.2.5",
     "gray-matter": "^4.0.3",

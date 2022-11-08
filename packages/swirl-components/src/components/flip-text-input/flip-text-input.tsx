@@ -49,7 +49,12 @@ export class FlipTextInput implements FlipFormInput {
   @Prop() clearable?: boolean;
   @Prop() clearButtonLabel?: string = "Clear input";
   @Prop() disabled?: boolean;
+  @Prop() disableDynamicWidth?: boolean;
+  @Prop() flipAriaAutocomplete?: string;
+  @Prop() flipAriaControls?: string;
   @Prop() flipAriaDescribedby?: string;
+  @Prop() flipAriaExpanded?: string;
+  @Prop() flipRole?: string;
   @Prop() invalid?: boolean;
   @Prop() maxLength?: number;
   @Prop() max?: number;
@@ -68,6 +73,8 @@ export class FlipTextInput implements FlipFormInput {
 
   @State() showPassword = false;
 
+  @Event() inputBlur: EventEmitter<FocusEvent>;
+  @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
 
   private inputEl: HTMLInputElement;
@@ -87,7 +94,7 @@ export class FlipTextInput implements FlipFormInput {
       this.inputEl.style.height = "";
       this.inputEl.style.width = "";
 
-      if (this.type !== "password") {
+      if (this.type !== "password" && !this.disableDynamicWidth) {
         this.inputEl.style.width = this.inputEl.scrollWidth / 16 + "rem";
       }
     }
@@ -107,7 +114,12 @@ export class FlipTextInput implements FlipFormInput {
     this.valueChange.emit(el.value);
   };
 
+  private onBlur = (event: FocusEvent) => {
+    this.inputBlur.emit(event);
+  };
+
   private onFocus = (event: FocusEvent) => {
+    this.inputFocus.emit(event);
     this.handleAutoSelect(event);
   };
 
@@ -202,6 +214,7 @@ export class FlipTextInput implements FlipFormInput {
       {
         "text-input--clearable": this.clearable,
         "text-input--disabled": this.disabled,
+        "text-input--disable-dynamic-width": this.disableDynamicWidth,
         "text-input--show-password":
           this.type === "password" && this.showPassword,
       }
@@ -214,8 +227,11 @@ export class FlipTextInput implements FlipFormInput {
             <span class="text-input__prefix">{this.prefixLabel}</span>
           )}
           <Tag
+            aria-autocomplete={this.flipAriaAutocomplete}
+            aria-controls={this.flipAriaControls}
             aria-describedby={this.flipAriaDescribedby}
             aria-disabled={this.disabled ? "true" : undefined}
+            aria-expanded={this.flipAriaExpanded}
             aria-invalid={ariaInvalid}
             autoComplete={this.autoComplete}
             autoFocus={this.autoFocus}
@@ -225,11 +241,13 @@ export class FlipTextInput implements FlipFormInput {
             maxLength={this.maxLength}
             max={this.type === "number" ? this.max : undefined}
             min={this.type === "number" ? this.min : undefined}
+            onBlur={this.onBlur}
             onFocus={this.onFocus}
             onInput={this.onInput}
             onKeyPress={this.onKeyPress}
             ref={(el) => (this.inputEl = el)}
             required={this.required}
+            role={this.flipRole}
             rows={this.rows > 1 ? this.rows : undefined}
             spellcheck={this.spellCheck}
             step={this.type === "number" ? this.step : undefined}

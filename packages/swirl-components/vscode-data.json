@@ -76,6 +76,86 @@
       ]
     },
     {
+      "name": "flip-autocomplete",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-select",
+          "description": ""
+        },
+        {
+          "name": "clear-button-label",
+          "description": ""
+        },
+        {
+          "name": "clearable",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "max-length",
+          "description": ""
+        },
+        {
+          "name": "menu-label",
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "description": "",
+          "values": [
+            {
+              "name": "decimal"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "numeric"
+            },
+            {
+              "name": "search"
+            },
+            {
+              "name": "tel"
+            },
+            {
+              "name": "text"
+            },
+            {
+              "name": "url"
+            }
+          ]
+        },
+        {
+          "name": "required",
+          "description": ""
+        },
+        {
+          "name": "spell-check",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-avatar",
       "description": {
         "kind": "markdown",
@@ -95,6 +175,33 @@
             },
             {
               "name": "top"
+            }
+          ]
+        },
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
+              "name": "grape"
+            },
+            {
+              "name": "kiwi"
+            },
+            {
+              "name": "pumpkin"
+            },
+            {
+              "name": "radish"
             }
           ]
         },
@@ -189,28 +296,28 @@
           "description": "",
           "values": [
             {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
               "name": "critical"
             },
             {
-              "name": "decorative-1"
+              "name": "grape"
             },
             {
-              "name": "decorative-2"
+              "name": "kiwi"
             },
             {
-              "name": "decorative-3"
+              "name": "pumpkin"
             },
             {
-              "name": "decorative-4"
-            },
-            {
-              "name": "decorative-5"
-            },
-            {
-              "name": "decorative-6"
-            },
-            {
-              "name": "decorative-7"
+              "name": "radish"
             }
           ]
         },
@@ -303,6 +410,68 @@
         {
           "name": "show-icon",
           "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-box",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "as",
+          "description": ""
+        },
+        {
+          "name": "bordered",
+          "description": ""
+        },
+        {
+          "name": "center-block",
+          "description": ""
+        },
+        {
+          "name": "center-inline",
+          "description": ""
+        },
+        {
+          "name": "cover",
+          "description": ""
+        },
+        {
+          "name": "padding",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "20"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
         }
       ]
     },
@@ -453,6 +622,10 @@
               "name": "vertical"
             }
           ]
+        },
+        {
+          "name": "segmented",
+          "description": ""
         },
         {
           "name": "stretch",
@@ -758,6 +931,10 @@
       },
       "attributes": [
         {
+          "name": "active",
+          "description": ""
+        },
+        {
           "name": "description",
           "description": ""
         },
@@ -856,6 +1033,10 @@
         },
         {
           "name": "file",
+          "description": ""
+        },
+        {
+          "name": "single-page-mode",
           "description": ""
         },
         {
@@ -2036,6 +2217,35 @@
       ]
     },
     {
+      "name": "flip-lightbox",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "download-button-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "next-slide-button-label",
+          "description": ""
+        },
+        {
+          "name": "previous-slide-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-link",
       "description": {
         "kind": "markdown",
@@ -2120,6 +2330,10 @@
         },
         {
           "name": "multi-select",
+          "description": ""
+        },
+        {
+          "name": "option-list-id",
           "description": ""
         }
       ]
@@ -2235,6 +2449,51 @@
               "name": "simple"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "flip-pdf-reader",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-zoom-label",
+          "description": ""
+        },
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "download-button-label",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "print-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-in-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-out-button-label",
+          "description": ""
+        },
+        {
+          "name": "zoom-select-label",
+          "description": ""
         }
       ]
     },
@@ -2932,11 +3191,31 @@
           "description": ""
         },
         {
+          "name": "disable-dynamic-width",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },
         {
+          "name": "flip-aria-autocomplete",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-controls",
+          "description": ""
+        },
+        {
           "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-expanded",
+          "description": ""
+        },
+        {
+          "name": "flip-role",
           "description": ""
         },
         {

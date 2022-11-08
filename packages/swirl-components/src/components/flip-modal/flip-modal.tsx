@@ -28,7 +28,9 @@ export class FlipModal {
   @Event() secondaryAction: EventEmitter<MouseEvent>;
 
   @State() closing = false;
+  @State() scrollable = false;
   @State() scrolled = false;
+  @State() scrolledDown = false;
 
   private modal: A11yDialog;
   private modalEl: HTMLElement;
@@ -104,8 +106,24 @@ export class FlipModal {
   private determineScrollStatus = () => {
     const scrolled = this.scrollContainer?.scrollTop > 0;
 
+    const scrolledDown =
+      Math.ceil(
+        this.scrollContainer?.scrollTop + this.scrollContainer?.offsetHeight
+      ) >= this.scrollContainer?.scrollHeight;
+
+    const scrollable =
+      this.scrollContainer?.scrollHeight > this.scrollContainer?.offsetHeight;
+
     if (scrolled !== this.scrolled) {
       this.scrolled = scrolled;
+    }
+
+    if (scrolledDown !== this.scrolledDown) {
+      this.scrolledDown = scrolledDown;
+    }
+
+    if (scrollable !== this.scrollable) {
+      this.scrollable = scrollable;
     }
   };
 
@@ -120,7 +138,9 @@ export class FlipModal {
   render() {
     const className = classnames("modal", {
       "modal--closing": this.closing,
+      "modal--scrollable": this.scrollable,
       "modal--scrolled": this.scrolled,
+      "modal--scrolled-down": this.scrolledDown,
     });
 
     return (
