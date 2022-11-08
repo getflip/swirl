@@ -2,6 +2,14 @@ import { Component, Element, h, Host, Prop, State, Watch } from "@stencil/core";
 import classnames from "classnames";
 
 export type FlipAvatarBadgePosition = "bottom" | "top";
+export type FlipAvatarColor =
+  | "banana"
+  | "blueberry"
+  | "chilli"
+  | "grape"
+  | "kiwi"
+  | "pumpkin"
+  | "radish";
 export type FlipAvatarSize = "xs" | "s" | "m" | "l" | "xl" | "2xl";
 export type FlipAvatarVariant = "round" | "square";
 
@@ -24,6 +32,7 @@ export class FlipAvatar {
 
   @Prop() badge?: string;
   @Prop() badgePosition?: FlipAvatarBadgePosition = "bottom";
+  @Prop() color?: FlipAvatarColor = "kiwi";
   @Prop() icon?: string;
   @Prop() initials?: string;
   @Prop() interactive?: boolean = false;
@@ -100,6 +109,7 @@ export class FlipAvatar {
 
     const className = classnames(
       "avatar",
+      `avatar--color-${this.color}`,
       `avatar--size-${this.size}`,
       `avatar--variant-${this.variant}`,
       {

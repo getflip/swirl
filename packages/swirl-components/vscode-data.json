@@ -145,6 +145,86 @@
       ]
     },
     {
+      "name": "flip-autocomplete",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-select",
+          "description": ""
+        },
+        {
+          "name": "clear-button-label",
+          "description": ""
+        },
+        {
+          "name": "clearable",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "max-length",
+          "description": ""
+        },
+        {
+          "name": "menu-label",
+          "description": ""
+        },
+        {
+          "name": "mode",
+          "description": "",
+          "values": [
+            {
+              "name": "decimal"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "numeric"
+            },
+            {
+              "name": "search"
+            },
+            {
+              "name": "tel"
+            },
+            {
+              "name": "text"
+            },
+            {
+              "name": "url"
+            }
+          ]
+        },
+        {
+          "name": "required",
+          "description": ""
+        },
+        {
+          "name": "spell-check",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-avatar",
       "description": {
         "kind": "markdown",
@@ -164,6 +244,33 @@
             },
             {
               "name": "top"
+            }
+          ]
+        },
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
+              "name": "grape"
+            },
+            {
+              "name": "kiwi"
+            },
+            {
+              "name": "pumpkin"
+            },
+            {
+              "name": "radish"
             }
           ]
         },
@@ -258,28 +365,28 @@
           "description": "",
           "values": [
             {
+              "name": "banana"
+            },
+            {
+              "name": "blueberry"
+            },
+            {
+              "name": "chilli"
+            },
+            {
               "name": "critical"
             },
             {
-              "name": "decorative-1"
+              "name": "grape"
             },
             {
-              "name": "decorative-2"
+              "name": "kiwi"
             },
             {
-              "name": "decorative-3"
+              "name": "pumpkin"
             },
             {
-              "name": "decorative-4"
-            },
-            {
-              "name": "decorative-5"
-            },
-            {
-              "name": "decorative-6"
-            },
-            {
-              "name": "decorative-7"
+              "name": "radish"
             }
           ]
         },
@@ -2293,6 +2400,10 @@
         {
           "name": "multi-select",
           "description": ""
+        },
+        {
+          "name": "option-list-id",
+          "description": ""
         }
       ]
     },
@@ -3149,11 +3260,31 @@
           "description": ""
         },
         {
+          "name": "disable-dynamic-width",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },
         {
+          "name": "flip-aria-autocomplete",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-controls",
+          "description": ""
+        },
+        {
           "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-expanded",
+          "description": ""
+        },
+        {
+          "name": "flip-role",
           "description": ""
         },
         {

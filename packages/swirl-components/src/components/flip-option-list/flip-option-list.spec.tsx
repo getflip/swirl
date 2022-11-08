@@ -3,6 +3,12 @@ import { FlipOptionListItem } from "../flip-option-list-item/flip-option-list-it
 
 import { FlipOptionList } from "./flip-option-list";
 
+(global as any).MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
+
 describe("flip-option-list", () => {
   const template = `
     <flip-option-list label="Option List" multi-select="true">
@@ -20,14 +26,11 @@ describe("flip-option-list", () => {
 
     expect(page.root).toEqualHtml(`
       <flip-option-list label="Option List" multi-select="true">
-        <mock:shadow-root>
-          <div aria-label="Option List" aria-multiselectable="true" class="option-list" role="listbox" tabindex="0">
-            <slot></slot>
-          </div>
-        </mock:shadow-root>
-        <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
-        <flip-option-list-item label="This is an option" value="2"></flip-option-list-item>
-        <flip-option-list-item label="This is an option" value="3"></flip-option-list-item>
+        <div aria-label="Option List" aria-multiselectable="true" class="option-list" role="listbox" tabindex="0">
+          <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
+          <flip-option-list-item label="This is an option" value="2"></flip-option-list-item>
+          <flip-option-list-item label="This is an option" value="3"></flip-option-list-item>
+        </div>
       </flip-option-list>
     `);
   });
@@ -42,7 +45,7 @@ describe("flip-option-list", () => {
 
     page.root.addEventListener("valueChange", spy);
 
-    page.root.shadowRoot
+    page.root
       .querySelector(".option-list")
       .dispatchEvent(
         new KeyboardEvent("keydown", { code: "KeyA", metaKey: true })
