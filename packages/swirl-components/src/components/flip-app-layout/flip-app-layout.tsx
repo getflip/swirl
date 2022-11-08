@@ -274,6 +274,7 @@ export class FlipAppLayout {
               )}
               <flip-heading
                 as="h1"
+                class="app-layout__app-name"
                 headingId="app-name"
                 level={2}
                 text={this.appName}

@@ -40,7 +40,7 @@ export class FlipHeading {
 
     return (
       <Host>
-        <Tag class={className} id={this.headingId} part="heading">
+        <Tag class={className} id={this.headingId}>
           {this.text}
         </Tag>
       </Host>
