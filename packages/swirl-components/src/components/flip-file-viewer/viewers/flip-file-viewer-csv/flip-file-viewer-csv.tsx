@@ -1,4 +1,14 @@
-import { Component, h, Host, Prop, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
 import { parse } from "papaparse";
 
 @Component({
@@ -7,6 +17,8 @@ import { parse } from "papaparse";
   tag: "flip-file-viewer-csv",
 })
 export class FlipFileViewerCsv {
+  @Element() el: HTMLElement;
+
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
 
@@ -14,8 +26,14 @@ export class FlipFileViewerCsv {
   @State() error: boolean;
   @State() loading: boolean;
 
+  @Event() activate: EventEmitter<HTMLElement>;
+
   componentWillLoad() {
     this.updateTable();
+  }
+
+  componentDidLoad() {
+    this.activate.emit(this.el);
   }
 
   @Watch("file")

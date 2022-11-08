@@ -5,6 +5,11 @@ export const SWIRL_COMPONENTS_PATH = path.resolve(
   `../../packages/swirl-components/src/components`
 );
 
+export const SWIRL_TOKENS_DIST_PATH = path.resolve(
+  process.cwd(),
+  `../../packages/swirl-tokens/dist`
+);
+
 export function generatePagesPath(category: string): string {
   return path.resolve(`src/pages/${category}`);
 }

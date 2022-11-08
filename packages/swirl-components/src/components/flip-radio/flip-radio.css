@@ -129,7 +129,7 @@
 
 .radio__label-container {
   display: inline-flex;
-  margin-left: var(--s-space-12);
+  margin-left: var(--s-space-8);
   padding-top: var(--s-space-2);
   flex-direction: column;
 }

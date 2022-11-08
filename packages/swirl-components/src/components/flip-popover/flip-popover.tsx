@@ -111,7 +111,7 @@ export class FlipPopover {
    */
   @Method()
   public async close() {
-    if (this.closing) {
+    if (this.closing || !this.active) {
       return;
     }
 

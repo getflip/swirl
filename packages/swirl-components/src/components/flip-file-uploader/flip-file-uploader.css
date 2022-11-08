@@ -25,14 +25,16 @@
     flex-direction: column;
 
     &:focus-within {
-      border-color: var(--s-focus-default);
       border-width: 0.125rem;
+      border-color: var(--s-focus-default);
     }
   }
 
   & .file-uploader__input {
     position: absolute;
+    z-index: 1;
     display: block;
+    width: 100%;
     cursor: pointer;
     opacity: 0;
     inset: 0;

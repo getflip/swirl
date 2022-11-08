@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -15,7 +17,11 @@ import pdf, {
   PDFPageProxy,
   renderTextLayer,
 } from "pdfjs-dist/legacy/build/pdf.js";
-import { getVisibleHeight } from "../../../../utils";
+import {
+  debounce,
+  getVisibleHeight,
+  isMobileViewport,
+} from "../../../../utils";
 
 pdf.GlobalWorkerOptions.workerSrc = "/pdfjs/pdf.worker.min.js";
 
@@ -31,17 +37,23 @@ export class FlipFileViewerPdf {
 
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
+  @Prop() singlePageMode: boolean;
   @Prop() zoom?: FlipFileViewerPdfZoom = 1;
 
   @State() doc: PDFDocumentProxy;
   @State() error: boolean;
   @State() loading: boolean = true;
+  @State() renderedPages: number[] = [];
+  @State() scrolledDown: boolean = false;
+  @State() singlePageModePage: number = 1;
   @State() visiblePages: number[] = [];
 
+  @Event() activate: EventEmitter<HTMLElement>;
+
   private pages: PDFPageProxy[] = [];
-  private renderedPages: number[] = [];
   private renderingPageNumbers: number[] = [];
   private scrollContainer: HTMLDivElement;
+  private recentScrollPosition: { x: number; y: number } = { x: 0, y: 0 };
 
   async componentWillLoad() {
     await this.getPages();
@@ -49,6 +61,13 @@ export class FlipFileViewerPdf {
 
   async componentDidLoad() {
     await this.updateVisiblePages();
+    this.activate.emit(this.el);
+
+    this.determineScrollStatus();
+  }
+
+  disconnectedCallback() {
+    this.doc?.destroy();
   }
 
   @Listen("resize", { target: "window" })
@@ -56,12 +75,29 @@ export class FlipFileViewerPdf {
     this.visiblePages = [];
     this.renderedPages = [];
     await this.updateVisiblePages();
+
+    this.determineScrollStatus();
   }
 
   @Watch("file")
   async watchProps() {
     await this.getPages();
     await this.updateVisiblePages();
+
+    this.determineScrollStatus();
+  }
+
+  @Watch("zoom")
+  watchZoom() {
+    queueMicrotask(async () => {
+      this.restoreScrollPosition();
+
+      this.visiblePages = [];
+      this.renderedPages = [];
+      await this.updateVisiblePages();
+
+      this.determineScrollStatus();
+    });
   }
 
   /**
@@ -77,11 +113,46 @@ export class FlipFileViewerPdf {
     this.loading = false;
   }
 
+  /**
+   * Navigate to next page, if single page mode is enabled.
+   */
+  @Method()
+  async nextPage() {
+    await this.setPage(this.singlePageModePage + 1);
+    await this.updateVisiblePages();
+  }
+
+  /**
+   * Navigate to previous page, if single page mode is enabled.
+   */
+  @Method()
+  async previousPage() {
+    await this.setPage(this.singlePageModePage - 1);
+    await this.updateVisiblePages();
+  }
+
+  /**
+   * Navigate to specific page, if single page mode is enabled.
+   */
+  @Method()
+  async setPage(page: number) {
+    this.singlePageModePage = Math.min(
+      Math.max(page, 1),
+      this.pages.length - 1
+    );
+
+    await this.updateVisiblePages();
+  }
+
   private async getPages() {
     this.error = false;
     this.loading = true;
 
     try {
+      if (Boolean(this.doc)) {
+        this.doc.destroy();
+      }
+
       this.doc = await getDocument(this.file).promise;
 
       for (let i = 1; i <= this.doc.numPages; i++) {
@@ -105,19 +176,19 @@ export class FlipFileViewerPdf {
         ".file-viewer-pdf__page"
       );
 
-      const textContainer = container?.querySelector<HTMLDivElement>(
-        ".file-viewer-pdf__text-container"
-      );
-
       const page = this.pages.find(
         (page) => page?.pageNumber === +container?.dataset.pageNumber
       );
 
       if (
         !Boolean(page) ||
-        !this.visiblePages.includes(page.pageNumber) ||
         this.renderingPageNumbers.includes(page.pageNumber)
       ) {
+        continue;
+      }
+
+      if (!this.visiblePages.includes(page.pageNumber)) {
+        this.destroyPage(page);
         continue;
       }
 
@@ -126,39 +197,72 @@ export class FlipFileViewerPdf {
         continue;
       }
 
-      this.renderingPageNumbers = [
-        ...this.renderingPageNumbers,
-        page.pageNumber,
-      ];
-
-      const scale = forPrint ? 4 : this.getScale(page);
-
-      const viewport = page.getViewport({
-        scale,
-      });
-
-      const context = canvas.getContext("2d");
-
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-
-      const renderContext = {
-        canvasContext: context,
-        viewport: viewport,
-      };
-
-      await page.render(renderContext).promise;
-
-      this.renderTextLayer(page, textContainer);
+      await this.renderPage(page, canvas, forPrint);
 
       renderedPages.push(page.pageNumber);
-
-      this.renderingPageNumbers = this.renderingPageNumbers.filter(
-        (pageNumber) => pageNumber !== page.pageNumber
-      );
     }
 
     this.renderedPages = renderedPages;
+  }
+
+  private async renderPage(
+    page: PDFPageProxy,
+    canvas: HTMLCanvasElement,
+    forPrint?: boolean
+  ) {
+    const container = canvas.closest<HTMLDivElement>(".file-viewer-pdf__page");
+
+    const textContainer = container?.querySelector<HTMLDivElement>(
+      ".file-viewer-pdf__text-container"
+    );
+
+    this.renderingPageNumbers = [...this.renderingPageNumbers, page.pageNumber];
+
+    const scale = forPrint ? 2 : this.getScale(page);
+    const outputScale = window.devicePixelRatio || 1;
+
+    const transform =
+      outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+
+    const viewport = page.getViewport({ scale });
+    const context = canvas.getContext("2d");
+
+    canvas.height = Math.floor(viewport.height * outputScale);
+    canvas.width = Math.floor(viewport.width * outputScale);
+
+    const renderContext = {
+      canvasContext: context,
+      transform,
+      viewport: viewport,
+    };
+
+    await page.render(renderContext).promise;
+
+    page.cleanup();
+
+    textContainer.innerHTML = "";
+
+    this.renderTextLayer(page, textContainer);
+
+    this.renderingPageNumbers = this.renderingPageNumbers.filter(
+      (pageNumber) => pageNumber !== page.pageNumber
+    );
+  }
+
+  private destroyPage(page: PDFPageProxy) {
+    const container = this.el.shadowRoot.querySelector(
+      `[data-page-number="${page.pageNumber}"]`
+    );
+
+    const canvas = container.querySelector("canvas");
+    const textLayer = container.querySelector(
+      ".file-viewer-pdf__text-container"
+    );
+
+    canvas.width = 1;
+    canvas.height = 1;
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    textLayer.innerHTML = "";
   }
 
   private async updateVisiblePages(forPrint?: boolean) {
@@ -168,24 +272,26 @@ export class FlipFileViewerPdf {
       )
     );
 
-    let visiblePages = forPrint
-      ? pages.map((page) => +page.dataset.pageNumber)
-      : pages
-          .filter((page) => getVisibleHeight(page, this.scrollContainer) > 0)
-          .map((page) => +page.dataset.pageNumber);
+    let visiblePages: number[] = [];
 
-    if (visiblePages.length === 0) {
-      visiblePages = [1, 2, 3, 4];
-    }
+    if (this.singlePageMode) {
+      visiblePages = [this.singlePageModePage];
+    } else {
+      visiblePages = forPrint
+        ? pages.map((page) => +page.dataset.pageNumber)
+        : pages
+            .filter((page) => getVisibleHeight(page, this.scrollContainer) > 0)
+            .map((page) => +page.dataset.pageNumber);
 
-    const visiblePagesDidNotChanged =
-      this.visiblePages.length === visiblePages.length &&
-      this.visiblePages.every((pageNumber) =>
-        visiblePages.includes(pageNumber)
-      );
+      const visiblePagesDidNotChanged =
+        this.visiblePages.length === visiblePages.length &&
+        this.visiblePages.every((pageNumber) =>
+          visiblePages.includes(pageNumber)
+        );
 
-    if (visiblePagesDidNotChanged) {
-      return;
+      if (visiblePagesDidNotChanged) {
+        return;
+      }
     }
 
     this.visiblePages = visiblePages;
@@ -198,8 +304,7 @@ export class FlipFileViewerPdf {
       container,
       textContent: await page.getTextContent(),
       viewport: page.getViewport({
-        scale:
-          this.zoom === "auto" ? this.getScale(page) : this.getScale(page) / 2,
+        scale: this.getScale(page),
       }),
     });
   }
@@ -218,6 +323,7 @@ export class FlipFileViewerPdf {
       img {
         display: block;
         width: 100%;
+        page-break-after: always;
       }
       `;
 
@@ -243,33 +349,81 @@ export class FlipFileViewerPdf {
       </html>
     `;
 
-    const win = window.open(" ");
+    const iframe = document.createElement("iframe");
+
+    this.el.append(iframe);
+
+    const win = iframe.contentWindow;
 
     win.document.write(html);
-    win.document.close();
     win.focus();
 
-    await new Promise((resolve) => setTimeout(resolve));
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     win.print();
-    win.close();
+    iframe.remove();
   }
 
   private getScale(page: PDFPageProxy) {
+    const padding = isMobileViewport() ? 0 : 32;
+
     return this.zoom === "auto"
-      ? (this.scrollContainer?.clientWidth - 32) / page.view[2]
+      ? (this.scrollContainer?.clientWidth - padding) / page.view[2]
       : isNaN(this.zoom)
-      ? 2
-      : this.zoom * 2;
+      ? 1
+      : this.zoom;
   }
 
-  private onScroll = () => {
-    this.updateVisiblePages();
+  private restoreScrollPosition() {
+    this.scrollContainer.scrollTop =
+      this.recentScrollPosition.y * this.scrollContainer?.scrollHeight;
+
+    this.scrollContainer.scrollLeft =
+      this.recentScrollPosition.x * this.scrollContainer?.scrollWidth;
+  }
+
+  private determineScrollStatus = () => {
+    const scrolledDown =
+      Math.ceil(
+        this.scrollContainer?.scrollTop + this.scrollContainer?.offsetHeight
+      ) >= this.scrollContainer?.scrollHeight;
+
+    if (scrolledDown !== this.scrolledDown) {
+      this.scrolledDown = scrolledDown;
+    }
   };
+
+  private storeRecentScrollPosition = () => {
+    this.recentScrollPosition = {
+      x:
+        Math.round(
+          (this.scrollContainer?.scrollLeft /
+            this.scrollContainer?.scrollWidth) *
+            100
+        ) / 100,
+      y:
+        Math.round(
+          (this.scrollContainer?.scrollTop /
+            this.scrollContainer?.scrollHeight) *
+            100
+        ) / 100,
+    };
+  };
+
+  private onScroll = debounce(() => {
+    this.updateVisiblePages();
+    this.determineScrollStatus();
+    this.storeRecentScrollPosition();
+  }, 60);
 
   render() {
     const showPagination =
       !this.error && !this.loading && this.visiblePages.length > 0;
+
+    const currentPage =
+      this.scrolledDown && !this.singlePageMode
+        ? this.pages.length - 1
+        : this.visiblePages[0];
 
     const showSpinner = this.loading;
 
@@ -289,26 +443,41 @@ export class FlipFileViewerPdf {
         >
           {this.pages.map((page) => {
             const viewport = page.getViewport({
-              scale: this.getScale(page) / 2,
+              scale: this.getScale(page),
             });
+
+            const height = viewport.height;
+            const width = viewport.width;
+
+            const rendered = this.renderedPages.includes(page.pageNumber);
 
             return (
               <div
                 aria-label={page.pageNumber}
                 class="file-viewer-pdf__page"
                 data-page-number={page.pageNumber}
+                hidden={
+                  !this.singlePageMode ||
+                  page.pageNumber === this.singlePageModePage
+                    ? undefined
+                    : true
+                }
                 id={`page-${page.pageNumber}`}
                 key={page.pageNumber}
                 role="region"
                 style={{
-                  width:
-                    this.zoom === "auto" ? undefined : `${viewport.width}px`,
-                  height:
-                    this.zoom === "auto" ? undefined : `${viewport.height}px`,
+                  width: `${width}px`,
+                  height: `${height}px`,
                 }}
                 tabIndex={0}
               >
-                <canvas class="file-viewer-pdf__canvas"></canvas>
+                {!rendered && (
+                  <flip-spinner class="file-viewer-pdf__page-spinner"></flip-spinner>
+                )}
+                <canvas
+                  class="file-viewer-pdf__canvas"
+                  style={{ opacity: rendered ? "1" : "0" }}
+                ></canvas>
                 <div class="file-viewer-pdf__text-container"></div>
               </div>
             );
@@ -316,8 +485,7 @@ export class FlipFileViewerPdf {
         </div>
         {showPagination && (
           <span class="file-viewer-pdf__pagination" id="pagination">
-            <span aria-current="page">{this.visiblePages[0]}</span> /{" "}
-            {this.doc.numPages}
+            <span aria-current="page">{currentPage}</span> / {this.doc.numPages}
           </span>
         )}
         {showSpinner && (

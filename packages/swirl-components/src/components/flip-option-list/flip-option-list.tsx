@@ -11,7 +11,14 @@ import {
 import { FlipFormInput, querySelectorAllDeep } from "../../utils";
 
 @Component({
-  shadow: true,
+  /**
+   * Form controls in shadow dom can still not be associated with labels in the
+   * light dom, cross browser. So for now we disable shadow dom for form
+   * controls (inputs, buttons, selects, etc.). Instead we use Stencil's scoping.
+   * https://caniuse.com/?search=attachInternals
+   */
+  scoped: true,
+  shadow: false,
   styleUrl: "flip-option-list.css",
   tag: "flip-option-list",
 })
@@ -20,6 +27,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
   @Prop() disabled?: boolean;
   @Prop() label?: string;
+  @Prop() optionListId?: string;
   @Prop() multiSelect?: boolean;
   @Prop({ mutable: true }) value?: string[] = [];
 
@@ -27,16 +35,19 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
   private focusedItem: HTMLElement;
   private items: HTMLFlipOptionListItemElement[];
+  private listboxEl: HTMLDivElement;
+  private observer: MutationObserver;
 
   componentDidLoad() {
-    this.items = querySelectorAllDeep<HTMLFlipOptionListItemElement>(
-      this.el,
-      "flip-option-list-item"
-    );
-
+    this.updateItems();
+    this.observeSlotChanges();
     this.setItemDisabledState();
     this.setItemContext();
     this.syncItemsWithValue();
+  }
+
+  disconnectedCallback() {
+    this.observer?.disconnect();
   }
 
   @Watch("disabled")
@@ -82,7 +93,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     } else if (event.code === "ArrowUp") {
       event.preventDefault();
       this.focusPreviousItem();
-    } else if (event.code === "Space") {
+    } else if (event.code === "Space" || event.code === "Enter") {
       event.preventDefault();
       this.selectFocusedItem();
     } else if (event.code === "Home") {
@@ -100,6 +111,21 @@ export class FlipOptionList implements FlipFormInput<string[]> {
       this.selectAllItems();
     }
   };
+
+  private observeSlotChanges() {
+    this.observer = new MutationObserver(() => {
+      this.updateItems();
+    });
+
+    this.observer.observe(this.listboxEl, { childList: true });
+  }
+
+  private updateItems() {
+    this.items = querySelectorAllDeep<HTMLFlipOptionListItemElement>(
+      this.el,
+      "flip-option-list-item"
+    );
+  }
 
   private setItemDisabledState() {
     this.items.forEach((item) => (item.disabled = this.disabled));
@@ -123,6 +149,11 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     }
 
     const item = this.items[index];
+
+    if (item.disabled) {
+      return;
+    }
+
     const itemIsAlreadySelected = this.value.includes(item.value);
 
     if (!this.multiSelect) {
@@ -177,7 +208,9 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     }
 
     this.items.forEach((item) =>
-      item.shadowRoot.children[0].removeAttribute("tabIndex")
+      item.shadowRoot
+        .querySelector('[role="option"]')
+        .removeAttribute("tabIndex")
     );
 
     const item = this.items[index].shadowRoot.querySelector(
@@ -228,9 +261,11 @@ export class FlipOptionList implements FlipFormInput<string[]> {
           aria-label={this.label}
           aria-multiselectable={ariaMultiselectable}
           class="option-list"
+          id={this.optionListId}
           onClick={this.onClick}
           onFocus={this.onFocus}
           onKeyDown={this.onKeyDown}
+          ref={(el) => (this.listboxEl = el)}
           role="listbox"
           tabIndex={tabIndex}
         >

@@ -1,4 +1,12 @@
-import { Component, h, Host, Method, Prop } from "@stencil/core";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+} from "@stencil/core";
 import { saveAs } from "file-saver";
 import { FlipFileViewerPdfZoom } from "./viewers/flip-file-viewer-pdf/flip-file-viewer-pdf";
 
@@ -16,6 +24,8 @@ export class FlipFileViewer {
   @Prop() typeUnsupportedMessage?: string = "File type is not supported.";
   @Prop() zoom?: FlipFileViewerPdfZoom = 1;
 
+  @Event() activate: EventEmitter<HTMLElement>;
+
   private viewer: HTMLElement;
 
   /**
@@ -24,8 +34,9 @@ export class FlipFileViewer {
   @Method()
   async download() {
     const fileName = this.file.split("/").pop();
+    const file = await fetch(this.file);
 
-    saveAs(this.file, fileName);
+    saveAs(await file.blob(), fileName);
   }
 
   /**
@@ -37,6 +48,10 @@ export class FlipFileViewer {
       (this.viewer as HTMLFlipFileViewerPdfElement).print();
     }
   }
+
+  private onActivate = (event: CustomEvent<HTMLElement>) => {
+    this.activate.emit(event.detail);
+  };
 
   render() {
     const unsupportedType =
@@ -86,6 +101,7 @@ export class FlipFileViewer {
                 <flip-file-viewer-pdf
                   errorMessage={this.errorMessage}
                   file={this.file}
+                  onActivate={this.onActivate}
                   ref={(el) => (this.viewer = el)}
                   zoom={this.zoom}
                 ></flip-file-viewer-pdf>
