@@ -12,7 +12,7 @@ describe("flip-heading", () => {
     expect(page.root).toEqualHtml(`
       <flip-heading heading-id="id" level="3">
         Heading
-        <h3 class="heading heading--align-start heading--level-3" id="id" part="heading"></h3>
+        <h3 class="heading heading--align-start heading--level-3" id="id"></h3>
       </flip-heading>
     `);
   });
@@ -26,7 +26,7 @@ describe("flip-heading", () => {
     expect(page.root).toEqualHtml(`
       <flip-heading as="h6" heading-id="id" level="3">
         Heading
-        <h6 class="heading heading--align-start heading--level-3" id="id" part="heading"></h6>
+        <h6 class="heading heading--align-start heading--level-3" id="id"></h6>
       </flip-heading>
     `);
   });
