@@ -59,8 +59,8 @@ export type SpacingTokens = {
   spacing: Token[];
 };
 
-export const ZIndexTokenCategories = ["other"];
-export type ZIndexTokenCategory = "other";
+export const ZIndexTokenCategories = ["zIndex"];
+export type ZIndexTokenCategory = "zIndex";
 export type ZIndexTokens = {
   zIndex: Token[];
 };

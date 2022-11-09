@@ -5,5 +5,5 @@ import TokensList from "./TokensList";
 
 export const ZIndexTokens: FunctionComponent = () => {
   const tokens = getTokens(ZIndexTokenCategories);
-  return <TokensList tokens={tokens.other} />;
+  return <TokensList tokens={tokens.zIndex} />;
 };

@@ -82,7 +82,7 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
         <div className="w-4 h-4 rounded-full bg-border-info"></div>
       </div>
     );
-  } else if (token.type === "other") {
+  } else if (token.type === "zIndex") {
     const zIndexPlains = ["50", "40", "30", "20", "10", "0"].map((plain) => {
       const backgroundColor =
         plain === token.value || token.value === "auto"
