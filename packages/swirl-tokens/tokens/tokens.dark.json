@@ -120,6 +120,10 @@
     "value": "1rem",
     "type": "spacing"
   },
+  "space-20": {
+    "value": "1.25rem",
+    "type": "spacing"
+  },
   "space-24": {
     "value": "1.5rem",
     "type": "spacing"
