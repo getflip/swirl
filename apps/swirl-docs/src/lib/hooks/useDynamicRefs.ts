@@ -1,23 +1,32 @@
 import * as React from "react";
 
-const map = new Map<string, React.RefObject<unknown>>();
-
 type GridCellData = {
   index: number;
   data: any;
 };
 
+const map = new Map<string, React.RefObject<unknown>>();
+
+/**
+ * Checks the key pressed and moves the focus to the next or previous cell.
+ * @param event Keyboard event
+ * @param gridCellData Grid cell data
+ * @param getRefFn Function to get a react-ref
+ * @returns
+ */
 export const handleGridKeyDown = (
-  key: string,
+  event: React.KeyboardEvent,
   gridCellData: GridCellData,
   getRefFn: (key: string) => void | React.RefObject<any>
 ) => {
+  handlePreventScroll(event);
   const currentRef = getRefFn(
     gridCellData.data[gridCellData.index]
   ) as React.RefObject<any>;
 
-  switch (key) {
-    case "ArrowRight" || "ArrowDown":
+  switch (event.key) {
+    case "ArrowRight":
+    case "ArrowDown":
       const nextRef = getRefFn(
         gridCellData.data[gridCellData.index + 1]
       ) as React.RefObject<any>;
@@ -27,7 +36,8 @@ export const handleGridKeyDown = (
       nextRef.current.tabIndex = 0;
       nextRef.current.focus();
       break;
-    case "ArrowLeft" || "ArrowUp":
+    case "ArrowLeft":
+    case "ArrowUp":
       const previousRef = getRefFn(
         gridCellData.data[gridCellData.index - 1]
       ) as React.RefObject<any>;
@@ -39,6 +49,18 @@ export const handleGridKeyDown = (
       break;
   }
 };
+
+/**
+ * Prevents the default scroll behavior of the arrow keys to be able to navigate through a grid as expected.
+ */
+function handlePreventScroll(event: React.KeyboardEvent): void {
+  const isNextMove = event.key === "ArrowRight" || event.key === "ArrowDown";
+  const isPrevMove = event.key === "ArrowLeft" || event.key === "ArrowUp";
+
+  if (isNextMove || isPrevMove) {
+    event.preventDefault();
+  }
+}
 
 function getRef<T>(key: string): React.RefObject<T> | undefined | void {
   if (!key) return console.warn(`useDynamicRefs: Cannot get ref without key`);

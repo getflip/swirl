@@ -1,7 +1,7 @@
 import useDynamicRefs, {
   handleGridKeyDown,
 } from "@swirl/lib/hooks/useDynamicRefs";
-import { FunctionComponent, LegacyRef } from "react";
+import { FunctionComponent, LegacyRef, useEffect } from "react";
 import Grid from "src/components/Grid";
 import { IconsMetaData } from "..";
 
@@ -31,7 +31,7 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
           tabIndex={index === 0 ? 0 : -1}
           ref={setRef(icon) as LegacyRef<HTMLAnchorElement>}
           onKeyDown={(event) =>
-            handleGridKeyDown(event.key, { data: iconList, index }, getRef)
+            handleGridKeyDown(event, { data: iconList, index }, getRef)
           }
           href={`#${icons[icon]?.name}`}
           onClick={() => handleTileClick(icons[icon]?.name)}

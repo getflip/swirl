@@ -8,7 +8,7 @@ export type GridProps = {
 
 export const Grid: FunctionComponent<GridProps> = ({ className, children }) => {
   return (
-    <div role="grid" aria-colcount={1} aria-rowcount={1}>
+    <div role="grid">
       <div className={className} role="row">
         {children}
       </div>
