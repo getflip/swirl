@@ -1,13 +1,15 @@
 const tokensLight = require("@getflip/swirl-tokens/dist/styles.light.json");
 
-export function getTokens(
-  tokensObject: any,
-  filterFunction: (type: string) => boolean
-) {
+export function getTokens(tokenCategories: string[]) {
+  const tokensObject: any = {};
+  tokenCategories.forEach((category) => {
+    tokensObject[category] = [];
+  });
+
   const lightTokenKeys = Object.keys(tokensLight);
 
   const baseTokens = lightTokenKeys
-    .filter((key) => filterFunction(tokensLight[key].type))
+    .filter((key) => tokenCategories.includes(tokensLight[key].type))
     .map((key) => tokensLight[key]);
 
   baseTokens.forEach((token: any) => {

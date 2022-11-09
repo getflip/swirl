@@ -14,15 +14,7 @@ interface BorderTokenProps {
 export const BorderTokens: FunctionComponent<BorderTokenProps> = ({
   category,
 }) => {
-  const categories = getTokens(
-    {
-      borderRadius: [],
-      borderWidth: [],
-    },
-    (type: string) => BorderTokenCategories.includes(type)
-  );
-
+  const categories = getTokens(BorderTokenCategories);
   const tokens: Token[] = categories[category] ?? [];
-
   return <TokensList tokens={tokens} />;
 };

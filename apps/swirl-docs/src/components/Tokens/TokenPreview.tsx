@@ -39,9 +39,11 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
     return (
       <div
         style={{ lineHeight: token.value }}
-        className={`w-12 h-12 mr-2 text-lg`}
+        className={`w-16 h-16 mr-2 text-lg`}
       >
         Aa
+        <br />
+        Bb
       </div>
     );
   } else if (token.type === "letterSpacing") {

@@ -4,12 +4,6 @@ import { FunctionComponent } from "react";
 import TokensList from "./TokensList";
 
 export const SpacingTokens: FunctionComponent = () => {
-  const tokens = getTokens(
-    {
-      spacing: [],
-    },
-    (type: string) => SpacingTokenCategories.includes(type)
-  );
-
+  const tokens = getTokens(SpacingTokenCategories);
   return <TokensList tokens={tokens.spacing} />;
 };

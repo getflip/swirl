@@ -4,12 +4,6 @@ import { FunctionComponent } from "react";
 import TokensList from "./TokensList";
 
 export const ZIndexTokens: FunctionComponent = () => {
-  const tokens = getTokens(
-    {
-      other: [],
-    },
-    (type: string) => ZIndexTokenCategories.includes(type)
-  );
-
+  const tokens = getTokens(ZIndexTokenCategories);
   return <TokensList tokens={tokens.other} />;
 };

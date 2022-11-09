@@ -1,8 +1,8 @@
 export type Token = {
   name: string;
   type:
-    | "color"
-    | "size"
+    | ColorTokenCategory
+    | SizeTokenCategory
     | TypographyTokenCategory
     | BorderTokenCategory
     | SpacingTokenCategory
@@ -10,6 +10,8 @@ export type Token = {
   value: string;
   description: string;
 };
+
+export type SizeTokenCategory = "size";
 
 export const typographyTypes = [
   "fontWeights",
@@ -63,7 +65,9 @@ export type ZIndexTokens = {
   zIndex: Token[];
 };
 
-export type ColorTokenCategory =
+export type ColorTokenCategory = "color";
+
+export type ColorTokenGroups =
   | "background"
   | "surface"
   | "border"

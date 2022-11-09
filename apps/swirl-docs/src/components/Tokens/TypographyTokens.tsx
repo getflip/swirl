@@ -14,18 +14,7 @@ interface TypographyTokensProps {
 export const TypographyTokens: FunctionComponent<TypographyTokensProps> = ({
   typographyCategory,
 }) => {
-  const category = getTokens(
-    {
-      fontWeights: [],
-      lineHeights: [],
-      letterSpacing: [],
-      fontFamily: [],
-      fontSizes: [],
-    },
-    (type: string) => TypographyTokenCategories.includes(type)
-  );
-
+  const category = getTokens(TypographyTokenCategories);
   const tokens: Token[] = category[typographyCategory] ?? [];
-
   return <TokensList tokens={tokens} />;
 };
