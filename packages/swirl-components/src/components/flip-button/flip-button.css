@@ -232,7 +232,7 @@
   }
 
   &.button--icon-only {
-    padding: var(--s-space-4);
+    padding: var(--s-space-12);
   }
 
   &.button--intent-primary {
@@ -257,6 +257,10 @@
       & .button__icon {
         color: var(--s-icon-on-action-primary);
       }
+    }
+
+    &.button--icon-only {
+      padding: var(--s-space-12);
     }
 
     & .button__icon {

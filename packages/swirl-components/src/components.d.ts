@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipActionListItemIntent, FlipActionListItemSize } from "./components/flip-action-list-item/flip-action-list-item";
+import { FlipAppLayoutMobileView } from "./components/flip-app-layout/flip-app-layout";
 import { FlipAutocompleteSuggestion } from "./components/flip-autocomplete/flip-autocomplete";
 import { FlipTextInputMode } from "./components/flip-text-input/flip-text-input";
 import { FlipAvatarBadgePosition, FlipAvatarColor, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
@@ -42,6 +43,8 @@ import { FlipToastIntent } from "./components/flip-toast/flip-toast";
 import { FlipToastConfig, FlipToastMessage } from "./components/flip-toast-provider/flip-toast-provider";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
+    interface FileManager {
+    }
     interface FlipActionList {
     }
     interface FlipActionListItem {
@@ -55,6 +58,38 @@ export namespace Components {
     }
     interface FlipActionListSection {
         "label": string;
+    }
+    interface FlipAppLayout {
+        "appBarMedia"?: string;
+        "appName": string;
+        "backToNavigationViewButtonLabel"?: string;
+        /**
+          * Change the currently displayed view on mobile viewports
+          * @param mobileView
+         */
+        "changeMobileView": (mobileView: FlipAppLayoutMobileView, transition?: boolean) => Promise<void>;
+        "ctaIcon"?: string;
+        "ctaLabel"?: string;
+        "heading"?: string;
+        /**
+          * Hide the sidebar
+         */
+        "hideSidebar": () => Promise<void>;
+        "navigationBackButtonLabel"?: string;
+        "navigationLabel"?: string;
+        "showNavigationBackButton"?: boolean;
+        /**
+          * Show the sidebar
+         */
+        "showSidebar": () => Promise<void>;
+        "sidebarCloseButtonLabel"?: string;
+        "sidebarHeading"?: string;
+        "subheading"?: string;
+        /**
+          * Toggle the sidebar
+         */
+        "toggleSidebar": () => Promise<void>;
+        "transitionStyle"?: string;
     }
     interface FlipAutocomplete {
         "autoSelect"?: boolean;
@@ -844,6 +879,10 @@ export namespace Components {
     interface FlipVisuallyHidden {
     }
 }
+export interface FlipAppLayoutCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipAppLayoutElement;
+}
 export interface FlipAutocompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipAutocompleteElement;
@@ -953,6 +992,12 @@ export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
     target: HTMLFlipToastElement;
 }
 declare global {
+    interface HTMLFileManagerElement extends Components.FileManager, HTMLStencilElement {
+    }
+    var HTMLFileManagerElement: {
+        prototype: HTMLFileManagerElement;
+        new (): HTMLFileManagerElement;
+    };
     interface HTMLFlipActionListElement extends Components.FlipActionList, HTMLStencilElement {
     }
     var HTMLFlipActionListElement: {
@@ -970,6 +1015,12 @@ declare global {
     var HTMLFlipActionListSectionElement: {
         prototype: HTMLFlipActionListSectionElement;
         new (): HTMLFlipActionListSectionElement;
+    };
+    interface HTMLFlipAppLayoutElement extends Components.FlipAppLayout, HTMLStencilElement {
+    }
+    var HTMLFlipAppLayoutElement: {
+        prototype: HTMLFlipAppLayoutElement;
+        new (): HTMLFlipAppLayoutElement;
     };
     interface HTMLFlipAutocompleteElement extends Components.FlipAutocomplete, HTMLStencilElement {
     }
@@ -1788,9 +1839,11 @@ declare global {
         new (): HTMLFlipVisuallyHiddenElement;
     };
     interface HTMLElementTagNameMap {
+        "file-manager": HTMLFileManagerElement;
         "flip-action-list": HTMLFlipActionListElement;
         "flip-action-list-item": HTMLFlipActionListItemElement;
         "flip-action-list-section": HTMLFlipActionListSectionElement;
+        "flip-app-layout": HTMLFlipAppLayoutElement;
         "flip-autocomplete": HTMLFlipAutocompleteElement;
         "flip-avatar": HTMLFlipAvatarElement;
         "flip-avatar-group": HTMLFlipAvatarGroupElement;
@@ -1930,6 +1983,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FileManager {
+    }
     interface FlipActionList {
     }
     interface FlipActionListItem {
@@ -1943,6 +1998,25 @@ declare namespace LocalJSX {
     }
     interface FlipActionListSection {
         "label": string;
+    }
+    interface FlipAppLayout {
+        "appBarMedia"?: string;
+        "appName": string;
+        "backToNavigationViewButtonLabel"?: string;
+        "ctaIcon"?: string;
+        "ctaLabel"?: string;
+        "heading"?: string;
+        "navigationBackButtonLabel"?: string;
+        "navigationLabel"?: string;
+        "onCtaClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
+        "onMobileViewChange"?: (event: FlipAppLayoutCustomEvent<FlipAppLayoutMobileView>) => void;
+        "onNavigationBackButtonClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
+        "onSidebarToggle"?: (event: FlipAppLayoutCustomEvent<boolean>) => void;
+        "showNavigationBackButton"?: boolean;
+        "sidebarCloseButtonLabel"?: string;
+        "sidebarHeading"?: string;
+        "subheading"?: string;
+        "transitionStyle"?: string;
     }
     interface FlipAutocomplete {
         "autoSelect"?: boolean;
@@ -2650,9 +2724,11 @@ declare namespace LocalJSX {
     interface FlipVisuallyHidden {
     }
     interface IntrinsicElements {
+        "file-manager": FileManager;
         "flip-action-list": FlipActionList;
         "flip-action-list-item": FlipActionListItem;
         "flip-action-list-section": FlipActionListSection;
+        "flip-app-layout": FlipAppLayout;
         "flip-autocomplete": FlipAutocomplete;
         "flip-avatar": FlipAvatar;
         "flip-avatar-group": FlipAvatarGroup;
@@ -2795,9 +2871,11 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "file-manager": LocalJSX.FileManager & JSXBase.HTMLAttributes<HTMLFileManagerElement>;
             "flip-action-list": LocalJSX.FlipActionList & JSXBase.HTMLAttributes<HTMLFlipActionListElement>;
             "flip-action-list-item": LocalJSX.FlipActionListItem & JSXBase.HTMLAttributes<HTMLFlipActionListItemElement>;
             "flip-action-list-section": LocalJSX.FlipActionListSection & JSXBase.HTMLAttributes<HTMLFlipActionListSectionElement>;
+            "flip-app-layout": LocalJSX.FlipAppLayout & JSXBase.HTMLAttributes<HTMLFlipAppLayoutElement>;
             "flip-autocomplete": LocalJSX.FlipAutocomplete & JSXBase.HTMLAttributes<HTMLFlipAutocompleteElement>;
             "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
             "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
