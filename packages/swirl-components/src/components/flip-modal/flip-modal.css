@@ -136,7 +136,7 @@
 .modal__heading {
   overflow: hidden;
 
-  &::part(heading) {
+  & .heading {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
