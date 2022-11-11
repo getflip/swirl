@@ -21,7 +21,7 @@ describe("flip-form-control", () => {
               Label
             </span>
             <span class="form-control__input">
-              <flip-text-input></flip-text-input>
+              <flip-text-input label="Label"></flip-text-input>
             </span>
           </label>
         </div>
@@ -34,7 +34,7 @@ describe("flip-form-control", () => {
       components: [FlipFormControl],
       html: `
         <flip-form-control description="Description" label="Label">
-          <flip-text-input></flip-text-input>
+          <flip-text-input label="Label"></flip-text-input>
         </flip-form-control>
       `,
     });

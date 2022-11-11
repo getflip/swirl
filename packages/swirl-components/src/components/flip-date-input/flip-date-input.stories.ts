@@ -26,9 +26,13 @@ export default {
 };
 
 const Template = (args) => {
+  const formControl = document.createElement("flip-form-control");
   const element = generateStoryElement("flip-date-input", args);
 
-  return element;
+  formControl.setAttribute("label", "Date");
+  formControl.append("\n  ", element, "\n");
+
+  return formControl;
 };
 
 export const FlipDateInput = Template.bind({});

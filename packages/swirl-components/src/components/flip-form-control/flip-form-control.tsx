@@ -49,6 +49,7 @@ export class FlipFormControl {
     this.associateDescriptionWithInputElement();
     this.setInputElementDisabledState();
     this.setInputElementInvalidState();
+    this.setInputElementLabel();
     this.checkInputValue();
     this.listenToInputValueChanges();
   }
@@ -88,8 +89,21 @@ export class FlipFormControl {
     }
   }
 
+  @Watch("label")
+  setInputElementLabel() {
+    if (!Boolean(this.inputEl)) {
+      return;
+    }
+
+    this.inputEl.setAttribute("label", this.label);
+  }
+
   @Listen("click", { target: "window" })
   onWindowClick(event: MouseEvent) {
+    if (!this.hasFocus) {
+      return;
+    }
+
     const target = event.target as HTMLElement;
 
     if (this.el.contains(target)) {
@@ -111,21 +125,30 @@ export class FlipFormControl {
     this.hasFocus = true;
   };
 
-  private onFocusOut = (event: FocusEvent) => {
-    if (Boolean(event.relatedTarget)) {
-      this.hasFocus = false;
+  private onFocusOut = () => {
+    if (!this.hasFocus) {
+      return;
     }
+
+    this.hasFocus = false;
   };
 
   render() {
     const showErrorMessage = Boolean(this.errorMessage);
     const showDescription = Boolean(this.description) && !showErrorMessage;
 
+    const hasValue = Array.isArray(this.inputValue)
+      ? this.inputValue.length > 0
+      : Boolean(this.inputValue);
+
+    const isSelect = this.inputEl.tagName === "FLIP-SELECT";
+
     const className = classnames("form-control", {
       "form-control--disabled": this.disabled,
       "form-control--has-focus": this.hasFocus,
-      "form-control--has-value": Boolean(this.inputValue),
+      "form-control--has-value": hasValue,
       "form-control--invalid": this.invalid,
+      "form-control--is-select": isSelect,
     });
 
     return (
