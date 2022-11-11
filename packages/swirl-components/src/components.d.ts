@@ -2489,6 +2489,8 @@ declare namespace LocalJSX {
     interface FlipModal {
         "closeButtonLabel"?: string;
         "label": string;
+        "onModalClose"?: (event: FlipModalCustomEvent<void>) => void;
+        "onModalOpen"?: (event: FlipModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: FlipModalCustomEvent<MouseEvent>) => void;
         "onSecondaryAction"?: (event: FlipModalCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
