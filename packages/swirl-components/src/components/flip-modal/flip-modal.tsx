@@ -24,6 +24,8 @@ export class FlipModal {
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
 
+  @Event() modalClose: EventEmitter<void>;
+  @Event() modalOpen: EventEmitter<void>;
   @Event() primaryAction: EventEmitter<MouseEvent>;
   @Event() secondaryAction: EventEmitter<MouseEvent>;
 
@@ -57,6 +59,7 @@ export class FlipModal {
   @Method()
   async open() {
     this.modal.show();
+    this.modalOpen.emit();
     this.lockBodyScroll();
     this.determineScrollStatus();
   }
@@ -75,6 +78,7 @@ export class FlipModal {
 
     setTimeout(() => {
       this.modal.hide();
+      this.modalClose.emit();
       this.closing = false;
     }, 150);
   }
@@ -95,12 +99,10 @@ export class FlipModal {
 
   private onPrimaryAction = (event: MouseEvent) => {
     this.primaryAction.emit(event);
-    this.close();
   };
 
   private onSecondaryAction = (event: MouseEvent) => {
     this.secondaryAction.emit(event);
-    this.close();
   };
 
   private determineScrollStatus = () => {
