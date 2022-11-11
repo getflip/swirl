@@ -1,9 +1,9 @@
-import { ColorTokenCategory, getColorTokens, Token } from "@swirl/lib/tokens";
+import { ColorTokenGroups, getColorTokens, Token } from "@swirl/lib/tokens";
 import { FunctionComponent } from "react";
 import TokensList from "./TokensList";
 
 interface ColorTokensProps {
-  colorCategory: ColorTokenCategory;
+  colorCategory: ColorTokenGroups;
 }
 
 export const ColorTokens: FunctionComponent<ColorTokensProps> = ({
