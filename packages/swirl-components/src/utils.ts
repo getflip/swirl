@@ -6,7 +6,7 @@ export interface FlipFormInput<ValueType = string> {
   invalid?: boolean;
   required?: boolean;
   value?: ValueType;
-  valueChange: EventEmitter;
+  valueChange: EventEmitter<ValueType>;
 }
 
 export function debounce(

@@ -33,6 +33,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
   @Event() valueChange: EventEmitter<string[]>;
 
+  private focusedItem: HTMLElement;
   private items: HTMLFlipOptionListItemElement[];
   private listboxEl: HTMLDivElement;
   private observer: MutationObserver;
@@ -65,10 +66,16 @@ export class FlipOptionList implements FlipFormInput<string[]> {
   }
 
   private onFocus = () => {
-    this.focusItem(0);
+    if (Boolean(this.focusedItem)) {
+      this.focusItem(this.getActiveItemIndex());
+    } else {
+      this.focusItem(0);
+    }
   };
 
   private onClick = (event: MouseEvent) => {
+    event.preventDefault();
+
     const target = event.target as HTMLElement;
     const item = target?.closest("flip-option-list-item");
 
@@ -216,6 +223,8 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
     item.setAttribute("tabIndex", "0");
     item.focus();
+
+    this.focusedItem = item;
   }
 
   private focusNextItem() {
@@ -239,12 +248,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
   private getActiveItemIndex(): number {
     return this.items
       .map((item) => item.shadowRoot.querySelector('[role="option"]'))
-      .findIndex(
-        (item) =>
-          item === document.activeElement ||
-          item ===
-            document.activeElement?.shadowRoot?.querySelector('[role="option"]')
-      );
+      .findIndex((item) => item === this.focusedItem);
   }
 
   render() {
