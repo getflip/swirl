@@ -57,8 +57,5 @@ jobs:
         with:
           app-name: "flip-swirl-docs"
           slot-name: "Production"
-          publish-profile:
-            ${{
-            secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FC96BE97BCF6464080928AC4D61F6EFB
-            }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
           package: build.zip
