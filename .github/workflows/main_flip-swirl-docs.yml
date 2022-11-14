@@ -51,8 +51,11 @@ jobs:
         with:
           name: swirl-docs
 
-      - name: unzip artifact
-        run: unzip apps/swirl-docs/build.zip
+      # - name: unzip artifact
+      #   run: unzip apps/swirl-docs/build.zip
+
+      - name: list
+        run: ls -la .
 
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
