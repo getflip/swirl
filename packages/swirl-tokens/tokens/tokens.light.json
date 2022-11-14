@@ -120,6 +120,10 @@
     "value": "1rem",
     "type": "spacing"
   },
+  "space-20": {
+    "value": "1.25rem",
+    "type": "spacing"
+  },
   "space-24": {
     "value": "1.5rem",
     "type": "spacing"
@@ -164,34 +168,6 @@
     "value": "-apple-system, system-ui",
     "type": "fontFamilies"
   },
-  "z-0": {
-    "value": "0",
-    "type": "other"
-  },
-  "z-10": {
-    "value": "10",
-    "type": "other"
-  },
-  "z-20": {
-    "value": "20",
-    "type": "other"
-  },
-  "z-30": {
-    "value": "30",
-    "type": "other"
-  },
-  "z-40": {
-    "value": "40",
-    "type": "other"
-  },
-  "z-50": {
-    "value": "50",
-    "type": "other"
-  },
-  "z-auto": {
-    "value": "auto",
-    "type": "other"
-  },
   "border-width-default": {
     "value": "0.0625rem",
     "type": "borderWidth"
@@ -203,6 +179,34 @@
   "line-height-2xl": {
     "value": "2.25rem",
     "type": "lineHeights"
+  },
+  "z-0": {
+    "value": "0",
+    "type": "zIndex"
+  },
+  "z-10": {
+    "value": "10",
+    "type": "zIndex"
+  },
+  "z-20": {
+    "value": "20",
+    "type": "zIndex"
+  },
+  "z-30": {
+    "value": "30",
+    "type": "zIndex"
+  },
+  "z-40": {
+    "value": "40",
+    "type": "zIndex"
+  },
+  "z-50": {
+    "value": "50",
+    "type": "zIndex"
+  },
+  "z-auto": {
+    "value": "auto",
+    "type": "zIndex"
   },
   "core-gray-10": {
     "value": "rgba(42, 43, 45, 1)",

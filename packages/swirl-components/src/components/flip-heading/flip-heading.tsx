@@ -17,7 +17,8 @@ export type FlipHeadingTag =
   | "div";
 
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "flip-heading.css",
   tag: "flip-heading",
 })
@@ -39,7 +40,7 @@ export class FlipHeading {
 
     return (
       <Host>
-        <Tag class={className} id={this.headingId} part="heading">
+        <Tag class={className} id={this.headingId}>
           {this.text}
         </Tag>
       </Host>

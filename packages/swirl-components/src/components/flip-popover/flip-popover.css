@@ -24,7 +24,7 @@
 
     @media (--from-tablet) {
       transform-origin: top left;
-      animation: 0.15s popover-fade-scale-in;
+      animation: 0.15s popover-fade-scale-in-xy;
     }
 
     @media (prefers-reduced-motion) {
@@ -60,6 +60,20 @@
 .popover--inactive {
   & .popover__content {
     display: none;
+  }
+}
+
+.popover--animation-scale-in-y {
+  &.popover--active:not(.popover--closing) {
+    & .popover__content {
+      @media (--from-tablet) {
+        animation: 0.15s popover-fade-scale-in-y;
+      }
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
+    }
   }
 }
 
@@ -168,13 +182,24 @@
   }
 }
 
-@keyframes popover-fade-scale-in {
+@keyframes popover-fade-scale-in-xy {
   from {
     transform: scale(0);
     opacity: 0;
   }
   to {
     transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes popover-fade-scale-in-y {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
     opacity: 1;
   }
 }

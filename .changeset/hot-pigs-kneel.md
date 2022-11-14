@@ -2,4 +2,4 @@
 "@getflip/swirl-components": minor
 ---
 
-Add flip-box component
+Add flip-select component

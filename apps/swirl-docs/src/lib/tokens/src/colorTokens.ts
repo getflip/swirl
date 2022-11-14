@@ -1,4 +1,4 @@
-import { ColorTokenCategory, ColorTokens } from "./token.model";
+import { ColorTokenGroups, ColorTokens } from "./token.model";
 
 const tokensLight = require("@getflip/swirl-tokens/dist/styles.light.json");
 
@@ -17,11 +17,11 @@ export const getColorTokens = (): ColorTokens => {
 
   const lightTokenKeys = Object.keys(tokensLight);
 
-  const basicColorTokens = lightTokenKeys
+  const baseTokens = lightTokenKeys
     .filter((key) => tokensLight[key].type === "color")
     .map((key) => tokensLight[key]);
 
-  basicColorTokens.forEach((token) => {
+  baseTokens.forEach((token) => {
     const colorCategory = getColorCategory(token);
     colorTokens[colorCategory]?.push({
       name: token.name,
@@ -35,7 +35,7 @@ export const getColorTokens = (): ColorTokens => {
 };
 
 // TODO: refactor this function to use better mapping
-function getColorCategory(token: any): ColorTokenCategory {
+function getColorCategory(token: any): ColorTokenGroups {
   if (token.name.includes("background")) {
     return "background";
   } else if (token.name.includes("surface")) {

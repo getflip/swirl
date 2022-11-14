@@ -2,4 +2,4 @@
 "@getflip/swirl-components": minor
 ---
 
-Add flip-pdf-reader component
+Add "animation" property to flip-popover

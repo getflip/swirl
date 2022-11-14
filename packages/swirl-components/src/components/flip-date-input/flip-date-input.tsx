@@ -66,6 +66,12 @@ export class FlipDateInput {
 
   private onChange = (event: Event) => {
     const value = (event.target as HTMLInputElement).value;
+
+    if (value === "") {
+      this.value = undefined;
+      this.valueChange.emit(undefined);
+    }
+
     const newDate = parse(value, this.format, new Date());
 
     const formatRegExp = new RegExp(

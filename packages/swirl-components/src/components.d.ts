@@ -6,6 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FlipActionListItemIntent, FlipActionListItemSize } from "./components/flip-action-list-item/flip-action-list-item";
+import { FlipAppLayoutMobileView } from "./components/flip-app-layout/flip-app-layout";
+import { FlipAutocompleteSuggestion } from "./components/flip-autocomplete/flip-autocomplete";
+import { FlipTextInputMode } from "./components/flip-text-input/flip-text-input";
 import { FlipAvatarBadgePosition, FlipAvatarColor, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
@@ -25,6 +28,7 @@ import { FlipInlineErrorSize } from "./components/flip-inline-error/flip-inline-
 import { FlipLinkTarget } from "./components/flip-link/flip-link";
 import { FlipOptionListItemContext } from "./components/flip-option-list-item/flip-option-list-item";
 import { FlipPaginationVariant } from "./components/flip-pagination/flip-pagination";
+import { FlipPopoverAnimation } from "./components/flip-popover/flip-popover";
 import { Placement } from "@floating-ui/dom";
 import { FlipProgressIndicatorSize, FlipProgressIndicatorVariant } from "./components/flip-progress-indicator/flip-progress-indicator";
 import { FlipRadioState } from "./components/flip-radio/flip-radio";
@@ -33,13 +37,15 @@ import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacin
 import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
 import { FlipTagIntent } from "./components/flip-tag/flip-tag";
 import { FlipTextAlign, FlipTextColor, FlipTextFontStyle, FlipTextSize, FlipTextWeight } from "./components/flip-text/flip-text";
-import { FlipTextInputMode, FlipTextInputType } from "./components/flip-text-input/flip-text-input";
+import { FlipTextInputMode as FlipTextInputMode1, FlipTextInputType } from "./components/flip-text-input/flip-text-input";
 import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
 import { FlipThumbnailFormat, FlipThumbnailSize } from "./components/flip-thumbnail/flip-thumbnail";
 import { FlipToastIntent } from "./components/flip-toast/flip-toast";
 import { FlipToastConfig, FlipToastMessage } from "./components/flip-toast-provider/flip-toast-provider";
 import { FlipTooltipPosition } from "./components/flip-tooltip/flip-tooltip";
 export namespace Components {
+    interface FileManager {
+    }
     interface FlipActionList {
     }
     interface FlipActionListItem {
@@ -53,6 +59,55 @@ export namespace Components {
     }
     interface FlipActionListSection {
         "label": string;
+    }
+    interface FlipAppLayout {
+        "appBarMedia"?: string;
+        "appName": string;
+        "backToNavigationViewButtonLabel"?: string;
+        /**
+          * Change the currently displayed view on mobile viewports
+          * @param mobileView
+         */
+        "changeMobileView": (mobileView: FlipAppLayoutMobileView, transition?: boolean) => Promise<void>;
+        "ctaIcon"?: string;
+        "ctaLabel"?: string;
+        "heading"?: string;
+        /**
+          * Hide the sidebar
+         */
+        "hideSidebar": () => Promise<void>;
+        "navigationBackButtonLabel"?: string;
+        "navigationLabel"?: string;
+        "showNavigationBackButton"?: boolean;
+        /**
+          * Show the sidebar
+         */
+        "showSidebar": () => Promise<void>;
+        "sidebarCloseButtonLabel"?: string;
+        "sidebarHeading"?: string;
+        "subheading"?: string;
+        /**
+          * Toggle the sidebar
+         */
+        "toggleSidebar": () => Promise<void>;
+        "transitionStyle"?: string;
+    }
+    interface FlipAutocomplete {
+        "autoSelect"?: boolean;
+        "clearButtonLabel"?: string;
+        "clearable"?: boolean;
+        "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
+        "generateSuggestions"?: (
+    currentValue: string
+  ) => Promise<FlipAutocompleteSuggestion[]>;
+        "invalid"?: boolean;
+        "maxLength"?: number;
+        "menuLabel"?: string;
+        "mode"?: FlipTextInputMode;
+        "required"?: boolean;
+        "spellCheck"?: boolean;
+        "value"?: string;
     }
     interface FlipAvatar {
         "badge"?: string;
@@ -201,6 +256,7 @@ export namespace Components {
     }
     interface FlipFileViewer {
         "active"?: boolean;
+        "autoplay"?: boolean;
         "description"?: string;
         /**
           * Download the file.
@@ -217,6 +273,7 @@ export namespace Components {
         "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerAudio {
+        "autoplay"?: boolean;
         "file": string;
         "type": string;
     }
@@ -256,6 +313,7 @@ export namespace Components {
         "file": string;
     }
     interface FlipFileViewerVideo {
+        "autoplay"?: boolean;
         "file": string;
         "type": string;
     }
@@ -553,6 +611,7 @@ export namespace Components {
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
+        "optionListId"?: string;
         "value"?: string[];
     }
     interface FlipOptionListItem {
@@ -598,12 +657,15 @@ export namespace Components {
         "zoomSelectLabel"?: string;
     }
     interface FlipPopover {
+        "animation"?: FlipPopoverAnimation;
         /**
           * Close the popover.
           * @returns
          */
         "close": () => Promise<void>;
+        "enableFlip"?: boolean;
         "label": string;
+        "offset"?: number | number[];
         /**
           * Open the popover.
           * @returns
@@ -612,6 +674,7 @@ export namespace Components {
         "placement"?: Placement;
         "popoverId": string;
         "trigger": string;
+        "useContainerWidth"?: boolean | string;
     }
     interface FlipProgressIndicator {
         "label": string;
@@ -669,6 +732,15 @@ export namespace Components {
         "placeholder"?: string;
         "value"?: string;
     }
+    interface FlipSelect {
+        "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
+        "invalid"?: boolean;
+        "label": string;
+        "multiSelect"?: boolean;
+        "required"?: boolean;
+        "value"?: string[];
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -724,8 +796,13 @@ export namespace Components {
         "autoSelect"?: boolean;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
+        "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
+        "flipAriaAutocomplete"?: string;
+        "flipAriaControls"?: string;
         "flipAriaDescribedby"?: string;
+        "flipAriaExpanded"?: string;
+        "flipRole"?: string;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
@@ -816,6 +893,14 @@ export namespace Components {
     interface FlipVisuallyHidden {
     }
 }
+export interface FlipAppLayoutCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipAppLayoutElement;
+}
+export interface FlipAutocompleteCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipAutocompleteElement;
+}
 export interface FlipBannerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipBannerElement;
@@ -880,6 +965,10 @@ export interface FlipPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipPaginationElement;
 }
+export interface FlipPopoverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipPopoverElement;
+}
 export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipRadioElement;
@@ -899,6 +988,10 @@ export interface FlipResourceListItemCustomEvent<T> extends CustomEvent<T> {
 export interface FlipSearchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipSearchElement;
+}
+export interface FlipSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipSelectElement;
 }
 export interface FlipSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -921,6 +1014,12 @@ export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
     target: HTMLFlipToastElement;
 }
 declare global {
+    interface HTMLFileManagerElement extends Components.FileManager, HTMLStencilElement {
+    }
+    var HTMLFileManagerElement: {
+        prototype: HTMLFileManagerElement;
+        new (): HTMLFileManagerElement;
+    };
     interface HTMLFlipActionListElement extends Components.FlipActionList, HTMLStencilElement {
     }
     var HTMLFlipActionListElement: {
@@ -938,6 +1037,18 @@ declare global {
     var HTMLFlipActionListSectionElement: {
         prototype: HTMLFlipActionListSectionElement;
         new (): HTMLFlipActionListSectionElement;
+    };
+    interface HTMLFlipAppLayoutElement extends Components.FlipAppLayout, HTMLStencilElement {
+    }
+    var HTMLFlipAppLayoutElement: {
+        prototype: HTMLFlipAppLayoutElement;
+        new (): HTMLFlipAppLayoutElement;
+    };
+    interface HTMLFlipAutocompleteElement extends Components.FlipAutocomplete, HTMLStencilElement {
+    }
+    var HTMLFlipAutocompleteElement: {
+        prototype: HTMLFlipAutocompleteElement;
+        new (): HTMLFlipAutocompleteElement;
     };
     interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
     }
@@ -1659,6 +1770,12 @@ declare global {
         prototype: HTMLFlipSearchElement;
         new (): HTMLFlipSearchElement;
     };
+    interface HTMLFlipSelectElement extends Components.FlipSelect, HTMLStencilElement {
+    }
+    var HTMLFlipSelectElement: {
+        prototype: HTMLFlipSelectElement;
+        new (): HTMLFlipSelectElement;
+    };
     interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
     }
     var HTMLFlipSpinnerElement: {
@@ -1750,9 +1867,12 @@ declare global {
         new (): HTMLFlipVisuallyHiddenElement;
     };
     interface HTMLElementTagNameMap {
+        "file-manager": HTMLFileManagerElement;
         "flip-action-list": HTMLFlipActionListElement;
         "flip-action-list-item": HTMLFlipActionListItemElement;
         "flip-action-list-section": HTMLFlipActionListSectionElement;
+        "flip-app-layout": HTMLFlipAppLayoutElement;
+        "flip-autocomplete": HTMLFlipAutocompleteElement;
         "flip-avatar": HTMLFlipAvatarElement;
         "flip-avatar-group": HTMLFlipAvatarGroupElement;
         "flip-badge": HTMLFlipBadgeElement;
@@ -1873,6 +1993,7 @@ declare global {
         "flip-resource-list-file-item": HTMLFlipResourceListFileItemElement;
         "flip-resource-list-item": HTMLFlipResourceListItemElement;
         "flip-search": HTMLFlipSearchElement;
+        "flip-select": HTMLFlipSelectElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
@@ -1891,6 +2012,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FileManager {
+    }
     interface FlipActionList {
     }
     interface FlipActionListItem {
@@ -1904,6 +2027,43 @@ declare namespace LocalJSX {
     }
     interface FlipActionListSection {
         "label": string;
+    }
+    interface FlipAppLayout {
+        "appBarMedia"?: string;
+        "appName": string;
+        "backToNavigationViewButtonLabel"?: string;
+        "ctaIcon"?: string;
+        "ctaLabel"?: string;
+        "heading"?: string;
+        "navigationBackButtonLabel"?: string;
+        "navigationLabel"?: string;
+        "onCtaClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
+        "onMobileViewChange"?: (event: FlipAppLayoutCustomEvent<FlipAppLayoutMobileView>) => void;
+        "onNavigationBackButtonClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
+        "onSidebarToggle"?: (event: FlipAppLayoutCustomEvent<boolean>) => void;
+        "showNavigationBackButton"?: boolean;
+        "sidebarCloseButtonLabel"?: string;
+        "sidebarHeading"?: string;
+        "subheading"?: string;
+        "transitionStyle"?: string;
+    }
+    interface FlipAutocomplete {
+        "autoSelect"?: boolean;
+        "clearButtonLabel"?: string;
+        "clearable"?: boolean;
+        "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
+        "generateSuggestions"?: (
+    currentValue: string
+  ) => Promise<FlipAutocompleteSuggestion[]>;
+        "invalid"?: boolean;
+        "maxLength"?: number;
+        "menuLabel"?: string;
+        "mode"?: FlipTextInputMode;
+        "onValueChange"?: (event: FlipAutocompleteCustomEvent<string>) => void;
+        "required"?: boolean;
+        "spellCheck"?: boolean;
+        "value"?: string;
     }
     interface FlipAvatar {
         "badge"?: string;
@@ -2048,6 +2208,7 @@ declare namespace LocalJSX {
     }
     interface FlipFileViewer {
         "active"?: boolean;
+        "autoplay"?: boolean;
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
@@ -2057,6 +2218,7 @@ declare namespace LocalJSX {
         "zoom"?: FlipFileViewerPdfZoom;
     }
     interface FlipFileViewerAudio {
+        "autoplay"?: boolean;
         "file": string;
         "onActivate"?: (event: FlipFileViewerAudioCustomEvent<HTMLElement>) => void;
         "type": string;
@@ -2085,6 +2247,7 @@ declare namespace LocalJSX {
         "onActivate"?: (event: FlipFileViewerTextCustomEvent<HTMLElement>) => void;
     }
     interface FlipFileViewerVideo {
+        "autoplay"?: boolean;
         "file": string;
         "onActivate"?: (event: FlipFileViewerVideoCustomEvent<HTMLElement>) => void;
         "type": string;
@@ -2355,6 +2518,8 @@ declare namespace LocalJSX {
     interface FlipModal {
         "closeButtonLabel"?: string;
         "label": string;
+        "onModalClose"?: (event: FlipModalCustomEvent<void>) => void;
+        "onModalOpen"?: (event: FlipModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: FlipModalCustomEvent<MouseEvent>) => void;
         "onSecondaryAction"?: (event: FlipModalCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
@@ -2365,6 +2530,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "multiSelect"?: boolean;
         "onValueChange"?: (event: FlipOptionListCustomEvent<string[]>) => void;
+        "optionListId"?: string;
         "value"?: string[];
     }
     interface FlipOptionListItem {
@@ -2403,10 +2569,16 @@ declare namespace LocalJSX {
         "zoomSelectLabel"?: string;
     }
     interface FlipPopover {
+        "animation"?: FlipPopoverAnimation;
+        "enableFlip"?: boolean;
         "label": string;
+        "offset"?: number | number[];
+        "onPopoverClose"?: (event: FlipPopoverCustomEvent<void>) => void;
+        "onPopoverOpen"?: (event: FlipPopoverCustomEvent<void>) => void;
         "placement"?: Placement;
         "popoverId": string;
         "trigger": string;
+        "useContainerWidth"?: boolean | string;
     }
     interface FlipProgressIndicator {
         "label": string;
@@ -2471,6 +2643,16 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         "value"?: string;
     }
+    interface FlipSelect {
+        "disabled"?: boolean;
+        "flipAriaDescribedby"?: string;
+        "invalid"?: boolean;
+        "label": string;
+        "multiSelect"?: boolean;
+        "onValueChange"?: (event: FlipSelectCustomEvent<string[]>) => void;
+        "required"?: boolean;
+        "value"?: string[];
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -2524,13 +2706,20 @@ declare namespace LocalJSX {
         "autoSelect"?: boolean;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
+        "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
+        "flipAriaAutocomplete"?: string;
+        "flipAriaControls"?: string;
         "flipAriaDescribedby"?: string;
+        "flipAriaExpanded"?: string;
+        "flipRole"?: string;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
         "min"?: number;
         "mode"?: FlipTextInputMode;
+        "onInputBlur"?: (event: FlipTextInputCustomEvent<FocusEvent>) => void;
+        "onInputFocus"?: (event: FlipTextInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: FlipTextInputCustomEvent<string>) => void;
         "passwordToggleLabel"?: string;
         "prefixLabel"?: string;
@@ -2582,9 +2771,12 @@ declare namespace LocalJSX {
     interface FlipVisuallyHidden {
     }
     interface IntrinsicElements {
+        "file-manager": FileManager;
         "flip-action-list": FlipActionList;
         "flip-action-list-item": FlipActionListItem;
         "flip-action-list-section": FlipActionListSection;
+        "flip-app-layout": FlipAppLayout;
+        "flip-autocomplete": FlipAutocomplete;
         "flip-avatar": FlipAvatar;
         "flip-avatar-group": FlipAvatarGroup;
         "flip-badge": FlipBadge;
@@ -2705,6 +2897,7 @@ declare namespace LocalJSX {
         "flip-resource-list-file-item": FlipResourceListFileItem;
         "flip-resource-list-item": FlipResourceListItem;
         "flip-search": FlipSearch;
+        "flip-select": FlipSelect;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
@@ -2726,9 +2919,12 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "file-manager": LocalJSX.FileManager & JSXBase.HTMLAttributes<HTMLFileManagerElement>;
             "flip-action-list": LocalJSX.FlipActionList & JSXBase.HTMLAttributes<HTMLFlipActionListElement>;
             "flip-action-list-item": LocalJSX.FlipActionListItem & JSXBase.HTMLAttributes<HTMLFlipActionListItemElement>;
             "flip-action-list-section": LocalJSX.FlipActionListSection & JSXBase.HTMLAttributes<HTMLFlipActionListSectionElement>;
+            "flip-app-layout": LocalJSX.FlipAppLayout & JSXBase.HTMLAttributes<HTMLFlipAppLayoutElement>;
+            "flip-autocomplete": LocalJSX.FlipAutocomplete & JSXBase.HTMLAttributes<HTMLFlipAutocompleteElement>;
             "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
             "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
             "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
@@ -2849,6 +3045,7 @@ declare module "@stencil/core" {
             "flip-resource-list-file-item": LocalJSX.FlipResourceListFileItem & JSXBase.HTMLAttributes<HTMLFlipResourceListFileItemElement>;
             "flip-resource-list-item": LocalJSX.FlipResourceListItem & JSXBase.HTMLAttributes<HTMLFlipResourceListItemElement>;
             "flip-search": LocalJSX.FlipSearch & JSXBase.HTMLAttributes<HTMLFlipSearchElement>;
+            "flip-select": LocalJSX.FlipSelect & JSXBase.HTMLAttributes<HTMLFlipSelectElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;

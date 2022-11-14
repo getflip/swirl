@@ -1,5 +1,14 @@
 # swirl-tokens
 
+## 2.0.0
+
+### Major Changes
+
+- [#80](https://github.com/getflip/swirl/pull/80)
+  [`e78912d`](https://github.com/getflip/swirl/commit/e78912d48c46f9946664fca0856a89ffd6f53748)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Integrate new and renamed
+  decorative color tokens
+
 ## 1.1.0
 
 ### Minor Changes

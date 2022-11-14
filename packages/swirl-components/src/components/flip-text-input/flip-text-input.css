@@ -17,11 +17,9 @@
   line-height: var(--s-line-height-sm);
 }
 
-.text-input--clearable {
-  padding-right: calc(1.5rem + var(--s-space-8));
-}
-
-.text-input--type-number {
+.text-input--clearable,
+.text-input--type-number,
+.text-input--type-password {
   padding-right: calc(1.5rem + var(--s-space-8));
 }
 
@@ -75,6 +73,13 @@
 input.text-input__input:not([type="password"]) {
   width: 0.25rem;
   min-width: 0.25rem;
+}
+
+.text-input--disable-dynamic-width {
+  input.text-input__input:not([type="password"]) {
+    width: 100%;
+    min-width: 0;
+  }
 }
 
 .text-input__clear-button,
