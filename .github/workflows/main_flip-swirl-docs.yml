@@ -2,9 +2,9 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: flip-swirl-docs
-defaults:
-  run:
-    working-directory: apps/swirl-docs
+# defaults:
+#   run:
+#     working-directory: apps/swirl-docs
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
           yarn build
 
       - name: Zip artifact for deployment
-        run: zip -r build.zip ./* ./.next
+        run: cd apps/swirl-docs && zip -r build.zip ./* ./.next
 
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
