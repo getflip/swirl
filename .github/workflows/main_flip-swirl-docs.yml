@@ -29,28 +29,6 @@ jobs:
           yarn
           yarn build
 
-      - name: Zip artifact for deployment
-        run: zip -r build.zip ./* ./.next
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: swirl-docs
-          path: apps/swirl-docs/build.zip
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: "Production"
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: swirl-docs
-
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -58,4 +36,26 @@ jobs:
           app-name: "flip-swirl-docs"
           slot-name: "Production"
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          package: build.zip
+          package: .
+
+      # - name: Zip artifact for deployment
+      #   run: zip -r build.zip ./* ./.next
+
+      # - name: Upload artifact for deployment job
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: swirl-docs
+      #     path: apps/swirl-docs/build.zip
+
+      # deploy:
+      #   runs-on: ubuntu-latest
+      #   needs: build
+      #   environment:
+      #     name: "Production"
+      #     url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+      #   steps:
+      # - name: Download artifact from build job
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: swirl-docs
