@@ -28,10 +28,10 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
     <div>
       <a
         id={id}
-        tabIndex={index === 0 ? 0 : -1}
+        // tabIndex={index === 0 ? 0 : -1}
         role={role}
         aria-label={`${icon}-icon`}
-        ref={reference}
+        // ref={reference}
         href={`#${icons[icon]?.name}`}
         className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
         onKeyDown={(event) => handleKeyDown(event)}
@@ -42,7 +42,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
         ></i>
         <span className="text-text-subdued">{icons[icon]?.name}</span>
       </a>
-      {/* <FlipPopover
+      <FlipPopover
         onChange={() => console.log("change")}
         label="Icon Info"
         popoverId={`popover-${id}`}
@@ -51,7 +51,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
         <div className="md:hidden p-4">
           <IconInfo icon={icons[icon]} />
         </div>
-      </FlipPopover> */}
+      </FlipPopover>
     </div>
   );
 };
