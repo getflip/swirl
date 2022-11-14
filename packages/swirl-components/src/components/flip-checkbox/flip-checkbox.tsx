@@ -35,19 +35,27 @@ export class FlipCheckbox {
     this.valueChange.emit(this.checked);
   };
 
+  private getAriaCheckedLabel(checked: boolean, unchecked: boolean) {
+    if (checked) {
+      return "true";
+    } else if (unchecked) {
+      return "false";
+    }
+
+    return "mixed";
+  }
+
   render() {
     const unchecked = this.checked === false || this.checked === "false";
     const checked = this.checked === true || this.checked === "true";
     const indeterminate = this.checked === "indeterminate";
 
     const showLabelContainer = Boolean(this.label) || Boolean(this.description);
+    const ariaCheckedLabel = this.getAriaCheckedLabel(checked, unchecked);
 
-    const ariaCheckedLabel = checked ? "true" : unchecked ? "false" : "mixed";
     const ariaInvalid =
-      this.invalid === true
-        ? "true"
-        : this.invalid === false
-        ? "false"
+      this.invalid === true || this.invalid === false
+        ? String(this.invalid)
         : undefined;
 
     const className = classnames("checkbox", {

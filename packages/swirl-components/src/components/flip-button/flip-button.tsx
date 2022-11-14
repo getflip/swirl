@@ -63,18 +63,23 @@ export class FlipButton {
     icon?.setAttribute("size", "24");
   }
 
+  private getAriaLabel(hideLabel: boolean) {
+    if (Boolean(this.flipAriaLabel)) {
+      return this.flipAriaLabel;
+    } else if (hideLabel) {
+      return this.label;
+    }
+
+    return undefined;
+  }
+
   render() {
     const hideLabel =
       (this.hideLabel && Boolean(this.icon)) ||
       (this.variant === "floating" && this.intent === "default");
 
     const isLink = Boolean(this.href);
-
-    const ariaLabel = Boolean(this.flipAriaLabel)
-      ? this.flipAriaLabel
-      : hideLabel
-      ? this.label
-      : undefined;
+    const ariaLabel = this.getAriaLabel(hideLabel);
 
     const className = classnames(
       "button",

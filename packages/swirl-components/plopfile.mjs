@@ -7,7 +7,6 @@ import {
   unitTestTemplate,
 } from "./templates.mjs";
 
-import prettier from "prettier";
 import Handlebars from "handlebars";
 
 import { execSync } from "child_process";
