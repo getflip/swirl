@@ -19,7 +19,6 @@ export const handleGridKeyDown = (
   gridCellData: GridCellData,
   getRefFn: (key: string) => void | React.RefObject<any>
 ) => {
-  console.log("handleGridKeyDown");
   handlePreventScroll(event);
   const currentRef = getRefFn(
     gridCellData.data[gridCellData.index]
@@ -79,7 +78,6 @@ function useDynamicRefs<T>(): [
   (key: string) => void | React.RefObject<T>,
   (key: string) => void | React.RefObject<T>
 ] {
-  console.log("useDynamicRefs");
   return [getRef, setRef];
 }
 

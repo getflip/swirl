@@ -1,6 +1,7 @@
 import { FlipPopover } from "@getflip/swirl-components-react";
 import { FunctionComponent, LegacyRef } from "react";
 import { IconsMetaData } from "src/pages/icons";
+import NoSsr from "../Layout/NoSsr";
 import IconInfo from "./IconInfo";
 
 interface IconGridProps {
@@ -25,7 +26,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
   handleTileClick,
 }) => {
   return (
-    <div>
+    <NoSsr>
       <a
         id={id}
         tabIndex={index === 0 ? 0 : -1}
@@ -47,7 +48,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
           <IconInfo icon={icons[icon]} />
         </div>
       </FlipPopover>
-    </div>
+    </NoSsr>
   );
 };
 

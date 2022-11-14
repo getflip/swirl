@@ -14,6 +14,7 @@ import { CategoryNav } from "src/components/Layout/CategoryNav";
 import SearchBar from "../components/SearchBar";
 import IconGrid from "../../components/IconGrid/IconGrid";
 import IconInfo from "src/components/IconGrid/IconInfo";
+import NoSsr from "src/components/Layout/NoSsr";
 
 type Usage = "app" | "admin";
 
@@ -62,7 +63,6 @@ const IconsIndex = ({ links }: any) => {
 
   useEffect(() => {
     const iconName = asPath.split("#")[1];
-    console.log("set selected icon changed");
     setSelectedIcon(icons[iconName]);
   }, [asPath, icons]);
 
@@ -94,9 +94,11 @@ const IconsIndex = ({ links }: any) => {
                 />
               </div>
               {selectedIcon && (
-                <div className="hidden md:block max-w-[280px]">
-                  <IconInfo icon={selectedIcon} />
-                </div>
+                <NoSsr>
+                  <div className="hidden md:block max-w-[280px]">
+                    <IconInfo icon={selectedIcon} />
+                  </div>
+                </NoSsr>
               )}
             </div>
           </section>
