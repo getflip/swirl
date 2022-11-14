@@ -120,11 +120,13 @@ StyleDictionary.registerTransform({
       "spacing",
     ];
 
-    const category = sizeTypes.includes(token.type)
-      ? "size"
-      : token.type === "color"
-      ? "color"
-      : "content";
+    let category = "content";
+
+    if (sizeTypes.includes(token.type)) {
+      category = "size";
+    } else if (token.type === "color") {
+      category = "color";
+    }
 
     const generatedAttrs = {
       category,
