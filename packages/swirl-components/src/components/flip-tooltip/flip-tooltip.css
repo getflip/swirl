@@ -32,7 +32,6 @@
   background-color: var(--s-surface-neutral-default);
   line-height: var(--s-line-height-base);
   animation: tooltip-fade-in 0.1s;
-  backgrund-color: red;
 }
 
 .tooltip__arrow {

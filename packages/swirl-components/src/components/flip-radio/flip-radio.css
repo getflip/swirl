@@ -92,7 +92,6 @@
 
   & .radio__box {
     border-color: var(--s-icon-disabled);
-    backround-color: var(--s-icon-disabled);
   }
 
   & .radio__description,
