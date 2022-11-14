@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
-const Home: NextPage = ({}: any) => {
+const Home: NextPage = () => {
   return (
     <>
       <Head>
