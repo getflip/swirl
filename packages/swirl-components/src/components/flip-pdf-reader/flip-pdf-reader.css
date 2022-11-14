@@ -78,7 +78,6 @@
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-  align-items: center;
   gap: var(--s-space-16);
 
   @media (--from-tablet) {
