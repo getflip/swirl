@@ -169,12 +169,13 @@ export class FlipAppLayout {
     this.transitioningFrom = this.mobileView;
     this.transitioningTo = mobileView;
 
-    const delay =
-      this.transitionStyle === "slides"
-        ? 400
-        : this.transitionStyle === "dialog"
-        ? 300
-        : 0;
+    let delay = 0;
+
+    if (this.transitionStyle === "slides") {
+      delay = 400;
+    } else if (this.transitionStyle === "dialog") {
+      delay = 300;
+    }
 
     this.transitionTimeout = setTimeout(() => {
       this.mobileView = mobileView;
