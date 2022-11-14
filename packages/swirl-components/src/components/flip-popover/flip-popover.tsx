@@ -235,11 +235,13 @@ export class FlipPopover {
   }
 
   private adjustWidth() {
-    const useContainerWidth = [true, "true"].includes(this.useContainerWidth)
-      ? true
-      : [false, "false"].includes(this.useContainerWidth)
-      ? false
-      : this.useContainerWidth;
+    let useContainerWidth = this.useContainerWidth;
+
+    if ([true, "true"].includes(this.useContainerWidth)) {
+      useContainerWidth = true;
+    } else if ([false, "false"].includes(this.useContainerWidth)) {
+      useContainerWidth = false;
+    }
 
     const mobile = !window.matchMedia("(min-width: 768px)").matches;
 
