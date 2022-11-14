@@ -159,7 +159,7 @@ export class FlipPopover {
       await this.reposition();
 
       if (this.focusableChildren.length > 0) {
-        (this.focusableChildren[0] as HTMLElement).focus();
+        this.focusableChildren[0].focus();
       } else {
         this.contentContainer.focus();
       }
