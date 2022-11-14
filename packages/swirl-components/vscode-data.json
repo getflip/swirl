@@ -2,6 +2,14 @@
   "version": 1.1,
   "tags": [
     {
+      "name": "file-manager",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
       "name": "flip-action-list",
       "description": {
         "kind": "markdown",
@@ -71,6 +79,67 @@
       "attributes": [
         {
           "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-app-layout",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "app-bar-media",
+          "description": ""
+        },
+        {
+          "name": "app-name",
+          "description": ""
+        },
+        {
+          "name": "back-to-navigation-view-button-label",
+          "description": ""
+        },
+        {
+          "name": "cta-icon",
+          "description": ""
+        },
+        {
+          "name": "cta-label",
+          "description": ""
+        },
+        {
+          "name": "heading",
+          "description": ""
+        },
+        {
+          "name": "navigation-back-button-label",
+          "description": ""
+        },
+        {
+          "name": "navigation-label",
+          "description": ""
+        },
+        {
+          "name": "show-navigation-back-button",
+          "description": ""
+        },
+        {
+          "name": "sidebar-close-button-label",
+          "description": ""
+        },
+        {
+          "name": "sidebar-heading",
+          "description": ""
+        },
+        {
+          "name": "subheading",
+          "description": ""
+        },
+        {
+          "name": "transition-style",
           "description": ""
         }
       ]
@@ -935,6 +1004,10 @@
           "description": ""
         },
         {
+          "name": "autoplay",
+          "description": ""
+        },
+        {
           "name": "description",
           "description": ""
         },
@@ -972,6 +1045,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "autoplay",
+          "description": ""
+        },
         {
           "name": "file",
           "description": ""
@@ -1074,6 +1151,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "autoplay",
+          "description": ""
+        },
         {
           "name": "file",
           "description": ""
@@ -2505,7 +2586,27 @@
       },
       "attributes": [
         {
+          "name": "animation",
+          "description": "",
+          "values": [
+            {
+              "name": "scale-in-xy"
+            },
+            {
+              "name": "scale-in-y"
+            }
+          ]
+        },
+        {
+          "name": "enable-flip",
+          "description": ""
+        },
+        {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "offset",
           "description": ""
         },
         {
@@ -2556,6 +2657,10 @@
         },
         {
           "name": "trigger",
+          "description": ""
+        },
+        {
+          "name": "use-container-width",
           "description": ""
         }
       ]
@@ -2811,6 +2916,39 @@
         },
         {
           "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-select",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "multi-select",
+          "description": ""
+        },
+        {
+          "name": "required",
           "description": ""
         }
       ]

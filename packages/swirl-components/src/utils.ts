@@ -6,7 +6,7 @@ export interface FlipFormInput<ValueType = string> {
   invalid?: boolean;
   required?: boolean;
   value?: ValueType;
-  valueChange: EventEmitter;
+  valueChange: EventEmitter<ValueType>;
 }
 
 export function debounce(
@@ -38,6 +38,40 @@ export function debounce(
       func.apply(context, args);
     }
   };
+}
+
+export function fullscreenStoryDecorator(story: any) {
+  const container = document.createElement("div");
+  const styles = document.createElement("style");
+  const script = document.createElement("script");
+
+  container.classList.add("container");
+  container.style.backgroundColor = "var(--s-surface-raised-default)";
+  container.style.height = "100vh";
+
+  styles.innerHTML = `
+    @media (min-width: 1440px) {
+      .container {
+        padding: 1rem;
+      }
+    }
+  `;
+
+  script.innerHTML = `
+    if (!window.updateContainerHeight) {
+      window.updateContainerHeight = () => {
+        document.querySelector('.container').style.height = window.innerHeight+'px';
+      };
+
+      window.addEventListener('resize', window.updateContainerHeight);
+    }
+
+    window.updateContainerHeight();
+  `;
+
+  container.append(styles, story(), script);
+
+  return container;
 }
 
 export function generateStoryElement(

@@ -3,12 +3,15 @@ import {
   computePosition,
   ComputePositionReturn,
   flip,
+  offset,
   Placement,
   shift,
 } from "@floating-ui/dom";
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -19,6 +22,8 @@ import {
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import { isMobileViewport, querySelectorAllDeep } from "../../utils";
+
+export type FlipPopoverAnimation = "scale-in-xy" | "scale-in-y";
 
 /**
  * @slot slot - The popover content.
@@ -31,24 +36,31 @@ import { isMobileViewport, querySelectorAllDeep } from "../../utils";
 export class FlipPopover {
   @Element() el: HTMLElement;
 
+  @Prop() animation?: FlipPopoverAnimation = "scale-in-xy";
+  @Prop() enableFlip?: boolean = true;
   @Prop() label!: string;
+  @Prop() offset?: number | number[] = 8;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() popoverId!: string;
   @Prop() trigger!: string;
+  @Prop() useContainerWidth?: boolean | string;
 
   @State() active = false;
   @State() closing = false;
   @State() position: ComputePositionReturn;
 
-  private childMenuItems: HTMLElement[];
-  private disableAutoUpdate: any;
+  @Event() popoverClose: EventEmitter<void>;
+  @Event() popoverOpen: EventEmitter<void>;
+
   private contentContainer: HTMLDivElement;
+  private disableAutoUpdate: any;
+  private focusableChildren: HTMLElement[];
   private scrollContainer: HTMLDivElement;
   private triggerEl: HTMLElement;
 
   componentDidLoad() {
     this.connectTrigger();
-    this.updateChildMenuItems();
+    this.updateFocusableChildren();
     this.updateTriggerAttributes();
   }
 
@@ -56,29 +68,45 @@ export class FlipPopover {
     enableBodyScroll(this.scrollContainer);
   }
 
-  @Listen("click", { target: "window" })
-  onWindowClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-
-    if (!this.el.contains(target)) {
-      this.close();
-    }
-  }
-
-  onFocusOut = (event: FocusEvent) => {
+  @Listen("focusin", { target: "window" })
+  onWindowFocusIn(event: FocusEvent) {
     if (!this.active) {
       return;
     }
 
-    const target =
-      (event.relatedTarget as HTMLElement) || (event.target as HTMLElement);
+    const target = event.target as HTMLElement;
 
     const popoverLostFocus = !this.el.contains(target);
 
     if (popoverLostFocus) {
       this.close();
     }
-  };
+  }
+
+  @Listen("click", { target: "window" })
+  onWindowClick(event: MouseEvent) {
+    if (!this.active) {
+      return;
+    }
+
+    const target = event.target as HTMLElement;
+
+    const clickedChild = this.el.contains(target);
+
+    const clickedShadowChild = event
+      .composedPath()
+      .some((el) =>
+        Boolean(el) && el instanceof Node
+          ? this.el.contains(el as HTMLElement)
+          : false
+      );
+
+    const clickedTrigger = event.target === this.triggerEl;
+
+    if (!clickedChild && !clickedShadowChild && !clickedTrigger) {
+      this.close();
+    }
+  }
 
   /**
    * Close the popover.
@@ -89,6 +117,8 @@ export class FlipPopover {
     if (this.closing || !this.active) {
       return;
     }
+
+    this.popoverClose.emit();
 
     if (this.disableAutoUpdate) {
       this.disableAutoUpdate();
@@ -113,16 +143,23 @@ export class FlipPopover {
    */
   @Method()
   public async open() {
-    this.active = true;
+    if (this.active) {
+      return;
+    }
 
-    this.updateChildMenuItems();
+    this.adjustWidth();
+
+    this.active = true;
+    this.popoverOpen.emit();
+
+    this.updateFocusableChildren();
     this.updateTriggerAttributes();
 
     requestAnimationFrame(async () => {
       await this.reposition();
 
-      if (this.childMenuItems.length > 0) {
-        (this.childMenuItems[0] as HTMLElement).focus();
+      if (this.focusableChildren.length > 0) {
+        (this.focusableChildren[0] as HTMLElement).focus();
       } else {
         this.contentContainer.focus();
       }
@@ -138,7 +175,6 @@ export class FlipPopover {
       );
 
       this.scrollContainer.scrollTop = 0;
-
       this.lockBodyScroll();
     });
   }
@@ -160,7 +196,9 @@ export class FlipPopover {
       return;
     }
 
-    this.triggerEl.addEventListener("click", this.toggle);
+    this.triggerEl.addEventListener("click", (event) => {
+      this.toggle(event);
+    });
   }
 
   private getNativeTriggerElement() {
@@ -189,8 +227,35 @@ export class FlipPopover {
     nativeTriggerEl.setAttribute("aria-haspopup", "dialog");
   }
 
-  private updateChildMenuItems() {
-    this.childMenuItems = querySelectorAllDeep(this.el, '[role="menuitem"]');
+  private updateFocusableChildren() {
+    this.focusableChildren = querySelectorAllDeep(
+      this.el,
+      '[role="menuitem"], [role="listbox"]'
+    );
+  }
+
+  private adjustWidth() {
+    const useContainerWidth = [true, "true"].includes(this.useContainerWidth)
+      ? true
+      : [false, "false"].includes(this.useContainerWidth)
+      ? false
+      : this.useContainerWidth;
+
+    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+
+    if (Boolean(useContainerWidth) && !mobile) {
+      const container =
+        typeof useContainerWidth === "string"
+          ? this.el.closest(useContainerWidth) || this.el.parentElement
+          : this.el.parentElement;
+
+      this.contentContainer.style.maxWidth = "none";
+      this.contentContainer.style.width =
+        container.getBoundingClientRect().width + "px";
+    } else {
+      this.contentContainer.style.maxWidth = "";
+      this.contentContainer.style.width = "";
+    }
   }
 
   private reposition = async () => {
@@ -205,11 +270,20 @@ export class FlipPopover {
       return;
     }
 
+    const offsetOptions =
+      typeof this.offset === "number"
+        ? { mainAxis: this.offset, crossAxis: 0 }
+        : { mainAxis: this.offset[0], crossAxis: this.offset[1] };
+
+    const middleware = this.enableFlip
+      ? [offset(offsetOptions), shift(), flip()]
+      : [offset(offsetOptions), shift()];
+
     this.position = await computePosition(
       this.triggerEl,
       this.contentContainer,
       {
-        middleware: [shift(), flip()],
+        middleware,
         placement: this.placement,
         strategy: "fixed",
       }
@@ -235,26 +309,30 @@ export class FlipPopover {
   };
 
   render() {
-    const className = classnames("popover", {
-      "popover--closing": this.closing,
-      "popover--active": this.active,
-      "popover--inactive": !this.active,
-    });
+    const className = classnames(
+      "popover",
+      `popover--animation-${this.animation}`,
+      {
+        "popover--closing": this.closing,
+        "popover--active": this.active,
+        "popover--inactive": !this.active,
+      }
+    );
 
     return (
-      <Host id={this.popoverId} onFocusout={this.onFocusOut}>
+      <Host id={this.popoverId}>
         <div class={className} onKeyDown={this.onKeydown}>
           <div
             aria-hidden={!this.active ? "true" : "false"}
             aria-label={this.label}
             class="popover__content"
             role="dialog"
-            tabindex="-1"
             ref={(el) => (this.contentContainer = el)}
             style={{
               top: Boolean(this.position) ? `${this.position?.y}px` : "",
               left: Boolean(this.position) ? `${this.position?.x}px` : "",
             }}
+            tabindex="-1"
           >
             <span class="popover__handle"></span>
             <div

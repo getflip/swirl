@@ -1,5 +1,44 @@
 # @getflip/swirl-components
 
+## 0.5.0
+
+### Minor Changes
+
+- [#80](https://github.com/getflip/swirl/pull/80)
+  [`e78912d`](https://github.com/getflip/swirl/commit/e78912d48c46f9946664fca0856a89ffd6f53748)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Integrate new and renamed
+  decorative color tokens
+
+* [#73](https://github.com/getflip/swirl/pull/73)
+  [`db12ab7`](https://github.com/getflip/swirl/commit/db12ab70210020b253017b668ae2b4f51714c384)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-pdf-reader component
+
+- [`b72f021`](https://github.com/getflip/swirl/commit/b72f021d6db18b9d15d0643da524bf9ab7831326)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "autoplay" property to
+  flip-file-viewer
+
+* [#78](https://github.com/getflip/swirl/pull/78)
+  [`879eeea`](https://github.com/getflip/swirl/commit/879eeeae5ba2ec0622918ed925ddab4d70ea9d97)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-app-layout component
+
+- [#79](https://github.com/getflip/swirl/pull/79)
+  [`5e46815`](https://github.com/getflip/swirl/commit/5e468151aeb4714a300cf3fee6ef484f3d230d73)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-box component
+
+* [#77](https://github.com/getflip/swirl/pull/77)
+  [`b9a50d8`](https://github.com/getflip/swirl/commit/b9a50d80be9132f0279a2e79371dcf592859f05a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-autocomplete component
+
+- [`1233d37`](https://github.com/getflip/swirl/commit/1233d37822adf67fa839d8beb172282cfc48e74e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "modalOpen" and "modalClose"
+  events to flip-modal
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e78912d`](https://github.com/getflip/swirl/commit/e78912d48c46f9946664fca0856a89ffd6f53748)]:
+  - @getflip/swirl-tokens@2.0.0
+
 ## 0.4.0
 
 ### Minor Changes

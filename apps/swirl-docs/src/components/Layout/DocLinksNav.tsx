@@ -34,20 +34,21 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
           {documentLinkList?.map((link: DocHeadline, index: number) => {
             return (
               <li key={link.id} className="relative font-sm mb-2">
-                <Link
-                  className={`
-                  transition-colors duration-500 ease-in-out
-                  before:transition-colors before:duration-500 before:ease-in-out
-                  before:block before:absolute before:top-0 before:left-[-17px] before:w-[2px] before:h-6 text-sm
-                  ${
-                    currentActiveIndex === index
-                      ? "text-border-info before:bg-border-info"
-                      : "text-text-subdued"
-                  }
-                `}
-                  href={`#${link.id}`}
-                >
-                  <a>{link.name}</a>
+                <Link href={`#${link.id}`}>
+                  <a
+                    className={`
+                    transition-colors duration-500 ease-in-out
+                    before:transition-colors before:duration-500 before:ease-in-out
+                    before:block before:absolute before:top-0 before:left-[-17px] before:w-[2px] before:h-6 text-sm
+                    ${
+                      currentActiveIndex === index
+                        ? "text-border-info before:bg-border-info"
+                        : "text-text-subdued"
+                    }
+                  `}
+                  >
+                    {link.name}
+                  </a>
                 </Link>
               </li>
             );

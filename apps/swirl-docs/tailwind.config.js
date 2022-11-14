@@ -34,5 +34,12 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/typography")],
-  safelist: [...safelist.bgColors],
+  safelist: [
+    "text-[0.875.rem]",
+    "text-[1.rem]",
+    "text-[1.125.rem]",
+    "text-[1.25.rem]",
+    "text-[1.75.rem]",
+    ...safelist.bgColors,
+  ],
 };

@@ -3,6 +3,9 @@ import Docs from "./flip-file-viewer.mdx";
 
 export default {
   argTypes: {
+    autoplay: {
+      description: "Applicable to audio/video only.",
+    },
     file: {
       control: { type: "text" },
     },
