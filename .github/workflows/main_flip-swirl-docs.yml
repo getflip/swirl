@@ -29,14 +29,14 @@ jobs:
           yarn
           yarn build
 
-      - name: Zip artifact for deployment
-        run: zip -r build.zip ./* ./.next
+      # - name: Zip artifact for deployment
+      #   run: zip -r build.zip ./* ./.next
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: swirl-docs
-          path: build.zip
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,11 +51,11 @@ jobs:
         with:
           name: swirl-docs
 
-      - name: unzip artifact
-        run: unzip build.zip
+      # - name: unzip artifact
+      #   run: unzip build.zip
 
-      - name: list
-        run: ls -la .
+      # - name: list
+      #   run: ls -la .
 
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
