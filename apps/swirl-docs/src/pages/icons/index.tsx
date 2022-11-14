@@ -66,12 +66,6 @@ const IconsIndex = ({ links }: any) => {
     setSelectedIcon(icons[iconName]);
   }, [asPath, icons]);
 
-  // useEffect(() => {
-  //   document.body.addEventListener("focusin", (event) => {
-  //     console.log("focusin", event);
-  //   });
-  // }, []);
-
   return (
     <>
       <Head>

@@ -19,7 +19,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
   icon,
   icons,
   role,
-  reference: mapRef,
+  reference,
   index,
   handleKeyDown,
   handleTileClick,
@@ -27,15 +27,14 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
   return (
     <div>
       <a
+        id={id}
+        tabIndex={index === 0 ? 0 : -1}
         role={role}
         aria-label={`${icon}-icon`}
-        ref={mapRef}
-        tabIndex={index === 0 ? 0 : -1}
-        id={id}
+        ref={reference}
         href={`#${icons[icon]?.name}`}
         className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
         onKeyDown={(event) => handleKeyDown(event)}
-        onFocus={(event) => console.log("focus", event)}
         onClick={() => handleTileClick(icons[icon]?.name)}
       >
         <i
@@ -43,11 +42,16 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
         ></i>
         <span className="text-text-subdued">{icons[icon]?.name}</span>
       </a>
-      <FlipPopover label="Icon Info" popoverId={`popover-${id}`} trigger={id}>
+      {/* <FlipPopover
+        onChange={() => console.log("change")}
+        label="Icon Info"
+        popoverId={`popover-${id}`}
+        trigger={id}
+      >
         <div className="md:hidden p-4">
           <IconInfo icon={icons[icon]} />
         </div>
-      </FlipPopover>
+      </FlipPopover> */}
     </div>
   );
 };
