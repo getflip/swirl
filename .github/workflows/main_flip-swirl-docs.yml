@@ -29,6 +29,9 @@ jobs:
           yarn
           yarn build
 
+      - name: Zip artifact for deployment
+        run: zip -r build.zip ./* ./.next
+
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -36,10 +39,7 @@ jobs:
           app-name: "flip-swirl-docs"
           slot-name: "Production"
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          package: .
-
-      # - name: Zip artifact for deployment
-      #   run: zip -r build.zip ./* ./.next
+          package: apps/swirl-docs
 
       # - name: Upload artifact for deployment job
       #   uses: actions/upload-artifact@v2
