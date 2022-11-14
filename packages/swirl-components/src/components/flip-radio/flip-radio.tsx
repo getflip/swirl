@@ -32,11 +32,21 @@ export class FlipRadio {
     this.valueChange.emit(this.value);
   };
 
+  private getAriaCheckedLabel(checked: boolean, unchecked: boolean) {
+    if (checked) {
+      return "true";
+    } else if (unchecked) {
+      return "false";
+    }
+
+    return "mixed";
+  }
+
   render() {
     const unchecked = this.checked === false || this.checked === "false";
     const checked = this.checked === true || this.checked === "true";
 
-    const ariaCheckedLabel = checked ? "true" : unchecked ? "false" : "mixed";
+    const ariaCheckedLabel = this.getAriaCheckedLabel(checked, unchecked);
     const ariaInvalid = this.invalid;
 
     const className = classnames("radio", {

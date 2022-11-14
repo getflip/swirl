@@ -367,11 +367,13 @@ export class FlipFileViewerPdf {
   private getScale(page: PDFPageProxy) {
     const padding = isMobileViewport() ? 0 : 32;
 
-    return this.zoom === "auto"
-      ? (this.scrollContainer?.clientWidth - padding) / page.view[2]
-      : isNaN(this.zoom)
-      ? 1
-      : this.zoom;
+    if (this.zoom === "auto") {
+      return (this.scrollContainer?.clientWidth - padding) / page.view[2];
+    } else if (isNaN(this.zoom)) {
+      return 1;
+    }
+
+    return this.zoom;
   }
 
   private restoreScrollPosition() {

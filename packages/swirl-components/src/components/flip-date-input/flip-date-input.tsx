@@ -75,7 +75,7 @@ export class FlipDateInput {
     const newDate = parse(value, this.format, new Date());
 
     const formatRegExp = new RegExp(
-      `^${this.format.replace(/y|d|M/g, "\\d")}$`
+      `^${this.format.replace(/[ydM]/g, "\\d")}$`
     );
 
     if (!Boolean(value.match(formatRegExp)) || !isValid(newDate)) {
@@ -129,10 +129,8 @@ export class FlipDateInput {
 
   render() {
     const ariaInvalid =
-      this.invalid === true
-        ? "true"
-        : this.invalid === false
-        ? "false"
+      this.invalid === true || this.invalid === false
+        ? String(this.invalid)
         : undefined;
 
     const dateValue = Boolean(this.value)

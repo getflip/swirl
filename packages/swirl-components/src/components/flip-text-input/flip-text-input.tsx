@@ -142,11 +142,12 @@ export class FlipTextInput implements FlipFormInput {
       return;
     }
     const step = this.step || 1;
-    const currentValue = isNaN(this.inputEl.valueAsNumber)
-      ? this.min !== undefined
-        ? this.min + 1
-        : 1
-      : this.inputEl.valueAsNumber;
+
+    let currentValue = this.inputEl.valueAsNumber;
+
+    if (isNaN(this.inputEl.valueAsNumber)) {
+      currentValue = this.min !== undefined ? this.min + 1 : 1;
+    }
 
     this.value = String(Math.max(this.min || -Infinity, currentValue - step));
     this.valueChange.emit(this.value);
@@ -158,11 +159,12 @@ export class FlipTextInput implements FlipFormInput {
     }
 
     const step = this.step || 1;
-    const currentValue = isNaN(this.inputEl.valueAsNumber)
-      ? this.min !== undefined
-        ? this.min - 1
-        : -1
-      : this.inputEl.valueAsNumber;
+
+    let currentValue = this.inputEl.valueAsNumber;
+
+    if (isNaN(this.inputEl.valueAsNumber)) {
+      currentValue = this.min !== undefined ? this.min - 1 : -1;
+    }
 
     this.value = String(Math.min(this.max || Infinity, currentValue + step));
     this.valueChange.emit(this.value);
@@ -188,10 +190,8 @@ export class FlipTextInput implements FlipFormInput {
     const Tag = this.rows === 1 ? "input" : "textarea";
 
     const ariaInvalid =
-      this.invalid === true
-        ? "true"
-        : this.invalid === false
-        ? "false"
+      this.invalid === true || this.invalid === false
+        ? String(this.invalid)
         : undefined;
 
     const showStepper = this.type === "number" && !this.disabled;

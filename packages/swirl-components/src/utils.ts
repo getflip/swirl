@@ -85,7 +85,8 @@ export function generateStoryElement(
     .filter((arg) => arg[1] !== undefined && arg[1] !== null && arg[1] !== "")
     .forEach(([attr, value]) => {
       if (typeof value === "object") {
-        return (element[attr] = value);
+        element[attr] = value;
+        return;
       }
 
       return element.setAttribute(
