@@ -19,35 +19,36 @@ export const handleGridKeyDown = (
   gridCellData: GridCellData,
   getRefFn: (key: string) => void | React.RefObject<any>
 ) => {
+  console.log("handleGridKeyDown");
   handlePreventScroll(event);
   const currentRef = getRefFn(
     gridCellData.data[gridCellData.index]
   ) as React.RefObject<any>;
 
-  switch (event.key) {
-    case "ArrowRight":
-    case "ArrowDown":
-      const nextRef = getRefFn(
-        gridCellData.data[gridCellData.index + 1]
-      ) as React.RefObject<any>;
-      if (gridCellData.index === gridCellData.data.length - 1) return;
+  // switch (event.key) {
+  //   case "ArrowRight":
+  //   case "ArrowDown":
+  //     const nextRef = getRefFn(
+  //       gridCellData.data[gridCellData.index + 1]
+  //     ) as React.RefObject<any>;
+  //     if (gridCellData.index === gridCellData.data.length - 1) return;
 
-      currentRef.current.tabIndex = -1;
-      nextRef.current.tabIndex = 0;
-      nextRef.current.focus();
-      break;
-    case "ArrowLeft":
-    case "ArrowUp":
-      const previousRef = getRefFn(
-        gridCellData.data[gridCellData.index - 1]
-      ) as React.RefObject<any>;
-      if (gridCellData.index === 0) return;
+  //     currentRef.current.tabIndex = -1;
+  //     nextRef.current.tabIndex = 0;
+  //     nextRef.current.focus();
+  //     break;
+  //   case "ArrowLeft":
+  //   case "ArrowUp":
+  //     const previousRef = getRefFn(
+  //       gridCellData.data[gridCellData.index - 1]
+  //     ) as React.RefObject<any>;
+  //     if (gridCellData.index === 0) return;
 
-      currentRef.current.tabIndex = -1;
-      previousRef.current.tabIndex = 0;
-      previousRef.current.focus();
-      break;
-  }
+  //     currentRef.current.tabIndex = -1;
+  //     previousRef.current.tabIndex = 0;
+  //     previousRef.current.focus();
+  //     break;
+  // }
 };
 
 /**
@@ -78,6 +79,7 @@ function useDynamicRefs<T>(): [
   (key: string) => void | React.RefObject<T>,
   (key: string) => void | React.RefObject<T>
 ] {
+  console.log("useDynamicRefs");
   return [getRef, setRef];
 }
 

@@ -26,18 +26,19 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
     >
       {iconList?.map((icon: string, index: number) => (
         <IconGridItem
-          index={index}
+          id={`${icons[icon]?.name}-${index}`}
           key={`${icons[icon]?.name}-${index}`}
+          index={index}
           role="gridcell"
-          aria-label={icon}
-          ref={setRef(icon) as LegacyRef<HTMLAnchorElement>}
-          handleTileClick={() => handleTileClick(icons[icon]?.name)}
+          icon={icon}
+          icons={icons}
+          reference={setRef(icon) as LegacyRef<HTMLAnchorElement>}
+          handleTileClick={() => {
+            handleTileClick(icons[icon]?.name);
+          }}
           handleKeyDown={(event) =>
             handleGridKeyDown(event, { data: iconList, index }, getRef)
           }
-          icon={icon}
-          icons={icons}
-          id={`${icons[icon]?.name}-${index}`}
         />
       ))}
     </Grid>
@@ -45,15 +46,3 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
 };
 
 export default IconGrid;
-
-// const stuff = () => (
-//   <a
-//     tabIndex={index === 0 ? 0 : -1}
-//     onKeyDown={(event) =>
-//       handleGridKeyDown(event, { data: iconList, index }, getRef)
-//     }
-//   >
-//     <i className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}></i>
-//     <span className="text-text-subdued">{icons[icon]?.name}</span>
-//   </a>
-// );

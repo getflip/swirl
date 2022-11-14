@@ -62,8 +62,15 @@ const IconsIndex = ({ links }: any) => {
 
   useEffect(() => {
     const iconName = asPath.split("#")[1];
+    console.log("set selected icon changed");
     setSelectedIcon(icons[iconName]);
   }, [asPath, icons]);
+
+  // useEffect(() => {
+  //   document.body.addEventListener("focusin", (event) => {
+  //     console.log("focusin", event);
+  //   });
+  // }, []);
 
   return (
     <>
