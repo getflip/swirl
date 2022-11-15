@@ -32,8 +32,8 @@ RUN apk add --no-cache \
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 2002 nodejs
+RUN adduser --system --uid 2002 nextjs
 USER nextjs
 
 WORKDIR /homepage
@@ -63,8 +63,8 @@ RUN yarn add puppeteer@13.5.0
 
 WORKDIR /homepage
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 2002 nodejs
+RUN adduser --system --uid 2002 nextjs
 
 ENV NODE_ENV production
 COPY . .
