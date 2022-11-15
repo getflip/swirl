@@ -9,7 +9,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import SearchBar from "../components/SearchBar";
 import IconGrid from "../../components/IconGrid/IconGrid";
@@ -51,7 +51,8 @@ const IconsIndex = ({ links }: any) => {
   const icons: IconsMetaData = require("@getflip/swirl-icons/dist/metadata.js");
   const iconsArray = Object.keys(icons);
 
-  const { asPath } = useRouter();
+  const { asPath, events } = useRouter();
+  const router = useRouter();
   const [searchWord, setSearchWord] = React.useState("");
   const [selectedIcon, setSelectedIcon] = React.useState<IconData>(
     icons["Add"]
@@ -63,8 +64,11 @@ const IconsIndex = ({ links }: any) => {
 
   useEffect(() => {
     const iconName = asPath.split("#")[1];
-    setSelectedIcon(icons[iconName]);
-  }, [asPath, icons]);
+
+    if (iconName) {
+      setSelectedIcon(icons[iconName]);
+    }
+  }, [router, asPath, icons]);
 
   return (
     <>
@@ -88,17 +92,16 @@ const IconsIndex = ({ links }: any) => {
                 <IconGrid
                   iconList={filteredIcons}
                   icons={icons}
-                  handleTileClick={(iconname) =>
-                    setSelectedIcon(icons[iconname])
-                  }
+                  handleTileClick={(iconname) => {
+                    console.log("tile click on", iconname);
+                    setSelectedIcon(icons[iconname]);
+                  }}
                 />
               </div>
               {selectedIcon && (
-                <NoSsr>
-                  <div className="hidden md:block max-w-[280px]">
-                    <IconInfo icon={selectedIcon} />
-                  </div>
-                </NoSsr>
+                <div className="hidden md:block max-w-[280px]">
+                  <IconInfo icon={selectedIcon} />
+                </div>
               )}
             </div>
           </section>
