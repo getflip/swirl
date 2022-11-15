@@ -59,8 +59,6 @@ RUN yarn add puppeteer@13.5.0
 
 WORKDIR /homepage
 
-RUN addgroup --system --gid 2002 nodejs
-RUN adduser --system --uid 2002 nextjs
 
 ENV NODE_ENV production
 COPY . .
@@ -69,7 +67,6 @@ COPY --from=builder /homepage/.next ./.next
 COPY --from=builder /homepage/package.json ./package.json
 COPY --from=builder /homepage/node_modules ./node_modules
 
-USER nextjs
 
 EXPOSE 3000
 
