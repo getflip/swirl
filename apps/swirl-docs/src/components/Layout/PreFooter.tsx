@@ -1,4 +1,3 @@
-import React, { FunctionComponent } from "react";
 import PreFooterTile from "./PreFooterTile";
 
 const PreFooter = () => {
