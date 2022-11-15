@@ -1,9 +1,11 @@
 import { FlipPopover } from "@getflip/swirl-components-react";
 import { FunctionComponent, LegacyRef } from "react";
+
 import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
+import MobileView from "../MobileView/MobileView";
+
 import IconInfo from "./IconInfo";
-import { MobileView } from "react-device-detect";
 
 interface IconGridProps {
   id: string;
@@ -37,9 +39,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
         href={`#${icons[icon]?.name}`}
         className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
         onKeyDown={(event) => handleKeyDown(event)}
-        onClick={() => {
-          handleTileClick(icons[icon]?.name);
-        }}
+        onClick={() => handleTileClick(icons[icon]?.name)}
       >
         <i
           className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}

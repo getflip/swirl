@@ -9,13 +9,11 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import SearchBar from "../components/SearchBar";
 import IconGrid from "../../components/IconGrid/IconGrid";
 import IconInfo from "src/components/IconGrid/IconInfo";
-import NoSsr from "src/components/Layout/NoSsr";
-import { isMobile } from "react-device-detect";
 
 type Usage = "app" | "admin";
 
@@ -54,10 +52,8 @@ const IconsIndex = ({ links }: any) => {
 
   const { asPath } = useRouter();
   const router = useRouter();
-  const [searchWord, setSearchWord] = React.useState("");
-  const [selectedIcon, setSelectedIcon] = React.useState<IconData>(
-    icons["Add"]
-  );
+  const [searchWord, setSearchWord] = useState("");
+  const [selectedIcon, setSelectedIcon] = useState<IconData>(icons["Add"]);
 
   const filteredIcons = iconsArray.filter((icon) => {
     return icon.toLowerCase().includes(searchWord.toLowerCase());
