@@ -15,6 +15,7 @@ import SearchBar from "../components/SearchBar";
 import IconGrid from "../../components/IconGrid/IconGrid";
 import IconInfo from "src/components/IconGrid/IconInfo";
 import NoSsr from "src/components/Layout/NoSsr";
+import { isMobile } from "react-device-detect";
 
 type Usage = "app" | "admin";
 
@@ -92,10 +93,9 @@ const IconsIndex = ({ links }: any) => {
                 <IconGrid
                   iconList={filteredIcons}
                   icons={icons}
-                  handleTileClick={(iconname) => {
-                    console.log("tile click on", iconname);
-                    setSelectedIcon(icons[iconname]);
-                  }}
+                  handleTileClick={(iconname) =>
+                    setSelectedIcon(icons[iconname])
+                  }
                 />
               </div>
               {selectedIcon && (

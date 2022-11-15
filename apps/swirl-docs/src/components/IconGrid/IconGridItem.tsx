@@ -3,6 +3,7 @@ import { FunctionComponent, LegacyRef } from "react";
 import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
 import IconInfo from "./IconInfo";
+import { MobileView } from "react-device-detect";
 
 interface IconGridProps {
   id: string;
@@ -36,21 +37,20 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
         href={`#${icons[icon]?.name}`}
         className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
         onKeyDown={(event) => handleKeyDown(event)}
-        onClick={() => {
-          console.log("handleTileClick");
-          handleTileClick(icons[icon]?.name);
-        }}
+        onClick={() => handleTileClick(icons[icon]?.name)}
       >
         <i
           className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
         ></i>
         <span className="text-text-subdued">{icons[icon]?.name}</span>
       </a>
-      <FlipPopover label="Icon Info" popoverId={`popover-${id}`} trigger={id}>
-        <div className="md:hidden p-4">
-          <IconInfo icon={icons[icon]} />
-        </div>
-      </FlipPopover>
+      <MobileView>
+        <FlipPopover label="Icon Info" popoverId={`popover-${id}`} trigger={id}>
+          <div className="md:hidden p-4">
+            <IconInfo icon={icons[icon]} />
+          </div>
+        </FlipPopover>
+      </MobileView>
     </NoSsr>
   );
 };

@@ -33,10 +33,7 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
           icon={icon}
           icons={icons}
           reference={setRef(icon) as LegacyRef<HTMLAnchorElement>}
-          handleTileClick={() => {
-            console.log("handleTileClick");
-            handleTileClick(icons[icon]?.name);
-          }}
+          handleTileClick={() => handleTileClick(icons[icon]?.name)}
           handleKeyDown={(event) =>
             handleGridKeyDown(event, { data: iconList, index }, getRef)
           }
