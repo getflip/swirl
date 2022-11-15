@@ -123,7 +123,7 @@ export class FlipDateInput {
     this.mask?.destroy();
 
     this.mask = createMask(`#${this.id}`, {
-      mask: this.format.replace(/y|d|M/g, "#"),
+      mask: this.format.replace(/[ydM]/g, "#"),
     });
   }
 
