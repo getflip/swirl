@@ -32,10 +32,6 @@ RUN apk add --no-cache \
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-RUN addgroup --system --gid 2002 nodejs
-RUN adduser --system --uid 2002 nextjs
-USER nextjs
-
 WORKDIR /homepage
 COPY --from=dependencies /homepage/node_modules ./node_modules
 COPY . .
