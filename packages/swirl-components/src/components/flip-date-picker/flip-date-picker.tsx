@@ -7,7 +7,10 @@ import {
   Prop,
   Watch,
 } from "@stencil/core";
-import AirDatepicker, { AirDatepickerLocale } from "air-datepicker";
+import AirDatepicker, {
+  AirDatepickerDate,
+  AirDatepickerLocale,
+} from "air-datepicker";
 
 import localeEn from "air-datepicker/locale/en";
 
@@ -50,6 +53,16 @@ export class FlipDatePicker {
   private init() {
     this.picker?.destroy();
 
+    let selectedDates: AirDatepickerDate[];
+
+    if (this.value === undefined) {
+      selectedDates = undefined;
+    } else if (Array.isArray(this.value)) {
+      selectedDates = this.value;
+    } else {
+      selectedDates = [this.value];
+    }
+
     this.picker = new AirDatepicker(this.containerEl, {
       classes: "date-picker",
       inline: true,
@@ -63,12 +76,7 @@ export class FlipDatePicker {
       },
       prevHtml: "<flip-icon-chevron-left></flip-icon-chevron-left>",
       range: this.range,
-      selectedDates:
-        this.value === undefined
-          ? undefined
-          : Array.isArray(this.value)
-          ? this.value
-          : [this.value],
+      selectedDates,
       startDate: this.startDate,
       toggleSelected: !this.range,
       view: "days",

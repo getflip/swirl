@@ -250,7 +250,7 @@
 }
 
 .app-layout__navigation-controls {
-  fles-shrink: 0;
+  flex-shrink: 0;
 }
 
 .app-layout__navigation {

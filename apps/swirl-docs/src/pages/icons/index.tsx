@@ -51,7 +51,7 @@ const IconsIndex = ({ links }: any) => {
   const icons: IconsMetaData = require("@getflip/swirl-icons/dist/metadata.js");
   const iconsArray = Object.keys(icons);
 
-  const { asPath, events } = useRouter();
+  const { asPath } = useRouter();
   const router = useRouter();
   const [searchWord, setSearchWord] = React.useState("");
   const [selectedIcon, setSelectedIcon] = React.useState<IconData>(

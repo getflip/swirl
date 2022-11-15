@@ -159,7 +159,7 @@ export class FlipPopover {
       await this.reposition();
 
       if (this.focusableChildren.length > 0) {
-        (this.focusableChildren[0] as HTMLElement).focus();
+        this.focusableChildren[0].focus();
       } else {
         this.contentContainer.focus();
       }
@@ -235,11 +235,13 @@ export class FlipPopover {
   }
 
   private adjustWidth() {
-    const useContainerWidth = [true, "true"].includes(this.useContainerWidth)
-      ? true
-      : [false, "false"].includes(this.useContainerWidth)
-      ? false
-      : this.useContainerWidth;
+    let useContainerWidth = this.useContainerWidth;
+
+    if ([true, "true"].includes(this.useContainerWidth)) {
+      useContainerWidth = true;
+    } else if ([false, "false"].includes(this.useContainerWidth)) {
+      useContainerWidth = false;
+    }
 
     const mobile = !window.matchMedia("(min-width: 768px)").matches;
 

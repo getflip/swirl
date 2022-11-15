@@ -61,12 +61,13 @@ export class FlipToastProvider {
       return;
     }
 
-    const duration =
-      this.globalDuration === undefined
-        ? newToast.duration
-        : this.globalDuration === 0
-        ? undefined
-        : this.globalDuration;
+    let duration = this.globalDuration;
+
+    if (this.globalDuration === undefined) {
+      duration = newToast.duration;
+    } else if (this.globalDuration === 0) {
+      duration = undefined;
+    }
 
     const newToastWithId: FlipToastMessage = {
       ...newToast,

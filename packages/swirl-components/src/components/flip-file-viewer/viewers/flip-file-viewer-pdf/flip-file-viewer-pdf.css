@@ -57,6 +57,7 @@
   overflow: hidden;
   line-height: 1;
   text-align: initial;
+  user-select: none;
   inset: 0;
   text-size-adjust: none;
   forced-color-adjust: none;
@@ -127,6 +128,10 @@
       background: transparent;
     }
   }
+
+  @media (--from-tablet) {
+    user-select: auto;
+  }
 }
 
 .file-viewer-pdf__spinner {
@@ -157,12 +162,4 @@
   line-height: var(--s-line-height-base);
   transform: translateX(-50%);
   pointer-events: none;
-}
-
-.file-viewer-pdf__text-container {
-  user-select: none;
-
-  @media (--from-tablet) {
-    user-select: auto;
-  }
 }

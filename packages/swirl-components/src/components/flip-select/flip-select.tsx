@@ -101,10 +101,8 @@ export class FlipSelect implements FlipFormInput<string[]> {
       : "";
 
     const ariaInvalid =
-      this.invalid === true
-        ? "true"
-        : this.invalid === false
-        ? "false"
+      this.invalid === true || this.invalid === false
+        ? String(this.invalid)
         : undefined;
 
     const className = classnames("select", {

@@ -7,7 +7,6 @@ import {
   unitTestTemplate,
 } from "./templates.mjs";
 
-import prettier from "prettier";
 import Handlebars from "handlebars";
 
 import { execSync } from "child_process";
@@ -35,7 +34,7 @@ export default function (
 
           if (
             !String(input).match(
-              /^([a-z](?![\d])|[\d](?![a-z]))+(-?([a-z](?![\d])|[\d](?![a-z])))*$|^$/
+              /^([a-z](?!\d)|\d(?![a-z]))+(-?([a-z](?!\d)|\d(?![a-z])))*$|^$/
             )
           ) {
             return "Must be kebab-case.";
