@@ -12,23 +12,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      steps:
-        - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-        - uses: azure/docker-login@v1
-          with:
-            login-server: flipistry.azurecr.io
-            username: ${{ secrets.REGISTRY_USERNAME }}
-            password: ${{ secrets.REGISTRY_PASSWORD }}
+      - uses: azure/docker-login@v1
+        with:
+          login-server: flipistry.azurecr.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
-        - run: |
-            docker build . -t flipistry.azurecr.io/flip-swirl-docs:${{ github.sha }}
-            docker push flipistry.azurecr.io/flip-swirl-docs:${{ github.sha }}
+      - run: |
+          docker build . -t flipistry.azurecr.io/flip-swirl-docs:${{ github.sha }}
+          docker push flipistry.azurecr.io/flip-swirl-docs:${{ github.sha }}
 
-        - uses: azure/webapps-deploy@v2
-          with:
-            app-name: "flip-swirl-docs"
-            publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-            images: "flipistry.azurecr.io/flip-swirl-docs:${{ github.sha }}"
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: "flip-swirl-docs"
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          images: "flipistry.azurecr.io/flip-swirl-docs:${{ github.sha }}"
