@@ -4,7 +4,6 @@ import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
 import IconInfo from "./IconInfo";
 import { MobileView } from "react-device-detect";
-import { useRef } from "react";
 
 interface IconGridProps {
   id: string;
@@ -27,9 +26,6 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
   handleKeyDown,
   handleTileClick,
 }) => {
-  // react ref for popover
-  const popoverRef = useRef<HTMLFlipPopoverElement>(null);
-
   return (
     <NoSsr>
       <a
@@ -42,8 +38,6 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
         className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
         onKeyDown={(event) => handleKeyDown(event)}
         onClick={() => {
-          console.log("handleTileClick trigger", id);
-          popoverRef.current?.open();
           handleTileClick(icons[icon]?.name);
         }}
       >
@@ -53,12 +47,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
         <span className="text-text-subdued">{icons[icon]?.name}</span>
       </a>
       <MobileView>
-        <FlipPopover
-          ref={popoverRef}
-          label="Icon Info"
-          popoverId={`popover-${id}`}
-          trigger={id}
-        >
+        <FlipPopover label="Icon Info" popoverId={`popover-${id}`} trigger={id}>
           <div className="p-4">
             <IconInfo icon={icons[icon]} />
           </div>
