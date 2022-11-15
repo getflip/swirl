@@ -9,7 +9,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import SearchBar from "../components/SearchBar";
 import IconGrid from "./components/IconGrid";
@@ -51,8 +51,8 @@ const IconsIndex = ({ links }: any) => {
   const iconsArray = Object.keys(icons);
 
   const { asPath } = useRouter();
-  const [searchWord, setSearchWord] = React.useState("");
-  const [selectedIcon, setSelectedIcon] = React.useState<IconData>(
+  const [searchWord, setSearchWord] = useState("");
+  const [selectedIcon, setSelectedIcon] = useState<IconData>(
     icons["Add"]
   );
 

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 
 interface HighlighterProps {

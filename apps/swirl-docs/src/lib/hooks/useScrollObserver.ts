@@ -1,17 +1,17 @@
-import React from "react";
+import { useState, useRef, useEffect } from "react";
 
 const useScrollObserver = (
   elements: Element[]
 ): [number, Element[] | undefined] => {
   // no active element by default
-  const [activeIndex, setActiveIndex] = React.useState(-1);
+  const [activeIndex, setActiveIndex] = useState(-1);
 
   const scrolledSections =
     activeIndex >= 0 ? elements?.slice(0, activeIndex + 1) : [];
 
-  const observer = React.useRef<IntersectionObserver>();
+  const observer = useRef<IntersectionObserver>();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (observer.current) {
       observer.current.disconnect();
     }
