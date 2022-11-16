@@ -1,5 +1,24 @@
 # @getflip/swirl-components-react
 
+## 0.5.0
+
+### Minor Changes
+
+- [#90](https://github.com/getflip/swirl/pull/90)
+  [`fa49029`](https://github.com/getflip/swirl/commit/fa49029c5295ab3addeba4b5387c94ad90d66413)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Integrate new Web Components and
+  changes
+
+### Patch Changes
+
+- Updated dependencies
+  [[`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118),
+  [`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118),
+  [`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118),
+  [`fa49029`](https://github.com/getflip/swirl/commit/fa49029c5295ab3addeba4b5387c94ad90d66413),
+  [`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118)]:
+  - @getflip/swirl-components@0.6.0
+
 ## 0.4.0
 
 ### Minor Changes
