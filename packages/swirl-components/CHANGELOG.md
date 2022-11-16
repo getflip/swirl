@@ -1,5 +1,38 @@
 # @getflip/swirl-components
 
+## 0.6.0
+
+### Minor Changes
+
+- [#66](https://github.com/getflip/swirl/pull/66)
+  [`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "animation" property to
+  flip-popover
+
+* [#66](https://github.com/getflip/swirl/pull/66)
+  [`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-select component
+
+- [#66](https://github.com/getflip/swirl/pull/66)
+  [`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "enable-flip", "offset" and
+  "useContainerWidth" props to flip-popover
+
+* [#90](https://github.com/getflip/swirl/pull/90)
+  [`fa49029`](https://github.com/getflip/swirl/commit/fa49029c5295ab3addeba4b5387c94ad90d66413)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-console-layout component
+
+- [#66](https://github.com/getflip/swirl/pull/66)
+  [`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "popoverOpen" and
+  "popoverClose" events to flip-popover
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fa49029`](https://github.com/getflip/swirl/commit/fa49029c5295ab3addeba4b5387c94ad90d66413)]:
+  - @getflip/swirl-icons@0.5.0
+
 ## 0.5.0
 
 ### Minor Changes
