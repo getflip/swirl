@@ -3,7 +3,7 @@ import { FunctionComponent, LegacyRef } from "react";
 
 import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
-import MobileView from "../MobileView/MobileView";
+import { MobileView, DesktopView } from "../View/Views";
 
 import IconInfo from "./IconInfo";
 
@@ -30,24 +30,46 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
 }) => {
   return (
     <NoSsr>
-      <a
-        id={id}
-        tabIndex={index === 0 ? 0 : -1}
-        role={role}
-        aria-label={`${icon}-icon`}
-        ref={reference}
-        href={`#${icons[icon]?.name}`}
-        className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
-        onKeyDown={(event) => handleKeyDown(event)}
-        onClick={() => handleTileClick(icons[icon]?.name)}
-      >
-        <i
-          className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
-        ></i>
-        <span className="text-text-subdued">{icons[icon]?.name}</span>
-      </a>
+      <DesktopView>
+        <a
+          id={id}
+          tabIndex={index === 0 ? 0 : -1}
+          role={role}
+          aria-label={`${icon}-icon`}
+          ref={reference}
+          href={`#${icons[icon]?.name}`}
+          className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
+          onKeyDown={(event) => handleKeyDown(event)}
+          onClick={() => handleTileClick(icons[icon]?.name)}
+        >
+          <i
+            className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
+          ></i>
+          <span className="text-text-subdued">{icons[icon]?.name}</span>
+        </a>
+      </DesktopView>
       <MobileView>
-        <FlipPopover label="Icon Info" popoverId={`popover-${id}`} trigger={id}>
+        <a
+          id={`${id}-popover-trigger`}
+          tabIndex={index === 0 ? 0 : -1}
+          role={role}
+          aria-label={`${icon}-icon`}
+          ref={reference}
+          href={`#${icons[icon]?.name}`}
+          className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
+          onKeyDown={(event) => handleKeyDown(event)}
+          onClick={() => handleTileClick(icons[icon]?.name)}
+        >
+          <i
+            className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
+          ></i>
+          <span className="text-text-subdued">{icons[icon]?.name}</span>
+        </a>
+        <FlipPopover
+          label="Icon Info"
+          popoverId={`popover-${id}`}
+          trigger={`${id}-popover-trigger`}
+        >
           <div className="p-4">
             <IconInfo icon={icons[icon]} />
           </div>
