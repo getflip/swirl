@@ -1,13 +1,13 @@
 import { FunctionComponent } from "react";
 import Highlighter from "src/components/SyntaxHighlighter/Highlighter";
-import { IconData } from "..";
+import { IconData } from "src/pages/icons";
 
 interface IconInfoProps {
   icon: IconData;
 }
 
 export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => (
-  <aside className="hidden md:block max-w-[280px]">
+  <aside>
     <h2 className="mb-2">{icon?.name}</h2>
     <p className="text-sm font-normal mb-6">{icon?.description}</p>
     <a

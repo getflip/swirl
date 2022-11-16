@@ -9,11 +9,11 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import SearchBar from "../components/SearchBar";
-import IconGrid from "./components/IconGrid";
-import IconInfo from "./components/IconInfo";
+import IconGrid from "../../components/IconGrid/IconGrid";
+import IconInfo from "src/components/IconGrid/IconInfo";
 
 type Usage = "app" | "admin";
 
@@ -51,10 +51,9 @@ const IconsIndex = ({ links }: any) => {
   const iconsArray = Object.keys(icons);
 
   const { asPath } = useRouter();
+  const router = useRouter();
   const [searchWord, setSearchWord] = useState("");
-  const [selectedIcon, setSelectedIcon] = useState<IconData>(
-    icons["Add"]
-  );
+  const [selectedIcon, setSelectedIcon] = useState<IconData>(icons["Add"]);
 
   const filteredIcons = iconsArray.filter((icon) => {
     return icon.toLowerCase().includes(searchWord.toLowerCase());
@@ -62,8 +61,11 @@ const IconsIndex = ({ links }: any) => {
 
   useEffect(() => {
     const iconName = asPath.split("#")[1];
-    setSelectedIcon(icons[iconName]);
-  }, [asPath, icons]);
+
+    if (iconName) {
+      setSelectedIcon(icons[iconName]);
+    }
+  }, [router, asPath, icons]);
 
   return (
     <>
@@ -92,7 +94,11 @@ const IconsIndex = ({ links }: any) => {
                   }
                 />
               </div>
-              <IconInfo icon={selectedIcon} />
+              {selectedIcon && (
+                <div className="hidden md:block max-w-[280px]">
+                  <IconInfo icon={selectedIcon} />
+                </div>
+              )}
             </div>
           </section>
         </main>

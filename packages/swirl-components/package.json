@@ -57,7 +57,6 @@
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^0.3.1",
     "@storybook/addon-a11y": "^6.5.10",
-    "@storybook/addon-docs": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addons": "^6.5.10",
     "@storybook/builder-vite": "^0.2.2",
