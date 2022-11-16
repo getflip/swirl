@@ -1,9 +1,10 @@
+import { IconsMetaData } from "../../pages/icons";
+import IconGridItem from "./IconGridItem";
 import useDynamicRefs, {
   handleGridKeyDown,
 } from "@swirl/lib/hooks/useDynamicRefs";
-import { FunctionComponent, LegacyRef, useEffect } from "react";
+import { FunctionComponent, LegacyRef } from "react";
 import Grid from "src/components/Grid";
-import { IconsMetaData } from "..";
 
 interface IconGridProps {
   iconList: string[];
@@ -24,24 +25,19 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
       data={iconList}
     >
       {iconList?.map((icon: string, index: number) => (
-        <a
-          role="gridcell"
-          aria-label={icon}
+        <IconGridItem
+          id={`${icons[icon]?.name}-${index}`}
           key={`${icons[icon]?.name}-${index}`}
-          tabIndex={index === 0 ? 0 : -1}
-          ref={setRef(icon) as LegacyRef<HTMLAnchorElement>}
-          onKeyDown={(event) =>
+          index={index}
+          role="gridcell"
+          icon={icon}
+          icons={icons}
+          reference={setRef(icon) as LegacyRef<HTMLAnchorElement>}
+          handleTileClick={() => handleTileClick(icons[icon]?.name)}
+          handleKeyDown={(event) =>
             handleGridKeyDown(event, { data: iconList, index }, getRef)
           }
-          href={`#${icons[icon]?.name}`}
-          onClick={() => handleTileClick(icons[icon]?.name)}
-          className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
-        >
-          <i
-            className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
-          ></i>
-          <span className="text-text-subdued">{icons[icon]?.name}</span>
-        </a>
+        />
       ))}
     </Grid>
   );
