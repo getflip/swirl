@@ -192,6 +192,17 @@ export namespace Components {
         "interactive"?: boolean;
         "label": string;
     }
+    interface FlipConsoleLayout {
+        "appName": string;
+        "backButonLabel"?: string;
+        "heading": string;
+        "helpButonLabel"?: string;
+        "logoText"?: string;
+        "navigationLabel"?: string;
+        "showBackButton"?: boolean;
+        "showHelpButton"?: boolean;
+        "subheading"?: string;
+    }
     interface FlipDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
@@ -449,6 +460,9 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconGroupsCustom {
+        "size": FlipIconSize;
+    }
+    interface FlipIconHelp {
         "size": FlipIconSize;
     }
     interface FlipIconImage {
@@ -909,6 +923,10 @@ export interface FlipCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipCheckboxElement;
 }
+export interface FlipConsoleLayoutCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipConsoleLayoutElement;
+}
 export interface FlipDateInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipDateInputElement;
@@ -1103,6 +1121,12 @@ declare global {
     var HTMLFlipChipElement: {
         prototype: HTMLFlipChipElement;
         new (): HTMLFlipChipElement;
+    };
+    interface HTMLFlipConsoleLayoutElement extends Components.FlipConsoleLayout, HTMLStencilElement {
+    }
+    var HTMLFlipConsoleLayoutElement: {
+        prototype: HTMLFlipConsoleLayoutElement;
+        new (): HTMLFlipConsoleLayoutElement;
     };
     interface HTMLFlipDateInputElement extends Components.FlipDateInput, HTMLStencilElement {
     }
@@ -1439,6 +1463,12 @@ declare global {
     var HTMLFlipIconGroupsCustomElement: {
         prototype: HTMLFlipIconGroupsCustomElement;
         new (): HTMLFlipIconGroupsCustomElement;
+    };
+    interface HTMLFlipIconHelpElement extends Components.FlipIconHelp, HTMLStencilElement {
+    }
+    var HTMLFlipIconHelpElement: {
+        prototype: HTMLFlipIconHelpElement;
+        new (): HTMLFlipIconHelpElement;
     };
     interface HTMLFlipIconImageElement extends Components.FlipIconImage, HTMLStencilElement {
     }
@@ -1882,6 +1912,7 @@ declare global {
         "flip-button-group": HTMLFlipButtonGroupElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
         "flip-chip": HTMLFlipChipElement;
+        "flip-console-layout": HTMLFlipConsoleLayoutElement;
         "flip-date-input": HTMLFlipDateInputElement;
         "flip-date-picker": HTMLFlipDatePickerElement;
         "flip-description-list": HTMLFlipDescriptionListElement;
@@ -1938,6 +1969,7 @@ declare global {
         "flip-icon-group-assign": HTMLFlipIconGroupAssignElement;
         "flip-icon-groups": HTMLFlipIconGroupsElement;
         "flip-icon-groups-custom": HTMLFlipIconGroupsCustomElement;
+        "flip-icon-help": HTMLFlipIconHelpElement;
         "flip-icon-image": HTMLFlipIconImageElement;
         "flip-icon-info": HTMLFlipIconInfoElement;
         "flip-icon-inventory": HTMLFlipIconInventoryElement;
@@ -2150,6 +2182,19 @@ declare namespace LocalJSX {
         "intent"?: FlipChipIntent;
         "interactive"?: boolean;
         "label": string;
+    }
+    interface FlipConsoleLayout {
+        "appName": string;
+        "backButonLabel"?: string;
+        "heading": string;
+        "helpButonLabel"?: string;
+        "logoText"?: string;
+        "navigationLabel"?: string;
+        "onBackButtonClick"?: (event: FlipConsoleLayoutCustomEvent<MouseEvent>) => void;
+        "onHelpButtonClick"?: (event: FlipConsoleLayoutCustomEvent<MouseEvent>) => void;
+        "showBackButton"?: boolean;
+        "showHelpButton"?: boolean;
+        "subheading"?: string;
     }
     interface FlipDateInput {
         "autoFocus"?: boolean;
@@ -2384,6 +2429,9 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconGroupsCustom {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconHelp {
         "size"?: FlipIconSize;
     }
     interface FlipIconImage {
@@ -2786,6 +2834,7 @@ declare namespace LocalJSX {
         "flip-button-group": FlipButtonGroup;
         "flip-checkbox": FlipCheckbox;
         "flip-chip": FlipChip;
+        "flip-console-layout": FlipConsoleLayout;
         "flip-date-input": FlipDateInput;
         "flip-date-picker": FlipDatePicker;
         "flip-description-list": FlipDescriptionList;
@@ -2842,6 +2891,7 @@ declare namespace LocalJSX {
         "flip-icon-group-assign": FlipIconGroupAssign;
         "flip-icon-groups": FlipIconGroups;
         "flip-icon-groups-custom": FlipIconGroupsCustom;
+        "flip-icon-help": FlipIconHelp;
         "flip-icon-image": FlipIconImage;
         "flip-icon-info": FlipIconInfo;
         "flip-icon-inventory": FlipIconInventory;
@@ -2934,6 +2984,7 @@ declare module "@stencil/core" {
             "flip-button-group": LocalJSX.FlipButtonGroup & JSXBase.HTMLAttributes<HTMLFlipButtonGroupElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
             "flip-chip": LocalJSX.FlipChip & JSXBase.HTMLAttributes<HTMLFlipChipElement>;
+            "flip-console-layout": LocalJSX.FlipConsoleLayout & JSXBase.HTMLAttributes<HTMLFlipConsoleLayoutElement>;
             "flip-date-input": LocalJSX.FlipDateInput & JSXBase.HTMLAttributes<HTMLFlipDateInputElement>;
             "flip-date-picker": LocalJSX.FlipDatePicker & JSXBase.HTMLAttributes<HTMLFlipDatePickerElement>;
             "flip-description-list": LocalJSX.FlipDescriptionList & JSXBase.HTMLAttributes<HTMLFlipDescriptionListElement>;
@@ -2990,6 +3041,7 @@ declare module "@stencil/core" {
             "flip-icon-group-assign": LocalJSX.FlipIconGroupAssign & JSXBase.HTMLAttributes<HTMLFlipIconGroupAssignElement>;
             "flip-icon-groups": LocalJSX.FlipIconGroups & JSXBase.HTMLAttributes<HTMLFlipIconGroupsElement>;
             "flip-icon-groups-custom": LocalJSX.FlipIconGroupsCustom & JSXBase.HTMLAttributes<HTMLFlipIconGroupsCustomElement>;
+            "flip-icon-help": LocalJSX.FlipIconHelp & JSXBase.HTMLAttributes<HTMLFlipIconHelpElement>;
             "flip-icon-image": LocalJSX.FlipIconImage & JSXBase.HTMLAttributes<HTMLFlipIconImageElement>;
             "flip-icon-info": LocalJSX.FlipIconInfo & JSXBase.HTMLAttributes<HTMLFlipIconInfoElement>;
             "flip-icon-inventory": LocalJSX.FlipIconInventory & JSXBase.HTMLAttributes<HTMLFlipIconInventoryElement>;

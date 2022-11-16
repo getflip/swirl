@@ -20,7 +20,7 @@ describe("flip-text", () => {
     expect(page.root).toEqualHtml(`
       <flip-text align="center" color="critical" font-style="italic" size="lg" weight="medium">
         <mock:shadow-root>
-          <p class="text text--align-center text--color-critical text--font-style-italic text--size-lg text--weight-medium">
+          <p class="text text--align-center text--color-critical text--font-style-italic text--size-lg text--weight-medium" part="text">
             <slot></slot>
           </p>
         </mock:shadow-root>
@@ -46,7 +46,7 @@ describe("flip-text", () => {
     expect(page.root).toEqualHtml(`
       <flip-text as="span">
         <mock:shadow-root>
-          <span class="text text--align-start text--color-default text--font-style-normal text--size-base text--weight-normal">
+          <span class="text text--align-start text--color-default text--font-style-normal text--size-base text--weight-normal" part="text">
             <slot></slot>
           </span>
         </mock:shadow-root>
