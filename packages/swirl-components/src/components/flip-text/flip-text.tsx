@@ -43,7 +43,7 @@ export class FlipText {
 
     return (
       <Host>
-        <Tag class={className}>
+        <Tag class={className} part="text">
           <slot></slot>
         </Tag>
       </Host>
