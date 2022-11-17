@@ -2,21 +2,19 @@ import {
   createDocLinkList,
   generateMdxFromStorybook,
 } from "@swirl/lib/docs/src/singleDoc";
-import { BASE_PATHS, DocHeadline } from "@swirl/lib/docs/src/docs.model";
+import { DocHeadline } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
 import IframeResizer from "iframe-resizer-react";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
-import { MDXRemote } from "next-mdx-remote";
-import { createSwirlComponentDocCategories } from "@swirl/lib/docs";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import { DocLinksNav } from "src/components/Layout/DocLinksNav";
 import Footer from "src/components/Layout/Footer";
 import { navItems } from "@swirl/lib/navigation";
 import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
 
-async function getComponentData(id: string) {
-  return await generateMdxFromStorybook(id);
-}
+// async function getComponentData(id: string) {
+//   return await generateMdxFromStorybook(id);
+// }
 
 export async function getStaticPaths() {
   const swirlComponentLinks = componentsNavItems.map((component) => ({
@@ -32,24 +30,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: any) {
-  console.log(context);
-  const document = await getComponentData(context.params.id);
-  const links = createDocLinkList(context.params.id);
+  // const document = await getComponentData(context.params.id);
+  // const links = createDocLinkList(context.params.id);
 
   return {
-    props: { document, links, title: context.params.id },
+    props: { title: context.params.id },
   };
 }
 
-export default function Component({
-  document,
-  links,
-  title,
-}: {
-  document: any;
-  links: DocHeadline[];
-  title: string;
-}) {
+export default function Component({ title }: { title: string }) {
   const components = {
     ...LinkedHeaders,
     IframeResizer,
@@ -61,19 +50,21 @@ export default function Component({
       <Head>
         <title>Swirl | Components</title>
       </Head>
-      <div className="grid grid-cols-1 md:grid-cols-12 h-full">
-        <CategoryNav categoryLinkList={navItems[1].children} />
+      <div className="flex justify-center items-center h-screen w-screen felx">
+        <span>😥</span>
+        <p>will be implemented soon...</p>
+        {/* <CategoryNav categoryLinkList={navItems[1].children} />
         <main
           id="main"
           className="col-span-8 flex flex-col justify-center items-center"
         >
-          {/* <article className="max-w-3xl px-4 mt-6">
+          <article className="max-w-3xl px-4 mt-6">
             <MDXRemote {...document} components={components} />
-          </article> */}
+          </article>
           {title}
         </main>
         <DocLinksNav documentLinkList={links} />
-        {/* <Footer /> */}
+        <Footer /> */}
       </div>
     </>
   );

@@ -1,9 +1,9 @@
-import { IconsMetaData } from "../../pages/icons";
 import useDynamicRefs, {
   handleGridKeyDown,
 } from "@swirl/lib/hooks/useDynamicRefs";
 import { FunctionComponent, LegacyRef } from "react";
 import Grid from "src/components/Grid";
+import { IconsMetaData } from "src/pages/components";
 import IconGridItem from "../IconGrid/IconGridItem";
 
 interface IconGridProps {
