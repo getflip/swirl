@@ -2,7 +2,7 @@ import * as React from "react";
 
 type GridCellData = {
   index: number;
-  data: any;
+  data: string[];
 };
 
 const map = new Map<string, React.RefObject<unknown>>();

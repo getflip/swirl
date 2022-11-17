@@ -2,6 +2,7 @@ import {
   generateDocumentationPath,
   generatePagesPath,
   generateSwirlComponentsPath,
+  NavItem,
   SWIRL_COMPONENTS_PATH,
 } from "@swirl/lib/navigation";
 import fs from "fs";

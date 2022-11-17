@@ -11,18 +11,17 @@ import { createSwirlComponentDocCategories } from "@swirl/lib/docs";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import { DocLinksNav } from "src/components/Layout/DocLinksNav";
 import Footer from "src/components/Layout/Footer";
-import { NavItem, navItems } from "@swirl/lib/navigation";
+import { navItems } from "@swirl/lib/navigation";
+import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
 
 async function getComponentData(id: string) {
   return await generateMdxFromStorybook(id);
 }
 
 export async function getStaticPaths() {
-  const swirlComponentLinks = createSwirlComponentDocCategories(
-    BASE_PATHS.COMPONENTS
-  ).map((component) => ({
+  const swirlComponentLinks = componentsNavItems.map((component) => ({
     params: {
-      id: component.htmlTag,
+      id: component.url.replace("/components/", ""),
     },
   }));
 
@@ -33,6 +32,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: any) {
+  console.log(context);
   const document = await getComponentData(context.params.id);
   const links = createDocLinkList(context.params.id);
 
@@ -44,6 +44,7 @@ export async function getStaticProps(context: any) {
 export default function Component({
   document,
   links,
+  title,
 }: {
   document: any;
   links: DocHeadline[];
@@ -53,6 +54,8 @@ export default function Component({
     ...LinkedHeaders,
     IframeResizer,
   };
+
+  console.log("links", title);
   return (
     <>
       <Head>
@@ -64,12 +67,13 @@ export default function Component({
           id="main"
           className="col-span-8 flex flex-col justify-center items-center"
         >
-          <article className="max-w-3xl px-4 mt-6">
+          {/* <article className="max-w-3xl px-4 mt-6">
             <MDXRemote {...document} components={components} />
-          </article>
+          </article> */}
+          {title}
         </main>
         <DocLinksNav documentLinkList={links} />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </>
   );

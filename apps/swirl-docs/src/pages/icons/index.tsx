@@ -1,4 +1,4 @@
-import { generateCategoryPaths, CategoryEnum } from "@swirl/lib/navigation";
+import { iconsNavItems } from "@swirl/lib/navigation/src/data/iconsChildren.data";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
@@ -23,8 +23,6 @@ export type IconsMetaData = {
 };
 
 const IconsIndex = () => {
-  const categoryLinks = generateCategoryPaths(CategoryEnum.ICONS);
-
   const icons: IconsMetaData = require("@getflip/swirl-icons/dist/metadata.js");
   const iconsArray = Object.keys(icons);
 
@@ -47,7 +45,7 @@ const IconsIndex = () => {
         <title>Swirl | Icons</title>
       </Head>
       <div className="flex min-h-[calc(100vh_-_72px)]">
-        <CategoryNav categoryLinkList={categoryLinks} />
+        <CategoryNav categoryLinkList={iconsNavItems} />
         <main id="main" className="w-full h-full">
           <section className="flex flex-col px-4 md:py-14 md:px-24">
             <div className="mb-16">

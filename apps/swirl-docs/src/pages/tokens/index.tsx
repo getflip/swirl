@@ -1,23 +1,18 @@
-import {
-  NavItem,
-  CategoryEnum,
-  generateCategoryPaths,
-} from "@swirl/lib/navigation";
+import { NavItem } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import Link from "next/link";
+import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
 
 const Tokens = () => {
-  const categoryLinks = generateCategoryPaths(CategoryEnum.TOKENS);
-
   return (
     <>
       <Head>
         <title>Swirl Components</title>
       </Head>
       <div className="flex min-h-[calc(100vh_-_72px)]">
-        <CategoryNav categoryLinkList={categoryLinks} />
+        <CategoryNav categoryLinkList={tokensNavItems} />
         <main id="main" className="w-full h-full">
           <section className="flex flex-col py-14 px-24">
             <h1 className="mb-4">Tokens</h1>
@@ -26,7 +21,7 @@ const Tokens = () => {
             </p>
             <nav aria-label="category links">
               <ul className="flex">
-                {categoryLinks?.map((category: NavItem, index: number) => (
+                {tokensNavItems?.map((category: NavItem, index: number) => (
                   <li
                     className="border-1 rounded-lg p-4 mr-4 font-bold"
                     key={`${category.title}-${index}`}

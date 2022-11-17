@@ -7,16 +7,12 @@ import { DocumentationLayout } from "../../components/Layout/DocumentationLayout
 import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import TokensList from "src/components/Tokens/TokensList";
-import {
-  CategoryEnum,
-  generateCategoryPaths,
-  navItems,
-} from "@swirl/lib/navigation";
 import { ColorTokens } from "src/components/Tokens/ColorTokens";
 import { TypographyTokens } from "src/components/Tokens/TypographyTokens";
 import { BorderTokens } from "src/components/Tokens/BorderTokens";
 import { SpacingTokens } from "src/components/Tokens/SpacingTokens";
 import { ZIndexTokens } from "src/components/Tokens/ZIndexTokens";
+import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation("tokens", document);
@@ -72,7 +68,7 @@ export default function Component({
         <title>{`Swirl | ${title}`}</title>
       </Head>
       <DocumentationLayout
-        categoryLinkList={generateCategoryPaths(CategoryEnum.TOKENS)}
+        categoryLinkList={tokensNavItems}
         documentLinkList={documentLinkList}
       >
         <main id="main" className="flex flex-col justify-center items-center">
