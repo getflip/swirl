@@ -3,7 +3,7 @@ import useDynamicRefs, {
 } from "@swirl/lib/hooks/useDynamicRefs";
 import { FunctionComponent, LegacyRef, useEffect } from "react";
 import Grid from "src/components/Grid";
-import { IconsMetaData } from "..";
+import { IconsMetaData } from "../../pages/icons";
 
 interface IconGridProps {
   iconList: string[];
@@ -19,10 +19,7 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
   const [getRef, setRef] = useDynamicRefs();
 
   return (
-    <Grid
-      className="grid grid-cols-2 md:grid-cols-fill-rows gap-4 w-full"
-      data={iconList}
-    >
+    <Grid className="grid grid-cols-2 md:grid-cols-fill-rows gap-4 w-full">
       {iconList?.map((icon: string, index: number) => (
         <a
           role="gridcell"

@@ -1,8 +1,8 @@
-import { NavItem } from "../navigation.model";
+import { CategoryEnum, NavItem } from "../navigation.model";
 
 export const navItems: NavItem[] = [
   {
-    title: "Foundations",
+    title: CategoryEnum.FOUNDATIONS,
     isRoot: true,
     url: "/foundations",
     children: [
@@ -15,7 +15,12 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    title: "Tokens",
+    title: CategoryEnum.COMPONENTS,
+    url: "/components",
+    isRoot: true,
+  },
+  {
+    title: CategoryEnum.TOKENS,
     url: "/tokens",
     children: [
       {
@@ -56,7 +61,7 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    title: "Icons",
+    title: CategoryEnum.ICONS,
     url: "/icons",
     isRoot: true,
     children: [
@@ -77,9 +82,4 @@ export const navItems: NavItem[] = [
       },
     ],
   },
-  // {
-  //   title: "Components",
-  //   url: "/components",
-  //   isRoot: true,
-  // },
 ];

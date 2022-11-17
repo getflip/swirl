@@ -7,7 +7,11 @@ import { DocumentationLayout } from "../../components/Layout/DocumentationLayout
 import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import TokensList from "src/components/Tokens/TokensList";
-import { navItems } from "@swirl/lib/navigation";
+import {
+  CategoryEnum,
+  generateCategoryPaths,
+  navItems,
+} from "@swirl/lib/navigation";
 import { ColorTokens } from "src/components/Tokens/ColorTokens";
 import { TypographyTokens } from "src/components/Tokens/TypographyTokens";
 import { BorderTokens } from "src/components/Tokens/BorderTokens";
@@ -68,7 +72,7 @@ export default function Component({
         <title>{`Swirl | ${title}`}</title>
       </Head>
       <DocumentationLayout
-        categoryLinkList={navItems[1].children}
+        categoryLinkList={generateCategoryPaths(CategoryEnum.TOKENS)}
         documentLinkList={documentLinkList}
       >
         <main id="main" className="flex flex-col justify-center items-center">

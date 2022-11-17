@@ -1,34 +1,16 @@
-import { createDocCategory } from "@swirl/lib/docs";
-import { NavLink, NavItem, navItems } from "@swirl/lib/navigation";
+import {
+  NavItem,
+  CategoryEnum,
+  generateCategoryPaths,
+} from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
-import {
-  BASE_PATHS,
-  DocCategory,
-  DOCUMENTATION_SRC,
-} from "@swirl/lib/docs/src/docs.model";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import Link from "next/link";
 
-const RecursiveNavigation = (link: NavLink) => {
-  const hasSubpages = link.subpages && link.subpages.length;
-  return (
-    <li className="list-disc">
-      <Link href={link.path}>
-        <a>{link.name}</a>
-      </Link>
-      {hasSubpages &&
-        link.subpages?.map((item) => (
-          <ul key={item.path}>
-            <RecursiveNavigation key={item.name} {...item} />
-          </ul>
-        ))}
-    </li>
-  );
-};
+const Tokens = () => {
+  const categoryLinks = generateCategoryPaths(CategoryEnum.TOKENS);
 
-const Components = ({ links }: any) => {
-  const categoryLinks = navItems[1].children;
   return (
     <>
       <Head>
@@ -63,24 +45,10 @@ const Components = ({ links }: any) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<{
-  links: DocCategory[] | undefined;
-}> = async () => {
-  const categoryDocs = createDocCategory(
-    {
-      name: BASE_PATHS.TOKENS,
-      basePath: BASE_PATHS.TOKENS,
-    },
-    DOCUMENTATION_SRC.DOCUMENTATION
-  );
-
-  const links: DocCategory[] | undefined = categoryDocs.subpages;
-
+export const getStaticProps: GetStaticProps<{}> = async () => {
   return {
-    props: {
-      links,
-    },
+    props: {},
   };
 };
 
-export default Components;
+export default Tokens;

@@ -7,7 +7,11 @@ import Head from "next/head";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
-import { navItems } from "@swirl/lib/navigation";
+import {
+  CategoryEnum,
+  generateCategoryPaths,
+  navItems,
+} from "@swirl/lib/navigation";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation("icons", document);
@@ -54,7 +58,7 @@ export default function Component({
         <title>{`Swirl | ${title}`}</title>
       </Head>
       <DocumentationLayout
-        categoryLinkList={navItems[2].children}
+        categoryLinkList={generateCategoryPaths(CategoryEnum.ICONS)}
         documentLinkList={documentLinkList}
       >
         <main className="flex flex-col justify-center items-center">

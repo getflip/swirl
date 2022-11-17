@@ -1,4 +1,6 @@
 import path from "path";
+import { navItems } from "./data/navItems";
+import { CategoryEnum, NavItem } from "./navigation.model";
 
 export const SWIRL_COMPONENTS_PATH = path.resolve(
   process.cwd(),
@@ -30,4 +32,13 @@ export function generateSwirlComponentsPath(component: string): string {
     process.cwd(),
     `${SWIRL_COMPONENTS_PATH}/${component}/${component}.mdx`
   );
+}
+
+export function generateCategoryPaths(category: string): NavItem[] {
+  console.log("category", category);
+  const categoryLinks = navItems.filter((item: NavItem) =>
+    item.title === category ? item : null
+  )[0].children;
+
+  return categoryLinks!!;
 }
