@@ -81,3 +81,9 @@
 .text--font-style-italic {
   font-style: italic;
 }
+
+.text--truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

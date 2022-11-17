@@ -27,6 +27,7 @@ export class FlipText {
   @Prop() color?: FlipTextColor = "default";
   @Prop() fontStyle?: FlipTextFontStyle = "normal";
   @Prop() size?: FlipTextSize = "base";
+  @Prop() truncate?: boolean;
   @Prop() weight?: FlipTextWeight = "normal";
 
   render() {
@@ -38,7 +39,8 @@ export class FlipText {
       `text--color-${this.color}`,
       `text--font-style-${this.fontStyle}`,
       `text--size-${this.size}`,
-      `text--weight-${this.weight}`
+      `text--weight-${this.weight}`,
+      { "text--truncate": this.truncate }
     );
 
     return (

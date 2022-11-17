@@ -802,6 +802,7 @@ export namespace Components {
         "color"?: FlipTextColor;
         "fontStyle"?: FlipTextFontStyle;
         "size"?: FlipTextSize;
+        "truncate"?: boolean;
         "weight"?: FlipTextWeight;
     }
     interface FlipTextInput {
@@ -2746,6 +2747,7 @@ declare namespace LocalJSX {
         "color"?: FlipTextColor;
         "fontStyle"?: FlipTextFontStyle;
         "size"?: FlipTextSize;
+        "truncate"?: boolean;
         "weight"?: FlipTextWeight;
     }
     interface FlipTextInput {
