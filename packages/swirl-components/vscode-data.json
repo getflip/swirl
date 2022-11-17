@@ -803,6 +803,51 @@
       ]
     },
     {
+      "name": "flip-console-layout",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "app-name",
+          "description": ""
+        },
+        {
+          "name": "back-buton-label",
+          "description": ""
+        },
+        {
+          "name": "heading",
+          "description": ""
+        },
+        {
+          "name": "help-buton-label",
+          "description": ""
+        },
+        {
+          "name": "logo-text",
+          "description": ""
+        },
+        {
+          "name": "navigation-label",
+          "description": ""
+        },
+        {
+          "name": "show-back-button",
+          "description": ""
+        },
+        {
+          "name": "show-help-button",
+          "description": ""
+        },
+        {
+          "name": "subheading",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-date-input",
       "description": {
         "kind": "markdown",
@@ -1780,6 +1825,19 @@
     },
     {
       "name": "flip-icon-groups-custom",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-help",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3280,6 +3338,10 @@
               "name": "sm"
             }
           ]
+        },
+        {
+          "name": "truncate",
+          "description": ""
         },
         {
           "name": "weight",

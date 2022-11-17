@@ -53,6 +53,7 @@ function ListItem({
           >
             <span>{item.title}</span>
             <Image
+              alt=""
               className={isExpanded ? "rotate-90" : ""}
               src={icon.src}
               width={24}

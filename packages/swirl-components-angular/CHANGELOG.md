@@ -1,5 +1,37 @@
 # @getflip/swirl-components-angular
 
+## 0.5.1
+
+### Patch Changes
+
+- [`17b4860`](https://github.com/getflip/swirl/commit/17b4860e6c59fe977aec5d99c46033bf593768e0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Integrate Web Component fixes
+
+- Updated dependencies
+  [[`2fc8d22`](https://github.com/getflip/swirl/commit/2fc8d22ec83a533cb83607695ba3fc3530b3f71f),
+  [`c9a915c`](https://github.com/getflip/swirl/commit/c9a915c340779878ca2ebd6fc0303b7bcb4cb761),
+  [`819b199`](https://github.com/getflip/swirl/commit/819b1991e0bc955a2d794bcabb88a6a3b05213d6)]:
+  - @getflip/swirl-components@0.6.1
+
+## 0.5.0
+
+### Minor Changes
+
+- [#90](https://github.com/getflip/swirl/pull/90)
+  [`fa49029`](https://github.com/getflip/swirl/commit/fa49029c5295ab3addeba4b5387c94ad90d66413)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Integrate new Web Components and
+  changes
+
+### Patch Changes
+
+- Updated dependencies
+  [[`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118),
+  [`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118),
+  [`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118),
+  [`fa49029`](https://github.com/getflip/swirl/commit/fa49029c5295ab3addeba4b5387c94ad90d66413),
+  [`39293b3`](https://github.com/getflip/swirl/commit/39293b3ef6bc543dc41a9e87eded489624a18118)]:
+  - @getflip/swirl-components@0.6.0
+
 ## 0.4.0
 
 ### Minor Changes

@@ -3,9 +3,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
 import { useState, useEffect } from "react";
-import IconGrid from "src/components/Icons/IconGrid";
-import IconInfo from "src/components/Icons/IconInfo";
-import SearchBar from "src/components/Icons/SearchBar";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 
 type Usage = "app" | "admin";
@@ -27,6 +24,7 @@ const IconsIndex = () => {
   const iconsArray = Object.keys(icons);
 
   const { asPath } = useRouter();
+  const router = useRouter();
   const [searchWord, setSearchWord] = useState("");
   const [selectedIcon, setSelectedIcon] = useState<IconData>(icons["Add"]);
 
@@ -36,8 +34,11 @@ const IconsIndex = () => {
 
   useEffect(() => {
     const iconName = asPath.split("#")[1];
-    setSelectedIcon(icons[iconName]);
-  }, [asPath, icons]);
+
+    if (iconName) {
+      setSelectedIcon(icons[iconName]);
+    }
+  }, [router, asPath, icons]);
 
   return (
     <>
@@ -66,7 +67,11 @@ const IconsIndex = () => {
                   }
                 />
               </div>
-              <IconInfo icon={selectedIcon} />
+              {selectedIcon && (
+                <div className="hidden md:block max-w-[280px]">
+                  <IconInfo icon={selectedIcon} />
+                </div>
+              )}
             </div>
           </section>
         </main>

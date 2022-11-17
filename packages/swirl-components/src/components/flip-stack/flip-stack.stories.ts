@@ -15,13 +15,13 @@ const Template = (args) => {
   const element = generateStoryElement("flip-stack", args);
 
   element.innerHTML = `
-    <flip-badge label="Dennis" intent="decorative-1"></flip-badge>
-    <flip-badge label="Lennart" intent="decorative-2"></flip-badge>
-    <flip-badge label="Jan" intent="decorative-3"></flip-badge>
-    <flip-badge label="Konsti" intent="decorative-4"></flip-badge>
-    <flip-badge label="Adam" intent="decorative-5"></flip-badge>
-    <flip-badge label="Dario" intent="decorative-6"></flip-badge>
-    <flip-badge label="Fabi" intent="decorative-7"></flip-badge>
+    <flip-badge label="Dennis" intent="banana"></flip-badge>
+    <flip-badge label="Lennart" intent="blueberry"></flip-badge>
+    <flip-badge label="Jan" intent="chilli"></flip-badge>
+    <flip-badge label="Konsti" intent="critical"></flip-badge>
+    <flip-badge label="Adam" intent="grape"></flip-badge>
+    <flip-badge label="Dario" intent="kiwi"></flip-badge>
+    <flip-badge label="Fabi" intent="pumpkin"></flip-badge>
   `;
 
   return element;

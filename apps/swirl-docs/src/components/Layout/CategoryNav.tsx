@@ -2,6 +2,7 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { NavItem } from "@swirl/lib/navigation/";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import NoSsr from "./NoSsr";
 
 function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -34,15 +35,17 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
   // );
 
   const SubElement = ({ navItem }: { navItem: NavItem }) => (
-    <li
-      className={`font-sm mb-4 ${
-        activePath === navItem.url ? "text-border-info" : "text-text-default"
-      }`}
-    >
-      <Link href={`${navItem.url}`}>
-        <a className=" text-sm">{capitalizeFirstLetter(navItem.title)}</a>
-      </Link>
-    </li>
+    <NoSsr>
+      <li
+        className={`font-sm mb-4 ${
+          activePath === navItem.url ? "text-border-info" : "text-text-default"
+        }`}
+      >
+        <Link href={`${navItem.url}`}>
+          <a className=" text-sm">{capitalizeFirstLetter(navItem.title)}</a>
+        </Link>
+      </li>
+    </NoSsr>
   );
 
   return (
