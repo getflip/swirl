@@ -4,7 +4,7 @@ import useDynamicRefs, {
 import { FunctionComponent, LegacyRef } from "react";
 import Grid from "src/components/Grid";
 import { IconsMetaData } from "src/pages/components";
-import IconGridItem from "../IconGrid/IconGridItem";
+import IconGridItem from "./IconGridItem";
 
 interface IconGridProps {
   iconList: string[];
