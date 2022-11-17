@@ -1,5 +1,21 @@
 # @getflip/swirl-components
 
+## 0.6.1
+
+### Patch Changes
+
+- [`2fc8d22`](https://github.com/getflip/swirl/commit/2fc8d22ec83a533cb83607695ba3fc3530b3f71f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix overflow behavior of
+  flip-console-layout sidebar
+
+* [`c9a915c`](https://github.com/getflip/swirl/commit/c9a915c340779878ca2ebd6fc0303b7bcb4cb761)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "truncate" property to
+  flip-text component
+
+- [`819b199`](https://github.com/getflip/swirl/commit/819b1991e0bc955a2d794bcabb88a6a3b05213d6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix shrink behavior of flip-stack
+  children
+
 ## 0.6.0
 
 ### Minor Changes
