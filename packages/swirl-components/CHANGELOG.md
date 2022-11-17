@@ -1,5 +1,17 @@
 # @getflip/swirl-components
 
+## 0.6.2
+
+### Patch Changes
+
+- [`b617944`](https://github.com/getflip/swirl/commit/b617944e53302c3debcb14d0ce88b7662ebcc341)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix flex shrink behavior of
+  flip-avatar and flip-button
+
+* [`be00063`](https://github.com/getflip/swirl/commit/be00063b5d2287e2fa0b06cea2703cc6df048570)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix sidebar overflow of
+  flip-console-layout
+
 ## 0.6.1
 
 ### Patch Changes
