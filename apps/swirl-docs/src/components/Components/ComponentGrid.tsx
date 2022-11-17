@@ -4,6 +4,7 @@ import useDynamicRefs, {
 import { FunctionComponent, LegacyRef } from "react";
 import Grid from "src/components/Grid";
 import { NavItem } from "@swirl/lib/navigation";
+import Image from "next/image";
 
 interface ComponentGridProps {
   componentList: NavItem[];
@@ -37,10 +38,14 @@ export const ComponentGrid: FunctionComponent<ComponentGridProps> = ({
         >
           <article className="flex flex-col min-h-[330px] min-w-[256px] border-1 rounded-lg">
             <header className="flex justify-center items-center min-h-[10rem] max-h-[10rem] bg-surface-raised-default rounded-t-lg">
-              <img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20210319191323/Screenshot39-300x120.png"
-                alt={component.title}
-              />
+              <div className="relative w-10 h-10">
+                <Image
+                  layout="fill"
+                  sizes="100%"
+                  src="/images/placeholder.png"
+                  alt={component.title}
+                />
+              </div>
             </header>
             <footer className="p-4">
               <h3 className="text-font-size-base font-semibold">
