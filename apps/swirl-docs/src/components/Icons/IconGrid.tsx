@@ -1,14 +1,10 @@
 import { IconsMetaData } from "../../pages/icons";
-import IconGridItem from "./IconGridItem";
 import useDynamicRefs, {
   handleGridKeyDown,
 } from "@swirl/lib/hooks/useDynamicRefs";
 import { FunctionComponent, LegacyRef } from "react";
 import Grid from "src/components/Grid";
-<<<<<<<< HEAD:apps/swirl-docs/src/components/Icons/IconGrid.tsx
-import { IconsMetaData } from "../../pages/icons";
-========
->>>>>>>> main:apps/swirl-docs/src/components/IconGrid/IconGrid.tsx
+import IconGridItem from "../IconGrid/IconGridItem";
 
 interface IconGridProps {
   iconList: string[];

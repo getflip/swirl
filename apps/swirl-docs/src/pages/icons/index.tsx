@@ -3,6 +3,9 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
 import { useState, useEffect } from "react";
+import IconGrid from "src/components/Icons/IconGrid";
+import IconInfo from "src/components/Icons/IconInfo";
+import SearchBar from "src/components/Icons/SearchBar";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 
 type Usage = "app" | "admin";
