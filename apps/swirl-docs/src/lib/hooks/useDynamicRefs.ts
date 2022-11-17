@@ -10,7 +10,7 @@ const map = new Map<string, React.RefObject<unknown>>();
 /**
  * Checks the key pressed and moves the focus to the next or previous cell.
  * @param event Keyboard event
- * @param gridCellData Grid cell data
+ * @param gridCellData Grid cell data. Consists of a data array with keys and an index of the current cell.
  * @param getRefFn Function to get a react-ref
  * @returns
  */
