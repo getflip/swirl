@@ -38,13 +38,5 @@ export function generateSerializableDocumentation(
   );
   const matterSource = matter(source);
 
-  const markdownSource = matterSource.content
-    .split("\n")
-    .filter((line) => {
-      const isImportOrArgsTable = line.includes("import { ");
-      return !isImportOrArgsTable;
-    })
-    .join("\n");
-
-  return markdownSource;
+  return matterSource.content;
 }
