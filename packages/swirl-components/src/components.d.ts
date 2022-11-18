@@ -899,6 +899,11 @@ export namespace Components {
         "delay"?: number;
         "position"?: FlipTooltipPosition;
     }
+    interface FlipTreeNavigationItem {
+        "active"?: boolean;
+        "icon"?: string;
+        "label": string;
+    }
     interface FlipVideoThumbnail {
         "duration"?: string;
         "durationLabel"?: string;
@@ -1885,6 +1890,12 @@ declare global {
         prototype: HTMLFlipTooltipElement;
         new (): HTMLFlipTooltipElement;
     };
+    interface HTMLFlipTreeNavigationItemElement extends Components.FlipTreeNavigationItem, HTMLStencilElement {
+    }
+    var HTMLFlipTreeNavigationItemElement: {
+        prototype: HTMLFlipTreeNavigationItemElement;
+        new (): HTMLFlipTreeNavigationItemElement;
+    };
     interface HTMLFlipVideoThumbnailElement extends Components.FlipVideoThumbnail, HTMLStencilElement {
     }
     var HTMLFlipVideoThumbnailElement: {
@@ -2040,6 +2051,7 @@ declare global {
         "flip-toast": HTMLFlipToastElement;
         "flip-toast-provider": HTMLFlipToastProviderElement;
         "flip-tooltip": HTMLFlipTooltipElement;
+        "flip-tree-navigation-item": HTMLFlipTreeNavigationItemElement;
         "flip-video-thumbnail": HTMLFlipVideoThumbnailElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
@@ -2812,6 +2824,11 @@ declare namespace LocalJSX {
         "delay"?: number;
         "position"?: FlipTooltipPosition;
     }
+    interface FlipTreeNavigationItem {
+        "active"?: boolean;
+        "icon"?: string;
+        "label": string;
+    }
     interface FlipVideoThumbnail {
         "duration"?: string;
         "durationLabel"?: string;
@@ -2963,6 +2980,7 @@ declare namespace LocalJSX {
         "flip-toast": FlipToast;
         "flip-toast-provider": FlipToastProvider;
         "flip-tooltip": FlipTooltip;
+        "flip-tree-navigation-item": FlipTreeNavigationItem;
         "flip-video-thumbnail": FlipVideoThumbnail;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
@@ -3113,6 +3131,7 @@ declare module "@stencil/core" {
             "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
             "flip-toast-provider": LocalJSX.FlipToastProvider & JSXBase.HTMLAttributes<HTMLFlipToastProviderElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
+            "flip-tree-navigation-item": LocalJSX.FlipTreeNavigationItem & JSXBase.HTMLAttributes<HTMLFlipTreeNavigationItemElement>;
             "flip-video-thumbnail": LocalJSX.FlipVideoThumbnail & JSXBase.HTMLAttributes<HTMLFlipVideoThumbnailElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }
