@@ -72,6 +72,7 @@
 
 .console-layout__app-bar {
   position: sticky;
+  z-index: 1;
   top: 0;
   display: flex;
   min-width: 0;
@@ -101,9 +102,19 @@
 }
 
 .console-layout__content {
+  display: flex;
   padding: 2.5rem;
   background-color: var(--s-background-default);
+  flex-direction: column;
   grid-area: content;
+}
+
+.console-layout__content-header {
+  flex-shrink: 0;
+}
+
+.console-layout__integration {
+  flex-grow: 1;
 }
 
 .console-layout__logo {
