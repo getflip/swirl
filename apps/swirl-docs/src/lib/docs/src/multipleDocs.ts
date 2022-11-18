@@ -2,7 +2,6 @@ import {
   generateDocumentationPath,
   generatePagesPath,
   generateSwirlComponentsPath,
-  NavItem,
   SWIRL_COMPONENTS_PATH,
 } from "@swirl/lib/navigation";
 import fs from "fs";
@@ -12,23 +11,6 @@ import {
   Document,
   DOCUMENTATION_SRC,
 } from "./docs.model";
-
-export function createSwirlComponentDocCategories(
-  basePath: BASE_PATHS
-): DocCategory[] {
-  const components = fs.readdirSync(SWIRL_COMPONENTS_PATH);
-
-  const componentDocPaths = components.map((component) => {
-    return {
-      htmlTag: component,
-      name: component.split("-").join(" "),
-      path: generateSwirlComponentsPath(component),
-      nextRoute: `/${basePath}/${component}`,
-    };
-  });
-
-  return componentDocPaths;
-}
 
 export function createStaticPathsData(
   category: string,
