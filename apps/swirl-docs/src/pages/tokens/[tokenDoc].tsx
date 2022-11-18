@@ -17,7 +17,7 @@ import { BorderTokens } from "src/components/Tokens/BorderTokens";
 import { SpacingTokens } from "src/components/Tokens/SpacingTokens";
 import { ZIndexTokens } from "src/components/Tokens/ZIndexTokens";
 import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
 
 async function getComponentData(document: string) {
@@ -84,13 +84,9 @@ export default function Component({
       <DocumentationLayout
         categoryLinkList={tokensNavItems}
         documentLinkList={documentLinkList}
-      >
-        <main id="main" className="flex flex-col justify-center items-center">
-          <article className="max-w-3xl px-4 mt-6">
-            <MDXRemote {...document} components={components} />
-          </article>
-        </main>
-      </DocumentationLayout>
+        document={document}
+        mdxComponents={components}
+      />
     </>
   );
 }

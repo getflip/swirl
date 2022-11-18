@@ -69,13 +69,9 @@ export default function Component({
       <DocumentationLayout
         categoryLinkList={iconsNavItems}
         documentLinkList={documentLinkList}
-      >
-        <main className="flex flex-col justify-center items-center">
-          <article className="max-w-3xl px-4 mt-6">
-            <MDXRemote {...document} components={components} />
-          </article>
-        </main>
-      </DocumentationLayout>
+        document={document}
+        mdxComponents={components}
+      />
     </>
   );
 }

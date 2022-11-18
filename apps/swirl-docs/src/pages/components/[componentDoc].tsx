@@ -47,14 +47,12 @@ export const getStaticProps: GetStaticProps<
 
 export default function Component({
   document,
-  title,
 }: {
   title: string;
   document: any;
 }) {
   const components = {};
 
-  console.log("links", title);
   return (
     <>
       <Head>
@@ -63,13 +61,9 @@ export default function Component({
       <DocumentationLayout
         categoryLinkList={componentsNavItems}
         documentLinkList={[]}
-      >
-        <main id="main" className="flex flex-col justify-center items-center">
-          <article className="max-w-3xl px-4 mt-6">
-            <MDXRemote {...document} components={components} />
-          </article>
-        </main>
-      </DocumentationLayout>
+        document={document}
+        mdxComponents={components}
+      />
     </>
   );
 }
