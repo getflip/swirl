@@ -1,5 +1,5 @@
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import { BASE_PATHS, CATEGORY_ENUM } from "@swirl/lib/docs/src/docs.model";
+import { BASE_PATHS, DOCUMENT_ENUM } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
 import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
 import { MDXRemote } from "next-mdx-remote";
@@ -16,7 +16,7 @@ async function getComponentData(document: string) {
 export async function getStaticPaths() {
   const categoryDocs = createStaticPathsData(
     BASE_PATHS.COMPONENTS,
-    CATEGORY_ENUM.COMPONENTS
+    DOCUMENT_ENUM.COMPONENTS
   );
 
   return {

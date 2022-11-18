@@ -9,7 +9,7 @@ export enum BASE_PATHS {
   ICONS = "icons",
 }
 
-export enum CATEGORY_ENUM {
+export enum DOCUMENT_ENUM {
   COMPONENTS = "componentDoc",
   TOKENS = "tokenDoc",
   ICONS = "iconDoc",

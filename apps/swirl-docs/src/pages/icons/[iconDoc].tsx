@@ -3,7 +3,7 @@ import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 import { MDXRemote } from "next-mdx-remote";
 import {
   BASE_PATHS,
-  CATEGORY_ENUM,
+  DOCUMENT_ENUM,
   DocHeadline,
 } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
@@ -21,7 +21,7 @@ async function getComponentData(document: string) {
 export async function getStaticPaths() {
   const categoryDocs = createStaticPathsData(
     BASE_PATHS.ICONS,
-    CATEGORY_ENUM.ICONS
+    DOCUMENT_ENUM.ICONS
   );
 
   return {

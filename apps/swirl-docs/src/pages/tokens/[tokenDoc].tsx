@@ -3,7 +3,7 @@ import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 import { MDXRemote } from "next-mdx-remote";
 import {
   BASE_PATHS,
-  CATEGORY_ENUM,
+  DOCUMENT_ENUM,
   DocHeadline,
 } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
@@ -28,7 +28,7 @@ export const getStaticPaths = async () => {
   // TODO: refactor this to use enums for the token params
   const categoryDocs = createStaticPathsData(
     BASE_PATHS.TOKENS,
-    CATEGORY_ENUM.TOKENS
+    DOCUMENT_ENUM.TOKENS
   );
 
   return {
