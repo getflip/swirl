@@ -3684,6 +3684,27 @@
       ]
     },
     {
+      "name": "flip-tree-navigation-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-video-thumbnail",
       "description": {
         "kind": "markdown",
