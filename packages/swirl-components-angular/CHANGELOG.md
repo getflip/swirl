@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.5.3
+
+### Patch Changes
+
+- [`2e3b247`](https://github.com/getflip/swirl/commit/2e3b247477ecd6a79b84589c14dec1dafce29081)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Integrate new Web Component(s)
+
+- Updated dependencies
+  [[`2e3b247`](https://github.com/getflip/swirl/commit/2e3b247477ecd6a79b84589c14dec1dafce29081)]:
+  - @getflip/swirl-components@0.6.3
+
 ## 0.5.2
 
 ### Patch Changes
