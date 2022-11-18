@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.5.4
+
+### Patch Changes
+
+- [`cea8c3d`](https://github.com/getflip/swirl/commit/cea8c3dbd682f1fff87bba58e6c2fa6ad35ef8f0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak flip-console-layout styles
+
+- Updated dependencies
+  [[`cea8c3d`](https://github.com/getflip/swirl/commit/cea8c3dbd682f1fff87bba58e6c2fa6ad35ef8f0)]:
+  - @getflip/swirl-components@0.6.4
+
 ## 0.5.3
 
 ### Patch Changes
