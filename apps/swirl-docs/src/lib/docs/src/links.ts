@@ -48,11 +48,16 @@ export function createLinkListForDocument(
       .join("-")
       .toLowerCase();
 
+    const headlineName = headline
+      .split(" ")
+      .slice(1, headline.length)
+      .join(" ");
+
     const headlineLevel = HeadingMap.get(headline.split(" ")[0]);
 
     return {
       id: headlineId,
-      name: headline.split(" ")[1],
+      name: headlineName,
       level: headlineLevel,
     };
   });
