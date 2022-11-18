@@ -13,7 +13,7 @@ import rehypeSlug from "rehype-slug";
 const sectionize = require("remark-sectionize");
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-function generateSerializableString(componentId: string) {
+function generateSerializableStoryBookString(componentId: string) {
   const storyBookComponentId = `components-${componentId
     .split("-")
     .join("")}--${componentId}`;
@@ -63,7 +63,7 @@ export async function generateMdxFromStorybook(
 ): Promise<
   MDXRemoteSerializeResult<Record<string, unknown>, Record<string, string>>
 > {
-  const source = generateSerializableString(componentId);
+  const source = generateSerializableStoryBookString(componentId);
 
   const storyBookawait = serialize(source, {
     parseFrontmatter: true,
@@ -87,7 +87,7 @@ const HeadingMap = new Map<string, number>([
 ]);
 
 export function createDocLinkList(componentId: string): DocHeadline[] {
-  const source = generateSerializableString(componentId);
+  const source = generateSerializableStoryBookString(componentId);
   const headlines = source.split("\n").filter((line) => line.startsWith("#"));
 
   return headlines.map((headline) => {

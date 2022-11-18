@@ -30,10 +30,13 @@ export function createSwirlComponentDocCategories(
   return componentDocPaths;
 }
 
-export function createStaticPathsData(category: string):
+export function createStaticPathsData(
+  category: string,
+  paramKey = "id"
+):
   | {
       params: {
-        id: string;
+        [key: string]: string;
       };
     }[]
   | undefined {
@@ -45,7 +48,7 @@ export function createStaticPathsData(category: string):
     DOCUMENTATION_SRC.DOCUMENTATION
   ).subpages?.map((document: DocCategory) => ({
     params: {
-      id: document.name,
+      [paramKey]: document.name,
     },
   }));
 }

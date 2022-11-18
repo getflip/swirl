@@ -9,6 +9,12 @@ export enum BASE_PATHS {
   ICONS = "icons",
 }
 
+export enum CATEGORY_ENUM {
+  COMPONENTS = "componentDoc",
+  TOKENS = "tokenDoc",
+  ICONS = "iconDoc",
+}
+
 export type DocCategory = {
   name: string;
   path: string;
