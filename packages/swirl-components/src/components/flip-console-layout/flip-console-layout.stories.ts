@@ -18,7 +18,7 @@ const Template = (args) => {
   element.innerHTML = `
     <flip-box padding="24" slot="navigation">Navigation</flip-box>
     <div slot="user">User</div>
-    <div slot="content">Content</div>
+    <flip-box center-block center-inline cover slot="content">Content</flip-box>
   `;
 
   return element;
