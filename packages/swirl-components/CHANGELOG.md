@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.6.3
+
+### Patch Changes
+
+- [`2e3b247`](https://github.com/getflip/swirl/commit/2e3b247477ecd6a79b84589c14dec1dafce29081)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-tree-navigation-item
+  component
+
 ## 0.6.2
 
 ### Patch Changes
