@@ -296,6 +296,17 @@ export namespace Components {
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
+        /**
+          * Get the current zoom.
+          * @returns
+         */
+        "getZoom": () => Promise<number>;
+        "maxZoom"?: number;
+        /**
+          * Resets the zoom.
+          * @returns
+         */
+        "resetZoom": () => Promise<void>;
     }
     interface FlipFileViewerPdf {
         "errorMessage"?: string;
@@ -2290,6 +2301,7 @@ declare namespace LocalJSX {
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
+        "maxZoom"?: number;
         "onActivate"?: (event: FlipFileViewerImageCustomEvent<HTMLElement>) => void;
     }
     interface FlipFileViewerPdf {

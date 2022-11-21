@@ -121,6 +121,7 @@ export class FlipLightbox {
 
     this.stopAllMediaPlayers();
     this.updateMediaPlayers();
+    this.resetImageZoom();
   }
 
   private setSlideAttributes() {
@@ -194,6 +195,18 @@ export class FlipLightbox {
     this.mediaPlayers.forEach((mediaPlayer) => mediaPlayer.pause());
   }
 
+  private resetImageZoom() {
+    this.slides.forEach((slide) => {
+      const imageViewer = slide?.shadowRoot?.querySelector(
+        "flip-file-viewer-image"
+      );
+
+      if (Boolean(imageViewer)) {
+        imageViewer.resetZoom();
+      }
+    });
+  }
+
   private onPointerDown = (event: MouseEvent | TouchEvent) => {
     event.preventDefault();
 
@@ -207,7 +220,22 @@ export class FlipLightbox {
     });
   };
 
-  private onPointerMove = (event: MouseEvent | TouchEvent) => {
+  private onPointerMove = async (event: MouseEvent | TouchEvent) => {
+    const isMultiTouch =
+      event instanceof TouchEvent && event.touches.length > 1;
+
+    const imageViewer = this.slides[
+      this.activeSlideIndex
+    ]?.shadowRoot?.querySelector("flip-file-viewer-image");
+
+    const showsZoomedImage = Boolean(imageViewer)
+      ? (await imageViewer.getZoom()) > 1
+      : false;
+
+    if (isMultiTouch || showsZoomedImage) {
+      return;
+    }
+
     if (this.dragging) {
       event.preventDefault();
 

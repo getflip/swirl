@@ -64,6 +64,8 @@ const Template = (args) => {
 export const FlipFileViewer = Template.bind({});
 
 FlipFileViewer.args = {
-  file: "/sample.pdf",
-  type: "application/pdf",
+  // file: "/sample.pdf",
+  file: "/sample.jpg",
+  // type: "application/pdf",
+  type: "image/jpeg",
 };
