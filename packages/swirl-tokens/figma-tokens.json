@@ -1344,20 +1344,20 @@
       "level-1": {
         "value": [
           {
-            "color": "#191a1c0a",
+            "color": "rgba({core.gray.12}, 0.16)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 4,
-            "blur": 16,
-            "spread": 0
+            "x": "0",
+            "y": "4",
+            "blur": "16",
+            "spread": "0"
           },
           {
-            "color": "#191a1c29",
+            "color": "rgba({core.gray.12}, 0.04)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 1,
-            "blur": 4,
-            "spread": 0
+            "x": "0",
+            "y": "1",
+            "blur": "4",
+            "spread": "0"
           }
         ],
         "type": "boxShadow"
@@ -1365,20 +1365,20 @@
       "level-2": {
         "value": [
           {
-            "color": "#191a1c29",
+            "color": "rgba({core.gray.12}, 0.16)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 4,
-            "blur": 32,
-            "spread": 0
+            "x": "0",
+            "y": "4",
+            "blur": "32",
+            "spread": "0"
           },
           {
-            "color": "#191a1c14",
+            "color": "rgba({core.gray.12}, 0.08)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 1,
-            "blur": 2,
-            "spread": 0
+            "x": "0",
+            "y": "1",
+            "blur": "2",
+            "spread": "0"
           }
         ],
         "type": "boxShadow"
@@ -1386,20 +1386,20 @@
       "level-3": {
         "value": [
           {
-            "color": "#191a1c1f",
+            "color": "rgba({core.gray.12}, 0.08)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 12,
-            "blur": 32,
-            "spread": 0
+            "x": "0",
+            "y": "4",
+            "blur": "12",
+            "spread": "0"
           },
           {
-            "color": "#191a1c14",
+            "color": "rgba({core.gray.12}, 0.12)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 4,
-            "blur": 12,
-            "spread": 0
+            "x": "0",
+            "y": "12",
+            "blur": "32",
+            "spread": "0"
           }
         ],
         "type": "boxShadow"
