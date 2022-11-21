@@ -222,7 +222,7 @@ export class FlipLightbox {
 
   private onPointerMove = async (event: MouseEvent | TouchEvent) => {
     const isMultiTouch =
-      event instanceof TouchEvent && event.touches.length > 1;
+      !(event instanceof MouseEvent) && event.touches.length > 1;
 
     const imageViewer = this.slides[
       this.activeSlideIndex
