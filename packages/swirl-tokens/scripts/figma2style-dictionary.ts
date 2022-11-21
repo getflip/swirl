@@ -169,18 +169,24 @@ function traverseFigmaTokenCategories(
   );
 
   const newFlattenedFigmaTokens = newFigmaTokens.reduce(
-    (newFigmaTokens, [key, newFigmaToken]) => ({
-      ...newFigmaTokens,
-      [`${hierarchy.join("-")}-${camelCaseToKebabCase(key)}`.replace(/^-/, "")]:
-        {
+    (newFigmaTokens, [key, newFigmaToken]) => {
+      return {
+        ...newFigmaTokens,
+        [`${hierarchy.join("-")}-${camelCaseToKebabCase(key)}`.replace(
+          /^-/,
+          ""
+        )]: {
           ...newFigmaToken,
           comment: newFigmaToken.description,
           description: undefined,
-          value: newFigmaToken.value.startsWith("{")
-            ? newFigmaToken.value.replaceAll(".", "-")
-            : newFigmaToken.value,
+          value:
+            typeof newFigmaToken.value === "string" &&
+            newFigmaToken.value.startsWith("{")
+              ? newFigmaToken.value.replaceAll(".", "-")
+              : newFigmaToken.value,
         },
-    }),
+      };
+    },
     {}
   );
 

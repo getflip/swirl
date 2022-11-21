@@ -137,6 +137,25 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: "shadow/css",
+  type: "value",
+  transitive: true,
+  matcher: (token) => token.type === "boxShadow",
+  transformer: function (token) {
+    const shadows = Array.isArray(token.value) ? token.value : [token.value];
+
+    const transformedShadows = shadows.map((shadow) => {
+      const { x, y, blur, spread, color, type } = shadow;
+      const inset = type === "innerShadow" ? "inset " : "";
+
+      return `${inset}${x}px ${y}px ${blur}px ${spread}px ${color}`;
+    });
+
+    return transformedShadows.join(", ");
+  },
+});
+
 StyleDictionary.extend("config.light.json").buildAllPlatforms();
 StyleDictionary.extend("config.dark.json").buildAllPlatforms();
 createSwirlTailwindTheme();

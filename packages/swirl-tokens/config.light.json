@@ -2,7 +2,15 @@
   "source": ["./tokens/tokens.light.json"],
   "platforms": {
     "css": {
-      "transformGroup": "css",
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "time/seconds",
+        "content/icon",
+        "shadow/css",
+        "size/rem",
+        "color/css"
+      ],
       "prefix": "s",
       "buildPath": "dist/css/",
       "options": {
@@ -46,7 +54,15 @@
       ]
     },
     "less": {
-      "transformGroup": "less",
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "time/seconds",
+        "content/icon",
+        "shadow/css",
+        "size/rem",
+        "color/hex"
+      ],
       "prefix": "s",
       "buildPath": "dist/less/",
       "files": [
@@ -57,7 +73,15 @@
       ]
     },
     "scss": {
-      "transformGroup": "scss",
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "time/seconds",
+        "content/icon",
+        "shadow/css",
+        "size/rem",
+        "color/css"
+      ],
       "prefix": "s",
       "buildPath": "dist/scss/",
       "files": [
