@@ -12,8 +12,7 @@ import {
 } from "@stencil/core";
 
 @Component({
-  scoped: true,
-  shadow: false,
+  shadow: true,
   styleUrl: "flip-file-viewer-image.css",
   tag: "flip-file-viewer-image",
 })
