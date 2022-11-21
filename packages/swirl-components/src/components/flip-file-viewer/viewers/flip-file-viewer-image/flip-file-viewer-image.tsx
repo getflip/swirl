@@ -147,33 +147,6 @@ export class FlipFileViewerImage {
 
     this.pinchDistance = this.getPinchDistance(event);
     this.pinching = true;
-
-    const rect = this.el.getBoundingClientRect();
-
-    const x1 =
-      event.touches[0].pageX < event.touches[1].pageX
-        ? event.touches[0].pageX - rect.x
-        : event.touches[1].pageX - rect.x;
-
-    const x2 =
-      event.touches[0].pageX < event.touches[1].pageX
-        ? event.touches[1].pageX - rect.x
-        : event.touches[0].pageX - rect.x;
-
-    const y1 =
-      event.touches[0].pageY < event.touches[1].pageY
-        ? event.touches[0].pageY - rect.y
-        : event.touches[1].pageY - rect.y;
-
-    const y2 =
-      event.touches[0].pageY < event.touches[1].pageY
-        ? event.touches[1].pageY - rect.y
-        : event.touches[0].pageY - rect.y;
-
-    const pinchCenterX = x1 + (x2 - x1);
-    const pinchCenterY = y1 + (y2 - y1);
-
-    this.updateTransformOrigin(pinchCenterX, pinchCenterY);
   };
 
   private pinchToZoom = (event: TouchEvent) => {
@@ -228,8 +201,12 @@ export class FlipFileViewerImage {
 
   private updateZoomAndPan = (zoom?: number, panX?: number, panY?: number) => {
     const newZoom = zoom === undefined ? this.zoom : zoom;
-    const newPanX = panX === undefined ? this.panX : panX;
-    const newPanY = panX === undefined ? this.panY : panY;
+    const zoomDiff = newZoom - this.zoom;
+
+    const newPanX =
+      panX === undefined ? this.panX + this.panX * zoomDiff : panX;
+    const newPanY =
+      panX === undefined ? this.panY + this.panY * zoomDiff : panY;
 
     const previousPanX = this.panX;
     const previousPanY = this.panY;
