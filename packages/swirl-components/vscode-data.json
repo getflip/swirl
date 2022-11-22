@@ -711,6 +711,35 @@
       ]
     },
     {
+      "name": "flip-card",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "as",
+          "description": ""
+        },
+        {
+          "name": "elevated",
+          "description": ""
+        },
+        {
+          "name": "href",
+          "description": ""
+        },
+        {
+          "name": "interactive",
+          "description": ""
+        },
+        {
+          "name": "link-target",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-checkbox",
       "description": {
         "kind": "markdown",

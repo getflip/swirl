@@ -175,6 +175,13 @@ export namespace Components {
         "stretch"?: boolean;
         "wrap"?: boolean;
     }
+    interface FlipCard {
+        "as"?: string;
+        "elevated"?: boolean;
+        "href"?: string;
+        "interactive"?: boolean;
+        "linkTarget"?: string;
+    }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
         "description"?: string;
@@ -1129,6 +1136,12 @@ declare global {
         prototype: HTMLFlipButtonGroupElement;
         new (): HTMLFlipButtonGroupElement;
     };
+    interface HTMLFlipCardElement extends Components.FlipCard, HTMLStencilElement {
+    }
+    var HTMLFlipCardElement: {
+        prototype: HTMLFlipCardElement;
+        new (): HTMLFlipCardElement;
+    };
     interface HTMLFlipCheckboxElement extends Components.FlipCheckbox, HTMLStencilElement {
     }
     var HTMLFlipCheckboxElement: {
@@ -1947,6 +1960,7 @@ declare global {
         "flip-box": HTMLFlipBoxElement;
         "flip-button": HTMLFlipButtonElement;
         "flip-button-group": HTMLFlipButtonGroupElement;
+        "flip-card": HTMLFlipCardElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
         "flip-chip": HTMLFlipChipElement;
         "flip-console-layout": HTMLFlipConsoleLayoutElement;
@@ -2204,6 +2218,13 @@ declare namespace LocalJSX {
         "segmented"?: boolean;
         "stretch"?: boolean;
         "wrap"?: boolean;
+    }
+    interface FlipCard {
+        "as"?: string;
+        "elevated"?: boolean;
+        "href"?: string;
+        "interactive"?: boolean;
+        "linkTarget"?: string;
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
@@ -2887,6 +2908,7 @@ declare namespace LocalJSX {
         "flip-box": FlipBox;
         "flip-button": FlipButton;
         "flip-button-group": FlipButtonGroup;
+        "flip-card": FlipCard;
         "flip-checkbox": FlipCheckbox;
         "flip-chip": FlipChip;
         "flip-console-layout": FlipConsoleLayout;
@@ -3040,6 +3062,7 @@ declare module "@stencil/core" {
             "flip-box": LocalJSX.FlipBox & JSXBase.HTMLAttributes<HTMLFlipBoxElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
             "flip-button-group": LocalJSX.FlipButtonGroup & JSXBase.HTMLAttributes<HTMLFlipButtonGroupElement>;
+            "flip-card": LocalJSX.FlipCard & JSXBase.HTMLAttributes<HTMLFlipCardElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
             "flip-chip": LocalJSX.FlipChip & JSXBase.HTMLAttributes<HTMLFlipChipElement>;
             "flip-console-layout": LocalJSX.FlipConsoleLayout & JSXBase.HTMLAttributes<HTMLFlipConsoleLayoutElement>;
