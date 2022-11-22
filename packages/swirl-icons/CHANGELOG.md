@@ -1,5 +1,12 @@
 # @getflip/swirl-icons
 
+## 0.6.0
+
+### Minor Changes
+
+- [`c0dc8ce`](https://github.com/getflip/swirl/commit/c0dc8cedfebf3b3063b7bb3e39c48a58050a1679)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "block" and "menu" icons
+
 ## 0.5.0
 
 ### Minor Changes

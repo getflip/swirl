@@ -1,5 +1,28 @@
 # @getflip/swirl-components-angular
 
+## 0.6.0
+
+### Minor Changes
+
+- [`c0dc8ce`](https://github.com/getflip/swirl/commit/c0dc8cedfebf3b3063b7bb3e39c48a58050a1679)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "block" and "menu" icons
+
+### Patch Changes
+
+- [`edc8de9`](https://github.com/getflip/swirl/commit/edc8de98e9cb81395cceb189a09eeaed8fddf05f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add responsive sidebar to
+  flip-console-layout component
+
+* [`925c653`](https://github.com/getflip/swirl/commit/925c6538ed16a9c4fa0ef179cd33aeba3630d9fe)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-aria-expanded property
+  to flip-button component
+
+* Updated dependencies
+  [[`edc8de9`](https://github.com/getflip/swirl/commit/edc8de98e9cb81395cceb189a09eeaed8fddf05f),
+  [`925c653`](https://github.com/getflip/swirl/commit/925c6538ed16a9c4fa0ef179cd33aeba3630d9fe),
+  [`c0dc8ce`](https://github.com/getflip/swirl/commit/c0dc8cedfebf3b3063b7bb3e39c48a58050a1679)]:
+  - @getflip/swirl-components@0.7.0
+
 ## 0.5.5
 
 ### Patch Changes
