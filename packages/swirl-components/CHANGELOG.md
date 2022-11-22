@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.6.5
+
+### Patch Changes
+
+- [`d734759`](https://github.com/getflip/swirl/commit/d7347591ff2730e92846180440623cbd8b3b25e3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make flip-tree-navigation-item
+  work more nicely with Angular routerLink
+
 ## 0.6.4
 
 ### Patch Changes
