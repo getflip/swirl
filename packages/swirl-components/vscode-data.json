@@ -830,11 +830,11 @@
           "description": ""
         },
         {
-          "name": "logo-text",
+          "name": "hide-navigation-button-label",
           "description": ""
         },
         {
-          "name": "navigation-button-label",
+          "name": "logo-text",
           "description": ""
         },
         {
@@ -847,6 +847,10 @@
         },
         {
           "name": "show-help-button",
+          "description": ""
+        },
+        {
+          "name": "show-navigation-button-label",
           "description": ""
         },
         {
@@ -1455,6 +1459,19 @@
       ]
     },
     {
+      "name": "flip-icon-block",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-cancel",
       "description": {
         "kind": "markdown",
@@ -1976,6 +1993,19 @@
     },
     {
       "name": "flip-icon-mention",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-menu",
       "description": {
         "kind": "markdown",
         "value": ""

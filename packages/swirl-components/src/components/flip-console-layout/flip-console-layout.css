@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: block;
   width: 100%;
@@ -12,22 +14,58 @@
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-columns: 20rem 1fr;
-  grid-template-areas: "sidebar main";
+  grid-template-columns: 1fr;
+  grid-template-areas: "main";
+
+  @media (--from-tablet) {
+    grid-template-columns: 20rem 1fr;
+    grid-template-areas: "sidebar main";
+  }
+}
+
+.console-layout--sidebar-active {
+  & .console-layout__sidebar {
+    @media (--to-tablet) {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 
 .console-layout__sidebar {
+  position: fixed;
+  z-index: 1;
+  top: 4rem;
+  bottom: 0;
+  left: 0;
   display: grid;
   overflow-x: hidden;
   overflow-y: auto;
+  width: 100%;
+  max-width: 20rem;
   height: 100%;
   border-right: var(--s-border-width-default) solid var(--s-border-default);
+  transition: transform 0.15s;
+  transform: translate3d(-100%, 0, 0);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.06);
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "header"
     "navigation"
     "user";
-  grid-area: sidebar;
+
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+
+  @media (--from-tablet) {
+    position: static;
+    top: auto;
+    left: auto;
+    max-width: none;
+    transform: none;
+    box-shadow: none;
+    grid-area: sidebar;
+  }
 }
 
 .console-layout__header {
@@ -45,6 +83,12 @@
   padding-bottom: var(--s-space-8);
   background-color: var(--s-background-default);
   grid-area: navigation;
+}
+
+.console-layout__hide-navigation-button {
+  @media (--from-tablet) {
+    display: none;
+  }
 }
 
 .console-layout__user {
@@ -76,13 +120,24 @@
   top: 0;
   display: flex;
   min-width: 0;
-  padding-right: 2.5rem;
-  padding-left: 2.5rem;
+  padding-right: var(--s-space-16);
+  padding-left: var(--s-space-16);
   align-items: center;
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   gap: var(--s-space-12);
   grid-area: app-bar;
+
+  @media (--from-tablet) {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+}
+
+.console-layout__mobile-navigation-button {
+  @media (--from-tablet) {
+    display: none;
+  }
 }
 
 .console-layout__app-name {
@@ -103,10 +158,14 @@
 
 .console-layout__content {
   display: flex;
-  padding: 2.5rem;
+  padding: var(--s-space-16);
   background-color: var(--s-background-default);
   flex-direction: column;
   grid-area: content;
+
+  @media (--from-tablet) {
+    padding: 2.5rem;
+  }
 }
 
 .console-layout__content-header {
