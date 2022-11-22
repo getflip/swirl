@@ -564,6 +564,10 @@
           "description": ""
         },
         {
+          "name": "flip-aria-expanded",
+          "description": ""
+        },
+        {
           "name": "flip-aria-label",
           "description": ""
         },
@@ -827,6 +831,10 @@
         },
         {
           "name": "logo-text",
+          "description": ""
+        },
+        {
+          "name": "navigation-button-label",
           "description": ""
         },
         {

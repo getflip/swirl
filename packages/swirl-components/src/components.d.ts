@@ -153,6 +153,7 @@ export namespace Components {
         "disabled"?: boolean;
         "download"?: string;
         "flipAriaDescribedby"?: string;
+        "flipAriaExpanded"?: string;
         "flipAriaLabel"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
@@ -198,10 +199,15 @@ export namespace Components {
         "heading": string;
         "helpButonLabel"?: string;
         "logoText"?: string;
+        "navigationButtonLabel"?: string;
         "navigationLabel"?: string;
         "showBackButton"?: boolean;
         "showHelpButton"?: boolean;
         "subheading"?: string;
+        /**
+          * Toggle the mobile navigation visibility.
+         */
+        "toggleMobileNavigation": () => Promise<void>;
     }
     interface FlipDateInput {
         "autoFocus"?: boolean;
@@ -2156,6 +2162,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "download"?: string;
         "flipAriaDescribedby"?: string;
+        "flipAriaExpanded"?: string;
         "flipAriaLabel"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
@@ -2202,6 +2209,7 @@ declare namespace LocalJSX {
         "heading": string;
         "helpButonLabel"?: string;
         "logoText"?: string;
+        "navigationButtonLabel"?: string;
         "navigationLabel"?: string;
         "onBackButtonClick"?: (event: FlipConsoleLayoutCustomEvent<MouseEvent>) => void;
         "onHelpButtonClick"?: (event: FlipConsoleLayoutCustomEvent<MouseEvent>) => void;
