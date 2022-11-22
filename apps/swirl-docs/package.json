@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "swirl-docs",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": "Flip GmbH",
   "description": "Swirl documentation",
   "licence": "SEE LICENCE IN LICENSE.md",
@@ -16,8 +16,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@getflip/swirl-components": "^0.6.4",
-    "@getflip/swirl-components-react": "^0.5.4",
+    "@getflip/swirl-components": "^0.6.5",
+    "@getflip/swirl-components-react": "^0.5.5",
     "@getflip/swirl-icons": "^0.5.0",
     "@getflip/swirl-tokens": "^2.0.0",
     "@mdx-js/loader": "^2.1.3",
