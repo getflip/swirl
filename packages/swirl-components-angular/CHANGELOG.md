@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.6.1
+
+### Patch Changes
+
+- [`ca480a4`](https://github.com/getflip/swirl/commit/ca480a44b5da43f83597393c36dcadc60d1f295c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix mobile style issue of
+  flip-console-layout
+
+- Updated dependencies
+  [[`ca480a4`](https://github.com/getflip/swirl/commit/ca480a44b5da43f83597393c36dcadc60d1f295c)]:
+  - @getflip/swirl-components@0.7.1
+
 ## 0.6.0
 
 ### Minor Changes
