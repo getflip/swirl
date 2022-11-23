@@ -1,9 +1,18 @@
+import {
+  FlipActionList,
+  FlipActionListItem,
+  FlipButton,
+  FlipButtonGroup,
+  FlipPopover,
+} from "@getflip/swirl-components-react";
 import { DocHeadline } from "@swirl/lib/docs/src/docs.model";
 import { NavItem } from "@swirl/lib/navigation";
 import { MDXRemote } from "next-mdx-remote";
+import { useEffect, useState } from "react";
 import { CategoryNav } from "./CategoryNav";
 import { DocLinksNav } from "./DocLinksNav";
 import Footer from "./Footer";
+import NoSsr from "./NoSsr";
 
 export type ComponentExample = {
   description: string;
@@ -15,6 +24,7 @@ type FrontMatter = {
   title: string;
   description: string;
   tags?: string[];
+  variantsDescription?: string;
   examples: ComponentExample[];
 };
 
@@ -33,6 +43,14 @@ export const DocumentationLayout = ({
   document,
   frontMatter,
 }: DocumentationLayoutProps) => {
+  const [currentExample, setCurrentExample] = useState<ComponentExample>(
+    frontMatter?.examples[0]!!
+  );
+
+  useEffect(() => {
+    console.log(currentExample);
+  }, [currentExample]);
+
   return (
     <div className={`flex min-h-[calc(100vh_-_72px)]`}>
       <CategoryNav categoryLinkList={categoryLinkList} />
@@ -64,24 +82,69 @@ export const DocumentationLayout = ({
                     </p>
                   </header>
                 )}
-                {frontMatter?.examples?.map((example) => {
-                  return (
-                    <div key={example.url} className="mb-12">
-                      <h2>Variants</h2>
-                      <p className="text-lg text-text-default mb-12">
-                        This demo lets you preview the button component, its
-                        variations, and configuration options. Each tab displays
-                        a different type of button.
-                      </p>
-                      <iframe
-                        width="100%"
-                        height="500"
-                        src={example.url}
-                        frameBorder="0"
-                      ></iframe>
-                    </div>
-                  );
-                })}
+                <div className="mb-12">
+                  <h2 className="text-2xl text-text-default mb-4">Variants</h2>
+                  <p className="text-lg text-text-default mb-12">
+                    {frontMatter?.variantsDescription}
+                  </p>
+                  <NoSsr>
+                    <FlipButtonGroup className="mb-2">
+                      <FlipButton
+                        id="variant-trigger"
+                        label={`Variant: ${currentExample.title}`}
+                        variant="flat"
+                        icon="<flip-icon-expand-more></flip-icon-expand-more>"
+                        iconPosition="end"
+                      ></FlipButton>
+                      <FlipPopover
+                        label="Variants"
+                        popoverId="variant-trigger-popover"
+                        trigger="variant-trigger"
+                      >
+                        <FlipActionList>
+                          {frontMatter?.examples.map((example) => (
+                            <FlipActionListItem
+                              size="m"
+                              key={example.title}
+                              label={example.title}
+                              onClick={() => {
+                                setCurrentExample(example);
+                              }}
+                            ></FlipActionListItem>
+                          ))}
+                        </FlipActionList>
+                      </FlipPopover>
+                      <FlipButton
+                        id="theme-trigger"
+                        label="Theme"
+                        variant="flat"
+                        icon="<flip-icon-expand-more></flip-icon-expand-more>"
+                        iconPosition="end"
+                        onClick={() => console.log("click")}
+                      ></FlipButton>
+                      <FlipPopover
+                        label="Themes"
+                        popoverId="theme-trigger-popover"
+                        trigger="theme-trigger"
+                      >
+                        <FlipActionList>
+                          <FlipActionListItem
+                            onClick={() => console.log("clicked event")}
+                            label="Hello World"
+                          ></FlipActionListItem>
+                        </FlipActionList>
+                      </FlipPopover>
+                      <FlipButton label="View RTL" variant="flat"></FlipButton>
+                    </FlipButtonGroup>
+                  </NoSsr>
+                  <iframe
+                    width="100%"
+                    height="280"
+                    src={currentExample.url}
+                    frameBorder="0"
+                    className="border-2 border-border-default rounded-lg bg-surface-raised-default"
+                  ></iframe>
+                </div>
                 <MDXRemote {...document} components={mdxComponents} />
               </article>
             </main>
