@@ -99,7 +99,11 @@ export class FlipConsoleLayout {
 
   private deactivateSidebar() {
     this.sidebarActive = false;
-    this.sidebarEl.setAttribute("inert", "");
+
+    if (isMobileViewport()) {
+      this.sidebarEl.setAttribute("inert", "");
+    }
+
     this.focusTrap?.deactivate({ returnFocus: true });
   }
 
