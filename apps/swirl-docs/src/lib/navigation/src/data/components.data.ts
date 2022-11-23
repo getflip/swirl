@@ -4,23 +4,23 @@ export const componentsNavItems: NavItem[] = [
   { title: "Overview", url: "/components" },
   {
     title: "action list",
-    url: "/components/flip-action-list",
+    url: "/components/action-list",
   },
   {
     title: "app layout",
-    url: "/components/flip-app-layout",
+    url: "/components/app-layout",
   },
   {
     title: "dialog",
-    url: "/components/flip-dialog",
+    url: "/components/dialog",
   },
   {
     title: "form group",
-    url: "/components/flip-form-group",
+    url: "/components/form-group",
   },
   {
     title: "heading",
-    url: "/components/flip-heading",
+    url: "/components/heading",
   },
 ];
 
@@ -31,239 +31,239 @@ export const componentsNavItems: NavItem[] = [
 //   { title: "Overview", url: "/components" },
 //   {
 //     title: "action list",
-//     url: "/components/flip-action-list",
+//     url: "/components/action-list",
 //   },
 //   {
 //     title: "action list item",
-//     url: "/components/flip-action-list-item",
+//     url: "/components/action-list-item",
 //   },
 //   {
 //     title: "action list section",
-//     url: "/components/flip-action-list-section",
+//     url: "/components/action-list-section",
 //   },
 //
 //   {
 //     title: "autocomplete",
-//     url: "/components/flip-autocomplete",
+//     url: "/components/autocomplete",
 //   },
 //   {
 //     title: "avatar",
-//     url: "/components/flip-avatar",
+//     url: "/components/avatar",
 //   },
 //   {
 //     title: "avatar group",
-//     url: "/components/flip-avatar-group",
+//     url: "/components/avatar-group",
 //   },
 //   {
 //     title: "badge",
-//     url: "/components/flip-badge",
+//     url: "/components/badge",
 //   },
 //   {
 //     title: "banner",
-//     url: "/components/flip-banner",
+//     url: "/components/banner",
 //   },
 //   {
 //     title: "box",
-//     url: "/components/flip-box",
+//     url: "/components/box",
 //   },
 //   {
 //     title: "button",
-//     url: "/components/flip-button",
+//     url: "/components/button",
 //   },
 //   {
 //     title: "button group",
-//     url: "/components/flip-button-group",
+//     url: "/components/button-group",
 //   },
 //   {
 //     title: "checkbox",
-//     url: "/components/flip-checkbox",
+//     url: "/components/checkbox",
 //   },
 //   {
 //     title: "chip",
-//     url: "/components/flip-chip",
+//     url: "/components/chip",
 //   },
 //   {
 //     title: "date input",
-//     url: "/components/flip-date-input",
+//     url: "/components/date-input",
 //   },
 //   {
 //     title: "date picker",
-//     url: "/components/flip-date-picker",
+//     url: "/components/date-picker",
 //   },
 //   {
 //     title: "description list",
-//     url: "/components/flip-description-list",
+//     url: "/components/description-list",
 //   },
 //   {
 //     title: "description list item",
-//     url: "/components/flip-description-list-item",
+//     url: "/components/description-list-item",
 //   },
 //   {
 //     title: "dialog",
-//     url: "/components/flip-dialog",
+//     url: "/components/dialog",
 //   },
 //   {
 //     title: "empty state",
-//     url: "/components/flip-empty-state",
+//     url: "/components/empty-state",
 //   },
 //   {
 //     title: "file uploader",
-//     url: "/components/flip-file-uploader",
+//     url: "/components/file-uploader",
 //   },
 //   {
 //     title: "file viewer",
-//     url: "/components/flip-file-viewer",
+//     url: "/components/file-viewer",
 //   },
 //   {
 //     title: "form control",
-//     url: "/components/flip-form-control",
+//     url: "/components/form-control",
 //   },
 //   {
 //     title: "form group",
-//     url: "/components/flip-form-group",
+//     url: "/components/form-group",
 //   },
 //   {
 //     title: "heading",
-//     url: "/components/flip-heading",
+//     url: "/components/heading",
 //   },
 //   {
 //     title: "icon",
-//     url: "/components/flip-icon",
+//     url: "/components/icon",
 //   },
 //   {
 //     title: "inline error",
-//     url: "/components/flip-inline-error",
+//     url: "/components/inline-error",
 //   },
 //   {
 //     title: "lightbox",
-//     url: "/components/flip-lightbox",
+//     url: "/components/lightbox",
 //   },
 //   {
 //     title: "link",
-//     url: "/components/flip-link",
+//     url: "/components/link",
 //   },
 //   {
 //     title: "list",
-//     url: "/components/flip-list",
+//     url: "/components/list",
 //   },
 //   {
 //     title: "modal",
-//     url: "/components/flip-modal",
+//     url: "/components/modal",
 //   },
 //   {
 //     title: "option list",
-//     url: "/components/flip-option-list",
+//     url: "/components/option-list",
 //   },
 //   {
 //     title: "option list item",
-//     url: "/components/flip-option-list-item",
+//     url: "/components/option-list-item",
 //   },
 //   {
 //     title: "option list section",
-//     url: "/components/flip-option-list-section",
+//     url: "/components/option-list-section",
 //   },
 //   {
 //     title: "pagination",
-//     url: "/components/flip-pagination",
+//     url: "/components/pagination",
 //   },
 //   {
 //     title: "pdf reader",
-//     url: "/components/flip-pdf-reader",
+//     url: "/components/pdf-reader",
 //   },
 //   {
 //     title: "popover",
-//     url: "/components/flip-popover",
+//     url: "/components/popover",
 //   },
 //   {
 //     title: "progress indicator",
-//     url: "/components/flip-progress-indicator",
+//     url: "/components/progress-indicator",
 //   },
 //   {
 //     title: "radio",
-//     url: "/components/flip-radio",
+//     url: "/components/radio",
 //   },
 //   {
 //     title: "radio group",
-//     url: "/components/flip-radio-group",
+//     url: "/components/radio-group",
 //   },
 //   {
 //     title: "resource list",
-//     url: "/components/flip-resource-list",
+//     url: "/components/resource-list",
 //   },
 //   {
 //     title: "resource list file item",
-//     url: "/components/flip-resource-list-file-item",
+//     url: "/components/resource-list-file-item",
 //   },
 //   {
 //     title: "resource list item",
-//     url: "/components/flip-resource-list-item",
+//     url: "/components/resource-list-item",
 //   },
 //   {
 //     title: "search",
-//     url: "/components/flip-search",
+//     url: "/components/search",
 //   },
 //   {
 //     title: "select",
-//     url: "/components/flip-select",
+//     url: "/components/select",
 //   },
 //   {
 //     title: "spinner",
-//     url: "/components/flip-spinner",
+//     url: "/components/spinner",
 //   },
 //   {
 //     title: "stack",
-//     url: "/components/flip-stack",
+//     url: "/components/stack",
 //   },
 //   {
 //     title: "switch",
-//     url: "/components/flip-switch",
+//     url: "/components/switch",
 //   },
 //   {
 //     title: "tab",
-//     url: "/components/flip-tab",
+//     url: "/components/tab",
 //   },
 //   {
 //     title: "tabs",
-//     url: "/components/flip-tabs",
+//     url: "/components/tabs",
 //   },
 //   {
 //     title: "tag",
-//     url: "/components/flip-tag",
+//     url: "/components/tag",
 //   },
 //   {
 //     title: "text",
-//     url: "/components/flip-text",
+//     url: "/components/text",
 //   },
 //   {
 //     title: "text input",
-//     url: "/components/flip-text-input",
+//     url: "/components/text-input",
 //   },
 //   {
 //     title: "theme provider",
-//     url: "/components/flip-theme-provider",
+//     url: "/components/theme-provider",
 //   },
 //   {
 //     title: "thumbnail",
-//     url: "/components/flip-thumbnail",
+//     url: "/components/thumbnail",
 //   },
 //   {
 //     title: "toast",
-//     url: "/components/flip-toast",
+//     url: "/components/toast",
 //   },
 //   {
 //     title: "toast provider",
-//     url: "/components/flip-toast-provider",
+//     url: "/components/toast-provider",
 //   },
 //   {
 //     title: "tooltip",
-//     url: "/components/flip-tooltip",
+//     url: "/components/tooltip",
 //   },
 //   {
 //     title: "video thumbnail",
-//     url: "/components/flip-video-thumbnail",
+//     url: "/components/video-thumbnail",
 //   },
 //   {
 //     title: "visually hidden",
-//     url: "/components/flip-visually-hidden",
+//     url: "/components/visually-hidden",
 //   },
 // ];

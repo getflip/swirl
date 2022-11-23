@@ -2,7 +2,6 @@ import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 import { BASE_PATHS, DOCUMENT_ENUM } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
 import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
-import { MDXRemote } from "next-mdx-remote";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { createStaticPathsData } from "@swirl/lib/docs";
 import { createLinkLists } from "@swirl/lib/docs/src/links";
@@ -36,6 +35,8 @@ export const getStaticProps: GetStaticProps<
   );
   const document = await getComponentData(componentDoc);
 
+  console.log("document", document.frontmatter);
+
   return {
     props: {
       document,
@@ -63,6 +64,7 @@ export default function Component({
         documentLinkList={[]}
         document={document}
         mdxComponents={components}
+        frontMatter={document.frontmatter}
       />
     </>
   );

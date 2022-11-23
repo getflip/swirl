@@ -14,7 +14,12 @@ export async function generateMdxFromDocumentation(
 ): Promise<
   MDXRemoteSerializeResult<Record<string, unknown>, Record<string, string>>
 > {
-  const source = generateSerializableDocumentation(category, document);
+  // const source = generateSerializableDocumentation(category, document);
+
+  const source = fs.readFileSync(
+    generateDocumentPath(category, document),
+    "utf8"
+  );
 
   const serializeAwait = serialize(source, {
     parseFrontmatter: true,
@@ -37,6 +42,7 @@ export function generateSerializableDocumentation(
     "utf8"
   );
   const matterSource = matter(source);
+  console.log("matterSource", matterSource.data);
 
   return matterSource.content;
 }
