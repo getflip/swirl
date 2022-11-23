@@ -7,21 +7,25 @@ import { NavItem } from "@swirl/lib/navigation";
 import Image from "next/image";
 
 interface ComponentGridProps {
+  labelledBy: string;
   componentList: NavItem[];
 }
 
 export const ComponentGrid: FunctionComponent<ComponentGridProps> = ({
   componentList,
+  labelledBy,
 }) => {
   const [getRef, setRef] = useDynamicRefs();
 
   return (
-    <Grid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 w-full">
+    <Grid
+      labelledBy={labelledBy}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 w-full"
+    >
       {componentList?.map((component: NavItem, index: number) => (
         <a
           key={index}
-          role="gridcell"
-          aria-label={component.title}
+          aria-labelledby={component.title.replaceAll(" ", "-")}
           href={component.url}
           tabIndex={index === 0 ? 0 : -1}
           ref={setRef(component.title) as LegacyRef<HTMLAnchorElement>}
@@ -36,7 +40,10 @@ export const ComponentGrid: FunctionComponent<ComponentGridProps> = ({
             )
           }
         >
-          <article className="flex flex-col min-h-[330px] min-w-[256px] border-1 rounded-lg">
+          <article
+            role="gridcell"
+            className="flex flex-col min-h-[330px] min-w-[256px] border-1 rounded-lg"
+          >
             <header className="flex justify-center items-center min-h-[10rem] max-h-[10rem] bg-surface-raised-default rounded-t-lg">
               <div className="relative w-10 h-10">
                 <Image
@@ -48,7 +55,10 @@ export const ComponentGrid: FunctionComponent<ComponentGridProps> = ({
               </div>
             </header>
             <footer className="p-4">
-              <h3 className="text-font-size-base font-semibold">
+              <h3
+                id={component.title.replaceAll(" ", "-")}
+                className="text-font-size-base font-semibold capitalize"
+              >
                 {component.title}
               </h3>
               <p className="text-font-size-sm">
