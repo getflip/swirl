@@ -66,14 +66,19 @@ export const DocumentationLayout = ({
                 )}
                 {frontMatter?.examples?.map((example) => {
                   return (
-                    <div key={example.url}>
+                    <div key={example.url} className="mb-12">
                       <h2>Variants</h2>
-                      <p className="text-lg text-text-default">
+                      <p className="text-lg text-text-default mb-12">
                         This demo lets you preview the button component, its
                         variations, and configuration options. Each tab displays
                         a different type of button.
                       </p>
-                      <iframe src={example.url} frameBorder="0"></iframe>
+                      <iframe
+                        width="100%"
+                        height="500"
+                        src={example.url}
+                        frameBorder="0"
+                      ></iframe>
                     </div>
                   );
                 })}
