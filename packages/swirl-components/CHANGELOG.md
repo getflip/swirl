@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.8.1
+
+### Patch Changes
+
+- [`9c829c6`](https://github.com/getflip/swirl/commit/9c829c61630d2bc8d834aea9f721d3e3ac871e0e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add show/hide sidebar methods to
+  flip-console-layout
+
 ## 0.8.0
 
 ### Minor Changes
