@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.8.0
+
+### Minor Changes
+
+- [#87](https://github.com/getflip/swirl/pull/87)
+  [`52e9ffb`](https://github.com/getflip/swirl/commit/52e9ffb121b40fb9d4309c7f5f3459b4e00aa254)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-card component
+
+### Patch Changes
+
+- [`3d681fb`](https://github.com/getflip/swirl/commit/3d681fb774de57d52cbd5868d51509b9b50371fc)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix disabled sidebar issue of
+  flip-console-layout
+
 ## 0.7.1
 
 ### Patch Changes
