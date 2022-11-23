@@ -88,6 +88,26 @@ export class FlipConsoleLayout {
     }
   }
 
+  /**
+   * Show the mobile navigation.
+   */
+  @Method()
+  async showSidebar() {
+    if (!this.sidebarActive) {
+      this.activateSidebar();
+    }
+  }
+
+  /**
+   * Hide the mobile navigation.
+   */
+  @Method()
+  async hideSidebar() {
+    if (this.sidebarActive) {
+      this.deactivateSidebar();
+    }
+  }
+
   private activateSidebar() {
     this.sidebarActive = true;
     this.sidebarEl.removeAttribute("inert");
@@ -117,6 +137,10 @@ export class FlipConsoleLayout {
 
   private onMobileNavigationToggleClick = () => {
     this.toggleSidebar();
+  };
+
+  private onHideNavigationButtonClick = () => {
+    this.hideSidebar();
   };
 
   private onClick = (event: MouseEvent) => {
@@ -197,7 +221,7 @@ export class FlipConsoleLayout {
                 <flip-visually-hidden>
                   <button
                     class="console-layout__hide-navigation-button"
-                    onClick={this.onMobileNavigationToggleClick}
+                    onClick={this.onHideNavigationButtonClick}
                     type="button"
                   >
                     {this.hideNavigationButtonLabel}

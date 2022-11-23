@@ -206,11 +206,19 @@ export namespace Components {
         "heading": string;
         "helpButonLabel"?: string;
         "hideNavigationButtonLabel"?: string;
+        /**
+          * Hide the mobile navigation.
+         */
+        "hideSidebar": () => Promise<void>;
         "logoText"?: string;
         "navigationLabel"?: string;
         "showBackButton"?: boolean;
         "showHelpButton"?: boolean;
         "showNavigationButtonLabel"?: string;
+        /**
+          * Show the mobile navigation.
+         */
+        "showSidebar": () => Promise<void>;
         "subheading"?: string;
         /**
           * Toggle the mobile navigation visibility.
