@@ -19,7 +19,7 @@ describe("flip-console-layout", () => {
       <flip-console-layout app-name="App name" heading="Heading">
         <mock:shadow-root>
           <div class="console-layout">
-            <div class="console-layout__sidebar">
+            <div aria-hidden="true" class="console-layout__sidebar" inert="">
               <header class="console-layout__header">
                 <div class="console-layout__logo">
                   <svg class="console-layout__logo-mark" fill="none" height="26" viewBox="0 0 16 26" width="16" xmlns="http://www.w3.org/2000/svg">
@@ -42,6 +42,7 @@ describe("flip-console-layout", () => {
             </div>
             <main aria-labelledby="app-name" class="console-layout__main">
               <header class="console-layout__app-bar">
+                <flip-button class="console-layout__mobile-navigation-button" flipariaexpanded="false" hidelabel="" icon="<flip-icon-menu></flip-icon-menu>" label="Show main navigation"></flip-button>
                 <flip-heading as="h1" class="console-layout__app-name" headingid="app-name" level="4" text="App name"></flip-heading>
               </header>
               <section aria-labelledby="heading" class="console-layout__content">

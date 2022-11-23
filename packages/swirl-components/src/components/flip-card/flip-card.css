@@ -1,0 +1,40 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.card {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: var(--s-border-width-default) solid var(--s-border-default);
+  border-radius: var(--s-border-radius-base);
+  color: var(--s-text-default);
+  background-color: var(--s-surface-default);
+  font: inherit;
+  text-decoration: none;
+}
+
+.card--elevated {
+  border-color: transparent;
+  box-shadow: 0 0.0625rem 0.25rem rgba(25, 26, 28, 0.16),
+    0 0.25rem 1rem rgba(25, 26, 28, 0.04);
+}
+
+a.card,
+button.card,
+.card--interactive {
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--s-surface-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-surface-pressed);
+  }
+}

@@ -32,6 +32,7 @@ export class FlipButton {
   @Prop() disabled?: boolean;
   @Prop() download?: string;
   @Prop() flipAriaDescribedby?: string;
+  @Prop() flipAriaExpanded?: string;
   @Prop() flipAriaLabel?: string;
   @Prop() form?: string;
   @Prop() hideLabel?: boolean;
@@ -99,6 +100,7 @@ export class FlipButton {
         <Tag
           aria-describedby={this.flipAriaDescribedby}
           aria-disabled={this.disabled && !isLink ? "true" : undefined}
+          aria-expanded={this.flipAriaExpanded}
           aria-label={ariaLabel}
           class={className}
           disabled={isLink ? undefined : this.disabled}

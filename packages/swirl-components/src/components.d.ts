@@ -153,6 +153,7 @@ export namespace Components {
         "disabled"?: boolean;
         "download"?: string;
         "flipAriaDescribedby"?: string;
+        "flipAriaExpanded"?: string;
         "flipAriaLabel"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
@@ -173,6 +174,13 @@ export namespace Components {
         "segmented"?: boolean;
         "stretch"?: boolean;
         "wrap"?: boolean;
+    }
+    interface FlipCard {
+        "as"?: string;
+        "elevated"?: boolean;
+        "href"?: string;
+        "interactive"?: boolean;
+        "linkTarget"?: string;
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
@@ -197,11 +205,17 @@ export namespace Components {
         "backButonLabel"?: string;
         "heading": string;
         "helpButonLabel"?: string;
+        "hideNavigationButtonLabel"?: string;
         "logoText"?: string;
         "navigationLabel"?: string;
         "showBackButton"?: boolean;
         "showHelpButton"?: boolean;
+        "showNavigationButtonLabel"?: string;
         "subheading"?: string;
+        /**
+          * Toggle the mobile navigation visibility.
+         */
+        "toggleSidebar": () => Promise<void>;
     }
     interface FlipDateInput {
         "autoFocus"?: boolean;
@@ -372,6 +386,9 @@ export namespace Components {
     interface FlipIconAttachment {
         "size": FlipIconSize;
     }
+    interface FlipIconBlock {
+        "size": FlipIconSize;
+    }
     interface FlipIconCancel {
         "size": FlipIconSize;
     }
@@ -493,6 +510,9 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconMention {
+        "size": FlipIconSize;
+    }
+    interface FlipIconMenu {
         "size": FlipIconSize;
     }
     interface FlipIconMessage {
@@ -899,6 +919,11 @@ export namespace Components {
         "delay"?: number;
         "position"?: FlipTooltipPosition;
     }
+    interface FlipTreeNavigationItem {
+        "active"?: boolean;
+        "icon"?: string;
+        "label": string;
+    }
     interface FlipVideoThumbnail {
         "duration"?: string;
         "durationLabel"?: string;
@@ -1111,6 +1136,12 @@ declare global {
         prototype: HTMLFlipButtonGroupElement;
         new (): HTMLFlipButtonGroupElement;
     };
+    interface HTMLFlipCardElement extends Components.FlipCard, HTMLStencilElement {
+    }
+    var HTMLFlipCardElement: {
+        prototype: HTMLFlipCardElement;
+        new (): HTMLFlipCardElement;
+    };
     interface HTMLFlipCheckboxElement extends Components.FlipCheckbox, HTMLStencilElement {
     }
     var HTMLFlipCheckboxElement: {
@@ -1284,6 +1315,12 @@ declare global {
     var HTMLFlipIconAttachmentElement: {
         prototype: HTMLFlipIconAttachmentElement;
         new (): HTMLFlipIconAttachmentElement;
+    };
+    interface HTMLFlipIconBlockElement extends Components.FlipIconBlock, HTMLStencilElement {
+    }
+    var HTMLFlipIconBlockElement: {
+        prototype: HTMLFlipIconBlockElement;
+        new (): HTMLFlipIconBlockElement;
     };
     interface HTMLFlipIconCancelElement extends Components.FlipIconCancel, HTMLStencilElement {
     }
@@ -1530,6 +1567,12 @@ declare global {
     var HTMLFlipIconMentionElement: {
         prototype: HTMLFlipIconMentionElement;
         new (): HTMLFlipIconMentionElement;
+    };
+    interface HTMLFlipIconMenuElement extends Components.FlipIconMenu, HTMLStencilElement {
+    }
+    var HTMLFlipIconMenuElement: {
+        prototype: HTMLFlipIconMenuElement;
+        new (): HTMLFlipIconMenuElement;
     };
     interface HTMLFlipIconMessageElement extends Components.FlipIconMessage, HTMLStencilElement {
     }
@@ -1885,6 +1928,12 @@ declare global {
         prototype: HTMLFlipTooltipElement;
         new (): HTMLFlipTooltipElement;
     };
+    interface HTMLFlipTreeNavigationItemElement extends Components.FlipTreeNavigationItem, HTMLStencilElement {
+    }
+    var HTMLFlipTreeNavigationItemElement: {
+        prototype: HTMLFlipTreeNavigationItemElement;
+        new (): HTMLFlipTreeNavigationItemElement;
+    };
     interface HTMLFlipVideoThumbnailElement extends Components.FlipVideoThumbnail, HTMLStencilElement {
     }
     var HTMLFlipVideoThumbnailElement: {
@@ -1911,6 +1960,7 @@ declare global {
         "flip-box": HTMLFlipBoxElement;
         "flip-button": HTMLFlipButtonElement;
         "flip-button-group": HTMLFlipButtonGroupElement;
+        "flip-card": HTMLFlipCardElement;
         "flip-checkbox": HTMLFlipCheckboxElement;
         "flip-chip": HTMLFlipChipElement;
         "flip-console-layout": HTMLFlipConsoleLayoutElement;
@@ -1940,6 +1990,7 @@ declare global {
         "flip-icon-arrow-right": HTMLFlipIconArrowRightElement;
         "flip-icon-arrow-right-small": HTMLFlipIconArrowRightSmallElement;
         "flip-icon-attachment": HTMLFlipIconAttachmentElement;
+        "flip-icon-block": HTMLFlipIconBlockElement;
         "flip-icon-cancel": HTMLFlipIconCancelElement;
         "flip-icon-chat-bubble": HTMLFlipIconChatBubbleElement;
         "flip-icon-check": HTMLFlipIconCheckElement;
@@ -1981,6 +2032,7 @@ declare global {
         "flip-icon-mail": HTMLFlipIconMailElement;
         "flip-icon-manage-accounts": HTMLFlipIconManageAccountsElement;
         "flip-icon-mention": HTMLFlipIconMentionElement;
+        "flip-icon-menu": HTMLFlipIconMenuElement;
         "flip-icon-message": HTMLFlipIconMessageElement;
         "flip-icon-more-horizontal": HTMLFlipIconMoreHorizontalElement;
         "flip-icon-more-vertikal": HTMLFlipIconMoreVertikalElement;
@@ -2040,6 +2092,7 @@ declare global {
         "flip-toast": HTMLFlipToastElement;
         "flip-toast-provider": HTMLFlipToastProviderElement;
         "flip-tooltip": HTMLFlipTooltipElement;
+        "flip-tree-navigation-item": HTMLFlipTreeNavigationItemElement;
         "flip-video-thumbnail": HTMLFlipVideoThumbnailElement;
         "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
     }
@@ -2144,6 +2197,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "download"?: string;
         "flipAriaDescribedby"?: string;
+        "flipAriaExpanded"?: string;
         "flipAriaLabel"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
@@ -2164,6 +2218,13 @@ declare namespace LocalJSX {
         "segmented"?: boolean;
         "stretch"?: boolean;
         "wrap"?: boolean;
+    }
+    interface FlipCard {
+        "as"?: string;
+        "elevated"?: boolean;
+        "href"?: string;
+        "interactive"?: boolean;
+        "linkTarget"?: string;
     }
     interface FlipCheckbox {
         "checked"?: FlipCheckboxState;
@@ -2189,12 +2250,14 @@ declare namespace LocalJSX {
         "backButonLabel"?: string;
         "heading": string;
         "helpButonLabel"?: string;
+        "hideNavigationButtonLabel"?: string;
         "logoText"?: string;
         "navigationLabel"?: string;
         "onBackButtonClick"?: (event: FlipConsoleLayoutCustomEvent<MouseEvent>) => void;
         "onHelpButtonClick"?: (event: FlipConsoleLayoutCustomEvent<MouseEvent>) => void;
         "showBackButton"?: boolean;
         "showHelpButton"?: boolean;
+        "showNavigationButtonLabel"?: string;
         "subheading"?: string;
     }
     interface FlipDateInput {
@@ -2342,6 +2405,9 @@ declare namespace LocalJSX {
     interface FlipIconAttachment {
         "size"?: FlipIconSize;
     }
+    interface FlipIconBlock {
+        "size"?: FlipIconSize;
+    }
     interface FlipIconCancel {
         "size"?: FlipIconSize;
     }
@@ -2463,6 +2529,9 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconMention {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconMenu {
         "size"?: FlipIconSize;
     }
     interface FlipIconMessage {
@@ -2812,6 +2881,11 @@ declare namespace LocalJSX {
         "delay"?: number;
         "position"?: FlipTooltipPosition;
     }
+    interface FlipTreeNavigationItem {
+        "active"?: boolean;
+        "icon"?: string;
+        "label": string;
+    }
     interface FlipVideoThumbnail {
         "duration"?: string;
         "durationLabel"?: string;
@@ -2834,6 +2908,7 @@ declare namespace LocalJSX {
         "flip-box": FlipBox;
         "flip-button": FlipButton;
         "flip-button-group": FlipButtonGroup;
+        "flip-card": FlipCard;
         "flip-checkbox": FlipCheckbox;
         "flip-chip": FlipChip;
         "flip-console-layout": FlipConsoleLayout;
@@ -2863,6 +2938,7 @@ declare namespace LocalJSX {
         "flip-icon-arrow-right": FlipIconArrowRight;
         "flip-icon-arrow-right-small": FlipIconArrowRightSmall;
         "flip-icon-attachment": FlipIconAttachment;
+        "flip-icon-block": FlipIconBlock;
         "flip-icon-cancel": FlipIconCancel;
         "flip-icon-chat-bubble": FlipIconChatBubble;
         "flip-icon-check": FlipIconCheck;
@@ -2904,6 +2980,7 @@ declare namespace LocalJSX {
         "flip-icon-mail": FlipIconMail;
         "flip-icon-manage-accounts": FlipIconManageAccounts;
         "flip-icon-mention": FlipIconMention;
+        "flip-icon-menu": FlipIconMenu;
         "flip-icon-message": FlipIconMessage;
         "flip-icon-more-horizontal": FlipIconMoreHorizontal;
         "flip-icon-more-vertikal": FlipIconMoreVertikal;
@@ -2963,6 +3040,7 @@ declare namespace LocalJSX {
         "flip-toast": FlipToast;
         "flip-toast-provider": FlipToastProvider;
         "flip-tooltip": FlipTooltip;
+        "flip-tree-navigation-item": FlipTreeNavigationItem;
         "flip-video-thumbnail": FlipVideoThumbnail;
         "flip-visually-hidden": FlipVisuallyHidden;
     }
@@ -2984,6 +3062,7 @@ declare module "@stencil/core" {
             "flip-box": LocalJSX.FlipBox & JSXBase.HTMLAttributes<HTMLFlipBoxElement>;
             "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
             "flip-button-group": LocalJSX.FlipButtonGroup & JSXBase.HTMLAttributes<HTMLFlipButtonGroupElement>;
+            "flip-card": LocalJSX.FlipCard & JSXBase.HTMLAttributes<HTMLFlipCardElement>;
             "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
             "flip-chip": LocalJSX.FlipChip & JSXBase.HTMLAttributes<HTMLFlipChipElement>;
             "flip-console-layout": LocalJSX.FlipConsoleLayout & JSXBase.HTMLAttributes<HTMLFlipConsoleLayoutElement>;
@@ -3013,6 +3092,7 @@ declare module "@stencil/core" {
             "flip-icon-arrow-right": LocalJSX.FlipIconArrowRight & JSXBase.HTMLAttributes<HTMLFlipIconArrowRightElement>;
             "flip-icon-arrow-right-small": LocalJSX.FlipIconArrowRightSmall & JSXBase.HTMLAttributes<HTMLFlipIconArrowRightSmallElement>;
             "flip-icon-attachment": LocalJSX.FlipIconAttachment & JSXBase.HTMLAttributes<HTMLFlipIconAttachmentElement>;
+            "flip-icon-block": LocalJSX.FlipIconBlock & JSXBase.HTMLAttributes<HTMLFlipIconBlockElement>;
             "flip-icon-cancel": LocalJSX.FlipIconCancel & JSXBase.HTMLAttributes<HTMLFlipIconCancelElement>;
             "flip-icon-chat-bubble": LocalJSX.FlipIconChatBubble & JSXBase.HTMLAttributes<HTMLFlipIconChatBubbleElement>;
             "flip-icon-check": LocalJSX.FlipIconCheck & JSXBase.HTMLAttributes<HTMLFlipIconCheckElement>;
@@ -3054,6 +3134,7 @@ declare module "@stencil/core" {
             "flip-icon-mail": LocalJSX.FlipIconMail & JSXBase.HTMLAttributes<HTMLFlipIconMailElement>;
             "flip-icon-manage-accounts": LocalJSX.FlipIconManageAccounts & JSXBase.HTMLAttributes<HTMLFlipIconManageAccountsElement>;
             "flip-icon-mention": LocalJSX.FlipIconMention & JSXBase.HTMLAttributes<HTMLFlipIconMentionElement>;
+            "flip-icon-menu": LocalJSX.FlipIconMenu & JSXBase.HTMLAttributes<HTMLFlipIconMenuElement>;
             "flip-icon-message": LocalJSX.FlipIconMessage & JSXBase.HTMLAttributes<HTMLFlipIconMessageElement>;
             "flip-icon-more-horizontal": LocalJSX.FlipIconMoreHorizontal & JSXBase.HTMLAttributes<HTMLFlipIconMoreHorizontalElement>;
             "flip-icon-more-vertikal": LocalJSX.FlipIconMoreVertikal & JSXBase.HTMLAttributes<HTMLFlipIconMoreVertikalElement>;
@@ -3113,6 +3194,7 @@ declare module "@stencil/core" {
             "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
             "flip-toast-provider": LocalJSX.FlipToastProvider & JSXBase.HTMLAttributes<HTMLFlipToastProviderElement>;
             "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
+            "flip-tree-navigation-item": LocalJSX.FlipTreeNavigationItem & JSXBase.HTMLAttributes<HTMLFlipTreeNavigationItemElement>;
             "flip-video-thumbnail": LocalJSX.FlipVideoThumbnail & JSXBase.HTMLAttributes<HTMLFlipVideoThumbnailElement>;
             "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
         }
