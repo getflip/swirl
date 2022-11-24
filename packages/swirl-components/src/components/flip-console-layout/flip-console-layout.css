@@ -85,12 +85,6 @@
   grid-area: navigation;
 }
 
-.console-layout__hide-navigation-button {
-  @media (--from-tablet) {
-    display: none;
-  }
-}
-
 .console-layout__user {
   overflow: hidden;
   margin-top: var(--s-border-width-default);

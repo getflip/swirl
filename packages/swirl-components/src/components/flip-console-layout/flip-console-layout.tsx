@@ -122,10 +122,6 @@ export class FlipConsoleLayout {
     this.toggleSidebar();
   };
 
-  private onHideNavigationButtonClick = () => {
-    this.hideSidebar();
-  };
-
   private onClick = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
 
@@ -206,17 +202,6 @@ export class FlipConsoleLayout {
               class="console-layout__navigation"
             >
               <slot name="navigation"></slot>
-              {this.sidebarActive && (
-                <flip-visually-hidden>
-                  <button
-                    class="console-layout__hide-navigation-button"
-                    onClick={this.onHideNavigationButtonClick}
-                    type="button"
-                  >
-                    {this.hideNavigationButtonLabel}
-                  </button>
-                </flip-visually-hidden>
-              )}
             </nav>
             <div class="console-layout__user">
               <slot name="user"></slot>
