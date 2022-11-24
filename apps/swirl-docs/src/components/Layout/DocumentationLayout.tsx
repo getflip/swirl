@@ -1,23 +1,12 @@
-import {
-  FlipActionList,
-  FlipActionListItem,
-  FlipButton,
-  FlipButtonGroup,
-  FlipPopover,
-  FlipSpinner,
-} from "@getflip/swirl-components-react";
 import { DocHeadline } from "@swirl/lib/docs/src/docs.model";
 import { NavItem } from "@swirl/lib/navigation";
-import IframeResizer from "iframe-resizer-react";
 import { MDXRemote } from "next-mdx-remote";
-import { useEffect, useRef, useState } from "react";
 import { CategoryNav } from "./CategoryNav";
 import { DocLinksNav } from "./DocLinksNav";
 import Footer from "./Footer";
-import NoSsr from "./NoSsr";
-import classNames from "classnames";
 import { VariantPreview } from "../ComponentExamples/VariantPreview";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
+import { useEffect, useState } from "react";
 
 export type ComponentExample = {
   description: string;
@@ -36,8 +25,8 @@ export type FrontMatter = {
 interface DocumentationLayoutProps {
   documentLinkList: DocHeadline[];
   categoryLinkList: NavItem[] | undefined;
-  mdxComponents: any;
   document: any;
+  mdxComponents?: any;
   frontMatter?: FrontMatter;
 }
 
@@ -48,6 +37,16 @@ export const DocumentationLayout = ({
   document,
   frontMatter,
 }: DocumentationLayoutProps) => {
+  const [currentExample, setCurrentExample] = useState<ComponentExample | null>(
+    null
+  );
+
+  useEffect(() => {
+    if (frontMatter?.examples) {
+      setCurrentExample(frontMatter?.examples[0]);
+    }
+  }, [frontMatter]);
+
   return (
     <div className={`flex min-h-[calc(100vh_-_72px)]`}>
       <CategoryNav categoryLinkList={categoryLinkList} />
@@ -62,8 +61,14 @@ export const DocumentationLayout = ({
                 {frontMatter?.title && (
                   <DocumentationHeader frontMatter={frontMatter} />
                 )}
-                {frontMatter?.variantsDescription && (
-                  <VariantPreview frontMatter={frontMatter} />
+                {frontMatter?.examples && (
+                  <VariantPreview
+                    handleExampleChange={(example) =>
+                      setCurrentExample(example)
+                    }
+                    currentExample={currentExample}
+                    frontMatter={frontMatter}
+                  />
                 )}
                 <MDXRemote {...document} components={mdxComponents} />
               </article>

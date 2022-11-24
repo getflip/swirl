@@ -7,6 +7,7 @@ import { createStaticPathsData } from "@swirl/lib/docs";
 import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { ScriptProps } from "next/script";
 import { GetStaticProps } from "next";
+import { useEffect, useState } from "react";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation(BASE_PATHS.COMPONENTS, document);
@@ -50,7 +51,12 @@ export default function Component({
   title: string;
   document: any;
 }) {
-  const components = {};
+  const [frontMatter, setFrontMatter] = useState<any>(null);
+
+  useEffect(() => {
+    console.log("changes in ", document);
+    setFrontMatter(document?.frontmatter);
+  }, [document]);
 
   return (
     <>
@@ -61,8 +67,7 @@ export default function Component({
         categoryLinkList={componentsNavItems}
         documentLinkList={[]}
         document={document}
-        mdxComponents={components}
-        frontMatter={document.frontmatter}
+        frontMatter={frontMatter}
       />
     </>
   );
