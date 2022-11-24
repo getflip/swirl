@@ -74,6 +74,7 @@ export class FlipLightbox {
 
     setTimeout(() => {
       this.modal.hide();
+      this.resetImageZoom();
       this.closing = false;
     }, 150);
   }
