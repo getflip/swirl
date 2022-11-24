@@ -1,4 +1,17 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+} from "@stencil/core";
+import classnames from "classnames";
+import { isMobileViewport } from "../../utils";
 
 @Component({
   shadow: true,
@@ -6,18 +19,96 @@ import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
   tag: "flip-console-layout",
 })
 export class FlipConsoleLayout {
+  @Element() el: HTMLElement;
+
   @Prop() appName!: string;
   @Prop() backButonLabel?: string = "Back";
   @Prop() heading!: string;
   @Prop() helpButonLabel?: string = "Help";
+  @Prop() hideNavigationButtonLabel?: string = "Hide main navigation";
   @Prop() logoText?: string = "Admin";
+  @Prop() showNavigationButtonLabel?: string = "Show main navigation";
   @Prop() navigationLabel?: string = "Main";
   @Prop() showBackButton?: boolean;
   @Prop() showHelpButton?: boolean;
   @Prop() subheading?: string;
 
+  @State() sidebarActive: boolean;
+
   @Event() backButtonClick: EventEmitter<MouseEvent>;
   @Event() helpButtonClick: EventEmitter<MouseEvent>;
+
+  private sidebarEl: HTMLElement;
+
+  componentDidLoad() {
+    queueMicrotask(() => {
+      if (!isMobileViewport()) {
+        this.activateSidebar();
+      } else {
+        this.deactivateSidebar();
+      }
+    });
+  }
+
+  @Listen("resize", { target: "window" })
+  onWindowResize() {
+    const mobileViewport = isMobileViewport();
+
+    if (!mobileViewport && !this.sidebarActive) {
+      this.activateSidebar();
+    } else if (mobileViewport) {
+      this.deactivateSidebar();
+    }
+  }
+
+  /**
+   * Toggle the mobile navigation visibility.
+   */
+  @Method()
+  async toggleSidebar() {
+    if (this.sidebarActive) {
+      this.deactivateSidebar();
+    } else {
+      this.activateSidebar();
+    }
+  }
+
+  /**
+   * Show the mobile navigation.
+   */
+  @Method()
+  async showSidebar() {
+    if (!this.sidebarActive) {
+      this.activateSidebar();
+    }
+  }
+
+  /**
+   * Hide the mobile navigation.
+   */
+  @Method()
+  async hideSidebar() {
+    if (this.sidebarActive) {
+      this.deactivateSidebar();
+    }
+  }
+
+  private activateSidebar() {
+    this.sidebarActive = true;
+    this.sidebarEl.removeAttribute("inert");
+
+    if (isMobileViewport()) {
+      this.el.querySelector("flip-tree-navigation-item")?.focus();
+    }
+  }
+
+  private deactivateSidebar() {
+    this.sidebarActive = false;
+
+    if (isMobileViewport()) {
+      this.sidebarEl.setAttribute("inert", "");
+    }
+  }
 
   private onBackButtonClick = (event: MouseEvent) => {
     this.backButtonClick.emit(event);
@@ -27,11 +118,53 @@ export class FlipConsoleLayout {
     this.helpButtonClick.emit(event);
   };
 
+  private onMobileNavigationToggleClick = () => {
+    this.toggleSidebar();
+  };
+
+  private onClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+
+    const clickOnToggle = Boolean(
+      target.closest(".console-layout__mobile-navigation-button")
+    );
+
+    const clickOnOverlay = target.closest("[slot]")?.slot === "overlays";
+    const clickInsideSidebar = event.composedPath().includes(this.sidebarEl);
+
+    if (
+      !clickInsideSidebar &&
+      !clickOnToggle &&
+      !clickOnOverlay &&
+      this.sidebarActive
+    ) {
+      this.deactivateSidebar();
+    }
+  };
+
+  private onKeyDown = (event: KeyboardEvent) => {
+    if (event.code === "Escape" && this.sidebarActive) {
+      this.deactivateSidebar();
+    }
+  };
+
   render() {
+    const className = classnames("console-layout", {
+      "console-layout--sidebar-active": this.sidebarActive,
+    });
+
     return (
       <Host>
-        <div class="console-layout">
-          <div class="console-layout__sidebar">
+        <div
+          class={className}
+          onClick={this.onClick}
+          onKeyDown={this.onKeyDown}
+        >
+          <div
+            aria-hidden={String(!this.sidebarActive)}
+            class="console-layout__sidebar"
+            ref={(el) => (this.sidebarEl = el)}
+          >
             <header class="console-layout__header">
               <div class="console-layout__logo">
                 <svg
@@ -76,6 +209,22 @@ export class FlipConsoleLayout {
           </div>
           <main aria-labelledby="app-name" class="console-layout__main">
             <header class="console-layout__app-bar">
+              <flip-button
+                class="console-layout__mobile-navigation-button"
+                flipAriaExpanded={String(this.sidebarActive)}
+                hideLabel
+                icon={
+                  this.sidebarActive
+                    ? "<flip-icon-close></flip-icon-close>"
+                    : "<flip-icon-menu></flip-icon-menu>"
+                }
+                label={
+                  this.sidebarActive
+                    ? this.hideNavigationButtonLabel
+                    : this.showNavigationButtonLabel
+                }
+                onClick={this.onMobileNavigationToggleClick}
+              ></flip-button>
               <flip-heading
                 as="h1"
                 class="console-layout__app-name"
@@ -90,7 +239,6 @@ export class FlipConsoleLayout {
                   icon="<flip-icon-help></flip-icon-help>"
                   label={this.helpButonLabel}
                   onClick={this.onHelpButtonClick}
-                  variant="flat"
                 ></flip-button>
               )}
             </header>
@@ -127,6 +275,9 @@ export class FlipConsoleLayout {
                 <slot name="content"></slot>
               </div>
             </section>
+            <div class="console-layout__overlays">
+              <slot name="overlays"></slot>
+            </div>
           </main>
         </div>
       </Host>

@@ -1,5 +1,99 @@
 # @getflip/swirl-components
 
+## 0.8.2
+
+### Patch Changes
+
+- [`3c6b9d5`](https://github.com/getflip/swirl/commit/3c6b9d50e23f8aba993966f9950ad7ff216cb712)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add overlays slot to
+  flip-console-layout
+
+## 0.8.1
+
+### Patch Changes
+
+- [`9c829c6`](https://github.com/getflip/swirl/commit/9c829c61630d2bc8d834aea9f721d3e3ac871e0e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add show/hide sidebar methods to
+  flip-console-layout
+
+## 0.8.0
+
+### Minor Changes
+
+- [#87](https://github.com/getflip/swirl/pull/87)
+  [`52e9ffb`](https://github.com/getflip/swirl/commit/52e9ffb121b40fb9d4309c7f5f3459b4e00aa254)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-card component
+
+### Patch Changes
+
+- [`3d681fb`](https://github.com/getflip/swirl/commit/3d681fb774de57d52cbd5868d51509b9b50371fc)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix disabled sidebar issue of
+  flip-console-layout
+
+## 0.7.1
+
+### Patch Changes
+
+- [`ca480a4`](https://github.com/getflip/swirl/commit/ca480a44b5da43f83597393c36dcadc60d1f295c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix mobile style issue of
+  flip-console-layout
+
+## 0.7.0
+
+### Minor Changes
+
+- [`c0dc8ce`](https://github.com/getflip/swirl/commit/c0dc8cedfebf3b3063b7bb3e39c48a58050a1679)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "block" and "menu" icons
+
+### Patch Changes
+
+- [`edc8de9`](https://github.com/getflip/swirl/commit/edc8de98e9cb81395cceb189a09eeaed8fddf05f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add responsive sidebar to
+  flip-console-layout component
+
+* [`925c653`](https://github.com/getflip/swirl/commit/925c6538ed16a9c4fa0ef179cd33aeba3630d9fe)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-aria-expanded property
+  to flip-button component
+
+* Updated dependencies
+  [[`c0dc8ce`](https://github.com/getflip/swirl/commit/c0dc8cedfebf3b3063b7bb3e39c48a58050a1679)]:
+  - @getflip/swirl-icons@0.6.0
+
+## 0.6.5
+
+### Patch Changes
+
+- [`d734759`](https://github.com/getflip/swirl/commit/d7347591ff2730e92846180440623cbd8b3b25e3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make flip-tree-navigation-item
+  work more nicely with Angular routerLink
+
+## 0.6.4
+
+### Patch Changes
+
+- [`cea8c3d`](https://github.com/getflip/swirl/commit/cea8c3dbd682f1fff87bba58e6c2fa6ad35ef8f0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak flip-console-layout styles
+
+## 0.6.3
+
+### Patch Changes
+
+- [`2e3b247`](https://github.com/getflip/swirl/commit/2e3b247477ecd6a79b84589c14dec1dafce29081)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-tree-navigation-item
+  component
+
+## 0.6.2
+
+### Patch Changes
+
+- [`b617944`](https://github.com/getflip/swirl/commit/b617944e53302c3debcb14d0ce88b7662ebcc341)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix flex shrink behavior of
+  flip-avatar and flip-button
+
+* [`be00063`](https://github.com/getflip/swirl/commit/be00063b5d2287e2fa0b06cea2703cc6df048570)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix sidebar overflow of
+  flip-console-layout
+
 ## 0.6.1
 
 ### Patch Changes

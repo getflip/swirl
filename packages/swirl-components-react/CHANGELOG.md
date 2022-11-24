@@ -1,5 +1,128 @@
 # @getflip/swirl-components-react
 
+## 0.7.2
+
+### Patch Changes
+
+- [`3c6b9d5`](https://github.com/getflip/swirl/commit/3c6b9d50e23f8aba993966f9950ad7ff216cb712)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add overlays slot to
+  flip-console-layout
+
+- Updated dependencies
+  [[`3c6b9d5`](https://github.com/getflip/swirl/commit/3c6b9d50e23f8aba993966f9950ad7ff216cb712)]:
+  - @getflip/swirl-components@0.8.2
+
+## 0.7.1
+
+### Patch Changes
+
+- [`9c829c6`](https://github.com/getflip/swirl/commit/9c829c61630d2bc8d834aea9f721d3e3ac871e0e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add show/hide sidebar methods to
+  flip-console-layout
+
+- Updated dependencies
+  [[`9c829c6`](https://github.com/getflip/swirl/commit/9c829c61630d2bc8d834aea9f721d3e3ac871e0e)]:
+  - @getflip/swirl-components@0.8.1
+
+## 0.7.0
+
+### Minor Changes
+
+- [`2408837`](https://github.com/getflip/swirl/commit/2408837591c961769281e91f6999064dbecd4989)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-card component
+
+### Patch Changes
+
+- [`3d681fb`](https://github.com/getflip/swirl/commit/3d681fb774de57d52cbd5868d51509b9b50371fc)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix disabled sidebar issue of
+  flip-console-layout
+
+- Updated dependencies
+  [[`3d681fb`](https://github.com/getflip/swirl/commit/3d681fb774de57d52cbd5868d51509b9b50371fc),
+  [`52e9ffb`](https://github.com/getflip/swirl/commit/52e9ffb121b40fb9d4309c7f5f3459b4e00aa254)]:
+  - @getflip/swirl-components@0.8.0
+
+## 0.6.1
+
+### Patch Changes
+
+- [`ca480a4`](https://github.com/getflip/swirl/commit/ca480a44b5da43f83597393c36dcadc60d1f295c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix mobile style issue of
+  flip-console-layout
+
+- Updated dependencies
+  [[`ca480a4`](https://github.com/getflip/swirl/commit/ca480a44b5da43f83597393c36dcadc60d1f295c)]:
+  - @getflip/swirl-components@0.7.1
+
+## 0.6.0
+
+### Minor Changes
+
+- [`c0dc8ce`](https://github.com/getflip/swirl/commit/c0dc8cedfebf3b3063b7bb3e39c48a58050a1679)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "block" and "menu" icons
+
+### Patch Changes
+
+- [`edc8de9`](https://github.com/getflip/swirl/commit/edc8de98e9cb81395cceb189a09eeaed8fddf05f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add responsive sidebar to
+  flip-console-layout component
+
+* [`925c653`](https://github.com/getflip/swirl/commit/925c6538ed16a9c4fa0ef179cd33aeba3630d9fe)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-aria-expanded property
+  to flip-button component
+
+* Updated dependencies
+  [[`edc8de9`](https://github.com/getflip/swirl/commit/edc8de98e9cb81395cceb189a09eeaed8fddf05f),
+  [`925c653`](https://github.com/getflip/swirl/commit/925c6538ed16a9c4fa0ef179cd33aeba3630d9fe),
+  [`c0dc8ce`](https://github.com/getflip/swirl/commit/c0dc8cedfebf3b3063b7bb3e39c48a58050a1679)]:
+  - @getflip/swirl-components@0.7.0
+
+## 0.5.5
+
+### Patch Changes
+
+- [`d734759`](https://github.com/getflip/swirl/commit/d7347591ff2730e92846180440623cbd8b3b25e3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make flip-tree-navigation-item
+  work more nicely with Angular routerLink
+
+- Updated dependencies
+  [[`d734759`](https://github.com/getflip/swirl/commit/d7347591ff2730e92846180440623cbd8b3b25e3)]:
+  - @getflip/swirl-components@0.6.5
+
+## 0.5.4
+
+### Patch Changes
+
+- [`cea8c3d`](https://github.com/getflip/swirl/commit/cea8c3dbd682f1fff87bba58e6c2fa6ad35ef8f0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak flip-console-layout styles
+
+- Updated dependencies
+  [[`cea8c3d`](https://github.com/getflip/swirl/commit/cea8c3dbd682f1fff87bba58e6c2fa6ad35ef8f0)]:
+  - @getflip/swirl-components@0.6.4
+
+## 0.5.3
+
+### Patch Changes
+
+- [`2e3b247`](https://github.com/getflip/swirl/commit/2e3b247477ecd6a79b84589c14dec1dafce29081)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Integrate new Web Component(s)
+
+- Updated dependencies
+  [[`2e3b247`](https://github.com/getflip/swirl/commit/2e3b247477ecd6a79b84589c14dec1dafce29081)]:
+  - @getflip/swirl-components@0.6.3
+
+## 0.5.2
+
+### Patch Changes
+
+- [`cd48a4d`](https://github.com/getflip/swirl/commit/cd48a4da83285a5acd5458d0bada91dddd5569f1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Integrate Web Component fixes
+
+- Updated dependencies
+  [[`b617944`](https://github.com/getflip/swirl/commit/b617944e53302c3debcb14d0ce88b7662ebcc341),
+  [`be00063`](https://github.com/getflip/swirl/commit/be00063b5d2287e2fa0b06cea2703cc6df048570)]:
+  - @getflip/swirl-components@0.6.2
+
 ## 0.5.1
 
 ### Patch Changes
