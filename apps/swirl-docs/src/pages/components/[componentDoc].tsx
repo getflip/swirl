@@ -54,7 +54,6 @@ export default function Component({
   const [frontMatter, setFrontMatter] = useState<any>(null);
 
   useEffect(() => {
-    console.log("changes in ", document);
     setFrontMatter(document?.frontmatter);
   }, [document]);
 

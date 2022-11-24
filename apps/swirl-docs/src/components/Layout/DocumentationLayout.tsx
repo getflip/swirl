@@ -40,8 +40,10 @@ export const DocumentationLayout = ({
   const [currentExample, setCurrentExample] = useState<ComponentExample | null>(
     null
   );
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    setIsLoading(true);
     if (frontMatter?.examples) {
       setCurrentExample(frontMatter?.examples[0]);
     }
@@ -63,6 +65,8 @@ export const DocumentationLayout = ({
                 )}
                 {frontMatter?.examples && (
                   <VariantPreview
+                    isLoading={isLoading}
+                    setIsLoading={setIsLoading}
                     handleExampleChange={(example) =>
                       setCurrentExample(example)
                     }

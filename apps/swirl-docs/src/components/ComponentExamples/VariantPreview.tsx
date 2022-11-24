@@ -16,14 +16,17 @@ interface VariantPreviewProps {
   frontMatter: FrontMatter;
   currentExample: ComponentExample | null;
   handleExampleChange: (example: ComponentExample) => void;
+  isLoading: boolean;
+  setIsLoading: (isLoading: boolean) => void;
 }
 
 export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
   frontMatter,
   currentExample,
   handleExampleChange,
+  isLoading,
+  setIsLoading,
 }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const variantPopover = useRef<any>(null);
 
   return (
