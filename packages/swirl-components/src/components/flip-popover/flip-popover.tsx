@@ -211,6 +211,7 @@ export class FlipPopover {
 
   private onKeydown = (event: KeyboardEvent) => {
     if (event.code === "Escape" && this.active) {
+      event.stopPropagation();
       this.close();
     }
   };

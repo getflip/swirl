@@ -11,7 +11,6 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { createFocusTrap, FocusTrap } from "focus-trap";
 import { isMobileViewport } from "../../utils";
 
 @Component({
@@ -39,23 +38,9 @@ export class FlipConsoleLayout {
   @Event() backButtonClick: EventEmitter<MouseEvent>;
   @Event() helpButtonClick: EventEmitter<MouseEvent>;
 
-  private focusTrap: FocusTrap;
   private sidebarEl: HTMLElement;
 
   componentDidLoad() {
-    const sidebarContents = [
-      this.sidebarEl,
-      ...Array.from(
-        this.el.querySelectorAll<HTMLElement>(
-          '[slot="navigation"], [slot="user"]'
-        )
-      ).filter((el) => Boolean(el)),
-    ];
-
-    this.focusTrap = createFocusTrap(sidebarContents, {
-      clickOutsideDeactivates: true,
-    });
-
     queueMicrotask(() => {
       if (!isMobileViewport()) {
         this.activateSidebar();
@@ -113,7 +98,7 @@ export class FlipConsoleLayout {
     this.sidebarEl.removeAttribute("inert");
 
     if (isMobileViewport()) {
-      this.focusTrap?.activate();
+      this.el.querySelector("flip-tree-navigation-item")?.focus();
     }
   }
 
@@ -123,8 +108,6 @@ export class FlipConsoleLayout {
     if (isMobileViewport()) {
       this.sidebarEl.setAttribute("inert", "");
     }
-
-    this.focusTrap?.deactivate({ returnFocus: true });
   }
 
   private onBackButtonClick = (event: MouseEvent) => {
@@ -150,10 +133,16 @@ export class FlipConsoleLayout {
       target.closest(".console-layout__mobile-navigation-button")
     );
 
+    const clickOnOverlay = target.closest("[slot]")?.slot === "overlays";
     const clickInsideSidebar = event.composedPath().includes(this.sidebarEl);
 
-    if (!clickInsideSidebar && !clickOnToggle && this.sidebarActive) {
-      this.sidebarActive = false;
+    if (
+      !clickInsideSidebar &&
+      !clickOnToggle &&
+      !clickOnOverlay &&
+      this.sidebarActive
+    ) {
+      this.deactivateSidebar();
     }
   };
 
@@ -301,6 +290,9 @@ export class FlipConsoleLayout {
                 <slot name="content"></slot>
               </div>
             </section>
+            <div class="console-layout__overlays">
+              <slot name="overlays"></slot>
+            </div>
           </main>
         </div>
       </Host>
