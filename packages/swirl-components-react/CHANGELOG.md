@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.7.3
+
+### Patch Changes
+
+- [`70ac260`](https://github.com/getflip/swirl/commit/70ac26064db99e7dbbd59631ca3218c55e8d779b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Change flip-tree-navigation-item
+  semantics to be a link
+
+- Updated dependencies
+  [[`70ac260`](https://github.com/getflip/swirl/commit/70ac26064db99e7dbbd59631ca3218c55e8d779b)]:
+  - @getflip/swirl-components@0.8.3
+
 ## 0.7.2
 
 ### Patch Changes
