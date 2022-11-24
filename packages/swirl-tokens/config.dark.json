@@ -31,13 +31,14 @@
         "size/flutter/remToDouble",
         "content/flutter/literal",
         "asset/flutter/literal",
-        "font/flutter/literal"
+        "font/flutter/literal",
+        "fontWeight/flutter"
       ],
       "prefix": "",
       "buildPath": "dist/flutter/",
       "files": [
         {
-          "className": "SwirlDesignTokens",
+          "className": "SwirlDesignTokensDark",
           "destination": "styles.dark.dart",
           "format": "flutter/class.dart"
         }
