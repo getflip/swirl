@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: yarn && yarn post-versioning
+      - run: yarn && yarn prepare-dart-package
 
       - name: "Publish to pub.dev"
         uses: k-paxian/dart-package-publisher@master

@@ -22,18 +22,18 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          version: yarn version-packages
           publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: yarn prepare-dart-package
 
       # This will only publish if the version number in pubspec.yml changed.
       - name: "Publish to pub.dev"
         uses: k-paxian/dart-package-publisher@master
         with:
           relativePath: packages/swirl-tokens/dart
-          dryRunOnly: true
           skipTests: true
           force: true
           flutter: true
