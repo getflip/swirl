@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import { VariantPreview } from "../ComponentExamples/VariantPreview";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
 import { useEffect, useState } from "react";
+import componentJSON from "@getflip/swirl-components/components.json";
 
 export type ComponentExample = {
   description: string;
@@ -41,6 +42,8 @@ export const DocumentationLayout = ({
     null
   );
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  console.log(componentJSON.components);
 
   useEffect(() => {
     setIsLoading(true);
