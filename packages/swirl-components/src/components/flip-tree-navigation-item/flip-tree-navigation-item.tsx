@@ -14,16 +14,7 @@ export class FlipTreeNavigationItem {
   @Prop() label!: string;
 
   private onKeyDown = (event: KeyboardEvent) => {
-    if (event.code === "Space") {
-      event.preventDefault();
-    } else if (event.code === "Enter") {
-      event.preventDefault();
-      this.el.click();
-    }
-  };
-
-  private onKeyUp = (event: KeyboardEvent) => {
-    if (event.code === "Space") {
+    if (event.code === "Enter") {
       event.preventDefault();
       this.el.click();
     }
@@ -39,8 +30,7 @@ export class FlipTreeNavigationItem {
       <Host
         class={className}
         onKeyDown={this.onKeyDown}
-        onKeyUp={this.onKeyUp}
-        role="button"
+        role="link"
         tabIndex={0}
       >
         {this.icon && (

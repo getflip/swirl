@@ -23,7 +23,8 @@
   }
 
   &(:focus) {
-    outline-color: var(--s-focus-default);
+    background-color: var(--s-surface-hovered);
+    outline: none;
   }
 
   &(.tree-navigation-item--active) {
