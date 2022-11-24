@@ -27,7 +27,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: yarn prepare-dart-package && cd packages/swirl-tokens && yarn build
+      - run: yarn prepare-dart-package
 
       # This will only publish if the version number in pubspec.yml changed.
       - name: "Publish to pub.dev"

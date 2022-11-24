@@ -17,7 +17,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: yarn && yarn prepare-dart-package
+      - run:
+          yarn && yarn prepare-dart-package && cd packages/swirl-tokens && yarn
+          build
 
       - name: "Publish to pub.dev"
         uses: k-paxian/dart-package-publisher@master
