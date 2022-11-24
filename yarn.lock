@@ -1887,6 +1887,41 @@
   resolved "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.3.tgz"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
+"@getflip/swirl-components-react@^0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@getflip/swirl-components-react/-/swirl-components-react-0.7.1.tgz#341f99795ebc4b4c7a1e8cebe9bc51ca3f1ac6a3"
+  integrity sha512-Eh6zkZAdZ2ew9jd77jYSqXva9ir79yntwtW1iX7kkIENndF/qiU7mkwNH4OUe4rR2gyVALcGIJejwtBdu6hCgQ==
+  dependencies:
+    "@getflip/swirl-components" "^0.8.1"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+
+"@getflip/swirl-components@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@getflip/swirl-components/-/swirl-components-0.8.1.tgz#c013ecd5db7b5c511b501fe132ba27d6f9c5560e"
+  integrity sha512-MMSYcjDiVnjd8jZsjM8hkWiDz2aEjiDfx5KJ1r0oY3p27KCqHe8JCJY9f9ojHMTh9xurxwJJMVaqS7JL9e/Nvg==
+  dependencies:
+    "@floating-ui/dom" "^1.0.1"
+    "@getflip/swirl-icons" "^0.6.0"
+    "@getflip/swirl-tokens" "^2.0.0"
+    "@stencil/core" "^2.13.0"
+    a11y-dialog "^7.5.2"
+    air-datepicker "^3.3.0"
+    body-scroll-lock "^4.0.0-beta.0"
+    classnames "^2.3.1"
+    color2k "^2.0.0"
+    date-fns "^2.29.3"
+    file-saver "^2.0.5"
+    focus-trap "^7.1.0"
+    maska "^1.5.0"
+    papaparse "^5.3.2"
+    pdfjs-dist "^2.16.105"
+
+"@getflip/swirl-icons@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@getflip/swirl-icons/-/swirl-icons-0.6.0.tgz#e946df221de726b705fa0dba49607db6f1302eb0"
+  integrity sha512-nX36n+SHsv13lvj+9qAJbyvWG7d0zXY1P/EJG/5I8dNvYX7P6ldp8luzgI5crx5sZ94kD9VX+qifLEhMu7YMnQ==
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.7"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.10.7.tgz"
@@ -8668,6 +8703,13 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
+focus-trap@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-7.1.0.tgz#3226e977d76b1fd555c2e4f7ff91f10371f0f2cc"
+  integrity sha512-CuJvwUBfJCWcU6fc4xr3UwMF5vWnox4isXAixCwrPzCsPKOQjP9T+nTlYT2t+vOmQL8MOQ16eim99XhjQHAuiQ==
+  dependencies:
+    tabbable "^6.0.1"
+
 focusable-selectors@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/focusable-selectors/-/focusable-selectors-0.4.0.tgz"
@@ -12387,7 +12429,7 @@ micromatch@^3.1.10, micromatch@^3.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
 
-micromatch@^4.0.2, micromatch@^4.0.4:
+micromatch@^4.0.2, micromatch@^4.0.4, micromatch@^4.0.5:
   version "4.0.5"
   resolved "https://registry.npmjs.org/micromatch/-/micromatch-4.0.5.tgz"
   integrity sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==
@@ -14148,7 +14190,14 @@ postcss-modules-values@^4.0.0:
   dependencies:
     icss-utils "^5.0.0"
 
-postcss-nested@5.0.6, postcss-nested@^5.0.6:
+postcss-nested@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-nested/-/postcss-nested-6.0.0.tgz#1572f1984736578f360cffc7eb7dca69e30d1735"
+  integrity sha512-0DkamqrPcmkBDsLn+vQDIrtkSbNkv5AD/M322ySo9kqFkCIYklym2xEmWkwo+Y3/qZo34tzEPNUw4y7yMCdv5w==
+  dependencies:
+    postcss-selector-parser "^6.0.10"
+
+postcss-nested@^5.0.6:
   version "5.0.6"
   resolved "https://registry.npmjs.org/postcss-nested/-/postcss-nested-5.0.6.tgz"
   integrity sha512-rKqm2Fk0KbA8Vt3AdGN0FB9OBOMDVajMG6ZCf/GoHgdxUJ4sBFp0A/uMIRm+MJUdo33YXEtjqIz8u7DAp8B7DA==
@@ -14359,10 +14408,19 @@ postcss@^7.0.14, postcss@^7.0.26, postcss@^7.0.32, postcss@^7.0.36, postcss@^7.0
     picocolors "^0.2.1"
     source-map "^0.6.1"
 
-postcss@^8.3.11, postcss@^8.3.7, postcss@^8.4.14, postcss@^8.4.16, postcss@^8.4.7, postcss@^8.4.8:
+postcss@^8.3.11, postcss@^8.3.7, postcss@^8.4.16, postcss@^8.4.7, postcss@^8.4.8:
   version "8.4.16"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.16.tgz"
   integrity sha512-ipHE1XBvKzm5xI7hiHCZJCSugxvsdq2mPnsq5+UF+VHCjiBvtDrlxJfMBToWaP9D5XlgNmcFGqoHmUn0EYEaRQ==
+  dependencies:
+    nanoid "^3.3.4"
+    picocolors "^1.0.0"
+    source-map-js "^1.0.2"
+
+postcss@^8.4.18:
+  version "8.4.19"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.19.tgz#61178e2add236b17351897c8bcc0b4c8ecab56fc"
+  integrity sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA==
   dependencies:
     nanoid "^3.3.4"
     picocolors "^1.0.0"
@@ -16643,10 +16701,15 @@ syntaxhighlighter@^4.0.1:
     syntaxhighlighter-regex "^4.0.0"
     unindenter "^4.0.0"
 
-tailwindcss@^3.1.8:
-  version "3.1.8"
-  resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.1.8.tgz"
-  integrity sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==
+tabbable@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-6.0.1.tgz#427a09b13c83ae41eed3e88abb76a4af28bde1a6"
+  integrity sha512-SYJSIgeyXW7EuX1ytdneO5e8jip42oHWg9xl/o3oTYhmXusZVgiA+VlPvjIN+kHii9v90AmzTZEBcsEvuAY+TA==
+
+tailwindcss@^3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.2.4.tgz#afe3477e7a19f3ceafb48e4b083e292ce0dc0250"
+  integrity sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==
   dependencies:
     arg "^5.0.2"
     chokidar "^3.5.3"
@@ -16654,18 +16717,19 @@ tailwindcss@^3.1.8:
     detective "^5.2.1"
     didyoumean "^1.2.2"
     dlv "^1.1.3"
-    fast-glob "^3.2.11"
+    fast-glob "^3.2.12"
     glob-parent "^6.0.2"
     is-glob "^4.0.3"
     lilconfig "^2.0.6"
+    micromatch "^4.0.5"
     normalize-path "^3.0.0"
     object-hash "^3.0.0"
     picocolors "^1.0.0"
-    postcss "^8.4.14"
+    postcss "^8.4.18"
     postcss-import "^14.1.0"
     postcss-js "^4.0.0"
     postcss-load-config "^3.1.4"
-    postcss-nested "5.0.6"
+    postcss-nested "6.0.0"
     postcss-selector-parser "^6.0.10"
     postcss-value-parser "^4.2.0"
     quick-lru "^5.1.1"

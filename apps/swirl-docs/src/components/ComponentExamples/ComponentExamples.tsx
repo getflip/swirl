@@ -6,7 +6,7 @@ const iframePadding = 192;
 export type ComponentExample = {
   code: string;
   description: string;
-  fileName: string;
+  url: string;
   title: string;
 };
 

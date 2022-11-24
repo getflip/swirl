@@ -86,6 +86,7 @@ export default function Component({
         documentLinkList={documentLinkList}
         document={document}
         mdxComponents={components}
+        frontMatter={document.frontmatter}
       />
     </>
   );
