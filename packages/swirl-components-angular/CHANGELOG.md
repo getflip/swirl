@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.7.2
+
+### Patch Changes
+
+- [`3c6b9d5`](https://github.com/getflip/swirl/commit/3c6b9d50e23f8aba993966f9950ad7ff216cb712)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add overlays slot to
+  flip-console-layout
+
+- Updated dependencies
+  [[`3c6b9d5`](https://github.com/getflip/swirl/commit/3c6b9d50e23f8aba993966f9950ad7ff216cb712)]:
+  - @getflip/swirl-components@0.8.2
+
 ## 0.7.1
 
 ### Patch Changes
