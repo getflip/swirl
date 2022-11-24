@@ -208,8 +208,6 @@ export class FlipLightbox {
   }
 
   private onPointerDown = (event: MouseEvent | TouchEvent) => {
-    event.preventDefault();
-
     this.dragging = true;
 
     this.dragStartPosition =
