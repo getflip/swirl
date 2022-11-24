@@ -35,7 +35,7 @@
         "fontWeight/flutter"
       ],
       "prefix": "",
-      "buildPath": "dist/flutter/",
+      "buildPath": "dart/lib/",
       "files": [
         {
           "className": "SwirlDesignTokensLight",
