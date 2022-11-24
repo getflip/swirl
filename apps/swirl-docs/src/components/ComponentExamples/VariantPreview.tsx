@@ -6,10 +6,10 @@ import {
   FlipPopover,
   FlipSpinner,
 } from "@getflip/swirl-components-react";
+import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import classNames from "classnames";
 import IframeResizer from "iframe-resizer-react";
 import { FunctionComponent, Suspense, useRef, useState } from "react";
-import { ComponentExample, FrontMatter } from "../Layout/DocumentationLayout";
 import DynamicComponent from "./DynamicComponent";
 
 interface VariantPreviewProps {

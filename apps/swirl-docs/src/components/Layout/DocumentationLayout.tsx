@@ -1,4 +1,8 @@
-import { DocHeadline } from "@swirl/lib/docs/src/docs.model";
+import {
+  ComponentExample,
+  DocHeadline,
+  FrontMatter,
+} from "@swirl/lib/docs/src/docs.model";
 import { NavItem } from "@swirl/lib/navigation";
 import { MDXRemote } from "next-mdx-remote";
 import { CategoryNav } from "./CategoryNav";
@@ -7,21 +11,11 @@ import Footer from "./Footer";
 import { VariantPreview } from "../ComponentExamples/VariantPreview";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
 import { useEffect, useState } from "react";
-import componentJSON from "@getflip/swirl-components/components.json";
-
-export type ComponentExample = {
-  description: string;
-  url: string;
-  title: string;
-};
-
-export type FrontMatter = {
-  title: string;
-  description: string;
-  tags?: string[];
-  variantsDescription?: string;
-  examples: ComponentExample[];
-};
+import { getSwirlComponentData } from "@swirl/lib/components";
+import {
+  Prop,
+  SwirlComponent,
+} from "@swirl/lib/components/src/components.model";
 
 interface DocumentationLayoutProps {
   documentLinkList: DocHeadline[];
@@ -42,13 +36,21 @@ export const DocumentationLayout = ({
     null
   );
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [componentPropsData, setComponentPropsData] = useState<Prop[] | null>(
+    null
+  );
 
-  console.log(componentJSON.components);
+  const hasProps = componentPropsData && componentPropsData.length > 0;
 
   useEffect(() => {
     setIsLoading(true);
     if (frontMatter?.examples) {
       setCurrentExample(frontMatter?.examples[0]);
+      const component = getSwirlComponentData(
+        frontMatter?.title
+      ) as SwirlComponent;
+
+      setComponentPropsData(component.props);
     }
   }, [frontMatter]);
 
@@ -77,22 +79,41 @@ export const DocumentationLayout = ({
                     frontMatter={frontMatter}
                   />
                 )}
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Prop</th>
-                      <th>Type</th>
-                      <th>Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>children</td>
-                      <td>ReactNode</td>
-                      <td>Content of the component</td>
-                    </tr>
-                  </tbody>
-                </table>
+                {hasProps && (
+                  <table className="mb-10 w-full">
+                    <thead>
+                      <tr className="grid gap-2 grid-cols-6 border-b-1 pb-4">
+                        <th className="col-span-2 font-semibold text-start">
+                          Prop
+                        </th>
+                        <th className="col-span-2 font-semibold text-start">
+                          Type
+                        </th>
+                        <th className="col-span-2 font-semibold text-start">
+                          Required
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {componentPropsData.map((prop: Prop) => (
+                        <tr
+                          key={prop.name}
+                          className="grid grid-cols-6 py-4 border-b-1 items-start"
+                        >
+                          <td className="col-span-2">{prop.name}</td>
+                          <td className="col-span-2">
+                            <code className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code">
+                              {prop.type}
+                            </code>
+                          </td>
+                          <td className="col-span-2">
+                            {prop.required.toString()}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
                 <MDXRemote {...document} components={mdxComponents} />
               </article>
             </main>
