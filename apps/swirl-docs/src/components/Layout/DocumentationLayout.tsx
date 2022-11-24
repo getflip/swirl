@@ -74,6 +74,22 @@ export const DocumentationLayout = ({
                     frontMatter={frontMatter}
                   />
                 )}
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Prop</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>children</td>
+                      <td>ReactNode</td>
+                      <td>Content of the component</td>
+                    </tr>
+                  </tbody>
+                </table>
                 <MDXRemote {...document} components={mdxComponents} />
               </article>
             </main>
