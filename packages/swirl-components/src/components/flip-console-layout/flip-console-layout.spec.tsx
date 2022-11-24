@@ -55,6 +55,9 @@ describe("flip-console-layout", () => {
                   <slot name="content"></slot>
                 </div>
               </section>
+              <div class="console-layout__overlays">
+                <slot name="overlays"></slot>
+              </div>
             </main>
           </div>
         </mock:shadow-root>
