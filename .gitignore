@@ -136,6 +136,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Dart
+packages/swirl-tokens/dart/lib
+
 # Stencil
 **/.stencil
 **/dist
