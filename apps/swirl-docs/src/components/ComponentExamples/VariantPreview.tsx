@@ -80,10 +80,9 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
                 trigger="theme-trigger"
               >
                 <FlipActionList>
-                  <FlipActionListItem label="Hello World"></FlipActionListItem>
+                  <FlipActionListItem label="Light"></FlipActionListItem>
                 </FlipActionList>
               </FlipPopover>
-              <FlipButton label="View RTL" variant="flat"></FlipButton>
             </FlipButtonGroup>
             <div className="w-full h-72 border-2 border-border-default rounded-lg">
               <IframeResizer
