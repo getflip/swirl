@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.8.4
+
+### Patch Changes
+
+- [`135bfc1`](https://github.com/getflip/swirl/commit/135bfc18ebd6a2ec96f23640022dd7c14afd912c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak flip-tree-navigation-item
+  focus styles
+
 ## 0.8.3
 
 ### Patch Changes
