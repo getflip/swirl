@@ -17,6 +17,9 @@ import {
   SwirlComponent,
 } from "@swirl/lib/components/src/components.model";
 import { PropsTable } from "../ComponentExamples/PropsTable";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import dark from "react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark";
+import Link from "next/link";
 
 interface DocumentationLayoutProps {
   documentLinkList: DocHeadline[];
@@ -54,6 +57,12 @@ export const DocumentationLayout = ({
     }
   }, [frontMatter]);
 
+  const exampleCode = `const app = (
+    <AppProvider i18n={enTranslations}>
+      <Button onClick={() => alert('Button clicked!')}>Example button</Button>
+    </AppProvider>
+  );`;
+
   return (
     <div className={`flex min-h-[calc(100vh_-_72px)]`}>
       <CategoryNav categoryLinkList={categoryLinkList} />
@@ -79,6 +88,37 @@ export const DocumentationLayout = ({
                     frontMatter={frontMatter}
                   />
                 )}
+                <div className="w-full bg-[#24292E] min-h-[240px] h-full rounded-lg mb-10 overflow-auto">
+                  <div className="flex items-center justify-between bg-[#21201E] h-12 m-2 rounded-lg p-4 ">
+                    <div className="flex items-center justify-between">
+                      <Link href="#">
+                        <a className="text-[#F2F2F2] text-base font-medium mr-4">
+                          npm package
+                        </a>
+                      </Link>
+                      <Link href="#">
+                        <a className="text-[#F2F2F2] text-base font-medium">
+                          edit in sandbox
+                        </a>
+                      </Link>
+                    </div>
+                    <button className="text-[#F2F2F2] text-sm font-medium">
+                      copy
+                    </button>
+                  </div>
+                  <SyntaxHighlighter
+                    wrapLines
+                    wrapLongLines
+                    language="javascript"
+                    style={dark}
+                    customStyle={{
+                      backgroundColor: "#24292E",
+                      padding: "1.5rem",
+                    }}
+                  >
+                    {exampleCode}
+                  </SyntaxHighlighter>
+                </div>
                 {hasProps && (
                   <PropsTable
                     componentPropsData={componentPropsData}

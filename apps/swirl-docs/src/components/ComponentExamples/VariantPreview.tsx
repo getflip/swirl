@@ -30,7 +30,7 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
   const variantPopover = useRef<any>(null);
 
   return (
-    <div className="mb-12">
+    <div className="mb-6">
       <h2 className="text-2xl text-text-default mb-4">Variants</h2>
       <p className="text-lg text-text-default mb-12">
         {frontMatter?.variantsDescription}
