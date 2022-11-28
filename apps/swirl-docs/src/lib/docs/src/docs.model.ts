@@ -39,6 +39,7 @@ export type FrontMatter = {
   description: string;
   tags?: string[];
   variantsDescription?: string;
+  innerHtml?: string;
   examples: ComponentExample[];
 };
 

@@ -12,22 +12,12 @@ import { VariantPreview } from "../ComponentExamples/VariantPreview";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
 import { useEffect, useState } from "react";
 import { getSwirlComponentData } from "@swirl/lib/components";
-import {
-  Prop,
-  SwirlComponent,
-} from "@swirl/lib/components/src/components.model";
+import { SwirlComponent } from "@swirl/lib/components/src/components.model";
 import { PropsTable } from "../ComponentExamples/PropsTable";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import dark from "react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark";
-import Link from "next/link";
 import {
-  FlipIconCopy,
-  FlipIconExpandLess,
-  FlipIconExpandMore,
-  FlipIconOpenInNew,
-} from "@getflip/swirl-components-react";
-import classNames from "classnames";
-import { CodePreview } from "../ComponentExamples/CodePreview";
+  CodePreview,
+  SwirlComponentCodePreview,
+} from "../ComponentExamples/CodePreview";
 
 interface DocumentationLayoutProps {
   documentLinkList: DocHeadline[];
@@ -48,12 +38,10 @@ export const DocumentationLayout = ({
     null
   );
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [componentPropsData, setComponentPropsData] = useState<Prop[] | null>(
-    null
-  );
-  const hasProps = componentPropsData && componentPropsData.length > 0;
-
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [componentData, setComponentData] =
+    useState<SwirlComponentCodePreview | null>(null);
+  const isComponentDoc = frontMatter?.examples;
+  const hasComponentProps = componentData && componentData.props.length > 0;
 
   useEffect(() => {
     setIsLoading(true);
@@ -63,15 +51,14 @@ export const DocumentationLayout = ({
         frontMatter?.title
       ) as SwirlComponent;
 
-      setComponentPropsData(component.props);
+      const componentPreviewData: SwirlComponentCodePreview = {
+        ...component,
+        innerHtml: frontMatter?.innerHtml ? frontMatter?.innerHtml : "",
+      };
+
+      setComponentData(componentPreviewData);
     }
   }, [frontMatter]);
-
-  const exampleCode = `const app = (
-    <AppProvider i18n={enTranslations}>
-      <Button onClick={() => alert('Button clicked!')}>Example button</Button>
-    </AppProvider>
-  );`;
 
   return (
     <div className={`flex min-h-[calc(100vh_-_72px)]`}>
@@ -87,7 +74,7 @@ export const DocumentationLayout = ({
                 {frontMatter?.title && (
                   <DocumentationHeader frontMatter={frontMatter} />
                 )}
-                {frontMatter?.examples && (
+                {isComponentDoc && (
                   <>
                     <VariantPreview
                       isLoading={isLoading}
@@ -98,10 +85,10 @@ export const DocumentationLayout = ({
                         setCurrentExample(example)
                       }
                     />
-                    <CodePreview exampleCode={exampleCode} />
-                    {hasProps && (
+                    <CodePreview component={componentData} />
+                    {hasComponentProps && (
                       <PropsTable
-                        componentPropsData={componentPropsData}
+                        componentPropsData={componentData.props}
                       ></PropsTable>
                     )}
                   </>
