@@ -20,6 +20,14 @@ import { PropsTable } from "../ComponentExamples/PropsTable";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import dark from "react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark";
 import Link from "next/link";
+import {
+  FlipIconCopy,
+  FlipIconExpandLess,
+  FlipIconExpandMore,
+  FlipIconOpenInNew,
+} from "@getflip/swirl-components-react";
+import classNames from "classnames";
+import { CodePreview } from "../ComponentExamples/CodePreview";
 
 interface DocumentationLayoutProps {
   documentLinkList: DocHeadline[];
@@ -44,6 +52,8 @@ export const DocumentationLayout = ({
     null
   );
   const hasProps = componentPropsData && componentPropsData.length > 0;
+
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -78,51 +88,23 @@ export const DocumentationLayout = ({
                   <DocumentationHeader frontMatter={frontMatter} />
                 )}
                 {frontMatter?.examples && (
-                  <VariantPreview
-                    isLoading={isLoading}
-                    setIsLoading={setIsLoading}
-                    handleExampleChange={(example) =>
-                      setCurrentExample(example)
-                    }
-                    currentExample={currentExample}
-                    frontMatter={frontMatter}
-                  />
-                )}
-                <div className="w-full bg-[#24292E] min-h-[240px] h-full rounded-lg mb-10 overflow-auto">
-                  <div className="flex items-center justify-between bg-[#21201E] h-12 m-2 rounded-lg p-4 ">
-                    <div className="flex items-center justify-between">
-                      <Link href="#">
-                        <a className="text-[#F2F2F2] text-base font-medium mr-4">
-                          npm package
-                        </a>
-                      </Link>
-                      <Link href="#">
-                        <a className="text-[#F2F2F2] text-base font-medium">
-                          edit in sandbox
-                        </a>
-                      </Link>
-                    </div>
-                    <button className="text-[#F2F2F2] text-sm font-medium">
-                      copy
-                    </button>
-                  </div>
-                  <SyntaxHighlighter
-                    wrapLines
-                    wrapLongLines
-                    language="javascript"
-                    style={dark}
-                    customStyle={{
-                      backgroundColor: "#24292E",
-                      padding: "1.5rem",
-                    }}
-                  >
-                    {exampleCode}
-                  </SyntaxHighlighter>
-                </div>
-                {hasProps && (
-                  <PropsTable
-                    componentPropsData={componentPropsData}
-                  ></PropsTable>
+                  <>
+                    <VariantPreview
+                      isLoading={isLoading}
+                      currentExample={currentExample}
+                      frontMatter={frontMatter}
+                      setIsLoading={setIsLoading}
+                      handleExampleChange={(example) =>
+                        setCurrentExample(example)
+                      }
+                    />
+                    <CodePreview exampleCode={exampleCode} />
+                    {hasProps && (
+                      <PropsTable
+                        componentPropsData={componentPropsData}
+                      ></PropsTable>
+                    )}
+                  </>
                 )}
                 <MDXRemote {...document} components={mdxComponents} />
               </article>
