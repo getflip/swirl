@@ -26,8 +26,11 @@
   }
 
   &:focus {
-    background-color: var(--s-surface-overlay-hovered);
     outline: none;
+  }
+
+  &:focus-visible {
+    background-color: var(--s-surface-overlay-hovered);
   }
 }
 

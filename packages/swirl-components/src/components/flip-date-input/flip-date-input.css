@@ -51,12 +51,17 @@
   background-color: transparent;
   cursor: pointer;
 
-  &:focus {
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
     outline-color: var(--s-focus-default);
+    outline-offset: var(--s-space-2);
   }
 
   &:disabled {
-    cursor: default;
     color: var(--s-icon-disabled);
+    cursor: default;
   }
 }
