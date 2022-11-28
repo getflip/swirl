@@ -39,50 +39,56 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
         {currentExample && (
           <DynamicComponent>
             <FlipButtonGroup className="mb-2">
-              <FlipButton
-                id="variant-trigger"
-                label={`Variant: ${currentExample.title}`}
-                variant="flat"
-                icon="<flip-icon-expand-more></flip-icon-expand-more>"
-                iconPosition="end"
-              />
-              <FlipPopover
-                ref={variantPopover}
-                label="Variants"
-                popoverId="variant-trigger-popover"
-                trigger="variant-trigger"
-              >
-                <FlipActionList>
-                  {frontMatter.examples.map((example) => (
-                    <FlipActionListItem
-                      size="m"
-                      key={example.title}
-                      label={example.title}
-                      onClick={() => {
-                        variantPopover.current.close();
-                        handleExampleChange(example);
-                        setIsLoading(true);
-                      }}
-                    ></FlipActionListItem>
-                  ))}
-                </FlipActionList>
-              </FlipPopover>
-              <FlipButton
-                id="theme-trigger"
-                label="Theme"
-                variant="flat"
-                icon="<flip-icon-expand-more></flip-icon-expand-more>"
-                iconPosition="end"
-              />
-              <FlipPopover
-                label="Themes"
-                popoverId="theme-trigger-popover"
-                trigger="theme-trigger"
-              >
-                <FlipActionList>
-                  <FlipActionListItem label="Light"></FlipActionListItem>
-                </FlipActionList>
-              </FlipPopover>
+              {frontMatter?.examples.length > 1 && (
+                <>
+                  <FlipButton
+                    id="variant-trigger"
+                    label={`Variant: ${currentExample.title}`}
+                    variant="flat"
+                    icon="<flip-icon-expand-more></flip-icon-expand-more>"
+                    iconPosition="end"
+                  />
+                  <FlipPopover
+                    ref={variantPopover}
+                    label="Variants"
+                    popoverId="variant-trigger-popover"
+                    trigger="variant-trigger"
+                  >
+                    <FlipActionList>
+                      {frontMatter.examples.map((example) => (
+                        <FlipActionListItem
+                          size="m"
+                          key={example.title}
+                          label={example.title}
+                          onClick={() => {
+                            variantPopover.current.close();
+                            handleExampleChange(example);
+                            setIsLoading(true);
+                          }}
+                        ></FlipActionListItem>
+                      ))}
+                    </FlipActionList>
+                  </FlipPopover>
+                </>
+              )}
+              {/* <>
+                  <FlipButton
+                    id="theme-trigger"
+                    label="Theme"
+                    variant="flat"
+                    icon="<flip-icon-expand-more></flip-icon-expand-more>"
+                    iconPosition="end"
+                  />
+                  <FlipPopover
+                    label="Themes"
+                    popoverId="theme-trigger-popover"
+                    trigger="theme-trigger"
+                  >
+                    <FlipActionList>
+                      <FlipActionListItem label="Light"></FlipActionListItem>
+                    </FlipActionList>
+                  </FlipPopover>
+                </> */}
             </FlipButtonGroup>
             <div className="w-full h-72 border-2 border-border-default rounded-lg">
               <IframeResizer

@@ -19,6 +19,7 @@ import {
   Prop,
   SwirlComponent,
 } from "@swirl/lib/components/src/components.model";
+import { CodeSandboxButton } from "./CodeSandboxButton";
 
 export interface SwirlComponentCodePreview extends SwirlComponent {
   innerHtml: string;
@@ -74,7 +75,7 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
           "relative w-full bg-[#24292E]  rounded-lg mb-10 overflow-auto",
           {
             "h-[240px] max-h-[240px] overflow-hidden": !isExpanded,
-            "h-[calc(100%+4rem)] min-h-[240px]": isExpanded,
+            "h-full min-h-[240px]": isExpanded,
           }
         )}
       >
@@ -86,12 +87,7 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
                 <FlipIconOpenInNew className="ml-1" size={16} />
               </a>
             </Link>
-            <Link href="#">
-              <a className="flex justify-center items-center text-[#F2F2F2] text-base font-medium">
-                edit in sandbox
-                <FlipIconOpenInNew className="ml-1" size={16} />
-              </a>
-            </Link>
+            <CodeSandboxButton code={code} />
           </div>
           <CopyToClipboard
             text={code}
