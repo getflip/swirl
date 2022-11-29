@@ -15,6 +15,10 @@ export interface SwirlComponent {
   dependencyGraph: DependencyGraph;
 }
 
+export interface SwirlComponentCodePreview extends SwirlComponent {
+  innerHtml: string;
+}
+
 export interface DependencyGraph {
   [key: string]: string[];
 }

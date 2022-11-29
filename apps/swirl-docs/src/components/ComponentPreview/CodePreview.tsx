@@ -17,13 +17,9 @@ import prettier from "prettier/standalone";
 import prettierHTML from "prettier/parser-html";
 import {
   Prop,
-  SwirlComponent,
+  SwirlComponentCodePreview,
 } from "@swirl/lib/components/src/components.model";
 import { CodeSandboxButton } from "./CodeSandboxButton";
-
-export interface SwirlComponentCodePreview extends SwirlComponent {
-  innerHtml: string;
-}
 
 interface CodePreviewProps {
   component: SwirlComponentCodePreview | null;

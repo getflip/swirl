@@ -71,24 +71,6 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
                   </FlipPopover>
                 </>
               )}
-              {/* <>
-                  <FlipButton
-                    id="theme-trigger"
-                    label="Theme"
-                    variant="flat"
-                    icon="<flip-icon-expand-more></flip-icon-expand-more>"
-                    iconPosition="end"
-                  />
-                  <FlipPopover
-                    label="Themes"
-                    popoverId="theme-trigger-popover"
-                    trigger="theme-trigger"
-                  >
-                    <FlipActionList>
-                      <FlipActionListItem label="Light"></FlipActionListItem>
-                    </FlipActionList>
-                  </FlipPopover>
-                </> */}
             </FlipButtonGroup>
             <div className="w-full h-72 border-2 border-border-default rounded-lg">
               <IframeResizer

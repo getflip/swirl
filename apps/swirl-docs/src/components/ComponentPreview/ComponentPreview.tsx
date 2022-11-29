@@ -1,8 +1,11 @@
 import { getSwirlComponentData } from "@swirl/lib/components";
-import { SwirlComponent } from "@swirl/lib/components/src/components.model";
+import {
+  SwirlComponent,
+  SwirlComponentCodePreview,
+} from "@swirl/lib/components/src/components.model";
 import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import { FunctionComponent, useEffect, useState } from "react";
-import { CodePreview, SwirlComponentCodePreview } from "./CodePreview";
+import { CodePreview } from "./CodePreview";
 import { PropsTable } from "./PropsTable";
 import { VariantPreview } from "./VariantPreview";
 
@@ -24,19 +27,18 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
   useEffect(() => {
     setIsLoading(true);
     if (frontMatter?.examples) {
-      setCurrentExample(frontMatter?.examples[0]);
       const component = getSwirlComponentData(
         frontMatter?.title
       ) as SwirlComponent;
 
-      const componentPreviewData: SwirlComponentCodePreview = {
+      setCurrentExample(frontMatter?.examples[0]);
+      setComponentData({
         ...component,
         innerHtml: frontMatter?.innerHtml ? frontMatter?.innerHtml : "",
-      };
-
-      setComponentData(componentPreviewData);
+      });
     }
   }, [frontMatter]);
+
   return (
     <>
       <VariantPreview
