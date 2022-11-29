@@ -26,10 +26,7 @@ const ComponentsIndex = ({ links }: { links: NavItem[] }) => {
         <title>Swirl | Components</title>
       </Head>
       <div className="flex min-h-[calc(100vh_-_72px)]">
-        <CategoryNav
-          ariaLabel="Sidebar Navigation for Components"
-          categoryLinkList={links}
-        />
+        <CategoryNav ariaLabel="Components" categoryLinkList={links} />
         <main id="main" className="w-full h-full">
           <section className="flex flex-col px-4 md:py-14 md:px-24">
             <div className="mb-16 max-w-xl">
