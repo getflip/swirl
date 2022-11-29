@@ -79,7 +79,6 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
                 src={currentExample.url}
                 width="100%"
                 height="100%"
-                onMouseEnter={(data) => console.log(data)}
               />
               <div
                 className={classNames(
