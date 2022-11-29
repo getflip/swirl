@@ -15,16 +15,16 @@ import DynamicComponent from "./DynamicComponent";
 interface VariantPreviewProps {
   frontMatter: FrontMatter;
   currentExample: ComponentExample | null;
-  handleExampleChange: (example: ComponentExample) => void;
   isLoading: boolean;
+  handleExampleChange: (example: ComponentExample) => void;
   setIsLoading: (isLoading: boolean) => void;
 }
 
 export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
   frontMatter,
   currentExample,
-  handleExampleChange,
   isLoading,
+  handleExampleChange,
   setIsLoading,
 }) => {
   const variantPopover = useRef<any>(null);

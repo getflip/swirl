@@ -1,23 +1,11 @@
-import {
-  ComponentExample,
-  DocHeadline,
-  FrontMatter,
-} from "@swirl/lib/docs/src/docs.model";
+import { DocHeadline, FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import { NavItem } from "@swirl/lib/navigation";
 import { MDXRemote } from "next-mdx-remote";
 import { CategoryNav } from "./CategoryNav";
 import { DocLinksNav } from "./DocLinksNav";
 import Footer from "./Footer";
-import { VariantPreview } from "../ComponentExamples/VariantPreview";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
-import { useEffect, useState } from "react";
-import { getSwirlComponentData } from "@swirl/lib/components";
-import { SwirlComponent } from "@swirl/lib/components/src/components.model";
-import { PropsTable } from "../ComponentExamples/PropsTable";
-import {
-  CodePreview,
-  SwirlComponentCodePreview,
-} from "../ComponentExamples/CodePreview";
+import { ComponentPreview } from "../ComponentPreview";
 
 interface DocumentationLayoutProps {
   documentLinkList: DocHeadline[];
@@ -34,32 +22,6 @@ export const DocumentationLayout = ({
   document,
   frontMatter,
 }: DocumentationLayoutProps) => {
-  const [currentExample, setCurrentExample] = useState<ComponentExample | null>(
-    null
-  );
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [componentData, setComponentData] =
-    useState<SwirlComponentCodePreview | null>(null);
-  const isComponentDoc = frontMatter?.examples;
-  const hasComponentProps = componentData && componentData.props.length > 0;
-
-  useEffect(() => {
-    setIsLoading(true);
-    if (frontMatter?.examples) {
-      setCurrentExample(frontMatter?.examples[0]);
-      const component = getSwirlComponentData(
-        frontMatter?.title
-      ) as SwirlComponent;
-
-      const componentPreviewData: SwirlComponentCodePreview = {
-        ...component,
-        innerHtml: frontMatter?.innerHtml ? frontMatter?.innerHtml : "",
-      };
-
-      setComponentData(componentPreviewData);
-    }
-  }, [frontMatter]);
-
   return (
     <div className={`flex min-h-[calc(100vh_-_72px)]`}>
       <CategoryNav categoryLinkList={categoryLinkList} />
@@ -74,25 +36,7 @@ export const DocumentationLayout = ({
                 {frontMatter?.title && (
                   <DocumentationHeader frontMatter={frontMatter} />
                 )}
-                {isComponentDoc && (
-                  <>
-                    <VariantPreview
-                      isLoading={isLoading}
-                      currentExample={currentExample}
-                      frontMatter={frontMatter}
-                      setIsLoading={setIsLoading}
-                      handleExampleChange={(example) =>
-                        setCurrentExample(example)
-                      }
-                    />
-                    <CodePreview component={componentData} />
-                    {hasComponentProps && (
-                      <PropsTable
-                        componentPropsData={componentData.props}
-                      ></PropsTable>
-                    )}
-                  </>
-                )}
+                <ComponentPreview frontMatter={frontMatter} />
                 <MDXRemote {...document} components={mdxComponents} />
               </article>
             </main>

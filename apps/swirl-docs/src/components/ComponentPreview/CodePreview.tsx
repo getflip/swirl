@@ -114,7 +114,7 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
           style={dark}
           customStyle={{
             backgroundColor: "#24292E",
-            padding: "1.5rem 1.5rem 4rem 1.5rem", // place for the expand button
+            padding: "0.5rem 1.5rem 4rem 1.5rem", // place for the expand button
             height: "100%",
           }}
         >
