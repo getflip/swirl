@@ -35,8 +35,6 @@ export const getStaticProps: GetStaticProps<
   );
   const document = await getComponentData(componentDoc);
 
-  console.log("document", document.frontmatter);
-
   return {
     props: {
       document,
