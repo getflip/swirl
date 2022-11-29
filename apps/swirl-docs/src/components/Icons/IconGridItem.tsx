@@ -4,7 +4,6 @@ import { FunctionComponent, LegacyRef } from "react";
 import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
 import { MobileView, DesktopView } from "../View/Views";
-
 import IconInfo from "./IconInfo";
 
 interface IconGridProps {

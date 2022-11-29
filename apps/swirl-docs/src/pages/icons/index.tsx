@@ -1,19 +1,12 @@
-import { createDocCategory } from "@swirl/lib/docs";
-import {
-  BASE_PATHS,
-  DocCategory,
-  DOCUMENTATION_SRC,
-} from "@swirl/lib/docs/src/docs.model";
-import { NavLink, navItems } from "@swirl/lib/navigation";
+import { iconsNavItems } from "@swirl/lib/navigation/src/data/iconsChildren.data";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import IconGrid from "src/components/Icons/IconGrid";
+import IconInfo from "src/components/Icons/IconInfo";
+import SearchBar from "src/components/Icons/SearchBar";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
-import SearchBar from "../components/SearchBar";
-import IconGrid from "../../components/IconGrid/IconGrid";
-import IconInfo from "src/components/IconGrid/IconInfo";
 
 type Usage = "app" | "admin";
 
@@ -29,24 +22,7 @@ export type IconsMetaData = {
   [key: string]: IconData;
 };
 
-const RecursiveNavigation = (link: NavLink) => {
-  const hasSubpages = link.subpages && link.subpages.length;
-  return (
-    <li className="list-disc">
-      <Link href={link.path}>
-        <a>{link.name}</a>
-      </Link>
-      {hasSubpages &&
-        link.subpages?.map((item) => (
-          <ul key={item.path}>
-            <RecursiveNavigation key={item.name} {...item} />
-          </ul>
-        ))}
-    </li>
-  );
-};
-
-const IconsIndex = ({ links }: any) => {
+const IconsIndex = () => {
   const icons: IconsMetaData = require("@getflip/swirl-icons/dist/metadata.js");
   const iconsArray = Object.keys(icons);
 
@@ -73,7 +49,7 @@ const IconsIndex = ({ links }: any) => {
         <title>Swirl | Icons</title>
       </Head>
       <div className="flex min-h-[calc(100vh_-_72px)]">
-        <CategoryNav categoryLinkList={navItems[2].children} />
+        <CategoryNav categoryLinkList={iconsNavItems} />
         <main id="main" className="w-full h-full">
           <section className="flex flex-col px-4 md:py-14 md:px-24">
             <div className="mb-16">
@@ -107,23 +83,9 @@ const IconsIndex = ({ links }: any) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<{
-  links: DocCategory[] | undefined;
-}> = async () => {
-  const categoryDocs = createDocCategory(
-    {
-      name: BASE_PATHS.ICONS,
-      basePath: BASE_PATHS.ICONS,
-    },
-    DOCUMENTATION_SRC.DOCUMENTATION
-  );
-
-  const links: DocCategory[] | undefined = categoryDocs.subpages;
-
+export const getStaticProps: GetStaticProps<{}> = async () => {
   return {
-    props: {
-      links,
-    },
+    props: {},
   };
 };
 

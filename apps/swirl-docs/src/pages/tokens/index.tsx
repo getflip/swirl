@@ -1,41 +1,18 @@
-import { createDocCategory } from "@swirl/lib/docs";
-import { NavLink, NavItem, navItems } from "@swirl/lib/navigation";
+import { NavItem } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
-import {
-  BASE_PATHS,
-  DocCategory,
-  DOCUMENTATION_SRC,
-} from "@swirl/lib/docs/src/docs.model";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
 import Link from "next/link";
+import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
 
-const RecursiveNavigation = (link: NavLink) => {
-  const hasSubpages = link.subpages && link.subpages.length;
-  return (
-    <li className="list-disc">
-      <Link href={link.path}>
-        <a>{link.name}</a>
-      </Link>
-      {hasSubpages &&
-        link.subpages?.map((item) => (
-          <ul key={item.path}>
-            <RecursiveNavigation key={item.name} {...item} />
-          </ul>
-        ))}
-    </li>
-  );
-};
-
-const Components = ({ links }: any) => {
-  const categoryLinks = navItems[1].children;
+const Tokens = () => {
   return (
     <>
       <Head>
         <title>Swirl Components</title>
       </Head>
       <div className="flex min-h-[calc(100vh_-_72px)]">
-        <CategoryNav categoryLinkList={categoryLinks} />
+        <CategoryNav categoryLinkList={tokensNavItems} />
         <main id="main" className="w-full h-full">
           <section className="flex flex-col py-14 px-24">
             <h1 className="mb-4">Tokens</h1>
@@ -44,7 +21,7 @@ const Components = ({ links }: any) => {
             </p>
             <nav aria-label="category links">
               <ul className="flex">
-                {categoryLinks?.map((category: NavItem, index: number) => (
+                {tokensNavItems?.map((category: NavItem, index: number) => (
                   <li
                     className="border-1 rounded-lg p-4 mr-4 font-bold"
                     key={`${category.title}-${index}`}
@@ -63,24 +40,10 @@ const Components = ({ links }: any) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<{
-  links: DocCategory[] | undefined;
-}> = async () => {
-  const categoryDocs = createDocCategory(
-    {
-      name: BASE_PATHS.TOKENS,
-      basePath: BASE_PATHS.TOKENS,
-    },
-    DOCUMENTATION_SRC.DOCUMENTATION
-  );
-
-  const links: DocCategory[] | undefined = categoryDocs.subpages;
-
+export const getStaticProps: GetStaticProps<{}> = async () => {
   return {
-    props: {
-      links,
-    },
+    props: {},
   };
 };
 
-export default Components;
+export default Tokens;

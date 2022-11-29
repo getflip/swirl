@@ -11,3 +11,10 @@ export type NavItem = {
   children?: NavItem[];
   description?: string;
 };
+
+export enum CategoryEnum {
+  FOUNDATIONS = "Foundations",
+  COMPONENTS = "Components",
+  TOKENS = "Tokens",
+  ICONS = "Icons",
+}

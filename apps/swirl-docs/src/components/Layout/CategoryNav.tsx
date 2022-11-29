@@ -2,18 +2,15 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { NavItem } from "@swirl/lib/navigation/";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import NoSsr from "./NoSsr";
-
-function capitalizeFirstLetter(string: string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 interface CategoryNavProps {
   categoryLinkList: NavItem[] | undefined;
+  ariaLabel?: string;
 }
 
 export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
   categoryLinkList,
+  ariaLabel,
 }) => {
   const router = useRouter();
   const activePath = router.asPath;
@@ -35,23 +32,21 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
   // );
 
   const SubElement = ({ navItem }: { navItem: NavItem }) => (
-    <NoSsr>
-      <li
-        className={`font-sm mb-4 ${
-          activePath === navItem.url ? "text-border-info" : "text-text-default"
-        }`}
-      >
-        <Link href={`${navItem.url}`}>
-          <a className=" text-sm">{capitalizeFirstLetter(navItem.title)}</a>
-        </Link>
-      </li>
-    </NoSsr>
+    <li
+      className={`font-sm mb-4 ${
+        activePath === navItem.url ? "text-border-info" : "text-text-default"
+      }`}
+    >
+      <Link href={`${navItem.url}`}>
+        <a className="text-sm capitalize">{navItem.title}</a>
+      </Link>
+    </li>
   );
 
   return (
     <nav
-      aria-label="category"
-      className="hidden md:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs"
+      aria-label={ariaLabel ? ariaLabel : "Category"}
+      className="hidden lg:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs"
     >
       <ul className="mt-6">
         {categoryLinkList?.map((navItem: NavItem, index) => {
