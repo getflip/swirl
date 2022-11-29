@@ -564,6 +564,10 @@
           "description": ""
         },
         {
+          "name": "flip-aria-expanded",
+          "description": ""
+        },
+        {
           "name": "flip-aria-label",
           "description": ""
         },
@@ -707,6 +711,35 @@
       ]
     },
     {
+      "name": "flip-card",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "as",
+          "description": ""
+        },
+        {
+          "name": "elevated",
+          "description": ""
+        },
+        {
+          "name": "href",
+          "description": ""
+        },
+        {
+          "name": "interactive",
+          "description": ""
+        },
+        {
+          "name": "link-target",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-checkbox",
       "description": {
         "kind": "markdown",
@@ -826,6 +859,10 @@
           "description": ""
         },
         {
+          "name": "hide-navigation-button-label",
+          "description": ""
+        },
+        {
           "name": "logo-text",
           "description": ""
         },
@@ -839,6 +876,10 @@
         },
         {
           "name": "show-help-button",
+          "description": ""
+        },
+        {
+          "name": "show-navigation-button-label",
           "description": ""
         },
         {
@@ -1139,6 +1180,10 @@
         {
           "name": "file",
           "description": ""
+        },
+        {
+          "name": "max-zoom",
+          "description": ""
         }
       ]
     },
@@ -1435,6 +1480,19 @@
     },
     {
       "name": "flip-icon-attachment",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-block",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1968,6 +2026,19 @@
     },
     {
       "name": "flip-icon-mention",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-menu",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3680,6 +3751,27 @@
               "name": "top"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "flip-tree-navigation-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
         }
       ]
     },
