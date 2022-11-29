@@ -15,6 +15,27 @@ interface DocumentationLayoutProps {
   frontMatter?: FrontMatter;
 }
 
+export type ComponentExample = {
+  description: string;
+  url: string;
+  title: string;
+};
+
+type FrontMatter = {
+  title: string;
+  description: string;
+  tags?: string[];
+  examples: ComponentExample[];
+};
+
+interface DocumentationLayoutProps {
+  documentLinkList: DocHeadline[];
+  categoryLinkList: NavItem[] | undefined;
+  mdxComponents: any;
+  document: any;
+  frontMatter?: FrontMatter;
+}
+
 export const DocumentationLayout = ({
   documentLinkList,
   categoryLinkList,

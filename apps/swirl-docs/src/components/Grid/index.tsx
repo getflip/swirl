@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 
 export type GridProps = {
   className?: string;
+  labelledBy?: string;
   children: JSX.Element | JSX.Element[];
 };
 
@@ -14,9 +15,9 @@ export type GridProps = {
  *
  * You can find an example in the `IconGrid` and `ComponentGrid` components.
  */
-export const Grid: FunctionComponent<GridProps> = ({ className, children }) => {
+export const Grid: FunctionComponent<GridProps> = ({ className, children, labelledBy }) => {
   return (
-    <div role="grid">
+    <div role="grid" aria-labelledby={labelledBy}>
       <div className={className} role="row">
         {children}
       </div>

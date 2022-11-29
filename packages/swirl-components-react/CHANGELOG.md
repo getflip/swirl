@@ -1,5 +1,29 @@
 # @getflip/swirl-components-react
 
+## 0.7.4
+
+### Patch Changes
+
+- [`135bfc1`](https://github.com/getflip/swirl/commit/135bfc18ebd6a2ec96f23640022dd7c14afd912c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak flip-tree-navigation-item
+  focus styles
+
+- Updated dependencies
+  [[`135bfc1`](https://github.com/getflip/swirl/commit/135bfc18ebd6a2ec96f23640022dd7c14afd912c)]:
+  - @getflip/swirl-components@0.8.4
+
+## 0.7.3
+
+### Patch Changes
+
+- [`70ac260`](https://github.com/getflip/swirl/commit/70ac26064db99e7dbbd59631ca3218c55e8d779b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Change flip-tree-navigation-item
+  semantics to be a link
+
+- Updated dependencies
+  [[`70ac260`](https://github.com/getflip/swirl/commit/70ac26064db99e7dbbd59631ca3218c55e8d779b)]:
+  - @getflip/swirl-components@0.8.3
+
 ## 0.7.2
 
 ### Patch Changes

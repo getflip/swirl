@@ -1180,6 +1180,10 @@
         {
           "name": "file",
           "description": ""
+        },
+        {
+          "name": "max-zoom",
+          "description": ""
         }
       ]
     },
