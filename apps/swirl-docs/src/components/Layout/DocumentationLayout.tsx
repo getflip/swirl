@@ -22,6 +22,9 @@ export const DocumentationLayout = ({
   document,
   frontMatter,
 }: DocumentationLayoutProps) => {
+  const hasFrontMatterTitle = frontMatter?.title;
+  const isComponentDoc = frontMatter?.examples;
+
   return (
     <div className={`flex min-h-[calc(100vh_-_72px)]`}>
       <CategoryNav categoryLinkList={categoryLinkList} />
@@ -33,10 +36,12 @@ export const DocumentationLayout = ({
               className="flex flex-col justify-center items-center"
             >
               <article className="max-w-3xl px-4 mt-20">
-                {frontMatter?.title && (
+                {hasFrontMatterTitle && (
                   <DocumentationHeader frontMatter={frontMatter} />
                 )}
-                <ComponentPreview frontMatter={frontMatter} />
+                {isComponentDoc && (
+                  <ComponentPreview frontMatter={frontMatter} />
+                )}
                 <MDXRemote {...document} components={mdxComponents} />
               </article>
             </main>

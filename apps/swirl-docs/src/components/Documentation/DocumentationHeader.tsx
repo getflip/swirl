@@ -1,5 +1,5 @@
+import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import { FunctionComponent } from "react";
-import { FrontMatter } from "../Layout/DocumentationLayout";
 
 interface DocumentationHeaderProps {
   frontMatter: FrontMatter;
