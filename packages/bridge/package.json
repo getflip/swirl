@@ -1,0 +1,22 @@
+{
+  "name": "@getflip/bridge",
+  "version": "0.0.0",
+  "description": "Flip JavaScript Bridge for external integrations.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/getflip/swirl",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "start": "yarn dev"
+  },
+  "dependencies": {
+    "@getflip/swirl-components": "^0.8.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "typescript": "^4.9.3"
+  }
+}

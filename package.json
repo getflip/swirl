@@ -6,6 +6,7 @@
     "node": "^14.17.0 || ^16.13.0"
   },
   "workspaces": [
+    "./packages/bridge",
     "./packages/swirl-components",
     "./packages/swirl-components-angular",
     "./packages/swirl-components-react",
