@@ -5,21 +5,21 @@ import {
   FlipIconExpandMore,
   FlipIconOpenInNew,
 } from "@getflip/swirl-components-react";
-import classNames from "classnames";
-import Link from "next/link";
 import { FunctionComponent, useCallback, useEffect, useState } from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-
-import dark from "react-syntax-highlighter/dist/cjs/styles/prism/a11y-dark";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import NoSsr from "../Layout/NoSsr";
-import prettier from "prettier/standalone";
-import prettierHTML from "prettier/parser-html";
 import {
   Prop,
   SwirlComponentCodePreview,
 } from "@swirl/lib/components/src/components.model";
 import { CodeSandboxButton } from "./CodeSandboxButton";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import classNames from "classnames";
+import Link from "next/link";
+import SyntaxHighlighter from "react-syntax-highlighter";
+
+import dark from "react-syntax-highlighter/dist/cjs/styles/prism/a11y-dark";
+import NoSsr from "../Layout/NoSsr";
+import prettier from "prettier/standalone";
+import prettierHTML from "prettier/parser-html";
 
 interface CodePreviewProps {
   component: SwirlComponentCodePreview | null;
@@ -42,7 +42,6 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
 
           const cleanedPropValue = propDefaultValue.replace(/"/g, "");
 
-          console.log(propDefaultValue);
           el.setAttribute(prop.name, cleanedPropValue);
         }
       });
@@ -55,9 +54,9 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
         parser: "html",
         plugins: [prettierHTML],
       });
-    } else {
-      return "";
     }
+
+    return "";
   }, [component]);
 
   useEffect(() => {
