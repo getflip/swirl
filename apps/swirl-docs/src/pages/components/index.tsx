@@ -26,24 +26,21 @@ const ComponentsIndex = ({ links }: { links: NavItem[] }) => {
         <title>Swirl | Components</title>
       </Head>
       <div className="flex min-h-[calc(100vh_-_72px)]">
-        <CategoryNav ariaLabel="Components" categoryLinkList={links} />
+        <CategoryNav categoryLinkList={links} />
         <main id="main" className="w-full h-full">
           <section className="flex flex-col px-4 md:py-14 md:px-24">
             <div className="mb-16 max-w-xl">
-              <h1 id="components-title" className="mb-1">
-                Components
-              </h1>
-              <p className="text-lg text-text-default">
+              <h1 className="mb-4">Components</h1>
+              <h4>
                 Sed cras pretium augue at. Placerat risus congue aliquet nec
                 aliquet ipsum ac. Id magna donec habitant nulla nibh sem vitae
                 eget enim. Feugiat erat eget feugiat viverra aliquam.
-              </p>
+              </h4>
             </div>
             <div className="flex w-full">
               <div className="w-full md:mr-8">
                 <h2 className="mb-4">Icon List</h2>
                 <ComponentGrid
-                  labelledBy="components-title"
                   componentList={componentsNavItems
                     .map((item) => item)
                     .filter((item) => item.title !== "Overview")}
