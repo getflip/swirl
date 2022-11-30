@@ -20,13 +20,16 @@ import dark from "react-syntax-highlighter/dist/cjs/styles/prism/a11y-dark";
 import NoSsr from "../Layout/NoSsr";
 import prettier from "prettier/standalone";
 import prettierHTML from "prettier/parser-html";
+import { ComponentExample } from "@swirl/lib/docs/src/docs.model";
 
 interface CodePreviewProps {
   component: SwirlComponentCodePreview | null;
+  currentExample?: ComponentExample;
 }
 
 export const CodePreview: FunctionComponent<CodePreviewProps> = ({
   component,
+  currentExample,
 }) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
@@ -76,7 +79,7 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
       >
         <div className="flex items-center justify-between bg-[#21201E] h-12 m-2 rounded-lg p-4 ">
           <div className="flex items-center justify-between">
-            <Link href="#">
+            <Link href="https://www.npmjs.com/package/@getflip/swirl-components">
               <a className="flex justify-center items-center text-[#F2F2F2] text-base font-medium mr-4">
                 npm package
                 <FlipIconOpenInNew className="ml-1" size={16} />

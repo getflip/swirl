@@ -1,8 +1,5 @@
 import { getSwirlComponentData } from "@swirl/lib/components";
-import {
-  SwirlComponent,
-  SwirlComponentCodePreview,
-} from "@swirl/lib/components/src/components.model";
+import { SwirlComponentCodePreview } from "@swirl/lib/components/src/components.model";
 import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import { FunctionComponent, useEffect, useState } from "react";
 import { CodePreview } from "./CodePreview";
@@ -27,6 +24,7 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
   useEffect(() => {
     setIsLoading(true);
     if (frontMatter?.examples) {
+      console.log(frontMatter.examples[0].title);
       const component = getSwirlComponentData(frontMatter?.title);
 
       setCurrentExample(frontMatter?.examples[0]);
@@ -46,7 +44,10 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
         setIsLoading={setIsLoading}
         handleExampleChange={(example) => setCurrentExample(example)}
       />
-      <CodePreview component={componentData} />
+      <CodePreview
+        component={componentData}
+        currentExample={currentExample!!} // change this line to always use the current example and not just the first one.
+      />
       {hasComponentProps && (
         <PropsTable componentPropsData={componentData.props}></PropsTable>
       )}
