@@ -1,10 +1,19 @@
 import { log } from "../logging";
-import { BridgeError, BridgeRequest, BridgeResponse } from "../types";
+import {
+  BridgeError,
+  BridgeErrorCode,
+  BridgeRequest,
+  BridgeResponse,
+} from "../types";
 
 const hostAppOrigin = process.env.HOST_APP_ORIGIN || "http://localhost:4200";
 
 export function postMessage(message: BridgeRequest) {
-  window.postMessage(message, hostAppOrigin);
+  if (!window.top) {
+    return;
+  }
+
+  window.top.postMessage(message, hostAppOrigin);
 
   log("postMessage", {
     message,
@@ -15,11 +24,15 @@ export function postMessage(message: BridgeRequest) {
 export function makeRequest<Result>(
   request: BridgeRequest
 ): Promise<Result | BridgeError> {
-  // TODO: handle non-IFrame integrations
-
   return new Promise((resolve, reject) => {
     const handler = (event: MessageEvent<BridgeResponse>) => {
-      // TODO: check message origin
+      if (!isAllowedOrigin(event.origin)) {
+        reject({
+          code: BridgeErrorCode.FORBIDDEN_ORIGIN,
+        } as BridgeError);
+
+        return;
+      }
 
       if (event.data.id === request.id) {
         log("handleResponse", event.data);
@@ -37,4 +50,11 @@ export function makeRequest<Result>(
     window.addEventListener("message", handler);
     postMessage(request);
   });
+}
+
+export function isAllowedOrigin(origin: string): boolean {
+  // TODO: check origin
+  console.log(origin);
+
+  return true;
 }

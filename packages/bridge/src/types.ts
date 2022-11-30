@@ -21,8 +21,12 @@ export type BridgeResponse<ForMethod extends BridgeMethod | unknown = unknown> =
   };
 
 export type BridgeError = {
-  code: string;
+  code: BridgeErrorCode;
 };
+
+export enum BridgeErrorCode {
+  FORBIDDEN_ORIGIN = "FORBIDDEN_ORIGIN",
+}
 
 export enum BridgeMethod {
   GET_AVAILABLE_LANGS = "GET_AVAILABLE_LANGS",
