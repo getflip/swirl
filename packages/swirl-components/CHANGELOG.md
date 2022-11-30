@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.8.5
+
+### Patch Changes
+
+- [`574a57b`](https://github.com/getflip/swirl/commit/574a57b2e3b3b3c7700db3a9720051629ec09c7b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue resulting in a 1px
+  jump of the flip-modal header
+
 ## 0.8.4
 
 ### Patch Changes
