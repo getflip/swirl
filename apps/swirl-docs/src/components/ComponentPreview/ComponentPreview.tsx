@@ -27,9 +27,7 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
   useEffect(() => {
     setIsLoading(true);
     if (frontMatter?.examples) {
-      const component = getSwirlComponentData(
-        frontMatter?.title
-      ) as SwirlComponent;
+      const component = getSwirlComponentData(frontMatter?.title);
 
       setCurrentExample(frontMatter?.examples[0]);
       setComponentData({

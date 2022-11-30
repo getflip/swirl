@@ -1,14 +1,17 @@
 import componentsJSON from "@getflip/swirl-components/components.json";
+import { SwirlComponent } from "./src/components.model";
 
 /**
  * Creates a flip web component tag out of the component name and returns
- * the swirl component data for that tag. For better DX you have to cast the return where you invoke this function.
- * eg. `const component = getComponentData("Button") as SwirlComponent;`
+ * the swirl component data for that tag.
  */
-function getSwirlComponentData(name: string): any {
+function getSwirlComponentData(name: string): SwirlComponent {
   const tag = `flip-${name.toLowerCase().replace(/ /g, "-")}`;
 
-  const component = componentsJSON.components.find((c: any) => c.tag === tag);
+  const component = componentsJSON.components.find(
+    (c: any) => c.tag === tag
+  ) as unknown as SwirlComponent;
+
   if (!component) {
     throw new Error(`Component ${tag} not found`);
   }
