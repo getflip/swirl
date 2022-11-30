@@ -7,32 +7,17 @@ import Footer from "./Footer";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
 import { ComponentPreview } from "../ComponentPreview";
 
-interface DocumentationLayoutProps {
-  documentLinkList: DocHeadline[];
-  categoryLinkList: NavItem[] | undefined;
-  document: any;
-  mdxComponents?: any;
-  frontMatter?: FrontMatter;
-}
-
 export type ComponentExample = {
   description: string;
   url: string;
   title: string;
 };
 
-type FrontMatter = {
-  title: string;
-  description: string;
-  tags?: string[];
-  examples: ComponentExample[];
-};
-
 interface DocumentationLayoutProps {
   documentLinkList: DocHeadline[];
   categoryLinkList: NavItem[] | undefined;
-  mdxComponents: any;
   document: any;
+  mdxComponents?: any;
   frontMatter?: FrontMatter;
 }
 

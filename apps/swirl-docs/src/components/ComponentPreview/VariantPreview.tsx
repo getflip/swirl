@@ -9,7 +9,7 @@ import {
 import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import classNames from "classnames";
 import IframeResizer from "iframe-resizer-react";
-import { FunctionComponent, Suspense, useRef, useState } from "react";
+import { FunctionComponent, Suspense, useRef } from "react";
 import DynamicComponent from "./DynamicComponent";
 
 interface VariantPreviewProps {
