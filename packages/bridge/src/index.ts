@@ -1,4 +1,5 @@
 export * from "./types";
 
-export * from "./messaging";
+export * from "./i18n";
+export * from "./navigation";
 export * from "./theming";

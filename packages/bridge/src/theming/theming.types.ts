@@ -3,7 +3,7 @@ import { BridgeMethod, BridgeRequest } from "../types";
 
 export type GetThemeRequest = BridgeRequest<BridgeMethod.GET_THEME, undefined>;
 
-export type GetThemeRequestResult = {
+export type GetThemeResult = {
   activeTheme: FlipTheme;
   preferredTheme: FlipTheme;
 };

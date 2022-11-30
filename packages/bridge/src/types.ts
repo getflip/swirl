@@ -1,4 +1,6 @@
-import { GetThemeRequestResult } from "./theming";
+import { GetAvailableLangsResult, GetLangResult } from "./i18n";
+import { GetNavigateResult } from "./navigation";
+import { GetThemeResult } from "./theming";
 
 export type BridgeRequest<
   WithMethod extends BridgeMethod | unknown = unknown,
@@ -23,13 +25,15 @@ export type BridgeError = {
 };
 
 export enum BridgeMethod {
+  GET_AVAILABLE_LANGS = "GET_AVAILABLE_LANGS",
+  GET_LANG = "GET_LANG",
   GET_THEME = "GET_THEME",
   NAVIGATE = "NAVIGATE",
-  TOAST = "TOAST",
 }
 
 export type BridgeMethodResultMapping = {
-  [BridgeMethod.GET_THEME]: GetThemeRequestResult;
-  [BridgeMethod.NAVIGATE]: undefined;
-  [BridgeMethod.TOAST]: undefined;
+  [BridgeMethod.GET_AVAILABLE_LANGS]: GetAvailableLangsResult;
+  [BridgeMethod.GET_LANG]: GetLangResult;
+  [BridgeMethod.GET_THEME]: GetThemeResult;
+  [BridgeMethod.NAVIGATE]: GetNavigateResult;
 };
