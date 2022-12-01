@@ -25,6 +25,18 @@ yarn add @getflip/bridge
 The library exposes a set of functions and listeners you can use to communicate
 with the Flip App and Flip Admin Console (host app for short).
 
+**Before using the provided functions, you have to call the `initFlipBridge`
+function to set up the Flip Bridge.**
+
+```js
+import { initFlipBridge } from "@getflip/bridge";
+
+initFlipBridge({
+  debug: true,
+  hostAppOrigin: "http://localhost:4200", // has to be the origin of the targetted host app
+});
+```
+
 ### Internationalization
 
 #### `getAvailableLangs`
