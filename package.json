@@ -41,7 +41,6 @@
     "turbo": "^1.2.8"
   },
   "resolutions": {
-    "jest-environment-jsdom": "^27.5.1",
     "svgicons2svgfont": "^10.0.0"
   }
 }
