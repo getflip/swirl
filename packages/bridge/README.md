@@ -10,6 +10,7 @@ App or Flip Admin Console.
   - [Internationalization](#internationalization)
   - [Navigation](#navigation)
   - [Theming](#theming)
+- [Error Handling](#error-handling)
 - [Development](#development)
 
 ## Installation
@@ -91,10 +92,10 @@ Get the current theme.
 
 **Returns**
 
-```
+```js
 {
-  activeTheme: 'light' | 'dark';
-  preferredTheme: 'light' | 'dark' | undefined;
+  activeTheme: "light" | "dark";
+  preferredTheme: "light" | "dark" | undefined;
 }
 ```
 
@@ -106,13 +107,23 @@ import { getTheme } from "@getflip/bridge";
 const theme = await getTheme();
 ```
 
+## Error Handling
+
+All provided functions return promises that throw an error if the execution
+failed. The errors have the following format.
+
+```js
+{
+  code: BridgeErrorCode;
+}
+```
+
 ## Development
 
 Start the compiler in watch mode for local development:
 
 ```
-yarn
-yarn dev
+yarn yarn dev
 ```
 
 Production builds and releases are managed via our Github workflows. Make sure
