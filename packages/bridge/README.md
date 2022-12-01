@@ -89,14 +89,21 @@ await navigate("/my-app/settings");
 
 Get the current theme.
 
-**Returns** `'light' | 'dark'`
+**Returns**
+
+```
+{
+  activeTheme: 'light' | 'dark';
+  preferredTheme: 'light' | 'dark' | undefined;
+}
+```
 
 **Example**
 
 ```js
 import { getTheme } from "@getflip/bridge";
 
-const currentTheme = await getTheme(); // e.g. 'light'
+const theme = await getTheme();
 ```
 
 ## Development

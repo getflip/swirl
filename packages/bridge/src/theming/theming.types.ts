@@ -5,5 +5,5 @@ export type GetThemeRequest = BridgeRequest<BridgeMethod.GET_THEME, undefined>;
 
 export type GetThemeResult = {
   activeTheme: FlipTheme;
-  preferredTheme: FlipTheme;
+  preferredTheme: FlipTheme | undefined;
 };
