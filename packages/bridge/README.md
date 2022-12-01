@@ -114,7 +114,7 @@ failed. The errors have the following format.
 
 ```js
 {
-  code: BridgeErrorCode; e.g. 'FORBIDDEN_ORIGIN'
+  code: BridgeErrorCode; // e.g. 'FORBIDDEN_ORIGIN'
 }
 ```
 
