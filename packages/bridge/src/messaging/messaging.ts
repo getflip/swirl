@@ -57,8 +57,7 @@ export function makeRequest<Result>(
 }
 
 export function isAllowedOrigin(origin: string): boolean {
-  // TODO: check origin
-  console.log(origin);
+  const hostAppOrigin = window.flipBridgeOptions?.hostAppOrigin;
 
-  return true;
+  return origin === hostAppOrigin;
 }
