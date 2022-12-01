@@ -133,7 +133,7 @@ provided parameters are invalid.
 Start the compiler in watch mode for local development:
 
 ```
-yarn yarn dev
+yarn dev
 ```
 
 Production builds and releases are managed via our Github workflows. Make sure
