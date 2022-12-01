@@ -1,11 +1,10 @@
 {
   "name": "@getflip/bridge",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.1",
   "description": "Flip JavaScript Bridge for external integrations.",
   "main": "dist/index.js",
   "repository": "https://github.com/getflip/swirl",
   "license": "SEE LICENSE IN LICENSE.md",
-  "private": true,
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w",
