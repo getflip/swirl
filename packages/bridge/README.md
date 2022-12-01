@@ -121,7 +121,8 @@ failed. The errors have the following format.
 ### `FORBIDDEN_ORIGIN`
 
 Thrown when the origin of the requesting app is not allowed by the host app.
-Please check if your app is correctly registered in the Flip Partner Dashboard.
+Please check if your app is correctly registered in the Flip Partner Dashboard
+and the `hostAppOrigin` option is set (see [Usage](#usage)).
 
 ### `INVALID_REQUEST`
 
