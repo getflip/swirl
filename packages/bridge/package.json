@@ -1,15 +1,17 @@
 {
   "name": "@getflip/bridge",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "Flip JavaScript Bridge for external integrations.",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "repository": "https://github.com/getflip/swirl",
   "license": "SEE LICENSE IN LICENSE.md",
   "files": [
     "dist/"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "rimraf dist && tsc && rollup -c rollup.config.mjs",
     "dev": "tsc -w",
     "start": "yarn dev"
   },
@@ -18,7 +20,10 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^10.0.1",
     "@types/uuid": "^8.3.4",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.5.1",
     "typescript": "^4.9.3"
   }
 }
