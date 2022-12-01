@@ -2,6 +2,11 @@ import { GetAvailableLangsResult, GetLangResult } from "./i18n";
 import { GetNavigateResult } from "./navigation";
 import { GetThemeResult } from "./theming";
 
+export type BridgeOptions = {
+  debug?: boolean;
+  hostAppOrigin: string;
+};
+
 export type BridgeRequest<
   WithMethod extends BridgeMethod | unknown = unknown,
   WithParams = Record<string, unknown> | Array<unknown>

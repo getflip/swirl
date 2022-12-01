@@ -6,11 +6,15 @@ import {
   BridgeResponse,
 } from "../types";
 
-const hostAppOrigin = process?.env?.HOST_APP_ORIGIN || "http://localhost:4200";
-
 export function postMessage(message: BridgeRequest) {
   if (!window.top) {
     return;
+  }
+
+  const hostAppOrigin = window.flipBridgeOptions?.hostAppOrigin;
+
+  if (!hostAppOrigin) {
+    throw Error(`Please call 'initFlipBridge'.`);
   }
 
   window.top.postMessage(message, hostAppOrigin);
