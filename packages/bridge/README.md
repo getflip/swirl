@@ -114,9 +114,19 @@ failed. The errors have the following format.
 
 ```js
 {
-  code: BridgeErrorCode;
+  code: BridgeErrorCode; e.g. 'FORBIDDEN_ORIGIN'
 }
 ```
+
+### `FORBIDDEN_ORIGIN`
+
+Thrown when the origin of the requesting app is not allowed by the host app.
+Please check if your app is correctly registered in the Flip Partner Dashboard.
+
+### `INVALID_REQUEST`
+
+The host app identified the request as invalid. This typically occurs when the
+provided parameters are invalid.
 
 ## Development
 
