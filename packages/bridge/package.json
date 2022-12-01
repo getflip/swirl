@@ -5,6 +5,9 @@
   "main": "dist/index.js",
   "repository": "https://github.com/getflip/swirl",
   "license": "SEE LICENSE IN LICENSE.md",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w",
