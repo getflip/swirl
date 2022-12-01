@@ -1,5 +1,5 @@
 import { GetAvailableLangsResult, GetLangResult } from "./i18n";
-import { GetNavigateResult } from "./navigation";
+import { NavigateResult } from "./navigation";
 import { GetThemeResult } from "./theming";
 
 export type BridgeOptions = {
@@ -45,5 +45,5 @@ export type BridgeMethodResultMapping = {
   [BridgeMethod.GET_AVAILABLE_LANGS]: GetAvailableLangsResult;
   [BridgeMethod.GET_LANG]: GetLangResult;
   [BridgeMethod.GET_THEME]: GetThemeResult;
-  [BridgeMethod.NAVIGATE]: GetNavigateResult;
+  [BridgeMethod.NAVIGATE]: NavigateResult;
 };

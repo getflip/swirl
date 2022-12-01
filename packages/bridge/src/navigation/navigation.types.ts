@@ -7,4 +7,4 @@ export type NavigateRequest = BridgeRequest<
   }
 >;
 
-export type GetNavigateResult = boolean;
+export type NavigateResult = boolean;
