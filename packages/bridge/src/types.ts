@@ -26,6 +26,7 @@ export type BridgeError = {
 
 export enum BridgeErrorCode {
   FORBIDDEN_ORIGIN = "FORBIDDEN_ORIGIN",
+  INVALID_REQUEST = "INVALID_REQUEST",
 }
 
 export enum BridgeMethod {
