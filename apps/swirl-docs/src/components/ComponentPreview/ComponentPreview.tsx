@@ -1,10 +1,15 @@
 import { getSwirlComponentData } from "@swirl/lib/components";
-import { SwirlComponentCodePreview } from "@swirl/lib/components/src/components.model";
+import {
+  Prop,
+  SwirlComponentCodePreview,
+} from "@swirl/lib/components/src/components.model";
 import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
-import { FunctionComponent, useEffect, useState } from "react";
-import { CodePreview } from "./CodePreview";
+import { FunctionComponent, useCallback, useEffect, useState } from "react";
+import { CodeExample, CodePreview } from "./CodePreview";
 import { PropsTable } from "./PropsTable";
 import { VariantPreview } from "./VariantPreview";
+import prettier from "prettier/standalone";
+import prettierHTML from "prettier/parser-html";
 
 interface ComponentPreviewProps {
   frontMatter: FrontMatter | undefined;
@@ -19,7 +24,44 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [componentData, setComponentData] =
     useState<SwirlComponentCodePreview | null>(null);
+  const [codeExample, setCodeExample] = useState<CodeExample>({
+    code: "",
+    isLongCode: false,
+  });
   const hasComponentProps = componentData && componentData.props.length > 0;
+
+  const generateCodePreview = useCallback(() => {
+    if (componentData?.tag) {
+      const el = document.createElement(componentData.tag);
+
+      componentData.props.forEach((prop: Prop) => {
+        if (prop.default) {
+          const propDefaultValue = prop.default as string;
+
+          const cleanedPropValue = propDefaultValue.replace(/"/g, "");
+
+          el.setAttribute(prop.name, cleanedPropValue);
+        }
+      });
+
+      if (componentData?.innerHtml) {
+        el.innerHTML = componentData.innerHtml;
+      }
+
+      return {
+        isLongCode: el.outerHTML.length > 180,
+        code: prettier.format(el.outerHTML, {
+          parser: "html",
+          plugins: [prettierHTML],
+        }),
+      };
+    }
+
+    return {
+      isLongCode: false,
+      code: "",
+    };
+  }, [componentData]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -35,6 +77,13 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
     }
   }, [frontMatter]);
 
+  useEffect(() => {
+    if (componentData) {
+      // TO DO: add support for multiple examples in mdx file structure
+      setCodeExample(generateCodePreview());
+    }
+  }, [componentData, generateCodePreview, currentExample]);
+
   return (
     <>
       <VariantPreview
@@ -44,10 +93,7 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
         setIsLoading={setIsLoading}
         handleExampleChange={(example) => setCurrentExample(example)}
       />
-      <CodePreview
-        component={componentData}
-        currentExample={currentExample!!} // change this line to always use the current example and not just the first one.
-      />
+      <CodePreview codeExample={codeExample} />
       {hasComponentProps && (
         <PropsTable componentPropsData={componentData.props}></PropsTable>
       )}

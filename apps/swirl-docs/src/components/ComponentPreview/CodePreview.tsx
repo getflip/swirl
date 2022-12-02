@@ -6,10 +6,6 @@ import {
   FlipIconOpenInNew,
 } from "@getflip/swirl-components-react";
 import { FunctionComponent, useCallback, useEffect, useState } from "react";
-import {
-  Prop,
-  SwirlComponentCodePreview,
-} from "@swirl/lib/components/src/components.model";
 import { CodeSandboxButton } from "./CodeSandboxButton";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import classNames from "classnames";
@@ -18,56 +14,21 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 
 import dark from "react-syntax-highlighter/dist/cjs/styles/prism/a11y-dark";
 import NoSsr from "../Layout/NoSsr";
-import prettier from "prettier/standalone";
-import prettierHTML from "prettier/parser-html";
-import { ComponentExample } from "@swirl/lib/docs/src/docs.model";
+
+export type CodeExample = {
+  code: string;
+  isLongCode: boolean;
+};
 
 interface CodePreviewProps {
-  component: SwirlComponentCodePreview | null;
-  currentExample?: ComponentExample;
+  codeExample: CodeExample;
 }
 
 export const CodePreview: FunctionComponent<CodePreviewProps> = ({
-  component,
-  currentExample,
+  codeExample,
 }) => {
-  const [isExpandable, setIsExpandable] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
-  const [code, setCode] = useState<string>("");
-
-  const generateCode = useCallback(() => {
-    if (component?.tag) {
-      const el = document.createElement(component.tag);
-
-      component.props.forEach((prop: Prop) => {
-        if (prop.default) {
-          const propDefaultValue = prop.default as string;
-
-          const cleanedPropValue = propDefaultValue.replace(/"/g, "");
-
-          el.setAttribute(prop.name, cleanedPropValue);
-        }
-      });
-
-      if (component?.innerHtml) {
-        el.innerHTML = component.innerHtml;
-      }
-
-      setIsExpandable(el.outerHTML.length > 180);
-
-      return prettier.format(el.outerHTML, {
-        parser: "html",
-        plugins: [prettierHTML],
-      });
-    }
-
-    return "";
-  }, [component]);
-
-  useEffect(() => {
-    setCode(generateCode());
-  }, [generateCode]);
 
   return (
     <NoSsr>
@@ -88,10 +49,10 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
                 <FlipIconOpenInNew className="ml-1" size={16} />
               </a>
             </Link>
-            <CodeSandboxButton code={code} />
+            <CodeSandboxButton code={codeExample.code} />
           </div>
           <CopyToClipboard
-            text={code}
+            text={codeExample.code}
             onCopy={() => {
               setIsCopied(true);
               setTimeout(() => {
@@ -119,9 +80,9 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
             height: "100%",
           }}
         >
-          {code}
+          {codeExample.code}
         </SyntaxHighlighter>
-        {isExpandable && (
+        {codeExample.isLongCode && (
           <div className="absolute bottom-0 flex justify-center items-center w-full h-12  bg-[#24292E]">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
