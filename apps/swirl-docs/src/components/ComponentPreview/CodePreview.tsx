@@ -31,6 +31,7 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
   component,
   currentExample,
 }) => {
+  const [isExpandable, setIsExpandable] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [code, setCode] = useState<string>("");
@@ -52,6 +53,8 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
       if (component?.innerHtml) {
         el.innerHTML = component.innerHtml;
       }
+
+      setIsExpandable(el.outerHTML.length > 180);
 
       return prettier.format(el.outerHTML, {
         parser: "html",
@@ -118,19 +121,21 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
         >
           {code}
         </SyntaxHighlighter>
-        <div className="absolute bottom-0 flex justify-center items-center w-full h-12  bg-[#24292E]">
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="bottom-2 left-auto right-auto flex justify-center items-center text-[#F2F2F2] text-base font-medium"
-          >
-            {isExpanded ? "Collapse" : "Expand"}
-            {isExpanded ? (
-              <FlipIconExpandLess className="ml-2" size={24} />
-            ) : (
-              <FlipIconExpandMore className="ml-2" size={24} />
-            )}
-          </button>
-        </div>
+        {isExpandable && (
+          <div className="absolute bottom-0 flex justify-center items-center w-full h-12  bg-[#24292E]">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="bottom-2 left-auto right-auto flex justify-center items-center text-[#F2F2F2] text-base font-medium"
+            >
+              {isExpanded ? "Collapse" : "Expand"}
+              {isExpanded ? (
+                <FlipIconExpandLess className="ml-2" size={24} />
+              ) : (
+                <FlipIconExpandMore className="ml-2" size={24} />
+              )}
+            </button>
+          </div>
+        )}
       </div>
     </NoSsr>
   );
