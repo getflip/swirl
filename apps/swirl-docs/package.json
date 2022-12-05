@@ -16,8 +16,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@getflip/swirl-components": "^0.8.5",
-    "@getflip/swirl-components-react": "^0.7.5",
+    "@getflip/swirl-components": "^0.8.6",
+    "@getflip/swirl-components-react": "^0.7.6",
     "@getflip/swirl-icons": "^0.6.0",
     "@getflip/swirl-tokens": "^2.0.0",
     "@mdx-js/loader": "^2.1.3",
@@ -41,6 +41,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
     "@types/node": "18.7.14",
+    "@types/prettier": "^2.7.1",
     "@types/react": "18.0.18",
     "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-dom": "18.0.6",
