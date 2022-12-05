@@ -42,7 +42,6 @@ export function generateSerializableDocumentation(
     "utf8"
   );
   const matterSource = matter(source);
-  console.log("matterSource", matterSource.data);
 
   return matterSource.content;
 }

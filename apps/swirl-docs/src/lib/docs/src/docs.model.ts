@@ -33,3 +33,18 @@ export type DocHeadline = {
   name: string;
   level?: number;
 };
+
+export type FrontMatter = {
+  title: string;
+  description: string;
+  tags?: string[];
+  variantsDescription?: string;
+  innerHtml?: string;
+  examples: ComponentExample[];
+};
+
+export type ComponentExample = {
+  description: string;
+  url: string;
+  title: string;
+};

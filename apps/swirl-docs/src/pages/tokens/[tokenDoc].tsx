@@ -1,6 +1,5 @@
 import { createStaticPathsData } from "@swirl/lib/docs";
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import { MDXRemote } from "next-mdx-remote";
 import {
   BASE_PATHS,
   DOCUMENT_ENUM,
@@ -86,6 +85,7 @@ export default function Component({
         documentLinkList={documentLinkList}
         document={document}
         mdxComponents={components}
+        frontMatter={document.frontmatter}
       />
     </>
   );
