@@ -12,7 +12,7 @@ import { FlipTextInputMode } from "./components/flip-text-input/flip-text-input"
 import { FlipAvatarBadgePosition, FlipAvatarColor, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
-import { FlipBoxPadding } from "./components/flip-box/flip-box";
+import { FlipBoxOverflow, FlipBoxPadding } from "./components/flip-box/flip-box";
 import { FlipButtonIconPosition, FlipButtonIntent, FlipButtonSize, FlipButtonType, FlipButtonVariant } from "./components/flip-button/flip-button";
 import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-button-group";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
@@ -35,6 +35,7 @@ import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
 import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
+import { FlipTableColumnSort } from "./components/flip-table-column/flip-table-column";
 import { FlipTagIntent } from "./components/flip-tag/flip-tag";
 import { FlipTextAlign, FlipTextColor, FlipTextFontStyle, FlipTextSize, FlipTextWeight } from "./components/flip-text/flip-text";
 import { FlipTextInputMode as FlipTextInputMode1, FlipTextInputType } from "./components/flip-text-input/flip-text-input";
@@ -147,6 +148,7 @@ export namespace Components {
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
+        "overflow"?: FlipBoxOverflow;
         "padding"?: FlipBoxPadding;
     }
     interface FlipButton {
@@ -819,6 +821,22 @@ export namespace Components {
         "active"?: boolean;
         "label": string;
         "tabId": string;
+    }
+    interface FlipTable {
+        "caption"?: string;
+        "label": string;
+    }
+    interface FlipTableCell {
+    }
+    interface FlipTableColumn {
+        "maxWidth"?: string;
+        "minWidth"?: string;
+        "sort"?: FlipTableColumnSort;
+        "sticky"?: boolean;
+        "width"?: string;
+    }
+    interface FlipTableRow {
+        "index"?: number;
     }
     interface FlipTabs {
         /**
@@ -1893,6 +1911,30 @@ declare global {
         prototype: HTMLFlipTabElement;
         new (): HTMLFlipTabElement;
     };
+    interface HTMLFlipTableElement extends Components.FlipTable, HTMLStencilElement {
+    }
+    var HTMLFlipTableElement: {
+        prototype: HTMLFlipTableElement;
+        new (): HTMLFlipTableElement;
+    };
+    interface HTMLFlipTableCellElement extends Components.FlipTableCell, HTMLStencilElement {
+    }
+    var HTMLFlipTableCellElement: {
+        prototype: HTMLFlipTableCellElement;
+        new (): HTMLFlipTableCellElement;
+    };
+    interface HTMLFlipTableColumnElement extends Components.FlipTableColumn, HTMLStencilElement {
+    }
+    var HTMLFlipTableColumnElement: {
+        prototype: HTMLFlipTableColumnElement;
+        new (): HTMLFlipTableColumnElement;
+    };
+    interface HTMLFlipTableRowElement extends Components.FlipTableRow, HTMLStencilElement {
+    }
+    var HTMLFlipTableRowElement: {
+        prototype: HTMLFlipTableRowElement;
+        new (): HTMLFlipTableRowElement;
+    };
     interface HTMLFlipTabsElement extends Components.FlipTabs, HTMLStencilElement {
     }
     var HTMLFlipTabsElement: {
@@ -2102,6 +2144,10 @@ declare global {
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
         "flip-tab": HTMLFlipTabElement;
+        "flip-table": HTMLFlipTableElement;
+        "flip-table-cell": HTMLFlipTableCellElement;
+        "flip-table-column": HTMLFlipTableColumnElement;
+        "flip-table-row": HTMLFlipTableRowElement;
         "flip-tabs": HTMLFlipTabsElement;
         "flip-tag": HTMLFlipTagElement;
         "flip-text": HTMLFlipTextElement;
@@ -2210,6 +2256,7 @@ declare namespace LocalJSX {
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
+        "overflow"?: FlipBoxOverflow;
         "padding"?: FlipBoxPadding;
     }
     interface FlipButton {
@@ -2818,6 +2865,22 @@ declare namespace LocalJSX {
         "label": string;
         "tabId": string;
     }
+    interface FlipTable {
+        "caption"?: string;
+        "label": string;
+    }
+    interface FlipTableCell {
+    }
+    interface FlipTableColumn {
+        "maxWidth"?: string;
+        "minWidth"?: string;
+        "sort"?: FlipTableColumnSort;
+        "sticky"?: boolean;
+        "width"?: string;
+    }
+    interface FlipTableRow {
+        "index"?: number;
+    }
     interface FlipTabs {
         "initialTab"?: string;
         "label": string;
@@ -3051,6 +3114,10 @@ declare namespace LocalJSX {
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
         "flip-tab": FlipTab;
+        "flip-table": FlipTable;
+        "flip-table-cell": FlipTableCell;
+        "flip-table-column": FlipTableColumn;
+        "flip-table-row": FlipTableRow;
         "flip-tabs": FlipTabs;
         "flip-tag": FlipTag;
         "flip-text": FlipText;
@@ -3205,6 +3272,10 @@ declare module "@stencil/core" {
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
             "flip-tab": LocalJSX.FlipTab & JSXBase.HTMLAttributes<HTMLFlipTabElement>;
+            "flip-table": LocalJSX.FlipTable & JSXBase.HTMLAttributes<HTMLFlipTableElement>;
+            "flip-table-cell": LocalJSX.FlipTableCell & JSXBase.HTMLAttributes<HTMLFlipTableCellElement>;
+            "flip-table-column": LocalJSX.FlipTableColumn & JSXBase.HTMLAttributes<HTMLFlipTableColumnElement>;
+            "flip-table-row": LocalJSX.FlipTableRow & JSXBase.HTMLAttributes<HTMLFlipTableRowElement>;
             "flip-tabs": LocalJSX.FlipTabs & JSXBase.HTMLAttributes<HTMLFlipTabsElement>;
             "flip-tag": LocalJSX.FlipTag & JSXBase.HTMLAttributes<HTMLFlipTagElement>;
             "flip-text": LocalJSX.FlipText & JSXBase.HTMLAttributes<HTMLFlipTextElement>;

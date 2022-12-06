@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  width: max-content;
+  min-width: max(20rem, 100%);
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.table__header {
+  & ::slotted(*) {
+    display: flex;
+  }
+}

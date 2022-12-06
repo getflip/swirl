@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+
+  & ::slotted(.table-cell) {
+    border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  }
+
+  & * {
+    box-sizing: border-box;
+  }
+}

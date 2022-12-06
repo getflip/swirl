@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  overflow: auto;
+  padding-top: var(--s-space-8);
+  padding-right: var(--s-space-16);
+  padding-bottom: var(--s-space-8);
+  padding-left: var(--s-space-16);
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-items: center;
+  background-color: var(--s-background-default);
+  word-break: break-word;
+  hyphens: auto;
+
+  &(.table-cell--has-shadow) {
+    box-shadow: 0 0.25rem 1rem rgba(25, 26, 28, 0.04),
+      0 0.0625rem 0.25rem rgba(25, 26, 28, 0.16);
+  }
+
+  &(:first-child) {
+    border-left: var(--s-border-width-default) solid var(--s-border-default);
+  }
+
+  &(:last-child) {
+    border-right: var(--s-border-width-default) solid var(--s-border-default);
+  }
+
+  & * {
+    box-sizing: border-box;
+  }
+}

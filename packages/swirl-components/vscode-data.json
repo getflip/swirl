@@ -510,6 +510,27 @@
           "description": ""
         },
         {
+          "name": "overflow",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "clip"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "scroll"
+            },
+            {
+              "name": "visible"
+            }
+          ]
+        },
+        {
           "name": "padding",
           "description": "",
           "values": [
@@ -3273,6 +3294,81 @@
         },
         {
           "name": "tab-id",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-table",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "caption",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-table-cell",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "flip-table-column",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "max-width",
+          "description": ""
+        },
+        {
+          "name": "min-width",
+          "description": ""
+        },
+        {
+          "name": "sort",
+          "description": "",
+          "values": [
+            {
+              "name": "ascending"
+            },
+            {
+              "name": "descending"
+            }
+          ]
+        },
+        {
+          "name": "sticky",
+          "description": ""
+        },
+        {
+          "name": "width",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-table-row",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "index",
           "description": ""
         }
       ]

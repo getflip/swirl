@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  overflow: hidden;
+  padding-top: var(--s-space-12);
+  padding-right: var(--s-space-16);
+  padding-bottom: var(--s-space-12);
+  padding-left: var(--s-space-16);
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border-top: var(--s-border-width-default) solid var(--s-border-default);
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  color: var(--s-text-subdued);
+  background-color: var(--s-background-default);
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-sm);
+  white-space: nowrap;
+  letter-spacing: var(--s-letter-spacing-tighter);
+  text-overflow: ellipsis;
+
+  &(:first-child) {
+    border-left: var(--s-border-width-default) solid var(--s-border-default);
+  }
+
+  &(:last-child) {
+    border-right: var(--s-border-width-default) solid var(--s-border-default);
+  }
+
+  &(.table-column--has-shadow) {
+    box-shadow: 0 0.25rem 1rem rgba(25, 26, 28, 0.04),
+      0 0.0625rem 0.25rem rgba(25, 26, 28, 0.16);
+  }
+
+  & * {
+    box-sizing: border-box;
+  }
+}
