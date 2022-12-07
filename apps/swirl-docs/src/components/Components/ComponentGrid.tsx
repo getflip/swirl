@@ -47,7 +47,7 @@ export const ComponentGrid: FunctionComponent<ComponentGridProps> = ({
                 </div>
               </header>
               <footer className="p-4">
-                <h3 className="text-font-size-base font-semibold">
+                <h3 className="text-font-size-base font-semibold capitalize">
                   {component.title}
                 </h3>
                 <p className="text-font-size-sm">

@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.8.6
+
+### Patch Changes
+
+- [#114](https://github.com/getflip/swirl/pull/114)
+  [`29b5403`](https://github.com/getflip/swirl/commit/29b540347f19e8e0686794e6fcff42c050f367cf)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Added
+  component.json to the package.json files section
+
 ## 0.8.5
 
 ### Patch Changes
