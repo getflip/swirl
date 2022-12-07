@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Listen, Prop } from "@stencil/core";
-import { isMobileViewport } from "../../utils";
+import { debounce, isMobileViewport } from "../../utils";
 
 /**
  * @slot columns - Column container, should contain FlipTableColumns.
@@ -19,14 +19,12 @@ export class FlipTable {
   private container: HTMLElement;
 
   async componentDidRender() {
-    await this.layOutColumns();
-    this.layOutCells();
+    this.updateLayout();
   }
 
   @Listen("resize", { target: "window" })
   async onWindowResize() {
-    await this.layOutColumns();
-    this.layOutCells();
+    this.updateLayout();
   }
 
   private getColumns() {
@@ -56,6 +54,8 @@ export class FlipTable {
     const cells = this.getCells();
 
     cells.forEach((cell) => {
+      cell.classList.remove("table-cell--has-shadow");
+
       cell.style.flex = "";
       cell.style.left = "";
       cell.style.right = "";
@@ -65,6 +65,11 @@ export class FlipTable {
 
     await new Promise((resolve) => setTimeout(resolve));
   }
+
+  private updateLayout = debounce(async () => {
+    await this.layOutColumns();
+    this.layOutCells();
+  }, 100);
 
   private async layOutColumns() {
     await this.resetCellStyles();
