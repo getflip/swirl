@@ -1,4 +1,5 @@
 import { Component, Element, h, Host, Listen, Prop } from "@stencil/core";
+import { isMobileViewport } from "../../utils";
 
 /**
  * @slot columns - Column container, should contain FlipTableColumns.
@@ -15,18 +16,86 @@ export class FlipTable {
   @Prop() caption?: string;
   @Prop() label!: string;
 
-  componentDidRender() {
-    this.updateCellStyles();
+  private container: HTMLElement;
+
+  async componentDidRender() {
+    await this.layOutColumns();
+    this.layOutCells();
   }
 
   @Listen("resize", { target: "window" })
-  onWindowResize() {
-    this.updateCellStyles();
+  async onWindowResize() {
+    await this.layOutColumns();
+    this.layOutCells();
   }
 
-  private updateCellStyles() {
-    const columns = Array.from(this.el.querySelectorAll("flip-table-column"));
-    const cells = Array.from(this.el.querySelectorAll("flip-table-cell"));
+  private getColumns() {
+    return Array.from(this.el.querySelectorAll("flip-table-column"));
+  }
+
+  private getCells() {
+    return Array.from(this.el.querySelectorAll("flip-table-cell"));
+  }
+
+  private async layOutColumns() {
+    const columns = this.getColumns();
+    const tableContainer = this.container;
+    const tableContainerWidth = tableContainer.clientWidth;
+
+    columns.forEach((column) => {
+      column.classList.remove("table-column--has-shadow");
+
+      column.style.right = "";
+      column.style.left = "";
+      column.style.position = "";
+    });
+
+    await new Promise((resolve) => setTimeout(resolve));
+
+    columns.forEach((column, index) => {
+      if (!column.sticky || isMobileViewport()) {
+        return;
+      }
+
+      const isInFirstHalfOfTable = index <= Math.floor(columns.length / 2);
+      const nextColumnIsSticky = columns[index + 1]?.sticky;
+      const prevColumnIsSticky = columns[index - 1]?.sticky;
+      const columnIsOnTopOfShadow = isInFirstHalfOfTable && nextColumnIsSticky;
+
+      column.style.zIndex = columnIsOnTopOfShadow ? "1" : "";
+
+      const columnHasShadow =
+        (isInFirstHalfOfTable && !nextColumnIsSticky) ||
+        (!isInFirstHalfOfTable && !prevColumnIsSticky);
+
+      if (columnHasShadow) {
+        column.classList.add("table-column--has-shadow");
+      } else {
+        column.classList.remove("table-column--has-shadow");
+      }
+
+      const offset = isInFirstHalfOfTable
+        ? column.offsetLeft
+        : Math.max(
+            0,
+            tableContainerWidth - (column.offsetLeft + column.offsetWidth)
+          );
+
+      column.style.position = "sticky";
+
+      if (isInFirstHalfOfTable) {
+        column.style.left = `${offset}px`;
+      } else {
+        column.style.right = `${offset}px`;
+      }
+    });
+
+    await new Promise((resolve) => setTimeout(resolve));
+  }
+
+  private layOutCells() {
+    const columns = this.getColumns();
+    const cells = this.getCells();
 
     columns.forEach((column, colIndex) => {
       const cellsOfColumn = cells.filter((_, cellIndex) => {
@@ -41,26 +110,42 @@ export class FlipTable {
 
       const nextColumnIsSticky = columns[colIndex + 1]?.sticky;
       const prevColumnIsSticky = columns[colIndex - 1]?.sticky;
-      const isSticky = column.sticky;
-      const width = column.width;
-      const maxWidth = column.maxWidth;
-      const minWidth = column.minWidth;
+      const columnIsSticky = column.sticky;
+      const columnWidth = column.width;
+      const columnMaxWidth = column.maxWidth;
+      const columnMinWidth = column.minWidth;
 
       cellsOfColumn.forEach((cell) => {
-        cell.style.flex = Boolean(width) ? `0 0 ${width}` : "";
-        cell.style.left = isSticky && isInFirstHalfOfTable ? offset : "";
-        cell.style.right = isSticky && !isInFirstHalfOfTable ? offset : "";
-        cell.style.maxWidth = maxWidth || "";
-        cell.style.minWidth = minWidth || "";
-        cell.style.position = isSticky ? "sticky" : "";
-        cell.style.zIndex =
-          isInFirstHalfOfTable && nextColumnIsSticky ? "1" : "";
+        const cellSticksToLeft = columnIsSticky && isInFirstHalfOfTable;
+        const cellSticksToRight = columnIsSticky && !isInFirstHalfOfTable;
+        const cellIsOnTopOfShadow = isInFirstHalfOfTable && nextColumnIsSticky;
 
-        if (
-          isSticky &&
+        cell.style.flex = Boolean(columnWidth) ? `0 0 ${columnWidth}` : "";
+        cell.style.maxWidth = columnMaxWidth || "";
+        cell.style.minWidth = columnMinWidth || "";
+
+        if (isMobileViewport()) {
+          cell.classList.remove("table-cell--has-shadow");
+
+          cell.style.left = "";
+          cell.style.right = "";
+          cell.style.position = "";
+          cell.style.zIndex = "";
+
+          return;
+        }
+
+        cell.style.left = cellSticksToLeft ? offset : "";
+        cell.style.right = cellSticksToRight ? offset : "";
+        cell.style.position = columnIsSticky ? "sticky" : "";
+        cell.style.zIndex = cellIsOnTopOfShadow ? "1" : "";
+
+        const cellHasShadow =
+          columnIsSticky &&
           ((isInFirstHalfOfTable && !nextColumnIsSticky) ||
-            (!isInFirstHalfOfTable && !prevColumnIsSticky))
-        ) {
+            (!isInFirstHalfOfTable && !prevColumnIsSticky));
+
+        if (cellHasShadow) {
           cell.classList.add("table-cell--has-shadow");
         } else {
           cell.classList.remove("table-cell--has-shadow");
@@ -72,24 +157,28 @@ export class FlipTable {
   render() {
     return (
       <Host>
-        <div
-          aria-describedby={Boolean(this.caption) ? "caption" : undefined}
-          aria-label={this.label}
-          role="table"
-          class="table"
-        >
-          {this.caption && (
-            <flip-visually-hidden>
-              <div id="caption">{this.caption}</div>
-            </flip-visually-hidden>
-          )}
-          <div role="rowgroup">
-            <div class="table__header" role="row">
-              <slot name="columns"></slot>
+        <div class="table">
+          <div class="table__container" ref={(el) => (this.container = el)}>
+            <div
+              aria-describedby={Boolean(this.caption) ? "caption" : undefined}
+              aria-label={this.label}
+              role="table"
+              class="table__table"
+            >
+              {this.caption && (
+                <flip-visually-hidden>
+                  <div id="caption">{this.caption}</div>
+                </flip-visually-hidden>
+              )}
+              <div role="rowgroup">
+                <div class="table__header" role="row">
+                  <slot name="columns"></slot>
+                </div>
+              </div>
+              <div class="table__body" role="rowgroup">
+                <slot name="rows"></slot>
+              </div>
             </div>
-          </div>
-          <div class="table__body" role="rowgroup">
-            <slot name="rows"></slot>
           </div>
         </div>
       </Host>

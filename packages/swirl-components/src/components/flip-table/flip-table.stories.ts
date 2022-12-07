@@ -12,19 +12,17 @@ export default {
 };
 
 const Template = (args) => {
-  const container = document.createElement("flip-box");
   const element = generateStoryElement("flip-table", args);
-
-  container.setAttribute("overflow", "auto");
 
   element.innerHTML = `
     <div slot="columns">
       <flip-table-column sticky width="74px"><flip-visually-hidden>Avatar</flip-visually-hidden></flip-table-column>
       <flip-table-column min-width="180px" sticky>User</flip-table-column>
-      <flip-table-column>User ID</flip-table-column>
-      <flip-table-column max-width="112px">Logins</flip-table-column>
-      <flip-table-column>Latest login</flip-table-column>
-      <flip-table-column>Status</flip-table-column>
+      <flip-table-column min-width="120px">User ID</flip-table-column>
+      <flip-table-column min-width="186px">Email</flip-table-column>
+      <flip-table-column>Logins</flip-table-column>
+      <flip-table-column min-width="110px">Latest login</flip-table-column>
+      <flip-table-column min-width="104px">Status</flip-table-column>
       <flip-table-column sticky width="74px"><flip-visually-hidden>Tools</flip-visually-hidden></flip-table-column>
     </div>
     <div slot="rows">
@@ -37,6 +35,9 @@ const Template = (args) => {
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" truncate>1234567890</flip-text>
+        </flip-table-cell>
+        <flip-table-cell>
+          <flip-text size="sm"><a href="#">isabel.lakin@flipapp.de</a></flip-text>
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" truncate>21</flip-text>
@@ -62,6 +63,9 @@ const Template = (args) => {
           <flip-text size="sm" truncate>0987654321</flip-text>
         </flip-table-cell>
         <flip-table-cell>
+          <flip-text size="sm"><a href="#">john.doe@flipapp.de</a></flip-text>
+        </flip-table-cell>
+        <flip-table-cell>
           <flip-text size="sm" truncate>432</flip-text>
         </flip-table-cell>
         <flip-table-cell>
@@ -77,9 +81,7 @@ const Template = (args) => {
     </div>
   `;
 
-  container.append("\n  ", element, "\n");
-
-  return container;
+  return element;
 };
 
 export const FlipTable = Template.bind({});

@@ -1,11 +1,21 @@
 :host {
+  position: relative;
   display: block;
-  width: max-content;
-  min-width: max(20rem, 100%);
 
   & * {
     box-sizing: border-box;
   }
+}
+
+.table__container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+
+.table__table {
+  width: max-content;
+  min-width: max(20rem, 100%);
 }
 
 .table__header {
