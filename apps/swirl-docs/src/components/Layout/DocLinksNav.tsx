@@ -47,7 +47,7 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
                     }
                   `}
                   >
-                    {link.name}
+                    {link.title}
                   </a>
                 </Link>
               </li>
