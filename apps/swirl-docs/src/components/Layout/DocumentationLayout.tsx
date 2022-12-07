@@ -32,8 +32,6 @@ export const DocumentationLayout = ({
 
   const [tocItems] = useToC(document, isComponentDoc);
 
-  console.log("tocItems", tocItems);
-
   return (
     <div className={`flex min-h-[calc(100vh_-_72px)]`}>
       <CategoryNav categoryLinkList={categoryLinkList} />

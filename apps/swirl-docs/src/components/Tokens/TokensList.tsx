@@ -12,13 +12,13 @@ export const TokensList: FunctionComponent<TokensListProps> = ({ tokens }) => {
       <thead>
         <tr className="hidden md:grid gap-2 grid-cols-5 items-end border-b-1 pb-4">
           <th className="col-span-2 font-semibold text-start">
-            <h3>Token Name</h3>
+            <h4>Token Name</h4>
           </th>
           <th className="col-span-1 font-semibold text-start">
-            <h3>Value</h3>
+            <h4>Value</h4>
           </th>
           <th className="col-span-2 font-semibold text-start">
-            <h3>Description</h3>
+            <h4>Description</h4>
           </th>
         </tr>
       </thead>
