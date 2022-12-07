@@ -28,7 +28,7 @@ const Template = (args) => {
     <div slot="rows">
       <flip-table-row>
         <flip-table-cell>
-          <flip-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></flip-avatar>
+          <flip-avatar label="Isabel Lakin" src="https://picsum.photos/id/433/144/144"></flip-avatar>
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" weight="medium">Isabel Lakin</flip-text>
@@ -80,7 +80,7 @@ const Template = (args) => {
       </flip-table-row>
       <flip-table-row>
         <flip-table-cell>
-          <flip-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></flip-avatar>
+          <flip-avatar label="Don Conroy" src="https://picsum.photos/id/433/144/144"></flip-avatar>
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" weight="medium">Don Conroy</flip-text>
