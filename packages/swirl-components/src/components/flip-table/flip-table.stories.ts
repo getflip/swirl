@@ -78,6 +78,32 @@ const Template = (args) => {
           <flip-button hide-label icon="<flip-icon-more-vertikal></flip-icon-more-vertikal>" label="Options"></flip-button>
         </flip-table-cell>
       </flip-table-row>
+      <flip-table-row>
+      <flip-table-cell>
+        <flip-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></flip-avatar>
+      </flip-table-cell>
+      <flip-table-cell>
+        <flip-text size="sm" weight="medium">Don Conroy</flip-text>
+      </flip-table-cell>
+      <flip-table-cell>
+        <flip-text size="sm" truncate>5432167890</flip-text>
+      </flip-table-cell>
+      <flip-table-cell>
+        <flip-text size="sm"><a href="#">don.conroy@flipapp.de</a></flip-text>
+      </flip-table-cell>
+      <flip-table-cell>
+        <flip-text size="sm" truncate>0</flip-text>
+      </flip-table-cell>
+      <flip-table-cell>
+        <flip-text size="sm">-</flip-text>
+      </flip-table-cell>
+      <flip-table-cell>
+        <flip-tag label="Pending" intent="warning"></flip-tag>
+      </flip-table-cell>
+      <flip-table-cell>
+        <flip-button hide-label icon="<flip-icon-more-vertikal></flip-icon-more-vertikal>" label="Options"></flip-button>
+      </flip-table-cell>
+    </flip-table-row>
     </div>
   `;
 

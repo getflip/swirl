@@ -6,11 +6,11 @@ describe("flip-table-row", () => {
   it("renders its content and index", async () => {
     const page = await newSpecPage({
       components: [FlipTableRow],
-      html: `<flip-table-row index="0">Row</flip-table-row>`,
+      html: `<flip-table-row highlighted="true" index="0">Row</flip-table-row>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-table-row aria-rowindex="0" class="table-row" index="0" role="row">
+      <flip-table-row aria-rowindex="0" class="table-row table-row--highlighted" highlighted="true" index="0" role="row">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>

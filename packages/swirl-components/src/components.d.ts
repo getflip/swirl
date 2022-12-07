@@ -836,6 +836,7 @@ export namespace Components {
         "width"?: string;
     }
     interface FlipTableRow {
+        "highlighted"?: boolean;
         "index"?: number;
     }
     interface FlipTabs {
@@ -2879,6 +2880,7 @@ declare namespace LocalJSX {
         "width"?: string;
     }
     interface FlipTableRow {
+        "highlighted"?: boolean;
         "index"?: number;
     }
     interface FlipTabs {

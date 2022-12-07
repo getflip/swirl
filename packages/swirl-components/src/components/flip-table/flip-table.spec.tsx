@@ -25,19 +25,23 @@ describe("flip-table", () => {
     expect(page.root).toEqualHtml(`
       <flip-table caption="Caption" label="Label">
         <mock:shadow-root>
-          <div aria-describedby="caption" aria-label="Label" class="table" role="table">
-            <flip-visually-hidden>
-              <div id="caption">
-                Caption
+          <div class="table">
+            <div class="table__container">
+              <div aria-describedby="caption" aria-label="Label" class="table__table" role="table">
+                <flip-visually-hidden>
+                  <div id="caption">
+                    Caption
+                  </div>
+                </flip-visually-hidden>
+                <div role="rowgroup">
+                  <div class="table__header" role="row">
+                    <slot name="columns"></slot>
+                  </div>
+                </div>
+                <div class="table__body" role="rowgroup">
+                  <slot name="rows"></slot>
+                </div>
               </div>
-            </flip-visually-hidden>
-            <div role="rowgroup">
-              <div class="table__header" role="row">
-                <slot name="columns"></slot>
-              </div>
-            </div>
-            <div class="table__body" role="rowgroup">
-              <slot name="rows"></slot>
             </div>
           </div>
         </mock:shadow-root>

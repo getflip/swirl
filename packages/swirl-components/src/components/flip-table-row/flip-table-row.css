@@ -1,6 +1,14 @@
 :host {
   display: flex;
 
+  &(.table-row--highlighted) {
+    --flip-ghost-button-background-default: transparent;
+
+    & ::slotted(.table-cell) {
+      background-color: var(--s-decorative-blueberry-surface-subdued);
+    }
+  }
+
   & ::slotted(.table-cell) {
     border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   }

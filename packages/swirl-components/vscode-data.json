@@ -3368,6 +3368,10 @@
       },
       "attributes": [
         {
+          "name": "highlighted",
+          "description": ""
+        },
+        {
           "name": "index",
           "description": ""
         }

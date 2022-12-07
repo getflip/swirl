@@ -14,7 +14,14 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("flip-table-row", args);
 
-  element.innerHTML = `Table row`;
+  element.innerHTML = `
+    <flip-table-cell>
+      <flip-text size="sm">Cell</flip-text>
+    </flip-table-cell>
+    <flip-table-cell>
+      <flip-text size="sm">Cell</flip-text>
+    </flip-table-cell>
+  `;
 
   return element;
 };
