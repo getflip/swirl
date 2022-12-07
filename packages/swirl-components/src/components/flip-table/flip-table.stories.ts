@@ -17,12 +17,12 @@ const Template = (args) => {
   element.innerHTML = `
     <div slot="columns">
       <flip-table-column sticky width="74px"><flip-visually-hidden>Avatar</flip-visually-hidden></flip-table-column>
-      <flip-table-column min-width="180px" sticky>User</flip-table-column>
-      <flip-table-column min-width="120px">User ID</flip-table-column>
-      <flip-table-column min-width="186px">Email</flip-table-column>
+      <flip-table-column min-width="160px" sticky>User</flip-table-column>
+      <flip-table-column>User ID</flip-table-column>
+      <flip-table-column min-width="200px" sort="descending">Email</flip-table-column>
       <flip-table-column>Logins</flip-table-column>
-      <flip-table-column min-width="110px">Latest login</flip-table-column>
-      <flip-table-column min-width="104px">Status</flip-table-column>
+      <flip-table-column>Latest login</flip-table-column>
+      <flip-table-column>User Status</flip-table-column>
       <flip-table-column sticky width="74px"><flip-visually-hidden>Tools</flip-visually-hidden></flip-table-column>
     </div>
     <div slot="rows">

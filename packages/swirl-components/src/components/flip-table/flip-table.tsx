@@ -37,10 +37,8 @@ export class FlipTable {
     return Array.from(this.el.querySelectorAll("flip-table-cell"));
   }
 
-  private async layOutColumns() {
+  private async resetColumnStyles() {
     const columns = this.getColumns();
-    const tableContainer = this.container;
-    const tableContainerWidth = tableContainer.clientWidth;
 
     columns.forEach((column) => {
       column.classList.remove("table-column--has-shadow");
@@ -48,9 +46,33 @@ export class FlipTable {
       column.style.right = "";
       column.style.left = "";
       column.style.position = "";
+      column.style.zIndex = "";
     });
 
     await new Promise((resolve) => setTimeout(resolve));
+  }
+
+  private async resetCellStyles() {
+    const cells = this.getCells();
+
+    cells.forEach((cell) => {
+      cell.style.flex = "";
+      cell.style.left = "";
+      cell.style.right = "";
+      cell.style.position = "";
+      cell.style.zIndex = "";
+    });
+
+    await new Promise((resolve) => setTimeout(resolve));
+  }
+
+  private async layOutColumns() {
+    await this.resetCellStyles();
+    await this.resetColumnStyles();
+
+    const columns = this.getColumns();
+    const tableContainer = this.container;
+    const tableContainerWidth = tableContainer.clientWidth;
 
     columns.forEach((column, index) => {
       if (!column.sticky || isMobileViewport()) {
@@ -78,7 +100,8 @@ export class FlipTable {
         ? column.offsetLeft
         : Math.max(
             0,
-            tableContainerWidth - (column.offsetLeft + column.offsetWidth)
+            tableContainerWidth -
+              (column.offsetLeft + column.getBoundingClientRect().width)
           );
 
       column.style.position = "sticky";
@@ -111,9 +134,8 @@ export class FlipTable {
       const nextColumnIsSticky = columns[colIndex + 1]?.sticky;
       const prevColumnIsSticky = columns[colIndex - 1]?.sticky;
       const columnIsSticky = column.sticky;
-      const columnWidth = column.width;
-      const columnMaxWidth = column.maxWidth;
-      const columnMinWidth = column.minWidth;
+      const columnWidth =
+        column.width || `${column.getBoundingClientRect().width}px`;
 
       cellsOfColumn.forEach((cell) => {
         const cellSticksToLeft = columnIsSticky && isInFirstHalfOfTable;
@@ -121,8 +143,6 @@ export class FlipTable {
         const cellIsOnTopOfShadow = isInFirstHalfOfTable && nextColumnIsSticky;
 
         cell.style.flex = Boolean(columnWidth) ? `0 0 ${columnWidth}` : "";
-        cell.style.maxWidth = columnMaxWidth || "";
-        cell.style.minWidth = columnMinWidth || "";
 
         if (isMobileViewport()) {
           cell.classList.remove("table-cell--has-shadow");
