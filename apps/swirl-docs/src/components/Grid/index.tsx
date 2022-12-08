@@ -15,11 +15,7 @@ export type GridProps = {
  *
  * You can find an example in the `IconGrid` and `ComponentGrid` components.
  */
-export const Grid: FunctionComponent<GridProps> = ({
-  className,
-  children,
-  labelledBy,
-}) => {
+export const Grid: FunctionComponent<GridProps> = ({ className, children, labelledBy }) => {
   return (
     <div role="grid" aria-labelledby={labelledBy}>
       <div className={className} role="row">

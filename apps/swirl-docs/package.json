@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "swirl-docs",
-  "version": "0.1.15",
+  "version": "0.1.17",
   "author": "Flip GmbH",
   "description": "Swirl documentation",
   "licence": "SEE LICENCE IN LICENSE.md",
@@ -16,12 +16,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@getflip/swirl-components": "^0.8.4",
-    "@getflip/swirl-components-react": "^0.7.4",
+    "@getflip/swirl-components": "^0.8.6",
+    "@getflip/swirl-components-react": "^0.7.6",
     "@getflip/swirl-icons": "^0.6.0",
     "@getflip/swirl-tokens": "^2.0.0",
     "@mdx-js/loader": "^2.1.3",
     "@next/mdx": "^12.2.5",
+    "classnames": "^2.3.2",
+    "codesandbox": "^2.2.3",
     "gray-matter": "^4.0.3",
     "iframe-resizer-react": "^1.1.0",
     "next": "12.2.5",
@@ -39,13 +41,16 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
     "@types/node": "18.7.14",
+    "@types/prettier": "^2.7.1",
     "@types/react": "18.0.18",
+    "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-dom": "18.0.6",
     "@types/react-syntax-highlighter": "^15.5.5",
     "autoprefixer": "^10.4.8",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
     "postcss": "^8.4.16",
+    "prettier": "^2.8.0",
     "tailwindcss": "^3.2.4",
     "typescript": "4.8.2"
   }
