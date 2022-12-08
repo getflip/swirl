@@ -11,6 +11,7 @@ import classNames from "classnames";
 import IframeResizer from "iframe-resizer-react";
 import { FunctionComponent, Suspense, useRef } from "react";
 import DynamicComponent from "./DynamicComponent";
+import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 
 interface VariantPreviewProps {
   frontMatter: FrontMatter;
@@ -31,7 +32,9 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
 
   return (
     <div className="mb-6">
-      <h2 className="text-2xl text-text-default mb-4">Variants</h2>
+      <h2 id="variants" className="text-2xl text-text-default mb-4">
+        Variants
+      </h2>
       <p className="text-lg text-text-default mb-12">
         {frontMatter?.variantsDescription}
       </p>

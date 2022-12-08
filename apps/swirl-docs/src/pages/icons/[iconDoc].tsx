@@ -36,12 +36,10 @@ export const getStaticProps: GetStaticProps<
   const { iconDoc } = context.params;
 
   const document = await getComponentData(iconDoc);
-  const { documentLinkList } = createLinkLists(BASE_PATHS.ICONS, iconDoc);
 
   return {
     props: {
       document,
-      documentLinkList,
       title: iconDoc,
     },
   };
@@ -49,11 +47,9 @@ export const getStaticProps: GetStaticProps<
 
 export default function Component({
   document,
-  documentLinkList,
   title,
 }: {
   document: any;
-  documentLinkList: DocHeadline[];
   title: string;
 }) {
   const components = {
@@ -67,7 +63,6 @@ export default function Component({
       </Head>
       <DocumentationLayout
         categoryLinkList={iconsNavItems}
-        documentLinkList={documentLinkList}
         document={document}
         mdxComponents={components}
         frontMatter={document.frontmatter}
