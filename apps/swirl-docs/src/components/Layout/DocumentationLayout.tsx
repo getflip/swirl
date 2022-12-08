@@ -53,7 +53,9 @@ export const DocumentationLayout = ({
               </article>
             </main>
           </div>
-          <DocLinksNav documentLinkList={tocItems} />
+          {tocItems && tocItems.length > 0 && (
+            <DocLinksNav documentLinkList={tocItems} />
+          )}
         </div>
         <Footer />
       </div>
