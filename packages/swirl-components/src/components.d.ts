@@ -189,6 +189,7 @@ export namespace Components {
         "description"?: string;
         "disabled"?: boolean;
         "flipAriaDescribedby"?: string;
+        "flipAriaLabel"?: string;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
@@ -832,6 +833,7 @@ export namespace Components {
         "maxWidth"?: string;
         "minWidth"?: string;
         "sort"?: FlipTableColumnSort;
+        "sortable"?: boolean;
         "sticky"?: boolean;
         "width"?: string;
     }
@@ -2298,6 +2300,7 @@ declare namespace LocalJSX {
         "description"?: string;
         "disabled"?: boolean;
         "flipAriaDescribedby"?: string;
+        "flipAriaLabel"?: string;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
@@ -2876,6 +2879,7 @@ declare namespace LocalJSX {
         "maxWidth"?: string;
         "minWidth"?: string;
         "sort"?: FlipTableColumnSort;
+        "sortable"?: boolean;
         "sticky"?: boolean;
         "width"?: string;
     }

@@ -14,6 +14,7 @@ export class FlipTableColumn {
   @Element() el: HTMLElement;
 
   @Prop() sort?: FlipTableColumnSort;
+  @Prop() sortable?: boolean;
   @Prop() maxWidth?: string;
   @Prop() minWidth?: string = "fit-content";
   @Prop() sticky?: boolean;
@@ -36,15 +37,17 @@ export class FlipTableColumn {
         <span>
           <slot></slot>
         </span>
-        <span class="table-column__sort-indicator">
-          {this.sort === "ascending" && (
-            <flip-icon-expand-less></flip-icon-expand-less>
-          )}
-          {this.sort === "descending" && (
-            <flip-icon-expand-more></flip-icon-expand-more>
-          )}
-          {!Boolean(this.sort) && " "}
-        </span>
+        {this.sortable && (
+          <span class="table-column__sort-indicator">
+            {this.sort === "ascending" && (
+              <flip-icon-expand-less></flip-icon-expand-less>
+            )}
+            {this.sort === "descending" && (
+              <flip-icon-expand-more></flip-icon-expand-more>
+            )}
+            {!Boolean(this.sort) && " "}
+          </span>
+        )}
       </Host>
     );
   }

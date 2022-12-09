@@ -16,10 +16,14 @@ const Template = (args) => {
 
   element.innerHTML = `
     <div slot="columns">
-      <flip-table-column sticky width="74px"><flip-visually-hidden>Avatar</flip-visually-hidden></flip-table-column>
+      <flip-table-column sticky width="58px">
+        <flip-checkbox flip-aria-label="Select all" input-id="select" input-name="select">
+        </flip-checkbox><flip-visually-hidden>Select</flip-visually-hidden>
+      </flip-table-column>
       <flip-table-column min-width="160px" sticky>User</flip-table-column>
-      <flip-table-column>User ID</flip-table-column>
-      <flip-table-column min-width="200px" sort="descending">Email</flip-table-column>
+      <flip-table-column min-width="120px">User ID</flip-table-column>
+      <flip-table-column min-width="200px" sortable sort="descending">Email</flip-table-column>
+      <flip-table-column>Location</flip-table-column>
       <flip-table-column>Logins</flip-table-column>
       <flip-table-column>Latest login</flip-table-column>
       <flip-table-column>User Status</flip-table-column>
@@ -28,7 +32,7 @@ const Template = (args) => {
     <div slot="rows">
       <flip-table-row>
         <flip-table-cell>
-          <flip-avatar label="Isabel Lakin" src="https://picsum.photos/id/433/144/144"></flip-avatar>
+          <flip-checkbox flip-aria-label="Select Isabel Lakin" input-id="select-1" input-name="select-1">
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" weight="medium">Isabel Lakin</flip-text>
@@ -38,6 +42,9 @@ const Template = (args) => {
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm"><flip-link href="#" label="isabel.lakin@flipapp.de"></flip-link></flip-text>
+        </flip-table-cell>
+        <flip-table-cell>
+          <flip-text size="sm">DE</flip-text>
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" truncate>21</flip-text>
@@ -54,7 +61,7 @@ const Template = (args) => {
       </flip-table-row>
       <flip-table-row>
         <flip-table-cell>
-          <flip-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></flip-avatar>
+          <flip-checkbox flip-aria-label="Select Doyle Stoltenberg" input-id="select-2" input-name="select-2">
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" weight="medium">Doyle Stoltenberg</flip-text>
@@ -64,6 +71,9 @@ const Template = (args) => {
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm"><flip-link href="#" label="john.doe@flipapp.de"></flip-link></flip-text>
+        </flip-table-cell>
+        <flip-table-cell>
+          <flip-text size="sm">DE</flip-text>
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" truncate>432</flip-text>
@@ -78,9 +88,9 @@ const Template = (args) => {
           <flip-button hide-label icon="<flip-icon-more-vertikal></flip-icon-more-vertikal>" label="Options"></flip-button>
         </flip-table-cell>
       </flip-table-row>
-      <flip-table-row>
+      <flip-table-row highlighted>
         <flip-table-cell>
-          <flip-avatar label="Don Conroy" src="https://picsum.photos/id/433/144/144"></flip-avatar>
+          <flip-checkbox checked="true" flip-aria-label="Select Don Conroy" input-id="select-3" input-name="select-3">
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" weight="medium">Don Conroy</flip-text>
@@ -90,6 +100,9 @@ const Template = (args) => {
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm"><flip-link href="#" label="don.conroy@flipapp.de"></flip-link></flip-text>
+        </flip-table-cell>
+        <flip-table-cell>
+          <flip-text size="sm">DE</flip-text>
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" truncate>0</flip-text>

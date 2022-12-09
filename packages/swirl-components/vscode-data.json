@@ -795,6 +795,10 @@
           "description": ""
         },
         {
+          "name": "flip-aria-label",
+          "description": ""
+        },
+        {
           "name": "input-id",
           "description": ""
         },
@@ -3349,6 +3353,10 @@
               "name": "descending"
             }
           ]
+        },
+        {
+          "name": "sortable",
+          "description": ""
         },
         {
           "name": "sticky",
