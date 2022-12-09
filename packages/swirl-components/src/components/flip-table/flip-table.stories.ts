@@ -37,7 +37,7 @@ const Template = (args) => {
           <flip-text size="sm" truncate>1234567890</flip-text>
         </flip-table-cell>
         <flip-table-cell>
-          <flip-text size="sm"><a href="#">isabel.lakin@flipapp.de</a></flip-text>
+          <flip-text size="sm"><flip-link href="#" label="isabel.lakin@flipapp.de"></flip-link></flip-text>
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" truncate>21</flip-text>
@@ -63,7 +63,7 @@ const Template = (args) => {
           <flip-text size="sm" truncate>0987654321</flip-text>
         </flip-table-cell>
         <flip-table-cell>
-          <flip-text size="sm"><a href="#">john.doe@flipapp.de</a></flip-text>
+          <flip-text size="sm"><flip-link href="#" label="john.doe@flipapp.de"></flip-link></flip-text>
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" truncate>432</flip-text>
@@ -89,7 +89,7 @@ const Template = (args) => {
           <flip-text size="sm" truncate>5432167890</flip-text>
         </flip-table-cell>
         <flip-table-cell>
-          <flip-text size="sm"><a href="#">don.conroy@flipapp.de</a></flip-text>
+          <flip-text size="sm"><flip-link href="#" label="don.conroy@flipapp.de"></flip-link></flip-text>
         </flip-table-cell>
         <flip-table-cell>
           <flip-text size="sm" truncate>0</flip-text>
