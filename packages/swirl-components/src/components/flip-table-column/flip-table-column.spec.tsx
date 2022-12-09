@@ -6,16 +6,16 @@ describe("flip-table-column", () => {
   it("renders its label and sorting", async () => {
     const page = await newSpecPage({
       components: [FlipTableColumn],
-      html: `<flip-table-column sort="ascending">Label</flip-table-column>`,
+      html: `<flip-table-column sortable sort="ascending">Label</flip-table-column>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-table-column aria-sort=\"ascending\" class=\"table-column\" role=\"columnheader\" sort=\"ascending\" style=\"min-width: fit-content;\">
+      <flip-table-column aria-sort="ascending" class="table-column" role="columnheader" sortable sort="ascending" style="min-width: fit-content;">
         <mock:shadow-root>
           <span>
             <slot></slot>
           </span>
-          <span class=\"table-column__sort-indicator\">
+          <span class="table-column__sort-indicator">
             <flip-icon-expand-less></flip-icon-expand-less>
           </span>
         </mock:shadow-root>
