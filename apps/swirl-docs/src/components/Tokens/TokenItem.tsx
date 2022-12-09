@@ -1,5 +1,4 @@
-import { Token, typographyTypes } from "@swirl/lib/tokens";
-import { FunctionComponent } from "react";
+import { Token } from "@swirl/lib/tokens";
 import TokenPreview from "./TokenPreview";
 
 export type TokenItemProps = {
