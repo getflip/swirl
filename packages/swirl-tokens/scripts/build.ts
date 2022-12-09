@@ -156,6 +156,16 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: "fontWeight/flutter",
+  type: "value",
+  transitive: true,
+  matcher: (token) => token.type === "fontWeights",
+  transformer: function (token) {
+    return token.value.replace(/^"(\d+)"$/, "FontWeight.w$1");
+  },
+});
+
 StyleDictionary.extend("config.light.json").buildAllPlatforms();
 StyleDictionary.extend("config.dark.json").buildAllPlatforms();
 createSwirlTailwindTheme();

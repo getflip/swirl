@@ -24,8 +24,7 @@
     "format": "prettier . --write",
     "type-check": "tsc --build",
     "changeset": "changeset",
-    "preversion-packages": "turbo run preversion",
-    "version-packages": "yarn preversion-packages && changeset version",
+    "prepare-dart-package": "node packages/swirl-tokens/scripts/update-dart-package-version.js",
     "release": "turbo run build && changeset publish",
     "preversion": "echo \"Error: use @changsets/cli to version packages\" && exit 1",
     "postinstall": "patch-package"
