@@ -2,6 +2,7 @@
 
 import { Component, Fragment, h, Prop } from "@stencil/core";
 import { FlipIconSize } from "../flip-icon.types";
+import classnames from "classnames";
 
 @Component({
   shadow: true,
@@ -12,13 +13,17 @@ export class FlipIconSearch {
   @Prop() size: FlipIconSize = 24;
 
   render() {
+    const viewBoxSize = this.size === 20 ? 24 : this.size;
+
+    const className = classnames("flip-icon", `flip-icon--size-${this.size}`);
+
     return (
       <svg
-        class="flip-icon"
+        class={className}
         fill="none"
         height={this.size}
         part="icon"
-        viewBox={`0 0 ${this.size} ${this.size}`}
+        viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -30,7 +35,7 @@ export class FlipIconSearch {
             />
           </Fragment>
         )}
-        {this.size === 24 && (
+        {(this.size === 20 || this.size === 24) && (
           <Fragment>
             <path
               d="M18.8 20.425L13.25 14.875C12.75 15.2583 12.175 15.5666 11.525 15.8C10.875 16.0333 10.1833 16.15 9.45001 16.15C7.60001 16.15 6.03335 15.504 4.75001 14.212C3.46668 12.9206 2.82501 11.35 2.82501 9.49998C2.82501 7.64998 3.46668 6.07898 4.75001 4.78698C6.03335 3.49564 7.60001 2.84998 9.45001 2.84998C11.3 2.84998 12.871 3.49564 14.163 4.78698C15.4543 6.07898 16.1 7.64998 16.1 9.49998C16.1 10.2333 15.9877 10.925 15.763 11.575C15.5377 12.225 15.2333 12.7916 14.85 13.275L20.425 18.875C20.625 19.075 20.725 19.3293 20.725 19.638C20.725 19.946 20.6167 20.2083 20.4 20.425C20.1833 20.6416 19.9127 20.75 19.588 20.75C19.2627 20.75 19 20.6416 18.8 20.425ZM9.45001 13.85C10.6667 13.85 11.7 13.429 12.55 12.587C13.4 11.7456 13.825 10.7166 13.825 9.49998C13.825 8.28331 13.4 7.25398 12.55 6.41198C11.7 5.57064 10.6667 5.14998 9.45001 5.14998C8.23335 5.14998 7.20435 5.57064 6.36301 6.41198C5.52101 7.25398 5.10001 8.28331 5.10001 9.49998C5.10001 10.7166 5.52101 11.7456 6.36301 12.587C7.20435 13.429 8.23335 13.85 9.45001 13.85Z"
