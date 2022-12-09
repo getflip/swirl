@@ -13,7 +13,7 @@ const TokenItem = ({ token }: TokenItemProps) => {
         <div className="inline-flex mb-2 md:mb-0">
           <TokenPreview token={token} />
           <div className="flex flex-col items-start">
-            <code className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code">
+            <code className="w-full max-w-[176px] bg-gray-100 rounded-md p-1 text-sm font-font-family-code">
               {token.name}
             </code>
           </div>

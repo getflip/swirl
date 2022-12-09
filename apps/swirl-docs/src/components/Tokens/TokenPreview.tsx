@@ -14,7 +14,7 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
       : "";
     return (
       <div
-        className={`w-6 h-6 rounded-lg ${backgroundColor} ${hasBorder} mr-2`}
+        className={`w-6 h-6 min-w-6 min-h-6 rounded-lg ${backgroundColor} ${hasBorder} mr-2`}
       ></div>
     );
   } else if (token.type === "fontWeights") {

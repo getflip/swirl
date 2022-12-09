@@ -11,7 +11,6 @@ export const getColorTokens = (): ColorTokens => {
     interactive: [],
     text: [],
     icon: [],
-    decoratives: [],
     core: [],
   };
 
@@ -50,8 +49,6 @@ function getColorCategory(token: any): ColorTokenGroups {
     return "text";
   } else if (token.name.includes("icon")) {
     return "icon";
-  } else if (token.name.includes("decoratives")) {
-    return "decoratives";
   } else {
     return "core";
   }
