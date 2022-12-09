@@ -34,7 +34,7 @@ import { initFlipBridge } from "@getflip/bridge";
 
 initFlipBridge({
   debug: true,
-  hostAppOrigin: "http://localhost:4200", // has to be the origin of the targetted host app
+  hostAppOrigin: "http://localhost:4200", // has to be the origin of the targeted host app
 });
 ```
 
