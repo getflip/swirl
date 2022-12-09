@@ -1452,6 +1452,19 @@
       ]
     },
     {
+      "name": "flip-icon-arrow-downward",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-arrow-forward",
       "description": {
         "kind": "markdown",
@@ -1492,6 +1505,19 @@
     },
     {
       "name": "flip-icon-arrow-right-small",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-arrow-upward",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1673,6 +1699,19 @@
       ]
     },
     {
+      "name": "flip-icon-column",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-comment",
       "description": {
         "kind": "markdown",
@@ -1830,6 +1869,19 @@
     },
     {
       "name": "flip-icon-file",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-filter",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2311,6 +2363,19 @@
     },
     {
       "name": "flip-icon-settings",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-sync",
       "description": {
         "kind": "markdown",
         "value": ""
