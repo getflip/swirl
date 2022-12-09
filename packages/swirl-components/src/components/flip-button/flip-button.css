@@ -225,7 +225,7 @@
 .button--variant-floating {
   color: var(--s-text-default);
   background-color: var(--s-surface-overlay-default);
-  box-shadow: 0.125rem 0.25rem 2.5rem rgba(0, 0, 0, 0.14);
+  box-shadow: var(--s-shadow-level-1);
 
   &:hover {
     color: var(--s-text-on-action-primary);

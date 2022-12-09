@@ -109,6 +109,11 @@ export const tokenGroups: {
     prefixes: ["line-height-"],
     presenter: "LineHeight",
   },
+  shadows: {
+    label: "Shadows",
+    prefixes: ["shadow-"],
+    presenter: "Shadow",
+  },
   spacings: {
     label: "Spacings",
     prefixes: ["space-"],
