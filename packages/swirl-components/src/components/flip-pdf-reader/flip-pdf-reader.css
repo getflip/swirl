@@ -135,7 +135,11 @@
   cursor: pointer;
   appearance: none;
 
-  &:focus {
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
     outline-color: var(--s-focus-default);
   }
 }
