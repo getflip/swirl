@@ -13,7 +13,7 @@ describe("messaging", () => {
   });
 
   test("'postMessage' fails without init call", async () => {
-    (global as any).flipBridgeOptions = { hostAppOrigin: undefined };
+    (global as any).flipBridgeOptions = undefined;
 
     const postMessageWrapper = () => postMessage(request);
 
@@ -21,12 +21,6 @@ describe("messaging", () => {
   });
 
   test("'postMessage' posts a request", async () => {
-    const request: BridgeRequest = {
-      id: "ID",
-      method: BridgeMethod.NAVIGATE,
-      params: { path: "/" },
-    };
-
     const spy = jest.fn();
 
     (window.top as any).postMessage = spy;
