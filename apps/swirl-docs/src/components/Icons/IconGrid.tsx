@@ -1,10 +1,10 @@
-import { IconsMetaData } from "../../pages/icons";
-import IconGridItem from "./IconGridItem";
 import useDynamicRefs, {
   handleGridKeyDown,
 } from "@swirl/lib/hooks/useDynamicRefs";
 import { FunctionComponent, LegacyRef } from "react";
 import Grid from "src/components/Grid";
+import { IconsMetaData } from "src/pages/components";
+import IconGridItem from "./IconGridItem";
 
 interface IconGridProps {
   iconList: string[];
@@ -20,10 +20,7 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
   const [getRef, setRef] = useDynamicRefs();
 
   return (
-    <Grid
-      className="grid grid-cols-2 md:grid-cols-fill-rows gap-4 w-full"
-      data={iconList}
-    >
+    <Grid className="grid grid-cols-2 md:grid-cols-fill-rows gap-4 w-full">
       {iconList?.map((icon: string, index: number) => (
         <IconGridItem
           id={`${icons[icon]?.name}-${index}`}

@@ -12,7 +12,7 @@
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
   cursor: pointer;
-  gap: var(--s-space-8);
+  gap: calc(var(--s-space-8) - var(--s-space-2));
 
   &(:hover) {
     background-color: var(--s-surface-hovered);
@@ -23,7 +23,14 @@
   }
 
   &(:focus) {
-    outline-color: var(--s-focus-default);
+    outline: none;
+  }
+
+  &(:focus-visible) {
+    & .tree-navigation-item__label {
+      border-radius: var(--s-border-radius-xs);
+      box-shadow: 0 0 0 0.125rem var(--s-focus-default);
+    }
   }
 
   &(.tree-navigation-item--active) {
@@ -57,4 +64,6 @@
   min-width: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding-right: var(--s-space-2);
+  padding-left: var(--s-space-2);
 }

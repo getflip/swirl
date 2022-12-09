@@ -89,8 +89,11 @@
   }
 
   &:focus {
-    background-color: var(--s-background-hovered);
     outline: none;
+  }
+
+  &:focus-visible {
+    background-color: var(--s-background-hovered);
 
     & .resource-list-item__media {
       --flip-avatar-group-border-color: var(--s-background-hovered);

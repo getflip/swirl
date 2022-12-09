@@ -1,4 +1,3 @@
-import { SWIRL_TOKENS_DIST_PATH } from "@swirl/lib/navigation";
 import fs from "fs";
 import path from "path";
 
@@ -19,7 +18,7 @@ export const scssLight = loadFile("/scss/styles.light.scss");
 export const scssDark = loadFile("/scss/styles.dark.scss");
 
 function loadFile(filePath: string) {
-  return fs.readFileSync(SWIRL_TOKENS_DIST_PATH + filePath);
+  return fs.readFileSync("node_modules/@getflip/swirl-tokens/dist" + filePath);
 }
 
 export type TokenGroupType =

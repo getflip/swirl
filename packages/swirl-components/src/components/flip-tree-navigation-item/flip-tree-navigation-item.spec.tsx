@@ -10,7 +10,7 @@ describe("flip-tree-navigation-item", () => {
     });
 
     expect(page.root).toEqualHtml(`
-     <flip-tree-navigation-item class="tree-navigation-item tree-navigation-item--has-icon" icon="Icon" label="Label" role="button" tabindex="0">
+     <flip-tree-navigation-item class="tree-navigation-item tree-navigation-item--has-icon" icon="Icon" label="Label" role="link" tabindex="0">
        <mock:shadow-root>
          <span class="tree-navigation-item__icon">
             Icon

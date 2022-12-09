@@ -69,7 +69,7 @@
 .modal--scrolled {
   @media (--from-tablet) {
     & .modal__header {
-      border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+      border-bottom-color: var(--s-border-default);
     }
   }
 }
@@ -129,7 +129,7 @@
     padding-right: calc(var(--s-space-16) + 2.5rem + var(--s-space-8));
     padding-bottom: var(--s-space-16);
     padding-left: var(--s-space-24);
-    border-bottom: none;
+    border-bottom: var(--s-border-width-default) solid transparent;
   }
 }
 
