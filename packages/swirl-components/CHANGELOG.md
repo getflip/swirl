@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3d28b36`](https://github.com/getflip/swirl/commit/3d28b36463b91c6012b8bd075e69cd7493e5b13d)]:
+  - @getflip/swirl-tokens@2.2.0
+
 ## 0.9.0
 
 ### Minor Changes
