@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "src/components/Layout";
 import "@getflip/swirl-components/dist/swirl-components/swirl-components.css";
+import "../styles/prism-atom-dark.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

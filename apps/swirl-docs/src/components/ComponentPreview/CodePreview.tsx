@@ -10,10 +10,9 @@ import { CodeSandboxButton } from "./CodeSandboxButton";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import classNames from "classnames";
 import Link from "next/link";
-import SyntaxHighlighter from "react-syntax-highlighter";
-
-import dark from "react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark";
 import NoSsr from "../Layout/NoSsr";
+
+import Prism from "prismjs";
 
 export type CodeExample = {
   code: string;
@@ -70,20 +69,17 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
             </button>
           </CopyToClipboard>
         </div>
-        <SyntaxHighlighter
-          language="javascript"
-          wrapLines
-          wrapLongLines
-          style={dark}
-          customStyle={{
-            backgroundColor: "#24292E",
-            padding: "0.5rem 1.5rem 4rem 1.5rem", // place for the expand button
-            height: "100%",
-            overflow: "hidden",
-          }}
-        >
-          {codeExample.code}
-        </SyntaxHighlighter>
+        <pre className="cursor-text pt-space-8 pr-space-24 pb-16 pl-space-24">
+          <code
+            dangerouslySetInnerHTML={{
+              __html: Prism.highlight(
+                codeExample.code,
+                Prism.languages.html,
+                "html"
+              ),
+            }}
+          ></code>
+        </pre>
         {codeExample.isLongCode && (
           <div className="absolute bottom-0 flex justify-center items-center w-full h-12  bg-[#24292E]">
             <button
