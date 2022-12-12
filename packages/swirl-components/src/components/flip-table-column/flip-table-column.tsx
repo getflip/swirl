@@ -40,10 +40,16 @@ export class FlipTableColumn {
         {this.sortable && (
           <span class="table-column__sort-indicator">
             {this.sort === "ascending" && (
-              <flip-icon-arrow-upward size={20}></flip-icon-arrow-upward>
+              <flip-icon-arrow-upward
+                aria-hidden="true"
+                size={20}
+              ></flip-icon-arrow-upward>
             )}
             {this.sort === "descending" && (
-              <flip-icon-arrow-downward size={20}></flip-icon-arrow-downward>
+              <flip-icon-arrow-downward
+                aria-hidden="true"
+                size={20}
+              ></flip-icon-arrow-downward>
             )}
             {!Boolean(this.sort) && " "}
           </span>

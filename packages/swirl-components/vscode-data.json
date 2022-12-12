@@ -3451,6 +3451,19 @@
       ]
     },
     {
+      "name": "flip-table-row-group",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-tabs",
       "description": {
         "kind": "markdown",

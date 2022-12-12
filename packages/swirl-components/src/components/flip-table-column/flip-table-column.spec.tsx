@@ -16,7 +16,7 @@ describe("flip-table-column", () => {
             <slot></slot>
           </span>
           <span class="table-column__sort-indicator">
-            <flip-icon-arrow-upward size="20"></flip-icon-arrow-upward>
+            <flip-icon-arrow-upward aria-hidden="true" size="20"></flip-icon-arrow-upward>
           </span>
         </mock:shadow-root>
         Label

@@ -38,7 +38,7 @@ describe("flip-table", () => {
                     <slot name="columns"></slot>
                   </div>
                 </div>
-                <div class="table__body" role="rowgroup">
+                <div class="table__body">
                   <slot name="rows"></slot>
                 </div>
               </div>

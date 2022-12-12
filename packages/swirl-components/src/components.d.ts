@@ -856,6 +856,9 @@ export namespace Components {
         "highlighted"?: boolean;
         "index"?: number;
     }
+    interface FlipTableRowGroup {
+        "label": string;
+    }
     interface FlipTabs {
         /**
           * Activate a tab.
@@ -1983,6 +1986,12 @@ declare global {
         prototype: HTMLFlipTableRowElement;
         new (): HTMLFlipTableRowElement;
     };
+    interface HTMLFlipTableRowGroupElement extends Components.FlipTableRowGroup, HTMLStencilElement {
+    }
+    var HTMLFlipTableRowGroupElement: {
+        prototype: HTMLFlipTableRowGroupElement;
+        new (): HTMLFlipTableRowGroupElement;
+    };
     interface HTMLFlipTabsElement extends Components.FlipTabs, HTMLStencilElement {
     }
     var HTMLFlipTabsElement: {
@@ -2201,6 +2210,7 @@ declare global {
         "flip-table-cell": HTMLFlipTableCellElement;
         "flip-table-column": HTMLFlipTableColumnElement;
         "flip-table-row": HTMLFlipTableRowElement;
+        "flip-table-row-group": HTMLFlipTableRowGroupElement;
         "flip-tabs": HTMLFlipTabsElement;
         "flip-tag": HTMLFlipTagElement;
         "flip-text": HTMLFlipTextElement;
@@ -2952,6 +2962,9 @@ declare namespace LocalJSX {
         "highlighted"?: boolean;
         "index"?: number;
     }
+    interface FlipTableRowGroup {
+        "label": string;
+    }
     interface FlipTabs {
         "initialTab"?: string;
         "label": string;
@@ -3194,6 +3207,7 @@ declare namespace LocalJSX {
         "flip-table-cell": FlipTableCell;
         "flip-table-column": FlipTableColumn;
         "flip-table-row": FlipTableRow;
+        "flip-table-row-group": FlipTableRowGroup;
         "flip-tabs": FlipTabs;
         "flip-tag": FlipTag;
         "flip-text": FlipText;
@@ -3357,6 +3371,7 @@ declare module "@stencil/core" {
             "flip-table-cell": LocalJSX.FlipTableCell & JSXBase.HTMLAttributes<HTMLFlipTableCellElement>;
             "flip-table-column": LocalJSX.FlipTableColumn & JSXBase.HTMLAttributes<HTMLFlipTableColumnElement>;
             "flip-table-row": LocalJSX.FlipTableRow & JSXBase.HTMLAttributes<HTMLFlipTableRowElement>;
+            "flip-table-row-group": LocalJSX.FlipTableRowGroup & JSXBase.HTMLAttributes<HTMLFlipTableRowGroupElement>;
             "flip-tabs": LocalJSX.FlipTabs & JSXBase.HTMLAttributes<HTMLFlipTabsElement>;
             "flip-tag": LocalJSX.FlipTag & JSXBase.HTMLAttributes<HTMLFlipTagElement>;
             "flip-text": LocalJSX.FlipText & JSXBase.HTMLAttributes<HTMLFlipTextElement>;
