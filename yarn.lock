@@ -3673,6 +3673,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/debounce-promise@^3.1.5":
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/@types/debounce-promise/-/debounce-promise-3.1.5.tgz#b911a4cc87ddab5b52c0eb7da09855f1d1bd16ca"
+  integrity sha512-fOoAIu7qusGngVHLjZEo3pgEaaAqL9XkYHe8WCjwtBGygn+mk7WkW1xke4ZiKEr7pj3lz3jykUVOsLymZvljUw==
+
 "@types/debug@^4.0.0":
   version "4.1.7"
   resolved "https://registry.npmjs.org/@types/debug/-/debug-4.1.7.tgz"
