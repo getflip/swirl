@@ -24,14 +24,9 @@ StyleDictionary.registerFormat({
         }
 
         if (theme === "light") {
-          mappedTokens[mappedType as keyof mappedTokensType][name] = {
-            DEFAULT: value,
-            [`${theme}`]: value,
-          };
+          mappedTokens[mappedType as keyof mappedTokensType][name] = value;
         } else {
-          mappedTokens[mappedType as keyof mappedTokensType][name] = {
-            [`${theme}`]: value,
-          };
+          mappedTokens[mappedType as keyof mappedTokensType][name] = value;
         }
       }
     });

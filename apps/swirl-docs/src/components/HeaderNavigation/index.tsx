@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import icon from "@getflip/swirl-icons/icons/Close16.svg";
 import MobileNav from "./mobileNav";
 import Link from "next/link";
