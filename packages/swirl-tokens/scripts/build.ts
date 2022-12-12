@@ -23,11 +23,7 @@ StyleDictionary.registerFormat({
           mappedTokens[mappedType as keyof mappedTokensType] = {};
         }
 
-        if (theme === "light") {
-          mappedTokens[mappedType as keyof mappedTokensType][name] = value;
-        } else {
-          mappedTokens[mappedType as keyof mappedTokensType][name] = value;
-        }
+        mappedTokens[mappedType as keyof mappedTokensType][name] = value;
       }
     });
 
