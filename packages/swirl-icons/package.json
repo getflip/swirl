@@ -17,8 +17,9 @@
     "ts-node": "^10.9.1"
   },
   "scripts": {
+    "build:dart": "ts-node ./scripts/build-dart-package.ts",
     "build:fonts": "svgtofont --sources ./icons --output ./dist",
     "build:metadata": "ts-node ./scripts/createMetaData.ts",
-    "build": "yarn build:fonts && yarn build:metadata"
+    "build": "yarn build:fonts && yarn build:dart && yarn build:metadata"
   }
 }
