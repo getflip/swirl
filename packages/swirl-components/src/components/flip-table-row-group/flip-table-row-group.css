@@ -12,6 +12,7 @@
 
 .table-row-group__header-row {
   padding: var(--s-space-12) var(--s-space-16);
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-surface-raised-default);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
