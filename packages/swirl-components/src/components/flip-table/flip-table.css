@@ -7,6 +7,13 @@
   }
 }
 
+.table--scrollable {
+  --flip-table-sticky-shadow: 0.0625rem 0 0 0 var(--s-border-default),
+    -0.0625rem 0 0 0 var(--s-border-default),
+    0 0.25rem 1rem rgba(25, 26, 28, 0.04),
+    0 0.0625rem 0.25rem rgba(25, 26, 28, 0.16);
+}
+
 .table__container {
   position: relative;
   overflow: auto;

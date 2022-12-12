@@ -1,5 +1,15 @@
-import { Component, Element, h, Host, Listen, Prop } from "@stencil/core";
-import { debounce, isMobileViewport } from "../../utils";
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from "@stencil/core";
+import classnames from "classnames";
+import { isMobileViewport } from "../../utils";
+import debouncePromise from "debounce-promise";
 
 /**
  * @slot columns - Column container, should contain FlipTableColumns.
@@ -16,15 +26,27 @@ export class FlipTable {
   @Prop() caption?: string;
   @Prop() label!: string;
 
+  @State() scrollable: boolean;
+
   private container: HTMLElement;
 
   async componentDidRender() {
-    this.updateLayout();
+    await this.updateLayout();
+    this.updateScrollable();
   }
 
   @Listen("resize", { target: "window" })
   async onWindowResize() {
-    this.updateLayout();
+    await this.updateLayout();
+    this.updateScrollable();
+  }
+
+  private updateScrollable() {
+    const scrollable = this.container.scrollWidth > this.container.clientWidth;
+
+    if (scrollable !== this.scrollable) {
+      this.scrollable = scrollable;
+    }
   }
 
   private getColumns() {
@@ -80,13 +102,13 @@ export class FlipTable {
     await new Promise((resolve) => setTimeout(resolve));
   }
 
-  private updateLayout = debounce(async () => {
+  private updateLayout = debouncePromise(async () => {
     await this.resetRowGroupStyles();
     await this.resetCellStyles();
     await this.resetColumnStyles();
     await this.layoutRowGroups();
     await this.layOutColumns();
-    await this.layOutCells();
+    this.layOutCells();
   }, 100);
 
   private async layoutRowGroups() {
@@ -211,9 +233,13 @@ export class FlipTable {
   }
 
   render() {
+    const className = classnames("table", {
+      "table--scrollable": this.scrollable,
+    });
+
     return (
       <Host>
-        <div class="table">
+        <div class={className}>
           <div class="table__container" ref={(el) => (this.container = el)}>
             <div
               aria-describedby={Boolean(this.caption) ? "caption" : undefined}

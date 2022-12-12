@@ -17,7 +17,7 @@ const Template = (args) => {
   element.innerHTML = `
     <div slot="columns">
       <flip-table-column sticky width="58px">
-        <flip-checkbox flip-aria-label="Select all" input-id="select" input-name="select">
+        <flip-checkbox checked="indeterminate" flip-aria-label="Select all" input-id="select" input-name="select">
         </flip-checkbox><flip-visually-hidden>Select</flip-visually-hidden>
       </flip-table-column>
       <flip-table-column min-width="160px" sticky>User</flip-table-column>
