@@ -24,7 +24,9 @@
 
   &(:focus) {
     outline: none;
+  }
 
+  &(:focus-visible) {
     & .tree-navigation-item__label {
       border-radius: var(--s-border-radius-xs);
       box-shadow: 0 0 0 0.125rem var(--s-focus-default);

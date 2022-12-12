@@ -36,8 +36,8 @@
 .pagination__advanced-label {
   display: flex;
   align-items: center;
-  gap: var(--s-space-8);
   white-space: nowrap;
+  gap: var(--s-space-8);
 }
 
 .pagination__page-select-container {
@@ -55,7 +55,11 @@
   cursor: pointer;
   appearance: none;
 
-  &:focus {
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
     outline-color: var(--s-focus-default);
   }
 }
