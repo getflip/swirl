@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent, useEffect, useRef, useState } from "react";
 import { DocHeadline } from "@swirl/lib/docs/src/docs.model";
 import useScrollObserver from "@swirl/lib/hooks/useScrollObserver";
 import Link from "next/link";
@@ -15,11 +15,17 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
   let documents: Element[] = [];
   if (isBrowser) {
     documents = documentLinkList.map(
-      (item: DocHeadline) => document.querySelector(`[id="${item.id}"]`)!
+      (item: DocHeadline) =>
+        document.querySelector(`[id="${item.id}"]`)?.parentElement!
     );
   }
 
+  const [activeIndex, setActiveIndexInLinks] = useState(0);
   const [currentActiveIndex] = useScrollObserver(documents);
+
+  useEffect(() => {
+    setActiveIndexInLinks(currentActiveIndex);
+  }, [currentActiveIndex]);
 
   return (
     <div className="hidden md:block min-w-[12rem]">
@@ -41,13 +47,20 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
                     before:transition-colors before:duration-500 before:ease-in-out
                     before:block before:absolute before:top-0 before:left-[-17px] before:w-[2px] before:h-6 text-sm
                     ${
-                      currentActiveIndex === index
+                      activeIndex === index
                         ? "text-border-info before:bg-border-info"
                         : "text-text-subdued"
                     }
                   `}
+                    onClick={() => {
+                      setActiveIndexInLinks(index);
+                      // Wait for the scroll observer to update the active index, then set the active index manually
+                      setTimeout(() => {
+                        setActiveIndexInLinks(index);
+                      }, 100);
+                    }}
                   >
-                    {link.name}
+                    {link.title}
                   </a>
                 </Link>
               </li>

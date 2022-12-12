@@ -69,7 +69,7 @@
   border-radius: var(--s-border-radius-l);
   background-color: var(--s-surface-overlay-default);
   text-align: center;
-  box-shadow: 0.125rem 0.25rem 1rem rgba(0, 0, 0, 0.14);
+  box-shadow: var(--s-shadow-level-3);
 }
 
 .dialog__heading {

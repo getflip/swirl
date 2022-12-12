@@ -1,13 +1,9 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Dispatch, SetStateAction } from "react";
 
 const useScrollObserver = (
   elements: Element[]
-): [number, Element[] | undefined] => {
-  // no active element by default
+): [number, Dispatch<SetStateAction<number>>] => {
   const [activeIndex, setActiveIndex] = useState(-1);
-
-  const scrolledSections =
-    activeIndex >= 0 ? elements?.slice(0, activeIndex + 1) : [];
 
   const observer = useRef<IntersectionObserver>();
 
@@ -26,14 +22,14 @@ const useScrollObserver = (
 
     const { current: currentObserver } = observer;
 
-    elements?.forEach((element: any) =>
-      element ? currentObserver.observe(element) : null
-    );
+    elements?.forEach((element: Element) => {
+      element ? currentObserver.observe(element) : null;
+    });
 
     return () => currentObserver.disconnect();
   }, [elements]);
 
-  return [activeIndex, scrolledSections];
+  return [activeIndex, setActiveIndex];
 };
 
 export default useScrollObserver;

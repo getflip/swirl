@@ -18,8 +18,11 @@
   gap: var(--s-space-12);
 
   &:focus {
-    background-color: var(--s-background-hovered);
     outline: none;
+  }
+
+  &:focus-visible {
+    background-color: var(--s-background-hovered);
   }
 }
 

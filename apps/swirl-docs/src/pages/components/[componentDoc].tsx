@@ -30,16 +30,15 @@ export const getStaticProps: GetStaticProps<
   { componentDoc: string }
 > = async (context: any) => {
   const { componentDoc } = context.params;
-  const { documentLinkList } = createLinkLists(
-    BASE_PATHS.COMPONENTS,
-    componentDoc
-  );
+  // todo -
+  // put in frontmatter data / make it possible to include non sourced data to headings
+  // polaris does it that way: https://github.com/Shopify/polaris/blob/main/polaris.shopify.com/src/utils/hooks.ts
+
   const document = await getComponentData(componentDoc);
 
   return {
     props: {
       document,
-      documentLinkList,
       title: componentDoc,
     },
   };
@@ -47,6 +46,7 @@ export const getStaticProps: GetStaticProps<
 
 export default function Component({
   document,
+  title,
 }: {
   title: string;
   document: any;
@@ -64,7 +64,6 @@ export default function Component({
       </Head>
       <DocumentationLayout
         categoryLinkList={componentsNavItems}
-        documentLinkList={[]}
         document={document}
         frontMatter={frontMatter}
       />
