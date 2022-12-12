@@ -35,6 +35,20 @@ export class FlipTable {
     return Array.from(this.el.querySelectorAll("flip-table-cell"));
   }
 
+  private async resetRowGroupStyles() {
+    const tableRowGroups = Array.from(
+      this.el.querySelectorAll("flip-table-row-group")
+    );
+
+    tableRowGroups.forEach((tableRowGroup) => {
+      tableRowGroup.shadowRoot.querySelector<HTMLDivElement>(
+        ".table-row-group__header-row"
+      ).style.width = "";
+    });
+
+    await new Promise((resolve) => setTimeout(resolve));
+  }
+
   private async resetColumnStyles() {
     const columns = this.getColumns();
 
@@ -67,14 +81,31 @@ export class FlipTable {
   }
 
   private updateLayout = debounce(async () => {
-    await this.layOutColumns();
-    this.layOutCells();
-  }, 100);
-
-  private async layOutColumns() {
+    await this.resetRowGroupStyles();
     await this.resetCellStyles();
     await this.resetColumnStyles();
+    await this.layoutRowGroups();
+    await this.layOutColumns();
+    await this.layOutCells();
+  }, 100);
 
+  private async layoutRowGroups() {
+    const tableRowGroups = Array.from(
+      this.el.querySelectorAll("flip-table-row-group")
+    );
+
+    const scrollWidth = `${
+      this.el.shadowRoot.querySelector(".table__container").scrollWidth
+    }px`;
+
+    tableRowGroups.forEach((tableRowGroup) => {
+      tableRowGroup.shadowRoot.querySelector<HTMLDivElement>(
+        ".table-row-group__header-row"
+      ).style.width = scrollWidth;
+    });
+  }
+
+  private async layOutColumns() {
     const columns = this.getColumns();
     const tableContainer = this.container;
     const tableContainerWidth = tableContainer.clientWidth;

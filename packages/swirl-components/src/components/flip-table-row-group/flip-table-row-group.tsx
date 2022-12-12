@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  h,
-  Host,
-  Listen,
-  Prop,
-  State,
-} from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 
 /**
  * @slot slot - The rows of this group.
@@ -21,32 +13,11 @@ export class FlipTableRowGroup {
 
   @Prop() label!: string;
 
-  @State() width: number;
-
-  componentDidRender() {
-    this.updateWidth();
-  }
-
-  @Listen("resize", { target: "window" })
-  onWinwowResize() {
-    this.updateWidth();
-  }
-
-  private updateWidth() {
-    this.width = this.el
-      .closest("flip-table")
-      ?.shadowRoot.querySelector(".table__container").scrollWidth;
-  }
-
   render() {
     const rowspan = this.el.querySelectorAll("flip-table-row").length;
 
     return (
-      <Host
-        class="table-row-group"
-        role="rowgroup"
-        style={{ width: Boolean(this.width) ? `${this.width}px` : undefined }}
-      >
+      <Host class="table-row-group" role="rowgroup">
         <div class="table-row-group__header-row" role="row">
           <span
             aria-rowspan={rowspan}
