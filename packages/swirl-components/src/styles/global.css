@@ -27,6 +27,9 @@
   --flip-ghost-button-background-default: var(--s-background-default);
   --flip-ghost-button-background-hovered: var(--s-background-hovered);
   --flip-ghost-button-background-pressed: var(--s-background-pressed);
+
+  --flip-table-sticky-left-shadow: none;
+  --flip-table-sticky-right-shadow: none;
 }
 
 *,

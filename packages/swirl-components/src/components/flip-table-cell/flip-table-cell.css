@@ -12,9 +12,14 @@
   background-color: var(--s-background-default);
   word-break: break-word;
   hyphens: auto;
+  transition: box-shadow 0.15s;
 
-  &(.table-cell--has-shadow) {
-    box-shadow: var(--flip-table-sticky-shadow);
+  &(.table-cell--has-shadow-right) {
+    box-shadow: var(--flip-table-sticky-right-shadow);
+  }
+
+  &(.table-cell--has-shadow-left) {
+    box-shadow: var(--flip-table-sticky-left-shadow);
   }
 
   &(:first-child) {

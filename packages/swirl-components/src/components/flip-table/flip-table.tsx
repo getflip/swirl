@@ -7,9 +7,8 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import classnames from "classnames";
-import { isMobileViewport } from "../../utils";
 import debouncePromise from "debounce-promise";
+import { isMobileViewport } from "../../utils";
 
 /**
  * @slot columns - Column container, should contain FlipTableColumns.
@@ -27,25 +26,52 @@ export class FlipTable {
   @Prop() label!: string;
 
   @State() scrollable: boolean;
+  @State() scrolled: boolean;
+  @State() scrolledToEnd: boolean;
 
   private container: HTMLElement;
 
   async componentDidRender() {
     await this.updateLayout();
-    this.updateScrollable();
+    this.updateScrolledState();
   }
 
   @Listen("resize", { target: "window" })
   async onWindowResize() {
     await this.updateLayout();
-    this.updateScrollable();
+    this.updateScrolledState();
   }
 
-  private updateScrollable() {
+  private updateScrolledState() {
     const scrollable = this.container.scrollWidth > this.container.clientWidth;
+    const scrolled = this.container.scrollLeft > 0;
+
+    const scrolledToEnd =
+      Math.ceil(this.container.clientWidth + this.container.scrollLeft) >=
+      Math.floor(this.container.scrollWidth);
 
     if (scrollable !== this.scrollable) {
-      this.scrollable = scrollable;
+      if (scrollable) {
+        this.container.classList.add("table__container--scrollable");
+      } else {
+        this.container.classList.remove("table__container--scrollable");
+      }
+    }
+
+    if (scrolled !== this.scrolled) {
+      if (scrolled) {
+        this.container.classList.add("table__container--scrolled");
+      } else {
+        this.container.classList.remove("table__container--scrolled");
+      }
+    }
+
+    if (scrolledToEnd !== this.scrolledToEnd) {
+      if (scrolledToEnd) {
+        this.container.classList.add("table__container--scrolled-to-end");
+      } else {
+        this.container.classList.remove("table__container--scrolled-to-end");
+      }
     }
   }
 
@@ -149,9 +175,14 @@ export class FlipTable {
         (!isInFirstHalfOfTable && !prevColumnIsSticky);
 
       if (columnHasShadow) {
-        column.classList.add("table-column--has-shadow");
+        column.classList.add(
+          isInFirstHalfOfTable
+            ? "table-column--has-shadow-right"
+            : "table-column--has-shadow-left"
+        );
       } else {
-        column.classList.remove("table-column--has-shadow");
+        column.classList.remove("table-column--has-shadow-right");
+        column.classList.remove("table-column--has-shadow-left");
       }
 
       const offset = isInFirstHalfOfTable
@@ -224,23 +255,32 @@ export class FlipTable {
             (!isInFirstHalfOfTable && !prevColumnIsSticky));
 
         if (cellHasShadow) {
-          cell.classList.add("table-cell--has-shadow");
+          cell.classList.add(
+            isInFirstHalfOfTable
+              ? "table-cell--has-shadow-right"
+              : "table-cell--has-shadow-left"
+          );
         } else {
-          cell.classList.remove("table-cell--has-shadow");
+          cell.classList.remove("table-cell--has-shadow-right");
+          cell.classList.remove("table-cell--has-shadow-left");
         }
       });
     });
   }
 
-  render() {
-    const className = classnames("table", {
-      "table--scrollable": this.scrollable,
-    });
+  private onScroll = () => {
+    this.updateScrolledState();
+  };
 
+  render() {
     return (
       <Host>
-        <div class={className}>
-          <div class="table__container" ref={(el) => (this.container = el)}>
+        <div class="table">
+          <div
+            class="table__container"
+            onScroll={this.onScroll}
+            ref={(el) => (this.container = el)}
+          >
             <div
               aria-describedby={Boolean(this.caption) ? "caption" : undefined}
               aria-label={this.label}
