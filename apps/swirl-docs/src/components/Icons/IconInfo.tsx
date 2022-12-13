@@ -29,7 +29,7 @@ export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => {
         Non tristique amet, quam egestas ultricies etiam
       </p>
       <h2 className="mb-2">Code</h2>
-      <div className="cursor-text bg-[#24292E] text-white rounded-lg">
+      <div className="cursor-text bg-surface-raised-default text-[#24292E] rounded-lg">
         <pre className="pb-space-24">
           <code
             dangerouslySetInnerHTML={{
