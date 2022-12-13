@@ -26,7 +26,7 @@ const Template = (args) => {
       <flip-table-column>Location</flip-table-column>
       <flip-table-column>Logins</flip-table-column>
       <flip-table-column>Latest login</flip-table-column>
-      <flip-table-column>User Status</flip-table-column>
+      <flip-table-column>User status</flip-table-column>
       <flip-table-column sticky width="74px"><flip-visually-hidden>Tools</flip-visually-hidden></flip-table-column>
     </div>
     <div slot="rows">
