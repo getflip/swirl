@@ -10,7 +10,8 @@ export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => {
   const iconCode = `
   import {
     ${icon?.name}
-  } from "@getflip/swirl-icons";
+  } from
+  "@getflip/swirl-icons";
 `;
   return (
     <aside>
@@ -28,15 +29,11 @@ export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => {
         Non tristique amet, quam egestas ultricies etiam
       </p>
       <h2 className="mb-2">Code</h2>
-      <div className="cursor-text bg-surface-raised-default rounded-lg">
-        <pre>
+      <div className="cursor-text bg-[#24292E] text-white rounded-lg">
+        <pre className="pb-space-24">
           <code
             dangerouslySetInnerHTML={{
-              __html: Prism.highlight(
-                iconCode,
-                Prism.languages.javascript,
-                "javascript"
-              ),
+              __html: Prism.highlight(iconCode, Prism.languages.js, "js"),
             }}
           ></code>
         </pre>
