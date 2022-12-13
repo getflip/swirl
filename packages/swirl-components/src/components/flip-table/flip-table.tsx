@@ -43,6 +43,7 @@ export class FlipTable {
   }
 
   private updateScrolledState() {
+    const isMobile = isMobileViewport();
     const scrollable = this.container.scrollWidth > this.container.clientWidth;
     const scrolled = this.container.scrollLeft > 0;
 
@@ -51,7 +52,7 @@ export class FlipTable {
       Math.floor(this.container.scrollWidth);
 
     if (scrollable !== this.scrollable) {
-      if (scrollable) {
+      if (scrollable && !isMobile) {
         this.container.classList.add("table__container--scrollable");
       } else {
         this.container.classList.remove("table__container--scrollable");
@@ -59,7 +60,7 @@ export class FlipTable {
     }
 
     if (scrolled !== this.scrolled) {
-      if (scrolled) {
+      if (scrolled && !isMobile) {
         this.container.classList.add("table__container--scrolled");
       } else {
         this.container.classList.remove("table__container--scrolled");
@@ -67,7 +68,7 @@ export class FlipTable {
     }
 
     if (scrolledToEnd !== this.scrolledToEnd) {
-      if (scrolledToEnd) {
+      if (scrolledToEnd && !isMobile) {
         this.container.classList.add("table__container--scrolled-to-end");
       } else {
         this.container.classList.remove("table__container--scrolled-to-end");
