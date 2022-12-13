@@ -1,5 +1,10 @@
 import { BridgeErrorCode, BridgeMethod, BridgeRequest } from "../types";
-import { isAllowedOrigin, isResponse, postMessage } from "./messaging";
+import {
+  isAllowedOrigin,
+  isFlutterApp,
+  isResponse,
+  postMessage,
+} from "./messaging";
 
 describe("messaging", () => {
   const request: BridgeRequest = {
@@ -26,16 +31,18 @@ describe("messaging", () => {
     (window.top as any).postMessage = spy;
 
     postMessage(request);
-    expect(spy).toHaveBeenCalledWith(
-      {
-        id: "ID",
-        method: "NAVIGATE",
-        params: {
-          path: "/",
-        },
-      },
-      "http://localhost"
-    );
+    expect(spy).toHaveBeenCalledWith(request, "http://localhost");
+  });
+
+  test("'postMessage' posts a request within the Flutter app", async () => {
+    const spy = jest.fn();
+
+    (global as any).FlipFlutter = { postMessage: spy };
+
+    postMessage(request);
+
+    expect(isFlutterApp()).toBeTruthy();
+    expect(spy).toHaveBeenCalledWith(JSON.stringify(request));
   });
 
   test("'isResponse' checks response type", async () => {

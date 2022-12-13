@@ -6,8 +6,22 @@ import {
   BridgeResponse,
 } from "../types";
 
+declare global {
+  interface Window {
+    FlipFlutter: {
+      postMessage: (message: string) => void;
+    };
+  }
+}
+
+export function isFlutterApp() {
+  return "FlipFlutter" in window;
+}
+
 export function postMessage(message: BridgeRequest) {
-  if (!window.top) {
+  const isFlutter = isFlutterApp();
+
+  if (!window.top && !isFlutter) {
     return;
   }
 
@@ -17,10 +31,15 @@ export function postMessage(message: BridgeRequest) {
     throw Error(`Please call 'initFlipBridge'.`);
   }
 
-  window.top.postMessage(message, hostAppOrigin);
+  if (isFlutter) {
+    window.FlipFlutter.postMessage(JSON.stringify(message));
+  } else {
+    window.top?.postMessage(message, hostAppOrigin);
+  }
 
   log("postMessage", {
     message,
+    isFlutter,
     targetOrigin: hostAppOrigin,
   });
 }
