@@ -1,5 +1,5 @@
-import { BridgeMethod, BridgeRequest } from "../types";
-import { isAllowedOrigin, postMessage } from "./messaging";
+import { BridgeErrorCode, BridgeMethod, BridgeRequest } from "../types";
+import { isAllowedOrigin, isResponse, postMessage } from "./messaging";
 
 describe("messaging", () => {
   const request: BridgeRequest = {
@@ -36,6 +36,40 @@ describe("messaging", () => {
       },
       "http://localhost"
     );
+  });
+
+  test("'isResponse' checks response type", async () => {
+    expect(isResponse({})).toBe(false);
+
+    expect(
+      isResponse({
+        id: "test",
+      })
+    ).toBe(false);
+
+    expect(
+      isResponse({
+        id: "test",
+        error: {
+          code: BridgeErrorCode.FORBIDDEN_ORIGIN,
+        },
+      })
+    ).toBe(true);
+
+    expect(
+      isResponse({
+        id: "test",
+        result: true,
+      })
+    ).toBe(true);
+
+    expect(
+      isResponse({
+        error: {
+          code: BridgeErrorCode.FORBIDDEN_ORIGIN,
+        },
+      })
+    ).toBe(false);
   });
 
   test("'isAllowedOrigin' validates origins", async () => {

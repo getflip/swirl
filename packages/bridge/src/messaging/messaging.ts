@@ -30,6 +30,10 @@ export function makeRequest<Result>(
 ): Promise<Result | BridgeError> {
   return new Promise((resolve, reject) => {
     const handler = (event: MessageEvent<BridgeResponse>) => {
+      if (!isResponse(event.data) || event.data.id !== request.id) {
+        return;
+      }
+
       if (!isAllowedOrigin(event.origin)) {
         reject({
           code: BridgeErrorCode.FORBIDDEN_ORIGIN,
@@ -38,22 +42,24 @@ export function makeRequest<Result>(
         return;
       }
 
-      if (event.data.id === request.id) {
-        log("handleResponse", event.data);
+      log("handleResponse", event.data);
 
-        window.removeEventListener("message", handler);
+      window.removeEventListener("message", handler);
 
-        if (event.data.error) {
-          reject(event.data.error as BridgeError);
-        } else {
-          resolve(event.data.result as Result);
-        }
+      if (event.data.error) {
+        reject(event.data.error as BridgeError);
+      } else {
+        resolve(event.data.result as Result);
       }
     };
 
     window.addEventListener("message", handler);
     postMessage(request);
   });
+}
+
+export function isResponse(message: Object): message is BridgeResponse {
+  return "id" in message && ("result" in message || "error" in message);
 }
 
 export function isAllowedOrigin(origin: string): boolean {
