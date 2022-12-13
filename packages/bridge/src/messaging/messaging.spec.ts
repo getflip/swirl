@@ -43,6 +43,8 @@ describe("messaging", () => {
 
     expect(isFlutterApp()).toBeTruthy();
     expect(spy).toHaveBeenCalledWith(JSON.stringify(request));
+
+    delete (global as any).FlipFlutter;
   });
 
   test("'isResponse' checks response type", async () => {
