@@ -1,5 +1,5 @@
 name: "swirl_icons"
-version: "0.0.1"
+version: "0.0.2"
 description: "Swirl Design System Icons package for Flutter."
 homepage: "https://www.getflip.com"
 environment:
@@ -13,4 +13,4 @@ flutter:
   fonts:
     - family: swirl-icons
       fonts:
-        - asset: fonts/swirl-icons.ttf
+        - asset: lib/fonts/swirl-icons.ttf
