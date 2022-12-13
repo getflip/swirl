@@ -11,13 +11,12 @@ export const getColorTokens = (): ColorTokens => {
     interactive: [],
     text: [],
     icon: [],
-    core: [],
   };
 
   const lightTokenKeys = Object.keys(tokensLight);
 
   const baseTokens = lightTokenKeys
-    .filter((key) => tokensLight[key].type === "color")
+    .filter((key) => tokensLight[key].type === "color" && !key.includes("core"))
     .map((key) => tokensLight[key]);
 
   baseTokens.forEach((token) => {
@@ -47,9 +46,7 @@ function getColorCategory(token: any): ColorTokenGroups {
     return "interactive";
   } else if (token.name.includes("text")) {
     return "text";
-  } else if (token.name.includes("icon")) {
-    return "icon";
   } else {
-    return "core";
+    return "icon";
   }
 }
