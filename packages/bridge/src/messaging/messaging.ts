@@ -82,6 +82,10 @@ export function isResponse(message: Object): message is BridgeResponse {
 }
 
 export function isAllowedOrigin(origin: string): boolean {
+  if (isFlutterApp()) {
+    return true;
+  }
+
   const hostAppOrigin = window.flipBridgeOptions?.hostAppOrigin;
 
   return origin === hostAppOrigin;
