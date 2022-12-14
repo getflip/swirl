@@ -1,6 +1,21 @@
-import { Component, h, Host, Method, Prop, Watch } from "@stencil/core";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+  Watch,
+} from "@stencil/core";
 import { hsla, parseToHsla, toRgba } from "color2k";
+
 export type FlipTheme = "light" | "dark";
+
+export type FlipThemeChangeEventData = {
+  activeTheme: FlipTheme;
+  preferredTheme: FlipTheme | undefined;
+};
 
 export type FlipThemeProviderStorage = {
   getItem: (key: string) => string;
@@ -50,8 +65,11 @@ const tenantColorMapping = {
 export class FlipThemeProvider {
   @Prop() config: FlipThemeProviderConfig;
 
+  @Event() themeChange: EventEmitter<FlipThemeChangeEventData>;
+
   private appTheme: FlipTheme;
   private osTheme: FlipTheme;
+  private recentThemeChangeEventData: FlipThemeChangeEventData;
   private resolvedConfig: FlipThemeProviderConfig;
 
   componentWillLoad() {
@@ -159,6 +177,22 @@ export class FlipThemeProvider {
     }
 
     this.updateTenantVariables();
+
+    const themeChangeEventData: FlipThemeChangeEventData = {
+      activeTheme: await this.getActiveTheme(),
+      preferredTheme: await this.getPreferredTheme(),
+    };
+
+    if (
+      !Boolean(this.recentThemeChangeEventData) ||
+      themeChangeEventData.activeTheme !==
+        this.recentThemeChangeEventData.activeTheme ||
+      themeChangeEventData.preferredTheme !==
+        this.recentThemeChangeEventData.preferredTheme
+    ) {
+      this.recentThemeChangeEventData = themeChangeEventData;
+      this.themeChange.emit(this.recentThemeChangeEventData);
+    }
   }
 
   private updateTenantVariables() {

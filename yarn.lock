@@ -2255,6 +2255,11 @@
     papaparse "^5.3.2"
     pdfjs-dist "^2.16.105"
 
+"@getflip/swirl-icons@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@getflip/swirl-icons/-/swirl-icons-0.6.0.tgz#e946df221de726b705fa0dba49607db6f1302eb0"
+  integrity sha512-nX36n+SHsv13lvj+9qAJbyvWG7d0zXY1P/EJG/5I8dNvYX7P6ldp8luzgI5crx5sZ94kD9VX+qifLEhMu7YMnQ==
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.7"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.10.7.tgz"
