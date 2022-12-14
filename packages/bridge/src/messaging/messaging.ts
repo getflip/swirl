@@ -84,7 +84,11 @@ export function getRequestHandler<Result>(
 }
 
 export function isResponse(message: Object): message is BridgeResponse {
-  return "id" in message && ("result" in message || "error" in message);
+  return (
+    typeof message === "object" &&
+    "id" in message &&
+    ("result" in message || "error" in message)
+  );
 }
 
 export function isAllowedOrigin(origin: string): boolean {

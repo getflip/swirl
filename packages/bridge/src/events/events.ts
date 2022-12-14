@@ -5,6 +5,7 @@ import { BridgeMethod } from "../types";
 import {
   BridgeEvent,
   BridgeEventType,
+  SubscribeOptions,
   SubscribeRequest,
   SubscribeResult,
   UnsubscribeFunction,
@@ -14,19 +15,23 @@ import {
 
 export async function subscribe(
   type: BridgeEventType,
-  callback: (event?: BridgeEvent) => void
+  callback: (event?: BridgeEvent) => void,
+  options?: SubscribeOptions
 ): Promise<UnsubscribeFunction> {
+  const subscriptionId = options?.id || uuidv4();
+
   const subscribeRequest: SubscribeRequest = {
     id: uuidv4(),
     method: BridgeMethod.SUBSCRIBE,
-    params: { type },
+    params: { id: subscriptionId, type },
   };
 
   const eventHandler = (event: MessageEvent<BridgeEvent>) => {
     if (
       !isAllowedOrigin(event.origin) ||
       !isEvent(event.data) ||
-      event.data.type !== type
+      event.data.type !== type ||
+      event.data.id !== subscriptionId
     ) {
       return;
     }
@@ -49,7 +54,7 @@ export async function subscribe(
     const unsubscribeRequest: UnsubscribeRequest = {
       id: uuidv4(),
       method: BridgeMethod.UNSUBSCRIBE,
-      params: { type },
+      params: { id: subscriptionId, type },
     };
 
     await makeRequest<UnsubscribeResult>(unsubscribeRequest);
@@ -60,6 +65,7 @@ export async function subscribe(
 
 export function isEvent(message: Object): message is BridgeEvent {
   return (
+    typeof message === "object" &&
     "type" in message &&
     Object.values(BridgeEventType).includes(message.type as BridgeEventType)
   );

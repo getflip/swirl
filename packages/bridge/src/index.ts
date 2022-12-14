@@ -1,6 +1,7 @@
 import { BridgeOptions } from "./types";
 
 export * from "./types";
+export * from "./messaging/messaging.types";
 
 export * from "./events";
 export * from "./i18n";

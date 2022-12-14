@@ -32,6 +32,7 @@ describe("events", () => {
         id: spy.mock.calls[0][0].id,
         method: "SUBSCRIBE",
         params: {
+          id: spy.mock.calls[0][0].params.id,
           type: "LANG_CHANGE",
         },
       },
@@ -42,7 +43,9 @@ describe("events", () => {
   test("'subscribe' registers listener with callback function", async () => {
     const callback = jest.fn();
 
-    const unsubscribe = await subscribe(BridgeEventType.LANG_CHANGE, callback);
+    const unsubscribe = await subscribe(BridgeEventType.LANG_CHANGE, callback, {
+      id: "SUBSCRIPTION_ID",
+    });
 
     global.dispatchEvent(
       new MessageEvent("message", {
@@ -50,6 +53,7 @@ describe("events", () => {
         origin: (global as any).flipBridgeOptions.hostAppOrigin,
         data: {
           data: "DATA",
+          id: "SUBSCRIPTION_ID",
           type: BridgeEventType.LANG_CHANGE,
         },
       })
@@ -57,6 +61,7 @@ describe("events", () => {
 
     expect(callback).toHaveBeenCalledWith({
       data: "DATA",
+      id: "SUBSCRIPTION_ID",
       type: "LANG_CHANGE",
     });
 
@@ -77,6 +82,7 @@ describe("events", () => {
         id: spy.mock.calls[1][0].id,
         method: "UNSUBSCRIBE",
         params: {
+          id: spy.mock.calls[1][0].params.id,
           type: "LANG_CHANGE",
         },
       },
