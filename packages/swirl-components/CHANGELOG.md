@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.10.0
+
+### Minor Changes
+
+- [`1aa5224`](https://github.com/getflip/swirl/commit/1aa5224a9040d226eda9edfc3d3ce059ef728e04)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add themeChange event to
+  flip-theme-provider
+
 ## 0.9.1
 
 ### Patch Changes
