@@ -1,3 +1,4 @@
+import { SubscribeResult, UnsubscribeResult } from "./events/events.types";
 import { GetAvailableLangsResult, GetLangResult } from "./i18n";
 import { NavigateResult } from "./navigation";
 import { GetThemeResult } from "./theming";
@@ -6,24 +7,6 @@ export type BridgeOptions = {
   debug?: boolean;
   hostAppOrigin: string;
 };
-
-export type BridgeRequest<
-  WithMethod extends BridgeMethod | unknown = unknown,
-  WithParams = Record<string, unknown> | Array<unknown>
-> = {
-  id: string;
-  method: WithMethod;
-  params?: WithParams;
-};
-
-export type BridgeResponse<ForMethod extends BridgeMethod | unknown = unknown> =
-  {
-    id: string;
-    error?: BridgeError;
-    result: ForMethod extends BridgeMethod
-      ? BridgeMethodResultMapping[ForMethod]
-      : unknown;
-  };
 
 export type BridgeError = {
   code: BridgeErrorCode;
@@ -39,6 +22,8 @@ export enum BridgeMethod {
   GET_LANG = "GET_LANG",
   GET_THEME = "GET_THEME",
   NAVIGATE = "NAVIGATE",
+  SUBSCRIBE = "SUBSCRIBE",
+  UNSUBSCRIBE = "UNSUBSCRIBE",
 }
 
 export type BridgeMethodResultMapping = {
@@ -46,4 +31,6 @@ export type BridgeMethodResultMapping = {
   [BridgeMethod.GET_LANG]: GetLangResult;
   [BridgeMethod.GET_THEME]: GetThemeResult;
   [BridgeMethod.NAVIGATE]: NavigateResult;
+  [BridgeMethod.SUBSCRIBE]: SubscribeResult;
+  [BridgeMethod.UNSUBSCRIBE]: UnsubscribeResult;
 };

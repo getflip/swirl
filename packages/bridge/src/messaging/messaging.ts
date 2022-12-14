@@ -1,10 +1,6 @@
 import { log } from "../logging";
-import {
-  BridgeError,
-  BridgeErrorCode,
-  BridgeRequest,
-  BridgeResponse,
-} from "../types";
+import { BridgeError, BridgeErrorCode } from "../types";
+import { BridgeRequest, BridgeResponse } from "./messaging.types";
 
 declare global {
   interface Window {
@@ -48,33 +44,43 @@ export function makeRequest<Result>(
   request: BridgeRequest
 ): Promise<Result | BridgeError> {
   return new Promise((resolve, reject) => {
-    const handler = (event: MessageEvent<BridgeResponse>) => {
-      if (!isResponse(event.data) || event.data.id !== request.id) {
-        return;
-      }
-
-      if (!isAllowedOrigin(event.origin)) {
-        reject({
-          code: BridgeErrorCode.FORBIDDEN_ORIGIN,
-        } as BridgeError);
-
-        return;
-      }
-
-      log("handleResponse", event.data);
-
-      window.removeEventListener("message", handler);
-
-      if (event.data.error) {
-        reject(event.data.error as BridgeError);
-      } else {
-        resolve(event.data.result as Result);
-      }
-    };
+    const handler = getRequestHandler(request, resolve, reject);
 
     window.addEventListener("message", handler);
     postMessage(request);
   });
+}
+
+export function getRequestHandler<Result>(
+  request: BridgeRequest,
+  resolve: (value: Result | PromiseLike<Result>) => void,
+  reject: (error: BridgeError) => void
+) {
+  const handler = (event: MessageEvent<BridgeResponse>) => {
+    if (!isResponse(event.data) || event.data.id !== request.id) {
+      return;
+    }
+
+    if (!isAllowedOrigin(event.origin)) {
+      reject({
+        code: BridgeErrorCode.FORBIDDEN_ORIGIN,
+      } as BridgeError);
+
+      return;
+    }
+
+    log("handleResponse", event.data);
+
+    window.removeEventListener("message", handler);
+
+    if (event.data.error) {
+      reject(event.data.error as BridgeError);
+    } else {
+      resolve(event.data.result as Result);
+    }
+  };
+
+  return handler;
 }
 
 export function isResponse(message: Object): message is BridgeResponse {

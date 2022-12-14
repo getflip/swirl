@@ -2234,6 +2234,27 @@
   resolved "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.3.tgz"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
+"@getflip/swirl-components@^0.8.4":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@getflip/swirl-components/-/swirl-components-0.8.6.tgz#3c864658074c7aa0750f0c377a9455602bb74840"
+  integrity sha512-ELEW+gBqRkCiXI73funO5z9pj65d1NaC6C0TKb4FwMVkzb9WP6aNhhmkwAKQ360q9Lse9T/DpQRBl99KP4XauA==
+  dependencies:
+    "@floating-ui/dom" "^1.0.1"
+    "@getflip/swirl-icons" "^0.6.0"
+    "@getflip/swirl-tokens" "^2.0.0"
+    "@stencil/core" "^2.13.0"
+    a11y-dialog "^7.5.2"
+    air-datepicker "^3.3.0"
+    body-scroll-lock "^4.0.0-beta.0"
+    classnames "^2.3.1"
+    color2k "^2.0.0"
+    date-fns "^2.29.3"
+    file-saver "^2.0.5"
+    focus-trap "^7.1.0"
+    maska "^1.5.0"
+    papaparse "^5.3.2"
+    pdfjs-dist "^2.16.105"
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.7"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.10.7.tgz"

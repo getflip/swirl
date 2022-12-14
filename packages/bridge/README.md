@@ -7,9 +7,11 @@ App or Flip Admin Console.
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Methods](#methods)
   - [Internationalization](#internationalization)
   - [Navigation](#navigation)
   - [Theming](#theming)
+- [Events](#events)
 - [Error Handling](#error-handling)
 - [Development](#development)
 
@@ -37,6 +39,8 @@ initFlipBridge({
   hostAppOrigin: "http://localhost:4200", // has to be the origin of the targeted host app
 });
 ```
+
+## Methods
 
 ### Internationalization
 
@@ -105,6 +109,51 @@ Get the current theme.
 import { getTheme } from "@getflip/bridge";
 
 const theme = await getTheme();
+```
+
+## Events
+
+Use the `subscribe` functions to subscribe to events.
+
+```js
+import { subscribe, BridgeEventType } from "@getflip/bridge";
+
+const unsubscribe = await subscribe(BridgeEventType.THEME_CHANGE, (event) => {
+  console.log(event.data);
+});
+
+// …
+
+await unsubscribe();
+```
+
+### `LANG_CHANGE`
+
+Fires when the user selected language changes.
+
+**Event**
+
+```js
+{
+  data: string; // e.g. 'en'
+  type: BridgeEventType.LANG_CHANGE;
+}
+```
+
+### `THEME_CHANGE`
+
+Fires when the user theme changes.
+
+**Event**
+
+```js
+{
+  data: {
+    activeTheme: "light" | "dark";
+    preferredTheme: "light" | "dark" | undefined;
+  }
+  type: BridgeEventType.THEME_CHANGE;
+}
 ```
 
 ## Error Handling

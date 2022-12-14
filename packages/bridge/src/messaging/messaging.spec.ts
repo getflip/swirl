@@ -1,4 +1,5 @@
-import { BridgeErrorCode, BridgeMethod, BridgeRequest } from "../types";
+import { BridgeErrorCode, BridgeMethod } from "../types";
+import { BridgeRequest } from "./messaging.types";
 import {
   isAllowedOrigin,
   isFlutterApp,

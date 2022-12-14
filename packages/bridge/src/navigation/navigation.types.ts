@@ -1,4 +1,5 @@
-import { BridgeMethod, BridgeRequest } from "../types";
+import { BridgeMethod } from "../types";
+import { BridgeRequest } from "../messaging/messaging.types";
 
 export type NavigateRequest = BridgeRequest<
   BridgeMethod.NAVIGATE,
