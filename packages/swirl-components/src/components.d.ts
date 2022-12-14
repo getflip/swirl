@@ -38,7 +38,7 @@ import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
 import { FlipTagIntent } from "./components/flip-tag/flip-tag";
 import { FlipTextAlign, FlipTextColor, FlipTextFontStyle, FlipTextSize, FlipTextWeight } from "./components/flip-text/flip-text";
 import { FlipTextInputMode as FlipTextInputMode1, FlipTextInputType } from "./components/flip-text-input/flip-text-input";
-import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
+import { FlipTheme, FlipThemeChangeEventData, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
 import { FlipThumbnailFormat, FlipThumbnailSize } from "./components/flip-thumbnail/flip-thumbnail";
 import { FlipToastIntent } from "./components/flip-toast/flip-toast";
 import { FlipToastConfig, FlipToastMessage } from "./components/flip-toast-provider/flip-toast-provider";
@@ -1071,6 +1071,10 @@ export interface FlipTagCustomEvent<T> extends CustomEvent<T> {
 export interface FlipTextInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipTextInputElement;
+}
+export interface FlipThemeProviderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipThemeProviderElement;
 }
 export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2873,6 +2877,7 @@ declare namespace LocalJSX {
     }
     interface FlipThemeProvider {
         "config"?: FlipThemeProviderConfig;
+        "onThemeChange"?: (event: FlipThemeProviderCustomEvent<FlipThemeChangeEventData>) => void;
     }
     interface FlipThumbnail {
         "alt": string;
