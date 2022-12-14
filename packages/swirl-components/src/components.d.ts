@@ -39,7 +39,7 @@ import { FlipTableColumnSort } from "./components/flip-table-column/flip-table-c
 import { FlipTagIntent } from "./components/flip-tag/flip-tag";
 import { FlipTextAlign, FlipTextColor, FlipTextFontStyle, FlipTextSize, FlipTextWeight } from "./components/flip-text/flip-text";
 import { FlipTextInputMode as FlipTextInputMode1, FlipTextInputType } from "./components/flip-text-input/flip-text-input";
-import { FlipTheme, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
+import { FlipTheme, FlipThemeChangeEventData, FlipThemeProviderConfig } from "./components/flip-theme-provider/flip-theme-provider";
 import { FlipThumbnailFormat, FlipThumbnailSize } from "./components/flip-thumbnail/flip-thumbnail";
 import { FlipToastIntent } from "./components/flip-toast/flip-toast";
 import { FlipToastConfig, FlipToastMessage } from "./components/flip-toast-provider/flip-toast-provider";
@@ -423,6 +423,12 @@ export namespace Components {
     interface FlipIconChatBubble {
         "size": FlipIconSize;
     }
+    interface FlipIconChatsFilled {
+        "size": FlipIconSize;
+    }
+    interface FlipIconChatsOutlined {
+        "size": FlipIconSize;
+    }
     interface FlipIconCheck {
         "size": FlipIconSize;
     }
@@ -513,6 +519,12 @@ export namespace Components {
     interface FlipIconGroupsCustom {
         "size": FlipIconSize;
     }
+    interface FlipIconGroupsFilled {
+        "size": FlipIconSize;
+    }
+    interface FlipIconGroupsOutlined {
+        "size": FlipIconSize;
+    }
     interface FlipIconHelp {
         "size": FlipIconSize;
     }
@@ -549,6 +561,12 @@ export namespace Components {
     interface FlipIconMenu {
         "size": FlipIconSize;
     }
+    interface FlipIconMenuFilled {
+        "size": FlipIconSize;
+    }
+    interface FlipIconMenuOutlined {
+        "size": FlipIconSize;
+    }
     interface FlipIconMessage {
         "size": FlipIconSize;
     }
@@ -556,6 +574,12 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconMoreVertikal {
+        "size": FlipIconSize;
+    }
+    interface FlipIconNewsFilled {
+        "size": FlipIconSize;
+    }
+    interface FlipIconNewsOutlined {
         "size": FlipIconSize;
     }
     interface FlipIconNotifications {
@@ -607,6 +631,12 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconSync {
+        "size": FlipIconSize;
+    }
+    interface FlipIconTasksFilled {
+        "size": FlipIconSize;
+    }
+    interface FlipIconTasksOutlined {
         "size": FlipIconSize;
     }
     interface FlipIconTimeFilled {
@@ -1111,6 +1141,10 @@ export interface FlipTextInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipTextInputElement;
 }
+export interface FlipThemeProviderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipThemeProviderElement;
+}
 export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipToastElement;
@@ -1404,6 +1438,18 @@ declare global {
         prototype: HTMLFlipIconChatBubbleElement;
         new (): HTMLFlipIconChatBubbleElement;
     };
+    interface HTMLFlipIconChatsFilledElement extends Components.FlipIconChatsFilled, HTMLStencilElement {
+    }
+    var HTMLFlipIconChatsFilledElement: {
+        prototype: HTMLFlipIconChatsFilledElement;
+        new (): HTMLFlipIconChatsFilledElement;
+    };
+    interface HTMLFlipIconChatsOutlinedElement extends Components.FlipIconChatsOutlined, HTMLStencilElement {
+    }
+    var HTMLFlipIconChatsOutlinedElement: {
+        prototype: HTMLFlipIconChatsOutlinedElement;
+        new (): HTMLFlipIconChatsOutlinedElement;
+    };
     interface HTMLFlipIconCheckElement extends Components.FlipIconCheck, HTMLStencilElement {
     }
     var HTMLFlipIconCheckElement: {
@@ -1584,6 +1630,18 @@ declare global {
         prototype: HTMLFlipIconGroupsCustomElement;
         new (): HTMLFlipIconGroupsCustomElement;
     };
+    interface HTMLFlipIconGroupsFilledElement extends Components.FlipIconGroupsFilled, HTMLStencilElement {
+    }
+    var HTMLFlipIconGroupsFilledElement: {
+        prototype: HTMLFlipIconGroupsFilledElement;
+        new (): HTMLFlipIconGroupsFilledElement;
+    };
+    interface HTMLFlipIconGroupsOutlinedElement extends Components.FlipIconGroupsOutlined, HTMLStencilElement {
+    }
+    var HTMLFlipIconGroupsOutlinedElement: {
+        prototype: HTMLFlipIconGroupsOutlinedElement;
+        new (): HTMLFlipIconGroupsOutlinedElement;
+    };
     interface HTMLFlipIconHelpElement extends Components.FlipIconHelp, HTMLStencilElement {
     }
     var HTMLFlipIconHelpElement: {
@@ -1656,6 +1714,18 @@ declare global {
         prototype: HTMLFlipIconMenuElement;
         new (): HTMLFlipIconMenuElement;
     };
+    interface HTMLFlipIconMenuFilledElement extends Components.FlipIconMenuFilled, HTMLStencilElement {
+    }
+    var HTMLFlipIconMenuFilledElement: {
+        prototype: HTMLFlipIconMenuFilledElement;
+        new (): HTMLFlipIconMenuFilledElement;
+    };
+    interface HTMLFlipIconMenuOutlinedElement extends Components.FlipIconMenuOutlined, HTMLStencilElement {
+    }
+    var HTMLFlipIconMenuOutlinedElement: {
+        prototype: HTMLFlipIconMenuOutlinedElement;
+        new (): HTMLFlipIconMenuOutlinedElement;
+    };
     interface HTMLFlipIconMessageElement extends Components.FlipIconMessage, HTMLStencilElement {
     }
     var HTMLFlipIconMessageElement: {
@@ -1673,6 +1743,18 @@ declare global {
     var HTMLFlipIconMoreVertikalElement: {
         prototype: HTMLFlipIconMoreVertikalElement;
         new (): HTMLFlipIconMoreVertikalElement;
+    };
+    interface HTMLFlipIconNewsFilledElement extends Components.FlipIconNewsFilled, HTMLStencilElement {
+    }
+    var HTMLFlipIconNewsFilledElement: {
+        prototype: HTMLFlipIconNewsFilledElement;
+        new (): HTMLFlipIconNewsFilledElement;
+    };
+    interface HTMLFlipIconNewsOutlinedElement extends Components.FlipIconNewsOutlined, HTMLStencilElement {
+    }
+    var HTMLFlipIconNewsOutlinedElement: {
+        prototype: HTMLFlipIconNewsOutlinedElement;
+        new (): HTMLFlipIconNewsOutlinedElement;
     };
     interface HTMLFlipIconNotificationsElement extends Components.FlipIconNotifications, HTMLStencilElement {
     }
@@ -1775,6 +1857,18 @@ declare global {
     var HTMLFlipIconSyncElement: {
         prototype: HTMLFlipIconSyncElement;
         new (): HTMLFlipIconSyncElement;
+    };
+    interface HTMLFlipIconTasksFilledElement extends Components.FlipIconTasksFilled, HTMLStencilElement {
+    }
+    var HTMLFlipIconTasksFilledElement: {
+        prototype: HTMLFlipIconTasksFilledElement;
+        new (): HTMLFlipIconTasksFilledElement;
+    };
+    interface HTMLFlipIconTasksOutlinedElement extends Components.FlipIconTasksOutlined, HTMLStencilElement {
+    }
+    var HTMLFlipIconTasksOutlinedElement: {
+        prototype: HTMLFlipIconTasksOutlinedElement;
+        new (): HTMLFlipIconTasksOutlinedElement;
     };
     interface HTMLFlipIconTimeFilledElement extends Components.FlipIconTimeFilled, HTMLStencilElement {
     }
@@ -2113,6 +2207,8 @@ declare global {
         "flip-icon-block": HTMLFlipIconBlockElement;
         "flip-icon-cancel": HTMLFlipIconCancelElement;
         "flip-icon-chat-bubble": HTMLFlipIconChatBubbleElement;
+        "flip-icon-chats-filled": HTMLFlipIconChatsFilledElement;
+        "flip-icon-chats-outlined": HTMLFlipIconChatsOutlinedElement;
         "flip-icon-check": HTMLFlipIconCheckElement;
         "flip-icon-check-circle": HTMLFlipIconCheckCircleElement;
         "flip-icon-check-small": HTMLFlipIconCheckSmallElement;
@@ -2143,6 +2239,8 @@ declare global {
         "flip-icon-group-assign": HTMLFlipIconGroupAssignElement;
         "flip-icon-groups": HTMLFlipIconGroupsElement;
         "flip-icon-groups-custom": HTMLFlipIconGroupsCustomElement;
+        "flip-icon-groups-filled": HTMLFlipIconGroupsFilledElement;
+        "flip-icon-groups-outlined": HTMLFlipIconGroupsOutlinedElement;
         "flip-icon-help": HTMLFlipIconHelpElement;
         "flip-icon-image": HTMLFlipIconImageElement;
         "flip-icon-info": HTMLFlipIconInfoElement;
@@ -2155,9 +2253,13 @@ declare global {
         "flip-icon-manage-accounts": HTMLFlipIconManageAccountsElement;
         "flip-icon-mention": HTMLFlipIconMentionElement;
         "flip-icon-menu": HTMLFlipIconMenuElement;
+        "flip-icon-menu-filled": HTMLFlipIconMenuFilledElement;
+        "flip-icon-menu-outlined": HTMLFlipIconMenuOutlinedElement;
         "flip-icon-message": HTMLFlipIconMessageElement;
         "flip-icon-more-horizontal": HTMLFlipIconMoreHorizontalElement;
         "flip-icon-more-vertikal": HTMLFlipIconMoreVertikalElement;
+        "flip-icon-news-filled": HTMLFlipIconNewsFilledElement;
+        "flip-icon-news-outlined": HTMLFlipIconNewsOutlinedElement;
         "flip-icon-notifications": HTMLFlipIconNotificationsElement;
         "flip-icon-notifications-active": HTMLFlipIconNotificationsActiveElement;
         "flip-icon-notifications-off": HTMLFlipIconNotificationsOffElement;
@@ -2175,6 +2277,8 @@ declare global {
         "flip-icon-send": HTMLFlipIconSendElement;
         "flip-icon-settings": HTMLFlipIconSettingsElement;
         "flip-icon-sync": HTMLFlipIconSyncElement;
+        "flip-icon-tasks-filled": HTMLFlipIconTasksFilledElement;
+        "flip-icon-tasks-outlined": HTMLFlipIconTasksOutlinedElement;
         "flip-icon-time-filled": HTMLFlipIconTimeFilledElement;
         "flip-icon-time-outlined": HTMLFlipIconTimeOutlinedElement;
         "flip-icon-today": HTMLFlipIconTodayElement;
@@ -2551,6 +2655,12 @@ declare namespace LocalJSX {
     interface FlipIconChatBubble {
         "size"?: FlipIconSize;
     }
+    interface FlipIconChatsFilled {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconChatsOutlined {
+        "size"?: FlipIconSize;
+    }
     interface FlipIconCheck {
         "size"?: FlipIconSize;
     }
@@ -2641,6 +2751,12 @@ declare namespace LocalJSX {
     interface FlipIconGroupsCustom {
         "size"?: FlipIconSize;
     }
+    interface FlipIconGroupsFilled {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconGroupsOutlined {
+        "size"?: FlipIconSize;
+    }
     interface FlipIconHelp {
         "size"?: FlipIconSize;
     }
@@ -2677,6 +2793,12 @@ declare namespace LocalJSX {
     interface FlipIconMenu {
         "size"?: FlipIconSize;
     }
+    interface FlipIconMenuFilled {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconMenuOutlined {
+        "size"?: FlipIconSize;
+    }
     interface FlipIconMessage {
         "size"?: FlipIconSize;
     }
@@ -2684,6 +2806,12 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconMoreVertikal {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconNewsFilled {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconNewsOutlined {
         "size"?: FlipIconSize;
     }
     interface FlipIconNotifications {
@@ -2735,6 +2863,12 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconSync {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconTasksFilled {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconTasksOutlined {
         "size"?: FlipIconSize;
     }
     interface FlipIconTimeFilled {
@@ -3020,6 +3154,7 @@ declare namespace LocalJSX {
     }
     interface FlipThemeProvider {
         "config"?: FlipThemeProviderConfig;
+        "onThemeChange"?: (event: FlipThemeProviderCustomEvent<FlipThemeChangeEventData>) => void;
     }
     interface FlipThumbnail {
         "alt": string;
@@ -3110,6 +3245,8 @@ declare namespace LocalJSX {
         "flip-icon-block": FlipIconBlock;
         "flip-icon-cancel": FlipIconCancel;
         "flip-icon-chat-bubble": FlipIconChatBubble;
+        "flip-icon-chats-filled": FlipIconChatsFilled;
+        "flip-icon-chats-outlined": FlipIconChatsOutlined;
         "flip-icon-check": FlipIconCheck;
         "flip-icon-check-circle": FlipIconCheckCircle;
         "flip-icon-check-small": FlipIconCheckSmall;
@@ -3140,6 +3277,8 @@ declare namespace LocalJSX {
         "flip-icon-group-assign": FlipIconGroupAssign;
         "flip-icon-groups": FlipIconGroups;
         "flip-icon-groups-custom": FlipIconGroupsCustom;
+        "flip-icon-groups-filled": FlipIconGroupsFilled;
+        "flip-icon-groups-outlined": FlipIconGroupsOutlined;
         "flip-icon-help": FlipIconHelp;
         "flip-icon-image": FlipIconImage;
         "flip-icon-info": FlipIconInfo;
@@ -3152,9 +3291,13 @@ declare namespace LocalJSX {
         "flip-icon-manage-accounts": FlipIconManageAccounts;
         "flip-icon-mention": FlipIconMention;
         "flip-icon-menu": FlipIconMenu;
+        "flip-icon-menu-filled": FlipIconMenuFilled;
+        "flip-icon-menu-outlined": FlipIconMenuOutlined;
         "flip-icon-message": FlipIconMessage;
         "flip-icon-more-horizontal": FlipIconMoreHorizontal;
         "flip-icon-more-vertikal": FlipIconMoreVertikal;
+        "flip-icon-news-filled": FlipIconNewsFilled;
+        "flip-icon-news-outlined": FlipIconNewsOutlined;
         "flip-icon-notifications": FlipIconNotifications;
         "flip-icon-notifications-active": FlipIconNotificationsActive;
         "flip-icon-notifications-off": FlipIconNotificationsOff;
@@ -3172,6 +3315,8 @@ declare namespace LocalJSX {
         "flip-icon-send": FlipIconSend;
         "flip-icon-settings": FlipIconSettings;
         "flip-icon-sync": FlipIconSync;
+        "flip-icon-tasks-filled": FlipIconTasksFilled;
+        "flip-icon-tasks-outlined": FlipIconTasksOutlined;
         "flip-icon-time-filled": FlipIconTimeFilled;
         "flip-icon-time-outlined": FlipIconTimeOutlined;
         "flip-icon-today": FlipIconToday;
@@ -3274,6 +3419,8 @@ declare module "@stencil/core" {
             "flip-icon-block": LocalJSX.FlipIconBlock & JSXBase.HTMLAttributes<HTMLFlipIconBlockElement>;
             "flip-icon-cancel": LocalJSX.FlipIconCancel & JSXBase.HTMLAttributes<HTMLFlipIconCancelElement>;
             "flip-icon-chat-bubble": LocalJSX.FlipIconChatBubble & JSXBase.HTMLAttributes<HTMLFlipIconChatBubbleElement>;
+            "flip-icon-chats-filled": LocalJSX.FlipIconChatsFilled & JSXBase.HTMLAttributes<HTMLFlipIconChatsFilledElement>;
+            "flip-icon-chats-outlined": LocalJSX.FlipIconChatsOutlined & JSXBase.HTMLAttributes<HTMLFlipIconChatsOutlinedElement>;
             "flip-icon-check": LocalJSX.FlipIconCheck & JSXBase.HTMLAttributes<HTMLFlipIconCheckElement>;
             "flip-icon-check-circle": LocalJSX.FlipIconCheckCircle & JSXBase.HTMLAttributes<HTMLFlipIconCheckCircleElement>;
             "flip-icon-check-small": LocalJSX.FlipIconCheckSmall & JSXBase.HTMLAttributes<HTMLFlipIconCheckSmallElement>;
@@ -3304,6 +3451,8 @@ declare module "@stencil/core" {
             "flip-icon-group-assign": LocalJSX.FlipIconGroupAssign & JSXBase.HTMLAttributes<HTMLFlipIconGroupAssignElement>;
             "flip-icon-groups": LocalJSX.FlipIconGroups & JSXBase.HTMLAttributes<HTMLFlipIconGroupsElement>;
             "flip-icon-groups-custom": LocalJSX.FlipIconGroupsCustom & JSXBase.HTMLAttributes<HTMLFlipIconGroupsCustomElement>;
+            "flip-icon-groups-filled": LocalJSX.FlipIconGroupsFilled & JSXBase.HTMLAttributes<HTMLFlipIconGroupsFilledElement>;
+            "flip-icon-groups-outlined": LocalJSX.FlipIconGroupsOutlined & JSXBase.HTMLAttributes<HTMLFlipIconGroupsOutlinedElement>;
             "flip-icon-help": LocalJSX.FlipIconHelp & JSXBase.HTMLAttributes<HTMLFlipIconHelpElement>;
             "flip-icon-image": LocalJSX.FlipIconImage & JSXBase.HTMLAttributes<HTMLFlipIconImageElement>;
             "flip-icon-info": LocalJSX.FlipIconInfo & JSXBase.HTMLAttributes<HTMLFlipIconInfoElement>;
@@ -3316,9 +3465,13 @@ declare module "@stencil/core" {
             "flip-icon-manage-accounts": LocalJSX.FlipIconManageAccounts & JSXBase.HTMLAttributes<HTMLFlipIconManageAccountsElement>;
             "flip-icon-mention": LocalJSX.FlipIconMention & JSXBase.HTMLAttributes<HTMLFlipIconMentionElement>;
             "flip-icon-menu": LocalJSX.FlipIconMenu & JSXBase.HTMLAttributes<HTMLFlipIconMenuElement>;
+            "flip-icon-menu-filled": LocalJSX.FlipIconMenuFilled & JSXBase.HTMLAttributes<HTMLFlipIconMenuFilledElement>;
+            "flip-icon-menu-outlined": LocalJSX.FlipIconMenuOutlined & JSXBase.HTMLAttributes<HTMLFlipIconMenuOutlinedElement>;
             "flip-icon-message": LocalJSX.FlipIconMessage & JSXBase.HTMLAttributes<HTMLFlipIconMessageElement>;
             "flip-icon-more-horizontal": LocalJSX.FlipIconMoreHorizontal & JSXBase.HTMLAttributes<HTMLFlipIconMoreHorizontalElement>;
             "flip-icon-more-vertikal": LocalJSX.FlipIconMoreVertikal & JSXBase.HTMLAttributes<HTMLFlipIconMoreVertikalElement>;
+            "flip-icon-news-filled": LocalJSX.FlipIconNewsFilled & JSXBase.HTMLAttributes<HTMLFlipIconNewsFilledElement>;
+            "flip-icon-news-outlined": LocalJSX.FlipIconNewsOutlined & JSXBase.HTMLAttributes<HTMLFlipIconNewsOutlinedElement>;
             "flip-icon-notifications": LocalJSX.FlipIconNotifications & JSXBase.HTMLAttributes<HTMLFlipIconNotificationsElement>;
             "flip-icon-notifications-active": LocalJSX.FlipIconNotificationsActive & JSXBase.HTMLAttributes<HTMLFlipIconNotificationsActiveElement>;
             "flip-icon-notifications-off": LocalJSX.FlipIconNotificationsOff & JSXBase.HTMLAttributes<HTMLFlipIconNotificationsOffElement>;
@@ -3336,6 +3489,8 @@ declare module "@stencil/core" {
             "flip-icon-send": LocalJSX.FlipIconSend & JSXBase.HTMLAttributes<HTMLFlipIconSendElement>;
             "flip-icon-settings": LocalJSX.FlipIconSettings & JSXBase.HTMLAttributes<HTMLFlipIconSettingsElement>;
             "flip-icon-sync": LocalJSX.FlipIconSync & JSXBase.HTMLAttributes<HTMLFlipIconSyncElement>;
+            "flip-icon-tasks-filled": LocalJSX.FlipIconTasksFilled & JSXBase.HTMLAttributes<HTMLFlipIconTasksFilledElement>;
+            "flip-icon-tasks-outlined": LocalJSX.FlipIconTasksOutlined & JSXBase.HTMLAttributes<HTMLFlipIconTasksOutlinedElement>;
             "flip-icon-time-filled": LocalJSX.FlipIconTimeFilled & JSXBase.HTMLAttributes<HTMLFlipIconTimeFilledElement>;
             "flip-icon-time-outlined": LocalJSX.FlipIconTimeOutlined & JSXBase.HTMLAttributes<HTMLFlipIconTimeOutlinedElement>;
             "flip-icon-today": LocalJSX.FlipIconToday & JSXBase.HTMLAttributes<HTMLFlipIconTodayElement>;

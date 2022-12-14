@@ -86,6 +86,10 @@ const Template = (args) => {
 
   element.append(lightModeButton, darkModeButton, tenantButton, resetButton);
 
+  element.addEventListener("themeChange", (event: CustomEvent) => {
+    console.log(event.detail);
+  });
+
   return element;
 };
 

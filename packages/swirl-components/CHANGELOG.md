@@ -1,5 +1,34 @@
 # @getflip/swirl-components
 
+## 0.11.0
+
+### Minor Changes
+
+- [`47c247a`](https://github.com/getflip/swirl/commit/47c247a179688c453765dc4d0c3fdea6902beb6d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add new icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`47c247a`](https://github.com/getflip/swirl/commit/47c247a179688c453765dc4d0c3fdea6902beb6d)]:
+  - @getflip/swirl-icons@0.7.0
+
+## 0.10.0
+
+### Minor Changes
+
+- [`1aa5224`](https://github.com/getflip/swirl/commit/1aa5224a9040d226eda9edfc3d3ce059ef728e04)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add themeChange event to
+  flip-theme-provider
+
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3d28b36`](https://github.com/getflip/swirl/commit/3d28b36463b91c6012b8bd075e69cd7493e5b13d)]:
+  - @getflip/swirl-tokens@2.2.0
+
 ## 0.9.0
 
 ### Minor Changes
