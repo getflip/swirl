@@ -11,7 +11,6 @@ import classNames from "classnames";
 import IframeResizer from "iframe-resizer-react";
 import { FunctionComponent, Suspense, useRef } from "react";
 import DynamicComponent from "./DynamicComponent";
-import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 
 interface VariantPreviewProps {
   frontMatter: FrontMatter;
@@ -77,6 +76,7 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
             </FlipButtonGroup>
             <div className="w-full h-72 border-2 border-border-default rounded-lg">
               <IframeResizer
+                aria-label="Component preview"
                 className={classNames({ hidden: isLoading })}
                 onLoad={() => setIsLoading(false)}
                 src={currentExample.url}

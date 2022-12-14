@@ -48,11 +48,10 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
         </a>
       </DesktopView>
       <MobileView>
-        <div>
+        <div role={role}>
           <a
             id={`${id}-popover-trigger`}
             tabIndex={index === 0 ? 0 : -1}
-            role={role}
             aria-label={`${icon}-icon`}
             ref={reference}
             href={`#${icons[icon]?.name}`}

@@ -40,7 +40,7 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
 
           const cleanedPropValue = propDefaultValue.replace(/"/g, "");
 
-          el.setAttribute(prop.name, cleanedPropValue);
+          el.setAttribute(prop.attr, cleanedPropValue);
         }
       });
 
@@ -66,7 +66,6 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
   useEffect(() => {
     setIsLoading(true);
     if (frontMatter?.examples) {
-      console.log(frontMatter.examples[0].title);
       const component = getSwirlComponentData(frontMatter?.title);
 
       setCurrentExample(frontMatter?.examples[0]);
