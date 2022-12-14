@@ -6,6 +6,7 @@ import { DocLinksNav } from "./DocLinksNav";
 import Footer from "./Footer";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
 import { ComponentPreview } from "../ComponentPreview";
+import { useToC } from "@swirl/lib/hooks/useToC";
 
 export type ComponentExample = {
   description: string;
@@ -14,7 +15,6 @@ export type ComponentExample = {
 };
 
 interface DocumentationLayoutProps {
-  documentLinkList: DocHeadline[];
   categoryLinkList: NavItem[] | undefined;
   document: any;
   mdxComponents?: any;
@@ -22,14 +22,15 @@ interface DocumentationLayoutProps {
 }
 
 export const DocumentationLayout = ({
-  documentLinkList,
   categoryLinkList,
   mdxComponents,
   document,
   frontMatter,
 }: DocumentationLayoutProps) => {
   const hasFrontMatterTitle = frontMatter?.title;
-  const isComponentDoc = frontMatter?.examples;
+  const isComponentDoc = frontMatter?.examples ? true : false;
+
+  const [tocItems] = useToC(document, isComponentDoc);
 
   return (
     <div className={`flex min-h-[calc(100vh_-_72px)]`}>
@@ -52,7 +53,9 @@ export const DocumentationLayout = ({
               </article>
             </main>
           </div>
-          <DocLinksNav documentLinkList={documentLinkList} />
+          {tocItems && tocItems.length > 0 && (
+            <DocLinksNav documentLinkList={tocItems} />
+          )}
         </div>
         <Footer />
       </div>

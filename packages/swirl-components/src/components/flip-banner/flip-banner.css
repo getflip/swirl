@@ -14,8 +14,13 @@
   padding: var(--s-space-12);
   align-items: flex-start;
 
-  &:focus {
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
     outline-color: var(--s-focus-default);
+    outline-offset: var(--s-space-4);
   }
 
   @media (--from-tablet) {
@@ -94,8 +99,8 @@
   display: inline-flex;
   margin-left: var(--s-space-16);
   align-items: center;
-  gap: var(--s-space-16);
   line-height: var(--s-line-height-base);
+  gap: var(--s-space-16);
 
   @media (--from-tablet) {
     gap: var(--s-space-24);

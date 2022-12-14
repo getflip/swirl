@@ -2,7 +2,15 @@
   "source": ["./tokens/tokens.dark.json"],
   "platforms": {
     "css": {
-      "transformGroup": "css",
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "time/seconds",
+        "content/icon",
+        "shadow/css",
+        "size/rem",
+        "color/css"
+      ],
       "prefix": "s",
       "buildPath": "dist/css/",
       "options": {
@@ -23,13 +31,14 @@
         "size/flutter/remToDouble",
         "content/flutter/literal",
         "asset/flutter/literal",
-        "font/flutter/literal"
+        "font/flutter/literal",
+        "fontWeight/flutter"
       ],
       "prefix": "",
-      "buildPath": "dist/flutter/",
+      "buildPath": "dart/lib/",
       "files": [
         {
-          "className": "SwirlDesignTokens",
+          "className": "SwirlDesignTokensDark",
           "destination": "styles.dark.dart",
           "format": "flutter/class.dart"
         }
@@ -46,7 +55,15 @@
       ]
     },
     "less": {
-      "transformGroup": "less",
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "time/seconds",
+        "content/icon",
+        "shadow/css",
+        "size/rem",
+        "color/hex"
+      ],
       "prefix": "s",
       "buildPath": "dist/less/",
       "files": [
@@ -57,7 +74,15 @@
       ]
     },
     "scss": {
-      "transformGroup": "scss",
+      "transforms": [
+        "attribute/cti",
+        "name/cti/kebab",
+        "time/seconds",
+        "content/icon",
+        "shadow/css",
+        "size/rem",
+        "color/css"
+      ],
       "prefix": "s",
       "buildPath": "dist/scss/",
       "files": [

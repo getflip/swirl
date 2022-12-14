@@ -43,14 +43,11 @@ export const getStaticProps: GetStaticProps<
   // TODO: how to type the component
   const { tokenDoc } = context.params;
 
-  // refactor to pass in token slug as path rather than hardcoding !!
-  const { documentLinkList } = createLinkLists(BASE_PATHS.TOKENS, tokenDoc);
   const document = await getComponentData(tokenDoc);
 
   return {
     props: {
       document,
-      documentLinkList,
       title: tokenDoc,
     },
   };
@@ -58,11 +55,9 @@ export const getStaticProps: GetStaticProps<
 
 export default function Component({
   document,
-  documentLinkList,
   title,
 }: {
   document: any;
-  documentLinkList: DocHeadline[];
   title: string;
 }) {
   const components = {
@@ -82,7 +77,6 @@ export default function Component({
       </Head>
       <DocumentationLayout
         categoryLinkList={tokensNavItems}
-        documentLinkList={documentLinkList}
         document={document}
         mdxComponents={components}
         frontMatter={document.frontmatter}

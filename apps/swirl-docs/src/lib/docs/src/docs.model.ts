@@ -30,8 +30,9 @@ export type Document = {
 
 export type DocHeadline = {
   id: string;
-  name: string;
-  level?: number;
+  title: string;
+  element: "H2" | "H3";
+  children: DocHeadline[];
 };
 
 export type FrontMatter = {

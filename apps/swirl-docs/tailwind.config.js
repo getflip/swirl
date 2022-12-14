@@ -1,4 +1,4 @@
-const SwirlTailwindTheme = require("@getflip/swirl-tokens/dist/tailwind/swirl-tailwind.json");
+const SwirlTailwindTheme = require("@getflip/swirl-tokens/dist/tailwind/light.json");
 const safelist = require("./safelist.json");
 
 /** @type {import('tailwindcss').Config} */

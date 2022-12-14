@@ -1,5 +1,22 @@
 # swirl-tokens
 
+## 2.2.0
+
+### Minor Changes
+
+- [#121](https://github.com/getflip/swirl/pull/121)
+  [`3d28b36`](https://github.com/getflip/swirl/commit/3d28b36463b91c6012b8bd075e69cd7493e5b13d)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Removed objects as
+  values for the tailwind theme and set light as the default
+
+## 2.1.0
+
+### Minor Changes
+
+- [#97](https://github.com/getflip/swirl/pull/97)
+  [`a241f77`](https://github.com/getflip/swirl/commit/a241f778d415d44cf116af0cf671c278384e1c2b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Introduce shadow design tokens
+
 ## 2.0.0
 
 ### Major Changes

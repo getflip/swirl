@@ -1,5 +1,31 @@
 # @getflip/swirl-components-angular
 
+## 0.8.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @getflip/swirl-components@0.9.1
+
+## 0.8.0
+
+### Minor Changes
+
+- [#97](https://github.com/getflip/swirl/pull/97)
+  [`a241f77`](https://github.com/getflip/swirl/commit/a241f778d415d44cf116af0cf671c278384e1c2b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Introduce shadow design tokens
+
+### Patch Changes
+
+- [#108](https://github.com/getflip/swirl/pull/108)
+  [`1fcca44`](https://github.com/getflip/swirl/commit/1fcca448df5bf8f2cbc03d12f6feccaa830b01f5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak component focus styles
+
+- Updated dependencies
+  [[`a241f77`](https://github.com/getflip/swirl/commit/a241f778d415d44cf116af0cf671c278384e1c2b),
+  [`1fcca44`](https://github.com/getflip/swirl/commit/1fcca448df5bf8f2cbc03d12f6feccaa830b01f5)]:
+  - @getflip/swirl-components@0.9.0
+
 ## 0.7.6
 
 ### Patch Changes

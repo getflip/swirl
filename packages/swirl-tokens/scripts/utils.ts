@@ -109,6 +109,11 @@ export const tokenGroups: {
     prefixes: ["line-height-"],
     presenter: "LineHeight",
   },
+  shadows: {
+    label: "Shadows",
+    prefixes: ["shadow-"],
+    presenter: "Shadow",
+  },
   spacings: {
     label: "Spacings",
     prefixes: ["space-"],
@@ -154,24 +159,20 @@ export function createSwirlTailwindTheme() {
     "./dist/tailwind/swirl-tailwind.json",
     JSON.stringify(oneTheme, null, 2),
     () => {
-      console.log("one theme created");
+      console.log("default tailwind theme created");
     }
   );
 }
 
 export function extendTokenGroup(tokenGroup: string) {
   const lightTheme = require("../dist/tailwind/light.json");
-  const darkTheme = require("../dist/tailwind/dark.json");
 
   const tokenGroupKeys = Object.keys(lightTheme[tokenGroup]);
 
   let extendedTokenGroup: any = {};
 
   for (const tokenGroupKey of tokenGroupKeys) {
-    extendedTokenGroup[tokenGroupKey] = {
-      ...lightTheme[tokenGroup][tokenGroupKey],
-      dark: darkTheme[tokenGroup][tokenGroupKey].dark,
-    };
+    extendedTokenGroup[tokenGroupKey] = lightTheme[tokenGroup][tokenGroupKey];
   }
 
   return extendedTokenGroup;
