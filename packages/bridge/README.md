@@ -254,7 +254,7 @@ Fires when the primary action button of a dialog or modal is clicked.
 {
   data: {
     parentId?: string; // id of the action's dialog or modal
-  }
+  };
   type: BridgeEventType.PRIMARY_ACTION_CLICK;
 }
 ```
@@ -269,7 +269,7 @@ Fires when the secondary action button of a dialog or modal is clicked.
 {
   data: {
     parentId?: string; // id of the action's dialog or modal
-  }
+  };
   type: BridgeEventType.SECONDARY_ACTION_CLICK;
 }
 ```
