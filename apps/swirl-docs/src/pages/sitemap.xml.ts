@@ -38,11 +38,9 @@ export async function getServerSideProps({ res }: any) {
 
   const filteredPaths = paths.filter((path) => !path.includes("foundations"));
 
-  // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(filteredPaths);
 
   res.setHeader("Content-Type", "text/xml");
-  // we send the XML to the browser
   res.write(sitemap);
   res.end();
 
