@@ -151,7 +151,7 @@ Promise<{
 **Example**
 
 ```js
-import { createDalog } from "@getflip/bridge";
+import { createDialog } from "@getflip/bridge";
 
 const dialog = await createDialog({
   id: "my-dialog",
