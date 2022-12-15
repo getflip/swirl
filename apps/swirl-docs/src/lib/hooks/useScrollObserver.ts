@@ -23,7 +23,9 @@ const useScrollObserver = (
     const { current: currentObserver } = observer;
 
     elements?.forEach((element: Element) => {
-      element ? currentObserver.observe(element) : null;
+      if (element) {
+        currentObserver.observe(element);
+      }
     });
 
     return () => currentObserver.disconnect();

@@ -4,7 +4,6 @@ import Head from "next/head";
 import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { createStaticPathsData } from "@swirl/lib/docs";
-import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { ScriptProps } from "next/script";
 import { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
