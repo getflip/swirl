@@ -4,7 +4,6 @@ import Head from "next/head";
 import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { createStaticPathsData } from "@swirl/lib/docs";
-import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { ScriptProps } from "next/script";
 import { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
@@ -30,9 +29,6 @@ export const getStaticProps: GetStaticProps<
   { componentDoc: string }
 > = async (context: any) => {
   const { componentDoc } = context.params;
-  // todo -
-  // put in frontmatter data / make it possible to include non sourced data to headings
-  // polaris does it that way: https://github.com/Shopify/polaris/blob/main/polaris.shopify.com/src/utils/hooks.ts
 
   const document = await getComponentData(componentDoc);
 

@@ -6,12 +6,7 @@ import {
   SWIRL_COMPONENTS_PATH,
 } from "@swirl/lib/navigation";
 import fs from "fs";
-import {
-  BASE_PATHS,
-  DocCategory,
-  Document,
-  DOCUMENTATION_SRC,
-} from "./docs.model";
+import { DocCategory, Document, DOCUMENTATION_SRC } from "./docs.model";
 
 export function createStaticPathsData(
   category: string,
