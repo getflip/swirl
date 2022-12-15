@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-import { BridgeEvent, BridgeEventType, subscribe } from "../events";
 import { makeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
 import {
@@ -28,16 +27,6 @@ export async function createDialog(params: CreateDialogRequestParams) {
     id: params.id,
     open: async () => openDialog({ id: params.id }),
     close: async () => closeDialog({ id: params.id }),
-    subscribeToPrimaryActionClick: (
-      callback: (event?: BridgeEvent<{ dialogId: string }>) => void
-    ) => {
-      return subscribe(BridgeEventType.PRIMARY_ACTION_CLICK, callback);
-    },
-    subscribeToSecondaryActionClick: (
-      callback: (event?: BridgeEvent<{ dialogId: string }>) => void
-    ) => {
-      return subscribe(BridgeEventType.SECONDARY_ACTION_CLICK, callback);
-    },
   };
 }
 

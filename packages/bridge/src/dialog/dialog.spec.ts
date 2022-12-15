@@ -58,8 +58,6 @@ describe("dialog", () => {
     expect(response?.id).toBe(params.id);
     expect(typeof response?.close).toBe("function");
     expect(typeof response?.open).toBe("function");
-    expect(typeof response?.subscribeToPrimaryActionClick).toBe("function");
-    expect(typeof response?.subscribeToSecondaryActionClick).toBe("function");
   });
 
   test("'openDialog' sends correct request", async () => {

@@ -145,8 +145,6 @@ Promise<{
   id: string;
   open: () => Promise<boolean>;
   close: () => Promise<boolean>;
-  subscribeToPrimaryActionClick: (callback: (event?: BridgeEvent<{ dialogId: string }>) => void) => Promise<UnsubscribeFunction>;
-  subscribeToSecondaryActionClick: (callback: (event?: BridgeEvent<{ dialogId: string }>) => void) => Promise<UnsubscribeFunction>;
 }>
 ```
 
@@ -162,13 +160,6 @@ const dialog = await createDialog({
   primaryAction: {
     label: "Close",
   },
-});
-
-const unsubscribe = await dialog.subscribeToPrimaryActionClick((event) => {
-  console.log(`Primary action clicked of dialog "${event.data.dialogId}".`);
-
-  unsubscribe();
-  dialog.close();
 });
 
 await dialog.open();
