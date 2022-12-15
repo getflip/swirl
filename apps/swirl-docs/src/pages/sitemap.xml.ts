@@ -11,7 +11,6 @@ function generateSiteMap(paths: string[]) {
        <url>
            <loc>${`${baseUrl}${path}`}</loc>
            <changefreq>weekly</changefreq>
-           <priority>0.7</priority>
        </url>
      `;
        })
