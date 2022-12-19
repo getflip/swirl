@@ -145,6 +145,7 @@ Promise<{
   id: string;
   open: () => Promise<boolean>;
   close: () => Promise<boolean>;
+  destroy: () => Promise<boolean>;
 }>
 ```
 
@@ -213,6 +214,28 @@ Closes a dialog.
 import { closeDialog } from "@getflip/bridge";
 
 await closeDialog({ id: "my-dialog" });
+```
+
+#### `destroyDialog`
+
+Destroys a dialog, removing it from the DOM.
+
+**Param**
+
+```js
+{
+  id: string; // the dialog id
+}
+```
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { destroyDialog } from "@getflip/bridge";
+
+await destroyDialog({ id: "my-dialog" });
 ```
 
 ## Events

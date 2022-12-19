@@ -1,6 +1,7 @@
 import {
   CloseDialogResult,
   CreateDialogResult,
+  DestroyDialogResult,
   OpenDialogResult,
 } from "./dialog";
 import { SubscribeResult, UnsubscribeResult } from "./events/events.types";
@@ -25,6 +26,7 @@ export enum BridgeErrorCode {
 export enum BridgeMethod {
   CLOSE_DIALOG = "CLOSE_DIALOG",
   CREATE_DIALOG = "CREATE_DIALOG",
+  DESTROY_DIALOG = "DESTROY_DIALOG",
   GET_AVAILABLE_LANGS = "GET_AVAILABLE_LANGS",
   GET_LANG = "GET_LANG",
   GET_THEME = "GET_THEME",
@@ -37,6 +39,7 @@ export enum BridgeMethod {
 export type BridgeMethodResultMapping = {
   [BridgeMethod.CLOSE_DIALOG]: CloseDialogResult;
   [BridgeMethod.CREATE_DIALOG]: CreateDialogResult;
+  [BridgeMethod.DESTROY_DIALOG]: DestroyDialogResult;
   [BridgeMethod.GET_AVAILABLE_LANGS]: GetAvailableLangsResult;
   [BridgeMethod.GET_LANG]: GetLangResult;
   [BridgeMethod.GET_THEME]: GetThemeResult;

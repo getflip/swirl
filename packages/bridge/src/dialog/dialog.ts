@@ -6,6 +6,8 @@ import {
   CloseDialogRequestParams,
   CreateDialogRequest,
   CreateDialogRequestParams,
+  DestroyDialogRequest,
+  DestroyDialogRequestParams,
   OpenDialogRequest,
   OpenDialogRequestParams,
 } from "./dialog.types";
@@ -27,6 +29,7 @@ export async function createDialog(params: CreateDialogRequestParams) {
     id: params.id,
     open: async () => openDialog({ id: params.id }),
     close: async () => closeDialog({ id: params.id }),
+    destroy: async () => destroyDialog({ id: params.id }),
   };
 }
 
@@ -48,4 +51,14 @@ export async function closeDialog(params: CloseDialogRequestParams) {
   };
 
   return makeRequest<CloseDialogRequest>(request);
+}
+
+export async function destroyDialog(params: DestroyDialogRequestParams) {
+  const request: DestroyDialogRequest = {
+    id: uuidv4(),
+    method: BridgeMethod.DESTROY_DIALOG,
+    params,
+  };
+
+  return makeRequest<DestroyDialogRequest>(request);
 }

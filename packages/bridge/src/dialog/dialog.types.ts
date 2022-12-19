@@ -24,6 +24,10 @@ export type CloseDialogRequestParams = {
   id: string;
 };
 
+export type DestroyDialogRequestParams = {
+  id: string;
+};
+
 export type CreateDialogRequest = BridgeRequest<
   BridgeMethod.CREATE_DIALOG,
   CreateDialogRequestParams
@@ -39,8 +43,15 @@ export type CloseDialogRequest = BridgeRequest<
   CloseDialogRequestParams
 >;
 
+export type DestroyDialogRequest = BridgeRequest<
+  BridgeMethod.DESTROY_DIALOG,
+  CloseDialogRequestParams
+>;
+
 export type CreateDialogResult = boolean;
 
 export type OpenDialogResult = boolean;
 
 export type CloseDialogResult = boolean;
+
+export type DestroyDialogResult = boolean;

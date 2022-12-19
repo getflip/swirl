@@ -1,9 +1,10 @@
 import { BridgeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
-import { closeDialog, createDialog, openDialog } from "./dialog";
+import { closeDialog, createDialog, destroyDialog, openDialog } from "./dialog";
 import {
   CloseDialogRequestParams,
   CreateDialogRequestParams,
+  DestroyDialogRequestParams,
   OpenDialogRequestParams,
 } from "./dialog.types";
 
@@ -98,6 +99,29 @@ describe("dialog", () => {
       {
         id: spy.mock.calls[0][0].id,
         method: BridgeMethod.CLOSE_DIALOG,
+        params,
+      },
+      "http://localhost"
+    );
+
+    expect(response).toBe(true);
+  });
+
+  test("'destroyDialog' sends correct request", async () => {
+    const params: DestroyDialogRequestParams = {
+      id: "my-dialog",
+    };
+
+    const spy = jest.fn();
+
+    (window.top as any).postMessage = spy;
+
+    const response = await destroyDialog(params);
+
+    expect(spy).toHaveBeenCalledWith(
+      {
+        id: spy.mock.calls[0][0].id,
+        method: BridgeMethod.DESTROY_DIALOG,
         params,
       },
       "http://localhost"
