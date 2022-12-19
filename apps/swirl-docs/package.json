@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "tsx src/scripts/build-search.ts",
     "start": "next start",
     "lint": "next lint"
   },
@@ -22,8 +23,10 @@
     "@getflip/swirl-tokens": "^2.2.0",
     "@mdx-js/loader": "^2.1.3",
     "@next/mdx": "^12.2.5",
+    "algoliasearch": "^4.14.2",
     "classnames": "^2.3.2",
     "codesandbox": "^2.2.3",
+    "dotenv": "^16.0.3",
     "gray-matter": "^4.0.3",
     "iframe-resizer-react": "^1.1.0",
     "next": "12.2.5",
@@ -35,7 +38,8 @@
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
-    "remark-sectionize": "^1.1.1"
+    "remark-sectionize": "^1.1.1",
+    "tsx": "^3.12.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
