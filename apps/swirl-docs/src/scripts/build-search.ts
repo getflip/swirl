@@ -1,17 +1,9 @@
-import {
-  BASE_PATHS,
-  createStaticPathsData,
-  DOCUMENT_ENUM,
-} from "@swirl/lib/docs";
-import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
+import { DOCUMENTATION_CATEGORY, createStaticPathsData } from "@swirl/lib/docs";
+import { generateSerializableDocumentation } from "@swirl/lib/docs/src/singleDoc";
 
 import dotenv from "dotenv";
 
-// const dotenv = require("dotenv");
-// const algoliasearch = require("algoliasearch/lite");
-
 async function generateAlgoliaData() {
-  // initialize environment variables
   dotenv.config();
 
   console.log(
@@ -19,21 +11,17 @@ async function generateAlgoliaData() {
     process.env.ALGOLIA_SEARCH_ADMIN_KEY
   );
 
-  const categoryDocs = createStaticPathsData(
-    BASE_PATHS.COMPONENTS,
-    DOCUMENT_ENUM.COMPONENTS
-  );
+  const categoryDocs = createStaticPathsData(DOCUMENTATION_CATEGORY.COMPONENTS);
 
-  categoryDocs?.forEach(async (doc: any) => {
-    const document = await generateMdxFromDocumentation(
-      BASE_PATHS.COMPONENTS,
-      doc
+  categoryDocs?.forEach(async (doc) => {
+    const { componentDoc } = doc.params;
+    const document = generateSerializableDocumentation(
+      DOCUMENTATION_CATEGORY.COMPONENTS,
+      componentDoc
     );
 
     console.log(document);
   });
-
-  console.log(categoryDocs);
 }
 
 // script execution

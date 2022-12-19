@@ -7,15 +7,14 @@ import { generateDocumentPath } from "@swirl/lib/navigation";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import sectionize from "remark-sectionize";
+import { DocumentationCategory } from "./docs.model";
 
 export async function generateMdxFromDocumentation(
-  category: string,
+  category: DocumentationCategory,
   document: string
 ): Promise<
   MDXRemoteSerializeResult<Record<string, unknown>, Record<string, string>>
 > {
-  // const source = generateSerializableDocumentation(category, document);
-
   const source = fs.readFileSync(
     generateDocumentPath(category, document),
     "utf8"
@@ -34,14 +33,12 @@ export async function generateMdxFromDocumentation(
 }
 
 export function generateSerializableDocumentation(
-  category: string,
+  category: DocumentationCategory,
   document: string
-) {
+): matter.GrayMatterFile<string> {
   const source = fs.readFileSync(
     generateDocumentPath(category, document),
     "utf8"
   );
-  const matterSource = matter(source);
-
-  return matterSource.content;
+  return matter(source);
 }
