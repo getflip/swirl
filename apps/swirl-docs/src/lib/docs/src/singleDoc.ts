@@ -6,7 +6,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { generateDocumentPath } from "@swirl/lib/navigation";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-const sectionize = require("remark-sectionize");
+import sectionize from "remark-sectionize";
 
 export async function generateMdxFromDocumentation(
   category: string,

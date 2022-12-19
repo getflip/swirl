@@ -6,6 +6,7 @@
   "description": "Swirl documentation",
   "licence": "SEE LICENCE IN LICENSE.md",
   "repository": "https://github.com/getflip/swirl",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/getflip/swirl/issues"
   },

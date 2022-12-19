@@ -24,6 +24,7 @@
     ".eslintrc.js",
     "*.config.js",
     "next-env.d.ts",
+    "types.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "pages/_document.js",
