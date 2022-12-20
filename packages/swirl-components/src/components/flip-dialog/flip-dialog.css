@@ -78,6 +78,11 @@
   font-size: var(--s-font-size-lg);
   font-weight: var(--s-font-weight-semibold);
   line-height: var(--s-line-height-lg);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-base);
+    line-height: var(--s-line-height-base);
+  }
 }
 
 .dialog__content {
@@ -86,6 +91,11 @@
 
   & ::slotted(*) {
     margin: 0;
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
   }
 }
 
