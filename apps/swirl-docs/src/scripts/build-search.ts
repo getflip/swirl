@@ -61,8 +61,8 @@ async function generateAlgoliaData() {
       DOCUMENTATION_CATEGORY.COMPONENTS
     );
     const tokens = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.TOKENS);
-    const icons = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.ICONS);
-    const transformed = [...components, ...tokens, ...icons];
+    // const icons = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.ICONS);
+    const transformed = [...components, ...tokens];
 
     const client = algoliasearch(
       process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!!,
