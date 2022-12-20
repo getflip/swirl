@@ -1,27 +1,83 @@
-import { DOCUMENTATION_CATEGORY, createStaticPathsData } from "@swirl/lib/docs";
+import {
+  DOCUMENTATION_CATEGORY,
+  createStaticPathsData,
+  DocumentationCategory,
+  StaticPathMap,
+} from "@swirl/lib/docs";
 import { generateSerializableDocumentation } from "@swirl/lib/docs/src/singleDoc";
+import { ALGOLIA_INDEX } from "@swirl/lib/search";
+import algoliasearch from "algoliasearch";
 
 import dotenv from "dotenv";
+
+function getAlgoliaDataForCategory(category: DocumentationCategory) {
+  const categoryDocs = createStaticPathsData(category);
+
+  const algoliaIndexableData = categoryDocs?.map((doc) => {
+    const docParams = doc.params;
+
+    const document = generateSerializableDocumentation(
+      category,
+      docParams[StaticPathMap[category]]
+    );
+
+    return {
+      objectID: document.data.title,
+      title: document.data.title,
+      excerpt: document.excerpt ? document.excerpt : "",
+      path: `/${category}/${document.data.title
+        .toLowerCase()
+        .replace(" ", "-")}`,
+      tagsCollection: { tags: document.data.tags },
+    };
+  });
+
+  return algoliaIndexableData;
+}
 
 async function generateAlgoliaData() {
   dotenv.config();
 
-  console.log(
-    process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
-    process.env.ALGOLIA_SEARCH_ADMIN_KEY
-  );
+  try {
+    if (!process.env.NEXT_PUBLIC_ALGOLIA_APP_ID) {
+      throw new Error("NEXT_PUBLIC_ALGOLIA_APP_ID is not defined");
+    }
 
-  const categoryDocs = createStaticPathsData(DOCUMENTATION_CATEGORY.COMPONENTS);
+    if (!process.env.ALGOLIA_SEARCH_ADMIN_KEY) {
+      throw new Error("ALGOLIA_SEARCH_ADMIN_KEY is not defined");
+    }
 
-  categoryDocs?.forEach(async (doc) => {
-    const { componentDoc } = doc.params;
-    const document = generateSerializableDocumentation(
-      DOCUMENTATION_CATEGORY.COMPONENTS,
-      componentDoc
+    const components = getAlgoliaDataForCategory(
+      DOCUMENTATION_CATEGORY.COMPONENTS
+    ) as any;
+    const tokens = getAlgoliaDataForCategory(
+      DOCUMENTATION_CATEGORY.TOKENS
+    ) as any;
+    const icons = getAlgoliaDataForCategory(
+      DOCUMENTATION_CATEGORY.ICONS
+    ) as any;
+
+    const transformed = [...components, ...tokens, ...icons];
+
+    // initialize the client with your environment variables
+    const client = algoliasearch(
+      process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!!,
+      process.env.ALGOLIA_SEARCH_ADMIN_KEY!!
     );
 
-    console.log(document);
-  });
+    const index = client.initIndex(ALGOLIA_INDEX.DEV);
+    const algoliaResponse = await index.saveObjects(transformed as any);
+
+    console.log(
+      `🎉 Sucessfully added ${
+        algoliaResponse.objectIDs.length
+      } records to Algolia search. Object IDs:\n${algoliaResponse.objectIDs.join(
+        "\n"
+      )}`
+    );
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // script execution

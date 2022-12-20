@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import { AlgoliaSearch } from "src/components/Search/Algolia";
 
 const Home: NextPage = () => {
   return (
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
           <i>developer docs</i> and the design system docs for{" "}
           <code>swirl</code> 🌀.
         </h1>
+        <AlgoliaSearch />
       </main>
     </>
   );
