@@ -79,6 +79,8 @@
 }
 
 .banner__icon {
+  position: relative;
+  top: var(--s-space-2);
   display: none;
   margin-right: var(--s-space-8);
   color: var(--s-icon-on-status);
@@ -93,6 +95,11 @@
   margin-right: var(--s-space-12);
   flex-grow: 1;
   line-height: var(--s-line-height-base);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .banner__controls {
@@ -130,5 +137,10 @@
 
   @media (--from-tablet) {
     max-width: 12rem;
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
   }
 }

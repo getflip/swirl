@@ -14,7 +14,7 @@ describe("flip-banner", () => {
         <mock:shadow-root>
           <div aria-describedby="content" class="banner banner--has-icon banner--intent-info" role="status" tabindex="0">
             <span aria-hidden="true" class="banner__icon">
-              <flip-icon-info></flip-icon-info>
+              <flip-icon-info size="24"></flip-icon-info>
             </span>
             <span class="banner__content" id="content">Content</span>
             <span class="banner__controls">
@@ -22,7 +22,7 @@ describe("flip-banner", () => {
                 Action
               </button>
               <button aria-label="Dismiss" class="banner__dismiss-button" type="button">
-                <flip-icon-close></flip-icon-close>
+                <flip-icon-close size="24"></flip-icon-close>
               </button>
             </span>
           </div>
