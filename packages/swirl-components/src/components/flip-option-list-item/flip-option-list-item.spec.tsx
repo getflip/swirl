@@ -27,7 +27,7 @@ describe("flip-option-list-item", () => {
               Option List Item
             </span>
             <span class="option-list-item__selection-icon">
-              <flip-icon-check-small></flip-icon-check-small>
+              <flip-icon-check-small size="24"></flip-icon-check-small>
             </span>
           </div>
         </mock:shadow-root>

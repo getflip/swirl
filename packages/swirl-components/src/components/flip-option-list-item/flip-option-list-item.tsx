@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { desktopMediaQuery } from "../../utils";
 
 export type FlipOptionListItemContext = "single-select" | "multi-select";
 
@@ -17,20 +18,35 @@ export class FlipOptionListItem {
   @Prop({ mutable: true }) selected?: boolean = false;
   @Prop() value!: string;
 
+  private checkIconEl: HTMLElement;
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps();
+    this.forceIconProps(desktopMediaQuery.matches);
+
+    desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
-  private forceIconProps() {
-    if (!Boolean(this.iconEl)) {
-      return;
-    }
+  disconnectedCallback() {
+    desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
 
-    const icon = this.iconEl.children[0];
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
 
-    icon?.setAttribute("size", "24");
+  private forceIconProps(smallIcon: boolean) {
+    const icon = this.iconEl?.children[0];
+    const checkIcon = this.checkIconEl?.children[0];
+
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+    checkIcon?.setAttribute("size", smallIcon ? "20" : "24");
   }
 
   render() {
@@ -79,7 +95,10 @@ export class FlipOptionListItem {
           )}
           <span class="option-list-item__label">{this.label}</span>
           {showSelectionIcon && (
-            <span class="option-list-item__selection-icon">
+            <span
+              class="option-list-item__selection-icon"
+              ref={(el) => (this.checkIconEl = el)}
+            >
               <flip-icon-check-small></flip-icon-check-small>
             </span>
           )}
