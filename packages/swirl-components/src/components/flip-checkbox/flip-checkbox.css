@@ -98,6 +98,11 @@
       background-color: var(--s-action-neutral-hovered);
     }
   }
+
+  @media (--from-desktop-without-touch) {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
 }
 
 .checkbox__box {
@@ -151,8 +156,18 @@
 
 .checkbox__label {
   font-weight: var(--s-font-weight-medium);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .checkbox__description {
   color: var(--s-text-subdued);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
