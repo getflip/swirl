@@ -49,19 +49,38 @@ export class FlipButton {
   @Prop() variant?: FlipButtonVariant = "ghost";
 
   private iconEl: HTMLElement;
+  private desktopMediaQuery = window.matchMedia(
+    "((min-width: 992px) and (max-width: 1439px) and (hover: hover)) or (min-width: 1440px)"
+  );
 
   componentDidLoad() {
-    this.forceIconProps();
+    this.forceIconProps(this.desktopMediaQuery.matches);
+
+    this.desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
-  private forceIconProps() {
+  disconnectedCallback() {
+    this.desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
     if (!Boolean(this.iconEl)) {
       return;
     }
 
     const icon = this.iconEl.children[0];
 
-    icon?.setAttribute("size", "24");
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
   }
 
   private getAriaLabel(hideLabel: boolean) {
