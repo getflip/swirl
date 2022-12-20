@@ -13,12 +13,21 @@
   max-width: 100%;
   color: var(--s-text-default);
   line-height: var(--s-line-height-base);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .description-list-item__term {
   display: block;
   margin-bottom: var(--s-space-4);
   font-weight: var(--s-font-weight-semibold);
+
+  @media (--from-desktop-without-touch) {
+    margin-bottom: var(--s-space-2);
+  }
 }
 
 .description-list-item__description {
