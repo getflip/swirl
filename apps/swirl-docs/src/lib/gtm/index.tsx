@@ -6,9 +6,8 @@ declare global {
   }
 }
 
+export const isProd = process.env.NODE_ENV === "production";
 export const pageview = (url: any) => {
-  const isProd = process.env.NODE_ENV === "production";
-
   if (isProd) {
     window.dataLayer.push({
       event: "pageview",
