@@ -60,6 +60,11 @@
   display: block;
   font-weight: var(--s-font-weight-semibold);
   line-height: var(--s-line-height-base);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .file-uploader__description {
@@ -67,6 +72,10 @@
   margin-top: var(--s-space-4);
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
+
+  @media (--from-desktop-without-touch) {
+    margin-top: var(--s-space-2);
+  }
 }
 
 .file-uploader__dropzone-icon {
@@ -76,6 +85,12 @@
 .file-uploader__dropzone-label {
   margin-top: var(--s-space-16);
   line-height: var(--s-line-height-base);
+
+  @media (--from-desktop-without-touch) {
+    margin-top: var(--s-space-8);
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .file-uploader__dropzone-cta {
@@ -85,6 +100,10 @@
 
 .file-uploader__upload-button {
   margin-top: var(--s-space-16);
+
+  @media (--from-desktop-without-touch) {
+    margin-top: var(--s-space-12);
+  }
 }
 
 .file-uploader__input {
