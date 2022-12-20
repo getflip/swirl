@@ -62,17 +62,15 @@ async function generateAlgoliaData() {
     );
     const tokens = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.TOKENS);
     const icons = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.ICONS);
-
     const transformed = [...components, ...tokens, ...icons];
 
-    // initialize the client with your environment variables
     const client = algoliasearch(
       process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!!,
       process.env.ALGOLIA_SEARCH_ADMIN_KEY!!
     );
 
     const index = client.initIndex(ALGOLIA_INDEX.DEV);
-    const algoliaResponse = await index.saveObjects(transformed as any);
+    const algoliaResponse = await index.saveObjects(transformed);
 
     console.log(
       `🎉 Sucessfully added ${
