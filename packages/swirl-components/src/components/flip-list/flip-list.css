@@ -51,13 +51,18 @@
       &:before {
         display: inline-block;
         min-width: 1.5rem;
-        font-variant-numeric: tabular-nums;
         margin-left: -1.5rem;
         padding-right: var(--s-space-8);
         text-align: right;
         content: counter(item) ".";
         counter-increment: item;
+        font-variant-numeric: tabular-nums;
       }
     }
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
   }
 }
