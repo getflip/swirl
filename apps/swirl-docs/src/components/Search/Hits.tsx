@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { connectStateResults } from "react-instantsearch-dom";
 
 function Hits({ searchState, searchResults }: any) {
@@ -14,6 +15,12 @@ function Hits({ searchState, searchResults }: any) {
           {searchResults.hits.map((hit: any, index: any) => (
             <div tabIndex={index} key={hit.objectID}>
               <p>{hit.title}</p>
+              <Link href={hit.path}>
+                <a>{hit.path}</a>
+              </Link>
+              <pre>
+                <code>{JSON.stringify(hit, null, 2)}</code>
+              </pre>
             </div>
           ))}
         </>

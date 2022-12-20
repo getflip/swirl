@@ -77,7 +77,7 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
             <div className="w-full h-72 border-2 border-border-default rounded-lg">
               <IframeResizer
                 aria-label="Component preview"
-                className={classNames({ hidden: isLoading })}
+                className={classNames("min-h-full", { hidden: isLoading })}
                 onLoad={() => setIsLoading(false)}
                 src={currentExample.url}
                 width="100%"

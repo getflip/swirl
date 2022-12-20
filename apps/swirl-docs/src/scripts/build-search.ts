@@ -10,7 +10,9 @@ import algoliasearch from "algoliasearch";
 
 import dotenv from "dotenv";
 
-function getAlgoliaDataForCategory(category: DocumentationCategory) {
+function getAlgoliaDataForCategory(
+  category: DocumentationCategory
+): AlogliaData {
   const categoryDocs = createStaticPathsData(category);
 
   const algoliaIndexableData = categoryDocs?.map((doc) => {
@@ -32,8 +34,16 @@ function getAlgoliaDataForCategory(category: DocumentationCategory) {
     };
   });
 
+  if (!algoliaIndexableData) {
+    throw new Error(
+      `Could not generate Algolia data for category: ${category}`
+    );
+  }
+
   return algoliaIndexableData;
 }
+
+type AlogliaData = Record<string, any>[];
 
 async function generateAlgoliaData() {
   dotenv.config();
@@ -49,13 +59,9 @@ async function generateAlgoliaData() {
 
     const components = getAlgoliaDataForCategory(
       DOCUMENTATION_CATEGORY.COMPONENTS
-    ) as any;
-    const tokens = getAlgoliaDataForCategory(
-      DOCUMENTATION_CATEGORY.TOKENS
-    ) as any;
-    const icons = getAlgoliaDataForCategory(
-      DOCUMENTATION_CATEGORY.ICONS
-    ) as any;
+    );
+    const tokens = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.TOKENS);
+    const icons = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.ICONS);
 
     const transformed = [...components, ...tokens, ...icons];
 
