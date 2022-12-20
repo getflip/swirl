@@ -18,6 +18,11 @@
   padding: var(--s-space-16);
   background-color: var(--s-background-default);
   font-family: var(--s-font-family-code);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .file-viewer-text__spinner {

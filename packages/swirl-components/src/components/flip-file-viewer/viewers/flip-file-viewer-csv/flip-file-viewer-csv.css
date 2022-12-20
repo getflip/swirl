@@ -21,6 +21,12 @@
   margin-right: auto;
   margin-left: auto;
   border-collapse: collapse;
+  line-height: var(--s-line-height-base);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .file-viewer-csv__cell {
