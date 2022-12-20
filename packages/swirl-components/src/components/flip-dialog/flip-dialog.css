@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   --flip-ghost-button-background-default: var(--s-surface-overlay-default);
   --flip-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
