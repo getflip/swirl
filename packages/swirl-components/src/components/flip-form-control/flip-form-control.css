@@ -29,6 +29,11 @@
       bottom: 50%;
       font-size: var(--s-font-size-base);
       transform: translateY(50%);
+
+      @media (--from-desktop-without-touch) {
+        font-size: var(--s-font-size-sm);
+        line-height: var(--s-line-height-sm);
+      }
     }
   }
 
@@ -43,6 +48,11 @@
       bottom: 50%;
       font-size: var(--s-font-size-base);
       transform: translateY(50%);
+
+      @media (--from-desktop-without-touch) {
+        font-size: var(--s-font-size-sm);
+        line-height: var(--s-line-height-sm);
+      }
     }
   }
 }
