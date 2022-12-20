@@ -7,8 +7,12 @@ declare global {
 }
 
 export const pageview = (url: any) => {
-  window.dataLayer.push({
-    event: "pageview",
-    page: url,
-  });
+  const isProd = process.env.NODE_ENV === "production";
+
+  if (isProd) {
+    window.dataLayer.push({
+      event: "pageview",
+      page: url,
+    });
+  }
 };
