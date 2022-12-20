@@ -52,6 +52,12 @@
       color: var(--s-icon-disabled);
     }
   }
+
+  @media (--from-desktop-without-touch) {
+    padding: var(--s-space-12);
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .action-list-item--size-l {
