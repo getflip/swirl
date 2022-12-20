@@ -19,4 +19,10 @@
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-base);
   text-align: left;
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+    padding: var(--s-space-8) var(--s-space-12);
+  }
 }
