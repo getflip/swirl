@@ -44,12 +44,8 @@ export class FlipActionListItem {
   };
 
   private forceIconProps(smallIcon: boolean) {
-    if (!Boolean(this.iconEl)) {
-      return;
-    }
-
-    const icon = this.iconEl.children[0];
-    const suffix = this.suffixEl.children[0];
+    const icon = this.iconEl?.children[0];
+    const suffix = this.suffixEl?.children[0];
 
     icon?.setAttribute("size", smallIcon ? "20" : "24");
     suffix?.setAttribute("size", smallIcon ? "20" : "24");
