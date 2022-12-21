@@ -15,6 +15,10 @@
 .pagination--variant-simple {
   & .pagination__list {
     gap: var(--s-space-4);
+
+    @media (--from-desktop-without-touch) {
+      gap: var(--s-space-2);
+    }
   }
 }
 
@@ -30,6 +34,12 @@
 
   @media (--from-tablet) {
     gap: var(--s-space-16);
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+    gap: var(--s-space-8);
   }
 }
 
