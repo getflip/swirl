@@ -34,12 +34,21 @@
   & ::part(icon) {
     color: var(--s-icon-on-status);
   }
+
+  @media (--from-desktop-without-touch) {
+    margin-top: 0;
+  }
 }
 
 .toast__content {
   flex-grow: 1;
   line-height: var(--s-line-height-base);
   text-align: left;
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .toast__dismiss-button {
