@@ -37,6 +37,11 @@
     color: var(--s-text-disabled);
     background-color: transparent;
   }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .date-input__date-picker-button {
@@ -63,5 +68,9 @@
   &:disabled {
     color: var(--s-icon-disabled);
     cursor: default;
+  }
+
+  @media (--from-desktop-without-touch) {
+    top: -0.625rem;
   }
 }
