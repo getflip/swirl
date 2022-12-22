@@ -15,7 +15,8 @@ export type FlipButtonVariant =
   | "ghost"
   | "plain"
   | "floating"
-  | "on-image";
+  | "on-image"
+  | "outline";
 
 @Component({
   /**

@@ -675,6 +675,9 @@
               "name": "on-image"
             },
             {
+              "name": "outline"
+            },
+            {
               "name": "plain"
             }
           ]
