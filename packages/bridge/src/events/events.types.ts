@@ -2,7 +2,9 @@ import { BridgeRequest } from "../messaging/messaging.types";
 import { BridgeMethod } from "../types";
 
 export enum BridgeEventType {
+  PRIMARY_ACTION_CLICK = "PRIMARY_ACTION_CLICK",
   LANG_CHANGE = "LANG_CHANGE",
+  SECONDARY_ACTION_CLICK = "SECONDARY_ACTION_CLICK",
   THEME_CHANGE = "THEME_CHANGE",
 }
 
