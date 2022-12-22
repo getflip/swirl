@@ -11,6 +11,7 @@ App or Flip Admin Console.
   - [Internationalization](#internationalization)
   - [Navigation](#navigation)
   - [Theming](#theming)
+  - [User Interface](#user-interface)
 - [Events](#events)
 - [Error Handling](#error-handling)
 - [Development](#development)
@@ -48,7 +49,7 @@ initFlipBridge({
 
 Get all available languages of the host app.
 
-**Returns** `string[]`
+**Returns** `Promise<string[]>`
 
 **Example**
 
@@ -62,7 +63,7 @@ const availableLanguages = await getAvailableLangs(); // e.g. ['de', 'en', 'fr',
 
 Get the current language of the host app.
 
-**Returns** `string`
+**Returns** `Promise<string>`
 
 **Example**
 
@@ -78,7 +79,9 @@ const currentLanguage = await getLang(); // e.g. 'en'
 
 Navigate to a specific route.
 
-**Returns** `boolean`
+**Param** `string`
+
+**Returns** `Promise<boolean>`
 
 **Example**
 
@@ -97,10 +100,10 @@ Get the current theme.
 **Returns**
 
 ```js
-{
+Promise<{
   activeTheme: "light" | "dark";
   preferredTheme: "light" | "dark" | undefined;
-}
+}>
 ```
 
 **Example**
@@ -109,6 +112,130 @@ Get the current theme.
 import { getTheme } from "@getflip/bridge";
 
 const theme = await getTheme();
+```
+
+### User Interface
+
+#### `createDialog`
+
+Creates a modal dialog rendered by the host app.
+
+**Param**
+
+```js
+{
+  hideLabel?: boolean;
+  id: string;
+  intent?: 'primary' | 'critical';
+  label: string;
+  text: string;
+  primaryAction?: {
+    label: string;
+  };
+  secondaryAction?: {
+    label: string;
+  };
+}
+```
+
+**Returns**
+
+```js
+Promise<{
+  id: string;
+  open: () => Promise<boolean>;
+  close: () => Promise<boolean>;
+  destroy: () => Promise<boolean>;
+}>
+```
+
+**Example**
+
+```js
+import { createDialog } from "@getflip/bridge";
+
+const dialog = await createDialog({
+  id: "my-dialog",
+  label: "My Dialog",
+  text: "Lorem ipsum",
+  primaryAction: {
+    label: "Close",
+  },
+});
+
+await dialog.open();
+```
+
+#### `openDialog`
+
+Opens a dialog.
+
+**Param**
+
+```js
+{
+  id: string; // the dialog id
+}
+```
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { createDialog, openDialog } from "@getflip/bridge";
+
+await createDialog({
+  id: "my-dialog",
+  label: "My Dialog",
+  text: "Lorem ipsum",
+});
+
+await openDialog({ id: "my-dialog" });
+```
+
+#### `closeDialog`
+
+Closes a dialog.
+
+**Param**
+
+```js
+{
+  id: string; // the dialog id
+}
+```
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { closeDialog } from "@getflip/bridge";
+
+await closeDialog({ id: "my-dialog" });
+```
+
+#### `destroyDialog`
+
+Destroys a dialog, removing it from the DOM.
+
+**Param**
+
+```js
+{
+  id: string; // the dialog id
+}
+```
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { destroyDialog } from "@getflip/bridge";
+
+await destroyDialog({ id: "my-dialog" });
 ```
 
 ## Events
@@ -137,6 +264,36 @@ Fires when the user selected language changes.
 {
   data: string; // e.g. 'en'
   type: BridgeEventType.LANG_CHANGE;
+}
+```
+
+### `PRIMARY_ACTION_CLICK`
+
+Fires when the primary action button of a dialog or modal is clicked.
+
+**Event**
+
+```js
+{
+  data: {
+    parentId: string; // id of the action's dialog or modal
+  }
+  type: BridgeEventType.PRIMARY_ACTION_CLICK;
+}
+```
+
+### `SECONDARY_ACTION_CLICK`
+
+Fires when the secondary action button of a dialog or modal is clicked.
+
+**Event**
+
+```js
+{
+  data: {
+    parentId: string; // id of the action's dialog or modal
+  }
+  type: BridgeEventType.SECONDARY_ACTION_CLICK;
 }
 ```
 

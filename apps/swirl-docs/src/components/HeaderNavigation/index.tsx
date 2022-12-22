@@ -12,8 +12,6 @@ const HeaderNavigation = () => {
 
   const links = navItems.slice(1, navItems.length);
   const activePath = router.pathname;
-  const isSwirlDocs =
-    activePath?.includes("/tokens") || activePath?.includes("/icons");
 
   const handleCloseMenu = () => {
     setIsMobileNavOpen(false);
@@ -38,9 +36,7 @@ const HeaderNavigation = () => {
               width={32}
               height={32}
             />
-            <span className="font-bold ml-3">
-              {isSwirlDocs ? "Swirl" : "Dev"}
-            </span>
+            <span className="font-bold ml-3">Swirl</span>
           </a>
         </Link>
 

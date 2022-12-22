@@ -74,9 +74,7 @@ export type ColorTokenGroups =
   | "action"
   | "interactive"
   | "text"
-  | "icon"
-  | "decoratives"
-  | "core";
+  | "icon";
 
 export type ColorTokens = {
   background?: Token[];
@@ -86,6 +84,4 @@ export type ColorTokens = {
   interactive?: Token[];
   text?: Token[];
   icon?: Token[];
-  decoratives?: Token[];
-  core?: Token[];
 };
