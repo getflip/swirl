@@ -56,7 +56,7 @@
   }
 
   @media (--from-desktop-without-touch) {
-    padding: var(--s-space-12);
+    padding: var(--s-space-8) var(--s-space-12);
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
   }
@@ -99,7 +99,6 @@
 .action-list-item__label {
   overflow: hidden;
   max-width: 100%;
-  padding-top: 0.0625rem;
   font-weight: var(--s-font-weight-medium);
   white-space: nowrap;
   text-overflow: ellipsis;
