@@ -11,6 +11,7 @@ describe("flip-button", () => {
               icon="<flip-icon-close></flip-icon-close>"
               intent="critical"
               label="Label"
+              pill="true"
               size="l"
               type="submit"
               variant="flat">
@@ -18,8 +19,8 @@ describe("flip-button", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-button disabled="true" icon="<flip-icon-close></flip-icon-close>" intent="critical" label="Label" size="l" type="submit" variant="flat">
-        <button aria-disabled="true" class="button button--icon-position-start button--intent-critical button--size-l button--variant-flat" disabled="" type="submit">
+      <flip-button disabled="true" icon="<flip-icon-close></flip-icon-close>" intent="critical" label="Label" pill="true" size="l" type="submit" variant="flat">
+        <button aria-disabled="true" class="button button--pill button--icon-position-start button--intent-critical button--size-l button--variant-flat" disabled="" type="submit">
           <span class="button__icon">
             <flip-icon-close size="24"></flip-icon-close>
           </span>

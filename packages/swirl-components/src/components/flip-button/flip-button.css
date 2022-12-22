@@ -311,6 +311,22 @@
   }
 }
 
+.button--pill {
+  border-radius: 1.25rem;
+
+  @media (--from-desktop-without-touch) {
+    border-radius: 1.125rem;
+  }
+
+  &.button--size-l {
+    border-radius: 1.5rem;
+
+    @media (--from-desktop-without-touch) {
+      border-radius: 1.375rem;
+    }
+  }
+}
+
 .button__icon {
   display: inline-flex;
   margin-left: calc(-1 * var(--s-space-4));

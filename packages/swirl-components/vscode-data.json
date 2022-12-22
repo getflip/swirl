@@ -623,6 +623,10 @@
           "description": ""
         },
         {
+          "name": "pill",
+          "description": ""
+        },
+        {
           "name": "size",
           "description": "",
           "values": [

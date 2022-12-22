@@ -43,6 +43,7 @@ export class FlipButton {
   @Prop() intent?: FlipButtonIntent = "default";
   @Prop() label!: string;
   @Prop() name?: string;
+  @Prop() pill?: boolean;
   @Prop() size?: FlipButtonSize = "m";
   @Prop() target?: string;
   @Prop() type?: FlipButtonType = "button";
@@ -107,6 +108,7 @@ export class FlipButton {
       `button--variant-${this.variant}`,
       {
         "button--icon-only": hideLabel,
+        "button--pill": this.pill,
       }
     );
 
