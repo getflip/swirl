@@ -24,7 +24,7 @@ export const PropsTable: FunctionComponent<PropsTableProps> = ({
             className="grid grid-cols-3 py-4 border-b-1 items-start"
           >
             <td>
-              {prop.name}
+              {prop.attr}
               {prop.required && <span className="text-red-600">*</span>}
             </td>
             <td>
