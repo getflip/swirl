@@ -13,9 +13,9 @@ import {
   UnsubscribeResult,
 } from "./events.types";
 
-export async function subscribe(
+export async function subscribe<EventDataType = unknown>(
   type: BridgeEventType,
-  callback: (event?: BridgeEvent) => void,
+  callback: (event?: BridgeEvent<EventDataType>) => void,
   options?: SubscribeOptions
 ): Promise<UnsubscribeFunction> {
   const subscriptionId = options?.id || uuidv4();
@@ -26,7 +26,7 @@ export async function subscribe(
     params: { id: subscriptionId, type },
   };
 
-  const eventHandler = (event: MessageEvent<BridgeEvent>) => {
+  const eventHandler = (event: MessageEvent<BridgeEvent<EventDataType>>) => {
     if (
       !isAllowedOrigin(event.origin) ||
       !isEvent(event.data) ||
