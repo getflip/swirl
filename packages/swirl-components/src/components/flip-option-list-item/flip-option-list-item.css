@@ -36,7 +36,9 @@
   }
 
   @media (--from-desktop-without-touch) {
-    padding: var(--s-space-12);
+    min-height: 0;
+    padding: var(--s-space-8) var(--s-space-12);
+    gap: var(--s-space-8);
   }
 }
 
