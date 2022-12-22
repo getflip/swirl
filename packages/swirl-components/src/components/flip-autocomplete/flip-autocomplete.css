@@ -21,6 +21,10 @@
   border-radius: var(--s-border-radius-sm);
   background-color: var(--s-surface-overlay-default);
   box-shadow: var(--s-shadow-level-1);
+
+  &:empty {
+    display: none;
+  }
 }
 
 .autocomplete__spinner {
