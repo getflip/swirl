@@ -72,6 +72,10 @@
   background-color: var(--s-surface-overlay-default);
   text-align: center;
   box-shadow: var(--s-shadow-level-3);
+
+  @media (--from-desktop-without-touch) {
+    border-radius: var(--s-border-radius-base);
+  }
 }
 
 .dialog__heading {
