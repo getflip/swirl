@@ -18,7 +18,7 @@ export class FlipOptionListItem {
   @Prop({ mutable: true }) selected?: boolean = false;
   @Prop() value!: string;
 
-  @State() iconSize: 20 | 24;
+  @State() iconSize: 20 | 24 = 24;
 
   private iconEl: HTMLElement;
 

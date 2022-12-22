@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { desktopMediaQuery } from "../../utils";
 
 export type FlipChipIntent = "default" | "critical" | "success";
 
@@ -20,7 +21,19 @@ export class FlipChip {
 
   componentDidLoad() {
     this.forceAvatarProps();
-    this.forceIconProps();
+    this.forceIconProps(desktopMediaQuery.matches);
+
+    desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  disconnectedCallback() {
+    desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
   private forceAvatarProps() {
@@ -38,15 +51,19 @@ export class FlipChip {
     avatar?.setAttribute("size", "xs");
   }
 
-  private forceIconProps() {
+  private forceIconProps(smallIcon: boolean) {
     if (!Boolean(this.iconEl)) {
       return;
     }
 
     const icon = this.iconEl.children[0];
 
-    icon?.setAttribute("size", "24");
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
   }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
 
   render() {
     const Tag = this.interactive ? "button" : "span";
