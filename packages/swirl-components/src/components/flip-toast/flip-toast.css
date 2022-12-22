@@ -46,6 +46,7 @@
   flex-grow: 1;
   line-height: var(--s-line-height-base);
   text-align: left;
+  align-self: flex-start;
 
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
