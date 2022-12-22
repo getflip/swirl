@@ -23,8 +23,10 @@ export class FlipTable {
   @Element() el: HTMLElement;
 
   @Prop() caption?: string;
+  @Prop() emptyStateLabel?: string = "No results found.";
   @Prop() label!: string;
 
+  @State() empty: boolean;
   @State() scrollable: boolean;
   @State() scrolled: boolean;
   @State() scrolledToEnd: boolean;
@@ -34,6 +36,7 @@ export class FlipTable {
   async componentDidRender() {
     await this.updateLayout();
     this.updateScrolledState();
+    this.updateEmptyState();
   }
 
   @Listen("resize", { target: "window" })
@@ -84,6 +87,21 @@ export class FlipTable {
     return Array.from(this.el.querySelectorAll("flip-table-cell"));
   }
 
+  private async resetEmptyRowStyles() {
+    const emptyRow =
+      this.el.shadowRoot.querySelector<HTMLElement>(".table__empty-row");
+
+    emptyRow;
+
+    if (!Boolean(emptyRow)) {
+      return;
+    }
+
+    emptyRow.style.width = "";
+
+    await new Promise((resolve) => setTimeout(resolve));
+  }
+
   private async resetRowGroupStyles() {
     const tableRowGroups = Array.from(
       this.el.querySelectorAll("flip-table-row-group")
@@ -130,13 +148,30 @@ export class FlipTable {
   }
 
   private updateLayout = debouncePromise(async () => {
+    await this.resetEmptyRowStyles();
     await this.resetRowGroupStyles();
     await this.resetCellStyles();
     await this.resetColumnStyles();
+    await this.layoutEmptyRow();
     await this.layoutRowGroups();
     await this.layOutColumns();
     this.layOutCells();
   }, 100);
+
+  private async layoutEmptyRow() {
+    const emptyRow =
+      this.el.shadowRoot.querySelector<HTMLElement>(".table__empty-row");
+
+    if (!Boolean(emptyRow)) {
+      return;
+    }
+
+    const scrollWidth = `${
+      this.el.shadowRoot.querySelector(".table__container").scrollWidth
+    }px`;
+
+    emptyRow.style.width = scrollWidth;
+  }
 
   private async layoutRowGroups() {
     const tableRowGroups = Array.from(
@@ -269,6 +304,12 @@ export class FlipTable {
     });
   }
 
+  private updateEmptyState() {
+    const rowsContainer = this.el.querySelector('[slot="rows"]');
+
+    this.empty = !Boolean(rowsContainer) || rowsContainer.children.length === 0;
+  }
+
   private onScroll = () => {
     this.updateScrolledState();
   };
@@ -300,6 +341,19 @@ export class FlipTable {
               </div>
               <div class="table__body">
                 <slot name="rows"></slot>
+                {this.empty && (
+                  <div class="table__empty-row" role="row">
+                    <div
+                      aria-colspan={this.getColumns().length}
+                      class="table__empty-row-cell"
+                      role="cell"
+                    >
+                      <flip-text align="center" size="sm">
+                        {this.emptyStateLabel}
+                      </flip-text>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

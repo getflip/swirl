@@ -3509,6 +3509,10 @@
           "description": ""
         },
         {
+          "name": "empty-state-label",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         }

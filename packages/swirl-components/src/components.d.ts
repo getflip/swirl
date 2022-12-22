@@ -870,6 +870,7 @@ export namespace Components {
     }
     interface FlipTable {
         "caption"?: string;
+        "emptyStateLabel"?: string;
         "label": string;
     }
     interface FlipTableCell {
@@ -3080,6 +3081,7 @@ declare namespace LocalJSX {
     }
     interface FlipTable {
         "caption"?: string;
+        "emptyStateLabel"?: string;
         "label": string;
     }
     interface FlipTableCell {
