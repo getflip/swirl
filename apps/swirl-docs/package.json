@@ -18,6 +18,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@algolia/autocomplete-js": "^1.7.4",
+    "@algolia/autocomplete-plugin-query-suggestions": "^1.7.4",
+    "@algolia/autocomplete-theme-classic": "^1.7.4",
     "@getflip/swirl-components": "^0.11.0",
     "@getflip/swirl-components-react": "^0.10.0",
     "@getflip/swirl-icons": "^0.7.0",
