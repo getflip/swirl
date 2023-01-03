@@ -1,7 +1,6 @@
-import "@algolia/autocomplete-theme-classic";
 import { autocomplete, getAlgoliaResults } from "@algolia/autocomplete-js";
 import React, { createElement, Fragment, useEffect, useRef } from "react";
-import { render } from "react-dom";
+import { createRoot, Root } from "react-dom/client";
 import { searchClient } from "./Algolia";
 import { ALGOLIA_INDEX } from "@swirl/lib/search";
 import { useRouter } from "next/router";
@@ -9,6 +8,8 @@ import { useRouter } from "next/router";
 export function Autocomplete(props: any) {
   const router = useRouter();
   const containerRef = useRef(null);
+  const panelRootRef = useRef<Root | null>(null);
+  const rootRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) {
@@ -19,7 +20,14 @@ export function Autocomplete(props: any) {
       container: containerRef.current,
       renderer: { createElement, Fragment },
       render({ children }, root) {
-        render(children, root);
+        if (!panelRootRef.current || rootRef.current !== root) {
+          rootRef.current = root;
+
+          panelRootRef.current?.unmount();
+          panelRootRef.current = createRoot(root);
+        }
+
+        panelRootRef.current.render(children);
       },
       getSources: ({ query }) => [
         {
@@ -41,7 +49,6 @@ export function Autocomplete(props: any) {
             });
           },
           onSelect(params: any) {
-            console.log("params", params);
             const { item, setQuery } = params;
 
             const path = item.path.replace("-tokens", "");
@@ -55,7 +62,7 @@ export function Autocomplete(props: any) {
     return () => {
       search.destroy();
     };
-  }, [props]);
+  }, [props, router]);
 
   return <div className="hidden md:block" ref={containerRef} />;
 }

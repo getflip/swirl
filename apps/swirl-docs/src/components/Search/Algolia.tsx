@@ -1,8 +1,6 @@
-import { FunctionComponent, useCallback, useMemo, useState } from "react";
+import { FunctionComponent, useMemo, useState } from "react";
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch } from "react-instantsearch-dom";
-import SearchBox from "./SearchBox";
-import Hits from "./Hits";
 import { ALGOLIA_INDEX } from "@swirl/lib/search";
 import { Autocomplete } from "./AutoComplete";
 
