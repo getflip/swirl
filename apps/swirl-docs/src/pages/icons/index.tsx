@@ -48,7 +48,7 @@ const IconsIndex = () => {
       <Head>
         <title>Swirl | Icons</title>
       </Head>
-      <div className="flex min-h-[calc(100vh_-_72px)]">
+      <div className="flex">
         <CategoryNav categoryLinkList={iconsNavItems} />
         <main id="main" className="w-full h-full">
           <section className="flex flex-col px-4 md:py-14 md:px-24">
