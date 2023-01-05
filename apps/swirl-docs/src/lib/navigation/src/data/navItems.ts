@@ -19,7 +19,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: CategoryEnum.TOKENS,
-    url: "/tokens",
+    url: "/tokens/color",
     children: tokensNavItems,
   },
   {

@@ -9,6 +9,8 @@ export type Token = {
     | ZIndexTokenCategory;
   value: string;
   description: string;
+  valueAsString?: string;
+  unitAsString?: string;
 };
 
 export type SizeTokenCategory = "size";

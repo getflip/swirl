@@ -1,4 +1,13 @@
 import { Token } from "@swirl/lib/tokens";
+import {
+  getColsString,
+  isBorderToken,
+  isColorIndex,
+  isSpacingToken,
+  isTypographyToken,
+  isZindexToken,
+} from "@swirl/lib/tokens/src/utils";
+import classNames from "classnames";
 import { FunctionComponent } from "react";
 import TokenItem from "./TokenItem";
 
@@ -7,19 +16,55 @@ interface TokensListProps {
 }
 
 export const TokensList: FunctionComponent<TokensListProps> = ({ tokens }) => {
+  const tokenValueTypes = tokens.map((token) => {
+    return token.unitAsString;
+  });
+
+  const tokenType = tokens.map((token) => {
+    return token.type;
+  });
+
+  function checkDescription(token: Token) {
+    if (token.description) {
+      return token.description;
+    } else {
+      return "";
+    }
+  }
+
+  const hasTokenDescription = Boolean(tokens.find(checkDescription));
+
+  console.log("hasTokenDescription", hasTokenDescription);
+  console.log("tokenType", tokenType[0]);
+
   return (
-    <table className="mb-10">
+    <table className="w-full mb-10">
       <thead>
-        <tr className="hidden md:grid gap-2 grid-cols-5 items-end border-b-1 pb-4">
-          <th className="col-span-2 font-semibold text-start">
+        <tr
+          className={classNames(
+            `grid gap-2 grid-cols-1 md:grid-cols-typography-token-list items-start py-4 border-b-1`,
+            {
+              "md:grid-cols-color-token-list":
+                isColorIndex(tokenType[0]) || isBorderToken(tokenType[0]),
+              "md:grid-cols-typography-token-list": isTypographyToken(
+                tokenType[0]
+              ),
+              "md:grid-cols-spacing-token-list": isSpacingToken(tokenType[0]),
+              "md:grid-cols-z-index-token-list": isZindexToken(tokenType[0]),
+            }
+          )}
+        >
+          <th className="col-span-3 font-semibold text-start text-sm">
             <h4>Token Name</h4>
           </th>
-          <th className="col-span-1 font-semibold text-start">
-            <h4>Value</h4>
+          <th className="col-span-1 font-semibold text-start text-sm">
+            <h4>Value ({tokenValueTypes[0]})</h4>
           </th>
-          <th className="col-span-2 font-semibold text-start">
-            <h4>Description</h4>
-          </th>
+          {hasTokenDescription && (
+            <th className="col-span-2 font-semibold text-start text-sm">
+              <h4>Description</h4>
+            </th>
+          )}
         </tr>
       </thead>
       <tbody>

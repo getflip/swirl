@@ -2,11 +2,6 @@ import { NavItem } from "../navigation.model";
 
 export const tokensNavItems: NavItem[] = [
   {
-    title: "Overview",
-    url: "/tokens",
-    description: "Learn about the tokens used in the swirl design system.",
-  },
-  {
     title: "Color",
     url: "/tokens/color",
     description:
