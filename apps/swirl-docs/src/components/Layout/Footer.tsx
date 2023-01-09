@@ -25,7 +25,7 @@ const links: NavLink[] = [
 const Footer = () => {
   return (
     <footer id="footer">
-      <PreFooter />
+      {/* <PreFooter /> */}
       <nav
         aria-label="footer"
         className="hidden md:flex bottom-0 col-start-3 col-span-10 bg-white justify-between items-center h-20 px-4 w-full"
