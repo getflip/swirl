@@ -34,7 +34,9 @@ const TokenItem = ({ token }: TokenItemProps) => {
         <div className="inline-flex mb-2 md:mb-0">
           <div className="flex flex-col items-start max-w-[100%]">
             <code className="w-full whitespace-pre overflow-hidden text-ellipsis bg-gray-100 rounded-md p-1 text-sm font-font-family-code">
-              {token.name}
+              <dfn className="not-italic" title={token.name}>
+                {token.name}
+              </dfn>
             </code>
           </div>
         </div>
