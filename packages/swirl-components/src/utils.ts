@@ -13,6 +13,26 @@ export const desktopMediaQuery = window.matchMedia(
   "((min-width: 992px) and (max-width: 1439px) and (hover: hover)) or (min-width: 1440px)"
 );
 
+export function closestPassShadow(node, selector) {
+  if (!node) {
+    return null;
+  }
+
+  if (node instanceof ShadowRoot) {
+    return closestPassShadow(node.host, selector);
+  }
+
+  if (node instanceof HTMLElement) {
+    if (node.matches(selector)) {
+      return node;
+    } else {
+      return closestPassShadow(node.parentNode, selector);
+    }
+  }
+
+  return closestPassShadow(node.parentNode, selector);
+}
+
 export function debounce(
   func: Function,
   wait: number,

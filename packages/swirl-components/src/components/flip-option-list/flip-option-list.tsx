@@ -9,7 +9,11 @@ import {
   State,
   Watch,
 } from "@stencil/core";
-import { FlipFormInput, querySelectorAllDeep } from "../../utils";
+import {
+  closestPassShadow,
+  FlipFormInput,
+  querySelectorAllDeep,
+} from "../../utils";
 
 @Component({
   /**
@@ -95,7 +99,9 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     const item = target?.closest("flip-option-list-item");
 
     const composedTarget = event.composedPath()[0] as HTMLElement;
-    const clickedOption = Boolean(composedTarget.closest('[role="option"]'));
+    const clickedOption = Boolean(
+      closestPassShadow(composedTarget, '[role="option"]')
+    );
 
     if (!Boolean(item) || !clickedOption) {
       event.preventDefault();
@@ -124,7 +130,9 @@ export class FlipOptionList implements FlipFormInput<string[]> {
       }
     } else if (event.code === "Space" || event.code === "Enter") {
       const target = event.composedPath()[0] as HTMLElement;
-      const optionFocused = Boolean(target.closest('[role="option"]'));
+      const optionFocused = Boolean(
+        closestPassShadow(target, '[role="option"]')
+      );
 
       if (!optionFocused) {
         return;
