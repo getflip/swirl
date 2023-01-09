@@ -2686,6 +2686,10 @@
       },
       "attributes": [
         {
+          "name": "allow-drag",
+          "description": ""
+        },
+        {
           "name": "context",
           "description": "",
           "values": [

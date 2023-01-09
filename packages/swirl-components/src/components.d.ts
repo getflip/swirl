@@ -698,6 +698,7 @@ export namespace Components {
         "value"?: string[];
     }
     interface FlipOptionListItem {
+        "allowDrag"?: boolean;
         "context"?: FlipOptionListItemContext;
         "disabled"?: boolean;
         "icon"?: string;
@@ -2806,6 +2807,7 @@ declare namespace LocalJSX {
         "value"?: string[];
     }
     interface FlipOptionListItem {
+        "allowDrag"?: boolean;
         "context"?: FlipOptionListItemContext;
         "disabled"?: boolean;
         "icon"?: string;
