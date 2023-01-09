@@ -38,7 +38,7 @@ export const DocumentationLayout = ({
       <div className="h-full w-full">
         <main
           id="main"
-          className="grid grid-cols-1 md:grid-cols-[minmax(0,_45rem)_16rem] gap-8 justify-center my-0 mx-auto mt-14 mb-4 md:mb-0 px-4 xl:px-0"
+          className="grid grid-cols-1 md:grid-cols-[minmax(0,_45rem)_16rem] gap-8 justify-center my-0 mx-auto mt-14 mb-4 md:mb-0 px-4 md:px-0"
         >
           <article className="w-full max-w-[45rem]">
             {hasFrontMatterTitle && (
