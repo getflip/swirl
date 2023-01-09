@@ -72,7 +72,7 @@ export class FlipOptionListItem {
     this.iconSize = smallIcon ? 20 : 24;
   }
 
-  private onDragHandleMouseDown = (event: KeyboardEvent) => {
+  private onDragHandleKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Space" || event.code === "Enter") {
       event.preventDefault();
       this.toggleDrag.emit(this.el);
@@ -139,7 +139,7 @@ export class FlipOptionListItem {
             aria-describedby={this.dragHandleDescription}
             aria-label={`${this.dragHandleLabel} "${this.label}"`}
             class="option-list-item__drag-handle"
-            onKeyDown={this.onDragHandleMouseDown}
+            onKeyDown={this.onDragHandleKeyDown}
             type="button"
           >
             <flip-icon-drag-handle size={this.iconSize}></flip-icon-drag-handle>
