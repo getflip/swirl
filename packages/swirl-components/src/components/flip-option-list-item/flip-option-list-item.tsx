@@ -14,7 +14,8 @@ import { desktopMediaQuery } from "../../utils";
 export type FlipOptionListItemContext = "single-select" | "multi-select";
 
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "flip-option-list-item.css",
   tag: "flip-option-list-item",
 })

@@ -26,6 +26,7 @@ describe("flip-option-list", () => {
 
     expect(page.root).toEqualHtml(`
       <flip-option-list label="Option List" multi-select="true">
+        <flip-visually-hidden role="alert"></flip-visually-hidden>
         <div aria-label="Option List" aria-multiselectable="true" class="option-list" role="listbox" tabindex="0">
           <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
           <flip-option-list-item label="This is an option" value="2"></flip-option-list-item>

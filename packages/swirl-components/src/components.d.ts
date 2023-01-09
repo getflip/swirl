@@ -2832,6 +2832,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
+        "onItemDrop"?: (event: FlipOptionListCustomEvent<{ oldIndex: number; newIndex: number }>) => void;
         "onValueChange"?: (event: FlipOptionListCustomEvent<string[]>) => void;
         "optionListId"?: string;
         "value"?: string[];

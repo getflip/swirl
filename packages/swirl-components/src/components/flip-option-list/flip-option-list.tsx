@@ -14,6 +14,7 @@ import {
   FlipFormInput,
   querySelectorAllDeep,
 } from "../../utils";
+import Sortable, { SortableEvent } from "sortablejs";
 
 @Component({
   /**
@@ -43,13 +44,16 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
   @State() assistiveText: string;
 
+  @Event() itemDrop: EventEmitter<{ oldIndex: number; newIndex: number }>;
   @Event() valueChange: EventEmitter<string[]>;
 
   private dragging: HTMLFlipOptionListItemElement;
+  private draggingStartIndex: number;
   private focusedItem: HTMLElement;
   private items: HTMLFlipOptionListItemElement[];
   private listboxEl: HTMLDivElement;
   private observer: MutationObserver;
+  private sortable: Sortable;
 
   componentDidLoad() {
     this.updateItems();
@@ -58,6 +62,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     this.setItemDisabledState();
     this.setItemContext();
     this.syncItemsWithValue();
+    this.setupDragDrop();
   }
 
   disconnectedCallback() {
@@ -67,6 +72,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
   @Watch("allowDrag")
   watchAllowDrag() {
     this.setItemAllowDragState();
+    this.setupDragDrop();
   }
 
   @Watch("disabled")
@@ -196,6 +202,28 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     }
   }
 
+  private setupDragDrop() {
+    if (Boolean(this.sortable)) {
+      this.sortable.destroy();
+    }
+
+    if (!this.allowDrag) {
+      return;
+    }
+
+    this.sortable = Sortable.create(this.listboxEl, {
+      animation: 150,
+      draggable: "flip-option-list-item",
+      handle: ".option-list-item__drag-handle",
+      onEnd: (event: SortableEvent) => {
+        this.itemDrop.emit({
+          oldIndex: event.oldIndex,
+          newIndex: event.newIndex,
+        });
+      },
+    });
+  }
+
   private setItemAllowDragState() {
     if (this.allowDrag && !this.multiSelect) {
       console.error(
@@ -294,12 +322,10 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     }
 
     this.items.forEach((item) =>
-      item.shadowRoot
-        .querySelector('[role="option"]')
-        .removeAttribute("tabIndex")
+      item.querySelector('[role="option"]').removeAttribute("tabIndex")
     );
 
-    const item = this.items[index]?.shadowRoot.querySelector(
+    const item = this.items[index]?.querySelector(
       '[role="option"]'
     ) as HTMLElement;
 
@@ -333,7 +359,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
   private getActiveItemIndex(): number {
     return this.items
-      .map((item) => item.shadowRoot.querySelector('[role="option"]'))
+      .map((item) => item.querySelector('[role="option"]'))
       .findIndex((item) => item === this.focusedItem);
   }
 
@@ -353,6 +379,8 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
   private startDrag = (item: HTMLFlipOptionListItemElement) => {
     this.dragging = item;
+    this.draggingStartIndex = this.getItemIndex(this.dragging);
+
     item.setAttribute("dragging", "true");
 
     const index = this.getItemIndex(this.dragging);
@@ -365,9 +393,13 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     this.dragging = undefined;
     item.removeAttribute("dragging");
 
-    this.assistiveText = `${this.assistiveTextItemMoved} ${
-      this.getActiveItemIndex() + 1
-    }`;
+    const newIndex = this.getActiveItemIndex();
+
+    this.assistiveText = `${this.assistiveTextItemMoved} ${newIndex + 1}`;
+
+    this.itemDrop.emit({ oldIndex: this.draggingStartIndex, newIndex });
+
+    this.draggingStartIndex = undefined;
   };
 
   private moveDraggedItemDown() {
