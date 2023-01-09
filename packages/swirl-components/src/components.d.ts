@@ -695,6 +695,10 @@ export namespace Components {
         "secondaryActionLabel"?: string;
     }
     interface FlipOptionList {
+        "allowDrag"?: boolean;
+        "assistiveTextItemGrabbed"?: string;
+        "assistiveTextItemMoved"?: string;
+        "assistiveTextItemMoving"?: string;
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
@@ -707,6 +711,7 @@ export namespace Components {
         "disabled"?: boolean;
         "dragHandleDescription"?: string;
         "dragHandleLabel"?: string;
+        "dragging"?: boolean;
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
@@ -1060,6 +1065,10 @@ export interface FlipModalCustomEvent<T> extends CustomEvent<T> {
 export interface FlipOptionListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLFlipOptionListElement;
+}
+export interface FlipOptionListItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFlipOptionListItemElement;
 }
 export interface FlipPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2816,6 +2825,10 @@ declare namespace LocalJSX {
         "secondaryActionLabel"?: string;
     }
     interface FlipOptionList {
+        "allowDrag"?: boolean;
+        "assistiveTextItemGrabbed"?: string;
+        "assistiveTextItemMoved"?: string;
+        "assistiveTextItemMoving"?: string;
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
@@ -2829,8 +2842,10 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "dragHandleDescription"?: string;
         "dragHandleLabel"?: string;
+        "dragging"?: boolean;
         "icon"?: string;
         "label": string;
+        "onToggleDrag"?: (event: FlipOptionListItemCustomEvent<HTMLFlipOptionListItemElement>) => void;
         "selected"?: boolean;
         "value": string;
     }

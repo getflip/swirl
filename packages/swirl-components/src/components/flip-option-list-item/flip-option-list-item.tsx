@@ -1,4 +1,13 @@
-import { Component, h, Host, Prop, State } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+} from "@stencil/core";
 import classnames from "classnames";
 import { desktopMediaQuery } from "../../utils";
 
@@ -10,16 +19,21 @@ export type FlipOptionListItemContext = "single-select" | "multi-select";
   tag: "flip-option-list-item",
 })
 export class FlipOptionListItem {
+  @Element() el: HTMLFlipOptionListItemElement;
+
   @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) context?: FlipOptionListItemContext =
     "single-select";
   @Prop() disabled?: boolean;
+  @Prop() dragging?: boolean;
   @Prop() dragHandleDescription?: string = "Press spacebar to toggle grab";
   @Prop() dragHandleLabel?: string = "Move option";
   @Prop() icon?: string;
   @Prop() label!: string;
   @Prop({ mutable: true }) selected?: boolean = false;
   @Prop() value!: string;
+
+  @Event() toggleDrag: EventEmitter<HTMLFlipOptionListItemElement>;
 
   @State() iconSize: 20 | 24 = 24;
 
@@ -57,6 +71,10 @@ export class FlipOptionListItem {
     this.iconSize = smallIcon ? 20 : 24;
   }
 
+  private onDragHandleClick = () => {
+    this.toggleDrag.emit(this.el);
+  };
+
   render() {
     const ariaDisabled = this.disabled ? "true" : undefined;
     const ariaSelected = String(this.selected);
@@ -71,6 +89,7 @@ export class FlipOptionListItem {
       {
         "option-list-item--disabled": this.disabled,
         "option-list-item--draggable": this.allowDrag,
+        "option-list-item--dragging": this.dragging,
         "option-list-item--selected": this.selected,
       }
     );
@@ -116,6 +135,7 @@ export class FlipOptionListItem {
             aria-describedby={this.dragHandleDescription}
             aria-label={`${this.dragHandleLabel} "${this.label}"`}
             class="option-list-item__drag-handle"
+            onClick={this.onDragHandleClick}
             type="button"
           >
             <flip-icon-drag-handle size={this.iconSize}></flip-icon-drag-handle>

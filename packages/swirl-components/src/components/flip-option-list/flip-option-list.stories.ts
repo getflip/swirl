@@ -15,14 +15,10 @@ const Template = (args) => {
   const element = generateStoryElement("flip-option-list", args);
 
   element.innerHTML = `
-    <flip-option-list-section label="Section 1">
-      <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
-      <flip-option-list-item label="This is an option" value="2"></flip-option-list-item>
-      <flip-option-list-item label="This is an option" value="3"></flip-option-list-item>
-    </flip-option-list-section>
-    <flip-option-list-section label="Section 2">
-      <flip-option-list-item label="This is an option" value="4"></flip-option-list-item>
-    </flip-option-list-section>
+  <flip-option-list-item label="1" value="1"></flip-option-list-item>
+  <flip-option-list-item label="2" value="2"></flip-option-list-item>
+  <flip-option-list-item label="3" value="3"></flip-option-list-item>
+  <flip-option-list-item label="4" value="4"></flip-option-list-item>
 `;
 
   return element;
@@ -31,6 +27,8 @@ const Template = (args) => {
 export const FlipOptionList = Template.bind({});
 
 FlipOptionList.args = {
+  allowDrag: true,
   label: "Option List",
+  multiSelect: true,
   value: ["2"],
 };

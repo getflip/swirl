@@ -6,6 +6,7 @@ import {
   h,
   Host,
   Prop,
+  State,
   Watch,
 } from "@stencil/core";
 import { FlipFormInput, querySelectorAllDeep } from "../../utils";
@@ -25,14 +26,22 @@ import { FlipFormInput, querySelectorAllDeep } from "../../utils";
 export class FlipOptionList implements FlipFormInput<string[]> {
   @Element() el: HTMLElement;
 
+  @Prop() allowDrag?: boolean;
+  @Prop() assistiveTextItemGrabbed?: string =
+    "Item grabbed. Use arrow keys to move item up or down. Use spacebar to save position.";
+  @Prop() assistiveTextItemMoving?: string = "Current position:";
+  @Prop() assistiveTextItemMoved?: string = "Item moved. New position:";
   @Prop() disabled?: boolean;
   @Prop() label?: string;
   @Prop() optionListId?: string;
   @Prop() multiSelect?: boolean;
   @Prop({ mutable: true }) value?: string[] = [];
 
+  @State() assistiveText: string;
+
   @Event() valueChange: EventEmitter<string[]>;
 
+  private dragging: HTMLFlipOptionListItemElement;
   private focusedItem: HTMLElement;
   private items: HTMLFlipOptionListItemElement[];
   private listboxEl: HTMLDivElement;
@@ -41,6 +50,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
   componentDidLoad() {
     this.updateItems();
     this.observeSlotChanges();
+    this.setItemAllowDragState();
     this.setItemDisabledState();
     this.setItemContext();
     this.syncItemsWithValue();
@@ -48,6 +58,11 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
   disconnectedCallback() {
     this.observer?.disconnect();
+  }
+
+  @Watch("allowDrag")
+  watchAllowDrag() {
+    this.setItemAllowDragState();
   }
 
   @Watch("disabled")
@@ -79,7 +94,11 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     const target = event.target as HTMLElement;
     const item = target?.closest("flip-option-list-item");
 
-    if (!Boolean(item)) {
+    const composedTarget = event.composedPath()[0] as HTMLElement;
+    const clickedOption = Boolean(composedTarget.closest('[role="option"]'));
+
+    if (!Boolean(item) || !clickedOption) {
+      event.preventDefault();
       return;
     }
 
@@ -89,13 +108,35 @@ export class FlipOptionList implements FlipFormInput<string[]> {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowDown") {
       event.preventDefault();
-      this.focusNextItem();
+
+      if (!Boolean(this.dragging)) {
+        this.focusNextItem();
+      } else {
+        this.moveDraggedItemDown();
+      }
     } else if (event.code === "ArrowUp") {
       event.preventDefault();
-      this.focusPreviousItem();
+
+      if (!Boolean(this.dragging)) {
+        this.focusPreviousItem();
+      } else {
+        this.moveDraggedItemUp();
+      }
     } else if (event.code === "Space" || event.code === "Enter") {
+      const target = event.composedPath()[0] as HTMLElement;
+      const optionFocused = Boolean(target.closest('[role="option"]'));
+
+      if (!optionFocused) {
+        return;
+      }
+
       event.preventDefault();
-      this.selectFocusedItem();
+
+      if (Boolean(this.dragging)) {
+        this.stopDrag(this.dragging);
+      } else {
+        this.selectFocusedItem();
+      }
     } else if (event.code === "Home") {
       event.preventDefault();
       this.focusItem(0);
@@ -109,6 +150,10 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     ) {
       event.preventDefault();
       this.selectAllItems();
+    } else if (event.code === "Tab") {
+      if (Boolean(this.dragging)) {
+        event.preventDefault();
+      }
     }
   };
 
@@ -140,6 +185,39 @@ export class FlipOptionList implements FlipFormInput<string[]> {
       if (this.value.length > 1) {
         this.updateValue([this.value[0]]);
       }
+    }
+  }
+
+  private setItemAllowDragState() {
+    if (this.allowDrag && !this.multiSelect) {
+      console.error(
+        "[FlipOptionList] Drag can only be allowed for multi select lists."
+      );
+      return;
+    }
+
+    const sections = querySelectorAllDeep<HTMLFlipOptionListSectionElement>(
+      this.el,
+      "flip-option-list-section"
+    );
+
+    if (this.allowDrag && sections.length > 0) {
+      console.error(
+        "[FlipOptionList] Drag can only be allowed for lists without sections."
+      );
+      return;
+    }
+
+    if (this.allowDrag) {
+      this.items.forEach((item) => {
+        item.setAttribute("allow-drag", "true");
+        item.addEventListener("toggleDrag", this.toggleDrag);
+      });
+    } else {
+      this.items.forEach((item) => {
+        item.removeAttribute("allow-drag");
+        item.removeEventListener("toggleDrag", this.toggleDrag);
+      });
     }
   }
 
@@ -213,7 +291,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
         .removeAttribute("tabIndex")
     );
 
-    const item = this.items[index].shadowRoot.querySelector(
+    const item = this.items[index]?.shadowRoot.querySelector(
       '[role="option"]'
     ) as HTMLElement;
 
@@ -251,12 +329,80 @@ export class FlipOptionList implements FlipFormInput<string[]> {
       .findIndex((item) => item === this.focusedItem);
   }
 
+  private getItemIndex(item: HTMLFlipOptionListItemElement): number {
+    return this.items.map((i) => i).findIndex((i) => i === item);
+  }
+
+  private toggleDrag = (event: CustomEvent<HTMLFlipOptionListItemElement>) => {
+    const item = event.detail;
+
+    if (Boolean(this.dragging)) {
+      this.stopDrag(item);
+    } else {
+      this.startDrag(item);
+    }
+  };
+
+  private startDrag = (item: HTMLFlipOptionListItemElement) => {
+    this.dragging = item;
+    item.setAttribute("dragging", "true");
+
+    const index = this.getItemIndex(this.dragging);
+    this.focusItem(index);
+
+    this.assistiveText = this.assistiveTextItemGrabbed;
+  };
+
+  private stopDrag = (item: HTMLFlipOptionListItemElement) => {
+    this.dragging = undefined;
+    item.removeAttribute("dragging");
+
+    this.assistiveText = `${this.assistiveTextItemMoved} ${
+      this.getActiveItemIndex() + 1
+    }`;
+  };
+
+  private moveDraggedItemDown() {
+    const nextSibling = this.dragging.nextElementSibling;
+
+    if (!Boolean(nextSibling)) {
+      return;
+    }
+
+    nextSibling.after(this.dragging);
+    this.updateItems();
+    this.listboxEl.focus();
+
+    this.assistiveText = `${this.assistiveTextItemMoving} ${
+      this.getActiveItemIndex() + 1
+    }`;
+  }
+
+  private moveDraggedItemUp() {
+    const prevSibling = this.dragging.previousElementSibling;
+
+    if (!Boolean(prevSibling)) {
+      return;
+    }
+
+    prevSibling.before(this.dragging);
+    this.updateItems();
+    this.listboxEl.focus();
+
+    this.assistiveText = `${this.assistiveTextItemMoving} ${
+      this.getItemIndex(this.dragging) + 1
+    }`;
+  }
+
   render() {
     const ariaMultiselectable = this.multiSelect ? "true" : undefined;
     const tabIndex = this.disabled ? -1 : 0;
 
     return (
       <Host>
+        <flip-visually-hidden role="alert">
+          {this.assistiveText}
+        </flip-visually-hidden>
         <div
           aria-label={this.label}
           aria-multiselectable={ariaMultiselectable}

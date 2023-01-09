@@ -6,6 +6,9 @@ export default {
     allowDrag: {
       description: `Should not be set manually. Use the "alowDrag" property of the FlipOption component to make items draggable."`,
     },
+    dragging: {
+      description: `Should not be set manually. Use the "alowDrag" property of the FlipOption component to make items draggable."`,
+    },
   },
   component: "flip-option-list-item",
   parameters: {
