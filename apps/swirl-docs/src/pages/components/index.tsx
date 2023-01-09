@@ -27,19 +27,18 @@ const ComponentsIndex = ({ links }: { links: NavItem[] }) => {
       </Head>
       <div className="flex">
         <CategoryNav categoryLinkList={links} />
-        <main id="main" className="w-full h-full">
+        <main id="main" className="w-full h-full mt-14">
           <section className="flex flex-col px-4 md:py-14 md:px-24">
-            <div className="mb-16 max-w-xl">
-              <h1 className="mb-4">Components</h1>
-              <h4>
+            <header className="mb-16 max-w-xl pb-10 md:pb-7 border-b-1">
+              <h1 className="text-4xl text-text-default mb-4">Components</h1>
+              <p className="text-lg leading-line-height-xl text-text-default">
                 Sed cras pretium augue at. Placerat risus congue aliquet nec
                 aliquet ipsum ac. Id magna donec habitant nulla nibh sem vitae
                 eget enim. Feugiat erat eget feugiat viverra aliquam.
-              </h4>
-            </div>
+              </p>
+            </header>
             <div className="flex w-full">
               <div className="w-full md:mr-8">
-                <h2 className="mb-4">Component List</h2>
                 <ComponentGrid
                   componentList={componentsNavItems
                     .map((item) => item)

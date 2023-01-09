@@ -12,7 +12,13 @@ interface MobileNavProps {
 
 const MobileNav = ({ isOpen, handleCloseMenu }: MobileNavProps) => {
   return (
-    <nav aria-label="main" className="overflow-y-scroll">
+    <nav
+      id="mobile-navigation"
+      aria-label="main"
+      className={classNames("overflow-y-scroll bg-white", {
+        "absolute w-full left-0 top-[64px]": isOpen,
+      })}
+    >
       <ul
         className={classNames(
           "z-40 w-full h-[calc(100vh_-_64px)] max-h-[calc(100vh_-_64px)] bg-white",

@@ -5,8 +5,9 @@ import Link from "next/link";
 import { navItems } from "@swirl/lib/navigation";
 import { useRouter } from "next/router";
 import { DesktopView, MobileView } from "../View/Views";
-import classNames from "classnames";
 import { useEffect, useState } from "react";
+
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export const HeaderLogo = () => {
   return (
@@ -31,9 +32,9 @@ const HeaderNavigation = () => {
   useEffect(() => {
     if (typeof window) {
       if (isMobileNavOpen) {
-        document.getElementsByTagName("body")[0].style.overflow = "hidden";
+        disableBodyScroll(document.getElementById("mobile-navigation")!);
       } else {
-        document.getElementsByTagName("body")[0].style.overflow = "scroll";
+        enableBodyScroll(document.getElementById("mobile-navigation")!);
       }
     }
   }, [isMobileNavOpen]);
@@ -92,18 +93,24 @@ const HeaderNavigation = () => {
         </header>
       </DesktopView>
       <MobileView>
-        <header className="sticky top-0 flex flex-col w-full h-full max-h-screen bg-background-default">
-          <div
-            aria-label="main"
-            className="flex justify-between items-center h-16 w-full px-4 border-b-1 font-normal text-base"
-          >
+        <header
+          aria-expanded={isMobileNavOpen}
+          aria-label="main"
+          className="sticky top-0 flex justify-between items-center px-4 border-b-1 font-normal text-base w-full h-16 max-h-screen bg-background-default"
+        >
+          <div className="flex justify-between items-center h-16 w-full px-4 border-b-1 font-normal text-base">
             <HeaderLogo />
             {isMobileNavOpen ? (
-              <button type="button" onClick={() => setIsMobileNavOpen(false)}>
+              <button
+                aria-controls="mobile-navigation"
+                type="button"
+                onClick={() => setIsMobileNavOpen(false)}
+              >
                 <Image alt="Close Menu" src={icon.src} width={24} height={24} />
               </button>
             ) : (
               <button
+                aria-controls="mobile-navigation"
                 type="button"
                 aria-label="open menu"
                 onClick={() => setIsMobileNavOpen(true)}
