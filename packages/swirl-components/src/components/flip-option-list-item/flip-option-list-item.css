@@ -120,3 +120,16 @@
 .option-list-item__checkbox-icon {
   display: inline-flex;
 }
+
+.option-list-item__drag-handle {
+  display: inline-flex;
+  flex-shrink: 0;
+  border: none;
+  color: var(--s-icon-default);
+  background-color: transparent;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}

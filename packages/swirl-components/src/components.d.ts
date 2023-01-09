@@ -465,6 +465,9 @@ export namespace Components {
     interface FlipIconDownload {
         "size": FlipIconSize;
     }
+    interface FlipIconDragHandle {
+        "size": FlipIconSize;
+    }
     interface FlipIconEdit {
         "size": FlipIconSize;
     }
@@ -701,6 +704,8 @@ export namespace Components {
         "allowDrag"?: boolean;
         "context"?: FlipOptionListItemContext;
         "disabled"?: boolean;
+        "dragHandleDescription"?: string;
+        "dragHandleLabel"?: string;
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
@@ -1490,6 +1495,12 @@ declare global {
         prototype: HTMLFlipIconDownloadElement;
         new (): HTMLFlipIconDownloadElement;
     };
+    interface HTMLFlipIconDragHandleElement extends Components.FlipIconDragHandle, HTMLStencilElement {
+    }
+    var HTMLFlipIconDragHandleElement: {
+        prototype: HTMLFlipIconDragHandleElement;
+        new (): HTMLFlipIconDragHandleElement;
+    };
     interface HTMLFlipIconEditElement extends Components.FlipIconEdit, HTMLStencilElement {
     }
     var HTMLFlipIconEditElement: {
@@ -2124,6 +2135,7 @@ declare global {
         "flip-icon-delete": HTMLFlipIconDeleteElement;
         "flip-icon-description": HTMLFlipIconDescriptionElement;
         "flip-icon-download": HTMLFlipIconDownloadElement;
+        "flip-icon-drag-handle": HTMLFlipIconDragHandleElement;
         "flip-icon-edit": HTMLFlipIconEditElement;
         "flip-icon-emoji-mood": HTMLFlipIconEmojiMoodElement;
         "flip-icon-emoji-satisfied": HTMLFlipIconEmojiSatisfiedElement;
@@ -2590,6 +2602,9 @@ declare namespace LocalJSX {
     interface FlipIconDownload {
         "size"?: FlipIconSize;
     }
+    interface FlipIconDragHandle {
+        "size"?: FlipIconSize;
+    }
     interface FlipIconEdit {
         "size"?: FlipIconSize;
     }
@@ -2810,6 +2825,8 @@ declare namespace LocalJSX {
         "allowDrag"?: boolean;
         "context"?: FlipOptionListItemContext;
         "disabled"?: boolean;
+        "dragHandleDescription"?: string;
+        "dragHandleLabel"?: string;
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
@@ -3115,6 +3132,7 @@ declare namespace LocalJSX {
         "flip-icon-delete": FlipIconDelete;
         "flip-icon-description": FlipIconDescription;
         "flip-icon-download": FlipIconDownload;
+        "flip-icon-drag-handle": FlipIconDragHandle;
         "flip-icon-edit": FlipIconEdit;
         "flip-icon-emoji-mood": FlipIconEmojiMood;
         "flip-icon-emoji-satisfied": FlipIconEmojiSatisfied;
@@ -3279,6 +3297,7 @@ declare module "@stencil/core" {
             "flip-icon-delete": LocalJSX.FlipIconDelete & JSXBase.HTMLAttributes<HTMLFlipIconDeleteElement>;
             "flip-icon-description": LocalJSX.FlipIconDescription & JSXBase.HTMLAttributes<HTMLFlipIconDescriptionElement>;
             "flip-icon-download": LocalJSX.FlipIconDownload & JSXBase.HTMLAttributes<HTMLFlipIconDownloadElement>;
+            "flip-icon-drag-handle": LocalJSX.FlipIconDragHandle & JSXBase.HTMLAttributes<HTMLFlipIconDragHandleElement>;
             "flip-icon-edit": LocalJSX.FlipIconEdit & JSXBase.HTMLAttributes<HTMLFlipIconEditElement>;
             "flip-icon-emoji-mood": LocalJSX.FlipIconEmojiMood & JSXBase.HTMLAttributes<HTMLFlipIconEmojiMoodElement>;
             "flip-icon-emoji-satisfied": LocalJSX.FlipIconEmojiSatisfied & JSXBase.HTMLAttributes<HTMLFlipIconEmojiSatisfiedElement>;

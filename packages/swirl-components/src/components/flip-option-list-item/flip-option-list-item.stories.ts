@@ -2,6 +2,11 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./flip-option-list-item.mdx";
 
 export default {
+  argTypes: {
+    allowDrag: {
+      description: `Should not be set manually. Use the "alowDrag" property of the FlipOption component to make items draggable."`,
+    },
+  },
   component: "flip-option-list-item",
   parameters: {
     docs: {

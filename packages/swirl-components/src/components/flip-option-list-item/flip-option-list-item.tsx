@@ -9,9 +9,12 @@ export type FlipOptionListItemContext = "single-select" | "multi-select";
   tag: "flip-option-list-item",
 })
 export class FlipOptionListItem {
+  @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) context?: FlipOptionListItemContext =
     "single-select";
   @Prop() disabled?: boolean;
+  @Prop() dragHandleDescription?: string = "Press spacebar to toggle grab";
+  @Prop() dragHandleLabel?: string = "Move option";
   @Prop() icon?: string;
   @Prop() label!: string;
   @Prop({ mutable: true }) selected?: boolean = false;
@@ -82,6 +85,18 @@ export class FlipOptionListItem {
             <span class="option-list-item__selection-icon">
               <flip-icon-check-small></flip-icon-check-small>
             </span>
+          )}
+          {this.allowDrag && (
+            <button
+              aria-describedby={this.dragHandleDescription}
+              class="option-list-item__drag-handle"
+              type="button"
+            >
+              <flip-visually-hidden>
+                {this.dragHandleLabel}
+              </flip-visually-hidden>
+              <flip-icon-drag-handle></flip-icon-drag-handle>
+            </button>
           )}
         </div>
       </Host>

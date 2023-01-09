@@ -1752,6 +1752,19 @@
       ]
     },
     {
+      "name": "flip-icon-drag-handle",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-edit",
       "description": {
         "kind": "markdown",
@@ -2703,6 +2716,14 @@
         },
         {
           "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "drag-handle-description",
+          "description": ""
+        },
+        {
+          "name": "drag-handle-label",
           "description": ""
         },
         {
