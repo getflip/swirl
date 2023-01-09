@@ -67,6 +67,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
 
   disconnectedCallback() {
     this.observer?.disconnect();
+    this.sortable?.destroy();
   }
 
   @Watch("allowDrag")
@@ -90,7 +91,10 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     this.syncItemsWithValue();
   }
 
-  private onFocus = () => {
+  private onFocus = async () => {
+    // prevent focus from canceling the drag event in Safari
+    await new Promise((resolve) => setTimeout(resolve));
+
     if (Boolean(this.focusedItem)) {
       this.focusItem(this.getActiveItemIndex());
     } else {
