@@ -3,7 +3,8 @@
 @custom-media --from-desktop (min-width: 992px);
 @custom-media --from-large-desktop (min-width: 1440px);
 
-@custom-media --from-desktop-without-touch ((min-width: 992px) and (max-width: 1439px) and (hover: hover)) or (min-width: 1440px);
+@custom-media --from-desktop-without-touch (min-width: 992px) and (max-width: 1439px) and (hover: hover),
+  (min-width: 1440px);
 
 @custom-media --to-tablet (max-width: 767px);
 @custom-media --to-desktop (max-width: 991px);

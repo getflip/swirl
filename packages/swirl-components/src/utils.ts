@@ -10,7 +10,7 @@ export interface FlipFormInput<ValueType = string> {
 }
 
 export const desktopMediaQuery = window.matchMedia(
-  "((min-width: 992px) and (max-width: 1439px) and (hover: hover)) or (min-width: 1440px)"
+  "(min-width: 992px) and (max-width: 1439px) and (hover: hover), (min-width: 1440px)"
 );
 
 export function closestPassShadow(node, selector) {
