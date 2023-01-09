@@ -17,7 +17,7 @@ const TokenItem = ({ token }: TokenItemProps) => {
   return (
     <tr
       className={classNames(
-        `grid gap-2 grid-cols-1 md:grid-cols-typography-token-list items-start py-4 border-b-1`,
+        `grid gap-2 grid-cols-1 md:grid-cols-typography-token-list items-center py-4 border-b-1`,
         {
           "md:grid-cols-color-token-list":
             isColorIndex(token.type) || isBorderToken(token.type),

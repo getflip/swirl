@@ -34,9 +34,6 @@ export const TokensList: FunctionComponent<TokensListProps> = ({ tokens }) => {
 
   const hasTokenDescription = Boolean(tokens.find(checkDescription));
 
-  console.log("hasTokenDescription", hasTokenDescription);
-  console.log("tokenType", tokenType[0]);
-
   return (
     <table className="w-full mb-10">
       <thead>
