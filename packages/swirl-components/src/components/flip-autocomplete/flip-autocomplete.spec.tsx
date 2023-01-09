@@ -1,5 +1,5 @@
 jest.mock("../../utils", () => ({
-  debounce: (fn) => fn,
+  debounce: (fn: any) => fn,
 }));
 
 import { newSpecPage } from "@stencil/core/testing";
@@ -101,9 +101,13 @@ describe("flip-autocomplete", () => {
     page.rootInstance.generateSuggestions = generateSuggestions;
 
     const input = page.root.querySelector("flip-text-input");
-    const listbox = page.root.querySelector("flip-option-list");
 
     input.dispatchEvent(new CustomEvent("inputFocus"));
+    input.dispatchEvent(new CustomEvent("valueChange", { detail: "#3" }));
+
+    await page.waitForChanges();
+
+    const listbox = page.root.querySelector("flip-option-list");
 
     listbox.dispatchEvent(
       new CustomEvent("valueChange", { detail: ["Item #3"] })
@@ -117,8 +121,6 @@ describe("flip-autocomplete", () => {
           <flip-text-input class="autocomplete__input" clearable="" clearbuttonlabel="Clear input" disabledynamicwidth="" flipariaautocomplete="list" flipariacontrols="autocomplete-0-suggestions" flipariaexpanded="false" fliprole="combobox" id="autocomplete-0" value="Item #3"></flip-text-input>
           <div class="autocomplete__listbox-container" style="width: 32px;">
             <flip-option-list label="Suggestions" optionlistid="autocomplete-0-suggestions">
-              <flip-option-list-item label="Item #1" value="Item #1"></flip-option-list-item>
-              <flip-option-list-item disabled="" label="Item #2" value="Item #2"></flip-option-list-item>
               <flip-option-list-item label="Item #3" selected="" value="Item #3"></flip-option-list-item>
             </flip-option-list>
           </div>
@@ -136,22 +138,25 @@ describe("flip-autocomplete", () => {
     page.rootInstance.generateSuggestions = generateSuggestions;
 
     const spy = jest.fn();
+    const input = page.root.querySelector("flip-text-input");
 
     page.root.addEventListener("valueChange", spy);
 
-    const input = page.root.querySelector("flip-text-input");
-    const listbox = page.root.querySelector("flip-option-list");
-
     input.dispatchEvent(new CustomEvent("inputFocus"));
+    input.dispatchEvent(new CustomEvent("valueChange", { detail: "#3" }));
+
+    await page.waitForChanges();
+
+    const listbox = page.root.querySelector("flip-option-list");
 
     listbox.dispatchEvent(
       new CustomEvent("valueChange", { detail: ["Item #3"] })
     );
 
-    expect(spy.mock.calls[0][0].detail).toBe("Item #3");
+    expect(spy.mock.calls[0][0].detail).toBe("#3");
 
     input.dispatchEvent(new CustomEvent("valueChange", { detail: "#3" }));
 
-    expect(spy.mock.calls[1][0].detail).toBe("#3");
+    expect(spy.mock.calls[1][0].detail).toBe("Item #3");
   });
 });

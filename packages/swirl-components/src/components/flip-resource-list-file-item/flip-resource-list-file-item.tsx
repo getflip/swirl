@@ -1,5 +1,6 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { desktopMediaQuery } from "../../utils";
 
 @Component({
   shadow: true,
@@ -17,6 +18,38 @@ export class FlipResourceListFileItem {
 
   @Event() remove: EventEmitter<MouseEvent>;
 
+  private iconEl: HTMLElement;
+
+  componentDidLoad() {
+    this.forceIconProps(desktopMediaQuery.matches);
+
+    desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  disconnectedCallback() {
+    desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
+    if (!Boolean(this.iconEl)) {
+      return;
+    }
+
+    const icon = this.iconEl.children[0];
+
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+  }
+
   render() {
     const showError = Boolean(this.errorMessage);
     const showDescription = !showError && Boolean(this.description);
@@ -33,6 +66,7 @@ export class FlipResourceListFileItem {
           <span
             class="resource-list-file-item__icon"
             innerHTML={this.icon}
+            ref={(el) => (this.iconEl = el)}
           ></span>
           <span class="resource-list-file-item__label-container">
             <span class="resource-list-file-item__label" id="label">

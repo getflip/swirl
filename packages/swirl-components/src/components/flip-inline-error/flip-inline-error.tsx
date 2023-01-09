@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { desktopMediaQuery } from "../../utils";
 
 export type FlipInlineErrorSize = "s" | "m";
 
@@ -12,9 +13,46 @@ export class FlipInlineError {
   @Prop() message!: string;
   @Prop() size?: FlipInlineErrorSize = "m";
 
-  render() {
-    const iconSize = this.size === "m" ? 24 : 16;
+  private iconEl: HTMLElement;
 
+  componentDidLoad() {
+    this.forceIconProps(desktopMediaQuery.matches);
+
+    desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  disconnectedCallback() {
+    desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
+    if (!Boolean(this.iconEl)) {
+      return;
+    }
+
+    const icon = this.iconEl.children[0];
+    let iconSize = "24";
+
+    if (this.size === "s") {
+      iconSize = "16";
+    } else if (smallIcon) {
+      iconSize = "20";
+    }
+
+    icon?.setAttribute("size", iconSize);
+  }
+
+  render() {
     const className = classnames(
       "inline-error",
       `inline-error--size-${this.size}`
@@ -23,8 +61,8 @@ export class FlipInlineError {
     return (
       <Host>
         <span class={className}>
-          <span class="inline-error__icon">
-            <flip-icon-error size={iconSize}></flip-icon-error>
+          <span class="inline-error__icon" ref={(el) => (this.iconEl = el)}>
+            <flip-icon-error></flip-icon-error>
           </span>
           <span class="inline-error__message">{this.message}</span>
         </span>

@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: block;
 
@@ -51,11 +53,21 @@
 .text--size-base {
   font-size: var(--s-font-size-base);
   line-height: var(--s-line-height-base);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .text--size-lg {
   font-size: var(--s-font-size-lg);
   line-height: var(--s-line-height-lg);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-base);
+    line-height: var(--s-line-height-base);
+  }
 }
 
 .text--weight-normal {

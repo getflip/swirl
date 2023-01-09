@@ -20,7 +20,7 @@ describe("flip-resource-list-file-item", () => {
         <mock:shadow-root>
           <div class="resource-list-file-item resource-list-file-item--has-control" role="gridcell">
             <span class="resource-list-file-item__icon">
-              <flip-icon-file></flip-icon-file>
+              <flip-icon-file size="24"></flip-icon-file>
             </span>
             <span class="resource-list-file-item__label-container">
               <span class="resource-list-file-item__label" id="label">

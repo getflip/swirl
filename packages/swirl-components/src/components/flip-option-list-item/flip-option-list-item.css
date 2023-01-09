@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: inline-flex;
   width: 100%;
@@ -31,6 +33,12 @@
 
   &:focus-visible {
     background-color: var(--s-surface-overlay-hovered);
+  }
+
+  @media (--from-desktop-without-touch) {
+    min-height: 0;
+    padding: var(--s-space-8) var(--s-space-12);
+    gap: var(--s-space-8);
   }
 }
 
@@ -86,6 +94,11 @@
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-base);
   text-align: left;
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .option-list-item__icon {

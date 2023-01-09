@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { desktopMediaQuery } from "../../utils";
 
 export type FlipActionListItemIntent = "default" | "critical";
 
@@ -18,6 +19,37 @@ export class FlipActionListItem {
   @Prop() label!: string;
   @Prop() size?: FlipActionListItemSize = "m";
   @Prop() suffix?: string;
+
+  private iconEl: HTMLElement;
+  private suffixEl: HTMLElement;
+
+  componentDidLoad() {
+    this.forceIconProps(desktopMediaQuery.matches);
+
+    desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  disconnectedCallback() {
+    desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
+    const icon = this.iconEl?.children[0];
+    const suffix = this.suffixEl?.children[0];
+
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+    suffix?.setAttribute("size", smallIcon ? "20" : "24");
+  }
 
   render() {
     const showSuffix = Boolean(this.suffix) && !this.disabled;
@@ -38,7 +70,11 @@ export class FlipActionListItem {
           type="button"
         >
           {this.icon && (
-            <span class="action-list-item__icon" innerHTML={this.icon}></span>
+            <span
+              class="action-list-item__icon"
+              innerHTML={this.icon}
+              ref={(el) => (this.iconEl = el)}
+            ></span>
           )}
           <span class="action-list-item__label-container">
             <span class="action-list-item__label">{this.label}</span>
@@ -52,6 +88,7 @@ export class FlipActionListItem {
             <span
               class="action-list-item__suffix"
               innerHTML={this.suffix}
+              ref={(el) => (this.suffixEl = el)}
             ></span>
           )}
         </button>

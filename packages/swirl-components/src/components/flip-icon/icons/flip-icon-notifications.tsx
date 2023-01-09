@@ -2,6 +2,7 @@
 
 import { Component, Fragment, h, Prop } from "@stencil/core";
 import { FlipIconSize } from "../flip-icon.types";
+import classnames from "classnames";
 
 @Component({
   shadow: true,
@@ -12,13 +13,17 @@ export class FlipIconNotifications {
   @Prop() size: FlipIconSize = 24;
 
   render() {
+    const viewBoxSize = this.size === 20 ? 24 : this.size;
+
+    const className = classnames("flip-icon", `flip-icon--size-${this.size}`);
+
     return (
       <svg
-        class="flip-icon"
+        class={className}
         fill="none"
         height={this.size}
         part="icon"
-        viewBox={`0 0 ${this.size} ${this.size}`}
+        viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -30,7 +35,7 @@ export class FlipIconNotifications {
             />
           </Fragment>
         )}
-        {this.size === 24 && (
+        {(this.size === 20 || this.size === 24) && (
           <Fragment>
             <path
               d="M12.0012 21.75C13.1012 21.75 14.0012 20.85 14.0012 19.75H10.0012C10.0012 20.85 10.8912 21.75 12.0012 21.75ZM18.0012 15.75V10.75C18.0012 7.68 16.3612 5.11 13.5012 4.43V3.75C13.5012 2.92 12.8312 2.25 12.0012 2.25C11.1712 2.25 10.5012 2.92 10.5012 3.75V4.43C7.63124 5.11 6.00124 7.67 6.00124 10.75V15.75L4.71124 17.04C4.08124 17.67 4.52124 18.75 5.41124 18.75H18.5812C19.4712 18.75 19.9212 17.67 19.2912 17.04L18.0012 15.75Z"

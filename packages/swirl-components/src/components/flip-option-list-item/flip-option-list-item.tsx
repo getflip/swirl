@@ -1,5 +1,6 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
+import { desktopMediaQuery } from "../../utils";
 
 export type FlipOptionListItemContext = "single-select" | "multi-select";
 
@@ -20,20 +21,40 @@ export class FlipOptionListItem {
   @Prop({ mutable: true }) selected?: boolean = false;
   @Prop() value!: string;
 
+  @State() iconSize: 20 | 24 = 24;
+
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps();
+    this.forceIconProps(desktopMediaQuery.matches);
+    this.updateIconSize(desktopMediaQuery.matches);
+
+    desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
-  private forceIconProps() {
-    if (!Boolean(this.iconEl)) {
-      return;
-    }
+  disconnectedCallback() {
+    desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
 
-    const icon = this.iconEl.children[0];
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+    this.updateIconSize(event.matches);
+  };
 
-    icon?.setAttribute("size", "24");
+  private forceIconProps(smallIcon: boolean) {
+    const icon = this.iconEl?.children[0];
+
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+  }
+
+  private updateIconSize(smallIcon: boolean) {
+    this.iconSize = smallIcon ? 20 : 24;
   }
 
   render() {
@@ -83,7 +104,9 @@ export class FlipOptionListItem {
           <span class="option-list-item__label">{this.label}</span>
           {showSelectionIcon && (
             <span class="option-list-item__selection-icon">
-              <flip-icon-check-small></flip-icon-check-small>
+              <flip-icon-check-small
+                size={this.iconSize}
+              ></flip-icon-check-small>
             </span>
           )}
           {this.allowDrag && (
@@ -95,7 +118,9 @@ export class FlipOptionListItem {
               <flip-visually-hidden>
                 {this.dragHandleLabel}
               </flip-visually-hidden>
-              <flip-icon-drag-handle></flip-icon-drag-handle>
+              <flip-icon-drag-handle
+                size={this.iconSize}
+              ></flip-icon-drag-handle>
             </button>
           )}
         </div>

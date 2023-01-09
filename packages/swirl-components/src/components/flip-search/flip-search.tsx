@@ -8,6 +8,7 @@ import {
   Prop,
 } from "@stencil/core";
 import classnames from "classnames";
+import { desktopMediaQuery } from "../../utils";
 
 @Component({
   /**
@@ -36,6 +37,37 @@ export class FlipSearch {
   @Event() valueChange: EventEmitter<string>;
 
   private input: HTMLInputElement;
+  private iconEl: HTMLElement;
+
+  componentDidLoad() {
+    this.forceIconProps(desktopMediaQuery.matches);
+
+    desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  disconnectedCallback() {
+    desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
+    if (!Boolean(this.iconEl)) {
+      return;
+    }
+
+    const icon = this.iconEl.children[0];
+
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+  }
 
   @Listen("keydown", { target: "window" })
   onKeyDown(event: KeyboardEvent) {
@@ -71,7 +103,7 @@ export class FlipSearch {
 
     return (
       <Host>
-        <span class={className}>
+        <span class={className} ref={(el) => (this.iconEl = el)}>
           <flip-icon-search class="search__icon"></flip-icon-search>
           <input
             aria-disabled={this.disabled ? "true" : undefined}

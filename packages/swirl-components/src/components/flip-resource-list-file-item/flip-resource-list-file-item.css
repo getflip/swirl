@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: block;
   width: 100%;
@@ -23,6 +25,12 @@
 
   &:focus-visible {
     background-color: var(--s-background-hovered);
+  }
+
+  @media (--from-desktop-without-touch) {
+    padding: var(--s-space-12);
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
   }
 }
 

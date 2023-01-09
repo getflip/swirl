@@ -163,6 +163,7 @@ export namespace Components {
         "intent"?: FlipButtonIntent;
         "label": string;
         "name"?: string;
+        "pill"?: boolean;
         "size"?: FlipButtonSize;
         "target"?: string;
         "type"?: FlipButtonType;
@@ -2343,6 +2344,7 @@ declare namespace LocalJSX {
         "intent"?: FlipButtonIntent;
         "label": string;
         "name"?: string;
+        "pill"?: boolean;
         "size"?: FlipButtonSize;
         "target"?: string;
         "type"?: FlipButtonType;

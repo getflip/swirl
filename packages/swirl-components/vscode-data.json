@@ -623,6 +623,10 @@
           "description": ""
         },
         {
+          "name": "pill",
+          "description": ""
+        },
+        {
           "name": "size",
           "description": "",
           "values": [
@@ -669,6 +673,9 @@
             },
             {
               "name": "on-image"
+            },
+            {
+              "name": "outline"
             },
             {
               "name": "plain"

@@ -14,7 +14,7 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("flip-tab", args);
 
-  element.innerHTML = `Content`;
+  element.innerHTML = `<flip-text>Content</flip-text>`;
 
   return element;
 };

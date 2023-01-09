@@ -5,12 +5,14 @@ import {
   h,
   Host,
   Prop,
+  State,
   Watch,
 } from "@stencil/core";
 import { AirDatepickerLocale } from "air-datepicker";
 import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
+import { desktopMediaQuery } from "../../utils";
 
 const internalDateFormat = "yyyy-MM-dd";
 
@@ -39,6 +41,8 @@ export class FlipDateInput {
   @Prop() required?: boolean;
   @Prop({ mutable: true, reflect: true }) value?: string;
 
+  @State() iconSize: 20 | 24 = 24;
+
   @Event() valueChange: EventEmitter<string>;
 
   private id: string;
@@ -53,15 +57,35 @@ export class FlipDateInput {
 
   componentDidLoad() {
     this.setupMask();
+
+    this.updateIconSize(desktopMediaQuery.matches);
+
+    desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
   disconnectedCallback() {
     this.mask?.destroy();
+
+    desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
   @Watch("format")
   watchFormat() {
     this.setupMask();
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.updateIconSize(event.matches);
+  };
+
+  private updateIconSize(smallIcon: boolean) {
+    this.iconSize = smallIcon ? 20 : 24;
   }
 
   private onChange = (event: Event) => {
@@ -169,7 +193,7 @@ export class FlipDateInput {
             tabIndex={-1}
             type="button"
           >
-            <flip-icon-today></flip-icon-today>
+            <flip-icon-today size={this.iconSize}></flip-icon-today>
           </button>
         </div>
 
