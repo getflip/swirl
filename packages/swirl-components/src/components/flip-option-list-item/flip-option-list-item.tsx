@@ -70,6 +70,7 @@ export class FlipOptionListItem {
       `option-list-item--context-${this.context}`,
       {
         "option-list-item--disabled": this.disabled,
+        "option-list-item--draggable": this.allowDrag,
         "option-list-item--selected": this.selected,
       }
     );
@@ -109,21 +110,17 @@ export class FlipOptionListItem {
               ></flip-icon-check-small>
             </span>
           )}
-          {this.allowDrag && (
-            <button
-              aria-describedby={this.dragHandleDescription}
-              class="option-list-item__drag-handle"
-              type="button"
-            >
-              <flip-visually-hidden>
-                {this.dragHandleLabel}
-              </flip-visually-hidden>
-              <flip-icon-drag-handle
-                size={this.iconSize}
-              ></flip-icon-drag-handle>
-            </button>
-          )}
         </div>
+        {this.allowDrag && (
+          <button
+            aria-describedby={this.dragHandleDescription}
+            aria-label={`${this.dragHandleLabel} "${this.label}"`}
+            class="option-list-item__drag-handle"
+            type="button"
+          >
+            <flip-icon-drag-handle size={this.iconSize}></flip-icon-drag-handle>
+          </button>
+        )}
       </Host>
     );
   }

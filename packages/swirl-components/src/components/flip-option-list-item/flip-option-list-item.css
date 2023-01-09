@@ -1,6 +1,7 @@
 @import "../../styles/media-queries.css";
 
 :host {
+  position: relative;
   display: inline-flex;
   width: 100%;
 
@@ -39,6 +40,16 @@
     min-height: 0;
     padding: var(--s-space-8) var(--s-space-12);
     gap: var(--s-space-8);
+  }
+}
+
+.option-list-item--draggable {
+  & .option-list-item__label {
+    padding-right: calc(var(--s-space-16) + 1.5rem);
+
+    @media (--from-desktop-without-touch) {
+      padding-right: calc(var(--s-space-16) + 1rem);
+    }
   }
 }
 
@@ -135,14 +146,27 @@
 }
 
 .option-list-item__drag-handle {
+  position: absolute;
+  top: 50%;
+  right: var(--s-space-16);
   display: inline-flex;
+  padding: 0;
   flex-shrink: 0;
   border: none;
   color: var(--s-icon-default);
   background-color: transparent;
   cursor: grab;
+  transform: translateY(-50%);
 
   &:active {
     cursor: grabbing;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline-color: var(--s-focus-default);
   }
 }
