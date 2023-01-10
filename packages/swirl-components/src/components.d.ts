@@ -824,6 +824,8 @@ export namespace Components {
         "required"?: boolean;
         "value"?: string[];
     }
+    interface FlipSeparator {
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -1963,6 +1965,12 @@ declare global {
         prototype: HTMLFlipSelectElement;
         new (): HTMLFlipSelectElement;
     };
+    interface HTMLFlipSeparatorElement extends Components.FlipSeparator, HTMLStencilElement {
+    }
+    var HTMLFlipSeparatorElement: {
+        prototype: HTMLFlipSeparatorElement;
+        new (): HTMLFlipSeparatorElement;
+    };
     interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
     }
     var HTMLFlipSpinnerElement: {
@@ -2202,6 +2210,7 @@ declare global {
         "flip-resource-list-item": HTMLFlipResourceListItemElement;
         "flip-search": HTMLFlipSearchElement;
         "flip-select": HTMLFlipSelectElement;
+        "flip-separator": HTMLFlipSeparatorElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
@@ -2925,6 +2934,8 @@ declare namespace LocalJSX {
         "required"?: boolean;
         "value"?: string[];
     }
+    interface FlipSeparator {
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -3192,6 +3203,7 @@ declare namespace LocalJSX {
         "flip-resource-list-item": FlipResourceListItem;
         "flip-search": FlipSearch;
         "flip-select": FlipSelect;
+        "flip-separator": FlipSeparator;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
@@ -3356,6 +3368,7 @@ declare module "@stencil/core" {
             "flip-resource-list-item": LocalJSX.FlipResourceListItem & JSXBase.HTMLAttributes<HTMLFlipResourceListItemElement>;
             "flip-search": LocalJSX.FlipSearch & JSXBase.HTMLAttributes<HTMLFlipSearchElement>;
             "flip-select": LocalJSX.FlipSelect & JSXBase.HTMLAttributes<HTMLFlipSelectElement>;
+            "flip-separator": LocalJSX.FlipSeparator & JSXBase.HTMLAttributes<HTMLFlipSeparatorElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;

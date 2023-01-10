@@ -3213,6 +3213,14 @@
       ]
     },
     {
+      "name": "flip-separator",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
       "name": "flip-spinner",
       "description": {
         "kind": "markdown",
