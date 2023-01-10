@@ -1,0 +1,27 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  position: relative;
+  z-index: 1;
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.table-row-group__header-row {
+  padding: var(--s-space-12) var(--s-space-16);
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  background-color: var(--s-surface-raised-default);
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-sm);
+}
+
+.table-row-group__label {
+  @media (--from-tablet) {
+    position: sticky;
+    left: var(--s-space-16);
+  }
+}

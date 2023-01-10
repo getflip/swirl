@@ -510,6 +510,27 @@
           "description": ""
         },
         {
+          "name": "overflow",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "clip"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "scroll"
+            },
+            {
+              "name": "visible"
+            }
+          ]
+        },
+        {
           "name": "padding",
           "description": "",
           "values": [
@@ -771,6 +792,10 @@
         },
         {
           "name": "flip-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "flip-aria-label",
           "description": ""
         },
         {
@@ -1427,6 +1452,19 @@
       ]
     },
     {
+      "name": "flip-icon-arrow-downward",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-arrow-forward",
       "description": {
         "kind": "markdown",
@@ -1467,6 +1505,19 @@
     },
     {
       "name": "flip-icon-arrow-right-small",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-arrow-upward",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1674,6 +1725,19 @@
       ]
     },
     {
+      "name": "flip-icon-column",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "flip-icon-comment",
       "description": {
         "kind": "markdown",
@@ -1831,6 +1895,19 @@
     },
     {
       "name": "flip-icon-file",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-filter",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2390,6 +2467,19 @@
     },
     {
       "name": "flip-icon-settings",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-icon-sync",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3411,6 +3501,106 @@
         },
         {
           "name": "tab-id",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-table",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "caption",
+          "description": ""
+        },
+        {
+          "name": "empty-state-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-table-cell",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "flip-table-column",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "max-width",
+          "description": ""
+        },
+        {
+          "name": "min-width",
+          "description": ""
+        },
+        {
+          "name": "sort",
+          "description": "",
+          "values": [
+            {
+              "name": "ascending"
+            },
+            {
+              "name": "descending"
+            }
+          ]
+        },
+        {
+          "name": "sortable",
+          "description": ""
+        },
+        {
+          "name": "sticky",
+          "description": ""
+        },
+        {
+          "name": "width",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-table-row",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "highlighted",
+          "description": ""
+        },
+        {
+          "name": "index",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "flip-table-row-group",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
           "description": ""
         }
       ]

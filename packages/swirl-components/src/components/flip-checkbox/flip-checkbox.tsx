@@ -20,6 +20,7 @@ export class FlipCheckbox {
   @Prop() description?: string;
   @Prop() disabled?: boolean = false;
   @Prop() flipAriaDescribedby?: string;
+  @Prop() flipAriaLabel?: string;
   @Prop() inputId!: string;
   @Prop() inputName!: string;
   @Prop() invalid?: boolean;
@@ -75,6 +76,7 @@ export class FlipCheckbox {
                 aria-checked={ariaCheckedLabel}
                 aria-describedby={this.flipAriaDescribedby}
                 aria-invalid={ariaInvalid}
+                aria-label={this.flipAriaLabel}
                 checked={checked}
                 class="checkbox__input"
                 disabled={this.disabled}

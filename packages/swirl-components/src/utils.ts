@@ -16,7 +16,7 @@ export function debounce(
 ) {
   let timeout: NodeJS.Timeout;
 
-  return function executedFunction() {
+  return async function executedFunction() {
     const context = this;
     const args = arguments;
 
