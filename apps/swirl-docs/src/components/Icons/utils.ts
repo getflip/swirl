@@ -1,4 +1,18 @@
-export const downloadBlob = function (data: Uint8Array, fileName: string) {
+async function getIconsPackageVersion(): Promise<number> {
+  const { body } = await fetch(
+    "https://registry.npmjs.org/@getflip/swirl-icons"
+  );
+  const reader = body?.getReader();
+  const packageData = await reader?.read();
+  const packageDataArray = packageData?.value;
+
+  const jsonString = Buffer.from(packageDataArray!).toString("utf8");
+  const parsedData = JSON.parse(jsonString);
+
+  return parsedData["dist-tags"].latest as number;
+}
+
+function downloadBlob(data: Uint8Array, fileName: string) {
   const blob = new Blob([data], {
     type: "application/octet-stream",
   });
@@ -17,15 +31,18 @@ export const downloadBlob = function (data: Uint8Array, fileName: string) {
       return URL.revokeObjectURL(url);
     }, 0);
   }
-};
+}
 
 interface IconDownloadInterface {
-  unpkgUrl: string;
   iconName: string;
   iconPixelSize: number;
 }
 export async function initializeIconDownload(icon: IconDownloadInterface) {
-  const { body } = await fetch(icon.unpkgUrl);
+  const iconPackageVersion = await getIconsPackageVersion();
+
+  const { body } = await fetch(
+    `https://unpkg.com/@getflip/swirl-icons@${iconPackageVersion}/icons/${icon.iconName}${icon.iconPixelSize}.svg`
+  );
   const reader = body?.getReader();
   const iconData = await reader?.read();
 

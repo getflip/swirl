@@ -57,7 +57,6 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
     setIsLoadingIconDownload(true);
     await initializeIconDownload({
       iconName: icon?.name,
-      unpkgUrl: `https://unpkg.com/@getflip/swirl-icons@0.7.0/icons/${icon?.name}${iconPixelSize}.svg`,
       iconPixelSize,
     });
     setIsLoadingIconDownload(false);
@@ -105,7 +104,7 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
             style={{
               position: strategy,
             }}
-            aria-labelledby="headingId"
+            aria-label="Icon Sizes"
             {...getFloatingProps()}
           >
             <FlipActionList>
