@@ -1,5 +1,6 @@
 import { FlipPopover } from "@getflip/swirl-components-react";
-import { FunctionComponent, LegacyRef, useEffect, useState } from "react";
+import classNames from "classnames";
+import { FunctionComponent, LegacyRef } from "react";
 
 import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
@@ -13,8 +14,15 @@ interface IconGridProps {
   role: string;
   reference: LegacyRef<HTMLAnchorElement>;
   index: number;
+  isSelected: boolean;
   handleTileClick: (iconName: string) => void;
   handleKeyDown: (event: any) => void;
+}
+
+function createFlipWCName(name: string): string {
+  return (
+    "flip-icon" + name.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`)
+  );
 }
 
 const IconGridItem: FunctionComponent<IconGridProps> = ({
@@ -24,6 +32,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
   role,
   reference,
   index,
+  isSelected,
   handleKeyDown,
   handleTileClick,
 }) => {
@@ -37,12 +46,15 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
           aria-label={`${icon}-icon`}
           ref={reference}
           href={`#${icons[icon]?.name}`}
-          className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
+          className={classNames(
+            "flex flex-col justify-center items-center py-4 border-1 rounded-lg",
+            { "bg-background-hovered": isSelected }
+          )}
           onKeyDown={(event) => handleKeyDown(event)}
           onClick={() => handleTileClick(icons[icon]?.name)}
         >
           <i
-            className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
+            className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong text-2xl`}
           ></i>
           <span className="text-text-subdued">{icons[icon]?.name}</span>
         </a>

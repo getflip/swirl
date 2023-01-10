@@ -4,25 +4,32 @@ import useDynamicRefs, {
 import { FunctionComponent, LegacyRef } from "react";
 import Grid from "src/components/Grid";
 import { IconsMetaData } from "src/pages/components";
+import { IconData } from "src/pages/icons";
 import IconGridItem from "./IconGridItem";
 
 interface IconGridProps {
   iconList: string[];
   icons: IconsMetaData;
+  selectedIcon: IconData;
   handleTileClick: (iconName: string) => void;
 }
 
 export const IconGrid: FunctionComponent<IconGridProps> = ({
   iconList,
   icons,
+  selectedIcon,
   handleTileClick,
 }) => {
   const [getRef, setRef] = useDynamicRefs();
 
   return (
-    <Grid className="grid grid-cols-2 md:grid-cols-fill-rows gap-4 w-full">
+    <Grid
+      id="icon-grid"
+      className="grid grid-cols-2 md:grid-cols-fill-rows gap-4 w-full"
+    >
       {iconList?.map((icon: string, index: number) => (
         <IconGridItem
+          isSelected={selectedIcon?.name === icons[icon]?.name}
           id={`${icons[icon]?.name}-${index}`}
           key={`${icons[icon]?.name}-${index}`}
           index={index}

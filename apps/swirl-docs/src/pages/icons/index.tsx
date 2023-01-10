@@ -59,10 +59,11 @@ const IconsIndex = () => {
                 searchQuery={searchWord}
               />
             </div>
-            <div className="flex w-full">
-              <div className="w-full md:mr-8">
+            <div className="flex md:grid md:grid-cols-icon-grid w-full">
+              <div className="w-full">
                 <h2 className="mb-4">Icon List</h2>
                 <IconGrid
+                  selectedIcon={selectedIcon}
                   iconList={filteredIcons}
                   icons={icons}
                   handleTileClick={(iconname) =>
