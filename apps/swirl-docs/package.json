@@ -23,6 +23,7 @@
     "@getflip/swirl-tokens": "^2.2.0",
     "@mdx-js/loader": "^2.1.3",
     "@next/mdx": "^12.2.5",
+    "@tailwindcss/container-queries": "^0.1.0",
     "classnames": "^2.3.2",
     "codesandbox": "^2.2.3",
     "gray-matter": "^4.0.3",

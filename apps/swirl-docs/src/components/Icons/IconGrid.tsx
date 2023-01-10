@@ -25,7 +25,7 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
   return (
     <Grid
       id="icon-grid"
-      className="grid grid-cols-2 md:grid-cols-fill-rows gap-4 w-full"
+      className="grid grid-cols-2 @xl:grid-cols-[repeat(4,_1fr)] @4xl:grid-cols-[repeat(6,_1fr)] gap-4 w-full"
     >
       {iconList?.map((icon: string, index: number) => (
         <IconGridItem

@@ -18,7 +18,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
         <input
           type="search"
           id="default-search"
-          className="block p-4 pl-10 w-full text-sm text-gray-900 rounded-lg border border-border-default"
+          className="block p-4 pl-10 w-full text-base font-normal text-gray-900 rounded-lg border border-border-default"
           placeholder="Search..."
           value={searchQuery}
           onChange={handleChange}

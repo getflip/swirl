@@ -23,7 +23,12 @@ export const Grid: FunctionComponent<GridProps> = ({
   id,
 }) => {
   return (
-    <div id={id} role="grid" aria-labelledby={labelledBy}>
+    <div
+      className="@container"
+      id={id}
+      role="grid"
+      aria-labelledby={labelledBy}
+    >
       <div className={className} role="row">
         {children}
       </div>

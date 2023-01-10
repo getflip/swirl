@@ -19,12 +19,6 @@ interface IconGridProps {
   handleKeyDown: (event: any) => void;
 }
 
-function createFlipWCName(name: string): string {
-  return (
-    "flip-icon" + name.replace(/([A-Z])/g, (g) => `-${g[0].toLowerCase()}`)
-  );
-}
-
 const IconGridItem: FunctionComponent<IconGridProps> = ({
   id,
   icon,
@@ -47,7 +41,9 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
           ref={reference}
           href={`#${icons[icon]?.name}`}
           className={classNames(
-            "flex flex-col justify-center items-center py-4 border-1 rounded-lg",
+            "flex flex-col justify-center items-center gap-2",
+            "aspect-square",
+            "py-4 border-1 rounded-lg",
             { "bg-background-hovered": isSelected }
           )}
           onKeyDown={(event) => handleKeyDown(event)}
@@ -56,7 +52,9 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
           <i
             className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong text-2xl`}
           ></i>
-          <span className="text-text-subdued">{icons[icon]?.name}</span>
+          <span className="text-text-subdued font-normal text-font-size-sm">
+            {icons[icon]?.name}
+          </span>
         </a>
       </DesktopView>
       <MobileView>

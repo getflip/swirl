@@ -28,13 +28,17 @@ module.exports = {
       gridTemplateColumns: {
         "fill-rows": "repeat(auto-fill, 10rem)",
         "icon-grid": "1fr 280px",
+        "icon-grid-4xl": "repeat(6, 1fr)",
       },
     },
     fontFamily: {
       sans: ["Inter", "sans-serif"],
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/container-queries"),
+  ],
   safelist: [
     "text-[0.875.rem]",
     "text-[1.rem]",
