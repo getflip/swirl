@@ -9,9 +9,12 @@ export interface FlipFormInput<ValueType = string> {
   valueChange: EventEmitter<ValueType>;
 }
 
-export const desktopMediaQuery = window.matchMedia(
-  "(min-width: 992px) and (max-width: 1439px) and (hover: hover), (min-width: 1440px)"
-);
+export const getDesktopMediaQuery = () =>
+  document.documentElement.classList.contains("disable-desktop-style-tweaks")
+    ? window.matchMedia(null)
+    : window.matchMedia(
+        "(min-width: 992px) and (max-width: 1439px) and (hover: hover), (min-width: 1440px)"
+      );
 
 export function debounce(
   func: Function,

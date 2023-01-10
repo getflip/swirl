@@ -1,6 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
-import { desktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type FlipButtonIconPosition = "start" | "end";
 
@@ -54,16 +54,16 @@ export class FlipButton {
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps(desktopMediaQuery.matches);
+    this.forceIconProps(getDesktopMediaQuery().matches);
 
-    desktopMediaQuery.addEventListener?.(
+    getDesktopMediaQuery().addEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
   }
 
   disconnectedCallback() {
-    desktopMediaQuery.removeEventListener?.(
+    getDesktopMediaQuery().removeEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );

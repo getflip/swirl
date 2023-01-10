@@ -67,7 +67,7 @@ export class FlipFileViewerCsv {
 
   render() {
     return (
-      <Host class="file-viewer-csv">
+      <Host class="file-viewer-csv" exportparts="file-viewer-csv__table">
         {this.error && (
           <flip-inline-error
             class="file-viewer-csv__error"
@@ -75,7 +75,7 @@ export class FlipFileViewerCsv {
           ></flip-inline-error>
         )}
         <div class="file-viewer-csv__csv" tabIndex={0}>
-          <table class="file-viewer-csv__table">
+          <table class="file-viewer-csv__table" part="file-viewer-csv__table">
             <tbody>
               {this.data?.map((row, index) => (
                 <tr class="file-viewer-csv__row" key={`row-${index}`}>

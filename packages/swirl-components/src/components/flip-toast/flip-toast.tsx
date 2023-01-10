@@ -8,7 +8,7 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import { desktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type FlipToastIntent = "default" | "critical" | "success";
 
@@ -40,16 +40,16 @@ export class FlipToast {
   componentDidLoad() {
     this.startTimer();
 
-    this.forceIconProps(desktopMediaQuery.matches);
+    this.forceIconProps(getDesktopMediaQuery().matches);
 
-    desktopMediaQuery.addEventListener?.(
+    getDesktopMediaQuery().addEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
   }
 
   disconnectedCallback() {
-    desktopMediaQuery.removeEventListener?.(
+    getDesktopMediaQuery().removeEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
@@ -102,10 +102,13 @@ export class FlipToast {
             <span
               class="toast__icon"
               innerHTML={this.icon}
+              part="toast__icon"
               ref={(el) => (this.iconEl = el)}
             ></span>
           )}
-          <span class="toast__content">{this.content}</span>
+          <span class="toast__content" part="toast__content">
+            {this.content}
+          </span>
           <button
             aria-label={this.dismissLabel || this.accessibleDismissLabel}
             class="toast__dismiss-button"

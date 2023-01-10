@@ -1,6 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
-import { desktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type FlipActionListItemIntent = "default" | "critical";
 
@@ -24,16 +24,16 @@ export class FlipActionListItem {
   private suffixEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps(desktopMediaQuery.matches);
+    this.forceIconProps(getDesktopMediaQuery().matches);
 
-    desktopMediaQuery.addEventListener?.(
+    getDesktopMediaQuery().addEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
   }
 
   disconnectedCallback() {
-    desktopMediaQuery.removeEventListener?.(
+    getDesktopMediaQuery().removeEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
@@ -65,6 +65,7 @@ export class FlipActionListItem {
         <button
           class={className}
           disabled={this.disabled}
+          part="action-list-item"
           role="menuitem"
           tabIndex={-1}
           type="button"

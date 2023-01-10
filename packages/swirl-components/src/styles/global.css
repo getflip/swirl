@@ -1,6 +1,7 @@
 @import "~@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css";
 @import "~@getflip/swirl-tokens/dist/css/styles.dark.custom-properties.css";
 @import "./media-queries.css";
+@import "./disable-desktop-style-tweaks.css";
 
 @font-face {
   font-family: "Inter var experimental";
