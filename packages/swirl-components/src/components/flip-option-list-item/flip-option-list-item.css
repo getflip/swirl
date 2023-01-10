@@ -38,7 +38,7 @@
 
   @media (--from-desktop-without-touch) {
     min-height: 0;
-    padding: var(--s-space-8) var(--s-space-12);
+    padding: var(--s-space-12);
     gap: var(--s-space-8);
   }
 }
@@ -161,10 +161,11 @@
   position: absolute;
   z-index: 1;
   top: 50%;
-  right: var(--s-space-16);
+  right: var(--s-space-4);
   display: inline-flex;
   margin: 0;
   padding: 0;
+  padding: var(--s-space-8);
   flex-shrink: 0;
   border: none;
   color: var(--s-icon-default);
