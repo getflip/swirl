@@ -32,4 +32,33 @@ describe("flip-option-list-item", () => {
       </flip-option-list-item>
     `);
   });
+
+  it("can be draggable", async () => {
+    const page = await newSpecPage({
+      components: [FlipOptionListItem],
+      html: `<flip-option-list-item
+              allow-drag="true"
+              label="Option List Item"
+              value="Value">
+            </flip-option-list-item>`,
+    });
+
+    const spy = jest.fn();
+
+    const dragHandle = page.root.querySelector(
+      ".option-list-item__drag-handle"
+    );
+
+    page.root.addEventListener("toggleDrag", spy);
+
+    dragHandle.dispatchEvent(new KeyboardEvent("keydown", { code: "Space" }));
+
+    expect(
+      page.root
+        .querySelector(".option-list-item__drag-handle")
+        .getAttribute("aria-label")
+    ).toBe('Move option "Option List Item"');
+
+    expect(spy).toHaveBeenCalled();
+  });
 });
