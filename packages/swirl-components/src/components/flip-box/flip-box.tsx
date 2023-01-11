@@ -1,6 +1,8 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
+export type FlipBoxOverflow = "visible" | "hidden" | "clip" | "scroll" | "auto";
+
 export type FlipBoxPadding =
   | "0"
   | "2"
@@ -26,12 +28,17 @@ export class FlipBox {
   @Prop() centerBlock?: boolean;
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
+  @Prop() overflow?: FlipBoxOverflow = "visible";
   @Prop() padding?: FlipBoxPadding = "0";
 
   render() {
     const Tag = this.as;
 
-    const styles = { padding: `var(--s-space-${this.padding})` };
+    const styles = {
+      overflow: this.overflow,
+      padding: `var(--s-space-${this.padding})`,
+      position: Boolean(this.overflow) ? "relative" : "",
+    };
 
     const className = classnames("box", {
       "box--bordered": this.bordered,

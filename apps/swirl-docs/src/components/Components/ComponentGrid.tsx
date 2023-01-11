@@ -35,8 +35,8 @@ export const ComponentGrid: FunctionComponent<ComponentGridProps> = ({
               )
             }
           >
-            <article className="flex flex-col min-h-[330px] min-w-[256px] border-1 rounded-lg">
-              <header className="flex justify-center items-center min-h-[10rem] max-h-[10rem] bg-surface-raised-default rounded-t-lg">
+            <article className="flex flex-col min-h-[160px] min-w-[256px] border-1 rounded-lg">
+              {/* <header className="flex justify-center items-center min-h-[10rem] max-h-[10rem] bg-surface-raised-default rounded-t-lg">
                 <div className="relative w-10 h-10">
                   <Image
                     layout="fill"
@@ -45,7 +45,7 @@ export const ComponentGrid: FunctionComponent<ComponentGridProps> = ({
                     alt={component.title}
                   />
                 </div>
-              </header>
+              </header> */}
               <footer className="p-4">
                 <h3 className="text-font-size-base font-semibold capitalize">
                   {component.title}
