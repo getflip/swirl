@@ -64,5 +64,5 @@ export function Autocomplete(props: any) {
     };
   }, [props, router]);
 
-  return <div className="hidden md:block" ref={containerRef} />;
+  return <div className="hidden md:block w-80" ref={containerRef} />;
 }
