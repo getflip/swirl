@@ -1,3 +1,3 @@
-export { FlipThemeChangeEventData } from "./components/flip-theme-provider/flip-theme-provider";
-export { FlipAppLayoutMobileView } from "./components/flip-app-layout/flip-app-layout";
+export { FlipThemeChangeEventData } from "./components/swirl-theme-provider/swirl-theme-provider";
+export { FlipAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 export { Components, JSX } from "./components";
