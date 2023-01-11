@@ -16,6 +16,7 @@
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-sm);
+  white-space: nowrap;
   gap: var(--s-space-4);
 }
 

@@ -17,6 +17,7 @@ const Template = (args) => {
   element.innerHTML = `
     <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 1"></flip-action-list-item>
     <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 2"></flip-action-list-item>
+    <flip-separator></flip-separator>
     <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 3"></flip-action-list-item>
   `;
 

@@ -1,0 +1,37 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/FlipTable" />
+
+# FlipTable
+
+The FlipTable component is used to organize and display data sets.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=2368%3A11396)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-table)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-fliptable--flip-table" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Table Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/table/).
+
+| ARIA                  | Usage                                                           |
+| --------------------- | --------------------------------------------------------------- |
+| `role="table"`        | Set on the outer table element.                                 |
+| `aria-rowcount`       | Set to the overall row count.                                   |
+| `aria-label`          | An accessible label is provided via the `aria-label` attribute. |
+| `role="rowgroup"`     | Set on the table's header and body elements.                    |
+| `role="columnheader"` | Set on the table's column element.                              |
+| `aria-sort`           | Set on a sorted table column.                                   |
+| `role="row"`          | Set on a the table's row elements.                              |
+| `aria-rowindex`       | Set to the overall index of the row element.                    |
+| `role="cell"`         | Set on a the table's cell elements.                             |

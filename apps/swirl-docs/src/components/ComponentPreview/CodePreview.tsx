@@ -33,10 +33,10 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
     <NoSsr>
       <div
         className={classNames(
-          "relative w-full bg-[#24292E]  rounded-lg mb-10 overflow-auto",
+          "relative w-auto bg-[#24292E]  rounded-lg mb-10 overflow-auto",
           {
             "h-[240px] max-h-[240px] overflow-hidden": !isExpanded,
-            "h-full min-h-[240px]": isExpanded,
+            "min-h-[240px]": isExpanded,
           }
         )}
       >
@@ -69,7 +69,7 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
             </button>
           </CopyToClipboard>
         </div>
-        <pre className="cursor-text pt-space-8 pr-space-24 pb-16 pl-space-24">
+        <pre className="cursor-text pt-space-8 pr-space-24 pb-16 pl-space-24 overflow-auto">
           <code
             dangerouslySetInnerHTML={{
               __html: Prism.highlight(

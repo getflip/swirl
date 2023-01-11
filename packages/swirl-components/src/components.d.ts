@@ -12,7 +12,7 @@ import { FlipTextInputMode } from "./components/flip-text-input/flip-text-input"
 import { FlipAvatarBadgePosition, FlipAvatarColor, FlipAvatarSize, FlipAvatarVariant } from "./components/flip-avatar/flip-avatar";
 import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/flip-badge/flip-badge";
 import { FlipBannerAriaRole, FlipBannerIntent } from "./components/flip-banner/flip-banner";
-import { FlipBoxPadding } from "./components/flip-box/flip-box";
+import { FlipBoxOverflow, FlipBoxPadding } from "./components/flip-box/flip-box";
 import { FlipButtonIconPosition, FlipButtonIntent, FlipButtonSize, FlipButtonType, FlipButtonVariant } from "./components/flip-button/flip-button";
 import { FlipButtonGroupOrientation } from "./components/flip-button-group/flip-button-group";
 import { FlipCheckboxState } from "./components/flip-checkbox/flip-checkbox";
@@ -35,6 +35,7 @@ import { FlipRadioState } from "./components/flip-radio/flip-radio";
 import { FlipSpinnerSize } from "./components/flip-spinner/flip-spinner";
 import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/flip-stack/flip-stack";
 import { FlipSwitchSize } from "./components/flip-switch/flip-switch";
+import { FlipTableColumnSort } from "./components/flip-table-column/flip-table-column";
 import { FlipTagIntent } from "./components/flip-tag/flip-tag";
 import { FlipTextAlign, FlipTextColor, FlipTextFontStyle, FlipTextSize, FlipTextWeight } from "./components/flip-text/flip-text";
 import { FlipTextInputMode as FlipTextInputMode1, FlipTextInputType } from "./components/flip-text-input/flip-text-input";
@@ -147,6 +148,7 @@ export namespace Components {
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
+        "overflow"?: FlipBoxOverflow;
         "padding"?: FlipBoxPadding;
     }
     interface FlipButton {
@@ -188,6 +190,7 @@ export namespace Components {
         "description"?: string;
         "disabled"?: boolean;
         "flipAriaDescribedby"?: string;
+        "flipAriaLabel"?: string;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
@@ -391,6 +394,9 @@ export namespace Components {
     interface FlipIconArrowBack {
         "size": FlipIconSize;
     }
+    interface FlipIconArrowDownward {
+        "size": FlipIconSize;
+    }
     interface FlipIconArrowForward {
         "size": FlipIconSize;
     }
@@ -401,6 +407,9 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconArrowRightSmall {
+        "size": FlipIconSize;
+    }
+    interface FlipIconArrowUpward {
         "size": FlipIconSize;
     }
     interface FlipIconAttachment {
@@ -448,6 +457,9 @@ export namespace Components {
     interface FlipIconCloudUpload {
         "size": FlipIconSize;
     }
+    interface FlipIconColumn {
+        "size": FlipIconSize;
+    }
     interface FlipIconComment {
         "size": FlipIconSize;
     }
@@ -485,6 +497,9 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconFile {
+        "size": FlipIconSize;
+    }
+    interface FlipIconFilter {
         "size": FlipIconSize;
     }
     interface FlipIconFolderShared {
@@ -614,6 +629,9 @@ export namespace Components {
         "size": FlipIconSize;
     }
     interface FlipIconSettings {
+        "size": FlipIconSize;
+    }
+    interface FlipIconSync {
         "size": FlipIconSize;
     }
     interface FlipIconTasksFilled {
@@ -825,6 +843,8 @@ export namespace Components {
         "required"?: boolean;
         "value"?: string[];
     }
+    interface FlipSeparator {
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -850,6 +870,28 @@ export namespace Components {
         "active"?: boolean;
         "label": string;
         "tabId": string;
+    }
+    interface FlipTable {
+        "caption"?: string;
+        "emptyStateLabel"?: string;
+        "label": string;
+    }
+    interface FlipTableCell {
+    }
+    interface FlipTableColumn {
+        "maxWidth"?: string;
+        "minWidth"?: string;
+        "sort"?: FlipTableColumnSort;
+        "sortable"?: boolean;
+        "sticky"?: boolean;
+        "width"?: string;
+    }
+    interface FlipTableRow {
+        "highlighted"?: boolean;
+        "index"?: number;
+    }
+    interface FlipTableRowGroup {
+        "label": string;
     }
     interface FlipTabs {
         /**
@@ -1340,6 +1382,12 @@ declare global {
         prototype: HTMLFlipIconArrowBackElement;
         new (): HTMLFlipIconArrowBackElement;
     };
+    interface HTMLFlipIconArrowDownwardElement extends Components.FlipIconArrowDownward, HTMLStencilElement {
+    }
+    var HTMLFlipIconArrowDownwardElement: {
+        prototype: HTMLFlipIconArrowDownwardElement;
+        new (): HTMLFlipIconArrowDownwardElement;
+    };
     interface HTMLFlipIconArrowForwardElement extends Components.FlipIconArrowForward, HTMLStencilElement {
     }
     var HTMLFlipIconArrowForwardElement: {
@@ -1363,6 +1411,12 @@ declare global {
     var HTMLFlipIconArrowRightSmallElement: {
         prototype: HTMLFlipIconArrowRightSmallElement;
         new (): HTMLFlipIconArrowRightSmallElement;
+    };
+    interface HTMLFlipIconArrowUpwardElement extends Components.FlipIconArrowUpward, HTMLStencilElement {
+    }
+    var HTMLFlipIconArrowUpwardElement: {
+        prototype: HTMLFlipIconArrowUpwardElement;
+        new (): HTMLFlipIconArrowUpwardElement;
     };
     interface HTMLFlipIconAttachmentElement extends Components.FlipIconAttachment, HTMLStencilElement {
     }
@@ -1454,6 +1508,12 @@ declare global {
         prototype: HTMLFlipIconCloudUploadElement;
         new (): HTMLFlipIconCloudUploadElement;
     };
+    interface HTMLFlipIconColumnElement extends Components.FlipIconColumn, HTMLStencilElement {
+    }
+    var HTMLFlipIconColumnElement: {
+        prototype: HTMLFlipIconColumnElement;
+        new (): HTMLFlipIconColumnElement;
+    };
     interface HTMLFlipIconCommentElement extends Components.FlipIconComment, HTMLStencilElement {
     }
     var HTMLFlipIconCommentElement: {
@@ -1531,6 +1591,12 @@ declare global {
     var HTMLFlipIconFileElement: {
         prototype: HTMLFlipIconFileElement;
         new (): HTMLFlipIconFileElement;
+    };
+    interface HTMLFlipIconFilterElement extends Components.FlipIconFilter, HTMLStencilElement {
+    }
+    var HTMLFlipIconFilterElement: {
+        prototype: HTMLFlipIconFilterElement;
+        new (): HTMLFlipIconFilterElement;
     };
     interface HTMLFlipIconFolderSharedElement extends Components.FlipIconFolderShared, HTMLStencilElement {
     }
@@ -1790,6 +1856,12 @@ declare global {
         prototype: HTMLFlipIconSettingsElement;
         new (): HTMLFlipIconSettingsElement;
     };
+    interface HTMLFlipIconSyncElement extends Components.FlipIconSync, HTMLStencilElement {
+    }
+    var HTMLFlipIconSyncElement: {
+        prototype: HTMLFlipIconSyncElement;
+        new (): HTMLFlipIconSyncElement;
+    };
     interface HTMLFlipIconTasksFilledElement extends Components.FlipIconTasksFilled, HTMLStencilElement {
     }
     var HTMLFlipIconTasksFilledElement: {
@@ -1964,6 +2036,12 @@ declare global {
         prototype: HTMLFlipSelectElement;
         new (): HTMLFlipSelectElement;
     };
+    interface HTMLFlipSeparatorElement extends Components.FlipSeparator, HTMLStencilElement {
+    }
+    var HTMLFlipSeparatorElement: {
+        prototype: HTMLFlipSeparatorElement;
+        new (): HTMLFlipSeparatorElement;
+    };
     interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
     }
     var HTMLFlipSpinnerElement: {
@@ -1987,6 +2065,36 @@ declare global {
     var HTMLFlipTabElement: {
         prototype: HTMLFlipTabElement;
         new (): HTMLFlipTabElement;
+    };
+    interface HTMLFlipTableElement extends Components.FlipTable, HTMLStencilElement {
+    }
+    var HTMLFlipTableElement: {
+        prototype: HTMLFlipTableElement;
+        new (): HTMLFlipTableElement;
+    };
+    interface HTMLFlipTableCellElement extends Components.FlipTableCell, HTMLStencilElement {
+    }
+    var HTMLFlipTableCellElement: {
+        prototype: HTMLFlipTableCellElement;
+        new (): HTMLFlipTableCellElement;
+    };
+    interface HTMLFlipTableColumnElement extends Components.FlipTableColumn, HTMLStencilElement {
+    }
+    var HTMLFlipTableColumnElement: {
+        prototype: HTMLFlipTableColumnElement;
+        new (): HTMLFlipTableColumnElement;
+    };
+    interface HTMLFlipTableRowElement extends Components.FlipTableRow, HTMLStencilElement {
+    }
+    var HTMLFlipTableRowElement: {
+        prototype: HTMLFlipTableRowElement;
+        new (): HTMLFlipTableRowElement;
+    };
+    interface HTMLFlipTableRowGroupElement extends Components.FlipTableRowGroup, HTMLStencilElement {
+    }
+    var HTMLFlipTableRowGroupElement: {
+        prototype: HTMLFlipTableRowGroupElement;
+        new (): HTMLFlipTableRowGroupElement;
     };
     interface HTMLFlipTabsElement extends Components.FlipTabs, HTMLStencilElement {
     }
@@ -2099,10 +2207,12 @@ declare global {
         "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
         "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
         "flip-icon-arrow-back": HTMLFlipIconArrowBackElement;
+        "flip-icon-arrow-downward": HTMLFlipIconArrowDownwardElement;
         "flip-icon-arrow-forward": HTMLFlipIconArrowForwardElement;
         "flip-icon-arrow-left": HTMLFlipIconArrowLeftElement;
         "flip-icon-arrow-right": HTMLFlipIconArrowRightElement;
         "flip-icon-arrow-right-small": HTMLFlipIconArrowRightSmallElement;
+        "flip-icon-arrow-upward": HTMLFlipIconArrowUpwardElement;
         "flip-icon-attachment": HTMLFlipIconAttachmentElement;
         "flip-icon-block": HTMLFlipIconBlockElement;
         "flip-icon-cancel": HTMLFlipIconCancelElement;
@@ -2118,6 +2228,7 @@ declare global {
         "flip-icon-close": HTMLFlipIconCloseElement;
         "flip-icon-close-small": HTMLFlipIconCloseSmallElement;
         "flip-icon-cloud-upload": HTMLFlipIconCloudUploadElement;
+        "flip-icon-column": HTMLFlipIconColumnElement;
         "flip-icon-comment": HTMLFlipIconCommentElement;
         "flip-icon-copy": HTMLFlipIconCopyElement;
         "flip-icon-date-range": HTMLFlipIconDateRangeElement;
@@ -2131,6 +2242,7 @@ declare global {
         "flip-icon-expand-less": HTMLFlipIconExpandLessElement;
         "flip-icon-expand-more": HTMLFlipIconExpandMoreElement;
         "flip-icon-file": HTMLFlipIconFileElement;
+        "flip-icon-filter": HTMLFlipIconFilterElement;
         "flip-icon-folder-shared": HTMLFlipIconFolderSharedElement;
         "flip-icon-fullscreen": HTMLFlipIconFullscreenElement;
         "flip-icon-fullscreen-exit": HTMLFlipIconFullscreenExitElement;
@@ -2174,6 +2286,7 @@ declare global {
         "flip-icon-search-strong": HTMLFlipIconSearchStrongElement;
         "flip-icon-send": HTMLFlipIconSendElement;
         "flip-icon-settings": HTMLFlipIconSettingsElement;
+        "flip-icon-sync": HTMLFlipIconSyncElement;
         "flip-icon-tasks-filled": HTMLFlipIconTasksFilledElement;
         "flip-icon-tasks-outlined": HTMLFlipIconTasksOutlinedElement;
         "flip-icon-time-filled": HTMLFlipIconTimeFilledElement;
@@ -2203,10 +2316,16 @@ declare global {
         "flip-resource-list-item": HTMLFlipResourceListItemElement;
         "flip-search": HTMLFlipSearchElement;
         "flip-select": HTMLFlipSelectElement;
+        "flip-separator": HTMLFlipSeparatorElement;
         "flip-spinner": HTMLFlipSpinnerElement;
         "flip-stack": HTMLFlipStackElement;
         "flip-switch": HTMLFlipSwitchElement;
         "flip-tab": HTMLFlipTabElement;
+        "flip-table": HTMLFlipTableElement;
+        "flip-table-cell": HTMLFlipTableCellElement;
+        "flip-table-column": HTMLFlipTableColumnElement;
+        "flip-table-row": HTMLFlipTableRowElement;
+        "flip-table-row-group": HTMLFlipTableRowGroupElement;
         "flip-tabs": HTMLFlipTabsElement;
         "flip-tag": HTMLFlipTagElement;
         "flip-text": HTMLFlipTextElement;
@@ -2315,6 +2434,7 @@ declare namespace LocalJSX {
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
+        "overflow"?: FlipBoxOverflow;
         "padding"?: FlipBoxPadding;
     }
     interface FlipButton {
@@ -2356,6 +2476,7 @@ declare namespace LocalJSX {
         "description"?: string;
         "disabled"?: boolean;
         "flipAriaDescribedby"?: string;
+        "flipAriaLabel"?: string;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
@@ -2516,6 +2637,9 @@ declare namespace LocalJSX {
     interface FlipIconArrowBack {
         "size"?: FlipIconSize;
     }
+    interface FlipIconArrowDownward {
+        "size"?: FlipIconSize;
+    }
     interface FlipIconArrowForward {
         "size"?: FlipIconSize;
     }
@@ -2526,6 +2650,9 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconArrowRightSmall {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconArrowUpward {
         "size"?: FlipIconSize;
     }
     interface FlipIconAttachment {
@@ -2573,6 +2700,9 @@ declare namespace LocalJSX {
     interface FlipIconCloudUpload {
         "size"?: FlipIconSize;
     }
+    interface FlipIconColumn {
+        "size"?: FlipIconSize;
+    }
     interface FlipIconComment {
         "size"?: FlipIconSize;
     }
@@ -2610,6 +2740,9 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconFile {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconFilter {
         "size"?: FlipIconSize;
     }
     interface FlipIconFolderShared {
@@ -2739,6 +2872,9 @@ declare namespace LocalJSX {
         "size"?: FlipIconSize;
     }
     interface FlipIconSettings {
+        "size"?: FlipIconSize;
+    }
+    interface FlipIconSync {
         "size"?: FlipIconSize;
     }
     interface FlipIconTasksFilled {
@@ -2927,6 +3063,8 @@ declare namespace LocalJSX {
         "required"?: boolean;
         "value"?: string[];
     }
+    interface FlipSeparator {
+    }
     interface FlipSpinner {
         "label"?: string;
         "size"?: FlipSpinnerSize;
@@ -2953,6 +3091,28 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "label": string;
         "tabId": string;
+    }
+    interface FlipTable {
+        "caption"?: string;
+        "emptyStateLabel"?: string;
+        "label": string;
+    }
+    interface FlipTableCell {
+    }
+    interface FlipTableColumn {
+        "maxWidth"?: string;
+        "minWidth"?: string;
+        "sort"?: FlipTableColumnSort;
+        "sortable"?: boolean;
+        "sticky"?: boolean;
+        "width"?: string;
+    }
+    interface FlipTableRow {
+        "highlighted"?: boolean;
+        "index"?: number;
+    }
+    interface FlipTableRowGroup {
+        "label": string;
     }
     interface FlipTabs {
         "initialTab"?: string;
@@ -3090,10 +3250,12 @@ declare namespace LocalJSX {
         "flip-icon-add-photo": FlipIconAddPhoto;
         "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
         "flip-icon-arrow-back": FlipIconArrowBack;
+        "flip-icon-arrow-downward": FlipIconArrowDownward;
         "flip-icon-arrow-forward": FlipIconArrowForward;
         "flip-icon-arrow-left": FlipIconArrowLeft;
         "flip-icon-arrow-right": FlipIconArrowRight;
         "flip-icon-arrow-right-small": FlipIconArrowRightSmall;
+        "flip-icon-arrow-upward": FlipIconArrowUpward;
         "flip-icon-attachment": FlipIconAttachment;
         "flip-icon-block": FlipIconBlock;
         "flip-icon-cancel": FlipIconCancel;
@@ -3109,6 +3271,7 @@ declare namespace LocalJSX {
         "flip-icon-close": FlipIconClose;
         "flip-icon-close-small": FlipIconCloseSmall;
         "flip-icon-cloud-upload": FlipIconCloudUpload;
+        "flip-icon-column": FlipIconColumn;
         "flip-icon-comment": FlipIconComment;
         "flip-icon-copy": FlipIconCopy;
         "flip-icon-date-range": FlipIconDateRange;
@@ -3122,6 +3285,7 @@ declare namespace LocalJSX {
         "flip-icon-expand-less": FlipIconExpandLess;
         "flip-icon-expand-more": FlipIconExpandMore;
         "flip-icon-file": FlipIconFile;
+        "flip-icon-filter": FlipIconFilter;
         "flip-icon-folder-shared": FlipIconFolderShared;
         "flip-icon-fullscreen": FlipIconFullscreen;
         "flip-icon-fullscreen-exit": FlipIconFullscreenExit;
@@ -3165,6 +3329,7 @@ declare namespace LocalJSX {
         "flip-icon-search-strong": FlipIconSearchStrong;
         "flip-icon-send": FlipIconSend;
         "flip-icon-settings": FlipIconSettings;
+        "flip-icon-sync": FlipIconSync;
         "flip-icon-tasks-filled": FlipIconTasksFilled;
         "flip-icon-tasks-outlined": FlipIconTasksOutlined;
         "flip-icon-time-filled": FlipIconTimeFilled;
@@ -3194,10 +3359,16 @@ declare namespace LocalJSX {
         "flip-resource-list-item": FlipResourceListItem;
         "flip-search": FlipSearch;
         "flip-select": FlipSelect;
+        "flip-separator": FlipSeparator;
         "flip-spinner": FlipSpinner;
         "flip-stack": FlipStack;
         "flip-switch": FlipSwitch;
         "flip-tab": FlipTab;
+        "flip-table": FlipTable;
+        "flip-table-cell": FlipTableCell;
+        "flip-table-column": FlipTableColumn;
+        "flip-table-row": FlipTableRow;
+        "flip-table-row-group": FlipTableRowGroup;
         "flip-tabs": FlipTabs;
         "flip-tag": FlipTag;
         "flip-text": FlipText;
@@ -3254,10 +3425,12 @@ declare module "@stencil/core" {
             "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
             "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
             "flip-icon-arrow-back": LocalJSX.FlipIconArrowBack & JSXBase.HTMLAttributes<HTMLFlipIconArrowBackElement>;
+            "flip-icon-arrow-downward": LocalJSX.FlipIconArrowDownward & JSXBase.HTMLAttributes<HTMLFlipIconArrowDownwardElement>;
             "flip-icon-arrow-forward": LocalJSX.FlipIconArrowForward & JSXBase.HTMLAttributes<HTMLFlipIconArrowForwardElement>;
             "flip-icon-arrow-left": LocalJSX.FlipIconArrowLeft & JSXBase.HTMLAttributes<HTMLFlipIconArrowLeftElement>;
             "flip-icon-arrow-right": LocalJSX.FlipIconArrowRight & JSXBase.HTMLAttributes<HTMLFlipIconArrowRightElement>;
             "flip-icon-arrow-right-small": LocalJSX.FlipIconArrowRightSmall & JSXBase.HTMLAttributes<HTMLFlipIconArrowRightSmallElement>;
+            "flip-icon-arrow-upward": LocalJSX.FlipIconArrowUpward & JSXBase.HTMLAttributes<HTMLFlipIconArrowUpwardElement>;
             "flip-icon-attachment": LocalJSX.FlipIconAttachment & JSXBase.HTMLAttributes<HTMLFlipIconAttachmentElement>;
             "flip-icon-block": LocalJSX.FlipIconBlock & JSXBase.HTMLAttributes<HTMLFlipIconBlockElement>;
             "flip-icon-cancel": LocalJSX.FlipIconCancel & JSXBase.HTMLAttributes<HTMLFlipIconCancelElement>;
@@ -3273,6 +3446,7 @@ declare module "@stencil/core" {
             "flip-icon-close": LocalJSX.FlipIconClose & JSXBase.HTMLAttributes<HTMLFlipIconCloseElement>;
             "flip-icon-close-small": LocalJSX.FlipIconCloseSmall & JSXBase.HTMLAttributes<HTMLFlipIconCloseSmallElement>;
             "flip-icon-cloud-upload": LocalJSX.FlipIconCloudUpload & JSXBase.HTMLAttributes<HTMLFlipIconCloudUploadElement>;
+            "flip-icon-column": LocalJSX.FlipIconColumn & JSXBase.HTMLAttributes<HTMLFlipIconColumnElement>;
             "flip-icon-comment": LocalJSX.FlipIconComment & JSXBase.HTMLAttributes<HTMLFlipIconCommentElement>;
             "flip-icon-copy": LocalJSX.FlipIconCopy & JSXBase.HTMLAttributes<HTMLFlipIconCopyElement>;
             "flip-icon-date-range": LocalJSX.FlipIconDateRange & JSXBase.HTMLAttributes<HTMLFlipIconDateRangeElement>;
@@ -3286,6 +3460,7 @@ declare module "@stencil/core" {
             "flip-icon-expand-less": LocalJSX.FlipIconExpandLess & JSXBase.HTMLAttributes<HTMLFlipIconExpandLessElement>;
             "flip-icon-expand-more": LocalJSX.FlipIconExpandMore & JSXBase.HTMLAttributes<HTMLFlipIconExpandMoreElement>;
             "flip-icon-file": LocalJSX.FlipIconFile & JSXBase.HTMLAttributes<HTMLFlipIconFileElement>;
+            "flip-icon-filter": LocalJSX.FlipIconFilter & JSXBase.HTMLAttributes<HTMLFlipIconFilterElement>;
             "flip-icon-folder-shared": LocalJSX.FlipIconFolderShared & JSXBase.HTMLAttributes<HTMLFlipIconFolderSharedElement>;
             "flip-icon-fullscreen": LocalJSX.FlipIconFullscreen & JSXBase.HTMLAttributes<HTMLFlipIconFullscreenElement>;
             "flip-icon-fullscreen-exit": LocalJSX.FlipIconFullscreenExit & JSXBase.HTMLAttributes<HTMLFlipIconFullscreenExitElement>;
@@ -3329,6 +3504,7 @@ declare module "@stencil/core" {
             "flip-icon-search-strong": LocalJSX.FlipIconSearchStrong & JSXBase.HTMLAttributes<HTMLFlipIconSearchStrongElement>;
             "flip-icon-send": LocalJSX.FlipIconSend & JSXBase.HTMLAttributes<HTMLFlipIconSendElement>;
             "flip-icon-settings": LocalJSX.FlipIconSettings & JSXBase.HTMLAttributes<HTMLFlipIconSettingsElement>;
+            "flip-icon-sync": LocalJSX.FlipIconSync & JSXBase.HTMLAttributes<HTMLFlipIconSyncElement>;
             "flip-icon-tasks-filled": LocalJSX.FlipIconTasksFilled & JSXBase.HTMLAttributes<HTMLFlipIconTasksFilledElement>;
             "flip-icon-tasks-outlined": LocalJSX.FlipIconTasksOutlined & JSXBase.HTMLAttributes<HTMLFlipIconTasksOutlinedElement>;
             "flip-icon-time-filled": LocalJSX.FlipIconTimeFilled & JSXBase.HTMLAttributes<HTMLFlipIconTimeFilledElement>;
@@ -3358,10 +3534,16 @@ declare module "@stencil/core" {
             "flip-resource-list-item": LocalJSX.FlipResourceListItem & JSXBase.HTMLAttributes<HTMLFlipResourceListItemElement>;
             "flip-search": LocalJSX.FlipSearch & JSXBase.HTMLAttributes<HTMLFlipSearchElement>;
             "flip-select": LocalJSX.FlipSelect & JSXBase.HTMLAttributes<HTMLFlipSelectElement>;
+            "flip-separator": LocalJSX.FlipSeparator & JSXBase.HTMLAttributes<HTMLFlipSeparatorElement>;
             "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
             "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
             "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
             "flip-tab": LocalJSX.FlipTab & JSXBase.HTMLAttributes<HTMLFlipTabElement>;
+            "flip-table": LocalJSX.FlipTable & JSXBase.HTMLAttributes<HTMLFlipTableElement>;
+            "flip-table-cell": LocalJSX.FlipTableCell & JSXBase.HTMLAttributes<HTMLFlipTableCellElement>;
+            "flip-table-column": LocalJSX.FlipTableColumn & JSXBase.HTMLAttributes<HTMLFlipTableColumnElement>;
+            "flip-table-row": LocalJSX.FlipTableRow & JSXBase.HTMLAttributes<HTMLFlipTableRowElement>;
+            "flip-table-row-group": LocalJSX.FlipTableRowGroup & JSXBase.HTMLAttributes<HTMLFlipTableRowGroupElement>;
             "flip-tabs": LocalJSX.FlipTabs & JSXBase.HTMLAttributes<HTMLFlipTabsElement>;
             "flip-tag": LocalJSX.FlipTag & JSXBase.HTMLAttributes<HTMLFlipTagElement>;
             "flip-text": LocalJSX.FlipText & JSXBase.HTMLAttributes<HTMLFlipTextElement>;

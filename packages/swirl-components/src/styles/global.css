@@ -30,6 +30,9 @@
   --flip-ghost-button-background-hovered: var(--s-background-hovered);
   --flip-ghost-button-background-pressed: var(--s-background-pressed);
 
+  --flip-table-sticky-left-shadow: none;
+  --flip-table-sticky-right-shadow: none;
+
   @media (--from-desktop-without-touch) {
     --flip-button-border-top-right-radius: var(--s-border-radius-sm);
     --flip-button-border-top-left-radius: var(--s-border-radius-sm);
