@@ -6,11 +6,10 @@ import "@getflip/swirl-components/dist/swirl-components/swirl-components.css";
 import "../styles/prism-vs-code-dark.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { GTM_ID, pageview } from "../lib/gtm";
+import { GTM_ID, isProd, pageview } from "../lib/gtm";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const isProd = process.env.NODE_ENV === "production";
 
   useEffect(() => {
     router.events.on("routeChangeComplete", pageview);

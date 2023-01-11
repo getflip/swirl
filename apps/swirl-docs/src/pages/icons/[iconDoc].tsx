@@ -1,27 +1,22 @@
 import { createStaticPathsData } from "@swirl/lib/docs";
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import {
-  BASE_PATHS,
-  DOCUMENT_ENUM,
-  DocHeadline,
-} from "@swirl/lib/docs/src/docs.model";
+import { DOCUMENTATION_CATEGORY } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
-import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { iconsNavItems } from "@swirl/lib/navigation/src/data/iconsChildren.data";
 import { GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
 
 async function getComponentData(document: string) {
-  return await generateMdxFromDocumentation(BASE_PATHS.ICONS, document);
+  return await generateMdxFromDocumentation(
+    DOCUMENTATION_CATEGORY.ICONS,
+    document
+  );
 }
 
 export async function getStaticPaths() {
-  const categoryDocs = createStaticPathsData(
-    BASE_PATHS.ICONS,
-    DOCUMENT_ENUM.ICONS
-  );
+  const categoryDocs = createStaticPathsData(DOCUMENTATION_CATEGORY.ICONS);
 
   return {
     paths: categoryDocs,
