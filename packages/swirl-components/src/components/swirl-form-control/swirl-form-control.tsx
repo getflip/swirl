@@ -141,7 +141,7 @@ export class SwirlFormControl {
       ? this.inputValue.length > 0
       : Boolean(this.inputValue);
 
-    const isSelect = this.inputEl.tagName === "FLIP-SELECT";
+    const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
     const className = classnames("form-control", {
       "form-control--disabled": this.disabled,

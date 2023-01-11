@@ -202,7 +202,7 @@ export class SwirlPopover {
   }
 
   private getNativeTriggerElement() {
-    return this.triggerEl.tagName.startsWith("FLIP-")
+    return this.triggerEl.tagName.startsWith("SWIRL-")
       ? ((this.triggerEl?.children[0] ||
           this.triggerEl?.shadowRoot?.children[0] ||
           this.triggerEl) as HTMLElement)

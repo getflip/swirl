@@ -949,12 +949,12 @@ export namespace Components {
         "config": SwirlThemeProviderConfig;
         /**
           * Returns the active app theme.
-          * @returns FlipTheme
+          * @returns SwirlTheme
          */
         "getActiveTheme": () => Promise<SwirlTheme>;
         /**
           * Returns the user's preferred theme stored in local storage.
-          * @returns FlipTheme
+          * @returns SwirlTheme
          */
         "getPreferredTheme": () => Promise<SwirlTheme>;
         /**

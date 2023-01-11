@@ -13,7 +13,7 @@ export class SwirlList {
 
     if (children.some((child) => !["UL", "OL"].includes(child.tagName))) {
       console.warn(
-        "[FlipList] Only ul and ol elements are allowed as direct children of <swirl-list />."
+        "[SwirlList] Only ul and ol elements are allowed as direct children of <swirl-list />."
       );
     }
   }

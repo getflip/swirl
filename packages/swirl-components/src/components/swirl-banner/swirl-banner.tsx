@@ -18,7 +18,7 @@ export type SwirlBannerIntent =
   | "warning"
   | "info";
 
-const flipBannerIconMapping: { [key in SwirlBannerIntent]: string } = {
+const swirlBannerIconMapping: { [key in SwirlBannerIntent]: string } = {
   default: undefined,
   critical: "<swirl-icon-error></swirl-icon-error>",
   success: "<swirl-icon-check-circle></swirl-icon-check-circle>",
@@ -54,7 +54,7 @@ export class SwirlBanner {
   };
 
   render() {
-    const icon = flipBannerIconMapping[this.intent];
+    const icon = swirlBannerIconMapping[this.intent];
     const showControls = Boolean(this.actionLabel) || this.dismissable;
     const showIcon = this.showIcon && Boolean(icon);
 

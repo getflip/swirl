@@ -87,7 +87,7 @@ export class SwirlThemeProvider {
 
   /**
    * Returns the active app theme.
-   * @returns FlipTheme
+   * @returns SwirlTheme
    */
   @Method()
   async getActiveTheme() {
@@ -96,7 +96,7 @@ export class SwirlThemeProvider {
 
   /**
    * Returns the user's preferred theme stored in local storage.
-   * @returns FlipTheme
+   * @returns SwirlTheme
    */
   @Method()
   async getPreferredTheme() {

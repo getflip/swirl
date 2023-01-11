@@ -79,7 +79,7 @@ const Template = (args) => {
   element.addEventListener("click", (event: MouseEvent) => {
     const target = event.target as HTMLElement;
 
-    if (target?.tagName === "FLIP-ACTION-LIST-ITEM") {
+    if (target?.tagName === "SWIRL-ACTION-LIST-ITEM") {
       element.close();
     }
   });

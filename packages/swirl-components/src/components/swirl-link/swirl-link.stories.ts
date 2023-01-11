@@ -20,6 +20,6 @@ const Template = (args) => {
 export const SwirlLink = Template.bind({});
 
 SwirlLink.args = {
-  href: "/?path=/docs/components-fliplink--swirl-link",
+  href: "/?path=/docs/components-swirllink--swirl-link",
   label: "Label",
 };

@@ -11,8 +11,8 @@ import debouncePromise from "debounce-promise";
 import { isMobileViewport } from "../../utils";
 
 /**
- * @slot columns - Column container, should contain FlipTableColumns.
- * @slot rows - Row container, should contain FlipTableRows.
+ * @slot columns - Column container, should contain SwirlTableColumns.
+ * @slot rows - Row container, should contain SwirlTableRows.
  */
 @Component({
   shadow: true,

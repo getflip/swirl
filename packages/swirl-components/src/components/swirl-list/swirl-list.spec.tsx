@@ -55,7 +55,7 @@ describe("swirl-list", () => {
     });
 
     expect(spy).toHaveBeenCalledWith(
-      "[FlipList] Only ul and ol elements are allowed as direct children of <swirl-list />."
+      "[SwirlList] Only ul and ol elements are allowed as direct children of <swirl-list />."
     );
   });
 });
