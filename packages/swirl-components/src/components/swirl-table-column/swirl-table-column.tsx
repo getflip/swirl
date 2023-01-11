@@ -1,6 +1,6 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 
-export type FlipTableColumnSort = "ascending" | "descending";
+export type SwirlTableColumnSort = "ascending" | "descending";
 
 /**
  * @slot slot - The column label.
@@ -8,12 +8,12 @@ export type FlipTableColumnSort = "ascending" | "descending";
 @Component({
   shadow: true,
   styleUrl: "swirl-table-column.css",
-  tag: "flip-table-column",
+  tag: "swirl-table-column",
 })
-export class FlipTableColumn {
+export class SwirlTableColumn {
   @Element() el: HTMLElement;
 
-  @Prop() sort?: FlipTableColumnSort;
+  @Prop() sort?: SwirlTableColumnSort;
   @Prop() sortable?: boolean;
   @Prop() maxWidth?: string;
   @Prop() minWidth?: string = "fit-content";
@@ -40,16 +40,16 @@ export class FlipTableColumn {
         {this.sortable && (
           <span class="table-column__sort-indicator">
             {this.sort === "ascending" && (
-              <flip-icon-arrow-upward
+              <swirl-icon-arrow-upward
                 aria-hidden="true"
                 size={20}
-              ></flip-icon-arrow-upward>
+              ></swirl-icon-arrow-upward>
             )}
             {this.sort === "descending" && (
-              <flip-icon-arrow-downward
+              <swirl-icon-arrow-downward
                 aria-hidden="true"
                 size={20}
-              ></flip-icon-arrow-downward>
+              ></swirl-icon-arrow-downward>
             )}
             {!Boolean(this.sort) && " "}
           </span>

@@ -1,16 +1,16 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipDialog } from "./swirl-dialog";
+import { SwirlDialog } from "./swirl-dialog";
 
-describe("flip-dialog", () => {
+describe("swirl-dialog", () => {
   it("renders content and heading", async () => {
     const page = await newSpecPage({
-      components: [FlipDialog],
-      html: `<flip-dialog label="Dialog">Content</flip-dialog>`,
+      components: [SwirlDialog],
+      html: `<swirl-dialog label="Dialog">Content</swirl-dialog>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-dialog label="Dialog">
+      <swirl-dialog label="Dialog">
         <mock:shadow-root>
           <div aria-describedby="content" aria-hidden="true" aria-labelledby="label" aria-modal="true" class="dialog" role="alertdialog" tabindex="-1">
             <div class="dialog__backdrop"></div>
@@ -21,19 +21,19 @@ describe("flip-dialog", () => {
               <div class="dialog__content" id="content">
                 <slot></slot>
               </div>
-              <flip-button-group class="dialog__controls" stretch="" wrap=""></flip-button-group>
+              <swirl-button-group class="dialog__controls" stretch="" wrap=""></swirl-button-group>
             </div>
           </div>
         </mock:shadow-root>
         Content
-      </flip-dialog>
+      </swirl-dialog>
     `);
   });
 
   it("can hide the label", async () => {
     const page = await newSpecPage({
-      components: [FlipDialog],
-      html: `<flip-dialog hide-label label="Dialog">Content</flip-dialog>`,
+      components: [SwirlDialog],
+      html: `<swirl-dialog hide-label label="Dialog">Content</swirl-dialog>`,
     });
 
     expect(page.root.shadowRoot.querySelector("h2")).toBeNull();
@@ -45,14 +45,14 @@ describe("flip-dialog", () => {
 
   it("renders controls and fires events", async () => {
     const page = await newSpecPage({
-      components: [FlipDialog],
-      html: `<flip-dialog label="Dialog" primary-action-label="Primary" secondary-action-label="Secondary">Content</flip-dialog>`,
+      components: [SwirlDialog],
+      html: `<swirl-dialog label="Dialog" primary-action-label="Primary" secondary-action-label="Secondary">Content</swirl-dialog>`,
     });
 
     const primarySpy = jest.fn();
     const secondarySpy = jest.fn();
 
-    const buttons = page.root.shadowRoot.querySelectorAll("flip-button");
+    const buttons = page.root.shadowRoot.querySelectorAll("swirl-button");
 
     page.root.addEventListener("primaryAction", primarySpy);
     page.root.addEventListener("secondaryAction", secondarySpy);

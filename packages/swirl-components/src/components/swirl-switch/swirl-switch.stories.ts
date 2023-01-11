@@ -2,24 +2,24 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-switch.mdx";
 
 export default {
-  component: "flip-switch",
+  component: "swirl-switch",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipSwitch",
+  title: "Components/SwirlSwitch",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-switch", args);
+  const element = generateStoryElement("swirl-switch", args);
 
   return element;
 };
 
-export const FlipSwitch = Template.bind({});
+export const SwirlSwitch = Template.bind({});
 
-FlipSwitch.args = {
+SwirlSwitch.args = {
   checked: true,
   inputId: "switch",
   inputName: "switch",

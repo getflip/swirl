@@ -1,16 +1,16 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipSpinner } from "./swirl-spinner";
+import { SwirlSpinner } from "./swirl-spinner";
 
-describe("flip-spinner", () => {
+describe("swirl-spinner", () => {
   it("renders the spinner", async () => {
     const page = await newSpecPage({
-      components: [FlipSpinner],
-      html: `<flip-spinner></flip-spinner>`,
+      components: [SwirlSpinner],
+      html: `<swirl-spinner></swirl-spinner>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-spinner>
+      <swirl-spinner>
         <mock:shadow-root>
           <span class="spinner spinner--size-m">
             <svg aria-hidden="true" class="spinner__indicator" focusable="false" viewBox="0 0 50 50">
@@ -19,20 +19,20 @@ describe("flip-spinner", () => {
             </svg>
           </span>
         </mock:shadow-root>
-      </flip-spinner>
+      </swirl-spinner>
     `);
   });
 
   it("renders a label with role 'status'", async () => {
     const page = await newSpecPage({
-      components: [FlipSpinner],
-      html: `<flip-spinner label="Loading stuff …"></flip-spinner>`,
+      components: [SwirlSpinner],
+      html: `<swirl-spinner label="Loading stuff …"></swirl-spinner>`,
     });
 
     expect(page.root.shadowRoot.querySelector('[role="status"]')).toBeDefined();
 
     expect(
-      page.root.shadowRoot.querySelector("flip-visually-hidden").innerText
+      page.root.shadowRoot.querySelector("swirl-visually-hidden").innerText
     ).toEqual(`Loading stuff …`);
   });
 });

@@ -2,7 +2,7 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-box.mdx";
 
 export default {
-  component: "flip-box",
+  component: "swirl-box",
   decorators: [
     (story) => {
       const container = document.createElement("div");
@@ -18,20 +18,20 @@ export default {
       page: Docs,
     },
   },
-  title: "Components/FlipBox",
+  title: "Components/SwirlBox",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-box", args);
+  const element = generateStoryElement("swirl-box", args);
 
-  element.innerHTML = `\n    <flip-chip label="Label"></flip-chip>\n  `;
+  element.innerHTML = `\n    <swirl-chip label="Label"></swirl-chip>\n  `;
 
   return element;
 };
 
-export const FlipBox = Template.bind({});
+export const SwirlBox = Template.bind({});
 
-FlipBox.args = {
+SwirlBox.args = {
   cover: true,
   padding: "16",
 };

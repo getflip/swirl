@@ -2,24 +2,24 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-file-uploader.mdx";
 
 export default {
-  component: "flip-file-uploader",
+  component: "swirl-file-uploader",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipFileUploader",
+  title: "Components/SwirlFileUploader",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-file-uploader", args);
+  const element = generateStoryElement("swirl-file-uploader", args);
 
   return element;
 };
 
-export const FlipFileUploader = Template.bind({});
+export const SwirlFileUploader = Template.bind({});
 
-FlipFileUploader.args = {
+SwirlFileUploader.args = {
   accept: "image/*",
   description: "Only image files are allowed.",
   inputId: "file-upload",

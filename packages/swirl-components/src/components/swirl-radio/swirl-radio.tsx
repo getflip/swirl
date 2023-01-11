@@ -1,7 +1,7 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipRadioState = boolean | "true" | "false";
+export type SwirlRadioState = boolean | "true" | "false";
 
 @Component({
   /**
@@ -13,10 +13,10 @@ export type FlipRadioState = boolean | "true" | "false";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-radio.css",
-  tag: "flip-radio",
+  tag: "swirl-radio",
 })
-export class FlipRadio {
-  @Prop({ mutable: true }) checked?: FlipRadioState = false;
+export class SwirlRadio {
+  @Prop({ mutable: true }) checked?: SwirlRadioState = false;
   @Prop() description?: string;
   @Prop() disabled?: boolean = false;
   @Prop() inputId!: string;
@@ -60,7 +60,7 @@ export class FlipRadio {
       <Host>
         <label class={className} htmlFor={this.inputId}>
           <span class="radio__control">
-            <flip-visually-hidden>
+            <swirl-visually-hidden>
               <input
                 aria-checked={ariaCheckedLabel}
                 aria-invalid={ariaInvalid}
@@ -73,7 +73,7 @@ export class FlipRadio {
                 type="radio"
                 value={this.value}
               />
-            </flip-visually-hidden>
+            </swirl-visually-hidden>
             <span aria-hidden="true" class="radio__box"></span>
           </span>
           <span class="radio__label-container">

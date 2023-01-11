@@ -2,13 +2,13 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-modal.mdx";
 
 export default {
-  component: "flip-modal",
+  component: "swirl-modal",
   parameters: {
     docs: {
       page: Docs,
       source: {
-        code: `<flip-modal id="modal" label="Dialog" primary-action-label="Primary" secondary-action-label="Cancel">
-  <flip-text>
+        code: `<swirl-modal id="modal" label="Dialog" primary-action-label="Primary" secondary-action-label="Cancel">
+  <swirl-text>
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
     eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
@@ -18,8 +18,8 @@ export default {
     diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
     Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
     sit amet.
-  </flip-text>
-</flip-modal>
+  </swirl-text>
+</swirl-modal>
 
 <script>
   const modal = document.body.querySelector('#modal');
@@ -28,22 +28,22 @@ export default {
       },
     },
   },
-  title: "Components/FlipModal",
+  title: "Components/SwirlModal",
 };
 
 const Template = (args) => {
   const container = document.createElement("div");
-  const trigger = document.createElement("flip-button");
+  const trigger = document.createElement("swirl-button");
   const element = generateStoryElement(
-    "flip-modal",
+    "swirl-modal",
     args
-  ) as HTMLFlipDialogElement;
+  ) as HTMLSwirlDialogElement;
 
   trigger.label = "Open modal";
   trigger.addEventListener("click", () => element.open());
 
   element.innerHTML = `
-    <flip-text>
+    <swirl-text>
       Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
       eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
       voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
@@ -53,7 +53,7 @@ const Template = (args) => {
       diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
       Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
       sit amet.
-    </flip-text>
+    </swirl-text>
   `;
 
   container.append(trigger, element);
@@ -61,9 +61,9 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipModal = Template.bind({});
+export const SwirlModal = Template.bind({});
 
-FlipModal.args = {
+SwirlModal.args = {
   label: "Label",
   primaryActionLabel: "Primary",
   secondaryActionLabel: "Secondary",

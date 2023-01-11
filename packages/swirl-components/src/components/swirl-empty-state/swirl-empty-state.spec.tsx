@@ -1,37 +1,37 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipEmptyState } from "./swirl-empty-state";
+import { SwirlEmptyState } from "./swirl-empty-state";
 
-describe("flip-empty-state", () => {
+describe("swirl-empty-state", () => {
   it("renders its content", async () => {
     const page = await newSpecPage({
-      components: [FlipEmptyState],
+      components: [SwirlEmptyState],
       html: `
-        <flip-empty-state heading="Nothing to see here." illustration="/assets/images/empty-state-1.svg">
+        <swirl-empty-state heading="Nothing to see here." illustration="/assets/images/empty-state-1.svg">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
           eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
           voluptua.
-        </flip-empty-state>
+        </swirl-empty-state>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-empty-state heading="Nothing to see here." illustration="/assets/images/empty-state-1.svg">
+      <swirl-empty-state heading="Nothing to see here." illustration="/assets/images/empty-state-1.svg">
         <mock:shadow-root>
           <div class="empty-state">
             <img alt="" class="empty-state__illustration" src="/assets/images/empty-state-1.svg">
             <div class="empty-state__body">
-              <flip-heading align="center" as="p" text="Nothing to see here."></flip-heading>
+              <swirl-heading align="center" as="p" text="Nothing to see here."></swirl-heading>
               <div class="empty-state__content">
-                <flip-text align="center" color="subdued">
+                <swirl-text align="center" color="subdued">
                   <slot></slot>
-                </flip-text>
+                </swirl-text>
               </div>
             </div>
           </div>
         </mock:shadow-root>
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-      </flip-empty-state>
+      </swirl-empty-state>
     `);
   });
 });

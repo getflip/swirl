@@ -1,15 +1,15 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipToastProvider } from "./swirl-toast-provider";
+import { SwirlToastProvider } from "./swirl-toast-provider";
 
-describe("flip-toast-provider", () => {
+describe("swirl-toast-provider", () => {
   it("renders, dismisses and clears its toasts", async () => {
     const page = await newSpecPage({
-      components: [FlipToastProvider],
-      html: `<flip-toast-provider></flip-toast-provider>`,
+      components: [SwirlToastProvider],
+      html: `<swirl-toast-provider></swirl-toast-provider>`,
     });
 
-    const toastProvider = page.root as HTMLFlipToastProviderElement;
+    const toastProvider = page.root as HTMLSwirlToastProviderElement;
 
     await toastProvider.toast({
       content: "Toast 1",
@@ -19,7 +19,7 @@ describe("flip-toast-provider", () => {
     await toastProvider.toast({
       content: "Toast 2",
       dismissLabel: "Dismiss",
-      icon: "<lip-icon-mail></flip-icon-mail>",
+      icon: "<lip-icon-mail></swirl-icon-mail>",
       intent: "success",
       toastId: "toast-2",
     });
@@ -27,14 +27,14 @@ describe("flip-toast-provider", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <flip-toast-provider role="status">
+      <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <flip-stack spacing="12">
-            <flip-toast content="Toast 1" toastid="toast-1"></flip-toast>
-            <flip-toast content="Toast 2" dismisslabel="Dismiss" icon="<lip-icon-mail></flip-icon-mail>" intent="success" toastid="toast-2"></flip-toast>
-          </flip-stack>
+          <swirl-stack spacing="12">
+            <swirl-toast content="Toast 1" toastid="toast-1"></swirl-toast>
+            <swirl-toast content="Toast 2" dismisslabel="Dismiss" icon="<lip-icon-mail></swirl-icon-mail>" intent="success" toastid="toast-2"></swirl-toast>
+          </swirl-stack>
         </mock:shadow-root>
-      </flip-toast-provider>
+      </swirl-toast-provider>
     `);
 
     await toastProvider.dismiss("toast-2");
@@ -42,13 +42,13 @@ describe("flip-toast-provider", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <flip-toast-provider role="status">
+      <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <flip-stack spacing="12">
-            <flip-toast content="Toast 1" toastid="toast-1"></flip-toast>
-          </flip-stack>
+          <swirl-stack spacing="12">
+            <swirl-toast content="Toast 1" toastid="toast-1"></swirl-toast>
+          </swirl-stack>
         </mock:shadow-root>
-      </flip-toast-provider>
+      </swirl-toast-provider>
     `);
 
     await toastProvider.clearAll();
@@ -56,11 +56,11 @@ describe("flip-toast-provider", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <flip-toast-provider role="status">
+      <swirl-toast-provider role="status">
         <mock:shadow-root>
-          <flip-stack spacing="12"></flip-stack>
+          <swirl-stack spacing="12"></swirl-stack>
         </mock:shadow-root>
-      </flip-toast-provider>
+      </swirl-toast-provider>
     `);
   });
 });

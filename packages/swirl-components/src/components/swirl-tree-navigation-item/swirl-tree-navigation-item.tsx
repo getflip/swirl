@@ -4,9 +4,9 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "swirl-tree-navigation-item.css",
-  tag: "flip-tree-navigation-item",
+  tag: "swirl-tree-navigation-item",
 })
-export class FlipTreeNavigationItem {
+export class SwirlTreeNavigationItem {
   @Element() el: HTMLElement;
 
   @Prop() active?: boolean;

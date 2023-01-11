@@ -2,12 +2,12 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-pdf-reader.mdx";
 
 export default {
-  component: "flip-pdf-reader",
+  component: "swirl-pdf-reader",
   parameters: {
     docs: {
       page: Docs,
       source: {
-        code: `<flip-pdf-reader file="/sample.pdf" id="pdf-reader" label="PDF Reader"></flip-pdf-reader>
+        code: `<swirl-pdf-reader file="/sample.pdf" id="pdf-reader" label="PDF Reader"></swirl-pdf-reader>
 
 <script>
   const pdfReader = document.body.querySelector('#pdf-reader');
@@ -16,16 +16,16 @@ export default {
       },
     },
   },
-  title: "Components/FlipPdfReader",
+  title: "Components/SwirlPdfReader",
 };
 
 const Template = (args) => {
   const container = document.createElement("div");
-  const trigger = document.createElement("flip-button");
+  const trigger = document.createElement("swirl-button");
   const element = generateStoryElement(
-    "flip-pdf-reader",
+    "swirl-pdf-reader",
     args
-  ) as HTMLFlipPdfReaderElement;
+  ) as HTMLSwirlPdfReaderElement;
 
   trigger.label = "Open PDF reader";
   trigger.addEventListener("click", () => element.open());
@@ -35,9 +35,9 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipPdfReader = Template.bind({});
+export const SwirlPdfReader = Template.bind({});
 
-FlipPdfReader.args = {
+SwirlPdfReader.args = {
   file: "/sample.pdf",
   label: "PDF Reader",
 };

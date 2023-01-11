@@ -5,63 +5,63 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { FlipActionListItemIntent, FlipActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
-import { FlipAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
-import { FlipAutocompleteSuggestion } from "./components/swirl-autocomplete/swirl-autocomplete";
-import { FlipTextInputMode } from "./components/swirl-text-input/swirl-text-input";
-import { FlipAvatarBadgePosition, FlipAvatarColor, FlipAvatarSize, FlipAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
-import { FlipBadgeIntent, FlipBadgeSize, FlipBadgeVariant } from "./components/swirl-badge/swirl-badge";
-import { FlipBannerAriaRole, FlipBannerIntent } from "./components/swirl-banner/swirl-banner";
-import { FlipBoxOverflow, FlipBoxPadding } from "./components/swirl-box/swirl-box";
-import { FlipButtonIconPosition, FlipButtonIntent, FlipButtonSize, FlipButtonType, FlipButtonVariant } from "./components/swirl-button/swirl-button";
-import { FlipButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
-import { FlipCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
-import { FlipChipIntent } from "./components/swirl-chip/swirl-chip";
+import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
+import { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
+import { SwirlAutocompleteSuggestion } from "./components/swirl-autocomplete/swirl-autocomplete";
+import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
+import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
+import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
+import { SwirlBannerAriaRole, SwirlBannerIntent } from "./components/swirl-banner/swirl-banner";
+import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
+import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
+import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
+import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
+import { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
 import { AirDatepickerLocale } from "air-datepicker";
-import { FlipDialogIntent } from "./components/swirl-dialog/swirl-dialog";
-import { FlipFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
-import { FlipFileViewerPdfZoom as FlipFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
-import { FlipFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
-import { FlipHeadingAlign, FlipHeadingLevel, FlipHeadingTag } from "./components/swirl-heading/swirl-heading";
-import { FlipIconSize } from "./components/swirl-icon/swirl-icon.types";
-import { FlipInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
-import { FlipLinkTarget } from "./components/swirl-link/swirl-link";
-import { FlipOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
-import { FlipPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
-import { FlipPopoverAnimation } from "./components/swirl-popover/swirl-popover";
+import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
+import { SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import { SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
+import { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
+import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
+import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
+import { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+import { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
+import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
+import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
 import { Placement } from "@floating-ui/dom";
-import { FlipProgressIndicatorSize, FlipProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
-import { FlipRadioState } from "./components/swirl-radio/swirl-radio";
-import { FlipSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
-import { FlipStackAlign, FlipStackJustify, FlipStackOrientation, FlipStackSpacing } from "./components/swirl-stack/swirl-stack";
-import { FlipSwitchSize } from "./components/swirl-switch/swirl-switch";
-import { FlipTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
-import { FlipTagIntent } from "./components/swirl-tag/swirl-tag";
-import { FlipTextAlign, FlipTextColor, FlipTextFontStyle, FlipTextSize, FlipTextWeight } from "./components/swirl-text/swirl-text";
-import { FlipTextInputMode as FlipTextInputMode1, FlipTextInputType } from "./components/swirl-text-input/swirl-text-input";
-import { FlipTheme, FlipThemeChangeEventData, FlipThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider";
-import { FlipThumbnailFormat, FlipThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
-import { FlipToastIntent } from "./components/swirl-toast/swirl-toast";
-import { FlipToastConfig, FlipToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
-import { FlipTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
+import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
+import { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
+import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
+import { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
+import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
+import { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
+import { SwirlTextAlign, SwirlTextColor, SwirlTextFontStyle, SwirlTextSize, SwirlTextWeight } from "./components/swirl-text/swirl-text";
+import { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
+import { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider";
+import { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
+import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
+import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
+import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export namespace Components {
     interface FileManager {
     }
-    interface FlipActionList {
+    interface SwirlActionList {
     }
-    interface FlipActionListItem {
+    interface SwirlActionListItem {
         "description"?: string;
         "disabled"?: boolean;
         "icon"?: string;
-        "intent"?: FlipActionListItemIntent;
+        "intent"?: SwirlActionListItemIntent;
         "label": string;
-        "size"?: FlipActionListItemSize;
+        "size"?: SwirlActionListItemSize;
         "suffix"?: string;
     }
-    interface FlipActionListSection {
+    interface SwirlActionListSection {
         "label": string;
     }
-    interface FlipAppLayout {
+    interface SwirlAppLayout {
         "appBarMedia"?: string;
         "appName": string;
         "backToNavigationViewButtonLabel"?: string;
@@ -69,7 +69,7 @@ export namespace Components {
           * Change the currently displayed view on mobile viewports
           * @param mobileView
          */
-        "changeMobileView": (mobileView: FlipAppLayoutMobileView, transition?: boolean) => Promise<void>;
+        "changeMobileView": (mobileView: SwirlAppLayoutMobileView, transition?: boolean) => Promise<void>;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
         "heading"?: string;
@@ -93,117 +93,117 @@ export namespace Components {
         "toggleSidebar": () => Promise<void>;
         "transitionStyle"?: string;
     }
-    interface FlipAutocomplete {
+    interface SwirlAutocomplete {
         "autoSelect"?: boolean;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
         "disabled"?: boolean;
-        "flipAriaDescribedby"?: string;
         "generateSuggestions"?: (
     currentValue: string
-  ) => Promise<FlipAutocompleteSuggestion[]>;
+  ) => Promise<SwirlAutocompleteSuggestion[]>;
         "invalid"?: boolean;
         "maxLength"?: number;
         "menuLabel"?: string;
-        "mode"?: FlipTextInputMode;
+        "mode"?: SwirlTextInputMode;
         "required"?: boolean;
         "spellCheck"?: boolean;
+        "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
-    interface FlipAvatar {
+    interface SwirlAvatar {
         "badge"?: string;
-        "badgePosition"?: FlipAvatarBadgePosition;
-        "color"?: FlipAvatarColor;
+        "badgePosition"?: SwirlAvatarBadgePosition;
+        "color"?: SwirlAvatarColor;
         "icon"?: string;
         "initials"?: string;
         "interactive"?: boolean;
         "label": string;
         "showLabel"?: boolean;
-        "size"?: FlipAvatarSize;
+        "size"?: SwirlAvatarSize;
         "src"?: string;
-        "variant"?: FlipAvatarVariant;
+        "variant"?: SwirlAvatarVariant;
     }
-    interface FlipAvatarGroup {
+    interface SwirlAvatarGroup {
         "badge"?: string;
     }
-    interface FlipBadge {
+    interface SwirlBadge {
         "icon"?: string;
-        "intent"?: FlipBadgeIntent;
+        "intent"?: SwirlBadgeIntent;
         "label": string;
-        "size"?: FlipBadgeSize;
-        "variant"?: FlipBadgeVariant;
+        "size"?: SwirlBadgeSize;
+        "variant"?: SwirlBadgeVariant;
     }
-    interface FlipBanner {
+    interface SwirlBanner {
         "actionLabel"?: string;
         "content": string;
         "dismissLabel"?: string;
         "dismissable"?: boolean;
-        "importance"?: FlipBannerAriaRole;
-        "intent"?: FlipBannerIntent;
+        "importance"?: SwirlBannerAriaRole;
+        "intent"?: SwirlBannerIntent;
         "showIcon"?: boolean;
     }
-    interface FlipBox {
+    interface SwirlBox {
         "as"?: string;
         "bordered"?: boolean;
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
-        "overflow"?: FlipBoxOverflow;
-        "padding"?: FlipBoxPadding;
+        "overflow"?: SwirlBoxOverflow;
+        "padding"?: SwirlBoxPadding;
     }
-    interface FlipButton {
+    interface SwirlButton {
         "disabled"?: boolean;
         "download"?: string;
-        "flipAriaDescribedby"?: string;
-        "flipAriaExpanded"?: string;
-        "flipAriaLabel"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
         "icon"?: string;
-        "iconPosition": FlipButtonIconPosition;
-        "intent"?: FlipButtonIntent;
+        "iconPosition": SwirlButtonIconPosition;
+        "intent"?: SwirlButtonIntent;
         "label": string;
         "name"?: string;
-        "size"?: FlipButtonSize;
+        "size"?: SwirlButtonSize;
+        "swirlAriaDescribedby"?: string;
+        "swirlAriaExpanded"?: string;
+        "swirlAriaLabel"?: string;
         "target"?: string;
-        "type"?: FlipButtonType;
+        "type"?: SwirlButtonType;
         "value"?: string;
-        "variant"?: FlipButtonVariant;
+        "variant"?: SwirlButtonVariant;
     }
-    interface FlipButtonGroup {
-        "orientation"?: FlipButtonGroupOrientation;
+    interface SwirlButtonGroup {
+        "orientation"?: SwirlButtonGroupOrientation;
         "segmented"?: boolean;
         "stretch"?: boolean;
         "wrap"?: boolean;
     }
-    interface FlipCard {
+    interface SwirlCard {
         "as"?: string;
         "elevated"?: boolean;
         "href"?: string;
         "interactive"?: boolean;
         "linkTarget"?: string;
     }
-    interface FlipCheckbox {
-        "checked"?: FlipCheckboxState;
+    interface SwirlCheckbox {
+        "checked"?: SwirlCheckboxState;
         "description"?: string;
         "disabled"?: boolean;
-        "flipAriaDescribedby"?: string;
-        "flipAriaLabel"?: string;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
+        "swirlAriaDescribedby"?: string;
+        "swirlAriaLabel"?: string;
         "value"?: string;
     }
-    interface FlipChip {
+    interface SwirlChip {
         "avatar"?: string;
         "icon"?: string;
-        "intent"?: FlipChipIntent;
+        "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
     }
-    interface FlipConsoleLayout {
+    interface SwirlConsoleLayout {
         "appName": string;
         "backButonLabel"?: string;
         "heading": string;
@@ -228,20 +228,20 @@ export namespace Components {
          */
         "toggleSidebar": () => Promise<void>;
     }
-    interface FlipDateInput {
+    interface SwirlDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
         "datePickerLabel"?: string;
         "disabled"?: boolean;
-        "flipAriaDescribedby"?: string;
         "format"?: string;
         "invalid"?: boolean;
         "locale"?: Partial<AirDatepickerLocale>;
         "placeholder"?: string;
         "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
-    interface FlipDatePicker {
+    interface SwirlDatePicker {
         "locale"?: Partial<AirDatepickerLocale>;
         "maxDate"?: Date;
         "minDate"?: Date;
@@ -249,18 +249,18 @@ export namespace Components {
         "startDate"?: Date;
         "value"?: Date | Date[];
     }
-    interface FlipDescriptionList {
+    interface SwirlDescriptionList {
     }
-    interface FlipDescriptionListItem {
+    interface SwirlDescriptionListItem {
         "term": string;
     }
-    interface FlipDialog {
+    interface SwirlDialog {
         /**
           * Close the dialog.
          */
         "close": () => Promise<void>;
         "hideLabel"?: boolean;
-        "intent"?: FlipDialogIntent;
+        "intent"?: SwirlDialogIntent;
         "label": string;
         /**
           * Open the dialog.
@@ -269,11 +269,11 @@ export namespace Components {
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
-    interface FlipEmptyState {
+    interface SwirlEmptyState {
         "heading"?: string;
         "illustration"?: string;
     }
-    interface FlipFileUploader {
+    interface SwirlFileUploader {
         "accept"?: string;
         "ctaLabel"?: string;
         "description"?: string;
@@ -290,7 +290,7 @@ export namespace Components {
         "showDropzone"?: boolean;
         "uploadButtonLabel"?: string;
     }
-    interface FlipFileViewer {
+    interface SwirlFileViewer {
         "active"?: boolean;
         "autoplay"?: boolean;
         "description"?: string;
@@ -306,18 +306,18 @@ export namespace Components {
         "print": () => Promise<void>;
         "type": string;
         "typeUnsupportedMessage"?: string;
-        "zoom"?: FlipFileViewerPdfZoom;
+        "zoom"?: SwirlFileViewerPdfZoom;
     }
-    interface FlipFileViewerAudio {
+    interface SwirlFileViewerAudio {
         "autoplay"?: boolean;
         "file": string;
         "type": string;
     }
-    interface FlipFileViewerCsv {
+    interface SwirlFileViewerCsv {
         "errorMessage"?: string;
         "file": string;
     }
-    interface FlipFileViewerImage {
+    interface SwirlFileViewerImage {
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
@@ -333,7 +333,7 @@ export namespace Components {
          */
         "resetZoom": () => Promise<void>;
     }
-    interface FlipFileViewerPdf {
+    interface SwirlFileViewerPdf {
         "errorMessage"?: string;
         "file": string;
         /**
@@ -353,321 +353,321 @@ export namespace Components {
          */
         "setPage": (page: number) => Promise<void>;
         "singlePageMode": boolean;
-        "zoom"?: FlipFileViewerPdfZoom;
+        "zoom"?: SwirlFileViewerPdfZoom;
     }
-    interface FlipFileViewerText {
+    interface SwirlFileViewerText {
         "errorMessage"?: string;
         "file": string;
     }
-    interface FlipFileViewerVideo {
+    interface SwirlFileViewerVideo {
         "autoplay"?: boolean;
         "file": string;
         "type": string;
     }
-    interface FlipFormControl {
+    interface SwirlFormControl {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
         "invalid"?: boolean;
         "label": string;
     }
-    interface FlipFormGroup {
-        "orientation": FlipFormGroupOrientation;
+    interface SwirlFormGroup {
+        "orientation": SwirlFormGroupOrientation;
     }
-    interface FlipHeading {
-        "align"?: FlipHeadingAlign;
-        "as"?: FlipHeadingTag;
+    interface SwirlHeading {
+        "align"?: SwirlHeadingAlign;
+        "as"?: SwirlHeadingTag;
         "headingId"?: string;
-        "level"?: FlipHeadingLevel;
+        "level"?: SwirlHeadingLevel;
         "text": string;
     }
-    interface FlipIconAdd {
-        "size": FlipIconSize;
+    interface SwirlIconAdd {
+        "size": SwirlIconSize;
     }
-    interface FlipIconAddPhoto {
-        "size": FlipIconSize;
+    interface SwirlIconAddPhoto {
+        "size": SwirlIconSize;
     }
-    interface FlipIconAdminPanelSettings {
-        "size": FlipIconSize;
+    interface SwirlIconAdminPanelSettings {
+        "size": SwirlIconSize;
     }
-    interface FlipIconArrowBack {
-        "size": FlipIconSize;
+    interface SwirlIconArrowBack {
+        "size": SwirlIconSize;
     }
-    interface FlipIconArrowDownward {
-        "size": FlipIconSize;
+    interface SwirlIconArrowDownward {
+        "size": SwirlIconSize;
     }
-    interface FlipIconArrowForward {
-        "size": FlipIconSize;
+    interface SwirlIconArrowForward {
+        "size": SwirlIconSize;
     }
-    interface FlipIconArrowLeft {
-        "size": FlipIconSize;
+    interface SwirlIconArrowLeft {
+        "size": SwirlIconSize;
     }
-    interface FlipIconArrowRight {
-        "size": FlipIconSize;
+    interface SwirlIconArrowRight {
+        "size": SwirlIconSize;
     }
-    interface FlipIconArrowRightSmall {
-        "size": FlipIconSize;
+    interface SwirlIconArrowRightSmall {
+        "size": SwirlIconSize;
     }
-    interface FlipIconArrowUpward {
-        "size": FlipIconSize;
+    interface SwirlIconArrowUpward {
+        "size": SwirlIconSize;
     }
-    interface FlipIconAttachment {
-        "size": FlipIconSize;
+    interface SwirlIconAttachment {
+        "size": SwirlIconSize;
     }
-    interface FlipIconBlock {
-        "size": FlipIconSize;
+    interface SwirlIconBlock {
+        "size": SwirlIconSize;
     }
-    interface FlipIconCancel {
-        "size": FlipIconSize;
+    interface SwirlIconCancel {
+        "size": SwirlIconSize;
     }
-    interface FlipIconChatBubble {
-        "size": FlipIconSize;
+    interface SwirlIconChatBubble {
+        "size": SwirlIconSize;
     }
-    interface FlipIconChatsFilled {
-        "size": FlipIconSize;
+    interface SwirlIconChatsFilled {
+        "size": SwirlIconSize;
     }
-    interface FlipIconChatsOutlined {
-        "size": FlipIconSize;
+    interface SwirlIconChatsOutlined {
+        "size": SwirlIconSize;
     }
-    interface FlipIconCheck {
-        "size": FlipIconSize;
+    interface SwirlIconCheck {
+        "size": SwirlIconSize;
     }
-    interface FlipIconCheckCircle {
-        "size": FlipIconSize;
+    interface SwirlIconCheckCircle {
+        "size": SwirlIconSize;
     }
-    interface FlipIconCheckSmall {
-        "size": FlipIconSize;
+    interface SwirlIconCheckSmall {
+        "size": SwirlIconSize;
     }
-    interface FlipIconCheckStrong {
-        "size": FlipIconSize;
+    interface SwirlIconCheckStrong {
+        "size": SwirlIconSize;
     }
-    interface FlipIconChevronLeft {
-        "size": FlipIconSize;
+    interface SwirlIconChevronLeft {
+        "size": SwirlIconSize;
     }
-    interface FlipIconChevronRight {
-        "size": FlipIconSize;
+    interface SwirlIconChevronRight {
+        "size": SwirlIconSize;
     }
-    interface FlipIconClose {
-        "size": FlipIconSize;
+    interface SwirlIconClose {
+        "size": SwirlIconSize;
     }
-    interface FlipIconCloseSmall {
-        "size": FlipIconSize;
+    interface SwirlIconCloseSmall {
+        "size": SwirlIconSize;
     }
-    interface FlipIconCloudUpload {
-        "size": FlipIconSize;
+    interface SwirlIconCloudUpload {
+        "size": SwirlIconSize;
     }
-    interface FlipIconColumn {
-        "size": FlipIconSize;
+    interface SwirlIconColumn {
+        "size": SwirlIconSize;
     }
-    interface FlipIconComment {
-        "size": FlipIconSize;
+    interface SwirlIconComment {
+        "size": SwirlIconSize;
     }
-    interface FlipIconCopy {
-        "size": FlipIconSize;
+    interface SwirlIconCopy {
+        "size": SwirlIconSize;
     }
-    interface FlipIconDateRange {
-        "size": FlipIconSize;
+    interface SwirlIconDateRange {
+        "size": SwirlIconSize;
     }
-    interface FlipIconDelete {
-        "size": FlipIconSize;
+    interface SwirlIconDelete {
+        "size": SwirlIconSize;
     }
-    interface FlipIconDescription {
-        "size": FlipIconSize;
+    interface SwirlIconDescription {
+        "size": SwirlIconSize;
     }
-    interface FlipIconDownload {
-        "size": FlipIconSize;
+    interface SwirlIconDownload {
+        "size": SwirlIconSize;
     }
-    interface FlipIconEdit {
-        "size": FlipIconSize;
+    interface SwirlIconEdit {
+        "size": SwirlIconSize;
     }
-    interface FlipIconEmojiMood {
-        "size": FlipIconSize;
+    interface SwirlIconEmojiMood {
+        "size": SwirlIconSize;
     }
-    interface FlipIconEmojiSatisfied {
-        "size": FlipIconSize;
+    interface SwirlIconEmojiSatisfied {
+        "size": SwirlIconSize;
     }
-    interface FlipIconError {
-        "size": FlipIconSize;
+    interface SwirlIconError {
+        "size": SwirlIconSize;
     }
-    interface FlipIconExpandLess {
-        "size": FlipIconSize;
+    interface SwirlIconExpandLess {
+        "size": SwirlIconSize;
     }
-    interface FlipIconExpandMore {
-        "size": FlipIconSize;
+    interface SwirlIconExpandMore {
+        "size": SwirlIconSize;
     }
-    interface FlipIconFile {
-        "size": FlipIconSize;
+    interface SwirlIconFile {
+        "size": SwirlIconSize;
     }
-    interface FlipIconFilter {
-        "size": FlipIconSize;
+    interface SwirlIconFilter {
+        "size": SwirlIconSize;
     }
-    interface FlipIconFolderShared {
-        "size": FlipIconSize;
+    interface SwirlIconFolderShared {
+        "size": SwirlIconSize;
     }
-    interface FlipIconFullscreen {
-        "size": FlipIconSize;
+    interface SwirlIconFullscreen {
+        "size": SwirlIconSize;
     }
-    interface FlipIconFullscreenExit {
-        "size": FlipIconSize;
+    interface SwirlIconFullscreenExit {
+        "size": SwirlIconSize;
     }
-    interface FlipIconGroupAssign {
-        "size": FlipIconSize;
+    interface SwirlIconGroupAssign {
+        "size": SwirlIconSize;
     }
-    interface FlipIconGroups {
-        "size": FlipIconSize;
+    interface SwirlIconGroups {
+        "size": SwirlIconSize;
     }
-    interface FlipIconGroupsCustom {
-        "size": FlipIconSize;
+    interface SwirlIconGroupsCustom {
+        "size": SwirlIconSize;
     }
-    interface FlipIconGroupsFilled {
-        "size": FlipIconSize;
+    interface SwirlIconGroupsFilled {
+        "size": SwirlIconSize;
     }
-    interface FlipIconGroupsOutlined {
-        "size": FlipIconSize;
+    interface SwirlIconGroupsOutlined {
+        "size": SwirlIconSize;
     }
-    interface FlipIconHelp {
-        "size": FlipIconSize;
+    interface SwirlIconHelp {
+        "size": SwirlIconSize;
     }
-    interface FlipIconImage {
-        "size": FlipIconSize;
+    interface SwirlIconImage {
+        "size": SwirlIconSize;
     }
-    interface FlipIconInfo {
-        "size": FlipIconSize;
+    interface SwirlIconInfo {
+        "size": SwirlIconSize;
     }
-    interface FlipIconInventory {
-        "size": FlipIconSize;
+    interface SwirlIconInventory {
+        "size": SwirlIconSize;
     }
-    interface FlipIconLike {
-        "size": FlipIconSize;
+    interface SwirlIconLike {
+        "size": SwirlIconSize;
     }
-    interface FlipIconLink {
-        "size": FlipIconSize;
+    interface SwirlIconLink {
+        "size": SwirlIconSize;
     }
-    interface FlipIconLock {
-        "size": FlipIconSize;
+    interface SwirlIconLock {
+        "size": SwirlIconSize;
     }
-    interface FlipIconLogout {
-        "size": FlipIconSize;
+    interface SwirlIconLogout {
+        "size": SwirlIconSize;
     }
-    interface FlipIconMail {
-        "size": FlipIconSize;
+    interface SwirlIconMail {
+        "size": SwirlIconSize;
     }
-    interface FlipIconManageAccounts {
-        "size": FlipIconSize;
+    interface SwirlIconManageAccounts {
+        "size": SwirlIconSize;
     }
-    interface FlipIconMention {
-        "size": FlipIconSize;
+    interface SwirlIconMention {
+        "size": SwirlIconSize;
     }
-    interface FlipIconMenu {
-        "size": FlipIconSize;
+    interface SwirlIconMenu {
+        "size": SwirlIconSize;
     }
-    interface FlipIconMenuFilled {
-        "size": FlipIconSize;
+    interface SwirlIconMenuFilled {
+        "size": SwirlIconSize;
     }
-    interface FlipIconMenuOutlined {
-        "size": FlipIconSize;
+    interface SwirlIconMenuOutlined {
+        "size": SwirlIconSize;
     }
-    interface FlipIconMessage {
-        "size": FlipIconSize;
+    interface SwirlIconMessage {
+        "size": SwirlIconSize;
     }
-    interface FlipIconMoreHorizontal {
-        "size": FlipIconSize;
+    interface SwirlIconMoreHorizontal {
+        "size": SwirlIconSize;
     }
-    interface FlipIconMoreVertikal {
-        "size": FlipIconSize;
+    interface SwirlIconMoreVertikal {
+        "size": SwirlIconSize;
     }
-    interface FlipIconNewsFilled {
-        "size": FlipIconSize;
+    interface SwirlIconNewsFilled {
+        "size": SwirlIconSize;
     }
-    interface FlipIconNewsOutlined {
-        "size": FlipIconSize;
+    interface SwirlIconNewsOutlined {
+        "size": SwirlIconSize;
     }
-    interface FlipIconNotifications {
-        "size": FlipIconSize;
+    interface SwirlIconNotifications {
+        "size": SwirlIconSize;
     }
-    interface FlipIconNotificationsActive {
-        "size": FlipIconSize;
+    interface SwirlIconNotificationsActive {
+        "size": SwirlIconSize;
     }
-    interface FlipIconNotificationsOff {
-        "size": FlipIconSize;
+    interface SwirlIconNotificationsOff {
+        "size": SwirlIconSize;
     }
-    interface FlipIconOpenInNew {
-        "size": FlipIconSize;
+    interface SwirlIconOpenInNew {
+        "size": SwirlIconSize;
     }
-    interface FlipIconPeopleAlt {
-        "size": FlipIconSize;
+    interface SwirlIconPeopleAlt {
+        "size": SwirlIconSize;
     }
-    interface FlipIconPerson {
-        "size": FlipIconSize;
+    interface SwirlIconPerson {
+        "size": SwirlIconSize;
     }
-    interface FlipIconPersonOff {
-        "size": FlipIconSize;
+    interface SwirlIconPersonOff {
+        "size": SwirlIconSize;
     }
-    interface FlipIconPhone {
-        "size": FlipIconSize;
+    interface SwirlIconPhone {
+        "size": SwirlIconSize;
     }
-    interface FlipIconPoll {
-        "size": FlipIconSize;
+    interface SwirlIconPoll {
+        "size": SwirlIconSize;
     }
-    interface FlipIconPrint {
-        "size": FlipIconSize;
+    interface SwirlIconPrint {
+        "size": SwirlIconSize;
     }
-    interface FlipIconRecieved {
-        "size": FlipIconSize;
+    interface SwirlIconRecieved {
+        "size": SwirlIconSize;
     }
-    interface FlipIconRemove {
-        "size": FlipIconSize;
+    interface SwirlIconRemove {
+        "size": SwirlIconSize;
     }
-    interface FlipIconSearch {
-        "size": FlipIconSize;
+    interface SwirlIconSearch {
+        "size": SwirlIconSize;
     }
-    interface FlipIconSearchStrong {
-        "size": FlipIconSize;
+    interface SwirlIconSearchStrong {
+        "size": SwirlIconSize;
     }
-    interface FlipIconSend {
-        "size": FlipIconSize;
+    interface SwirlIconSend {
+        "size": SwirlIconSize;
     }
-    interface FlipIconSettings {
-        "size": FlipIconSize;
+    interface SwirlIconSettings {
+        "size": SwirlIconSize;
     }
-    interface FlipIconSync {
-        "size": FlipIconSize;
+    interface SwirlIconSync {
+        "size": SwirlIconSize;
     }
-    interface FlipIconTasksFilled {
-        "size": FlipIconSize;
+    interface SwirlIconTasksFilled {
+        "size": SwirlIconSize;
     }
-    interface FlipIconTasksOutlined {
-        "size": FlipIconSize;
+    interface SwirlIconTasksOutlined {
+        "size": SwirlIconSize;
     }
-    interface FlipIconTimeFilled {
-        "size": FlipIconSize;
+    interface SwirlIconTimeFilled {
+        "size": SwirlIconSize;
     }
-    interface FlipIconTimeOutlined {
-        "size": FlipIconSize;
+    interface SwirlIconTimeOutlined {
+        "size": SwirlIconSize;
     }
-    interface FlipIconToday {
-        "size": FlipIconSize;
+    interface SwirlIconToday {
+        "size": SwirlIconSize;
     }
-    interface FlipIconUserAssign {
-        "size": FlipIconSize;
+    interface SwirlIconUserAssign {
+        "size": SwirlIconSize;
     }
-    interface FlipIconVideoCamera {
-        "size": FlipIconSize;
+    interface SwirlIconVideoCamera {
+        "size": SwirlIconSize;
     }
-    interface FlipIconVisibility {
-        "size": FlipIconSize;
+    interface SwirlIconVisibility {
+        "size": SwirlIconSize;
     }
-    interface FlipIconVisibilityOff {
-        "size": FlipIconSize;
+    interface SwirlIconVisibilityOff {
+        "size": SwirlIconSize;
     }
-    interface FlipIconWarning {
-        "size": FlipIconSize;
+    interface SwirlIconWarning {
+        "size": SwirlIconSize;
     }
-    interface FlipInlineError {
+    interface SwirlInlineError {
         "message": string;
-        "size"?: FlipInlineErrorSize;
+        "size"?: SwirlInlineErrorSize;
     }
-    interface FlipLightbox {
+    interface SwirlLightbox {
         /**
           * Activate a slide.
           * @param newActiveSlideIndex
@@ -687,14 +687,14 @@ export namespace Components {
         "open": () => Promise<void>;
         "previousSlideButtonLabel"?: string;
     }
-    interface FlipLink {
+    interface SwirlLink {
         "href": string;
         "label": string;
-        "target"?: FlipLinkTarget;
+        "target"?: SwirlLinkTarget;
     }
-    interface FlipList {
+    interface SwirlList {
     }
-    interface FlipModal {
+    interface SwirlModal {
         /**
           * Close the modal.
          */
@@ -708,25 +708,25 @@ export namespace Components {
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
-    interface FlipOptionList {
+    interface SwirlOptionList {
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
         "optionListId"?: string;
         "value"?: string[];
     }
-    interface FlipOptionListItem {
-        "context"?: FlipOptionListItemContext;
+    interface SwirlOptionListItem {
+        "context"?: SwirlOptionListItemContext;
         "disabled"?: boolean;
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
         "value": string;
     }
-    interface FlipOptionListSection {
+    interface SwirlOptionListSection {
         "label": string;
     }
-    interface FlipPagination {
+    interface SwirlPagination {
         "accessibleNextButtonLabel"?: string;
         "accessiblePrevButtonLabel"?: string;
         "label": string;
@@ -736,9 +736,9 @@ export namespace Components {
         "pageSelectLabel"?: string;
         "pages": number;
         "prevButtonLabel"?: string;
-        "variant"?: FlipPaginationVariant;
+        "variant"?: SwirlPaginationVariant;
     }
-    interface FlipPdfReader {
+    interface SwirlPdfReader {
         "autoZoomLabel"?: string;
         /**
           * Close the reader.
@@ -757,8 +757,8 @@ export namespace Components {
         "zoomOutButtonLabel"?: string;
         "zoomSelectLabel"?: string;
     }
-    interface FlipPopover {
-        "animation"?: FlipPopoverAnimation;
+    interface SwirlPopover {
+        "animation"?: SwirlPopoverAnimation;
         /**
           * Close the popover.
           * @returns
@@ -777,14 +777,14 @@ export namespace Components {
         "trigger": string;
         "useContainerWidth"?: boolean | string;
     }
-    interface FlipProgressIndicator {
+    interface SwirlProgressIndicator {
         "label": string;
-        "size"?: FlipProgressIndicatorSize;
+        "size"?: SwirlProgressIndicatorSize;
         "value"?: number;
-        "variant"?: FlipProgressIndicatorVariant;
+        "variant"?: SwirlProgressIndicatorVariant;
     }
-    interface FlipRadio {
-        "checked"?: FlipRadioState;
+    interface SwirlRadio {
+        "checked"?: SwirlRadioState;
         "description"?: string;
         "disabled"?: boolean;
         "inputId": string;
@@ -793,14 +793,14 @@ export namespace Components {
         "label"?: string;
         "value": string;
     }
-    interface FlipRadioGroup {
-        "flipAriaDescribedby"?: string;
+    interface SwirlRadioGroup {
+        "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
-    interface FlipResourceList {
+    interface SwirlResourceList {
         "label"?: string;
     }
-    interface FlipResourceListFileItem {
+    interface SwirlResourceListFileItem {
         "description"?: string;
         "errorMessage"?: string;
         "icon"?: string;
@@ -809,7 +809,7 @@ export namespace Components {
         "removable"?: boolean;
         "removeButtonLabel"?: string;
     }
-    interface FlipResourceListItem {
+    interface SwirlResourceListItem {
         "checked"?: boolean;
         "description"?: string;
         "disabled"?: boolean;
@@ -823,7 +823,7 @@ export namespace Components {
         "selectable"?: boolean;
         "value"?: string;
     }
-    interface FlipSearch {
+    interface SwirlSearch {
         "autoFocus"?: boolean;
         "clearButtonLabel"?: string;
         "disabled"?: boolean;
@@ -833,66 +833,66 @@ export namespace Components {
         "placeholder"?: string;
         "value"?: string;
     }
-    interface FlipSelect {
+    interface SwirlSelect {
         "disabled"?: boolean;
-        "flipAriaDescribedby"?: string;
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
         "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
         "value"?: string[];
     }
-    interface FlipSeparator {
+    interface SwirlSeparator {
     }
-    interface FlipSpinner {
+    interface SwirlSpinner {
         "label"?: string;
-        "size"?: FlipSpinnerSize;
+        "size"?: SwirlSpinnerSize;
     }
-    interface FlipStack {
-        "align"?: FlipStackAlign;
+    interface SwirlStack {
+        "align"?: SwirlStackAlign;
         "as"?: string;
-        "justify"?: FlipStackJustify;
-        "orientation"?: FlipStackOrientation;
-        "spacing"?: FlipStackSpacing;
+        "justify"?: SwirlStackJustify;
+        "orientation"?: SwirlStackOrientation;
+        "spacing"?: SwirlStackSpacing;
         "wrap"?: boolean;
     }
-    interface FlipSwitch {
+    interface SwirlSwitch {
         "checked"?: boolean;
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
         "label"?: string;
-        "size"?: FlipSwitchSize;
+        "size"?: SwirlSwitchSize;
         "value"?: string;
     }
-    interface FlipTab {
+    interface SwirlTab {
         "active"?: boolean;
         "label": string;
         "tabId": string;
     }
-    interface FlipTable {
+    interface SwirlTable {
         "caption"?: string;
         "emptyStateLabel"?: string;
         "label": string;
     }
-    interface FlipTableCell {
+    interface SwirlTableCell {
     }
-    interface FlipTableColumn {
+    interface SwirlTableColumn {
         "maxWidth"?: string;
         "minWidth"?: string;
-        "sort"?: FlipTableColumnSort;
+        "sort"?: SwirlTableColumnSort;
         "sortable"?: boolean;
         "sticky"?: boolean;
         "width"?: string;
     }
-    interface FlipTableRow {
+    interface SwirlTableRow {
         "highlighted"?: boolean;
         "index"?: number;
     }
-    interface FlipTableRowGroup {
+    interface SwirlTableRowGroup {
         "label": string;
     }
-    interface FlipTabs {
+    interface SwirlTabs {
         /**
           * Activate a tab.
           * @param tabId
@@ -901,22 +901,22 @@ export namespace Components {
         "initialTab"?: string;
         "label": string;
     }
-    interface FlipTag {
-        "intent"?: FlipTagIntent;
+    interface SwirlTag {
+        "intent"?: SwirlTagIntent;
         "label": string;
         "removable"?: boolean;
         "removalButtonLabel"?: string;
     }
-    interface FlipText {
-        "align"?: FlipTextAlign;
+    interface SwirlText {
+        "align"?: SwirlTextAlign;
         "as"?: string;
-        "color"?: FlipTextColor;
-        "fontStyle"?: FlipTextFontStyle;
-        "size"?: FlipTextSize;
+        "color"?: SwirlTextColor;
+        "fontStyle"?: SwirlTextFontStyle;
+        "size"?: SwirlTextSize;
         "truncate"?: boolean;
-        "weight"?: FlipTextWeight;
+        "weight"?: SwirlTextWeight;
     }
-    interface FlipTextInput {
+    interface SwirlTextInput {
         "autoComplete"?: string;
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
@@ -924,16 +924,11 @@ export namespace Components {
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
-        "flipAriaAutocomplete"?: string;
-        "flipAriaControls"?: string;
-        "flipAriaDescribedby"?: string;
-        "flipAriaExpanded"?: string;
-        "flipRole"?: string;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
         "min"?: number;
-        "mode"?: FlipTextInputMode;
+        "mode"?: SwirlTextInputMode;
         "passwordToggleLabel"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
@@ -942,21 +937,26 @@ export namespace Components {
         "spellCheck"?: boolean;
         "step"?: number;
         "suffixLabel"?: string;
-        "type"?: FlipTextInputType;
+        "swirlAriaAutocomplete"?: string;
+        "swirlAriaControls"?: string;
+        "swirlAriaDescribedby"?: string;
+        "swirlAriaExpanded"?: string;
+        "swirlRole"?: string;
+        "type"?: SwirlTextInputType;
         "value"?: string;
     }
-    interface FlipThemeProvider {
-        "config": FlipThemeProviderConfig;
+    interface SwirlThemeProvider {
+        "config": SwirlThemeProviderConfig;
         /**
           * Returns the active app theme.
           * @returns FlipTheme
          */
-        "getActiveTheme": () => Promise<FlipTheme>;
+        "getActiveTheme": () => Promise<SwirlTheme>;
         /**
           * Returns the user's preferred theme stored in local storage.
           * @returns FlipTheme
          */
-        "getPreferredTheme": () => Promise<FlipTheme>;
+        "getPreferredTheme": () => Promise<SwirlTheme>;
         /**
           * Resets the user's preferred theme, using the OS theme instead.
          */
@@ -964,24 +964,24 @@ export namespace Components {
         /**
           * Sets the user's preferred theme and stores it in local storage. Overrides the OS theme.
          */
-        "setPreferredTheme": (theme: FlipTheme) => Promise<void>;
+        "setPreferredTheme": (theme: SwirlTheme) => Promise<void>;
     }
-    interface FlipThumbnail {
+    interface SwirlThumbnail {
         "alt": string;
-        "format"?: FlipThumbnailFormat;
-        "size": FlipThumbnailSize;
+        "format"?: SwirlThumbnailFormat;
+        "size": SwirlThumbnailSize;
         "src": string;
     }
-    interface FlipToast {
+    interface SwirlToast {
         "accessibleDismissLabel"?: string;
         "content": string;
         "dismissLabel"?: string;
         "duration"?: number;
         "icon"?: string;
-        "intent"?: FlipToastIntent;
+        "intent"?: SwirlToastIntent;
         "toastId": string;
     }
-    interface FlipToastProvider {
+    interface SwirlToastProvider {
         /**
           * Clear all toasts
           * @param newToast
@@ -1003,154 +1003,154 @@ export namespace Components {
           * @param newToast
           * @returns
          */
-        "toast": (newToast: FlipToastConfig) => Promise<FlipToastMessage>;
+        "toast": (newToast: SwirlToastConfig) => Promise<SwirlToastMessage>;
     }
-    interface FlipTooltip {
+    interface SwirlTooltip {
         "content": string;
         "delay"?: number;
-        "position"?: FlipTooltipPosition;
+        "position"?: SwirlTooltipPosition;
     }
-    interface FlipTreeNavigationItem {
+    interface SwirlTreeNavigationItem {
         "active"?: boolean;
         "icon"?: string;
         "label": string;
     }
-    interface FlipVideoThumbnail {
+    interface SwirlVideoThumbnail {
         "duration"?: string;
         "durationLabel"?: string;
         "label": string;
         "src": string;
     }
-    interface FlipVisuallyHidden {
+    interface SwirlVisuallyHidden {
     }
 }
-export interface FlipAppLayoutCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlAppLayoutCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipAppLayoutElement;
+    target: HTMLSwirlAppLayoutElement;
 }
-export interface FlipAutocompleteCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlAutocompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipAutocompleteElement;
+    target: HTMLSwirlAutocompleteElement;
 }
-export interface FlipBannerCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlBannerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipBannerElement;
+    target: HTMLSwirlBannerElement;
 }
-export interface FlipCheckboxCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipCheckboxElement;
+    target: HTMLSwirlCheckboxElement;
 }
-export interface FlipConsoleLayoutCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlConsoleLayoutCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipConsoleLayoutElement;
+    target: HTMLSwirlConsoleLayoutElement;
 }
-export interface FlipDateInputCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlDateInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipDateInputElement;
+    target: HTMLSwirlDateInputElement;
 }
-export interface FlipDatePickerCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipDatePickerElement;
+    target: HTMLSwirlDatePickerElement;
 }
-export interface FlipDialogCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipDialogElement;
+    target: HTMLSwirlDialogElement;
 }
-export interface FlipFileUploaderCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlFileUploaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipFileUploaderElement;
+    target: HTMLSwirlFileUploaderElement;
 }
-export interface FlipFileViewerCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlFileViewerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipFileViewerElement;
+    target: HTMLSwirlFileViewerElement;
 }
-export interface FlipFileViewerAudioCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlFileViewerAudioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipFileViewerAudioElement;
+    target: HTMLSwirlFileViewerAudioElement;
 }
-export interface FlipFileViewerCsvCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlFileViewerCsvCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipFileViewerCsvElement;
+    target: HTMLSwirlFileViewerCsvElement;
 }
-export interface FlipFileViewerImageCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlFileViewerImageCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipFileViewerImageElement;
+    target: HTMLSwirlFileViewerImageElement;
 }
-export interface FlipFileViewerPdfCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlFileViewerPdfCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipFileViewerPdfElement;
+    target: HTMLSwirlFileViewerPdfElement;
 }
-export interface FlipFileViewerTextCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlFileViewerTextCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipFileViewerTextElement;
+    target: HTMLSwirlFileViewerTextElement;
 }
-export interface FlipFileViewerVideoCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlFileViewerVideoCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipFileViewerVideoElement;
+    target: HTMLSwirlFileViewerVideoElement;
 }
-export interface FlipModalCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipModalElement;
+    target: HTMLSwirlModalElement;
 }
-export interface FlipOptionListCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlOptionListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipOptionListElement;
+    target: HTMLSwirlOptionListElement;
 }
-export interface FlipPaginationCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipPaginationElement;
+    target: HTMLSwirlPaginationElement;
 }
-export interface FlipPopoverCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlPopoverCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipPopoverElement;
+    target: HTMLSwirlPopoverElement;
 }
-export interface FlipRadioCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlRadioCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipRadioElement;
+    target: HTMLSwirlRadioElement;
 }
-export interface FlipRadioGroupCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipRadioGroupElement;
+    target: HTMLSwirlRadioGroupElement;
 }
-export interface FlipResourceListFileItemCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlResourceListFileItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipResourceListFileItemElement;
+    target: HTMLSwirlResourceListFileItemElement;
 }
-export interface FlipResourceListItemCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlResourceListItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipResourceListItemElement;
+    target: HTMLSwirlResourceListItemElement;
 }
-export interface FlipSearchCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlSearchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipSearchElement;
+    target: HTMLSwirlSearchElement;
 }
-export interface FlipSelectCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipSelectElement;
+    target: HTMLSwirlSelectElement;
 }
-export interface FlipSwitchCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipSwitchElement;
+    target: HTMLSwirlSwitchElement;
 }
-export interface FlipTabsCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlTabsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipTabsElement;
+    target: HTMLSwirlTabsElement;
 }
-export interface FlipTagCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlTagCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipTagElement;
+    target: HTMLSwirlTagElement;
 }
-export interface FlipTextInputCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlTextInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipTextInputElement;
+    target: HTMLSwirlTextInputElement;
 }
-export interface FlipThemeProviderCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlThemeProviderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipThemeProviderElement;
+    target: HTMLSwirlThemeProviderElement;
 }
-export interface FlipToastCustomEvent<T> extends CustomEvent<T> {
+export interface SwirlToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLFlipToastElement;
+    target: HTMLSwirlToastElement;
 }
 declare global {
     interface HTMLFileManagerElement extends Components.FileManager, HTMLStencilElement {
@@ -1159,1204 +1159,1204 @@ declare global {
         prototype: HTMLFileManagerElement;
         new (): HTMLFileManagerElement;
     };
-    interface HTMLFlipActionListElement extends Components.FlipActionList, HTMLStencilElement {
+    interface HTMLSwirlActionListElement extends Components.SwirlActionList, HTMLStencilElement {
     }
-    var HTMLFlipActionListElement: {
-        prototype: HTMLFlipActionListElement;
-        new (): HTMLFlipActionListElement;
+    var HTMLSwirlActionListElement: {
+        prototype: HTMLSwirlActionListElement;
+        new (): HTMLSwirlActionListElement;
     };
-    interface HTMLFlipActionListItemElement extends Components.FlipActionListItem, HTMLStencilElement {
+    interface HTMLSwirlActionListItemElement extends Components.SwirlActionListItem, HTMLStencilElement {
     }
-    var HTMLFlipActionListItemElement: {
-        prototype: HTMLFlipActionListItemElement;
-        new (): HTMLFlipActionListItemElement;
+    var HTMLSwirlActionListItemElement: {
+        prototype: HTMLSwirlActionListItemElement;
+        new (): HTMLSwirlActionListItemElement;
     };
-    interface HTMLFlipActionListSectionElement extends Components.FlipActionListSection, HTMLStencilElement {
+    interface HTMLSwirlActionListSectionElement extends Components.SwirlActionListSection, HTMLStencilElement {
     }
-    var HTMLFlipActionListSectionElement: {
-        prototype: HTMLFlipActionListSectionElement;
-        new (): HTMLFlipActionListSectionElement;
+    var HTMLSwirlActionListSectionElement: {
+        prototype: HTMLSwirlActionListSectionElement;
+        new (): HTMLSwirlActionListSectionElement;
     };
-    interface HTMLFlipAppLayoutElement extends Components.FlipAppLayout, HTMLStencilElement {
+    interface HTMLSwirlAppLayoutElement extends Components.SwirlAppLayout, HTMLStencilElement {
     }
-    var HTMLFlipAppLayoutElement: {
-        prototype: HTMLFlipAppLayoutElement;
-        new (): HTMLFlipAppLayoutElement;
+    var HTMLSwirlAppLayoutElement: {
+        prototype: HTMLSwirlAppLayoutElement;
+        new (): HTMLSwirlAppLayoutElement;
     };
-    interface HTMLFlipAutocompleteElement extends Components.FlipAutocomplete, HTMLStencilElement {
+    interface HTMLSwirlAutocompleteElement extends Components.SwirlAutocomplete, HTMLStencilElement {
     }
-    var HTMLFlipAutocompleteElement: {
-        prototype: HTMLFlipAutocompleteElement;
-        new (): HTMLFlipAutocompleteElement;
+    var HTMLSwirlAutocompleteElement: {
+        prototype: HTMLSwirlAutocompleteElement;
+        new (): HTMLSwirlAutocompleteElement;
     };
-    interface HTMLFlipAvatarElement extends Components.FlipAvatar, HTMLStencilElement {
+    interface HTMLSwirlAvatarElement extends Components.SwirlAvatar, HTMLStencilElement {
     }
-    var HTMLFlipAvatarElement: {
-        prototype: HTMLFlipAvatarElement;
-        new (): HTMLFlipAvatarElement;
+    var HTMLSwirlAvatarElement: {
+        prototype: HTMLSwirlAvatarElement;
+        new (): HTMLSwirlAvatarElement;
     };
-    interface HTMLFlipAvatarGroupElement extends Components.FlipAvatarGroup, HTMLStencilElement {
+    interface HTMLSwirlAvatarGroupElement extends Components.SwirlAvatarGroup, HTMLStencilElement {
     }
-    var HTMLFlipAvatarGroupElement: {
-        prototype: HTMLFlipAvatarGroupElement;
-        new (): HTMLFlipAvatarGroupElement;
+    var HTMLSwirlAvatarGroupElement: {
+        prototype: HTMLSwirlAvatarGroupElement;
+        new (): HTMLSwirlAvatarGroupElement;
     };
-    interface HTMLFlipBadgeElement extends Components.FlipBadge, HTMLStencilElement {
+    interface HTMLSwirlBadgeElement extends Components.SwirlBadge, HTMLStencilElement {
     }
-    var HTMLFlipBadgeElement: {
-        prototype: HTMLFlipBadgeElement;
-        new (): HTMLFlipBadgeElement;
+    var HTMLSwirlBadgeElement: {
+        prototype: HTMLSwirlBadgeElement;
+        new (): HTMLSwirlBadgeElement;
     };
-    interface HTMLFlipBannerElement extends Components.FlipBanner, HTMLStencilElement {
+    interface HTMLSwirlBannerElement extends Components.SwirlBanner, HTMLStencilElement {
     }
-    var HTMLFlipBannerElement: {
-        prototype: HTMLFlipBannerElement;
-        new (): HTMLFlipBannerElement;
+    var HTMLSwirlBannerElement: {
+        prototype: HTMLSwirlBannerElement;
+        new (): HTMLSwirlBannerElement;
     };
-    interface HTMLFlipBoxElement extends Components.FlipBox, HTMLStencilElement {
+    interface HTMLSwirlBoxElement extends Components.SwirlBox, HTMLStencilElement {
     }
-    var HTMLFlipBoxElement: {
-        prototype: HTMLFlipBoxElement;
-        new (): HTMLFlipBoxElement;
+    var HTMLSwirlBoxElement: {
+        prototype: HTMLSwirlBoxElement;
+        new (): HTMLSwirlBoxElement;
     };
-    interface HTMLFlipButtonElement extends Components.FlipButton, HTMLStencilElement {
+    interface HTMLSwirlButtonElement extends Components.SwirlButton, HTMLStencilElement {
     }
-    var HTMLFlipButtonElement: {
-        prototype: HTMLFlipButtonElement;
-        new (): HTMLFlipButtonElement;
+    var HTMLSwirlButtonElement: {
+        prototype: HTMLSwirlButtonElement;
+        new (): HTMLSwirlButtonElement;
     };
-    interface HTMLFlipButtonGroupElement extends Components.FlipButtonGroup, HTMLStencilElement {
+    interface HTMLSwirlButtonGroupElement extends Components.SwirlButtonGroup, HTMLStencilElement {
     }
-    var HTMLFlipButtonGroupElement: {
-        prototype: HTMLFlipButtonGroupElement;
-        new (): HTMLFlipButtonGroupElement;
+    var HTMLSwirlButtonGroupElement: {
+        prototype: HTMLSwirlButtonGroupElement;
+        new (): HTMLSwirlButtonGroupElement;
     };
-    interface HTMLFlipCardElement extends Components.FlipCard, HTMLStencilElement {
+    interface HTMLSwirlCardElement extends Components.SwirlCard, HTMLStencilElement {
     }
-    var HTMLFlipCardElement: {
-        prototype: HTMLFlipCardElement;
-        new (): HTMLFlipCardElement;
+    var HTMLSwirlCardElement: {
+        prototype: HTMLSwirlCardElement;
+        new (): HTMLSwirlCardElement;
     };
-    interface HTMLFlipCheckboxElement extends Components.FlipCheckbox, HTMLStencilElement {
+    interface HTMLSwirlCheckboxElement extends Components.SwirlCheckbox, HTMLStencilElement {
     }
-    var HTMLFlipCheckboxElement: {
-        prototype: HTMLFlipCheckboxElement;
-        new (): HTMLFlipCheckboxElement;
+    var HTMLSwirlCheckboxElement: {
+        prototype: HTMLSwirlCheckboxElement;
+        new (): HTMLSwirlCheckboxElement;
     };
-    interface HTMLFlipChipElement extends Components.FlipChip, HTMLStencilElement {
+    interface HTMLSwirlChipElement extends Components.SwirlChip, HTMLStencilElement {
     }
-    var HTMLFlipChipElement: {
-        prototype: HTMLFlipChipElement;
-        new (): HTMLFlipChipElement;
+    var HTMLSwirlChipElement: {
+        prototype: HTMLSwirlChipElement;
+        new (): HTMLSwirlChipElement;
     };
-    interface HTMLFlipConsoleLayoutElement extends Components.FlipConsoleLayout, HTMLStencilElement {
+    interface HTMLSwirlConsoleLayoutElement extends Components.SwirlConsoleLayout, HTMLStencilElement {
     }
-    var HTMLFlipConsoleLayoutElement: {
-        prototype: HTMLFlipConsoleLayoutElement;
-        new (): HTMLFlipConsoleLayoutElement;
+    var HTMLSwirlConsoleLayoutElement: {
+        prototype: HTMLSwirlConsoleLayoutElement;
+        new (): HTMLSwirlConsoleLayoutElement;
     };
-    interface HTMLFlipDateInputElement extends Components.FlipDateInput, HTMLStencilElement {
+    interface HTMLSwirlDateInputElement extends Components.SwirlDateInput, HTMLStencilElement {
     }
-    var HTMLFlipDateInputElement: {
-        prototype: HTMLFlipDateInputElement;
-        new (): HTMLFlipDateInputElement;
+    var HTMLSwirlDateInputElement: {
+        prototype: HTMLSwirlDateInputElement;
+        new (): HTMLSwirlDateInputElement;
     };
-    interface HTMLFlipDatePickerElement extends Components.FlipDatePicker, HTMLStencilElement {
+    interface HTMLSwirlDatePickerElement extends Components.SwirlDatePicker, HTMLStencilElement {
     }
-    var HTMLFlipDatePickerElement: {
-        prototype: HTMLFlipDatePickerElement;
-        new (): HTMLFlipDatePickerElement;
+    var HTMLSwirlDatePickerElement: {
+        prototype: HTMLSwirlDatePickerElement;
+        new (): HTMLSwirlDatePickerElement;
     };
-    interface HTMLFlipDescriptionListElement extends Components.FlipDescriptionList, HTMLStencilElement {
+    interface HTMLSwirlDescriptionListElement extends Components.SwirlDescriptionList, HTMLStencilElement {
     }
-    var HTMLFlipDescriptionListElement: {
-        prototype: HTMLFlipDescriptionListElement;
-        new (): HTMLFlipDescriptionListElement;
+    var HTMLSwirlDescriptionListElement: {
+        prototype: HTMLSwirlDescriptionListElement;
+        new (): HTMLSwirlDescriptionListElement;
     };
-    interface HTMLFlipDescriptionListItemElement extends Components.FlipDescriptionListItem, HTMLStencilElement {
+    interface HTMLSwirlDescriptionListItemElement extends Components.SwirlDescriptionListItem, HTMLStencilElement {
     }
-    var HTMLFlipDescriptionListItemElement: {
-        prototype: HTMLFlipDescriptionListItemElement;
-        new (): HTMLFlipDescriptionListItemElement;
+    var HTMLSwirlDescriptionListItemElement: {
+        prototype: HTMLSwirlDescriptionListItemElement;
+        new (): HTMLSwirlDescriptionListItemElement;
     };
-    interface HTMLFlipDialogElement extends Components.FlipDialog, HTMLStencilElement {
+    interface HTMLSwirlDialogElement extends Components.SwirlDialog, HTMLStencilElement {
     }
-    var HTMLFlipDialogElement: {
-        prototype: HTMLFlipDialogElement;
-        new (): HTMLFlipDialogElement;
+    var HTMLSwirlDialogElement: {
+        prototype: HTMLSwirlDialogElement;
+        new (): HTMLSwirlDialogElement;
     };
-    interface HTMLFlipEmptyStateElement extends Components.FlipEmptyState, HTMLStencilElement {
+    interface HTMLSwirlEmptyStateElement extends Components.SwirlEmptyState, HTMLStencilElement {
     }
-    var HTMLFlipEmptyStateElement: {
-        prototype: HTMLFlipEmptyStateElement;
-        new (): HTMLFlipEmptyStateElement;
+    var HTMLSwirlEmptyStateElement: {
+        prototype: HTMLSwirlEmptyStateElement;
+        new (): HTMLSwirlEmptyStateElement;
     };
-    interface HTMLFlipFileUploaderElement extends Components.FlipFileUploader, HTMLStencilElement {
+    interface HTMLSwirlFileUploaderElement extends Components.SwirlFileUploader, HTMLStencilElement {
     }
-    var HTMLFlipFileUploaderElement: {
-        prototype: HTMLFlipFileUploaderElement;
-        new (): HTMLFlipFileUploaderElement;
+    var HTMLSwirlFileUploaderElement: {
+        prototype: HTMLSwirlFileUploaderElement;
+        new (): HTMLSwirlFileUploaderElement;
     };
-    interface HTMLFlipFileViewerElement extends Components.FlipFileViewer, HTMLStencilElement {
+    interface HTMLSwirlFileViewerElement extends Components.SwirlFileViewer, HTMLStencilElement {
     }
-    var HTMLFlipFileViewerElement: {
-        prototype: HTMLFlipFileViewerElement;
-        new (): HTMLFlipFileViewerElement;
+    var HTMLSwirlFileViewerElement: {
+        prototype: HTMLSwirlFileViewerElement;
+        new (): HTMLSwirlFileViewerElement;
     };
-    interface HTMLFlipFileViewerAudioElement extends Components.FlipFileViewerAudio, HTMLStencilElement {
+    interface HTMLSwirlFileViewerAudioElement extends Components.SwirlFileViewerAudio, HTMLStencilElement {
     }
-    var HTMLFlipFileViewerAudioElement: {
-        prototype: HTMLFlipFileViewerAudioElement;
-        new (): HTMLFlipFileViewerAudioElement;
+    var HTMLSwirlFileViewerAudioElement: {
+        prototype: HTMLSwirlFileViewerAudioElement;
+        new (): HTMLSwirlFileViewerAudioElement;
     };
-    interface HTMLFlipFileViewerCsvElement extends Components.FlipFileViewerCsv, HTMLStencilElement {
+    interface HTMLSwirlFileViewerCsvElement extends Components.SwirlFileViewerCsv, HTMLStencilElement {
     }
-    var HTMLFlipFileViewerCsvElement: {
-        prototype: HTMLFlipFileViewerCsvElement;
-        new (): HTMLFlipFileViewerCsvElement;
+    var HTMLSwirlFileViewerCsvElement: {
+        prototype: HTMLSwirlFileViewerCsvElement;
+        new (): HTMLSwirlFileViewerCsvElement;
     };
-    interface HTMLFlipFileViewerImageElement extends Components.FlipFileViewerImage, HTMLStencilElement {
+    interface HTMLSwirlFileViewerImageElement extends Components.SwirlFileViewerImage, HTMLStencilElement {
     }
-    var HTMLFlipFileViewerImageElement: {
-        prototype: HTMLFlipFileViewerImageElement;
-        new (): HTMLFlipFileViewerImageElement;
+    var HTMLSwirlFileViewerImageElement: {
+        prototype: HTMLSwirlFileViewerImageElement;
+        new (): HTMLSwirlFileViewerImageElement;
     };
-    interface HTMLFlipFileViewerPdfElement extends Components.FlipFileViewerPdf, HTMLStencilElement {
+    interface HTMLSwirlFileViewerPdfElement extends Components.SwirlFileViewerPdf, HTMLStencilElement {
     }
-    var HTMLFlipFileViewerPdfElement: {
-        prototype: HTMLFlipFileViewerPdfElement;
-        new (): HTMLFlipFileViewerPdfElement;
+    var HTMLSwirlFileViewerPdfElement: {
+        prototype: HTMLSwirlFileViewerPdfElement;
+        new (): HTMLSwirlFileViewerPdfElement;
     };
-    interface HTMLFlipFileViewerTextElement extends Components.FlipFileViewerText, HTMLStencilElement {
+    interface HTMLSwirlFileViewerTextElement extends Components.SwirlFileViewerText, HTMLStencilElement {
     }
-    var HTMLFlipFileViewerTextElement: {
-        prototype: HTMLFlipFileViewerTextElement;
-        new (): HTMLFlipFileViewerTextElement;
+    var HTMLSwirlFileViewerTextElement: {
+        prototype: HTMLSwirlFileViewerTextElement;
+        new (): HTMLSwirlFileViewerTextElement;
     };
-    interface HTMLFlipFileViewerVideoElement extends Components.FlipFileViewerVideo, HTMLStencilElement {
+    interface HTMLSwirlFileViewerVideoElement extends Components.SwirlFileViewerVideo, HTMLStencilElement {
     }
-    var HTMLFlipFileViewerVideoElement: {
-        prototype: HTMLFlipFileViewerVideoElement;
-        new (): HTMLFlipFileViewerVideoElement;
+    var HTMLSwirlFileViewerVideoElement: {
+        prototype: HTMLSwirlFileViewerVideoElement;
+        new (): HTMLSwirlFileViewerVideoElement;
     };
-    interface HTMLFlipFormControlElement extends Components.FlipFormControl, HTMLStencilElement {
+    interface HTMLSwirlFormControlElement extends Components.SwirlFormControl, HTMLStencilElement {
     }
-    var HTMLFlipFormControlElement: {
-        prototype: HTMLFlipFormControlElement;
-        new (): HTMLFlipFormControlElement;
+    var HTMLSwirlFormControlElement: {
+        prototype: HTMLSwirlFormControlElement;
+        new (): HTMLSwirlFormControlElement;
     };
-    interface HTMLFlipFormGroupElement extends Components.FlipFormGroup, HTMLStencilElement {
+    interface HTMLSwirlFormGroupElement extends Components.SwirlFormGroup, HTMLStencilElement {
     }
-    var HTMLFlipFormGroupElement: {
-        prototype: HTMLFlipFormGroupElement;
-        new (): HTMLFlipFormGroupElement;
+    var HTMLSwirlFormGroupElement: {
+        prototype: HTMLSwirlFormGroupElement;
+        new (): HTMLSwirlFormGroupElement;
     };
-    interface HTMLFlipHeadingElement extends Components.FlipHeading, HTMLStencilElement {
+    interface HTMLSwirlHeadingElement extends Components.SwirlHeading, HTMLStencilElement {
     }
-    var HTMLFlipHeadingElement: {
-        prototype: HTMLFlipHeadingElement;
-        new (): HTMLFlipHeadingElement;
+    var HTMLSwirlHeadingElement: {
+        prototype: HTMLSwirlHeadingElement;
+        new (): HTMLSwirlHeadingElement;
     };
-    interface HTMLFlipIconAddElement extends Components.FlipIconAdd, HTMLStencilElement {
+    interface HTMLSwirlIconAddElement extends Components.SwirlIconAdd, HTMLStencilElement {
     }
-    var HTMLFlipIconAddElement: {
-        prototype: HTMLFlipIconAddElement;
-        new (): HTMLFlipIconAddElement;
+    var HTMLSwirlIconAddElement: {
+        prototype: HTMLSwirlIconAddElement;
+        new (): HTMLSwirlIconAddElement;
     };
-    interface HTMLFlipIconAddPhotoElement extends Components.FlipIconAddPhoto, HTMLStencilElement {
+    interface HTMLSwirlIconAddPhotoElement extends Components.SwirlIconAddPhoto, HTMLStencilElement {
     }
-    var HTMLFlipIconAddPhotoElement: {
-        prototype: HTMLFlipIconAddPhotoElement;
-        new (): HTMLFlipIconAddPhotoElement;
+    var HTMLSwirlIconAddPhotoElement: {
+        prototype: HTMLSwirlIconAddPhotoElement;
+        new (): HTMLSwirlIconAddPhotoElement;
     };
-    interface HTMLFlipIconAdminPanelSettingsElement extends Components.FlipIconAdminPanelSettings, HTMLStencilElement {
+    interface HTMLSwirlIconAdminPanelSettingsElement extends Components.SwirlIconAdminPanelSettings, HTMLStencilElement {
     }
-    var HTMLFlipIconAdminPanelSettingsElement: {
-        prototype: HTMLFlipIconAdminPanelSettingsElement;
-        new (): HTMLFlipIconAdminPanelSettingsElement;
+    var HTMLSwirlIconAdminPanelSettingsElement: {
+        prototype: HTMLSwirlIconAdminPanelSettingsElement;
+        new (): HTMLSwirlIconAdminPanelSettingsElement;
     };
-    interface HTMLFlipIconArrowBackElement extends Components.FlipIconArrowBack, HTMLStencilElement {
+    interface HTMLSwirlIconArrowBackElement extends Components.SwirlIconArrowBack, HTMLStencilElement {
     }
-    var HTMLFlipIconArrowBackElement: {
-        prototype: HTMLFlipIconArrowBackElement;
-        new (): HTMLFlipIconArrowBackElement;
+    var HTMLSwirlIconArrowBackElement: {
+        prototype: HTMLSwirlIconArrowBackElement;
+        new (): HTMLSwirlIconArrowBackElement;
     };
-    interface HTMLFlipIconArrowDownwardElement extends Components.FlipIconArrowDownward, HTMLStencilElement {
+    interface HTMLSwirlIconArrowDownwardElement extends Components.SwirlIconArrowDownward, HTMLStencilElement {
     }
-    var HTMLFlipIconArrowDownwardElement: {
-        prototype: HTMLFlipIconArrowDownwardElement;
-        new (): HTMLFlipIconArrowDownwardElement;
+    var HTMLSwirlIconArrowDownwardElement: {
+        prototype: HTMLSwirlIconArrowDownwardElement;
+        new (): HTMLSwirlIconArrowDownwardElement;
     };
-    interface HTMLFlipIconArrowForwardElement extends Components.FlipIconArrowForward, HTMLStencilElement {
+    interface HTMLSwirlIconArrowForwardElement extends Components.SwirlIconArrowForward, HTMLStencilElement {
     }
-    var HTMLFlipIconArrowForwardElement: {
-        prototype: HTMLFlipIconArrowForwardElement;
-        new (): HTMLFlipIconArrowForwardElement;
+    var HTMLSwirlIconArrowForwardElement: {
+        prototype: HTMLSwirlIconArrowForwardElement;
+        new (): HTMLSwirlIconArrowForwardElement;
     };
-    interface HTMLFlipIconArrowLeftElement extends Components.FlipIconArrowLeft, HTMLStencilElement {
+    interface HTMLSwirlIconArrowLeftElement extends Components.SwirlIconArrowLeft, HTMLStencilElement {
     }
-    var HTMLFlipIconArrowLeftElement: {
-        prototype: HTMLFlipIconArrowLeftElement;
-        new (): HTMLFlipIconArrowLeftElement;
+    var HTMLSwirlIconArrowLeftElement: {
+        prototype: HTMLSwirlIconArrowLeftElement;
+        new (): HTMLSwirlIconArrowLeftElement;
     };
-    interface HTMLFlipIconArrowRightElement extends Components.FlipIconArrowRight, HTMLStencilElement {
+    interface HTMLSwirlIconArrowRightElement extends Components.SwirlIconArrowRight, HTMLStencilElement {
     }
-    var HTMLFlipIconArrowRightElement: {
-        prototype: HTMLFlipIconArrowRightElement;
-        new (): HTMLFlipIconArrowRightElement;
+    var HTMLSwirlIconArrowRightElement: {
+        prototype: HTMLSwirlIconArrowRightElement;
+        new (): HTMLSwirlIconArrowRightElement;
     };
-    interface HTMLFlipIconArrowRightSmallElement extends Components.FlipIconArrowRightSmall, HTMLStencilElement {
+    interface HTMLSwirlIconArrowRightSmallElement extends Components.SwirlIconArrowRightSmall, HTMLStencilElement {
     }
-    var HTMLFlipIconArrowRightSmallElement: {
-        prototype: HTMLFlipIconArrowRightSmallElement;
-        new (): HTMLFlipIconArrowRightSmallElement;
+    var HTMLSwirlIconArrowRightSmallElement: {
+        prototype: HTMLSwirlIconArrowRightSmallElement;
+        new (): HTMLSwirlIconArrowRightSmallElement;
     };
-    interface HTMLFlipIconArrowUpwardElement extends Components.FlipIconArrowUpward, HTMLStencilElement {
+    interface HTMLSwirlIconArrowUpwardElement extends Components.SwirlIconArrowUpward, HTMLStencilElement {
     }
-    var HTMLFlipIconArrowUpwardElement: {
-        prototype: HTMLFlipIconArrowUpwardElement;
-        new (): HTMLFlipIconArrowUpwardElement;
+    var HTMLSwirlIconArrowUpwardElement: {
+        prototype: HTMLSwirlIconArrowUpwardElement;
+        new (): HTMLSwirlIconArrowUpwardElement;
     };
-    interface HTMLFlipIconAttachmentElement extends Components.FlipIconAttachment, HTMLStencilElement {
+    interface HTMLSwirlIconAttachmentElement extends Components.SwirlIconAttachment, HTMLStencilElement {
     }
-    var HTMLFlipIconAttachmentElement: {
-        prototype: HTMLFlipIconAttachmentElement;
-        new (): HTMLFlipIconAttachmentElement;
+    var HTMLSwirlIconAttachmentElement: {
+        prototype: HTMLSwirlIconAttachmentElement;
+        new (): HTMLSwirlIconAttachmentElement;
     };
-    interface HTMLFlipIconBlockElement extends Components.FlipIconBlock, HTMLStencilElement {
+    interface HTMLSwirlIconBlockElement extends Components.SwirlIconBlock, HTMLStencilElement {
     }
-    var HTMLFlipIconBlockElement: {
-        prototype: HTMLFlipIconBlockElement;
-        new (): HTMLFlipIconBlockElement;
+    var HTMLSwirlIconBlockElement: {
+        prototype: HTMLSwirlIconBlockElement;
+        new (): HTMLSwirlIconBlockElement;
     };
-    interface HTMLFlipIconCancelElement extends Components.FlipIconCancel, HTMLStencilElement {
+    interface HTMLSwirlIconCancelElement extends Components.SwirlIconCancel, HTMLStencilElement {
     }
-    var HTMLFlipIconCancelElement: {
-        prototype: HTMLFlipIconCancelElement;
-        new (): HTMLFlipIconCancelElement;
+    var HTMLSwirlIconCancelElement: {
+        prototype: HTMLSwirlIconCancelElement;
+        new (): HTMLSwirlIconCancelElement;
     };
-    interface HTMLFlipIconChatBubbleElement extends Components.FlipIconChatBubble, HTMLStencilElement {
+    interface HTMLSwirlIconChatBubbleElement extends Components.SwirlIconChatBubble, HTMLStencilElement {
     }
-    var HTMLFlipIconChatBubbleElement: {
-        prototype: HTMLFlipIconChatBubbleElement;
-        new (): HTMLFlipIconChatBubbleElement;
+    var HTMLSwirlIconChatBubbleElement: {
+        prototype: HTMLSwirlIconChatBubbleElement;
+        new (): HTMLSwirlIconChatBubbleElement;
     };
-    interface HTMLFlipIconChatsFilledElement extends Components.FlipIconChatsFilled, HTMLStencilElement {
+    interface HTMLSwirlIconChatsFilledElement extends Components.SwirlIconChatsFilled, HTMLStencilElement {
     }
-    var HTMLFlipIconChatsFilledElement: {
-        prototype: HTMLFlipIconChatsFilledElement;
-        new (): HTMLFlipIconChatsFilledElement;
+    var HTMLSwirlIconChatsFilledElement: {
+        prototype: HTMLSwirlIconChatsFilledElement;
+        new (): HTMLSwirlIconChatsFilledElement;
     };
-    interface HTMLFlipIconChatsOutlinedElement extends Components.FlipIconChatsOutlined, HTMLStencilElement {
+    interface HTMLSwirlIconChatsOutlinedElement extends Components.SwirlIconChatsOutlined, HTMLStencilElement {
     }
-    var HTMLFlipIconChatsOutlinedElement: {
-        prototype: HTMLFlipIconChatsOutlinedElement;
-        new (): HTMLFlipIconChatsOutlinedElement;
+    var HTMLSwirlIconChatsOutlinedElement: {
+        prototype: HTMLSwirlIconChatsOutlinedElement;
+        new (): HTMLSwirlIconChatsOutlinedElement;
     };
-    interface HTMLFlipIconCheckElement extends Components.FlipIconCheck, HTMLStencilElement {
+    interface HTMLSwirlIconCheckElement extends Components.SwirlIconCheck, HTMLStencilElement {
     }
-    var HTMLFlipIconCheckElement: {
-        prototype: HTMLFlipIconCheckElement;
-        new (): HTMLFlipIconCheckElement;
+    var HTMLSwirlIconCheckElement: {
+        prototype: HTMLSwirlIconCheckElement;
+        new (): HTMLSwirlIconCheckElement;
     };
-    interface HTMLFlipIconCheckCircleElement extends Components.FlipIconCheckCircle, HTMLStencilElement {
+    interface HTMLSwirlIconCheckCircleElement extends Components.SwirlIconCheckCircle, HTMLStencilElement {
     }
-    var HTMLFlipIconCheckCircleElement: {
-        prototype: HTMLFlipIconCheckCircleElement;
-        new (): HTMLFlipIconCheckCircleElement;
+    var HTMLSwirlIconCheckCircleElement: {
+        prototype: HTMLSwirlIconCheckCircleElement;
+        new (): HTMLSwirlIconCheckCircleElement;
     };
-    interface HTMLFlipIconCheckSmallElement extends Components.FlipIconCheckSmall, HTMLStencilElement {
+    interface HTMLSwirlIconCheckSmallElement extends Components.SwirlIconCheckSmall, HTMLStencilElement {
     }
-    var HTMLFlipIconCheckSmallElement: {
-        prototype: HTMLFlipIconCheckSmallElement;
-        new (): HTMLFlipIconCheckSmallElement;
+    var HTMLSwirlIconCheckSmallElement: {
+        prototype: HTMLSwirlIconCheckSmallElement;
+        new (): HTMLSwirlIconCheckSmallElement;
     };
-    interface HTMLFlipIconCheckStrongElement extends Components.FlipIconCheckStrong, HTMLStencilElement {
+    interface HTMLSwirlIconCheckStrongElement extends Components.SwirlIconCheckStrong, HTMLStencilElement {
     }
-    var HTMLFlipIconCheckStrongElement: {
-        prototype: HTMLFlipIconCheckStrongElement;
-        new (): HTMLFlipIconCheckStrongElement;
+    var HTMLSwirlIconCheckStrongElement: {
+        prototype: HTMLSwirlIconCheckStrongElement;
+        new (): HTMLSwirlIconCheckStrongElement;
     };
-    interface HTMLFlipIconChevronLeftElement extends Components.FlipIconChevronLeft, HTMLStencilElement {
+    interface HTMLSwirlIconChevronLeftElement extends Components.SwirlIconChevronLeft, HTMLStencilElement {
     }
-    var HTMLFlipIconChevronLeftElement: {
-        prototype: HTMLFlipIconChevronLeftElement;
-        new (): HTMLFlipIconChevronLeftElement;
+    var HTMLSwirlIconChevronLeftElement: {
+        prototype: HTMLSwirlIconChevronLeftElement;
+        new (): HTMLSwirlIconChevronLeftElement;
     };
-    interface HTMLFlipIconChevronRightElement extends Components.FlipIconChevronRight, HTMLStencilElement {
+    interface HTMLSwirlIconChevronRightElement extends Components.SwirlIconChevronRight, HTMLStencilElement {
     }
-    var HTMLFlipIconChevronRightElement: {
-        prototype: HTMLFlipIconChevronRightElement;
-        new (): HTMLFlipIconChevronRightElement;
+    var HTMLSwirlIconChevronRightElement: {
+        prototype: HTMLSwirlIconChevronRightElement;
+        new (): HTMLSwirlIconChevronRightElement;
     };
-    interface HTMLFlipIconCloseElement extends Components.FlipIconClose, HTMLStencilElement {
+    interface HTMLSwirlIconCloseElement extends Components.SwirlIconClose, HTMLStencilElement {
     }
-    var HTMLFlipIconCloseElement: {
-        prototype: HTMLFlipIconCloseElement;
-        new (): HTMLFlipIconCloseElement;
+    var HTMLSwirlIconCloseElement: {
+        prototype: HTMLSwirlIconCloseElement;
+        new (): HTMLSwirlIconCloseElement;
     };
-    interface HTMLFlipIconCloseSmallElement extends Components.FlipIconCloseSmall, HTMLStencilElement {
+    interface HTMLSwirlIconCloseSmallElement extends Components.SwirlIconCloseSmall, HTMLStencilElement {
     }
-    var HTMLFlipIconCloseSmallElement: {
-        prototype: HTMLFlipIconCloseSmallElement;
-        new (): HTMLFlipIconCloseSmallElement;
+    var HTMLSwirlIconCloseSmallElement: {
+        prototype: HTMLSwirlIconCloseSmallElement;
+        new (): HTMLSwirlIconCloseSmallElement;
     };
-    interface HTMLFlipIconCloudUploadElement extends Components.FlipIconCloudUpload, HTMLStencilElement {
+    interface HTMLSwirlIconCloudUploadElement extends Components.SwirlIconCloudUpload, HTMLStencilElement {
     }
-    var HTMLFlipIconCloudUploadElement: {
-        prototype: HTMLFlipIconCloudUploadElement;
-        new (): HTMLFlipIconCloudUploadElement;
+    var HTMLSwirlIconCloudUploadElement: {
+        prototype: HTMLSwirlIconCloudUploadElement;
+        new (): HTMLSwirlIconCloudUploadElement;
     };
-    interface HTMLFlipIconColumnElement extends Components.FlipIconColumn, HTMLStencilElement {
+    interface HTMLSwirlIconColumnElement extends Components.SwirlIconColumn, HTMLStencilElement {
     }
-    var HTMLFlipIconColumnElement: {
-        prototype: HTMLFlipIconColumnElement;
-        new (): HTMLFlipIconColumnElement;
+    var HTMLSwirlIconColumnElement: {
+        prototype: HTMLSwirlIconColumnElement;
+        new (): HTMLSwirlIconColumnElement;
     };
-    interface HTMLFlipIconCommentElement extends Components.FlipIconComment, HTMLStencilElement {
+    interface HTMLSwirlIconCommentElement extends Components.SwirlIconComment, HTMLStencilElement {
     }
-    var HTMLFlipIconCommentElement: {
-        prototype: HTMLFlipIconCommentElement;
-        new (): HTMLFlipIconCommentElement;
+    var HTMLSwirlIconCommentElement: {
+        prototype: HTMLSwirlIconCommentElement;
+        new (): HTMLSwirlIconCommentElement;
     };
-    interface HTMLFlipIconCopyElement extends Components.FlipIconCopy, HTMLStencilElement {
+    interface HTMLSwirlIconCopyElement extends Components.SwirlIconCopy, HTMLStencilElement {
     }
-    var HTMLFlipIconCopyElement: {
-        prototype: HTMLFlipIconCopyElement;
-        new (): HTMLFlipIconCopyElement;
+    var HTMLSwirlIconCopyElement: {
+        prototype: HTMLSwirlIconCopyElement;
+        new (): HTMLSwirlIconCopyElement;
     };
-    interface HTMLFlipIconDateRangeElement extends Components.FlipIconDateRange, HTMLStencilElement {
+    interface HTMLSwirlIconDateRangeElement extends Components.SwirlIconDateRange, HTMLStencilElement {
     }
-    var HTMLFlipIconDateRangeElement: {
-        prototype: HTMLFlipIconDateRangeElement;
-        new (): HTMLFlipIconDateRangeElement;
+    var HTMLSwirlIconDateRangeElement: {
+        prototype: HTMLSwirlIconDateRangeElement;
+        new (): HTMLSwirlIconDateRangeElement;
     };
-    interface HTMLFlipIconDeleteElement extends Components.FlipIconDelete, HTMLStencilElement {
+    interface HTMLSwirlIconDeleteElement extends Components.SwirlIconDelete, HTMLStencilElement {
     }
-    var HTMLFlipIconDeleteElement: {
-        prototype: HTMLFlipIconDeleteElement;
-        new (): HTMLFlipIconDeleteElement;
+    var HTMLSwirlIconDeleteElement: {
+        prototype: HTMLSwirlIconDeleteElement;
+        new (): HTMLSwirlIconDeleteElement;
     };
-    interface HTMLFlipIconDescriptionElement extends Components.FlipIconDescription, HTMLStencilElement {
+    interface HTMLSwirlIconDescriptionElement extends Components.SwirlIconDescription, HTMLStencilElement {
     }
-    var HTMLFlipIconDescriptionElement: {
-        prototype: HTMLFlipIconDescriptionElement;
-        new (): HTMLFlipIconDescriptionElement;
+    var HTMLSwirlIconDescriptionElement: {
+        prototype: HTMLSwirlIconDescriptionElement;
+        new (): HTMLSwirlIconDescriptionElement;
     };
-    interface HTMLFlipIconDownloadElement extends Components.FlipIconDownload, HTMLStencilElement {
+    interface HTMLSwirlIconDownloadElement extends Components.SwirlIconDownload, HTMLStencilElement {
     }
-    var HTMLFlipIconDownloadElement: {
-        prototype: HTMLFlipIconDownloadElement;
-        new (): HTMLFlipIconDownloadElement;
+    var HTMLSwirlIconDownloadElement: {
+        prototype: HTMLSwirlIconDownloadElement;
+        new (): HTMLSwirlIconDownloadElement;
     };
-    interface HTMLFlipIconEditElement extends Components.FlipIconEdit, HTMLStencilElement {
+    interface HTMLSwirlIconEditElement extends Components.SwirlIconEdit, HTMLStencilElement {
     }
-    var HTMLFlipIconEditElement: {
-        prototype: HTMLFlipIconEditElement;
-        new (): HTMLFlipIconEditElement;
+    var HTMLSwirlIconEditElement: {
+        prototype: HTMLSwirlIconEditElement;
+        new (): HTMLSwirlIconEditElement;
     };
-    interface HTMLFlipIconEmojiMoodElement extends Components.FlipIconEmojiMood, HTMLStencilElement {
+    interface HTMLSwirlIconEmojiMoodElement extends Components.SwirlIconEmojiMood, HTMLStencilElement {
     }
-    var HTMLFlipIconEmojiMoodElement: {
-        prototype: HTMLFlipIconEmojiMoodElement;
-        new (): HTMLFlipIconEmojiMoodElement;
+    var HTMLSwirlIconEmojiMoodElement: {
+        prototype: HTMLSwirlIconEmojiMoodElement;
+        new (): HTMLSwirlIconEmojiMoodElement;
     };
-    interface HTMLFlipIconEmojiSatisfiedElement extends Components.FlipIconEmojiSatisfied, HTMLStencilElement {
+    interface HTMLSwirlIconEmojiSatisfiedElement extends Components.SwirlIconEmojiSatisfied, HTMLStencilElement {
     }
-    var HTMLFlipIconEmojiSatisfiedElement: {
-        prototype: HTMLFlipIconEmojiSatisfiedElement;
-        new (): HTMLFlipIconEmojiSatisfiedElement;
+    var HTMLSwirlIconEmojiSatisfiedElement: {
+        prototype: HTMLSwirlIconEmojiSatisfiedElement;
+        new (): HTMLSwirlIconEmojiSatisfiedElement;
     };
-    interface HTMLFlipIconErrorElement extends Components.FlipIconError, HTMLStencilElement {
+    interface HTMLSwirlIconErrorElement extends Components.SwirlIconError, HTMLStencilElement {
     }
-    var HTMLFlipIconErrorElement: {
-        prototype: HTMLFlipIconErrorElement;
-        new (): HTMLFlipIconErrorElement;
+    var HTMLSwirlIconErrorElement: {
+        prototype: HTMLSwirlIconErrorElement;
+        new (): HTMLSwirlIconErrorElement;
     };
-    interface HTMLFlipIconExpandLessElement extends Components.FlipIconExpandLess, HTMLStencilElement {
+    interface HTMLSwirlIconExpandLessElement extends Components.SwirlIconExpandLess, HTMLStencilElement {
     }
-    var HTMLFlipIconExpandLessElement: {
-        prototype: HTMLFlipIconExpandLessElement;
-        new (): HTMLFlipIconExpandLessElement;
+    var HTMLSwirlIconExpandLessElement: {
+        prototype: HTMLSwirlIconExpandLessElement;
+        new (): HTMLSwirlIconExpandLessElement;
     };
-    interface HTMLFlipIconExpandMoreElement extends Components.FlipIconExpandMore, HTMLStencilElement {
+    interface HTMLSwirlIconExpandMoreElement extends Components.SwirlIconExpandMore, HTMLStencilElement {
     }
-    var HTMLFlipIconExpandMoreElement: {
-        prototype: HTMLFlipIconExpandMoreElement;
-        new (): HTMLFlipIconExpandMoreElement;
+    var HTMLSwirlIconExpandMoreElement: {
+        prototype: HTMLSwirlIconExpandMoreElement;
+        new (): HTMLSwirlIconExpandMoreElement;
     };
-    interface HTMLFlipIconFileElement extends Components.FlipIconFile, HTMLStencilElement {
+    interface HTMLSwirlIconFileElement extends Components.SwirlIconFile, HTMLStencilElement {
     }
-    var HTMLFlipIconFileElement: {
-        prototype: HTMLFlipIconFileElement;
-        new (): HTMLFlipIconFileElement;
+    var HTMLSwirlIconFileElement: {
+        prototype: HTMLSwirlIconFileElement;
+        new (): HTMLSwirlIconFileElement;
     };
-    interface HTMLFlipIconFilterElement extends Components.FlipIconFilter, HTMLStencilElement {
+    interface HTMLSwirlIconFilterElement extends Components.SwirlIconFilter, HTMLStencilElement {
     }
-    var HTMLFlipIconFilterElement: {
-        prototype: HTMLFlipIconFilterElement;
-        new (): HTMLFlipIconFilterElement;
+    var HTMLSwirlIconFilterElement: {
+        prototype: HTMLSwirlIconFilterElement;
+        new (): HTMLSwirlIconFilterElement;
     };
-    interface HTMLFlipIconFolderSharedElement extends Components.FlipIconFolderShared, HTMLStencilElement {
+    interface HTMLSwirlIconFolderSharedElement extends Components.SwirlIconFolderShared, HTMLStencilElement {
     }
-    var HTMLFlipIconFolderSharedElement: {
-        prototype: HTMLFlipIconFolderSharedElement;
-        new (): HTMLFlipIconFolderSharedElement;
+    var HTMLSwirlIconFolderSharedElement: {
+        prototype: HTMLSwirlIconFolderSharedElement;
+        new (): HTMLSwirlIconFolderSharedElement;
     };
-    interface HTMLFlipIconFullscreenElement extends Components.FlipIconFullscreen, HTMLStencilElement {
+    interface HTMLSwirlIconFullscreenElement extends Components.SwirlIconFullscreen, HTMLStencilElement {
     }
-    var HTMLFlipIconFullscreenElement: {
-        prototype: HTMLFlipIconFullscreenElement;
-        new (): HTMLFlipIconFullscreenElement;
+    var HTMLSwirlIconFullscreenElement: {
+        prototype: HTMLSwirlIconFullscreenElement;
+        new (): HTMLSwirlIconFullscreenElement;
     };
-    interface HTMLFlipIconFullscreenExitElement extends Components.FlipIconFullscreenExit, HTMLStencilElement {
+    interface HTMLSwirlIconFullscreenExitElement extends Components.SwirlIconFullscreenExit, HTMLStencilElement {
     }
-    var HTMLFlipIconFullscreenExitElement: {
-        prototype: HTMLFlipIconFullscreenExitElement;
-        new (): HTMLFlipIconFullscreenExitElement;
+    var HTMLSwirlIconFullscreenExitElement: {
+        prototype: HTMLSwirlIconFullscreenExitElement;
+        new (): HTMLSwirlIconFullscreenExitElement;
     };
-    interface HTMLFlipIconGroupAssignElement extends Components.FlipIconGroupAssign, HTMLStencilElement {
+    interface HTMLSwirlIconGroupAssignElement extends Components.SwirlIconGroupAssign, HTMLStencilElement {
     }
-    var HTMLFlipIconGroupAssignElement: {
-        prototype: HTMLFlipIconGroupAssignElement;
-        new (): HTMLFlipIconGroupAssignElement;
+    var HTMLSwirlIconGroupAssignElement: {
+        prototype: HTMLSwirlIconGroupAssignElement;
+        new (): HTMLSwirlIconGroupAssignElement;
     };
-    interface HTMLFlipIconGroupsElement extends Components.FlipIconGroups, HTMLStencilElement {
+    interface HTMLSwirlIconGroupsElement extends Components.SwirlIconGroups, HTMLStencilElement {
     }
-    var HTMLFlipIconGroupsElement: {
-        prototype: HTMLFlipIconGroupsElement;
-        new (): HTMLFlipIconGroupsElement;
+    var HTMLSwirlIconGroupsElement: {
+        prototype: HTMLSwirlIconGroupsElement;
+        new (): HTMLSwirlIconGroupsElement;
     };
-    interface HTMLFlipIconGroupsCustomElement extends Components.FlipIconGroupsCustom, HTMLStencilElement {
+    interface HTMLSwirlIconGroupsCustomElement extends Components.SwirlIconGroupsCustom, HTMLStencilElement {
     }
-    var HTMLFlipIconGroupsCustomElement: {
-        prototype: HTMLFlipIconGroupsCustomElement;
-        new (): HTMLFlipIconGroupsCustomElement;
+    var HTMLSwirlIconGroupsCustomElement: {
+        prototype: HTMLSwirlIconGroupsCustomElement;
+        new (): HTMLSwirlIconGroupsCustomElement;
     };
-    interface HTMLFlipIconGroupsFilledElement extends Components.FlipIconGroupsFilled, HTMLStencilElement {
+    interface HTMLSwirlIconGroupsFilledElement extends Components.SwirlIconGroupsFilled, HTMLStencilElement {
     }
-    var HTMLFlipIconGroupsFilledElement: {
-        prototype: HTMLFlipIconGroupsFilledElement;
-        new (): HTMLFlipIconGroupsFilledElement;
+    var HTMLSwirlIconGroupsFilledElement: {
+        prototype: HTMLSwirlIconGroupsFilledElement;
+        new (): HTMLSwirlIconGroupsFilledElement;
     };
-    interface HTMLFlipIconGroupsOutlinedElement extends Components.FlipIconGroupsOutlined, HTMLStencilElement {
+    interface HTMLSwirlIconGroupsOutlinedElement extends Components.SwirlIconGroupsOutlined, HTMLStencilElement {
     }
-    var HTMLFlipIconGroupsOutlinedElement: {
-        prototype: HTMLFlipIconGroupsOutlinedElement;
-        new (): HTMLFlipIconGroupsOutlinedElement;
+    var HTMLSwirlIconGroupsOutlinedElement: {
+        prototype: HTMLSwirlIconGroupsOutlinedElement;
+        new (): HTMLSwirlIconGroupsOutlinedElement;
     };
-    interface HTMLFlipIconHelpElement extends Components.FlipIconHelp, HTMLStencilElement {
+    interface HTMLSwirlIconHelpElement extends Components.SwirlIconHelp, HTMLStencilElement {
     }
-    var HTMLFlipIconHelpElement: {
-        prototype: HTMLFlipIconHelpElement;
-        new (): HTMLFlipIconHelpElement;
+    var HTMLSwirlIconHelpElement: {
+        prototype: HTMLSwirlIconHelpElement;
+        new (): HTMLSwirlIconHelpElement;
     };
-    interface HTMLFlipIconImageElement extends Components.FlipIconImage, HTMLStencilElement {
+    interface HTMLSwirlIconImageElement extends Components.SwirlIconImage, HTMLStencilElement {
     }
-    var HTMLFlipIconImageElement: {
-        prototype: HTMLFlipIconImageElement;
-        new (): HTMLFlipIconImageElement;
+    var HTMLSwirlIconImageElement: {
+        prototype: HTMLSwirlIconImageElement;
+        new (): HTMLSwirlIconImageElement;
     };
-    interface HTMLFlipIconInfoElement extends Components.FlipIconInfo, HTMLStencilElement {
+    interface HTMLSwirlIconInfoElement extends Components.SwirlIconInfo, HTMLStencilElement {
     }
-    var HTMLFlipIconInfoElement: {
-        prototype: HTMLFlipIconInfoElement;
-        new (): HTMLFlipIconInfoElement;
+    var HTMLSwirlIconInfoElement: {
+        prototype: HTMLSwirlIconInfoElement;
+        new (): HTMLSwirlIconInfoElement;
     };
-    interface HTMLFlipIconInventoryElement extends Components.FlipIconInventory, HTMLStencilElement {
+    interface HTMLSwirlIconInventoryElement extends Components.SwirlIconInventory, HTMLStencilElement {
     }
-    var HTMLFlipIconInventoryElement: {
-        prototype: HTMLFlipIconInventoryElement;
-        new (): HTMLFlipIconInventoryElement;
+    var HTMLSwirlIconInventoryElement: {
+        prototype: HTMLSwirlIconInventoryElement;
+        new (): HTMLSwirlIconInventoryElement;
     };
-    interface HTMLFlipIconLikeElement extends Components.FlipIconLike, HTMLStencilElement {
+    interface HTMLSwirlIconLikeElement extends Components.SwirlIconLike, HTMLStencilElement {
     }
-    var HTMLFlipIconLikeElement: {
-        prototype: HTMLFlipIconLikeElement;
-        new (): HTMLFlipIconLikeElement;
+    var HTMLSwirlIconLikeElement: {
+        prototype: HTMLSwirlIconLikeElement;
+        new (): HTMLSwirlIconLikeElement;
     };
-    interface HTMLFlipIconLinkElement extends Components.FlipIconLink, HTMLStencilElement {
+    interface HTMLSwirlIconLinkElement extends Components.SwirlIconLink, HTMLStencilElement {
     }
-    var HTMLFlipIconLinkElement: {
-        prototype: HTMLFlipIconLinkElement;
-        new (): HTMLFlipIconLinkElement;
+    var HTMLSwirlIconLinkElement: {
+        prototype: HTMLSwirlIconLinkElement;
+        new (): HTMLSwirlIconLinkElement;
     };
-    interface HTMLFlipIconLockElement extends Components.FlipIconLock, HTMLStencilElement {
+    interface HTMLSwirlIconLockElement extends Components.SwirlIconLock, HTMLStencilElement {
     }
-    var HTMLFlipIconLockElement: {
-        prototype: HTMLFlipIconLockElement;
-        new (): HTMLFlipIconLockElement;
+    var HTMLSwirlIconLockElement: {
+        prototype: HTMLSwirlIconLockElement;
+        new (): HTMLSwirlIconLockElement;
     };
-    interface HTMLFlipIconLogoutElement extends Components.FlipIconLogout, HTMLStencilElement {
+    interface HTMLSwirlIconLogoutElement extends Components.SwirlIconLogout, HTMLStencilElement {
     }
-    var HTMLFlipIconLogoutElement: {
-        prototype: HTMLFlipIconLogoutElement;
-        new (): HTMLFlipIconLogoutElement;
+    var HTMLSwirlIconLogoutElement: {
+        prototype: HTMLSwirlIconLogoutElement;
+        new (): HTMLSwirlIconLogoutElement;
     };
-    interface HTMLFlipIconMailElement extends Components.FlipIconMail, HTMLStencilElement {
+    interface HTMLSwirlIconMailElement extends Components.SwirlIconMail, HTMLStencilElement {
     }
-    var HTMLFlipIconMailElement: {
-        prototype: HTMLFlipIconMailElement;
-        new (): HTMLFlipIconMailElement;
+    var HTMLSwirlIconMailElement: {
+        prototype: HTMLSwirlIconMailElement;
+        new (): HTMLSwirlIconMailElement;
     };
-    interface HTMLFlipIconManageAccountsElement extends Components.FlipIconManageAccounts, HTMLStencilElement {
+    interface HTMLSwirlIconManageAccountsElement extends Components.SwirlIconManageAccounts, HTMLStencilElement {
     }
-    var HTMLFlipIconManageAccountsElement: {
-        prototype: HTMLFlipIconManageAccountsElement;
-        new (): HTMLFlipIconManageAccountsElement;
+    var HTMLSwirlIconManageAccountsElement: {
+        prototype: HTMLSwirlIconManageAccountsElement;
+        new (): HTMLSwirlIconManageAccountsElement;
     };
-    interface HTMLFlipIconMentionElement extends Components.FlipIconMention, HTMLStencilElement {
+    interface HTMLSwirlIconMentionElement extends Components.SwirlIconMention, HTMLStencilElement {
     }
-    var HTMLFlipIconMentionElement: {
-        prototype: HTMLFlipIconMentionElement;
-        new (): HTMLFlipIconMentionElement;
+    var HTMLSwirlIconMentionElement: {
+        prototype: HTMLSwirlIconMentionElement;
+        new (): HTMLSwirlIconMentionElement;
     };
-    interface HTMLFlipIconMenuElement extends Components.FlipIconMenu, HTMLStencilElement {
+    interface HTMLSwirlIconMenuElement extends Components.SwirlIconMenu, HTMLStencilElement {
     }
-    var HTMLFlipIconMenuElement: {
-        prototype: HTMLFlipIconMenuElement;
-        new (): HTMLFlipIconMenuElement;
+    var HTMLSwirlIconMenuElement: {
+        prototype: HTMLSwirlIconMenuElement;
+        new (): HTMLSwirlIconMenuElement;
     };
-    interface HTMLFlipIconMenuFilledElement extends Components.FlipIconMenuFilled, HTMLStencilElement {
+    interface HTMLSwirlIconMenuFilledElement extends Components.SwirlIconMenuFilled, HTMLStencilElement {
     }
-    var HTMLFlipIconMenuFilledElement: {
-        prototype: HTMLFlipIconMenuFilledElement;
-        new (): HTMLFlipIconMenuFilledElement;
+    var HTMLSwirlIconMenuFilledElement: {
+        prototype: HTMLSwirlIconMenuFilledElement;
+        new (): HTMLSwirlIconMenuFilledElement;
     };
-    interface HTMLFlipIconMenuOutlinedElement extends Components.FlipIconMenuOutlined, HTMLStencilElement {
+    interface HTMLSwirlIconMenuOutlinedElement extends Components.SwirlIconMenuOutlined, HTMLStencilElement {
     }
-    var HTMLFlipIconMenuOutlinedElement: {
-        prototype: HTMLFlipIconMenuOutlinedElement;
-        new (): HTMLFlipIconMenuOutlinedElement;
+    var HTMLSwirlIconMenuOutlinedElement: {
+        prototype: HTMLSwirlIconMenuOutlinedElement;
+        new (): HTMLSwirlIconMenuOutlinedElement;
     };
-    interface HTMLFlipIconMessageElement extends Components.FlipIconMessage, HTMLStencilElement {
+    interface HTMLSwirlIconMessageElement extends Components.SwirlIconMessage, HTMLStencilElement {
     }
-    var HTMLFlipIconMessageElement: {
-        prototype: HTMLFlipIconMessageElement;
-        new (): HTMLFlipIconMessageElement;
+    var HTMLSwirlIconMessageElement: {
+        prototype: HTMLSwirlIconMessageElement;
+        new (): HTMLSwirlIconMessageElement;
     };
-    interface HTMLFlipIconMoreHorizontalElement extends Components.FlipIconMoreHorizontal, HTMLStencilElement {
+    interface HTMLSwirlIconMoreHorizontalElement extends Components.SwirlIconMoreHorizontal, HTMLStencilElement {
     }
-    var HTMLFlipIconMoreHorizontalElement: {
-        prototype: HTMLFlipIconMoreHorizontalElement;
-        new (): HTMLFlipIconMoreHorizontalElement;
+    var HTMLSwirlIconMoreHorizontalElement: {
+        prototype: HTMLSwirlIconMoreHorizontalElement;
+        new (): HTMLSwirlIconMoreHorizontalElement;
     };
-    interface HTMLFlipIconMoreVertikalElement extends Components.FlipIconMoreVertikal, HTMLStencilElement {
+    interface HTMLSwirlIconMoreVertikalElement extends Components.SwirlIconMoreVertikal, HTMLStencilElement {
     }
-    var HTMLFlipIconMoreVertikalElement: {
-        prototype: HTMLFlipIconMoreVertikalElement;
-        new (): HTMLFlipIconMoreVertikalElement;
+    var HTMLSwirlIconMoreVertikalElement: {
+        prototype: HTMLSwirlIconMoreVertikalElement;
+        new (): HTMLSwirlIconMoreVertikalElement;
     };
-    interface HTMLFlipIconNewsFilledElement extends Components.FlipIconNewsFilled, HTMLStencilElement {
+    interface HTMLSwirlIconNewsFilledElement extends Components.SwirlIconNewsFilled, HTMLStencilElement {
     }
-    var HTMLFlipIconNewsFilledElement: {
-        prototype: HTMLFlipIconNewsFilledElement;
-        new (): HTMLFlipIconNewsFilledElement;
+    var HTMLSwirlIconNewsFilledElement: {
+        prototype: HTMLSwirlIconNewsFilledElement;
+        new (): HTMLSwirlIconNewsFilledElement;
     };
-    interface HTMLFlipIconNewsOutlinedElement extends Components.FlipIconNewsOutlined, HTMLStencilElement {
+    interface HTMLSwirlIconNewsOutlinedElement extends Components.SwirlIconNewsOutlined, HTMLStencilElement {
     }
-    var HTMLFlipIconNewsOutlinedElement: {
-        prototype: HTMLFlipIconNewsOutlinedElement;
-        new (): HTMLFlipIconNewsOutlinedElement;
+    var HTMLSwirlIconNewsOutlinedElement: {
+        prototype: HTMLSwirlIconNewsOutlinedElement;
+        new (): HTMLSwirlIconNewsOutlinedElement;
     };
-    interface HTMLFlipIconNotificationsElement extends Components.FlipIconNotifications, HTMLStencilElement {
+    interface HTMLSwirlIconNotificationsElement extends Components.SwirlIconNotifications, HTMLStencilElement {
     }
-    var HTMLFlipIconNotificationsElement: {
-        prototype: HTMLFlipIconNotificationsElement;
-        new (): HTMLFlipIconNotificationsElement;
+    var HTMLSwirlIconNotificationsElement: {
+        prototype: HTMLSwirlIconNotificationsElement;
+        new (): HTMLSwirlIconNotificationsElement;
     };
-    interface HTMLFlipIconNotificationsActiveElement extends Components.FlipIconNotificationsActive, HTMLStencilElement {
+    interface HTMLSwirlIconNotificationsActiveElement extends Components.SwirlIconNotificationsActive, HTMLStencilElement {
     }
-    var HTMLFlipIconNotificationsActiveElement: {
-        prototype: HTMLFlipIconNotificationsActiveElement;
-        new (): HTMLFlipIconNotificationsActiveElement;
+    var HTMLSwirlIconNotificationsActiveElement: {
+        prototype: HTMLSwirlIconNotificationsActiveElement;
+        new (): HTMLSwirlIconNotificationsActiveElement;
     };
-    interface HTMLFlipIconNotificationsOffElement extends Components.FlipIconNotificationsOff, HTMLStencilElement {
+    interface HTMLSwirlIconNotificationsOffElement extends Components.SwirlIconNotificationsOff, HTMLStencilElement {
     }
-    var HTMLFlipIconNotificationsOffElement: {
-        prototype: HTMLFlipIconNotificationsOffElement;
-        new (): HTMLFlipIconNotificationsOffElement;
+    var HTMLSwirlIconNotificationsOffElement: {
+        prototype: HTMLSwirlIconNotificationsOffElement;
+        new (): HTMLSwirlIconNotificationsOffElement;
     };
-    interface HTMLFlipIconOpenInNewElement extends Components.FlipIconOpenInNew, HTMLStencilElement {
+    interface HTMLSwirlIconOpenInNewElement extends Components.SwirlIconOpenInNew, HTMLStencilElement {
     }
-    var HTMLFlipIconOpenInNewElement: {
-        prototype: HTMLFlipIconOpenInNewElement;
-        new (): HTMLFlipIconOpenInNewElement;
+    var HTMLSwirlIconOpenInNewElement: {
+        prototype: HTMLSwirlIconOpenInNewElement;
+        new (): HTMLSwirlIconOpenInNewElement;
     };
-    interface HTMLFlipIconPeopleAltElement extends Components.FlipIconPeopleAlt, HTMLStencilElement {
+    interface HTMLSwirlIconPeopleAltElement extends Components.SwirlIconPeopleAlt, HTMLStencilElement {
     }
-    var HTMLFlipIconPeopleAltElement: {
-        prototype: HTMLFlipIconPeopleAltElement;
-        new (): HTMLFlipIconPeopleAltElement;
+    var HTMLSwirlIconPeopleAltElement: {
+        prototype: HTMLSwirlIconPeopleAltElement;
+        new (): HTMLSwirlIconPeopleAltElement;
     };
-    interface HTMLFlipIconPersonElement extends Components.FlipIconPerson, HTMLStencilElement {
+    interface HTMLSwirlIconPersonElement extends Components.SwirlIconPerson, HTMLStencilElement {
     }
-    var HTMLFlipIconPersonElement: {
-        prototype: HTMLFlipIconPersonElement;
-        new (): HTMLFlipIconPersonElement;
+    var HTMLSwirlIconPersonElement: {
+        prototype: HTMLSwirlIconPersonElement;
+        new (): HTMLSwirlIconPersonElement;
     };
-    interface HTMLFlipIconPersonOffElement extends Components.FlipIconPersonOff, HTMLStencilElement {
+    interface HTMLSwirlIconPersonOffElement extends Components.SwirlIconPersonOff, HTMLStencilElement {
     }
-    var HTMLFlipIconPersonOffElement: {
-        prototype: HTMLFlipIconPersonOffElement;
-        new (): HTMLFlipIconPersonOffElement;
+    var HTMLSwirlIconPersonOffElement: {
+        prototype: HTMLSwirlIconPersonOffElement;
+        new (): HTMLSwirlIconPersonOffElement;
     };
-    interface HTMLFlipIconPhoneElement extends Components.FlipIconPhone, HTMLStencilElement {
+    interface HTMLSwirlIconPhoneElement extends Components.SwirlIconPhone, HTMLStencilElement {
     }
-    var HTMLFlipIconPhoneElement: {
-        prototype: HTMLFlipIconPhoneElement;
-        new (): HTMLFlipIconPhoneElement;
+    var HTMLSwirlIconPhoneElement: {
+        prototype: HTMLSwirlIconPhoneElement;
+        new (): HTMLSwirlIconPhoneElement;
     };
-    interface HTMLFlipIconPollElement extends Components.FlipIconPoll, HTMLStencilElement {
+    interface HTMLSwirlIconPollElement extends Components.SwirlIconPoll, HTMLStencilElement {
     }
-    var HTMLFlipIconPollElement: {
-        prototype: HTMLFlipIconPollElement;
-        new (): HTMLFlipIconPollElement;
+    var HTMLSwirlIconPollElement: {
+        prototype: HTMLSwirlIconPollElement;
+        new (): HTMLSwirlIconPollElement;
     };
-    interface HTMLFlipIconPrintElement extends Components.FlipIconPrint, HTMLStencilElement {
+    interface HTMLSwirlIconPrintElement extends Components.SwirlIconPrint, HTMLStencilElement {
     }
-    var HTMLFlipIconPrintElement: {
-        prototype: HTMLFlipIconPrintElement;
-        new (): HTMLFlipIconPrintElement;
+    var HTMLSwirlIconPrintElement: {
+        prototype: HTMLSwirlIconPrintElement;
+        new (): HTMLSwirlIconPrintElement;
     };
-    interface HTMLFlipIconRecievedElement extends Components.FlipIconRecieved, HTMLStencilElement {
+    interface HTMLSwirlIconRecievedElement extends Components.SwirlIconRecieved, HTMLStencilElement {
     }
-    var HTMLFlipIconRecievedElement: {
-        prototype: HTMLFlipIconRecievedElement;
-        new (): HTMLFlipIconRecievedElement;
+    var HTMLSwirlIconRecievedElement: {
+        prototype: HTMLSwirlIconRecievedElement;
+        new (): HTMLSwirlIconRecievedElement;
     };
-    interface HTMLFlipIconRemoveElement extends Components.FlipIconRemove, HTMLStencilElement {
+    interface HTMLSwirlIconRemoveElement extends Components.SwirlIconRemove, HTMLStencilElement {
     }
-    var HTMLFlipIconRemoveElement: {
-        prototype: HTMLFlipIconRemoveElement;
-        new (): HTMLFlipIconRemoveElement;
+    var HTMLSwirlIconRemoveElement: {
+        prototype: HTMLSwirlIconRemoveElement;
+        new (): HTMLSwirlIconRemoveElement;
     };
-    interface HTMLFlipIconSearchElement extends Components.FlipIconSearch, HTMLStencilElement {
+    interface HTMLSwirlIconSearchElement extends Components.SwirlIconSearch, HTMLStencilElement {
     }
-    var HTMLFlipIconSearchElement: {
-        prototype: HTMLFlipIconSearchElement;
-        new (): HTMLFlipIconSearchElement;
+    var HTMLSwirlIconSearchElement: {
+        prototype: HTMLSwirlIconSearchElement;
+        new (): HTMLSwirlIconSearchElement;
     };
-    interface HTMLFlipIconSearchStrongElement extends Components.FlipIconSearchStrong, HTMLStencilElement {
+    interface HTMLSwirlIconSearchStrongElement extends Components.SwirlIconSearchStrong, HTMLStencilElement {
     }
-    var HTMLFlipIconSearchStrongElement: {
-        prototype: HTMLFlipIconSearchStrongElement;
-        new (): HTMLFlipIconSearchStrongElement;
+    var HTMLSwirlIconSearchStrongElement: {
+        prototype: HTMLSwirlIconSearchStrongElement;
+        new (): HTMLSwirlIconSearchStrongElement;
     };
-    interface HTMLFlipIconSendElement extends Components.FlipIconSend, HTMLStencilElement {
+    interface HTMLSwirlIconSendElement extends Components.SwirlIconSend, HTMLStencilElement {
     }
-    var HTMLFlipIconSendElement: {
-        prototype: HTMLFlipIconSendElement;
-        new (): HTMLFlipIconSendElement;
+    var HTMLSwirlIconSendElement: {
+        prototype: HTMLSwirlIconSendElement;
+        new (): HTMLSwirlIconSendElement;
     };
-    interface HTMLFlipIconSettingsElement extends Components.FlipIconSettings, HTMLStencilElement {
+    interface HTMLSwirlIconSettingsElement extends Components.SwirlIconSettings, HTMLStencilElement {
     }
-    var HTMLFlipIconSettingsElement: {
-        prototype: HTMLFlipIconSettingsElement;
-        new (): HTMLFlipIconSettingsElement;
+    var HTMLSwirlIconSettingsElement: {
+        prototype: HTMLSwirlIconSettingsElement;
+        new (): HTMLSwirlIconSettingsElement;
     };
-    interface HTMLFlipIconSyncElement extends Components.FlipIconSync, HTMLStencilElement {
+    interface HTMLSwirlIconSyncElement extends Components.SwirlIconSync, HTMLStencilElement {
     }
-    var HTMLFlipIconSyncElement: {
-        prototype: HTMLFlipIconSyncElement;
-        new (): HTMLFlipIconSyncElement;
+    var HTMLSwirlIconSyncElement: {
+        prototype: HTMLSwirlIconSyncElement;
+        new (): HTMLSwirlIconSyncElement;
     };
-    interface HTMLFlipIconTasksFilledElement extends Components.FlipIconTasksFilled, HTMLStencilElement {
+    interface HTMLSwirlIconTasksFilledElement extends Components.SwirlIconTasksFilled, HTMLStencilElement {
     }
-    var HTMLFlipIconTasksFilledElement: {
-        prototype: HTMLFlipIconTasksFilledElement;
-        new (): HTMLFlipIconTasksFilledElement;
+    var HTMLSwirlIconTasksFilledElement: {
+        prototype: HTMLSwirlIconTasksFilledElement;
+        new (): HTMLSwirlIconTasksFilledElement;
     };
-    interface HTMLFlipIconTasksOutlinedElement extends Components.FlipIconTasksOutlined, HTMLStencilElement {
+    interface HTMLSwirlIconTasksOutlinedElement extends Components.SwirlIconTasksOutlined, HTMLStencilElement {
     }
-    var HTMLFlipIconTasksOutlinedElement: {
-        prototype: HTMLFlipIconTasksOutlinedElement;
-        new (): HTMLFlipIconTasksOutlinedElement;
+    var HTMLSwirlIconTasksOutlinedElement: {
+        prototype: HTMLSwirlIconTasksOutlinedElement;
+        new (): HTMLSwirlIconTasksOutlinedElement;
     };
-    interface HTMLFlipIconTimeFilledElement extends Components.FlipIconTimeFilled, HTMLStencilElement {
+    interface HTMLSwirlIconTimeFilledElement extends Components.SwirlIconTimeFilled, HTMLStencilElement {
     }
-    var HTMLFlipIconTimeFilledElement: {
-        prototype: HTMLFlipIconTimeFilledElement;
-        new (): HTMLFlipIconTimeFilledElement;
+    var HTMLSwirlIconTimeFilledElement: {
+        prototype: HTMLSwirlIconTimeFilledElement;
+        new (): HTMLSwirlIconTimeFilledElement;
     };
-    interface HTMLFlipIconTimeOutlinedElement extends Components.FlipIconTimeOutlined, HTMLStencilElement {
+    interface HTMLSwirlIconTimeOutlinedElement extends Components.SwirlIconTimeOutlined, HTMLStencilElement {
     }
-    var HTMLFlipIconTimeOutlinedElement: {
-        prototype: HTMLFlipIconTimeOutlinedElement;
-        new (): HTMLFlipIconTimeOutlinedElement;
+    var HTMLSwirlIconTimeOutlinedElement: {
+        prototype: HTMLSwirlIconTimeOutlinedElement;
+        new (): HTMLSwirlIconTimeOutlinedElement;
     };
-    interface HTMLFlipIconTodayElement extends Components.FlipIconToday, HTMLStencilElement {
+    interface HTMLSwirlIconTodayElement extends Components.SwirlIconToday, HTMLStencilElement {
     }
-    var HTMLFlipIconTodayElement: {
-        prototype: HTMLFlipIconTodayElement;
-        new (): HTMLFlipIconTodayElement;
+    var HTMLSwirlIconTodayElement: {
+        prototype: HTMLSwirlIconTodayElement;
+        new (): HTMLSwirlIconTodayElement;
     };
-    interface HTMLFlipIconUserAssignElement extends Components.FlipIconUserAssign, HTMLStencilElement {
+    interface HTMLSwirlIconUserAssignElement extends Components.SwirlIconUserAssign, HTMLStencilElement {
     }
-    var HTMLFlipIconUserAssignElement: {
-        prototype: HTMLFlipIconUserAssignElement;
-        new (): HTMLFlipIconUserAssignElement;
+    var HTMLSwirlIconUserAssignElement: {
+        prototype: HTMLSwirlIconUserAssignElement;
+        new (): HTMLSwirlIconUserAssignElement;
     };
-    interface HTMLFlipIconVideoCameraElement extends Components.FlipIconVideoCamera, HTMLStencilElement {
+    interface HTMLSwirlIconVideoCameraElement extends Components.SwirlIconVideoCamera, HTMLStencilElement {
     }
-    var HTMLFlipIconVideoCameraElement: {
-        prototype: HTMLFlipIconVideoCameraElement;
-        new (): HTMLFlipIconVideoCameraElement;
+    var HTMLSwirlIconVideoCameraElement: {
+        prototype: HTMLSwirlIconVideoCameraElement;
+        new (): HTMLSwirlIconVideoCameraElement;
     };
-    interface HTMLFlipIconVisibilityElement extends Components.FlipIconVisibility, HTMLStencilElement {
+    interface HTMLSwirlIconVisibilityElement extends Components.SwirlIconVisibility, HTMLStencilElement {
     }
-    var HTMLFlipIconVisibilityElement: {
-        prototype: HTMLFlipIconVisibilityElement;
-        new (): HTMLFlipIconVisibilityElement;
+    var HTMLSwirlIconVisibilityElement: {
+        prototype: HTMLSwirlIconVisibilityElement;
+        new (): HTMLSwirlIconVisibilityElement;
     };
-    interface HTMLFlipIconVisibilityOffElement extends Components.FlipIconVisibilityOff, HTMLStencilElement {
+    interface HTMLSwirlIconVisibilityOffElement extends Components.SwirlIconVisibilityOff, HTMLStencilElement {
     }
-    var HTMLFlipIconVisibilityOffElement: {
-        prototype: HTMLFlipIconVisibilityOffElement;
-        new (): HTMLFlipIconVisibilityOffElement;
+    var HTMLSwirlIconVisibilityOffElement: {
+        prototype: HTMLSwirlIconVisibilityOffElement;
+        new (): HTMLSwirlIconVisibilityOffElement;
     };
-    interface HTMLFlipIconWarningElement extends Components.FlipIconWarning, HTMLStencilElement {
+    interface HTMLSwirlIconWarningElement extends Components.SwirlIconWarning, HTMLStencilElement {
     }
-    var HTMLFlipIconWarningElement: {
-        prototype: HTMLFlipIconWarningElement;
-        new (): HTMLFlipIconWarningElement;
+    var HTMLSwirlIconWarningElement: {
+        prototype: HTMLSwirlIconWarningElement;
+        new (): HTMLSwirlIconWarningElement;
     };
-    interface HTMLFlipInlineErrorElement extends Components.FlipInlineError, HTMLStencilElement {
+    interface HTMLSwirlInlineErrorElement extends Components.SwirlInlineError, HTMLStencilElement {
     }
-    var HTMLFlipInlineErrorElement: {
-        prototype: HTMLFlipInlineErrorElement;
-        new (): HTMLFlipInlineErrorElement;
+    var HTMLSwirlInlineErrorElement: {
+        prototype: HTMLSwirlInlineErrorElement;
+        new (): HTMLSwirlInlineErrorElement;
     };
-    interface HTMLFlipLightboxElement extends Components.FlipLightbox, HTMLStencilElement {
+    interface HTMLSwirlLightboxElement extends Components.SwirlLightbox, HTMLStencilElement {
     }
-    var HTMLFlipLightboxElement: {
-        prototype: HTMLFlipLightboxElement;
-        new (): HTMLFlipLightboxElement;
+    var HTMLSwirlLightboxElement: {
+        prototype: HTMLSwirlLightboxElement;
+        new (): HTMLSwirlLightboxElement;
     };
-    interface HTMLFlipLinkElement extends Components.FlipLink, HTMLStencilElement {
+    interface HTMLSwirlLinkElement extends Components.SwirlLink, HTMLStencilElement {
     }
-    var HTMLFlipLinkElement: {
-        prototype: HTMLFlipLinkElement;
-        new (): HTMLFlipLinkElement;
+    var HTMLSwirlLinkElement: {
+        prototype: HTMLSwirlLinkElement;
+        new (): HTMLSwirlLinkElement;
     };
-    interface HTMLFlipListElement extends Components.FlipList, HTMLStencilElement {
+    interface HTMLSwirlListElement extends Components.SwirlList, HTMLStencilElement {
     }
-    var HTMLFlipListElement: {
-        prototype: HTMLFlipListElement;
-        new (): HTMLFlipListElement;
+    var HTMLSwirlListElement: {
+        prototype: HTMLSwirlListElement;
+        new (): HTMLSwirlListElement;
     };
-    interface HTMLFlipModalElement extends Components.FlipModal, HTMLStencilElement {
+    interface HTMLSwirlModalElement extends Components.SwirlModal, HTMLStencilElement {
     }
-    var HTMLFlipModalElement: {
-        prototype: HTMLFlipModalElement;
-        new (): HTMLFlipModalElement;
+    var HTMLSwirlModalElement: {
+        prototype: HTMLSwirlModalElement;
+        new (): HTMLSwirlModalElement;
     };
-    interface HTMLFlipOptionListElement extends Components.FlipOptionList, HTMLStencilElement {
+    interface HTMLSwirlOptionListElement extends Components.SwirlOptionList, HTMLStencilElement {
     }
-    var HTMLFlipOptionListElement: {
-        prototype: HTMLFlipOptionListElement;
-        new (): HTMLFlipOptionListElement;
+    var HTMLSwirlOptionListElement: {
+        prototype: HTMLSwirlOptionListElement;
+        new (): HTMLSwirlOptionListElement;
     };
-    interface HTMLFlipOptionListItemElement extends Components.FlipOptionListItem, HTMLStencilElement {
+    interface HTMLSwirlOptionListItemElement extends Components.SwirlOptionListItem, HTMLStencilElement {
     }
-    var HTMLFlipOptionListItemElement: {
-        prototype: HTMLFlipOptionListItemElement;
-        new (): HTMLFlipOptionListItemElement;
+    var HTMLSwirlOptionListItemElement: {
+        prototype: HTMLSwirlOptionListItemElement;
+        new (): HTMLSwirlOptionListItemElement;
     };
-    interface HTMLFlipOptionListSectionElement extends Components.FlipOptionListSection, HTMLStencilElement {
+    interface HTMLSwirlOptionListSectionElement extends Components.SwirlOptionListSection, HTMLStencilElement {
     }
-    var HTMLFlipOptionListSectionElement: {
-        prototype: HTMLFlipOptionListSectionElement;
-        new (): HTMLFlipOptionListSectionElement;
+    var HTMLSwirlOptionListSectionElement: {
+        prototype: HTMLSwirlOptionListSectionElement;
+        new (): HTMLSwirlOptionListSectionElement;
     };
-    interface HTMLFlipPaginationElement extends Components.FlipPagination, HTMLStencilElement {
+    interface HTMLSwirlPaginationElement extends Components.SwirlPagination, HTMLStencilElement {
     }
-    var HTMLFlipPaginationElement: {
-        prototype: HTMLFlipPaginationElement;
-        new (): HTMLFlipPaginationElement;
+    var HTMLSwirlPaginationElement: {
+        prototype: HTMLSwirlPaginationElement;
+        new (): HTMLSwirlPaginationElement;
     };
-    interface HTMLFlipPdfReaderElement extends Components.FlipPdfReader, HTMLStencilElement {
+    interface HTMLSwirlPdfReaderElement extends Components.SwirlPdfReader, HTMLStencilElement {
     }
-    var HTMLFlipPdfReaderElement: {
-        prototype: HTMLFlipPdfReaderElement;
-        new (): HTMLFlipPdfReaderElement;
+    var HTMLSwirlPdfReaderElement: {
+        prototype: HTMLSwirlPdfReaderElement;
+        new (): HTMLSwirlPdfReaderElement;
     };
-    interface HTMLFlipPopoverElement extends Components.FlipPopover, HTMLStencilElement {
+    interface HTMLSwirlPopoverElement extends Components.SwirlPopover, HTMLStencilElement {
     }
-    var HTMLFlipPopoverElement: {
-        prototype: HTMLFlipPopoverElement;
-        new (): HTMLFlipPopoverElement;
+    var HTMLSwirlPopoverElement: {
+        prototype: HTMLSwirlPopoverElement;
+        new (): HTMLSwirlPopoverElement;
     };
-    interface HTMLFlipProgressIndicatorElement extends Components.FlipProgressIndicator, HTMLStencilElement {
+    interface HTMLSwirlProgressIndicatorElement extends Components.SwirlProgressIndicator, HTMLStencilElement {
     }
-    var HTMLFlipProgressIndicatorElement: {
-        prototype: HTMLFlipProgressIndicatorElement;
-        new (): HTMLFlipProgressIndicatorElement;
+    var HTMLSwirlProgressIndicatorElement: {
+        prototype: HTMLSwirlProgressIndicatorElement;
+        new (): HTMLSwirlProgressIndicatorElement;
     };
-    interface HTMLFlipRadioElement extends Components.FlipRadio, HTMLStencilElement {
+    interface HTMLSwirlRadioElement extends Components.SwirlRadio, HTMLStencilElement {
     }
-    var HTMLFlipRadioElement: {
-        prototype: HTMLFlipRadioElement;
-        new (): HTMLFlipRadioElement;
+    var HTMLSwirlRadioElement: {
+        prototype: HTMLSwirlRadioElement;
+        new (): HTMLSwirlRadioElement;
     };
-    interface HTMLFlipRadioGroupElement extends Components.FlipRadioGroup, HTMLStencilElement {
+    interface HTMLSwirlRadioGroupElement extends Components.SwirlRadioGroup, HTMLStencilElement {
     }
-    var HTMLFlipRadioGroupElement: {
-        prototype: HTMLFlipRadioGroupElement;
-        new (): HTMLFlipRadioGroupElement;
+    var HTMLSwirlRadioGroupElement: {
+        prototype: HTMLSwirlRadioGroupElement;
+        new (): HTMLSwirlRadioGroupElement;
     };
-    interface HTMLFlipResourceListElement extends Components.FlipResourceList, HTMLStencilElement {
+    interface HTMLSwirlResourceListElement extends Components.SwirlResourceList, HTMLStencilElement {
     }
-    var HTMLFlipResourceListElement: {
-        prototype: HTMLFlipResourceListElement;
-        new (): HTMLFlipResourceListElement;
+    var HTMLSwirlResourceListElement: {
+        prototype: HTMLSwirlResourceListElement;
+        new (): HTMLSwirlResourceListElement;
     };
-    interface HTMLFlipResourceListFileItemElement extends Components.FlipResourceListFileItem, HTMLStencilElement {
+    interface HTMLSwirlResourceListFileItemElement extends Components.SwirlResourceListFileItem, HTMLStencilElement {
     }
-    var HTMLFlipResourceListFileItemElement: {
-        prototype: HTMLFlipResourceListFileItemElement;
-        new (): HTMLFlipResourceListFileItemElement;
+    var HTMLSwirlResourceListFileItemElement: {
+        prototype: HTMLSwirlResourceListFileItemElement;
+        new (): HTMLSwirlResourceListFileItemElement;
     };
-    interface HTMLFlipResourceListItemElement extends Components.FlipResourceListItem, HTMLStencilElement {
+    interface HTMLSwirlResourceListItemElement extends Components.SwirlResourceListItem, HTMLStencilElement {
     }
-    var HTMLFlipResourceListItemElement: {
-        prototype: HTMLFlipResourceListItemElement;
-        new (): HTMLFlipResourceListItemElement;
+    var HTMLSwirlResourceListItemElement: {
+        prototype: HTMLSwirlResourceListItemElement;
+        new (): HTMLSwirlResourceListItemElement;
     };
-    interface HTMLFlipSearchElement extends Components.FlipSearch, HTMLStencilElement {
+    interface HTMLSwirlSearchElement extends Components.SwirlSearch, HTMLStencilElement {
     }
-    var HTMLFlipSearchElement: {
-        prototype: HTMLFlipSearchElement;
-        new (): HTMLFlipSearchElement;
+    var HTMLSwirlSearchElement: {
+        prototype: HTMLSwirlSearchElement;
+        new (): HTMLSwirlSearchElement;
     };
-    interface HTMLFlipSelectElement extends Components.FlipSelect, HTMLStencilElement {
+    interface HTMLSwirlSelectElement extends Components.SwirlSelect, HTMLStencilElement {
     }
-    var HTMLFlipSelectElement: {
-        prototype: HTMLFlipSelectElement;
-        new (): HTMLFlipSelectElement;
+    var HTMLSwirlSelectElement: {
+        prototype: HTMLSwirlSelectElement;
+        new (): HTMLSwirlSelectElement;
     };
-    interface HTMLFlipSeparatorElement extends Components.FlipSeparator, HTMLStencilElement {
+    interface HTMLSwirlSeparatorElement extends Components.SwirlSeparator, HTMLStencilElement {
     }
-    var HTMLFlipSeparatorElement: {
-        prototype: HTMLFlipSeparatorElement;
-        new (): HTMLFlipSeparatorElement;
+    var HTMLSwirlSeparatorElement: {
+        prototype: HTMLSwirlSeparatorElement;
+        new (): HTMLSwirlSeparatorElement;
     };
-    interface HTMLFlipSpinnerElement extends Components.FlipSpinner, HTMLStencilElement {
+    interface HTMLSwirlSpinnerElement extends Components.SwirlSpinner, HTMLStencilElement {
     }
-    var HTMLFlipSpinnerElement: {
-        prototype: HTMLFlipSpinnerElement;
-        new (): HTMLFlipSpinnerElement;
+    var HTMLSwirlSpinnerElement: {
+        prototype: HTMLSwirlSpinnerElement;
+        new (): HTMLSwirlSpinnerElement;
     };
-    interface HTMLFlipStackElement extends Components.FlipStack, HTMLStencilElement {
+    interface HTMLSwirlStackElement extends Components.SwirlStack, HTMLStencilElement {
     }
-    var HTMLFlipStackElement: {
-        prototype: HTMLFlipStackElement;
-        new (): HTMLFlipStackElement;
+    var HTMLSwirlStackElement: {
+        prototype: HTMLSwirlStackElement;
+        new (): HTMLSwirlStackElement;
     };
-    interface HTMLFlipSwitchElement extends Components.FlipSwitch, HTMLStencilElement {
+    interface HTMLSwirlSwitchElement extends Components.SwirlSwitch, HTMLStencilElement {
     }
-    var HTMLFlipSwitchElement: {
-        prototype: HTMLFlipSwitchElement;
-        new (): HTMLFlipSwitchElement;
+    var HTMLSwirlSwitchElement: {
+        prototype: HTMLSwirlSwitchElement;
+        new (): HTMLSwirlSwitchElement;
     };
-    interface HTMLFlipTabElement extends Components.FlipTab, HTMLStencilElement {
+    interface HTMLSwirlTabElement extends Components.SwirlTab, HTMLStencilElement {
     }
-    var HTMLFlipTabElement: {
-        prototype: HTMLFlipTabElement;
-        new (): HTMLFlipTabElement;
+    var HTMLSwirlTabElement: {
+        prototype: HTMLSwirlTabElement;
+        new (): HTMLSwirlTabElement;
     };
-    interface HTMLFlipTableElement extends Components.FlipTable, HTMLStencilElement {
+    interface HTMLSwirlTableElement extends Components.SwirlTable, HTMLStencilElement {
     }
-    var HTMLFlipTableElement: {
-        prototype: HTMLFlipTableElement;
-        new (): HTMLFlipTableElement;
+    var HTMLSwirlTableElement: {
+        prototype: HTMLSwirlTableElement;
+        new (): HTMLSwirlTableElement;
     };
-    interface HTMLFlipTableCellElement extends Components.FlipTableCell, HTMLStencilElement {
+    interface HTMLSwirlTableCellElement extends Components.SwirlTableCell, HTMLStencilElement {
     }
-    var HTMLFlipTableCellElement: {
-        prototype: HTMLFlipTableCellElement;
-        new (): HTMLFlipTableCellElement;
+    var HTMLSwirlTableCellElement: {
+        prototype: HTMLSwirlTableCellElement;
+        new (): HTMLSwirlTableCellElement;
     };
-    interface HTMLFlipTableColumnElement extends Components.FlipTableColumn, HTMLStencilElement {
+    interface HTMLSwirlTableColumnElement extends Components.SwirlTableColumn, HTMLStencilElement {
     }
-    var HTMLFlipTableColumnElement: {
-        prototype: HTMLFlipTableColumnElement;
-        new (): HTMLFlipTableColumnElement;
+    var HTMLSwirlTableColumnElement: {
+        prototype: HTMLSwirlTableColumnElement;
+        new (): HTMLSwirlTableColumnElement;
     };
-    interface HTMLFlipTableRowElement extends Components.FlipTableRow, HTMLStencilElement {
+    interface HTMLSwirlTableRowElement extends Components.SwirlTableRow, HTMLStencilElement {
     }
-    var HTMLFlipTableRowElement: {
-        prototype: HTMLFlipTableRowElement;
-        new (): HTMLFlipTableRowElement;
+    var HTMLSwirlTableRowElement: {
+        prototype: HTMLSwirlTableRowElement;
+        new (): HTMLSwirlTableRowElement;
     };
-    interface HTMLFlipTableRowGroupElement extends Components.FlipTableRowGroup, HTMLStencilElement {
+    interface HTMLSwirlTableRowGroupElement extends Components.SwirlTableRowGroup, HTMLStencilElement {
     }
-    var HTMLFlipTableRowGroupElement: {
-        prototype: HTMLFlipTableRowGroupElement;
-        new (): HTMLFlipTableRowGroupElement;
+    var HTMLSwirlTableRowGroupElement: {
+        prototype: HTMLSwirlTableRowGroupElement;
+        new (): HTMLSwirlTableRowGroupElement;
     };
-    interface HTMLFlipTabsElement extends Components.FlipTabs, HTMLStencilElement {
+    interface HTMLSwirlTabsElement extends Components.SwirlTabs, HTMLStencilElement {
     }
-    var HTMLFlipTabsElement: {
-        prototype: HTMLFlipTabsElement;
-        new (): HTMLFlipTabsElement;
+    var HTMLSwirlTabsElement: {
+        prototype: HTMLSwirlTabsElement;
+        new (): HTMLSwirlTabsElement;
     };
-    interface HTMLFlipTagElement extends Components.FlipTag, HTMLStencilElement {
+    interface HTMLSwirlTagElement extends Components.SwirlTag, HTMLStencilElement {
     }
-    var HTMLFlipTagElement: {
-        prototype: HTMLFlipTagElement;
-        new (): HTMLFlipTagElement;
+    var HTMLSwirlTagElement: {
+        prototype: HTMLSwirlTagElement;
+        new (): HTMLSwirlTagElement;
     };
-    interface HTMLFlipTextElement extends Components.FlipText, HTMLStencilElement {
+    interface HTMLSwirlTextElement extends Components.SwirlText, HTMLStencilElement {
     }
-    var HTMLFlipTextElement: {
-        prototype: HTMLFlipTextElement;
-        new (): HTMLFlipTextElement;
+    var HTMLSwirlTextElement: {
+        prototype: HTMLSwirlTextElement;
+        new (): HTMLSwirlTextElement;
     };
-    interface HTMLFlipTextInputElement extends Components.FlipTextInput, HTMLStencilElement {
+    interface HTMLSwirlTextInputElement extends Components.SwirlTextInput, HTMLStencilElement {
     }
-    var HTMLFlipTextInputElement: {
-        prototype: HTMLFlipTextInputElement;
-        new (): HTMLFlipTextInputElement;
+    var HTMLSwirlTextInputElement: {
+        prototype: HTMLSwirlTextInputElement;
+        new (): HTMLSwirlTextInputElement;
     };
-    interface HTMLFlipThemeProviderElement extends Components.FlipThemeProvider, HTMLStencilElement {
+    interface HTMLSwirlThemeProviderElement extends Components.SwirlThemeProvider, HTMLStencilElement {
     }
-    var HTMLFlipThemeProviderElement: {
-        prototype: HTMLFlipThemeProviderElement;
-        new (): HTMLFlipThemeProviderElement;
+    var HTMLSwirlThemeProviderElement: {
+        prototype: HTMLSwirlThemeProviderElement;
+        new (): HTMLSwirlThemeProviderElement;
     };
-    interface HTMLFlipThumbnailElement extends Components.FlipThumbnail, HTMLStencilElement {
+    interface HTMLSwirlThumbnailElement extends Components.SwirlThumbnail, HTMLStencilElement {
     }
-    var HTMLFlipThumbnailElement: {
-        prototype: HTMLFlipThumbnailElement;
-        new (): HTMLFlipThumbnailElement;
+    var HTMLSwirlThumbnailElement: {
+        prototype: HTMLSwirlThumbnailElement;
+        new (): HTMLSwirlThumbnailElement;
     };
-    interface HTMLFlipToastElement extends Components.FlipToast, HTMLStencilElement {
+    interface HTMLSwirlToastElement extends Components.SwirlToast, HTMLStencilElement {
     }
-    var HTMLFlipToastElement: {
-        prototype: HTMLFlipToastElement;
-        new (): HTMLFlipToastElement;
+    var HTMLSwirlToastElement: {
+        prototype: HTMLSwirlToastElement;
+        new (): HTMLSwirlToastElement;
     };
-    interface HTMLFlipToastProviderElement extends Components.FlipToastProvider, HTMLStencilElement {
+    interface HTMLSwirlToastProviderElement extends Components.SwirlToastProvider, HTMLStencilElement {
     }
-    var HTMLFlipToastProviderElement: {
-        prototype: HTMLFlipToastProviderElement;
-        new (): HTMLFlipToastProviderElement;
+    var HTMLSwirlToastProviderElement: {
+        prototype: HTMLSwirlToastProviderElement;
+        new (): HTMLSwirlToastProviderElement;
     };
-    interface HTMLFlipTooltipElement extends Components.FlipTooltip, HTMLStencilElement {
+    interface HTMLSwirlTooltipElement extends Components.SwirlTooltip, HTMLStencilElement {
     }
-    var HTMLFlipTooltipElement: {
-        prototype: HTMLFlipTooltipElement;
-        new (): HTMLFlipTooltipElement;
+    var HTMLSwirlTooltipElement: {
+        prototype: HTMLSwirlTooltipElement;
+        new (): HTMLSwirlTooltipElement;
     };
-    interface HTMLFlipTreeNavigationItemElement extends Components.FlipTreeNavigationItem, HTMLStencilElement {
+    interface HTMLSwirlTreeNavigationItemElement extends Components.SwirlTreeNavigationItem, HTMLStencilElement {
     }
-    var HTMLFlipTreeNavigationItemElement: {
-        prototype: HTMLFlipTreeNavigationItemElement;
-        new (): HTMLFlipTreeNavigationItemElement;
+    var HTMLSwirlTreeNavigationItemElement: {
+        prototype: HTMLSwirlTreeNavigationItemElement;
+        new (): HTMLSwirlTreeNavigationItemElement;
     };
-    interface HTMLFlipVideoThumbnailElement extends Components.FlipVideoThumbnail, HTMLStencilElement {
+    interface HTMLSwirlVideoThumbnailElement extends Components.SwirlVideoThumbnail, HTMLStencilElement {
     }
-    var HTMLFlipVideoThumbnailElement: {
-        prototype: HTMLFlipVideoThumbnailElement;
-        new (): HTMLFlipVideoThumbnailElement;
+    var HTMLSwirlVideoThumbnailElement: {
+        prototype: HTMLSwirlVideoThumbnailElement;
+        new (): HTMLSwirlVideoThumbnailElement;
     };
-    interface HTMLFlipVisuallyHiddenElement extends Components.FlipVisuallyHidden, HTMLStencilElement {
+    interface HTMLSwirlVisuallyHiddenElement extends Components.SwirlVisuallyHidden, HTMLStencilElement {
     }
-    var HTMLFlipVisuallyHiddenElement: {
-        prototype: HTMLFlipVisuallyHiddenElement;
-        new (): HTMLFlipVisuallyHiddenElement;
+    var HTMLSwirlVisuallyHiddenElement: {
+        prototype: HTMLSwirlVisuallyHiddenElement;
+        new (): HTMLSwirlVisuallyHiddenElement;
     };
     interface HTMLElementTagNameMap {
         "file-manager": HTMLFileManagerElement;
-        "flip-action-list": HTMLFlipActionListElement;
-        "flip-action-list-item": HTMLFlipActionListItemElement;
-        "flip-action-list-section": HTMLFlipActionListSectionElement;
-        "flip-app-layout": HTMLFlipAppLayoutElement;
-        "flip-autocomplete": HTMLFlipAutocompleteElement;
-        "flip-avatar": HTMLFlipAvatarElement;
-        "flip-avatar-group": HTMLFlipAvatarGroupElement;
-        "flip-badge": HTMLFlipBadgeElement;
-        "flip-banner": HTMLFlipBannerElement;
-        "flip-box": HTMLFlipBoxElement;
-        "flip-button": HTMLFlipButtonElement;
-        "flip-button-group": HTMLFlipButtonGroupElement;
-        "flip-card": HTMLFlipCardElement;
-        "flip-checkbox": HTMLFlipCheckboxElement;
-        "flip-chip": HTMLFlipChipElement;
-        "flip-console-layout": HTMLFlipConsoleLayoutElement;
-        "flip-date-input": HTMLFlipDateInputElement;
-        "flip-date-picker": HTMLFlipDatePickerElement;
-        "flip-description-list": HTMLFlipDescriptionListElement;
-        "flip-description-list-item": HTMLFlipDescriptionListItemElement;
-        "flip-dialog": HTMLFlipDialogElement;
-        "flip-empty-state": HTMLFlipEmptyStateElement;
-        "flip-file-uploader": HTMLFlipFileUploaderElement;
-        "flip-file-viewer": HTMLFlipFileViewerElement;
-        "flip-file-viewer-audio": HTMLFlipFileViewerAudioElement;
-        "flip-file-viewer-csv": HTMLFlipFileViewerCsvElement;
-        "flip-file-viewer-image": HTMLFlipFileViewerImageElement;
-        "flip-file-viewer-pdf": HTMLFlipFileViewerPdfElement;
-        "flip-file-viewer-text": HTMLFlipFileViewerTextElement;
-        "flip-file-viewer-video": HTMLFlipFileViewerVideoElement;
-        "flip-form-control": HTMLFlipFormControlElement;
-        "flip-form-group": HTMLFlipFormGroupElement;
-        "flip-heading": HTMLFlipHeadingElement;
-        "flip-icon-add": HTMLFlipIconAddElement;
-        "flip-icon-add-photo": HTMLFlipIconAddPhotoElement;
-        "flip-icon-admin-panel-settings": HTMLFlipIconAdminPanelSettingsElement;
-        "flip-icon-arrow-back": HTMLFlipIconArrowBackElement;
-        "flip-icon-arrow-downward": HTMLFlipIconArrowDownwardElement;
-        "flip-icon-arrow-forward": HTMLFlipIconArrowForwardElement;
-        "flip-icon-arrow-left": HTMLFlipIconArrowLeftElement;
-        "flip-icon-arrow-right": HTMLFlipIconArrowRightElement;
-        "flip-icon-arrow-right-small": HTMLFlipIconArrowRightSmallElement;
-        "flip-icon-arrow-upward": HTMLFlipIconArrowUpwardElement;
-        "flip-icon-attachment": HTMLFlipIconAttachmentElement;
-        "flip-icon-block": HTMLFlipIconBlockElement;
-        "flip-icon-cancel": HTMLFlipIconCancelElement;
-        "flip-icon-chat-bubble": HTMLFlipIconChatBubbleElement;
-        "flip-icon-chats-filled": HTMLFlipIconChatsFilledElement;
-        "flip-icon-chats-outlined": HTMLFlipIconChatsOutlinedElement;
-        "flip-icon-check": HTMLFlipIconCheckElement;
-        "flip-icon-check-circle": HTMLFlipIconCheckCircleElement;
-        "flip-icon-check-small": HTMLFlipIconCheckSmallElement;
-        "flip-icon-check-strong": HTMLFlipIconCheckStrongElement;
-        "flip-icon-chevron-left": HTMLFlipIconChevronLeftElement;
-        "flip-icon-chevron-right": HTMLFlipIconChevronRightElement;
-        "flip-icon-close": HTMLFlipIconCloseElement;
-        "flip-icon-close-small": HTMLFlipIconCloseSmallElement;
-        "flip-icon-cloud-upload": HTMLFlipIconCloudUploadElement;
-        "flip-icon-column": HTMLFlipIconColumnElement;
-        "flip-icon-comment": HTMLFlipIconCommentElement;
-        "flip-icon-copy": HTMLFlipIconCopyElement;
-        "flip-icon-date-range": HTMLFlipIconDateRangeElement;
-        "flip-icon-delete": HTMLFlipIconDeleteElement;
-        "flip-icon-description": HTMLFlipIconDescriptionElement;
-        "flip-icon-download": HTMLFlipIconDownloadElement;
-        "flip-icon-edit": HTMLFlipIconEditElement;
-        "flip-icon-emoji-mood": HTMLFlipIconEmojiMoodElement;
-        "flip-icon-emoji-satisfied": HTMLFlipIconEmojiSatisfiedElement;
-        "flip-icon-error": HTMLFlipIconErrorElement;
-        "flip-icon-expand-less": HTMLFlipIconExpandLessElement;
-        "flip-icon-expand-more": HTMLFlipIconExpandMoreElement;
-        "flip-icon-file": HTMLFlipIconFileElement;
-        "flip-icon-filter": HTMLFlipIconFilterElement;
-        "flip-icon-folder-shared": HTMLFlipIconFolderSharedElement;
-        "flip-icon-fullscreen": HTMLFlipIconFullscreenElement;
-        "flip-icon-fullscreen-exit": HTMLFlipIconFullscreenExitElement;
-        "flip-icon-group-assign": HTMLFlipIconGroupAssignElement;
-        "flip-icon-groups": HTMLFlipIconGroupsElement;
-        "flip-icon-groups-custom": HTMLFlipIconGroupsCustomElement;
-        "flip-icon-groups-filled": HTMLFlipIconGroupsFilledElement;
-        "flip-icon-groups-outlined": HTMLFlipIconGroupsOutlinedElement;
-        "flip-icon-help": HTMLFlipIconHelpElement;
-        "flip-icon-image": HTMLFlipIconImageElement;
-        "flip-icon-info": HTMLFlipIconInfoElement;
-        "flip-icon-inventory": HTMLFlipIconInventoryElement;
-        "flip-icon-like": HTMLFlipIconLikeElement;
-        "flip-icon-link": HTMLFlipIconLinkElement;
-        "flip-icon-lock": HTMLFlipIconLockElement;
-        "flip-icon-logout": HTMLFlipIconLogoutElement;
-        "flip-icon-mail": HTMLFlipIconMailElement;
-        "flip-icon-manage-accounts": HTMLFlipIconManageAccountsElement;
-        "flip-icon-mention": HTMLFlipIconMentionElement;
-        "flip-icon-menu": HTMLFlipIconMenuElement;
-        "flip-icon-menu-filled": HTMLFlipIconMenuFilledElement;
-        "flip-icon-menu-outlined": HTMLFlipIconMenuOutlinedElement;
-        "flip-icon-message": HTMLFlipIconMessageElement;
-        "flip-icon-more-horizontal": HTMLFlipIconMoreHorizontalElement;
-        "flip-icon-more-vertikal": HTMLFlipIconMoreVertikalElement;
-        "flip-icon-news-filled": HTMLFlipIconNewsFilledElement;
-        "flip-icon-news-outlined": HTMLFlipIconNewsOutlinedElement;
-        "flip-icon-notifications": HTMLFlipIconNotificationsElement;
-        "flip-icon-notifications-active": HTMLFlipIconNotificationsActiveElement;
-        "flip-icon-notifications-off": HTMLFlipIconNotificationsOffElement;
-        "flip-icon-open-in-new": HTMLFlipIconOpenInNewElement;
-        "flip-icon-people-alt": HTMLFlipIconPeopleAltElement;
-        "flip-icon-person": HTMLFlipIconPersonElement;
-        "flip-icon-person-off": HTMLFlipIconPersonOffElement;
-        "flip-icon-phone": HTMLFlipIconPhoneElement;
-        "flip-icon-poll": HTMLFlipIconPollElement;
-        "flip-icon-print": HTMLFlipIconPrintElement;
-        "flip-icon-recieved": HTMLFlipIconRecievedElement;
-        "flip-icon-remove": HTMLFlipIconRemoveElement;
-        "flip-icon-search": HTMLFlipIconSearchElement;
-        "flip-icon-search-strong": HTMLFlipIconSearchStrongElement;
-        "flip-icon-send": HTMLFlipIconSendElement;
-        "flip-icon-settings": HTMLFlipIconSettingsElement;
-        "flip-icon-sync": HTMLFlipIconSyncElement;
-        "flip-icon-tasks-filled": HTMLFlipIconTasksFilledElement;
-        "flip-icon-tasks-outlined": HTMLFlipIconTasksOutlinedElement;
-        "flip-icon-time-filled": HTMLFlipIconTimeFilledElement;
-        "flip-icon-time-outlined": HTMLFlipIconTimeOutlinedElement;
-        "flip-icon-today": HTMLFlipIconTodayElement;
-        "flip-icon-user-assign": HTMLFlipIconUserAssignElement;
-        "flip-icon-video-camera": HTMLFlipIconVideoCameraElement;
-        "flip-icon-visibility": HTMLFlipIconVisibilityElement;
-        "flip-icon-visibility-off": HTMLFlipIconVisibilityOffElement;
-        "flip-icon-warning": HTMLFlipIconWarningElement;
-        "flip-inline-error": HTMLFlipInlineErrorElement;
-        "flip-lightbox": HTMLFlipLightboxElement;
-        "flip-link": HTMLFlipLinkElement;
-        "flip-list": HTMLFlipListElement;
-        "flip-modal": HTMLFlipModalElement;
-        "flip-option-list": HTMLFlipOptionListElement;
-        "flip-option-list-item": HTMLFlipOptionListItemElement;
-        "flip-option-list-section": HTMLFlipOptionListSectionElement;
-        "flip-pagination": HTMLFlipPaginationElement;
-        "flip-pdf-reader": HTMLFlipPdfReaderElement;
-        "flip-popover": HTMLFlipPopoverElement;
-        "flip-progress-indicator": HTMLFlipProgressIndicatorElement;
-        "flip-radio": HTMLFlipRadioElement;
-        "flip-radio-group": HTMLFlipRadioGroupElement;
-        "flip-resource-list": HTMLFlipResourceListElement;
-        "flip-resource-list-file-item": HTMLFlipResourceListFileItemElement;
-        "flip-resource-list-item": HTMLFlipResourceListItemElement;
-        "flip-search": HTMLFlipSearchElement;
-        "flip-select": HTMLFlipSelectElement;
-        "flip-separator": HTMLFlipSeparatorElement;
-        "flip-spinner": HTMLFlipSpinnerElement;
-        "flip-stack": HTMLFlipStackElement;
-        "flip-switch": HTMLFlipSwitchElement;
-        "flip-tab": HTMLFlipTabElement;
-        "flip-table": HTMLFlipTableElement;
-        "flip-table-cell": HTMLFlipTableCellElement;
-        "flip-table-column": HTMLFlipTableColumnElement;
-        "flip-table-row": HTMLFlipTableRowElement;
-        "flip-table-row-group": HTMLFlipTableRowGroupElement;
-        "flip-tabs": HTMLFlipTabsElement;
-        "flip-tag": HTMLFlipTagElement;
-        "flip-text": HTMLFlipTextElement;
-        "flip-text-input": HTMLFlipTextInputElement;
-        "flip-theme-provider": HTMLFlipThemeProviderElement;
-        "flip-thumbnail": HTMLFlipThumbnailElement;
-        "flip-toast": HTMLFlipToastElement;
-        "flip-toast-provider": HTMLFlipToastProviderElement;
-        "flip-tooltip": HTMLFlipTooltipElement;
-        "flip-tree-navigation-item": HTMLFlipTreeNavigationItemElement;
-        "flip-video-thumbnail": HTMLFlipVideoThumbnailElement;
-        "flip-visually-hidden": HTMLFlipVisuallyHiddenElement;
+        "swirl-action-list": HTMLSwirlActionListElement;
+        "swirl-action-list-item": HTMLSwirlActionListItemElement;
+        "swirl-action-list-section": HTMLSwirlActionListSectionElement;
+        "swirl-app-layout": HTMLSwirlAppLayoutElement;
+        "swirl-autocomplete": HTMLSwirlAutocompleteElement;
+        "swirl-avatar": HTMLSwirlAvatarElement;
+        "swirl-avatar-group": HTMLSwirlAvatarGroupElement;
+        "swirl-badge": HTMLSwirlBadgeElement;
+        "swirl-banner": HTMLSwirlBannerElement;
+        "swirl-box": HTMLSwirlBoxElement;
+        "swirl-button": HTMLSwirlButtonElement;
+        "swirl-button-group": HTMLSwirlButtonGroupElement;
+        "swirl-card": HTMLSwirlCardElement;
+        "swirl-checkbox": HTMLSwirlCheckboxElement;
+        "swirl-chip": HTMLSwirlChipElement;
+        "swirl-console-layout": HTMLSwirlConsoleLayoutElement;
+        "swirl-date-input": HTMLSwirlDateInputElement;
+        "swirl-date-picker": HTMLSwirlDatePickerElement;
+        "swirl-description-list": HTMLSwirlDescriptionListElement;
+        "swirl-description-list-item": HTMLSwirlDescriptionListItemElement;
+        "swirl-dialog": HTMLSwirlDialogElement;
+        "swirl-empty-state": HTMLSwirlEmptyStateElement;
+        "swirl-file-uploader": HTMLSwirlFileUploaderElement;
+        "swirl-file-viewer": HTMLSwirlFileViewerElement;
+        "swirl-file-viewer-audio": HTMLSwirlFileViewerAudioElement;
+        "swirl-file-viewer-csv": HTMLSwirlFileViewerCsvElement;
+        "swirl-file-viewer-image": HTMLSwirlFileViewerImageElement;
+        "swirl-file-viewer-pdf": HTMLSwirlFileViewerPdfElement;
+        "swirl-file-viewer-text": HTMLSwirlFileViewerTextElement;
+        "swirl-file-viewer-video": HTMLSwirlFileViewerVideoElement;
+        "swirl-form-control": HTMLSwirlFormControlElement;
+        "swirl-form-group": HTMLSwirlFormGroupElement;
+        "swirl-heading": HTMLSwirlHeadingElement;
+        "swirl-icon-add": HTMLSwirlIconAddElement;
+        "swirl-icon-add-photo": HTMLSwirlIconAddPhotoElement;
+        "swirl-icon-admin-panel-settings": HTMLSwirlIconAdminPanelSettingsElement;
+        "swirl-icon-arrow-back": HTMLSwirlIconArrowBackElement;
+        "swirl-icon-arrow-downward": HTMLSwirlIconArrowDownwardElement;
+        "swirl-icon-arrow-forward": HTMLSwirlIconArrowForwardElement;
+        "swirl-icon-arrow-left": HTMLSwirlIconArrowLeftElement;
+        "swirl-icon-arrow-right": HTMLSwirlIconArrowRightElement;
+        "swirl-icon-arrow-right-small": HTMLSwirlIconArrowRightSmallElement;
+        "swirl-icon-arrow-upward": HTMLSwirlIconArrowUpwardElement;
+        "swirl-icon-attachment": HTMLSwirlIconAttachmentElement;
+        "swirl-icon-block": HTMLSwirlIconBlockElement;
+        "swirl-icon-cancel": HTMLSwirlIconCancelElement;
+        "swirl-icon-chat-bubble": HTMLSwirlIconChatBubbleElement;
+        "swirl-icon-chats-filled": HTMLSwirlIconChatsFilledElement;
+        "swirl-icon-chats-outlined": HTMLSwirlIconChatsOutlinedElement;
+        "swirl-icon-check": HTMLSwirlIconCheckElement;
+        "swirl-icon-check-circle": HTMLSwirlIconCheckCircleElement;
+        "swirl-icon-check-small": HTMLSwirlIconCheckSmallElement;
+        "swirl-icon-check-strong": HTMLSwirlIconCheckStrongElement;
+        "swirl-icon-chevron-left": HTMLSwirlIconChevronLeftElement;
+        "swirl-icon-chevron-right": HTMLSwirlIconChevronRightElement;
+        "swirl-icon-close": HTMLSwirlIconCloseElement;
+        "swirl-icon-close-small": HTMLSwirlIconCloseSmallElement;
+        "swirl-icon-cloud-upload": HTMLSwirlIconCloudUploadElement;
+        "swirl-icon-column": HTMLSwirlIconColumnElement;
+        "swirl-icon-comment": HTMLSwirlIconCommentElement;
+        "swirl-icon-copy": HTMLSwirlIconCopyElement;
+        "swirl-icon-date-range": HTMLSwirlIconDateRangeElement;
+        "swirl-icon-delete": HTMLSwirlIconDeleteElement;
+        "swirl-icon-description": HTMLSwirlIconDescriptionElement;
+        "swirl-icon-download": HTMLSwirlIconDownloadElement;
+        "swirl-icon-edit": HTMLSwirlIconEditElement;
+        "swirl-icon-emoji-mood": HTMLSwirlIconEmojiMoodElement;
+        "swirl-icon-emoji-satisfied": HTMLSwirlIconEmojiSatisfiedElement;
+        "swirl-icon-error": HTMLSwirlIconErrorElement;
+        "swirl-icon-expand-less": HTMLSwirlIconExpandLessElement;
+        "swirl-icon-expand-more": HTMLSwirlIconExpandMoreElement;
+        "swirl-icon-file": HTMLSwirlIconFileElement;
+        "swirl-icon-filter": HTMLSwirlIconFilterElement;
+        "swirl-icon-folder-shared": HTMLSwirlIconFolderSharedElement;
+        "swirl-icon-fullscreen": HTMLSwirlIconFullscreenElement;
+        "swirl-icon-fullscreen-exit": HTMLSwirlIconFullscreenExitElement;
+        "swirl-icon-group-assign": HTMLSwirlIconGroupAssignElement;
+        "swirl-icon-groups": HTMLSwirlIconGroupsElement;
+        "swirl-icon-groups-custom": HTMLSwirlIconGroupsCustomElement;
+        "swirl-icon-groups-filled": HTMLSwirlIconGroupsFilledElement;
+        "swirl-icon-groups-outlined": HTMLSwirlIconGroupsOutlinedElement;
+        "swirl-icon-help": HTMLSwirlIconHelpElement;
+        "swirl-icon-image": HTMLSwirlIconImageElement;
+        "swirl-icon-info": HTMLSwirlIconInfoElement;
+        "swirl-icon-inventory": HTMLSwirlIconInventoryElement;
+        "swirl-icon-like": HTMLSwirlIconLikeElement;
+        "swirl-icon-link": HTMLSwirlIconLinkElement;
+        "swirl-icon-lock": HTMLSwirlIconLockElement;
+        "swirl-icon-logout": HTMLSwirlIconLogoutElement;
+        "swirl-icon-mail": HTMLSwirlIconMailElement;
+        "swirl-icon-manage-accounts": HTMLSwirlIconManageAccountsElement;
+        "swirl-icon-mention": HTMLSwirlIconMentionElement;
+        "swirl-icon-menu": HTMLSwirlIconMenuElement;
+        "swirl-icon-menu-filled": HTMLSwirlIconMenuFilledElement;
+        "swirl-icon-menu-outlined": HTMLSwirlIconMenuOutlinedElement;
+        "swirl-icon-message": HTMLSwirlIconMessageElement;
+        "swirl-icon-more-horizontal": HTMLSwirlIconMoreHorizontalElement;
+        "swirl-icon-more-vertikal": HTMLSwirlIconMoreVertikalElement;
+        "swirl-icon-news-filled": HTMLSwirlIconNewsFilledElement;
+        "swirl-icon-news-outlined": HTMLSwirlIconNewsOutlinedElement;
+        "swirl-icon-notifications": HTMLSwirlIconNotificationsElement;
+        "swirl-icon-notifications-active": HTMLSwirlIconNotificationsActiveElement;
+        "swirl-icon-notifications-off": HTMLSwirlIconNotificationsOffElement;
+        "swirl-icon-open-in-new": HTMLSwirlIconOpenInNewElement;
+        "swirl-icon-people-alt": HTMLSwirlIconPeopleAltElement;
+        "swirl-icon-person": HTMLSwirlIconPersonElement;
+        "swirl-icon-person-off": HTMLSwirlIconPersonOffElement;
+        "swirl-icon-phone": HTMLSwirlIconPhoneElement;
+        "swirl-icon-poll": HTMLSwirlIconPollElement;
+        "swirl-icon-print": HTMLSwirlIconPrintElement;
+        "swirl-icon-recieved": HTMLSwirlIconRecievedElement;
+        "swirl-icon-remove": HTMLSwirlIconRemoveElement;
+        "swirl-icon-search": HTMLSwirlIconSearchElement;
+        "swirl-icon-search-strong": HTMLSwirlIconSearchStrongElement;
+        "swirl-icon-send": HTMLSwirlIconSendElement;
+        "swirl-icon-settings": HTMLSwirlIconSettingsElement;
+        "swirl-icon-sync": HTMLSwirlIconSyncElement;
+        "swirl-icon-tasks-filled": HTMLSwirlIconTasksFilledElement;
+        "swirl-icon-tasks-outlined": HTMLSwirlIconTasksOutlinedElement;
+        "swirl-icon-time-filled": HTMLSwirlIconTimeFilledElement;
+        "swirl-icon-time-outlined": HTMLSwirlIconTimeOutlinedElement;
+        "swirl-icon-today": HTMLSwirlIconTodayElement;
+        "swirl-icon-user-assign": HTMLSwirlIconUserAssignElement;
+        "swirl-icon-video-camera": HTMLSwirlIconVideoCameraElement;
+        "swirl-icon-visibility": HTMLSwirlIconVisibilityElement;
+        "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
+        "swirl-icon-warning": HTMLSwirlIconWarningElement;
+        "swirl-inline-error": HTMLSwirlInlineErrorElement;
+        "swirl-lightbox": HTMLSwirlLightboxElement;
+        "swirl-link": HTMLSwirlLinkElement;
+        "swirl-list": HTMLSwirlListElement;
+        "swirl-modal": HTMLSwirlModalElement;
+        "swirl-option-list": HTMLSwirlOptionListElement;
+        "swirl-option-list-item": HTMLSwirlOptionListItemElement;
+        "swirl-option-list-section": HTMLSwirlOptionListSectionElement;
+        "swirl-pagination": HTMLSwirlPaginationElement;
+        "swirl-pdf-reader": HTMLSwirlPdfReaderElement;
+        "swirl-popover": HTMLSwirlPopoverElement;
+        "swirl-progress-indicator": HTMLSwirlProgressIndicatorElement;
+        "swirl-radio": HTMLSwirlRadioElement;
+        "swirl-radio-group": HTMLSwirlRadioGroupElement;
+        "swirl-resource-list": HTMLSwirlResourceListElement;
+        "swirl-resource-list-file-item": HTMLSwirlResourceListFileItemElement;
+        "swirl-resource-list-item": HTMLSwirlResourceListItemElement;
+        "swirl-search": HTMLSwirlSearchElement;
+        "swirl-select": HTMLSwirlSelectElement;
+        "swirl-separator": HTMLSwirlSeparatorElement;
+        "swirl-spinner": HTMLSwirlSpinnerElement;
+        "swirl-stack": HTMLSwirlStackElement;
+        "swirl-switch": HTMLSwirlSwitchElement;
+        "swirl-tab": HTMLSwirlTabElement;
+        "swirl-table": HTMLSwirlTableElement;
+        "swirl-table-cell": HTMLSwirlTableCellElement;
+        "swirl-table-column": HTMLSwirlTableColumnElement;
+        "swirl-table-row": HTMLSwirlTableRowElement;
+        "swirl-table-row-group": HTMLSwirlTableRowGroupElement;
+        "swirl-tabs": HTMLSwirlTabsElement;
+        "swirl-tag": HTMLSwirlTagElement;
+        "swirl-text": HTMLSwirlTextElement;
+        "swirl-text-input": HTMLSwirlTextInputElement;
+        "swirl-theme-provider": HTMLSwirlThemeProviderElement;
+        "swirl-thumbnail": HTMLSwirlThumbnailElement;
+        "swirl-toast": HTMLSwirlToastElement;
+        "swirl-toast-provider": HTMLSwirlToastProviderElement;
+        "swirl-tooltip": HTMLSwirlTooltipElement;
+        "swirl-tree-navigation-item": HTMLSwirlTreeNavigationItemElement;
+        "swirl-video-thumbnail": HTMLSwirlVideoThumbnailElement;
+        "swirl-visually-hidden": HTMLSwirlVisuallyHiddenElement;
     }
 }
 declare namespace LocalJSX {
     interface FileManager {
     }
-    interface FlipActionList {
+    interface SwirlActionList {
     }
-    interface FlipActionListItem {
+    interface SwirlActionListItem {
         "description"?: string;
         "disabled"?: boolean;
         "icon"?: string;
-        "intent"?: FlipActionListItemIntent;
+        "intent"?: SwirlActionListItemIntent;
         "label": string;
-        "size"?: FlipActionListItemSize;
+        "size"?: SwirlActionListItemSize;
         "suffix"?: string;
     }
-    interface FlipActionListSection {
+    interface SwirlActionListSection {
         "label": string;
     }
-    interface FlipAppLayout {
+    interface SwirlAppLayout {
         "appBarMedia"?: string;
         "appName": string;
         "backToNavigationViewButtonLabel"?: string;
@@ -2365,131 +2365,131 @@ declare namespace LocalJSX {
         "heading"?: string;
         "navigationBackButtonLabel"?: string;
         "navigationLabel"?: string;
-        "onCtaClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
-        "onMobileViewChange"?: (event: FlipAppLayoutCustomEvent<FlipAppLayoutMobileView>) => void;
-        "onNavigationBackButtonClick"?: (event: FlipAppLayoutCustomEvent<MouseEvent>) => void;
-        "onSidebarToggle"?: (event: FlipAppLayoutCustomEvent<boolean>) => void;
+        "onCtaClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
+        "onMobileViewChange"?: (event: SwirlAppLayoutCustomEvent<SwirlAppLayoutMobileView>) => void;
+        "onNavigationBackButtonClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
+        "onSidebarToggle"?: (event: SwirlAppLayoutCustomEvent<boolean>) => void;
         "showNavigationBackButton"?: boolean;
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
         "subheading"?: string;
         "transitionStyle"?: string;
     }
-    interface FlipAutocomplete {
+    interface SwirlAutocomplete {
         "autoSelect"?: boolean;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
         "disabled"?: boolean;
-        "flipAriaDescribedby"?: string;
         "generateSuggestions"?: (
     currentValue: string
-  ) => Promise<FlipAutocompleteSuggestion[]>;
+  ) => Promise<SwirlAutocompleteSuggestion[]>;
         "invalid"?: boolean;
         "maxLength"?: number;
         "menuLabel"?: string;
-        "mode"?: FlipTextInputMode;
-        "onValueChange"?: (event: FlipAutocompleteCustomEvent<string>) => void;
+        "mode"?: SwirlTextInputMode;
+        "onValueChange"?: (event: SwirlAutocompleteCustomEvent<string>) => void;
         "required"?: boolean;
         "spellCheck"?: boolean;
+        "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
-    interface FlipAvatar {
+    interface SwirlAvatar {
         "badge"?: string;
-        "badgePosition"?: FlipAvatarBadgePosition;
-        "color"?: FlipAvatarColor;
+        "badgePosition"?: SwirlAvatarBadgePosition;
+        "color"?: SwirlAvatarColor;
         "icon"?: string;
         "initials"?: string;
         "interactive"?: boolean;
         "label": string;
         "showLabel"?: boolean;
-        "size"?: FlipAvatarSize;
+        "size"?: SwirlAvatarSize;
         "src"?: string;
-        "variant"?: FlipAvatarVariant;
+        "variant"?: SwirlAvatarVariant;
     }
-    interface FlipAvatarGroup {
+    interface SwirlAvatarGroup {
         "badge"?: string;
     }
-    interface FlipBadge {
+    interface SwirlBadge {
         "icon"?: string;
-        "intent"?: FlipBadgeIntent;
+        "intent"?: SwirlBadgeIntent;
         "label": string;
-        "size"?: FlipBadgeSize;
-        "variant"?: FlipBadgeVariant;
+        "size"?: SwirlBadgeSize;
+        "variant"?: SwirlBadgeVariant;
     }
-    interface FlipBanner {
+    interface SwirlBanner {
         "actionLabel"?: string;
         "content": string;
         "dismissLabel"?: string;
         "dismissable"?: boolean;
-        "importance"?: FlipBannerAriaRole;
-        "intent"?: FlipBannerIntent;
-        "onAction"?: (event: FlipBannerCustomEvent<MouseEvent>) => void;
-        "onDismiss"?: (event: FlipBannerCustomEvent<MouseEvent>) => void;
+        "importance"?: SwirlBannerAriaRole;
+        "intent"?: SwirlBannerIntent;
+        "onAction"?: (event: SwirlBannerCustomEvent<MouseEvent>) => void;
+        "onDismiss"?: (event: SwirlBannerCustomEvent<MouseEvent>) => void;
         "showIcon"?: boolean;
     }
-    interface FlipBox {
+    interface SwirlBox {
         "as"?: string;
         "bordered"?: boolean;
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
-        "overflow"?: FlipBoxOverflow;
-        "padding"?: FlipBoxPadding;
+        "overflow"?: SwirlBoxOverflow;
+        "padding"?: SwirlBoxPadding;
     }
-    interface FlipButton {
+    interface SwirlButton {
         "disabled"?: boolean;
         "download"?: string;
-        "flipAriaDescribedby"?: string;
-        "flipAriaExpanded"?: string;
-        "flipAriaLabel"?: string;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
         "icon"?: string;
-        "iconPosition"?: FlipButtonIconPosition;
-        "intent"?: FlipButtonIntent;
+        "iconPosition"?: SwirlButtonIconPosition;
+        "intent"?: SwirlButtonIntent;
         "label": string;
         "name"?: string;
-        "size"?: FlipButtonSize;
+        "size"?: SwirlButtonSize;
+        "swirlAriaDescribedby"?: string;
+        "swirlAriaExpanded"?: string;
+        "swirlAriaLabel"?: string;
         "target"?: string;
-        "type"?: FlipButtonType;
+        "type"?: SwirlButtonType;
         "value"?: string;
-        "variant"?: FlipButtonVariant;
+        "variant"?: SwirlButtonVariant;
     }
-    interface FlipButtonGroup {
-        "orientation"?: FlipButtonGroupOrientation;
+    interface SwirlButtonGroup {
+        "orientation"?: SwirlButtonGroupOrientation;
         "segmented"?: boolean;
         "stretch"?: boolean;
         "wrap"?: boolean;
     }
-    interface FlipCard {
+    interface SwirlCard {
         "as"?: string;
         "elevated"?: boolean;
         "href"?: string;
         "interactive"?: boolean;
         "linkTarget"?: string;
     }
-    interface FlipCheckbox {
-        "checked"?: FlipCheckboxState;
+    interface SwirlCheckbox {
+        "checked"?: SwirlCheckboxState;
         "description"?: string;
         "disabled"?: boolean;
-        "flipAriaDescribedby"?: string;
-        "flipAriaLabel"?: string;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
-        "onValueChange"?: (event: FlipCheckboxCustomEvent<boolean>) => void;
+        "onValueChange"?: (event: SwirlCheckboxCustomEvent<boolean>) => void;
+        "swirlAriaDescribedby"?: string;
+        "swirlAriaLabel"?: string;
         "value"?: string;
     }
-    interface FlipChip {
+    interface SwirlChip {
         "avatar"?: string;
         "icon"?: string;
-        "intent"?: FlipChipIntent;
+        "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
     }
-    interface FlipConsoleLayout {
+    interface SwirlConsoleLayout {
         "appName": string;
         "backButonLabel"?: string;
         "heading": string;
@@ -2497,55 +2497,55 @@ declare namespace LocalJSX {
         "hideNavigationButtonLabel"?: string;
         "logoText"?: string;
         "navigationLabel"?: string;
-        "onBackButtonClick"?: (event: FlipConsoleLayoutCustomEvent<MouseEvent>) => void;
-        "onHelpButtonClick"?: (event: FlipConsoleLayoutCustomEvent<MouseEvent>) => void;
+        "onBackButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
+        "onHelpButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
         "showBackButton"?: boolean;
         "showHelpButton"?: boolean;
         "showNavigationButtonLabel"?: string;
         "subheading"?: string;
     }
-    interface FlipDateInput {
+    interface SwirlDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
         "datePickerLabel"?: string;
         "disabled"?: boolean;
-        "flipAriaDescribedby"?: string;
         "format"?: string;
         "invalid"?: boolean;
         "locale"?: Partial<AirDatepickerLocale>;
-        "onValueChange"?: (event: FlipDateInputCustomEvent<string>) => void;
+        "onValueChange"?: (event: SwirlDateInputCustomEvent<string>) => void;
         "placeholder"?: string;
         "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
-    interface FlipDatePicker {
+    interface SwirlDatePicker {
         "locale"?: Partial<AirDatepickerLocale>;
         "maxDate"?: Date;
         "minDate"?: Date;
-        "onValueChange"?: (event: FlipDatePickerCustomEvent<Date | Date[]>) => void;
+        "onValueChange"?: (event: SwirlDatePickerCustomEvent<Date | Date[]>) => void;
         "range"?: boolean;
         "startDate"?: Date;
         "value"?: Date | Date[];
     }
-    interface FlipDescriptionList {
+    interface SwirlDescriptionList {
     }
-    interface FlipDescriptionListItem {
+    interface SwirlDescriptionListItem {
         "term": string;
     }
-    interface FlipDialog {
+    interface SwirlDialog {
         "hideLabel"?: boolean;
-        "intent"?: FlipDialogIntent;
+        "intent"?: SwirlDialogIntent;
         "label": string;
-        "onPrimaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
-        "onSecondaryAction"?: (event: FlipDialogCustomEvent<MouseEvent>) => void;
+        "onPrimaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
+        "onSecondaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
-    interface FlipEmptyState {
+    interface SwirlEmptyState {
         "heading"?: string;
         "illustration"?: string;
     }
-    interface FlipFileUploader {
+    interface SwirlFileUploader {
         "accept"?: string;
         "ctaLabel"?: string;
         "description"?: string;
@@ -2555,417 +2555,417 @@ declare namespace LocalJSX {
         "inputName": string;
         "label": string;
         "multiple"?: boolean;
-        "onValueChange"?: (event: FlipFileUploaderCustomEvent<FileList>) => void;
+        "onValueChange"?: (event: SwirlFileUploaderCustomEvent<FileList>) => void;
         "showDropzone"?: boolean;
         "uploadButtonLabel"?: string;
     }
-    interface FlipFileViewer {
+    interface SwirlFileViewer {
         "active"?: boolean;
         "autoplay"?: boolean;
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
-        "onActivate"?: (event: FlipFileViewerCustomEvent<HTMLElement>) => void;
+        "onActivate"?: (event: SwirlFileViewerCustomEvent<HTMLElement>) => void;
         "type": string;
         "typeUnsupportedMessage"?: string;
-        "zoom"?: FlipFileViewerPdfZoom;
+        "zoom"?: SwirlFileViewerPdfZoom;
     }
-    interface FlipFileViewerAudio {
+    interface SwirlFileViewerAudio {
         "autoplay"?: boolean;
         "file": string;
-        "onActivate"?: (event: FlipFileViewerAudioCustomEvent<HTMLElement>) => void;
+        "onActivate"?: (event: SwirlFileViewerAudioCustomEvent<HTMLElement>) => void;
         "type": string;
     }
-    interface FlipFileViewerCsv {
+    interface SwirlFileViewerCsv {
         "errorMessage"?: string;
         "file": string;
-        "onActivate"?: (event: FlipFileViewerCsvCustomEvent<HTMLElement>) => void;
+        "onActivate"?: (event: SwirlFileViewerCsvCustomEvent<HTMLElement>) => void;
     }
-    interface FlipFileViewerImage {
+    interface SwirlFileViewerImage {
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
         "maxZoom"?: number;
-        "onActivate"?: (event: FlipFileViewerImageCustomEvent<HTMLElement>) => void;
+        "onActivate"?: (event: SwirlFileViewerImageCustomEvent<HTMLElement>) => void;
     }
-    interface FlipFileViewerPdf {
+    interface SwirlFileViewerPdf {
         "errorMessage"?: string;
         "file": string;
-        "onActivate"?: (event: FlipFileViewerPdfCustomEvent<HTMLElement>) => void;
+        "onActivate"?: (event: SwirlFileViewerPdfCustomEvent<HTMLElement>) => void;
         "singlePageMode"?: boolean;
-        "zoom"?: FlipFileViewerPdfZoom;
+        "zoom"?: SwirlFileViewerPdfZoom;
     }
-    interface FlipFileViewerText {
+    interface SwirlFileViewerText {
         "errorMessage"?: string;
         "file": string;
-        "onActivate"?: (event: FlipFileViewerTextCustomEvent<HTMLElement>) => void;
+        "onActivate"?: (event: SwirlFileViewerTextCustomEvent<HTMLElement>) => void;
     }
-    interface FlipFileViewerVideo {
+    interface SwirlFileViewerVideo {
         "autoplay"?: boolean;
         "file": string;
-        "onActivate"?: (event: FlipFileViewerVideoCustomEvent<HTMLElement>) => void;
+        "onActivate"?: (event: SwirlFileViewerVideoCustomEvent<HTMLElement>) => void;
         "type": string;
     }
-    interface FlipFormControl {
+    interface SwirlFormControl {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
         "invalid"?: boolean;
         "label": string;
     }
-    interface FlipFormGroup {
-        "orientation"?: FlipFormGroupOrientation;
+    interface SwirlFormGroup {
+        "orientation"?: SwirlFormGroupOrientation;
     }
-    interface FlipHeading {
-        "align"?: FlipHeadingAlign;
-        "as"?: FlipHeadingTag;
+    interface SwirlHeading {
+        "align"?: SwirlHeadingAlign;
+        "as"?: SwirlHeadingTag;
         "headingId"?: string;
-        "level"?: FlipHeadingLevel;
+        "level"?: SwirlHeadingLevel;
         "text": string;
     }
-    interface FlipIconAdd {
-        "size"?: FlipIconSize;
+    interface SwirlIconAdd {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconAddPhoto {
-        "size"?: FlipIconSize;
+    interface SwirlIconAddPhoto {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconAdminPanelSettings {
-        "size"?: FlipIconSize;
+    interface SwirlIconAdminPanelSettings {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconArrowBack {
-        "size"?: FlipIconSize;
+    interface SwirlIconArrowBack {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconArrowDownward {
-        "size"?: FlipIconSize;
+    interface SwirlIconArrowDownward {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconArrowForward {
-        "size"?: FlipIconSize;
+    interface SwirlIconArrowForward {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconArrowLeft {
-        "size"?: FlipIconSize;
+    interface SwirlIconArrowLeft {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconArrowRight {
-        "size"?: FlipIconSize;
+    interface SwirlIconArrowRight {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconArrowRightSmall {
-        "size"?: FlipIconSize;
+    interface SwirlIconArrowRightSmall {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconArrowUpward {
-        "size"?: FlipIconSize;
+    interface SwirlIconArrowUpward {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconAttachment {
-        "size"?: FlipIconSize;
+    interface SwirlIconAttachment {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconBlock {
-        "size"?: FlipIconSize;
+    interface SwirlIconBlock {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconCancel {
-        "size"?: FlipIconSize;
+    interface SwirlIconCancel {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconChatBubble {
-        "size"?: FlipIconSize;
+    interface SwirlIconChatBubble {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconChatsFilled {
-        "size"?: FlipIconSize;
+    interface SwirlIconChatsFilled {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconChatsOutlined {
-        "size"?: FlipIconSize;
+    interface SwirlIconChatsOutlined {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconCheck {
-        "size"?: FlipIconSize;
+    interface SwirlIconCheck {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconCheckCircle {
-        "size"?: FlipIconSize;
+    interface SwirlIconCheckCircle {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconCheckSmall {
-        "size"?: FlipIconSize;
+    interface SwirlIconCheckSmall {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconCheckStrong {
-        "size"?: FlipIconSize;
+    interface SwirlIconCheckStrong {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconChevronLeft {
-        "size"?: FlipIconSize;
+    interface SwirlIconChevronLeft {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconChevronRight {
-        "size"?: FlipIconSize;
+    interface SwirlIconChevronRight {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconClose {
-        "size"?: FlipIconSize;
+    interface SwirlIconClose {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconCloseSmall {
-        "size"?: FlipIconSize;
+    interface SwirlIconCloseSmall {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconCloudUpload {
-        "size"?: FlipIconSize;
+    interface SwirlIconCloudUpload {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconColumn {
-        "size"?: FlipIconSize;
+    interface SwirlIconColumn {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconComment {
-        "size"?: FlipIconSize;
+    interface SwirlIconComment {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconCopy {
-        "size"?: FlipIconSize;
+    interface SwirlIconCopy {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconDateRange {
-        "size"?: FlipIconSize;
+    interface SwirlIconDateRange {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconDelete {
-        "size"?: FlipIconSize;
+    interface SwirlIconDelete {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconDescription {
-        "size"?: FlipIconSize;
+    interface SwirlIconDescription {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconDownload {
-        "size"?: FlipIconSize;
+    interface SwirlIconDownload {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconEdit {
-        "size"?: FlipIconSize;
+    interface SwirlIconEdit {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconEmojiMood {
-        "size"?: FlipIconSize;
+    interface SwirlIconEmojiMood {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconEmojiSatisfied {
-        "size"?: FlipIconSize;
+    interface SwirlIconEmojiSatisfied {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconError {
-        "size"?: FlipIconSize;
+    interface SwirlIconError {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconExpandLess {
-        "size"?: FlipIconSize;
+    interface SwirlIconExpandLess {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconExpandMore {
-        "size"?: FlipIconSize;
+    interface SwirlIconExpandMore {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconFile {
-        "size"?: FlipIconSize;
+    interface SwirlIconFile {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconFilter {
-        "size"?: FlipIconSize;
+    interface SwirlIconFilter {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconFolderShared {
-        "size"?: FlipIconSize;
+    interface SwirlIconFolderShared {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconFullscreen {
-        "size"?: FlipIconSize;
+    interface SwirlIconFullscreen {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconFullscreenExit {
-        "size"?: FlipIconSize;
+    interface SwirlIconFullscreenExit {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconGroupAssign {
-        "size"?: FlipIconSize;
+    interface SwirlIconGroupAssign {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconGroups {
-        "size"?: FlipIconSize;
+    interface SwirlIconGroups {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconGroupsCustom {
-        "size"?: FlipIconSize;
+    interface SwirlIconGroupsCustom {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconGroupsFilled {
-        "size"?: FlipIconSize;
+    interface SwirlIconGroupsFilled {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconGroupsOutlined {
-        "size"?: FlipIconSize;
+    interface SwirlIconGroupsOutlined {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconHelp {
-        "size"?: FlipIconSize;
+    interface SwirlIconHelp {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconImage {
-        "size"?: FlipIconSize;
+    interface SwirlIconImage {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconInfo {
-        "size"?: FlipIconSize;
+    interface SwirlIconInfo {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconInventory {
-        "size"?: FlipIconSize;
+    interface SwirlIconInventory {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconLike {
-        "size"?: FlipIconSize;
+    interface SwirlIconLike {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconLink {
-        "size"?: FlipIconSize;
+    interface SwirlIconLink {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconLock {
-        "size"?: FlipIconSize;
+    interface SwirlIconLock {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconLogout {
-        "size"?: FlipIconSize;
+    interface SwirlIconLogout {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconMail {
-        "size"?: FlipIconSize;
+    interface SwirlIconMail {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconManageAccounts {
-        "size"?: FlipIconSize;
+    interface SwirlIconManageAccounts {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconMention {
-        "size"?: FlipIconSize;
+    interface SwirlIconMention {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconMenu {
-        "size"?: FlipIconSize;
+    interface SwirlIconMenu {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconMenuFilled {
-        "size"?: FlipIconSize;
+    interface SwirlIconMenuFilled {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconMenuOutlined {
-        "size"?: FlipIconSize;
+    interface SwirlIconMenuOutlined {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconMessage {
-        "size"?: FlipIconSize;
+    interface SwirlIconMessage {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconMoreHorizontal {
-        "size"?: FlipIconSize;
+    interface SwirlIconMoreHorizontal {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconMoreVertikal {
-        "size"?: FlipIconSize;
+    interface SwirlIconMoreVertikal {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconNewsFilled {
-        "size"?: FlipIconSize;
+    interface SwirlIconNewsFilled {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconNewsOutlined {
-        "size"?: FlipIconSize;
+    interface SwirlIconNewsOutlined {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconNotifications {
-        "size"?: FlipIconSize;
+    interface SwirlIconNotifications {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconNotificationsActive {
-        "size"?: FlipIconSize;
+    interface SwirlIconNotificationsActive {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconNotificationsOff {
-        "size"?: FlipIconSize;
+    interface SwirlIconNotificationsOff {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconOpenInNew {
-        "size"?: FlipIconSize;
+    interface SwirlIconOpenInNew {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconPeopleAlt {
-        "size"?: FlipIconSize;
+    interface SwirlIconPeopleAlt {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconPerson {
-        "size"?: FlipIconSize;
+    interface SwirlIconPerson {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconPersonOff {
-        "size"?: FlipIconSize;
+    interface SwirlIconPersonOff {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconPhone {
-        "size"?: FlipIconSize;
+    interface SwirlIconPhone {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconPoll {
-        "size"?: FlipIconSize;
+    interface SwirlIconPoll {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconPrint {
-        "size"?: FlipIconSize;
+    interface SwirlIconPrint {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconRecieved {
-        "size"?: FlipIconSize;
+    interface SwirlIconRecieved {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconRemove {
-        "size"?: FlipIconSize;
+    interface SwirlIconRemove {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconSearch {
-        "size"?: FlipIconSize;
+    interface SwirlIconSearch {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconSearchStrong {
-        "size"?: FlipIconSize;
+    interface SwirlIconSearchStrong {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconSend {
-        "size"?: FlipIconSize;
+    interface SwirlIconSend {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconSettings {
-        "size"?: FlipIconSize;
+    interface SwirlIconSettings {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconSync {
-        "size"?: FlipIconSize;
+    interface SwirlIconSync {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconTasksFilled {
-        "size"?: FlipIconSize;
+    interface SwirlIconTasksFilled {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconTasksOutlined {
-        "size"?: FlipIconSize;
+    interface SwirlIconTasksOutlined {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconTimeFilled {
-        "size"?: FlipIconSize;
+    interface SwirlIconTimeFilled {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconTimeOutlined {
-        "size"?: FlipIconSize;
+    interface SwirlIconTimeOutlined {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconToday {
-        "size"?: FlipIconSize;
+    interface SwirlIconToday {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconUserAssign {
-        "size"?: FlipIconSize;
+    interface SwirlIconUserAssign {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconVideoCamera {
-        "size"?: FlipIconSize;
+    interface SwirlIconVideoCamera {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconVisibility {
-        "size"?: FlipIconSize;
+    interface SwirlIconVisibility {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconVisibilityOff {
-        "size"?: FlipIconSize;
+    interface SwirlIconVisibilityOff {
+        "size"?: SwirlIconSize;
     }
-    interface FlipIconWarning {
-        "size"?: FlipIconSize;
+    interface SwirlIconWarning {
+        "size"?: SwirlIconSize;
     }
-    interface FlipInlineError {
+    interface SwirlInlineError {
         "message": string;
-        "size"?: FlipInlineErrorSize;
+        "size"?: SwirlInlineErrorSize;
     }
-    interface FlipLightbox {
+    interface SwirlLightbox {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "label": string;
         "nextSlideButtonLabel"?: string;
         "previousSlideButtonLabel"?: string;
     }
-    interface FlipLink {
+    interface SwirlLink {
         "href": string;
         "label": string;
-        "target"?: FlipLinkTarget;
+        "target"?: SwirlLinkTarget;
     }
-    interface FlipList {
+    interface SwirlList {
     }
-    interface FlipModal {
+    interface SwirlModal {
         "closeButtonLabel"?: string;
         "label": string;
-        "onModalClose"?: (event: FlipModalCustomEvent<void>) => void;
-        "onModalOpen"?: (event: FlipModalCustomEvent<void>) => void;
-        "onPrimaryAction"?: (event: FlipModalCustomEvent<MouseEvent>) => void;
-        "onSecondaryAction"?: (event: FlipModalCustomEvent<MouseEvent>) => void;
+        "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
+        "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
+        "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
+        "onSecondaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
-    interface FlipOptionList {
+    interface SwirlOptionList {
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
-        "onValueChange"?: (event: FlipOptionListCustomEvent<string[]>) => void;
+        "onValueChange"?: (event: SwirlOptionListCustomEvent<string[]>) => void;
         "optionListId"?: string;
         "value"?: string[];
     }
-    interface FlipOptionListItem {
-        "context"?: FlipOptionListItemContext;
+    interface SwirlOptionListItem {
+        "context"?: SwirlOptionListItemContext;
         "disabled"?: boolean;
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
         "value": string;
     }
-    interface FlipOptionListSection {
+    interface SwirlOptionListSection {
         "label": string;
     }
-    interface FlipPagination {
+    interface SwirlPagination {
         "accessibleNextButtonLabel"?: string;
         "accessiblePrevButtonLabel"?: string;
         "label": string;
         "nextButtonLabel"?: string;
-        "onSetPage"?: (event: FlipPaginationCustomEvent<number>) => void;
+        "onSetPage"?: (event: SwirlPaginationCustomEvent<number>) => void;
         "page": number;
         "pageLabel"?: string;
         "pageSelectLabel"?: string;
         "pages": number;
         "prevButtonLabel"?: string;
-        "variant"?: FlipPaginationVariant;
+        "variant"?: SwirlPaginationVariant;
     }
-    interface FlipPdfReader {
+    interface SwirlPdfReader {
         "autoZoomLabel"?: string;
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
@@ -2976,54 +2976,54 @@ declare namespace LocalJSX {
         "zoomOutButtonLabel"?: string;
         "zoomSelectLabel"?: string;
     }
-    interface FlipPopover {
-        "animation"?: FlipPopoverAnimation;
+    interface SwirlPopover {
+        "animation"?: SwirlPopoverAnimation;
         "enableFlip"?: boolean;
         "label": string;
         "offset"?: number | number[];
-        "onPopoverClose"?: (event: FlipPopoverCustomEvent<void>) => void;
-        "onPopoverOpen"?: (event: FlipPopoverCustomEvent<void>) => void;
+        "onPopoverClose"?: (event: SwirlPopoverCustomEvent<void>) => void;
+        "onPopoverOpen"?: (event: SwirlPopoverCustomEvent<void>) => void;
         "placement"?: Placement;
         "popoverId": string;
         "trigger": string;
         "useContainerWidth"?: boolean | string;
     }
-    interface FlipProgressIndicator {
+    interface SwirlProgressIndicator {
         "label": string;
-        "size"?: FlipProgressIndicatorSize;
+        "size"?: SwirlProgressIndicatorSize;
         "value"?: number;
-        "variant"?: FlipProgressIndicatorVariant;
+        "variant"?: SwirlProgressIndicatorVariant;
     }
-    interface FlipRadio {
-        "checked"?: FlipRadioState;
+    interface SwirlRadio {
+        "checked"?: SwirlRadioState;
         "description"?: string;
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
-        "onValueChange"?: (event: FlipRadioCustomEvent<string>) => void;
+        "onValueChange"?: (event: SwirlRadioCustomEvent<string>) => void;
         "value": string;
     }
-    interface FlipRadioGroup {
-        "flipAriaDescribedby"?: string;
-        "onValueChange"?: (event: FlipRadioGroupCustomEvent<string>) => void;
+    interface SwirlRadioGroup {
+        "onValueChange"?: (event: SwirlRadioGroupCustomEvent<string>) => void;
+        "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
-    interface FlipResourceList {
+    interface SwirlResourceList {
         "label"?: string;
     }
-    interface FlipResourceListFileItem {
+    interface SwirlResourceListFileItem {
         "description"?: string;
         "errorMessage"?: string;
         "icon"?: string;
         "label": string;
         "loading"?: boolean;
-        "onRemove"?: (event: FlipResourceListFileItemCustomEvent<MouseEvent>) => void;
+        "onRemove"?: (event: SwirlResourceListFileItemCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "removeButtonLabel"?: string;
     }
-    interface FlipResourceListItem {
+    interface SwirlResourceListItem {
         "checked"?: boolean;
         "description"?: string;
         "disabled"?: boolean;
@@ -3034,106 +3034,106 @@ declare namespace LocalJSX {
         "menuTriggerId"?: string;
         "menuTriggerLabel"?: string;
         "meta"?: string;
-        "onValueChange"?: (event: FlipResourceListItemCustomEvent<boolean>) => void;
+        "onValueChange"?: (event: SwirlResourceListItemCustomEvent<boolean>) => void;
         "selectable"?: boolean;
         "value"?: string;
     }
-    interface FlipSearch {
+    interface SwirlSearch {
         "autoFocus"?: boolean;
         "clearButtonLabel"?: string;
         "disabled"?: boolean;
         "inputId"?: string;
         "inputName"?: string;
         "label"?: string;
-        "onInputBlur"?: (event: FlipSearchCustomEvent<FocusEvent>) => void;
-        "onInputFocus"?: (event: FlipSearchCustomEvent<FocusEvent>) => void;
-        "onValueChange"?: (event: FlipSearchCustomEvent<string>) => void;
+        "onInputBlur"?: (event: SwirlSearchCustomEvent<FocusEvent>) => void;
+        "onInputFocus"?: (event: SwirlSearchCustomEvent<FocusEvent>) => void;
+        "onValueChange"?: (event: SwirlSearchCustomEvent<string>) => void;
         "placeholder"?: string;
         "value"?: string;
     }
-    interface FlipSelect {
+    interface SwirlSelect {
         "disabled"?: boolean;
-        "flipAriaDescribedby"?: string;
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
-        "onValueChange"?: (event: FlipSelectCustomEvent<string[]>) => void;
+        "onValueChange"?: (event: SwirlSelectCustomEvent<string[]>) => void;
         "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
         "value"?: string[];
     }
-    interface FlipSeparator {
+    interface SwirlSeparator {
     }
-    interface FlipSpinner {
+    interface SwirlSpinner {
         "label"?: string;
-        "size"?: FlipSpinnerSize;
+        "size"?: SwirlSpinnerSize;
     }
-    interface FlipStack {
-        "align"?: FlipStackAlign;
+    interface SwirlStack {
+        "align"?: SwirlStackAlign;
         "as"?: string;
-        "justify"?: FlipStackJustify;
-        "orientation"?: FlipStackOrientation;
-        "spacing"?: FlipStackSpacing;
+        "justify"?: SwirlStackJustify;
+        "orientation"?: SwirlStackOrientation;
+        "spacing"?: SwirlStackSpacing;
         "wrap"?: boolean;
     }
-    interface FlipSwitch {
+    interface SwirlSwitch {
         "checked"?: boolean;
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
         "label"?: string;
-        "onValueChange"?: (event: FlipSwitchCustomEvent<boolean>) => void;
-        "size"?: FlipSwitchSize;
+        "onValueChange"?: (event: SwirlSwitchCustomEvent<boolean>) => void;
+        "size"?: SwirlSwitchSize;
         "value"?: string;
     }
-    interface FlipTab {
+    interface SwirlTab {
         "active"?: boolean;
         "label": string;
         "tabId": string;
     }
-    interface FlipTable {
+    interface SwirlTable {
         "caption"?: string;
         "emptyStateLabel"?: string;
         "label": string;
     }
-    interface FlipTableCell {
+    interface SwirlTableCell {
     }
-    interface FlipTableColumn {
+    interface SwirlTableColumn {
         "maxWidth"?: string;
         "minWidth"?: string;
-        "sort"?: FlipTableColumnSort;
+        "sort"?: SwirlTableColumnSort;
         "sortable"?: boolean;
         "sticky"?: boolean;
         "width"?: string;
     }
-    interface FlipTableRow {
+    interface SwirlTableRow {
         "highlighted"?: boolean;
         "index"?: number;
     }
-    interface FlipTableRowGroup {
+    interface SwirlTableRowGroup {
         "label": string;
     }
-    interface FlipTabs {
+    interface SwirlTabs {
         "initialTab"?: string;
         "label": string;
-        "onTabActivated"?: (event: FlipTabsCustomEvent<HTMLFlipTabElement>) => void;
+        "onTabActivated"?: (event: SwirlTabsCustomEvent<HTMLSwirlTabElement>) => void;
     }
-    interface FlipTag {
-        "intent"?: FlipTagIntent;
+    interface SwirlTag {
+        "intent"?: SwirlTagIntent;
         "label": string;
-        "onRemove"?: (event: FlipTagCustomEvent<MouseEvent>) => void;
+        "onRemove"?: (event: SwirlTagCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "removalButtonLabel"?: string;
     }
-    interface FlipText {
-        "align"?: FlipTextAlign;
+    interface SwirlText {
+        "align"?: SwirlTextAlign;
         "as"?: string;
-        "color"?: FlipTextColor;
-        "fontStyle"?: FlipTextFontStyle;
-        "size"?: FlipTextSize;
+        "color"?: SwirlTextColor;
+        "fontStyle"?: SwirlTextFontStyle;
+        "size"?: SwirlTextSize;
         "truncate"?: boolean;
-        "weight"?: FlipTextWeight;
+        "weight"?: SwirlTextWeight;
     }
-    interface FlipTextInput {
+    interface SwirlTextInput {
         "autoComplete"?: string;
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
@@ -3141,19 +3141,14 @@ declare namespace LocalJSX {
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
-        "flipAriaAutocomplete"?: string;
-        "flipAriaControls"?: string;
-        "flipAriaDescribedby"?: string;
-        "flipAriaExpanded"?: string;
-        "flipRole"?: string;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
         "min"?: number;
-        "mode"?: FlipTextInputMode;
-        "onInputBlur"?: (event: FlipTextInputCustomEvent<FocusEvent>) => void;
-        "onInputFocus"?: (event: FlipTextInputCustomEvent<FocusEvent>) => void;
-        "onValueChange"?: (event: FlipTextInputCustomEvent<string>) => void;
+        "mode"?: SwirlTextInputMode;
+        "onInputBlur"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
+        "onInputFocus"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
+        "onValueChange"?: (event: SwirlTextInputCustomEvent<string>) => void;
         "passwordToggleLabel"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
@@ -3162,223 +3157,228 @@ declare namespace LocalJSX {
         "spellCheck"?: boolean;
         "step"?: number;
         "suffixLabel"?: string;
-        "type"?: FlipTextInputType;
+        "swirlAriaAutocomplete"?: string;
+        "swirlAriaControls"?: string;
+        "swirlAriaDescribedby"?: string;
+        "swirlAriaExpanded"?: string;
+        "swirlRole"?: string;
+        "type"?: SwirlTextInputType;
         "value"?: string;
     }
-    interface FlipThemeProvider {
-        "config"?: FlipThemeProviderConfig;
-        "onThemeChange"?: (event: FlipThemeProviderCustomEvent<FlipThemeChangeEventData>) => void;
+    interface SwirlThemeProvider {
+        "config"?: SwirlThemeProviderConfig;
+        "onThemeChange"?: (event: SwirlThemeProviderCustomEvent<SwirlThemeChangeEventData>) => void;
     }
-    interface FlipThumbnail {
+    interface SwirlThumbnail {
         "alt": string;
-        "format"?: FlipThumbnailFormat;
-        "size"?: FlipThumbnailSize;
+        "format"?: SwirlThumbnailFormat;
+        "size"?: SwirlThumbnailSize;
         "src": string;
     }
-    interface FlipToast {
+    interface SwirlToast {
         "accessibleDismissLabel"?: string;
         "content": string;
         "dismissLabel"?: string;
         "duration"?: number;
         "icon"?: string;
-        "intent"?: FlipToastIntent;
-        "onDismiss"?: (event: FlipToastCustomEvent<string>) => void;
+        "intent"?: SwirlToastIntent;
+        "onDismiss"?: (event: SwirlToastCustomEvent<string>) => void;
         "toastId": string;
     }
-    interface FlipToastProvider {
+    interface SwirlToastProvider {
         /**
           * Optional global duration for all toasts. Overrides any durations set via the `toast` method. Set to 0 to disable automatic closing of toasts.
          */
         "globalDuration"?: number;
     }
-    interface FlipTooltip {
+    interface SwirlTooltip {
         "content": string;
         "delay"?: number;
-        "position"?: FlipTooltipPosition;
+        "position"?: SwirlTooltipPosition;
     }
-    interface FlipTreeNavigationItem {
+    interface SwirlTreeNavigationItem {
         "active"?: boolean;
         "icon"?: string;
         "label": string;
     }
-    interface FlipVideoThumbnail {
+    interface SwirlVideoThumbnail {
         "duration"?: string;
         "durationLabel"?: string;
         "label": string;
         "src": string;
     }
-    interface FlipVisuallyHidden {
+    interface SwirlVisuallyHidden {
     }
     interface IntrinsicElements {
         "file-manager": FileManager;
-        "flip-action-list": FlipActionList;
-        "flip-action-list-item": FlipActionListItem;
-        "flip-action-list-section": FlipActionListSection;
-        "flip-app-layout": FlipAppLayout;
-        "flip-autocomplete": FlipAutocomplete;
-        "flip-avatar": FlipAvatar;
-        "flip-avatar-group": FlipAvatarGroup;
-        "flip-badge": FlipBadge;
-        "flip-banner": FlipBanner;
-        "flip-box": FlipBox;
-        "flip-button": FlipButton;
-        "flip-button-group": FlipButtonGroup;
-        "flip-card": FlipCard;
-        "flip-checkbox": FlipCheckbox;
-        "flip-chip": FlipChip;
-        "flip-console-layout": FlipConsoleLayout;
-        "flip-date-input": FlipDateInput;
-        "flip-date-picker": FlipDatePicker;
-        "flip-description-list": FlipDescriptionList;
-        "flip-description-list-item": FlipDescriptionListItem;
-        "flip-dialog": FlipDialog;
-        "flip-empty-state": FlipEmptyState;
-        "flip-file-uploader": FlipFileUploader;
-        "flip-file-viewer": FlipFileViewer;
-        "flip-file-viewer-audio": FlipFileViewerAudio;
-        "flip-file-viewer-csv": FlipFileViewerCsv;
-        "flip-file-viewer-image": FlipFileViewerImage;
-        "flip-file-viewer-pdf": FlipFileViewerPdf;
-        "flip-file-viewer-text": FlipFileViewerText;
-        "flip-file-viewer-video": FlipFileViewerVideo;
-        "flip-form-control": FlipFormControl;
-        "flip-form-group": FlipFormGroup;
-        "flip-heading": FlipHeading;
-        "flip-icon-add": FlipIconAdd;
-        "flip-icon-add-photo": FlipIconAddPhoto;
-        "flip-icon-admin-panel-settings": FlipIconAdminPanelSettings;
-        "flip-icon-arrow-back": FlipIconArrowBack;
-        "flip-icon-arrow-downward": FlipIconArrowDownward;
-        "flip-icon-arrow-forward": FlipIconArrowForward;
-        "flip-icon-arrow-left": FlipIconArrowLeft;
-        "flip-icon-arrow-right": FlipIconArrowRight;
-        "flip-icon-arrow-right-small": FlipIconArrowRightSmall;
-        "flip-icon-arrow-upward": FlipIconArrowUpward;
-        "flip-icon-attachment": FlipIconAttachment;
-        "flip-icon-block": FlipIconBlock;
-        "flip-icon-cancel": FlipIconCancel;
-        "flip-icon-chat-bubble": FlipIconChatBubble;
-        "flip-icon-chats-filled": FlipIconChatsFilled;
-        "flip-icon-chats-outlined": FlipIconChatsOutlined;
-        "flip-icon-check": FlipIconCheck;
-        "flip-icon-check-circle": FlipIconCheckCircle;
-        "flip-icon-check-small": FlipIconCheckSmall;
-        "flip-icon-check-strong": FlipIconCheckStrong;
-        "flip-icon-chevron-left": FlipIconChevronLeft;
-        "flip-icon-chevron-right": FlipIconChevronRight;
-        "flip-icon-close": FlipIconClose;
-        "flip-icon-close-small": FlipIconCloseSmall;
-        "flip-icon-cloud-upload": FlipIconCloudUpload;
-        "flip-icon-column": FlipIconColumn;
-        "flip-icon-comment": FlipIconComment;
-        "flip-icon-copy": FlipIconCopy;
-        "flip-icon-date-range": FlipIconDateRange;
-        "flip-icon-delete": FlipIconDelete;
-        "flip-icon-description": FlipIconDescription;
-        "flip-icon-download": FlipIconDownload;
-        "flip-icon-edit": FlipIconEdit;
-        "flip-icon-emoji-mood": FlipIconEmojiMood;
-        "flip-icon-emoji-satisfied": FlipIconEmojiSatisfied;
-        "flip-icon-error": FlipIconError;
-        "flip-icon-expand-less": FlipIconExpandLess;
-        "flip-icon-expand-more": FlipIconExpandMore;
-        "flip-icon-file": FlipIconFile;
-        "flip-icon-filter": FlipIconFilter;
-        "flip-icon-folder-shared": FlipIconFolderShared;
-        "flip-icon-fullscreen": FlipIconFullscreen;
-        "flip-icon-fullscreen-exit": FlipIconFullscreenExit;
-        "flip-icon-group-assign": FlipIconGroupAssign;
-        "flip-icon-groups": FlipIconGroups;
-        "flip-icon-groups-custom": FlipIconGroupsCustom;
-        "flip-icon-groups-filled": FlipIconGroupsFilled;
-        "flip-icon-groups-outlined": FlipIconGroupsOutlined;
-        "flip-icon-help": FlipIconHelp;
-        "flip-icon-image": FlipIconImage;
-        "flip-icon-info": FlipIconInfo;
-        "flip-icon-inventory": FlipIconInventory;
-        "flip-icon-like": FlipIconLike;
-        "flip-icon-link": FlipIconLink;
-        "flip-icon-lock": FlipIconLock;
-        "flip-icon-logout": FlipIconLogout;
-        "flip-icon-mail": FlipIconMail;
-        "flip-icon-manage-accounts": FlipIconManageAccounts;
-        "flip-icon-mention": FlipIconMention;
-        "flip-icon-menu": FlipIconMenu;
-        "flip-icon-menu-filled": FlipIconMenuFilled;
-        "flip-icon-menu-outlined": FlipIconMenuOutlined;
-        "flip-icon-message": FlipIconMessage;
-        "flip-icon-more-horizontal": FlipIconMoreHorizontal;
-        "flip-icon-more-vertikal": FlipIconMoreVertikal;
-        "flip-icon-news-filled": FlipIconNewsFilled;
-        "flip-icon-news-outlined": FlipIconNewsOutlined;
-        "flip-icon-notifications": FlipIconNotifications;
-        "flip-icon-notifications-active": FlipIconNotificationsActive;
-        "flip-icon-notifications-off": FlipIconNotificationsOff;
-        "flip-icon-open-in-new": FlipIconOpenInNew;
-        "flip-icon-people-alt": FlipIconPeopleAlt;
-        "flip-icon-person": FlipIconPerson;
-        "flip-icon-person-off": FlipIconPersonOff;
-        "flip-icon-phone": FlipIconPhone;
-        "flip-icon-poll": FlipIconPoll;
-        "flip-icon-print": FlipIconPrint;
-        "flip-icon-recieved": FlipIconRecieved;
-        "flip-icon-remove": FlipIconRemove;
-        "flip-icon-search": FlipIconSearch;
-        "flip-icon-search-strong": FlipIconSearchStrong;
-        "flip-icon-send": FlipIconSend;
-        "flip-icon-settings": FlipIconSettings;
-        "flip-icon-sync": FlipIconSync;
-        "flip-icon-tasks-filled": FlipIconTasksFilled;
-        "flip-icon-tasks-outlined": FlipIconTasksOutlined;
-        "flip-icon-time-filled": FlipIconTimeFilled;
-        "flip-icon-time-outlined": FlipIconTimeOutlined;
-        "flip-icon-today": FlipIconToday;
-        "flip-icon-user-assign": FlipIconUserAssign;
-        "flip-icon-video-camera": FlipIconVideoCamera;
-        "flip-icon-visibility": FlipIconVisibility;
-        "flip-icon-visibility-off": FlipIconVisibilityOff;
-        "flip-icon-warning": FlipIconWarning;
-        "flip-inline-error": FlipInlineError;
-        "flip-lightbox": FlipLightbox;
-        "flip-link": FlipLink;
-        "flip-list": FlipList;
-        "flip-modal": FlipModal;
-        "flip-option-list": FlipOptionList;
-        "flip-option-list-item": FlipOptionListItem;
-        "flip-option-list-section": FlipOptionListSection;
-        "flip-pagination": FlipPagination;
-        "flip-pdf-reader": FlipPdfReader;
-        "flip-popover": FlipPopover;
-        "flip-progress-indicator": FlipProgressIndicator;
-        "flip-radio": FlipRadio;
-        "flip-radio-group": FlipRadioGroup;
-        "flip-resource-list": FlipResourceList;
-        "flip-resource-list-file-item": FlipResourceListFileItem;
-        "flip-resource-list-item": FlipResourceListItem;
-        "flip-search": FlipSearch;
-        "flip-select": FlipSelect;
-        "flip-separator": FlipSeparator;
-        "flip-spinner": FlipSpinner;
-        "flip-stack": FlipStack;
-        "flip-switch": FlipSwitch;
-        "flip-tab": FlipTab;
-        "flip-table": FlipTable;
-        "flip-table-cell": FlipTableCell;
-        "flip-table-column": FlipTableColumn;
-        "flip-table-row": FlipTableRow;
-        "flip-table-row-group": FlipTableRowGroup;
-        "flip-tabs": FlipTabs;
-        "flip-tag": FlipTag;
-        "flip-text": FlipText;
-        "flip-text-input": FlipTextInput;
-        "flip-theme-provider": FlipThemeProvider;
-        "flip-thumbnail": FlipThumbnail;
-        "flip-toast": FlipToast;
-        "flip-toast-provider": FlipToastProvider;
-        "flip-tooltip": FlipTooltip;
-        "flip-tree-navigation-item": FlipTreeNavigationItem;
-        "flip-video-thumbnail": FlipVideoThumbnail;
-        "flip-visually-hidden": FlipVisuallyHidden;
+        "swirl-action-list": SwirlActionList;
+        "swirl-action-list-item": SwirlActionListItem;
+        "swirl-action-list-section": SwirlActionListSection;
+        "swirl-app-layout": SwirlAppLayout;
+        "swirl-autocomplete": SwirlAutocomplete;
+        "swirl-avatar": SwirlAvatar;
+        "swirl-avatar-group": SwirlAvatarGroup;
+        "swirl-badge": SwirlBadge;
+        "swirl-banner": SwirlBanner;
+        "swirl-box": SwirlBox;
+        "swirl-button": SwirlButton;
+        "swirl-button-group": SwirlButtonGroup;
+        "swirl-card": SwirlCard;
+        "swirl-checkbox": SwirlCheckbox;
+        "swirl-chip": SwirlChip;
+        "swirl-console-layout": SwirlConsoleLayout;
+        "swirl-date-input": SwirlDateInput;
+        "swirl-date-picker": SwirlDatePicker;
+        "swirl-description-list": SwirlDescriptionList;
+        "swirl-description-list-item": SwirlDescriptionListItem;
+        "swirl-dialog": SwirlDialog;
+        "swirl-empty-state": SwirlEmptyState;
+        "swirl-file-uploader": SwirlFileUploader;
+        "swirl-file-viewer": SwirlFileViewer;
+        "swirl-file-viewer-audio": SwirlFileViewerAudio;
+        "swirl-file-viewer-csv": SwirlFileViewerCsv;
+        "swirl-file-viewer-image": SwirlFileViewerImage;
+        "swirl-file-viewer-pdf": SwirlFileViewerPdf;
+        "swirl-file-viewer-text": SwirlFileViewerText;
+        "swirl-file-viewer-video": SwirlFileViewerVideo;
+        "swirl-form-control": SwirlFormControl;
+        "swirl-form-group": SwirlFormGroup;
+        "swirl-heading": SwirlHeading;
+        "swirl-icon-add": SwirlIconAdd;
+        "swirl-icon-add-photo": SwirlIconAddPhoto;
+        "swirl-icon-admin-panel-settings": SwirlIconAdminPanelSettings;
+        "swirl-icon-arrow-back": SwirlIconArrowBack;
+        "swirl-icon-arrow-downward": SwirlIconArrowDownward;
+        "swirl-icon-arrow-forward": SwirlIconArrowForward;
+        "swirl-icon-arrow-left": SwirlIconArrowLeft;
+        "swirl-icon-arrow-right": SwirlIconArrowRight;
+        "swirl-icon-arrow-right-small": SwirlIconArrowRightSmall;
+        "swirl-icon-arrow-upward": SwirlIconArrowUpward;
+        "swirl-icon-attachment": SwirlIconAttachment;
+        "swirl-icon-block": SwirlIconBlock;
+        "swirl-icon-cancel": SwirlIconCancel;
+        "swirl-icon-chat-bubble": SwirlIconChatBubble;
+        "swirl-icon-chats-filled": SwirlIconChatsFilled;
+        "swirl-icon-chats-outlined": SwirlIconChatsOutlined;
+        "swirl-icon-check": SwirlIconCheck;
+        "swirl-icon-check-circle": SwirlIconCheckCircle;
+        "swirl-icon-check-small": SwirlIconCheckSmall;
+        "swirl-icon-check-strong": SwirlIconCheckStrong;
+        "swirl-icon-chevron-left": SwirlIconChevronLeft;
+        "swirl-icon-chevron-right": SwirlIconChevronRight;
+        "swirl-icon-close": SwirlIconClose;
+        "swirl-icon-close-small": SwirlIconCloseSmall;
+        "swirl-icon-cloud-upload": SwirlIconCloudUpload;
+        "swirl-icon-column": SwirlIconColumn;
+        "swirl-icon-comment": SwirlIconComment;
+        "swirl-icon-copy": SwirlIconCopy;
+        "swirl-icon-date-range": SwirlIconDateRange;
+        "swirl-icon-delete": SwirlIconDelete;
+        "swirl-icon-description": SwirlIconDescription;
+        "swirl-icon-download": SwirlIconDownload;
+        "swirl-icon-edit": SwirlIconEdit;
+        "swirl-icon-emoji-mood": SwirlIconEmojiMood;
+        "swirl-icon-emoji-satisfied": SwirlIconEmojiSatisfied;
+        "swirl-icon-error": SwirlIconError;
+        "swirl-icon-expand-less": SwirlIconExpandLess;
+        "swirl-icon-expand-more": SwirlIconExpandMore;
+        "swirl-icon-file": SwirlIconFile;
+        "swirl-icon-filter": SwirlIconFilter;
+        "swirl-icon-folder-shared": SwirlIconFolderShared;
+        "swirl-icon-fullscreen": SwirlIconFullscreen;
+        "swirl-icon-fullscreen-exit": SwirlIconFullscreenExit;
+        "swirl-icon-group-assign": SwirlIconGroupAssign;
+        "swirl-icon-groups": SwirlIconGroups;
+        "swirl-icon-groups-custom": SwirlIconGroupsCustom;
+        "swirl-icon-groups-filled": SwirlIconGroupsFilled;
+        "swirl-icon-groups-outlined": SwirlIconGroupsOutlined;
+        "swirl-icon-help": SwirlIconHelp;
+        "swirl-icon-image": SwirlIconImage;
+        "swirl-icon-info": SwirlIconInfo;
+        "swirl-icon-inventory": SwirlIconInventory;
+        "swirl-icon-like": SwirlIconLike;
+        "swirl-icon-link": SwirlIconLink;
+        "swirl-icon-lock": SwirlIconLock;
+        "swirl-icon-logout": SwirlIconLogout;
+        "swirl-icon-mail": SwirlIconMail;
+        "swirl-icon-manage-accounts": SwirlIconManageAccounts;
+        "swirl-icon-mention": SwirlIconMention;
+        "swirl-icon-menu": SwirlIconMenu;
+        "swirl-icon-menu-filled": SwirlIconMenuFilled;
+        "swirl-icon-menu-outlined": SwirlIconMenuOutlined;
+        "swirl-icon-message": SwirlIconMessage;
+        "swirl-icon-more-horizontal": SwirlIconMoreHorizontal;
+        "swirl-icon-more-vertikal": SwirlIconMoreVertikal;
+        "swirl-icon-news-filled": SwirlIconNewsFilled;
+        "swirl-icon-news-outlined": SwirlIconNewsOutlined;
+        "swirl-icon-notifications": SwirlIconNotifications;
+        "swirl-icon-notifications-active": SwirlIconNotificationsActive;
+        "swirl-icon-notifications-off": SwirlIconNotificationsOff;
+        "swirl-icon-open-in-new": SwirlIconOpenInNew;
+        "swirl-icon-people-alt": SwirlIconPeopleAlt;
+        "swirl-icon-person": SwirlIconPerson;
+        "swirl-icon-person-off": SwirlIconPersonOff;
+        "swirl-icon-phone": SwirlIconPhone;
+        "swirl-icon-poll": SwirlIconPoll;
+        "swirl-icon-print": SwirlIconPrint;
+        "swirl-icon-recieved": SwirlIconRecieved;
+        "swirl-icon-remove": SwirlIconRemove;
+        "swirl-icon-search": SwirlIconSearch;
+        "swirl-icon-search-strong": SwirlIconSearchStrong;
+        "swirl-icon-send": SwirlIconSend;
+        "swirl-icon-settings": SwirlIconSettings;
+        "swirl-icon-sync": SwirlIconSync;
+        "swirl-icon-tasks-filled": SwirlIconTasksFilled;
+        "swirl-icon-tasks-outlined": SwirlIconTasksOutlined;
+        "swirl-icon-time-filled": SwirlIconTimeFilled;
+        "swirl-icon-time-outlined": SwirlIconTimeOutlined;
+        "swirl-icon-today": SwirlIconToday;
+        "swirl-icon-user-assign": SwirlIconUserAssign;
+        "swirl-icon-video-camera": SwirlIconVideoCamera;
+        "swirl-icon-visibility": SwirlIconVisibility;
+        "swirl-icon-visibility-off": SwirlIconVisibilityOff;
+        "swirl-icon-warning": SwirlIconWarning;
+        "swirl-inline-error": SwirlInlineError;
+        "swirl-lightbox": SwirlLightbox;
+        "swirl-link": SwirlLink;
+        "swirl-list": SwirlList;
+        "swirl-modal": SwirlModal;
+        "swirl-option-list": SwirlOptionList;
+        "swirl-option-list-item": SwirlOptionListItem;
+        "swirl-option-list-section": SwirlOptionListSection;
+        "swirl-pagination": SwirlPagination;
+        "swirl-pdf-reader": SwirlPdfReader;
+        "swirl-popover": SwirlPopover;
+        "swirl-progress-indicator": SwirlProgressIndicator;
+        "swirl-radio": SwirlRadio;
+        "swirl-radio-group": SwirlRadioGroup;
+        "swirl-resource-list": SwirlResourceList;
+        "swirl-resource-list-file-item": SwirlResourceListFileItem;
+        "swirl-resource-list-item": SwirlResourceListItem;
+        "swirl-search": SwirlSearch;
+        "swirl-select": SwirlSelect;
+        "swirl-separator": SwirlSeparator;
+        "swirl-spinner": SwirlSpinner;
+        "swirl-stack": SwirlStack;
+        "swirl-switch": SwirlSwitch;
+        "swirl-tab": SwirlTab;
+        "swirl-table": SwirlTable;
+        "swirl-table-cell": SwirlTableCell;
+        "swirl-table-column": SwirlTableColumn;
+        "swirl-table-row": SwirlTableRow;
+        "swirl-table-row-group": SwirlTableRowGroup;
+        "swirl-tabs": SwirlTabs;
+        "swirl-tag": SwirlTag;
+        "swirl-text": SwirlText;
+        "swirl-text-input": SwirlTextInput;
+        "swirl-theme-provider": SwirlThemeProvider;
+        "swirl-thumbnail": SwirlThumbnail;
+        "swirl-toast": SwirlToast;
+        "swirl-toast-provider": SwirlToastProvider;
+        "swirl-tooltip": SwirlTooltip;
+        "swirl-tree-navigation-item": SwirlTreeNavigationItem;
+        "swirl-video-thumbnail": SwirlVideoThumbnail;
+        "swirl-visually-hidden": SwirlVisuallyHidden;
     }
 }
 export { LocalJSX as JSX };
@@ -3386,174 +3386,174 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "file-manager": LocalJSX.FileManager & JSXBase.HTMLAttributes<HTMLFileManagerElement>;
-            "flip-action-list": LocalJSX.FlipActionList & JSXBase.HTMLAttributes<HTMLFlipActionListElement>;
-            "flip-action-list-item": LocalJSX.FlipActionListItem & JSXBase.HTMLAttributes<HTMLFlipActionListItemElement>;
-            "flip-action-list-section": LocalJSX.FlipActionListSection & JSXBase.HTMLAttributes<HTMLFlipActionListSectionElement>;
-            "flip-app-layout": LocalJSX.FlipAppLayout & JSXBase.HTMLAttributes<HTMLFlipAppLayoutElement>;
-            "flip-autocomplete": LocalJSX.FlipAutocomplete & JSXBase.HTMLAttributes<HTMLFlipAutocompleteElement>;
-            "flip-avatar": LocalJSX.FlipAvatar & JSXBase.HTMLAttributes<HTMLFlipAvatarElement>;
-            "flip-avatar-group": LocalJSX.FlipAvatarGroup & JSXBase.HTMLAttributes<HTMLFlipAvatarGroupElement>;
-            "flip-badge": LocalJSX.FlipBadge & JSXBase.HTMLAttributes<HTMLFlipBadgeElement>;
-            "flip-banner": LocalJSX.FlipBanner & JSXBase.HTMLAttributes<HTMLFlipBannerElement>;
-            "flip-box": LocalJSX.FlipBox & JSXBase.HTMLAttributes<HTMLFlipBoxElement>;
-            "flip-button": LocalJSX.FlipButton & JSXBase.HTMLAttributes<HTMLFlipButtonElement>;
-            "flip-button-group": LocalJSX.FlipButtonGroup & JSXBase.HTMLAttributes<HTMLFlipButtonGroupElement>;
-            "flip-card": LocalJSX.FlipCard & JSXBase.HTMLAttributes<HTMLFlipCardElement>;
-            "flip-checkbox": LocalJSX.FlipCheckbox & JSXBase.HTMLAttributes<HTMLFlipCheckboxElement>;
-            "flip-chip": LocalJSX.FlipChip & JSXBase.HTMLAttributes<HTMLFlipChipElement>;
-            "flip-console-layout": LocalJSX.FlipConsoleLayout & JSXBase.HTMLAttributes<HTMLFlipConsoleLayoutElement>;
-            "flip-date-input": LocalJSX.FlipDateInput & JSXBase.HTMLAttributes<HTMLFlipDateInputElement>;
-            "flip-date-picker": LocalJSX.FlipDatePicker & JSXBase.HTMLAttributes<HTMLFlipDatePickerElement>;
-            "flip-description-list": LocalJSX.FlipDescriptionList & JSXBase.HTMLAttributes<HTMLFlipDescriptionListElement>;
-            "flip-description-list-item": LocalJSX.FlipDescriptionListItem & JSXBase.HTMLAttributes<HTMLFlipDescriptionListItemElement>;
-            "flip-dialog": LocalJSX.FlipDialog & JSXBase.HTMLAttributes<HTMLFlipDialogElement>;
-            "flip-empty-state": LocalJSX.FlipEmptyState & JSXBase.HTMLAttributes<HTMLFlipEmptyStateElement>;
-            "flip-file-uploader": LocalJSX.FlipFileUploader & JSXBase.HTMLAttributes<HTMLFlipFileUploaderElement>;
-            "flip-file-viewer": LocalJSX.FlipFileViewer & JSXBase.HTMLAttributes<HTMLFlipFileViewerElement>;
-            "flip-file-viewer-audio": LocalJSX.FlipFileViewerAudio & JSXBase.HTMLAttributes<HTMLFlipFileViewerAudioElement>;
-            "flip-file-viewer-csv": LocalJSX.FlipFileViewerCsv & JSXBase.HTMLAttributes<HTMLFlipFileViewerCsvElement>;
-            "flip-file-viewer-image": LocalJSX.FlipFileViewerImage & JSXBase.HTMLAttributes<HTMLFlipFileViewerImageElement>;
-            "flip-file-viewer-pdf": LocalJSX.FlipFileViewerPdf & JSXBase.HTMLAttributes<HTMLFlipFileViewerPdfElement>;
-            "flip-file-viewer-text": LocalJSX.FlipFileViewerText & JSXBase.HTMLAttributes<HTMLFlipFileViewerTextElement>;
-            "flip-file-viewer-video": LocalJSX.FlipFileViewerVideo & JSXBase.HTMLAttributes<HTMLFlipFileViewerVideoElement>;
-            "flip-form-control": LocalJSX.FlipFormControl & JSXBase.HTMLAttributes<HTMLFlipFormControlElement>;
-            "flip-form-group": LocalJSX.FlipFormGroup & JSXBase.HTMLAttributes<HTMLFlipFormGroupElement>;
-            "flip-heading": LocalJSX.FlipHeading & JSXBase.HTMLAttributes<HTMLFlipHeadingElement>;
-            "flip-icon-add": LocalJSX.FlipIconAdd & JSXBase.HTMLAttributes<HTMLFlipIconAddElement>;
-            "flip-icon-add-photo": LocalJSX.FlipIconAddPhoto & JSXBase.HTMLAttributes<HTMLFlipIconAddPhotoElement>;
-            "flip-icon-admin-panel-settings": LocalJSX.FlipIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLFlipIconAdminPanelSettingsElement>;
-            "flip-icon-arrow-back": LocalJSX.FlipIconArrowBack & JSXBase.HTMLAttributes<HTMLFlipIconArrowBackElement>;
-            "flip-icon-arrow-downward": LocalJSX.FlipIconArrowDownward & JSXBase.HTMLAttributes<HTMLFlipIconArrowDownwardElement>;
-            "flip-icon-arrow-forward": LocalJSX.FlipIconArrowForward & JSXBase.HTMLAttributes<HTMLFlipIconArrowForwardElement>;
-            "flip-icon-arrow-left": LocalJSX.FlipIconArrowLeft & JSXBase.HTMLAttributes<HTMLFlipIconArrowLeftElement>;
-            "flip-icon-arrow-right": LocalJSX.FlipIconArrowRight & JSXBase.HTMLAttributes<HTMLFlipIconArrowRightElement>;
-            "flip-icon-arrow-right-small": LocalJSX.FlipIconArrowRightSmall & JSXBase.HTMLAttributes<HTMLFlipIconArrowRightSmallElement>;
-            "flip-icon-arrow-upward": LocalJSX.FlipIconArrowUpward & JSXBase.HTMLAttributes<HTMLFlipIconArrowUpwardElement>;
-            "flip-icon-attachment": LocalJSX.FlipIconAttachment & JSXBase.HTMLAttributes<HTMLFlipIconAttachmentElement>;
-            "flip-icon-block": LocalJSX.FlipIconBlock & JSXBase.HTMLAttributes<HTMLFlipIconBlockElement>;
-            "flip-icon-cancel": LocalJSX.FlipIconCancel & JSXBase.HTMLAttributes<HTMLFlipIconCancelElement>;
-            "flip-icon-chat-bubble": LocalJSX.FlipIconChatBubble & JSXBase.HTMLAttributes<HTMLFlipIconChatBubbleElement>;
-            "flip-icon-chats-filled": LocalJSX.FlipIconChatsFilled & JSXBase.HTMLAttributes<HTMLFlipIconChatsFilledElement>;
-            "flip-icon-chats-outlined": LocalJSX.FlipIconChatsOutlined & JSXBase.HTMLAttributes<HTMLFlipIconChatsOutlinedElement>;
-            "flip-icon-check": LocalJSX.FlipIconCheck & JSXBase.HTMLAttributes<HTMLFlipIconCheckElement>;
-            "flip-icon-check-circle": LocalJSX.FlipIconCheckCircle & JSXBase.HTMLAttributes<HTMLFlipIconCheckCircleElement>;
-            "flip-icon-check-small": LocalJSX.FlipIconCheckSmall & JSXBase.HTMLAttributes<HTMLFlipIconCheckSmallElement>;
-            "flip-icon-check-strong": LocalJSX.FlipIconCheckStrong & JSXBase.HTMLAttributes<HTMLFlipIconCheckStrongElement>;
-            "flip-icon-chevron-left": LocalJSX.FlipIconChevronLeft & JSXBase.HTMLAttributes<HTMLFlipIconChevronLeftElement>;
-            "flip-icon-chevron-right": LocalJSX.FlipIconChevronRight & JSXBase.HTMLAttributes<HTMLFlipIconChevronRightElement>;
-            "flip-icon-close": LocalJSX.FlipIconClose & JSXBase.HTMLAttributes<HTMLFlipIconCloseElement>;
-            "flip-icon-close-small": LocalJSX.FlipIconCloseSmall & JSXBase.HTMLAttributes<HTMLFlipIconCloseSmallElement>;
-            "flip-icon-cloud-upload": LocalJSX.FlipIconCloudUpload & JSXBase.HTMLAttributes<HTMLFlipIconCloudUploadElement>;
-            "flip-icon-column": LocalJSX.FlipIconColumn & JSXBase.HTMLAttributes<HTMLFlipIconColumnElement>;
-            "flip-icon-comment": LocalJSX.FlipIconComment & JSXBase.HTMLAttributes<HTMLFlipIconCommentElement>;
-            "flip-icon-copy": LocalJSX.FlipIconCopy & JSXBase.HTMLAttributes<HTMLFlipIconCopyElement>;
-            "flip-icon-date-range": LocalJSX.FlipIconDateRange & JSXBase.HTMLAttributes<HTMLFlipIconDateRangeElement>;
-            "flip-icon-delete": LocalJSX.FlipIconDelete & JSXBase.HTMLAttributes<HTMLFlipIconDeleteElement>;
-            "flip-icon-description": LocalJSX.FlipIconDescription & JSXBase.HTMLAttributes<HTMLFlipIconDescriptionElement>;
-            "flip-icon-download": LocalJSX.FlipIconDownload & JSXBase.HTMLAttributes<HTMLFlipIconDownloadElement>;
-            "flip-icon-edit": LocalJSX.FlipIconEdit & JSXBase.HTMLAttributes<HTMLFlipIconEditElement>;
-            "flip-icon-emoji-mood": LocalJSX.FlipIconEmojiMood & JSXBase.HTMLAttributes<HTMLFlipIconEmojiMoodElement>;
-            "flip-icon-emoji-satisfied": LocalJSX.FlipIconEmojiSatisfied & JSXBase.HTMLAttributes<HTMLFlipIconEmojiSatisfiedElement>;
-            "flip-icon-error": LocalJSX.FlipIconError & JSXBase.HTMLAttributes<HTMLFlipIconErrorElement>;
-            "flip-icon-expand-less": LocalJSX.FlipIconExpandLess & JSXBase.HTMLAttributes<HTMLFlipIconExpandLessElement>;
-            "flip-icon-expand-more": LocalJSX.FlipIconExpandMore & JSXBase.HTMLAttributes<HTMLFlipIconExpandMoreElement>;
-            "flip-icon-file": LocalJSX.FlipIconFile & JSXBase.HTMLAttributes<HTMLFlipIconFileElement>;
-            "flip-icon-filter": LocalJSX.FlipIconFilter & JSXBase.HTMLAttributes<HTMLFlipIconFilterElement>;
-            "flip-icon-folder-shared": LocalJSX.FlipIconFolderShared & JSXBase.HTMLAttributes<HTMLFlipIconFolderSharedElement>;
-            "flip-icon-fullscreen": LocalJSX.FlipIconFullscreen & JSXBase.HTMLAttributes<HTMLFlipIconFullscreenElement>;
-            "flip-icon-fullscreen-exit": LocalJSX.FlipIconFullscreenExit & JSXBase.HTMLAttributes<HTMLFlipIconFullscreenExitElement>;
-            "flip-icon-group-assign": LocalJSX.FlipIconGroupAssign & JSXBase.HTMLAttributes<HTMLFlipIconGroupAssignElement>;
-            "flip-icon-groups": LocalJSX.FlipIconGroups & JSXBase.HTMLAttributes<HTMLFlipIconGroupsElement>;
-            "flip-icon-groups-custom": LocalJSX.FlipIconGroupsCustom & JSXBase.HTMLAttributes<HTMLFlipIconGroupsCustomElement>;
-            "flip-icon-groups-filled": LocalJSX.FlipIconGroupsFilled & JSXBase.HTMLAttributes<HTMLFlipIconGroupsFilledElement>;
-            "flip-icon-groups-outlined": LocalJSX.FlipIconGroupsOutlined & JSXBase.HTMLAttributes<HTMLFlipIconGroupsOutlinedElement>;
-            "flip-icon-help": LocalJSX.FlipIconHelp & JSXBase.HTMLAttributes<HTMLFlipIconHelpElement>;
-            "flip-icon-image": LocalJSX.FlipIconImage & JSXBase.HTMLAttributes<HTMLFlipIconImageElement>;
-            "flip-icon-info": LocalJSX.FlipIconInfo & JSXBase.HTMLAttributes<HTMLFlipIconInfoElement>;
-            "flip-icon-inventory": LocalJSX.FlipIconInventory & JSXBase.HTMLAttributes<HTMLFlipIconInventoryElement>;
-            "flip-icon-like": LocalJSX.FlipIconLike & JSXBase.HTMLAttributes<HTMLFlipIconLikeElement>;
-            "flip-icon-link": LocalJSX.FlipIconLink & JSXBase.HTMLAttributes<HTMLFlipIconLinkElement>;
-            "flip-icon-lock": LocalJSX.FlipIconLock & JSXBase.HTMLAttributes<HTMLFlipIconLockElement>;
-            "flip-icon-logout": LocalJSX.FlipIconLogout & JSXBase.HTMLAttributes<HTMLFlipIconLogoutElement>;
-            "flip-icon-mail": LocalJSX.FlipIconMail & JSXBase.HTMLAttributes<HTMLFlipIconMailElement>;
-            "flip-icon-manage-accounts": LocalJSX.FlipIconManageAccounts & JSXBase.HTMLAttributes<HTMLFlipIconManageAccountsElement>;
-            "flip-icon-mention": LocalJSX.FlipIconMention & JSXBase.HTMLAttributes<HTMLFlipIconMentionElement>;
-            "flip-icon-menu": LocalJSX.FlipIconMenu & JSXBase.HTMLAttributes<HTMLFlipIconMenuElement>;
-            "flip-icon-menu-filled": LocalJSX.FlipIconMenuFilled & JSXBase.HTMLAttributes<HTMLFlipIconMenuFilledElement>;
-            "flip-icon-menu-outlined": LocalJSX.FlipIconMenuOutlined & JSXBase.HTMLAttributes<HTMLFlipIconMenuOutlinedElement>;
-            "flip-icon-message": LocalJSX.FlipIconMessage & JSXBase.HTMLAttributes<HTMLFlipIconMessageElement>;
-            "flip-icon-more-horizontal": LocalJSX.FlipIconMoreHorizontal & JSXBase.HTMLAttributes<HTMLFlipIconMoreHorizontalElement>;
-            "flip-icon-more-vertikal": LocalJSX.FlipIconMoreVertikal & JSXBase.HTMLAttributes<HTMLFlipIconMoreVertikalElement>;
-            "flip-icon-news-filled": LocalJSX.FlipIconNewsFilled & JSXBase.HTMLAttributes<HTMLFlipIconNewsFilledElement>;
-            "flip-icon-news-outlined": LocalJSX.FlipIconNewsOutlined & JSXBase.HTMLAttributes<HTMLFlipIconNewsOutlinedElement>;
-            "flip-icon-notifications": LocalJSX.FlipIconNotifications & JSXBase.HTMLAttributes<HTMLFlipIconNotificationsElement>;
-            "flip-icon-notifications-active": LocalJSX.FlipIconNotificationsActive & JSXBase.HTMLAttributes<HTMLFlipIconNotificationsActiveElement>;
-            "flip-icon-notifications-off": LocalJSX.FlipIconNotificationsOff & JSXBase.HTMLAttributes<HTMLFlipIconNotificationsOffElement>;
-            "flip-icon-open-in-new": LocalJSX.FlipIconOpenInNew & JSXBase.HTMLAttributes<HTMLFlipIconOpenInNewElement>;
-            "flip-icon-people-alt": LocalJSX.FlipIconPeopleAlt & JSXBase.HTMLAttributes<HTMLFlipIconPeopleAltElement>;
-            "flip-icon-person": LocalJSX.FlipIconPerson & JSXBase.HTMLAttributes<HTMLFlipIconPersonElement>;
-            "flip-icon-person-off": LocalJSX.FlipIconPersonOff & JSXBase.HTMLAttributes<HTMLFlipIconPersonOffElement>;
-            "flip-icon-phone": LocalJSX.FlipIconPhone & JSXBase.HTMLAttributes<HTMLFlipIconPhoneElement>;
-            "flip-icon-poll": LocalJSX.FlipIconPoll & JSXBase.HTMLAttributes<HTMLFlipIconPollElement>;
-            "flip-icon-print": LocalJSX.FlipIconPrint & JSXBase.HTMLAttributes<HTMLFlipIconPrintElement>;
-            "flip-icon-recieved": LocalJSX.FlipIconRecieved & JSXBase.HTMLAttributes<HTMLFlipIconRecievedElement>;
-            "flip-icon-remove": LocalJSX.FlipIconRemove & JSXBase.HTMLAttributes<HTMLFlipIconRemoveElement>;
-            "flip-icon-search": LocalJSX.FlipIconSearch & JSXBase.HTMLAttributes<HTMLFlipIconSearchElement>;
-            "flip-icon-search-strong": LocalJSX.FlipIconSearchStrong & JSXBase.HTMLAttributes<HTMLFlipIconSearchStrongElement>;
-            "flip-icon-send": LocalJSX.FlipIconSend & JSXBase.HTMLAttributes<HTMLFlipIconSendElement>;
-            "flip-icon-settings": LocalJSX.FlipIconSettings & JSXBase.HTMLAttributes<HTMLFlipIconSettingsElement>;
-            "flip-icon-sync": LocalJSX.FlipIconSync & JSXBase.HTMLAttributes<HTMLFlipIconSyncElement>;
-            "flip-icon-tasks-filled": LocalJSX.FlipIconTasksFilled & JSXBase.HTMLAttributes<HTMLFlipIconTasksFilledElement>;
-            "flip-icon-tasks-outlined": LocalJSX.FlipIconTasksOutlined & JSXBase.HTMLAttributes<HTMLFlipIconTasksOutlinedElement>;
-            "flip-icon-time-filled": LocalJSX.FlipIconTimeFilled & JSXBase.HTMLAttributes<HTMLFlipIconTimeFilledElement>;
-            "flip-icon-time-outlined": LocalJSX.FlipIconTimeOutlined & JSXBase.HTMLAttributes<HTMLFlipIconTimeOutlinedElement>;
-            "flip-icon-today": LocalJSX.FlipIconToday & JSXBase.HTMLAttributes<HTMLFlipIconTodayElement>;
-            "flip-icon-user-assign": LocalJSX.FlipIconUserAssign & JSXBase.HTMLAttributes<HTMLFlipIconUserAssignElement>;
-            "flip-icon-video-camera": LocalJSX.FlipIconVideoCamera & JSXBase.HTMLAttributes<HTMLFlipIconVideoCameraElement>;
-            "flip-icon-visibility": LocalJSX.FlipIconVisibility & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityElement>;
-            "flip-icon-visibility-off": LocalJSX.FlipIconVisibilityOff & JSXBase.HTMLAttributes<HTMLFlipIconVisibilityOffElement>;
-            "flip-icon-warning": LocalJSX.FlipIconWarning & JSXBase.HTMLAttributes<HTMLFlipIconWarningElement>;
-            "flip-inline-error": LocalJSX.FlipInlineError & JSXBase.HTMLAttributes<HTMLFlipInlineErrorElement>;
-            "flip-lightbox": LocalJSX.FlipLightbox & JSXBase.HTMLAttributes<HTMLFlipLightboxElement>;
-            "flip-link": LocalJSX.FlipLink & JSXBase.HTMLAttributes<HTMLFlipLinkElement>;
-            "flip-list": LocalJSX.FlipList & JSXBase.HTMLAttributes<HTMLFlipListElement>;
-            "flip-modal": LocalJSX.FlipModal & JSXBase.HTMLAttributes<HTMLFlipModalElement>;
-            "flip-option-list": LocalJSX.FlipOptionList & JSXBase.HTMLAttributes<HTMLFlipOptionListElement>;
-            "flip-option-list-item": LocalJSX.FlipOptionListItem & JSXBase.HTMLAttributes<HTMLFlipOptionListItemElement>;
-            "flip-option-list-section": LocalJSX.FlipOptionListSection & JSXBase.HTMLAttributes<HTMLFlipOptionListSectionElement>;
-            "flip-pagination": LocalJSX.FlipPagination & JSXBase.HTMLAttributes<HTMLFlipPaginationElement>;
-            "flip-pdf-reader": LocalJSX.FlipPdfReader & JSXBase.HTMLAttributes<HTMLFlipPdfReaderElement>;
-            "flip-popover": LocalJSX.FlipPopover & JSXBase.HTMLAttributes<HTMLFlipPopoverElement>;
-            "flip-progress-indicator": LocalJSX.FlipProgressIndicator & JSXBase.HTMLAttributes<HTMLFlipProgressIndicatorElement>;
-            "flip-radio": LocalJSX.FlipRadio & JSXBase.HTMLAttributes<HTMLFlipRadioElement>;
-            "flip-radio-group": LocalJSX.FlipRadioGroup & JSXBase.HTMLAttributes<HTMLFlipRadioGroupElement>;
-            "flip-resource-list": LocalJSX.FlipResourceList & JSXBase.HTMLAttributes<HTMLFlipResourceListElement>;
-            "flip-resource-list-file-item": LocalJSX.FlipResourceListFileItem & JSXBase.HTMLAttributes<HTMLFlipResourceListFileItemElement>;
-            "flip-resource-list-item": LocalJSX.FlipResourceListItem & JSXBase.HTMLAttributes<HTMLFlipResourceListItemElement>;
-            "flip-search": LocalJSX.FlipSearch & JSXBase.HTMLAttributes<HTMLFlipSearchElement>;
-            "flip-select": LocalJSX.FlipSelect & JSXBase.HTMLAttributes<HTMLFlipSelectElement>;
-            "flip-separator": LocalJSX.FlipSeparator & JSXBase.HTMLAttributes<HTMLFlipSeparatorElement>;
-            "flip-spinner": LocalJSX.FlipSpinner & JSXBase.HTMLAttributes<HTMLFlipSpinnerElement>;
-            "flip-stack": LocalJSX.FlipStack & JSXBase.HTMLAttributes<HTMLFlipStackElement>;
-            "flip-switch": LocalJSX.FlipSwitch & JSXBase.HTMLAttributes<HTMLFlipSwitchElement>;
-            "flip-tab": LocalJSX.FlipTab & JSXBase.HTMLAttributes<HTMLFlipTabElement>;
-            "flip-table": LocalJSX.FlipTable & JSXBase.HTMLAttributes<HTMLFlipTableElement>;
-            "flip-table-cell": LocalJSX.FlipTableCell & JSXBase.HTMLAttributes<HTMLFlipTableCellElement>;
-            "flip-table-column": LocalJSX.FlipTableColumn & JSXBase.HTMLAttributes<HTMLFlipTableColumnElement>;
-            "flip-table-row": LocalJSX.FlipTableRow & JSXBase.HTMLAttributes<HTMLFlipTableRowElement>;
-            "flip-table-row-group": LocalJSX.FlipTableRowGroup & JSXBase.HTMLAttributes<HTMLFlipTableRowGroupElement>;
-            "flip-tabs": LocalJSX.FlipTabs & JSXBase.HTMLAttributes<HTMLFlipTabsElement>;
-            "flip-tag": LocalJSX.FlipTag & JSXBase.HTMLAttributes<HTMLFlipTagElement>;
-            "flip-text": LocalJSX.FlipText & JSXBase.HTMLAttributes<HTMLFlipTextElement>;
-            "flip-text-input": LocalJSX.FlipTextInput & JSXBase.HTMLAttributes<HTMLFlipTextInputElement>;
-            "flip-theme-provider": LocalJSX.FlipThemeProvider & JSXBase.HTMLAttributes<HTMLFlipThemeProviderElement>;
-            "flip-thumbnail": LocalJSX.FlipThumbnail & JSXBase.HTMLAttributes<HTMLFlipThumbnailElement>;
-            "flip-toast": LocalJSX.FlipToast & JSXBase.HTMLAttributes<HTMLFlipToastElement>;
-            "flip-toast-provider": LocalJSX.FlipToastProvider & JSXBase.HTMLAttributes<HTMLFlipToastProviderElement>;
-            "flip-tooltip": LocalJSX.FlipTooltip & JSXBase.HTMLAttributes<HTMLFlipTooltipElement>;
-            "flip-tree-navigation-item": LocalJSX.FlipTreeNavigationItem & JSXBase.HTMLAttributes<HTMLFlipTreeNavigationItemElement>;
-            "flip-video-thumbnail": LocalJSX.FlipVideoThumbnail & JSXBase.HTMLAttributes<HTMLFlipVideoThumbnailElement>;
-            "flip-visually-hidden": LocalJSX.FlipVisuallyHidden & JSXBase.HTMLAttributes<HTMLFlipVisuallyHiddenElement>;
+            "swirl-action-list": LocalJSX.SwirlActionList & JSXBase.HTMLAttributes<HTMLSwirlActionListElement>;
+            "swirl-action-list-item": LocalJSX.SwirlActionListItem & JSXBase.HTMLAttributes<HTMLSwirlActionListItemElement>;
+            "swirl-action-list-section": LocalJSX.SwirlActionListSection & JSXBase.HTMLAttributes<HTMLSwirlActionListSectionElement>;
+            "swirl-app-layout": LocalJSX.SwirlAppLayout & JSXBase.HTMLAttributes<HTMLSwirlAppLayoutElement>;
+            "swirl-autocomplete": LocalJSX.SwirlAutocomplete & JSXBase.HTMLAttributes<HTMLSwirlAutocompleteElement>;
+            "swirl-avatar": LocalJSX.SwirlAvatar & JSXBase.HTMLAttributes<HTMLSwirlAvatarElement>;
+            "swirl-avatar-group": LocalJSX.SwirlAvatarGroup & JSXBase.HTMLAttributes<HTMLSwirlAvatarGroupElement>;
+            "swirl-badge": LocalJSX.SwirlBadge & JSXBase.HTMLAttributes<HTMLSwirlBadgeElement>;
+            "swirl-banner": LocalJSX.SwirlBanner & JSXBase.HTMLAttributes<HTMLSwirlBannerElement>;
+            "swirl-box": LocalJSX.SwirlBox & JSXBase.HTMLAttributes<HTMLSwirlBoxElement>;
+            "swirl-button": LocalJSX.SwirlButton & JSXBase.HTMLAttributes<HTMLSwirlButtonElement>;
+            "swirl-button-group": LocalJSX.SwirlButtonGroup & JSXBase.HTMLAttributes<HTMLSwirlButtonGroupElement>;
+            "swirl-card": LocalJSX.SwirlCard & JSXBase.HTMLAttributes<HTMLSwirlCardElement>;
+            "swirl-checkbox": LocalJSX.SwirlCheckbox & JSXBase.HTMLAttributes<HTMLSwirlCheckboxElement>;
+            "swirl-chip": LocalJSX.SwirlChip & JSXBase.HTMLAttributes<HTMLSwirlChipElement>;
+            "swirl-console-layout": LocalJSX.SwirlConsoleLayout & JSXBase.HTMLAttributes<HTMLSwirlConsoleLayoutElement>;
+            "swirl-date-input": LocalJSX.SwirlDateInput & JSXBase.HTMLAttributes<HTMLSwirlDateInputElement>;
+            "swirl-date-picker": LocalJSX.SwirlDatePicker & JSXBase.HTMLAttributes<HTMLSwirlDatePickerElement>;
+            "swirl-description-list": LocalJSX.SwirlDescriptionList & JSXBase.HTMLAttributes<HTMLSwirlDescriptionListElement>;
+            "swirl-description-list-item": LocalJSX.SwirlDescriptionListItem & JSXBase.HTMLAttributes<HTMLSwirlDescriptionListItemElement>;
+            "swirl-dialog": LocalJSX.SwirlDialog & JSXBase.HTMLAttributes<HTMLSwirlDialogElement>;
+            "swirl-empty-state": LocalJSX.SwirlEmptyState & JSXBase.HTMLAttributes<HTMLSwirlEmptyStateElement>;
+            "swirl-file-uploader": LocalJSX.SwirlFileUploader & JSXBase.HTMLAttributes<HTMLSwirlFileUploaderElement>;
+            "swirl-file-viewer": LocalJSX.SwirlFileViewer & JSXBase.HTMLAttributes<HTMLSwirlFileViewerElement>;
+            "swirl-file-viewer-audio": LocalJSX.SwirlFileViewerAudio & JSXBase.HTMLAttributes<HTMLSwirlFileViewerAudioElement>;
+            "swirl-file-viewer-csv": LocalJSX.SwirlFileViewerCsv & JSXBase.HTMLAttributes<HTMLSwirlFileViewerCsvElement>;
+            "swirl-file-viewer-image": LocalJSX.SwirlFileViewerImage & JSXBase.HTMLAttributes<HTMLSwirlFileViewerImageElement>;
+            "swirl-file-viewer-pdf": LocalJSX.SwirlFileViewerPdf & JSXBase.HTMLAttributes<HTMLSwirlFileViewerPdfElement>;
+            "swirl-file-viewer-text": LocalJSX.SwirlFileViewerText & JSXBase.HTMLAttributes<HTMLSwirlFileViewerTextElement>;
+            "swirl-file-viewer-video": LocalJSX.SwirlFileViewerVideo & JSXBase.HTMLAttributes<HTMLSwirlFileViewerVideoElement>;
+            "swirl-form-control": LocalJSX.SwirlFormControl & JSXBase.HTMLAttributes<HTMLSwirlFormControlElement>;
+            "swirl-form-group": LocalJSX.SwirlFormGroup & JSXBase.HTMLAttributes<HTMLSwirlFormGroupElement>;
+            "swirl-heading": LocalJSX.SwirlHeading & JSXBase.HTMLAttributes<HTMLSwirlHeadingElement>;
+            "swirl-icon-add": LocalJSX.SwirlIconAdd & JSXBase.HTMLAttributes<HTMLSwirlIconAddElement>;
+            "swirl-icon-add-photo": LocalJSX.SwirlIconAddPhoto & JSXBase.HTMLAttributes<HTMLSwirlIconAddPhotoElement>;
+            "swirl-icon-admin-panel-settings": LocalJSX.SwirlIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLSwirlIconAdminPanelSettingsElement>;
+            "swirl-icon-arrow-back": LocalJSX.SwirlIconArrowBack & JSXBase.HTMLAttributes<HTMLSwirlIconArrowBackElement>;
+            "swirl-icon-arrow-downward": LocalJSX.SwirlIconArrowDownward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowDownwardElement>;
+            "swirl-icon-arrow-forward": LocalJSX.SwirlIconArrowForward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowForwardElement>;
+            "swirl-icon-arrow-left": LocalJSX.SwirlIconArrowLeft & JSXBase.HTMLAttributes<HTMLSwirlIconArrowLeftElement>;
+            "swirl-icon-arrow-right": LocalJSX.SwirlIconArrowRight & JSXBase.HTMLAttributes<HTMLSwirlIconArrowRightElement>;
+            "swirl-icon-arrow-right-small": LocalJSX.SwirlIconArrowRightSmall & JSXBase.HTMLAttributes<HTMLSwirlIconArrowRightSmallElement>;
+            "swirl-icon-arrow-upward": LocalJSX.SwirlIconArrowUpward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowUpwardElement>;
+            "swirl-icon-attachment": LocalJSX.SwirlIconAttachment & JSXBase.HTMLAttributes<HTMLSwirlIconAttachmentElement>;
+            "swirl-icon-block": LocalJSX.SwirlIconBlock & JSXBase.HTMLAttributes<HTMLSwirlIconBlockElement>;
+            "swirl-icon-cancel": LocalJSX.SwirlIconCancel & JSXBase.HTMLAttributes<HTMLSwirlIconCancelElement>;
+            "swirl-icon-chat-bubble": LocalJSX.SwirlIconChatBubble & JSXBase.HTMLAttributes<HTMLSwirlIconChatBubbleElement>;
+            "swirl-icon-chats-filled": LocalJSX.SwirlIconChatsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconChatsFilledElement>;
+            "swirl-icon-chats-outlined": LocalJSX.SwirlIconChatsOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconChatsOutlinedElement>;
+            "swirl-icon-check": LocalJSX.SwirlIconCheck & JSXBase.HTMLAttributes<HTMLSwirlIconCheckElement>;
+            "swirl-icon-check-circle": LocalJSX.SwirlIconCheckCircle & JSXBase.HTMLAttributes<HTMLSwirlIconCheckCircleElement>;
+            "swirl-icon-check-small": LocalJSX.SwirlIconCheckSmall & JSXBase.HTMLAttributes<HTMLSwirlIconCheckSmallElement>;
+            "swirl-icon-check-strong": LocalJSX.SwirlIconCheckStrong & JSXBase.HTMLAttributes<HTMLSwirlIconCheckStrongElement>;
+            "swirl-icon-chevron-left": LocalJSX.SwirlIconChevronLeft & JSXBase.HTMLAttributes<HTMLSwirlIconChevronLeftElement>;
+            "swirl-icon-chevron-right": LocalJSX.SwirlIconChevronRight & JSXBase.HTMLAttributes<HTMLSwirlIconChevronRightElement>;
+            "swirl-icon-close": LocalJSX.SwirlIconClose & JSXBase.HTMLAttributes<HTMLSwirlIconCloseElement>;
+            "swirl-icon-close-small": LocalJSX.SwirlIconCloseSmall & JSXBase.HTMLAttributes<HTMLSwirlIconCloseSmallElement>;
+            "swirl-icon-cloud-upload": LocalJSX.SwirlIconCloudUpload & JSXBase.HTMLAttributes<HTMLSwirlIconCloudUploadElement>;
+            "swirl-icon-column": LocalJSX.SwirlIconColumn & JSXBase.HTMLAttributes<HTMLSwirlIconColumnElement>;
+            "swirl-icon-comment": LocalJSX.SwirlIconComment & JSXBase.HTMLAttributes<HTMLSwirlIconCommentElement>;
+            "swirl-icon-copy": LocalJSX.SwirlIconCopy & JSXBase.HTMLAttributes<HTMLSwirlIconCopyElement>;
+            "swirl-icon-date-range": LocalJSX.SwirlIconDateRange & JSXBase.HTMLAttributes<HTMLSwirlIconDateRangeElement>;
+            "swirl-icon-delete": LocalJSX.SwirlIconDelete & JSXBase.HTMLAttributes<HTMLSwirlIconDeleteElement>;
+            "swirl-icon-description": LocalJSX.SwirlIconDescription & JSXBase.HTMLAttributes<HTMLSwirlIconDescriptionElement>;
+            "swirl-icon-download": LocalJSX.SwirlIconDownload & JSXBase.HTMLAttributes<HTMLSwirlIconDownloadElement>;
+            "swirl-icon-edit": LocalJSX.SwirlIconEdit & JSXBase.HTMLAttributes<HTMLSwirlIconEditElement>;
+            "swirl-icon-emoji-mood": LocalJSX.SwirlIconEmojiMood & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiMoodElement>;
+            "swirl-icon-emoji-satisfied": LocalJSX.SwirlIconEmojiSatisfied & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiSatisfiedElement>;
+            "swirl-icon-error": LocalJSX.SwirlIconError & JSXBase.HTMLAttributes<HTMLSwirlIconErrorElement>;
+            "swirl-icon-expand-less": LocalJSX.SwirlIconExpandLess & JSXBase.HTMLAttributes<HTMLSwirlIconExpandLessElement>;
+            "swirl-icon-expand-more": LocalJSX.SwirlIconExpandMore & JSXBase.HTMLAttributes<HTMLSwirlIconExpandMoreElement>;
+            "swirl-icon-file": LocalJSX.SwirlIconFile & JSXBase.HTMLAttributes<HTMLSwirlIconFileElement>;
+            "swirl-icon-filter": LocalJSX.SwirlIconFilter & JSXBase.HTMLAttributes<HTMLSwirlIconFilterElement>;
+            "swirl-icon-folder-shared": LocalJSX.SwirlIconFolderShared & JSXBase.HTMLAttributes<HTMLSwirlIconFolderSharedElement>;
+            "swirl-icon-fullscreen": LocalJSX.SwirlIconFullscreen & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenElement>;
+            "swirl-icon-fullscreen-exit": LocalJSX.SwirlIconFullscreenExit & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenExitElement>;
+            "swirl-icon-group-assign": LocalJSX.SwirlIconGroupAssign & JSXBase.HTMLAttributes<HTMLSwirlIconGroupAssignElement>;
+            "swirl-icon-groups": LocalJSX.SwirlIconGroups & JSXBase.HTMLAttributes<HTMLSwirlIconGroupsElement>;
+            "swirl-icon-groups-custom": LocalJSX.SwirlIconGroupsCustom & JSXBase.HTMLAttributes<HTMLSwirlIconGroupsCustomElement>;
+            "swirl-icon-groups-filled": LocalJSX.SwirlIconGroupsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconGroupsFilledElement>;
+            "swirl-icon-groups-outlined": LocalJSX.SwirlIconGroupsOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconGroupsOutlinedElement>;
+            "swirl-icon-help": LocalJSX.SwirlIconHelp & JSXBase.HTMLAttributes<HTMLSwirlIconHelpElement>;
+            "swirl-icon-image": LocalJSX.SwirlIconImage & JSXBase.HTMLAttributes<HTMLSwirlIconImageElement>;
+            "swirl-icon-info": LocalJSX.SwirlIconInfo & JSXBase.HTMLAttributes<HTMLSwirlIconInfoElement>;
+            "swirl-icon-inventory": LocalJSX.SwirlIconInventory & JSXBase.HTMLAttributes<HTMLSwirlIconInventoryElement>;
+            "swirl-icon-like": LocalJSX.SwirlIconLike & JSXBase.HTMLAttributes<HTMLSwirlIconLikeElement>;
+            "swirl-icon-link": LocalJSX.SwirlIconLink & JSXBase.HTMLAttributes<HTMLSwirlIconLinkElement>;
+            "swirl-icon-lock": LocalJSX.SwirlIconLock & JSXBase.HTMLAttributes<HTMLSwirlIconLockElement>;
+            "swirl-icon-logout": LocalJSX.SwirlIconLogout & JSXBase.HTMLAttributes<HTMLSwirlIconLogoutElement>;
+            "swirl-icon-mail": LocalJSX.SwirlIconMail & JSXBase.HTMLAttributes<HTMLSwirlIconMailElement>;
+            "swirl-icon-manage-accounts": LocalJSX.SwirlIconManageAccounts & JSXBase.HTMLAttributes<HTMLSwirlIconManageAccountsElement>;
+            "swirl-icon-mention": LocalJSX.SwirlIconMention & JSXBase.HTMLAttributes<HTMLSwirlIconMentionElement>;
+            "swirl-icon-menu": LocalJSX.SwirlIconMenu & JSXBase.HTMLAttributes<HTMLSwirlIconMenuElement>;
+            "swirl-icon-menu-filled": LocalJSX.SwirlIconMenuFilled & JSXBase.HTMLAttributes<HTMLSwirlIconMenuFilledElement>;
+            "swirl-icon-menu-outlined": LocalJSX.SwirlIconMenuOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconMenuOutlinedElement>;
+            "swirl-icon-message": LocalJSX.SwirlIconMessage & JSXBase.HTMLAttributes<HTMLSwirlIconMessageElement>;
+            "swirl-icon-more-horizontal": LocalJSX.SwirlIconMoreHorizontal & JSXBase.HTMLAttributes<HTMLSwirlIconMoreHorizontalElement>;
+            "swirl-icon-more-vertikal": LocalJSX.SwirlIconMoreVertikal & JSXBase.HTMLAttributes<HTMLSwirlIconMoreVertikalElement>;
+            "swirl-icon-news-filled": LocalJSX.SwirlIconNewsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconNewsFilledElement>;
+            "swirl-icon-news-outlined": LocalJSX.SwirlIconNewsOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconNewsOutlinedElement>;
+            "swirl-icon-notifications": LocalJSX.SwirlIconNotifications & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsElement>;
+            "swirl-icon-notifications-active": LocalJSX.SwirlIconNotificationsActive & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsActiveElement>;
+            "swirl-icon-notifications-off": LocalJSX.SwirlIconNotificationsOff & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsOffElement>;
+            "swirl-icon-open-in-new": LocalJSX.SwirlIconOpenInNew & JSXBase.HTMLAttributes<HTMLSwirlIconOpenInNewElement>;
+            "swirl-icon-people-alt": LocalJSX.SwirlIconPeopleAlt & JSXBase.HTMLAttributes<HTMLSwirlIconPeopleAltElement>;
+            "swirl-icon-person": LocalJSX.SwirlIconPerson & JSXBase.HTMLAttributes<HTMLSwirlIconPersonElement>;
+            "swirl-icon-person-off": LocalJSX.SwirlIconPersonOff & JSXBase.HTMLAttributes<HTMLSwirlIconPersonOffElement>;
+            "swirl-icon-phone": LocalJSX.SwirlIconPhone & JSXBase.HTMLAttributes<HTMLSwirlIconPhoneElement>;
+            "swirl-icon-poll": LocalJSX.SwirlIconPoll & JSXBase.HTMLAttributes<HTMLSwirlIconPollElement>;
+            "swirl-icon-print": LocalJSX.SwirlIconPrint & JSXBase.HTMLAttributes<HTMLSwirlIconPrintElement>;
+            "swirl-icon-recieved": LocalJSX.SwirlIconRecieved & JSXBase.HTMLAttributes<HTMLSwirlIconRecievedElement>;
+            "swirl-icon-remove": LocalJSX.SwirlIconRemove & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveElement>;
+            "swirl-icon-search": LocalJSX.SwirlIconSearch & JSXBase.HTMLAttributes<HTMLSwirlIconSearchElement>;
+            "swirl-icon-search-strong": LocalJSX.SwirlIconSearchStrong & JSXBase.HTMLAttributes<HTMLSwirlIconSearchStrongElement>;
+            "swirl-icon-send": LocalJSX.SwirlIconSend & JSXBase.HTMLAttributes<HTMLSwirlIconSendElement>;
+            "swirl-icon-settings": LocalJSX.SwirlIconSettings & JSXBase.HTMLAttributes<HTMLSwirlIconSettingsElement>;
+            "swirl-icon-sync": LocalJSX.SwirlIconSync & JSXBase.HTMLAttributes<HTMLSwirlIconSyncElement>;
+            "swirl-icon-tasks-filled": LocalJSX.SwirlIconTasksFilled & JSXBase.HTMLAttributes<HTMLSwirlIconTasksFilledElement>;
+            "swirl-icon-tasks-outlined": LocalJSX.SwirlIconTasksOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconTasksOutlinedElement>;
+            "swirl-icon-time-filled": LocalJSX.SwirlIconTimeFilled & JSXBase.HTMLAttributes<HTMLSwirlIconTimeFilledElement>;
+            "swirl-icon-time-outlined": LocalJSX.SwirlIconTimeOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconTimeOutlinedElement>;
+            "swirl-icon-today": LocalJSX.SwirlIconToday & JSXBase.HTMLAttributes<HTMLSwirlIconTodayElement>;
+            "swirl-icon-user-assign": LocalJSX.SwirlIconUserAssign & JSXBase.HTMLAttributes<HTMLSwirlIconUserAssignElement>;
+            "swirl-icon-video-camera": LocalJSX.SwirlIconVideoCamera & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraElement>;
+            "swirl-icon-visibility": LocalJSX.SwirlIconVisibility & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityElement>;
+            "swirl-icon-visibility-off": LocalJSX.SwirlIconVisibilityOff & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
+            "swirl-icon-warning": LocalJSX.SwirlIconWarning & JSXBase.HTMLAttributes<HTMLSwirlIconWarningElement>;
+            "swirl-inline-error": LocalJSX.SwirlInlineError & JSXBase.HTMLAttributes<HTMLSwirlInlineErrorElement>;
+            "swirl-lightbox": LocalJSX.SwirlLightbox & JSXBase.HTMLAttributes<HTMLSwirlLightboxElement>;
+            "swirl-link": LocalJSX.SwirlLink & JSXBase.HTMLAttributes<HTMLSwirlLinkElement>;
+            "swirl-list": LocalJSX.SwirlList & JSXBase.HTMLAttributes<HTMLSwirlListElement>;
+            "swirl-modal": LocalJSX.SwirlModal & JSXBase.HTMLAttributes<HTMLSwirlModalElement>;
+            "swirl-option-list": LocalJSX.SwirlOptionList & JSXBase.HTMLAttributes<HTMLSwirlOptionListElement>;
+            "swirl-option-list-item": LocalJSX.SwirlOptionListItem & JSXBase.HTMLAttributes<HTMLSwirlOptionListItemElement>;
+            "swirl-option-list-section": LocalJSX.SwirlOptionListSection & JSXBase.HTMLAttributes<HTMLSwirlOptionListSectionElement>;
+            "swirl-pagination": LocalJSX.SwirlPagination & JSXBase.HTMLAttributes<HTMLSwirlPaginationElement>;
+            "swirl-pdf-reader": LocalJSX.SwirlPdfReader & JSXBase.HTMLAttributes<HTMLSwirlPdfReaderElement>;
+            "swirl-popover": LocalJSX.SwirlPopover & JSXBase.HTMLAttributes<HTMLSwirlPopoverElement>;
+            "swirl-progress-indicator": LocalJSX.SwirlProgressIndicator & JSXBase.HTMLAttributes<HTMLSwirlProgressIndicatorElement>;
+            "swirl-radio": LocalJSX.SwirlRadio & JSXBase.HTMLAttributes<HTMLSwirlRadioElement>;
+            "swirl-radio-group": LocalJSX.SwirlRadioGroup & JSXBase.HTMLAttributes<HTMLSwirlRadioGroupElement>;
+            "swirl-resource-list": LocalJSX.SwirlResourceList & JSXBase.HTMLAttributes<HTMLSwirlResourceListElement>;
+            "swirl-resource-list-file-item": LocalJSX.SwirlResourceListFileItem & JSXBase.HTMLAttributes<HTMLSwirlResourceListFileItemElement>;
+            "swirl-resource-list-item": LocalJSX.SwirlResourceListItem & JSXBase.HTMLAttributes<HTMLSwirlResourceListItemElement>;
+            "swirl-search": LocalJSX.SwirlSearch & JSXBase.HTMLAttributes<HTMLSwirlSearchElement>;
+            "swirl-select": LocalJSX.SwirlSelect & JSXBase.HTMLAttributes<HTMLSwirlSelectElement>;
+            "swirl-separator": LocalJSX.SwirlSeparator & JSXBase.HTMLAttributes<HTMLSwirlSeparatorElement>;
+            "swirl-spinner": LocalJSX.SwirlSpinner & JSXBase.HTMLAttributes<HTMLSwirlSpinnerElement>;
+            "swirl-stack": LocalJSX.SwirlStack & JSXBase.HTMLAttributes<HTMLSwirlStackElement>;
+            "swirl-switch": LocalJSX.SwirlSwitch & JSXBase.HTMLAttributes<HTMLSwirlSwitchElement>;
+            "swirl-tab": LocalJSX.SwirlTab & JSXBase.HTMLAttributes<HTMLSwirlTabElement>;
+            "swirl-table": LocalJSX.SwirlTable & JSXBase.HTMLAttributes<HTMLSwirlTableElement>;
+            "swirl-table-cell": LocalJSX.SwirlTableCell & JSXBase.HTMLAttributes<HTMLSwirlTableCellElement>;
+            "swirl-table-column": LocalJSX.SwirlTableColumn & JSXBase.HTMLAttributes<HTMLSwirlTableColumnElement>;
+            "swirl-table-row": LocalJSX.SwirlTableRow & JSXBase.HTMLAttributes<HTMLSwirlTableRowElement>;
+            "swirl-table-row-group": LocalJSX.SwirlTableRowGroup & JSXBase.HTMLAttributes<HTMLSwirlTableRowGroupElement>;
+            "swirl-tabs": LocalJSX.SwirlTabs & JSXBase.HTMLAttributes<HTMLSwirlTabsElement>;
+            "swirl-tag": LocalJSX.SwirlTag & JSXBase.HTMLAttributes<HTMLSwirlTagElement>;
+            "swirl-text": LocalJSX.SwirlText & JSXBase.HTMLAttributes<HTMLSwirlTextElement>;
+            "swirl-text-input": LocalJSX.SwirlTextInput & JSXBase.HTMLAttributes<HTMLSwirlTextInputElement>;
+            "swirl-theme-provider": LocalJSX.SwirlThemeProvider & JSXBase.HTMLAttributes<HTMLSwirlThemeProviderElement>;
+            "swirl-thumbnail": LocalJSX.SwirlThumbnail & JSXBase.HTMLAttributes<HTMLSwirlThumbnailElement>;
+            "swirl-toast": LocalJSX.SwirlToast & JSXBase.HTMLAttributes<HTMLSwirlToastElement>;
+            "swirl-toast-provider": LocalJSX.SwirlToastProvider & JSXBase.HTMLAttributes<HTMLSwirlToastProviderElement>;
+            "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;
+            "swirl-tree-navigation-item": LocalJSX.SwirlTreeNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationItemElement>;
+            "swirl-video-thumbnail": LocalJSX.SwirlVideoThumbnail & JSXBase.HTMLAttributes<HTMLSwirlVideoThumbnailElement>;
+            "swirl-visually-hidden": LocalJSX.SwirlVisuallyHidden & JSXBase.HTMLAttributes<HTMLSwirlVisuallyHiddenElement>;
         }
     }
 }

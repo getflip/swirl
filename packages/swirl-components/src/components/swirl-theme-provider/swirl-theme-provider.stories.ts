@@ -2,18 +2,18 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-theme-provider.mdx";
 
 export default {
-  component: "flip-theme-provider",
+  component: "swirl-theme-provider",
   parameters: {
     docs: {
       inlineStories: false,
       page: Docs,
       source: {
-        code: `<flip-theme-provider>
+        code: `<swirl-theme-provider>
   <!-- Your app components … -->
-</flip-theme-provider>
+</swirl-theme-provider>
 
 <script>
-  const provider = document.querySelector('flip-theme-provider');
+  const provider = document.querySelector('swirl-theme-provider');
 
   provider.config = {
     tenantColors: {
@@ -30,14 +30,14 @@ export default {
       },
     },
   },
-  title: "Components/FlipThemeProvider",
+  title: "Components/SwirlThemeProvider",
 };
 
 const Template = (args) => {
   const element = generateStoryElement(
-    "flip-theme-provider",
+    "swirl-theme-provider",
     args
-  ) as HTMLFlipThemeProviderElement;
+  ) as HTMLSwirlThemeProviderElement;
 
   const config = {
     tenantColors: {
@@ -49,7 +49,7 @@ const Template = (args) => {
     },
   };
 
-  const lightModeButton = document.createElement("flip-button");
+  const lightModeButton = document.createElement("swirl-button");
   lightModeButton.intent = "primary";
   lightModeButton.variant = "flat";
   lightModeButton.label = "Set light mode";
@@ -58,7 +58,7 @@ const Template = (args) => {
     element.setPreferredTheme("light");
   });
 
-  const darkModeButton = document.createElement("flip-button");
+  const darkModeButton = document.createElement("swirl-button");
   darkModeButton.intent = "primary";
   darkModeButton.variant = "flat";
   darkModeButton.label = "Set dark mode";
@@ -67,7 +67,7 @@ const Template = (args) => {
     element.setPreferredTheme("dark");
   });
 
-  const tenantButton = document.createElement("flip-button");
+  const tenantButton = document.createElement("swirl-button");
   tenantButton.intent = "primary";
   tenantButton.variant = "flat";
   tenantButton.label = "Set tenant theme";
@@ -76,7 +76,7 @@ const Template = (args) => {
     element.config = config;
   });
 
-  const resetButton = document.createElement("flip-button");
+  const resetButton = document.createElement("swirl-button");
   resetButton.label = "Reset";
   resetButton.style.marginRight = "1rem";
   resetButton.addEventListener("click", () => {
@@ -93,6 +93,6 @@ const Template = (args) => {
   return element;
 };
 
-export const FlipThemeProvider = Template.bind({});
+export const SwirlThemeProvider = Template.bind({});
 
-FlipThemeProvider.args = {};
+SwirlThemeProvider.args = {};

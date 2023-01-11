@@ -8,40 +8,40 @@ export default {
       table: {
         type: {
           detail:
-            'e.g. <flip-badge aria-label="3 new messages" label="3" size="s"></flip-badge>',
-          summary: "flip-badge",
+            'e.g. <swirl-badge aria-label="3 new messages" label="3" size="s"></swirl-badge>',
+          summary: "swirl-badge",
         },
       },
     },
     icon: {
       table: {
         type: {
-          detail: "e.g. <flip-icon-close></flip-icon-close>",
-          summary: "flip-icon-*",
+          detail: "e.g. <swirl-icon-close></swirl-icon-close>",
+          summary: "swirl-icon-*",
         },
       },
     },
   },
-  component: "flip-avatar",
+  component: "swirl-avatar",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipAvatar",
+  title: "Components/SwirlAvatar",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-avatar", args);
+  const element = generateStoryElement("swirl-avatar", args);
 
   return element;
 };
 
-export const FlipAvatar = Template.bind({});
+export const SwirlAvatar = Template.bind({});
 
-FlipAvatar.args = {
+SwirlAvatar.args = {
   badge:
-    '<flip-badge aria-label="3 new messages" label="3" size="s"></flip-badge>',
+    '<swirl-badge aria-label="3 new messages" label="3" size="s"></swirl-badge>',
   label: "John Doe",
   src: "https://picsum.photos/id/433/144/144",
 };

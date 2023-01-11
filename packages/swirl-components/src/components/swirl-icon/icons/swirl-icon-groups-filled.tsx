@@ -1,24 +1,29 @@
 // DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
 
 import { Component, Fragment, h, Prop } from "@stencil/core";
-import { FlipIconSize } from "../swirl-icon.types";
+import { SwirlIconSize } from "../swirl-icon.types";
+import classnames from "classnames";
 
 @Component({
   shadow: true,
   styleUrl: "../swirl-icon.css",
-  tag: "flip-icon-groups-filled",
+  tag: "swirl-icon-groups-filled",
 })
-export class FlipIconGroupsFilled {
-  @Prop() size: FlipIconSize = 24;
+export class SwirlIconGroupsFilled {
+  @Prop() size: SwirlIconSize = 24;
 
   render() {
+    const viewBoxSize = this.size === 20 ? 24 : this.size;
+
+    const className = classnames("swirl-icon", `swirl-icon--size-${this.size}`);
+
     return (
       <svg
-        class="flip-icon"
+        class={className}
         fill="none"
         height={this.size}
         part="icon"
-        viewBox={`0 0 ${this.size} ${this.size}`}
+        viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -50,7 +55,7 @@ export class FlipIconGroupsFilled {
             />
           </Fragment>
         )}
-        {this.size === 24 && (
+        {(this.size === 20 || this.size === 24) && (
           <Fragment>
             <path
               d="M6.00001 10.5C5.65394 10.5 5.31565 10.3974 5.0279 10.2051C4.74016 10.0128 4.51589 9.73958 4.38345 9.41985C4.25102 9.10013 4.21637 8.74831 4.28388 8.40889C4.3514 8.06947 4.51804 7.7577 4.76275 7.51299C5.00746 7.26828 5.31923 7.10164 5.65865 7.03412C5.99807 6.96661 6.34989 7.00126 6.66961 7.13369C6.98934 7.26613 7.26261 7.4904 7.45488 7.77814C7.64714 8.06589 7.74976 8.40418 7.74976 8.75025C7.74986 8.98006 7.70467 9.20763 7.61677 9.41997C7.52887 9.6323 7.39999 9.82523 7.23749 9.98773C7.07499 10.1502 6.88206 10.2791 6.66973 10.367C6.45739 10.4549 6.22982 10.5001 6.00001 10.5Z"

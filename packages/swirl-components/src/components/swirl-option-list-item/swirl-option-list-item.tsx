@@ -1,15 +1,15 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipOptionListItemContext = "single-select" | "multi-select";
+export type SwirlOptionListItemContext = "single-select" | "multi-select";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-option-list-item.css",
-  tag: "flip-option-list-item",
+  tag: "swirl-option-list-item",
 })
-export class FlipOptionListItem {
-  @Prop({ mutable: true }) context?: FlipOptionListItemContext =
+export class SwirlOptionListItem {
+  @Prop({ mutable: true }) context?: SwirlOptionListItemContext =
     "single-select";
   @Prop() disabled?: boolean;
   @Prop() icon?: string;
@@ -69,10 +69,10 @@ export class FlipOptionListItem {
             <span class="option-list-item__checkbox">
               <span class="option-list-item__checkbox-box">
                 {this.selected && (
-                  <flip-icon-check-strong
+                  <swirl-icon-check-strong
                     class="option-list-item__checkbox-icon"
                     size={16}
-                  ></flip-icon-check-strong>
+                  ></swirl-icon-check-strong>
                 )}
               </span>
             </span>
@@ -80,7 +80,7 @@ export class FlipOptionListItem {
           <span class="option-list-item__label">{this.label}</span>
           {showSelectionIcon && (
             <span class="option-list-item__selection-icon">
-              <flip-icon-check-small></flip-icon-check-small>
+              <swirl-icon-check-small></swirl-icon-check-small>
             </span>
           )}
         </div>

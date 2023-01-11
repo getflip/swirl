@@ -1,16 +1,16 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipSpinnerSize = "s" | "m";
+export type SwirlSpinnerSize = "s" | "m";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-spinner.css",
-  tag: "flip-spinner",
+  tag: "swirl-spinner",
 })
-export class FlipSpinner {
+export class SwirlSpinner {
   @Prop() label?: string;
-  @Prop() size?: FlipSpinnerSize = "m";
+  @Prop() size?: SwirlSpinnerSize = "m";
 
   render() {
     const className = classnames("spinner", `spinner--size-${this.size}`);
@@ -45,9 +45,9 @@ export class FlipSpinner {
             />
           </svg>
           {this.label && (
-            <flip-visually-hidden>
+            <swirl-visually-hidden>
               <span class="spinner__label">{this.label}</span>
-            </flip-visually-hidden>
+            </swirl-visually-hidden>
           )}
         </span>
       </Host>

@@ -1,13 +1,13 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipTable } from "./swirl-table";
+import { SwirlTable } from "./swirl-table";
 
-describe("flip-table", () => {
+describe("swirl-table", () => {
   it("renders its columns and rows", async () => {
     const page = await newSpecPage({
-      components: [FlipTable],
+      components: [SwirlTable],
       html: `
-        <flip-table caption="Caption" label="Label">
+        <swirl-table caption="Caption" label="Label">
           <div slot="columns">
             <span role="columnheader">Column 1</span>
             <span role="columnheader">Column 2</span>
@@ -18,21 +18,21 @@ describe("flip-table", () => {
               <span role="cell">2</span>
             </div>
           </div>
-        </flip-table>
+        </swirl-table>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-table caption="Caption" label="Label">
+      <swirl-table caption="Caption" label="Label">
         <mock:shadow-root>
           <div class="table">
             <div class="table__container">
               <div aria-describedby="caption" aria-label="Label" class="table__table" role="table">
-                <flip-visually-hidden>
+                <swirl-visually-hidden>
                   <div id="caption">
                     Caption
                   </div>
-                </flip-visually-hidden>
+                </swirl-visually-hidden>
                 <div role="rowgroup">
                   <div class="table__header" role="row">
                     <slot name="columns"></slot>
@@ -63,7 +63,7 @@ describe("flip-table", () => {
             </span>
           </div>
         </div>
-      </flip-table>
+      </swirl-table>
     `);
   });
 });

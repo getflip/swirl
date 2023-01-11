@@ -1,8 +1,8 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { FlipOptionList } from "../swirl-option-list/flip-option-list";
-import { FlipPopover } from "../swirl-popover/flip-popover";
+import { SwirlOptionList } from "../swirl-option-list/swirl-option-list";
+import { SwirlPopover } from "../swirl-popover/swirl-popover";
 
-import { FlipSelect } from "./swirl-select";
+import { SwirlSelect } from "./swirl-select";
 
 (global as any).MutationObserver = class {
   constructor() {}
@@ -10,76 +10,76 @@ import { FlipSelect } from "./swirl-select";
   observe() {}
 };
 
-describe("flip-select", () => {
+describe("swirl-select", () => {
   it("renders its option list", async () => {
     const page = await newSpecPage({
-      components: [FlipSelect],
+      components: [SwirlSelect],
       html: `
-        <flip-select invalid="true" label="Select" required="true">
-          <flip-option-list-item
+        <swirl-select invalid="true" label="Select" required="true">
+          <swirl-option-list-item
             label="This is an option 1"
             value="1"
-          ></flip-option-list-item>
-          <flip-option-list-item
+          ></swirl-option-list-item>
+          <swirl-option-list-item
             label="This is an option 2"
             value="2"
-          ></flip-option-list-item>
-        </flip-select>`,
+          ></swirl-option-list-item>
+        </swirl-select>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-select invalid="true" label="Select" required="true">
+      <swirl-select invalid="true" label="Select" required="true">
         <div class="select">
           <input aria-invalid="true" class="select__label" id="trigger" readonly="" type="text" value="">
           <span class="select__indicator">
-            <flip-icon-expand-more></flip-icon-expand-more>
+            <swirl-icon-expand-more></swirl-icon-expand-more>
           </span>
-          <flip-popover animation="scale-in-y" class="select__popover" label="Select" popoverid="select-options" trigger="trigger" usecontainerwidth="flip-form-control">
-            <flip-option-list>
-              <flip-option-list-item label="This is an option 1" value="1"></flip-option-list-item>
-              <flip-option-list-item label="This is an option 2" value="2"></flip-option-list-item>
-            </flip-option-list>
-          </flip-popover>
+          <swirl-popover animation="scale-in-y" class="select__popover" label="Select" popoverid="select-options" trigger="trigger" usecontainerwidth="swirl-form-control">
+            <swirl-option-list>
+              <swirl-option-list-item label="This is an option 1" value="1"></swirl-option-list-item>
+              <swirl-option-list-item label="This is an option 2" value="2"></swirl-option-list-item>
+            </swirl-option-list>
+          </swirl-popover>
         </div>
-      </flip-select>
+      </swirl-select>
     `);
   });
 
   it("allows multi selection", async () => {
     const page = await newSpecPage({
-      components: [FlipSelect, FlipOptionList],
+      components: [SwirlSelect, SwirlOptionList],
       html: `
-        <flip-select multi-select="true" label="Select">
-          <flip-option-list-item
+        <swirl-select multi-select="true" label="Select">
+          <swirl-option-list-item
             label="This is an option 1"
             value="1"
-          ></flip-option-list-item>
-          <flip-option-list-item
+          ></swirl-option-list-item>
+          <swirl-option-list-item
             label="This is an option 2"
             value="2"
-          ></flip-option-list-item>
-        </flip-select>`,
+          ></swirl-option-list-item>
+        </swirl-select>`,
     });
 
     expect(
-      page.root.querySelector("flip-option-list").multiSelect
+      page.root.querySelector("swirl-option-list").multiSelect
     ).toBeTruthy();
   });
 
   it("can be disabled", async () => {
     const page = await newSpecPage({
-      components: [FlipSelect],
+      components: [SwirlSelect],
       html: `
-        <flip-select disabled="true" label="Select">
-          <flip-option-list-item
+        <swirl-select disabled="true" label="Select">
+          <swirl-option-list-item
             label="This is an option 1"
             value="1"
-          ></flip-option-list-item>
-          <flip-option-list-item
+          ></swirl-option-list-item>
+          <swirl-option-list-item
             label="This is an option 2"
             value="2"
-          ></flip-option-list-item>
-        </flip-select>`,
+          ></swirl-option-list-item>
+        </swirl-select>`,
     });
 
     expect(page.root.querySelector("input").disabled).toBeTruthy();
@@ -87,25 +87,25 @@ describe("flip-select", () => {
 
   it("fires valueChange events", async () => {
     const page = await newSpecPage({
-      components: [FlipSelect, FlipPopover, FlipOptionList],
+      components: [SwirlSelect, SwirlPopover, SwirlOptionList],
       html: `
-        <flip-select label="Select">
-          <flip-option-list-item
+        <swirl-select label="Select">
+          <swirl-option-list-item
             label="This is an option 1"
             value="1"
-          ></flip-option-list-item>
-          <flip-option-list-item
+          ></swirl-option-list-item>
+          <swirl-option-list-item
             label="This is an option 2"
             value="2"
-          ></flip-option-list-item>
-        </flip-select>`,
+          ></swirl-option-list-item>
+        </swirl-select>`,
     });
 
     const spy = jest.fn();
 
     page.root.addEventListener("valueChange", spy);
 
-    const optionList = page.root.querySelector("flip-option-list");
+    const optionList = page.root.querySelector("swirl-option-list");
 
     optionList.dispatchEvent(new CustomEvent("valueChange", { detail: ["2"] }));
     await page.waitForChanges();

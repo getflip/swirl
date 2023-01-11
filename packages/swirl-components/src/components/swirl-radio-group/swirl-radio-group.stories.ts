@@ -2,30 +2,30 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-radio-group.mdx";
 
 export default {
-  component: "flip-radio-group",
+  component: "swirl-radio-group",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipRadioGroup",
+  title: "Components/SwirlRadioGroup",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-radio-group", args);
+  const element = generateStoryElement("swirl-radio-group", args);
 
   element.innerHTML = `
-    <flip-radio input-id="radio-1" input-name="radio" label="Radio button #1" value="1"></flip-radio>
-    <flip-radio input-id="radio-2" input-name="radio" label="Radio button #2" value="2"></flip-radio>
-    <flip-radio input-id="radio-3" input-name="radio" label="Radio button #3" value="3"></flip-radio>
+    <swirl-radio input-id="radio-1" input-name="radio" label="Radio button #1" value="1"></swirl-radio>
+    <swirl-radio input-id="radio-2" input-name="radio" label="Radio button #2" value="2"></swirl-radio>
+    <swirl-radio input-id="radio-3" input-name="radio" label="Radio button #3" value="3"></swirl-radio>
   `;
 
   return element;
 };
 
-export const FlipRadioGroup = Template.bind({});
+export const SwirlRadioGroup = Template.bind({});
 
-FlipRadioGroup.args = {
+SwirlRadioGroup.args = {
   "aria-label": "Radio group",
   value: "2",
 };

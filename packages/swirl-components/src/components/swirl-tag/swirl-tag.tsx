@@ -1,7 +1,7 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipTagIntent =
+export type SwirlTagIntent =
   | "default"
   | "critical"
   | "warning"
@@ -11,10 +11,10 @@ export type FlipTagIntent =
 @Component({
   shadow: true,
   styleUrl: "swirl-tag.css",
-  tag: "flip-tag",
+  tag: "swirl-tag",
 })
-export class FlipTag {
-  @Prop() intent?: FlipTagIntent = "default";
+export class SwirlTag {
+  @Prop() intent?: SwirlTagIntent = "default";
   @Prop() label!: string;
   @Prop() removable?: boolean;
   @Prop() removalButtonLabel?: string = "Remove";
@@ -39,7 +39,7 @@ export class FlipTag {
               onClick={this.onRemove}
               type="button"
             >
-              <flip-icon-close size={16}></flip-icon-close>
+              <swirl-icon-close size={16}></swirl-icon-close>
             </button>
           )}
         </span>

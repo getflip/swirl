@@ -1,9 +1,14 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipBoxOverflow = "visible" | "hidden" | "clip" | "scroll" | "auto";
+export type SwirlBoxOverflow =
+  | "visible"
+  | "hidden"
+  | "clip"
+  | "scroll"
+  | "auto";
 
-export type FlipBoxPadding =
+export type SwirlBoxPadding =
   | "0"
   | "2"
   | "4"
@@ -20,16 +25,16 @@ export type FlipBoxPadding =
 @Component({
   shadow: true,
   styleUrl: "swirl-box.css",
-  tag: "flip-box",
+  tag: "swirl-box",
 })
-export class FlipBox {
+export class SwirlBox {
   @Prop() as?: string = "div";
   @Prop() bordered?: boolean;
   @Prop() centerBlock?: boolean;
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
-  @Prop() overflow?: FlipBoxOverflow = "visible";
-  @Prop() padding?: FlipBoxPadding = "0";
+  @Prop() overflow?: SwirlBoxOverflow = "visible";
+  @Prop() padding?: SwirlBoxPadding = "0";
 
   render() {
     const Tag = this.as;

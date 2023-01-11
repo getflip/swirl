@@ -1,95 +1,95 @@
 import { generateStoryElement } from "../../utils";
-import { FlipAutocompleteSuggestion } from "../swirl-autocomplete/swirl-autocomplete";
+import { SwirlAutocompleteSuggestion } from "../swirl-autocomplete/swirl-autocomplete";
 import Docs from "./swirl-form-control.mdx";
 
 export default {
-  component: "flip-form-control",
+  component: "swirl-form-control",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipFormControl",
+  title: "Components/SwirlFormControl",
 };
 
 const Template = (args) => {
-  const container = document.createElement("flip-stack");
+  const container = document.createElement("swirl-stack");
 
   container.spacing = "24";
 
-  const textInput = generateStoryElement("flip-form-control", args);
+  const textInput = generateStoryElement("swirl-form-control", args);
 
   textInput.innerHTML = `
-    <flip-text-input clearable="true" type="text"></flip-text-input>
+    <swirl-text-input clearable="true" type="text"></swirl-text-input>
   `;
 
-  const numberInput = generateStoryElement("flip-form-control", {
+  const numberInput = generateStoryElement("swirl-form-control", {
     ...args,
     label: "Number Control",
   });
 
   numberInput.innerHTML = `
-    <flip-text-input suffix-label="€" type="number"></flip-text-input>
+    <swirl-text-input suffix-label="€" type="number"></swirl-text-input>
   `;
 
-  const dateInput = generateStoryElement("flip-form-control", {
+  const dateInput = generateStoryElement("swirl-form-control", {
     ...args,
     label: "Date Control",
   });
 
   dateInput.innerHTML = `
-    <flip-date-input></flip-date-input>
+    <swirl-date-input></swirl-date-input>
   `;
 
-  const passwordInput = generateStoryElement("flip-form-control", {
+  const passwordInput = generateStoryElement("swirl-form-control", {
     ...args,
     label: "Password Control",
   });
 
   passwordInput.innerHTML = `
-    <flip-text-input type="password"></flip-text-input>
+    <swirl-text-input type="password"></swirl-text-input>
   `;
 
-  const select = generateStoryElement("flip-form-control", {
+  const select = generateStoryElement("swirl-form-control", {
     ...args,
     label: "Select",
   });
 
   select.innerHTML = `
-    <flip-select multi-select="true">
-      <flip-option-list-section label="Section 1">
-        <flip-option-list-item
+    <swirl-select multi-select="true">
+      <swirl-option-list-section label="Section 1">
+        <swirl-option-list-item
           label="This is an option 1"
           value="1"
-        ></flip-option-list-item>
-        <flip-option-list-item
+        ></swirl-option-list-item>
+        <swirl-option-list-item
           label="This is an option 2"
           value="2"
-        ></flip-option-list-item>
-        <flip-option-list-item
+        ></swirl-option-list-item>
+        <swirl-option-list-item
           label="This is an option 3"
           value="3"
-        ></flip-option-list-item>
-      </flip-option-list-section>
-      <flip-option-list-section label="Section 2">
-        <flip-option-list-item
+        ></swirl-option-list-item>
+      </swirl-option-list-section>
+      <swirl-option-list-section label="Section 2">
+        <swirl-option-list-item
           label="This is an option 4"
           value="4"
-        ></flip-option-list-item>
-      </flip-option-list-section>
-    </flip-select>
+        ></swirl-option-list-item>
+      </swirl-option-list-section>
+    </swirl-select>
   `;
 
-  const autocomplete = generateStoryElement("flip-form-control", {
+  const autocomplete = generateStoryElement("swirl-form-control", {
     ...args,
     label: "Autocomplete",
   });
 
   autocomplete.innerHTML = `
-    <flip-autocomplete></flip-autocomplete>
+    <swirl-autocomplete></swirl-autocomplete>
   `;
 
-  const suggestions: FlipAutocompleteSuggestion[] = [
+  const suggestions: SwirlAutocompleteSuggestion[] = [
     {
       id: "1",
       label: "Item #1",
@@ -104,7 +104,7 @@ const Template = (args) => {
     },
   ];
 
-  autocomplete.querySelector("flip-autocomplete").generateSuggestions = async (
+  autocomplete.querySelector("swirl-autocomplete").generateSuggestions = async (
     value: string
   ) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -118,13 +118,13 @@ const Template = (args) => {
     );
   };
 
-  const multilineInput = generateStoryElement("flip-form-control", {
+  const multilineInput = generateStoryElement("swirl-form-control", {
     ...args,
     label: "Multiline Control",
   });
 
   multilineInput.innerHTML = `
-    <flip-text-input max-length="200" show-character-counter="true" rows="5" type="text"></flip-text-input>
+    <swirl-text-input max-length="200" show-character-counter="true" rows="5" type="text"></swirl-text-input>
   `;
 
   container.append(
@@ -148,9 +148,9 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipFormControl = Template.bind({});
+export const SwirlFormControl = Template.bind({});
 
-FlipFormControl.args = {
+SwirlFormControl.args = {
   description: "Optional description of the control.",
   label: "Form Control Label",
 };

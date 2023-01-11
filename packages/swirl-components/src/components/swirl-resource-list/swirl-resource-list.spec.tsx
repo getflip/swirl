@@ -1,50 +1,50 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { FlipResourceListItem } from "../swirl-resource-list-item/flip-resource-list-item";
-import { FlipResourceList } from "./swirl-resource-list";
+import { SwirlResourceListItem } from "../swirl-resource-list-item/swirl-resource-list-item";
+import { SwirlResourceList } from "./swirl-resource-list";
 
-describe("flip-resource-list", () => {
+describe("swirl-resource-list", () => {
   const template = `
-    <flip-resource-list label="Label">
-      <flip-resource-list-item
+    <swirl-resource-list label="Label">
+      <swirl-resource-list-item
         description="With a description"
         label="This is a resource item"
-        media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></flip-avatar>"
-      ></flip-resource-list-item>
-      <flip-resource-list-item
+        media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"
+      ></swirl-resource-list-item>
+      <swirl-resource-list-item
         description="With a description"
         label="This is a resource item"
-        media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></flip-avatar>"
-      ></flip-resource-list-item>
-    </flip-resource-list>
+        media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></swirl-avatar>"
+      ></swirl-resource-list-item>
+    </swirl-resource-list>
   `;
 
   it("renders its items", async () => {
     const page = await newSpecPage({
-      components: [FlipResourceList],
+      components: [SwirlResourceList],
       html: template,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-resource-list label="Label">
+      <swirl-resource-list label="Label">
         <mock:shadow-root>
-          <flip-stack aria-label="Label" role="grid" tabindex="0">
+          <swirl-stack aria-label="Label" role="grid" tabindex="0">
             <slot></slot>
-          </flip-stack>
+          </swirl-stack>
         </mock:shadow-root>
-        <flip-resource-list-item description="With a description" label="This is a resource item" media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></flip-avatar>"></flip-resource-list-item>
-        <flip-resource-list-item description="With a description" label="This is a resource item" media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></flip-avatar>"></flip-resource-list-item>
-      </flip-resource-list>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
+      </swirl-resource-list>
     `);
   });
 
   it("manages focus via keyboard events", async () => {
     const page = await newSpecPage({
-      components: [FlipResourceList, FlipResourceListItem],
+      components: [SwirlResourceList, SwirlResourceListItem],
       html: template,
     });
 
     const items = Array.from(
-      page.root.querySelectorAll("flip-resource-list-item")
+      page.root.querySelectorAll("swirl-resource-list-item")
     );
 
     const interactiveElements = items.map((item) =>

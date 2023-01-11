@@ -10,20 +10,20 @@ import {
 } from "@stencil/core";
 import { hsla, parseToHsla, toRgba } from "color2k";
 
-export type FlipTheme = "light" | "dark";
+export type SwirlTheme = "light" | "dark";
 
-export type FlipThemeChangeEventData = {
-  activeTheme: FlipTheme;
-  preferredTheme: FlipTheme | undefined;
+export type SwirlThemeChangeEventData = {
+  activeTheme: SwirlTheme;
+  preferredTheme: SwirlTheme | undefined;
 };
 
-export type FlipThemeProviderStorage = {
+export type SwirlThemeProviderStorage = {
   getItem: (key: string) => string;
   removeItem: (key: string) => void;
   setItem: (key: string, value: string) => void;
 };
 
-export type FlipThemeProviderTenantColors = {
+export type SwirlThemeProviderTenantColors = {
   primary?: string;
   primaryContrast?: string;
   secondary?: string;
@@ -31,13 +31,13 @@ export type FlipThemeProviderTenantColors = {
   text?: string;
 };
 
-export type FlipThemeProviderConfig = {
+export type SwirlThemeProviderConfig = {
   rootElement?: HTMLElement;
-  storage?: FlipThemeProviderStorage;
-  tenantColors?: FlipThemeProviderTenantColors;
+  storage?: SwirlThemeProviderStorage;
+  tenantColors?: SwirlThemeProviderTenantColors;
 };
 
-const preferredThemeStorageKey = "flip-preferred-theme";
+const preferredThemeStorageKey = "swirl-preferred-theme";
 
 const tenantColorMapping = {
   "--s-action-primary-default": "primary",
@@ -60,17 +60,17 @@ const tenantColorMapping = {
 @Component({
   scoped: true,
   styleUrl: "swirl-theme-provider.css",
-  tag: "flip-theme-provider",
+  tag: "swirl-theme-provider",
 })
-export class FlipThemeProvider {
-  @Prop() config: FlipThemeProviderConfig;
+export class SwirlThemeProvider {
+  @Prop() config: SwirlThemeProviderConfig;
 
-  @Event() themeChange: EventEmitter<FlipThemeChangeEventData>;
+  @Event() themeChange: EventEmitter<SwirlThemeChangeEventData>;
 
-  private appTheme: FlipTheme;
-  private osTheme: FlipTheme;
-  private recentThemeChangeEventData: FlipThemeChangeEventData;
-  private resolvedConfig: FlipThemeProviderConfig;
+  private appTheme: SwirlTheme;
+  private osTheme: SwirlTheme;
+  private recentThemeChangeEventData: SwirlThemeChangeEventData;
+  private resolvedConfig: SwirlThemeProviderConfig;
 
   componentWillLoad() {
     this.resolveConfig();
@@ -106,7 +106,7 @@ export class FlipThemeProvider {
 
     return this.resolvedConfig.storage.getItem(
       preferredThemeStorageKey
-    ) as FlipTheme | null;
+    ) as SwirlTheme | null;
   }
 
   /**
@@ -114,7 +114,7 @@ export class FlipThemeProvider {
    * the OS theme.
    */
   @Method()
-  async setPreferredTheme(theme: FlipTheme) {
+  async setPreferredTheme(theme: SwirlTheme) {
     if (!Boolean(this.resolvedConfig.storage)) {
       return;
     }
@@ -178,7 +178,7 @@ export class FlipThemeProvider {
 
     this.updateTenantVariables();
 
-    const themeChangeEventData: FlipThemeChangeEventData = {
+    const themeChangeEventData: SwirlThemeChangeEventData = {
       activeTheme: await this.getActiveTheme(),
       preferredTheme: await this.getPreferredTheme(),
     };
@@ -231,7 +231,7 @@ export class FlipThemeProvider {
       hsla(textHsla[0], textHsla[1] - 0.48, textHsla[2] + 0.2, 1)
     );
 
-    const tenantThemeWithGeneratedStateColors: FlipThemeProviderTenantColors & {
+    const tenantThemeWithGeneratedStateColors: SwirlThemeProviderTenantColors & {
       [key: string]: string;
     } = {
       ...tenantTheme,

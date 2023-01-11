@@ -15,9 +15,9 @@ import classnames from "classnames";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-tabs.css",
-  tag: "flip-tabs",
+  tag: "swirl-tabs",
 })
-export class FlipTabs {
+export class SwirlTabs {
   @Element() el: HTMLElement;
 
   @Prop() initialTab?: string;
@@ -25,9 +25,9 @@ export class FlipTabs {
 
   @State() activeTab?: string;
 
-  @Event() tabActivated: EventEmitter<HTMLFlipTabElement>;
+  @Event() tabActivated: EventEmitter<HTMLSwirlTabElement>;
 
-  private tabs: HTMLFlipTabElement[] = [];
+  private tabs: HTMLSwirlTabElement[] = [];
 
   componentWillLoad() {
     this.collectTabs();
@@ -85,7 +85,7 @@ export class FlipTabs {
   }
 
   private collectTabs() {
-    this.tabs = Array.from(this.el.querySelectorAll("flip-tab"));
+    this.tabs = Array.from(this.el.querySelectorAll("swirl-tab"));
 
     if (this.tabs.length === 0) {
       return;

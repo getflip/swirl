@@ -15,9 +15,9 @@ import { querySelectorAllDeep } from "../../utils";
 @Component({
   shadow: true,
   styleUrl: "swirl-lightbox.css",
-  tag: "flip-lightbox",
+  tag: "swirl-lightbox",
 })
-export class FlipLightbox {
+export class SwirlLightbox {
   @Element() el: HTMLElement;
 
   @Prop() closeButtonLabel?: string = "Close modal";
@@ -28,7 +28,7 @@ export class FlipLightbox {
 
   @State() activeSlideIndex: number = 0;
   @State() closing = false;
-  @State() slides: HTMLFlipFileViewerElement[];
+  @State() slides: HTMLSwirlFileViewerElement[];
 
   private dragging: boolean = false;
   private dragStartPosition: number;
@@ -179,7 +179,7 @@ export class FlipLightbox {
   };
 
   private registerSlides = () => {
-    this.slides = Array.from(this.el.children) as HTMLFlipFileViewerElement[];
+    this.slides = Array.from(this.el.children) as HTMLSwirlFileViewerElement[];
     this.setSlideAttributes();
     this.updateMediaPlayers();
   };
@@ -199,7 +199,7 @@ export class FlipLightbox {
   private resetImageZoom() {
     this.slides.forEach((slide) => {
       const imageViewer = slide?.shadowRoot?.querySelector(
-        "flip-file-viewer-image"
+        "swirl-file-viewer-image"
       );
 
       if (Boolean(imageViewer)) {
@@ -225,7 +225,7 @@ export class FlipLightbox {
 
     const imageViewer = this.slides[
       this.activeSlideIndex
-    ]?.shadowRoot?.querySelector("flip-file-viewer-image");
+    ]?.shadowRoot?.querySelector("swirl-file-viewer-image");
 
     const showsZoomedImage = Boolean(imageViewer)
       ? (await imageViewer.getZoom()) > 1
@@ -313,14 +313,14 @@ export class FlipLightbox {
                 class="lightbox__close-button"
                 onClick={this.onCloseButtonClick}
               >
-                <flip-icon-close></flip-icon-close>
+                <swirl-icon-close></swirl-icon-close>
               </button>
               <button
                 aria-label={this.downloadButtonLabel}
                 class="lightbox__download-button"
                 onClick={this.onDownloadButtonClick}
               >
-                <flip-icon-download></flip-icon-download>
+                <swirl-icon-download></swirl-icon-download>
               </button>
             </header>
             <div
@@ -343,7 +343,7 @@ export class FlipLightbox {
                 disabled={this.activeSlideIndex === 0}
                 onClick={this.onPreviousSlideClick}
               >
-                <flip-icon-arrow-left></flip-icon-arrow-left>
+                <swirl-icon-arrow-left></swirl-icon-arrow-left>
               </button>
               <button
                 aria-label={this.nextSlideButtonLabel}
@@ -351,7 +351,7 @@ export class FlipLightbox {
                 disabled={this.activeSlideIndex === this.slides.length - 1}
                 onClick={this.onNextSlideClick}
               >
-                <flip-icon-arrow-right></flip-icon-arrow-right>
+                <swirl-icon-arrow-right></swirl-icon-arrow-right>
               </button>
             </div>
             {showPagination && (

@@ -1,14 +1,14 @@
-import { FlipToastIntent } from "../swirl-toast/swirl-toast";
+import { SwirlToastIntent } from "../swirl-toast/swirl-toast";
 import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-toast-provider.mdx";
 
 export default {
-  component: "flip-toast-provider",
+  component: "swirl-toast-provider",
   parameters: {
     docs: {
       page: Docs,
       source: {
-        code: `const toasts = document.createElement('flip-toast-provider');
+        code: `const toasts = document.createElement('swirl-toast-provider');
 const trigger = document.createElement('button');
 
 trigger.innerText = 'Create toast';
@@ -17,7 +17,7 @@ trigger.addEventListener("click", () => {
   toasts.toast({
     content: "Hello World!",
     duration: 10000,
-    icon: "<flip-icon-mail></flip-icon-mail>",
+    icon: "<swirl-icon-mail></swirl-icon-mail>",
     intent: 'info'
   });
 });
@@ -26,7 +26,7 @@ document.body.append(trigger, toasts);`,
       },
     },
   },
-  title: "Components/FlipToastProvider",
+  title: "Components/SwirlToastProvider",
 };
 
 const Template = () => {
@@ -36,15 +36,15 @@ const Template = () => {
     "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.",
   ];
 
-  const intents: FlipToastIntent[] = ["default", "critical", "success"];
+  const intents: SwirlToastIntent[] = ["default", "critical", "success"];
 
   const container = document.createElement("div");
-  const createButton = document.createElement("flip-button");
-  const clearButton = document.createElement("flip-button");
+  const createButton = document.createElement("swirl-button");
+  const clearButton = document.createElement("swirl-button");
   const element = generateStoryElement(
-    "flip-toast-provider",
+    "swirl-toast-provider",
     {}
-  ) as HTMLFlipToastProviderElement;
+  ) as HTMLSwirlToastProviderElement;
 
   createButton.variant = "flat";
   createButton.label = "Create random toast";
@@ -58,7 +58,7 @@ const Template = () => {
     element.toast({
       content: [...contents].sort(() => Math.random() - 0.5)[0],
       duration: 6000,
-      icon: "<flip-icon-mail></flip-icon-mail>",
+      icon: "<swirl-icon-mail></swirl-icon-mail>",
       intent: [...intents].sort(() => Math.random() - 0.5)[0],
     });
   });
@@ -70,4 +70,4 @@ const Template = () => {
   return container;
 };
 
-export const FlipToastProvider = Template.bind({});
+export const SwirlToastProvider = Template.bind({});

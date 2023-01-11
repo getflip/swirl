@@ -1,18 +1,18 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipDatePicker } from "./swirl-date-picker";
+import { SwirlDatePicker } from "./swirl-date-picker";
 
-describe("flip-date-picker", () => {
+describe("swirl-date-picker", () => {
   it("renders the picker", async () => {
     const page = await newSpecPage({
-      components: [FlipDatePicker],
-      html: `<flip-date-picker range="true"></flip-date-picker>`,
+      components: [SwirlDatePicker],
+      html: `<swirl-date-picker range="true"></swirl-date-picker>`,
     });
 
     page.root.startDate = new Date("2022-01-01");
 
     expect(page.root).toEqualHtml(`
-      <flip-date-picker range="true">
+      <swirl-date-picker range="true">
         <mock:shadow-root>
           <div>
             <div class="-inline- air-datepicker date-picker">
@@ -20,7 +20,7 @@ describe("flip-date-picker", () => {
               <div class="air-datepicker--navigation">
                 <nav class="air-datepicker-nav">
                   <div class="air-datepicker-nav--action" data-action="prev">
-                    <flip-icon-chevron-left></flip-icon-chevron-left>
+                    <swirl-icon-chevron-left></swirl-icon-chevron-left>
                   </div>
                   <div class="air-datepicker-nav--title">
                     January,
@@ -29,7 +29,7 @@ describe("flip-date-picker", () => {
                     </i>
                   </div>
                   <div class="air-datepicker-nav--action" data-action="next">
-                   <flip-icon-chevron-right></flip-icon-chevron-right>
+                   <swirl-icon-chevron-right></swirl-icon-chevron-right>
                   </div>
                 </nav>
               </div>
@@ -107,7 +107,7 @@ describe("flip-date-picker", () => {
             </div>
           </div>
         </mock:shadow-root>
-      </flip-date-picker>
+      </swirl-date-picker>
     `);
   });
 });

@@ -2,24 +2,24 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-link.mdx";
 
 export default {
-  component: "flip-link",
+  component: "swirl-link",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipLink",
+  title: "Components/SwirlLink",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-link", args);
+  const element = generateStoryElement("swirl-link", args);
 
   return element;
 };
 
-export const FlipLink = Template.bind({});
+export const SwirlLink = Template.bind({});
 
-FlipLink.args = {
-  href: "/?path=/docs/components-fliplink--flip-link",
+SwirlLink.args = {
+  href: "/?path=/docs/components-fliplink--swirl-link",
   label: "Label",
 };

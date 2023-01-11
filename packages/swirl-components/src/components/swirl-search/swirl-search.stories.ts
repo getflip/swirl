@@ -2,23 +2,23 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-search.mdx";
 
 export default {
-  component: "flip-search",
+  component: "swirl-search",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipSearch",
+  title: "Components/SwirlSearch",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-search", args);
+  const element = generateStoryElement("swirl-search", args);
 
   return element;
 };
 
-export const FlipSearch = Template.bind({});
+export const SwirlSearch = Template.bind({});
 
-FlipSearch.args = {
+SwirlSearch.args = {
   label: "Search",
 };

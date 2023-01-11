@@ -1,15 +1,15 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipButtonIconPosition = "start" | "end";
+export type SwirlButtonIconPosition = "start" | "end";
 
-export type FlipButtonIntent = "default" | "primary" | "critical";
+export type SwirlButtonIntent = "default" | "primary" | "critical";
 
-export type FlipButtonSize = "m" | "l";
+export type SwirlButtonSize = "m" | "l";
 
-export type FlipButtonType = "button" | "submit";
+export type SwirlButtonType = "button" | "submit";
 
-export type FlipButtonVariant =
+export type SwirlButtonVariant =
   | "flat"
   | "ghost"
   | "plain"
@@ -25,28 +25,28 @@ export type FlipButtonVariant =
    */
   scoped: true,
   shadow: false,
-  tag: "flip-button",
+  tag: "swirl-button",
   styleUrl: "swirl-button.css",
 })
-export class FlipButton {
+export class SwirlButton {
   @Prop() disabled?: boolean;
   @Prop() download?: string;
-  @Prop() flipAriaDescribedby?: string;
-  @Prop() flipAriaExpanded?: string;
-  @Prop() flipAriaLabel?: string;
+  @Prop() swirlAriaDescribedby?: string;
+  @Prop() swirlAriaExpanded?: string;
+  @Prop() swirlAriaLabel?: string;
   @Prop() form?: string;
   @Prop() hideLabel?: boolean;
   @Prop() href?: string;
   @Prop() icon?: string;
-  @Prop() iconPosition: FlipButtonIconPosition = "start";
-  @Prop() intent?: FlipButtonIntent = "default";
+  @Prop() iconPosition: SwirlButtonIconPosition = "start";
+  @Prop() intent?: SwirlButtonIntent = "default";
   @Prop() label!: string;
   @Prop() name?: string;
-  @Prop() size?: FlipButtonSize = "m";
+  @Prop() size?: SwirlButtonSize = "m";
   @Prop() target?: string;
-  @Prop() type?: FlipButtonType = "button";
+  @Prop() type?: SwirlButtonType = "button";
   @Prop() value?: string;
-  @Prop() variant?: FlipButtonVariant = "ghost";
+  @Prop() variant?: SwirlButtonVariant = "ghost";
 
   private iconEl: HTMLElement;
 
@@ -65,8 +65,8 @@ export class FlipButton {
   }
 
   private getAriaLabel(hideLabel: boolean) {
-    if (Boolean(this.flipAriaLabel)) {
-      return this.flipAriaLabel;
+    if (Boolean(this.swirlAriaLabel)) {
+      return this.swirlAriaLabel;
     } else if (hideLabel) {
       return this.label;
     }
@@ -98,9 +98,9 @@ export class FlipButton {
     return (
       <Host>
         <Tag
-          aria-describedby={this.flipAriaDescribedby}
+          aria-describedby={this.swirlAriaDescribedby}
           aria-disabled={this.disabled && !isLink ? "true" : undefined}
-          aria-expanded={this.flipAriaExpanded}
+          aria-expanded={this.swirlAriaExpanded}
           aria-label={ariaLabel}
           class={className}
           disabled={isLink ? undefined : this.disabled}

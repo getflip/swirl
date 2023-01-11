@@ -1,50 +1,50 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipModal } from "./swirl-modal";
+import { SwirlModal } from "./swirl-modal";
 
-describe("flip-modal", () => {
+describe("swirl-modal", () => {
   it("renders content and heading", async () => {
     const page = await newSpecPage({
-      components: [FlipModal],
-      html: `<flip-modal label="Dialog">Content</flip-modal>`,
+      components: [SwirlModal],
+      html: `<swirl-modal label="Dialog">Content</swirl-modal>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-modal label="Dialog">
+      <swirl-modal label="Dialog">
         <mock:shadow-root>
           <section aria-hidden="true" aria-label="Dialog" aria-modal="true" class="modal" id="modal" role="dialog" tabindex="-1">
             <div class="modal__backdrop"></div>
             <div class="modal__body" role="document">
-              <flip-button class="modal__close-button" hidelabel="" icon="<flip-icon-close></flip-icon-close>" label="Close modal"></flip-button>
+              <swirl-button class="modal__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close modal"></swirl-button>
               <header class="modal__header">
-                <flip-heading as="h2" class="modal__heading" level="3" text="Dialog"></flip-heading>
+                <swirl-heading as="h2" class="modal__heading" level="3" text="Dialog"></swirl-heading>
               </header>
               <div class="modal__content">
                 <slot></slot>
               </div>
               <footer class="modal__controls">
-                <flip-button-group wrap=""></flip-button-group>
+                <swirl-button-group wrap=""></swirl-button-group>
               </footer>
             </div>
           </section>
         </mock:shadow-root>
         Content
-      </flip-modal>
+      </swirl-modal>
     `);
   });
 
   it("renders controls and fires events", async () => {
     const page = await newSpecPage({
-      components: [FlipModal],
-      html: `<flip-modal label="Dialog" primary-action-label="Primary" secondary-action-label="Secondary">Content</flip-modal>`,
+      components: [SwirlModal],
+      html: `<swirl-modal label="Dialog" primary-action-label="Primary" secondary-action-label="Secondary">Content</swirl-modal>`,
     });
 
     const primarySpy = jest.fn();
     const secondarySpy = jest.fn();
 
     const buttons =
-      page.root.shadowRoot.querySelectorAll<HTMLFlipButtonElement>(
-        ".modal__controls flip-button"
+      page.root.shadowRoot.querySelectorAll<HTMLSwirlButtonElement>(
+        ".modal__controls swirl-button"
       );
 
     page.root.addEventListener("primaryAction", primarySpy);

@@ -1,19 +1,19 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipThumbnailFormat = "portrait" | "landscape" | "square";
+export type SwirlThumbnailFormat = "portrait" | "landscape" | "square";
 
-export type FlipThumbnailSize = "s" | "m" | "l";
+export type SwirlThumbnailSize = "s" | "m" | "l";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-thumbnail.css",
-  tag: "flip-thumbnail",
+  tag: "swirl-thumbnail",
 })
-export class FlipThumbnail {
+export class SwirlThumbnail {
   @Prop() alt!: string;
-  @Prop() format?: FlipThumbnailFormat = "landscape";
-  @Prop() size: FlipThumbnailSize = "m";
+  @Prop() format?: SwirlThumbnailFormat = "landscape";
+  @Prop() size: SwirlThumbnailSize = "m";
   @Prop() src!: string;
 
   render() {

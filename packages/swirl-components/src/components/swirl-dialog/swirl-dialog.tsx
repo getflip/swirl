@@ -11,7 +11,7 @@ import {
 import A11yDialog from "a11y-dialog";
 import classnames from "classnames";
 
-export type FlipDialogIntent = "primary" | "critical";
+export type SwirlDialogIntent = "primary" | "critical";
 
 /**
  * @slot slot - The dialog content
@@ -19,11 +19,11 @@ export type FlipDialogIntent = "primary" | "critical";
 @Component({
   shadow: true,
   styleUrl: "swirl-dialog.css",
-  tag: "flip-dialog",
+  tag: "swirl-dialog",
 })
-export class FlipDialog {
+export class SwirlDialog {
   @Prop() hideLabel?: boolean;
-  @Prop() intent?: FlipDialogIntent = "primary";
+  @Prop() intent?: SwirlDialogIntent = "primary";
   @Prop() label!: string;
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
@@ -42,7 +42,7 @@ export class FlipDialog {
 
     this.dialog.on("show", () => {
       this.controlsContainerEl
-        .querySelector<HTMLButtonElement>("flip-button button")
+        .querySelector<HTMLButtonElement>("swirl-button button")
         ?.focus();
     });
   }
@@ -122,27 +122,27 @@ export class FlipDialog {
             <div class="dialog__content" id="content">
               <slot></slot>
             </div>
-            <flip-button-group
+            <swirl-button-group
               class="dialog__controls"
               ref={(el) => (this.controlsContainerEl = el)}
               stretch
               wrap
             >
               {this.secondaryActionLabel && (
-                <flip-button
+                <swirl-button
                   label={this.secondaryActionLabel}
                   onClick={this.onSecondaryAction}
-                ></flip-button>
+                ></swirl-button>
               )}
               {this.primaryActionLabel && (
-                <flip-button
+                <swirl-button
                   intent={this.intent}
                   label={this.primaryActionLabel}
                   onClick={this.onPrimaryAction}
                   variant={this.intent === "critical" ? "ghost" : "flat"}
-                ></flip-button>
+                ></swirl-button>
               )}
-            </flip-button-group>
+            </swirl-button-group>
           </div>
         </div>
       </Host>

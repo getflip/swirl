@@ -1,22 +1,22 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipActionListItemIntent = "default" | "critical";
+export type SwirlActionListItemIntent = "default" | "critical";
 
-export type FlipActionListItemSize = "m" | "l";
+export type SwirlActionListItemSize = "m" | "l";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-action-list-item.css",
-  tag: "flip-action-list-item",
+  tag: "swirl-action-list-item",
 })
-export class FlipActionListItem {
+export class SwirlActionListItem {
   @Prop() disabled?: boolean;
   @Prop() description?: string;
   @Prop() icon?: string;
-  @Prop() intent?: FlipActionListItemIntent = "default";
+  @Prop() intent?: SwirlActionListItemIntent = "default";
   @Prop() label!: string;
-  @Prop() size?: FlipActionListItemSize = "m";
+  @Prop() size?: SwirlActionListItemSize = "m";
   @Prop() suffix?: string;
 
   render() {

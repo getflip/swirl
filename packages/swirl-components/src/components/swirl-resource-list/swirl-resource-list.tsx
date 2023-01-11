@@ -3,15 +3,15 @@ import { Component, Element, h, Host, Prop } from "@stencil/core";
 @Component({
   shadow: true,
   styleUrl: "swirl-resource-list.css",
-  tag: "flip-resource-list",
+  tag: "swirl-resource-list",
 })
-export class FlipResourceList {
+export class SwirlResourceList {
   @Element() el: HTMLElement;
 
   @Prop() label?: string;
 
   private focusedIndex = 0;
-  private items: HTMLFlipResourceListItemElement[];
+  private items: HTMLSwirlResourceListItemElement[];
 
   componentDidLoad() {
     this.collectItems();
@@ -21,7 +21,7 @@ export class FlipResourceList {
   private collectItems() {
     this.items = Array.from(
       this.el.querySelectorAll(
-        "flip-resource-list-item, flip-resource-list-file-item"
+        "swirl-resource-list-item, swirl-resource-list-file-item"
       )
     );
   }
@@ -84,14 +84,14 @@ export class FlipResourceList {
   render() {
     return (
       <Host onKeyDown={this.onKeyDown}>
-        <flip-stack
+        <swirl-stack
           aria-label={this.label}
           onFocus={this.onFocus}
           role="grid"
           tabIndex={0}
         >
           <slot></slot>
-        </flip-stack>
+        </swirl-stack>
       </Host>
     );
   }

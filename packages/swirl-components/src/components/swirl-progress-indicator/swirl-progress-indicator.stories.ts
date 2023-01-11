@@ -2,24 +2,24 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-progress-indicator.mdx";
 
 export default {
-  component: "flip-progress-indicator",
+  component: "swirl-progress-indicator",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipProgressIndicator",
+  title: "Components/SwirlProgressIndicator",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-progress-indicator", args);
+  const element = generateStoryElement("swirl-progress-indicator", args);
 
   return element;
 };
 
-export const FlipProgressIndicator = Template.bind({});
+export const SwirlProgressIndicator = Template.bind({});
 
-FlipProgressIndicator.args = {
+SwirlProgressIndicator.args = {
   label: "Upload progress",
   value: 70,
 };

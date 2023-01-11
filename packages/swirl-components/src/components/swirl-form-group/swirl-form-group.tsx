@@ -1,7 +1,7 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipFormGroupOrientation = "horizontal" | "vertical";
+export type SwirlFormGroupOrientation = "horizontal" | "vertical";
 
 @Component({
   /**
@@ -13,10 +13,10 @@ export type FlipFormGroupOrientation = "horizontal" | "vertical";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-form-group.css",
-  tag: "flip-form-group",
+  tag: "swirl-form-group",
 })
-export class FlipFormGroup {
-  @Prop() orientation: FlipFormGroupOrientation = "vertical";
+export class SwirlFormGroup {
+  @Prop() orientation: SwirlFormGroupOrientation = "vertical";
 
   render() {
     const className = classnames(

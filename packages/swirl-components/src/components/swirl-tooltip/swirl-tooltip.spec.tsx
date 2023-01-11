@@ -1,6 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipTooltip } from "./swirl-tooltip";
+import { SwirlTooltip } from "./swirl-tooltip";
 
 const expectedVisible = `
 <span class="tooltip">
@@ -25,22 +25,22 @@ const expectedHidden = `
   <span class="tooltip__popper" style="top: 0px; left: NaNpx;"></span>
 </span>`;
 
-describe("flip-tooltip", () => {
+describe("swirl-tooltip", () => {
   it("renders the reference", async () => {
     const page = await newSpecPage({
-      components: [FlipTooltip],
-      html: `<flip-tooltip content="Tooltip" position="top"><flip-badge label="Trigger"></flip-badge></flip-tooltip>`,
+      components: [SwirlTooltip],
+      html: `<swirl-tooltip content="Tooltip" position="top"><swirl-badge label="Trigger"></swirl-badge></swirl-tooltip>`,
     });
 
     expect(page.root.children[0]).toEqualHtml(
-      '<flip-badge label="Trigger"></flip-badge>'
+      '<swirl-badge label="Trigger"></swirl-badge>'
     );
   });
 
   it("shows/hides the positioned popper on focus/blur", async () => {
     const page = await newSpecPage({
-      components: [FlipTooltip],
-      html: `<flip-tooltip content="Tooltip" delay="0" position="bottom"><flip-badge label="Trigger"></flip-badge></flip-tooltip>`,
+      components: [SwirlTooltip],
+      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom"><swirl-badge label="Trigger"></swirl-badge></swirl-tooltip>`,
     });
 
     const referenceEl = page.root.shadowRoot.querySelector(
@@ -64,8 +64,8 @@ describe("flip-tooltip", () => {
 
   it("shows/hides the positioned popper on mouseenter/mouseleave", async () => {
     const page = await newSpecPage({
-      components: [FlipTooltip],
-      html: `<flip-tooltip content="Tooltip" delay="0" position="bottom"><flip-badge label="Trigger"></flip-badge></flip-tooltip>`,
+      components: [SwirlTooltip],
+      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom"><swirl-badge label="Trigger"></swirl-badge></swirl-tooltip>`,
     });
 
     page.root.dispatchEvent(new MouseEvent("mouseenter"));

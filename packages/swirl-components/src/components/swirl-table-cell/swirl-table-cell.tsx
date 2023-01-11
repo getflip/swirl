@@ -6,9 +6,9 @@ import { Component, h, Host } from "@stencil/core";
 @Component({
   shadow: true,
   styleUrl: "swirl-table-cell.css",
-  tag: "flip-table-cell",
+  tag: "swirl-table-cell",
 })
-export class FlipTableCell {
+export class SwirlTableCell {
   render() {
     return (
       <Host class="table-cell" role="cell">

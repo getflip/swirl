@@ -1,17 +1,17 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipChipIntent = "default" | "critical" | "success";
+export type SwirlChipIntent = "default" | "critical" | "success";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-chip.css",
-  tag: "flip-chip",
+  tag: "swirl-chip",
 })
-export class FlipChip {
+export class SwirlChip {
   @Prop() avatar?: string;
   @Prop() icon?: string;
-  @Prop() intent?: FlipChipIntent = "default";
+  @Prop() intent?: SwirlChipIntent = "default";
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
 
@@ -28,7 +28,7 @@ export class FlipChip {
       return;
     }
 
-    const avatar = this.avatarEl.querySelector("flip-avatar");
+    const avatar = this.avatarEl.querySelector("swirl-avatar");
 
     avatar?.removeAttribute("badge");
     avatar?.removeAttribute("interactive");

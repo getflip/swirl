@@ -1,22 +1,22 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipConsoleLayout } from "./swirl-console-layout";
+import { SwirlConsoleLayout } from "./swirl-console-layout";
 
-describe("flip-console-layout", () => {
+describe("swirl-console-layout", () => {
   it("renders its contents", async () => {
     const page = await newSpecPage({
-      components: [FlipConsoleLayout],
+      components: [SwirlConsoleLayout],
       html: `
-        <flip-console-layout app-name="App name" heading="Heading">
-          <flip-box padding="24" slot="navigation">Navigation</flip-box>
+        <swirl-console-layout app-name="App name" heading="Heading">
+          <swirl-box padding="24" slot="navigation">Navigation</swirl-box>
           <div slot="user">User</div>
           <div slot="content">Content</div>
-        </flip-console-layout>
+        </swirl-console-layout>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-console-layout app-name="App name" heading="Heading">
+      <swirl-console-layout app-name="App name" heading="Heading">
         <mock:shadow-root>
           <div class="console-layout">
             <div aria-hidden="true" class="console-layout__sidebar" inert="">
@@ -28,9 +28,9 @@ describe("flip-console-layout", () => {
                     <path d="M3.69141 21.4739L7.77047 19.0951C8.39573 20.1953 8.5446 21.5036 8.24686 22.7228C7.91934 23.9419 7.14521 24.9826 6.04357 25.6368L3.69141 21.4739Z" fill="#80A8F4"></path>
                     <path d="M12.2072 10.9785L7.32419 10.1459L0.625 14.0709L5.38887 14.9629L12.2072 10.9785Z" fill="#80A8F4"></path>
                   </svg>
-                  <flip-text class="console-layout__logo-text" weight="medium">
+                  <swirl-text class="console-layout__logo-text" weight="medium">
                     Admin
-                  </flip-text>
+                  </swirl-text>
                 </div>
               </header>
               <nav aria-label="Main" class="console-layout__navigation">
@@ -42,13 +42,13 @@ describe("flip-console-layout", () => {
             </div>
             <main aria-labelledby="app-name" class="console-layout__main">
               <header class="console-layout__app-bar">
-                <flip-button class="console-layout__mobile-navigation-button" flipariaexpanded="false" hidelabel="" icon="<flip-icon-menu></flip-icon-menu>" label="Show main navigation"></flip-button>
-                <flip-heading as="h1" class="console-layout__app-name" headingid="app-name" level="4" text="App name"></flip-heading>
+                <swirl-button class="console-layout__mobile-navigation-button" swirlariaexpanded="false" hidelabel="" icon="<swirl-icon-menu></swirl-icon-menu>" label="Show main navigation"></swirl-button>
+                <swirl-heading as="h1" class="console-layout__app-name" headingid="app-name" level="4" text="App name"></swirl-heading>
               </header>
               <section aria-labelledby="heading" class="console-layout__content">
                 <header class="console-layout__content-header">
                   <div>
-                    <flip-heading as="h2" class="console-layout__heading" headingid="heading" level="1" text="Heading"></flip-heading>
+                    <swirl-heading as="h2" class="console-layout__heading" headingid="heading" level="1" text="Heading"></swirl-heading>
                   </div>
                 </header>
                 <div class="console-layout__integration">
@@ -61,28 +61,28 @@ describe("flip-console-layout", () => {
             </main>
           </div>
         </mock:shadow-root>
-        <flip-box padding="24" slot="navigation">
+        <swirl-box padding="24" slot="navigation">
           Navigation
-        </flip-box>
+        </swirl-box>
         <div slot="user">
           User
         </div>
         <div slot="content">
           Content
         </div>
-      </flip-console-layout>
+      </swirl-console-layout>
     `);
   });
 
   it("fires help button event", async () => {
     const page = await newSpecPage({
-      components: [FlipConsoleLayout],
+      components: [SwirlConsoleLayout],
       html: `
-        <flip-console-layout app-name="App name" heading="Heading" show-help-button="true">
-          <flip-box padding="24" slot="navigation">Navigation</flip-box>
+        <swirl-console-layout app-name="App name" heading="Heading" show-help-button="true">
+          <swirl-box padding="24" slot="navigation">Navigation</swirl-box>
           <div slot="user">User</div>
           <div slot="content">Content</div>
-        </flip-console-layout>
+        </swirl-console-layout>
       `,
     });
 
@@ -91,7 +91,7 @@ describe("flip-console-layout", () => {
     page.root.addEventListener("helpButtonClick", spy);
 
     page.root.shadowRoot
-      .querySelector<HTMLFlipButtonElement>(".console-layout__help-button")
+      .querySelector<HTMLSwirlButtonElement>(".console-layout__help-button")
       .click();
 
     expect(spy).toHaveBeenCalled();
@@ -99,13 +99,13 @@ describe("flip-console-layout", () => {
 
   it("fires back button event", async () => {
     const page = await newSpecPage({
-      components: [FlipConsoleLayout],
+      components: [SwirlConsoleLayout],
       html: `
-        <flip-console-layout app-name="App name" heading="Heading" show-back-button="true">
-          <flip-box padding="24" slot="navigation">Navigation</flip-box>
+        <swirl-console-layout app-name="App name" heading="Heading" show-back-button="true">
+          <swirl-box padding="24" slot="navigation">Navigation</swirl-box>
           <div slot="user">User</div>
           <div slot="content">Content</div>
-        </flip-console-layout>
+        </swirl-console-layout>
       `,
     });
 
@@ -114,7 +114,7 @@ describe("flip-console-layout", () => {
     page.root.addEventListener("backButtonClick", spy);
 
     page.root.shadowRoot
-      .querySelector<HTMLFlipButtonElement>(".console-layout__back-button")
+      .querySelector<HTMLSwirlButtonElement>(".console-layout__back-button")
       .click();
 
     expect(spy).toHaveBeenCalled();

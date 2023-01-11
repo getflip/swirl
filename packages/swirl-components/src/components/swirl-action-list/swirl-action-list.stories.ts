@@ -2,28 +2,28 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-action-list.mdx";
 
 export default {
-  component: "flip-action-list",
+  component: "swirl-action-list",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipActionList",
+  title: "Components/SwirlActionList",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-action-list", args);
+  const element = generateStoryElement("swirl-action-list", args);
 
   element.innerHTML = `
-    <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 1"></flip-action-list-item>
-    <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 2"></flip-action-list-item>
-    <flip-separator></flip-separator>
-    <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 3"></flip-action-list-item>
+    <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 1"></swirl-action-list-item>
+    <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 2"></swirl-action-list-item>
+    <swirl-separator></swirl-separator>
+    <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 3"></swirl-action-list-item>
   `;
 
   return element;
 };
 
-export const FlipActionList = Template.bind({});
+export const SwirlActionList = Template.bind({});
 
-FlipActionList.args = {};
+SwirlActionList.args = {};

@@ -49,7 +49,7 @@ export class FileManager {
   @State() selectedDirectory: FileManagerDirectory | undefined;
   @State() selectedFile: FileManagerFile | undefined;
 
-  private layout: HTMLFlipAppLayoutElement;
+  private layout: HTMLSwirlAppLayoutElement;
 
   private selectItem = (item: FileManagerDirectory | FileManagerFile) => {
     if ("type" in item) {

@@ -3,9 +3,9 @@ import { Component, h, Host, Prop } from "@stencil/core";
 @Component({
   shadow: true,
   styleUrl: "swirl-video-thumbnail.css",
-  tag: "flip-video-thumbnail",
+  tag: "swirl-video-thumbnail",
 })
-export class FlipVideoThumbnail {
+export class SwirlVideoThumbnail {
   @Prop() durationLabel?: string = "Duration";
   @Prop() duration?: string;
   @Prop() label!: string;
@@ -30,7 +30,9 @@ export class FlipVideoThumbnail {
           />
           {this.duration && (
             <span class="video-thumbnail__duration" id="duration">
-              <flip-visually-hidden>{this.durationLabel}</flip-visually-hidden>
+              <swirl-visually-hidden>
+                {this.durationLabel}
+              </swirl-visually-hidden>
               {this.duration}
             </span>
           )}

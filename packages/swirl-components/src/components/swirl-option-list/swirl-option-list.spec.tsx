@@ -1,7 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { FlipOptionListItem } from "../swirl-option-list-item/flip-option-list-item";
+import { SwirlOptionListItem } from "../swirl-option-list-item/swirl-option-list-item";
 
-import { FlipOptionList } from "./swirl-option-list";
+import { SwirlOptionList } from "./swirl-option-list";
 
 (global as any).MutationObserver = class {
   constructor() {}
@@ -9,35 +9,35 @@ import { FlipOptionList } from "./swirl-option-list";
   observe() {}
 };
 
-describe("flip-option-list", () => {
+describe("swirl-option-list", () => {
   const template = `
-    <flip-option-list label="Option List" multi-select="true">
-      <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
-      <flip-option-list-item label="This is an option" value="2"></flip-option-list-item>
-      <flip-option-list-item label="This is an option" value="3"></flip-option-list-item>
-    </flip-option-list>
+    <swirl-option-list label="Option List" multi-select="true">
+      <swirl-option-list-item label="This is an option" value="1"></swirl-option-list-item>
+      <swirl-option-list-item label="This is an option" value="2"></swirl-option-list-item>
+      <swirl-option-list-item label="This is an option" value="3"></swirl-option-list-item>
+    </swirl-option-list>
   `;
 
   it("renders its children", async () => {
     const page = await newSpecPage({
-      components: [FlipOptionList],
+      components: [SwirlOptionList],
       html: template,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-option-list label="Option List" multi-select="true">
+      <swirl-option-list label="Option List" multi-select="true">
         <div aria-label="Option List" aria-multiselectable="true" class="option-list" role="listbox" tabindex="0">
-          <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
-          <flip-option-list-item label="This is an option" value="2"></flip-option-list-item>
-          <flip-option-list-item label="This is an option" value="3"></flip-option-list-item>
+          <swirl-option-list-item label="This is an option" value="1"></swirl-option-list-item>
+          <swirl-option-list-item label="This is an option" value="2"></swirl-option-list-item>
+          <swirl-option-list-item label="This is an option" value="3"></swirl-option-list-item>
         </div>
-      </flip-option-list>
+      </swirl-option-list>
     `);
   });
 
   it("fires valueChange events for single select", async () => {
     const page = await newSpecPage({
-      components: [FlipOptionList, FlipOptionListItem],
+      components: [SwirlOptionList, SwirlOptionListItem],
       html: template,
     });
 
@@ -57,12 +57,12 @@ describe("flip-option-list", () => {
 
   it("reflects value changes", async () => {
     const page = await newSpecPage({
-      components: [FlipOptionList, FlipOptionListItem],
+      components: [SwirlOptionList, SwirlOptionListItem],
       html: template,
     });
 
     const items = Array.from(
-      page.root.querySelectorAll("flip-option-list-item")
+      page.root.querySelectorAll("swirl-option-list-item")
     );
 
     for (const item of items) {

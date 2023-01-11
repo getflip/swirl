@@ -3,7 +3,7 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-tooltip.mdx";
 
 export default {
-  component: "flip-tooltip",
+  component: "swirl-tooltip",
   decorators: [
     (story) => {
       const container = document.createElement("div");
@@ -22,20 +22,20 @@ export default {
       page: Docs,
     },
   },
-  title: "Components/FlipTooltip",
+  title: "Components/SwirlTooltip",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-tooltip", args);
+  const element = generateStoryElement("swirl-tooltip", args);
 
   element.innerHTML = "Hover or focus me";
 
   return element;
 };
 
-export const FlipTooltip = Template.bind({});
+export const SwirlTooltip = Template.bind({});
 
-FlipTooltip.args = {
+SwirlTooltip.args = {
   content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid officia, enim reiciendis esse minus impedit earum veniam, sunt eveniet.`,
   position: "top",
 };

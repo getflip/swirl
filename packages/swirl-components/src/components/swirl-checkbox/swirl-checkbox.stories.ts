@@ -8,24 +8,24 @@ export default {
       options: [false, "indeterminate", true],
     },
   },
-  component: "flip-checkbox",
+  component: "swirl-checkbox",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipCheckbox",
+  title: "Components/SwirlCheckbox",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-checkbox", args);
+  const element = generateStoryElement("swirl-checkbox", args);
 
   return element;
 };
 
-export const FlipCheckbox = Template.bind({});
+export const SwirlCheckbox = Template.bind({});
 
-FlipCheckbox.args = {
+SwirlCheckbox.args = {
   checked: true,
   description: "Optional description of the item.",
   inputId: "checkbox",

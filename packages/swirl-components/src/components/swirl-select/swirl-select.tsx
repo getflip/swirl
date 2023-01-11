@@ -10,7 +10,7 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { FlipFormInput, querySelectorAllDeep } from "../../utils";
+import { SwirlFormInput, querySelectorAllDeep } from "../../utils";
 
 @Component({
   /**
@@ -22,25 +22,25 @@ import { FlipFormInput, querySelectorAllDeep } from "../../utils";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-select.css",
-  tag: "flip-select",
+  tag: "swirl-select",
 })
-export class FlipSelect implements FlipFormInput<string[]> {
+export class SwirlSelect implements SwirlFormInput<string[]> {
   @Element() el: HTMLElement;
 
   @Prop() disabled?: boolean;
-  @Prop() flipAriaDescribedby?: string;
+  @Prop() swirlAriaDescribedby?: string;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
   @Prop() multiSelect?: boolean;
   @Prop() required?: boolean;
   @Prop({ mutable: true, reflect: true }) value?: string[];
 
-  @State() options: HTMLFlipOptionListItemElement[] = [];
+  @State() options: HTMLSwirlOptionListItemElement[] = [];
   @State() open: boolean;
 
   @Event() valueChange: EventEmitter<string[]>;
 
-  private popover: HTMLFlipPopoverElement;
+  private popover: HTMLSwirlPopoverElement;
 
   componentWillLoad() {
     queueMicrotask(() => {
@@ -56,9 +56,9 @@ export class FlipSelect implements FlipFormInput<string[]> {
   }
 
   private updateOptions() {
-    this.options = querySelectorAllDeep<HTMLFlipOptionListItemElement>(
+    this.options = querySelectorAllDeep<HTMLSwirlOptionListItemElement>(
       this.el,
-      "flip-option-list-item"
+      "swirl-option-list-item"
     );
   }
 
@@ -113,7 +113,7 @@ export class FlipSelect implements FlipFormInput<string[]> {
       <Host onKeyDown={this.onKeyDown}>
         <div class={className}>
           <input
-            aria-describedby={this.flipAriaDescribedby}
+            aria-describedby={this.swirlAriaDescribedby}
             aria-disabled={this.disabled ? "true" : undefined}
             aria-invalid={ariaInvalid}
             class="select__label"
@@ -125,12 +125,12 @@ export class FlipSelect implements FlipFormInput<string[]> {
           ></input>
           <span class="select__indicator">
             {this.open ? (
-              <flip-icon-expand-less></flip-icon-expand-less>
+              <swirl-icon-expand-less></swirl-icon-expand-less>
             ) : (
-              <flip-icon-expand-more></flip-icon-expand-more>
+              <swirl-icon-expand-more></swirl-icon-expand-more>
             )}
           </span>
-          <flip-popover
+          <swirl-popover
             animation="scale-in-y"
             class="select__popover"
             enableFlip={false}
@@ -141,16 +141,16 @@ export class FlipSelect implements FlipFormInput<string[]> {
             popoverId="select-options"
             ref={(el) => (this.popover = el)}
             trigger="trigger"
-            useContainerWidth="flip-form-control"
+            useContainerWidth="swirl-form-control"
           >
-            <flip-option-list
+            <swirl-option-list
               onValueChange={this.select}
               multiSelect={this.multiSelect}
               value={this.value}
             >
               <slot onSlotchange={this.onSlotChange}></slot>
-            </flip-option-list>
-          </flip-popover>
+            </swirl-option-list>
+          </swirl-popover>
         </div>
       </Host>
     );

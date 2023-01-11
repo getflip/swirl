@@ -7,30 +7,30 @@ export default {
     icon: {
       table: {
         type: {
-          detail: "e.g. <flip-icon-close></flip-icon-close>",
-          summary: "flip-icon-*",
+          detail: "e.g. <swirl-icon-close></swirl-icon-close>",
+          summary: "swirl-icon-*",
         },
       },
     },
   },
-  component: "flip-button",
+  component: "swirl-button",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipButton",
+  title: "Components/SwirlButton",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-button", args);
+  const element = generateStoryElement("swirl-button", args);
 
   return element;
 };
 
-export const FlipButton = Template.bind({});
+export const SwirlButton = Template.bind({});
 
-FlipButton.args = {
-  icon: "<flip-icon-add></flip-icon-add>",
+SwirlButton.args = {
+  icon: "<swirl-icon-add></swirl-icon-add>",
   label: "Label",
 };

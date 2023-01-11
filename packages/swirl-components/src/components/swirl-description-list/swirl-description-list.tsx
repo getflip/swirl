@@ -6,9 +6,9 @@ import { Component, h, Host } from "@stencil/core";
 @Component({
   shadow: true,
   styleUrl: "swirl-description-list.css",
-  tag: "flip-description-list",
+  tag: "swirl-description-list",
 })
-export class FlipDescriptionList {
+export class SwirlDescriptionList {
   render() {
     return (
       <Host>

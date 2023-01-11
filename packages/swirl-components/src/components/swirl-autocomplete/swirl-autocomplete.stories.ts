@@ -1,16 +1,16 @@
 import { generateStoryElement } from "../../utils";
-import { FlipAutocompleteSuggestion } from "./swirl-autocomplete";
+import { SwirlAutocompleteSuggestion } from "./swirl-autocomplete";
 import Docs from "./swirl-autocomplete.mdx";
 
 export default {
-  component: "flip-autocomplete",
+  component: "swirl-autocomplete",
   parameters: {
     docs: {
       page: Docs,
       source: {
-        code: `<flip-form-control label="Autocomplete">
-  <flip-autocomplete id="autocomplete"></flip-autocomplete>
-</flip-form-control>
+        code: `<swirl-form-control label="Autocomplete">
+  <swirl-autocomplete id="autocomplete"></swirl-autocomplete>
+</swirl-form-control>
 
 <script>
   const autocomplete = document.getElementById('autocomplete');
@@ -45,19 +45,19 @@ export default {
       },
     },
   },
-  title: "Components/FlipAutocomplete",
+  title: "Components/SwirlAutocomplete",
 };
 
 const Template = (args) => {
-  const formControl = document.createElement("flip-form-control");
+  const formControl = document.createElement("swirl-form-control");
   const element = generateStoryElement(
-    "flip-autocomplete",
+    "swirl-autocomplete",
     args
-  ) as HTMLFlipAutocompleteElement;
+  ) as HTMLSwirlAutocompleteElement;
 
   formControl.label = "Autocomplete";
 
-  const suggestions: FlipAutocompleteSuggestion[] = [
+  const suggestions: SwirlAutocompleteSuggestion[] = [
     {
       id: "1",
       label: "Item #1",
@@ -88,6 +88,6 @@ const Template = (args) => {
   return formControl;
 };
 
-export const FlipAutocomplete = Template.bind({});
+export const SwirlAutocomplete = Template.bind({});
 
-FlipAutocomplete.args = {};
+SwirlAutocomplete.args = {};

@@ -1,30 +1,30 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipPdfReader } from "./swirl-pdf-reader";
+import { SwirlPdfReader } from "./swirl-pdf-reader";
 
-describe("flip-pdf-reader", () => {
+describe("swirl-pdf-reader", () => {
   it("renders file viewer and controls", async () => {
     const page = await newSpecPage({
-      components: [FlipPdfReader],
-      html: `<flip-pdf-reader file="/sample.pdf" label="PDF Reader"></flip-pdf-reader>`,
+      components: [SwirlPdfReader],
+      html: `<swirl-pdf-reader file="/sample.pdf" label="PDF Reader"></swirl-pdf-reader>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-pdf-reader file="/sample.pdf" label="PDF Reader">
+      <swirl-pdf-reader file="/sample.pdf" label="PDF Reader">
         <mock:shadow-root>
           <section aria-hidden="true" aria-label="PDF Reader" aria-modal="true" class="pdf-reader" id="pdf-reader" role="dialog" tabindex="-1">
             <div class="pdf-reader__body" role="document">
               <header class="pdf-reader__header">
                 <span class="pdf-reader__header-left">
-                  <flip-button class="pdf-reader__close-button" hidelabel="" icon="<flip-icon-close></flip-icon-close>" label="Close PDF viewer"></flip-button>
+                  <swirl-button class="pdf-reader__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close PDF viewer"></swirl-button>
                   <span class="pdf-reader__label">
                     PDF Reader
                   </span>
                 </span>
                 <span class="pdf-reader__header-center">
                   <span class="pdf-reader__zoom-button-container">
-                    <flip-button class="pdf-reader__zoom-button" hidelabel="" icon="<flip-icon-remove></flip-icon-remove>" label="Zoom out"></flip-button>
-                    <flip-button class="pdf-reader__zoom-button" hidelabel="" icon="<flip-icon-add></flip-icon-add>" label="Zoom in"></flip-button>
+                    <swirl-button class="pdf-reader__zoom-button" hidelabel="" icon="<swirl-icon-remove></swirl-icon-remove>" label="Zoom out"></swirl-button>
+                    <swirl-button class="pdf-reader__zoom-button" hidelabel="" icon="<swirl-icon-add></swirl-icon-add>" label="Zoom in"></swirl-button>
                   </span>
                   <span class="pdf-reader__zoom-select-container">
                     <select aria-label="Select zoom" class="pdf-reader__zoom-select" id="zoom-select" name="zoom-select">
@@ -47,42 +47,42 @@ describe("flip-pdf-reader", () => {
                         150%
                       </option>
                     </select>
-                    <flip-icon-expand-more class="pdf-reader__zoom-select-icon"></flip-icon-expand-more>
+                    <swirl-icon-expand-more class="pdf-reader__zoom-select-icon"></swirl-icon-expand-more>
                   </span>
                 </span>
                 <span class="pdf-reader__header-right">
-                  <flip-button class="pdf-reader__print-button" hidelabel="" icon="<flip-icon-print></flip-icon-print>" label="Print PDF"></flip-button>
-                  <flip-button class="pdf-reader__download-button" hidelabel="" icon="<flip-icon-download></flip-icon-download>" label="Download PDF"></flip-button>
+                  <swirl-button class="pdf-reader__print-button" hidelabel="" icon="<swirl-icon-print></swirl-icon-print>" label="Print PDF"></swirl-button>
+                  <swirl-button class="pdf-reader__download-button" hidelabel="" icon="<swirl-icon-download></swirl-icon-download>" label="Download PDF"></swirl-button>
                 </span>
               </header>
               <div class="pdf-reader__content">
-                <flip-file-viewer file="/sample.pdf" type="application/pdf" zoom="auto"></flip-file-viewer>
+                <swirl-file-viewer file="/sample.pdf" type="application/pdf" zoom="auto"></swirl-file-viewer>
                 <div class="pdf-reader__mobile-zoom-controls">
                   <button aria-label="Full width" class="pdf-reader__mobile-zoom-button" type="button">
-                    <flip-icon-fullscreen-exit></flip-icon-fullscreen-exit>
+                    <swirl-icon-fullscreen-exit></swirl-icon-fullscreen-exit>
                   </button>
                   <button aria-label="Zoom in" class="pdf-reader__mobile-zoom-button" type="button">
-                    <flip-icon-add></flip-icon-add>
+                    <swirl-icon-add></swirl-icon-add>
                   </button>
                   <button aria-label="Zoom out" class="pdf-reader__mobile-zoom-button" type="button">
-                    <flip-icon-remove></flip-icon-remove>
+                    <swirl-icon-remove></swirl-icon-remove>
                   </button>
                 </div>
               </div>
             </div>
           </section>
         </mock:shadow-root>
-      </flip-pdf-reader>
+      </swirl-pdf-reader>
     `);
   });
 
   it("allows to zoom", async () => {
     const page = await newSpecPage({
-      components: [FlipPdfReader],
-      html: `<flip-pdf-reader file="/sample.pdf" label="PDF Reader"></flip-pdf-reader>`,
+      components: [SwirlPdfReader],
+      html: `<swirl-pdf-reader file="/sample.pdf" label="PDF Reader"></swirl-pdf-reader>`,
     });
 
-    const viewer = page.root.shadowRoot.querySelector("flip-file-viewer");
+    const viewer = page.root.shadowRoot.querySelector("swirl-file-viewer");
     const zoomSelect = page.root.shadowRoot.querySelector<HTMLSelectElement>(
       '[aria-label="Select zoom"]'
     );
@@ -90,7 +90,7 @@ describe("flip-pdf-reader", () => {
     expect(viewer.getAttribute("zoom")).toBe("auto");
 
     page.root.shadowRoot
-      .querySelector<HTMLFlipButtonElement>('flip-button[label="Zoom in"]')
+      .querySelector<HTMLSwirlButtonElement>('swirl-button[label="Zoom in"]')
       .click();
 
     await page.waitForChanges();
@@ -98,7 +98,7 @@ describe("flip-pdf-reader", () => {
     expect(viewer.getAttribute("zoom")).toBe("1");
 
     page.root.shadowRoot
-      .querySelector<HTMLFlipButtonElement>('flip-button[label="Zoom out"]')
+      .querySelector<HTMLSwirlButtonElement>('swirl-button[label="Zoom out"]')
       .click();
 
     await page.waitForChanges();

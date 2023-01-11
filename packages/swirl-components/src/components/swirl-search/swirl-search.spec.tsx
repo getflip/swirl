@@ -1,28 +1,28 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipSearch } from "./swirl-search";
+import { SwirlSearch } from "./swirl-search";
 
-describe("flip-search", () => {
+describe("swirl-search", () => {
   it("renders the input with passed props", async () => {
     const page = await newSpecPage({
-      components: [FlipSearch],
-      html: `<flip-search auto-focus clear-button-label="Clear" disabled input-name="search" input-id="search" label="Label" placeholder="Placeholder" value="Value"></flip-search>`,
+      components: [SwirlSearch],
+      html: `<swirl-search auto-focus clear-button-label="Clear" disabled input-name="search" input-id="search" label="Label" placeholder="Placeholder" value="Value"></swirl-search>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-search auto-focus="" clear-button-label="Clear" disabled="" input-id="search" input-name="search" label="Label" placeholder="Placeholder" value="Value">
+      <swirl-search auto-focus="" clear-button-label="Clear" disabled="" input-id="search" input-name="search" label="Label" placeholder="Placeholder" value="Value">
         <span class="search search--disabled">
-          <flip-icon-search class="search__icon"></flip-icon-search>
+          <swirl-icon-search class="search__icon"></swirl-icon-search>
           <input aria-disabled="true" aria-label="Label" autocomplete="off" autofocus="" class="search__input" disabled="" id="search" inputmode="search" name="search" placeholder="Placeholder" type="search" value="Value">
         </span>
-      </flip-search>
+      </swirl-search>
     `);
   });
 
   it("fires events", async () => {
     const page = await newSpecPage({
-      components: [FlipSearch],
-      html: `<flip-search label="Search"></flip-search>`,
+      components: [SwirlSearch],
+      html: `<swirl-search label="Search"></swirl-search>`,
     });
 
     const focusSpy = jest.fn();
@@ -46,8 +46,8 @@ describe("flip-search", () => {
 
   it("focuses with shortcuts", async () => {
     const page = await newSpecPage({
-      components: [FlipSearch],
-      html: `<flip-search label="Search"></flip-search>`,
+      components: [SwirlSearch],
+      html: `<swirl-search label="Search"></swirl-search>`,
     });
 
     const spy = jest.fn();

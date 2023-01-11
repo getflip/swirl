@@ -1,20 +1,20 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipSeparator } from "./swirl-separator";
+import { SwirlSeparator } from "./swirl-separator";
 
-describe("flip-separator", () => {
+describe("swirl-separator", () => {
   it("renders", async () => {
     const page = await newSpecPage({
-      components: [FlipSeparator],
-      html: `<flip-separator></flip-separator>`,
+      components: [SwirlSeparator],
+      html: `<swirl-separator></swirl-separator>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-separator class="separator" role="separator">
+      <swirl-separator class="separator" role="separator">
         <mock:shadow-root>
           <span class="separator__line"></span>
         </mock:shadow-root>
-      </flip-separator>
+      </swirl-separator>
     `);
   });
 });

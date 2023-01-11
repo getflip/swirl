@@ -8,14 +8,14 @@ import {
   Prop,
 } from "@stencil/core";
 import { saveAs } from "file-saver";
-import { FlipFileViewerPdfZoom } from "./viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import { SwirlFileViewerPdfZoom } from "./viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer.css",
-  tag: "flip-file-viewer",
+  tag: "swirl-file-viewer",
 })
-export class FlipFileViewer {
+export class SwirlFileViewer {
   @Prop() active?: boolean = true;
   @Prop() autoplay?: boolean;
   @Prop() description?: string;
@@ -23,7 +23,7 @@ export class FlipFileViewer {
   @Prop() file!: string;
   @Prop() type!: string;
   @Prop() typeUnsupportedMessage?: string = "File type is not supported.";
-  @Prop() zoom?: FlipFileViewerPdfZoom = 1;
+  @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
 
   @Event() activate: EventEmitter<HTMLElement>;
 
@@ -46,7 +46,7 @@ export class FlipFileViewer {
   @Method()
   async print() {
     if (this.type === "application/pdf") {
-      (this.viewer as HTMLFlipFileViewerPdfElement).print();
+      (this.viewer as HTMLSwirlFileViewerPdfElement).print();
     }
   }
 
@@ -71,67 +71,67 @@ export class FlipFileViewer {
             <div class="file-viewer__file">
               {/* images */}
               {this.type.startsWith("image/") && (
-                <flip-file-viewer-image
+                <swirl-file-viewer-image
                   description={this.description}
                   errorMessage={this.errorMessage}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
-                ></flip-file-viewer-image>
+                ></swirl-file-viewer-image>
               )}
 
               {/* text files */}
               {this.type === "text/plain" && (
-                <flip-file-viewer-text
+                <swirl-file-viewer-text
                   errorMessage={this.errorMessage}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
-                ></flip-file-viewer-text>
+                ></swirl-file-viewer-text>
               )}
 
               {/* csv files */}
               {this.type === "text/csv" && (
-                <flip-file-viewer-csv
+                <swirl-file-viewer-csv
                   errorMessage={this.errorMessage}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
-                ></flip-file-viewer-csv>
+                ></swirl-file-viewer-csv>
               )}
 
               {/* pdf files */}
               {this.type === "application/pdf" && (
-                <flip-file-viewer-pdf
+                <swirl-file-viewer-pdf
                   errorMessage={this.errorMessage}
                   file={this.file}
                   onActivate={this.onActivate}
                   ref={(el) => (this.viewer = el)}
                   zoom={this.zoom}
-                ></flip-file-viewer-pdf>
+                ></swirl-file-viewer-pdf>
               )}
 
               {/* video files */}
               {this.type.startsWith("video/") && (
-                <flip-file-viewer-video
+                <swirl-file-viewer-video
                   autoplay={this.autoplay}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
                   type={this.type}
-                ></flip-file-viewer-video>
+                ></swirl-file-viewer-video>
               )}
 
               {/* audio files */}
               {this.type.startsWith("audio/") && (
-                <flip-file-viewer-audio
+                <swirl-file-viewer-audio
                   autoplay={this.autoplay}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
                   type={this.type}
-                ></flip-file-viewer-audio>
+                ></swirl-file-viewer-audio>
               )}
 
               {unsupportedType && (
-                <flip-inline-error
+                <swirl-inline-error
                   message={this.typeUnsupportedMessage}
-                ></flip-inline-error>
+                ></swirl-inline-error>
               )}
             </div>
           )}

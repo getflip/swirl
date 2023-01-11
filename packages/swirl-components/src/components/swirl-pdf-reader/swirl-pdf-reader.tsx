@@ -12,14 +12,14 @@ import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import { isMobileViewport } from "../../utils";
-import { FlipFileViewerPdfZoom } from "../swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import { SwirlFileViewerPdfZoom } from "../swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-pdf-reader.css",
-  tag: "flip-pdf-reader",
+  tag: "swirl-pdf-reader",
 })
-export class FlipPdfReader {
+export class SwirlPdfReader {
   @Element() el: HTMLElement;
 
   @Prop() autoZoomLabel?: string = "Full width";
@@ -35,15 +35,15 @@ export class FlipPdfReader {
   @State() active = false;
   @State() closing = false;
   @State() downloading = false;
-  @State() zoom: FlipFileViewerPdfZoom;
+  @State() zoom: SwirlFileViewerPdfZoom;
   @State() zoomSteps: number[];
 
   private desktopZoomSteps: number[] = [0.5, 0.75, 1, 1.25, 1.5, 2, 3, 4];
   private mobileZoomSteps: number[] = [0.5, 0.75, 1, 1.25, 1.5];
   private modal: A11yDialog;
   private modalEl: HTMLElement;
-  private pdfViewer: HTMLFlipFileViewerPdfElement;
-  private viewer: HTMLFlipFileViewerElement;
+  private pdfViewer: HTMLSwirlFileViewerPdfElement;
+  private viewer: HTMLSwirlFileViewerElement;
 
   componentWillLoad() {
     this.updateZoomSteps();
@@ -133,7 +133,7 @@ export class FlipPdfReader {
   };
 
   private onActivate = (event: CustomEvent<HTMLElement>) => {
-    this.pdfViewer = event.detail as HTMLFlipFileViewerPdfElement;
+    this.pdfViewer = event.detail as HTMLSwirlFileViewerPdfElement;
 
     this.lockBodyScroll();
   };
@@ -200,35 +200,35 @@ export class FlipPdfReader {
           <div class="pdf-reader__body" role="document">
             <header class="pdf-reader__header">
               <span class="pdf-reader__header-left">
-                <flip-button
+                <swirl-button
                   class="pdf-reader__close-button"
                   hideLabel
-                  icon="<flip-icon-close></flip-icon-close>"
+                  icon="<swirl-icon-close></swirl-icon-close>"
                   label={this.closeButtonLabel}
                   onClick={this.onCloseButtonClick}
-                ></flip-button>
+                ></swirl-button>
                 <span class="pdf-reader__label">{this.label}</span>
               </span>
               <span class="pdf-reader__header-center">
                 <span class="pdf-reader__zoom-button-container">
-                  <flip-button
+                  <swirl-button
                     class="pdf-reader__zoom-button"
                     disabled={this.zoom === this.zoomSteps[0]}
                     hideLabel
-                    icon="<flip-icon-remove></flip-icon-remove>"
+                    icon="<swirl-icon-remove></swirl-icon-remove>"
                     label={this.zoomOutButtonLabel}
                     onClick={this.onZoomOutButtonClick}
-                  ></flip-button>
-                  <flip-button
+                  ></swirl-button>
+                  <swirl-button
                     class="pdf-reader__zoom-button"
                     disabled={
                       this.zoom === this.zoomSteps[this.zoomSteps.length - 1]
                     }
                     hideLabel
-                    icon="<flip-icon-add></flip-icon-add>"
+                    icon="<swirl-icon-add></swirl-icon-add>"
                     label={this.zoomInButtonLabel}
                     onClick={this.onZoomInButtonClick}
-                  ></flip-button>
+                  ></swirl-button>
                 </span>
                 <span class="pdf-reader__zoom-select-container">
                   <select
@@ -251,40 +251,40 @@ export class FlipPdfReader {
                       </option>
                     ))}
                   </select>
-                  <flip-icon-expand-more class="pdf-reader__zoom-select-icon"></flip-icon-expand-more>
+                  <swirl-icon-expand-more class="pdf-reader__zoom-select-icon"></swirl-icon-expand-more>
                 </span>
               </span>
               <span class="pdf-reader__header-right">
-                <flip-button
+                <swirl-button
                   class="pdf-reader__print-button"
                   hideLabel
-                  icon="<flip-icon-print></flip-icon-print>"
+                  icon="<swirl-icon-print></swirl-icon-print>"
                   label={this.printButtonLabel}
                   onClick={this.onPrintButtonClick}
-                ></flip-button>
-                <flip-button
+                ></swirl-button>
+                <swirl-button
                   class="pdf-reader__download-button"
                   disabled={this.downloading}
                   hideLabel
                   icon={
                     !this.downloading
-                      ? "<flip-icon-download></flip-icon-download>"
-                      : '<flip-spinner size="s"></flip-spinner>'
+                      ? "<swirl-icon-download></swirl-icon-download>"
+                      : '<swirl-spinner size="s"></swirl-spinner>'
                   }
                   label={this.downloadButtonLabel}
                   onClick={this.onDownloadButtonClick}
-                ></flip-button>
+                ></swirl-button>
               </span>
             </header>
             <div class="pdf-reader__content">
-              <flip-file-viewer
+              <swirl-file-viewer
                 active={this.active}
                 file={this.file}
                 onActivate={this.onActivate}
                 ref={(el) => (this.viewer = el)}
                 type="application/pdf"
                 zoom={this.zoom}
-              ></flip-file-viewer>
+              ></swirl-file-viewer>
 
               <div class="pdf-reader__mobile-zoom-controls">
                 <button
@@ -294,9 +294,9 @@ export class FlipPdfReader {
                   type="button"
                 >
                   {this.zoom === "auto" ? (
-                    <flip-icon-fullscreen-exit></flip-icon-fullscreen-exit>
+                    <swirl-icon-fullscreen-exit></swirl-icon-fullscreen-exit>
                   ) : (
-                    <flip-icon-fullscreen></flip-icon-fullscreen>
+                    <swirl-icon-fullscreen></swirl-icon-fullscreen>
                   )}
                 </button>
                 <button
@@ -308,7 +308,7 @@ export class FlipPdfReader {
                   onClick={this.onZoomInButtonClick}
                   type="button"
                 >
-                  <flip-icon-add></flip-icon-add>
+                  <swirl-icon-add></swirl-icon-add>
                 </button>
                 <button
                   aria-label={this.zoomOutButtonLabel}
@@ -317,7 +317,7 @@ export class FlipPdfReader {
                   onClick={this.onZoomOutButtonClick}
                   type="button"
                 >
-                  <flip-icon-remove></flip-icon-remove>
+                  <swirl-icon-remove></swirl-icon-remove>
                 </button>
               </div>
             </div>

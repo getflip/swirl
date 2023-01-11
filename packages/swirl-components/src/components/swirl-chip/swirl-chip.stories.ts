@@ -7,37 +7,37 @@ export default {
       table: {
         type: {
           detail:
-            'e.g. <flip-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></flip-avatar>',
-          summary: "flip-avatar",
+            'e.g. <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></swirl-avatar>',
+          summary: "swirl-avatar",
         },
       },
     },
     icon: {
       table: {
         type: {
-          detail: "e.g. <flip-icon-close></flip-icon-close>",
-          summary: "flip-icon-*",
+          detail: "e.g. <swirl-icon-close></swirl-icon-close>",
+          summary: "swirl-icon-*",
         },
       },
     },
   },
-  component: "flip-chip",
+  component: "swirl-chip",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipChip",
+  title: "Components/SwirlChip",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-chip", args);
+  const element = generateStoryElement("swirl-chip", args);
 
   return element;
 };
 
-export const FlipChip = Template.bind({});
+export const SwirlChip = Template.bind({});
 
-FlipChip.args = {
+SwirlChip.args = {
   label: "Label",
 };

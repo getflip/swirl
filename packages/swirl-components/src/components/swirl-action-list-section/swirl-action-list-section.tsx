@@ -6,9 +6,9 @@ import { Component, h, Host, Prop } from "@stencil/core";
 @Component({
   shadow: true,
   styleUrl: "swirl-action-list-section.css",
-  tag: "flip-action-list-section",
+  tag: "swirl-action-list-section",
 })
-export class FlipActionListSection {
+export class SwirlActionListSection {
   @Prop() label!: string;
 
   render() {

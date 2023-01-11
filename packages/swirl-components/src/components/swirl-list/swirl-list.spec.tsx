@@ -1,13 +1,13 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipList } from "./swirl-list";
+import { SwirlList } from "./swirl-list";
 
-describe("flip-list", () => {
+describe("swirl-list", () => {
   it("render its native list", async () => {
     const page = await newSpecPage({
-      components: [FlipList],
+      components: [SwirlList],
       html: `
-        <flip-list>
+        <swirl-list>
           <ul>
             <li>Level 1</li>
             <li>Level 1
@@ -18,13 +18,13 @@ describe("flip-list", () => {
             </li>
             <li>Level 1</li>
           </ul>
-        </flip-list>
+        </swirl-list>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-list>
-        <div class="flip-list">
+      <swirl-list>
+        <div class="swirl-list">
           <ul>
             <li>Level 1</li>
             <li>
@@ -37,7 +37,7 @@ describe("flip-list", () => {
             <li>Level 1</li>
           </ul>
         </div>
-      </flip-list>
+      </swirl-list>
     `);
   });
 
@@ -46,16 +46,16 @@ describe("flip-list", () => {
     global.console.warn = spy;
 
     await newSpecPage({
-      components: [FlipList],
+      components: [SwirlList],
       html: `
-        <flip-list>
+        <swirl-list>
           <div>Test</div>
-        </flip-list>
+        </swirl-list>
       `,
     });
 
     expect(spy).toHaveBeenCalledWith(
-      "[FlipList] Only ul and ol elements are allowed as direct children of <flip-list />."
+      "[FlipList] Only ul and ol elements are allowed as direct children of <swirl-list />."
     );
   });
 });

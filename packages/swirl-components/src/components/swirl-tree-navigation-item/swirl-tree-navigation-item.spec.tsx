@@ -1,16 +1,16 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipTreeNavigationItem } from "./swirl-tree-navigation-item";
+import { SwirlTreeNavigationItem } from "./swirl-tree-navigation-item";
 
-describe("flip-tree-navigation-item", () => {
+describe("swirl-tree-navigation-item", () => {
   it("renders its label and icon", async () => {
     const page = await newSpecPage({
-      components: [FlipTreeNavigationItem],
-      html: `<flip-tree-navigation-item icon="Icon" label="Label"></flip-tree-navigation-item>`,
+      components: [SwirlTreeNavigationItem],
+      html: `<swirl-tree-navigation-item icon="Icon" label="Label"></swirl-tree-navigation-item>`,
     });
 
     expect(page.root).toEqualHtml(`
-     <flip-tree-navigation-item class="tree-navigation-item tree-navigation-item--has-icon" icon="Icon" label="Label" role="link" tabindex="0">
+     <swirl-tree-navigation-item class="tree-navigation-item tree-navigation-item--has-icon" icon="Icon" label="Label" role="link" tabindex="0">
        <mock:shadow-root>
          <span class="tree-navigation-item__icon">
             Icon
@@ -19,14 +19,14 @@ describe("flip-tree-navigation-item", () => {
             Label
           </span>
         </mock:shadow-root>
-      </flip-tree-navigation-item>
+      </swirl-tree-navigation-item>
     `);
   });
 
   it("renders in active state", async () => {
     const page = await newSpecPage({
-      components: [FlipTreeNavigationItem],
-      html: `<flip-tree-navigation-item active="true" label="Label"></flip-tree-navigation-item>`,
+      components: [SwirlTreeNavigationItem],
+      html: `<swirl-tree-navigation-item active="true" label="Label"></swirl-tree-navigation-item>`,
     });
 
     expect(

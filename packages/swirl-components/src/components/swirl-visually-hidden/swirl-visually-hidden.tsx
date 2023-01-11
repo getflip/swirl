@@ -3,9 +3,9 @@ import { Component, h, Host } from "@stencil/core";
 @Component({
   shadow: true,
   styleUrl: "swirl-visually-hidden.css",
-  tag: "flip-visually-hidden",
+  tag: "swirl-visually-hidden",
 })
-export class FlipVisuallyHidden {
+export class SwirlVisuallyHidden {
   render() {
     return (
       <Host>

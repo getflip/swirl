@@ -1,20 +1,20 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipBanner } from "./swirl-banner";
+import { SwirlBanner } from "./swirl-banner";
 
-describe("flip-banner", () => {
+describe("swirl-banner", () => {
   it("renders with content, intent, icon and controls", async () => {
     const page = await newSpecPage({
-      components: [FlipBanner],
-      html: `<flip-banner action-label="Action" content="Content" dismissable="true" intent="info" show-icon="true"></flip-banner>`,
+      components: [SwirlBanner],
+      html: `<swirl-banner action-label="Action" content="Content" dismissable="true" intent="info" show-icon="true"></swirl-banner>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-banner action-label="Action" content="Content" dismissable="true" intent="info" show-icon="true">
+      <swirl-banner action-label="Action" content="Content" dismissable="true" intent="info" show-icon="true">
         <mock:shadow-root>
           <div aria-describedby="content" class="banner banner--has-icon banner--intent-info" role="status" tabindex="0">
             <span aria-hidden="true" class="banner__icon">
-              <flip-icon-info></flip-icon-info>
+              <swirl-icon-info></swirl-icon-info>
             </span>
             <span class="banner__content" id="content">Content</span>
             <span class="banner__controls">
@@ -22,19 +22,19 @@ describe("flip-banner", () => {
                 Action
               </button>
               <button aria-label="Dismiss" class="banner__dismiss-button" type="button">
-                <flip-icon-close></flip-icon-close>
+                <swirl-icon-close></swirl-icon-close>
               </button>
             </span>
           </div>
         </mock:shadow-root>
-      </flip-banner>
+      </swirl-banner>
     `);
   });
 
   it("fires custom action event", async () => {
     const page = await newSpecPage({
-      components: [FlipBanner],
-      html: `<flip-banner action-label="Action" content="Content"></flip-banner>`,
+      components: [SwirlBanner],
+      html: `<swirl-banner action-label="Action" content="Content"></swirl-banner>`,
     });
 
     const buttonSpy = jest.fn();
@@ -51,8 +51,8 @@ describe("flip-banner", () => {
 
   it("fires custom dismiss event", async () => {
     const page = await newSpecPage({
-      components: [FlipBanner],
-      html: `<flip-banner content="Content" dismissable="true"></flip-banner>`,
+      components: [SwirlBanner],
+      html: `<swirl-banner content="Content" dismissable="true"></swirl-banner>`,
     });
 
     const buttonSpy = jest.fn();

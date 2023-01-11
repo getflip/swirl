@@ -25,20 +25,20 @@ import {
 
 pdf.GlobalWorkerOptions.workerSrc = "/pdfjs/pdf.worker.min.js";
 
-export type FlipFileViewerPdfZoom = number | "auto";
+export type SwirlFileViewerPdfZoom = number | "auto";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer-pdf.css",
-  tag: "flip-file-viewer-pdf",
+  tag: "swirl-file-viewer-pdf",
 })
-export class FlipFileViewerPdf {
+export class SwirlFileViewerPdf {
   @Element() el: HTMLElement;
 
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
   @Prop() singlePageMode: boolean;
-  @Prop() zoom?: FlipFileViewerPdfZoom = 1;
+  @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
 
   @State() doc: PDFDocumentProxy;
   @State() error: boolean;
@@ -432,10 +432,10 @@ export class FlipFileViewerPdf {
     return (
       <Host class="file-viewer-pdf">
         {this.error && (
-          <flip-inline-error
+          <swirl-inline-error
             class="file-viewer-pdf__error"
             message={this.errorMessage}
-          ></flip-inline-error>
+          ></swirl-inline-error>
         )}
         <div
           aria-describedby="pagination"
@@ -474,7 +474,7 @@ export class FlipFileViewerPdf {
                 tabIndex={0}
               >
                 {!rendered && (
-                  <flip-spinner class="file-viewer-pdf__page-spinner"></flip-spinner>
+                  <swirl-spinner class="file-viewer-pdf__page-spinner"></swirl-spinner>
                 )}
                 <canvas
                   class="file-viewer-pdf__canvas"
@@ -492,7 +492,7 @@ export class FlipFileViewerPdf {
         )}
         {showSpinner && (
           <div class="file-viewer-pdf__spinner">
-            <flip-spinner></flip-spinner>
+            <swirl-spinner></swirl-spinner>
           </div>
         )}
       </Host>

@@ -2,30 +2,30 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-table-row.mdx";
 
 export default {
-  component: "flip-table-row",
+  component: "swirl-table-row",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipTableRow",
+  title: "Components/SwirlTableRow",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-table-row", args);
+  const element = generateStoryElement("swirl-table-row", args);
 
   element.innerHTML = `
-    <flip-table-cell>
-      <flip-text size="sm">Cell</flip-text>
-    </flip-table-cell>
-    <flip-table-cell>
-      <flip-text size="sm">Cell</flip-text>
-    </flip-table-cell>
+    <swirl-table-cell>
+      <swirl-text size="sm">Cell</swirl-text>
+    </swirl-table-cell>
+    <swirl-table-cell>
+      <swirl-text size="sm">Cell</swirl-text>
+    </swirl-table-cell>
   `;
 
   return element;
 };
 
-export const FlipTableRow = Template.bind({});
+export const SwirlTableRow = Template.bind({});
 
-FlipTableRow.args = {};
+SwirlTableRow.args = {};

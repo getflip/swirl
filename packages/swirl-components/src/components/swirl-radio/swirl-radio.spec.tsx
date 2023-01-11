@@ -1,21 +1,21 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipRadio } from "./swirl-radio";
+import { SwirlRadio } from "./swirl-radio";
 
-describe("flip-radio", () => {
+describe("swirl-radio", () => {
   it("renders all props", async () => {
     const page = await newSpecPage({
-      components: [FlipRadio],
-      html: `<flip-radio checked="true" disabled="true" input-id="radio" input-name="radio" label="Label" value="Value"></flip-radio>`,
+      components: [SwirlRadio],
+      html: `<swirl-radio checked="true" disabled="true" input-id="radio" input-name="radio" label="Label" value="Value"></swirl-radio>`,
     });
 
     expect(page.root).toMatchInlineSnapshot(`
-      <flip-radio checked="true" disabled="true" input-id="radio" input-name="radio" label="Label" value="Value">
+      <swirl-radio checked="true" disabled="true" input-id="radio" input-name="radio" label="Label" value="Value">
         <label class="radio radio--checked radio--disabled" htmlfor="radio">
           <span class="radio__control">
-            <flip-visually-hidden>
+            <swirl-visually-hidden>
               <input aria-checked="true" checked="" class="radio__input" disabled="" id="radio" name="radio" type="radio" value="Value">
-            </flip-visually-hidden>
+            </swirl-visually-hidden>
             <span aria-hidden="true" class="radio__box"></span>
           </span>
           <span class="radio__label-container">
@@ -24,14 +24,14 @@ describe("flip-radio", () => {
             </span>
           </span>
         </label>
-      </flip-radio>
+      </swirl-radio>
     `);
   });
 
   it("can be selected", async () => {
     const page = await newSpecPage({
-      components: [FlipRadio],
-      html: `<flip-radio checked="false" input-id="radio" input-name="radio" label="Label" value="Value"></flip-radio>`,
+      components: [SwirlRadio],
+      html: `<swirl-radio checked="false" input-id="radio" input-name="radio" label="Label" value="Value"></swirl-radio>`,
     });
 
     const spy = jest.fn();

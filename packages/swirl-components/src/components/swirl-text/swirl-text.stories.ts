@@ -2,17 +2,17 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-text.mdx";
 
 export default {
-  component: "flip-text",
+  component: "swirl-text",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipText",
+  title: "Components/SwirlText",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-text", args);
+  const element = generateStoryElement("swirl-text", args);
 
   element.innerHTML = `
     Est, odio dis scelerisque risus sagittis lorem rhoncus. Vivamus tristique
@@ -25,6 +25,6 @@ const Template = (args) => {
   return element;
 };
 
-export const FlipText = Template.bind({});
+export const SwirlText = Template.bind({});
 
-FlipText.args = {};
+SwirlText.args = {};

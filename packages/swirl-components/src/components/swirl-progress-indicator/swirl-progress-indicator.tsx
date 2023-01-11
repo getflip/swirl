@@ -1,20 +1,20 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipProgressIndicatorSize = "s" | "m";
+export type SwirlProgressIndicatorSize = "s" | "m";
 
-export type FlipProgressIndicatorVariant = "bar" | "circle";
+export type SwirlProgressIndicatorVariant = "bar" | "circle";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-progress-indicator.css",
-  tag: "flip-progress-indicator",
+  tag: "swirl-progress-indicator",
 })
-export class FlipProgressIndicator {
+export class SwirlProgressIndicator {
   @Prop() label!: string;
-  @Prop() size?: FlipProgressIndicatorSize = "m";
+  @Prop() size?: SwirlProgressIndicatorSize = "m";
   @Prop() value?: number = 0;
-  @Prop() variant?: FlipProgressIndicatorVariant = "bar";
+  @Prop() variant?: SwirlProgressIndicatorVariant = "bar";
 
   render() {
     const className = classnames(

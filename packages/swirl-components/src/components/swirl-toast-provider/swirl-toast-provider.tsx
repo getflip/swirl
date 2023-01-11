@@ -1,34 +1,34 @@
 import { Component, h, Host, Method, Prop, State } from "@stencil/core";
-import { FlipToastCustomEvent } from "../../components";
-import { FlipToastIntent } from "../swirl-toast/swirl-toast";
+import { SwirlToastCustomEvent } from "../../components";
+import { SwirlToastIntent } from "../swirl-toast/swirl-toast";
 
-export type FlipToastConfig = {
+export type SwirlToastConfig = {
   accessibleDismissLabel?: string;
   content: string;
   dismissLabel?: string;
   duration?: number;
   icon?: string;
-  intent?: FlipToastIntent;
+  intent?: SwirlToastIntent;
   toastId?: string;
 };
 
-export type FlipToastMessage = FlipToastConfig & {
+export type SwirlToastMessage = SwirlToastConfig & {
   createdAt: Date;
   toastId: string;
 };
 
 @Component({
   shadow: true,
-  tag: "flip-toast-provider",
+  tag: "swirl-toast-provider",
 })
-export class FlipToastProvider {
+export class SwirlToastProvider {
   /**
    * Optional global duration for all toasts. Overrides any durations set via
    * the `toast` method. Set to 0 to disable automatic closing of toasts.
    */
   @Prop() globalDuration?: number;
 
-  @State() private toasts: FlipToastMessage[] = [];
+  @State() private toasts: SwirlToastMessage[] = [];
 
   /**
    * Clear all toasts
@@ -56,7 +56,7 @@ export class FlipToastProvider {
    * @returns
    */
   @Method()
-  async toast(newToast: FlipToastConfig): Promise<FlipToastMessage> {
+  async toast(newToast: SwirlToastConfig): Promise<SwirlToastMessage> {
     if (this.toasts.some((toast) => toast.toastId === newToast.toastId)) {
       return;
     }
@@ -69,7 +69,7 @@ export class FlipToastProvider {
       duration = undefined;
     }
 
-    const newToastWithId: FlipToastMessage = {
+    const newToastWithId: SwirlToastMessage = {
       ...newToast,
       createdAt: new Date(),
       duration,
@@ -81,7 +81,7 @@ export class FlipToastProvider {
     return newToastWithId;
   }
 
-  onDismiss = (event: FlipToastCustomEvent<string>) => {
+  onDismiss = (event: SwirlToastCustomEvent<string>) => {
     this.toasts = [...this.toasts].filter(
       (toast) => toast.toastId !== event.detail
     );
@@ -90,15 +90,15 @@ export class FlipToastProvider {
   render() {
     return (
       <Host role="status">
-        <flip-stack spacing="12">
+        <swirl-stack spacing="12">
           {this.toasts.map((toast) => (
-            <flip-toast
+            <swirl-toast
               key={toast.toastId}
               onDismiss={this.onDismiss}
               {...toast}
-            ></flip-toast>
+            ></swirl-toast>
           ))}
-        </flip-stack>
+        </swirl-stack>
       </Host>
     );
   }

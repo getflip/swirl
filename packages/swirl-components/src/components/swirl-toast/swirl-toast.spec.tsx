@@ -1,37 +1,37 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipToast } from "./swirl-toast";
+import { SwirlToast } from "./swirl-toast";
 
-describe("flip-toast", () => {
+describe("swirl-toast", () => {
   it("renders with icon and content", async () => {
     const page = await newSpecPage({
-      components: [FlipToast],
-      html: `<flip-toast content="Content" icon="<flip-icon-mail></flip-icon-mail>"></flip-toast>`,
+      components: [SwirlToast],
+      html: `<swirl-toast content="Content" icon="<swirl-icon-mail></swirl-icon-mail>"></swirl-toast>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-toast content="Content" icon="<flip-icon-mail></flip-icon-mail>">
+      <swirl-toast content="Content" icon="<swirl-icon-mail></swirl-icon-mail>">
         <mock:shadow-root>
           <div class="toast toast--intent-default">
             <span class="toast__icon">
-              <flip-icon-mail></flip-icon-mail>
+              <swirl-icon-mail></swirl-icon-mail>
             </span>
             <span class="toast__content">
               Content
             </span>
             <button aria-label="Dismiss" class="toast__dismiss-button" type="button">
-              <flip-icon-close></flip-icon-close>
+              <swirl-icon-close></swirl-icon-close>
             </button>
           </div>
         </mock:shadow-root>
-      </flip-toast>
+      </swirl-toast>
     `);
   });
 
   it("fires a 'dismiss' event", async () => {
     const page = await newSpecPage({
-      components: [FlipToast],
-      html: `<flip-toast content="Content"></flip-toast>`,
+      components: [SwirlToast],
+      html: `<swirl-toast content="Content"></swirl-toast>`,
     });
 
     const spy = jest.fn();

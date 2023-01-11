@@ -7,21 +7,21 @@ export default {
       control: { type: "object" },
     },
   },
-  component: "flip-date-picker",
+  component: "swirl-date-picker",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipDatePicker",
+  title: "Components/SwirlDatePicker",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-date-picker", args);
+  const element = generateStoryElement("swirl-date-picker", args);
 
   return element;
 };
 
-export const FlipDatePicker = Template.bind({});
+export const SwirlDatePicker = Template.bind({});
 
-FlipDatePicker.args = {};
+SwirlDatePicker.args = {};

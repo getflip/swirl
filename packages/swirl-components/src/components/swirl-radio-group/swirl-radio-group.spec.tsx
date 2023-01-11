@@ -1,52 +1,52 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipRadioGroup } from "./swirl-radio-group";
+import { SwirlRadioGroup } from "./swirl-radio-group";
 
-describe("flip-radio-group", () => {
+describe("swirl-radio-group", () => {
   it("renders its radio buttons", async () => {
     const page = await newSpecPage({
-      components: [FlipRadioGroup],
+      components: [SwirlRadioGroup],
       html: `
-        <flip-radio-group aria-label="Radio group">
-          <flip-radio input-id="radio-1" input-name="radio" label="Radio button #1" value="1"></flip-radio>
-          <flip-radio input-id="radio-2" input-name="radio" label="Radio button #2" value="2"></flip-radio>
-          <flip-radio input-id="radio-3" input-name="radio" label="Radio button #3" value="3"></flip-radio>
-        </flip-radio-group>
+        <swirl-radio-group aria-label="Radio group">
+          <swirl-radio input-id="radio-1" input-name="radio" label="Radio button #1" value="1"></swirl-radio>
+          <swirl-radio input-id="radio-2" input-name="radio" label="Radio button #2" value="2"></swirl-radio>
+          <swirl-radio input-id="radio-3" input-name="radio" label="Radio button #3" value="3"></swirl-radio>
+        </swirl-radio-group>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-radio-group aria-label=\"Radio group\" role=\"radiogroup\">
+      <swirl-radio-group aria-label=\"Radio group\" role=\"radiogroup\">
         <div class=\"radio-group\">
-          <flip-radio input-id=\"radio-1\" input-name=\"radio\" label=\"Radio button #1\" value=\"1\"></flip-radio>
-          <flip-radio input-id=\"radio-2\" input-name=\"radio\" label=\"Radio button #2\" value=\"2\"></flip-radio>
-          <flip-radio input-id=\"radio-3\" input-name=\"radio\" label=\"Radio button #3\" value=\"3\"></flip-radio>
+          <swirl-radio input-id=\"radio-1\" input-name=\"radio\" label=\"Radio button #1\" value=\"1\"></swirl-radio>
+          <swirl-radio input-id=\"radio-2\" input-name=\"radio\" label=\"Radio button #2\" value=\"2\"></swirl-radio>
+          <swirl-radio input-id=\"radio-3\" input-name=\"radio\" label=\"Radio button #3\" value=\"3\"></swirl-radio>
         </div>
-      </flip-radio-group>
+      </swirl-radio-group>
     `);
   });
 
   it("fires valueChange events", async () => {
     const page = await newSpecPage({
-      components: [FlipRadioGroup],
+      components: [SwirlRadioGroup],
       html: `
-        <flip-radio-group aria-label="Radio group" value="2">
-          <flip-radio input-id="radio-1" input-name="radio" label="Radio button #1" value="1"></flip-radio>
-          <flip-radio input-id="radio-2" input-name="radio" label="Radio button #2" value="2"></flip-radio>
-          <flip-radio input-id="radio-3" input-name="radio" label="Radio button #3" value="3"></flip-radio>
-        </flip-radio-group>
+        <swirl-radio-group aria-label="Radio group" value="2">
+          <swirl-radio input-id="radio-1" input-name="radio" label="Radio button #1" value="1"></swirl-radio>
+          <swirl-radio input-id="radio-2" input-name="radio" label="Radio button #2" value="2"></swirl-radio>
+          <swirl-radio input-id="radio-3" input-name="radio" label="Radio button #3" value="3"></swirl-radio>
+        </swirl-radio-group>
       `,
     });
 
     const spy = jest.fn();
 
-    const radio = page.root.querySelector("flip-radio");
+    const radio = page.root.querySelector("swirl-radio");
     radio.checked = true;
     radio.value = "1";
 
     page.root.addEventListener("valueChange", spy);
     page.root
-      .querySelector("flip-radio")
+      .querySelector("swirl-radio")
       .dispatchEvent(new CustomEvent("valueChange"));
 
     await page.waitForChanges();

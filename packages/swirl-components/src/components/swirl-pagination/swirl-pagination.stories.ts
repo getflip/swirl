@@ -2,24 +2,24 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-pagination.mdx";
 
 export default {
-  component: "flip-pagination",
+  component: "swirl-pagination",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipPagination",
+  title: "Components/SwirlPagination",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-pagination", args);
+  const element = generateStoryElement("swirl-pagination", args);
 
   return element;
 };
 
-export const FlipPagination = Template.bind({});
+export const SwirlPagination = Template.bind({});
 
-FlipPagination.args = {
+SwirlPagination.args = {
   label: "Pagination",
   page: 1,
   pages: 20,

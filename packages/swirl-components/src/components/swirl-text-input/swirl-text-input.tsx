@@ -8,9 +8,9 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { FlipFormInput } from "../../utils";
+import { SwirlFormInput } from "../../utils";
 
-export type FlipTextInputType =
+export type SwirlTextInputType =
   | "date"
   | "datetime-local"
   | "email"
@@ -21,7 +21,7 @@ export type FlipTextInputType =
   | "text"
   | "url";
 
-export type FlipTextInputMode =
+export type SwirlTextInputMode =
   | "decimal"
   | "email"
   | "numeric"
@@ -40,9 +40,9 @@ export type FlipTextInputMode =
   scoped: true,
   shadow: false,
   styleUrl: "swirl-text-input.css",
-  tag: "flip-text-input",
+  tag: "swirl-text-input",
 })
-export class FlipTextInput implements FlipFormInput {
+export class SwirlTextInput implements SwirlFormInput {
   @Prop() autoComplete?: string = "on";
   @Prop() autoFocus?: boolean;
   @Prop() autoSelect?: boolean;
@@ -50,16 +50,16 @@ export class FlipTextInput implements FlipFormInput {
   @Prop() clearButtonLabel?: string = "Clear input";
   @Prop() disabled?: boolean;
   @Prop() disableDynamicWidth?: boolean;
-  @Prop() flipAriaAutocomplete?: string;
-  @Prop() flipAriaControls?: string;
-  @Prop() flipAriaDescribedby?: string;
-  @Prop() flipAriaExpanded?: string;
-  @Prop() flipRole?: string;
+  @Prop() swirlAriaAutocomplete?: string;
+  @Prop() swirlAriaControls?: string;
+  @Prop() swirlAriaDescribedby?: string;
+  @Prop() swirlAriaExpanded?: string;
+  @Prop() swirlRole?: string;
   @Prop() invalid?: boolean;
   @Prop() maxLength?: number;
   @Prop() max?: number;
   @Prop() min?: number;
-  @Prop() mode?: FlipTextInputMode;
+  @Prop() mode?: SwirlTextInputMode;
   @Prop() prefixLabel?: string;
   @Prop() required?: boolean;
   @Prop() rows?: number = 1;
@@ -68,7 +68,7 @@ export class FlipTextInput implements FlipFormInput {
   @Prop() suffixLabel?: string;
   @Prop() step?: number;
   @Prop() passwordToggleLabel?: string = "Toggle password display";
-  @Prop() type?: FlipTextInputType = "text";
+  @Prop() type?: SwirlTextInputType = "text";
   @Prop({ mutable: true, reflect: true }) value?: string;
 
   @State() showPassword = false;
@@ -227,11 +227,11 @@ export class FlipTextInput implements FlipFormInput {
             <span class="text-input__prefix">{this.prefixLabel}</span>
           )}
           <Tag
-            aria-autocomplete={this.flipAriaAutocomplete}
-            aria-controls={this.flipAriaControls}
-            aria-describedby={this.flipAriaDescribedby}
+            aria-autocomplete={this.swirlAriaAutocomplete}
+            aria-controls={this.swirlAriaControls}
+            aria-describedby={this.swirlAriaDescribedby}
             aria-disabled={this.disabled ? "true" : undefined}
-            aria-expanded={this.flipAriaExpanded}
+            aria-expanded={this.swirlAriaExpanded}
             aria-invalid={ariaInvalid}
             autoComplete={this.autoComplete}
             autoFocus={this.autoFocus}
@@ -247,7 +247,7 @@ export class FlipTextInput implements FlipFormInput {
             onKeyPress={this.onKeyPress}
             ref={(el) => (this.inputEl = el)}
             required={this.required}
-            role={this.flipRole}
+            role={this.swirlRole}
             rows={this.rows > 1 ? this.rows : undefined}
             spellcheck={this.spellCheck}
             step={this.type === "number" ? this.step : undefined}
@@ -266,7 +266,7 @@ export class FlipTextInput implements FlipFormInput {
               onClick={this.clear}
               type="button"
             >
-              <flip-icon-cancel></flip-icon-cancel>
+              <swirl-icon-cancel></swirl-icon-cancel>
             </button>
           )}
           {showPasswordToggle && (
@@ -277,9 +277,9 @@ export class FlipTextInput implements FlipFormInput {
               type="button"
             >
               {this.showPassword ? (
-                <flip-icon-visibility-off></flip-icon-visibility-off>
+                <swirl-icon-visibility-off></swirl-icon-visibility-off>
               ) : (
-                <flip-icon-visibility></flip-icon-visibility>
+                <swirl-icon-visibility></swirl-icon-visibility>
               )}
             </button>
           )}
@@ -292,7 +292,7 @@ export class FlipTextInput implements FlipFormInput {
                 tabIndex={-1}
                 type="button"
               >
-                <flip-icon-expand-less></flip-icon-expand-less>
+                <swirl-icon-expand-less></swirl-icon-expand-less>
               </button>
               <button
                 aria-hidden="true"
@@ -301,7 +301,7 @@ export class FlipTextInput implements FlipFormInput {
                 tabIndex={-1}
                 type="button"
               >
-                <flip-icon-expand-more></flip-icon-expand-more>
+                <swirl-icon-expand-more></swirl-icon-expand-more>
               </button>
             </span>
           )}

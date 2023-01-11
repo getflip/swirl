@@ -1,26 +1,26 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipTableColumn } from "./swirl-table-column";
+import { SwirlTableColumn } from "./swirl-table-column";
 
-describe("flip-table-column", () => {
+describe("swirl-table-column", () => {
   it("renders its label and sorting", async () => {
     const page = await newSpecPage({
-      components: [FlipTableColumn],
-      html: `<flip-table-column sortable sort="ascending">Label</flip-table-column>`,
+      components: [SwirlTableColumn],
+      html: `<swirl-table-column sortable sort="ascending">Label</swirl-table-column>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-table-column aria-sort="ascending" class="table-column" role="columnheader" sortable sort="ascending" style="min-width: fit-content;">
+      <swirl-table-column aria-sort="ascending" class="table-column" role="columnheader" sortable sort="ascending" style="min-width: fit-content;">
         <mock:shadow-root>
           <span>
             <slot></slot>
           </span>
           <span class="table-column__sort-indicator">
-            <flip-icon-arrow-upward aria-hidden="true" size="20"></flip-icon-arrow-upward>
+            <swirl-icon-arrow-upward aria-hidden="true" size="20"></swirl-icon-arrow-upward>
           </span>
         </mock:shadow-root>
         Label
-      </flip-table-column>
+      </swirl-table-column>
     `);
   });
 });

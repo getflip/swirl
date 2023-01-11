@@ -1,23 +1,23 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipVideoThumbnail } from "./swirl-video-thumbnail";
+import { SwirlVideoThumbnail } from "./swirl-video-thumbnail";
 
-describe("flip-video-thumbnail", () => {
+describe("swirl-video-thumbnail", () => {
   it("renders the preview image and duration", async () => {
     const page = await newSpecPage({
-      components: [FlipVideoThumbnail],
-      html: `<flip-video-thumbnail duration="1:23" label="Label" src="https://picsum.photos/id/1062/680/380"></flip-video-thumbnail>`,
+      components: [SwirlVideoThumbnail],
+      html: `<swirl-video-thumbnail duration="1:23" label="Label" src="https://picsum.photos/id/1062/680/380"></swirl-video-thumbnail>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-video-thumbnail duration="1:23" label="Label" src="https://picsum.photos/id/1062/680/380">
+      <swirl-video-thumbnail duration="1:23" label="Label" src="https://picsum.photos/id/1062/680/380">
         <mock:shadow-root>
           <button aria-describedby="duration" aria-label="Label" class="video-thumbnail" type="button">
             <img alt="" class="video-thumbnail__image" loading="lazy" src="https://picsum.photos/id/1062/680/380">
             <span class="video-thumbnail__duration" id="duration">
-              <flip-visually-hidden>
+              <swirl-visually-hidden>
                 Duration
-              </flip-visually-hidden>
+              </swirl-visually-hidden>
               1:23
             </span>
             <svg class="video-thumbnail__play-icon" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
@@ -25,14 +25,14 @@ describe("flip-video-thumbnail", () => {
             </svg>
           </button>
         </mock:shadow-root>
-      </flip-video-thumbnail>
+      </swirl-video-thumbnail>
     `);
   });
 
   it("renders without duration", async () => {
     const page = await newSpecPage({
-      components: [FlipVideoThumbnail],
-      html: `<flip-video-thumbnail label="Label" src="https://picsum.photos/id/1062/680/380"></flip-video-thumbnail>`,
+      components: [SwirlVideoThumbnail],
+      html: `<swirl-video-thumbnail label="Label" src="https://picsum.photos/id/1062/680/380"></swirl-video-thumbnail>`,
     });
 
     expect(

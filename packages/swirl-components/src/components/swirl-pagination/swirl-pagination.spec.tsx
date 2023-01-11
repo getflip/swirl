@@ -1,21 +1,21 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipPagination } from "./swirl-pagination";
+import { SwirlPagination } from "./swirl-pagination";
 
-describe("flip-pagination", () => {
+describe("swirl-pagination", () => {
   it("renders default variant", async () => {
     const page = await newSpecPage({
-      components: [FlipPagination],
-      html: `<flip-pagination label="Pagination" page="2" pages="20"></flip-pagination>`,
+      components: [SwirlPagination],
+      html: `<swirl-pagination label="Pagination" page="2" pages="20"></swirl-pagination>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-pagination label="Pagination" page="2" pages="20">
+      <swirl-pagination label="Pagination" page="2" pages="20">
         <mock:shadow-root>
           <nav aria-label="Pagination" class="pagination pagination--variant-default">
             <ul class="pagination__list">
               <li class="pagination__list-item">
-                <flip-button class="pagination__prev-button" fliparialabel="Previous page" hidelabel="" icon="<flip-icon-chevron-left></flip-icon-chevron-left>" intent="primary" label="Prev"></flip-button>
+                <swirl-button class="pagination__prev-button" swirlarialabel="Previous page" hidelabel="" icon="<swirl-icon-chevron-left></swirl-icon-chevron-left>" intent="primary" label="Prev"></swirl-button>
               </li>
               <li class="pagination__list-item">
                 <span>
@@ -25,19 +25,19 @@ describe("flip-pagination", () => {
                 </span>
               </li>
               <li class="pagination__list-item">
-                <flip-button class="pagination__next-button" fliparialabel="Next page" hidelabel="" icon="<flip-icon-chevron-right></flip-icon-chevron-right>" iconposition="end" intent="primary" label="Next"></flip-button>
+                <swirl-button class="pagination__next-button" swirlarialabel="Next page" hidelabel="" icon="<swirl-icon-chevron-right></swirl-icon-chevron-right>" iconposition="end" intent="primary" label="Next"></swirl-button>
               </li>
             </ul>
           </nav>
         </mock:shadow-root>
-      </flip-pagination>
+      </swirl-pagination>
     `);
   });
 
   it("disables the prev button", async () => {
     const page = await newSpecPage({
-      components: [FlipPagination],
-      html: `<flip-pagination label="Pagination" page="1" pages="20"></flip-pagination>`,
+      components: [SwirlPagination],
+      html: `<swirl-pagination label="Pagination" page="1" pages="20"></swirl-pagination>`,
     });
 
     expect(
@@ -47,8 +47,8 @@ describe("flip-pagination", () => {
 
   it("disables the next button", async () => {
     const page = await newSpecPage({
-      components: [FlipPagination],
-      html: `<flip-pagination label="Pagination" page="20" pages="20"></flip-pagination>`,
+      components: [SwirlPagination],
+      html: `<swirl-pagination label="Pagination" page="20" pages="20"></swirl-pagination>`,
     });
 
     expect(
@@ -58,8 +58,8 @@ describe("flip-pagination", () => {
 
   it("fires setPage events", async () => {
     const page = await newSpecPage({
-      components: [FlipPagination],
-      html: `<flip-pagination label="Pagination" page="2" pages="20" variant="advanced"></flip-pagination>`,
+      components: [SwirlPagination],
+      html: `<swirl-pagination label="Pagination" page="2" pages="20" variant="advanced"></swirl-pagination>`,
     });
 
     const spy = jest.fn();
@@ -69,12 +69,12 @@ describe("flip-pagination", () => {
     );
 
     const prevButton =
-      page.root.shadowRoot.querySelector<HTMLFlipButtonElement>(
+      page.root.shadowRoot.querySelector<HTMLSwirlButtonElement>(
         ".pagination__prev-button"
       );
 
     const nextButton =
-      page.root.shadowRoot.querySelector<HTMLFlipButtonElement>(
+      page.root.shadowRoot.querySelector<HTMLSwirlButtonElement>(
         ".pagination__next-button"
       );
 

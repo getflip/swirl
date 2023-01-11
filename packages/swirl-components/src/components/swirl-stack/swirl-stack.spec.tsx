@@ -1,29 +1,29 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipStack } from "./swirl-stack";
+import { SwirlStack } from "./swirl-stack";
 
-describe("flip-stack", () => {
+describe("swirl-stack", () => {
   it("renders its children and props", async () => {
     const page = await newSpecPage({
-      components: [FlipStack],
+      components: [SwirlStack],
       html: `
-        <flip-stack align="start" as="section" justify="start" orientation="horizontal" spacing="2" wrap="true">
-          <flip-badge label="Dennis" intent="decorative-1"></flip-badge>
-          <flip-badge label="Lennart" intent="decorative-2"></flip-badge>
-        </flip-stack>
+        <swirl-stack align="start" as="section" justify="start" orientation="horizontal" spacing="2" wrap="true">
+          <swirl-badge label="Dennis" intent="decorative-1"></swirl-badge>
+          <swirl-badge label="Lennart" intent="decorative-2"></swirl-badge>
+        </swirl-stack>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-stack align="start" as="section" justify="start" orientation="horizontal" spacing="2" wrap="true">
+      <swirl-stack align="start" as="section" justify="start" orientation="horizontal" spacing="2" wrap="true">
         <mock:shadow-root>
           <section class="stack stack--align-start stack--justify-start stack--orientation-horizontal stack--wrap" style="gap: var(--s-space-2);">
             <slot></slot>
           </section>
         </mock:shadow-root>
-        <flip-badge intent="decorative-1" label="Dennis"></flip-badge>
-        <flip-badge intent="decorative-2" label="Lennart"></flip-badge>
-      </flip-stack>
+        <swirl-badge intent="decorative-1" label="Dennis"></swirl-badge>
+        <swirl-badge intent="decorative-2" label="Lennart"></swirl-badge>
+      </swirl-stack>
     `);
   });
 });

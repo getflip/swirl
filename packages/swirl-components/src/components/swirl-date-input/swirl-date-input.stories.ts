@@ -16,18 +16,18 @@ export default {
       control: { type: "object" },
     },
   },
-  component: "flip-date-input",
+  component: "swirl-date-input",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipDateInput",
+  title: "Components/SwirlDateInput",
 };
 
 const Template = (args) => {
-  const formControl = document.createElement("flip-form-control");
-  const element = generateStoryElement("flip-date-input", args);
+  const formControl = document.createElement("swirl-form-control");
+  const element = generateStoryElement("swirl-date-input", args);
 
   formControl.setAttribute("label", "Date");
   formControl.append("\n  ", element, "\n");
@@ -35,6 +35,6 @@ const Template = (args) => {
   return formControl;
 };
 
-export const FlipDateInput = Template.bind({});
+export const SwirlDateInput = Template.bind({});
 
-FlipDateInput.args = {};
+SwirlDateInput.args = {};

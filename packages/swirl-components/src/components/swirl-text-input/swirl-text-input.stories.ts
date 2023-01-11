@@ -2,18 +2,18 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-text-input.mdx";
 
 export default {
-  component: "flip-text-input",
+  component: "swirl-text-input",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipTextInput",
+  title: "Components/SwirlTextInput",
 };
 
 const Template = (args) => {
-  const formControl = document.createElement("flip-form-control");
-  const element = generateStoryElement("flip-text-input", args);
+  const formControl = document.createElement("swirl-form-control");
+  const element = generateStoryElement("swirl-text-input", args);
 
   formControl.setAttribute("label", "Input");
   formControl.append("\n  ", element, "\n");
@@ -21,8 +21,8 @@ const Template = (args) => {
   return formControl;
 };
 
-export const FlipTextInput = Template.bind({});
+export const SwirlTextInput = Template.bind({});
 
-FlipTextInput.args = {
+SwirlTextInput.args = {
   value: "Value",
 };

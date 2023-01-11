@@ -3,9 +3,9 @@ import { Component, h, Host } from "@stencil/core";
 @Component({
   shadow: false,
   styleUrl: "swirl-list.css",
-  tag: "flip-list",
+  tag: "swirl-list",
 })
-export class FlipList {
+export class SwirlList {
   private containerEl: HTMLElement;
 
   componentDidRender() {
@@ -13,7 +13,7 @@ export class FlipList {
 
     if (children.some((child) => !["UL", "OL"].includes(child.tagName))) {
       console.warn(
-        "[FlipList] Only ul and ol elements are allowed as direct children of <flip-list />."
+        "[FlipList] Only ul and ol elements are allowed as direct children of <swirl-list />."
       );
     }
   }
@@ -21,7 +21,7 @@ export class FlipList {
   render() {
     return (
       <Host>
-        <div class="flip-list" ref={(el) => (this.containerEl = el)}>
+        <div class="swirl-list" ref={(el) => (this.containerEl = el)}>
           <slot></slot>
         </div>
       </Host>

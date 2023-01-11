@@ -2,20 +2,20 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-list.mdx";
 
 export default {
-  component: "flip-list",
+  component: "swirl-list",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipList",
+  title: "Components/SwirlList",
 };
 
 const Template = (args) => {
-  const container = document.createElement("flip-stack");
+  const container = document.createElement("swirl-stack");
   container.spacing = "24";
 
-  const unorderedList = generateStoryElement("flip-list", args);
+  const unorderedList = generateStoryElement("swirl-list", args);
   unorderedList.innerHTML = `
     <ul>
       <li>Level 1</li>
@@ -31,7 +31,7 @@ const Template = (args) => {
     </ul>
   `;
 
-  const orderedList = generateStoryElement("flip-list", args);
+  const orderedList = generateStoryElement("swirl-list", args);
   orderedList.innerHTML = `
     <ol>
       <li>Level 1</li>
@@ -52,6 +52,6 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipList = Template.bind({});
+export const SwirlList = Template.bind({});
 
-FlipList.args = {};
+SwirlList.args = {};

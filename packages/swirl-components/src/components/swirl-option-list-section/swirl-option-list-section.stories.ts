@@ -2,13 +2,13 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-option-list-section.mdx";
 
 export default {
-  component: "flip-option-list-section",
+  component: "swirl-option-list-section",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipOptionListSection",
+  title: "Components/SwirlOptionListSection",
 };
 
 const Template = (args) => {
@@ -17,12 +17,12 @@ const Template = (args) => {
   container.setAttribute("aria-label", "Option list");
   container.setAttribute("role", "listbox");
 
-  const element = generateStoryElement("flip-option-list-section", args);
+  const element = generateStoryElement("swirl-option-list-section", args);
 
   element.innerHTML = `
-    <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
-    <flip-option-list-item label="This is an option" selected="true" value="2"></flip-option-list-item>
-    <flip-option-list-item label="This is an option" value="3"></flip-option-list-item>
+    <swirl-option-list-item label="This is an option" value="1"></swirl-option-list-item>
+    <swirl-option-list-item label="This is an option" selected="true" value="2"></swirl-option-list-item>
+    <swirl-option-list-item label="This is an option" value="3"></swirl-option-list-item>
   `;
 
   container.append("\n  ", element, "\n");
@@ -30,8 +30,8 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipOptionListSection = Template.bind({});
+export const SwirlOptionListSection = Template.bind({});
 
-FlipOptionListSection.args = {
+SwirlOptionListSection.args = {
   label: "Section label",
 };

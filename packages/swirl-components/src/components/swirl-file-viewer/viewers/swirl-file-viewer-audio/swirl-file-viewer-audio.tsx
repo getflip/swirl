@@ -11,9 +11,9 @@ import {
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer-audio.css",
-  tag: "flip-file-viewer-audio",
+  tag: "swirl-file-viewer-audio",
 })
-export class FlipFileViewerAudio {
+export class SwirlFileViewerAudio {
   @Element() el: HTMLElement;
 
   @Prop() autoplay?: boolean;

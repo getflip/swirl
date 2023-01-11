@@ -2,7 +2,7 @@ import classnames from "classnames";
 
 import { Component, h, Host, Prop } from "@stencil/core";
 
-export type FlipBadgeIntent =
+export type SwirlBadgeIntent =
   | "banana"
   | "blueberry"
   | "chilli"
@@ -12,21 +12,21 @@ export type FlipBadgeIntent =
   | "pumpkin"
   | "radish";
 
-export type FlipBadgeSize = "s" | "m";
+export type SwirlBadgeSize = "s" | "m";
 
-export type FlipBadgeVariant = "default" | "dot";
+export type SwirlBadgeVariant = "default" | "dot";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-badge.css",
-  tag: "flip-badge",
+  tag: "swirl-badge",
 })
-export class FlipBadge {
+export class SwirlBadge {
   @Prop() icon?: string;
-  @Prop() intent?: FlipBadgeIntent = "critical";
+  @Prop() intent?: SwirlBadgeIntent = "critical";
   @Prop() label!: string;
-  @Prop() size?: FlipBadgeSize = "m";
-  @Prop() variant?: FlipBadgeVariant = "default";
+  @Prop() size?: SwirlBadgeSize = "m";
+  @Prop() variant?: SwirlBadgeVariant = "default";
 
   render() {
     const className = classnames(

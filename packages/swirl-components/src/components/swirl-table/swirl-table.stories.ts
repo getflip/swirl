@@ -2,132 +2,132 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-table.mdx";
 
 export default {
-  component: "flip-table",
+  component: "swirl-table",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipTable",
+  title: "Components/SwirlTable",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-table", args);
+  const element = generateStoryElement("swirl-table", args);
 
   element.innerHTML = `
     <div slot="columns">
-      <flip-table-column sticky width="58px">
-        <flip-checkbox checked="indeterminate" flip-aria-label="Select all" input-id="select" input-name="select">
-        </flip-checkbox><flip-visually-hidden>Select</flip-visually-hidden>
-      </flip-table-column>
-      <flip-table-column min-width="160px" sticky>User</flip-table-column>
-      <flip-table-column min-width="120px">User ID</flip-table-column>
-      <flip-table-column min-width="200px" sortable sort="descending">Email</flip-table-column>
-      <flip-table-column>Location</flip-table-column>
-      <flip-table-column>Logins</flip-table-column>
-      <flip-table-column>Latest login</flip-table-column>
-      <flip-table-column>User status</flip-table-column>
-      <flip-table-column sticky width="74px"><flip-visually-hidden>Tools</flip-visually-hidden></flip-table-column>
+      <swirl-table-column sticky width="58px">
+        <swirl-checkbox checked="indeterminate" swirl-aria-label="Select all" input-id="select" input-name="select">
+        </swirl-checkbox><swirl-visually-hidden>Select</swirl-visually-hidden>
+      </swirl-table-column>
+      <swirl-table-column min-width="160px" sticky>User</swirl-table-column>
+      <swirl-table-column min-width="120px">User ID</swirl-table-column>
+      <swirl-table-column min-width="200px" sortable sort="descending">Email</swirl-table-column>
+      <swirl-table-column>Location</swirl-table-column>
+      <swirl-table-column>Logins</swirl-table-column>
+      <swirl-table-column>Latest login</swirl-table-column>
+      <swirl-table-column>User status</swirl-table-column>
+      <swirl-table-column sticky width="74px"><swirl-visually-hidden>Tools</swirl-visually-hidden></swirl-table-column>
     </div>
     <div slot="rows">
-      <flip-table-row>
-        <flip-table-cell>
-          <flip-checkbox flip-aria-label="Select Isabel Lakin" input-id="select-1" input-name="select-1">
-        </flip-table-cell>
-        <flip-table-cell>
-          <flip-text size="sm" weight="medium">Isabel Lakin</flip-text>
-        </flip-table-cell>
-        <flip-table-cell>
-          <flip-text size="sm" truncate>1234567890</flip-text>
-        </flip-table-cell>
-        <flip-table-cell>
-          <flip-text size="sm"><flip-link href="#" label="isabel.lakin@flipapp.de"></flip-link></flip-text>
-        </flip-table-cell>
-        <flip-table-cell>
-          <flip-text size="sm">DE</flip-text>
-        </flip-table-cell>
-        <flip-table-cell>
-          <flip-text size="sm" truncate>21</flip-text>
-        </flip-table-cell>
-        <flip-table-cell>
-          <flip-text size="sm">24.11.2022 13:39</flip-text>
-        </flip-table-cell>
-        <flip-table-cell>
-          <flip-tag label="Active" intent="success"></flip-tag>
-        </flip-table-cell>
-        <flip-table-cell>
-          <flip-button hide-label icon="<flip-icon-more-vertikal></flip-icon-more-vertikal>" label="Options"></flip-button>
-        </flip-table-cell>
-      </flip-table-row>
-      <flip-table-row-group label="Pending users">
-        <flip-table-row>
-          <flip-table-cell>
-            <flip-checkbox flip-aria-label="Select Doyle Stoltenberg" input-id="select-2" input-name="select-2">
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm" weight="medium">Doyle Stoltenberg</flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm" truncate>0987654321</flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm"><flip-link href="#" label="john.doe@flipapp.de"></flip-link></flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm">DE</flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm" truncate>432</flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm">24.11.2022 13:39</flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-tag label="Pending" intent="warning"></flip-tag>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-button hide-label icon="<flip-icon-more-vertikal></flip-icon-more-vertikal>" label="Options"></flip-button>
-          </flip-table-cell>
-        </flip-table-row>
-        <flip-table-row highlighted>
-          <flip-table-cell>
-            <flip-checkbox checked="true" flip-aria-label="Select Don Conroy" input-id="select-3" input-name="select-3">
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm" weight="medium">Don Conroy</flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm" truncate>5432167890</flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm"><flip-link href="#" label="don.conroy@flipapp.de"></flip-link></flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm">DE</flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm" truncate>0</flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-text size="sm">-</flip-text>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-tag label="Pending" intent="warning"></flip-tag>
-          </flip-table-cell>
-          <flip-table-cell>
-            <flip-button hide-label icon="<flip-icon-more-vertikal></flip-icon-more-vertikal>" label="Options"></flip-button>
-          </flip-table-cell>
-        </flip-table-row>
-      </flip-table-row-group>
+      <swirl-table-row>
+        <swirl-table-cell>
+          <swirl-checkbox swirl-aria-label="Select Isabel Lakin" input-id="select-1" input-name="select-1">
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm" weight="medium">Isabel Lakin</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm" truncate>1234567890</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm"><swirl-link href="#" label="isabel.lakin@flipapp.de"></swirl-link></swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm">DE</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm" truncate>21</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-text size="sm">24.11.2022 13:39</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-tag label="Active" intent="success"></swirl-tag>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
+        </swirl-table-cell>
+      </swirl-table-row>
+      <swirl-table-row-group label="Pending users">
+        <swirl-table-row>
+          <swirl-table-cell>
+            <swirl-checkbox swirl-aria-label="Select Doyle Stoltenberg" input-id="select-2" input-name="select-2">
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" weight="medium">Doyle Stoltenberg</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>0987654321</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm"><swirl-link href="#" label="john.doe@flipapp.de"></swirl-link></swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">DE</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>432</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">24.11.2022 13:39</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-tag label="Pending" intent="warning"></swirl-tag>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
+          </swirl-table-cell>
+        </swirl-table-row>
+        <swirl-table-row highlighted>
+          <swirl-table-cell>
+            <swirl-checkbox checked="true" swirl-aria-label="Select Don Conroy" input-id="select-3" input-name="select-3">
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" weight="medium">Don Conroy</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>5432167890</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm"><swirl-link href="#" label="don.conroy@flipapp.de"></swirl-link></swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">DE</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>0</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">-</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-tag label="Pending" intent="warning"></swirl-tag>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
+          </swirl-table-cell>
+        </swirl-table-row>
+      </swirl-table-row-group>
     </div>
   `;
 
   return element;
 };
 
-export const FlipTable = Template.bind({});
+export const SwirlTable = Template.bind({});
 
-FlipTable.args = {
+SwirlTable.args = {
   caption: "A table displaying data.",
   label: "Table",
 };

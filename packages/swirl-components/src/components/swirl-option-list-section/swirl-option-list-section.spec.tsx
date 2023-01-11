@@ -1,21 +1,21 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipOptionListSection } from "./swirl-option-list-section";
+import { SwirlOptionListSection } from "./swirl-option-list-section";
 
-describe("flip-option-list-section", () => {
+describe("swirl-option-list-section", () => {
   it("renders its label and items", async () => {
     const page = await newSpecPage({
-      components: [FlipOptionListSection],
+      components: [SwirlOptionListSection],
       html: `
-        <flip-option-list-section label="Label">
-          <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
-          <flip-option-list-item label="This is an option" value="2"></flip-option-list-item>
-        </flip-option-list-section>
+        <swirl-option-list-section label="Label">
+          <swirl-option-list-item label="This is an option" value="1"></swirl-option-list-item>
+          <swirl-option-list-item label="This is an option" value="2"></swirl-option-list-item>
+        </swirl-option-list-section>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-option-list-section label="Label">
+      <swirl-option-list-section label="Label">
         <mock:shadow-root>
           <div aria-labelledby="label" class="option-list-section" role="group">
             <span class="option-list-section__label" id="label">
@@ -26,9 +26,9 @@ describe("flip-option-list-section", () => {
             </div>
           </div>
         </mock:shadow-root>
-        <flip-option-list-item label="This is an option" value="1"></flip-option-list-item>
-        <flip-option-list-item label="This is an option" value="2"></flip-option-list-item>
-      </flip-option-list-section>
+        <swirl-option-list-item label="This is an option" value="1"></swirl-option-list-item>
+        <swirl-option-list-item label="This is an option" value="2"></swirl-option-list-item>
+      </swirl-option-list-section>
     `);
   });
 });

@@ -7,9 +7,9 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "swirl-avatar-group.css",
-  tag: "flip-avatar-group",
+  tag: "swirl-avatar-group",
 })
-export class FlipAvatarGroup {
+export class SwirlAvatarGroup {
   @Prop() badge?: string;
 
   private badgeEl: HTMLElement;
@@ -23,7 +23,7 @@ export class FlipAvatarGroup {
       return;
     }
 
-    const badge = this.badgeEl.querySelector("flip-badge");
+    const badge = this.badgeEl.querySelector("swirl-badge");
 
     badge?.setAttribute("size", "m");
   }

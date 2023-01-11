@@ -6,15 +6,15 @@ import { Component, Element, h, Host, Prop } from "@stencil/core";
 @Component({
   shadow: true,
   styleUrl: "swirl-table-row-group.css",
-  tag: "flip-table-row-group",
+  tag: "swirl-table-row-group",
 })
-export class FlipTableRowGroup {
+export class SwirlTableRowGroup {
   @Element() el: HTMLElement;
 
   @Prop() label!: string;
 
   render() {
-    const rowspan = this.el.querySelectorAll("flip-table-row").length;
+    const rowspan = this.el.querySelectorAll("swirl-table-row").length;
 
     return (
       <Host class="table-row-group" role="rowgroup">

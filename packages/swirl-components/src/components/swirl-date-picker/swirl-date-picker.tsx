@@ -17,9 +17,9 @@ import localeEn from "air-datepicker/locale/en";
 @Component({
   shadow: true,
   styleUrl: "swirl-date-picker.css",
-  tag: "flip-date-picker",
+  tag: "swirl-date-picker",
 })
-export class FlipDatePicker {
+export class SwirlDatePicker {
   @Prop() locale?: Partial<AirDatepickerLocale> = localeEn;
   @Prop() maxDate?: Date;
   @Prop() minDate?: Date;
@@ -70,11 +70,11 @@ export class FlipDatePicker {
       maxDate: this.maxDate,
       minDate: this.minDate,
       minView: "days",
-      nextHtml: "<flip-icon-chevron-right></flip-icon-chevron-right>",
+      nextHtml: "<swirl-icon-chevron-right></swirl-icon-chevron-right>",
       onSelect: ({ date }) => {
         this.valueChange.emit(date);
       },
-      prevHtml: "<flip-icon-chevron-left></flip-icon-chevron-left>",
+      prevHtml: "<swirl-icon-chevron-left></swirl-icon-chevron-left>",
       range: this.range,
       selectedDates,
       startDate: this.startDate,

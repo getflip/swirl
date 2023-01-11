@@ -1,41 +1,41 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipFormControl } from "./swirl-form-control";
+import { SwirlFormControl } from "./swirl-form-control";
 
-describe("flip-form-control", () => {
+describe("swirl-form-control", () => {
   it("renders its input with label", async () => {
     const page = await newSpecPage({
-      components: [FlipFormControl],
+      components: [SwirlFormControl],
       html: `
-        <flip-form-control label="Label">
-          <flip-text-input></flip-text-input>
-        </flip-form-control>
+        <swirl-form-control label="Label">
+          <swirl-text-input></swirl-text-input>
+        </swirl-form-control>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-form-control label="Label">
+      <swirl-form-control label="Label">
         <div class="form-control" role="group">
           <label class="form-control__label">
             <span class="form-control__label-text">
               Label
             </span>
             <span class="form-control__input">
-              <flip-text-input label="Label"></flip-text-input>
+              <swirl-text-input label="Label"></swirl-text-input>
             </span>
           </label>
         </div>
-      </flip-form-control>
+      </swirl-form-control>
     `);
   });
 
   it("renders its description associated with the input element", async () => {
     const page = await newSpecPage({
-      components: [FlipFormControl],
+      components: [SwirlFormControl],
       html: `
-        <flip-form-control description="Description" label="Label">
-          <flip-text-input label="Label"></flip-text-input>
-        </flip-form-control>
+        <swirl-form-control description="Description" label="Label">
+          <swirl-text-input label="Label"></swirl-text-input>
+        </swirl-form-control>
       `,
     });
 
@@ -48,17 +48,17 @@ describe("flip-form-control", () => {
     expect(
       page.root
         .querySelector(".form-control__input > *")
-        .getAttribute("flip-aria-describedby")
+        .getAttribute("swirl-aria-describedby")
     ).toBe(descriptionElId);
   });
 
   it("can be disabled", async () => {
     const page = await newSpecPage({
-      components: [FlipFormControl],
+      components: [SwirlFormControl],
       html: `
-        <flip-form-control disabled="true" label="Label">
-          <flip-text-input></flip-text-input>
-        </flip-form-control>
+        <swirl-form-control disabled="true" label="Label">
+          <swirl-text-input></swirl-text-input>
+        </swirl-form-control>
       `,
     });
 
@@ -71,11 +71,11 @@ describe("flip-form-control", () => {
 
   it("renders its error message", async () => {
     const page = await newSpecPage({
-      components: [FlipFormControl],
+      components: [SwirlFormControl],
       html: `
-        <flip-form-control error-message="Error" label="Label">
-          <flip-text-input></flip-text-input>
-        </flip-form-control>
+        <swirl-form-control error-message="Error" label="Label">
+          <swirl-text-input></swirl-text-input>
+        </swirl-form-control>
       `,
     });
 

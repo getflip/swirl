@@ -1,24 +1,24 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipAvatar } from "./swirl-avatar";
+import { SwirlAvatar } from "./swirl-avatar";
 
-describe("flip-avatar", () => {
+describe("swirl-avatar", () => {
   it("renders with the fallback icon", async () => {
     const page = await newSpecPage({
-      components: [FlipAvatar],
-      html: `<flip-avatar label="John Doe"></flip-avatar>`,
+      components: [SwirlAvatar],
+      html: `<swirl-avatar label="John Doe"></swirl-avatar>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-avatar aria-label="John Doe" label="John Doe" role="img">
+      <swirl-avatar aria-label="John Doe" label="John Doe" role="img">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
-              <flip-icon-person></flip-icon-person>
+              <swirl-icon-person></swirl-icon-person>
             </span>
           </span>
         </mock:shadow-root>
-      </flip-avatar>
+      </swirl-avatar>
     `);
   });
 
@@ -31,12 +31,12 @@ describe("flip-avatar", () => {
     } as typeof Image;
 
     const page = await newSpecPage({
-      components: [FlipAvatar],
-      html: `<flip-avatar label="John Doe" src="https://"></flip-avatar>`,
+      components: [SwirlAvatar],
+      html: `<swirl-avatar label="John Doe" src="https://"></swirl-avatar>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-avatar aria-label="John Doe" label="John Doe" role="img" src="https://">
+      <swirl-avatar aria-label="John Doe" label="John Doe" role="img" src="https://">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__image">
@@ -44,18 +44,18 @@ describe("flip-avatar", () => {
             </span>
           </span>
         </mock:shadow-root>
-      </flip-avatar>
+      </swirl-avatar>
     `);
   });
 
   it("renders with initials", async () => {
     const page = await newSpecPage({
-      components: [FlipAvatar],
-      html: `<flip-avatar initials="JD" label="John Doe"></flip-avatar>`,
+      components: [SwirlAvatar],
+      html: `<swirl-avatar initials="JD" label="John Doe"></swirl-avatar>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-avatar aria-label="John Doe" initials="JD" label="John Doe" role="img">
+      <swirl-avatar aria-label="John Doe" initials="JD" label="John Doe" role="img">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-initials avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__initials">
@@ -65,33 +65,33 @@ describe("flip-avatar", () => {
             </span>
           </span>
         </mock:shadow-root>
-      </flip-avatar>
+      </swirl-avatar>
     `);
   });
 
   it("renders with an icon", async () => {
     const page = await newSpecPage({
-      components: [FlipAvatar],
-      html: `<flip-avatar icon="<flip-icon-close></flip-icon-close>" label="John Doe"></flip-avatar>`,
+      components: [SwirlAvatar],
+      html: `<swirl-avatar icon="<swirl-icon-close></swirl-icon-close>" label="John Doe"></swirl-avatar>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-avatar aria-label="John Doe" icon="<flip-icon-close></flip-icon-close>" label="John Doe" role="img">
+      <swirl-avatar aria-label="John Doe" icon="<swirl-icon-close></swirl-icon-close>" label="John Doe" role="img">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
-              <flip-icon-close></flip-icon-close>
+              <swirl-icon-close></swirl-icon-close>
             </span>
           </span>
         </mock:shadow-root>
-      </flip-avatar>
+      </swirl-avatar>
     `);
   });
 
   it("renders fallbacks in the right order", async () => {
     const pageWithInitials = await newSpecPage({
-      components: [FlipAvatar],
-      html: `<flip-avatar icon="<flip-icon-close></flip-icon-close>" initials="JD" label="John Doe"></flip-avatar>`,
+      components: [SwirlAvatar],
+      html: `<swirl-avatar icon="<swirl-icon-close></swirl-icon-close>" initials="JD" label="John Doe"></swirl-avatar>`,
     });
 
     expect(
@@ -104,8 +104,8 @@ describe("flip-avatar", () => {
     ).toBeNull();
 
     const pageWithoutInitials = await newSpecPage({
-      components: [FlipAvatar],
-      html: `<flip-avatar icon="<flip-icon-close></flip-icon-close>" label="John Doe"></flip-avatar>`,
+      components: [SwirlAvatar],
+      html: `<swirl-avatar icon="<swirl-icon-close></swirl-icon-close>" label="John Doe"></swirl-avatar>`,
     });
 
     expect(
@@ -115,11 +115,11 @@ describe("flip-avatar", () => {
     expect(
       pageWithoutInitials.root.shadowRoot.querySelector(".avatar__icon")
         .innerHTML
-    ).toEqual(`<flip-icon-close></flip-icon-close>`);
+    ).toEqual(`<swirl-icon-close></swirl-icon-close>`);
 
     const pageWithoutInitialsAndIcon = await newSpecPage({
-      components: [FlipAvatar],
-      html: `<flip-avatar label="John Doe"></flip-avatar>`,
+      components: [SwirlAvatar],
+      html: `<swirl-avatar label="John Doe"></swirl-avatar>`,
     });
 
     expect(
@@ -131,57 +131,57 @@ describe("flip-avatar", () => {
     expect(
       pageWithoutInitialsAndIcon.root.shadowRoot.querySelector(".avatar__icon")
         .innerHTML
-    ).toEqual(`<flip-icon-person></flip-icon-person>`);
+    ).toEqual(`<swirl-icon-person></swirl-icon-person>`);
   });
 
   it("renders with a badge", async () => {
     const page = await newSpecPage({
-      components: [FlipAvatar],
-      html: `<flip-avatar badge="<flip-badge aria-label='3 new messages' label='3'></flip-badge>" badge-position="top" label="John Doe"></flip-avatar>`,
+      components: [SwirlAvatar],
+      html: `<swirl-avatar badge="<swirl-badge aria-label='3 new messages' label='3'></swirl-badge>" badge-position="top" label="John Doe"></swirl-avatar>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-avatar aria-label="John Doe" badge="<flip-badge aria-label='3 new messages' label='3'></flip-badge>" badge-position="top" label="John Doe" role="img">
+      <swirl-avatar aria-label="John Doe" badge="<swirl-badge aria-label='3 new messages' label='3'></swirl-badge>" badge-position="top" label="John Doe" role="img">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
-              <flip-icon-person></flip-icon-person>
+              <swirl-icon-person></swirl-icon-person>
             </span>
             <span class="avatar__badge avatar__badge--position-top">
-              <flip-badge aria-label="3 new messages" label="3" size="m"></flip-badge>
+              <swirl-badge aria-label="3 new messages" label="3" size="m"></swirl-badge>
             </span>
           </span>
         </mock:shadow-root>
-      </flip-avatar>
+      </swirl-avatar>
     `);
   });
 
   it("renders with a visible label", async () => {
     const page = await newSpecPage({
-      components: [FlipAvatar],
-      html: `<flip-avatar label="John Doe" show-label></flip-avatar>`,
+      components: [SwirlAvatar],
+      html: `<swirl-avatar label="John Doe" show-label></swirl-avatar>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-avatar aria-label="John Doe" label="John Doe" role="img" show-label="">
+      <swirl-avatar aria-label="John Doe" label="John Doe" role="img" show-label="">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
-              <flip-icon-person></flip-icon-person>
+              <swirl-icon-person></swirl-icon-person>
             </span>
           </span>
           <span aria-hidden="" class="avatar__label">
             John Doe
           </span>
         </mock:shadow-root>
-      </flip-avatar>
+      </swirl-avatar>
     `);
   });
 
   it("activates when interactive", async () => {
     const page = await newSpecPage({
-      components: [FlipAvatar],
-      html: `<flip-avatar interactive="true" label="John Doe"></flip-avatar>`,
+      components: [SwirlAvatar],
+      html: `<swirl-avatar interactive="true" label="John Doe"></swirl-avatar>`,
     });
 
     const buttonSpy = jest.fn();

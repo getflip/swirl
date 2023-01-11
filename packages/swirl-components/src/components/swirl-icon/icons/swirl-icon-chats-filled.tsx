@@ -1,24 +1,29 @@
 // DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
 
 import { Component, Fragment, h, Prop } from "@stencil/core";
-import { FlipIconSize } from "../swirl-icon.types";
+import { SwirlIconSize } from "../swirl-icon.types";
+import classnames from "classnames";
 
 @Component({
   shadow: true,
   styleUrl: "../swirl-icon.css",
-  tag: "flip-icon-chats-filled",
+  tag: "swirl-icon-chats-filled",
 })
-export class FlipIconChatsFilled {
-  @Prop() size: FlipIconSize = 24;
+export class SwirlIconChatsFilled {
+  @Prop() size: SwirlIconSize = 24;
 
   render() {
+    const viewBoxSize = this.size === 20 ? 24 : this.size;
+
+    const className = classnames("swirl-icon", `swirl-icon--size-${this.size}`);
+
     return (
       <svg
-        class="flip-icon"
+        class={className}
         fill="none"
         height={this.size}
         part="icon"
-        viewBox={`0 0 ${this.size} ${this.size}`}
+        viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -30,7 +35,7 @@ export class FlipIconChatsFilled {
             />
           </Fragment>
         )}
-        {this.size === 24 && (
+        {(this.size === 20 || this.size === 24) && (
           <Fragment>
             <path
               d="M12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12V18.75C3 19.3467 3.23705 19.919 3.65901 20.341C4.08097 20.7629 4.65326 21 5.25 21H12C14.3869 21 16.6761 20.0518 18.364 18.364C20.0518 16.6761 21 14.3869 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3V3ZM8.4975 14.0025C8.10144 14.0025 7.71428 13.8851 7.38497 13.665C7.05566 13.445 6.799 13.1322 6.64743 12.7663C6.49587 12.4004 6.45621 11.9978 6.53348 11.6093C6.61074 11.2209 6.80146 10.8641 7.08152 10.584C7.36157 10.304 7.71838 10.1132 8.10683 10.036C8.49528 9.95871 8.89791 9.99837 9.26382 10.1499C9.62973 10.3015 9.94248 10.5582 10.1625 10.8875C10.3826 11.2168 10.5 11.6039 10.5 12C10.5 12.5311 10.289 13.0404 9.91348 13.416C9.53794 13.7915 9.0286 14.0025 8.4975 14.0025V14.0025ZM15.2475 14.0025C14.8514 14.0025 14.4643 13.8851 14.135 13.665C13.8057 13.445 13.549 13.1322 13.3974 12.7663C13.2459 12.4004 13.2062 11.9978 13.2835 11.6093C13.3607 11.2209 13.5515 10.8641 13.8315 10.584C14.1116 10.304 14.4684 10.1132 14.8568 10.036C15.2453 9.95871 15.6479 9.99837 16.0138 10.1499C16.3797 10.3015 16.6925 10.5582 16.9125 10.8875C17.1326 11.2168 17.25 11.6039 17.25 12C17.25 12.263 17.1982 12.5234 17.0976 12.7663C16.9969 13.0093 16.8494 13.23 16.6635 13.416C16.4775 13.6019 16.2568 13.7494 16.0138 13.8501C15.7709 13.9507 15.5105 14.0025 15.2475 14.0025V14.0025Z"

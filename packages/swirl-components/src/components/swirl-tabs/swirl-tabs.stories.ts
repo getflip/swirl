@@ -2,30 +2,30 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-tabs.mdx";
 
 export default {
-  component: "flip-tabs",
+  component: "swirl-tabs",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipTabs",
+  title: "Components/SwirlTabs",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-tabs", args);
+  const element = generateStoryElement("swirl-tabs", args);
 
   element.innerHTML = `
-    <flip-tab label="Tab #1" tab-id="tab-1">Tab 1</flip-tab>
-    <flip-tab label="Tab #2" tab-id="tab-2">Tab 2</flip-tab>
-    <flip-tab label="Tab Number 3" tab-id="tab-3">Tab 3</flip-tab>
+    <swirl-tab label="Tab #1" tab-id="tab-1">Tab 1</swirl-tab>
+    <swirl-tab label="Tab #2" tab-id="tab-2">Tab 2</swirl-tab>
+    <swirl-tab label="Tab Number 3" tab-id="tab-3">Tab 3</swirl-tab>
   `;
 
   return element;
 };
 
-export const FlipTabs = Template.bind({});
+export const SwirlTabs = Template.bind({});
 
-FlipTabs.args = {
+SwirlTabs.args = {
   initialTab: "tab-2",
   label: "Tabs",
 };

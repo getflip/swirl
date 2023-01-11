@@ -1,12 +1,12 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipBadge } from "./swirl-badge";
+import { SwirlBadge } from "./swirl-badge";
 
-describe("flip-badge", () => {
+describe("swirl-badge", () => {
   it("shows its label", async () => {
     const page = await newSpecPage({
-      components: [FlipBadge],
-      html: `<flip-badge label="Label"></flip-badge>`,
+      components: [SwirlBadge],
+      html: `<swirl-badge label="Label"></swirl-badge>`,
     });
 
     expect(page.root.shadowRoot.innerHTML).toMatchInlineSnapshot(
@@ -16,12 +16,12 @@ describe("flip-badge", () => {
 
   it("shows its icon", async () => {
     const page = await newSpecPage({
-      components: [FlipBadge],
-      html: `<flip-badge label="Label" icon="<flip-icon-close></flip-icon-close>"></flip-badge>`,
+      components: [SwirlBadge],
+      html: `<swirl-badge label="Label" icon="<swirl-icon-close></swirl-icon-close>"></swirl-badge>`,
     });
 
     expect(page.root.shadowRoot.innerHTML).toMatchInlineSnapshot(
-      `"<span class=\\"badge badge--intent-critical badge--size-m badge--variant-default badge--has-icon\\"><span class=\\"badge__icon\\"><flip-icon-close></flip-icon-close></span></span>"`
+      `"<span class=\\"badge badge--intent-critical badge--size-m badge--variant-default badge--has-icon\\"><span class=\\"badge__icon\\"><swirl-icon-close></swirl-icon-close></span></span>"`
     );
 
     expect(page.root.querySelector(".badge__icon")).toBeDefined();
@@ -30,8 +30,8 @@ describe("flip-badge", () => {
 
   it("renders different intents", async () => {
     const page = await newSpecPage({
-      components: [FlipBadge],
-      html: `<flip-badge label="Label" intent="decorative-1"></flip-badge>`,
+      components: [SwirlBadge],
+      html: `<swirl-badge label="Label" intent="decorative-1"></swirl-badge>`,
     });
 
     expect(
@@ -43,8 +43,8 @@ describe("flip-badge", () => {
 
   it("renders different sizes", async () => {
     const page = await newSpecPage({
-      components: [FlipBadge],
-      html: `<flip-badge label="Label" size="s"></flip-badge>`,
+      components: [SwirlBadge],
+      html: `<swirl-badge label="Label" size="s"></swirl-badge>`,
     });
 
     expect(
@@ -54,8 +54,8 @@ describe("flip-badge", () => {
 
   it("renders different variants", async () => {
     const page = await newSpecPage({
-      components: [FlipBadge],
-      html: `<flip-badge label="Label" variant="dot"></flip-badge>`,
+      components: [SwirlBadge],
+      html: `<swirl-badge label="Label" variant="dot"></swirl-badge>`,
     });
 
     expect(

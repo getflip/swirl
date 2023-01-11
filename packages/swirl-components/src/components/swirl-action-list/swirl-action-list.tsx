@@ -7,9 +7,9 @@ import { querySelectorAllDeep } from "../../utils";
 @Component({
   shadow: true,
   styleUrl: "swirl-action-list.css",
-  tag: "flip-action-list",
+  tag: "swirl-action-list",
 })
-export class FlipActionList {
+export class SwirlActionList {
   @Element() el: HTMLElement;
 
   private items: HTMLElement[];

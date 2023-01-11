@@ -1,7 +1,7 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipCheckboxState = boolean | "true" | "false" | "indeterminate";
+export type SwirlCheckboxState = boolean | "true" | "false" | "indeterminate";
 
 @Component({
   /**
@@ -13,14 +13,14 @@ export type FlipCheckboxState = boolean | "true" | "false" | "indeterminate";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-checkbox.css",
-  tag: "flip-checkbox",
+  tag: "swirl-checkbox",
 })
-export class FlipCheckbox {
-  @Prop({ mutable: true }) checked?: FlipCheckboxState = false;
+export class SwirlCheckbox {
+  @Prop({ mutable: true }) checked?: SwirlCheckboxState = false;
   @Prop() description?: string;
   @Prop() disabled?: boolean = false;
-  @Prop() flipAriaDescribedby?: string;
-  @Prop() flipAriaLabel?: string;
+  @Prop() swirlAriaDescribedby?: string;
+  @Prop() swirlAriaLabel?: string;
   @Prop() inputId!: string;
   @Prop() inputName!: string;
   @Prop() invalid?: boolean;
@@ -71,12 +71,12 @@ export class FlipCheckbox {
       <Host>
         <label class={className} htmlFor={this.inputId}>
           <span class="checkbox__control">
-            <flip-visually-hidden>
+            <swirl-visually-hidden>
               <input
                 aria-checked={ariaCheckedLabel}
-                aria-describedby={this.flipAriaDescribedby}
+                aria-describedby={this.swirlAriaDescribedby}
                 aria-invalid={ariaInvalid}
-                aria-label={this.flipAriaLabel}
+                aria-label={this.swirlAriaLabel}
                 checked={checked}
                 class="checkbox__input"
                 disabled={this.disabled}
@@ -87,10 +87,10 @@ export class FlipCheckbox {
                 type="checkbox"
                 value={this.value}
               />
-            </flip-visually-hidden>
+            </swirl-visually-hidden>
             <span aria-hidden="true" class="checkbox__box">
               <span class="checkbox__icon">
-                {checked && <flip-icon-check-strong></flip-icon-check-strong>}
+                {checked && <swirl-icon-check-strong></swirl-icon-check-strong>}
                 {indeterminate && (
                   <span class="checkbox__indeterminate-icon"></span>
                 )}

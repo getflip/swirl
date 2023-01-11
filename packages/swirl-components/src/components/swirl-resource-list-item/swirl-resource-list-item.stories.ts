@@ -2,41 +2,41 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-resource-list-item.mdx";
 
 export default {
-  component: "flip-resource-list-item",
+  component: "swirl-resource-list-item",
   parameters: {
     docs: {
       page: Docs,
       source: {
-        code: `<flip-resource-list-item
+        code: `<swirl-resource-list-item
   description="With a description"
   label="This is a resource item"
-  media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></flip-avatar>"
+  media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"
   menu-trigger-id="trigger"
 >
-</flip-resource-list-item>
+</swirl-resource-list-item>
 
-<flip-popover label="Popover" popover-id="popover" trigger="trigger">
-  <flip-action-list>
-    <flip-action-list-item
-      icon="<flip-icon-mention></flip-icon-mention>"
+<swirl-popover label="Popover" popover-id="popover" trigger="trigger">
+  <swirl-action-list>
+    <swirl-action-list-item
+      icon="<swirl-icon-mention></swirl-icon-mention>"
       label="Action item 1"
-    ></flip-action-list-item>
-    <flip-action-list-item
-      icon="<flip-icon-mention></flip-icon-mention>"
+    ></swirl-action-list-item>
+    <swirl-action-list-item
+      icon="<swirl-icon-mention></swirl-icon-mention>"
       label="Action item 2"
-    ></flip-action-list-item>
-  </flip-action-list>
-</flip-popover>`,
+    ></swirl-action-list-item>
+  </swirl-action-list>
+</swirl-popover>`,
       },
     },
   },
-  title: "Components/FlipResourceListItem",
+  title: "Components/SwirlResourceListItem",
 };
 
 const Template = (args) => {
   const container = document.createElement("div");
-  const popover = document.createElement("flip-popover");
-  const element = generateStoryElement("flip-resource-list-item", args);
+  const popover = document.createElement("swirl-popover");
+  const element = generateStoryElement("swirl-resource-list-item", args);
 
   container.setAttribute("aria-label", "List");
   container.setAttribute("role", "grid");
@@ -46,16 +46,16 @@ const Template = (args) => {
   popover.trigger = "trigger";
 
   popover.innerHTML = `
-    <flip-action-list>
-      <flip-action-list-item
-        icon="<flip-icon-mention></flip-icon-mention>"
+    <swirl-action-list>
+      <swirl-action-list-item
+        icon="<swirl-icon-mention></swirl-icon-mention>"
         label="Action item 1"
-      ></flip-action-list-item>
-      <flip-action-list-item
-        icon="<flip-icon-mention></flip-icon-mention>"
+      ></swirl-action-list-item>
+      <swirl-action-list-item
+        icon="<swirl-icon-mention></swirl-icon-mention>"
         label="Action item 2"
-      ></flip-action-list-item>
-    </flip-action-list>
+      ></swirl-action-list-item>
+    </swirl-action-list>
   `;
 
   container.append(element, popover);
@@ -63,11 +63,11 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipResourceListItem = Template.bind({});
+export const SwirlResourceListItem = Template.bind({});
 
-FlipResourceListItem.args = {
+SwirlResourceListItem.args = {
   description: "With a description",
   label: "This is a resource item",
-  media: `<flip-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" size="s"></flip-avatar>`,
+  media: `<swirl-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" size="s"></swirl-avatar>`,
   menuTriggerId: "trigger",
 };

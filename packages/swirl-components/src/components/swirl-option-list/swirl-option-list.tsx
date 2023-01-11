@@ -8,7 +8,7 @@ import {
   Prop,
   Watch,
 } from "@stencil/core";
-import { FlipFormInput, querySelectorAllDeep } from "../../utils";
+import { SwirlFormInput, querySelectorAllDeep } from "../../utils";
 
 @Component({
   /**
@@ -20,9 +20,9 @@ import { FlipFormInput, querySelectorAllDeep } from "../../utils";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-option-list.css",
-  tag: "flip-option-list",
+  tag: "swirl-option-list",
 })
-export class FlipOptionList implements FlipFormInput<string[]> {
+export class SwirlOptionList implements SwirlFormInput<string[]> {
   @Element() el: HTMLElement;
 
   @Prop() disabled?: boolean;
@@ -34,7 +34,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
   @Event() valueChange: EventEmitter<string[]>;
 
   private focusedItem: HTMLElement;
-  private items: HTMLFlipOptionListItemElement[];
+  private items: HTMLSwirlOptionListItemElement[];
   private listboxEl: HTMLDivElement;
   private observer: MutationObserver;
 
@@ -77,7 +77,7 @@ export class FlipOptionList implements FlipFormInput<string[]> {
     event.preventDefault();
 
     const target = event.target as HTMLElement;
-    const item = target?.closest("flip-option-list-item");
+    const item = target?.closest("swirl-option-list-item");
 
     if (!Boolean(item)) {
       return;
@@ -121,9 +121,9 @@ export class FlipOptionList implements FlipFormInput<string[]> {
   }
 
   private updateItems() {
-    this.items = querySelectorAllDeep<HTMLFlipOptionListItemElement>(
+    this.items = querySelectorAllDeep<HTMLSwirlOptionListItemElement>(
       this.el,
-      "flip-option-list-item"
+      "swirl-option-list-item"
     );
   }
 

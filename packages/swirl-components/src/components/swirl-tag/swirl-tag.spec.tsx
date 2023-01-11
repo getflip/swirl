@@ -1,29 +1,29 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipTag } from "./swirl-tag";
+import { SwirlTag } from "./swirl-tag";
 
-describe("flip-tag", () => {
+describe("swirl-tag", () => {
   it("renders the label", async () => {
     const page = await newSpecPage({
-      components: [FlipTag],
-      html: `<flip-tag intent="info" label="Label"></flip-tag>`,
+      components: [SwirlTag],
+      html: `<swirl-tag intent="info" label="Label"></swirl-tag>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-tag intent="info" label="Label">
+      <swirl-tag intent="info" label="Label">
         <mock:shadow-root>
           <span class="tag tag--intent-info">
             Label
           </span>
         </mock:shadow-root>
-      </flip-tag>
+      </swirl-tag>
     `);
   });
 
   it("can be removed", async () => {
     const page = await newSpecPage({
-      components: [FlipTag],
-      html: `<flip-tag label="Label" removable="true" removal-button-label="Remove this one"></flip-tag>`,
+      components: [SwirlTag],
+      html: `<swirl-tag label="Label" removable="true" removal-button-label="Remove this one"></swirl-tag>`,
     });
 
     const removalButton = page.root.shadowRoot.querySelector("button");

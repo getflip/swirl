@@ -16,10 +16,10 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { debounce, FlipFormInput } from "../../utils";
-import { FlipTextInputMode } from "../swirl-text-input/swirl-text-input";
+import { debounce, SwirlFormInput } from "../../utils";
+import { SwirlTextInputMode } from "../swirl-text-input/swirl-text-input";
 
-export type FlipAutocompleteSuggestion = {
+export type SwirlAutocompleteSuggestion = {
   disabled?: boolean;
   id: string;
   label: string;
@@ -35,23 +35,23 @@ export type FlipAutocompleteSuggestion = {
   scoped: true,
   shadow: false,
   styleUrl: "swirl-autocomplete.css",
-  tag: "flip-autocomplete",
+  tag: "swirl-autocomplete",
 })
-export class FlipAutocomplete implements FlipFormInput {
+export class SwirlAutocomplete implements SwirlFormInput {
   @Element() el: HTMLElement;
 
   @Prop() autoSelect?: boolean;
   @Prop() clearable?: boolean = true;
   @Prop() clearButtonLabel?: string = "Clear input";
   @Prop() disabled?: boolean;
-  @Prop() flipAriaDescribedby?: string;
+  @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true }) generateSuggestions?: (
     currentValue: string
-  ) => Promise<FlipAutocompleteSuggestion[]> = async () => [];
+  ) => Promise<SwirlAutocompleteSuggestion[]> = async () => [];
   @Prop() invalid?: boolean;
   @Prop() maxLength?: number;
   @Prop() menuLabel?: string = "Suggestions";
-  @Prop() mode?: FlipTextInputMode;
+  @Prop() mode?: SwirlTextInputMode;
   @Prop() required?: boolean;
   @Prop() spellCheck?: boolean;
   @Prop({ mutable: true, reflect: true }) value?: string;
@@ -59,18 +59,18 @@ export class FlipAutocomplete implements FlipFormInput {
   @State() active: boolean = false;
   @State() loading: boolean = false;
   @State() position: ComputePositionReturn;
-  @State() suggestions: FlipAutocompleteSuggestion[] = [];
+  @State() suggestions: SwirlAutocompleteSuggestion[] = [];
 
   @Event() valueChange: EventEmitter<string>;
 
   private disableAutoUpdate: any;
   private id: string;
   private listboxContainerEl: HTMLDivElement;
-  private listboxEl: HTMLFlipOptionListElement;
-  private inputEl: HTMLFlipTextInputElement;
+  private listboxEl: HTMLSwirlOptionListElement;
+  private inputEl: HTMLSwirlTextInputElement;
 
   componentWillLoad() {
-    const index = document.querySelectorAll("flip-datepicker").length;
+    const index = document.querySelectorAll("swirl-datepicker").length;
 
     this.id = `autocomplete-${index}`;
   }
@@ -206,18 +206,18 @@ export class FlipAutocomplete implements FlipFormInput {
           onFocusout={this.onFocusOut}
           onKeyDown={this.onKeyDown}
         >
-          <flip-text-input
+          <swirl-text-input
             autoSelect={this.autoSelect}
             class="autocomplete__input"
             clearable={this.clearable}
             clearButtonLabel={this.clearButtonLabel}
             disabled={this.disabled}
             disableDynamicWidth
-            flipAriaAutocomplete="list"
-            flipAriaControls={suggestionsMenuId}
-            flipAriaDescribedby={this.flipAriaDescribedby}
-            flipAriaExpanded={String(this.active)}
-            flipRole="combobox"
+            swirlAriaAutocomplete="list"
+            swirlAriaControls={suggestionsMenuId}
+            swirlAriaDescribedby={this.swirlAriaDescribedby}
+            swirlAriaExpanded={String(this.active)}
+            swirlRole="combobox"
             id={this.id}
             invalid={this.invalid}
             onInputFocus={this.onFocus}
@@ -229,7 +229,7 @@ export class FlipAutocomplete implements FlipFormInput {
             required={this.required}
             spellCheck={this.spellCheck}
             value={this.value}
-          ></flip-text-input>
+          ></swirl-text-input>
 
           <div
             class="autocomplete__listbox-container"
@@ -242,10 +242,10 @@ export class FlipAutocomplete implements FlipFormInput {
           >
             {this.loading && (
               <div class="autocomplete__spinner">
-                <flip-spinner></flip-spinner>
+                <swirl-spinner></swirl-spinner>
               </div>
             )}
-            <flip-option-list
+            <swirl-option-list
               label={this.menuLabel}
               onValueChange={this.onSelect}
               optionListId={suggestionsMenuId}
@@ -253,15 +253,15 @@ export class FlipAutocomplete implements FlipFormInput {
               value={[this.value]}
             >
               {this.suggestions.map((suggestion) => (
-                <flip-option-list-item
+                <swirl-option-list-item
                   selected={this.value === suggestion.label}
                   key={suggestion.id}
                   disabled={suggestion.disabled}
                   label={suggestion.label}
                   value={suggestion.label}
-                ></flip-option-list-item>
+                ></swirl-option-list-item>
               ))}
-            </flip-option-list>
+            </swirl-option-list>
           </div>
         </div>
       </Host>

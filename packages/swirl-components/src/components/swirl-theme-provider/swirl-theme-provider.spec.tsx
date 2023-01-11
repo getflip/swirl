@@ -1,8 +1,8 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipThemeProvider } from "./swirl-theme-provider";
+import { SwirlThemeProvider } from "./swirl-theme-provider";
 
-describe("flip-theme-provider", () => {
+describe("swirl-theme-provider", () => {
   beforeAll(() => {
     Object.defineProperty(window, "matchMedia", {
       writable: true,
@@ -15,19 +15,19 @@ describe("flip-theme-provider", () => {
 
   it("renders its children", async () => {
     const page = await newSpecPage({
-      components: [FlipThemeProvider],
-      html: `<flip-theme-provider>Content</flip-theme-provider>`,
+      components: [SwirlThemeProvider],
+      html: `<swirl-theme-provider>Content</swirl-theme-provider>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-theme-provider>Content</flip-theme-provider>
+      <swirl-theme-provider>Content</swirl-theme-provider>
     `);
   });
 
   it("detects changes to the OS theme setting", async () => {
     const page = await newSpecPage({
-      components: [FlipThemeProvider],
-      html: `<flip-theme-provider></flip-theme-provider>`,
+      components: [SwirlThemeProvider],
+      html: `<swirl-theme-provider></swirl-theme-provider>`,
     });
 
     expect(await page.root.getActiveTheme()).toBe("dark");
@@ -35,8 +35,8 @@ describe("flip-theme-provider", () => {
 
   it("overrides the os theme with a preferred user theme", async () => {
     const page = await newSpecPage({
-      components: [FlipThemeProvider],
-      html: `<flip-theme-provider></flip-theme-provider>`,
+      components: [SwirlThemeProvider],
+      html: `<swirl-theme-provider></swirl-theme-provider>`,
     });
 
     expect(await page.root.getActiveTheme()).toBe("dark");
@@ -55,8 +55,8 @@ describe("flip-theme-provider", () => {
 
   it("adds custom tenant color properties", async () => {
     const page = await newSpecPage({
-      components: [FlipThemeProvider],
-      html: `<flip-theme-provider></flip-theme-provider>`,
+      components: [SwirlThemeProvider],
+      html: `<swirl-theme-provider></swirl-theme-provider>`,
     });
 
     page.root.config = {

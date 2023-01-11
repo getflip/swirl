@@ -1,23 +1,23 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipActionList } from "./swirl-action-list";
+import { SwirlActionList } from "./swirl-action-list";
 
-describe("flip-action-list", () => {
+describe("swirl-action-list", () => {
   const template = `
-    <flip-action-list>
+    <swirl-action-list>
       <button role="menuitem" tabindex="-1" type="button">Item</button>
       <button role="menuitem" tabindex="-1" type="button">Item</button>
-    </flip-action-list>
+    </swirl-action-list>
   `;
 
   it("renders its children", async () => {
     const page = await newSpecPage({
-      components: [FlipActionList],
+      components: [SwirlActionList],
       html: template,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-action-list>
+      <swirl-action-list>
         <mock:shadow-root>
           <div aria-orientation="vertical" class="action-list" role="menu">
             <slot></slot>
@@ -29,13 +29,13 @@ describe("flip-action-list", () => {
         <button role="menuitem" tabindex="-1" type="button">
           Item
         </button>
-      </flip-action-list>
+      </swirl-action-list>
     `);
   });
 
   it("cycles through the menu items", async () => {
     const page = await newSpecPage({
-      components: [FlipActionList],
+      components: [SwirlActionList],
       html: template,
     });
 

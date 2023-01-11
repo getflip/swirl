@@ -2,31 +2,31 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-stack.mdx";
 
 export default {
-  component: "flip-stack",
+  component: "swirl-stack",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipStack",
+  title: "Components/SwirlStack",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-stack", args);
+  const element = generateStoryElement("swirl-stack", args);
 
   element.innerHTML = `
-    <flip-badge label="Dennis" intent="banana"></flip-badge>
-    <flip-badge label="Lennart" intent="blueberry"></flip-badge>
-    <flip-badge label="Jan" intent="chilli"></flip-badge>
-    <flip-badge label="Konsti" intent="critical"></flip-badge>
-    <flip-badge label="Adam" intent="grape"></flip-badge>
-    <flip-badge label="Dario" intent="kiwi"></flip-badge>
-    <flip-badge label="Fabi" intent="pumpkin"></flip-badge>
+    <swirl-badge label="Dennis" intent="banana"></swirl-badge>
+    <swirl-badge label="Lennart" intent="blueberry"></swirl-badge>
+    <swirl-badge label="Jan" intent="chilli"></swirl-badge>
+    <swirl-badge label="Konsti" intent="critical"></swirl-badge>
+    <swirl-badge label="Adam" intent="grape"></swirl-badge>
+    <swirl-badge label="Dario" intent="kiwi"></swirl-badge>
+    <swirl-badge label="Fabi" intent="pumpkin"></swirl-badge>
   `;
 
   return element;
 };
 
-export const FlipStack = Template.bind({});
+export const SwirlStack = Template.bind({});
 
-FlipStack.args = {};
+SwirlStack.args = {};

@@ -1,22 +1,22 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipLink } from "./swirl-link";
+import { SwirlLink } from "./swirl-link";
 
-describe("flip-link", () => {
+describe("swirl-link", () => {
   it("renders its label", async () => {
     const page = await newSpecPage({
-      components: [FlipLink],
-      html: `<flip-link href="/" label="Label"></flip-link>`,
+      components: [SwirlLink],
+      html: `<swirl-link href="/" label="Label"></swirl-link>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-link href="/" label="Label">
+      <swirl-link href="/" label="Label">
         <mock:shadow-root>
           <a class="link" href="/">
             Label
           </a>
         </mock:shadow-root>
-      </flip-link>
+      </swirl-link>
     `);
   });
 });

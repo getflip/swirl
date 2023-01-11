@@ -1,34 +1,34 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipFormGroup } from "./swirl-form-group";
+import { SwirlFormGroup } from "./swirl-form-group";
 
-describe("flip-form-group", () => {
+describe("swirl-form-group", () => {
   it("renders its controls", async () => {
     const page = await newSpecPage({
-      components: [FlipFormGroup],
+      components: [SwirlFormGroup],
       html: `
-        <flip-form-group orientation="horizontal">
-          <flip-form-control label="First name">
-            <flip-text-input type="text" value="John"></flip-text-input>
-          </flip-form-control>
-          <flip-form-control label="Last name">
-            <flip-text-input type="text" value="Doe"></flip-text-input>
-          </flip-form-control>
-        </flip-form-group>
+        <swirl-form-group orientation="horizontal">
+          <swirl-form-control label="First name">
+            <swirl-text-input type="text" value="John"></swirl-text-input>
+          </swirl-form-control>
+          <swirl-form-control label="Last name">
+            <swirl-text-input type="text" value="Doe"></swirl-text-input>
+          </swirl-form-control>
+        </swirl-form-group>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-form-group orientation="horizontal">
+      <swirl-form-group orientation="horizontal">
         <div class="form-group form-group--orientation-horizontal">
-          <flip-form-control label="First name">
-            <flip-text-input type="text" value="John"></flip-text-input>
-          </flip-form-control>
-          <flip-form-control label="Last name">
-            <flip-text-input type="text" value="Doe"></flip-text-input>
-          </flip-form-control>
+          <swirl-form-control label="First name">
+            <swirl-text-input type="text" value="John"></swirl-text-input>
+          </swirl-form-control>
+          <swirl-form-control label="Last name">
+            <swirl-text-input type="text" value="Doe"></swirl-text-input>
+          </swirl-form-control>
         </div>
-      </flip-form-group>
+      </swirl-form-group>
     `);
   });
 });

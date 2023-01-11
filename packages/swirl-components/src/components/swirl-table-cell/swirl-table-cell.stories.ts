@@ -2,23 +2,23 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-table-cell.mdx";
 
 export default {
-  component: "flip-table-cell",
+  component: "swirl-table-cell",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipTableCell",
+  title: "Components/SwirlTableCell",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-table-cell", args);
+  const element = generateStoryElement("swirl-table-cell", args);
 
   element.innerHTML = `Table cell`;
 
   return element;
 };
 
-export const FlipTableCell = Template.bind({});
+export const SwirlTableCell = Template.bind({});
 
-FlipTableCell.args = {};
+SwirlTableCell.args = {};

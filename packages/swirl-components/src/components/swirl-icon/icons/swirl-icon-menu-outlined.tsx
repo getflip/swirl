@@ -1,24 +1,29 @@
 // DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
 
 import { Component, Fragment, h, Prop } from "@stencil/core";
-import { FlipIconSize } from "../swirl-icon.types";
+import { SwirlIconSize } from "../swirl-icon.types";
+import classnames from "classnames";
 
 @Component({
   shadow: true,
   styleUrl: "../swirl-icon.css",
-  tag: "flip-icon-menu-outlined",
+  tag: "swirl-icon-menu-outlined",
 })
-export class FlipIconMenuOutlined {
-  @Prop() size: FlipIconSize = 24;
+export class SwirlIconMenuOutlined {
+  @Prop() size: SwirlIconSize = 24;
 
   render() {
+    const viewBoxSize = this.size === 20 ? 24 : this.size;
+
+    const className = classnames("swirl-icon", `swirl-icon--size-${this.size}`);
+
     return (
       <svg
-        class="flip-icon"
+        class={className}
         fill="none"
         height={this.size}
         part="icon"
-        viewBox={`0 0 ${this.size} ${this.size}`}
+        viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -42,7 +47,7 @@ export class FlipIconMenuOutlined {
             />
           </Fragment>
         )}
-        {this.size === 24 && (
+        {(this.size === 20 || this.size === 24) && (
           <Fragment>
             <path
               d="M8.75024 5.00024C8.94916 5.00024 9.13992 5.07926 9.28057 5.21991C9.42123 5.36057 9.50024 5.55133 9.50024 5.75024V8.75024C9.50024 8.94916 9.42123 9.13992 9.28057 9.28057C9.13992 9.42123 8.94916 9.50024 8.75024 9.50024H5.75024C5.55133 9.50024 5.36057 9.42123 5.21991 9.28057C5.07926 9.13992 5.00024 8.94916 5.00024 8.75024V5.75024C5.00024 5.55133 5.07926 5.36057 5.21991 5.21991C5.36057 5.07926 5.55133 5.00024 5.75024 5.00024H8.75024ZM8.75024 3.50024H5.75024C5.15351 3.50024 4.58121 3.7373 4.15925 4.15925C3.7373 4.58121 3.50024 5.15351 3.50024 5.75024V8.75024C3.50024 9.34698 3.7373 9.91928 4.15925 10.3412C4.58121 10.7632 5.15351 11.0002 5.75024 11.0002H8.75024C9.34698 11.0002 9.91928 10.7632 10.3412 10.3412C10.7632 9.91928 11.0002 9.34698 11.0002 8.75024V5.75024C11.0002 5.15351 10.7632 4.58121 10.3412 4.15925C9.91928 3.7373 9.34698 3.50024 8.75024 3.50024Z"

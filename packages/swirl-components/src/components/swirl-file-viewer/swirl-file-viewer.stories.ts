@@ -14,37 +14,37 @@ export default {
       description: "Applicable to PDFs only.",
     },
   },
-  component: "flip-file-viewer",
+  component: "swirl-file-viewer",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipFileViewer",
+  title: "Components/SwirlFileViewer",
 };
 
 const Template = (args) => {
-  const container = document.createElement("flip-stack");
+  const container = document.createElement("swirl-stack");
   container.spacing = "24";
 
   const element = generateStoryElement(
-    "flip-file-viewer",
+    "swirl-file-viewer",
     args
-  ) as HTMLFlipFileViewerElement;
+  ) as HTMLSwirlFileViewerElement;
 
   element.style.height = "clamp(400px, 90vh, 700px)";
 
-  const tools = document.createElement("flip-stack");
+  const tools = document.createElement("swirl-stack");
   tools.orientation = "horizontal";
   tools.spacing = "8";
 
-  const printButton = document.createElement("flip-button");
+  const printButton = document.createElement("swirl-button");
   printButton.setAttribute("label", "Print");
   printButton.addEventListener("click", () => {
     element.print();
   });
 
-  const downloadButton = document.createElement("flip-button");
+  const downloadButton = document.createElement("swirl-button");
   downloadButton.setAttribute("label", "Download");
   downloadButton.addEventListener("click", () => {
     element.download();
@@ -61,9 +61,9 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipFileViewer = Template.bind({});
+export const SwirlFileViewer = Template.bind({});
 
-FlipFileViewer.args = {
+SwirlFileViewer.args = {
   file: "/sample.pdf",
   type: "application/pdf",
 };

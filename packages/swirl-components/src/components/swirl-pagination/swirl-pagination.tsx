@@ -1,14 +1,14 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipPaginationVariant = "default" | "simple" | "advanced";
+export type SwirlPaginationVariant = "default" | "simple" | "advanced";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-pagination.css",
-  tag: "flip-pagination",
+  tag: "swirl-pagination",
 })
-export class FlipPagination {
+export class SwirlPagination {
   @Prop() accessibleNextButtonLabel?: string = "Next page";
   @Prop() accessiblePrevButtonLabel?: string = "Previous page";
   @Prop() nextButtonLabel?: string = "Next";
@@ -18,7 +18,7 @@ export class FlipPagination {
   @Prop() page!: number;
   @Prop() pages!: number;
   @Prop() pageSelectLabel?: string = "Select a page";
-  @Prop() variant?: FlipPaginationVariant = "default";
+  @Prop() variant?: SwirlPaginationVariant = "default";
 
   @Event() setPage: EventEmitter<number>;
 
@@ -69,16 +69,16 @@ export class FlipPagination {
         <nav aria-label={this.label} class={className}>
           <ul class="pagination__list">
             <li class="pagination__list-item">
-              <flip-button
+              <swirl-button
                 class="pagination__prev-button"
                 disabled={this.page <= 1}
-                flipAriaLabel={this.accessiblePrevButtonLabel}
+                swirlAriaLabel={this.accessiblePrevButtonLabel}
                 hideLabel={hideButtonLabels}
-                icon="<flip-icon-chevron-left></flip-icon-chevron-left>"
+                icon="<swirl-icon-chevron-left></swirl-icon-chevron-left>"
                 intent="primary"
                 label={this.prevButtonLabel}
                 onClick={this.onPrevButtonClick}
-              ></flip-button>
+              ></swirl-button>
             </li>
             {showPageLabel ? (
               <li class="pagination__list-item">
@@ -106,11 +106,11 @@ export class FlipPagination {
                               </option>
                             ))}
                         </select>
-                        <flip-icon-expand-more
+                        <swirl-icon-expand-more
                           aria-hidden="true"
                           class="pagination__page-select-icon"
                           size={16}
-                        ></flip-icon-expand-more>
+                        ></swirl-icon-expand-more>
                       </span>
                       <span aria-hidden="true">
                         {this.pageLabel} {this.pages}
@@ -123,23 +123,23 @@ export class FlipPagination {
               </li>
             ) : (
               <li class="pagination__list-item">
-                <flip-visually-hidden>
+                <swirl-visually-hidden>
                   <span aria-current="page">{ariaPageLabel}</span>
-                </flip-visually-hidden>
+                </swirl-visually-hidden>
               </li>
             )}
             <li class="pagination__list-item">
-              <flip-button
+              <swirl-button
                 class="pagination__next-button"
                 disabled={this.page >= this.pages}
-                flipAriaLabel={this.accessibleNextButtonLabel}
+                swirlAriaLabel={this.accessibleNextButtonLabel}
                 hideLabel={hideButtonLabels}
-                icon="<flip-icon-chevron-right></flip-icon-chevron-right>"
+                icon="<swirl-icon-chevron-right></swirl-icon-chevron-right>"
                 iconPosition="end"
                 intent="primary"
                 label={this.nextButtonLabel}
                 onClick={this.onNextButtonClick}
-              ></flip-button>
+              ></swirl-button>
             </li>
           </ul>
         </nav>

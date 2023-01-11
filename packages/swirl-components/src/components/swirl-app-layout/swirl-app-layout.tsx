@@ -13,16 +13,16 @@ import {
 import classnames from "classnames";
 import { isMobileViewport } from "../../utils";
 
-export type FlipAppLayoutMobileView = "navigation" | "body" | "sidebar";
+export type SwirlAppLayoutMobileView = "navigation" | "body" | "sidebar";
 
-export type FlipAppLayoutTransitionStyle = "none" | "slides" | "dialog";
+export type SwirlAppLayoutTransitionStyle = "none" | "slides" | "dialog";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-app-layout.css",
-  tag: "flip-app-layout",
+  tag: "swirl-app-layout",
 })
-export class FlipAppLayout {
+export class SwirlAppLayout {
   @Element() el: HTMLElement;
 
   @Prop() appBarMedia?: string;
@@ -41,14 +41,14 @@ export class FlipAppLayout {
 
   @State() hasNavigation: boolean;
   @State() hasSidebar: boolean;
-  @State() mobileView: FlipAppLayoutMobileView = "navigation";
+  @State() mobileView: SwirlAppLayoutMobileView = "navigation";
   @State() sidebarActive: boolean;
   @State() sidebarClosing: boolean;
   @State() transitioningFrom: string;
   @State() transitioningTo: string;
 
   @Event() ctaClick: EventEmitter<MouseEvent>;
-  @Event() mobileViewChange: EventEmitter<FlipAppLayoutMobileView>;
+  @Event() mobileViewChange: EventEmitter<SwirlAppLayoutMobileView>;
   @Event() navigationBackButtonClick: EventEmitter<MouseEvent>;
   @Event() sidebarToggle: EventEmitter<boolean>;
 
@@ -143,7 +143,7 @@ export class FlipAppLayout {
    */
   @Method()
   async changeMobileView(
-    mobileView: FlipAppLayoutMobileView,
+    mobileView: SwirlAppLayoutMobileView,
     transition: boolean = true
   ) {
     if (
@@ -264,22 +264,22 @@ export class FlipAppLayout {
             <header class="app-layout__header">
               {this.showNavigationBackButton && (
                 <span class="app-layout__navigation-back-button">
-                  <flip-button
+                  <swirl-button
                     hideLabel
-                    icon="<flip-icon-arrow-back></flip-icon-arrow-back>"
+                    icon="<swirl-icon-arrow-back></swirl-icon-arrow-back>"
                     intent="primary"
                     label={this.navigationBackButtonLabel}
                     onClick={this.onNavigationBackButtonClick}
-                  ></flip-button>
+                  ></swirl-button>
                 </span>
               )}
-              <flip-heading
+              <swirl-heading
                 as="h1"
                 class="app-layout__app-name"
                 headingId="app-name"
                 level={2}
                 text={this.appName}
-              ></flip-heading>
+              ></swirl-heading>
               {this.hasNavigation && (
                 <span class="app-layout__navigation-controls">
                   <slot name="navigation-controls"></slot>
@@ -300,17 +300,17 @@ export class FlipAppLayout {
                 <header class="app-layout__app-bar">
                   {showBackToNavigationButton && (
                     <span class="app-layout__back-to-navigation-button">
-                      <flip-button
+                      <swirl-button
                         hideLabel
                         icon={
                           this.transitionStyle === "dialog"
-                            ? "<flip-icon-close></flip-icon-close>"
-                            : "<flip-icon-arrow-back></flip-icon-arrow-back>"
+                            ? "<swirl-icon-close></swirl-icon-close>"
+                            : "<swirl-icon-arrow-back></swirl-icon-arrow-back>"
                         }
                         intent="primary"
                         label={this.backToNavigationViewButtonLabel}
                         onClick={this.onBackToNavigationViewButtonClick}
-                      ></flip-button>
+                      ></swirl-button>
                     </span>
                   )}
                   {this.appBarMedia && (
@@ -321,12 +321,12 @@ export class FlipAppLayout {
                   )}
                   <div class="app-layout__app-bar-heading">
                     {this.heading && (
-                      <flip-heading
+                      <swirl-heading
                         as="h2"
                         headingId="heading"
                         level={4}
                         text={this.heading}
-                      ></flip-heading>
+                      ></swirl-heading>
                     )}
                     {this.subheading && (
                       <span class="app-layout__app-bar-subheading">
@@ -340,12 +340,12 @@ export class FlipAppLayout {
                 </header>
               ) : (
                 <header class="app-layout__app-bar">
-                  <flip-heading
+                  <swirl-heading
                     as="h1"
                     headingId="app-name"
                     level={2}
                     text={this.appName}
-                  ></flip-heading>
+                  ></swirl-heading>
                   <span class="app-layout__navigation-controls">
                     <slot name="navigation-controls"></slot>
                   </span>
@@ -357,21 +357,21 @@ export class FlipAppLayout {
             </section>
             <aside class="app-layout__sidebar">
               <header class="app-layout__sidebar-header">
-                <flip-button
+                <swirl-button
                   class="app-layout__sidebar-close-button"
                   hideLabel
-                  icon="<flip-icon-close></flip-icon-close>"
+                  icon="<swirl-icon-close></swirl-icon-close>"
                   intent="primary"
                   label={this.sidebarCloseButtonLabel}
                   onClick={this.onSidebarCloseButtonClick}
-                ></flip-button>
-                <flip-heading
+                ></swirl-button>
+                <swirl-heading
                   as="h3"
                   class="app-layout__sidebar-heading"
                   headingId="sidebar-heading"
                   level={2}
                   text={this.sidebarHeading}
-                ></flip-heading>
+                ></swirl-heading>
               </header>
               <div class="app-layout__sidebar-content">
                 <slot name="sidebar"></slot>
@@ -379,14 +379,14 @@ export class FlipAppLayout {
             </aside>
             {this.ctaLabel && (
               <span class="app-layout__floating-cta">
-                <flip-button
+                <swirl-button
                   hideLabel={Boolean(this.ctaIcon)}
                   icon={this.ctaIcon}
                   intent="primary"
                   label={this.ctaLabel}
                   onClick={this.onCtaClick}
                   variant="floating"
-                ></flip-button>
+                ></swirl-button>
               </span>
             )}
           </div>

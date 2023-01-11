@@ -10,7 +10,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipSwitchSize = "s" | "m";
+export type SwirlSwitchSize = "s" | "m";
 
 @Component({
   /**
@@ -22,9 +22,9 @@ export type FlipSwitchSize = "s" | "m";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-switch.css",
-  tag: "flip-switch",
+  tag: "swirl-switch",
 })
-export class FlipSwitch {
+export class SwirlSwitch {
   @Element() el: HTMLElement;
 
   @Prop({ mutable: true }) checked?: boolean = false;
@@ -32,7 +32,7 @@ export class FlipSwitch {
   @Prop() inputId!: string;
   @Prop() inputName!: string;
   @Prop() label?: string;
-  @Prop() size?: FlipSwitchSize = "m";
+  @Prop() size?: SwirlSwitchSize = "m";
   @Prop() value?: string;
 
   @Event() valueChange: EventEmitter<boolean>;
@@ -143,7 +143,7 @@ export class FlipSwitch {
             onPointerUp={this.onEndDrag}
             ref={(el) => (this.control = el)}
           >
-            <flip-visually-hidden>
+            <swirl-visually-hidden>
               <input
                 aria-checked={ariaCheckedLabel}
                 checked={on}
@@ -156,7 +156,7 @@ export class FlipSwitch {
                 type="checkbox"
                 value={this.value}
               />
-            </flip-visually-hidden>
+            </swirl-visually-hidden>
             <span
               aria-hidden="true"
               class="switch__thumb"

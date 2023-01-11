@@ -6,24 +6,24 @@ export default {
     icon: {
       table: {
         type: {
-          detail: "e.g. <flip-icon-file></flip-icon-file>",
-          summary: "flip-icon-*",
+          detail: "e.g. <swirl-icon-file></swirl-icon-file>",
+          summary: "swirl-icon-*",
         },
       },
     },
   },
-  component: "flip-resource-list-file-item",
+  component: "swirl-resource-list-file-item",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipResourceListFileItem",
+  title: "Components/SwirlResourceListFileItem",
 };
 
 const Template = (args) => {
   const container = document.createElement("div");
-  const element = generateStoryElement("flip-resource-list-file-item", args);
+  const element = generateStoryElement("swirl-resource-list-file-item", args);
 
   container.setAttribute("aria-label", "List");
   container.setAttribute("role", "grid");
@@ -33,9 +33,9 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipResourceListFileItem = Template.bind({});
+export const SwirlResourceListFileItem = Template.bind({});
 
-FlipResourceListFileItem.args = {
+SwirlResourceListFileItem.args = {
   description: "12MB",
   label: "Design_final-final-12.png",
   removable: true,

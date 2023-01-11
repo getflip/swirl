@@ -2,13 +2,13 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-action-list-section.mdx";
 
 export default {
-  component: "flip-action-list-section",
+  component: "swirl-action-list-section",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipActionListSection",
+  title: "Components/SwirlActionListSection",
 };
 
 const Template = (args) => {
@@ -16,12 +16,12 @@ const Template = (args) => {
 
   container.setAttribute("role", "menu");
 
-  const element = generateStoryElement("flip-action-list-section", args);
+  const element = generateStoryElement("swirl-action-list-section", args);
 
   element.innerHTML = `
-    <flip-action-list-item label="This is an action"></flip-action-list-item>
-    <flip-action-list-item label="This is an action"></flip-action-list-item>
-    <flip-action-list-item label="This is an action"></flip-action-list-item>
+    <swirl-action-list-item label="This is an action"></swirl-action-list-item>
+    <swirl-action-list-item label="This is an action"></swirl-action-list-item>
+    <swirl-action-list-item label="This is an action"></swirl-action-list-item>
   `;
 
   container.append("\n  ", element, "\n");
@@ -29,8 +29,8 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipActionListSection = Template.bind({});
+export const SwirlActionListSection = Template.bind({});
 
-FlipActionListSection.args = {
+SwirlActionListSection.args = {
   label: "Section label",
 };

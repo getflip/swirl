@@ -2,21 +2,21 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-separator.mdx";
 
 export default {
-  component: "flip-separator",
+  component: "swirl-separator",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipSeparator",
+  title: "Components/SwirlSeparator",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-separator", args);
+  const element = generateStoryElement("swirl-separator", args);
 
   return element;
 };
 
-export const FlipSeparator = Template.bind({});
+export const SwirlSeparator = Template.bind({});
 
-FlipSeparator.args = {};
+SwirlSeparator.args = {};

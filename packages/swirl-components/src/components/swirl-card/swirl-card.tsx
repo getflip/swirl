@@ -7,9 +7,9 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "swirl-card.css",
-  tag: "flip-card",
+  tag: "swirl-card",
 })
-export class FlipCard {
+export class SwirlCard {
   @Prop() as?: string = "div";
   @Prop() elevated?: boolean;
   @Prop() interactive?: boolean;

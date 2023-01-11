@@ -1,21 +1,21 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipTableCell } from "./swirl-table-cell";
+import { SwirlTableCell } from "./swirl-table-cell";
 
-describe("flip-table-cell", () => {
+describe("swirl-table-cell", () => {
   it("renders its content", async () => {
     const page = await newSpecPage({
-      components: [FlipTableCell],
-      html: `<flip-table-cell>Cell</flip-table-cell>`,
+      components: [SwirlTableCell],
+      html: `<swirl-table-cell>Cell</swirl-table-cell>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-table-cell class="table-cell" role="cell">
+      <swirl-table-cell class="table-cell" role="cell">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
         Cell
-      </flip-table-cell>
+      </swirl-table-cell>
     `);
   });
 });

@@ -1,16 +1,16 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
-import { FlipStackOrientation } from "../swirl-stack/swirl-stack";
+import { SwirlStackOrientation } from "../swirl-stack/swirl-stack";
 
-export type FlipButtonGroupOrientation = FlipStackOrientation;
+export type SwirlButtonGroupOrientation = SwirlStackOrientation;
 
 @Component({
   shadow: true,
   styleUrl: "swirl-button-group.css",
-  tag: "flip-button-group",
+  tag: "swirl-button-group",
 })
-export class FlipButtonGroup {
-  @Prop() orientation?: FlipButtonGroupOrientation = "horizontal";
+export class SwirlButtonGroup {
+  @Prop() orientation?: SwirlButtonGroupOrientation = "horizontal";
   @Prop() segmented?: boolean;
   @Prop() stretch?: boolean;
   @Prop() wrap?: boolean;
@@ -24,7 +24,7 @@ export class FlipButtonGroup {
 
     return (
       <Host>
-        <flip-stack
+        <swirl-stack
           align={
             this.orientation === "vertical" && this.stretch
               ? "stretch"
@@ -42,7 +42,7 @@ export class FlipButtonGroup {
           wrap={this.wrap}
         >
           <slot></slot>
-        </flip-stack>
+        </swirl-stack>
       </Host>
     );
   }

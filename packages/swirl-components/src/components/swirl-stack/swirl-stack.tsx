@@ -1,9 +1,9 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipStackAlign = "start" | "center" | "end" | "stretch";
+export type SwirlStackAlign = "start" | "center" | "end" | "stretch";
 
-export type FlipStackJustify =
+export type SwirlStackJustify =
   | "start"
   | "center"
   | "end"
@@ -12,9 +12,9 @@ export type FlipStackJustify =
   | "space-evenly"
   | "stretch";
 
-export type FlipStackOrientation = "horizontal" | "vertical";
+export type SwirlStackOrientation = "horizontal" | "vertical";
 
-export type FlipStackSpacing =
+export type SwirlStackSpacing =
   | "0"
   | "2"
   | "4"
@@ -27,14 +27,14 @@ export type FlipStackSpacing =
 @Component({
   shadow: true,
   styleUrl: "swirl-stack.css",
-  tag: "flip-stack",
+  tag: "swirl-stack",
 })
-export class FlipStack {
-  @Prop() align?: FlipStackAlign = "start";
+export class SwirlStack {
+  @Prop() align?: SwirlStackAlign = "start";
   @Prop() as?: string = "div";
-  @Prop() justify?: FlipStackJustify = "start";
-  @Prop() orientation?: FlipStackOrientation = "vertical";
-  @Prop() spacing?: FlipStackSpacing = "0";
+  @Prop() justify?: SwirlStackJustify = "start";
+  @Prop() orientation?: SwirlStackOrientation = "vertical";
+  @Prop() spacing?: SwirlStackSpacing = "0";
   @Prop() wrap?: boolean = false;
 
   render() {

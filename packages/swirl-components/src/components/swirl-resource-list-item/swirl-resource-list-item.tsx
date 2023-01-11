@@ -12,9 +12,9 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "swirl-resource-list-item.css",
-  tag: "flip-resource-list-item",
+  tag: "swirl-resource-list-item",
 })
-export class FlipResourceListItem {
+export class SwirlResourceListItem {
   @Element() el: HTMLElement;
 
   @Prop({ mutable: true }) checked?: boolean = false;
@@ -38,7 +38,7 @@ export class FlipResourceListItem {
   }
 
   private forceAvatarProps() {
-    const avatarEl = this.el.querySelector("flip-avatar");
+    const avatarEl = this.el.querySelector("swirl-avatar");
 
     if (!Boolean(avatarEl)) {
       return;
@@ -52,7 +52,7 @@ export class FlipResourceListItem {
   }
 
   private forceThumbnailProps() {
-    const thumbnailEl = this.el.querySelector("flip-thumbnail");
+    const thumbnailEl = this.el.querySelector("swirl-thumbnail");
 
     if (!Boolean(thumbnailEl)) {
       return;
@@ -133,7 +133,7 @@ export class FlipResourceListItem {
             <span aria-hidden="true" class="resource-list-item__checkbox">
               <span class="resource-list-item__checkbox-icon">
                 {this.checked && (
-                  <flip-icon-check-strong></flip-icon-check-strong>
+                  <swirl-icon-check-strong></swirl-icon-check-strong>
                 )}
               </span>
             </span>
@@ -142,17 +142,17 @@ export class FlipResourceListItem {
             <span class="resource-list-item__meta">{this.meta}</span>
           )}
           {showMenu && (
-            <flip-button
+            <swirl-button
               aria-disabled={disabled ? "true" : undefined}
               class="resource-list-item__menu-trigger"
               disabled={disabled}
               hideLabel
-              icon="<flip-icon-more-horizontal></flip-icon-more-horizontal>"
+              icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
               id={this.menuTriggerId}
               intent="primary"
               label={this.menuTriggerLabel}
               onClick={this.onMenuTriggerClick}
-            ></flip-button>
+            ></swirl-button>
           )}
         </div>
       </Host>

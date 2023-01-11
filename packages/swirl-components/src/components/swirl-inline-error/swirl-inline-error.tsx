@@ -1,16 +1,16 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipInlineErrorSize = "s" | "m";
+export type SwirlInlineErrorSize = "s" | "m";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-inline-error.css",
-  tag: "flip-inline-error",
+  tag: "swirl-inline-error",
 })
-export class FlipInlineError {
+export class SwirlInlineError {
   @Prop() message!: string;
-  @Prop() size?: FlipInlineErrorSize = "m";
+  @Prop() size?: SwirlInlineErrorSize = "m";
 
   render() {
     const iconSize = this.size === "m" ? 24 : 16;
@@ -24,7 +24,7 @@ export class FlipInlineError {
       <Host>
         <span class={className}>
           <span class="inline-error__icon">
-            <flip-icon-error size={iconSize}></flip-icon-error>
+            <swirl-icon-error size={iconSize}></swirl-icon-error>
           </span>
           <span class="inline-error__message">{this.message}</span>
         </span>

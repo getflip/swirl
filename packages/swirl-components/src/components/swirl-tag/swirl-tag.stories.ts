@@ -2,24 +2,24 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-tag.mdx";
 
 export default {
-  component: "flip-tag",
+  component: "swirl-tag",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipTag",
+  title: "Components/SwirlTag",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-tag", args);
+  const element = generateStoryElement("swirl-tag", args);
 
   return element;
 };
 
-export const FlipTag = Template.bind({});
+export const SwirlTag = Template.bind({});
 
-FlipTag.args = {
+SwirlTag.args = {
   label: "Label",
   removable: true,
 };

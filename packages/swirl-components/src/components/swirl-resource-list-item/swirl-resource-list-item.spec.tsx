@@ -1,27 +1,27 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipResourceListItem } from "./swirl-resource-list-item";
+import { SwirlResourceListItem } from "./swirl-resource-list-item";
 
-describe("flip-resource-list-item", () => {
+describe("swirl-resource-list-item", () => {
   it("renders label, description and media", async () => {
     const page = await newSpecPage({
-      components: [FlipResourceListItem],
+      components: [SwirlResourceListItem],
       html: `
-        <flip-resource-list-item
+        <swirl-resource-list-item
           description="Description"
           label="Label"
-          media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></flip-avatar>"
-        ></flip-resource-list-item>
+          media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"
+        ></swirl-resource-list-item>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-resource-list-item description="Description" label="Label" media="<flip-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></flip-avatar>" role="row">
+      <swirl-resource-list-item description="Description" label="Label" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>" role="row">
         <mock:shadow-root>
           <div class="resource-list-item" role="gridcell">
             <button aria-labelledby="label" class="resource-list-item__content" tabindex="0">
               <span class="resource-list-item__media">
-                <flip-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></flip-avatar>
+                <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
               </span>
               <span class="resource-list-item__label-container">
                 <span class="resource-list-item__label" id="label">
@@ -34,15 +34,15 @@ describe("flip-resource-list-item", () => {
             </button>
           </div>
         </mock:shadow-root>
-      </flip-resource-list-item>
+      </swirl-resource-list-item>
     `);
   });
 
   it("renders as link", async () => {
     const page = await newSpecPage({
-      components: [FlipResourceListItem],
+      components: [SwirlResourceListItem],
       html: `
-        <flip-resource-list-item href="#" label="Label"></flip-resource-list-item>
+        <swirl-resource-list-item href="#" label="Label"></swirl-resource-list-item>
       `,
     });
 
@@ -56,9 +56,9 @@ describe("flip-resource-list-item", () => {
 
   it("renders as checkbox", async () => {
     const page = await newSpecPage({
-      components: [FlipResourceListItem],
+      components: [SwirlResourceListItem],
       html: `
-        <flip-resource-list-item label="Label" selectable="true"></flip-resource-list-item>
+        <swirl-resource-list-item label="Label" selectable="true"></swirl-resource-list-item>
       `,
     });
 
@@ -86,9 +86,9 @@ describe("flip-resource-list-item", () => {
 
   it("renders meta information", async () => {
     const page = await newSpecPage({
-      components: [FlipResourceListItem],
+      components: [SwirlResourceListItem],
       html: `
-        <flip-resource-list-item label="Label" meta="Meta"></flip-resource-list-item>
+        <swirl-resource-list-item label="Label" meta="Meta"></swirl-resource-list-item>
       `,
     });
 
@@ -99,9 +99,9 @@ describe("flip-resource-list-item", () => {
 
   it("renders a menu trigger", async () => {
     const page = await newSpecPage({
-      components: [FlipResourceListItem],
+      components: [SwirlResourceListItem],
       html: `
-        <flip-resource-list-item label="Label" menu-trigger-id="trigger"></flip-resource-list-item>
+        <swirl-resource-list-item label="Label" menu-trigger-id="trigger"></swirl-resource-list-item>
       `,
     });
 

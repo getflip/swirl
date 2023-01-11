@@ -11,7 +11,7 @@ import {
 import classnames from "classnames";
 
 /**
- * @slot slot - The input element, e.g. `<flip-text-input></flip-text-input>`
+ * @slot slot - The input element, e.g. `<swirl-text-input></swirl-text-input>`
  */
 @Component({
   /**
@@ -23,9 +23,9 @@ import classnames from "classnames";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-form-control.css",
-  tag: "flip-form-control",
+  tag: "swirl-form-control",
 })
-export class FlipFormControl {
+export class SwirlFormControl {
   @Element() el: HTMLElement;
 
   @Prop() description?: string;
@@ -60,7 +60,7 @@ export class FlipFormControl {
       return;
     }
 
-    this.inputEl.setAttribute("flip-aria-describedby", this.descriptionId);
+    this.inputEl.setAttribute("swirl-aria-describedby", this.descriptionId);
   }
 
   @Watch("disabled")
@@ -171,10 +171,10 @@ export class FlipFormControl {
               class="form-control__error-message"
               id={this.descriptionId}
             >
-              <flip-inline-error
+              <swirl-inline-error
                 message={this.errorMessage}
                 size="s"
-              ></flip-inline-error>
+              ></swirl-inline-error>
             </span>
           )}
         </div>

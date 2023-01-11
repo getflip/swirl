@@ -9,20 +9,20 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipToastIntent = "default" | "critical" | "success";
+export type SwirlToastIntent = "default" | "critical" | "success";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-toast.css",
-  tag: "flip-toast",
+  tag: "swirl-toast",
 })
-export class FlipToast {
+export class SwirlToast {
   @Prop() accessibleDismissLabel?: string = "Dismiss";
   @Prop() content!: string;
   @Prop() dismissLabel?: string;
   @Prop() duration?: number;
   @Prop() icon?: string;
-  @Prop() intent?: FlipToastIntent = "default";
+  @Prop() intent?: SwirlToastIntent = "default";
   @Prop() toastId!: string;
 
   @Event() dismiss: EventEmitter<string>;
@@ -78,7 +78,9 @@ export class FlipToast {
             type="button"
           >
             {this.dismissLabel}
-            {!Boolean(this.dismissLabel) && <flip-icon-close></flip-icon-close>}
+            {!Boolean(this.dismissLabel) && (
+              <swirl-icon-close></swirl-icon-close>
+            )}
           </button>
         </div>
       </Host>

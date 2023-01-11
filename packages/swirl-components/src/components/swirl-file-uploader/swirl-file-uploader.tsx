@@ -8,7 +8,7 @@ import {
   Prop,
 } from "@stencil/core";
 import classnames from "classnames";
-import { FlipFormInput } from "../../utils";
+import { SwirlFormInput } from "../../utils";
 
 @Component({
   /**
@@ -20,9 +20,9 @@ import { FlipFormInput } from "../../utils";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-file-uploader.css",
-  tag: "flip-file-uploader",
+  tag: "swirl-file-uploader",
 })
-export class FlipFileUploader implements FlipFormInput<FileList> {
+export class SwirlFileUploader implements SwirlFormInput<FileList> {
   @Prop() accept?: string;
   @Prop() ctaLabel?: string = "Click to upload";
   @Prop() description?: string;
@@ -92,7 +92,7 @@ export class FlipFileUploader implements FlipFormInput<FileList> {
           <div class="file-uploader__dropzone">
             {this.showDropzone ? (
               [
-                <flip-icon-cloud-upload class="file-uploader__dropzone-icon"></flip-icon-cloud-upload>,
+                <swirl-icon-cloud-upload class="file-uploader__dropzone-icon"></swirl-icon-cloud-upload>,
                 <div
                   class="file-uploader__dropzone-label"
                   id={`${this.inputId}-additional-label`}
@@ -106,15 +106,15 @@ export class FlipFileUploader implements FlipFormInput<FileList> {
                 </div>,
               ]
             ) : (
-              <flip-button
+              <swirl-button
                 class="file-uploader__upload-button"
                 disabled={this.disabled}
-                flipAriaDescribedby={ariaDescribedby}
+                swirlAriaDescribedby={ariaDescribedby}
                 intent="primary"
                 label={this.uploadButtonLabel}
                 onClick={this.onUploadButtonClick}
                 variant="flat"
-              ></flip-button>
+              ></swirl-button>
             )}
 
             <input

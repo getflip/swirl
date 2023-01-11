@@ -11,9 +11,9 @@ import {
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer-video.css",
-  tag: "flip-file-viewer-video",
+  tag: "swirl-file-viewer-video",
 })
-export class FlipFileViewerVideo {
+export class SwirlFileViewerVideo {
   @Element() el: HTMLElement;
 
   @Prop() autoplay?: boolean;

@@ -2,21 +2,25 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-visually-hidden.mdx";
 
 export default {
-  component: "flip-visually-hidden",
+  component: "swirl-visually-hidden",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipVisuallyHidden",
+  title: "Components/SwirlVisuallyHidden",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-visually-hidden", args, "Content");
+  const element = generateStoryElement(
+    "swirl-visually-hidden",
+    args,
+    "Content"
+  );
 
   return element;
 };
 
-export const FlipVisuallyHidden = Template.bind({});
+export const SwirlVisuallyHidden = Template.bind({});
 
-FlipVisuallyHidden.args = {};
+SwirlVisuallyHidden.args = {};

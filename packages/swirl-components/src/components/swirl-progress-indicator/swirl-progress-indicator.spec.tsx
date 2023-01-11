@@ -1,16 +1,16 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipProgressIndicator } from "./swirl-progress-indicator";
+import { SwirlProgressIndicator } from "./swirl-progress-indicator";
 
-describe("flip-progress-indicator", () => {
+describe("swirl-progress-indicator", () => {
   it("renders a progress bar", async () => {
     const page = await newSpecPage({
-      components: [FlipProgressIndicator],
-      html: `<flip-progress-indicator label="Progress" value="60"></flip-progress-indicator>`,
+      components: [SwirlProgressIndicator],
+      html: `<swirl-progress-indicator label="Progress" value="60"></swirl-progress-indicator>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-progress-indicator class="bar" label="Progress" value="60">
+      <swirl-progress-indicator class="bar" label="Progress" value="60">
         <mock:shadow-root>
           <progress
             aria-label="Progress"
@@ -21,18 +21,18 @@ describe("flip-progress-indicator", () => {
             max="100"
             value="60"></progress>
         </mock:shadow-root>
-      </flip-progress-indicator>
+      </swirl-progress-indicator>
     `);
   });
 
   it("renders a progress circle", async () => {
     const page = await newSpecPage({
-      components: [FlipProgressIndicator],
-      html: `<flip-progress-indicator label="Progress" value="60" variant="circle"></flip-progress-indicator>`,
+      components: [SwirlProgressIndicator],
+      html: `<swirl-progress-indicator label="Progress" value="60" variant="circle"></swirl-progress-indicator>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-progress-indicator class="circle" label="Progress" value="60" variant="circle">
+      <swirl-progress-indicator class="circle" label="Progress" value="60" variant="circle">
         <mock:shadow-root>
           <span aria-label="Progress" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-indicator progress-indicator--size-m progress-indicator--variant-circle" role="progressbar">
             <svg class="progress-indicator__circle" focusable="false" viewBox="0 0 48 48">
@@ -41,7 +41,7 @@ describe("flip-progress-indicator", () => {
             </svg>
           </span>
         </mock:shadow-root>
-      </flip-progress-indicator>
+      </swirl-progress-indicator>
     `);
   });
 });

@@ -1,16 +1,16 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 
-export type FlipLinkTarget = "_self" | "_blank" | "_parent" | "_top";
+export type SwirlLinkTarget = "_self" | "_blank" | "_parent" | "_top";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-link.css",
-  tag: "flip-link",
+  tag: "swirl-link",
 })
-export class FlipLink {
+export class SwirlLink {
   @Prop() href!: string;
   @Prop() label!: string;
-  @Prop() target?: FlipLinkTarget;
+  @Prop() target?: SwirlLinkTarget;
 
   render() {
     return (

@@ -1,8 +1,8 @@
 import { Component, Element, h, Host, Prop, State, Watch } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipAvatarBadgePosition = "bottom" | "top";
-export type FlipAvatarColor =
+export type SwirlAvatarBadgePosition = "bottom" | "top";
+export type SwirlAvatarColor =
   | "banana"
   | "blueberry"
   | "chilli"
@@ -10,10 +10,10 @@ export type FlipAvatarColor =
   | "kiwi"
   | "pumpkin"
   | "radish";
-export type FlipAvatarSize = "xs" | "s" | "m" | "l" | "xl" | "2xl";
-export type FlipAvatarVariant = "round" | "square";
+export type SwirlAvatarSize = "xs" | "s" | "m" | "l" | "xl" | "2xl";
+export type SwirlAvatarVariant = "round" | "square";
 
-const flipAvatarSizeMappings: { [key in FlipAvatarSize]: number } = {
+const swirlAvatarSizeMappings: { [key in SwirlAvatarSize]: number } = {
   xs: 28,
   s: 32,
   m: 40,
@@ -25,22 +25,22 @@ const flipAvatarSizeMappings: { [key in FlipAvatarSize]: number } = {
 @Component({
   shadow: true,
   styleUrl: "swirl-avatar.css",
-  tag: "flip-avatar",
+  tag: "swirl-avatar",
 })
-export class FlipAvatar {
+export class SwirlAvatar {
   @Element() element: HTMLElement;
 
   @Prop() badge?: string;
-  @Prop() badgePosition?: FlipAvatarBadgePosition = "bottom";
-  @Prop() color?: FlipAvatarColor = "kiwi";
+  @Prop() badgePosition?: SwirlAvatarBadgePosition = "bottom";
+  @Prop() color?: SwirlAvatarColor = "kiwi";
   @Prop() icon?: string;
   @Prop() initials?: string;
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
   @Prop() showLabel?: boolean = false;
-  @Prop() size?: FlipAvatarSize = "m";
+  @Prop() size?: SwirlAvatarSize = "m";
   @Prop() src?: string;
-  @Prop() variant?: FlipAvatarVariant = "round";
+  @Prop() variant?: SwirlAvatarVariant = "round";
 
   @State() imageAvailable: boolean | undefined;
 
@@ -60,7 +60,7 @@ export class FlipAvatar {
       return;
     }
 
-    const badge = this.badgeEl.querySelector("flip-badge");
+    const badge = this.badgeEl.querySelector("swirl-badge");
 
     badge?.setAttribute("size", "m");
   }
@@ -137,11 +137,11 @@ export class FlipAvatar {
             <span class="avatar__image">
               <img
                 alt=""
-                height={flipAvatarSizeMappings[this.size]}
+                height={swirlAvatarSizeMappings[this.size]}
                 onError={this.setImageUnavailable}
                 onLoad={this.setImageAvailable}
                 src={this.src}
-                width={flipAvatarSizeMappings[this.size]}
+                width={swirlAvatarSizeMappings[this.size]}
               />
             </span>
           )}
@@ -153,7 +153,7 @@ export class FlipAvatar {
           {showIcon && <span class="avatar__icon" innerHTML={this.icon}></span>}
           {showFallbackIcon && (
             <span class="avatar__icon">
-              <flip-icon-person></flip-icon-person>
+              <swirl-icon-person></swirl-icon-person>
             </span>
           )}
           {showBadge && (

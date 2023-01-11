@@ -1,21 +1,21 @@
 // DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
 
 import { Component, Fragment, h, Prop } from "@stencil/core";
-import { FlipIconSize } from "../swirl-icon.types";
+import { SwirlIconSize } from "../swirl-icon.types";
 import classnames from "classnames";
 
 @Component({
   shadow: true,
   styleUrl: "../swirl-icon.css",
-  tag: "flip-icon-send",
+  tag: "swirl-icon-send",
 })
-export class FlipIconSend {
-  @Prop() size: FlipIconSize = 24;
+export class SwirlIconSend {
+  @Prop() size: SwirlIconSize = 24;
 
   render() {
     const viewBoxSize = this.size === 20 ? 24 : this.size;
 
-    const className = classnames("flip-icon", `flip-icon--size-${this.size}`);
+    const className = classnames("swirl-icon", `swirl-icon--size-${this.size}`);
 
     return (
       <svg

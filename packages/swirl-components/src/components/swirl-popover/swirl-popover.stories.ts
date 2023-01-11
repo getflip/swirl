@@ -21,57 +21,57 @@ export default {
       },
     },
   },
-  component: "flip-popover",
+  component: "swirl-popover",
   parameters: {
     docs: {
       page: Docs,
       source: {
-        code: `<flip-button id="trigger" label="Trigger"></flip-button>
+        code: `<swirl-button id="trigger" label="Trigger"></swirl-button>
 
-<flip-popover label="Popover" popover-id="popover" trigger="trigger">
-  <flip-action-list>
-    <flip-action-list-section label="Section 1">
-      <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 1"></flip-action-list-item>
-      <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 2"></flip-action-list-item>
-      <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 3"></flip-action-list-item>
-    </flip-action-list-section>
-    <flip-action-list-section label="Section 2">
-      <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 1"></flip-action-list-item>
-      <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 2"></flip-action-list-item>
-      <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 3"></flip-action-list-item>
-    </flip-action-list-section>
-  </flip-action-list>
-</flip-popover>`,
+<swirl-popover label="Popover" popover-id="popover" trigger="trigger">
+  <swirl-action-list>
+    <swirl-action-list-section label="Section 1">
+      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 1"></swirl-action-list-item>
+      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 2"></swirl-action-list-item>
+      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 3"></swirl-action-list-item>
+    </swirl-action-list-section>
+    <swirl-action-list-section label="Section 2">
+      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 1"></swirl-action-list-item>
+      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 2"></swirl-action-list-item>
+      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 3"></swirl-action-list-item>
+    </swirl-action-list-section>
+  </swirl-action-list>
+</swirl-popover>`,
       },
     },
   },
-  title: "Components/FlipPopover",
+  title: "Components/SwirlPopover",
 };
 
 const Template = (args) => {
   const container = document.createElement("div");
-  const trigger = document.createElement("flip-button");
+  const trigger = document.createElement("swirl-button");
   const element = generateStoryElement(
-    "flip-popover",
+    "swirl-popover",
     args
-  ) as HTMLFlipPopoverElement;
+  ) as HTMLSwirlPopoverElement;
 
   trigger.id = "trigger";
   trigger.label = "Trigger popover";
 
   element.innerHTML = `
-    <flip-action-list>
-      <flip-action-list-section label="Section 1">
-        <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 1"></flip-action-list-item>
-        <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 2"></flip-action-list-item>
-        <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 3"></flip-action-list-item>
-      </flip-action-list-section>
-      <flip-action-list-section label="Section 2">
-        <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 1"></flip-action-list-item>
-        <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 2"></flip-action-list-item>
-        <flip-action-list-item icon="<flip-icon-mention></flip-icon-mention>" label="Action item 3"></flip-action-list-item>
-      </flip-action-list-section>
-    </flip-action-list>
+    <swirl-action-list>
+      <swirl-action-list-section label="Section 1">
+        <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 1"></swirl-action-list-item>
+        <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 2"></swirl-action-list-item>
+        <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 3"></swirl-action-list-item>
+      </swirl-action-list-section>
+      <swirl-action-list-section label="Section 2">
+        <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 1"></swirl-action-list-item>
+        <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 2"></swirl-action-list-item>
+        <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 3"></swirl-action-list-item>
+      </swirl-action-list-section>
+    </swirl-action-list>
   `;
 
   container.append(trigger, element);
@@ -87,9 +87,9 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipPopover = Template.bind({});
+export const SwirlPopover = Template.bind({});
 
-FlipPopover.args = {
+SwirlPopover.args = {
   label: "Popover",
   popoverId: "popover",
   trigger: "trigger",

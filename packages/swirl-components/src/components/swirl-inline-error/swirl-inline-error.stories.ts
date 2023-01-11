@@ -2,23 +2,23 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-inline-error.mdx";
 
 export default {
-  component: "flip-inline-error",
+  component: "swirl-inline-error",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipInlineError",
+  title: "Components/SwirlInlineError",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-inline-error", args);
+  const element = generateStoryElement("swirl-inline-error", args);
 
   return element;
 };
 
-export const FlipInlineError = Template.bind({});
+export const SwirlInlineError = Template.bind({});
 
-FlipInlineError.args = {
+SwirlInlineError.args = {
   message: "This is an error message.",
 };

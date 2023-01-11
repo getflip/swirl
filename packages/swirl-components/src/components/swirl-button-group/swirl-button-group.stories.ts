@@ -8,27 +8,27 @@ export default {
         'Should only be used with button variant "flat" and horizontal orientation.',
     },
   },
-  component: "flip-button-group",
+  component: "swirl-button-group",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipButtonGroup",
+  title: "Components/SwirlButtonGroup",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-button-group", args);
+  const element = generateStoryElement("swirl-button-group", args);
 
   element.innerHTML = `
-    <flip-button label="Button" variant="flat"></flip-button>
-    <flip-button label="Button" variant="flat"></flip-button>
-    <flip-button icon="<flip-icon-expand-more></flip-icon-expand-more>" label="Button" hide-label variant="flat"></flip-button>
+    <swirl-button label="Button" variant="flat"></swirl-button>
+    <swirl-button label="Button" variant="flat"></swirl-button>
+    <swirl-button icon="<swirl-icon-expand-more></swirl-icon-expand-more>" label="Button" hide-label variant="flat"></swirl-button>
   `;
 
   return element;
 };
 
-export const FlipButtonGroup = Template.bind({});
+export const SwirlButtonGroup = Template.bind({});
 
-FlipButtonGroup.args = {};
+SwirlButtonGroup.args = {};

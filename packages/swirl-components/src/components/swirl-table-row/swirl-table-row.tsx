@@ -7,9 +7,9 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "swirl-table-row.css",
-  tag: "flip-table-row",
+  tag: "swirl-table-row",
 })
-export class FlipTableRow {
+export class SwirlTableRow {
   @Prop() highlighted?: boolean;
   @Prop() index?: number;
 

@@ -3,16 +3,16 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-icon.mdx";
 
 export default {
-  component: "flip-icon-close",
+  component: "swirl-icon-close",
   parameters: {
     docs: {
       page: Docs,
       source: {
-        code: "<flip-icon-emoji-satisfied></flip-icon-emoji-satisfied>",
+        code: "<swirl-icon-emoji-satisfied></swirl-icon-emoji-satisfied>",
       },
     },
   },
-  title: "Components/FlipIcon",
+  title: "Components/SwirlIcon",
 };
 
 const Template = (args) => {
@@ -25,10 +25,10 @@ const Template = (args) => {
 
   const elements = Object.values(IconsJSON).map((icon: any) => {
     const row = document.createElement("li");
-    const iconElement = generateStoryElement(`flip-icon-${icon.name}`, args);
+    const iconElement = generateStoryElement(`swirl-icon-${icon.name}`, args);
     const label = document.createElement("span");
 
-    label.innerHTML = `flip-icon-${icon.name}`;
+    label.innerHTML = `swirl-icon-${icon.name}`;
 
     row.style.display = "flex";
     row.style.alignItems = "center";
@@ -47,8 +47,8 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipIcon = Template.bind({});
+export const SwirlIcon = Template.bind({});
 
-FlipIcon.args = {
+SwirlIcon.args = {
   size: "24",
 };

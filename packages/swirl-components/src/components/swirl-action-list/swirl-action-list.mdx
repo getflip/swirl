@@ -1,23 +1,23 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 
-<Meta title="Components/FlipActionList" />
+<Meta title="Components/SwirlActionList" />
 
-# FlipActionList
+# SwirlActionList
 
-The FlipActionList component is used to render a menu containing of
-[FlipActionListSections](?path=/docs/components-flipactionlistsection--flip-action-list-section)
+The SwirlActionList component is used to render a menu containing of
+[FlipActionListSections](?path=/docs/components-flipactionlistsection--swirl-action-list-section)
 and
-[FlipActionListItems](?path=/docs/components-flipactionlistitem--flip-action-list-item).
+[FlipActionListItems](?path=/docs/components-flipactionlistitem--swirl-action-list-item).
 It should be used in combination with the
-[FlipPopover component](?path=/docs/components-flippopover--flip-popover).
+[FlipPopover component](?path=/docs/components-flippopover--swirl-popover).
 
 - **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=2%3A10)**
-- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/flip-action-list)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-action-list)**
 
 ## Usage
 
 <Canvas withSource="open">
-  <Story id="components-flipactionlist--flip-action-list" />
+  <Story id="components-swirlactionlist--swirl-action-list" />
 </Canvas>
 
 <ArgsTable story="." />
@@ -35,11 +35,11 @@ It should be used in combination with the
 The component follows the
 [WAI-ARIA Menu Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menu/).
 
-| ARIA               | Usage                                                                                                                            |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| `role="menu"`      | The action list has `role` set to `menu`.                                                                                        |
-| `role="menuitem"`  | Set for all menu items via the [FlipActionListItem](?path=/docs/components-flipactionlistitem--flip-action-list-item) component. |
-| `aria-orientation` | Set to `vertical`.                                                                                                               |
+| ARIA               | Usage                                                                                                                             |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| `role="menu"`      | The action list has `role` set to `menu`.                                                                                         |
+| `role="menuitem"`  | Set for all menu items via the [FlipActionListItem](?path=/docs/components-flipactionlistitem--swirl-action-list-item) component. |
+| `aria-orientation` | Set to `vertical`.                                                                                                                |
 
 ### Keyboard
 

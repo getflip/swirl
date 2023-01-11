@@ -2,23 +2,23 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-heading.mdx";
 
 export default {
-  component: "flip-heading",
+  component: "swirl-heading",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipHeading",
+  title: "Components/SwirlHeading",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-heading", args);
+  const element = generateStoryElement("swirl-heading", args);
 
   return element;
 };
 
-export const FlipHeading = Template.bind({});
+export const SwirlHeading = Template.bind({});
 
-FlipHeading.args = {
+SwirlHeading.args = {
   text: "Heading",
 };

@@ -24,14 +24,14 @@ const internalDateFormat = "yyyy-MM-dd";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-date-input.css",
-  tag: "flip-date-input",
+  tag: "swirl-date-input",
 })
-export class FlipDateInput {
+export class SwirlDateInput {
   @Prop() autoFocus?: boolean;
   @Prop() autoSelect?: boolean;
   @Prop() datePickerLabel?: string = "Date picker";
   @Prop() disabled?: boolean;
-  @Prop() flipAriaDescribedby?: string;
+  @Prop() swirlAriaDescribedby?: string;
   @Prop() format?: string = "yyyy-MM-dd";
   @Prop() invalid?: boolean;
   @Prop() locale?: Partial<AirDatepickerLocale>;
@@ -43,12 +43,12 @@ export class FlipDateInput {
 
   private id: string;
   private mask: Maska;
-  private pickerPopover: HTMLFlipPopoverElement;
+  private pickerPopover: HTMLSwirlPopoverElement;
 
   componentWillLoad() {
-    const index = document.querySelectorAll("flip-date-input").length;
+    const index = document.querySelectorAll("swirl-date-input").length;
 
-    this.id = `flip-date-input-${index}`;
+    this.id = `swirl-date-input-${index}`;
   }
 
   componentDidLoad() {
@@ -145,7 +145,7 @@ export class FlipDateInput {
       <Host>
         <div class="date-input">
           <input
-            aria-describedby={this.flipAriaDescribedby}
+            aria-describedby={this.swirlAriaDescribedby}
             aria-disabled={this.disabled ? "true" : undefined}
             aria-invalid={ariaInvalid}
             autoFocus={this.autoFocus}
@@ -169,24 +169,24 @@ export class FlipDateInput {
             tabIndex={-1}
             type="button"
           >
-            <flip-icon-today></flip-icon-today>
+            <swirl-icon-today></swirl-icon-today>
           </button>
         </div>
 
         {!this.disabled && (
-          <flip-popover
+          <swirl-popover
             label={this.datePickerLabel}
             placement="bottom-end"
             popoverId="popover"
             ref={(el) => (this.pickerPopover = el)}
             trigger={`${this.id}-trigger`}
           >
-            <flip-date-picker
+            <swirl-date-picker
               locale={this.locale}
               onValueChange={this.onPickDate}
               value={dateValue}
-            ></flip-date-picker>
-          </flip-popover>
+            ></swirl-date-picker>
+          </swirl-popover>
         )}
       </Host>
     );

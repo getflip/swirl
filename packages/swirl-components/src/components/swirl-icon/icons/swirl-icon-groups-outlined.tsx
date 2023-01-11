@@ -1,24 +1,29 @@
 // DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
 
 import { Component, Fragment, h, Prop } from "@stencil/core";
-import { FlipIconSize } from "../swirl-icon.types";
+import { SwirlIconSize } from "../swirl-icon.types";
+import classnames from "classnames";
 
 @Component({
   shadow: true,
   styleUrl: "../swirl-icon.css",
-  tag: "flip-icon-groups-outlined",
+  tag: "swirl-icon-groups-outlined",
 })
-export class FlipIconGroupsOutlined {
-  @Prop() size: FlipIconSize = 24;
+export class SwirlIconGroupsOutlined {
+  @Prop() size: SwirlIconSize = 24;
 
   render() {
+    const viewBoxSize = this.size === 20 ? 24 : this.size;
+
+    const className = classnames("swirl-icon", `swirl-icon--size-${this.size}`);
+
     return (
       <svg
-        class="flip-icon"
+        class={className}
         fill="none"
         height={this.size}
         part="icon"
-        viewBox={`0 0 ${this.size} ${this.size}`}
+        viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -50,7 +55,7 @@ export class FlipIconGroupsOutlined {
             />
           </Fragment>
         )}
-        {this.size === 24 && (
+        {(this.size === 20 || this.size === 24) && (
           <Fragment>
             <path
               d="M12 6C12.2967 6 12.5867 6.08797 12.8334 6.2528C13.08 6.41762 13.2723 6.65189 13.3858 6.92598C13.4993 7.20006 13.5291 7.50166 13.4712 7.79264C13.4133 8.08361 13.2704 8.35088 13.0607 8.56066C12.8509 8.77044 12.5836 8.9133 12.2926 8.97118C12.0017 9.02906 11.7001 8.99935 11.426 8.88582C11.1519 8.77229 10.9176 8.58003 10.7528 8.33336C10.588 8.08668 10.5 7.79667 10.5 7.5C10.5 7.10218 10.658 6.72064 10.9393 6.43934C11.2206 6.15804 11.6022 6 12 6ZM12 4.5C11.4067 4.5 10.8266 4.67595 10.3333 5.00559C9.83994 5.33524 9.45542 5.80377 9.22836 6.35195C9.00129 6.90013 8.94188 7.50333 9.05764 8.08527C9.17339 8.66721 9.45912 9.20176 9.87867 9.62132C10.2982 10.0409 10.8328 10.3266 11.4147 10.4424C11.9967 10.5581 12.5999 10.4987 13.148 10.2716C13.6962 10.0446 14.1648 9.66006 14.4944 9.16671C14.824 8.67336 15 8.09334 15 7.5C15 6.70435 14.6839 5.94129 14.1213 5.37868C13.5587 4.81607 12.7956 4.5 12 4.5Z"

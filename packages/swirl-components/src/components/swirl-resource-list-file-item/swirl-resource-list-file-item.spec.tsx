@@ -1,26 +1,26 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipResourceListFileItem } from "./swirl-resource-list-file-item";
+import { SwirlResourceListFileItem } from "./swirl-resource-list-file-item";
 
-describe("flip-resource-list-file-item", () => {
+describe("swirl-resource-list-file-item", () => {
   it("renders label, description and spinner", async () => {
     const page = await newSpecPage({
-      components: [FlipResourceListFileItem],
+      components: [SwirlResourceListFileItem],
       html: `
-        <flip-resource-list-file-item
+        <swirl-resource-list-file-item
           description="Description"
           label="Label"
           loading="true"
-        ></flip-resource-list-file-item>
+        ></swirl-resource-list-file-item>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-resource-list-file-item description="Description" label="Label" loading="true" role="row">
+      <swirl-resource-list-file-item description="Description" label="Label" loading="true" role="row">
         <mock:shadow-root>
           <div class="resource-list-file-item resource-list-file-item--has-control" role="gridcell">
             <span class="resource-list-file-item__icon">
-              <flip-icon-file></flip-icon-file>
+              <swirl-icon-file></swirl-icon-file>
             </span>
             <span class="resource-list-file-item__label-container">
               <span class="resource-list-file-item__label" id="label">
@@ -31,24 +31,24 @@ describe("flip-resource-list-file-item", () => {
               </span>
             </span>
             <span class="resource-list-file-item__spinner">
-              <flip-spinner size="s"></flip-spinner>
+              <swirl-spinner size="s"></swirl-spinner>
             </span>
           </div>
         </mock:shadow-root>
-      </flip-resource-list-file-item>
+      </swirl-resource-list-file-item>
     `);
   });
 
   it("renders its error message", async () => {
     const page = await newSpecPage({
-      components: [FlipResourceListFileItem],
-      html: `<flip-resource-list-file-item label="Label" error-message="Error"></flip-resource-list-file-item>`,
+      components: [SwirlResourceListFileItem],
+      html: `<swirl-resource-list-file-item label="Label" error-message="Error"></swirl-resource-list-file-item>`,
     });
 
     expect(
       page.root.shadowRoot
-        .querySelector<HTMLFlipInlineErrorElement>(
-          '[aria-live="polite"] > flip-inline-error'
+        .querySelector<HTMLSwirlInlineErrorElement>(
+          '[aria-live="polite"] > swirl-inline-error'
         )
         .getAttribute("message")
     ).toBe("Error");
@@ -56,16 +56,16 @@ describe("flip-resource-list-file-item", () => {
 
   it("fires close events", async () => {
     const page = await newSpecPage({
-      components: [FlipResourceListFileItem],
-      html: `<flip-resource-list-file-item label="Label" removable="true"></flip-resource-list-file-item>`,
+      components: [SwirlResourceListFileItem],
+      html: `<swirl-resource-list-file-item label="Label" removable="true"></swirl-resource-list-file-item>`,
     });
 
     const spy = jest.fn();
 
     page.root.addEventListener("remove", spy);
     page.root.shadowRoot
-      .querySelector<HTMLFlipButtonElement>(
-        ".resource-list-file-item__remove-button > flip-button"
+      .querySelector<HTMLSwirlButtonElement>(
+        ".resource-list-file-item__remove-button > swirl-button"
       )
       .click();
 

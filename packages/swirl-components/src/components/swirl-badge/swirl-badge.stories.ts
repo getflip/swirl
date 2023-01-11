@@ -7,30 +7,30 @@ export default {
     icon: {
       table: {
         type: {
-          detail: "e.g. <flip-icon-close></flip-icon-close>",
-          summary: "flip-icon-*",
+          detail: "e.g. <swirl-icon-close></swirl-icon-close>",
+          summary: "swirl-icon-*",
         },
       },
     },
   },
-  component: "flip-badge",
+  component: "swirl-badge",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipBadge",
+  title: "Components/SwirlBadge",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-badge", args);
+  const element = generateStoryElement("swirl-badge", args);
 
   return element;
 };
 
-export const FlipBadge = Template.bind({});
+export const SwirlBadge = Template.bind({});
 
-FlipBadge.args = {
+SwirlBadge.args = {
   "aria-label": "3 new messages",
   label: "3",
 };

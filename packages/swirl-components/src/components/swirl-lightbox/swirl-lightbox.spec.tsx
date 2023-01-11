@@ -1,22 +1,22 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipLightbox } from "./swirl-lightbox";
+import { SwirlLightbox } from "./swirl-lightbox";
 
-describe("flip-lightbox", () => {
+describe("swirl-lightbox", () => {
   it("renders its slides and controls", async () => {
     const page = await newSpecPage({
-      components: [FlipLightbox],
+      components: [SwirlLightbox],
       html: `
-        <flip-lightbox
+        <swirl-lightbox
           close-button-label="Close"
           download-button-label="Download"
           label="Lightbox"
           next-slide-button-label="Next"
           previous-slide-button-label="Previous"
         >
-          <flip-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></flip-file-viewer>
-          <flip-file-viewer file="/sample.mp4" type="video/mp4"></flip-file-viewer>
-        </flip-lightbox>
+          <swirl-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer file="/sample.mp4" type="video/mp4"></swirl-file-viewer>
+        </swirl-lightbox>
       `,
     });
 
@@ -24,16 +24,16 @@ describe("flip-lightbox", () => {
     await new Promise((resolve) => setTimeout(resolve, 300));
 
     expect(page.root).toEqualHtml(`
-      <flip-lightbox close-button-label="Close" download-button-label="Download" label="Lightbox" next-slide-button-label="Next" previous-slide-button-label="Previous">
+      <swirl-lightbox close-button-label="Close" download-button-label="Download" label="Lightbox" next-slide-button-label="Next" previous-slide-button-label="Previous">
         <mock:shadow-root>
           <section aria-hidden="true" aria-label="Lightbox" aria-modal="true" class="lightbox" id="lightbox" role="dialog" tabindex="-1">
             <div class="lightbox__body" role="document">
               <header class="lightbox__header">
                 <button aria-label="Close" class="lightbox__close-button">
-                  <flip-icon-close></flip-icon-close>
+                  <swirl-icon-close></swirl-icon-close>
                 </button>
                 <button aria-label="Download" class="lightbox__download-button">
-                  <flip-icon-download></flip-icon-download>
+                  <swirl-icon-download></swirl-icon-download>
                 </button>
               </header>
               <div aria-roledescription="carousel" class="lightbox__content" role="group">
@@ -43,10 +43,10 @@ describe("flip-lightbox", () => {
               </div>
               <div class="lightbox__controls">
                 <button aria-label="Previous" class="lightbox__previous-slide-button" disabled="">
-                  <flip-icon-arrow-left></flip-icon-arrow-left>
+                  <swirl-icon-arrow-left></swirl-icon-arrow-left>
                 </button>
                 <button aria-label="Next" class="lightbox__next-slide-button">
-                  <flip-icon-arrow-right></flip-icon-arrow-right>
+                  <swirl-icon-arrow-right></swirl-icon-arrow-right>
                 </button>
               </div>
               <span class="lightbox__pagination">
@@ -55,21 +55,21 @@ describe("flip-lightbox", () => {
             </div>
           </section>
         </mock:shadow-root>
-        <flip-file-viewer active="true" aria-label="undefined" aria-roledescription="slide" description="Cute dog in a blaket." file="/sample.jpg" role="group" type="image/jpeg" style="transform: translate3d(-0%, 0, 0);"></flip-file-viewer>
-        <flip-file-viewer active="true" aria-hidden="true" aria-label="undefined" aria-roledescription="slide" file="/sample.mp4\" role=\"group\" type=\"video/mp4\" style=\"transform: translate3d(-0%, 0, 0);\"></flip-file-viewer>
-      </flip-lightbox>
+        <swirl-file-viewer active="true" aria-label="undefined" aria-roledescription="slide" description="Cute dog in a blaket." file="/sample.jpg" role="group" type="image/jpeg" style="transform: translate3d(-0%, 0, 0);"></swirl-file-viewer>
+        <swirl-file-viewer active="true" aria-hidden="true" aria-label="undefined" aria-roledescription="slide" file="/sample.mp4\" role=\"group\" type=\"video/mp4\" style=\"transform: translate3d(-0%, 0, 0);\"></swirl-file-viewer>
+      </swirl-lightbox>
     `);
   });
 
   it("navigates through slides via buttons", async () => {
     const page = await newSpecPage({
-      components: [FlipLightbox],
+      components: [SwirlLightbox],
       html: `
-        <flip-lightbox label="Lightbox">
-          <flip-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></flip-file-viewer>
-          <flip-file-viewer description="Another dog in a blaket." file="/sample-2.jpg" type="image/jpeg"></flip-file-viewer>
-          <flip-file-viewer file="/sample.mp4" type="video/mp4"></flip-file-viewer>
-        </flip-lightbox>
+        <swirl-lightbox label="Lightbox">
+          <swirl-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer description="Another dog in a blaket." file="/sample-2.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer file="/sample.mp4" type="video/mp4"></swirl-file-viewer>
+        </swirl-lightbox>
       `,
     });
 
@@ -116,13 +116,13 @@ describe("flip-lightbox", () => {
 
   it("navigates through slides via keyboard", async () => {
     const page = await newSpecPage({
-      components: [FlipLightbox],
+      components: [SwirlLightbox],
       html: `
-        <flip-lightbox label="Lightbox">
-          <flip-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></flip-file-viewer>
-          <flip-file-viewer description="Another dog in a blaket." file="/sample-2.jpg" type="image/jpeg"></flip-file-viewer>
-          <flip-file-viewer file="/sample.mp4" type="video/mp4"></flip-file-viewer>
-        </flip-lightbox>
+        <swirl-lightbox label="Lightbox">
+          <swirl-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer description="Another dog in a blaket." file="/sample-2.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer file="/sample.mp4" type="video/mp4"></swirl-file-viewer>
+        </swirl-lightbox>
       `,
     });
 
@@ -158,13 +158,13 @@ describe("flip-lightbox", () => {
 
   it("navigates through slides via touch", async () => {
     const page = await newSpecPage({
-      components: [FlipLightbox],
+      components: [SwirlLightbox],
       html: `
-        <flip-lightbox label="Lightbox">
-          <flip-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></flip-file-viewer>
-          <flip-file-viewer description="Another dog in a blaket." file="/sample-2.jpg" type="image/jpeg"></flip-file-viewer>
-          <flip-file-viewer file="/sample.mp4" type="video/mp4"></flip-file-viewer>
-        </flip-lightbox>
+        <swirl-lightbox label="Lightbox">
+          <swirl-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer description="Another dog in a blaket." file="/sample-2.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer file="/sample.mp4" type="video/mp4"></swirl-file-viewer>
+        </swirl-lightbox>
       `,
     });
 

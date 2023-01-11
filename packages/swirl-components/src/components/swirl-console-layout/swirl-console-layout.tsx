@@ -16,9 +16,9 @@ import { isMobileViewport } from "../../utils";
 @Component({
   shadow: true,
   styleUrl: "swirl-console-layout.css",
-  tag: "flip-console-layout",
+  tag: "swirl-console-layout",
 })
-export class FlipConsoleLayout {
+export class SwirlConsoleLayout {
   @Element() el: HTMLElement;
 
   @Prop() appName!: string;
@@ -98,7 +98,7 @@ export class FlipConsoleLayout {
     this.sidebarEl.removeAttribute("inert");
 
     if (isMobileViewport()) {
-      this.el.querySelector("flip-tree-navigation-item")?.focus();
+      this.el.querySelector("swirl-tree-navigation-item")?.focus();
     }
   }
 
@@ -192,9 +192,9 @@ export class FlipConsoleLayout {
                     fill="#80A8F4"
                   />
                 </svg>
-                <flip-text class="console-layout__logo-text" weight="medium">
+                <swirl-text class="console-layout__logo-text" weight="medium">
                   {this.logoText}
-                </flip-text>
+                </swirl-text>
               </div>
             </header>
             <nav
@@ -209,14 +209,14 @@ export class FlipConsoleLayout {
           </div>
           <main aria-labelledby="app-name" class="console-layout__main">
             <header class="console-layout__app-bar">
-              <flip-button
+              <swirl-button
                 class="console-layout__mobile-navigation-button"
-                flipAriaExpanded={String(this.sidebarActive)}
+                swirlAriaExpanded={String(this.sidebarActive)}
                 hideLabel
                 icon={
                   this.sidebarActive
-                    ? "<flip-icon-close></flip-icon-close>"
-                    : "<flip-icon-menu></flip-icon-menu>"
+                    ? "<swirl-icon-close></swirl-icon-close>"
+                    : "<swirl-icon-menu></swirl-icon-menu>"
                 }
                 label={
                   this.sidebarActive
@@ -224,50 +224,50 @@ export class FlipConsoleLayout {
                     : this.showNavigationButtonLabel
                 }
                 onClick={this.onMobileNavigationToggleClick}
-              ></flip-button>
-              <flip-heading
+              ></swirl-button>
+              <swirl-heading
                 as="h1"
                 class="console-layout__app-name"
                 headingId="app-name"
                 level={4}
                 text={this.appName}
-              ></flip-heading>
+              ></swirl-heading>
               {this.showHelpButton && (
-                <flip-button
+                <swirl-button
                   class="console-layout__help-button"
                   hideLabel
-                  icon="<flip-icon-help></flip-icon-help>"
+                  icon="<swirl-icon-help></swirl-icon-help>"
                   label={this.helpButonLabel}
                   onClick={this.onHelpButtonClick}
-                ></flip-button>
+                ></swirl-button>
               )}
             </header>
             <section aria-labelledby="heading" class="console-layout__content">
               <header class="console-layout__content-header">
                 {this.showBackButton && (
-                  <flip-button
+                  <swirl-button
                     class="console-layout__back-button"
                     hideLabel
-                    icon="<flip-icon-arrow-back></flip-icon-arrow-back>"
+                    icon="<swirl-icon-arrow-back></swirl-icon-arrow-back>"
                     label={this.backButonLabel}
                     onClick={this.onBackButtonClick}
-                  ></flip-button>
+                  ></swirl-button>
                 )}
                 <div>
-                  <flip-heading
+                  <swirl-heading
                     as="h2"
                     class="console-layout__heading"
                     headingId="heading"
                     level={1}
                     text={this.heading}
-                  ></flip-heading>
+                  ></swirl-heading>
                   {this.subheading && (
-                    <flip-text
+                    <swirl-text
                       class="console-layout__subheading"
                       color="subdued"
                     >
                       {this.subheading}
-                    </flip-text>
+                    </swirl-text>
                   )}
                 </div>
               </header>

@@ -6,30 +6,30 @@ export default {
     icon: {
       table: {
         type: {
-          detail: "e.g. <flip-icon-mail></flip-icon-mail>",
-          summary: "flip-icon-*",
+          detail: "e.g. <swirl-icon-mail></swirl-icon-mail>",
+          summary: "swirl-icon-*",
         },
       },
     },
   },
-  component: "flip-toast",
+  component: "swirl-toast",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipToast",
+  title: "Components/SwirlToast",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-toast", args);
+  const element = generateStoryElement("swirl-toast", args);
 
   return element;
 };
 
-export const FlipToast = Template.bind({});
+export const SwirlToast = Template.bind({});
 
-FlipToast.args = {
+SwirlToast.args = {
   content: `This is toast text with multiple lines. Try to keep the info as short as possible.`,
-  icon: `<flip-icon-mail></flip-icon-mail>`,
+  icon: `<swirl-icon-mail></swirl-icon-mail>`,
 };

@@ -13,9 +13,9 @@ import {
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer-text.css",
-  tag: "flip-file-viewer-text",
+  tag: "swirl-file-viewer-text",
 })
-export class FlipFileViewerText {
+export class SwirlFileViewerText {
   @Element() el: HTMLElement;
 
   @Prop() errorMessage?: string = "File could not be loaded.";
@@ -55,17 +55,17 @@ export class FlipFileViewerText {
     return (
       <Host class="file-viewer-text">
         {this.error && (
-          <flip-inline-error
+          <swirl-inline-error
             class="file-viewer-text__error"
             message={this.errorMessage}
-          ></flip-inline-error>
+          ></swirl-inline-error>
         )}
         <pre class="file-viewer-text__text" tabIndex={0}>
           {this.text}
         </pre>
         {this.loading && (
           <div class="file-viewer-text__spinner">
-            <flip-spinner></flip-spinner>
+            <swirl-spinner></swirl-spinner>
           </div>
         )}
       </Host>

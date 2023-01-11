@@ -4,12 +4,12 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "swirl-resource-list-file-item.css",
-  tag: "flip-resource-list-file-item",
+  tag: "swirl-resource-list-file-item",
 })
-export class FlipResourceListFileItem {
+export class SwirlResourceListFileItem {
   @Prop() description?: string;
   @Prop() errorMessage?: string;
-  @Prop() icon?: string = "<flip-icon-file></flip-icon-file>";
+  @Prop() icon?: string = "<swirl-icon-file></swirl-icon-file>";
   @Prop() label!: string;
   @Prop() loading: boolean;
   @Prop() removable?: boolean;
@@ -48,26 +48,26 @@ export class FlipResourceListFileItem {
                 aria-live="polite"
                 class="resource-list-file-item__error-message"
               >
-                <flip-inline-error
+                <swirl-inline-error
                   message={this.errorMessage}
                   size="s"
-                ></flip-inline-error>
+                ></swirl-inline-error>
               </span>
             )}
           </span>
           {showSpinner && (
             <span class="resource-list-file-item__spinner">
-              <flip-spinner size="s"></flip-spinner>
+              <swirl-spinner size="s"></swirl-spinner>
             </span>
           )}
           {showRemoveButton && (
             <span class="resource-list-file-item__remove-button">
-              <flip-button
+              <swirl-button
                 hideLabel
-                icon="<flip-icon-close></flip-icon-close>"
+                icon="<swirl-icon-close></swirl-icon-close>"
                 label={this.removeButtonLabel}
                 onClick={this.remove.emit}
-              ></flip-button>
+              ></swirl-button>
             </span>
           )}
         </div>

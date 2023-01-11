@@ -4,9 +4,9 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "swirl-tab.css",
-  tag: "flip-tab",
+  tag: "swirl-tab",
 })
-export class FlipTab {
+export class SwirlTab {
   @Prop() active?: boolean;
   @Prop() label!: string;
   @Prop() tabId!: string;

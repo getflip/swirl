@@ -14,9 +14,9 @@ import {
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer-image.css",
-  tag: "flip-file-viewer-image",
+  tag: "swirl-file-viewer-image",
 })
-export class FlipFileViewerImage {
+export class SwirlFileViewerImage {
   @Element() el: HTMLElement;
 
   @Prop() description?: string = "";
@@ -295,10 +295,10 @@ export class FlipFileViewerImage {
         onTouchEnd={this.onTouchEnd}
       >
         {this.error && (
-          <flip-inline-error
+          <swirl-inline-error
             class="file-viewer-image__error"
             message={this.errorMessage}
-          ></flip-inline-error>
+          ></swirl-inline-error>
         )}
         <img
           alt={this.description}
@@ -310,7 +310,7 @@ export class FlipFileViewerImage {
         />
         {this.loading && (
           <div class="file-viewer-image__spinner">
-            <flip-spinner></flip-spinner>
+            <swirl-spinner></swirl-spinner>
           </div>
         )}
       </Host>

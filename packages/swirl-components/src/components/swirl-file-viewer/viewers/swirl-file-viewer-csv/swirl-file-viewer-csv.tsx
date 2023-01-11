@@ -14,9 +14,9 @@ import { parse } from "papaparse";
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer-csv.css",
-  tag: "flip-file-viewer-csv",
+  tag: "swirl-file-viewer-csv",
 })
-export class FlipFileViewerCsv {
+export class SwirlFileViewerCsv {
   @Element() el: HTMLElement;
 
   @Prop() errorMessage?: string = "File could not be loaded.";
@@ -69,10 +69,10 @@ export class FlipFileViewerCsv {
     return (
       <Host class="file-viewer-csv">
         {this.error && (
-          <flip-inline-error
+          <swirl-inline-error
             class="file-viewer-csv__error"
             message={this.errorMessage}
-          ></flip-inline-error>
+          ></swirl-inline-error>
         )}
         <div class="file-viewer-csv__csv" tabIndex={0}>
           <table class="file-viewer-csv__table">
@@ -94,7 +94,7 @@ export class FlipFileViewerCsv {
         </div>
         {this.loading && (
           <div class="file-viewer-csv__spinner">
-            <flip-spinner></flip-spinner>
+            <swirl-spinner></swirl-spinner>
           </div>
         )}
       </Host>

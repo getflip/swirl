@@ -17,9 +17,9 @@ import { isMobileViewport } from "../../utils";
 @Component({
   shadow: true,
   styleUrl: "swirl-table.css",
-  tag: "flip-table",
+  tag: "swirl-table",
 })
-export class FlipTable {
+export class SwirlTable {
   @Element() el: HTMLElement;
 
   @Prop() caption?: string;
@@ -80,11 +80,11 @@ export class FlipTable {
   }
 
   private getColumns() {
-    return Array.from(this.el.querySelectorAll("flip-table-column"));
+    return Array.from(this.el.querySelectorAll("swirl-table-column"));
   }
 
   private getCells() {
-    return Array.from(this.el.querySelectorAll("flip-table-cell"));
+    return Array.from(this.el.querySelectorAll("swirl-table-cell"));
   }
 
   private async resetEmptyRowStyles() {
@@ -104,7 +104,7 @@ export class FlipTable {
 
   private async resetRowGroupStyles() {
     const tableRowGroups = Array.from(
-      this.el.querySelectorAll("flip-table-row-group")
+      this.el.querySelectorAll("swirl-table-row-group")
     );
 
     tableRowGroups.forEach((tableRowGroup) => {
@@ -175,7 +175,7 @@ export class FlipTable {
 
   private async layoutRowGroups() {
     const tableRowGroups = Array.from(
-      this.el.querySelectorAll("flip-table-row-group")
+      this.el.querySelectorAll("swirl-table-row-group")
     );
 
     const scrollWidth = `${
@@ -330,9 +330,9 @@ export class FlipTable {
               class="table__table"
             >
               {this.caption && (
-                <flip-visually-hidden>
+                <swirl-visually-hidden>
                   <div id="caption">{this.caption}</div>
-                </flip-visually-hidden>
+                </swirl-visually-hidden>
               )}
               <div role="rowgroup">
                 <div class="table__header" role="row">
@@ -348,9 +348,9 @@ export class FlipTable {
                       class="table__empty-row-cell"
                       role="cell"
                     >
-                      <flip-text align="center" size="sm">
+                      <swirl-text align="center" size="sm">
                         {this.emptyStateLabel}
-                      </flip-text>
+                      </swirl-text>
                     </div>
                   </div>
                 )}

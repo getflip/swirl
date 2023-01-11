@@ -1,14 +1,14 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipPopover } from "./swirl-popover";
+import { SwirlPopover } from "./swirl-popover";
 
-describe("flip-popover", () => {
+describe("swirl-popover", () => {
   const template = `
     <div>
       <button id="trigger">Trigger popover</button>
-      <flip-popover label="Popover" popover-id="popover" trigger="trigger">
+      <swirl-popover label="Popover" popover-id="popover" trigger="trigger">
         <div>Content</div>
-      </flip-popover>
+      </swirl-popover>
     </div>
   `;
 
@@ -24,14 +24,14 @@ describe("flip-popover", () => {
 
   it("renders the trigger and content", async () => {
     const page = await newSpecPage({
-      components: [FlipPopover],
+      components: [SwirlPopover],
       html: template,
     });
 
     expect(page.body).toEqualHtml(`
       <div>
         <button aria-controls="popover" aria-expanded="false" aria-haspopup="dialog" id="trigger">Trigger popover</button>
-        <flip-popover id="popover" label="Popover" popover-id="popover" trigger="trigger">
+        <swirl-popover id="popover" label="Popover" popover-id="popover" trigger="trigger">
           <mock:shadow-root>
             <div class="popover popover--animation-scale-in-xy popover--inactive">
               <div aria-hidden="true" aria-label="Popover" class="popover__content" role="dialog" tabindex="-1">
@@ -45,14 +45,14 @@ describe("flip-popover", () => {
           <div>
             Content
           </div>
-        </flip-popover>
+        </swirl-popover>
       </div>
     `);
   });
 
   it("opens on click and closes on blur/esc", async () => {
     const page = await newSpecPage({
-      components: [FlipPopover],
+      components: [SwirlPopover],
       html: template,
     });
 

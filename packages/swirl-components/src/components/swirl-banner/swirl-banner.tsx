@@ -9,37 +9,37 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipBannerAriaRole = "alert" | "status";
+export type SwirlBannerAriaRole = "alert" | "status";
 
-export type FlipBannerIntent =
+export type SwirlBannerIntent =
   | "default"
   | "critical"
   | "success"
   | "warning"
   | "info";
 
-const flipBannerIconMapping: { [key in FlipBannerIntent]: string } = {
+const flipBannerIconMapping: { [key in SwirlBannerIntent]: string } = {
   default: undefined,
-  critical: "<flip-icon-error></flip-icon-error>",
-  success: "<flip-icon-check-circle></flip-icon-check-circle>",
-  warning: "<flip-icon-warning></flip-icon-warning>",
-  info: "<flip-icon-info></flip-icon-info>",
+  critical: "<swirl-icon-error></swirl-icon-error>",
+  success: "<swirl-icon-check-circle></swirl-icon-check-circle>",
+  warning: "<swirl-icon-warning></swirl-icon-warning>",
+  info: "<swirl-icon-info></swirl-icon-info>",
 };
 
 @Component({
   shadow: true,
   styleUrl: "swirl-banner.css",
-  tag: "flip-banner",
+  tag: "swirl-banner",
 })
-export class FlipBanner {
+export class SwirlBanner {
   @Element() element: HTMLElement;
 
   @Prop() actionLabel?: string;
   @Prop() content!: string;
   @Prop() dismissable?: boolean = false;
   @Prop() dismissLabel?: string = "Dismiss";
-  @Prop() importance?: FlipBannerAriaRole = "status";
-  @Prop() intent?: FlipBannerIntent = "default";
+  @Prop() importance?: SwirlBannerAriaRole = "status";
+  @Prop() intent?: SwirlBannerIntent = "default";
   @Prop() showIcon?: boolean = false;
 
   @Event() action?: EventEmitter<MouseEvent>;
@@ -98,7 +98,7 @@ export class FlipBanner {
                   onClick={this.onDismiss}
                   type="button"
                 >
-                  <flip-icon-close></flip-icon-close>
+                  <swirl-icon-close></swirl-icon-close>
                 </button>
               )}
             </span>

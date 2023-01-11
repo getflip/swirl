@@ -1,12 +1,12 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipFileUploader } from "./swirl-file-uploader";
+import { SwirlFileUploader } from "./swirl-file-uploader";
 
-describe("flip-file-uploader", () => {
+describe("swirl-file-uploader", () => {
   it("renders with dropzone", async () => {
     const page = await newSpecPage({
-      components: [FlipFileUploader],
-      html: `<flip-file-uploader
+      components: [SwirlFileUploader],
+      html: `<swirl-file-uploader
               accept="image/*"
               description="Only image files are allowed."
               input-id="file-upload"
@@ -15,11 +15,11 @@ describe("flip-file-uploader", () => {
               cta-label="CTA Label"
               drag-drop-label="DragDropLabel"
               multiple="true"
-            ></flip-file-uploader>`,
+            ></swirl-file-uploader>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-file-uploader accept="image/*" cta-label="CTA Label" description="Only image files are allowed." drag-drop-label="DragDropLabel" input-id="file-upload" input-name="file-upload" label="Label" multiple="true">
+      <swirl-file-uploader accept="image/*" cta-label="CTA Label" description="Only image files are allowed." drag-drop-label="DragDropLabel" input-id="file-upload" input-name="file-upload" label="Label" multiple="true">
         <div class="file-uploader file-uploader--show-dropzone">
           <label class="file-uploader__label" htmlfor="file-upload" id="undefined-label">
             Label
@@ -28,7 +28,7 @@ describe("flip-file-uploader", () => {
             Only image files are allowed.
           </span>
           <div class="file-uploader__dropzone">
-            <flip-icon-cloud-upload class="file-uploader__dropzone-icon"></flip-icon-cloud-upload>
+            <swirl-icon-cloud-upload class="file-uploader__dropzone-icon"></swirl-icon-cloud-upload>
             <div class="file-uploader__dropzone-label" id="file-upload-additional-label">
               <span class="file-uploader__dropzone-cta">
                 CTA Label
@@ -40,37 +40,37 @@ describe("flip-file-uploader", () => {
             <input accept="image/*" aria-describedby="file-upload-description file-upload-additional-label" autocomplete="off" class="file-uploader__input" id="file-upload" multiple="" name="file-upload" tabindex="0" type="file">
           </div>
         </div>
-      </flip-file-uploader>
+      </swirl-file-uploader>
     `);
   });
 
   it("renders with upload button", async () => {
     const page = await newSpecPage({
-      components: [FlipFileUploader],
-      html: `<flip-file-uploader
+      components: [SwirlFileUploader],
+      html: `<swirl-file-uploader
               input-id="file-upload"
               input-name="file-upload"
               label="Label"
               show-dropzone="false"
               upload-button-label="Add file"
-            ></flip-file-uploader>`,
+            ></swirl-file-uploader>`,
     });
 
     expect(
       page.root.querySelector(
-        '.file-uploader__dropzone flip-button[label="Add file"]'
+        '.file-uploader__dropzone swirl-button[label="Add file"]'
       )
     ).not.toBeNull();
   });
 
   it("fires valueChange event", async () => {
     const page = await newSpecPage({
-      components: [FlipFileUploader],
-      html: `<flip-file-uploader
+      components: [SwirlFileUploader],
+      html: `<swirl-file-uploader
               input-id="file-upload"
               input-name="file-upload"
               label="Label"
-            ></flip-file-uploader>`,
+            ></swirl-file-uploader>`,
     });
 
     const spy = jest.fn();

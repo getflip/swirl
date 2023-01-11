@@ -2,24 +2,24 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-radio.mdx";
 
 export default {
-  component: "flip-radio",
+  component: "swirl-radio",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipRadio",
+  title: "Components/SwirlRadio",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-radio", args);
+  const element = generateStoryElement("swirl-radio", args);
 
   return element;
 };
 
-export const FlipRadio = Template.bind({});
+export const SwirlRadio = Template.bind({});
 
-FlipRadio.args = {
+SwirlRadio.args = {
   checked: false,
   description: "Optional description of the item",
   inputId: "radio",

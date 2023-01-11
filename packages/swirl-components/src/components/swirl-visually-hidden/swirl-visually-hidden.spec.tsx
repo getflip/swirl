@@ -1,21 +1,21 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipVisuallyHidden } from "./swirl-visually-hidden";
+import { SwirlVisuallyHidden } from "./swirl-visually-hidden";
 
-describe("flip-visually-hidden", () => {
+describe("swirl-visually-hidden", () => {
   it("renders its contents", async () => {
     const page = await newSpecPage({
-      components: [FlipVisuallyHidden],
-      html: `<flip-visually-hidden>Content</flip-visually-hidden>`,
+      components: [SwirlVisuallyHidden],
+      html: `<swirl-visually-hidden>Content</swirl-visually-hidden>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-visually-hidden>
+      <swirl-visually-hidden>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
         Content
-      </flip-visually-hidden>
+      </swirl-visually-hidden>
     `);
   });
 });

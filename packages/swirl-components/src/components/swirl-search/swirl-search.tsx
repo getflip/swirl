@@ -19,9 +19,9 @@ import classnames from "classnames";
   scoped: true,
   shadow: false,
   styleUrl: "swirl-search.css",
-  tag: "flip-search",
+  tag: "swirl-search",
 })
-export class FlipSearch {
+export class SwirlSearch {
   @Prop() autoFocus?: boolean;
   @Prop() clearButtonLabel?: string = "Clear search term";
   @Prop() disabled?: boolean;
@@ -72,7 +72,7 @@ export class FlipSearch {
     return (
       <Host>
         <span class={className}>
-          <flip-icon-search class="search__icon"></flip-icon-search>
+          <swirl-icon-search class="search__icon"></swirl-icon-search>
           <input
             aria-disabled={this.disabled ? "true" : undefined}
             aria-label={this.label}
@@ -98,7 +98,7 @@ export class FlipSearch {
               onClick={this.clear}
               type="button"
             >
-              <flip-icon-cancel></flip-icon-cancel>
+              <swirl-icon-cancel></swirl-icon-cancel>
             </button>
           )}
         </span>

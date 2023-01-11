@@ -16,9 +16,9 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "swirl-modal.css",
-  tag: "flip-modal",
+  tag: "swirl-modal",
 })
-export class FlipModal {
+export class SwirlModal {
   @Prop() closeButtonLabel?: string = "Close modal";
   @Prop() label!: string;
   @Prop() primaryActionLabel?: string;
@@ -157,20 +157,20 @@ export class FlipModal {
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
           <div class="modal__body" role="document">
-            <flip-button
+            <swirl-button
               class="modal__close-button"
               hideLabel
-              icon="<flip-icon-close></flip-icon-close>"
+              icon="<swirl-icon-close></swirl-icon-close>"
               label={this.closeButtonLabel}
               onClick={this.onCloseButtonClick}
-            ></flip-button>
+            ></swirl-button>
             <header class="modal__header">
-              <flip-heading
+              <swirl-heading
                 as="h2"
                 class="modal__heading"
                 level={3}
                 text={this.label}
-              ></flip-heading>
+              ></swirl-heading>
             </header>
             <div
               class="modal__content"
@@ -180,22 +180,22 @@ export class FlipModal {
               <slot></slot>
             </div>
             <footer class="modal__controls">
-              <flip-button-group wrap>
+              <swirl-button-group wrap>
                 {this.secondaryActionLabel && (
-                  <flip-button
+                  <swirl-button
                     label={this.secondaryActionLabel}
                     onClick={this.onSecondaryAction}
-                  ></flip-button>
+                  ></swirl-button>
                 )}
                 {this.primaryActionLabel && (
-                  <flip-button
+                  <swirl-button
                     intent="primary"
                     label={this.primaryActionLabel}
                     onClick={this.onPrimaryAction}
                     variant="flat"
-                  ></flip-button>
+                  ></swirl-button>
                 )}
-              </flip-button-group>
+              </swirl-button-group>
             </footer>
           </div>
         </section>

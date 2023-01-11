@@ -2,36 +2,36 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-form-group.mdx";
 
 export default {
-  component: "flip-form-group",
+  component: "swirl-form-group",
   parameters: {
     docs: {
       page: Docs,
     },
   },
-  title: "Components/FlipFormGroup",
+  title: "Components/SwirlFormGroup",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-form-group", args);
+  const element = generateStoryElement("swirl-form-group", args);
 
   element.innerHTML = `
-    <flip-form-group orientation="horizontal">
-      <flip-form-control label="First name">
-        <flip-text-input type="text" value="John"></flip-text-input>
-      </flip-form-control>
-      <flip-form-control label="Last name">
-        <flip-text-input type="text" value="Doe"></flip-text-input>
-      </flip-form-control>
-    </flip-form-group>
+    <swirl-form-group orientation="horizontal">
+      <swirl-form-control label="First name">
+        <swirl-text-input type="text" value="John"></swirl-text-input>
+      </swirl-form-control>
+      <swirl-form-control label="Last name">
+        <swirl-text-input type="text" value="Doe"></swirl-text-input>
+      </swirl-form-control>
+    </swirl-form-group>
 
-    <flip-form-control label="Email">
-      <flip-text-input type="email"></flip-text-input>
-    </flip-form-control>
+    <swirl-form-control label="Email">
+      <swirl-text-input type="email"></swirl-text-input>
+    </swirl-form-control>
   `;
 
   return element;
 };
 
-export const FlipFormGroup = Template.bind({});
+export const SwirlFormGroup = Template.bind({});
 
-FlipFormGroup.args = {};
+SwirlFormGroup.args = {};

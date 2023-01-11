@@ -3,9 +3,9 @@ import { Component, h, Host } from "@stencil/core";
 @Component({
   shadow: true,
   styleUrl: "swirl-separator.css",
-  tag: "flip-separator",
+  tag: "swirl-separator",
 })
-export class FlipSeparator {
+export class SwirlSeparator {
   render() {
     return (
       <Host class="separator" role="separator">

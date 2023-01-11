@@ -3,9 +3,9 @@ import { Component, h, Host, Prop } from "@stencil/core";
 @Component({
   shadow: true,
   styleUrl: "swirl-empty-state.css",
-  tag: "flip-empty-state",
+  tag: "swirl-empty-state",
 })
-export class FlipEmptyState {
+export class SwirlEmptyState {
   @Prop() heading?: string;
   @Prop() illustration?: string;
 
@@ -23,17 +23,17 @@ export class FlipEmptyState {
 
           <div class="empty-state__body">
             {this.heading && (
-              <flip-heading
+              <swirl-heading
                 align="center"
                 as="p"
                 text={this.heading}
-              ></flip-heading>
+              ></swirl-heading>
             )}
 
             <div class="empty-state__content">
-              <flip-text align="center" color="subdued">
+              <swirl-text align="center" color="subdued">
                 <slot></slot>
-              </flip-text>
+              </swirl-text>
             </div>
           </div>
         </div>

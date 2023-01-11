@@ -8,17 +8,17 @@ import {
 } from "@floating-ui/dom";
 import { Component, h, Host, Listen, Prop, State, Watch } from "@stencil/core";
 
-export type FlipTooltipPosition = "top" | "right" | "bottom" | "left";
+export type SwirlTooltipPosition = "top" | "right" | "bottom" | "left";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-tooltip.css",
-  tag: "flip-tooltip",
+  tag: "swirl-tooltip",
 })
-export class FlipTooltip {
+export class SwirlTooltip {
   @Prop() content!: string;
   @Prop() delay?: number = 300;
-  @Prop() position?: FlipTooltipPosition = "top";
+  @Prop() position?: SwirlTooltipPosition = "top";
 
   @State() actualPosition: ComputePositionReturn;
   @State() visible = false;

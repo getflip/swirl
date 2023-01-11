@@ -2,7 +2,7 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-action-list-item.mdx";
 
 export default {
-  component: "flip-action-list-item",
+  component: "swirl-action-list-item",
   decorators: [
     (story) => {
       const container = document.createElement("div");
@@ -18,20 +18,20 @@ export default {
       page: Docs,
     },
   },
-  title: "Components/FlipActionListItem",
+  title: "Components/SwirlActionListItem",
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("flip-action-list-item", args);
+  const element = generateStoryElement("swirl-action-list-item", args);
 
   return element;
 };
 
-export const FlipActionListItem = Template.bind({});
+export const SwirlActionListItem = Template.bind({});
 
-FlipActionListItem.args = {
+SwirlActionListItem.args = {
   description: "Description of the action list item",
-  icon: `<flip-icon-mention></flip-icon-mention>`,
+  icon: `<swirl-icon-mention></swirl-icon-mention>`,
   label: "This is an action",
-  suffix: `<flip-icon-chevron-right></flip-icon-chevron-right>`,
+  suffix: `<swirl-icon-chevron-right></swirl-icon-chevron-right>`,
 };

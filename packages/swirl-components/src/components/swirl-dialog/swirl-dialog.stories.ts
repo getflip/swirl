@@ -2,14 +2,14 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-dialog.mdx";
 
 export default {
-  component: "flip-dialog",
+  component: "swirl-dialog",
   parameters: {
     docs: {
       page: Docs,
       source: {
-        code: `<flip-dialog id="my-dialog" label="Dialog" primary-action-label="Leave" secondary-action-label="Cancel">
+        code: `<swirl-dialog id="my-dialog" label="Dialog" primary-action-label="Leave" secondary-action-label="Cancel">
   <p>Do you really want to leave this group chat?</p>
-</flip-dialog>
+</swirl-dialog>
 
 <script>
   const dialog = document.body.querySelector('#my-dialog');
@@ -18,16 +18,16 @@ export default {
       },
     },
   },
-  title: "Components/FlipDialog",
+  title: "Components/SwirlDialog",
 };
 
 const Template = (args) => {
   const container = document.createElement("div");
-  const trigger = document.createElement("flip-button");
+  const trigger = document.createElement("swirl-button");
   const element = generateStoryElement(
-    "flip-dialog",
+    "swirl-dialog",
     args
-  ) as HTMLFlipDialogElement;
+  ) as HTMLSwirlDialogElement;
 
   trigger.label = "Open dialog";
   trigger.addEventListener("click", () => element.open());
@@ -41,9 +41,9 @@ const Template = (args) => {
   return container;
 };
 
-export const FlipDialog = Template.bind({});
+export const SwirlDialog = Template.bind({});
 
-FlipDialog.args = {
+SwirlDialog.args = {
   intent: "critical",
   label: "Dialog",
   primaryActionLabel: "Leave",

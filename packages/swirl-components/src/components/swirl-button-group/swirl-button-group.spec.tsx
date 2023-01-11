@@ -1,29 +1,29 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipButtonGroup } from "./swirl-button-group";
+import { SwirlButtonGroup } from "./swirl-button-group";
 
-describe("flip-button-group", () => {
+describe("swirl-button-group", () => {
   it("renders its children", async () => {
     const page = await newSpecPage({
-      components: [FlipButtonGroup],
+      components: [SwirlButtonGroup],
       html: `
-        <flip-button-group>
-          <flip-button label="Button"></flip-button>
-          <flip-button intent="primary" label="Button" variant="flat"></flip-button>
-        </flip-button-group>
+        <swirl-button-group>
+          <swirl-button label="Button"></swirl-button>
+          <swirl-button intent="primary" label="Button" variant="flat"></swirl-button>
+        </swirl-button-group>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-button-group>
+      <swirl-button-group>
         <mock:shadow-root>
-          <flip-stack align="start" class="button-group" justify="start" orientation="horizontal" role="group" spacing="8">
+          <swirl-stack align="start" class="button-group" justify="start" orientation="horizontal" role="group" spacing="8">
             <slot></slot>
-          </flip-stack>
+          </swirl-stack>
         </mock:shadow-root>
-        <flip-button label="Button"></flip-button>
-        <flip-button intent="primary" label="Button" variant="flat"></flip-button>
-      </flip-button-group>
+        <swirl-button label="Button"></swirl-button>
+        <swirl-button intent="primary" label="Button" variant="flat"></swirl-button>
+      </swirl-button-group>
     `);
   });
 });

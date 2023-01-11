@@ -23,7 +23,7 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import { isMobileViewport, querySelectorAllDeep } from "../../utils";
 
-export type FlipPopoverAnimation = "scale-in-xy" | "scale-in-y";
+export type SwirlPopoverAnimation = "scale-in-xy" | "scale-in-y";
 
 /**
  * @slot slot - The popover content.
@@ -31,12 +31,12 @@ export type FlipPopoverAnimation = "scale-in-xy" | "scale-in-y";
 @Component({
   shadow: true,
   styleUrl: "swirl-popover.css",
-  tag: "flip-popover",
+  tag: "swirl-popover",
 })
-export class FlipPopover {
+export class SwirlPopover {
   @Element() el: HTMLElement;
 
-  @Prop() animation?: FlipPopoverAnimation = "scale-in-xy";
+  @Prop() animation?: SwirlPopoverAnimation = "scale-in-xy";
   @Prop() enableFlip?: boolean = true;
   @Prop() label!: string;
   @Prop() offset?: number | number[] = 8;

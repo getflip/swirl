@@ -1,23 +1,23 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { FlipTab } from "../swirl-tab/flip-tab";
+import { SwirlTab } from "../swirl-tab/swirl-tab";
 
-import { FlipTabs } from "./swirl-tabs";
+import { SwirlTabs } from "./swirl-tabs";
 
-describe("flip-tabs", () => {
+describe("swirl-tabs", () => {
   it("renders its tabs", async () => {
     const page = await newSpecPage({
-      components: [FlipTabs, FlipTab],
+      components: [SwirlTabs, SwirlTab],
       html: `
-        <flip-tabs label="Tabs">
-          <flip-tab label="Tab #1" tab-id="tab-1">Tab 1</flip-tab>
-          <flip-tab label="Tab #2" tab-id="tab-2">Tab 2</flip-tab>
-          <flip-tab label="Tab Number 3" tab-id="tab-3">Tab 3</flip-tab>
-        </flip-tabs>
+        <swirl-tabs label="Tabs">
+          <swirl-tab label="Tab #1" tab-id="tab-1">Tab 1</swirl-tab>
+          <swirl-tab label="Tab #2" tab-id="tab-2">Tab 2</swirl-tab>
+          <swirl-tab label="Tab Number 3" tab-id="tab-3">Tab 3</swirl-tab>
+        </swirl-tabs>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-tabs label="Tabs">
+      <swirl-tabs label="Tabs">
         <div class="tabs">
           <div aria-label="Tabs" class="tabs__tab-bar" role="tablist">
             <button aria-controls="tab-1" aria-selected="true" class="tabs__tab tabs__tab--active" id="tab-tab-1" role="tab" tabindex="0" type="button">
@@ -36,48 +36,48 @@ describe("flip-tabs", () => {
               </span>
             </button>
           </div>
-          <flip-tab aria-labelledby="tab-tab-1" id="tab-1" label="Tab #1" role="tabpanel" tab-id="tab-1" tabindex="0">
+          <swirl-tab aria-labelledby="tab-tab-1" id="tab-1" label="Tab #1" role="tabpanel" tab-id="tab-1" tabindex="0">
             <mock:shadow-root>
               <div class="tab tab--active">
                 <slot></slot>
               </div>
             </mock:shadow-root>
             Tab 1
-          </flip-tab>
-          <flip-tab aria-labelledby="tab-tab-2" id="tab-2" label="Tab #2" role="tabpanel" tab-id="tab-2" tabindex="-1">
+          </swirl-tab>
+          <swirl-tab aria-labelledby="tab-tab-2" id="tab-2" label="Tab #2" role="tabpanel" tab-id="tab-2" tabindex="-1">
             <mock:shadow-root>
               <div class="tab">
                 <slot></slot>
               </div>
             </mock:shadow-root>
             Tab 2
-          </flip-tab>
-          <flip-tab aria-labelledby="tab-tab-3" id="tab-3" label="Tab Number 3" role="tabpanel" tab-id="tab-3" tabindex="-1">
+          </swirl-tab>
+          <swirl-tab aria-labelledby="tab-tab-3" id="tab-3" label="Tab Number 3" role="tabpanel" tab-id="tab-3" tabindex="-1">
             <mock:shadow-root>
               <div class="tab">
                 <slot></slot>
               </div>
             </mock:shadow-root>
             Tab 3
-          </flip-tab>
+          </swirl-tab>
         </div>
-      </flip-tabs>
+      </swirl-tabs>
     `);
   });
 
   it("activates initial tab", async () => {
     const page = await newSpecPage({
-      components: [FlipTabs, FlipTab],
+      components: [SwirlTabs, SwirlTab],
       html: `
-        <flip-tabs initial-tab="tab-2" label="Tabs">
-          <flip-tab label="Tab #1" tab-id="tab-1">Tab 1</flip-tab>
-          <flip-tab label="Tab #2" tab-id="tab-2">Tab 2</flip-tab>
-          <flip-tab label="Tab Number 3" tab-id="tab-3">Tab 3</flip-tab>
-        </flip-tabs>
+        <swirl-tabs initial-tab="tab-2" label="Tabs">
+          <swirl-tab label="Tab #1" tab-id="tab-1">Tab 1</swirl-tab>
+          <swirl-tab label="Tab #2" tab-id="tab-2">Tab 2</swirl-tab>
+          <swirl-tab label="Tab Number 3" tab-id="tab-3">Tab 3</swirl-tab>
+        </swirl-tabs>
       `,
     });
 
-    const tabs = Array.from(page.root.querySelectorAll("flip-tab"));
+    const tabs = Array.from(page.root.querySelectorAll("swirl-tab"));
     const activeTab = tabs.find((tab) => tab.active);
 
     expect(activeTab.tabId).toBe("tab-2");
@@ -85,17 +85,17 @@ describe("flip-tabs", () => {
 
   it("activates tabs via click", async () => {
     const page = await newSpecPage({
-      components: [FlipTabs, FlipTab],
+      components: [SwirlTabs, SwirlTab],
       html: `
-        <flip-tabs label="Tabs">
-          <flip-tab label="Tab #1" tab-id="tab-1">Tab 1</flip-tab>
-          <flip-tab label="Tab #2" tab-id="tab-2">Tab 2</flip-tab>
-          <flip-tab label="Tab Number 3" tab-id="tab-3">Tab 3</flip-tab>
-        </flip-tabs>
+        <swirl-tabs label="Tabs">
+          <swirl-tab label="Tab #1" tab-id="tab-1">Tab 1</swirl-tab>
+          <swirl-tab label="Tab #2" tab-id="tab-2">Tab 2</swirl-tab>
+          <swirl-tab label="Tab Number 3" tab-id="tab-3">Tab 3</swirl-tab>
+        </swirl-tabs>
       `,
     });
 
-    const tabs = Array.from(page.root.querySelectorAll("flip-tab"));
+    const tabs = Array.from(page.root.querySelectorAll("swirl-tab"));
 
     expect(tabs.find((tab) => tab.active).tabId).toBe("tab-1");
 
@@ -106,17 +106,17 @@ describe("flip-tabs", () => {
 
   it("activates tabs via keyboard", async () => {
     const page = await newSpecPage({
-      components: [FlipTabs, FlipTab],
+      components: [SwirlTabs, SwirlTab],
       html: `
-        <flip-tabs label="Tabs">
-          <flip-tab label="Tab #1" tab-id="tab-1">Tab 1</flip-tab>
-          <flip-tab label="Tab #2" tab-id="tab-2">Tab 2</flip-tab>
-          <flip-tab label="Tab Number 3" tab-id="tab-3">Tab 3</flip-tab>
-        </flip-tabs>
+        <swirl-tabs label="Tabs">
+          <swirl-tab label="Tab #1" tab-id="tab-1">Tab 1</swirl-tab>
+          <swirl-tab label="Tab #2" tab-id="tab-2">Tab 2</swirl-tab>
+          <swirl-tab label="Tab Number 3" tab-id="tab-3">Tab 3</swirl-tab>
+        </swirl-tabs>
       `,
     });
 
-    const tabs = Array.from(page.root.querySelectorAll("flip-tab"));
+    const tabs = Array.from(page.root.querySelectorAll("swirl-tab"));
 
     expect(tabs.find((tab) => tab.active).tabId).toBe("tab-1");
 

@@ -1,16 +1,16 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipDescriptionListItem } from "./swirl-description-list-item";
+import { SwirlDescriptionListItem } from "./swirl-description-list-item";
 
-describe("flip-description-list-item", () => {
+describe("swirl-description-list-item", () => {
   it("renders term and description", async () => {
     const page = await newSpecPage({
-      components: [FlipDescriptionListItem],
-      html: `<flip-description-list-item term="Term">Description</flip-description-list-item>`,
+      components: [SwirlDescriptionListItem],
+      html: `<swirl-description-list-item term="Term">Description</swirl-description-list-item>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-description-list-item term="Term">
+      <swirl-description-list-item term="Term">
         <mock:shadow-root>
           <div class="description-list-item">
             <dt class="description-list-item__term">Term</dt>
@@ -20,7 +20,7 @@ describe("flip-description-list-item", () => {
           </div>
         </mock:shadow-root>
         Description
-      </flip-description-list-item>
+      </swirl-description-list-item>
     `);
   });
 });

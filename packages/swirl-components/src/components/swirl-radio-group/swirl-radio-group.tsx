@@ -18,20 +18,20 @@ import {
   scoped: true,
   shadow: false,
   styleUrl: "swirl-radio-group.css",
-  tag: "flip-radio-group",
+  tag: "swirl-radio-group",
 })
-export class FlipRadioGroup {
+export class SwirlRadioGroup {
   @Element() el: HTMLElement;
 
-  @Prop() flipAriaDescribedby?: string;
+  @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
 
   @Event() valueChange: EventEmitter<string>;
 
-  private radioButtons: HTMLFlipRadioElement[];
+  private radioButtons: HTMLSwirlRadioElement[];
 
   componentDidLoad() {
-    this.radioButtons = Array.from(this.el.querySelectorAll("flip-radio"));
+    this.radioButtons = Array.from(this.el.querySelectorAll("swirl-radio"));
     this.initValue();
     this.handleValueChanges();
   }
@@ -73,7 +73,7 @@ export class FlipRadioGroup {
 
   render() {
     return (
-      <Host aria-describedby={this.flipAriaDescribedby} role="radiogroup">
+      <Host aria-describedby={this.swirlAriaDescribedby} role="radiogroup">
         <div class="radio-group">
           <slot></slot>
         </div>

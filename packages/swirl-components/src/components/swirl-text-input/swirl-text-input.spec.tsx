@@ -1,28 +1,28 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipTextInput } from "./swirl-text-input";
+import { SwirlTextInput } from "./swirl-text-input";
 
-describe("flip-text-input", () => {
+describe("swirl-text-input", () => {
   it("renders the input with props", async () => {
     const page = await newSpecPage({
-      components: [FlipTextInput],
-      html: `<flip-text-input
+      components: [SwirlTextInput],
+      html: `<swirl-text-input
               auto-focus="true"
               disabled="true"
-              flip-aria-describedby="id"
+              swirl-aria-describedby="id"
               invalid="true"
               mode="decimal"
               required="true"
               spell-check="false"
               type="url"
               value="Value">
-            </flip-text-input>`,
+            </swirl-text-input>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-text-input auto-focus="true"
+      <swirl-text-input auto-focus="true"
                       disabled="true"
-                      flip-aria-describedby="id"
+                      swirl-aria-describedby="id"
                       invalid="true"
                       mode="decimal"
                       required="true"
@@ -43,14 +43,14 @@ describe("flip-text-input", () => {
                  style="width: NaNrem;"
                  value="Value">
         </div>
-      </flip-text-input>
+      </swirl-text-input>
     `);
   });
 
   it("renders with prefix/suffix", async () => {
     const page = await newSpecPage({
-      components: [FlipTextInput],
-      html: `<flip-text-input prefix-label="Prefix" suffix-label="Suffix"></flip-text-input>`,
+      components: [SwirlTextInput],
+      html: `<swirl-text-input prefix-label="Prefix" suffix-label="Suffix"></swirl-text-input>`,
     });
 
     expect(page.root.querySelector(".text-input__prefix").innerHTML).toBe(
@@ -64,8 +64,8 @@ describe("flip-text-input", () => {
 
   it("can be cleared", async () => {
     const page = await newSpecPage({
-      components: [FlipTextInput],
-      html: `<flip-text-input clearable="true" value="Value"></flip-text-input>`,
+      components: [SwirlTextInput],
+      html: `<swirl-text-input clearable="true" value="Value"></swirl-text-input>`,
     });
 
     expect(page.root.value).toBe("Value");
@@ -79,8 +79,8 @@ describe("flip-text-input", () => {
 
   it("can toggle password", async () => {
     const page = await newSpecPage({
-      components: [FlipTextInput],
-      html: `<flip-text-input type="password" value="Value"></flip-text-input>`,
+      components: [SwirlTextInput],
+      html: `<swirl-text-input type="password" value="Value"></swirl-text-input>`,
     });
 
     const input =
@@ -99,8 +99,8 @@ describe("flip-text-input", () => {
 
   it("fires valueChange events", async () => {
     const page = await newSpecPage({
-      components: [FlipTextInput],
-      html: `<flip-text-input value="Value"></flip-text-input>`,
+      components: [SwirlTextInput],
+      html: `<swirl-text-input value="Value"></swirl-text-input>`,
     });
 
     const spy = jest.fn();

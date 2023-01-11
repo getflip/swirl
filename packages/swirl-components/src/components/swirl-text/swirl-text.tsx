@@ -1,34 +1,34 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type FlipTextAlign = "start" | "center" | "end";
+export type SwirlTextAlign = "start" | "center" | "end";
 
-export type FlipTextColor =
+export type SwirlTextColor =
   | "default"
   | "subdued"
   | "critical"
   | "success"
   | "warning";
 
-export type FlipTextFontStyle = "normal" | "italic";
+export type SwirlTextFontStyle = "normal" | "italic";
 
-export type FlipTextSize = "sm" | "base" | "lg";
+export type SwirlTextSize = "sm" | "base" | "lg";
 
-export type FlipTextWeight = "normal" | "medium" | "semibold" | "bold";
+export type SwirlTextWeight = "normal" | "medium" | "semibold" | "bold";
 
 @Component({
   shadow: true,
   styleUrl: "swirl-text.css",
-  tag: "flip-text",
+  tag: "swirl-text",
 })
-export class FlipText {
-  @Prop() align?: FlipTextAlign = "start";
+export class SwirlText {
+  @Prop() align?: SwirlTextAlign = "start";
   @Prop() as?: string = "p";
-  @Prop() color?: FlipTextColor = "default";
-  @Prop() fontStyle?: FlipTextFontStyle = "normal";
-  @Prop() size?: FlipTextSize = "base";
+  @Prop() color?: SwirlTextColor = "default";
+  @Prop() fontStyle?: SwirlTextFontStyle = "normal";
+  @Prop() size?: SwirlTextSize = "base";
   @Prop() truncate?: boolean;
-  @Prop() weight?: FlipTextWeight = "normal";
+  @Prop() weight?: SwirlTextWeight = "normal";
 
   render() {
     const Tag = this.as;
