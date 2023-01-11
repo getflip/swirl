@@ -15,7 +15,7 @@ export class FlipLink {
   render() {
     return (
       <Host>
-        <a class="link" href={this.href} target={this.target}>
+        <a class="link" href={this.href} part="link" target={this.target}>
           {this.label}
         </a>
       </Host>

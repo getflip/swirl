@@ -26,6 +26,7 @@
 .console-layout--sidebar-active {
   & .console-layout__sidebar {
     @media (--to-tablet) {
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.06);
       transform: translate3d(0, 0, 0);
     }
   }
@@ -43,9 +44,8 @@
   width: 100%;
   max-width: 20rem;
   border-right: var(--s-border-width-default) solid var(--s-border-default);
-  transition: transform 0.15s;
+  transition: transform 0.15s, box-shadow 0.15s;
   transform: translate3d(-100%, 0, 0);
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.06);
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "header"

@@ -13,7 +13,7 @@ describe("flip-pagination", () => {
       <flip-pagination label="Pagination" page="2" pages="20">
         <mock:shadow-root>
           <nav aria-label="Pagination" class="pagination pagination--variant-default">
-            <ul class="pagination__list">
+            <ul class="pagination__list" part="pagination__list">
               <li class="pagination__list-item">
                 <flip-button class="pagination__prev-button" fliparialabel="Previous page" hidelabel="" icon="<flip-icon-chevron-left></flip-icon-chevron-left>" intent="primary" label="Prev"></flip-button>
               </li>

@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type FlipButtonIconPosition = "start" | "end";
 
@@ -14,7 +15,8 @@ export type FlipButtonVariant =
   | "ghost"
   | "plain"
   | "floating"
-  | "on-image";
+  | "on-image"
+  | "outline";
 
 @Component({
   /**
@@ -42,6 +44,7 @@ export class FlipButton {
   @Prop() intent?: FlipButtonIntent = "default";
   @Prop() label!: string;
   @Prop() name?: string;
+  @Prop() pill?: boolean;
   @Prop() size?: FlipButtonSize = "m";
   @Prop() target?: string;
   @Prop() type?: FlipButtonType = "button";
@@ -51,17 +54,33 @@ export class FlipButton {
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps();
+    this.forceIconProps(getDesktopMediaQuery().matches);
+
+    getDesktopMediaQuery().addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
-  private forceIconProps() {
+  disconnectedCallback() {
+    getDesktopMediaQuery().removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
     if (!Boolean(this.iconEl)) {
       return;
     }
 
     const icon = this.iconEl.children[0];
 
-    icon?.setAttribute("size", "24");
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
   }
 
   private getAriaLabel(hideLabel: boolean) {
@@ -90,6 +109,7 @@ export class FlipButton {
       `button--variant-${this.variant}`,
       {
         "button--icon-only": hideLabel,
+        "button--pill": this.pill,
       }
     );
 

@@ -61,6 +61,11 @@
   & i {
     font-style: normal;
   }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .air-datepicker-body--day-names {

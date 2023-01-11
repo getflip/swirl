@@ -8,6 +8,7 @@ import {
   Prop,
 } from "@stencil/core";
 import classnames from "classnames";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type FlipBannerAriaRole = "alert" | "status";
 
@@ -45,6 +46,37 @@ export class FlipBanner {
   @Event() action?: EventEmitter<MouseEvent>;
   @Event() dismiss?: EventEmitter<MouseEvent>;
 
+  private dismissButtonEl: HTMLElement;
+  private iconEl: HTMLElement;
+
+  componentDidLoad() {
+    this.forceIconProps(getDesktopMediaQuery().matches);
+
+    getDesktopMediaQuery().addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  disconnectedCallback() {
+    getDesktopMediaQuery().removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
+    const icon = this.iconEl?.children[0];
+    const dismissButtonIcon = this.dismissButtonEl?.children[0];
+
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+    dismissButtonIcon?.setAttribute("size", smallIcon ? "20" : "24");
+  }
+
   onAction = (event: MouseEvent) => {
     this.action.emit(event);
   };
@@ -75,9 +107,10 @@ export class FlipBanner {
               aria-hidden="true"
               class="banner__icon"
               innerHTML={icon}
+              ref={(el) => (this.iconEl = el)}
             ></span>
           )}
-          <span class="banner__content" id="content">
+          <span class="banner__content" id="content" part="banner__content">
             {this.content}
           </span>
           {showControls && (
@@ -86,6 +119,7 @@ export class FlipBanner {
                 <button
                   class="banner__action-button"
                   onClick={this.onAction}
+                  part="banner__action-button"
                   type="button"
                 >
                   {this.actionLabel}
@@ -96,6 +130,8 @@ export class FlipBanner {
                   aria-label={this.dismissLabel}
                   class="banner__dismiss-button"
                   onClick={this.onDismiss}
+                  part="banner__dismiss-button"
+                  ref={(el) => (this.dismissButtonEl = el)}
                   type="button"
                 >
                   <flip-icon-close></flip-icon-close>

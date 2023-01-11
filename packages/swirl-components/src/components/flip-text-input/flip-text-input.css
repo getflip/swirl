@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: block;
   width: 100%;
@@ -68,6 +70,11 @@
   &[type="number"] {
     -moz-appearance: textfield;
   }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 input.text-input__input:not([type="password"]) {
@@ -102,6 +109,10 @@ input.text-input__input:not([type="password"]) {
   &:focus-visible {
     outline-color: var(--s-focus-default);
   }
+
+  @media (--from-desktop-without-touch) {
+    top: -0.625rem;
+  }
 }
 
 .text-input__stepper {
@@ -110,6 +121,10 @@ input.text-input__input:not([type="password"]) {
   right: 0;
   display: flex;
   flex-direction: column;
+
+  @media (--from-desktop-without-touch) {
+    top: -1.25rem;
+  }
 }
 
 .text-input__step-button {
@@ -138,6 +153,11 @@ input.text-input__input:not([type="password"]) {
   color: var(--s-text-subdued);
   line-height: var(--s-line-height-sm);
   flex-direction: column;
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .text-input__prefix {

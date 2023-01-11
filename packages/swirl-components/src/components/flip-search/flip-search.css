@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: flex;
   width: 100%;
@@ -74,6 +76,12 @@
     & + .search__clear-button {
       display: inline-flex;
     }
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+    padding-left: calc(var(--s-space-8) + 1.5rem + var(--s-space-8));
   }
 }
 

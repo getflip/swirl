@@ -24,7 +24,7 @@ describe("flip-date-input", () => {
         <div class="date-input">
           <input class="date-input__input" id="flip-date-input-1" placeholder="yyyy-mm-dd" type="text">
           <button aria-hidden="true" class="date-input__date-picker-button" id="flip-date-input-1-trigger" tabIndex="-1" type="button">
-            <flip-icon-today></flip-icon-today>
+            <flip-icon-today size="24"></flip-icon-today>
           </button>
         </div>
         <flip-popover label="Date picker" placement="bottom-end" popoverid="popover" trigger="flip-date-input-1-trigger">
