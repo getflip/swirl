@@ -245,23 +245,25 @@ export class FlipAutocomplete implements FlipFormInput {
                 <flip-spinner></flip-spinner>
               </div>
             )}
-            <flip-option-list
-              label={this.menuLabel}
-              onValueChange={this.onSelect}
-              optionListId={suggestionsMenuId}
-              ref={(el) => (this.listboxEl = el)}
-              value={[this.value]}
-            >
-              {this.suggestions.map((suggestion) => (
-                <flip-option-list-item
-                  selected={this.value === suggestion.label}
-                  key={suggestion.id}
-                  disabled={suggestion.disabled}
-                  label={suggestion.label}
-                  value={suggestion.label}
-                ></flip-option-list-item>
-              ))}
-            </flip-option-list>
+            {this.suggestions.length > 0 && (
+              <flip-option-list
+                label={this.menuLabel}
+                onValueChange={this.onSelect}
+                optionListId={suggestionsMenuId}
+                ref={(el) => (this.listboxEl = el)}
+                value={[this.value]}
+              >
+                {this.suggestions.map((suggestion) => (
+                  <flip-option-list-item
+                    selected={this.value === suggestion.label}
+                    key={suggestion.id}
+                    disabled={suggestion.disabled}
+                    label={suggestion.label}
+                    value={suggestion.label}
+                  ></flip-option-list-item>
+                ))}
+              </flip-option-list>
+            )}
           </div>
         </div>
       </Host>

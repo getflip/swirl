@@ -13,14 +13,14 @@ describe("flip-toast", () => {
       <flip-toast content="Content" icon="<flip-icon-mail></flip-icon-mail>">
         <mock:shadow-root>
           <div class="toast toast--intent-default">
-            <span class="toast__icon">
-              <flip-icon-mail></flip-icon-mail>
+            <span class="toast__icon" part="toast__icon">
+              <flip-icon-mail size="24"></flip-icon-mail>
             </span>
-            <span class="toast__content">
+            <span class="toast__content" part="toast__content">
               Content
             </span>
             <button aria-label="Dismiss" class="toast__dismiss-button" type="button">
-              <flip-icon-close></flip-icon-close>
+              <flip-icon-close size="24"></flip-icon-close>
             </button>
           </div>
         </mock:shadow-root>

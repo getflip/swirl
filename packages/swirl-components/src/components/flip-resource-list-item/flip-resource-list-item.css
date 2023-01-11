@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: block;
   width: 100%;
@@ -109,6 +111,12 @@
     & .resource-list-item__description {
       color: var(--s-text-disabled);
     }
+  }
+
+  @media (--from-desktop-without-touch) {
+    padding: var(--s-space-12);
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
   }
 }
 

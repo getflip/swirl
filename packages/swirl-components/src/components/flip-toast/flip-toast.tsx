@@ -8,6 +8,7 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type FlipToastIntent = "default" | "critical" | "success";
 
@@ -27,6 +28,8 @@ export class FlipToast {
 
   @Event() dismiss: EventEmitter<string>;
 
+  private dismissIconEl: HTMLElement;
+  private iconEl: HTMLElement;
   private timeout: NodeJS.Timeout;
 
   @Watch("duration")
@@ -36,6 +39,32 @@ export class FlipToast {
 
   componentDidLoad() {
     this.startTimer();
+
+    this.forceIconProps(getDesktopMediaQuery().matches);
+
+    getDesktopMediaQuery().addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  disconnectedCallback() {
+    getDesktopMediaQuery().removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
+    const icon = this.iconEl?.children[0];
+    const dismissIcon = this.dismissIconEl;
+
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+    dismissIcon?.setAttribute("size", smallIcon ? "20" : "24");
   }
 
   private startTimer() {
@@ -69,8 +98,17 @@ export class FlipToast {
     return (
       <Host>
         <div class={className}>
-          {this.icon && <span class="toast__icon" innerHTML={this.icon}></span>}
-          <span class="toast__content">{this.content}</span>
+          {this.icon && (
+            <span
+              class="toast__icon"
+              innerHTML={this.icon}
+              part="toast__icon"
+              ref={(el) => (this.iconEl = el)}
+            ></span>
+          )}
+          <span class="toast__content" part="toast__content">
+            {this.content}
+          </span>
           <button
             aria-label={this.dismissLabel || this.accessibleDismissLabel}
             class="toast__dismiss-button"
@@ -78,7 +116,11 @@ export class FlipToast {
             type="button"
           >
             {this.dismissLabel}
-            {!Boolean(this.dismissLabel) && <flip-icon-close></flip-icon-close>}
+            {!Boolean(this.dismissLabel) && (
+              <flip-icon-close
+                ref={(el) => (this.dismissIconEl = el)}
+              ></flip-icon-close>
+            )}
           </button>
         </div>
       </Host>

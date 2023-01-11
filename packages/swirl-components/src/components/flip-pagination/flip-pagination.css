@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: block;
   width: 100%;
@@ -14,7 +16,7 @@
 
 .pagination--variant-simple {
   & .pagination__list {
-    gap: var(--s-space-4);
+    gap: 0;
   }
 }
 
@@ -26,10 +28,12 @@
   align-items: center;
   line-height: var(--s-line-height-base);
   list-style: none;
-  gap: var(--s-space-8);
+  gap: var(--s-space-16);
 
-  @media (--from-tablet) {
-    gap: var(--s-space-16);
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+    gap: var(--s-space-8);
   }
 }
 

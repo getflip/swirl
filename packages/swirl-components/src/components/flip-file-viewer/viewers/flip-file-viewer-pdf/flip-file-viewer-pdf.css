@@ -162,4 +162,9 @@
   line-height: var(--s-line-height-base);
   transform: translateX(-50%);
   pointer-events: none;
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }

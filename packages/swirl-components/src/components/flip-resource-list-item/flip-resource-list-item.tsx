@@ -109,6 +109,7 @@ export class FlipResourceListItem {
             href={this.href}
             disabled={disabled}
             onClick={this.onClick}
+            part="resource-list-item__content"
             role={role}
             tabIndex={0}
           >

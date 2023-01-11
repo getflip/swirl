@@ -12,7 +12,7 @@ describe("flip-link", () => {
     expect(page.root).toEqualHtml(`
       <flip-link href="/" label="Label">
         <mock:shadow-root>
-          <a class="link" href="/">
+          <a class="link" href="/" part="link">
             Label
           </a>
         </mock:shadow-root>
