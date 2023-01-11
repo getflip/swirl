@@ -12,8 +12,8 @@ describe("flip-description-list-item", () => {
     expect(page.root).toEqualHtml(`
       <flip-description-list-item term="Term">
         <mock:shadow-root>
-          <div class="description-list-item">
-            <dt class="description-list-item__term">Term</dt>
+          <div class="description-list-item" part="description-list-item">
+            <dt class="description-list-item__term" part="description-list-item__term">Term</dt>
             <dd class="description-list-item__description">
               <slot></slot>
             </dd>

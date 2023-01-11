@@ -1,0 +1,176 @@
+/* Temporary solution to disable the desktop style tweaks (mostly font and icon
+   size adjustments) when using Swirl inside the current Angular web client */
+
+html.disable-desktop-style-tweaks {
+  @media (--from-desktop-without-touch) {
+    & ::part(action-list-item) {
+      padding: var(--s-space-12) var(--s-space-16);
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+      gap: var(--s-space-12);
+    }
+
+    & ::part(action-list-section__label) {
+      padding: var(--s-space-8) var(--s-space-16);
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+    }
+
+    & ::part(banner__content),
+    & ::part(banner__action-button),
+    & ::part(banner__dismiss-button),
+    & ::part(description-list-item),
+    & ::part(dialog__content),
+    & ::part(file-viewer-csv__table),
+    & ::part(file-viewer-pdf__pagination),
+    & ::part(file-viewer-text__text),
+    & ::part(inline-error),
+    & ::part(link),
+    & ::part(option-list-item__label),
+    & ::part(text--size-base),
+    & ::part(toast__content),
+    & ::part(tooltip__bubble),
+    & .checkbox__label,
+    & .checkbox__description,
+    & .date-input__input,
+    & .file-uploader__label,
+    & .file-uploader__dropzone-label,
+    & .flip-list,
+    & .radio__description,
+    & .radio__label,
+    & .select__label,
+    & .tabs__tab,
+    & .text-input__input,
+    & .text-input__character-counter {
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+    }
+
+    & .button {
+      padding: var(--s-space-8) var(--s-space-16);
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+      gap: var(--s-space-8);
+    }
+
+    & .button--pill {
+      border-radius: 1.25rem;
+    }
+
+    & .button--pill.button--size-l {
+      border-radius: 1.5rem;
+    }
+
+    & .checkbox__control {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    & .date-input__date-picker-button {
+      top: calc(-1 * var(--s-space-12));
+    }
+
+    & ::part(description-list-item__term) {
+      margin-bottom: var(--s-space-4);
+    }
+
+    & ::part(dialog__body) {
+      border-radius: var(--s-border-radius-l);
+    }
+
+    & ::part(dialog__heading) {
+      font-size: var(--s-font-size-lg);
+      line-height: var(--s-line-height-lg);
+    }
+
+    & .file-uploader__description {
+      margin-top: var(--s-space-4);
+    }
+
+    & .file-uploader__dropzone-label {
+      margin-top: var(--s-space-16);
+    }
+
+    & .file-uploader__upload-button {
+      margin-top: var(--s-space-16);
+    }
+
+    & .form-control {
+      &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select) {
+        & .form-control__label-text {
+          font-size: var(--s-font-size-base) !important;
+          line-height: var(--s-line-height-base) !important;
+        }
+      }
+
+      &:not(.form-control--has-value).form-control--is-select {
+        & .form-control__label-text {
+          font-size: var(--s-font-size-base) !important;
+          line-height: var(--s-line-height-base) !important;
+        }
+      }
+    }
+
+    & ::part(option-list-item) {
+      min-height: 3rem;
+      padding: var(--s-space-12) var(--s-space-16);
+      gap: var(--s-space-12);
+    }
+
+    & ::part(option-list-section__label) {
+      padding: var(--s-space-8) var(--s-space-16);
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+    }
+
+    & ::part(pagination__list) {
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+      gap: var(--s-space-16);
+    }
+
+    & .radio__control {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    & ::part(resource-list-file-item) {
+      padding: var(--s-space-12) var(--s-space-16);
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+    }
+
+    & ::part(resource-list-item__content) {
+      padding-top: var(--s-space-12);
+      padding-right: 0;
+      padding-bottom: var(--s-space-12);
+      padding-left: var(--s-space-16);
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+    }
+
+    & .search__input {
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+      padding-left: calc(var(--s-space-12) + 1.5rem + var(--s-space-8));
+    }
+
+    & ::part(text--size-lg) {
+      font-size: var(--s-font-size-lg);
+      line-height: var(--s-line-height-lg);
+    }
+
+    & .text-input__clear-button,
+    & .text-input__password-toggle {
+      top: calc(-1 * var(--s-space-12));
+    }
+
+    & .text-input__stepper {
+      top: -1.4375rem;
+    }
+
+    & ::part(toast__icon) {
+      margin-top: calc(-1 * var(--s-space-2));
+    }
+  }
+}

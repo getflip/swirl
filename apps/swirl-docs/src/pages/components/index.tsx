@@ -39,7 +39,7 @@ const ComponentsIndex = ({ links }: { links: NavItem[] }) => {
             </div>
             <div className="flex w-full">
               <div className="w-full md:mr-8">
-                <h2 className="mb-4">Icon List</h2>
+                <h2 className="mb-4">Component List</h2>
                 <ComponentGrid
                   componentList={componentsNavItems
                     .map((item) => item)

@@ -89,7 +89,6 @@
 
 .checkbox__control {
   position: relative;
-  top: 0.125rem;
   width: 1.5rem;
   height: 1.5rem;
   padding: var(--s-space-2);
@@ -151,7 +150,7 @@
 .checkbox__label-container {
   display: inline-flex;
   margin-left: var(--s-space-8);
-  padding-top: var(--s-space-4);
+  padding-top: var(--s-space-2);
   align-items: flex-start;
   flex-direction: column;
 }

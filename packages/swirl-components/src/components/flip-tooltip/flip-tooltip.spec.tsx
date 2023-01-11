@@ -8,7 +8,7 @@ const expectedVisible = `
     <slot></slot>
   </span>
   <span class="tooltip__popper">
-    <span class="tooltip__bubble" id="tooltip" role="tooltip">
+    <span class="tooltip__bubble" id="tooltip" part="tooltip__bubble" role="tooltip">
       <span class="tooltip__content">
         Tooltip
       </span>

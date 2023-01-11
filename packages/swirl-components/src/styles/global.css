@@ -1,6 +1,7 @@
 @import "~@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css";
 @import "~@getflip/swirl-tokens/dist/css/styles.dark.custom-properties.css";
 @import "./media-queries.css";
+@import "./disable-desktop-style-tweaks.css";
 
 @font-face {
   font-family: "Inter var experimental";
@@ -28,6 +29,9 @@
   --flip-ghost-button-background-default: var(--s-background-default);
   --flip-ghost-button-background-hovered: var(--s-background-hovered);
   --flip-ghost-button-background-pressed: var(--s-background-pressed);
+
+  --flip-table-sticky-left-shadow: none;
+  --flip-table-sticky-right-shadow: none;
 
   @media (--from-desktop-without-touch) {
     --flip-button-border-top-right-radius: var(--s-border-radius-sm);

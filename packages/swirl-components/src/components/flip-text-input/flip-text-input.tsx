@@ -8,7 +8,7 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { desktopMediaQuery, FlipFormInput } from "../../utils";
+import { getDesktopMediaQuery, FlipFormInput } from "../../utils";
 
 export type FlipTextInputType =
   | "date"
@@ -78,12 +78,13 @@ export class FlipTextInput implements FlipFormInput {
   @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private inputEl: HTMLInputElement;
 
   componentDidLoad() {
-    this.updateIconSize(desktopMediaQuery.matches);
+    this.updateIconSize(this.desktopMediaQuery.matches);
 
-    desktopMediaQuery.addEventListener?.(
+    this.desktopMediaQuery.addEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
@@ -94,7 +95,7 @@ export class FlipTextInput implements FlipFormInput {
   }
 
   disconnectedCallback() {
-    desktopMediaQuery.removeEventListener?.(
+    this.desktopMediaQuery.removeEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );

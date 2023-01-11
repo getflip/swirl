@@ -1,6 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
-import { desktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type FlipInlineErrorSize = "s" | "m";
 
@@ -13,19 +13,20 @@ export class FlipInlineError {
   @Prop() message!: string;
   @Prop() size?: FlipInlineErrorSize = "m";
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps(desktopMediaQuery.matches);
+    this.forceIconProps(this.desktopMediaQuery.matches);
 
-    desktopMediaQuery.addEventListener?.(
+    this.desktopMediaQuery.addEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
   }
 
   disconnectedCallback() {
-    desktopMediaQuery.removeEventListener?.(
+    this.desktopMediaQuery.removeEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
@@ -60,7 +61,7 @@ export class FlipInlineError {
 
     return (
       <Host>
-        <span class={className}>
+        <span class={className} part="inline-error">
           <span class="inline-error__icon" ref={(el) => (this.iconEl = el)}>
             <flip-icon-error></flip-icon-error>
           </span>

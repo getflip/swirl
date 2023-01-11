@@ -5,6 +5,7 @@ import MobileNav from "./mobileNav";
 import Link from "next/link";
 import { navItems } from "@swirl/lib/navigation";
 import { useRouter } from "next/router";
+import { Autocomplete } from "../Search/AutoComplete";
 
 const HeaderNavigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -26,44 +27,45 @@ const HeaderNavigation = () => {
       </Link>
       <nav
         aria-label="main"
-        className="flex justify-between md:justify-start items-center h-[72px] w-full px-6 border-b-1 font-normal text-base"
+        className="flex justify-between items-center h-[72px] w-full px-6 border-b-1 font-normal text-base"
       >
-        <Link href="/">
-          <a className="flex justify-center items-center mr-8">
-            <Image
-              alt="Swirl home"
-              src="/swirl-icon-temp.svg"
-              width={32}
-              height={32}
-            />
-            <span className="font-bold ml-3">Swirl</span>
-          </a>
-        </Link>
+        <div className="inline-flex w-full justify-between md:justify-start">
+          <Link href="/">
+            <a className="flex justify-center items-center mr-8">
+              <Image
+                alt="Swirl home"
+                src="/swirl-icon-temp.svg"
+                width={32}
+                height={32}
+              />
+              <span className="font-bold ml-3">Swirl</span>
+            </a>
+          </Link>
 
-        <div className="inline-flex md:hidden">
-          {isMobileNavOpen && (
-            <button type="button" onClick={() => setIsMobileNavOpen(false)}>
-              <Image alt="Close Menu" src={icon.src} width={24} height={24} />
-            </button>
-          )}
-          {!isMobileNavOpen && (
-            <button
-              type="button"
-              aria-label="open menu"
-              onClick={() => setIsMobileNavOpen(true)}
-            >
-              <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
-              <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
-              <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
-            </button>
-          )}
-        </div>
+          <div className="inline-flex md:hidden">
+            {isMobileNavOpen && (
+              <button type="button" onClick={() => setIsMobileNavOpen(false)}>
+                <Image alt="Close Menu" src={icon.src} width={24} height={24} />
+              </button>
+            )}
+            {!isMobileNavOpen && (
+              <button
+                type="button"
+                aria-label="open menu"
+                onClick={() => setIsMobileNavOpen(true)}
+              >
+                <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
+                <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
+                <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
+              </button>
+            )}
+          </div>
 
-        <ul className="hidden md:flex flex-row">
-          {links.map((link) => (
-            <li
-              key={link.url}
-              className={`
+          <ul className="hidden md:flex flex-row">
+            {links.map((link) => (
+              <li
+                key={link.url}
+                className={`
               relative
               mr-4
               before:block before:absolute
@@ -76,18 +78,25 @@ const HeaderNavigation = () => {
                   ? "before:opacity-100"
                   : "before:opacity-0"
               }`}
-            >
-              <Link
-                className={`text-text-default text-base ${
-                  activePath?.includes(link.url) ? "text-border-info" : ""
-                }`}
-                href={link.url}
               >
-                <a>{link.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+                <Link
+                  className={`text-text-default text-base ${
+                    activePath?.includes(link.url) ? "text-border-info" : ""
+                  }`}
+                  href={link.url}
+                >
+                  <a>{link.title}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <Autocomplete
+          placeholder="Search"
+          openOnFocus={true}
+          defaultActiveItemId={0}
+        />
       </nav>
       {isMobileNavOpen && <MobileNav handleCloseMenu={handleCloseMenu} />}
     </header>

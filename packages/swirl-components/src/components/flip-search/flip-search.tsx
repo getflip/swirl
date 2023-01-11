@@ -8,7 +8,7 @@ import {
   Prop,
 } from "@stencil/core";
 import classnames from "classnames";
-import { desktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery } from "../../utils";
 
 @Component({
   /**
@@ -36,20 +36,21 @@ export class FlipSearch {
   @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private input: HTMLInputElement;
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps(desktopMediaQuery.matches);
+    this.forceIconProps(this.desktopMediaQuery.matches);
 
-    desktopMediaQuery.addEventListener?.(
+    this.desktopMediaQuery.addEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
   }
 
   disconnectedCallback() {
-    desktopMediaQuery.removeEventListener?.(
+    this.desktopMediaQuery.removeEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );

@@ -8,7 +8,7 @@ import {
   Prop,
 } from "@stencil/core";
 import classnames from "classnames";
-import { desktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type FlipBannerAriaRole = "alert" | "status";
 
@@ -46,20 +46,21 @@ export class FlipBanner {
   @Event() action?: EventEmitter<MouseEvent>;
   @Event() dismiss?: EventEmitter<MouseEvent>;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private dismissButtonEl: HTMLElement;
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps(desktopMediaQuery.matches);
+    this.forceIconProps(this.desktopMediaQuery.matches);
 
-    desktopMediaQuery.addEventListener?.(
+    this.desktopMediaQuery.addEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
   }
 
   disconnectedCallback() {
-    desktopMediaQuery.removeEventListener?.(
+    this.desktopMediaQuery.removeEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
@@ -110,7 +111,7 @@ export class FlipBanner {
               ref={(el) => (this.iconEl = el)}
             ></span>
           )}
-          <span class="banner__content" id="content">
+          <span class="banner__content" id="content" part="banner__content">
             {this.content}
           </span>
           {showControls && (
@@ -119,6 +120,7 @@ export class FlipBanner {
                 <button
                   class="banner__action-button"
                   onClick={this.onAction}
+                  part="banner__action-button"
                   type="button"
                 >
                   {this.actionLabel}
@@ -129,6 +131,7 @@ export class FlipBanner {
                   aria-label={this.dismissLabel}
                   class="banner__dismiss-button"
                   onClick={this.onDismiss}
+                  part="banner__dismiss-button"
                   ref={(el) => (this.dismissButtonEl = el)}
                   type="button"
                 >

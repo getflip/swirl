@@ -12,7 +12,7 @@ import { AirDatepickerLocale } from "air-datepicker";
 import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
-import { desktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery } from "../../utils";
 
 const internalDateFormat = "yyyy-MM-dd";
 
@@ -45,6 +45,7 @@ export class FlipDateInput {
 
   @Event() valueChange: EventEmitter<string>;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private id: string;
   private mask: Maska;
   private pickerPopover: HTMLFlipPopoverElement;
@@ -58,9 +59,9 @@ export class FlipDateInput {
   componentDidLoad() {
     this.setupMask();
 
-    this.updateIconSize(desktopMediaQuery.matches);
+    this.updateIconSize(this.desktopMediaQuery.matches);
 
-    desktopMediaQuery.addEventListener?.(
+    this.desktopMediaQuery.addEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
@@ -69,7 +70,7 @@ export class FlipDateInput {
   disconnectedCallback() {
     this.mask?.destroy();
 
-    desktopMediaQuery.removeEventListener?.(
+    this.desktopMediaQuery.removeEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );

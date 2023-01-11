@@ -9,7 +9,7 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { desktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type FlipOptionListItemContext = "single-select" | "multi-select";
 
@@ -38,20 +38,21 @@ export class FlipOptionListItem {
 
   @State() iconSize: 20 | 24 = 24;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps(desktopMediaQuery.matches);
-    this.updateIconSize(desktopMediaQuery.matches);
+    this.forceIconProps(this.desktopMediaQuery.matches);
+    this.updateIconSize(this.desktopMediaQuery.matches);
 
-    desktopMediaQuery.addEventListener?.(
+    this.desktopMediaQuery.addEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
   }
 
   disconnectedCallback() {
-    desktopMediaQuery.removeEventListener?.(
+    this.desktopMediaQuery.removeEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
@@ -104,6 +105,7 @@ export class FlipOptionListItem {
           aria-disabled={ariaDisabled}
           aria-selected={ariaSelected}
           class={className}
+          part="option-list-item"
           role="option"
         >
           {showIcon && (
@@ -125,7 +127,9 @@ export class FlipOptionListItem {
               </span>
             </span>
           )}
-          <span class="option-list-item__label">{this.label}</span>
+          <span class="option-list-item__label" part="option-list-item__label">
+            {this.label}
+          </span>
           {showSelectionIcon && (
             <span class="option-list-item__selection-icon">
               <flip-icon-check-small

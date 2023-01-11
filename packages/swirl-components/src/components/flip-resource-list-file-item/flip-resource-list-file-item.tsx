@@ -1,6 +1,6 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
-import { desktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery } from "../../utils";
 
 @Component({
   shadow: true,
@@ -18,19 +18,20 @@ export class FlipResourceListFileItem {
 
   @Event() remove: EventEmitter<MouseEvent>;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps(desktopMediaQuery.matches);
+    this.forceIconProps(this.desktopMediaQuery.matches);
 
-    desktopMediaQuery.addEventListener?.(
+    this.desktopMediaQuery.addEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
   }
 
   disconnectedCallback() {
-    desktopMediaQuery.removeEventListener?.(
+    this.desktopMediaQuery.removeEventListener?.(
       "change",
       this.desktopMediaQueryHandler
     );
@@ -62,7 +63,7 @@ export class FlipResourceListFileItem {
 
     return (
       <Host role="row">
-        <div class={className} role="gridcell">
+        <div class={className} part="resource-list-file-item" role="gridcell">
           <span
             class="resource-list-file-item__icon"
             innerHTML={this.icon}

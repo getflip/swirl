@@ -9,10 +9,6 @@ export interface FlipFormInput<ValueType = string> {
   valueChange: EventEmitter<ValueType>;
 }
 
-export const desktopMediaQuery = window.matchMedia(
-  "(min-width: 992px) and (max-width: 1439px) and (hover: hover), (min-width: 1440px)"
-);
-
 export function closestPassShadow(node, selector) {
   if (!node) {
     return null;
@@ -33,6 +29,13 @@ export function closestPassShadow(node, selector) {
   return closestPassShadow(node.parentNode, selector);
 }
 
+export const getDesktopMediaQuery = () =>
+  document.documentElement.classList.contains("disable-desktop-style-tweaks")
+    ? window.matchMedia(null)
+    : window.matchMedia(
+        "(min-width: 992px) and (max-width: 1439px) and (hover: hover), (min-width: 1440px)"
+      );
+
 export function debounce(
   func: Function,
   wait: number,
@@ -40,7 +43,7 @@ export function debounce(
 ) {
   let timeout: NodeJS.Timeout;
 
-  return function executedFunction() {
+  return async function executedFunction() {
     const context = this;
     const args = arguments;
 
