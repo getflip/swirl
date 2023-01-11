@@ -15,12 +15,12 @@
   justify-content: center;
   align-items: center;
   border: none;
-  border-top-left-radius: var(--flip-button-border-top-left-radius);
-  border-top-right-radius: var(--flip-button-border-top-right-radius);
-  border-bottom-right-radius: var(--flip-button-border-bottom-right-radius);
-  border-bottom-left-radius: var(--flip-button-border-bottom-left-radius);
+  border-top-left-radius: var(--swirl-button-border-top-left-radius);
+  border-top-right-radius: var(--swirl-button-border-top-right-radius);
+  border-bottom-right-radius: var(--swirl-button-border-bottom-right-radius);
+  border-bottom-left-radius: var(--swirl-button-border-bottom-left-radius);
   color: var(--s-text-subdued);
-  background-color: var(--flip-ghost-button-background-default);
+  background-color: var(--swirl-ghost-button-background-default);
   font: inherit;
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-lg);
@@ -29,16 +29,16 @@
   gap: var(--s-space-8);
 
   &:hover {
-    background-color: var(--flip-ghost-button-background-hovered);
+    background-color: var(--swirl-ghost-button-background-hovered);
   }
 
   &:active {
-    background-color: var(--flip-ghost-button-background-pressed);
+    background-color: var(--swirl-ghost-button-background-pressed);
   }
 
   &:disabled {
     color: var(--s-text-disabled);
-    background-color: var(--flip-ghost-button-background-default);
+    background-color: var(--swirl-ghost-button-background-default);
     cursor: default;
 
     & .button__icon {
@@ -289,12 +289,12 @@
 
 .button--icon-only {
   padding: var(--s-space-8);
-  border-top-left-radius: var(--flip-icon-button-border-top-left-radius);
-  border-top-right-radius: var(--flip-icon-button-border-top-right-radius);
+  border-top-left-radius: var(--swirl-icon-button-border-top-left-radius);
+  border-top-right-radius: var(--swirl-icon-button-border-top-right-radius);
   border-bottom-right-radius: var(
-    --flip-icon-button-border-bottom-right-radius
+    --swirl-icon-button-border-bottom-right-radius
   );
-  border-bottom-left-radius: var(--flip-icon-button-border-bottom-left-radius);
+  border-bottom-left-radius: var(--swirl-icon-button-border-bottom-left-radius);
 
   & .button__icon {
     margin-right: 0;

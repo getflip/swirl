@@ -10,26 +10,26 @@
 }
 
 :root {
-  --flip-avatar-group-border-color: var(--s-background-default);
+  --swirl-avatar-group-border-color: var(--s-background-default);
 
-  --flip-badge-border-color: var(--s-background-default);
+  --swirl-badge-border-color: var(--s-background-default);
 
-  --flip-button-border-top-right-radius: var(--s-border-radius-base);
-  --flip-button-border-top-left-radius: var(--s-border-radius-base);
-  --flip-button-border-bottom-right-radius: var(--s-border-radius-base);
-  --flip-button-border-bottom-left-radius: var(--s-border-radius-base);
+  --swirl-button-border-top-right-radius: var(--s-border-radius-base);
+  --swirl-button-border-top-left-radius: var(--s-border-radius-base);
+  --swirl-button-border-bottom-right-radius: var(--s-border-radius-base);
+  --swirl-button-border-bottom-left-radius: var(--s-border-radius-base);
 
-  --flip-icon-button-border-top-right-radius: 50%;
-  --flip-icon-button-border-top-left-radius: 50%;
-  --flip-icon-button-border-bottom-right-radius: 50%;
-  --flip-icon-button-border-bottom-left-radius: 50%;
+  --swirl-icon-button-border-top-right-radius: 50%;
+  --swirl-icon-button-border-top-left-radius: 50%;
+  --swirl-icon-button-border-bottom-right-radius: 50%;
+  --swirl-icon-button-border-bottom-left-radius: 50%;
 
-  --flip-ghost-button-background-default: var(--s-background-default);
-  --flip-ghost-button-background-hovered: var(--s-background-hovered);
-  --flip-ghost-button-background-pressed: var(--s-background-pressed);
+  --swirl-ghost-button-background-default: var(--s-background-default);
+  --swirl-ghost-button-background-hovered: var(--s-background-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-background-pressed);
 
-  --flip-table-sticky-left-shadow: none;
-  --flip-table-sticky-right-shadow: none;
+  --swirl-table-sticky-left-shadow: none;
+  --swirl-table-sticky-right-shadow: none;
 }
 
 *,

@@ -15,19 +15,19 @@
 }
 
 .thumbnail--size-s {
-  --flip-thumbnail-size: 2.5rem;
+  --swirl-thumbnail-size: 2.5rem;
 }
 
 .thumbnail--size-m {
-  --flip-thumbnail-size: 3rem;
+  --swirl-thumbnail-size: 3rem;
 }
 
 .thumbnail--size-l {
-  --flip-thumbnail-size: 4rem;
+  --swirl-thumbnail-size: 4rem;
 }
 
 .thumbnail--format-landscape {
-  width: var(--flip-thumbnail-size);
+  width: var(--swirl-thumbnail-size);
   aspect-ratio: 4 / 3;
 
   & .thumbnail__image {
@@ -36,7 +36,7 @@
 }
 
 .thumbnail--format-portrait {
-  height: var(--flip-thumbnail-size);
+  height: var(--swirl-thumbnail-size);
   aspect-ratio: 3 / 4;
 
   & .thumbnail__image {
@@ -45,8 +45,8 @@
 }
 
 .thumbnail--format-square {
-  width: var(--flip-thumbnail-size);
-  height: var(--flip-thumbnail-size);
+  width: var(--swirl-thumbnail-size);
+  height: var(--swirl-thumbnail-size);
 
   & .thumbnail__image {
     width: 100%;

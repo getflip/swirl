@@ -31,11 +31,11 @@
   }
 
   &(.table-column--has-shadow-right) {
-    box-shadow: var(--flip-table-sticky-right-shadow);
+    box-shadow: var(--swirl-table-sticky-right-shadow);
   }
 
   &(.table-column--has-shadow-left) {
-    box-shadow: var(--flip-table-sticky-left-shadow);
+    box-shadow: var(--swirl-table-sticky-left-shadow);
   }
 
   & * {

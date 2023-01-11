@@ -1,7 +1,7 @@
 :host {
-  --flip-ghost-button-background-default: var(--s-surface-overlay-default);
-  --flip-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
-  --flip-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
+  --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
 
   display: block;
 

@@ -16,9 +16,9 @@
 }
 
 :root {
-  --flip-ghost-button-background-default: var(--s-background-default);
-  --flip-ghost-button-background-hovered: var(--s-background-hovered);
-  --flip-ghost-button-background-pressed: var(--s-background-pressed);
+  --swirl-ghost-button-background-default: var(--s-background-default);
+  --swirl-ghost-button-background-hovered: var(--s-background-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-background-pressed);
 }
 
 *,

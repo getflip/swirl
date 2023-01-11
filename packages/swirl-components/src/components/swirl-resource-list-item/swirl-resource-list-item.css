@@ -49,8 +49,8 @@
 }
 
 .resource-list-item__content {
-  --flip-avatar-group-border-color: var(--s-background-default);
-  --flip-badge-border-color: var(--s-background-default);
+  --swirl-avatar-group-border-color: var(--s-background-default);
+  --swirl-badge-border-color: var(--s-background-default);
 
   display: flex;
   width: 100%;
@@ -74,8 +74,8 @@
     background-color: var(--s-background-hovered);
 
     & .resource-list-item__media {
-      --flip-avatar-group-border-color: var(--s-background-hovered);
-      --flip-badge-border-color: var(--s-background-hovered);
+      --swirl-avatar-group-border-color: var(--s-background-hovered);
+      --swirl-badge-border-color: var(--s-background-hovered);
     }
   }
 
@@ -83,8 +83,8 @@
     background-color: var(--s-background-pressed);
 
     & .resource-list-item__media {
-      --flip-avatar-group-border-color: var(--s-background-pressed);
-      --flip-badge-border-color: var(--s-background-pressed);
+      --swirl-avatar-group-border-color: var(--s-background-pressed);
+      --swirl-badge-border-color: var(--s-background-pressed);
     }
   }
 
@@ -96,8 +96,8 @@
     background-color: var(--s-background-hovered);
 
     & .resource-list-item__media {
-      --flip-avatar-group-border-color: var(--s-background-hovered);
-      --flip-badge-border-color: var(--s-background-hovered);
+      --swirl-avatar-group-border-color: var(--s-background-hovered);
+      --swirl-badge-border-color: var(--s-background-hovered);
     }
   }
 

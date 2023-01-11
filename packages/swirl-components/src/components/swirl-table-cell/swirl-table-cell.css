@@ -15,11 +15,11 @@
   transition: box-shadow 0.15s;
 
   &(.table-cell--has-shadow-right) {
-    box-shadow: var(--flip-table-sticky-right-shadow);
+    box-shadow: var(--swirl-table-sticky-right-shadow);
   }
 
   &(.table-cell--has-shadow-left) {
-    box-shadow: var(--flip-table-sticky-left-shadow);
+    box-shadow: var(--swirl-table-sticky-left-shadow);
   }
 
   &(:first-child) {
