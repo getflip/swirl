@@ -9,7 +9,7 @@ export default {
     },
     layout: "fullscreen",
   },
-  title: "Admin/FlipConsoleLayout",
+  title: "Admin/SwirlConsoleLayout",
 };
 
 const Template = (args) => {

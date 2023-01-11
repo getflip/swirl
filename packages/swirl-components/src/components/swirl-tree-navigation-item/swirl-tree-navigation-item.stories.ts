@@ -18,7 +18,7 @@ export default {
       page: Docs,
     },
   },
-  title: "Admin/FlipTreeNavigationItem",
+  title: "Admin/SwirlTreeNavigationItem",
 };
 
 const Template = (args) => {
