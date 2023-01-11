@@ -377,6 +377,7 @@ export namespace Components {
     interface FlipHeading {
         "align"?: FlipHeadingAlign;
         "as"?: FlipHeadingTag;
+        "balance"?: boolean;
         "headingId"?: string;
         "level"?: FlipHeadingLevel;
         "text": string;
@@ -2619,6 +2620,7 @@ declare namespace LocalJSX {
     interface FlipHeading {
         "align"?: FlipHeadingAlign;
         "as"?: FlipHeadingTag;
+        "balance"?: boolean;
         "headingId"?: string;
         "level"?: FlipHeadingLevel;
         "text": string;

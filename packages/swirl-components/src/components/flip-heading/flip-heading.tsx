@@ -1,5 +1,6 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, h, Host, Listen, Prop } from "@stencil/core";
 import classnames from "classnames";
+import balanceText from "balance-text";
 
 export type FlipHeadingAlign = "start" | "center" | "end";
 
@@ -25,9 +26,29 @@ export type FlipHeadingTag =
 export class FlipHeading {
   @Prop() align?: FlipHeadingAlign = "start";
   @Prop() as?: FlipHeadingTag;
+  @Prop() balance?: boolean = true;
   @Prop() headingId?: string;
   @Prop() level?: FlipHeadingLevel = 1;
   @Prop() text!: string;
+
+  private headingEl: HTMLElement;
+
+  componentDidRender() {
+    this.rebalance();
+  }
+
+  @Listen("resize", { target: "window" })
+  onWindowResize() {
+    this.rebalance();
+  }
+
+  private rebalance() {
+    if (!this.balance || !Boolean(this.headingEl)) {
+      return;
+    }
+
+    balanceText(this.headingEl);
+  }
 
   render() {
     const Tag = this.as || `h${this.level}`;
@@ -40,7 +61,11 @@ export class FlipHeading {
 
     return (
       <Host>
-        <Tag class={className} id={this.headingId}>
+        <Tag
+          class={className}
+          id={this.headingId}
+          ref={(el) => (this.headingEl = el)}
+        >
           {this.text}
         </Tag>
       </Host>
