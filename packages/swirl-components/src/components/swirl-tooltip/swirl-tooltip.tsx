@@ -184,7 +184,12 @@ export class SwirlTooltip {
             }}
           >
             {this.visible && (
-              <span class="tooltip__bubble" id="tooltip" role="tooltip">
+              <span
+                class="tooltip__bubble"
+                id="tooltip"
+                part="tooltip__bubble"
+                role="tooltip"
+              >
                 <span class="tooltip__content" innerHTML={this.content}></span>
                 <span class="tooltip__arrow" style={arrowStyles}></span>
               </span>

@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: block;
   width: 100%;
@@ -42,6 +44,11 @@
 
   &:focus {
     outline: none;
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
   }
 }
 

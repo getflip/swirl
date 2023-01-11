@@ -12,9 +12,9 @@ describe("swirl-action-list-item", () => {
     expect(page.root).toEqualHtml(`
       <swirl-action-list-item description="Description" icon="<swirl-icon-close></swirl-icon-close>" label="Label" suffix="<swirl-icon-chevron-right></swirl-icon-chevron-right>">
         <mock:shadow-root>
-          <button class="action-list-item action-list-item--intent-default action-list-item--size-m" role="menuitem" tabindex="-1" type="button">
+          <button class="action-list-item action-list-item--intent-default action-list-item--size-m" part="action-list-item" role="menuitem" tabindex="-1" type="button">
             <span class="action-list-item__icon">
-              <swirl-icon-close></swirl-icon-close>
+              <swirl-icon-close size="24"></swirl-icon-close>
             </span>
             <span class="action-list-item__label-container">
               <span class="action-list-item__label">
@@ -25,7 +25,7 @@ describe("swirl-action-list-item", () => {
               </span>
             </span>
             <span class="action-list-item__suffix">
-              <swirl-icon-chevron-right></swirl-icon-chevron-right>
+              <swirl-icon-chevron-right size="24"></swirl-icon-chevron-right>
             </span>
           </button>
         </mock:shadow-root>

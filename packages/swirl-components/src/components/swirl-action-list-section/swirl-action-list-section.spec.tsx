@@ -18,7 +18,7 @@ describe("swirl-action-list-section", () => {
       <swirl-action-list-section label="Label">
         <mock:shadow-root>
           <div aria-labelledby="label" class="action-list-section" role="group">
-            <span class="action-list-section__label" id="label">
+            <span class="action-list-section__label" id="label" part="action-list-section__label">
               Label
             </span>
             <div class="action-list-section__items">

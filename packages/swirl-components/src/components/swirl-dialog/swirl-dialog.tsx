@@ -113,13 +113,13 @@ export class SwirlDialog {
           role="alertdialog"
         >
           <div class="dialog__backdrop" onClick={this.onBackdropClick}></div>
-          <div class="dialog__body" role="document">
+          <div class="dialog__body" part="dialog__body" role="document">
             {!this.hideLabel && (
-              <h2 class="dialog__heading" id="label">
+              <h2 class="dialog__heading" part="dialog__heading" id="label">
                 {this.label}
               </h2>
             )}
-            <div class="dialog__content" id="content">
+            <div class="dialog__content" part="dialog__content" id="content">
               <slot></slot>
             </div>
             <swirl-button-group

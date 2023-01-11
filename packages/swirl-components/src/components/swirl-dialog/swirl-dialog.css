@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
   --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
@@ -70,6 +72,10 @@
   background-color: var(--s-surface-overlay-default);
   text-align: center;
   box-shadow: var(--s-shadow-level-3);
+
+  @media (--from-desktop-without-touch) {
+    border-radius: var(--s-border-radius-base);
+  }
 }
 
 .dialog__heading {
@@ -78,6 +84,11 @@
   font-size: var(--s-font-size-lg);
   font-weight: var(--s-font-weight-semibold);
   line-height: var(--s-line-height-lg);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-base);
+    line-height: var(--s-line-height-base);
+  }
 }
 
 .dialog__content {
@@ -86,6 +97,11 @@
 
   & ::slotted(*) {
     margin: 0;
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
   }
 }
 

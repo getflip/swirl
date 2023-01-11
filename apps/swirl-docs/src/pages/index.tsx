@@ -7,6 +7,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Swirl | NextJS Bootstrap</title>
       </Head>
+
       <main
         id="main"
         className="flex flex-col justify-center items-center h-[calc(100vh_-_72px)] w-screen"

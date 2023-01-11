@@ -14,7 +14,7 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-tab", args);
 
-  element.innerHTML = `Content`;
+  element.innerHTML = `<swirl-text>Content</swirl-text>`;
 
   return element;
 };

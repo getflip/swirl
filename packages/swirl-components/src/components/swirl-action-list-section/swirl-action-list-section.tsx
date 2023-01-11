@@ -15,7 +15,11 @@ export class SwirlActionListSection {
     return (
       <Host>
         <div aria-labelledby="label" class="action-list-section" role="group">
-          <span class="action-list-section__label" id="label">
+          <span
+            class="action-list-section__label"
+            id="label"
+            part="action-list-section__label"
+          >
             {this.label}
           </span>
           <div class="action-list-section__items">

@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlButtonIconPosition = "start" | "end";
 
@@ -14,7 +15,8 @@ export type SwirlButtonVariant =
   | "ghost"
   | "plain"
   | "floating"
-  | "on-image";
+  | "on-image"
+  | "outline";
 
 @Component({
   /**
@@ -42,26 +44,44 @@ export class SwirlButton {
   @Prop() intent?: SwirlButtonIntent = "default";
   @Prop() label!: string;
   @Prop() name?: string;
+  @Prop() pill?: boolean;
   @Prop() size?: SwirlButtonSize = "m";
   @Prop() target?: string;
   @Prop() type?: SwirlButtonType = "button";
   @Prop() value?: string;
   @Prop() variant?: SwirlButtonVariant = "ghost";
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceIconProps();
+    this.forceIconProps(this.desktopMediaQuery.matches);
+
+    this.desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
-  private forceIconProps() {
+  disconnectedCallback() {
+    this.desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
     if (!Boolean(this.iconEl)) {
       return;
     }
 
     const icon = this.iconEl.children[0];
 
-    icon?.setAttribute("size", "24");
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
   }
 
   private getAriaLabel(hideLabel: boolean) {
@@ -90,6 +110,7 @@ export class SwirlButton {
       `button--variant-${this.variant}`,
       {
         "button--icon-only": hideLabel,
+        "button--pill": this.pill,
       }
     );
 

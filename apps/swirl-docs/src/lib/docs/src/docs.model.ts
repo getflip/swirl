@@ -3,13 +3,20 @@ export enum DOCUMENTATION_SRC {
   DOCUMENTATION = "documentation",
 }
 
-export enum BASE_PATHS {
+export type DocumentationCategory = "components" | "tokens" | "icons";
+export type DocumentationParamKey = "componentDoc" | "tokenDoc" | "iconDoc";
+
+export type StaticPathMapType = {
+  [key in DocumentationCategory]: DocumentationParamKey;
+};
+
+export enum DOCUMENTATION_CATEGORY {
   COMPONENTS = "components",
   TOKENS = "tokens",
   ICONS = "icons",
 }
 
-export enum DOCUMENT_ENUM {
+export enum DOCUMENT_TYPE {
   COMPONENTS = "componentDoc",
   TOKENS = "tokenDoc",
   ICONS = "iconDoc",
@@ -25,7 +32,7 @@ export type DocCategory = {
 
 export type Document = {
   name: string;
-  basePath: BASE_PATHS | string;
+  basePath: DOCUMENTATION_CATEGORY | string;
 };
 
 export type DocHeadline = {

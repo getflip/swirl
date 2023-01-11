@@ -14,8 +14,13 @@ export class SwirlDescriptionListItem {
   render() {
     return (
       <Host>
-        <div class="description-list-item">
-          <dt class="description-list-item__term">{this.term}</dt>
+        <div class="description-list-item" part="description-list-item">
+          <dt
+            class="description-list-item__term"
+            part="description-list-item__term"
+          >
+            {this.term}
+          </dt>
           <dd class="description-list-item__description">
             <slot></slot>
           </dd>

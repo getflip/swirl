@@ -67,7 +67,7 @@ export class SwirlPagination {
     return (
       <Host>
         <nav aria-label={this.label} class={className}>
-          <ul class="pagination__list">
+          <ul class="pagination__list" part="pagination__list">
             <li class="pagination__list-item">
               <swirl-button
                 class="pagination__prev-button"

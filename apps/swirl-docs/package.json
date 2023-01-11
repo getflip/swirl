@@ -6,24 +6,31 @@
   "description": "Swirl documentation",
   "licence": "SEE LICENCE IN LICENSE.md",
   "repository": "https://github.com/getflip/swirl",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/getflip/swirl/issues"
   },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "tsx src/scripts/build-search.ts",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@algolia/autocomplete-js": "^1.7.4",
+    "@algolia/autocomplete-plugin-query-suggestions": "^1.7.4",
+    "@algolia/autocomplete-theme-classic": "^1.7.4",
     "@getflip/swirl-components": "^0.11.0",
     "@getflip/swirl-components-react": "^0.10.0",
     "@getflip/swirl-icons": "^0.7.0",
     "@getflip/swirl-tokens": "^2.2.0",
     "@mdx-js/loader": "^2.1.3",
     "@next/mdx": "^12.2.5",
+    "algoliasearch": "^4.14.2",
     "classnames": "^2.3.2",
     "codesandbox": "^2.2.3",
+    "dotenv": "^16.0.3",
     "gray-matter": "^4.0.3",
     "iframe-resizer-react": "^1.1.0",
     "next": "12.2.5",
@@ -32,10 +39,12 @@
     "react": "18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
+    "react-instantsearch-dom": "^6.38.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
-    "remark-sectionize": "^1.1.1"
+    "remark-sectionize": "^1.1.1",
+    "tsx": "^3.12.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
@@ -45,6 +54,7 @@
     "@types/react": "18.0.18",
     "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-dom": "18.0.6",
+    "@types/react-instantsearch-dom": "^6.12.3",
     "autoprefixer": "^10.4.8",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",

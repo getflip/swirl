@@ -1,13 +1,8 @@
 import { createStaticPathsData } from "@swirl/lib/docs";
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import {
-  BASE_PATHS,
-  DOCUMENT_ENUM,
-  DocHeadline,
-} from "@swirl/lib/docs/src/docs.model";
+import { DOCUMENTATION_CATEGORY } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
-import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import TokensList from "src/components/Tokens/TokensList";
 import { ColorTokens } from "src/components/Tokens/ColorTokens";
@@ -20,15 +15,15 @@ import { GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
 
 async function getComponentData(document: string) {
-  return await generateMdxFromDocumentation(BASE_PATHS.TOKENS, document);
+  return await generateMdxFromDocumentation(
+    DOCUMENTATION_CATEGORY.TOKENS,
+    document
+  );
 }
 
 export const getStaticPaths = async () => {
   // TODO: refactor this to use enums for the token params
-  const categoryDocs = createStaticPathsData(
-    BASE_PATHS.TOKENS,
-    DOCUMENT_ENUM.TOKENS
-  );
+  const categoryDocs = createStaticPathsData(DOCUMENTATION_CATEGORY.TOKENS);
 
   return {
     fallback: false,

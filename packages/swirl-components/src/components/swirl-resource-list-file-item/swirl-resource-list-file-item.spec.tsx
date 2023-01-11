@@ -18,9 +18,9 @@ describe("swirl-resource-list-file-item", () => {
     expect(page.root).toEqualHtml(`
       <swirl-resource-list-file-item description="Description" label="Label" loading="true" role="row">
         <mock:shadow-root>
-          <div class="resource-list-file-item resource-list-file-item--has-control" role="gridcell">
+          <div class="resource-list-file-item resource-list-file-item--has-control" part="resource-list-file-item" role="gridcell">
             <span class="resource-list-file-item__icon">
-              <swirl-icon-file></swirl-icon-file>
+              <swirl-icon-file size="24"></swirl-icon-file>
             </span>
             <span class="resource-list-file-item__label-container">
               <span class="resource-list-file-item__label" id="label">

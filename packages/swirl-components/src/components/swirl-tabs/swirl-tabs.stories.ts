@@ -15,9 +15,9 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-tabs", args);
 
   element.innerHTML = `
-    <swirl-tab label="Tab #1" tab-id="tab-1">Tab 1</swirl-tab>
-    <swirl-tab label="Tab #2" tab-id="tab-2">Tab 2</swirl-tab>
-    <swirl-tab label="Tab Number 3" tab-id="tab-3">Tab 3</swirl-tab>
+    <swirl-tab label="Tab #1" tab-id="tab-1"><swirl-text>Tab 1</swirl-text></swirl-tab>
+    <swirl-tab label="Tab #2" tab-id="tab-2"><swirl-text>Tab 2</swirl-text></swirl-tab>
+    <swirl-tab label="Tab Number 3" tab-id="tab-3"><swirl-text>Tab 3</swirl-text></swirl-tab>
   `;
 
   return element;

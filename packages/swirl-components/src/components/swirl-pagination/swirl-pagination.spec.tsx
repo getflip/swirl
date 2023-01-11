@@ -13,7 +13,7 @@ describe("swirl-pagination", () => {
       <swirl-pagination label="Pagination" page="2" pages="20">
         <mock:shadow-root>
           <nav aria-label="Pagination" class="pagination pagination--variant-default">
-            <ul class="pagination__list">
+            <ul class="pagination__list" part="pagination__list">
               <li class="pagination__list-item">
                 <swirl-button class="pagination__prev-button" swirlarialabel="Previous page" hidelabel="" icon="<swirl-icon-chevron-left></swirl-icon-chevron-left>" intent="primary" label="Prev"></swirl-button>
               </li>

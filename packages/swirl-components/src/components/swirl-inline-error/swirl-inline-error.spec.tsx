@@ -10,13 +10,13 @@ describe("swirl-inline-error", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-inline-error message=\"The error message.\" size=\"m\">
+      <swirl-inline-error message="The error message." size="m">
         <mock:shadow-root>
-          <span class=\"inline-error inline-error--size-m\">
-            <span class=\"inline-error__icon\">
-              <swirl-icon-error size=\"24\"></swirl-icon-error>
+          <span class="inline-error inline-error--size-m" part="inline-error">
+            <span class="inline-error__icon">
+              <swirl-icon-error size="24"></swirl-icon-error>
             </span>
-            <span class=\"inline-error__message\">
+            <span class="inline-error__message">
               The error message.
             </span>
           </span>

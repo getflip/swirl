@@ -19,7 +19,7 @@ describe("swirl-resource-list-item", () => {
       <swirl-resource-list-item description="Description" label="Label" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>" role="row">
         <mock:shadow-root>
           <div class="resource-list-item" role="gridcell">
-            <button aria-labelledby="label" class="resource-list-item__content" tabindex="0">
+            <button aria-labelledby="label" class="resource-list-item__content" part="resource-list-item__content"  tabindex="0">
               <span class="resource-list-item__media">
                 <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
               </span>

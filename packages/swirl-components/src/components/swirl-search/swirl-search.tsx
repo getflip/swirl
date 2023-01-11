@@ -8,6 +8,7 @@ import {
   Prop,
 } from "@stencil/core";
 import classnames from "classnames";
+import { getDesktopMediaQuery } from "../../utils";
 
 @Component({
   /**
@@ -35,7 +36,39 @@ export class SwirlSearch {
   @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private input: HTMLInputElement;
+  private iconEl: HTMLElement;
+
+  componentDidLoad() {
+    this.forceIconProps(this.desktopMediaQuery.matches);
+
+    this.desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  disconnectedCallback() {
+    this.desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
+    if (!Boolean(this.iconEl)) {
+      return;
+    }
+
+    const icon = this.iconEl.children[0];
+
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+  }
 
   @Listen("keydown", { target: "window" })
   onKeyDown(event: KeyboardEvent) {
@@ -71,7 +104,7 @@ export class SwirlSearch {
 
     return (
       <Host>
-        <span class={className}>
+        <span class={className} ref={(el) => (this.iconEl = el)}>
           <swirl-icon-search class="search__icon"></swirl-icon-search>
           <input
             aria-disabled={this.disabled ? "true" : undefined}

@@ -8,7 +8,7 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { SwirlFormInput } from "../../utils";
+import { getDesktopMediaQuery, SwirlFormInput } from "../../utils";
 
 export type SwirlTextInputType =
   | "date"
@@ -71,16 +71,42 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() type?: SwirlTextInputType = "text";
   @Prop({ mutable: true, reflect: true }) value?: string;
 
+  @State() iconSize: 20 | 24 = 24;
   @State() showPassword = false;
 
   @Event() inputBlur: EventEmitter<FocusEvent>;
   @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private inputEl: HTMLInputElement;
+
+  componentDidLoad() {
+    this.updateIconSize(this.desktopMediaQuery.matches);
+
+    this.desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
 
   componentDidRender() {
     this.adjustInputSize();
+  }
+
+  disconnectedCallback() {
+    this.desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.updateIconSize(event.matches);
+  };
+
+  private updateIconSize(smallIcon: boolean) {
+    this.iconSize = smallIcon ? 20 : 24;
   }
 
   private adjustInputSize() {
@@ -266,7 +292,7 @@ export class SwirlTextInput implements SwirlFormInput {
               onClick={this.clear}
               type="button"
             >
-              <swirl-icon-cancel></swirl-icon-cancel>
+              <swirl-icon-cancel size={this.iconSize}></swirl-icon-cancel>
             </button>
           )}
           {showPasswordToggle && (
@@ -277,9 +303,13 @@ export class SwirlTextInput implements SwirlFormInput {
               type="button"
             >
               {this.showPassword ? (
-                <swirl-icon-visibility-off></swirl-icon-visibility-off>
+                <swirl-icon-visibility-off
+                  size={this.iconSize}
+                ></swirl-icon-visibility-off>
               ) : (
-                <swirl-icon-visibility></swirl-icon-visibility>
+                <swirl-icon-visibility
+                  size={this.iconSize}
+                ></swirl-icon-visibility>
               )}
             </button>
           )}
@@ -292,7 +322,9 @@ export class SwirlTextInput implements SwirlFormInput {
                 tabIndex={-1}
                 type="button"
               >
-                <swirl-icon-expand-less></swirl-icon-expand-less>
+                <swirl-icon-expand-less
+                  size={this.iconSize}
+                ></swirl-icon-expand-less>
               </button>
               <button
                 aria-hidden="true"
@@ -301,7 +333,9 @@ export class SwirlTextInput implements SwirlFormInput {
                 tabIndex={-1}
                 type="button"
               >
-                <swirl-icon-expand-more></swirl-icon-expand-more>
+                <swirl-icon-expand-more
+                  size={this.iconSize}
+                ></swirl-icon-expand-more>
               </button>
             </span>
           )}

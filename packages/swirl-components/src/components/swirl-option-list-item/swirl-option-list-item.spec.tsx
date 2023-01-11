@@ -19,15 +19,15 @@ describe("swirl-option-list-item", () => {
     expect(page.root).toEqualHtml(`
       <swirl-option-list-item context="single-select" disabled="false" icon="<swirl-icon-mention></swirl-icon-mention>" label="Option List Item" selected="true" value="Value">
         <mock:shadow-root>
-          <div aria-selected="true" class="option-list-item option-list-item--context-single-select option-list-item--selected" role="option">
+          <div aria-selected="true" class="option-list-item option-list-item--context-single-select option-list-item--selected" part="option-list-item" role="option">
             <span class="option-list-item__icon">
               <swirl-icon-mention size="24"></swirl-icon-mention>
             </span>
-            <span class="option-list-item__label">
+            <span class="option-list-item__label" part="option-list-item__label">
               Option List Item
             </span>
             <span class="option-list-item__selection-icon">
-              <swirl-icon-check-small></swirl-icon-check-small>
+              <swirl-icon-check-small size="24"></swirl-icon-check-small>
             </span>
           </div>
         </mock:shadow-root>

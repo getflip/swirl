@@ -13,14 +13,14 @@ describe("swirl-toast", () => {
       <swirl-toast content="Content" icon="<swirl-icon-mail></swirl-icon-mail>">
         <mock:shadow-root>
           <div class="toast toast--intent-default">
-            <span class="toast__icon">
-              <swirl-icon-mail></swirl-icon-mail>
+            <span class="toast__icon" part="toast__icon">
+              <swirl-icon-mail size="24"></swirl-icon-mail>
             </span>
-            <span class="toast__content">
+            <span class="toast__content" part="toast__content">
               Content
             </span>
             <button aria-label="Dismiss" class="toast__dismiss-button" type="button">
-              <swirl-icon-close></swirl-icon-close>
+              <swirl-icon-close size="24"></swirl-icon-close>
             </button>
           </div>
         </mock:shadow-root>

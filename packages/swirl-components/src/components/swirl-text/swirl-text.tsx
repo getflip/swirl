@@ -45,7 +45,7 @@ export class SwirlText {
 
     return (
       <Host>
-        <Tag class={className} part="text">
+        <Tag class={className} part={className}>
           <slot></slot>
         </Tag>
       </Host>

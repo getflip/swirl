@@ -5,12 +5,14 @@ import {
   h,
   Host,
   Prop,
+  State,
   Watch,
 } from "@stencil/core";
 import { AirDatepickerLocale } from "air-datepicker";
 import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
+import { getDesktopMediaQuery } from "../../utils";
 
 const internalDateFormat = "yyyy-MM-dd";
 
@@ -39,8 +41,11 @@ export class SwirlDateInput {
   @Prop() required?: boolean;
   @Prop({ mutable: true, reflect: true }) value?: string;
 
+  @State() iconSize: 20 | 24 = 24;
+
   @Event() valueChange: EventEmitter<string>;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private id: string;
   private mask: Maska;
   private pickerPopover: HTMLSwirlPopoverElement;
@@ -53,15 +58,35 @@ export class SwirlDateInput {
 
   componentDidLoad() {
     this.setupMask();
+
+    this.updateIconSize(this.desktopMediaQuery.matches);
+
+    this.desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
   disconnectedCallback() {
     this.mask?.destroy();
+
+    this.desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
   @Watch("format")
   watchFormat() {
     this.setupMask();
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.updateIconSize(event.matches);
+  };
+
+  private updateIconSize(smallIcon: boolean) {
+    this.iconSize = smallIcon ? 20 : 24;
   }
 
   private onChange = (event: Event) => {
@@ -169,7 +194,7 @@ export class SwirlDateInput {
             tabIndex={-1}
             type="button"
           >
-            <swirl-icon-today></swirl-icon-today>
+            <swirl-icon-today size={this.iconSize}></swirl-icon-today>
           </button>
         </div>
 

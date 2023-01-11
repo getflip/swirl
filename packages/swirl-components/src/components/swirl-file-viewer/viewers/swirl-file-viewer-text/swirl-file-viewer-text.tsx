@@ -53,14 +53,18 @@ export class SwirlFileViewerText {
 
   render() {
     return (
-      <Host class="file-viewer-text">
+      <Host class="file-viewer-text" exportparts="file-viewer-text__text">
         {this.error && (
           <swirl-inline-error
             class="file-viewer-text__error"
             message={this.errorMessage}
           ></swirl-inline-error>
         )}
-        <pre class="file-viewer-text__text" tabIndex={0}>
+        <pre
+          class="file-viewer-text__text"
+          part="file-viewer-text__text"
+          tabIndex={0}
+        >
           {this.text}
         </pre>
         {this.loading && (

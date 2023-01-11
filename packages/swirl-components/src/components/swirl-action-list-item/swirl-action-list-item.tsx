@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlActionListItemIntent = "default" | "critical";
 
@@ -19,6 +20,38 @@ export class SwirlActionListItem {
   @Prop() size?: SwirlActionListItemSize = "m";
   @Prop() suffix?: string;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
+  private iconEl: HTMLElement;
+  private suffixEl: HTMLElement;
+
+  componentDidLoad() {
+    this.forceIconProps(this.desktopMediaQuery.matches);
+
+    this.desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  disconnectedCallback() {
+    this.desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
+    const icon = this.iconEl?.children[0];
+    const suffix = this.suffixEl?.children[0];
+
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+    suffix?.setAttribute("size", smallIcon ? "20" : "24");
+  }
+
   render() {
     const showSuffix = Boolean(this.suffix) && !this.disabled;
 
@@ -33,12 +66,17 @@ export class SwirlActionListItem {
         <button
           class={className}
           disabled={this.disabled}
+          part="action-list-item"
           role="menuitem"
           tabIndex={-1}
           type="button"
         >
           {this.icon && (
-            <span class="action-list-item__icon" innerHTML={this.icon}></span>
+            <span
+              class="action-list-item__icon"
+              innerHTML={this.icon}
+              ref={(el) => (this.iconEl = el)}
+            ></span>
           )}
           <span class="action-list-item__label-container">
             <span class="action-list-item__label">{this.label}</span>
@@ -52,6 +90,7 @@ export class SwirlActionListItem {
             <span
               class="action-list-item__suffix"
               innerHTML={this.suffix}
+              ref={(el) => (this.suffixEl = el)}
             ></span>
           )}
         </button>

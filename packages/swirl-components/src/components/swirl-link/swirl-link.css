@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: inline-flex;
 
@@ -17,5 +19,10 @@
 
   &:active {
     color: var(--s-interactive-primary-pressed);
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
   }
 }

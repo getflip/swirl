@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlChipIntent = "default" | "critical" | "success";
 
@@ -16,11 +17,24 @@ export class SwirlChip {
   @Prop() label!: string;
 
   private avatarEl: HTMLElement;
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
 
   componentDidLoad() {
     this.forceAvatarProps();
-    this.forceIconProps();
+    this.forceIconProps(this.desktopMediaQuery.matches);
+
+    this.desktopMediaQuery.addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  disconnectedCallback() {
+    this.desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
   private forceAvatarProps() {
@@ -38,15 +52,19 @@ export class SwirlChip {
     avatar?.setAttribute("size", "xs");
   }
 
-  private forceIconProps() {
+  private forceIconProps(smallIcon: boolean) {
     if (!Boolean(this.iconEl)) {
       return;
     }
 
     const icon = this.iconEl.children[0];
 
-    icon?.setAttribute("size", "24");
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
   }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+  };
 
   render() {
     const Tag = this.interactive ? "button" : "span";

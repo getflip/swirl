@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: block;
 
@@ -52,6 +54,13 @@
       color: var(--s-icon-disabled);
     }
   }
+
+  @media (--from-desktop-without-touch) {
+    padding: var(--s-space-8) var(--s-space-12);
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+    gap: var(--s-space-8);
+  }
 }
 
 .action-list-item--size-l {
@@ -91,7 +100,6 @@
 .action-list-item__label {
   overflow: hidden;
   max-width: 100%;
-  padding-top: 0.0625rem;
   font-weight: var(--s-font-weight-medium);
   white-space: nowrap;
   text-overflow: ellipsis;

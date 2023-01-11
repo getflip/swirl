@@ -162,6 +162,7 @@ export namespace Components {
         "intent"?: SwirlButtonIntent;
         "label": string;
         "name"?: string;
+        "pill"?: boolean;
         "size"?: SwirlButtonSize;
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
@@ -2447,6 +2448,7 @@ declare namespace LocalJSX {
         "intent"?: SwirlButtonIntent;
         "label": string;
         "name"?: string;
+        "pill"?: boolean;
         "size"?: SwirlButtonSize;
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
