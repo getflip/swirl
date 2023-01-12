@@ -1,11 +1,11 @@
-import { FlipDialogIntent } from "@getflip/swirl-components/dist/types/components/flip-dialog/flip-dialog";
+import { SwirlDialogIntent } from "@getflip/swirl-components/dist/types/components/swirl-dialog/swirl-dialog";
 import { BridgeRequest } from "../messaging/messaging.types";
 import { BridgeMethod } from "../types";
 
 export type CreateDialogRequestParams = {
   hideLabel?: boolean;
   id: string;
-  intent?: FlipDialogIntent;
+  intent?: SwirlDialogIntent;
   label: string;
   text: string;
   primaryAction?: {

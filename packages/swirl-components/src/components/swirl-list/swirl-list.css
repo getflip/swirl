@@ -1,0 +1,68 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.swirl-list {
+  line-height: var(--s-line-height-base);
+
+  & ul,
+  & ol {
+    margin: 0;
+    padding: 0;
+    list-style-position: outside;
+    list-style-type: none;
+  }
+
+  & ul {
+    & li {
+      padding-left: 1.5rem;
+
+      &:before {
+        display: inline-block;
+        width: 1.5rem;
+        margin-left: -1.5rem;
+        text-align: center;
+        content: "•";
+      }
+    }
+  }
+
+  & ol {
+    counter-reset: item;
+
+    & ol {
+      counter-reset: letter;
+
+      & li {
+        &:before {
+          content: counter(letter, lower-alpha) ".";
+          counter-increment: letter;
+        }
+      }
+    }
+
+    & li {
+      padding-left: 1.5rem;
+
+      &:before {
+        display: inline-block;
+        min-width: 1.5rem;
+        margin-left: -1.5rem;
+        padding-right: var(--s-space-8);
+        text-align: right;
+        content: counter(item) ".";
+        counter-increment: item;
+        font-variant-numeric: tabular-nums;
+      }
+    }
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}

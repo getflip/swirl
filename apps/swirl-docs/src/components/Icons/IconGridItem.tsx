@@ -1,4 +1,4 @@
-import { FlipPopover } from "@getflip/swirl-components-react";
+import { SwirlPopover } from "@getflip/swirl-components-react";
 import { FunctionComponent, LegacyRef, useEffect, useState } from "react";
 
 import { IconsMetaData } from "src/pages/icons";
@@ -64,7 +64,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
             ></i>
             <span className="text-text-subdued">{icons[icon]?.name}</span>
           </a>
-          <FlipPopover
+          <SwirlPopover
             label="Icon Info"
             popoverId={`popover-${id}`}
             trigger={`${id}-popover-trigger`}
@@ -72,7 +72,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
             <div className="p-4">
               <IconInfo icon={icons[icon]} />
             </div>
-          </FlipPopover>
+          </SwirlPopover>
         </div>
       </MobileView>
     </NoSsr>

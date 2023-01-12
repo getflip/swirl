@@ -1,0 +1,33 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlVisuallyHidden" />
+
+# SwirlVisuallyHidden
+
+The SwirlVisuallyHidden component is used to hide content visually, but keep it
+readable for screen readers.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-visually-hidden)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirlvisuallyhidden--swirl-visually-hidden" />
+</Canvas>
+
+In some cases, you may want to hide elements that should be readable by a screen
+reader but are visually redundant. For example, icon buttons that need an
+accessible label, but the icon is sufficient in the visual representation.
+
+```html
+<button>
+  <swirl-icon-close></swirl-icon-close>
+  <swirl-visually-hidden>Close</swirl-visually-hidden>
+</button>
+```
+
+## Accessibility
+
+The component styles its children so that they are visually hidden, but the
+contents are still readable by assistive technology like screen readers. Do not
+use this component to hide interactive elements.

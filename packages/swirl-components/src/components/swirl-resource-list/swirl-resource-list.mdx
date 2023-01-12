@@ -1,0 +1,40 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlResourceList" />
+
+# SwirlResourceList
+
+The SwirlResourceList component is used to display a collection of resources,
+like media, groups or chats.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=236%3A5240)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-resource-list)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirlresourcelist--swirl-resource-list" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Grid Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/).
+
+| ARIA          | Usage |
+| ------------- | ----- |
+| `role="grid"` |       |
+
+### Keyboard
+
+| Key             | Action                                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------------------ |
+| <kbd>TAB</kbd>  | Moves focus into and out of the resource list.                                                         |
+| <kbd>DOWN</kbd> | Focuses the next resource list item; moves focus to the first item, if the last one was in focus.      |
+| <kbd>UP</kbd>   | Focuses thev previous resource list item; moves focus to the last ietm, if the first one was in focus. |
+| <kbd>HOME</kbd> | Moves focus to the first resource list item.                                                           |
+| <kbd>END</kbd>  | Moves focus to the last resource list item.                                                            |
