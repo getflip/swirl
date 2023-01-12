@@ -62,7 +62,7 @@ const HeaderNavigation = () => {
           >
             <div className="flex ">
               <HeaderLogo />
-              <ul className="hidden md:flex flex-row bg-background-default">
+              <ul className="hidden md:flex flex-row items-center bg-background-default">
                 {navItems.map((link) => (
                   <li
                     key={link.url}
