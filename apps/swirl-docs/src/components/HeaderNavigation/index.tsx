@@ -57,14 +57,15 @@ const HeaderNavigation = () => {
         <header className="sticky top-0 bg-background-default z-10">
           <nav
             aria-label="main"
-            className="flex justify-start items-center h-[72px] w-full px-4 border-b-1 font-normal text-base"
+            className="flex justify-between items-center h-[72px] w-full px-4 border-b-1 font-normal text-base"
           >
-            <HeaderLogo />
-            <ul className="hidden md:flex flex-row bg-background-default">
-              {links.map((link) => (
-                <li
-                  key={link.url}
-                  className={`
+            <div className="flex ">
+              <HeaderLogo />
+              <ul className="hidden md:flex flex-row bg-background-default">
+                {links.map((link) => (
+                  <li
+                    key={link.url}
+                    className={`
               relative
               mr-4
               before:block before:absolute
@@ -77,18 +78,19 @@ const HeaderNavigation = () => {
                   ? "before:opacity-100"
                   : "before:opacity-0"
               }`}
-                >
-                  <Link
-                    className={`text-text-default text-base ${
-                      activePath?.includes(link.url) ? "text-border-info" : ""
-                    }`}
-                    href={link.url}
                   >
-                    <a>{link.title}</a>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+                    <Link
+                      className={`text-text-default text-base ${
+                        activePath?.includes(link.url) ? "text-border-info" : ""
+                      }`}
+                      href={link.url}
+                    >
+                      <a>{link.title}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <Autocomplete
               placeholder="Search"
               openOnFocus={true}
