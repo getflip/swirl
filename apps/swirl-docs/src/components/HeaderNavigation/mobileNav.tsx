@@ -102,7 +102,7 @@ function ListItem({
           <a
             aria-current={item.url === currentPath ? "page" : "false"}
             onClick={handleCloseMenu}
-            className="flex justify-between py-3 font-normal px-4 w-full text-base font-normal"
+            className="flex justify-between py-3 font-normal px-4 w-full text-base"
           >
             {item.title}
           </a>
