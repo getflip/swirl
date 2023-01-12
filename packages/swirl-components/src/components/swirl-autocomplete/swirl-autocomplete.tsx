@@ -44,16 +44,17 @@ export class SwirlAutocomplete implements SwirlFormInput {
   @Prop() clearable?: boolean = true;
   @Prop() clearButtonLabel?: string = "Clear input";
   @Prop() disabled?: boolean;
-  @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true }) generateSuggestions?: (
     currentValue: string
   ) => Promise<SwirlAutocompleteSuggestion[]> = async () => [];
+  @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() maxLength?: number;
   @Prop() menuLabel?: string = "Suggestions";
   @Prop() mode?: SwirlTextInputMode;
   @Prop() required?: boolean;
   @Prop() spellCheck?: boolean;
+  @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
 
   @State() active: boolean = false;
@@ -213,12 +214,8 @@ export class SwirlAutocomplete implements SwirlFormInput {
             clearButtonLabel={this.clearButtonLabel}
             disabled={this.disabled}
             disableDynamicWidth
-            swirlAriaAutocomplete="list"
-            swirlAriaControls={suggestionsMenuId}
-            swirlAriaDescribedby={this.swirlAriaDescribedby}
-            swirlAriaExpanded={String(this.active)}
-            swirlRole="combobox"
             id={this.id}
+            inline={this.inline}
             invalid={this.invalid}
             onInputFocus={this.onFocus}
             onKeyDown={this.onInputKeyDown}
@@ -228,6 +225,11 @@ export class SwirlAutocomplete implements SwirlFormInput {
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             spellCheck={this.spellCheck}
+            swirlAriaAutocomplete="list"
+            swirlAriaControls={suggestionsMenuId}
+            swirlAriaDescribedby={this.swirlAriaDescribedby}
+            swirlAriaExpanded={String(this.active)}
+            swirlRole="combobox"
             value={this.value}
           ></swirl-text-input>
 

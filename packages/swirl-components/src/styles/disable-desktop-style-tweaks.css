@@ -66,6 +66,12 @@ html.disable-desktop-style-tweaks {
       height: 1.5rem;
     }
 
+    & .date-input--inline {
+      & .date-input__date-picker-button {
+        top: -0.0625rem !important;
+      }
+    }
+
     & .date-input__date-picker-button {
       top: calc(-1 * var(--s-space-12));
     }
@@ -96,6 +102,10 @@ html.disable-desktop-style-tweaks {
     }
 
     & .form-control {
+      &.form-control--inline .form-control__label {
+        min-height: calc(2.375rem + 2 * var(--s-border-width-default));
+      }
+
       &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select) {
         & .form-control__label-text {
           font-size: var(--s-font-size-base) !important;

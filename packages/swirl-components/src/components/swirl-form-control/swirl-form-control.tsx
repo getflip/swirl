@@ -31,6 +31,7 @@ export class SwirlFormControl {
   @Prop() description?: string;
   @Prop() disabled?: boolean;
   @Prop() errorMessage?: string;
+  @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
 
@@ -48,6 +49,7 @@ export class SwirlFormControl {
 
     this.associateDescriptionWithInputElement();
     this.setInputElementDisabledState();
+    this.setInputElementInlineState();
     this.setInputElementInvalidState();
     this.setInputElementLabel();
     this.checkInputValue();
@@ -73,6 +75,19 @@ export class SwirlFormControl {
       this.inputEl.setAttribute("disabled", "true");
     } else {
       this.inputEl.removeAttribute("disabled");
+    }
+  }
+
+  @Watch("inline")
+  setInputElementInlineState() {
+    if (!Boolean(this.inputEl)) {
+      return;
+    }
+
+    if (this.inline) {
+      this.inputEl.setAttribute("inline", "true");
+    } else {
+      this.inputEl.removeAttribute("inline");
     }
   }
 
@@ -145,6 +160,7 @@ export class SwirlFormControl {
 
     const className = classnames("form-control", {
       "form-control--disabled": this.disabled,
+      "form-control--inline": this.inline,
       "form-control--has-focus": this.hasFocus,
       "form-control--has-value": hasValue,
       "form-control--invalid": this.invalid,

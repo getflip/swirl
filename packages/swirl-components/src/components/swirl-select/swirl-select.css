@@ -25,6 +25,12 @@
   }
 }
 
+.select--inline {
+  & .select__indicator {
+    top: 0;
+  }
+}
+
 .select__label {
   display: block;
   overflow: hidden;

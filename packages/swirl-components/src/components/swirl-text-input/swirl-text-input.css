@@ -37,6 +37,25 @@
   }
 }
 
+.text-input--inline {
+  & .text-input__stepper {
+    display: none;
+  }
+
+  & .text-input__clear-button,
+  & .text-input__password-toggle {
+    top: -0.0625rem;
+
+    @media (--from-desktop-without-touch) {
+      top: 0;
+    }
+  }
+
+  & .text-input__character-counter {
+    top: 0;
+  }
+}
+
 .text-input__input {
   display: inline-flex;
   width: 100%;

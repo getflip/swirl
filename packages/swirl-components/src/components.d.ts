@@ -101,6 +101,7 @@ export namespace Components {
         "generateSuggestions"?: (
     currentValue: string
   ) => Promise<SwirlAutocompleteSuggestion[]>;
+        "inline"?: boolean;
         "invalid"?: boolean;
         "maxLength"?: number;
         "menuLabel"?: string;
@@ -235,6 +236,7 @@ export namespace Components {
         "datePickerLabel"?: string;
         "disabled"?: boolean;
         "format"?: string;
+        "inline"?: boolean;
         "invalid"?: boolean;
         "locale"?: Partial<AirDatepickerLocale>;
         "placeholder"?: string;
@@ -369,6 +371,7 @@ export namespace Components {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
+        "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
     }
@@ -836,6 +839,7 @@ export namespace Components {
     }
     interface SwirlSelect {
         "disabled"?: boolean;
+        "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
@@ -925,6 +929,7 @@ export namespace Components {
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
+        "inline"?: boolean;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
@@ -2384,6 +2389,7 @@ declare namespace LocalJSX {
         "generateSuggestions"?: (
     currentValue: string
   ) => Promise<SwirlAutocompleteSuggestion[]>;
+        "inline"?: boolean;
         "invalid"?: boolean;
         "maxLength"?: number;
         "menuLabel"?: string;
@@ -2512,6 +2518,7 @@ declare namespace LocalJSX {
         "datePickerLabel"?: string;
         "disabled"?: boolean;
         "format"?: string;
+        "inline"?: boolean;
         "invalid"?: boolean;
         "locale"?: Partial<AirDatepickerLocale>;
         "onValueChange"?: (event: SwirlDateInputCustomEvent<string>) => void;
@@ -2612,6 +2619,7 @@ declare namespace LocalJSX {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
+        "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
     }
@@ -3055,6 +3063,7 @@ declare namespace LocalJSX {
     }
     interface SwirlSelect {
         "disabled"?: boolean;
+        "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
@@ -3143,6 +3152,7 @@ declare namespace LocalJSX {
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
+        "inline"?: boolean;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;

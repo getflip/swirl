@@ -168,6 +168,10 @@
           "description": ""
         },
         {
+          "name": "inline",
+          "description": ""
+        },
+        {
           "name": "invalid",
           "description": ""
         },
@@ -948,6 +952,10 @@
           "description": ""
         },
         {
+          "name": "inline",
+          "description": ""
+        },
+        {
           "name": "invalid",
           "description": ""
         },
@@ -1304,6 +1312,10 @@
         },
         {
           "name": "error-message",
+          "description": ""
+        },
+        {
+          "name": "inline",
           "description": ""
         },
         {
@@ -3288,6 +3300,10 @@
           "description": ""
         },
         {
+          "name": "inline",
+          "description": ""
+        },
+        {
           "name": "invalid",
           "description": ""
         },
@@ -3802,6 +3818,10 @@
         },
         {
           "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "inline",
           "description": ""
         },
         {

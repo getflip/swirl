@@ -16,6 +16,16 @@
   line-height: var(--s-line-height-sm);
 }
 
+.date-input--inline {
+  & .date-input__date-picker-button {
+    top: -0.0625rem;
+
+    @media (--from-desktop-without-touch) {
+      top: 0;
+    }
+  }
+}
+
 .date-input__input {
   display: inline-flex;
   width: 100%;

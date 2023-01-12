@@ -55,6 +55,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() swirlAriaDescribedby?: string;
   @Prop() swirlAriaExpanded?: string;
   @Prop() swirlRole?: string;
+  @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() maxLength?: number;
   @Prop() max?: number;
@@ -241,6 +242,7 @@ export class SwirlTextInput implements SwirlFormInput {
         "text-input--clearable": this.clearable,
         "text-input--disabled": this.disabled,
         "text-input--disable-dynamic-width": this.disableDynamicWidth,
+        "text-input--inline": this.inline,
         "text-input--show-password":
           this.type === "password" && this.showPassword,
       }
