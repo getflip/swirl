@@ -80,7 +80,10 @@ function ListItem({
           <ul
             id={`accordion-panel-${ariaId}`}
             aria-labelledby={`accordion-${ariaId}`}
-            className={`${isExpanded ? "block" : "hidden"} `}
+            className={classNames({
+              block: isExpanded,
+              hidden: !isExpanded,
+            })}
           >
             {item.children.map((child) => (
               <ListItem

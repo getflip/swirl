@@ -5,12 +5,12 @@ import { iconsNavItems } from "./iconsChildren.data";
 import { tokensNavItems } from "./tokens.data";
 
 export const navItems: NavItem[] = [
-  {
-    title: CategoryEnum.FOUNDATIONS,
-    isRoot: true,
-    url: "/foundations",
-    children: foundationsNavItems,
-  },
+  // {
+  //   title: CategoryEnum.FOUNDATIONS,
+  //   isRoot: true,
+  //   url: "/foundations",
+  //   children: foundationsNavItems,
+  // },
   {
     title: CategoryEnum.COMPONENTS,
     url: "/components",

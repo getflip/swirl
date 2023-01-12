@@ -8,6 +8,7 @@ import { DesktopView, MobileView } from "../View/Views";
 import { useEffect, useState } from "react";
 import { Autocomplete } from "../Search/AutoComplete";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import classNames from "classnames";
 
 export const HeaderLogo = () => {
   return (
@@ -65,24 +66,19 @@ const HeaderNavigation = () => {
                 {links.map((link) => (
                   <li
                     key={link.url}
-                    className={`
-              relative
-              mr-4
-              before:block before:absolute
-              before:bottom-[-23px]
-              before:w-full
-              before:h-1
-              before:bg-border-info
-              ${
-                activePath?.includes(link.url)
-                  ? "before:opacity-100"
-                  : "before:opacity-0"
-              }`}
+                    className={classNames(
+                      "relative mr-4",
+                      "before:block before:absolute before:bottom-[-23px] before:w-full before:h-1 before:bg-border-info",
+                      {
+                        "before:opacity-100": activePath?.includes(link.url),
+                        "before:opacity-0": !activePath?.includes(link.url),
+                      }
+                    )}
                   >
                     <Link
-                      className={`text-text-default text-base ${
-                        activePath?.includes(link.url) ? "text-border-info" : ""
-                      }`}
+                      className={classNames("text-text-default text-base", {
+                        "text-border-info": activePath?.includes(link.url),
+                      })}
                       href={link.url}
                     >
                       <a>{link.title}</a>

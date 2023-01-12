@@ -11,14 +11,14 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
 }) => {
   return (
     <form role="search">
-      <div className="relative">
+      <div className="relative block p-4 pl-10 w-full text-sm text-gray-900 rounded-lg border border-border-default">
         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <i className="swirl-icons-Search28 text-icon-default text-2xl" />
         </div>
         <input
           type="search"
           id="default-search"
-          className="block p-4 pl-10 w-full text-sm text-gray-900 rounded-lg border border-border-default"
+          className=""
           placeholder="Search..."
           value={searchQuery}
           onChange={handleChange}
