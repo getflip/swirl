@@ -1,7 +1,5 @@
 import { CategoryEnum, NavItem } from "../navigation.model";
 import { componentsNavItems } from "./components.data";
-import { foundationsNavItems } from "./foundations.data";
-import { iconsNavItems } from "./iconsChildren.data";
 import { tokensNavItems } from "./tokens.data";
 
 export const navItems: NavItem[] = [
@@ -26,6 +24,5 @@ export const navItems: NavItem[] = [
     title: CategoryEnum.ICONS,
     url: "/icons",
     isRoot: true,
-    children: iconsNavItems,
   },
 ];
