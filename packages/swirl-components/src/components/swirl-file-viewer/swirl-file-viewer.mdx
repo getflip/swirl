@@ -1,0 +1,28 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlFileViewer" />
+
+# SwirlFileViewer
+
+The SwirlFileViewer component is used to render files of various formats.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-file-viewer)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirlfileviewer--swirl-file-viewer" />
+</Canvas>
+
+<ArgsTable story="." />
+
+### Supported file types
+
+| Type            | Example                         |
+| --------------- | ------------------------------- |
+| image/\*        | image/jpeg<br/>/sample.jpg      |
+| video/\*        | video/mp4<br/>/sample.mp4       |
+| audio/\*        | audio/mp3<br/>/sample.mp3       |
+| text/plain      | text/plain<br/>/sample.txt      |
+| text/csv        | text/csv<br/>/sample.csv        |
+| application/pdf | application/pdf<br/>/sample.pdf |

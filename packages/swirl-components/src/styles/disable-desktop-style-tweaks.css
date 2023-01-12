@@ -35,7 +35,7 @@ html.disable-desktop-style-tweaks {
     & .date-input__input,
     & .file-uploader__label,
     & .file-uploader__dropzone-label,
-    & .flip-list,
+    & .swirl-list,
     & .radio__description,
     & .radio__label,
     & .select__label,
@@ -111,10 +111,17 @@ html.disable-desktop-style-tweaks {
       }
     }
 
-    & ::part(option-list-item) {
+    & .option-list-item {
       min-height: 3rem;
       padding: var(--s-space-12) var(--s-space-16);
       gap: var(--s-space-12);
+    }
+
+    & .option-list-item__checkbox {
+      @media (--from-desktop-without-touch) {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
     }
 
     & ::part(option-list-section__label) {

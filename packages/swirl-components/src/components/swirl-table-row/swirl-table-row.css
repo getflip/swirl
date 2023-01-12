@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+
+  &(.table-row--highlighted) {
+    --swirl-ghost-button-background-default: transparent;
+
+    & ::slotted(.table-cell) {
+      background-color: rgba(240, 242, 255, 1); /* TODO: token */
+    }
+  }
+
+  & ::slotted(.table-cell) {
+    border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  }
+
+  & * {
+    box-sizing: border-box;
+  }
+}

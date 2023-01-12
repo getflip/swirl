@@ -1,0 +1,70 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.button-group--segmented {
+  & ::slotted(*:not(:last-child)) {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 100%;
+      width: var(--s-border-width-default);
+      height: calc(100% - var(--s-space-16));
+      background-color: var(--s-border-strong);
+      content: "";
+      transform: translate3d(-50%, -50%, 0);
+      pointer-events: none;
+    }
+  }
+
+  & ::slotted(*:not(:last-child):not([disabled])[intent="primary"]) {
+    &:after {
+      background-color: var(--s-text-on-action-primary);
+    }
+  }
+
+  & ::slotted(*:not(:last-child)[disabled="false"][intent="primary"]) {
+    &:after {
+      background-color: var(--s-text-on-action-primary);
+    }
+  }
+
+  & ::slotted(*:not(:first-child):not(:last-child)) {
+    --swirl-button-border-top-right-radius: 0;
+    --swirl-button-border-top-left-radius: 0;
+    --swirl-button-border-bottom-right-radius: 0;
+    --swirl-button-border-bottom-left-radius: 0;
+
+    --swirl-icon-button-border-top-right-radius: 0;
+    --swirl-icon-button-border-top-left-radius: 0;
+    --swirl-icon-button-border-bottom-right-radius: 0;
+    --swirl-icon-button-border-bottom-left-radius: 0;
+  }
+
+  & ::slotted(*:first-child) {
+    --swirl-button-border-top-right-radius: 0;
+    --swirl-button-border-bottom-right-radius: 0;
+
+    --swirl-icon-button-border-top-right-radius: 0;
+    --swirl-icon-button-border-bottom-right-radius: 0;
+    --swirl-icon-button-border-top-left-radius: var(--s-border-radius-base);
+    --swirl-icon-button-border-bottom-left-radius: var(--s-border-radius-base);
+  }
+
+  & ::slotted(*:last-child) {
+    --swirl-button-border-top-left-radius: 0;
+    --swirl-button-border-bottom-left-radius: 0;
+
+    --swirl-icon-button-border-top-right-radius: var(--s-border-radius-base);
+    --swirl-icon-button-border-bottom-right-radius: var(--s-border-radius-base);
+    --swirl-icon-button-border-top-left-radius: 0;
+    --swirl-icon-button-border-bottom-left-radius: 0;
+  }
+}

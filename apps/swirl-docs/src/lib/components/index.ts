@@ -6,7 +6,7 @@ import { SwirlComponent } from "./src/components.model";
  * the swirl component data for that tag.
  */
 function getSwirlComponentData(name: string): SwirlComponent {
-  const tag = `flip-${name.toLowerCase().replace(/ /g, "-")}`;
+  const tag = `swirl-${name.toLowerCase().replace(/ /g, "-")}`;
 
   const component = componentsJSON.components.find(
     (c: any) => c.tag === tag

@@ -25,11 +25,11 @@ export default function (
     description: "Generate a new web component",
     prompts: [
       {
-        message: 'Component name. Must be kebab-case and start with "flip-".',
+        message: 'Component name. Must be kebab-case and start with "swirl-".',
         name: "name",
         validate: (input) => {
-          if (!String(input).startsWith("flip-")) {
-            return 'Must start with "flip-".';
+          if (!String(input).startsWith("swirl-")) {
+            return 'Must start with "swirl-".';
           }
 
           if (
@@ -155,13 +155,13 @@ export default function (
           const component = componentTemplate(templateData);
 
           writeFileSync(
-            `./src/components/flip-icon/icons/flip-icon-${iconNameKebab}.tsx`,
+            `./src/components/swirl-icon/icons/swirl-icon-${iconNameKebab}.tsx`,
             component
           );
         }
 
         execSync(
-          "PATH=$(npm bin):$PATH prettier ./src/components/flip-icon/icons/* --write"
+          "PATH=$(npm bin):$PATH prettier ./src/components/swirl-icon/icons/* --write"
         );
 
         return `${iconNames.length} icons generated.`;
