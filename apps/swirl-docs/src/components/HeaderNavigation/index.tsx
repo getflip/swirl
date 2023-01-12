@@ -99,7 +99,7 @@ const HeaderNavigation = () => {
         <header
           aria-expanded={isMobileNavOpen}
           aria-label="main"
-          className="sticky top-0 flex justify-between items-center px-4 border-b-1 font-normal text-base w-full h-16 max-h-screen bg-background-default"
+          className="sticky top-0 z-10 flex justify-between items-center px-4 border-b-1 font-normal text-base w-full h-16 max-h-screen bg-background-default"
         >
           <div className="flex justify-between items-center h-16 w-full px-4 border-b-1 font-normal text-base">
             <HeaderLogo />
