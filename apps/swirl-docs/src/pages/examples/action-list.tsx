@@ -1,15 +1,15 @@
 import {
-  FlipActionList,
-  FlipActionListItem,
+  SwirlActionList,
+  SwirlActionListItem,
 } from "@getflip/swirl-components-react";
 
 function actionListExample() {
   return (
-    <FlipActionList>
-      <FlipActionListItem label="Item 1"></FlipActionListItem>
-      <FlipActionListItem label="Item 2"></FlipActionListItem>
-      <FlipActionListItem label="Item 3"></FlipActionListItem>
-    </FlipActionList>
+    <SwirlActionList>
+      <SwirlActionListItem label="Item 1"></SwirlActionListItem>
+      <SwirlActionListItem label="Item 2"></SwirlActionListItem>
+      <SwirlActionListItem label="Item 3"></SwirlActionListItem>
+    </SwirlActionList>
   );
 }
 

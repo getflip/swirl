@@ -72,21 +72,21 @@ The component follows the [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/
 export const iconComponentTemplate = `// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
 
 import { Component, Fragment, h, Prop } from "@stencil/core";
-import { FlipIconSize } from "../flip-icon.types";
+import { SwirlIconSize } from "../swirl-icon.types";
 import classnames from 'classnames';
 
 @Component({
   shadow: true,
-  styleUrl: "../flip-icon.css",
-  tag: "flip-icon-{{iconNameKebab}}",
+  styleUrl: "../swirl-icon.css",
+  tag: "swirl-icon-{{iconNameKebab}}",
 })
-export class FlipIcon{{iconName}} {
-  @Prop() size: FlipIconSize = 24;
+export class SwirlIcon{{iconName}} {
+  @Prop() size: SwirlIconSize = 24;
 
   render() {
     const viewBoxSize = this.size === 20 ? 24 : this.size;
 
-    const className = classnames('flip-icon', \`flip-icon--size-$\{this.size\}\`);
+    const className = classnames('swirl-icon', \`swirl-icon--size-$\{this.size\}\`);
 
     return (
       <svg
