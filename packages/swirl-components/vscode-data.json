@@ -3702,6 +3702,10 @@
           "description": ""
         },
         {
+          "name": "balance",
+          "description": ""
+        },
+        {
           "name": "color",
           "description": "",
           "values": [

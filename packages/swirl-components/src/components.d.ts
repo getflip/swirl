@@ -912,6 +912,7 @@ export namespace Components {
     interface SwirlText {
         "align"?: SwirlTextAlign;
         "as"?: string;
+        "balance"?: boolean;
         "color"?: SwirlTextColor;
         "fontStyle"?: SwirlTextFontStyle;
         "size"?: SwirlTextSize;
@@ -3131,6 +3132,7 @@ declare namespace LocalJSX {
     interface SwirlText {
         "align"?: SwirlTextAlign;
         "as"?: string;
+        "balance"?: boolean;
         "color"?: SwirlTextColor;
         "fontStyle"?: SwirlTextFontStyle;
         "size"?: SwirlTextSize;

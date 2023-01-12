@@ -2,6 +2,12 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-text.mdx";
 
 export default {
+  argTypes: {
+    balance: {
+      description:
+        "Balances the text across lines to prevent visually undesirable results like typographic widows.",
+    },
+  },
   component: "swirl-text",
   parameters: {
     docs: {
