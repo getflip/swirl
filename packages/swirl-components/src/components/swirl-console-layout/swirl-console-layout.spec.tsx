@@ -42,7 +42,9 @@ describe("swirl-console-layout", () => {
             </div>
             <main aria-labelledby="app-name" class="console-layout__main">
               <header class="console-layout__app-bar">
-                <swirl-button class="console-layout__mobile-navigation-button" swirlariaexpanded="false" hidelabel="" icon="<swirl-icon-menu></swirl-icon-menu>" label="Show main navigation"></swirl-button>
+                <span class="console-layout__mobile-navigation-button">
+                  <swirl-button hidelabel="" icon="<swirl-icon-menu></swirl-icon-menu>" label="Show main navigation" swirlariaexpanded="false"></swirl-button>
+                </span>
                 <swirl-heading as="h1" class="console-layout__app-name" headingid="app-name" level="4" text="App name"></swirl-heading>
               </header>
               <section aria-labelledby="heading" class="console-layout__content">

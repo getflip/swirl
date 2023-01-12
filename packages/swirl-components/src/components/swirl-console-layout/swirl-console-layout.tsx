@@ -209,22 +209,23 @@ export class SwirlConsoleLayout {
           </div>
           <main aria-labelledby="app-name" class="console-layout__main">
             <header class="console-layout__app-bar">
-              <swirl-button
-                class="console-layout__mobile-navigation-button"
-                swirlAriaExpanded={String(this.sidebarActive)}
-                hideLabel
-                icon={
-                  this.sidebarActive
-                    ? "<swirl-icon-close></swirl-icon-close>"
-                    : "<swirl-icon-menu></swirl-icon-menu>"
-                }
-                label={
-                  this.sidebarActive
-                    ? this.hideNavigationButtonLabel
-                    : this.showNavigationButtonLabel
-                }
-                onClick={this.onMobileNavigationToggleClick}
-              ></swirl-button>
+              <span class="console-layout__mobile-navigation-button">
+                <swirl-button
+                  swirlAriaExpanded={String(this.sidebarActive)}
+                  hideLabel
+                  icon={
+                    this.sidebarActive
+                      ? "<swirl-icon-close></swirl-icon-close>"
+                      : "<swirl-icon-menu></swirl-icon-menu>"
+                  }
+                  label={
+                    this.sidebarActive
+                      ? this.hideNavigationButtonLabel
+                      : this.showNavigationButtonLabel
+                  }
+                  onClick={this.onMobileNavigationToggleClick}
+                ></swirl-button>
+              </span>
               <swirl-heading
                 as="h1"
                 class="console-layout__app-name"
