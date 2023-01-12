@@ -40,7 +40,6 @@ const HeaderNavigation = () => {
     }
   }, [isMobileNavOpen]);
 
-  // const links = navItems.slice(1, navItems.length);
   const activePath = router.pathname;
 
   const handleCloseMenu = () => {
