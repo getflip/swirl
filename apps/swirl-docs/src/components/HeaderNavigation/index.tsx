@@ -40,7 +40,7 @@ const HeaderNavigation = () => {
     }
   }, [isMobileNavOpen]);
 
-  const links = navItems.slice(1, navItems.length);
+  // const links = navItems.slice(1, navItems.length);
   const activePath = router.pathname;
 
   const handleCloseMenu = () => {
@@ -63,7 +63,7 @@ const HeaderNavigation = () => {
             <div className="flex ">
               <HeaderLogo />
               <ul className="hidden md:flex flex-row bg-background-default">
-                {links.map((link) => (
+                {navItems.map((link) => (
                   <li
                     key={link.url}
                     className={classNames(
