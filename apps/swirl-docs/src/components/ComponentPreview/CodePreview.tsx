@@ -1,9 +1,9 @@
 import {
-  FlipIconCheckStrong,
-  FlipIconCopy,
-  FlipIconExpandLess,
-  FlipIconExpandMore,
-  FlipIconOpenInNew,
+  SwirlIconCheckStrong,
+  SwirlIconCopy,
+  SwirlIconExpandLess,
+  SwirlIconExpandMore,
+  SwirlIconOpenInNew,
 } from "@getflip/swirl-components-react";
 import { FunctionComponent, useState } from "react";
 import { CodeSandboxButton } from "./CodeSandboxButton";
@@ -45,7 +45,7 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
             <Link href="https://www.npmjs.com/package/@getflip/swirl-components">
               <a className="flex justify-center items-center text-[#F2F2F2] text-base font-medium mr-4">
                 npm package
-                <FlipIconOpenInNew className="ml-1" size={16} />
+                <SwirlIconOpenInNew className="ml-1" size={16} />
               </a>
             </Link>
             <CodeSandboxButton code={codeExample.code} />
@@ -62,9 +62,9 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
             <button className="flex justify-center items-center text-[#F2F2F2] text-base font-medium">
               {isCopied ? "copied!" : "copy"}
               {isCopied ? (
-                <FlipIconCheckStrong size={16} className="ml-1" />
+                <SwirlIconCheckStrong size={16} className="ml-1" />
               ) : (
-                <FlipIconCopy size={16} className="ml-1" />
+                <SwirlIconCopy size={16} className="ml-1" />
               )}
             </button>
           </CopyToClipboard>
@@ -88,9 +88,9 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
             >
               {isExpanded ? "Collapse" : "Expand"}
               {isExpanded ? (
-                <FlipIconExpandLess className="ml-2" size={24} />
+                <SwirlIconExpandLess className="ml-2" size={24} />
               ) : (
-                <FlipIconExpandMore className="ml-2" size={24} />
+                <SwirlIconExpandMore className="ml-2" size={24} />
               )}
             </button>
           </div>

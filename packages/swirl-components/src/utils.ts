@@ -1,9 +1,9 @@
 import { EventEmitter } from "@stencil/core";
 
-export interface FlipFormInput<ValueType = string> {
-  flipAriaDescribedby?: string;
+export interface SwirlFormInput<ValueType = string> {
   disabled?: boolean;
   invalid?: boolean;
+  swirlAriaDescribedby?: string;
   required?: boolean;
   value?: ValueType;
   valueChange: EventEmitter<ValueType>;

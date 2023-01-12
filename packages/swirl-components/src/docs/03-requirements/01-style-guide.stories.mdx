@@ -12,7 +12,7 @@ component or update an existing one.
 
 All components live in the `src/components`directory and consist of various
 files, which are described in more detail in
-[the guide to creating new components](?path=/docs/contributions-create-a-component--page).
+[the guide to create new components](?path=/docs/contributions-create-a-component--page).
 
 New components are created using `yarn generate`, which ensures the correct
 directory structure. Please do not deviate from the generated structure.
@@ -21,9 +21,9 @@ directory structure. Please do not deviate from the generated structure.
 
 Naming of the components is done according to the rules for Web Components. They
 must be written in "kebab-case" and contain at least one hyphen. To avoid name
-collisions, we also prefix our components with `flip-`.
+collisions, we also prefix our components with `swirl-`.
 
-- ✅ Valid names: `flip-button` or `flip-menu-item`.
+- ✅ Valid names: `swirl-button` or `swirl-menu-item`.
 - 🚫 Invalid names: `button`, `menu-item`, `menuItem` or `MenuItem`.
 
 Component names should be as short and concise as possible, and are always
@@ -31,8 +31,8 @@ nouns, never verbs.
 
 Dependencies between components should be reflected in the name. For example, a
 component for a list item which can only be used as a child of the list
-component `flip-list` should start with the name of the parent component. In
-this case `flip-list-item` would be appropriate.
+component `swirl-list` should start with the name of the parent component. In
+this case `swirl-list-item` would be appropriate.
 
 ## Code styles & formatting
 
@@ -59,17 +59,17 @@ Here is an example:
 ```typescript
 import { Component, h, Prop } from "@stencil/core";
 
-export type FlipButtonType = "button" | "submit";
+export type SwirlButtonType = "button" | "submit";
 
 @Component({
-  tag: "flip-button",
+  tag: "swirl-button",
   shadow: true,
-  styleUrl: "flip-button.css",
+  styleUrl: "swirl-button.css",
 })
-export class FlipButton {
+export class SwirlButton {
   @Prop() disabled?: boolean;
   @Prop() label!: string;
-  @Prop() type?: FlipButtonType = "button";
+  @Prop() type?: SwirlButtonType = "button";
 
   componentDidLoad() {
     console.log("Yay!");
@@ -101,7 +101,8 @@ We write our CSS styles structured according to the
 components gets its own class name. To keep the specificity of our selectors
 low, we avoid nesting class selectors.
 
-Because of Stencil's scoping, we do not need prefixes for our class names.
+Because of Stencil's scoping and use of Shadow DOM, we do not need prefixes for
+our class names.
 
 Here is a structural example of a button component that includes a label and an
 icon, and has different sizes:

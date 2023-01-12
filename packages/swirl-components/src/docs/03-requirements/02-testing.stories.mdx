@@ -25,21 +25,21 @@ using the `yarn generate` command.
 ```tsx
 import { newSpecPage } from "@stencil/core/testing";
 
-import { FlipButton } from "./flip-button";
+import { SwirlButton } from "./swirl-button";
 
-describe("flip-button", () => {
+describe("swirl-button", () => {
   it("renders", async () => {
     const page = await newSpecPage({
-      components: [FlipButton],
-      html: `<flip-button></flip-button>`,
+      components: [SwirlButton],
+      html: `<swirl-button></swirl-button>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <flip-button label=\"Label\">
+      <swirl-button label=\"Label\">
         <mock:shadow-root>
           Hello World
         </mock:shadow-root>
-      </flip-button>
+      </swirl-button>
     `);
   });
 });
@@ -57,8 +57,8 @@ Add the empty condition:
 ```tsx
 it("renders the label", async () => {
   const page = await newSpecPage({
-    components: [FlipButton],
-    html: `<flip-button label="Label"></flip-button>`,
+    components: [SwirlButton],
+    html: `<swirl-button label="Label"></swirl-button>`,
   });
 
   expect(page.root.shadowRoot.innerHTML).toMatchInlineSnapshot();
@@ -71,8 +71,8 @@ by Jest:
 ```tsx
 it("renders the label", async () => {
   const page = await newSpecPage({
-    components: [FlipButton],
-    html: `<flip-button label="Label"></flip-button>`,
+    components: [SwirlButton],
+    html: `<swirl-button label="Label"></swirl-button>`,
   });
 
   expect(page.root.shadowRoot.innerHTML).toMatchInlineSnapshot(
@@ -90,8 +90,8 @@ button inside the component.
 ```tsx
 it("fires", async () => {
   const page = await newSpecPage({
-    components: [FlipButton],
-    html: `<flip-button label="Label"></flip-button>`,
+    components: [SwirlButton],
+    html: `<swirl-button label="Label"></swirl-button>`,
   });
 
   const buttonSpy = jest.fn();

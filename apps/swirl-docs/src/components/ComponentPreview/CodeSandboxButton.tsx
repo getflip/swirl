@@ -1,4 +1,4 @@
-import { FlipIconOpenInNew } from "@getflip/swirl-components-react";
+import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
 import { FunctionComponent } from "react";
 import { getParameters } from "codesandbox/lib/api/define";
 
@@ -92,7 +92,7 @@ export const CodeSandboxButton: FunctionComponent<CodeSandboxButtonProps> = ({
         className="flex justify-center items-center text-[#F2F2F2] text-base font-medium"
       >
         edit in sandbox
-        <FlipIconOpenInNew className="ml-1" size={16} />
+        <SwirlIconOpenInNew className="ml-1" size={16} />
       </button>
     </form>
   );
