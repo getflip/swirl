@@ -14,11 +14,11 @@ describe("flip-dialog", () => {
         <mock:shadow-root>
           <div aria-describedby="content" aria-hidden="true" aria-labelledby="label" aria-modal="true" class="dialog" role="alertdialog" tabindex="-1">
             <div class="dialog__backdrop"></div>
-            <div class="dialog__body" role="document">
-              <h2 class="dialog__heading" id="label">
+            <div class="dialog__body" part="dialog__body" role="document">
+              <h2 class="dialog__heading" part="dialog__heading" id="label">
                 Dialog
               </h2>
-              <div class="dialog__content" id="content">
+              <div class="dialog__content" part="dialog__content" id="content">
                 <slot></slot>
               </div>
               <flip-button-group class="dialog__controls" stretch="" wrap=""></flip-button-group>

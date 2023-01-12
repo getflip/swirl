@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: inline-flex;
 
@@ -87,7 +89,6 @@
 
 .checkbox__control {
   position: relative;
-  top: 0.125rem;
   width: 1.5rem;
   height: 1.5rem;
   padding: var(--s-space-2);
@@ -97,6 +98,11 @@
     & .checkbox__box {
       background-color: var(--s-action-neutral-hovered);
     }
+  }
+
+  @media (--from-desktop-without-touch) {
+    width: 1.375rem;
+    height: 1.375rem;
   }
 }
 
@@ -144,15 +150,25 @@
 .checkbox__label-container {
   display: inline-flex;
   margin-left: var(--s-space-8);
-  padding-top: var(--s-space-4);
+  padding-top: var(--s-space-2);
   align-items: flex-start;
   flex-direction: column;
 }
 
 .checkbox__label {
   font-weight: var(--s-font-weight-medium);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .checkbox__description {
   color: var(--s-text-subdued);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }

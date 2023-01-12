@@ -5,6 +5,7 @@
 @import "~@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css";
 @import "~@getflip/swirl-tokens/dist/css/styles.dark.custom-properties.css";
 @import "~@getflip/swirl-icons/dist/swirl-icons.css";
+@import "@algolia/autocomplete-theme-classic/dist/theme.css";
 
 @font-face {
   font-family: "Inter var experimental";
@@ -19,6 +20,11 @@
   --flip-ghost-button-background-default: var(--s-background-default);
   --flip-ghost-button-background-hovered: var(--s-background-hovered);
   --flip-ghost-button-background-pressed: var(--s-background-pressed);
+  --aa-text-color-rgb: 25, 26, 28;
+  --aa-primary-color-rgb: 20, 90, 245;
+  --aa-input-border-color-rgb: 204, 205, 209;
+  --aa-selected-color-rgb: 0, 38, 255;
+  --aa-selected-color-alpha: 0.25;
 }
 
 *,

@@ -1,5 +1,5 @@
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import { BASE_PATHS, DOCUMENT_ENUM } from "@swirl/lib/docs/src/docs.model";
+import { DOCUMENTATION_CATEGORY } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
 import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
@@ -9,14 +9,14 @@ import { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 
 async function getComponentData(document: string) {
-  return await generateMdxFromDocumentation(BASE_PATHS.COMPONENTS, document);
+  return await generateMdxFromDocumentation(
+    DOCUMENTATION_CATEGORY.COMPONENTS,
+    document
+  );
 }
 
 export async function getStaticPaths() {
-  const categoryDocs = createStaticPathsData(
-    BASE_PATHS.COMPONENTS,
-    DOCUMENT_ENUM.COMPONENTS
-  );
+  const categoryDocs = createStaticPathsData(DOCUMENTATION_CATEGORY.COMPONENTS);
 
   return {
     paths: categoryDocs,

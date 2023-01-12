@@ -3,12 +3,21 @@ import {
   generatePagesPath,
 } from "@swirl/lib/navigation";
 import fs from "fs";
-import { DocCategory, Document, DOCUMENTATION_SRC } from "./docs.model";
+import {
+  DocCategory,
+  Document,
+  DocumentationCategory,
+  DOCUMENTATION_SRC,
+  StaticPathMapType,
+} from "./docs.model";
 
-export function createStaticPathsData(
-  category: string,
-  paramKey = "id"
-):
+export const StaticPathMap: StaticPathMapType = {
+  components: "componentDoc",
+  icons: "iconDoc",
+  tokens: "tokenDoc",
+} as const;
+
+export function createStaticPathsData(category: DocumentationCategory):
   | {
       params: {
         [key: string]: string;
@@ -23,7 +32,7 @@ export function createStaticPathsData(
     DOCUMENTATION_SRC.DOCUMENTATION
   ).subpages?.map((document: DocCategory) => ({
     params: {
-      [paramKey]: document.name,
+      [StaticPathMap[category]]: document.name,
     },
   }));
 }

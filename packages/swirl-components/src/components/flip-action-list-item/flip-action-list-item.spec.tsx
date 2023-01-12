@@ -12,9 +12,9 @@ describe("flip-action-list-item", () => {
     expect(page.root).toEqualHtml(`
       <flip-action-list-item description="Description" icon="<flip-icon-close></flip-icon-close>" label="Label" suffix="<flip-icon-chevron-right></flip-icon-chevron-right>">
         <mock:shadow-root>
-          <button class="action-list-item action-list-item--intent-default action-list-item--size-m" role="menuitem" tabindex="-1" type="button">
+          <button class="action-list-item action-list-item--intent-default action-list-item--size-m" part="action-list-item" role="menuitem" tabindex="-1" type="button">
             <span class="action-list-item__icon">
-              <flip-icon-close></flip-icon-close>
+              <flip-icon-close size="24"></flip-icon-close>
             </span>
             <span class="action-list-item__label-container">
               <span class="action-list-item__label">
@@ -25,7 +25,7 @@ describe("flip-action-list-item", () => {
               </span>
             </span>
             <span class="action-list-item__suffix">
-              <flip-icon-chevron-right></flip-icon-chevron-right>
+              <flip-icon-chevron-right size="24"></flip-icon-chevron-right>
             </span>
           </button>
         </mock:shadow-root>

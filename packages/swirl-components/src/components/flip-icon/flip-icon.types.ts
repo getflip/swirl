@@ -1,1 +1,1 @@
-export type FlipIconSize = 16 | 24 | 28;
+export type FlipIconSize = 16 | 20 | 24 | 28;

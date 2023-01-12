@@ -6,7 +6,7 @@ import { navItems } from "@swirl/lib/navigation";
 import { useRouter } from "next/router";
 import { DesktopView, MobileView } from "../View/Views";
 import { useEffect, useState } from "react";
-
+import { Autocomplete } from "../Search/AutoComplete";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 export const HeaderLogo = () => {
@@ -89,6 +89,11 @@ const HeaderNavigation = () => {
                 </li>
               ))}
             </ul>
+            <Autocomplete
+              placeholder="Search"
+              openOnFocus={true}
+              defaultActiveItemId={0}
+            />
           </nav>
         </header>
       </DesktopView>

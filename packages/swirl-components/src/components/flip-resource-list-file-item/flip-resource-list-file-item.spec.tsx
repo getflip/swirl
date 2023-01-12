@@ -18,9 +18,9 @@ describe("flip-resource-list-file-item", () => {
     expect(page.root).toEqualHtml(`
       <flip-resource-list-file-item description="Description" label="Label" loading="true" role="row">
         <mock:shadow-root>
-          <div class="resource-list-file-item resource-list-file-item--has-control" role="gridcell">
+          <div class="resource-list-file-item resource-list-file-item--has-control" part="resource-list-file-item" role="gridcell">
             <span class="resource-list-file-item__icon">
-              <flip-icon-file></flip-icon-file>
+              <flip-icon-file size="24"></flip-icon-file>
             </span>
             <span class="resource-list-file-item__label-container">
               <span class="resource-list-file-item__label" id="label">

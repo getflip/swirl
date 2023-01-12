@@ -6,9 +6,12 @@ declare global {
   }
 }
 
+export const isProd = process.env.NODE_ENV === "production";
 export const pageview = (url: any) => {
-  // window.dataLayer.push({
-  //   event: "pageview",
-  //   page: url,
-  // });
+  if (isProd) {
+    window.dataLayer.push({
+      event: "pageview",
+      page: url,
+    });
+  }
 };

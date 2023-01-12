@@ -1,3 +1,5 @@
+@import "../../styles/media-queries.css";
+
 :host {
   display: inline-block;
   max-width: 100%;
@@ -53,6 +55,13 @@
   &:focus-visible {
     outline-color: var(--s-focus-default);
     outline-offset: var(--s-space-2);
+  }
+
+  @media (--from-desktop-without-touch) {
+    padding: var(--s-space-8) var(--s-space-12);
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+    gap: var(--s-space-4);
   }
 }
 
@@ -117,6 +126,36 @@
 
   & .button__icon {
     color: var(--s-icon-strong);
+  }
+}
+
+.button--variant-outline {
+  border: var(--s-border-width-default) solid var(--s-border-strong);
+  color: var(--s-action-primary-default);
+
+  &:disabled {
+    border-color: var(--s-border-default);
+  }
+
+  &.button--intent-critical:not(:disabled) {
+    color: var(--s-text-critical);
+    border-color: var(--s-text-critical);
+
+    & .button__icon {
+      color: var(--s-icon-critical);
+    }
+  }
+
+  &.button--size-l {
+    padding: var(--s-space-12) var(--s-space-20);
+
+    &.button--icon-only {
+      padding: var(--s-space-12);
+    }
+  }
+
+  & .button__icon {
+    color: var(--s-action-primary-default);
   }
 }
 
@@ -287,14 +326,35 @@
   }
 }
 
+.button--pill {
+  border-radius: 1.25rem;
+
+  &.button--size-l {
+    border-radius: 1.5rem;
+
+    @media (--from-desktop-without-touch) {
+      border-radius: 1.375rem;
+    }
+  }
+
+  @media (--from-desktop-without-touch) {
+    border-radius: 1.125rem;
+  }
+}
+
 .button--icon-only {
   padding: var(--s-space-8);
-  border-top-left-radius: var(--flip-icon-button-border-top-left-radius);
-  border-top-right-radius: var(--flip-icon-button-border-top-right-radius);
-  border-bottom-right-radius: var(
-    --flip-icon-button-border-bottom-right-radius
-  );
-  border-bottom-left-radius: var(--flip-icon-button-border-bottom-left-radius);
+
+  &.button--pill {
+    border-top-left-radius: var(--flip-icon-button-border-top-left-radius);
+    border-top-right-radius: var(--flip-icon-button-border-top-right-radius);
+    border-bottom-right-radius: var(
+      --flip-icon-button-border-bottom-right-radius
+    );
+    border-bottom-left-radius: var(
+      --flip-icon-button-border-bottom-left-radius
+    );
+  }
 
   & .button__icon {
     margin-right: 0;

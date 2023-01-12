@@ -430,7 +430,7 @@ export class FlipFileViewerPdf {
     const showSpinner = this.loading;
 
     return (
-      <Host class="file-viewer-pdf">
+      <Host class="file-viewer-pdf" exportparts="file-viewer-pdf__pagination">
         {this.error && (
           <flip-inline-error
             class="file-viewer-pdf__error"
@@ -486,7 +486,11 @@ export class FlipFileViewerPdf {
           })}
         </div>
         {showPagination && (
-          <span class="file-viewer-pdf__pagination" id="pagination">
+          <span
+            class="file-viewer-pdf__pagination"
+            id="pagination"
+            part="file-viewer-pdf__pagination"
+          >
             <span aria-current="page">{currentPage}</span> / {this.doc.numPages}
           </span>
         )}

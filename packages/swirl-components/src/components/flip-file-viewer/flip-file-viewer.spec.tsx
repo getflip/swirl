@@ -129,9 +129,8 @@ describe("flip-file-viewer", () => {
         <mock:shadow-root>
           <div class="file-viewer">
             <div class="file-viewer__file">
-              <flip-file-viewer-text class="file-viewer-text">
-                <mock:shadow-root>
-                  <pre class="file-viewer-text__text" tabindex="0">TEXT</pre>
+              <flip-file-viewer-text class="file-viewer-text" exportparts="file-viewer-text__text">
+                <mock:shadow-root><pre class="file-viewer-text__text" part="file-viewer-text__text" tabindex="0">TEXT</pre>
                 </mock:shadow-root>
               </flip-file-viewer-text>
             </div>
@@ -159,10 +158,10 @@ describe("flip-file-viewer", () => {
         <mock:shadow-root>
           <div class="file-viewer">
             <div class="file-viewer__file">
-              <flip-file-viewer-csv class="file-viewer-csv">
+              <flip-file-viewer-csv class="file-viewer-csv" exportparts="file-viewer-csv__table">
                 <mock:shadow-root>
                   <div class="file-viewer-csv__csv" tabindex="0">
-                    <table class="file-viewer-csv__table">
+                    <table class="file-viewer-csv__table" part="file-viewer-csv__table">
                       <tbody>
                         <tr class="file-viewer-csv__row">
                           <td class="file-viewer-csv__cell">

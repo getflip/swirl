@@ -8,7 +8,7 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { FlipFormInput } from "../../utils";
+import { getDesktopMediaQuery, FlipFormInput } from "../../utils";
 
 export type FlipTextInputType =
   | "date"
@@ -71,6 +71,7 @@ export class FlipTextInput implements FlipFormInput {
   @Prop() type?: FlipTextInputType = "text";
   @Prop({ mutable: true, reflect: true }) value?: string;
 
+  @State() iconSize: 20 | 24 = 24;
   @State() showPassword = false;
 
   @Event() inputBlur: EventEmitter<FocusEvent>;
@@ -79,8 +80,32 @@ export class FlipTextInput implements FlipFormInput {
 
   private inputEl: HTMLInputElement;
 
+  componentDidLoad() {
+    this.updateIconSize(getDesktopMediaQuery().matches);
+
+    getDesktopMediaQuery().addEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
   componentDidRender() {
     this.adjustInputSize();
+  }
+
+  disconnectedCallback() {
+    getDesktopMediaQuery().removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.updateIconSize(event.matches);
+  };
+
+  private updateIconSize(smallIcon: boolean) {
+    this.iconSize = smallIcon ? 20 : 24;
   }
 
   private adjustInputSize() {
@@ -266,7 +291,7 @@ export class FlipTextInput implements FlipFormInput {
               onClick={this.clear}
               type="button"
             >
-              <flip-icon-cancel></flip-icon-cancel>
+              <flip-icon-cancel size={this.iconSize}></flip-icon-cancel>
             </button>
           )}
           {showPasswordToggle && (
@@ -277,9 +302,13 @@ export class FlipTextInput implements FlipFormInput {
               type="button"
             >
               {this.showPassword ? (
-                <flip-icon-visibility-off></flip-icon-visibility-off>
+                <flip-icon-visibility-off
+                  size={this.iconSize}
+                ></flip-icon-visibility-off>
               ) : (
-                <flip-icon-visibility></flip-icon-visibility>
+                <flip-icon-visibility
+                  size={this.iconSize}
+                ></flip-icon-visibility>
               )}
             </button>
           )}
@@ -292,7 +321,9 @@ export class FlipTextInput implements FlipFormInput {
                 tabIndex={-1}
                 type="button"
               >
-                <flip-icon-expand-less></flip-icon-expand-less>
+                <flip-icon-expand-less
+                  size={this.iconSize}
+                ></flip-icon-expand-less>
               </button>
               <button
                 aria-hidden="true"
@@ -301,7 +332,9 @@ export class FlipTextInput implements FlipFormInput {
                 tabIndex={-1}
                 type="button"
               >
-                <flip-icon-expand-more></flip-icon-expand-more>
+                <flip-icon-expand-more
+                  size={this.iconSize}
+                ></flip-icon-expand-more>
               </button>
             </span>
           )}
