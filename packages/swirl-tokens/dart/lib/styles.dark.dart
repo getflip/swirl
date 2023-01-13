@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Tue, 13 Dec 2022 13:55:48 GMT
+// Generated on Fri, 13 Jan 2023 12:56:27 GMT
 
 
 
@@ -21,9 +21,9 @@ class SwirlDesignTokensDark {
     static const actionPrimaryDisabled = Color(0xFF2A2B2D); /* Used if a component with “Action Primary/Default” has a disabled state. */
     static const actionPrimaryHovered = Color(0xFF7B7B8A); /* Used if a component with “Action Primary/Default” has a hovered state. */
     static const actionPrimaryPressed = Color(0xFF666671); /* Used if a component with “Action Primary/Default” has a pressed state. */
-    static const backgroundDefault = Color(0xFF000000); /* Usually used for the page background and elements that should not elevate from the background. */
-    static const backgroundHovered = Color(0xFF191A1C); /* Used if a component with “Background/Default” has a hovered state. */
-    static const backgroundPressed = Color(0xFF232426); /* Used if a component with “Background/Default” has a pressed state. */
+    static const backgroundDefault = Color(0xFF191A1C); /* Usually used for the page background and elements that should not elevate from the background. */
+    static const backgroundHovered = Color(0xFF232426); /* Used if a component with “Background/Default” has a hovered state. */
+    static const backgroundPressed = Color(0xFF2A2B2D); /* Used if a component with “Background/Default” has a pressed state. */
     static const borderCritical = Color(0xFFFB6486); /* Usally used as an border on critical components. */
     static const borderDefault = Color(0x17FFFFFF); /* Usually used for low emphasis borders and espacially divider elements. */
     static const borderHighlight = Color(0xFF7394D3); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
@@ -217,23 +217,23 @@ class SwirlDesignTokensDark {
     static const space8 = 8.00;
     static const surfaceCriticalDefault = Color(0xFFFB6486); /* Used as a background for critical surfaces. */
     static const surfaceCriticalSubdued = Color(0xFF470E1B); /* Used for low prio critical background. */
-    static const surfaceDefault = Color(0xFF191A1C); /* Usually used for containers that need to be elevated. */
+    static const surfaceDefault = Color(0xFF232426); /* Usually used for containers that need to be elevated. */
     static const surfaceHighlightDefault = Color(0xFF7394D3); /* Usually used for containers that need to be highlighted. */
     static const surfaceHighlightHovered = Color(0xFF627EB3); /* Used if a component with “Surface Highlight/Default” has a hovered state. */
     static const surfaceHighlightPressed = Color(0xFF506894); /* Used if a component with “Surface Highlight/Default” has a pressed state. */
-    static const surfaceHovered = Color(0xFF232426); /* Used if a component with “Surface/Default” has a hovered state. */
+    static const surfaceHovered = Color(0xFF2A2B2D); /* Used if a component with “Surface/Default” has a hovered state. */
     static const surfaceInfoDefault = Color(0xFF73A7F2); /* Used as a background for info surfaces. */
     static const surfaceInfoSubdued = Color(0xFF102648); /* Used for low prio info background. */
     static const surfaceNeutralDefault = Color(0xFFCCCDD1); /* Used as a background for neutral surfaces. */
     static const surfaceNeutralSubdued = Color(0xFF2A2B2D); /* Used for low prio neutral background. */
     static const surfaceOnImageDefault = Color(0x66000000); /* Usually used for containers on images */
-    static const surfaceOverlayDefault = Color(0xFF232426); /* Usually used for containers that need to be more elevated. */
-    static const surfaceOverlayHovered = Color(0xFF2A2B2D); /* Used if a component with “Surface Overlay/Default” has a hovered state. */
-    static const surfaceOverlayPressed = Color(0xFF323335); /* Used if a component with “Surface Overlay/Default” has a pressed state. */
-    static const surfacePressed = Color(0xFF2A2B2D); /* Used if a component with “Surface/Default” has a pressed state. */
-    static const surfaceRaisedDefault = Color(0xFF2A2B2D); /* Usually used for elements that need contrast on surfaces or background */
-    static const surfaceRaisedHovered = Color(0xFF323335); /* Used if a component with “On Surface/Default” has a hovered state. */
-    static const surfaceRaisedPressed = Color(0xFF3A3B3D); /* Used if a component with “On Surface/Default” has a pressed state. */
+    static const surfaceOverlayDefault = Color(0xFF2A2B2D); /* Usually used for containers that need to be more elevated. */
+    static const surfaceOverlayHovered = Color(0xFF323335); /* Used if a component with “Surface Overlay/Default” has a hovered state. */
+    static const surfaceOverlayPressed = Color(0xFF3A3B3D); /* Used if a component with “Surface Overlay/Default” has a pressed state. */
+    static const surfacePressed = Color(0xFF323335); /* Used if a component with “Surface/Default” has a pressed state. */
+    static const surfaceRaisedDefault = Color(0xFF323335); /* Usually used for elements that need contrast on surfaces or background */
+    static const surfaceRaisedHovered = Color(0xFF3A3B3D); /* Used if a component with “On Surface/Default” has a hovered state. */
+    static const surfaceRaisedPressed = Color(0xFF4F5054); /* Used if a component with “On Surface/Default” has a pressed state. */
     static const surfaceSuccessDefault = Color(0xFF68C468); /* Used as a background for success surfaces. */
     static const surfaceSuccessSubdued = Color(0xFF123A12); /* Used for low prio success background. */
     static const surfaceWarningDefault = Color(0xFFF9C763); /* Used as a background for warning surfaces. */
