@@ -1409,68 +1409,68 @@
   "dark": {
     "background": {
       "default": {
-        "value": "{core.gray.black}",
+        "value": "{core.gray.12}",
         "type": "color",
         "description": "Usually used for the page background and elements that should not elevate from the background."
       },
       "hovered": {
-        "value": "{core.gray.12}",
+        "value": "{core.gray.11}",
         "type": "color",
         "description": "Used if a component with “Background/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.11}",
+        "value": "{core.gray.10}",
         "type": "color",
         "description": "Used if a component with “Background/Default” has a pressed state."
       }
     },
     "surface": {
       "default": {
-        "value": "{core.gray.12}",
+        "value": "{core.gray.11}",
         "type": "color",
         "description": "Usually used for containers that need to be elevated."
       },
       "hovered": {
-        "value": "{core.gray.11}",
+        "value": "{core.gray.10}",
         "type": "color",
         "description": "Used if a component with “Surface/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.10}",
+        "value": "{core.gray.09}",
         "type": "color",
         "description": "Used if a component with “Surface/Default” has a pressed state."
       }
     },
     "surface-overlay": {
       "default": {
-        "value": "{core.gray.11}",
+        "value": "{core.gray.10}",
         "type": "color",
         "description": "Usually used for containers that need to be more elevated."
       },
       "hovered": {
-        "value": "{core.gray.10}",
+        "value": "{core.gray.09}",
         "type": "color",
         "description": "Used if a component with “Surface Overlay/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.09}",
+        "value": "{core.gray.08}",
         "type": "color",
         "description": "Used if a component with “Surface Overlay/Default” has a pressed state."
       }
     },
     "surface-raised": {
       "default": {
-        "value": "{core.gray.10}",
+        "value": "{core.gray.09}",
         "type": "color",
         "description": "Usually used for elements that need contrast on surfaces or background"
       },
       "hovered": {
-        "value": "{core.gray.09}",
+        "value": "{core.gray.08}",
         "type": "color",
         "description": "Used if a component with “On Surface/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.08}",
+        "value": "{core.gray.07}",
         "type": "color",
         "description": "Used if a component with “On Surface/Default” has a pressed state."
       }
@@ -1969,8 +1969,7 @@
       "selectedTokenSets": {
         "core-colors": "source",
         "core": "source",
-        "light": "enabled",
-        "dark": "disabled"
+        "light": "enabled"
       },
       "$figmaStyleReferences": {
         "Background.Default": "S:e454005c933e34b1d819a82f39b5510145722624,",
@@ -2230,7 +2229,6 @@
       "selectedTokenSets": {
         "core-colors": "source",
         "core": "source",
-        "light": "disabled",
         "dark": "enabled"
       },
       "$figmaStyleReferences": {
@@ -2388,6 +2386,11 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
+    "tokenSetOrder": [
+      "core",
+      "core-colors",
+      "light",
+      "dark"
+    ]
   }
 }
