@@ -3,24 +3,40 @@ import { NavItem, navItems } from "@swirl/lib/navigation";
 import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
 import Link from "next/link";
 import { useState } from "react";
+import classNames from "classnames";
 
 interface MobileNavProps {
+  isOpen: boolean;
   handleCloseMenu?: () => void;
 }
 
-const MobileNav = ({ handleCloseMenu }: MobileNavProps) => {
+const MobileNav = ({ isOpen, handleCloseMenu }: MobileNavProps) => {
   return (
-    <ul className="absolute z-40 h-full w-full min-h-fit bg-white">
-      {navItems.map((navItem: NavItem, index: number) => (
-        <ListItem
-          key={`${navItem}-${index}`}
-          currentPath="/"
-          item={navItem}
-          ariaId={index}
-          handleCloseMenu={handleCloseMenu}
-        />
-      ))}
-    </ul>
+    <nav
+      id="mobile-navigation"
+      aria-label="main"
+      className={classNames("overflow-y-scroll bg-white", {
+        "absolute w-full left-0 top-[64px]": isOpen,
+      })}
+    >
+      <ul
+        className={classNames(
+          "z-40 w-full h-[calc(100vh_-_64px)] max-h-[calc(100vh_-_64px)] bg-white",
+          { block: isOpen },
+          { hidden: !isOpen }
+        )}
+      >
+        {navItems.map((navItem: NavItem, index: number) => (
+          <ListItem
+            key={`${navItem}-${index}`}
+            currentPath="/"
+            item={navItem}
+            ariaId={index}
+            handleCloseMenu={handleCloseMenu}
+          />
+        ))}
+      </ul>
+    </nav>
   );
 };
 
@@ -49,7 +65,7 @@ function ListItem({
             aria-expanded={isExpanded}
             aria-controls={`accordion-panel-${ariaId}`}
             onClick={() => setIsExpanded((prevState) => !prevState)}
-            className="flex justify-between py-3 px-2 w-full text-base font-normal"
+            className="flex justify-between py-3 px-4 w-full text-base font-normal"
           >
             <span>{item.title}</span>
             <Image
@@ -64,7 +80,10 @@ function ListItem({
           <ul
             id={`accordion-panel-${ariaId}`}
             aria-labelledby={`accordion-${ariaId}`}
-            className={`${isExpanded ? "block" : "hidden"} `}
+            className={classNames({
+              block: isExpanded,
+              hidden: !isExpanded,
+            })}
           >
             {item.children.map((child) => (
               <ListItem
@@ -83,9 +102,9 @@ function ListItem({
           <a
             aria-current={item.url === currentPath ? "page" : "false"}
             onClick={handleCloseMenu}
-            className="flex justify-between py-3 px-2 w-full"
+            className="flex justify-between py-3 font-normal px-4 w-full text-base"
           >
-            <h3>{item.title}</h3>
+            {item.title}
           </a>
         </Link>
       )}
