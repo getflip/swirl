@@ -7,9 +7,10 @@ import {
   Host,
   Prop,
 } from "@stencil/core";
-import "wc-datepicker";
-import { WcDatepickerCustomEvent } from "wc-datepicker";
+import { WcDatepickerCustomEvent } from "wc-datepicker/dist/types/components";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
+
+import "wc-datepicker";
 
 @Component({
   shadow: true,

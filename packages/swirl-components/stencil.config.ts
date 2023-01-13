@@ -85,6 +85,7 @@ export const config: Config = {
     },
     reactOutputTarget({
       componentCorePackage: "@getflip/swirl-components",
+      excludeComponents: ["wc-datepicker"],
       proxiesFile: "../swirl-components-react/lib/stencil-generated/index.ts",
       includeDefineCustomElements: true,
     }),
@@ -94,6 +95,7 @@ export const config: Config = {
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/components.ts",
       directivesArrayFile:
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/index.ts",
+      excludeComponents: ["wc-datepicker"],
       includeImportCustomElements: false,
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
