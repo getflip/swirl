@@ -127,6 +127,10 @@
   appearance: none;
 }
 
+.date-picker__year-select {
+  max-width: 4rem;
+}
+
 .date-picker__calendar {
   display: block;
   width: 100%;
