@@ -1,0 +1,31 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlDescriptionList" />
+
+# SwirlDescriptionList
+
+The SwirlDescriptionList component is used to provide a list of terms with short
+descriptions. It is used in conjunction with the
+[SwirlDescriptionListItem component](?path=/docs/components-swirldescriptionlistitem--swirl-description-list-item).
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=2%3A24)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-description-list)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirldescriptionlist--swirl-description-list" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable             | Usage                        |
+| -------------------- | ---------------------------- |
+| `--s-border-default` | Color of the item separators |
+
+## Accessibility
+
+The component uses a HTML description list to communicate the relationship
+between the terms and descriptions to assistive technology.

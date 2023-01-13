@@ -1,0 +1,57 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: block;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.heading {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: start;
+}
+
+.heading--align-start {
+  text-align: start;
+}
+
+.heading--align-center {
+  text-align: center;
+}
+
+.heading--align-end {
+  text-align: end;
+}
+
+.heading--level-1 {
+  font-size: var(--s-font-size-2xl);
+  font-weight: var(--s-font-weight-bold);
+  line-height: var(--s-line-height-2xl);
+  letter-spacing: var(--s-letter-spacing-tight);
+}
+
+.heading--level-2 {
+  font-size: var(--s-font-size-xl);
+  font-weight: var(--s-font-weight-bold);
+  line-height: var(--s-line-height-xl);
+}
+
+.heading--level-3 {
+  font-size: var(--s-font-size-lg);
+  font-weight: var(--s-font-weight-semibold);
+  line-height: var(--s-line-height-lg);
+}
+
+.heading--level-4,
+.heading--level-5,
+.heading--level-6 {
+  font-size: var(--s-font-size-base);
+  font-weight: var(--s-font-weight-semibold);
+  line-height: var(--s-line-height-base);
+}

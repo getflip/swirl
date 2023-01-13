@@ -12,7 +12,13 @@ interface MobileNavProps {
 
 const MobileNav = ({ isOpen, handleCloseMenu }: MobileNavProps) => {
   return (
-    <nav aria-label="main" className="overflow-y-scroll">
+    <nav
+      id="mobile-navigation"
+      aria-label="main"
+      className={classNames("overflow-y-scroll bg-white", {
+        "absolute w-full left-0 top-[64px]": isOpen,
+      })}
+    >
       <ul
         className={classNames(
           "z-40 w-full h-[calc(100vh_-_64px)] max-h-[calc(100vh_-_64px)] bg-white",
@@ -74,7 +80,10 @@ function ListItem({
           <ul
             id={`accordion-panel-${ariaId}`}
             aria-labelledby={`accordion-${ariaId}`}
-            className={`${isExpanded ? "block" : "hidden"} `}
+            className={classNames({
+              block: isExpanded,
+              hidden: !isExpanded,
+            })}
           >
             {item.children.map((child) => (
               <ListItem
@@ -93,9 +102,9 @@ function ListItem({
           <a
             aria-current={item.url === currentPath ? "page" : "false"}
             onClick={handleCloseMenu}
-            className="flex justify-between py-3 px-2 w-full"
+            className="flex justify-between py-3 font-normal px-4 w-full text-base"
           >
-            <h3>{item.title}</h3>
+            {item.title}
           </a>
         </Link>
       )}

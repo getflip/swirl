@@ -1,0 +1,54 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlTag" />
+
+# SwirlTag
+
+The SwirlTag component is used to label or categorize items using keywords.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=152%3A4591)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-tag)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirltag--swirl-tag" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                       | Usage                                                         |
+| ------------------------------ | ------------------------------------------------------------- |
+| `--s-surface-neutral-subdued`  | Background color of the tag                                   |
+| `--s-text-default`             | Text color of the tag                                         |
+| `--s-icon-strong`              | Icon color of the tag's removal button                        |
+| `--s-surface-info-subdued`     | Background color of the tag with intent "info"                |
+| `--s-text-info`                | Text color of the tag with intent "info"                      |
+| `--s-icon-info`                | Icon color of the tag's removal button with intent "info"     |
+| `--s-surface-critical-subdued` | Background color of the tag with intent "critical"            |
+| `--s-text-critical`            | Text color of the tag with intent "critical"                  |
+| `--s-icon-critical`            | Icon color of the tag's removal button with intent "critical" |
+| `--s-surface-warning-subdued`  | Background color of the tag with intent "warning"             |
+| `--s-text-warning`             | Text color of the tag with intent "warning"                   |
+| `--s-icon-warning`             | Icon color of the tag's removal button with intent "warning"  |
+| `--s-surface-success-subdued`  | Background color of the tag with intent "success"             |
+| `--s-text-success`             | Text color of the tag with intent "success"                   |
+| `--s-icon-success`             | Icon color of the tag's removal button with intent "success"  |
+
+## Accessibility
+
+### ARIA
+
+| ARIA            | Usage                                                                            |
+| --------------- | -------------------------------------------------------------------------------- |
+| `role="button"` | Removable tags use a native button.                                              |
+| `aria-label`    | The removal button gets an accessible label via the `removal-button-label` prop. |
+
+### Keyboard
+
+| Key              | Action                        |
+| ---------------- | ----------------------------- |
+| <kbd>ENTER</kbd> | Activates the removal button. |
+| <kbd>SPACE</kbd> | Activates the removal button. |

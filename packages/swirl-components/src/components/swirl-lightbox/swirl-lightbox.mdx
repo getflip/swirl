@@ -1,0 +1,63 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlLightbox" />
+
+# SwirlLightbox
+
+The SwirlLightbox component is used to present slides of media in a modal
+overlay.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=495%3A7144)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-lightbox)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirllightbox--swirl-lightbox" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                     | Usage                                        |
+| ---------------------------- | -------------------------------------------- |
+| `--s-icon-on-image`          | Icon color of lightbox controls              |
+| `--s-surface-raised-default` | Background color of the PDF lightbox content |
+| `--s-border-default`         | Border color of the PDF lightbox header      |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Dialog Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/)
+and
+[WAI-ARIA Carousel Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/).
+
+| ARIA                              | Usage                                                                                 |
+| --------------------------------- | ------------------------------------------------------------------------------------- |
+| `role="dialog"`                   | Set on the modal wrapping the lightbox.                                               |
+| `aria-modal="true"`               | Set on the modal wrapping the lightbox.                                               |
+| `aria-label`                      | Used to provide an accessible label for the modal/lightbox and each individual slide. |
+| `role="group"`                    | Set on the lightbox container.                                                        |
+| `aria-roledescription="carousel"` | Set on the lightbox container.                                                        |
+| `aria-atomic="false"`             | Set on the slides container.                                                          |
+| `aria-live="polite"`              | Set on the slides container.                                                          |
+| `role="group"`                    | Set on each slide container.                                                          |
+| `aria-roledescription="slide"`    | Set on each slide container.                                                          |
+
+### Keyboard
+
+| Key                                               | Action                                                 |
+| ------------------------------------------------- | ------------------------------------------------------ |
+| <kbd>TAB</kbd>, <kbd>SHIFT</kbd> + <kbd>TAB</kbd> | Move through the interactive elements of the lightbox. |
+| <kbd>ESC</kbd>                                    | Closes the modal.                                      |
+| <kbd>LEFT</kbd>                                   | Activate previous slide.                               |
+| <kbd>RIGHT</kbd>                                  | Activate next slide.                                   |
+
+### Focus handling
+
+- Focus is moved to the first tabbable element when the modal is opened.
+- Focus is trapped inside the modal, if it is open.
+- After closing, the focus is returned to the last focused element.

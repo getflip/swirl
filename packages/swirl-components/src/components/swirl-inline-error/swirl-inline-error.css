@@ -1,0 +1,44 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: inline-flex;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.inline-error {
+  display: inline-flex;
+  color: var(--s-text-critical);
+  line-height: var(--s-line-height-base);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}
+
+.inline-error--size-s {
+  font-size: var(--s-font-size-sm);
+
+  & .inline-error__icon {
+    padding-top: 0.125rem;
+  }
+
+  & .inline-error__message {
+    padding-top: 0;
+  }
+}
+
+.inline-error__icon {
+  display: inline-flex;
+  color: var(--s-icon-critical);
+  align-self: flex-start;
+}
+
+.inline-error__message {
+  width: max-content;
+  margin-left: var(--s-space-4);
+  padding-top: 0.0625rem;
+}

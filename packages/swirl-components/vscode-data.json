@@ -10,7 +10,7 @@
       "attributes": []
     },
     {
-      "name": "flip-action-list",
+      "name": "swirl-action-list",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -18,7 +18,7 @@
       "attributes": []
     },
     {
-      "name": "flip-action-list-item",
+      "name": "swirl-action-list-item",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "name": "flip-action-list-section",
+      "name": "swirl-action-list-section",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -84,7 +84,7 @@
       ]
     },
     {
-      "name": "flip-app-layout",
+      "name": "swirl-app-layout",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -145,7 +145,7 @@
       ]
     },
     {
-      "name": "flip-autocomplete",
+      "name": "swirl-autocomplete",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -165,10 +165,6 @@
         },
         {
           "name": "disabled",
-          "description": ""
-        },
-        {
-          "name": "flip-aria-describedby",
           "description": ""
         },
         {
@@ -219,13 +215,17 @@
           "description": ""
         },
         {
+          "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         }
       ]
     },
     {
-      "name": "flip-avatar",
+      "name": "swirl-avatar",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -337,7 +337,7 @@
       ]
     },
     {
-      "name": "flip-avatar-group",
+      "name": "swirl-avatar-group",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -350,7 +350,7 @@
       ]
     },
     {
-      "name": "flip-badge",
+      "name": "swirl-badge",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -421,7 +421,7 @@
       ]
     },
     {
-      "name": "flip-banner",
+      "name": "swirl-banner",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -483,7 +483,7 @@
       ]
     },
     {
-      "name": "flip-box",
+      "name": "swirl-box",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -508,6 +508,27 @@
         {
           "name": "cover",
           "description": ""
+        },
+        {
+          "name": "overflow",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "clip"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "scroll"
+            },
+            {
+              "name": "visible"
+            }
+          ]
         },
         {
           "name": "padding",
@@ -545,7 +566,7 @@
       ]
     },
     {
-      "name": "flip-button",
+      "name": "swirl-button",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -557,18 +578,6 @@
         },
         {
           "name": "download",
-          "description": ""
-        },
-        {
-          "name": "flip-aria-describedby",
-          "description": ""
-        },
-        {
-          "name": "flip-aria-expanded",
-          "description": ""
-        },
-        {
-          "name": "flip-aria-label",
           "description": ""
         },
         {
@@ -623,6 +632,10 @@
           "description": ""
         },
         {
+          "name": "pill",
+          "description": ""
+        },
+        {
           "name": "size",
           "description": "",
           "values": [
@@ -633,6 +646,18 @@
               "name": "m"
             }
           ]
+        },
+        {
+          "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-expanded",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-label",
+          "description": ""
         },
         {
           "name": "target",
@@ -671,6 +696,9 @@
               "name": "on-image"
             },
             {
+              "name": "outline"
+            },
+            {
               "name": "plain"
             }
           ]
@@ -678,7 +706,7 @@
       ]
     },
     {
-      "name": "flip-button-group",
+      "name": "swirl-button-group",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -711,7 +739,7 @@
       ]
     },
     {
-      "name": "flip-card",
+      "name": "swirl-card",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -740,7 +768,7 @@
       ]
     },
     {
-      "name": "flip-checkbox",
+      "name": "swirl-checkbox",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -770,10 +798,6 @@
           "description": ""
         },
         {
-          "name": "flip-aria-describedby",
-          "description": ""
-        },
-        {
           "name": "input-id",
           "description": ""
         },
@@ -790,13 +814,21 @@
           "description": ""
         },
         {
+          "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-label",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         }
       ]
     },
     {
-      "name": "flip-chip",
+      "name": "swirl-chip",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -836,7 +868,7 @@
       ]
     },
     {
-      "name": "flip-console-layout",
+      "name": "swirl-console-layout",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -889,7 +921,7 @@
       ]
     },
     {
-      "name": "flip-date-input",
+      "name": "swirl-date-input",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -912,10 +944,6 @@
           "description": ""
         },
         {
-          "name": "flip-aria-describedby",
-          "description": ""
-        },
-        {
           "name": "format",
           "description": ""
         },
@@ -932,13 +960,17 @@
           "description": ""
         },
         {
+          "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         }
       ]
     },
     {
-      "name": "flip-date-picker",
+      "name": "swirl-date-picker",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -951,7 +983,7 @@
       ]
     },
     {
-      "name": "flip-description-list",
+      "name": "swirl-description-list",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -959,7 +991,7 @@
       "attributes": []
     },
     {
-      "name": "flip-description-list-item",
+      "name": "swirl-description-list-item",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -972,7 +1004,7 @@
       ]
     },
     {
-      "name": "flip-dialog",
+      "name": "swirl-dialog",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1009,7 +1041,7 @@
       ]
     },
     {
-      "name": "flip-empty-state",
+      "name": "swirl-empty-state",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1026,7 +1058,7 @@
       ]
     },
     {
-      "name": "flip-file-uploader",
+      "name": "swirl-file-uploader",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1079,7 +1111,7 @@
       ]
     },
     {
-      "name": "flip-file-viewer",
+      "name": "swirl-file-viewer",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1125,7 +1157,7 @@
       ]
     },
     {
-      "name": "flip-file-viewer-audio",
+      "name": "swirl-file-viewer-audio",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1146,7 +1178,7 @@
       ]
     },
     {
-      "name": "flip-file-viewer-csv",
+      "name": "swirl-file-viewer-csv",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1163,7 +1195,7 @@
       ]
     },
     {
-      "name": "flip-file-viewer-image",
+      "name": "swirl-file-viewer-image",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1188,7 +1220,7 @@
       ]
     },
     {
-      "name": "flip-file-viewer-pdf",
+      "name": "swirl-file-viewer-pdf",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1218,7 +1250,7 @@
       ]
     },
     {
-      "name": "flip-file-viewer-text",
+      "name": "swirl-file-viewer-text",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1235,7 +1267,7 @@
       ]
     },
     {
-      "name": "flip-file-viewer-video",
+      "name": "swirl-file-viewer-video",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1256,7 +1288,7 @@
       ]
     },
     {
-      "name": "flip-form-control",
+      "name": "swirl-form-control",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1285,7 +1317,7 @@
       ]
     },
     {
-      "name": "flip-form-group",
+      "name": "swirl-form-group",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1306,7 +1338,7 @@
       ]
     },
     {
-      "name": "flip-heading",
+      "name": "swirl-heading",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1375,7 +1407,7 @@
       ]
     },
     {
-      "name": "flip-icon-add",
+      "name": "swirl-icon-add",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1388,7 +1420,7 @@
       ]
     },
     {
-      "name": "flip-icon-add-photo",
+      "name": "swirl-icon-add-photo",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1401,7 +1433,7 @@
       ]
     },
     {
-      "name": "flip-icon-admin-panel-settings",
+      "name": "swirl-icon-admin-panel-settings",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1414,7 +1446,7 @@
       ]
     },
     {
-      "name": "flip-icon-arrow-back",
+      "name": "swirl-icon-arrow-back",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1427,7 +1459,7 @@
       ]
     },
     {
-      "name": "flip-icon-arrow-forward",
+      "name": "swirl-icon-arrow-downward",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1440,7 +1472,7 @@
       ]
     },
     {
-      "name": "flip-icon-arrow-left",
+      "name": "swirl-icon-arrow-forward",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1453,7 +1485,7 @@
       ]
     },
     {
-      "name": "flip-icon-arrow-right",
+      "name": "swirl-icon-arrow-left",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1466,7 +1498,7 @@
       ]
     },
     {
-      "name": "flip-icon-arrow-right-small",
+      "name": "swirl-icon-arrow-right",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1479,7 +1511,7 @@
       ]
     },
     {
-      "name": "flip-icon-attachment",
+      "name": "swirl-icon-arrow-right-small",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1492,7 +1524,7 @@
       ]
     },
     {
-      "name": "flip-icon-block",
+      "name": "swirl-icon-arrow-upward",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1505,7 +1537,7 @@
       ]
     },
     {
-      "name": "flip-icon-cancel",
+      "name": "swirl-icon-attachment",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1518,7 +1550,7 @@
       ]
     },
     {
-      "name": "flip-icon-chat-bubble",
+      "name": "swirl-icon-block",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1531,7 +1563,7 @@
       ]
     },
     {
-      "name": "flip-icon-chats-filled",
+      "name": "swirl-icon-cancel",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1544,7 +1576,7 @@
       ]
     },
     {
-      "name": "flip-icon-chats-outlined",
+      "name": "swirl-icon-chat-bubble",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1557,7 +1589,7 @@
       ]
     },
     {
-      "name": "flip-icon-check",
+      "name": "swirl-icon-chats-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1570,7 +1602,7 @@
       ]
     },
     {
-      "name": "flip-icon-check-circle",
+      "name": "swirl-icon-chats-outlined",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1583,7 +1615,7 @@
       ]
     },
     {
-      "name": "flip-icon-check-small",
+      "name": "swirl-icon-check",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1596,7 +1628,7 @@
       ]
     },
     {
-      "name": "flip-icon-check-strong",
+      "name": "swirl-icon-check-circle",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1609,7 +1641,7 @@
       ]
     },
     {
-      "name": "flip-icon-chevron-left",
+      "name": "swirl-icon-check-small",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1622,7 +1654,7 @@
       ]
     },
     {
-      "name": "flip-icon-chevron-right",
+      "name": "swirl-icon-check-strong",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1635,7 +1667,7 @@
       ]
     },
     {
-      "name": "flip-icon-close",
+      "name": "swirl-icon-chevron-left",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1648,7 +1680,7 @@
       ]
     },
     {
-      "name": "flip-icon-close-small",
+      "name": "swirl-icon-chevron-right",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1661,7 +1693,7 @@
       ]
     },
     {
-      "name": "flip-icon-cloud-upload",
+      "name": "swirl-icon-close",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1674,7 +1706,7 @@
       ]
     },
     {
-      "name": "flip-icon-comment",
+      "name": "swirl-icon-close-small",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1687,7 +1719,7 @@
       ]
     },
     {
-      "name": "flip-icon-copy",
+      "name": "swirl-icon-cloud-upload",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1700,7 +1732,7 @@
       ]
     },
     {
-      "name": "flip-icon-date-range",
+      "name": "swirl-icon-column",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1713,7 +1745,7 @@
       ]
     },
     {
-      "name": "flip-icon-delete",
+      "name": "swirl-icon-comment",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1726,7 +1758,7 @@
       ]
     },
     {
-      "name": "flip-icon-description",
+      "name": "swirl-icon-copy",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1739,7 +1771,7 @@
       ]
     },
     {
-      "name": "flip-icon-download",
+      "name": "swirl-icon-date-range",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1752,7 +1784,7 @@
       ]
     },
     {
-      "name": "flip-icon-edit",
+      "name": "swirl-icon-delete",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1765,7 +1797,7 @@
       ]
     },
     {
-      "name": "flip-icon-emoji-mood",
+      "name": "swirl-icon-description",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1778,7 +1810,7 @@
       ]
     },
     {
-      "name": "flip-icon-emoji-satisfied",
+      "name": "swirl-icon-download",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1791,7 +1823,7 @@
       ]
     },
     {
-      "name": "flip-icon-error",
+      "name": "swirl-icon-edit",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1804,7 +1836,7 @@
       ]
     },
     {
-      "name": "flip-icon-expand-less",
+      "name": "swirl-icon-emoji-mood",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1817,7 +1849,7 @@
       ]
     },
     {
-      "name": "flip-icon-expand-more",
+      "name": "swirl-icon-emoji-satisfied",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1830,7 +1862,7 @@
       ]
     },
     {
-      "name": "flip-icon-file",
+      "name": "swirl-icon-error",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1843,7 +1875,7 @@
       ]
     },
     {
-      "name": "flip-icon-folder-shared",
+      "name": "swirl-icon-expand-less",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1856,7 +1888,7 @@
       ]
     },
     {
-      "name": "flip-icon-fullscreen",
+      "name": "swirl-icon-expand-more",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1869,7 +1901,7 @@
       ]
     },
     {
-      "name": "flip-icon-fullscreen-exit",
+      "name": "swirl-icon-file",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1882,7 +1914,7 @@
       ]
     },
     {
-      "name": "flip-icon-group-assign",
+      "name": "swirl-icon-filter",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1895,7 +1927,7 @@
       ]
     },
     {
-      "name": "flip-icon-groups",
+      "name": "swirl-icon-folder-shared",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1908,7 +1940,7 @@
       ]
     },
     {
-      "name": "flip-icon-groups-custom",
+      "name": "swirl-icon-fullscreen",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1921,7 +1953,7 @@
       ]
     },
     {
-      "name": "flip-icon-groups-filled",
+      "name": "swirl-icon-fullscreen-exit",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1934,7 +1966,7 @@
       ]
     },
     {
-      "name": "flip-icon-groups-outlined",
+      "name": "swirl-icon-group-assign",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1947,7 +1979,7 @@
       ]
     },
     {
-      "name": "flip-icon-help",
+      "name": "swirl-icon-groups",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1960,7 +1992,7 @@
       ]
     },
     {
-      "name": "flip-icon-image",
+      "name": "swirl-icon-groups-custom",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1973,7 +2005,7 @@
       ]
     },
     {
-      "name": "flip-icon-info",
+      "name": "swirl-icon-groups-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1986,7 +2018,7 @@
       ]
     },
     {
-      "name": "flip-icon-inventory",
+      "name": "swirl-icon-groups-outlined",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -1999,7 +2031,7 @@
       ]
     },
     {
-      "name": "flip-icon-like",
+      "name": "swirl-icon-help",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2012,7 +2044,7 @@
       ]
     },
     {
-      "name": "flip-icon-link",
+      "name": "swirl-icon-image",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2025,7 +2057,7 @@
       ]
     },
     {
-      "name": "flip-icon-lock",
+      "name": "swirl-icon-info",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2038,7 +2070,7 @@
       ]
     },
     {
-      "name": "flip-icon-logout",
+      "name": "swirl-icon-inventory",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2051,7 +2083,7 @@
       ]
     },
     {
-      "name": "flip-icon-mail",
+      "name": "swirl-icon-like",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2064,7 +2096,7 @@
       ]
     },
     {
-      "name": "flip-icon-manage-accounts",
+      "name": "swirl-icon-link",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2077,7 +2109,7 @@
       ]
     },
     {
-      "name": "flip-icon-mention",
+      "name": "swirl-icon-lock",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2090,7 +2122,7 @@
       ]
     },
     {
-      "name": "flip-icon-menu",
+      "name": "swirl-icon-logout",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2103,7 +2135,7 @@
       ]
     },
     {
-      "name": "flip-icon-menu-filled",
+      "name": "swirl-icon-mail",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2116,7 +2148,7 @@
       ]
     },
     {
-      "name": "flip-icon-menu-outlined",
+      "name": "swirl-icon-manage-accounts",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2129,7 +2161,7 @@
       ]
     },
     {
-      "name": "flip-icon-message",
+      "name": "swirl-icon-mention",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2142,7 +2174,7 @@
       ]
     },
     {
-      "name": "flip-icon-more-horizontal",
+      "name": "swirl-icon-menu",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2155,7 +2187,7 @@
       ]
     },
     {
-      "name": "flip-icon-more-vertikal",
+      "name": "swirl-icon-menu-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2168,7 +2200,7 @@
       ]
     },
     {
-      "name": "flip-icon-news-filled",
+      "name": "swirl-icon-menu-outlined",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2181,7 +2213,7 @@
       ]
     },
     {
-      "name": "flip-icon-news-outlined",
+      "name": "swirl-icon-message",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2194,7 +2226,7 @@
       ]
     },
     {
-      "name": "flip-icon-notifications",
+      "name": "swirl-icon-more-horizontal",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2207,7 +2239,7 @@
       ]
     },
     {
-      "name": "flip-icon-notifications-active",
+      "name": "swirl-icon-more-vertikal",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2220,7 +2252,7 @@
       ]
     },
     {
-      "name": "flip-icon-notifications-off",
+      "name": "swirl-icon-news-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2233,7 +2265,7 @@
       ]
     },
     {
-      "name": "flip-icon-open-in-new",
+      "name": "swirl-icon-news-outlined",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2246,7 +2278,7 @@
       ]
     },
     {
-      "name": "flip-icon-people-alt",
+      "name": "swirl-icon-notifications",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2259,7 +2291,7 @@
       ]
     },
     {
-      "name": "flip-icon-person",
+      "name": "swirl-icon-notifications-active",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2272,7 +2304,7 @@
       ]
     },
     {
-      "name": "flip-icon-person-off",
+      "name": "swirl-icon-notifications-off",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2285,7 +2317,7 @@
       ]
     },
     {
-      "name": "flip-icon-phone",
+      "name": "swirl-icon-open-in-new",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2298,7 +2330,7 @@
       ]
     },
     {
-      "name": "flip-icon-poll",
+      "name": "swirl-icon-people-alt",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2311,7 +2343,7 @@
       ]
     },
     {
-      "name": "flip-icon-print",
+      "name": "swirl-icon-person",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2324,7 +2356,7 @@
       ]
     },
     {
-      "name": "flip-icon-recieved",
+      "name": "swirl-icon-person-off",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2337,7 +2369,7 @@
       ]
     },
     {
-      "name": "flip-icon-remove",
+      "name": "swirl-icon-phone",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2350,7 +2382,7 @@
       ]
     },
     {
-      "name": "flip-icon-search",
+      "name": "swirl-icon-poll",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2363,7 +2395,7 @@
       ]
     },
     {
-      "name": "flip-icon-search-strong",
+      "name": "swirl-icon-print",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2376,7 +2408,7 @@
       ]
     },
     {
-      "name": "flip-icon-send",
+      "name": "swirl-icon-recieved",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2389,7 +2421,7 @@
       ]
     },
     {
-      "name": "flip-icon-settings",
+      "name": "swirl-icon-remove",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2402,7 +2434,7 @@
       ]
     },
     {
-      "name": "flip-icon-tasks-filled",
+      "name": "swirl-icon-search",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2415,7 +2447,7 @@
       ]
     },
     {
-      "name": "flip-icon-tasks-outlined",
+      "name": "swirl-icon-search-strong",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2428,7 +2460,7 @@
       ]
     },
     {
-      "name": "flip-icon-time-filled",
+      "name": "swirl-icon-send",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2441,7 +2473,7 @@
       ]
     },
     {
-      "name": "flip-icon-time-outlined",
+      "name": "swirl-icon-settings",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2454,7 +2486,7 @@
       ]
     },
     {
-      "name": "flip-icon-today",
+      "name": "swirl-icon-sync",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2467,7 +2499,7 @@
       ]
     },
     {
-      "name": "flip-icon-user-assign",
+      "name": "swirl-icon-tasks-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2480,7 +2512,7 @@
       ]
     },
     {
-      "name": "flip-icon-video-camera",
+      "name": "swirl-icon-tasks-outlined",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2493,7 +2525,7 @@
       ]
     },
     {
-      "name": "flip-icon-visibility",
+      "name": "swirl-icon-time-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2506,7 +2538,7 @@
       ]
     },
     {
-      "name": "flip-icon-visibility-off",
+      "name": "swirl-icon-time-outlined",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2519,7 +2551,7 @@
       ]
     },
     {
-      "name": "flip-icon-warning",
+      "name": "swirl-icon-today",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2532,7 +2564,72 @@
       ]
     },
     {
-      "name": "flip-inline-error",
+      "name": "swirl-icon-user-assign",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-video-camera",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-visibility",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-visibility-off",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-warning",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-inline-error",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2557,7 +2654,7 @@
       ]
     },
     {
-      "name": "flip-lightbox",
+      "name": "swirl-lightbox",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2586,7 +2683,7 @@
       ]
     },
     {
-      "name": "flip-link",
+      "name": "swirl-link",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2621,7 +2718,7 @@
       ]
     },
     {
-      "name": "flip-list",
+      "name": "swirl-list",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2629,7 +2726,7 @@
       "attributes": []
     },
     {
-      "name": "flip-modal",
+      "name": "swirl-modal",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2654,7 +2751,7 @@
       ]
     },
     {
-      "name": "flip-option-list",
+      "name": "swirl-option-list",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2679,7 +2776,7 @@
       ]
     },
     {
-      "name": "flip-option-list-item",
+      "name": "swirl-option-list-item",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2720,7 +2817,7 @@
       ]
     },
     {
-      "name": "flip-option-list-section",
+      "name": "swirl-option-list-section",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2733,7 +2830,7 @@
       ]
     },
     {
-      "name": "flip-pagination",
+      "name": "swirl-pagination",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2793,7 +2890,7 @@
       ]
     },
     {
-      "name": "flip-pdf-reader",
+      "name": "swirl-pdf-reader",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2838,7 +2935,7 @@
       ]
     },
     {
-      "name": "flip-popover",
+      "name": "swirl-popover",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2925,7 +3022,7 @@
       ]
     },
     {
-      "name": "flip-progress-indicator",
+      "name": "swirl-progress-indicator",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2966,7 +3063,7 @@
       ]
     },
     {
-      "name": "flip-radio",
+      "name": "swirl-radio",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3015,14 +3112,14 @@
       ]
     },
     {
-      "name": "flip-radio-group",
+      "name": "swirl-radio-group",
       "description": {
         "kind": "markdown",
         "value": ""
       },
       "attributes": [
         {
-          "name": "flip-aria-describedby",
+          "name": "swirl-aria-describedby",
           "description": ""
         },
         {
@@ -3032,7 +3129,7 @@
       ]
     },
     {
-      "name": "flip-resource-list",
+      "name": "swirl-resource-list",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3045,7 +3142,7 @@
       ]
     },
     {
-      "name": "flip-resource-list-file-item",
+      "name": "swirl-resource-list-file-item",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3082,7 +3179,7 @@
       ]
     },
     {
-      "name": "flip-resource-list-item",
+      "name": "swirl-resource-list-item",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3139,7 +3236,7 @@
       ]
     },
     {
-      "name": "flip-search",
+      "name": "swirl-search",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3180,7 +3277,7 @@
       ]
     },
     {
-      "name": "flip-select",
+      "name": "swirl-select",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3188,10 +3285,6 @@
       "attributes": [
         {
           "name": "disabled",
-          "description": ""
-        },
-        {
-          "name": "flip-aria-describedby",
           "description": ""
         },
         {
@@ -3209,11 +3302,23 @@
         {
           "name": "required",
           "description": ""
+        },
+        {
+          "name": "swirl-aria-describedby",
+          "description": ""
         }
       ]
     },
     {
-      "name": "flip-spinner",
+      "name": "swirl-separator",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "swirl-spinner",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3238,7 +3343,7 @@
       ]
     },
     {
-      "name": "flip-stack",
+      "name": "swirl-stack",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3342,7 +3447,7 @@
       ]
     },
     {
-      "name": "flip-switch",
+      "name": "swirl-switch",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3387,7 +3492,7 @@
       ]
     },
     {
-      "name": "flip-tab",
+      "name": "swirl-tab",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3408,7 +3513,107 @@
       ]
     },
     {
-      "name": "flip-tabs",
+      "name": "swirl-table",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "caption",
+          "description": ""
+        },
+        {
+          "name": "empty-state-label",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-table-cell",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "swirl-table-column",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "max-width",
+          "description": ""
+        },
+        {
+          "name": "min-width",
+          "description": ""
+        },
+        {
+          "name": "sort",
+          "description": "",
+          "values": [
+            {
+              "name": "ascending"
+            },
+            {
+              "name": "descending"
+            }
+          ]
+        },
+        {
+          "name": "sortable",
+          "description": ""
+        },
+        {
+          "name": "sticky",
+          "description": ""
+        },
+        {
+          "name": "width",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-table-row",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "highlighted",
+          "description": ""
+        },
+        {
+          "name": "index",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-table-row-group",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-tabs",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3425,7 +3630,7 @@
       ]
     },
     {
-      "name": "flip-tag",
+      "name": "swirl-tag",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3467,7 +3672,7 @@
       ]
     },
     {
-      "name": "flip-text",
+      "name": "swirl-text",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3565,7 +3770,7 @@
       ]
     },
     {
-      "name": "flip-text-input",
+      "name": "swirl-text-input",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3597,26 +3802,6 @@
         },
         {
           "name": "disabled",
-          "description": ""
-        },
-        {
-          "name": "flip-aria-autocomplete",
-          "description": ""
-        },
-        {
-          "name": "flip-aria-controls",
-          "description": ""
-        },
-        {
-          "name": "flip-aria-describedby",
-          "description": ""
-        },
-        {
-          "name": "flip-aria-expanded",
-          "description": ""
-        },
-        {
-          "name": "flip-role",
           "description": ""
         },
         {
@@ -3695,6 +3880,26 @@
           "description": ""
         },
         {
+          "name": "swirl-aria-autocomplete",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-controls",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-expanded",
+          "description": ""
+        },
+        {
+          "name": "swirl-role",
+          "description": ""
+        },
+        {
           "name": "type",
           "description": "",
           "values": [
@@ -3734,7 +3939,7 @@
       ]
     },
     {
-      "name": "flip-theme-provider",
+      "name": "swirl-theme-provider",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3742,7 +3947,7 @@
       "attributes": []
     },
     {
-      "name": "flip-thumbnail",
+      "name": "swirl-thumbnail",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3789,7 +3994,7 @@
       ]
     },
     {
-      "name": "flip-toast",
+      "name": "swirl-toast",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3837,7 +4042,7 @@
       ]
     },
     {
-      "name": "flip-toast-provider",
+      "name": "swirl-toast-provider",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3850,7 +4055,7 @@
       ]
     },
     {
-      "name": "flip-tooltip",
+      "name": "swirl-tooltip",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3885,7 +4090,7 @@
       ]
     },
     {
-      "name": "flip-tree-navigation-item",
+      "name": "swirl-tree-navigation-item",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3906,7 +4111,7 @@
       ]
     },
     {
-      "name": "flip-video-thumbnail",
+      "name": "swirl-video-thumbnail",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3931,7 +4136,7 @@
       ]
     },
     {
-      "name": "flip-visually-hidden",
+      "name": "swirl-visually-hidden",
       "description": {
         "kind": "markdown",
         "value": ""

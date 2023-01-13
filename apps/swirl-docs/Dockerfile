@@ -21,6 +21,8 @@ RUN yarn install
 COPY . .
 RUN yarn build
 
+RUN yarn postbuild
+
 
 # Puppeteer v13.5.0 works with Chromium 100.
 RUN yarn add puppeteer@13.5.0

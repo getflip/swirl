@@ -1,0 +1,30 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.option-list-section {
+  background-color: var(--s-surface-overlay-default);
+}
+
+.option-list-section__label {
+  display: block;
+  width: 100%;
+  padding: var(--s-space-8) var(--s-space-16);
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  color: var(--s-text-subdued);
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-base);
+  text-align: left;
+
+  @media (--from-desktop-without-touch) {
+    padding: var(--s-space-8) var(--s-space-12);
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}

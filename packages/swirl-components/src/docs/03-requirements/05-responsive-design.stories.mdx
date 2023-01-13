@@ -18,20 +18,21 @@ addition to adapt the styles for larger viewports, if necessary.
 
 Media queries are used to adjust component styles for larger viewports.
 
-| Media Query        | Condition         | Usage                              | Description                          |
-| ------------------ | ----------------- | ---------------------------------- | ------------------------------------ |
-| - none -           |                   |                                    | Targets all viewports                |
-| from-mobile        | min-width: 375px  | `@media (--from-mobile) {}`        | Targets mobile viewports and larger  |
-| from-tablet        | min-width: 768px  | `@media (--from-tablet) {}`        | Targets tablet viewports and larger  |
-| from-desktop       | min-width: 992px  | `@media (--from-desktop) {}`       | Targets desktop viewports and larger |
-| from-large-desktop | min-width: 1440px | `@media (--from-large-desktop) {}` | Targets large desktop viewports      |
+| Media Query                | Condition                                                                               | Usage                                      | Description                                                                            |
+| -------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------- |
+| - none -                   |                                                                                         |                                            | Targets all viewports                                                                  |
+| from-mobile                | min-width: 375px                                                                        | `@media (--from-mobile) {}`                | Targets mobile viewports and larger                                                    |
+| from-tablet                | min-width: 768px                                                                        | `@media (--from-tablet) {}`                | Targets tablet viewports and larger                                                    |
+| from-desktop               | min-width: 992px                                                                        | `@media (--from-desktop) {}`               | Targets desktop viewports and larger                                                   |
+| from-large-desktop         | min-width: 1440px                                                                       | `@media (--from-large-desktop) {}`         | Targets large desktop viewports                                                        |
+| from-desktop-without-touch | ((min-width: 992px) and (max-width: 1439px) and (hover: hover)) or (min-width: 1440px); | `@media (--from-desktop-without-touch) {}` | Targets desktop viewports without primary touch input, and all large desktop viewports |
 
 **Here is an usage example:**
 
 ```css
 @import "../../styles/media-queries.css";
 
-.flip-button {
+.button {
   font-size: 1rem;
 
   @media (--from-desktop) {
