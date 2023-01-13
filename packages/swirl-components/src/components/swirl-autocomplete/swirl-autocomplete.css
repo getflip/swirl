@@ -1,0 +1,35 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.autocomplete--inactive {
+  & .autocomplete__listbox-container {
+    display: none;
+  }
+}
+
+.autocomplete__listbox-container {
+  position: fixed;
+  z-index: var(--s-z-40);
+  overflow: hidden;
+  padding-top: var(--s-space-8);
+  padding-bottom: var(--s-space-8);
+  border-radius: var(--s-border-radius-sm);
+  background-color: var(--s-surface-overlay-default);
+  box-shadow: var(--s-shadow-level-1);
+
+  &:empty {
+    display: none;
+  }
+}
+
+.autocomplete__spinner {
+  display: flex;
+  padding: var(--s-space-16);
+  justify-content: center;
+  align-items: center;
+}

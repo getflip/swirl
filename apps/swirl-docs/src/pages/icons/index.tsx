@@ -48,40 +48,32 @@ const IconsIndex = () => {
       <Head>
         <title>Swirl | Icons</title>
       </Head>
-      <div className="flex min-h-[calc(100vh_-_72px)]">
+      <div className="flex">
         <CategoryNav categoryLinkList={iconsNavItems} />
-        <main id="main" className="w-full h-full">
-          <section className="flex flex-col px-4 md:py-14 md:px-24">
-            <div className="mb-16">
-              <h1 className="mb-4 font-bold text-4xl text-text-default">
-                Icons
-              </h1>
-              <SearchBar
-                handleChange={(e) => setSearchWord(e.target.value)}
-                searchQuery={searchWord}
+        <main
+          id="main"
+          className="w-full h-full mt-14 flex flex-col px-4 md:px-24"
+        >
+          <div className="mb-16">
+            <h1 className="mb-4 font-bold text-4xl text-text-default">Icons</h1>
+            <SearchBar
+              handleChange={(e) => setSearchWord(e.target.value)}
+              searchQuery={searchWord}
+            />
+          </div>
+          <div className="flex md:grid md:grid-cols-icon-grid w-full">
+            <div className="w-full">
+              <h2 className="mb-4 font-semibold text-font-size-xl text-text-default">
+                Icon List
+              </h2>
+              <IconGrid
+                selectedIcon={selectedIcon}
+                iconList={filteredIcons}
+                icons={icons}
+                handleTileClick={(iconname) => setSelectedIcon(icons[iconname])}
               />
             </div>
-            <div className="flex md:grid md:grid-cols-icon-grid w-full">
-              <div className="w-full">
-                <h2 className="mb-4 font-semibold text-font-size-xl text-text-default">
-                  Icon List
-                </h2>
-                <IconGrid
-                  selectedIcon={selectedIcon}
-                  iconList={filteredIcons}
-                  icons={icons}
-                  handleTileClick={(iconname) =>
-                    setSelectedIcon(icons[iconname])
-                  }
-                />
-              </div>
-              {selectedIcon && (
-                <div className="hidden md:block max-w-[280px]">
-                  <IconInfo icon={selectedIcon} />
-                </div>
-              )}
-            </div>
-          </section>
+          </div>
         </main>
       </div>
     </>

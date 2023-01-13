@@ -1,0 +1,50 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Admin/SwirlTreeNavigationItem" />
+
+# SwirlTreeNavigationItem
+
+The SwirlTreeNavigationItem component is used to for the main navigation of the
+Flip Admin tools.
+
+- **[Figma Design Specs](https://www.figma.com/file/Cks5hd1wSusGi1PYbpVgvX/Admindashboard?node-id=128%3A2201&t=RoIUBgbUhxFQOq8w-0)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-tree-navigation-item)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="admin-swirltreenavigationitem--swirl-tree-navigation-item" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                        | Usage                                           |
+| ------------------------------- | ----------------------------------------------- |
+| `--s-text-default`              | Text color of the item                          |
+| `--s-icon-default`              | Icon color of the item                          |
+| `--s-surface-default`           | Background color of the item                    |
+| `--s-surface-hovered`           | Background color of the hovered item            |
+| `--s-surface-pressed`           | Background color of the pressed item            |
+| `--s-surface-raised-default`    | Background color of the active item             |
+| `--s-surface-raised-hovered`    | Background color of the active and hovered item |
+| `--s-surface-raised-pressed`    | Background color of the active and pressed item |
+| `--s-surface-highlight-default` | Left border color of the active item            |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Link Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/link/).
+
+| ARIA          | Usage |
+| ------------- | ----- |
+| `role="link"` |       |
+
+### Keyboard
+
+| Key              | Action              |
+| ---------------- | ------------------- |
+| <kbd>ENTER</kbd> | Activates the link. |

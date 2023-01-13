@@ -1,0 +1,133 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
+
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.dialog {
+  position: fixed;
+  z-index: var(--s-z-40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+.dialog:not(.dialog--closing) {
+  & .dialog__backdrop {
+    animation: 0.15s dialog-backdrop-fade-in;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+
+  & .dialog__body {
+    animation: 0.15s dialog-scale-in;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+}
+
+.dialog--closing {
+  animation: 0.15s dialog-fade-out;
+  animation-fill-mode: forwards;
+
+  @media (prefers-reduced-motion) {
+    animation: none;
+  }
+}
+
+.dialog__backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.2);
+  inset: 0;
+}
+
+.dialog__body {
+  z-index: var(--s-z-40);
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 18.5rem;
+  max-height: 90vh;
+  padding-top: var(--s-space-24);
+  padding-right: var(--s-space-8);
+  padding-bottom: var(--s-space-8);
+  padding-left: var(--s-space-8);
+  border-radius: var(--s-border-radius-l);
+  background-color: var(--s-surface-overlay-default);
+  text-align: center;
+  box-shadow: var(--s-shadow-level-3);
+
+  @media (--from-desktop-without-touch) {
+    border-radius: var(--s-border-radius-base);
+  }
+}
+
+.dialog__heading {
+  margin: 0;
+  margin-bottom: var(--s-space-8);
+  font-size: var(--s-font-size-lg);
+  font-weight: var(--s-font-weight-semibold);
+  line-height: var(--s-line-height-lg);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-base);
+    line-height: var(--s-line-height-base);
+  }
+}
+
+.dialog__content {
+  margin-bottom: var(--s-space-24);
+  line-height: var(--s-line-height-base);
+
+  & ::slotted(*) {
+    margin: 0;
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}
+
+@keyframes dialog-scale-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes dialog-backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

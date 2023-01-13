@@ -1,0 +1,28 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.empty-state {
+  display: flex;
+  max-width: 28rem;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--s-space-16);
+}
+
+.empty-state__illustration {
+  max-width: 16rem;
+}
+
+.empty-state__body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--s-space-8);
+}

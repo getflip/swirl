@@ -49,7 +49,7 @@ export class FileManager {
   @State() selectedDirectory: FileManagerDirectory | undefined;
   @State() selectedFile: FileManagerFile | undefined;
 
-  private layout: HTMLFlipAppLayoutElement;
+  private layout: HTMLSwirlAppLayoutElement;
 
   private selectItem = (item: FileManagerDirectory | FileManagerFile) => {
     if ("type" in item) {
@@ -75,35 +75,35 @@ export class FileManager {
 
     return items.length > 0 ? (
       items.map((item) => (
-        <flip-resource-list-item
+        <swirl-resource-list-item
           description={item.description}
           key={item.name}
           label={item.name}
           media={
             "type" in item
-              ? "<flip-icon-file></flip-icon-file>"
-              : "<flip-icon-folder-shared></flip-icon-folder-shared>"
+              ? "<swirl-icon-file></swirl-icon-file>"
+              : "<swirl-icon-folder-shared></swirl-icon-folder-shared>"
           }
           // eslint-disable-next-line react/jsx-no-bind
           onClick={() => this.selectItem(item)}
-        ></flip-resource-list-item>
+        ></swirl-resource-list-item>
       ))
     ) : (
-      <flip-box padding="16">
-        <flip-text color="subdued" weight="medium">
+      <swirl-box padding="16">
+        <swirl-text color="subdued" weight="medium">
           This directory is empty.
-        </flip-text>
-      </flip-box>
+        </swirl-text>
+      </swirl-box>
     );
   }
 
   render() {
     return (
       <Host>
-        <flip-app-layout
+        <swirl-app-layout
           appName="Documents"
           backToNavigationViewButtonLabel="Back to documents list"
-          ctaIcon="<flip-icon-add></flip-icon-add>"
+          ctaIcon="<swirl-icon-add></swirl-icon-add>"
           ctaLabel="Upload file"
           heading={this.selectedFile?.name}
           navigationLabel="Documents"
@@ -116,85 +116,85 @@ export class FileManager {
           transitionStyle="dialog"
         >
           {/* Navigation */}
-          <flip-resource-list label="Documents" slot="navigation">
+          <swirl-resource-list label="Documents" slot="navigation">
             {this.renderNavigation()}
-          </flip-resource-list>
+          </swirl-resource-list>
 
           {/* Navigation controls */}
-          <flip-button
+          <swirl-button
             id="sort-button"
             label="Sort items"
             slot="navigation-controls"
-          ></flip-button>
+          ></swirl-button>
 
           {/* Content */}
           {Boolean(this.selectedFile) ? (
-            <flip-file-viewer
+            <swirl-file-viewer
               file={this.selectedFile.url}
               slot="content"
               type={this.selectedFile.type}
-            ></flip-file-viewer>
+            ></swirl-file-viewer>
           ) : (
-            <flip-box
+            <swirl-box
               cover
               centerBlock
               centerInline
               padding="16"
               slot="content"
             >
-              <flip-empty-state
+              <swirl-empty-state
                 heading="Nothing to see here."
                 illustration="/images/empty-state-1.svg"
               >
                 Please select a file from the list.
-              </flip-empty-state>
-            </flip-box>
+              </swirl-empty-state>
+            </swirl-box>
           )}
 
           {/* App bar controls */}
           <div slot="app-bar-controls">
             {this.selectedFile && (
-              <flip-button
+              <swirl-button
                 hide-label
                 class="info-button"
-                icon="<flip-icon-info></flip-icon-info>"
+                icon="<swirl-icon-info></swirl-icon-info>"
                 label="Open file info"
                 onClick={this.toggleSidebar}
-              ></flip-button>
+              ></swirl-button>
             )}
           </div>
 
           {/* Sidebar */}
-          <flip-box padding="16" slot="sidebar">
-            <flip-text color="subdued" weight="medium">
+          <swirl-box padding="16" slot="sidebar">
+            <swirl-text color="subdued" weight="medium">
               File info goes here …
-            </flip-text>
-          </flip-box>
-        </flip-app-layout>
+            </swirl-text>
+          </swirl-box>
+        </swirl-app-layout>
 
-        <flip-popover
+        <swirl-popover
           label="Sort items"
           popoverId="sort-menu"
           trigger="sort-button"
         >
-          <flip-option-list value={["ascending"]}>
-            <flip-option-list-item
-              icon="<flip-icon-expand-less></flip-icon-expand-less>"
+          <swirl-option-list value={["ascending"]}>
+            <swirl-option-list-item
+              icon="<swirl-icon-expand-less></swirl-icon-expand-less>"
               label="Ascending"
               value="ascending"
-            ></flip-option-list-item>
-            <flip-option-list-item
-              icon="<flip-icon-expand-more></flip-icon-expand-more>"
+            ></swirl-option-list-item>
+            <swirl-option-list-item
+              icon="<swirl-icon-expand-more></swirl-icon-expand-more>"
               label="Descending"
               value="descending"
-            ></flip-option-list-item>
-            <flip-option-list-item
-              icon="<flip-icon-time-outlined></flip-icon-time-outlined>"
+            ></swirl-option-list-item>
+            <swirl-option-list-item
+              icon="<swirl-icon-time-outlined></swirl-icon-time-outlined>"
               label="By date"
               value="date"
-            ></flip-option-list-item>
-          </flip-option-list>
-        </flip-popover>
+            ></swirl-option-list-item>
+          </swirl-option-list>
+        </swirl-popover>
       </Host>
     );
   }
