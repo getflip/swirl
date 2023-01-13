@@ -10,10 +10,10 @@ import {
   useRole,
 } from "@floating-ui/react";
 import {
-  FlipActionList,
-  FlipActionListItem,
-  FlipIconChevronRight,
-  FlipSpinner,
+  SwirlActionList,
+  SwirlActionListItem,
+  SwirlIconChevronRight,
+  SwirlSpinner,
 } from "@getflip/swirl-components-react";
 import classNames from "classnames";
 import { FunctionComponent, useState } from "react";
@@ -78,7 +78,7 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
           onClick={() => handleIconDownload()}
         >
           {isLoadingIconDownload ? (
-            <FlipSpinner label="loading icon from server" size="s" />
+            <SwirlSpinner label="loading icon from server" size="s" />
           ) : (
             `Download ${iconPixelSize}px Icon`
           )}
@@ -93,7 +93,7 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
           onClick={() => console.log("clicked")}
           {...getReferenceProps()}
         >
-          <FlipIconChevronRight className="rotate-90" />
+          <SwirlIconChevronRight className="rotate-90" />
         </button>
       </div>
       {isOpen && (
@@ -107,26 +107,26 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
             aria-label="Icon Sizes"
             {...getFloatingProps()}
           >
-            <FlipActionList>
-              <FlipActionListItem
+            <SwirlActionList>
+              <SwirlActionListItem
                 size="m"
                 key="16"
                 label="16px"
                 onClick={() => handleActionItemClick(16)}
-              ></FlipActionListItem>
-              <FlipActionListItem
+              ></SwirlActionListItem>
+              <SwirlActionListItem
                 size="m"
                 key="24"
                 label="24px"
                 onClick={() => handleActionItemClick(24)}
-              ></FlipActionListItem>
-              <FlipActionListItem
+              ></SwirlActionListItem>
+              <SwirlActionListItem
                 size="m"
                 key="28"
                 label="28px"
                 onClick={() => handleActionItemClick(28)}
-              ></FlipActionListItem>
-            </FlipActionList>
+              ></SwirlActionListItem>
+            </SwirlActionList>
           </div>
         </FloatingFocusManager>
       )}

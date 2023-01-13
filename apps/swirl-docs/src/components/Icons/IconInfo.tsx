@@ -1,4 +1,4 @@
-import { FlipIconOpenInNew } from "@getflip/swirl-components-react";
+import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
 import { FunctionComponent } from "react";
 import { IconData } from "src/pages/icons";
 import { IconDownload } from "./IconDownload";
@@ -25,7 +25,7 @@ export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => {
         >
           Component
           <span className="">
-            <FlipIconOpenInNew className="ml-1 w-4" />
+            <SwirlIconOpenInNew className="ml-1 w-4" />
           </span>
         </a>
       </h2>
