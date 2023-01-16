@@ -2,11 +2,6 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-date-picker.mdx";
 
 export default {
-  argTypes: {
-    locale: {
-      control: { type: "object" },
-    },
-  },
   component: "swirl-date-picker",
   parameters: {
     docs: {
