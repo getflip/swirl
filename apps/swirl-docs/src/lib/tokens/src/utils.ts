@@ -56,64 +56,62 @@ export function generateTokenValueWithUnit(
 ): TokenValueWithUnit | undefined {
   const { value, type } = token;
 
-  if (typeof value === "string" || typeof value === "number") {
-    if (typeof value === "string") {
-      const number = value.match(/\d+/g);
-      const numberString = number?.join(".");
-      const unit = value.match(/[a-z]+/g);
-      if (type === "color") {
-        const rgbValues = value.match(/\d+/g)?.join(", ");
+  if (typeof value === "string") {
+    const number = value.match(/\d+/g);
+    const numberString = number?.join(".");
+    const unit = value.match(/[a-z]+/g);
+    if (type === "color") {
+      const rgbValues = value.match(/\d+/g)?.join(", ");
 
-        if (rgbValues) {
-          return {
-            value: rgbValues,
-            unit: "rgb",
-          };
-        }
-      }
-
-      if (TypographyTokenCategories.includes(type)) {
-        if (numberString && unit) {
-          return {
-            value: numberString,
-            unit: unit[0],
-          };
-        }
-      }
-
-      if (
-        BorderTokenCategories.includes(type) ||
-        SpacingTokenCategories.includes(type)
-      ) {
-        if (numberString && unit) {
-          return {
-            value: numberString,
-            unit: "rem",
-          };
-        }
-      }
-
-      if (ZIndexTokenCategories.includes(type)) {
+      if (rgbValues) {
         return {
-          value: value,
-          unit: "zIndex",
+          value: rgbValues,
+          unit: "rgba",
         };
       }
     }
 
-    if (typeof value === "number") {
-      if (type === "fontWeights") {
+    if (TypographyTokenCategories.includes(type)) {
+      if (numberString && unit) {
         return {
-          value: value.toString(),
-          unit: "Weight",
+          value: numberString,
+          unit: unit[0],
         };
       }
+    }
 
+    if (
+      BorderTokenCategories.includes(type) ||
+      SpacingTokenCategories.includes(type)
+    ) {
+      if (numberString && unit) {
+        return {
+          value: numberString,
+          unit: "rem",
+        };
+      }
+    }
+
+    if (ZIndexTokenCategories.includes(type)) {
       return {
-        value: value.toString(),
-        unit: "rem",
+        value: value,
+        unit: "Z-Index",
       };
     }
+  }
+
+  if (typeof value === "number") {
+    if (type === "fontWeights") {
+      return {
+        value: value.toString(),
+        unit: "Weight",
+      };
+    }
+
+    return {
+      value: value.toString(),
+      unit: "rem",
+    };
   }
 }
 

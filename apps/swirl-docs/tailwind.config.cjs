@@ -27,8 +27,8 @@ module.exports = {
       ...SwirlTailwindTheme,
       gridTemplateColumns: {
         "fill-rows": "repeat(auto-fill, 10rem)",
-        "color-token-list": "24px repeat(5, 1fr)",
-        "typography-token-list": "48px repeat(5, 1fr)",
+        "color-token-list": "24px 16rem 9rem 1fr",
+        "typography-token-list": "48px repeat(3, 1fr)",
         "z-index-token-list": "96px repeat(5, 1fr)",
         "spacing-token-list": "64px repeat(5, 1fr)",
         "token-list": "minmax(24px, 96px) repeat(5, 1fr)",

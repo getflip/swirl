@@ -39,7 +39,7 @@ export const TokensList: FunctionComponent<TokensListProps> = ({ tokens }) => {
       <thead>
         <tr
           className={classNames(
-            `grid gap-2 grid-cols-1 md:grid-cols-typography-token-list items-start py-4 border-b-1`,
+            `grid gap-3 grid-cols-1 md:grid-cols-typography-token-list items-start py-4 border-b-1`,
             {
               "md:grid-cols-color-token-list":
                 isColorIndex(tokenType[0]) || isBorderToken(tokenType[0]),
@@ -51,14 +51,14 @@ export const TokensList: FunctionComponent<TokensListProps> = ({ tokens }) => {
             }
           )}
         >
-          <th className="col-span-3 font-semibold text-start text-sm">
+          <th className="col-span-2 font-semibold text-start text-sm">
             <h4>Token Name</h4>
           </th>
-          <th className="col-span-1 font-semibold text-start text-sm">
+          <th className="font-semibold text-start text-sm">
             <h4>Value ({tokenValueTypes[0]})</h4>
           </th>
           {hasTokenDescription && (
-            <th className="col-span-2 font-semibold text-start text-sm">
+            <th className="font-semibold text-start text-sm">
               <h4>Description</h4>
             </th>
           )}
