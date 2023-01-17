@@ -6,6 +6,12 @@ import {
 } from "./dialog";
 import { SubscribeResult, UnsubscribeResult } from "./events/events.types";
 import { GetAvailableLangsResult, GetLangResult } from "./i18n";
+import {
+  CloseModalResult,
+  CreateModalResult,
+  DestroyModalResult,
+  OpenModalResult,
+} from "./modal";
 import { NavigateResult } from "./navigation";
 import { GetThemeResult } from "./theming";
 
@@ -25,26 +31,34 @@ export enum BridgeErrorCode {
 
 export enum BridgeMethod {
   CLOSE_DIALOG = "CLOSE_DIALOG",
+  CLOSE_MODAL = "CLOSE_MODAL",
   CREATE_DIALOG = "CREATE_DIALOG",
+  CREATE_MODAL = "CREATE_MODAL",
   DESTROY_DIALOG = "DESTROY_DIALOG",
+  DESTROY_MODAL = "DESTROY_MODAL",
   GET_AVAILABLE_LANGS = "GET_AVAILABLE_LANGS",
   GET_LANG = "GET_LANG",
   GET_THEME = "GET_THEME",
   NAVIGATE = "NAVIGATE",
   OPEN_DIALOG = "OPEN_DIALOG",
+  OPEN_MODAL = "OPEN_MODAL",
   SUBSCRIBE = "SUBSCRIBE",
   UNSUBSCRIBE = "UNSUBSCRIBE",
 }
 
 export type BridgeMethodResultMapping = {
   [BridgeMethod.CLOSE_DIALOG]: CloseDialogResult;
+  [BridgeMethod.CLOSE_MODAL]: CloseModalResult;
   [BridgeMethod.CREATE_DIALOG]: CreateDialogResult;
+  [BridgeMethod.CREATE_MODAL]: CreateModalResult;
   [BridgeMethod.DESTROY_DIALOG]: DestroyDialogResult;
+  [BridgeMethod.DESTROY_MODAL]: DestroyModalResult;
   [BridgeMethod.GET_AVAILABLE_LANGS]: GetAvailableLangsResult;
   [BridgeMethod.GET_LANG]: GetLangResult;
   [BridgeMethod.GET_THEME]: GetThemeResult;
   [BridgeMethod.NAVIGATE]: NavigateResult;
   [BridgeMethod.OPEN_DIALOG]: OpenDialogResult;
+  [BridgeMethod.OPEN_MODAL]: OpenModalResult;
   [BridgeMethod.SUBSCRIBE]: SubscribeResult;
   [BridgeMethod.UNSUBSCRIBE]: UnsubscribeResult;
 };

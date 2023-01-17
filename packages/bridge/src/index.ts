@@ -6,6 +6,7 @@ export * from "./messaging/messaging.types";
 export * from "./dialog";
 export * from "./events";
 export * from "./i18n";
+export * from "./modal";
 export * from "./navigation";
 export * from "./theming";
 

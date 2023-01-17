@@ -1,5 +1,3 @@
-const { viteFinalFactory } = require("storybook-design-token/dist/preset");
-
 module.exports = {
   addons: [
     {
@@ -21,8 +19,4 @@ module.exports = {
   framework: "@storybook/html",
   staticDirs: ["../src/assets", "../public"],
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
-  viteFinal: viteFinalFactory({
-    designTokenGlob:
-      "../../node_modules/@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css",
-  }),
 };
