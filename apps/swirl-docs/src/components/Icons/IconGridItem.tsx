@@ -6,6 +6,7 @@ import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
 import { MobileView, DesktopView } from "../View/Views";
 import IconInfo from "./IconInfo";
+import Portal from "./Portal";
 
 interface IconGridProps {
   id: string;
@@ -74,15 +75,17 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
             ></i>
             <span className="text-text-subdued">{icons[icon]?.name}</span>
           </a>
-          <SwirlPopover
-            label="Icon Info"
-            popoverId={`popover-${id}`}
-            trigger={`${id}-popover-trigger`}
-          >
-            <div className="p-4">
-              <IconInfo icon={icons[icon]} />
-            </div>
-          </SwirlPopover>
+          <Portal>
+            <SwirlPopover
+              label="Icon Info"
+              popoverId={`popover-${id}`}
+              trigger={`${id}-popover-trigger`}
+            >
+              <div className="p-4">
+                <IconInfo icon={icons[icon]} />
+              </div>
+            </SwirlPopover>
+          </Portal>
         </div>
       </MobileView>
     </NoSsr>
