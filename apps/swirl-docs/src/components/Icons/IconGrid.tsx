@@ -1,6 +1,7 @@
 import useDynamicRefs, {
   handleGridKeyDown,
 } from "@swirl/lib/hooks/useDynamicRefs";
+import classNames from "classnames";
 import { FunctionComponent, LegacyRef } from "react";
 import Grid from "src/components/Grid";
 import { IconsMetaData } from "src/pages/components";
@@ -25,7 +26,11 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
   return (
     <Grid
       id="icon-grid"
-      className="grid grid-cols-2 @xl:grid-cols-[repeat(4,_1fr)] @4xl:grid-cols-[repeat(6,_1fr)] gap-4 w-full"
+      className={classNames(
+        "grid grid-cols-2 @xl:grid-cols-[repeat(4,_1fr)] @4xl:grid-cols-[repeat(6,_1fr)] gap-4 w-full",
+        "supports-[not(container-type:inline-size)]:flex",
+        "supports-[not(container-type:inline-size)]:flex-wrap"
+      )}
     >
       {iconList?.map((icon: string, index: number) => (
         <IconGridItem

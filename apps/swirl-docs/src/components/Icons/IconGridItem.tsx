@@ -44,6 +44,8 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
           className={classNames(
             "flex flex-col justify-center items-center gap-2",
             "aspect-square",
+            "supports-[not(container-type:inline-size)]:min-w-[120px]",
+            "supports-[not(container-type:inline-size)]:max-w-[120px]",
             "py-4 border-1 rounded-lg",
             { "bg-background-hovered": isSelected }
           )}
