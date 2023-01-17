@@ -75,6 +75,7 @@ const IconsIndex = () => {
                   }
                 />
               </div>
+              <IconInfo icon={selectedIcon} />
             </div>
           </section>
         </main>

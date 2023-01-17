@@ -21,7 +21,7 @@ export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => {
       <h2 className="font-semibold text-base mb-2">
         <a
           className="inline-flex font-semibold text-font-size-base text-text-default"
-          href="https://swirl-storybook.flip-app.dev/?path=/docs/components-flipicon--flip-icon"
+          href="https://swirl-storybook.flip-app.dev/?path=/docs/components-swirlicon--swirl-icon"
         >
           Component
           <span className="">

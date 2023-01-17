@@ -51,13 +51,14 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
   function handleActionItemClick(size: number): void {
     setIconPixelSize(size);
     setIsOpen(false);
+    handleIconDownload(size);
   }
 
-  async function handleIconDownload() {
+  async function handleIconDownload(size?: number) {
     setIsLoadingIconDownload(true);
     await initializeIconDownload({
       iconName: icon?.name,
-      iconPixelSize,
+      iconPixelSize: size ? size : iconPixelSize,
     });
     setIsLoadingIconDownload(false);
   }
@@ -76,6 +77,7 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
         <button
           className="w-full max-h-6 text-center"
           onClick={() => handleIconDownload()}
+          type="button"
         >
           {isLoadingIconDownload ? (
             <SwirlSpinner label="loading icon from server" size="s" />
@@ -84,13 +86,14 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
           )}
         </button>
         <button
+          aria-label="Icon Size Trigger"
+          type="button"
           ref={reference}
           id="icon-size-trigger"
           className={classNames(
             "relative w-6 h-6 mx-2",
             "before:absolute before:top-0 before:left-[-8px] before:h-[24px] before:w-[1px] before:bg-text-on-action-primary"
           )}
-          onClick={() => console.log("clicked")}
           {...getReferenceProps()}
         >
           <SwirlIconChevronRight className="rotate-90" />
@@ -104,7 +107,6 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
             style={{
               position: strategy,
             }}
-            aria-label="Icon Sizes"
             {...getFloatingProps()}
           >
             <SwirlActionList>

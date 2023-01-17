@@ -37,7 +37,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
           id={id}
           tabIndex={index === 0 ? 0 : -1}
           role={role}
-          aria-label={`${icon}-icon`}
+          aria-label={`${icon}`}
           ref={reference}
           href={`#${icons[icon]?.name}`}
           className={classNames(
@@ -62,7 +62,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
           <a
             id={`${id}-popover-trigger`}
             tabIndex={index === 0 ? 0 : -1}
-            aria-label={`${icon}-icon`}
+            aria-label={`${icon}`}
             ref={reference}
             href={`#${icons[icon]?.name}`}
             className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
