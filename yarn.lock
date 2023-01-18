@@ -5789,11 +5789,6 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-air-datepicker@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/air-datepicker/-/air-datepicker-3.3.0.tgz#fb56afa32a2907e2d0a64d120626bd02f7e32b4e"
-  integrity sha512-QrvZ3JIDkMcPT09SV1arvvm71KC/IdxDoEfcKJ1cmk8bAzAdrLp7RaJ449JbbUnEy0xSoMeYhBpMa3cUh8IiSw==
-
 airbnb-js-shims@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/airbnb-js-shims/-/airbnb-js-shims-2.2.1.tgz#db481102d682b98ed1daa4c5baa697a05ce5c040"
@@ -20950,6 +20945,13 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+wc-datepicker@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/wc-datepicker/-/wc-datepicker-0.5.0.tgz#53e26474824b8eb53ab74b1a75734dcabc52fc38"
+  integrity sha512-0UxLpWTAUTqZRXINH7M1V5/un4y8yNhDOteruNFU83YMNo1yRBbr+V75+DyXYdi1Gzzo1VZwFwfNQ9hmQOAJHg==
+  dependencies:
+    "@stencil/core" "^2.13.0"
 
 wcwidth@^1.0.1:
   version "1.0.1"
