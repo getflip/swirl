@@ -1,5 +1,5 @@
 import { SwirlPopover } from "@getflip/swirl-components-react";
-import { FunctionComponent, LegacyRef, useEffect, useState } from "react";
+import { FunctionComponent, LegacyRef } from "react";
 
 import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
