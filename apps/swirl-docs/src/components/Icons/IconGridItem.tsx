@@ -55,7 +55,14 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
           <i
             className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong text-2xl`}
           ></i>
-          <span className="text-text-subdued font-normal text-font-size-sm">
+          <span
+            className={classNames(
+              "text-text-subdued font-normal text-font-size-sm",
+              "max-w-[calc(120px_-_16px)]",
+              "overflow-hidden",
+              "text-ellipsis"
+            )}
+          >
             {icons[icon]?.name}
           </span>
         </a>
