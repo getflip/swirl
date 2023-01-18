@@ -4,10 +4,10 @@ import {
   FloatingFocusManager,
   offset,
   shift,
-  useClick,
   useDismiss,
   useFloating,
   useFocus,
+  useHover,
   useInteractions,
   useRole,
 } from "@floating-ui/react";
@@ -43,14 +43,16 @@ const TokenItem = ({ token }: TokenItemProps) => {
     whileElementsMounted: autoUpdate,
   });
 
-  const click = useClick(context);
+  const hover = useHover(context, {
+    restMs: 500,
+  });
   const focus = useFocus(context);
   const dismiss = useDismiss(context);
   const role = useRole(context);
 
   // Merge all the interactions into prop getters
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    click,
+    hover,
     focus,
     dismiss,
     role,
@@ -75,10 +77,18 @@ const TokenItem = ({ token }: TokenItemProps) => {
       <td className="flex flex-col mb-2 md:mb-0">
         <div className="inline-flex mb-2 md:mb-0">
           <div
-            ref={refs.setReference}
-            className="relative flex flex-col items-start max-w-[100%]"
-            {...getReferenceProps()}
+            className={classNames(
+              "relative flex items-center max-w-[100%]",
+              "bg-surface-pressed rounded-border-radius-s p-1 text-sm text-text-default font-font-family-code"
+            )}
           >
+            <code
+              className="w-full whitespace-pre overflow-hidden text-ellipsis "
+              ref={refs.setReference}
+              {...getReferenceProps()}
+            >
+              {token.name}
+            </code>
             <CopyToClipboard
               text={token.name}
               onCopy={() => {
@@ -88,13 +98,13 @@ const TokenItem = ({ token }: TokenItemProps) => {
                 }, 2000);
               }}
             >
-              <code
-                onMouseOverCapture={() => setOpen(true)}
-                onMouseOutCapture={() => setOpen(false)}
-                className="w-full whitespace-pre overflow-hidden text-ellipsis bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
-              >
-                {token.name}
-              </code>
+              <button className="inline-flex items-center text-text-default">
+                {isCopied ? (
+                  <SwirlIconCheckStrong size={16} className="ml-1" />
+                ) : (
+                  <SwirlIconCopy size={16} className="ml-1" />
+                )}
+              </button>
             </CopyToClipboard>
             {open && (
               <FloatingFocusManager
@@ -118,11 +128,6 @@ const TokenItem = ({ token }: TokenItemProps) => {
                   {...getFloatingProps()}
                 >
                   {token.name}
-                  {isCopied ? (
-                    <SwirlIconCheckStrong size={16} className="ml-1" />
-                  ) : (
-                    <SwirlIconCopy size={16} className="ml-1" />
-                  )}
                 </div>
               </FloatingFocusManager>
             )}
