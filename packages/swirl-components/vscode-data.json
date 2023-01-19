@@ -940,6 +940,10 @@
           "description": ""
         },
         {
+          "name": "date-picker-trigger-label",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },
@@ -949,6 +953,10 @@
         },
         {
           "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "locale",
           "description": ""
         },
         {
@@ -976,6 +984,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "locale",
+          "description": ""
+        },
         {
           "name": "range",
           "description": ""
@@ -1811,6 +1823,19 @@
     },
     {
       "name": "swirl-icon-download",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-drag-handle",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2758,6 +2783,22 @@
       },
       "attributes": [
         {
+          "name": "allow-drag",
+          "description": ""
+        },
+        {
+          "name": "assistive-text-item-grabbed",
+          "description": ""
+        },
+        {
+          "name": "assistive-text-item-moved",
+          "description": ""
+        },
+        {
+          "name": "assistive-text-item-moving",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },
@@ -2783,6 +2824,10 @@
       },
       "attributes": [
         {
+          "name": "allow-drag",
+          "description": ""
+        },
+        {
           "name": "context",
           "description": "",
           "values": [
@@ -2796,6 +2841,18 @@
         },
         {
           "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "drag-handle-description",
+          "description": ""
+        },
+        {
+          "name": "drag-handle-label",
+          "description": ""
+        },
+        {
+          "name": "dragging",
           "description": ""
         },
         {

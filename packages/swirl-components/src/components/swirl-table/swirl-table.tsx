@@ -91,8 +91,6 @@ export class SwirlTable {
     const emptyRow =
       this.el.shadowRoot.querySelector<HTMLElement>(".table__empty-row");
 
-    emptyRow;
-
     if (!Boolean(emptyRow)) {
       return;
     }

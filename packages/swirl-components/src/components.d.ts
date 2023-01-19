@@ -17,7 +17,7 @@ import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButto
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
-import { AirDatepickerLocale } from "air-datepicker";
+import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
@@ -233,19 +233,20 @@ export namespace Components {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
         "datePickerLabel"?: string;
+        "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
         "format"?: string;
         "invalid"?: boolean;
-        "locale"?: Partial<AirDatepickerLocale>;
+        "labels"?: WCDatepickerLabels;
+        "locale"?: string;
         "placeholder"?: string;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
     interface SwirlDatePicker {
-        "locale"?: Partial<AirDatepickerLocale>;
-        "maxDate"?: Date;
-        "minDate"?: Date;
+        "labels"?: WCDatepickerLabels;
+        "locale"?: string;
         "range"?: boolean;
         "startDate"?: Date;
         "value"?: Date | Date[];
@@ -476,6 +477,9 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconDownload {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconDragHandle {
         "size": SwirlIconSize;
     }
     interface SwirlIconEdit {
@@ -710,6 +714,10 @@ export namespace Components {
         "secondaryActionLabel"?: string;
     }
     interface SwirlOptionList {
+        "allowDrag"?: boolean;
+        "assistiveTextItemGrabbed"?: string;
+        "assistiveTextItemMoved"?: string;
+        "assistiveTextItemMoving"?: string;
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
@@ -717,8 +725,12 @@ export namespace Components {
         "value"?: string[];
     }
     interface SwirlOptionListItem {
+        "allowDrag"?: boolean;
         "context"?: SwirlOptionListItemContext;
         "disabled"?: boolean;
+        "dragHandleDescription"?: string;
+        "dragHandleLabel"?: string;
+        "dragging"?: boolean;
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
@@ -1096,6 +1108,10 @@ export interface SwirlModalCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlOptionListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlOptionListElement;
+}
+export interface SwirlOptionListItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlOptionListItemElement;
 }
 export interface SwirlPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1549,6 +1565,12 @@ declare global {
     var HTMLSwirlIconDownloadElement: {
         prototype: HTMLSwirlIconDownloadElement;
         new (): HTMLSwirlIconDownloadElement;
+    };
+    interface HTMLSwirlIconDragHandleElement extends Components.SwirlIconDragHandle, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDragHandleElement: {
+        prototype: HTMLSwirlIconDragHandleElement;
+        new (): HTMLSwirlIconDragHandleElement;
     };
     interface HTMLSwirlIconEditElement extends Components.SwirlIconEdit, HTMLStencilElement {
     }
@@ -2235,6 +2257,7 @@ declare global {
         "swirl-icon-delete": HTMLSwirlIconDeleteElement;
         "swirl-icon-description": HTMLSwirlIconDescriptionElement;
         "swirl-icon-download": HTMLSwirlIconDownloadElement;
+        "swirl-icon-drag-handle": HTMLSwirlIconDragHandleElement;
         "swirl-icon-edit": HTMLSwirlIconEditElement;
         "swirl-icon-emoji-mood": HTMLSwirlIconEmojiMoodElement;
         "swirl-icon-emoji-satisfied": HTMLSwirlIconEmojiSatisfiedElement;
@@ -2510,10 +2533,12 @@ declare namespace LocalJSX {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
         "datePickerLabel"?: string;
+        "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
         "format"?: string;
         "invalid"?: boolean;
-        "locale"?: Partial<AirDatepickerLocale>;
+        "labels"?: WCDatepickerLabels;
+        "locale"?: string;
         "onValueChange"?: (event: SwirlDateInputCustomEvent<string>) => void;
         "placeholder"?: string;
         "required"?: boolean;
@@ -2521,9 +2546,8 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlDatePicker {
-        "locale"?: Partial<AirDatepickerLocale>;
-        "maxDate"?: Date;
-        "minDate"?: Date;
+        "labels"?: WCDatepickerLabels;
+        "locale"?: string;
         "onValueChange"?: (event: SwirlDatePickerCustomEvent<Date | Date[]>) => void;
         "range"?: boolean;
         "startDate"?: Date;
@@ -2719,6 +2743,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDownload {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconDragHandle {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconEdit {
@@ -2936,18 +2963,28 @@ declare namespace LocalJSX {
         "secondaryActionLabel"?: string;
     }
     interface SwirlOptionList {
+        "allowDrag"?: boolean;
+        "assistiveTextItemGrabbed"?: string;
+        "assistiveTextItemMoved"?: string;
+        "assistiveTextItemMoving"?: string;
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
+        "onItemDrop"?: (event: SwirlOptionListCustomEvent<{ oldIndex: number; newIndex: number }>) => void;
         "onValueChange"?: (event: SwirlOptionListCustomEvent<string[]>) => void;
         "optionListId"?: string;
         "value"?: string[];
     }
     interface SwirlOptionListItem {
+        "allowDrag"?: boolean;
         "context"?: SwirlOptionListItemContext;
         "disabled"?: boolean;
+        "dragHandleDescription"?: string;
+        "dragHandleLabel"?: string;
+        "dragging"?: boolean;
         "icon"?: string;
         "label": string;
+        "onToggleDrag"?: (event: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElement>) => void;
         "selected"?: boolean;
         "value": string;
     }
@@ -3278,6 +3315,7 @@ declare namespace LocalJSX {
         "swirl-icon-delete": SwirlIconDelete;
         "swirl-icon-description": SwirlIconDescription;
         "swirl-icon-download": SwirlIconDownload;
+        "swirl-icon-drag-handle": SwirlIconDragHandle;
         "swirl-icon-edit": SwirlIconEdit;
         "swirl-icon-emoji-mood": SwirlIconEmojiMood;
         "swirl-icon-emoji-satisfied": SwirlIconEmojiSatisfied;
@@ -3453,6 +3491,7 @@ declare module "@stencil/core" {
             "swirl-icon-delete": LocalJSX.SwirlIconDelete & JSXBase.HTMLAttributes<HTMLSwirlIconDeleteElement>;
             "swirl-icon-description": LocalJSX.SwirlIconDescription & JSXBase.HTMLAttributes<HTMLSwirlIconDescriptionElement>;
             "swirl-icon-download": LocalJSX.SwirlIconDownload & JSXBase.HTMLAttributes<HTMLSwirlIconDownloadElement>;
+            "swirl-icon-drag-handle": LocalJSX.SwirlIconDragHandle & JSXBase.HTMLAttributes<HTMLSwirlIconDragHandleElement>;
             "swirl-icon-edit": LocalJSX.SwirlIconEdit & JSXBase.HTMLAttributes<HTMLSwirlIconEditElement>;
             "swirl-icon-emoji-mood": LocalJSX.SwirlIconEmojiMood & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiMoodElement>;
             "swirl-icon-emoji-satisfied": LocalJSX.SwirlIconEmojiSatisfied & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiSatisfiedElement>;
