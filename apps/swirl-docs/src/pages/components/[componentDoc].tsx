@@ -7,6 +7,7 @@ import { createStaticPathsData } from "@swirl/lib/docs";
 import { ScriptProps } from "next/script";
 import { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
+import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation(
@@ -53,6 +54,10 @@ export default function Component({
     setFrontMatter(document?.frontmatter);
   }, [document]);
 
+  const components = {
+    ...LinkedHeaders,
+  };
+
   return (
     <>
       <Head>
@@ -62,6 +67,7 @@ export default function Component({
         categoryLinkList={componentsNavItems}
         document={document}
         frontMatter={frontMatter}
+        mdxComponents={components}
       />
     </>
   );
