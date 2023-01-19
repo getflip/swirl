@@ -940,6 +940,10 @@
           "description": ""
         },
         {
+          "name": "date-picker-trigger-label",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },
@@ -949,6 +953,10 @@
         },
         {
           "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "locale",
           "description": ""
         },
         {
@@ -976,6 +984,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "locale",
+          "description": ""
+        },
         {
           "name": "range",
           "description": ""

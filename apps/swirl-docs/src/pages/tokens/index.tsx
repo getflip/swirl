@@ -11,7 +11,7 @@ const Tokens = () => {
       <Head>
         <title>Swirl Components</title>
       </Head>
-      <div className="flex min-h-[calc(100vh_-_72px)]">
+      <div className="flex">
         <CategoryNav categoryLinkList={tokensNavItems} />
         <main id="main" className="w-full h-full">
           <section className="flex flex-col py-14 px-24">
