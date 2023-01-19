@@ -11,7 +11,8 @@ App or Flip Admin Console.
   - [Internationalization](#internationalization)
   - [Navigation](#navigation)
   - [Theming](#theming)
-  - [User Interface](#user-interface)
+  - [Dialogs](#dialogs)
+  - [Modals](#modals)
 - [Events](#events)
 - [Error Handling](#error-handling)
 - [Development](#development)
@@ -114,7 +115,7 @@ import { getTheme } from "@getflip/bridge";
 const theme = await getTheme();
 ```
 
-### User Interface
+### Dialogs
 
 #### `createDialog`
 
@@ -236,6 +237,129 @@ Destroys a dialog, removing it from the DOM.
 import { destroyDialog } from "@getflip/bridge";
 
 await destroyDialog({ id: "my-dialog" });
+```
+
+### Modals
+
+#### `createModal`
+
+Creates a modal rendered by the host app. The modal will show the passed URL as
+an iFrame.
+
+**Param**
+
+```js
+{
+  id: string;
+  label: string;
+  primaryAction?: {
+    label: string;
+  };
+  secondaryAction?: {
+    label: string;
+  };
+  url: string;
+}
+```
+
+**Returns**
+
+```js
+Promise<{
+  id: string;
+  open: () => Promise<boolean>;
+  close: () => Promise<boolean>;
+  destroy: () => Promise<boolean>;
+}>
+```
+
+**Example**
+
+```js
+import { createModal } from "@getflip/bridge";
+
+const modal = await createModal({
+  id: "my-moadl",
+  label: "My Modal",
+  primaryAction: {
+    label: "Close",
+  },
+  url: "https://google.com",
+});
+
+await modal.open();
+```
+
+#### `openModal`
+
+Opens a modal.
+
+**Param**
+
+```js
+{
+  id: string; // the modal id
+}
+```
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { createModal, openModal } from "@getflip/bridge";
+
+await createModal({
+  id: "my-modal",
+  label: "My Modal",
+  url: "https://google.com",
+});
+
+await openModal({ id: "my-modal" });
+```
+
+#### `closeModal`
+
+Closes a modal.
+
+**Param**
+
+```js
+{
+  id: string; // the modal id
+}
+```
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { closeModal } from "@getflip/bridge";
+
+await closeModal({ id: "my-modal" });
+```
+
+#### `destroyModal`
+
+Destroys a modal, removing it from the DOM.
+
+**Param**
+
+```js
+{
+  id: string; // the modal id
+}
+```
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { destroyModal } from "@getflip/bridge";
+
+await destroyModal({ id: "my-modal" });
 ```
 
 ## Events

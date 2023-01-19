@@ -1,18 +1,16 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
   Host,
   Prop,
-  Watch,
 } from "@stencil/core";
-import AirDatepicker, {
-  AirDatepickerDate,
-  AirDatepickerLocale,
-} from "air-datepicker";
+import { WcDatepickerCustomEvent } from "wc-datepicker/dist/types/components";
+import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 
-import localeEn from "air-datepicker/locale/en";
+import "wc-datepicker";
 
 @Component({
   shadow: true,
@@ -20,78 +18,46 @@ import localeEn from "air-datepicker/locale/en";
   tag: "swirl-date-picker",
 })
 export class SwirlDatePicker {
-  @Prop() locale?: Partial<AirDatepickerLocale> = localeEn;
-  @Prop() maxDate?: Date;
-  @Prop() minDate?: Date;
+  @Element() el: HTMLElement;
+
+  @Prop() labels?: WCDatepickerLabels;
+  @Prop() locale?: string = "en-US";
   @Prop() range?: boolean;
   @Prop() startDate?: Date;
   @Prop({ mutable: true }) value?: Date | Date[];
 
   @Event({ bubbles: false }) valueChange: EventEmitter<Date | Date[]>;
 
-  private containerEl: HTMLDivElement;
-  private picker: AirDatepicker<HTMLElement>;
-
-  @Watch("locale")
-  @Watch("maxDate")
-  @Watch("minDate")
-  @Watch("range")
-  @Watch("startDate")
-  @Watch("value")
-  watchProps() {
-    this.init();
-  }
-
-  componentDidLoad() {
-    this.init();
-  }
-
-  disconnectedCallback() {
-    this.picker?.destroy();
-  }
-
-  private init() {
-    this.picker?.destroy();
-
-    let selectedDates: AirDatepickerDate[];
-
-    if (this.value === undefined) {
-      selectedDates = undefined;
-    } else if (Array.isArray(this.value)) {
-      selectedDates = this.value;
-    } else {
-      selectedDates = [this.value];
-    }
-
-    this.picker = new AirDatepicker(this.containerEl, {
-      classes: "date-picker",
-      inline: true,
-      locale: this.locale,
-      maxDate: this.maxDate,
-      minDate: this.minDate,
-      minView: "days",
-      nextHtml: "<swirl-icon-chevron-right></swirl-icon-chevron-right>",
-      onSelect: ({ date }) => {
-        this.valueChange.emit(date);
-      },
-      prevHtml: "<swirl-icon-chevron-left></swirl-icon-chevron-left>",
-      range: this.range,
-      selectedDates,
-      startDate: this.startDate,
-      toggleSelected: !this.range,
-      view: "days",
-    });
-  }
-
   private onClick = (event: MouseEvent) => {
     event.stopPropagation();
     event.preventDefault();
   };
 
+  private onSelectDate = (
+    event: WcDatepickerCustomEvent<string | string[]>
+  ) => {
+    if (typeof event.detail === "string") {
+      this.valueChange.emit(new Date(event.detail));
+    } else {
+      this.valueChange.emit(event.detail.map((date) => new Date(date)));
+    }
+  };
+
   render() {
+    const startDate =
+      this.startDate instanceof Date ? this.startDate.toISOString() : undefined;
+
     return (
       <Host onClick={this.onClick}>
-        <div ref={(el) => (this.containerEl = el)}></div>
+        <wc-datepicker
+          elementClassName="date-picker"
+          labels={this.labels}
+          locale={this.locale}
+          onSelectDate={this.onSelectDate}
+          range={this.range}
+          startDate={startDate}
+          value={this.value}
+        ></wc-datepicker>
       </Host>
     );
   }

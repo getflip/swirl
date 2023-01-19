@@ -23,12 +23,12 @@ describe("swirl-date-input", () => {
       <swirl-date-input>
         <div class="date-input">
           <input class="date-input__input" id="swirl-date-input-1" placeholder="yyyy-mm-dd" type="text">
-          <button aria-hidden="true" class="date-input__date-picker-button" id="swirl-date-input-1-trigger" tabIndex="-1" type="button">
+          <button aria-label="Open date picker" class="date-input__date-picker-button" id="swirl-date-input-1-trigger" type="button">
             <swirl-icon-today size="24"></swirl-icon-today>
           </button>
         </div>
         <swirl-popover label="Date picker" placement="bottom-end" popoverid="popover" trigger="swirl-date-input-1-trigger">
-          <swirl-date-picker></swirl-date-picker>
+          <swirl-date-picker locale="en-US"></swirl-date-picker>
         </swirl-popover>
       </swirl-date-input>
     `);

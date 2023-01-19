@@ -1,5 +1,13 @@
 # @getflip/bridge
 
+## 0.2.0
+
+### Minor Changes
+
+- [#142](https://github.com/getflip/swirl/pull/142)
+  [`ec4e434`](https://github.com/getflip/swirl/commit/ec4e4347949307a5c1d0ba06245af587dc48c85c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add modal methods and events
+
 ## 0.1.0
 
 ### Minor Changes

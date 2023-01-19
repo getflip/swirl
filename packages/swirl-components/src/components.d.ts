@@ -17,7 +17,7 @@ import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButto
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
-import { AirDatepickerLocale } from "air-datepicker";
+import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
@@ -233,19 +233,20 @@ export namespace Components {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
         "datePickerLabel"?: string;
+        "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
         "format"?: string;
         "invalid"?: boolean;
-        "locale"?: Partial<AirDatepickerLocale>;
+        "labels"?: WCDatepickerLabels;
+        "locale"?: string;
         "placeholder"?: string;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
     interface SwirlDatePicker {
-        "locale"?: Partial<AirDatepickerLocale>;
-        "maxDate"?: Date;
-        "minDate"?: Date;
+        "labels"?: WCDatepickerLabels;
+        "locale"?: string;
         "range"?: boolean;
         "startDate"?: Date;
         "value"?: Date | Date[];
@@ -2532,10 +2533,12 @@ declare namespace LocalJSX {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
         "datePickerLabel"?: string;
+        "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
         "format"?: string;
         "invalid"?: boolean;
-        "locale"?: Partial<AirDatepickerLocale>;
+        "labels"?: WCDatepickerLabels;
+        "locale"?: string;
         "onValueChange"?: (event: SwirlDateInputCustomEvent<string>) => void;
         "placeholder"?: string;
         "required"?: boolean;
@@ -2543,9 +2546,8 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlDatePicker {
-        "locale"?: Partial<AirDatepickerLocale>;
-        "maxDate"?: Date;
-        "minDate"?: Date;
+        "labels"?: WCDatepickerLabels;
+        "locale"?: string;
         "onValueChange"?: (event: SwirlDatePickerCustomEvent<Date | Date[]>) => void;
         "range"?: boolean;
         "startDate"?: Date;

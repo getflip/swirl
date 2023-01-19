@@ -12,8 +12,8 @@ export const searchClient = algoliasearch(
 
 interface FCProps {}
 
-export const AlgoliaSearch: FunctionComponent<FCProps> = ({}) => {
-  const [searchState, setSearchState] = useState({
+export const AlgoliaSearch: FunctionComponent<FCProps> = () => {
+  const [searchState] = useState({
     query: "",
   });
   const plugins = useMemo(() => {
