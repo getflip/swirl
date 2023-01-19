@@ -48,16 +48,16 @@ body {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: var(--s-font-weight-bold);
-  line-height: 48px;
+  line-height: 3rem;
   color: var(--s-text-default);
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: var(--s-font-weight-semibold);
-  line-height: 32px;
+  line-height: 2rem;
   letter-spacing: 0;
   color: var(--s-text-default);
   margin-bottom: var(--s-space-8);
@@ -72,7 +72,7 @@ h3 {
 p {
   font-size: var(--s-font-size-base);
   color: var(--s-text-default);
-  line-height: 24px;
+  line-height: 1.5rem;
   font-weight: var(--s-font-weight-normal);
 }
 
