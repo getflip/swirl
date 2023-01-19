@@ -8,11 +8,11 @@ import {
   State,
   Watch,
 } from "@stencil/core";
-import { AirDatepickerLocale } from "air-datepicker";
 import classnames from "classnames";
 import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
+import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { getDesktopMediaQuery } from "../../utils";
 
 const internalDateFormat = "yyyy-MM-dd";
@@ -33,11 +33,13 @@ export class SwirlDateInput {
   @Prop() autoFocus?: boolean;
   @Prop() autoSelect?: boolean;
   @Prop() datePickerLabel?: string = "Date picker";
+  @Prop() datePickerTriggerLabel?: string = "Open date picker";
   @Prop() disabled?: boolean;
   @Prop() format?: string = "yyyy-MM-dd";
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
-  @Prop() locale?: Partial<AirDatepickerLocale>;
+  @Prop() labels?: WCDatepickerLabels;
+  @Prop() locale?: string = "en-US";
   @Prop() placeholder?: string = "yyyy-mm-dd";
   @Prop() required?: boolean;
   @Prop() swirlAriaDescribedby?: string;
@@ -193,11 +195,10 @@ export class SwirlDateInput {
           />
 
           <button
-            aria-hidden="true"
+            aria-label={this.datePickerTriggerLabel}
             class="date-input__date-picker-button"
             disabled={this.disabled}
             id={`${this.id}-trigger`}
-            tabIndex={-1}
             type="button"
           >
             <swirl-icon-today size={this.iconSize}></swirl-icon-today>
@@ -213,6 +214,7 @@ export class SwirlDateInput {
             trigger={`${this.id}-trigger`}
           >
             <swirl-date-picker
+              labels={this.labels}
               locale={this.locale}
               onValueChange={this.onPickDate}
               value={dateValue}

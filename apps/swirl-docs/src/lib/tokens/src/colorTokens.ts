@@ -1,4 +1,5 @@
 import { ColorTokenGroups, ColorTokens } from "./token.model";
+import { generateTokenValueWithUnit } from "./utils";
 
 const tokensLight = require("@getflip/swirl-tokens/dist/styles.light.json");
 
@@ -20,12 +21,16 @@ export const getColorTokens = (): ColorTokens => {
     .map((key) => tokensLight[key]);
 
   baseTokens.forEach((token) => {
+    const tokenValueWithUnit = generateTokenValueWithUnit(token);
+
     const colorCategory = getColorCategory(token);
     colorTokens[colorCategory]?.push({
       name: token.name,
       type: token.type,
       value: token.value,
       description: token.comment,
+      valueAsString: tokenValueWithUnit?.value,
+      unitAsString: tokenValueWithUnit?.unit,
     });
   });
 

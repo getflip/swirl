@@ -2,11 +2,6 @@ import { NavItem } from "../navigation.model";
 
 export const tokensNavItems: NavItem[] = [
   {
-    title: "Overview",
-    url: "/tokens",
-    description: "Learn about the tokens used in the swirl design system.",
-  },
-  {
     title: "Color",
     url: "/tokens/color",
     description:
@@ -29,8 +24,8 @@ export const tokensNavItems: NavItem[] = [
     description: "Border tokens are used to define the border of an element.",
   },
   {
-    title: "zIndex",
+    title: "Z-Index",
     url: "/tokens/z-index",
-    description: "zIndex tokens are used to define the z-index of an element.",
+    description: "Z-Index tokens are used to define the z-index of an element.",
   },
 ];
