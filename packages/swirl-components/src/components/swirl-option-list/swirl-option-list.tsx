@@ -6,9 +6,15 @@ import {
   h,
   Host,
   Prop,
+  State,
   Watch,
 } from "@stencil/core";
-import { SwirlFormInput, querySelectorAllDeep } from "../../utils";
+import {
+  closestPassShadow,
+  SwirlFormInput,
+  querySelectorAllDeep,
+} from "../../utils";
+import Sortable, { SortableEvent } from "sortablejs";
 
 @Component({
   /**
@@ -25,29 +31,49 @@ import { SwirlFormInput, querySelectorAllDeep } from "../../utils";
 export class SwirlOptionList implements SwirlFormInput<string[]> {
   @Element() el: HTMLElement;
 
+  @Prop() allowDrag?: boolean;
+  @Prop() assistiveTextItemGrabbed?: string =
+    "Item grabbed. Use arrow keys to move item up or down. Use spacebar to save position.";
+  @Prop() assistiveTextItemMoving?: string = "Current position:";
+  @Prop() assistiveTextItemMoved?: string = "Item moved. New position:";
   @Prop() disabled?: boolean;
   @Prop() label?: string;
   @Prop() optionListId?: string;
   @Prop() multiSelect?: boolean;
   @Prop({ mutable: true }) value?: string[] = [];
 
+  @State() assistiveText: string;
+
+  @Event() itemDrop: EventEmitter<{ oldIndex: number; newIndex: number }>;
   @Event() valueChange: EventEmitter<string[]>;
 
+  private dragging: HTMLSwirlOptionListItemElement;
+  private draggingStartIndex: number;
   private focusedItem: HTMLElement;
   private items: HTMLSwirlOptionListItemElement[];
   private listboxEl: HTMLDivElement;
   private observer: MutationObserver;
+  private sortable: Sortable;
 
   componentDidLoad() {
     this.updateItems();
     this.observeSlotChanges();
+    this.setItemAllowDragState();
     this.setItemDisabledState();
     this.setItemContext();
     this.syncItemsWithValue();
+    this.setupDragDrop();
   }
 
   disconnectedCallback() {
     this.observer?.disconnect();
+    this.sortable?.destroy();
+  }
+
+  @Watch("allowDrag")
+  watchAllowDrag() {
+    this.setItemAllowDragState();
+    this.setupDragDrop();
   }
 
   @Watch("disabled")
@@ -65,7 +91,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.syncItemsWithValue();
   }
 
-  private onFocus = () => {
+  private onFocus = async () => {
+    // prevent focus from canceling the drag event in Safari
+    await new Promise((resolve) => setTimeout(resolve));
+
     if (Boolean(this.focusedItem)) {
       this.focusItem(this.getActiveItemIndex());
     } else {
@@ -79,7 +108,13 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     const target = event.target as HTMLElement;
     const item = target?.closest("swirl-option-list-item");
 
-    if (!Boolean(item)) {
+    const composedTarget = event.composedPath()[0] as HTMLElement;
+    const clickedOption = Boolean(
+      closestPassShadow(composedTarget, '[role="option"]')
+    );
+
+    if (!Boolean(item) || !clickedOption) {
+      event.preventDefault();
       return;
     }
 
@@ -89,13 +124,37 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowDown") {
       event.preventDefault();
-      this.focusNextItem();
+
+      if (!Boolean(this.dragging)) {
+        this.focusNextItem();
+      } else {
+        this.moveDraggedItemDown();
+      }
     } else if (event.code === "ArrowUp") {
       event.preventDefault();
-      this.focusPreviousItem();
+
+      if (!Boolean(this.dragging)) {
+        this.focusPreviousItem();
+      } else {
+        this.moveDraggedItemUp();
+      }
     } else if (event.code === "Space" || event.code === "Enter") {
+      const target = event.composedPath()[0] as HTMLElement;
+      const optionFocused = Boolean(
+        closestPassShadow(target, '[role="option"]')
+      );
+
+      if (!optionFocused) {
+        return;
+      }
+
       event.preventDefault();
-      this.selectFocusedItem();
+
+      if (Boolean(this.dragging)) {
+        this.stopDrag(this.dragging);
+      } else {
+        this.selectFocusedItem();
+      }
     } else if (event.code === "Home") {
       event.preventDefault();
       this.focusItem(0);
@@ -109,6 +168,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     ) {
       event.preventDefault();
       this.selectAllItems();
+    } else if (event.code === "Tab") {
+      if (Boolean(this.dragging)) {
+        event.preventDefault();
+      }
     }
   };
 
@@ -140,6 +203,61 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       if (this.value.length > 1) {
         this.updateValue([this.value[0]]);
       }
+    }
+  }
+
+  private setupDragDrop() {
+    if (Boolean(this.sortable)) {
+      this.sortable.destroy();
+    }
+
+    if (!this.allowDrag) {
+      return;
+    }
+
+    this.sortable = Sortable.create(this.listboxEl, {
+      animation: 150,
+      draggable: "swirl-option-list-item",
+      handle: ".option-list-item__drag-handle",
+      onEnd: (event: SortableEvent) => {
+        this.itemDrop.emit({
+          oldIndex: event.oldIndex,
+          newIndex: event.newIndex,
+        });
+      },
+    });
+  }
+
+  private setItemAllowDragState() {
+    if (this.allowDrag && !this.multiSelect) {
+      console.error(
+        "[SwirlOptionList] Drag can only be allowed for multi select lists."
+      );
+      return;
+    }
+
+    const sections = querySelectorAllDeep<HTMLSwirlOptionListSectionElement>(
+      this.el,
+      "swirl-option-list-section"
+    );
+
+    if (this.allowDrag && sections.length > 0) {
+      console.error(
+        "[SwirlOptionList] Drag can only be allowed for lists without sections."
+      );
+      return;
+    }
+
+    if (this.allowDrag) {
+      this.items.forEach((item) => {
+        item.setAttribute("allow-drag", "true");
+        item.addEventListener("toggleDrag", this.toggleDrag);
+      });
+    } else {
+      this.items.forEach((item) => {
+        item.removeAttribute("allow-drag");
+        item.removeEventListener("toggleDrag", this.toggleDrag);
+      });
     }
   }
 
@@ -208,12 +326,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     }
 
     this.items.forEach((item) =>
-      item.shadowRoot
-        .querySelector('[role="option"]')
-        .removeAttribute("tabIndex")
+      item.querySelector('[role="option"]').removeAttribute("tabIndex")
     );
 
-    const item = this.items[index].shadowRoot.querySelector(
+    const item = this.items[index]?.querySelector(
       '[role="option"]'
     ) as HTMLElement;
 
@@ -247,8 +363,79 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
   private getActiveItemIndex(): number {
     return this.items
-      .map((item) => item.shadowRoot.querySelector('[role="option"]'))
+      .map((item) => item.querySelector('[role="option"]'))
       .findIndex((item) => item === this.focusedItem);
+  }
+
+  private getItemIndex(item: HTMLSwirlOptionListItemElement): number {
+    return this.items.map((i) => i).findIndex((i) => i === item);
+  }
+
+  private toggleDrag = (event: CustomEvent<HTMLSwirlOptionListItemElement>) => {
+    const item = event.detail;
+
+    if (Boolean(this.dragging)) {
+      this.stopDrag(item);
+    } else {
+      this.startDrag(item);
+    }
+  };
+
+  private startDrag = (item: HTMLSwirlOptionListItemElement) => {
+    this.dragging = item;
+    this.draggingStartIndex = this.getItemIndex(this.dragging);
+
+    item.setAttribute("dragging", "true");
+
+    const index = this.getItemIndex(this.dragging);
+    this.focusItem(index);
+
+    this.assistiveText = this.assistiveTextItemGrabbed;
+  };
+
+  private stopDrag = (item: HTMLSwirlOptionListItemElement) => {
+    this.dragging = undefined;
+    item.removeAttribute("dragging");
+
+    const newIndex = this.getActiveItemIndex();
+
+    this.assistiveText = `${this.assistiveTextItemMoved} ${newIndex + 1}`;
+
+    this.itemDrop.emit({ oldIndex: this.draggingStartIndex, newIndex });
+
+    this.draggingStartIndex = undefined;
+  };
+
+  private moveDraggedItemDown() {
+    const nextSibling = this.dragging.nextElementSibling;
+
+    if (!Boolean(nextSibling)) {
+      return;
+    }
+
+    nextSibling.after(this.dragging);
+    this.updateItems();
+    this.listboxEl.focus();
+
+    this.assistiveText = `${this.assistiveTextItemMoving} ${
+      this.getActiveItemIndex() + 1
+    }`;
+  }
+
+  private moveDraggedItemUp() {
+    const prevSibling = this.dragging.previousElementSibling;
+
+    if (!Boolean(prevSibling)) {
+      return;
+    }
+
+    prevSibling.before(this.dragging);
+    this.updateItems();
+    this.listboxEl.focus();
+
+    this.assistiveText = `${this.assistiveTextItemMoving} ${
+      this.getItemIndex(this.dragging) + 1
+    }`;
   }
 
   render() {
@@ -257,6 +444,9 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
     return (
       <Host>
+        <swirl-visually-hidden role="alert">
+          {this.assistiveText}
+        </swirl-visually-hidden>
         <div
           aria-label={this.label}
           aria-multiselectable={ariaMultiselectable}

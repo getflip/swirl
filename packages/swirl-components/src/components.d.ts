@@ -479,6 +479,9 @@ export namespace Components {
     interface SwirlIconDownload {
         "size": SwirlIconSize;
     }
+    interface SwirlIconDragHandle {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconEdit {
         "size": SwirlIconSize;
     }
@@ -711,6 +714,10 @@ export namespace Components {
         "secondaryActionLabel"?: string;
     }
     interface SwirlOptionList {
+        "allowDrag"?: boolean;
+        "assistiveTextItemGrabbed"?: string;
+        "assistiveTextItemMoved"?: string;
+        "assistiveTextItemMoving"?: string;
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
@@ -718,8 +725,12 @@ export namespace Components {
         "value"?: string[];
     }
     interface SwirlOptionListItem {
+        "allowDrag"?: boolean;
         "context"?: SwirlOptionListItemContext;
         "disabled"?: boolean;
+        "dragHandleDescription"?: string;
+        "dragHandleLabel"?: string;
+        "dragging"?: boolean;
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
@@ -1097,6 +1108,10 @@ export interface SwirlModalCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlOptionListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlOptionListElement;
+}
+export interface SwirlOptionListItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlOptionListItemElement;
 }
 export interface SwirlPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1550,6 +1565,12 @@ declare global {
     var HTMLSwirlIconDownloadElement: {
         prototype: HTMLSwirlIconDownloadElement;
         new (): HTMLSwirlIconDownloadElement;
+    };
+    interface HTMLSwirlIconDragHandleElement extends Components.SwirlIconDragHandle, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDragHandleElement: {
+        prototype: HTMLSwirlIconDragHandleElement;
+        new (): HTMLSwirlIconDragHandleElement;
     };
     interface HTMLSwirlIconEditElement extends Components.SwirlIconEdit, HTMLStencilElement {
     }
@@ -2236,6 +2257,7 @@ declare global {
         "swirl-icon-delete": HTMLSwirlIconDeleteElement;
         "swirl-icon-description": HTMLSwirlIconDescriptionElement;
         "swirl-icon-download": HTMLSwirlIconDownloadElement;
+        "swirl-icon-drag-handle": HTMLSwirlIconDragHandleElement;
         "swirl-icon-edit": HTMLSwirlIconEditElement;
         "swirl-icon-emoji-mood": HTMLSwirlIconEmojiMoodElement;
         "swirl-icon-emoji-satisfied": HTMLSwirlIconEmojiSatisfiedElement;
@@ -2723,6 +2745,9 @@ declare namespace LocalJSX {
     interface SwirlIconDownload {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconDragHandle {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconEdit {
         "size"?: SwirlIconSize;
     }
@@ -2938,18 +2963,28 @@ declare namespace LocalJSX {
         "secondaryActionLabel"?: string;
     }
     interface SwirlOptionList {
+        "allowDrag"?: boolean;
+        "assistiveTextItemGrabbed"?: string;
+        "assistiveTextItemMoved"?: string;
+        "assistiveTextItemMoving"?: string;
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
+        "onItemDrop"?: (event: SwirlOptionListCustomEvent<{ oldIndex: number; newIndex: number }>) => void;
         "onValueChange"?: (event: SwirlOptionListCustomEvent<string[]>) => void;
         "optionListId"?: string;
         "value"?: string[];
     }
     interface SwirlOptionListItem {
+        "allowDrag"?: boolean;
         "context"?: SwirlOptionListItemContext;
         "disabled"?: boolean;
+        "dragHandleDescription"?: string;
+        "dragHandleLabel"?: string;
+        "dragging"?: boolean;
         "icon"?: string;
         "label": string;
+        "onToggleDrag"?: (event: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElement>) => void;
         "selected"?: boolean;
         "value": string;
     }
@@ -3280,6 +3315,7 @@ declare namespace LocalJSX {
         "swirl-icon-delete": SwirlIconDelete;
         "swirl-icon-description": SwirlIconDescription;
         "swirl-icon-download": SwirlIconDownload;
+        "swirl-icon-drag-handle": SwirlIconDragHandle;
         "swirl-icon-edit": SwirlIconEdit;
         "swirl-icon-emoji-mood": SwirlIconEmojiMood;
         "swirl-icon-emoji-satisfied": SwirlIconEmojiSatisfied;
@@ -3455,6 +3491,7 @@ declare module "@stencil/core" {
             "swirl-icon-delete": LocalJSX.SwirlIconDelete & JSXBase.HTMLAttributes<HTMLSwirlIconDeleteElement>;
             "swirl-icon-description": LocalJSX.SwirlIconDescription & JSXBase.HTMLAttributes<HTMLSwirlIconDescriptionElement>;
             "swirl-icon-download": LocalJSX.SwirlIconDownload & JSXBase.HTMLAttributes<HTMLSwirlIconDownloadElement>;
+            "swirl-icon-drag-handle": LocalJSX.SwirlIconDragHandle & JSXBase.HTMLAttributes<HTMLSwirlIconDragHandleElement>;
             "swirl-icon-edit": LocalJSX.SwirlIconEdit & JSXBase.HTMLAttributes<HTMLSwirlIconEditElement>;
             "swirl-icon-emoji-mood": LocalJSX.SwirlIconEmojiMood & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiMoodElement>;
             "swirl-icon-emoji-satisfied": LocalJSX.SwirlIconEmojiSatisfied & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiSatisfiedElement>;

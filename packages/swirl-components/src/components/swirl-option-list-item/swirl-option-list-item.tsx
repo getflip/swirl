@@ -1,22 +1,40 @@
-import { Component, h, Host, Prop, State } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+} from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlOptionListItemContext = "single-select" | "multi-select";
 
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "swirl-option-list-item.css",
   tag: "swirl-option-list-item",
 })
 export class SwirlOptionListItem {
+  @Element() el: HTMLSwirlOptionListItemElement;
+
+  @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) context?: SwirlOptionListItemContext =
     "single-select";
   @Prop() disabled?: boolean;
+  @Prop() dragging?: boolean;
+  @Prop() dragHandleDescription?: string = "Press spacebar to toggle grab";
+  @Prop() dragHandleLabel?: string = "Move option";
   @Prop() icon?: string;
   @Prop() label!: string;
   @Prop({ mutable: true }) selected?: boolean = false;
   @Prop() value!: string;
+
+  @Event() toggleDrag: EventEmitter<HTMLSwirlOptionListItemElement>;
 
   @State() iconSize: 20 | 24 = 24;
 
@@ -55,6 +73,13 @@ export class SwirlOptionListItem {
     this.iconSize = smallIcon ? 20 : 24;
   }
 
+  private onDragHandleKeyDown = (event: KeyboardEvent) => {
+    if (event.code === "Space" || event.code === "Enter") {
+      event.preventDefault();
+      this.toggleDrag.emit(this.el);
+    }
+  };
+
   render() {
     const ariaDisabled = this.disabled ? "true" : undefined;
     const ariaSelected = String(this.selected);
@@ -68,6 +93,8 @@ export class SwirlOptionListItem {
       `option-list-item--context-${this.context}`,
       {
         "option-list-item--disabled": this.disabled,
+        "option-list-item--draggable": this.allowDrag,
+        "option-list-item--dragging": this.dragging,
         "option-list-item--selected": this.selected,
       }
     );
@@ -111,6 +138,19 @@ export class SwirlOptionListItem {
             </span>
           )}
         </div>
+        {this.allowDrag && (
+          <button
+            aria-describedby={this.dragHandleDescription}
+            aria-label={`${this.dragHandleLabel} "${this.label}"`}
+            class="option-list-item__drag-handle"
+            onKeyDown={this.onDragHandleKeyDown}
+            type="button"
+          >
+            <swirl-icon-drag-handle
+              size={this.iconSize}
+            ></swirl-icon-drag-handle>
+          </button>
+        )}
       </Host>
     );
   }

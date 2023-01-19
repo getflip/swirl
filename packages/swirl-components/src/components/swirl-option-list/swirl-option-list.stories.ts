@@ -15,14 +15,10 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-option-list", args);
 
   element.innerHTML = `
-    <swirl-option-list-section label="Section 1">
-      <swirl-option-list-item label="This is an option" value="1"></swirl-option-list-item>
-      <swirl-option-list-item label="This is an option" value="2"></swirl-option-list-item>
-      <swirl-option-list-item label="This is an option" value="3"></swirl-option-list-item>
-    </swirl-option-list-section>
-    <swirl-option-list-section label="Section 2">
-      <swirl-option-list-item label="This is an option" value="4"></swirl-option-list-item>
-    </swirl-option-list-section>
+    <swirl-option-list-item label="This is option 1" value="1"></swirl-option-list-item>
+    <swirl-option-list-item label="This is option 2" value="2"></swirl-option-list-item>
+    <swirl-option-list-item label="This is option 3" value="3"></swirl-option-list-item>
+    <swirl-option-list-item label="This is option 4" value="4"></swirl-option-list-item>
 `;
 
   return element;
@@ -31,6 +27,8 @@ const Template = (args) => {
 export const SwirlOptionList = Template.bind({});
 
 SwirlOptionList.args = {
+  allowDrag: true,
   label: "Option List",
+  multiSelect: true,
   value: ["2"],
 };
