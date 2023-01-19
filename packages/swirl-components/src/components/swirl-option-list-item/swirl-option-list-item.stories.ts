@@ -2,6 +2,14 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-option-list-item.mdx";
 
 export default {
+  argTypes: {
+    allowDrag: {
+      description: `Should not be set manually. Use the "alowDrag" property of the SwirlOptionList component to make items draggable."`,
+    },
+    dragging: {
+      description: `Should not be set manually. Use the "alowDrag" property of the SwirlOptionList component to make items draggable."`,
+    },
+  },
   component: "swirl-option-list-item",
   parameters: {
     docs: {

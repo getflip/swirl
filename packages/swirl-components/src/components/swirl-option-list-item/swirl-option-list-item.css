@@ -1,6 +1,7 @@
 @import "../../styles/media-queries.css";
 
 :host {
+  position: relative;
   display: inline-flex;
   width: 100%;
 
@@ -37,8 +38,30 @@
 
   @media (--from-desktop-without-touch) {
     min-height: 0;
-    padding: var(--s-space-8) var(--s-space-12);
+    padding: var(--s-space-12);
     gap: var(--s-space-8);
+  }
+}
+
+.option-list-item--draggable {
+  & .option-list-item__label {
+    padding-right: calc(var(--s-space-16) + 1.5rem);
+
+    @media (--from-desktop-without-touch) {
+      padding-right: calc(var(--s-space-16) + 1rem);
+    }
+  }
+}
+
+.option-list-item--dragging {
+  z-index: 1;
+  border-radius: var(--s-border-radius-s);
+  background-color: var(--s-surface-overlay-pressed);
+  box-shadow: 0 0.0625rem 0.125rem rgba(25, 26, 28, 0.08),
+    0 0.25rem 2rem rgba(25, 26, 28, 0.16);
+
+  &:hover:not(.option-list-item--disabled) {
+    background-color: var(--s-surface-overlay-pressed);
   }
 }
 
@@ -118,6 +141,11 @@
   width: 1.5rem;
   height: 1.5rem;
   padding: var(--s-space-2);
+
+  @media (--from-desktop-without-touch) {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
 }
 
 .option-list-item__checkbox-box {
@@ -132,4 +160,33 @@
 
 .option-list-item__checkbox-icon {
   display: inline-flex;
+}
+
+.option-list-item__drag-handle {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: var(--s-space-4);
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  padding: var(--s-space-8);
+  flex-shrink: 0;
+  border: none;
+  color: var(--s-icon-default);
+  background-color: transparent;
+  cursor: grab;
+  transform: translateY(-50%);
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline-color: var(--s-focus-default);
+  }
 }

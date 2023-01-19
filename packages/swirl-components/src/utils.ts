@@ -9,6 +9,26 @@ export interface SwirlFormInput<ValueType = string> {
   valueChange: EventEmitter<ValueType>;
 }
 
+export function closestPassShadow(node, selector) {
+  if (!node) {
+    return null;
+  }
+
+  if (node instanceof ShadowRoot) {
+    return closestPassShadow(node.host, selector);
+  }
+
+  if (node instanceof HTMLElement) {
+    if (node.matches(selector)) {
+      return node;
+    } else {
+      return closestPassShadow(node.parentNode, selector);
+    }
+  }
+
+  return closestPassShadow(node.parentNode, selector);
+}
+
 export const getDesktopMediaQuery = () =>
   document.documentElement.classList.contains("disable-desktop-style-tweaks")
     ? window.matchMedia(null)
