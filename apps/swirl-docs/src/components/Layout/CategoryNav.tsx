@@ -2,6 +2,7 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { NavItem } from "@swirl/lib/navigation/";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import classNames from "classnames";
 
 interface CategoryNavProps {
   categoryLinkList: NavItem[] | undefined;
@@ -46,7 +47,10 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
   return (
     <nav
       aria-label="category"
-      className="hidden lg:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs"
+      className={classNames(
+        "hidden lg:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs",
+        { invisible: router.asPath.includes("/icons") }
+      )}
     >
       <ul className="mt-6">
         {categoryLinkList?.map((navItem: NavItem, index) => {
