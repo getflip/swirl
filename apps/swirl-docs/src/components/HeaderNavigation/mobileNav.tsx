@@ -65,7 +65,7 @@ function ListItem({
             aria-expanded={isExpanded}
             aria-controls={`accordion-panel-${ariaId}`}
             onClick={() => setIsExpanded((prevState) => !prevState)}
-            className="flex justify-between py-3 px-4 w-full text-base font-normal"
+            className="flex justify-between py-2 px-4 w-full text-base font-normal"
           >
             <span>{item.title}</span>
             <Image
@@ -102,7 +102,7 @@ function ListItem({
           <a
             aria-current={item.url === currentPath ? "page" : "false"}
             onClick={handleCloseMenu}
-            className="flex justify-between py-3 font-normal px-4 w-full text-base"
+            className="flex justify-between py-3 font-normal px-4 w-full text-base capitalize"
           >
             {item.title}
           </a>
@@ -114,7 +114,7 @@ function ListItem({
           <a
             aria-current={item.url === currentPath ? "page" : "false"}
             onClick={handleCloseMenu}
-            className="flex justify-between py-2 px-10 w-full"
+            className="flex justify-between py-2 px-10 w-full capitalize"
           >
             {item.title}
           </a>
