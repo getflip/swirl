@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Autocomplete } from "../Search/AutoComplete";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classNames from "classnames";
+import { SwirlIconClose, SwirlIconMenu } from "@getflip/swirl-components-react";
 
 export const HeaderLogo = () => {
   return (
@@ -45,6 +46,10 @@ const HeaderNavigation = () => {
   const handleCloseMenu = () => {
     setIsMobileNavOpen(false);
   };
+
+  function toggleMobile() {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  }
 
   return (
     <>
@@ -102,26 +107,19 @@ const HeaderNavigation = () => {
         >
           <div className="flex justify-between items-center h-16 w-full border-b-1 font-normal text-base">
             <HeaderLogo />
-            {isMobileNavOpen ? (
-              <button
-                aria-controls="mobile-navigation"
-                type="button"
-                onClick={() => setIsMobileNavOpen(false)}
-              >
-                <Image alt="Close Menu" src={icon.src} width={24} height={24} />
-              </button>
-            ) : (
-              <button
-                aria-controls="mobile-navigation"
-                type="button"
-                aria-label="open menu"
-                onClick={() => setIsMobileNavOpen(true)}
-              >
-                <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
-                <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
-                <div className="w-6 bg-gray-300 h-1 mb-1 rounded-full"></div>
-              </button>
-            )}
+            <button
+              type="button"
+              className="inline-flex items-center"
+              aria-controls="mobile-navigation"
+              aria-label={isMobileNavOpen ? "close menu" : "open menu"}
+              onClick={toggleMobile}
+            >
+              {isMobileNavOpen ? (
+                <SwirlIconClose size={24} />
+              ) : (
+                <SwirlIconMenu size={24} />
+              )}
+            </button>
           </div>
           <MobileNav
             isOpen={isMobileNavOpen}
