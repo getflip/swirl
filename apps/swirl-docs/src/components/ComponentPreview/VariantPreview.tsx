@@ -31,12 +31,8 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
 
   return (
     <div className="mb-6">
-      <h2 id="variants" className="text-2xl text-text-default mb-4">
-        Variants
-      </h2>
-      <p className="text-lg text-text-default mb-12">
-        {frontMatter?.variantsDescription}
-      </p>
+      <h2 id="variants">Variants</h2>
+      <p className="mb-12">{frontMatter?.variantsDescription}</p>
       <Suspense fallback={<div>Loading...</div>}>
         {currentExample && (
           <DynamicComponent>

@@ -48,15 +48,19 @@ body {
 }
 
 h1 {
-  font-size: var(--s-font-size-2xl);
+  font-size: 36px;
   font-weight: var(--s-font-weight-bold);
+  line-height: 48px;
   color: var(--s-text-default);
 }
 
 h2 {
-  font-size: var(--s-font-size-xl);
-  font-weight: var(--s-font-weight-bold);
+  font-size: 26px;
+  font-weight: var(--s-font-weight-semibold);
+  line-height: 32px;
+  letter-spacing: 0;
   color: var(--s-text-default);
+  margin-bottom: var(--s-space-8);
 }
 
 h3 {
@@ -68,6 +72,8 @@ h3 {
 p {
   font-size: var(--s-font-size-base);
   color: var(--s-text-default);
+  line-height: 24px;
+  font-weight: var(--s-font-weight-normal);
 }
 
 /** Custom Utility Classes */

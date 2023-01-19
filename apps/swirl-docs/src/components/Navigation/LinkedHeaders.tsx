@@ -14,6 +14,7 @@ const H1 = ({ id, ...rest }: HeadlineProps) => {
 };
 
 const H2 = ({ id, ...rest }: HeadlineProps) => {
+  console.log("hello world");
   if (id) {
     return <h2 id={id} {...rest} />;
   }
