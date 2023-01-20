@@ -98,7 +98,7 @@ const TokenItem = ({ token }: TokenItemProps) => {
                 }, 2000);
               }}
             >
-              <button className="inline-flex items-center text-text-default">
+              <button className="inline-flex items-center text-icon-default">
                 {isCopied ? (
                   <SwirlIconCheckStrong size={16} className="ml-1" />
                 ) : (
