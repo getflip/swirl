@@ -52,7 +52,7 @@
     "papaparse": "^5.3.2",
     "pdfjs-dist": "^2.16.105",
     "sortablejs": "^1.15.0",
-    "wc-datepicker": "^0.5.0"
+    "wc-datepicker": "^0.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
