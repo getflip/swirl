@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 13 Jan 2023 12:56:27 GMT
+// Generated on Mon, 23 Jan 2023 09:39:00 GMT
 
 
 
@@ -25,7 +25,7 @@ class SwirlDesignTokensDark {
     static const backgroundHovered = Color(0xFF232426); /* Used if a component with “Background/Default” has a hovered state. */
     static const backgroundPressed = Color(0xFF2A2B2D); /* Used if a component with “Background/Default” has a pressed state. */
     static const borderCritical = Color(0xFFFB6486); /* Usally used as an border on critical components. */
-    static const borderDefault = Color(0x17FFFFFF); /* Usually used for low emphasis borders and espacially divider elements. */
+    static const borderDefault = Color(0x1FFFFFFF); /* Usually used for low emphasis borders and espacially divider elements. */
     static const borderHighlight = Color(0xFF7394D3); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
     static const borderInfo = Color(0xFF73A7F2); /* Usally used as an border on info components. */
     static const borderOnHighlight = Color(0x33BEFFF0); /* Used as border color on containers that have an highlight surface */
@@ -36,7 +36,7 @@ class SwirlDesignTokensDark {
     static const borderRadiusSm = 8.00;
     static const borderRadiusXl = 20.00;
     static const borderRadiusXs = 2.00;
-    static const borderStrong = Color(0x2EFFFFFF); /* Usually used for high emphasis borders. */
+    static const borderStrong = Color(0x3DFFFFFF); /* Usually used for high emphasis borders. */
     static const borderSuccess = Color(0xFF68C468); /* Usally used as an border on success components. */
     static const borderWarning = Color(0xFFF9C763); /* Usally used as an border on warning components. */
     static const borderWidth0 = 0.00;
@@ -60,26 +60,26 @@ class SwirlDesignTokensDark {
     static const coreCustomerColorLight3Hovered = Color(0xFF265ABB);
     static const coreCustomerColorLight3Pressed = Color(0xFF4D77C7);
     static const coreDecorativeDarkBananaSurface = Color(0xFFECC140);
-    static const coreDecorativeDarkBananaSurfaceSubdued = Color(0xFF362F10);
+    static const coreDecorativeDarkBananaSurfaceSubdued = Color(0xFF4D441D);
     static const coreDecorativeDarkBananaText = Color(0xFFECC140);
-    static const coreDecorativeDarkBlueberrySurface = Color(0xFF7B9CE8);
-    static const coreDecorativeDarkBlueberrySurfaceSubdued = Color(0xFF112947);
-    static const coreDecorativeDarkBlueberryText = Color(0xFF7B9CE8);
-    static const coreDecorativeDarkChilliSurface = Color(0xFFFF8080);
-    static const coreDecorativeDarkChilliSurfaceSubdued = Color(0xFF411B26);
-    static const coreDecorativeDarkChilliText = Color(0xFFFF8080);
-    static const coreDecorativeDarkGrapeSurface = Color(0xFFC271E2);
-    static const coreDecorativeDarkGrapeSurfaceSubdued = Color(0xFF391C51);
-    static const coreDecorativeDarkGrapeText = Color(0xFFC271E2);
+    static const coreDecorativeDarkBlueberrySurface = Color(0xFFAEC7FF);
+    static const coreDecorativeDarkBlueberrySurfaceSubdued = Color(0xFF2A4B74);
+    static const coreDecorativeDarkBlueberryText = Color(0xFFAEC7FF);
+    static const coreDecorativeDarkChilliSurface = Color(0xFFFF9494);
+    static const coreDecorativeDarkChilliSurfaceSubdued = Color(0xFF64353B);
+    static const coreDecorativeDarkChilliText = Color(0xFFFF9494);
+    static const coreDecorativeDarkGrapeSurface = Color(0xFFD98FF7);
+    static const coreDecorativeDarkGrapeSurfaceSubdued = Color(0xFF533071);
+    static const coreDecorativeDarkGrapeText = Color(0xFFD98FF7);
     static const coreDecorativeDarkKiwiSurface = Color(0xFF88C897);
-    static const coreDecorativeDarkKiwiSurfaceSubdued = Color(0xFF182F18);
+    static const coreDecorativeDarkKiwiSurfaceSubdued = Color(0xFF2D482D);
     static const coreDecorativeDarkKiwiText = Color(0xFF88C897);
-    static const coreDecorativeDarkPumpkinSurface = Color(0xFFF3953E);
-    static const coreDecorativeDarkPumpkinSurfaceSubdued = Color(0xFF412A15);
-    static const coreDecorativeDarkPumpkinText = Color(0xFFFFA473);
-    static const coreDecorativeDarkRadishSurface = Color(0xFFE45FBF);
-    static const coreDecorativeDarkRadishSurfaceSubdued = Color(0xFF421635);
-    static const coreDecorativeDarkRadishText = Color(0xFFE45FBF);
+    static const coreDecorativeDarkPumpkinSurface = Color(0xFFFFAC80);
+    static const coreDecorativeDarkPumpkinSurfaceSubdued = Color(0xFF5F4025);
+    static const coreDecorativeDarkPumpkinText = Color(0xFFFFAC80);
+    static const coreDecorativeDarkRadishSurface = Color(0xFFFE90DF);
+    static const coreDecorativeDarkRadishSurfaceSubdued = Color(0xFF5F3051);
+    static const coreDecorativeDarkRadishText = Color(0xFFFE90DF);
     static const coreDecorativeLightBananaSurface = Color(0xFFEABA2A);
     static const coreDecorativeLightBananaSurfaceSubdued = Color(0xFFFAF1C8);
     static const coreDecorativeLightBananaText = Color(0xFF9A5C00);
@@ -139,26 +139,26 @@ class SwirlDesignTokensDark {
     static const decorationNone = "none";
     static const decorationUnderline = "underline";
     static const decorativeBananaSurface = Color(0xFFECC140); /* Used as a decorative color. */
-    static const decorativeBananaSurfaceSubdued = Color(0xFF362F10); /* Used as a decorative color. */
+    static const decorativeBananaSurfaceSubdued = Color(0xFF4D441D); /* Used as a decorative color. */
     static const decorativeBananaText = Color(0xFFECC140); /* Used as a decorative color. */
-    static const decorativeBlueberrySurface = Color(0xFF7B9CE8); /* Used as a decorative color. */
-    static const decorativeBlueberrySurfaceSubdued = Color(0xFF112947); /* Used as a decorative color. */
-    static const decorativeBlueberryText = Color(0xFF7B9CE8); /* Used as a decorative color. */
-    static const decorativeChilliSurface = Color(0xFFFF8080); /* Used as a decorative color. */
-    static const decorativeChilliSurfaceSubdued = Color(0xFF411B26); /* Used as a decorative color. */
-    static const decorativeChilliText = Color(0xFFFF8080); /* Used as a decorative color. */
-    static const decorativeGrapeSurface = Color(0xFFC271E2); /* Used as a decorative color. */
-    static const decorativeGrapeSurfaceSubdued = Color(0xFF391C51); /* Used as a decorative color. */
-    static const decorativeGrapeText = Color(0xFFC271E2); /* Used as a decorative color. */
+    static const decorativeBlueberrySurface = Color(0xFFAEC7FF); /* Used as a decorative color. */
+    static const decorativeBlueberrySurfaceSubdued = Color(0xFF2A4B74); /* Used as a decorative color. */
+    static const decorativeBlueberryText = Color(0xFFAEC7FF); /* Used as a decorative color. */
+    static const decorativeChilliSurface = Color(0xFFFF9494); /* Used as a decorative color. */
+    static const decorativeChilliSurfaceSubdued = Color(0xFF64353B); /* Used as a decorative color. */
+    static const decorativeChilliText = Color(0xFFFF9494); /* Used as a decorative color. */
+    static const decorativeGrapeSurface = Color(0xFFD98FF7); /* Used as a decorative color. */
+    static const decorativeGrapeSurfaceSubdued = Color(0xFF533071); /* Used as a decorative color. */
+    static const decorativeGrapeText = Color(0xFFD98FF7); /* Used as a decorative color. */
     static const decorativeKiwiSurface = Color(0xFF88C897); /* Used as a decorative color. */
-    static const decorativeKiwiSurfaceSubdued = Color(0xFF182F18); /* Used as a decorative color. */
+    static const decorativeKiwiSurfaceSubdued = Color(0xFF2D482D); /* Used as a decorative color. */
     static const decorativeKiwiText = Color(0xFF88C897); /* Used as a decorative color. */
-    static const decorativePumpkinSurface = Color(0xFFF3953E); /* Used as a decorative color. */
-    static const decorativePumpkinSurfaceSubdued = Color(0xFF412A15); /* Used as a decorative color. */
-    static const decorativePumpkinText = Color(0xFFFFA473); /* Used as a decorative color. */
-    static const decorativeRadishSurface = Color(0xFFE45FBF); /* Used as a decorative color. */
-    static const decorativeRadishSurfaceSubdued = Color(0xFF421635); /* Used as a decorative color. */
-    static const decorativeRadishText = Color(0xFFE45FBF); /* Used as a decorative color. */
+    static const decorativePumpkinSurface = Color(0xFFFFAC80); /* Used as a decorative color. */
+    static const decorativePumpkinSurfaceSubdued = Color(0xFF5F4025); /* Used as a decorative color. */
+    static const decorativePumpkinText = Color(0xFFFFAC80); /* Used as a decorative color. */
+    static const decorativeRadishSurface = Color(0xFFFE90DF); /* Used as a decorative color. */
+    static const decorativeRadishSurfaceSubdued = Color(0xFF5F3051); /* Used as a decorative color. */
+    static const decorativeRadishText = Color(0xFFFE90DF); /* Used as a decorative color. */
     static const focusDefault = Color(0xFF7394D3);
     static const fontFamilyCode = "'Fira Mono', Courier, monospace";
     static const fontFamilyText = "'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif";
