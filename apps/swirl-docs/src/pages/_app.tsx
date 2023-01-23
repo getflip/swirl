@@ -7,6 +7,18 @@ import "../styles/prism-vs-code-dark.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { GTM_ID, isProd, pageview } from "../lib/gtm";
+import { KBarProvider } from "kbar";
+import { FloatingSearch } from "src/components/Search/FloatingSearch";
+
+const actions = [
+  {
+    id: "Components",
+    name: "Components",
+    shortcut: ["c"],
+    keywords: "apps",
+    perform: () => (window.location.pathname = "contact"),
+  },
+];
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -18,25 +30,28 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
   return (
-    <Layout>
-      {/* Google Tag Manager - Global base code */}
-      {isProd && (
-        <Script
-          id="gtag-base"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+    <KBarProvider actions={actions} options={{ toggleShortcut: "Slash" }}>
+      <FloatingSearch />
+      <Layout>
+        {/* Google Tag Manager - Global base code */}
+        {isProd && (
+          <Script
+            id="gtag-base"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer', '${GTM_ID}');
           `,
-          }}
-        />
-      )}
-      <Component {...pageProps} />
-    </Layout>
+            }}
+          />
+        )}
+        <Component {...pageProps} />
+      </Layout>
+    </KBarProvider>
   );
 }
 

@@ -4,6 +4,7 @@ import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
 import Link from "next/link";
 import { useState } from "react";
 import classNames from "classnames";
+import { OpenSearchButton } from "./OpenSearchButton";
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -16,9 +17,18 @@ const MobileNav = ({ isOpen, handleCloseMenu }: MobileNavProps) => {
       id="mobile-navigation"
       aria-label="main"
       className={classNames("overflow-y-scroll bg-white", {
-        "absolute w-full left-0 top-[64px]": isOpen,
+        "absolute w-full left-0 top-[64px] pt-4": isOpen,
       })}
     >
+      <div
+        className={classNames(
+          "w-full pb-2 px-4",
+          { block: isOpen },
+          { hidden: !isOpen }
+        )}
+      >
+        <OpenSearchButton />
+      </div>
       <ul
         className={classNames(
           "z-40 w-full h-[calc(100vh_-_64px)] max-h-[calc(100vh_-_64px)] bg-white",
