@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.9.0
+
+### Minor Changes
+
+- [#138](https://github.com/getflip/swirl/pull/138)
+  [`ea6016f`](https://github.com/getflip/swirl/commit/ea6016f8a9c4ffb54a167f99d134af6a7933b066)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add drag handle icon
+
 ## 0.8.0
 
 ### Minor Changes

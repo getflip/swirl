@@ -1,5 +1,42 @@
 # @getflip/swirl-components
 
+## 0.13.0
+
+### Minor Changes
+
+- [#144](https://github.com/getflip/swirl/pull/144)
+  [`6496003`](https://github.com/getflip/swirl/commit/6496003bfc9ddeef88c4c58b50db792f07e5ced3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add a more accessible date picker
+
+* [#138](https://github.com/getflip/swirl/pull/138)
+  [`ea6016f`](https://github.com/getflip/swirl/commit/ea6016f8a9c4ffb54a167f99d134af6a7933b066)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add drag handle icon
+
+- [#141](https://github.com/getflip/swirl/pull/141)
+  [`19daaad`](https://github.com/getflip/swirl/commit/19daaada6222c7c979ff3d2645298d64fb4364d6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "inline" prop to
+  swirl-form-control component
+
+* [#140](https://github.com/getflip/swirl/pull/140)
+  [`c16668d`](https://github.com/getflip/swirl/commit/c16668d1c3b0e8d3f4861503d34cfee9e4aa134c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "balance" prop to
+  flip-heading and flip-text components.
+
+- [#138](https://github.com/getflip/swirl/pull/138)
+  [`ea6016f`](https://github.com/getflip/swirl/commit/ea6016f8a9c4ffb54a167f99d134af6a7933b066)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add drag and drop support for
+  flip-option-list
+
+### Patch Changes
+
+- [`7a9d7f2`](https://github.com/getflip/swirl/commit/7a9d7f2335d4d6b2326421e91389cff88a853439)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a timezone issue of
+  flip-datepicker
+
+- Updated dependencies
+  [[`ea6016f`](https://github.com/getflip/swirl/commit/ea6016f8a9c4ffb54a167f99d134af6a7933b066)]:
+  - @getflip/swirl-icons@0.9.0
+
 ## 0.12.0
 
 ### Minor Changes
