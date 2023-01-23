@@ -28,11 +28,12 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   @Element() el: HTMLElement;
 
   @Prop() disabled?: boolean;
-  @Prop() swirlAriaDescribedby?: string;
+  @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
   @Prop() multiSelect?: boolean;
   @Prop() required?: boolean;
+  @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string[];
 
   @State() options: HTMLSwirlOptionListItemElement[] = [];
@@ -107,6 +108,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
 
     const className = classnames("select", {
       "select--disabled": this.disabled,
+      "select--inline": this.inline,
     });
 
     return (

@@ -8,6 +8,7 @@ import {
   State,
   Watch,
 } from "@stencil/core";
+import classnames from "classnames";
 import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
@@ -34,13 +35,14 @@ export class SwirlDateInput {
   @Prop() datePickerLabel?: string = "Date picker";
   @Prop() datePickerTriggerLabel?: string = "Open date picker";
   @Prop() disabled?: boolean;
-  @Prop() swirlAriaDescribedby?: string;
   @Prop() format?: string = "yyyy-MM-dd";
+  @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() labels?: WCDatepickerLabels;
   @Prop() locale?: string = "en-US";
   @Prop() placeholder?: string = "yyyy-mm-dd";
   @Prop() required?: boolean;
+  @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
 
   @State() iconSize: 20 | 24 = 24;
@@ -168,9 +170,13 @@ export class SwirlDateInput {
       ? format(dateValue, this.format)
       : undefined;
 
+    const className = classnames("date-input", {
+      "date-input--inline": this.inline,
+    });
+
     return (
       <Host>
-        <div class="date-input">
+        <div class={className}>
           <input
             aria-describedby={this.swirlAriaDescribedby}
             aria-disabled={this.disabled ? "true" : undefined}
