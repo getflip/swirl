@@ -1405,6 +1405,10 @@
           ]
         },
         {
+          "name": "balance",
+          "description": ""
+        },
+        {
           "name": "heading-id",
           "description": ""
         },
@@ -3752,6 +3756,10 @@
         },
         {
           "name": "as",
+          "description": ""
+        },
+        {
+          "name": "balance",
           "description": ""
         },
         {

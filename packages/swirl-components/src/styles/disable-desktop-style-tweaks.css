@@ -27,7 +27,6 @@ html.disable-desktop-style-tweaks {
     & ::part(inline-error),
     & ::part(link),
     & ::part(option-list-item__label),
-    & ::part(text--size-base),
     & ::part(toast__content),
     & ::part(tooltip__bubble),
     & .checkbox__label,
@@ -40,6 +39,7 @@ html.disable-desktop-style-tweaks {
     & .radio__label,
     & .select__label,
     & .tabs__tab,
+    & .text--size-base,
     & .text-input__input,
     & .text-input__character-counter {
       font-size: var(--s-font-size-base);
@@ -162,7 +162,7 @@ html.disable-desktop-style-tweaks {
       padding-left: calc(var(--s-space-12) + 1.5rem + var(--s-space-8));
     }
 
-    & ::part(text--size-lg) {
+    & .text--size-lg {
       font-size: var(--s-font-size-lg);
       line-height: var(--s-line-height-lg);
     }

@@ -379,6 +379,7 @@ export namespace Components {
     interface SwirlHeading {
         "align"?: SwirlHeadingAlign;
         "as"?: SwirlHeadingTag;
+        "balance"?: boolean;
         "headingId"?: string;
         "level"?: SwirlHeadingLevel;
         "text": string;
@@ -923,6 +924,7 @@ export namespace Components {
     interface SwirlText {
         "align"?: SwirlTextAlign;
         "as"?: string;
+        "balance"?: boolean;
         "color"?: SwirlTextColor;
         "fontStyle"?: SwirlTextFontStyle;
         "size"?: SwirlTextSize;
@@ -2645,6 +2647,7 @@ declare namespace LocalJSX {
     interface SwirlHeading {
         "align"?: SwirlHeadingAlign;
         "as"?: SwirlHeadingTag;
+        "balance"?: boolean;
         "headingId"?: string;
         "level"?: SwirlHeadingLevel;
         "text": string;
@@ -3166,6 +3169,7 @@ declare namespace LocalJSX {
     interface SwirlText {
         "align"?: SwirlTextAlign;
         "as"?: string;
+        "balance"?: boolean;
         "color"?: SwirlTextColor;
         "fontStyle"?: SwirlTextFontStyle;
         "size"?: SwirlTextSize;
