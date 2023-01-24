@@ -14,15 +14,21 @@ export const navItems: NavItem[] = [
     url: "/components",
     isRoot: true,
     children: componentsNavItems,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
   },
   {
     title: CategoryEnum.TOKENS,
     url: "/tokens/color",
     children: tokensNavItems,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
   },
   {
     title: CategoryEnum.ICONS,
     url: "/icons",
     isRoot: true,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
   },
 ];

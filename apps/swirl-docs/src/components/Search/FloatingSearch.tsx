@@ -7,23 +7,11 @@ import {
   KBarResults,
 } from "kbar";
 import { RenderResults } from "./SearchResult";
-
-const data = [
-  {
-    title: "action-list",
-    excerpt:
-      "The FlipActionList component is used to render a menu containing of FlipActionListSections and FlipActionListItems. It should be used in combination with the FlipPopover component.",
-    type: "component",
-  },
-  {
-    title: "autocomplete",
-    excerpt:
-      "The FlipAutocomplete component is used to provide a text input field showing selectable suggestions while the user interacts with the input. It should always be used in combination with the FlipFormControl component.",
-    type: "component",
-  },
-];
+import useDocsActions from "@swirl/lib/hooks/useDocActions";
 
 export const FloatingSearch: FunctionComponent = () => {
+  useDocsActions();
+
   return (
     <KBarPortal>
       <KBarPositioner className="flex items-center border-1 border-border-default bg-black/60">

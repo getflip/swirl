@@ -1,47 +1,15 @@
 /* eslint-disable react/display-name */
 import { SwirlIconDescription } from "@getflip/swirl-components-react";
 import classNames from "classnames";
-import { ActionId, ActionImpl, KBarResults, useMatches } from "kbar";
-import Link from "next/link";
+import { Action, KBarResults, useMatches } from "kbar";
 import React, { forwardRef } from "react";
-
-const data = [
-  {
-    title: "action-list",
-    excerpt:
-      "The FlipActionList component is used to render a menu containing of FlipActionListSections and FlipActionListItems. It should be used in combination with the FlipPopover component.",
-    type: "component",
-  },
-  {
-    title: "autocomplete",
-    excerpt:
-      "The FlipAutocomplete component is used to provide a text input field showing selectable suggestions while the user interacts with the input. It should always be used in combination with the FlipFormControl component.",
-    type: "component",
-  },
-  {
-    title: "avatar",
-    excerpt:
-      "The FlipAvatar component is used to represent a user via an image, icon or initials.",
-    type: "component",
-  },
-];
-
-interface SearchResultProps {
-  objectID?: any;
-  title?: any;
-  excerpt?: string;
-  path?: string;
-  tagsCollection?: {
-    tags: any;
-  };
-}
 
 export function RenderResults() {
   const { results } = useMatches();
 
   return (
     <KBarResults
-      items={data}
+      items={results}
       onRender={({ item, active }) =>
         typeof item === "string" ? (
           <div className="px-4 pt-4 pb-2 font-medium text-gray-400 uppercase ">
@@ -62,7 +30,7 @@ const ResultItem = forwardRef(
       item,
     }: {
       active: boolean;
-      item: any;
+      item: Action;
     },
     ref: React.Ref<HTMLDivElement>
   ) => {
@@ -80,10 +48,10 @@ const ResultItem = forwardRef(
           </div>
           <div>
             <h4 className="text-font-size-sm font-medium text-text-default">
-              {item.title}
+              {item.name}
             </h4>
             <p className="text-font-size-sm font-normal text-text-subdued">
-              {item.excerpt}
+              {item.subtitle}
             </p>
           </div>
         </div>

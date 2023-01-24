@@ -10,18 +10,23 @@ import { GTM_ID, isProd, pageview } from "../lib/gtm";
 import { KBarProvider } from "kbar";
 import { FloatingSearch } from "src/components/Search/FloatingSearch";
 
-const actions = [
-  {
-    id: "Components",
-    name: "Components",
-    shortcut: ["c"],
-    keywords: "apps",
-    perform: () => (window.location.pathname = "contact"),
-  },
-];
-
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+
+  // those are the initial actions of the kbar.
+  const actions = [
+    {
+      id: "action-list",
+      name: "action-list",
+      title: "action-list",
+      excerpt:
+        "The FlipActionList component is used to render a menu containing of FlipActionListSections and FlipActionListItems. It should be used in combination with the FlipPopover component.",
+      type: "component",
+      shortcut: ["c"],
+      keywords: "components",
+      perform: () => router.push("/components/action-list"),
+    },
+  ];
 
   useEffect(() => {
     router.events.on("routeChangeComplete", pageview);
