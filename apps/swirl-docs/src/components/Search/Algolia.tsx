@@ -5,20 +5,37 @@ import { ALGOLIA_INDEX } from "@swirl/lib/search";
 import { Autocomplete } from "./AutoComplete";
 import { isProd } from "@swirl/lib/gtm";
 
-// Initialize the Algolia client
-export const searchClient = () => {
+function createAlgoliaClient() {
+  console.log(
+    "env variables: next",
+    process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
+    process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY
+  );
+  console.log(
+    "env variables: appsetting",
+    process.env.APPSETTING_NEXT_PUBLIC_ALGOLIA_APP_ID,
+    process.env.APPSETTING_NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY
+  );
+
   if (!isProd) {
-    algoliasearch(
+    const searchClient = algoliasearch(
       process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!!,
       process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY!!
     );
+
+    return searchClient;
   }
 
-  return algoliasearch(
+  const searchClient = algoliasearch(
     process.env.APPSETTING_NEXT_PUBLIC_ALGOLIA_APP_ID!!,
     process.env.APPSETTING_NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY!!
   );
-};
+
+  return searchClient;
+}
+
+// Initialize the Algolia client
+export const searchClient = createAlgoliaClient();
 
 interface FCProps {}
 
