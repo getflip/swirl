@@ -20,11 +20,16 @@ export class SwirlSkeletonText {
       { "skeleton-text--static": !this.animated }
     );
 
+    const lineClassName = classnames(
+      "skeleton-text__line",
+      `skeleton-text__line--size-${this.size}`
+    );
+
     return (
       <Host>
-        <div class={className}>
+        <div class={className} part={className}>
           {new Array(this.lines).fill(undefined).map((_, index) => (
-            <div class="skeleton-text__line" key={index}></div>
+            <div class={lineClassName} key={index} part={lineClassName}></div>
           ))}
         </div>
       </Host>
