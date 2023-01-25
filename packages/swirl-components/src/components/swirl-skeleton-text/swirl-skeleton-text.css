@@ -114,11 +114,7 @@
     width: 100%;
     height: 100%;
     border-radius: 10rem;
-    background-image: linear-gradient(
-      90deg,
-      var(--s-surface-raised-hovered) 0%,
-      var(--s-surface-raised-default) 100%
-    );
+    background-color: var(--s-surface-raised-hovered);
     content: "";
   }
 
@@ -129,11 +125,10 @@
     display: block;
     width: 100%;
     height: 100%;
-    mix-blend-mode: overlay;
     background-image: linear-gradient(
       90deg,
       rgba(255, 255, 255, 0) 0,
-      rgba(255, 255, 255, 0.7) 33%,
+      var(--s-surface-raised-default) 33%,
       rgba(255, 255, 255, 0) 66%
     );
     content: "";
