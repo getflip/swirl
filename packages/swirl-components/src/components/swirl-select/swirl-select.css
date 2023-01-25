@@ -1,0 +1,67 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: block;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.select {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.select--disabled {
+  & .select__label {
+    color: var(--s-text-disabled);
+  }
+
+  & .select__indicator {
+    color: var(--s-icon-disabled);
+  }
+}
+
+.select--inline {
+  & .select__indicator {
+    top: 0;
+  }
+}
+
+.select__label {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 1.375rem;
+  margin: 0;
+  padding: 0;
+  padding-right: calc(1.5rem + var(--s-space-8));
+  border: none;
+  background-color: transparent;
+  font: inherit;
+  line-height: var(--s-line-height-base);
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: default;
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}
+
+.select__indicator {
+  position: absolute;
+  top: calc(-1 * var(--s-space-12));
+  right: 0;
+  display: inline-flex;
+  color: var(--s-icon-default);
+}

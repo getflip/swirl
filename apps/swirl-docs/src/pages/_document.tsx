@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { GTM_ID, isProd } from "src/lib/gtm";
 
 class MyDocument extends Document {
   render() {
@@ -23,7 +24,18 @@ class MyDocument extends Document {
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#145af5" />
         </Head>
         <body>
+          {isProd && (
+            <noscript>
+              <iframe
+                src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+                height="0"
+                width="0"
+                style={{ display: "none", visibility: "hidden" }}
+              />
+            </noscript>
+          )}
           <Main />
+          <div id="portal" />
           <NextScript />
         </body>
       </Html>

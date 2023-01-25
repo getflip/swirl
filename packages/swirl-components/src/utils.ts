@@ -1,13 +1,40 @@
 import { EventEmitter } from "@stencil/core";
 
-export interface FlipFormInput<ValueType = string> {
-  flipAriaDescribedby?: string;
+export interface SwirlFormInput<ValueType = string> {
   disabled?: boolean;
   invalid?: boolean;
+  swirlAriaDescribedby?: string;
   required?: boolean;
   value?: ValueType;
   valueChange: EventEmitter<ValueType>;
 }
+
+export function closestPassShadow(node, selector) {
+  if (!node) {
+    return null;
+  }
+
+  if (node instanceof ShadowRoot) {
+    return closestPassShadow(node.host, selector);
+  }
+
+  if (node instanceof HTMLElement) {
+    if (node.matches(selector)) {
+      return node;
+    } else {
+      return closestPassShadow(node.parentNode, selector);
+    }
+  }
+
+  return closestPassShadow(node.parentNode, selector);
+}
+
+export const getDesktopMediaQuery = () =>
+  document.documentElement.classList.contains("disable-desktop-style-tweaks")
+    ? window.matchMedia(null)
+    : window.matchMedia(
+        "(min-width: 992px) and (max-width: 1439px) and (hover: hover), (min-width: 1440px)"
+      );
 
 export function debounce(
   func: Function,
@@ -16,7 +43,7 @@ export function debounce(
 ) {
   let timeout: NodeJS.Timeout;
 
-  return function executedFunction() {
+  return async function executedFunction() {
     const context = this;
     const args = arguments;
 

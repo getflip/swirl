@@ -1,4 +1,5 @@
 import { ColorTokenGroups, ColorTokens } from "./token.model";
+import { generateTokenValueWithUnit } from "./utils";
 
 const tokensLight = require("@getflip/swirl-tokens/dist/styles.light.json");
 
@@ -11,23 +12,25 @@ export const getColorTokens = (): ColorTokens => {
     interactive: [],
     text: [],
     icon: [],
-    decoratives: [],
-    core: [],
   };
 
   const lightTokenKeys = Object.keys(tokensLight);
 
   const baseTokens = lightTokenKeys
-    .filter((key) => tokensLight[key].type === "color")
+    .filter((key) => tokensLight[key].type === "color" && !key.includes("core"))
     .map((key) => tokensLight[key]);
 
   baseTokens.forEach((token) => {
+    const tokenValueWithUnit = generateTokenValueWithUnit(token);
+
     const colorCategory = getColorCategory(token);
     colorTokens[colorCategory]?.push({
       name: token.name,
       type: token.type,
       value: token.value,
       description: token.comment,
+      valueAsString: tokenValueWithUnit?.value,
+      unitAsString: tokenValueWithUnit?.unit,
     });
   });
 
@@ -48,11 +51,7 @@ function getColorCategory(token: any): ColorTokenGroups {
     return "interactive";
   } else if (token.name.includes("text")) {
     return "text";
-  } else if (token.name.includes("icon")) {
-    return "icon";
-  } else if (token.name.includes("decoratives")) {
-    return "decoratives";
   } else {
-    return "core";
+    return "icon";
   }
 }

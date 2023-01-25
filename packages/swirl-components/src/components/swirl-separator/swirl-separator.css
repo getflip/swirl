@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  padding-top: var(--s-space-8);
+  padding-bottom: var(--s-space-8);
+  align-items: center;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.separator__line {
+  display: block;
+  width: 100%;
+  height: var(--s-border-width-default);
+  background-color: var(--s-border-default);
+}

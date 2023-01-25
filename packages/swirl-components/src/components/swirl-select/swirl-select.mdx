@@ -1,0 +1,35 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlSelect" />
+
+# SwirlSelect
+
+The SwirlSelect component is used to allow users to select one or multiple
+options from a predefined list. It should always be used in combination with the
+[SwirlFormControl component](?path=/docs/components-swirlformcontrol--swirl-form-control).
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=2%3A43)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-select)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirlselect--swirl-select" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable            | Usage                                    |
+| ------------------- | ---------------------------------------- |
+| `--s-text-default`  | Text color of the select value           |
+| `--s-text-disabled` | Text color of the disabled select value  |
+| `--s-icon-default`  | Icon color of the select toggle          |
+| `--s-icon-disabled` | Icon color of the disabled select toggle |
+
+## Accessibility
+
+See the documentation of the
+[SwirlOptionList](?path=/docs/components-swirloptionlist--swirl-option-list) and
+[SwirlPopover](?path=/docs/components-swirlpopover--swirl-popover) components.

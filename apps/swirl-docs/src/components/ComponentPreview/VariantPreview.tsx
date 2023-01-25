@@ -1,17 +1,16 @@
 import {
-  FlipActionList,
-  FlipActionListItem,
-  FlipButton,
-  FlipButtonGroup,
-  FlipPopover,
-  FlipSpinner,
+  SwirlActionList,
+  SwirlActionListItem,
+  SwirlButton,
+  SwirlButtonGroup,
+  SwirlPopover,
+  SwirlSpinner,
 } from "@getflip/swirl-components-react";
 import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import classNames from "classnames";
 import IframeResizer from "iframe-resizer-react";
 import { FunctionComponent, Suspense, useRef } from "react";
 import DynamicComponent from "./DynamicComponent";
-import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 
 interface VariantPreviewProps {
   frontMatter: FrontMatter;
@@ -32,34 +31,30 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
 
   return (
     <div className="mb-6">
-      <h2 id="variants" className="text-2xl text-text-default mb-4">
-        Variants
-      </h2>
-      <p className="text-lg text-text-default mb-12">
-        {frontMatter?.variantsDescription}
-      </p>
+      <h2 id="variants">Variants</h2>
+      <p className="mb-12">{frontMatter?.variantsDescription}</p>
       <Suspense fallback={<div>Loading...</div>}>
         {currentExample && (
           <DynamicComponent>
-            <FlipButtonGroup className="mb-2">
+            <SwirlButtonGroup className="mb-2">
               {frontMatter?.examples.length > 1 && (
                 <>
-                  <FlipButton
+                  <SwirlButton
                     id="variant-trigger"
                     label={`Variant: ${currentExample.title}`}
                     variant="flat"
-                    icon="<flip-icon-expand-more></flip-icon-expand-more>"
+                    icon="<swirl-icon-expand-more></swirl-icon-expand-more>"
                     iconPosition="end"
                   />
-                  <FlipPopover
+                  <SwirlPopover
                     ref={variantPopover}
                     label="Variants"
                     popoverId="variant-trigger-popover"
                     trigger="variant-trigger"
                   >
-                    <FlipActionList>
+                    <SwirlActionList>
                       {frontMatter.examples.map((example) => (
-                        <FlipActionListItem
+                        <SwirlActionListItem
                           size="m"
                           key={example.title}
                           label={example.title}
@@ -68,16 +63,17 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
                             handleExampleChange(example);
                             setIsLoading(true);
                           }}
-                        ></FlipActionListItem>
+                        ></SwirlActionListItem>
                       ))}
-                    </FlipActionList>
-                  </FlipPopover>
+                    </SwirlActionList>
+                  </SwirlPopover>
                 </>
               )}
-            </FlipButtonGroup>
+            </SwirlButtonGroup>
             <div className="w-full h-72 border-2 border-border-default rounded-lg">
               <IframeResizer
-                className={classNames({ hidden: isLoading })}
+                aria-label="Component preview"
+                className={classNames("min-h-full", { hidden: isLoading })}
                 onLoad={() => setIsLoading(false)}
                 src={currentExample.url}
                 width="100%"
@@ -91,7 +87,7 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
                   }
                 )}
               >
-                <FlipSpinner />
+                <SwirlSpinner />
               </div>
             </div>
           </DynamicComponent>

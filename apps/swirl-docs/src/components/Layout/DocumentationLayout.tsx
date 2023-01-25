@@ -1,4 +1,4 @@
-import { DocHeadline, FrontMatter } from "@swirl/lib/docs/src/docs.model";
+import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import { NavItem } from "@swirl/lib/navigation";
 import { MDXRemote } from "next-mdx-remote";
 import { CategoryNav } from "./CategoryNav";
@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
 import { ComponentPreview } from "../ComponentPreview";
 import { useToC } from "@swirl/lib/hooks/useToC";
+import classNames from "classnames";
 
 export type ComponentExample = {
   description: string;
@@ -33,30 +34,27 @@ export const DocumentationLayout = ({
   const [tocItems] = useToC(document, isComponentDoc);
 
   return (
-    <div className={`flex min-h-[calc(100vh_-_72px)]`}>
+    <div className="flex">
       <CategoryNav categoryLinkList={categoryLinkList} />
-      <div>
-        <div className="flex h-full">
-          <div className="w-full md:w-min max-w-[60rem] grow shrink-0">
-            <main
-              id="main"
-              className="flex flex-col justify-center items-center"
-            >
-              <article className="max-w-3xl px-4 mt-20">
-                {hasFrontMatterTitle && (
-                  <DocumentationHeader frontMatter={frontMatter} />
-                )}
-                {isComponentDoc && (
-                  <ComponentPreview frontMatter={frontMatter} />
-                )}
-                <MDXRemote {...document} components={mdxComponents} />
-              </article>
-            </main>
-          </div>
+      <div className="h-full w-full">
+        <main
+          id="main"
+          className={classNames(
+            "grid grid-cols-1 md:grid-cols-[minmax(0,_45rem)_16rem] gap-8 justify-center",
+            "my-0 mx-auto mt-14 mb-4 md:mb-0 px-4 lg:px-0"
+          )}
+        >
+          <article className="w-full max-w-[45rem]">
+            {hasFrontMatterTitle && (
+              <DocumentationHeader frontMatter={frontMatter} />
+            )}
+            {isComponentDoc && <ComponentPreview frontMatter={frontMatter} />}
+            <MDXRemote {...document} components={mdxComponents} />
+          </article>
           {tocItems && tocItems.length > 0 && (
             <DocLinksNav documentLinkList={tocItems} />
           )}
-        </div>
+        </main>
         <Footer />
       </div>
     </div>

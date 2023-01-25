@@ -1,0 +1,129 @@
+:host {
+  display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  border: 0.25rem solid var(--swirl-badge-border-color);
+  border-radius: 2rem;
+  color: var(--s-text-on-status);
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-medium);
+}
+
+.badge--size-s {
+  min-width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.75rem;
+
+  & .badge__label {
+    padding-right: 0.1875rem;
+    padding-left: 0.1875rem;
+  }
+
+  & .badge__icon {
+    & > *::part(icon) {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+  }
+}
+
+.badge--size-m {
+  min-width: 2rem;
+  height: 2rem;
+
+  & .badge__label {
+    padding-right: 0.375rem;
+    padding-left: 0.375rem;
+  }
+}
+
+.badge--has-icon {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.badge--intent-critical {
+  color: var(--s-text-on-status);
+  background-color: var(--s-surface-critical-default);
+}
+
+.badge--intent-banana {
+  color: var(--s-text-dark);
+  background-color: var(--s-decorative-banana-surface);
+}
+
+.badge--intent-blueberry {
+  color: var(--s-text-on-status);
+  background-color: var(--s-decorative-blueberry-surface);
+}
+
+.badge--intent-chilli {
+  color: var(--s-text-on-status);
+  background-color: var(--s-decorative-chilli-surface);
+}
+
+.badge--intent-grape {
+  color: var(--s-text-on-status);
+  background-color: var(--s-decorative-grape-surface);
+}
+
+.badge--intent-kiwi {
+  color: var(--s-text-on-status);
+  background-color: var(--s-decorative-kiwi-surface);
+}
+
+.badge--intent-pumpkin {
+  color: var(--s-text-dark);
+  background-color: var(--s-decorative-pumpkin-surface);
+}
+
+.badge--intent-radish {
+  color: var(--s-text-on-status);
+  background-color: var(--s-decorative-radish-surface);
+}
+
+.badge--variant-dot {
+  width: 1.25rem;
+  min-width: 0;
+  height: 1.25rem;
+
+  & .badge__label {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  & .badge__label,
+  & .badge__icon {
+    display: none;
+  }
+}
+
+.badge__icon {
+  display: inline-flex;
+
+  & > *::part(icon) {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.badge__label {
+  display: inline-flex;
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

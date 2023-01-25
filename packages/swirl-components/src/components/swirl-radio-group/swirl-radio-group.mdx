@@ -1,0 +1,38 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlRadioGroup" />
+
+# SwirlRadioGroup
+
+The SwirlRadioGroup component is used to wrap multiple FlipRadio components.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-radio-group)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirlradiogroup--swirl-radio-group" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Radio Group Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radiobutton/).
+
+| ARIA                | Usage                                                                                                       |
+| ------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `role="radiogroup"` |                                                                                                             |
+| `aria-label`        | The radio group has a visible label referenced by aria-labelledby or has a label specified with aria-label. |
+
+### Keyboard
+
+| Key                               | Action                                                                                                                                              |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>SPACE</kbd>                  | Checks the focused radio button, unchecks all other radios buttons of the same group.                                                               |
+| <kbd>TAB</kbd>                    | Moves focus into and out of the radio group. If a radio button is checked, focus is moved to the checked radio, otherwise the first one is focused. |
+| <kbd>RIGHT</kbd>, <kbd>DOWN</kbd> | Focuses and checks the next radio button in the group; moves focus to the first radio button, if the last one was in focus.                         |
+| <kbd>LEFT</kbd>, <kbd>UP</kbd>    | Focuses and checks the previous radio button in the group; moves focus to the last radio button, if the first one was in focus.                     |

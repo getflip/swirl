@@ -59,7 +59,7 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
     return (
       <div
         style={{ borderRadius: token.value }}
-        className={`w-12 h-12 bg-core-gray-02-dark mr-4`}
+        className={`w-6 h-6 bg-icon-disabled mr-4`}
       ></div>
     );
   } else if (token.type === "borderWidth") {
@@ -68,7 +68,7 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
         style={{
           borderTop: `${token.value} solid var(--s-interactive-primary-default)`,
         }}
-        className={`w-24 h-2 bg-core-gray-02-dark mr-4`}
+        className={`w-6 h-2 bg-icon-disabled mr-4`}
       ></div>
     );
   } else if (token.type === "spacing") {
@@ -77,7 +77,7 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
         <div className="w-4 h-4 rounded-full bg-border-info"></div>
         <div
           style={{ width: token.value }}
-          className={`h-8 bg-core-gray-02-dark`}
+          className={`h-8 bg-icon-disabled`}
         ></div>
         <div className="w-4 h-4 rounded-full bg-border-info"></div>
       </div>
@@ -87,7 +87,7 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
       const backgroundColor =
         plain === token.value || token.value === "auto"
           ? "bg-border-info"
-          : "bg-core-gray-02-dark";
+          : "bg-icon-disabled";
       return (
         <div key={plain}>
           <div

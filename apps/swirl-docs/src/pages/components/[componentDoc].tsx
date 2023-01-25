@@ -1,23 +1,23 @@
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import { BASE_PATHS, DOCUMENT_ENUM } from "@swirl/lib/docs/src/docs.model";
+import { DOCUMENTATION_CATEGORY } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
 import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { createStaticPathsData } from "@swirl/lib/docs";
-import { createLinkLists } from "@swirl/lib/docs/src/links";
 import { ScriptProps } from "next/script";
 import { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
+import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 
 async function getComponentData(document: string) {
-  return await generateMdxFromDocumentation(BASE_PATHS.COMPONENTS, document);
+  return await generateMdxFromDocumentation(
+    DOCUMENTATION_CATEGORY.COMPONENTS,
+    document
+  );
 }
 
 export async function getStaticPaths() {
-  const categoryDocs = createStaticPathsData(
-    BASE_PATHS.COMPONENTS,
-    DOCUMENT_ENUM.COMPONENTS
-  );
+  const categoryDocs = createStaticPathsData(DOCUMENTATION_CATEGORY.COMPONENTS);
 
   return {
     paths: categoryDocs,
@@ -30,9 +30,6 @@ export const getStaticProps: GetStaticProps<
   { componentDoc: string }
 > = async (context: any) => {
   const { componentDoc } = context.params;
-  // todo -
-  // put in frontmatter data / make it possible to include non sourced data to headings
-  // polaris does it that way: https://github.com/Shopify/polaris/blob/main/polaris.shopify.com/src/utils/hooks.ts
 
   const document = await getComponentData(componentDoc);
 
@@ -57,6 +54,10 @@ export default function Component({
     setFrontMatter(document?.frontmatter);
   }, [document]);
 
+  const components = {
+    ...LinkedHeaders,
+  };
+
   return (
     <>
       <Head>
@@ -66,6 +67,7 @@ export default function Component({
         categoryLinkList={componentsNavItems}
         document={document}
         frontMatter={frontMatter}
+        mdxComponents={components}
       />
     </>
   );

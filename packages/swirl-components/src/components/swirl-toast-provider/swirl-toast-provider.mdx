@@ -1,0 +1,39 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlToastProvider" />
+
+# SwirlToastProvider
+
+The SwirlToastProvider component is used to host and create
+[SwirlToast](?path=/docs/components-swirltoast--swirl-toast) messages.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-toast-provider)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirltoastprovider--swirl-toast-provider" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Accessibility
+
+### ARIA
+
+| ARIA            | Usage                                                     |
+| --------------- | --------------------------------------------------------- |
+| `role="status"` | The component wraps all toasts in a "polite" live region. |
+
+### Positioning
+
+You should place the SwirlToastProvider component in the designated slot of the
+Layout components. This ensures that the messages are displayed correctly and
+guarantees that they appear at a predictable place in the DOM structure.
+
+### Timing/Duration
+
+Toasts can be configured to automatically close after a certain period of time,
+which is in violation with WCAG 2.1. To work around this issue, we allow the
+user via the UI of our app(s) to override the time period globally or disable
+automatic closing completely.

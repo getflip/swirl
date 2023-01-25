@@ -24,16 +24,26 @@ jobs:
         with:
           publish: yarn release
         env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: yarn prepare-dart-package
+      - run: yarn prepare-dart-packages
 
       # This will only publish if the version number in pubspec.yml changed.
-      - name: "Publish to pub.dev"
+      - name: "Publish tokens to pub.dev"
         uses: k-paxian/dart-package-publisher@master
         with:
           relativePath: packages/swirl-tokens/dart
+          skipTests: true
+          force: true
+          flutter: true
+          accessToken: ${{ secrets.PUB_DEV_ACCESS_TOKEN }}
+          refreshToken: ${{ secrets.PUB_DEV_REFRESH_TOKEN }}
+      - name: "Publish icons to pub.dev"
+        uses: k-paxian/dart-package-publisher@master
+        with:
+          relativePath: packages/swirl-icons/dart
           skipTests: true
           force: true
           flutter: true

@@ -1,5 +1,120 @@
 # @getflip/swirl-components-angular
 
+## 0.12.0
+
+### Minor Changes
+
+- [#144](https://github.com/getflip/swirl/pull/144)
+  [`6496003`](https://github.com/getflip/swirl/commit/6496003bfc9ddeef88c4c58b50db792f07e5ced3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add a more accessible date picker
+
+* [#138](https://github.com/getflip/swirl/pull/138)
+  [`ea6016f`](https://github.com/getflip/swirl/commit/ea6016f8a9c4ffb54a167f99d134af6a7933b066)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add drag handle icon
+
+- [#141](https://github.com/getflip/swirl/pull/141)
+  [`19daaad`](https://github.com/getflip/swirl/commit/19daaada6222c7c979ff3d2645298d64fb4364d6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "inline" prop to
+  swirl-form-control component
+
+* [#140](https://github.com/getflip/swirl/pull/140)
+  [`c16668d`](https://github.com/getflip/swirl/commit/c16668d1c3b0e8d3f4861503d34cfee9e4aa134c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "balance" prop to
+  flip-heading and flip-text components.
+
+- [#138](https://github.com/getflip/swirl/pull/138)
+  [`ea6016f`](https://github.com/getflip/swirl/commit/ea6016f8a9c4ffb54a167f99d134af6a7933b066)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add drag and drop support for
+  flip-option-list
+
+### Patch Changes
+
+- [`7a9d7f2`](https://github.com/getflip/swirl/commit/7a9d7f2335d4d6b2326421e91389cff88a853439)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a timezone issue of
+  flip-datepicker
+
+- Updated dependencies
+  [[`6496003`](https://github.com/getflip/swirl/commit/6496003bfc9ddeef88c4c58b50db792f07e5ced3),
+  [`7a9d7f2`](https://github.com/getflip/swirl/commit/7a9d7f2335d4d6b2326421e91389cff88a853439),
+  [`ea6016f`](https://github.com/getflip/swirl/commit/ea6016f8a9c4ffb54a167f99d134af6a7933b066),
+  [`19daaad`](https://github.com/getflip/swirl/commit/19daaada6222c7c979ff3d2645298d64fb4364d6),
+  [`c16668d`](https://github.com/getflip/swirl/commit/c16668d1c3b0e8d3f4861503d34cfee9e4aa134c),
+  [`ea6016f`](https://github.com/getflip/swirl/commit/ea6016f8a9c4ffb54a167f99d134af6a7933b066)]:
+  - @getflip/swirl-components@0.13.0
+
+## 0.11.0
+
+### Minor Changes
+
+- [#139](https://github.com/getflip/swirl/pull/139)
+  [`5db6ca6`](https://github.com/getflip/swirl/commit/5db6ca689180a68130b682d7f96af8a2e667904d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Breaking: Change component prefix
+  from flip- to swirl-
+
+* [#117](https://github.com/getflip/swirl/pull/117)
+  [`40781c1`](https://github.com/getflip/swirl/commit/40781c19365963abbbaed2b0925817af4d5be6a2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-table component
+
+- [#117](https://github.com/getflip/swirl/pull/117)
+  [`40781c1`](https://github.com/getflip/swirl/commit/40781c19365963abbbaed2b0925817af4d5be6a2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add new icons
+
+* [#117](https://github.com/getflip/swirl/pull/117)
+  [`40781c1`](https://github.com/getflip/swirl/commit/40781c19365963abbbaed2b0925817af4d5be6a2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-icon size "20"
+
+- [#132](https://github.com/getflip/swirl/pull/132)
+  [`e26334f`](https://github.com/getflip/swirl/commit/e26334f5b0be8d677bccd4d91167ea3130549a41)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add desktop viewport style tweaks
+
+* [#132](https://github.com/getflip/swirl/pull/132)
+  [`e26334f`](https://github.com/getflip/swirl/commit/e26334f5b0be8d677bccd4d91167ea3130549a41)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "outline" variant to
+  flip-button
+
+- [#134](https://github.com/getflip/swirl/pull/134)
+  [`7096869`](https://github.com/getflip/swirl/commit/709686962a145d060cf8bbdcb5601ad23fee55c6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add flip-separator component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5db6ca6`](https://github.com/getflip/swirl/commit/5db6ca689180a68130b682d7f96af8a2e667904d),
+  [`40781c1`](https://github.com/getflip/swirl/commit/40781c19365963abbbaed2b0925817af4d5be6a2),
+  [`40781c1`](https://github.com/getflip/swirl/commit/40781c19365963abbbaed2b0925817af4d5be6a2),
+  [`40781c1`](https://github.com/getflip/swirl/commit/40781c19365963abbbaed2b0925817af4d5be6a2),
+  [`e26334f`](https://github.com/getflip/swirl/commit/e26334f5b0be8d677bccd4d91167ea3130549a41),
+  [`e26334f`](https://github.com/getflip/swirl/commit/e26334f5b0be8d677bccd4d91167ea3130549a41),
+  [`7096869`](https://github.com/getflip/swirl/commit/709686962a145d060cf8bbdcb5601ad23fee55c6)]:
+  - @getflip/swirl-components@0.12.0
+
+## 0.10.0
+
+### Minor Changes
+
+- [`47c247a`](https://github.com/getflip/swirl/commit/47c247a179688c453765dc4d0c3fdea6902beb6d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add new icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`47c247a`](https://github.com/getflip/swirl/commit/47c247a179688c453765dc4d0c3fdea6902beb6d)]:
+  - @getflip/swirl-components@0.11.0
+
+## 0.9.0
+
+### Minor Changes
+
+- [`1aa5224`](https://github.com/getflip/swirl/commit/1aa5224a9040d226eda9edfc3d3ce059ef728e04)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add themeChange event to
+  flip-theme-provider
+
+### Patch Changes
+
+- Updated dependencies
+  [[`1aa5224`](https://github.com/getflip/swirl/commit/1aa5224a9040d226eda9edfc3d3ce059ef728e04)]:
+  - @getflip/swirl-components@0.10.0
+
 ## 0.8.1
 
 ### Patch Changes

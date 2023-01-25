@@ -1,19 +1,18 @@
 import {
-  FlipIconCheckStrong,
-  FlipIconCopy,
-  FlipIconExpandLess,
-  FlipIconExpandMore,
-  FlipIconOpenInNew,
+  SwirlIconCheckStrong,
+  SwirlIconCopy,
+  SwirlIconExpandLess,
+  SwirlIconExpandMore,
+  SwirlIconOpenInNew,
 } from "@getflip/swirl-components-react";
-import { FunctionComponent, useCallback, useEffect, useState } from "react";
+import { FunctionComponent, useState } from "react";
 import { CodeSandboxButton } from "./CodeSandboxButton";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import classNames from "classnames";
 import Link from "next/link";
-import SyntaxHighlighter from "react-syntax-highlighter";
-
-import dark from "react-syntax-highlighter/dist/cjs/styles/prism/a11y-dark";
 import NoSsr from "../Layout/NoSsr";
+
+import Prism from "prismjs";
 
 export type CodeExample = {
   code: string;
@@ -34,19 +33,24 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
     <NoSsr>
       <div
         className={classNames(
-          "relative w-full bg-[#24292E]  rounded-lg mb-10 overflow-auto",
+          "relative w-auto bg-[#24292E] rounded-lg mb-10 overflow-auto",
           {
-            "h-[240px] max-h-[240px] overflow-hidden": !isExpanded,
-            "h-full min-h-[240px]": isExpanded,
+            "md:h-[240px] md:max-h-[240px] overflow-hidden": !isExpanded,
+            "min-h-[240px]": isExpanded,
           }
         )}
       >
-        <div className="flex items-center justify-between bg-[#21201E] h-12 m-2 rounded-lg p-4 ">
+        <div
+          className={classNames(
+            "hidden md:flex items-center justify-between h-12 m-2 p-4 rounded-lg",
+            "bg-[#21201E]"
+          )}
+        >
           <div className="flex items-center justify-between">
             <Link href="https://www.npmjs.com/package/@getflip/swirl-components">
               <a className="flex justify-center items-center text-[#F2F2F2] text-base font-medium mr-4">
                 npm package
-                <FlipIconOpenInNew className="ml-1" size={16} />
+                <SwirlIconOpenInNew className="ml-1" size={16} />
               </a>
             </Link>
             <CodeSandboxButton code={codeExample.code} />
@@ -63,25 +67,35 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
             <button className="flex justify-center items-center text-[#F2F2F2] text-base font-medium">
               {isCopied ? "copied!" : "copy"}
               {isCopied ? (
-                <FlipIconCheckStrong size={16} className="ml-1" />
+                <SwirlIconCheckStrong size={16} className="ml-1" />
               ) : (
-                <FlipIconCopy size={16} className="ml-1" />
+                <SwirlIconCopy size={16} className="ml-1" />
               )}
             </button>
           </CopyToClipboard>
         </div>
-        <SyntaxHighlighter
-          wrapLines
-          wrapLongLines
-          style={dark}
-          customStyle={{
-            backgroundColor: "#24292E",
-            padding: "0.5rem 1.5rem 4rem 1.5rem", // place for the expand button
-            height: "100%",
-          }}
+
+        <pre
+          className={classNames(
+            "cursor-text overflow-auto pt-space-16 md:pt-space-8 px-space-24 ",
+            "md:pb-16",
+            {
+              "pb-space-16": !isExpanded,
+              "pb-16": isExpanded,
+            }
+          )}
         >
-          {codeExample.code}
-        </SyntaxHighlighter>
+          <code
+            dangerouslySetInnerHTML={{
+              __html: Prism.highlight(
+                codeExample.code,
+                Prism.languages.html,
+                "html"
+              ),
+            }}
+          ></code>
+        </pre>
+
         {codeExample.isLongCode && (
           <div className="absolute bottom-0 flex justify-center items-center w-full h-12  bg-[#24292E]">
             <button
@@ -90,9 +104,9 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
             >
               {isExpanded ? "Collapse" : "Expand"}
               {isExpanded ? (
-                <FlipIconExpandLess className="ml-2" size={24} />
+                <SwirlIconExpandLess className="ml-2" size={24} />
               ) : (
-                <FlipIconExpandMore className="ml-2" size={24} />
+                <SwirlIconExpandMore className="ml-2" size={24} />
               )}
             </button>
           </div>

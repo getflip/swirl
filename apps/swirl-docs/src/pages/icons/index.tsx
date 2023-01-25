@@ -7,6 +7,7 @@ import IconGrid from "src/components/Icons/IconGrid";
 import IconInfo from "src/components/Icons/IconInfo";
 import SearchBar from "src/components/Icons/SearchBar";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
+import { DesktopView } from "src/components/View/Views";
 
 type Usage = "app" | "admin";
 
@@ -48,21 +49,26 @@ const IconsIndex = () => {
       <Head>
         <title>Swirl | Icons</title>
       </Head>
-      <div className="flex min-h-[calc(100vh_-_72px)]">
+      <div className="flex">
         <CategoryNav categoryLinkList={iconsNavItems} />
-        <main id="main" className="w-full h-full">
-          <section className="flex flex-col px-4 md:py-14 md:px-24">
+        <main id="main" className="w-full h-full mt-14">
+          <section className="flex flex-col px-4 md:px-24">
             <div className="mb-16">
-              <h1 className="mb-4">Icons</h1>
+              <h1 className="mb-4 font-bold text-4xl text-text-default">
+                Icons
+              </h1>
               <SearchBar
                 handleChange={(e) => setSearchWord(e.target.value)}
                 searchQuery={searchWord}
               />
             </div>
-            <div className="flex w-full">
-              <div className="w-full md:mr-8">
-                <h2 className="mb-4">Icon List</h2>
+            <div className="flex md:grid md:grid-cols-icon-grid w-full">
+              <div className="w-full">
+                <h2 className="mb-4 font-semibold text-font-size-xl text-text-default">
+                  Icon List
+                </h2>
                 <IconGrid
+                  selectedIcon={selectedIcon}
                   iconList={filteredIcons}
                   icons={icons}
                   handleTileClick={(iconname) =>
@@ -70,11 +76,9 @@ const IconsIndex = () => {
                   }
                 />
               </div>
-              {selectedIcon && (
-                <div className="hidden md:block max-w-[280px]">
-                  <IconInfo icon={selectedIcon} />
-                </div>
-              )}
+              <DesktopView>
+                <IconInfo icon={selectedIcon} />
+              </DesktopView>
             </div>
           </section>
         </main>

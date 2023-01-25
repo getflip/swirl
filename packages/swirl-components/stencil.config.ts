@@ -13,26 +13,26 @@ import { reactOutputTarget } from "@stencil/react-output-target";
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
     elementSelectors: [
-      "flip-checkbox",
-      "flip-resource-list-item",
-      "flip-switch",
+      "swirl-checkbox",
+      "swirl-resource-list-item",
+      "swirl-switch",
     ],
     event: "valueChange",
     targetAttr: "checked",
     type: "boolean",
   },
   {
-    elementSelectors: ["flip-option-list", "flip-select"],
+    elementSelectors: ["swirl-option-list", "swirl-select"],
     event: "valueChange",
     targetAttr: "value",
     type: "select",
   },
   {
     elementSelectors: [
-      "flip-date-input",
-      "flip-radio-group",
-      "flip-search",
-      "flip-text-input",
+      "swirl-date-input",
+      "swirl-radio-group",
+      "swirl-search",
+      "swirl-text-input",
     ],
     event: "valueChange",
     targetAttr: "value",
@@ -85,6 +85,7 @@ export const config: Config = {
     },
     reactOutputTarget({
       componentCorePackage: "@getflip/swirl-components",
+      excludeComponents: ["wc-datepicker"],
       proxiesFile: "../swirl-components-react/lib/stencil-generated/index.ts",
       includeDefineCustomElements: true,
     }),
@@ -94,6 +95,7 @@ export const config: Config = {
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/components.ts",
       directivesArrayFile:
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/index.ts",
+      excludeComponents: ["wc-datepicker"],
       includeImportCustomElements: false,
       valueAccessorConfigs: angularValueAccessorBindings,
     }),

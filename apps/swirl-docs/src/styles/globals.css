@@ -5,6 +5,7 @@
 @import "~@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css";
 @import "~@getflip/swirl-tokens/dist/css/styles.dark.custom-properties.css";
 @import "~@getflip/swirl-icons/dist/swirl-icons.css";
+@import "@algolia/autocomplete-theme-classic/dist/theme.css";
 
 @font-face {
   font-family: "Inter var experimental";
@@ -16,15 +17,25 @@
 }
 
 :root {
-  --flip-ghost-button-background-default: var(--s-background-default);
-  --flip-ghost-button-background-hovered: var(--s-background-hovered);
-  --flip-ghost-button-background-pressed: var(--s-background-pressed);
+  --swirl-ghost-button-background-default: var(--s-background-default);
+  --swirl-ghost-button-background-hovered: var(--s-background-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-background-pressed);
+
+  --aa-text-color-rgb: 25, 26, 28;
+  --aa-primary-color-rgb: 20, 90, 245;
+  --aa-input-border-color-rgb: 204, 205, 209;
+  --aa-selected-color-rgb: 0, 38, 255;
+  --aa-selected-color-alpha: 0.25;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html.theme-dark {
@@ -41,15 +52,19 @@ body {
 }
 
 h1 {
-  font-size: var(--s-font-size-2xl);
+  font-size: 2.25rem;
   font-weight: var(--s-font-weight-bold);
+  line-height: 3rem;
   color: var(--s-text-default);
 }
 
 h2 {
-  font-size: var(--s-font-size-xl);
-  font-weight: var(--s-font-weight-bold);
+  font-size: 1.625rem;
+  font-weight: var(--s-font-weight-semibold);
+  line-height: 2rem;
+  letter-spacing: 0;
   color: var(--s-text-default);
+  margin-bottom: var(--s-space-8);
 }
 
 h3 {
@@ -61,6 +76,8 @@ h3 {
 p {
   font-size: var(--s-font-size-base);
   color: var(--s-text-default);
+  line-height: 1.5rem;
+  font-weight: var(--s-font-weight-normal);
 }
 
 /** Custom Utility Classes */

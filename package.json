@@ -6,6 +6,7 @@
     "node": "^14.17.0 || ^16.13.0"
   },
   "workspaces": [
+    "./packages/bridge",
     "./packages/swirl-components",
     "./packages/swirl-components-angular",
     "./packages/swirl-components-react",
@@ -24,7 +25,7 @@
     "format": "prettier . --write",
     "type-check": "tsc --build",
     "changeset": "changeset",
-    "prepare-dart-package": "node packages/swirl-tokens/scripts/update-dart-package-version.js",
+    "prepare-dart-packages": "node packages/swirl-tokens/scripts/update-dart-package-version.js && node packages/swirl-icons/scripts/update-dart-package-version.js",
     "release": "turbo run build && changeset publish",
     "preversion": "echo \"Error: use @changsets/cli to version packages\" && exit 1",
     "postinstall": "patch-package"
