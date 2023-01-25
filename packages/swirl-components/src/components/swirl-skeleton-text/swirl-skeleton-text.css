@@ -116,8 +116,8 @@
     border-radius: 10rem;
     background-image: linear-gradient(
       90deg,
-      var(--s-background-pressed) 0%,
-      var(--s-background-hovered) 100%
+      var(--s-surface-raised-hovered) 0%,
+      var(--s-surface-raised-default) 100%
     );
     content: "";
   }
