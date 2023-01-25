@@ -3395,6 +3395,44 @@
       "attributes": []
     },
     {
+      "name": "swirl-skeleton-text",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "animated",
+          "description": ""
+        },
+        {
+          "name": "lines",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "2xl"
+            },
+            {
+              "name": "base"
+            },
+            {
+              "name": "lg"
+            },
+            {
+              "name": "sm"
+            },
+            {
+              "name": "xl"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "swirl-spinner",
       "description": {
         "kind": "markdown",
