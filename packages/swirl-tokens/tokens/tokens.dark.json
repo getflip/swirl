@@ -729,7 +729,7 @@
     "comment": "Usually used for high emphasis borders."
   },
   "border-default": {
-    "value": "rgba(255, 255, 255, 0.12)",
+    "value": "rgba(255, 255, 255, 0.16)",
     "type": "color",
     "comment": "Usually used for low emphasis borders and espacially divider elements."
   },

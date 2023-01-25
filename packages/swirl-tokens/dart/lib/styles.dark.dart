@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Mon, 23 Jan 2023 09:39:00 GMT
+// Generated on Wed, 25 Jan 2023 13:51:14 GMT
 
 
 
@@ -25,7 +25,7 @@ class SwirlDesignTokensDark {
     static const backgroundHovered = Color(0xFF232426); /* Used if a component with “Background/Default” has a hovered state. */
     static const backgroundPressed = Color(0xFF2A2B2D); /* Used if a component with “Background/Default” has a pressed state. */
     static const borderCritical = Color(0xFFFB6486); /* Usally used as an border on critical components. */
-    static const borderDefault = Color(0x1FFFFFFF); /* Usually used for low emphasis borders and espacially divider elements. */
+    static const borderDefault = Color(0x29FFFFFF); /* Usually used for low emphasis borders and espacially divider elements. */
     static const borderHighlight = Color(0xFF7394D3); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
     static const borderInfo = Color(0xFF73A7F2); /* Usally used as an border on info components. */
     static const borderOnHighlight = Color(0x33BEFFF0); /* Used as border color on containers that have an highlight surface */
