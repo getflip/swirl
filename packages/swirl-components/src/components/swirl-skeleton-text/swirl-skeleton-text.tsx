@@ -9,9 +9,9 @@ export type SwirlSkeletonTextSize = "sm" | "base" | "lg" | "xl" | "2xl";
   tag: "swirl-skeleton-text",
 })
 export class SwirlSkeletonText {
-  @Prop() animated: boolean = true;
-  @Prop() lines: number = 1;
-  @Prop() size: SwirlSkeletonTextSize = "base";
+  @Prop() animated?: boolean = true;
+  @Prop() lines?: number = 1;
+  @Prop() size?: SwirlSkeletonTextSize = "base";
 
   render() {
     const className = classnames(

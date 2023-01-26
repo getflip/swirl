@@ -3395,6 +3395,45 @@
       "attributes": []
     },
     {
+      "name": "swirl-skeleton-box",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "aspect-ratio",
+          "description": ""
+        },
+        {
+          "name": "border-radius",
+          "description": "",
+          "values": [
+            {
+              "name": "base"
+            },
+            {
+              "name": "pill"
+            },
+            {
+              "name": "s"
+            },
+            {
+              "name": "sm"
+            }
+          ]
+        },
+        {
+          "name": "height",
+          "description": ""
+        },
+        {
+          "name": "width",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-skeleton-text",
       "description": {
         "kind": "markdown",
