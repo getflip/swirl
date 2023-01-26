@@ -5,7 +5,6 @@
 @import "~@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css";
 @import "~@getflip/swirl-tokens/dist/css/styles.dark.custom-properties.css";
 @import "~@getflip/swirl-icons/dist/swirl-icons.css";
-@import "@algolia/autocomplete-theme-classic/dist/theme.css";
 
 @font-face {
   font-family: "Inter var experimental";
@@ -14,6 +13,23 @@
   font-display: swap;
   src: url("/fonts/Inter.var.woff2") format("woff2-variations"),
     url("/fonts/Inter.var.woff2") format("woff2");
+}
+
+.ais-SearchBox-submit {
+  display: none;
+}
+
+.ais-SearchBox-reset {
+  display: none;
+}
+
+.ais-SearchBox-submit {
+  display: none;
+}
+
+.ais-SearchBox-input {
+  width: 100%;
+  outline: none;
 }
 
 :root {

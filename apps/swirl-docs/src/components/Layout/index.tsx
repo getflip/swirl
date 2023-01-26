@@ -1,3 +1,5 @@
+import { CommandMenu } from "../CommandMenu/CommandPallete";
+import DocSearchComponent from "../DocSearch/DocSearch";
 import HeaderNavigation from "../HeaderNavigation";
 
 interface LayoutProps {
@@ -8,6 +10,8 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <HeaderNavigation />
+      <CommandMenu />
+      {/* <DocSearchComponent /> */}
       {children}
     </>
   );

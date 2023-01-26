@@ -2,7 +2,8 @@
 import { SwirlIconDescription } from "@getflip/swirl-components-react";
 import classNames from "classnames";
 import { Action, KBarResults, useMatches } from "kbar";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useCallback } from "react";
+import { useHits } from "react-instantsearch-hooks-web";
 
 export function RenderResults() {
   const { results } = useMatches();
@@ -59,3 +60,32 @@ const ResultItem = forwardRef(
     );
   }
 );
+
+function Search() {
+  const transformItems = useCallback(
+    (items: any) =>
+      items.map((item: any) => ({
+        ...item,
+      })),
+    []
+  );
+  const { hits } = useHits({
+    transformItems,
+  });
+
+  console.log(hits);
+
+  return (
+    <div>
+      {hits.map((item) => {
+        return (
+          <div key={item.objectID}>
+            <>
+              {item.objectID} {item.path}
+            </>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
