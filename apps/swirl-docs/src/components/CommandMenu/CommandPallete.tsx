@@ -59,38 +59,42 @@ export const CommandMenu = () => {
   }, []);
 
   return (
-    <Command.Dialog
+    <div
       className={classNames(
-        "fixed top-32 left-[50%] translate-x-[-50%] w-full max-w-xl z-20",
-        "border-1 rounded-border-radius-sm",
-        "bg-surface-default border-border-default"
+        "fixed top-o z-[20] h-screen w-screen",
+        "bg-black/60",
+        {
+          hidden: !open,
+          block: open,
+        }
       )}
-      open={open}
-      onOpenChange={setOpen}
-      label="Global Command Menu"
     >
-      <div className="w-full h-full" ref={containerRef} />
-      <InstantSearch searchClient={algoliaClient} indexName={ALGOLIA_INDEX.DEV}>
-        <SearchBox
-          autoFocus
-          placeholder="Search..."
-          className="px-4 py-3 w-full outline-none border-b-1 text-text-subdued"
-        />
+      <Command.Dialog
+        className={classNames(
+          "fixed top-32 left-[50%] translate-x-[-50%] w-full max-w-xl z-20",
+          "border-1 rounded-border-radius-sm",
+          "bg-surface-default border-border-default"
+        )}
+        open={open}
+        onOpenChange={setOpen}
+        label="Global Command Menu"
+      >
+        <div className="w-full h-full" ref={containerRef} />
+        <InstantSearch
+          searchClient={algoliaClient}
+          indexName={ALGOLIA_INDEX.DEV}
+        >
+          <SearchBox
+            autoFocus
+            placeholder="Search..."
+            className="px-4 py-3 w-full outline-none border-b-1 text-text-subdued"
+          />
 
-        <Command.List>
-          <CustomHits />
-        </Command.List>
-      </InstantSearch>
-    </Command.Dialog>
+          <Command.List>
+            <CustomHits />
+          </Command.List>
+        </InstantSearch>
+      </Command.Dialog>
+    </div>
   );
 };
-
-function EmptyQueryBoundary({ children, fallback }: any) {
-  const { indexUiState } = useInstantSearch();
-
-  if (!indexUiState.query) {
-    return fallback;
-  }
-
-  return children;
-}
