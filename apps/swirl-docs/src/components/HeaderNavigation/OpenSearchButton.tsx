@@ -5,12 +5,13 @@ import { FunctionComponent } from "react";
 
 export const OpenSearchButton: FunctionComponent = () => {
   function openCommandPalette() {
+    console.log("open button clicked");
     commandPaletteObserver.set(true);
   }
 
   return (
     <button
-      onClick={openCommandPalette}
+      onClick={() => openCommandPalette()}
       aria-label="open search"
       className={classNames(
         "inline-flex items-center justify-between w-full md:max-w-[16rem] max-h-10 p-2",

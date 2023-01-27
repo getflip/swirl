@@ -45,7 +45,7 @@ export const CommandPalette = () => {
 
   useEffect(() => {
     router.events.on("routeChangeComplete", () => {
-      setOpen(!open);
+      setOpen(false);
     });
   }, [router, open]);
 
@@ -85,7 +85,7 @@ export const CommandPalette = () => {
           "bg-surface-default border-border-default"
         )}
         open={open}
-        onOpenChange={setOpen}
+        onOpenChange={() => setOpen(!open)}
         label="Global Command Menu"
       >
         <div className="w-full h-full" ref={containerRef} />
