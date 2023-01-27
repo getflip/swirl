@@ -99,22 +99,23 @@ function createTokenAlgoliaData(tokens: SwirlTokensWithoutColor): AlogliaData {
  * CREATE function to gather algolia data for all tokens
  */
 function getAlgoliaDataForTokens(): AlogliaData {
-  const data = getTokens([
-    "borderRadius",
-    "borderWidth",
-    "fontSizes",
-    "fontWeights",
-    "letterSpacing",
-    "lineHeights",
-    "spacing",
-    "zIndex",
-  ]);
+  const tokensData = createTokenAlgoliaData(
+    getTokens([
+      "borderRadius",
+      "borderWidth",
+      "fontSizes",
+      "fontWeights",
+      "letterSpacing",
+      "lineHeights",
+      "spacing",
+      "zIndex",
+    ])
+  );
   // filter through data and use mapping functions to check which url it is at the end.
 
   const colorTokensAlgoliaData = createColorTokenAlgoliaData(getColorTokens());
-
   console.log(colorTokensAlgoliaData);
-  // console.log(data);
+
   return [];
 }
 
