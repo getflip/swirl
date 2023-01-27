@@ -22,7 +22,6 @@ async function getComponentData(document: string) {
 }
 
 export const getStaticPaths = async () => {
-  // TODO: refactor this to use enums for the token params
   const categoryDocs = createStaticPathsData(DOCUMENTATION_CATEGORY.TOKENS);
 
   return {
@@ -35,7 +34,6 @@ export const getStaticProps: GetStaticProps<
   ScriptProps,
   { tokenDoc: string }
 > = async (context: any) => {
-  // TODO: how to type the component
   const { tokenDoc } = context.params;
 
   const document = await getComponentData(tokenDoc);

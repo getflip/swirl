@@ -1,7 +1,7 @@
 import { ColorTokenGroups, ColorTokens } from "./token.model";
 import { generateTokenValueWithUnit } from "./utils";
 
-const tokensLight = require("@getflip/swirl-tokens/dist/styles.light.json");
+import tokensLight from "@getflip/swirl-tokens/dist/styles.light.json";
 
 export const getColorTokens = (): ColorTokens => {
   const colorTokens: ColorTokens = {

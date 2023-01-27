@@ -1,12 +1,14 @@
 import {
   BorderTokenCategories,
   SpacingTokenCategories,
+  SwirlTokensWithoutColor,
   Token,
+  TokensWithoutColors,
   TypographyTokenCategories,
   ZIndexTokenCategories,
 } from "./token.model";
 
-const tokensLight = require("@getflip/swirl-tokens/dist/styles.light.json");
+import tokensLight from "@getflip/swirl-tokens/dist/styles.light.json";
 
 export const isTypographyToken = (token: string) =>
   TypographyTokenCategories.includes(token);
@@ -18,7 +20,12 @@ export const isSpacingToken = (token: string) =>
   SpacingTokenCategories.includes(token);
 export const isColorIndex = (token: string) => token === "color";
 
-export function getTokens(tokenCategories: string[]) {
+type tokenblableblubb = {
+  [K in Token["type"]]: Token;
+};
+export function getTokens(
+  tokenCategories: Array<TokensWithoutColors>
+): SwirlTokensWithoutColor {
   const tokensObject: any = {};
   tokenCategories.forEach((category) => {
     tokensObject[category] = [];
