@@ -10,6 +10,30 @@ import {
 import { searchClient } from "../Search/Algolia";
 import { useRouter } from "next/router";
 import { CustomHits } from "./CustomHits";
+import { SearchClient } from "algoliasearch/lite";
+
+const algoliaClient: SearchClient = {
+  ...searchClient,
+  search(requests: any) {
+    if (requests.every(({ params }: any) => !params.query)) {
+      return Promise.resolve({
+        results: requests.map(() => ({
+          hits: [],
+          nbHits: 0,
+          nbPages: 0,
+          page: 0,
+          processingTimeMS: 0,
+          hitsPerPage: 0,
+          exhaustiveNbHits: false,
+          query: "",
+          params: "",
+        })),
+      });
+    }
+
+    return searchClient.search(requests);
+  },
+};
 
 export const CommandMenu = () => {
   const down = (e: any) => {
@@ -46,7 +70,7 @@ export const CommandMenu = () => {
       label="Global Command Menu"
     >
       <div className="w-full h-full" ref={containerRef} />
-      <InstantSearch searchClient={searchClient} indexName={ALGOLIA_INDEX.DEV}>
+      <InstantSearch searchClient={algoliaClient} indexName={ALGOLIA_INDEX.DEV}>
         <SearchBox
           autoFocus
           placeholder="Search..."
@@ -54,7 +78,6 @@ export const CommandMenu = () => {
         />
 
         <Command.List>
-          <Command.Empty>No results found.</Command.Empty>
           <CustomHits />
         </Command.List>
       </InstantSearch>

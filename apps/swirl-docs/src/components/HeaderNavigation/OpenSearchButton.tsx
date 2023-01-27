@@ -1,14 +1,11 @@
 import { SwirlIconSearch } from "@getflip/swirl-components-react";
 import classNames from "classnames";
 import { FunctionComponent } from "react";
-import { useKBar } from "kbar";
 
 export const OpenSearchButton: FunctionComponent = () => {
-  const { query } = useKBar();
-
   return (
     <button
-      onClick={query.toggle}
+      onClick={() => console.log("toggle ")}
       aria-label="open search"
       className={classNames(
         "inline-flex items-center justify-between w-full md:max-w-[16rem] max-h-10 p-2",

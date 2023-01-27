@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { GTM_ID, isProd, pageview } from "../lib/gtm";
 import { KBarProvider } from "kbar";
-import { FloatingSearch } from "src/components/Search/FloatingSearch";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -36,7 +35,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <KBarProvider actions={actions} options={{ toggleShortcut: "Slash" }}>
-      <FloatingSearch />
       <Layout>
         {/* Google Tag Manager - Global base code */}
         {isProd && (

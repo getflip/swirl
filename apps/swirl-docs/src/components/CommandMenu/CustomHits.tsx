@@ -1,36 +1,18 @@
-import { SwirlIconDescription } from "@getflip/swirl-components-react";
 import classNames from "classnames";
 import { Command } from "cmdk";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { useHits } from "react-instantsearch-hooks-web";
-
-function transformItems(items: any) {
-  return items.map((item: any) => {
-    if (item.path.includes("-tokens")) {
-      return {
-        ...item,
-        icon: <SwirlIconDescription size={20} />,
-        path: item.path.replace("-tokens", ""),
-      };
-    }
-    return {
-      ...item,
-    };
-  });
-}
 
 export function CustomHits() {
   const router = useRouter();
-  const { hits, results, sendEvent } = useHits();
-  // const transformedHits = transformItems(hits);
+  const { hits } = useHits();
+  const [activeItem, setActiveItem] = useState<any>();
 
   const tokensHits = hits.filter((hit: any) => hit.path.includes("-tokens"));
   const componentHits = hits.filter((hit: any) =>
     hit.path.includes("components")
   );
-
-  console.log("tokens", tokensHits);
-  console.log("components", componentHits);
 
   return (
     <>
@@ -42,7 +24,10 @@ export function CustomHits() {
           {tokensHits.map((hit: any) => (
             <Command.Item
               key={hit.objectID}
-              onSelect={() => router.push(hit.path)}
+              onFocus={() => setActiveItem(hit)}
+              onSelect={() => {
+                router.push(activeItem.path.replace("-tokens", ""));
+              }}
             >
               <button
                 className={classNames(
@@ -55,7 +40,7 @@ export function CustomHits() {
                 )}
               >
                 <div className="inline-flex items-center max-w-5 max-h-5 pl-4 pr-3">
-                  {hit.icon}
+                  <div className="w-5 h-5 bg-surface-warning-default rounded-border-radius-xs"></div>
                 </div>
                 <div>
                   <h4 className="text-font-size-sm font-medium text-text-default">
@@ -78,7 +63,10 @@ export function CustomHits() {
           {componentHits.map((hit: any) => (
             <Command.Item
               key={hit.objectID}
-              onSelect={() => router.push(hit.path)}
+              onFocus={() => setActiveItem(hit)}
+              onSelect={() => {
+                router.push(activeItem.path);
+              }}
             >
               <button
                 className={classNames(
@@ -91,7 +79,11 @@ export function CustomHits() {
                 )}
               >
                 <div className="inline-flex items-center max-w-5 max-h-5 pl-4 pr-3">
-                  <SwirlIconDescription size={20} />
+                  <img
+                    className="w-5 h-5"
+                    src="/images/component.svg"
+                    alt="component"
+                  />
                 </div>
                 <div>
                   <h4 className="text-font-size-sm font-medium text-text-default">
