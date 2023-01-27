@@ -35,15 +35,13 @@ const algoliaClient: SearchClient = {
 };
 
 export const CommandPalette = () => {
-  const down = (e: any) => {
-    if (e.key === "k" && e.metaKey) {
-      setOpen((open) => !open);
-    }
-  };
-
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const containerRef = useRef(null);
+
+  const onOpenStateUpdate: CommandPaletteObserver = (isOpen: boolean) => {
+    setOpen(isOpen);
+  };
 
   useEffect(() => {
     router.events.on("routeChangeComplete", () => {
@@ -53,18 +51,19 @@ export const CommandPalette = () => {
 
   // Toggle the menu when ⌘K is pressed
   useEffect(() => {
+    const down = (e: any) => {
+      if (e.key === "k" && e.metaKey) {
+        setOpen((open) => !open);
+      }
+    };
+
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
 
-  const onOpenStateUpdate: CommandPaletteObserver = (isOpen: boolean) => {
-    setOpen(isOpen);
-  };
-
   // observer pattern for isOpen State
   useEffect(() => {
     commandPaletteObserver.subscribe(onOpenStateUpdate);
-
     return () => commandPaletteObserver.unsubscribe(onOpenStateUpdate);
   });
 
