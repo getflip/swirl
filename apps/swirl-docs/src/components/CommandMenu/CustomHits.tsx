@@ -1,8 +1,8 @@
-import classNames from "classnames";
 import { Command } from "cmdk";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useHits } from "react-instantsearch-hooks-web";
+import { CommandHit } from "./CommandHit";
 
 export function CustomHits() {
   const router = useRouter();
@@ -22,36 +22,18 @@ export function CustomHits() {
             Tokens
           </h3>
           {tokensHits.map((hit: any) => (
-            <Command.Item
-              key={hit.objectID}
-              onFocus={() => setActiveItem(hit)}
-              onSelect={() => {
+            <CommandHit
+              key={hit.objectId}
+              title={hit.objectID}
+              description={hit.objectID}
+              icon={
+                <div className="w-5 h-5 bg-surface-warning-default rounded-border-radius-xs"></div>
+              }
+              handleOnFocus={() => setActiveItem(hit)}
+              handleOnSelect={() => {
                 router.push(activeItem.path.replace("-tokens", ""));
               }}
-            >
-              <button
-                className={classNames(
-                  "flex w-full h-full py-2",
-                  "bg-surface-overlay-default",
-                  "hover:bg-surface-hovered",
-                  "focus:bg-surface-hovered",
-                  "active:bg-surface-pressed",
-                  "outline-none"
-                )}
-              >
-                <div className="inline-flex items-center max-w-5 max-h-5 pl-4 pr-3">
-                  <div className="w-5 h-5 bg-surface-warning-default rounded-border-radius-xs"></div>
-                </div>
-                <div>
-                  <h4 className="text-font-size-sm font-medium text-text-default">
-                    {hit.objectID}
-                  </h4>
-                  <p className="text-font-size-sm font-normal text-text-subdued">
-                    {hit.objectID}
-                  </p>
-                </div>
-              </button>
-            </Command.Item>
+            />
           ))}
         </Command.Group>
       )}
@@ -61,40 +43,22 @@ export function CustomHits() {
             Components
           </h3>
           {componentHits.map((hit: any) => (
-            <Command.Item
-              key={hit.objectID}
-              onFocus={() => setActiveItem(hit)}
-              onSelect={() => {
+            <CommandHit
+              key={hit.objectId}
+              title={hit.objectID}
+              description={hit.objectID}
+              icon={
+                <img
+                  className="w-5 h-5"
+                  src="/images/component.svg"
+                  alt="component"
+                />
+              }
+              handleOnFocus={() => setActiveItem(hit)}
+              handleOnSelect={() => {
                 router.push(activeItem.path);
               }}
-            >
-              <button
-                className={classNames(
-                  "flex w-full h-full py-2",
-                  "bg-surface-overlay-default",
-                  "hover:bg-surface-hovered",
-                  "focus:bg-surface-pressed",
-                  "active:bg-surface-pressed",
-                  "outline-none"
-                )}
-              >
-                <div className="inline-flex items-center max-w-5 max-h-5 pl-4 pr-3">
-                  <img
-                    className="w-5 h-5"
-                    src="/images/component.svg"
-                    alt="component"
-                  />
-                </div>
-                <div>
-                  <h4 className="text-font-size-sm font-medium text-text-default">
-                    {hit.objectID}
-                  </h4>
-                  <p className="text-font-size-sm font-normal text-text-subdued">
-                    {hit.objectID}
-                  </p>
-                </div>
-              </button>
-            </Command.Item>
+            />
           ))}
         </Command.Group>
       )}
