@@ -73,7 +73,7 @@ export function CustomHits() {
                   "flex w-full h-full py-2",
                   "bg-surface-overlay-default",
                   "hover:bg-surface-hovered",
-                  "focus:bg-surface-hovered",
+                  "focus:bg-surface-pressed",
                   "active:bg-surface-pressed",
                   "outline-none"
                 )}
