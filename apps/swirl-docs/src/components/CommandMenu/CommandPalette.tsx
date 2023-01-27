@@ -2,15 +2,14 @@ import { ALGOLIA_INDEX } from "@swirl/lib/search";
 import classNames from "classnames";
 import { Command } from "cmdk";
 import { useEffect, useRef, useState } from "react";
-import {
-  InstantSearch,
-  SearchBox,
-  useInstantSearch,
-} from "react-instantsearch-hooks-web";
+import { InstantSearch, SearchBox } from "react-instantsearch-hooks-web";
 import { searchClient } from "../Search/Algolia";
 import { useRouter } from "next/router";
 import { CustomHits } from "./CustomHits";
 import { SearchClient } from "algoliasearch/lite";
+import commandPaletteObserver, {
+  CommandPaletteObserver,
+} from "@swirl/lib/search/commandPaletteObserver";
 
 const algoliaClient: SearchClient = {
   ...searchClient,
@@ -35,7 +34,7 @@ const algoliaClient: SearchClient = {
   },
 };
 
-export const CommandMenu = () => {
+export const CommandPalette = () => {
   const down = (e: any) => {
     if (e.key === "k" && e.metaKey) {
       setOpen((open) => !open);
@@ -58,10 +57,21 @@ export const CommandMenu = () => {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
+  const onOpenStateUpdate: CommandPaletteObserver = (isOpen: boolean) => {
+    setOpen(isOpen);
+  };
+
+  // observer pattern for isOpen State
+  useEffect(() => {
+    commandPaletteObserver.subscribe(onOpenStateUpdate);
+
+    return () => commandPaletteObserver.unsubscribe(onOpenStateUpdate);
+  });
+
   return (
     <div
       className={classNames(
-        "fixed top-o z-[20] h-screen w-screen",
+        "fixed top-0 z-[20] h-screen w-screen",
         "bg-black/60",
         {
           hidden: !open,
@@ -72,7 +82,7 @@ export const CommandMenu = () => {
       <Command.Dialog
         className={classNames(
           "fixed top-32 left-[50%] translate-x-[-50%] w-full max-w-xl z-20",
-          "border-1 rounded-border-radius-sm",
+          "border-1 rounded-border-radius-sm overflow-hidden",
           "bg-surface-default border-border-default"
         )}
         open={open}

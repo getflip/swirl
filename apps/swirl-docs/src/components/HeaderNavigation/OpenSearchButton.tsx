@@ -1,11 +1,16 @@
 import { SwirlIconSearch } from "@getflip/swirl-components-react";
+import commandPaletteObserver from "@swirl/lib/search/commandPaletteObserver";
 import classNames from "classnames";
 import { FunctionComponent } from "react";
 
 export const OpenSearchButton: FunctionComponent = () => {
+  function openCommandPalette() {
+    commandPaletteObserver.set(true);
+  }
+
   return (
     <button
-      onClick={() => console.log("toggle ")}
+      onClick={openCommandPalette}
       aria-label="open search"
       className={classNames(
         "inline-flex items-center justify-between w-full md:max-w-[16rem] max-h-10 p-2",
