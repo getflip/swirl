@@ -21,8 +21,9 @@ import {
   isZindexToken,
 } from "@swirl/lib/tokens/src/utils";
 import algoliasearch from "algoliasearch";
-
 import dotenv from "dotenv";
+
+import icons from "@getflip/swirl-icons/dist/metadata.js";
 type AlogliaData = Record<string, any>[];
 
 function getAlgoliaDataForCategory(
@@ -154,6 +155,27 @@ function createTokenAlgoliaData(): AlogliaData {
   return algoliaIndexableData;
 }
 
+function createIconAlgoliaData(): AlogliaData {
+  const iconsArray = Object.keys(icons);
+
+  let algoliaIndexableData: AlogliaData = [];
+
+  iconsArray?.forEach((icon: any) => {
+    algoliaIndexableData.push({
+      objectID: `swirl-icon-${icon}`,
+      title: icon,
+      type: "icon",
+      path: `/icons#${icon}`,
+    });
+  });
+
+  if (!algoliaIndexableData) {
+    throw new Error(`Could not generate Algolia data for category: ${123}`);
+  }
+
+  return algoliaIndexableData;
+}
+
 function getAlgoliaDataForTokens(): AlogliaData {
   const tokensAlgoliaData = createTokenAlgoliaData();
   const colorTokensAlgoliaData = createColorTokenAlgoliaData(getColorTokens());
@@ -180,8 +202,13 @@ async function generateAlgoliaData() {
       DOCUMENTATION_CATEGORY.COMPONENTS
     );
     const tokens = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.TOKENS);
-    // const icons = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.ICONS);
-    const transformed = [...components, ...tokens, ...singleTokensData];
+    const iconsData = createIconAlgoliaData();
+    const transformed = [
+      ...components,
+      ...iconsData,
+      ...tokens,
+      ...singleTokensData,
+    ];
 
     const client = algoliasearch(
       process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!!,
