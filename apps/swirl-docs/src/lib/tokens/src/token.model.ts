@@ -24,7 +24,7 @@ interface Todo {
 
 export type TokensWithoutColors = Exclude<SwirlTokenCategory, "color" | "size">;
 export type SwirlTokensWithoutColor = {
-  [K in TokensWithoutColors]: Token;
+  [K in TokensWithoutColors]: Token[];
 };
 export type SizeTokenCategory = "size";
 

@@ -20,9 +20,6 @@ export const isSpacingToken = (token: string) =>
   SpacingTokenCategories.includes(token);
 export const isColorIndex = (token: string) => token === "color";
 
-type tokenblableblubb = {
-  [K in Token["type"]]: Token;
-};
 export function getTokens(
   tokenCategories: Array<TokensWithoutColors>
 ): SwirlTokensWithoutColor {
