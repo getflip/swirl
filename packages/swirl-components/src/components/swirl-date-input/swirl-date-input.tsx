@@ -117,7 +117,7 @@ export class SwirlDateInput {
     this.valueChange.emit(newValue);
   };
 
-  private onInput = (event: Event) => {
+  private onInput = (event: InputEvent) => {
     this.onChange(event);
   };
 
