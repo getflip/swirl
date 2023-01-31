@@ -80,7 +80,7 @@ export const CommandPalette = () => {
     >
       <Command.Dialog
         className={classNames(
-          "fixed top-32 left-[50%] translate-x-[-50%] w-full max-w-xl z-20",
+          "fixed top-0 md:top-32 left-[50%] translate-x-[-50%] w-full max-w-xl z-20",
           "border-1 rounded-border-radius-sm overflow-hidden",
           "bg-surface-default border-border-default"
         )}
