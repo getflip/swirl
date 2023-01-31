@@ -58,8 +58,8 @@ describe("swirl-lightbox", () => {
             <swirl-stack>
               <div class="lightbox__meta">
                 <div class="lightbox__file-info">
-                  <swirl-text weight="semibold"></swirl-text>
-                  <swirl-text color="subdued" size="sm"></swirl-text>
+                  <swirl-text truncate="" weight="semibold"></swirl-text>
+                  <swirl-text color="subdued" size="sm" truncate=""></swirl-text>
                 </div>
               </div>
               <swirl-separator></swirl-separator>
