@@ -197,7 +197,7 @@
   padding-top: var(--s-space-4);
   padding-right: var(--s-space-16);
   padding-bottom: var(--s-space-4);
-  padding-left: var(--s-space-16);
+  padding-left: var(--s-space-8);
   align-items: center;
   gap: var(--s-space-12);
 
@@ -209,6 +209,7 @@
 .pdf-reader__thumbnail {
   display: inline-flex;
   flex-shrink: 0;
+  padding-left: var(--s-space-4);
 }
 
 .pdf-reader__file-info {
