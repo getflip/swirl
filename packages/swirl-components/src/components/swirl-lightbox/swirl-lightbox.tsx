@@ -404,8 +404,10 @@ export class SwirlLightbox {
                 </div>
               )}
               <div class="lightbox__file-info">
-                <swirl-text weight="semibold">{currentFileName}</swirl-text>
-                <swirl-text color="subdued" size="sm">
+                <swirl-text truncate weight="semibold">
+                  {currentFileName}
+                </swirl-text>
+                <swirl-text color="subdued" size="sm" truncate>
                   {currentFileType}
                 </swirl-text>
               </div>

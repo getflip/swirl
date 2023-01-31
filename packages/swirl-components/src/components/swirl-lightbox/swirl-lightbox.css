@@ -151,10 +151,14 @@
   display: flex;
   padding-top: var(--s-space-4);
   padding-right: var(--s-space-16);
+  padding-bottom: var(--s-space-4);
   padding-left: var(--s-space-16);
   align-items: center;
   gap: var(--s-space-12);
-  padding-bottom: var(--s-space-4);
+
+  @media (--from-tablet) {
+    max-width: 18rem;
+  }
 }
 
 .lightbox__thumbnail {
@@ -164,6 +168,7 @@
 
 .lightbox__file-info {
   display: flex;
+  min-width: 0;
   flex-grow: 1;
   flex-direction: column;
 }
