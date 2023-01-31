@@ -99,7 +99,7 @@ export const CommandPalette = () => {
             className="px-4 py-3 w-full outline-none border-b-1 text-text-subdued"
           />
 
-          <Command.List>
+          <Command.List className="max-h-[36rem] overflow-y-auto">
             <CustomHits />
           </Command.List>
         </InstantSearch>

@@ -5,12 +5,13 @@ import {
   StaticPathMap,
 } from "@swirl/lib/docs";
 import { generateSerializableDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import { ALGOLIA_INDEX } from "@swirl/lib/search";
+import { AlgoliaRecord, ALGOLIA_INDEX } from "@swirl/lib/search";
 import {
   ColorTokenGroups,
   ColorTokens,
   getColorTokens,
   Token,
+  SwirlTokensWithoutColor,
   TokensWithoutColors,
 } from "@swirl/lib/tokens";
 import {
@@ -22,13 +23,12 @@ import {
 } from "@swirl/lib/tokens/src/utils";
 import algoliasearch from "algoliasearch";
 import dotenv from "dotenv";
-
+// @ts-expect-error
 import icons from "@getflip/swirl-icons/dist/metadata.js";
-type AlogliaData = Record<string, any>[];
 
 function getAlgoliaDataForCategory(
   category: DocumentationCategory
-): AlogliaData {
+): Array<AlgoliaRecord> {
   const categoryDocs = createStaticPathsData(category);
 
   const algoliaIndexableData = categoryDocs?.map((doc) => {
@@ -59,7 +59,9 @@ function getAlgoliaDataForCategory(
   return algoliaIndexableData;
 }
 
-function createColorTokenAlgoliaData(tokens: ColorTokens): AlogliaData {
+function createColorTokenAlgoliaData(
+  tokens: ColorTokens
+): Array<AlgoliaRecord> {
   const colorTokenGroups: Array<ColorTokenGroups> = [
     "action",
     "background",
@@ -70,7 +72,7 @@ function createColorTokenAlgoliaData(tokens: ColorTokens): AlogliaData {
     "text",
   ];
 
-  let algoliaIndexableData: AlogliaData = [];
+  let algoliaIndexableData: Array<AlgoliaRecord> = [];
 
   colorTokenGroups?.forEach((colorTokenGroup) => {
     const transformedTokens = tokens[colorTokenGroup];
@@ -94,27 +96,29 @@ function createColorTokenAlgoliaData(tokens: ColorTokens): AlogliaData {
   return algoliaIndexableData;
 }
 
-function getTokenTypeUrl(tokenType: Token["type"]): string {
-  if (isTypographyToken(tokenType)) {
+function getTokenTypeUrl(
+  tokenType: Token["type"]
+): AlgoliaRecord["tokenCategory"] {
+  if (isTypographyToken(tokenType as TokensWithoutColors)) {
     return "typography";
   }
 
-  if (isZindexToken(tokenType)) {
+  if (isZindexToken(tokenType as TokensWithoutColors)) {
     return "z-index";
   }
 
-  if (isBorderToken(tokenType)) {
+  if (isBorderToken(tokenType as TokensWithoutColors)) {
     return "border";
   }
 
-  if (isSpacingToken(tokenType)) {
+  if (isSpacingToken(tokenType as TokensWithoutColors)) {
     return "spacing";
   }
 
-  return "";
+  return "color";
 }
 
-function createTokenAlgoliaData(): AlogliaData {
+function createTokenAlgoliaData(): Array<AlgoliaRecord> {
   const tokenGroups: Array<TokensWithoutColors> = [
     "borderRadius",
     "borderWidth",
@@ -128,7 +132,7 @@ function createTokenAlgoliaData(): AlogliaData {
 
   const tokens = getTokens(tokenGroups);
 
-  let algoliaIndexableData: AlogliaData = [];
+  let algoliaIndexableData: Array<AlgoliaRecord> = [];
 
   tokenGroups?.forEach((tokenGroup) => {
     const transformedTokens = tokens[tokenGroup];
@@ -155,10 +159,10 @@ function createTokenAlgoliaData(): AlogliaData {
   return algoliaIndexableData;
 }
 
-function createIconAlgoliaData(): AlogliaData {
+function createIconAlgoliaData(): Array<AlgoliaRecord> {
   const iconsArray = Object.keys(icons);
 
-  let algoliaIndexableData: AlogliaData = [];
+  let algoliaIndexableData: Array<AlgoliaRecord> = [];
 
   iconsArray?.forEach((icon: any) => {
     algoliaIndexableData.push({
@@ -176,7 +180,7 @@ function createIconAlgoliaData(): AlogliaData {
   return algoliaIndexableData;
 }
 
-function getAlgoliaDataForTokens(): AlogliaData {
+function getAlgoliaDataForTokens(): Array<AlgoliaRecord> {
   const tokensAlgoliaData = createTokenAlgoliaData();
   const colorTokensAlgoliaData = createColorTokenAlgoliaData(getColorTokens());
   const data = [...tokensAlgoliaData, ...colorTokensAlgoliaData];

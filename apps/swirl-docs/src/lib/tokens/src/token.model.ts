@@ -1,4 +1,4 @@
-type SwirlTokenCategory =
+export type SwirlTokenCategory =
   | ColorTokenCategory
   | SizeTokenCategory
   | TypographyTokenCategory
@@ -15,13 +15,6 @@ export type Token = {
   unitAsString?: string;
 };
 
-interface Todo {
-  title: string;
-  description: string;
-  completed: boolean;
-  createdAt: number;
-}
-
 export type TokensWithoutColors = Exclude<SwirlTokenCategory, "color" | "size">;
 export type SwirlTokensWithoutColor = {
   [K in TokensWithoutColors]: Token[];
@@ -34,7 +27,7 @@ export type TypographyTokenCategory =
   | "letterSpacing"
   | "fontFamily"
   | "fontSizes";
-export const TypographyTokenCategories = [
+export const TypographyTokenCategories: Array<TokensWithoutColors> = [
   "fontWeights",
   "lineHeights",
   "letterSpacing",
@@ -51,20 +44,23 @@ export type TypographyTokens = {
 };
 
 export type BorderTokenCategory = "borderRadius" | "borderWidth";
-export const BorderTokenCategories = ["borderRadius", "borderWidth"];
+export const BorderTokenCategories: Array<TokensWithoutColors> = [
+  "borderRadius",
+  "borderWidth",
+];
 export type BorderTokens = {
   borderRadius: Token[];
   borderWidth: Token[];
 };
 
 export type SpacingTokenCategory = "spacing";
-export const SpacingTokenCategories = ["spacing"];
+export const SpacingTokenCategories: Array<TokensWithoutColors> = ["spacing"];
 export type SpacingTokens = {
   spacing: Token[];
 };
 
 export type ZIndexTokenCategory = "zIndex";
-export const ZIndexTokenCategories = ["zIndex"];
+export const ZIndexTokenCategories: Array<TokensWithoutColors> = ["zIndex"];
 export type ZIndexTokens = {
   zIndex: Token[];
 };

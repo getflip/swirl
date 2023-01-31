@@ -1,45 +1,61 @@
 import {
+  Token,
   BorderTokenCategories,
   SpacingTokenCategories,
   SwirlTokensWithoutColor,
-  Token,
-  TokensWithoutColors,
   TypographyTokenCategories,
   ZIndexTokenCategories,
+  SwirlTokenCategory,
+  TokensWithoutColors,
 } from "./token.model";
 
-import tokensLight from "@getflip/swirl-tokens/dist/styles.light.json";
+import tokensLightFromPackage from "@getflip/swirl-tokens/dist/styles.light.json";
 
-export const isTypographyToken = (token: string) =>
+export const isTypographyToken = (token: TokensWithoutColors) =>
   TypographyTokenCategories.includes(token);
-export const isZindexToken = (token: string) =>
+export const isZindexToken = (token: TokensWithoutColors) =>
   ZIndexTokenCategories.includes(token);
-export const isBorderToken = (token: string) =>
+export const isBorderToken = (token: TokensWithoutColors) =>
   BorderTokenCategories.includes(token);
-export const isSpacingToken = (token: string) =>
+export const isSpacingToken = (token: TokensWithoutColors) =>
   SpacingTokenCategories.includes(token);
-export const isColorIndex = (token: string) => token === "color";
+export const isColorIndex = (token: SwirlTokenCategory) => token === "color";
+
+type Dictionary = {
+  [key: string]: any;
+};
 
 export function getTokens(
   tokenCategories: Array<TokensWithoutColors>
 ): SwirlTokensWithoutColor {
-  const tokensObject: any = {};
+  const tokensObject: SwirlTokensWithoutColor = {
+    borderRadius: [],
+    borderWidth: [],
+    fontFamily: [],
+    fontSizes: [],
+    fontWeights: [],
+    letterSpacing: [],
+    lineHeights: [],
+    spacing: [],
+    zIndex: [],
+  };
   tokenCategories.forEach((category) => {
     tokensObject[category] = [];
   });
 
-  const lightTokenKeys = Object.keys(tokensLight);
+  const lightTokenKeys = Object.keys(tokensLightFromPackage);
+  const lightTokens = tokensLightFromPackage as Dictionary; // To get Typesafe import;
 
   const baseTokens = lightTokenKeys
-    .filter((key) => tokenCategories.includes(tokensLight[key].type))
-    .map((key) => tokensLight[key]);
+    .filter((key) => tokenCategories.includes(lightTokens[key].type))
+    .map((key: any) => lightTokens[key]);
 
   baseTokens.forEach((token: any) => {
     const tokenValueWithUnit = generateTokenValueWithUnit(token);
 
-    tokensObject[token.type]?.push({
+    tokensObject[token.type as TokensWithoutColors]?.push({
       name: token.name,
-      type: token.type,
+      type: token.type, // here it gets the type
       value: token.value,
       valueAsString: tokenValueWithUnit?.value,
       unitAsString: tokenValueWithUnit?.unit,
@@ -130,7 +146,7 @@ export function getColsString(tokens: Token[]) {
 
   if (
     TypographyTokenCategories.includes(
-      tokenType[0] || tokenType[0] === "fontWeights"
+      (tokenType[0] as TokensWithoutColors) || tokenType[0] === "fontWeights"
     )
   ) {
     return "typography-token-list";

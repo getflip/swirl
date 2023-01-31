@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 type CommandHitProps = {
   title: string;
-  description: string;
+  description?: string;
   icon: ReactNode;
   handleOnSelect: (value: any) => void;
   handleOnFocus: (value: any) => void;
@@ -30,16 +30,16 @@ export function CommandHit({
           "outline-none"
         )}
       >
-        <div className="inline-flex items-center max-w-5 max-h-5 pl-4 pr-3">
-          {icon}
-        </div>
-        <div>
+        <div className="inline-flex items-center max-w-5 pl-4 pr-3">{icon}</div>
+        <div className="flex flex-col items-start">
           <h4 className="text-font-size-sm font-medium text-text-default">
             {title}
           </h4>
-          <p className="text-font-size-sm font-normal text-text-subdued">
-            {description}
-          </p>
+          {description && (
+            <p className="text-font-size-sm font-normal text-text-subdued text-start">
+              {description}
+            </p>
+          )}
         </div>
       </button>
     </Command.Item>

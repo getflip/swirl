@@ -53,6 +53,10 @@ module.exports = {
     "text-[1.125.rem]",
     "text-[1.25.rem]",
     "text-[1.75.rem]",
+    ...safelist.zIndex,
+    ...safelist.spacing,
+    ...safelist.typography,
+    ...safelist.border,
     ...safelist.bgColors,
   ],
 };
