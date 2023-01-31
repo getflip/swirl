@@ -172,6 +172,82 @@ html.disable-desktop-style-tweaks {
       padding-left: calc(var(--s-space-12) + 1.5rem + var(--s-space-8));
     }
 
+    & ::part(skeleton-text--size-sm) {
+      @media (--from-desktop-without-touch) {
+        --skeleton-text-line-padding: calc(
+          (var(--s-line-height-sm) - var(--s-font-size-sm)) / 2
+        );
+      }
+    }
+
+    & ::part(skeleton-text--size-base) {
+      &::part(skeleton-text__line) {
+        @media (--from-desktop-without-touch) {
+          height: var(--s-line-height-base);
+        }
+      }
+
+      @media (--from-desktop-without-touch) {
+        --skeleton-text-line-padding: calc(
+          (var(--s-line-height-base) - var(--s-font-size-base)) / 2
+        );
+      }
+    }
+
+    & ::part(skeleton-text--size-lg) {
+      @media (--from-desktop-without-touch) {
+        --skeleton-text-line-padding: calc(
+          (var(--s-line-height-lg) - var(--s-font-size-lg)) / 2
+        );
+      }
+    }
+
+    & ::part(skeleton-text--size-xl) {
+      @media (--from-desktop-without-touch) {
+        --skeleton-text-line-padding: calc(
+          (var(--s-line-height-xl) - var(--s-font-size-xl)) / 2
+        );
+      }
+    }
+
+    & ::part(skeleton-text--size-2xl) {
+      @media (--from-desktop-without-touch) {
+        --skeleton-text-line-padding: calc(
+          (var(--s-line-height-2xl) - var(--s-font-size-2xl)) / 2
+        );
+      }
+    }
+
+    & ::part(skeleton-text__line--size-sm) {
+      @media (--from-desktop-without-touch) {
+        height: var(--s-line-height-sm);
+      }
+    }
+
+    & ::part(skeleton-text__line--size-base) {
+      @media (--from-desktop-without-touch) {
+        height: var(--s-line-height-base);
+      }
+    }
+
+    & ::part(skeleton-text__line--size-lg) {
+      @media (--from-desktop-without-touch) {
+        height: var(--s-line-height-lg);
+      }
+    }
+
+    & ::part(skeleton-text__line--size-xl) {
+      @media (--from-desktop-without-touch) {
+        height: var(--s-line-height-xl);
+      }
+    }
+
+    & ::part(skeleton-text__line--size-2xl) {
+      @media (--from-desktop-without-touch) {
+        height: var(--s-line-height-2xl);
+      }
+    }
+
     & .text--size-lg {
       font-size: var(--s-font-size-lg);
       line-height: var(--s-line-height-lg);

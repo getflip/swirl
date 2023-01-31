@@ -32,6 +32,8 @@ import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 import { Placement } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
+import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
@@ -861,6 +863,17 @@ export namespace Components {
         "value"?: string[];
     }
     interface SwirlSeparator {
+    }
+    interface SwirlSkeletonBox {
+        "aspectRatio"?: string;
+        "borderRadius"?: SwirlSkeletonBoxBorderRadius;
+        "height"?: string;
+        "width"?: string;
+    }
+    interface SwirlSkeletonText {
+        "animated"?: boolean;
+        "lines"?: number;
+        "size"?: SwirlSkeletonTextSize;
     }
     interface SwirlSpinner {
         "label"?: string;
@@ -2071,6 +2084,18 @@ declare global {
         prototype: HTMLSwirlSeparatorElement;
         new (): HTMLSwirlSeparatorElement;
     };
+    interface HTMLSwirlSkeletonBoxElement extends Components.SwirlSkeletonBox, HTMLStencilElement {
+    }
+    var HTMLSwirlSkeletonBoxElement: {
+        prototype: HTMLSwirlSkeletonBoxElement;
+        new (): HTMLSwirlSkeletonBoxElement;
+    };
+    interface HTMLSwirlSkeletonTextElement extends Components.SwirlSkeletonText, HTMLStencilElement {
+    }
+    var HTMLSwirlSkeletonTextElement: {
+        prototype: HTMLSwirlSkeletonTextElement;
+        new (): HTMLSwirlSkeletonTextElement;
+    };
     interface HTMLSwirlSpinnerElement extends Components.SwirlSpinner, HTMLStencilElement {
     }
     var HTMLSwirlSpinnerElement: {
@@ -2347,6 +2372,8 @@ declare global {
         "swirl-search": HTMLSwirlSearchElement;
         "swirl-select": HTMLSwirlSelectElement;
         "swirl-separator": HTMLSwirlSeparatorElement;
+        "swirl-skeleton-box": HTMLSwirlSkeletonBoxElement;
+        "swirl-skeleton-text": HTMLSwirlSkeletonTextElement;
         "swirl-spinner": HTMLSwirlSpinnerElement;
         "swirl-stack": HTMLSwirlStackElement;
         "swirl-switch": HTMLSwirlSwitchElement;
@@ -3114,6 +3141,17 @@ declare namespace LocalJSX {
     }
     interface SwirlSeparator {
     }
+    interface SwirlSkeletonBox {
+        "aspectRatio"?: string;
+        "borderRadius"?: SwirlSkeletonBoxBorderRadius;
+        "height"?: string;
+        "width"?: string;
+    }
+    interface SwirlSkeletonText {
+        "animated"?: boolean;
+        "lines"?: number;
+        "size"?: SwirlSkeletonTextSize;
+    }
     interface SwirlSpinner {
         "label"?: string;
         "size"?: SwirlSpinnerSize;
@@ -3412,6 +3450,8 @@ declare namespace LocalJSX {
         "swirl-search": SwirlSearch;
         "swirl-select": SwirlSelect;
         "swirl-separator": SwirlSeparator;
+        "swirl-skeleton-box": SwirlSkeletonBox;
+        "swirl-skeleton-text": SwirlSkeletonText;
         "swirl-spinner": SwirlSpinner;
         "swirl-stack": SwirlStack;
         "swirl-switch": SwirlSwitch;
@@ -3588,6 +3628,8 @@ declare module "@stencil/core" {
             "swirl-search": LocalJSX.SwirlSearch & JSXBase.HTMLAttributes<HTMLSwirlSearchElement>;
             "swirl-select": LocalJSX.SwirlSelect & JSXBase.HTMLAttributes<HTMLSwirlSelectElement>;
             "swirl-separator": LocalJSX.SwirlSeparator & JSXBase.HTMLAttributes<HTMLSwirlSeparatorElement>;
+            "swirl-skeleton-box": LocalJSX.SwirlSkeletonBox & JSXBase.HTMLAttributes<HTMLSwirlSkeletonBoxElement>;
+            "swirl-skeleton-text": LocalJSX.SwirlSkeletonText & JSXBase.HTMLAttributes<HTMLSwirlSkeletonTextElement>;
             "swirl-spinner": LocalJSX.SwirlSpinner & JSXBase.HTMLAttributes<HTMLSwirlSpinnerElement>;
             "swirl-stack": LocalJSX.SwirlStack & JSXBase.HTMLAttributes<HTMLSwirlStackElement>;
             "swirl-switch": LocalJSX.SwirlSwitch & JSXBase.HTMLAttributes<HTMLSwirlSwitchElement>;
