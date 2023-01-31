@@ -2998,7 +2998,19 @@
           "description": ""
         },
         {
+          "name": "file-type-label",
+          "description": ""
+        },
+        {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "menu-label",
+          "description": ""
+        },
+        {
+          "name": "menu-trigger-label",
           "description": ""
         },
         {
@@ -3426,6 +3438,9 @@
             },
             {
               "name": "s"
+            },
+            {
+              "name": "xs"
             }
           ]
         }

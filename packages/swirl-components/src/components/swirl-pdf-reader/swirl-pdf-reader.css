@@ -192,6 +192,32 @@
   }
 }
 
+.pdf-reader__meta {
+  display: flex;
+  padding-top: var(--s-space-4);
+  padding-right: var(--s-space-16);
+  padding-bottom: var(--s-space-4);
+  padding-left: var(--s-space-16);
+  align-items: center;
+  gap: var(--s-space-12);
+
+  @media (--from-tablet) {
+    max-width: 18rem;
+  }
+}
+
+.pdf-reader__thumbnail {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.pdf-reader__file-info {
+  display: flex;
+  min-width: 0;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
 @keyframes pdf-reader-fade-in {
   from {
     opacity: 0;

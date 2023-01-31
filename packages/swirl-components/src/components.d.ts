@@ -767,7 +767,10 @@ export namespace Components {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "file": string;
+        "fileTypeLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         /**
           * Open the reader.
          */
@@ -3026,7 +3029,10 @@ declare namespace LocalJSX {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "file": string;
+        "fileTypeLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         "printButtonLabel"?: string;
         "zoomInButtonLabel"?: string;
         "zoomOutButtonLabel"?: string;

@@ -53,22 +53,22 @@ describe("swirl-lightbox", () => {
                 <span aria-current="page">1</span> / 2
               </span>
             </div>
-          </section>
-          <swirl-popover label="Slide options" placement="bottom-end" popoverid="slide-menu" trigger="slide-menu-trigger">
-            <swirl-stack>
-              <div class="lightbox__meta">
-                <div class="lightbox__file-info">
-                  <swirl-text truncate="" weight="semibold"></swirl-text>
-                  <swirl-text color="subdued" size="sm" truncate=""></swirl-text>
+            <swirl-popover label="Slide options" placement="bottom-end" popoverid="slide-menu" trigger="slide-menu-trigger">
+              <swirl-stack>
+                <div class="lightbox__meta">
+                  <div class="lightbox__file-info">
+                    <swirl-text truncate="" weight="semibold"></swirl-text>
+                    <swirl-text color="subdued" size="sm" truncate=""></swirl-text>
+                  </div>
                 </div>
-              </div>
-              <swirl-separator></swirl-separator>
-              <swirl-action-list>
-                <swirl-action-list-item icon="<swirl-icon-download></swirl-icon-download>" label="Download"></swirl-action-list-item>
-                <slot name="menu-items"></slot>
-              </swirl-action-list>
-            </swirl-stack>
-          </swirl-popover>
+                <swirl-separator></swirl-separator>
+                <swirl-action-list>
+                  <swirl-action-list-item icon="<swirl-icon-download></swirl-icon-download>" label="Download"></swirl-action-list-item>
+                  <slot name="menu-items"></slot>
+                </swirl-action-list>
+              </swirl-stack>
+            </swirl-popover>
+          </section>
         </mock:shadow-root>
         <swirl-file-viewer active="true" aria-label="undefined" aria-roledescription="slide" description="Cute dog in a blaket." file="/sample.jpg" role="group" type="image/jpeg" style="transform: translate3d(-0%, 0, 0);"></swirl-file-viewer>
         <swirl-file-viewer active="true" aria-hidden="true" aria-label="undefined" aria-roledescription="slide" file="/sample.mp4\" role=\"group\" type=\"video/mp4\" style=\"transform: translate3d(-0%, 0, 0);\"></swirl-file-viewer>

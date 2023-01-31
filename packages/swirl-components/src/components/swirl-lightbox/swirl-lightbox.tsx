@@ -385,44 +385,44 @@ export class SwirlLightbox {
               </span>
             )}
           </div>
-        </section>
-        <swirl-popover
-          label={this.menuLabel}
-          placement="bottom-end"
-          popoverId="slide-menu"
-          ref={(el) => (this.menu = el)}
-          trigger="slide-menu-trigger"
-        >
-          <swirl-stack>
-            <div class="lightbox__meta">
-              {currentThumbnailUrl && (
-                <div class="lightbox__thumbnail">
-                  <swirl-thumbnail
-                    alt=""
-                    src={currentThumbnailUrl}
-                  ></swirl-thumbnail>
+          <swirl-popover
+            label={this.menuLabel}
+            placement="bottom-end"
+            popoverId="slide-menu"
+            ref={(el) => (this.menu = el)}
+            trigger="slide-menu-trigger"
+          >
+            <swirl-stack>
+              <div class="lightbox__meta">
+                {currentThumbnailUrl && (
+                  <div class="lightbox__thumbnail">
+                    <swirl-thumbnail
+                      alt=""
+                      src={currentThumbnailUrl}
+                    ></swirl-thumbnail>
+                  </div>
+                )}
+                <div class="lightbox__file-info">
+                  <swirl-text truncate weight="semibold">
+                    {currentFileName}
+                  </swirl-text>
+                  <swirl-text color="subdued" size="sm" truncate>
+                    {currentFileType}
+                  </swirl-text>
                 </div>
-              )}
-              <div class="lightbox__file-info">
-                <swirl-text truncate weight="semibold">
-                  {currentFileName}
-                </swirl-text>
-                <swirl-text color="subdued" size="sm" truncate>
-                  {currentFileType}
-                </swirl-text>
               </div>
-            </div>
-            <swirl-separator></swirl-separator>
-            <swirl-action-list>
-              <swirl-action-list-item
-                icon="<swirl-icon-download></swirl-icon-download>"
-                label={this.downloadButtonLabel}
-                onClick={this.onDownloadButtonClick}
-              ></swirl-action-list-item>
-              <slot name="menu-items"></slot>
-            </swirl-action-list>
-          </swirl-stack>
-        </swirl-popover>
+              <swirl-separator></swirl-separator>
+              <swirl-action-list>
+                <swirl-action-list-item
+                  icon="<swirl-icon-download></swirl-icon-download>"
+                  label={this.downloadButtonLabel}
+                  onClick={this.onDownloadButtonClick}
+                ></swirl-action-list-item>
+                <slot name="menu-items"></slot>
+              </swirl-action-list>
+            </swirl-stack>
+          </swirl-popover>
+        </section>
       </Host>
     );
   }
