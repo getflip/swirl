@@ -308,6 +308,7 @@ export namespace Components {
           * Print the file. Applicable to PDFs only.
          */
         "print": () => Promise<void>;
+        "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
         "zoom"?: SwirlFileViewerPdfZoom;
@@ -689,6 +690,8 @@ export namespace Components {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         "nextSlideButtonLabel"?: string;
         /**
           * Open the lightbox.
@@ -2601,6 +2604,7 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerCustomEvent<HTMLElement>) => void;
+        "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
         "zoom"?: SwirlFileViewerPdfZoom;
@@ -2953,6 +2957,8 @@ declare namespace LocalJSX {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         "nextSlideButtonLabel"?: string;
         "previousSlideButtonLabel"?: string;
     }

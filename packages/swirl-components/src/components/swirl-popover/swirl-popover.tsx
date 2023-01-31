@@ -21,7 +21,11 @@ import {
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
-import { isMobileViewport, querySelectorAllDeep } from "../../utils";
+import {
+  getActiveElement,
+  isMobileViewport,
+  querySelectorAllDeep,
+} from "../../utils";
 
 export type SwirlPopoverAnimation = "scale-in-xy" | "scale-in-y";
 
@@ -75,8 +79,10 @@ export class SwirlPopover {
     }
 
     const target = event.target as HTMLElement;
+    const activeElement = getActiveElement();
 
-    const popoverLostFocus = !this.el.contains(target);
+    const popoverLostFocus =
+      !this.el.contains(target) && !this.el.contains(activeElement);
 
     if (popoverLostFocus) {
       this.close();

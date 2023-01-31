@@ -1158,6 +1158,10 @@
           "description": ""
         },
         {
+          "name": "thumbnail-url",
+          "description": ""
+        },
+        {
           "name": "type",
           "description": ""
         },
@@ -2711,6 +2715,14 @@
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "menu-label",
+          "description": ""
+        },
+        {
+          "name": "menu-trigger-label",
           "description": ""
         },
         {

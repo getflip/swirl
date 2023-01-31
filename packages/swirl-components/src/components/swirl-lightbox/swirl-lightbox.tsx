@@ -21,8 +21,10 @@ export class SwirlLightbox {
   @Element() el: HTMLElement;
 
   @Prop() closeButtonLabel?: string = "Close modal";
-  @Prop() downloadButtonLabel?: string = "Download active slide content";
+  @Prop() downloadButtonLabel?: string = "Download";
   @Prop() label!: string;
+  @Prop() menuLabel?: string = "Slide options";
+  @Prop() menuTriggerLabel?: string = "Open slide menu";
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
 
@@ -33,6 +35,7 @@ export class SwirlLightbox {
   private dragging: boolean = false;
   private dragStartPosition: number;
   private dragDelta: number;
+  private menu: HTMLSwirlPopoverElement;
   private modal: A11yDialog;
   private modalEl: HTMLElement;
   private mediaPlayers: (HTMLVideoElement | HTMLAudioElement)[] = [];
@@ -85,6 +88,8 @@ export class SwirlLightbox {
    */
   @Method()
   async activateSlide(newActiveSlideIndex: number) {
+    this.menu?.close?.();
+
     this.dragging = false;
     this.activeSlideIndex = newActiveSlideIndex;
 
@@ -142,6 +147,18 @@ export class SwirlLightbox {
     });
   }
 
+  private getCurrentFileName() {
+    return this.slides[this.activeSlideIndex]?.file?.split("/").pop();
+  }
+
+  private getCurrentFileType() {
+    return this.slides[this.activeSlideIndex]?.type;
+  }
+
+  private getCurrentThumbnailUrl() {
+    return this.slides[this.activeSlideIndex]?.thumbnailUrl;
+  }
+
   private lockBodyScroll() {
     disableBodyScroll(this.el);
   }
@@ -156,6 +173,7 @@ export class SwirlLightbox {
 
   private onDownloadButtonClick = () => {
     this.slides[this.activeSlideIndex]?.download();
+    this.menu.close();
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
@@ -179,7 +197,9 @@ export class SwirlLightbox {
   };
 
   private registerSlides = () => {
-    this.slides = Array.from(this.el.children) as HTMLSwirlFileViewerElement[];
+    this.slides = Array.from(this.el.children).filter(
+      (el) => el.tagName === "SWIRL-FILE-VIEWER"
+    ) as HTMLSwirlFileViewerElement[];
     this.setSlideAttributes();
     this.updateMediaPlayers();
   };
@@ -285,6 +305,10 @@ export class SwirlLightbox {
   render() {
     const showPagination = this.slides.length > 1;
 
+    const currentFileName = this.getCurrentFileName();
+    const currentFileType = this.getCurrentFileType();
+    const currentThumbnailUrl = this.getCurrentThumbnailUrl();
+
     const className = classnames("lightbox", {
       "lightbox--closing": this.closing,
     });
@@ -316,11 +340,11 @@ export class SwirlLightbox {
                 <swirl-icon-close></swirl-icon-close>
               </button>
               <button
-                aria-label={this.downloadButtonLabel}
-                class="lightbox__download-button"
-                onClick={this.onDownloadButtonClick}
+                aria-label={this.menuTriggerLabel}
+                class="lightbox__menu-button"
+                id="slide-menu-trigger"
               >
-                <swirl-icon-download></swirl-icon-download>
+                <swirl-icon-more-vertikal></swirl-icon-more-vertikal>
               </button>
             </header>
             <div
@@ -362,6 +386,41 @@ export class SwirlLightbox {
             )}
           </div>
         </section>
+        <swirl-popover
+          label={this.menuLabel}
+          placement="bottom-end"
+          popoverId="slide-menu"
+          ref={(el) => (this.menu = el)}
+          trigger="slide-menu-trigger"
+        >
+          <swirl-stack>
+            <div class="lightbox__meta">
+              {currentThumbnailUrl && (
+                <div class="lightbox__thumbnail">
+                  <swirl-thumbnail
+                    alt=""
+                    src={currentThumbnailUrl}
+                  ></swirl-thumbnail>
+                </div>
+              )}
+              <div class="lightbox__file-info">
+                <swirl-text weight="semibold">{currentFileName}</swirl-text>
+                <swirl-text color="subdued" size="sm">
+                  {currentFileType}
+                </swirl-text>
+              </div>
+            </div>
+            <swirl-separator></swirl-separator>
+            <swirl-action-list>
+              <swirl-action-list-item
+                icon="<swirl-icon-download></swirl-icon-download>"
+                label={this.downloadButtonLabel}
+                onClick={this.onDownloadButtonClick}
+              ></swirl-action-list-item>
+              <slot name="menu-items"></slot>
+            </swirl-action-list>
+          </swirl-stack>
+        </swirl-popover>
       </Host>
     );
   }
