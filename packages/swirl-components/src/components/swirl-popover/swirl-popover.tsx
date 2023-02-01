@@ -41,6 +41,7 @@ export class SwirlPopover {
   @Element() el: HTMLElement;
 
   @Prop() animation?: SwirlPopoverAnimation = "scale-in-xy";
+  @Prop() disableScrollLock?: boolean;
   @Prop() enableFlip?: boolean = true;
   @Prop() label!: string;
   @Prop() offset?: number | number[] = 8;
@@ -69,7 +70,7 @@ export class SwirlPopover {
   }
 
   disconnectedCallback() {
-    enableBodyScroll(this.scrollContainer);
+    this.unlockBodyScroll();
   }
 
   @Listen("focusin", { target: "window" })
@@ -302,7 +303,7 @@ export class SwirlPopover {
   private lockBodyScroll() {
     const mobile = isMobileViewport();
 
-    if (!mobile) {
+    if (!mobile || this.disableScrollLock) {
       return;
     }
 
@@ -310,6 +311,12 @@ export class SwirlPopover {
   }
 
   private unlockBodyScroll() {
+    const mobile = isMobileViewport();
+
+    if (!mobile || this.disableScrollLock) {
+      return;
+    }
+
     enableBodyScroll(this.scrollContainer);
   }
 

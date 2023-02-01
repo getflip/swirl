@@ -787,6 +787,7 @@ export namespace Components {
           * @returns
          */
         "close": () => Promise<void>;
+        "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "label": string;
         "offset"?: number | number[];
@@ -3040,6 +3041,7 @@ declare namespace LocalJSX {
     }
     interface SwirlPopover {
         "animation"?: SwirlPopoverAnimation;
+        "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "label": string;
         "offset"?: number | number[];

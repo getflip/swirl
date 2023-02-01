@@ -386,6 +386,7 @@ export class SwirlLightbox {
             )}
           </div>
           <swirl-popover
+            disableScrollLock
             label={this.menuLabel}
             placement="bottom-end"
             popoverId="slide-menu"

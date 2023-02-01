@@ -3051,6 +3051,10 @@
           ]
         },
         {
+          "name": "disable-scroll-lock",
+          "description": ""
+        },
+        {
           "name": "enable-flip",
           "description": ""
         },
