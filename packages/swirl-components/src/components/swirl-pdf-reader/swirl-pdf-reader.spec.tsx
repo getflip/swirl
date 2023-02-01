@@ -69,7 +69,7 @@ describe("swirl-pdf-reader", () => {
                 </div>
               </div>
             </div>
-            <swirl-popover label="File menu" placement="bottom-end" popoverid="menu" trigger="menu-trigger">
+            <swirl-popover disablescrolllock="" label="File menu" placement="bottom-end" popoverid="menu" trigger="menu-trigger">
               <swirl-stack>
                 <div class="pdf-reader__meta">
                   <div class="pdf-reader__thumbnail">
