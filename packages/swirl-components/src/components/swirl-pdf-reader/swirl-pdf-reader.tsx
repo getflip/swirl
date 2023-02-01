@@ -317,6 +317,7 @@ export class SwirlPdfReader {
             </div>
           </div>
           <swirl-popover
+            animation="scale-in-y"
             disableScrollLock
             label={this.menuLabel}
             placement="bottom-end"
