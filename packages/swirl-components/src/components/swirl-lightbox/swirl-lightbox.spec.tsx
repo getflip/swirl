@@ -53,7 +53,7 @@ describe("swirl-lightbox", () => {
                 <span aria-current="page">1</span> / 2
               </span>
             </div>
-            <swirl-popover disablescrolllock="" label="Slide options" placement="bottom-end" popoverid="slide-menu" trigger="slide-menu-trigger">
+            <swirl-popover animation="scale-in-y" disablescrolllock="" label="Slide options" placement="bottom-end" popoverid="slide-menu" trigger="slide-menu-trigger">
               <swirl-stack>
                 <div class="lightbox__meta">
                   <div class="lightbox__file-info">
