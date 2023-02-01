@@ -20,7 +20,7 @@ export function CommandHit({
   return (
     <Command.Item onFocus={handleOnFocus} onSelect={handleOnSelect}>
       <button
-        aria-label={title}
+        type="button"
         className={classNames(
           "flex w-full h-full py-2",
           "bg-surface-overlay-default",
@@ -30,17 +30,19 @@ export function CommandHit({
           "outline-none"
         )}
       >
-        <div className="inline-flex items-center max-w-5 pl-4 pr-3">{icon}</div>
-        <div className="flex flex-col items-start">
-          <h4 className="text-font-size-sm font-medium text-text-default">
+        <span className="inline-flex items-center max-w-5 pl-4 pr-3">
+          {icon}
+        </span>
+        <span className="flex flex-col items-start">
+          <p className="text-font-size-sm font-medium text-text-default">
             {title}
-          </h4>
+          </p>
           {description && (
             <p className="text-font-size-sm font-normal text-text-subdued text-start">
               {description}
             </p>
           )}
-        </div>
+        </span>
       </button>
     </Command.Item>
   );

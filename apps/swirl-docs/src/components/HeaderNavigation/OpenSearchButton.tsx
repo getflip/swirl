@@ -5,12 +5,12 @@ import { FunctionComponent } from "react";
 
 export const OpenSearchButton: FunctionComponent = () => {
   function openCommandPalette() {
-    console.log("open button clicked");
     commandPaletteObserver.set(true);
   }
 
   return (
     <button
+      type="button"
       onClick={() => openCommandPalette()}
       aria-label="open search"
       className={classNames(
@@ -22,9 +22,9 @@ export const OpenSearchButton: FunctionComponent = () => {
         <SwirlIconSearch size={24} className="text-icon-default" />
         <span className="ml-2 text-left text-text-subdued">Search...</span>
       </span>
-      <div className="hidden md:block w-7 h-7 rounded-border-radius-s border-border-default border-1 text-text-default">
+      <span className="hidden md:block w-7 h-7 rounded-border-radius-s border-border-default border-1 text-text-default">
         /
-      </div>
+      </span>
     </button>
   );
 };
