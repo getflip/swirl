@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.13.1
+
+### Patch Changes
+
+- [`5667bf7`](https://github.com/getflip/swirl/commit/5667bf7fb235a77cb9aa681929bdf2efb2670f2a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix skeleton component width when
+  used inside flex containers
+
+- Updated dependencies
+  [[`5667bf7`](https://github.com/getflip/swirl/commit/5667bf7fb235a77cb9aa681929bdf2efb2670f2a)]:
+  - @getflip/swirl-components@0.14.1
+
 ## 0.13.0
 
 ### Minor Changes
