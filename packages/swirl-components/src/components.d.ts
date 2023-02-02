@@ -32,6 +32,8 @@ import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 import { Placement } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
+import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
@@ -44,6 +46,47 @@ import { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thu
 import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
+export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
+export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
+export { SwirlAutocompleteSuggestion } from "./components/swirl-autocomplete/swirl-autocomplete";
+export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
+export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
+export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
+export { SwirlBannerAriaRole, SwirlBannerIntent } from "./components/swirl-banner/swirl-banner";
+export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
+export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
+export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
+export { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
+export { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
+export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
+export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
+export { SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+export { SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
+export { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
+export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
+export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
+export { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+export { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
+export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
+export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
+export { Placement } from "@floating-ui/dom";
+export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
+export { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
+export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
+export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
+export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
+export { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
+export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
+export { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
+export { SwirlTextAlign, SwirlTextColor, SwirlTextFontStyle, SwirlTextSize, SwirlTextWeight } from "./components/swirl-text/swirl-text";
+export { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
+export { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider";
+export { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
+export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
+export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
+export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export namespace Components {
     interface FileManager {
     }
@@ -357,7 +400,7 @@ export namespace Components {
          */
         "setPage": (page: number) => Promise<void>;
         "singlePageMode": boolean;
-        "zoom"?: SwirlFileViewerPdfZoom;
+        "zoom"?: SwirlFileViewerPdfZoom1;
     }
     interface SwirlFileViewerText {
         "errorMessage"?: string;
@@ -862,6 +905,18 @@ export namespace Components {
     }
     interface SwirlSeparator {
     }
+    interface SwirlSkeletonBox {
+        "animated"?: boolean;
+        "aspectRatio"?: string;
+        "borderRadius"?: SwirlSkeletonBoxBorderRadius;
+        "height"?: string;
+        "width"?: string;
+    }
+    interface SwirlSkeletonText {
+        "animated"?: boolean;
+        "lines"?: number;
+        "size"?: SwirlSkeletonTextSize;
+    }
     interface SwirlSpinner {
         "label"?: string;
         "size"?: SwirlSpinnerSize;
@@ -948,7 +1003,7 @@ export namespace Components {
         "max"?: number;
         "maxLength"?: number;
         "min"?: number;
-        "mode"?: SwirlTextInputMode;
+        "mode"?: SwirlTextInputMode1;
         "passwordToggleLabel"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
@@ -2071,6 +2126,18 @@ declare global {
         prototype: HTMLSwirlSeparatorElement;
         new (): HTMLSwirlSeparatorElement;
     };
+    interface HTMLSwirlSkeletonBoxElement extends Components.SwirlSkeletonBox, HTMLStencilElement {
+    }
+    var HTMLSwirlSkeletonBoxElement: {
+        prototype: HTMLSwirlSkeletonBoxElement;
+        new (): HTMLSwirlSkeletonBoxElement;
+    };
+    interface HTMLSwirlSkeletonTextElement extends Components.SwirlSkeletonText, HTMLStencilElement {
+    }
+    var HTMLSwirlSkeletonTextElement: {
+        prototype: HTMLSwirlSkeletonTextElement;
+        new (): HTMLSwirlSkeletonTextElement;
+    };
     interface HTMLSwirlSpinnerElement extends Components.SwirlSpinner, HTMLStencilElement {
     }
     var HTMLSwirlSpinnerElement: {
@@ -2347,6 +2414,8 @@ declare global {
         "swirl-search": HTMLSwirlSearchElement;
         "swirl-select": HTMLSwirlSelectElement;
         "swirl-separator": HTMLSwirlSeparatorElement;
+        "swirl-skeleton-box": HTMLSwirlSkeletonBoxElement;
+        "swirl-skeleton-text": HTMLSwirlSkeletonTextElement;
         "swirl-spinner": HTMLSwirlSpinnerElement;
         "swirl-stack": HTMLSwirlStackElement;
         "swirl-switch": HTMLSwirlSwitchElement;
@@ -2628,7 +2697,7 @@ declare namespace LocalJSX {
         "file": string;
         "onActivate"?: (event: SwirlFileViewerPdfCustomEvent<HTMLElement>) => void;
         "singlePageMode"?: boolean;
-        "zoom"?: SwirlFileViewerPdfZoom;
+        "zoom"?: SwirlFileViewerPdfZoom1;
     }
     interface SwirlFileViewerText {
         "errorMessage"?: string;
@@ -3114,6 +3183,18 @@ declare namespace LocalJSX {
     }
     interface SwirlSeparator {
     }
+    interface SwirlSkeletonBox {
+        "animated"?: boolean;
+        "aspectRatio"?: string;
+        "borderRadius"?: SwirlSkeletonBoxBorderRadius;
+        "height"?: string;
+        "width"?: string;
+    }
+    interface SwirlSkeletonText {
+        "animated"?: boolean;
+        "lines"?: number;
+        "size"?: SwirlSkeletonTextSize;
+    }
     interface SwirlSpinner {
         "label"?: string;
         "size"?: SwirlSpinnerSize;
@@ -3198,7 +3279,7 @@ declare namespace LocalJSX {
         "max"?: number;
         "maxLength"?: number;
         "min"?: number;
-        "mode"?: SwirlTextInputMode;
+        "mode"?: SwirlTextInputMode1;
         "onInputBlur"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlTextInputCustomEvent<string>) => void;
@@ -3412,6 +3493,8 @@ declare namespace LocalJSX {
         "swirl-search": SwirlSearch;
         "swirl-select": SwirlSelect;
         "swirl-separator": SwirlSeparator;
+        "swirl-skeleton-box": SwirlSkeletonBox;
+        "swirl-skeleton-text": SwirlSkeletonText;
         "swirl-spinner": SwirlSpinner;
         "swirl-stack": SwirlStack;
         "swirl-switch": SwirlSwitch;
@@ -3588,6 +3671,8 @@ declare module "@stencil/core" {
             "swirl-search": LocalJSX.SwirlSearch & JSXBase.HTMLAttributes<HTMLSwirlSearchElement>;
             "swirl-select": LocalJSX.SwirlSelect & JSXBase.HTMLAttributes<HTMLSwirlSelectElement>;
             "swirl-separator": LocalJSX.SwirlSeparator & JSXBase.HTMLAttributes<HTMLSwirlSeparatorElement>;
+            "swirl-skeleton-box": LocalJSX.SwirlSkeletonBox & JSXBase.HTMLAttributes<HTMLSwirlSkeletonBoxElement>;
+            "swirl-skeleton-text": LocalJSX.SwirlSkeletonText & JSXBase.HTMLAttributes<HTMLSwirlSkeletonTextElement>;
             "swirl-spinner": LocalJSX.SwirlSpinner & JSXBase.HTMLAttributes<HTMLSwirlSpinnerElement>;
             "swirl-stack": LocalJSX.SwirlStack & JSXBase.HTMLAttributes<HTMLSwirlStackElement>;
             "swirl-switch": LocalJSX.SwirlSwitch & JSXBase.HTMLAttributes<HTMLSwirlSwitchElement>;

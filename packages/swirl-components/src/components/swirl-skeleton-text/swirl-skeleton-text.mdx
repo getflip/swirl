@@ -1,0 +1,33 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlSkeletonText" />
+
+# SwirlSkeletonText
+
+The SwirlSkeletonText component is used to display a low fidelity representation
+of text before it is loaded.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=2929%3A17884&t=Que3BOUIEmzL9qsn-0)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-skeleton-text)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirlskeletontext--swirl-skeleton-text" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                     | Usage                                    |
+| ---------------------------- | ---------------------------------------- |
+| `--s-surface-raised-default` | Highlight color of the "shine" animation |
+| `--s-surface-raised-hovered` | background color of the lines            |
+
+## Accessibility
+
+Check
+[this article](https://adrianroselli.com/2020/11/more-accessible-skeletons.html)
+for recommendations on how to use skeleton elements with `aria-busy` and
+`aria-hidden`.

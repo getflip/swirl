@@ -1,5 +1,6 @@
 module.exports = {
   extends: ["plugin:@stencil/recommended"],
+  ignorePatterns: ["stencil.config.ts"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "./tsconfig.json",

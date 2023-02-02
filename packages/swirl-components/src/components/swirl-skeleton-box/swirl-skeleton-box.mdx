@@ -1,0 +1,35 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlSkeletonBox" />
+
+# SwirlSkeletonBox
+
+The SwirlSkeletonBox component is used to display a low fidelity representation
+of components before they are loaded.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=2929%3A17884&t=Que3BOUIEmzL9qsn-0)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-skeleton-box)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirlskeletonbox--swirl-skeleton-box" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                     | Usage                                    |
+| ---------------------------- | ---------------------------------------- |
+| `--s-surface-raised-default` | Highlight color of the "shine" animation |
+| `--s-surface-raised-hovered` | background color of the lines            |
+
+## Accessibility
+
+### ARIA
+
+Check
+[this article](https://adrianroselli.com/2020/11/more-accessible-skeletons.html)
+for recommendations on how to use skeleton elements with `aria-busy` and
+`aria-hidden`.
