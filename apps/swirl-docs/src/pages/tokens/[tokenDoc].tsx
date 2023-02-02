@@ -15,7 +15,6 @@ import { GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
 
 async function getComponentData(document: string) {
-  // console.log("[tokenDoc] getComponentData", document);
   return await generateMdxFromDocumentation(
     DOCUMENTATION_CATEGORY.TOKENS,
     document
@@ -24,10 +23,6 @@ async function getComponentData(document: string) {
 
 export const getStaticPaths = async () => {
   const categoryDocs = createStaticPathsData(DOCUMENTATION_CATEGORY.TOKENS);
-  // console.log(
-  //   "[tokenDoc] getStaticPaths",
-  //   JSON.stringify(categoryDocs, null, 2)
-  // );
 
   return {
     fallback: false,
@@ -39,12 +34,9 @@ export const getStaticProps: GetStaticProps<
   ScriptProps,
   { tokenDoc: string }
 > = async (context: any) => {
-  // console.log("[tokenDoc] getStaticProps");
   const { tokenDoc } = context.params;
 
   const document = await getComponentData(tokenDoc);
-
-  console.log("COMPONENT DATA IS HERE");
 
   return {
     props: {
@@ -71,8 +63,6 @@ export default function Component({
     p: (props: any) => <p className="mb-4" {...props} />,
     ...LinkedHeaders,
   };
-
-  console.log("CLIENT SIDE", title);
 
   return (
     <>

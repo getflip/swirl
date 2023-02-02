@@ -15,9 +15,6 @@ export async function generateMdxFromDocumentation(
 ): Promise<
   MDXRemoteSerializeResult<Record<string, unknown>, Record<string, string>>
 > {
-  // console.log("[singleDoc] category & document", category, document);
-  console.log("[singleDoc] typeof document", typeof document);
-
   const source = fs.readFileSync(
     generateDocumentPath(category, document),
     "utf8"
@@ -31,8 +28,6 @@ export async function generateMdxFromDocumentation(
       format: "mdx",
     },
   });
-
-  console.log("[singleDoc] after serialize call", document, serializeAwait);
 
   return serializeAwait;
 }

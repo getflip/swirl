@@ -4,7 +4,6 @@ import { Dictionary, generateTokenValueWithUnit } from "./utils";
 import tokensLight from "@getflip/swirl-tokens/dist/styles.light.json";
 
 export const getColorTokens = (): any => {
-  console.log("starting getColors");
   const colorTokens: any = {
     background: [],
     surface: [],
@@ -18,17 +17,13 @@ export const getColorTokens = (): any => {
   const lightTokenKeys = Object.keys(tokensLight) as any;
   const tokensLightTyped = tokensLight as Dictionary;
 
-  console.log("type of lighttoken keys", typeof lightTokenKeys);
-
   const baseTokens = lightTokenKeys
     .filter((key: any) => {
-      console.log("key", key);
       return tokensLightTyped[key].type === "color" && !key.includes("core");
     })
     .map((key: any) => tokensLightTyped[key]);
 
   baseTokens.forEach((token: any) => {
-    console.log("token is:", token);
     const tokenValueWithUnit = generateTokenValueWithUnit(token);
 
     const colorCategory = getColorCategory(token);
@@ -41,8 +36,6 @@ export const getColorTokens = (): any => {
       unitAsString: tokenValueWithUnit?.unit,
     });
   });
-
-  console.log("ending getColors");
 
   return colorTokens;
 };
