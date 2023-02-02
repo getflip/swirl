@@ -41,20 +41,18 @@ export const CommandPalette = () => {
   const containerRef = useRef(null);
 
   const onOpenStateUpdate: CommandPaletteObserver = (isOpen: boolean) => {
+    storeActiveElement();
     setOpen(isOpen);
   };
 
-  const handleFocus = (wasOpen: boolean) => {
-    if (!wasOpen) {
-      const previousFocusedElement = document.activeElement || document.body;
-      previousActiveElement.current = previousFocusedElement as HTMLElement;
-    }
+  function storeActiveElement() {
+    const previousFocusedElement = document.activeElement || document.body;
+    previousActiveElement.current = previousFocusedElement as HTMLElement;
+  }
 
-    if (wasOpen) {
-      console.log("previous active element", previousActiveElement);
-      previousActiveElement.current?.focus();
-    }
-  };
+  function restoreActiveElement() {
+    previousActiveElement.current?.focus();
+  }
 
   useEffect(() => {
     router.events.on("routeChangeComplete", () => {
@@ -62,12 +60,22 @@ export const CommandPalette = () => {
     });
   }, [router, open]);
 
+  useEffect(() => {
+    if (!open) {
+      restoreActiveElement();
+    }
+  }, [open]);
+
   // Toggle the menu when ⌘K is pressed
   useEffect(() => {
     const down = (e: any) => {
-      if (e.key === "k" && e.metaKey) {
+      const isCmdKCombo = e.key === "k" && e.metaKey;
+      const isSlash = e.key === "/";
+      if (isCmdKCombo || isSlash) {
+        if (!open) {
+          storeActiveElement();
+        }
         setOpen((open) => {
-          handleFocus(open);
           return !open;
         });
       }
@@ -75,7 +83,7 @@ export const CommandPalette = () => {
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, []);
+  }, [open]);
 
   // observer pattern for isOpen State
   useEffect(() => {
@@ -101,9 +109,7 @@ export const CommandPalette = () => {
           "bg-surface-default border-border-default"
         )}
         open={open}
-        onOpenChange={() => {
-          setOpen(!open);
-        }}
+        onOpenChange={() => setOpen(!open)}
         label="Global Command Menu"
       >
         <div className="w-full h-full" ref={containerRef} />

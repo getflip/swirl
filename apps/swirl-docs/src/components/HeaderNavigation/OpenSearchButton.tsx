@@ -1,9 +1,17 @@
 import { SwirlIconSearch } from "@getflip/swirl-components-react";
 import commandPaletteObserver from "@swirl/lib/search/commandPaletteObserver";
 import classNames from "classnames";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 
 export const OpenSearchButton: FunctionComponent = () => {
+  const [isMacOs, setIsMacOs] = useState(false);
+
+  useEffect(() => {
+    let userAgent = window.navigator.userAgent.toLowerCase();
+    const macosPlatforms = /(macintosh|macintel|macppc|mac68k|macos)/i;
+    setIsMacOs(macosPlatforms.test(userAgent));
+  }, []);
+
   function openCommandPalette() {
     commandPaletteObserver.set(true);
   }
@@ -22,8 +30,18 @@ export const OpenSearchButton: FunctionComponent = () => {
         <SwirlIconSearch size={24} className="text-icon-default" />
         <span className="ml-2 text-left text-text-subdued">Search...</span>
       </span>
-      <span className="hidden md:block w-7 h-7 rounded-border-radius-s border-border-default border-1 text-text-default">
-        /
+      <span
+        className={classNames(
+          "hidden md:inline-flex justify-center items-center",
+          {
+            "w-7": isMacOs,
+            "w-10": !isMacOs,
+          },
+          "h-7 rounded-border-radius-s border-border-default border-1",
+          "text-xs text-text-subdued"
+        )}
+      >
+        {isMacOs ? "⌘" : "CTRL+"}K
       </span>
     </button>
   );
