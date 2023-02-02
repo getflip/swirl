@@ -40,6 +40,7 @@
     "turbo": "^1.2.8"
   },
   "resolutions": {
-    "svgicons2svgfont": "^10.0.0"
+    "svgicons2svgfont": "^10.0.0",
+    "@types/react": "18.0.18"
   }
 }
