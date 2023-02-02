@@ -1,5 +1,17 @@
 # @getflip/swirl-components
 
+## 0.14.0
+
+### Minor Changes
+
+- [#150](https://github.com/getflip/swirl/pull/150)
+  [`3afef39`](https://github.com/getflip/swirl/commit/3afef3969b0a7c675e50098dc74e7d3599ad8280)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-skeleton-box component
+
+* [#150](https://github.com/getflip/swirl/pull/150)
+  [`3afef39`](https://github.com/getflip/swirl/commit/3afef3969b0a7c675e50098dc74e7d3599ad8280)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-skeleton-text component
+
 ## 0.13.0
 
 ### Minor Changes
