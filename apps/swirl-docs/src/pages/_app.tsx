@@ -8,6 +8,10 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { GTM_ID, isProd, pageview } from "../lib/gtm";
 
+type UiContext = {
+  isCommandPaletteOpen: boolean;
+};
+
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 

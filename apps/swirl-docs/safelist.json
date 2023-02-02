@@ -1,4 +1,44 @@
 {
+  "zIndex": ["z-0", "z-10", "z-20", "z-30", "z-40", "z-50", "z-auto"],
+  "spacing": [
+    "h-space-0",
+    "h-space-2",
+    "h-space-4",
+    "h-space-8",
+    "h-space-12",
+    "h-space-16",
+    "h-space-20",
+    "h-space-24",
+    "h-space-32"
+  ],
+  "typography": [
+    "text-font-size-sm",
+    "text-font-size-base",
+    "text-font-size-lg",
+    "text-font-size-xl",
+    "text-font-size-2xl",
+    "font-font-weight-normal",
+    "font-font-weight-medium",
+    "font-font-weight-semibold",
+    "font-font-weight-bold",
+    "leading-line-height-sm",
+    "leading-line-height-base",
+    "leading-line-height-lg",
+    "leading-line-height-xl",
+    "leading-line-height-2xl",
+    "tracking-letter-spacing-tighter",
+    "tracking-letter-spacing-tight",
+    "tracking-letter-spacing-normal"
+  ],
+  "border": [
+    "rounded-border-radius-xs",
+    "rounded-border-radius-s",
+    "rounded-border-radius-sm",
+    "rounded-border-radius-base",
+    "rounded-border-radius-l",
+    "rounded-border-radius-xl",
+    "rounded-border-radius-full-round"
+  ],
   "bgColors": [
     "bg-background-default",
     "bg-background-default",

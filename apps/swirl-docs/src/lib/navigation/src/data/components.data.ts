@@ -1,26 +1,41 @@
 import { NavItem } from "../navigation.model";
 
 export const componentsNavItems: NavItem[] = [
-  { title: "Overview", url: "/components" },
+  {
+    title: "Overview",
+    url: "/components",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
+  },
   {
     title: "action list",
     url: "/components/action-list",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
   },
   {
     title: "app layout",
     url: "/components/app-layout",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
   },
   {
     title: "dialog",
     url: "/components/dialog",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
   },
   {
     title: "form group",
     url: "/components/form-group",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
   },
   {
     title: "heading",
     url: "/components/heading",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
   },
 ];
 
