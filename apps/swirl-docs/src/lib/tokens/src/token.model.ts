@@ -15,7 +15,7 @@ export type Token = {
   unitAsString?: string;
 };
 
-export type TokensWithoutColors = Exclude<SwirlTokenCategory, "color" | "size">;
+export type TokensWithoutColors = Exclude<SwirlTokenCategory, "color">;
 export type SwirlTokensWithoutColor = {
   [K in TokensWithoutColors]: Token[];
 };
@@ -27,7 +27,7 @@ export type TypographyTokenCategory =
   | "letterSpacing"
   | "fontFamily"
   | "fontSizes";
-export const TypographyTokenCategories: Array<TokensWithoutColors> = [
+export const TypographyTokenCategories: Array<SwirlTokenCategory> = [
   "fontWeights",
   "lineHeights",
   "letterSpacing",
@@ -44,7 +44,7 @@ export type TypographyTokens = {
 };
 
 export type BorderTokenCategory = "borderRadius" | "borderWidth";
-export const BorderTokenCategories: Array<TokensWithoutColors> = [
+export const BorderTokenCategories: Array<SwirlTokenCategory> = [
   "borderRadius",
   "borderWidth",
 ];
@@ -54,13 +54,13 @@ export type BorderTokens = {
 };
 
 export type SpacingTokenCategory = "spacing";
-export const SpacingTokenCategories: Array<TokensWithoutColors> = ["spacing"];
+export const SpacingTokenCategories: Array<SwirlTokenCategory> = ["spacing"];
 export type SpacingTokens = {
   spacing: Token[];
 };
 
 export type ZIndexTokenCategory = "zIndex";
-export const ZIndexTokenCategories: Array<TokensWithoutColors> = ["zIndex"];
+export const ZIndexTokenCategories: Array<SwirlTokenCategory> = ["zIndex"];
 export type ZIndexTokens = {
   zIndex: Token[];
 };

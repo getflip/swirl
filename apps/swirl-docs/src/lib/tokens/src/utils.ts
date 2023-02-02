@@ -11,22 +11,22 @@ import {
 
 import tokensLightFromPackage from "@getflip/swirl-tokens/dist/styles.light.json";
 
-export const isTypographyToken = (token: TokensWithoutColors) =>
+export const isTypographyToken = (token: SwirlTokenCategory) =>
   TypographyTokenCategories.includes(token);
-export const isZindexToken = (token: TokensWithoutColors) =>
+export const isZindexToken = (token: SwirlTokenCategory) =>
   ZIndexTokenCategories.includes(token);
-export const isBorderToken = (token: TokensWithoutColors) =>
+export const isBorderToken = (token: SwirlTokenCategory) =>
   BorderTokenCategories.includes(token);
-export const isSpacingToken = (token: TokensWithoutColors) =>
+export const isSpacingToken = (token: SwirlTokenCategory) =>
   SpacingTokenCategories.includes(token);
 export const isColorIndex = (token: SwirlTokenCategory) => token === "color";
 
-type Dictionary = {
+export type Dictionary = {
   [key: string]: any;
 };
 
 export function getTokens(
-  tokenCategories: Array<TokensWithoutColors>
+  tokenCategories: Array<SwirlTokenCategory>
 ): SwirlTokensWithoutColor {
   const tokensObject: SwirlTokensWithoutColor = {
     borderRadius: [],
@@ -38,9 +38,12 @@ export function getTokens(
     lineHeights: [],
     spacing: [],
     zIndex: [],
+    size: [],
   };
   tokenCategories.forEach((category) => {
-    tokensObject[category] = [];
+    if (category !== "color") {
+      tokensObject[category] = [];
+    }
   });
 
   const lightTokenKeys = Object.keys(tokensLightFromPackage);
