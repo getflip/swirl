@@ -73,6 +73,8 @@ export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 export { Placement } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
+export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
@@ -904,6 +906,7 @@ export namespace Components {
     interface SwirlSeparator {
     }
     interface SwirlSkeletonBox {
+        "animated"?: boolean;
         "aspectRatio"?: string;
         "borderRadius"?: SwirlSkeletonBoxBorderRadius;
         "height"?: string;
@@ -3181,6 +3184,7 @@ declare namespace LocalJSX {
     interface SwirlSeparator {
     }
     interface SwirlSkeletonBox {
+        "animated"?: boolean;
         "aspectRatio"?: string;
         "borderRadius"?: SwirlSkeletonBoxBorderRadius;
         "height"?: string;

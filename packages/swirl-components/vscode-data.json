@@ -3402,6 +3402,10 @@
       },
       "attributes": [
         {
+          "name": "animated",
+          "description": ""
+        },
+        {
           "name": "aspect-ratio",
           "description": ""
         },

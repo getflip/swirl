@@ -112,3 +112,19 @@ export default function MyApp() {
   return <SwirlButton label="My first button" />;
 }
 ```
+
+## Enhanced VSCode Autocompletion
+
+For better autocomplete support you can configure your VSCode workspace or
+folder settings as follows:
+
+```json
+{
+  "html.customData": [
+    "./frontend/node_modules/@getflip/swirl-components/vscode-data.json"
+  ]
+}
+```
+
+This will improve the autocomplete capabilities of VSCode in regards to our Web
+Components.
