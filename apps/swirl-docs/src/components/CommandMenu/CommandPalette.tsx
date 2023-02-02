@@ -1,7 +1,7 @@
 import { ALGOLIA_INDEX } from "@swirl/lib/search";
 import classNames from "classnames";
 import { Command } from "cmdk";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { InstantSearch, SearchBox } from "react-instantsearch-hooks-web";
 import { searchClient } from "../Search/Algolia";
 import { useRouter } from "next/router";
@@ -37,12 +37,23 @@ const algoliaClient: SearchClient = {
 export const CommandPalette = () => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
-  const [previousActiveElement, setPreviousActiveElement] =
-    useState<HTMLElement | null>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
   const containerRef = useRef(null);
 
   const onOpenStateUpdate: CommandPaletteObserver = (isOpen: boolean) => {
     setOpen(isOpen);
+  };
+
+  const handleFocus = (wasOpen: boolean) => {
+    if (!wasOpen) {
+      const previousFocusedElement = document.activeElement || document.body;
+      previousActiveElement.current = previousFocusedElement as HTMLElement;
+    }
+
+    if (wasOpen) {
+      console.log("previous active element", previousActiveElement);
+      previousActiveElement.current?.focus();
+    }
   };
 
   useEffect(() => {
@@ -53,17 +64,6 @@ export const CommandPalette = () => {
 
   // Toggle the menu when ⌘K is pressed
   useEffect(() => {
-    const handleFocus = (wasOpen: boolean) => {
-      if (!wasOpen) {
-        const previousFocusedElement = document.activeElement || document.body;
-        setPreviousActiveElement(previousFocusedElement as HTMLElement);
-      }
-
-      if (wasOpen) {
-        previousActiveElement?.focus();
-      }
-    };
-
     const down = (e: any) => {
       if (e.key === "k" && e.metaKey) {
         setOpen((open) => {
@@ -75,7 +75,7 @@ export const CommandPalette = () => {
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [previousActiveElement]);
+  }, []);
 
   // observer pattern for isOpen State
   useEffect(() => {
@@ -101,7 +101,9 @@ export const CommandPalette = () => {
           "bg-surface-default border-border-default"
         )}
         open={open}
-        onOpenChange={() => setOpen(!open)}
+        onOpenChange={() => {
+          setOpen(!open);
+        }}
         label="Global Command Menu"
       >
         <div className="w-full h-full" ref={containerRef} />
