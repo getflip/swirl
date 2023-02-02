@@ -23,7 +23,14 @@ export class SwirlSkeletonBox {
     );
 
     return (
-      <Host>
+      <Host
+        style={{
+          width:
+            !Boolean(this.width) && !Boolean(this.aspectRatio)
+              ? "100%"
+              : undefined,
+        }}
+      >
         <div
           class={className}
           style={{

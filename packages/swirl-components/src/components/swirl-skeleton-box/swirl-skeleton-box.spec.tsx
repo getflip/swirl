@@ -40,7 +40,7 @@ describe("swirl-skeleton-box", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-skeleton-box border-radius="pill">
+      <swirl-skeleton-box border-radius="pill" style="width: 100%;">
         <mock:shadow-root>
           <div class="skeleton-box skeleton-box--border-radius-pill"></div>
         </mock:shadow-root>
@@ -55,7 +55,7 @@ describe("swirl-skeleton-box", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-skeleton-box animated="false">
+      <swirl-skeleton-box animated="false" style="width: 100%;">
         <mock:shadow-root>
           <div class="skeleton-box skeleton-box--border-radius-base skeleton-box--static" style="border-radius: var(--s-border-radius-base);"></div>
         </mock:shadow-root>
