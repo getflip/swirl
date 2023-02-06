@@ -49,7 +49,6 @@ export const config: Config = {
       esmLoaderPath: "../loader",
     },
     {
-      autoDefineCustomElements: true,
       copy: [
         {
           src: "../../../node_modules/pdfjs-dist/legacy/build/pdf.worker.min.js",
@@ -72,6 +71,7 @@ export const config: Config = {
           warn: true,
         },
       ],
+      customElementsExportBehavior: "auto-define-custom-elements",
       generateTypeDeclarations: true,
       type: "dist-custom-elements",
     },
@@ -106,4 +106,5 @@ export const config: Config = {
     }),
   ],
   sourceMap: false,
+  watchIgnoredRegex: [/pdf\.worker\.min\.js/],
 };
