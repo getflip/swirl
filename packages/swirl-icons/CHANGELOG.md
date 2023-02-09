@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.10.0
+
+### Minor Changes
+
+- [#158](https://github.com/getflip/swirl/pull/158)
+  [`b148a43`](https://github.com/getflip/swirl/commit/b148a43e8810f3b0eb332175f51d69852c58a660)
+  Thanks [@konnic](https://github.com/konnic)! - Added bookmark icon.
+
 ## 0.9.0
 
 ### Minor Changes

@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.15.0
+
+### Minor Changes
+
+- [#158](https://github.com/getflip/swirl/pull/158)
+  [`b148a43`](https://github.com/getflip/swirl/commit/b148a43e8810f3b0eb332175f51d69852c58a660)
+  Thanks [@konnic](https://github.com/konnic)! - Added bookmark icon components.
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b148a43`](https://github.com/getflip/swirl/commit/b148a43e8810f3b0eb332175f51d69852c58a660)]:
+  - @getflip/swirl-icons@0.10.0
+
 ## 0.14.1
 
 ### Patch Changes
