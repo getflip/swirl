@@ -1591,6 +1591,19 @@
       ]
     },
     {
+      "name": "swirl-icon-bookmark",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-cancel",
       "description": {
         "kind": "markdown",
@@ -3304,6 +3317,27 @@
         },
         {
           "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-sausage-message",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "author",
+          "description": ""
+        },
+        {
+          "name": "message",
+          "description": ""
+        },
+        {
+          "name": "self",
           "description": ""
         }
       ]

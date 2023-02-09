@@ -466,6 +466,9 @@ export namespace Components {
     interface SwirlIconBlock {
         "size": SwirlIconSize;
     }
+    interface SwirlIconBookmark {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconCancel {
         "size": SwirlIconSize;
     }
@@ -882,6 +885,12 @@ export namespace Components {
         "meta"?: string;
         "selectable"?: boolean;
         "value"?: string;
+    }
+    interface SwirlSausageMessage {
+        "author": string;
+        "dateTime": Date;
+        "message": string;
+        "self": boolean;
     }
     interface SwirlSearch {
         "autoFocus"?: boolean;
@@ -1508,6 +1517,12 @@ declare global {
         prototype: HTMLSwirlIconBlockElement;
         new (): HTMLSwirlIconBlockElement;
     };
+    interface HTMLSwirlIconBookmarkElement extends Components.SwirlIconBookmark, HTMLStencilElement {
+    }
+    var HTMLSwirlIconBookmarkElement: {
+        prototype: HTMLSwirlIconBookmarkElement;
+        new (): HTMLSwirlIconBookmarkElement;
+    };
     interface HTMLSwirlIconCancelElement extends Components.SwirlIconCancel, HTMLStencilElement {
     }
     var HTMLSwirlIconCancelElement: {
@@ -2108,6 +2123,12 @@ declare global {
         prototype: HTMLSwirlResourceListItemElement;
         new (): HTMLSwirlResourceListItemElement;
     };
+    interface HTMLSwirlSausageMessageElement extends Components.SwirlSausageMessage, HTMLStencilElement {
+    }
+    var HTMLSwirlSausageMessageElement: {
+        prototype: HTMLSwirlSausageMessageElement;
+        new (): HTMLSwirlSausageMessageElement;
+    };
     interface HTMLSwirlSearchElement extends Components.SwirlSearch, HTMLStencilElement {
     }
     var HTMLSwirlSearchElement: {
@@ -2311,6 +2332,7 @@ declare global {
         "swirl-icon-arrow-upward": HTMLSwirlIconArrowUpwardElement;
         "swirl-icon-attachment": HTMLSwirlIconAttachmentElement;
         "swirl-icon-block": HTMLSwirlIconBlockElement;
+        "swirl-icon-bookmark": HTMLSwirlIconBookmarkElement;
         "swirl-icon-cancel": HTMLSwirlIconCancelElement;
         "swirl-icon-chat-bubble": HTMLSwirlIconChatBubbleElement;
         "swirl-icon-chats-filled": HTMLSwirlIconChatsFilledElement;
@@ -2411,6 +2433,7 @@ declare global {
         "swirl-resource-list": HTMLSwirlResourceListElement;
         "swirl-resource-list-file-item": HTMLSwirlResourceListFileItemElement;
         "swirl-resource-list-item": HTMLSwirlResourceListItemElement;
+        "swirl-sausage-message": HTMLSwirlSausageMessageElement;
         "swirl-search": HTMLSwirlSearchElement;
         "swirl-select": HTMLSwirlSelectElement;
         "swirl-separator": HTMLSwirlSeparatorElement;
@@ -2763,6 +2786,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBlock {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconBookmark {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCancel {
@@ -3157,6 +3183,12 @@ declare namespace LocalJSX {
         "selectable"?: boolean;
         "value"?: string;
     }
+    interface SwirlSausageMessage {
+        "author"?: string;
+        "dateTime"?: Date;
+        "message"?: string;
+        "self"?: boolean;
+    }
     interface SwirlSearch {
         "autoFocus"?: boolean;
         "clearButtonLabel"?: string;
@@ -3390,6 +3422,7 @@ declare namespace LocalJSX {
         "swirl-icon-arrow-upward": SwirlIconArrowUpward;
         "swirl-icon-attachment": SwirlIconAttachment;
         "swirl-icon-block": SwirlIconBlock;
+        "swirl-icon-bookmark": SwirlIconBookmark;
         "swirl-icon-cancel": SwirlIconCancel;
         "swirl-icon-chat-bubble": SwirlIconChatBubble;
         "swirl-icon-chats-filled": SwirlIconChatsFilled;
@@ -3490,6 +3523,7 @@ declare namespace LocalJSX {
         "swirl-resource-list": SwirlResourceList;
         "swirl-resource-list-file-item": SwirlResourceListFileItem;
         "swirl-resource-list-item": SwirlResourceListItem;
+        "swirl-sausage-message": SwirlSausageMessage;
         "swirl-search": SwirlSearch;
         "swirl-select": SwirlSelect;
         "swirl-separator": SwirlSeparator;
@@ -3568,6 +3602,7 @@ declare module "@stencil/core" {
             "swirl-icon-arrow-upward": LocalJSX.SwirlIconArrowUpward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowUpwardElement>;
             "swirl-icon-attachment": LocalJSX.SwirlIconAttachment & JSXBase.HTMLAttributes<HTMLSwirlIconAttachmentElement>;
             "swirl-icon-block": LocalJSX.SwirlIconBlock & JSXBase.HTMLAttributes<HTMLSwirlIconBlockElement>;
+            "swirl-icon-bookmark": LocalJSX.SwirlIconBookmark & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkElement>;
             "swirl-icon-cancel": LocalJSX.SwirlIconCancel & JSXBase.HTMLAttributes<HTMLSwirlIconCancelElement>;
             "swirl-icon-chat-bubble": LocalJSX.SwirlIconChatBubble & JSXBase.HTMLAttributes<HTMLSwirlIconChatBubbleElement>;
             "swirl-icon-chats-filled": LocalJSX.SwirlIconChatsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconChatsFilledElement>;
@@ -3668,6 +3703,7 @@ declare module "@stencil/core" {
             "swirl-resource-list": LocalJSX.SwirlResourceList & JSXBase.HTMLAttributes<HTMLSwirlResourceListElement>;
             "swirl-resource-list-file-item": LocalJSX.SwirlResourceListFileItem & JSXBase.HTMLAttributes<HTMLSwirlResourceListFileItemElement>;
             "swirl-resource-list-item": LocalJSX.SwirlResourceListItem & JSXBase.HTMLAttributes<HTMLSwirlResourceListItemElement>;
+            "swirl-sausage-message": LocalJSX.SwirlSausageMessage & JSXBase.HTMLAttributes<HTMLSwirlSausageMessageElement>;
             "swirl-search": LocalJSX.SwirlSearch & JSXBase.HTMLAttributes<HTMLSwirlSearchElement>;
             "swirl-select": LocalJSX.SwirlSelect & JSXBase.HTMLAttributes<HTMLSwirlSelectElement>;
             "swirl-separator": LocalJSX.SwirlSeparator & JSXBase.HTMLAttributes<HTMLSwirlSeparatorElement>;

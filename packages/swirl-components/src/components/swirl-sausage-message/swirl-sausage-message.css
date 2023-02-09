@@ -1,0 +1,22 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+
+  & div {
+    border-radius: var(--s-border-radius-base);
+    padding: var(--s-space-8);
+  }
+
+  & .self {
+    background: var(--s-surface-highlight-default);
+    color: var(--s-text-on-action-primary);
+  }
+
+  & .received {
+    background: var(--s-background-default);
+    color: var(--s-text-default);
+  }
+}
