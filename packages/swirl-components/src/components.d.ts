@@ -466,6 +466,9 @@ export namespace Components {
     interface SwirlIconBlock {
         "size": SwirlIconSize;
     }
+    interface SwirlIconBookmark {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconCancel {
         "size": SwirlIconSize;
     }
@@ -1508,6 +1511,12 @@ declare global {
         prototype: HTMLSwirlIconBlockElement;
         new (): HTMLSwirlIconBlockElement;
     };
+    interface HTMLSwirlIconBookmarkElement extends Components.SwirlIconBookmark, HTMLStencilElement {
+    }
+    var HTMLSwirlIconBookmarkElement: {
+        prototype: HTMLSwirlIconBookmarkElement;
+        new (): HTMLSwirlIconBookmarkElement;
+    };
     interface HTMLSwirlIconCancelElement extends Components.SwirlIconCancel, HTMLStencilElement {
     }
     var HTMLSwirlIconCancelElement: {
@@ -2311,6 +2320,7 @@ declare global {
         "swirl-icon-arrow-upward": HTMLSwirlIconArrowUpwardElement;
         "swirl-icon-attachment": HTMLSwirlIconAttachmentElement;
         "swirl-icon-block": HTMLSwirlIconBlockElement;
+        "swirl-icon-bookmark": HTMLSwirlIconBookmarkElement;
         "swirl-icon-cancel": HTMLSwirlIconCancelElement;
         "swirl-icon-chat-bubble": HTMLSwirlIconChatBubbleElement;
         "swirl-icon-chats-filled": HTMLSwirlIconChatsFilledElement;
@@ -2763,6 +2773,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBlock {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconBookmark {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCancel {
@@ -3390,6 +3403,7 @@ declare namespace LocalJSX {
         "swirl-icon-arrow-upward": SwirlIconArrowUpward;
         "swirl-icon-attachment": SwirlIconAttachment;
         "swirl-icon-block": SwirlIconBlock;
+        "swirl-icon-bookmark": SwirlIconBookmark;
         "swirl-icon-cancel": SwirlIconCancel;
         "swirl-icon-chat-bubble": SwirlIconChatBubble;
         "swirl-icon-chats-filled": SwirlIconChatsFilled;
@@ -3568,6 +3582,7 @@ declare module "@stencil/core" {
             "swirl-icon-arrow-upward": LocalJSX.SwirlIconArrowUpward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowUpwardElement>;
             "swirl-icon-attachment": LocalJSX.SwirlIconAttachment & JSXBase.HTMLAttributes<HTMLSwirlIconAttachmentElement>;
             "swirl-icon-block": LocalJSX.SwirlIconBlock & JSXBase.HTMLAttributes<HTMLSwirlIconBlockElement>;
+            "swirl-icon-bookmark": LocalJSX.SwirlIconBookmark & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkElement>;
             "swirl-icon-cancel": LocalJSX.SwirlIconCancel & JSXBase.HTMLAttributes<HTMLSwirlIconCancelElement>;
             "swirl-icon-chat-bubble": LocalJSX.SwirlIconChatBubble & JSXBase.HTMLAttributes<HTMLSwirlIconChatBubbleElement>;
             "swirl-icon-chats-filled": LocalJSX.SwirlIconChatsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconChatsFilledElement>;
