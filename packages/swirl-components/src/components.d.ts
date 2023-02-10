@@ -351,6 +351,7 @@ export namespace Components {
           * Print the file. Applicable to PDFs only.
          */
         "print": () => Promise<void>;
+        "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
         "zoom"?: SwirlFileViewerPdfZoom;
@@ -735,6 +736,8 @@ export namespace Components {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         "nextSlideButtonLabel"?: string;
         /**
           * Open the lightbox.
@@ -810,7 +813,10 @@ export namespace Components {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "file": string;
+        "fileTypeLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         /**
           * Open the reader.
          */
@@ -827,6 +833,7 @@ export namespace Components {
           * @returns
          */
         "close": () => Promise<void>;
+        "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "label": string;
         "offset"?: number | number[];
@@ -2680,6 +2687,7 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerCustomEvent<HTMLElement>) => void;
+        "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
         "zoom"?: SwirlFileViewerPdfZoom;
@@ -3035,6 +3043,8 @@ declare namespace LocalJSX {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         "nextSlideButtonLabel"?: string;
         "previousSlideButtonLabel"?: string;
     }
@@ -3102,7 +3112,10 @@ declare namespace LocalJSX {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "file": string;
+        "fileTypeLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         "printButtonLabel"?: string;
         "zoomInButtonLabel"?: string;
         "zoomOutButtonLabel"?: string;
@@ -3110,6 +3123,7 @@ declare namespace LocalJSX {
     }
     interface SwirlPopover {
         "animation"?: SwirlPopoverAnimation;
+        "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "label": string;
         "offset"?: number | number[];

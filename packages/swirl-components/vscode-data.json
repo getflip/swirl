@@ -1158,6 +1158,10 @@
           "description": ""
         },
         {
+          "name": "thumbnail-url",
+          "description": ""
+        },
+        {
           "name": "type",
           "description": ""
         },
@@ -2727,6 +2731,14 @@
           "description": ""
         },
         {
+          "name": "menu-label",
+          "description": ""
+        },
+        {
+          "name": "menu-trigger-label",
+          "description": ""
+        },
+        {
           "name": "next-slide-button-label",
           "description": ""
         },
@@ -2999,7 +3011,19 @@
           "description": ""
         },
         {
+          "name": "file-type-label",
+          "description": ""
+        },
+        {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "menu-label",
+          "description": ""
+        },
+        {
+          "name": "menu-trigger-label",
           "description": ""
         },
         {
@@ -3038,6 +3062,10 @@
               "name": "scale-in-y"
             }
           ]
+        },
+        {
+          "name": "disable-scroll-lock",
+          "description": ""
         },
         {
           "name": "enable-flip",
@@ -3508,6 +3536,9 @@
             },
             {
               "name": "s"
+            },
+            {
+              "name": "xs"
             }
           ]
         }

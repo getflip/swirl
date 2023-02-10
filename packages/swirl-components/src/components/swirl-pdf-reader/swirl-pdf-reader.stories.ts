@@ -27,6 +27,14 @@ const Template = (args) => {
     args
   ) as HTMLSwirlPdfReaderElement;
 
+  element.innerHTML = `
+    <swirl-action-list-item
+      icon="<swirl-icon-attachment></swirl-icon-attachment>"
+      label="Custom action"
+      slot="menu-items"
+    ></swirl-action-list-item>
+  `;
+
   trigger.label = "Open PDF reader";
   trigger.addEventListener("click", () => element.open());
 
@@ -39,5 +47,5 @@ export const SwirlPdfReader = Template.bind({});
 
 SwirlPdfReader.args = {
   file: "/sample.pdf",
-  label: "PDF Reader",
+  label: "sample.pdf",
 };

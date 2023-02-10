@@ -3,6 +3,10 @@ import Docs from "./swirl-popover.mdx";
 
 export default {
   argTypes: {
+    disableScrollLock: {
+      description:
+        "You should disable the scroll lock for popovers inside modals and dialogs.",
+    },
     offset: {
       description:
         "Pass a number to specify the main axis offset. Use an array to provide the main axis and cross axis offsets.",
