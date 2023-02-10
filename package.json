@@ -20,7 +20,6 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "test:watch": "jest --watch",
     "clean": "turbo run clean && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "format": "prettier . --write",
     "type-check": "tsc --build",
