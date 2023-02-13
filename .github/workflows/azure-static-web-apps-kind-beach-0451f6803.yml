@@ -53,6 +53,7 @@ jobs:
           skip_api_build: true
           app_location: "apps/swirl-docs/build" # App source code path
           api_location: "" # Api source code path - optional
+          output_location: ""
           # output_location: "apps/swirl-docs/build/standalone/build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
