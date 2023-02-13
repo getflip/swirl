@@ -1,6 +1,13 @@
 import { Component, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
 
+/**
+ * @slot logo-expanded - Logo shown inside expanded sidebar.
+ * @slot logo-collapsed - Logo shown inside collapsed sidebar.
+ * @slot tools - Items shown in the upper sidebar part.
+ * @slot main-navigation - Items shown in the lower sidebar part.
+ * @slot main - Contents of the main area.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-shell-layout.css",
