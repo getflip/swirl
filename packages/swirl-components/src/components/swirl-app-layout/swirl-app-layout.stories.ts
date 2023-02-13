@@ -25,7 +25,7 @@ export default {
     },
   },
   component: "swirl-app-layout",
-  decorators: [fullscreenStoryDecorator],
+  decorators: [fullscreenStoryDecorator()],
   parameters: {
     docs: {
       page: Docs,

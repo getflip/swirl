@@ -1,7 +1,7 @@
 import { fullscreenStoryDecorator, generateStoryElement } from "../../utils";
 
 export default {
-  decorators: [fullscreenStoryDecorator],
+  decorators: [fullscreenStoryDecorator()],
   parameters: {
     controls: { disable: true },
     layout: "fullscreen",

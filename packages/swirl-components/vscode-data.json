@@ -3395,6 +3395,23 @@
       "attributes": []
     },
     {
+      "name": "swirl-shell-layout",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "main-navigation-label",
+          "description": ""
+        },
+        {
+          "name": "sidebar-toggle-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-skeleton-box",
       "description": {
         "kind": "markdown",
