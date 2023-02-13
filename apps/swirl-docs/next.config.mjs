@@ -18,8 +18,7 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
-  output: "standalone",
-  distDir: "build",
+  // output: "standalone",
 };
 
 export default withMDX(nextConfig);
