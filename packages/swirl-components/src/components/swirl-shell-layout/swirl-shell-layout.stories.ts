@@ -36,11 +36,20 @@ const Template = (args) => {
         <path fill="#80A8F4" d="m4.4624 25.702 4.932-2.896c.756 1.3394.936 2.9322.576 4.4164-.396 1.4842-1.332 2.7512-2.664 3.5476l-2.844-5.068ZM14.7584 12.9233l-5.90401-1.0136-8.099995 4.7784 5.759995 1.086 8.24401-4.8508Z"/>
       </svg>
     </div>
-    <div slot="tools"></div>
-    <div slot="main-navigation">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <div slot="tools">
+      <swirl-shell-navigation-item icon="<swirl-icon-search></swirl-icon-search>" label="Search"></swirl-shell-navigation-item>
+      <swirl-shell-navigation-item icon="<swirl-icon-notifications></swirl-icon-notifications>" label="Notifications"></swirl-shell-navigation-item>
+      <swirl-shell-navigation-item icon="<swirl-icon-person></swirl-icon-person>" label="Profile & Settings"></swirl-shell-navigation-item>
+      <swirl-shell-navigation-item icon="<swirl-icon-add></swirl-icon-add>" label="Create"></swirl-shell-navigation-item>
     </div>
-    <div slot="main">Main</div>
+    <div slot="main-navigation">
+      <swirl-shell-navigation-item icon="<swirl-icon-menu-outlined></swirl-icon-menu-outlined>" label="Home"></swirl-shell-navigation-item>
+      <swirl-shell-navigation-item icon="<swirl-icon-chats-outlined></swirl-icon-chats-outlined>" label="Chats"></swirl-shell-navigation-item>
+      <swirl-shell-navigation-item icon="<swirl-icon-news-outlined></swirl-icon-news-outlined>" label="News"></swirl-shell-navigation-item>
+    </div>
+    <div slot="main">
+      <swirl-box padding="16">Main</swirl-box>
+    </div>
   `;
 
   return element;

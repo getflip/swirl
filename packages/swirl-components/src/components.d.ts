@@ -909,6 +909,11 @@ export namespace Components {
         "mainNavigationLabel": string;
         "sidebarToggleLabel": string;
     }
+    interface SwirlShellNavigationItem {
+        "active"?: boolean;
+        "icon": string;
+        "label": string;
+    }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
         "aspectRatio"?: string;
@@ -2136,6 +2141,12 @@ declare global {
         prototype: HTMLSwirlShellLayoutElement;
         new (): HTMLSwirlShellLayoutElement;
     };
+    interface HTMLSwirlShellNavigationItemElement extends Components.SwirlShellNavigationItem, HTMLStencilElement {
+    }
+    var HTMLSwirlShellNavigationItemElement: {
+        prototype: HTMLSwirlShellNavigationItemElement;
+        new (): HTMLSwirlShellNavigationItemElement;
+    };
     interface HTMLSwirlSkeletonBoxElement extends Components.SwirlSkeletonBox, HTMLStencilElement {
     }
     var HTMLSwirlSkeletonBoxElement: {
@@ -2425,6 +2436,7 @@ declare global {
         "swirl-select": HTMLSwirlSelectElement;
         "swirl-separator": HTMLSwirlSeparatorElement;
         "swirl-shell-layout": HTMLSwirlShellLayoutElement;
+        "swirl-shell-navigation-item": HTMLSwirlShellNavigationItemElement;
         "swirl-skeleton-box": HTMLSwirlSkeletonBoxElement;
         "swirl-skeleton-text": HTMLSwirlSkeletonTextElement;
         "swirl-spinner": HTMLSwirlSpinnerElement;
@@ -3198,6 +3210,11 @@ declare namespace LocalJSX {
         "mainNavigationLabel"?: string;
         "sidebarToggleLabel"?: string;
     }
+    interface SwirlShellNavigationItem {
+        "active"?: boolean;
+        "icon": string;
+        "label": string;
+    }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
         "aspectRatio"?: string;
@@ -3509,6 +3526,7 @@ declare namespace LocalJSX {
         "swirl-select": SwirlSelect;
         "swirl-separator": SwirlSeparator;
         "swirl-shell-layout": SwirlShellLayout;
+        "swirl-shell-navigation-item": SwirlShellNavigationItem;
         "swirl-skeleton-box": SwirlSkeletonBox;
         "swirl-skeleton-text": SwirlSkeletonText;
         "swirl-spinner": SwirlSpinner;
@@ -3688,6 +3706,7 @@ declare module "@stencil/core" {
             "swirl-select": LocalJSX.SwirlSelect & JSXBase.HTMLAttributes<HTMLSwirlSelectElement>;
             "swirl-separator": LocalJSX.SwirlSeparator & JSXBase.HTMLAttributes<HTMLSwirlSeparatorElement>;
             "swirl-shell-layout": LocalJSX.SwirlShellLayout & JSXBase.HTMLAttributes<HTMLSwirlShellLayoutElement>;
+            "swirl-shell-navigation-item": LocalJSX.SwirlShellNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlShellNavigationItemElement>;
             "swirl-skeleton-box": LocalJSX.SwirlSkeletonBox & JSXBase.HTMLAttributes<HTMLSwirlSkeletonBoxElement>;
             "swirl-skeleton-text": LocalJSX.SwirlSkeletonText & JSXBase.HTMLAttributes<HTMLSwirlSkeletonTextElement>;
             "swirl-spinner": LocalJSX.SwirlSpinner & JSXBase.HTMLAttributes<HTMLSwirlSpinnerElement>;

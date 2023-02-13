@@ -3412,6 +3412,27 @@
       ]
     },
     {
+      "name": "swirl-shell-navigation-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-skeleton-box",
       "description": {
         "kind": "markdown",
