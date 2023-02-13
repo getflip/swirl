@@ -56,6 +56,8 @@ jobs:
           output_location: ""
           # output_location: "apps/swirl-docs/build/standalone/build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env: # Add environment variables here
+          is_static_export: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
