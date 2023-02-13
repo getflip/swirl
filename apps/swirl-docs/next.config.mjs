@@ -11,6 +11,7 @@ const withMDX = nextMDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   reactStrictMode: true,
   swcMinify: true,
@@ -18,7 +19,6 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
-  output: "standalone",
 };
 
 export default withMDX(nextConfig);
