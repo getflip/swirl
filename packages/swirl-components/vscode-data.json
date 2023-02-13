@@ -1838,6 +1838,32 @@
       ]
     },
     {
+      "name": "swirl-icon-double-arrow-left",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-double-arrow-right",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-download",
       "description": {
         "kind": "markdown",
@@ -1956,6 +1982,19 @@
     },
     {
       "name": "swirl-icon-filter",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-folder",
       "description": {
         "kind": "markdown",
         "value": ""

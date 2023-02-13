@@ -46,8 +46,8 @@ export class SwirlShellLayout {
                     hideLabel
                     icon={
                       this.collapsedSidebar
-                        ? "<swirl-icon-arrow-forward></swirl-icon-arrow-forward>"
-                        : "<swirl-icon-arrow-back></swirl-icon-arrow-back>"
+                        ? "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
+                        : "<swirl-icon-double-arrow-left></swirl-icon-double-arrow-left>"
                     }
                     label={this.sidebarToggleLabel}
                     onClick={this.toggleSidebar}

@@ -72,7 +72,7 @@
   flex-shrink: 0;
   background-color: var(--s-border-default);
   flex-direction: column;
-  transition: max-width 0.2s;
+  transition: max-width 0.2s, box-shadow 0.2s;
   gap: var(--s-border-width-default);
 }
 
