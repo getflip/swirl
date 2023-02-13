@@ -18,10 +18,20 @@
 
 .shell-layout--collapsed-sidebar {
   & .shell-layout__sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    max-width: 4rem;
+    min-height: 100%;
     flex-basis: 4rem;
 
     &:hover {
+      width: 100%;
+      max-width: 17.5rem;
       flex-basis: 17.5rem;
+      box-shadow: 0 0.75rem 2rem rgba(25, 26, 28, 0.12),
+        0 0.25rem 0.75rem rgba(25, 26, 28, 0.08);
 
       & .shell-layout__collapsed-logo {
         display: none;
@@ -46,16 +56,23 @@
       }
     }
   }
+
+  & .shell-layout__main {
+    margin-left: calc(4rem + var(--s-border-width-default));
+  }
 }
 
 .shell-layout__sidebar {
+  z-index: 1;
   display: flex;
   overflow: hidden;
+  width: 100%;
+  max-width: 17.5rem;
   flex-basis: 17.5rem;
   flex-shrink: 0;
   background-color: var(--s-border-default);
   flex-direction: column;
-  transition: flex-basis 0.2s;
+  transition: max-width 0.2s;
   gap: var(--s-border-width-default);
 }
 
@@ -101,6 +118,7 @@
 }
 
 .shell-layout__main-navigation {
+  overflow: auto;
   padding: var(--s-space-8);
   flex-grow: 1;
   background-color: var(--s-background-default);
