@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - apps/swirl-docs/**
+      - .github/workflows/azure-static-web-apps-kind-beach-0451f6803.yml
       - azure-static-web-apps-kind-beach-0451f6803.yml
   pull_request:
     types: [opened, synchronize, reopened, closed]
