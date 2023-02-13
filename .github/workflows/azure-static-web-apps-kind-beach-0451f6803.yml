@@ -34,7 +34,7 @@ jobs:
           node-version: "16.13"
 
       - name: Install Packages
-        run: yarn i
+        run: yarn
 
       - name: Build
         run: yarn build
