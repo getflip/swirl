@@ -3,7 +3,7 @@
   width: 100%;
   height: 3rem;
   padding-right: var(--s-space-12);
-  padding-left: var(--s-space-12);
+  padding-left: calc(var(--s-space-12) + var(--s-space-2));
   flex-shrink: 0;
   justify-content: flex-start;
   align-items: center;
@@ -36,8 +36,8 @@
   }
 
   &(.shell-navigation-item--active) {
-    background-color: var(--s-surface-raised-default);
     color: var(--s-text-highlight);
+    background-color: var(--s-surface-raised-default);
 
     & ::part(icon) {
       color: var(--s-icon-highlight);

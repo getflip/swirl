@@ -18,7 +18,7 @@ describe("swirl-shell-layout", () => {
     expect(page.root).toEqualHtml(`
       <swirl-shell-layout>
         <mock:shadow-root>
-          <div class="shell-layout">
+          <div class="shell-layout shell-layout--collapsed-sidebar">
             <div class="shell-layout__sidebar">
               <header class="shell-layout__header">
                 <div class="shell-layout__logo-bar">
@@ -29,7 +29,7 @@ describe("swirl-shell-layout", () => {
                     <slot name="logo-collapsed"></slot>
                   </div>
                   <div class="shell-layout__toggle">
-                    <swirl-button hidelabel="" icon="<swirl-icon-double-arrow-left></swirl-icon-double-arrow-left>" label="Toggle sidebar" swirlariaexpanded="true"></swirl-button>
+                    <swirl-button hidelabel="" icon="<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>" label="Toggle sidebar" swirlariaexpanded="false"></swirl-button>
                   </div>
                 </div>
                 <div class="shell-layout__tools">
@@ -39,6 +39,9 @@ describe("swirl-shell-layout", () => {
               <nav aria-label="Main" class="shell-layout__main-navigation">
                 <slot name="main-navigation"></slot>
               </nav>
+              <div class="shell-layout__mobile-toggle">
+                <swirl-button hidelabel="" icon="<swirl-icon-menu></swirl-icon-menu>" label="Toggle sidebar" swirlariaexpanded="false"></swirl-button>
+              </div>
             </div>
             <main class="shell-layout__main">
               <slot name="main"></slot>

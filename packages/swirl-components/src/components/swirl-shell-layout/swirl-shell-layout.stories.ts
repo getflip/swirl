@@ -37,18 +37,26 @@ const Template = (args) => {
       </svg>
     </div>
     <div slot="tools">
-      <swirl-shell-navigation-item icon="<swirl-icon-search></swirl-icon-search>" label="Search"></swirl-shell-navigation-item>
-      <swirl-shell-navigation-item icon="<swirl-icon-notifications></swirl-icon-notifications>" label="Notifications"></swirl-shell-navigation-item>
-      <swirl-shell-navigation-item icon="<swirl-icon-person></swirl-icon-person>" label="Profile & Settings"></swirl-shell-navigation-item>
-      <swirl-shell-navigation-item icon="<swirl-icon-add></swirl-icon-add>" label="Create"></swirl-shell-navigation-item>
+      <swirl-stack spacing="4">
+        <swirl-shell-navigation-item icon="<swirl-icon-search></swirl-icon-search>" label="Search"></swirl-shell-navigation-item>
+        <swirl-shell-navigation-item icon="<swirl-icon-notifications></swirl-icon-notifications>" label="Notifications"></swirl-shell-navigation-item>
+        <swirl-shell-navigation-item icon="<swirl-icon-person></swirl-icon-person>" label="Profile & Settings"></swirl-shell-navigation-item>
+        <swirl-shell-navigation-item icon="<swirl-icon-add></swirl-icon-add>" label="Create"></swirl-shell-navigation-item>
+      </swirl-stack>
     </div>
     <div slot="main-navigation">
-      <swirl-shell-navigation-item icon="<swirl-icon-menu-outlined></swirl-icon-menu-outlined>" label="Home"></swirl-shell-navigation-item>
-      <swirl-shell-navigation-item icon="<swirl-icon-chats-outlined></swirl-icon-chats-outlined>" label="Chats"></swirl-shell-navigation-item>
-      <swirl-shell-navigation-item icon="<swirl-icon-news-outlined></swirl-icon-news-outlined>" label="News"></swirl-shell-navigation-item>
+      <swirl-stack spacing="4">
+        <swirl-shell-navigation-item active icon="<swirl-icon-menu-outlined></swirl-icon-menu-outlined>" label="Home"></swirl-shell-navigation-item>
+        <swirl-shell-navigation-item icon="<swirl-icon-chats-outlined></swirl-icon-chats-outlined>" label="Chats"></swirl-shell-navigation-item>
+        <swirl-shell-navigation-item icon="<swirl-icon-news-outlined></swirl-icon-news-outlined>" label="News"></swirl-shell-navigation-item>
+      </swirl-stack>
     </div>
     <div slot="main">
-      <swirl-box padding="16">Main</swirl-box>
+      <swirl-box padding="16">
+        <swirl-text>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </swirl-text>
+      </swirl-box>
     </div>
   `;
 
