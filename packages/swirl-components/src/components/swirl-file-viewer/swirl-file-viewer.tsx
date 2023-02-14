@@ -21,6 +21,7 @@ export class SwirlFileViewer {
   @Prop() description?: string;
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
+  @Prop() thumbnailUrl?: string;
   @Prop() type!: string;
   @Prop() typeUnsupportedMessage?: string = "File type is not supported.";
   @Prop() zoom?: SwirlFileViewerPdfZoom = 1;

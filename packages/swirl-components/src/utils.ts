@@ -29,6 +29,22 @@ export function closestPassShadow(node, selector) {
   return closestPassShadow(node.parentNode, selector);
 }
 
+export function getActiveElement(
+  root: Document | ShadowRoot = document
+): Element | undefined {
+  const activeEl = root.activeElement;
+
+  if (!Boolean(activeEl)) {
+    return undefined;
+  }
+
+  if (Boolean(activeEl.shadowRoot)) {
+    return getActiveElement(activeEl.shadowRoot);
+  } else {
+    return activeEl;
+  }
+}
+
 export const getDesktopMediaQuery = () =>
   document.documentElement.classList.contains("disable-desktop-style-tweaks")
     ? window.matchMedia(null)

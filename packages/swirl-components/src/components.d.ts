@@ -351,6 +351,7 @@ export namespace Components {
           * Print the file. Applicable to PDFs only.
          */
         "print": () => Promise<void>;
+        "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
         "zoom"?: SwirlFileViewerPdfZoom;
@@ -464,6 +465,9 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconBlock {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconBookmark {
         "size": SwirlIconSize;
     }
     interface SwirlIconCancel {
@@ -741,6 +745,8 @@ export namespace Components {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         "nextSlideButtonLabel"?: string;
         /**
           * Open the lightbox.
@@ -816,7 +822,10 @@ export namespace Components {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "file": string;
+        "fileTypeLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         /**
           * Open the reader.
          */
@@ -833,6 +842,7 @@ export namespace Components {
           * @returns
          */
         "close": () => Promise<void>;
+        "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "label": string;
         "offset"?: number | number[];
@@ -1525,6 +1535,12 @@ declare global {
     var HTMLSwirlIconBlockElement: {
         prototype: HTMLSwirlIconBlockElement;
         new (): HTMLSwirlIconBlockElement;
+    };
+    interface HTMLSwirlIconBookmarkElement extends Components.SwirlIconBookmark, HTMLStencilElement {
+    }
+    var HTMLSwirlIconBookmarkElement: {
+        prototype: HTMLSwirlIconBookmarkElement;
+        new (): HTMLSwirlIconBookmarkElement;
     };
     interface HTMLSwirlIconCancelElement extends Components.SwirlIconCancel, HTMLStencilElement {
     }
@@ -2359,6 +2375,7 @@ declare global {
         "swirl-icon-arrow-upward": HTMLSwirlIconArrowUpwardElement;
         "swirl-icon-attachment": HTMLSwirlIconAttachmentElement;
         "swirl-icon-block": HTMLSwirlIconBlockElement;
+        "swirl-icon-bookmark": HTMLSwirlIconBookmarkElement;
         "swirl-icon-cancel": HTMLSwirlIconCancelElement;
         "swirl-icon-chat-bubble": HTMLSwirlIconChatBubbleElement;
         "swirl-icon-chats-filled": HTMLSwirlIconChatsFilledElement;
@@ -2723,6 +2740,7 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerCustomEvent<HTMLElement>) => void;
+        "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
         "zoom"?: SwirlFileViewerPdfZoom;
@@ -2816,6 +2834,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBlock {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconBookmark {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCancel {
@@ -3084,6 +3105,8 @@ declare namespace LocalJSX {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         "nextSlideButtonLabel"?: string;
         "previousSlideButtonLabel"?: string;
     }
@@ -3151,7 +3174,10 @@ declare namespace LocalJSX {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
         "file": string;
+        "fileTypeLabel"?: string;
         "label": string;
+        "menuLabel"?: string;
+        "menuTriggerLabel"?: string;
         "printButtonLabel"?: string;
         "zoomInButtonLabel"?: string;
         "zoomOutButtonLabel"?: string;
@@ -3159,6 +3185,7 @@ declare namespace LocalJSX {
     }
     interface SwirlPopover {
         "animation"?: SwirlPopoverAnimation;
+        "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "label": string;
         "offset"?: number | number[];
@@ -3461,6 +3488,7 @@ declare namespace LocalJSX {
         "swirl-icon-arrow-upward": SwirlIconArrowUpward;
         "swirl-icon-attachment": SwirlIconAttachment;
         "swirl-icon-block": SwirlIconBlock;
+        "swirl-icon-bookmark": SwirlIconBookmark;
         "swirl-icon-cancel": SwirlIconCancel;
         "swirl-icon-chat-bubble": SwirlIconChatBubble;
         "swirl-icon-chats-filled": SwirlIconChatsFilled;
@@ -3644,6 +3672,7 @@ declare module "@stencil/core" {
             "swirl-icon-arrow-upward": LocalJSX.SwirlIconArrowUpward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowUpwardElement>;
             "swirl-icon-attachment": LocalJSX.SwirlIconAttachment & JSXBase.HTMLAttributes<HTMLSwirlIconAttachmentElement>;
             "swirl-icon-block": LocalJSX.SwirlIconBlock & JSXBase.HTMLAttributes<HTMLSwirlIconBlockElement>;
+            "swirl-icon-bookmark": LocalJSX.SwirlIconBookmark & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkElement>;
             "swirl-icon-cancel": LocalJSX.SwirlIconCancel & JSXBase.HTMLAttributes<HTMLSwirlIconCancelElement>;
             "swirl-icon-chat-bubble": LocalJSX.SwirlIconChatBubble & JSXBase.HTMLAttributes<HTMLSwirlIconChatBubbleElement>;
             "swirl-icon-chats-filled": LocalJSX.SwirlIconChatsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconChatsFilledElement>;

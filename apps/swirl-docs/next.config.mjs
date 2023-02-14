@@ -18,6 +18,7 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  // output: "standalone",
 };
 
 export default withMDX(nextConfig);

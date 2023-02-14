@@ -1,34 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project.
 
 ## Getting Started
 
-First, run the development server:
+Before starting the dev environment for this application, run the `yarn build`
+command. This will ensure that the dependencies within the monorepo are
+up-to-date and will help keep the `dev`-command running smoothly. It's
+recommended to run `yarn build` after publications of packages from the
+monorepo.
+
+The following commands need to run on root level of the monorepo.
 
 ```bash
-npm run dev
-# or
-yarn dev
+yarn build
+OR
+npx turbo run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+When all the dependencies are up-to-date on your machine you can start the dev
+environment:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn workspace swirl-docs dev
+OR
+npx turbo run dev --filter="swirl-docs"
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the
+result.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### React Pages
 
-## Learn More
+Under `src/pages/*` the folder structure sets the navigational-structure of the
+application.
 
-To learn more about Next.js, take a look at the following resources:
+### API Routes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on
+[http://localhost:3000/api](http://localhost:3000/api/hello).
+
+The `src/pages/api` directory is mapped to `/api/*`. Files in this directory are
+treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead
+of React pages.
+
+## Libs
+
+This full-stack application has a data creation flow that is based on static
+files such as mdx and json. Each feature of the application has a dedicated
+library that manages its specific data types and business logic. This approach
+enables code reuse across the application, for example the same functions can be
+used to create views and push data into the Algolia index.
+
+## Learn More about the Stack
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
+  features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Tailwind Core Concepts](https://tailwindcss.com/docs/utility-first)
+- [MDX Docs](https://mdxjs.com/docs/)
