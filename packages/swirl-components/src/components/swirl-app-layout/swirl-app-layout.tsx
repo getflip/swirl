@@ -267,7 +267,6 @@ export class SwirlAppLayout {
                   <swirl-button
                     hideLabel
                     icon="<swirl-icon-arrow-back></swirl-icon-arrow-back>"
-                    intent="primary"
                     label={this.navigationBackButtonLabel}
                     onClick={this.onNavigationBackButtonClick}
                   ></swirl-button>
@@ -307,7 +306,6 @@ export class SwirlAppLayout {
                             ? "<swirl-icon-close></swirl-icon-close>"
                             : "<swirl-icon-arrow-back></swirl-icon-arrow-back>"
                         }
-                        intent="primary"
                         label={this.backToNavigationViewButtonLabel}
                         onClick={this.onBackToNavigationViewButtonClick}
                       ></swirl-button>
@@ -361,7 +359,6 @@ export class SwirlAppLayout {
                   class="app-layout__sidebar-close-button"
                   hideLabel
                   icon="<swirl-icon-close></swirl-icon-close>"
-                  intent="primary"
                   label={this.sidebarCloseButtonLabel}
                   onClick={this.onSidebarCloseButtonClick}
                 ></swirl-button>

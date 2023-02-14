@@ -52,13 +52,41 @@ const Template = (args) => {
       </swirl-stack>
     </div>
     <div slot="main">
-      <swirl-box padding="16">
-        <swirl-text>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        </swirl-text>
-      </swirl-box>
+      <swirl-app-layout
+        app-bar-media='<swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" variant="square"></swirl-avatar>'
+        app-name="Chat"
+        heading="John Doe"
+        navigation-label="Items"
+      >
+        <swirl-resource-list label="Items" slot="navigation">
+          <swirl-resource-list-item description="With a description" label="This is a resource item" class="item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
+          <swirl-resource-list-item description="With a description" label="This is a resource item" class="item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
+          <swirl-resource-list-item description="With a description" label="This is a resource item" class="item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/1027/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
+        </swirl-resource-list>
+        <swirl-button
+          hide-label
+          icon="<swirl-icon-settings></swirl-icon-settings>"
+          label="Settings"
+          slot="navigation-controls"
+        ></swirl-button>
+        <div slot="app-bar-controls">
+          <swirl-button hide-label class="info-button" icon="<swirl-icon-info></swirl-icon-info>" label="More information"></swirl-button>
+        </div>
+        <div slot="content"></div>
+        <div slot="sidebar"></div>
+      </swirl-app-layout>
     </div>
   `;
+
+  element.querySelector(".info-button").addEventListener("click", () => {
+    element.querySelector("swirl-app-layout").changeMobileView("sidebar");
+  });
+
+  element.querySelectorAll(".item").forEach((el) => {
+    el.addEventListener("click", () => {
+      element.querySelector("swirl-app-layout").changeMobileView("body");
+    });
+  });
 
   return element;
 };
