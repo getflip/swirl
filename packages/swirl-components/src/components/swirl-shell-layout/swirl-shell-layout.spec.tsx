@@ -29,7 +29,7 @@ describe("swirl-shell-layout", () => {
                     <slot name="logo-collapsed"></slot>
                   </div>
                   <div class="shell-layout__toggle">
-                    <swirl-button hidelabel="" icon="<swirl-icon-arrow-back></swirl-icon-arrow-back>" label="Toggle sidebar" swirlariaexpanded="true"></swirl-button>
+                    <swirl-button hidelabel="" icon="<swirl-icon-double-arrow-left></swirl-icon-double-arrow-left>" label="Toggle sidebar" swirlariaexpanded="true"></swirl-button>
                   </div>
                 </div>
                 <div class="shell-layout__tools">
