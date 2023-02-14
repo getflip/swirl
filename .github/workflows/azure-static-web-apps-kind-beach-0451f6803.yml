@@ -28,16 +28,16 @@ jobs:
         with:
           submodules: true
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: "16"
 
-      - name: Install JS dependencies
-        run: yarn
+      # - name: Install JS dependencies
+      #   run: yarn
 
-      - name: Build rest of monorepo
-        run: yarn run build
+      # - name: Build rest of monorepo
+      #   run: yarn run build
 
       - name: Deploy
         id: builddeploy
