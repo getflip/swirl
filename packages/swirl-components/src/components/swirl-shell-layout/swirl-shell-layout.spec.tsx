@@ -40,14 +40,12 @@ describe("swirl-shell-layout", () => {
                 <nav aria-label="Test" class="shell-layout__main-navigation">
                   <slot name="main-navigation"></slot>
                 </nav>
-                <div class="shell-layout__mobile-toggle">
-                  <swirl-button hidelabel="" icon="<swirl-icon-menu></swirl-icon-menu>" label="Toggle sidebar" swirlariaexpanded="false"></swirl-button>
-                </div>
               </div>
             </div>
             <main class="shell-layout__main">
               <slot name="main"></slot>
             </main>
+            <div class="shell-layout__backdrop shell-layout__backdrop--fading"></div>
           </div>
         </mock:shadow-root>
         <div slot="logo-expanded">

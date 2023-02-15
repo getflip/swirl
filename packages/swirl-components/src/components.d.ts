@@ -925,6 +925,14 @@ export namespace Components {
     interface SwirlSeparator {
     }
     interface SwirlShellLayout {
+        /**
+          * Collapse the left sidebar.
+         */
+        "collapseSidebar": () => Promise<void>;
+        /**
+          * Extend the left sidebar.
+         */
+        "extendSidebar": () => Promise<void>;
         "mainNavigationLabel": string;
         "sidebarToggleLabel": string;
     }

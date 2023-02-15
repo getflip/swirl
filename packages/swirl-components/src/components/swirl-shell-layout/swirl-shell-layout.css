@@ -41,8 +41,8 @@
     transform: translate3d(-100%, 0, 0);
 
     & .shell-layout__sidebar {
-      box-shadow: none;
       width: 100%;
+      box-shadow: none;
     }
 
     @media (--from-desktop) {
@@ -172,5 +172,39 @@
   & > *,
   & ::slotted(*) {
     height: 100%;
+  }
+}
+
+.shell-layout__backdrop {
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: shell-layout-backdrop-fade-in 0.1s;
+  inset: 0;
+
+  @media (--from-desktop) {
+    display: none;
+  }
+}
+
+.shell-layout__backdrop--fading {
+  animation: shell-layout-backdrop-fade-out 0.2s;
+}
+
+@keyframes shell-layout-backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shell-layout-backdrop-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

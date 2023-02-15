@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State } from "@stencil/core";
+import { Component, h, Host, Method, Prop, State } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery, getActiveElement } from "../../utils";
 
@@ -35,6 +35,22 @@ export class SwirlShellLayout {
     );
   }
 
+  /**
+   * Collapse the left sidebar.
+   */
+  @Method()
+  async collapseSidebar() {
+    this.hideSidebar();
+  }
+
+  /**
+   * Extend the left sidebar.
+   */
+  @Method()
+  async extendSidebar() {
+    this.showSidebar();
+  }
+
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
     if (event.matches) {
       this.showSidebar();
@@ -69,6 +85,12 @@ export class SwirlShellLayout {
     }
   };
 
+  private onBackdropClick = () => {
+    if (!this.collapsedSidebar) {
+      this.hideSidebar();
+    }
+  };
+
   private onSidebarClick = () => {
     if (this.collapsedSidebar) {
       (getActiveElement() as HTMLElement)?.blur();
@@ -95,6 +117,10 @@ export class SwirlShellLayout {
         "shell-layout__sidebar-wrapper--hovered": this.sidebarHovered,
       }
     );
+
+    const backdropClassName = classnames("shell-layout__backdrop", {
+      "shell-layout__backdrop--fading": this.collapsing,
+    });
 
     return (
       <Host>
@@ -138,7 +164,7 @@ export class SwirlShellLayout {
               >
                 <slot name="main-navigation"></slot>
               </nav>
-              {this.collapsedSidebar && (
+              {this.collapsedSidebar && !this.collapsing && (
                 <div class="shell-layout__mobile-toggle">
                   <swirl-button
                     swirlAriaExpanded={String(!this.collapsedSidebar)}
@@ -154,6 +180,9 @@ export class SwirlShellLayout {
           <main class="shell-layout__main">
             <slot name="main"></slot>
           </main>
+          {(!this.collapsedSidebar || this.collapsing) && (
+            <div class={backdropClassName} onClick={this.onBackdropClick}></div>
+          )}
         </div>
       </Host>
     );
