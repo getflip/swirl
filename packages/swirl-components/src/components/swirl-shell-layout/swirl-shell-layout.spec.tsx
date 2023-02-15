@@ -6,7 +6,7 @@ describe("swirl-shell-layout", () => {
   it("renders its content", async () => {
     const page = await newSpecPage({
       components: [SwirlShellLayout],
-      html: `<swirl-shell-layout>
+      html: `<swirl-shell-layout main-navigation-label="Test">
         <div slot="logo-expanded">Expanded logo</div>
         <div slot="logo-collapsed">Collapsed logo</div>
         <div slot="tools">Tools</div>
@@ -16,7 +16,7 @@ describe("swirl-shell-layout", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-shell-layout>
+      <swirl-shell-layout main-navigation-label="Test">
         <mock:shadow-root>
           <div class="shell-layout shell-layout--collapsed-sidebar shell-layout--collapsing">
             <div class="shell-layout__sidebar-wrapper">
@@ -37,7 +37,7 @@ describe("swirl-shell-layout", () => {
                     <slot name="tools"></slot>
                   </div>
                 </header>
-                <nav aria-label="Main" class="shell-layout__main-navigation">
+                <nav aria-label="Test" class="shell-layout__main-navigation">
                   <slot name="main-navigation"></slot>
                 </nav>
                 <div class="shell-layout__mobile-toggle">
