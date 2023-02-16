@@ -1996,6 +1996,19 @@
       ]
     },
     {
+      "name": "swirl-icon-file-copy",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-filter",
       "description": {
         "kind": "markdown",
@@ -2257,6 +2270,19 @@
     },
     {
       "name": "swirl-icon-menu",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-menu-book",
       "description": {
         "kind": "markdown",
         "value": ""

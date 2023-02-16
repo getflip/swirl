@@ -307,14 +307,13 @@ export class SwirlPdfReader {
                 ></swirl-button>
               </span>
               <span class="pdf-reader__floating-tools">
-                {/* TODO: new icons */}
                 <button
                   aria-label={this.sideBySideButtonLabel}
                   class="pdf-reader__floating-tool-button"
                   onClick={this.toggleViewMode}
                   type="button"
                 >
-                  <swirl-icon-menu-filled></swirl-icon-menu-filled>
+                  <swirl-icon-menu-book></swirl-icon-menu-book>
                 </button>
                 <button
                   aria-controls="thumbnails"
@@ -324,7 +323,7 @@ export class SwirlPdfReader {
                   onClick={this.toggleThumbnals}
                   type="button"
                 >
-                  <swirl-icon-copy></swirl-icon-copy>
+                  <swirl-icon-file-copy></swirl-icon-file-copy>
                 </button>
               </span>
             </header>

@@ -560,6 +560,9 @@ export namespace Components {
     interface SwirlIconFile {
         "size": SwirlIconSize;
     }
+    interface SwirlIconFileCopy {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFilter {
         "size": SwirlIconSize;
     }
@@ -621,6 +624,9 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconMenu {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconMenuBook {
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuFilled {
@@ -1702,6 +1708,12 @@ declare global {
         prototype: HTMLSwirlIconFileElement;
         new (): HTMLSwirlIconFileElement;
     };
+    interface HTMLSwirlIconFileCopyElement extends Components.SwirlIconFileCopy, HTMLStencilElement {
+    }
+    var HTMLSwirlIconFileCopyElement: {
+        prototype: HTMLSwirlIconFileCopyElement;
+        new (): HTMLSwirlIconFileCopyElement;
+    };
     interface HTMLSwirlIconFilterElement extends Components.SwirlIconFilter, HTMLStencilElement {
     }
     var HTMLSwirlIconFilterElement: {
@@ -1827,6 +1839,12 @@ declare global {
     var HTMLSwirlIconMenuElement: {
         prototype: HTMLSwirlIconMenuElement;
         new (): HTMLSwirlIconMenuElement;
+    };
+    interface HTMLSwirlIconMenuBookElement extends Components.SwirlIconMenuBook, HTMLStencilElement {
+    }
+    var HTMLSwirlIconMenuBookElement: {
+        prototype: HTMLSwirlIconMenuBookElement;
+        new (): HTMLSwirlIconMenuBookElement;
     };
     interface HTMLSwirlIconMenuFilledElement extends Components.SwirlIconMenuFilled, HTMLStencilElement {
     }
@@ -2366,6 +2384,7 @@ declare global {
         "swirl-icon-expand-less": HTMLSwirlIconExpandLessElement;
         "swirl-icon-expand-more": HTMLSwirlIconExpandMoreElement;
         "swirl-icon-file": HTMLSwirlIconFileElement;
+        "swirl-icon-file-copy": HTMLSwirlIconFileCopyElement;
         "swirl-icon-filter": HTMLSwirlIconFilterElement;
         "swirl-icon-folder-shared": HTMLSwirlIconFolderSharedElement;
         "swirl-icon-fullscreen": HTMLSwirlIconFullscreenElement;
@@ -2387,6 +2406,7 @@ declare global {
         "swirl-icon-manage-accounts": HTMLSwirlIconManageAccountsElement;
         "swirl-icon-mention": HTMLSwirlIconMentionElement;
         "swirl-icon-menu": HTMLSwirlIconMenuElement;
+        "swirl-icon-menu-book": HTMLSwirlIconMenuBookElement;
         "swirl-icon-menu-filled": HTMLSwirlIconMenuFilledElement;
         "swirl-icon-menu-outlined": HTMLSwirlIconMenuOutlinedElement;
         "swirl-icon-message": HTMLSwirlIconMessageElement;
@@ -2882,6 +2902,9 @@ declare namespace LocalJSX {
     interface SwirlIconFile {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconFileCopy {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconFilter {
         "size"?: SwirlIconSize;
     }
@@ -2943,6 +2966,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenu {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconMenuBook {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenuFilled {
@@ -3462,6 +3488,7 @@ declare namespace LocalJSX {
         "swirl-icon-expand-less": SwirlIconExpandLess;
         "swirl-icon-expand-more": SwirlIconExpandMore;
         "swirl-icon-file": SwirlIconFile;
+        "swirl-icon-file-copy": SwirlIconFileCopy;
         "swirl-icon-filter": SwirlIconFilter;
         "swirl-icon-folder-shared": SwirlIconFolderShared;
         "swirl-icon-fullscreen": SwirlIconFullscreen;
@@ -3483,6 +3510,7 @@ declare namespace LocalJSX {
         "swirl-icon-manage-accounts": SwirlIconManageAccounts;
         "swirl-icon-mention": SwirlIconMention;
         "swirl-icon-menu": SwirlIconMenu;
+        "swirl-icon-menu-book": SwirlIconMenuBook;
         "swirl-icon-menu-filled": SwirlIconMenuFilled;
         "swirl-icon-menu-outlined": SwirlIconMenuOutlined;
         "swirl-icon-message": SwirlIconMessage;
@@ -3641,6 +3669,7 @@ declare module "@stencil/core" {
             "swirl-icon-expand-less": LocalJSX.SwirlIconExpandLess & JSXBase.HTMLAttributes<HTMLSwirlIconExpandLessElement>;
             "swirl-icon-expand-more": LocalJSX.SwirlIconExpandMore & JSXBase.HTMLAttributes<HTMLSwirlIconExpandMoreElement>;
             "swirl-icon-file": LocalJSX.SwirlIconFile & JSXBase.HTMLAttributes<HTMLSwirlIconFileElement>;
+            "swirl-icon-file-copy": LocalJSX.SwirlIconFileCopy & JSXBase.HTMLAttributes<HTMLSwirlIconFileCopyElement>;
             "swirl-icon-filter": LocalJSX.SwirlIconFilter & JSXBase.HTMLAttributes<HTMLSwirlIconFilterElement>;
             "swirl-icon-folder-shared": LocalJSX.SwirlIconFolderShared & JSXBase.HTMLAttributes<HTMLSwirlIconFolderSharedElement>;
             "swirl-icon-fullscreen": LocalJSX.SwirlIconFullscreen & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenElement>;
@@ -3662,6 +3691,7 @@ declare module "@stencil/core" {
             "swirl-icon-manage-accounts": LocalJSX.SwirlIconManageAccounts & JSXBase.HTMLAttributes<HTMLSwirlIconManageAccountsElement>;
             "swirl-icon-mention": LocalJSX.SwirlIconMention & JSXBase.HTMLAttributes<HTMLSwirlIconMentionElement>;
             "swirl-icon-menu": LocalJSX.SwirlIconMenu & JSXBase.HTMLAttributes<HTMLSwirlIconMenuElement>;
+            "swirl-icon-menu-book": LocalJSX.SwirlIconMenuBook & JSXBase.HTMLAttributes<HTMLSwirlIconMenuBookElement>;
             "swirl-icon-menu-filled": LocalJSX.SwirlIconMenuFilled & JSXBase.HTMLAttributes<HTMLSwirlIconMenuFilledElement>;
             "swirl-icon-menu-outlined": LocalJSX.SwirlIconMenuOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconMenuOutlinedElement>;
             "swirl-icon-message": LocalJSX.SwirlIconMessage & JSXBase.HTMLAttributes<HTMLSwirlIconMessageElement>;
