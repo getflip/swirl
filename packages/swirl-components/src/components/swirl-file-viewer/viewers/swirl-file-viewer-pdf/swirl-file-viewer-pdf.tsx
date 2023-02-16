@@ -11,6 +11,7 @@ import {
   State,
   Watch,
 } from "@stencil/core";
+import classnames from "classnames";
 import pdf, {
   getDocument,
   PDFDocumentProxy,
@@ -27,6 +28,8 @@ pdf.GlobalWorkerOptions.workerSrc = "/pdfjs/pdf.worker.min.js";
 
 export type SwirlFileViewerPdfZoom = number | "auto";
 
+export type SwirlFileViewerPdfViewMode = "single" | "side-by-side";
+
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer-pdf.css",
@@ -38,6 +41,7 @@ export class SwirlFileViewerPdf {
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
   @Prop() singlePageMode: boolean;
+  @Prop() viewMode?: SwirlFileViewerPdfViewMode = "single";
   @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
 
   @State() doc: PDFDocumentProxy;
@@ -85,6 +89,17 @@ export class SwirlFileViewerPdf {
     await this.updateVisiblePages();
 
     this.determineScrollStatus();
+  }
+
+  @Watch("viewMode")
+  async watchViewMode() {
+    queueMicrotask(async () => {
+      this.visiblePages = [];
+      this.renderedPages = [];
+      await this.updateVisiblePages();
+
+      this.determineScrollStatus();
+    });
   }
 
   @Watch("zoom")
@@ -429,8 +444,13 @@ export class SwirlFileViewerPdf {
 
     const showSpinner = this.loading;
 
+    const className = classnames(
+      "file-viewer-pdf",
+      `file-viewer-pdf--view-mode-${this.viewMode}`
+    );
+
     return (
-      <Host class="file-viewer-pdf" exportparts="file-viewer-pdf__pagination">
+      <Host class={className} exportparts="file-viewer-pdf__pagination">
         {this.error && (
           <swirl-inline-error
             class="file-viewer-pdf__error"

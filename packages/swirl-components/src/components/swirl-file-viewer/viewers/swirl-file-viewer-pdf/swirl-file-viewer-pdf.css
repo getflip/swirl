@@ -6,6 +6,28 @@
   width: 100%;
   height: 100%;
 
+  &(.file-viewer-pdf--view-mode-side-by-side) {
+    & .file-viewer-pdf__pages {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-row-gap: var(--s-space-8);
+      grid-column-gap: var(--s-space-8);
+      grid-auto-rows: auto;
+    }
+
+    & .file-viewer-pdf__page {
+      margin: 0;
+
+      &:nth-child(odd) {
+        justify-self: end;
+      }
+
+      &:nth-child(even) {
+        justify-self: start;
+      }
+    }
+  }
+
   & * {
     box-sizing: border-box;
   }
@@ -152,7 +174,7 @@
 
 .file-viewer-pdf__pagination {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: var(--s-space-16);
   left: 50%;
   padding: var(--s-space-4) var(--s-space-12);
   border-radius: var(--s-border-radius-base);

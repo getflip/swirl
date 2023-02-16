@@ -8,7 +8,10 @@ import {
   Prop,
 } from "@stencil/core";
 import { saveAs } from "file-saver";
-import { SwirlFileViewerPdfZoom } from "./viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import {
+  SwirlFileViewerPdfViewMode,
+  SwirlFileViewerPdfZoom,
+} from "./viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 
 @Component({
   shadow: true,
@@ -24,6 +27,7 @@ export class SwirlFileViewer {
   @Prop() thumbnailUrl?: string;
   @Prop() type!: string;
   @Prop() typeUnsupportedMessage?: string = "File type is not supported.";
+  @Prop() viewMode?: SwirlFileViewerPdfViewMode = "single";
   @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
 
   @Event() activate: EventEmitter<HTMLElement>;
@@ -105,6 +109,7 @@ export class SwirlFileViewer {
                   file={this.file}
                   onActivate={this.onActivate}
                   ref={(el) => (this.viewer = el)}
+                  viewMode={this.viewMode}
                   zoom={this.zoom}
                 ></swirl-file-viewer-pdf>
               )}

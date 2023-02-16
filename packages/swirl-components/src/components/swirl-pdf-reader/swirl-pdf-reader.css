@@ -192,6 +192,33 @@
   }
 }
 
+.pdf-reader__floating-tools {
+  position: fixed;
+  z-index: 1;
+  bottom: var(--s-space-16);
+  left: var(--s-space-16);
+  display: none;
+  flex-direction: column;
+  gap: var(--s-space-12);
+
+  @media (--from-tablet) {
+    display: flex;
+  }
+}
+
+.pdf-reader__floating-tool-button {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  color: var(--s-icon-on-image);
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
 .pdf-reader__meta {
   display: flex;
   padding-top: var(--s-space-4);
@@ -208,8 +235,8 @@
 
 .pdf-reader__thumbnail {
   display: inline-flex;
-  flex-shrink: 0;
   padding-left: var(--s-space-4);
+  flex-shrink: 0;
 }
 
 .pdf-reader__file-info {

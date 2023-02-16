@@ -1170,6 +1170,18 @@
           "description": ""
         },
         {
+          "name": "view-mode",
+          "description": "",
+          "values": [
+            {
+              "name": "side-by-side"
+            },
+            {
+              "name": "single"
+            }
+          ]
+        },
+        {
           "name": "zoom",
           "description": "",
           "values": [
@@ -1261,6 +1273,18 @@
         {
           "name": "single-page-mode",
           "description": ""
+        },
+        {
+          "name": "view-mode",
+          "description": "",
+          "values": [
+            {
+              "name": "side-by-side"
+            },
+            {
+              "name": "single"
+            }
+          ]
         },
         {
           "name": "zoom",
@@ -3028,6 +3052,14 @@
         },
         {
           "name": "print-button-label",
+          "description": ""
+        },
+        {
+          "name": "side-by-side-button-label",
+          "description": ""
+        },
+        {
+          "name": "thumbnails-button-label",
           "description": ""
         },
         {

@@ -12,7 +12,10 @@ import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 import { isMobileViewport } from "../../utils";
-import { SwirlFileViewerPdfZoom } from "../swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import {
+  SwirlFileViewerPdfViewMode,
+  SwirlFileViewerPdfZoom,
+} from "../swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 
 @Component({
   shadow: true,
@@ -31,6 +34,8 @@ export class SwirlPdfReader {
   @Prop() menuLabel?: string = "File menu";
   @Prop() menuTriggerLabel?: string = "Open file menu";
   @Prop() printButtonLabel?: string = "Print PDF";
+  @Prop() sideBySideButtonLabel?: string = "Toggle side by side view";
+  @Prop() thumbnailsButtonLabel?: string = "Toggle thumbnails";
   @Prop() zoomInButtonLabel?: string = "Zoom in";
   @Prop() zoomOutButtonLabel?: string = "Zoom out";
   @Prop() zoomSelectLabel?: string = "Select zoom";
@@ -38,6 +43,7 @@ export class SwirlPdfReader {
   @State() active = false;
   @State() closing = false;
   @State() downloading = false;
+  @State() viewMode: SwirlFileViewerPdfViewMode = "single";
   @State() zoom: SwirlFileViewerPdfZoom;
   @State() zoomSteps: number[];
 
@@ -129,6 +135,14 @@ export class SwirlPdfReader {
       ? this.mobileZoomSteps
       : this.desktopZoomSteps;
   }
+
+  private toggleViewMode = () => {
+    if (this.viewMode === "single") {
+      this.viewMode = "side-by-side";
+    } else {
+      this.viewMode = "single";
+    }
+  };
 
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
@@ -269,6 +283,24 @@ export class SwirlPdfReader {
                   label={this.menuTriggerLabel}
                 ></swirl-button>
               </span>
+              <span class="pdf-reader__floating-tools">
+                {/* TODO: new icons */}
+                <button
+                  aria-label={this.sideBySideButtonLabel}
+                  class="pdf-reader__floating-tool-button"
+                  onClick={this.toggleViewMode}
+                  type="button"
+                >
+                  <swirl-icon-menu-filled></swirl-icon-menu-filled>
+                </button>
+                <button
+                  aria-label={this.thumbnailsButtonLabel}
+                  class="pdf-reader__floating-tool-button"
+                  type="button"
+                >
+                  <swirl-icon-copy></swirl-icon-copy>
+                </button>
+              </span>
             </header>
             <div class="pdf-reader__content">
               <swirl-file-viewer
@@ -277,6 +309,7 @@ export class SwirlPdfReader {
                 onActivate={this.onActivate}
                 ref={(el) => (this.viewer = el)}
                 type="application/pdf"
+                viewMode={this.viewMode}
                 zoom={this.zoom}
               ></swirl-file-viewer>
 

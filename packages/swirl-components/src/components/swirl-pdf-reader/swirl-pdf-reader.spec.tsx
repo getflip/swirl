@@ -53,9 +53,17 @@ describe("swirl-pdf-reader", () => {
                 <span class="pdf-reader__header-right">
                   <swirl-button class="pdf-reader__menu-button" hidelabel="" icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" id="menu-trigger" label="Open file menu"></swirl-button>
                 </span>
+                <span class="pdf-reader__floating-tools">
+                  <button aria-label="Toggle side by side view" class="pdf-reader__floating-tool-button" type="button">
+                    <swirl-icon-menu-filled></swirl-icon-menu-filled>
+                  </button>
+                  <button aria-label="Toggle thumbnails" class="pdf-reader__floating-tool-button" type="button">
+                    <swirl-icon-copy></swirl-icon-copy>
+                  </button>
+                </span>
               </header>
               <div class="pdf-reader__content">
-                <swirl-file-viewer file="/sample.pdf" type="application/pdf" zoom="auto"></swirl-file-viewer>
+                <swirl-file-viewer file="/sample.pdf" type="application/pdf" viewmode="single" zoom="auto"></swirl-file-viewer>
                 <div class="pdf-reader__mobile-zoom-controls">
                   <button aria-label="Full width" class="pdf-reader__mobile-zoom-button" type="button">
                     <swirl-icon-fullscreen-exit></swirl-icon-fullscreen-exit>

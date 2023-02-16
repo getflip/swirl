@@ -106,4 +106,5 @@ export const config: Config = {
     }),
   ],
   sourceMap: false,
+  watchIgnoredRegex: [/pdf\.worker\.min\.js/, /vscode-data\.json/],
 };

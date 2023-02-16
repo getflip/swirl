@@ -19,8 +19,8 @@ import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
-import { SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
-import { SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 import { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
@@ -60,8 +60,8 @@ export { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
-export { SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
-export { SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 export { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
@@ -354,6 +354,7 @@ export namespace Components {
         "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
+        "viewMode"?: SwirlFileViewerPdfViewMode;
         "zoom"?: SwirlFileViewerPdfZoom;
     }
     interface SwirlFileViewerAudio {
@@ -401,6 +402,7 @@ export namespace Components {
          */
         "setPage": (page: number) => Promise<void>;
         "singlePageMode": boolean;
+        "viewMode"?: SwirlFileViewerPdfViewMode1;
         "zoom"?: SwirlFileViewerPdfZoom1;
     }
     interface SwirlFileViewerText {
@@ -822,6 +824,8 @@ export namespace Components {
          */
         "open": () => Promise<void>;
         "printButtonLabel"?: string;
+        "sideBySideButtonLabel"?: string;
+        "thumbnailsButtonLabel"?: string;
         "zoomInButtonLabel"?: string;
         "zoomOutButtonLabel"?: string;
         "zoomSelectLabel"?: string;
@@ -2690,6 +2694,7 @@ declare namespace LocalJSX {
         "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
+        "viewMode"?: SwirlFileViewerPdfViewMode;
         "zoom"?: SwirlFileViewerPdfZoom;
     }
     interface SwirlFileViewerAudio {
@@ -2715,6 +2720,7 @@ declare namespace LocalJSX {
         "file": string;
         "onActivate"?: (event: SwirlFileViewerPdfCustomEvent<HTMLElement>) => void;
         "singlePageMode"?: boolean;
+        "viewMode"?: SwirlFileViewerPdfViewMode1;
         "zoom"?: SwirlFileViewerPdfZoom1;
     }
     interface SwirlFileViewerText {
@@ -3117,6 +3123,8 @@ declare namespace LocalJSX {
         "menuLabel"?: string;
         "menuTriggerLabel"?: string;
         "printButtonLabel"?: string;
+        "sideBySideButtonLabel"?: string;
+        "thumbnailsButtonLabel"?: string;
         "zoomInButtonLabel"?: string;
         "zoomOutButtonLabel"?: string;
         "zoomSelectLabel"?: string;
