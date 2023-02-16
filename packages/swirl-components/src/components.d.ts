@@ -386,6 +386,10 @@ export namespace Components {
         "errorMessage"?: string;
         "file": string;
         /**
+          * Get thumbnails of all pages.
+         */
+        "getThumbnails": () => Promise<HTMLCanvasElement[]>;
+        /**
           * Navigate to next page, if single page mode is enabled.
          */
         "nextPage": () => Promise<void>;
@@ -825,7 +829,9 @@ export namespace Components {
         "open": () => Promise<void>;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
+        "thumbnailButtonLabel"?: string;
         "thumbnailsButtonLabel"?: string;
+        "thumbnailsLabel"?: string;
         "zoomInButtonLabel"?: string;
         "zoomOutButtonLabel"?: string;
         "zoomSelectLabel"?: string;
@@ -3124,7 +3130,9 @@ declare namespace LocalJSX {
         "menuTriggerLabel"?: string;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
+        "thumbnailButtonLabel"?: string;
         "thumbnailsButtonLabel"?: string;
+        "thumbnailsLabel"?: string;
         "zoomInButtonLabel"?: string;
         "zoomOutButtonLabel"?: string;
         "zoomSelectLabel"?: string;

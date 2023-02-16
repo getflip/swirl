@@ -116,6 +116,36 @@ export class SwirlFileViewerPdf {
   }
 
   /**
+   * Get thumbnails of all pages.
+   */
+  @Method()
+  async getThumbnails() {
+    return await Promise.all(
+      this.pages.filter(Boolean).map((page) => {
+        const vp = page.getViewport({ scale: 1 });
+        const canvas = document.createElement("canvas");
+
+        canvas.width = vp.width;
+        canvas.height = vp.height;
+
+        const scale = Math.min(
+          canvas.width / vp.width,
+          canvas.height / vp.height
+        );
+
+        return page
+          .render({
+            canvasContext: canvas.getContext("2d"),
+            viewport: page.getViewport({ scale: scale }),
+          })
+          .promise.then(function () {
+            return canvas;
+          });
+      })
+    );
+  }
+
+  /**
    * Print the file.
    */
   @Method()

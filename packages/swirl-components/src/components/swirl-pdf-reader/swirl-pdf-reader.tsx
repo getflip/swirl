@@ -11,7 +11,7 @@ import {
 import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
-import { isMobileViewport } from "../../utils";
+import { isMobileViewport, querySelectorAllDeep } from "../../utils";
 import {
   SwirlFileViewerPdfViewMode,
   SwirlFileViewerPdfZoom,
@@ -35,7 +35,9 @@ export class SwirlPdfReader {
   @Prop() menuTriggerLabel?: string = "Open file menu";
   @Prop() printButtonLabel?: string = "Print PDF";
   @Prop() sideBySideButtonLabel?: string = "Toggle side by side view";
+  @Prop() thumbnailButtonLabel?: string = "Scroll to page";
   @Prop() thumbnailsButtonLabel?: string = "Toggle thumbnails";
+  @Prop() thumbnailsLabel?: string = "Page thumbnails";
   @Prop() zoomInButtonLabel?: string = "Zoom in";
   @Prop() zoomOutButtonLabel?: string = "Zoom out";
   @Prop() zoomSelectLabel?: string = "Select zoom";
@@ -43,6 +45,8 @@ export class SwirlPdfReader {
   @State() active = false;
   @State() closing = false;
   @State() downloading = false;
+  @State() thumbnails: HTMLCanvasElement[] = [];
+  @State() showThumbnails: boolean;
   @State() viewMode: SwirlFileViewerPdfViewMode = "single";
   @State() zoom: SwirlFileViewerPdfZoom;
   @State() zoomSteps: number[];
@@ -130,6 +134,10 @@ export class SwirlPdfReader {
     }
   }
 
+  private async generateThumbnails() {
+    this.thumbnails = await this.pdfViewer.getThumbnails();
+  }
+
   private updateZoomSteps() {
     this.zoomSteps = isMobileViewport()
       ? this.mobileZoomSteps
@@ -144,16 +152,21 @@ export class SwirlPdfReader {
     }
   };
 
+  private toggleThumbnals = () => {
+    this.showThumbnails = !this.showThumbnails;
+  };
+
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       this.close();
     }
   };
 
-  private onActivate = (event: CustomEvent<HTMLElement>) => {
+  private onActivate = async (event: CustomEvent<HTMLElement>) => {
     this.pdfViewer = event.detail as HTMLSwirlFileViewerPdfElement;
 
     this.lockBodyScroll();
+    this.generateThumbnails();
   };
 
   private onCloseButtonClick = () => {
@@ -202,9 +215,19 @@ export class SwirlPdfReader {
     this.zoom = value === "auto" ? value : +value;
   };
 
+  private onThumbnailClick = (index: number) => () => {
+    const page = querySelectorAllDeep(
+      this.el,
+      `[data-page-number="${index + 1}"]`
+    )?.[0];
+
+    page?.scrollIntoView();
+  };
+
   render() {
     const className = classnames("pdf-reader", {
       "pdf-reader--closing": this.closing,
+      "pdf-reader--show-thumbnails": this.showThumbnails,
     });
 
     return (
@@ -294,8 +317,11 @@ export class SwirlPdfReader {
                   <swirl-icon-menu-filled></swirl-icon-menu-filled>
                 </button>
                 <button
+                  aria-controls="thumbnails"
+                  aria-expanded={String(Boolean(this.showThumbnails))}
                   aria-label={this.thumbnailsButtonLabel}
                   class="pdf-reader__floating-tool-button"
+                  onClick={this.toggleThumbnals}
                   type="button"
                 >
                   <swirl-icon-copy></swirl-icon-copy>
@@ -303,8 +329,26 @@ export class SwirlPdfReader {
               </span>
             </header>
             <div class="pdf-reader__content">
+              <nav
+                aria-label={this.thumbnailsLabel}
+                class="pdf-reader__thumbnails"
+                id="thumbnails"
+              >
+                {this.thumbnails.map((thumbnail, index) => (
+                  <button
+                    aria-label={`${this.thumbnailButtonLabel} ${index + 1}`}
+                    class="pdf-reader__thumbnail"
+                    onClick={this.onThumbnailClick(index)}
+                    type="button"
+                  >
+                    <img src={thumbnail.toDataURL("image/png")} alt="" />
+                  </button>
+                ))}
+              </nav>
+
               <swirl-file-viewer
                 active={this.active}
+                class="pdf-reader__viewer"
                 file={this.file}
                 onActivate={this.onActivate}
                 ref={(el) => (this.viewer = el)}
@@ -360,7 +404,7 @@ export class SwirlPdfReader {
           >
             <swirl-stack>
               <div class="pdf-reader__meta">
-                <div class="pdf-reader__thumbnail">
+                <div class="pdf-reader__file-icon">
                   <svg fill="none" height="36" viewBox="0 0 24 36" width="24">
                     <path
                       d="M7.01755 21.6V15.192H8.39455C8.64655 15.192 8.86855 15.225 9.06055 15.291C9.25255 15.357 9.42655 15.474 9.58255 15.642C9.73855 15.81 9.84655 16.008 9.90655 16.236C9.96655 16.458 9.99655 16.761 9.99655 17.145C9.99655 17.433 9.97855 17.676 9.94255 17.874C9.91255 18.072 9.84355 18.258 9.73555 18.432C9.60955 18.642 9.44155 18.807 9.23155 18.927C9.02155 19.041 8.74555 19.098 8.40355 19.098H7.93555V21.6H7.01755ZM7.93555 16.056V18.234H8.37655C8.56255 18.234 8.70655 18.207 8.80855 18.153C8.91055 18.099 8.98555 18.024 9.03355 17.928C9.08155 17.838 9.10855 17.727 9.11455 17.595C9.12655 17.463 9.13255 17.316 9.13255 17.154C9.13255 17.004 9.12955 16.863 9.12355 16.731C9.11755 16.593 9.09055 16.473 9.04255 16.371C8.99455 16.269 8.92255 16.191 8.82655 16.137C8.73055 16.083 8.59255 16.056 8.41255 16.056H7.93555Z"

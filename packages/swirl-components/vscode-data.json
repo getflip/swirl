@@ -3059,7 +3059,15 @@
           "description": ""
         },
         {
+          "name": "thumbnail-button-label",
+          "description": ""
+        },
+        {
           "name": "thumbnails-button-label",
+          "description": ""
+        },
+        {
+          "name": "thumbnails-label",
           "description": ""
         },
         {
