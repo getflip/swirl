@@ -42,6 +42,7 @@
     "iframe-resizer-react": "^1.1.0",
     "next": "12.2.5",
     "next-mdx-remote": "^4.1.0",
+    "next-password-protect": "^1.8.0",
     "prismjs": "^1.29.0",
     "react": "18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
