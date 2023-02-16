@@ -55,10 +55,10 @@ describe("swirl-pdf-reader", () => {
                 </span>
                 <span class="pdf-reader__floating-tools">
                   <button aria-label="Toggle side by side view" class="pdf-reader__floating-tool-button" type="button">
-                    <swirl-icon-menu-filled></swirl-icon-menu-filled>
+                    <swirl-icon-menu-book></swirl-icon-menu-book>
                   </button>
                   <button aria-controls="thumbnails" aria-expanded="false" aria-label="Toggle thumbnails" class="pdf-reader__floating-tool-button" type="button">
-                    <swirl-icon-copy></swirl-icon-copy>
+                    <swirl-icon-file-copy></swirl-icon-file-copy>
                   </button>
                 </span>
               </header>
