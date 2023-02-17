@@ -1,7 +1,7 @@
 @import "../../styles/media-queries.css";
 
 :host {
-  --thumbnails-width: 6rem;
+  --thumbnails-width: 7rem;
 
   display: block;
 
@@ -59,7 +59,7 @@
 
 .pdf-reader__header {
   display: flex;
-  height: 4rem;
+  height: 5rem;
   padding-right: var(--s-space-16);
   padding-left: var(--s-space-16);
   align-items: center;
