@@ -59,7 +59,7 @@
 
 .pdf-reader__header {
   display: flex;
-  height: 5rem;
+  height: 4rem;
   padding-right: var(--s-space-16);
   padding-left: var(--s-space-16);
   align-items: center;
@@ -192,7 +192,7 @@
 }
 
 .pdf-reader__thumbnail {
-  width: 4rem;
+  width: 5rem;
   margin: 0;
   padding: 0;
   border: var(--s-border-width-default) solid var(--s-border-default);
