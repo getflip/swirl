@@ -93,6 +93,7 @@
   display: flex;
   width: var(--extended-sidebar-width);
   height: 100%;
+  border-right: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-border-default);
   flex-direction: column;
   transition: box-shadow 0.2s, width 0.2s;
@@ -101,6 +102,7 @@
   gap: var(--s-border-width-default);
 
   @media (--from-desktop) {
+    border-right: none;
     box-shadow: none;
   }
 }
