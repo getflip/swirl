@@ -1,10 +1,10 @@
 # Global
-* @Sqrrl
+* @Sqrrl @webspaceadam
 
 # Packages
-packages/swirl-components/*          @Sqrrl
-packages/swirl-components-angular/*  @Sqrrl
-packages/swirl-components-react/*    @Sqrrl
-packages/swirl-icons/*               @Sqrrl
-packages/swirl-tokens/*              @webspaceadam
-apps/swirl-docs/*                    @webspaceadam
+packages/swirl-components/*          @Sqrrl @webspaceadam
+packages/swirl-components-angular/*  @Sqrrl @webspaceadam
+packages/swirl-components-react/*    @Sqrrl @webspaceadam
+packages/swirl-icons/*               @Sqrrl @webspaceadam
+packages/swirl-tokens/*              @webspaceadam @Sqrrl
+apps/swirl-docs/*                    @webspaceadam @Sqrrl
