@@ -1,5 +1,38 @@
 # @getflip/swirl-components
 
+## 0.16.0
+
+### Minor Changes
+
+- [#164](https://github.com/getflip/swirl/pull/164)
+  [`b2fb909`](https://github.com/getflip/swirl/commit/b2fb909973efa363d9529be76199a0125a355eb4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-shell-layout component
+
+* [#164](https://github.com/getflip/swirl/pull/164)
+  [`b2fb909`](https://github.com/getflip/swirl/commit/b2fb909973efa363d9529be76199a0125a355eb4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-shell-navigation-item
+  component
+
+- [#164](https://github.com/getflip/swirl/pull/164)
+  [`b2fb909`](https://github.com/getflip/swirl/commit/b2fb909973efa363d9529be76199a0125a355eb4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icons
+
+* [#154](https://github.com/getflip/swirl/pull/154)
+  [`681b0e2`](https://github.com/getflip/swirl/commit/681b0e20751f1673da154f1970433f2980c24349)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add a file info menu to
+  swirl-pdf-reader
+
+- [#154](https://github.com/getflip/swirl/pull/154)
+  [`681b0e2`](https://github.com/getflip/swirl/commit/681b0e20751f1673da154f1970433f2980c24349)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add a file info menu to
+  swirl-lightbox
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b2fb909`](https://github.com/getflip/swirl/commit/b2fb909973efa363d9529be76199a0125a355eb4)]:
+  - @getflip/swirl-icons@0.11.0
+
 ## 0.15.0
 
 ### Minor Changes
