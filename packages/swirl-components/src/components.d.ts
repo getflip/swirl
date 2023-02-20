@@ -2717,6 +2717,7 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerCustomEvent<HTMLElement>) => void;
+        "onVisiblePagesChange"?: (event: SwirlFileViewerCustomEvent<number[]>) => void;
         "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
@@ -2745,6 +2746,7 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerPdfCustomEvent<HTMLElement>) => void;
+        "onVisiblePagesChange"?: (event: SwirlFileViewerPdfCustomEvent<number[]>) => void;
         "singlePageMode"?: boolean;
         "viewMode"?: SwirlFileViewerPdfViewMode1;
         "zoom"?: SwirlFileViewerPdfZoom1;

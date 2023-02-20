@@ -53,6 +53,7 @@ export class SwirlFileViewerPdf {
   @State() visiblePages: number[] = [];
 
   @Event() activate: EventEmitter<HTMLElement>;
+  @Event() visiblePagesChange: EventEmitter<number[]>;
 
   private pages: PDFPageProxy[] = [];
   private renderingPageNumbers: number[] = [];
@@ -342,6 +343,8 @@ export class SwirlFileViewerPdf {
     this.visiblePages = visiblePages;
 
     await this.renderVisiblePages(forPrint);
+
+    this.visiblePagesChange.emit(this.visiblePages);
   }
 
   private async renderTextLayer(page: PDFPageProxy, container: HTMLElement) {

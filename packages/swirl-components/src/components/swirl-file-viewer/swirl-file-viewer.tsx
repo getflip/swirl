@@ -31,6 +31,7 @@ export class SwirlFileViewer {
   @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
 
   @Event() activate: EventEmitter<HTMLElement>;
+  @Event() visiblePagesChange: EventEmitter<number[]>;
 
   private viewer: HTMLElement;
 
@@ -57,6 +58,10 @@ export class SwirlFileViewer {
 
   private onActivate = (event: CustomEvent<HTMLElement>) => {
     this.activate.emit(event.detail);
+  };
+
+  private onVisiblePagesChange = (event: CustomEvent<number[]>) => {
+    this.visiblePagesChange.emit(event.detail);
   };
 
   render() {
@@ -108,6 +113,7 @@ export class SwirlFileViewer {
                   errorMessage={this.errorMessage}
                   file={this.file}
                   onActivate={this.onActivate}
+                  onVisiblePagesChange={this.onVisiblePagesChange}
                   ref={(el) => (this.viewer = el)}
                   viewMode={this.viewMode}
                   zoom={this.zoom}

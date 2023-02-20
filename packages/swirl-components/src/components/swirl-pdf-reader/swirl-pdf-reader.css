@@ -200,8 +200,14 @@
   cursor: pointer;
 
   & > img {
+    display: inline-flex;
     width: 100%;
   }
+}
+
+.pdf-reader__thumbnail--active {
+  border-width: 0.125rem;
+  border-color: var(--s-border-highlight);
 }
 
 .pdf-reader__viewer {

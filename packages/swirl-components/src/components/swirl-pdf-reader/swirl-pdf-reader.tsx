@@ -48,6 +48,7 @@ export class SwirlPdfReader {
   @State() thumbnails: HTMLCanvasElement[] = [];
   @State() showThumbnails: boolean;
   @State() viewMode: SwirlFileViewerPdfViewMode = "single";
+  @State() visiblePages: number[] = [];
   @State() zoom: SwirlFileViewerPdfZoom;
   @State() zoomSteps: number[];
 
@@ -167,6 +168,10 @@ export class SwirlPdfReader {
 
     this.lockBodyScroll();
     this.generateThumbnails();
+  };
+
+  private onVisiblePagesChange = async (event: CustomEvent<number[]>) => {
+    this.visiblePages = event.detail;
   };
 
   private onCloseButtonClick = () => {
@@ -333,16 +338,26 @@ export class SwirlPdfReader {
                 class="pdf-reader__thumbnails"
                 id="thumbnails"
               >
-                {this.thumbnails.map((thumbnail, index) => (
-                  <button
-                    aria-label={`${this.thumbnailButtonLabel} ${index + 1}`}
-                    class="pdf-reader__thumbnail"
-                    onClick={this.onThumbnailClick(index)}
-                    type="button"
-                  >
-                    <img src={thumbnail.toDataURL("image/png")} alt="" />
-                  </button>
-                ))}
+                {this.thumbnails.map((thumbnail, index) => {
+                  const thumbnailClassName = classnames(
+                    "pdf-reader__thumbnail",
+                    {
+                      "pdf-reader__thumbnail--active":
+                        this.visiblePages[0] === index + 1,
+                    }
+                  );
+
+                  return (
+                    <button
+                      aria-label={`${this.thumbnailButtonLabel} ${index + 1}`}
+                      class={thumbnailClassName}
+                      onClick={this.onThumbnailClick(index)}
+                      type="button"
+                    >
+                      <img src={thumbnail.toDataURL("image/png")} alt="" />
+                    </button>
+                  );
+                })}
               </nav>
 
               <swirl-file-viewer
@@ -350,6 +365,7 @@ export class SwirlPdfReader {
                 class="pdf-reader__viewer"
                 file={this.file}
                 onActivate={this.onActivate}
+                onVisiblePagesChange={this.onVisiblePagesChange}
                 ref={(el) => (this.viewer = el)}
                 type="application/pdf"
                 viewMode={this.viewMode}
