@@ -17,6 +17,7 @@ import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButto
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
+import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
@@ -58,6 +59,7 @@ export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButto
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
+export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
@@ -247,6 +249,10 @@ export namespace Components {
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+    }
+    interface SwirlColumns {
+        "columns"?: string;
+        "spacing"?: SwirlColumnsSpacing;
     }
     interface SwirlConsoleLayout {
         "appName": string;
@@ -1383,6 +1389,12 @@ declare global {
         prototype: HTMLSwirlChipElement;
         new (): HTMLSwirlChipElement;
     };
+    interface HTMLSwirlColumnsElement extends Components.SwirlColumns, HTMLStencilElement {
+    }
+    var HTMLSwirlColumnsElement: {
+        prototype: HTMLSwirlColumnsElement;
+        new (): HTMLSwirlColumnsElement;
+    };
     interface HTMLSwirlConsoleLayoutElement extends Components.SwirlConsoleLayout, HTMLStencilElement {
     }
     var HTMLSwirlConsoleLayoutElement: {
@@ -2384,6 +2396,7 @@ declare global {
         "swirl-card": HTMLSwirlCardElement;
         "swirl-checkbox": HTMLSwirlCheckboxElement;
         "swirl-chip": HTMLSwirlChipElement;
+        "swirl-columns": HTMLSwirlColumnsElement;
         "swirl-console-layout": HTMLSwirlConsoleLayoutElement;
         "swirl-date-input": HTMLSwirlDateInputElement;
         "swirl-date-picker": HTMLSwirlDatePickerElement;
@@ -2701,6 +2714,10 @@ declare namespace LocalJSX {
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+    }
+    interface SwirlColumns {
+        "columns"?: string;
+        "spacing"?: SwirlColumnsSpacing;
     }
     interface SwirlConsoleLayout {
         "appName": string;
@@ -3516,6 +3533,7 @@ declare namespace LocalJSX {
         "swirl-card": SwirlCard;
         "swirl-checkbox": SwirlCheckbox;
         "swirl-chip": SwirlChip;
+        "swirl-columns": SwirlColumns;
         "swirl-console-layout": SwirlConsoleLayout;
         "swirl-date-input": SwirlDateInput;
         "swirl-date-picker": SwirlDatePicker;
@@ -3702,6 +3720,7 @@ declare module "@stencil/core" {
             "swirl-card": LocalJSX.SwirlCard & JSXBase.HTMLAttributes<HTMLSwirlCardElement>;
             "swirl-checkbox": LocalJSX.SwirlCheckbox & JSXBase.HTMLAttributes<HTMLSwirlCheckboxElement>;
             "swirl-chip": LocalJSX.SwirlChip & JSXBase.HTMLAttributes<HTMLSwirlChipElement>;
+            "swirl-columns": LocalJSX.SwirlColumns & JSXBase.HTMLAttributes<HTMLSwirlColumnsElement>;
             "swirl-console-layout": LocalJSX.SwirlConsoleLayout & JSXBase.HTMLAttributes<HTMLSwirlConsoleLayoutElement>;
             "swirl-date-input": LocalJSX.SwirlDateInput & JSXBase.HTMLAttributes<HTMLSwirlDateInputElement>;
             "swirl-date-picker": LocalJSX.SwirlDatePicker & JSXBase.HTMLAttributes<HTMLSwirlDatePickerElement>;
