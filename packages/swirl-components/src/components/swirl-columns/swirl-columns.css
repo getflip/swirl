@@ -9,5 +9,4 @@
 .columns {
   display: grid;
   width: 100%;
-  grid-template-columns: var(--swirl-columns);
 }
