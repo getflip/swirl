@@ -53,9 +53,18 @@ describe("swirl-pdf-reader", () => {
                 <span class="pdf-reader__header-right">
                   <swirl-button class="pdf-reader__menu-button" hidelabel="" icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" id="menu-trigger" label="Open file menu"></swirl-button>
                 </span>
+                <span class="pdf-reader__floating-tools">
+                  <button aria-label="Toggle side by side view" class="pdf-reader__floating-tool-button" type="button">
+                    <swirl-icon-menu-book></swirl-icon-menu-book>
+                  </button>
+                  <button aria-controls="thumbnails" aria-expanded="false" aria-label="Toggle thumbnails" class="pdf-reader__floating-tool-button" type="button">
+                    <swirl-icon-file-copy></swirl-icon-file-copy>
+                  </button>
+                </span>
               </header>
               <div class="pdf-reader__content">
-                <swirl-file-viewer file="/sample.pdf" type="application/pdf" zoom="auto"></swirl-file-viewer>
+                <nav aria-label="Page thumbnails" class="pdf-reader__thumbnails" id="thumbnails"></nav>
+                <swirl-file-viewer class="pdf-reader__viewer" file="/sample.pdf" type="application/pdf" viewmode="single" zoom="auto"></swirl-file-viewer>
                 <div class="pdf-reader__mobile-zoom-controls">
                   <button aria-label="Full width" class="pdf-reader__mobile-zoom-button" type="button">
                     <swirl-icon-fullscreen-exit></swirl-icon-fullscreen-exit>
@@ -72,7 +81,7 @@ describe("swirl-pdf-reader", () => {
             <swirl-popover animation="scale-in-y" disablescrolllock="" label="File menu" placement="bottom-end" popoverid="menu" trigger="menu-trigger">
               <swirl-stack>
                 <div class="pdf-reader__meta">
-                  <div class="pdf-reader__thumbnail">
+                  <div class="pdf-reader__file-icon">
                     <svg fill="none" height="36" viewBox="0 0 24 36" width="24">
                       <path d="M7.01755 21.6V15.192H8.39455C8.64655 15.192 8.86855 15.225 9.06055 15.291C9.25255 15.357 9.42655 15.474 9.58255 15.642C9.73855 15.81 9.84655 16.008 9.90655 16.236C9.96655 16.458 9.99655 16.761 9.99655 17.145C9.99655 17.433 9.97855 17.676 9.94255 17.874C9.91255 18.072 9.84355 18.258 9.73555 18.432C9.60955 18.642 9.44155 18.807 9.23155 18.927C9.02155 19.041 8.74555 19.098 8.40355 19.098H7.93555V21.6H7.01755ZM7.93555 16.056V18.234H8.37655C8.56255 18.234 8.70655 18.207 8.80855 18.153C8.91055 18.099 8.98555 18.024 9.03355 17.928C9.08155 17.838 9.10855 17.727 9.11455 17.595C9.12655 17.463 9.13255 17.316 9.13255 17.154C9.13255 17.004 9.12955 16.863 9.12355 16.731C9.11755 16.593 9.09055 16.473 9.04255 16.371C8.99455 16.269 8.92255 16.191 8.82655 16.137C8.73055 16.083 8.59255 16.056 8.41255 16.056H7.93555Z" fill="white"></path>
                       <path d="M10.6826 21.6V15.192H12.0416C12.5696 15.192 12.9686 15.336 13.2386 15.624C13.5146 15.912 13.6526 16.32 13.6526 16.848V19.845C13.6526 20.445 13.5056 20.889 13.2116 21.177C12.9236 21.459 12.5066 21.6 11.9606 21.6H10.6826ZM11.6006 16.056V20.736H12.0236C12.2816 20.736 12.4646 20.673 12.5726 20.547C12.6806 20.415 12.7346 20.211 12.7346 19.935V16.848C12.7346 16.596 12.6836 16.401 12.5816 16.263C12.4796 16.125 12.2936 16.056 12.0236 16.056H11.6006Z" fill="white"></path>

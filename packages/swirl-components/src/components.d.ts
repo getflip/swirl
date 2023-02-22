@@ -19,8 +19,8 @@ import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
-import { SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
-import { SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 import { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
@@ -60,8 +60,8 @@ export { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
-export { SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
-export { SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 export { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
@@ -354,6 +354,7 @@ export namespace Components {
         "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
+        "viewMode"?: SwirlFileViewerPdfViewMode;
         "zoom"?: SwirlFileViewerPdfZoom;
     }
     interface SwirlFileViewerAudio {
@@ -385,6 +386,10 @@ export namespace Components {
         "errorMessage"?: string;
         "file": string;
         /**
+          * Get thumbnails of all pages.
+         */
+        "getThumbnails": () => Promise<HTMLCanvasElement[]>;
+        /**
           * Navigate to next page, if single page mode is enabled.
          */
         "nextPage": () => Promise<void>;
@@ -401,6 +406,7 @@ export namespace Components {
          */
         "setPage": (page: number) => Promise<void>;
         "singlePageMode": boolean;
+        "viewMode"?: SwirlFileViewerPdfViewMode1;
         "zoom"?: SwirlFileViewerPdfZoom1;
     }
     interface SwirlFileViewerText {
@@ -560,6 +566,9 @@ export namespace Components {
     interface SwirlIconFile {
         "size": SwirlIconSize;
     }
+    interface SwirlIconFileCopy {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFilter {
         "size": SwirlIconSize;
     }
@@ -624,6 +633,9 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconMenu {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconMenuBook {
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuFilled {
@@ -831,6 +843,10 @@ export namespace Components {
          */
         "open": () => Promise<void>;
         "printButtonLabel"?: string;
+        "sideBySideButtonLabel"?: string;
+        "thumbnailButtonLabel"?: string;
+        "thumbnailsButtonLabel"?: string;
+        "thumbnailsLabel"?: string;
         "zoomInButtonLabel"?: string;
         "zoomOutButtonLabel"?: string;
         "zoomSelectLabel"?: string;
@@ -1730,6 +1746,12 @@ declare global {
         prototype: HTMLSwirlIconFileElement;
         new (): HTMLSwirlIconFileElement;
     };
+    interface HTMLSwirlIconFileCopyElement extends Components.SwirlIconFileCopy, HTMLStencilElement {
+    }
+    var HTMLSwirlIconFileCopyElement: {
+        prototype: HTMLSwirlIconFileCopyElement;
+        new (): HTMLSwirlIconFileCopyElement;
+    };
     interface HTMLSwirlIconFilterElement extends Components.SwirlIconFilter, HTMLStencilElement {
     }
     var HTMLSwirlIconFilterElement: {
@@ -1861,6 +1883,12 @@ declare global {
     var HTMLSwirlIconMenuElement: {
         prototype: HTMLSwirlIconMenuElement;
         new (): HTMLSwirlIconMenuElement;
+    };
+    interface HTMLSwirlIconMenuBookElement extends Components.SwirlIconMenuBook, HTMLStencilElement {
+    }
+    var HTMLSwirlIconMenuBookElement: {
+        prototype: HTMLSwirlIconMenuBookElement;
+        new (): HTMLSwirlIconMenuBookElement;
     };
     interface HTMLSwirlIconMenuFilledElement extends Components.SwirlIconMenuFilled, HTMLStencilElement {
     }
@@ -2414,6 +2442,7 @@ declare global {
         "swirl-icon-expand-less": HTMLSwirlIconExpandLessElement;
         "swirl-icon-expand-more": HTMLSwirlIconExpandMoreElement;
         "swirl-icon-file": HTMLSwirlIconFileElement;
+        "swirl-icon-file-copy": HTMLSwirlIconFileCopyElement;
         "swirl-icon-filter": HTMLSwirlIconFilterElement;
         "swirl-icon-folder": HTMLSwirlIconFolderElement;
         "swirl-icon-folder-shared": HTMLSwirlIconFolderSharedElement;
@@ -2436,6 +2465,7 @@ declare global {
         "swirl-icon-manage-accounts": HTMLSwirlIconManageAccountsElement;
         "swirl-icon-mention": HTMLSwirlIconMentionElement;
         "swirl-icon-menu": HTMLSwirlIconMenuElement;
+        "swirl-icon-menu-book": HTMLSwirlIconMenuBookElement;
         "swirl-icon-menu-filled": HTMLSwirlIconMenuFilledElement;
         "swirl-icon-menu-outlined": HTMLSwirlIconMenuOutlinedElement;
         "swirl-icon-message": HTMLSwirlIconMessageElement;
@@ -2748,9 +2778,11 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerCustomEvent<HTMLElement>) => void;
+        "onVisiblePagesChange"?: (event: SwirlFileViewerCustomEvent<number[]>) => void;
         "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
+        "viewMode"?: SwirlFileViewerPdfViewMode;
         "zoom"?: SwirlFileViewerPdfZoom;
     }
     interface SwirlFileViewerAudio {
@@ -2775,7 +2807,9 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerPdfCustomEvent<HTMLElement>) => void;
+        "onVisiblePagesChange"?: (event: SwirlFileViewerPdfCustomEvent<number[]>) => void;
         "singlePageMode"?: boolean;
+        "viewMode"?: SwirlFileViewerPdfViewMode1;
         "zoom"?: SwirlFileViewerPdfZoom1;
     }
     interface SwirlFileViewerText {
@@ -2937,6 +2971,9 @@ declare namespace LocalJSX {
     interface SwirlIconFile {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconFileCopy {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconFilter {
         "size"?: SwirlIconSize;
     }
@@ -3001,6 +3038,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenu {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconMenuBook {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenuFilled {
@@ -3187,6 +3227,10 @@ declare namespace LocalJSX {
         "menuLabel"?: string;
         "menuTriggerLabel"?: string;
         "printButtonLabel"?: string;
+        "sideBySideButtonLabel"?: string;
+        "thumbnailButtonLabel"?: string;
+        "thumbnailsButtonLabel"?: string;
+        "thumbnailsLabel"?: string;
         "zoomInButtonLabel"?: string;
         "zoomOutButtonLabel"?: string;
         "zoomSelectLabel"?: string;
@@ -3527,6 +3571,7 @@ declare namespace LocalJSX {
         "swirl-icon-expand-less": SwirlIconExpandLess;
         "swirl-icon-expand-more": SwirlIconExpandMore;
         "swirl-icon-file": SwirlIconFile;
+        "swirl-icon-file-copy": SwirlIconFileCopy;
         "swirl-icon-filter": SwirlIconFilter;
         "swirl-icon-folder": SwirlIconFolder;
         "swirl-icon-folder-shared": SwirlIconFolderShared;
@@ -3549,6 +3594,7 @@ declare namespace LocalJSX {
         "swirl-icon-manage-accounts": SwirlIconManageAccounts;
         "swirl-icon-mention": SwirlIconMention;
         "swirl-icon-menu": SwirlIconMenu;
+        "swirl-icon-menu-book": SwirlIconMenuBook;
         "swirl-icon-menu-filled": SwirlIconMenuFilled;
         "swirl-icon-menu-outlined": SwirlIconMenuOutlined;
         "swirl-icon-message": SwirlIconMessage;
@@ -3711,6 +3757,7 @@ declare module "@stencil/core" {
             "swirl-icon-expand-less": LocalJSX.SwirlIconExpandLess & JSXBase.HTMLAttributes<HTMLSwirlIconExpandLessElement>;
             "swirl-icon-expand-more": LocalJSX.SwirlIconExpandMore & JSXBase.HTMLAttributes<HTMLSwirlIconExpandMoreElement>;
             "swirl-icon-file": LocalJSX.SwirlIconFile & JSXBase.HTMLAttributes<HTMLSwirlIconFileElement>;
+            "swirl-icon-file-copy": LocalJSX.SwirlIconFileCopy & JSXBase.HTMLAttributes<HTMLSwirlIconFileCopyElement>;
             "swirl-icon-filter": LocalJSX.SwirlIconFilter & JSXBase.HTMLAttributes<HTMLSwirlIconFilterElement>;
             "swirl-icon-folder": LocalJSX.SwirlIconFolder & JSXBase.HTMLAttributes<HTMLSwirlIconFolderElement>;
             "swirl-icon-folder-shared": LocalJSX.SwirlIconFolderShared & JSXBase.HTMLAttributes<HTMLSwirlIconFolderSharedElement>;
@@ -3733,6 +3780,7 @@ declare module "@stencil/core" {
             "swirl-icon-manage-accounts": LocalJSX.SwirlIconManageAccounts & JSXBase.HTMLAttributes<HTMLSwirlIconManageAccountsElement>;
             "swirl-icon-mention": LocalJSX.SwirlIconMention & JSXBase.HTMLAttributes<HTMLSwirlIconMentionElement>;
             "swirl-icon-menu": LocalJSX.SwirlIconMenu & JSXBase.HTMLAttributes<HTMLSwirlIconMenuElement>;
+            "swirl-icon-menu-book": LocalJSX.SwirlIconMenuBook & JSXBase.HTMLAttributes<HTMLSwirlIconMenuBookElement>;
             "swirl-icon-menu-filled": LocalJSX.SwirlIconMenuFilled & JSXBase.HTMLAttributes<HTMLSwirlIconMenuFilledElement>;
             "swirl-icon-menu-outlined": LocalJSX.SwirlIconMenuOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconMenuOutlinedElement>;
             "swirl-icon-message": LocalJSX.SwirlIconMessage & JSXBase.HTMLAttributes<HTMLSwirlIconMessageElement>;

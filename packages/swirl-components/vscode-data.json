@@ -1170,6 +1170,18 @@
           "description": ""
         },
         {
+          "name": "view-mode",
+          "description": "",
+          "values": [
+            {
+              "name": "side-by-side"
+            },
+            {
+              "name": "single"
+            }
+          ]
+        },
+        {
           "name": "zoom",
           "description": "",
           "values": [
@@ -1261,6 +1273,18 @@
         {
           "name": "single-page-mode",
           "description": ""
+        },
+        {
+          "name": "view-mode",
+          "description": "",
+          "values": [
+            {
+              "name": "side-by-side"
+            },
+            {
+              "name": "single"
+            }
+          ]
         },
         {
           "name": "zoom",
@@ -1998,6 +2022,19 @@
       ]
     },
     {
+      "name": "swirl-icon-file-copy",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-filter",
       "description": {
         "kind": "markdown",
@@ -2272,6 +2309,19 @@
     },
     {
       "name": "swirl-icon-menu",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-menu-book",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3067,6 +3117,22 @@
         },
         {
           "name": "print-button-label",
+          "description": ""
+        },
+        {
+          "name": "side-by-side-button-label",
+          "description": ""
+        },
+        {
+          "name": "thumbnail-button-label",
+          "description": ""
+        },
+        {
+          "name": "thumbnails-button-label",
+          "description": ""
+        },
+        {
+          "name": "thumbnails-label",
           "description": ""
         },
         {
