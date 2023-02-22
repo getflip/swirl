@@ -1,5 +1,31 @@
 # @getflip/swirl-components-react
 
+## 0.16.0
+
+### Minor Changes
+
+- [#166](https://github.com/getflip/swirl/pull/166)
+  [`aae9d45`](https://github.com/getflip/swirl/commit/aae9d45ec808ea8c5df42eea8ff877774d07b719)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icons
+
+* [#166](https://github.com/getflip/swirl/pull/166)
+  [`aae9d45`](https://github.com/getflip/swirl/commit/aae9d45ec808ea8c5df42eea8ff877774d07b719)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add side-by-side view to
+  swirl-pdf-reader and swirl-file-viewer
+
+- [#166](https://github.com/getflip/swirl/pull/166)
+  [`aae9d45`](https://github.com/getflip/swirl/commit/aae9d45ec808ea8c5df42eea8ff877774d07b719)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-pdf-reader thumbnail
+  navigation
+
+### Patch Changes
+
+- Updated dependencies
+  [[`aae9d45`](https://github.com/getflip/swirl/commit/aae9d45ec808ea8c5df42eea8ff877774d07b719),
+  [`aae9d45`](https://github.com/getflip/swirl/commit/aae9d45ec808ea8c5df42eea8ff877774d07b719),
+  [`aae9d45`](https://github.com/getflip/swirl/commit/aae9d45ec808ea8c5df42eea8ff877774d07b719)]:
+  - @getflip/swirl-components@0.17.0
+
 ## 0.15.0
 
 ### Minor Changes
