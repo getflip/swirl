@@ -20,7 +20,10 @@ import classnames from "classnames";
 })
 export class SwirlModal {
   @Prop() closeButtonLabel?: string = "Close modal";
+  @Prop() hideCloseButton?: boolean;
+  @Prop() hideLabel?: boolean;
   @Prop() label!: string;
+  @Prop() padded?: boolean = true;
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
 
@@ -138,8 +141,12 @@ export class SwirlModal {
   }
 
   render() {
+    const showControls =
+      Boolean(this.primaryActionLabel) || Boolean(this.secondaryActionLabel);
+
     const className = classnames("modal", {
       "modal--closing": this.closing,
+      "modal--padded": this.padded,
       "modal--scrollable": this.scrollable,
       "modal--scrolled": this.scrolled,
       "modal--scrolled-down": this.scrolledDown,
@@ -157,21 +164,25 @@ export class SwirlModal {
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
           <div class="modal__body" role="document">
-            <swirl-button
-              class="modal__close-button"
-              hideLabel
-              icon="<swirl-icon-close></swirl-icon-close>"
-              label={this.closeButtonLabel}
-              onClick={this.onCloseButtonClick}
-            ></swirl-button>
-            <header class="modal__header">
-              <swirl-heading
-                as="h2"
-                class="modal__heading"
-                level={3}
-                text={this.label}
-              ></swirl-heading>
-            </header>
+            {!this.hideCloseButton && (
+              <swirl-button
+                class="modal__close-button"
+                hideLabel
+                icon="<swirl-icon-close></swirl-icon-close>"
+                label={this.closeButtonLabel}
+                onClick={this.onCloseButtonClick}
+              ></swirl-button>
+            )}
+            {!this.hideLabel && (
+              <header class="modal__header">
+                <swirl-heading
+                  as="h2"
+                  class="modal__heading"
+                  level={3}
+                  text={this.label}
+                ></swirl-heading>
+              </header>
+            )}
             <div
               class="modal__content"
               onScroll={this.determineScrollStatus}
@@ -179,24 +190,26 @@ export class SwirlModal {
             >
               <slot></slot>
             </div>
-            <footer class="modal__controls">
-              <swirl-button-group wrap>
-                {this.secondaryActionLabel && (
-                  <swirl-button
-                    label={this.secondaryActionLabel}
-                    onClick={this.onSecondaryAction}
-                  ></swirl-button>
-                )}
-                {this.primaryActionLabel && (
-                  <swirl-button
-                    intent="primary"
-                    label={this.primaryActionLabel}
-                    onClick={this.onPrimaryAction}
-                    variant="flat"
-                  ></swirl-button>
-                )}
-              </swirl-button-group>
-            </footer>
+            {showControls && (
+              <footer class="modal__controls">
+                <swirl-button-group wrap>
+                  {this.secondaryActionLabel && (
+                    <swirl-button
+                      label={this.secondaryActionLabel}
+                      onClick={this.onSecondaryAction}
+                    ></swirl-button>
+                  )}
+                  {this.primaryActionLabel && (
+                    <swirl-button
+                      intent="primary"
+                      label={this.primaryActionLabel}
+                      onClick={this.onPrimaryAction}
+                      variant="flat"
+                    ></swirl-button>
+                  )}
+                </swirl-button-group>
+              </footer>
+            )}
           </div>
         </section>
       </Host>

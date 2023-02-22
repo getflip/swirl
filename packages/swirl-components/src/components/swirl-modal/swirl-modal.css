@@ -43,6 +43,22 @@
   }
 }
 
+.modal--padded {
+  & .modal__content {
+    padding-top: var(--s-space-24);
+    padding-right: var(--s-space-16);
+    padding-bottom: var(--s-space-24);
+    padding-left: var(--s-space-16);
+
+    @media (--from-tablet) {
+      padding-top: 0;
+      padding-right: var(--s-space-24);
+      padding-bottom: var(--s-space-16);
+      padding-left: var(--s-space-24);
+    }
+  }
+}
+
 .modal--closing {
   animation: 0.15s modal-fade-out;
   animation-fill-mode: forwards;
@@ -146,22 +162,11 @@
 .modal__content {
   overflow-x: hidden;
   overflow-y: auto;
-  padding-top: var(--s-space-24);
-  padding-right: var(--s-space-16);
-  padding-bottom: var(--s-space-24);
-  padding-left: var(--s-space-16);
   flex-grow: 1;
   line-height: var(--s-line-height-base);
 
   & ::slotted(*) {
     margin: 0;
-  }
-
-  @media (--from-tablet) {
-    padding-top: 0;
-    padding-right: var(--s-space-24);
-    padding-bottom: var(--s-space-16);
-    padding-left: var(--s-space-24);
   }
 }
 

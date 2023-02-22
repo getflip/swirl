@@ -2892,7 +2892,19 @@
           "description": ""
         },
         {
+          "name": "hide-close-button",
+          "description": ""
+        },
+        {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "padded",
           "description": ""
         },
         {

@@ -779,11 +779,14 @@ export namespace Components {
          */
         "close": () => Promise<void>;
         "closeButtonLabel"?: string;
+        "hideCloseButton"?: boolean;
+        "hideLabel"?: boolean;
         "label": string;
         /**
           * Open the modal.
          */
         "open": () => Promise<void>;
+        "padded"?: boolean;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }
@@ -3167,11 +3170,14 @@ declare namespace LocalJSX {
     }
     interface SwirlModal {
         "closeButtonLabel"?: string;
+        "hideCloseButton"?: boolean;
+        "hideLabel"?: boolean;
         "label": string;
         "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "onSecondaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
+        "padded"?: boolean;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
     }

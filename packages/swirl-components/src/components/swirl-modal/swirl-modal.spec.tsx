@@ -12,7 +12,7 @@ describe("swirl-modal", () => {
     expect(page.root).toEqualHtml(`
       <swirl-modal label="Dialog">
         <mock:shadow-root>
-          <section aria-hidden="true" aria-label="Dialog" aria-modal="true" class="modal" id="modal" role="dialog" tabindex="-1">
+          <section aria-hidden="true" aria-label="Dialog" aria-modal="true" class="modal modal--padded" id="modal" role="dialog" tabindex="-1">
             <div class="modal__backdrop"></div>
             <div class="modal__body" role="document">
               <swirl-button class="modal__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close modal"></swirl-button>
@@ -22,9 +22,6 @@ describe("swirl-modal", () => {
               <div class="modal__content">
                 <slot></slot>
               </div>
-              <footer class="modal__controls">
-                <swirl-button-group wrap=""></swirl-button-group>
-              </footer>
             </div>
           </section>
         </mock:shadow-root>
