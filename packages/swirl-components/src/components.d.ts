@@ -533,6 +533,12 @@ export namespace Components {
     interface SwirlIconDescription {
         "size": SwirlIconSize;
     }
+    interface SwirlIconDoubleArrowLeft {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconDoubleArrowRight {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconDownload {
         "size": SwirlIconSize;
     }
@@ -564,6 +570,9 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconFilter {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconFolder {
         "size": SwirlIconSize;
     }
     interface SwirlIconFolderShared {
@@ -930,6 +939,23 @@ export namespace Components {
         "value"?: string[];
     }
     interface SwirlSeparator {
+    }
+    interface SwirlShellLayout {
+        /**
+          * Collapse the left sidebar.
+         */
+        "collapseSidebar": () => Promise<void>;
+        /**
+          * Extend the left sidebar.
+         */
+        "extendSidebar": () => Promise<void>;
+        "mainNavigationLabel": string;
+        "sidebarToggleLabel": string;
+    }
+    interface SwirlShellNavigationItem {
+        "active"?: boolean;
+        "icon": string;
+        "label": string;
     }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
@@ -1654,6 +1680,18 @@ declare global {
         prototype: HTMLSwirlIconDescriptionElement;
         new (): HTMLSwirlIconDescriptionElement;
     };
+    interface HTMLSwirlIconDoubleArrowLeftElement extends Components.SwirlIconDoubleArrowLeft, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDoubleArrowLeftElement: {
+        prototype: HTMLSwirlIconDoubleArrowLeftElement;
+        new (): HTMLSwirlIconDoubleArrowLeftElement;
+    };
+    interface HTMLSwirlIconDoubleArrowRightElement extends Components.SwirlIconDoubleArrowRight, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDoubleArrowRightElement: {
+        prototype: HTMLSwirlIconDoubleArrowRightElement;
+        new (): HTMLSwirlIconDoubleArrowRightElement;
+    };
     interface HTMLSwirlIconDownloadElement extends Components.SwirlIconDownload, HTMLStencilElement {
     }
     var HTMLSwirlIconDownloadElement: {
@@ -1719,6 +1757,12 @@ declare global {
     var HTMLSwirlIconFilterElement: {
         prototype: HTMLSwirlIconFilterElement;
         new (): HTMLSwirlIconFilterElement;
+    };
+    interface HTMLSwirlIconFolderElement extends Components.SwirlIconFolder, HTMLStencilElement {
+    }
+    var HTMLSwirlIconFolderElement: {
+        prototype: HTMLSwirlIconFolderElement;
+        new (): HTMLSwirlIconFolderElement;
     };
     interface HTMLSwirlIconFolderSharedElement extends Components.SwirlIconFolderShared, HTMLStencilElement {
     }
@@ -2170,6 +2214,18 @@ declare global {
         prototype: HTMLSwirlSeparatorElement;
         new (): HTMLSwirlSeparatorElement;
     };
+    interface HTMLSwirlShellLayoutElement extends Components.SwirlShellLayout, HTMLStencilElement {
+    }
+    var HTMLSwirlShellLayoutElement: {
+        prototype: HTMLSwirlShellLayoutElement;
+        new (): HTMLSwirlShellLayoutElement;
+    };
+    interface HTMLSwirlShellNavigationItemElement extends Components.SwirlShellNavigationItem, HTMLStencilElement {
+    }
+    var HTMLSwirlShellNavigationItemElement: {
+        prototype: HTMLSwirlShellNavigationItemElement;
+        new (): HTMLSwirlShellNavigationItemElement;
+    };
     interface HTMLSwirlSkeletonBoxElement extends Components.SwirlSkeletonBox, HTMLStencilElement {
     }
     var HTMLSwirlSkeletonBoxElement: {
@@ -2375,6 +2431,8 @@ declare global {
         "swirl-icon-date-range": HTMLSwirlIconDateRangeElement;
         "swirl-icon-delete": HTMLSwirlIconDeleteElement;
         "swirl-icon-description": HTMLSwirlIconDescriptionElement;
+        "swirl-icon-double-arrow-left": HTMLSwirlIconDoubleArrowLeftElement;
+        "swirl-icon-double-arrow-right": HTMLSwirlIconDoubleArrowRightElement;
         "swirl-icon-download": HTMLSwirlIconDownloadElement;
         "swirl-icon-drag-handle": HTMLSwirlIconDragHandleElement;
         "swirl-icon-edit": HTMLSwirlIconEditElement;
@@ -2386,6 +2444,7 @@ declare global {
         "swirl-icon-file": HTMLSwirlIconFileElement;
         "swirl-icon-file-copy": HTMLSwirlIconFileCopyElement;
         "swirl-icon-filter": HTMLSwirlIconFilterElement;
+        "swirl-icon-folder": HTMLSwirlIconFolderElement;
         "swirl-icon-folder-shared": HTMLSwirlIconFolderSharedElement;
         "swirl-icon-fullscreen": HTMLSwirlIconFullscreenElement;
         "swirl-icon-fullscreen-exit": HTMLSwirlIconFullscreenExitElement;
@@ -2461,6 +2520,8 @@ declare global {
         "swirl-search": HTMLSwirlSearchElement;
         "swirl-select": HTMLSwirlSelectElement;
         "swirl-separator": HTMLSwirlSeparatorElement;
+        "swirl-shell-layout": HTMLSwirlShellLayoutElement;
+        "swirl-shell-navigation-item": HTMLSwirlShellNavigationItemElement;
         "swirl-skeleton-box": HTMLSwirlSkeletonBoxElement;
         "swirl-skeleton-text": HTMLSwirlSkeletonTextElement;
         "swirl-spinner": HTMLSwirlSpinnerElement;
@@ -2877,6 +2938,12 @@ declare namespace LocalJSX {
     interface SwirlIconDescription {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconDoubleArrowLeft {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconDoubleArrowRight {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconDownload {
         "size"?: SwirlIconSize;
     }
@@ -2908,6 +2975,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFilter {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconFolder {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFolderShared {
@@ -3254,6 +3324,15 @@ declare namespace LocalJSX {
     }
     interface SwirlSeparator {
     }
+    interface SwirlShellLayout {
+        "mainNavigationLabel"?: string;
+        "sidebarToggleLabel"?: string;
+    }
+    interface SwirlShellNavigationItem {
+        "active"?: boolean;
+        "icon": string;
+        "label": string;
+    }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
         "aspectRatio"?: string;
@@ -3481,6 +3560,8 @@ declare namespace LocalJSX {
         "swirl-icon-date-range": SwirlIconDateRange;
         "swirl-icon-delete": SwirlIconDelete;
         "swirl-icon-description": SwirlIconDescription;
+        "swirl-icon-double-arrow-left": SwirlIconDoubleArrowLeft;
+        "swirl-icon-double-arrow-right": SwirlIconDoubleArrowRight;
         "swirl-icon-download": SwirlIconDownload;
         "swirl-icon-drag-handle": SwirlIconDragHandle;
         "swirl-icon-edit": SwirlIconEdit;
@@ -3492,6 +3573,7 @@ declare namespace LocalJSX {
         "swirl-icon-file": SwirlIconFile;
         "swirl-icon-file-copy": SwirlIconFileCopy;
         "swirl-icon-filter": SwirlIconFilter;
+        "swirl-icon-folder": SwirlIconFolder;
         "swirl-icon-folder-shared": SwirlIconFolderShared;
         "swirl-icon-fullscreen": SwirlIconFullscreen;
         "swirl-icon-fullscreen-exit": SwirlIconFullscreenExit;
@@ -3567,6 +3649,8 @@ declare namespace LocalJSX {
         "swirl-search": SwirlSearch;
         "swirl-select": SwirlSelect;
         "swirl-separator": SwirlSeparator;
+        "swirl-shell-layout": SwirlShellLayout;
+        "swirl-shell-navigation-item": SwirlShellNavigationItem;
         "swirl-skeleton-box": SwirlSkeletonBox;
         "swirl-skeleton-text": SwirlSkeletonText;
         "swirl-spinner": SwirlSpinner;
@@ -3662,6 +3746,8 @@ declare module "@stencil/core" {
             "swirl-icon-date-range": LocalJSX.SwirlIconDateRange & JSXBase.HTMLAttributes<HTMLSwirlIconDateRangeElement>;
             "swirl-icon-delete": LocalJSX.SwirlIconDelete & JSXBase.HTMLAttributes<HTMLSwirlIconDeleteElement>;
             "swirl-icon-description": LocalJSX.SwirlIconDescription & JSXBase.HTMLAttributes<HTMLSwirlIconDescriptionElement>;
+            "swirl-icon-double-arrow-left": LocalJSX.SwirlIconDoubleArrowLeft & JSXBase.HTMLAttributes<HTMLSwirlIconDoubleArrowLeftElement>;
+            "swirl-icon-double-arrow-right": LocalJSX.SwirlIconDoubleArrowRight & JSXBase.HTMLAttributes<HTMLSwirlIconDoubleArrowRightElement>;
             "swirl-icon-download": LocalJSX.SwirlIconDownload & JSXBase.HTMLAttributes<HTMLSwirlIconDownloadElement>;
             "swirl-icon-drag-handle": LocalJSX.SwirlIconDragHandle & JSXBase.HTMLAttributes<HTMLSwirlIconDragHandleElement>;
             "swirl-icon-edit": LocalJSX.SwirlIconEdit & JSXBase.HTMLAttributes<HTMLSwirlIconEditElement>;
@@ -3673,6 +3759,7 @@ declare module "@stencil/core" {
             "swirl-icon-file": LocalJSX.SwirlIconFile & JSXBase.HTMLAttributes<HTMLSwirlIconFileElement>;
             "swirl-icon-file-copy": LocalJSX.SwirlIconFileCopy & JSXBase.HTMLAttributes<HTMLSwirlIconFileCopyElement>;
             "swirl-icon-filter": LocalJSX.SwirlIconFilter & JSXBase.HTMLAttributes<HTMLSwirlIconFilterElement>;
+            "swirl-icon-folder": LocalJSX.SwirlIconFolder & JSXBase.HTMLAttributes<HTMLSwirlIconFolderElement>;
             "swirl-icon-folder-shared": LocalJSX.SwirlIconFolderShared & JSXBase.HTMLAttributes<HTMLSwirlIconFolderSharedElement>;
             "swirl-icon-fullscreen": LocalJSX.SwirlIconFullscreen & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenElement>;
             "swirl-icon-fullscreen-exit": LocalJSX.SwirlIconFullscreenExit & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenExitElement>;
@@ -3748,6 +3835,8 @@ declare module "@stencil/core" {
             "swirl-search": LocalJSX.SwirlSearch & JSXBase.HTMLAttributes<HTMLSwirlSearchElement>;
             "swirl-select": LocalJSX.SwirlSelect & JSXBase.HTMLAttributes<HTMLSwirlSelectElement>;
             "swirl-separator": LocalJSX.SwirlSeparator & JSXBase.HTMLAttributes<HTMLSwirlSeparatorElement>;
+            "swirl-shell-layout": LocalJSX.SwirlShellLayout & JSXBase.HTMLAttributes<HTMLSwirlShellLayoutElement>;
+            "swirl-shell-navigation-item": LocalJSX.SwirlShellNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlShellNavigationItemElement>;
             "swirl-skeleton-box": LocalJSX.SwirlSkeletonBox & JSXBase.HTMLAttributes<HTMLSwirlSkeletonBoxElement>;
             "swirl-skeleton-text": LocalJSX.SwirlSkeletonText & JSXBase.HTMLAttributes<HTMLSwirlSkeletonTextElement>;
             "swirl-spinner": LocalJSX.SwirlSpinner & JSXBase.HTMLAttributes<HTMLSwirlSpinnerElement>;

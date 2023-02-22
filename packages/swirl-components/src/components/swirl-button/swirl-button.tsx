@@ -63,6 +63,10 @@ export class SwirlButton {
     );
   }
 
+  componentDidRender() {
+    this.forceIconProps(this.desktopMediaQuery.matches);
+  }
+
   disconnectedCallback() {
     this.desktopMediaQuery.removeEventListener?.(
       "change",
