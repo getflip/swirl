@@ -18,18 +18,21 @@ const Template = (args) => {
     <swirl-resource-list-item
       description="With a description"
       label="This is a resource item"
-      media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"
-    ></swirl-resource-list-item>
+    >
+      <swirl-avatar label="John Doe" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
+    </swirl-resource-list-item>
     <swirl-resource-list-item
       description="With a description"
       label="This is a resource item"
-      media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></swirl-avatar>"
-    ></swirl-resource-list-item>
+    >
+      <swirl-avatar label="John Doe" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
+    </swirl-resource-list-item>
     <swirl-resource-list-item
       description="With a description"
       label="This is a resource item"
-      media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/1027/144/144&quot;></swirl-avatar>"
-    ></swirl-resource-list-item>
+    >
+      <swirl-avatar label="John Doe" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
+    </swirl-resource-list-item>
   `;
 
   return element;

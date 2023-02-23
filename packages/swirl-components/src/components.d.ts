@@ -914,7 +914,6 @@ export namespace Components {
         "hideDivider"?: boolean;
         "href"?: string;
         "label": string;
-        "media"?: string;
         "menuTriggerId"?: string;
         "menuTriggerLabel"?: string;
         "meta"?: string;
@@ -3296,7 +3295,6 @@ declare namespace LocalJSX {
         "hideDivider"?: boolean;
         "href"?: string;
         "label": string;
-        "media"?: string;
         "menuTriggerId"?: string;
         "menuTriggerLabel"?: string;
         "meta"?: string;

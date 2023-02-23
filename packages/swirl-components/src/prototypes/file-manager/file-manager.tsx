@@ -79,14 +79,15 @@ export class FileManager {
           description={item.description}
           key={item.name}
           label={item.name}
-          media={
-            "type" in item
-              ? "<swirl-icon-file></swirl-icon-file>"
-              : "<swirl-icon-folder-shared></swirl-icon-folder-shared>"
-          }
           // eslint-disable-next-line react/jsx-no-bind
           onClick={() => this.selectItem(item)}
-        ></swirl-resource-list-item>
+        >
+          {"type" in item ? (
+            <swirl-icon-file slot="media"></swirl-icon-file>
+          ) : (
+            <swirl-icon-folder-shared slot="media"></swirl-icon-folder-shared>
+          )}
+        </swirl-resource-list-item>
       ))
     ) : (
       <swirl-box padding="16">

@@ -6,9 +6,13 @@ import {
   h,
   Host,
   Prop,
+  State,
 } from "@stencil/core";
 import classnames from "classnames";
 
+/**
+ * @slot media - Media displayed inside the item (e.g. swirl-avatar)
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-resource-list-item.css",
@@ -23,45 +27,26 @@ export class SwirlResourceListItem {
   @Prop() hideDivider?: boolean;
   @Prop() href?: string;
   @Prop() label!: string;
-  @Prop() media?: string;
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
   @Prop() selectable?: boolean;
   @Prop() value?: string;
 
+  @State() hasMedia: boolean = false;
+
   @Event() valueChange: EventEmitter<boolean>;
 
-  componentDidLoad() {
-    this.forceAvatarProps();
-    this.forceThumbnailProps();
+  async componentWillLoad() {
+    this.updateMediaState();
   }
 
-  private forceAvatarProps() {
-    const avatarEl = this.el.querySelector("swirl-avatar");
+  private updateMediaState() {
+    const mediaContainer = this.el.querySelector('[slot="media"]');
+    const hasMedia = Boolean(mediaContainer);
 
-    if (!Boolean(avatarEl)) {
-      return;
-    }
-
-    avatarEl.removeAttribute("interactive");
-    avatarEl.removeAttribute("show-label");
-    avatarEl.removeAttribute("variant");
-
-    avatarEl.setAttribute("size", "l");
-  }
-
-  private forceThumbnailProps() {
-    const thumbnailEl = this.el.querySelector("swirl-thumbnail");
-
-    if (!Boolean(thumbnailEl)) {
-      return;
-    }
-
-    thumbnailEl.setAttribute("format", "landscape");
-
-    if (!["s", "m"].includes(thumbnailEl.getAttribute("size"))) {
-      thumbnailEl.setAttribute("size", "m");
+    if (hasMedia !== this.hasMedia) {
+      this.hasMedia = hasMedia;
     }
   }
 
@@ -113,11 +98,10 @@ export class SwirlResourceListItem {
             role={role}
             tabIndex={0}
           >
-            {Boolean(this.media) && (
-              <span
-                class="resource-list-item__media"
-                innerHTML={this.media}
-              ></span>
+            {this.hasMedia && (
+              <span class="resource-list-item__media">
+                <slot name="media"></slot>
+              </span>
             )}
             <span class="resource-list-item__label-container">
               <span class="resource-list-item__label" id="label">
