@@ -47,6 +47,16 @@ export const handleGridKeyDown = (
       previousRef.current.tabIndex = 0;
       previousRef.current.focus();
       break;
+    case "Tab":
+      if (event.shiftKey) {
+        const firstRef = getRefFn(gridCellData.data[0]) as React.RefObject<any>;
+        if (gridCellData.index === 0) return;
+
+        currentRef.current.tabIndex = -1;
+        firstRef.current.tabIndex = 0;
+        firstRef.current.focus();
+      }
+      break;
   }
 };
 
