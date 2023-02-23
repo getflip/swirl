@@ -276,7 +276,7 @@ export class SwirlAppLayout {
                 as="h1"
                 class="app-layout__app-name"
                 headingId="app-name"
-                level={2}
+                level={3}
                 text={this.appName}
               ></swirl-heading>
               {this.hasNavigation && (
@@ -366,7 +366,7 @@ export class SwirlAppLayout {
                   as="h3"
                   class="app-layout__sidebar-heading"
                   headingId="sidebar-heading"
-                  level={2}
+                  level={3}
                   text={this.sidebarHeading}
                 ></swirl-heading>
               </header>
