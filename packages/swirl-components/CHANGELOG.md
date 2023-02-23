@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.19.0
+
+### Minor Changes
+
+- [`67c8308`](https://github.com/getflip/swirl/commit/67c83088b019506d873a0c26c45834fbacc8681c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Breaking change: Replace
+  swirl-resource-list-item "media" prop with slot
+
 ## 0.18.0
 
 ### Minor Changes
