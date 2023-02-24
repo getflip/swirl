@@ -686,29 +686,29 @@
       "decorative-dark": {
         "chilli": {
           "text": {
-            "value": "#FF8080",
+            "value": "#FF9494",
             "type": "color"
           },
           "surface": {
-            "value": "#FF8080",
+            "value": "#FF9494",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#411B26",
+            "value": "#64353B",
             "type": "color"
           }
         },
         "pumpkin": {
           "text": {
-            "value": "#ffa473",
+            "value": "#FFAC80",
             "type": "color"
           },
           "surface": {
-            "value": "#F3953E",
+            "value": "#FFAC80",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#412A15",
+            "value": "#5F4025",
             "type": "color"
           }
         },
@@ -722,35 +722,35 @@
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#362F10",
+            "value": "#4D441D",
             "type": "color"
           }
         },
         "radish": {
           "text": {
-            "value": "#E45FBF",
+            "value": "#FE90DF",
             "type": "color"
           },
           "surface": {
-            "value": "#E45FBF",
+            "value": "#FE90DF",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#421635",
+            "value": "#5F3051",
             "type": "color"
           }
         },
         "grape": {
           "text": {
-            "value": "#C271E2",
+            "value": "#D98FF7",
             "type": "color"
           },
           "surface": {
-            "value": "#C271E2",
+            "value": "#D98FF7",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#391C51",
+            "value": "#533071",
             "type": "color"
           }
         },
@@ -764,21 +764,21 @@
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#182F18",
+            "value": "#2D482D",
             "type": "color"
           }
         },
         "blueberry": {
           "text": {
-            "value": "#7B9CE8",
+            "value": "#AEC7FF",
             "type": "color"
           },
           "surface": {
-            "value": "#7B9CE8",
+            "value": "#AEC7FF",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#112947",
+            "value": "#2A4B74",
             "type": "color"
           }
         }
@@ -1409,68 +1409,68 @@
   "dark": {
     "background": {
       "default": {
-        "value": "{core.gray.black}",
+        "value": "{core.gray.12}",
         "type": "color",
         "description": "Usually used for the page background and elements that should not elevate from the background."
       },
       "hovered": {
-        "value": "{core.gray.12}",
+        "value": "{core.gray.11}",
         "type": "color",
         "description": "Used if a component with “Background/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.11}",
+        "value": "{core.gray.10}",
         "type": "color",
         "description": "Used if a component with “Background/Default” has a pressed state."
       }
     },
     "surface": {
       "default": {
-        "value": "{core.gray.12}",
+        "value": "{core.gray.11}",
         "type": "color",
         "description": "Usually used for containers that need to be elevated."
       },
       "hovered": {
-        "value": "{core.gray.11}",
+        "value": "{core.gray.10}",
         "type": "color",
         "description": "Used if a component with “Surface/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.10}",
+        "value": "{core.gray.09}",
         "type": "color",
         "description": "Used if a component with “Surface/Default” has a pressed state."
       }
     },
     "surface-overlay": {
       "default": {
-        "value": "{core.gray.11}",
+        "value": "{core.gray.10}",
         "type": "color",
         "description": "Usually used for containers that need to be more elevated."
       },
       "hovered": {
-        "value": "{core.gray.10}",
+        "value": "{core.gray.09}",
         "type": "color",
         "description": "Used if a component with “Surface Overlay/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.09}",
+        "value": "{core.gray.08}",
         "type": "color",
         "description": "Used if a component with “Surface Overlay/Default” has a pressed state."
       }
     },
     "surface-raised": {
       "default": {
-        "value": "{core.gray.10}",
+        "value": "{core.gray.09}",
         "type": "color",
         "description": "Usually used for elements that need contrast on surfaces or background"
       },
       "hovered": {
-        "value": "{core.gray.09}",
+        "value": "{core.gray.08}",
         "type": "color",
         "description": "Used if a component with “On Surface/Default” has a hovered state."
       },
       "pressed": {
-        "value": "{core.gray.08}",
+        "value": "{core.gray.07}",
         "type": "color",
         "description": "Used if a component with “On Surface/Default” has a pressed state."
       }
@@ -1568,12 +1568,12 @@
     },
     "border": {
       "strong": {
-        "value": "rgba(255, 255, 255, 0.18)",
+        "value": "rgba(255, 255, 255, 0.20)",
         "type": "color",
         "description": "Usually used for high emphasis borders."
       },
       "default": {
-        "value": "rgba(255, 255, 255, 0.09)",
+        "value": "rgba(255, 255, 255, 0.12)",
         "type": "color",
         "description": "Usually used for low emphasis borders and espacially divider elements."
       },
@@ -1969,8 +1969,7 @@
       "selectedTokenSets": {
         "core-colors": "source",
         "core": "source",
-        "light": "enabled",
-        "dark": "disabled"
+        "light": "enabled"
       },
       "$figmaStyleReferences": {
         "Background.Default": "S:e454005c933e34b1d819a82f39b5510145722624,",
@@ -2230,7 +2229,6 @@
       "selectedTokenSets": {
         "core-colors": "source",
         "core": "source",
-        "light": "disabled",
         "dark": "enabled"
       },
       "$figmaStyleReferences": {
@@ -2388,6 +2386,11 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
+    "tokenSetOrder": [
+      "core",
+      "core-colors",
+      "light",
+      "dark"
+    ]
   }
 }

@@ -505,27 +505,27 @@
     "type": "color"
   },
   "core-decorative-dark-chilli-text": {
-    "value": "rgba(255, 128, 128, 1)",
+    "value": "rgba(255, 148, 148, 1)",
     "type": "color"
   },
   "core-decorative-dark-chilli-surface": {
-    "value": "rgba(255, 128, 128, 1)",
+    "value": "rgba(255, 148, 148, 1)",
     "type": "color"
   },
   "core-decorative-dark-chilli-surface-subdued": {
-    "value": "rgba(65, 27, 38, 1)",
+    "value": "rgba(100, 53, 59, 1)",
     "type": "color"
   },
   "core-decorative-dark-pumpkin-text": {
-    "value": "rgba(255, 164, 115, 1)",
+    "value": "rgba(255, 172, 128, 1)",
     "type": "color"
   },
   "core-decorative-dark-pumpkin-surface": {
-    "value": "rgba(243, 149, 62, 1)",
+    "value": "rgba(255, 172, 128, 1)",
     "type": "color"
   },
   "core-decorative-dark-pumpkin-surface-subdued": {
-    "value": "rgba(65, 42, 21, 1)",
+    "value": "rgba(95, 64, 37, 1)",
     "type": "color"
   },
   "core-decorative-dark-banana-text": {
@@ -537,31 +537,31 @@
     "type": "color"
   },
   "core-decorative-dark-banana-surface-subdued": {
-    "value": "rgba(54, 47, 16, 1)",
+    "value": "rgba(77, 68, 29, 1)",
     "type": "color"
   },
   "core-decorative-dark-radish-text": {
-    "value": "rgba(228, 95, 191, 1)",
+    "value": "rgba(254, 144, 223, 1)",
     "type": "color"
   },
   "core-decorative-dark-radish-surface": {
-    "value": "rgba(228, 95, 191, 1)",
+    "value": "rgba(254, 144, 223, 1)",
     "type": "color"
   },
   "core-decorative-dark-radish-surface-subdued": {
-    "value": "rgba(66, 22, 53, 1)",
+    "value": "rgba(95, 48, 81, 1)",
     "type": "color"
   },
   "core-decorative-dark-grape-text": {
-    "value": "rgba(194, 113, 226, 1)",
+    "value": "rgba(217, 143, 247, 1)",
     "type": "color"
   },
   "core-decorative-dark-grape-surface": {
-    "value": "rgba(194, 113, 226, 1)",
+    "value": "rgba(217, 143, 247, 1)",
     "type": "color"
   },
   "core-decorative-dark-grape-surface-subdued": {
-    "value": "rgba(57, 28, 81, 1)",
+    "value": "rgba(83, 48, 113, 1)",
     "type": "color"
   },
   "core-decorative-dark-kiwi-text": {
@@ -573,78 +573,78 @@
     "type": "color"
   },
   "core-decorative-dark-kiwi-surface-subdued": {
-    "value": "rgba(24, 47, 24, 1)",
+    "value": "rgba(45, 72, 45, 1)",
     "type": "color"
   },
   "core-decorative-dark-blueberry-text": {
-    "value": "rgba(123, 156, 232, 1)",
+    "value": "rgba(174, 199, 255, 1)",
     "type": "color"
   },
   "core-decorative-dark-blueberry-surface": {
-    "value": "rgba(123, 156, 232, 1)",
+    "value": "rgba(174, 199, 255, 1)",
     "type": "color"
   },
   "core-decorative-dark-blueberry-surface-subdued": {
-    "value": "rgba(17, 41, 71, 1)",
+    "value": "rgba(42, 75, 116, 1)",
     "type": "color"
   },
   "background-default": {
-    "value": "{core-gray-black}",
+    "value": "{core-gray-12}",
     "type": "color",
     "comment": "Usually used for the page background and elements that should not elevate from the background."
   },
   "background-hovered": {
-    "value": "{core-gray-12}",
+    "value": "{core-gray-11}",
     "type": "color",
     "comment": "Used if a component with “Background/Default” has a hovered state."
   },
   "background-pressed": {
-    "value": "{core-gray-11}",
+    "value": "{core-gray-10}",
     "type": "color",
     "comment": "Used if a component with “Background/Default” has a pressed state."
   },
   "surface-default": {
-    "value": "{core-gray-12}",
+    "value": "{core-gray-11}",
     "type": "color",
     "comment": "Usually used for containers that need to be elevated."
   },
   "surface-hovered": {
-    "value": "{core-gray-11}",
+    "value": "{core-gray-10}",
     "type": "color",
     "comment": "Used if a component with “Surface/Default” has a hovered state."
   },
   "surface-pressed": {
-    "value": "{core-gray-10}",
+    "value": "{core-gray-09}",
     "type": "color",
     "comment": "Used if a component with “Surface/Default” has a pressed state."
   },
   "surface-overlay-default": {
-    "value": "{core-gray-11}",
+    "value": "{core-gray-10}",
     "type": "color",
     "comment": "Usually used for containers that need to be more elevated."
   },
   "surface-overlay-hovered": {
-    "value": "{core-gray-10}",
+    "value": "{core-gray-09}",
     "type": "color",
     "comment": "Used if a component with “Surface Overlay/Default” has a hovered state."
   },
   "surface-overlay-pressed": {
-    "value": "{core-gray-09}",
+    "value": "{core-gray-08}",
     "type": "color",
     "comment": "Used if a component with “Surface Overlay/Default” has a pressed state."
   },
   "surface-raised-default": {
-    "value": "{core-gray-10}",
+    "value": "{core-gray-09}",
     "type": "color",
     "comment": "Usually used for elements that need contrast on surfaces or background"
   },
   "surface-raised-hovered": {
-    "value": "{core-gray-09}",
+    "value": "{core-gray-08}",
     "type": "color",
     "comment": "Used if a component with “On Surface/Default” has a hovered state."
   },
   "surface-raised-pressed": {
-    "value": "{core-gray-08}",
+    "value": "{core-gray-07}",
     "type": "color",
     "comment": "Used if a component with “On Surface/Default” has a pressed state."
   },
@@ -724,12 +724,12 @@
     "comment": "Usually used for containers on images"
   },
   "border-strong": {
-    "value": "rgba(255, 255, 255, 0.18)",
+    "value": "rgba(255, 255, 255, 0.20)",
     "type": "color",
     "comment": "Usually used for high emphasis borders."
   },
   "border-default": {
-    "value": "rgba(255, 255, 255, 0.09)",
+    "value": "rgba(255, 255, 255, 0.12)",
     "type": "color",
     "comment": "Usually used for low emphasis borders and espacially divider elements."
   },

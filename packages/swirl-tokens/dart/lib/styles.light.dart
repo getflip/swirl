@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Tue, 14 Feb 2023 11:04:31 GMT
+// Generated on Fri, 24 Feb 2023 08:09:01 GMT
 
 
 
@@ -60,26 +60,26 @@ class SwirlDesignTokensLight {
     static const coreCustomerColorLight3Hovered = Color(0xFF265ABB);
     static const coreCustomerColorLight3Pressed = Color(0xFF4D77C7);
     static const coreDecorativeDarkBananaSurface = Color(0xFFECC140);
-    static const coreDecorativeDarkBananaSurfaceSubdued = Color(0xFF362F10);
+    static const coreDecorativeDarkBananaSurfaceSubdued = Color(0xFF4D441D);
     static const coreDecorativeDarkBananaText = Color(0xFFECC140);
-    static const coreDecorativeDarkBlueberrySurface = Color(0xFF7B9CE8);
-    static const coreDecorativeDarkBlueberrySurfaceSubdued = Color(0xFF112947);
-    static const coreDecorativeDarkBlueberryText = Color(0xFF7B9CE8);
-    static const coreDecorativeDarkChilliSurface = Color(0xFFFF8080);
-    static const coreDecorativeDarkChilliSurfaceSubdued = Color(0xFF411B26);
-    static const coreDecorativeDarkChilliText = Color(0xFFFF8080);
-    static const coreDecorativeDarkGrapeSurface = Color(0xFFC271E2);
-    static const coreDecorativeDarkGrapeSurfaceSubdued = Color(0xFF391C51);
-    static const coreDecorativeDarkGrapeText = Color(0xFFC271E2);
+    static const coreDecorativeDarkBlueberrySurface = Color(0xFFAEC7FF);
+    static const coreDecorativeDarkBlueberrySurfaceSubdued = Color(0xFF2A4B74);
+    static const coreDecorativeDarkBlueberryText = Color(0xFFAEC7FF);
+    static const coreDecorativeDarkChilliSurface = Color(0xFFFF9494);
+    static const coreDecorativeDarkChilliSurfaceSubdued = Color(0xFF64353B);
+    static const coreDecorativeDarkChilliText = Color(0xFFFF9494);
+    static const coreDecorativeDarkGrapeSurface = Color(0xFFD98FF7);
+    static const coreDecorativeDarkGrapeSurfaceSubdued = Color(0xFF533071);
+    static const coreDecorativeDarkGrapeText = Color(0xFFD98FF7);
     static const coreDecorativeDarkKiwiSurface = Color(0xFF88C897);
-    static const coreDecorativeDarkKiwiSurfaceSubdued = Color(0xFF182F18);
+    static const coreDecorativeDarkKiwiSurfaceSubdued = Color(0xFF2D482D);
     static const coreDecorativeDarkKiwiText = Color(0xFF88C897);
-    static const coreDecorativeDarkPumpkinSurface = Color(0xFFF3953E);
-    static const coreDecorativeDarkPumpkinSurfaceSubdued = Color(0xFF412A15);
-    static const coreDecorativeDarkPumpkinText = Color(0xFFFFA473);
-    static const coreDecorativeDarkRadishSurface = Color(0xFFE45FBF);
-    static const coreDecorativeDarkRadishSurfaceSubdued = Color(0xFF421635);
-    static const coreDecorativeDarkRadishText = Color(0xFFE45FBF);
+    static const coreDecorativeDarkPumpkinSurface = Color(0xFFFFAC80);
+    static const coreDecorativeDarkPumpkinSurfaceSubdued = Color(0xFF5F4025);
+    static const coreDecorativeDarkPumpkinText = Color(0xFFFFAC80);
+    static const coreDecorativeDarkRadishSurface = Color(0xFFFE90DF);
+    static const coreDecorativeDarkRadishSurfaceSubdued = Color(0xFF5F3051);
+    static const coreDecorativeDarkRadishText = Color(0xFFFE90DF);
     static const coreDecorativeLightBananaSurface = Color(0xFFEABA2A);
     static const coreDecorativeLightBananaSurfaceSubdued = Color(0xFFFAF1C8);
     static const coreDecorativeLightBananaText = Color(0xFF9A5C00);
