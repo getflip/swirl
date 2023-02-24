@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.19.1
+
+### Patch Changes
+
+- [`90be1e6`](https://github.com/getflip/swirl/commit/90be1e68c3591cd57e4aab75d178c015800657dd)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Remove inner wrapper of swirl-box
+
+- Updated dependencies
+  [[`90be1e6`](https://github.com/getflip/swirl/commit/90be1e68c3591cd57e4aab75d178c015800657dd)]:
+  - @getflip/swirl-components@0.20.1
+
 ## 0.19.0
 
 ### Minor Changes
