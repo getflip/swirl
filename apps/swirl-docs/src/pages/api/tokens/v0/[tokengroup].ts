@@ -3,8 +3,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import {
   cssDark,
   cssLight,
-  flutterDark,
-  flutterLight,
   FORMATS,
   lessDark,
   lessLight,
@@ -63,13 +61,13 @@ export default function handler(
         } else {
           return res.status(200).send(cssLight);
         }
-      case TokenFormats.FLUTTER:
-        res.setHeader("Content-Type", "text/plain");
-        if (scheme === "dark") {
-          return res.status(200).send(flutterDark);
-        } else {
-          return res.status(200).send(flutterLight);
-        }
+      // case TokenFormats.FLUTTER:
+      //   res.setHeader("Content-Type", "text/plain");
+      //   if (scheme === "dark") {
+      //     return res.status(200).send(flutterDark);
+      //   } else {
+      //     return res.status(200).send(flutterLight);
+      //   }
       case TokenFormats.LESS:
         res.setHeader("Content-Type", "text/plain");
         if (scheme === "dark") {

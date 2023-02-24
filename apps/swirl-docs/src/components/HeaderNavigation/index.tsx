@@ -9,7 +9,13 @@ import { useEffect, useState } from "react";
 import { Autocomplete } from "../Search/AutoComplete";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classNames from "classnames";
-import { SwirlIconClose, SwirlIconMenu } from "@getflip/swirl-components-react";
+import {
+  SwirlIconClose,
+  SwirlIconMenu,
+  SwirlIconSearch,
+  SwirlSearch,
+} from "@getflip/swirl-components-react";
+import { OpenSearchButton } from "./OpenSearchButton";
 
 export const HeaderLogo = () => {
   return (
@@ -91,11 +97,12 @@ const HeaderNavigation = () => {
                 ))}
               </ul>
             </div>
-            <Autocomplete
+            <OpenSearchButton />
+            {/* <Autocomplete
               placeholder="Search"
               openOnFocus={true}
               defaultActiveItemId={0}
-            />
+            /> */}
           </nav>
         </header>
       </DesktopView>

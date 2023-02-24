@@ -1,35 +1,25 @@
+export type SwirlTokenCategory =
+  | ColorTokenCategory
+  | SizeTokenCategory
+  | TypographyTokenCategory
+  | BorderTokenCategory
+  | SpacingTokenCategory
+  | ZIndexTokenCategory;
+
 export type Token = {
   name: string;
-  type:
-    | ColorTokenCategory
-    | SizeTokenCategory
-    | TypographyTokenCategory
-    | BorderTokenCategory
-    | SpacingTokenCategory
-    | ZIndexTokenCategory;
+  type: SwirlTokenCategory;
   value: string;
   description: string;
   valueAsString?: string;
   unitAsString?: string;
 };
 
+export type TokensWithoutColors = Exclude<SwirlTokenCategory, "color">;
+export type SwirlTokensWithoutColor = {
+  [K in TokensWithoutColors]: Token[];
+};
 export type SizeTokenCategory = "size";
-
-export const typographyTypes = [
-  "fontWeights",
-  "lineHeights",
-  "letterSpacing",
-  "fontFamily",
-  "fontSizes",
-];
-
-export const TypographyTokenCategories = [
-  "fontWeights",
-  "lineHeights",
-  "letterSpacing",
-  "fontFamily",
-  "fontSizes",
-];
 
 export type TypographyTokenCategory =
   | "fontWeights"
@@ -37,6 +27,13 @@ export type TypographyTokenCategory =
   | "letterSpacing"
   | "fontFamily"
   | "fontSizes";
+export const TypographyTokenCategories: Array<SwirlTokenCategory> = [
+  "fontWeights",
+  "lineHeights",
+  "letterSpacing",
+  "fontFamily",
+  "fontSizes",
+];
 
 export type TypographyTokens = {
   fontWeights: Token[];
@@ -46,29 +43,29 @@ export type TypographyTokens = {
   fontSizes: Token[];
 };
 
-export const BorderTokenCategories = ["borderRadius", "borderWidth"];
-
 export type BorderTokenCategory = "borderRadius" | "borderWidth";
-
+export const BorderTokenCategories: Array<SwirlTokenCategory> = [
+  "borderRadius",
+  "borderWidth",
+];
 export type BorderTokens = {
   borderRadius: Token[];
   borderWidth: Token[];
 };
 
-export const SpacingTokenCategories = ["spacing"];
 export type SpacingTokenCategory = "spacing";
+export const SpacingTokenCategories: Array<SwirlTokenCategory> = ["spacing"];
 export type SpacingTokens = {
   spacing: Token[];
 };
 
-export const ZIndexTokenCategories = ["zIndex"];
 export type ZIndexTokenCategory = "zIndex";
+export const ZIndexTokenCategories: Array<SwirlTokenCategory> = ["zIndex"];
 export type ZIndexTokens = {
   zIndex: Token[];
 };
 
 export type ColorTokenCategory = "color";
-
 export type ColorTokenGroups =
   | "background"
   | "surface"

@@ -38,6 +38,10 @@ const Template = (args) => {
   const popover = document.createElement("swirl-popover");
   const element = generateStoryElement("swirl-resource-list-item", args);
 
+  element.innerHTML = `
+    <swirl-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" slot="media"></swirl-avatar>
+  `;
+
   container.setAttribute("aria-label", "List");
   container.setAttribute("role", "grid");
 
@@ -68,6 +72,5 @@ export const SwirlResourceListItem = Template.bind({});
 SwirlResourceListItem.args = {
   description: "With a description",
   label: "This is a resource item",
-  media: `<swirl-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" size="s"></swirl-avatar>`,
   menuTriggerId: "trigger",
 };

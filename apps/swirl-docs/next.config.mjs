@@ -18,6 +18,10 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  env: {
+    PASSWORD_PROTECT: true,
+  },
+  // output: "standalone",
 };
 
 export default withMDX(nextConfig);

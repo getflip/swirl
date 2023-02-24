@@ -35,6 +35,9 @@ module.exports = {
         "spacing-token-list": "64px repeat(5, 1fr)",
         "token-list": "minmax(24px, 96px) repeat(5, 1fr)",
       },
+      borderWidth: {
+        "border-1": "1px",
+      },
     },
     fontFamily: {
       sans: ["Inter", "sans-serif"],
@@ -50,6 +53,10 @@ module.exports = {
     "text-[1.125.rem]",
     "text-[1.25.rem]",
     "text-[1.75.rem]",
+    ...safelist.zIndex,
+    ...safelist.spacing,
+    ...safelist.typography,
+    ...safelist.border,
     ...safelist.bgColors,
   ],
 };

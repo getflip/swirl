@@ -1,4 +1,6 @@
 :host {
+  position: relative;
+  z-index: 1;
   display: flex;
   width: 100%;
   height: 100%;
@@ -12,16 +14,10 @@
   display: flex;
   overflow: hidden;
   width: 100%;
-  max-width: 100rem;
   height: 100%;
   margin-right: auto;
   margin-left: auto;
-  border: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-border-default);
-
-  @media (--from-large-desktop) {
-    border-radius: var(--s-border-radius-base);
-  }
 }
 
 .app-layout__grid {
@@ -220,12 +216,19 @@
 .app-layout__header {
   z-index: 1;
   display: flex;
-  padding: var(--s-space-12) var(--s-space-16);
+  padding-top: var(--s-space-12);
+  padding-right: var(--s-space-16);
+  padding-bottom: var(--s-space-12);
+  padding-left: calc(var(--s-space-16) + var(--s-space-8) + 2.5rem);
   align-items: center;
   background-color: var(--s-background-default);
   grid-area: header;
   will-change: transform;
   gap: var(--s-space-8);
+
+  @media (--from-desktop) {
+    padding-left: var(--s-space-16);
+  }
 }
 
 .app-layout__app-name {
@@ -278,11 +281,18 @@
 .app-layout__app-bar {
   display: flex;
   min-width: 0;
-  padding: var(--s-space-12) var(--s-space-16);
+  padding-top: var(--s-space-12);
+  padding-right: var(--s-space-16);
+  padding-bottom: var(--s-space-12);
+  padding-left: calc(var(--s-space-16) + var(--s-space-8) + 2.5rem);
   align-items: center;
   background-color: var(--s-background-default);
   grid-area: app-bar;
   gap: var(--s-space-8);
+
+  @media (--from-desktop) {
+    padding-left: var(--s-space-16);
+  }
 }
 
 .app-layout__back-to-navigation-button {
@@ -352,11 +362,18 @@
 .app-layout__sidebar-header {
   display: flex;
   min-width: 0;
-  padding: var(--s-space-12) var(--s-space-16);
+  padding-top: var(--s-space-12);
+  padding-right: var(--s-space-16);
+  padding-bottom: var(--s-space-12);
+  padding-left: calc(var(--s-space-16) + var(--s-space-8) + 2.5rem);
   align-items: center;
   background-color: var(--s-background-default);
   grid-area: sidebar-header;
   gap: var(--s-space-8);
+
+  @media (--from-desktop) {
+    padding-left: var(--s-space-16);
+  }
 }
 
 .app-layout__sidebar-heading {

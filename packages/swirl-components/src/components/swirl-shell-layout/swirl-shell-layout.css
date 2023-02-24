@@ -1,0 +1,212 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  --extended-sidebar-width: 17.5rem;
+  --collapsed-sidebar-width: 4rem;
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.shell-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--s-border-default);
+  gap: var(--s-border-width-default);
+}
+
+.shell-layout--collapsed-sidebar {
+  &:not(.shell-layout--collapsing) {
+    & .shell-layout__sidebar-wrapper {
+      @media (--from-desktop) {
+        &.shell-layout__sidebar-wrapper--hovered,
+        &:focus-within {
+          & .shell-layout__sidebar {
+            width: var(--extended-sidebar-width);
+            box-shadow: 0 0.75rem 2rem rgba(25, 26, 28, 0.12),
+              0 0.25rem 0.75rem rgba(25, 26, 28, 0.08);
+          }
+        }
+      }
+    }
+  }
+
+  & .shell-layout__sidebar-wrapper {
+    min-height: 100%;
+    transform: translate3d(-100%, 0, 0);
+
+    & .shell-layout__sidebar {
+      width: 100%;
+      box-shadow: none;
+    }
+
+    @media (--from-desktop) {
+      max-width: var(--collapsed-sidebar-width);
+      flex-basis: var(--collapsed-sidebar-width);
+      transform: none;
+
+      &:not(.shell-layout__sidebar-wrapper--hovered):not(:focus-within) {
+        & .shell-layout__sidebar {
+          box-shadow: none;
+        }
+
+        & .shell-layout__collapsed-logo {
+          display: block;
+        }
+
+        & .shell-layout__expanded-logo {
+          display: none;
+        }
+
+        & .shell-layout__toggle {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.shell-layout__sidebar-wrapper {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: var(--extended-sidebar-width);
+  flex-basis: var(--extended-sidebar-width);
+  flex-shrink: 0;
+  transition: max-width 0.2s, transform 0.2s;
+
+  @media (--from-desktop) {
+    position: relative;
+    inset: auto;
+  }
+}
+
+.shell-layout__sidebar {
+  display: flex;
+  width: var(--extended-sidebar-width);
+  height: 100%;
+  border-right: var(--s-border-width-default) solid var(--s-border-default);
+  background-color: var(--s-border-default);
+  flex-direction: column;
+  transition: box-shadow 0.2s, width 0.2s;
+  box-shadow: 0 0.75rem 2rem rgba(25, 26, 28, 0.12),
+    0 0.25rem 0.75rem rgba(25, 26, 28, 0.08);
+  gap: var(--s-border-width-default);
+
+  @media (--from-desktop) {
+    border-right: none;
+    box-shadow: none;
+  }
+}
+
+.shell-layout__header {
+  padding: var(--s-space-8);
+  flex-shrink: 0;
+  background-color: var(--s-background-default);
+}
+
+.shell-layout__logo-bar {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+}
+
+.shell-layout__expanded-logo {
+  padding-top: var(--s-space-8);
+  padding-right: calc(var(--s-space-12) + var(--s-space-2));
+  padding-bottom: var(--s-space-8);
+  padding-left: calc(var(--s-space-12) + var(--s-space-2));
+  flex-grow: 1;
+}
+
+.shell-layout__collapsed-logo {
+  display: none;
+  padding-top: var(--s-space-8);
+  padding-right: calc(var(--s-space-12) + var(--s-space-2));
+  padding-bottom: var(--s-space-8);
+  padding-left: calc(var(--s-space-12) + var(--s-space-2));
+  flex-grow: 1;
+}
+
+.shell-layout__toggle {
+  padding-right: var(--s-space-8);
+  padding-left: var(--s-space-12);
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.shell-layout__mobile-toggle {
+  position: absolute;
+  z-index: 2;
+  top: var(--s-space-12);
+  left: calc(100% + var(--s-space-16));
+
+  @media (--from-desktop) {
+    display: none;
+  }
+}
+
+.shell-layout__tools {
+  margin-top: var(--s-space-4);
+  flex-basis: 100%;
+  flex-shrink: 0;
+}
+
+.shell-layout__main-navigation {
+  overflow: auto;
+  padding: var(--s-space-8);
+  flex-grow: 1;
+  background-color: var(--s-background-default);
+}
+
+.shell-layout__main {
+  flex-grow: 1;
+  background-color: var(--s-background-default);
+
+  & > *,
+  & ::slotted(*) {
+    height: 100%;
+  }
+}
+
+.shell-layout__backdrop {
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: shell-layout-backdrop-fade-in 0.1s;
+  inset: 0;
+
+  @media (--from-desktop) {
+    display: none;
+  }
+}
+
+.shell-layout__backdrop--fading {
+  animation: shell-layout-backdrop-fade-out 0.2s;
+}
+
+@keyframes shell-layout-backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shell-layout-backdrop-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

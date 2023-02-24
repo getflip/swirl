@@ -10,18 +10,19 @@ describe("swirl-resource-list-item", () => {
         <swirl-resource-list-item
           description="Description"
           label="Label"
-          media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"
-        ></swirl-resource-list-item>
+        >
+          <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>
+        </swirl-resource-list-item>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-resource-list-item description="Description" label="Label" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>" role="row">
+      <swirl-resource-list-item description="Description" label="Label" role="row">
         <mock:shadow-root>
           <div class="resource-list-item" role="gridcell">
             <button aria-labelledby="label" class="resource-list-item__content" part="resource-list-item__content"  tabindex="0">
               <span class="resource-list-item__media">
-                <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
+                <slot name="media"></slot>
               </span>
               <span class="resource-list-item__label-container">
                 <span class="resource-list-item__label" id="label">
@@ -34,6 +35,7 @@ describe("swirl-resource-list-item", () => {
             </button>
           </div>
         </mock:shadow-root>
+        <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>
       </swirl-resource-list-item>
     `);
   });

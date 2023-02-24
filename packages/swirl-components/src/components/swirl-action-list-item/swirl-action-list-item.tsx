@@ -33,6 +33,10 @@ export class SwirlActionListItem {
     );
   }
 
+  componentDidRender() {
+    this.forceIconProps(this.desktopMediaQuery.matches);
+  }
+
   disconnectedCallback() {
     this.desktopMediaQuery.removeEventListener?.(
       "change",

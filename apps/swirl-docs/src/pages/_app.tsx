@@ -7,6 +7,7 @@ import "../styles/prism-vs-code-dark.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { GTM_ID, isProd, pageview } from "../lib/gtm";
+import { withPasswordProtect } from "next-password-protect";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -40,4 +41,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default withPasswordProtect(MyApp);

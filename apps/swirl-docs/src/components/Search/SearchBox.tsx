@@ -1,4 +1,3 @@
-// import connectSearchBox
 import { connectSearchBox } from "react-instantsearch-dom";
 
 function SearchBox({ refine }: any) {

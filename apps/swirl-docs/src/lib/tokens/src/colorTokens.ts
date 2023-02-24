@@ -1,10 +1,10 @@
-import { ColorTokenGroups, ColorTokens } from "./token.model";
-import { generateTokenValueWithUnit } from "./utils";
+import { ColorTokenGroups } from "./token.model";
+import { Dictionary, generateTokenValueWithUnit } from "./utils";
 
-const tokensLight = require("@getflip/swirl-tokens/dist/styles.light.json");
+import tokensLight from "@getflip/swirl-tokens/dist/styles.light.json";
 
-export const getColorTokens = (): ColorTokens => {
-  const colorTokens: ColorTokens = {
+export const getColorTokens = (): any => {
+  const colorTokens: any = {
     background: [],
     surface: [],
     border: [],
@@ -14,13 +14,16 @@ export const getColorTokens = (): ColorTokens => {
     icon: [],
   };
 
-  const lightTokenKeys = Object.keys(tokensLight);
+  const lightTokenKeys = Object.keys(tokensLight) as any;
+  const tokensLightTyped = tokensLight as Dictionary;
 
   const baseTokens = lightTokenKeys
-    .filter((key) => tokensLight[key].type === "color" && !key.includes("core"))
-    .map((key) => tokensLight[key]);
+    .filter((key: any) => {
+      return tokensLightTyped[key].type === "color" && !key.includes("core");
+    })
+    .map((key: any) => tokensLightTyped[key]);
 
-  baseTokens.forEach((token) => {
+  baseTokens.forEach((token: any) => {
     const tokenValueWithUnit = generateTokenValueWithUnit(token);
 
     const colorCategory = getColorCategory(token);

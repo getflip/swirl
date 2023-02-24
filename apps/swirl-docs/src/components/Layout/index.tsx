@@ -1,3 +1,4 @@
+import { CommandPalette } from "../CommandMenu/CommandPalette";
 import HeaderNavigation from "../HeaderNavigation";
 
 interface LayoutProps {
@@ -8,6 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <HeaderNavigation />
+      <CommandPalette />
       {children}
     </>
   );

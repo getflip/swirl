@@ -1158,12 +1158,28 @@
           "description": ""
         },
         {
+          "name": "thumbnail-url",
+          "description": ""
+        },
+        {
           "name": "type",
           "description": ""
         },
         {
           "name": "type-unsupported-message",
           "description": ""
+        },
+        {
+          "name": "view-mode",
+          "description": "",
+          "values": [
+            {
+              "name": "side-by-side"
+            },
+            {
+              "name": "single"
+            }
+          ]
         },
         {
           "name": "zoom",
@@ -1257,6 +1273,18 @@
         {
           "name": "single-page-mode",
           "description": ""
+        },
+        {
+          "name": "view-mode",
+          "description": "",
+          "values": [
+            {
+              "name": "side-by-side"
+            },
+            {
+              "name": "single"
+            }
+          ]
         },
         {
           "name": "zoom",
@@ -1591,6 +1619,19 @@
       ]
     },
     {
+      "name": "swirl-icon-bookmark",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-cancel",
       "description": {
         "kind": "markdown",
@@ -1838,6 +1879,32 @@
       ]
     },
     {
+      "name": "swirl-icon-double-arrow-left",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-double-arrow-right",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-download",
       "description": {
         "kind": "markdown",
@@ -1955,7 +2022,33 @@
       ]
     },
     {
+      "name": "swirl-icon-file-copy",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-filter",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-folder",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2216,6 +2309,19 @@
     },
     {
       "name": "swirl-icon-menu",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-menu-book",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2714,6 +2820,14 @@
           "description": ""
         },
         {
+          "name": "menu-label",
+          "description": ""
+        },
+        {
+          "name": "menu-trigger-label",
+          "description": ""
+        },
+        {
           "name": "next-slide-button-label",
           "description": ""
         },
@@ -2778,7 +2892,19 @@
           "description": ""
         },
         {
+          "name": "hide-close-button",
+          "description": ""
+        },
+        {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "padded",
           "description": ""
         },
         {
@@ -2986,11 +3112,39 @@
           "description": ""
         },
         {
+          "name": "file-type-label",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
         {
+          "name": "menu-label",
+          "description": ""
+        },
+        {
+          "name": "menu-trigger-label",
+          "description": ""
+        },
+        {
           "name": "print-button-label",
+          "description": ""
+        },
+        {
+          "name": "side-by-side-button-label",
+          "description": ""
+        },
+        {
+          "name": "thumbnail-button-label",
+          "description": ""
+        },
+        {
+          "name": "thumbnails-button-label",
+          "description": ""
+        },
+        {
+          "name": "thumbnails-label",
           "description": ""
         },
         {
@@ -3025,6 +3179,10 @@
               "name": "scale-in-y"
             }
           ]
+        },
+        {
+          "name": "disable-scroll-lock",
+          "description": ""
         },
         {
           "name": "enable-flip",
@@ -3283,10 +3441,6 @@
           "description": ""
         },
         {
-          "name": "media",
-          "description": ""
-        },
-        {
           "name": "menu-trigger-id",
           "description": ""
         },
@@ -3395,6 +3549,125 @@
       "attributes": []
     },
     {
+      "name": "swirl-shell-layout",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "main-navigation-label",
+          "description": ""
+        },
+        {
+          "name": "sidebar-toggle-label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-shell-navigation-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-skeleton-box",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "animated",
+          "description": ""
+        },
+        {
+          "name": "aspect-ratio",
+          "description": ""
+        },
+        {
+          "name": "border-radius",
+          "description": "",
+          "values": [
+            {
+              "name": "base"
+            },
+            {
+              "name": "pill"
+            },
+            {
+              "name": "s"
+            },
+            {
+              "name": "sm"
+            }
+          ]
+        },
+        {
+          "name": "height",
+          "description": ""
+        },
+        {
+          "name": "width",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-skeleton-text",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "animated",
+          "description": ""
+        },
+        {
+          "name": "lines",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "2xl"
+            },
+            {
+              "name": "base"
+            },
+            {
+              "name": "lg"
+            },
+            {
+              "name": "sm"
+            },
+            {
+              "name": "xl"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "swirl-spinner",
       "description": {
         "kind": "markdown",
@@ -3414,6 +3687,9 @@
             },
             {
               "name": "s"
+            },
+            {
+              "name": "xs"
             }
           ]
         }
