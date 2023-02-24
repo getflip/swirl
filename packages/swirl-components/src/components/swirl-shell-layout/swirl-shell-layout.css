@@ -16,8 +16,6 @@
   display: flex;
   width: 100%;
   min-height: 100%;
-  background-color: var(--s-border-default);
-  gap: var(--s-border-width-default);
 }
 
 .shell-layout--collapsed-sidebar {
@@ -94,15 +92,12 @@
   width: var(--extended-sidebar-width);
   height: 100%;
   border-right: var(--s-border-width-default) solid var(--s-border-default);
-  background-color: var(--s-border-default);
   flex-direction: column;
   transition: box-shadow 0.2s, width 0.2s;
   box-shadow: 0 0.75rem 2rem rgba(25, 26, 28, 0.12),
     0 0.25rem 0.75rem rgba(25, 26, 28, 0.08);
-  gap: var(--s-border-width-default);
 
   @media (--from-desktop) {
-    border-right: none;
     box-shadow: none;
   }
 }
@@ -111,6 +106,7 @@
   padding: var(--s-space-8);
   flex-shrink: 0;
   background-color: var(--s-background-default);
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
 }
 
 .shell-layout__logo-bar {

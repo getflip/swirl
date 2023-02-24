@@ -17,7 +17,6 @@
   height: 100%;
   margin-right: auto;
   margin-left: auto;
-  background-color: var(--s-border-default);
 }
 
 .app-layout__grid {
@@ -25,7 +24,6 @@
   display: grid;
   width: 100%;
   height: 100%;
-  gap: var(--s-border-width-default);
   grid-template-columns: 100%;
   grid-template-rows: 4rem 1fr;
   grid-template-areas:
@@ -221,10 +219,15 @@
   padding-bottom: var(--s-space-12);
   padding-left: calc(var(--s-space-16) + var(--s-space-8) + 2.5rem);
   align-items: center;
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: header;
   will-change: transform;
   gap: var(--s-space-8);
+
+  @media (--from-tablet) {
+    border-right: var(--s-border-width-default) solid var(--s-border-default);
+  }
 
   @media (--from-desktop) {
     padding-left: var(--s-space-16);
@@ -259,6 +262,7 @@
 .app-layout__navigation {
   z-index: 1;
   overflow-y: auto;
+  border-right: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: navigation;
   will-change: transform;
@@ -269,7 +273,6 @@
   display: grid;
   width: 100%;
   height: 100%;
-  gap: var(--s-border-width-default);
   grid-area: body;
   grid-template-rows: 4rem 1fr;
   grid-template-areas:
@@ -286,6 +289,7 @@
   padding-bottom: var(--s-space-12);
   padding-left: calc(var(--s-space-16) + var(--s-space-8) + 2.5rem);
   align-items: center;
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: app-bar;
   gap: var(--s-space-8);
@@ -341,8 +345,8 @@
   display: grid;
   width: 100%;
   height: 100%;
+  border-left: var(--s-border-width-default) solid var(--s-border-default);
   will-change: transform;
-  gap: var(--s-border-width-default);
   grid-area: sidebar;
   grid-template-rows: 4rem 1fr;
   grid-template-areas:
@@ -367,6 +371,7 @@
   padding-bottom: var(--s-space-12);
   padding-left: calc(var(--s-space-16) + var(--s-space-8) + 2.5rem);
   align-items: center;
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: sidebar-header;
   gap: var(--s-space-8);
