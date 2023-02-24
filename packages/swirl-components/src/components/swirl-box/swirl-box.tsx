@@ -33,6 +33,7 @@ export class SwirlBox {
   @Prop() centerBlock?: boolean;
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
+  @Prop() maxWidth?: string;
   @Prop() overflow?: SwirlBoxOverflow = "visible";
   @Prop() padding?: SwirlBoxPadding = "0";
 
@@ -40,6 +41,7 @@ export class SwirlBox {
     const Tag = this.as;
 
     const styles = {
+      maxWidth: this.maxWidth,
       overflow: this.overflow,
       padding: `var(--s-space-${this.padding})`,
       position: Boolean(this.overflow) ? "relative" : "",
