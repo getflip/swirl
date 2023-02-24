@@ -1,5 +1,25 @@
 # @getflip/swirl-components-react
 
+## 0.19.0
+
+### Minor Changes
+
+- [#169](https://github.com/getflip/swirl/pull/169)
+  [`4a37f3b`](https://github.com/getflip/swirl/commit/4a37f3bc6c8cb87c033d4082cc50606ae0c33e72)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-columns component
+
+### Patch Changes
+
+- [#151](https://github.com/getflip/swirl/pull/151)
+  [`f69b18e`](https://github.com/getflip/swirl/commit/f69b18e2b3e8a8243b8b26bc93edb97032cb5416)
+  Thanks [@lschiffers](https://github.com/lschiffers)! - Improve dark mode
+  design token values
+
+- Updated dependencies
+  [[`f69b18e`](https://github.com/getflip/swirl/commit/f69b18e2b3e8a8243b8b26bc93edb97032cb5416),
+  [`4a37f3b`](https://github.com/getflip/swirl/commit/4a37f3bc6c8cb87c033d4082cc50606ae0c33e72)]:
+  - @getflip/swirl-components@0.20.0
+
 ## 0.18.0
 
 ### Minor Changes
