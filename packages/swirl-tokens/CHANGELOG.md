@@ -1,5 +1,14 @@
 # swirl-tokens
 
+## 2.2.1
+
+### Patch Changes
+
+- [#151](https://github.com/getflip/swirl/pull/151)
+  [`f69b18e`](https://github.com/getflip/swirl/commit/f69b18e2b3e8a8243b8b26bc93edb97032cb5416)
+  Thanks [@lschiffers](https://github.com/lschiffers)! - Improve dark mode
+  design token values
+
 ## 2.2.0
 
 ### Minor Changes
