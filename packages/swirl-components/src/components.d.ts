@@ -189,11 +189,11 @@ export namespace Components {
         "showIcon"?: boolean;
     }
     interface SwirlBox {
-        "as"?: string;
         "bordered"?: boolean;
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
+        "maxWidth"?: string;
         "overflow"?: SwirlBoxOverflow;
         "padding"?: SwirlBoxPadding;
     }
@@ -2652,11 +2652,11 @@ declare namespace LocalJSX {
         "showIcon"?: boolean;
     }
     interface SwirlBox {
-        "as"?: string;
         "bordered"?: boolean;
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
+        "maxWidth"?: string;
         "overflow"?: SwirlBoxOverflow;
         "padding"?: SwirlBoxPadding;
     }

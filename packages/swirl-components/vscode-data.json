@@ -494,10 +494,6 @@
       },
       "attributes": [
         {
-          "name": "as",
-          "description": ""
-        },
-        {
           "name": "bordered",
           "description": ""
         },
@@ -511,6 +507,10 @@
         },
         {
           "name": "cover",
+          "description": ""
+        },
+        {
+          "name": "max-width",
           "description": ""
         },
         {

@@ -28,7 +28,6 @@ export type SwirlBoxPadding =
   tag: "swirl-box",
 })
 export class SwirlBox {
-  @Prop() as?: string = "div";
   @Prop() bordered?: boolean;
   @Prop() centerBlock?: boolean;
   @Prop() centerInline?: boolean;
@@ -38,27 +37,26 @@ export class SwirlBox {
   @Prop() padding?: SwirlBoxPadding = "0";
 
   render() {
-    const Tag = this.as;
-
     const styles = {
-      maxWidth: this.maxWidth,
+      alignItems: this.centerBlock ? "center" : undefined,
+      display: this.centerBlock || this.centerInline ? "flex" : undefined,
+      height: this.cover ? "100%" : undefined,
+      justifyContent: this.centerInline ? "center" : undefined,
       overflow: this.overflow,
       padding: `var(--s-space-${this.padding})`,
       position: Boolean(this.overflow) ? "relative" : "",
+      maxWidth: this.maxWidth,
+      width: this.cover ? "100%" : undefined,
     };
 
     const className = classnames("box", {
       "box--bordered": this.bordered,
-      "box--center-block": this.centerBlock,
-      "box--center-inline": this.centerInline,
       "box--cover": this.cover,
     });
 
     return (
-      <Host style={this.cover ? { width: "100%", height: "100%" } : undefined}>
-        <Tag class={className} style={styles}>
-          <slot></slot>
-        </Tag>
+      <Host class={className} style={styles}>
+        <slot></slot>
       </Host>
     );
   }
