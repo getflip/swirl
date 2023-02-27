@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.22.0
+
+### Minor Changes
+
+- [`212c5e8`](https://github.com/getflip/swirl/commit/212c5e8935bea1ecb1f153dedcfb14a599140b66)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "orientation" prop to
+  swirl-description-list-item
+
 ## 0.21.1
 
 ### Patch Changes
