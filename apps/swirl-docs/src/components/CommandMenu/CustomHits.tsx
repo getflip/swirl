@@ -1,14 +1,21 @@
 import { SwirlIconDescription } from "@getflip/swirl-components-react";
 import { AlgoliaRecord } from "@swirl/lib/search";
+import classNames from "classnames";
 import { Command } from "cmdk";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { FunctionComponent, useState } from "react";
 import { useHits } from "react-instantsearch-hooks-web";
 import { IconsMetaData } from "src/pages/components";
 import { CommandHit } from "./CommandHit";
 import { HitTokenPreview } from "./HitTokenPreview";
 
-export function CustomHits() {
+interface CustomHitsProps {
+  currentSearchString: string;
+}
+
+export const CustomHits: FunctionComponent<CustomHitsProps> = ({
+  currentSearchString,
+}) => {
   const icons: IconsMetaData = require("@getflip/swirl-icons/dist/metadata.js");
 
   const router = useRouter();
@@ -21,8 +28,22 @@ export function CustomHits() {
   const iconHits = hits.filter((hit) => hit.type === "icon");
   const componentHits = hits.filter((hit) => hit.path?.includes("components"));
 
+  const hasNoResults =
+    currentSearchString.length > 0 &&
+    iconHits.length === 0 &&
+    tokenHits.length === 0 &&
+    componentHits.length === 0;
   return (
     <>
+      {/* NO HITS */}
+      {hasNoResults && (
+        <Command.Group>
+          <Command.Item className="py-2 pl-4 text-text-default text-font-size-sm">
+            No Items found
+          </Command.Item>
+        </Command.Group>
+      )}
+      {/* ICON HITS */}
       {iconHits.length > 0 && (
         <Command.Group>
           <h3 className="text-font-size-sm font-font-weight-medium text-text-subdued pt-4 px-4 pb-1">
@@ -49,6 +70,7 @@ export function CustomHits() {
           })}
         </Command.Group>
       )}
+      {/* TOKENHITS */}
       {(tokenHits.length > 0 || tokenPagesHits.length > 0) && (
         <Command.Group>
           <h3 className="text-font-size-sm font-font-weight-medium text-text-subdued pt-4 px-4 pb-1">
@@ -87,6 +109,7 @@ export function CustomHits() {
           })}
         </Command.Group>
       )}
+      {/* COMPONENT HITS */}
       {componentHits.length > 0 && (
         <Command.Group>
           <h3 className="text-font-size-sm font-font-weight-medium text-text-subdued pt-4 px-4 pb-1">
@@ -114,4 +137,4 @@ export function CustomHits() {
       )}
     </>
   );
-}
+};
