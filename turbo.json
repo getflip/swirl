@@ -30,6 +30,13 @@
     },
     "gulp": {
       "outputs": ["dist/**"]
+    },
+    "build:swirl-docs": {
+      "outputs": [".next/**"],
+      "dependsOn": ["^stencil:build"]
+    },
+    "stencil:build": {
+      "outputs": ["dist/**"]
     }
   }
 }
