@@ -220,6 +220,7 @@
 .app-layout__header {
   z-index: 1;
   display: flex;
+  min-width: 0;
   padding-top: var(--s-space-12);
   padding-right: var(--s-space-16);
   padding-bottom: var(--s-space-12);
