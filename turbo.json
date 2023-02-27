@@ -36,7 +36,8 @@
       "dependsOn": ["^stencil:build"]
     },
     "stencil:build": {
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "dependsOn": ["@getflip/swirl-tokens#build"]
     }
   }
 }
