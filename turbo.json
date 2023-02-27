@@ -33,7 +33,7 @@
     },
     "build:swirl-docs": {
       "outputs": [".next/**"],
-      "dependsOn": ["^stencil:build"]
+      "dependsOn": ["^stencil:build", "@getflip/swirl-components-react#build"]
     },
     "stencil:build": {
       "outputs": ["dist/**"],
