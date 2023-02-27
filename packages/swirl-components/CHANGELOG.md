@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.21.0
+
+### Minor Changes
+
+- [`051b72c`](https://github.com/getflip/swirl/commit/051b72c129722be65bb8f780a35de215ced530ef)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Breaking: Make swirl-app-layout
+  app bar more flexible by adding a slot
+
 ## 0.20.1
 
 ### Patch Changes
