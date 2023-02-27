@@ -12,6 +12,7 @@
   display: block;
   max-width: 100%;
   margin: 0;
+  padding-top: var(--s-space-16);
 
   & ::slotted(*) {
     padding-bottom: var(--s-space-16);

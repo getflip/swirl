@@ -1049,6 +1049,18 @@
       },
       "attributes": [
         {
+          "name": "orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
+        },
+        {
           "name": "term",
           "description": ""
         }
