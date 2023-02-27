@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.21.1
+
+### Patch Changes
+
+- [`ee2d71c`](https://github.com/getflip/swirl/commit/ee2d71c5a5f8293c17fc1ca9191442f0e2ce19b2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-app-layout header width
+  on mobile viewports
+
 ## 0.21.0
 
 ### Minor Changes
