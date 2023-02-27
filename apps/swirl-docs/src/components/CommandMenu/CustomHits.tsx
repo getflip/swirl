@@ -1,6 +1,5 @@
 import { SwirlIconDescription } from "@getflip/swirl-components-react";
 import { AlgoliaRecord } from "@swirl/lib/search";
-import classNames from "classnames";
 import { Command } from "cmdk";
 import { useRouter } from "next/router";
 import { FunctionComponent, useState } from "react";
