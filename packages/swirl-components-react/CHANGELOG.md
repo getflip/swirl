@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.20.0
+
+### Minor Changes
+
+- [`051b72c`](https://github.com/getflip/swirl/commit/051b72c129722be65bb8f780a35de215ced530ef)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Breaking: Make swirl-app-layout
+  app bar more flexible by adding a slot
+
+### Patch Changes
+
+- Updated dependencies
+  [[`051b72c`](https://github.com/getflip/swirl/commit/051b72c129722be65bb8f780a35de215ced530ef)]:
+  - @getflip/swirl-components@0.21.0
+
 ## 0.19.1
 
 ### Patch Changes
