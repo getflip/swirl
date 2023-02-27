@@ -53,9 +53,7 @@ const Template = (args) => {
     </div>
     <div slot="main">
       <swirl-app-layout
-        app-bar-media='<swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" variant="square"></swirl-avatar>'
         app-name="Chat"
-        heading="John Doe"
         navigation-label="Items"
       >
         <swirl-resource-list label="Items" slot="navigation">
@@ -75,6 +73,7 @@ const Template = (args) => {
           label="Settings"
           slot="navigation-controls"
         ></swirl-button>
+        <swirl-heading as="h2" level="3" slot="app-bar" text="Heading"></swirl-heading>
         <div slot="app-bar-controls">
           <swirl-button hide-label class="info-button" icon="<swirl-icon-info></swirl-icon-info>" label="More information"></swirl-button>
         </div>

@@ -43,9 +43,9 @@ const Template = (args) => {
 
   element.innerHTML = `
     <swirl-resource-list label="Items" slot="navigation">
-      <swirl-resource-list-item description="With a description" label="This is a resource item" class="item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
-      <swirl-resource-list-item description="With a description" label="This is a resource item" class="item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
-      <swirl-resource-list-item description="With a description" label="This is a resource item" class="item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/1027/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
+      <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+      <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+      <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
     </swirl-resource-list>
     <swirl-button
       hide-label
@@ -53,6 +53,7 @@ const Template = (args) => {
       label="Settings"
       slot="navigation-controls"
     ></swirl-button>
+    <swirl-heading as="h2" level="3" slot="app-bar" text="Heading"></swirl-heading>
     <div slot="app-bar-controls">
       <swirl-button hide-label class="info-button" icon="<swirl-icon-info></swirl-icon-info>" label="More information"></swirl-button>
     </div>
@@ -76,13 +77,9 @@ const Template = (args) => {
 export const SwirlAppLayout = Template.bind({});
 
 SwirlAppLayout.args = {
-  appBarMedia:
-    '<swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" variant="square"></swirl-avatar>',
   appName: "App Name",
   ctaIcon: "<swirl-icon-add></swirl-icon-add>",
   ctaLabel: "Call to action",
-  heading: "Heading",
   navigationLabel: "Items",
   sidebarHeading: "Sidebar Heading",
-  subheading: "Subheading",
 };

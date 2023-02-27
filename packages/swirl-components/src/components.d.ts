@@ -107,7 +107,6 @@ export namespace Components {
         "label": string;
     }
     interface SwirlAppLayout {
-        "appBarMedia"?: string;
         "appName": string;
         "backToNavigationViewButtonLabel"?: string;
         /**
@@ -117,7 +116,6 @@ export namespace Components {
         "changeMobileView": (mobileView: SwirlAppLayoutMobileView, transition?: boolean) => Promise<void>;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
-        "heading"?: string;
         /**
           * Hide the sidebar
          */
@@ -131,7 +129,6 @@ export namespace Components {
         "showSidebar": () => Promise<void>;
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
-        "subheading"?: string;
         /**
           * Toggle the sidebar
          */
@@ -2580,12 +2577,10 @@ declare namespace LocalJSX {
         "label": string;
     }
     interface SwirlAppLayout {
-        "appBarMedia"?: string;
         "appName": string;
         "backToNavigationViewButtonLabel"?: string;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
-        "heading"?: string;
         "navigationBackButtonLabel"?: string;
         "navigationLabel"?: string;
         "onCtaClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
@@ -2595,7 +2590,6 @@ declare namespace LocalJSX {
         "showNavigationBackButton"?: boolean;
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
-        "subheading"?: string;
         "transitionStyle"?: string;
     }
     interface SwirlAutocomplete {

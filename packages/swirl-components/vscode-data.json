@@ -91,10 +91,6 @@
       },
       "attributes": [
         {
-          "name": "app-bar-media",
-          "description": ""
-        },
-        {
           "name": "app-name",
           "description": ""
         },
@@ -108,10 +104,6 @@
         },
         {
           "name": "cta-label",
-          "description": ""
-        },
-        {
-          "name": "heading",
           "description": ""
         },
         {
@@ -132,10 +124,6 @@
         },
         {
           "name": "sidebar-heading",
-          "description": ""
-        },
-        {
-          "name": "subheading",
           "description": ""
         },
         {

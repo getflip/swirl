@@ -106,14 +106,12 @@ export class FileManager {
           backToNavigationViewButtonLabel="Back to documents list"
           ctaIcon="<swirl-icon-add></swirl-icon-add>"
           ctaLabel="Upload file"
-          heading={this.selectedFile?.name}
           navigationLabel="Documents"
           onNavigationBackButtonClick={this.resetSelectedDirectory}
           ref={(el) => (this.layout = el)}
           sidebarCloseButtonLabel="Close file info"
           sidebarHeading="File info"
           showNavigationBackButton={Boolean(this.selectedDirectory)}
-          subheading={this.selectedFile?.description}
           transitionStyle="dialog"
         >
           {/* Navigation */}
@@ -127,6 +125,20 @@ export class FileManager {
             label="Sort items"
             slot="navigation-controls"
           ></swirl-button>
+
+          {/* App bar */}
+          <swirl-stack orientation="horizontal" slot="app-bar">
+            <swirl-stack>
+              <swirl-heading
+                as="h2"
+                level={4}
+                text={this.selectedFile?.name}
+              ></swirl-heading>
+              <swirl-text color="subdued" truncate>
+                {this.selectedFile?.description}
+              </swirl-text>
+            </swirl-stack>
+          </swirl-stack>
 
           {/* Content */}
           {Boolean(this.selectedFile) ? (
