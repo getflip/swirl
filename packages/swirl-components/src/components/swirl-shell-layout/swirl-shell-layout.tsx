@@ -164,17 +164,6 @@ export class SwirlShellLayout {
               >
                 <slot name="main-navigation"></slot>
               </nav>
-              {this.collapsedSidebar && !this.collapsing && (
-                <div class="shell-layout__mobile-toggle">
-                  <swirl-button
-                    swirlAriaExpanded={String(!this.collapsedSidebar)}
-                    hideLabel
-                    icon="<swirl-icon-menu></swirl-icon-menu>"
-                    label={this.sidebarToggleLabel}
-                    onClick={this.showSidebar}
-                  ></swirl-button>
-                </div>
-              )}
             </div>
           </div>
           <main class="shell-layout__main">

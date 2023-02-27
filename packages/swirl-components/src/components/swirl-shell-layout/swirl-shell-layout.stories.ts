@@ -14,7 +14,10 @@ export default {
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("swirl-shell-layout", args);
+  const element = generateStoryElement(
+    "swirl-shell-layout",
+    args
+  ) as HTMLSwirlShellLayoutElement;
 
   element.innerHTML = `
     <div slot="logo-expanded">
@@ -56,6 +59,13 @@ const Template = (args) => {
         app-name="Chat"
         navigation-label="Items"
       >
+        <swirl-button
+          hide-label
+          icon="<swirl-icon-menu></swirl-icon-menu>"
+          id="navigation-mobile-menu-button"
+          label="Toggle sidebar"
+          slot="navigation-mobile-menu-button"
+        ></swirl-button>
         <swirl-resource-list label="Items" slot="navigation">
           <swirl-resource-list-item description="With a description" label="This is a resource item" class="item">
             <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>
@@ -73,6 +83,13 @@ const Template = (args) => {
           label="Settings"
           slot="navigation-controls"
         ></swirl-button>
+        <swirl-button
+          hide-label
+          icon="<swirl-icon-menu></swirl-icon-menu>"
+          id="app-bar-mobile-menu-button"
+          label="Toggle sidebar"
+          slot="app-bar-mobile-menu-button"
+        ></swirl-button>
         <swirl-heading as="h2" level="3" slot="app-bar" text="Heading"></swirl-heading>
         <div slot="app-bar-controls">
           <swirl-button hide-label class="info-button" icon="<swirl-icon-info></swirl-icon-info>" label="More information"></swirl-button>
@@ -82,6 +99,18 @@ const Template = (args) => {
       </swirl-app-layout>
     </div>
   `;
+
+  element
+    .querySelector("#navigation-mobile-menu-button")
+    .addEventListener("click", () => {
+      element.extendSidebar();
+    });
+
+  element
+    .querySelector("#app-bar-mobile-menu-button")
+    .addEventListener("click", () => {
+      element.extendSidebar();
+    });
 
   element.querySelector(".info-button").addEventListener("click", () => {
     element.querySelector("swirl-app-layout").changeMobileView("sidebar");

@@ -21,7 +21,9 @@ export type SwirlAppLayoutTransitionStyle = "none" | "slides" | "dialog";
  * @slot content - Main content area
  * @slot navigation - The navigation area content
  * @slot navigation-controls - Controls for the navigation header
+ * @slot navigation-mobile-menu-button - Used to add a mobile shell layout menu button to navigation
  * @slot app-bar - The app bar contents
+ * @slot app-bar-mobile-menu-button - Used to add a mobile shell layout menu button to the app bar
  * @slot sidebar - Content of the right sidebar
  */
 @Component({
@@ -266,6 +268,9 @@ export class SwirlAppLayout {
         >
           <div class="app-layout__grid">
             <header class="app-layout__header">
+              <span class="app-layout__navigation-mobile-menu-button">
+                <slot name="navigation-mobile-menu-button"></slot>
+              </span>
               {this.showNavigationBackButton && (
                 <span class="app-layout__navigation-back-button">
                   <swirl-button
@@ -297,6 +302,9 @@ export class SwirlAppLayout {
             </nav>
             <section aria-labelledby="app-name" class="app-layout__body">
               <header class="app-layout__app-bar">
+                <span class="app-layout__app-bar-mobile-menu-button">
+                  <slot name="app-bar-mobile-menu-button"></slot>
+                </span>
                 {showBackToNavigationButton && (
                   <span class="app-layout__back-to-navigation-button">
                     <swirl-button

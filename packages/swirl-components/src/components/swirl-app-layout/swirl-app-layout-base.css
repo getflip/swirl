@@ -74,6 +74,12 @@
         "navigation body";
     }
   }
+
+  & .app-layout__app-bar-mobile-menu-button {
+    @media (--from-tablet) {
+      display: none;
+    }
+  }
 }
 
 .app-layout--has-sidebar {
@@ -237,6 +243,15 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+}
+
+.app-layout__app-bar-mobile-menu-button,
+.app-layout__navigation-mobile-menu-button {
+  flex-shrink: 0;
+
+  @media (--from-desktop) {
+    display: none;
   }
 }
 
