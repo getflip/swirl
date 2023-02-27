@@ -127,7 +127,8 @@ describe("swirl-app-layout", () => {
     const page = await newSpecPage({
       components: [SwirlAppLayout],
       html: `
-        <swirl-app-layout app-bar-media="Media" app-name="App" heading="Heading">
+        <swirl-app-layout app-name="App">
+          <div slot="app-bar">App bar</div>
           <div slot="app-bar-controls">Controls</div>
           <div slot="navigation">Navigation</div>
         </swirl-app-layout>
@@ -135,30 +136,8 @@ describe("swirl-app-layout", () => {
     });
 
     const appBar = page.root.shadowRoot.querySelector(".app-layout__app-bar");
-    const appBarMedia = appBar.querySelector(".app-layout__app-bar-media");
-    const appBarHeading = appBar.querySelector(".app-layout__app-bar-heading")
-      .children[0];
 
     expect(appBar).not.toBeNull();
-    expect(appBarMedia.innerHTML).toBe("Media");
-    expect(appBarHeading.getAttribute("as")).toBe("h2");
-    expect(appBarHeading.getAttribute("text")).toBe("Heading");
-  });
-
-  it("renders the app name inside app bar, if no navigation is provided", async () => {
-    const page = await newSpecPage({
-      components: [SwirlAppLayout],
-      html: `
-        <swirl-app-layout app-name="App" heading="Heading"></swirl-app-layout>
-      `,
-    });
-
-    const appBar = page.root.shadowRoot.querySelector(".app-layout__app-bar");
-    const appBarHeading = appBar.querySelector("swirl-heading");
-
-    expect(appBar).not.toBeNull();
-    expect(appBarHeading.getAttribute("as")).toBe("h1");
-    expect(appBarHeading.getAttribute("text")).toBe("App");
   });
 
   it("changes the mobile view", async () => {
