@@ -5,7 +5,7 @@ on:
     branches:
       - figma-tokens
     paths:
-      - packages/swirl-tokens
+      - packages/swirl-tokens/**/*
 
 jobs:
   figma_to_style_dictionary:
