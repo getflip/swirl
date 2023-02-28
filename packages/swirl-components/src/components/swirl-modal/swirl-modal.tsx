@@ -23,6 +23,7 @@ export class SwirlModal {
   @Prop() hideCloseButton?: boolean;
   @Prop() hideLabel?: boolean;
   @Prop() label!: string;
+  @Prop() maxWidth?: string;
   @Prop() padded?: boolean = true;
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
@@ -163,7 +164,11 @@ export class SwirlModal {
           ref={(el) => (this.modalEl = el)}
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
-          <div class="modal__body" role="document">
+          <div
+            class="modal__body"
+            role="document"
+            style={{ maxWidth: this.maxWidth }}
+          >
             {!this.hideCloseButton && (
               <swirl-button
                 class="modal__close-button"

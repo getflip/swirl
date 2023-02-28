@@ -108,6 +108,15 @@ export namespace Components {
     interface SwirlActionListSection {
         "label": string;
     }
+    interface SwirlAppBar {
+        "backButtonLabel"?: string;
+        "closeButtonLabel"?: string;
+        "showBackButton"?: boolean;
+        "showCloseButton"?: boolean;
+        "showStepperControls"?: boolean;
+        "stepDownButtonLabel"?: string;
+        "stepUpButtonLabel"?: string;
+    }
     interface SwirlAppLayout {
         "appName": string;
         "backToNavigationViewButtonLabel"?: string;
@@ -442,6 +451,7 @@ export namespace Components {
         "headingId"?: string;
         "level"?: SwirlHeadingLevel;
         "text": string;
+        "truncate"?: boolean;
     }
     interface SwirlIconAdd {
         "size": SwirlIconSize;
@@ -788,6 +798,7 @@ export namespace Components {
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
+        "maxWidth"?: string;
         /**
           * Open the modal.
          */
@@ -1159,6 +1170,10 @@ export namespace Components {
     interface SwirlVisuallyHidden {
     }
 }
+export interface SwirlAppBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlAppBarElement;
+}
 export interface SwirlAppLayoutCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlAppLayoutElement;
@@ -1315,6 +1330,12 @@ declare global {
     var HTMLSwirlActionListSectionElement: {
         prototype: HTMLSwirlActionListSectionElement;
         new (): HTMLSwirlActionListSectionElement;
+    };
+    interface HTMLSwirlAppBarElement extends Components.SwirlAppBar, HTMLStencilElement {
+    }
+    var HTMLSwirlAppBarElement: {
+        prototype: HTMLSwirlAppBarElement;
+        new (): HTMLSwirlAppBarElement;
     };
     interface HTMLSwirlAppLayoutElement extends Components.SwirlAppLayout, HTMLStencilElement {
     }
@@ -2383,6 +2404,7 @@ declare global {
         "swirl-action-list": HTMLSwirlActionListElement;
         "swirl-action-list-item": HTMLSwirlActionListItemElement;
         "swirl-action-list-section": HTMLSwirlActionListSectionElement;
+        "swirl-app-bar": HTMLSwirlAppBarElement;
         "swirl-app-layout": HTMLSwirlAppLayoutElement;
         "swirl-autocomplete": HTMLSwirlAutocompleteElement;
         "swirl-avatar": HTMLSwirlAvatarElement;
@@ -2578,6 +2600,19 @@ declare namespace LocalJSX {
     }
     interface SwirlActionListSection {
         "label": string;
+    }
+    interface SwirlAppBar {
+        "backButtonLabel"?: string;
+        "closeButtonLabel"?: string;
+        "onBackButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        "onCloseButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        "onStepDownButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        "onStepUpButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        "showBackButton"?: boolean;
+        "showCloseButton"?: boolean;
+        "showStepperControls"?: boolean;
+        "stepDownButtonLabel"?: string;
+        "stepUpButtonLabel"?: string;
     }
     interface SwirlAppLayout {
         "appName": string;
@@ -2858,6 +2893,7 @@ declare namespace LocalJSX {
         "headingId"?: string;
         "level"?: SwirlHeadingLevel;
         "text": string;
+        "truncate"?: boolean;
     }
     interface SwirlIconAdd {
         "size"?: SwirlIconSize;
@@ -3187,6 +3223,7 @@ declare namespace LocalJSX {
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
+        "maxWidth"?: string;
         "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
@@ -3517,6 +3554,7 @@ declare namespace LocalJSX {
         "swirl-action-list": SwirlActionList;
         "swirl-action-list-item": SwirlActionListItem;
         "swirl-action-list-section": SwirlActionListSection;
+        "swirl-app-bar": SwirlAppBar;
         "swirl-app-layout": SwirlAppLayout;
         "swirl-autocomplete": SwirlAutocomplete;
         "swirl-avatar": SwirlAvatar;
@@ -3704,6 +3742,7 @@ declare module "@stencil/core" {
             "swirl-action-list": LocalJSX.SwirlActionList & JSXBase.HTMLAttributes<HTMLSwirlActionListElement>;
             "swirl-action-list-item": LocalJSX.SwirlActionListItem & JSXBase.HTMLAttributes<HTMLSwirlActionListItemElement>;
             "swirl-action-list-section": LocalJSX.SwirlActionListSection & JSXBase.HTMLAttributes<HTMLSwirlActionListSectionElement>;
+            "swirl-app-bar": LocalJSX.SwirlAppBar & JSXBase.HTMLAttributes<HTMLSwirlAppBarElement>;
             "swirl-app-layout": LocalJSX.SwirlAppLayout & JSXBase.HTMLAttributes<HTMLSwirlAppLayoutElement>;
             "swirl-autocomplete": LocalJSX.SwirlAutocomplete & JSXBase.HTMLAttributes<HTMLSwirlAutocompleteElement>;
             "swirl-avatar": LocalJSX.SwirlAvatar & JSXBase.HTMLAttributes<HTMLSwirlAvatarElement>;
