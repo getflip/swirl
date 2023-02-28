@@ -30,6 +30,7 @@ export class SwirlHeading {
   @Prop() headingId?: string;
   @Prop() level?: SwirlHeadingLevel = 1;
   @Prop() text!: string;
+  @Prop() truncate?: boolean;
 
   private headingEl: HTMLElement;
 
@@ -56,7 +57,10 @@ export class SwirlHeading {
     const className = classnames(
       "heading",
       `heading--align-${this.align}`,
-      `heading--level-${this.level}`
+      `heading--level-${this.level}`,
+      {
+        "heading--truncate": this.truncate,
+      }
     );
 
     return (
