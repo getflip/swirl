@@ -102,13 +102,13 @@
   display: flex;
   overflow: hidden;
   width: 100vw;
+  max-width: 40rem;
   height: 100vh;
   background-color: var(--s-surface-overlay-default);
   flex-direction: column;
 
   @media (--from-tablet) {
     width: 90vw;
-    max-width: 33.75rem;
     height: auto;
     max-height: 90vh;
     border-radius: var(--s-border-radius-base);
