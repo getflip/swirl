@@ -1,5 +1,23 @@
 # @getflip/swirl-components
 
+## 0.23.0
+
+### Minor Changes
+
+- [#178](https://github.com/getflip/swirl/pull/178)
+  [`ce4686a`](https://github.com/getflip/swirl/commit/ce4686a40c1fa3c21d4d3d58b15b7ab4d6d11405)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "max-width" prop to
+  swirl-modal
+
+* [#178](https://github.com/getflip/swirl/pull/178)
+  [`ce4686a`](https://github.com/getflip/swirl/commit/ce4686a40c1fa3c21d4d3d58b15b7ab4d6d11405)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-app-bar component
+
+- [#178](https://github.com/getflip/swirl/pull/178)
+  [`ce4686a`](https://github.com/getflip/swirl/commit/ce4686a40c1fa3c21d4d3d58b15b7ab4d6d11405)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "truncate" prop to
+  swirl-heading
+
 ## 0.22.0
 
 ### Minor Changes
