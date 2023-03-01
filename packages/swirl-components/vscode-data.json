@@ -2968,7 +2968,7 @@
       "name": "swirl-modal",
       "description": {
         "kind": "markdown",
-        "value": ""
+        "value": "slot - Modal contents\ncustom-header - Optional custom header; should be used hidden label"
       },
       "attributes": [
         {

@@ -59,6 +59,12 @@
   }
 }
 
+.modal--has-custom-header {
+  & .modal__content {
+    padding-top: var(--s-space-16);
+  }
+}
+
 .modal--closing {
   animation: 0.15s modal-fade-out;
   animation-fill-mode: forwards;
@@ -148,6 +154,11 @@
     padding-left: var(--s-space-24);
     border-bottom: var(--s-border-width-default) solid transparent;
   }
+}
+
+.modal__custom-header {
+  flex-shrink: 0;
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
 }
 
 .modal__heading {
