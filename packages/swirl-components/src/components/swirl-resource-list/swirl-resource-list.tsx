@@ -20,10 +20,10 @@ export class SwirlResourceList {
 
   private collectItems() {
     this.items = Array.from(
-      this.el.querySelectorAll(
+      this.el.querySelectorAll<HTMLSwirlResourceListItemElement>(
         "swirl-resource-list-item, swirl-resource-list-file-item"
       )
-    );
+    ).filter((el) => el.isConnected);
   }
 
   private removeItemsFromTabOrder() {
@@ -41,7 +41,7 @@ export class SwirlResourceList {
 
     const item = this.items[index];
 
-    if (!Boolean(item)) {
+    if (!Boolean(item) || !item.isConnected) {
       return;
     }
 
@@ -81,6 +81,14 @@ export class SwirlResourceList {
     }
   };
 
+  private onSlotChange = () => {
+    this.collectItems();
+
+    setTimeout(() => {
+      this.focusItemAtIndex(this.focusedIndex);
+    }, 16);
+  };
+
   render() {
     return (
       <Host onKeyDown={this.onKeyDown}>
@@ -90,7 +98,7 @@ export class SwirlResourceList {
           role="grid"
           tabIndex={0}
         >
-          <slot></slot>
+          <slot onSlotchange={this.onSlotChange}></slot>
         </swirl-stack>
       </Host>
     );
