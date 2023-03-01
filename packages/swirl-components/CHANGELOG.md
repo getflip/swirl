@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.24.0
+
+### Minor Changes
+
+- [`328e9f7`](https://github.com/getflip/swirl/commit/328e9f7ee1db98e54c897a67a5bf3317931d5a2a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "custom-header" slot to
+  swirl-modal
+
 ## 0.23.1
 
 ### Patch Changes
