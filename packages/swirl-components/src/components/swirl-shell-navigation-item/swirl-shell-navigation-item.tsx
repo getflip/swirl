@@ -28,10 +28,6 @@ export class SwirlShellNavigationItem {
       "shell-navigation-item--active": this.active,
     });
 
-    const indicatorClassName = classnames("shell-navigation-item__indicator", {
-      "shell-navigation-item__indicator--active": this.active,
-    });
-
     return (
       <Host
         class={className}
@@ -39,8 +35,9 @@ export class SwirlShellNavigationItem {
         role="link"
         tabIndex={0}
       >
-        <span class={indicatorClassName}></span>
-        <slot name="icon"></slot>
+        <span class="shell-navigation-item__icon">
+          <slot name="icon"></slot>
+        </span>
         <span class="shell-navigation-item__label">{this.label}</span>
         {this.badgeLabel && (
           <swirl-badge

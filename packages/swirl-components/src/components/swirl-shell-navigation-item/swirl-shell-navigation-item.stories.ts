@@ -26,4 +26,5 @@ export const SwirlShellNavigationItem = Template.bind({});
 SwirlShellNavigationItem.args = {
   label: "Label",
   badgeLabel: "1",
+  active: true,
 };

@@ -1,7 +1,7 @@
 @import "../../styles/media-queries.css";
 
 :host {
-  --extended-sidebar-width: 17.5rem;
+  --extended-sidebar-width: 17rem;
   --collapsed-sidebar-width: 4rem;
   display: flex;
   width: 100%;
@@ -54,7 +54,9 @@
         }
 
         & .shell-layout__collapsed-logo {
-          display: block;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
         }
 
         & .shell-layout__expanded-logo {
@@ -103,7 +105,6 @@
 }
 
 .shell-layout__header {
-  padding: var(--s-space-8);
   flex-shrink: 0;
   background-color: var(--s-background-default);
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
@@ -116,16 +117,16 @@
 }
 
 .shell-layout__expanded-logo {
-  padding-top: var(--s-space-8);
-  padding-right: calc(var(--s-space-12) + var(--s-space-2));
+  padding-top: var(--s-space-16);
+  padding-right: var(--s-space-12);
   padding-bottom: var(--s-space-8);
-  padding-left: calc(var(--s-space-12) + var(--s-space-2));
+  padding-left: var(--s-space-12);
   flex-grow: 1;
 }
 
 .shell-layout__collapsed-logo {
   display: none;
-  padding-top: var(--s-space-8);
+  padding-top: var(--s-space-16);
   padding-right: calc(var(--s-space-12) + var(--s-space-2));
   padding-bottom: var(--s-space-8);
   padding-left: calc(var(--s-space-12) + var(--s-space-2));
@@ -158,7 +159,6 @@
 
 .shell-layout__main-navigation {
   overflow: auto;
-  padding: var(--s-space-8);
   flex-grow: 1;
   background-color: var(--s-background-default);
 }

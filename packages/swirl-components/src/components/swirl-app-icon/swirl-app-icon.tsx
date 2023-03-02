@@ -51,11 +51,6 @@ export class SwirlAppIcon {
           {showIcon && (
             <span class="app-icon__icon" innerHTML={this.icon}></span>
           )}
-          {showFallbackIcon && (
-            <span class="app-icon__icon">
-              <swirl-icon-link></swirl-icon-link>
-            </span>
-          )}
         </span>
       </Host>
     );

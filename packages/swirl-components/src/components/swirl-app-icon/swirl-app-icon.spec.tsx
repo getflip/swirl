@@ -63,41 +63,4 @@ describe("swirl-app-icon", () => {
       </swirl-app-icon>
     `);
   });
-
-  it("renders fallbacks in the right order", async () => {
-    // simulate successful image loading
-    global.Image = class Image {
-      constructor() {
-        (this as any).onload();
-      }
-    } as typeof Image;
-
-    const pageWithImage = await newSpecPage({
-      components: [SwirlAppIcon],
-      html: `<swirl-app-icon label="link" src="https://"></swirl-app-icon>`,
-    });
-
-    expect(
-      pageWithImage.root.shadowRoot.querySelector(".app-icon__icon")
-    ).toBeNull();
-
-    const pageWithIcon = await newSpecPage({
-      components: [SwirlAppIcon],
-      html: `<swirl-app-icon label="link" icon="<swirl-icon-close></swirl-icon-close>"></swirl-app-icon>`,
-    });
-
-    expect(
-      pageWithIcon.root.shadowRoot.querySelector(".app-icon__icon").innerHTML
-    ).toEqual(`<swirl-icon-close></swirl-icon-close>`);
-
-    const pageWithFallbackIcon = await newSpecPage({
-      components: [SwirlAppIcon],
-      html: `<swirl-app-icon label="link"></swirl-app-icon>`,
-    });
-
-    expect(
-      pageWithFallbackIcon.root.shadowRoot.querySelector(".app-icon__icon")
-        .innerHTML
-    ).toEqual(`<swirl-icon-link></swirl-icon-link>`);
-  });
 });
