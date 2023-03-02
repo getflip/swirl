@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.24.1
+
+### Patch Changes
+
+- [`230ecae`](https://github.com/getflip/swirl/commit/230ecae058fedcf0a5845c70c1826ed5413f9999)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-resource-list focus
+  handling
+
 ## 0.24.0
 
 ### Minor Changes
