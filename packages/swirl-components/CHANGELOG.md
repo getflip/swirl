@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.24.2
+
+### Patch Changes
+
+- [`eab7cec`](https://github.com/getflip/swirl/commit/eab7cec006f01043a5b24a308892d045fb7bfdcd)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-resource-list focus
+  behavior in Safari
+
 ## 0.24.1
 
 ### Patch Changes
