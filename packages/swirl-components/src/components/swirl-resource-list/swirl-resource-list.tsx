@@ -15,7 +15,6 @@ export class SwirlResourceList {
 
   componentDidLoad() {
     this.collectItems();
-    this.removeItemsFromTabOrder();
   }
 
   private collectItems() {
@@ -24,6 +23,9 @@ export class SwirlResourceList {
         "swirl-resource-list-item, swirl-resource-list-file-item"
       )
     ).filter((el) => el.isConnected);
+
+    this.removeItemsFromTabOrder();
+    this.enableItemFocus(this.items[this.focusedIndex]);
   }
 
   private removeItemsFromTabOrder() {
@@ -36,6 +38,29 @@ export class SwirlResourceList {
     );
   }
 
+  private enableItemFocus(
+    item?: HTMLSwirlResourceListItemElement,
+    focus?: boolean
+  ) {
+    if (!Boolean(item)) {
+      return;
+    }
+
+    const interactiveElement = item.shadowRoot?.querySelector<HTMLElement>(
+      ".resource-list-item__content, .resource-list-file-item"
+    );
+
+    if (!Boolean(interactiveElement)) {
+      return;
+    }
+
+    interactiveElement.setAttribute("tabIndex", "0");
+
+    if (focus) {
+      interactiveElement.focus();
+    }
+  }
+
   private focusItemAtIndex(index: number) {
     this.removeItemsFromTabOrder();
 
@@ -45,19 +70,10 @@ export class SwirlResourceList {
       return;
     }
 
-    const interactiveElement = item.shadowRoot.querySelector<HTMLElement>(
-      ".resource-list-item__content, .resource-list-file-item"
-    );
-
-    interactiveElement.setAttribute("tabIndex", "0");
-    interactiveElement.focus();
+    this.enableItemFocus(item, true);
 
     this.focusedIndex = index;
   }
-
-  private onFocus = () => {
-    this.focusItemAtIndex(this.focusedIndex);
-  };
 
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.key === "ArrowDown") {
@@ -88,12 +104,7 @@ export class SwirlResourceList {
   render() {
     return (
       <Host onKeyDown={this.onKeyDown}>
-        <swirl-stack
-          aria-label={this.label}
-          onFocus={this.onFocus}
-          role="grid"
-          tabIndex={0}
-        >
+        <swirl-stack aria-label={this.label} role="grid">
           <slot onSlotchange={this.onSlotChange}></slot>
         </swirl-stack>
       </Host>
