@@ -1,16 +1,6 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-// colored box for internal apps
-//
-
-// 3 states for images:
-/**
- * background color / border-color with icon
- * img
- * box shadow inset for border
- */
-
 /**
  * @slot slot - image or icon to display
  */
@@ -39,6 +29,10 @@ export class SwirlShellNavigationItem {
       "shell-navigation-item--has-icon": Boolean(true),
     });
 
+    const indicatorClassName = classnames("shell-navigation-item__indicator", {
+      "shell-navigation-item__indicator--active": this.active,
+    });
+
     return (
       <Host
         class={className}
@@ -46,9 +40,8 @@ export class SwirlShellNavigationItem {
         role="link"
         tabIndex={0}
       >
-        <span class="shell-navigation-item__icon">
-          <slot name="icon"></slot>
-        </span>
+        <span class={indicatorClassName}></span>
+        <slot name="icon"></slot>
         <span class="shell-navigation-item__label">{this.label}</span>
         {this.badgeLabel && (
           <swirl-badge
