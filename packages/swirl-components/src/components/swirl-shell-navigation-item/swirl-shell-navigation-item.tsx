@@ -26,7 +26,6 @@ export class SwirlShellNavigationItem {
   render() {
     const className = classnames("shell-navigation-item", {
       "shell-navigation-item--active": this.active,
-      "shell-navigation-item--has-icon": Boolean(true),
     });
 
     const indicatorClassName = classnames("shell-navigation-item__indicator", {
