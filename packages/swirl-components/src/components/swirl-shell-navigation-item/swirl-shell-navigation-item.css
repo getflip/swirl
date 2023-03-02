@@ -36,11 +36,11 @@
   }
 
   &(.shell-navigation-item--active) {
-    color: var(--s-text-highlight);
+    /* color: var(--s-text-highlight); */
     background-color: var(--s-surface-raised-default);
 
     & ::part(icon) {
-      color: var(--s-icon-highlight);
+      /* color: var(--s-icon-highlight); */
     }
   }
 
@@ -59,6 +59,16 @@
 
 .shell-navigation-item__icon {
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+
+  border-radius: 10px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset, 0 0 2px rgba(0, 0, 0, 0.1) inset;
 
   & ::part(icon) {
     color: var(--s-icon-default);
@@ -70,4 +80,8 @@
   min-width: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.shell-navigation-item__badge {
+  margin-left: auto;
 }

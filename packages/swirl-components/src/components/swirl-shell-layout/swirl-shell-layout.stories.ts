@@ -41,17 +41,31 @@ const Template = (args) => {
     </div>
     <div slot="tools">
       <swirl-stack spacing="4">
-        <swirl-shell-navigation-item icon="<swirl-icon-search></swirl-icon-search>" label="Search"></swirl-shell-navigation-item>
-        <swirl-shell-navigation-item icon="<swirl-icon-notifications></swirl-icon-notifications>" label="Notifications"></swirl-shell-navigation-item>
-        <swirl-shell-navigation-item icon="<swirl-icon-person></swirl-icon-person>" label="Profile & Settings"></swirl-shell-navigation-item>
-        <swirl-shell-navigation-item icon="<swirl-icon-add></swirl-icon-add>" label="Create"></swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="Search">
+          <swirl-icon-search></swirl-icon-search>
+        </swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="Notifications">
+          <swirl-icon-notifications></swirl-icon-notifications>
+        </swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="Profile & Settings">
+          <swirl-icon-person></swirl-icon-person>
+        </swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="Create">
+          <swirl-icon-add></swirl-icon-add>
+        </swirl-shell-navigation-item>
       </swirl-stack>
     </div>
     <div slot="main-navigation">
       <swirl-stack spacing="4">
-        <swirl-shell-navigation-item active icon="<swirl-icon-menu-outlined></swirl-icon-menu-outlined>" label="Home"></swirl-shell-navigation-item>
-        <swirl-shell-navigation-item icon="<swirl-icon-chats-outlined></swirl-icon-chats-outlined>" label="Chats"></swirl-shell-navigation-item>
-        <swirl-shell-navigation-item icon="<swirl-icon-news-outlined></swirl-icon-news-outlined>" label="News"></swirl-shell-navigation-item>
+        <swirl-shell-navigation-item active label="Home">
+          <swirl-icon-menu-outlined></swirl-icon-menu-outlined>
+        </swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="Chats">
+          <swirl-icon-chats-outlined></swirl-icon-chats-outlined>
+        </swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="News">
+          <swirl-icon-news-outlined></swirl-icon-news-outlined>
+        </swirl-shell-navigation-item>
       </swirl-stack>
     </div>
     <div slot="main">

@@ -2,16 +2,6 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-shell-navigation-item.mdx";
 
 export default {
-  argTypes: {
-    icon: {
-      table: {
-        type: {
-          detail: "e.g. <swirl-icon-close></swirl-icon-close>",
-          summary: "swirl-icon-*",
-        },
-      },
-    },
-  },
   component: "swirl-shell-navigation-item",
   parameters: {
     docs: {
@@ -24,12 +14,22 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-shell-navigation-item", args);
 
+  element.innerHTML = `
+    <img
+      slot="icon"
+      alt="Testing"
+      height="40"
+      width="40"
+      src='https://picsum.photos/id/433/144/144'
+    />
+  `;
+
   return element;
 };
 
 export const SwirlShellNavigationItem = Template.bind({});
 
 SwirlShellNavigationItem.args = {
-  icon: "<swirl-icon-chat-bubble></swirl-icon-chat-bubble>",
   label: "Label",
+  badgeLabel: "1",
 };

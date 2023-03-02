@@ -84,6 +84,31 @@
       ]
     },
     {
+      "name": "swirl-app-icon",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "hide-border",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "src",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-app-layout",
       "description": {
         "kind": "markdown",
@@ -3620,7 +3645,7 @@
           "description": ""
         },
         {
-          "name": "icon",
+          "name": "badge-label",
           "description": ""
         },
         {
