@@ -83,10 +83,6 @@ export class SwirlResourceList {
 
   private onSlotChange = () => {
     this.collectItems();
-
-    setTimeout(() => {
-      this.focusItemAtIndex(this.focusedIndex);
-    }, 16);
   };
 
   render() {
