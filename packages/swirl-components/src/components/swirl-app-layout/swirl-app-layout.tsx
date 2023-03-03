@@ -24,6 +24,7 @@ export type SwirlAppLayoutTransitionStyle = "none" | "slides" | "dialog";
  * @slot navigation-mobile-menu-button - Used to add a mobile shell layout menu button to navigation
  * @slot app-bar - The app bar contents
  * @slot app-bar-mobile-menu-button - Used to add a mobile shell layout menu button to the app bar
+ * @slot banner - Used to show a banner below the app bar
  * @slot sidebar - Content of the right sidebar
  */
 @Component({
@@ -326,6 +327,9 @@ export class SwirlAppLayout {
                   <slot name="app-bar-controls"></slot>
                 </div>
               </header>
+              <div class="app-layout__banner">
+                <slot name="banner"></slot>
+              </div>
               <div class="app-layout__content">
                 <slot name="content"></slot>
               </div>

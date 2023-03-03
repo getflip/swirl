@@ -94,6 +94,7 @@ export class SwirlShellLayout {
 
   private onSidebarClick = () => {
     if (this.collapsedSidebar) {
+      (document.activeElement as HTMLElement)?.blur();
       (getActiveElement() as HTMLElement)?.blur();
     }
   };

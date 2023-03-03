@@ -60,6 +60,7 @@ const Template = (args) => {
         app-name="Chat"
         navigation-label="Items"
       >
+        <swirl-banner slot="banner" action-label="Details" content="On leave until 16.05.2023" dismissable="false" intent="info"></swirl-banner>
         <swirl-button
           hide-label
           icon="<swirl-icon-menu></swirl-icon-menu>"
