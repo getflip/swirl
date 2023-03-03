@@ -11,11 +11,7 @@ describe("swirl-app-icon", () => {
     expect(page.root).toEqualHtml(`
       <swirl-app-icon aria-label="link" label="link">
         <mock:shadow-root>
-          <span class="app-icon app-icon--has-icon">
-            <span class="app-icon__icon">
-              <swirl-icon-link></swirl-icon-link>
-            </span>
-          </span>
+          <span class="app-icon app-icon--has-icon"></span>
         </mock:shadow-root>
       </swirl-app-icon>
     `);

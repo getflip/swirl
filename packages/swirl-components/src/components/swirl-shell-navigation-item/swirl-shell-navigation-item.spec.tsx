@@ -15,8 +15,9 @@ describe("swirl-shell-navigation-item", () => {
     expect(page.root).toEqualHtml(`
       <swirl-shell-navigation-item class="shell-navigation-item" label="Label" role="link" tabindex="0">
         <mock:shadow-root>
-          <span class="shell-navigation-item__indicator"></span>
-          <slot name="icon"></slot>
+          <span class="shell-navigation-item__icon">
+            <slot name="icon"></slot>
+          </span>
           <span class="shell-navigation-item__label">
             Label
           </span>
@@ -38,8 +39,9 @@ describe("swirl-shell-navigation-item", () => {
     expect(page.root).toEqualHtml(`
     <swirl-shell-navigation-item active="true" class="shell-navigation-item shell-navigation-item--active" label="Label" role="link" tabindex="0">
       <mock:shadow-root>
-        <span class="shell-navigation-item__indicator shell-navigation-item__indicator--active"></span>
-        <slot name="icon"></slot>
+        <span class="shell-navigation-item__icon">
+          <slot name="icon"></slot>
+        </span>
         <span class="shell-navigation-item__label">
           Label
         </span>
