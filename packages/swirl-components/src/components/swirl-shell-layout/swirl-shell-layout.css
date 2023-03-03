@@ -114,21 +114,18 @@
   display: flex;
   overflow: hidden;
   align-items: center;
+  height: 4.5rem;
 }
 
 .shell-layout__expanded-logo {
-  padding-top: var(--s-space-16);
   padding-right: var(--s-space-12);
-  padding-bottom: var(--s-space-8);
   padding-left: var(--s-space-12);
   flex-grow: 1;
 }
 
 .shell-layout__collapsed-logo {
   display: none;
-  padding-top: var(--s-space-16);
   padding-right: var(--s-space-12);
-  padding-bottom: var(--s-space-8);
   padding-left: var(--s-space-12);
   flex-grow: 1;
 }
