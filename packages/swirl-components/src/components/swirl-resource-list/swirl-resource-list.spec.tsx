@@ -27,7 +27,7 @@ describe("swirl-resource-list", () => {
     expect(page.root).toEqualHtml(`
       <swirl-resource-list label="Label">
         <mock:shadow-root>
-          <swirl-stack aria-label="Label" role="grid" tabindex="0">
+          <swirl-stack aria-label="Label" role="grid">
             <slot></slot>
           </swirl-stack>
         </mock:shadow-root>
@@ -50,8 +50,6 @@ describe("swirl-resource-list", () => {
     const interactiveElements = items.map((item) =>
       item.shadowRoot.querySelector<HTMLElement>(".resource-list-item__content")
     );
-
-    expect(interactiveElements[0].getAttribute("tabIndex")).toBe("-1");
 
     // focuses the first element if list is focused
     (page.root.shadowRoot.children[0] as HTMLElement).focus();

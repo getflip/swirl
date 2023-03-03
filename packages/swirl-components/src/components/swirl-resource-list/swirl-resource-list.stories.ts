@@ -35,6 +35,35 @@ const Template = (args) => {
     </swirl-resource-list-item>
   `;
 
+  setTimeout(() => {
+    element.innerHTML = `
+    <swirl-resource-list-item
+      description="With a description"
+      label="This is a resource item"
+    >
+      <swirl-avatar label="John Doe" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
+    </swirl-resource-list-item>
+    <swirl-resource-list-item
+      description="With a description"
+      label="This is a resource item"
+    >
+      <swirl-avatar label="John Doe" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
+    </swirl-resource-list-item>
+    <swirl-resource-list-item
+      description="With a description"
+      label="This is a resource item"
+    >
+      <swirl-avatar label="John Doe" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
+    </swirl-resource-list-item>
+    <swirl-resource-list-item
+      description="With a description"
+      label="New"
+    >
+      <swirl-avatar label="John Doe" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
+    </swirl-resource-list-item>
+  `;
+  }, 4000);
+
   return element;
 };
 

@@ -13,6 +13,10 @@ import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
 
+/**
+ * slot - Modal contents
+ * custom-header - Optional custom header; should be used hidden label
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-modal.css",
@@ -23,6 +27,7 @@ export class SwirlModal {
   @Prop() hideCloseButton?: boolean;
   @Prop() hideLabel?: boolean;
   @Prop() label!: string;
+  @Prop() maxWidth?: string;
   @Prop() padded?: boolean = true;
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
@@ -33,10 +38,12 @@ export class SwirlModal {
   @Event() secondaryAction: EventEmitter<MouseEvent>;
 
   @State() closing = false;
+  @State() hasCustomHeader: boolean;
   @State() scrollable = false;
   @State() scrolled = false;
   @State() scrolledDown = false;
 
+  private customHeaderSlot: HTMLSlotElement;
   private modal: A11yDialog;
   private modalEl: HTMLElement;
   private scrollContainer: HTMLElement;
@@ -108,6 +115,10 @@ export class SwirlModal {
     this.secondaryAction.emit(event);
   };
 
+  private onCustomHeaderSlotChange = () => {
+    this.hasCustomHeader = this.customHeaderSlot.assignedElements().length > 0;
+  };
+
   private determineScrollStatus = () => {
     const scrolled = this.scrollContainer?.scrollTop > 0;
 
@@ -146,6 +157,7 @@ export class SwirlModal {
 
     const className = classnames("modal", {
       "modal--closing": this.closing,
+      "modal--has-custom-header": this.hasCustomHeader,
       "modal--padded": this.padded,
       "modal--scrollable": this.scrollable,
       "modal--scrolled": this.scrolled,
@@ -163,7 +175,11 @@ export class SwirlModal {
           ref={(el) => (this.modalEl = el)}
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
-          <div class="modal__body" role="document">
+          <div
+            class="modal__body"
+            role="document"
+            style={{ maxWidth: this.maxWidth }}
+          >
             {!this.hideCloseButton && (
               <swirl-button
                 class="modal__close-button"
@@ -173,6 +189,13 @@ export class SwirlModal {
                 onClick={this.onCloseButtonClick}
               ></swirl-button>
             )}
+            <header class="modal__custom-header">
+              <slot
+                name="custom-header"
+                onSlotchange={this.onCustomHeaderSlotChange}
+                ref={(el) => (this.customHeaderSlot = el as HTMLSlotElement)}
+              ></slot>
+            </header>
             {!this.hideLabel && (
               <header class="modal__header">
                 <swirl-heading

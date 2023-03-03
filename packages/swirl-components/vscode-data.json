@@ -84,6 +84,43 @@
       ]
     },
     {
+      "name": "swirl-app-bar",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "back-button-label",
+          "description": ""
+        },
+        {
+          "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "show-back-button",
+          "description": ""
+        },
+        {
+          "name": "show-close-button",
+          "description": ""
+        },
+        {
+          "name": "show-stepper-controls",
+          "description": ""
+        },
+        {
+          "name": "step-down-button-label",
+          "description": ""
+        },
+        {
+          "name": "step-up-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-app-icon",
       "description": {
         "kind": "markdown",
@@ -1527,6 +1564,10 @@
         {
           "name": "text",
           "description": ""
+        },
+        {
+          "name": "truncate",
+          "description": ""
         }
       ]
     },
@@ -2952,7 +2993,7 @@
       "name": "swirl-modal",
       "description": {
         "kind": "markdown",
-        "value": ""
+        "value": "slot - Modal contents\ncustom-header - Optional custom header; should be used hidden label"
       },
       "attributes": [
         {
@@ -2969,6 +3010,10 @@
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "max-width",
           "description": ""
         },
         {

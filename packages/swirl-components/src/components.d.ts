@@ -108,6 +108,15 @@ export namespace Components {
     interface SwirlActionListSection {
         "label": string;
     }
+    interface SwirlAppBar {
+        "backButtonLabel"?: string;
+        "closeButtonLabel"?: string;
+        "showBackButton"?: boolean;
+        "showCloseButton"?: boolean;
+        "showStepperControls"?: boolean;
+        "stepDownButtonLabel"?: string;
+        "stepUpButtonLabel"?: string;
+    }
     interface SwirlAppIcon {
         "hideBorder"?: boolean;
         "icon"?: string;
@@ -448,6 +457,7 @@ export namespace Components {
         "headingId"?: string;
         "level"?: SwirlHeadingLevel;
         "text": string;
+        "truncate"?: boolean;
     }
     interface SwirlIconAdd {
         "size": SwirlIconSize;
@@ -785,6 +795,10 @@ export namespace Components {
     }
     interface SwirlList {
     }
+    /**
+     * slot - Modal contents
+     * custom-header - Optional custom header; should be used hidden label
+     */
     interface SwirlModal {
         /**
           * Close the modal.
@@ -794,6 +808,7 @@ export namespace Components {
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
+        "maxWidth"?: string;
         /**
           * Open the modal.
          */
@@ -1165,6 +1180,10 @@ export namespace Components {
     interface SwirlVisuallyHidden {
     }
 }
+export interface SwirlAppBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlAppBarElement;
+}
 export interface SwirlAppLayoutCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlAppLayoutElement;
@@ -1321,6 +1340,12 @@ declare global {
     var HTMLSwirlActionListSectionElement: {
         prototype: HTMLSwirlActionListSectionElement;
         new (): HTMLSwirlActionListSectionElement;
+    };
+    interface HTMLSwirlAppBarElement extends Components.SwirlAppBar, HTMLStencilElement {
+    }
+    var HTMLSwirlAppBarElement: {
+        prototype: HTMLSwirlAppBarElement;
+        new (): HTMLSwirlAppBarElement;
     };
     interface HTMLSwirlAppIconElement extends Components.SwirlAppIcon, HTMLStencilElement {
     }
@@ -2144,6 +2169,10 @@ declare global {
         prototype: HTMLSwirlListElement;
         new (): HTMLSwirlListElement;
     };
+    /**
+     * slot - Modal contents
+     * custom-header - Optional custom header; should be used hidden label
+     */
     interface HTMLSwirlModalElement extends Components.SwirlModal, HTMLStencilElement {
     }
     var HTMLSwirlModalElement: {
@@ -2395,6 +2424,7 @@ declare global {
         "swirl-action-list": HTMLSwirlActionListElement;
         "swirl-action-list-item": HTMLSwirlActionListItemElement;
         "swirl-action-list-section": HTMLSwirlActionListSectionElement;
+        "swirl-app-bar": HTMLSwirlAppBarElement;
         "swirl-app-icon": HTMLSwirlAppIconElement;
         "swirl-app-layout": HTMLSwirlAppLayoutElement;
         "swirl-autocomplete": HTMLSwirlAutocompleteElement;
@@ -2591,6 +2621,19 @@ declare namespace LocalJSX {
     }
     interface SwirlActionListSection {
         "label": string;
+    }
+    interface SwirlAppBar {
+        "backButtonLabel"?: string;
+        "closeButtonLabel"?: string;
+        "onBackButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        "onCloseButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        "onStepDownButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        "onStepUpButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        "showBackButton"?: boolean;
+        "showCloseButton"?: boolean;
+        "showStepperControls"?: boolean;
+        "stepDownButtonLabel"?: string;
+        "stepUpButtonLabel"?: string;
     }
     interface SwirlAppIcon {
         "hideBorder"?: boolean;
@@ -2877,6 +2920,7 @@ declare namespace LocalJSX {
         "headingId"?: string;
         "level"?: SwirlHeadingLevel;
         "text": string;
+        "truncate"?: boolean;
     }
     interface SwirlIconAdd {
         "size"?: SwirlIconSize;
@@ -3201,11 +3245,16 @@ declare namespace LocalJSX {
     }
     interface SwirlList {
     }
+    /**
+     * slot - Modal contents
+     * custom-header - Optional custom header; should be used hidden label
+     */
     interface SwirlModal {
         "closeButtonLabel"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
+        "maxWidth"?: string;
         "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
@@ -3536,6 +3585,7 @@ declare namespace LocalJSX {
         "swirl-action-list": SwirlActionList;
         "swirl-action-list-item": SwirlActionListItem;
         "swirl-action-list-section": SwirlActionListSection;
+        "swirl-app-bar": SwirlAppBar;
         "swirl-app-icon": SwirlAppIcon;
         "swirl-app-layout": SwirlAppLayout;
         "swirl-autocomplete": SwirlAutocomplete;
@@ -3724,6 +3774,7 @@ declare module "@stencil/core" {
             "swirl-action-list": LocalJSX.SwirlActionList & JSXBase.HTMLAttributes<HTMLSwirlActionListElement>;
             "swirl-action-list-item": LocalJSX.SwirlActionListItem & JSXBase.HTMLAttributes<HTMLSwirlActionListItemElement>;
             "swirl-action-list-section": LocalJSX.SwirlActionListSection & JSXBase.HTMLAttributes<HTMLSwirlActionListSectionElement>;
+            "swirl-app-bar": LocalJSX.SwirlAppBar & JSXBase.HTMLAttributes<HTMLSwirlAppBarElement>;
             "swirl-app-icon": LocalJSX.SwirlAppIcon & JSXBase.HTMLAttributes<HTMLSwirlAppIconElement>;
             "swirl-app-layout": LocalJSX.SwirlAppLayout & JSXBase.HTMLAttributes<HTMLSwirlAppLayoutElement>;
             "swirl-autocomplete": LocalJSX.SwirlAutocomplete & JSXBase.HTMLAttributes<HTMLSwirlAutocompleteElement>;
@@ -3861,6 +3912,10 @@ declare module "@stencil/core" {
             "swirl-lightbox": LocalJSX.SwirlLightbox & JSXBase.HTMLAttributes<HTMLSwirlLightboxElement>;
             "swirl-link": LocalJSX.SwirlLink & JSXBase.HTMLAttributes<HTMLSwirlLinkElement>;
             "swirl-list": LocalJSX.SwirlList & JSXBase.HTMLAttributes<HTMLSwirlListElement>;
+            /**
+             * slot - Modal contents
+             * custom-header - Optional custom header; should be used hidden label
+             */
             "swirl-modal": LocalJSX.SwirlModal & JSXBase.HTMLAttributes<HTMLSwirlModalElement>;
             "swirl-option-list": LocalJSX.SwirlOptionList & JSXBase.HTMLAttributes<HTMLSwirlOptionListElement>;
             "swirl-option-list-item": LocalJSX.SwirlOptionListItem & JSXBase.HTMLAttributes<HTMLSwirlOptionListItemElement>;

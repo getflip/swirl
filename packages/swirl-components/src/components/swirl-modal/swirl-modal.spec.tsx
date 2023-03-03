@@ -16,6 +16,9 @@ describe("swirl-modal", () => {
             <div class="modal__backdrop"></div>
             <div class="modal__body" role="document">
               <swirl-button class="modal__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close modal"></swirl-button>
+              <header class="modal__custom-header">
+                <slot name="custom-header"></slot>
+              </header>
               <header class="modal__header">
                 <swirl-heading as="h2" class="modal__heading" level="3" text="Dialog"></swirl-heading>
               </header>
