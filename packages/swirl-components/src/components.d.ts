@@ -11,7 +11,7 @@ import { SwirlAutocompleteSuggestion } from "./components/swirl-autocomplete/swi
 import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
-import { SwirlBannerAriaRole, SwirlBannerIntent } from "./components/swirl-banner/swirl-banner";
+import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
@@ -54,7 +54,7 @@ export { SwirlAutocompleteSuggestion } from "./components/swirl-autocomplete/swi
 export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
-export { SwirlBannerAriaRole, SwirlBannerIntent } from "./components/swirl-banner/swirl-banner";
+export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
@@ -195,6 +195,7 @@ export namespace Components {
         "importance"?: SwirlBannerAriaRole;
         "intent"?: SwirlBannerIntent;
         "showIcon"?: boolean;
+        "size"?: SwirlBannerSize;
     }
     interface SwirlBox {
         "bordered"?: boolean;
@@ -2690,6 +2691,7 @@ declare namespace LocalJSX {
         "onAction"?: (event: SwirlBannerCustomEvent<MouseEvent>) => void;
         "onDismiss"?: (event: SwirlBannerCustomEvent<MouseEvent>) => void;
         "showIcon"?: boolean;
+        "size"?: SwirlBannerSize;
     }
     interface SwirlBox {
         "bordered"?: boolean;

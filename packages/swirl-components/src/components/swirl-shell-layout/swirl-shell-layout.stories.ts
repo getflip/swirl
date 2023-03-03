@@ -54,6 +54,7 @@ const Template = (args) => {
         <swirl-shell-navigation-item icon="<swirl-icon-news-outlined></swirl-icon-news-outlined>" label="News"></swirl-shell-navigation-item>
       </swirl-stack>
     </div>
+    <swirl-banner slot="banner" action-label="Update" content="New version available." dismissable="false" intent="info" size="s"></swirl-banner>
     <div slot="main">
       <swirl-app-layout
         app-name="Chat"

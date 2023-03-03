@@ -7,6 +7,7 @@ import { getDesktopMediaQuery, getActiveElement } from "../../utils";
  * @slot logo-collapsed - Logo shown inside collapsed sidebar.
  * @slot tools - Items shown in the upper sidebar part.
  * @slot main-navigation - Items shown in the lower sidebar part.
+ * @slot banner - Used to show a swirl-banner on top of the page.
  * @slot main - Contents of the main area.
  */
 @Component({
@@ -125,6 +126,9 @@ export class SwirlShellLayout {
     return (
       <Host>
         <div class={className}>
+          <div class="shell-layout__banner">
+            <slot name="banner"></slot>
+          </div>
           <div
             class={sidebarWrapperClassName}
             onClick={this.onSidebarClick}

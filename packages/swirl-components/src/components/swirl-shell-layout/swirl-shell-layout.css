@@ -13,12 +13,28 @@
 }
 
 .shell-layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 0 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "banner banner"
+    "sidebar main";
   width: 100%;
   min-height: 100%;
+  transition: grid-template-columns 0.2s;
+
+  @media (--from-desktop) {
+    grid-template-columns: var(--extended-sidebar-width) 1fr;
+  }
 }
 
 .shell-layout--collapsed-sidebar {
+  grid-template-columns: 0 1fr;
+
+  @media (--from-desktop) {
+    grid-template-columns: var(--collapsed-sidebar-width) 1fr;
+  }
+
   &:not(.shell-layout--collapsing) {
     & .shell-layout__sidebar-wrapper {
       @media (--from-desktop) {
@@ -69,12 +85,17 @@
   }
 }
 
+.shell-layout__banner {
+  grid-area: banner;
+}
+
 .shell-layout__sidebar-wrapper {
   position: absolute;
   z-index: 2;
   top: 0;
   bottom: 0;
   left: 0;
+  grid-area: sidebar;
   width: 100%;
   max-width: var(--extended-sidebar-width);
   flex-basis: var(--extended-sidebar-width);
@@ -166,6 +187,7 @@
 .shell-layout__main {
   flex-grow: 1;
   background-color: var(--s-background-default);
+  grid-area: main;
 
   & > *,
   & ::slotted(*) {
