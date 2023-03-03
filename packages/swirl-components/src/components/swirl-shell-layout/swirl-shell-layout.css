@@ -127,9 +127,9 @@
 .shell-layout__collapsed-logo {
   display: none;
   padding-top: var(--s-space-16);
-  padding-right: calc(var(--s-space-12) + var(--s-space-2));
+  padding-right: var(--s-space-12);
   padding-bottom: var(--s-space-8);
-  padding-left: calc(var(--s-space-12) + var(--s-space-2));
+  padding-left: var(--s-space-12);
   flex-grow: 1;
 }
 
