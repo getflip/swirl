@@ -12,7 +12,7 @@ describe("swirl-banner", () => {
     expect(page.root).toEqualHtml(`
       <swirl-banner action-label="Action" content="Content" dismissable="true" intent="info" show-icon="true">
         <mock:shadow-root>
-          <div aria-describedby="content" class="banner banner--has-icon banner--intent-info" role="status" tabindex="0">
+          <div aria-describedby="content" class="banner banner--has-icon banner--intent-info banner--size-m" role="status" tabindex="0">
             <span aria-hidden="true" class="banner__icon">
               <swirl-icon-info size="24"></swirl-icon-info>
             </span>

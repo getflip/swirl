@@ -13,12 +13,24 @@
 }
 
 .shell-layout {
-  display: flex;
+  display: grid;
   width: 100%;
   min-height: 100%;
+  transition: grid-template-columns 0.2s;
+  grid-template-columns: 0 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "banner banner"
+    "sidebar main";
+
+  @media (--from-desktop) {
+    grid-template-columns: var(--extended-sidebar-width) 1fr;
+  }
 }
 
 .shell-layout--collapsed-sidebar {
+  grid-template-columns: 0 1fr;
+
   &:not(.shell-layout--collapsing) {
     & .shell-layout__sidebar-wrapper {
       @media (--from-desktop) {
@@ -35,7 +47,6 @@
   }
 
   & .shell-layout__sidebar-wrapper {
-    min-height: 100%;
     transform: translate3d(-100%, 0, 0);
 
     & .shell-layout__sidebar {
@@ -69,6 +80,14 @@
       }
     }
   }
+
+  @media (--from-desktop) {
+    grid-template-columns: var(--collapsed-sidebar-width) 1fr;
+  }
+}
+
+.shell-layout__banner {
+  grid-area: banner;
 }
 
 .shell-layout__sidebar-wrapper {
@@ -79,9 +98,11 @@
   left: 0;
   width: 100%;
   max-width: var(--extended-sidebar-width);
+  min-height: 0;
   flex-basis: var(--extended-sidebar-width);
   flex-shrink: 0;
   transition: max-width 0.2s, transform 0.2s;
+  grid-area: sidebar;
 
   @media (--from-desktop) {
     position: relative;
@@ -106,8 +127,8 @@
 
 .shell-layout__header {
   flex-shrink: 0;
-  background-color: var(--s-background-default);
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  background-color: var(--s-background-default);
 }
 
 .shell-layout__logo-bar {
@@ -161,8 +182,9 @@
 }
 
 .shell-layout__main {
-  flex-grow: 1;
+  min-height: 0;
   background-color: var(--s-background-default);
+  grid-area: main;
 
   & > *,
   & ::slotted(*) {

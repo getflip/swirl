@@ -1,5 +1,28 @@
 # @getflip/swirl-components-angular
 
+## 0.24.0
+
+### Minor Changes
+
+- [`1dc4000`](https://github.com/getflip/swirl/commit/1dc40004e4adf3bdd525bc2bb0e48bb417a04abd)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "banner" slot to
+  swirl-app-layout
+
+* [`4b6dc34`](https://github.com/getflip/swirl/commit/4b6dc34baa50a7a0ff06aeb1f0b00dcddf98bf1a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "size" prop to swirl-banner
+
+- [`cfebb9e`](https://github.com/getflip/swirl/commit/cfebb9eb209ebb082fa98e37d28ace9a1f4eafdb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "banner" slot to
+  swirl-shell-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`1dc4000`](https://github.com/getflip/swirl/commit/1dc40004e4adf3bdd525bc2bb0e48bb417a04abd),
+  [`4b6dc34`](https://github.com/getflip/swirl/commit/4b6dc34baa50a7a0ff06aeb1f0b00dcddf98bf1a),
+  [`cfebb9e`](https://github.com/getflip/swirl/commit/cfebb9eb209ebb082fa98e37d28ace9a1f4eafdb)]:
+  - @getflip/swirl-components@0.25.0
+
 ## 0.23.2
 
 ### Patch Changes

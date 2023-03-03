@@ -19,6 +19,8 @@ export type SwirlBannerIntent =
   | "warning"
   | "info";
 
+export type SwirlBannerSize = "s" | "m";
+
 const swirlBannerIconMapping: { [key in SwirlBannerIntent]: string } = {
   default: undefined,
   critical: "<swirl-icon-error></swirl-icon-error>",
@@ -42,6 +44,7 @@ export class SwirlBanner {
   @Prop() importance?: SwirlBannerAriaRole = "status";
   @Prop() intent?: SwirlBannerIntent = "default";
   @Prop() showIcon?: boolean = false;
+  @Prop() size?: SwirlBannerSize = "m";
 
   @Event() action?: EventEmitter<MouseEvent>;
   @Event() dismiss?: EventEmitter<MouseEvent>;
@@ -91,9 +94,14 @@ export class SwirlBanner {
     const showControls = Boolean(this.actionLabel) || this.dismissable;
     const showIcon = this.showIcon && Boolean(icon);
 
-    const className = classnames("banner", `banner--intent-${this.intent}`, {
-      "banner--has-icon": showIcon,
-    });
+    const className = classnames(
+      "banner",
+      `banner--intent-${this.intent}`,
+      `banner--size-${this.size}`,
+      {
+        "banner--has-icon": showIcon,
+      }
+    );
 
     return (
       <Host>

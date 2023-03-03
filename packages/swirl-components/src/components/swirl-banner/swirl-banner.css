@@ -12,7 +12,7 @@
   display: flex;
   max-width: 100%;
   padding: var(--s-space-12);
-  align-items: flex-start;
+  align-items: baseline;
 
   &:focus:not(:focus-visible) {
     outline: none;
@@ -25,6 +25,22 @@
 
   @media (--from-tablet) {
     padding: var(--s-space-16);
+  }
+}
+
+.banner--size-s {
+  padding: var(--s-space-8);
+  justify-content: center;
+
+  & .banner__content {
+    flex-grow: 0;
+    text-align: center;
+    margin-right: var(--s-space-8);
+  }
+
+  & .banner__controls {
+    margin-left: 0;
+    margin-right: var(--s-space-4);
   }
 }
 
