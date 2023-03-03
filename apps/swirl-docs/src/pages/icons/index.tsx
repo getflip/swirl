@@ -32,9 +32,9 @@ const IconsIndex = () => {
   const [searchWord, setSearchWord] = useState("");
   const [selectedIcon, setSelectedIcon] = useState<IconData>(icons["Add"]);
 
-  const filteredIcons = iconsArray.filter((icon) => {
-    return icon.toLowerCase().includes(searchWord.toLowerCase());
-  });
+  const filteredIcons = iconsArray.filter((icon) =>
+    icon.toLowerCase().includes(searchWord.toLowerCase())
+  );
 
   useEffect(() => {
     const iconName = asPath.split("#")[1];
@@ -67,18 +67,27 @@ const IconsIndex = () => {
                 <h2 className="mb-4 font-semibold text-font-size-xl text-text-default">
                   Icon List
                 </h2>
-                <IconGrid
-                  selectedIcon={selectedIcon}
-                  iconList={filteredIcons}
-                  icons={icons}
-                  handleTileClick={(iconname) =>
-                    setSelectedIcon(icons[iconname])
-                  }
-                />
+                {filteredIcons.length ? (
+                  <IconGrid
+                    selectedIcon={selectedIcon}
+                    iconList={filteredIcons}
+                    icons={icons}
+                    handleTileFocus={(iconname) =>
+                      setSelectedIcon(icons[iconname])
+                    }
+                    handleTileClick={(iconname) =>
+                      setSelectedIcon(icons[iconname])
+                    }
+                  />
+                ) : (
+                  <p>There are no results!</p>
+                )}
               </div>
-              <DesktopView>
-                <IconInfo icon={selectedIcon} />
-              </DesktopView>
+              {filteredIcons.length > 0 && (
+                <DesktopView>
+                  <IconInfo icon={selectedIcon} />
+                </DesktopView>
+              )}
             </div>
           </section>
         </main>
