@@ -34,7 +34,7 @@ const Template = (args) => {
       </svg>
     </div>
     <div slot="logo-collapsed">
-      <swirl-app-icon slot="icon" border-hidden="true" label="link" src="/sample-2.jpg"></swirl-app-icon>
+      <swirl-app-icon slot="icon" border-hidden="true" label="link" src="/flip-logo.png"></swirl-app-icon>
     </div>
     <div slot="tools">
       <swirl-stack>
