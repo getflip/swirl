@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.25.1
+
+### Patch Changes
+
+- [`41e192a`](https://github.com/getflip/swirl/commit/41e192a28374f3ce7979587663c063fd89bd6973)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fire change event when
+  swirl-search is cleared
+
 ## 0.25.0
 
 ### Minor Changes
