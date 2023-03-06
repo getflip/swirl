@@ -795,7 +795,19 @@
           "description": ""
         },
         {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "highlight-active",
+          "description": ""
+        },
+        {
           "name": "href",
+          "description": ""
+        },
+        {
+          "name": "image-url",
           "description": ""
         },
         {
@@ -804,6 +816,10 @@
         },
         {
           "name": "link-target",
+          "description": ""
+        },
+        {
+          "name": "sub-header",
           "description": ""
         }
       ]

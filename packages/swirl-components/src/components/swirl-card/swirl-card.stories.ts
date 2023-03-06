@@ -35,4 +35,8 @@ const Template = (args) => {
 
 export const SwirlCard = Template.bind({});
 
-SwirlCard.args = {};
+SwirlCard.args = {
+  subHeader: "An interesting subheader",
+  header: "This is the header of the card",
+  imageUrl: "/sample-2.jpg",
+};
