@@ -83,6 +83,7 @@ export class SwirlSearch {
   private clear = () => {
     this.input.value = "";
     this.input.focus();
+    this.valueChange.emit("");
   };
 
   private onBlur = (event: FocusEvent) => {
