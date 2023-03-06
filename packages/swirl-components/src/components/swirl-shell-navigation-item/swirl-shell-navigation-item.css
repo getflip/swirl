@@ -106,8 +106,6 @@
 @container (min-width: 14rem) {
   .shell-navigation-item__badge {
     margin-left: auto;
-    padding-right: var(
-      --s-space-4
-    ); // additional padding to have correct badge positioning
+    padding-right: var(--s-space-4);
   }
 }
