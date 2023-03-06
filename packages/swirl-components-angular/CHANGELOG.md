@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.24.1
+
+### Patch Changes
+
+- [`41e192a`](https://github.com/getflip/swirl/commit/41e192a28374f3ce7979587663c063fd89bd6973)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fire change event when
+  swirl-search is cleared
+
+- Updated dependencies
+  [[`41e192a`](https://github.com/getflip/swirl/commit/41e192a28374f3ce7979587663c063fd89bd6973)]:
+  - @getflip/swirl-components@0.25.1
+
 ## 0.24.0
 
 ### Minor Changes
