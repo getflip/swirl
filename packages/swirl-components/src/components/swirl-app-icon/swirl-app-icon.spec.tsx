@@ -9,7 +9,7 @@ describe("swirl-app-icon", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-app-icon aria-label="link" label="link">
+      <swirl-app-icon label="link">
         <mock:shadow-root>
           <span class="app-icon app-icon--has-icon"></span>
         </mock:shadow-root>
@@ -31,7 +31,7 @@ describe("swirl-app-icon", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-app-icon aria-label="link" label="link" src="https://">
+      <swirl-app-icon label="link" src="https://">
         <mock:shadow-root>
           <span class="app-icon">
             <img alt="" height="40" src="https://" width="40">
@@ -48,7 +48,7 @@ describe("swirl-app-icon", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-app-icon aria-label="link" label="link" icon="<swirl-icon-link></swirl-icon-link>">
+      <swirl-app-icon label="link" icon="<swirl-icon-link></swirl-icon-link>">
         <mock:shadow-root>
           <span class="app-icon app-icon--has-icon">
             <span class="app-icon__icon">
