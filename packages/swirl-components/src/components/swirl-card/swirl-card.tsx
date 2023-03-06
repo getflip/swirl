@@ -47,10 +47,12 @@ export class SwirlCard {
           {this.imageUrl && (
             <img class={cardImageClassName} alt="" src={this.imageUrl} />
           )}
-          {this.subHeader && (
-            <header class="subheader">{this.subHeader}</header>
-          )}
-          {this.header && <header class="header">{this.header}</header>}
+          <section class="content-section">
+            {this.subHeader && (
+              <header class="subheader">{this.subHeader}</header>
+            )}
+            {this.header && <header class="header">{this.header}</header>}
+          </section>
           <slot></slot>
         </Tag>
       </Host>
