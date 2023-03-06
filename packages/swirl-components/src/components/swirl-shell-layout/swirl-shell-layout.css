@@ -169,12 +169,6 @@
   }
 }
 
-.shell-layout__tools {
-  margin-top: var(--s-space-4);
-  flex-basis: 100%;
-  flex-shrink: 0;
-}
-
 .shell-layout__main-navigation {
   overflow: auto;
   flex-grow: 1;
