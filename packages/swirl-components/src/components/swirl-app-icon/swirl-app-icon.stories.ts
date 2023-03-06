@@ -20,6 +20,5 @@ const Template = (args) => {
 export const SwirlAppIcon = Template.bind({});
 
 SwirlAppIcon.args = {
-  label: "Label",
   src: "https://picsum.photos/id/433/144/144",
 };

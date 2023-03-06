@@ -120,7 +120,6 @@ export namespace Components {
     interface SwirlAppIcon {
         "hideBorder"?: boolean;
         "icon"?: string;
-        "label": string;
         "src"?: string;
     }
     interface SwirlAppLayout {
@@ -2639,7 +2638,6 @@ declare namespace LocalJSX {
     interface SwirlAppIcon {
         "hideBorder"?: boolean;
         "icon"?: string;
-        "label": string;
         "src"?: string;
     }
     interface SwirlAppLayout {

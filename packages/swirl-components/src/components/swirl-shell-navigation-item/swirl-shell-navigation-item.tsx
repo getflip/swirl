@@ -43,7 +43,7 @@ export class SwirlShellNavigationItem {
           <swirl-badge
             class="shell-navigation-item__badge"
             size="s"
-            aria-label={`${this.badgeLabel} 1 new messages`}
+            aria-label={`${this.badgeLabel}`}
             label={this.badgeLabel}
           ></swirl-badge>
         )}

@@ -7,7 +7,6 @@ import classnames from "classnames";
   tag: "swirl-app-icon",
 })
 export class SwirlAppIcon {
-  @Prop() label!: string;
   @Prop() icon?: string;
   @Prop() src?: string;
   @Prop() hideBorder?: boolean = false;
@@ -36,7 +35,7 @@ export class SwirlAppIcon {
     });
 
     return (
-      <Host aria-label={this.label}>
+      <Host>
         <span class={className}>
           {showImage && (
             <img
