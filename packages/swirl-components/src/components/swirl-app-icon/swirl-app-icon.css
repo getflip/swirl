@@ -1,5 +1,6 @@
 :host {
   display: inline-flex;
+  background-color: var(--s-surface-default);
 
   & * {
     box-sizing: border-box;
