@@ -117,6 +117,11 @@ export namespace Components {
         "stepDownButtonLabel"?: string;
         "stepUpButtonLabel"?: string;
     }
+    interface SwirlAppIcon {
+        "hideBorder"?: boolean;
+        "icon"?: string;
+        "src"?: string;
+    }
     interface SwirlAppLayout {
         "appName": string;
         "backToNavigationViewButtonLabel"?: string;
@@ -978,7 +983,7 @@ export namespace Components {
     }
     interface SwirlShellNavigationItem {
         "active"?: boolean;
-        "icon": string;
+        "badgeLabel"?: string;
         "label": string;
     }
     interface SwirlSkeletonBox {
@@ -1341,6 +1346,12 @@ declare global {
     var HTMLSwirlAppBarElement: {
         prototype: HTMLSwirlAppBarElement;
         new (): HTMLSwirlAppBarElement;
+    };
+    interface HTMLSwirlAppIconElement extends Components.SwirlAppIcon, HTMLStencilElement {
+    }
+    var HTMLSwirlAppIconElement: {
+        prototype: HTMLSwirlAppIconElement;
+        new (): HTMLSwirlAppIconElement;
     };
     interface HTMLSwirlAppLayoutElement extends Components.SwirlAppLayout, HTMLStencilElement {
     }
@@ -2414,6 +2425,7 @@ declare global {
         "swirl-action-list-item": HTMLSwirlActionListItemElement;
         "swirl-action-list-section": HTMLSwirlActionListSectionElement;
         "swirl-app-bar": HTMLSwirlAppBarElement;
+        "swirl-app-icon": HTMLSwirlAppIconElement;
         "swirl-app-layout": HTMLSwirlAppLayoutElement;
         "swirl-autocomplete": HTMLSwirlAutocompleteElement;
         "swirl-avatar": HTMLSwirlAvatarElement;
@@ -2622,6 +2634,11 @@ declare namespace LocalJSX {
         "showStepperControls"?: boolean;
         "stepDownButtonLabel"?: string;
         "stepUpButtonLabel"?: string;
+    }
+    interface SwirlAppIcon {
+        "hideBorder"?: boolean;
+        "icon"?: string;
+        "src"?: string;
     }
     interface SwirlAppLayout {
         "appName": string;
@@ -3400,7 +3417,7 @@ declare namespace LocalJSX {
     }
     interface SwirlShellNavigationItem {
         "active"?: boolean;
-        "icon": string;
+        "badgeLabel"?: string;
         "label": string;
     }
     interface SwirlSkeletonBox {
@@ -3569,6 +3586,7 @@ declare namespace LocalJSX {
         "swirl-action-list-item": SwirlActionListItem;
         "swirl-action-list-section": SwirlActionListSection;
         "swirl-app-bar": SwirlAppBar;
+        "swirl-app-icon": SwirlAppIcon;
         "swirl-app-layout": SwirlAppLayout;
         "swirl-autocomplete": SwirlAutocomplete;
         "swirl-avatar": SwirlAvatar;
@@ -3757,6 +3775,7 @@ declare module "@stencil/core" {
             "swirl-action-list-item": LocalJSX.SwirlActionListItem & JSXBase.HTMLAttributes<HTMLSwirlActionListItemElement>;
             "swirl-action-list-section": LocalJSX.SwirlActionListSection & JSXBase.HTMLAttributes<HTMLSwirlActionListSectionElement>;
             "swirl-app-bar": LocalJSX.SwirlAppBar & JSXBase.HTMLAttributes<HTMLSwirlAppBarElement>;
+            "swirl-app-icon": LocalJSX.SwirlAppIcon & JSXBase.HTMLAttributes<HTMLSwirlAppIconElement>;
             "swirl-app-layout": LocalJSX.SwirlAppLayout & JSXBase.HTMLAttributes<HTMLSwirlAppLayoutElement>;
             "swirl-autocomplete": LocalJSX.SwirlAutocomplete & JSXBase.HTMLAttributes<HTMLSwirlAutocompleteElement>;
             "swirl-avatar": LocalJSX.SwirlAvatar & JSXBase.HTMLAttributes<HTMLSwirlAvatarElement>;
