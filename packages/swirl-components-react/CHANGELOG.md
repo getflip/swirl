@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.25.2
+
+### Patch Changes
+
+- [`d9eebea`](https://github.com/getflip/swirl/commit/d9eebea97bcfaf16c631b6de756ce30e68f6e1b0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-app-icon background
+  color
+
+- Updated dependencies
+  [[`d9eebea`](https://github.com/getflip/swirl/commit/d9eebea97bcfaf16c631b6de756ce30e68f6e1b0)]:
+  - @getflip/swirl-components@0.26.2
+
 ## 0.25.1
 
 ### Patch Changes
