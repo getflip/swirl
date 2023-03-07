@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.25.1
+
+### Patch Changes
+
+- [`bf49c59`](https://github.com/getflip/swirl/commit/bf49c5951586e39b95112ea278210a5a5304e076)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-app-icon background
+  color
+
+- Updated dependencies
+  [[`bf49c59`](https://github.com/getflip/swirl/commit/bf49c5951586e39b95112ea278210a5a5304e076)]:
+  - @getflip/swirl-components@0.26.1
+
 ## 0.25.0
 
 ### Minor Changes
