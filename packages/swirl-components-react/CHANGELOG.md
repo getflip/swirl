@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.25.0
+
+### Minor Changes
+
+- [#184](https://github.com/getflip/swirl/pull/184)
+  [`44954f3`](https://github.com/getflip/swirl/commit/44954f32b74260ac41e033f72b7c47bc6f51eb4a)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Added App-Icon
+  Component and refactored Shell Navigation Item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`44954f3`](https://github.com/getflip/swirl/commit/44954f32b74260ac41e033f72b7c47bc6f51eb4a)]:
+  - @getflip/swirl-components@0.26.0
+
 ## 0.24.1
 
 ### Patch Changes
