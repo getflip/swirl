@@ -9,6 +9,18 @@ export class SwirlCarousel {
   @Prop() label: string;
 
   render() {
-    return <Host>Hello World {this.label}</Host>;
+    return (
+      <Host aria-roledescription="carousel" class="carousel">
+        <button class="nav-button carousel__previous">
+          <swirl-icon-arrow-back></swirl-icon-arrow-back>
+        </button>
+        <div class="carousel__content">
+          <slot></slot>
+        </div>
+        <button class="nav-button carousel__next">
+          <swirl-icon-arrow-forward></swirl-icon-arrow-forward>
+        </button>
+      </Host>
+    );
   }
 }

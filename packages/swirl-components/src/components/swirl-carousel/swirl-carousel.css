@@ -5,3 +5,34 @@
     box-sizing: border-box;
   }
 }
+
+.carousel {
+  overflow: scroll;
+}
+.nav-button {
+  position: absolute;
+}
+
+.carousel__previous {
+  left: 10%;
+  top: 50%;
+}
+
+.carousel__next {
+  left: 90%;
+  top: 50%;
+}
+
+.carousel__content {
+  display: flex;
+  flex-shrink: 0;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  scroll-behavior: smooth;
+}
+
+::slotted(*) {
+  scroll-snap-align: start;
+}

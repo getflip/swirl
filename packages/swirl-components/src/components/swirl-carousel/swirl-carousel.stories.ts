@@ -14,11 +14,14 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-carousel", args);
 
+  element.innerHTML = `
+        <img src="/sample-2.jpg">
+        <img src="/sample-3.jpg">
+  `;
+
   return element;
 };
 
 export const SwirlCarousel = Template.bind({});
 
-SwirlCarousel.args = {
-  label: "Label",
-};
+SwirlCarousel.args = {};

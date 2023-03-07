@@ -830,6 +830,19 @@
       ]
     },
     {
+      "name": "swirl-carousel",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-checkbox",
       "description": {
         "kind": "markdown",
