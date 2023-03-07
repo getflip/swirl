@@ -16,6 +16,7 @@ const Template = (args) => {
 
   element.innerHTML = `
     <img slot="image" src="/sample-2.jpg" >
+    <swirl-text color="subdued" slot="sub-heading"><b>New • </b>A sub heading.</swirl-text>
     <swirl-heading slot="heading" text="This is the heading of the card."></swirl-heading>
     <swirl-box slot="content" padding="16">
       <swirl-text color="subdued" size="sm">
@@ -37,8 +38,4 @@ const Template = (args) => {
 
 export const SwirlCard = Template.bind({});
 
-SwirlCard.args = {
-  subHeader: "An interesting subheader",
-  header: "This is the header of the card",
-  imageUrl: "/sample-2.jpg",
-};
+SwirlCard.args = {};

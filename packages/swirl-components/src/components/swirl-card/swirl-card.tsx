@@ -46,8 +46,11 @@ export class SwirlCard {
           }
           target={this.linkTarget}
         >
-          <div class="media-section">
+          <div class="image-section">
             <slot name="image"></slot>
+          </div>
+          <div class="heading-section">
+            <slot name="sub-heading"></slot>
             <slot name="heading"></slot>
           </div>
           <div>
