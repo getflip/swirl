@@ -1,0 +1,44 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Components/SwirlCarousel" />
+
+# SwirlCarousel
+
+The SwirlCarousel component is used to …
+
+- **[Figma Design Specs](#)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-carousel)**
+
+## Usage
+
+<Canvas withSource="open">
+  <Story id="components-swirlcarousel--swirl-carousel" />
+</Canvas>
+
+<ArgsTable story="." />
+
+## Theming
+
+| Variable                          | Usage                       |
+| --------------------------------- | --------------------------- |
+| `--s-interactive-primary-default` | The button background color |
+| `--s-text-on-action-primary`      | The button text color       |
+
+## Accessibility
+
+### ARIA
+
+The component follows the [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
+
+| ARIA            | Usage                                                                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `role="button"` |                                                                                                                   |
+| `aria-label`    | If no accessible label is provided via the button's text, the `aria-label` or `aria-labelledby` attribute is set. |
+| `aria-disabled` | If the button is disabled, the `aria-disabled` attribute is set to `true`.                                        |
+
+### Keyboard
+
+| Key              | Action                |
+| ---------------- | --------------------- |
+| <kbd>ENTER</kbd> | Activates the button. |
+| <kbd>SPACE</kbd> | Activates the button. |

@@ -245,6 +245,9 @@ export namespace Components {
         "interactive"?: boolean;
         "linkTarget"?: string;
     }
+    interface SwirlCarousel {
+        "label": string;
+    }
     interface SwirlCheckbox {
         "checked"?: SwirlCheckboxState;
         "description"?: string;
@@ -1413,6 +1416,12 @@ declare global {
         prototype: HTMLSwirlCardElement;
         new (): HTMLSwirlCardElement;
     };
+    interface HTMLSwirlCarouselElement extends Components.SwirlCarousel, HTMLStencilElement {
+    }
+    var HTMLSwirlCarouselElement: {
+        prototype: HTMLSwirlCarouselElement;
+        new (): HTMLSwirlCarouselElement;
+    };
     interface HTMLSwirlCheckboxElement extends Components.SwirlCheckbox, HTMLStencilElement {
     }
     var HTMLSwirlCheckboxElement: {
@@ -2436,6 +2445,7 @@ declare global {
         "swirl-button": HTMLSwirlButtonElement;
         "swirl-button-group": HTMLSwirlButtonGroupElement;
         "swirl-card": HTMLSwirlCardElement;
+        "swirl-carousel": HTMLSwirlCarouselElement;
         "swirl-checkbox": HTMLSwirlCheckboxElement;
         "swirl-chip": HTMLSwirlChipElement;
         "swirl-columns": HTMLSwirlColumnsElement;
@@ -2752,6 +2762,9 @@ declare namespace LocalJSX {
         "href"?: string;
         "interactive"?: boolean;
         "linkTarget"?: string;
+    }
+    interface SwirlCarousel {
+        "label"?: string;
     }
     interface SwirlCheckbox {
         "checked"?: SwirlCheckboxState;
@@ -3597,6 +3610,7 @@ declare namespace LocalJSX {
         "swirl-button": SwirlButton;
         "swirl-button-group": SwirlButtonGroup;
         "swirl-card": SwirlCard;
+        "swirl-carousel": SwirlCarousel;
         "swirl-checkbox": SwirlCheckbox;
         "swirl-chip": SwirlChip;
         "swirl-columns": SwirlColumns;
@@ -3786,6 +3800,7 @@ declare module "@stencil/core" {
             "swirl-button": LocalJSX.SwirlButton & JSXBase.HTMLAttributes<HTMLSwirlButtonElement>;
             "swirl-button-group": LocalJSX.SwirlButtonGroup & JSXBase.HTMLAttributes<HTMLSwirlButtonGroupElement>;
             "swirl-card": LocalJSX.SwirlCard & JSXBase.HTMLAttributes<HTMLSwirlCardElement>;
+            "swirl-carousel": LocalJSX.SwirlCarousel & JSXBase.HTMLAttributes<HTMLSwirlCarouselElement>;
             "swirl-checkbox": LocalJSX.SwirlCheckbox & JSXBase.HTMLAttributes<HTMLSwirlCheckboxElement>;
             "swirl-chip": LocalJSX.SwirlChip & JSXBase.HTMLAttributes<HTMLSwirlChipElement>;
             "swirl-columns": LocalJSX.SwirlColumns & JSXBase.HTMLAttributes<HTMLSwirlColumnsElement>;
