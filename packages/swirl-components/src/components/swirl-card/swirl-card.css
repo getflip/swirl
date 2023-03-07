@@ -30,12 +30,16 @@
 }
 
 .media-section {
+  display: grid;
+  grid-template-columns: 1;
+  gap: var(--s-space-16);
+
   & ::slotted(img) {
     width: 100%;
     border-radius: var(--s-border-radius-base) var(--s-border-radius-base) 0 0;
   }
 
-  & ::slotted(heading) {
+  & ::slotted(swirl-heading) {
     font-weight: var(--s-font-weight-bold);
     padding: 0 var(--s-space-16);
   }
