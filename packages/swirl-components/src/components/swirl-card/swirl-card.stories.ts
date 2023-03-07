@@ -15,7 +15,9 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-card", args);
 
   element.innerHTML = `
-    <swirl-box padding="16">
+    <img slot="media" src="/sample-2.jpg" >
+    <swirl-heading slot="media" text="This is the heading of the card."></swirl-heading>
+    <swirl-box slot="content" padding="16">
       <swirl-text color="subdued" size="sm">
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam

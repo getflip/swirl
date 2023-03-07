@@ -29,18 +29,20 @@
   padding: 0 var(--s-space-16);
 }
 
-.card-image--small {
-  width: 100%;
-  border-radius: var(--s-border-radius-base) var(--s-border-radius-base) 0 0;
-}
+.media-section {
+  & ::slotted(img) {
+    width: 100%;
+    border-radius: var(--s-border-radius-base) var(--s-border-radius-base) 0 0;
+  }
 
-.header {
-  font-weight: var(--s-font-weight-bold);
-}
-
-.subheader {
-  font-weight: var(--s-font-weight-medium);
-  color: var(--s-text-subdued);
+  & ::slotted(heading) {
+    font-weight: var(--s-font-weight-bold);
+    padding: 0 var(--s-space-16);
+  }
+  .subheader {
+    font-weight: var(--s-font-weight-medium);
+    color: var(--s-text-subdued);
+  }
 }
 
 a.card,

@@ -795,10 +795,6 @@
           "description": ""
         },
         {
-          "name": "header",
-          "description": ""
-        },
-        {
           "name": "highlight-active",
           "description": ""
         },
@@ -807,19 +803,11 @@
           "description": ""
         },
         {
-          "name": "image-url",
-          "description": ""
-        },
-        {
           "name": "interactive",
           "description": ""
         },
         {
           "name": "link-target",
-          "description": ""
-        },
-        {
-          "name": "sub-header",
           "description": ""
         }
       ]
