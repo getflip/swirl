@@ -78,16 +78,18 @@ const HeaderNavigation = () => {
                     key={link.url}
                     className={classNames(
                       "relative mr-4",
+                      "hover:text-border-info",
                       "before:block before:absolute before:bottom-[-23px] before:w-full before:h-1 before:bg-border-info",
                       {
-                        "before:opacity-100": activePath?.includes(link.url),
+                        "before:opacity-100 text-border-info":
+                          activePath?.includes(link.url),
                         "before:opacity-0": !activePath?.includes(link.url),
                       }
                     )}
                   >
                     <Link
                       className={classNames("text-text-default text-base", {
-                        "text-border-info": activePath?.includes(link.url),
+                        "text-text-highlight": activePath?.includes(link.url),
                       })}
                       href={link.url}
                     >
