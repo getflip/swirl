@@ -34,9 +34,10 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
 
   const SubElement = ({ navItem }: { navItem: NavItem }) => (
     <li
-      className={`font-sm mb-4 ${
-        activePath === navItem.url ? "text-border-info" : "text-text-default"
-      }`}
+      className={classNames("font-sm mb-4", "hover:text-border-info", {
+        "text-border-info": activePath === navItem.url,
+        "text-text-default": activePath !== navItem.url,
+      })}
     >
       <Link href={`${navItem.url}`}>
         <a className="text-sm capitalize">{navItem.title}</a>
