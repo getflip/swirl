@@ -834,6 +834,10 @@
         {
           "name": "link-target",
           "description": ""
+        },
+        {
+          "name": "swirl-aria-label",
+          "description": ""
         }
       ]
     },
