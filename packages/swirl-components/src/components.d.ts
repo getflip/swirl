@@ -253,6 +253,7 @@ export namespace Components {
      */
     interface SwirlCarousel {
         "label": string;
+        "loopAround"?: boolean;
         "nextSlideButtonLabel"?: string;
         "previousSlideButtonLabel"?: string;
     }
@@ -2798,6 +2799,7 @@ declare namespace LocalJSX {
      */
     interface SwirlCarousel {
         "label": string;
+        "loopAround"?: boolean;
         "nextSlideButtonLabel"?: string;
         "previousSlideButtonLabel"?: string;
     }

@@ -36,4 +36,5 @@ export const SwirlCarousel = Template.bind({});
 
 SwirlCarousel.args = {
   label: "Carousel",
+  loopAround: true,
 };

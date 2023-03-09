@@ -14,6 +14,7 @@ export class SwirlCarousel {
   @Prop() label!: string;
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
+  @Prop() loopAround?: boolean = false;
 
   private slidesContainer: HTMLElement;
 
@@ -21,7 +22,8 @@ export class SwirlCarousel {
     const slides = this.getSlides();
     const activeSlide = this.getActiveSlide();
     const previouSlide =
-      activeSlide.previousElementSibling || slides[slides.length - 1];
+      activeSlide.previousElementSibling ||
+      (this.loopAround ? slides[slides.length - 1] : activeSlide);
 
     previouSlide?.scrollIntoView({ block: "nearest", inline: "start" });
   }
@@ -29,7 +31,9 @@ export class SwirlCarousel {
   private nextSlide() {
     const slides = this.getSlides();
     const activeSlide = this.getActiveSlide();
-    const nextSlide = activeSlide.nextElementSibling || slides[0];
+    const nextSlide =
+      activeSlide.nextElementSibling ??
+      (this.loopAround ? slides[0] : activeSlide);
 
     nextSlide?.scrollIntoView();
   }

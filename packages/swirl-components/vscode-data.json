@@ -853,6 +853,10 @@
           "description": ""
         },
         {
+          "name": "loop-around",
+          "description": ""
+        },
+        {
           "name": "next-slide-button-label",
           "description": ""
         },
