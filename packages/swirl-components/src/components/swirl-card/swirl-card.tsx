@@ -19,6 +19,7 @@ export class SwirlCard {
   @Prop() imageAspectRatio?: string;
   @Prop() interactive?: boolean;
   @Prop() linkTarget?: string;
+  @Prop() swirlAriaLabel?: string;
 
   render() {
     const Tag = Boolean(this.href) ? "a" : this.as;
@@ -35,6 +36,7 @@ export class SwirlCard {
     return (
       <Host>
         <Tag
+          aria-label={this.swirlAriaLabel}
           class={className}
           href={this.href}
           rel={
