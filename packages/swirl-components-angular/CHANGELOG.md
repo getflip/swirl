@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.26.0
+
+### Minor Changes
+
+- [#190](https://github.com/getflip/swirl/pull/190)
+  [`798e005`](https://github.com/getflip/swirl/commit/798e00542af5c5b7d3b09c5aec981e4efc314339)
+  Thanks [@martinneumann](https://github.com/martinneumann)! - Breaking: Extend
+  swirl-card component. Added image and content slots.
+
+### Patch Changes
+
+- Updated dependencies
+  [[`798e005`](https://github.com/getflip/swirl/commit/798e00542af5c5b7d3b09c5aec981e4efc314339)]:
+  - @getflip/swirl-components@0.27.0
+
 ## 0.25.2
 
 ### Patch Changes
