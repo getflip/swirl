@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
 /**
@@ -10,29 +10,27 @@ import classnames from "classnames";
   tag: "swirl-card",
 })
 export class SwirlCard {
+  @Element() el: HTMLElement;
+
   @Prop() as?: string = "div";
   @Prop() elevated?: boolean;
-  @Prop() interactive?: boolean;
+  @Prop() highlighted?: boolean;
   @Prop() href?: string;
+  @Prop() imageAspectRatio?: string;
+  @Prop() interactive?: boolean;
   @Prop() linkTarget?: string;
-  @Prop() highlightActive?: boolean;
 
   render() {
     const Tag = Boolean(this.href) ? "a" : this.as;
 
+    const hasImage = Boolean(this.el.querySelector('[slot="image"]'));
+
     const className = classnames("card", {
       "card--elevated": this.elevated,
+      "card--has-image": hasImage,
+      "card--highlighted": this.highlighted,
       "card--interactive": this.interactive || this.href,
     });
-
-    /**
-     * Idea:
-     * - media section above
-     * - content section below
-     * - use flex gap
-     * - swirl stack
-     * ::slotted(*:img)
-     */
 
     return (
       <Host>
@@ -46,15 +44,16 @@ export class SwirlCard {
           }
           target={this.linkTarget}
         >
-          <div class="image-section">
+          <div
+            class="card__image"
+            style={{ aspectRatio: this.imageAspectRatio }}
+          >
             <slot name="image"></slot>
           </div>
-          <div class="heading-section">
-            <slot name="sub-heading"></slot>
-            <slot name="heading"></slot>
-          </div>
-          <div>
-            <slot name="content"></slot>
+          <div class="card__body">
+            <div class="card__content">
+              <slot name="content"></slot>
+            </div>
           </div>
         </Tag>
       </Host>

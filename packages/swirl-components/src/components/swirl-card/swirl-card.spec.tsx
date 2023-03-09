@@ -13,7 +13,14 @@ describe("swirl-card", () => {
       <swirl-card as="article" elevated="">
         <mock:shadow-root>
           <article class="card card--elevated">
-            <slot></slot>
+            <div class="card__image">
+              <slot name="image"></slot>
+            </div>
+            <div class="card__body">
+              <div class="card__content">
+                <slot name="content"></slot>
+              </div>
+            </div>
           </article>
         </mock:shadow-root>
         Content
@@ -31,7 +38,14 @@ describe("swirl-card", () => {
       <swirl-card href="#" link-target="_blank">
         <mock:shadow-root>
           <a class="card card--interactive" href="#" rel="noreferrer" target="_blank">
-            <slot></slot>
+            <div class="card__image">
+              <slot name="image"></slot>
+            </div>
+            <div class="card__body">
+              <div class="card__content">
+                <slot name="content"></slot>
+              </div>
+            </div>
           </a>
         </mock:shadow-root>
         Content

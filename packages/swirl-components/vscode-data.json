@@ -795,11 +795,15 @@
           "description": ""
         },
         {
-          "name": "highlight-active",
+          "name": "highlighted",
           "description": ""
         },
         {
           "name": "href",
+          "description": ""
+        },
+        {
+          "name": "image-aspect-ratio",
           "description": ""
         },
         {

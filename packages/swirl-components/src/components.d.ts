@@ -236,8 +236,9 @@ export namespace Components {
     interface SwirlCard {
         "as"?: string;
         "elevated"?: boolean;
-        "highlightActive"?: boolean;
+        "highlighted"?: boolean;
         "href"?: string;
+        "imageAspectRatio"?: string;
         "interactive"?: boolean;
         "linkTarget"?: string;
     }
@@ -2733,8 +2734,9 @@ declare namespace LocalJSX {
     interface SwirlCard {
         "as"?: string;
         "elevated"?: boolean;
-        "highlightActive"?: boolean;
+        "highlighted"?: boolean;
         "href"?: string;
+        "imageAspectRatio"?: string;
         "interactive"?: boolean;
         "linkTarget"?: string;
     }
