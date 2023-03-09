@@ -8,21 +8,16 @@
 
 .card {
   display: block;
+  overflow: hidden;
   width: 100%;
   margin: 0;
   padding: 0;
   border: var(--s-border-width-default) solid var(--s-border-default);
-  border-radius: var(--s-border-radius-base);
+  border-radius: 1.5rem;
   color: var(--s-text-default);
   background-color: var(--s-surface-default);
   font: inherit;
   text-decoration: none;
-}
-
-.card--elevated {
-  border-color: transparent;
-  box-shadow: 0 0.0625rem 0.25rem rgba(25, 26, 28, 0.16),
-    0 0.25rem 1rem rgba(25, 26, 28, 0.04);
 }
 
 a.card,
@@ -46,4 +41,48 @@ button.card,
     outline-color: var(--s-focus-default);
     outline-offset: var(--s-space-4);
   }
+}
+
+.card--elevated {
+  border-color: transparent;
+  box-shadow: 0 0.75rem 2rem rgba(25, 26, 28, 0.12),
+    0 0.25rem 0.75rem rgba(25, 26, 28, 0.08);
+}
+
+.card--highlighted {
+  border-width: 0.1875rem;
+  border-color: var(--s-border-highlight);
+}
+
+:not(.card--has-image) {
+  & .card__image {
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.content-section {
+  padding: 0 var(--s-space-16);
+}
+
+.card__image {
+  & ::slotted(img) {
+    display: inline-flex;
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-space-16);
+  padding: var(--s-space-12) var(--s-space-16) var(--s-space-16);
+}
+
+.card__header {
+}
+
+.card__content {
 }
