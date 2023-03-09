@@ -241,9 +241,12 @@ export namespace Components {
     interface SwirlCard {
         "as"?: string;
         "elevated"?: boolean;
+        "highlighted"?: boolean;
         "href"?: string;
+        "imageAspectRatio"?: string;
         "interactive"?: boolean;
         "linkTarget"?: string;
+        "swirlAriaLabel"?: string;
     }
     interface SwirlCheckbox {
         "checked"?: SwirlCheckboxState;
@@ -2749,9 +2752,12 @@ declare namespace LocalJSX {
     interface SwirlCard {
         "as"?: string;
         "elevated"?: boolean;
+        "highlighted"?: boolean;
         "href"?: string;
+        "imageAspectRatio"?: string;
         "interactive"?: boolean;
         "linkTarget"?: string;
+        "swirlAriaLabel"?: string;
     }
     interface SwirlCheckbox {
         "checked"?: SwirlCheckboxState;
