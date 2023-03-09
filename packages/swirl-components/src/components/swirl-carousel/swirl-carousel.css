@@ -1,38 +1,48 @@
 :host {
+  position: relative;
   display: block;
+  overflow: hidden;
+  width: 100%;
 
   & * {
     box-sizing: border-box;
   }
 }
 
-.carousel {
-  overflow: scroll;
-}
-.nav-button {
-  position: absolute;
-}
-
-.carousel__previous {
-  left: 10%;
-  top: 50%;
-}
-
-.carousel__next {
-  left: 90%;
-  top: 50%;
-}
-
-.carousel__content {
+.carousel__slides {
+  position: relative;
   display: flex;
-  flex-shrink: 0;
-
   overflow-x: auto;
+  width: 100%;
+  scrollbar-width: none;
   scroll-snap-type: x mandatory;
-
   scroll-behavior: smooth;
+  gap: var(--s-space-16);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::slotted(*) {
+    flex-basis: 80%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
 }
 
-::slotted(*) {
-  scroll-snap-align: start;
+.carousel__previous-slide-button {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: var(--s-space-8);
+  transform: translateY(-50%);
+}
+
+.carousel__next-slide-button {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: var(--s-space-8);
+  transform: translateY(-50%);
 }

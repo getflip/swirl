@@ -15,9 +15,18 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-carousel", args);
 
   element.innerHTML = `
-        <img src="/sample-3.jpg">
-        <img src="/sample-2.jpg">
-        <img src="/sample-3.jpg">
+    <swirl-carousel-slide>
+      <img alt="Description" src="/sample-2.jpg">
+    </swirl-carousel-slide>
+    <swirl-carousel-slide>
+      <img alt="Description" src="/sample-3.jpg">
+    </swirl-carousel-slide>
+    <swirl-carousel-slide>
+      <img alt="Description" src="/sample-2.jpg">
+    </swirl-carousel-slide>
+    <swirl-carousel-slide>
+      <img alt="Description" src="/sample-3.jpg">
+    </swirl-carousel-slide>
   `;
 
   return element;
@@ -25,4 +34,6 @@ const Template = (args) => {
 
 export const SwirlCarousel = Template.bind({});
 
-SwirlCarousel.args = {};
+SwirlCarousel.args = {
+  label: "Carousel",
+};

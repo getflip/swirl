@@ -245,7 +245,19 @@ export namespace Components {
         "interactive"?: boolean;
         "linkTarget"?: string;
     }
+    /**
+     * slot - The slides
+     */
     interface SwirlCarousel {
+        "label": string;
+        "nextSlideButtonLabel"?: string;
+        "previousSlideButtonLabel"?: string;
+    }
+    /**
+     * slot - The slide contents
+     */
+    interface SwirlCarouselSlide {
+        "label": string;
     }
     interface SwirlCheckbox {
         "checked"?: SwirlCheckboxState;
@@ -1415,11 +1427,23 @@ declare global {
         prototype: HTMLSwirlCardElement;
         new (): HTMLSwirlCardElement;
     };
+    /**
+     * slot - The slides
+     */
     interface HTMLSwirlCarouselElement extends Components.SwirlCarousel, HTMLStencilElement {
     }
     var HTMLSwirlCarouselElement: {
         prototype: HTMLSwirlCarouselElement;
         new (): HTMLSwirlCarouselElement;
+    };
+    /**
+     * slot - The slide contents
+     */
+    interface HTMLSwirlCarouselSlideElement extends Components.SwirlCarouselSlide, HTMLStencilElement {
+    }
+    var HTMLSwirlCarouselSlideElement: {
+        prototype: HTMLSwirlCarouselSlideElement;
+        new (): HTMLSwirlCarouselSlideElement;
     };
     interface HTMLSwirlCheckboxElement extends Components.SwirlCheckbox, HTMLStencilElement {
     }
@@ -2445,6 +2469,7 @@ declare global {
         "swirl-button-group": HTMLSwirlButtonGroupElement;
         "swirl-card": HTMLSwirlCardElement;
         "swirl-carousel": HTMLSwirlCarouselElement;
+        "swirl-carousel-slide": HTMLSwirlCarouselSlideElement;
         "swirl-checkbox": HTMLSwirlCheckboxElement;
         "swirl-chip": HTMLSwirlChipElement;
         "swirl-columns": HTMLSwirlColumnsElement;
@@ -2762,7 +2787,19 @@ declare namespace LocalJSX {
         "interactive"?: boolean;
         "linkTarget"?: string;
     }
+    /**
+     * slot - The slides
+     */
     interface SwirlCarousel {
+        "label": string;
+        "nextSlideButtonLabel"?: string;
+        "previousSlideButtonLabel"?: string;
+    }
+    /**
+     * slot - The slide contents
+     */
+    interface SwirlCarouselSlide {
+        "label": string;
     }
     interface SwirlCheckbox {
         "checked"?: SwirlCheckboxState;
@@ -3609,6 +3646,7 @@ declare namespace LocalJSX {
         "swirl-button-group": SwirlButtonGroup;
         "swirl-card": SwirlCard;
         "swirl-carousel": SwirlCarousel;
+        "swirl-carousel-slide": SwirlCarouselSlide;
         "swirl-checkbox": SwirlCheckbox;
         "swirl-chip": SwirlChip;
         "swirl-columns": SwirlColumns;
@@ -3798,7 +3836,14 @@ declare module "@stencil/core" {
             "swirl-button": LocalJSX.SwirlButton & JSXBase.HTMLAttributes<HTMLSwirlButtonElement>;
             "swirl-button-group": LocalJSX.SwirlButtonGroup & JSXBase.HTMLAttributes<HTMLSwirlButtonGroupElement>;
             "swirl-card": LocalJSX.SwirlCard & JSXBase.HTMLAttributes<HTMLSwirlCardElement>;
+            /**
+             * slot - The slides
+             */
             "swirl-carousel": LocalJSX.SwirlCarousel & JSXBase.HTMLAttributes<HTMLSwirlCarouselElement>;
+            /**
+             * slot - The slide contents
+             */
+            "swirl-carousel-slide": LocalJSX.SwirlCarouselSlide & JSXBase.HTMLAttributes<HTMLSwirlCarouselSlideElement>;
             "swirl-checkbox": LocalJSX.SwirlCheckbox & JSXBase.HTMLAttributes<HTMLSwirlCheckboxElement>;
             "swirl-chip": LocalJSX.SwirlChip & JSXBase.HTMLAttributes<HTMLSwirlChipElement>;
             "swirl-columns": LocalJSX.SwirlColumns & JSXBase.HTMLAttributes<HTMLSwirlColumnsElement>;

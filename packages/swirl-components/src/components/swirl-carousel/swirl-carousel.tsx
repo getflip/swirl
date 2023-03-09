@@ -1,49 +1,92 @@
-import { Component, h, Host, Element } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 
+/**
+ * slot - The slides
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-carousel.css",
   tag: "swirl-carousel",
 })
 export class SwirlCarousel {
-  @Element() el!: HTMLElement;
+  @Element() el: HTMLElement;
 
-  private scrollElement;
+  @Prop() label!: string;
+  @Prop() nextSlideButtonLabel?: string = "Next slide";
+  @Prop() previousSlideButtonLabel?: string = "Previous slide";
 
-  private scrollToPrevious(): (event: MouseEvent) => void {
-    console.log(this.scrollElement);
-    this.scrollElement?.scroll(-100, 0);
-    return;
+  private slidesContainer: HTMLElement;
+
+  private previousSlide() {
+    const slides = this.getSlides();
+    const activeSlide = this.getActiveSlide();
+    const previouSlide =
+      activeSlide.previousElementSibling || slides[slides.length - 1];
+
+    previouSlide?.scrollIntoView({ block: "nearest", inline: "start" });
   }
 
-  private scrollToNext(): (event: MouseEvent) => void {
-    this.scrollElement?.scroll(100, 0);
-    return;
+  private nextSlide() {
+    const slides = this.getSlides();
+    const activeSlide = this.getActiveSlide();
+    const nextSlide = activeSlide.nextElementSibling || slides[0];
+
+    nextSlide?.scrollIntoView();
   }
 
-  componentDidLoad() {
-    console.log(
-      this.el.shadowRoot.getElementById("carousel-content").scroll(100, 0)
+  private getSlides() {
+    return Array.from(this.el.querySelectorAll("swirl-carousel-slide"));
+  }
+
+  private getActiveSlide() {
+    const slides = this.getSlides();
+
+    return slides.find(
+      (slide) => slide.offsetLeft >= this.slidesContainer?.scrollLeft
     );
-    this.scrollElement = this.el.shadowRoot.getElementById("carousel-content");
-    console.log(this.scrollElement);
   }
+
+  private onPreviousSlideButtonClick = () => {
+    this.previousSlide();
+  };
+
+  private onNextSlideButtonClick = () => {
+    this.nextSlide();
+  };
 
   render() {
     return (
-      <Host aria-roledescription="carousel" class="carousel">
-        <button
-          class="nav-button carousel__previous"
-          onClick={this.scrollToPrevious}
+      <Host
+        aria-label={this.label}
+        aria-roledescription="carousel"
+        class="carousel"
+        role="group"
+      >
+        <swirl-button
+          class="carousel__previous-slide-button"
+          hideLabel
+          icon="<swirl-icon-arrow-left></swirl-icon-arrow-left>"
+          label={this.previousSlideButtonLabel}
+          onClick={this.onPreviousSlideButtonClick}
+          pill
+          variant="flat"
+        ></swirl-button>
+        <swirl-button
+          class="carousel__next-slide-button"
+          hideLabel
+          icon="<swirl-icon-arrow-right></swirl-icon-arrow-right>"
+          label={this.nextSlideButtonLabel}
+          onClick={this.onNextSlideButtonClick}
+          pill
+          variant="flat"
+        ></swirl-button>
+        <div
+          aria-live="polite"
+          class="carousel__slides"
+          ref={(el) => (this.slidesContainer = el)}
         >
-          <swirl-icon-arrow-back></swirl-icon-arrow-back>
-        </button>
-        <div class="carousel__content" id="carousel-content">
           <slot></slot>
         </div>
-        <button class="nav-button carousel__next" onClick={this.scrollToNext}>
-          <swirl-icon-arrow-forward></swirl-icon-arrow-forward>
-        </button>
       </Host>
     );
   }
