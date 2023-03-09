@@ -246,7 +246,6 @@ export namespace Components {
         "linkTarget"?: string;
     }
     interface SwirlCarousel {
-        "label": string;
     }
     interface SwirlCheckbox {
         "checked"?: SwirlCheckboxState;
@@ -2764,7 +2763,6 @@ declare namespace LocalJSX {
         "linkTarget"?: string;
     }
     interface SwirlCarousel {
-        "label"?: string;
     }
     interface SwirlCheckbox {
         "checked"?: SwirlCheckboxState;

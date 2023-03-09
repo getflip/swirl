@@ -835,12 +835,7 @@
         "kind": "markdown",
         "value": ""
       },
-      "attributes": [
-        {
-          "name": "label",
-          "description": ""
-        }
-      ]
+      "attributes": []
     },
     {
       "name": "swirl-checkbox",

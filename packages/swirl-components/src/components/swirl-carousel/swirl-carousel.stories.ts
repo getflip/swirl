@@ -15,6 +15,7 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-carousel", args);
 
   element.innerHTML = `
+        <img src="/sample-3.jpg">
         <img src="/sample-2.jpg">
         <img src="/sample-3.jpg">
   `;
