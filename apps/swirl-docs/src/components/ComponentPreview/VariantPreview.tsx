@@ -70,7 +70,7 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
                 </>
               )}
             </SwirlButtonGroup>
-            <div className="w-full h-72 border-2 border-border-default rounded-lg">
+            <div className="w-full h-72 border-2 border-border-default rounded-lg overflow-hidden">
               <IframeResizer
                 aria-label="Component preview"
                 className={classNames("min-h-full", { hidden: isLoading })}

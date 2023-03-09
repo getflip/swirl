@@ -1,5 +1,56 @@
 # @getflip/swirl-components-angular
 
+## 0.25.2
+
+### Patch Changes
+
+- [`d9eebea`](https://github.com/getflip/swirl/commit/d9eebea97bcfaf16c631b6de756ce30e68f6e1b0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-app-icon background
+  color
+
+- Updated dependencies
+  [[`d9eebea`](https://github.com/getflip/swirl/commit/d9eebea97bcfaf16c631b6de756ce30e68f6e1b0)]:
+  - @getflip/swirl-components@0.26.2
+
+## 0.25.1
+
+### Patch Changes
+
+- [`bf49c59`](https://github.com/getflip/swirl/commit/bf49c5951586e39b95112ea278210a5a5304e076)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-app-icon background
+  color
+
+- Updated dependencies
+  [[`bf49c59`](https://github.com/getflip/swirl/commit/bf49c5951586e39b95112ea278210a5a5304e076)]:
+  - @getflip/swirl-components@0.26.1
+
+## 0.25.0
+
+### Minor Changes
+
+- [#184](https://github.com/getflip/swirl/pull/184)
+  [`44954f3`](https://github.com/getflip/swirl/commit/44954f32b74260ac41e033f72b7c47bc6f51eb4a)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Added App-Icon
+  Component and refactored Shell Navigation Item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`44954f3`](https://github.com/getflip/swirl/commit/44954f32b74260ac41e033f72b7c47bc6f51eb4a)]:
+  - @getflip/swirl-components@0.26.0
+
+## 0.24.1
+
+### Patch Changes
+
+- [`41e192a`](https://github.com/getflip/swirl/commit/41e192a28374f3ce7979587663c063fd89bd6973)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fire change event when
+  swirl-search is cleared
+
+- Updated dependencies
+  [[`41e192a`](https://github.com/getflip/swirl/commit/41e192a28374f3ce7979587663c063fd89bd6973)]:
+  - @getflip/swirl-components@0.25.1
+
 ## 0.24.0
 
 ### Minor Changes

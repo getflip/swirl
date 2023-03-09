@@ -1,6 +1,9 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
+/**
+ * @slot slot - image or icon to display
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-shell-navigation-item.css",
@@ -10,24 +13,8 @@ export class SwirlShellNavigationItem {
   @Element() el: HTMLElement;
 
   @Prop() active?: boolean;
-  @Prop() icon!: string;
+  @Prop() badgeLabel?: string;
   @Prop() label!: string;
-
-  private iconEl: HTMLElement;
-
-  componentDidLoad() {
-    this.forceIconProps();
-  }
-
-  private forceIconProps() {
-    if (!Boolean(this.iconEl)) {
-      return;
-    }
-
-    const icon = this.iconEl.children[0];
-
-    icon?.setAttribute("size", "20");
-  }
 
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Enter") {
@@ -39,7 +26,6 @@ export class SwirlShellNavigationItem {
   render() {
     const className = classnames("shell-navigation-item", {
       "shell-navigation-item--active": this.active,
-      "shell-navigation-item--has-icon": Boolean(this.icon),
     });
 
     return (
@@ -49,12 +35,18 @@ export class SwirlShellNavigationItem {
         role="link"
         tabIndex={0}
       >
-        <span
-          class="shell-navigation-item__icon"
-          innerHTML={this.icon}
-          ref={(el) => (this.iconEl = el)}
-        ></span>
+        <span class="shell-navigation-item__icon">
+          <slot name="icon"></slot>
+        </span>
         <span class="shell-navigation-item__label">{this.label}</span>
+        {this.badgeLabel && (
+          <swirl-badge
+            class="shell-navigation-item__badge"
+            size="s"
+            aria-label={this.badgeLabel}
+            label={this.badgeLabel}
+          ></swirl-badge>
+        )}
       </Host>
     );
   }
