@@ -2,6 +2,11 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-card.mdx";
 
 export default {
+  argTypes: {
+    borderRadius: {
+      control: "text",
+    },
+  },
   component: "swirl-card",
   parameters: {
     docs: {

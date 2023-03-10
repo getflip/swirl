@@ -15,8 +15,9 @@ import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
+import { SwirlCardBorderRadius } from "./components/swirl-card/swirl-card";
 import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
-import { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
+import { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
@@ -58,8 +59,9 @@ export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
+export { SwirlCardBorderRadius } from "./components/swirl-card/swirl-card";
 export { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
-export { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
+export { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
@@ -240,6 +242,7 @@ export namespace Components {
     }
     interface SwirlCard {
         "as"?: string;
+        "borderRadius"?: SwirlCardBorderRadius;
         "elevated"?: boolean;
         "highlighted"?: boolean;
         "href"?: string;
@@ -276,11 +279,11 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlChip {
-        "avatar"?: string;
         "icon"?: string;
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+        "variant"?: SwirlChipVariant;
     }
     interface SwirlColumns {
         "columns"?: string;
@@ -2786,6 +2789,7 @@ declare namespace LocalJSX {
     }
     interface SwirlCard {
         "as"?: string;
+        "borderRadius"?: SwirlCardBorderRadius;
         "elevated"?: boolean;
         "highlighted"?: boolean;
         "href"?: string;
@@ -2823,11 +2827,11 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlChip {
-        "avatar"?: string;
         "icon"?: string;
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+        "variant"?: SwirlChipVariant;
     }
     interface SwirlColumns {
         "columns"?: string;
