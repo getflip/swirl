@@ -31,9 +31,14 @@ export class SwirlCarousel {
   private nextSlide() {
     const slides = this.getSlides();
     const activeSlides = this.getActiveSlides();
+    const isAtEnd = !Boolean(
+      activeSlides[activeSlides.length - 1].nextElementSibling
+    );
+
     const nextSlide =
-      activeSlides[activeSlides.length - 1].nextElementSibling ??
-      (this.loopAround ? slides[0] : activeSlides[activeSlides.length - 1]);
+      isAtEnd && this.loopAround
+        ? slides[0]
+        : activeSlides[0].nextElementSibling;
 
     nextSlide?.scrollIntoView({ block: "nearest", inline: "start" });
   }
