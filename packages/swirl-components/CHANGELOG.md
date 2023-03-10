@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.28.0
+
+### Minor Changes
+
+- [#193](https://github.com/getflip/swirl/pull/193)
+  [`c46c1c3`](https://github.com/getflip/swirl/commit/c46c1c3b86264e9ce868e088b006be8614ce76e4)
+  Thanks [@martinneumann](https://github.com/martinneumann)! - Add
+  swirl-carousel component
+
 ## 0.27.0
 
 ### Minor Changes
