@@ -842,6 +842,44 @@
       ]
     },
     {
+      "name": "swirl-carousel",
+      "description": {
+        "kind": "markdown",
+        "value": "slot - The slides"
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "loop-around",
+          "description": ""
+        },
+        {
+          "name": "next-slide-button-label",
+          "description": ""
+        },
+        {
+          "name": "previous-slide-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-carousel-slide",
+      "description": {
+        "kind": "markdown",
+        "value": "slot - The slide contents"
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-checkbox",
       "description": {
         "kind": "markdown",
