@@ -7,6 +7,7 @@ export default {
     docs: {
       page: Docs,
     },
+    layout: "fullscreen",
   },
   title: "Components/SwirlCarousel",
 };
@@ -26,6 +27,21 @@ const Template = (args) => {
     </swirl-carousel-slide>
     <swirl-carousel-slide>
       <img alt="Description" src="/sample-3.jpg">
+    </swirl-carousel-slide>
+    <swirl-carousel-slide>
+      <img alt="Description" src="/sample-2.jpg">
+    </swirl-carousel-slide>
+    <swirl-carousel-slide>
+      <img alt="Description" src="/sample-3.jpg">
+    </swirl-carousel-slide>
+    <swirl-carousel-slide>
+      <img alt="Description" src="/sample-2.jpg">
+    </swirl-carousel-slide>
+    <swirl-carousel-slide>
+      <img alt="Description" src="/sample-3.jpg">
+    </swirl-carousel-slide>
+    <swirl-carousel-slide>
+      <img alt="Description" src="/sample-2.jpg">
     </swirl-carousel-slide>
   `;
 

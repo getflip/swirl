@@ -20,34 +20,45 @@ export class SwirlCarousel {
 
   private previousSlide() {
     const slides = this.getSlides();
-    const activeSlide = this.getActiveSlide();
+    const activeSlides = this.getActiveSlides();
     const previouSlide =
-      activeSlide.previousElementSibling ||
-      (this.loopAround ? slides[slides.length - 1] : activeSlide);
+      activeSlides[0].previousElementSibling ||
+      (this.loopAround ? slides[slides.length - 1] : activeSlides[0]);
 
     previouSlide?.scrollIntoView({ block: "nearest", inline: "start" });
   }
 
   private nextSlide() {
     const slides = this.getSlides();
-    const activeSlide = this.getActiveSlide();
+    const activeSlides = this.getActiveSlides();
     const nextSlide =
-      activeSlide.nextElementSibling ??
-      (this.loopAround ? slides[0] : activeSlide);
+      activeSlides[activeSlides.length - 1].nextElementSibling ??
+      (this.loopAround ? slides[0] : activeSlides[activeSlides.length - 1]);
 
-    nextSlide?.scrollIntoView();
+    nextSlide?.scrollIntoView({ block: "nearest", inline: "start" });
   }
 
   private getSlides() {
     return Array.from(this.el.querySelectorAll("swirl-carousel-slide"));
   }
 
-  private getActiveSlide() {
+  private getActiveSlides() {
     const slides = this.getSlides();
 
-    return slides.find(
-      (slide) => slide.offsetLeft >= this.slidesContainer?.scrollLeft
-    );
+    return slides.filter((slide) => this.checkInView(slide));
+  }
+
+  private checkInView(element: HTMLElement) {
+    let containerLeft = this.slidesContainer.scrollLeft;
+    let containerRight = containerLeft + this.slidesContainer.clientWidth;
+
+    let elementLeft = element.offsetLeft;
+    let elementRight = elementLeft + element.clientWidth;
+
+    let inInView =
+      elementLeft >= containerLeft && elementRight <= containerRight;
+
+    return inInView;
   }
 
   private onPreviousSlideButtonClick = () => {

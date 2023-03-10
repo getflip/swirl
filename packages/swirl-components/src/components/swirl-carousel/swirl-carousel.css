@@ -1,8 +1,22 @@
+@import "../../styles/media-queries.css";
+
 :host {
   position: relative;
   display: block;
   overflow: hidden;
   width: 100%;
+
+  &(:hover) {
+    & .carousel__previous-slide-button {
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    & .carousel__next-slide-button {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
 
   & * {
     box-sizing: border-box;
@@ -14,10 +28,10 @@
   display: flex;
   overflow-x: auto;
   width: 100%;
+  padding-right: var(--s-space-16);
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  gap: var(--s-space-16);
 
   &::-webkit-scrollbar {
     display: none;
@@ -28,6 +42,18 @@
     flex-grow: 0;
     flex-shrink: 0;
     scroll-snap-align: start;
+
+    @media (--from-tablet) {
+      flex-basis: 45%;
+    }
+
+    @media (--from-desktop) {
+      flex-basis: 30%;
+    }
+
+    @media (--from-large-desktop) {
+      flex-basis: 20%;
+    }
   }
 }
 
@@ -35,14 +61,20 @@
   position: absolute;
   z-index: 1;
   top: 50%;
-  left: var(--s-space-8);
+  left: var(--s-space-20);
+  transition: opacity 0.2s;
   transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0;
 }
 
 .carousel__next-slide-button {
   position: absolute;
   z-index: 1;
   top: 50%;
-  right: var(--s-space-8);
+  right: var(--s-space-20);
+  transition: opacity 0.2s;
   transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0;
 }

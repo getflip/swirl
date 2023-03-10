@@ -1,5 +1,6 @@
 :host {
   display: block;
+  padding-left: var(--s-space-16);
 
   & * {
     box-sizing: border-box;
