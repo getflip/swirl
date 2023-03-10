@@ -1,27 +1,29 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlChipIntent = "default" | "critical" | "success";
 
+/**
+ * @slot avatar - Optional avatar displayed inside the chip. Should have size "xs".
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-chip.css",
   tag: "swirl-chip",
 })
 export class SwirlChip {
-  @Prop() avatar?: string;
+  @Element() el: HTMLElement;
+
   @Prop() icon?: string;
   @Prop() intent?: SwirlChipIntent = "default";
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
 
-  private avatarEl: HTMLElement;
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
 
   componentDidLoad() {
-    this.forceAvatarProps();
     this.forceIconProps(this.desktopMediaQuery.matches);
 
     this.desktopMediaQuery.addEventListener?.(
@@ -35,21 +37,6 @@ export class SwirlChip {
       "change",
       this.desktopMediaQueryHandler
     );
-  }
-
-  private forceAvatarProps() {
-    if (!Boolean(this.avatarEl)) {
-      return;
-    }
-
-    const avatar = this.avatarEl.querySelector("swirl-avatar");
-
-    avatar?.removeAttribute("badge");
-    avatar?.removeAttribute("interactive");
-    avatar?.removeAttribute("show-label");
-    avatar?.removeAttribute("variant");
-
-    avatar?.setAttribute("size", "xs");
   }
 
   private forceIconProps(smallIcon: boolean) {
@@ -69,7 +56,7 @@ export class SwirlChip {
   render() {
     const Tag = this.interactive ? "button" : "span";
 
-    const showAvatar = Boolean(this.avatar);
+    const showAvatar = Boolean(this.el.querySelector('[slot="avatar"]'));
     const showIcon = !showAvatar && Boolean(this.icon);
 
     const className = classnames("chip", `chip--intent-${this.intent}`, {
@@ -80,11 +67,9 @@ export class SwirlChip {
       <Host>
         <Tag class={className} type={this.interactive ? "button" : undefined}>
           {showAvatar && (
-            <span
-              class="chip__avatar"
-              innerHTML={this.avatar}
-              ref={(el) => (this.avatarEl = el)}
-            ></span>
+            <span class="chip__avatar">
+              <slot name="avatar"></slot>
+            </span>
           )}
           {showIcon && (
             <span

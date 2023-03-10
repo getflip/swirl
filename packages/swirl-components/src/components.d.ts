@@ -279,7 +279,6 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlChip {
-        "avatar"?: string;
         "icon"?: string;
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
@@ -2827,7 +2826,6 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlChip {
-        "avatar"?: string;
         "icon"?: string;
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;

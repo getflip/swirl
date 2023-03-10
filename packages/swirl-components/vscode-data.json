@@ -951,10 +951,6 @@
       },
       "attributes": [
         {
-          "name": "avatar",
-          "description": ""
-        },
-        {
           "name": "icon",
           "description": ""
         },

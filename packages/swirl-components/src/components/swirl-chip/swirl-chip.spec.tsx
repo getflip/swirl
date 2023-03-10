@@ -37,20 +37,24 @@ describe("swirl-chip", () => {
     `);
   });
 
-  it("renders avatar with overwritten props", async () => {
+  it("renders avatar", async () => {
     const page = await newSpecPage({
       components: [SwirlChip],
-      html: `<swirl-chip label="Label" avatar="<swirl-avatar badge=&quot;Badge&quot; initials=&quot;JD&quot; interactive=&quot;true&quot; show-label=&quot;true&quot; size=&quot;xl&quot; variant=&quot;square&quot;></swirl-avatar>"></swirl-chip>`,
+      html: `<swirl-chip label="Label"><swirl-avatar initials="JD" size="xs"></swirl-avatar></swirl-chip>`,
     });
 
-    const avatar = page.root.shadowRoot.querySelector("swirl-avatar");
-
-    expect(avatar).toBeTruthy();
-    expect(avatar.getAttribute("badge")).toBeNull();
-    expect(avatar.getAttribute("interactive")).toBeNull();
-    expect(avatar.getAttribute("show-label")).toBeNull();
-    expect(avatar.getAttribute("variant")).toBeNull();
-    expect(avatar.getAttribute("size")).toBe("xs");
+    expect(page.root).toEqualHtml(`
+      <swirl-chip label="Label">
+        <mock:shadow-root>
+          <span class="chip chip--intent-default">
+            <span class="chip__label">
+              Label
+            </span>
+          </span>
+        </mock:shadow-root>
+        <swirl-avatar initials="JD" size="xs"></swirl-avatar>
+      </swirl-chip>
+    `);
   });
 
   it("renders icon with overwritten props", async () => {
