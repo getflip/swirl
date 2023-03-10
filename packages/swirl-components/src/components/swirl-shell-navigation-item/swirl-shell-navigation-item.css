@@ -14,7 +14,7 @@
   justify-content: flex-start;
   align-items: center;
   color: var(--s-text-default);
-  background-color: var(--s-surface-default);
+  background-color: var(--s-background-default);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-sm);
@@ -22,11 +22,11 @@
   gap: var(--s-space-12);
 
   &(:hover) {
-    background-color: var(--s-surface-hovered);
+    background-color: var(--s-background-hovered);
   }
 
   &(:active) {
-    background-color: var(--s-surface-pressed);
+    background-color: var(--s-background-pressed);
     color: var(--s-text-highlight);
   }
 
