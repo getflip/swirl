@@ -3,64 +3,23 @@ import {
   SwirlIconCopy,
   SwirlIconExpandLess,
   SwirlIconExpandMore,
-  SwirlIconOpenInNew,
 } from "@getflip/swirl-components-react";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, ReactNode, useState } from "react";
 import { CodeSandboxButton } from "./CodeSandboxButton";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import classNames from "classnames";
-import Link from "next/link";
 import NoSsr from "../Layout/NoSsr";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/vsDark";
-
-type Language =
-  | "markup"
-  | "bash"
-  | "clike"
-  | "c"
-  | "cpp"
-  | "css"
-  | "javascript"
-  | "jsx"
-  | "coffeescript"
-  | "actionscript"
-  | "css-extr"
-  | "diff"
-  | "git"
-  | "go"
-  | "graphql"
-  | "handlebars"
-  | "json"
-  | "less"
-  | "makefile"
-  | "markdown"
-  | "objectivec"
-  | "ocaml"
-  | "python"
-  | "reason"
-  | "sass"
-  | "scss"
-  | "sql"
-  | "stylus"
-  | "tsx"
-  | "typescript"
-  | "wasm"
-  | "yaml";
-
-export type CodeExample = {
-  code: string;
-  isLongCode: boolean;
-  language?: Language;
-};
+import { CodeExample } from "./types";
+import { NpmPackageLink } from "./NpmPackageLink";
 
 interface CodePreviewProps {
+  header: ReactNode | ReactNode[];
   codeExample: CodeExample;
 }
 
-export const CodePreview: FunctionComponent<CodePreviewProps> = ({
-  codeExample,
-}) => {
+export function CodePreview({ header, codeExample }: CodePreviewProps) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
@@ -82,13 +41,9 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
           )}
         >
           <div className="flex items-center justify-between">
-            <Link href="https://www.npmjs.com/package/@getflip/swirl-components">
-              <a className="flex justify-center items-center text-[#F2F2F2] text-base font-medium mr-4">
-                npm package
-                <SwirlIconOpenInNew className="ml-1" size={16} />
-              </a>
-            </Link>
-            <CodeSandboxButton code={codeExample.code} />
+            {header}
+            {/* <NpmPackageLink />
+            <CodeSandboxButton code={codeExample.code} /> */}
           </div>
           <CopyToClipboard
             text={codeExample.code}
@@ -156,4 +111,7 @@ export const CodePreview: FunctionComponent<CodePreviewProps> = ({
       </div>
     </NoSsr>
   );
-};
+}
+
+CodePreview.CodeSandboxButton = CodeSandboxButton;
+CodePreview.NpmPackageLink = NpmPackageLink;

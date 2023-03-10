@@ -92,7 +92,12 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
         setIsLoading={setIsLoading}
         handleExampleChange={(example) => setCurrentExample(example)}
       />
-      <CodePreview codeExample={codeExample} />
+      <CodePreview
+        codeExample={{
+          ...codeExample,
+          language: "bash",
+        }}
+      />
       {hasComponentProps && (
         <PropsTable componentPropsData={componentData.props}></PropsTable>
       )}
