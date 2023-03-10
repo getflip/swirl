@@ -1,5 +1,36 @@
 # @getflip/swirl-components-angular
 
+## 0.28.0
+
+### Minor Changes
+
+- [#197](https://github.com/getflip/swirl/pull/197)
+  [`3b134d1`](https://github.com/getflip/swirl/commit/3b134d16b0902893b64d51b3e8317432d74f2091)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "variant" prop to swirl-chip
+
+* [#197](https://github.com/getflip/swirl/pull/197)
+  [`3b134d1`](https://github.com/getflip/swirl/commit/3b134d16b0902893b64d51b3e8317432d74f2091)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Breaking: Replace "avatar" prop
+  of SwirlChip with slot
+
+- [#197](https://github.com/getflip/swirl/pull/197)
+  [`3b134d1`](https://github.com/getflip/swirl/commit/3b134d16b0902893b64d51b3e8317432d74f2091)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "border-radius" prop to
+  swirl-card component
+
+### Patch Changes
+
+- [`fe56d90`](https://github.com/getflip/swirl/commit/fe56d909fd21139df9847877df1485aa146bbff2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust
+  swirl-shell-navigation-item background colors
+
+- Updated dependencies
+  [[`3b134d1`](https://github.com/getflip/swirl/commit/3b134d16b0902893b64d51b3e8317432d74f2091),
+  [`fe56d90`](https://github.com/getflip/swirl/commit/fe56d909fd21139df9847877df1485aa146bbff2),
+  [`3b134d1`](https://github.com/getflip/swirl/commit/3b134d16b0902893b64d51b3e8317432d74f2091),
+  [`3b134d1`](https://github.com/getflip/swirl/commit/3b134d16b0902893b64d51b3e8317432d74f2091)]:
+  - @getflip/swirl-components@0.29.0
+
 ## 0.27.0
 
 ### Minor Changes
