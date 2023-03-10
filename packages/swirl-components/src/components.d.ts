@@ -17,7 +17,7 @@ import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButto
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardBorderRadius } from "./components/swirl-card/swirl-card";
 import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
-import { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
+import { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
@@ -61,7 +61,7 @@ export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButto
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardBorderRadius } from "./components/swirl-card/swirl-card";
 export { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
-export { SwirlChipIntent } from "./components/swirl-chip/swirl-chip";
+export { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
@@ -283,6 +283,7 @@ export namespace Components {
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+        "variant"?: SwirlChipVariant;
     }
     interface SwirlColumns {
         "columns"?: string;
@@ -2830,6 +2831,7 @@ declare namespace LocalJSX {
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+        "variant"?: SwirlChipVariant;
     }
     interface SwirlColumns {
         "columns"?: string;

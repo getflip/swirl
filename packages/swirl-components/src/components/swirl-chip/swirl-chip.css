@@ -62,6 +62,15 @@
   }
 }
 
+.chip--variant-plain {
+  height: auto;
+  padding-right: 0;
+  padding-left: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+
 .chip__avatar,
 .chip__icon {
   display: inline-flex;

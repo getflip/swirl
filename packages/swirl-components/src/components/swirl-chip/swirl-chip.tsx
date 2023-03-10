@@ -4,6 +4,8 @@ import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlChipIntent = "default" | "critical" | "success";
 
+export type SwirlChipVariant = "outline" | "plain";
+
 /**
  * @slot avatar - Optional avatar displayed inside the chip. Should have size "xs".
  */
@@ -19,6 +21,7 @@ export class SwirlChip {
   @Prop() intent?: SwirlChipIntent = "default";
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
+  @Prop() variant?: SwirlChipVariant = "outline";
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
@@ -59,9 +62,14 @@ export class SwirlChip {
     const showAvatar = Boolean(this.el.querySelector('[slot="avatar"]'));
     const showIcon = !showAvatar && Boolean(this.icon);
 
-    const className = classnames("chip", `chip--intent-${this.intent}`, {
-      "chip--interactive": this.interactive,
-    });
+    const className = classnames(
+      "chip",
+      `chip--intent-${this.intent}`,
+      `chip--variant-${this.variant}`,
+      {
+        "chip--interactive": this.interactive,
+      }
+    );
 
     return (
       <Host>

@@ -976,6 +976,18 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "outline"
+            },
+            {
+              "name": "plain"
+            }
+          ]
         }
       ]
     },
