@@ -13,7 +13,7 @@
   margin: 0;
   padding: 0;
   border: var(--s-border-width-default) solid var(--s-border-default);
-  border-radius: 1.5rem;
+  border-radius: var(--s-border-radius-base);
   color: var(--s-text-default);
   background-color: var(--s-surface-default);
   font: inherit;
@@ -56,8 +56,8 @@ button.card,
 
 :not(.card--has-image) {
   & .card__image {
-    height: 0;
     overflow: hidden;
+    height: 0;
   }
 }
 
@@ -76,9 +76,9 @@ button.card,
 
 .card__body {
   display: flex;
+  padding: var(--s-space-12) var(--s-space-16) var(--s-space-16);
   flex-direction: column;
   gap: var(--s-space-16);
-  padding: var(--s-space-12) var(--s-space-16) var(--s-space-16);
 }
 
 .card__header {

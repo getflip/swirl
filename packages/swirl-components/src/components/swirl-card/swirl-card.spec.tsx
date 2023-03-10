@@ -12,7 +12,7 @@ describe("swirl-card", () => {
     expect(page.root).toEqualHtml(`
       <swirl-card as="article" elevated="">
         <mock:shadow-root>
-          <article class="card card--elevated">
+          <article class="card card--elevated" style="border-radius: var(--s-border-radius-base);">
             <div class="card__image">
               <slot name="image"></slot>
             </div>
@@ -37,7 +37,7 @@ describe("swirl-card", () => {
     expect(page.root).toEqualHtml(`
       <swirl-card href="#" link-target="_blank">
         <mock:shadow-root>
-          <a class="card card--interactive" href="#" rel="noreferrer" target="_blank">
+          <a class="card card--interactive" href="#" rel="noreferrer" style="border-radius: var(--s-border-radius-base);" target="_blank">
             <div class="card__image">
               <slot name="image"></slot>
             </div>

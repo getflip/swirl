@@ -1,6 +1,12 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
+const swirlCardBorderRadiusTokens = ["xs", "sm", "base", "l", "xl"] as const;
+
+export type SwirlCardBorderRadius =
+  | typeof swirlCardBorderRadiusTokens[number]
+  | string;
+
 /**
  * @slot slot - The card contents
  */
@@ -13,6 +19,7 @@ export class SwirlCard {
   @Element() el: HTMLElement;
 
   @Prop() as?: string = "div";
+  @Prop() borderRadius?: SwirlCardBorderRadius = "base";
   @Prop() elevated?: boolean;
   @Prop() highlighted?: boolean;
   @Prop() href?: string;
@@ -44,6 +51,13 @@ export class SwirlCard {
               ? "noreferrer"
               : undefined
           }
+          style={{
+            borderRadius: swirlCardBorderRadiusTokens.includes(
+              this.borderRadius as typeof swirlCardBorderRadiusTokens[number]
+            )
+              ? `var(--s-border-radius-${this.borderRadius})`
+              : this.borderRadius,
+          }}
           target={this.linkTarget}
         >
           <div

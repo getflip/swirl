@@ -812,6 +812,10 @@
           "description": ""
         },
         {
+          "name": "border-radius",
+          "description": ""
+        },
+        {
           "name": "elevated",
           "description": ""
         },
