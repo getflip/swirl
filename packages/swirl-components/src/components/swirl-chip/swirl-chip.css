@@ -69,6 +69,26 @@
   border: none;
   border-radius: 0;
   background-color: transparent;
+
+  &.chip--interactive {
+    &:hover {
+      background-color: transparent;
+      text-decoration: underline;
+      text-underline-offset: var(--s-space-4);
+
+      & ::part(avatar) {
+        background-color: var(--s-surface-raised-hovered);
+      }
+    }
+
+    &:active {
+      background-color: transparent;
+
+      & ::part(avatar) {
+        background-color: var(--s-surface-raised-pressed);
+      }
+    }
+  }
 }
 
 .chip__avatar,
