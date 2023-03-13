@@ -10,7 +10,7 @@ describe("swirl-carousel-slide", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-carousel-slide aria-roledescription=\"slide\" class=\"carousel-slide\" role=\"group\" tabindex=\"0\">
+      <swirl-carousel-slide aria-roledescription="slide" class="carousel-slide" role="group" tabindex="0" style="flex-basis: 15.5rem;">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
