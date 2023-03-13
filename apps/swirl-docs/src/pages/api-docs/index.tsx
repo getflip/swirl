@@ -1,6 +1,8 @@
+import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import { CodePreview } from "src/components/CodePreview";
+import { CategoryNav } from "src/components/Layout/CategoryNav";
 
 const ApiDocs = () => {
   const codeExample = `
@@ -16,9 +18,8 @@ const ApiDocs = () => {
         <title>API Docs</title>
       </Head>
       <div className="flex">
-        {/* <CategoryNav categoryLinkList={tokensNavItems} /> */}
+        <CategoryNav categoryLinkList={apiDocsNavItems} />
         <main id="main" className="w-full h-full">
-          <a href="/api-docs/compatibility">Compatibility</a>
           <section className="flex flex-col py-14 px-24">
             <h1 className="mb-4">API Docs</h1>
             <CodePreview

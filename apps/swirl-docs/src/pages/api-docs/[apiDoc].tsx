@@ -1,20 +1,13 @@
 import { createStaticPathsData } from "@swirl/lib/docs";
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import { DOCUMENTATION_CATEGORY } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
-import TokensList from "src/components/Tokens/TokensList";
-import { ColorTokens } from "src/components/Tokens/ColorTokens";
-import { TypographyTokens } from "src/components/Tokens/TypographyTokens";
-import { BorderTokens } from "src/components/Tokens/BorderTokens";
-import { SpacingTokens } from "src/components/Tokens/SpacingTokens";
-import { ZIndexTokens } from "src/components/Tokens/ZIndexTokens";
-import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
 import OASNormalize from "oas-normalize";
-import Oas from "oas";
+import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
+import { OASDocument } from "oas/dist/rmoas.types";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation("apiDocs", document);
@@ -41,7 +34,7 @@ export const getStaticProps: GetStaticProps<
     enablePaths: true,
   });
 
-  const definition = await oasYaml.validate();
+  const definition = (await oasYaml.validate()) as OASDocument;
 
   return {
     props: {
@@ -59,14 +52,12 @@ export default function Component({
 }: {
   document: any;
   title: string;
-  definition: unknown;
+  definition: OASDocument;
 }) {
   const components = {
     p: (props: any) => <p className="mb-4" {...props} />,
     ...LinkedHeaders,
   };
-
-  console.log("definition", definition);
 
   return (
     <>
@@ -74,10 +65,11 @@ export default function Component({
         <title>{`Swirl | ${title}`}</title>
       </Head>
       <DocumentationLayout
-        categoryLinkList={tokensNavItems}
+        categoryLinkList={apiDocsNavItems}
         document={document}
         mdxComponents={components}
         frontMatter={document.frontmatter}
+        oasSpec={definition}
       />
     </>
   );

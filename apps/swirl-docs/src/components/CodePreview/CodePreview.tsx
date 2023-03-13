@@ -19,8 +19,8 @@ import Oas from "oas";
 import OASNormalize from "oas-normalize";
 
 interface CodePreviewProps {
-  children: ReactNode | ReactNode[];
   codeExample: CodeExample;
+  children?: ReactNode | ReactNode[];
 }
 
 /**
@@ -49,11 +49,7 @@ export function CodePreview({ children, codeExample }: CodePreviewProps) {
               "bg-[#21201E]"
             )}
           >
-            <div className="flex items-center justify-between">
-              {children}
-              {/* <NpmPackageLink />
-            <CodeSandboxButton code={codeExample.code} /> */}
-            </div>
+            <div className="flex items-center justify-between">{children}</div>
             <CopyToClipboard
               text={codeExample.code}
               onCopy={() => {

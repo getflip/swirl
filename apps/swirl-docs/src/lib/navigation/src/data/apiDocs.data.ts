@@ -1,6 +1,6 @@
 import { NavItem } from "../navigation.model";
 
-export const tokensNavItems: NavItem[] = [
+export const apiDocsNavItems: NavItem[] = [
   {
     title: "Compatibility",
     url: "/api-docs/compatibility",

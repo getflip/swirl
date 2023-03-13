@@ -33,6 +33,7 @@
     "@getflip/swirl-tokens": "^2.2.1",
     "@mdx-js/loader": "^2.1.3",
     "@next/mdx": "^12.2.5",
+    "@readme/oas-to-har": "^20.1.1",
     "@readme/oas-to-snippet": "^21.1.0",
     "@tailwindcss/container-queries": "^0.1.0",
     "@types/har-format": "^1.2.10",
