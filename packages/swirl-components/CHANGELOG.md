@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.31.1
+
+### Patch Changes
+
+- [`e16f9bf`](https://github.com/getflip/swirl/commit/e16f9bf0f8bf9e4191c88e637a92b8c48138148b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix padding and width
+  distribution of swirl-carousel-slide components
+
 ## 0.31.0
 
 ### Minor Changes
