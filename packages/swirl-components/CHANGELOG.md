@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.30.1
+
+### Patch Changes
+
+- [`40ca969`](https://github.com/getflip/swirl/commit/40ca9697f6b465afef9d08c307027f3ad5f75dba)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue throwing an
+  exception when swirl-file-viewer-pdf rendering gets cancelled
+
 ## 0.30.0
 
 ### Minor Changes
