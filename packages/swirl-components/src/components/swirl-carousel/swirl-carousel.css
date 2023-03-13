@@ -42,6 +42,10 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 
+  @media (--from-tablet) {
+    padding-left: var(--s-space-24);
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -51,10 +55,18 @@
     flex-shrink: 0;
     scroll-snap-align: start;
     padding-left: var(--s-space-16);
+
+    @media (--from-tablet) {
+      padding-left: var(--s-space-24);
+    }
   }
 
   & ::slotted(*:last-child) {
-    padding-right: var(--s-space-16);
+    margin-right: var(--s-space-16);
+
+    @media (--from-tablet) {
+      margin-right: var(--s-space-24);
+    }
   }
 }
 
