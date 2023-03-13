@@ -1,6 +1,6 @@
 import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
-import { FunctionComponent } from "react";
 import { getParameters } from "codesandbox/lib/api/define";
+import { useCodePreviewContext } from "./CodePreviewContext";
 
 const getAppCode = (code: string) => {
   const lineWithFunctionName = code
@@ -47,13 +47,9 @@ import { defineCustomElements } from "@getflip/swirl-components/loader";
 defineCustomElements();
 `;
 
-interface CodeSandboxButtonProps {
-  code: string;
-}
+export function CodeSandboxButton() {
+  const { code } = useCodePreviewContext();
 
-export const CodeSandboxButton: FunctionComponent<CodeSandboxButtonProps> = ({
-  code,
-}) => {
   const parameters = getParameters({
     files: {
       "package.json": {
@@ -96,4 +92,4 @@ export const CodeSandboxButton: FunctionComponent<CodeSandboxButtonProps> = ({
       </button>
     </form>
   );
-};
+}

@@ -1,3 +1,5 @@
+import { Request } from "har-format";
+
 export type Language =
   | "markup"
   | "bash"
@@ -36,4 +38,5 @@ export type CodeExample = {
   code: string;
   isLongCode: boolean;
   language?: Language;
+  request?: Request;
 };

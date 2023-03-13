@@ -2,8 +2,6 @@ import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import { CodePreview } from "src/components/CodePreview";
 
-import compJson from "./comp.json";
-
 const ApiDocs = () => {
   const codeExample = `
   curl --request GET
@@ -20,12 +18,27 @@ const ApiDocs = () => {
       <div className="flex">
         {/* <CategoryNav categoryLinkList={tokensNavItems} /> */}
         <main id="main" className="w-full h-full">
+          <a href="/api-docs/compatibility">Compatibility</a>
           <section className="flex flex-col py-14 px-24">
             <h1 className="mb-4">API Docs</h1>
             <CodePreview
-              header={<CodePreview.NpmPackageLink />}
-              codeExample={{ code: codeExample, isLongCode: false }}
-            />
+              codeExample={{
+                code: codeExample,
+                isLongCode: false,
+                request: {
+                  httpVersion: "2",
+                  cookies: [],
+                  headers: [],
+                  queryString: [],
+                  bodySize: 123,
+                  headersSize: 123,
+                  url: "/api/specs/group",
+                  method: "POST",
+                },
+              }}
+            >
+              <CodePreview.Request />
+            </CodePreview>
           </section>
         </main>
       </div>
