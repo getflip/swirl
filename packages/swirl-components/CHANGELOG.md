@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.30.2
+
+### Patch Changes
+
+- [`73cb97f`](https://github.com/getflip/swirl/commit/73cb97f4cd5808589cb47c6825623e6768efe37e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-carousel desktop
+  styling
+
 ## 0.30.1
 
 ### Patch Changes
