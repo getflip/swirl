@@ -282,17 +282,19 @@ export class SwirlFileViewerPdf {
       viewport: viewport,
     };
 
-    await page.render(renderContext).promise;
+    try {
+      await page.render(renderContext).promise;
 
-    page.cleanup();
+      page.cleanup();
 
-    textContainer.innerHTML = "";
+      textContainer.innerHTML = "";
 
-    this.renderTextLayer(page, textContainer);
+      this.renderTextLayer(page, textContainer).catch();
 
-    this.renderingPageNumbers = this.renderingPageNumbers.filter(
-      (pageNumber) => pageNumber !== page.pageNumber
-    );
+      this.renderingPageNumbers = this.renderingPageNumbers.filter(
+        (pageNumber) => pageNumber !== page.pageNumber
+      );
+    } catch (e) {}
   }
 
   private destroyPage(page: PDFPageProxy) {
