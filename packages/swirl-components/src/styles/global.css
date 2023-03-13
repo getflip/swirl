@@ -21,6 +21,8 @@
   --swirl-button-border-bottom-right-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-left-radius: var(--s-border-radius-base);
 
+  --swirl-carousel-gradient: 255, 255, 255;
+
   --swirl-icon-button-border-top-right-radius: 50%;
   --swirl-icon-button-border-top-left-radius: 50%;
   --swirl-icon-button-border-bottom-right-radius: 50%;
@@ -49,6 +51,8 @@
 
 html.theme-dark {
   color-scheme: dark;
+
+  --swirl-carousel-gradient: 0, 0, 0;
 }
 
 body {

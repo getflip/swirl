@@ -37,8 +37,8 @@
     height: 100%;
     background: linear-gradient(
       to right,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 0)
+      rgba(var(--swirl-carousel-gradient), 1),
+      rgba(var(--swirl-carousel-gradient), 0)
     );
     content: "";
   }
@@ -52,8 +52,8 @@
     height: 100%;
     background: linear-gradient(
       to left,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 0)
+      rgba(var(--swirl-carousel-gradient), 1),
+      rgba(var(--swirl-carousel-gradient), 0)
     );
     content: "";
   }
@@ -64,7 +64,7 @@
   display: flex;
   overflow-x: auto;
   width: 100%;
-  padding: var(--s-space-24);
+  padding: var(--s-space-24) var(--s-space-16);
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
