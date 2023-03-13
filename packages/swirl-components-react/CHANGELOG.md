@@ -1,5 +1,24 @@
 # @getflip/swirl-components-react
 
+## 0.29.0
+
+### Minor Changes
+
+- [`bbb1b6d`](https://github.com/getflip/swirl/commit/bbb1b6db8fcf7adad85ff0f66ec977de0253d885)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "lines" prop to swirl-text
+  and swirl-heading to enable line-based truncation
+
+* [`86e63c1`](https://github.com/getflip/swirl/commit/86e63c171a895c4d2927d5708229bfcd55c35a1b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "min-height" support for
+  swirl-carousel-slides
+
+### Patch Changes
+
+- Updated dependencies
+  [[`bbb1b6d`](https://github.com/getflip/swirl/commit/bbb1b6db8fcf7adad85ff0f66ec977de0253d885),
+  [`86e63c1`](https://github.com/getflip/swirl/commit/86e63c171a895c4d2927d5708229bfcd55c35a1b)]:
+  - @getflip/swirl-components@0.30.0
+
 ## 0.28.0
 
 ### Minor Changes
