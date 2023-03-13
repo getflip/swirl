@@ -1,7 +1,6 @@
 :host {
   display: block;
   min-width: 0;
-  padding-left: var(--s-space-16);
 
   &(.carousel-slide--has-min-height) {
     & ::slotted(*) {

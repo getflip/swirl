@@ -5,6 +5,8 @@
   display: block;
   overflow: hidden;
   width: 100%;
+  margin-top: calc(-1 * var(--s-space-24));
+  margin-bottom: calc(-1 * var(--s-space-24));
 
   &(:hover) {
     & .carousel__previous-slide-button {
@@ -27,44 +29,15 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-
-  &:before {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: var(--s-space-20);
-    height: 100%;
-    background: linear-gradient(
-      to right,
-      rgba(var(--swirl-carousel-gradient), 1),
-      rgba(var(--swirl-carousel-gradient), 0)
-    );
-    content: "";
-  }
-
-  &:after {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    width: var(--s-space-20);
-    height: 100%;
-    background: linear-gradient(
-      to left,
-      rgba(var(--swirl-carousel-gradient), 1),
-      rgba(var(--swirl-carousel-gradient), 0)
-    );
-    content: "";
-  }
 }
 
 .carousel__slides {
   position: relative;
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
-  padding: var(--s-space-24) var(--s-space-16);
+  padding: var(--s-space-24) 0 var(--s-space-24) var(--s-space-16);
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -73,20 +46,25 @@
     display: none;
   }
 
-  ::slotted(*) {
+  & ::slotted(*) {
     flex-grow: 0;
     flex-shrink: 0;
     scroll-snap-align: start;
+    padding-left: var(--s-space-16);
+  }
+
+  & ::slotted(*:last-child) {
+    padding-right: var(--s-space-16);
   }
 }
 
 .carousel__previous-slide-button {
   position: absolute;
   z-index: 1;
-  top: 50%;
-  left: var(--s-space-20);
+  top: calc(50% - var(--s-space-12));
+  left: var(--s-space-16);
   transition: opacity 0.2s;
-  transform: translateY(-50%);
+  transform: translateY(-50%) scale(0.72);
   pointer-events: none;
   opacity: 0;
 }
@@ -94,10 +72,10 @@
 .carousel__next-slide-button {
   position: absolute;
   z-index: 1;
-  top: 50%;
-  right: var(--s-space-20);
+  top: calc(50% - var(--s-space-12));
+  right: var(--s-space-16);
   transition: opacity 0.2s;
-  transform: translateY(-50%);
+  transform: translateY(-50%) scale(0.72);
   pointer-events: none;
   opacity: 0;
 }

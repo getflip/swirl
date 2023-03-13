@@ -112,22 +112,22 @@ export class SwirlCarousel {
             <swirl-button
               class="carousel__previous-slide-button"
               hideLabel
-              icon="<swirl-icon-arrow-left></swirl-icon-arrow-left>"
+              icon="<swirl-icon-arrow-back></swirl-icon-arrow-back>"
               label={this.previousSlideButtonLabel}
               onClick={this.onPreviousSlideButtonClick}
               pill
-              variant="flat"
+              variant="floating"
             ></swirl-button>
           )}
           {this.isScrollable && (
             <swirl-button
               class="carousel__next-slide-button"
               hideLabel
-              icon="<swirl-icon-arrow-right></swirl-icon-arrow-right>"
+              icon="<swirl-icon-arrow-forward></swirl-icon-arrow-forward>"
               label={this.nextSlideButtonLabel}
               onClick={this.onNextSlideButtonClick}
               pill
-              variant="flat"
+              variant="floating"
             ></swirl-button>
           )}
           <div
