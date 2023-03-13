@@ -1,4 +1,12 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from "@stencil/core";
 
 /**
  * slot - The slides
@@ -16,7 +24,25 @@ export class SwirlCarousel {
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
   @Prop() loopAround?: boolean = false;
 
+  @State() isScrollable: boolean;
+
   private slidesContainer: HTMLElement;
+
+  @Listen("resize", { target: "window" })
+  onWindowResize() {
+    this.checkScrollStatus();
+  }
+
+  componentDidLoad() {
+    queueMicrotask(() => {
+      this.checkScrollStatus();
+    });
+  }
+
+  private checkScrollStatus() {
+    this.isScrollable =
+      this.slidesContainer.scrollWidth > this.slidesContainer.offsetWidth;
+  }
 
   private previousSlide() {
     const slides = this.getSlides();
@@ -79,33 +105,38 @@ export class SwirlCarousel {
       <Host
         aria-label={this.label}
         aria-roledescription="carousel"
-        class="carousel"
         role="group"
       >
-        <swirl-button
-          class="carousel__previous-slide-button"
-          hideLabel
-          icon="<swirl-icon-arrow-left></swirl-icon-arrow-left>"
-          label={this.previousSlideButtonLabel}
-          onClick={this.onPreviousSlideButtonClick}
-          pill
-          variant="flat"
-        ></swirl-button>
-        <swirl-button
-          class="carousel__next-slide-button"
-          hideLabel
-          icon="<swirl-icon-arrow-right></swirl-icon-arrow-right>"
-          label={this.nextSlideButtonLabel}
-          onClick={this.onNextSlideButtonClick}
-          pill
-          variant="flat"
-        ></swirl-button>
-        <div
-          aria-live="polite"
-          class="carousel__slides"
-          ref={(el) => (this.slidesContainer = el)}
-        >
-          <slot></slot>
+        <div class="carousel">
+          {this.isScrollable && (
+            <swirl-button
+              class="carousel__previous-slide-button"
+              hideLabel
+              icon="<swirl-icon-arrow-left></swirl-icon-arrow-left>"
+              label={this.previousSlideButtonLabel}
+              onClick={this.onPreviousSlideButtonClick}
+              pill
+              variant="flat"
+            ></swirl-button>
+          )}
+          {this.isScrollable && (
+            <swirl-button
+              class="carousel__next-slide-button"
+              hideLabel
+              icon="<swirl-icon-arrow-right></swirl-icon-arrow-right>"
+              label={this.nextSlideButtonLabel}
+              onClick={this.onNextSlideButtonClick}
+              pill
+              variant="flat"
+            ></swirl-button>
+          )}
+          <div
+            aria-live="polite"
+            class="carousel__slides"
+            ref={(el) => (this.slidesContainer = el)}
+          >
+            <slot></slot>
+          </div>
         </div>
       </Host>
     );

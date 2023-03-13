@@ -23,12 +23,48 @@
   }
 }
 
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &:before {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: var(--s-space-20);
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0)
+    );
+    content: "";
+  }
+
+  &:after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: var(--s-space-20);
+    height: 100%;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0)
+    );
+    content: "";
+  }
+}
+
 .carousel__slides {
   position: relative;
   display: flex;
   overflow-x: auto;
   width: 100%;
-  padding-right: var(--s-space-16);
+  padding: var(--s-space-24);
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -38,22 +74,9 @@
   }
 
   ::slotted(*) {
-    flex-basis: 80%;
     flex-grow: 0;
     flex-shrink: 0;
     scroll-snap-align: start;
-
-    @media (--from-tablet) {
-      flex-basis: 45%;
-    }
-
-    @media (--from-desktop) {
-      flex-basis: 30%;
-    }
-
-    @media (--from-large-desktop) {
-      flex-basis: 20%;
-    }
   }
 }
 

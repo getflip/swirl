@@ -21,6 +21,7 @@ export class SwirlCard {
   @Prop() as?: string = "div";
   @Prop() borderRadius?: SwirlCardBorderRadius = "base";
   @Prop() elevated?: boolean;
+  @Prop() height?: string;
   @Prop() highlighted?: boolean;
   @Prop() href?: string;
   @Prop() imageAspectRatio?: string;
@@ -33,6 +34,15 @@ export class SwirlCard {
 
     const hasImage = Boolean(this.el.querySelector('[slot="image"]'));
 
+    const styles = {
+      borderRadius: swirlCardBorderRadiusTokens.includes(
+        this.borderRadius as typeof swirlCardBorderRadiusTokens[number]
+      )
+        ? `var(--s-border-radius-${this.borderRadius})`
+        : this.borderRadius,
+      height: this.height,
+    };
+
     const className = classnames("card", {
       "card--elevated": this.elevated,
       "card--has-image": hasImage,
@@ -41,7 +51,7 @@ export class SwirlCard {
     });
 
     return (
-      <Host>
+      <Host styles={{ height: this.height }}>
         <Tag
           aria-label={this.swirlAriaLabel}
           class={className}
@@ -51,13 +61,7 @@ export class SwirlCard {
               ? "noreferrer"
               : undefined
           }
-          style={{
-            borderRadius: swirlCardBorderRadiusTokens.includes(
-              this.borderRadius as typeof swirlCardBorderRadiusTokens[number]
-            )
-              ? `var(--s-border-radius-${this.borderRadius})`
-              : this.borderRadius,
-          }}
+          style={styles}
           target={this.linkTarget}
         >
           <div

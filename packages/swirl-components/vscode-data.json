@@ -820,6 +820,10 @@
           "description": ""
         },
         {
+          "name": "height",
+          "description": ""
+        },
+        {
           "name": "highlighted",
           "description": ""
         },
@@ -879,6 +883,14 @@
       "attributes": [
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "min-height",
+          "description": ""
+        },
+        {
+          "name": "width",
           "description": ""
         }
       ]
@@ -1629,6 +1641,10 @@
         },
         {
           "name": "level",
+          "description": ""
+        },
+        {
+          "name": "lines",
           "description": ""
         },
         {
@@ -4269,6 +4285,10 @@
               "name": "normal"
             }
           ]
+        },
+        {
+          "name": "lines",
+          "description": ""
         },
         {
           "name": "size",

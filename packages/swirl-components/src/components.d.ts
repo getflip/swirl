@@ -244,6 +244,7 @@ export namespace Components {
         "as"?: string;
         "borderRadius"?: SwirlCardBorderRadius;
         "elevated"?: boolean;
+        "height"?: string;
         "highlighted"?: boolean;
         "href"?: string;
         "imageAspectRatio"?: string;
@@ -264,7 +265,9 @@ export namespace Components {
      * slot - The slide contents
      */
     interface SwirlCarouselSlide {
-        "label": string;
+        "label"?: string;
+        "minHeight"?: string;
+        "width"?: string;
     }
     interface SwirlCheckbox {
         "checked"?: SwirlCheckboxState;
@@ -477,6 +480,7 @@ export namespace Components {
         "balance"?: boolean;
         "headingId"?: string;
         "level"?: SwirlHeadingLevel;
+        "lines"?: number;
         "text": string;
         "truncate"?: boolean;
     }
@@ -1088,6 +1092,7 @@ export namespace Components {
         "balance"?: boolean;
         "color"?: SwirlTextColor;
         "fontStyle"?: SwirlTextFontStyle;
+        "lines"?: number;
         "size"?: SwirlTextSize;
         "truncate"?: boolean;
         "weight"?: SwirlTextWeight;
@@ -2791,6 +2796,7 @@ declare namespace LocalJSX {
         "as"?: string;
         "borderRadius"?: SwirlCardBorderRadius;
         "elevated"?: boolean;
+        "height"?: string;
         "highlighted"?: boolean;
         "href"?: string;
         "imageAspectRatio"?: string;
@@ -2811,7 +2817,9 @@ declare namespace LocalJSX {
      * slot - The slide contents
      */
     interface SwirlCarouselSlide {
-        "label": string;
+        "label"?: string;
+        "minHeight"?: string;
+        "width"?: string;
     }
     interface SwirlCheckbox {
         "checked"?: SwirlCheckboxState;
@@ -2979,6 +2987,7 @@ declare namespace LocalJSX {
         "balance"?: boolean;
         "headingId"?: string;
         "level"?: SwirlHeadingLevel;
+        "lines"?: number;
         "text": string;
         "truncate"?: boolean;
     }
@@ -3559,6 +3568,7 @@ declare namespace LocalJSX {
         "balance"?: boolean;
         "color"?: SwirlTextColor;
         "fontStyle"?: SwirlTextFontStyle;
+        "lines"?: number;
         "size"?: SwirlTextSize;
         "truncate"?: boolean;
         "weight"?: SwirlTextWeight;
