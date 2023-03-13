@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.31.0
+
+### Minor Changes
+
+- [`ab397dd`](https://github.com/getflip/swirl/commit/ab397dddb936f18631cde6eaa7e32db1895a2569)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "justify-content" prop to
+  swirl-card
+
 ## 0.30.2
 
 ### Patch Changes

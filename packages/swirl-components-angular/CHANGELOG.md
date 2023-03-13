@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.30.0
+
+### Minor Changes
+
+- [`ab397dd`](https://github.com/getflip/swirl/commit/ab397dddb936f18631cde6eaa7e32db1895a2569)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "justify-content" prop to
+  swirl-card
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ab397dd`](https://github.com/getflip/swirl/commit/ab397dddb936f18631cde6eaa7e32db1895a2569)]:
+  - @getflip/swirl-components@0.31.0
+
 ## 0.29.2
 
 ### Patch Changes
