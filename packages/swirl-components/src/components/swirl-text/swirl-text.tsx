@@ -31,6 +31,7 @@ export class SwirlText {
   @Prop() balance?: boolean;
   @Prop() color?: SwirlTextColor = "default";
   @Prop() fontStyle?: SwirlTextFontStyle = "normal";
+  @Prop() lines?: number;
   @Prop() size?: SwirlTextSize = "base";
   @Prop() truncate?: boolean;
   @Prop() weight?: SwirlTextWeight = "normal";
@@ -57,6 +58,15 @@ export class SwirlText {
   render() {
     const Tag = this.as;
 
+    const styles = Boolean(this.lines)
+      ? {
+          display: "-webkit-box",
+          "-webkit-line-clamp": String(this.lines),
+          "-webkit-box-orient": "vertical",
+          whiteSpace: "normal",
+        }
+      : undefined;
+
     const className = classnames(
       "text",
       `text--align-${this.align}`,
@@ -69,7 +79,11 @@ export class SwirlText {
 
     return (
       <Host>
-        <Tag class={className} ref={(el: HTMLElement) => (this.textEl = el)}>
+        <Tag
+          class={className}
+          ref={(el: HTMLElement) => (this.textEl = el)}
+          style={styles}
+        >
           <slot></slot>
         </Tag>
       </Host>

@@ -29,6 +29,7 @@ export class SwirlHeading {
   @Prop() balance?: boolean = true;
   @Prop() headingId?: string;
   @Prop() level?: SwirlHeadingLevel = 1;
+  @Prop() lines?: number;
   @Prop() text!: string;
   @Prop() truncate?: boolean;
 
@@ -44,7 +45,7 @@ export class SwirlHeading {
   }
 
   private rebalance() {
-    if (!this.balance || !Boolean(this.headingEl)) {
+    if (!this.balance || !Boolean(this.headingEl) || Boolean(this.lines)) {
       return;
     }
 
@@ -53,6 +54,16 @@ export class SwirlHeading {
 
   render() {
     const Tag = this.as || `h${this.level}`;
+
+    const styles = Boolean(this.lines)
+      ? {
+          display: "-webkit-box",
+          overflow: "hidden",
+          "-webkit-line-clamp": String(this.lines),
+          "-webkit-box-orient": "vertical",
+          whiteSpace: "normal",
+        }
+      : undefined;
 
     const className = classnames(
       "heading",
@@ -69,6 +80,7 @@ export class SwirlHeading {
           class={className}
           id={this.headingId}
           ref={(el) => (this.headingEl = el)}
+          style={styles}
         >
           {this.text}
         </Tag>
