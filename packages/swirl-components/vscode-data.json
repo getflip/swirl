@@ -840,6 +840,21 @@
           "description": ""
         },
         {
+          "name": "justify-content",
+          "description": "",
+          "values": [
+            {
+              "name": "center"
+            },
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            }
+          ]
+        },
+        {
           "name": "link-target",
           "description": ""
         },

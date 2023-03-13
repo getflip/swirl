@@ -15,7 +15,7 @@ import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
-import { SwirlCardBorderRadius } from "./components/swirl-card/swirl-card";
+import { SwirlCardBorderRadius, SwirlCardJustifyContent } from "./components/swirl-card/swirl-card";
 import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
@@ -59,7 +59,7 @@ export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
-export { SwirlCardBorderRadius } from "./components/swirl-card/swirl-card";
+export { SwirlCardBorderRadius, SwirlCardJustifyContent } from "./components/swirl-card/swirl-card";
 export { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
@@ -249,6 +249,7 @@ export namespace Components {
         "href"?: string;
         "imageAspectRatio"?: string;
         "interactive"?: boolean;
+        "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
         "swirlAriaLabel"?: string;
     }
@@ -2801,6 +2802,7 @@ declare namespace LocalJSX {
         "href"?: string;
         "imageAspectRatio"?: string;
         "interactive"?: boolean;
+        "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
         "swirlAriaLabel"?: string;
     }

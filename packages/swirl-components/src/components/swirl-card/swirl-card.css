@@ -7,7 +7,7 @@
 }
 
 .card {
-  display: block;
+  display: flex;
   overflow: hidden;
   width: 100%;
   margin: 0;
@@ -18,6 +18,7 @@
   background-color: var(--s-surface-default);
   font: inherit;
   text-decoration: none;
+  flex-direction: column;
 }
 
 a.card,
@@ -54,6 +55,24 @@ button.card,
   border-color: var(--s-border-highlight);
 }
 
+.card--justify-content-start {
+  & .card__body {
+    justify-content: flex-start;
+  }
+}
+
+.card--justify-content-center {
+  & .card__body {
+    justify-content: center;
+  }
+}
+
+.card--justify-content-end {
+  & .card__body {
+    justify-content: flex-end;
+  }
+}
+
 :not(.card--has-image) {
   & .card__image {
     overflow: hidden;
@@ -66,6 +85,8 @@ button.card,
 }
 
 .card__image {
+  min-height: 0;
+
   & ::slotted(img) {
     display: inline-flex;
     width: 100%;
@@ -76,7 +97,9 @@ button.card,
 
 .card__body {
   display: flex;
+  min-height: 0;
   padding: var(--s-space-12) var(--s-space-16) var(--s-space-16);
+  flex-grow: 1;
   flex-direction: column;
   gap: var(--s-space-16);
 }

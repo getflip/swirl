@@ -7,6 +7,8 @@ export type SwirlCardBorderRadius =
   | typeof swirlCardBorderRadiusTokens[number]
   | string;
 
+export type SwirlCardJustifyContent = "start" | "center" | "end";
+
 /**
  * @slot slot - The card contents
  */
@@ -26,6 +28,7 @@ export class SwirlCard {
   @Prop() href?: string;
   @Prop() imageAspectRatio?: string;
   @Prop() interactive?: boolean;
+  @Prop() justifyContent?: SwirlCardJustifyContent = "start";
   @Prop() linkTarget?: string;
   @Prop() swirlAriaLabel?: string;
 
@@ -43,12 +46,16 @@ export class SwirlCard {
       height: this.height,
     };
 
-    const className = classnames("card", {
-      "card--elevated": this.elevated,
-      "card--has-image": hasImage,
-      "card--highlighted": this.highlighted,
-      "card--interactive": this.interactive || this.href,
-    });
+    const className = classnames(
+      "card",
+      `card--justify-content-${this.justifyContent}`,
+      {
+        "card--elevated": this.elevated,
+        "card--has-image": hasImage,
+        "card--highlighted": this.highlighted,
+        "card--interactive": this.interactive || this.href,
+      }
+    );
 
     return (
       <Host styles={{ height: this.height }}>
