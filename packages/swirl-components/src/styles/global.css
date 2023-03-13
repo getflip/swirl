@@ -52,7 +52,7 @@
 html.theme-dark {
   color-scheme: dark;
 
-  --swirl-carousel-gradient: 0, 0, 0;
+  --swirl-carousel-gradient: 25, 26, 28;
 }
 
 body {
