@@ -14,8 +14,8 @@ import { CodeExample } from "../CodePreview/types";
 import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
 
 export function ComponentPreview() {
-  const { mdxContent } = useDocumentationLayoutContext();
-  const frontMatter = mdxContent.document.frontmatter as FrontMatter;
+  const { frontMatter } = useDocumentationLayoutContext();
+
   const [currentExample, setCurrentExample] = useState<ComponentExample | null>(
     null
   );

@@ -11,7 +11,6 @@ import {
   ColorTokens,
   getColorTokens,
   Token,
-  SwirlTokensWithoutColor,
   TokensWithoutColors,
 } from "@swirl/lib/tokens";
 import {
@@ -23,6 +22,7 @@ import {
 } from "@swirl/lib/tokens/src/utils";
 import algoliasearch from "algoliasearch";
 import dotenv from "dotenv";
+
 // @ts-expect-error
 import icons from "@getflip/swirl-icons/dist/metadata.js";
 
@@ -32,22 +32,24 @@ function getAlgoliaDataForCategory(
   const categoryDocs = createStaticPathsData(category);
 
   const algoliaIndexableData = categoryDocs?.map((doc) => {
-    const docParams = doc.params;
+    if (typeof doc !== "string") {
+      const docParams = doc.params;
 
-    const document = generateSerializableDocumentation(
-      category,
-      docParams[StaticPathMap[category]]
-    );
+      const param = StaticPathMap[category] as string;
+      const paramFull = docParams[param] as string;
 
-    return {
-      objectID: document.data.title,
-      title: document.data.title,
-      excerpt: document.excerpt ? document.excerpt : "",
-      path: `/${category}/${document.data.title
-        .toLowerCase()
-        .replace(" ", "-")}`,
-      tagsCollection: { tags: document.data.tags },
-    };
+      const document = generateSerializableDocumentation(category, paramFull);
+
+      return {
+        objectID: document.data.title,
+        title: document.data.title,
+        excerpt: document.excerpt ? document.excerpt : "",
+        path: `/${category}/${document.data.title
+          .toLowerCase()
+          .replace(" ", "-")}`,
+        tagsCollection: { tags: document.data.tags },
+      };
+    }
   });
 
   if (!algoliaIndexableData) {
@@ -56,7 +58,7 @@ function getAlgoliaDataForCategory(
     );
   }
 
-  return algoliaIndexableData;
+  return algoliaIndexableData as Array<AlgoliaRecord>;
 }
 
 function createColorTokenAlgoliaData(
@@ -218,6 +220,8 @@ async function generateAlgoliaData() {
       process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!!,
       process.env.ALGOLIA_SEARCH_ADMIN_KEY!!
     );
+
+    console.log("transformed", transformed);
 
     const index = client.initIndex(ALGOLIA_INDEX.DEV);
     const algoliaResponse = await index.saveObjects(transformed);

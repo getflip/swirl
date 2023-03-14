@@ -4,8 +4,12 @@ import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
 export function MDXDocument() {
   const { mdxContent } = useDocumentationLayoutContext();
 
+  if (!mdxContent) {
+    return null;
+  }
+
   return (
-    <MDXRemote {...mdxContent.document} components={mdxContent.components} />
+    <MDXRemote {...mdxContent?.document} components={mdxContent?.components} />
   );
 }
 
