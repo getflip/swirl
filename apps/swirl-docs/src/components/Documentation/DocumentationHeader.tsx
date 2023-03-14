@@ -1,9 +1,7 @@
-import { FrontMatter } from "@swirl/lib/docs";
 import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
 
 export function DocumentationHeader() {
-  const { mdxContent } = useDocumentationLayoutContext();
-  const frontMatter = mdxContent.document.frontmatter as FrontMatter;
+  const { frontMatter } = useDocumentationLayoutContext();
 
   return (
     <header className="border-b-1 pb-12 mb-12">

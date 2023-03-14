@@ -3,8 +3,9 @@ import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
 
 export function MDXDocument() {
   const { mdxContent } = useDocumentationLayoutContext();
+
   return (
-    <MDXRemote {...mdxContent.document} components={mdxContent.mdxComponents} />
+    <MDXRemote {...mdxContent.document} components={mdxContent.components} />
   );
 }
 

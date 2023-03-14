@@ -1,5 +1,4 @@
 import { useCodePreviewContext } from "./CodePreviewContext";
-// <span className="text-white font-normal">{request?.url}</span>;
 
 export function Request() {
   const { request } = useCodePreviewContext();

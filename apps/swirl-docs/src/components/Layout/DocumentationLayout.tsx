@@ -24,7 +24,7 @@ export function DocumentationLayout({
   footer,
   data,
 }: DocumentationLayoutProps) {
-  const [tocItems] = useToC(data.mdxContent.document, false);
+  const [tocItems] = useToC(data.mdxContent?.document!, false);
 
   return (
     <DocumentationLayoutContext.Provider value={data}>

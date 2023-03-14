@@ -19,13 +19,8 @@ const ApiDocs = () => {
       </Head>
       <DocumentationLayout
         data={{
-          mdxContent: {
-            document: undefined,
-            mdxComponents: undefined,
-          },
           navigationLinks: apiDocsNavItems,
         }}
-        navigation={<DocumentationLayout.Navigation />}
         content={
           <div className="flex">
             <main id="main" className="w-full h-full">

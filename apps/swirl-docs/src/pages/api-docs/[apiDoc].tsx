@@ -12,6 +12,7 @@ import { CodePreview } from "src/components/CodePreview";
 import Oas from "oas";
 import oasToHar from "@readme/oas-to-har";
 import { oasToSnippet } from "@readme/oas-to-snippet";
+import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation("apiDocs", document);
@@ -54,14 +55,17 @@ export default function Component({
   title,
   definition,
 }: {
-  document: any;
+  document: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
   title: string;
   definition: OASDocument;
 }) {
   const components = {
     p: (props: any) => <p className="mb-4" {...props} />,
     ...LinkedHeaders,
-  };
+  } as MDXRemoteProps["components"];
 
   const oas = new Oas(definition);
 
@@ -98,7 +102,7 @@ export default function Component({
   return (
     <>
       <Head>
-        <title>{`Swirl | ${title}`}</title>
+        <title>{`API | ${title}`}</title>
       </Head>
       <DocumentationLayout
         content={
@@ -120,7 +124,7 @@ export default function Component({
         data={{
           mdxContent: {
             document,
-            mdxComponents: components,
+            components,
           },
           navigationLinks: apiDocsNavItems,
           oasSpec: definition,
