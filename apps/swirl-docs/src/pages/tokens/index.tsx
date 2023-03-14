@@ -12,7 +12,6 @@ const Tokens = () => {
         <title>Swirl Components</title>
       </Head>
       <div className="flex">
-        {/* <CategoryNav categoryLinkList={tokensNavItems} /> */}
         <main id="main" className="w-full h-full">
           <section className="flex flex-col py-14 px-24">
             <h1 className="mb-4">Tokens</h1>
