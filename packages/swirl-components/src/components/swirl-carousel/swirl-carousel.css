@@ -52,19 +52,11 @@
     margin-left: var(--s-space-16);
     flex-grow: 0;
     flex-shrink: 0;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
 
     @media (--from-tablet) {
       margin-left: var(--s-space-24);
     }
-  }
-
-  & ::slotted(*:first-of-type) {
-    scroll-snap-align: start;
-  }
-
-  & ::slotted(*:last-of-type) {
-    scroll-snap-align: end;
   }
 
   @media (--from-tablet) {
