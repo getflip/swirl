@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.31.0
+
+### Minor Changes
+
+- [`656fed5`](https://github.com/getflip/swirl/commit/656fed50fd3a45f25dd7895f290b7d7ea3f7555d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "hide-sidebar" prop to
+  swirl-shell-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`656fed5`](https://github.com/getflip/swirl/commit/656fed50fd3a45f25dd7895f290b7d7ea3f7555d)]:
+  - @getflip/swirl-components@0.32.0
+
 ## 0.30.2
 
 ### Patch Changes
