@@ -85,6 +85,7 @@ button.card,
 }
 
 .card__image {
+  overflow: hidden;
   min-height: 0;
 
   & ::slotted(img) {
