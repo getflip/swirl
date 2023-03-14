@@ -1,4 +1,3 @@
-import { FunctionComponent, useEffect, useState } from "react";
 import { NavItem } from "@swirl/lib/navigation/";
 import Link from "next/link";
 import { useRouter } from "next/router";

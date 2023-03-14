@@ -50,13 +50,6 @@ export default function Component({
   const components = {
     ...LinkedHeaders,
   };
-
-  // <DocumentationLayout
-  //   categoryLinkList={iconsNavItems}
-  //   document={document}
-  //   mdxComponents={components}
-  //   frontMatter={document.frontmatter}
-  // />
   return (
     <>
       <Head>
@@ -66,8 +59,6 @@ export default function Component({
         header={"hello"}
         content={"hello"}
         footer={"hello"}
-        navigation={"hello"}
-        toc={"hello"}
         data={document}
       />
     </>

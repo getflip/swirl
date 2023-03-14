@@ -117,7 +117,6 @@ export default function Component({
           </>
         }
         footer={<DocumentationLayout.Footer />}
-        navigation={<DocumentationLayout.Navigation />}
         data={{
           mdxContent: {
             document,

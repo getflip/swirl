@@ -16,14 +16,12 @@ interface DocumentationLayoutProps {
   content: ReactNode | ReactNode[];
   header?: ReactNode | ReactNode[];
   footer?: ReactNode | ReactNode[];
-  navigation?: ReactNode;
 }
 
 export function DocumentationLayout({
   header,
   content,
   footer,
-  navigation,
   data,
 }: DocumentationLayoutProps) {
   const [tocItems] = useToC(data.mdxContent.document, false);
@@ -31,7 +29,7 @@ export function DocumentationLayout({
   return (
     <DocumentationLayoutContext.Provider value={data}>
       <div className="flex">
-        {navigation}
+        {data.navigationLinks && <CategoryNav />}
         <div className="h-full w-full">
           <main
             id="main"

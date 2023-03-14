@@ -2,7 +2,6 @@ import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import { CodePreview } from "src/components/CodePreview";
-import { CategoryNav } from "src/components/Layout/CategoryNav";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 
 const ApiDocs = () => {

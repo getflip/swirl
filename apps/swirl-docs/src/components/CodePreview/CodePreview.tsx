@@ -15,8 +15,6 @@ import { CodeExample } from "./types";
 import { NpmPackageLink } from "./NpmPackageLink";
 import CodePreviewContext from "./CodePreviewContext";
 import { Request } from "./CodePreviewRequestString";
-import Oas from "oas";
-import OASNormalize from "oas-normalize";
 
 interface CodePreviewProps {
   codeExample: CodeExample;
