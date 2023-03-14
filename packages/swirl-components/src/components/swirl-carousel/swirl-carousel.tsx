@@ -4,6 +4,7 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
 } from "@stencil/core";
@@ -24,6 +25,8 @@ export class SwirlCarousel {
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
   @Prop() loopAround?: boolean = false;
 
+  @State() isAtEnd: boolean;
+  @State() isAtStart: boolean;
   @State() isScrollable: boolean;
 
   private slidesContainer: HTMLElement;
@@ -36,12 +39,23 @@ export class SwirlCarousel {
   componentDidLoad() {
     queueMicrotask(() => {
       this.checkScrollStatus();
+      this.checkScrollPosition();
     });
   }
 
-  private checkScrollStatus() {
-    this.isScrollable =
-      this.slidesContainer.scrollWidth > this.slidesContainer.offsetWidth;
+  /**
+   * Scroll to slide with id.
+   */
+  @Method()
+  async scrollToSlide(id: string) {
+    const slides = this.getSlides();
+    const slide = slides.find((slide) => slide.id === id);
+
+    if (!Boolean(slide)) {
+      return;
+    }
+
+    slide.scrollIntoView({ block: "nearest", inline: "start" });
   }
 
   private previousSlide() {
@@ -79,6 +93,28 @@ export class SwirlCarousel {
     return slides.filter((slide) => this.checkInView(slide));
   }
 
+  private checkScrollStatus() {
+    this.isScrollable =
+      this.slidesContainer.scrollWidth > this.slidesContainer.offsetWidth;
+  }
+
+  private checkScrollPosition() {
+    const slides = this.getSlides();
+    const activeSlides = this.getActiveSlides();
+
+    const isAtStart = activeSlides[0] === slides[0];
+    const isAtEnd =
+      activeSlides[activeSlides.length - 1] === slides[slides.length - 1];
+
+    if (isAtStart !== this.isAtStart) {
+      this.isAtStart = isAtStart;
+    }
+
+    if (isAtEnd !== this.isAtEnd) {
+      this.isAtEnd = isAtEnd;
+    }
+  }
+
   private checkInView(element: HTMLElement) {
     let containerLeft = this.slidesContainer.scrollLeft;
     let containerRight = containerLeft + this.slidesContainer.clientWidth;
@@ -100,6 +136,10 @@ export class SwirlCarousel {
     this.nextSlide();
   };
 
+  private onScroll = () => {
+    this.checkScrollPosition();
+  };
+
   render() {
     return (
       <Host
@@ -108,7 +148,7 @@ export class SwirlCarousel {
         role="group"
       >
         <div class="carousel">
-          {this.isScrollable && (
+          {this.isScrollable && !this.isAtStart && (
             <swirl-button
               class="carousel__previous-slide-button"
               hideLabel
@@ -119,7 +159,7 @@ export class SwirlCarousel {
               variant="floating"
             ></swirl-button>
           )}
-          {this.isScrollable && (
+          {this.isScrollable && !this.isAtEnd && (
             <swirl-button
               class="carousel__next-slide-button"
               hideLabel
@@ -133,6 +173,7 @@ export class SwirlCarousel {
           <div
             aria-live="polite"
             class="carousel__slides"
+            onScroll={this.onScroll}
             ref={(el) => (this.slidesContainer = el)}
           >
             <slot></slot>

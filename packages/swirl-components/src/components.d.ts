@@ -261,6 +261,10 @@ export namespace Components {
         "loopAround"?: boolean;
         "nextSlideButtonLabel"?: string;
         "previousSlideButtonLabel"?: string;
+        /**
+          * Scroll to slide with id.
+         */
+        "scrollToSlide": (id: string) => Promise<void>;
     }
     /**
      * slot - The slide contents
