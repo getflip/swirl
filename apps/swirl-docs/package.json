@@ -14,7 +14,6 @@
     "dev": "next dev",
     "build": "next build",
     "build:swirl-docs": "next build",
-    "transform": "rm -rf './src/documents/schemas' && npx openapi-typescript 'specs/**/*.yaml' --output src/documents/schemas/",
     "postbuild": "tsx src/scripts/build-search.ts",
     "start": "next start",
     "lint": "next lint"
