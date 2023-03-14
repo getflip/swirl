@@ -1,5 +1,23 @@
 # @getflip/swirl-components-react
 
+## 0.32.0
+
+### Minor Changes
+
+- [`aaaffb0`](https://github.com/getflip/swirl/commit/aaaffb07bc53fca8f41bc1040437368041fb724f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-carousel behavior:
+
+  - fix padding in Safari browser
+  - snap scrolling to center on mobile viewports
+  - hide navigation buttons on mobile and if disabled
+  - add "scrolltoSlide" method
+
+### Patch Changes
+
+- Updated dependencies
+  [[`aaaffb0`](https://github.com/getflip/swirl/commit/aaaffb07bc53fca8f41bc1040437368041fb724f)]:
+  - @getflip/swirl-components@0.33.0
+
 ## 0.31.0
 
 ### Minor Changes
