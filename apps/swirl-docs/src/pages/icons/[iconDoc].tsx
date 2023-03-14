@@ -51,16 +51,24 @@ export default function Component({
     ...LinkedHeaders,
   };
 
+  // <DocumentationLayout
+  //   categoryLinkList={iconsNavItems}
+  //   document={document}
+  //   mdxComponents={components}
+  //   frontMatter={document.frontmatter}
+  // />
   return (
     <>
       <Head>
         <title>{`Swirl | ${title}`}</title>
       </Head>
       <DocumentationLayout
-        categoryLinkList={iconsNavItems}
-        document={document}
-        mdxComponents={components}
-        frontMatter={document.frontmatter}
+        header={"hello"}
+        content={"hello"}
+        footer={"hello"}
+        navigation={"hello"}
+        toc={"hello"}
+        data={document}
       />
     </>
   );

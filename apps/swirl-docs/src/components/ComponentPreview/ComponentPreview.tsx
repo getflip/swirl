@@ -11,14 +11,11 @@ import prettier from "prettier/standalone";
 import prettierHTML from "prettier/parser-html";
 import { CodePreview } from "../CodePreview";
 import { CodeExample } from "../CodePreview/types";
+import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
 
-interface ComponentPreviewProps {
-  frontMatter: FrontMatter | undefined;
-}
-
-export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
-  frontMatter,
-}) => {
+export function ComponentPreview() {
+  const { mdxContent } = useDocumentationLayoutContext();
+  const frontMatter = mdxContent.document.frontmatter as FrontMatter;
   const [currentExample, setCurrentExample] = useState<ComponentExample | null>(
     null
   );
@@ -102,4 +99,4 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
       )}
     </>
   );
-};
+}

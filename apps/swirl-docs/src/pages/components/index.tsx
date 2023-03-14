@@ -26,7 +26,7 @@ const ComponentsIndex = ({ links }: { links: NavItem[] }) => {
         <title>Swirl | Components</title>
       </Head>
       <div className="flex">
-        <CategoryNav categoryLinkList={links} />
+        {/* <CategoryNav categoryLinkList={links} /> */}
         <main
           id="main"
           className="w-full h-full mt-14 flex flex-col px-4 md:px-24"

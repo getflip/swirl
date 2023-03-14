@@ -10,9 +10,9 @@ import { TypographyTokens } from "src/components/Tokens/TypographyTokens";
 import { BorderTokens } from "src/components/Tokens/BorderTokens";
 import { SpacingTokens } from "src/components/Tokens/SpacingTokens";
 import { ZIndexTokens } from "src/components/Tokens/ZIndexTokens";
-import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
 import { GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
+import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation(
@@ -70,10 +70,17 @@ export default function Component({
         <title>{`Swirl | ${title}`}</title>
       </Head>
       <DocumentationLayout
-        categoryLinkList={tokensNavItems}
-        document={document}
-        mdxComponents={components}
-        frontMatter={document.frontmatter}
+        header={<DocumentationLayout.Header />}
+        content={<DocumentationLayout.MDX />}
+        footer={<DocumentationLayout.Footer />}
+        navigation={<DocumentationLayout.Navigation />}
+        data={{
+          mdxContent: {
+            document,
+            mdxComponents: components,
+          },
+          navigationLinks: tokensNavItems,
+        }}
       />
     </>
   );

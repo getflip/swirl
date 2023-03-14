@@ -3,6 +3,7 @@ import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import { CodePreview } from "src/components/CodePreview";
 import { CategoryNav } from "src/components/Layout/CategoryNav";
+import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 
 const ApiDocs = () => {
   const codeExample = `
@@ -17,32 +18,43 @@ const ApiDocs = () => {
       <Head>
         <title>API Docs</title>
       </Head>
-      <div className="flex">
-        <CategoryNav categoryLinkList={apiDocsNavItems} />
-        <main id="main" className="w-full h-full">
-          <section className="flex flex-col py-14 px-24">
-            <h1 className="mb-4">API Docs</h1>
-            <CodePreview
-              codeExample={{
-                code: codeExample,
-                isLongCode: false,
-                request: {
-                  httpVersion: "2",
-                  cookies: [],
-                  headers: [],
-                  queryString: [],
-                  bodySize: 123,
-                  headersSize: 123,
-                  url: "/api/specs/group",
-                  method: "POST",
-                },
-              }}
-            >
-              <CodePreview.Request />
-            </CodePreview>
-          </section>
-        </main>
-      </div>
+      <DocumentationLayout
+        data={{
+          mdxContent: {
+            document: undefined,
+            mdxComponents: undefined,
+          },
+          navigationLinks: apiDocsNavItems,
+        }}
+        navigation={<DocumentationLayout.Navigation />}
+        content={
+          <div className="flex">
+            <main id="main" className="w-full h-full">
+              <section className="flex flex-col py-14 px-24">
+                <h1 className="mb-4">API Docs</h1>
+                <CodePreview
+                  codeExample={{
+                    code: codeExample,
+                    isLongCode: false,
+                    request: {
+                      httpVersion: "2",
+                      cookies: [],
+                      headers: [],
+                      queryString: [],
+                      bodySize: 123,
+                      headersSize: 123,
+                      url: "/api/specs/group",
+                      method: "POST",
+                    },
+                  }}
+                >
+                  <CodePreview.Request />
+                </CodePreview>
+              </section>
+            </main>
+          </div>
+        }
+      />
     </>
   );
 };

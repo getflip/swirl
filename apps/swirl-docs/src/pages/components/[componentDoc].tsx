@@ -48,12 +48,6 @@ export default function Component({
   title: string;
   document: any;
 }) {
-  const [frontMatter, setFrontMatter] = useState<any>(null);
-
-  useEffect(() => {
-    setFrontMatter(document?.frontmatter);
-  }, [document]);
-
   const components = {
     ...LinkedHeaders,
   };
@@ -63,11 +57,24 @@ export default function Component({
       <Head>
         <title>Swirl | Components</title>
       </Head>
+
       <DocumentationLayout
-        categoryLinkList={componentsNavItems}
-        document={document}
-        frontMatter={frontMatter}
-        mdxComponents={components}
+        data={{
+          mdxContent: {
+            document,
+            mdxComponents: components,
+          },
+          navigationLinks: componentsNavItems,
+        }}
+        header={<DocumentationLayout.Header />}
+        content={
+          <>
+            <DocumentationLayout.ComponentPreview />
+            <DocumentationLayout.MDX />
+          </>
+        }
+        footer={<DocumentationLayout.Footer />}
+        navigation={<DocumentationLayout.Navigation />}
       />
     </>
   );

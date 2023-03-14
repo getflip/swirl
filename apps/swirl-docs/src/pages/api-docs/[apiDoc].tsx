@@ -8,6 +8,10 @@ import { ScriptProps } from "next/script";
 import OASNormalize from "oas-normalize";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import { OASDocument } from "oas/dist/rmoas.types";
+import { CodePreview } from "src/components/CodePreview";
+import Oas from "oas";
+import oasToHar from "@readme/oas-to-har";
+import { oasToSnippet } from "@readme/oas-to-snippet";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation("apiDocs", document);
@@ -59,17 +63,69 @@ export default function Component({
     ...LinkedHeaders,
   };
 
+  const oas = new Oas(definition);
+
+  const operation = oas.operation("/app-compatibility", "get");
+
+  const har = oasToHar(oas, operation);
+
+  const formData = {
+    query: { sort: "desc" },
+  };
+
+  const auth = {
+    oauth2: "bearerToken",
+  };
+
+  const language = "curl";
+
+  console.log("EXAMPLES", operation.getResponseExamples());
+
+  const exampleValuesOrEnums =
+    operation.getParametersAsJSONSchema()[0].schema.properties;
+  console.log(exampleValuesOrEnums);
+  const requiredParams =
+    operation.getParametersAsJSONSchema()[0].schema.required;
+
+  const { code, highlightMode } = oasToSnippet(
+    oas,
+    operation,
+    formData,
+    auth,
+    language
+  );
+
   return (
     <>
       <Head>
         <title>{`Swirl | ${title}`}</title>
       </Head>
       <DocumentationLayout
-        categoryLinkList={apiDocsNavItems}
-        document={document}
-        mdxComponents={components}
-        frontMatter={document.frontmatter}
-        oasSpec={definition}
+        content={
+          <>
+            <DocumentationLayout.MDX />
+            <CodePreview
+              codeExample={{
+                code: code as string,
+                language: "bash",
+                isLongCode: false,
+                request: har.log.entries[0].request,
+              }}
+            >
+              <CodePreview.Request />
+            </CodePreview>
+          </>
+        }
+        footer={<DocumentationLayout.Footer />}
+        navigation={<DocumentationLayout.Navigation />}
+        data={{
+          mdxContent: {
+            document,
+            mdxComponents: components,
+          },
+          navigationLinks: apiDocsNavItems,
+          oasSpec: definition,
+        }}
       />
     </>
   );
