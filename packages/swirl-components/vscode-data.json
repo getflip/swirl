@@ -3770,6 +3770,10 @@
       },
       "attributes": [
         {
+          "name": "hide-sidebar",
+          "description": ""
+        },
+        {
           "name": "main-navigation-label",
           "description": ""
         },

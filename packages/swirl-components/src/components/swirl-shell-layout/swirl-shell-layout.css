@@ -86,6 +86,17 @@
   }
 }
 
+.shell-layout--hide-sidebar {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "banner"
+    "main";
+
+  @media (--from-desktop) {
+    grid-template-columns: 1fr;
+  }
+}
+
 .shell-layout__banner {
   grid-area: banner;
 }

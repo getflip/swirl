@@ -16,6 +16,7 @@ import { getDesktopMediaQuery, getActiveElement } from "../../utils";
   tag: "swirl-shell-layout",
 })
 export class SwirlShellLayout {
+  @Prop() hideSidebar?: boolean;
   @Prop() mainNavigationLabel: string = "Main";
   @Prop() sidebarToggleLabel: string = "Toggle sidebar";
 
@@ -27,7 +28,7 @@ export class SwirlShellLayout {
 
   componentWillLoad() {
     if (!this.desktopMediaQuery.matches) {
-      this.hideSidebar();
+      this.collapseLeftSidebar();
     }
 
     this.desktopMediaQuery.addEventListener?.(
@@ -41,7 +42,7 @@ export class SwirlShellLayout {
    */
   @Method()
   async collapseSidebar() {
-    this.hideSidebar();
+    this.collapseLeftSidebar();
   }
 
   /**
@@ -49,18 +50,18 @@ export class SwirlShellLayout {
    */
   @Method()
   async extendSidebar() {
-    this.showSidebar();
+    this.expandLeftSidebar();
   }
 
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
     if (event.matches) {
-      this.showSidebar();
+      this.expandLeftSidebar();
     } else {
-      this.hideSidebar();
+      this.collapseLeftSidebar();
     }
   };
 
-  private hideSidebar = () => {
+  private collapseLeftSidebar = () => {
     this.collapsedSidebar = true;
     this.collapsing = true;
 
@@ -74,21 +75,25 @@ export class SwirlShellLayout {
     }, 200);
   };
 
-  private showSidebar = () => {
+  private expandLeftSidebar = () => {
+    if (this.hideSidebar) {
+      return;
+    }
+
     this.collapsedSidebar = false;
   };
 
   private toggleSidebar = () => {
     if (this.collapsedSidebar) {
-      this.showSidebar();
+      this.expandLeftSidebar();
     } else {
-      this.hideSidebar();
+      this.collapseLeftSidebar();
     }
   };
 
   private onBackdropClick = () => {
     if (!this.collapsedSidebar) {
-      this.hideSidebar();
+      this.collapseLeftSidebar();
     }
   };
 
@@ -111,6 +116,7 @@ export class SwirlShellLayout {
     const className = classnames("shell-layout", {
       "shell-layout--collapsed-sidebar": this.collapsedSidebar,
       "shell-layout--collapsing": this.collapsing,
+      "shell-layout--hide-sidebar": this.hideSidebar,
     });
 
     const sidebarWrapperClassName = classnames(
@@ -136,40 +142,42 @@ export class SwirlShellLayout {
             onMouseEnter={this.onSidebarMouseEnter}
             onMouseLeave={this.onSidebarMouseLeave}
           >
-            <div class="shell-layout__sidebar">
-              <header class="shell-layout__header">
-                <div class="shell-layout__logo-bar">
-                  <div class="shell-layout__expanded-logo">
-                    <slot name="logo-expanded"></slot>
+            {!this.hideSidebar && (
+              <div class="shell-layout__sidebar">
+                <header class="shell-layout__header">
+                  <div class="shell-layout__logo-bar">
+                    <div class="shell-layout__expanded-logo">
+                      <slot name="logo-expanded"></slot>
+                    </div>
+                    <div class="shell-layout__collapsed-logo">
+                      <slot name="logo-collapsed"></slot>
+                    </div>
+                    <div class="shell-layout__toggle">
+                      <swirl-button
+                        swirlAriaExpanded={String(!this.collapsedSidebar)}
+                        hideLabel
+                        icon={
+                          this.collapsedSidebar
+                            ? "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
+                            : "<swirl-icon-double-arrow-left></swirl-icon-double-arrow-left>"
+                        }
+                        label={this.sidebarToggleLabel}
+                        onClick={this.toggleSidebar}
+                      ></swirl-button>
+                    </div>
                   </div>
-                  <div class="shell-layout__collapsed-logo">
-                    <slot name="logo-collapsed"></slot>
+                  <div class="shell-layout__tools">
+                    <slot name="tools"></slot>
                   </div>
-                  <div class="shell-layout__toggle">
-                    <swirl-button
-                      swirlAriaExpanded={String(!this.collapsedSidebar)}
-                      hideLabel
-                      icon={
-                        this.collapsedSidebar
-                          ? "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
-                          : "<swirl-icon-double-arrow-left></swirl-icon-double-arrow-left>"
-                      }
-                      label={this.sidebarToggleLabel}
-                      onClick={this.toggleSidebar}
-                    ></swirl-button>
-                  </div>
-                </div>
-                <div class="shell-layout__tools">
-                  <slot name="tools"></slot>
-                </div>
-              </header>
-              <nav
-                aria-label={this.mainNavigationLabel}
-                class="shell-layout__main-navigation"
-              >
-                <slot name="main-navigation"></slot>
-              </nav>
-            </div>
+                </header>
+                <nav
+                  aria-label={this.mainNavigationLabel}
+                  class="shell-layout__main-navigation"
+                >
+                  <slot name="main-navigation"></slot>
+                </nav>
+              </div>
+            )}
           </div>
           <main class="shell-layout__main">
             <slot name="main"></slot>

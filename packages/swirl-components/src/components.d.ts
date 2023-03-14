@@ -1004,6 +1004,7 @@ export namespace Components {
           * Extend the left sidebar.
          */
         "extendSidebar": () => Promise<void>;
+        "hideSidebar"?: boolean;
         "mainNavigationLabel": string;
         "sidebarToggleLabel": string;
     }
@@ -3483,6 +3484,7 @@ declare namespace LocalJSX {
     interface SwirlSeparator {
     }
     interface SwirlShellLayout {
+        "hideSidebar"?: boolean;
         "mainNavigationLabel"?: string;
         "sidebarToggleLabel"?: string;
     }
