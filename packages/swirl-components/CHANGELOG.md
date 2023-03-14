@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.31.2
+
+### Patch Changes
+
+- [`d57bc28`](https://github.com/getflip/swirl/commit/d57bc28a59b9b07fcde67b6ab14438d373003610)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a swirl-card issue not
+  displaying images correctly in Safari
+
 ## 0.31.1
 
 ### Patch Changes
