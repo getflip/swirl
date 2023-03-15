@@ -9,7 +9,7 @@ export function DocumentationHeader() {
         <h1 className="text-4xl text-text-default font-font-weight-bold">
           {frontMatter?.title}
         </h1>
-        {frontMatter?.tags?.map((tag: any) => (
+        {frontMatter?.tags?.map((tag: string) => (
           <span
             className="bg-surface-neutral-subdued px-2 py-1 rounded-md ml-3 font-medium text-sm"
             key={tag}

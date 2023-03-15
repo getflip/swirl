@@ -38,10 +38,10 @@ export function DocumentationLayout({
               "my-0 mx-auto mt-14 mb-4 md:mb-0 px-4 lg:px-0"
             )}
           >
-            <article className="w-full max-w-[45rem]">
+            <div className="w-full max-w-[45rem]">
               {header}
               {content}
-            </article>
+            </div>
             {tocItems && tocItems.length > 0 && (
               <DocLinksNav documentLinkList={tocItems} />
             )}

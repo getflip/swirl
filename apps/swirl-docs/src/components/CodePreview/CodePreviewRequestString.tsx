@@ -1,6 +1,6 @@
 import { useCodePreviewContext } from "./CodePreviewContext";
 
-export function Request() {
+export function APIEndpointHeader() {
   const { request } = useCodePreviewContext();
 
   return (

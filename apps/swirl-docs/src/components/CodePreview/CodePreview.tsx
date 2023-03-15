@@ -14,7 +14,7 @@ import theme from "prism-react-renderer/themes/vsDark";
 import { CodeExample } from "./types";
 import { NpmPackageLink } from "./NpmPackageLink";
 import CodePreviewContext from "./CodePreviewContext";
-import { Request } from "./CodePreviewRequestString";
+import { APIEndpointHeader } from "./CodePreviewRequestString";
 
 interface CodePreviewProps {
   codeExample: CodeExample;
@@ -57,8 +57,11 @@ export function CodePreview({ children, codeExample }: CodePreviewProps) {
                 }, 2000);
               }}
             >
-              <button className="flex justify-center items-center text-[#F2F2F2] text-base font-medium">
-                {isCopied ? "copied!" : "copy"}
+              <button
+                type="button"
+                className="flex justify-center items-center text-[#F2F2F2] text-base font-medium"
+              >
+                {isCopied ? "Code copied!" : "Copy Code"}
                 {isCopied ? (
                   <SwirlIconCheckStrong size={16} className="ml-1" />
                 ) : (
@@ -85,13 +88,15 @@ export function CodePreview({ children, codeExample }: CodePreviewProps) {
                   }
                 )}
               >
-                {tokens.map((line, i) => (
-                  <div key={i} {...getLineProps({ line, key: i })}>
-                    {line.map((token, key) => (
-                      <span key={i} {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
-                ))}
+                <code>
+                  {tokens.map((line, i) => (
+                    <div key={i} {...getLineProps({ line, key: i })}>
+                      {line.map((token, key) => (
+                        <span key={i} {...getTokenProps({ token, key })} />
+                      ))}
+                    </div>
+                  ))}
+                </code>
               </pre>
             )}
           </Highlight>
@@ -119,4 +124,4 @@ export function CodePreview({ children, codeExample }: CodePreviewProps) {
 
 CodePreview.CodeSandboxButton = CodeSandboxButton;
 CodePreview.NpmPackageLink = NpmPackageLink;
-CodePreview.Request = Request;
+CodePreview.Request = APIEndpointHeader;
