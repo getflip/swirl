@@ -33,12 +33,9 @@ function getAlgoliaDataForCategory(
 
   const algoliaIndexableData = categoryDocs?.map((doc) => {
     if (typeof doc !== "string") {
-      const docParams = doc.params;
+      const docParams = doc.params[StaticPathMap[category]] as string;
 
-      const param = StaticPathMap[category] as string;
-      const paramFull = docParams[param] as string;
-
-      const document = generateSerializableDocumentation(category, paramFull);
+      const document = generateSerializableDocumentation(category, docParams);
 
       return {
         objectID: document.data.title,
@@ -220,8 +217,6 @@ async function generateAlgoliaData() {
       process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!!,
       process.env.ALGOLIA_SEARCH_ADMIN_KEY!!
     );
-
-    console.log("transformed", transformed);
 
     const index = client.initIndex(ALGOLIA_INDEX.DEV);
     const algoliaResponse = await index.saveObjects(transformed);

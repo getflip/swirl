@@ -67,37 +67,19 @@ export default function Component({
     ...LinkedHeaders,
   } as MDXRemoteProps["components"];
 
+  // TO DO: Refactor this part to its own creational pattern
   const oas = new Oas(definition);
-
   const operation = oas.operation("/app-compatibility", "get");
-
   const har = oasToHar(oas, operation);
 
   const formData = {
     query: { sort: "desc" },
   };
-
   const auth = {
     oauth2: "bearerToken",
   };
-
   const language = "curl";
-
-  console.log("EXAMPLES", operation.getResponseExamples());
-
-  const exampleValuesOrEnums =
-    operation.getParametersAsJSONSchema()[0].schema.properties;
-  console.log(exampleValuesOrEnums);
-  const requiredParams =
-    operation.getParametersAsJSONSchema()[0].schema.required;
-
-  const { code, highlightMode } = oasToSnippet(
-    oas,
-    operation,
-    formData,
-    auth,
-    language
-  );
+  const { code } = oasToSnippet(oas, operation, formData, auth, language);
 
   return (
     <>
