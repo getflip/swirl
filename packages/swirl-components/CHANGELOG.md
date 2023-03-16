@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.33.2
+
+### Patch Changes
+
+- [`3c9d8c4`](https://github.com/getflip/swirl/commit/3c9d8c48ab6957c845be738bac44c26fb0dba059)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-app-layout padding
+
 ## 0.33.1
 
 ### Patch Changes
