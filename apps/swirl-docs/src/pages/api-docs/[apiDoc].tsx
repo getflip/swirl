@@ -35,17 +35,17 @@ export const getStaticProps: GetStaticProps<
 
   const document = await getComponentData(apiDoc);
 
-  const oasYaml = new OASNormalize(`./specs/${apiDoc}.yaml`, {
-    enablePaths: true,
-  });
+  // const oasYaml = new OASNormalize(`./specs/${apiDoc}.yaml`, {
+  //   enablePaths: true,
+  // });
 
-  const definition = (await oasYaml.validate()) as OASDocument;
+  // const definition = (await oasYaml.validate()) as OASDocument;
 
   return {
     props: {
       document,
       title: apiDoc,
-      definition,
+      // definition,
     },
   };
 };
