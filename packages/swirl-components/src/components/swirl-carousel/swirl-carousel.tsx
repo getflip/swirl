@@ -154,6 +154,11 @@ export class SwirlCarousel {
     this.nextSlide();
   };
 
+  private onSlotChange = () => {
+    // restore scroll position to active slide when slides are removed or added after first render
+    this.activeSlides[0]?.scrollIntoView({ block: "nearest", inline: "start" });
+  };
+
   private onScroll = () => {
     this.updateActiveSlideReferences();
     this.checkScrollPosition();
@@ -195,7 +200,7 @@ export class SwirlCarousel {
             onScroll={this.onScroll}
             ref={(el) => (this.slidesContainer = el)}
           >
-            <slot></slot>
+            <slot onSlotchange={this.onSlotChange}></slot>
           </div>
         </div>
       </Host>

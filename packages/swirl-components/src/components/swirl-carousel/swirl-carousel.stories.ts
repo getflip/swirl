@@ -79,10 +79,6 @@ const Template = (args) => {
     </swirl-carousel-slide>
   `;
 
-  element.addEventListener("activeSlidesChange", (event: CustomEvent) => {
-    console.log(event.detail);
-  });
-
   return element;
 };
 
