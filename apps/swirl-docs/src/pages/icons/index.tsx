@@ -50,7 +50,6 @@ const IconsIndex = () => {
         <title>Swirl | Icons</title>
       </Head>
       <div className="flex">
-        <CategoryNav categoryLinkList={iconsNavItems} />
         <main id="main" className="w-full h-full mt-14">
           <section className="flex flex-col px-4 md:px-24">
             <div className="mb-16">

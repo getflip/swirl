@@ -1,18 +1,11 @@
-import { FunctionComponent, useEffect, useState } from "react";
 import { NavItem } from "@swirl/lib/navigation/";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import classNames from "classnames";
+import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
 
-interface CategoryNavProps {
-  categoryLinkList: NavItem[] | undefined;
-  ariaLabel?: string;
-}
-
-export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
-  categoryLinkList,
-  ariaLabel,
-}) => {
+export function CategoryNav() {
+  const { navigationLinks: categoryLinkList } = useDocumentationLayoutContext();
   const router = useRouter();
   const activePath = router.asPath;
 
@@ -62,4 +55,4 @@ export const CategoryNav: FunctionComponent<CategoryNavProps> = ({
       </ul>
     </nav>
   );
-};
+}

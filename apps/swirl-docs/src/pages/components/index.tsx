@@ -3,7 +3,6 @@ import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.da
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import ComponentGrid from "src/components/Components/ComponentGrid";
-import { CategoryNav } from "src/components/Layout/CategoryNav";
 
 type Usage = "app" | "admin";
 
@@ -26,7 +25,6 @@ const ComponentsIndex = ({ links }: { links: NavItem[] }) => {
         <title>Swirl | Components</title>
       </Head>
       <div className="flex">
-        <CategoryNav categoryLinkList={links} />
         <main
           id="main"
           className="w-full h-full mt-14 flex flex-col px-4 md:px-24"

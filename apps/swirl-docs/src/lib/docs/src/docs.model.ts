@@ -3,8 +3,16 @@ export enum DOCUMENTATION_SRC {
   DOCUMENTATION = "documentation",
 }
 
-export type DocumentationCategory = "components" | "tokens" | "icons";
-export type DocumentationParamKey = "componentDoc" | "tokenDoc" | "iconDoc";
+export type DocumentationCategory =
+  | "components"
+  | "tokens"
+  | "icons"
+  | "apiDocs";
+export type DocumentationParamKey =
+  | "componentDoc"
+  | "tokenDoc"
+  | "iconDoc"
+  | "apiDoc";
 
 export type StaticPathMapType = {
   [key in DocumentationCategory]: DocumentationParamKey;
@@ -14,12 +22,14 @@ export enum DOCUMENTATION_CATEGORY {
   COMPONENTS = "components",
   TOKENS = "tokens",
   ICONS = "icons",
+  API_DOCS = "api",
 }
 
 export enum DOCUMENT_TYPE {
   COMPONENTS = "componentDoc",
   TOKENS = "tokenDoc",
   ICONS = "iconDoc",
+  API_DOCS = "apiDoc",
 }
 
 export type DocCategory = {

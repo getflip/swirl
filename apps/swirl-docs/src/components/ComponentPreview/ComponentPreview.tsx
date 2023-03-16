@@ -5,19 +5,17 @@ import {
 } from "@swirl/lib/components/src/components.model";
 import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import { FunctionComponent, useCallback, useEffect, useState } from "react";
-import { CodeExample, CodePreview } from "./CodePreview";
 import { PropsTable } from "./PropsTable";
 import { VariantPreview } from "./VariantPreview";
 import prettier from "prettier/standalone";
 import prettierHTML from "prettier/parser-html";
+import { CodePreview } from "../CodePreview";
+import { CodeExample } from "../CodePreview/types";
+import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
 
-interface ComponentPreviewProps {
-  frontMatter: FrontMatter | undefined;
-}
+export function ComponentPreview() {
+  const { frontMatter } = useDocumentationLayoutContext();
 
-export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
-  frontMatter,
-}) => {
   const [currentExample, setCurrentExample] = useState<ComponentExample | null>(
     null
   );
@@ -92,10 +90,13 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
         setIsLoading={setIsLoading}
         handleExampleChange={(example) => setCurrentExample(example)}
       />
-      <CodePreview codeExample={codeExample} />
+      <CodePreview codeExample={codeExample}>
+        <CodePreview.NpmPackageLink />
+        <CodePreview.CodeSandboxButton />
+      </CodePreview>
       {hasComponentProps && (
         <PropsTable componentPropsData={componentData.props}></PropsTable>
       )}
     </>
   );
-};
+}

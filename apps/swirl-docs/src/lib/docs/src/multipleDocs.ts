@@ -3,6 +3,7 @@ import {
   generatePagesPath,
 } from "@swirl/lib/navigation";
 import fs from "fs";
+import { GetStaticPathsResult } from "next";
 import {
   DocCategory,
   Document,
@@ -15,15 +16,12 @@ export const StaticPathMap: StaticPathMapType = {
   components: "componentDoc",
   icons: "iconDoc",
   tokens: "tokenDoc",
+  apiDocs: "apiDoc",
 } as const;
 
-export function createStaticPathsData(category: DocumentationCategory):
-  | {
-      params: {
-        [key: string]: string;
-      };
-    }[]
-  | undefined {
+export function createStaticPathsData(
+  category: DocumentationCategory
+): GetStaticPathsResult["paths"] {
   return createDocCategory(
     {
       name: category,
@@ -34,7 +32,7 @@ export function createStaticPathsData(category: DocumentationCategory):
     params: {
       [StaticPathMap[category]]: document.name,
     },
-  }));
+  })) as GetStaticPathsResult["paths"];
 }
 
 export function createDocCategory(
