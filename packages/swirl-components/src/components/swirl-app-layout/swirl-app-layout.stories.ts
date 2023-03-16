@@ -53,7 +53,18 @@ const Template = (args) => {
       label="Settings"
       slot="navigation-controls"
     ></swirl-button>
-    <swirl-heading as="h2" level="3" slot="app-bar" text="Heading"></swirl-heading>
+    <swirl-app-bar show-close-button="false" show-stepper-controls="false" slot="app-bar">
+      <swirl-heading as="h1" level="3" slot="heading" text="Heading" truncate=""></swirl-heading>
+      <swirl-stack justify="center" orientation="horizontal" spacing="8" slot="center-controls">
+        <swirl-button label="All posts" variant="flat"></swirl-button>
+        <swirl-button label="Groups"></swirl-button>
+        <swirl-button label="Saved"></swirl-button>
+        <swirl-button label="Scheduled"></swirl-button>
+      </swirl-stack>
+      <div slot="right-controls">
+        <swirl-button hide-label="true" icon="<swirl-icon-search></swirl-icon-search>" label="Search"></swirl-button>
+      </div>
+    </swirl-app-bar>
     <div slot="app-bar-controls">
       <swirl-button hide-label class="info-button" icon="<swirl-icon-info></swirl-icon-info>" label="More information"></swirl-button>
     </div>

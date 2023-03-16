@@ -244,6 +244,10 @@ export class SwirlAppLayout {
       (this.mobileView === "body" || this.transitioningTo) &&
       this.hasNavigation;
 
+    const hasAppBarControls = Boolean(
+      this.el.querySelector('[slot="app-bar-controls"]')
+    );
+
     const className = classnames(
       "app-layout",
       `app-layout--mobile-view-${this.mobileView}`,
@@ -251,6 +255,7 @@ export class SwirlAppLayout {
       `app-layout--transitioning-to-${this.transitioningTo}`,
       `app-layout--transition-style-${this.transitionStyle}`,
       {
+        "app-layout--has-app-bar-controls": hasAppBarControls,
         "app-layout--has-navigation": this.hasNavigation,
         "app-layout--has-sidebar": this.hasSidebar,
         "app-layout--sidebar-active":
