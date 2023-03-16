@@ -1228,6 +1228,10 @@ export interface SwirlBannerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlBannerElement;
 }
+export interface SwirlCarouselCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlCarouselElement;
+}
 export interface SwirlCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlCheckboxElement;
@@ -2818,6 +2822,7 @@ declare namespace LocalJSX {
         "label": string;
         "loopAround"?: boolean;
         "nextSlideButtonLabel"?: string;
+        "onActiveSlidesChange"?: (event: SwirlCarouselCustomEvent<HTMLSwirlCarouselSlideElement[]>) => void;
         "previousSlideButtonLabel"?: string;
     }
     /**

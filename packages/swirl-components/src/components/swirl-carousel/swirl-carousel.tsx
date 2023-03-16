@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -8,6 +10,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
+import { debounce } from "../../utils";
 
 /**
  * slot - The slides
@@ -29,7 +32,10 @@ export class SwirlCarousel {
   @State() isAtStart: boolean;
   @State() isScrollable: boolean;
 
+  @Event() activeSlidesChange: EventEmitter<HTMLSwirlCarouselSlideElement[]>;
+
   private slidesContainer: HTMLElement;
+  private activeSlides: HTMLSwirlCarouselSlideElement[] = [];
 
   @Listen("resize", { target: "window" })
   onWindowResize() {
@@ -128,6 +134,18 @@ export class SwirlCarousel {
     return inInView;
   }
 
+  private updateActiveSlideReferences = debounce(() => {
+    const activeSlides = this.getActiveSlides();
+    const activeSlidesChanged = activeSlides.some(
+      (slide, index) => this.activeSlides[index] !== slide
+    );
+
+    if (activeSlidesChanged) {
+      this.activeSlides = activeSlides;
+      this.activeSlidesChange.emit(this.activeSlides);
+    }
+  }, 100);
+
   private onPreviousSlideButtonClick = () => {
     this.previousSlide();
   };
@@ -137,6 +155,7 @@ export class SwirlCarousel {
   };
 
   private onScroll = () => {
+    this.updateActiveSlideReferences();
     this.checkScrollPosition();
   };
 
