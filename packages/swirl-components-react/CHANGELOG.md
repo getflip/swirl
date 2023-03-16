@@ -1,5 +1,23 @@
 # @getflip/swirl-components-react
 
+## 0.33.0
+
+### Minor Changes
+
+- [`e4158a5`](https://github.com/getflip/swirl/commit/e4158a5530814e7a0acee54451bdecf86cd558a7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "activeSlidesChange" event to
+  swirl-carousel
+
+### Patch Changes
+
+- [`89094cc`](https://github.com/getflip/swirl/commit/89094cce0d6c464b403f27461179d93366c540c0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Restore swirl-carousel scroll
+  position to active slide when slides are removed or added after first render
+- Updated dependencies
+  [[`e4158a5`](https://github.com/getflip/swirl/commit/e4158a5530814e7a0acee54451bdecf86cd558a7),
+  [`89094cc`](https://github.com/getflip/swirl/commit/89094cce0d6c464b403f27461179d93366c540c0)]:
+  - @getflip/swirl-components@0.34.0
+
 ## 0.32.2
 
 ### Patch Changes
