@@ -7,12 +7,19 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
 import OASNormalize from "oas-normalize";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
-import { OASDocument } from "oas/dist/rmoas.types";
+import { HttpMethods, OASDocument, PathsObject } from "oas/dist/rmoas.types";
 import { CodePreview } from "src/components/CodePreview";
 import Oas from "oas";
 import oasToHar from "@readme/oas-to-har";
 import { oasToSnippet } from "@readme/oas-to-snippet";
-import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
+import {
+  MDXRemote,
+  MDXRemoteProps,
+  MDXRemoteSerializeResult,
+} from "next-mdx-remote";
+
+import { serialize } from "next-mdx-remote/serialize";
+import { OpenAPI3 } from "openapi-typescript";
 
 async function getComponentData(document: string) {
   return await generateMdxFromDocumentation("apiDocs", document);
@@ -35,17 +42,35 @@ export const getStaticProps: GetStaticProps<
 
   const document = await getComponentData(apiDoc);
 
-  // const oasYaml = new OASNormalize(`./specs/${apiDoc}.yaml`, {
-  //   enablePaths: true,
-  // });
+  const oasYaml = new OASNormalize(`./specs/${apiDoc.replace("-", "_")}.yml`, {
+    enablePaths: true,
+  });
 
-  // const definition = (await oasYaml.validate()) as OASDocument;
+  const definition = (await oasYaml.validate()) as OASDocument;
+
+  const oas = new Oas(definition);
+  const description = oas.api.info.description;
+
+  const cleanedDescription = description?.replace(
+    "<SecurityDefinitions />",
+    ""
+  );
+
+  const serializedDescription = await serialize(cleanedDescription!, {
+    scope: {
+      user_external_id: "{user_external_id}",
+      postId: "{postId}",
+      commentId: "{commentId}",
+      attachment_id: "{attachment_id}",
+    },
+  });
 
   return {
     props: {
       document,
       title: apiDoc,
-      // definition,
+      definition,
+      description: serializedDescription,
     },
   };
 };
@@ -54,6 +79,7 @@ export default function Component({
   document,
   title,
   definition,
+  description,
 }: {
   document: MDXRemoteSerializeResult<
     Record<string, unknown>,
@@ -61,6 +87,10 @@ export default function Component({
   >;
   title: string;
   definition: OASDocument;
+  description: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
 }) {
   const components = {
     p: (props: any) => <p className="mb-4" {...props} />,
@@ -69,6 +99,41 @@ export default function Component({
 
   // TO DO: Refactor this part to its own creational pattern
   const oas = new Oas(definition);
+
+  const pathsObj = oas.api.paths as PathsObject;
+
+  const paths = Object.keys(oas.api.paths!);
+  console.log("paths", paths);
+
+  paths.forEach((path) => {
+    if (oas.api.paths !== undefined) {
+      console.log(pathsObj[path]);
+      const object = pathsObj[path] as PathsObject;
+
+      for (const property in object) {
+        const operation = oas.operation(path, property as HttpMethods);
+        const har = oasToHar(oas, operation);
+
+        const formData = {
+          query: { sort: "desc" },
+        };
+        const auth = {
+          oauth2: "bearerToken",
+        };
+        const language = "curl";
+        const { code } = oasToSnippet(
+          oas,
+          operation,
+          formData,
+          auth,
+          "javascript"
+        );
+
+        console.log(code);
+      }
+    }
+  });
+
   const operation = oas.operation("/app-compatibility", "get");
   const har = oasToHar(oas, operation);
 
@@ -79,7 +144,7 @@ export default function Component({
     oauth2: "bearerToken",
   };
   const language = "curl";
-  const { code } = oasToSnippet(oas, operation, formData, auth, language);
+  const { code } = oasToSnippet(oas, operation, formData, auth, "curl");
 
   return (
     <>
@@ -90,19 +155,19 @@ export default function Component({
         content={
           <>
             <DocumentationLayout.MDX />
-            <CodePreview
+            {/* <CodePreview
               codeExample={{
                 code: code as string,
                 language: "bash",
-                isLongCode: false,
+                isLongCode: true,
                 request: har.log.entries[0].request,
               }}
             >
               <CodePreview.Request />
-            </CodePreview>
+            </CodePreview> */}
+            <MDXRemote {...description} />
           </>
         }
-        footer={<DocumentationLayout.Footer />}
         data={{
           mdxContent: {
             document,

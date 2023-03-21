@@ -8326,6 +8326,11 @@ content-disposition@0.5.4:
   dependencies:
     safe-buffer "5.2.1"
 
+content-type@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.5.tgz#8b773162656d1d1086784c8f23a54ce6d73d7918"
+  integrity sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA==
+
 content-type@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.5.tgz#8b773162656d1d1086784c8f23a54ce6d73d7918"
@@ -12344,6 +12349,14 @@ https-proxy-agent@^2.1.0:
     debug "^3.1.0"
 
 httpsnippet-client-api@^5.0.7:
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/httpsnippet-client-api/-/httpsnippet-client-api-5.0.8.tgz#f2c4aca19d6a75f5e34afdba1fd30b42f686f9a3"
+  integrity sha512-7UUHKUgboXnA1ufHPpT8c4buLvPJa7Uyb0h70dB+xC+J/z4Aghn3jll/p0YqSEhgtUq2e6zujaMBFozhPHUtcw==
+  dependencies:
+    content-type "^1.0.5"
+    stringify-object "^3.3.0"
+
+httpsnippet-client-api@^5.0.7:
   version "5.0.7"
   resolved "https://registry.yarnpkg.com/httpsnippet-client-api/-/httpsnippet-client-api-5.0.7.tgz#2fef5e4d2d373ae0b2c28cc2339da7c4c37e2603"
   integrity sha512-ywrG0gTLwzJHQvAJZ9v6qN0hC0sq/e9FhlRF8Ag8VDhwNqfvz6l8W5uuRXU/XnDtGgRsYSdW+Mbr52asY8BWng==
@@ -16357,6 +16370,79 @@ nwsapi@^2.2.0:
   version "2.2.1"
   resolved "https://registry.npmjs.org/nwsapi/-/nwsapi-2.2.1.tgz"
   integrity sha512-JYOWTeFoS0Z93587vRJgASD5Ut11fYl5NyihP3KrYBvMe1FRRs6RN7m20SA/16GM4P6hTnZjT+UmDOt38UeXNg==
+
+oas-kit-common@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/oas-kit-common/-/oas-kit-common-1.0.8.tgz#6d8cacf6e9097967a4c7ea8bcbcbd77018e1f535"
+  integrity sha512-pJTS2+T0oGIwgjGpw7sIRU8RQMcUoKCDWFLdBqKB2BNmGpbBMH2sdqAaOXUg8OzonZHU0L7vfJu1mJFEiYDWOQ==
+  dependencies:
+    fast-safe-stringify "^2.0.7"
+
+oas-linter@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/oas-linter/-/oas-linter-3.2.2.tgz#ab6a33736313490659035ca6802dc4b35d48aa1e"
+  integrity sha512-KEGjPDVoU5K6swgo9hJVA/qYGlwfbFx+Kg2QB/kd7rzV5N8N5Mg6PlsoCMohVnQmo+pzJap/F610qTodKzecGQ==
+  dependencies:
+    "@exodus/schemasafe" "^1.0.0-rc.2"
+    should "^13.2.1"
+    yaml "^1.10.0"
+
+oas-normalize@^8.3.2, oas-normalize@^8.3.3:
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/oas-normalize/-/oas-normalize-8.3.4.tgz#5783fb0a9de33e9e4ad0d6f50b225d310285e928"
+  integrity sha512-aPc2Y+zBD5Sv/CGuv/g0FWCsq1Ze2Rle+Se4G/JbytzBDCoo0m/Krk6gEt+o5dDw7mwbsVtnumhBmOhTWj/a8g==
+  dependencies:
+    "@readme/openapi-parser" "^2.4.0"
+    "@readme/postman-to-openapi" "^4.0.0"
+    js-yaml "^4.1.0"
+    node-fetch "^2.6.1"
+    openapi-types "^12.1.0"
+    swagger2openapi "^7.0.8"
+
+oas-resolver@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/oas-resolver/-/oas-resolver-2.5.6.tgz#10430569cb7daca56115c915e611ebc5515c561b"
+  integrity sha512-Yx5PWQNZomfEhPPOphFbZKi9W93CocQj18NlD2Pa4GWZzdZpSJvYwoiuurRI7m3SpcChrnO08hkuQDL3FGsVFQ==
+  dependencies:
+    node-fetch-h2 "^2.3.0"
+    oas-kit-common "^1.0.8"
+    reftools "^1.1.9"
+    yaml "^1.10.0"
+    yargs "^17.0.1"
+
+oas-schema-walker@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/oas-schema-walker/-/oas-schema-walker-1.1.5.tgz#74c3cd47b70ff8e0b19adada14455b5d3ac38a22"
+  integrity sha512-2yucenq1a9YPmeNExoUa9Qwrt9RFkjqaMAA1X+U7sbb0AqBeTIdMHky9SQQ6iN94bO5NW0W4TRYXerG+BdAvAQ==
+
+oas-validator@^5.0.8:
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/oas-validator/-/oas-validator-5.0.8.tgz#387e90df7cafa2d3ffc83b5fb976052b87e73c28"
+  integrity sha512-cu20/HE5N5HKqVygs3dt94eYJfBi0TsZvPVXDhbXQHiEityDN+RROTleefoKRKKJ9dFAF2JBkDHgvWj0sjKGmw==
+  dependencies:
+    call-me-maybe "^1.0.1"
+    oas-kit-common "^1.0.8"
+    oas-linter "^3.2.2"
+    oas-resolver "^2.5.6"
+    oas-schema-walker "^1.1.5"
+    reftools "^1.1.9"
+    should "^13.2.1"
+    yaml "^1.10.0"
+
+oas@^20.5.0, oas@^20.5.3:
+  version "20.5.3"
+  resolved "https://registry.yarnpkg.com/oas/-/oas-20.5.3.tgz#be63e03cb6f91620f37dbadc54600b3618ee46ec"
+  integrity sha512-HrLf4ARLUDfzZ6wC3L1/0MAG+izCfH4OB/RtwsEkzN26ptjmLxifadFC1D2vsXNfdd6oztt1ZbLpYekcBUY+cQ==
+  dependencies:
+    "@readme/json-schema-ref-parser" "^1.2.0"
+    "@types/json-schema" "^7.0.11"
+    json-schema-merge-allof "^0.8.1"
+    jsonpath-plus "^7.2.0"
+    jsonpointer "^5.0.0"
+    memoizee "^0.4.14"
+    oas-normalize "^8.3.2"
+    openapi-types "^12.1.0"
+    path-to-regexp "^6.2.0"
 
 oas-kit-common@^1.0.8:
   version "1.0.8"
