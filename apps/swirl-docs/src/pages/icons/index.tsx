@@ -28,7 +28,7 @@ const IconsIndex = () => {
   const iconsArray = Object.keys(icons);
 
   const { asPath } = useRouter();
-  const router = useRouter();
+  // const router = useRouter();
   const [searchWord, setSearchWord] = useState("");
   const [selectedIcon, setSelectedIcon] = useState<IconData>(icons["Add"]);
 
@@ -42,7 +42,9 @@ const IconsIndex = () => {
     if (iconName) {
       setSelectedIcon(icons[iconName]);
     }
-  }, [router, asPath, icons]);
+    // todo: Ask Adam why/is router needed here
+    // }, [router, asPath, icons]);
+  }, [asPath, icons]);
 
   return (
     <>

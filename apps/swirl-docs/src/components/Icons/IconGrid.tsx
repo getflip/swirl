@@ -2,7 +2,7 @@ import useDynamicRefs, {
   handleGridKeyDown,
 } from "@swirl/lib/hooks/useDynamicRefs";
 import classNames from "classnames";
-import { FunctionComponent, LegacyRef } from "react";
+import { FunctionComponent, LegacyRef, useEffect, useMemo } from "react";
 import Grid from "src/components/Grid";
 import { IconsMetaData } from "src/pages/components";
 import { IconData } from "src/pages/icons";
@@ -12,6 +12,7 @@ interface IconGridProps {
   iconList: string[];
   icons: IconsMetaData;
   selectedIcon: IconData;
+  handleTileFocus: (event: any) => void;
   handleTileClick: (iconName: string) => void;
 }
 
@@ -19,9 +20,21 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
   iconList,
   icons,
   selectedIcon,
+  handleTileFocus,
   handleTileClick,
 }) => {
   const [getRef, setRef] = useDynamicRefs();
+  const map = useMemo(() => new Map<string, React.RefObject<unknown>>(), []);
+
+  useEffect(() => {
+    console.log("icons change", iconList.length);
+    // map.forEach((ref: React.RefObject<any>) => {
+    //   if (ref.current) ref.current.tabIndex = -1;
+    // });
+
+    const firstRef = map.get(iconList[0]) as React.RefObject<any>;
+    if (firstRef.current) firstRef.current.tabIndex = 0;
+  }, [iconList, map]);
 
   return (
     <Grid
@@ -41,10 +54,11 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
           role="gridcell"
           icon={icon}
           icons={icons}
-          reference={setRef(icon) as LegacyRef<HTMLAnchorElement>}
+          reference={setRef(icon, map) as LegacyRef<HTMLAnchorElement>}
           handleTileClick={() => handleTileClick(icons[icon]?.name)}
+          handleTileFocus={() => handleTileFocus(icons[icon]?.name)}
           handleKeyDown={(event) =>
-            handleGridKeyDown(event, { data: iconList, index }, getRef)
+            handleGridKeyDown(event, { data: iconList, index }, map, getRef)
           }
         />
       ))}

@@ -5,8 +5,6 @@ type GridCellData = {
   data: string[];
 };
 
-const map = new Map<string, React.RefObject<unknown>>();
-
 /**
  * Checks the key pressed and moves the focus to the next or previous cell.
  * @param event Keyboard event
@@ -17,18 +15,24 @@ const map = new Map<string, React.RefObject<unknown>>();
 export const handleGridKeyDown = (
   event: React.KeyboardEvent,
   gridCellData: GridCellData,
-  getRefFn: (key: string) => void | React.RefObject<any>
+  map: Map<string, React.RefObject<unknown>>,
+  getRefFn: (
+    key: string,
+    map: Map<string, React.RefObject<unknown>>
+  ) => void | React.RefObject<any>
 ) => {
   handlePreventScroll(event);
   const currentRef = getRefFn(
-    gridCellData.data[gridCellData.index]
+    gridCellData.data[gridCellData.index],
+    map
   ) as React.RefObject<any>;
 
   switch (event.key) {
     case "ArrowRight":
     case "ArrowDown":
       const nextRef = getRefFn(
-        gridCellData.data[gridCellData.index + 1]
+        gridCellData.data[gridCellData.index + 1],
+        map
       ) as React.RefObject<any>;
       if (gridCellData.index === gridCellData.data.length - 1) return;
 
@@ -39,7 +43,8 @@ export const handleGridKeyDown = (
     case "ArrowLeft":
     case "ArrowUp":
       const previousRef = getRefFn(
-        gridCellData.data[gridCellData.index - 1]
+        gridCellData.data[gridCellData.index - 1],
+        map
       ) as React.RefObject<any>;
       if (gridCellData.index === 0) return;
 
@@ -47,16 +52,16 @@ export const handleGridKeyDown = (
       previousRef.current.tabIndex = 0;
       previousRef.current.focus();
       break;
-    case "Tab":
-      if (event.shiftKey) {
-        const firstRef = getRefFn(gridCellData.data[0]) as React.RefObject<any>;
-        if (gridCellData.index === 0) return;
+    // case "Tab":
+    //   if (event.shiftKey) {
+    //     const firstRef = getRefFn(gridCellData.data[0]) as React.RefObject<any>;
+    //     if (gridCellData.index === 0) return;
 
-        currentRef.current.tabIndex = -1;
-        firstRef.current.tabIndex = 0;
-        firstRef.current.focus();
-      }
-      break;
+    //     currentRef.current.tabIndex = -1;
+    //     firstRef.current.tabIndex = 0;
+    //     firstRef.current.focus();
+    //   }
+    //   break;
   }
 };
 
@@ -72,12 +77,19 @@ function handlePreventScroll(event: React.KeyboardEvent): void {
   }
 }
 
-function getRef<T>(key: string): React.RefObject<T> | undefined | void {
+function getRef<T>(
+  key: string,
+  map: Map<string, React.RefObject<unknown>>
+): React.RefObject<T> | undefined | void {
   if (!key) return console.warn(`useDynamicRefs: Cannot get ref without key`);
   return map.get(key) as React.RefObject<T>;
 }
 
-function setRef<T>(key: string): React.RefObject<T> | void {
+function setRef<T>(
+  key: string,
+  map: Map<string, React.RefObject<unknown>>
+): React.RefObject<T> | void {
+  console.log("setRef", key);
   if (!key) return console.warn(`useDynamicRefs: Cannot set ref without key `);
   const ref = React.createRef<T>();
   map.set(key, ref);
@@ -85,8 +97,14 @@ function setRef<T>(key: string): React.RefObject<T> | void {
 }
 
 function useDynamicRefs<T>(): [
-  (key: string) => void | React.RefObject<T>,
-  (key: string) => void | React.RefObject<T>
+  (
+    key: string,
+    map: Map<string, React.RefObject<unknown>>
+  ) => void | React.RefObject<T>,
+  (
+    key: string,
+    map: Map<string, React.RefObject<unknown>>
+  ) => void | React.RefObject<T>
 ] {
   return [getRef, setRef];
 }

@@ -17,6 +17,7 @@ interface IconGridProps {
   index: number;
   isSelected: boolean;
   handleTileClick: (iconName: string) => void;
+  handleTileFocus: (iconName: string) => void;
   handleKeyDown: (event: any) => void;
 }
 
@@ -29,6 +30,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
   index,
   isSelected,
   handleKeyDown,
+  handleTileFocus,
   handleTileClick,
 }) => {
   return (
@@ -50,6 +52,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
             { "bg-background-hovered": isSelected }
           )}
           onKeyDown={(event) => handleKeyDown(event)}
+          onFocus={() => handleTileFocus(icons[icon]?.name)}
           onClick={() => handleTileClick(icons[icon]?.name)}
         >
           <i
