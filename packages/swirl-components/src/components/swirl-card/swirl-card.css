@@ -44,6 +44,10 @@ button.card,
   }
 }
 
+.card--borderless {
+  border: 0px;
+}
+
 .card--elevated {
   border-color: transparent;
   box-shadow: 0 0.75rem 1rem rgba(25, 26, 28, 0.12),
