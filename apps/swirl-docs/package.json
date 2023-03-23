@@ -6,7 +6,6 @@
   "description": "Swirl documentation",
   "licence": "SEE LICENCE IN LICENSE.md",
   "repository": "https://github.com/getflip/swirl",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/getflip/swirl/issues"
   },
@@ -15,6 +14,7 @@
     "build": "next build",
     "build:swirl-docs": "next build",
     "postbuild": "tsx src/scripts/build-search.ts",
+    "build:spec-documentation": "tsx src/scripts/build-spec-documentation.ts",
     "start": "next start",
     "lint": "next lint"
   },
