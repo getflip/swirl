@@ -13,7 +13,7 @@
   margin: 0;
   padding: 0;
   border: var(--s-border-width-default) solid var(--s-border-default);
-  border-radius: var(--s-border-radius-base);
+  border-radius: var(--s-border-radius-xl);
   color: var(--s-text-default);
   background-color: var(--s-surface-default);
   font: inherit;
