@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.33.1
+
+### Patch Changes
+
+- [#211](https://github.com/getflip/swirl/pull/211)
+  [`84e5345`](https://github.com/getflip/swirl/commit/84e5345032c7391a11b3afba2e252aa3bea9bcf9)
+  Thanks [@martinneumann](https://github.com/martinneumann)! - Add a prop for
+  borderless cards; fix visibility of carousel buttons on iOS
+
+- Updated dependencies
+  [[`84e5345`](https://github.com/getflip/swirl/commit/84e5345032c7391a11b3afba2e252aa3bea9bcf9)]:
+  - @getflip/swirl-components@0.34.1
+
 ## 0.33.0
 
 ### Minor Changes
