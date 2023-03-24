@@ -816,10 +816,6 @@
           "description": ""
         },
         {
-          "name": "borderless",
-          "description": ""
-        },
-        {
           "name": "elevated",
           "description": ""
         },
@@ -841,6 +837,10 @@
         },
         {
           "name": "interactive",
+          "description": ""
+        },
+        {
+          "name": "is-borderless",
           "description": ""
         },
         {

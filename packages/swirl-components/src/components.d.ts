@@ -243,13 +243,13 @@ export namespace Components {
     interface SwirlCard {
         "as"?: string;
         "borderRadius"?: SwirlCardBorderRadius;
-        "borderless"?: boolean;
         "elevated"?: boolean;
         "height"?: string;
         "highlighted"?: boolean;
         "href"?: string;
         "imageAspectRatio"?: string;
         "interactive"?: boolean;
+        "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
         "swirlAriaLabel"?: string;
@@ -2806,13 +2806,13 @@ declare namespace LocalJSX {
     interface SwirlCard {
         "as"?: string;
         "borderRadius"?: SwirlCardBorderRadius;
-        "borderless"?: boolean;
         "elevated"?: boolean;
         "height"?: string;
         "highlighted"?: boolean;
         "href"?: string;
         "imageAspectRatio"?: string;
         "interactive"?: boolean;
+        "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
         "swirlAriaLabel"?: string;

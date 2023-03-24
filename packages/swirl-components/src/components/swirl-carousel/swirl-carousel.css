@@ -71,14 +71,14 @@
   z-index: 1;
   top: calc(50% - var(--s-space-12));
   left: var(--s-space-4);
-  display: none;
+  visibility: hidden;
   transition: opacity 0.2s;
   transform: translateY(-50%) scale(0.72);
   pointer-events: none;
   opacity: 0;
 
   @media (--from-tablet) {
-    display: inline-block;
+    visibility: visible;
   }
 }
 
@@ -87,13 +87,13 @@
   z-index: 1;
   top: calc(50% - var(--s-space-12));
   right: var(--s-space-4);
-  display: none;
+  visibility: hidden;
   transition: opacity 0.2s;
   transform: translateY(-50%) scale(0.72);
   pointer-events: none;
   opacity: 0;
 
   @media (--from-tablet) {
-    display: inline-block;
+    visibility: visible;
   }
 }
