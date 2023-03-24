@@ -44,7 +44,7 @@ button.card,
   }
 }
 
-.card--borderless {
+.card--is--borderless {
   border: 0px;
 }
 

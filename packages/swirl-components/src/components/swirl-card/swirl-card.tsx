@@ -31,7 +31,7 @@ export class SwirlCard {
   @Prop() justifyContent?: SwirlCardJustifyContent = "start";
   @Prop() linkTarget?: string;
   @Prop() swirlAriaLabel?: string;
-  @Prop() borderless?: boolean;
+  @Prop() isBorderless?: boolean;
 
   render() {
     const Tag = Boolean(this.href) ? "a" : this.as;
@@ -55,7 +55,7 @@ export class SwirlCard {
         "card--has-image": hasImage,
         "card--highlighted": this.highlighted,
         "card--interactive": this.interactive || this.href,
-        "card--borderless": this.borderless,
+        "card--is--borderless": this.isBorderless,
       }
     );
 
