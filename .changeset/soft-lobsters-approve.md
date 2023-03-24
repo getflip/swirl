@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": patch
 ---
 
-Adjust cards to have xl border radius; add a prop for borderless cards
+Add a prop for borderless cards; fix visibility of carousel buttons on iOS
