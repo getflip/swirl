@@ -840,6 +840,10 @@
           "description": ""
         },
         {
+          "name": "is-borderless",
+          "description": ""
+        },
+        {
           "name": "justify-content",
           "description": "",
           "values": [

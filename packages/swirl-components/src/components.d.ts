@@ -249,6 +249,7 @@ export namespace Components {
         "href"?: string;
         "imageAspectRatio"?: string;
         "interactive"?: boolean;
+        "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
         "swirlAriaLabel"?: string;
@@ -2811,6 +2812,7 @@ declare namespace LocalJSX {
         "href"?: string;
         "imageAspectRatio"?: string;
         "interactive"?: boolean;
+        "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
         "swirlAriaLabel"?: string;
