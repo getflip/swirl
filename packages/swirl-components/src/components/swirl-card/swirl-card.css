@@ -45,7 +45,7 @@ button.card,
 }
 
 .card--is--borderless {
-  border: 0px;
+  border: 0;
 }
 
 .card--elevated {

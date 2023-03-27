@@ -27,11 +27,11 @@ export class SwirlCard {
   @Prop() highlighted?: boolean;
   @Prop() href?: string;
   @Prop() imageAspectRatio?: string;
+  @Prop() isBorderless?: boolean;
   @Prop() interactive?: boolean;
   @Prop() justifyContent?: SwirlCardJustifyContent = "start";
   @Prop() linkTarget?: string;
   @Prop() swirlAriaLabel?: string;
-  @Prop() isBorderless?: boolean;
 
   render() {
     const Tag = Boolean(this.href) ? "a" : this.as;
