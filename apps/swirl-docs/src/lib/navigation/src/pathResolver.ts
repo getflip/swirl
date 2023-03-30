@@ -5,6 +5,8 @@ export const SWIRL_COMPONENTS_PATH = path.resolve(
   `../../packages/swirl-components/src/components`
 );
 
+export const API_SPEC_PATH = path.resolve(`${process.cwd()}/specs`);
+
 export function generatePagesPath(category: string): string {
   return path.resolve(`src/pages/${category}`);
 }

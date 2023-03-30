@@ -1,16 +1,7 @@
 import Oas, { Operation } from "oas";
 import OASNormalize from "oas-normalize";
 import { HttpMethods, OASDocument, PathsObject } from "oas/dist/rmoas.types";
-
-export type Endpoint = {
-  title: string;
-  path: string;
-  operation: Operation;
-};
-
-export type Operations = {
-  [K in HttpMethods]?: Endpoint[];
-};
+import { Operations } from "./docs.model";
 
 export default class OASBuilder {
   private _promisedOAS: Promise<OASDocument>;

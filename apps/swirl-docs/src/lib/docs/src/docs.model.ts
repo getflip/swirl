@@ -1,3 +1,6 @@
+import Oas, { Operation } from "oas";
+import { HttpMethods } from "oas/dist/rmoas.types";
+
 export enum DOCUMENTATION_SRC {
   PAGES = "pages",
   DOCUMENTATION = "documentation",
@@ -65,4 +68,21 @@ export type ComponentExample = {
   description: string;
   url: string;
   title: string;
+};
+
+export type Endpoint = {
+  title: string;
+  path: string;
+  operation: Operation;
+};
+
+export type Operations = {
+  [K in HttpMethods]?: Endpoint[];
+};
+
+export type ApiDoc = {
+  title: string;
+  path: string;
+  oas?: Oas;
+  operations?: Operations;
 };
