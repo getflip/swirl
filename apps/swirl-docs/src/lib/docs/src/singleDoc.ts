@@ -32,6 +32,17 @@ export async function generateMdxFromDocumentation(
   return serializeAwait;
 }
 
+export function serializeMarkdownString(source: string) {
+  return serialize(source, {
+    parseFrontmatter: true,
+    mdxOptions: {
+      rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+      remarkPlugins: [remarkGfm, sectionize],
+      format: "mdx",
+    },
+  });
+}
+
 export function generateSerializableDocumentation(
   category: DocumentationCategory,
   document: string

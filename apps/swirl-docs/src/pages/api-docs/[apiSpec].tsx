@@ -1,29 +1,30 @@
-import {
-  ApiDoc,
-  createStaticPathsData,
-  createStaticPathsForSpecs,
-} from "@swirl/lib/docs";
+import { ApiDoc, createStaticPathsForSpecs } from "@swirl/lib/docs";
 import Head from "next/head";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
-import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
-import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
-import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
+import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
-
-// async function getMdxData(document: string) {
-//   return await generateMdxFromDocumentation("apiDocs", document);
-// }
+import OASNormalize from "oas-normalize";
+import { OASDocument } from "oas/dist/rmoas.types";
+import { serializeMarkdownString } from "@swirl/lib/docs/src/singleDoc";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 async function getSpecData(spec: string): Promise<ApiDoc> {
   const specPath = `${API_SPEC_PATH}/${spec.replace("-", "_")}.yml`;
+  // TO DO : Implement Builder based on definition and not only spec path (maybe a factory function?)
   const oasBuilder = await new OASBuilder(specPath).parseOAS();
-  oasBuilder.setTitleAndPath().setDescription().setPaths().setOperations();
+  const oasDefinition = (await new OASNormalize(specPath, {
+    enablePaths: true,
+  }).validate()) as OASDocument;
+
+  oasBuilder.setTitleAndPath().setDescription();
+
   return {
     title: oasBuilder.title,
     path: oasBuilder.path,
+    definition: oasDefinition,
   };
 }
 
@@ -44,11 +45,21 @@ export const getStaticProps: GetStaticProps<
 
   const document = await getSpecData(apiSpec);
 
+  const markdownString = document.definition?.info.description
+    ?.replace("<SecurityDefinitions />", "")
+    .replaceAll("user_external_id", "123")
+    .replaceAll("postId", "123")
+    .replaceAll("commentId", "123")
+    .replaceAll("attachment_id", "123");
+
+  const markdown = await serializeMarkdownString(markdownString!);
+
   console.log("document title", document.title);
 
   return {
     props: {
       document,
+      markdown,
       title: document.title,
     },
   };
@@ -56,9 +67,14 @@ export const getStaticProps: GetStaticProps<
 
 export default function Document({
   document,
+  markdown,
   title,
 }: {
   document: ApiDoc;
+  markdown: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
   title: string;
 }) {
   console.log(document);
@@ -69,8 +85,16 @@ export default function Document({
         <title>{`API | ${title}`}</title>
       </Head>
       <DocumentationLayout
-        content={<h1>Hello World</h1>}
+        content={
+          <>
+            <h1>{document.title}</h1>
+            <DocumentationLayout.MDX />
+          </>
+        }
         data={{
+          mdxContent: {
+            document: markdown,
+          },
           navigationLinks: apiDocsNavItems,
         }}
       />

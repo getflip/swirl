@@ -1,5 +1,5 @@
 import Oas, { Operation } from "oas";
-import { HttpMethods } from "oas/dist/rmoas.types";
+import { HttpMethods, OASDocument } from "oas/dist/rmoas.types";
 
 export enum DOCUMENTATION_SRC {
   PAGES = "pages",
@@ -83,6 +83,7 @@ export type Operations = {
 export type ApiDoc = {
   title: string;
   path: string;
+  definition?: OASDocument;
   oas?: Oas;
   operations?: Operations;
 };

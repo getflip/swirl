@@ -1,4 +1,4 @@
-import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
+import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
 import { ApiDoc } from "@swirl/lib/docs";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
 
