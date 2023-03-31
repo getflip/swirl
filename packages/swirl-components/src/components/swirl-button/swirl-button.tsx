@@ -121,7 +121,7 @@ export class SwirlButton {
     const Tag = isLink ? "a" : "button";
 
     return (
-      <Host>
+      <Host style={{ pointerEvents: this.disabled ? "none" : "" }}>
         <Tag
           aria-describedby={this.swirlAriaDescribedby}
           aria-disabled={this.disabled && !isLink ? "true" : undefined}
