@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.34.2
+
+### Patch Changes
+
+- [`86228a6`](https://github.com/getflip/swirl/commit/86228a635cac36a60e244f52d2058a3c17538d54)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent disabled swirl-button
+  from firing click event
+
 ## 0.34.1
 
 ### Patch Changes
