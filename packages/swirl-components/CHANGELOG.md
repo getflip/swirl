@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.34.3
+
+### Patch Changes
+
+- [`9caddb5`](https://github.com/getflip/swirl/commit/9caddb536daa62a3df7ab9ac3e5ff75d4c171148)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-text multi-line
+  truncation in iOS Safari
+
 ## 0.34.2
 
 ### Patch Changes
