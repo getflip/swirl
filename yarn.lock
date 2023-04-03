@@ -19570,6 +19570,11 @@ shallowequal@^1.1.0:
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
   integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
 
+shave@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/shave/-/shave-5.0.2.tgz#6583aaddb955ff10811e18a8d6618749d44faf18"
+  integrity sha512-WNNGhtWrFumzDDJiCcpWAUMqfGP1WcX2gBQ1VEd2qiiezFvI0RNjc5mOF7xQU/DFJy2YQIK2j1xgZdOgUl+Png==
+
 shebang-command@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/shebang-command/-/shebang-command-1.2.0.tgz"
