@@ -28,6 +28,7 @@ import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-f
 import { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
+import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 import { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 import { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
@@ -72,6 +73,7 @@ export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-f
 export { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
+export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 export { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 export { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
@@ -801,6 +803,11 @@ export namespace Components {
     interface SwirlInlineError {
         "message": string;
         "size"?: SwirlInlineErrorSize;
+    }
+    interface SwirlInlineNotification {
+        "heading": string;
+        "importance"?: SwirlInlineNotificationAriaRole;
+        "intent"?: SwirlInlineNotificationIntent;
     }
     interface SwirlLightbox {
         /**
@@ -2211,6 +2218,12 @@ declare global {
         prototype: HTMLSwirlInlineErrorElement;
         new (): HTMLSwirlInlineErrorElement;
     };
+    interface HTMLSwirlInlineNotificationElement extends Components.SwirlInlineNotification, HTMLStencilElement {
+    }
+    var HTMLSwirlInlineNotificationElement: {
+        prototype: HTMLSwirlInlineNotificationElement;
+        new (): HTMLSwirlInlineNotificationElement;
+    };
     interface HTMLSwirlLightboxElement extends Components.SwirlLightbox, HTMLStencilElement {
     }
     var HTMLSwirlLightboxElement: {
@@ -2621,6 +2634,7 @@ declare global {
         "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
         "swirl-icon-warning": HTMLSwirlIconWarningElement;
         "swirl-inline-error": HTMLSwirlInlineErrorElement;
+        "swirl-inline-notification": HTMLSwirlInlineNotificationElement;
         "swirl-lightbox": HTMLSwirlLightboxElement;
         "swirl-link": HTMLSwirlLinkElement;
         "swirl-list": HTMLSwirlListElement;
@@ -3322,6 +3336,11 @@ declare namespace LocalJSX {
         "message": string;
         "size"?: SwirlInlineErrorSize;
     }
+    interface SwirlInlineNotification {
+        "heading": string;
+        "importance"?: SwirlInlineNotificationAriaRole;
+        "intent"?: SwirlInlineNotificationIntent;
+    }
     interface SwirlLightbox {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
@@ -3817,6 +3836,7 @@ declare namespace LocalJSX {
         "swirl-icon-visibility-off": SwirlIconVisibilityOff;
         "swirl-icon-warning": SwirlIconWarning;
         "swirl-inline-error": SwirlInlineError;
+        "swirl-inline-notification": SwirlInlineNotification;
         "swirl-lightbox": SwirlLightbox;
         "swirl-link": SwirlLink;
         "swirl-list": SwirlList;
@@ -4014,6 +4034,7 @@ declare module "@stencil/core" {
             "swirl-icon-visibility-off": LocalJSX.SwirlIconVisibilityOff & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
             "swirl-icon-warning": LocalJSX.SwirlIconWarning & JSXBase.HTMLAttributes<HTMLSwirlIconWarningElement>;
             "swirl-inline-error": LocalJSX.SwirlInlineError & JSXBase.HTMLAttributes<HTMLSwirlInlineErrorElement>;
+            "swirl-inline-notification": LocalJSX.SwirlInlineNotification & JSXBase.HTMLAttributes<HTMLSwirlInlineNotificationElement>;
             "swirl-lightbox": LocalJSX.SwirlLightbox & JSXBase.HTMLAttributes<HTMLSwirlLightboxElement>;
             "swirl-link": LocalJSX.SwirlLink & JSXBase.HTMLAttributes<HTMLSwirlLinkElement>;
             "swirl-list": LocalJSX.SwirlList & JSXBase.HTMLAttributes<HTMLSwirlListElement>;
