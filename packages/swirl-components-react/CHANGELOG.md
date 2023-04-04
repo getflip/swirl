@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.34.0
+
+### Minor Changes
+
+- [`d59d273`](https://github.com/getflip/swirl/commit/d59d273d7fd4e40697f6e6ebc00a62ffb585dea7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add padding props to swirl-card
+  component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d59d273`](https://github.com/getflip/swirl/commit/d59d273d7fd4e40697f6e6ebc00a62ffb585dea7)]:
+  - @getflip/swirl-components@0.35.0
+
 ## 0.33.3
 
 ### Patch Changes
