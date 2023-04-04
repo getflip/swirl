@@ -3,9 +3,18 @@ import OASNormalize from "oas-normalize";
 import { HttpMethods, OASDocument, PathsObject } from "oas/dist/rmoas.types";
 import { Operations } from "./docs.model";
 
-export default class OASBuilder {
-  private _promisedOAS: Promise<OASDocument>;
-  private _oas: Oas = new Oas({} as OASDocument);
+interface IOASBuilder {
+  title: string;
+  path: string;
+  description: string;
+  endpoints: PathsObject;
+  operations: Operations;
+  tags: string[];
+}
+
+export default class OASBuilder implements IOASBuilder {
+  private _oasDocument: OASDocument;
+  private _oasBuilder: Oas = new Oas({} as OASDocument);
 
   public title: string = "";
   public path: string = "";
@@ -14,45 +23,45 @@ export default class OASBuilder {
   public operations: Operations = {};
   public tags: string[] = [];
 
-  constructor(specPath: string) {
-    const oas = new OASNormalize(specPath, { enablePaths: true });
-    this._promisedOAS = oas.validate() as Promise<OASDocument>;
+  constructor(oasDocument: OASDocument) {
+    this._oasDocument = oasDocument;
+    this._oasBuilder = new Oas(oasDocument);
     return this;
   }
 
   public get oas() {
-    return this._oas;
+    return this._oasBuilder;
   }
 
-  public async parseOAS() {
-    const definition = await this._promisedOAS;
-    this._oas = new Oas(definition);
-    return this;
+  public get oasDocument() {
+    return this._oasDocument;
   }
 
   public setDescription() {
-    this.description = this._oas.api.info.description as string;
+    this.description = this._oasBuilder.api.info.description as string;
     return this;
   }
 
-  public setPaths() {
-    this.endpoints = this._oas.api.paths as PathsObject;
+  public setEndpoints() {
+    this.endpoints = this._oasBuilder.api.paths as PathsObject;
     return this;
   }
 
   public setTitleAndPath() {
-    this.title = this._oas.api.info.title;
+    this.title = this._oasBuilder.api.info.title;
     this.path = this.title.toLowerCase().replaceAll(" ", "-");
     return this;
   }
 
   public setOperations() {
+    if (Object.keys(this.endpoints).length === 0)
+      throw new Error("Endpoints not set");
     for (const path in this.endpoints) {
       const operationInPaths = this.endpoints[path];
       const methods = Object.keys(operationInPaths!) as HttpMethods[];
 
       methods.forEach((operation) => {
-        const oasOperation = this._oas.operation(path, operation);
+        const oasOperation = this._oasBuilder.operation(path, operation);
         if (!this.operations[operation]) {
           this.operations[operation] = [];
         }
@@ -70,7 +79,7 @@ export default class OASBuilder {
   }
 
   public setTags() {
-    this.tags = this._oas.getTags();
+    this.tags = this._oasBuilder.getTags();
     return this;
   }
 }

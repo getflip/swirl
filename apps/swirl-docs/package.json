@@ -14,7 +14,7 @@
     "build": "next build",
     "build:swirl-docs": "next build",
     "postbuild": "tsx src/scripts/build-search.ts",
-    "build:spec-documentation": "tsx src/scripts/build-spec-documentation.ts",
+    "build:spec-navigation": "tsx src/scripts/build-spec-documentation.ts && prettier --write src/lib/navigation/src/data/apiDocs.data.ts",
     "start": "next start",
     "lint": "next lint"
   },

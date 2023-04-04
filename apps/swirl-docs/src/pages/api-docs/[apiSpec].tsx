@@ -13,18 +13,17 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 async function getSpecData(spec: string): Promise<ApiDoc> {
   const specPath = `${API_SPEC_PATH}/${spec.replace("-", "_")}.yml`;
-  // TO DO : Implement Builder based on definition and not only spec path (maybe a factory function?)
-  const oasBuilder = await new OASBuilder(specPath).parseOAS();
-  const oasDefinition = (await new OASNormalize(specPath, {
+  const oasDocument = await new OASNormalize(specPath, {
     enablePaths: true,
-  }).validate()) as OASDocument;
+  }).validate();
+  const oasBuilder = await new OASBuilder(oasDocument);
 
-  oasBuilder.setTitleAndPath().setDescription();
+  oasBuilder.setTitleAndPath().setDescription().setEndpoints().setOperations();
 
   return {
     title: oasBuilder.title,
     path: oasBuilder.path,
-    definition: oasDefinition,
+    definition: oasBuilder.oasDocument,
   };
 }
 
@@ -77,7 +76,16 @@ export default function Document({
   >;
   title: string;
 }) {
-  console.log(document);
+  if (document.definition) {
+    console.log("oasBuilder");
+    const oasBuilder = new OASBuilder(document.definition)
+      .setEndpoints()
+      .setOperations();
+
+    // create a function to get a stripped down operations object that makes it possible to build the navigation for the API docs
+
+    console.log("operation", oasBuilder.operations);
+  }
 
   return (
     <>
