@@ -5,6 +5,9 @@ import classNames from "classnames";
 import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
 import { Tag, mapHttpMethodToTagScheme } from "../Tags";
 import { HttpMethods } from "oas/dist/rmoas.types";
+import Image from "next/image";
+
+import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
 
 export function CategoryNav() {
   const { navigationLinks: categoryLinkList } = useDocumentationLayoutContext();
@@ -29,11 +32,16 @@ export function CategoryNav() {
   //   </ul>
   // );
 
+  // TO DO: implement li design for a root element. currently it works somehow, but does not have the correct design... paddings, margins, etc.
+  // therefore a accordion is not possible right now
+  // and this line for showing that somethin is part of a category is missing
+
   const SubElement = ({ navItem }: { navItem: NavItem }) => (
     <li className={classNames("mb-4")}>
       <Link href={`${navItem.url}`}>
         <a
           className={classNames(
+            "flex justify-between items-center",
             "text-sm capitalize",
             "hover:text-border-info",
             {
@@ -42,7 +50,8 @@ export function CategoryNav() {
             }
           )}
         >
-          {navItem.title}
+          <span>{navItem.title}</span>
+          <Image alt="" src={icon.src} width={24} height={24} />
         </a>
       </Link>
       {navItem.children && (
