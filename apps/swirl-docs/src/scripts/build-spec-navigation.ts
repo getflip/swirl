@@ -17,27 +17,6 @@ export const apiDocsNavItems: NavItem[] = [
 `;
 }
 
-let docs: ApiDoc[] = [];
-
-async function generateApiDoc(specPath: string) {
-  const oasDocument = await new OASNormalize(specPath, {
-    enablePaths: true,
-  }).validate();
-
-  const oasBuilder = new OASBuilder(oasDocument)
-    .setTitleAndPath()
-    .setDescription()
-    .setEndpoints()
-    .setOperations();
-
-  docs.push({
-    title: oasBuilder.title,
-    oas: oasBuilder.oas,
-    path: oasBuilder.path,
-    operations: oasBuilder.operations,
-  });
-}
-
 async function generateApiSpecNavItems(specPath: string): Promise<NavItem> {
   const operationNavItems: NavItem[] = [];
 
@@ -86,13 +65,13 @@ async function generateApiSpecNavigation() {
   }
 
   const apiDocsData = createapiDocsDataString(dataString);
-  console.log(apiDocsData);
 
   fs.writeFileSync(
     "./src/lib/navigation/src/data/apiDocs.data.ts",
     apiDocsData,
     "utf8"
   );
+  console.log("Done! 🚀");
 }
 
 generateApiSpecNavigation();

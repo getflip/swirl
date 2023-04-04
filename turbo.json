@@ -31,9 +31,17 @@
     "gulp": {
       "outputs": ["dist/**"]
     },
+    "build:spec-navigation": {
+      "outputs": [],
+      "dependsOn": []
+    },
     "build:swirl-docs": {
       "outputs": [".next/**"],
-      "dependsOn": ["^stencil:build", "@getflip/swirl-components-react#build"]
+      "dependsOn": [
+        "^build:spec-navigation",
+        "^stencil:build",
+        "@getflip/swirl-components-react#build"
+      ]
     },
     "stencil:build": {
       "outputs": ["dist/**"],
