@@ -38,7 +38,7 @@
     "build:swirl-docs": {
       "outputs": [".next/**"],
       "dependsOn": [
-        "^build:spec-navigation",
+        "swirl-docs#build:spec-navigation",
         "^stencil:build",
         "@getflip/swirl-components-react#build"
       ]

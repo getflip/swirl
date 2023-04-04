@@ -61,7 +61,6 @@ async function generateApiSpecNavigation() {
     const navItem = await generateApiSpecNavItems(`${API_SPEC_PATH}/${spec}`);
 
     dataString += `${JSON.stringify(navItem)},`;
-    console.log(dataString);
   }
 
   const apiDocsData = createapiDocsDataString(dataString);
