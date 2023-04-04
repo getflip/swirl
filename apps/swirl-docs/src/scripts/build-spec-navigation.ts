@@ -1,5 +1,4 @@
 import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
-import { ApiDoc } from "@swirl/lib/docs";
 import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 import OASNormalize from "oas-normalize";
 import fs from "fs";
@@ -48,6 +47,7 @@ async function generateApiSpecNavItems(specPath: string): Promise<NavItem> {
     url: `/api-docs/${oasBuilder.path}`,
     isRoot: true,
     children: operationNavItems,
+    specPath: specPath,
   };
 }
 

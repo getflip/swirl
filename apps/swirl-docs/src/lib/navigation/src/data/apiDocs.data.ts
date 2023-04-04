@@ -73,6 +73,8 @@ export const apiDocsNavItems: NavItem[] = [
         isRoot: false,
       },
     ],
+    specPath:
+      "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/post_api.yml",
   },
   {
     title: "Public Users- and Groups-Sync-API",
@@ -194,5 +196,7 @@ export const apiDocsNavItems: NavItem[] = [
         isRoot: false,
       },
     ],
+    specPath:
+      "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/sync_api.yml",
   },
 ];

@@ -9,6 +9,8 @@ export function CategoryNav() {
   const router = useRouter();
   const activePath = router.asPath;
 
+  console.log(categoryLinkList);
+
   // TODO: Implement when "Foundations"-Category is created
   // const RootElement = ({ navItem }: { navItem: NavItem }) => (
   //   <ul>
@@ -26,15 +28,48 @@ export function CategoryNav() {
   // );
 
   const SubElement = ({ navItem }: { navItem: NavItem }) => (
-    <li
-      className={classNames("font-sm mb-4", "hover:text-border-info", {
-        "text-border-info": activePath === navItem.url,
-        "text-text-default": activePath !== navItem.url,
-      })}
-    >
+    <li className={classNames("mb-4")}>
       <Link href={`${navItem.url}`}>
-        <a className="text-sm capitalize">{navItem.title}</a>
+        <a
+          className={classNames(
+            "text-sm capitalize",
+            "hover:text-border-info",
+            {
+              "text-border-info": activePath === navItem.url,
+              "text-text-default": activePath !== navItem.url,
+            }
+          )}
+        >
+          {navItem.title}
+        </a>
       </Link>
+      {navItem.children && (
+        <ul className="mt-2">
+          {navItem.children?.map((child, index) => {
+            return (
+              <li key={index} className="mb-4">
+                <Link href={`${child.url}`}>
+                  <a
+                    className={classNames(
+                      "text-sm capitalize",
+                      "hover:text-border-info",
+                      {
+                        "text-border-info": activePath === navItem.url,
+                        "text-text-default": activePath !== navItem.url,
+                      }
+                    )}
+                  >
+                    <span className="bg-surface-neutral-subdued px-2 py-1 rounded-md ml-3 font-medium text-sm mr-2">
+                      {child.description}
+                    </span>
+                    {child.title}
+                  </a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </li>
   );
 

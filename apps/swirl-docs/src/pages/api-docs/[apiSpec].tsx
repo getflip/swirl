@@ -5,17 +5,18 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
-import { API_SPEC_PATH } from "@swirl/lib/navigation";
 import OASNormalize from "oas-normalize";
-import { OASDocument } from "oas/dist/rmoas.types";
 import { serializeMarkdownString } from "@swirl/lib/docs/src/singleDoc";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 async function getSpecData(spec: string): Promise<ApiDoc> {
-  const specPath = `${API_SPEC_PATH}/${spec.replace("-", "_")}.yml`;
+  const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
+  const specPath = navItem?.specPath;
+
   const oasDocument = await new OASNormalize(specPath, {
     enablePaths: true,
   }).validate();
+
   const oasBuilder = await new OASBuilder(oasDocument);
 
   oasBuilder.setTitleAndPath().setDescription().setEndpoints().setOperations();
@@ -29,6 +30,8 @@ async function getSpecData(spec: string): Promise<ApiDoc> {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const specs = createStaticPathsForSpecs();
+
+  console.log("specs", specs);
 
   return {
     fallback: false,
@@ -87,6 +90,7 @@ export default function Document({
     console.log("operation", oasBuilder.operations);
   }
 
+  console.log("API DOCS Nav Items", apiDocsNavItems);
   return (
     <>
       <Head>

@@ -12,6 +12,7 @@ import {
   DOCUMENTATION_SRC,
   StaticPathMapType,
 } from "./docs.model";
+import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 
 export const StaticPathMap: StaticPathMapType = {
   components: "componentDoc",
@@ -25,9 +26,14 @@ export function createStaticPathsForSpecs(): GetStaticPathsResult["paths"] {
     .readdirSync(`${API_SPEC_PATH}`)
     .filter((spec) => spec.includes(".yml") || spec.includes(".yaml"))
     .map((spec) => {
+      const apiDoc = apiDocsNavItems.find((item) =>
+        item.specPath?.includes(spec)
+      );
+
+      const apiSpecParam = apiDoc?.url.replace("/api-docs/", "");
       return {
         params: {
-          apiSpec: `${spec.replaceAll("_", "-").replace(".yml", "")}`,
+          apiSpec: apiSpecParam,
         },
       };
     });

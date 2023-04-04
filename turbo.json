@@ -23,7 +23,11 @@
     "dev": {
       "cache": false,
       "outputs": [".next/**"],
-      "dependsOn": ["@getflip/swirl-tokens#build", "@getflip/swirl-icons#build"]
+      "dependsOn": [
+        "@getflip/swirl-tokens#build",
+        "@getflip/swirl-icons#build",
+        "swirl-docs#build:spec-navigation"
+      ]
     },
     "clean": {
       "cache": false
