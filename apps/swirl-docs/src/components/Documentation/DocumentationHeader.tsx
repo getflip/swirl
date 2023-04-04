@@ -1,4 +1,5 @@
 import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
+import { Tag } from "../Tags";
 
 export function DocumentationHeader() {
   const { frontMatter } = useDocumentationLayoutContext();
@@ -6,16 +7,11 @@ export function DocumentationHeader() {
   return (
     <header className="border-b-1 pb-12 mb-12">
       <div className="mb-space-8 inline-flex items-center">
-        <h1 className="text-4xl text-text-default font-font-weight-bold">
+        <h1 className="text-4xl text-text-default font-font-weight-bold mr-2">
           {frontMatter?.title}
         </h1>
         {frontMatter?.tags?.map((tag: string) => (
-          <span
-            className="bg-surface-neutral-subdued px-2 py-1 rounded-md ml-3 font-medium text-sm"
-            key={tag}
-          >
-            {tag}
-          </span>
+          <Tag key={tag} content={tag} />
         ))}
       </div>
       <p className="text-lg leading-line-height-xl text-text-default">

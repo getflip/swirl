@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import classNames from "classnames";
 import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
+import { Tag, mapHttpMethodToTagScheme } from "../Tags";
+import { HttpMethods } from "oas/dist/rmoas.types";
 
 export function CategoryNav() {
   const { navigationLinks: categoryLinkList } = useDocumentationLayoutContext();
@@ -47,10 +49,14 @@ export function CategoryNav() {
         <ul className="mt-2">
           {navItem.children?.map((child, index) => {
             return (
-              <li key={index} className="mb-4">
+              <li
+                key={index}
+                className="flex items-center max-h-40 h-10 mb-4 ml-6"
+              >
                 <Link href={`${child.url}`}>
                   <a
                     className={classNames(
+                      "flex items-center",
                       "text-sm capitalize",
                       "hover:text-border-info",
                       {
@@ -59,10 +65,13 @@ export function CategoryNav() {
                       }
                     )}
                   >
-                    <span className="bg-surface-neutral-subdued px-2 py-1 rounded-md ml-3 font-medium text-sm mr-2">
-                      {child.description}
-                    </span>
-                    {child.title}
+                    <Tag
+                      content={child.description!}
+                      scheme={mapHttpMethodToTagScheme(
+                        child.description as HttpMethods
+                      )}
+                    />
+                    <span>{child.title}</span>
                   </a>
                 </Link>
               </li>
