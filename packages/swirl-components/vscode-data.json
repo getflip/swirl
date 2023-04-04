@@ -3180,6 +3180,49 @@
       ]
     },
     {
+      "name": "swirl-inline-notification",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "heading",
+          "description": ""
+        },
+        {
+          "name": "importance",
+          "description": "",
+          "values": [
+            {
+              "name": "alert"
+            },
+            {
+              "name": "status"
+            }
+          ]
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "swirl-lightbox",
       "description": {
         "kind": "markdown",
