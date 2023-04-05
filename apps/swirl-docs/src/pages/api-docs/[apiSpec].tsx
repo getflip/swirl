@@ -1,4 +1,4 @@
-import { ApiDoc, createStaticPathsForSpecs } from "@swirl/lib/docs";
+import { ApiDoc, Endpoint, createStaticPathsForSpecs } from "@swirl/lib/docs";
 import Head from "next/head";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -7,7 +7,11 @@ import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
 import OASNormalize from "oas-normalize";
 import { serializeMarkdownString } from "@swirl/lib/docs/src/singleDoc";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { HttpMethods } from "oas/dist/rmoas.types";
+import { useEffect, useState } from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { CodePreview } from "src/components/CodePreview";
 
 async function getSpecData(spec: string): Promise<ApiDoc> {
   const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
@@ -32,8 +36,6 @@ async function getSpecData(spec: string): Promise<ApiDoc> {
 export const getStaticPaths: GetStaticPaths = async () => {
   const specs = createStaticPathsForSpecs();
 
-  console.log("specs", specs);
-
   return {
     fallback: false,
     paths: specs,
@@ -41,8 +43,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 function generateGeneralDescription(document: ApiDoc) {
-  console.log("das ist die definition", document.definition?.info.description);
-
   return document.definition?.info.description
     ?.replace(document.title, "")
     .replace(document.shortDescription, "")
@@ -61,10 +61,7 @@ export const getStaticProps: GetStaticProps<
   const document = await getSpecData(apiSpec);
 
   const generalDescription = generateGeneralDescription(document) as string;
-
   const markdown = await serializeMarkdownString(generalDescription);
-
-  console.log("document title", document.title);
 
   return {
     props: {
@@ -87,27 +84,66 @@ export default function Document({
   >;
   title: string;
 }) {
-  if (document.definition) {
-    const oasBuilder = new OASBuilder(document.definition)
-      .setTitleAndPath()
-      .setEndpoints()
-      .setOperations();
+  const [endpointList, setEndpointList] = useState<Endpoint[]>([]);
 
-    const oas = oasBuilder.oas;
-    console.log(document.definition);
+  if (document.definition) {
+    const oasBuilder = new OASBuilder(document.definition);
+    oasBuilder.setEndpoints().setOperations();
+
+    console.log(oasBuilder.operationsList);
   }
 
-  console.log("API DOCS Nav Items", apiDocsNavItems);
+  useEffect(() => {
+    if (document.definition) {
+      const oasBuilder = new OASBuilder(document.definition);
+      oasBuilder.setEndpoints().setOperations();
+
+      setEndpointList(oasBuilder.operationsList);
+    }
+  }, [document.definition]);
+
   return (
     <>
       <Head>
         <title>{`API | ${title}`}</title>
       </Head>
       <DocumentationLayout
-        header={<DocumentationLayout.Header />}
+        disableToc
+        header={
+          <DocumentationLayout.Header additionalClassNames="col-span-2" />
+        }
         content={
           <>
             <DocumentationLayout.MDX />
+            <div className="grid md:grid-cols-2 gap-8">
+              {endpointList.map((endpoint) => {
+                return (
+                  <>
+                    <div>
+                      <h2
+                        id={endpoint.path.slice(2, endpoint.path.length)}
+                        key={endpoint.title}
+                      >
+                        {endpoint.title}
+                      </h2>
+                      <ReactMarkdown>
+                        {endpoint.operation.getDescription()}
+                      </ReactMarkdown>
+                    </div>
+                    <div>
+                      <CodePreview
+                        codeExample={{
+                          code: "",
+                          isLongCode: false,
+                          language: undefined,
+                          request: undefined,
+                        }}
+                      ></CodePreview>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
           </>
         }
         footer={<DocumentationLayout.Footer />}

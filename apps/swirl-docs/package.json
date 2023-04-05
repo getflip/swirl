@@ -57,6 +57,7 @@
     "react-dom": "18.2.0",
     "react-instantsearch-dom": "^6.38.1",
     "react-instantsearch-hooks-web": "^6.38.3",
+    "react-markdown": "^8.0.6",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",

@@ -1,7 +1,7 @@
 import Oas, { Operation } from "oas";
 import OASNormalize from "oas-normalize";
 import { HttpMethods, OASDocument, PathsObject } from "oas/dist/rmoas.types";
-import { Operations } from "./docs.model";
+import { Endpoint, Operations } from "./docs.model";
 
 interface IOASBuilder {
   title: string;
@@ -22,6 +22,7 @@ export default class OASBuilder implements IOASBuilder {
   public description: string = "";
   public endpoints: PathsObject = {};
   public operations: Operations = {};
+  public operationsList: Endpoint[] = [];
   public tags: string[] = [];
 
   constructor(oasDocument: OASDocument) {
@@ -82,6 +83,15 @@ export default class OASBuilder implements IOASBuilder {
         });
       });
     }
+
+    for (const operation in this.operations) {
+      const endpoints = this.operations[operation as HttpMethods];
+
+      endpoints?.forEach((endpoint) => {
+        this.operationsList.push(endpoint);
+      });
+    }
+
     return this;
   }
 

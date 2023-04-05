@@ -2,7 +2,6 @@ import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
 import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 import OASNormalize from "oas-normalize";
 import fs from "fs";
-import { HttpMethods } from "oas/dist/rmoas.types";
 
 // const apiDocsData = fs.readFileSync("./src/lib/navigation/src/data/apiDocs.data.ts", "utf8");
 
@@ -29,18 +28,14 @@ async function generateApiSpecNavItems(specPath: string): Promise<NavItem> {
     .setEndpoints()
     .setOperations();
 
-  for (const operation in oasBuilder.operations) {
-    const endpoints = oasBuilder.operations[operation as HttpMethods];
-
-    endpoints?.forEach((endpoint) => {
-      operationNavItems.push({
-        title: endpoint.title,
-        url: `/api-docs${endpoint.path}`,
-        description: endpoint.operation.method,
-        isRoot: false,
-      });
+  oasBuilder.operationsList?.forEach((endpoint) => {
+    operationNavItems.push({
+      title: endpoint.title,
+      url: `/api-docs${endpoint.path}`,
+      description: endpoint.operation.method,
+      isRoot: false,
     });
-  }
+  });
 
   return {
     title: oasBuilder.title,
