@@ -7,8 +7,7 @@ import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
 import OASNormalize from "oas-normalize";
 import { serializeMarkdownString } from "@swirl/lib/docs/src/singleDoc";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { HttpMethods } from "oas/dist/rmoas.types";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { useEffect, useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { CodePreview } from "src/components/CodePreview";
@@ -117,31 +116,41 @@ export default function Document({
             <DocumentationLayout.MDX />
             <div className="grid md:grid-cols-2 gap-8">
               {endpointList.map((endpoint) => {
-                return (
-                  <>
-                    <div>
-                      <h2
-                        id={endpoint.path.slice(2, endpoint.path.length)}
-                        key={endpoint.title}
-                      >
-                        {endpoint.title}
-                      </h2>
-                      <ReactMarkdown>
-                        {endpoint.operation.getDescription()}
-                      </ReactMarkdown>
-                    </div>
-                    <div>
-                      <CodePreview
-                        codeExample={{
-                          code: "",
-                          isLongCode: false,
-                          language: undefined,
-                          request: undefined,
-                        }}
-                      ></CodePreview>
-                    </div>
-                  </>
-                );
+                if (document.definition) {
+                  const oasBuilder = new OASBuilder(document.definition);
+                  oasBuilder.setEndpoints().setOperations();
+                  const codePreview = oasBuilder?.createCodePreview(
+                    endpoint.operation,
+                    "javascript"
+                  );
+                  return (
+                    <>
+                      <div>
+                        <h2
+                          id={endpoint.path.slice(2, endpoint.path.length)}
+                          key={endpoint.title}
+                        >
+                          {endpoint.title}
+                        </h2>
+                        <ReactMarkdown>
+                          {endpoint.operation.getDescription()}
+                        </ReactMarkdown>
+                      </div>
+                      <div>
+                        <CodePreview
+                          codeExample={{
+                            code: codePreview.code,
+                            isLongCode: false,
+                            language: "bash",
+                            request: codePreview.request,
+                          }}
+                        >
+                          <CodePreview.Request />
+                        </CodePreview>
+                      </div>
+                    </>
+                  );
+                }
               })}
             </div>
           </>

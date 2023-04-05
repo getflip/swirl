@@ -1,7 +1,10 @@
 import Oas, { Operation } from "oas";
-import OASNormalize from "oas-normalize";
 import { HttpMethods, OASDocument, PathsObject } from "oas/dist/rmoas.types";
 import { Endpoint, Operations } from "./docs.model";
+import oasToHar from "@readme/oas-to-har";
+import { oasToSnippet } from "@readme/oas-to-snippet";
+import { Request } from "har-format";
+import { SupportedTargets } from "@readme/oas-to-snippet";
 
 interface IOASBuilder {
   title: string;
@@ -93,6 +96,29 @@ export default class OASBuilder implements IOASBuilder {
     }
 
     return this;
+  }
+
+  public createCodePreview(
+    operation: Operation,
+    language: SupportedTargets
+  ): {
+    code: string;
+    request: Request;
+  } {
+    const har = oasToHar(this.oas, operation);
+
+    const auth = {
+      oauth2: "bearerToken",
+    };
+
+    const { code } = oasToSnippet(this.oas, operation, {}, {}, "shell");
+
+    console.log(code);
+
+    return {
+      code: code as string,
+      request: har.log.entries[0].request as Request,
+    };
   }
 
   public setTags() {

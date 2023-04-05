@@ -15,8 +15,6 @@ export function CategoryNav() {
   const router = useRouter();
   const activePath = router.asPath;
 
-  console.log(categoryLinkList);
-
   // TODO: Implement when "Foundations"-Category is created
   // const RootElement = ({ navItem }: { navItem: NavItem }) => (
   //   <ul>

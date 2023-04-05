@@ -75,6 +75,7 @@ export function CodePreview({ children, codeExample }: CodePreviewProps) {
             {...defaultProps}
             theme={theme}
             code={codeExample.code}
+            // language={codeExample.language ? codeExample.language : "tsx"}
             language={codeExample.language ? codeExample.language : "tsx"}
           >
             {({ tokens, getLineProps, getTokenProps }) => (
