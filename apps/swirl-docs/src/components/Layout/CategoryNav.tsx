@@ -8,6 +8,7 @@ import { HttpMethods } from "oas/dist/rmoas.types";
 import Image from "next/image";
 
 import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
+import { useEffect, useState } from "react";
 
 export function CategoryNav() {
   const { navigationLinks: categoryLinkList } = useDocumentationLayoutContext();
@@ -32,64 +33,84 @@ export function CategoryNav() {
   //   </ul>
   // );
 
-  // TO DO: implement li design for a root element. currently it works somehow, but does not have the correct design... paddings, margins, etc.
-  // therefore a accordion is not possible right now
-  // and this line for showing that somethin is part of a category is missing
+  const SubElement = ({ navItem }: { navItem: NavItem }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
 
-  const SubElement = ({ navItem }: { navItem: NavItem }) => (
-    <li className={classNames("mb-4")}>
-      <Link href={`${navItem.url}`}>
-        <a
-          className={classNames(
-            "flex justify-between items-center",
-            "text-sm capitalize",
-            "hover:text-border-info",
-            {
-              "text-border-info": activePath === navItem.url,
-              "text-text-default": activePath !== navItem.url,
-            }
+    useEffect(() => {
+      if (activePath.includes(navItem.url)) {
+        setIsExpanded(true);
+      }
+    }, [navItem.url]);
+
+    return (
+      <li className={classNames("mb-2 py-2", { "max-h-10": !isExpanded })}>
+        <div className="flex justify-between items-center">
+          <Link href={`${navItem.url}`}>
+            <a
+              className={classNames(
+                "text-sm capitalize",
+                "hover:text-border-info",
+                {
+                  "text-border-info": activePath === navItem.url,
+                  "text-text-default": activePath !== navItem.url,
+                }
+              )}
+            >
+              <span>{navItem.title}</span>
+            </a>
+          </Link>
+          {navItem.children && (
+            <button
+              className="flex justify-center items-center"
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              <Image
+                className={classNames({ "rotate-90": isExpanded })}
+                alt=""
+                src={icon.src}
+                width={24}
+                height={24}
+              />
+            </button>
           )}
-        >
-          <span>{navItem.title}</span>
-          <Image alt="" src={icon.src} width={24} height={24} />
-        </a>
-      </Link>
-      {navItem.children && (
-        <ul className="mt-2">
-          {navItem.children?.map((child, index) => {
-            return (
-              <li
-                key={index}
-                className="flex items-center max-h-40 h-10 mb-4 ml-6"
-              >
-                <Link href={`${child.url}`}>
-                  <a
-                    className={classNames(
-                      "flex items-center",
-                      "text-sm capitalize",
-                      "hover:text-border-info",
-                      {
-                        "text-border-info": activePath === navItem.url,
-                        "text-text-default": activePath !== navItem.url,
-                      }
-                    )}
-                  >
-                    <Tag
-                      content={child.description!}
-                      scheme={mapHttpMethodToTagScheme(
-                        child.description as HttpMethods
+        </div>
+        {navItem.children && isExpanded && (
+          <ul className="mt-2">
+            {navItem.children?.map((child, index) => {
+              return (
+                <li
+                  key={index}
+                  className="flex items-center max-h-40 h-10 mb-4 ml-6"
+                >
+                  <Link href={`${child.url}`}>
+                    <a
+                      className={classNames(
+                        "flex items-center",
+                        "text-sm capitalize",
+                        "hover:text-border-info",
+                        {
+                          "text-border-info": activePath === navItem.url,
+                          "text-text-default": activePath !== navItem.url,
+                        }
                       )}
-                    />
-                    <span>{child.title}</span>
-                  </a>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-    </li>
-  );
+                    >
+                      <Tag
+                        content={child.description!}
+                        scheme={mapHttpMethodToTagScheme(
+                          child.description as HttpMethods
+                        )}
+                      />
+                      <span>{child.title}</span>
+                    </a>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </li>
+    );
+  };
 
   return (
     <nav

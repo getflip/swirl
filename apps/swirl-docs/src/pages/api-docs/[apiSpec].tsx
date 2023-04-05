@@ -103,6 +103,7 @@ export default function Document({
             <DocumentationLayout.MDX />
           </>
         }
+        footer={<DocumentationLayout.Footer />}
         data={{
           mdxContent: {
             document: markdown,

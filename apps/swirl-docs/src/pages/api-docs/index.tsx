@@ -26,28 +26,12 @@ const ApiDocs = () => {
             <main id="main" className="w-full h-full">
               <section className="flex flex-col py-14 px-24">
                 <h1 className="mb-4">API Docs</h1>
-                <CodePreview
-                  codeExample={{
-                    code: codeExample,
-                    isLongCode: false,
-                    request: {
-                      httpVersion: "2",
-                      cookies: [],
-                      headers: [],
-                      queryString: [],
-                      bodySize: 123,
-                      headersSize: 123,
-                      url: "/api/specs/group",
-                      method: "POST",
-                    },
-                  }}
-                >
-                  <CodePreview.Request />
-                </CodePreview>
+                <p>Currently working on it</p>
               </section>
             </main>
           </div>
         }
+        footer={<DocumentationLayout.Footer />}
       />
     </>
   );
