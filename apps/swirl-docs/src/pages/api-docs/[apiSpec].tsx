@@ -25,6 +25,7 @@ async function getSpecData(spec: string): Promise<ApiDoc> {
     title: oasBuilder.title,
     path: oasBuilder.path,
     definition: oasBuilder.oasDocument,
+    shortDescription: oasBuilder.shortDescription,
   };
 }
 
@@ -39,22 +40,29 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
+function generateGeneralDescription(document: ApiDoc) {
+  console.log("das ist die definition", document.definition?.info.description);
+
+  return document.definition?.info.description
+    ?.replace(document.title, "")
+    .replace(document.shortDescription, "")
+    .replace("<SecurityDefinitions />", "")
+    .replaceAll("user_external_id", "123")
+    .replaceAll("postId", "123")
+    .replaceAll("commentId", "123")
+    .replaceAll("attachment_id", "123");
+}
+
 export const getStaticProps: GetStaticProps<
   ScriptProps,
   { apiSpec: string }
 > = async (context: any) => {
   const { apiSpec } = context.params;
-
   const document = await getSpecData(apiSpec);
 
-  const markdownString = document.definition?.info.description
-    ?.replace("<SecurityDefinitions />", "")
-    .replaceAll("user_external_id", "123")
-    .replaceAll("postId", "123")
-    .replaceAll("commentId", "123")
-    .replaceAll("attachment_id", "123");
+  const generalDescription = generateGeneralDescription(document) as string;
 
-  const markdown = await serializeMarkdownString(markdownString!);
+  const markdown = await serializeMarkdownString(generalDescription);
 
   console.log("document title", document.title);
 
@@ -80,14 +88,13 @@ export default function Document({
   title: string;
 }) {
   if (document.definition) {
-    console.log("oasBuilder");
     const oasBuilder = new OASBuilder(document.definition)
+      .setTitleAndPath()
       .setEndpoints()
       .setOperations();
 
-    // create a function to get a stripped down operations object that makes it possible to build the navigation for the API docs
-
-    console.log("operation", oasBuilder.operations);
+    const oas = oasBuilder.oas;
+    console.log(document.definition);
   }
 
   console.log("API DOCS Nav Items", apiDocsNavItems);
@@ -97,9 +104,9 @@ export default function Document({
         <title>{`API | ${title}`}</title>
       </Head>
       <DocumentationLayout
+        header={<DocumentationLayout.Header />}
         content={
           <>
-            <h1>{document.title}</h1>
             <DocumentationLayout.MDX />
           </>
         }
@@ -107,6 +114,11 @@ export default function Document({
         data={{
           mdxContent: {
             document: markdown,
+          },
+          frontMatter: {
+            title: document.title,
+            description: document.shortDescription,
+            examples: [],
           },
           navigationLinks: apiDocsNavItems,
         }}

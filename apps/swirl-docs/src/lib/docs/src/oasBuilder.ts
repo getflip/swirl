@@ -17,6 +17,7 @@ export default class OASBuilder implements IOASBuilder {
   private _oasBuilder: Oas = new Oas({} as OASDocument);
 
   public title: string = "";
+  public shortDescription: string = "";
   public path: string = "";
   public description: string = "";
   public endpoints: PathsObject = {};
@@ -49,6 +50,12 @@ export default class OASBuilder implements IOASBuilder {
 
   public setTitleAndPath() {
     this.title = this._oasBuilder.api.info.title;
+
+    if (this._oasBuilder.api.info.description) {
+      this.shortDescription =
+        this._oasBuilder.api.info.description.split("# Changelog")[0];
+    }
+
     this.path = this.title.toLowerCase().replaceAll(" ", "-");
     return this;
   }

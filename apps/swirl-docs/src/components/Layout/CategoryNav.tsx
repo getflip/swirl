@@ -75,7 +75,7 @@ export function CategoryNav() {
           )}
         </div>
         {navItem.children && isExpanded && (
-          <ul className="mt-2">
+          <ul className="mt-4">
             {navItem.children?.map((child, index) => {
               return (
                 <li

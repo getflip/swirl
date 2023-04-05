@@ -82,6 +82,7 @@ export type Operations = {
 
 export type ApiDoc = {
   title: string;
+  shortDescription: string;
   path: string;
   definition?: OASDocument;
   oas?: Oas;
