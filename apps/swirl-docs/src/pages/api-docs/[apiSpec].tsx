@@ -85,19 +85,25 @@ export default function Document({
 }) {
   const [endpointList, setEndpointList] = useState<Endpoint[]>([]);
 
-  if (document.definition) {
-    const oasBuilder = new OASBuilder(document.definition);
-    oasBuilder.setEndpoints().setOperations();
+  // if (document.definition) {
+  //   const oasBuilder = new OASBuilder(document.definition);
+  //   oasBuilder.dereference().then((oas) => {
+  //     console.log("oas", oas);
+  //   });
 
-    console.log(oasBuilder.operationsList);
-  }
+  //   oasBuilder.setEndpoints().setOperations();
+
+  //   console.log(oasBuilder.operationsList);
+  // }
 
   useEffect(() => {
     if (document.definition) {
       const oasBuilder = new OASBuilder(document.definition);
-      oasBuilder.setEndpoints().setOperations();
 
-      setEndpointList(oasBuilder.operationsList);
+      oasBuilder.dereference().then((oas) => {
+        oas.setEndpoints().setOperations();
+        setEndpointList(oas.operationsList);
+      });
     }
   }, [document.definition]);
 
@@ -118,11 +124,22 @@ export default function Document({
               {endpointList.map((endpoint) => {
                 if (document.definition) {
                   const oasBuilder = new OASBuilder(document.definition);
+
                   oasBuilder.setEndpoints().setOperations();
                   const codePreview = oasBuilder?.createCodePreview(
                     endpoint.operation,
                     "javascript"
                   );
+
+                  // console.log(
+                  //   "response code 200",
+                  //   endpoint.operation.getResponseAsJSONSchema(200)
+                  // );
+                  console.log(
+                    endpoint.operation.getResponseAsJSONSchema(200) === null
+                  );
+
+                  console.log(endpoint.operation.getResponseExamples());
                   return (
                     <>
                       <div>
@@ -147,6 +164,28 @@ export default function Document({
                         >
                           <CodePreview.Request />
                         </CodePreview>
+                        <div className="mt-2">
+                          {endpoint.operation.getResponseAsJSONSchema(200) ===
+                            null && (
+                            <CodePreview
+                              isHttpResponse
+                              codeExample={{
+                                code: JSON.stringify(
+                                  endpoint.operation.getResponseExamples()[0]
+                                    .mediaTypes,
+                                  null,
+                                  2
+                                ),
+                                isLongCode: true,
+                                language: "bash",
+                              }}
+                            >
+                              <span className="text-font-size-base">
+                                Response
+                              </span>
+                            </CodePreview>
+                          )}
+                        </div>
                       </div>
                     </>
                   );

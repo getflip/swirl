@@ -34,6 +34,11 @@ export default class OASBuilder implements IOASBuilder {
     return this;
   }
 
+  public async dereference() {
+    this._oasBuilder.dereference();
+    return this;
+  }
+
   public get oas() {
     return this._oasBuilder;
   }
@@ -107,17 +112,16 @@ export default class OASBuilder implements IOASBuilder {
   } {
     const har = oasToHar(this.oas, operation);
 
-    const auth = {
-      oauth2: "bearerToken",
-    };
-
     const { code } = oasToSnippet(this.oas, operation, {}, {}, "shell");
 
-    console.log(code);
+    const harRequest = har.log.entries[0].request;
 
     return {
       code: code as string,
-      request: har.log.entries[0].request as Request,
+      request: {
+        ...harRequest,
+        url: operation.path,
+      },
     };
   }
 
