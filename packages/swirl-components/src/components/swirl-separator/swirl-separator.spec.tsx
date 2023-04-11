@@ -10,7 +10,7 @@ describe("swirl-separator", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-separator class="separator" role="separator">
+      <swirl-separator class="separator" role="separator" style="padding-top: var(--s-space-8); padding-bottom: var(--s-space-8);">
         <mock:shadow-root>
           <span class="separator__line"></span>
         </mock:shadow-root>
