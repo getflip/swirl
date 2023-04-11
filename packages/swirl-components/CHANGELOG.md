@@ -1,5 +1,23 @@
 # @getflip/swirl-components
 
+## 0.37.0
+
+### Minor Changes
+
+- [`cfeee86`](https://github.com/getflip/swirl/commit/cfeee869c7601406531d070841307bc3381838e1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Remove default border around
+  swirl-table
+
+* [`3c2395d`](https://github.com/getflip/swirl/commit/3c2395d4dd08962fbfd2690f1cd7ffde96149186)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "spacing" prop to
+  swirl-separator
+
+### Patch Changes
+
+- [`cfeee86`](https://github.com/getflip/swirl/commit/cfeee869c7601406531d070841307bc3381838e1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow swirl-console-layout
+  content area to shrink
+
 ## 0.36.0
 
 ### Minor Changes
