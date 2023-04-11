@@ -26,8 +26,8 @@
 .console-layout--sidebar-active {
   & .console-layout__sidebar {
     @media (--to-tablet) {
-      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.06);
       transform: translate3d(0, 0, 0);
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.06);
     }
   }
 }
@@ -152,6 +152,7 @@
 
 .console-layout__content {
   display: flex;
+  min-width: 0;
   padding: var(--s-space-16);
   background-color: var(--s-background-default);
   flex-direction: column;
