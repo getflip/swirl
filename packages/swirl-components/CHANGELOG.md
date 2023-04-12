@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.38.0
+
+### Minor Changes
+
+- [`73cd994`](https://github.com/getflip/swirl/commit/73cd994ce037bde1758cc177df70f1f347c76bba)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add first and last page buttons
+  to swirl-pagination
+
+* [`72f1b98`](https://github.com/getflip/swirl/commit/72f1b9844e3a9ca3218a66cdfaa9fad5a6450376)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add padding props to swirl-box
+
+- [`d972ec8`](https://github.com/getflip/swirl/commit/d972ec815d3bbff4c6871e618888b46dd9d57946)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "variant" prop to
+  swirl-search
+
 ## 0.37.0
 
 ### Minor Changes
