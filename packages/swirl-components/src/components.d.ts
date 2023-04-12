@@ -36,6 +36,7 @@ import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 import { Placement } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
@@ -82,6 +83,7 @@ export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 export { Placement } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
@@ -1001,6 +1003,7 @@ export namespace Components {
         "label"?: string;
         "placeholder"?: string;
         "value"?: string;
+        "variant"?: SwirlSearchVariant;
     }
     interface SwirlSelect {
         "disabled"?: boolean;
@@ -3512,6 +3515,7 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: SwirlSearchCustomEvent<string>) => void;
         "placeholder"?: string;
         "value"?: string;
+        "variant"?: SwirlSearchVariant;
     }
     interface SwirlSelect {
         "disabled"?: boolean;
