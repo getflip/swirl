@@ -218,6 +218,10 @@ export namespace Components {
         "maxWidth"?: string;
         "overflow"?: SwirlBoxOverflow;
         "padding"?: SwirlBoxPadding;
+        "paddingBlockEnd"?: SwirlBoxPadding;
+        "paddingBlockStart"?: SwirlBoxPadding;
+        "paddingInlineEnd"?: SwirlBoxPadding;
+        "paddingInlineStart"?: SwirlBoxPadding;
     }
     interface SwirlButton {
         "disabled"?: boolean;
@@ -2800,6 +2804,10 @@ declare namespace LocalJSX {
         "maxWidth"?: string;
         "overflow"?: SwirlBoxOverflow;
         "padding"?: SwirlBoxPadding;
+        "paddingBlockEnd"?: SwirlBoxPadding;
+        "paddingBlockStart"?: SwirlBoxPadding;
+        "paddingInlineEnd"?: SwirlBoxPadding;
+        "paddingInlineStart"?: SwirlBoxPadding;
     }
     interface SwirlButton {
         "disabled"?: boolean;
