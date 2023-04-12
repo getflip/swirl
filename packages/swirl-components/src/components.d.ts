@@ -895,9 +895,9 @@ export namespace Components {
         "label": string;
     }
     interface SwirlPagination {
-        "accessibleNextButtonLabel"?: string;
-        "accessiblePrevButtonLabel"?: string;
+        "firstPageButtonLabel"?: string;
         "label": string;
+        "lastPageButtonLabel"?: string;
         "nextButtonLabel"?: string;
         "page": number;
         "pageLabel"?: string;
@@ -3419,9 +3419,9 @@ declare namespace LocalJSX {
         "label": string;
     }
     interface SwirlPagination {
-        "accessibleNextButtonLabel"?: string;
-        "accessiblePrevButtonLabel"?: string;
+        "firstPageButtonLabel"?: string;
         "label": string;
+        "lastPageButtonLabel"?: string;
         "nextButtonLabel"?: string;
         "onSetPage"?: (event: SwirlPaginationCustomEvent<number>) => void;
         "page": number;

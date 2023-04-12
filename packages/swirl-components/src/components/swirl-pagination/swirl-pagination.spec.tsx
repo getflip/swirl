@@ -15,9 +15,12 @@ describe("swirl-pagination", () => {
           <nav aria-label="Pagination" class="pagination pagination--variant-default">
             <ul class="pagination__list" part="pagination__list">
               <li class="pagination__list-item">
-                <swirl-button class="pagination__prev-button" swirlarialabel="Previous page" hidelabel="" icon="<swirl-icon-chevron-left></swirl-icon-chevron-left>" intent="primary" label="Prev"></swirl-button>
+                <swirl-button class="pagination__first-page-button" hidelabel="" icon="<swirl-icon-double-arrow-left></swirl-icon-double-arrow-left>" intent="primary" label="First page"></swirl-button>
               </li>
               <li class="pagination__list-item">
+                <swirl-button class="pagination__prev-button" hidelabel="" icon="<swirl-icon-chevron-left></swirl-icon-chevron-left>" intent="primary" label="Previous page"></swirl-button>
+              </li>
+              <li class="pagination__list-item pagination__page-label">
                 <span>
                   <span aria-current="page">
                     2 out of 20
@@ -25,7 +28,10 @@ describe("swirl-pagination", () => {
                 </span>
               </li>
               <li class="pagination__list-item">
-                <swirl-button class="pagination__next-button" swirlarialabel="Next page" hidelabel="" icon="<swirl-icon-chevron-right></swirl-icon-chevron-right>" iconposition="end" intent="primary" label="Next"></swirl-button>
+                <swirl-button class="pagination__next-button" hidelabel="" icon="<swirl-icon-chevron-right></swirl-icon-chevron-right>" iconposition="end" intent="primary" label="Next page"></swirl-button>
+              </li>
+              <li class="pagination__list-item">
+                <swirl-button class="pagination__last-page-button" hidelabel="" icon="<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>" intent="primary" label="Last page"></swirl-button>
               </li>
             </ul>
           </nav>

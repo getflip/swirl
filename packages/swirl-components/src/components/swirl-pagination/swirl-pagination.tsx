@@ -9,18 +9,34 @@ export type SwirlPaginationVariant = "default" | "simple" | "advanced";
   tag: "swirl-pagination",
 })
 export class SwirlPagination {
-  @Prop() accessibleNextButtonLabel?: string = "Next page";
-  @Prop() accessiblePrevButtonLabel?: string = "Previous page";
-  @Prop() nextButtonLabel?: string = "Next";
-  @Prop() pageLabel?: string = "out of";
-  @Prop() prevButtonLabel?: string = "Prev";
+  @Prop() firstPageButtonLabel?: string = "First page";
+  @Prop() lastPageButtonLabel?: string = "Last page";
   @Prop() label!: string;
+  @Prop() nextButtonLabel?: string = "Next page";
   @Prop() page!: number;
+  @Prop() pageLabel?: string = "out of";
   @Prop() pages!: number;
   @Prop() pageSelectLabel?: string = "Select a page";
+  @Prop() prevButtonLabel?: string = "Previous page";
   @Prop() variant?: SwirlPaginationVariant = "default";
 
   @Event() setPage: EventEmitter<number>;
+
+  private onFirstPageButtonClick = () => {
+    if (this.page === 1) {
+      return;
+    }
+
+    this.setPage.emit(1);
+  };
+
+  private onLastPageButtonClick = () => {
+    if (this.page === this.pages) {
+      return;
+    }
+
+    this.setPage.emit(this.pages);
+  };
 
   private onPrevButtonClick = () => {
     const prevPage = Math.max(this.page - 1, 1);
@@ -53,7 +69,6 @@ export class SwirlPagination {
   };
 
   render() {
-    const hideButtonLabels = this.variant !== "advanced";
     const showPageLabel = this.variant !== "simple";
     const showDropDown = this.variant === "advanced";
 
@@ -70,10 +85,20 @@ export class SwirlPagination {
           <ul class="pagination__list" part="pagination__list">
             <li class="pagination__list-item">
               <swirl-button
+                class="pagination__first-page-button"
+                disabled={this.page <= 1}
+                hideLabel
+                icon="<swirl-icon-double-arrow-left></swirl-icon-double-arrow-left>"
+                intent="primary"
+                label={this.firstPageButtonLabel}
+                onClick={this.onFirstPageButtonClick}
+              ></swirl-button>
+            </li>
+            <li class="pagination__list-item">
+              <swirl-button
                 class="pagination__prev-button"
                 disabled={this.page <= 1}
-                swirlAriaLabel={this.accessiblePrevButtonLabel}
-                hideLabel={hideButtonLabels}
+                hideLabel
                 icon="<swirl-icon-chevron-left></swirl-icon-chevron-left>"
                 intent="primary"
                 label={this.prevButtonLabel}
@@ -81,7 +106,7 @@ export class SwirlPagination {
               ></swirl-button>
             </li>
             {showPageLabel ? (
-              <li class="pagination__list-item">
+              <li class="pagination__list-item  pagination__page-label">
                 <span>
                   {showDropDown ? (
                     <span
@@ -106,11 +131,6 @@ export class SwirlPagination {
                               </option>
                             ))}
                         </select>
-                        <swirl-icon-expand-more
-                          aria-hidden="true"
-                          class="pagination__page-select-icon"
-                          size={16}
-                        ></swirl-icon-expand-more>
                       </span>
                       <span aria-hidden="true">
                         {this.pageLabel} {this.pages}
@@ -132,13 +152,23 @@ export class SwirlPagination {
               <swirl-button
                 class="pagination__next-button"
                 disabled={this.page >= this.pages}
-                swirlAriaLabel={this.accessibleNextButtonLabel}
-                hideLabel={hideButtonLabels}
+                hideLabel
                 icon="<swirl-icon-chevron-right></swirl-icon-chevron-right>"
                 iconPosition="end"
                 intent="primary"
                 label={this.nextButtonLabel}
                 onClick={this.onNextButtonClick}
+              ></swirl-button>
+            </li>
+            <li class="pagination__list-item">
+              <swirl-button
+                class="pagination__last-page-button"
+                disabled={this.page >= this.pages}
+                hideLabel
+                icon="<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
+                intent="primary"
+                label={this.lastPageButtonLabel}
+                onClick={this.onLastPageButtonClick}
               ></swirl-button>
             </li>
           </ul>

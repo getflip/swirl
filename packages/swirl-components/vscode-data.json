@@ -3594,15 +3594,15 @@
       },
       "attributes": [
         {
-          "name": "accessible-next-button-label",
-          "description": ""
-        },
-        {
-          "name": "accessible-prev-button-label",
+          "name": "first-page-button-label",
           "description": ""
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "last-page-button-label",
           "description": ""
         },
         {
