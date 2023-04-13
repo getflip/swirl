@@ -145,7 +145,7 @@ export default function Document({
                           {endpoint.operation.getDescription()}
                         </ReactMarkdown>
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <CodePreview
                           codeExample={{
                             code: codePreview.code,
