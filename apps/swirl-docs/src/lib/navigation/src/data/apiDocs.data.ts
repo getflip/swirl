@@ -37,14 +37,20 @@ export const apiDocsNavItems: NavItem[] = [
         isRoot: false,
       },
       {
-        title: "Create a new post",
-        url: "/api-docs/public-post-api#create-a-new-post",
+        title: "Create a new post (V1)",
+        url: "/api-docs/public-post-api#create-a-new-post-(v1)",
         description: "post",
         isRoot: false,
       },
       {
         title: "Create a new comment for a post.",
         url: "/api-docs/public-post-api#create-a-new-comment-for-a-post",
+        description: "post",
+        isRoot: false,
+      },
+      {
+        title: "Create a new post (V2)",
+        url: "/api-docs/public-post-api#create-a-new-post-(v2)",
         description: "post",
         isRoot: false,
       },

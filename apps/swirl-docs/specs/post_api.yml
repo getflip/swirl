@@ -27,19 +27,18 @@ components:
           nullable: true
           type: array
         body:
-          description:
-            The body in HTML format. The maximum payload is 204800 bytes.
+          description: The body in HTML format. The maximum payload is 204800 bytes.
+            Inline images in the html must have the `attachment_id` set as `src`
+            (`<img src='attachment-id'>).
           nullable: true
           type: string
         external_id:
-          description:
-            Can be used for customer side identification of a post. Should be
+          description: Can be used for customer side identification of a post. Should be
             unique.
           nullable: true
           type: string
         group_id:
-          description:
-            The group which the post will be assigned to. The user must be a
+          description: The group which the post will be assigned to. The user must be a
             member of this group.
           format: uuid
           type: string
@@ -50,8 +49,7 @@ components:
 
             If no value is passed, the post will not be highlighted.
 
-            The timestamp is formatted as full ISO 8601 e.g.
-            `2021-12-20T10:33:52Z`.
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           nullable: true
           type: string
@@ -59,11 +57,9 @@ components:
           description: >-
             The published date indicates when the post was published.
 
-            The value can't be used if the value is in the future or the
-            `scheduled_at` is set.
+            The value can't be used if the value is in the future or the `scheduled_at` is set.
 
-            The timestamp is formatted as full ISO 8601 e.g.
-            `2021-12-20T10:33:52Z`.
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           nullable: true
           type: string
@@ -73,15 +69,15 @@ components:
 
             If no value is passed, the post will be published immediately.
 
-            The timestamp is formatted as full ISO 8601 e.g.
-            `2021-12-20T10:33:52Z`.
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           nullable: true
           type: string
         send_push_notifications:
-          description:
-            Set if members of the group of this post should receive a
+          default: true
+          description: Set if members of the group of this post should receive a
             notification on their devices.
+          nullable: true
           type: boolean
         title:
           description: The title in plain text.
@@ -142,8 +138,7 @@ components:
             $ref: "#/components/schemas/ExternalComment"
           type: array
         next_cursor:
-          description:
-            Cursor for pagination. This cursor can be used to get the next page
+          description: Cursor for pagination. This cursor can be used to get the next page
             of this request. If there is no next page the cursor is `null`.
           nullable: true
           type: string
@@ -159,13 +154,11 @@ components:
           nullable: true
           type: array
         body:
-          description:
-            The body in HTML format. The maximum payload is 204800 bytes.
+          description: The body in HTML format. The maximum payload is 204800 bytes.
           nullable: true
           type: string
         external_id:
-          description:
-            Can be used for customer side identification of a post. Should be
+          description: Can be used for customer side identification of a post. Should be
             unique.
           nullable: true
           type: string
@@ -176,8 +169,7 @@ components:
 
             If no value is passed, the post will not be highlighted.
 
-            The timestamp is formatted as full ISO 8601 e.g.
-            `2021-12-20T10:33:52Z`.
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           nullable: true
           type: string
@@ -185,11 +177,9 @@ components:
           description: >-
             The published date indicates when the post was published.
 
-            The value can't be used if the value is in the future or the
-            `scheduled_at` is set.
+            The value can't be used if the value is in the future or the `scheduled_at` is set.
 
-            The timestamp is formatted as full ISO 8601 e.g.
-            `2021-12-20T10:33:52Z`.
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           nullable: true
           type: string
@@ -201,8 +191,7 @@ components:
 
             A post that has already been published cannot be scheduled again."
 
-            The timestamp is formatted as full ISO 8601 e.g.
-            `2021-12-20T10:33:52Z`.
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           nullable: true
           type: string
@@ -224,14 +213,12 @@ components:
           description: The body of the comment.
           type: string
         external_id:
-          description:
-            Can be used for customer side identification of a comment. Should be
-            unique.
+          description: Can be used for customer side identification of a comment. Should
+            be unique.
           nullable: true
           type: string
         language:
-          description:
-            Language of the comment body represented as string compliant with
+          description: Language of the comment body represented as string compliant with
             ISO 639-1 norm. In case the language is not supported, the field
             will be ignored.
           nullable: true
@@ -268,6 +255,74 @@ components:
       required:
         - posts
       type: object
+    ExternalPostWritePostV2:
+      properties:
+        attachments:
+          description: List of attachment ids that belong to the post.
+          items:
+            $ref: "#/components/schemas/ExternalPostAttachmentId"
+          nullable: true
+          type: array
+        body:
+          description: The body in HTML format. The maximum payload is 204800 bytes.
+          nullable: true
+          type: string
+        external_id:
+          description: Can be used for customer side identification of a post. Should be
+            unique.
+          nullable: true
+          type: string
+        group_ids:
+          description: The groups which the post will be assigned to. The user must be a
+            member of these groups.
+          items:
+            format: uuid
+            type: string
+          type: array
+        highlighted_until:
+          description: >-
+            The highlighted date indicates until when a post should be a
+            highlighted post.
+
+            If no value is passed, the post will not be highlighted.
+
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
+          format: date-time
+          nullable: true
+          type: string
+        published_at:
+          description: >-
+            The published date indicates when the post was published.
+
+            The value can't be used if the value is in the future or the `scheduled_at` is set.
+
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
+          format: date-time
+          nullable: true
+          type: string
+        scheduled_at:
+          description: >-
+            The scheduled date indicates when the post is to be published.
+
+            If no value is passed, the post will be published immediately.
+
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
+          format: date-time
+          nullable: true
+          type: string
+        send_push_notifications:
+          default: true
+          description: Set if members of the group of this post should receive a
+            notification on their devices.
+          nullable: true
+          type: boolean
+        title:
+          description: The title in plain text.
+          type: string
+      required:
+        - group_ids
+        - title
+      type: object
     ExternalUploadAttachmentResponse:
       properties:
         attachment_id:
@@ -296,9 +351,7 @@ components:
           description: >-
             The timestamp of the deletion of the post.
 
-            The timestamp is formatted as full ISO 8601 e.g.
-            `2021-12-20T10:33:52Z`. This will be `null` if the post was not
-            deleted.
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be `null` if the post was not deleted.
           format: date-time
           nullable: true
           type: string
@@ -307,8 +360,7 @@ components:
           format: uuid
           type: string
         published_at:
-          description:
-            The timestamp of the publishing of the post. The timestamp is
+          description: The timestamp of the publishing of the post. The timestamp is
             formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           type: string
@@ -316,9 +368,7 @@ components:
           description: >-
             The timestamp of the last update of the post.
 
-            The timestamp is formatted as full ISO 8601 e.g.
-            `2021-12-20T10:33:52Z`. This will be `null` if the post was never
-            updated.
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be `null` if the post was never updated.
           format: date-time
           nullable: true
           type: string
@@ -344,8 +394,7 @@ components:
           description: >-
             The link to the file.
 
-            This link is accessible with the same authentication as this
-            endpoint.
+            This link is accessible with the same authentication as this endpoint.
           format: uri
           type: string
         mime_type:
@@ -362,14 +411,12 @@ components:
           description: >-
             The link to the avatar picture.
 
-            This link is accessible with the same authentication as this
-            endpoint.
+            This link is accessible with the same authentication as this endpoint.
           format: uri
           nullable: true
           type: string
         external_id:
-          description:
-            The external id of the author. This can be set by using the user
+          description: The external id of the author. This can be set by using the user
             sync API.
           nullable: true
           type: string
@@ -403,8 +450,7 @@ components:
     ExternalPostGroup:
       properties:
         external_id:
-          description:
-            The external id of the group. This can be set by using the group
+          description: The external id of the group. This can be set by using the group
             sync API.
           nullable: true
           type: string
@@ -422,18 +468,15 @@ components:
     ExternalPostInfo:
       properties:
         published_at:
-          description:
-            Timestamp when the post was published. The timestamp is formatted as
-            full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
+          description: Timestamp when the post was published. The timestamp is formatted
+            as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           type: string
         updated_at:
           description: >-
             Timestamp when the post was updated.
 
-            The timestamp is formatted as full ISO 8601 e.g.
-            `2021-12-20T10:33:52Z`. This will be null when the post was never
-            updated.
+            The timestamp is formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be null when the post was never updated.
           format: date-time
           nullable: true
           type: string
@@ -457,14 +500,12 @@ components:
           nullable: true
           type: string
         created_at:
-          description:
-            The timestamp of the publishing of the comment. The timestamp is
+          description: The timestamp of the publishing of the comment. The timestamp is
             formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           type: string
         deleted_at:
-          description:
-            The timestamp of the deletion of the comment. The timestamp is
+          description: The timestamp of the deletion of the comment. The timestamp is
             formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be
             `null` if the comment was not deleted.
           format: date-time
@@ -481,14 +522,12 @@ components:
     ExternalPostOverviewV2:
       properties:
         created_at:
-          description:
-            The timestamp of the creating of the post. The timestamp is
+          description: The timestamp of the creating of the post. The timestamp is
             formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           type: string
         deleted_at:
-          description:
-            The timestamp of the deletion of the post. The timestamp is
+          description: The timestamp of the deletion of the post. The timestamp is
             formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be
             `null` if the post was not deleted.
           format: date-time
@@ -499,23 +538,20 @@ components:
           format: uuid
           type: string
         published_at:
-          description:
-            The timestamp of the publishing of the post. The timestamp is
+          description: The timestamp of the publishing of the post. The timestamp is
             formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
           format: date-time
           nullable: true
           type: string
         scheduled_at:
-          description:
-            The timestamp of the scheduled date of the post. The timestamp is
+          description: The timestamp of the scheduled date of the post. The timestamp is
             formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be
             `null` if the post is not scheduled.
           format: date-time
           nullable: true
           type: string
         updated_at:
-          description:
-            The timestamp of the last update of the post. The timestamp is
+          description: The timestamp of the last update of the post. The timestamp is
             formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be
             `null` if the post was never updated.
           format: date-time
@@ -532,15 +568,11 @@ components:
 
         * `IN_PROGRESS` - Attachment is still being processed.
 
-        * `FINISHED` - The processing has finished successfully and the
-        attachment can now be used elsewhere.
+        * `FINISHED` - The processing has finished successfully and the attachment can now be used elsewhere.
 
-        * `FAILED_BAD_FILE` - The uploaded file is corrupt and can not be
-        processed.
+        * `FAILED_BAD_FILE` - The uploaded file is corrupt and can not be processed.
 
-        * `FAILED_INTERNAL_ERROR` - We encountered an internal error while
-        processing the attachment. Try again and if the problem persists, notify
-        your Flip contact person.
+        * `FAILED_INTERNAL_ERROR` - We encountered an internal error while processing the attachment. Try again and if the problem persists, notify your Flip contact person.
       enum:
         - IN_PROGRESS
         - FINISHED
@@ -552,12 +584,13 @@ components:
       enum:
         - VIDEO
         - IMAGE
+        - VOICE
         - MISC
       type: string
   securitySchemes:
     BearerAuth:
       bearerFormat: JWT
-      description: >+
+      description: >
         ### General Setup
 
 
@@ -567,8 +600,7 @@ components:
         #### DOMAIN
 
 
-        This is the base of the URL of your Flip system - so this is also the
-        URL that the normal users use to access Flip via the UI.
+        This is the base of the URL of your Flip system - so this is also the URL that the normal users use to access Flip via the UI.
 
         e.g. `test.flip-app.com`
 
@@ -576,8 +608,7 @@ components:
         #### TENANT
 
 
-        The System ID of your Flip system. This information will be provided to
-        you.
+        The System ID of your Flip system. This information will be provided to you.
 
         e.g. `mycompany`
 
@@ -585,30 +616,20 @@ components:
         ### How to get an OAuth token
 
 
-        Because we use
-        [Bearer-Auth](https://www.oauth.com/oauth2-servers/making-authenticated-requests/)
-        for our API, you need to set the `Authorization` header with a valid
-        token for all requests to the API. So before making any calls to the API
-        itself, you need to fetch a token.
+        Because we use [Bearer-Auth](https://www.oauth.com/oauth2-servers/making-authenticated-requests/) for our API, you need to set the `Authorization` header with a valid token for all requests to the API. So before making any calls to the API itself, you need to fetch a token.
 
 
-        The authentication is based on OAuth2 using the `grant_type` `password`.
-        The `client_id` must be set to `external-content`. The `username` and
-        `password` are the credentials of the technical user you want to use to
-        sync.
+        The authentication is based on OAuth2 using the `grant_type` `password`. The `client_id` must be set to `external-content`. The `username` and `password` are the credentials of the technical user you want to use to sync.
 
 
-        #### Example call for getting a token - make sure to replace all values
-        starting with `$` with your values as mentioned above:
+        #### Example call for getting a token - make sure to replace all values starting with `$` with your values as mentioned above:
 
 
         ```bash
 
-        curl -X POST --location
-        "https://$DOMAIN/auth/realms/$TENANT/protocol/openid-connect/token" \
+        curl -X POST --location "https://$DOMAIN/auth/realms/$TENANT/protocol/openid-connect/token" \
             -H "Content-Type: application/x-www-form-urlencoded" \
-        		-d
-        "grant_type=password&client_id=external-content&username=$USERNAME&password=$PASSWORD"
+        		-d "grant_type=password&client_id=external-content&username=$USERNAME&password=$PASSWORD"
         ```
 
 
@@ -628,35 +649,24 @@ components:
         ```
 
 
-        You now need to store the content of the field `access_token` since it
-        will be required as `Authorization` -Header in the following calls to
-        the API. The token has a defined expiration, `expires_in` and can be
-        used until the expiry date. So it is not necessary to get a new token
-        for each call, only if the token expires, then you have to get a new
-        one.
+        You now need to store the content of the field `access_token` since it will be required as `Authorization` -Header in the following calls to the API. The token has a defined expiration, `expires_in` and can be used until the expiry date. So it is not necessary to get a new token for each call, only if the token expires, then you have to get a new one.
 
 
-        For more information about OAuth and the grant_type client-credentials,
-        see
-        [https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/).
+        For more information about OAuth and the grant_type client-credentials, see [https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/).
 
 
         ### Example Call to the API
 
 
-        After you obtained your token in the previous step, you can now use it
-        to make calls to the actual API.
+        After you obtained your token in the previous step, you can now use it to make calls to the actual API.
 
 
-        Here is an example for requesting all users, just replace `$DOMAIN` with
-        your domain and `$TOKEN` with the token you obtained from the
-        `access_token` field in your call to get a token:
+        Here is an example for requesting all users, just replace `$DOMAIN` with your domain and `$TOKEN` with the token you obtained from the `access_token` field in your call to get a token:
 
 
         ```bash
-            curl https://$DOMAIN/api/external/v1/sync/users --header
-        'Authorization: Bearer $TOKEN' ```
-
+            curl https://$DOMAIN/api/external/v1/sync/users --header 'Authorization: Bearer $TOKEN'
+        ```
       scheme: bearer
       type: http
 info:
@@ -675,78 +685,46 @@ info:
 
     ## 1.4-beta
 
-    * A new endpoint for searching posts [GET
-    api/external/post/v2/posts](#operation/getPostsV2). This allows you to get
-    not only published posts, but also scheduled posts (unlike the first
-    version). There are also many new filter options to cover most use-cases. In
-    addition, to schedule or update the scheduled date of a post, there is a new
-    `scheduled_at` field for the [POST
-    api/external/post/v1/posts](#operation/createPostV1) and [PUT
-    api/external/post/v1/posts/{postId}](#operation/updatePostV1) endpoints.
+    * A new endpoint for searching posts [GET api/external/post/v2/posts](#operation/getPostsV2). This allows you to get not only published posts, but also scheduled posts (unlike the first version). There are also many new filter options to cover most use-cases. In addition, to schedule or update the scheduled date of a post, there is a new `scheduled_at` field for the [POST api/external/post/v1/posts](#operation/createPostV1) and [PUT api/external/post/v1/posts/{postId}](#operation/updatePostV1) endpoints.
 
-    * New endpoints to create [POST
-    api/external/post/v1/posts/{postId}/comments](#operation/createComment) or
-    remove a post comment [DELETE
-    api/external/post/v1/posts/{postId}/comments/{commentId}](#operation/deleteComment).
+    * New endpoints to create [POST api/external/post/v1/posts/{postId}/comments](#operation/createComment) or remove a post comment [DELETE api/external/post/v1/posts/{postId}/comments/{commentId}](#operation/deleteComment).
 
-    * Add new field `send_push_notifications` to [POST
-    api/external/post/v1/posts](#operation/createPostV1) for controlling if a
-    post should trigger sending push notifications to the users.
+    * Add new field `send_push_notifications` to [POST api/external/post/v1/posts](#operation/createPostV1) for controlling if a post should trigger sending push notifications to the users.
 
-    * Add new field `published_at` to endpoints [POST
-    api/external/post/v1/posts](#operation/createPostV1) and [PUT
-    api/external/post/v1/posts/{postId}](#operation/updatePostV1), that allows
-    to manually set the published date of a post. The date must be in the past.
+    * Add new field `published_at` to endpoints [POST api/external/post/v1/posts](#operation/createPostV1) and [PUT api/external/post/v1/posts/{postId}](#operation/updatePostV1), that allows to manually set the published date of a post. The date must be in the past.
 
 
     ## 1.3-beta
 
-    * Increase the payload size to `200 KiB` for endpoints [POST
-    api/external/post/v1/posts](#operation/createPostV1) and [PUT
-    api/external/post/v1/posts/{postId}](#operation/updatePostV1)
+    * Increase the payload size to `200 KiB` for endpoints [POST api/external/post/v1/posts](#operation/createPostV1) and [PUT api/external/post/v1/posts/{postId}](#operation/updatePostV1)
 
 
     ## 1.2-beta
 
-    * Add new field `attachments` to endpoints [POST
-    api/external/post/v1/posts](#operation/createPostV1) and
+    * Add new field `attachments` to endpoints [POST api/external/post/v1/posts](#operation/createPostV1) and 
 
-    [PUT api/external/post/v1/posts/{postId}](#operation/updatePostV1), that
-    allows attaching to posts already uploaded data.
+    [PUT api/external/post/v1/posts/{postId}](#operation/updatePostV1), that allows attaching to posts already uploaded data.
 
 
     ## 1.1-beta
 
-    - Add new endpoint [POST
-    api/external/post/v1/posts](#operation/createPostV1) to allow creating posts
-    in a group.
+    - Add new endpoint [POST api/external/post/v1/posts](#operation/createPostV1) to allow creating posts in a group. 
 
-    - Add new endpoints to upload files and query their background processing
-    status. The endpoint [POST
-    api/external/v1/attachments](#operation/uploadFile) is used for upload and
-    the endpoint [GET
-    api/external/v1/attachments/{attachment_id}/status](#operation/getAttachmentStatus)
-    to query the status.
+    - Add new endpoints to upload files and query their background processing status. The endpoint [POST api/external/v1/attachments](#operation/uploadFile) is used for upload and the endpoint [GET api/external/v1/attachments/{attachment_id}/status](#operation/getAttachmentStatus) to query the status.
 
 
     ## 1.0-beta
 
 
-    * Add new endpoint [GET
-    api/external/post/v1/posts/{postId}/comments](#operation/getComments) to
-    allow fetching the comments
-      for a post. The endpoint allows for querying for comments in a certain
-    time range via the `after` and `before` query
+    * Add new endpoint [GET api/external/post/v1/posts/{postId}/comments](#operation/getComments) to allow fetching the comments
+      for a post. The endpoint allows for querying for comments in a certain time range via the `after` and `before` query
       parameters and supports pagination via cursors.
-    * Endpoint [GET
-    api/external/post/v1/posts/{postId}](#operation/getPostDetail) now also
-    returns the `external_id` of a post.
+    * Endpoint [GET api/external/post/v1/posts/{postId}](#operation/getPostDetail) now also returns the `external_id` of a post.
 
-    * Endpoint [GET api/external/post/v1/posts](#operation/getPosts) accepts new
-    query parameters to filter by `external_id` and by `group_id`.
+    * Endpoint [GET api/external/post/v1/posts](#operation/getPosts) accepts new query parameters to filter by `external_id` and by `group_id`.
 
 
-     # Authentication
+     # Authentication 
 
      <SecurityDefinitions />
   title: Public Post API
@@ -760,15 +738,13 @@ paths:
   /api/external/post/v1/posts:
     get:
       deprecated: true
-      description:
-        Returns a list of posts from my groups that have any changes (published,
-        updated or deleted). The list ordered by the `published_at` timestamp.
-        The order is ascending (from oldest to newest), but will change to
-        descending if `before` is explicitly set but `after` is not.
+      description: Returns a list of posts from my groups that have any changes
+        (published, updated or deleted). The list ordered by the `published_at`
+        timestamp. The order is ascending (from oldest to newest), but will
+        change to descending if `before` is explicitly set but `after` is not.
       operationId: getPostsV1
       parameters:
-        - description:
-            Returns the posts which have `published_at`, `updated_at` or
+        - description: Returns the posts which have `published_at`, `updated_at` or
             `deleted_at` value after the `after` value. The full ISO 8601 must
             be used e.g. `2021-12-20T10:33:52Z`. The `after` parameter is
             inclusive.
@@ -777,8 +753,7 @@ paths:
           schema:
             nullable: true
             type: string
-        - description:
-            Returns the posts which have `published_at`, `updated_at` or
+        - description: Returns the posts which have `published_at`, `updated_at` or
             `deleted_at` value before the `before` value. The full ISO 8601 must
             be used e.g. `2021-12-20T10:33:52Z`. The `before`parameter is
             exclusive.
@@ -787,8 +762,7 @@ paths:
           schema:
             nullable: true
             type: string
-        - description:
-            Limits the count of the posts in response to the parameter value.
+        - description: Limits the count of the posts in response to the parameter value.
           in: query
           name: limit
           schema:
@@ -814,8 +788,7 @@ paths:
           schema:
             nullable: true
             type: string
-        - description:
-            Returns posts that are in a group with this `group_id`. This query
+        - description: Returns posts that are in a group with this `group_id`. This query
             parameter can be repeated to include more groups.
           in: query
           name: group_id
@@ -836,8 +809,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The request has either a malformed body or the the parameters are
+          description: The request has either a malformed body or the the parameters are
             incorrectly set
         "401":
           content:
@@ -850,8 +822,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
       security:
         - BearerAuth:
             - user
@@ -860,13 +831,13 @@ paths:
       tags:
         - external-posts
     post:
+      deprecated: true
       description: >-
         Endpoint to create a new post.
 
         The author of the post will be the authenticated user.
 
-        The user must be a member of the group to which the post will be
-        assigned.
+        The user must be a member of the group to which the post will be assigned.
       operationId: createPostV1
       requestBody:
         content:
@@ -886,8 +857,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The request has either a malformed body or the the parameters are
+          description: The request has either a malformed body or the the parameters are
             incorrectly set
         "401":
           content:
@@ -900,13 +870,12 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
       security:
         - BearerAuth:
             - user
             - admin
-      summary: Create a new post
+      summary: Create a new post (V1)
       tags:
         - external-posts
   "/api/external/post/v1/posts/{postId}":
@@ -933,8 +902,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The request has either a malformed body or the the parameters are
+          description: The request has either a malformed body or the the parameters are
             incorrectly set
         "401":
           content:
@@ -947,8 +915,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
       security:
         - BearerAuth:
             - user
@@ -958,24 +925,21 @@ paths:
         - external-posts
   "/api/external/post/v1/posts/{postId}/comments":
     get:
-      description:
-        Returns a list of comments from a post. The list ordered by the
+      description: Returns a list of comments from a post. The list ordered by the
         `created_at` timestamp. The order is ascending (from oldest to newest),
         but will change to descending if `before` is explicitly set but `after`
         is not.
       operationId: getComments
       parameters:
-        - description:
-            Returns the comments which have `created_at` value after the `after`
-            value. The full ISO 8601 must be used e.g. `2021-12-20T10:33:52Z`.
-            The `after` parameter is inclusive.
+        - description: Returns the comments which have `created_at` value after the
+            `after` value. The full ISO 8601 must be used e.g.
+            `2021-12-20T10:33:52Z`. The `after` parameter is inclusive.
           in: query
           name: after
           schema:
             nullable: true
             type: string
-        - description:
-            Returns the comments which have `created_at` value before the
+        - description: Returns the comments which have `created_at` value before the
             `before` value. The full ISO 8601 must be used e.g.
             `2021-12-20T10:33:52Z`. The `before`parameter is exclusive.
           in: query
@@ -983,8 +947,7 @@ paths:
           schema:
             nullable: true
             type: string
-        - description:
-            Limits the count of the comments in response to the parameter value.
+        - description: Limits the count of the comments in response to the parameter value.
           in: query
           name: limit
           schema:
@@ -1022,8 +985,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The request has either a malformed body or the the parameters are
+          description: The request has either a malformed body or the the parameters are
             incorrectly set
         "401":
           content:
@@ -1036,8 +998,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
       security:
         - BearerAuth:
             - user
@@ -1047,9 +1008,8 @@ paths:
         - external-posts
   "/api/external/post/v1/posts/{post_id}":
     delete:
-      description:
-        Delete post by id. The post will be deleted permanently - an undelete is
-        not possible.
+      description: Delete post by id. The post will be deleted permanently - an
+        undelete is not possible.
       operationId: deletePostV1
       parameters:
         - in: path
@@ -1066,8 +1026,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The request has either a malformed body or the the parameters are
+          description: The request has either a malformed body or the the parameters are
             incorrectly set
         "401":
           content:
@@ -1080,8 +1039,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
       security:
         - BearerAuth:
             - user
@@ -1093,8 +1051,7 @@ paths:
       description: >-
         Update the post by id.
 
-        The group of the post cannot be updated. To update the group, delete the
-        post and create a new one.
+        The group of the post cannot be updated. To update the group, delete the post and create a new one.
       operationId: updatePostV1
       parameters:
         - in: path
@@ -1121,8 +1078,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The request has either a malformed body or the the parameters are
+          description: The request has either a malformed body or the the parameters are
             incorrectly set
         "401":
           content:
@@ -1135,8 +1091,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
       security:
         - BearerAuth:
             - user
@@ -1173,8 +1128,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The request has either a malformed body or the the parameters are
+          description: The request has either a malformed body or the the parameters are
             incorrectly set
         "401":
           content:
@@ -1187,8 +1141,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
       security:
         - BearerAuth:
             - user
@@ -1198,8 +1151,7 @@ paths:
         - external-posts
   "/api/external/post/v1/posts/{post_id}/comments/{comment_id}":
     delete:
-      description:
-        Delete comment by id. The comment will be deleted permanently - an
+      description: Delete comment by id. The comment will be deleted permanently - an
         undelete is not possible.
       operationId: deleteComment
       parameters:
@@ -1227,8 +1179,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The request has either a malformed body or the the parameters are
+          description: The request has either a malformed body or the the parameters are
             incorrectly set
         "401":
           content:
@@ -1241,8 +1192,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
       security:
         - BearerAuth:
             - user
@@ -1252,14 +1202,12 @@ paths:
         - external-posts
   /api/external/post/v2/posts:
     get:
-      description:
-        "Returns a list of posts from my groups that have any changes (created,
-        published, updated or deleted).The list ordered by the `created_at`
-        timestamp. "
+      description: "Returns a list of posts from my groups that have any changes
+        (created, published, updated or deleted).The list ordered by the
+        `created_at` timestamp. "
       operationId: getPostsV2
       parameters:
-        - description:
-            Returns the posts which have `created_at`, `published_at`,
+        - description: Returns the posts which have `created_at`, `published_at`,
             `updated_at` or `deleted_at` value after the `after` value. The full
             ISO 8601 must be used e.g. `2021-12-20T10:33:52Z`. The `after`
             parameter is inclusive.
@@ -1269,8 +1217,7 @@ paths:
             nullable: true
             pattern: ^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(([+-]\d\d:\d\d)|Z)?$
             type: string
-        - description:
-            Returns the posts which have `created_at`, `published_at`,
+        - description: Returns the posts which have `created_at`, `published_at`,
             `updated_at` or `deleted_at` value before the `before` value. The
             full ISO 8601 must be used e.g. `2021-12-20T10:33:52Z`. The `before`
             parameter is exclusive.
@@ -1280,8 +1227,7 @@ paths:
             nullable: true
             pattern: ^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(([+-]\d\d:\d\d)|Z)?$
             type: string
-        - description:
-            Limits the count of the posts in response to the parameter value.
+        - description: Limits the count of the posts in response to the parameter value.
             Maximum is 1000.
           in: query
           name: limit
@@ -1308,8 +1254,7 @@ paths:
           schema:
             nullable: true
             type: string
-        - description:
-            "Filter search results by post publishing status. There are 3
+        - description: "Filter search results by post publishing status. There are 3
             options: `ONLY_PUBLISHED` (default), `ONLY_SCHEDULED` and `ALL`."
           in: query
           name: published_status
@@ -1317,8 +1262,7 @@ paths:
             default: ONLY_PUBLISHED
             nullable: true
             type: string
-        - description:
-            "Filter search results by post status. There are 5 options:
+        - description: "Filter search results by post status. There are 5 options:
             `ONLY_CREATED`, `ONLY_UPDATED`, `ONLY_CREATED_OR_UPDATED` (default),
             `ONLY_DELETED` and `ALL`."
           in: query
@@ -1327,8 +1271,7 @@ paths:
             default: ONLY_CREATED_OR_UPDATED
             nullable: true
             type: string
-        - description:
-            Returns posts that are in a group with this `group_id`. This query
+        - description: Returns posts that are in a group with this `group_id`. This query
             parameter can be repeated to include more groups.
           in: query
           name: group_id
@@ -1349,8 +1292,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The request has either a malformed body or the the parameters are
+          description: The request has either a malformed body or the the parameters are
             incorrectly set
         "401":
           content:
@@ -1363,8 +1305,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
       security:
         - BearerAuth:
             - user
@@ -1372,10 +1313,55 @@ paths:
       summary: Get all posts from the groups the user is a member of (V2)
       tags:
         - external-posts
+    post:
+      description: >-
+        Endpoint to create a new post.
+
+        The author of the post will be the authenticated user.
+
+        The user must be a member of the groups to which the post will be assigned.
+      operationId: createPostV2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalPostWritePostV2"
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPostWritePostResponse"
+          description: createPostV2 201 response
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - user
+      summary: Create a new post (V2)
+      tags:
+        - external-posts
   /api/external/v1/attachments:
     post:
-      description:
-        Upload attachment and get `attachment_id` for further usage.
+      description: Upload attachment and get `attachment_id` for further usage.
         **Attention:** Maximum allowed file size is 1GB.
       operationId: uploadAttachment
       requestBody:
@@ -1396,8 +1382,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ExternalUploadAttachmentResponse"
-          description:
-            The request has been accepted and is now processed in the background
+          description: The request has been accepted and is now processed in the background
         "401":
           content:
             text/plain:
@@ -1409,8 +1394,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
         "429":
           content:
             text/plain:
@@ -1426,8 +1410,7 @@ paths:
         - external-attachments
   "/api/external/v1/attachments/{attachment_id}/status":
     get:
-      description:
-        Returns the transformation status of the previously uploaded attachment.
+      description: Returns the transformation status of the previously uploaded attachment.
       operationId: getAttachmentStatus
       parameters:
         - in: path
@@ -1454,8 +1437,7 @@ paths:
             text/plain:
               schema:
                 type: string
-          description:
-            The token is missing the required scope to view or modify resource
+          description: The token is missing the required scope to view or modify resource
         "429":
           content:
             text/plain:

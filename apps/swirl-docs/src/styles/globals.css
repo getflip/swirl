@@ -90,7 +90,7 @@ h3 {
 }
 
 p {
-  font-size: var(--s-font-size-base);
+  font-size: var(--s-font-size-sm);
   color: var(--s-text-default);
   line-height: 1.5rem;
   font-weight: var(--s-font-weight-normal);

@@ -11,6 +11,8 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { useEffect, useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { CodePreview } from "src/components/CodePreview";
+import { Tag } from "src/components/Tags";
+import { Parameter } from "src/components/Documentation/Parameter";
 
 async function getSpecData(spec: string): Promise<ApiDoc> {
   const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
@@ -85,17 +87,6 @@ export default function Document({
 }) {
   const [endpointList, setEndpointList] = useState<Endpoint[]>([]);
 
-  // if (document.definition) {
-  //   const oasBuilder = new OASBuilder(document.definition);
-  //   oasBuilder.dereference().then((oas) => {
-  //     console.log("oas", oas);
-  //   });
-
-  //   oasBuilder.setEndpoints().setOperations();
-
-  //   console.log(oasBuilder.operationsList);
-  // }
-
   useEffect(() => {
     if (document.definition) {
       const oasBuilder = new OASBuilder(document.definition);
@@ -106,6 +97,37 @@ export default function Document({
       });
     }
   }, [document.definition]);
+
+  function Parameters({
+    properties,
+    requiredProperties,
+  }: {
+    properties: any;
+    requiredProperties: any;
+  }) {
+    const params = Object.keys(properties);
+
+    if (params.length === 0) return <></>;
+
+    return (
+      <>
+        {params.map((param) => {
+          const required = requiredProperties.includes(param);
+          const prop = properties[param];
+
+          return (
+            <Parameter
+              key={param}
+              name={param}
+              type={prop.type}
+              description={prop.description}
+              required={required}
+            />
+          );
+        })}
+      </>
+    );
+  }
 
   return (
     <>
@@ -132,6 +154,9 @@ export default function Document({
                   );
                   oasBuilder.generateResponse(endpoint.operation);
 
+                  const paramsWrapper =
+                    endpoint.operation.getParametersAsJSONSchema() || [];
+
                   return (
                     <>
                       <div>
@@ -140,10 +165,37 @@ export default function Document({
                           key={endpoint.title}
                         >
                           {endpoint.title}
+                          {endpoint.operation.isDeprecated() && (
+                            <span className="ml-2">
+                              <Tag content="deprecated" scheme="warning" />
+                            </span>
+                          )}
                         </h2>
-                        <ReactMarkdown>
+                        <ReactMarkdown
+                          className="text-base"
+                          components={{ p: () => <p className="text-base" /> }}
+                        >
                           {endpoint.operation.getDescription()}
                         </ReactMarkdown>
+                        <div className="mt-4">
+                          {paramsWrapper.map((params) => {
+                            const requiredParams = params.schema.required || [];
+                            const parameterOfEndpoint =
+                              params.schema.properties || {};
+
+                            return (
+                              <>
+                                <h4 className="font-font-weight-semibold text-base mt-4">
+                                  {params.label}
+                                </h4>
+                                <Parameters
+                                  requiredProperties={requiredParams}
+                                  properties={parameterOfEndpoint}
+                                />
+                              </>
+                            );
+                          })}
+                        </div>
                       </div>
                       <div className="min-w-0">
                         <CodePreview
