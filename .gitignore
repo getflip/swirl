@@ -150,6 +150,3 @@ dist
 
 # Angular
 **/.angular/cache
-
-# Additional Files to Ignore
-apps/swirl-docs/specs/**

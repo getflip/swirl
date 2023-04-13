@@ -1,5 +1,10 @@
 import Oas, { Operation } from "oas";
-import { HttpMethods, OASDocument, PathsObject } from "oas/dist/rmoas.types";
+import {
+  HttpMethods,
+  MediaTypeObject,
+  OASDocument,
+  PathsObject,
+} from "oas/dist/rmoas.types";
 import { Endpoint, Operations } from "./docs.model";
 import oasToHar from "@readme/oas-to-har";
 import { oasToSnippet } from "@readme/oas-to-snippet";
@@ -31,7 +36,6 @@ export default class OASBuilder implements IOASBuilder {
   constructor(oasDocument: OASDocument) {
     this._oasDocument = oasDocument;
     this._oasBuilder = new Oas(oasDocument);
-    return this;
   }
 
   public async dereference() {
@@ -48,23 +52,19 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   public setDescription() {
-    this.description = this._oasBuilder.api.info.description as string;
+    this.description = this._oasBuilder.api.info.description || "";
     return this;
   }
 
   public setEndpoints() {
-    this.endpoints = this._oasBuilder.api.paths as PathsObject;
+    this.endpoints = this._oasBuilder.api.paths || {};
     return this;
   }
 
   public setTitleAndPath() {
     this.title = this._oasBuilder.api.info.title;
-
-    if (this._oasBuilder.api.info.description) {
-      this.shortDescription =
-        this._oasBuilder.api.info.description.split("# Changelog")[0];
-    }
-
+    this.shortDescription =
+      this._oasBuilder.api.info.description?.split("# Changelog")[0] || "";
     this.path = this.title.toLowerCase().replaceAll(" ", "-");
     return this;
   }
@@ -72,6 +72,7 @@ export default class OASBuilder implements IOASBuilder {
   public setOperations() {
     if (Object.keys(this.endpoints).length === 0)
       throw new Error("Endpoints not set");
+
     for (const path in this.endpoints) {
       const operationInPaths = this.endpoints[path];
       const methods = Object.keys(operationInPaths!) as HttpMethods[];
@@ -103,7 +104,12 @@ export default class OASBuilder implements IOASBuilder {
     return this;
   }
 
-  public createCodePreview(
+  public setTags() {
+    this.tags = this._oasBuilder.getTags();
+    return this;
+  }
+
+  public generateRequest(
     operation: Operation,
     language: SupportedTargets
   ): {
@@ -111,10 +117,8 @@ export default class OASBuilder implements IOASBuilder {
     request: Request;
   } {
     const har = oasToHar(this.oas, operation);
-
-    const { code } = oasToSnippet(this.oas, operation, {}, {}, "shell");
-
     const harRequest = har.log.entries[0].request;
+    const { code } = oasToSnippet(this.oas, operation, {}, {}, "shell");
 
     return {
       code: code as string,
@@ -125,8 +129,20 @@ export default class OASBuilder implements IOASBuilder {
     };
   }
 
-  public setTags() {
-    this.tags = this._oasBuilder.getTags();
-    return this;
+  public generateResponse(operation: Operation) {
+    // currently we just take the first element as our OA specs are not fully functional. E.g. 201 is not defined for post for some requests.
+    const responseExample = operation.getResponseExamples()[0].mediaTypes[
+      "application/json"
+    ] as Array<MediaTypeObject>;
+
+    const valueOfResponse = responseExample as any;
+
+    return JSON.stringify(
+      responseExample
+        ? valueOfResponse[0].value
+        : "No Response Example was provided",
+      null,
+      2
+    );
   }
 }

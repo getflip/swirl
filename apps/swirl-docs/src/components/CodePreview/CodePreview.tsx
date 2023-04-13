@@ -46,8 +46,10 @@ export function CodePreview({
               "bg-surface-raised-default": isHttpResponse,
             },
             {
-              "md:h-[240px] md:max-h-[240px] overflow-hidden": !isExpanded,
+              "md:h-[240px] md:max-h-[240px] overflow-hidden":
+                !isExpanded && !isHttpResponse,
               "min-h-[240px]": isExpanded,
+              "h-full": isHttpResponse,
             }
           )}
         >
@@ -98,8 +100,9 @@ export function CodePreview({
                   "cursor-text overflow-auto pt-space-16 md:pt-space-8 px-space-24 ",
                   "md:pb-16",
                   {
-                    "pb-space-16": !isExpanded,
                     "pb-16": isExpanded,
+                    "pb-space-16": !isExpanded || isHttpResponse,
+                    "md:pb-space-16": isHttpResponse,
                   }
                 )}
               >
@@ -116,7 +119,7 @@ export function CodePreview({
             )}
           </Highlight>
 
-          {codeExample.isLongCode && (
+          {codeExample.isLongCode && !isHttpResponse && (
             <div
               className={classNames(
                 "absolute bottom-0 flex justify-center items-center w-full h-12",

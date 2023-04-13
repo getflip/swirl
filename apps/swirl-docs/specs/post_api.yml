@@ -1,0 +1,1473 @@
+components:
+  schemas:
+    ExternalPostWithCursor:
+      properties:
+        next_cursor:
+          description: >-
+            Cursor for pagination. This cursor can be used to get the next page
+            of this request.
+
+            If there is no next page the cursor is `null`.
+          nullable: true
+          type: string
+        posts:
+          description: List of the requested posts.
+          items:
+            $ref: "#/components/schemas/ExternalPostOverview"
+          type: array
+      required:
+        - posts
+      type: object
+    ExternalPostWritePost:
+      properties:
+        attachments:
+          description: List of attachment ids that belong to the post.
+          items:
+            $ref: "#/components/schemas/ExternalPostAttachmentId"
+          nullable: true
+          type: array
+        body:
+          description:
+            The body in HTML format. The maximum payload is 204800 bytes.
+          nullable: true
+          type: string
+        external_id:
+          description:
+            Can be used for customer side identification of a post. Should be
+            unique.
+          nullable: true
+          type: string
+        group_id:
+          description:
+            The group which the post will be assigned to. The user must be a
+            member of this group.
+          format: uuid
+          type: string
+        highlighted_until:
+          description: >-
+            The highlighted date indicates until when a post should be a
+            highlighted post.
+
+            If no value is passed, the post will not be highlighted.
+
+            The timestamp is formatted as full ISO 8601 e.g.
+            `2021-12-20T10:33:52Z`.
+          format: date-time
+          nullable: true
+          type: string
+        published_at:
+          description: >-
+            The published date indicates when the post was published.
+
+            The value can't be used if the value is in the future or the
+            `scheduled_at` is set.
+
+            The timestamp is formatted as full ISO 8601 e.g.
+            `2021-12-20T10:33:52Z`.
+          format: date-time
+          nullable: true
+          type: string
+        scheduled_at:
+          description: >-
+            The scheduled date indicates when the post is to be published.
+
+            If no value is passed, the post will be published immediately.
+
+            The timestamp is formatted as full ISO 8601 e.g.
+            `2021-12-20T10:33:52Z`.
+          format: date-time
+          nullable: true
+          type: string
+        send_push_notifications:
+          description:
+            Set if members of the group of this post should receive a
+            notification on their devices.
+          type: boolean
+        title:
+          description: The title in plain text.
+          type: string
+      required:
+        - group_id
+        - title
+      type: object
+    ExternalPostWritePostResponse:
+      properties:
+        post_id:
+          description: The id of the post.
+          format: uuid
+          type: string
+      required:
+        - post_id
+      type: object
+    ExternalPostDetail:
+      properties:
+        attachments:
+          items:
+            $ref: "#/components/schemas/ExternalPostAttachment"
+          nullable: true
+          type: array
+        author:
+          allOf:
+            - $ref: "#/components/schemas/ExternalPostAuthor"
+          nullable: true
+        content:
+          $ref: "#/components/schemas/ExternalPostContent"
+        external_id:
+          description: The external id of the post.
+          nullable: true
+          type: string
+        group:
+          $ref: "#/components/schemas/ExternalPostGroup"
+        highlighted_until:
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          description: The id of the post.
+          format: uuid
+          type: string
+        info:
+          $ref: "#/components/schemas/ExternalPostInfo"
+      required:
+        - content
+        - group
+        - id
+        - info
+      type: object
+    ExternalCommentWithCursor:
+      properties:
+        comments:
+          description: List of the requested posts.
+          items:
+            $ref: "#/components/schemas/ExternalComment"
+          type: array
+        next_cursor:
+          description:
+            Cursor for pagination. This cursor can be used to get the next page
+            of this request. If there is no next page the cursor is `null`.
+          nullable: true
+          type: string
+      required:
+        - comments
+      type: object
+    ExternalPostUpdatePost:
+      properties:
+        attachments:
+          description: List of attachment ids that belong to the post.
+          items:
+            $ref: "#/components/schemas/ExternalPostAttachmentId"
+          nullable: true
+          type: array
+        body:
+          description:
+            The body in HTML format. The maximum payload is 204800 bytes.
+          nullable: true
+          type: string
+        external_id:
+          description:
+            Can be used for customer side identification of a post. Should be
+            unique.
+          nullable: true
+          type: string
+        highlighted_until:
+          description: >-
+            The highlighted date indicates until when a post should be a
+            highlighted post.
+
+            If no value is passed, the post will not be highlighted.
+
+            The timestamp is formatted as full ISO 8601 e.g.
+            `2021-12-20T10:33:52Z`.
+          format: date-time
+          nullable: true
+          type: string
+        published_at:
+          description: >-
+            The published date indicates when the post was published.
+
+            The value can't be used if the value is in the future or the
+            `scheduled_at` is set.
+
+            The timestamp is formatted as full ISO 8601 e.g.
+            `2021-12-20T10:33:52Z`.
+          format: date-time
+          nullable: true
+          type: string
+        scheduled_at:
+          description: >-
+            The scheduled date indicates when the post is to be published.
+
+            If no value is passed, the post will be published immediately.
+
+            A post that has already been published cannot be scheduled again."
+
+            The timestamp is formatted as full ISO 8601 e.g.
+            `2021-12-20T10:33:52Z`.
+          format: date-time
+          nullable: true
+          type: string
+        title:
+          description: The title in plain text.
+          type: string
+      required:
+        - title
+      type: object
+    ExternalWriteComment:
+      properties:
+        attachments:
+          description: List of attachment ids that belong to the comment.
+          items:
+            $ref: "#/components/schemas/ExternalPostAttachmentId"
+          nullable: true
+          type: array
+        body:
+          description: The body of the comment.
+          type: string
+        external_id:
+          description:
+            Can be used for customer side identification of a comment. Should be
+            unique.
+          nullable: true
+          type: string
+        language:
+          description:
+            Language of the comment body represented as string compliant with
+            ISO 639-1 norm. In case the language is not supported, the field
+            will be ignored.
+          nullable: true
+          type: string
+      required:
+        - body
+      type: object
+    ExternalCommentId:
+      properties:
+        id:
+          description: The id of the comment.
+          format: uuid
+          type: string
+      required:
+        - id
+      type: object
+    Void:
+      type: object
+    ExternalPostWithCursorV2:
+      properties:
+        next_cursor:
+          description: >-
+            Cursor for pagination. This cursor can be used to get the next page
+            of this request.
+
+            If there is no next page the cursor is `null`.
+          nullable: true
+          type: string
+        posts:
+          description: List of the requested posts.
+          items:
+            $ref: "#/components/schemas/ExternalPostOverviewV2"
+          type: array
+      required:
+        - posts
+      type: object
+    ExternalUploadAttachmentResponse:
+      properties:
+        attachment_id:
+          format: uuid
+          type: string
+      required:
+        - attachment_id
+      type: object
+    ExternalAttachmentStatus:
+      properties:
+        attachment_id:
+          format: uuid
+          type: string
+        status:
+          $ref: "#/components/schemas/ExternalAttachmentProcessingStatus"
+        type:
+          $ref: "#/components/schemas/MediaConversionType"
+      required:
+        - attachment_id
+        - status
+        - type
+      type: object
+    ExternalPostOverview:
+      properties:
+        deleted_at:
+          description: >-
+            The timestamp of the deletion of the post.
+
+            The timestamp is formatted as full ISO 8601 e.g.
+            `2021-12-20T10:33:52Z`. This will be `null` if the post was not
+            deleted.
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          description: The id of the post.
+          format: uuid
+          type: string
+        published_at:
+          description:
+            The timestamp of the publishing of the post. The timestamp is
+            formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
+          format: date-time
+          type: string
+        updated_at:
+          description: >-
+            The timestamp of the last update of the post.
+
+            The timestamp is formatted as full ISO 8601 e.g.
+            `2021-12-20T10:33:52Z`. This will be `null` if the post was never
+            updated.
+          format: date-time
+          nullable: true
+          type: string
+      required:
+        - id
+        - published_at
+      type: object
+    ExternalPostAttachmentId:
+      properties:
+        attachment_id:
+          description: id of the uploaded attachment.
+          format: uuid
+          type: string
+      required:
+        - attachment_id
+      type: object
+    ExternalPostAttachment:
+      properties:
+        filename:
+          description: The full filename.
+          type: string
+        link:
+          description: >-
+            The link to the file.
+
+            This link is accessible with the same authentication as this
+            endpoint.
+          format: uri
+          type: string
+        mime_type:
+          description: The mime type of this attachment.
+          type: string
+      required:
+        - filename
+        - link
+        - mime_type
+      type: object
+    ExternalPostAuthor:
+      properties:
+        avatar:
+          description: >-
+            The link to the avatar picture.
+
+            This link is accessible with the same authentication as this
+            endpoint.
+          format: uri
+          nullable: true
+          type: string
+        external_id:
+          description:
+            The external id of the author. This can be set by using the user
+            sync API.
+          nullable: true
+          type: string
+        first_name:
+          description: The first name of the user as plaintext.
+          type: string
+        id:
+          description: The id of the user.
+          format: uuid
+          type: string
+        last_name:
+          description: The last name of the user as plaintext.
+          type: string
+      required:
+        - first_name
+        - id
+        - last_name
+      type: object
+    ExternalPostContent:
+      properties:
+        body:
+          description: The body in HTML format.
+          nullable: true
+          type: string
+        title:
+          description: The title as plain text.
+          type: string
+      required:
+        - title
+      type: object
+    ExternalPostGroup:
+      properties:
+        external_id:
+          description:
+            The external id of the group. This can be set by using the group
+            sync API.
+          nullable: true
+          type: string
+        id:
+          description: The id of the group.
+          format: uuid
+          type: string
+        name:
+          description: Display name of the group as plaintext.
+          type: string
+      required:
+        - id
+        - name
+      type: object
+    ExternalPostInfo:
+      properties:
+        published_at:
+          description:
+            Timestamp when the post was published. The timestamp is formatted as
+            full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
+          format: date-time
+          type: string
+        updated_at:
+          description: >-
+            Timestamp when the post was updated.
+
+            The timestamp is formatted as full ISO 8601 e.g.
+            `2021-12-20T10:33:52Z`. This will be null when the post was never
+            updated.
+          format: date-time
+          nullable: true
+          type: string
+      required:
+        - published_at
+      type: object
+    ExternalComment:
+      properties:
+        attachments:
+          items:
+            $ref: "#/components/schemas/ExternalPostAttachment"
+          nullable: true
+          type: array
+        author:
+          allOf:
+            - $ref: "#/components/schemas/ExternalPostAuthor"
+            - description: If author is not set, user have been deleted.
+          nullable: true
+        comment:
+          description: "`null` if comment has been deleted"
+          nullable: true
+          type: string
+        created_at:
+          description:
+            The timestamp of the publishing of the comment. The timestamp is
+            formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
+          format: date-time
+          type: string
+        deleted_at:
+          description:
+            The timestamp of the deletion of the comment. The timestamp is
+            formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be
+            `null` if the comment was not deleted.
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          description: The ID of the comment.
+          format: uuid
+          type: string
+      required:
+        - created_at
+        - id
+      type: object
+    ExternalPostOverviewV2:
+      properties:
+        created_at:
+          description:
+            The timestamp of the creating of the post. The timestamp is
+            formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
+          format: date-time
+          type: string
+        deleted_at:
+          description:
+            The timestamp of the deletion of the post. The timestamp is
+            formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be
+            `null` if the post was not deleted.
+          format: date-time
+          nullable: true
+          type: string
+        id:
+          description: The id of the post.
+          format: uuid
+          type: string
+        published_at:
+          description:
+            The timestamp of the publishing of the post. The timestamp is
+            formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`.
+          format: date-time
+          nullable: true
+          type: string
+        scheduled_at:
+          description:
+            The timestamp of the scheduled date of the post. The timestamp is
+            formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be
+            `null` if the post is not scheduled.
+          format: date-time
+          nullable: true
+          type: string
+        updated_at:
+          description:
+            The timestamp of the last update of the post. The timestamp is
+            formatted as full ISO 8601 e.g. `2021-12-20T10:33:52Z`. This will be
+            `null` if the post was never updated.
+          format: date-time
+          nullable: true
+          type: string
+      required:
+        - created_at
+        - id
+      type: object
+    ExternalAttachmentProcessingStatus:
+      description: >
+        Current state of the background processing:
+
+
+        * `IN_PROGRESS` - Attachment is still being processed.
+
+        * `FINISHED` - The processing has finished successfully and the
+        attachment can now be used elsewhere.
+
+        * `FAILED_BAD_FILE` - The uploaded file is corrupt and can not be
+        processed.
+
+        * `FAILED_INTERNAL_ERROR` - We encountered an internal error while
+        processing the attachment. Try again and if the problem persists, notify
+        your Flip contact person.
+      enum:
+        - IN_PROGRESS
+        - FINISHED
+        - FAILED_BAD_FILE
+        - FAILED_UNSUPPORTED_FILE_TYPE
+        - FAILED_INTERNAL_ERROR
+      type: string
+    MediaConversionType:
+      enum:
+        - VIDEO
+        - IMAGE
+        - MISC
+      type: string
+  securitySchemes:
+    BearerAuth:
+      bearerFormat: JWT
+      description: >+
+        ### General Setup
+
+
+        For accessing the API you need the following information:
+
+
+        #### DOMAIN
+
+
+        This is the base of the URL of your Flip system - so this is also the
+        URL that the normal users use to access Flip via the UI.
+
+        e.g. `test.flip-app.com`
+
+
+        #### TENANT
+
+
+        The System ID of your Flip system. This information will be provided to
+        you.
+
+        e.g. `mycompany`
+
+
+        ### How to get an OAuth token
+
+
+        Because we use
+        [Bearer-Auth](https://www.oauth.com/oauth2-servers/making-authenticated-requests/)
+        for our API, you need to set the `Authorization` header with a valid
+        token for all requests to the API. So before making any calls to the API
+        itself, you need to fetch a token.
+
+
+        The authentication is based on OAuth2 using the `grant_type` `password`.
+        The `client_id` must be set to `external-content`. The `username` and
+        `password` are the credentials of the technical user you want to use to
+        sync.
+
+
+        #### Example call for getting a token - make sure to replace all values
+        starting with `$` with your values as mentioned above:
+
+
+        ```bash
+
+        curl -X POST --location
+        "https://$DOMAIN/auth/realms/$TENANT/protocol/openid-connect/token" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+        		-d
+        "grant_type=password&client_id=external-content&username=$USERNAME&password=$PASSWORD"
+        ```
+
+
+        #### Example response:
+
+
+        ```json
+
+        {
+          <...>
+          "access_token": "eyJhbG<...>",
+          "expires_in": 86400,
+          "token_type": "Bearer",
+          <...>
+        }
+
+        ```
+
+
+        You now need to store the content of the field `access_token` since it
+        will be required as `Authorization` -Header in the following calls to
+        the API. The token has a defined expiration, `expires_in` and can be
+        used until the expiry date. So it is not necessary to get a new token
+        for each call, only if the token expires, then you have to get a new
+        one.
+
+
+        For more information about OAuth and the grant_type client-credentials,
+        see
+        [https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/).
+
+
+        ### Example Call to the API
+
+
+        After you obtained your token in the previous step, you can now use it
+        to make calls to the actual API.
+
+
+        Here is an example for requesting all users, just replace `$DOMAIN` with
+        your domain and `$TOKEN` with the token you obtained from the
+        `access_token` field in your call to get a token:
+
+
+        ```bash
+            curl https://$DOMAIN/api/external/v1/sync/users --header
+        'Authorization: Bearer $TOKEN' ```
+
+      scheme: bearer
+      type: http
+info:
+  description: >-
+    This API specification describes the public Flip-Post-API that allows to
+    fetch Posts from Flip.
+
+
+    # Changelog
+
+
+    ## 1.5-beta
+
+    * Allow system administrators to use the Post API as well.
+
+
+    ## 1.4-beta
+
+    * A new endpoint for searching posts [GET
+    api/external/post/v2/posts](#operation/getPostsV2). This allows you to get
+    not only published posts, but also scheduled posts (unlike the first
+    version). There are also many new filter options to cover most use-cases. In
+    addition, to schedule or update the scheduled date of a post, there is a new
+    `scheduled_at` field for the [POST
+    api/external/post/v1/posts](#operation/createPostV1) and [PUT
+    api/external/post/v1/posts/{postId}](#operation/updatePostV1) endpoints.
+
+    * New endpoints to create [POST
+    api/external/post/v1/posts/{postId}/comments](#operation/createComment) or
+    remove a post comment [DELETE
+    api/external/post/v1/posts/{postId}/comments/{commentId}](#operation/deleteComment).
+
+    * Add new field `send_push_notifications` to [POST
+    api/external/post/v1/posts](#operation/createPostV1) for controlling if a
+    post should trigger sending push notifications to the users.
+
+    * Add new field `published_at` to endpoints [POST
+    api/external/post/v1/posts](#operation/createPostV1) and [PUT
+    api/external/post/v1/posts/{postId}](#operation/updatePostV1), that allows
+    to manually set the published date of a post. The date must be in the past.
+
+
+    ## 1.3-beta
+
+    * Increase the payload size to `200 KiB` for endpoints [POST
+    api/external/post/v1/posts](#operation/createPostV1) and [PUT
+    api/external/post/v1/posts/{postId}](#operation/updatePostV1)
+
+
+    ## 1.2-beta
+
+    * Add new field `attachments` to endpoints [POST
+    api/external/post/v1/posts](#operation/createPostV1) and
+
+    [PUT api/external/post/v1/posts/{postId}](#operation/updatePostV1), that
+    allows attaching to posts already uploaded data.
+
+
+    ## 1.1-beta
+
+    - Add new endpoint [POST
+    api/external/post/v1/posts](#operation/createPostV1) to allow creating posts
+    in a group.
+
+    - Add new endpoints to upload files and query their background processing
+    status. The endpoint [POST
+    api/external/v1/attachments](#operation/uploadFile) is used for upload and
+    the endpoint [GET
+    api/external/v1/attachments/{attachment_id}/status](#operation/getAttachmentStatus)
+    to query the status.
+
+
+    ## 1.0-beta
+
+
+    * Add new endpoint [GET
+    api/external/post/v1/posts/{postId}/comments](#operation/getComments) to
+    allow fetching the comments
+      for a post. The endpoint allows for querying for comments in a certain
+    time range via the `after` and `before` query
+      parameters and supports pagination via cursors.
+    * Endpoint [GET
+    api/external/post/v1/posts/{postId}](#operation/getPostDetail) now also
+    returns the `external_id` of a post.
+
+    * Endpoint [GET api/external/post/v1/posts](#operation/getPosts) accepts new
+    query parameters to filter by `external_id` and by `group_id`.
+
+
+     # Authentication
+
+     <SecurityDefinitions />
+  title: Public Post API
+  version: 1.5-beta
+  contact:
+    name: Flip GmbH
+    url: https://flipapp.de
+    email: development@flipapp.de
+openapi: 3.0.1
+paths:
+  /api/external/post/v1/posts:
+    get:
+      deprecated: true
+      description:
+        Returns a list of posts from my groups that have any changes (published,
+        updated or deleted). The list ordered by the `published_at` timestamp.
+        The order is ascending (from oldest to newest), but will change to
+        descending if `before` is explicitly set but `after` is not.
+      operationId: getPostsV1
+      parameters:
+        - description:
+            Returns the posts which have `published_at`, `updated_at` or
+            `deleted_at` value after the `after` value. The full ISO 8601 must
+            be used e.g. `2021-12-20T10:33:52Z`. The `after` parameter is
+            inclusive.
+          in: query
+          name: after
+          schema:
+            nullable: true
+            type: string
+        - description:
+            Returns the posts which have `published_at`, `updated_at` or
+            `deleted_at` value before the `before` value. The full ISO 8601 must
+            be used e.g. `2021-12-20T10:33:52Z`. The `before`parameter is
+            exclusive.
+          in: query
+          name: before
+          schema:
+            nullable: true
+            type: string
+        - description:
+            Limits the count of the posts in response to the parameter value.
+          in: query
+          name: limit
+          schema:
+            default: 30
+            format: int32
+            maximum: 1000
+            nullable: true
+            type: integer
+        - description: >-
+            Cursor from an already made call for pagination. The cursor is
+            encoded and must only be used if retrieved from a previous call from
+            this API. It should not be changed in any way.
+
+            IF THE CURSOR IS SET IT WILL OVERWRITE ALL OTHER QUERY PARAMETERS.
+          in: query
+          name: cursor
+          schema:
+            nullable: true
+            type: string
+        - description: Returns posts that have this `external_id`.
+          in: query
+          name: external_id
+          schema:
+            nullable: true
+            type: string
+        - description:
+            Returns posts that are in a group with this `group_id`. This query
+            parameter can be repeated to include more groups.
+          in: query
+          name: group_id
+          schema:
+            items:
+              type: string
+            nullable: true
+            type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPostWithCursor"
+          description: getPostsV1 200 response
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Get all posts from the groups the user is a member of (V1)
+      tags:
+        - external-posts
+    post:
+      description: >-
+        Endpoint to create a new post.
+
+        The author of the post will be the authenticated user.
+
+        The user must be a member of the group to which the post will be
+        assigned.
+      operationId: createPostV1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalPostWritePost"
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPostWritePostResponse"
+          description: createPostV1 201 response
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Create a new post
+      tags:
+        - external-posts
+  "/api/external/post/v1/posts/{postId}":
+    get:
+      description: Returns a post for the given Post id.
+      operationId: getPostDetail
+      parameters:
+        - description: The id of the post you are searching for.
+          in: path
+          name: postId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPostDetail"
+          description: getPostDetail 200 response
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Get the post by id
+      tags:
+        - external-posts
+  "/api/external/post/v1/posts/{postId}/comments":
+    get:
+      description:
+        Returns a list of comments from a post. The list ordered by the
+        `created_at` timestamp. The order is ascending (from oldest to newest),
+        but will change to descending if `before` is explicitly set but `after`
+        is not.
+      operationId: getComments
+      parameters:
+        - description:
+            Returns the comments which have `created_at` value after the `after`
+            value. The full ISO 8601 must be used e.g. `2021-12-20T10:33:52Z`.
+            The `after` parameter is inclusive.
+          in: query
+          name: after
+          schema:
+            nullable: true
+            type: string
+        - description:
+            Returns the comments which have `created_at` value before the
+            `before` value. The full ISO 8601 must be used e.g.
+            `2021-12-20T10:33:52Z`. The `before`parameter is exclusive.
+          in: query
+          name: before
+          schema:
+            nullable: true
+            type: string
+        - description:
+            Limits the count of the comments in response to the parameter value.
+          in: query
+          name: limit
+          schema:
+            default: 30
+            format: int32
+            maximum: 1000
+            nullable: true
+            type: integer
+        - description: >-
+            Cursor from an already made call for pagination. The cursor is
+            encoded and must only be used if retrieved from a previous call from
+            this API. It should not be changed in any way.
+
+            IF THE CURSOR IS SET IT WILL OVERWRITE ALL OTHER QUERY PARAMETERS.
+          in: query
+          name: cursor
+          schema:
+            nullable: true
+            type: string
+        - in: path
+          name: postId
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalCommentWithCursor"
+          description: getComments 200 response
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Get all comments for a post.
+      tags:
+        - external-posts
+  "/api/external/post/v1/posts/{post_id}":
+    delete:
+      description:
+        Delete post by id. The post will be deleted permanently - an undelete is
+        not possible.
+      operationId: deletePostV1
+      parameters:
+        - in: path
+          name: post_id
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        "204":
+          description: deletePostV1 204 response
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Delete a post by id
+      tags:
+        - external-posts
+    put:
+      description: >-
+        Update the post by id.
+
+        The group of the post cannot be updated. To update the group, delete the
+        post and create a new one.
+      operationId: updatePostV1
+      parameters:
+        - in: path
+          name: post_id
+          required: true
+          schema:
+            format: uuid
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalPostUpdatePost"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPostWritePostResponse"
+          description: updatePostV1 200 response
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Update a post by id
+      tags:
+        - external-posts
+  "/api/external/post/v1/posts/{post_id}/comments":
+    post:
+      description: Returns an id of the created comment.
+      operationId: createComment
+      parameters:
+        - in: path
+          name: post_id
+          required: true
+          schema:
+            format: uuid
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalWriteComment"
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalCommentId"
+          description: The resource was created successfully
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Create a new comment for a post.
+      tags:
+        - external-posts
+  "/api/external/post/v1/posts/{post_id}/comments/{comment_id}":
+    delete:
+      description:
+        Delete comment by id. The comment will be deleted permanently - an
+        undelete is not possible.
+      operationId: deleteComment
+      parameters:
+        - in: path
+          name: post_id
+          required: true
+          schema:
+            format: uuid
+            type: string
+        - in: path
+          name: comment_id
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        "204":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Void"
+          description: The resource was deleted successfully
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Delete an existing comment.
+      tags:
+        - external-posts
+  /api/external/post/v2/posts:
+    get:
+      description:
+        "Returns a list of posts from my groups that have any changes (created,
+        published, updated or deleted).The list ordered by the `created_at`
+        timestamp. "
+      operationId: getPostsV2
+      parameters:
+        - description:
+            Returns the posts which have `created_at`, `published_at`,
+            `updated_at` or `deleted_at` value after the `after` value. The full
+            ISO 8601 must be used e.g. `2021-12-20T10:33:52Z`. The `after`
+            parameter is inclusive.
+          in: query
+          name: after
+          schema:
+            nullable: true
+            pattern: ^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(([+-]\d\d:\d\d)|Z)?$
+            type: string
+        - description:
+            Returns the posts which have `created_at`, `published_at`,
+            `updated_at` or `deleted_at` value before the `before` value. The
+            full ISO 8601 must be used e.g. `2021-12-20T10:33:52Z`. The `before`
+            parameter is exclusive.
+          in: query
+          name: before
+          schema:
+            nullable: true
+            pattern: ^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(([+-]\d\d:\d\d)|Z)?$
+            type: string
+        - description:
+            Limits the count of the posts in response to the parameter value.
+            Maximum is 1000.
+          in: query
+          name: limit
+          schema:
+            default: 30
+            format: int32
+            maximum: 1000
+            nullable: true
+            type: integer
+        - description: >-
+            Cursor from an already made call for pagination. The cursor is
+            encoded and must only be used if retrieved from a previous call from
+            this API. It should not be changed in any way.
+
+            IF THE CURSOR IS SET IT WILL OVERWRITE ALL OTHER QUERY PARAMETERS.
+          in: query
+          name: cursor
+          schema:
+            nullable: true
+            type: string
+        - description: Returns posts that have this `external_post_id`.
+          in: query
+          name: external_post_id
+          schema:
+            nullable: true
+            type: string
+        - description:
+            "Filter search results by post publishing status. There are 3
+            options: `ONLY_PUBLISHED` (default), `ONLY_SCHEDULED` and `ALL`."
+          in: query
+          name: published_status
+          schema:
+            default: ONLY_PUBLISHED
+            nullable: true
+            type: string
+        - description:
+            "Filter search results by post status. There are 5 options:
+            `ONLY_CREATED`, `ONLY_UPDATED`, `ONLY_CREATED_OR_UPDATED` (default),
+            `ONLY_DELETED` and `ALL`."
+          in: query
+          name: post_status
+          schema:
+            default: ONLY_CREATED_OR_UPDATED
+            nullable: true
+            type: string
+        - description:
+            Returns posts that are in a group with this `group_id`. This query
+            parameter can be repeated to include more groups.
+          in: query
+          name: group_id
+          schema:
+            items:
+              type: string
+            nullable: true
+            type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPostWithCursorV2"
+          description: getPostsV2 200 response
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Get all posts from the groups the user is a member of (V2)
+      tags:
+        - external-posts
+  /api/external/v1/attachments:
+    post:
+      description:
+        Upload attachment and get `attachment_id` for further usage.
+        **Attention:** Maximum allowed file size is 1GB.
+      operationId: uploadAttachment
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  format: binary
+                  type: string
+              required:
+                - file
+              type: object
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalUploadAttachmentResponse"
+          description:
+            The request has been accepted and is now processed in the background
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Upload attachment
+      tags:
+        - external-attachments
+  "/api/external/v1/attachments/{attachment_id}/status":
+    get:
+      description:
+        Returns the transformation status of the previously uploaded attachment.
+      operationId: getAttachmentStatus
+      parameters:
+        - in: path
+          name: attachment_id
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalAttachmentStatus"
+          description: The request has succeeded
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - user
+            - admin
+      summary: Get the processing status for an uploaded attachment.
+      tags:
+        - external-attachments
+security:
+  - BearerAuth: []

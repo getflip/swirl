@@ -126,20 +126,12 @@ export default function Document({
                   const oasBuilder = new OASBuilder(document.definition);
 
                   oasBuilder.setEndpoints().setOperations();
-                  const codePreview = oasBuilder?.createCodePreview(
+                  const codePreview = oasBuilder?.generateRequest(
                     endpoint.operation,
                     "javascript"
                   );
+                  oasBuilder.generateResponse(endpoint.operation);
 
-                  // console.log(
-                  //   "response code 200",
-                  //   endpoint.operation.getResponseAsJSONSchema(200)
-                  // );
-                  console.log(
-                    endpoint.operation.getResponseAsJSONSchema(200) === null
-                  );
-
-                  console.log(endpoint.operation.getResponseExamples());
                   return (
                     <>
                       <div>
@@ -165,26 +157,21 @@ export default function Document({
                           <CodePreview.Request />
                         </CodePreview>
                         <div className="mt-2">
-                          {endpoint.operation.getResponseAsJSONSchema(200) ===
-                            null && (
-                            <CodePreview
-                              isHttpResponse
-                              codeExample={{
-                                code: JSON.stringify(
-                                  endpoint.operation.getResponseExamples()[0]
-                                    .mediaTypes,
-                                  null,
-                                  2
-                                ),
-                                isLongCode: true,
-                                language: "bash",
-                              }}
-                            >
-                              <span className="text-font-size-base">
-                                Response
-                              </span>
-                            </CodePreview>
-                          )}
+                          <CodePreview
+                            isHttpResponse
+                            codeExample={{
+                              code: oasBuilder.generateResponse(
+                                endpoint.operation
+                              ),
+
+                              isLongCode: true,
+                              language: "bash",
+                            }}
+                          >
+                            <span className="text-font-size-base">
+                              Response
+                            </span>
+                          </CodePreview>
                         </div>
                       </div>
                     </>
