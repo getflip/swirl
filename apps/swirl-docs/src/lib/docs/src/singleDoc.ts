@@ -36,7 +36,7 @@ export function serializeMarkdownString(source: string) {
   return serialize(source, {
     parseFrontmatter: true,
     mdxOptions: {
-      rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+      rehypePlugins: [rehypeSlug],
       remarkPlugins: [remarkGfm, sectionize],
       format: "mdx",
     },

@@ -13,6 +13,7 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { CodePreview } from "src/components/CodePreview";
 import { Tag } from "src/components/Tags";
 import { Parameter } from "src/components/Documentation/Parameter";
+import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
 
 async function getSpecData(spec: string): Promise<ApiDoc> {
   const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
@@ -48,6 +49,7 @@ function generateGeneralDescription(document: ApiDoc) {
     ?.replace(document.title, "")
     .replace(document.shortDescription, "")
     .replace("<SecurityDefinitions />", "")
+    .replace("# Authentication", "")
     .replaceAll("user_external_id", "123")
     .replaceAll("postId", "123")
     .replaceAll("commentId", "123")
@@ -135,6 +137,36 @@ export default function Document({
         <title>{`API | ${title}`}</title>
       </Head>
       <DocumentationLayout
+        data={{
+          mdxContent: {
+            document: markdown,
+            components: {
+              h1: (props) => <h2 className="text-2xl font-bold" {...props} />,
+              h2: (props) => <h3 className="text-xl font-bold" {...props} />,
+              a: (props) => (
+                <span className="inline-flex items-center text-interactive-primary-default">
+                  <a {...props} />
+                  <SwirlIconOpenInNew className="ml-1" size={20} />
+                </span>
+              ),
+              ul: (props) => (
+                <ul className="mb-4 leading-line-height-xl" {...props} />
+              ),
+              code: (props) => (
+                <code
+                  className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
+                  {...props}
+                />
+              ),
+            },
+          },
+          frontMatter: {
+            title: document.title,
+            description: document.shortDescription,
+            examples: [],
+          },
+          navigationLinks: apiDocsNavItems,
+        }}
         disableToc
         header={
           <DocumentationLayout.Header additionalClassNames="col-span-2" />
@@ -142,7 +174,7 @@ export default function Document({
         content={
           <>
             <DocumentationLayout.MDX />
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="mt-20">
               {endpointList.map((endpoint) => {
                 if (document.definition) {
                   const oasBuilder = new OASBuilder(document.definition);
@@ -159,71 +191,79 @@ export default function Document({
 
                   return (
                     <>
-                      <div>
-                        <h2
-                          id={endpoint.path.slice(2, endpoint.path.length)}
-                          key={endpoint.title}
-                        >
-                          {endpoint.title}
-                          {endpoint.operation.isDeprecated() && (
-                            <span className="ml-2">
-                              <Tag content="deprecated" scheme="warning" />
-                            </span>
-                          )}
-                        </h2>
-                        <ReactMarkdown
-                          className="text-base"
-                          components={{ p: () => <p className="text-base" /> }}
-                        >
-                          {endpoint.operation.getDescription()}
-                        </ReactMarkdown>
-                        <div className="mt-4">
-                          {paramsWrapper.map((params) => {
-                            const requiredParams = params.schema.required || [];
-                            const parameterOfEndpoint =
-                              params.schema.properties || {};
-
-                            return (
-                              <>
-                                <h4 className="font-font-weight-semibold text-base mt-4">
-                                  {params.label}
-                                </h4>
-                                <Parameters
-                                  requiredProperties={requiredParams}
-                                  properties={parameterOfEndpoint}
-                                />
-                              </>
-                            );
-                          })}
-                        </div>
-                      </div>
-                      <div className="min-w-0">
-                        <CodePreview
-                          codeExample={{
-                            code: codePreview.code,
-                            isLongCode: false,
-                            language: "bash",
-                            request: codePreview.request,
-                          }}
-                        >
-                          <CodePreview.Request />
-                        </CodePreview>
-                        <div className="mt-2">
-                          <CodePreview
-                            isHttpResponse
-                            codeExample={{
-                              code: oasBuilder.generateResponse(
-                                endpoint.operation
+                      <h2
+                        className="text-font-size-2xl font-font-weight-semibold mb-4"
+                        id={endpoint.path.slice(2, endpoint.path.length)}
+                        key={endpoint.title}
+                      >
+                        {endpoint.title}
+                        {endpoint.operation.isDeprecated() && (
+                          <span className="ml-2">
+                            <Tag content="deprecated" scheme="warning" />
+                          </span>
+                        )}
+                      </h2>
+                      <div className="grid md:grid-cols-2 gap-8 mb-20">
+                        <div>
+                          <ReactMarkdown
+                            className="text-base"
+                            components={{
+                              p: (props: any) => (
+                                <p className="text-base">{props.children}</p>
                               ),
-
-                              isLongCode: true,
-                              language: "bash",
                             }}
                           >
-                            <span className="text-font-size-base">
-                              Response
-                            </span>
+                            {endpoint.operation.getDescription()}
+                          </ReactMarkdown>
+                          <div className="mt-4">
+                            {paramsWrapper.map((params) => {
+                              const requiredParams =
+                                params.schema.required || [];
+                              const parameterOfEndpoint =
+                                params.schema.properties || {};
+
+                              return (
+                                <>
+                                  <h4 className="text-xl font-font-weight-semibold mt-4">
+                                    {params.label}
+                                  </h4>
+                                  <Parameters
+                                    requiredProperties={requiredParams}
+                                    properties={parameterOfEndpoint}
+                                  />
+                                </>
+                              );
+                            })}
+                          </div>
+                        </div>
+                        <div className="min-w-0">
+                          <CodePreview
+                            codeExample={{
+                              code: codePreview.code,
+                              isLongCode: false,
+                              language: "bash",
+                              request: codePreview.request,
+                            }}
+                          >
+                            <CodePreview.Request />
                           </CodePreview>
+                          <div className="mt-2">
+                            <CodePreview
+                              isHttpResponse
+                              codeExample={{
+                                code: oasBuilder.generateResponse(
+                                  endpoint.operation
+                                ),
+
+                                isLongCode: true,
+                                language: "bash",
+                              }}
+                            >
+                              <span className="text-font-size-base">
+                                Response
+                              </span>
+                            </CodePreview>
+                          </div>
                         </div>
                       </div>
                     </>
@@ -234,17 +274,6 @@ export default function Document({
           </>
         }
         footer={<DocumentationLayout.Footer />}
-        data={{
-          mdxContent: {
-            document: markdown,
-          },
-          frontMatter: {
-            title: document.title,
-            description: document.shortDescription,
-            examples: [],
-          },
-          navigationLinks: apiDocsNavItems,
-        }}
       />
     </>
   );
