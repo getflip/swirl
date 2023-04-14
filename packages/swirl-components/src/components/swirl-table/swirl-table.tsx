@@ -312,6 +312,12 @@ export class SwirlTable {
     this.updateScrolledState();
   };
 
+  private onSlotChange = async () => {
+    await this.updateLayout();
+    this.updateScrolledState();
+    this.updateEmptyState();
+  };
+
   render() {
     return (
       <Host>
@@ -334,11 +340,11 @@ export class SwirlTable {
               )}
               <div role="rowgroup">
                 <div class="table__header" role="row">
-                  <slot name="columns"></slot>
+                  <slot name="columns" onSlotchange={this.onSlotChange}></slot>
                 </div>
               </div>
               <div class="table__body">
-                <slot name="rows"></slot>
+                <slot name="rows" onSlotchange={this.onSlotChange}></slot>
                 {this.empty && (
                   <div class="table__empty-row" role="row">
                     <div
