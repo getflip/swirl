@@ -3397,7 +3397,11 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
-        "onItemDrop"?: (event: SwirlOptionListCustomEvent<{ oldIndex: number; newIndex: number }>) => void;
+        "onItemDrop"?: (event: SwirlOptionListCustomEvent<{
+    item: HTMLSwirlOptionListItemElement;
+    oldIndex: number;
+    newIndex: number;
+  }>) => void;
         "onValueChange"?: (event: SwirlOptionListCustomEvent<string[]>) => void;
         "optionListId"?: string;
         "value"?: string[];
