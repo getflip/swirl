@@ -152,6 +152,11 @@ export default function Document({
               ul: (props) => (
                 <ul className="mb-4 leading-line-height-xl" {...props} />
               ),
+              p: (props: any) => (
+                <p className="text-base leading-line-height-xl">
+                  {props.children}
+                </p>
+              ),
               code: (props) => (
                 <code
                   className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
@@ -210,6 +215,12 @@ export default function Document({
                             components={{
                               p: (props: any) => (
                                 <p className="text-base">{props.children}</p>
+                              ),
+                              code: (props) => (
+                                <code
+                                  className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
+                                  {...props}
+                                />
                               ),
                             }}
                           >

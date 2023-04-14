@@ -1,9 +1,7 @@
+import fs from "fs";
+import OASNormalize from "oas-normalize";
 import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
 import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
-import OASNormalize from "oas-normalize";
-import fs from "fs";
-
-// const apiDocsData = fs.readFileSync("./src/lib/navigation/src/data/apiDocs.data.ts", "utf8");
 
 function createapiDocsDataString(data: string) {
   return `

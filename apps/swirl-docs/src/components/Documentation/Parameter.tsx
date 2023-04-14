@@ -17,13 +17,23 @@ export function Parameter({
 }: ParameterProps) {
   return (
     <div className="flex flex-col py-4 border-b-1">
-      <div className="flex items-center">
+      <div className="flex items-center mb-2">
         <code className="text-sm font-font-weight-bold mr-2">{name}</code>
         <Tag content={type} />
         {required && <Tag content="required" scheme="critical" />}
       </div>
       {description && (
-        <ReactMarkdown className="text-sm text-text-default">
+        <ReactMarkdown
+          components={{
+            code: (props) => (
+              <code
+                className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
+                {...props}
+              />
+            ),
+          }}
+          className="text-sm text-text-default"
+        >
           {description}
         </ReactMarkdown>
       )}
