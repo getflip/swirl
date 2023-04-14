@@ -3,7 +3,7 @@ import OASNormalize from "oas-normalize";
 import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
 import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 
-function createapiDocsDataString(data: string) {
+function createApiDocsDataString(data: string) {
   return `
 import { NavItem } from "../navigation.model";
 
@@ -14,26 +14,22 @@ export const apiDocsNavItems: NavItem[] = [
 }
 
 async function generateApiSpecNavItems(specPath: string): Promise<NavItem> {
-  const operationNavItems: NavItem[] = [];
-
   const oasDocument = await new OASNormalize(specPath, {
     enablePaths: true,
   }).validate();
-
   const oasBuilder = new OASBuilder(oasDocument)
     .setTitleAndPath()
     .setDescription()
     .setEndpoints()
     .setOperations();
 
-  oasBuilder.operationsList?.forEach((endpoint) => {
-    operationNavItems.push({
+  const operationNavItems: NavItem[] =
+    oasBuilder.operationsList?.map((endpoint) => ({
       title: endpoint.title,
       url: `/api-docs${endpoint.path}`,
       description: endpoint.operation.method,
       isRoot: false,
-    });
-  });
+    })) || [];
 
   return {
     title: oasBuilder.title,
@@ -44,19 +40,19 @@ async function generateApiSpecNavItems(specPath: string): Promise<NavItem> {
   };
 }
 
-async function generateApiSpecNavigation() {
-  let dataString = "";
+async function generateApiSpecNavigation(): Promise<void> {
   const specs = fs
     .readdirSync(API_SPEC_PATH)
     .filter((file) => file.includes(".yml"));
 
-  for (const spec of specs) {
-    const navItem = await generateApiSpecNavItems(`${API_SPEC_PATH}/${spec}`);
+  const navItems = await Promise.all(
+    specs.map((spec) => generateApiSpecNavItems(`${API_SPEC_PATH}/${spec}`))
+  );
 
-    dataString += `${JSON.stringify(navItem)},`;
-  }
-
-  const apiDocsData = createapiDocsDataString(dataString);
+  const dataString = navItems
+    .map((navItem) => JSON.stringify(navItem))
+    .join(",");
+  const apiDocsData = createApiDocsDataString(dataString);
 
   fs.writeFileSync(
     "./src/lib/navigation/src/data/apiDocs.data.ts",

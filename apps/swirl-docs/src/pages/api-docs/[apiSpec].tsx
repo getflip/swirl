@@ -14,6 +14,8 @@ import { CodePreview } from "src/components/CodePreview";
 import { Tag } from "src/components/Tags";
 import { Parameter } from "src/components/Documentation/Parameter";
 import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
+import { SchemaObject } from "oas/dist/rmoas.types";
+import { ReferenceObject } from "openapi-typescript";
 
 async function getSpecData(spec: string): Promise<ApiDoc> {
   const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
@@ -59,7 +61,13 @@ function generateGeneralDescription(document: ApiDoc) {
 export const getStaticProps: GetStaticProps<
   ScriptProps,
   { apiSpec: string }
-> = async (context: any) => {
+> = async (context) => {
+  if (!context.params || !("apiSpec" in context.params)) {
+    return {
+      notFound: true,
+    };
+  }
+
   const { apiSpec } = context.params;
   const document = await getSpecData(apiSpec);
 
@@ -104,31 +112,33 @@ export default function Document({
     properties,
     requiredProperties,
   }: {
-    properties: any;
-    requiredProperties: any;
+    properties: SchemaObject["properties"];
+    requiredProperties: SchemaObject["required"];
   }) {
-    const params = Object.keys(properties);
+    if (typeof properties === "object" && Array.isArray(requiredProperties)) {
+      const params = Object.keys(properties);
+      if (params.length === 0) return <></>;
+      return (
+        <>
+          {params.map((param) => {
+            const required = requiredProperties.includes(param);
+            const prop = properties[param] as SchemaObject;
 
-    if (params.length === 0) return <></>;
+            return (
+              <Parameter
+                key={param}
+                name={param}
+                type={prop.type as string}
+                description={prop.description}
+                required={required}
+              />
+            );
+          })}
+        </>
+      );
+    }
 
-    return (
-      <>
-        {params.map((param) => {
-          const required = requiredProperties.includes(param);
-          const prop = properties[param];
-
-          return (
-            <Parameter
-              key={param}
-              name={param}
-              type={prop.type}
-              description={prop.description}
-              required={required}
-            />
-          );
-        })}
-      </>
-    );
+    return <></>;
   }
 
   return (
@@ -152,7 +162,7 @@ export default function Document({
               ul: (props) => (
                 <ul className="mb-4 leading-line-height-xl" {...props} />
               ),
-              p: (props: any) => (
+              p: (props) => (
                 <p className="text-base leading-line-height-xl">
                   {props.children}
                 </p>
@@ -173,9 +183,7 @@ export default function Document({
           navigationLinks: apiDocsNavItems,
         }}
         disableToc
-        header={
-          <DocumentationLayout.Header additionalClassNames="col-span-2" />
-        }
+        header={<DocumentationLayout.Header className="col-span-2" />}
         content={
           <>
             <DocumentationLayout.MDX />
@@ -183,13 +191,11 @@ export default function Document({
               {endpointList.map((endpoint) => {
                 if (document.definition) {
                   const oasBuilder = new OASBuilder(document.definition);
-
                   oasBuilder.setEndpoints().setOperations();
+
                   const codePreview = oasBuilder?.generateRequest(
-                    endpoint.operation,
-                    "javascript"
+                    endpoint.operation
                   );
-                  oasBuilder.generateResponse(endpoint.operation);
 
                   const paramsWrapper =
                     endpoint.operation.getParametersAsJSONSchema() || [];
@@ -213,7 +219,7 @@ export default function Document({
                           <ReactMarkdown
                             className="text-base"
                             components={{
-                              p: (props: any) => (
+                              p: (props) => (
                                 <p className="text-base">{props.children}</p>
                               ),
                               code: (props) => (
@@ -230,6 +236,7 @@ export default function Document({
                             {paramsWrapper.map((params) => {
                               const requiredParams =
                                 params.schema.required || [];
+
                               const parameterOfEndpoint =
                                 params.schema.properties || {};
 

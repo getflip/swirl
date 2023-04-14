@@ -3,9 +3,9 @@ import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutCont
 import { Tag } from "../Tags";
 
 export function DocumentationHeader({
-  additionalClassNames,
+  className: additionalClassNames,
 }: {
-  additionalClassNames?: string;
+  className?: string;
 }) {
   const { frontMatter } = useDocumentationLayoutContext();
 

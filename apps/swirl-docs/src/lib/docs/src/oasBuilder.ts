@@ -5,11 +5,11 @@ import {
   OASDocument,
   PathsObject,
 } from "oas/dist/rmoas.types";
-import { Endpoint, Operations } from "./docs.model";
 import oasToHar from "@readme/oas-to-har";
 import { oasToSnippet } from "@readme/oas-to-snippet";
-import { Request } from "har-format";
 import { SupportedTargets } from "@readme/oas-to-snippet";
+import { Request } from "har-format";
+import { Endpoint, Operations } from "./docs.model";
 
 interface IOASBuilder {
   title: string;
@@ -21,7 +21,7 @@ interface IOASBuilder {
 }
 
 export default class OASBuilder implements IOASBuilder {
-  private _oasDocument: OASDocument;
+  private _oasDocument: OASDocument = {} as OASDocument;
   private _oasBuilder: Oas = new Oas({} as OASDocument);
 
   public title: string = "";
@@ -34,6 +34,10 @@ export default class OASBuilder implements IOASBuilder {
   public tags: string[] = [];
 
   constructor(oasDocument: OASDocument) {
+    this.initializeProperties(oasDocument);
+  }
+
+  private initializeProperties(oasDocument: OASDocument) {
     this._oasDocument = oasDocument;
     this._oasBuilder = new Oas(oasDocument);
   }
@@ -75,7 +79,7 @@ export default class OASBuilder implements IOASBuilder {
 
     for (const path in this.endpoints) {
       const operationInPaths = this.endpoints[path];
-      const methods = Object.keys(operationInPaths!) as HttpMethods[];
+      const methods = Object.keys(operationInPaths ?? {}) as HttpMethods[];
 
       methods.forEach((operation) => {
         const oasOperation = this._oasBuilder.operation(path, operation);
@@ -111,7 +115,7 @@ export default class OASBuilder implements IOASBuilder {
 
   public generateRequest(
     operation: Operation,
-    language: SupportedTargets
+    language?: SupportedTargets
   ): {
     code: string;
     request: Request;
