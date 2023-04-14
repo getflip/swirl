@@ -32,6 +32,15 @@ export class SwirlTable {
   @State() scrolledToEnd: boolean;
 
   private container: HTMLElement;
+  private columnObserver: MutationObserver;
+
+  componentDidLoad() {
+    this.observeColumnChanges();
+  }
+
+  disconnectedCallback() {
+    this.columnObserver?.disconnect();
+  }
 
   async componentDidRender() {
     await this.updateLayout();
@@ -43,6 +52,22 @@ export class SwirlTable {
   async onWindowResize() {
     await this.updateLayout();
     this.updateScrolledState();
+  }
+
+  private observeColumnChanges() {
+    this.columnObserver = new MutationObserver(this.onSlotChange);
+
+    const columnsContainer = this.el.shadowRoot
+      .querySelector<HTMLSlotElement>('slot[name="columns"]')
+      .assignedElements?.()?.[0];
+
+    if (!Boolean(columnsContainer)) {
+      return;
+    }
+
+    this.columnObserver.observe(columnsContainer, {
+      childList: true,
+    });
   }
 
   private updateScrolledState() {

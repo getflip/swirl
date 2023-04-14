@@ -320,7 +320,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   private syncItemsWithValue() {
-    this.items.forEach(
+    this.items?.forEach(
       (item) => (item.selected = this.value.includes(item.value))
     );
   }
