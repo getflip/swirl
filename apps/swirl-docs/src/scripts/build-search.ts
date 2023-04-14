@@ -222,7 +222,7 @@ async function generateAlgoliaData() {
     await validateAlgoliaEnvironment();
     const transformed = getTransformedData();
     console.log(transformed);
-    // await saveAlgoliaData(transformed);
+    await saveAlgoliaData(transformed);
   } catch (error) {
     console.error(error);
   }
