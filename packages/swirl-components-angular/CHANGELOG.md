@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.37.3
+
+### Patch Changes
+
+- [`caf8d1e`](https://github.com/getflip/swirl/commit/caf8d1ea2b080f3157053d10acd5eaf7abda145f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-option-list overwriting
+  swirl-option-list-item's disabled state
+
+- Updated dependencies
+  [[`caf8d1e`](https://github.com/getflip/swirl/commit/caf8d1ea2b080f3157053d10acd5eaf7abda145f)]:
+  - @getflip/swirl-components@0.38.3
+
 ## 0.37.2
 
 ### Patch Changes
