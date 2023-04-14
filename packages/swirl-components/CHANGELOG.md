@@ -1,5 +1,17 @@
 # @getflip/swirl-components
 
+## 0.38.1
+
+### Patch Changes
+
+- [`6e42012`](https://github.com/getflip/swirl/commit/6e420126e5b154d5d43d1435fb93517457ac5f97)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add missing item reference to
+  swirl-option-list "itemDrop" event
+
+* [`85abdb9`](https://github.com/getflip/swirl/commit/85abdb9e9362e4f25e475af909ee8e22a6898fad)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-table layout update
+  after slot contents change
+
 ## 0.38.0
 
 ### Minor Changes
