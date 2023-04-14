@@ -22,7 +22,7 @@ interface IOASBuilder {
 
 export default class OASBuilder implements IOASBuilder {
   private _oasDocument: OASDocument = {} as OASDocument;
-  private _oasBuilder: Oas = new Oas({} as OASDocument);
+  private _oasBuilder: Oas = new (Oas as any).default({} as OASDocument);
 
   public title: string = "";
   public shortDescription: string = "";
@@ -39,7 +39,7 @@ export default class OASBuilder implements IOASBuilder {
 
   private initializeProperties(oasDocument: OASDocument) {
     this._oasDocument = oasDocument;
-    this._oasBuilder = new Oas(oasDocument);
+    this._oasBuilder = new (Oas as any).default(oasDocument);
   }
 
   public async dereference() {

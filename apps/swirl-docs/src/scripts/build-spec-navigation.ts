@@ -14,7 +14,7 @@ export const apiDocsNavItems: NavItem[] = [
 }
 
 async function generateApiSpecNavItems(specPath: string): Promise<NavItem> {
-  const oasDocument = await new OASNormalize(specPath, {
+  const oasDocument = await new (OASNormalize as any).default(specPath, {
     enablePaths: true,
   }).validate();
   const oasBuilder = new OASBuilder(oasDocument)
