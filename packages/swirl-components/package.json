@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-components",
-  "version": "0.34.0",
+  "version": "0.38.0",
   "description": "Swirl Design System Web Component Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -55,6 +55,7 @@
     "maska": "^1.5.0",
     "papaparse": "^5.3.2",
     "pdfjs-dist": "^2.16.105",
+    "shave": "^5.0.2",
     "sortablejs": "^1.15.0",
     "wc-datepicker": "^0.5.1"
   },

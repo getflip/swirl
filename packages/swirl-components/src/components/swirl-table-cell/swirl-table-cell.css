@@ -22,14 +22,6 @@
     box-shadow: var(--swirl-table-sticky-left-shadow);
   }
 
-  &(:first-child) {
-    border-left: var(--s-border-width-default) solid var(--s-border-default);
-  }
-
-  &(:last-child) {
-    border-right: var(--s-border-width-default) solid var(--s-border-default);
-  }
-
   & * {
     box-sizing: border-box;
   }

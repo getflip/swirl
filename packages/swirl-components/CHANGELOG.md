@@ -1,5 +1,80 @@
 # @getflip/swirl-components
 
+## 0.38.0
+
+### Minor Changes
+
+- [`73cd994`](https://github.com/getflip/swirl/commit/73cd994ce037bde1758cc177df70f1f347c76bba)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add first and last page buttons
+  to swirl-pagination
+
+* [`72f1b98`](https://github.com/getflip/swirl/commit/72f1b9844e3a9ca3218a66cdfaa9fad5a6450376)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add padding props to swirl-box
+
+- [`d972ec8`](https://github.com/getflip/swirl/commit/d972ec815d3bbff4c6871e618888b46dd9d57946)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "variant" prop to
+  swirl-search
+
+## 0.37.0
+
+### Minor Changes
+
+- [`cfeee86`](https://github.com/getflip/swirl/commit/cfeee869c7601406531d070841307bc3381838e1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Remove default border around
+  swirl-table
+
+* [`3c2395d`](https://github.com/getflip/swirl/commit/3c2395d4dd08962fbfd2690f1cd7ffde96149186)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "spacing" prop to
+  swirl-separator
+
+### Patch Changes
+
+- [`cfeee86`](https://github.com/getflip/swirl/commit/cfeee869c7601406531d070841307bc3381838e1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow swirl-console-layout
+  content area to shrink
+
+## 0.36.0
+
+### Minor Changes
+
+- [#216](https://github.com/getflip/swirl/pull/216)
+  [`85f0c9c`](https://github.com/getflip/swirl/commit/85f0c9c29e543436988e3d49d4563a63c3788593)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-inline-notification
+  component
+
+## 0.35.0
+
+### Minor Changes
+
+- [`d59d273`](https://github.com/getflip/swirl/commit/d59d273d7fd4e40697f6e6ebc00a62ffb585dea7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add padding props to swirl-card
+  component
+
+## 0.34.3
+
+### Patch Changes
+
+- [`9caddb5`](https://github.com/getflip/swirl/commit/9caddb536daa62a3df7ab9ac3e5ff75d4c171148)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-text multi-line
+  truncation in iOS Safari
+
+## 0.34.2
+
+### Patch Changes
+
+- [`86228a6`](https://github.com/getflip/swirl/commit/86228a635cac36a60e244f52d2058a3c17538d54)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent disabled swirl-button
+  from firing click event
+
+## 0.34.1
+
+### Patch Changes
+
+- [#211](https://github.com/getflip/swirl/pull/211)
+  [`84e5345`](https://github.com/getflip/swirl/commit/84e5345032c7391a11b3afba2e252aa3bea9bcf9)
+  Thanks [@martinneumann](https://github.com/martinneumann)! - Add a prop for
+  borderless cards; fix visibility of carousel buttons on iOS
+
 ## 0.34.0
 
 ### Minor Changes

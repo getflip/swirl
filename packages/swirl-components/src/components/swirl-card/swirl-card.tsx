@@ -9,6 +9,17 @@ export type SwirlCardBorderRadius =
 
 export type SwirlCardJustifyContent = "start" | "center" | "end";
 
+export type SwirlCardPadding =
+  | "0"
+  | "2"
+  | "4"
+  | "8"
+  | "12"
+  | "16"
+  | "20"
+  | "24"
+  | "32";
+
 /**
  * @slot slot - The card contents
  */
@@ -27,9 +38,15 @@ export class SwirlCard {
   @Prop() highlighted?: boolean;
   @Prop() href?: string;
   @Prop() imageAspectRatio?: string;
+  @Prop() isBorderless?: boolean;
   @Prop() interactive?: boolean;
   @Prop() justifyContent?: SwirlCardJustifyContent = "start";
   @Prop() linkTarget?: string;
+  @Prop() padding?: SwirlCardPadding;
+  @Prop() paddingBlockEnd?: SwirlCardPadding;
+  @Prop() paddingBlockStart?: SwirlCardPadding;
+  @Prop() paddingInlineEnd?: SwirlCardPadding;
+  @Prop() paddingInlineStart?: SwirlCardPadding;
   @Prop() swirlAriaLabel?: string;
 
   render() {
@@ -46,6 +63,24 @@ export class SwirlCard {
       height: this.height,
     };
 
+    const bodyStyles = {
+      padding: Boolean(this.padding)
+        ? `var(--s-space-${this.padding})`
+        : undefined,
+      paddingBlockEnd: Boolean(this.paddingBlockEnd)
+        ? `var(--s-space-${this.paddingBlockEnd})`
+        : undefined,
+      paddingBlockStart: Boolean(this.paddingBlockStart)
+        ? `var(--s-space-${this.paddingBlockStart})`
+        : undefined,
+      paddingInlineEnd: Boolean(this.paddingInlineEnd)
+        ? `var(--s-space-${this.paddingInlineEnd})`
+        : undefined,
+      paddingInlineStart: Boolean(this.paddingInlineStart)
+        ? `var(--s-space-${this.paddingInlineStart})`
+        : undefined,
+    };
+
     const className = classnames(
       "card",
       `card--justify-content-${this.justifyContent}`,
@@ -54,6 +89,7 @@ export class SwirlCard {
         "card--has-image": hasImage,
         "card--highlighted": this.highlighted,
         "card--interactive": this.interactive || this.href,
+        "card--is--borderless": this.isBorderless,
       }
     );
 
@@ -77,7 +113,7 @@ export class SwirlCard {
           >
             <slot name="image"></slot>
           </div>
-          <div class="card__body">
+          <div class="card__body" style={bodyStyles}>
             <div class="card__content">
               <slot name="content"></slot>
             </div>

@@ -9,7 +9,6 @@
   flex-grow: 1;
   flex-shrink: 1;
   align-items: center;
-  border-top: var(--s-border-width-default) solid var(--s-border-default);
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   color: var(--s-text-subdued);
   background-color: var(--s-background-default);
@@ -21,14 +20,6 @@
   text-overflow: ellipsis;
   transition: box-shadow 0.15s;
   gap: var(--s-space-8);
-
-  &(:first-child) {
-    border-left: var(--s-border-width-default) solid var(--s-border-default);
-  }
-
-  &(:last-child) {
-    border-right: var(--s-border-width-default) solid var(--s-border-default);
-  }
 
   &(.table-column--has-shadow-right) {
     box-shadow: var(--swirl-table-sticky-right-shadow);

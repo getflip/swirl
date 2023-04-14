@@ -10,6 +10,8 @@ import {
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
 
+export type SwirlSearchVariant = "filled" | "outline";
+
 @Component({
   /**
    * Form controls in shadow dom can still not be associated with labels in the
@@ -31,6 +33,7 @@ export class SwirlSearch {
   @Prop() label?: string;
   @Prop() placeholder?: string = "Search …";
   @Prop({ mutable: true }) value?: string;
+  @Prop() variant?: SwirlSearchVariant = "filled";
 
   @Event() inputBlur: EventEmitter<FocusEvent>;
   @Event() inputFocus: EventEmitter<FocusEvent>;
@@ -99,7 +102,7 @@ export class SwirlSearch {
   };
 
   render() {
-    const className = classnames("search", {
+    const className = classnames("search", `search--variant-${this.variant}`, {
       "search--disabled": this.disabled,
     });
 

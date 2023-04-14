@@ -15,7 +15,7 @@ import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
-import { SwirlCardBorderRadius, SwirlCardJustifyContent } from "./components/swirl-card/swirl-card";
+import { SwirlCardBorderRadius, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
@@ -28,6 +28,7 @@ import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-f
 import { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
+import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 import { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 import { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
@@ -35,6 +36,8 @@ import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 import { Placement } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
+import { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -59,7 +62,7 @@ export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
-export { SwirlCardBorderRadius, SwirlCardJustifyContent } from "./components/swirl-card/swirl-card";
+export { SwirlCardBorderRadius, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 export { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
@@ -72,6 +75,7 @@ export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-f
 export { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
+export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 export { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 export { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
@@ -79,6 +83,8 @@ export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 export { Placement } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
+export { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -212,6 +218,10 @@ export namespace Components {
         "maxWidth"?: string;
         "overflow"?: SwirlBoxOverflow;
         "padding"?: SwirlBoxPadding;
+        "paddingBlockEnd"?: SwirlBoxPadding;
+        "paddingBlockStart"?: SwirlBoxPadding;
+        "paddingInlineEnd"?: SwirlBoxPadding;
+        "paddingInlineStart"?: SwirlBoxPadding;
     }
     interface SwirlButton {
         "disabled"?: boolean;
@@ -249,8 +259,14 @@ export namespace Components {
         "href"?: string;
         "imageAspectRatio"?: string;
         "interactive"?: boolean;
+        "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
+        "padding"?: SwirlCardPadding;
+        "paddingBlockEnd"?: SwirlCardPadding;
+        "paddingBlockStart"?: SwirlCardPadding;
+        "paddingInlineEnd"?: SwirlCardPadding;
+        "paddingInlineStart"?: SwirlCardPadding;
         "swirlAriaLabel"?: string;
     }
     /**
@@ -796,6 +812,11 @@ export namespace Components {
         "message": string;
         "size"?: SwirlInlineErrorSize;
     }
+    interface SwirlInlineNotification {
+        "heading": string;
+        "importance"?: SwirlInlineNotificationAriaRole;
+        "intent"?: SwirlInlineNotificationIntent;
+    }
     interface SwirlLightbox {
         /**
           * Activate a slide.
@@ -874,9 +895,9 @@ export namespace Components {
         "label": string;
     }
     interface SwirlPagination {
-        "accessibleNextButtonLabel"?: string;
-        "accessiblePrevButtonLabel"?: string;
+        "firstPageButtonLabel"?: string;
         "label": string;
+        "lastPageButtonLabel"?: string;
         "nextButtonLabel"?: string;
         "page": number;
         "pageLabel"?: string;
@@ -986,6 +1007,7 @@ export namespace Components {
         "label"?: string;
         "placeholder"?: string;
         "value"?: string;
+        "variant"?: SwirlSearchVariant;
     }
     interface SwirlSelect {
         "disabled"?: boolean;
@@ -998,6 +1020,7 @@ export namespace Components {
         "value"?: string[];
     }
     interface SwirlSeparator {
+        "spacing"?: SwirlSeparatorSpacing;
     }
     interface SwirlShellLayout {
         /**
@@ -2205,6 +2228,12 @@ declare global {
         prototype: HTMLSwirlInlineErrorElement;
         new (): HTMLSwirlInlineErrorElement;
     };
+    interface HTMLSwirlInlineNotificationElement extends Components.SwirlInlineNotification, HTMLStencilElement {
+    }
+    var HTMLSwirlInlineNotificationElement: {
+        prototype: HTMLSwirlInlineNotificationElement;
+        new (): HTMLSwirlInlineNotificationElement;
+    };
     interface HTMLSwirlLightboxElement extends Components.SwirlLightbox, HTMLStencilElement {
     }
     var HTMLSwirlLightboxElement: {
@@ -2615,6 +2644,7 @@ declare global {
         "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
         "swirl-icon-warning": HTMLSwirlIconWarningElement;
         "swirl-inline-error": HTMLSwirlInlineErrorElement;
+        "swirl-inline-notification": HTMLSwirlInlineNotificationElement;
         "swirl-lightbox": HTMLSwirlLightboxElement;
         "swirl-link": HTMLSwirlLinkElement;
         "swirl-list": HTMLSwirlListElement;
@@ -2774,6 +2804,10 @@ declare namespace LocalJSX {
         "maxWidth"?: string;
         "overflow"?: SwirlBoxOverflow;
         "padding"?: SwirlBoxPadding;
+        "paddingBlockEnd"?: SwirlBoxPadding;
+        "paddingBlockStart"?: SwirlBoxPadding;
+        "paddingInlineEnd"?: SwirlBoxPadding;
+        "paddingInlineStart"?: SwirlBoxPadding;
     }
     interface SwirlButton {
         "disabled"?: boolean;
@@ -2811,8 +2845,14 @@ declare namespace LocalJSX {
         "href"?: string;
         "imageAspectRatio"?: string;
         "interactive"?: boolean;
+        "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
+        "padding"?: SwirlCardPadding;
+        "paddingBlockEnd"?: SwirlCardPadding;
+        "paddingBlockStart"?: SwirlCardPadding;
+        "paddingInlineEnd"?: SwirlCardPadding;
+        "paddingInlineStart"?: SwirlCardPadding;
         "swirlAriaLabel"?: string;
     }
     /**
@@ -3310,6 +3350,11 @@ declare namespace LocalJSX {
         "message": string;
         "size"?: SwirlInlineErrorSize;
     }
+    interface SwirlInlineNotification {
+        "heading": string;
+        "importance"?: SwirlInlineNotificationAriaRole;
+        "intent"?: SwirlInlineNotificationIntent;
+    }
     interface SwirlLightbox {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
@@ -3374,9 +3419,9 @@ declare namespace LocalJSX {
         "label": string;
     }
     interface SwirlPagination {
-        "accessibleNextButtonLabel"?: string;
-        "accessiblePrevButtonLabel"?: string;
+        "firstPageButtonLabel"?: string;
         "label": string;
+        "lastPageButtonLabel"?: string;
         "nextButtonLabel"?: string;
         "onSetPage"?: (event: SwirlPaginationCustomEvent<number>) => void;
         "page": number;
@@ -3478,6 +3523,7 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: SwirlSearchCustomEvent<string>) => void;
         "placeholder"?: string;
         "value"?: string;
+        "variant"?: SwirlSearchVariant;
     }
     interface SwirlSelect {
         "disabled"?: boolean;
@@ -3491,6 +3537,7 @@ declare namespace LocalJSX {
         "value"?: string[];
     }
     interface SwirlSeparator {
+        "spacing"?: SwirlSeparatorSpacing;
     }
     interface SwirlShellLayout {
         "hideSidebar"?: boolean;
@@ -3805,6 +3852,7 @@ declare namespace LocalJSX {
         "swirl-icon-visibility-off": SwirlIconVisibilityOff;
         "swirl-icon-warning": SwirlIconWarning;
         "swirl-inline-error": SwirlInlineError;
+        "swirl-inline-notification": SwirlInlineNotification;
         "swirl-lightbox": SwirlLightbox;
         "swirl-link": SwirlLink;
         "swirl-list": SwirlList;
@@ -4002,6 +4050,7 @@ declare module "@stencil/core" {
             "swirl-icon-visibility-off": LocalJSX.SwirlIconVisibilityOff & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
             "swirl-icon-warning": LocalJSX.SwirlIconWarning & JSXBase.HTMLAttributes<HTMLSwirlIconWarningElement>;
             "swirl-inline-error": LocalJSX.SwirlInlineError & JSXBase.HTMLAttributes<HTMLSwirlInlineErrorElement>;
+            "swirl-inline-notification": LocalJSX.SwirlInlineNotification & JSXBase.HTMLAttributes<HTMLSwirlInlineNotificationElement>;
             "swirl-lightbox": LocalJSX.SwirlLightbox & JSXBase.HTMLAttributes<HTMLSwirlLightboxElement>;
             "swirl-link": LocalJSX.SwirlLink & JSXBase.HTMLAttributes<HTMLSwirlLinkElement>;
             "swirl-list": LocalJSX.SwirlList & JSXBase.HTMLAttributes<HTMLSwirlListElement>;

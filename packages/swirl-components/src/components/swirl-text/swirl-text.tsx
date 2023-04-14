@@ -1,6 +1,7 @@
 import { Component, Element, h, Host, Listen, Prop } from "@stencil/core";
 import classnames from "classnames";
 import balanceText from "balance-text";
+import shave from "shave";
 
 export type SwirlTextAlign = "start" | "center" | "end";
 
@@ -40,11 +41,28 @@ export class SwirlText {
 
   componentDidRender() {
     this.rebalance();
+    this.handleTruncation();
   }
 
   @Listen("resize", { target: "window" })
   onWindowResize() {
     this.rebalance();
+    this.handleTruncation();
+  }
+
+  private handleTruncation() {
+    if (!this.truncate || !Boolean(this.lines) || this.lines === 1) {
+      return;
+    }
+
+    const lineHeight = +window
+      .getComputedStyle(this.textEl, null)
+      .getPropertyValue("line-height")
+      .replace("px", "");
+
+    if (lineHeight > 0) {
+      shave(this.textEl, lineHeight * this.lines);
+    }
   }
 
   private rebalance() {
@@ -58,15 +76,6 @@ export class SwirlText {
   render() {
     const Tag = this.as;
 
-    const styles = Boolean(this.lines)
-      ? {
-          display: "-webkit-box",
-          "-webkit-line-clamp": String(this.lines),
-          "-webkit-box-orient": "vertical",
-          whiteSpace: "normal",
-        }
-      : undefined;
-
     const className = classnames(
       "text",
       `text--align-${this.align}`,
@@ -74,16 +83,15 @@ export class SwirlText {
       `text--font-style-${this.fontStyle}`,
       `text--size-${this.size}`,
       `text--weight-${this.weight}`,
-      { "text--truncate": this.truncate }
+      {
+        "text--truncate":
+          this.truncate && (!Boolean(this.lines) || this.lines === 1),
+      }
     );
 
     return (
       <Host>
-        <Tag
-          class={className}
-          ref={(el: HTMLElement) => (this.textEl = el)}
-          style={styles}
-        >
+        <Tag class={className} ref={(el: HTMLElement) => (this.textEl = el)}>
           <slot></slot>
         </Tag>
       </Host>
