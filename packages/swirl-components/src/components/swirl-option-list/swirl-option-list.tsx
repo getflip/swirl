@@ -195,7 +195,9 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   private setItemDisabledState() {
-    this.items.forEach((item) => (item.disabled = this.disabled));
+    if (this.disabled) {
+      this.items.forEach((item) => (item.disabled = true));
+    }
   }
 
   private setItemContext() {
