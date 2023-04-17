@@ -63,7 +63,6 @@
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
     "remark-sectionize": "^1.1.1",
-    "ts-node": "^10.9.1",
     "tsx": "^3.12.1"
   },
   "devDependencies": {

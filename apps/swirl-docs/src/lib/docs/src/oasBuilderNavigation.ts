@@ -1,14 +1,5 @@
-import Oas, { Operation } from "oas";
-import {
-  HttpMethods,
-  MediaTypeObject,
-  OASDocument,
-  PathsObject,
-} from "oas/dist/rmoas.types";
-import oasToHar from "@readme/oas-to-har";
-import { oasToSnippet } from "@readme/oas-to-snippet";
-import { SupportedTargets } from "@readme/oas-to-snippet";
-import { Request } from "har-format";
+import Oas from "oas";
+import { HttpMethods, OASDocument, PathsObject } from "oas/dist/rmoas.types";
 import { Endpoint, Operations } from "./docs.model";
 
 interface IOASBuilder {
@@ -20,9 +11,15 @@ interface IOASBuilder {
   tags: string[];
 }
 
+/**
+ * This Class is a duplicate of the OASBuilder class.
+ * It is needed as we have to initilize the Oas lib differently to run this in a Node Script.
+ *
+ * As this is a duplicate, we have to keep it in sync with the OASBuilder class, when API changes are made.
+ */
 export default class OASBuilder implements IOASBuilder {
   private _oasDocument: OASDocument = {} as OASDocument;
-  private _oasBuilder: Oas = new Oas({} as OASDocument);
+  private _oasBuilder: Oas = new (Oas as any).default({} as OASDocument);
 
   public title: string = "";
   public shortDescription: string = "";
@@ -39,7 +36,7 @@ export default class OASBuilder implements IOASBuilder {
 
   private initializeProperties(oasDocument: OASDocument) {
     this._oasDocument = oasDocument;
-    this._oasBuilder = new Oas(oasDocument);
+    this._oasBuilder = new (Oas as any).default(oasDocument);
   }
 
   public async dereference() {
@@ -111,42 +108,5 @@ export default class OASBuilder implements IOASBuilder {
   public setTags() {
     this.tags = this._oasBuilder.getTags();
     return this;
-  }
-
-  public generateRequest(
-    operation: Operation,
-    language?: SupportedTargets
-  ): {
-    code: string;
-    request: Request;
-  } {
-    const har = oasToHar(this.oas, operation);
-    const harRequest = har.log.entries[0].request;
-    const { code } = oasToSnippet(this.oas, operation, {}, {}, "shell");
-
-    return {
-      code: code as string,
-      request: {
-        ...harRequest,
-        url: operation.path,
-      },
-    };
-  }
-
-  public generateResponse(operation: Operation) {
-    // currently we just take the first element as our OA specs are not fully functional. E.g. 201 is not defined for post for some requests.
-    const responseExample = operation.getResponseExamples()[0].mediaTypes[
-      "application/json"
-    ] as Array<MediaTypeObject>;
-
-    const valueOfResponse = responseExample as any;
-
-    return JSON.stringify(
-      responseExample
-        ? valueOfResponse[0].value
-        : "No Response Example was provided",
-      null,
-      2
-    );
   }
 }
