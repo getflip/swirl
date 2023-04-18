@@ -6,11 +6,13 @@ import {
   Host,
   Listen,
   Method,
+  Element,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
-import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import * as focusTrap from "focus-trap";
 import classnames from "classnames";
 
 /**
@@ -18,11 +20,13 @@ import classnames from "classnames";
  * custom-header - Optional custom header; should be used hidden label
  */
 @Component({
-  shadow: true,
+  shadow: false,
   styleUrl: "swirl-modal.css",
   tag: "swirl-modal",
 })
 export class SwirlModal {
+  @Element() el: HTMLElement;
+
   @Prop() closeButtonLabel?: string = "Close modal";
   @Prop() hideCloseButton?: boolean;
   @Prop() hideLabel?: boolean;
@@ -37,6 +41,7 @@ export class SwirlModal {
   @Event() primaryAction: EventEmitter<MouseEvent>;
   @Event() secondaryAction: EventEmitter<MouseEvent>;
 
+  @State() isOpen = false;
   @State() closing = false;
   @State() hasCustomHeader: boolean;
   @State() scrollable = false;
@@ -44,17 +49,20 @@ export class SwirlModal {
   @State() scrolledDown = false;
 
   private customHeaderSlot: HTMLSlotElement;
-  private modal: A11yDialog;
+  private focusTrap: focusTrap.FocusTrap;
   private modalEl: HTMLElement;
   private scrollContainer: HTMLElement;
 
   componentDidLoad() {
-    this.modal = new A11yDialog(this.modalEl);
+    this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
+      tabbableOptions: { getShadowRoot: (node) => node.shadowRoot },
+    });
+
     this.determineScrollStatus();
   }
 
   disconnectedCallback() {
-    this.modal?.destroy();
+    this.focusTrap.deactivate();
     this.unlockBodyScroll();
   }
 
@@ -63,12 +71,24 @@ export class SwirlModal {
     this.determineScrollStatus();
   }
 
+  @Watch("isOpen")
+  watchIsOpen() {
+    if (this.isOpen) {
+      // wait for animation
+      setTimeout(() => {
+        this.focusTrap.activate();
+      }, 200);
+    } else {
+      this.focusTrap.deactivate();
+    }
+  }
+
   /**
    * Open the modal.
    */
   @Method()
   async open() {
-    this.modal.show();
+    this.isOpen = true;
     this.modalOpen.emit();
     this.lockBodyScroll();
     this.determineScrollStatus();
@@ -87,7 +107,7 @@ export class SwirlModal {
     this.unlockBodyScroll();
 
     setTimeout(() => {
-      this.modal.hide();
+      this.isOpen = false;
       this.modalClose.emit();
       this.closing = false;
     }, 150);
@@ -167,19 +187,16 @@ export class SwirlModal {
     return (
       <Host>
         <section
-          aria-hidden="true"
+          aria-hidden={String(!this.isOpen)}
           aria-label={this.label}
+          aria-modal="true"
           class={className}
-          id="modal"
           onKeyDown={this.onKeyDown}
+          role="dialog"
           ref={(el) => (this.modalEl = el)}
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
-          <div
-            class="modal__body"
-            role="document"
-            style={{ maxWidth: this.maxWidth }}
-          >
+          <div class="modal__body" style={{ maxWidth: this.maxWidth }}>
             {!this.hideCloseButton && (
               <swirl-button
                 class="modal__close-button"
