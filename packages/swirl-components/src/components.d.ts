@@ -24,6 +24,7 @@ import { SwirlDescriptionListItemOrientation } from "./components/swirl-descript
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+import { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 import { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
@@ -71,6 +72,7 @@ export { SwirlDescriptionListItemOrientation } from "./components/swirl-descript
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
+export { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 export { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
@@ -491,6 +493,7 @@ export namespace Components {
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
+        "labelPosition"?: SwirlFormControlLabelPosition;
     }
     interface SwirlFormGroup {
         "orientation": SwirlFormGroupOrientation;
@@ -3029,6 +3032,7 @@ declare namespace LocalJSX {
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
+        "labelPosition"?: SwirlFormControlLabelPosition;
     }
     interface SwirlFormGroup {
         "orientation"?: SwirlFormGroupOrientation;

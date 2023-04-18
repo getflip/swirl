@@ -1868,6 +1868,18 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "label-position",
+          "description": "",
+          "values": [
+            {
+              "name": "inside"
+            },
+            {
+              "name": "outside"
+            }
+          ]
         }
       ]
     },

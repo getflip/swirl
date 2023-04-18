@@ -292,6 +292,7 @@ export class SwirlTextInput implements SwirlFormInput {
               aria-label={this.clearButtonLabel}
               class="text-input__clear-button"
               onClick={this.clear}
+              part="text-input__clear-button"
               type="button"
             >
               <swirl-icon-cancel size={this.iconSize}></swirl-icon-cancel>
