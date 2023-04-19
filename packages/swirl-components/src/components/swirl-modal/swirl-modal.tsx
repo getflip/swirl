@@ -55,7 +55,12 @@ export class SwirlModal {
 
   componentDidLoad() {
     this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
-      tabbableOptions: { getShadowRoot: (node) => node.shadowRoot },
+      allowOutsideClick: true,
+      tabbableOptions: {
+        getShadowRoot: (node) => {
+          return node.shadowRoot;
+        },
+      },
     });
 
     this.determineScrollStatus();
