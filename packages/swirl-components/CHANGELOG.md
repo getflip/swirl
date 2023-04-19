@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.40.1
+
+### Patch Changes
+
+- [`cece9f6`](https://github.com/getflip/swirl/commit/cece9f6b296528c7229b82c160a38419f68407e0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix z-index of
+  swirl-console-layout app bar
+
 ## 0.40.0
 
 ### Minor Changes
