@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.38.1
+
+### Patch Changes
+
+- [`b9f32d8`](https://github.com/getflip/swirl/commit/b9f32d87df57479d980cae5640c9e03a2885b828)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-modal close button
+  click
+
+- Updated dependencies
+  [[`b9f32d8`](https://github.com/getflip/swirl/commit/b9f32d87df57479d980cae5640c9e03a2885b828)]:
+  - @getflip/swirl-components@0.39.1
+
 ## 0.38.0
 
 ### Minor Changes
