@@ -45,6 +45,7 @@ export type SwirlTextInputMode =
 export class SwirlTextInput implements SwirlFormInput {
   @Prop() autoComplete?: string = "on";
   @Prop() autoFocus?: boolean;
+  @Prop() autoGrow?: boolean;
   @Prop() autoSelect?: boolean;
   @Prop() clearable?: boolean;
   @Prop() clearButtonLabel?: string = "Clear input";
@@ -111,13 +112,13 @@ export class SwirlTextInput implements SwirlFormInput {
   }
 
   private adjustInputSize() {
-    if (this.rows > 1) {
+    if (this.rows > 1 || this.autoGrow) {
       this.inputEl.style.width = "";
       this.inputEl.style.height = "";
       this.inputEl.style.height = this.inputEl.scrollHeight / 16 + "rem";
     }
 
-    if (this.rows === 1) {
+    if (this.rows === 1 && !this.autoGrow) {
       this.inputEl.style.height = "";
       this.inputEl.style.width = "";
 
@@ -214,7 +215,7 @@ export class SwirlTextInput implements SwirlFormInput {
   };
 
   render() {
-    const Tag = this.rows === 1 ? "input" : "textarea";
+    const Tag = this.rows === 1 && !this.autoGrow ? "input" : "textarea";
 
     const ariaInvalid =
       this.invalid === true || this.invalid === false
@@ -239,6 +240,7 @@ export class SwirlTextInput implements SwirlFormInput {
       "text-input",
       `text-input--type-${this.type}`,
       {
+        "text-input--auto-grow": this.autoGrow,
         "text-input--clearable": this.clearable,
         "text-input--disabled": this.disabled,
         "text-input--disable-dynamic-width": this.disableDynamicWidth,
@@ -276,7 +278,7 @@ export class SwirlTextInput implements SwirlFormInput {
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             role={this.swirlRole}
-            rows={this.rows > 1 ? this.rows : undefined}
+            rows={this.rows > 1 ? this.rows : this.autoGrow ? 1 : undefined}
             spellcheck={this.spellCheck}
             step={this.type === "number" ? this.step : undefined}
             type={type}

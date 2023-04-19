@@ -1132,6 +1132,7 @@ export namespace Components {
     interface SwirlTextInput {
         "autoComplete"?: string;
         "autoFocus"?: boolean;
+        "autoGrow"?: boolean;
         "autoSelect"?: boolean;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
@@ -3644,6 +3645,7 @@ declare namespace LocalJSX {
     interface SwirlTextInput {
         "autoComplete"?: string;
         "autoFocus"?: boolean;
+        "autoGrow"?: boolean;
         "autoSelect"?: boolean;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
