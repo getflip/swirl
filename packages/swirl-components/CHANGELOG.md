@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.40.0
+
+### Minor Changes
+
+- [`fab1551`](https://github.com/getflip/swirl/commit/fab15513f376cab8ea5f0d6821e05507b7094831)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "auto-grow" prop to
+  swirl-text-input
+
 ## 0.39.1
 
 ### Patch Changes
