@@ -110,7 +110,7 @@
 
 .console-layout__app-bar {
   position: sticky;
-  z-index: 1;
+  z-index: var(--s-z-30);
   top: 0;
   display: flex;
   min-width: 0;
