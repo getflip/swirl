@@ -3634,11 +3634,23 @@
           "description": ""
         },
         {
+          "name": "page-size",
+          "description": ""
+        },
+        {
+          "name": "page-size-select-label",
+          "description": ""
+        },
+        {
           "name": "pages",
           "description": ""
         },
         {
           "name": "prev-button-label",
+          "description": ""
+        },
+        {
+          "name": "show-page-size-select",
           "description": ""
         },
         {

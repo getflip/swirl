@@ -96,4 +96,24 @@ describe("swirl-pagination", () => {
     pageSelect.dispatchEvent(new Event("change"));
     expect(spy.mock.calls[2][0].detail).toBe(5);
   });
+
+  it("fires setPageSize events", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPagination],
+      html: `<swirl-pagination label="Pagination" page="2" pages="20" show-page-size-select variant="advanced"></swirl-pagination>`,
+    });
+
+    const spy = jest.fn();
+
+    const pageSizeSelect =
+      page.root.shadowRoot.querySelector<HTMLSelectElement>(
+        ".pagination__page-size-select"
+      );
+
+    page.root.addEventListener("setPageSize", spy);
+
+    pageSizeSelect.value = "50";
+    pageSizeSelect.dispatchEvent(new Event("change"));
+    expect(spy.mock.calls[0][0].detail).toBe(50);
+  });
 });

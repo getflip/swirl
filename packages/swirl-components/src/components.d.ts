@@ -905,8 +905,12 @@ export namespace Components {
         "page": number;
         "pageLabel"?: string;
         "pageSelectLabel"?: string;
+        "pageSize"?: number;
+        "pageSizeOptions"?: number[];
+        "pageSizeSelectLabel"?: string;
         "pages": number;
         "prevButtonLabel"?: string;
+        "showPageSizeSelect"?: boolean;
         "variant"?: SwirlPaginationVariant;
     }
     interface SwirlPdfReader {
@@ -3433,11 +3437,16 @@ declare namespace LocalJSX {
         "lastPageButtonLabel"?: string;
         "nextButtonLabel"?: string;
         "onSetPage"?: (event: SwirlPaginationCustomEvent<number>) => void;
+        "onSetPageSize"?: (event: SwirlPaginationCustomEvent<number>) => void;
         "page": number;
         "pageLabel"?: string;
         "pageSelectLabel"?: string;
+        "pageSize"?: number;
+        "pageSizeOptions"?: number[];
+        "pageSizeSelectLabel"?: string;
         "pages": number;
         "prevButtonLabel"?: string;
+        "showPageSizeSelect"?: boolean;
         "variant"?: SwirlPaginationVariant;
     }
     interface SwirlPdfReader {
