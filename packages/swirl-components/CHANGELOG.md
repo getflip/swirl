@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.41.0
+
+### Minor Changes
+
+- [`627027d`](https://github.com/getflip/swirl/commit/627027db935a834824bf0630e93abd20d54a0cd6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add page size select to
+  swirl-pagination
+
 ## 0.40.1
 
 ### Patch Changes
