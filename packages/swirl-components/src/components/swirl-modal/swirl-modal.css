@@ -25,20 +25,88 @@
   }
 }
 
-.modal:not(.modal--closing) {
-  & .modal__backdrop {
-    animation: 0.15s modal-backdrop-fade-in;
+.modal--variant-default {
+  &.modal--closing {
+    animation: 0.15s modal-fade-out;
+    animation-fill-mode: forwards;
 
     @media (prefers-reduced-motion) {
       animation: none;
     }
   }
 
-  & .modal__body {
-    animation: 0.15s modal-scale-in;
+  &:not(.modal--closing) {
+    & .modal__backdrop {
+      animation: 0.15s modal-backdrop-fade-in;
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
+    }
+
+    & .modal__body {
+      animation: 0.15s modal-scale-in;
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
+    }
+  }
+}
+
+.modal--variant-drawer {
+  justify-content: end;
+  align-items: stretch;
+
+  &.modal--closing {
+    animation: 0.15s modal-drawer-slide-out;
+    animation-fill-mode: forwards;
 
     @media (prefers-reduced-motion) {
       animation: none;
+    }
+  }
+
+  &.modal--hide-label {
+    & .modal__content {
+      padding-top: calc(3.5rem + var(--s-space-8));
+    }
+  }
+
+  & .modal__backdrop {
+    background-color: transparent;
+    animation: none;
+  }
+
+  & .modal__body {
+    height: 100%;
+    max-height: none;
+    border-radius: 0;
+    animation: 0.15s modal-drawer-slide-in;
+    box-shadow: var(--s-shadow-level-3);
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+
+  & .modal__close-button {
+    right: auto;
+    left: var(--s-space-8);
+
+    @media (--from-tablet) {
+      left: var(--s-space-16);
+    }
+  }
+
+  & .modal__header {
+    padding-left: calc(var(--s-space-8) + 2.5rem + var(--s-space-8));
+    padding-right: var(--s-space-16);
+
+    @media (--from-tablet) {
+      padding-top: var(--s-space-16);
+      padding-right: var(--s-space-24);
+      padding-left: calc(var(--s-space-16) + 2.5rem + var(--s-space-8));
     }
   }
 }
@@ -62,15 +130,6 @@
 .modal--has-custom-header {
   & .modal__content {
     padding-top: var(--s-space-16);
-  }
-}
-
-.modal--closing {
-  animation: 0.15s modal-fade-out;
-  animation-fill-mode: forwards;
-
-  @media (prefers-reduced-motion) {
-    animation: none;
   }
 }
 
@@ -216,5 +275,23 @@
   }
   to {
     opacity: 0;
+  }
+}
+
+@keyframes modal-drawer-slide-in {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes modal-drawer-slide-out {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(100%, 0, 0);
   }
 }

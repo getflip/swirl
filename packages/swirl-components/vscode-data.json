@@ -3484,6 +3484,18 @@
         {
           "name": "secondary-action-label",
           "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "drawer"
+            }
+          ]
         }
       ]
     },

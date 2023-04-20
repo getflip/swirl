@@ -15,6 +15,8 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import * as focusTrap from "focus-trap";
 import classnames from "classnames";
 
+export type SwirlModalVariant = "default" | "drawer";
+
 /**
  * slot - Modal contents
  * custom-header - Optional custom header; should be used hidden label
@@ -35,6 +37,7 @@ export class SwirlModal {
   @Prop() padded?: boolean = true;
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
+  @Prop() variant?: SwirlModalVariant = "default";
 
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
@@ -180,9 +183,10 @@ export class SwirlModal {
     const showControls =
       Boolean(this.primaryActionLabel) || Boolean(this.secondaryActionLabel);
 
-    const className = classnames("modal", {
+    const className = classnames("modal", `modal--variant-${this.variant}`, {
       "modal--closing": this.closing,
       "modal--has-custom-header": this.hasCustomHeader,
+      "modal--hide-label": this.hideLabel,
       "modal--padded": this.padded,
       "modal--scrollable": this.scrollable,
       "modal--scrolled": this.scrolled,
@@ -206,7 +210,11 @@ export class SwirlModal {
               <swirl-button
                 class="modal__close-button"
                 hideLabel
-                icon="<swirl-icon-close></swirl-icon-close>"
+                icon={
+                  this.variant === "default"
+                    ? "<swirl-icon-close></swirl-icon-close>"
+                    : "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
+                }
                 label={this.closeButtonLabel}
                 onClick={this.onCloseButtonClick}
               ></swirl-button>

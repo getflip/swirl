@@ -31,6 +31,7 @@ import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 import { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+import { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 import { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
@@ -79,6 +80,7 @@ export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 export { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+export { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 export { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
@@ -870,6 +872,7 @@ export namespace Components {
         "padded"?: boolean;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+        "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
         "allowDrag"?: boolean;
@@ -3393,6 +3396,7 @@ declare namespace LocalJSX {
         "padded"?: boolean;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+        "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
         "allowDrag"?: boolean;
