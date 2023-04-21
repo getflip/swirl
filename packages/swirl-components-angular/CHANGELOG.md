@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.42.0
+
+### Minor Changes
+
+- [`cf7829e`](https://github.com/getflip/swirl/commit/cf7829e90446b2646784355ccc809486423f2065)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add content-header-tools slot to
+  swirl-console-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`cf7829e`](https://github.com/getflip/swirl/commit/cf7829e90446b2646784355ccc809486423f2065)]:
+  - @getflip/swirl-components@0.43.0
+
 ## 0.41.0
 
 ### Minor Changes
