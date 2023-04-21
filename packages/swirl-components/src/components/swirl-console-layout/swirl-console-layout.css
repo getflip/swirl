@@ -204,6 +204,15 @@
   flex-shrink: 0;
 }
 
+.console-layout__heading-container {
+  flex-grow: 1;
+}
+
 .console-layout__subheading {
   margin-top: var(--s-space-8);
+}
+
+.console-layout__content-header-tools {
+  display: flex;
+  flex-shrink: 0;
 }
