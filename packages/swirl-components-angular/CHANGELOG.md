@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.41.0
+
+### Minor Changes
+
+- [`b540031`](https://github.com/getflip/swirl/commit/b54003180a6dc32b8c91794d3f049d1d99afebbb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add standalone swirl-tab-bar
+  component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b540031`](https://github.com/getflip/swirl/commit/b54003180a6dc32b8c91794d3f049d1d99afebbb)]:
+  - @getflip/swirl-components@0.42.0
+
 ## 0.40.0
 
 ### Minor Changes
