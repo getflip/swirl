@@ -44,6 +44,7 @@ import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-sk
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
+import { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 import { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontStyle, SwirlTextSize, SwirlTextWeight } from "./components/swirl-text/swirl-text";
@@ -92,6 +93,7 @@ export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-sk
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
+export { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 export { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontStyle, SwirlTextSize, SwirlTextWeight } from "./components/swirl-text/swirl-text";
@@ -1085,6 +1087,11 @@ export namespace Components {
         "label": string;
         "tabId": string;
     }
+    interface SwirlTabBar {
+        "disableTabSemantics"?: boolean;
+        "label": string;
+        "tabs": SwirlTabBarTab[];
+    }
     interface SwirlTable {
         "caption"?: string;
         "emptyStateLabel"?: string;
@@ -1362,6 +1369,10 @@ export interface SwirlSelectCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlSwitchElement;
+}
+export interface SwirlTabBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlTabBarElement;
 }
 export interface SwirlTabsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2408,6 +2419,12 @@ declare global {
         prototype: HTMLSwirlTabElement;
         new (): HTMLSwirlTabElement;
     };
+    interface HTMLSwirlTabBarElement extends Components.SwirlTabBar, HTMLStencilElement {
+    }
+    var HTMLSwirlTabBarElement: {
+        prototype: HTMLSwirlTabBarElement;
+        new (): HTMLSwirlTabBarElement;
+    };
     interface HTMLSwirlTableElement extends Components.SwirlTable, HTMLStencilElement {
     }
     var HTMLSwirlTableElement: {
@@ -2680,6 +2697,7 @@ declare global {
         "swirl-stack": HTMLSwirlStackElement;
         "swirl-switch": HTMLSwirlSwitchElement;
         "swirl-tab": HTMLSwirlTabElement;
+        "swirl-tab-bar": HTMLSwirlTabBarElement;
         "swirl-table": HTMLSwirlTableElement;
         "swirl-table-cell": HTMLSwirlTableCellElement;
         "swirl-table-column": HTMLSwirlTableColumnElement;
@@ -3606,6 +3624,14 @@ declare namespace LocalJSX {
         "label": string;
         "tabId": string;
     }
+    interface SwirlTabBar {
+        "disableTabSemantics"?: boolean;
+        "label": string;
+        "onActivateNextTab"?: (event: SwirlTabBarCustomEvent<void>) => void;
+        "onActivatePreviousTab"?: (event: SwirlTabBarCustomEvent<void>) => void;
+        "onActivateTab"?: (event: SwirlTabBarCustomEvent<string>) => void;
+        "tabs"?: SwirlTabBarTab[];
+    }
     interface SwirlTable {
         "caption"?: string;
         "emptyStateLabel"?: string;
@@ -3899,6 +3925,7 @@ declare namespace LocalJSX {
         "swirl-stack": SwirlStack;
         "swirl-switch": SwirlSwitch;
         "swirl-tab": SwirlTab;
+        "swirl-tab-bar": SwirlTabBar;
         "swirl-table": SwirlTable;
         "swirl-table-cell": SwirlTableCell;
         "swirl-table-column": SwirlTableColumn;
@@ -4101,6 +4128,7 @@ declare module "@stencil/core" {
             "swirl-stack": LocalJSX.SwirlStack & JSXBase.HTMLAttributes<HTMLSwirlStackElement>;
             "swirl-switch": LocalJSX.SwirlSwitch & JSXBase.HTMLAttributes<HTMLSwirlSwitchElement>;
             "swirl-tab": LocalJSX.SwirlTab & JSXBase.HTMLAttributes<HTMLSwirlTabElement>;
+            "swirl-tab-bar": LocalJSX.SwirlTabBar & JSXBase.HTMLAttributes<HTMLSwirlTabBarElement>;
             "swirl-table": LocalJSX.SwirlTable & JSXBase.HTMLAttributes<HTMLSwirlTableElement>;
             "swirl-table-cell": LocalJSX.SwirlTableCell & JSXBase.HTMLAttributes<HTMLSwirlTableCellElement>;
             "swirl-table-column": LocalJSX.SwirlTableColumn & JSXBase.HTMLAttributes<HTMLSwirlTableColumnElement>;

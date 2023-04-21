@@ -4495,6 +4495,23 @@
       ]
     },
     {
+      "name": "swirl-tab-bar",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "disable-tab-semantics",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-table",
       "description": {
         "kind": "markdown",
