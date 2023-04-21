@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.42.0
+
+### Minor Changes
+
+- [`b540031`](https://github.com/getflip/swirl/commit/b54003180a6dc32b8c91794d3f049d1d99afebbb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add standalone swirl-tab-bar
+  component
+
 ## 0.41.0
 
 ### Minor Changes
