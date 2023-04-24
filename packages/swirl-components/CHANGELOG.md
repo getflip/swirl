@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.43.1
+
+### Patch Changes
+
+- [`e0dd39d`](https://github.com/getflip/swirl/commit/e0dd39d6ad403b2e788c25c15ac0f95576982cd5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve responsiveness of
+  swirl-table
+
 ## 0.43.0
 
 ### Minor Changes

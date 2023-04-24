@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.42.1
+
+### Patch Changes
+
+- [`e0dd39d`](https://github.com/getflip/swirl/commit/e0dd39d6ad403b2e788c25c15ac0f95576982cd5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve responsiveness of
+  swirl-table
+
+- Updated dependencies
+  [[`e0dd39d`](https://github.com/getflip/swirl/commit/e0dd39d6ad403b2e788c25c15ac0f95576982cd5)]:
+  - @getflip/swirl-components@0.43.1
+
 ## 0.42.0
 
 ### Minor Changes
