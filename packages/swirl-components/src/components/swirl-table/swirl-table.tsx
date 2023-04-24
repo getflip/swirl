@@ -170,16 +170,20 @@ export class SwirlTable {
     await new Promise((resolve) => setTimeout(resolve));
   }
 
-  private updateLayout = debouncePromise(async () => {
-    await this.resetEmptyRowStyles();
-    await this.resetRowGroupStyles();
-    await this.resetCellStyles();
-    await this.resetColumnStyles();
-    await this.layoutEmptyRow();
-    await this.layoutRowGroups();
-    await this.layOutColumns();
-    this.layOutCells();
-  }, 100);
+  private updateLayout = debouncePromise(
+    async () => {
+      await this.resetEmptyRowStyles();
+      await this.resetRowGroupStyles();
+      await this.resetCellStyles();
+      await this.resetColumnStyles();
+      await this.layoutEmptyRow();
+      await this.layoutRowGroups();
+      await this.layOutColumns();
+      this.layOutCells();
+    },
+    16,
+    { leading: true }
+  );
 
   private async layoutEmptyRow() {
     const emptyRow =
