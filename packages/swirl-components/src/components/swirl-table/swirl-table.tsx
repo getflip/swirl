@@ -33,13 +33,24 @@ export class SwirlTable {
 
   private container: HTMLElement;
   private columnObserver: MutationObserver;
+  private observer: MutationObserver;
 
   componentDidLoad() {
-    this.observeColumnChanges();
+    this.observer = new MutationObserver(async () => {
+      await this.updateLayout();
+      this.updateScrolledState();
+      this.updateEmptyState();
+    });
+
+    this.observer.observe(this.el, {
+      childList: true,
+      subtree: true,
+    });
   }
 
   disconnectedCallback() {
     this.columnObserver?.disconnect();
+    this.observer?.disconnect();
   }
 
   async componentDidRender() {
@@ -52,22 +63,6 @@ export class SwirlTable {
   async onWindowResize() {
     await this.updateLayout();
     this.updateScrolledState();
-  }
-
-  private observeColumnChanges() {
-    this.columnObserver = new MutationObserver(this.onSlotChange);
-
-    const columnsContainer = this.el.shadowRoot
-      .querySelector<HTMLSlotElement>('slot[name="columns"]')
-      .assignedElements?.()?.[0];
-
-    if (!Boolean(columnsContainer)) {
-      return;
-    }
-
-    this.columnObserver.observe(columnsContainer, {
-      childList: true,
-    });
   }
 
   private updateScrolledState() {
@@ -181,7 +176,7 @@ export class SwirlTable {
       await this.layOutColumns();
       this.layOutCells();
     },
-    16,
+    17,
     { leading: true }
   );
 
@@ -341,12 +336,6 @@ export class SwirlTable {
     this.updateScrolledState();
   };
 
-  private onSlotChange = async () => {
-    await this.updateLayout();
-    this.updateScrolledState();
-    this.updateEmptyState();
-  };
-
   render() {
     return (
       <Host>
@@ -369,11 +358,11 @@ export class SwirlTable {
               )}
               <div role="rowgroup">
                 <div class="table__header" role="row">
-                  <slot name="columns" onSlotchange={this.onSlotChange}></slot>
+                  <slot name="columns"></slot>
                 </div>
               </div>
               <div class="table__body">
-                <slot name="rows" onSlotchange={this.onSlotChange}></slot>
+                <slot name="rows"></slot>
                 {this.empty && (
                   <div class="table__empty-row" role="row">
                     <div
