@@ -1,5 +1,25 @@
 # @getflip/swirl-components-react
 
+## 0.43.0
+
+### Minor Changes
+
+- [`0780f06`](https://github.com/getflip/swirl/commit/0780f067c42a7f9e8ccffecd8161f0cdf6825f68)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Remove sticky column feature from
+  swirl-table
+
+* [#228](https://github.com/getflip/swirl/pull/228)
+  [`ff16a69`](https://github.com/getflip/swirl/commit/ff16a692e7b8c9ea216c1a1a714b109402796b07)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "drawer" variant to
+  swirl-modal
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0780f06`](https://github.com/getflip/swirl/commit/0780f067c42a7f9e8ccffecd8161f0cdf6825f68),
+  [`ff16a69`](https://github.com/getflip/swirl/commit/ff16a692e7b8c9ea216c1a1a714b109402796b07)]:
+  - @getflip/swirl-components@0.44.0
+
 ## 0.42.2
 
 ### Patch Changes
