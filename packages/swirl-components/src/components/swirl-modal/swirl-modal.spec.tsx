@@ -11,7 +11,7 @@ describe("swirl-modal", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-modal label="Dialog">
-        <section aria-hidden="true" aria-label="Dialog" aria-modal="true" class="modal modal--padded" role="dialog">
+        <section aria-hidden="true" aria-label="Dialog" aria-modal="true" class="modal modal--padded modal--variant-default" role="dialog">
           <div class="modal__backdrop"></div>
           <div class="modal__body">
             <swirl-button class="modal__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close modal"></swirl-button>
