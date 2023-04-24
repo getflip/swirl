@@ -1096,6 +1096,10 @@ export namespace Components {
         "caption"?: string;
         "emptyStateLabel"?: string;
         "label": string;
+        /**
+          * Force a re-render of the table
+         */
+        "rerender": () => Promise<void>;
     }
     interface SwirlTableCell {
     }
