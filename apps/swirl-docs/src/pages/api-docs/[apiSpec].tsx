@@ -15,7 +15,6 @@ import { Tag } from "src/components/Tags";
 import { Parameter } from "src/components/Documentation/Parameter";
 import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
 import { SchemaObject } from "oas/dist/rmoas.types";
-import { ReferenceObject } from "openapi-typescript";
 
 async function getSpecData(spec: string): Promise<ApiDoc> {
   const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
@@ -72,12 +71,12 @@ export const getStaticProps: GetStaticProps<
   const document = await getSpecData(apiSpec);
 
   const generalDescription = generateGeneralDescription(document) as string;
-  const markdown = await serializeMarkdownString(generalDescription);
+  const description = await serializeMarkdownString(generalDescription);
 
   return {
     props: {
       document,
-      markdown,
+      description,
       title: document.title,
     },
   };
@@ -85,11 +84,11 @@ export const getStaticProps: GetStaticProps<
 
 export default function Document({
   document,
-  markdown,
+  description,
   title,
 }: {
   document: ApiDoc;
-  markdown: MDXRemoteSerializeResult<
+  description: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, string>
   >;
@@ -130,7 +129,7 @@ export default function Document({
                 name={param}
                 type={prop.type as string}
                 description={prop.description}
-                required={required}
+                required={true}
               />
             );
           })}
@@ -149,7 +148,7 @@ export default function Document({
       <DocumentationLayout
         data={{
           mdxContent: {
-            document: markdown,
+            document: description,
             components: {
               h1: (props) => <h2 className="text-2xl font-bold" {...props} />,
               h2: (props) => <h3 className="text-xl font-bold" {...props} />,
@@ -188,10 +187,14 @@ export default function Document({
           <>
             <DocumentationLayout.MDX />
             <div className="mt-20">
-              {endpointList.map((endpoint) => {
+              {endpointList.map((endpoint, index) => {
                 if (document.definition) {
                   const oasBuilder = new OASBuilder(document.definition);
                   oasBuilder.setEndpoints().setOperations();
+
+                  oasBuilder.setDetailedOperationsList();
+
+                  console.log(oasBuilder.detailedOperationsList);
 
                   const codePreview = oasBuilder?.generateRequest(
                     endpoint.operation
@@ -205,7 +208,7 @@ export default function Document({
                       <h2
                         className="text-font-size-2xl font-font-weight-semibold mb-4"
                         id={endpoint.path.slice(2, endpoint.path.length)}
-                        key={endpoint.title}
+                        key={`endpoint.title${index}`}
                       >
                         {endpoint.title}
                         {endpoint.operation.isDeprecated() && (
@@ -245,10 +248,10 @@ export default function Document({
                                   <h4 className="text-xl font-font-weight-semibold mt-4">
                                     {params.label}
                                   </h4>
-                                  <Parameters
+                                  {/* <Parameters
                                     requiredProperties={requiredParams}
                                     properties={parameterOfEndpoint}
-                                  />
+                                  /> */}
                                 </>
                               );
                             })}
@@ -272,7 +275,6 @@ export default function Document({
                                 code: oasBuilder.generateResponse(
                                   endpoint.operation
                                 ),
-
                                 isLongCode: true,
                                 language: "bash",
                               }}

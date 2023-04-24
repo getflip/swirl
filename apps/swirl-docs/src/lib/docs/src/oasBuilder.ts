@@ -4,6 +4,7 @@ import {
   MediaTypeObject,
   OASDocument,
   PathsObject,
+  SchemaObject,
 } from "oas/dist/rmoas.types";
 import oasToHar from "@readme/oas-to-har";
 import { oasToSnippet } from "@readme/oas-to-snippet";
@@ -20,6 +21,26 @@ interface IOASBuilder {
   tags: string[];
 }
 
+type EndpointWithDetails = Endpoint & {
+  description: string;
+  isDeprecated: boolean;
+  parameters: Array<{
+    label: string;
+    properties: Array<{
+      type: string;
+      name: string;
+      description: string;
+      required: boolean;
+    }>;
+    requiredProperties: SchemaObject["required"];
+  }>;
+  request: {
+    code: string;
+    request: Request;
+  };
+  response: string;
+};
+
 export default class OASBuilder implements IOASBuilder {
   private _oasDocument: OASDocument = {} as OASDocument;
   private _oasBuilder: Oas = new Oas({} as OASDocument);
@@ -31,6 +52,7 @@ export default class OASBuilder implements IOASBuilder {
   public endpoints: PathsObject = {};
   public operations: Operations = {};
   public operationsList: Endpoint[] = [];
+  public detailedOperationsList: EndpointWithDetails[] = [];
   public tags: string[] = [];
 
   constructor(oasDocument: OASDocument) {
@@ -40,6 +62,62 @@ export default class OASBuilder implements IOASBuilder {
   private initializeProperties(oasDocument: OASDocument) {
     this._oasDocument = oasDocument;
     this._oasBuilder = new Oas(oasDocument);
+  }
+
+  public setDetailedOperationsList() {
+    this.operationsList.forEach((apiEndpoint) => {
+      const requestPreview = this.generateRequest(apiEndpoint.operation);
+      const parameterSchemas =
+        apiEndpoint.operation.getParametersAsJSONSchema() || [];
+
+      const parameters: EndpointWithDetails["parameters"] =
+        parameterSchemas.map((schemaWrapper) => {
+          const requiredParams = schemaWrapper.schema.required || [];
+          const allProperties = schemaWrapper.schema.properties || {};
+          const paramLabel = schemaWrapper.label || "";
+
+          if (
+            typeof allProperties === "object" &&
+            Array.isArray(requiredParams)
+          ) {
+            const propertyKeys = Object.keys(allProperties);
+            const properties = propertyKeys.map((propertyKey) => {
+              const isRequired = Boolean(requiredParams.includes(propertyKey));
+              const property = allProperties[propertyKey] as SchemaObject;
+              return {
+                type: property.type as string,
+                name: propertyKey,
+                description: property.description || "",
+                required: isRequired,
+              };
+            });
+
+            return {
+              label: paramLabel,
+              properties: properties,
+              requiredProperties: requiredParams,
+            };
+          }
+
+          return {
+            label: paramLabel,
+            properties: [],
+            requiredProperties: requiredParams,
+          };
+        });
+
+      this.detailedOperationsList.push({
+        ...apiEndpoint,
+        description: apiEndpoint.operation.getDescription(),
+        isDeprecated: apiEndpoint.operation.isDeprecated(),
+        request: {
+          ...requestPreview,
+        },
+        response: this.generateResponse(apiEndpoint.operation),
+        parameters: parameters,
+      });
+    });
+    return this;
   }
 
   public async dereference() {
