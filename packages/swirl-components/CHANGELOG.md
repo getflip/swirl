@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.44.1
+
+### Patch Changes
+
+- [`62ec018`](https://github.com/getflip/swirl/commit/62ec018ee0c7b7592db4ced41db09eb6fb670af8)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-table layout update
+  when column changes
+
 ## 0.44.0
 
 ### Minor Changes
