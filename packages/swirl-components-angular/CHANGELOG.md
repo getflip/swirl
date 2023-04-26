@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.43.1
+
+### Patch Changes
+
+- [`62ec018`](https://github.com/getflip/swirl/commit/62ec018ee0c7b7592db4ced41db09eb6fb670af8)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-table layout update
+  when column changes
+
+- Updated dependencies
+  [[`62ec018`](https://github.com/getflip/swirl/commit/62ec018ee0c7b7592db4ced41db09eb6fb670af8)]:
+  - @getflip/swirl-components@0.44.1
+
 ## 0.43.0
 
 ### Minor Changes
