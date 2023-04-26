@@ -1,4 +1,5 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { closestPassShadow } from "../../utils";
 
 export type SwirlTableColumnSort = "ascending" | "descending";
 
@@ -19,6 +20,12 @@ export class SwirlTableColumn {
   @Prop() minWidth?: string = "fit-content";
   @Prop() sticky?: boolean;
   @Prop() width?: string;
+
+  componentDidRender() {
+    const table = closestPassShadow(this.el, "swirl-table");
+
+    table?.rerender();
+  }
 
   render() {
     const styles = {
