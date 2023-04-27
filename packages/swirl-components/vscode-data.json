@@ -2025,6 +2025,19 @@
       ]
     },
     {
+      "name": "swirl-icon-ai",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-arrow-back",
       "description": {
         "kind": "markdown",
@@ -2714,7 +2727,46 @@
       ]
     },
     {
+      "name": "swirl-icon-improve-text",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-info",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-insert-below",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-insert-on-top",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2780,6 +2832,19 @@
     },
     {
       "name": "swirl-icon-logout",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-long-text",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3156,6 +3221,45 @@
       ]
     },
     {
+      "name": "swirl-icon-short-text",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-simplify",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-spellcheck",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-sync",
       "description": {
         "kind": "markdown",
@@ -3234,6 +3338,19 @@
       ]
     },
     {
+      "name": "swirl-icon-undo",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-user-assign",
       "description": {
         "kind": "markdown",
@@ -3274,6 +3391,19 @@
     },
     {
       "name": "swirl-icon-visibility-off",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-voice",
       "description": {
         "kind": "markdown",
         "value": ""
