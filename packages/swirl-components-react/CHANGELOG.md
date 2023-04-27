@@ -1,5 +1,12 @@
 # @getflip/swirl-components-react
 
+## 0.44.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @getflip/swirl-components@0.45.1
+
 ## 0.44.0
 
 ### Minor Changes
