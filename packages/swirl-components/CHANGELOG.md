@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.46.1
+
+### Patch Changes
+
+- [`7f66178`](https://github.com/getflip/swirl/commit/7f661784c25d184d4aa88517a46ef279aee0c732)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-inline-error styles
+
 ## 0.46.0
 
 ### Minor Changes
