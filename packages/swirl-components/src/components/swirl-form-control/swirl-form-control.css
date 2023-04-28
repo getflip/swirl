@@ -170,5 +170,4 @@
 .form-control__error-message {
   display: block;
   margin-top: var(--s-space-4);
-  padding-left: var(--s-space-4);
 }
