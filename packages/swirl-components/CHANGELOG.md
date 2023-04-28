@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.47.0
+
+### Minor Changes
+
+- [`9ec11ce`](https://github.com/getflip/swirl/commit/9ec11ce9b60d63eb2026d8a31ce85324944f68c3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add custom footer slot to
+  swirl-modal
+
 ## 0.46.1
 
 ### Patch Changes
