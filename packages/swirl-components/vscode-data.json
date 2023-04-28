@@ -3917,6 +3917,10 @@
           "description": ""
         },
         {
+          "name": "max-height",
+          "description": ""
+        },
+        {
           "name": "offset",
           "description": ""
         },

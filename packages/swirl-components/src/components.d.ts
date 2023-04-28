@@ -986,6 +986,7 @@ export namespace Components {
         "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "label": string;
+        "maxHeight"?: string;
         "offset"?: number | number[];
         /**
           * Open the popover.
@@ -3631,6 +3632,7 @@ declare namespace LocalJSX {
         "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "label": string;
+        "maxHeight"?: string;
         "offset"?: number | number[];
         "onPopoverClose"?: (event: SwirlPopoverCustomEvent<void>) => void;
         "onPopoverOpen"?: (event: SwirlPopoverCustomEvent<void>) => void;
