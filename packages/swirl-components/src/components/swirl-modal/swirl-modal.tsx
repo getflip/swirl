@@ -47,11 +47,11 @@ export class SwirlModal {
   @State() isOpen = false;
   @State() closing = false;
   @State() hasCustomHeader: boolean;
+  @State() hasCustomFooter: boolean;
   @State() scrollable = false;
   @State() scrolled = false;
   @State() scrolledDown = false;
 
-  private customHeaderSlot: HTMLSlotElement;
   private focusTrap: focusTrap.FocusTrap;
   private modalEl: HTMLElement;
   private scrollContainer: HTMLElement;
@@ -67,6 +67,11 @@ export class SwirlModal {
     });
 
     this.determineScrollStatus();
+
+    queueMicrotask(() => {
+      this.updateCustomFooterStatus();
+      this.updateCustomHeaderStatus();
+    });
   }
 
   disconnectedCallback() {
@@ -143,9 +148,17 @@ export class SwirlModal {
     this.secondaryAction.emit(event);
   };
 
-  private onCustomHeaderSlotChange = () => {
-    this.hasCustomHeader = this.customHeaderSlot.assignedElements().length > 0;
-  };
+  private updateCustomFooterStatus() {
+    this.hasCustomFooter = Boolean(
+      this.el.querySelector('[slot="custom-footer"]')
+    );
+  }
+
+  private updateCustomHeaderStatus() {
+    this.hasCustomHeader = Boolean(
+      this.el.querySelector('[slot="custom-header"]')
+    );
+  }
 
   private determineScrollStatus = () => {
     const scrolled = this.scrollContainer?.scrollTop > 0;
@@ -185,6 +198,7 @@ export class SwirlModal {
 
     const className = classnames("modal", `modal--variant-${this.variant}`, {
       "modal--closing": this.closing,
+      "modal--has-custom-footer": this.hasCustomFooter,
       "modal--has-custom-header": this.hasCustomHeader,
       "modal--hide-label": this.hideLabel,
       "modal--padded": this.padded,
@@ -220,11 +234,7 @@ export class SwirlModal {
               ></swirl-button>
             )}
             <header class="modal__custom-header">
-              <slot
-                name="custom-header"
-                onSlotchange={this.onCustomHeaderSlotChange}
-                ref={(el) => (this.customHeaderSlot = el as HTMLSlotElement)}
-              ></slot>
+              <slot name="custom-header"></slot>
             </header>
             {!this.hideLabel && (
               <header class="modal__header">
@@ -242,6 +252,9 @@ export class SwirlModal {
               ref={(el) => (this.scrollContainer = el)}
             >
               <slot></slot>
+            </div>
+            <div class="modal__custom-footer">
+              <slot name="custom-footer"></slot>
             </div>
             {showControls && (
               <footer class="modal__controls">

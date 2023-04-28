@@ -22,6 +22,7 @@ describe("swirl-modal", () => {
             <div class="modal__content">
               Content
             </div>
+            <div class="modal__custom-footer"></div>
           </div>
         </section>
       </swirl-modal>
