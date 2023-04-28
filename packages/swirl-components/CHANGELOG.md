@@ -1,5 +1,17 @@
 # @getflip/swirl-components
 
+## 0.46.0
+
+### Minor Changes
+
+- [`ec8b4df`](https://github.com/getflip/swirl/commit/ec8b4dffb4b349350b67414591b4d898dc79b323)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow HTML for
+  swirl-resource-list-item labels
+
+* [`a04cc9a`](https://github.com/getflip/swirl/commit/a04cc9aec383aa57b89fbeeb70d1aa3f1eed9343)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "max-height" prop to
+  swirl-popover
+
 ## 0.45.1
 
 ### Patch Changes
