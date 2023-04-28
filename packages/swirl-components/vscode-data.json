@@ -4165,6 +4165,18 @@
           "description": ""
         },
         {
+          "name": "label-weight",
+          "description": "",
+          "values": [
+            {
+              "name": "medium"
+            },
+            {
+              "name": "regular"
+            }
+          ]
+        },
+        {
           "name": "menu-trigger-id",
           "description": ""
         },

@@ -38,6 +38,7 @@ import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 import { Placement } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
@@ -88,6 +89,7 @@ export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 export { Placement } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
@@ -1034,6 +1036,7 @@ export namespace Components {
         "hideDivider"?: boolean;
         "href"?: string;
         "label": string;
+        "labelWeight"?: SwirlResourceListItemLabelWeight;
         "menuTriggerId"?: string;
         "menuTriggerLabel"?: string;
         "meta"?: string;
@@ -3678,6 +3681,7 @@ declare namespace LocalJSX {
         "hideDivider"?: boolean;
         "href"?: string;
         "label": string;
+        "labelWeight"?: SwirlResourceListItemLabelWeight;
         "menuTriggerId"?: string;
         "menuTriggerLabel"?: string;
         "meta"?: string;

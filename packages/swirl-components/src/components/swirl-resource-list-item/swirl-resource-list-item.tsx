@@ -10,6 +10,8 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
+export type SwirlResourceListItemLabelWeight = "medium" | "regular";
+
 /**
  * @slot media - Media displayed inside the item (e.g. swirl-avatar)
  */
@@ -27,6 +29,7 @@ export class SwirlResourceListItem {
   @Prop() hideDivider?: boolean;
   @Prop() href?: string;
   @Prop() label!: string;
+  @Prop() labelWeight?: SwirlResourceListItemLabelWeight = "medium";
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
@@ -76,12 +79,16 @@ export class SwirlResourceListItem {
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
     const role = this.selectable ? "checkbox" : undefined;
 
-    const className = classnames("resource-list-item", {
-      "resource-list-item--checked": this.checked,
-      "resource-list-item--has-menu": hasMenu,
-      "resource-list-item--hide-divider": this.hideDivider,
-      "resource-list-item--selectable": this.selectable,
-    });
+    const className = classnames(
+      "resource-list-item",
+      `resource-list-item--label-weight-${this.labelWeight}`,
+      {
+        "resource-list-item--checked": this.checked,
+        "resource-list-item--has-menu": hasMenu,
+        "resource-list-item--hide-divider": this.hideDivider,
+        "resource-list-item--selectable": this.selectable,
+      }
+    );
 
     return (
       <Host role="row">
@@ -104,9 +111,11 @@ export class SwirlResourceListItem {
               </span>
             )}
             <span class="resource-list-item__label-container">
-              <span class="resource-list-item__label" id="label">
-                {this.label}
-              </span>
+              <span
+                class="resource-list-item__label"
+                id="label"
+                innerHTML={this.label}
+              ></span>
               {this.description && (
                 <span class="resource-list-item__description">
                   {this.description}

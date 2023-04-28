@@ -50,6 +50,10 @@
   }
 }
 
+.resource-list-item--label-weight-medium {
+  font-weight: var(--s-font-weight-medium);
+}
+
 .resource-list-item__content {
   --swirl-avatar-group-border-color: var(--s-background-default);
   --swirl-badge-border-color: var(--s-background-default);
@@ -147,9 +151,13 @@
 
 .resource-list-item__label {
   overflow: hidden;
-  font-weight: var(--s-font-weight-medium);
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  & b,
+  & strong {
+    font-weight: var(--s-font-weight-semibold);
+  }
 }
 
 .resource-list-item__description {
