@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.47.0
+
+### Minor Changes
+
+- [`eed9f56`](https://github.com/getflip/swirl/commit/eed9f568047de6bdd0f0aaf69f0a7ceb444c24ec)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-icon component with
+  "glyph" property as an alternative to the usage of the swirl-icon-\*
+  components
+
+### Patch Changes
+
+- Updated dependencies
+  [[`eed9f56`](https://github.com/getflip/swirl/commit/eed9f568047de6bdd0f0aaf69f0a7ceb444c24ec)]:
+  - @getflip/swirl-components@0.48.0
+
 ## 0.46.0
 
 ### Minor Changes
