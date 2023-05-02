@@ -16,7 +16,7 @@ interface IOASBuilder {
   title: string;
   path: string;
   description: string;
-  endpoints: PathsObject;
+  paths: PathsObject;
   operations: Operations;
   tags: string[];
 }
@@ -43,16 +43,16 @@ type EndpointWithDetails = Endpoint & {
 
 export default class OASBuilder implements IOASBuilder {
   private _oasDocument: OASDocument = {} as OASDocument;
-  private _oasBuilder: Oas = new Oas({} as OASDocument);
+  private _oas: Oas = new Oas({} as OASDocument);
 
   public title: string = "";
   public shortDescription: string = "";
   public path: string = "";
   public description: string = "";
-  public endpoints: PathsObject = {};
+  public paths: PathsObject = {};
   public operations: Operations = {};
-  public operationsList: Endpoint[] = [];
-  public detailedOperationsList: EndpointWithDetails[] = [];
+  public endpoints: Endpoint[] = [];
+  public detailedEndpoints: EndpointWithDetails[] = [];
   public tags: string[] = [];
 
   constructor(oasDocument: OASDocument) {
@@ -61,11 +61,11 @@ export default class OASBuilder implements IOASBuilder {
 
   private initializeProperties(oasDocument: OASDocument) {
     this._oasDocument = oasDocument;
-    this._oasBuilder = new Oas(oasDocument);
+    this._oas = new Oas(oasDocument);
   }
 
-  public setDetailedOperationsList() {
-    this.operationsList.forEach((apiEndpoint) => {
+  public setDetailedEndpoints() {
+    this.endpoints.forEach((apiEndpoint) => {
       const requestPreview = this.generateRequest(apiEndpoint.operation);
       const parameterSchemas =
         apiEndpoint.operation.getParametersAsJSONSchema() || [];
@@ -106,7 +106,7 @@ export default class OASBuilder implements IOASBuilder {
           };
         });
 
-      this.detailedOperationsList.push({
+      this.detailedEndpoints.push({
         ...apiEndpoint,
         description: apiEndpoint.operation.getDescription(),
         isDeprecated: apiEndpoint.operation.isDeprecated(),
@@ -121,12 +121,12 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   public async dereference() {
-    this._oasBuilder.dereference();
+    await this._oas.dereference().then(() => console.log("Dereferenced!"));
     return this;
   }
 
   public get oas() {
-    return this._oasBuilder;
+    return this._oas;
   }
 
   public get oasDocument() {
@@ -134,33 +134,33 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   public setDescription() {
-    this.description = this._oasBuilder.api.info.description || "";
+    this.description = this._oas.api.info.description || "";
     return this;
   }
 
   public setEndpoints() {
-    this.endpoints = this._oasBuilder.api.paths || {};
+    this.paths = this._oas.api.paths || {};
     return this;
   }
 
   public setTitleAndPath() {
-    this.title = this._oasBuilder.api.info.title;
+    this.title = this._oas.api.info.title;
     this.shortDescription =
-      this._oasBuilder.api.info.description?.split("# Changelog")[0] || "";
+      this._oas.api.info.description?.split("# Changelog")[0] || "";
     this.path = this.title.toLowerCase().replaceAll(" ", "-");
     return this;
   }
 
   public setOperations() {
-    if (Object.keys(this.endpoints).length === 0)
+    if (Object.keys(this.paths).length === 0)
       throw new Error("Endpoints not set");
 
-    for (const path in this.endpoints) {
-      const operationInPaths = this.endpoints[path];
+    for (const path in this.paths) {
+      const operationInPaths = this.paths[path];
       const methods = Object.keys(operationInPaths ?? {}) as HttpMethods[];
 
       methods.forEach((operation) => {
-        const oasOperation = this._oasBuilder.operation(path, operation);
+        const oasOperation = this._oas.operation(path, operation);
         if (!this.operations[operation]) {
           this.operations[operation] = [];
         }
@@ -179,7 +179,7 @@ export default class OASBuilder implements IOASBuilder {
       const endpoints = this.operations[operation as HttpMethods];
 
       endpoints?.forEach((endpoint) => {
-        this.operationsList.push(endpoint);
+        this.endpoints.push(endpoint);
       });
     }
 
@@ -187,7 +187,7 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   public setTags() {
-    this.tags = this._oasBuilder.getTags();
+    this.tags = this._oas.getTags();
     return this;
   }
 
@@ -216,6 +216,8 @@ export default class OASBuilder implements IOASBuilder {
     const responseExample = operation.getResponseExamples()[0].mediaTypes[
       "application/json"
     ] as Array<MediaTypeObject>;
+
+    // console.log(`RESPONSE EXAMPLE: `, operation.getResponseExamples());
 
     const valueOfResponse = responseExample as any;
 

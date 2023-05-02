@@ -1,39 +1,169 @@
-import { ApiDoc, Endpoint, createStaticPathsForSpecs } from "@swirl/lib/docs";
+import { createStaticPathsForSpecs } from "@swirl/lib/docs";
 import Head from "next/head";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { ScriptProps } from "next/script";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
 import OASNormalize from "oas-normalize";
-import { serializeMarkdownString } from "@swirl/lib/docs/src/singleDoc";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import { useEffect, useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { CodePreview } from "src/components/CodePreview";
 import { Tag } from "src/components/Tags";
 import { Parameter } from "src/components/Documentation/Parameter";
 import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
-import { SchemaObject } from "oas/dist/rmoas.types";
+import { OASDocument, SchemaObject } from "oas/dist/rmoas.types";
+import { ResponseExamples } from "oas/dist/operation/get-response-examples";
+import { serialize } from "next-mdx-remote/serialize";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
-async function getSpecData(spec: string): Promise<ApiDoc> {
+import sectionize from "remark-sectionize";
+
+export function serializeMarkdownString(source: string) {
+  return serialize(source, {
+    parseFrontmatter: true,
+    mdxOptions: {
+      rehypePlugins: [rehypeSlug],
+      remarkPlugins: [remarkGfm, sectionize],
+      format: "mdx",
+    },
+  });
+}
+
+type Parameter = {
+  name: string;
+  type: string;
+  description: string;
+  required: boolean;
+};
+type ParameterType = "path" | "query" | "header" | "cookie" | "body" | "other";
+type ParameterTypes = Array<{
+  type: ParameterType;
+  title: string;
+  parameters: Array<Parameter>;
+}>;
+type ResponseExample = {
+  status: string;
+  mediaType: string;
+  value: unknown;
+};
+type Endpoint = {
+  title: string;
+  description: string;
+  path: string;
+  request: ReturnType<OASBuilder["generateRequest"]>;
+  responseExamples: Array<ResponseExample>;
+  isDeprecated?: boolean;
+  parameterTypes?: ParameterTypes;
+};
+
+export type ApiSpec = {
+  title: string;
+  shortDescription: string;
+  description: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
+  endpoints: Array<Endpoint>;
+};
+
+async function getSpecData(spec: string): Promise<ApiSpec> {
+  // Initialization
+  let apiSpec: ApiSpec;
+
+  // Get the spec path based on the nav items
   const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
   const specPath = navItem?.specPath;
 
+  // create the OAS document && OAS builder
   const oasDocument = await new OASNormalize(specPath, {
     enablePaths: true,
   }).validate();
+  const oasBuilder = await new OASBuilder(oasDocument)
+    .dereference()
+    .then((oas) => {
+      oas
+        .setTitleAndPath()
+        .setDescription()
+        .setEndpoints()
+        .setOperations()
+        .setDetailedEndpoints();
 
-  const oasBuilder = await new OASBuilder(oasDocument);
+      return oas;
+    });
 
-  oasBuilder.setTitleAndPath().setDescription().setEndpoints().setOperations();
+  const serializedDescription = await serializeMarkdownString(
+    oasBuilder.oasDocument.info.description
+      ?.replace(oasDocument.title, "")
+      .replace(oasDocument.shortDescription, "")
+      .replace("<SecurityDefinitions />", "")
+      .replace("# Authentication", "")
+      .replaceAll("user_external_id", "123")
+      .replaceAll("postId", "123")
+      .replaceAll("commentId", "123")
+      .replaceAll("attachment_id", "123") as string
+  );
 
-  return {
+  apiSpec = {
     title: oasBuilder.title,
-    path: oasBuilder.path,
-    definition: oasBuilder.oasDocument,
     shortDescription: oasBuilder.shortDescription,
+    description: serializedDescription,
+    endpoints: oasBuilder.endpoints.map((endpoint) => {
+      let examples: Endpoint["responseExamples"] = [];
+
+      const request = oasBuilder?.generateRequest(endpoint.operation);
+      const responseExamples = endpoint.operation.getResponseExamples();
+
+      responseExamples.forEach((responseExample) => {
+        const mediaTypes = Object.keys(responseExample.mediaTypes);
+        const valueExample = responseExample.mediaTypes[
+          mediaTypes[0]
+        ] as Array<any>;
+
+        let example: ResponseExample = {
+          status: responseExample.status,
+          mediaType: mediaTypes[0],
+          value: valueExample[0].value,
+        };
+
+        examples.push(example);
+      });
+
+      const parameterTypes =
+        endpoint.operation.getParametersAsJSONSchema() || [];
+
+      return {
+        title: endpoint.title,
+        description: endpoint.operation.getDescription() || "",
+        path: endpoint.path,
+        isDeprecated: endpoint.operation.isDeprecated(),
+        // parameterTypes: parameterTypes.map((parameterType) => {
+        //   const label = parameterType.label || "other";
+        //   const type = parameterType.type as ParameterType;
+        //   const requiredParams = parameterType.schema.required || [];
+        //   const parametersObject = parameterType.schema.properties || {};
+        //   if (
+        //     typeof parametersObject === "object" &&
+        //     Array.isArray(requiredParams)
+        //   ) {
+        //     const parameters = Object.keys(parametersObject);
+        //     {
+        //       parameters.forEach((parameter) => {
+        //         const required = requiredParams.includes(parameter);
+        //         const prop = parametersObject[parameter] as SchemaObject;
+        //       });
+        //     }
+        //   }
+        //   return { title: label, type, parameters: [] };
+        // }),
+        parameterTypes: [],
+        request,
+        responseExamples: examples,
+      };
+    }),
   };
+
+  return apiSpec;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -45,22 +175,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-function generateGeneralDescription(document: ApiDoc) {
-  return document.definition?.info.description
-    ?.replace(document.title, "")
-    .replace(document.shortDescription, "")
-    .replace("<SecurityDefinitions />", "")
-    .replace("# Authentication", "")
-    .replaceAll("user_external_id", "123")
-    .replaceAll("postId", "123")
-    .replaceAll("commentId", "123")
-    .replaceAll("attachment_id", "123");
-}
-
-export const getStaticProps: GetStaticProps<
-  ScriptProps,
-  { apiSpec: string }
-> = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   if (!context.params || !("apiSpec" in context.params)) {
     return {
       notFound: true,
@@ -68,87 +183,25 @@ export const getStaticProps: GetStaticProps<
   }
 
   const { apiSpec } = context.params;
-  const document = await getSpecData(apiSpec);
-
-  const generalDescription = generateGeneralDescription(document) as string;
-  const description = await serializeMarkdownString(generalDescription);
+  const document = await getSpecData(apiSpec as string);
 
   return {
     props: {
       document,
-      description,
-      title: document.title,
     },
   };
 };
 
-export default function Document({
-  document,
-  description,
-  title,
-}: {
-  document: ApiDoc;
-  description: MDXRemoteSerializeResult<
-    Record<string, unknown>,
-    Record<string, string>
-  >;
-  title: string;
-}) {
-  const [endpointList, setEndpointList] = useState<Endpoint[]>([]);
-
-  useEffect(() => {
-    if (document.definition) {
-      const oasBuilder = new OASBuilder(document.definition);
-
-      oasBuilder.dereference().then((oas) => {
-        oas.setEndpoints().setOperations();
-        setEndpointList(oas.operationsList);
-      });
-    }
-  }, [document.definition]);
-
-  function Parameters({
-    properties,
-    requiredProperties,
-  }: {
-    properties: SchemaObject["properties"];
-    requiredProperties: SchemaObject["required"];
-  }) {
-    if (typeof properties === "object" && Array.isArray(requiredProperties)) {
-      const params = Object.keys(properties);
-      if (params.length === 0) return <></>;
-      return (
-        <>
-          {params.map((param) => {
-            const required = requiredProperties.includes(param);
-            const prop = properties[param] as SchemaObject;
-
-            return (
-              <Parameter
-                key={param}
-                name={param}
-                type={prop.type as string}
-                description={prop.description}
-                required={true}
-              />
-            );
-          })}
-        </>
-      );
-    }
-
-    return <></>;
-  }
-
+export default function Document({ document }: { document: ApiSpec }) {
   return (
     <>
       <Head>
-        <title>{`API | ${title}`}</title>
+        <title>{`API | ${document.title}`}</title>
       </Head>
       <DocumentationLayout
         data={{
           mdxContent: {
-            document: description,
+            document: document.description,
             components: {
               h1: (props) => <h2 className="text-2xl font-bold" {...props} />,
               h2: (props) => <h3 className="text-xl font-bold" {...props} />,
@@ -187,93 +240,61 @@ export default function Document({
           <>
             <DocumentationLayout.MDX />
             <div className="mt-20">
-              {endpointList.map((endpoint, index) => {
-                if (document.definition) {
-                  const oasBuilder = new OASBuilder(document.definition);
-                  oasBuilder.setEndpoints().setOperations();
-
-                  oasBuilder.setDetailedOperationsList();
-
-                  console.log(oasBuilder.detailedOperationsList);
-
-                  const codePreview = oasBuilder?.generateRequest(
-                    endpoint.operation
-                  );
-
-                  const paramsWrapper =
-                    endpoint.operation.getParametersAsJSONSchema() || [];
-
-                  return (
-                    <>
-                      <h2
-                        className="text-font-size-2xl font-font-weight-semibold mb-4"
-                        id={endpoint.path.slice(2, endpoint.path.length)}
-                        key={`endpoint.title${index}`}
-                      >
-                        {endpoint.title}
-                        {endpoint.operation.isDeprecated() && (
-                          <span className="ml-2">
-                            <Tag content="deprecated" scheme="warning" />
-                          </span>
-                        )}
-                      </h2>
-                      <div className="grid md:grid-cols-2 gap-8 mb-20">
-                        <div>
-                          <ReactMarkdown
-                            className="text-base"
-                            components={{
-                              p: (props) => (
-                                <p className="text-base">{props.children}</p>
-                              ),
-                              code: (props) => (
-                                <code
-                                  className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
-                                  {...props}
-                                />
-                              ),
-                            }}
-                          >
-                            {endpoint.operation.getDescription()}
-                          </ReactMarkdown>
-                          <div className="mt-4">
-                            {paramsWrapper.map((params) => {
-                              const requiredParams =
-                                params.schema.required || [];
-
-                              const parameterOfEndpoint =
-                                params.schema.properties || {};
-
-                              return (
-                                <>
-                                  <h4 className="text-xl font-font-weight-semibold mt-4">
-                                    {params.label}
-                                  </h4>
-                                  {/* <Parameters
-                                    requiredProperties={requiredParams}
-                                    properties={parameterOfEndpoint}
-                                  /> */}
-                                </>
-                              );
-                            })}
-                          </div>
-                        </div>
-                        <div className="min-w-0">
-                          <CodePreview
-                            codeExample={{
-                              code: codePreview.code,
-                              isLongCode: false,
-                              language: "bash",
-                              request: codePreview.request,
-                            }}
-                          >
-                            <CodePreview.Request />
-                          </CodePreview>
-                          <div className="mt-2">
+              {document.endpoints?.map((endpoint, index) => {
+                return (
+                  <>
+                    <h2
+                      className="text-font-size-2xl font-font-weight-semibold mb-4"
+                      id={endpoint.path.split("#")[1]}
+                      key={`endpoint.title${index}`}
+                    >
+                      {endpoint.title}
+                      {endpoint.isDeprecated && (
+                        <span className="ml-2">
+                          <Tag content="deprecated" scheme="warning" />
+                        </span>
+                      )}
+                    </h2>
+                    <div className="grid md:grid-cols-2 gap-8 mb-20">
+                      <div>
+                        <ReactMarkdown
+                          className="text-base"
+                          components={{
+                            p: (props) => (
+                              <p className="text-base">{props.children}</p>
+                            ),
+                            code: (props) => (
+                              <code
+                                className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
+                                {...props}
+                              />
+                            ),
+                          }}
+                        >
+                          {endpoint.description}
+                        </ReactMarkdown>
+                        <div className="mt-4"></div>
+                      </div>
+                      <div className="min-w-0">
+                        <CodePreview
+                          codeExample={{
+                            code: endpoint.request.code,
+                            isLongCode: false,
+                            language: "bash",
+                            request: endpoint.request.request,
+                          }}
+                        >
+                          <CodePreview.Request />
+                        </CodePreview>
+                        <div className="mt-2">
+                          {endpoint.responseExamples[0] && (
                             <CodePreview
                               isHttpResponse
                               codeExample={{
-                                code: oasBuilder.generateResponse(
-                                  endpoint.operation
+                                code: JSON.stringify(
+                                  endpoint.responseExamples[0].value as string,
+                                  null,
+                                  2
                                 ),
                                 isLongCode: true,
                                 language: "bash",
@@ -283,12 +304,12 @@ export default function Document({
                                 Response
                               </span>
                             </CodePreview>
-                          </div>
+                          )}
                         </div>
                       </div>
-                    </>
-                  );
-                }
+                    </div>
+                  </>
+                );
               })}
             </div>
           </>
