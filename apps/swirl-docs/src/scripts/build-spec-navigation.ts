@@ -1,6 +1,6 @@
 import fs from "fs";
 import OASNormalize from "oas-normalize";
-import OASBuilder from "@swirl/lib/docs/src/oasBuilderNavigation";
+import OASBuilder from "@swirl/lib/docs/src/oasBuilderSetup";
 import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 
 function createApiDocsDataString(data: string) {

@@ -1,5 +1,7 @@
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import Oas, { Operation } from "oas";
 import { HttpMethods, OASDocument } from "oas/dist/rmoas.types";
+import OASBuilder from "./oasBuilder";
 
 export enum DOCUMENTATION_SRC {
   PAGES = "pages",
@@ -87,4 +89,46 @@ export type ApiDoc = {
   definition?: OASDocument;
   oas?: Oas;
   operations?: Operations;
+};
+
+export type EndpointParam = {
+  name: string;
+  type: string;
+  description: string;
+  required: boolean;
+};
+export type EndpointParamType =
+  | "path"
+  | "query"
+  | "header"
+  | "cookie"
+  | "body"
+  | "other";
+export type EndpointParamTypeGroup = Array<{
+  type: EndpointParamType;
+  title: string;
+  parameters: Array<EndpointParam>;
+}>;
+export type ApiResponseExample = {
+  status: string;
+  mediaType: string;
+  value: unknown;
+};
+export type ApiEndpoint = {
+  title: string;
+  description: string;
+  path: string;
+  request: ReturnType<OASBuilder["generateRequest"]>;
+  responseExamples: Array<ApiResponseExample>;
+  isDeprecated?: boolean;
+  parameterTypes?: EndpointParamTypeGroup;
+};
+export type ApiDocumentation = {
+  title: string;
+  shortDescription: string;
+  description: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
+  endpoints: Array<ApiEndpoint>;
 };

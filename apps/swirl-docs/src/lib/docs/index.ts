@@ -1,3 +1,4 @@
 export * from "./src/multipleDocs";
-export * from "./src/OasBuilder";
+export * from "./src/oasBuilder";
 export * from "./src/docs.model";
+export * from "./src/utils";

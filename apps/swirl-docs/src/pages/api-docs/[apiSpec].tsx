@@ -1,81 +1,30 @@
-import { createStaticPathsForSpecs } from "@swirl/lib/docs";
+import {
+  ApiDocumentation,
+  ApiEndpoint,
+  EndpointParam,
+  EndpointParamType,
+  createStaticPathsForSpecs,
+  serializeMarkdownString,
+} from "@swirl/lib/docs";
 import Head from "next/head";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
-import OASBuilder from "@swirl/lib/docs/src/OasBuilder";
 import OASNormalize from "oas-normalize";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { CodePreview } from "src/components/CodePreview";
 import { Tag } from "src/components/Tags";
 import { Parameter } from "src/components/Documentation/Parameter";
 import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
-import { OASDocument, SchemaObject } from "oas/dist/rmoas.types";
-import { ResponseExamples } from "oas/dist/operation/get-response-examples";
-import { serialize } from "next-mdx-remote/serialize";
-import rehypeSlug from "rehype-slug";
-import remarkGfm from "remark-gfm";
+import { SchemaObject } from "oas/dist/rmoas.types";
+import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 
-import sectionize from "remark-sectionize";
+async function getSpecData(spec: string): Promise<ApiDocumentation> {
+  let apiSpec: ApiDocumentation;
 
-export function serializeMarkdownString(source: string) {
-  return serialize(source, {
-    parseFrontmatter: true,
-    mdxOptions: {
-      rehypePlugins: [rehypeSlug],
-      remarkPlugins: [remarkGfm, sectionize],
-      format: "mdx",
-    },
-  });
-}
-
-type Parameter = {
-  name: string;
-  type: string;
-  description: string;
-  required: boolean;
-};
-type ParameterType = "path" | "query" | "header" | "cookie" | "body" | "other";
-type ParameterTypes = Array<{
-  type: ParameterType;
-  title: string;
-  parameters: Array<Parameter>;
-}>;
-type ResponseExample = {
-  status: string;
-  mediaType: string;
-  value: unknown;
-};
-type Endpoint = {
-  title: string;
-  description: string;
-  path: string;
-  request: ReturnType<OASBuilder["generateRequest"]>;
-  responseExamples: Array<ResponseExample>;
-  isDeprecated?: boolean;
-  parameterTypes?: ParameterTypes;
-};
-
-export type ApiSpec = {
-  title: string;
-  shortDescription: string;
-  description: MDXRemoteSerializeResult<
-    Record<string, unknown>,
-    Record<string, string>
-  >;
-  endpoints: Array<Endpoint>;
-};
-
-async function getSpecData(spec: string): Promise<ApiSpec> {
-  // Initialization
-  let apiSpec: ApiSpec;
-
-  // Get the spec path based on the nav items
   const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
   const specPath = navItem?.specPath;
 
-  // create the OAS document && OAS builder
   const oasDocument = await new OASNormalize(specPath, {
     enablePaths: true,
   }).validate();
@@ -88,7 +37,6 @@ async function getSpecData(spec: string): Promise<ApiSpec> {
         .setEndpoints()
         .setOperations()
         .setDetailedEndpoints();
-
       return oas;
     });
 
@@ -109,7 +57,7 @@ async function getSpecData(spec: string): Promise<ApiSpec> {
     shortDescription: oasBuilder.shortDescription,
     description: serializedDescription,
     endpoints: oasBuilder.endpoints.map((endpoint) => {
-      let examples: Endpoint["responseExamples"] = [];
+      let examples: ApiEndpoint["responseExamples"] = [];
 
       const request = oasBuilder?.generateRequest(endpoint.operation);
       const responseExamples = endpoint.operation.getResponseExamples();
@@ -120,13 +68,11 @@ async function getSpecData(spec: string): Promise<ApiSpec> {
           mediaTypes[0]
         ] as Array<any>;
 
-        let example: ResponseExample = {
+        examples.push({
           status: responseExample.status,
           mediaType: mediaTypes[0],
           value: valueExample[0].value,
-        };
-
-        examples.push(example);
+        });
       });
 
       const parameterTypes =
@@ -137,26 +83,31 @@ async function getSpecData(spec: string): Promise<ApiSpec> {
         description: endpoint.operation.getDescription() || "",
         path: endpoint.path,
         isDeprecated: endpoint.operation.isDeprecated(),
-        // parameterTypes: parameterTypes.map((parameterType) => {
-        //   const label = parameterType.label || "other";
-        //   const type = parameterType.type as ParameterType;
-        //   const requiredParams = parameterType.schema.required || [];
-        //   const parametersObject = parameterType.schema.properties || {};
-        //   if (
-        //     typeof parametersObject === "object" &&
-        //     Array.isArray(requiredParams)
-        //   ) {
-        //     const parameters = Object.keys(parametersObject);
-        //     {
-        //       parameters.forEach((parameter) => {
-        //         const required = requiredParams.includes(parameter);
-        //         const prop = parametersObject[parameter] as SchemaObject;
-        //       });
-        //     }
-        //   }
-        //   return { title: label, type, parameters: [] };
-        // }),
-        parameterTypes: [],
+        parameterTypes: parameterTypes.map((parameterType) => {
+          const label = parameterType.label || "other";
+          const type = parameterType.type as EndpointParamType;
+          const requiredParams = parameterType.schema.required || [];
+          const parametersObject = parameterType.schema.properties || {};
+          if (
+            typeof parametersObject === "object" &&
+            Array.isArray(requiredParams)
+          ) {
+            const parameters: EndpointParam[] = Object.keys(
+              parametersObject
+            ).map((parameter) => {
+              const prop = parametersObject[parameter] as SchemaObject;
+
+              return {
+                name: String(parameter),
+                type: String(prop.type) || "",
+                description: prop.description || "",
+                required: requiredParams.includes(parameter),
+              };
+            });
+            return { title: label, type, parameters: parameters };
+          }
+          return { title: label, type, parameters: [] };
+        }),
         request,
         responseExamples: examples,
       };
@@ -192,7 +143,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export default function Document({ document }: { document: ApiSpec }) {
+export default function Document({ document }: { document: ApiDocumentation }) {
   return (
     <>
       <Head>
@@ -273,7 +224,31 @@ export default function Document({ document }: { document: ApiSpec }) {
                         >
                           {endpoint.description}
                         </ReactMarkdown>
-                        <div className="mt-4"></div>
+                        <div className="mt-4">
+                          {endpoint.parameterTypes?.map((parameterType) => {
+                            return (
+                              <>
+                                <h4 className="font-font-weight-semibold text-text-default">
+                                  {parameterType.title}
+                                  {parameterType.parameters?.map(
+                                    (parameter, index) => {
+                                      return (
+                                        <Parameter
+                                          key={`parameter.name${index}`}
+                                          name={parameter.name}
+                                          type={parameter.type}
+                                          description={parameter.description}
+                                          required={parameter.required}
+                                        />
+                                      );
+                                    }
+                                  )}
+                                </h4>
+                                <div></div>
+                              </>
+                            );
+                          })}
+                        </div>
                       </div>
                       <div className="min-w-0">
                         <CodePreview
