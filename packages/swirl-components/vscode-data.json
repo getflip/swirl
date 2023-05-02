@@ -1986,6 +1986,23 @@
       ]
     },
     {
+      "name": "swirl-icon",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "glyph",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-add",
       "description": {
         "kind": "markdown",

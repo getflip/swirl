@@ -1,3 +1,5 @@
 :host {
   display: inline-flex;
+  width: 100%;
+  align-self: center;
 }

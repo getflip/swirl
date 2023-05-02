@@ -514,6 +514,10 @@ export namespace Components {
         "text": string;
         "truncate"?: boolean;
     }
+    interface SwirlIcon {
+        "glyph": string;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconAdd {
         "size": SwirlIconSize;
     }
@@ -1676,6 +1680,12 @@ declare global {
         prototype: HTMLSwirlHeadingElement;
         new (): HTMLSwirlHeadingElement;
     };
+    interface HTMLSwirlIconElement extends Components.SwirlIcon, HTMLStencilElement {
+    }
+    var HTMLSwirlIconElement: {
+        prototype: HTMLSwirlIconElement;
+        new (): HTMLSwirlIconElement;
+    };
     interface HTMLSwirlIconAddElement extends Components.SwirlIconAdd, HTMLStencilElement {
     }
     var HTMLSwirlIconAddElement: {
@@ -2668,6 +2678,7 @@ declare global {
         "swirl-form-control": HTMLSwirlFormControlElement;
         "swirl-form-group": HTMLSwirlFormGroupElement;
         "swirl-heading": HTMLSwirlHeadingElement;
+        "swirl-icon": HTMLSwirlIconElement;
         "swirl-icon-add": HTMLSwirlIconAddElement;
         "swirl-icon-add-photo": HTMLSwirlIconAddPhotoElement;
         "swirl-icon-admin-panel-settings": HTMLSwirlIconAdminPanelSettingsElement;
@@ -3180,6 +3191,10 @@ declare namespace LocalJSX {
         "lines"?: number;
         "text": string;
         "truncate"?: boolean;
+    }
+    interface SwirlIcon {
+        "glyph": string;
+        "size"?: SwirlIconSize;
     }
     interface SwirlIconAdd {
         "size"?: SwirlIconSize;
@@ -3939,6 +3954,7 @@ declare namespace LocalJSX {
         "swirl-form-control": SwirlFormControl;
         "swirl-form-group": SwirlFormGroup;
         "swirl-heading": SwirlHeading;
+        "swirl-icon": SwirlIcon;
         "swirl-icon-add": SwirlIconAdd;
         "swirl-icon-add-photo": SwirlIconAddPhoto;
         "swirl-icon-admin-panel-settings": SwirlIconAdminPanelSettings;
@@ -4148,6 +4164,7 @@ declare module "@stencil/core" {
             "swirl-form-control": LocalJSX.SwirlFormControl & JSXBase.HTMLAttributes<HTMLSwirlFormControlElement>;
             "swirl-form-group": LocalJSX.SwirlFormGroup & JSXBase.HTMLAttributes<HTMLSwirlFormGroupElement>;
             "swirl-heading": LocalJSX.SwirlHeading & JSXBase.HTMLAttributes<HTMLSwirlHeadingElement>;
+            "swirl-icon": LocalJSX.SwirlIcon & JSXBase.HTMLAttributes<HTMLSwirlIconElement>;
             "swirl-icon-add": LocalJSX.SwirlIconAdd & JSXBase.HTMLAttributes<HTMLSwirlIconAddElement>;
             "swirl-icon-add-photo": LocalJSX.SwirlIconAddPhoto & JSXBase.HTMLAttributes<HTMLSwirlIconAddPhotoElement>;
             "swirl-icon-admin-panel-settings": LocalJSX.SwirlIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLSwirlIconAdminPanelSettingsElement>;
