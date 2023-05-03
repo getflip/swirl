@@ -5,7 +5,7 @@ import { DocHeadline } from "../docs/src/docs.model";
 export const useToC = (
   children: MDXRemoteSerializeResult<
     Record<string, unknown>,
-    Record<string, string>
+    Record<string, unknown>
   >,
   isComponentDoc?: boolean
 ) => {

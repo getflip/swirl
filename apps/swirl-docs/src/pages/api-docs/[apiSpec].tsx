@@ -193,11 +193,13 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             <div className="mt-20">
               {document.endpoints?.map((endpoint, index) => {
                 return (
-                  <>
+                  <article
+                    key={`${endpoint.path}-${index}`}
+                    aria-labelledby={endpoint.path.split("#")[1]}
+                  >
                     <h2
                       className="text-font-size-2xl font-font-weight-semibold mb-4"
                       id={endpoint.path.split("#")[1]}
-                      key={`endpoint.title${index}`}
                     >
                       {endpoint.title}
                       {endpoint.isDeprecated && (
@@ -225,11 +227,13 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                           {endpoint.description}
                         </ReactMarkdown>
                         <div className="mt-4">
-                          {endpoint.parameterTypes?.map((parameterType) => {
-                            return (
-                              <>
-                                <h4 className="font-font-weight-semibold text-text-default">
-                                  {parameterType.title}
+                          {endpoint.parameterTypes?.map(
+                            (parameterType, index) => {
+                              return (
+                                <div key={`${parameterType.title}-${index}`}>
+                                  <h4 className="font-font-weight-semibold text-text-default">
+                                    {parameterType.title}
+                                  </h4>
                                   {parameterType.parameters?.map(
                                     (parameter, index) => {
                                       return (
@@ -243,11 +247,10 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                                       );
                                     }
                                   )}
-                                </h4>
-                                <div></div>
-                              </>
-                            );
-                          })}
+                                </div>
+                              );
+                            }
+                          )}
                         </div>
                       </div>
                       <div className="min-w-0">
@@ -283,7 +286,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                         </div>
                       </div>
                     </div>
-                  </>
+                  </article>
                 );
               })}
             </div>

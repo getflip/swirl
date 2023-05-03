@@ -217,8 +217,6 @@ export default class OASBuilder implements IOASBuilder {
       "application/json"
     ] as Array<MediaTypeObject>;
 
-    // console.log(`RESPONSE EXAMPLE: `, operation.getResponseExamples());
-
     const valueOfResponse = responseExample as any;
 
     return JSON.stringify(

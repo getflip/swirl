@@ -41,7 +41,10 @@ export function CategoryNav() {
     }, [navItem.url]);
 
     return (
-      <li className={classNames("mb-2 py-2", { "max-h-10": !isExpanded })}>
+      <li
+        className={classNames("mb-2 py-2", { "max-h-10": !isExpanded })}
+        aria-expanded={isExpanded}
+      >
         <div className="flex justify-between items-center">
           <Link href={`${navItem.url}`}>
             <a
@@ -82,6 +85,7 @@ export function CategoryNav() {
                 >
                   <Link href={`${child.url}`}>
                     <a
+                      aria-current={activePath === navItem.url}
                       className={classNames(
                         "flex items-center",
                         "text-sm capitalize",
