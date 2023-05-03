@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.48.0
+
+### Minor Changes
+
+- [`004cfbf`](https://github.com/getflip/swirl/commit/004cfbf3fa6edcefcb75f4f35f299b47927205e3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "bordered" prop to
+  swirl-description-list-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`004cfbf`](https://github.com/getflip/swirl/commit/004cfbf3fa6edcefcb75f4f35f299b47927205e3)]:
+  - @getflip/swirl-components@0.49.0
+
 ## 0.47.1
 
 ### Patch Changes
