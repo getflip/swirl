@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.48.1
+
+### Patch Changes
+
+- [`8ca3b24`](https://github.com/getflip/swirl/commit/8ca3b24efb57f9aa0a72d23214a97d4ee36db5aa)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-description-list-item
+  spacing
+
+- Updated dependencies
+  [[`8ca3b24`](https://github.com/getflip/swirl/commit/8ca3b24efb57f9aa0a72d23214a97d4ee36db5aa)]:
+  - @getflip/swirl-components@0.49.1
+
 ## 0.48.0
 
 ### Minor Changes
