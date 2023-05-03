@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.49.1
+
+### Patch Changes
+
+- [`8ca3b24`](https://github.com/getflip/swirl/commit/8ca3b24efb57f9aa0a72d23214a97d4ee36db5aa)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-description-list-item
+  spacing
+
 ## 0.49.0
 
 ### Minor Changes
