@@ -1,5 +1,16 @@
 # @getflip/swirl-components-react
 
+## 0.48.2
+
+### Patch Changes
+
+- [`e24dad1`](https://github.com/getflip/swirl/commit/e24dad1c1ee85c326d7b84cb7c407106379cf235)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix dark mode button colors
+
+- Updated dependencies
+  [[`e24dad1`](https://github.com/getflip/swirl/commit/e24dad1c1ee85c326d7b84cb7c407106379cf235)]:
+  - @getflip/swirl-components@0.49.2
+
 ## 0.48.1
 
 ### Patch Changes
