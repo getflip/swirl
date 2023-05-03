@@ -15,7 +15,7 @@ describe("swirl-form-control", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-form-control label="Label">
-        <div class="form-control" role="group">
+        <div class="form-control form-control--label-position-inside" role="group">
           <label class="form-control__label">
             <span class="form-control__label-text">
               Label

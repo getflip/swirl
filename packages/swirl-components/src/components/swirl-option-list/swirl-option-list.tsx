@@ -44,7 +44,11 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
   @State() assistiveText: string;
 
-  @Event() itemDrop: EventEmitter<{ oldIndex: number; newIndex: number }>;
+  @Event() itemDrop: EventEmitter<{
+    item: HTMLSwirlOptionListItemElement;
+    oldIndex: number;
+    newIndex: number;
+  }>;
   @Event() valueChange: EventEmitter<string[]>;
 
   private dragging: HTMLSwirlOptionListItemElement;
@@ -191,7 +195,9 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   private setItemDisabledState() {
-    this.items.forEach((item) => (item.disabled = this.disabled));
+    if (this.disabled) {
+      this.items.forEach((item) => (item.disabled = true));
+    }
   }
 
   private setItemContext() {
@@ -221,6 +227,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       handle: ".option-list-item__drag-handle",
       onEnd: (event: SortableEvent) => {
         this.itemDrop.emit({
+          item: event.item as HTMLSwirlOptionListItemElement,
           oldIndex: event.oldIndex,
           newIndex: event.newIndex,
         });
@@ -315,7 +322,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   private syncItemsWithValue() {
-    this.items.forEach(
+    this.items?.forEach(
       (item) => (item.selected = this.value.includes(item.value))
     );
   }
@@ -401,7 +408,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
     this.assistiveText = `${this.assistiveTextItemMoved} ${newIndex + 1}`;
 
-    this.itemDrop.emit({ oldIndex: this.draggingStartIndex, newIndex });
+    this.itemDrop.emit({ item, oldIndex: this.draggingStartIndex, newIndex });
 
     this.draggingStartIndex = undefined;
   };

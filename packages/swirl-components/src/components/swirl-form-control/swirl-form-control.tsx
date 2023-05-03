@@ -10,6 +10,8 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
+export type SwirlFormControlLabelPosition = "inside" | "outside";
+
 /**
  * @slot slot - The input element, e.g. `<swirl-text-input></swirl-text-input>`
  */
@@ -34,6 +36,7 @@ export class SwirlFormControl {
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
+  @Prop() labelPosition?: SwirlFormControlLabelPosition = "inside";
 
   @State() hasFocus: boolean;
   @State() inputValue: string;
@@ -84,7 +87,7 @@ export class SwirlFormControl {
       return;
     }
 
-    if (this.inline) {
+    if (this.inline || this.labelPosition === "outside") {
       this.inputEl.setAttribute("inline", "true");
     } else {
       this.inputEl.removeAttribute("inline");
@@ -158,14 +161,18 @@ export class SwirlFormControl {
 
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
-    const className = classnames("form-control", {
-      "form-control--disabled": this.disabled,
-      "form-control--inline": this.inline,
-      "form-control--has-focus": this.hasFocus,
-      "form-control--has-value": hasValue,
-      "form-control--invalid": this.invalid,
-      "form-control--is-select": isSelect,
-    });
+    const className = classnames(
+      "form-control",
+      `form-control--label-position-${this.labelPosition}`,
+      {
+        "form-control--disabled": this.disabled,
+        "form-control--has-focus": this.hasFocus,
+        "form-control--has-value": hasValue,
+        "form-control--inline": this.inline,
+        "form-control--invalid": this.invalid,
+        "form-control--is-select": isSelect,
+      }
+    );
 
     return (
       <Host onFocusin={this.onFocusIn} onFocusout={this.onFocusOut}>

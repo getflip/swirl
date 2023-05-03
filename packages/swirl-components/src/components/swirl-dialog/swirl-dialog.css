@@ -1,10 +1,6 @@
 @import "../../styles/media-queries.css";
 
 :host {
-  --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
-  --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
-
   display: block;
 
   & * {
@@ -13,6 +9,10 @@
 }
 
 .dialog {
+  --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
+
   position: fixed;
   z-index: var(--s-z-40);
   display: flex;

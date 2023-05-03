@@ -1,10 +1,6 @@
 @import "../../styles/media-queries.css";
 
 :host {
-  --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
-  --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
-
   display: block;
 
   & * {
@@ -13,6 +9,10 @@
 }
 
 .modal {
+  --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
+
   position: fixed;
   z-index: var(--s-z-40);
   display: flex;
@@ -25,20 +25,88 @@
   }
 }
 
-.modal:not(.modal--closing) {
-  & .modal__backdrop {
-    animation: 0.15s modal-backdrop-fade-in;
+.modal--variant-default {
+  &.modal--closing {
+    animation: 0.15s modal-fade-out;
+    animation-fill-mode: forwards;
 
     @media (prefers-reduced-motion) {
       animation: none;
     }
   }
 
-  & .modal__body {
-    animation: 0.15s modal-scale-in;
+  &:not(.modal--closing) {
+    & .modal__backdrop {
+      animation: 0.15s modal-backdrop-fade-in;
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
+    }
+
+    & .modal__body {
+      animation: 0.15s modal-scale-in;
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
+    }
+  }
+}
+
+.modal--variant-drawer {
+  justify-content: end;
+  align-items: stretch;
+
+  &.modal--closing {
+    animation: 0.15s modal-drawer-slide-out;
+    animation-fill-mode: forwards;
 
     @media (prefers-reduced-motion) {
       animation: none;
+    }
+  }
+
+  &.modal--hide-label {
+    & .modal__content {
+      padding-top: calc(3.5rem + var(--s-space-8));
+    }
+  }
+
+  & .modal__backdrop {
+    background-color: transparent;
+    animation: none;
+  }
+
+  & .modal__body {
+    height: 100%;
+    max-height: none;
+    border-radius: 0;
+    animation: 0.15s modal-drawer-slide-in;
+    box-shadow: var(--s-shadow-level-3);
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
+  }
+
+  & .modal__close-button {
+    right: auto;
+    left: var(--s-space-8);
+
+    @media (--from-tablet) {
+      left: var(--s-space-16);
+    }
+  }
+
+  & .modal__header {
+    padding-left: calc(var(--s-space-8) + 2.5rem + var(--s-space-8));
+    padding-right: var(--s-space-16);
+
+    @media (--from-tablet) {
+      padding-top: var(--s-space-16);
+      padding-right: var(--s-space-24);
+      padding-left: calc(var(--s-space-16) + 2.5rem + var(--s-space-8));
     }
   }
 }
@@ -59,21 +127,6 @@
   }
 }
 
-.modal--has-custom-header {
-  & .modal__content {
-    padding-top: var(--s-space-16);
-  }
-}
-
-.modal--closing {
-  animation: 0.15s modal-fade-out;
-  animation-fill-mode: forwards;
-
-  @media (prefers-reduced-motion) {
-    animation: none;
-  }
-}
-
 .modal--scrollable {
   & .modal__content {
     @media (--from-tablet) {
@@ -82,9 +135,23 @@
   }
 
   &:not(.modal--scrolled-down) {
-    & .modal__controls {
-      border-top: var(--s-border-width-default) solid var(--s-border-default);
+    &.modal--has-custom-footer {
+      & .modal__custom-footer {
+        border-top: var(--s-border-width-default) solid var(--s-border-default);
+      }
     }
+
+    &:not(.modal--has-custom-footer) {
+      & .modal__controls {
+        border-top: var(--s-border-width-default) solid var(--s-border-default);
+      }
+    }
+  }
+}
+
+.modal--has-custom-header {
+  & .modal__content {
+    padding-top: var(--s-space-16);
   }
 }
 
@@ -182,6 +249,14 @@
   }
 }
 
+.modal__custom-footer {
+  padding-top: var(--s-space-16);
+  padding-right: var(--s-space-24);
+  padding-bottom: var(--s-space-16);
+  padding-left: var(--s-space-24);
+  flex-shrink: 0;
+}
+
 .modal__controls {
   display: flex;
   padding-top: var(--s-space-16);
@@ -216,5 +291,23 @@
   }
   to {
     opacity: 0;
+  }
+}
+
+@keyframes modal-drawer-slide-in {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes modal-drawer-slide-out {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(100%, 0, 0);
   }
 }

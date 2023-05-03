@@ -17,10 +17,15 @@ export class SwirlPagination {
   @Prop() pageLabel?: string = "out of";
   @Prop() pages!: number;
   @Prop() pageSelectLabel?: string = "Select a page";
+  @Prop() pageSize?: number = 10;
+  @Prop() pageSizeOptions?: number[] = [10, 25, 50];
+  @Prop() pageSizeSelectLabel?: string = "Items per page:";
   @Prop() prevButtonLabel?: string = "Previous page";
+  @Prop() showPageSizeSelect?: boolean;
   @Prop() variant?: SwirlPaginationVariant = "default";
 
   @Event() setPage: EventEmitter<number>;
+  @Event() setPageSize: EventEmitter<number>;
 
   private onFirstPageButtonClick = () => {
     if (this.page === 1) {
@@ -68,6 +73,16 @@ export class SwirlPagination {
     this.setPage.emit(page);
   };
 
+  private onPageSizeSelect = (event: Event) => {
+    const pageSize = +(event.target as HTMLSelectElement).value;
+
+    if (this.pageSize === pageSize) {
+      return;
+    }
+
+    this.setPageSize.emit(pageSize);
+  };
+
   render() {
     const showPageLabel = this.variant !== "simple";
     const showDropDown = this.variant === "advanced";
@@ -83,6 +98,38 @@ export class SwirlPagination {
       <Host>
         <nav aria-label={this.label} class={className}>
           <ul class="pagination__list" part="pagination__list">
+            {this.showPageSizeSelect && (
+              <li class="pagination__list-item">
+                <label class="pagination__page-size-selection">
+                  <swirl-text>{this.pageSizeSelectLabel}</swirl-text>
+                  <swirl-stack
+                    align="center"
+                    class="pagination__page-size-select-container"
+                    orientation="horizontal"
+                  >
+                    <select
+                      class="pagination__page-size-select"
+                      onChange={this.onPageSizeSelect}
+                    >
+                      {this.pageSizeOptions.map((pageSizeOption) => (
+                        <option
+                          key={pageSizeOption}
+                          selected={pageSizeOption === this.pageSize}
+                          value={pageSizeOption}
+                        >
+                          {pageSizeOption}
+                        </option>
+                      ))}
+                    </select>
+                    <swirl-icon-expand-more
+                      aria-hidden="true"
+                      class="pagination__page-size-select-icon"
+                      size={16}
+                    ></swirl-icon-expand-more>
+                  </swirl-stack>
+                </label>
+              </li>
+            )}
             <li class="pagination__list-item">
               <swirl-button
                 class="pagination__first-page-button"

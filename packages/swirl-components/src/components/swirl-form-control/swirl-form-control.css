@@ -61,6 +61,34 @@
   }
 }
 
+.form-control--label-position-outside {
+  padding-top: calc(var(--s-line-height-sm) + var(--s-space-4));
+
+  & .form-control__label {
+    min-height: calc(2.375rem + 2 * var(--s-border-width-default));
+    padding: var(--s-space-8) var(--s-space-12);
+    gap: var(--s-space-2);
+
+    @media (--from-desktop-without-touch) {
+      min-height: calc(2.25rem + 2 * var(--s-border-width-default));
+    }
+  }
+
+  & .form-control__label-text,
+  &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select)
+    .form-control__label-text,
+  &:not(.form-control--has-value).form-control--is-select
+    .form-control__label-text {
+    bottom: calc(100% + var(--s-space-4));
+    left: 0;
+    color: var(--s-text-default);
+    font-size: var(--s-font-size-sm);
+    font-weight: var(--s-font-weight-medium);
+    transform: none;
+    opacity: 1;
+  }
+}
+
 .form-control--invalid {
   &.form-control--has-focus:not(.form-control--disabled) {
     & .form-control__label {
@@ -142,5 +170,4 @@
 .form-control__error-message {
   display: block;
   margin-top: var(--s-space-4);
-  padding-left: var(--s-space-4);
 }

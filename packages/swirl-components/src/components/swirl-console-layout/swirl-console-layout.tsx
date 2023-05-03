@@ -254,7 +254,7 @@ export class SwirlConsoleLayout {
                     onClick={this.onBackButtonClick}
                   ></swirl-button>
                 )}
-                <div>
+                <div class="console-layout__heading-container">
                   <swirl-heading
                     as="h2"
                     class="console-layout__heading"
@@ -270,6 +270,9 @@ export class SwirlConsoleLayout {
                       {this.subheading}
                     </swirl-text>
                   )}
+                </div>
+                <div class="console-layout__content-header-tools">
+                  <slot name="content-header-tools"></slot>
                 </div>
               </header>
               <div class="console-layout__integration">

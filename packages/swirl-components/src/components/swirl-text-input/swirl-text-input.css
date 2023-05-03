@@ -19,6 +19,12 @@
   line-height: var(--s-line-height-sm);
 }
 
+.text-input--auto-grow {
+  & .text-input__input {
+    max-height: none;
+  }
+}
+
 .text-input--clearable,
 .text-input--type-number,
 .text-input--type-password {

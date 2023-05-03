@@ -1509,6 +1509,10 @@
       },
       "attributes": [
         {
+          "name": "bordered",
+          "description": ""
+        },
+        {
           "name": "orientation",
           "description": "",
           "values": [
@@ -1868,6 +1872,18 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "label-position",
+          "description": "",
+          "values": [
+            {
+              "name": "inside"
+            },
+            {
+              "name": "outside"
+            }
+          ]
         }
       ]
     },
@@ -1974,6 +1990,23 @@
       ]
     },
     {
+      "name": "swirl-icon",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "glyph",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-add",
       "description": {
         "kind": "markdown",
@@ -2001,6 +2034,19 @@
     },
     {
       "name": "swirl-icon-admin-panel-settings",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-ai",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2702,7 +2748,46 @@
       ]
     },
     {
+      "name": "swirl-icon-improve-text",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-info",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-insert-below",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-insert-on-top",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2768,6 +2853,19 @@
     },
     {
       "name": "swirl-icon-logout",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-long-text",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3144,6 +3242,45 @@
       ]
     },
     {
+      "name": "swirl-icon-short-text",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-simplify",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-spellcheck",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-sync",
       "description": {
         "kind": "markdown",
@@ -3222,6 +3359,19 @@
       ]
     },
     {
+      "name": "swirl-icon-undo",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-user-assign",
       "description": {
         "kind": "markdown",
@@ -3262,6 +3412,19 @@
     },
     {
       "name": "swirl-icon-visibility-off",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-voice",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3472,6 +3635,18 @@
         {
           "name": "secondary-action-label",
           "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "drawer"
+            }
+          ]
         }
       ]
     },
@@ -3622,11 +3797,23 @@
           "description": ""
         },
         {
+          "name": "page-size",
+          "description": ""
+        },
+        {
+          "name": "page-size-select-label",
+          "description": ""
+        },
+        {
           "name": "pages",
           "description": ""
         },
         {
           "name": "prev-button-label",
+          "description": ""
+        },
+        {
+          "name": "show-page-size-select",
           "description": ""
         },
         {
@@ -3748,6 +3935,10 @@
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "max-height",
           "description": ""
         },
         {
@@ -3997,6 +4188,18 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "label-weight",
+          "description": "",
+          "values": [
+            {
+              "name": "medium"
+            },
+            {
+              "name": "regular"
+            }
+          ]
         },
         {
           "name": "menu-trigger-id",
@@ -4471,6 +4674,23 @@
       ]
     },
     {
+      "name": "swirl-tab-bar",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "disable-tab-semantics",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-table",
       "description": {
         "kind": "markdown",
@@ -4748,6 +4968,10 @@
         },
         {
           "name": "auto-focus",
+          "description": ""
+        },
+        {
+          "name": "auto-grow",
           "description": ""
         },
         {

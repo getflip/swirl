@@ -2,6 +2,12 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlTable } from "./swirl-table";
 
+(global as any).MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
+
 describe("swirl-table", () => {
   it("renders its columns and rows", async () => {
     const page = await newSpecPage({

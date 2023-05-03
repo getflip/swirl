@@ -8,7 +8,7 @@
   justify-content: flex-start;
   align-items: center;
   color: var(--s-text-default);
-  background-color: var(--s-surface-default);
+  background-color: transparent;
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
   cursor: pointer;

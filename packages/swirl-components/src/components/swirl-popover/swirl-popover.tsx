@@ -44,6 +44,7 @@ export class SwirlPopover {
   @Prop() disableScrollLock?: boolean;
   @Prop() enableFlip?: boolean = true;
   @Prop() label!: string;
+  @Prop() maxHeight?: string = "22rem";
   @Prop() offset?: number | number[] = 8;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() popoverId!: string;
@@ -325,6 +326,8 @@ export class SwirlPopover {
   };
 
   render() {
+    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+
     const className = classnames(
       "popover",
       `popover--animation-${this.animation}`,
@@ -354,6 +357,12 @@ export class SwirlPopover {
             <div
               class="popover__scroll-container"
               ref={(el) => (this.scrollContainer = el)}
+              style={{
+                maxHeight:
+                  !mobile && Boolean(this.maxHeight)
+                    ? this.maxHeight
+                    : undefined,
+              }}
             >
               <slot></slot>
             </div>
