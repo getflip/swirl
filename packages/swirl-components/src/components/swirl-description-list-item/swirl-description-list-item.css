@@ -11,8 +11,8 @@
 .description-list-item {
   display: block;
   max-width: 100%;
-  padding-top: var(--s-space-16);
-  padding-bottom: var(--s-space-16);
+  padding-top: var(--s-space-8);
+  padding-bottom: var(--s-space-8);
   color: var(--s-text-default);
   line-height: var(--s-line-height-base);
 
@@ -23,6 +23,8 @@
 }
 
 .description-list-item--bordered {
+  padding-top: var(--s-space-16);
+  padding-bottom: var(--s-space-16);
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
 }
 
