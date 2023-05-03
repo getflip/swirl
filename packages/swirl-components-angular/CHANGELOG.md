@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.47.1
+
+### Patch Changes
+
+- [`bb5e1db`](https://github.com/getflip/swirl/commit/bb5e1db018893efaef8aa600eee309915ddb347c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-icon positioning issue
+
+- Updated dependencies
+  [[`bb5e1db`](https://github.com/getflip/swirl/commit/bb5e1db018893efaef8aa600eee309915ddb347c)]:
+  - @getflip/swirl-components@0.48.1
+
 ## 0.47.0
 
 ### Minor Changes
