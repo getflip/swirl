@@ -12,13 +12,15 @@ export type SwirlDescriptionListItemOrientation = "vertical" | "horizontal";
   tag: "swirl-description-list-item",
 })
 export class SwirlDescriptionListItem {
+  @Prop() bordered?: boolean = true;
   @Prop() orientation?: SwirlDescriptionListItemOrientation = "horizontal";
   @Prop() term!: string;
 
   render() {
     const className = classNames(
       "description-list-item",
-      `description-list-item--orientation-${this.orientation}`
+      `description-list-item--orientation-${this.orientation}`,
+      { "description-list-item--bordered": this.bordered }
     );
 
     return (
