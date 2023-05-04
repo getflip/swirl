@@ -49,7 +49,7 @@ export function CategoryNav() {
           <Link href={`${navItem.url}`}>
             <a
               className={classNames(
-                "text-sm capitalize",
+                "text-sm capitalize w-full",
                 "hover:text-border-info",
                 {
                   "text-border-info": activePath === navItem.url,
@@ -87,7 +87,7 @@ export function CategoryNav() {
                     <a
                       aria-current={activePath === navItem.url}
                       className={classNames(
-                        "flex items-center",
+                        "flex items-center w-full",
                         "text-sm capitalize",
                         "hover:text-border-info",
                         {
