@@ -27,7 +27,7 @@ export const HeaderLogo = () => {
           width={32}
           height={32}
         />
-        <span className="font-medium ml-3">Swirl</span>
+        <span className="font-medium ml-3">Dev</span>
       </a>
     </Link>
   );

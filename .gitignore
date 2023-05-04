@@ -151,5 +151,6 @@ dist
 # Angular
 **/.angular/cache
 
-# Additional Files to Ignore
-apps/swirl-docs/specs/**
+
+# swirl-docs generated files
+apps/swirl-docs/src/lib/navigation/src/data/apiDocs.data.ts

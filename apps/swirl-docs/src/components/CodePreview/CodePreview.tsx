@@ -10,7 +10,8 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import classNames from "classnames";
 import NoSsr from "../Layout/NoSsr";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/vsDark";
+import darkTheme from "prism-react-renderer/themes/vsDark";
+import lightTheme from "prism-react-renderer/themes/nightOwlLight";
 import { CodeExample } from "./types";
 import { NpmPackageLink } from "./NpmPackageLink";
 import CodePreviewContext from "./CodePreviewContext";
@@ -18,6 +19,7 @@ import { APIEndpointHeader } from "./CodePreviewRequestString";
 
 interface CodePreviewProps {
   codeExample: CodeExample;
+  isHttpResponse?: boolean;
   children?: ReactNode | ReactNode[];
 }
 
@@ -25,7 +27,11 @@ interface CodePreviewProps {
  * Let's you easily render syntax highlighted code.
  * Children of the Component will be displayed in the Header.
  */
-export function CodePreview({ children, codeExample }: CodePreviewProps) {
+export function CodePreview({
+  children,
+  codeExample,
+  isHttpResponse,
+}: CodePreviewProps) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
@@ -34,46 +40,58 @@ export function CodePreview({ children, codeExample }: CodePreviewProps) {
       <CodePreviewContext.Provider value={codeExample}>
         <div
           className={classNames(
-            "relative w-auto bg-[#24292E] rounded-lg mb-10 overflow-auto",
+            "relative w-auto  rounded-lg mb-10 overflow-auto",
             {
-              "md:h-[240px] md:max-h-[240px] overflow-hidden": !isExpanded,
+              "bg-[#24292E]": !isHttpResponse,
+              "bg-surface-raised-default": isHttpResponse,
+            },
+            {
+              "md:h-[240px] md:max-h-[240px] overflow-hidden":
+                !isExpanded && !isHttpResponse,
               "min-h-[240px]": isExpanded,
+              "h-full": isHttpResponse,
             }
           )}
         >
           <div
             className={classNames(
               "hidden md:flex items-center justify-between h-12 m-2 p-4 rounded-lg",
-              "bg-[#21201E]"
+              {
+                "bg-[#21201E]": !isHttpResponse,
+                "bg-surface-overlay-default": isHttpResponse,
+              }
             )}
           >
             <div className="flex items-center justify-between">{children}</div>
-            <CopyToClipboard
-              text={codeExample.code}
-              onCopy={() => {
-                setIsCopied(true);
-                setTimeout(() => {
-                  setIsCopied(false);
-                }, 2000);
-              }}
-            >
-              <button
-                type="button"
-                className="flex justify-center items-center text-[#F2F2F2] text-base font-medium"
+            {!isHttpResponse && (
+              <CopyToClipboard
+                text={codeExample.code}
+                onCopy={() => {
+                  setIsCopied(true);
+                  setTimeout(() => {
+                    setIsCopied(false);
+                  }, 2000);
+                }}
               >
-                {isCopied ? "Code copied!" : "Copy Code"}
-                {isCopied ? (
-                  <SwirlIconCheckStrong size={16} className="ml-1" />
-                ) : (
-                  <SwirlIconCopy size={16} className="ml-1" />
-                )}
-              </button>
-            </CopyToClipboard>
+                <button
+                  aria-label="Copy code to clipboard"
+                  type="button"
+                  className="flex justify-center items-center text-[#F2F2F2] text-base font-medium"
+                >
+                  {isCopied ? "Code copied!" : "Copy Code"}
+                  {isCopied ? (
+                    <SwirlIconCheckStrong size={16} className="ml-1" />
+                  ) : (
+                    <SwirlIconCopy size={16} className="ml-1" />
+                  )}
+                </button>
+              </CopyToClipboard>
+            )}
           </div>
 
           <Highlight
             {...defaultProps}
-            theme={theme}
+            theme={isHttpResponse ? lightTheme : darkTheme}
             code={codeExample.code}
             language={codeExample.language ? codeExample.language : "tsx"}
           >
@@ -83,8 +101,9 @@ export function CodePreview({ children, codeExample }: CodePreviewProps) {
                   "cursor-text overflow-auto pt-space-16 md:pt-space-8 px-space-24 ",
                   "md:pb-16",
                   {
-                    "pb-space-16": !isExpanded,
                     "pb-16": isExpanded,
+                    "pb-space-16": !isExpanded || isHttpResponse,
+                    "md:pb-space-16": isHttpResponse,
                   }
                 )}
               >
@@ -101,11 +120,25 @@ export function CodePreview({ children, codeExample }: CodePreviewProps) {
             )}
           </Highlight>
 
-          {codeExample.isLongCode && (
-            <div className="absolute bottom-0 flex justify-center items-center w-full h-12  bg-[#24292E]">
+          {codeExample.isLongCode && !isHttpResponse && (
+            <div
+              className={classNames(
+                "absolute bottom-0 flex justify-center items-center w-full h-12",
+                {
+                  "bg-[#24292E]": !isHttpResponse,
+                  "bg-surface-raised-default": isHttpResponse,
+                }
+              )}
+            >
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="bottom-2 left-auto right-auto flex justify-center items-center text-[#F2F2F2] text-base font-medium"
+                className={classNames(
+                  "bottom-2 left-auto right-auto flex justify-center items-center text-[#F2F2F2] text-base font-medium",
+                  {
+                    "text-[#F2F2F2]": !isHttpResponse,
+                    "text-[#24292E]": isHttpResponse,
+                  }
+                )}
               >
                 {isExpanded ? "Collapse" : "Expand"}
                 {isExpanded ? (

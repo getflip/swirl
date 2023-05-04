@@ -23,7 +23,11 @@
     "dev": {
       "cache": false,
       "outputs": [".next/**"],
-      "dependsOn": ["@getflip/swirl-tokens#build", "@getflip/swirl-icons#build"]
+      "dependsOn": [
+        "@getflip/swirl-tokens#build",
+        "@getflip/swirl-icons#build",
+        "swirl-docs#build:spec-navigation"
+      ]
     },
     "clean": {
       "cache": false
@@ -31,9 +35,17 @@
     "gulp": {
       "outputs": ["dist/**"]
     },
+    "build:spec-navigation": {
+      "outputs": [],
+      "dependsOn": []
+    },
     "build:swirl-docs": {
       "outputs": [".next/**"],
-      "dependsOn": ["^stencil:build", "@getflip/swirl-components-react#build"]
+      "dependsOn": [
+        "swirl-docs#build:spec-navigation",
+        "^stencil:build",
+        "@getflip/swirl-components-react#build"
+      ]
     },
     "stencil:build": {
       "outputs": ["dist/**"],

@@ -1,4 +1,5 @@
 import {
+  API_SPEC_PATH,
   generateDocumentationPath,
   generatePagesPath,
 } from "@swirl/lib/navigation";
@@ -11,6 +12,7 @@ import {
   DOCUMENTATION_SRC,
   StaticPathMapType,
 } from "./docs.model";
+import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 
 export const StaticPathMap: StaticPathMapType = {
   components: "componentDoc",
@@ -18,6 +20,26 @@ export const StaticPathMap: StaticPathMapType = {
   tokens: "tokenDoc",
   apiDocs: "apiDoc",
 } as const;
+
+export function createStaticPathsForSpecs(): GetStaticPathsResult["paths"] {
+  const specs = fs
+    .readdirSync(`${API_SPEC_PATH}`)
+    .filter((spec) => spec.includes(".yml") || spec.includes(".yaml"))
+    .map((spec) => {
+      const apiDoc = apiDocsNavItems.find((item) =>
+        item.specPath?.includes(spec)
+      );
+
+      const apiSpecParam = apiDoc?.url.replace("/api-docs/", "");
+      return {
+        params: {
+          apiSpec: apiSpecParam,
+        },
+      };
+    });
+
+  return specs;
+}
 
 export function createStaticPathsData(
   category: DocumentationCategory

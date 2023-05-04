@@ -16,6 +16,7 @@ interface DocumentationLayoutProps {
   content: ReactNode | ReactNode[];
   header?: ReactNode | ReactNode[];
   footer?: ReactNode | ReactNode[];
+  disableToc?: boolean;
 }
 
 export function DocumentationLayout({
@@ -23,26 +24,33 @@ export function DocumentationLayout({
   content,
   footer,
   data,
+  disableToc = false,
 }: DocumentationLayoutProps) {
   const [tocItems] = useToC(data.mdxContent?.document!, false);
 
   return (
     <DocumentationLayoutContext.Provider value={data}>
-      <div className="flex">
+      <div className="flex overflow-hidden">
         {data.navigationLinks && <CategoryNav />}
         <div className="h-full w-full">
           <main
             id="main"
             className={classNames(
-              "grid grid-cols-1 md:grid-cols-[minmax(0,_45rem)_16rem] gap-8 justify-center",
-              "my-0 mx-auto mt-14 mb-4 md:mb-0 px-4 lg:px-0"
+              "grid grid-cols-1 justify-center",
+              "my-0 mx-auto mt-14 mb-4 md:mb-0 px-4 lg:px-0",
+              {
+                "md:grid-cols-1 md:mx-10": disableToc,
+              },
+              {
+                "md:grid-cols-[minmax(0,_45rem)_16rem] gap-8": !disableToc,
+              }
             )}
           >
-            <div className="w-full max-w-[45rem]">
+            <div className={"w-full"}>
               {header}
               {content}
             </div>
-            {tocItems && tocItems.length > 0 && (
+            {!disableToc && tocItems && tocItems.length > 0 && (
               <DocLinksNav documentLinkList={tocItems} />
             )}
           </main>

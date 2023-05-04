@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import IconGrid from "src/components/Icons/IconGrid";
 import IconInfo from "src/components/Icons/IconInfo";
 import SearchBar from "src/components/Icons/SearchBar";
-import { CategoryNav } from "src/components/Layout/CategoryNav";
 import { DesktopView } from "src/components/View/Views";
 
 type Usage = "app" | "admin";

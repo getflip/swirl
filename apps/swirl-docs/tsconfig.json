@@ -29,7 +29,8 @@
     "**/*.tsx",
     "pages/_document.js",
     "pages/_document.js",
-    "next.config.mjs"
+    "next.config.mjs",
+    "src/scripts/metadata.d.ts"
   ],
   "exclude": ["node_modules"]
 }
