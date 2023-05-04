@@ -40,6 +40,8 @@
   },
   "resolutions": {
     "svgicons2svgfont": "^10.0.0",
-    "@types/react": "18.0.18"
+    "@types/react": "18.0.18",
+    "@floating-ui/core": "1.0.1",
+    "@floating-ui/dom": "1.0.1"
   }
 }
