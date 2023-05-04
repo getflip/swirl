@@ -41,10 +41,7 @@ export function CategoryNav() {
     }, [navItem.url]);
 
     return (
-      <li
-        className={classNames("mb-2 py-2", { "max-h-10": !isExpanded })}
-        aria-expanded={isExpanded}
-      >
+      <li className={classNames("mb-2 py-2", { "max-h-10": !isExpanded })}>
         <div className="flex justify-between items-center">
           <Link href={`${navItem.url}`}>
             <a
@@ -64,6 +61,7 @@ export function CategoryNav() {
             <button
               className="flex justify-center items-center"
               onClick={() => setIsExpanded(!isExpanded)}
+              aria-expanded={isExpanded}
             >
               <Image
                 className={classNames({ "rotate-90": isExpanded })}
