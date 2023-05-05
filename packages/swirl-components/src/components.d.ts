@@ -1181,6 +1181,9 @@ export namespace Components {
         "removable"?: boolean;
         "removalButtonLabel"?: string;
     }
+    interface SwirlTest {
+        "label": string;
+    }
     interface SwirlText {
         "align"?: SwirlTextAlign;
         "as"?: string;
@@ -2597,6 +2600,12 @@ declare global {
         prototype: HTMLSwirlTagElement;
         new (): HTMLSwirlTagElement;
     };
+    interface HTMLSwirlTestElement extends Components.SwirlTest, HTMLStencilElement {
+    }
+    var HTMLSwirlTestElement: {
+        prototype: HTMLSwirlTestElement;
+        new (): HTMLSwirlTestElement;
+    };
     interface HTMLSwirlTextElement extends Components.SwirlText, HTMLStencilElement {
     }
     var HTMLSwirlTextElement: {
@@ -2848,6 +2857,7 @@ declare global {
         "swirl-table-row-group": HTMLSwirlTableRowGroupElement;
         "swirl-tabs": HTMLSwirlTabsElement;
         "swirl-tag": HTMLSwirlTagElement;
+        "swirl-test": HTMLSwirlTestElement;
         "swirl-text": HTMLSwirlTextElement;
         "swirl-text-input": HTMLSwirlTextInputElement;
         "swirl-theme-provider": HTMLSwirlThemeProviderElement;
@@ -3853,6 +3863,9 @@ declare namespace LocalJSX {
         "removable"?: boolean;
         "removalButtonLabel"?: string;
     }
+    interface SwirlTest {
+        "label"?: string;
+    }
     interface SwirlText {
         "align"?: SwirlTextAlign;
         "as"?: string;
@@ -4133,6 +4146,7 @@ declare namespace LocalJSX {
         "swirl-table-row-group": SwirlTableRowGroup;
         "swirl-tabs": SwirlTabs;
         "swirl-tag": SwirlTag;
+        "swirl-test": SwirlTest;
         "swirl-text": SwirlText;
         "swirl-text-input": SwirlTextInput;
         "swirl-theme-provider": SwirlThemeProvider;
@@ -4349,6 +4363,7 @@ declare module "@stencil/core" {
             "swirl-table-row-group": LocalJSX.SwirlTableRowGroup & JSXBase.HTMLAttributes<HTMLSwirlTableRowGroupElement>;
             "swirl-tabs": LocalJSX.SwirlTabs & JSXBase.HTMLAttributes<HTMLSwirlTabsElement>;
             "swirl-tag": LocalJSX.SwirlTag & JSXBase.HTMLAttributes<HTMLSwirlTagElement>;
+            "swirl-test": LocalJSX.SwirlTest & JSXBase.HTMLAttributes<HTMLSwirlTestElement>;
             "swirl-text": LocalJSX.SwirlText & JSXBase.HTMLAttributes<HTMLSwirlTextElement>;
             "swirl-text-input": LocalJSX.SwirlTextInput & JSXBase.HTMLAttributes<HTMLSwirlTextInputElement>;
             "swirl-theme-provider": LocalJSX.SwirlThemeProvider & JSXBase.HTMLAttributes<HTMLSwirlThemeProviderElement>;

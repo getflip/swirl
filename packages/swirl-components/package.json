@@ -93,6 +93,7 @@
     "chromatic": "^6.7.4",
     "concurrently": "^7.3.0",
     "eslint-plugin-react": "^7.30.1",
+    "handlebars-helpers": "^0.10.0",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "plop": "^3.1.1",

@@ -24,7 +24,7 @@ export const cssTemplate = `:host {
 `;
 
 export const docsTemplate = `import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
-import * as Stories from "./swirl-action-list.stories";
+import * as Stories from "./{{name}}.stories";
 
 <Meta title="Components/{{pascalCase name}}" />
 
@@ -37,9 +37,9 @@ The {{pascalCase name}} component is used to …
 
 ## Usage
 
-<Canvas of={Stories.{{pascalCase name}}} sourceState="shown"></Canvas>
+<Canvas of={Stories.{{pascalCase name}}{{append '' '}'}} sourceState="shown"></Canvas>
 
-<Controls of={Stories.{{pascalCase name}}} />
+<Controls of={Stories.{{pascalCase name}}{{append '' '}'}} />
 
 ## Theming
 
@@ -111,6 +111,7 @@ import Docs from "./{{name}}.mdx";
 
 export default {
   component: "{{name}}",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

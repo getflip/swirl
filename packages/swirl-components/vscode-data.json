@@ -4876,6 +4876,19 @@
       ]
     },
     {
+      "name": "swirl-test",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-text",
       "description": {
         "kind": "markdown",
