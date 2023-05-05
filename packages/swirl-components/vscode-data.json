@@ -2852,6 +2852,19 @@
       ]
     },
     {
+      "name": "swirl-icon-lock-person",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-logout",
       "description": {
         "kind": "markdown",
@@ -3360,6 +3373,19 @@
     },
     {
       "name": "swirl-icon-undo",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-unlock-person",
       "description": {
         "kind": "markdown",
         "value": ""
