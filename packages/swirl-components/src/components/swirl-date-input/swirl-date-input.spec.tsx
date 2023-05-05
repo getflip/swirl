@@ -22,12 +22,12 @@ describe("swirl-date-input", () => {
     expect(page.root).toEqualHtml(`
       <swirl-date-input>
         <div class="date-input">
-          <input class="date-input__input" id="swirl-date-input-1" placeholder="yyyy-mm-dd" type="text">
-          <button aria-label="Open date picker" class="date-input__date-picker-button" id="swirl-date-input-1-trigger" type="button">
+          <input class="date-input__input" id="swirl-date-input-0" placeholder="yyyy-mm-dd" type="text">
+          <button aria-label="Open date picker" class="date-input__date-picker-button" id="swirl-date-input-0-trigger" type="button">
             <swirl-icon-today size="24"></swirl-icon-today>
           </button>
         </div>
-        <swirl-popover animation="scale-in-y" label="Date picker" placement="bottom-end" popoverid="popover" trigger="swirl-date-input-1-trigger">
+        <swirl-popover animation="scale-in-y" label="Date picker" placement="bottom-end" popoverid="popover-swirl-date-input-0" trigger="swirl-date-input-0-trigger">
           <swirl-date-picker locale="en-US"></swirl-date-picker>
         </swirl-popover>
       </swirl-date-input>
@@ -56,13 +56,13 @@ describe("swirl-date-input", () => {
       html: `<swirl-date-input></swirl-date-input>`,
     });
 
-    expect(maskSpy).toHaveBeenCalledWith("#swirl-date-input-1", {
+    expect(maskSpy).toHaveBeenCalledWith("#swirl-date-input-0", {
       mask: "####-##-##",
     });
 
     page.root.format = "dd.MM.yyyy";
 
-    expect(maskSpy).toHaveBeenCalledWith("#swirl-date-input-1", {
+    expect(maskSpy).toHaveBeenCalledWith("#swirl-date-input-0", {
       mask: "##.##.####",
     });
   });

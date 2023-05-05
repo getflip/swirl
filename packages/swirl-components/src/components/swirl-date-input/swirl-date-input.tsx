@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -30,6 +31,8 @@ const internalDateFormat = "yyyy-MM-dd";
   tag: "swirl-date-input",
 })
 export class SwirlDateInput {
+  @Element() el: HTMLSwirlDateInputElement;
+
   @Prop() autoFocus?: boolean;
   @Prop() autoSelect?: boolean;
   @Prop() datePickerLabel?: string = "Date picker";
@@ -55,7 +58,9 @@ export class SwirlDateInput {
   private pickerPopover: HTMLSwirlPopoverElement;
 
   componentWillLoad() {
-    const index = document.querySelectorAll("swirl-date-input").length;
+    const index = Array.from(
+      document.querySelectorAll("swirl-date-input")
+    ).indexOf(this.el);
 
     this.id = `swirl-date-input-${index}`;
   }
@@ -210,7 +215,7 @@ export class SwirlDateInput {
             animation="scale-in-y"
             label={this.datePickerLabel}
             placement="bottom-end"
-            popoverId="popover"
+            popoverId={`popover-${this.id}`}
             ref={(el) => (this.pickerPopover = el)}
             trigger={`${this.id}-trigger`}
           >
