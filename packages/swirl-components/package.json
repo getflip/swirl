@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-components",
-  "version": "0.49.2",
+  "version": "0.50.0",
   "description": "Swirl Design System Web Component Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "1.0.1",
-    "@getflip/swirl-icons": "^0.14.0",
+    "@getflip/swirl-icons": "^0.15.0",
     "@getflip/swirl-tokens": "^2.2.1",
     "@stencil/core": "^3.0.0",
     "a11y-dialog": "^7.5.2",

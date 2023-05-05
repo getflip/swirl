@@ -1,5 +1,12 @@
 # @getflip/swirl-icons
 
+## 0.15.0
+
+### Minor Changes
+
+- [`ab6c43c`](https://github.com/getflip/swirl/commit/ab6c43cfe8db40e5d4a583d21d46f331fbb10059)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add user status icons
+
 ## 0.14.0
 
 ### Minor Changes
