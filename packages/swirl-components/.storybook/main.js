@@ -12,11 +12,16 @@ module.exports = {
     "@storybook/addon-a11y",
     "storybook-addon-themes",
     "storybook-design-token",
+    "@storybook/addon-mdx-gfm",
   ],
-  core: {
-    builder: "@storybook/builder-vite",
+  core: { disableTelemetry: true },
+  docs: {
+    autodocs: "tag",
   },
-  framework: "@storybook/html",
+  framework: {
+    name: "@storybook/html-vite",
+    options: {},
+  },
   staticDirs: ["../src/assets", "../public"],
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
 };

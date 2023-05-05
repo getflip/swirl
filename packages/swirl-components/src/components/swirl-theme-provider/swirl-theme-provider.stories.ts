@@ -3,9 +3,9 @@ import Docs from "./swirl-theme-provider.mdx";
 
 export default {
   component: "swirl-theme-provider",
+  tags: ["autodocs"],
   parameters: {
     docs: {
-      inlineStories: false,
       page: Docs,
       source: {
         code: `<swirl-theme-provider>
@@ -27,6 +27,9 @@ export default {
 
   provider.setPreferredTheme('dark');
 </script>`,
+      },
+      story: {
+        inline: false,
       },
     },
   },

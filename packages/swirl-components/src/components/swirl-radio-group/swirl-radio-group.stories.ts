@@ -3,6 +3,7 @@ import Docs from "./swirl-radio-group.mdx";
 
 export default {
   component: "swirl-radio-group",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

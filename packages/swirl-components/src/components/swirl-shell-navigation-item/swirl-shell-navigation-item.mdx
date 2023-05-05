@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-shell-navigation-item.stories";
 
 <Meta title="Components/SwirlShellNavigationItem" />
 
@@ -12,11 +13,9 @@ for the
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlshellnavigationitem--swirl-shell-navigation-item" />
-</Canvas>
+<Canvas of={Stories.SwirlShellNavigationItem} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlShellNavigationItem} />
 
 ## Theming
 

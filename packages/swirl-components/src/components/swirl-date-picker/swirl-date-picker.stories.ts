@@ -3,6 +3,7 @@ import Docs from "./swirl-date-picker.mdx";
 
 export default {
   component: "swirl-date-picker",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

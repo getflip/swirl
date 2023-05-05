@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-icon.stories";
 
 <Meta title="Components/SwirlIcon" />
 
@@ -11,11 +12,9 @@ Icons are visual symbols used to represent ideas, objects or actions.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlicon--swirl-icon" />
-</Canvas>
+<Canvas of={Stories.SwirlIcon} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlIcon} />
 
 ## Theming
 

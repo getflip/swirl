@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-text.stories";
 
 <Meta title="Components/SwirlText" />
 
@@ -11,11 +12,9 @@ The SwirlText component is used to display simple text.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirltext--swirl-text" />
-</Canvas>
+<Canvas of={Stories.SwirlText} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlText} />
 
 ## Theming
 

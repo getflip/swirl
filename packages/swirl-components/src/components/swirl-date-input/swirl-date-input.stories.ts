@@ -17,6 +17,7 @@ export default {
     },
   },
   component: "swirl-date-input",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

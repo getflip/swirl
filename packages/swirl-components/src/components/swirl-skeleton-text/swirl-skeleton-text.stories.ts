@@ -3,6 +3,7 @@ import Docs from "./swirl-skeleton-text.mdx";
 
 export default {
   component: "swirl-skeleton-text",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

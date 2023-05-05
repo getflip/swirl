@@ -3,6 +3,7 @@ import Docs from "./swirl-visually-hidden.mdx";
 
 export default {
   component: "swirl-visually-hidden",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

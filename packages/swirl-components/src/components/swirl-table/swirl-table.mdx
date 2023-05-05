@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-table.stories";
 
 <Meta title="Components/SwirlTable" />
 
@@ -11,11 +12,9 @@ The SwirlTable component is used to organize and display data sets.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirltable--swirl-table" />
-</Canvas>
+<Canvas of={Stories.SwirlTable} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlTable} />
 
 ## Accessibility
 

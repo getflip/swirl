@@ -3,6 +3,7 @@ import Docs from "./swirl-spinner.mdx";
 
 export default {
   component: "swirl-spinner",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

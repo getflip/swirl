@@ -3,6 +3,7 @@ import Docs from "./swirl-progress-indicator.mdx";
 
 export default {
   component: "swirl-progress-indicator",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

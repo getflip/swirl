@@ -4,6 +4,7 @@ import Docs from "./swirl-icon.mdx";
 
 export default {
   component: "swirl-icon-close",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

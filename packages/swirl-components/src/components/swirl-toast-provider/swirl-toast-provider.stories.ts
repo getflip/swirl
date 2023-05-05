@@ -4,6 +4,7 @@ import Docs from "./swirl-toast-provider.mdx";
 
 export default {
   component: "swirl-toast-provider",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

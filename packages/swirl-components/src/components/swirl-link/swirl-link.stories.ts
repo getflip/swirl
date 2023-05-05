@@ -3,6 +3,7 @@ import Docs from "./swirl-link.mdx";
 
 export default {
   component: "swirl-link",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

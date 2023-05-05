@@ -3,6 +3,7 @@ import Docs from "./swirl-lightbox.mdx";
 
 export default {
   component: "swirl-lightbox",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

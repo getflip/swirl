@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-card.stories";
 
 <Meta title="Components/SwirlCard" />
 
@@ -12,11 +13,9 @@ information.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlcard--swirl-card" />
-</Canvas>
+<Canvas of={Stories.SwirlCard} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlCard} />
 
 ## Theming
 
