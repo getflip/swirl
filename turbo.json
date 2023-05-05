@@ -11,7 +11,7 @@
         "stencil-generated/**",
         ".next/**"
       ],
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build", "swirl-docs#build:spec-navigation"]
     },
     "test": {
       "outputs": [],
