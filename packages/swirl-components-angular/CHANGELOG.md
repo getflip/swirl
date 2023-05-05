@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.49.1
+
+### Patch Changes
+
+- [`fb30b9c`](https://github.com/getflip/swirl/commit/fb30b9c47f6ff2940d409032202ede34b7989f68)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-popover usage inside
+  swirl-modal
+
+- Updated dependencies
+  [[`fb30b9c`](https://github.com/getflip/swirl/commit/fb30b9c47f6ff2940d409032202ede34b7989f68)]:
+  - @getflip/swirl-components@0.50.1
+
 ## 0.49.0
 
 ### Minor Changes
