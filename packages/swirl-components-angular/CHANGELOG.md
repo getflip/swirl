@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.49.2
+
+### Patch Changes
+
+- [`95f28c6`](https://github.com/getflip/swirl/commit/95f28c6a7d2e1b3224346a1c58b7d2af11085168)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix duplicate ID issue with
+  swirl-date-input
+
+- Updated dependencies
+  [[`95f28c6`](https://github.com/getflip/swirl/commit/95f28c6a7d2e1b3224346a1c58b7d2af11085168)]:
+  - @getflip/swirl-components@0.50.2
+
 ## 0.49.1
 
 ### Patch Changes
