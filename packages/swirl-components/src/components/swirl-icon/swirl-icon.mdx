@@ -1,5 +1,14 @@
-import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import {
+  Controls,
+  Canvas,
+  Meta,
+  Story,
+  IconGallery,
+  IconItem,
+  Source,
+} from "@storybook/addon-docs";
 import * as Stories from "./swirl-icon.stories";
+import IconsJSON from "../../../icons.json";
 
 <Meta title="Components/SwirlIcon" />
 
@@ -16,6 +25,23 @@ Icons are visual symbols used to represent ideas, objects or actions.
 
 <Controls of={Stories.SwirlIcon} />
 
+## Alternative usage
+
+Each icon also comes with its own component, used via
+`<swirl-icon-*></swirl-icon-*>`. E.g.:
+
+<Source code={"<swirl-icon-notifications></swirl-icon-notifications>"} />
+
+## Icon overview
+
+<IconGallery>
+  {Object.values(IconsJSON).map((icon) => (
+    <IconItem key={icon.id} name={icon.name}>
+      <swirl-icon glyph={icon.name} />
+    </IconItem>
+  ))}
+</IconGallery>
+
 ## Theming
 
 All icon components use the text color of its parent elements by using the
@@ -23,6 +49,6 @@ All icon components use the text color of its parent elements by using the
 
 ## Accessibility
 
-| ARIA         | Usage                                                                                                              |
-| ------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `aria-label` | Make sure to provide an accessible label for your icons by using the `aria-label` or `aria-labelledby` attributes. |
+| ARIA         | Usage                                                                                                                |
+| ------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `aria-label` | Make sure to provide an accessible label when using icons by using the `aria-label` or `aria-labelledby` attributes. |
