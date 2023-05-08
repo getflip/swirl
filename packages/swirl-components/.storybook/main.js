@@ -1,18 +1,26 @@
+import remarkGfm from "remark-gfm";
+
 module.exports = {
   addons: [
     {
-      name: "@storybook/addon-essentials",
+      name: "@storybook/addon-docs",
       options: {
-        actions: false,
-        backgrounds: false,
-        outline: false,
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
       },
     },
+    "@storybook/addon-backgrounds",
+    "@storybook/addon-controls",
+    "@storybook/addon-measure",
+    "@storybook/addon-toolbars",
+    "@storybook/addon-viewport",
     "@pxtrn/storybook-addon-docs-stencil",
     "@storybook/addon-a11y",
     "storybook-addon-themes",
     "storybook-design-token",
-    "@storybook/addon-mdx-gfm",
   ],
   core: { disableTelemetry: true },
   docs: {
