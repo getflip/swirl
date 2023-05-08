@@ -1252,7 +1252,7 @@ export namespace Components {
     }
     interface SwirlToast {
         "accessibleDismissLabel"?: string;
-        "content": string;
+        "content"?: string;
         "dismissLabel"?: string;
         "duration"?: number;
         "icon"?: string;
@@ -3911,7 +3911,7 @@ declare namespace LocalJSX {
     }
     interface SwirlToast {
         "accessibleDismissLabel"?: string;
-        "content": string;
+        "content"?: string;
         "dismissLabel"?: string;
         "duration"?: number;
         "icon"?: string;

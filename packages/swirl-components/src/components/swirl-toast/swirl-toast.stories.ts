@@ -3,6 +3,9 @@ import Docs from "./swirl-toast.mdx";
 
 export default {
   argTypes: {
+    content: {
+      description: "Deprecated. Use the component slot instead.",
+    },
     icon: {
       table: {
         type: {
@@ -24,12 +27,13 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-toast", args);
 
+  element.innerHTML = `This is toast text with multiple lines. Try to keep the info as short as possible.`;
+
   return element;
 };
 
 export const SwirlToast = Template.bind({});
 
 SwirlToast.args = {
-  content: `This is toast text with multiple lines. Try to keep the info as short as possible.`,
   icon: `<swirl-icon-mail></swirl-icon-mail>`,
 };

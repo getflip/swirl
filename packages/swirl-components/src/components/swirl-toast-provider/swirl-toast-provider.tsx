@@ -91,13 +91,19 @@ export class SwirlToastProvider {
     return (
       <Host role="status">
         <swirl-stack spacing="12">
-          {this.toasts.map((toast) => (
-            <swirl-toast
-              key={toast.toastId}
-              onDismiss={this.onDismiss}
-              {...toast}
-            ></swirl-toast>
-          ))}
+          {this.toasts.map((toast) => {
+            const props = { ...toast, content: undefined };
+
+            return (
+              <swirl-toast
+                key={toast.toastId}
+                onDismiss={this.onDismiss}
+                {...props}
+              >
+                {toast.content}
+              </swirl-toast>
+            );
+          })}
         </swirl-stack>
       </Host>
     );

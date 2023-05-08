@@ -19,7 +19,7 @@ export type SwirlToastIntent = "default" | "critical" | "success";
 })
 export class SwirlToast {
   @Prop() accessibleDismissLabel?: string = "Dismiss";
-  @Prop() content!: string;
+  @Prop() content?: string;
   @Prop() dismissLabel?: string;
   @Prop() duration?: number;
   @Prop() icon?: string;
@@ -111,7 +111,9 @@ export class SwirlToast {
             class="toast__content"
             innerHTML={this.content}
             part="toast__content"
-          ></span>
+          >
+            <slot></slot>
+          </span>
           <button
             aria-label={this.dismissLabel || this.accessibleDismissLabel}
             class="toast__dismiss-button"
