@@ -1,5 +1,6 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { debounce } from "../../utils";
 
 export type SwirlPaginationVariant = "default" | "simple" | "advanced";
 
@@ -26,6 +27,12 @@ export class SwirlPagination {
 
   @Event() setPage: EventEmitter<number>;
   @Event() setPageSize: EventEmitter<number>;
+
+  private pageInput: HTMLInputElement;
+
+  private onFocusPageInput = (event: Event) => {
+    (event.target as HTMLInputElement).select();
+  };
 
   private onFirstPageButtonClick = () => {
     if (this.page === 1) {
@@ -63,15 +70,30 @@ export class SwirlPagination {
     this.setPage.emit(nextPage);
   };
 
-  private onSelect = (event: Event) => {
-    const page = +(event.target as HTMLSelectElement).value;
+  private onPageInput = () => {
+    let page = +this.pageInput.value;
+
+    if (isNaN(page)) {
+      page = this.page;
+      this.pageInput.value = String(page);
+    } else if (page > this.pages) {
+      page = this.pages;
+      this.pageInput.value = String(page);
+    } else if (page < 1) {
+      page = 1;
+      this.pageInput.value = String(page);
+    }
 
     if (this.page === page) {
       return;
     }
 
-    this.setPage.emit(page);
+    this.onPageUpdate(page);
   };
+
+  private onPageUpdate = debounce((page: number) => {
+    this.setPage.emit(page);
+  }, 500);
 
   private onPageSizeSelect = (event: Event) => {
     const pageSize = +(event.target as HTMLSelectElement).value;
@@ -160,25 +182,15 @@ export class SwirlPagination {
                       aria-current="page"
                       class="pagination__advanced-label"
                     >
-                      <span class="pagination__page-select-container">
-                        <select
-                          aria-label={this.pageSelectLabel}
-                          class="pagination__page-select"
-                          onChange={this.onSelect}
-                        >
-                          {new Array(this.pages)
-                            .fill(undefined)
-                            .map((_, index) => index + 1)
-                            .map((page) => (
-                              <option
-                                selected={this.page === page}
-                                value={String(page)}
-                              >
-                                {page}
-                              </option>
-                            ))}
-                        </select>
-                      </span>
+                      <input
+                        aria-label={this.pageSelectLabel}
+                        class="pagination__page-input"
+                        onFocus={this.onFocusPageInput}
+                        onInput={this.onPageInput}
+                        ref={(el) => (this.pageInput = el)}
+                        type="text"
+                        value={this.page}
+                      />
                       <span aria-hidden="true">
                         {this.pageLabel} {this.pages}
                       </span>

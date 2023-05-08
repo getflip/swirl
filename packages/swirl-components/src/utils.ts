@@ -56,7 +56,7 @@ export function debounce(
   func: Function,
   wait: number,
   immediate: boolean = false
-) {
+): any {
   let timeout: NodeJS.Timeout;
 
   return async function executedFunction() {
