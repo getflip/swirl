@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.52.0
+
+### Minor Changes
+
+- [`4d0fe1f`](https://github.com/getflip/swirl/commit/4d0fe1f1b8882f72679ddb482f24fb0b3b659571)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add content slot to swirl-toast;
+  deprecate "content" prop
+
 ## 0.51.0
 
 ### Minor Changes
