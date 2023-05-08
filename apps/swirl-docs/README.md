@@ -78,3 +78,8 @@ problems, we decided to split the Builder into two versions.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [Tailwind Core Concepts](https://tailwindcss.com/docs/utility-first)
 - [MDX Docs](https://mdxjs.com/docs/)
+
+## Environment Variables
+
+To see which ENV variables are used in this project, please check the
+[.env.example](.env.example) file.
