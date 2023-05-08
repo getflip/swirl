@@ -5,7 +5,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Swirl | NextJS Bootstrap</title>
+        <title>Flip & Swirl Developer Docs</title>
       </Head>
 
       <main
