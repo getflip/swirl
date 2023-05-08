@@ -3743,6 +3743,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "onInputBlur"?: (event: SwirlSearchCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlSearchCustomEvent<FocusEvent>) => void;
+        "onInputInput"?: (event: SwirlSearchCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlSearchCustomEvent<string>) => void;
         "placeholder"?: string;
         "value"?: string;

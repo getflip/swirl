@@ -14,6 +14,10 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-search", args);
 
+  element.addEventListener("inputInput", (event) => {
+    console.log(event);
+  });
+
   return element;
 };
 

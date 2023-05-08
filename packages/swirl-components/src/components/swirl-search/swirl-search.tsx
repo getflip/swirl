@@ -37,6 +37,7 @@ export class SwirlSearch {
 
   @Event() inputBlur: EventEmitter<FocusEvent>;
   @Event() inputFocus: EventEmitter<FocusEvent>;
+  @Event() inputInput: EventEmitter<string>;
   @Event() valueChange: EventEmitter<string>;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
@@ -101,6 +102,10 @@ export class SwirlSearch {
     this.inputFocus.emit(event);
   };
 
+  private onInput = (event: Event) => {
+    this.inputInput.emit((event.target as HTMLInputElement).value);
+  };
+
   render() {
     const className = classnames("search", `search--variant-${this.variant}`, {
       "search--disabled": this.disabled,
@@ -123,6 +128,7 @@ export class SwirlSearch {
             onBlur={this.onBlur}
             onChange={this.onChange}
             onFocus={this.onFocus}
+            onInput={this.onInput}
             placeholder={this.placeholder}
             ref={(el) => (this.input = el)}
             type="search"
