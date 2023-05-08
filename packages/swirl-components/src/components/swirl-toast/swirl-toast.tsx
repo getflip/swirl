@@ -107,9 +107,11 @@ export class SwirlToast {
               ref={(el) => (this.iconEl = el)}
             ></span>
           )}
-          <span class="toast__content" part="toast__content">
-            {this.content}
-          </span>
+          <span
+            class="toast__content"
+            innerHTML={this.content}
+            part="toast__content"
+          ></span>
           <button
             aria-label={this.dismissLabel || this.accessibleDismissLabel}
             class="toast__dismiss-button"
