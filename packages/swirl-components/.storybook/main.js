@@ -12,7 +12,6 @@ module.exports = {
         },
       },
     },
-    "@storybook/addon-backgrounds",
     "@storybook/addon-controls",
     "@storybook/addon-measure",
     "@storybook/addon-toolbars",
