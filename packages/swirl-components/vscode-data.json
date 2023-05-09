@@ -4927,6 +4927,18 @@
           ]
         },
         {
+          "name": "font-family",
+          "description": "",
+          "values": [
+            {
+              "name": "code"
+            },
+            {
+              "name": "text"
+            }
+          ]
+        },
+        {
           "name": "font-style",
           "description": "",
           "values": [

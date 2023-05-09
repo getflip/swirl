@@ -12,6 +12,8 @@ export type SwirlTextColor =
   | "success"
   | "warning";
 
+export type SwirlTextFontFamily = "code" | "text";
+
 export type SwirlTextFontStyle = "normal" | "italic";
 
 export type SwirlTextSize = "sm" | "base" | "lg";
@@ -31,6 +33,7 @@ export class SwirlText {
   @Prop() as?: string = "p";
   @Prop() balance?: boolean;
   @Prop() color?: SwirlTextColor = "default";
+  @Prop() fontFamily?: SwirlTextFontFamily = "text";
   @Prop() fontStyle?: SwirlTextFontStyle = "normal";
   @Prop() lines?: number;
   @Prop() size?: SwirlTextSize = "base";
@@ -80,6 +83,7 @@ export class SwirlText {
       "text",
       `text--align-${this.align}`,
       `text--color-${this.color}`,
+      `text--font-family-${this.fontFamily}`,
       `text--font-style-${this.fontStyle}`,
       `text--size-${this.size}`,
       `text--weight-${this.weight}`,
