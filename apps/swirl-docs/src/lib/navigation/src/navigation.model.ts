@@ -10,7 +10,7 @@ export type NavItem = {
   url: string;
   children?: NavItem[];
   description?: string;
-  specPath?: string;
+  specName?: string;
 };
 
 export enum CategoryEnum {

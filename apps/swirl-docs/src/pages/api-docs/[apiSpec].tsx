@@ -18,12 +18,14 @@ import { Parameter } from "src/components/Documentation/Parameter";
 import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
 import { SchemaObject } from "oas/dist/rmoas.types";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
+import { API_SPEC_PATH } from "@swirl/lib/navigation";
 
 async function getSpecData(spec: string): Promise<ApiDocumentation> {
   let apiSpec: ApiDocumentation;
 
   const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
-  const specPath = navItem?.specPath;
+  const specName = navItem?.specName;
+  const specPath = `${API_SPEC_PATH}/${specName}`;
 
   const oasDocument = await new OASNormalize(specPath, {
     enablePaths: true,
