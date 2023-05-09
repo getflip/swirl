@@ -54,8 +54,8 @@ export function DocumentationLayout({
             {!disableToc && tocItems && tocItems.length > 0 && (
               <DocLinksNav documentLinkList={tocItems} />
             )}
-            {/* {footer} */}
           </main>
+          <Footer />
         </div>
       </div>
     </DocumentationLayoutContext.Provider>

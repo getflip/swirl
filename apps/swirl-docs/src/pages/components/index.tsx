@@ -3,6 +3,7 @@ import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.da
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import ComponentGrid from "src/components/Components/ComponentGrid";
+import Footer from "src/components/Layout/Footer";
 
 type Usage = "app" | "admin";
 
@@ -48,6 +49,7 @@ const ComponentsIndex = ({ links }: { links: NavItem[] }) => {
           </div>
         </main>
       </div>
+      <Footer />
     </>
   );
 };
