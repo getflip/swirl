@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.52.0
+
+### Minor Changes
+
+- [`c102537`](https://github.com/getflip/swirl/commit/c1025377f595c8a3fd9a9686858cdac6d9ff4e87)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "font-family" prop to
+  swirl-text
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c102537`](https://github.com/getflip/swirl/commit/c1025377f595c8a3fd9a9686858cdac6d9ff4e87)]:
+  - @getflip/swirl-components@0.53.0
+
 ## 0.51.0
 
 ### Minor Changes
