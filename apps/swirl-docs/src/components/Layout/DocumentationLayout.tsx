@@ -30,7 +30,7 @@ export function DocumentationLayout({
 
   return (
     <DocumentationLayoutContext.Provider value={data}>
-      <div className="grid grid-cols-documentation-layout h-full overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-documentation-layout h-full overflow-hidden">
         {/* <div className="flex h-full"> */}
         {data.navigationLinks && <CategoryNav />}
         <div className="w-full h-full overflow-auto scroll-p-4">
