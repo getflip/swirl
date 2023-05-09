@@ -94,25 +94,20 @@
   gap: var(--s-space-8);
 }
 
-.pagination__page-select-container {
-  position: relative;
-}
-
-.pagination__page-select {
+.pagination__page-input {
   display: inline-flex;
+  width: 3rem;
   padding-top: var(--s-space-8);
-  padding-right: var(--s-space-16);
+  padding-right: var(--s-space-8);
   padding-bottom: var(--s-space-8);
-  padding-left: var(--s-space-16);
+  padding-left: var(--s-space-8);
   border: none;
   border-radius: var(--s-border-radius-sm);
   background-color: transparent;
   font: inherit;
   line-height: var(--s-line-height-base);
   text-align: center;
-  cursor: pointer;
   box-shadow: inset 0 0 0 var(--s-border-width-default) var(--s-border-strong);
-  appearance: none;
 
   &:focus:not(:focus-visible) {
     outline: none;

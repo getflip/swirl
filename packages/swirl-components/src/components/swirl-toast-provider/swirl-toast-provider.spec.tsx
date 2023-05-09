@@ -30,8 +30,8 @@ describe("swirl-toast-provider", () => {
       <swirl-toast-provider role="status">
         <mock:shadow-root>
           <swirl-stack spacing="12">
-            <swirl-toast content="Toast 1" toastid="toast-1"></swirl-toast>
-            <swirl-toast content="Toast 2" dismisslabel="Dismiss" icon="<lip-icon-mail></swirl-icon-mail>" intent="success" toastid="toast-2"></swirl-toast>
+            <swirl-toast toastid="toast-1">Toast 1</swirl-toast>
+            <swirl-toast dismisslabel="Dismiss" icon="<lip-icon-mail></swirl-icon-mail>" intent="success" toastid="toast-2">Toast 2</swirl-toast>
           </swirl-stack>
         </mock:shadow-root>
       </swirl-toast-provider>
@@ -45,7 +45,7 @@ describe("swirl-toast-provider", () => {
       <swirl-toast-provider role="status">
         <mock:shadow-root>
           <swirl-stack spacing="12">
-            <swirl-toast content="Toast 1" toastid="toast-1"></swirl-toast>
+            <swirl-toast toastid="toast-1">Toast 1</swirl-toast>
           </swirl-stack>
         </mock:shadow-root>
       </swirl-toast-provider>

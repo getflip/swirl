@@ -43,6 +43,7 @@ export class SwirlPopover {
   @Prop() animation?: SwirlPopoverAnimation = "scale-in-xy";
   @Prop() disableScrollLock?: boolean;
   @Prop() enableFlip?: boolean = true;
+  @Prop() fullscreenBottomSheet?: boolean;
   @Prop() label!: string;
   @Prop() maxHeight?: string = "22rem";
   @Prop() offset?: number | number[] = 8;
@@ -336,6 +337,7 @@ export class SwirlPopover {
       {
         "popover--closing": this.closing,
         "popover--active": this.active,
+        "popover--fullscreen-bottom-sheet": this.fullscreenBottomSheet,
         "popover--inactive": !this.active,
       }
     );

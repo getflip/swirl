@@ -49,7 +49,7 @@ import { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
 import { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 import { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
-import { SwirlTextAlign, SwirlTextColor, SwirlTextFontStyle, SwirlTextSize, SwirlTextWeight } from "./components/swirl-text/swirl-text";
+import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextWeight } from "./components/swirl-text/swirl-text";
 import { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider";
 import { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
@@ -100,7 +100,7 @@ export { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
 export { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 export { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
-export { SwirlTextAlign, SwirlTextColor, SwirlTextFontStyle, SwirlTextSize, SwirlTextWeight } from "./components/swirl-text/swirl-text";
+export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextWeight } from "./components/swirl-text/swirl-text";
 export { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider";
 export { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
@@ -996,6 +996,7 @@ export namespace Components {
         "close": () => Promise<void>;
         "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
+        "fullscreenBottomSheet"?: boolean;
         "label": string;
         "maxHeight"?: string;
         "offset"?: number | number[];
@@ -1186,6 +1187,7 @@ export namespace Components {
         "as"?: string;
         "balance"?: boolean;
         "color"?: SwirlTextColor;
+        "fontFamily"?: SwirlTextFontFamily;
         "fontStyle"?: SwirlTextFontStyle;
         "lines"?: number;
         "size"?: SwirlTextSize;
@@ -1252,7 +1254,7 @@ export namespace Components {
     }
     interface SwirlToast {
         "accessibleDismissLabel"?: string;
-        "content": string;
+        "content"?: string;
         "dismissLabel"?: string;
         "duration"?: number;
         "icon"?: string;
@@ -3674,6 +3676,7 @@ declare namespace LocalJSX {
         "animation"?: SwirlPopoverAnimation;
         "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
+        "fullscreenBottomSheet"?: boolean;
         "label": string;
         "maxHeight"?: string;
         "offset"?: number | number[];
@@ -3743,6 +3746,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "onInputBlur"?: (event: SwirlSearchCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlSearchCustomEvent<FocusEvent>) => void;
+        "onInputInput"?: (event: SwirlSearchCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlSearchCustomEvent<string>) => void;
         "placeholder"?: string;
         "value"?: string;
@@ -3858,6 +3862,7 @@ declare namespace LocalJSX {
         "as"?: string;
         "balance"?: boolean;
         "color"?: SwirlTextColor;
+        "fontFamily"?: SwirlTextFontFamily;
         "fontStyle"?: SwirlTextFontStyle;
         "lines"?: number;
         "size"?: SwirlTextSize;
@@ -3910,7 +3915,7 @@ declare namespace LocalJSX {
     }
     interface SwirlToast {
         "accessibleDismissLabel"?: string;
-        "content": string;
+        "content"?: string;
         "dismissLabel"?: string;
         "duration"?: number;
         "icon"?: string;

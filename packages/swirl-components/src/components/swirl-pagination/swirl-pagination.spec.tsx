@@ -70,8 +70,8 @@ describe("swirl-pagination", () => {
 
     const spy = jest.fn();
 
-    const pageSelect = page.root.shadowRoot.querySelector<HTMLSelectElement>(
-      ".pagination__page-select"
+    const pageSelect = page.root.shadowRoot.querySelector<HTMLInputElement>(
+      ".pagination__page-input"
     );
 
     const prevButton =
@@ -93,7 +93,10 @@ describe("swirl-pagination", () => {
     expect(spy.mock.calls[1][0].detail).toBe(1);
 
     pageSelect.value = "5";
-    pageSelect.dispatchEvent(new Event("change"));
+    pageSelect.dispatchEvent(new Event("input"));
+
+    // wait for debounce
+    await new Promise((resolve) => setTimeout(resolve, 600));
     expect(spy.mock.calls[2][0].detail).toBe(5);
   });
 
