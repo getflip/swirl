@@ -24,10 +24,10 @@ const ComponentsIndex = ({ links }: { links: NavItem[] }) => {
       <Head>
         <title>Swirl | Components</title>
       </Head>
-      <div className="flex">
+      <div className="flex overflow-auto">
         <main
           id="main"
-          className="w-full h-full mt-14 flex flex-col px-4 md:px-24"
+          className="w-full h-full flex flex-col px-4 md:px-24 pt-14"
         >
           <header className="mb-16 max-w-xl pb-10 md:pb-7 border-b-1">
             <h1 className="text-4xl text-text-default mb-4">Components</h1>

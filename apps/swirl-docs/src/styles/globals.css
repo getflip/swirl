@@ -18,10 +18,12 @@
 @layer components {
   #__next {
     @apply h-full grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 72px auto;
   }
   html,
   body {
-    @apply h-full;
+    @apply h-full overflow-hidden;
   }
 }
 

@@ -48,8 +48,8 @@ const IconsIndex = () => {
       <Head>
         <title>Swirl | Icons</title>
       </Head>
-      <div className="flex">
-        <main id="main" className="w-full h-full mt-14">
+      <div className="overflow-auto">
+        <main id="main" className="w-full h-full pt-14">
           <section className="flex flex-col px-4 md:px-24">
             <div className="mb-16">
               <h1 className="mb-4 font-bold text-4xl text-text-default">
