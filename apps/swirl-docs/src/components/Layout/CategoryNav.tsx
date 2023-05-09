@@ -117,6 +117,7 @@ export function CategoryNav() {
       aria-label="category"
       className={classNames(
         "hidden lg:block px-4 border-r-1 w-80 min-w-[20rem] max-w-xs",
+        "overflow-auto",
         { invisible: router.asPath.includes("/icons") }
       )}
     >
