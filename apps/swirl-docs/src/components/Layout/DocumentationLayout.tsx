@@ -30,9 +30,10 @@ export function DocumentationLayout({
 
   return (
     <DocumentationLayoutContext.Provider value={data}>
-      <div className="flex overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-documentation-layout h-full overflow-hidden">
+        {/* <div className="flex h-full"> */}
         {data.navigationLinks && <CategoryNav />}
-        <div className="h-full w-full">
+        <div className="w-full h-full overflow-auto scroll-p-4">
           <main
             id="main"
             className={classNames(
@@ -46,7 +47,7 @@ export function DocumentationLayout({
               }
             )}
           >
-            <div className={"w-full"}>
+            <div className="w-full">
               {header}
               {content}
             </div>
@@ -54,7 +55,7 @@ export function DocumentationLayout({
               <DocLinksNav documentLinkList={tocItems} />
             )}
           </main>
-          {footer}
+          <Footer />
         </div>
       </div>
     </DocumentationLayoutContext.Provider>
