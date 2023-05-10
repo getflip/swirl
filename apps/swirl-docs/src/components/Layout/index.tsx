@@ -8,8 +8,8 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <HeaderNavigation />
       <CommandPalette />
+      <HeaderNavigation />
       {children}
     </>
   );
