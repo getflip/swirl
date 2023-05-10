@@ -8,7 +8,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { isMobileViewport } from "../../utils";
+import { debounce, isMobileViewport } from "../../utils";
 import debouncePromise from "debounce-promise";
 
 /**
@@ -51,10 +51,14 @@ export class SwirlTable {
    */
   @Method()
   async rerender() {
+    this.triggerRerender();
+  }
+
+  private triggerRerender = debounce(async () => {
     await this.updateLayout();
     this.updateScrolledState();
     this.updateEmptyState();
-  }
+  }, 60);
 
   private resetEmptyRowStyles() {
     const emptyRow =
