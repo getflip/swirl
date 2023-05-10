@@ -196,6 +196,10 @@
     }
   }
 
+  &.button--icon-only {
+    padding: 0;
+  }
+
   &.button--intent-primary {
     color: var(--s-interactive-primary-default);
 

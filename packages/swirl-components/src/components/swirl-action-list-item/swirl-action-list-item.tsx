@@ -18,6 +18,8 @@ export class SwirlActionListItem {
   @Prop() intent?: SwirlActionListItemIntent = "default";
   @Prop() label!: string;
   @Prop() size?: SwirlActionListItemSize = "m";
+  @Prop() swirlAriaExpanded?: string;
+  @Prop() swirlAriaHaspopup?: string;
   @Prop() suffix?: string;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
@@ -68,6 +70,8 @@ export class SwirlActionListItem {
     return (
       <Host>
         <button
+          aria-expanded={this.swirlAriaExpanded}
+          aria-haspopup={this.swirlAriaHaspopup}
           class={className}
           disabled={this.disabled}
           part="action-list-item"

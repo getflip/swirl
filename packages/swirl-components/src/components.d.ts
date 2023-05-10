@@ -120,6 +120,8 @@ export namespace Components {
         "label": string;
         "size"?: SwirlActionListItemSize;
         "suffix"?: string;
+        "swirlAriaExpanded"?: string;
+        "swirlAriaHaspopup"?: string;
     }
     interface SwirlActionListSection {
         "label": string;
@@ -896,6 +898,42 @@ export namespace Components {
     }
     interface SwirlList {
     }
+    interface SwirlMenu {
+        /**
+          * Activates a menu item with a sub menu.
+          * @returns
+         */
+        "activateMenuItem": (menuItem: HTMLSwirlMenuItemElement) => Promise<void>;
+        "active"?: boolean;
+        "activeLevel": number;
+        /**
+          * Focus the first item of the menu
+          * @returns
+         */
+        "focusFirstItem": () => Promise<void>;
+        /**
+          * Activate parent menu
+          * @returns
+         */
+        "goBack": () => Promise<void>;
+        "label": string;
+        "level": number;
+        "mobileBackButtonLabel"?: string;
+        "mobileCloseMenuButtonLabel"?: string;
+        "mobileDoneButtonLabel"?: string;
+    }
+    interface SwirlMenuItem {
+        "expanded"?: boolean;
+        /**
+          * Get the items parent menu
+         */
+        "getParentMenu": () => Promise<HTMLSwirlMenuElement>;
+        /**
+          * Get the items sub menu
+         */
+        "getSubMenu": () => Promise<HTMLSwirlMenuElement>;
+        "label": string;
+    }
     /**
      * slot - Modal contents
      * custom-header - Optional custom header; should be used hidden label
@@ -1375,6 +1413,10 @@ export interface SwirlFileViewerTextCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlFileViewerVideoCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlFileViewerVideoElement;
+}
+export interface SwirlMenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlMenuElement;
 }
 export interface SwirlModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2403,6 +2445,18 @@ declare global {
         prototype: HTMLSwirlListElement;
         new (): HTMLSwirlListElement;
     };
+    interface HTMLSwirlMenuElement extends Components.SwirlMenu, HTMLStencilElement {
+    }
+    var HTMLSwirlMenuElement: {
+        prototype: HTMLSwirlMenuElement;
+        new (): HTMLSwirlMenuElement;
+    };
+    interface HTMLSwirlMenuItemElement extends Components.SwirlMenuItem, HTMLStencilElement {
+    }
+    var HTMLSwirlMenuItemElement: {
+        prototype: HTMLSwirlMenuItemElement;
+        new (): HTMLSwirlMenuItemElement;
+    };
     /**
      * slot - Modal contents
      * custom-header - Optional custom header; should be used hidden label
@@ -2818,6 +2872,8 @@ declare global {
         "swirl-lightbox": HTMLSwirlLightboxElement;
         "swirl-link": HTMLSwirlLinkElement;
         "swirl-list": HTMLSwirlListElement;
+        "swirl-menu": HTMLSwirlMenuElement;
+        "swirl-menu-item": HTMLSwirlMenuItemElement;
         "swirl-modal": HTMLSwirlModalElement;
         "swirl-option-list": HTMLSwirlOptionListElement;
         "swirl-option-list-item": HTMLSwirlOptionListItemElement;
@@ -2875,6 +2931,8 @@ declare namespace LocalJSX {
         "label": string;
         "size"?: SwirlActionListItemSize;
         "suffix"?: string;
+        "swirlAriaExpanded"?: string;
+        "swirlAriaHaspopup"?: string;
     }
     interface SwirlActionListSection {
         "label": string;
@@ -3584,6 +3642,21 @@ declare namespace LocalJSX {
     }
     interface SwirlList {
     }
+    interface SwirlMenu {
+        "active"?: boolean;
+        "activeLevel"?: number;
+        "label": string;
+        "level"?: number;
+        "mobileBackButtonLabel"?: string;
+        "mobileCloseMenuButtonLabel"?: string;
+        "mobileDoneButtonLabel"?: string;
+        "onClose"?: (event: SwirlMenuCustomEvent<void>) => void;
+        "onDone"?: (event: SwirlMenuCustomEvent<void>) => void;
+    }
+    interface SwirlMenuItem {
+        "expanded"?: boolean;
+        "label": string;
+    }
     /**
      * slot - Modal contents
      * custom-header - Optional custom header; should be used hidden label
@@ -4106,6 +4179,8 @@ declare namespace LocalJSX {
         "swirl-lightbox": SwirlLightbox;
         "swirl-link": SwirlLink;
         "swirl-list": SwirlList;
+        "swirl-menu": SwirlMenu;
+        "swirl-menu-item": SwirlMenuItem;
         "swirl-modal": SwirlModal;
         "swirl-option-list": SwirlOptionList;
         "swirl-option-list-item": SwirlOptionListItem;
@@ -4318,6 +4393,8 @@ declare module "@stencil/core" {
             "swirl-lightbox": LocalJSX.SwirlLightbox & JSXBase.HTMLAttributes<HTMLSwirlLightboxElement>;
             "swirl-link": LocalJSX.SwirlLink & JSXBase.HTMLAttributes<HTMLSwirlLinkElement>;
             "swirl-list": LocalJSX.SwirlList & JSXBase.HTMLAttributes<HTMLSwirlListElement>;
+            "swirl-menu": LocalJSX.SwirlMenu & JSXBase.HTMLAttributes<HTMLSwirlMenuElement>;
+            "swirl-menu-item": LocalJSX.SwirlMenuItem & JSXBase.HTMLAttributes<HTMLSwirlMenuItemElement>;
             /**
              * slot - Modal contents
              * custom-header - Optional custom header; should be used hidden label

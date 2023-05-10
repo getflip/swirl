@@ -67,6 +67,14 @@
         {
           "name": "suffix",
           "description": ""
+        },
+        {
+          "name": "swirl-aria-expanded",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-haspopup",
+          "description": ""
         }
       ]
     },
@@ -3622,6 +3630,60 @@
         "value": ""
       },
       "attributes": []
+    },
+    {
+      "name": "swirl-menu",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
+        {
+          "name": "active-level",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "level",
+          "description": ""
+        },
+        {
+          "name": "mobile-back-button-label",
+          "description": ""
+        },
+        {
+          "name": "mobile-close-menu-button-label",
+          "description": ""
+        },
+        {
+          "name": "mobile-done-button-label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-menu-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "expanded",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "swirl-modal",
