@@ -60,7 +60,7 @@ export class SwirlTable {
       this.updateScrolledState();
       this.updateEmptyState();
     },
-    60,
+    0,
     true
   );
 
