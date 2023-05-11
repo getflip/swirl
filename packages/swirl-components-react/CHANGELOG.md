@@ -1,5 +1,16 @@
 # @getflip/swirl-components-react
 
+## 0.53.2
+
+### Patch Changes
+
+- [`746b461`](https://github.com/getflip/swirl/commit/746b46187a03d1d4d1f454c70ed5331e50ed1482)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-table layouting issue
+
+- Updated dependencies
+  [[`746b461`](https://github.com/getflip/swirl/commit/746b46187a03d1d4d1f454c70ed5331e50ed1482)]:
+  - @getflip/swirl-components@0.54.2
+
 ## 0.53.1
 
 ### Patch Changes
