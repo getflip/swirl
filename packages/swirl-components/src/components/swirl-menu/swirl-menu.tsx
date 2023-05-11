@@ -1,6 +1,8 @@
 import {
+  autoUpdate,
   computePosition,
   ComputePositionReturn,
+  flip,
   offset,
   shift,
 } from "@floating-ui/dom";
@@ -46,6 +48,7 @@ export class SwirlMenu {
 
   @Event() done: EventEmitter<void>;
 
+  private disableAutoUpdate: any;
   private items: HTMLElement[];
   private menuContainer: HTMLElement;
   private mobileMediaQuery = window.matchMedia("(min-width: 768px)");
@@ -86,6 +89,16 @@ export class SwirlMenu {
   @Watch("active")
   watchActive() {
     this.reposition();
+
+    if (this.disableAutoUpdate) {
+      this.disableAutoUpdate();
+    }
+
+    this.disableAutoUpdate = autoUpdate(
+      this.el.parentElement,
+      this.menuContainer,
+      this.reposition
+    );
   }
 
   /**
@@ -303,6 +316,10 @@ export class SwirlMenu {
   };
 
   private closeMenu = () => {
+    if (this.disableAutoUpdate) {
+      this.disableAutoUpdate();
+    }
+
     this.popover.close();
     this.resetMenu();
   };
@@ -322,7 +339,7 @@ export class SwirlMenu {
     this.position = await computePosition(trigger, this.menuContainer, {
       placement: "right-start",
       strategy: "fixed",
-      middleware: [offset({ mainAxis: -10, crossAxis: 0 }), shift()],
+      middleware: [offset({ mainAxis: -10, crossAxis: 0 }), shift(), flip()],
     });
   };
 
