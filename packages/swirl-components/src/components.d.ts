@@ -943,6 +943,7 @@ export namespace Components {
           * Get the items sub menu
          */
         "getSubMenu": () => Promise<HTMLSwirlMenuElement>;
+        "icon"?: string;
         "label": string;
     }
     /**
@@ -3666,6 +3667,7 @@ declare namespace LocalJSX {
     interface SwirlMenuItem {
         "description"?: string;
         "expanded"?: boolean;
+        "icon"?: string;
         "label": string;
     }
     /**

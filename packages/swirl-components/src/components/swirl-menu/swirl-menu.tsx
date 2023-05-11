@@ -98,6 +98,20 @@ export class SwirlMenu {
       return;
     }
 
+    const parentMenu = await menuItem.getParentMenu();
+
+    // deactivate sub menus of parent menu
+    const subMenus = querySelectorAllDeep<HTMLSwirlMenuElement>(
+      this.el,
+      "swirl-menu"
+    ).filter(
+      (subMenu) => subMenu.level >= parentMenu.level && subMenu !== parentMenu
+    );
+
+    subMenus.forEach((subMenu) => {
+      subMenu.active = false;
+    });
+
     // activate sub menu
     const subMenu = await menuItem.getSubMenu();
 
@@ -108,16 +122,6 @@ export class SwirlMenu {
     menuItem.expanded = true;
     subMenu.active = true;
     this.activeLevel = subMenu.level;
-
-    // deactivate other sub menus of same level
-    const subMenus = querySelectorAllDeep<HTMLSwirlMenuElement>(
-      this.el,
-      "swirl-menu"
-    ).filter((sM) => sM.level >= subMenu.level && sM !== subMenu);
-
-    subMenus.forEach((subMenu) => {
-      subMenu.active = false;
-    });
 
     // wait for animation to focus first item of sub menu
     setTimeout(
