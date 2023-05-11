@@ -900,24 +900,29 @@ export namespace Components {
     }
     interface SwirlMenu {
         /**
-          * Activates a menu item with a sub menu. Only callable on root menu.
+          * Activate a menu item with a sub menu. Only callable on a root menu.
           * @returns
          */
         "activateMenuItem": (menuItem: HTMLSwirlMenuItemElement) => Promise<void>;
         "active"?: boolean;
         "activeLevel": number;
         /**
-          * Focus the first item of the menu.
+          * Close and reset the menu. Only callable on a root menu.
+          * @returns
+         */
+        "close": () => Promise<void>;
+        /**
+          * Focus the first menu item.
           * @returns
          */
         "focusFirstItem": () => Promise<void>;
         /**
-          * Focus item at index.
+          * Focus the menu item at index.
           * @returns
          */
         "focusItemAtIndex": (index: number) => Promise<void>;
         /**
-          * Activate parent menu. Only callable on root menu.
+          * Collapse the currently active sub menu. Only callable on a root menu.
           * @returns
          */
         "goBack": () => Promise<void>;
@@ -3655,7 +3660,6 @@ declare namespace LocalJSX {
         "mobileBackButtonLabel"?: string;
         "mobileCloseMenuButtonLabel"?: string;
         "mobileDoneButtonLabel"?: string;
-        "onClose"?: (event: SwirlMenuCustomEvent<void>) => void;
         "onDone"?: (event: SwirlMenuCustomEvent<void>) => void;
     }
     interface SwirlMenuItem {

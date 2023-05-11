@@ -35,6 +35,36 @@
   }
 }
 
+:not(.menu--mobile) {
+  &.menu--root {
+    position: relative;
+
+    & .menu__menu {
+      position: relative;
+    }
+  }
+
+  &:not(.menu--root) {
+    & .menu__menu {
+      z-index: 1;
+      max-width: 22.5rem;
+      border-radius: var(--s-border-radius-sm);
+      box-shadow: var(--s-shadow-level-1);
+    }
+  }
+
+  &.menu--active {
+    & .menu__menu {
+      display: block;
+    }
+  }
+
+  & .menu__menu {
+    position: fixed;
+    display: none;
+  }
+}
+
 .menu__mobile-header {
   display: flex;
   height: 3.5rem;
@@ -64,4 +94,5 @@
 .menu__menu {
   padding-top: var(--s-space-8);
   padding-bottom: var(--s-space-8);
+  background-color: var(--s-surface-overlay-default);
 }

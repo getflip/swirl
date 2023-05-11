@@ -1,4 +1,10 @@
 import {
+  computePosition,
+  ComputePositionReturn,
+  offset,
+  shift,
+} from "@floating-ui/dom";
+import {
   Component,
   Element,
   Event,
@@ -8,6 +14,7 @@ import {
   Method,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import classnames from "classnames";
 import {
@@ -35,24 +42,29 @@ export class SwirlMenu {
   @Prop() mobileDoneButtonLabel?: string = "Done";
 
   @State() mobile: boolean;
+  @State() position: ComputePositionReturn;
 
-  @Event() close: EventEmitter<void>;
   @Event() done: EventEmitter<void>;
 
   private items: HTMLElement[];
+  private menuContainer: HTMLElement;
   private mobileMediaQuery = window.matchMedia("(min-width: 768px)");
   private observer: MutationObserver;
   private parentMenu: HTMLSwirlMenuElement;
+  private popover: HTMLSwirlPopoverElement;
   private rootMenu: HTMLSwirlMenuElement;
 
   componentDidLoad() {
     this.mobileMediaQuery.addEventListener?.("change", this.mediaQueryHandler);
     this.parentMenu = closestPassShadow(this.el.parentElement, "swirl-menu");
+    this.popover = closestPassShadow(this.el, "swirl-popover");
     this.rootMenu = parentsPassShadow(this.el, "swirl-menu").pop();
 
     if (Boolean(this.parentMenu)) {
       this.active = false;
     }
+
+    this.popover.addEventListener("popoverClose", this.resetMenu);
 
     this.updateLevel();
     this.updateMobileState();
@@ -61,6 +73,8 @@ export class SwirlMenu {
   }
 
   disconnectedCallback() {
+    this.popover.removeEventListener("popoverClose", this.resetMenu);
+
     this.mobileMediaQuery.removeEventListener?.(
       "change",
       this.mediaQueryHandler
@@ -69,8 +83,13 @@ export class SwirlMenu {
     this.observer?.disconnect();
   }
 
+  @Watch("active")
+  watchActive() {
+    this.reposition();
+  }
+
   /**
-   * Activates a menu item with a sub menu. Only callable on root menu.
+   * Activate a menu item with a sub menu. Only callable on a root menu.
    * @returns
    */
   @Method()
@@ -79,6 +98,7 @@ export class SwirlMenu {
       return;
     }
 
+    // activate sub menu
     const subMenu = await menuItem.getSubMenu();
 
     if (!Boolean(subMenu)) {
@@ -89,14 +109,36 @@ export class SwirlMenu {
     subMenu.active = true;
     this.activeLevel = subMenu.level;
 
-    // wait for animation
-    setTimeout(() => {
-      subMenu.focusFirstItem();
-    }, 200);
+    // deactivate other sub menus of same level
+    const subMenus = querySelectorAllDeep<HTMLSwirlMenuElement>(
+      this.el,
+      "swirl-menu"
+    ).filter((sM) => sM.level >= subMenu.level && sM !== subMenu);
+
+    subMenus.forEach((subMenu) => {
+      subMenu.active = false;
+    });
+
+    // wait for animation to focus first item of sub menu
+    setTimeout(
+      () => {
+        subMenu.focusFirstItem();
+      },
+      this.mobile ? 200 : 60
+    );
   }
 
   /**
-   * Activate parent menu. Only callable on root menu.
+   * Close and reset the menu. Only callable on a root menu.
+   * @returns
+   */
+  @Method()
+  async close() {
+    this.closeMenu();
+  }
+
+  /**
+   * Collapse the currently active sub menu. Only callable on a root menu.
    * @returns
    */
   @Method()
@@ -140,7 +182,7 @@ export class SwirlMenu {
   }
 
   /**
-   * Focus the first item of the menu.
+   * Focus the first menu item.
    * @returns
    */
   @Method()
@@ -149,7 +191,7 @@ export class SwirlMenu {
   }
 
   /**
-   * Focus item at index.
+   * Focus the menu item at index.
    * @returns
    */
   @Method()
@@ -228,13 +270,57 @@ export class SwirlMenu {
     );
   }
 
-  private closeMenu() {
+  private resetMenu = () => {
     this.items.forEach((item) => {
       item.tabIndex = -1;
     });
 
-    closestPassShadow(this.el, "swirl-popover")?.close();
-  }
+    if (this.level > 0) {
+      return;
+    }
+
+    // wait for animation
+    setTimeout(
+      () => {
+        this.activeLevel = 0;
+
+        const subMenus = querySelectorAllDeep<HTMLSwirlMenuElement>(
+          this.el,
+          "swirl-menu"
+        );
+
+        // disable sub menus
+        subMenus.forEach((subMenu) => {
+          subMenu.active = false;
+        });
+      },
+      this.mobile ? 200 : 60
+    );
+  };
+
+  private closeMenu = () => {
+    this.popover.close();
+    this.resetMenu();
+  };
+
+  private reposition = async () => {
+    if (this.mobile || this.level === 0) {
+      this.position = undefined;
+      return;
+    }
+
+    const trigger = this.el.parentElement;
+
+    if (!Boolean(trigger) || !Boolean(this.menuContainer)) {
+      return;
+    }
+
+    this.position = await computePosition(trigger, this.menuContainer, {
+      placement: "right-start",
+      strategy: "fixed",
+      middleware: [offset({ mainAxis: -10, crossAxis: 0 }), shift()],
+    });
+  };
 
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowDown") {
@@ -270,7 +356,6 @@ export class SwirlMenu {
 
   private onClose = () => {
     this.closeMenu();
-    this.close.emit();
   };
 
   private onDone = () => {
@@ -343,12 +428,22 @@ export class SwirlMenu {
             aria-orientation="vertical"
             class="menu__menu"
             onKeyDown={this.onKeyDown}
+            ref={(el) => (this.menuContainer = el)}
             role={role}
-            style={{
-              left: isTopLevelMenu
-                ? `calc(-100% * ${this.activeLevel})`
-                : "100%",
-            }}
+            style={
+              !this.mobile && this.level > 0
+                ? {
+                    top: Boolean(this.position) ? `${this.position?.y}px` : "",
+                    left: Boolean(this.position) ? `${this.position?.x}px` : "",
+                  }
+                : this.mobile
+                ? {
+                    left: isTopLevelMenu
+                      ? `calc(-100% * ${this.activeLevel})`
+                      : "100%",
+                  }
+                : undefined
+            }
           >
             <slot></slot>
           </div>
