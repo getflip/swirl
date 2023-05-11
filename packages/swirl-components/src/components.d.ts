@@ -900,19 +900,24 @@ export namespace Components {
     }
     interface SwirlMenu {
         /**
-          * Activates a menu item with a sub menu.
+          * Activates a menu item with a sub menu. Only callable on root menu.
           * @returns
          */
         "activateMenuItem": (menuItem: HTMLSwirlMenuItemElement) => Promise<void>;
         "active"?: boolean;
         "activeLevel": number;
         /**
-          * Focus the first item of the menu
+          * Focus the first item of the menu.
           * @returns
          */
         "focusFirstItem": () => Promise<void>;
         /**
-          * Activate parent menu
+          * Focus item at index.
+          * @returns
+         */
+        "focusItemAtIndex": (index: number) => Promise<void>;
+        /**
+          * Activate parent menu. Only callable on root menu.
           * @returns
          */
         "goBack": () => Promise<void>;

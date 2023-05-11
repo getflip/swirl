@@ -70,7 +70,7 @@ export class SwirlMenu {
   }
 
   /**
-   * Activates a menu item with a sub menu.
+   * Activates a menu item with a sub menu. Only callable on root menu.
    * @returns
    */
   @Method()
@@ -85,6 +85,7 @@ export class SwirlMenu {
       return;
     }
 
+    menuItem.expanded = true;
     subMenu.active = true;
     this.activeLevel = subMenu.level;
 
@@ -95,14 +96,24 @@ export class SwirlMenu {
   }
 
   /**
-   * Activate parent menu
+   * Activate parent menu. Only callable on root menu.
    * @returns
    */
   @Method()
   async goBack() {
-    if (Boolean(this.parentMenu)) {
+    if (Boolean(this.parentMenu) || this.activeLevel === 0) {
       return;
     }
+
+    const currentlyActiveSubMenu =
+      querySelectorAllDeep<HTMLSwirlMenuElement>(this.el, "swirl-menu").find(
+        (subMenu) => subMenu.level === this.activeLevel && subMenu.active
+      ) || this.rootMenu;
+
+    const deactivatedMenuItem =
+      currentlyActiveSubMenu.parentElement as HTMLSwirlMenuItemElement;
+
+    deactivatedMenuItem.expanded = false;
 
     this.activeLevel = Math.max(this.activeLevel - 1, 0);
 
@@ -111,6 +122,7 @@ export class SwirlMenu {
       "swirl-menu"
     ).filter((subMenu) => subMenu.level > this.activeLevel);
 
+    // disable sub menus of deactivated level(s)
     subMenus.forEach((subMenu) => {
       subMenu.active = false;
     });
@@ -120,16 +132,29 @@ export class SwirlMenu {
         (subMenu) => subMenu.level === this.activeLevel && subMenu.active
       ) || this.rootMenu;
 
-    activatedMenu.focusFirstItem();
+    activatedMenu.focusItemAtIndex(
+      Array.from(deactivatedMenuItem.parentElement.children).indexOf(
+        deactivatedMenuItem
+      )
+    );
   }
 
   /**
-   * Focus the first item of the menu
+   * Focus the first item of the menu.
    * @returns
    */
   @Method()
   async focusFirstItem() {
     this.focusItem(this.items[0]);
+  }
+
+  /**
+   * Focus item at index.
+   * @returns
+   */
+  @Method()
+  async focusItemAtIndex(index: number) {
+    this.focusItem(this.items[index]);
   }
 
   private observeSlotChanges() {
