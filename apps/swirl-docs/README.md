@@ -50,6 +50,27 @@ library that manages its specific data types and business logic. This approach
 enables code reuse across the application, for example the same functions can be
 used to create views and push data into the Algolia index.
 
+## Generated API Documentation based on the API Spec
+
+To generate the API documentation, we use several Libraries within a Builder
+Class called `OasBuilder`. This Builder has two versions. One for the Build &
+Client called `OasBuilder` and one for the setup of the API Spec called
+`OasBuilderSetup`. The `OasBuilderSetup` is only used to generate the navigation
+Items based on the API Spec Files. You can find these under
+`apps/swirl-docs/specs`. This "duplication" was introduced, because the lib we
+are using has some typing problems under certain environments. To avoid these
+problems, we decided to split the Builder into two versions.
+
+### Dive deeper into the libs we use to generate the API Documentation
+
+- [OAS to HAR](https://github.com/readmeio/oas-to-har#readme) - Utility to
+  transform an OAS operation into a HAR representation
+- [oas library from readmeio](https://github.com/readmeio/oas#readme) -
+  Comprehensive tooling for working with OpenAPI definitions
+- [OAS normalize](https://github.com/readmeio/oas-normalize#readme) - Tooling
+  for converting, valiating, and parsing OpenAPI, Swagger, and Postman API
+  definitions
+
 ## Learn More about the Stack
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
@@ -57,3 +78,8 @@ used to create views and push data into the Algolia index.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [Tailwind Core Concepts](https://tailwindcss.com/docs/utility-first)
 - [MDX Docs](https://mdxjs.com/docs/)
+
+## Environment Variables
+
+To see which ENV variables are used in this project, please check the
+[.env.example](.env.example) file.

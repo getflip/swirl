@@ -15,6 +15,18 @@
     url("/fonts/Inter.var.woff2") format("woff2");
 }
 
+@layer components {
+  #__next {
+    @apply h-full grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 72px auto;
+  }
+  html,
+  body {
+    @apply h-full overflow-hidden;
+  }
+}
+
 .ais-SearchBox-submit {
   display: none;
 }

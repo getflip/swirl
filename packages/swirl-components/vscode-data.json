@@ -3960,6 +3960,10 @@
           "description": ""
         },
         {
+          "name": "fullscreen-bottom-sheet",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
@@ -4923,6 +4927,18 @@
             },
             {
               "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "font-family",
+          "description": "",
+          "values": [
+            {
+              "name": "code"
+            },
+            {
+              "name": "text"
             }
           ]
         },

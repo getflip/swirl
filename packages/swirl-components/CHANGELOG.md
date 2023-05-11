@@ -1,5 +1,68 @@
 # @getflip/swirl-components
 
+## 0.54.2
+
+### Patch Changes
+
+- [`746b461`](https://github.com/getflip/swirl/commit/746b46187a03d1d4d1f454c70ed5331e50ed1482)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-table layouting issue
+
+## 0.54.1
+
+### Patch Changes
+
+- [`62b0206`](https://github.com/getflip/swirl/commit/62b0206b255176d9275a2be5346c48c129d61398)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-table layouting
+  flickers
+
+## 0.54.0
+
+### Minor Changes
+
+- [`0e42e5b`](https://github.com/getflip/swirl/commit/0e42e5ba3b1c943e1734e54fef34f3964aa5ada9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "fullscreen-bottom-sheet"
+  prop to swirl-popover
+
+### Patch Changes
+
+- [`b386b6a`](https://github.com/getflip/swirl/commit/b386b6a9cc87382c98af8fefb01e3595fe5caaca)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve swirl-table render
+  performance
+
+* [`ea7bf1b`](https://github.com/getflip/swirl/commit/ea7bf1bc615c79784bbf82928033f2320f52076a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust inactive tab label color
+
+## 0.53.0
+
+### Minor Changes
+
+- [`c102537`](https://github.com/getflip/swirl/commit/c1025377f595c8a3fd9a9686858cdac6d9ff4e87)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "font-family" prop to
+  swirl-text
+
+## 0.52.0
+
+### Minor Changes
+
+- [`4d0fe1f`](https://github.com/getflip/swirl/commit/4d0fe1f1b8882f72679ddb482f24fb0b3b659571)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add content slot to swirl-toast;
+  deprecate "content" prop
+
+## 0.51.0
+
+### Minor Changes
+
+- [`c11c3f4`](https://github.com/getflip/swirl/commit/c11c3f4e789c1b310d1006508b77cde2701babc3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add input event to swirl-search
+
+* [`d5d518a`](https://github.com/getflip/swirl/commit/d5d518aa421b9230c6f36619db24cddb5ef38271)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Replace swirl-pagination select
+  with input field
+
+- [`02614e9`](https://github.com/getflip/swirl/commit/02614e919b97a799a8e81633e4b3d89e4e8b6605)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow HTML inside swirl-toast
+  content
+
 ## 0.50.2
 
 ### Patch Changes

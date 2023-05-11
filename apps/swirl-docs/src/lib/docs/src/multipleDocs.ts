@@ -27,7 +27,7 @@ export function createStaticPathsForSpecs(): GetStaticPathsResult["paths"] {
     .filter((spec) => spec.includes(".yml") || spec.includes(".yaml"))
     .map((spec) => {
       const apiDoc = apiDocsNavItems.find((item) =>
-        item.specPath?.includes(spec)
+        item.specName?.includes(spec)
       );
 
       const apiSpecParam = apiDoc?.url.replace("/api-docs/", "");

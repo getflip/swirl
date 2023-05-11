@@ -13,7 +13,8 @@ export const apiDocsNavItems: NavItem[] = [
 `;
 }
 
-async function generateApiSpecNavItems(specPath: string): Promise<NavItem> {
+async function generateApiSpecNavItems(specName: string): Promise<NavItem> {
+  const specPath = `${API_SPEC_PATH}/${specName}`;
   const oasDocument = await new (OASNormalize as any).default(specPath, {
     enablePaths: true,
   }).validate();
@@ -36,7 +37,7 @@ async function generateApiSpecNavItems(specPath: string): Promise<NavItem> {
     url: `/api-docs/${oasBuilder.path}`,
     isRoot: true,
     children: operationNavItems,
-    specPath: specPath,
+    specName,
   };
 }
 
@@ -46,7 +47,7 @@ async function generateApiSpecNavigation(): Promise<void> {
     .filter((file) => file.includes(".yml"));
 
   const navItems = await Promise.all(
-    specs.map((spec) => generateApiSpecNavItems(`${API_SPEC_PATH}/${spec}`))
+    specs.map((spec) => generateApiSpecNavItems(spec))
   );
 
   const dataString = navItems
