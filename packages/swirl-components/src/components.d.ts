@@ -31,9 +31,10 @@ import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 import { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+import { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
 import { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
 import { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
-import { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
+import { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
 import { Placement } from "@floating-ui/dom";
@@ -83,9 +84,10 @@ export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 export { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+export { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
 export { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
-export { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
+export { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
 export { Placement } from "@floating-ui/dom";
@@ -933,9 +935,17 @@ export namespace Components {
         "mobileBackButtonLabel"?: string;
         "mobileCloseMenuButtonLabel"?: string;
         "mobileDoneButtonLabel"?: string;
+        /**
+          * Update the selection of a menu with variant "selection".
+          * @returns
+         */
+        "updateSelection": (item: HTMLSwirlOptionListItemElement) => Promise<void>;
+        "value"?: string;
+        "variant"?: SwirlMenuVariant;
     }
     interface SwirlMenuItem {
         "description"?: string;
+        "disabled"?: boolean;
         "expanded"?: boolean;
         /**
           * Get the items parent menu
@@ -948,6 +958,7 @@ export namespace Components {
         "icon"?: string;
         "intent"?: SwirlActionListItemIntent1;
         "label": string;
+        "value"?: string;
     }
     /**
      * slot - Modal contents
@@ -993,6 +1004,7 @@ export namespace Components {
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
+        "swirlAriaRole"?: SwirlOptionListItemRole;
         "value": string;
     }
     interface SwirlOptionListSection {
@@ -3666,13 +3678,18 @@ declare namespace LocalJSX {
         "mobileCloseMenuButtonLabel"?: string;
         "mobileDoneButtonLabel"?: string;
         "onDone"?: (event: SwirlMenuCustomEvent<void>) => void;
+        "onValueChange"?: (event: SwirlMenuCustomEvent<string>) => void;
+        "value"?: string;
+        "variant"?: SwirlMenuVariant;
     }
     interface SwirlMenuItem {
         "description"?: string;
+        "disabled"?: boolean;
         "expanded"?: boolean;
         "icon"?: string;
         "intent"?: SwirlActionListItemIntent1;
         "label": string;
+        "value"?: string;
     }
     /**
      * slot - Modal contents
@@ -3721,6 +3738,7 @@ declare namespace LocalJSX {
         "label": string;
         "onToggleDrag"?: (event: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElement>) => void;
         "selected"?: boolean;
+        "swirlAriaRole"?: SwirlOptionListItemRole;
         "value": string;
     }
     interface SwirlOptionListSection {

@@ -3665,6 +3665,22 @@
         {
           "name": "mobile-done-button-label",
           "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "selection"
+            }
+          ]
         }
       ]
     },
@@ -3677,6 +3693,10 @@
       "attributes": [
         {
           "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
           "description": ""
         },
         {
@@ -3701,6 +3721,10 @@
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "value",
           "description": ""
         }
       ]
@@ -3849,6 +3873,18 @@
         {
           "name": "selected",
           "description": ""
+        },
+        {
+          "name": "swirl-aria-role",
+          "description": "",
+          "values": [
+            {
+              "name": "menuitemradio"
+            },
+            {
+              "name": "option"
+            }
+          ]
         },
         {
           "name": "value",

@@ -27,6 +27,8 @@ import {
   querySelectorAllDeep,
 } from "../../utils";
 
+export type SwirlMenuVariant = "action" | "selection";
+
 @Component({
   shadow: true,
   styleUrl: "swirl-menu.css",
@@ -42,11 +44,14 @@ export class SwirlMenu {
   @Prop() mobileBackButtonLabel?: string = "Back";
   @Prop() mobileCloseMenuButtonLabel?: string = "Close menu";
   @Prop() mobileDoneButtonLabel?: string = "Done";
+  @Prop() value?: string;
+  @Prop() variant?: SwirlMenuVariant = "action";
 
   @State() mobile: boolean;
   @State() position: ComputePositionReturn;
 
   @Event() done: EventEmitter<void>;
+  @Event() valueChange: EventEmitter<string>;
 
   private disableAutoUpdate: any;
   private items: HTMLElement[];
@@ -123,6 +128,7 @@ export class SwirlMenu {
 
     subMenus.forEach((subMenu) => {
       subMenu.active = false;
+      (subMenu.parentElement as HTMLSwirlMenuItemElement).expanded = false;
     });
 
     // activate sub menu
@@ -216,6 +222,15 @@ export class SwirlMenu {
     this.focusItem(this.items[index]);
   }
 
+  /**
+   * Update the selection of a menu with variant "selection".
+   * @returns
+   */
+  @Method()
+  async updateSelection(item: HTMLSwirlOptionListItemElement) {
+    this.valueChange.emit(item.value);
+  }
+
   private observeSlotChanges() {
     this.observer = new MutationObserver(() => {
       this.updateItems();
@@ -237,11 +252,12 @@ export class SwirlMenu {
   }
 
   private updateItems() {
-    this.items = querySelectorAllDeep(this.el, '[role="menuitem"]').filter(
-      (item) => {
-        return closestPassShadow(item, "swirl-menu") === this.el;
-      }
-    );
+    this.items = [
+      ...querySelectorAllDeep(this.el, '[role="menuitem"]'),
+      ...querySelectorAllDeep(this.el, '[role="menuitemradio"]'),
+    ].filter((item) => {
+      return closestPassShadow(item, "swirl-menu") === this.el;
+    });
   }
 
   private updateLevel() {
@@ -250,7 +266,10 @@ export class SwirlMenu {
   }
 
   private focusItem(item: HTMLElement) {
-    const items = querySelectorAllDeep(this.parentMenu, '[role="menuitem"]');
+    const items = [
+      ...querySelectorAllDeep(this.parentMenu, '[role="menuitem"]'),
+      ...querySelectorAllDeep(this.parentMenu, '[role="menuitemradio"]'),
+    ];
 
     items.forEach((item) => {
       item.tabIndex = -1;
@@ -283,7 +302,8 @@ export class SwirlMenu {
     return this.items.findIndex(
       (item) =>
         item === activeElement ||
-        item === activeElement?.querySelector('[role="menuitem"]')
+        item === activeElement?.querySelector('[role="menuitem"]') ||
+        item === activeElement?.querySelector('[role="menuitemradio"]')
     );
   }
 
@@ -309,6 +329,7 @@ export class SwirlMenu {
         // disable sub menus
         subMenus.forEach((subMenu) => {
           subMenu.active = false;
+          (subMenu.parentElement as HTMLSwirlMenuItemElement).expanded = false;
         });
       },
       this.mobile ? 200 : 60

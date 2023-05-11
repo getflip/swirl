@@ -32,22 +32,22 @@ const Template = (args) => {
       <swirl-menu label="AI features">
         <swirl-menu-item label="Generate summary"></swirl-menu-item>
         <swirl-menu-item label="Simplify"></swirl-menu-item>
-        <swirl-menu-item label="Check spelling"></swirl-menu-item>
+        <swirl-menu-item disabled label="Check spelling"></swirl-menu-item>
       </swirl-menu>
     </swirl-menu-item>
     <swirl-menu-item icon="<swirl-icon-edit></swirl-icon-edit>" label="Colors">
       <swirl-menu label="Colors menu" selection">
         <swirl-menu-item label="Text color">
-          <swirl-menu label="Text color menu">
-            <swirl-menu-item label="Red"></swirl-menu-item>
-            <swirl-menu-item label="Blue"></swirl-menu-item>
-            <swirl-menu-item label="Green"></swirl-menu-item>
+          <swirl-menu label="Text color menu" value="blue" variant="selection">
+            <swirl-menu-item label="Red" value="red"></swirl-menu-item>
+            <swirl-menu-item label="Blue" value="blue"></swirl-menu-item>
+            <swirl-menu-item label="Green" value="green"></swirl-menu-item>
           </swirl-menu>
         </swirl-menu-item>
         <swirl-menu-item label="Background color">
-          <swirl-menu label="Background color menu">
-            <swirl-menu-item label="Light"></swirl-menu-item>
-            <swirl-menu-item label="Dark"></swirl-menu-item>
+          <swirl-menu label="Background color menu" variant="selection">
+            <swirl-menu-item label="Light" value="light"></swirl-menu-item>
+            <swirl-menu-item label="Dark" value="dark"></swirl-menu-item>
           </swirl-menu>
         </swirl-menu-item>
       </swirl-menu>

@@ -5,3 +5,9 @@
     box-sizing: border-box;
   }
 }
+
+.menu-item--expanded {
+  & ::part(action-list-item) {
+    background-color: var(--s-surface-overlay-hovered);
+  }
+}
