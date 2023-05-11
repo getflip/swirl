@@ -37,16 +37,16 @@ export type SwirlMenuVariant = "action" | "selection";
 export class SwirlMenu {
   @Element() el: HTMLElement;
 
-  @Prop() activeLevel: number = 0;
   @Prop({ mutable: true }) active?: boolean = true;
   @Prop() label!: string;
-  @Prop({ mutable: true }) level: number = 0;
+  @Prop({ mutable: true }) level?: number = 0;
   @Prop() mobileBackButtonLabel?: string = "Back";
   @Prop() mobileCloseMenuButtonLabel?: string = "Close menu";
   @Prop() mobileDoneButtonLabel?: string = "Done";
   @Prop() value?: string;
   @Prop() variant?: SwirlMenuVariant = "action";
 
+  @State() activeLevel: number = 0;
   @State() mobile: boolean;
   @State() position: ComputePositionReturn;
 
@@ -62,6 +62,10 @@ export class SwirlMenu {
   private popover: HTMLSwirlPopoverElement;
   private rootMenu: HTMLSwirlMenuElement;
 
+  componentWillLoad() {
+    this.updateMobileState();
+  }
+
   componentDidLoad() {
     this.mobileMediaQuery.addEventListener?.("change", this.mediaQueryHandler);
     this.parentMenu = closestPassShadow(this.el.parentElement, "swirl-menu");
@@ -75,7 +79,6 @@ export class SwirlMenu {
     this.popover.addEventListener("popoverClose", this.resetMenu);
 
     this.updateLevel();
-    this.updateMobileState();
     this.updateItems();
     this.observeSlotChanges();
   }

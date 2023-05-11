@@ -9,7 +9,6 @@ menu bar. It should be used inside a
 [SwirlPopover component](?path=/docs/components-swirlpopover--swirl-popover).
 Menus can be nested.
 
-- **[Figma Design Specs](#)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-menu)**
 
 ## Usage
@@ -27,16 +26,16 @@ Menus can be nested.
 The component follows the
 [WAI-ARIA Menu and Menubar Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/).
 
-| ARIA                    | Usage                                                                  |
-| ----------------------- | ---------------------------------------------------------------------- |
-| `role="menubar"`        | Set on the outer menu.                                                 |
-| `role="menu"`           | Set on nested menu elements.                                           |
-| `role="menuitem"`       | Set on the menu item elements.                                         |
-| `aria-label`            | Set on the menu bar/menu elements.                                     |
-| `aria-orientation`      | Set to "vertical" on the menu bar/menu elements.                       |
-| `aria-haspopup`         | Set to "menu" on parent menu items.                                    |
-| `aria-expanded`         | Set to "true" on an active parent menu items.                          |
-| `aria-activedescendant` | Set on the menu container pointing to the currently focused menu item. |
+| ARIA                   | Usage                                                                 |
+| ---------------------- | --------------------------------------------------------------------- |
+| `role="menubar"`       | Set on the outer menu.                                                |
+| `role="menu"`          | Set on nested menu elements.                                          |
+| `role="menuitem"`      | Set on the menu item elements.                                        |
+| `role="menuitemradio"` | Set on the menu item elements inside a menu with variant "selection". |
+| `aria-label`           | Set on the menu bar/menu elements.                                    |
+| `aria-orientation`     | Set to "vertical" on the menu bar/menu elements.                      |
+| `aria-haspopup`        | Set to "menu" on parent menu items.                                   |
+| `aria-expanded`        | Set to "true" on an active parent menu items.                         |
 
 ### Keyboard
 
@@ -48,6 +47,4 @@ The component follows the
 | <kbd>ARROW UP</kbd>                    | Move focus to the previous menu item.                                                                                                                                                                       |
 | <kbd>ARROW RIGHT</kbd>                 | Activate the sub menu and focus the first menu item.                                                                                                                                                        |
 | <kbd>ARROW LEFT</kbd>                  | Close currently active sub menu and focus the parent menu item.                                                                                                                                             |
-| <kbd>HOME</kbd>                        | Move focus to the first menu item.                                                                                                                                                                          |
-| <kbd>END</kbd>                         | Move focus to the last menu item.                                                                                                                                                                           |
-| <kbd>ESCAPE</kbd>                      | Close the currently active (sub) menu, returning focus to the parent menu item.                                                                                                                             |
+| <kbd>ESCAPE</kbd>                      | Close the menu.                                                                                                                                                                                             |

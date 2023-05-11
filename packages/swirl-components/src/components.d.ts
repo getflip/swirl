@@ -909,7 +909,6 @@ export namespace Components {
          */
         "activateMenuItem": (menuItem: HTMLSwirlMenuItemElement) => Promise<void>;
         "active"?: boolean;
-        "activeLevel": number;
         /**
           * Close and reset the menu. Only callable on a root menu.
           * @returns
@@ -931,7 +930,7 @@ export namespace Components {
          */
         "goBack": () => Promise<void>;
         "label": string;
-        "level": number;
+        "level"?: number;
         "mobileBackButtonLabel"?: string;
         "mobileCloseMenuButtonLabel"?: string;
         "mobileDoneButtonLabel"?: string;
@@ -3671,7 +3670,6 @@ declare namespace LocalJSX {
     }
     interface SwirlMenu {
         "active"?: boolean;
-        "activeLevel"?: number;
         "label": string;
         "level"?: number;
         "mobileBackButtonLabel"?: string;
