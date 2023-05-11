@@ -6,6 +6,7 @@ export default {
     disableScrollLock: {
       description:
         "You should disable the scroll lock for popovers inside modals and dialogs.",
+      name: "disable-scroll-lock",
     },
     offset: {
       description:
@@ -23,6 +24,7 @@ export default {
       control: {
         type: "boolean",
       },
+      name: "use-container-width",
     },
   },
   component: "swirl-popover",

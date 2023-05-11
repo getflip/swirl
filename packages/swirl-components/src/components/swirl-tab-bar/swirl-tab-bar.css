@@ -23,6 +23,7 @@
   margin: 0;
   padding: var(--s-space-4) var(--s-space-8);
   border: none;
+  color: var(--s-interactive-neutral-default);
   background-color: transparent;
   font: inherit;
   font-weight: var(--s-font-weight-medium);

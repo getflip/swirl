@@ -3960,6 +3960,10 @@
           "description": ""
         },
         {
+          "name": "fullscreen-bottom-sheet",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },

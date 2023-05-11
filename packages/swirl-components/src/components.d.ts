@@ -996,6 +996,7 @@ export namespace Components {
         "close": () => Promise<void>;
         "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
+        "fullscreenBottomSheet"?: boolean;
         "label": string;
         "maxHeight"?: string;
         "offset"?: number | number[];
@@ -3676,6 +3677,7 @@ declare namespace LocalJSX {
         "animation"?: SwirlPopoverAnimation;
         "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
+        "fullscreenBottomSheet"?: boolean;
         "label": string;
         "maxHeight"?: string;
         "offset"?: number | number[];

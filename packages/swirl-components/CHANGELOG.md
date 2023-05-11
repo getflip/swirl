@@ -1,5 +1,37 @@
 # @getflip/swirl-components
 
+## 0.54.2
+
+### Patch Changes
+
+- [`746b461`](https://github.com/getflip/swirl/commit/746b46187a03d1d4d1f454c70ed5331e50ed1482)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-table layouting issue
+
+## 0.54.1
+
+### Patch Changes
+
+- [`62b0206`](https://github.com/getflip/swirl/commit/62b0206b255176d9275a2be5346c48c129d61398)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-table layouting
+  flickers
+
+## 0.54.0
+
+### Minor Changes
+
+- [`0e42e5b`](https://github.com/getflip/swirl/commit/0e42e5ba3b1c943e1734e54fef34f3964aa5ada9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "fullscreen-bottom-sheet"
+  prop to swirl-popover
+
+### Patch Changes
+
+- [`b386b6a`](https://github.com/getflip/swirl/commit/b386b6a9cc87382c98af8fefb01e3595fe5caaca)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve swirl-table render
+  performance
+
+* [`ea7bf1b`](https://github.com/getflip/swirl/commit/ea7bf1bc615c79784bbf82928033f2320f52076a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust inactive tab label color
+
 ## 0.53.0
 
 ### Minor Changes

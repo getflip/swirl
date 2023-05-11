@@ -26,6 +26,7 @@ module.exports = {
     extend: {
       ...SwirlTailwindTheme,
       gridTemplateColumns: {
+        "documentation-layout": " 320px minmax(0, 1fr)",
         "fill-rows": "repeat(auto-fill, 10rem)",
         "icon-grid": "1fr 280px",
         "icon-grid-4xl": "repeat(6, 1fr)",

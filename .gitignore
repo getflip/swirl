@@ -150,7 +150,3 @@ dist
 
 # Angular
 **/.angular/cache
-
-
-# swirl-docs generated files
-apps/swirl-docs/src/lib/navigation/src/data/apiDocs.data.ts
