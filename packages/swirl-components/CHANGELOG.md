@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.54.1
+
+### Patch Changes
+
+- [`62b0206`](https://github.com/getflip/swirl/commit/62b0206b255176d9275a2be5346c48c129d61398)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-table layouting
+  flickers
+
 ## 0.54.0
 
 ### Minor Changes
