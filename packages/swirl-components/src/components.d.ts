@@ -933,6 +933,7 @@ export namespace Components {
         "mobileDoneButtonLabel"?: string;
     }
     interface SwirlMenuItem {
+        "description"?: string;
         "expanded"?: boolean;
         /**
           * Get the items parent menu
@@ -3663,6 +3664,7 @@ declare namespace LocalJSX {
         "onDone"?: (event: SwirlMenuCustomEvent<void>) => void;
     }
     interface SwirlMenuItem {
+        "description"?: string;
         "expanded"?: boolean;
         "label": string;
     }

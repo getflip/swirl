@@ -18,7 +18,9 @@ import { closestPassShadow, parentsPassShadow } from "../../utils";
 export class SwirlMenuItem {
   @Element() el: HTMLSwirlMenuItemElement;
 
+  @Prop() description?: string;
   @Prop() expanded?: boolean;
+  @Prop() icon?: string;
   @Prop() label!: string;
 
   @State() subMenu?: HTMLSwirlMenuElement;
@@ -79,6 +81,8 @@ export class SwirlMenuItem {
       <Host>
         <div class="menu-item">
           <swirl-action-list-item
+            description={this.description}
+            icon={this.icon}
             label={this.label}
             onClick={this.onClick}
             ref={(el) => (this.actionListItem = el)}
