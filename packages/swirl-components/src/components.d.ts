@@ -31,6 +31,7 @@ import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 import { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+import { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
 import { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 import { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
@@ -82,6 +83,7 @@ export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 export { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+export { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 export { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
@@ -944,6 +946,7 @@ export namespace Components {
          */
         "getSubMenu": () => Promise<HTMLSwirlMenuElement>;
         "icon"?: string;
+        "intent"?: SwirlActionListItemIntent1;
         "label": string;
     }
     /**
@@ -3668,6 +3671,7 @@ declare namespace LocalJSX {
         "description"?: string;
         "expanded"?: boolean;
         "icon"?: string;
+        "intent"?: SwirlActionListItemIntent1;
         "label": string;
     }
     /**

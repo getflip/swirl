@@ -26,29 +26,28 @@ const Template = (args) => {
   popover.trigger = "trigger";
 
   element.innerHTML = `
-    <swirl-menu-item label="1"></swirl-menu-item>
-    <swirl-menu-item label="2">
-      <swirl-menu label="Sub menu of 2">
-        <swirl-menu-item label="3"></swirl-menu-item>
-        <swirl-menu-item label="4">
-          <swirl-menu label="Sub sub menu of 2">
-            <swirl-menu-item label="5"></swirl-menu-item>
-          </swirl-menu>
-        </swirl-menu-item>
-        <swirl-menu-item label="6"></swirl-menu-item>
+    <swirl-menu-item icon="<swirl-icon-copy></swirl-icon-copy>" label="Duplicate"></swirl-menu-item>
+    <swirl-menu-item icon="<swirl-icon-delete></swirl-icon-delete>" intent="critical" label="Delete"></swirl-menu-item>
+    <swirl-menu-item icon="<swirl-icon-ai></swirl-icon-ai>" label="AI features">
+      <swirl-menu label="AI features">
+        <swirl-menu-item label="Generate summary"></swirl-menu-item>
+        <swirl-menu-item label="Simplify"></swirl-menu-item>
+        <swirl-menu-item label="Check spelling"></swirl-menu-item>
       </swirl-menu>
     </swirl-menu-item>
-    <swirl-menu-item label="7">
-      <swirl-menu label="Sub menu of 7">
-        <swirl-menu-item label="8"></swirl-menu-item>
-        <swirl-menu-item label="9">
-          <swirl-menu label="Sub sub menu of 7">
-            <swirl-menu-item label="10"></swirl-menu-item>
+    <swirl-menu-item icon="<swirl-icon-edit></swirl-icon-edit>" label="Colors">
+      <swirl-menu label="Colors menu" selection">
+        <swirl-menu-item label="Text color">
+          <swirl-menu label="Text color menu">
+            <swirl-menu-item label="Red"></swirl-menu-item>
+            <swirl-menu-item label="Blue"></swirl-menu-item>
+            <swirl-menu-item label="Green"></swirl-menu-item>
           </swirl-menu>
         </swirl-menu-item>
-        <swirl-menu-item label="11">
-          <swirl-menu label="Sub sub menu of 7">
-            <swirl-menu-item label="12"></swirl-menu-item>
+        <swirl-menu-item label="Background color">
+          <swirl-menu label="Background color menu">
+            <swirl-menu-item label="Light"></swirl-menu-item>
+            <swirl-menu-item label="Dark"></swirl-menu-item>
           </swirl-menu>
         </swirl-menu-item>
       </swirl-menu>

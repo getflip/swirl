@@ -9,6 +9,7 @@ import {
   Watch,
 } from "@stencil/core";
 import { closestPassShadow, parentsPassShadow } from "../../utils";
+import { SwirlActionListItemIntent } from "../swirl-action-list-item/swirl-action-list-item";
 
 @Component({
   shadow: true,
@@ -21,6 +22,7 @@ export class SwirlMenuItem {
   @Prop() description?: string;
   @Prop() expanded?: boolean;
   @Prop() icon?: string;
+  @Prop() intent?: SwirlActionListItemIntent = "default";
   @Prop() label!: string;
 
   @State() subMenu?: HTMLSwirlMenuElement;
@@ -83,6 +85,7 @@ export class SwirlMenuItem {
           <swirl-action-list-item
             description={this.description}
             icon={this.icon}
+            intent={this.intent}
             label={this.label}
             onClick={this.onClick}
             ref={(el) => (this.actionListItem = el)}
