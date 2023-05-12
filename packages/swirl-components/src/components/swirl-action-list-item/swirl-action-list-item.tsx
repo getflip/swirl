@@ -12,6 +12,7 @@ export type SwirlActionListItemSize = "m" | "l";
   tag: "swirl-action-list-item",
 })
 export class SwirlActionListItem {
+  @Prop() badge?: string;
   @Prop() disabled?: boolean;
   @Prop() description?: string;
   @Prop() icon?: string;
@@ -59,6 +60,7 @@ export class SwirlActionListItem {
   }
 
   render() {
+    const showBadge = Boolean(this.badge);
     const showSuffix = Boolean(this.suffix) && !this.disabled;
 
     const className = classnames(
@@ -94,6 +96,9 @@ export class SwirlActionListItem {
               </span>
             )}
           </span>
+          {showBadge && (
+            <span class="action-list-item__badge" innerHTML={this.badge}></span>
+          )}
           {showSuffix && (
             <span
               class="action-list-item__suffix"

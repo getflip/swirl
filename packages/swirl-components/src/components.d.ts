@@ -117,6 +117,7 @@ export namespace Components {
     interface SwirlActionList {
     }
     interface SwirlActionListItem {
+        "badge"?: string;
         "description"?: string;
         "disabled"?: boolean;
         "icon"?: string;
@@ -2951,6 +2952,7 @@ declare namespace LocalJSX {
     interface SwirlActionList {
     }
     interface SwirlActionListItem {
+        "badge"?: string;
         "description"?: string;
         "disabled"?: boolean;
         "icon"?: string;

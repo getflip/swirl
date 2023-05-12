@@ -25,6 +25,10 @@
       },
       "attributes": [
         {
+          "name": "badge",
+          "description": ""
+        },
+        {
           "name": "description",
           "description": ""
         },

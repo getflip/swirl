@@ -126,8 +126,15 @@ export class SwirlMenuItem {
   };
 
   private renderActionListItem() {
+    const badge = Boolean(this.subMenu?.value)
+      ? Array.from(
+          this.subMenu?.querySelectorAll("swirl-menu-item") || []
+        ).find((item) => item.value === this.subMenu?.value)?.label
+      : undefined;
+
     return (
       <swirl-action-list-item
+        badge={badge}
         description={this.description}
         disabled={this.disabled}
         icon={this.icon}
