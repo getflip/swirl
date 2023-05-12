@@ -8,6 +8,7 @@ export default {
       page: Docs,
     },
   },
+  tags: ["autodocs"],
   title: "Components/SwirlMenu",
 };
 

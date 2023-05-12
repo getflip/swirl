@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-menu-item.stories";
 
 <Meta title="Components/SwirlMenuItem" />
 
@@ -11,11 +12,9 @@ The SwirlMenuItem component is used to provider user actions inside a
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlmenuitem--swirl-menu-item" />
-</Canvas>
+<Canvas of={Stories.SwirlMenuItem} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlMenuItem} />
 
 ## Accessibility
 

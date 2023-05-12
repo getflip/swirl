@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-menu.stories";
 
 <Meta title="Components/SwirlMenu" />
 
@@ -13,11 +14,9 @@ Menus can be nested.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlmenu--swirl-menu" />
-</Canvas>
+<Canvas of={Stories.SwirlMenu} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlMenu} />
 
 ## Accessibility
 
