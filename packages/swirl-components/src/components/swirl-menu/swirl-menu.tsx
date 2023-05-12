@@ -63,6 +63,9 @@ export class SwirlMenu {
 
   componentWillLoad() {
     this.updateMobileState();
+    this.updateLevel();
+    this.updateItems();
+    this.observeSlotChanges();
   }
 
   componentDidLoad() {
@@ -72,14 +75,12 @@ export class SwirlMenu {
     this.rootMenu = parentsPassShadow(this.el, "swirl-menu").pop();
 
     if (Boolean(this.parentMenu)) {
-      this.active = false;
+      queueMicrotask(() => {
+        this.active = false;
+      });
     }
 
     this.popover.addEventListener("popoverClose", this.resetMenu);
-
-    this.updateLevel();
-    this.updateItems();
-    this.observeSlotChanges();
   }
 
   disconnectedCallback() {
@@ -276,6 +277,10 @@ export class SwirlMenu {
     items.forEach((item) => {
       item.tabIndex = -1;
     });
+
+    if (!Boolean(item)) {
+      return;
+    }
 
     item.tabIndex = 0;
     item.focus();

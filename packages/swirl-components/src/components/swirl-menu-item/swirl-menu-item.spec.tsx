@@ -19,10 +19,11 @@ describe("swirl-menu-item", () => {
       components: [SwirlPopover, SwirlMenu, SwirlMenuItem],
       html: `
         <swirl-popover label="Menu" trigger="trigger">
-          <swirl-menu label="Menu" expanded>
+          <swirl-menu label="Menu">
             <swirl-menu-item label="Item"></swirl-menu-item>
           </swirl-menu>
-        </swirl-popover>`,
+        </swirl-popover>
+      `,
     });
 
     expect(page.root.querySelector("swirl-menu-item")).toEqualHtml(`

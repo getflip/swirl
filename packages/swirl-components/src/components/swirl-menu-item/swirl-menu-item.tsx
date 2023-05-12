@@ -38,6 +38,7 @@ export class SwirlMenuItem {
   componentWillLoad() {
     this.parentMenu = closestPassShadow(this.el, "swirl-menu");
     this.rootMenu = parentsPassShadow(this.el, "swirl-menu").pop();
+    this.subMenu = this.el.querySelector("swirl-menu");
   }
 
   @Watch("expanded")
@@ -98,8 +99,22 @@ export class SwirlMenuItem {
     this.parentMenu.updateSelection(this.optionListItem);
   };
 
+  private onOptionListItemKeyDown = (event: KeyboardEvent) => {
+    if (event.code === "Space") {
+      event.preventDefault();
+    } else if (event.code === "Enter") {
+      if (this.optionListItem.disabled) {
+        return;
+      }
+
+      event.preventDefault();
+
+      this.parentMenu.updateSelection(this.optionListItem);
+    }
+  };
+
   private onOptionListItemKeyUp = (event: KeyboardEvent) => {
-    if (event.code === "Space" || event.code === "Enter") {
+    if (event.code === "Space") {
       if (this.optionListItem.disabled) {
         return;
       }
@@ -131,6 +146,7 @@ export class SwirlMenuItem {
         icon={this.icon}
         label={this.label}
         onClick={this.onOptionListItemClick}
+        onKeyDown={this.onOptionListItemKeyDown}
         onKeyUp={this.onOptionListItemKeyUp}
         ref={(el) => (this.optionListItem = el)}
         selected={this.parentMenu?.value === this.value}
