@@ -3,6 +3,7 @@ import Docs from "./swirl-video-thumbnail.mdx";
 
 export default {
   component: "swirl-video-thumbnail",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

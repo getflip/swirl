@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-tabs.stories";
 
 <Meta title="Components/SwirlTabs" />
 
@@ -12,11 +13,9 @@ panels.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirltabs--swirl-tabs" />
-</Canvas>
+<Canvas of={Stories.SwirlTabs} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlTabs} />
 
 ## Accessibility
 

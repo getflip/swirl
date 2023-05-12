@@ -13,6 +13,7 @@ export default {
     },
   },
   component: "swirl-tree-navigation-item",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

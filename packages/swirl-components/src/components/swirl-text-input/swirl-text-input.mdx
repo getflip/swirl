@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-text-input.stories";
 
 <Meta title="Components/SwirlTextInput" />
 
@@ -13,11 +14,9 @@ of various types. It should always be used in combination with the
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirltextinput--swirl-text-input" />
-</Canvas>
+<Canvas of={Stories.SwirlTextInput} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlTextInput} />
 
 ## Theming
 

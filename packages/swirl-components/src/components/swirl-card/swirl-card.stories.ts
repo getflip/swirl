@@ -8,6 +8,7 @@ export default {
     },
   },
   component: "swirl-card",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

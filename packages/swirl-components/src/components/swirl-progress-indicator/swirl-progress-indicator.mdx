@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-progress-indicator.stories";
 
 <Meta title="Components/SwirlProgressIndicator" />
 
@@ -12,11 +13,9 @@ running task.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlprogressindicator--swirl-progress-indicator" />
-</Canvas>
+<Canvas of={Stories.SwirlProgressIndicator} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlProgressIndicator} />
 
 ## Theming
 

@@ -40,7 +40,6 @@ export const parameters = {
     },
     target: "root",
   },
-  viewMode: "docs",
   viewport: {
     viewports: {
       smallMobile: {

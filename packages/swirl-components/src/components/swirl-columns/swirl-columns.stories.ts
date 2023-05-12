@@ -3,6 +3,7 @@ import Docs from "./swirl-columns.mdx";
 
 export default {
   component: "swirl-columns",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

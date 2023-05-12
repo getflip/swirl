@@ -8,6 +8,7 @@ import {
 } from "./templates.mjs";
 
 import Handlebars from "handlebars";
+import handlebarsHelpers from "handlebars-helpers";
 
 import { execSync } from "child_process";
 import { readdirSync, readFileSync, writeFileSync } from "fs";
@@ -20,6 +21,8 @@ export default function (
   plop.setHelper("camelCase", (txt) =>
     txt.replace(/-./g, (x) => x[1].toUpperCase())
   );
+
+  plop.setHelper("append", handlebarsHelpers().append);
 
   plop.setGenerator("component", {
     description: "Generate a new web component",

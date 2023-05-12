@@ -13,6 +13,7 @@ export default {
     },
   },
   component: "swirl-chip",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

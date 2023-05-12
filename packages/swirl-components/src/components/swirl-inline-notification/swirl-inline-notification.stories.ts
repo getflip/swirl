@@ -3,6 +3,7 @@ import Docs from "./swirl-inline-notification.mdx";
 
 export default {
   component: "swirl-inline-notification",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

@@ -1,4 +1,5 @@
-import { ArgsTable, Meta } from "@storybook/addon-docs";
+import { Controls, Meta } from "@storybook/addon-docs";
+import * as Stories from "./swirl-app-layout.stories";
 
 <Meta title="Components/SwirlAppLayout" />
 
@@ -7,7 +8,6 @@ import { ArgsTable, Meta } from "@storybook/addon-docs";
 The SwirlAppLayout component provides a basic layout used by app integrations to
 arrange content on the screen.
 
-- **[Figma Design Specs](#)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-app-layout)**
 
 ## Usage
@@ -16,7 +16,7 @@ Please use the
 [canvas view](?path=/story/components-swirlapplayout--swirl-app-layout) to
 preview this component.
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlAppLayout} />
 
 ## Theming
 

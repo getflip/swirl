@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-tab-bar.stories";
 
 <Meta title="Components/SwirlTabBar" />
 
@@ -15,11 +16,9 @@ to implement your own tab handling.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirltabbar--swirl-tab-bar" />
-</Canvas>
+<Canvas of={Stories.SwirlTabBar} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlTabBar} />
 
 ## Theming
 

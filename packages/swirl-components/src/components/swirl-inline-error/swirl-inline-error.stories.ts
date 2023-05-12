@@ -3,6 +3,7 @@ import Docs from "./swirl-inline-error.mdx";
 
 export default {
   component: "swirl-inline-error",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

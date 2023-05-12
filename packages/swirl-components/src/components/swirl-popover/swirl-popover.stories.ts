@@ -28,6 +28,7 @@ export default {
     },
   },
   component: "swirl-popover",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

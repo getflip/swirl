@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-table-column.stories";
 
 <Meta title="Components/SwirlTableColumn" />
 
@@ -12,11 +13,9 @@ The SwirlTableColumn component is used to display a column inside a
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirltablecolumn--swirl-table-column" />
-</Canvas>
+<Canvas of={Stories.SwirlTableColumn} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlTableColumn} />
 
 ## Theming
 

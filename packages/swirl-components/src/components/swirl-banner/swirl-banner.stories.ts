@@ -3,6 +3,7 @@ import Docs from "./swirl-banner.mdx";
 
 export default {
   component: "swirl-banner",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

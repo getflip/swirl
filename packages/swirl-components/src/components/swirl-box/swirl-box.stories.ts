@@ -3,6 +3,7 @@ import Docs from "./swirl-box.mdx";
 
 export default {
   component: "swirl-box",
+  tags: ["autodocs"],
   decorators: [
     (story) => {
       const container = document.createElement("div");
