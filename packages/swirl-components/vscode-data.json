@@ -5088,6 +5088,10 @@
           "description": ""
         },
         {
+          "name": "placeholder",
+          "description": ""
+        },
+        {
           "name": "prefix-label",
           "description": ""
         },

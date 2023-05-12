@@ -1210,6 +1210,7 @@ export namespace Components {
         "min"?: number;
         "mode"?: SwirlTextInputMode1;
         "passwordToggleLabel"?: string;
+        "placeholder"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
         "rows"?: number;
@@ -3888,6 +3889,7 @@ declare namespace LocalJSX {
         "onInputFocus"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlTextInputCustomEvent<string>) => void;
         "passwordToggleLabel"?: string;
+        "placeholder"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
         "rows"?: number;

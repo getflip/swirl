@@ -21,7 +21,7 @@
     }
   }
 
-  &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select) {
+  &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select):not(.form-control--has-placeholder) {
     & .form-control__input {
       overflow: hidden;
       max-height: 0;
@@ -64,6 +64,12 @@
 .form-control--label-position-outside {
   padding-top: calc(var(--s-line-height-sm) + var(--s-space-4));
 
+  &:not(.form-control--is-select) {
+    & .form-control__label {
+      cursor: text;
+    }
+  }
+
   & .form-control__label {
     min-height: calc(2.375rem + 2 * var(--s-border-width-default));
     padding: var(--s-space-8) var(--s-space-12);
@@ -75,7 +81,7 @@
   }
 
   & .form-control__label-text,
-  &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select)
+  &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select):not(.form-control--has-placeholder)
     .form-control__label-text,
   &:not(.form-control--has-value).form-control--is-select
     .form-control__label-text {
@@ -86,6 +92,20 @@
     font-weight: var(--s-font-weight-medium);
     transform: none;
     opacity: 1;
+  }
+
+  &.form-control--disabled {
+    & .form-control__label-text,
+    &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select):not(.form-control--has-placeholder)
+      .form-control__label-text,
+    &:not(.form-control--has-value).form-control--is-select
+      .form-control__label-text {
+      color: var(--s-text-disabled);
+    }
+  }
+
+  &.form-control--has-character-counter .form-control__description {
+    max-width: calc(100% - 6rem);
   }
 }
 
@@ -124,11 +144,15 @@
     }
   }
 
-  & .form-control__label-text {
+  &:not(.form-control--has-placeholder) .form-control__label-text {
     right: var(--s-space-12);
     left: var(--s-space-12);
     transition: none;
     opacity: 0;
+  }
+
+  &.form-control--has-character-counter .form-control__description {
+    max-width: calc(100% - 6rem);
   }
 }
 
