@@ -4,7 +4,6 @@ import {
   ComputePositionReturn,
   flip,
   offset,
-  shift,
 } from "@floating-ui/dom";
 import {
   Component,
@@ -363,7 +362,7 @@ export class SwirlMenu {
     this.position = await computePosition(trigger, this.menuContainer, {
       placement: "right-start",
       strategy: "fixed",
-      middleware: [offset({ mainAxis: -10, crossAxis: 0 }), shift(), flip()],
+      middleware: [offset({ mainAxis: -10, crossAxis: 0 }), flip()],
     });
   };
 
