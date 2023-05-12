@@ -3,6 +3,7 @@ import Docs from "./swirl-shell-layout.mdx";
 
 export default {
   component: "swirl-shell-layout",
+  tags: ["autodocs"],
   decorators: [fullscreenStoryDecorator(false)],
   parameters: {
     docs: {

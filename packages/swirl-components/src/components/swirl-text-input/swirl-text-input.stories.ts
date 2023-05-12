@@ -3,6 +3,7 @@ import Docs from "./swirl-text-input.mdx";
 
 export default {
   component: "swirl-text-input",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

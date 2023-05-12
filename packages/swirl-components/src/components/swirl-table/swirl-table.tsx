@@ -54,11 +54,15 @@ export class SwirlTable {
     this.triggerRerender();
   }
 
-  private triggerRerender = debounce(async () => {
-    await this.updateLayout();
-    this.updateScrolledState();
-    this.updateEmptyState();
-  }, 60);
+  private triggerRerender = debounce(
+    async () => {
+      await this.updateLayout();
+      this.updateScrolledState();
+      this.updateEmptyState();
+    },
+    0,
+    true
+  );
 
   private resetEmptyRowStyles() {
     const emptyRow =

@@ -9,6 +9,7 @@ export default {
     },
   },
   component: "swirl-checkbox",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

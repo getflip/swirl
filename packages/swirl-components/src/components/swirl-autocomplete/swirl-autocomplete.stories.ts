@@ -4,6 +4,7 @@ import Docs from "./swirl-autocomplete.mdx";
 
 export default {
   component: "swirl-autocomplete",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

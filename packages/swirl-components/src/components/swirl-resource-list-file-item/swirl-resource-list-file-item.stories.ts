@@ -13,6 +13,7 @@ export default {
     },
   },
   component: "swirl-resource-list-file-item",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

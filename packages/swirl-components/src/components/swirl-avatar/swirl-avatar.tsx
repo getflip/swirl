@@ -164,7 +164,6 @@ export class SwirlAvatar {
             ></span>
           )}
         </span>
-
         {this.showLabel && (
           <span aria-hidden class="avatar__label">
             {this.label}

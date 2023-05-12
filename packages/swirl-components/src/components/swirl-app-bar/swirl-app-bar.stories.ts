@@ -3,6 +3,7 @@ import Docs from "./swirl-app-bar.mdx";
 
 export default {
   component: "swirl-app-bar",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

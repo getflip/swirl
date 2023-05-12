@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": patch
 ---
 
-Adjust inactive tab label color
+Fix a focus issue of swirl-option-list

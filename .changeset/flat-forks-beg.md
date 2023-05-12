@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": minor
 ---
 
-Add "fullscreen-bottom-sheet" prop to swirl-popover
+Tweak swirl-form-control styles for label position "outside"

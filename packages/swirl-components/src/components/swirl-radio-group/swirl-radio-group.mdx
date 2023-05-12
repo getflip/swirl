@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-radio-group.stories";
 
 <Meta title="Components/SwirlRadioGroup" />
 
@@ -10,11 +11,9 @@ The SwirlRadioGroup component is used to wrap multiple FlipRadio components.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlradiogroup--swirl-radio-group" />
-</Canvas>
+<Canvas of={Stories.SwirlRadioGroup} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlRadioGroup} />
 
 ## Accessibility
 

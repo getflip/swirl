@@ -95,7 +95,11 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.syncItemsWithValue();
   }
 
-  private onFocus = async () => {
+  private onFocus = async (event: FocusEvent) => {
+    if (this.listboxEl.contains(event.relatedTarget as Element)) {
+      return;
+    }
+
     // prevent focus from canceling the drag event in Safari
     await new Promise((resolve) => setTimeout(resolve));
 

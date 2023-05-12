@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-inline-error.stories";
 
 <Meta title="Components/SwirlInlineError" />
 
@@ -12,11 +13,9 @@ form input.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlinlineerror--swirl-inline-error" />
-</Canvas>
+<Canvas of={Stories.SwirlInlineError} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlInlineError} />
 
 ## Theming
 

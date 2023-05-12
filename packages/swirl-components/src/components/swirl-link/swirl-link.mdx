@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-link.stories";
 
 <Meta title="Components/SwirlLink" />
 
@@ -11,11 +12,9 @@ The SwirlLink component is used to navigate to another page.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirllink--swirl-link" />
-</Canvas>
+<Canvas of={Stories.SwirlLink} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlLink} />
 
 ## Theming
 

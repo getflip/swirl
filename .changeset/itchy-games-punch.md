@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": patch
 ---
 
-Improve swirl-table render performance
+Fix an issue preventing popovers to open correctly in Safari

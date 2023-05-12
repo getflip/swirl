@@ -4,6 +4,7 @@ import Docs from "./swirl-tooltip.mdx";
 
 export default {
   component: "swirl-tooltip",
+  tags: ["autodocs"],
   decorators: [
     (story) => {
       const container = document.createElement("div");

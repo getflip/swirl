@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-form-group.stories";
 
 <Meta title="Components/SwirlFormGroup" />
 
@@ -12,8 +13,6 @@ The SwirlFormGroup component is used to arrange multiple
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlformgroup--swirl-form-group" />
-</Canvas>
+<Canvas of={Stories.SwirlFormGroup} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlFormGroup} />

@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-skeleton-box.stories";
 
 <Meta title="Components/SwirlSkeletonBox" />
 
@@ -12,11 +13,9 @@ of components before they are loaded.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlskeletonbox--swirl-skeleton-box" />
-</Canvas>
+<Canvas of={Stories.SwirlSkeletonBox} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlSkeletonBox} />
 
 ## Theming
 

@@ -16,6 +16,7 @@ export default {
     },
   },
   component: "swirl-toast",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

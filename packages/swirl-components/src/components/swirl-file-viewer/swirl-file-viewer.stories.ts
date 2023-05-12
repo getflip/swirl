@@ -15,6 +15,7 @@ export default {
     },
   },
   component: "swirl-file-viewer",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

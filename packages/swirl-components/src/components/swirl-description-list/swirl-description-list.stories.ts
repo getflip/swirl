@@ -3,6 +3,7 @@ import Docs from "./swirl-description-list.mdx";
 
 export default {
   component: "swirl-description-list",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

@@ -3,6 +3,7 @@ import Docs from "./swirl-app-icon.mdx";
 
 export default {
   component: "swirl-app-icon",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

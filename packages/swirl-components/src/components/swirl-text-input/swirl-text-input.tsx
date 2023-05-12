@@ -62,6 +62,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() max?: number;
   @Prop() min?: number;
   @Prop() mode?: SwirlTextInputMode;
+  @Prop() placeholder?: string;
   @Prop() prefixLabel?: string;
   @Prop() required?: boolean;
   @Prop() rows?: number = 1;
@@ -122,7 +123,11 @@ export class SwirlTextInput implements SwirlFormInput {
       this.inputEl.style.height = "";
       this.inputEl.style.width = "";
 
-      if (this.type !== "password" && !this.disableDynamicWidth) {
+      if (
+        this.type !== "password" &&
+        !this.disableDynamicWidth &&
+        !Boolean(this.placeholder)
+      ) {
         this.inputEl.style.width = this.inputEl.scrollWidth / 16 + "rem";
       }
     }
@@ -243,7 +248,9 @@ export class SwirlTextInput implements SwirlFormInput {
         "text-input--auto-grow": this.autoGrow,
         "text-input--clearable": this.clearable,
         "text-input--disabled": this.disabled,
-        "text-input--disable-dynamic-width": this.disableDynamicWidth,
+        "text-input--disable-dynamic-width":
+          this.disableDynamicWidth || Boolean(this.placeholder),
+        "text-input--has-suffix": Boolean(this.suffixLabel),
         "text-input--inline": this.inline,
         "text-input--show-password":
           this.type === "password" && this.showPassword,
@@ -275,6 +282,9 @@ export class SwirlTextInput implements SwirlFormInput {
             onFocus={this.onFocus}
             onInput={this.onInput}
             onKeyPress={this.onKeyPress}
+            placeholder={
+              !Boolean(this.suffixLabel) ? this.placeholder : undefined
+            }
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             role={this.swirlRole}

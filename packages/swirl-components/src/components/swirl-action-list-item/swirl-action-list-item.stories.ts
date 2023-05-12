@@ -3,6 +3,7 @@ import Docs from "./swirl-action-list-item.mdx";
 
 export default {
   component: "swirl-action-list-item",
+  tags: ["autodocs"],
   decorators: [
     (story) => {
       const container = document.createElement("div");

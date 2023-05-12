@@ -3,6 +3,7 @@ import Docs from "./swirl-console-layout.mdx";
 
 export default {
   component: "swirl-console-layout",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
