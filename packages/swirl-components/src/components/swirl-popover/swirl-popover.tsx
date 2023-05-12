@@ -81,6 +81,7 @@ export class SwirlPopover {
       return;
     }
 
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     const target = event.target as HTMLElement;
     const relatedTarget = event.relatedTarget as HTMLElement;
     const activeElement = getActiveElement();
@@ -88,9 +89,11 @@ export class SwirlPopover {
     const popoverLostFocus =
       !this.el.contains(target) &&
       !this.el.contains(activeElement) &&
-      !this.el.contains(relatedTarget || target) &&
       target !== this.triggerEl &&
-      relatedTarget !== this.el;
+      (!isSafari ||
+        (isSafari &&
+          !this.el.contains(relatedTarget || target) &&
+          relatedTarget !== this.el));
 
     if (popoverLostFocus) {
       this.close();

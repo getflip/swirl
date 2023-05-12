@@ -64,7 +64,6 @@ export class SwirlMenu {
   componentWillLoad() {
     this.updateMobileState();
     this.updateLevel();
-    this.updateItems();
     this.observeSlotChanges();
   }
 
@@ -81,6 +80,8 @@ export class SwirlMenu {
     }
 
     this.popover.addEventListener("popoverClose", this.resetMenu);
+
+    this.updateItems();
   }
 
   disconnectedCallback() {
@@ -270,8 +271,8 @@ export class SwirlMenu {
 
   private focusItem(item: HTMLElement) {
     const items = [
-      ...querySelectorAllDeep(this.parentMenu, '[role="menuitem"]'),
-      ...querySelectorAllDeep(this.parentMenu, '[role="menuitemradio"]'),
+      ...querySelectorAllDeep(this.rootMenu, '[role="menuitem"]'),
+      ...querySelectorAllDeep(this.rootMenu, '[role="menuitemradio"]'),
     ];
 
     items.forEach((item) => {
