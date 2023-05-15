@@ -1,5 +1,16 @@
 # @getflip/swirl-components
 
+## 0.56.0
+
+### Minor Changes
+
+- [`8f04ce7`](https://github.com/getflip/swirl/commit/8f04ce700d0fd136352510faa0dad2d7eecb5945)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "orientation" prop to
+  swirl-separator
+
+* [`e540b91`](https://github.com/getflip/swirl/commit/e540b91adbe1b0d872409b304c1897e056121391)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "color" prop to swirl-link
+
 ## 0.55.0
 
 ### Minor Changes
