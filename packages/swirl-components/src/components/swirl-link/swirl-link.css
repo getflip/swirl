@@ -26,3 +26,17 @@
     line-height: var(--s-line-height-sm);
   }
 }
+
+.link--color-subdued {
+  color: var(--s-interactive-neutral-default);
+  font-weight: var(--s-font-weight-medium);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--s-interactive-neutral-hovered);
+  }
+
+  &:active {
+    color: var(--s-interactive-neutral-pressed);
+  }
+}
