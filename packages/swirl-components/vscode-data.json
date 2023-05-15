@@ -3588,6 +3588,18 @@
       },
       "attributes": [
         {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "subdued"
+            }
+          ]
+        },
+        {
           "name": "href",
           "description": ""
         },
@@ -4350,6 +4362,18 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
+        },
         {
           "name": "spacing",
           "description": "",
