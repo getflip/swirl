@@ -11,18 +11,16 @@ import DocumentationLayoutContext, {
 import { ReactNode } from "react";
 import MDXDocument from "./MDXDocument";
 
-interface DocumentationLayoutProps {
+type DocumentationLayoutProps = {
   data: TDocumentationLayout;
   content: ReactNode | ReactNode[];
   header?: ReactNode | ReactNode[];
-  footer?: ReactNode | ReactNode[];
   disableToc?: boolean;
-}
+};
 
 export function DocumentationLayout({
   header,
   content,
-  footer,
   data,
   disableToc = false,
 }: DocumentationLayoutProps) {
@@ -31,7 +29,6 @@ export function DocumentationLayout({
   return (
     <DocumentationLayoutContext.Provider value={data}>
       <div className="grid grid-cols-1 lg:grid-cols-documentation-layout h-full overflow-hidden">
-        {/* <div className="flex h-full"> */}
         {data.navigationLinks && <CategoryNav />}
         <div className="w-full h-full overflow-auto scroll-p-4">
           <main

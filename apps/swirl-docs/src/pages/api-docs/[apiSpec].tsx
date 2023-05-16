@@ -19,8 +19,9 @@ import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
 import { SchemaObject } from "oas/dist/rmoas.types";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
+import Heading, { LinkedHeading } from "src/components/Headers";
 
-async function getSpecData(spec: string): Promise<ApiDocumentation> {
+async function generateSpecData(spec: string): Promise<ApiDocumentation> {
   let apiSpec: ApiDocumentation;
 
   const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
@@ -136,7 +137,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   const { apiSpec } = context.params;
-  const document = await getSpecData(apiSpec as string);
+  const document = await generateSpecData(apiSpec as string);
 
   return {
     props: {
@@ -156,8 +157,16 @@ export default function Document({ document }: { document: ApiDocumentation }) {
           mdxContent: {
             document: document.description,
             components: {
-              h1: (props) => <h2 className="text-2xl font-bold" {...props} />,
-              h2: (props) => <h3 className="text-xl font-bold" {...props} />,
+              h1: (props) => (
+                <LinkedHeading href="#">
+                  <Heading level={1} {...props} />
+                </LinkedHeading>
+              ),
+              h2: (props) => (
+                <LinkedHeading href="#">
+                  <Heading level={2} {...props} />
+                </LinkedHeading>
+              ),
               a: (props) => (
                 <span className="inline-flex items-center text-interactive-primary-default">
                   <a {...props} />
@@ -199,17 +208,16 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                     key={`${endpoint.path}-${index}`}
                     aria-labelledby={endpoint.path.split("#")[1]}
                   >
-                    <h2
-                      className="text-font-size-2xl font-font-weight-semibold mb-4"
-                      id={endpoint.path.split("#")[1]}
-                    >
-                      {endpoint.title}
-                      {endpoint.isDeprecated && (
-                        <span className="ml-2">
-                          <Tag content="deprecated" scheme="warning" />
-                        </span>
-                      )}
-                    </h2>
+                    <LinkedHeading href="#">
+                      <Heading level={2}>
+                        {endpoint.title}
+                        {endpoint.isDeprecated && (
+                          <span className="ml-2">
+                            <Tag content="deprecated" scheme="warning" />
+                          </span>
+                        )}
+                      </Heading>
+                    </LinkedHeading>
                     <div className="grid md:grid-cols-2 gap-8 mb-20">
                       <div>
                         <ReactMarkdown
@@ -233,9 +241,10 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             (parameterType, index) => {
                               return (
                                 <div key={`${parameterType.title}-${index}`}>
-                                  <h4 className="font-font-weight-semibold text-text-default">
+                                  <Heading level={4}>
                                     {parameterType.title}
-                                  </h4>
+                                  </Heading>
+                                  {/* <h4 className="font-font-weight-semibold text-text-default"></h4> */}
                                   {parameterType.parameters?.map(
                                     (parameter, index) => {
                                       return (
@@ -294,7 +303,6 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             </div>
           </>
         }
-        footer={<DocumentationLayout.Footer />}
       />
     </>
   );

@@ -128,7 +128,7 @@ export type ApiDocumentation = {
   shortDescription: string;
   description: MDXRemoteSerializeResult<
     Record<string, unknown>,
-    Record<string, string>
+    Record<string, unknown>
   >;
   endpoints: Array<ApiEndpoint>;
 };
