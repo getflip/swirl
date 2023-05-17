@@ -100,8 +100,8 @@
   }
 
   & .modal__header {
-    padding-left: calc(var(--s-space-8) + 2.5rem + var(--s-space-8));
     padding-right: var(--s-space-16);
+    padding-left: calc(var(--s-space-8) + 2.5rem + var(--s-space-8));
 
     @media (--from-tablet) {
       padding-top: var(--s-space-16);
@@ -155,6 +155,15 @@
   }
 }
 
+.modal--has-custom-footer {
+  & .modal__custom-footer {
+    padding-top: var(--s-space-16);
+    padding-right: var(--s-space-24);
+    padding-bottom: var(--s-space-16);
+    padding-left: var(--s-space-24);
+  }
+}
+
 .modal--scrolled {
   @media (--from-tablet) {
     & .modal__header {
@@ -191,6 +200,7 @@
 
 .modal__close-button {
   position: absolute;
+  z-index: 1;
   top: var(--s-space-8);
   left: var(--s-space-8);
 
@@ -250,10 +260,6 @@
 }
 
 .modal__custom-footer {
-  padding-top: var(--s-space-16);
-  padding-right: var(--s-space-24);
-  padding-bottom: var(--s-space-16);
-  padding-left: var(--s-space-24);
   flex-shrink: 0;
 }
 

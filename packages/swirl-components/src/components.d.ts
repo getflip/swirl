@@ -1076,6 +1076,7 @@ export namespace Components {
         "label": string;
         "multiSelect"?: boolean;
         "required"?: boolean;
+        "selectId"?: string;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];
     }
@@ -3766,6 +3767,7 @@ declare namespace LocalJSX {
         "multiSelect"?: boolean;
         "onValueChange"?: (event: SwirlSelectCustomEvent<string[]>) => void;
         "required"?: boolean;
+        "selectId"?: string;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];
     }
