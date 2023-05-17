@@ -24,6 +24,7 @@ import {
   LinkedHeading,
   SwirlText,
 } from "src/components/swirl-recreations";
+import { useRouter } from "next/router";
 
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
   let apiSpec: ApiDocumentation;
@@ -151,6 +152,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function Document({ document }: { document: ApiDocumentation }) {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -204,6 +207,9 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             <DocumentationLayout.MDX />
             <div className="mt-20">
               {document.endpoints?.map((endpoint, index) => {
+                const path = `https://getflip.dev${router.asPath}`; // TODO: use env variable
+                const endpointId = endpoint.path.split("#")[1];
+
                 return (
                   <article
                     key={`${endpoint.path}-${index}`}
@@ -212,8 +218,10 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                     <div className="grid md:grid-cols-2 gap-8 mb-20">
                       {/** ENDPOINT DESCRIPTION */}
                       <div>
-                        <LinkedHeading href={endpoint.path.split("#")[1]}>
-                          <Heading level={3}>
+                        <LinkedHeading
+                          href={`${path}#${endpoint.path.split("#")[1]}`}
+                        >
+                          <Heading level={3} headingId={endpointId}>
                             {endpoint.title}
                             {endpoint.isDeprecated && (
                               <span className="ml-2 inline-flex">

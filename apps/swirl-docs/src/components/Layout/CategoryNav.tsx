@@ -3,7 +3,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import classNames from "classnames";
 import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
-import { Tag, mapHttpMethodToTagScheme } from "../Tags";
+import {
+  Tag,
+  mapHttpMethodToTagContent,
+  mapHttpMethodToTagScheme,
+} from "../Tags";
 import { HttpMethods } from "oas/dist/rmoas.types";
 import Image from "next/image";
 
@@ -95,10 +99,11 @@ export function CategoryNav() {
                       )}
                     >
                       <Tag
-                        content={child.description!}
+                        content={mapHttpMethodToTagContent(child.description!)}
                         scheme={mapHttpMethodToTagScheme(
                           child.description as HttpMethods
                         )}
+                        httpTag
                       />
                       <span>{child.title}</span>
                     </a>

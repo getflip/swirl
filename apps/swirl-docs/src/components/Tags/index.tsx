@@ -4,6 +4,24 @@ import { FunctionComponent } from "react";
 export interface TagProps {
   content: string;
   scheme?: "critical" | "info" | "success" | "warning" | "default";
+  httpTag?: boolean;
+}
+
+export function mapHttpMethodToTagContent(
+  httpMethod: string
+): TagProps["content"] {
+  switch (httpMethod.toUpperCase()) {
+    case "GET":
+      return "GET";
+    case "POST":
+      return "POST";
+    case "PUT":
+      return "PUT";
+    case "DELETE":
+      return "DEL";
+    default:
+      return "GET";
+  }
 }
 
 export function mapHttpMethodToTagScheme(
@@ -23,7 +41,11 @@ export function mapHttpMethodToTagScheme(
   }
 }
 
-export const Tag: FunctionComponent<TagProps> = ({ content, scheme }) => {
+export const Tag: FunctionComponent<TagProps> = ({
+  content,
+  scheme,
+  httpTag,
+}) => {
   return (
     <span
       className={classNames(
@@ -36,6 +58,9 @@ export const Tag: FunctionComponent<TagProps> = ({ content, scheme }) => {
           "bg-surface-info-subdued text-text-info": scheme === "info",
           "bg-surface-success-subdued text-text-success": scheme === "success",
           "bg-surface-warning-subdued text-text-warning": scheme === "warning",
+        },
+        {
+          "flex items-center justify-center min-w-[3rem] px-0": httpTag,
         }
       )}
     >
