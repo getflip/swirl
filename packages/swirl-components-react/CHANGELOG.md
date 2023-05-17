@@ -1,5 +1,24 @@
 # @getflip/swirl-components-react
 
+## 0.56.0
+
+### Minor Changes
+
+- [`1bd9a2d`](https://github.com/getflip/swirl/commit/1bd9a2d2e7384482929e9ebff13418038be65d69)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "hide-label" prop to
+  swirl-form-control
+
+### Patch Changes
+
+- [`1cb04a8`](https://github.com/getflip/swirl/commit/1cb04a84062c2961e317e9603bbfbcef83fedde6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue caused by multiple
+  swirl-select on a page
+
+- Updated dependencies
+  [[`1bd9a2d`](https://github.com/getflip/swirl/commit/1bd9a2d2e7384482929e9ebff13418038be65d69),
+  [`1cb04a8`](https://github.com/getflip/swirl/commit/1cb04a84062c2961e317e9603bbfbcef83fedde6)]:
+  - @getflip/swirl-components@0.57.0
+
 ## 0.55.0
 
 ### Minor Changes
