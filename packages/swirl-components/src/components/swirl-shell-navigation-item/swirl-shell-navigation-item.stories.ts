@@ -3,6 +3,7 @@ import Docs from "./swirl-shell-navigation-item.mdx";
 
 export default {
   component: "swirl-shell-navigation-item",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

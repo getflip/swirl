@@ -3,6 +3,7 @@ import Docs from "./swirl-tab-bar.mdx";
 
 export default {
   component: "swirl-tab-bar",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

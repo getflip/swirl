@@ -3,6 +3,7 @@ import Docs from "./swirl-dialog.mdx";
 
 export default {
   component: "swirl-dialog",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

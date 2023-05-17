@@ -4,6 +4,7 @@ import Docs from "./swirl-form-control.mdx";
 
 export default {
   component: "swirl-form-control",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

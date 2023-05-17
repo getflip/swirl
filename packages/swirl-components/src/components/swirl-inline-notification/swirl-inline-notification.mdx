@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-inline-notification.stories";
 
 <Meta title="Components/SwirlInlineNotification" />
 
@@ -12,11 +13,9 @@ information.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlinlinenotification--swirl-inline-notification" />
-</Canvas>
+<Canvas of={Stories.SwirlInlineNotification} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlInlineNotification} />
 
 ## Theming
 

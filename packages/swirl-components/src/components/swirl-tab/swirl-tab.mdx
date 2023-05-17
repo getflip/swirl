@@ -1,22 +1,21 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-tab.stories";
 
 <Meta title="Components/SwirlTab" />
 
 # SwirlTab
 
 The SwirlTab component is used to display a tab panel inside the
-[SwirlTabs component](?path=/docs/components-swirltabs--swirl-tabs).
+[SwirlTabs component](?path=/docs/components-swirltabs--docs).
 
 - **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=483%3A9675)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-tab)**
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirltab--swirl-tab" />
-</Canvas>
+<Canvas of={Stories.SwirlTab} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlTab} />
 
 ## Accessibility
 

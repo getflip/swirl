@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-list.stories";
 
 <Meta title="Components/SwirlList" />
 
@@ -12,9 +13,7 @@ elements (UL, OL).
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirllist--swirl-list" />
-</Canvas>
+<Canvas of={Stories.SwirlList} sourceState="shown"></Canvas>
 
 ## Theming
 

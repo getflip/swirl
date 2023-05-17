@@ -1,22 +1,21 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-table-column.stories";
 
 <Meta title="Components/SwirlTableColumn" />
 
 # SwirlTableColumn
 
 The SwirlTableColumn component is used to display a column inside a
-[SwirlTable component](?path=/docs/components-swirltable--swirl-table).
+[SwirlTable component](?path=/docs/components-swirltable--docs).
 
 - **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=2368%3A11396)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-table-column)**
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirltablecolumn--swirl-table-column" />
-</Canvas>
+<Canvas of={Stories.SwirlTableColumn} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlTableColumn} />
 
 ## Theming
 

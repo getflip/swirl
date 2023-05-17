@@ -14,6 +14,7 @@ export default {
     },
   },
   component: "swirl-avatar-group",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

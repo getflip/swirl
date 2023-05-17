@@ -25,6 +25,7 @@ export default {
     },
   },
   component: "swirl-app-layout",
+  tags: ["autodocs"],
   decorators: [fullscreenStoryDecorator()],
   parameters: {
     docs: {

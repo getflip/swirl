@@ -1862,6 +1862,10 @@
           "description": ""
         },
         {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
           "name": "inline",
           "description": ""
         },
@@ -3588,6 +3592,18 @@
       },
       "attributes": [
         {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "subdued"
+            }
+          ]
+        },
+        {
           "name": "href",
           "description": ""
         },
@@ -4338,6 +4354,10 @@
           "description": ""
         },
         {
+          "name": "select-id",
+          "description": ""
+        },
+        {
           "name": "swirl-aria-describedby",
           "description": ""
         }
@@ -4350,6 +4370,18 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
+        },
         {
           "name": "spacing",
           "description": "",
@@ -5085,6 +5117,10 @@
         },
         {
           "name": "password-toggle-label",
+          "description": ""
+        },
+        {
+          "name": "placeholder",
           "description": ""
         },
         {

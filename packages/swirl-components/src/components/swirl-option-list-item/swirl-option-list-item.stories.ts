@@ -11,6 +11,7 @@ export default {
     },
   },
   component: "swirl-option-list-item",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

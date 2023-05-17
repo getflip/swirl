@@ -30,7 +30,7 @@ import { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./compone
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
-import { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+import { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 import { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 import { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
@@ -40,7 +40,7 @@ import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./com
 import { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
-import { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+import { SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -81,7 +81,7 @@ export { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./compone
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
-export { SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+export { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 export { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 export { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
@@ -91,7 +91,7 @@ export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./com
 export { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
-export { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+export { SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -497,6 +497,7 @@ export namespace Components {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
+        "hideLabel"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
@@ -890,6 +891,7 @@ export namespace Components {
         "previousSlideButtonLabel"?: string;
     }
     interface SwirlLink {
+        "color"?: SwirlLinkColor;
         "href": string;
         "label": string;
         "target"?: SwirlLinkTarget;
@@ -1074,10 +1076,12 @@ export namespace Components {
         "label": string;
         "multiSelect"?: boolean;
         "required"?: boolean;
+        "selectId"?: string;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];
     }
     interface SwirlSeparator {
+        "orientation"?: SwirlSeparatorOrientation;
         "spacing"?: SwirlSeparatorSpacing;
     }
     interface SwirlShellLayout {
@@ -1210,6 +1214,7 @@ export namespace Components {
         "min"?: number;
         "mode"?: SwirlTextInputMode1;
         "passwordToggleLabel"?: string;
+        "placeholder"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
         "rows"?: number;
@@ -3198,6 +3203,7 @@ declare namespace LocalJSX {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
+        "hideLabel"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
@@ -3578,6 +3584,7 @@ declare namespace LocalJSX {
         "previousSlideButtonLabel"?: string;
     }
     interface SwirlLink {
+        "color"?: SwirlLinkColor;
         "href": string;
         "label": string;
         "target"?: SwirlLinkTarget;
@@ -3760,10 +3767,12 @@ declare namespace LocalJSX {
         "multiSelect"?: boolean;
         "onValueChange"?: (event: SwirlSelectCustomEvent<string[]>) => void;
         "required"?: boolean;
+        "selectId"?: string;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];
     }
     interface SwirlSeparator {
+        "orientation"?: SwirlSeparatorOrientation;
         "spacing"?: SwirlSeparatorSpacing;
     }
     interface SwirlShellLayout {
@@ -3888,6 +3897,7 @@ declare namespace LocalJSX {
         "onInputFocus"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlTextInputCustomEvent<string>) => void;
         "passwordToggleLabel"?: string;
+        "placeholder"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
         "rows"?: number;

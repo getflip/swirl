@@ -82,12 +82,15 @@ export class SwirlPopover {
     }
 
     const target = event.target as HTMLElement;
+    const relatedTarget = event.relatedTarget as HTMLElement;
     const activeElement = getActiveElement();
 
     const popoverLostFocus =
       !this.el.contains(target) &&
       !this.el.contains(activeElement) &&
-      target !== this.triggerEl;
+      !this.el.contains(relatedTarget || target) &&
+      target !== this.triggerEl &&
+      relatedTarget !== this.el;
 
     if (popoverLostFocus) {
       this.close();

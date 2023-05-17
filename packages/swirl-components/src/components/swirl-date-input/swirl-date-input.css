@@ -28,7 +28,7 @@
 
 .date-input__input {
   display: inline-flex;
-  width: 100%;
+  width: calc(100% - 1.25rem - var(--s-space-8));
   margin: 0;
   padding: 0;
   border: none;

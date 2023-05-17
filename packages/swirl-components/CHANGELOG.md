@@ -1,5 +1,57 @@
 # @getflip/swirl-components
 
+## 0.57.1
+
+### Patch Changes
+
+- [`20ab655`](https://github.com/getflip/swirl/commit/20ab6557fc48032a1ec260c65360120f38fec535)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix display issue of swirl-modal
+  with custom footer
+
+## 0.57.0
+
+### Minor Changes
+
+- [`1bd9a2d`](https://github.com/getflip/swirl/commit/1bd9a2d2e7384482929e9ebff13418038be65d69)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "hide-label" prop to
+  swirl-form-control
+
+### Patch Changes
+
+- [`1cb04a8`](https://github.com/getflip/swirl/commit/1cb04a84062c2961e317e9603bbfbcef83fedde6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue caused by multiple
+  swirl-select on a page
+
+## 0.56.0
+
+### Minor Changes
+
+- [`8f04ce7`](https://github.com/getflip/swirl/commit/8f04ce700d0fd136352510faa0dad2d7eecb5945)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "orientation" prop to
+  swirl-separator
+
+* [`e540b91`](https://github.com/getflip/swirl/commit/e540b91adbe1b0d872409b304c1897e056121391)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "color" prop to swirl-link
+
+## 0.55.0
+
+### Minor Changes
+
+- [#255](https://github.com/getflip/swirl/pull/255)
+  [`31203e0`](https://github.com/getflip/swirl/commit/31203e059b8147a1a900d6dd4c004fb349b5135f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-form-control styles
+  for label position "outside"
+
+### Patch Changes
+
+- [`b3b6498`](https://github.com/getflip/swirl/commit/b3b649804e1cdfb75289109e771d53ee9b42e86a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue preventing popovers
+  to open correctly in Safari
+
+* [`2c496d3`](https://github.com/getflip/swirl/commit/2c496d3384a9a4916e48fc812e5d56bc178d521d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a focus issue of
+  swirl-option-list
+
 ## 0.54.2
 
 ### Patch Changes

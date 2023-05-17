@@ -1,19 +1,18 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-app-bar.stories";
 
 <Meta title="Components/SwirlAppBar" />
 
 # SwirlAppBar
 
 The SwirlAppBar component is used to display a header app bar inside the
-[SwirlAppLayout](?path=/docs/components-swirlapplayout--swirl-app-layout) or
-[SwirlModal](?path=/docs/components-swirlmodal--swirl-modal).
+[SwirlAppLayout](?path=/docs/components-swirlapplayout--docs) or
+[SwirlModal](?path=/docs/components-swirlmodal--docs).
 
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-app-bar)**
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlappbar--swirl-app-bar" />
-</Canvas>
+<Canvas of={Stories.SwirlAppBar} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlAppBar} />

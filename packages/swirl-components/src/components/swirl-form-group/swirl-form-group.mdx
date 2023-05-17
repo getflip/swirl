@@ -1,19 +1,18 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-form-group.stories";
 
 <Meta title="Components/SwirlFormGroup" />
 
 # SwirlFormGroup
 
 The SwirlFormGroup component is used to arrange multiple
-[SwirlFormControl components](?path=/docs/components-swirlformcontrol--swirl-form-control).
+[SwirlFormControl components](?path=/docs/components-swirlformcontrol--docs).
 
 - **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=2%3A30)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-form-group)**
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlformgroup--swirl-form-group" />
-</Canvas>
+<Canvas of={Stories.SwirlFormGroup} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlFormGroup} />

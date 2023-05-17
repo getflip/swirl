@@ -1,4 +1,7 @@
 import { Component, h, Host, Prop } from "@stencil/core";
+import classnames from "classnames";
+
+export type SwirlSeparatorOrientation = "horizontal" | "vertical";
 
 export type SwirlSeparatorSpacing =
   | "0"
@@ -16,16 +19,33 @@ export type SwirlSeparatorSpacing =
   tag: "swirl-separator",
 })
 export class SwirlSeparator {
+  @Prop() orientation?: SwirlSeparatorOrientation = "horizontal";
   @Prop() spacing?: SwirlSeparatorSpacing = "8";
 
   render() {
-    const styles = {
-      paddingTop: `var(--s-space-${this.spacing})`,
-      paddingBottom: `var(--s-space-${this.spacing})`,
-    };
+    const styles =
+      this.orientation === "horizontal"
+        ? {
+            paddingTop: `var(--s-space-${this.spacing})`,
+            paddingBottom: `var(--s-space-${this.spacing})`,
+          }
+        : {
+            paddingRight: `var(--s-space-${this.spacing})`,
+            paddingLeft: `var(--s-space-${this.spacing})`,
+          };
+
+    const className = classnames(
+      "separator",
+      `separator--orientation-${this.orientation}`
+    );
 
     return (
-      <Host class="separator" role="separator" style={styles}>
+      <Host
+        aria-orientation={this.orientation}
+        class={className}
+        role="separator"
+        style={styles}
+      >
         <span class="separator__line"></span>
       </Host>
     );

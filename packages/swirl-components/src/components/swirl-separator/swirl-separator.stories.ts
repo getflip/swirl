@@ -3,6 +3,7 @@ import Docs from "./swirl-separator.mdx";
 
 export default {
   component: "swirl-separator",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

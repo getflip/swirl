@@ -9,6 +9,7 @@ export default {
     },
   },
   component: "swirl-button-group",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

@@ -1,22 +1,20 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-shell-navigation-item.stories";
 
 <Meta title="Components/SwirlShellNavigationItem" />
 
 # SwirlShellNavigationItem
 
 The SwirlShellNavigationItem component is used to provide the main navigation
-for the
-[SwirlShellLayout](?path=/docs/components-swirlshelllayout--swirl-shell-layout).
+for the [SwirlShellLayout](?path=/docs/components-swirlshelllayout--docs).
 
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-shell-navigation-item)**
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlshellnavigationitem--swirl-shell-navigation-item" />
-</Canvas>
+<Canvas of={Stories.SwirlShellNavigationItem} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlShellNavigationItem} />
 
 ## Theming
 

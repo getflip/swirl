@@ -3,6 +3,7 @@ import Docs from "./swirl-pdf-reader.mdx";
 
 export default {
   component: "swirl-pdf-reader",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

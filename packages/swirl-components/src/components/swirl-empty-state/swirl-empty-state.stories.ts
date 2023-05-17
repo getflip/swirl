@@ -3,6 +3,7 @@ import Docs from "./swirl-empty-state.mdx";
 
 export default {
   component: "swirl-empty-state",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

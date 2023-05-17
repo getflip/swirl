@@ -3,6 +3,7 @@ import Docs from "./swirl-carousel-slide.mdx";
 
 export default {
   component: "swirl-carousel-slide",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

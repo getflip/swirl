@@ -9,6 +9,7 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
+import { getActiveElement } from "../../utils";
 
 export type SwirlFormControlLabelPosition = "inside" | "outside";
 
@@ -33,6 +34,7 @@ export class SwirlFormControl {
   @Prop() description?: string;
   @Prop() disabled?: boolean;
   @Prop() errorMessage?: string;
+  @Prop() hideLabel?: boolean;
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
@@ -143,12 +145,14 @@ export class SwirlFormControl {
     this.hasFocus = true;
   };
 
-  private onFocusOut = () => {
-    if (!this.hasFocus) {
-      return;
+  private onKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Tab") {
+      setTimeout(() => {
+        if (!this.el.contains(getActiveElement())) {
+          this.hasFocus = false;
+        }
+      });
     }
-
-    this.hasFocus = false;
   };
 
   render() {
@@ -159,6 +163,12 @@ export class SwirlFormControl {
       ? this.inputValue.length > 0
       : Boolean(this.inputValue);
 
+    const hasCharacterCounter = Boolean(
+      this.inputEl.getAttribute("show-character-counter")
+    );
+
+    const hasPlaceholder = Boolean(this.inputEl.getAttribute("placeholder"));
+
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
     const className = classnames(
@@ -166,8 +176,11 @@ export class SwirlFormControl {
       `form-control--label-position-${this.labelPosition}`,
       {
         "form-control--disabled": this.disabled,
+        "form-control--has-character-counter": hasCharacterCounter,
         "form-control--has-focus": this.hasFocus,
+        "form-control--has-placeholder": hasPlaceholder,
         "form-control--has-value": hasValue,
+        "form-control--hide-label": this.hideLabel,
         "form-control--inline": this.inline,
         "form-control--invalid": this.invalid,
         "form-control--is-select": isSelect,
@@ -175,7 +188,7 @@ export class SwirlFormControl {
     );
 
     return (
-      <Host onFocusin={this.onFocusIn} onFocusout={this.onFocusOut}>
+      <Host onFocusin={this.onFocusIn} onKeyDown={this.onKeyDown}>
         <div class={className} role="group">
           <label class="form-control__label">
             <span class="form-control__label-text">{this.label}</span>

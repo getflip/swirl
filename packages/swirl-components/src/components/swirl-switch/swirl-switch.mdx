@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-switch.stories";
 
 <Meta title="Components/SwirlSwitch" />
 
@@ -12,11 +13,9 @@ on/off state is more appropriate than a checked/unchecked state.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlswitch--swirl-switch" />
-</Canvas>
+<Canvas of={Stories.SwirlSwitch} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlSwitch} />
 
 ## Theming
 

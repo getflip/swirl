@@ -6,6 +6,19 @@
   & * {
     box-sizing: border-box;
   }
+
+  &(.separator--orientation-vertical) {
+    display: inline-flex;
+    width: auto;
+
+    & .separator__line {
+      display: block;
+      width: var(--s-border-width-default);
+      height: 100%;
+      min-height: 1.125rem;
+      background-color: var(--s-border-default);
+    }
+  }
 }
 
 .separator__line {

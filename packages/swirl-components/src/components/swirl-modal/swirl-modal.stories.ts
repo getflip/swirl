@@ -3,6 +3,7 @@ import Docs from "./swirl-modal.mdx";
 
 export default {
   component: "swirl-modal",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
