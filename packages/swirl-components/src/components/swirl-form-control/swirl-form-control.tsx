@@ -34,6 +34,7 @@ export class SwirlFormControl {
   @Prop() description?: string;
   @Prop() disabled?: boolean;
   @Prop() errorMessage?: string;
+  @Prop() hideLabel?: boolean;
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
@@ -179,6 +180,7 @@ export class SwirlFormControl {
         "form-control--has-focus": this.hasFocus,
         "form-control--has-placeholder": hasPlaceholder,
         "form-control--has-value": hasValue,
+        "form-control--hide-label": this.hideLabel,
         "form-control--inline": this.inline,
         "form-control--invalid": this.invalid,
         "form-control--is-select": isSelect,
