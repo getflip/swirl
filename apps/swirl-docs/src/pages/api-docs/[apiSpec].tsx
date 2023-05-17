@@ -208,7 +208,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                     key={`${endpoint.path}-${index}`}
                     aria-labelledby={endpoint.path.split("#")[1]}
                   >
-                    <LinkedHeading href="#">
+                    <LinkedHeading href={endpoint.path.split("#")[1]}>
                       <Heading level={2}>
                         {endpoint.title}
                         {endpoint.isDeprecated && (
@@ -244,7 +244,6 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                                   <Heading level={4}>
                                     {parameterType.title}
                                   </Heading>
-                                  {/* <h4 className="font-font-weight-semibold text-text-default"></h4> */}
                                   {parameterType.parameters?.map(
                                     (parameter, index) => {
                                       return (

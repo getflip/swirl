@@ -90,22 +90,26 @@ type LinkedHeadingProps = DetailedHTMLProps<
   children: ReactElement<typeof Heading>;
   href: string;
 };
+
 export function LinkedHeading({ children, href }: LinkedHeadingProps) {
   return (
-    <a className="inline-flex items-center group">
-      <CopyToClipboard text="Copy">
+    <CopyToClipboard text={href}>
+      <div className="relative inline-flex items-center group delay-200 cursor-pointer mb-4">
         <SwirlIconLink
           className={classnames(
-            "text-text-info cursor-pointer",
-            "hidden-child hidden group-hover:inline-flex"
+            "absolute left-[-2rem]",
+            "mr-0 text-text-info cursor-pointer duration-300 delay-150",
+            "w-0 transform scale-0 transition-transform",
+            "group-hover:mr-2",
+            "group-hover:w-auto group-hover:scale-100 "
           )}
-          size={28}
+          size={24}
         />
-      </CopyToClipboard>
-      <span className="group-hover:translate-x-2 transition-transform">
-        {children}
-      </span>
-    </a>
+        <span className="transition-transform duration-300 delay-300">
+          {children}
+        </span>
+      </div>
+    </CopyToClipboard>
   );
 }
 
