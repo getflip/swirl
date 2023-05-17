@@ -87,7 +87,6 @@ export default function Component({
             <DocumentationLayout.MDX />
           </>
         }
-        footer={<DocumentationLayout.Footer />}
       />
     </>
   );
