@@ -19,7 +19,11 @@ import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
 import { SchemaObject } from "oas/dist/rmoas.types";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
-import Heading, { LinkedHeading } from "src/components/Headers";
+import {
+  Heading,
+  LinkedHeading,
+  SwirlText,
+} from "src/components/swirl-recreations";
 
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
   let apiSpec: ApiDocumentation;
@@ -155,6 +159,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
       <DocumentationLayout
         data={{
           mdxContent: {
+            // @ts-ignore
             document: document.description,
             components: {
               h1: (props) => (
@@ -176,11 +181,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
               ul: (props) => (
                 <ul className="mb-4 leading-line-height-xl" {...props} />
               ),
-              p: (props) => (
-                <p className="text-base leading-line-height-xl">
-                  {props.children}
-                </p>
-              ),
+              p: (props) => <SwirlText {...props} />,
               code: (props) => (
                 <code
                   className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
@@ -208,24 +209,23 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                     key={`${endpoint.path}-${index}`}
                     aria-labelledby={endpoint.path.split("#")[1]}
                   >
-                    <LinkedHeading href={endpoint.path.split("#")[1]}>
-                      <Heading level={2}>
-                        {endpoint.title}
-                        {endpoint.isDeprecated && (
-                          <span className="ml-2">
-                            <Tag content="deprecated" scheme="warning" />
-                          </span>
-                        )}
-                      </Heading>
-                    </LinkedHeading>
                     <div className="grid md:grid-cols-2 gap-8 mb-20">
+                      {/** ENDPOINT DESCRIPTION */}
                       <div>
+                        <LinkedHeading href={endpoint.path.split("#")[1]}>
+                          <Heading level={3}>
+                            {endpoint.title}
+                            {endpoint.isDeprecated && (
+                              <span className="ml-2 inline-flex">
+                                <Tag content="deprecated" scheme="warning" />
+                              </span>
+                            )}
+                          </Heading>
+                        </LinkedHeading>
                         <ReactMarkdown
-                          className="text-base"
+                          className="text-base mb-6"
                           components={{
-                            p: (props) => (
-                              <p className="text-base">{props.children}</p>
-                            ),
+                            p: (props) => <SwirlText {...props} size="sm" />,
                             code: (props) => (
                               <code
                                 className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
@@ -236,33 +236,39 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                         >
                           {endpoint.description}
                         </ReactMarkdown>
-                        <div className="mt-4">
+                        <div className="mb-6">
                           {endpoint.parameterTypes?.map(
                             (parameterType, index) => {
                               return (
-                                <div key={`${parameterType.title}-${index}`}>
-                                  <Heading level={4}>
+                                <div
+                                  key={`${parameterType.title}-${index}`}
+                                  className="mb-6"
+                                >
+                                  <Heading level={4} className="mb-2">
                                     {parameterType.title}
                                   </Heading>
-                                  {parameterType.parameters?.map(
-                                    (parameter, index) => {
-                                      return (
-                                        <Parameter
-                                          key={`parameter.name${index}`}
-                                          name={parameter.name}
-                                          type={parameter.type}
-                                          description={parameter.description}
-                                          required={parameter.required}
-                                        />
-                                      );
-                                    }
-                                  )}
+                                  <div>
+                                    {parameterType.parameters?.map(
+                                      (parameter, index) => {
+                                        return (
+                                          <Parameter
+                                            key={`parameter.name${index}`}
+                                            name={parameter.name}
+                                            type={parameter.type}
+                                            description={parameter.description}
+                                            required={parameter.required}
+                                          />
+                                        );
+                                      }
+                                    )}
+                                  </div>
                                 </div>
                               );
                             }
                           )}
                         </div>
                       </div>
+                      {/** CODE PREVIEWS */}
                       <div className="min-w-0">
                         <CodePreview
                           codeExample={{

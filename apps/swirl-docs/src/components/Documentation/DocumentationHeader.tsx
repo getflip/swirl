@@ -1,7 +1,8 @@
 import classNames from "classnames";
 import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
 import { Tag } from "../Tags";
-import Heading from "../Headers";
+import Heading from "../swirl-recreations/Headers";
+import { SwirlText } from "../swirl-recreations";
 
 export function DocumentationHeader({
   className: additionalClassNames,
@@ -20,9 +21,7 @@ export function DocumentationHeader({
           <Tag key={tag} content={tag} />
         ))}
       </div>
-      <p className="text-lg leading-line-height-xl text-text-default">
-        {frontMatter?.description}
-      </p>
+      <SwirlText>{frontMatter?.description}</SwirlText>
     </header>
   );
 }

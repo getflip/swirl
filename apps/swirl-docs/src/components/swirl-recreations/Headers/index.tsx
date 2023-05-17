@@ -4,6 +4,7 @@ import React, {
   LegacyRef,
   ReactElement,
   ReactNode,
+  useCallback,
   useEffect,
   useRef,
 } from "react";
@@ -33,7 +34,7 @@ type HeadingProps = DetailedHTMLProps<
   truncate?: boolean;
 };
 
-const Heading: React.FC<HeadingProps> = ({
+export const Heading: React.FC<HeadingProps> = ({
   align = "start",
   as,
   balance = true,
@@ -41,39 +42,50 @@ const Heading: React.FC<HeadingProps> = ({
   level = 1,
   lines,
   children,
+  className,
 }) => {
   const headingEl = useRef<HTMLElement>(null);
 
-  useEffect(() => {
+  const rebalance = useCallback(() => {
     if (!balance || !headingEl.current || lines) {
       return;
     }
-    const currentHeading = headingEl.current; // to be save the cleanup works in Line 41
-    balanceText(currentHeading);
-    window.addEventListener("resize", () => balanceText(headingEl.current));
-    return () =>
-      window.removeEventListener("resize", () => balanceText(currentHeading));
+
+    balanceText(headingEl.current);
   }, [balance, lines]);
+
+  useEffect(() => {
+    rebalance();
+
+    const handleResize = () => {
+      rebalance();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [rebalance]);
 
   const Tag = as || (`h${level}` as HeadingTag);
 
   return (
     <Tag
       className={classNames(
-        "block w-full m-0 p-0 text-start",
+        "block w-full m-0 p-0 text-start font-font-weight-semibold",
         { "text-left": align === "start" },
         { "text-center": align === "center" },
         { "text-right": align === "end" },
         {
-          [`text-text-default font-font-weight-bold text-3xl leading-[2.25rem]`]:
-            level === 1,
-          [`text-text-default font-font-weight-semibold text-font-size-2xl leading-[2rem]`]:
-            level === 2,
-          [`text-text-default font-font-weight-bold text-font-size-xl leading-[1.75rem]`]:
+          [`text-text-default text-3xl leading-[2.25rem]`]: level === 1,
+          [`text-text-default text-font-size-2xl leading-[2rem]`]: level === 2,
+          [`text-text-default text-font-size-xl leading-[1.75rem]`]:
             level === 3,
-          [`text-text-default font-font-weight-bold text-font-size-base leading-[1.5rem]`]:
+          [`text-text-default text-font-size-base leading-[1.5rem]`]:
             level === 4,
-        }
+        },
+        className
       )}
       id={headingId}
       ref={headingEl as LegacyRef<HTMLHeadingElement>}
@@ -98,7 +110,7 @@ export function LinkedHeading({ children, href }: LinkedHeadingProps) {
         <SwirlIconLink
           className={classnames(
             "absolute left-[-2rem]",
-            "mr-0 text-text-info cursor-pointer duration-300 delay-150",
+            "mr-0 text-icon-highlight cursor-pointer duration-300 delay-150",
             "w-0 transform scale-0 transition-transform",
             "group-hover:mr-2",
             "group-hover:w-auto group-hover:scale-100 "
