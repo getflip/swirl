@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.56.1
+
+### Patch Changes
+
+- [`20ab655`](https://github.com/getflip/swirl/commit/20ab6557fc48032a1ec260c65360120f38fec535)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix display issue of swirl-modal
+  with custom footer
+
+- Updated dependencies
+  [[`20ab655`](https://github.com/getflip/swirl/commit/20ab6557fc48032a1ec260c65360120f38fec535)]:
+  - @getflip/swirl-components@0.57.1
+
 ## 0.56.0
 
 ### Minor Changes
