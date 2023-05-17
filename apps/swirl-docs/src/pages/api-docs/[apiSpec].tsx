@@ -162,7 +162,6 @@ export default function Document({ document }: { document: ApiDocumentation }) {
       <DocumentationLayout
         data={{
           mdxContent: {
-            // @ts-ignore
             document: document.description,
             components: {
               h1: (props) => (

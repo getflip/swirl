@@ -13,7 +13,7 @@ export async function generateMdxFromDocumentation(
   category: DocumentationCategory,
   document: string
 ): Promise<
-  MDXRemoteSerializeResult<Record<string, unknown>, Record<string, string>>
+  MDXRemoteSerializeResult<Record<string, unknown>, Record<string, unknown>>
 > {
   const source = fs.readFileSync(
     generateDocumentPath(category, document),
