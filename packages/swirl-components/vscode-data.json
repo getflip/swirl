@@ -1862,6 +1862,10 @@
           "description": ""
         },
         {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
           "name": "inline",
           "description": ""
         },

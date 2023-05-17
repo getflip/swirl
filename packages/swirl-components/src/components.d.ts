@@ -497,6 +497,7 @@ export namespace Components {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
+        "hideLabel"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
@@ -3201,6 +3202,7 @@ declare namespace LocalJSX {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
+        "hideLabel"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;

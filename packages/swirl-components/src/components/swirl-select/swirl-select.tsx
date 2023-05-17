@@ -33,6 +33,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   @Prop() label!: string;
   @Prop() multiSelect?: boolean;
   @Prop() required?: boolean;
+  @Prop() selectId?: string = Math.round(Math.random() * 1000000).toString();
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string[];
 
@@ -120,7 +121,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             aria-invalid={ariaInvalid}
             class="select__label"
             disabled={this.disabled}
-            id="trigger"
+            id={`trigger-${this.selectId}`}
             readOnly={true}
             type="text"
             value={label}
@@ -140,9 +141,9 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             offset={[16, -16]}
             onPopoverClose={this.onClose}
             onPopoverOpen={this.onOpen}
-            popoverId="select-options"
+            popoverId={`select-options-${this.selectId}`}
             ref={(el) => (this.popover = el)}
-            trigger="trigger"
+            trigger={`trigger-${this.selectId}`}
             useContainerWidth="swirl-form-control"
           >
             <swirl-option-list
