@@ -78,9 +78,9 @@ export const Heading: React.FC<HeadingProps> = ({
         { "text-center": align === "center" },
         { "text-right": align === "end" },
         {
-          [`text-text-default text-3xl leading-[2.25rem]`]: level === 1,
+          [`text-text-default text-3xl leading-[3rem]`]: level === 1,
           [`text-text-default text-font-size-2xl leading-[2rem]`]: level === 2,
-          [`text-text-default text-font-size-xl leading-[1.75rem]`]:
+          [`text-text-default text-font-size-xl leading-[1.625rem]`]:
             level === 3,
           [`text-text-default text-font-size-base leading-[1.5rem]`]:
             level === 4,
@@ -106,10 +106,11 @@ type LinkedHeadingProps = DetailedHTMLProps<
 export function LinkedHeading({ children, href }: LinkedHeadingProps) {
   return (
     <CopyToClipboard text={href}>
-      <div className="relative inline-flex items-center group delay-200 cursor-pointer mb-4">
+      <div className="relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer mb-4">
+        {/** DESKTOP ICON */}
         <SwirlIconLink
           className={classnames(
-            "absolute left-[-2rem]",
+            "absolute left-[-2rem] hidden md:inline-flex",
             "mr-0 text-icon-highlight cursor-pointer duration-300 delay-150",
             "w-0 transform scale-0 transition-transform",
             "group-hover:mr-2",
@@ -120,6 +121,14 @@ export function LinkedHeading({ children, href }: LinkedHeadingProps) {
         <span className="transition-transform duration-300 delay-300">
           {children}
         </span>
+        {/** MOBILE ICON */}
+        <SwirlIconLink
+          className={classnames(
+            "inline-flex md:hidden",
+            "mr-0 text-icon-default"
+          )}
+          size={20}
+        />
       </div>
     </CopyToClipboard>
   );
