@@ -45,8 +45,14 @@ export function CategoryNav() {
     }, [navItem.url]);
 
     return (
-      <li className={classNames("mb-2 py-2", { "max-h-10": !isExpanded })}>
-        <div className="flex justify-between items-center">
+      <li
+        className={classNames(
+          "flex flex-col justify-center",
+          { "max-h-10": !isExpanded },
+          { "h-full": isExpanded }
+        )}
+      >
+        <div className="flex justify-between items-center h-10">
           <Link href={`${navItem.url}`}>
             <a
               className={classNames(
@@ -68,7 +74,14 @@ export function CategoryNav() {
               aria-expanded={isExpanded}
             >
               <Image
-                className={classNames({ "rotate-90": isExpanded })}
+                // className={classNames({ "rotate-90": isExpanded })}
+                className={classNames(
+                  {
+                    "animate-rotate-in": isExpanded,
+                    "animate-rotate-out": !isExpanded,
+                  },
+                  { "rotate-90": isExpanded }
+                )}
                 alt=""
                 src={icon.src}
                 width={24}
@@ -77,42 +90,44 @@ export function CategoryNav() {
             </button>
           )}
         </div>
-        {navItem.children && isExpanded && (
-          <ul className="mt-4">
-            {navItem.children?.map((child, index) => {
-              return (
-                <li
-                  key={index}
-                  className="flex items-center max-h-40 h-10 mb-4 ml-6"
-                >
-                  <Link href={`${child.url}`}>
-                    <a
-                      aria-current={activePath === navItem.url}
-                      className={classNames(
-                        "flex items-center w-full",
-                        "text-sm capitalize",
-                        "hover:text-border-info",
-                        {
-                          "text-border-info": activePath === navItem.url,
-                          "text-text-default": activePath !== navItem.url,
-                        }
+        {/* {navItem.children && isExpanded && ( */}
+        <ul
+          className={classNames(
+            "border-l-[1px] border-border-default transform transition-all duration-500 origin-top overflow-hidden",
+            { "scale-y-0 h-0": !isExpanded },
+            { "scale-y-100 h-auto": isExpanded }
+          )}
+        >
+          {navItem.children?.map((child, index) => {
+            return (
+              <li key={index} className="flex items-center max-h-40 h-10 ml-6">
+                <Link href={`${child.url}`}>
+                  <a
+                    aria-current={activePath === navItem.url}
+                    className={classNames(
+                      "flex items-center w-full",
+                      "text-sm capitalize",
+                      "hover:text-border-info",
+                      {
+                        "text-border-info": activePath === navItem.url,
+                        "text-text-default": activePath !== navItem.url,
+                      }
+                    )}
+                  >
+                    <Tag
+                      content={mapHttpMethodToTagContent(child.description!)}
+                      scheme={mapHttpMethodToTagScheme(
+                        child.description as HttpMethods
                       )}
-                    >
-                      <Tag
-                        content={mapHttpMethodToTagContent(child.description!)}
-                        scheme={mapHttpMethodToTagScheme(
-                          child.description as HttpMethods
-                        )}
-                        httpTag
-                      />
-                      <span>{child.title}</span>
-                    </a>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+                      httpTag
+                    />
+                    <span>{child.title}</span>
+                  </a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </li>
     );
   };

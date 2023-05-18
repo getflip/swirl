@@ -3,6 +3,7 @@ const safelist = require("./safelist.json");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
@@ -42,6 +43,30 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Inter", "sans-serif"],
+    },
+    keyframes: {
+      rotateIn: {
+        "0%": { transform: "rotate(0deg)" },
+        "100%": { transform: "rotate(90deg)" },
+      },
+      rotateOut: {
+        "0%": { transform: "rotate(90deg)" },
+        "100%": { transform: "rotate(0deg)" },
+      },
+    },
+    animation: {
+      "rotate-in": "rotateIn 250ms ease-in-out",
+      "rotate-out": "rotateOut 250ms ease-in-out",
+    },
+    transitionProperty: {
+      transform: "transform",
+    },
+    scale: {
+      0: "0",
+      25: ".25",
+      50: ".5",
+      75: ".75",
+      100: "1",
     },
   },
   plugins: [
