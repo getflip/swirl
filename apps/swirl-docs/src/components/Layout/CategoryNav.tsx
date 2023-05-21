@@ -56,50 +56,52 @@ const CategoryNavSubItem = ({
   }, [navItem.url, activePath]);
 
   return (
-    <li
-      className={classNames(
-        "flex flex-col justify-center",
-        { "max-h-10": !isExpanded },
-        { "h-full": isExpanded }
-      )}
-    >
-      <div className="flex justify-between items-center h-10">
-        <Link href={`${navItem.url}`}>
-          <a
-            className={classNames(
-              "text-sm capitalize w-full",
-              "hover:text-border-info",
-              {
-                "text-text-default": !isCurrentlyInView,
-                "text-border-info": isCurrentlyInView,
-              }
-            )}
-          >
-            <span>{navItem.title}</span>
-          </a>
-        </Link>
-        {navItem.children && (
-          <button
-            className="flex justify-center items-center"
-            onClick={() => setIsExpanded(!isExpanded)}
-            aria-expanded={isExpanded}
-          >
-            <Image
-              className={classNames(
-                {
-                  "animate-rotate-in": isExpanded,
-                  "animate-rotate-out": !isExpanded,
-                },
-                { "rotate-90": isExpanded }
-              )}
-              alt=""
-              src={icon.src}
-              width={24}
-              height={24}
-            />
-          </button>
+    <>
+      <li
+        className={classNames(
+          "flex flex-col justify-center",
+          { "h-10 max-h-10": !isExpanded },
+          { "h-full": isExpanded }
         )}
-      </div>
+      >
+        <div className="flex justify-between items-center h-10">
+          <Link href={`${navItem.url}`}>
+            <a
+              className={classNames(
+                "text-sm capitalize w-full",
+                "hover:text-border-info",
+                {
+                  "text-text-default": !isCurrentlyInView,
+                  "text-border-info": isCurrentlyInView,
+                }
+              )}
+            >
+              <span>{navItem.title}</span>
+            </a>
+          </Link>
+          {navItem.children && (
+            <button
+              className="flex justify-center items-center"
+              onClick={() => setIsExpanded(!isExpanded)}
+              aria-expanded={isExpanded}
+            >
+              <Image
+                className={classNames(
+                  {
+                    "animate-rotate-in": isExpanded,
+                    "animate-rotate-out": !isExpanded,
+                  },
+                  { "rotate-90": isExpanded }
+                )}
+                alt=""
+                src={icon.src}
+                width={24}
+                height={24}
+              />
+            </button>
+          )}
+        </div>
+      </li>
       <AnimatePresence>
         {isExpanded && (
           <motion.ul
@@ -151,7 +153,7 @@ const CategoryNavSubItem = ({
           </motion.ul>
         )}
       </AnimatePresence>
-    </li>
+    </>
   );
 };
 
