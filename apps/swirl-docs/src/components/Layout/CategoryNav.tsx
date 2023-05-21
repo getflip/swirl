@@ -13,6 +13,7 @@ import Image from "next/image";
 
 import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export function CategoryNav() {
   const { navigationLinks: categoryLinkList } = useDocumentationLayoutContext();
@@ -37,6 +38,28 @@ export function CategoryNav() {
 
   const SubElement = ({ navItem }: { navItem: NavItem }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+
+    const list = {
+      hidden: { opacity: 0 },
+      show: {
+        opacity: 1,
+        transition: {
+          when: "beforeChildren",
+          staggerChildren: 0.3,
+        },
+      },
+    };
+
+    const item = {
+      hidden: { x: -10, opacity: 0 },
+      show: {
+        x: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.125,
+        },
+      },
+    };
 
     useEffect(() => {
       if (activePath.includes(navItem.url)) {
@@ -74,7 +97,6 @@ export function CategoryNav() {
               aria-expanded={isExpanded}
             >
               <Image
-                // className={classNames({ "rotate-90": isExpanded })}
                 className={classNames(
                   {
                     "animate-rotate-in": isExpanded,
@@ -90,17 +112,23 @@ export function CategoryNav() {
             </button>
           )}
         </div>
-        {/* {navItem.children && isExpanded && ( */}
-        <ul
+        <motion.ul
           className={classNames(
-            "border-l-[1px] border-border-default transform transition-all duration-500 origin-top overflow-hidden",
-            { "scale-y-0 h-0": !isExpanded },
-            { "scale-y-100 h-auto": isExpanded }
+            "border-l-[1px] border-border-default overflow-hidden",
+            { "h-0": !isExpanded },
+            { "h-auto": isExpanded }
           )}
+          initial="hidden"
+          animate={isExpanded ? "show" : "hidden"}
+          variants={list}
         >
           {navItem.children?.map((child, index) => {
             return (
-              <li key={index} className="flex items-center max-h-40 h-10 ml-6">
+              <motion.li
+                key={index}
+                className="flex items-center max-h-40 h-10 ml-6"
+                variants={item}
+              >
                 <Link href={`${child.url}`}>
                   <a
                     aria-current={activePath === navItem.url}
@@ -124,10 +152,10 @@ export function CategoryNav() {
                     <span>{child.title}</span>
                   </a>
                 </Link>
-              </li>
+              </motion.li>
             );
           })}
-        </ul>
+        </motion.ul>
       </li>
     );
   };
