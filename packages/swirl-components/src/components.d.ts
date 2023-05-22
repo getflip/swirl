@@ -322,7 +322,7 @@ export namespace Components {
         "spacing"?: SwirlColumnsSpacing;
     }
     interface SwirlConsoleLayout {
-        "appName": string;
+        "appName"?: string;
         "backButonLabel"?: string;
         "heading": string;
         "helpButonLabel"?: string;
@@ -3074,7 +3074,7 @@ declare namespace LocalJSX {
         "spacing"?: SwirlColumnsSpacing;
     }
     interface SwirlConsoleLayout {
-        "appName": string;
+        "appName"?: string;
         "backButonLabel"?: string;
         "heading": string;
         "helpButonLabel"?: string;

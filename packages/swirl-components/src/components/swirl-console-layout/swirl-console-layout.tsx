@@ -21,7 +21,7 @@ import { isMobileViewport } from "../../utils";
 export class SwirlConsoleLayout {
   @Element() el: HTMLElement;
 
-  @Prop() appName!: string;
+  @Prop() appName?: string;
   @Prop() backButonLabel?: string = "Back";
   @Prop() heading!: string;
   @Prop() helpButonLabel?: string = "Help";
@@ -151,6 +151,8 @@ export class SwirlConsoleLayout {
   render() {
     const className = classnames("console-layout", {
       "console-layout--sidebar-active": this.sidebarActive,
+      "console-layout--empty-app-bar":
+        !Boolean(this.appName) && !this.showHelpButton,
     });
 
     return (
@@ -207,7 +209,10 @@ export class SwirlConsoleLayout {
               <slot name="user"></slot>
             </div>
           </div>
-          <main aria-labelledby="app-name" class="console-layout__main">
+          <main
+            aria-labelledby={Boolean(this.appName) ? "app-name" : undefined}
+            class="console-layout__main"
+          >
             <header class="console-layout__app-bar">
               <span class="console-layout__mobile-navigation-button">
                 <swirl-button
@@ -226,13 +231,16 @@ export class SwirlConsoleLayout {
                   onClick={this.onMobileNavigationToggleClick}
                 ></swirl-button>
               </span>
-              <swirl-heading
-                as="h1"
-                class="console-layout__app-name"
-                headingId="app-name"
-                level={4}
-                text={this.appName}
-              ></swirl-heading>
+              <div class="console-layout__app-name">
+                {this.appName && (
+                  <swirl-heading
+                    as="h1"
+                    headingId="app-name"
+                    level={4}
+                    text={this.appName}
+                  ></swirl-heading>
+                )}
+              </div>
               {this.showHelpButton && (
                 <swirl-button
                   class="console-layout__help-button"

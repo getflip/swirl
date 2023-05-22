@@ -32,6 +32,21 @@
   }
 }
 
+.console-layout--empty-app-bar {
+  & .console-layout__main {
+    @media (--from-tablet) {
+      grid-template-areas: "content";
+      grid-template-rows: 1fr;
+    }
+  }
+
+  & .console-layout__app-bar {
+    @media (--from-tablet) {
+      display: none;
+    }
+  }
+}
+
 .console-layout__sidebar {
   position: fixed;
   z-index: var(--s-z-30);
@@ -163,10 +178,6 @@
   }
 }
 
-.console-layout__content-header {
-  flex-shrink: 0;
-}
-
 .console-layout__integration {
   flex-grow: 1;
 }
@@ -194,7 +205,8 @@
 
 .console-layout__content-header {
   display: flex;
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--s-space-24);
+  flex-shrink: 0;
   gap: var(--s-space-16);
 }
 
