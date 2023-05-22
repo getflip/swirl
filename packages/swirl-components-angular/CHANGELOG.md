@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.57.1
+
+### Patch Changes
+
+- [`81cef75`](https://github.com/getflip/swirl/commit/81cef751231e049164c66bc1a50e2d8bb3e65f1e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow swirl-select to flip
+  placement
+
+- Updated dependencies
+  [[`81cef75`](https://github.com/getflip/swirl/commit/81cef751231e049164c66bc1a50e2d8bb3e65f1e)]:
+  - @getflip/swirl-components@0.58.1
+
 ## 0.57.0
 
 ### Minor Changes
