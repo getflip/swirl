@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.57.0
+
+### Minor Changes
+
+- [`e18725a`](https://github.com/getflip/swirl/commit/e18725aef767cee182aaa77fa21e7c83062a281a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow to hide app bar of
+  swirl-console-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e18725a`](https://github.com/getflip/swirl/commit/e18725aef767cee182aaa77fa21e7c83062a281a)]:
+  - @getflip/swirl-components@0.58.0
+
 ## 0.56.1
 
 ### Patch Changes
