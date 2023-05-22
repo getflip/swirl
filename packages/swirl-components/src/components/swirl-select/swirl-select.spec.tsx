@@ -29,7 +29,7 @@ describe("swirl-select", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-select invalid="true" label="Select" required="true">
-        <div class="select">
+        <div class="select select--placement-undefined">
           <input aria-invalid="true" class="select__label" id="trigger-${page.root.selectId}" readonly="" type="text" value="">
           <span class="select__indicator">
             <swirl-icon-expand-more></swirl-icon-expand-more>

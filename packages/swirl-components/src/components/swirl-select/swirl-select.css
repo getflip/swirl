@@ -13,6 +13,16 @@
   position: relative;
   display: flex;
   width: 100%;
+
+  & ::part(popover__content) {
+    margin-top: var(--s-space-16);
+  }
+}
+
+.select--placement-top-start {
+  & ::part(popover__content) {
+    margin-top: -2.25rem;
+  }
 }
 
 .select--disabled {
