@@ -38,7 +38,7 @@ export function Parameter({
             code: (props) => (
               <code
                 className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
-                {...props}
+                {...{ ...props, inline: "inline" }}
               />
             ),
           }}

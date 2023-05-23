@@ -15,7 +15,6 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { CodePreview } from "src/components/CodePreview";
 import { Tag } from "src/components/Tags";
 import { Parameter } from "src/components/Documentation/Parameter";
-import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
 import { SchemaObject } from "oas/dist/rmoas.types";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
@@ -171,7 +170,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
               ul: (props) => (
                 <ul className="mb-4 leading-line-height-xl" {...props} />
               ),
-              p: (props) => <Text {...props} />,
+              // p: (props) => <Text {...props} />,
               code: (props) => (
                 <code
                   className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
@@ -224,7 +223,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             code: (props) => (
                               <code
                                 className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
-                                {...props}
+                                {...{ ...props, inline: "inline" }}
                               />
                             ),
                           }}

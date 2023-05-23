@@ -11,50 +11,50 @@ import classnames from "classnames";
 import balanceText from "balance-text";
 import shave from "shave";
 
-type SwirlTextAlign = "start" | "center" | "end";
+type TextAlign = "start" | "center" | "end";
 
-const SwirlTextFont = {
+const TextFont = {
   code: "font-font-family-code",
   text: "font-font-family-text",
 } as const;
-type SwirlTextFontFamily = keyof typeof SwirlTextFont;
+type TextFontFamily = keyof typeof TextFont;
 
-type SwirlTextFontStyle = "normal" | "italic";
+type TextFontStyle = "normal" | "italic";
 
-const SwirlTextSizes = {
+const TextSizes = {
   sm: "text-font-size-sm",
   base: "text-font-size-base",
   lg: "text-font-size-lg",
 } as const;
-type SwirlTextSize = keyof typeof SwirlTextSizes;
+type TextSize = keyof typeof TextSizes;
 
-const SwirlTextWeights = {
+const TextWeights = {
   normal: "font-font-weight-normal",
   medium: "font-font-weight-medium",
   semibold: "font-font-weight-semibold",
   bold: "font-font-weight-bold",
 } as const;
-type SwirlTextWeight = keyof typeof SwirlTextWeights;
+type TextWeight = keyof typeof TextWeights;
 
-type SwirlTextTag = "p" | "span" | "div";
+type TextTag = "p" | "span" | "div";
 
-type SwirlTextProps = DetailedHTMLProps<
+type TextProps = DetailedHTMLProps<
   HTMLAttributes<HTMLParagraphElement>,
   HTMLParagraphElement
 > & {
-  align?: SwirlTextAlign;
-  as?: SwirlTextTag;
+  align?: TextAlign;
+  as?: TextTag;
   balance?: boolean;
   children?: React.ReactNode;
-  fontFamily?: SwirlTextFontFamily;
-  fontStyle?: SwirlTextFontStyle;
+  fontFamily?: TextFontFamily;
+  fontStyle?: TextFontStyle;
   lines?: number;
-  size?: SwirlTextSize;
+  size?: TextSize;
   truncate?: boolean;
-  weight?: SwirlTextWeight;
+  weight?: TextWeight;
 };
 
-export const Text: FC<SwirlTextProps> = ({
+export const Text: FC<TextProps> = ({
   align = "start",
   as = "p",
   balance,
@@ -106,15 +106,15 @@ export const Text: FC<SwirlTextProps> = ({
     };
   }, [rebalance, handleTruncation]);
 
-  const Tag = as as SwirlTextTag;
+  const Tag = as as TextTag;
   return (
     <Tag
       ref={textEl as LegacyRef<HTMLParagraphElement>}
       className={classnames(
         `text-${align}`,
-        `${SwirlTextFont[fontFamily]}`,
-        `${SwirlTextWeights[weight]}`,
-        `${SwirlTextSizes[size]}`,
+        `${TextFont[fontFamily]}`,
+        `${TextWeights[weight]}`,
+        `${TextSizes[size]}`,
         {
           italic: fontStyle === "italic",
         },
