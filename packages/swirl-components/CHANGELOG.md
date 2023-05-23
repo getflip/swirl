@@ -1,5 +1,16 @@
 # @getflip/swirl-components
 
+## 0.58.2
+
+### Patch Changes
+
+- [`25d9a94`](https://github.com/getflip/swirl/commit/25d9a94fb4f14e1e5546d9b3ec08ab7df72fd128)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-table background colors
+
+* [`37f71ee`](https://github.com/getflip/swirl/commit/37f71ee2aabfaf6de87236a7c11a5b24590a9d1a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-pagination number
+  formatting
+
 ## 0.58.1
 
 ### Patch Changes
