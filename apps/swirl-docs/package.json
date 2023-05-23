@@ -38,11 +38,13 @@
     "@tailwindcss/container-queries": "^0.1.0",
     "@types/har-format": "^1.2.10",
     "algoliasearch": "^4.14.2",
+    "balance-text": "^3.3.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "classnames": "^2.3.2",
     "cmdk": "^0.1.21",
     "codesandbox": "^2.2.3",
     "dotenv": "^16.0.3",
+    "framer-motion": "^10.12.12",
     "gray-matter": "^4.0.3",
     "iframe-resizer-react": "^1.1.0",
     "next": "12.2.5",
@@ -63,6 +65,7 @@
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
     "remark-sectionize": "^1.1.1",
+    "shave": "^5.0.2",
     "tsx": "^3.12.1"
   },
   "devDependencies": {

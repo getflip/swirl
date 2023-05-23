@@ -15,12 +15,13 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { CodePreview } from "src/components/CodePreview";
 import { Tag } from "src/components/Tags";
 import { Parameter } from "src/components/Documentation/Parameter";
-import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
 import { SchemaObject } from "oas/dist/rmoas.types";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
+import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
+import { useRouter } from "next/router";
 
-async function getSpecData(spec: string): Promise<ApiDocumentation> {
+async function generateSpecData(spec: string): Promise<ApiDocumentation> {
   let apiSpec: ApiDocumentation;
 
   const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
@@ -136,7 +137,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   const { apiSpec } = context.params;
-  const document = await getSpecData(apiSpec as string);
+  const document = await generateSpecData(apiSpec as string);
 
   return {
     props: {
@@ -146,6 +147,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function Document({ document }: { document: ApiDocumentation }) {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -156,22 +159,18 @@ export default function Document({ document }: { document: ApiDocumentation }) {
           mdxContent: {
             document: document.description,
             components: {
-              h1: (props) => <h2 className="text-2xl font-bold" {...props} />,
-              h2: (props) => <h3 className="text-xl font-bold" {...props} />,
+              h1: (props) => <Heading level={1} {...props} />,
+              h2: (props) => <Heading level={2} {...props} />,
               a: (props) => (
                 <span className="inline-flex items-center text-interactive-primary-default">
                   <a {...props} />
-                  <SwirlIconOpenInNew className="ml-1" size={20} />
+                  <i className="swirl-icons-OpenInNew28 text-[1.25rem] ml-1"></i>
                 </span>
               ),
               ul: (props) => (
                 <ul className="mb-4 leading-line-height-xl" {...props} />
               ),
-              p: (props) => (
-                <p className="text-base leading-line-height-xl">
-                  {props.children}
-                </p>
-              ),
+              p: (props) => <Text {...props} />,
               code: (props) => (
                 <code
                   className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
@@ -194,67 +193,76 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             <DocumentationLayout.MDX />
             <div className="mt-20">
               {document.endpoints?.map((endpoint, index) => {
+                const path = `https://getflip.dev${router.asPath}`; // TODO: use env variable
+                const endpointId = endpoint.path.split("#")[1];
+
                 return (
                   <article
                     key={`${endpoint.path}-${index}`}
                     aria-labelledby={endpoint.path.split("#")[1]}
                   >
-                    <h2
-                      className="text-font-size-2xl font-font-weight-semibold mb-4"
-                      id={endpoint.path.split("#")[1]}
-                    >
-                      {endpoint.title}
-                      {endpoint.isDeprecated && (
-                        <span className="ml-2">
-                          <Tag content="deprecated" scheme="warning" />
-                        </span>
-                      )}
-                    </h2>
                     <div className="grid md:grid-cols-2 gap-8 mb-20">
+                      {/** ENDPOINT DESCRIPTION */}
                       <div>
+                        <LinkedHeading
+                          href={`${path}#${endpoint.path.split("#")[1]}`}
+                        >
+                          <Heading level={3} headingId={endpointId}>
+                            {endpoint.title}
+                            {endpoint.isDeprecated && (
+                              <span className="ml-2 inline-flex">
+                                <Tag content="deprecated" scheme="warning" />
+                              </span>
+                            )}
+                          </Heading>
+                        </LinkedHeading>
                         <ReactMarkdown
-                          className="text-base"
+                          className="text-base mb-6"
                           components={{
-                            p: (props) => (
-                              <p className="text-base">{props.children}</p>
-                            ),
+                            p: (props) => <Text {...props} size="sm" />,
                             code: (props) => (
                               <code
                                 className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
-                                {...props}
+                                {...{ ...props, inline: "inline" }}
                               />
                             ),
                           }}
                         >
                           {endpoint.description}
                         </ReactMarkdown>
-                        <div className="mt-4">
+                        <div className="mb-6">
                           {endpoint.parameterTypes?.map(
                             (parameterType, index) => {
                               return (
-                                <div key={`${parameterType.title}-${index}`}>
-                                  <h4 className="font-font-weight-semibold text-text-default">
+                                <div
+                                  key={`${parameterType.title}-${index}`}
+                                  className="mb-6"
+                                >
+                                  <Heading level={4} className="mb-2">
                                     {parameterType.title}
-                                  </h4>
-                                  {parameterType.parameters?.map(
-                                    (parameter, index) => {
-                                      return (
-                                        <Parameter
-                                          key={`parameter.name${index}`}
-                                          name={parameter.name}
-                                          type={parameter.type}
-                                          description={parameter.description}
-                                          required={parameter.required}
-                                        />
-                                      );
-                                    }
-                                  )}
+                                  </Heading>
+                                  <div>
+                                    {parameterType.parameters?.map(
+                                      (parameter, index) => {
+                                        return (
+                                          <Parameter
+                                            key={`parameter.name${index}`}
+                                            name={parameter.name}
+                                            type={parameter.type}
+                                            description={parameter.description}
+                                            required={parameter.required}
+                                          />
+                                        );
+                                      }
+                                    )}
+                                  </div>
                                 </div>
                               );
                             }
                           )}
                         </div>
                       </div>
+                      {/** CODE PREVIEWS */}
                       <div className="min-w-0">
                         <CodePreview
                           codeExample={{
@@ -294,7 +302,6 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             </div>
           </>
         }
-        footer={<DocumentationLayout.Footer />}
       />
     </>
   );

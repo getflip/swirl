@@ -115,7 +115,9 @@ const HeaderNavigation = () => {
               {isMobileNavOpen ? (
                 <SwirlIconClose size={24} />
               ) : (
-                <SwirlIconMenu size={24} />
+                <i
+                  className={`swirl-icons-Menu28 text-icon-strong text-2xl`}
+                ></i>
               )}
             </button>
           </div>
