@@ -170,7 +170,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
               ul: (props) => (
                 <ul className="mb-4 leading-line-height-xl" {...props} />
               ),
-              // p: (props) => <Text {...props} />,
+              p: (props) => <Text {...props} />,
               code: (props) => (
                 <code
                   className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"

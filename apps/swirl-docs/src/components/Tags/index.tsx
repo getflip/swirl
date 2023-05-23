@@ -27,6 +27,8 @@ export function mapHttpMethodToTagContent(
       return "HEAD";
     case "TRACE":
       return "TRA";
+    case "CONNECT":
+      return "CON";
     default:
       return "GET";
   }
