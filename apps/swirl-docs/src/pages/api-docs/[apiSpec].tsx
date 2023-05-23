@@ -19,11 +19,7 @@ import { SwirlIconOpenInNew } from "@getflip/swirl-components-react";
 import { SchemaObject } from "oas/dist/rmoas.types";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
-import {
-  Heading,
-  LinkedHeading,
-  SwirlText,
-} from "src/components/swirl-recreations";
+import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
 import { useRouter } from "next/router";
 
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -164,26 +160,18 @@ export default function Document({ document }: { document: ApiDocumentation }) {
           mdxContent: {
             document: document.description,
             components: {
-              h1: (props) => (
-                <LinkedHeading href="#">
-                  <Heading level={1} {...props} />
-                </LinkedHeading>
-              ),
-              h2: (props) => (
-                <LinkedHeading href="#">
-                  <Heading level={2} {...props} />
-                </LinkedHeading>
-              ),
+              h1: (props) => <Heading level={1} {...props} />,
+              h2: (props) => <Heading level={2} {...props} />,
               a: (props) => (
                 <span className="inline-flex items-center text-interactive-primary-default">
                   <a {...props} />
-                  <SwirlIconOpenInNew className="ml-1" size={20} />
+                  <i className="swirl-icons-OpenInNew28 text-[1.25rem] ml-1"></i>
                 </span>
               ),
               ul: (props) => (
                 <ul className="mb-4 leading-line-height-xl" {...props} />
               ),
-              p: (props) => <SwirlText {...props} />,
+              p: (props) => <Text {...props} />,
               code: (props) => (
                 <code
                   className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
@@ -232,7 +220,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                         <ReactMarkdown
                           className="text-base mb-6"
                           components={{
-                            p: (props) => <SwirlText {...props} size="sm" />,
+                            p: (props) => <Text {...props} size="sm" />,
                             code: (props) => (
                               <code
                                 className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"

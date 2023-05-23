@@ -1,6 +1,6 @@
 import { Tag } from "../Tags";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { SwirlText } from "../swirl-recreations";
+import { Text } from "../swirl-recreations";
 import classNames from "classnames";
 
 interface ParameterProps {
@@ -34,7 +34,7 @@ export function Parameter({
       {description && (
         <ReactMarkdown
           components={{
-            p: (props) => <SwirlText size="sm" {...props} />,
+            p: (props) => <Text size="sm" {...props} />,
             code: (props) => (
               <code
                 className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"

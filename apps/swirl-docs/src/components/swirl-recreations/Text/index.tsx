@@ -54,7 +54,7 @@ type SwirlTextProps = DetailedHTMLProps<
   weight?: SwirlTextWeight;
 };
 
-export const SwirlText: FC<SwirlTextProps> = ({
+export const Text: FC<SwirlTextProps> = ({
   align = "start",
   as = "p",
   balance,

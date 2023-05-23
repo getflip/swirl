@@ -5,7 +5,7 @@ export function NpmPackageLink() {
     <Link href="https://www.npmjs.com/package/@getflip/swirl-components">
       <a className="flex justify-center items-center text-[#F2F2F2] text-base font-medium mr-4">
         npm package
-        <SwirlIconOpenInNew className="ml-1" size={16} />
+        <i className="swirl-icons-OpenInNew28 text-base ml-1"></i>
       </a>
     </Link>
   );

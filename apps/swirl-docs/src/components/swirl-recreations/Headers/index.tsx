@@ -108,27 +108,27 @@ export function LinkedHeading({ children, href }: LinkedHeadingProps) {
     <CopyToClipboard text={href}>
       <div className="relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer mb-4">
         {/** DESKTOP ICON */}
-        <SwirlIconLink
+        <i
           className={classnames(
+            "swirl-icons-Link28 text-[1.5rem]",
             "absolute left-[-2rem] hidden md:inline-flex",
             "mr-0 text-icon-highlight cursor-pointer duration-300 delay-150",
             "w-0 transform scale-0 transition-transform",
             "group-hover:mr-2",
             "group-hover:w-auto group-hover:scale-100 "
           )}
-          size={24}
-        />
+        ></i>
         <span className="transition-transform duration-300 delay-300">
           {children}
         </span>
         {/** MOBILE ICON */}
-        <SwirlIconLink
+        <i
           className={classnames(
+            "swirl-icons-Link28 text-[1.25rem]",
             "inline-flex md:hidden",
             "mr-0 text-icon-default"
           )}
-          size={20}
-        />
+        ></i>
       </div>
     </CopyToClipboard>
   );

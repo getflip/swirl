@@ -19,6 +19,14 @@ export function mapHttpMethodToTagContent(
       return "PUT";
     case "DELETE":
       return "DEL";
+    case "OPTIONS":
+      return "OPT";
+    case "PATCH":
+      return "PAT";
+    case "HEAD":
+      return "HEAD";
+    case "TRACE":
+      return "TRA";
     default:
       return "GET";
   }
