@@ -81,6 +81,7 @@ const CategoryNavSubItem = ({
           </Link>
           {navItem.children && (
             <button
+              aria-label="Expand"
               className="flex justify-center items-center"
               onClick={() => setIsExpanded(!isExpanded)}
               aria-expanded={isExpanded}
@@ -102,57 +103,59 @@ const CategoryNavSubItem = ({
           )}
         </div>
       </li>
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.ul
-            className={classNames(
-              "border-l-[1px] border-border-default overflow-hidden",
-              { "h-0": !isExpanded },
-              { "h-auto": isExpanded }
-            )}
-            initial="hidden"
-            exit={{ opacity: 0, height: 0 }}
-            animate={isExpanded ? "show" : "hidden"}
-            variants={list}
-          >
-            {navItem.children?.map((item, index) => {
-              const isCurrentPath = activePath.includes(item.url);
+      <li>
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.ul
+              className={classNames(
+                "border-l-[1px] border-border-default overflow-hidden",
+                { "h-0": !isExpanded },
+                { "h-auto": isExpanded }
+              )}
+              initial="hidden"
+              exit={{ opacity: 0, height: 0 }}
+              animate={isExpanded ? "show" : "hidden"}
+              variants={list}
+            >
+              {navItem.children?.map((item, index) => {
+                const isCurrentPath = activePath.includes(item.url);
 
-              return (
-                <motion.li
-                  key={index}
-                  className="flex items-center max-h-40 h-10 ml-6"
-                  variants={listItem}
-                >
-                  <Link href={`${item.url}`}>
-                    <a
-                      aria-current={activePath === navItem.url}
-                      className={classNames(
-                        "flex items-center w-full",
-                        "text-sm capitalize",
-                        "hover:text-border-info",
-                        {
-                          "text-border-info": isCurrentPath,
-                          "text-text-default": !isCurrentPath,
-                        }
-                      )}
-                    >
-                      <Tag
-                        content={mapHttpMethodToTagContent(item.description!)}
-                        scheme={mapHttpMethodToTagScheme(
-                          item.description as HttpMethods
+                return (
+                  <motion.li
+                    key={index}
+                    className="flex items-center max-h-40 h-10 ml-6"
+                    variants={listItem}
+                  >
+                    <Link href={`${item.url}`}>
+                      <a
+                        aria-current={activePath === navItem.url}
+                        className={classNames(
+                          "flex items-center w-full",
+                          "text-sm capitalize",
+                          "hover:text-border-info",
+                          {
+                            "text-border-info": isCurrentPath,
+                            "text-text-default": !isCurrentPath,
+                          }
                         )}
-                        httpTag
-                      />
-                      <span>{item.title}</span>
-                    </a>
-                  </Link>
-                </motion.li>
-              );
-            })}
-          </motion.ul>
-        )}
-      </AnimatePresence>
+                      >
+                        <Tag
+                          content={mapHttpMethodToTagContent(item.description!)}
+                          scheme={mapHttpMethodToTagScheme(
+                            item.description as HttpMethods
+                          )}
+                          httpTag
+                        />
+                        <span>{item.title}</span>
+                      </a>
+                    </Link>
+                  </motion.li>
+                );
+              })}
+            </motion.ul>
+          )}
+        </AnimatePresence>
+      </li>
     </>
   );
 };
