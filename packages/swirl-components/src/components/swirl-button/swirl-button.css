@@ -229,6 +229,7 @@
   }
 
   & .button__icon {
+    margin-left: 0;
     color: var(--s-interactive-neutral-default);
   }
 }
