@@ -16,10 +16,12 @@ import { CodeExample } from "./types";
 import { NpmPackageLink } from "./NpmPackageLink";
 import CodePreviewContext from "./CodePreviewContext";
 import { APIEndpointHeader } from "./CodePreviewRequestString";
+import { CopyButton } from "./CodePreviewCopyButton";
 
 interface CodePreviewProps {
   codeExample: CodeExample;
   isHttpResponse?: boolean;
+  hasCopyButton?: boolean;
   children?: ReactNode | ReactNode[];
 }
 
@@ -31,6 +33,7 @@ export function CodePreview({
   children,
   codeExample,
   isHttpResponse,
+  hasCopyButton,
 }: CodePreviewProps) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
@@ -63,30 +66,7 @@ export function CodePreview({
             )}
           >
             <div className="flex items-center justify-between">{children}</div>
-            {!isHttpResponse && (
-              <CopyToClipboard
-                text={codeExample.code}
-                onCopy={() => {
-                  setIsCopied(true);
-                  setTimeout(() => {
-                    setIsCopied(false);
-                  }, 2000);
-                }}
-              >
-                <button
-                  aria-label="Copy code to clipboard"
-                  type="button"
-                  className="flex justify-center items-center text-[#F2F2F2] text-base font-medium"
-                >
-                  {isCopied ? "Code copied!" : "Copy Code"}
-                  {isCopied ? (
-                    <SwirlIconCheckStrong size={16} className="ml-1" />
-                  ) : (
-                    <SwirlIconCopy size={16} className="ml-1" />
-                  )}
-                </button>
-              </CopyToClipboard>
-            )}
+            {hasCopyButton && <CopyButton code={codeExample.code} />}
           </div>
 
           <Highlight

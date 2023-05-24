@@ -1,5 +1,4 @@
 import Image from "next/image";
-import icon from "@getflip/swirl-icons/icons/Close16.svg";
 import MobileNav from "./mobileNav";
 import Link from "next/link";
 import { navItems } from "@swirl/lib/navigation";
@@ -8,7 +7,7 @@ import { DesktopView, MobileView } from "../View/Views";
 import { useEffect, useState } from "react";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classNames from "classnames";
-import { SwirlIconClose, SwirlIconMenu } from "@getflip/swirl-components-react";
+import { SwirlIconClose } from "@getflip/swirl-components-react";
 import { OpenSearchButton } from "./OpenSearchButton";
 
 export const HeaderLogo = () => {

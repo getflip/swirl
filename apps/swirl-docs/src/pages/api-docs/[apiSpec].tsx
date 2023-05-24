@@ -265,6 +265,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                       {/** CODE PREVIEWS */}
                       <div className="min-w-0">
                         <CodePreview
+                          hasCopyButton
                           codeExample={{
                             code: endpoint.request.code,
                             isLongCode: false,

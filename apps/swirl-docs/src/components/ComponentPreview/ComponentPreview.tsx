@@ -90,7 +90,7 @@ export function ComponentPreview() {
         setIsLoading={setIsLoading}
         handleExampleChange={(example) => setCurrentExample(example)}
       />
-      <CodePreview codeExample={codeExample}>
+      <CodePreview hasCopyButton codeExample={codeExample}>
         <CodePreview.NpmPackageLink />
         <CodePreview.CodeSandboxButton />
       </CodePreview>
