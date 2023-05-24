@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.58.0
+
+### Minor Changes
+
+- [`ff58993`](https://github.com/getflip/swirl/commit/ff58993d4500513c710e1b7a2fe5214ad2dc7d2c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ff58993`](https://github.com/getflip/swirl/commit/ff58993d4500513c710e1b7a2fe5214ad2dc7d2c)]:
+  - @getflip/swirl-components@0.59.0
+
 ## 0.57.2
 
 ### Patch Changes
