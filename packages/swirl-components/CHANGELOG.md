@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.60.1
+
+### Patch Changes
+
+- [`aff98e4`](https://github.com/getflip/swirl/commit/aff98e4b7dac59d3c2ba3a2c41edc59e272bd473)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix "plain" swirl-button bounding
+  box
+
 ## 0.60.0
 
 ### Minor Changes

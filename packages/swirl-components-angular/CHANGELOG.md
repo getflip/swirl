@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.59.1
+
+### Patch Changes
+
+- [`aff98e4`](https://github.com/getflip/swirl/commit/aff98e4b7dac59d3c2ba3a2c41edc59e272bd473)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix "plain" swirl-button bounding
+  box
+
+- Updated dependencies
+  [[`aff98e4`](https://github.com/getflip/swirl/commit/aff98e4b7dac59d3c2ba3a2c41edc59e272bd473)]:
+  - @getflip/swirl-components@0.60.1
+
 ## 0.59.0
 
 ### Minor Changes
