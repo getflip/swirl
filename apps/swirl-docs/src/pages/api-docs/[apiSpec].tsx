@@ -265,6 +265,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                       {/** CODE PREVIEWS */}
                       <div className="min-w-0">
                         <CodePreview
+                          className="mb-4"
                           hasCopyButton
                           codeExample={{
                             code: endpoint.request.code,
@@ -275,7 +276,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                         >
                           <CodePreview.Request />
                         </CodePreview>
-                        <div className="mt-2">
+                        <div>
                           {endpoint.responseExamples[0] && (
                             <CodePreview
                               isHttpResponse

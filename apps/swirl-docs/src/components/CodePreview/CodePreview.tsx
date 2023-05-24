@@ -1,12 +1,9 @@
 import {
-  SwirlIconCheckStrong,
-  SwirlIconCopy,
   SwirlIconExpandLess,
   SwirlIconExpandMore,
 } from "@getflip/swirl-components-react";
 import { ReactNode, useState } from "react";
 import { CodeSandboxButton } from "./CodeSandboxButton";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import classNames from "classnames";
 import NoSsr from "../Layout/NoSsr";
 import Highlight, { defaultProps } from "prism-react-renderer";
@@ -23,6 +20,7 @@ interface CodePreviewProps {
   isHttpResponse?: boolean;
   hasCopyButton?: boolean;
   children?: ReactNode | ReactNode[];
+  className?: string;
 }
 
 /**
@@ -34,16 +32,16 @@ export function CodePreview({
   codeExample,
   isHttpResponse,
   hasCopyButton,
+  className,
 }: CodePreviewProps) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const [isCopied, setIsCopied] = useState<boolean>(false);
 
   return (
     <NoSsr>
       <CodePreviewContext.Provider value={codeExample}>
         <div
           className={classNames(
-            "relative w-auto  rounded-lg mb-10 overflow-auto",
+            "relative w-auto rounded-xl overflow-auto",
             {
               "bg-[#24292E]": !isHttpResponse,
               "bg-surface-raised-default": isHttpResponse,
@@ -53,7 +51,8 @@ export function CodePreview({
                 !isExpanded && !isHttpResponse,
               "min-h-[240px]": isExpanded,
               "h-full": isHttpResponse,
-            }
+            },
+            className
           )}
         >
           <div
