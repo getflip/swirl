@@ -83,6 +83,9 @@ export const config: Config = {
       type: "docs-vscode",
       file: "vscode-data.json",
     },
+    {
+      type: "dist-hydrate-script",
+    },
     reactOutputTarget({
       componentCorePackage: "@getflip/swirl-components",
       excludeComponents: ["wc-datepicker"],

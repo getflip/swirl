@@ -1,0 +1,8 @@
+{
+  "name": "@getflip/swirl-components-hydrate",
+  "description": "Swirl components hydration app.",
+  "version": "0.1.0-beta.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "private": false
+}
