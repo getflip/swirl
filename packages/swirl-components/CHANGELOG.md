@@ -1,5 +1,16 @@
 # @getflip/swirl-components
 
+## 0.60.0
+
+### Minor Changes
+
+- [`1e50e54`](https://github.com/getflip/swirl/commit/1e50e541c01ee61d6287e8591d164c39120d680e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "intent" prop to swirl-card
+  component
+
+* [`807b526`](https://github.com/getflip/swirl/commit/807b5269fca44374dab507d83adc1c8b38671a74)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-inline-status component
+
 ## 0.59.0
 
 ### Minor Changes
