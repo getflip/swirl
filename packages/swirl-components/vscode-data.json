@@ -968,6 +968,27 @@
           "description": ""
         },
         {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical-subdued"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "info-subdued"
+            },
+            {
+              "name": "success-subdued"
+            },
+            {
+              "name": "warning-subdued"
+            }
+          ]
+        },
+        {
           "name": "interactive",
           "description": ""
         },
@@ -2167,6 +2188,19 @@
       ]
     },
     {
+      "name": "swirl-icon-bar-chart",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-block",
       "description": {
         "kind": "markdown",
@@ -2661,6 +2695,19 @@
       ]
     },
     {
+      "name": "swirl-icon-gif",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-group-assign",
       "description": {
         "kind": "markdown",
@@ -2727,6 +2774,32 @@
     },
     {
       "name": "swirl-icon-help",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-highlight",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-home",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2909,6 +2982,32 @@
     },
     {
       "name": "swirl-icon-manage-accounts",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-mark-chat-read",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-mark-chat-unread",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3155,6 +3254,19 @@
       ]
     },
     {
+      "name": "swirl-icon-play-arrow",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-poll",
       "description": {
         "kind": "markdown",
@@ -3195,6 +3307,32 @@
     },
     {
       "name": "swirl-icon-remove",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-reply",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-roadmap",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3428,6 +3566,19 @@
       ]
     },
     {
+      "name": "swirl-icon-video-library",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-visibility",
       "description": {
         "kind": "markdown",
@@ -3542,6 +3693,53 @@
             },
             {
               "name": "warning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "swirl-inline-status",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "message",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
             }
           ]
         }
