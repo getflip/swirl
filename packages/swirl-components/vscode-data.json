@@ -5193,6 +5193,9 @@
           "description": "",
           "values": [
             {
+              "name": "2xl"
+            },
+            {
               "name": "base"
             },
             {
@@ -5200,6 +5203,9 @@
             },
             {
               "name": "sm"
+            },
+            {
+              "name": "xl"
             }
           ]
         },

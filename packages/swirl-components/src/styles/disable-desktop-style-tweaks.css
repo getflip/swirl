@@ -253,6 +253,16 @@ html.disable-desktop-style-tweaks {
       line-height: var(--s-line-height-lg);
     }
 
+    & .text--size-xl {
+      font-size: var(--s-font-size-xl);
+      line-height: var(--s-line-height-xl);
+    }
+
+    & .text--size-2xl {
+      font-size: var(--s-font-size-2xl);
+      line-height: var(--s-line-height-2xl);
+    }
+
     & .text-input__clear-button,
     & .text-input__password-toggle {
       top: calc(-1 * var(--s-space-12));

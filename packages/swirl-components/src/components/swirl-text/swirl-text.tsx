@@ -16,7 +16,7 @@ export type SwirlTextFontFamily = "code" | "text";
 
 export type SwirlTextFontStyle = "normal" | "italic";
 
-export type SwirlTextSize = "sm" | "base" | "lg";
+export type SwirlTextSize = "sm" | "base" | "lg" | "xl" | "2xl";
 
 export type SwirlTextWeight = "normal" | "medium" | "semibold" | "bold";
 
