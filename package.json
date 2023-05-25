@@ -36,7 +36,7 @@
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.5.0",
-    "turbo": "^1.2.8"
+    "turbo": "^1.9.9"
   },
   "resolutions": {
     "svgicons2svgfont": "^10.0.0",

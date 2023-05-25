@@ -11,18 +11,24 @@
         "stencil-generated/**",
         ".next/**"
       ],
-      "dependsOn": ["^build", "swirl-docs#build:spec-navigation"]
+      "dependsOn": [
+        "^build",
+        "swirl-docs#build:spec-navigation"
+      ]
     },
     "test": {
-      "outputs": [],
       "dependsOn": []
     },
     "lint": {
-      "outputs": [".eslintcache"]
+      "outputs": [
+        ".eslintcache"
+      ]
     },
     "dev": {
       "cache": false,
-      "outputs": [".next/**"],
+      "outputs": [
+        ".next/**"
+      ],
       "dependsOn": [
         "@getflip/swirl-tokens#build",
         "@getflip/swirl-icons#build",
@@ -33,14 +39,17 @@
       "cache": false
     },
     "gulp": {
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ]
     },
     "build:spec-navigation": {
-      "outputs": [],
       "dependsOn": []
     },
     "build:swirl-docs": {
-      "outputs": [".next/**"],
+      "outputs": [
+        ".next/**"
+      ],
       "dependsOn": [
         "swirl-docs#build:spec-navigation",
         "^stencil:build",
@@ -48,8 +57,12 @@
       ]
     },
     "stencil:build": {
-      "outputs": ["dist/**"],
-      "dependsOn": ["@getflip/swirl-tokens#build"]
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": [
+        "@getflip/swirl-tokens#build"
+      ]
     }
   }
 }
