@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.63.0
+
+### Minor Changes
+
+- [`7d0b582`](https://github.com/getflip/swirl/commit/7d0b5829a231ac7077b38d8d5563ec059176c018)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-status-indicator
+  component
+
 ## 0.62.0
 
 ### Minor Changes
