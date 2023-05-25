@@ -88,8 +88,8 @@ describe("swirl-menu", () => {
                   <span class="menu__title" id="menu-title">
                     <swirl-heading align="center" as="span" level="4" text="Menu" truncate=""></swirl-heading>
                   </span>
-                  <swirl-button>
-                    <button class="button button--icon-position-start button--intent-primary button--size-m button--variant-plain" type="button">
+                  <swirl-button class="menu__done-button">
+                    <button class="button button--icon-position-start button--intent-primary button--size-m button--variant-ghost" type="button">
                       <span class="button__label">
                         Done
                       </span>
@@ -130,8 +130,8 @@ describe("swirl-menu", () => {
                       <span class="menu__title" id="menu-title">
                         <swirl-heading align="center" as="span" level="4" text="Sub menu" truncate=""></swirl-heading>
                       </span>
-                      <swirl-button>
-                        <button class="button button--icon-position-start button--intent-primary button--size-m button--variant-plain" type="button">
+                      <swirl-button class="menu__done-button">
+                        <button class="button button--icon-position-start button--intent-primary button--size-m button--variant-ghost" type="button">
                           <span class="button__label">
                             Done
                           </span>
