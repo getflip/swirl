@@ -465,10 +465,10 @@ export class SwirlMenu {
                 ></swirl-heading>
               </span>
               <swirl-button
+                class="menu__done-button"
                 intent="primary"
                 label={this.mobileDoneButtonLabel}
                 onClick={this.onDone}
-                variant="plain"
               ></swirl-button>
             </div>
           )}

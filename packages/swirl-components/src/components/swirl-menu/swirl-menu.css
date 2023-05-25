@@ -8,6 +8,10 @@
 
 .menu {
   width: 100%;
+
+  --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
 }
 
 .menu--mobile {
@@ -91,6 +95,10 @@
   & swirl-heading {
     min-width: 0;
   }
+}
+
+.menu__done-button {
+  margin-right: calc(-1 * var(--s-space-8));
 }
 
 .menu__menu {
