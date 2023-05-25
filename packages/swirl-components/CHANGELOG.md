@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.62.0
+
+### Minor Changes
+
+- [`a8545ec`](https://github.com/getflip/swirl/commit/a8545ece1904c924375aa11fdcc14b07177a0647)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "heading" slot to
+  swirl-console-layout
+
 ## 0.61.0
 
 ### Minor Changes
