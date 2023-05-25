@@ -46,6 +46,7 @@ import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/sw
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
+import { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
 import { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
 import { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
@@ -98,6 +99,7 @@ export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/sw
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
+export { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
 export { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
 export { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
@@ -1164,6 +1166,10 @@ export namespace Components {
         "orientation"?: SwirlStackOrientation;
         "spacing"?: SwirlStackSpacing;
         "wrap"?: boolean;
+    }
+    interface SwirlStatusIndicator {
+        "intent": SwirlStatusIndicatorIntent;
+        "label": string;
     }
     interface SwirlSwitch {
         "checked"?: boolean;
@@ -2649,6 +2655,12 @@ declare global {
         prototype: HTMLSwirlStackElement;
         new (): HTMLSwirlStackElement;
     };
+    interface HTMLSwirlStatusIndicatorElement extends Components.SwirlStatusIndicator, HTMLStencilElement {
+    }
+    var HTMLSwirlStatusIndicatorElement: {
+        prototype: HTMLSwirlStatusIndicatorElement;
+        new (): HTMLSwirlStatusIndicatorElement;
+    };
     interface HTMLSwirlSwitchElement extends Components.SwirlSwitch, HTMLStencilElement {
     }
     var HTMLSwirlSwitchElement: {
@@ -2961,6 +2973,7 @@ declare global {
         "swirl-skeleton-text": HTMLSwirlSkeletonTextElement;
         "swirl-spinner": HTMLSwirlSpinnerElement;
         "swirl-stack": HTMLSwirlStackElement;
+        "swirl-status-indicator": HTMLSwirlStatusIndicatorElement;
         "swirl-switch": HTMLSwirlSwitchElement;
         "swirl-tab": HTMLSwirlTabElement;
         "swirl-tab-bar": HTMLSwirlTabBarElement;
@@ -3962,6 +3975,10 @@ declare namespace LocalJSX {
         "spacing"?: SwirlStackSpacing;
         "wrap"?: boolean;
     }
+    interface SwirlStatusIndicator {
+        "intent": SwirlStatusIndicatorIntent;
+        "label": string;
+    }
     interface SwirlSwitch {
         "checked"?: boolean;
         "disabled"?: boolean;
@@ -4302,6 +4319,7 @@ declare namespace LocalJSX {
         "swirl-skeleton-text": SwirlSkeletonText;
         "swirl-spinner": SwirlSpinner;
         "swirl-stack": SwirlStack;
+        "swirl-status-indicator": SwirlStatusIndicator;
         "swirl-switch": SwirlSwitch;
         "swirl-tab": SwirlTab;
         "swirl-tab-bar": SwirlTabBar;
@@ -4529,6 +4547,7 @@ declare module "@stencil/core" {
             "swirl-skeleton-text": LocalJSX.SwirlSkeletonText & JSXBase.HTMLAttributes<HTMLSwirlSkeletonTextElement>;
             "swirl-spinner": LocalJSX.SwirlSpinner & JSXBase.HTMLAttributes<HTMLSwirlSpinnerElement>;
             "swirl-stack": LocalJSX.SwirlStack & JSXBase.HTMLAttributes<HTMLSwirlStackElement>;
+            "swirl-status-indicator": LocalJSX.SwirlStatusIndicator & JSXBase.HTMLAttributes<HTMLSwirlStatusIndicatorElement>;
             "swirl-switch": LocalJSX.SwirlSwitch & JSXBase.HTMLAttributes<HTMLSwirlSwitchElement>;
             "swirl-tab": LocalJSX.SwirlTab & JSXBase.HTMLAttributes<HTMLSwirlTabElement>;
             "swirl-tab-bar": LocalJSX.SwirlTabBar & JSXBase.HTMLAttributes<HTMLSwirlTabBarElement>;
