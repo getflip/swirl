@@ -57,7 +57,7 @@ export class SwirlPopover {
   @State() position: ComputePositionReturn;
 
   @Event() popoverClose: EventEmitter<void>;
-  @Event() popoverOpen: EventEmitter<void>;
+  @Event() popoverOpen: EventEmitter<{ position: ComputePositionReturn }>;
 
   private contentContainer: HTMLDivElement;
   private disableAutoUpdate: any;
@@ -167,13 +167,14 @@ export class SwirlPopover {
     this.adjustWidth();
 
     this.active = true;
-    this.popoverOpen.emit();
 
     this.updateFocusableChildren();
     this.updateTriggerAttributes();
 
     requestAnimationFrame(async () => {
       await this.reposition();
+
+      this.popoverOpen.emit({ position: this.position });
 
       if (this.focusableChildren.length > 0) {
         this.focusableChildren[0].focus();
@@ -340,6 +341,7 @@ export class SwirlPopover {
     const className = classnames(
       "popover",
       `popover--animation-${this.animation}`,
+      `popover--placement-${this.position?.placement}`,
       {
         "popover--closing": this.closing,
         "popover--active": this.active,
@@ -355,6 +357,7 @@ export class SwirlPopover {
             aria-hidden={!this.active ? "true" : "false"}
             aria-label={this.label}
             class="popover__content"
+            part="popover__content"
             role="dialog"
             ref={(el) => (this.contentContainer = el)}
             style={{

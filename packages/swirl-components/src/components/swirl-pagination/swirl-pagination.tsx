@@ -109,7 +109,9 @@ export class SwirlPagination {
     const showPageLabel = this.variant !== "simple";
     const showDropDown = this.variant === "advanced";
 
-    const ariaPageLabel = `${this.page} ${this.pageLabel} ${this.pages}`;
+    const ariaPageLabel = `${this.page.toLocaleString()} ${
+      this.pageLabel
+    } ${this.pages.toLocaleString()}`;
 
     const className = classnames(
       "pagination",
@@ -192,7 +194,7 @@ export class SwirlPagination {
                         value={this.page}
                       />
                       <span aria-hidden="true">
-                        {this.pageLabel} {this.pages}
+                        {this.pageLabel} {this.pages.toLocaleString()}
                       </span>
                     </span>
                   ) : (

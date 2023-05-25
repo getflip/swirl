@@ -7,6 +7,13 @@ export type SwirlCardBorderRadius =
   | typeof swirlCardBorderRadiusTokens[number]
   | string;
 
+export type SwirlCardIntent =
+  | "critical-subdued"
+  | "default"
+  | "info-subdued"
+  | "success-subdued"
+  | "warning-subdued";
+
 export type SwirlCardJustifyContent = "start" | "center" | "end";
 
 export type SwirlCardPadding =
@@ -38,6 +45,7 @@ export class SwirlCard {
   @Prop() highlighted?: boolean;
   @Prop() href?: string;
   @Prop() imageAspectRatio?: string;
+  @Prop() intent?: SwirlCardIntent = "default";
   @Prop() isBorderless?: boolean;
   @Prop() interactive?: boolean;
   @Prop() justifyContent?: SwirlCardJustifyContent = "start";
@@ -83,6 +91,7 @@ export class SwirlCard {
 
     const className = classnames(
       "card",
+      `card--intent-${this.intent}`,
       `card--justify-content-${this.justifyContent}`,
       {
         "card--elevated": this.elevated,

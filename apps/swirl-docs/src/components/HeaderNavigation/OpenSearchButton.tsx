@@ -27,7 +27,7 @@ export const OpenSearchButton: FunctionComponent = () => {
       )}
     >
       <span className="inline-flex items-center">
-        <SwirlIconSearch size={24} className="text-icon-default" />
+        <i className={`swirl-icons-Search24 text-icon-default text-2xl`}></i>
         <span className="ml-2 text-left text-text-subdued">Search...</span>
       </span>
       <span

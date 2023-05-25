@@ -33,8 +33,8 @@ describe("swirl-popover", () => {
         <button aria-controls="popover" aria-expanded="false" aria-haspopup="dialog" id="trigger">Trigger popover</button>
         <swirl-popover id="popover" label="Popover" popover-id="popover" trigger="trigger">
           <mock:shadow-root>
-            <div class="popover popover--animation-scale-in-xy popover--inactive">
-              <div aria-hidden="true" aria-label="Popover" class="popover__content" role="dialog" tabindex="-1">
+            <div class="popover popover--animation-scale-in-xy popover--inactive  popover--placement-undefined">
+              <div aria-hidden="true" aria-label="Popover" class="popover__content" part="popover__content" role="dialog" tabindex="-1">
                 <span class="popover__handle"></span>
                 <div class="popover__scroll-container">
                   <slot></slot>

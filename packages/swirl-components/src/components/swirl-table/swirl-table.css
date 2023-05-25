@@ -56,7 +56,7 @@
   border-right: var(--s-border-width-default) solid var(--s-border-default);
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   border-left: var(--s-border-width-default) solid var(--s-border-default);
-  background-color: var(--s-background-default);
+  background-color: var(--s-surface-default);
 
   & > * {
     flex-grow: 1;

@@ -5,4 +5,5 @@ export {
   WCDatepickerLabels,
   MonthChangedEventDetails,
 } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
+export { ComputePositionReturn } from "@floating-ui/dom";
 export { Components, JSX } from "./components";

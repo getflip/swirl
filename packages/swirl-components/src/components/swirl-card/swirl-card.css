@@ -88,6 +88,22 @@ button.card,
   }
 }
 
+.card--intent-critical-subdued {
+  background-color: var(--s-surface-critical-subdued);
+}
+
+.card--intent-info-subdued {
+  background-color: var(--s-surface-info-subdued);
+}
+
+.card--intent-success-subdued {
+  background-color: var(--s-surface-success-subdued);
+}
+
+.card--intent-warning-subdued {
+  background-color: var(--s-surface-warning-subdued);
+}
+
 .content-section {
   padding: 0 var(--s-space-16);
 }

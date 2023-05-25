@@ -96,7 +96,7 @@
 
 .pagination__page-input {
   display: inline-flex;
-  width: 3rem;
+  width: 3.25rem;
   padding-top: var(--s-space-8);
   padding-right: var(--s-space-8);
   padding-bottom: var(--s-space-8);

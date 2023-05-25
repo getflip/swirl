@@ -12,7 +12,7 @@ describe("swirl-card", () => {
     expect(page.root).toEqualHtml(`
       <swirl-card as="article" elevated="">
         <mock:shadow-root>
-          <article class="card card--elevated card--justify-content-start" style="border-radius: var(--s-border-radius-base);">
+          <article class="card card--intent-default card--elevated card--justify-content-start" style="border-radius: var(--s-border-radius-base);">
             <div class="card__image">
               <slot name="image"></slot>
             </div>
@@ -37,7 +37,7 @@ describe("swirl-card", () => {
     expect(page.root).toEqualHtml(`
       <swirl-card href="#" link-target="_blank">
         <mock:shadow-root>
-          <a class="card card--interactive card--justify-content-start" href="#" rel="noreferrer" style="border-radius: var(--s-border-radius-base);" target="_blank">
+          <a class="card card--intent-default card--interactive card--justify-content-start" href="#" rel="noreferrer" style="border-radius: var(--s-border-radius-base);" target="_blank">
             <div class="card__image">
               <slot name="image"></slot>
             </div>
@@ -62,7 +62,7 @@ describe("swirl-card", () => {
     expect(page.root).toEqualHtml(`
       <swirl-card padding="16" padding-block-start="2" padding-block-end="4" padding-inline-start="8" padding-inline-end="12">
         <mock:shadow-root>
-          <div class="card card--justify-content-start" style="border-radius: var(--s-border-radius-base);">
+          <div class="card card--intent-default card--justify-content-start" style="border-radius: var(--s-border-radius-base);">
             <div class="card__image">
               <slot name="image"></slot>
             </div>

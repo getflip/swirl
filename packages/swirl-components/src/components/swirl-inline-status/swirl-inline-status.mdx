@@ -1,0 +1,38 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-inline-status.stories";
+
+<Meta title="Components/SwirlInlineStatus" />
+
+# SwirlInlineStatus
+
+The SwirlInlineStatus component is used to convey status information.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=2%3A26)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-inline-status)**
+
+## Usage
+
+<Canvas of={Stories.SwirlInlineStatus} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlInlineStatus} />
+
+## Theming
+
+| Variable            | Usage                                                  |
+| ------------------- | ------------------------------------------------------ |
+| `--s-icon-critical` | Icon color of the inline status with intent "critical" |
+| `--s-text-critical` | Text color of the inline status with intent "critical" |
+| `--s-icon-info`     | Icon color of the inline status with intent "info"     |
+| `--s-text-info`     | Text color of the inline status with intent "info"     |
+| `--s-icon-success`  | Icon color of the inline status with intent "success"  |
+| `--s-text-success`  | Text color of the inline status with intent "success"  |
+| `--s-icon-warning`  | Icon color of the inline status with intent "warning"  |
+| `--s-text-warning`  | Text color of the inline status with intent "warning"  |
+
+## Accessibility
+
+### ARIA
+
+| ARIA               | Usage                                                                                                                                                                                              |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aria-describedby` | The inline status needs to be linked to the corresponding form field by setting the `aria-describedby` attribute on the related field and the matching `id` attribute on the inline error element. |

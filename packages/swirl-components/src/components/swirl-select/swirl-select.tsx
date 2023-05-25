@@ -11,6 +11,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { SwirlFormInput, querySelectorAllDeep } from "../../utils";
+import { ComputePositionReturn, Placement } from "@floating-ui/dom";
 
 @Component({
   /**
@@ -33,11 +34,13 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   @Prop() label!: string;
   @Prop() multiSelect?: boolean;
   @Prop() required?: boolean;
+  @Prop() selectId?: string = Math.round(Math.random() * 1000000).toString();
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string[];
 
   @State() options: HTMLSwirlOptionListItemElement[] = [];
   @State() open: boolean;
+  @State() placement: Placement;
 
   @Event() valueChange: EventEmitter<string[]>;
 
@@ -76,7 +79,10 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     this.updateOptions();
   };
 
-  private onOpen = () => {
+  private onOpen = (
+    event: CustomEvent<{ position: ComputePositionReturn }>
+  ) => {
+    this.placement = event.detail.position.placement;
     this.open = true;
   };
 
@@ -106,10 +112,14 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
         ? String(this.invalid)
         : undefined;
 
-    const className = classnames("select", {
-      "select--disabled": this.disabled,
-      "select--inline": this.inline,
-    });
+    const className = classnames(
+      "select",
+      `select--placement-${this.placement}`,
+      {
+        "select--disabled": this.disabled,
+        "select--inline": this.inline,
+      }
+    );
 
     return (
       <Host onKeyDown={this.onKeyDown}>
@@ -120,7 +130,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             aria-invalid={ariaInvalid}
             class="select__label"
             disabled={this.disabled}
-            id="trigger"
+            id={`trigger-${this.selectId}`}
             readOnly={true}
             type="text"
             value={label}
@@ -135,14 +145,13 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
           <swirl-popover
             animation="scale-in-y"
             class="select__popover"
-            enableFlip={false}
             label={this.label}
-            offset={[16, -16]}
+            offset={[0, -16]}
             onPopoverClose={this.onClose}
             onPopoverOpen={this.onOpen}
-            popoverId="select-options"
+            popoverId={`select-options-${this.selectId}`}
             ref={(el) => (this.popover = el)}
-            trigger="trigger"
+            trigger={`trigger-${this.selectId}`}
             useContainerWidth="swirl-form-control"
           >
             <swirl-option-list

@@ -83,7 +83,6 @@ export default function Component({
       <DocumentationLayout
         header={<DocumentationLayout.Header />}
         content={<DocumentationLayout.MDX />}
-        footer={<DocumentationLayout.Footer />}
         data={{
           mdxContent: {
             document,
