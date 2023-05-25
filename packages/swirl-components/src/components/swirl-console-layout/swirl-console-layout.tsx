@@ -13,6 +13,14 @@ import {
 import classnames from "classnames";
 import { isMobileViewport } from "../../utils";
 
+/**
+ * @slot content - The main content
+ * @slot content-header-tools - Button positioned next to the heading
+ * @slot heading - The main content's heading (only rendered if "heading" prop is not set).
+ * @slot navigation - The main navigation
+ * @slot overlays - Overlays like dialogs, modals and toasts
+ * @slot user - The signed in user information at the bottom of the sidebar
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-console-layout.css",
@@ -23,7 +31,7 @@ export class SwirlConsoleLayout {
 
   @Prop() appName?: string;
   @Prop() backButonLabel?: string = "Back";
-  @Prop() heading!: string;
+  @Prop() heading?: string;
   @Prop() helpButonLabel?: string = "Help";
   @Prop() hideNavigationButtonLabel?: string = "Hide main navigation";
   @Prop() logoText?: string = "Admin";
@@ -262,23 +270,30 @@ export class SwirlConsoleLayout {
                     onClick={this.onBackButtonClick}
                   ></swirl-button>
                 )}
-                <div class="console-layout__heading-container">
-                  <swirl-heading
-                    as="h2"
-                    class="console-layout__heading"
-                    headingId="heading"
-                    level={1}
-                    text={this.heading}
-                  ></swirl-heading>
-                  {this.subheading && (
-                    <swirl-text
-                      class="console-layout__subheading"
-                      color="subdued"
-                    >
-                      {this.subheading}
-                    </swirl-text>
-                  )}
-                </div>
+                {Boolean(this.heading) && (
+                  <div class="console-layout__heading-container">
+                    <swirl-heading
+                      as="h2"
+                      class="console-layout__heading"
+                      headingId="heading"
+                      level={1}
+                      text={this.heading}
+                    ></swirl-heading>
+                    {this.subheading && (
+                      <swirl-text
+                        class="console-layout__subheading"
+                        color="subdued"
+                      >
+                        {this.subheading}
+                      </swirl-text>
+                    )}
+                  </div>
+                )}
+                {!Boolean(this.heading) && (
+                  <div class="console-layout__heading-container">
+                    <slot name="heading"></slot>
+                  </div>
+                )}
                 <div class="console-layout__content-header-tools">
                   <slot name="content-header-tools"></slot>
                 </div>

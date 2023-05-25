@@ -327,7 +327,7 @@ export namespace Components {
     interface SwirlConsoleLayout {
         "appName"?: string;
         "backButonLabel"?: string;
-        "heading": string;
+        "heading"?: string;
         "helpButonLabel"?: string;
         "hideNavigationButtonLabel"?: string;
         /**
@@ -3193,7 +3193,7 @@ declare namespace LocalJSX {
     interface SwirlConsoleLayout {
         "appName"?: string;
         "backButonLabel"?: string;
-        "heading": string;
+        "heading"?: string;
         "helpButonLabel"?: string;
         "hideNavigationButtonLabel"?: string;
         "logoText"?: string;
