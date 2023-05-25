@@ -8,8 +8,6 @@ function getSwirlComponentData(name: string): SwirlComponent {
   const tag = `swirl-${name.toLowerCase().replace(/ /g, "-")}`;
   const componentsJSON = require("@getflip/swirl-components/components.json");
 
-  console.log("componentsJSON", componentsJSON);
-
   const component = componentsJSON.components.find(
     (c: any) => c.tag === tag
   ) as unknown as SwirlComponent;
