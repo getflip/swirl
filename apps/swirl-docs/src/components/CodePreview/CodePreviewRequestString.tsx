@@ -1,16 +1,18 @@
 import { useCodePreviewContext } from "./CodePreviewContext";
 
 export function APIEndpointHeader() {
-  const { request } = useCodePreviewContext();
+  const { codeExample } = useCodePreviewContext();
 
   return (
     <span>
-      {request && (
+      {codeExample.request && (
         <>
           <span className="text-[#A6CAFF] font-semibold text-font-size-base mr-1 uppercase">
-            {request?.method}
+            {codeExample.request?.method}
           </span>
-          <span className="text-white font-normal">{request?.url}</span>
+          <span className="text-white font-normal">
+            {codeExample.request?.url}
+          </span>
         </>
       )}
     </span>

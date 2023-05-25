@@ -123,14 +123,14 @@ const CategoryNavSubItem = ({
                 return (
                   <motion.li
                     key={index}
-                    className="flex items-center max-h-40 h-10 ml-6"
+                    className="flex items-center min-h-[2.5rem] h-full ml-6 mb-1"
                     variants={listItem}
                   >
                     <Link href={`${item.url}`}>
                       <a
                         aria-current={activePath === navItem.url}
                         className={classNames(
-                          "flex items-center w-full",
+                          "flex items-start w-full",
                           "text-sm capitalize",
                           "hover:text-border-info",
                           {

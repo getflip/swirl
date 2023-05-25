@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
-import { CodeExample } from "./types";
+import { CodePreview } from "./types";
 
-const CodePreviewContext = createContext<CodeExample | null>(null);
+const CodePreviewContext = createContext<CodePreview | null>(null);
 
 export function useCodePreviewContext() {
   const context = useContext(CodePreviewContext);

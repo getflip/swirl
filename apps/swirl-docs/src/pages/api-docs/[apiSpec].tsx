@@ -274,12 +274,12 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             request: endpoint.request.request,
                           }}
                         >
-                          <CodePreview.Request />
+                          <CodePreview.EndpointHeader />
                         </CodePreview>
                         <div>
                           {endpoint.responseExamples[0] && (
                             <CodePreview
-                              isHttpResponse
+                              isLightTheme
                               codeExample={{
                                 code: JSON.stringify(
                                   endpoint.responseExamples[0].value as string,
