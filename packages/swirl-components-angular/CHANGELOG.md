@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.60.0
+
+### Minor Changes
+
+- [`16d08d6`](https://github.com/getflip/swirl/commit/16d08d6ad354282499647a29fd0dc6f8a6ece924)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow more sizes for swirl-text
+
+### Patch Changes
+
+- Updated dependencies
+  [[`16d08d6`](https://github.com/getflip/swirl/commit/16d08d6ad354282499647a29fd0dc6f8a6ece924)]:
+  - @getflip/swirl-components@0.61.0
+
 ## 0.59.1
 
 ### Patch Changes
