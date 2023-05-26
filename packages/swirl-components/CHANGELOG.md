@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.63.1
+
+### Patch Changes
+
+- [`0adf578`](https://github.com/getflip/swirl/commit/0adf5783d89184aca4c6cd2b1a3474512a508a8f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue updating
+  swirl-text-input values
+
 ## 0.63.0
 
 ### Minor Changes
