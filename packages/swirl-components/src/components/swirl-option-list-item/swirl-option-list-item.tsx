@@ -13,6 +13,8 @@ import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlOptionListItemContext = "single-select" | "multi-select";
 
+export type SwirlOptionListItemRole = "option" | "menuitemradio";
+
 @Component({
   scoped: true,
   shadow: false,
@@ -32,6 +34,7 @@ export class SwirlOptionListItem {
   @Prop() icon?: string;
   @Prop() label!: string;
   @Prop({ mutable: true }) selected?: boolean = false;
+  @Prop() swirlAriaRole?: SwirlOptionListItemRole = "option";
   @Prop() value!: string;
 
   @Event() toggleDrag: EventEmitter<HTMLSwirlOptionListItemElement>;
@@ -102,11 +105,16 @@ export class SwirlOptionListItem {
     return (
       <Host>
         <div
+          aria-checked={
+            this.swirlAriaRole === "menuitemradio" ? ariaSelected : undefined
+          }
           aria-disabled={ariaDisabled}
-          aria-selected={ariaSelected}
+          aria-selected={
+            this.swirlAriaRole === "option" ? ariaSelected : undefined
+          }
           class={className}
           part="option-list-item"
-          role="option"
+          role={this.swirlAriaRole}
         >
           {showIcon && (
             <span

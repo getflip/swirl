@@ -31,6 +31,7 @@ const Template = (args) => {
 export const SwirlActionListItem = Template.bind({});
 
 SwirlActionListItem.args = {
+  badge: "Badge",
   description: "Description of the action list item",
   icon: `<swirl-icon-mention></swirl-icon-mention>`,
   label: "This is an action",

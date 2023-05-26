@@ -13,6 +13,7 @@
 .option-list-item {
   display: inline-flex;
   width: 100%;
+  min-width: 15rem;
   min-height: 3rem;
   padding: var(--s-space-12) var(--s-space-16);
   align-items: center;
@@ -38,7 +39,7 @@
 
   @media (--from-desktop-without-touch) {
     min-height: 0;
-    padding: var(--s-space-12);
+    padding: var(--s-space-8) var(--s-space-12);
     gap: var(--s-space-8);
   }
 }

@@ -12,12 +12,15 @@ export type SwirlActionListItemSize = "m" | "l";
   tag: "swirl-action-list-item",
 })
 export class SwirlActionListItem {
+  @Prop() badge?: string;
   @Prop() disabled?: boolean;
   @Prop() description?: string;
   @Prop() icon?: string;
   @Prop() intent?: SwirlActionListItemIntent = "default";
   @Prop() label!: string;
   @Prop() size?: SwirlActionListItemSize = "m";
+  @Prop() swirlAriaExpanded?: string;
+  @Prop() swirlAriaHaspopup?: string;
   @Prop() suffix?: string;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
@@ -57,6 +60,7 @@ export class SwirlActionListItem {
   }
 
   render() {
+    const showBadge = Boolean(this.badge);
     const showSuffix = Boolean(this.suffix) && !this.disabled;
 
     const className = classnames(
@@ -68,6 +72,8 @@ export class SwirlActionListItem {
     return (
       <Host>
         <button
+          aria-expanded={this.swirlAriaExpanded}
+          aria-haspopup={this.swirlAriaHaspopup}
           class={className}
           disabled={this.disabled}
           part="action-list-item"
@@ -90,6 +96,9 @@ export class SwirlActionListItem {
               </span>
             )}
           </span>
+          {showBadge && (
+            <span class="action-list-item__badge" innerHTML={this.badge}></span>
+          )}
           {showSuffix && (
             <span
               class="action-list-item__suffix"

@@ -25,6 +25,10 @@
       },
       "attributes": [
         {
+          "name": "badge",
+          "description": ""
+        },
+        {
           "name": "description",
           "description": ""
         },
@@ -66,6 +70,14 @@
         },
         {
           "name": "suffix",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-expanded",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-haspopup",
           "description": ""
         }
       ]
@@ -3838,6 +3850,100 @@
       "attributes": []
     },
     {
+      "name": "swirl-menu",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "level",
+          "description": ""
+        },
+        {
+          "name": "mobile-back-button-label",
+          "description": ""
+        },
+        {
+          "name": "mobile-close-menu-button-label",
+          "description": ""
+        },
+        {
+          "name": "mobile-done-button-label",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "selection"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "swirl-menu-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "expanded",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "intent",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            }
+          ]
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-modal",
       "description": {
         "kind": "markdown",
@@ -3981,6 +4087,18 @@
         {
           "name": "selected",
           "description": ""
+        },
+        {
+          "name": "swirl-aria-role",
+          "description": "",
+          "values": [
+            {
+              "name": "menuitemradio"
+            },
+            {
+              "name": "option"
+            }
+          ]
         },
         {
           "name": "value",
