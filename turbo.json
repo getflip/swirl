@@ -14,7 +14,6 @@
       "dependsOn": ["^build", "swirl-docs#build:spec-navigation"]
     },
     "test": {
-      "outputs": [],
       "dependsOn": []
     },
     "lint": {
@@ -36,8 +35,7 @@
       "outputs": ["dist/**"]
     },
     "build:spec-navigation": {
-      "outputs": [],
-      "dependsOn": []
+      "outputs": ["src/lib/navigation/src/data/apiDocs.data.ts"]
     },
     "build:swirl-docs": {
       "outputs": [".next/**"],
