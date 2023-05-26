@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.64.0
+
+### Minor Changes
+
+- [`aec1f7b`](https://github.com/getflip/swirl/commit/aec1f7b5956bd3de3c1c25ed49b37798864cecb4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-menu component
+
 ## 0.63.1
 
 ### Patch Changes
