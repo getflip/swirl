@@ -292,7 +292,7 @@ export class SwirlTextInput implements SwirlFormInput {
             spellcheck={this.spellCheck}
             step={this.type === "number" ? this.step : undefined}
             type={type}
-            value={this.rows === 1 ? this.value : undefined}
+            value={this.value}
           >
             {this.rows > 1 && this.value}
           </Tag>
