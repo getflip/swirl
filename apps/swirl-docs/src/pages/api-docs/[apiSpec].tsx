@@ -190,7 +190,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
         header={<DocumentationLayout.Header className="col-span-2" />}
         content={
           <>
-            <DocumentationLayout.MDX />
+            {/* REMOVED FOR NOW: <DocumentationLayout.MDX /> (currently contains changelog, could contain more information in new specs) */}
             <div className="mt-20">
               {document.endpoints?.map((endpoint, index) => {
                 const path = `https://getflip.dev${router.asPath}`; // TODO: use env variable

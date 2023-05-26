@@ -9,8 +9,6 @@ export type CodePreview = {
     language?: Language;
     request?: Request;
   };
-  isExpanded: boolean;
-  setIsExpanded: (isExpanded: boolean) => void;
   isLightTheme?: boolean;
   hasCopyButton?: boolean;
   children?: ReactNode | ReactNode[];

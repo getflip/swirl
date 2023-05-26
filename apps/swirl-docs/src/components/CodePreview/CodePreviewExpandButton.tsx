@@ -5,8 +5,14 @@ import {
   SwirlIconExpandMore,
 } from "@getflip/swirl-components-react";
 
-export function CodePreviewExpandButton() {
-  const { isLightTheme, isExpanded, setIsExpanded } = useCodePreviewContext();
+export function CodePreviewExpandButton({
+  isExpanded,
+  setIsExpanded,
+}: {
+  isExpanded: boolean;
+  setIsExpanded: (isExpanded: boolean) => void;
+}) {
+  const { isLightTheme } = useCodePreviewContext();
   return (
     <div
       className={classNames(

@@ -1,7 +1,3 @@
-import {
-  SwirlIconExpandLess,
-  SwirlIconExpandMore,
-} from "@getflip/swirl-components-react";
 import { useState } from "react";
 import { CodeSandboxButton } from "./CodeSandboxButton";
 import classNames from "classnames";
@@ -16,7 +12,6 @@ import { CodePreviewExpandButton } from "./CodePreviewExpandButton";
 
 /**
  * Let's you easily render syntax highlighted code.
- * Children of the Component will be displayed in the Header.
  */
 export function CodePreview({
   children,
@@ -36,8 +31,6 @@ export function CodePreview({
           codeExample,
           hasCopyButton,
           className,
-          isExpanded,
-          setIsExpanded,
         }}
       >
         <div
@@ -59,7 +52,10 @@ export function CodePreview({
           <CodePreviewHeader />
           <CodePreviewHighlight />
           {codeExample.isLongCode && !isLightTheme && (
-            <CodePreviewExpandButton />
+            <CodePreviewExpandButton
+              isExpanded={isExpanded}
+              setIsExpanded={setIsExpanded}
+            />
           )}
         </div>
       </CodePreviewContext.Provider>
