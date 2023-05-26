@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.63.0
+
+### Minor Changes
+
+- [`aec1f7b`](https://github.com/getflip/swirl/commit/aec1f7b5956bd3de3c1c25ed49b37798864cecb4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-menu component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`aec1f7b`](https://github.com/getflip/swirl/commit/aec1f7b5956bd3de3c1c25ed49b37798864cecb4)]:
+  - @getflip/swirl-components@0.64.0
+
 ## 0.62.1
 
 ### Patch Changes
