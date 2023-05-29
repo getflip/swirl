@@ -20,7 +20,13 @@ import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
 import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
 import { useRouter } from "next/router";
+import {
+  EndpointUrl,
+  HttpMethod,
+  ResponseIndicator,
+} from "src/components/CodePreview/CodePreviewHeader";
 
+// SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
   let apiSpec: ApiDocumentation;
 
@@ -146,6 +152,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
+// CLIENT CODE
 export default function Document({ document }: { document: ApiDocumentation }) {
   const router = useRouter();
 
@@ -201,9 +208,9 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                     key={`${endpoint.path}-${index}`}
                     aria-labelledby={endpoint.path.split("#")[1]}
                   >
-                    <div className="grid md:grid-cols-2 gap-8 mb-20">
+                    <div className="grid md:grid-cols-api-spec gap-[2.5rem] mb-20">
                       {/** ENDPOINT DESCRIPTION */}
-                      <div>
+                      <div className="max-w-[37.5rem]">
                         <LinkedHeading
                           href={`${path}#${endpoint.path.split("#")[1]}`}
                         >
@@ -263,7 +270,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                         </div>
                       </div>
                       {/** CODE PREVIEWS */}
-                      <div className="min-w-0">
+                      <div className="min-w-0 max-w-[37.5rem]">
                         <CodePreview
                           className="mb-4"
                           hasCopyButton
@@ -273,13 +280,14 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             language: "bash",
                             request: endpoint.request.request,
                           }}
-                        >
-                          <CodePreview.EndpointHeader />
-                        </CodePreview>
+                          PreviewIndicator={<HttpMethod />}
+                          MainHeaderContent={<EndpointUrl />}
+                        />
                         <div>
                           {endpoint.responseExamples[0] && (
                             <CodePreview
                               isLightTheme
+                              PreviewIndicator={<ResponseIndicator />}
                               codeExample={{
                                 code: JSON.stringify(
                                   endpoint.responseExamples[0].value as string,
@@ -289,11 +297,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                                 isLongCode: true,
                                 language: "bash",
                               }}
-                            >
-                              <span className="text-font-size-base">
-                                Response
-                              </span>
-                            </CodePreview>
+                            />
                           )}
                         </div>
                       </div>

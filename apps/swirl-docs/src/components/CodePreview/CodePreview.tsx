@@ -14,11 +14,12 @@ import { CodePreviewExpandButton } from "./CodePreviewExpandButton";
  * Let's you easily render syntax highlighted code.
  */
 export function CodePreview({
-  children,
   codeExample,
   isLightTheme,
   hasCopyButton,
   className,
+  PreviewIndicator,
+  MainHeaderContent,
 }: CodePreview) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -27,14 +28,16 @@ export function CodePreview({
       <CodePreviewContext.Provider
         value={{
           isLightTheme,
-          children,
           codeExample,
           hasCopyButton,
           className,
+          PreviewIndicator,
+          MainHeaderContent,
         }}
       >
         <div
           className={classNames(
+            className,
             "relative w-auto rounded-xl overflow-auto",
             {
               "bg-[#24292E]": !isLightTheme,
@@ -45,8 +48,7 @@ export function CodePreview({
                 !isExpanded && !isLightTheme,
               "min-h-[240px]": isExpanded,
               "h-full": isLightTheme,
-            },
-            className
+            }
           )}
         >
           <CodePreviewHeader />

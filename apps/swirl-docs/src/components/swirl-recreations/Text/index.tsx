@@ -58,6 +58,7 @@ export const Text: FC<TextProps> = ({
   align = "start",
   as = "p",
   balance,
+  className,
   fontFamily = "text",
   fontStyle = "normal",
   lines,
@@ -111,6 +112,7 @@ export const Text: FC<TextProps> = ({
     <Tag
       ref={textEl as LegacyRef<HTMLParagraphElement>}
       className={classnames(
+        className,
         `text-${align}`,
         `${TextFont[fontFamily]}`,
         `${TextWeights[weight]}`,

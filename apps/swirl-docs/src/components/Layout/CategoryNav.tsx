@@ -108,6 +108,7 @@ const CategoryNavSubItem = ({
           {isExpanded && (
             <motion.ul
               className={classNames(
+                "flex flex-col gap-y-4",
                 "border-l-[1px] border-border-default overflow-hidden",
                 { "h-0": !isExpanded },
                 { "h-auto": isExpanded }
@@ -123,15 +124,15 @@ const CategoryNavSubItem = ({
                 return (
                   <motion.li
                     key={index}
-                    className="flex items-center min-h-[2.5rem] h-full ml-6 mb-1"
+                    className="flex items-center ml-6"
                     variants={listItem}
                   >
                     <Link href={`${item.url}`}>
                       <a
                         aria-current={activePath === navItem.url}
                         className={classNames(
-                          "flex items-start w-full",
-                          "text-sm capitalize",
+                          "flex items-center w-full",
+                          "text-sm capitalize leading-5",
                           "hover:text-border-info",
                           {
                             "text-border-info": isCurrentPath,

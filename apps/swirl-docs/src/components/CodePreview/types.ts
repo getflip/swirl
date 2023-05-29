@@ -11,6 +11,7 @@ export type CodePreview = {
   };
   isLightTheme?: boolean;
   hasCopyButton?: boolean;
-  children?: ReactNode | ReactNode[];
   className?: string;
+  PreviewIndicator?: ReactNode;
+  MainHeaderContent?: ReactNode;
 };
