@@ -18,7 +18,7 @@ export function ResponseIndicator() {
 export function EndpointUrl() {
   const { codeExample } = useCodePreviewContext();
   return (
-    <span className="box-border text-font-size-sm text-text-on-image leading-5 font-font-weight-normal">
+    <span className="text-font-size-sm text-text-on-image leading-5 font-font-weight-normal w-[70%] break-words">
       {codeExample.request?.url}
     </span>
   );
