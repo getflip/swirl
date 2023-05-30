@@ -48,7 +48,7 @@ defineCustomElements();
 `;
 
 export function CodeSandboxButton() {
-  const { code } = useCodePreviewContext();
+  const { codeExample } = useCodePreviewContext();
 
   const parameters = getParameters({
     files: {
@@ -70,7 +70,7 @@ export function CodeSandboxButton() {
         isBinary: false,
       },
       "index.html": {
-        content: getIndexHtmlCode(code),
+        content: getIndexHtmlCode(codeExample.code),
         isBinary: false,
       },
     },

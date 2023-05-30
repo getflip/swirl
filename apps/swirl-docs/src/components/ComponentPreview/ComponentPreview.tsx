@@ -3,8 +3,8 @@ import {
   Prop,
   SwirlComponentCodePreview,
 } from "@swirl/lib/components/src/components.model";
-import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
-import { FunctionComponent, useCallback, useEffect, useState } from "react";
+import { ComponentExample } from "@swirl/lib/docs/src/docs.model";
+import { useCallback, useEffect, useState } from "react";
 import { PropsTable } from "./PropsTable";
 import { VariantPreview } from "./VariantPreview";
 import prettier from "prettier/standalone";
@@ -90,10 +90,7 @@ export function ComponentPreview() {
         setIsLoading={setIsLoading}
         handleExampleChange={(example) => setCurrentExample(example)}
       />
-      <CodePreview hasCopyButton codeExample={codeExample}>
-        <CodePreview.NpmPackageLink />
-        <CodePreview.CodeSandboxButton />
-      </CodePreview>
+      <CodePreview hasCopyButton codeExample={codeExample} />
       {hasComponentProps && (
         <PropsTable componentPropsData={componentData.props}></PropsTable>
       )}

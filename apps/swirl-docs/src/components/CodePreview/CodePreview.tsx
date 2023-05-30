@@ -31,6 +31,7 @@ export function CodePreview({
           codeExample,
           hasCopyButton,
           className,
+          isExpanded,
           PreviewIndicator,
           MainHeaderContent,
         }}

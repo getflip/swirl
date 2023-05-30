@@ -9,9 +9,11 @@ export type CodePreview = {
     language?: Language;
     request?: Request;
   };
+  isExpanded?: boolean;
   isLightTheme?: boolean;
   hasCopyButton?: boolean;
   className?: string;
   PreviewIndicator?: ReactNode;
   MainHeaderContent?: ReactNode;
 };
+export type CodeExample = CodePreview["codeExample"];
