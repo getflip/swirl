@@ -16,8 +16,7 @@ export function CodePreviewHighlight() {
       {({ tokens, getLineProps, getTokenProps }) => (
         <pre
           className={classNames(
-            "cursor-text overflow-auto pt-space-16 md:pt-space-8 px-space-24 ",
-            "md:pb-16",
+            "cursor-text overflow-auto pt-space-16 md:pt-space-8 px-2 ",
             {
               "pb-16": isExpanded,
               "pb-space-16": !isExpanded || isLightTheme,
