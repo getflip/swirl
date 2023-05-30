@@ -9,6 +9,7 @@ import { APIEndpointHeader } from "./CodePreviewRequestString";
 import { CodePreviewHeader } from "./CodePreviewHeader";
 import { CodePreviewHighlight } from "./CodePreviewHighlight";
 import { CodePreviewExpandButton } from "./CodePreviewExpandButton";
+import { oasToSnippet } from "@readme/oas-to-snippet";
 
 /**
  * Let's you easily render syntax highlighted code.
@@ -23,13 +24,21 @@ export function CodePreview({
   ActionItems,
 }: CodePreview) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [language, setLanguage] =
+    useState<CodePreview["codeExample"]["language"]>("shell");
+
+  const [codePreviewCodeExample, setCodeExample] = useState<
+    CodePreview["codeExample"]
+  >({
+    ...codeExample,
+  });
 
   return (
     <NoSsr>
       <CodePreviewContext.Provider
         value={{
           isLightTheme,
-          codeExample,
+          codeExample: codePreviewCodeExample,
           hasCopyButton,
           className,
           isExpanded,

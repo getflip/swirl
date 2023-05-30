@@ -276,9 +276,9 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                           className="mb-4"
                           hasCopyButton
                           codeExample={{
-                            code: endpoint.request.code,
+                            code: endpoint.request.snippets["shell"],
                             isLongCode: false,
-                            language: "bash",
+                            language: "shell",
                             request: endpoint.request.request,
                           }}
                           PreviewIndicator={<HttpMethod />}
@@ -297,7 +297,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                                   2
                                 ),
                                 isLongCode: true,
-                                language: "bash",
+                                language: "shell",
                               }}
                             />
                           )}

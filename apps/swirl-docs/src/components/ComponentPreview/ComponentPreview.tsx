@@ -97,8 +97,8 @@ export function ComponentPreview() {
         codeExample={codeExample}
         MainHeaderContent={
           <div className="flex">
-            <NpmPackageLink />
-            <CodeSandboxButton />
+            <CodePreview.NpmPackageLink />
+            <CodePreview.CodeSandboxButton />
           </div>
         }
       />

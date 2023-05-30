@@ -15,6 +15,8 @@ import {
   useRole,
 } from "@floating-ui/react";
 import classnames from "classnames";
+import { motion } from "framer-motion";
+import { SupportedTargets } from "@readme/oas-to-snippet";
 
 export function HttpMethod() {
   const { codeExample } = useCodePreviewContext();
@@ -73,6 +75,7 @@ export function CodePreviewHeader() {
 
 export function RequestLanguage() {
   const [isOpen, setIsOpen] = useState(true);
+  const { codeExample } = useCodePreviewContext();
 
   const { refs, context, x, y } = useFloating({
     open: isOpen,
@@ -92,6 +95,8 @@ export function RequestLanguage() {
     role,
   ]);
 
+  const langs: SupportedTargets[] = ["shell", "node", "python"];
+
   return (
     <div className="relative">
       <button
@@ -106,13 +111,17 @@ export function RequestLanguage() {
         onClick={() => setIsOpen(!isOpen)}
         {...getReferenceProps()}
       >
-        Language
+        {codeExample.language}
         <span className="rotate-90 max-h-[1.25rem] max-w-[1.25rem]">
           <SwirlIconChevronRight size={20} />
         </span>
       </button>
       {isOpen && (
-        <div
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={isOpen ? { scale: 1 } : { scale: 0 }}
+          transition={{ duration: 0.125, type: "tween" }}
+          exit={{ scale: 0 }}
           ref={refs.setFloating}
           className="absolute z-10 border border-border-default rounded-lg overflow-hidden w-[12rem] max-w-[12rem] py-2 bg-surface-overlay-default"
           {...getFloatingProps()}
@@ -121,34 +130,43 @@ export function RequestLanguage() {
             left: `${x}px`,
           }}
         >
-          <button
-            type="button"
-            className={classnames(
-              "inline-flex items-center justify-between w-full px-4 py-2 max-h-[2.5]",
-              "bg-surface-overlay-default hover:bg-surface-overlay-hovered active:bg-surface-overlay-pressed",
-              "text-start text-font-size-sm leading-5 font-font-weight-medium",
-              {
-                "text-text-highlight": true,
-              }
-            )}
-          >
-            ruby
-            <span className="w-4 h-4">
-              <SwirlIconCheck size={16} />
-            </span>
-          </button>
-          <button
-            type="button"
-            className={classnames(
-              "w-full px-4 py-2 max-h-[2.5]",
-              "bg-surface-overlay-default hover:bg-surface-overlay-hovered active:bg-surface-overlay-pressed",
-              "text-start text-font-size-sm leading-5 font-font-weight-medium"
-            )}
-          >
-            javascript
-          </button>
-        </div>
+          {langs.map((language) => (
+            <RequestLanguageItem
+              key={language}
+              isSelected={language === codeExample.language}
+              language={language}
+            />
+          ))}
+        </motion.div>
       )}
     </div>
+  );
+}
+function RequestLanguageItem({
+  isSelected,
+  language,
+}: {
+  isSelected: boolean;
+  language: SupportedTargets;
+}) {
+  return (
+    <button
+      type="button"
+      className={classnames(
+        "inline-flex items-center justify-between w-full px-4 py-2 max-h-[2.5]",
+        "bg-surface-overlay-default hover:bg-surface-overlay-hovered active:bg-surface-overlay-pressed",
+        "text-start text-font-size-sm leading-5 font-font-weight-medium",
+        {
+          "text-text-highlight": isSelected,
+        }
+      )}
+    >
+      {language}
+      {isSelected && (
+        <span className="w-4 h-4">
+          <SwirlIconCheck size={16} />
+        </span>
+      )}
+    </button>
   );
 }
