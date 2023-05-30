@@ -51,17 +51,17 @@ export function CodePreviewHeader() {
   return (
     <div
       className={classNames(
-        "grid grid-flow-col grid-cols-codepreview-header gap-1 items-start",
-        "h-auto min-h-[2.25rem] m-2 p-2 rounded-lg",
+        "box-border flex items-start",
+        "w-full max-h-full h-auto min-h-[2.25rem] m-2 p-2 rounded-lg",
         {
           "bg-[#21201E]": !isLightTheme,
           "bg-surface-overlay-default": isLightTheme,
         }
       )}
     >
-      {PreviewIndicator}
-      {MainHeaderContent}
-      <div className="flex items-center">
+      <span className="shrink-0 basis-0">{PreviewIndicator}</span>
+      <span className="grow">{MainHeaderContent}</span>
+      <div className="shrink-0 basis-0 flex items-center">
         <RequestLanguage />
         <CopyButton code={codeExample.code} />
       </div>

@@ -38,7 +38,7 @@ export function CodePreview({
         <div
           className={classNames(
             className,
-            "relative w-auto rounded-xl overflow-auto",
+            "box-border relative max-w-full w-full rounded-xl",
             {
               "bg-[#24292E]": !isLightTheme,
               "bg-surface-raised-default": isLightTheme,
