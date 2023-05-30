@@ -21,7 +21,7 @@ export function CopyButton({ code }: { code: string }) {
       <button
         aria-label="Copy code to clipboard"
         type="button"
-        className="flex justify-center items-center text-interactive-neutral-default text-base font-medium"
+        className="flex justify-center items-center w-5 h-5 text-interactive-neutral-default text-base font-medium ml-2"
       >
         {isCopied ? (
           <SwirlIconCheckStrong size={16} className="ml-1" />

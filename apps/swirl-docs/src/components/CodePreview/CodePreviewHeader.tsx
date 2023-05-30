@@ -4,6 +4,7 @@ import { CopyButton } from "./CodePreviewCopyButton";
 import {
   SwirlActionListItem,
   SwirlIconCheck,
+  SwirlIconChevronRight,
 } from "@getflip/swirl-components-react";
 import { useState } from "react";
 import { autoUpdate, flip, shift } from "@floating-ui/dom";
@@ -32,8 +33,9 @@ export function ResponseIndicator() {
 export function EndpointUrl() {
   const { codeExample } = useCodePreviewContext();
   return (
-    <span className="text-font-size-sm text-text-on-image leading-5 font-font-weight-normal w-[70%] break-words">
+    <span className="text-font-size-sm text-text-on-image leading-5 font-font-weight-normal break-words h-full">
       {codeExample.request?.url}
+      {/* /api/v1/resources/userdata/query/parameter1/parameter2/parameter3/parameter4/parameter5/parameter6/parameter7/parameter8/parameter9/parameter10/parameter11/parameter12 */}
     </span>
   );
 }
@@ -49,7 +51,8 @@ export function CodePreviewHeader() {
   return (
     <div
       className={classNames(
-        "flex items-start h-auto min-h-[2.25rem] m-2 p-2 rounded-lg",
+        "grid grid-flow-col grid-cols-codepreview-header gap-1 items-start",
+        "h-auto min-h-[2.25rem] m-2 p-2 rounded-lg",
         {
           "bg-[#21201E]": !isLightTheme,
           "bg-surface-overlay-default": isLightTheme,
@@ -58,8 +61,10 @@ export function CodePreviewHeader() {
     >
       {PreviewIndicator}
       {MainHeaderContent}
-      <RequestLanguage />
-      <CopyButton code={codeExample.code} />
+      <div className="flex items-center">
+        <RequestLanguage />
+        <CopyButton code={codeExample.code} />
+      </div>
     </div>
   );
 }
@@ -89,17 +94,25 @@ function RequestLanguage() {
     <div className="relative">
       <button
         ref={refs.setReference}
-        className="relative bg-transparent max-h-5 text-interactive-neutral-default text-font-size-sm"
+        className={classnames(
+          "relative flex items-center justify-center",
+          "bg-transparent max-h-5 text-interactive-neutral-default text-font-size-sm",
+          "pr-2",
+          "after:block after:absolute after:h-full after:bg-border-default after:w-[1px] after:opacity-20 after:right-0"
+        )}
         id="requestlanguage-trigger"
         onClick={() => setIsOpen(!isOpen)}
         {...getReferenceProps()}
       >
         Language
+        <span className="rotate-90 max-h-[1.25rem] max-w-[1.25rem]">
+          <SwirlIconChevronRight size={20} />
+        </span>
       </button>
       {isOpen && (
         <div
           ref={refs.setFloating}
-          className="absolute z-10 border border-border-default rounded-lg overflow-hidden w-[12rem] max-w-[12rem]"
+          className="absolute z-10 border border-border-default rounded-lg overflow-hidden w-[12rem] max-w-[12rem] py-2 bg-surface-overlay-default"
           {...getFloatingProps()}
           style={{
             top: `${y}px`,
