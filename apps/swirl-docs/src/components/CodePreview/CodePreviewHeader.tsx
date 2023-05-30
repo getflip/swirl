@@ -53,7 +53,7 @@ export function CodePreviewHeader() {
       className={classNames(
         "box-border flex items-start",
         "w-full max-h-full h-auto min-h-[2.25rem] rounded-lg",
-        " p-2",
+        "m-2 p-2",
         {
           "bg-[#21201E]": !isLightTheme,
           "bg-surface-overlay-default": isLightTheme,
