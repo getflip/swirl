@@ -12,6 +12,8 @@ import prettierHTML from "prettier/parser-html";
 import { CodePreview } from "../CodePreview";
 import { CodeExample } from "../CodePreview/types";
 import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
+import { NpmPackageLink } from "../CodePreview/NpmPackageLink";
+import { CodeSandboxButton } from "../CodePreview/CodeSandboxButton";
 
 export function ComponentPreview() {
   const { frontMatter } = useDocumentationLayoutContext();
@@ -90,7 +92,16 @@ export function ComponentPreview() {
         setIsLoading={setIsLoading}
         handleExampleChange={(example) => setCurrentExample(example)}
       />
-      <CodePreview hasCopyButton codeExample={codeExample} />
+      <CodePreview
+        hasCopyButton
+        codeExample={codeExample}
+        MainHeaderContent={
+          <div className="flex">
+            <NpmPackageLink />
+            <CodeSandboxButton />
+          </div>
+        }
+      />
       {hasComponentProps && (
         <PropsTable componentPropsData={componentData.props}></PropsTable>
       )}

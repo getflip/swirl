@@ -2,7 +2,6 @@ import classNames from "classnames";
 import { useCodePreviewContext } from "./CodePreviewContext";
 import { CopyButton } from "./CodePreviewCopyButton";
 import {
-  SwirlActionListItem,
   SwirlIconCheck,
   SwirlIconChevronRight,
 } from "@getflip/swirl-components-react";
@@ -20,7 +19,7 @@ import classnames from "classnames";
 export function HttpMethod() {
   const { codeExample } = useCodePreviewContext();
   return (
-    <span className="text-[#A6CAFF] font-semibold text-font-size-sm mr-1 uppercase leading-5">
+    <span className="text-[#A6CAFF] font-semibold text-font-size-sm uppercase leading-5">
       {codeExample.request?.method}
     </span>
   );
@@ -35,7 +34,6 @@ export function EndpointUrl() {
   return (
     <span className="text-font-size-sm text-text-on-image leading-5 font-font-weight-normal break-words h-full">
       {codeExample.request?.url}
-      {/* /api/v1/resources/userdata/query/parameter1/parameter2/parameter3/parameter4/parameter5/parameter6/parameter7/parameter8/parameter9/parameter10/parameter11/parameter12 */}
     </span>
   );
 }
@@ -47,11 +45,12 @@ export function CodePreviewHeader() {
     codeExample,
     PreviewIndicator,
     MainHeaderContent,
+    ActionItems,
   } = useCodePreviewContext();
   return (
     <div
       className={classNames(
-        "box-border flex items-start",
+        "box-border flex items-start gap-1",
         "w-full max-h-full h-auto min-h-[2.25rem] rounded-lg",
         "p-2",
         {
@@ -65,14 +64,14 @@ export function CodePreviewHeader() {
         {MainHeaderContent}
       </span>
       <div className="shrink-0 basis-0 flex items-center">
-        <RequestLanguage />
-        <CopyButton code={codeExample.code} />
+        {ActionItems}
+        {hasCopyButton && <CopyButton code={codeExample.code} />}
       </div>
     </div>
   );
 }
 
-function RequestLanguage() {
+export function RequestLanguage() {
   const [isOpen, setIsOpen] = useState(true);
 
   const { refs, context, x, y } = useFloating({

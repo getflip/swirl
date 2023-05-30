@@ -20,6 +20,7 @@ export function CodePreview({
   className,
   PreviewIndicator,
   MainHeaderContent,
+  ActionItems,
 }: CodePreview) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -34,6 +35,7 @@ export function CodePreview({
           isExpanded,
           PreviewIndicator,
           MainHeaderContent,
+          ActionItems,
         }}
       >
         <div

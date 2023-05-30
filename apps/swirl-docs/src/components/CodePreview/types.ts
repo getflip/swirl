@@ -15,5 +15,6 @@ export type CodePreview = {
   className?: string;
   PreviewIndicator?: ReactNode;
   MainHeaderContent?: ReactNode;
+  ActionItems?: ReactNode;
 };
 export type CodeExample = CodePreview["codeExample"];

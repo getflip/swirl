@@ -23,6 +23,7 @@ import { useRouter } from "next/router";
 import {
   EndpointUrl,
   HttpMethod,
+  RequestLanguage,
   ResponseIndicator,
 } from "src/components/CodePreview/CodePreviewHeader";
 
@@ -282,6 +283,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                           }}
                           PreviewIndicator={<HttpMethod />}
                           MainHeaderContent={<EndpointUrl />}
+                          ActionItems={<RequestLanguage />}
                         />
                         <div>
                           {endpoint.responseExamples[0] && (
