@@ -32,8 +32,10 @@ import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inli
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 import { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swirl-inline-status/swirl-inline-status";
 import { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+import { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
+import { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
 import { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
-import { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
+import { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
 import { ComputePositionReturn, Placement } from "@floating-ui/dom";
@@ -46,6 +48,7 @@ import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/sw
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
+import { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
 import { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
 import { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
@@ -84,8 +87,10 @@ export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inli
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 export { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swirl-inline-status/swirl-inline-status";
 export { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
+export { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
+export { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
-export { SwirlOptionListItemContext } from "./components/swirl-option-list-item/swirl-option-list-item";
+export { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
 export { ComputePositionReturn, Placement } from "@floating-ui/dom";
@@ -98,6 +103,7 @@ export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/sw
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
+export { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
 export { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
 export { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
@@ -115,6 +121,7 @@ export namespace Components {
     interface SwirlActionList {
     }
     interface SwirlActionListItem {
+        "badge"?: string;
         "description"?: string;
         "disabled"?: boolean;
         "icon"?: string;
@@ -122,6 +129,8 @@ export namespace Components {
         "label": string;
         "size"?: SwirlActionListItemSize;
         "suffix"?: string;
+        "swirlAriaExpanded"?: string;
+        "swirlAriaHaspopup"?: string;
     }
     interface SwirlActionListSection {
         "label": string;
@@ -327,7 +336,7 @@ export namespace Components {
     interface SwirlConsoleLayout {
         "appName"?: string;
         "backButonLabel"?: string;
-        "heading": string;
+        "heading"?: string;
         "helpButonLabel"?: string;
         "hideNavigationButtonLabel"?: string;
         /**
@@ -937,6 +946,63 @@ export namespace Components {
     }
     interface SwirlList {
     }
+    interface SwirlMenu {
+        /**
+          * Activate a menu item with a sub menu. Only callable on a root menu.
+          * @returns
+         */
+        "activateMenuItem": (menuItem: HTMLSwirlMenuItemElement) => Promise<void>;
+        "active"?: boolean;
+        /**
+          * Close and reset the menu. Only callable on a root menu.
+          * @returns
+         */
+        "close": () => Promise<void>;
+        /**
+          * Focus the first menu item.
+          * @returns
+         */
+        "focusFirstItem": () => Promise<void>;
+        /**
+          * Focus the menu item at index.
+          * @returns
+         */
+        "focusItemAtIndex": (index: number) => Promise<void>;
+        /**
+          * Collapse the currently active sub menu. Only callable on a root menu.
+          * @returns
+         */
+        "goBack": () => Promise<void>;
+        "label": string;
+        "level"?: number;
+        "mobileBackButtonLabel"?: string;
+        "mobileCloseMenuButtonLabel"?: string;
+        "mobileDoneButtonLabel"?: string;
+        /**
+          * Update the selection of a menu with variant "selection".
+          * @returns
+         */
+        "updateSelection": (item: HTMLSwirlOptionListItemElement) => Promise<void>;
+        "value"?: string;
+        "variant"?: SwirlMenuVariant;
+    }
+    interface SwirlMenuItem {
+        "description"?: string;
+        "disabled"?: boolean;
+        "expanded"?: boolean;
+        /**
+          * Get the items parent menu
+         */
+        "getParentMenu": () => Promise<HTMLSwirlMenuElement>;
+        /**
+          * Get the items sub menu
+         */
+        "getSubMenu": () => Promise<HTMLSwirlMenuElement>;
+        "icon"?: string;
+        "intent"?: SwirlActionListItemIntent1;
+        "label": string;
+        "value"?: string;
+    }
     /**
      * slot - Modal contents
      * custom-header - Optional custom header; should be used hidden label
@@ -981,6 +1047,7 @@ export namespace Components {
         "icon"?: string;
         "label": string;
         "selected"?: boolean;
+        "swirlAriaRole"?: SwirlOptionListItemRole;
         "value": string;
     }
     interface SwirlOptionListSection {
@@ -1164,6 +1231,10 @@ export namespace Components {
         "orientation"?: SwirlStackOrientation;
         "spacing"?: SwirlStackSpacing;
         "wrap"?: boolean;
+    }
+    interface SwirlStatusIndicator {
+        "intent": SwirlStatusIndicatorIntent;
+        "label": string;
     }
     interface SwirlSwitch {
         "checked"?: boolean;
@@ -1419,6 +1490,10 @@ export interface SwirlFileViewerTextCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlFileViewerVideoCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlFileViewerVideoElement;
+}
+export interface SwirlMenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlMenuElement;
 }
 export interface SwirlModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2513,6 +2588,18 @@ declare global {
         prototype: HTMLSwirlListElement;
         new (): HTMLSwirlListElement;
     };
+    interface HTMLSwirlMenuElement extends Components.SwirlMenu, HTMLStencilElement {
+    }
+    var HTMLSwirlMenuElement: {
+        prototype: HTMLSwirlMenuElement;
+        new (): HTMLSwirlMenuElement;
+    };
+    interface HTMLSwirlMenuItemElement extends Components.SwirlMenuItem, HTMLStencilElement {
+    }
+    var HTMLSwirlMenuItemElement: {
+        prototype: HTMLSwirlMenuItemElement;
+        new (): HTMLSwirlMenuItemElement;
+    };
     /**
      * slot - Modal contents
      * custom-header - Optional custom header; should be used hidden label
@@ -2648,6 +2735,12 @@ declare global {
     var HTMLSwirlStackElement: {
         prototype: HTMLSwirlStackElement;
         new (): HTMLSwirlStackElement;
+    };
+    interface HTMLSwirlStatusIndicatorElement extends Components.SwirlStatusIndicator, HTMLStencilElement {
+    }
+    var HTMLSwirlStatusIndicatorElement: {
+        prototype: HTMLSwirlStatusIndicatorElement;
+        new (): HTMLSwirlStatusIndicatorElement;
     };
     interface HTMLSwirlSwitchElement extends Components.SwirlSwitch, HTMLStencilElement {
     }
@@ -2939,6 +3032,8 @@ declare global {
         "swirl-lightbox": HTMLSwirlLightboxElement;
         "swirl-link": HTMLSwirlLinkElement;
         "swirl-list": HTMLSwirlListElement;
+        "swirl-menu": HTMLSwirlMenuElement;
+        "swirl-menu-item": HTMLSwirlMenuItemElement;
         "swirl-modal": HTMLSwirlModalElement;
         "swirl-option-list": HTMLSwirlOptionListElement;
         "swirl-option-list-item": HTMLSwirlOptionListItemElement;
@@ -2961,6 +3056,7 @@ declare global {
         "swirl-skeleton-text": HTMLSwirlSkeletonTextElement;
         "swirl-spinner": HTMLSwirlSpinnerElement;
         "swirl-stack": HTMLSwirlStackElement;
+        "swirl-status-indicator": HTMLSwirlStatusIndicatorElement;
         "swirl-switch": HTMLSwirlSwitchElement;
         "swirl-tab": HTMLSwirlTabElement;
         "swirl-tab-bar": HTMLSwirlTabBarElement;
@@ -2989,6 +3085,7 @@ declare namespace LocalJSX {
     interface SwirlActionList {
     }
     interface SwirlActionListItem {
+        "badge"?: string;
         "description"?: string;
         "disabled"?: boolean;
         "icon"?: string;
@@ -2996,6 +3093,8 @@ declare namespace LocalJSX {
         "label": string;
         "size"?: SwirlActionListItemSize;
         "suffix"?: string;
+        "swirlAriaExpanded"?: string;
+        "swirlAriaHaspopup"?: string;
     }
     interface SwirlActionListSection {
         "label": string;
@@ -3193,7 +3292,7 @@ declare namespace LocalJSX {
     interface SwirlConsoleLayout {
         "appName"?: string;
         "backButonLabel"?: string;
-        "heading": string;
+        "heading"?: string;
         "helpButonLabel"?: string;
         "hideNavigationButtonLabel"?: string;
         "logoText"?: string;
@@ -3744,6 +3843,27 @@ declare namespace LocalJSX {
     }
     interface SwirlList {
     }
+    interface SwirlMenu {
+        "active"?: boolean;
+        "label": string;
+        "level"?: number;
+        "mobileBackButtonLabel"?: string;
+        "mobileCloseMenuButtonLabel"?: string;
+        "mobileDoneButtonLabel"?: string;
+        "onDone"?: (event: SwirlMenuCustomEvent<void>) => void;
+        "onValueChange"?: (event: SwirlMenuCustomEvent<string>) => void;
+        "value"?: string;
+        "variant"?: SwirlMenuVariant;
+    }
+    interface SwirlMenuItem {
+        "description"?: string;
+        "disabled"?: boolean;
+        "expanded"?: boolean;
+        "icon"?: string;
+        "intent"?: SwirlActionListItemIntent1;
+        "label": string;
+        "value"?: string;
+    }
     /**
      * slot - Modal contents
      * custom-header - Optional custom header; should be used hidden label
@@ -3791,6 +3911,7 @@ declare namespace LocalJSX {
         "label": string;
         "onToggleDrag"?: (event: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElement>) => void;
         "selected"?: boolean;
+        "swirlAriaRole"?: SwirlOptionListItemRole;
         "value": string;
     }
     interface SwirlOptionListSection {
@@ -3961,6 +4082,10 @@ declare namespace LocalJSX {
         "orientation"?: SwirlStackOrientation;
         "spacing"?: SwirlStackSpacing;
         "wrap"?: boolean;
+    }
+    interface SwirlStatusIndicator {
+        "intent": SwirlStatusIndicatorIntent;
+        "label": string;
     }
     interface SwirlSwitch {
         "checked"?: boolean;
@@ -4280,6 +4405,8 @@ declare namespace LocalJSX {
         "swirl-lightbox": SwirlLightbox;
         "swirl-link": SwirlLink;
         "swirl-list": SwirlList;
+        "swirl-menu": SwirlMenu;
+        "swirl-menu-item": SwirlMenuItem;
         "swirl-modal": SwirlModal;
         "swirl-option-list": SwirlOptionList;
         "swirl-option-list-item": SwirlOptionListItem;
@@ -4302,6 +4429,7 @@ declare namespace LocalJSX {
         "swirl-skeleton-text": SwirlSkeletonText;
         "swirl-spinner": SwirlSpinner;
         "swirl-stack": SwirlStack;
+        "swirl-status-indicator": SwirlStatusIndicator;
         "swirl-switch": SwirlSwitch;
         "swirl-tab": SwirlTab;
         "swirl-tab-bar": SwirlTabBar;
@@ -4503,6 +4631,8 @@ declare module "@stencil/core" {
             "swirl-lightbox": LocalJSX.SwirlLightbox & JSXBase.HTMLAttributes<HTMLSwirlLightboxElement>;
             "swirl-link": LocalJSX.SwirlLink & JSXBase.HTMLAttributes<HTMLSwirlLinkElement>;
             "swirl-list": LocalJSX.SwirlList & JSXBase.HTMLAttributes<HTMLSwirlListElement>;
+            "swirl-menu": LocalJSX.SwirlMenu & JSXBase.HTMLAttributes<HTMLSwirlMenuElement>;
+            "swirl-menu-item": LocalJSX.SwirlMenuItem & JSXBase.HTMLAttributes<HTMLSwirlMenuItemElement>;
             /**
              * slot - Modal contents
              * custom-header - Optional custom header; should be used hidden label
@@ -4529,6 +4659,7 @@ declare module "@stencil/core" {
             "swirl-skeleton-text": LocalJSX.SwirlSkeletonText & JSXBase.HTMLAttributes<HTMLSwirlSkeletonTextElement>;
             "swirl-spinner": LocalJSX.SwirlSpinner & JSXBase.HTMLAttributes<HTMLSwirlSpinnerElement>;
             "swirl-stack": LocalJSX.SwirlStack & JSXBase.HTMLAttributes<HTMLSwirlStackElement>;
+            "swirl-status-indicator": LocalJSX.SwirlStatusIndicator & JSXBase.HTMLAttributes<HTMLSwirlStatusIndicatorElement>;
             "swirl-switch": LocalJSX.SwirlSwitch & JSXBase.HTMLAttributes<HTMLSwirlSwitchElement>;
             "swirl-tab": LocalJSX.SwirlTab & JSXBase.HTMLAttributes<HTMLSwirlTabElement>;
             "swirl-tab-bar": LocalJSX.SwirlTabBar & JSXBase.HTMLAttributes<HTMLSwirlTabBarElement>;

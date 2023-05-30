@@ -196,6 +196,10 @@
     }
   }
 
+  &.button--icon-only {
+    padding: 0;
+  }
+
   &.button--intent-primary {
     color: var(--s-interactive-primary-default);
 
@@ -229,6 +233,7 @@
   }
 
   & .button__icon {
+    margin-left: 0;
     color: var(--s-interactive-neutral-default);
   }
 }

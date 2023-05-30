@@ -1,5 +1,94 @@
 # @getflip/swirl-components-angular
 
+## 0.63.1
+
+### Patch Changes
+
+- [`77a1d41`](https://github.com/getflip/swirl/commit/77a1d418fd1de1f4bd8709e348c4841dde6774f4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-text-input height issue
+
+- Updated dependencies
+  [[`77a1d41`](https://github.com/getflip/swirl/commit/77a1d418fd1de1f4bd8709e348c4841dde6774f4)]:
+  - @getflip/swirl-components@0.64.1
+
+## 0.63.0
+
+### Minor Changes
+
+- [`aec1f7b`](https://github.com/getflip/swirl/commit/aec1f7b5956bd3de3c1c25ed49b37798864cecb4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-menu component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`aec1f7b`](https://github.com/getflip/swirl/commit/aec1f7b5956bd3de3c1c25ed49b37798864cecb4)]:
+  - @getflip/swirl-components@0.64.0
+
+## 0.62.1
+
+### Patch Changes
+
+- [`0adf578`](https://github.com/getflip/swirl/commit/0adf5783d89184aca4c6cd2b1a3474512a508a8f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue updating
+  swirl-text-input values
+
+- Updated dependencies
+  [[`0adf578`](https://github.com/getflip/swirl/commit/0adf5783d89184aca4c6cd2b1a3474512a508a8f)]:
+  - @getflip/swirl-components@0.63.1
+
+## 0.62.0
+
+### Minor Changes
+
+- [`7d0b582`](https://github.com/getflip/swirl/commit/7d0b5829a231ac7077b38d8d5563ec059176c018)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-status-indicator
+  component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`7d0b582`](https://github.com/getflip/swirl/commit/7d0b5829a231ac7077b38d8d5563ec059176c018)]:
+  - @getflip/swirl-components@0.63.0
+
+## 0.61.0
+
+### Minor Changes
+
+- [`a8545ec`](https://github.com/getflip/swirl/commit/a8545ece1904c924375aa11fdcc14b07177a0647)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "heading" slot to
+  swirl-console-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a8545ec`](https://github.com/getflip/swirl/commit/a8545ece1904c924375aa11fdcc14b07177a0647)]:
+  - @getflip/swirl-components@0.62.0
+
+## 0.60.0
+
+### Minor Changes
+
+- [`16d08d6`](https://github.com/getflip/swirl/commit/16d08d6ad354282499647a29fd0dc6f8a6ece924)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow more sizes for swirl-text
+
+### Patch Changes
+
+- Updated dependencies
+  [[`16d08d6`](https://github.com/getflip/swirl/commit/16d08d6ad354282499647a29fd0dc6f8a6ece924)]:
+  - @getflip/swirl-components@0.61.0
+
+## 0.59.1
+
+### Patch Changes
+
+- [`aff98e4`](https://github.com/getflip/swirl/commit/aff98e4b7dac59d3c2ba3a2c41edc59e272bd473)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix "plain" swirl-button bounding
+  box
+
+- Updated dependencies
+  [[`aff98e4`](https://github.com/getflip/swirl/commit/aff98e4b7dac59d3c2ba3a2c41edc59e272bd473)]:
+  - @getflip/swirl-components@0.60.1
+
 ## 0.59.0
 
 ### Minor Changes

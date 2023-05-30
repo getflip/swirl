@@ -116,7 +116,9 @@ export class SwirlTextInput implements SwirlFormInput {
     if (this.rows > 1 || this.autoGrow) {
       this.inputEl.style.width = "";
       this.inputEl.style.height = "";
-      this.inputEl.style.height = this.inputEl.scrollHeight / 16 + "rem";
+      this.inputEl.style.height = Boolean(this.inputEl.scrollHeight)
+        ? this.inputEl.scrollHeight / 16 + "rem"
+        : "";
     }
 
     if (this.rows === 1 && !this.autoGrow) {
@@ -292,7 +294,7 @@ export class SwirlTextInput implements SwirlFormInput {
             spellcheck={this.spellCheck}
             step={this.type === "number" ? this.step : undefined}
             type={type}
-            value={this.rows === 1 ? this.value : undefined}
+            value={this.value}
           >
             {this.rows > 1 && this.value}
           </Tag>

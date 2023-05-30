@@ -72,6 +72,26 @@
   }
 }
 
+.text--size-xl {
+  font-size: var(--s-font-size-xl);
+  line-height: var(--s-line-height-xl);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-lg);
+    line-height: var(--s-line-height-lg);
+  }
+}
+
+.text--size-2xl {
+  font-size: var(--s-font-size-2xl);
+  line-height: var(--s-line-height-2xl);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-xl);
+    line-height: var(--s-line-height-xl);
+  }
+}
+
 .text--weight-normal {
   font-weight: var(--s-font-weight-normal);
 }
