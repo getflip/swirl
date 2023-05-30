@@ -40,15 +40,16 @@ export function CodePreview({
           className={classNames(
             className,
             "box-border relative max-w-full w-full rounded-xl",
-            {
-              "bg-[#24292E]": !isLightTheme,
-              "bg-surface-raised-default": isLightTheme,
-            },
+            "p-2",
             {
               "md:h-[240px] md:max-h-[240px] overflow-hidden":
                 !isExpanded && !isLightTheme,
               "min-h-[240px]": isExpanded,
               "h-full": isLightTheme,
+            },
+            {
+              "bg-[#24292E]": !isLightTheme,
+              "bg-surface-raised-default": isLightTheme,
             }
           )}
         >
