@@ -52,7 +52,8 @@ export function CodePreviewHeader() {
     <div
       className={classNames(
         "box-border flex items-start",
-        "w-full max-h-full h-auto min-h-[2.25rem] m-2 p-2 rounded-lg",
+        "w-full max-h-full h-auto min-h-[2.25rem] rounded-lg",
+        "m-2 p-2",
         {
           "bg-[#21201E]": !isLightTheme,
           "bg-surface-overlay-default": isLightTheme,
