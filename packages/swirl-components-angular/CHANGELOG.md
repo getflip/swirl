@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.63.1
+
+### Patch Changes
+
+- [`77a1d41`](https://github.com/getflip/swirl/commit/77a1d418fd1de1f4bd8709e348c4841dde6774f4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-text-input height issue
+
+- Updated dependencies
+  [[`77a1d41`](https://github.com/getflip/swirl/commit/77a1d418fd1de1f4bd8709e348c4841dde6774f4)]:
+  - @getflip/swirl-components@0.64.1
+
 ## 0.63.0
 
 ### Minor Changes
