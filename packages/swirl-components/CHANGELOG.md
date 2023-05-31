@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.64.2
+
+### Patch Changes
+
+- [`7a4a883`](https://github.com/getflip/swirl/commit/7a4a883b8c22074a1c2122631adb89e291546ee0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix duplicate "valueChange"
+  events of swirl-radio-group
+
 ## 0.64.1
 
 ### Patch Changes
