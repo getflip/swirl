@@ -54,7 +54,9 @@ export class SwirlRadioGroup {
 
   private handleValueChanges() {
     for (const [key, radio] of Object.entries(this.radioButtons)) {
-      radio.addEventListener("valueChange", () => {
+      radio.addEventListener("valueChange", (event) => {
+        event.stopPropagation();
+
         if (radio.checked === true || radio.checked === "true") {
           this.valueChange.emit(radio.value);
           this.value = radio.value;
