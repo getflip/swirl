@@ -90,6 +90,7 @@ export class SwirlPopover {
       !this.el.contains(target) &&
       !this.el.contains(activeElement) &&
       target !== this.triggerEl &&
+      !this.triggerEl.contains(target) &&
       (!isSafari ||
         (isSafari &&
           !this.el.contains(relatedTarget || target) &&
