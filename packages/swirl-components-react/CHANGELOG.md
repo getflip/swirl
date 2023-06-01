@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.63.5
+
+### Patch Changes
+
+- [`399ff8c`](https://github.com/getflip/swirl/commit/399ff8c1b168b9f3430cb8864e44ee486feeef1d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow to pass trigger DOM element
+  to swirl-popover
+
+- Updated dependencies
+  [[`399ff8c`](https://github.com/getflip/swirl/commit/399ff8c1b168b9f3430cb8864e44ee486feeef1d)]:
+  - @getflip/swirl-components@0.64.5
+
 ## 0.63.4
 
 ### Patch Changes
