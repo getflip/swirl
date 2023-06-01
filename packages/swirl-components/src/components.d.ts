@@ -1115,7 +1115,7 @@ export namespace Components {
         "open": () => Promise<void>;
         "placement"?: Placement;
         "popoverId": string;
-        "trigger": string;
+        "trigger": string | HTMLElement;
         "useContainerWidth"?: boolean | string;
     }
     interface SwirlProgressIndicator {
@@ -3965,7 +3965,7 @@ declare namespace LocalJSX {
         "onPopoverOpen"?: (event: SwirlPopoverCustomEvent<{ position: ComputePositionReturn }>) => void;
         "placement"?: Placement;
         "popoverId": string;
-        "trigger": string;
+        "trigger": string | HTMLElement;
         "useContainerWidth"?: boolean | string;
     }
     interface SwirlProgressIndicator {

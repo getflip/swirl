@@ -16,7 +16,10 @@ export default {
       },
     },
     trigger: {
-      description: "ID of the trigger element.",
+      description: "ID of the trigger element or the trigger DOM element.",
+      control: {
+        type: "text",
+      },
     },
     useContainerWidth: {
       description:
