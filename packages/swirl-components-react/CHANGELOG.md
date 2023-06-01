@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.63.4
+
+### Patch Changes
+
+- [`9a6eca2`](https://github.com/getflip/swirl/commit/9a6eca22aabe2064e04c53ce17b8d91c0c297e41)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue causing swirl-popovers
+  to close unexpectedly inside swirl-modals
+
+- Updated dependencies
+  [[`9a6eca2`](https://github.com/getflip/swirl/commit/9a6eca22aabe2064e04c53ce17b8d91c0c297e41)]:
+  - @getflip/swirl-components@0.64.4
+
 ## 0.63.3
 
 ### Patch Changes
