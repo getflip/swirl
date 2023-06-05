@@ -189,6 +189,7 @@
   border: 0.125rem solid var(--s-icon-default);
   border-radius: var(--s-border-radius-s);
   transform: translateY(-50%);
+  pointer-events: none;
 
   @media (--from-tablet) {
     right: auto;
