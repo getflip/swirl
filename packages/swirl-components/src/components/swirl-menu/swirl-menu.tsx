@@ -68,7 +68,7 @@ export class SwirlMenu {
   }
 
   componentDidLoad() {
-    this.mobileMediaQuery.addEventListener?.("change", this.mediaQueryHandler);
+    this.mobileMediaQuery.onchange = this.mediaQueryHandler;
     this.parentMenu = closestPassShadow(this.el.parentElement, "swirl-menu");
     this.popover = closestPassShadow(this.el, "swirl-popover");
     this.rootMenu = parentsPassShadow(this.el, "swirl-menu").pop();

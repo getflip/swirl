@@ -31,10 +31,7 @@ export class SwirlShellLayout {
       this.collapseLeftSidebar();
     }
 
-    this.desktopMediaQuery.addEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
   }
 
   /**
