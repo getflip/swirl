@@ -1427,6 +1427,10 @@
           "description": ""
         },
         {
+          "name": "max-content-width",
+          "description": ""
+        },
+        {
           "name": "navigation-label",
           "description": ""
         },

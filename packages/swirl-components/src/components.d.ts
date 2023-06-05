@@ -344,6 +344,7 @@ export namespace Components {
          */
         "hideSidebar": () => Promise<void>;
         "logoText"?: string;
+        "maxContentWidth"?: string;
         "navigationLabel"?: string;
         "showBackButton"?: boolean;
         "showHelpButton"?: boolean;
@@ -3296,6 +3297,7 @@ declare namespace LocalJSX {
         "helpButonLabel"?: string;
         "hideNavigationButtonLabel"?: string;
         "logoText"?: string;
+        "maxContentWidth"?: string;
         "navigationLabel"?: string;
         "onBackButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
         "onHelpButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
