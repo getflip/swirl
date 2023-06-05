@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.63.6
+
+### Patch Changes
+
+- [`4ac70a8`](https://github.com/getflip/swirl/commit/4ac70a87afd9c213bbd73f187a574c5f246e8146)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue preventing the
+  swirl-resource-list-item checkbox to be clicked
+
+- Updated dependencies
+  [[`4ac70a8`](https://github.com/getflip/swirl/commit/4ac70a87afd9c213bbd73f187a574c5f246e8146)]:
+  - @getflip/swirl-components@0.64.6
+
 ## 0.63.5
 
 ### Patch Changes
