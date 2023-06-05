@@ -100,6 +100,9 @@ export const config: Config = {
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
   ],
+  extras: {
+    enableImportInjection: true,
+  },
   plugins: [
     postcss({
       plugins: [autoprefixer(), postcssNested(), postcssCustomMedia()],
