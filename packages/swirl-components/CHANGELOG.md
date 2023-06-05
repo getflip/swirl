@@ -1,5 +1,16 @@
 # @getflip/swirl-components
 
+## 0.65.0
+
+### Minor Changes
+
+- [`6d09c57`](https://github.com/getflip/swirl/commit/6d09c575dcb6c8178076f613012ef97eb1e4e5f3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "max-content-width" prop to
+  swirl-console-layout
+
+* [`e66eb32`](https://github.com/getflip/swirl/commit/e66eb32fa536cd7d1faf5d1e4b91d2d8e5e28802)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve support for bundlers
+
 ## 0.64.6
 
 ### Patch Changes
