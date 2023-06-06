@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.64.1
+
+### Patch Changes
+
+- [`1d07048`](https://github.com/getflip/swirl/commit/1d0704827b6b465696443b6f25e10785ff105f4d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust swirl-tab-bar styling when
+  used inside the swirl-app-bar
+
+- Updated dependencies
+  [[`1d07048`](https://github.com/getflip/swirl/commit/1d0704827b6b465696443b6f25e10785ff105f4d)]:
+  - @getflip/swirl-components@0.65.1
+
 ## 0.64.0
 
 ### Minor Changes
