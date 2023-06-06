@@ -5623,6 +5623,55 @@
       ]
     },
     {
+      "name": "swirl-time-input",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-focus",
+          "description": ""
+        },
+        {
+          "name": "auto-select",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "format",
+          "description": ""
+        },
+        {
+          "name": "inline",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "description": ""
+        },
+        {
+          "name": "required",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-toast",
       "description": {
         "kind": "markdown",

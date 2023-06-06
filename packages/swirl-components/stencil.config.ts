@@ -33,6 +33,7 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
       "swirl-radio-group",
       "swirl-search",
       "swirl-text-input",
+      "swirl-time-input",
     ],
     event: "valueChange",
     targetAttr: "value",
