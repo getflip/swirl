@@ -25,7 +25,7 @@
   width: 100%;
   height: 100%;
   grid-template-columns: 100%;
-  grid-template-rows: 4rem 1fr;
+  grid-template-rows: 3.5625rem 1fr;
   grid-template-areas:
     "body"
     "body";
@@ -292,7 +292,7 @@
   width: 100%;
   height: 100%;
   grid-area: body;
-  grid-template-rows: minmax(4rem, auto) auto 1fr;
+  grid-template-rows: minmax(3.5rem, auto) auto 1fr;
   grid-template-areas:
     "app-bar"
     "banner"
@@ -308,6 +308,9 @@
   background-color: var(--s-background-default);
   grid-area: app-bar;
   gap: var(--s-space-8);
+
+  --swirl-tab-bar-border-width: 0;
+  --swirl-tab-bar-height: 3.5rem;
 }
 
 .app-layout__back-to-navigation-button {
@@ -346,7 +349,7 @@
   border-left: var(--s-border-width-default) solid var(--s-border-default);
   will-change: transform;
   grid-area: sidebar;
-  grid-template-rows: 4rem 1fr;
+  grid-template-rows: 3.5625rem 1fr;
   grid-template-areas:
     "sidebar-header"
     "sidebar-content";
