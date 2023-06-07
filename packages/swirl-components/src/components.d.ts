@@ -1368,6 +1368,18 @@ export namespace Components {
         "size": SwirlThumbnailSize;
         "src": string;
     }
+    interface SwirlTimeInput {
+        "autoFocus"?: boolean;
+        "autoSelect"?: boolean;
+        "disabled"?: boolean;
+        "format"?: string;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
+        "value"?: string;
+    }
     interface SwirlToast {
         "accessibleDismissLabel"?: string;
         "content"?: string;
@@ -1563,6 +1575,10 @@ export interface SwirlTextInputCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlThemeProviderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlThemeProviderElement;
+}
+export interface SwirlTimeInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlTimeInputElement;
 }
 export interface SwirlToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2827,6 +2843,12 @@ declare global {
         prototype: HTMLSwirlThumbnailElement;
         new (): HTMLSwirlThumbnailElement;
     };
+    interface HTMLSwirlTimeInputElement extends Components.SwirlTimeInput, HTMLStencilElement {
+    }
+    var HTMLSwirlTimeInputElement: {
+        prototype: HTMLSwirlTimeInputElement;
+        new (): HTMLSwirlTimeInputElement;
+    };
     interface HTMLSwirlToastElement extends Components.SwirlToast, HTMLStencilElement {
     }
     var HTMLSwirlToastElement: {
@@ -3072,6 +3094,7 @@ declare global {
         "swirl-text-input": HTMLSwirlTextInputElement;
         "swirl-theme-provider": HTMLSwirlThemeProviderElement;
         "swirl-thumbnail": HTMLSwirlThumbnailElement;
+        "swirl-time-input": HTMLSwirlTimeInputElement;
         "swirl-toast": HTMLSwirlToastElement;
         "swirl-toast-provider": HTMLSwirlToastProviderElement;
         "swirl-tooltip": HTMLSwirlTooltipElement;
@@ -4203,6 +4226,19 @@ declare namespace LocalJSX {
         "size"?: SwirlThumbnailSize;
         "src": string;
     }
+    interface SwirlTimeInput {
+        "autoFocus"?: boolean;
+        "autoSelect"?: boolean;
+        "disabled"?: boolean;
+        "format"?: string;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "onValueChange"?: (event: SwirlTimeInputCustomEvent<string>) => void;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
+        "value"?: string;
+    }
     interface SwirlToast {
         "accessibleDismissLabel"?: string;
         "content"?: string;
@@ -4446,6 +4482,7 @@ declare namespace LocalJSX {
         "swirl-text-input": SwirlTextInput;
         "swirl-theme-provider": SwirlThemeProvider;
         "swirl-thumbnail": SwirlThumbnail;
+        "swirl-time-input": SwirlTimeInput;
         "swirl-toast": SwirlToast;
         "swirl-toast-provider": SwirlToastProvider;
         "swirl-tooltip": SwirlTooltip;
@@ -4676,6 +4713,7 @@ declare module "@stencil/core" {
             "swirl-text-input": LocalJSX.SwirlTextInput & JSXBase.HTMLAttributes<HTMLSwirlTextInputElement>;
             "swirl-theme-provider": LocalJSX.SwirlThemeProvider & JSXBase.HTMLAttributes<HTMLSwirlThemeProviderElement>;
             "swirl-thumbnail": LocalJSX.SwirlThumbnail & JSXBase.HTMLAttributes<HTMLSwirlThumbnailElement>;
+            "swirl-time-input": LocalJSX.SwirlTimeInput & JSXBase.HTMLAttributes<HTMLSwirlTimeInputElement>;
             "swirl-toast": LocalJSX.SwirlToast & JSXBase.HTMLAttributes<HTMLSwirlToastElement>;
             "swirl-toast-provider": LocalJSX.SwirlToastProvider & JSXBase.HTMLAttributes<HTMLSwirlToastProviderElement>;
             "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;
