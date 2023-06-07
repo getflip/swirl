@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.67.0
+
+### Minor Changes
+
+- [`dfa79c6`](https://github.com/getflip/swirl/commit/dfa79c6fe20087340f8e1cd0d86df8a807ea8974)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add drag&drop support for
+  swirl-resource-list
+
+### Patch Changes
+
+- Updated dependencies
+  [[`dfa79c6`](https://github.com/getflip/swirl/commit/dfa79c6fe20087340f8e1cd0d86df8a807ea8974)]:
+  - @getflip/swirl-components@0.68.0
+
 ## 0.66.0
 
 ### Minor Changes
