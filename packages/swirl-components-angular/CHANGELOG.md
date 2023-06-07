@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.66.0
+
+### Minor Changes
+
+- [`4ba051d`](https://github.com/getflip/swirl/commit/4ba051dc96a6eee073d618e72a06f8796067f6d2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "allowDeselect" prop to
+  swirl-option-list
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4ba051d`](https://github.com/getflip/swirl/commit/4ba051dc96a6eee073d618e72a06f8796067f6d2)]:
+  - @getflip/swirl-components@0.67.0
+
 ## 0.65.0
 
 ### Minor Changes
