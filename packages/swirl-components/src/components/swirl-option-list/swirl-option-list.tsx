@@ -31,6 +31,7 @@ import Sortable, { SortableEvent } from "sortablejs";
 export class SwirlOptionList implements SwirlFormInput<string[]> {
   @Element() el: HTMLElement;
 
+  @Prop() allowDeselect?: boolean = true;
   @Prop() allowDrag?: boolean;
   @Prop() assistiveTextItemGrabbed?: string =
     "Item grabbed. Use arrow keys to move item up or down. Use spacebar to save position.";
@@ -284,6 +285,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     }
 
     const itemIsAlreadySelected = this.value.includes(item.value);
+
+    if (itemIsAlreadySelected && !this.allowDeselect) {
+      return;
+    }
 
     if (!this.multiSelect) {
       this.value = [];

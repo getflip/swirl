@@ -4008,6 +4008,10 @@
       },
       "attributes": [
         {
+          "name": "allow-deselect",
+          "description": ""
+        },
+        {
           "name": "allow-drag",
           "description": ""
         },

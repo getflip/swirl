@@ -1028,6 +1028,7 @@ export namespace Components {
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
+        "allowDeselect"?: boolean;
         "allowDrag"?: boolean;
         "assistiveTextItemGrabbed"?: string;
         "assistiveTextItemMoved"?: string;
@@ -3909,6 +3910,7 @@ declare namespace LocalJSX {
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
+        "allowDeselect"?: boolean;
         "allowDrag"?: boolean;
         "assistiveTextItemGrabbed"?: string;
         "assistiveTextItemMoved"?: string;
