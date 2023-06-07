@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.65.0
+
+### Minor Changes
+
+- [#290](https://github.com/getflip/swirl/pull/290)
+  [`e13c50c`](https://github.com/getflip/swirl/commit/e13c50c49b989ad68fd5f47792a3c0eadbbb7437)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-time-input component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e13c50c`](https://github.com/getflip/swirl/commit/e13c50c49b989ad68fd5f47792a3c0eadbbb7437)]:
+  - @getflip/swirl-components@0.66.0
+
 ## 0.64.1
 
 ### Patch Changes
