@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-components-react",
-  "version": "0.65.0",
+  "version": "0.66.0",
   "type": "module",
   "files": [
     "dist"
@@ -18,7 +18,7 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@getflip/swirl-components": "^0.66.0",
+    "@getflip/swirl-components": "^0.67.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
