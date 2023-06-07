@@ -17,24 +17,22 @@ describe("swirl-resource-list-file-item", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-resource-list-file-item description="Description" label="Label" loading="true" role="row">
-        <mock:shadow-root>
-          <div class="resource-list-file-item resource-list-file-item--has-control" part="resource-list-file-item" role="gridcell">
-            <span class="resource-list-file-item__icon">
-              <swirl-icon-file size="24"></swirl-icon-file>
+        <div class="resource-list-file-item resource-list-file-item--has-control" part="resource-list-file-item" role="gridcell">
+          <span class="resource-list-file-item__icon">
+            <swirl-icon-file size="24"></swirl-icon-file>
+          </span>
+          <span class="resource-list-file-item__label-container">
+            <span class="resource-list-file-item__label" id="label">
+              Label
             </span>
-            <span class="resource-list-file-item__label-container">
-              <span class="resource-list-file-item__label" id="label">
-                Label
-              </span>
-              <span class="resource-list-file-item__description">
-                Description
-              </span>
+            <span class="resource-list-file-item__description">
+              Description
             </span>
-            <span class="resource-list-file-item__spinner">
-              <swirl-spinner size="s"></swirl-spinner>
-            </span>
-          </div>
-        </mock:shadow-root>
+          </span>
+          <span class="resource-list-file-item__spinner">
+            <swirl-spinner size="s"></swirl-spinner>
+          </span>
+        </div>
       </swirl-resource-list-file-item>
     `);
   });
@@ -46,7 +44,7 @@ describe("swirl-resource-list-file-item", () => {
     });
 
     expect(
-      page.root.shadowRoot
+      page.root
         .querySelector<HTMLSwirlInlineErrorElement>(
           '[aria-live="polite"] > swirl-inline-error'
         )
@@ -63,7 +61,7 @@ describe("swirl-resource-list-file-item", () => {
     const spy = jest.fn();
 
     page.root.addEventListener("remove", spy);
-    page.root.shadowRoot
+    page.root
       .querySelector<HTMLSwirlButtonElement>(
         ".resource-list-file-item__remove-button > swirl-button"
       )

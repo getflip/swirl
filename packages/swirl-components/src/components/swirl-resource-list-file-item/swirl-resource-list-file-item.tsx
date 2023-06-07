@@ -3,7 +3,8 @@ import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
 
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "swirl-resource-list-file-item.css",
   tag: "swirl-resource-list-file-item",
 })

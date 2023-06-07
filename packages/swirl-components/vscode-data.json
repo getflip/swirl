@@ -4486,6 +4486,22 @@
       },
       "attributes": [
         {
+          "name": "allow-drag",
+          "description": ""
+        },
+        {
+          "name": "assistive-text-item-grabbed",
+          "description": ""
+        },
+        {
+          "name": "assistive-text-item-moved",
+          "description": ""
+        },
+        {
+          "name": "assistive-text-item-moving",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         }
@@ -4536,6 +4552,10 @@
       },
       "attributes": [
         {
+          "name": "allow-drag",
+          "description": ""
+        },
+        {
           "name": "checked",
           "description": ""
         },
@@ -4545,6 +4565,18 @@
         },
         {
           "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "drag-handle-description",
+          "description": ""
+        },
+        {
+          "name": "drag-handle-label",
+          "description": ""
+        },
+        {
+          "name": "dragging",
           "description": ""
         },
         {

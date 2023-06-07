@@ -1141,6 +1141,10 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlResourceList {
+        "allowDrag"?: boolean;
+        "assistiveTextItemGrabbed"?: string;
+        "assistiveTextItemMoved"?: string;
+        "assistiveTextItemMoving"?: string;
         "label"?: string;
     }
     interface SwirlResourceListFileItem {
@@ -1153,9 +1157,13 @@ export namespace Components {
         "removeButtonLabel"?: string;
     }
     interface SwirlResourceListItem {
+        "allowDrag"?: boolean;
         "checked"?: boolean;
         "description"?: string;
         "disabled"?: boolean;
+        "dragHandleDescription"?: string;
+        "dragHandleLabel"?: string;
+        "dragging"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
         "label": string;
@@ -1536,6 +1544,10 @@ export interface SwirlRadioCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlRadioGroupElement;
+}
+export interface SwirlResourceListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlResourceListElement;
 }
 export interface SwirlResourceListFileItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -4018,7 +4030,16 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlResourceList {
+        "allowDrag"?: boolean;
+        "assistiveTextItemGrabbed"?: string;
+        "assistiveTextItemMoved"?: string;
+        "assistiveTextItemMoving"?: string;
         "label"?: string;
+        "onItemDrop"?: (event: SwirlResourceListCustomEvent<{
+    item: HTMLSwirlResourceListItemElement;
+    oldIndex: number;
+    newIndex: number;
+  }>) => void;
     }
     interface SwirlResourceListFileItem {
         "description"?: string;
@@ -4031,9 +4052,13 @@ declare namespace LocalJSX {
         "removeButtonLabel"?: string;
     }
     interface SwirlResourceListItem {
+        "allowDrag"?: boolean;
         "checked"?: boolean;
         "description"?: string;
         "disabled"?: boolean;
+        "dragHandleDescription"?: string;
+        "dragHandleLabel"?: string;
+        "dragging"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
         "label": string;
@@ -4041,6 +4066,7 @@ declare namespace LocalJSX {
         "menuTriggerId"?: string;
         "menuTriggerLabel"?: string;
         "meta"?: string;
+        "onToggleDrag"?: (event: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElement>) => void;
         "onValueChange"?: (event: SwirlResourceListItemCustomEvent<boolean>) => void;
         "selectable"?: boolean;
         "value"?: string;
