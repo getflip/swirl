@@ -44,25 +44,9 @@ export class SwirlAvatar {
 
   @State() imageAvailable: boolean | undefined;
 
-  private badgeEl: HTMLElement;
-
-  componentDidLoad() {
-    this.forceBadgeProps();
-  }
-
   @Watch("src")
   watchSrcProp() {
     this.imageAvailable = undefined;
-  }
-
-  private forceBadgeProps() {
-    if (!Boolean(this.badge)) {
-      return;
-    }
-
-    const badge = this.badgeEl.querySelector("swirl-badge");
-
-    badge?.setAttribute("size", "m");
   }
 
   private setImageAvailable = () => {
@@ -157,11 +141,7 @@ export class SwirlAvatar {
             </span>
           )}
           {showBadge && (
-            <span
-              class={badgeClassName}
-              innerHTML={this.badge}
-              ref={(el) => (this.badgeEl = el)}
-            ></span>
+            <span class={badgeClassName} innerHTML={this.badge}></span>
           )}
         </span>
         {this.showLabel && (

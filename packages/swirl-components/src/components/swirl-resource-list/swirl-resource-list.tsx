@@ -113,8 +113,8 @@ export class SwirlResourceList {
       onEnd: (event: SortableEvent) => {
         this.itemDrop.emit({
           item: event.item as HTMLSwirlResourceListItemElement,
-          oldIndex: event.oldIndex,
-          newIndex: event.newIndex,
+          oldIndex: event.oldDraggableIndex,
+          newIndex: event.newDraggableIndex,
         });
       },
     });
