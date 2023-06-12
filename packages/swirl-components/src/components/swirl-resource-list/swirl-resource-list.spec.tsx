@@ -3,6 +3,12 @@ import { SwirlResourceListItem } from "../swirl-resource-list-item/swirl-resourc
 import { SwirlResourceList } from "./swirl-resource-list";
 import { MockElement } from "@stencil/core/mock-doc";
 
+(global as any).MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
+
 (MockElement.prototype as any).after = function () {
   var argArr = Array.prototype.slice.call(arguments);
   var docFrag = document.createDocumentFragment();

@@ -40,9 +40,11 @@ export class SwirlResourceList {
   private focusedIndex = 0;
   private gridEl: HTMLElement;
   private items: HTMLSwirlResourceListItemElement[];
+  private observer: MutationObserver;
   private sortable: Sortable;
 
   componentDidLoad() {
+    this.observeSlotChanges();
     this.collectItems();
     this.setItemAllowDragState();
     this.setupDragDrop();
@@ -50,6 +52,17 @@ export class SwirlResourceList {
 
   disconnectedCallback() {
     this.sortable?.destroy();
+    this.observer?.disconnect();
+  }
+
+  private observeSlotChanges() {
+    this.observer = new MutationObserver(() => {
+      this.collectItems();
+      this.setItemAllowDragState();
+      this.setupDragDrop();
+    });
+
+    this.observer.observe(this.el, { childList: true });
   }
 
   @Watch("allowDrag")
@@ -269,10 +282,6 @@ export class SwirlResourceList {
     }
   };
 
-  private onSlotChange = () => {
-    this.collectItems();
-  };
-
   render() {
     return (
       <Host onKeyDown={this.onKeyDown}>
@@ -285,7 +294,7 @@ export class SwirlResourceList {
           ref={(el) => (this.gridEl = el)}
           role="grid"
         >
-          <slot onSlotchange={this.onSlotChange}></slot>
+          <slot></slot>
         </swirl-stack>
       </Host>
     );
