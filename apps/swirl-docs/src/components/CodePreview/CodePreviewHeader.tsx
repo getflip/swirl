@@ -5,7 +5,7 @@ import {
   SwirlIconCheck,
   SwirlIconChevronRight,
 } from "@getflip/swirl-components-react";
-import { useState } from "react";
+import { ComponentProps, useState } from "react";
 import { autoUpdate, flip, shift } from "@floating-ui/dom";
 import {
   useClick,
@@ -44,7 +44,6 @@ export function CodePreviewHeader() {
   const {
     isLightTheme,
     hasCopyButton,
-    codeExample,
     PreviewIndicator,
     MainHeaderContent,
     ActionItems,
@@ -52,7 +51,7 @@ export function CodePreviewHeader() {
   return (
     <div
       className={classNames(
-        "box-border flex items-start gap-1",
+        "box-border flex items-baseline gap-1",
         "w-full max-h-full h-auto min-h-[2.25rem] rounded-lg",
         "p-2",
         {
@@ -74,8 +73,53 @@ export function CodePreviewHeader() {
 }
 
 export function RequestLanguage() {
+  const { codeExample, handleLangChange } = useCodePreviewContext();
+
+  const langs: SupportedTargets[] = ["shell", "node", "python"];
+
+  const options = langs.map((lang) => ({ label: lang, value: lang }));
+
+  const onSelect = (value: string) =>
+    handleLangChange?.(value as SupportedTargets);
+
+  return (
+    <Select
+      options={options}
+      selectId={codeExample.language as string}
+      onItemClick={onSelect}
+    />
+  );
+}
+
+export function ResponseSelector() {
+  const options: SelectProps["options"] = [
+    {
+      label: "200",
+      value: "200",
+    },
+    {
+      label: "201",
+      value: "201",
+    },
+  ];
+
+  return (
+    <Select
+      options={options}
+      selectId="200"
+      onItemClick={(value) => console.log("value", value)}
+    />
+  );
+}
+
+type SelectProps = {
+  options: Pick<SelectItemProps, "label" | "value">[];
+  selectId: string;
+  onItemClick?: (value: string) => void;
+};
+
+export function Select({ options, selectId, onItemClick }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const { codeExample } = useCodePreviewContext();
 
   const { refs, context, x, y } = useFloating({
     open: isOpen,
@@ -95,8 +139,6 @@ export function RequestLanguage() {
     role,
   ]);
 
-  const langs: SupportedTargets[] = ["shell", "node", "python"];
-
   return (
     <div className="relative">
       <button
@@ -111,7 +153,7 @@ export function RequestLanguage() {
         onClick={() => setIsOpen(!isOpen)}
         {...getReferenceProps()}
       >
-        {codeExample.language}
+        {options.find((option) => option.value === selectId)?.label}
         <span className="rotate-90 max-h-[1.25rem] max-w-[1.25rem]">
           <SwirlIconChevronRight size={20} />
         </span>
@@ -130,12 +172,17 @@ export function RequestLanguage() {
             left: `${x}px`,
           }}
         >
-          {langs.map((language) => (
-            <RequestLanguageItem
-              onClick={() => setIsOpen(false)}
-              key={language}
-              isSelected={language === codeExample.language}
-              language={language}
+          {options.map((option) => (
+            <SelectItem
+              onClick={(event) => {
+                const target = event.target as HTMLButtonElement;
+                if (target && onItemClick) onItemClick(target.value);
+                setIsOpen(false);
+              }}
+              key={option.value as string}
+              isSelected={option.value === selectId}
+              label={option.label}
+              value={option.value}
             />
           ))}
         </motion.div>
@@ -144,23 +191,16 @@ export function RequestLanguage() {
   );
 }
 
-function RequestLanguageItem({
-  isSelected,
-  language,
-  onClick,
-}: {
+type SelectItemProps = ComponentProps<"button"> & {
+  label: string;
   isSelected: boolean;
-  language: SupportedTargets;
-  onClick: any;
-}) {
-  const { handleLangChange } = useCodePreviewContext();
+};
 
+function SelectItem({ label, isSelected, ...rest }: SelectItemProps) {
   return (
     <button
-      onClick={() => {
-        if (handleLangChange) handleLangChange(language);
-        onClick();
-      }}
+      {...rest}
+      aria-label={label}
       type="button"
       className={classnames(
         "inline-flex items-center justify-between w-full px-4 py-2 max-h-[2.5]",
@@ -171,7 +211,7 @@ function RequestLanguageItem({
         }
       )}
     >
-      {language}
+      {label}
       {isSelected && (
         <span className="w-4 h-4">
           <SwirlIconCheck size={16} />

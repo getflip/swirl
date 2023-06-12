@@ -42,9 +42,6 @@ export function CodePreview({
         isLongCode: true,
       });
     }
-
-    console.log("codeExample", codeExample);
-    console.log(codeExample.isLongCode && !isLightTheme);
   }, [language, codeExample]);
 
   const hasExpandButton = codeExample.isLongCode || !isLightTheme;

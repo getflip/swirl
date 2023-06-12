@@ -25,6 +25,7 @@ import {
   HttpMethod,
   RequestLanguage,
   ResponseIndicator,
+  ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
 
 // SERVER CODE
@@ -291,6 +292,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             <CodePreview
                               isLightTheme
                               PreviewIndicator={<ResponseIndicator />}
+                              ActionItems={<ResponseSelector />}
                               codeExample={{
                                 code: JSON.stringify(
                                   endpoint.responseExamples[0].value as string,
