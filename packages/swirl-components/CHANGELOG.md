@@ -1,5 +1,17 @@
 # @getflip/swirl-components
 
+## 0.68.2
+
+### Patch Changes
+
+- [`562f56b`](https://github.com/getflip/swirl/commit/562f56bfe1b037cf5cd39d8a27dbc7ccc6d046d5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix drag and drop events details
+  of swirl-resource-list
+
+* [`562f56b`](https://github.com/getflip/swirl/commit/562f56bfe1b037cf5cd39d8a27dbc7ccc6d046d5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Do not force badge size for
+  swirl-avatar
+
 ## 0.68.1
 
 ### Patch Changes
