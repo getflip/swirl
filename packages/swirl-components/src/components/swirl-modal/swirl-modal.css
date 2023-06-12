@@ -12,6 +12,15 @@
   --swirl-ghost-button-background-default: var(--s-surface-overlay-default);
   --swirl-ghost-button-background-hovered: var(--s-surface-overlay-hovered);
   --swirl-ghost-button-background-pressed: var(--s-surface-overlay-pressed);
+  --swirl-resource-list-item-background-default: var(
+    --s-surface-overlay-default
+  );
+  --swirl-resource-list-item-background-hovered: var(
+    --s-surface-overlay-hovered
+  );
+  --swirl-resource-list-item-background-pressed: var(
+    --s-surface-overlay-pressed
+  );
 
   position: fixed;
   z-index: var(--s-z-40);

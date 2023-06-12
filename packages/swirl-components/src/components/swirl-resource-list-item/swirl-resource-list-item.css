@@ -13,6 +13,10 @@
 .resource-list-item {
   position: relative;
   width: 100%;
+
+  &:hover {
+    --swirl-ghost-button-background-default: var(--s-background-hovered);
+  }
 }
 
 .resource-list-item--checked {
@@ -91,7 +95,7 @@
   align-items: center;
   border: none;
   color: var(--s-text-default);
-  background-color: var(--s-background-default);
+  background-color: var(--swirl-resource-list-item-background-default);
   font: inherit;
   line-height: var(--s-line-height-base);
   text-align: left;
@@ -100,16 +104,17 @@
   gap: var(--s-space-12);
 
   &:hover:not(:disabled) {
-    background-color: var(--s-background-hovered);
+    background-color: var(--swirl-resource-list-item-background-hovered);
 
     & .resource-list-item__media {
+      --swirl-avatar-background-color: var(--s-surface-raised-hovered);
       --swirl-avatar-group-border-color: var(--s-background-hovered);
       --swirl-badge-border-color: var(--s-background-hovered);
     }
   }
 
   &:active:not(:disabled) {
-    background-color: var(--s-background-pressed);
+    background-color: var(--swirl-resource-list-item-background-pressed);
 
     & .resource-list-item__media {
       --swirl-avatar-group-border-color: var(--s-background-pressed);

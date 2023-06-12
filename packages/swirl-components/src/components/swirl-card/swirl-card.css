@@ -23,6 +23,9 @@
   --swirl-ghost-button-background-default: var(--s-surface-default);
   --swirl-ghost-button-background-hovered: var(--s-surface-hovered);
   --swirl-ghost-button-background-pressed: var(--s-surface-pressed);
+  --swirl-resource-list-item-background-default: var(--s-surface-default);
+  --swirl-resource-list-item-background-hovered: var(--s-surface-hovered);
+  --swirl-resource-list-item-background-pressed: var(--s-surface-pressed);
 }
 
 a.card,
