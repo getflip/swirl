@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.67.3
+
+### Patch Changes
+
+- [`d31d875`](https://github.com/getflip/swirl/commit/d31d8757874bd8325ca305743a9ad6ba57ba6fd9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Let swirl-resource-list handle
+  item updates correctly
+
+- Updated dependencies
+  [[`d31d875`](https://github.com/getflip/swirl/commit/d31d8757874bd8325ca305743a9ad6ba57ba6fd9)]:
+  - @getflip/swirl-components@0.68.3
+
 ## 0.67.2
 
 ### Patch Changes

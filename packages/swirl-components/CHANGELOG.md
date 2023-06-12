@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.68.3
+
+### Patch Changes
+
+- [`d31d875`](https://github.com/getflip/swirl/commit/d31d8757874bd8325ca305743a9ad6ba57ba6fd9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Let swirl-resource-list handle
+  item updates correctly
+
 ## 0.68.2
 
 ### Patch Changes
