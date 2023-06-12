@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.67.1
+
+### Patch Changes
+
+- [`80c1be1`](https://github.com/getflip/swirl/commit/80c1be19a063f1e21480c0d430df03abbc95b89c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix design token usage for
+  components used inside swirl-modal and swirl-card components
+- Updated dependencies
+  [[`80c1be1`](https://github.com/getflip/swirl/commit/80c1be19a063f1e21480c0d430df03abbc95b89c)]:
+  - @getflip/swirl-components@0.68.1
+
 ## 0.67.0
 
 ### Minor Changes
