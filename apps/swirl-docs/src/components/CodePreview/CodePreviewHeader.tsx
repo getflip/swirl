@@ -67,14 +67,14 @@ export function CodePreviewHeader() {
       </span>
       <div className="shrink-0 basis-0 flex items-center">
         {ActionItems}
-        {hasCopyButton && <CopyButton code={codeExample.code} />}
+        {hasCopyButton && <CopyButton />}
       </div>
     </div>
   );
 }
 
 export function RequestLanguage() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const { codeExample } = useCodePreviewContext();
 
   const { refs, context, x, y } = useFloating({
@@ -132,6 +132,7 @@ export function RequestLanguage() {
         >
           {langs.map((language) => (
             <RequestLanguageItem
+              onClick={() => setIsOpen(false)}
               key={language}
               isSelected={language === codeExample.language}
               language={language}
@@ -142,15 +143,24 @@ export function RequestLanguage() {
     </div>
   );
 }
+
 function RequestLanguageItem({
   isSelected,
   language,
+  onClick,
 }: {
   isSelected: boolean;
   language: SupportedTargets;
+  onClick: any;
 }) {
+  const { handleLangChange } = useCodePreviewContext();
+
   return (
     <button
+      onClick={() => {
+        if (handleLangChange) handleLangChange(language);
+        onClick();
+      }}
       type="button"
       className={classnames(
         "inline-flex items-center justify-between w-full px-4 py-2 max-h-[2.5]",

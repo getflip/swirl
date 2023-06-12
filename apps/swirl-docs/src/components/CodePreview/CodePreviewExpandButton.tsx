@@ -16,7 +16,7 @@ export function CodePreviewExpandButton({
   return (
     <div
       className={classNames(
-        "absolute bottom-0 flex justify-center items-center w-full h-12",
+        "absolute bottom-0 left-0 flex justify-center items-center w-full h-12 rounded-xl",
         {
           "bg-[#24292E]": !isLightTheme,
           "bg-surface-raised-default": isLightTheme,

@@ -4,13 +4,16 @@ import {
 } from "@getflip/swirl-components-react";
 import { useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
+import { useCodePreviewContext } from "./CodePreviewContext";
 
-export function CopyButton({ code }: { code: string }) {
+export function CopyButton() {
   const [isCopied, setIsCopied] = useState<boolean>(false);
+
+  const { codeExample } = useCodePreviewContext();
 
   return (
     <CopyToClipboard
-      text={code}
+      text={codeExample.code}
       onCopy={() => {
         setIsCopied(true);
         setTimeout(() => {

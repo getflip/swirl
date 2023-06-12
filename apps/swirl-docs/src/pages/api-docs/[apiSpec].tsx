@@ -277,6 +277,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                           hasCopyButton
                           codeExample={{
                             code: endpoint.request.snippets["shell"],
+                            snippets: endpoint.request.snippets,
                             isLongCode: false,
                             language: "shell",
                             request: endpoint.request.request,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CodeSandboxButton } from "./CodeSandboxButton";
 import classNames from "classnames";
 import NoSsr from "../Layout/NoSsr";
@@ -9,7 +9,6 @@ import { APIEndpointHeader } from "./CodePreviewRequestString";
 import { CodePreviewHeader } from "./CodePreviewHeader";
 import { CodePreviewHighlight } from "./CodePreviewHighlight";
 import { CodePreviewExpandButton } from "./CodePreviewExpandButton";
-import { oasToSnippet } from "@readme/oas-to-snippet";
 
 /**
  * Let's you easily render syntax highlighted code.
@@ -31,7 +30,24 @@ export function CodePreview({
     CodePreview["codeExample"]
   >({
     ...codeExample,
+    language,
   });
+
+  useEffect(() => {
+    if (codeExample.snippets && language) {
+      setCodeExample({
+        ...codeExample,
+        language: language,
+        code: codeExample.snippets[language],
+        isLongCode: true,
+      });
+    }
+
+    console.log("codeExample", codeExample);
+    console.log(codeExample.isLongCode && !isLightTheme);
+  }, [language, codeExample]);
+
+  const hasExpandButton = codeExample.isLongCode || !isLightTheme;
 
   return (
     <NoSsr>
@@ -45,6 +61,7 @@ export function CodePreview({
           PreviewIndicator,
           MainHeaderContent,
           ActionItems,
+          handleLangChange: setLanguage,
         }}
       >
         <div
@@ -66,7 +83,7 @@ export function CodePreview({
         >
           <CodePreviewHeader />
           <CodePreviewHighlight />
-          {codeExample.isLongCode && !isLightTheme && (
+          {hasExpandButton && (
             <CodePreviewExpandButton
               isExpanded={isExpanded}
               setIsExpanded={setIsExpanded}
