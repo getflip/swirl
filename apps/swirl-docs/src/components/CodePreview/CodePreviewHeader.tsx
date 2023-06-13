@@ -1,44 +1,8 @@
 import classNames from "classnames";
 import { useCodePreviewContext } from "./CodePreviewContext";
 import { CopyButton } from "./CodePreviewCopyButton";
-import {
-  SwirlIconCheck,
-  SwirlIconChevronRight,
-} from "@getflip/swirl-components-react";
-import { ComponentProps, useState } from "react";
-import { autoUpdate, flip, shift } from "@floating-ui/dom";
-import {
-  useClick,
-  useDismiss,
-  useFloating,
-  useInteractions,
-  useRole,
-} from "@floating-ui/react";
-import classnames from "classnames";
-import { motion } from "framer-motion";
 import { SupportedTargets } from "@readme/oas-to-snippet";
-
-export function HttpMethod() {
-  const { codeExample } = useCodePreviewContext();
-  return (
-    <span className="text-[#A6CAFF] font-semibold text-font-size-sm uppercase leading-5">
-      {codeExample.request?.method}
-    </span>
-  );
-}
-
-export function ResponseIndicator() {
-  return <span className="text-font-size-sm max-h-5">Response</span>;
-}
-
-export function EndpointUrl() {
-  const { codeExample } = useCodePreviewContext();
-  return (
-    <span className="text-font-size-sm text-text-on-image leading-5 font-font-weight-normal break-words h-full">
-      {codeExample.request?.url}
-    </span>
-  );
-}
+import { Select, SelectItemProps, SelectProps } from "./CodePreviewSelect";
 
 export function CodePreviewHeader() {
   const {
@@ -72,158 +36,77 @@ export function CodePreviewHeader() {
   );
 }
 
+// Main Header Content Components
+export function HttpMethod() {
+  const { codeExample } = useCodePreviewContext();
+  return (
+    <span className="text-[#A6CAFF] font-semibold text-font-size-sm uppercase leading-5">
+      {codeExample.request?.method}
+    </span>
+  );
+}
+
+export function ResponseIndicator() {
+  return <span className="text-font-size-sm max-h-5">Response</span>;
+}
+
+export function EndpointUrl() {
+  const { codeExample } = useCodePreviewContext();
+  return (
+    <span className="text-font-size-sm text-text-on-image leading-5 font-font-weight-normal break-words h-full">
+      {codeExample.request?.url}
+    </span>
+  );
+}
+
+// Select Field Components
 export function RequestLanguage() {
-  const { codeExample, handleSelect } = useCodePreviewContext();
-
-  const langs: SupportedTargets[] = ["shell", "node", "python"];
-
-  const options = langs.map((lang) => ({ label: lang, value: lang }));
-
-  const onSelect = (option: Pick<SelectItemProps, "label" | "value">) => {
-    handleSelect?.(option.label);
-  };
+  const keys: SupportedTargets[] = ["shell", "node", "python"];
+  const { options, handleSelection, selectedId } =
+    useSelectOptionsAndHandler(keys);
 
   return (
     <Select
       options={options}
-      selectId={codeExample.selectId as string}
-      onItemClick={onSelect}
+      selectId={selectedId}
+      onItemClick={handleSelection}
     />
   );
 }
 
 export function ResponseSelector() {
-  const { codeExample, handleSelect } = useCodePreviewContext();
-
-  let options: SelectProps["options"] = [];
-
-  if (codeExample.selectOptions) {
-    options = Object.keys(codeExample.selectOptions).map((key) => {
-      return {
-        label: key,
-        value: key,
-      };
-    });
-  }
-
-  const onSelect = (option: Pick<SelectItemProps, "label" | "value">) => {
-    handleSelect?.(option.label);
-  };
+  const { codeExample } = useCodePreviewContext();
+  const keys = codeExample.selectOptions
+    ? Object.keys(codeExample.selectOptions)
+    : [];
+  const { options, handleSelection, selectedId } =
+    useSelectOptionsAndHandler(keys);
 
   return (
     <Select
       options={options}
-      selectId={codeExample.selectId as string}
-      onItemClick={onSelect}
+      selectId={selectedId}
+      onItemClick={handleSelection}
     />
   );
 }
 
-type SelectProps = {
-  options: Pick<SelectItemProps, "label" | "value">[];
-  selectId: string;
-  onItemClick?: (option: Pick<SelectItemProps, "label" | "value">) => void;
-};
+function useSelectOptionsAndHandler(keys: string[]) {
+  const { codeExample, handleSelect } = useCodePreviewContext();
 
-export function Select({ options, selectId, onItemClick }: SelectProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const options: SelectProps["options"] = keys.map((key) => ({
+    label: key,
+    value: key,
+  }));
+  const handleSelection = (
+    option: Pick<SelectItemProps, "label" | "value">
+  ) => {
+    handleSelect?.(option.label);
+  };
 
-  const { refs, context, x, y } = useFloating({
-    open: isOpen,
-    onOpenChange: setIsOpen,
-    placement: "top-start",
-    middleware: [flip({ fallbackAxisSideDirection: "start" }), shift()],
-    whileElementsMounted: autoUpdate,
-  });
-
-  const click = useClick(context);
-  const dismiss = useDismiss(context);
-  const role = useRole(context);
-
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    click,
-    dismiss,
-    role,
-  ]);
-
-  return (
-    <div className="relative">
-      <button
-        ref={refs.setReference}
-        className={classnames(
-          "relative flex items-center justify-center",
-          "bg-transparent max-h-5 text-interactive-neutral-default text-font-size-sm",
-          "pr-2",
-          "after:block after:absolute after:h-full after:bg-border-default after:w-[1px] after:opacity-20 after:right-0"
-        )}
-        id="requestlanguage-trigger"
-        onClick={() => setIsOpen(!isOpen)}
-        {...getReferenceProps()}
-      >
-        {options.find((option) => option.value === selectId)?.label}
-        <span className="rotate-90 max-h-[1.25rem] max-w-[1.25rem]">
-          <SwirlIconChevronRight size={20} />
-        </span>
-      </button>
-      {isOpen && (
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={isOpen ? { scale: 1 } : { scale: 0 }}
-          transition={{ duration: 0.125, type: "tween" }}
-          exit={{ scale: 0 }}
-          ref={refs.setFloating}
-          className="absolute z-10 border border-border-default rounded-lg overflow-hidden w-[12rem] max-w-[12rem] py-2 bg-surface-overlay-default"
-          {...getFloatingProps()}
-          style={{
-            top: `${y}px`,
-            left: `${x}px`,
-          }}
-        >
-          {options.map((option) => (
-            <SelectItem
-              onClick={(event) => {
-                const target = event.target as HTMLButtonElement;
-                if (target && onItemClick) onItemClick(option);
-                setIsOpen(false);
-              }}
-              key={option.label as string}
-              isSelected={option.value === selectId}
-              label={option.label}
-              value={option.value}
-            />
-          ))}
-        </motion.div>
-      )}
-    </div>
-  );
-}
-
-type SelectItemProps = ComponentProps<"button"> & {
-  label: string;
-  isSelected: boolean;
-};
-
-function SelectItem({ label, isSelected, ...rest }: SelectItemProps) {
-  return (
-    <button
-      {...rest}
-      aria-label={label}
-      type="button"
-      className={classnames(
-        "inline-flex items-center justify-between w-full px-4 py-2 max-h-[2.5]",
-        "bg-surface-overlay-default hover:bg-surface-overlay-hovered active:bg-surface-overlay-pressed",
-        "text-start text-font-size-sm leading-5 font-font-weight-medium",
-        {
-          "text-text-highlight": isSelected,
-        }
-      )}
-    >
-      {label}
-      {isSelected && (
-        <span className="w-4 h-4">
-          <SwirlIconCheck size={16} />
-        </span>
-      )}
-    </button>
-  );
+  return {
+    options,
+    handleSelection,
+    selectedId: codeExample.selectId as string,
+  };
 }
