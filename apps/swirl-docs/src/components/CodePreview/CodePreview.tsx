@@ -25,7 +25,7 @@ export function CodePreview({
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [selectId, handleSelect] = useState<
     CodePreview["codeExample"]["selectId"]
-  >(Object.keys(codeExample.selectOptions!!)[0]);
+  >(codeExample.selectId);
 
   const [codePreviewCodeExample, setCodeExample] = useState<
     CodePreview["codeExample"]

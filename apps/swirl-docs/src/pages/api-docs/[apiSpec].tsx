@@ -314,7 +314,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                                   {} as Record<string, string>
                                 ),
                                 isLongCode: true,
-                                selectId: "shell",
+                                selectId: endpoint.responseExamples[0].status,
                               }}
                             />
                           )}

@@ -79,8 +79,9 @@ export function RequestLanguage() {
 
   const options = langs.map((lang) => ({ label: lang, value: lang }));
 
-  const onSelect = (option: Pick<SelectItemProps, "label" | "value">) =>
+  const onSelect = (option: Pick<SelectItemProps, "label" | "value">) => {
     handleSelect?.(option.label);
+  };
 
   return (
     <Select
@@ -100,18 +101,19 @@ export function ResponseSelector() {
     options = Object.keys(codeExample.selectOptions).map((key) => {
       return {
         label: key,
-        value: codeExample.selectOptions?.[key],
+        value: key,
       };
     });
   }
 
-  const onSelect = (option: Pick<SelectItemProps, "label" | "value">) =>
+  const onSelect = (option: Pick<SelectItemProps, "label" | "value">) => {
     handleSelect?.(option.label);
+  };
 
   return (
     <Select
       options={options}
-      selectId={String(options[0]?.label) || ""}
+      selectId={codeExample.selectId as string}
       onItemClick={onSelect}
     />
   );
