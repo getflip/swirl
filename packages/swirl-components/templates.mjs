@@ -106,6 +106,42 @@ export class SwirlIcon{{iconName}} {
 }
 `;
 
+export const symbolComponentTemplate = `// DO NOT EDIT. THIS FILE GETS GENERATED VIA "yarn generate".
+
+import { Component, Fragment, h, Prop } from "@stencil/core";
+import { SwirlSymbolSize } from "../swirl-symbol.types";
+import classnames from 'classnames';
+
+@Component({
+  shadow: true,
+  styleUrl: "../swirl-symbol.css",
+  tag: "swirl-symbol-{{symbolName}}",
+})
+export class SwirlSymbol{{symbolNamePascalCase}} {
+  @Prop() size: SwirlSymbolSize = 24;
+
+  render() {
+    const viewBoxSize = this.size === 20 ? 24 : this.size;
+
+    const className = classnames('swirl-symbol', \`swirl-symbol--size-$\{this.size\}\`);
+
+    return (
+      <svg
+        class={className}
+        fill="none"
+        height={this.size}
+        part="symbol"
+        viewBox={\`0 0 \${viewBoxSize} \${viewBoxSize}\`}
+        width={this.size}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <Fragment>{{{symbolSvg}}}</Fragment>
+      </svg>
+    );
+  }
+}
+`;
+
 export const storiesTemplate = `import { generateStoryElement } from "../../utils";
 import Docs from "./{{name}}.mdx";
 
