@@ -36,7 +36,7 @@ export function CodePreview({
   });
 
   useEffect(() => {
-    // TODO: Heads up: not the best solution for now. A reducer would be better.
+    // TODO: Heads up: not the best solution for now. A global reducer would be better for the long run.
     if (codeExample) {
       setCodeExample({
         ...codeExample,
