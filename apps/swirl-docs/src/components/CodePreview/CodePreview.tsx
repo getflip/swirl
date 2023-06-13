@@ -36,21 +36,20 @@ export function CodePreview({
   });
 
   useEffect(() => {
-    if (codeExample.selectOptions && selectId) {
-      setCodeExample({
-        ...codeExample,
-        selectId: selectId,
-        code: codeExample.selectOptions[selectId],
-        isLongCode: codeExample.selectOptions[selectId].split("\n").length > 7,
-      });
-    }
-
     // TODO: Heads up: not the best solution for now. A reducer would be better.
     if (codeExample) {
       setCodeExample({
         ...codeExample,
         code: codeExample.code,
         isLongCode: codeExample.code.split("\n").length > 7,
+      });
+    }
+    if (codeExample.selectOptions && selectId) {
+      setCodeExample({
+        ...codeExample,
+        selectId: selectId,
+        code: codeExample.selectOptions[selectId],
+        isLongCode: codeExample.selectOptions[selectId].split("\n").length > 7,
       });
     }
   }, [selectId, codeExample]);
