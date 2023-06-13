@@ -1,5 +1,172 @@
 # @getflip/swirl-components-angular
 
+## 0.67.3
+
+### Patch Changes
+
+- [`d31d875`](https://github.com/getflip/swirl/commit/d31d8757874bd8325ca305743a9ad6ba57ba6fd9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Let swirl-resource-list handle
+  item updates correctly
+
+- Updated dependencies
+  [[`d31d875`](https://github.com/getflip/swirl/commit/d31d8757874bd8325ca305743a9ad6ba57ba6fd9)]:
+  - @getflip/swirl-components@0.68.3
+
+## 0.67.2
+
+### Patch Changes
+
+- [`562f56b`](https://github.com/getflip/swirl/commit/562f56bfe1b037cf5cd39d8a27dbc7ccc6d046d5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix drag and drop events details
+  of swirl-resource-list
+
+* [`562f56b`](https://github.com/getflip/swirl/commit/562f56bfe1b037cf5cd39d8a27dbc7ccc6d046d5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Do not force badge size for
+  swirl-avatar
+
+* Updated dependencies
+  [[`562f56b`](https://github.com/getflip/swirl/commit/562f56bfe1b037cf5cd39d8a27dbc7ccc6d046d5),
+  [`562f56b`](https://github.com/getflip/swirl/commit/562f56bfe1b037cf5cd39d8a27dbc7ccc6d046d5)]:
+  - @getflip/swirl-components@0.68.2
+
+## 0.67.1
+
+### Patch Changes
+
+- [`80c1be1`](https://github.com/getflip/swirl/commit/80c1be19a063f1e21480c0d430df03abbc95b89c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix design token usage for
+  components used inside swirl-modal and swirl-card components
+- Updated dependencies
+  [[`80c1be1`](https://github.com/getflip/swirl/commit/80c1be19a063f1e21480c0d430df03abbc95b89c)]:
+  - @getflip/swirl-components@0.68.1
+
+## 0.67.0
+
+### Minor Changes
+
+- [`dfa79c6`](https://github.com/getflip/swirl/commit/dfa79c6fe20087340f8e1cd0d86df8a807ea8974)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add drag&drop support for
+  swirl-resource-list
+
+### Patch Changes
+
+- Updated dependencies
+  [[`dfa79c6`](https://github.com/getflip/swirl/commit/dfa79c6fe20087340f8e1cd0d86df8a807ea8974)]:
+  - @getflip/swirl-components@0.68.0
+
+## 0.66.0
+
+### Minor Changes
+
+- [`4ba051d`](https://github.com/getflip/swirl/commit/4ba051dc96a6eee073d618e72a06f8796067f6d2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "allowDeselect" prop to
+  swirl-option-list
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4ba051d`](https://github.com/getflip/swirl/commit/4ba051dc96a6eee073d618e72a06f8796067f6d2)]:
+  - @getflip/swirl-components@0.67.0
+
+## 0.65.0
+
+### Minor Changes
+
+- [#290](https://github.com/getflip/swirl/pull/290)
+  [`e13c50c`](https://github.com/getflip/swirl/commit/e13c50c49b989ad68fd5f47792a3c0eadbbb7437)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-time-input component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e13c50c`](https://github.com/getflip/swirl/commit/e13c50c49b989ad68fd5f47792a3c0eadbbb7437)]:
+  - @getflip/swirl-components@0.66.0
+
+## 0.64.1
+
+### Patch Changes
+
+- [`1d07048`](https://github.com/getflip/swirl/commit/1d0704827b6b465696443b6f25e10785ff105f4d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust swirl-tab-bar styling when
+  used inside the swirl-app-bar
+
+- Updated dependencies
+  [[`1d07048`](https://github.com/getflip/swirl/commit/1d0704827b6b465696443b6f25e10785ff105f4d)]:
+  - @getflip/swirl-components@0.65.1
+
+## 0.64.0
+
+### Minor Changes
+
+- [`6d09c57`](https://github.com/getflip/swirl/commit/6d09c575dcb6c8178076f613012ef97eb1e4e5f3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "max-content-width" prop to
+  swirl-console-layout
+
+* [`e66eb32`](https://github.com/getflip/swirl/commit/e66eb32fa536cd7d1faf5d1e4b91d2d8e5e28802)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve support for bundlers
+
+### Patch Changes
+
+- Updated dependencies
+  [[`6d09c57`](https://github.com/getflip/swirl/commit/6d09c575dcb6c8178076f613012ef97eb1e4e5f3),
+  [`e66eb32`](https://github.com/getflip/swirl/commit/e66eb32fa536cd7d1faf5d1e4b91d2d8e5e28802)]:
+  - @getflip/swirl-components@0.65.0
+
+## 0.63.6
+
+### Patch Changes
+
+- [`4ac70a8`](https://github.com/getflip/swirl/commit/4ac70a87afd9c213bbd73f187a574c5f246e8146)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue preventing the
+  swirl-resource-list-item checkbox to be clicked
+
+- Updated dependencies
+  [[`4ac70a8`](https://github.com/getflip/swirl/commit/4ac70a87afd9c213bbd73f187a574c5f246e8146)]:
+  - @getflip/swirl-components@0.64.6
+
+## 0.63.5
+
+### Patch Changes
+
+- [`399ff8c`](https://github.com/getflip/swirl/commit/399ff8c1b168b9f3430cb8864e44ee486feeef1d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow to pass trigger DOM element
+  to swirl-popover
+
+- Updated dependencies
+  [[`399ff8c`](https://github.com/getflip/swirl/commit/399ff8c1b168b9f3430cb8864e44ee486feeef1d)]:
+  - @getflip/swirl-components@0.64.5
+
+## 0.63.4
+
+### Patch Changes
+
+- [`9a6eca2`](https://github.com/getflip/swirl/commit/9a6eca22aabe2064e04c53ce17b8d91c0c297e41)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue causing swirl-popovers
+  to close unexpectedly inside swirl-modals
+
+- Updated dependencies
+  [[`9a6eca2`](https://github.com/getflip/swirl/commit/9a6eca22aabe2064e04c53ce17b8d91c0c297e41)]:
+  - @getflip/swirl-components@0.64.4
+
+## 0.63.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @getflip/swirl-components@0.64.3
+
+## 0.63.2
+
+### Patch Changes
+
+- [`7a4a883`](https://github.com/getflip/swirl/commit/7a4a883b8c22074a1c2122631adb89e291546ee0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix duplicate "valueChange"
+  events of swirl-radio-group
+
+- Updated dependencies
+  [[`7a4a883`](https://github.com/getflip/swirl/commit/7a4a883b8c22074a1c2122631adb89e291546ee0)]:
+  - @getflip/swirl-components@0.64.2
+
 ## 0.63.1
 
 ### Patch Changes

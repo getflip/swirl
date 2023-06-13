@@ -35,10 +35,11 @@ export class SwirlConsoleLayout {
   @Prop() helpButonLabel?: string = "Help";
   @Prop() hideNavigationButtonLabel?: string = "Hide main navigation";
   @Prop() logoText?: string = "Admin";
-  @Prop() showNavigationButtonLabel?: string = "Show main navigation";
   @Prop() navigationLabel?: string = "Main";
+  @Prop() maxContentWidth?: string;
   @Prop() showBackButton?: boolean;
   @Prop() showHelpButton?: boolean;
+  @Prop() showNavigationButtonLabel?: string = "Show main navigation";
   @Prop() subheading?: string;
 
   @State() sidebarActive: boolean;
@@ -157,6 +158,14 @@ export class SwirlConsoleLayout {
   };
 
   render() {
+    const contentStyles = Boolean(this.maxContentWidth)
+      ? {
+          maxWidth: this.maxContentWidth,
+          justifySelf: "center",
+          width: "100%",
+        }
+      : undefined;
+
     const className = classnames("console-layout", {
       "console-layout--sidebar-active": this.sidebarActive,
       "console-layout--empty-app-bar":
@@ -259,7 +268,11 @@ export class SwirlConsoleLayout {
                 ></swirl-button>
               )}
             </header>
-            <section aria-labelledby="heading" class="console-layout__content">
+            <section
+              aria-labelledby="heading"
+              class="console-layout__content"
+              style={contentStyles}
+            >
               <header class="console-layout__content-header">
                 {this.showBackButton && (
                   <swirl-button

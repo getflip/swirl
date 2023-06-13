@@ -13,10 +13,9 @@ import classnames from "classnames";
 import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
-import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { getDesktopMediaQuery } from "../../utils";
 
-const internalDateFormat = "yyyy-MM-dd";
+const internalTimeFormat = "HH:mm:ss";
 
 @Component({
   /**
@@ -27,23 +26,19 @@ const internalDateFormat = "yyyy-MM-dd";
    */
   scoped: true,
   shadow: false,
-  styleUrl: "swirl-date-input.css",
-  tag: "swirl-date-input",
+  styleUrl: "swirl-time-input.css",
+  tag: "swirl-time-input",
 })
-export class SwirlDateInput {
+export class SwirlTimeInput {
   @Element() el: HTMLSwirlDateInputElement;
 
   @Prop() autoFocus?: boolean;
   @Prop() autoSelect?: boolean;
-  @Prop() datePickerLabel?: string = "Date picker";
-  @Prop() datePickerTriggerLabel?: string = "Open date picker";
   @Prop() disabled?: boolean;
-  @Prop() format?: string = "yyyy-MM-dd";
+  @Prop() format?: string = "HH:mm";
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
-  @Prop() labels?: WCDatepickerLabels;
-  @Prop() locale?: string = "en-US";
-  @Prop() placeholder?: string = "yyyy-mm-dd";
+  @Prop() placeholder?: string = "hh:mm";
   @Prop() required?: boolean;
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
@@ -55,14 +50,13 @@ export class SwirlDateInput {
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private id: string;
   private mask: Maska;
-  private pickerPopover: HTMLSwirlPopoverElement;
 
   componentWillLoad() {
     const index = Array.from(
-      document.querySelectorAll("swirl-date-input")
+      document.querySelectorAll("swirl-time-input")
     ).indexOf(this.el);
 
-    this.id = `swirl-date-input-${index}`;
+    this.id = `swirl-time-input-${index}`;
   }
 
   componentDidLoad() {
@@ -97,6 +91,7 @@ export class SwirlDateInput {
 
   private onChange = (event: Event) => {
     const value = (event.target as HTMLInputElement).value;
+    let newValue: string;
 
     if (value === "") {
       this.value = undefined;
@@ -106,17 +101,39 @@ export class SwirlDateInput {
     const newDate = parse(value, this.format, new Date());
 
     const formatRegExp = new RegExp(
-      `^${this.format.replace(/[ydM]/g, "\\d")}$`
+      `^${this.format.replace(/[Hhms]/g, "\\d")}$`
     );
 
-    if (!Boolean(value.match(formatRegExp)) || !isValid(newDate)) {
+    if (!Boolean(value.match(formatRegExp))) {
       return;
     }
 
-    const newValue = format(newDate, internalDateFormat);
+    if (!isValid(newDate)) {
+      newValue = format(new Date(), internalTimeFormat);
+    } else {
+      newValue = format(newDate, internalTimeFormat);
+    }
 
     this.value = newValue;
     this.valueChange.emit(newValue);
+  };
+
+  private onBlur = (event: FocusEvent) => {
+    const input = event.target as HTMLInputElement;
+
+    const dateValue = parse(input.value, this.format, new Date());
+
+    if (!isValid(dateValue) && Boolean(this.value)) {
+      const currentDateValue = Boolean(this.value)
+        ? parse(this.value, internalTimeFormat, new Date())
+        : undefined;
+
+      if (!Boolean(currentDateValue) || !isValid(currentDateValue)) {
+        this.value = "";
+      }
+
+      input.value = format(currentDateValue, this.format);
+    }
   };
 
   private onInput = (event: InputEvent) => {
@@ -131,17 +148,6 @@ export class SwirlDateInput {
     this.handleAutoSelect(event);
   };
 
-  private onPickDate = (event: CustomEvent<Date | Date[]>) => {
-    const newDateValue = event.detail as Date;
-
-    const newValue = format(newDateValue, internalDateFormat);
-
-    this.value = newValue;
-    this.valueChange.emit(newValue);
-
-    this.pickerPopover.close();
-  };
-
   private handleAutoSelect(event: FocusEvent) {
     if (!this.autoSelect) {
       return;
@@ -154,7 +160,7 @@ export class SwirlDateInput {
     this.mask?.destroy();
 
     this.mask = createMask(`#${this.id}`, {
-      mask: this.format.replace(/[ydM]/g, "#"),
+      mask: this.format.replace(/[Hhms]/g, "#"),
     });
   }
 
@@ -165,15 +171,15 @@ export class SwirlDateInput {
         : undefined;
 
     const dateValue = Boolean(this.value)
-      ? parse(this.value, internalDateFormat, new Date())
+      ? parse(this.value, internalTimeFormat, new Date())
       : undefined;
 
     const displayValue = isValid(dateValue)
       ? format(dateValue, this.format)
       : undefined;
 
-    const className = classnames("date-input", {
-      "date-input--inline": this.inline,
+    const className = classnames("time-input", {
+      "time-input--inline": this.inline,
     });
 
     return (
@@ -184,9 +190,10 @@ export class SwirlDateInput {
             aria-disabled={this.disabled ? "true" : undefined}
             aria-invalid={ariaInvalid}
             autoFocus={this.autoFocus}
-            class="date-input__input"
+            class="time-input__input"
             disabled={this.disabled}
             id={this.id}
+            onBlur={this.onBlur}
             onClick={this.onClick}
             onFocus={this.onFocus}
             onInput={this.onInput}
@@ -196,34 +203,12 @@ export class SwirlDateInput {
             value={displayValue}
           />
 
-          <button
-            aria-label={this.datePickerTriggerLabel}
-            class="date-input__date-picker-button"
-            disabled={this.disabled}
-            id={`${this.id}-trigger`}
-            type="button"
-          >
-            <swirl-icon-today size={this.iconSize}></swirl-icon-today>
-          </button>
+          <span class="time-input__icon">
+            <swirl-icon-time-outlined
+              size={this.iconSize}
+            ></swirl-icon-time-outlined>
+          </span>
         </div>
-
-        {!this.disabled && (
-          <swirl-popover
-            animation="scale-in-y"
-            label={this.datePickerLabel}
-            placement="bottom-end"
-            popoverId={`popover-${this.id}`}
-            ref={(el) => (this.pickerPopover = el)}
-            trigger={`${this.id}-trigger`}
-          >
-            <swirl-date-picker
-              labels={this.labels}
-              locale={this.locale}
-              onValueChange={this.onPickDate}
-              value={dateValue}
-            ></swirl-date-picker>
-          </swirl-popover>
-        )}
       </Host>
     );
   }

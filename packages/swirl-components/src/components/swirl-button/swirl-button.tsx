@@ -57,10 +57,7 @@ export class SwirlButton {
   componentDidLoad() {
     this.forceIconProps(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.addEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
   }
 
   componentDidRender() {

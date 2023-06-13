@@ -344,6 +344,7 @@ export namespace Components {
          */
         "hideSidebar": () => Promise<void>;
         "logoText"?: string;
+        "maxContentWidth"?: string;
         "navigationLabel"?: string;
         "showBackButton"?: boolean;
         "showHelpButton"?: boolean;
@@ -1027,6 +1028,7 @@ export namespace Components {
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
+        "allowDeselect"?: boolean;
         "allowDrag"?: boolean;
         "assistiveTextItemGrabbed"?: string;
         "assistiveTextItemMoved"?: string;
@@ -1115,7 +1117,7 @@ export namespace Components {
         "open": () => Promise<void>;
         "placement"?: Placement;
         "popoverId": string;
-        "trigger": string;
+        "trigger": string | HTMLElement;
         "useContainerWidth"?: boolean | string;
     }
     interface SwirlProgressIndicator {
@@ -1139,6 +1141,10 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlResourceList {
+        "allowDrag"?: boolean;
+        "assistiveTextItemGrabbed"?: string;
+        "assistiveTextItemMoved"?: string;
+        "assistiveTextItemMoving"?: string;
         "label"?: string;
     }
     interface SwirlResourceListFileItem {
@@ -1151,9 +1157,13 @@ export namespace Components {
         "removeButtonLabel"?: string;
     }
     interface SwirlResourceListItem {
+        "allowDrag"?: boolean;
         "checked"?: boolean;
         "description"?: string;
         "disabled"?: boolean;
+        "dragHandleDescription"?: string;
+        "dragHandleLabel"?: string;
+        "dragging"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
         "label": string;
@@ -1367,6 +1377,18 @@ export namespace Components {
         "size": SwirlThumbnailSize;
         "src": string;
     }
+    interface SwirlTimeInput {
+        "autoFocus"?: boolean;
+        "autoSelect"?: boolean;
+        "disabled"?: boolean;
+        "format"?: string;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
+        "value"?: string;
+    }
     interface SwirlToast {
         "accessibleDismissLabel"?: string;
         "content"?: string;
@@ -1523,6 +1545,10 @@ export interface SwirlRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlRadioGroupElement;
 }
+export interface SwirlResourceListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlResourceListElement;
+}
 export interface SwirlResourceListFileItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlResourceListFileItemElement;
@@ -1562,6 +1588,10 @@ export interface SwirlTextInputCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlThemeProviderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlThemeProviderElement;
+}
+export interface SwirlTimeInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlTimeInputElement;
 }
 export interface SwirlToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2826,6 +2856,12 @@ declare global {
         prototype: HTMLSwirlThumbnailElement;
         new (): HTMLSwirlThumbnailElement;
     };
+    interface HTMLSwirlTimeInputElement extends Components.SwirlTimeInput, HTMLStencilElement {
+    }
+    var HTMLSwirlTimeInputElement: {
+        prototype: HTMLSwirlTimeInputElement;
+        new (): HTMLSwirlTimeInputElement;
+    };
     interface HTMLSwirlToastElement extends Components.SwirlToast, HTMLStencilElement {
     }
     var HTMLSwirlToastElement: {
@@ -3071,6 +3107,7 @@ declare global {
         "swirl-text-input": HTMLSwirlTextInputElement;
         "swirl-theme-provider": HTMLSwirlThemeProviderElement;
         "swirl-thumbnail": HTMLSwirlThumbnailElement;
+        "swirl-time-input": HTMLSwirlTimeInputElement;
         "swirl-toast": HTMLSwirlToastElement;
         "swirl-toast-provider": HTMLSwirlToastProviderElement;
         "swirl-tooltip": HTMLSwirlTooltipElement;
@@ -3296,6 +3333,7 @@ declare namespace LocalJSX {
         "helpButonLabel"?: string;
         "hideNavigationButtonLabel"?: string;
         "logoText"?: string;
+        "maxContentWidth"?: string;
         "navigationLabel"?: string;
         "onBackButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
         "onHelpButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
@@ -3884,6 +3922,7 @@ declare namespace LocalJSX {
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
+        "allowDeselect"?: boolean;
         "allowDrag"?: boolean;
         "assistiveTextItemGrabbed"?: string;
         "assistiveTextItemMoved"?: string;
@@ -3965,7 +4004,7 @@ declare namespace LocalJSX {
         "onPopoverOpen"?: (event: SwirlPopoverCustomEvent<{ position: ComputePositionReturn }>) => void;
         "placement"?: Placement;
         "popoverId": string;
-        "trigger": string;
+        "trigger": string | HTMLElement;
         "useContainerWidth"?: boolean | string;
     }
     interface SwirlProgressIndicator {
@@ -3991,7 +4030,16 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlResourceList {
+        "allowDrag"?: boolean;
+        "assistiveTextItemGrabbed"?: string;
+        "assistiveTextItemMoved"?: string;
+        "assistiveTextItemMoving"?: string;
         "label"?: string;
+        "onItemDrop"?: (event: SwirlResourceListCustomEvent<{
+    item: HTMLSwirlResourceListItemElement;
+    oldIndex: number;
+    newIndex: number;
+  }>) => void;
     }
     interface SwirlResourceListFileItem {
         "description"?: string;
@@ -4004,9 +4052,13 @@ declare namespace LocalJSX {
         "removeButtonLabel"?: string;
     }
     interface SwirlResourceListItem {
+        "allowDrag"?: boolean;
         "checked"?: boolean;
         "description"?: string;
         "disabled"?: boolean;
+        "dragHandleDescription"?: string;
+        "dragHandleLabel"?: string;
+        "dragging"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
         "label": string;
@@ -4014,6 +4066,7 @@ declare namespace LocalJSX {
         "menuTriggerId"?: string;
         "menuTriggerLabel"?: string;
         "meta"?: string;
+        "onToggleDrag"?: (event: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElement>) => void;
         "onValueChange"?: (event: SwirlResourceListItemCustomEvent<boolean>) => void;
         "selectable"?: boolean;
         "value"?: string;
@@ -4200,6 +4253,19 @@ declare namespace LocalJSX {
         "format"?: SwirlThumbnailFormat;
         "size"?: SwirlThumbnailSize;
         "src": string;
+    }
+    interface SwirlTimeInput {
+        "autoFocus"?: boolean;
+        "autoSelect"?: boolean;
+        "disabled"?: boolean;
+        "format"?: string;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "onValueChange"?: (event: SwirlTimeInputCustomEvent<string>) => void;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
+        "value"?: string;
     }
     interface SwirlToast {
         "accessibleDismissLabel"?: string;
@@ -4444,6 +4510,7 @@ declare namespace LocalJSX {
         "swirl-text-input": SwirlTextInput;
         "swirl-theme-provider": SwirlThemeProvider;
         "swirl-thumbnail": SwirlThumbnail;
+        "swirl-time-input": SwirlTimeInput;
         "swirl-toast": SwirlToast;
         "swirl-toast-provider": SwirlToastProvider;
         "swirl-tooltip": SwirlTooltip;
@@ -4674,6 +4741,7 @@ declare module "@stencil/core" {
             "swirl-text-input": LocalJSX.SwirlTextInput & JSXBase.HTMLAttributes<HTMLSwirlTextInputElement>;
             "swirl-theme-provider": LocalJSX.SwirlThemeProvider & JSXBase.HTMLAttributes<HTMLSwirlThemeProviderElement>;
             "swirl-thumbnail": LocalJSX.SwirlThumbnail & JSXBase.HTMLAttributes<HTMLSwirlThumbnailElement>;
+            "swirl-time-input": LocalJSX.SwirlTimeInput & JSXBase.HTMLAttributes<HTMLSwirlTimeInputElement>;
             "swirl-toast": LocalJSX.SwirlToast & JSXBase.HTMLAttributes<HTMLSwirlToastElement>;
             "swirl-toast-provider": LocalJSX.SwirlToastProvider & JSXBase.HTMLAttributes<HTMLSwirlToastProviderElement>;
             "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;

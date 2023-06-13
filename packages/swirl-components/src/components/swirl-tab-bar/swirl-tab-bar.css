@@ -1,7 +1,8 @@
 @import "../../styles/media-queries.css";
 
 :host {
-  display: block;
+  display: flex;
+  height: var(--swirl-tab-bar-height);
 
   & * {
     box-sizing: border-box;
@@ -13,7 +14,7 @@
   display: flex;
   width: 100%;
   justify-content: flex-start;
-  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  border-bottom: var(--swirl-tab-bar-border-width) solid var(--s-border-default);
 }
 
 .tab-bar__tab {

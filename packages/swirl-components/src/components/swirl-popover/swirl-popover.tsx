@@ -49,7 +49,7 @@ export class SwirlPopover {
   @Prop() offset?: number | number[] = 8;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() popoverId!: string;
-  @Prop() trigger!: string;
+  @Prop() trigger!: string | HTMLElement;
   @Prop() useContainerWidth?: boolean | string;
 
   @State() active = false;
@@ -90,6 +90,7 @@ export class SwirlPopover {
       !this.el.contains(target) &&
       !this.el.contains(activeElement) &&
       target !== this.triggerEl &&
+      !this.triggerEl.contains(target) &&
       (!isSafari ||
         (isSafari &&
           !this.el.contains(relatedTarget || target) &&
@@ -208,7 +209,10 @@ export class SwirlPopover {
   };
 
   private connectTrigger() {
-    this.triggerEl = querySelectorAllDeep(document.body, `#${this.trigger}`)[0];
+    this.triggerEl =
+      typeof this.trigger === "string"
+        ? querySelectorAllDeep(document.body, `#${this.trigger}`)[0]
+        : this.trigger;
 
     if (!Boolean(this.triggerEl)) {
       return;

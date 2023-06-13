@@ -42,6 +42,15 @@ const Template = (args) => {
     <swirl-date-input></swirl-date-input>
   `;
 
+  const timeInput = generateStoryElement("swirl-form-control", {
+    ...args,
+    label: "Time Control",
+  });
+
+  timeInput.innerHTML = `
+    <swirl-time-input></swirl-time-input>
+  `;
+
   const passwordInput = generateStoryElement("swirl-form-control", {
     ...args,
     label: "Password Control",
@@ -135,6 +144,8 @@ const Template = (args) => {
     numberInput,
     "\n  ",
     dateInput,
+    "\n  ",
+    timeInput,
     "\n  ",
     passwordInput,
     "\n  ",
