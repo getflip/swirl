@@ -23,28 +23,29 @@ export function CodePreview({
   ActionItems,
 }: CodePreview) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const [language, setLanguage] =
-    useState<CodePreview["codeExample"]["language"]>("shell");
+  const [selectId, handleSelect] = useState<
+    CodePreview["codeExample"]["selectId"]
+  >(Object.keys(codeExample.selectOptions!!)[0]);
 
   const [codePreviewCodeExample, setCodeExample] = useState<
     CodePreview["codeExample"]
   >({
     ...codeExample,
-    language,
+    selectId: selectId,
   });
 
   useEffect(() => {
-    if (codeExample.snippets && language) {
+    if (codeExample.selectOptions && selectId) {
       setCodeExample({
         ...codeExample,
-        language: language,
-        code: codeExample.snippets[language],
+        selectId: selectId,
+        code: codeExample.selectOptions[selectId],
         isLongCode: true,
       });
     }
-  }, [language, codeExample]);
+  }, [selectId, codeExample]);
 
-  const hasExpandButton = codeExample.isLongCode || !isLightTheme;
+  const hasExpandButton = codeExample.isLongCode && !isLightTheme;
 
   return (
     <NoSsr>
@@ -58,7 +59,7 @@ export function CodePreview({
           PreviewIndicator,
           MainHeaderContent,
           ActionItems,
-          handleLangChange: setLanguage,
+          handleSelect,
         }}
       >
         <div

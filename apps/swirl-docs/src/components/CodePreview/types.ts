@@ -3,12 +3,15 @@ import { ApiEndpoint } from "@swirl/lib/docs";
 import { Request } from "har-format";
 import { ReactNode } from "react";
 
+type CodePreviewSelectOptions = Record<string, string>;
+
 export type CodePreview = {
   codeExample: {
     code: string;
     isLongCode: boolean;
-    snippets?: ApiEndpoint["request"]["snippets"];
-    language?: SupportedTargets;
+    selectId?: string;
+    selectOptions?: CodePreviewSelectOptions;
+    status?: string;
     request?: Request;
   };
   isExpanded?: boolean;
@@ -18,6 +21,6 @@ export type CodePreview = {
   PreviewIndicator?: ReactNode;
   MainHeaderContent?: ReactNode;
   ActionItems?: ReactNode;
-  handleLangChange?: (lang: SupportedTargets) => void;
+  handleSelect?: (value: string) => void;
 };
 export type CodeExample = CodePreview["codeExample"];

@@ -27,6 +27,7 @@ import {
   ResponseIndicator,
   ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
+import { SupportedTargets } from "@readme/oas-to-snippet";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -278,9 +279,9 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                           hasCopyButton
                           codeExample={{
                             code: endpoint.request.snippets["shell"],
-                            snippets: endpoint.request.snippets,
+                            selectOptions: endpoint.request.snippets,
                             isLongCode: false,
-                            language: "shell",
+                            selectId: "shell",
                             request: endpoint.request.request,
                           }}
                           PreviewIndicator={<HttpMethod />}
@@ -299,8 +300,21 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                                   null,
                                   2
                                 ),
+                                selectOptions: endpoint.responseExamples.reduce(
+                                  (options, example) => {
+                                    return {
+                                      ...options,
+                                      [example.status]: JSON.stringify(
+                                        example.value,
+                                        null,
+                                        2
+                                      ),
+                                    };
+                                  },
+                                  {} as Record<string, string>
+                                ),
                                 isLongCode: true,
-                                language: "shell",
+                                selectId: "shell",
                               }}
                             />
                           )}

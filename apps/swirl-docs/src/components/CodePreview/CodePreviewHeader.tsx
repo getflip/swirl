@@ -73,41 +73,46 @@ export function CodePreviewHeader() {
 }
 
 export function RequestLanguage() {
-  const { codeExample, handleLangChange } = useCodePreviewContext();
+  const { codeExample, handleSelect } = useCodePreviewContext();
 
   const langs: SupportedTargets[] = ["shell", "node", "python"];
 
   const options = langs.map((lang) => ({ label: lang, value: lang }));
 
-  const onSelect = (value: string) =>
-    handleLangChange?.(value as SupportedTargets);
+  const onSelect = (option: Pick<SelectItemProps, "label" | "value">) =>
+    handleSelect?.(option.label);
 
   return (
     <Select
       options={options}
-      selectId={codeExample.language as string}
+      selectId={codeExample.selectId as string}
       onItemClick={onSelect}
     />
   );
 }
 
 export function ResponseSelector() {
-  const options: SelectProps["options"] = [
-    {
-      label: "200",
-      value: "200",
-    },
-    {
-      label: "201",
-      value: "201",
-    },
-  ];
+  const { codeExample, handleSelect } = useCodePreviewContext();
+
+  let options: SelectProps["options"] = [];
+
+  if (codeExample.selectOptions) {
+    options = Object.keys(codeExample.selectOptions).map((key) => {
+      return {
+        label: key,
+        value: codeExample.selectOptions?.[key],
+      };
+    });
+  }
+
+  const onSelect = (option: Pick<SelectItemProps, "label" | "value">) =>
+    handleSelect?.(option.label);
 
   return (
     <Select
       options={options}
-      selectId="200"
-      onItemClick={(value) => console.log("value", value)}
+      selectId={String(options[0]?.label) || ""}
+      onItemClick={onSelect}
     />
   );
 }
@@ -115,7 +120,7 @@ export function ResponseSelector() {
 type SelectProps = {
   options: Pick<SelectItemProps, "label" | "value">[];
   selectId: string;
-  onItemClick?: (value: string) => void;
+  onItemClick?: (option: Pick<SelectItemProps, "label" | "value">) => void;
 };
 
 export function Select({ options, selectId, onItemClick }: SelectProps) {
@@ -176,10 +181,10 @@ export function Select({ options, selectId, onItemClick }: SelectProps) {
             <SelectItem
               onClick={(event) => {
                 const target = event.target as HTMLButtonElement;
-                if (target && onItemClick) onItemClick(target.value);
+                if (target && onItemClick) onItemClick(option);
                 setIsOpen(false);
               }}
-              key={option.value as string}
+              key={option.label as string}
               isSelected={option.value === selectId}
               label={option.label}
               value={option.value}

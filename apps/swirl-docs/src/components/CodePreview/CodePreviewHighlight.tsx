@@ -11,7 +11,7 @@ export function CodePreviewHighlight() {
       {...defaultProps}
       theme={isLightTheme ? lightTheme : darkTheme}
       code={codeExample.code}
-      language={codeExample.language ? codeExample.language : "tsx"}
+      language={codeExample.selectId ? codeExample.selectId : "tsx"}
     >
       {({ tokens, getLineProps, getTokenProps }) => (
         <pre
