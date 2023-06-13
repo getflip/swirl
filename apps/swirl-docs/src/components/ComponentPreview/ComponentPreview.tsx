@@ -49,7 +49,7 @@ export function ComponentPreview() {
       }
 
       return {
-        isLongCode: el.outerHTML.length > 180,
+        isLongCode: el.outerHTML.split("\n").length > 7,
         code: prettier.format(el.outerHTML, {
           parser: "html",
           plugins: [prettierHTML],
@@ -81,6 +81,9 @@ export function ComponentPreview() {
       // TO DO: add support for multiple examples in mdx file structure
       setCodeExample(generateCodePreview());
     }
+
+    const codeExample = generateCodePreview();
+    console.log(codeExample);
   }, [componentData, generateCodePreview, currentExample]);
 
   return (
@@ -94,7 +97,10 @@ export function ComponentPreview() {
       />
       <CodePreview
         hasCopyButton
-        codeExample={codeExample}
+        codeExample={{
+          code: codeExample.code,
+          isLongCode: codeExample.code.split("\n").length > 7,
+        }}
         MainHeaderContent={
           <div className="flex">
             <CodePreview.NpmPackageLink />

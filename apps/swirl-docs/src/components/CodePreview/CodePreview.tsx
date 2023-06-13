@@ -30,7 +30,8 @@ export function CodePreview({
   const [codePreviewCodeExample, setCodeExample] = useState<
     CodePreview["codeExample"]
   >({
-    ...codeExample,
+    code: codeExample.code,
+    isLongCode: codeExample.isLongCode,
     selectId: selectId,
   });
 
@@ -40,12 +41,18 @@ export function CodePreview({
         ...codeExample,
         selectId: selectId,
         code: codeExample.selectOptions[selectId],
-        isLongCode: true,
+        isLongCode: codeExample.selectOptions[selectId].split("\n").length > 7,
+      });
+    }
+
+    if (codeExample) {
+      setCodeExample({
+        ...codeExample,
+        code: codeExample.code,
+        isLongCode: codeExample.code.split("\n").length > 7,
       });
     }
   }, [selectId, codeExample]);
-
-  const hasExpandButton = codeExample.isLongCode && !isLightTheme;
 
   return (
     <NoSsr>
@@ -81,7 +88,7 @@ export function CodePreview({
         >
           <CodePreviewHeader />
           <CodePreviewHighlight />
-          {hasExpandButton && (
+          {codePreviewCodeExample.isLongCode && !isLightTheme && (
             <CodePreviewExpandButton
               isExpanded={isExpanded}
               setIsExpanded={setIsExpanded}
