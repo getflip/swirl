@@ -12,8 +12,9 @@ import { HttpMethods } from "oas/dist/rmoas.types";
 import Image from "next/image";
 
 import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
 
 const CategoryNavSubItem = ({
   navItem,
@@ -127,29 +128,11 @@ const CategoryNavSubItem = ({
                     className="flex items-center ml-6"
                     variants={listItem}
                   >
-                    <Link href={`${item.url}`}>
-                      <a
-                        aria-current={activePath === navItem.url}
-                        className={classNames(
-                          "flex items-center w-full",
-                          "text-sm capitalize leading-5",
-                          "hover:text-border-info",
-                          {
-                            "text-border-info": isCurrentPath,
-                            "text-text-default": !isCurrentPath,
-                          }
-                        )}
-                      >
-                        <Tag
-                          content={mapHttpMethodToTagContent(item.description!)}
-                          scheme={mapHttpMethodToTagScheme(
-                            item.description as HttpMethods
-                          )}
-                          httpTag
-                        />
-                        <span>{item.title}</span>
-                      </a>
-                    </Link>
+                    <WrappingAnchor
+                      href={`${item.url}`}
+                      item={item}
+                      isCurrentPath={isCurrentPath}
+                    />
                   </motion.li>
                 );
               })}
@@ -160,6 +143,51 @@ const CategoryNavSubItem = ({
     </>
   );
 };
+
+const WrappingAnchor = forwardRef<
+  HTMLAnchorElement,
+  { item: NavItem; isCurrentPath: boolean; href: string }
+>(({ item, isCurrentPath, href }, ref) => {
+  const [isWrapping, setIsWrapping] = useState(false);
+  const textRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      setIsWrapping(190 < textRef.current.scrollWidth);
+    }
+  }, [item.title]); // Re-run effect when the item.title changes
+
+  const alignmentClass = isWrapping ? "items-start" : "items-center";
+
+  return (
+    <Link href={href}>
+      <a
+        ref={ref}
+        aria-current={isCurrentPath}
+        className={classNames(
+          "flex",
+          alignmentClass,
+          "w-full",
+          "text-sm capitalize leading-5",
+          "hover:text-border-info",
+          {
+            "text-border-info": isCurrentPath,
+            "text-text-default": !isCurrentPath,
+          }
+        )}
+      >
+        <Tag
+          content={mapHttpMethodToTagContent(item.description!)}
+          scheme={mapHttpMethodToTagScheme(item.description as HttpMethods)}
+          httpTag
+        />
+        <span ref={textRef}>{item.title}</span>
+      </a>
+    </Link>
+  );
+});
+
+WrappingAnchor.displayName = "WrappingAnchor";
 
 export function CategoryNav() {
   const { navigationLinks: categoryLinkList } = useDocumentationLayoutContext();

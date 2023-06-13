@@ -45,6 +45,7 @@ export function CodePreview({
       });
     }
 
+    // TODO: Heads up: not the best solution for now. A reducer would be better.
     if (codeExample) {
       setCodeExample({
         ...codeExample,

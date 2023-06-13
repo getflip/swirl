@@ -51,11 +51,7 @@ export function mapHttpMethodToTagScheme(
   }
 }
 
-export const Tag: FunctionComponent<TagProps> = ({
-  content,
-  scheme,
-  httpTag,
-}) => {
+export function Tag({ content, scheme, httpTag }: TagProps) {
   return (
     <span
       className={classNames(
@@ -77,4 +73,4 @@ export const Tag: FunctionComponent<TagProps> = ({
       {content}
     </span>
   );
-};
+}
