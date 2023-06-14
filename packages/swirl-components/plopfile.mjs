@@ -4,6 +4,7 @@ import {
   docsTemplate,
   iconComponentTemplate,
   storiesTemplate,
+  symbolComponentTemplate,
   unitTestTemplate,
 } from "./templates.mjs";
 
@@ -168,6 +169,99 @@ export default function (
         );
 
         return `${iconNames.length} icons generated.`;
+      },
+    ],
+  });
+
+  plop.setGenerator("symbols", {
+    description: "Generate symbol components from SVG",
+    prompts: [],
+    actions: [
+      function (answers, config, plop) {
+        const symbolsPath =
+          "../../node_modules/@getflip/swirl-icons/legacy-icons";
+
+        const svgFileNames = readdirSync(symbolsPath);
+
+        const optimizedSymbols = {};
+
+        for (const svgFileName of svgFileNames) {
+          const path = `${symbolsPath}/${svgFileName}`;
+          const svg = readFileSync(path);
+          const optimized = optimize(svg, {
+            path,
+            plugins: [
+              {
+                name: "convertColors",
+                params: {
+                  currentColor: true,
+                },
+              },
+            ],
+          });
+
+          optimizedSymbols[svgFileName] = optimized.data
+            .replace(/^<svg [^>]*>/, "")
+            .replace(/<\/svg>/, "");
+        }
+
+        const symbolNames = Array.from(
+          new Set(
+            svgFileNames.map((svgFileName) =>
+              svgFileName.replaceAll("_", "-").replace(".svg", "")
+            )
+          )
+        );
+
+        const legacyNames = Array.from(
+          new Set(
+            svgFileNames.map((svgFileName) => svgFileName.replace(".svg", ""))
+          )
+        );
+
+        const symbolsJson = symbolNames.reduce(
+          (content, symbolName, index) => ({
+            ...content,
+            [symbolName]: {
+              id: symbolName,
+              name: symbolName,
+              legacyName: legacyNames[index],
+            },
+          }),
+          {}
+        );
+
+        writeFileSync(`./symbols.json`, JSON.stringify(symbolsJson));
+
+        for (const symbolName of symbolNames) {
+          const componentTemplate = Handlebars.compile(symbolComponentTemplate);
+
+          const symbolNamePascalCase = symbolName
+            .split("-")
+            .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
+            .join("");
+
+          const legacyName = symbolsJson[symbolName].legacyName;
+
+          const templateData = {
+            symbolName: symbolName,
+            symbolNamePascalCase: symbolNamePascalCase,
+            symbolSvg: optimizedSymbols[`${legacyName}.svg`],
+          };
+
+          const component = componentTemplate(templateData);
+
+          writeFileSync(
+            `./src/components/swirl-symbol/symbols/swirl-symbol-${symbolName}.tsx`,
+            component
+          );
+        }
+
+        execSync(
+          "PATH=$(npm bin):$PATH prettier ./src/components/swirl-symbol/symbols/* --write"
+        );
+
+        return `${symbolNames.length} symbols generated.`;
       },
     ],
   });
