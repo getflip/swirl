@@ -771,7 +771,7 @@
     "comment": "Usally used as an border on info components."
   },
   "border-on-highlight": {
-    "value": "rgba(0, 55, 175, 0.2)",
+    "value": "rgba(0,55,175,0.2)",
     "type": "color",
     "comment": "Used as border color on containers that have an highlight surface"
   },
@@ -1097,20 +1097,20 @@
   "shadow-level-1": {
     "value": [
       {
-        "color": "#1717170a",
+        "color": "rgba(23,23,23,0.04)",
         "type": "dropShadow",
-        "x": 0,
-        "y": 4,
-        "blur": 16,
-        "spread": 0
+        "x": "0",
+        "y": "4",
+        "blur": "16",
+        "spread": "0"
       },
       {
-        "color": "#1717170a",
+        "color": "rgba(23,23,23,0.04)",
         "type": "dropShadow",
-        "x": 0,
-        "y": 1,
-        "blur": 4,
-        "spread": 0
+        "x": "0",
+        "y": "1",
+        "blur": "4",
+        "spread": "0"
       }
     ],
     "type": "boxShadow"
@@ -1118,20 +1118,20 @@
   "shadow-level-2": {
     "value": [
       {
-        "color": "#1717170a",
+        "color": "rgba(23,23,23,0.04)",
         "type": "dropShadow",
-        "x": 0,
-        "y": 4,
-        "blur": 16,
-        "spread": 0
+        "x": "0",
+        "y": "4",
+        "blur": "16",
+        "spread": "0"
       },
       {
-        "color": "#17171729",
+        "color": "rgba(23,23,23,0.16)",
         "type": "dropShadow",
-        "x": 0,
-        "y": 1,
-        "blur": 4,
-        "spread": 0
+        "x": "0",
+        "y": "1",
+        "blur": "4",
+        "spread": "0"
       }
     ],
     "type": "boxShadow"
@@ -1139,20 +1139,20 @@
   "shadow-level-3": {
     "value": [
       {
-        "color": "#1717171f",
+        "color": "rgba(23,23,23,0.12)",
         "type": "dropShadow",
-        "x": 0,
-        "y": 12,
-        "blur": 32,
-        "spread": 0
+        "x": "0",
+        "y": "12",
+        "blur": "32",
+        "spread": "0"
       },
       {
-        "color": "#17171714",
+        "color": "rgba(23,23,23,0.08)",
         "type": "dropShadow",
-        "x": 0,
-        "y": 4,
-        "blur": 12,
-        "spread": 0
+        "x": "0",
+        "y": "4",
+        "blur": "12",
+        "spread": "0"
       }
     ],
     "type": "boxShadow"
