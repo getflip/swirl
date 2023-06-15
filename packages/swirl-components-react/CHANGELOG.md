@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.68.1
+
+### Patch Changes
+
+- [`7e525f0`](https://github.com/getflip/swirl/commit/7e525f0aa1ff210d0ac0ea771679ca6c01867930)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow HTML inside swirl-radio
+  description
+
+- Updated dependencies
+  [[`7e525f0`](https://github.com/getflip/swirl/commit/7e525f0aa1ff210d0ac0ea771679ca6c01867930)]:
+  - @getflip/swirl-components@0.69.1
+
 ## 0.68.0
 
 ### Minor Changes
