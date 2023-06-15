@@ -771,7 +771,7 @@
     "comment": "Usally used as an border on info components."
   },
   "border-on-highlight": {
-    "value": "rgba(190, 255, 240, 0.2)",
+    "value": "rgba(0, 55, 175, 0.2)",
     "type": "color",
     "comment": "Used as border color on containers that have an highlight surface"
   },

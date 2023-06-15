@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Thu, 15 Jun 2023 11:29:38 GMT
+// Generated on Thu, 15 Jun 2023 12:34:16 GMT
 
 
 
@@ -28,7 +28,7 @@ class SwirlDesignTokensLight {
     static const borderDefault = Color(0xFFEAEAEA); /* Usually used for low emphasis borders and espacially divider elements. */
     static const borderHighlight = Color(0xFF0037AF); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
     static const borderInfo = Color(0xFF145AF5); /* Usally used as an border on info components. */
-    static const borderOnHighlight = Color(0x33BEFFF0); /* Used as border color on containers that have an highlight surface */
+    static const borderOnHighlight = Color(0x330037AF); /* Used as border color on containers that have an highlight surface */
     static const borderRadiusBase = 12.00;
     static const borderRadiusFullRound = 99999.00;
     static const borderRadiusL = 16.00;
