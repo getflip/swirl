@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Thu, 15 Jun 2023 09:49:04 GMT
+// Generated on Thu, 15 Jun 2023 11:24:44 GMT
 
 
 
@@ -102,9 +102,9 @@ class SwirlDesignTokensDark {
     static const coreDecorativeLightRadishSurfaceSubdued = Color(0xFFFFDDF5);
     static const coreDecorativeLightRadishText = Color(0xFFBA1D8E);
     static const coreGray01 = Color(0xFFF2F2F2);
-    static const coreGray02 = Color(0xFFDFDFDF);
-    static const coreGray03 = Color(0xFFCFCFCF);
-    static const coreGray04 = Color(0xFFA3A3A3);
+    static const coreGray02 = Color(0xFFEAEAEA);
+    static const coreGray03 = Color(0xFFDFDFDF);
+    static const coreGray04 = Color(0xFFCFCFCF);
     static const coreGray05 = Color(0xFF989898);
     static const coreGray06 = Color(0xFF6E6E6E);
     static const coreGray07 = Color(0xFF424242);
@@ -227,7 +227,7 @@ class SwirlDesignTokensDark {
     static const surfaceHovered = Color(0xFF262626); /* Used if a component with “Surface/Default” has a hovered state. */
     static const surfaceInfoDefault = Color(0xFF648EE9); /* Used as a background for info surfaces. */
     static const surfaceInfoSubdued = Color(0xFF21293A); /* Used for low prio info background. */
-    static const surfaceNeutralDefault = Color(0xFFA3A3A3); /* Used as a background for neutral surfaces. */
+    static const surfaceNeutralDefault = Color(0xFFCFCFCF); /* Used as a background for neutral surfaces. */
     static const surfaceNeutralSubdued = Color(0xFF262626); /* Used for low prio neutral background. */
     static const surfaceOnImageDefault = Color(0x66000000); /* Usually used for containers on images */
     static const surfaceOverlayDefault = Color(0xFF262626); /* Usually used for containers that need to be more elevated. */

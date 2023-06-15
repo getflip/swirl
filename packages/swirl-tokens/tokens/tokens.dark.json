@@ -245,15 +245,15 @@
     "type": "color"
   },
   "core-gray-04": {
-    "value": "rgba(163, 163, 163, 1)",
-    "type": "color"
-  },
-  "core-gray-03": {
     "value": "rgba(207, 207, 207, 1)",
     "type": "color"
   },
-  "core-gray-02": {
+  "core-gray-03": {
     "value": "rgba(223, 223, 223, 1)",
+    "type": "color"
+  },
+  "core-gray-02": {
+    "value": "rgba(234, 234, 234, 1)",
     "type": "color"
   },
   "core-gray-01": {
