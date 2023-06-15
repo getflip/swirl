@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Thu, 15 Jun 2023 11:24:44 GMT
+// Generated on Thu, 15 Jun 2023 11:29:38 GMT
 
 
 
@@ -115,9 +115,9 @@ class SwirlDesignTokensLight {
     static const coreGray12 = Color(0xFF171717);
     static const coreGrayBlack = Color(0xFF000000);
     static const coreGrayWhite = Color(0xFFFFFFFF);
-    static const coreOnCustomerColorDark1 = Color(0xFF171717);
+    static const coreOnCustomerColorDark1 = Color(0xFF000000);
     static const coreOnCustomerColorDark2 = Color(0xFFF2F2F2);
-    static const coreOnCustomerColorLight1 = Color(0xFFF2F2F2);
+    static const coreOnCustomerColorLight1 = Color(0xFFFFFFFF);
     static const coreOnCustomerColorLight2 = Color(0xFF171717);
     static const coreStatusDarkCriticalDefault = Color(0xFFE46464);
     static const coreStatusDarkCriticalSubdued = Color(0xFF382126);
@@ -182,7 +182,7 @@ class SwirlDesignTokensLight {
     static const iconDisabled = Color(0xFFCFCFCF); /* Used if a icon element is disabled. */
     static const iconHighlight = Color(0xFF0037AF); /* Used to highlight icons. */
     static const iconInfo = Color(0xFF145AF5); /* Used as info icon color */
-    static const iconOnActionPrimary = Color(0xFFF2F2F2); /* Used as a icon color on containers with action primary color. */
+    static const iconOnActionPrimary = Color(0xFFFFFFFF); /* Used as a icon color on containers with action primary color. */
     static const iconOnImage = Color(0xFFFFFFFF); /* Used as a icon color on “Surface On Image/Default”. */
     static const iconOnStatus = Color(0xFFFFFFFF); /* Used as a icon color on containers with a default status color except on warning. */
     static const iconOnSurfaceHighlight = Color(0xFF171717); /* Used as icon color on containers with highlight color. */
@@ -250,7 +250,7 @@ class SwirlDesignTokensLight {
     static const textDisabled = Color(0xFFCFCFCF); /* Used if a text element is disabled. */
     static const textHighlight = Color(0xFF0037AF); /* Used to highlight text. */
     static const textInfo = Color(0xFF145AF5); /* Used as info text color */
-    static const textOnActionPrimary = Color(0xFFF2F2F2); /* Used as a text color on containers with action primary color. */
+    static const textOnActionPrimary = Color(0xFFFFFFFF); /* Used as a text color on containers with action primary color. */
     static const textOnImage = Color(0xFFFFFFFF); /* Used as a text color on “Surface On Image/Default”. */
     static const textOnStatus = Color(0xFFFFFFFF); /* Used as a text color on containers with a default status color except on warning. */
     static const textOnSurfaceHighlight = Color(0xFF171717); /* Used as text color on containers with highlight color. */
