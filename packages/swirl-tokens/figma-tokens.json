@@ -359,15 +359,15 @@
     "core": {
       "gray": {
         "10": {
-          "value": "#2a2b2d",
+          "value": "#262626",
           "type": "color"
         },
         "11": {
-          "value": "#232426",
+          "value": "#1c1c1c",
           "type": "color"
         },
         "12": {
-          "value": "#191a1c",
+          "value": "#171717",
           "type": "color"
         },
         "black": {
@@ -375,39 +375,39 @@
           "type": "color"
         },
         "09": {
-          "value": "#323335",
+          "value": "#2e2e2e",
           "type": "color"
         },
         "08": {
-          "value": "#3a3b3d",
+          "value": "#363636",
           "type": "color"
         },
         "07": {
-          "value": "#4f5054",
+          "value": "#424242",
           "type": "color"
         },
         "06": {
-          "value": "#6d6e72",
+          "value": "#6e6e6e",
           "type": "color"
         },
         "05": {
-          "value": "#a1a2a5",
+          "value": "#989898",
           "type": "color"
         },
         "04": {
-          "value": "#cccdd1",
+          "value": "#cfcfcf",
           "type": "color"
         },
         "03": {
-          "value": "#dddee0",
+          "value": "#DFDFDF",
           "type": "color"
         },
         "02": {
-          "value": "#e8e9eb",
+          "value": "#EAEAEA",
           "type": "color"
         },
         "01": {
-          "value": "#f2f3f5",
+          "value": "#f2f2f2",
           "type": "color"
         },
         "white": {
@@ -417,39 +417,39 @@
       },
       "customer-color-light": {
         "1-default": {
-          "value": "#15192F",
+          "value": "#145AF5",
           "type": "color"
         },
         "1-hovered": {
-          "value": "#383C4E",
+          "value": "#3773F7",
           "type": "color"
         },
         "1-pressed": {
-          "value": "#5B5E6D",
+          "value": "#5B8BF8",
           "type": "color"
         },
         "2-default": {
-          "value": "#0026ff",
+          "value": "#E6EEFF",
           "type": "color"
         },
         "2-hovered": {
-          "value": "#2647ff",
+          "value": "#D5E2FF",
           "type": "color"
         },
         "2-pressed": {
-          "value": "#4d67ff",
+          "value": "#BED2FF",
           "type": "color"
         },
         "3-default": {
-          "value": "#003daf",
+          "value": "#0037AF",
           "type": "color"
         },
         "3-hovered": {
-          "value": "#265abb",
+          "value": "#2655BB",
           "type": "color"
         },
         "3-pressed": {
-          "value": "#4d77c7",
+          "value": "#4D74C7",
           "type": "color"
         }
       },
@@ -459,45 +459,45 @@
           "type": "color"
         },
         "2": {
-          "value": "#ffffff",
+          "value": "#171717",
           "type": "color"
         }
       },
       "customer-color-dark": {
         "1-default": {
-          "value": "#9191A2",
+          "value": "#568FDE",
           "type": "color"
         },
         "1-hovered": {
-          "value": "#7B7B8A",
+          "value": "#79A4DF",
           "type": "color"
         },
         "1-pressed": {
-          "value": "#666671",
+          "value": "#96B5E0",
           "type": "color"
         },
         "2-default": {
-          "value": "#7394d3",
+          "value": "#2D477F",
           "type": "color"
         },
         "2-hovered": {
-          "value": "#627eb3",
+          "value": "#34508D",
           "type": "color"
         },
         "2-pressed": {
-          "value": "#506894",
+          "value": "#405B97",
           "type": "color"
         },
         "3-default": {
-          "value": "#7394d3",
+          "value": "#568FDE",
           "type": "color"
         },
         "3-hovered": {
-          "value": "#627eb3",
+          "value": "#79A4DF",
           "type": "color"
         },
         "3-pressed": {
-          "value": "#506894",
+          "value": "#96B5E0",
           "type": "color"
         }
       },
@@ -507,7 +507,7 @@
           "type": "color"
         },
         "2": {
-          "value": "#000000",
+          "value": "#f2f2f2",
           "type": "color"
         }
       },
@@ -551,35 +551,35 @@
       },
       "status-dark": {
         "info-default": {
-          "value": "#73a7f2",
+          "value": "#648EE9",
           "type": "color"
         },
         "info-subdued": {
-          "value": "#102648",
+          "value": "#21293A",
           "type": "color"
         },
         "success-default": {
-          "value": "#68c468",
+          "value": "#50A450",
           "type": "color"
         },
         "success-subdued": {
-          "value": "#123a12",
+          "value": "#1A2C1A",
           "type": "color"
         },
         "warning-default": {
-          "value": "#f9c763",
+          "value": "#F3B703",
           "type": "color"
         },
         "warning-subdued": {
-          "value": "#392e11",
+          "value": "#2D2719",
           "type": "color"
         },
         "critical-default": {
-          "value": "#fb6486",
+          "value": "#E46464",
           "type": "color"
         },
         "critical-subdued": {
-          "value": "#470e1b",
+          "value": "#382126",
           "type": "color"
         }
       },
@@ -686,99 +686,99 @@
       "decorative-dark": {
         "chilli": {
           "text": {
-            "value": "#FF9494",
+            "value": "#DA6D6D",
             "type": "color"
           },
           "surface": {
-            "value": "#FF9494",
+            "value": "#DA6D6D",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#64353B",
+            "value": "#382221",
             "type": "color"
           }
         },
         "pumpkin": {
           "text": {
-            "value": "#FFAC80",
+            "value": "#D48031",
             "type": "color"
           },
           "surface": {
-            "value": "#FFAC80",
+            "value": "#D48031",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#5F4025",
+            "value": "#33251A",
             "type": "color"
           }
         },
         "banana": {
           "text": {
-            "value": "#ECC140",
+            "value": "#AF911B",
             "type": "color"
           },
           "surface": {
-            "value": "#ECC140",
+            "value": "#AF911B",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#4D441D",
+            "value": "#2C271D",
             "type": "color"
           }
         },
         "radish": {
           "text": {
-            "value": "#FE90DF",
+            "value": "#DD69BD",
             "type": "color"
           },
           "surface": {
-            "value": "#FE90DF",
+            "value": "#DD69BD",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#5F3051",
+            "value": "#32232D",
             "type": "color"
           }
         },
         "grape": {
           "text": {
-            "value": "#D98FF7",
+            "value": "#C26BE9",
             "type": "color"
           },
           "surface": {
-            "value": "#D98FF7",
+            "value": "#C26BE9",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#533071",
+            "value": "#2F2438",
             "type": "color"
           }
         },
         "kiwi": {
           "text": {
-            "value": "#88C897",
+            "value": "#59A469",
             "type": "color"
           },
           "surface": {
-            "value": "#88C897",
+            "value": "#59A469",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#2D482D",
+            "value": "#222B22",
             "type": "color"
           }
         },
         "blueberry": {
           "text": {
-            "value": "#AEC7FF",
+            "value": "#568FDE",
             "type": "color"
           },
           "surface": {
-            "value": "#AEC7FF",
+            "value": "#568FDE",
             "type": "color"
           },
           "surface-subdued": {
-            "value": "#2A4B74",
+            "value": "#1E2936",
             "type": "color"
           }
         }
@@ -818,6 +818,20 @@
         "value": "{core.gray.02}",
         "type": "color",
         "description": "Used if a component with “Surface/Default” has a pressed state."
+      }
+    },
+    "surface-sunken": {
+      "default": {
+        "value": "{core.gray.01}",
+        "type": "color"
+      },
+      "hovered": {
+        "value": "{core.gray.02}",
+        "type": "color"
+      },
+      "pressed": {
+        "value": "{core.gray.03}",
+        "type": "color"
       }
     },
     "surface-overlay": {
@@ -982,7 +996,7 @@
         "description": "Usally used as an border on info components."
       },
       "on-highlight": {
-        "value": "#befff033",
+        "value": "rgba(0,55,175,0.2)",
         "type": "color",
         "description": "Used as border color on containers that have an highlight surface"
       }
@@ -1344,19 +1358,19 @@
       "level-1": {
         "value": [
           {
-            "color": "rgba(25, 26, 28, 0.16)",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "1",
-            "blur": "4",
-            "spread": "0"
-          },
-          {
-            "color": "rgba(25, 26, 28, 0.04)",
+            "color": "rgba(23,23,23,0.04)",
             "type": "dropShadow",
             "x": "0",
             "y": "4",
             "blur": "16",
+            "spread": "0"
+          },
+          {
+            "color": "rgba(23,23,23,0.04)",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "4",
             "spread": "0"
           }
         ],
@@ -1365,19 +1379,19 @@
       "level-2": {
         "value": [
           {
-            "color": "rgba(25, 26, 28, 0.16)",
+            "color": "rgba(23,23,23,0.04)",
             "type": "dropShadow",
             "x": "0",
             "y": "4",
-            "blur": "32",
+            "blur": "16",
             "spread": "0"
           },
           {
-            "color": "rgba(25, 26, 28, 0.08)",
+            "color": "rgba(23,23,23,0.16)",
             "type": "dropShadow",
             "x": "0",
             "y": "1",
-            "blur": "2",
+            "blur": "4",
             "spread": "0"
           }
         ],
@@ -1386,19 +1400,19 @@
       "level-3": {
         "value": [
           {
-            "color": "rgba(25, 26, 28, 0.08)",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "4",
-            "blur": "12",
-            "spread": "0"
-          },
-          {
-            "color": "rgba(25, 26, 28, 0.12)",
+            "color": "rgba(23,23,23,0.12)",
             "type": "dropShadow",
             "x": "0",
             "y": "12",
             "blur": "32",
+            "spread": "0"
+          },
+          {
+            "color": "rgba(23,23,23,0.08)",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "4",
+            "blur": "12",
             "spread": "0"
           }
         ],
@@ -1439,6 +1453,20 @@
         "value": "{core.gray.09}",
         "type": "color",
         "description": "Used if a component with “Surface/Default” has a pressed state."
+      }
+    },
+    "surface-sunken": {
+      "default": {
+        "value": "{core.gray.black}",
+        "type": "color"
+      },
+      "hovered": {
+        "value": "{core.gray.12}",
+        "type": "color"
+      },
+      "pressed": {
+        "value": "{core.gray.11}",
+        "type": "color"
       }
     },
     "surface-overlay": {
@@ -1960,6 +1988,71 @@
           "description": "Used as a decorative color."
         }
       }
+    },
+    "shadow": {
+      "level-1": {
+        "value": [
+          {
+            "color": "rgba(0,0,0,0.32)",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "8",
+            "spread": "0"
+          },
+          {
+            "color": "rgba(0,0,0,0.48)",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "1",
+            "spread": "0"
+          }
+        ],
+        "type": "boxShadow"
+      },
+      "level-2": {
+        "value": [
+          {
+            "color": "rgba(0,0,0,0.48)",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "4",
+            "blur": "16",
+            "spread": "0"
+          },
+          {
+            "color": "rgba(0,0,0,0.40)",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "4",
+            "spread": "0"
+          }
+        ],
+        "type": "boxShadow"
+      },
+      "level-3": {
+        "value": [
+          {
+            "color": "rgba(0,0,0,0.32)",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "12",
+            "blur": "32",
+            "spread": "0"
+          },
+          {
+            "color": "rgba(0,0,0,0.24)",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "2",
+            "blur": "4",
+            "spread": "0"
+          }
+        ],
+        "type": "boxShadow"
+      }
     }
   },
   "$themes": [
@@ -2220,7 +2313,12 @@
         "decorative.kiwi.surface-subdued": "S:f66e203a5aedaa420029becaae274818779226f0,",
         "decorative.blueberry.text": "S:1b025933e406c361054be299e38cdf8176b16530,",
         "decorative.blueberry.surface": "S:2f6e7cc449c908aeecbe17801602ffd6f35959c1,",
-        "decorative.blueberry.surface-subdued": "S:138f59cb0a71d07ac8af647fdc805cb4b7c44508,"
+        "decorative.blueberry.surface-subdued": "S:138f59cb0a71d07ac8af647fdc805cb4b7c44508,",
+        "surface-sunken.default": "S:4ad00c9598849aca09b2190e89c83225aec14c63,",
+        "surface-sunken.hovered": "S:139193133fe0af92aefcd0213ecdc95f6fadbd48,",
+        "surface-sunken.pressed": "S:008e29b74c9df5faa8dbfc9eb3f52346acecbfba,",
+        "text.dark": "S:0725e456b8cd864da67d9fc8466aa312f51ed735,",
+        "icon.dark": "S:daff72f871baa7568f11a67fde7c10d9fbcdd43e,"
       }
     },
     {
