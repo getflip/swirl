@@ -395,15 +395,15 @@
           "type": "color"
         },
         "04": {
-          "value": "#a3a3a3",
-          "type": "color"
-        },
-        "03": {
           "value": "#cfcfcf",
           "type": "color"
         },
-        "02": {
+        "03": {
           "value": "#DFDFDF",
+          "type": "color"
+        },
+        "02": {
+          "value": "#EAEAEA",
           "type": "color"
         },
         "01": {
