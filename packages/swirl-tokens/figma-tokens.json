@@ -996,7 +996,7 @@
         "description": "Usally used as an border on info components."
       },
       "on-highlight": {
-        "value": "#befff033",
+        "value": "#0037AF33",
         "type": "color",
         "description": "Used as border color on containers that have an highlight surface"
       }
