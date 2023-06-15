@@ -1105,7 +1105,7 @@
         "spread": 0
       },
       {
-        "color": "#17171729",
+        "color": "#1717170a",
         "type": "dropShadow",
         "x": 0,
         "y": 1,
@@ -1118,19 +1118,19 @@
   "shadow-level-2": {
     "value": [
       {
-        "color": "#17171714",
+        "color": "#1717170a",
         "type": "dropShadow",
         "x": 0,
-        "y": 1,
-        "blur": 2,
+        "y": 4,
+        "blur": 16,
         "spread": 0
       },
       {
         "color": "#17171729",
         "type": "dropShadow",
         "x": 0,
-        "y": 4,
-        "blur": 32,
+        "y": 1,
+        "blur": 4,
         "spread": 0
       }
     ],
