@@ -455,7 +455,7 @@
       },
       "on-customer-color-light": {
         "1": {
-          "value": "#f2f2f2",
+          "value": "#ffffff",
           "type": "color"
         },
         "2": {
@@ -503,7 +503,7 @@
       },
       "on-customer-color-dark": {
         "1": {
-          "value": "#171717",
+          "value": "#000000",
           "type": "color"
         },
         "2": {
