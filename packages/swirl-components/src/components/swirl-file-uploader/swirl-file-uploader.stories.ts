@@ -3,6 +3,7 @@ import Docs from "./swirl-file-uploader.mdx";
 
 export default {
   component: "swirl-file-uploader",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

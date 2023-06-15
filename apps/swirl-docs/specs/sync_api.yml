@@ -1,0 +1,2567 @@
+components:
+  schemas:
+    TagRuleReadDTO:
+      properties:
+        rules:
+          items:
+            $ref: "#/components/schemas/ExternalTagRule"
+          type: array
+      required:
+        - rules
+      type: object
+    ExternalWriteTagRule:
+      description: Used for inserting a rule.
+      properties:
+        condition:
+          description: >
+            The conditions for interactions are written in a small language
+            consisting of the following elements:
+
+
+            * `hasTag(<Tag>)` :  checks that a user has a Tag
+
+            * `not(<condition>)` : negates the condition
+
+            * `all(<condition>,<condition>, ...)` : combines other conditions
+            with logical AND
+
+            * `any(<condition>,<condition>, ...)` : combines other conditions
+            with logical INCLUSIVE OR
+
+
+            Full example: `any(hasTag(A), hasTag(B), all(hasTag(C), hasTag(D))`.
+
+
+            Maximum of 30 conditions can be used per rule.
+          type: string
+        description:
+          description:
+            Description of a rule. This can be set to any text that describes
+            the intention of the rule.
+          nullable: true
+          type: string
+        outcome:
+          description:
+            The outcome includes all the Tags that a user who fulfills the
+            condition can interact with.
+          items:
+            type: string
+          type: array
+      required:
+        - condition
+        - outcome
+      type: object
+    ExternalTagRule:
+      description: Used for updating and reading a rule.
+      properties:
+        condition:
+          description: >
+            The conditions for interactions are written in a small language
+            consisting of the following elements:
+
+
+            * `hasTag(<Tag>)` :  checks that a user has a Tag
+
+            * `not(<condition>)` : negates the condition
+
+            * `all(<condition>,<condition>, ...)` : combines other conditions
+            with logical AND
+
+            * `any(<condition>,<condition>, ...)` : combines other conditions
+            with logical INCLUSIVE OR
+
+
+            Full example: `any(hasTag(A), hasTag(B), all(hasTag(C), hasTag(D))`.
+
+
+            Maximum of 30 conditions can be used per rule.
+          type: string
+        description:
+          description:
+            Description of a rule. This can be set to any text that describes
+            the intention of the rule.
+          nullable: true
+          type: string
+        outcome:
+          description:
+            The outcome includes all the Tags that a user who fulfills the
+            condition can interact with.
+          items:
+            type: string
+          type: array
+        rule_id:
+          format: uuid
+          type: string
+      required:
+        - condition
+        - outcome
+        - rule_id
+      type: object
+    ExternalPaginatedUsersV3:
+      properties:
+        pageable:
+          $ref: "#/components/schemas/ExternalPageable"
+        users:
+          items:
+            $ref: "#/components/schemas/ExternalReadUserV3"
+          type: array
+      required:
+        - pageable
+        - users
+      type: object
+    ExternalWriteUsersRequestV3:
+      properties:
+        request_context:
+          description: >-
+            A context 'name' for this request by which its status can be queried
+            again later.
+
+            Must consist of at most 250 ASCII characters.
+
+            You can reuse the same context for multiple requests, which causes
+            their information to be fetched together.
+          nullable: true
+          type: string
+        users:
+          description:
+            For user creation the login field must be set, for an existing user
+            it can be omitted and will result in no modifications.
+          items:
+            $ref: "#/components/schemas/ExternalWriteUserV3"
+          maxItems: 1000
+          nullable: false
+          type: array
+          uniqueItems: true
+      required:
+        - users
+      type: object
+    ExternalWriteUsersResponseV3:
+      properties:
+        request_context:
+          description: >-
+            A context 'name' for this request by which its status can be queried
+            again later.
+
+            If you passed in a context with the request, this value is
+            guaranteed to be the same context.
+          nullable: true
+          type: string
+      type: object
+    ExternalReadUserV3:
+      properties:
+        created_by_service:
+          $ref: "#/components/schemas/ExternalCreatedByService"
+        email:
+          nullable: true
+          type: string
+        enabled:
+          description:
+            Boolean flag indicating the user is enabled or disabled. A disabled
+            user cannot login anymore.
+          type: boolean
+        external_id:
+          description:
+            Identifier defined by external client and used for external updates
+          nullable: true
+          type: string
+        first_name:
+          type: string
+        id:
+          description: Internal id for an user
+          format: uuid
+          type: string
+        last_name:
+          type: string
+        login_status:
+          allOf:
+            - $ref: "#/components/schemas/LoginStatusDTO"
+            - description:
+                Content will always be null if the extra feature `Never logged
+                in status` is disabled.
+          nullable: true
+        profile:
+          allOf:
+            - $ref: "#/components/schemas/ExternalReadUserProfile"
+          nullable: true
+        system_role:
+          $ref: "#/components/schemas/ExternalSystemRole"
+        tags:
+          description: Applied tags that restrict the user's interaction in Flip
+          items:
+            type: string
+          type: array
+        username:
+          type: string
+      required:
+        - created_by_service
+        - enabled
+        - first_name
+        - id
+        - last_name
+        - system_role
+        - tags
+        - username
+      type: object
+    ExternalRequestInfoResponse:
+      properties:
+        batch_items_completed:
+          description:
+            The number of items which already were processed in this request,
+            either as failures or successes. Note that this value is not updated
+            in real time and may be lower than the actual number.
+          format: int32
+          type: integer
+        batch_size:
+          description:
+            The total number of items which have to be processed in this
+            request.
+          format: int32
+          type: integer
+        error_count:
+          description: The number of errors which occurred during this request.
+          format: int32
+          type: integer
+        request_context:
+          description:
+            The request context string that was provided when making the
+            operations of interest.
+          type: string
+      required:
+        - batch_items_completed
+        - batch_size
+        - error_count
+        - request_context
+      type: object
+    ExternalRequestErrorsResponse:
+      properties:
+        errors:
+          description:
+            A list of all errors that occurred during the request so far.
+          items:
+            $ref: "#/components/schemas/ExternalRequestError"
+          nullable: false
+          type: array
+        next_cursor:
+          allOf:
+            - $ref: "#/components/schemas/CursorsDTO"
+            - description:
+                A cursor that can be passed to this endpoint to receive the next
+                page.
+      required:
+        - errors
+        - next_cursor
+      type: object
+    ExternalPaginatedGroups:
+      properties:
+        groups:
+          items:
+            $ref: "#/components/schemas/ExternalReadGroup"
+          type: array
+        pageable:
+          $ref: "#/components/schemas/ExternalPageable"
+      required:
+        - groups
+        - pageable
+      type: object
+    ExternalWriteGroupsRequest:
+      properties:
+        groups:
+          items:
+            $ref: "#/components/schemas/ExternalWriteGroup"
+          maxItems: 1000
+          nullable: false
+          type: array
+          uniqueItems: true
+        request_context:
+          description: >-
+            A context 'name' for this request by which its status can be queried
+            again later.
+
+            Must consist of at most 250 ASCII characters.
+
+            You can reuse the same context for multiple requests, which causes
+            their information to be fetched together.
+          nullable: true
+          type: string
+      required:
+        - groups
+      type: object
+    ExternalWriteGroupsResponse:
+      properties:
+        request_context:
+          description: >-
+            A context 'name' for this request by which its status can be queried
+            again later.
+
+            If you passed in a context with the request, this value is
+            guaranteed to be the same context.
+          nullable: true
+          type: string
+      type: object
+    DeleteGroupsRequest:
+      properties:
+        groups:
+          items:
+            $ref: "#/components/schemas/DeleteGroupDTO"
+          maxItems: 1000
+          type: array
+        request_context:
+          description: >-
+            A context 'name' for this request by which its status can be queried
+            again later.
+
+            Must consist of at most 250 ASCII characters.
+
+            You can reuse the same context for multiple requests, which causes
+            their information to be fetched together.
+          nullable: true
+          type: string
+      required:
+        - groups
+      type: object
+    ExternalDeleteGroupsResponse:
+      properties:
+        request_context:
+          description: >-
+            A context 'name' for this request by which its status can be queried
+            again later.
+
+            If you passed in a context with the request, this value is
+            guaranteed to be the same context.
+          nullable: true
+          type: string
+      type: object
+    ExternalReadGroup:
+      properties:
+        allow_members_to_leave_and_join:
+          description:
+            If true, anyone can see the group as well as join or leave it.
+          type: boolean
+        created_by_service:
+          $ref: "#/components/schemas/ExternalCreatedByService"
+        description:
+          nullable: true
+          type: string
+        external_id:
+          description:
+            The `external_id` can be used to identify a user. This field can be
+            set to any already existing identifier for a user. It must be unique
+            to the user and should never change for this user.
+          nullable: true
+          type: string
+        hide_member_list:
+          description: If true, users are not allowed to see the member list.
+          type: boolean
+        id:
+          format: uuid
+          type: string
+        member_role_can_publish:
+          description:
+            If true, group members with the role **MEMBER** can create posts
+          type: boolean
+        name:
+          type: string
+        post_interaction_features_enabled:
+          description:
+            If true, users are allowed to interact with posts. Examples for the
+            interactions are commenting and liking a post.
+          type: boolean
+        show_download_button_for_media:
+          description: If true, users are allowed to download the media files.
+          type: boolean
+        show_download_button_for_pdf:
+          description: If true, users are allowed to download a documents.
+          type: boolean
+        show_posts_in_newsfeed:
+          description:
+            If true, the posts from this group will be shown in newsfeed.
+          type: boolean
+      required:
+        - allow_members_to_leave_and_join
+        - created_by_service
+        - hide_member_list
+        - id
+        - member_role_can_publish
+        - name
+        - post_interaction_features_enabled
+        - show_download_button_for_media
+        - show_download_button_for_pdf
+        - show_posts_in_newsfeed
+      type: object
+    ExternalPaginatedUsers:
+      properties:
+        pageable:
+          $ref: "#/components/schemas/ExternalPageable"
+        users:
+          items:
+            $ref: "#/components/schemas/ExternalReadUser"
+          type: array
+      required:
+        - pageable
+        - users
+      type: object
+    ExternalWriteUsersRequest:
+      properties:
+        users:
+          description:
+            For user creation the login field must be set, for a existing user
+            it can be omitted and will result in no modifications.
+          items:
+            $ref: "#/components/schemas/ExternalWriteUser"
+          maxItems: 1000
+          nullable: false
+          type: array
+          uniqueItems: true
+      required:
+        - users
+      type: object
+    DeleteUsersRequest:
+      properties:
+        request_context:
+          description: >-
+            A context 'name' for this request by which its status can be queried
+            again later.
+
+            Must consist of at most 250 ASCII characters.
+
+            You can reuse the same context for multiple requests, which causes
+            their information to be fetched together.
+          nullable: true
+          type: string
+        users:
+          items:
+            $ref: "#/components/schemas/DeleteUserDTO"
+          maxItems: 1000
+          type: array
+      required:
+        - users
+      type: object
+    ExternalDeleteUsersResponse:
+      properties:
+        request_context:
+          description: >-
+            A context 'name' for this request by which its status can be queried
+            again later.
+
+            If you passed in a context with the request, this value is
+            guaranteed to be the same context.
+          nullable: true
+          type: string
+      type: object
+    ExternalReadUser:
+      properties:
+        created_by_service:
+          $ref: "#/components/schemas/ExternalCreatedByService"
+        email:
+          nullable: true
+          type: string
+        enabled:
+          description:
+            Boolean flag indicating the user is enabled or disabled. A disabled
+            user cannot login anymore.
+          type: boolean
+        external_id:
+          description:
+            Identifier defined by external client and used for external updates
+          nullable: true
+          type: string
+        first_name:
+          type: string
+        id:
+          description: Internal userid
+          format: uuid
+          type: string
+        last_name:
+          type: string
+        profile:
+          allOf:
+            - $ref: "#/components/schemas/ExternalReadUserProfile"
+          nullable: true
+        system_role:
+          $ref: "#/components/schemas/ExternalSystemRole"
+        tags:
+          description: Tags sent by api client when creating the user
+          items:
+            $ref: "#/components/schemas/ExternalReadUserTag"
+          type: array
+        username:
+          type: string
+      required:
+        - created_by_service
+        - enabled
+        - first_name
+        - id
+        - last_name
+        - system_role
+        - tags
+        - username
+      type: object
+    ExternalWriteUsersRequestV2:
+      properties:
+        request_context:
+          description: >-
+            A context 'name' for this request by which its status can be queried
+            again later.
+
+            Must consist of at most 250 ASCII characters.
+
+            You can reuse the same context for multiple requests, which causes
+            their information to be fetched together.
+          nullable: true
+          type: string
+        users:
+          description:
+            For user creation the login field must be set, for a existing user
+            it can be omitted and will result in no modifications.
+          items:
+            $ref: "#/components/schemas/ExternalWriteUserV2"
+          maxItems: 1000
+          nullable: false
+          type: array
+          uniqueItems: true
+      required:
+        - users
+      type: object
+    ExternalWriteUsersResponseV2:
+      properties:
+        request_context:
+          description: >-
+            A context 'name' for this request by which its status can be queried
+            again later.
+
+            If you passed in a context with the request, this value is
+            guaranteed to be the same context.
+          nullable: true
+          type: string
+      type: object
+    ExternalPaginatedUsersGroupMemberships:
+      properties:
+        pageable:
+          $ref: "#/components/schemas/ExternalPageable"
+        users_group_memberships:
+          items:
+            $ref: "#/components/schemas/ExternalReadUserGroupMemberships"
+          type: array
+      required:
+        - pageable
+        - users_group_memberships
+      type: object
+    ExternalPageable:
+      description:
+        Shows the number of the current page and what page size was given.
+      properties:
+        page:
+          format: int32
+          type: integer
+        page_size:
+          format: int32
+          type: integer
+      required:
+        - page
+        - page_size
+      type: object
+    ExternalWriteUserV3:
+      properties:
+        confirm_terms_and_conditions:
+          allOf:
+            - $ref: "#/components/schemas/TermsAndConditions"
+          nullable: true
+        email:
+          description: >-
+            If no value is passed, no change will be made. If the value is an
+            empty string, the user's email will be removed.
+
+
+            In all other cases, the new email is set.
+          format: email
+          nullable: true
+          type: string
+        enabled:
+          description: |-
+            Boolean flag for enabling and disabling the user.
+            A disabled user cannot login anymore.
+
+            If a value is omitted nothing will change.
+            When creating a new user the default value is `true`.
+          nullable: true
+          type: boolean
+        external_id:
+          description:
+            Must be unique, any user with the same `external_id` will be
+            overwritten.
+          type: string
+        first_name:
+          maxLength: 64
+          type: string
+        group_memberships:
+          description: >
+            The user will be added to all groups in the list.
+
+
+            The `group_role` can be omitted.
+
+
+            If the `group_membership` does not exist and `group_role` is omitted
+            the default value will be `MEMBER`.
+
+
+            If the `group_role` is set this also overwrites manually changed
+            roles from within the app.
+
+
+            All group memberships set through this API will be overwritten.
+            Group memberships set through this API that are not sent will be
+            deleted.
+
+
+            Group memberships created in the app will not be overwritten or
+            removed.
+          items:
+            $ref: "#/components/schemas/ExternalWriteUserGroupMembership"
+          nullable: true
+          type: array
+        last_modified_at:
+          description: >-
+            To avoid race conditions on requests, set `last_modified_at` of your
+            user based on your internal data source.
+
+
+            If the saved user has a newer `last_modified_at`, the entire request
+            will be ignored.
+
+            This value must not be in the future.
+
+
+            By default, the value is set to the moment the request is received.
+          format: date-time
+          nullable: true
+          type: string
+        last_name:
+          maxLength: 64
+          type: string
+        login:
+          allOf:
+            - $ref: "#/components/schemas/ExternalWriteLoginV3"
+          nullable: true
+        profile:
+          allOf:
+            - $ref: "#/components/schemas/ExternalWriteUserProfile"
+          nullable: true
+        system_role:
+          $ref: "#/components/schemas/ExternalSystemRole"
+        tags:
+          description: >-
+            Set all tags for the user. 0 - 100 tags can be set for a user.
+
+
+            Max length of a tag is 50 characters.
+
+
+            Tags may only consist of upper and lower case letters, numbers,
+            underscores and hyphens.
+          items:
+            type: string
+          maxItems: 100
+          type: array
+          uniqueItems: true
+        username:
+          description: >-
+            Username the user can login with if password login is enabled.
+
+
+            If a user with the given username already exists the existing user
+            is updated.
+
+
+            The given username is lowercased.
+          maxLength: 255
+          type: string
+      required:
+        - external_id
+        - first_name
+        - last_name
+        - system_role
+        - tags
+        - username
+      type: object
+    ExternalCreatedByService:
+      description: |-
+        APP - Created from within the app \
+         KEYCLOAK - Created from within the keycloak dashboard \
+         SYNC_API - Created with the sync api \
+         CSV_IMPORT - Created with the csv import
+      enum:
+        - APP
+        - KEYCLOAK
+        - SYNC_API
+        - CSV_IMPORT
+      type: string
+    LoginStatusDTO:
+      enum:
+        - NEVER_LOGGED_IN
+        - ALREADY_LOGGED_IN
+      type: string
+    ExternalReadUserProfile:
+      description:
+        user profile including all fields changed by the user in the app
+      properties:
+        about_me_text:
+          nullable: true
+          type: string
+        department:
+          nullable: true
+          type: string
+        job_title:
+          nullable: true
+          type: string
+        location:
+          nullable: true
+          type: string
+        mobile_number:
+          nullable: true
+          type: string
+        phone_number:
+          nullable: true
+          type: string
+      type: object
+    ExternalSystemRole:
+      description: >-
+        USER - default role, grants no special access \
+         ADMIN - grants access to the Admin Dashboard Users and Admin Dashboard
+        Groups
+      enum:
+        - USER
+        - ADMIN
+      type: string
+    ExternalRequestError:
+      properties:
+        error_cause:
+          description: Freeform text describing the cause of the error.
+          nullable: true
+          type: string
+        error_name:
+          description:
+            A short identifier describing the class of error that occurred.
+          type: string
+        item:
+          additionalProperties: true
+          description:
+            Miscellaneous information which identifies the exact item of a batch
+            which caused this error to occur.
+          type: object
+        reported_at:
+          description: The point in time at which this error occurred.
+          format: date-time
+          type: string
+      required:
+        - error_name
+        - item
+        - reported_at
+      type: object
+    CursorsDTO:
+      description: Contains the cursors for requesting the next messages/posts.
+      properties:
+        after:
+          nullable: true
+          type: string
+        before:
+          nullable: true
+          type: string
+        has_more:
+          type: boolean
+      required:
+        - has_more
+      type: object
+    ExternalWriteGroup:
+      properties:
+        allow_members_to_leave_and_join:
+          default: false
+          description: >-
+            If true, this sets the group as open so anyone can see it as well as
+            join or leave it. \
+             If `allow_members_to_leave_and_join` is omitted previously set
+            value will not be overwritten. \
+             This also overwrites manually changed setting from within the app.
+          nullable: true
+          type: boolean
+        description:
+          description: >-
+            If it is omitted the previous description will not be overwritten. \
+             Otherwise, the previous description will be overwritten. This also
+            applies to the description which was manually changed from within
+            the app.
+          maxLength: 200
+          nullable: true
+          type: string
+        external_id:
+          description:
+            Must be unique, any group with the same `external_id` will be
+            overwritten.
+          type: string
+        group_id:
+          description:
+            The internal Group ID. If this is set an update of an existing group
+            will be done. For this reason the Group ID must be null when
+            creating a new Group.
+          format: uuid
+          nullable: true
+          type: string
+        hide_member_list:
+          default: false
+          description: >-
+            If true, users within the group will see the list of all the group
+            members. \
+             If `hide_member_list` is omitted previously set value will not be
+            overwritten. \
+             If value is set used to create group and previously set value will
+            be overwritten. \
+             This also overwrites manually changed setting from within the app.
+          nullable: true
+          type: boolean
+        last_modified:
+          description: >-
+            To avoid request race conditions set `last_modified` of your group
+            based on your internal datasource. \
+             If saved group has newer `last_modified` request is ignored. \
+             Changes from within the app do not have an affect on
+            `last_modified`. \
+
+             By default, the value is set to the moment the request is received.
+          format: date-time
+          nullable: true
+          type: string
+        member_role_can_publish:
+          default: true
+          description: >-
+            If true, group members with the role **MEMBER** can create posts. \
+             If `member_role_can_publish` is omitted previously set value will
+            not be overwritten. \
+             If value is set used to create group and previously set value will
+            be overwritten. \
+             This also overwrites manually changed setting from within the app.
+          nullable: true
+          type: boolean
+        name:
+          description: The name of the group.
+          maxLength: 120
+          type: string
+        post_interaction_features_enabled:
+          default: true
+          description: >-
+            If true, post interaction features for this group are enabled
+            (comments and likes). \
+             If `post_interaction_features_enabled` is omitted previously set
+            value will not be overwritten. \
+             If value is set used to create group and previously set value will
+            be overwritten. \
+             This also overwrites manually changed setting from within the app.
+          nullable: true
+          type: boolean
+        show_download_button_for_media:
+          default: true
+          description: If true, users are allowed to download media files.
+          nullable: true
+          type: boolean
+        show_download_button_for_pdf:
+          default: true
+          description: If true, users are allowed to download documents.
+          nullable: true
+          type: boolean
+        show_posts_in_newsfeed:
+          default: true
+          description: >-
+            If true, group members will see posts of the group in their
+            newsfeed. \
+             If `show_posts_in_newsfeed` is omitted previously set value will
+            not be overwritten. \
+             If value is set used to create group and previously set value will
+            be overwritten. \
+             This also overwrites manually changed setting from within the app.
+          nullable: true
+          type: boolean
+      required:
+        - external_id
+        - name
+      type: object
+    DeleteGroupDTO:
+      description: ExternalDeleteGroup
+      properties:
+        external_id:
+          type: string
+        last_modified:
+          description: >-
+            To avoid request race conditions set `last_modified` of your group
+            based on your internal datasource. \
+             If saved group has newer `last_modified` request is ignored. \
+             Changes from within the app do not have an affect on
+            `last_modified`. \
+
+             By default, the value is set to the moment the request is received.
+          format: date-time
+          nullable: true
+          type: string
+      required:
+        - external_id
+      type: object
+    ExternalWriteUser:
+      properties:
+        confirm_terms_and_conditions:
+          description: >-
+            If `confirm_terms_and_conditions` is true user has to accept the
+            terms and conditions on the next login. \
+             If the field is omitted the default value will be false and
+            previously set value will not be overwritten. \
+             If set used to create user and previously set value will be
+            overwritten. \
+             This also overwrites already accepted terms and conditions.
+          nullable: true
+          type: boolean
+        email:
+          description: >-
+            If a value is omitted nothing will change. \
+             If a value is set used to create user and previously set email will
+            be overwritten. \
+              This also overwrites manually changed email from within the app.
+          format: email
+          nullable: true
+          type: string
+        external_id:
+          description:
+            Must be unique, any user with the same `external_id` will be
+            overwritten.
+          type: string
+        first_name:
+          maxLength: 64
+          type: string
+        last_modified:
+          description: >-
+            To avoid request race conditions set `last_modified` of your user
+            based on your internal datasource. \
+             If saved user has newer `last_modified` request is ignored. \
+             Changes from within the app do not have an affect on
+            `last_modified`. \
+
+             By default, the value is set to the moment the request is received.
+          format: date-time
+          nullable: true
+          type: string
+        last_name:
+          maxLength: 64
+          type: string
+        login:
+          allOf:
+            - $ref: "#/components/schemas/ExternalWriteLogin"
+          nullable: true
+        profile:
+          allOf:
+            - $ref: "#/components/schemas/ExternalWriteUserProfile"
+          nullable: true
+        system_role:
+          $ref: "#/components/schemas/ExternalSystemRole"
+        tags:
+          description: >-
+            If you use `memberOf` as a key and a `external_id` of a group as
+            value the user will be added to that group. \
+             If the tag list is empty or null no tags will be added and
+            previously set tags will not be overwritten. \
+             If set used to create tags for user and previously set tags will be
+            overwritten. \
+              Manually added group memberships will not be removed. \
+             \
+             If the role is omitted the default value will be MEMBER and
+            previously set role will not be overwritten \
+             If set used to create tag for user and previously set role will be
+            overwritten. \
+             This also overwrites manually changed roles from within the app.
+          items:
+            $ref: "#/components/schemas/ExternalWriteUserTag"
+          nullable: true
+          type: array
+        username:
+          description: >-
+            Username the user can login with if password login is enabled. \
+             If a user with the given username already exists the existing user
+            is updated. \
+             The given username is lowercased.
+          maxLength: 255
+          type: string
+      required:
+        - external_id
+        - first_name
+        - last_name
+        - system_role
+        - username
+      type: object
+    DeleteUserDTO:
+      description: ExternalDeleteUser
+      properties:
+        external_id:
+          type: string
+        last_modified:
+          description: >-
+            To avoid request race conditions set `last_modified` of your user
+            based on your internal datasource. \
+             If saved user has newer `last_modified` request is ignored. \
+             Changes from within the app do not have an affect on
+            `last_modified`.
+
+             By default, the value is set to the moment the request is received.
+          format: date-time
+          nullable: true
+          type: string
+      required:
+        - external_id
+      type: object
+    ExternalReadUserTag:
+      properties:
+        key:
+          type: string
+        role:
+          allOf:
+            - $ref: "#/components/schemas/ExternalRole"
+          nullable: true
+        value:
+          type: string
+      required:
+        - key
+        - value
+      type: object
+    ExternalWriteUserV2:
+      properties:
+        confirm_terms_and_conditions:
+          allOf:
+            - $ref: "#/components/schemas/TermsAndConditions"
+          nullable: true
+        email:
+          description: >-
+            If a value is omitted nothing will change. \
+             If a value is set used to create user and previously set email will
+            be overwritten. \
+             This also overwrites manually changed email from within the app. \
+             To delete the email pass an empty string.
+          format: email
+          nullable: true
+          type: string
+        enabled:
+          description: >-
+            Boolean flag for enabling and disabling the user. A disabled user
+            cannot login anymore. \
+             If a value is omitted nothing will change. When creating a new user
+            the default value is `true`
+          nullable: true
+          type: boolean
+        external_id:
+          description:
+            Must be unique, any user with the same `external_id` will be
+            overwritten.
+          type: string
+        first_name:
+          maxLength: 64
+          type: string
+        last_modified:
+          description: >-
+            To avoid request race conditions set `last_modified` of your user
+            based on your internal datasource. \
+             If saved user has newer `last_modified` request is ignored. \
+             Changes from within the app do not have an affect on
+            `last_modified`.
+
+             By default, the value is set to the moment the request is received.
+          format: date-time
+          nullable: true
+          type: string
+        last_name:
+          maxLength: 64
+          type: string
+        login:
+          allOf:
+            - $ref: "#/components/schemas/ExternalWriteLogin"
+          nullable: true
+        profile:
+          allOf:
+            - $ref: "#/components/schemas/ExternalWriteUserProfile"
+          nullable: true
+        system_role:
+          $ref: "#/components/schemas/ExternalSystemRole"
+        tags:
+          description: >-
+            If you use `memberOf` as a key and a externalId of a group as value
+            the user will be added to that group. \
+             If the tag list is empty or null no tags will be added and
+            previously set tags will not be overwritten. \
+             If set used to create tags for user and previously set tags will be
+            overwritten. \
+              Manually added group memberships will not be removed. \
+             \
+             If the role is omitted the default value will be MEMBER and
+            previously set role will not be overwritten \
+             If set used to create tag for user and previously set role will be
+            overwritten. \
+             This also overwrites manually changed roles from within the app.
+          items:
+            $ref: "#/components/schemas/ExternalWriteUserTag"
+          nullable: true
+          type: array
+        username:
+          description: >-
+            Username the user can login with if password login is enabled. \
+             If a user with the given username already exists the existing user
+            is updated. \
+             The given username is lowercased.
+          maxLength: 255
+          type: string
+      required:
+        - external_id
+        - first_name
+        - last_name
+        - system_role
+        - username
+      type: object
+    ExternalReadUserGroupMemberships:
+      properties:
+        external_id:
+          description:
+            Identifier defined by external client and used for external updates
+          nullable: true
+          type: string
+        group_memberships:
+          description:
+            "`group_memberships` sent by api client when creating the user"
+          items:
+            $ref: "#/components/schemas/ExternalReadGroupMembership"
+          type: array
+        user_id:
+          description: Internal `user_id`
+          format: uuid
+          type: string
+      required:
+        - group_memberships
+        - user_id
+      type: object
+    TermsAndConditions:
+      description: "If the field is omitted the default value will be false and
+        previously set value will not be overwritten.
+
+        If set used to create user and previously set value will be overwritten.
+
+        This also overwrites already accepted terms and conditions.
+
+
+        - `ASK_ON_NEXT_LOGIN` - user will be asked to confirm when he logs in on
+        the next time
+
+        -`DO_NOT_ASK` - **DEFAULT VALUE** do not ask for confirmation, if user
+        is set to be asked on the next login also remove that
+
+        -`ASK_ON_FIRST_LOGIN` - only ask user when he has never logged into Flip
+        before
+
+        \    "
+      enum:
+        - ASK_ON_NEXT_LOGIN
+        - DO_NOT_ASK
+        - ASK_ON_FIRST_LOGIN
+      type: string
+    ExternalWriteUserGroupMembership:
+      properties:
+        group_external_id:
+          type: string
+        group_role:
+          allOf:
+            - $ref: "#/components/schemas/ExternalRole"
+          nullable: true
+      required:
+        - group_external_id
+      type: object
+    ExternalWriteLoginV3:
+      description:
+        Set the login type. You can set a login through a password and through
+        an identity provider.
+      properties:
+        delete_identity_provider:
+          default: false
+          description:
+            If true current identity provider configured for the user is
+            deleted. The field can also be omitted, if true `identity_provider`
+            must be null or omitted
+          nullable: true
+          type: boolean
+        identity_provider:
+          allOf:
+            - $ref: "#/components/schemas/ExternalWriteIdentityProviderV3"
+          nullable: true
+        password:
+          allOf:
+            - $ref: "#/components/schemas/ExternalWritePasswordV3"
+          nullable: true
+      type: object
+    ExternalWriteUserProfile:
+      description: >-
+        If a value is omitted nothing will change. \
+         If a value is set used to create profile for user and previously set
+        profile fields will be overwritten. \
+         To delete a field pass an empty string. This also overwrites manually
+        changed fields from within the app.
+      properties:
+        about_me_text:
+          nullable: true
+          type: string
+        department:
+          nullable: true
+          type: string
+        job_title:
+          nullable: true
+          type: string
+        location:
+          nullable: true
+          type: string
+        mobile_number:
+          nullable: true
+          type: string
+        phone_number:
+          nullable: true
+          type: string
+      type: object
+    ExternalWriteLogin:
+      description: >-
+        Set the login type. One of them has to be set. \
+         If set used to create login for user and previously set login will be
+        overwritten. This also overwrites manually changed logins from within
+        the app.
+      properties:
+        identity_provider:
+          allOf:
+            - $ref: "#/components/schemas/ExternalWriteIdentityProvider"
+          nullable: true
+        password:
+          allOf:
+            - $ref: "#/components/schemas/ExternalWritePassword"
+          nullable: true
+      type: object
+    ExternalWriteUserTag:
+      properties:
+        key:
+          type: string
+        role:
+          allOf:
+            - $ref: "#/components/schemas/ExternalRole"
+          nullable: true
+        value:
+          type: string
+      required:
+        - key
+        - value
+      type: object
+    ExternalRole:
+      description: >-
+        Member - Can: create posts, edit their own posts, delete their own post,
+        like posts, comment posts \
+         ADMIN - Can create posts, like posts, comment posts, edit their own
+        posts, edit posts by other members, delete their own posts, delete posts
+        by other members.
+      enum:
+        - ADMIN
+        - MEMBER
+      type: string
+    ExternalReadGroupMembership:
+      properties:
+        created_by:
+          $ref: "#/components/schemas/CreatedBy"
+        external_id:
+          nullable: true
+          type: string
+        group_id:
+          format: uuid
+          type: string
+        last_modified_by_sync_api:
+          format: date-time
+          nullable: true
+          type: string
+        role:
+          $ref: "#/components/schemas/ExternalRole"
+      required:
+        - created_by
+        - group_id
+        - role
+      type: object
+    ExternalWriteIdentityProviderV3:
+      properties:
+        alias:
+          description: >-
+            Alias of the configured identity provider provided by Flip.
+
+            If you do not know the identity provider alias ask your internal
+            Flip contact person.
+          type: string
+        user_id:
+          description: Unique ID of the user on the identity provider side.
+          type: string
+        username:
+          description: Username on the identity provider side.
+          type: string
+      required:
+        - alias
+        - user_id
+        - username
+      type: object
+    ExternalWritePasswordV3:
+      properties:
+        password:
+          description: >-
+            The password must comply with the defined password policy. Usually
+            the password must have a length of
+
+            at least 8 characters and must contain a uppercase, a lowercase, a
+            digit and a special character.
+
+            If you do not know the password policy ask your internal Flip
+            contact person.
+          type: string
+        temporary:
+          description: If true user needs to set new password on the next login
+          type: boolean
+      required:
+        - password
+        - temporary
+      type: object
+    ExternalWriteIdentityProvider:
+      properties:
+        identity_provider_id:
+          description:
+            Id of the configured identity provider provided by Flip. If you do
+            not know the identity provider id ask your internal Flip contact
+            person.
+          type: string
+        user_id:
+          description: Unique ID of the user on the identity provider side
+          type: string
+        username:
+          description: Username on the identity provider side
+          type: string
+      required:
+        - identity_provider_id
+        - user_id
+        - username
+      type: object
+    ExternalWritePassword:
+      properties:
+        password:
+          description:
+            The password must comply with the defined password policy. Usually
+            the password must have a length of at least 8 characters and must
+            contain a uppercase, a lowercase, a digit and a special character.
+            If you do not know the password policy ask your internal Flip
+            contact person. The password must comply with the defined password
+            policy. If you do not know the password policy ask your internal
+            Flip contact person.
+          type: string
+        temporary:
+          description: If true user needs to set new password on the next login
+          type: boolean
+      required:
+        - password
+        - temporary
+      type: object
+    CreatedBy:
+      properties:
+        actor_id:
+          nullable: true
+          type: string
+        service:
+          $ref: "#/components/schemas/CreatedByService"
+      required:
+        - service
+      type: object
+    CreatedByService:
+      enum:
+        - APP
+        - KEYCLOAK
+        - SYNC_API
+        - CSV_IMPORT
+      type: string
+  securitySchemes:
+    BearerAuth:
+      bearerFormat: JWT
+      description: >+
+        ### General Setup
+
+
+        For accessing the API you need the following information:
+
+
+        #### DOMAIN
+
+
+        This is the base of the URL of your Flip system - so this is also the
+        URL that the normal users use to access Flip via the UI.
+
+        e.g. `test.flip-app.com`
+
+
+        #### TENANT
+
+
+        The System ID of your Flip system. This information will be provided to
+        you.
+
+        e.g. `mycompany`
+
+
+        #### Client ID
+
+
+        The Client ID is provided by your flip contact person.
+
+
+        #### Secret
+
+
+        The secret is provided by your Flip contact person.
+
+
+        ### How to get an OAuth token
+
+
+        Because we use
+        [Bearer-Auth](https://www.oauth.com/oauth2-servers/making-authenticated-requests/)
+        for our API, you need to set the `Authorization` header with a valid
+        token for all requests to the API. So before making any calls to the API
+        itself, you need to fetch a token.
+
+
+        The authentication is based on OAuth2 using the `grant_type`
+        `client_credentials`. The `client_id` must be set to the Client ID that
+        was provided.
+
+
+        #### Example call for getting a token - make sure to replace all values
+        starting with `$` with your values as mentioned above:
+
+
+        ```bash
+
+        curl -X POST --location
+        "https://$DOMAIN/auth/realms/$TENANT/protocol/openid-connect/token" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+        		-d
+        "grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$SECRET"
+        ```
+
+
+        #### Example response:
+
+
+        ```json
+
+        {
+          <...>
+          "access_token": "eyJhbG<...>",
+          "expires_in": 86400,
+          "token_type": "Bearer",
+          <...>
+        }
+
+        ```
+
+
+        You now need to store the content of the field `access_token` since it
+        will be required as `Authorization` -Header in the following calls to
+        the API. The token has a defined expiration, `expires_in` and can be
+        used until the expiry date. So it is not necessary to get a new token
+        for each call, only if the token expires, then you have to get a new
+        one.
+
+
+        For more information about OAuth and the grant_type client-credentials,
+        see
+        [https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/).
+
+
+        ### Example Call to the API
+
+
+        After you obtained your token in the previous step, you can now use it
+        to make calls to the actual API.
+
+
+        Here is an example for requesting all users, just replace `$DOMAIN` with
+        your domain and `$TOKEN` with the token you obtained from the
+        `access_token` field in your call to get a token:
+
+
+        ```bash
+            curl https://$DOMAIN/api/external/v1/sync/users --header
+        'Authorization: Bearer $TOKEN'
+        ```
+
+      scheme: bearer
+      type: http
+info:
+  description: >-
+    This API specification describes the public Flip-Sync-API that allows
+    customers to perform CRUD-Operations for Users and
+
+    Groups. The API requires a token to be set in the header for each request.
+    The token will be provided by Flip. All write
+
+    requests (POST, DELETE) work in an asynchronous manner. The API caller
+    should expect that modifications are not
+
+    immediately visible. The API will return a HTTP 429 status when reaching the
+    rate limit, which is currently set to 100
+
+    requests per hour.
+
+
+    # Changelog
+
+
+    ## 1.9-beta
+
+    * Add new field `allow_members_to_leave_and_join` to
+    [/api/external/v1/sync/groups](#operation/createOrUpdateMultipleGroups).
+    With this feature, you can set a group to be seen as public/open and allow
+    users to join and leave it.
+
+
+    ## 1.8-beta
+
+    * Add new fields `show_posts_in_newsfeed`, `show_download_button_for_media`
+    and `show_download_button_for_pdf` to
+    [/api/external/v1/sync/groups](#operation/createOrUpdateMultipleGroups). You
+    can use `show_posts_in_newsfeed` to set whether posts from a group should be
+    shown in the newsfeed. With `show_download_button_for_media` and
+    `show_download_button_for_pdf` you can control whether a button to download
+    a PDF document or other file type is displayed.
+
+    * Add new field `login_status`
+    to  [/api/external/sync/v3/users](#operation/getAllUsersV3) and
+    [/api/external/sync/v3/users/{user_external_id}](#operation/getSingleUserByIdV3)
+    to provide the information if a user has already logged into the Flip App.
+    This information will only be available if the extra feature `Never logged
+    in status` is enabled.
+
+
+    ## 1.7-beta
+
+    * Add new query parameter `group_id` to [GET
+    api/external/v2/sync/users/group-memberships](#operation/getAllUserIdsWithGroupMemberships)
+
+    * Add new field `hide_member_list` to
+    [/api/external/v1/sync/groups](#operation/createOrUpdateMultipleGroups), you
+    can forbid users to see other group members.
+
+
+    ## 1.6-beta
+
+    * Add new versions of the endpoints for writing and reading users.
+      * Following endpoints added: [POST
+    /api/external/sync/v3/users](#operation/createOrUpdateMultipleUsersV3), [GET
+    /api/external/sync/v3/users](#operation/getAllUsersV3), [GET
+    /api/external/sync/v3/users/{user_external_id}](#operation/getSingleUserByIdV3)
+      * The endpoints change how group memberships are managed with the new
+    field `group_memberships`.
+      * The endpoints now use the field `tags` to read and write Tags to a user.
+    Those "user tags" can then be used for upcoming features e.g. "Restrict
+    Interactions".
+    * Add new endpoints for rules for "Restrict Interactions":
+    [external-tag-rules](#tag/external-tag-rules).
+
+
+    ## 1.5-beta
+
+    * Add new endpoint
+    [/api/external/v2/users/group-memberships](#operation/getAllUserIdsWithGroupMemberships)
+    to read all group-memberships for all users.
+
+
+    ## 1.4-beta
+
+    * Add new field `enabled` to `ExternalWriteUserV2` for
+    [/api/external/v2/sync/users](#operation/createOrUpdateMultipleUsersV2).
+    This allows to enable or disable a user via the API. If omitted nothing will
+    change since the default for `enabled` is `TRUE`.
+
+
+    ## 1.3-beta
+
+
+    * When using the endpoint
+    [/api/external/v2/sync/users](#operation/createOrUpdateMultipleUsersV2) the
+    email can now be removed from a user using a empty string. Just pass
+    `"email":""` in the JSON body, if an email address exists it will be
+    removed.
+
+
+    ## 1.2-beta
+
+
+    * The
+    [/api/external/v1/sync/groups](#operation/createOrUpdateMultipleGroups)
+    endpoint now has a new optional `group_id`
+      parameter. If there was an internal group (created within the flip app or
+    with the excel import), you can now convert
+      this internal group to an external group (a group with an external ID). In
+    this case, you can send the existing internal
+      group in the field `group_id` in the update request along with the field
+    `external_id`. This value of the field
+      `external_id` will be stored in an existing internal group, which will
+    become the external group.
+
+      Note: if you add the `external_id` to an existing group, you need to add
+    the `memberOf` tag key with the same group `external_id`
+      value when synchronizing external users (check the section
+    [/api/external/v2/sync/users](#operation/createOrUpdateMultipleUsersV2)
+      for more information)
+
+    ## 1.1-beta
+
+
+    * Add new endpoint
+    [/api/external/v2/sync/users](#operation/createOrUpdateMultipleUsersV2)
+      replacing
+    [/api/external/v1/sync/users](#operation/createOrUpdateMultipleUsers) to
+    create and update users. Changes
+      the field `confirm_terms_and_conditions` from a boolean to an enum.
+    `DO_NOT_ASK` is equivalent to `FALSE` in the
+      previous version and `ASK_ON_NEXT_LOGIN` is equivalent to `TRUE`. The new
+    value `ASK_ON_FIRST_LOGIN` can be used to only
+      have users that never logged in have to accept the terms and conditions.
+    For more information see
+      the [endpoint documentation](#operation/createOrUpdateMultipleUsersV2).
+    The previous
+      endpoint
+    [/api/external/v1/sync/users](#operation/createOrUpdateMultipleUsers) is now
+    deprecated.
+
+     # Authentication
+
+     <SecurityDefinitions />
+  title: Public Users- and Groups-Sync-API
+  version: 1.9-beta
+  contact:
+    name: Flip GmbH
+    url: https://flipapp.de
+    email: development@flipapp.de
+openapi: 3.0.1
+paths:
+  /api/external/sync/v1/interaction-rules:
+    get:
+      operationId: getAllRules
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TagRuleReadDTO"
+          description: OK
+      security:
+        - BearerAuth:
+            - TAG_RULE_READ
+      summary: Get all rules
+      tags:
+        - external-sync-tag-rules
+    post:
+      operationId: insertRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalWriteTagRule"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalTagRule"
+          description: OK
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+      security:
+        - BearerAuth:
+            - TAG_RULE_WRITE
+      summary: Create a new rule
+      tags:
+        - external-sync-tag-rules
+  "/api/external/sync/v1/interaction-rules/{rule_id}":
+    delete:
+      operationId: deleteRuleById
+      parameters:
+        - in: path
+          name: rule_id
+          required: true
+          schema:
+            format: uuid
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int32
+                type: integer
+          description: OK
+      security:
+        - BearerAuth:
+            - TAG_RULE_WRITE
+      summary: Delete a rule by rule_id
+      tags:
+        - external-sync-tag-rules
+    put:
+      operationId: updateRuleById
+      parameters:
+        - in: path
+          name: rule_id
+          required: true
+          schema:
+            format: uuid
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalWriteTagRule"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalTagRule"
+          description: OK
+      security:
+        - BearerAuth:
+            - TAG_RULE_WRITE
+      summary: Update a rule by rule_id
+      tags:
+        - external-sync-tag-rules
+  /api/external/sync/v3/users:
+    get:
+      description:
+        Returns a list of users ordered by creation date ascending. The maximum
+        allowed `page_size` is 1000.
+      operationId: getAllUsersV3
+      parameters:
+        - in: query
+          name: page_size
+          schema:
+            default: 100
+            format: int32
+            maximum: 1000
+            minimum: 1
+            nullable: true
+            type: integer
+        - in: query
+          name: page
+          schema:
+            default: 0
+            format: int32
+            minimum: 0
+            nullable: true
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPaginatedUsersV3"
+          description: OK
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - USER_READ
+      summary: Get all existing users (V3)
+      tags:
+        - external-sync-users
+    post:
+      description: >-
+        Create users, when a user exists update it. The maximum allowed `users`
+        size is 1000.
+
+
+        **MIGRATION**: To migrate existing users that where not created with
+        this API set the existing
+
+        users username in the body.
+      operationId: createOrUpdateMultipleUsersV3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalWriteUsersRequestV3"
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalWriteUsersResponseV3"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ExternalWriteUsersResponseV3"
+          description:
+            The request has been accepted and is now processed in the background
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - USER_WRITE
+      summary: Create or update multiple users at once (V3)
+      tags:
+        - external-sync-users
+  "/api/external/sync/v3/users/{user_external_id}":
+    get:
+      description: Get user using externalId
+      operationId: getSingleUserByIdV3
+      parameters:
+        - in: path
+          name: user_external_id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalReadUserV3"
+          description: OK
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - USER_READ
+      summary: Get single user by externalId (V3)
+      tags:
+        - external-sync-users
+  "/api/external/v1/requests/{request_context}":
+    get:
+      description:
+        Reads general information about the status of an asynchronous request
+        that has been made in the past.
+      operationId: getInfoByContext
+      parameters:
+        - in: path
+          name: request_context
+          required: true
+          schema:
+            description:
+              The request context string that was provided when making the
+              operations of interest.
+            required:
+              - "true"
+            type: string
+        - in: query
+          name: since
+          schema:
+            description:
+              Only provide information that dates back to this given point in
+              time.
+            format: date-time
+            nullable: true
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalRequestInfoResponse"
+          description: OK
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - ASYNC_REQUEST_READ
+      summary: Get information of an asynchronous request
+      tags:
+        - external-async-request
+  "/api/external/v1/requests/{request_context}/errors":
+    get:
+      description:
+        Reads a list of all errors that occurred during the execution of some
+        asynchronous request.
+      operationId: getErrorListByContext
+      parameters:
+        - in: path
+          name: request_context
+          required: true
+          schema:
+            description:
+              The request context string that was provided when making the
+              operations of interest.
+            required:
+              - "true"
+            type: string
+        - in: query
+          name: since
+          schema:
+            description:
+              Only provide information that dates back to this given point in
+              time.
+            format: date-time
+            nullable: true
+            type: string
+        - in: query
+          name: cursor
+          schema:
+            description:
+              A cursor object for pagination that was returned by the last page
+              call.
+            nullable: true
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalRequestErrorsResponse"
+          description: OK
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+      security:
+        - BearerAuth:
+            - ASYNC_REQUEST_READ
+      summary: Get errors of an asynchronous request
+      tags:
+        - external-async-request
+  /api/external/v1/sync/groups:
+    get:
+      description:
+        Returns a list of groups ordered by creation date ascending. The maximum
+        allowed `pageSize` is 1000.
+      operationId: getAllGroups
+      parameters:
+        - in: query
+          name: pageSize
+          schema:
+            default: 100
+            description:
+              The maximum number of groups to return in the response for one
+              request.
+            format: int32
+            maximum: 1000
+            nullable: true
+            type: integer
+        - in: query
+          name: page
+          schema:
+            default: 0
+            description:
+              Used for pagination. If the number of groups is larger than the
+              `pageSize` the remaining groups can be fetched by increasing the
+              `page` until the response is an empty list.
+            format: int32
+            nullable: true
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPaginatedGroups"
+          description: OK
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - GROUP_READ
+      summary: Get all existing groups
+      tags:
+        - external-sync-groups
+    post:
+      description: >-
+        Update a group if the group already exists (that means there is already
+        a group with the same `external_id` or `group_id`), otherwise create
+        this group.\
+
+        The maximum allowed `groups` size is 1000.
+      operationId: createOrUpdateMultipleGroups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalWriteGroupsRequest"
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalWriteGroupsResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ExternalWriteGroupsResponse"
+          description:
+            The request has been accepted and is now processed in the background
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - GROUP_WRITE
+      summary: Create or update multiple groups at once
+      tags:
+        - external-sync-groups
+  /api/external/v1/sync/groups/delete:
+    post:
+      description:
+        The maximum allowed groups that can be deleted at once is 1000.
+      operationId: deleteMultipleGroups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeleteGroupsRequest"
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalDeleteGroupsResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ExternalDeleteGroupsResponse"
+          description:
+            The request has been accepted and is now processed in the background
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - GROUP_WRITE
+      summary: Delete multiple groups at once
+      tags:
+        - external-sync-groups
+  "/api/external/v1/sync/groups/{externalId}":
+    get:
+      operationId: getSingleGroupById
+      parameters:
+        - in: path
+          name: externalId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalReadGroup"
+          description: OK
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - GROUP_READ
+      summary: Get single group by externalId
+      tags:
+        - external-sync-groups
+  /api/external/v1/sync/users:
+    get:
+      deprecated: true
+      description:
+        Returns a list of users ordered by creation date ascending. The maximum
+        allowed `pageSize` is 1000.
+      operationId: getAllUsers
+      parameters:
+        - in: query
+          name: pageSize
+          schema:
+            default: 100
+            format: int32
+            maximum: 1000
+            nullable: true
+            type: integer
+        - in: query
+          name: page
+          schema:
+            default: 0
+            format: int32
+            nullable: true
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPaginatedUsers"
+          description: OK
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - USER_READ
+      summary: Get all existing users (V1)
+      tags:
+        - external-sync-users
+    post:
+      deprecated: true
+      description: "Create users, when a user exists update it. The maximum
+        allowed `users` size is 1000. \\
+
+        \ **MIGRATION**: To migrate existing users that where not created with
+        this API set the existing users username in the body.
+
+        \ **DEPRECATED**:
+        use  [/api/external/v2/sync/users](#operation/createOrUpdateMultipleUse\
+        rsV2)
+
+        \        "
+      operationId: createOrUpdateMultipleUsers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalWriteUsersRequest"
+        required: true
+      responses:
+        "202":
+          description:
+            The request has been accepted and is now processed in the background
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - USER_WRITE
+      summary: Create or update multiple users at once (V1)
+      tags:
+        - external-sync-users
+  /api/external/v1/sync/users/delete:
+    post:
+      operationId: deleteMultipleUsers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeleteUsersRequest"
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalDeleteUsersResponse"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ExternalDeleteUsersResponse"
+          description:
+            The request has been accepted and is now processed in the background
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - USER_WRITE
+      summary: Delete multiple users at once using their externalId (V1)
+      tags:
+        - external-sync-users
+  "/api/external/v1/sync/users/{externalId}":
+    get:
+      deprecated: true
+      description: Get user using externalId
+      operationId: getSingleUserById
+      parameters:
+        - in: path
+          name: externalId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalReadUser"
+          description: OK
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - USER_READ
+      summary: Get single user by externalId (V1)
+      tags:
+        - external-sync-users
+  /api/external/v2/sync/users:
+    post:
+      deprecated: true
+      description: >-
+        Create users, when a user exists update it. The maximum allowed `users`
+        size is 1000. \
+         **MIGRATION**: To migrate existing users that where not created with
+        this API set the existing users username in the body.
+      operationId: createOrUpdateMultipleUsersV2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalWriteUsersRequestV2"
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalWriteUsersResponseV2"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ExternalWriteUsersResponseV2"
+          description:
+            The request has been accepted and is now processed in the background
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - USER_WRITE
+      summary: Create or update multiple users at once (V2)
+      tags:
+        - external-sync-users
+  /api/external/v2/sync/users/group-memberships:
+    get:
+      description:
+        Returns a list of userIds with group memberships ordered by last
+        modified date ascending. The maximum allowed `pageSize` is 1000.
+      operationId: getAllUserIdsWithGroupMemberships
+      parameters:
+        - in: query
+          name: pageSize
+          schema:
+            default: 100
+            format: int32
+            maximum: 1000
+            nullable: true
+            type: integer
+        - in: query
+          name: page
+          schema:
+            default: 0
+            format: int32
+            nullable: true
+            type: integer
+        - description:
+            Filters users that are in a group with this `group_id` (or one of
+            the groups for multiple groups). This query parameter can be
+            repeated to include multiple groups.
+          in: query
+          name: group_id
+          schema:
+            format: uuid
+            nullable: true
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalPaginatedUsersGroupMemberships"
+          description: OK
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The request has either a malformed body or the the parameters are
+            incorrectly set
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The token is invalid or expired
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description:
+            The token is missing the required scope to view or modify resource
+        "429":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The rate limit was reached
+      security:
+        - BearerAuth:
+            - USER_READ
+      summary: Get group memberships for all existing users (V2)
+      tags:
+        - external-sync-users
+security:
+  - BearerAuth: []

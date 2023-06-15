@@ -15,9 +15,12 @@ describe("swirl-pagination", () => {
           <nav aria-label="Pagination" class="pagination pagination--variant-default">
             <ul class="pagination__list" part="pagination__list">
               <li class="pagination__list-item">
-                <swirl-button class="pagination__prev-button" swirlarialabel="Previous page" hidelabel="" icon="<swirl-icon-chevron-left></swirl-icon-chevron-left>" intent="primary" label="Prev"></swirl-button>
+                <swirl-button class="pagination__first-page-button" hidelabel="" icon="<swirl-icon-double-arrow-left></swirl-icon-double-arrow-left>" intent="primary" label="First page"></swirl-button>
               </li>
               <li class="pagination__list-item">
+                <swirl-button class="pagination__prev-button" hidelabel="" icon="<swirl-icon-chevron-left></swirl-icon-chevron-left>" intent="primary" label="Previous page"></swirl-button>
+              </li>
+              <li class="pagination__list-item pagination__page-label">
                 <span>
                   <span aria-current="page">
                     2 out of 20
@@ -25,7 +28,10 @@ describe("swirl-pagination", () => {
                 </span>
               </li>
               <li class="pagination__list-item">
-                <swirl-button class="pagination__next-button" swirlarialabel="Next page" hidelabel="" icon="<swirl-icon-chevron-right></swirl-icon-chevron-right>" iconposition="end" intent="primary" label="Next"></swirl-button>
+                <swirl-button class="pagination__next-button" hidelabel="" icon="<swirl-icon-chevron-right></swirl-icon-chevron-right>" iconposition="end" intent="primary" label="Next page"></swirl-button>
+              </li>
+              <li class="pagination__list-item">
+                <swirl-button class="pagination__last-page-button" hidelabel="" icon="<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>" intent="primary" label="Last page"></swirl-button>
               </li>
             </ul>
           </nav>
@@ -64,8 +70,8 @@ describe("swirl-pagination", () => {
 
     const spy = jest.fn();
 
-    const pageSelect = page.root.shadowRoot.querySelector<HTMLSelectElement>(
-      ".pagination__page-select"
+    const pageSelect = page.root.shadowRoot.querySelector<HTMLInputElement>(
+      ".pagination__page-input"
     );
 
     const prevButton =
@@ -87,7 +93,30 @@ describe("swirl-pagination", () => {
     expect(spy.mock.calls[1][0].detail).toBe(1);
 
     pageSelect.value = "5";
-    pageSelect.dispatchEvent(new Event("change"));
+    pageSelect.dispatchEvent(new Event("input"));
+
+    // wait for debounce
+    await new Promise((resolve) => setTimeout(resolve, 600));
     expect(spy.mock.calls[2][0].detail).toBe(5);
+  });
+
+  it("fires setPageSize events", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPagination],
+      html: `<swirl-pagination label="Pagination" page="2" pages="20" show-page-size-select variant="advanced"></swirl-pagination>`,
+    });
+
+    const spy = jest.fn();
+
+    const pageSizeSelect =
+      page.root.shadowRoot.querySelector<HTMLSelectElement>(
+        ".pagination__page-size-select"
+      );
+
+    page.root.addEventListener("setPageSize", spy);
+
+    pageSizeSelect.value = "50";
+    pageSizeSelect.dispatchEvent(new Event("change"));
+    expect(spy.mock.calls[0][0].detail).toBe(50);
   });
 });

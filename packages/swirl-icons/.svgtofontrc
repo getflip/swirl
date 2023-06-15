@@ -1,9 +1,0 @@
-{
-  "css": true,
-  "dist": "./dist",
-  "emptyDist": true,
-  "fontName": "swirl-icons",
-  "outSVGPath": false,
-  "outSVGReact": false,
-  "src": "./icons"
-}

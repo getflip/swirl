@@ -18,24 +18,21 @@ describe("swirl-resource-list-item", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-resource-list-item description="Description" label="Label" role="row">
-        <mock:shadow-root>
-          <div class="resource-list-item" role="gridcell">
-            <button aria-labelledby="label" class="resource-list-item__content" part="resource-list-item__content"  tabindex="0">
-              <span class="resource-list-item__media">
-                <slot name="media"></slot>
+        <div class="resource-list-item resource-list-item--label-weight-medium" role="gridcell">
+          <button aria-labelledby="label" class="resource-list-item__content" part="resource-list-item__content"  tabindex="0">
+            <span class="resource-list-item__media">
+              <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>
+            </span>
+            <span class="resource-list-item__label-container">
+              <span class="resource-list-item__label" id="label">
+                Label
               </span>
-              <span class="resource-list-item__label-container">
-                <span class="resource-list-item__label" id="label">
-                  Label
-                </span>
-                <span class="resource-list-item__description">
-                  Description
-                </span>
+              <span class="resource-list-item__description">
+                Description
               </span>
-            </button>
-          </div>
-        </mock:shadow-root>
-        <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>
+            </span>
+          </button>
+        </div>
       </swirl-resource-list-item>
     `);
   });
@@ -48,9 +45,7 @@ describe("swirl-resource-list-item", () => {
       `,
     });
 
-    const element = page.root.shadowRoot.querySelector(
-      ".resource-list-item__content"
-    );
+    const element = page.root.querySelector(".resource-list-item__content");
 
     expect(element.tagName).toBe("A");
     expect(element.getAttribute("href")).toBe("#");
@@ -68,7 +63,7 @@ describe("swirl-resource-list-item", () => {
 
     page.root.addEventListener("valueChange", spy);
 
-    const element = page.root.shadowRoot.querySelector(
+    const element = page.root.querySelector(
       ".resource-list-item__content"
     ) as HTMLElement;
 
@@ -94,9 +89,7 @@ describe("swirl-resource-list-item", () => {
       `,
     });
 
-    expect(
-      page.root.shadowRoot.querySelector(".resource-list-item__meta")
-    ).not.toBeNull();
+    expect(page.root.querySelector(".resource-list-item__meta")).not.toBeNull();
   });
 
   it("renders a menu trigger", async () => {
@@ -108,7 +101,32 @@ describe("swirl-resource-list-item", () => {
     });
 
     expect(
-      page.root.shadowRoot.querySelector(".resource-list-item__menu-trigger")
+      page.root.querySelector(".resource-list-item__menu-trigger")
     ).not.toBeNull();
+  });
+
+  it("can be draggable", async () => {
+    const page = await newSpecPage({
+      components: [SwirlResourceListItem],
+      html: `<swirl-resource-list-item allow-drag="true" label="Resource List Item"></swirl-resource-list-item>`,
+    });
+
+    const spy = jest.fn();
+
+    const dragHandle = page.root.querySelector(
+      ".resource-list-item__drag-handle"
+    );
+
+    page.root.addEventListener("toggleDrag", spy);
+
+    dragHandle.dispatchEvent(new KeyboardEvent("keydown", { code: "Space" }));
+
+    expect(
+      page.root
+        .querySelector(".resource-list-item__drag-handle")
+        .getAttribute("aria-label")
+    ).toBe('Move item "Resource List Item"');
+
+    expect(spy).toHaveBeenCalled();
   });
 });

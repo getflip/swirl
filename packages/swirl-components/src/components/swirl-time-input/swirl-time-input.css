@@ -1,0 +1,71 @@
+:host {
+  display: flex;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.time-input {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: var(--s-text-default);
+  line-height: var(--s-line-height-sm);
+}
+
+.time-input--inline {
+  & .time-input__icon {
+    top: -0.0625rem;
+
+    @media (--from-desktop-without-touch) {
+      top: 0;
+    }
+  }
+}
+
+.time-input__input {
+  display: inline-flex;
+  width: calc(100% - 1.25rem - var(--s-space-8));
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: var(--s-text-default);
+  background-color: transparent;
+  font: inherit;
+  font-size: var(--s-font-size-base);
+  line-height: var(--s-line-height-base);
+  caret-color: var(--s-border-highlight);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    color: var(--s-text-disabled);
+    background-color: transparent;
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}
+
+.time-input__icon {
+  position: absolute;
+  top: calc(-1 * var(--s-space-12));
+  right: 0;
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: var(--s-icon-default);
+  background-color: transparent;
+
+  @media (--from-desktop-without-touch) {
+    top: -0.625rem;
+  }
+}

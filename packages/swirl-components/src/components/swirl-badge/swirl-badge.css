@@ -33,6 +33,7 @@
   }
 
   & .badge__icon {
+    & > swirl-icon,
     & > *::part(icon) {
       width: 0.75rem;
       height: 0.75rem;
@@ -114,6 +115,7 @@
 .badge__icon {
   display: inline-flex;
 
+  & > swirl-icon,
   & > *::part(icon) {
     width: 1rem;
     height: 1rem;

@@ -10,6 +10,8 @@ import {
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
 
+export type SwirlSearchVariant = "filled" | "outline";
+
 @Component({
   /**
    * Form controls in shadow dom can still not be associated with labels in the
@@ -31,9 +33,11 @@ export class SwirlSearch {
   @Prop() label?: string;
   @Prop() placeholder?: string = "Search …";
   @Prop({ mutable: true }) value?: string;
+  @Prop() variant?: SwirlSearchVariant = "filled";
 
   @Event() inputBlur: EventEmitter<FocusEvent>;
   @Event() inputFocus: EventEmitter<FocusEvent>;
+  @Event() inputInput: EventEmitter<string>;
   @Event() valueChange: EventEmitter<string>;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
@@ -43,10 +47,7 @@ export class SwirlSearch {
   componentDidLoad() {
     this.forceIconProps(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.addEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
   }
 
   disconnectedCallback() {
@@ -83,6 +84,7 @@ export class SwirlSearch {
   private clear = () => {
     this.input.value = "";
     this.input.focus();
+    this.valueChange.emit("");
   };
 
   private onBlur = (event: FocusEvent) => {
@@ -97,8 +99,12 @@ export class SwirlSearch {
     this.inputFocus.emit(event);
   };
 
+  private onInput = (event: Event) => {
+    this.inputInput.emit((event.target as HTMLInputElement).value);
+  };
+
   render() {
-    const className = classnames("search", {
+    const className = classnames("search", `search--variant-${this.variant}`, {
       "search--disabled": this.disabled,
     });
 
@@ -119,6 +125,7 @@ export class SwirlSearch {
             onBlur={this.onBlur}
             onChange={this.onChange}
             onFocus={this.onFocus}
+            onInput={this.onInput}
             placeholder={this.placeholder}
             ref={(el) => (this.input = el)}
             type="search"

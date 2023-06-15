@@ -1,0 +1,47 @@
+import {
+  Controls,
+  Canvas,
+  Meta,
+  Story,
+  IconGallery,
+  IconItem,
+  Source,
+} from "@storybook/addon-docs";
+import * as Stories from "./swirl-symbol.stories";
+import SymbolsJSON from "../../../symbols.json";
+
+<Meta title="Components/SwirlSymbol" />
+
+# SwirlSymbol
+
+Symbols are user selectable glyphs used to represent resources like menu items.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-symbol)**
+
+## Usage
+
+<Canvas of={Stories.SwirlSymbol} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlSymbol} />
+
+## Alternative usage
+
+Each symbol also comes with its own component, used via
+`<swirl-symbol-*></swirl-symbol-*>`. E.g.:
+
+<Source code={"<swirl-symbol-cloud></swirl-symbol-cloud>"} />
+
+## Symbol overview
+
+<IconGallery>
+  {Object.values(SymbolsJSON).map((symbol) => (
+    <IconItem key={symbol.id} name={symbol.name}>
+      <swirl-symbol glyph={symbol.name} />
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Theming
+
+All symbol components use the text color of its parent elements by using the
+`currentColor` fill value.

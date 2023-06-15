@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - packages/swirl-components/**/*
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+    paths:
+      - packages/swirl-components/**/*
 
 jobs:
   build_and_deploy_job:

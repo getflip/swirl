@@ -102,7 +102,7 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
       {isOpen && (
         <FloatingFocusManager context={context} modal={false}>
           <div
-            className="Popover w-full border border-border-default rounded-b-border-radius-sm"
+            className="Popover w-full border border-border-default rounded-b-border-radius-sm overflow-hidden"
             ref={floating}
             style={{
               position: strategy,

@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-toast.stories";
 
 <Meta title="Components/SwirlToast" />
 
@@ -12,11 +13,9 @@ action has taken place.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirltoast--swirl-toast" />
-</Canvas>
+<Canvas of={Stories.SwirlToast} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlToast} />
 
 ## Theming
 
@@ -31,5 +30,5 @@ action has taken place.
 ## Accessibility
 
 Please refer to the
-[ToastProvider](?path=/docs/components-swirltoastprovider--swirl-toast-provider)
-component for information on how to use the SwirlToasts in an accessible way.
+[ToastProvider](?path=/docs/components-swirltoastprovider--docs) component for
+information on how to use the SwirlToasts in an accessible way.

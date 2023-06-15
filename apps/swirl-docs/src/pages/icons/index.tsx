@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import IconGrid from "src/components/Icons/IconGrid";
 import IconInfo from "src/components/Icons/IconInfo";
 import SearchBar from "src/components/Icons/SearchBar";
-import { CategoryNav } from "src/components/Layout/CategoryNav";
+import Footer from "src/components/Layout/Footer";
 import { DesktopView } from "src/components/View/Views";
 
 type Usage = "app" | "admin";
@@ -49,9 +49,8 @@ const IconsIndex = () => {
       <Head>
         <title>Swirl | Icons</title>
       </Head>
-      <div className="flex">
-        <CategoryNav categoryLinkList={iconsNavItems} />
-        <main id="main" className="w-full h-full mt-14">
+      <div className="overflow-auto">
+        <main id="main" className="w-full h-full pt-14">
           <section className="flex flex-col px-4 md:px-24">
             <div className="mb-16">
               <h1 className="mb-4 font-bold text-4xl text-text-default">
@@ -83,6 +82,7 @@ const IconsIndex = () => {
           </section>
         </main>
       </div>
+      <Footer />
     </>
   );
 };

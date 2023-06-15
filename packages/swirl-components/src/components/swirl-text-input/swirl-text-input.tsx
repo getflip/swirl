@@ -45,6 +45,7 @@ export type SwirlTextInputMode =
 export class SwirlTextInput implements SwirlFormInput {
   @Prop() autoComplete?: string = "on";
   @Prop() autoFocus?: boolean;
+  @Prop() autoGrow?: boolean;
   @Prop() autoSelect?: boolean;
   @Prop() clearable?: boolean;
   @Prop() clearButtonLabel?: string = "Clear input";
@@ -61,6 +62,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() max?: number;
   @Prop() min?: number;
   @Prop() mode?: SwirlTextInputMode;
+  @Prop() placeholder?: string;
   @Prop() prefixLabel?: string;
   @Prop() required?: boolean;
   @Prop() rows?: number = 1;
@@ -85,10 +87,7 @@ export class SwirlTextInput implements SwirlFormInput {
   componentDidLoad() {
     this.updateIconSize(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.addEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
   }
 
   componentDidRender() {
@@ -111,17 +110,23 @@ export class SwirlTextInput implements SwirlFormInput {
   }
 
   private adjustInputSize() {
-    if (this.rows > 1) {
+    if (this.rows > 1 || this.autoGrow) {
       this.inputEl.style.width = "";
       this.inputEl.style.height = "";
-      this.inputEl.style.height = this.inputEl.scrollHeight / 16 + "rem";
+      this.inputEl.style.height = Boolean(this.inputEl.scrollHeight)
+        ? this.inputEl.scrollHeight / 16 + "rem"
+        : "";
     }
 
-    if (this.rows === 1) {
+    if (this.rows === 1 && !this.autoGrow) {
       this.inputEl.style.height = "";
       this.inputEl.style.width = "";
 
-      if (this.type !== "password" && !this.disableDynamicWidth) {
+      if (
+        this.type !== "password" &&
+        !this.disableDynamicWidth &&
+        !Boolean(this.placeholder)
+      ) {
         this.inputEl.style.width = this.inputEl.scrollWidth / 16 + "rem";
       }
     }
@@ -214,7 +219,7 @@ export class SwirlTextInput implements SwirlFormInput {
   };
 
   render() {
-    const Tag = this.rows === 1 ? "input" : "textarea";
+    const Tag = this.rows === 1 && !this.autoGrow ? "input" : "textarea";
 
     const ariaInvalid =
       this.invalid === true || this.invalid === false
@@ -239,9 +244,12 @@ export class SwirlTextInput implements SwirlFormInput {
       "text-input",
       `text-input--type-${this.type}`,
       {
+        "text-input--auto-grow": this.autoGrow,
         "text-input--clearable": this.clearable,
         "text-input--disabled": this.disabled,
-        "text-input--disable-dynamic-width": this.disableDynamicWidth,
+        "text-input--disable-dynamic-width":
+          this.disableDynamicWidth || Boolean(this.placeholder),
+        "text-input--has-suffix": Boolean(this.suffixLabel),
         "text-input--inline": this.inline,
         "text-input--show-password":
           this.type === "password" && this.showPassword,
@@ -273,14 +281,17 @@ export class SwirlTextInput implements SwirlFormInput {
             onFocus={this.onFocus}
             onInput={this.onInput}
             onKeyPress={this.onKeyPress}
+            placeholder={
+              !Boolean(this.suffixLabel) ? this.placeholder : undefined
+            }
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             role={this.swirlRole}
-            rows={this.rows > 1 ? this.rows : undefined}
+            rows={this.rows > 1 ? this.rows : this.autoGrow ? 1 : undefined}
             spellcheck={this.spellCheck}
             step={this.type === "number" ? this.step : undefined}
             type={type}
-            value={this.rows === 1 ? this.value : undefined}
+            value={this.value}
           >
             {this.rows > 1 && this.value}
           </Tag>
@@ -292,6 +303,7 @@ export class SwirlTextInput implements SwirlFormInput {
               aria-label={this.clearButtonLabel}
               class="text-input__clear-button"
               onClick={this.clear}
+              part="text-input__clear-button"
               type="button"
             >
               <swirl-icon-cancel size={this.iconSize}></swirl-icon-cancel>

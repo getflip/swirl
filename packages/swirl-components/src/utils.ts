@@ -56,7 +56,7 @@ export function debounce(
   func: Function,
   wait: number,
   immediate: boolean = false
-) {
+): any {
   let timeout: NodeJS.Timeout;
 
   return async function executedFunction() {
@@ -174,6 +174,26 @@ export function getVisibleHeight(element: HTMLElement, container: HTMLElement) {
 
 export function isMobileViewport() {
   return !window.matchMedia("(min-width: 768px)").matches;
+}
+
+export function parentsPassShadow(node, selector, matches = []) {
+  if (!node) {
+    return matches;
+  }
+
+  if (node instanceof ShadowRoot) {
+    return parentsPassShadow(node.host, selector, matches);
+  }
+
+  if (node instanceof HTMLElement) {
+    if (node.matches(selector)) {
+      return parentsPassShadow(node.parentNode, selector, [...matches, node]);
+    } else {
+      return parentsPassShadow(node.parentNode, selector, matches);
+    }
+  }
+
+  return parentsPassShadow(node.parentNode, selector, matches);
 }
 
 export function querySelectorAllDeep<TargetType extends Element = HTMLElement>(

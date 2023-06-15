@@ -3,6 +3,7 @@ import Docs from "./swirl-search.mdx";
 
 export default {
   component: "swirl-search",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
@@ -13,6 +14,10 @@ export default {
 
 const Template = (args) => {
   const element = generateStoryElement("swirl-search", args);
+
+  element.addEventListener("inputInput", (event) => {
+    console.log(event);
+  });
 
   return element;
 };

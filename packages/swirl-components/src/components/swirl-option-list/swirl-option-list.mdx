@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-option-list.stories";
 
 <Meta title="Components/SwirlOptionList" />
 
@@ -6,18 +7,16 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 
 The SwirlOptionList component is used to provide a list of user-selectable
 items. It should be used in combination with the
-[SwirlPopover component](?path=/docs/components-swirlpopover--swirl-popover).
+[SwirlPopover component](?path=/docs/components-swirlpopover--docs).
 
 - **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components?node-id=448%3A6840)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-option-list)**
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirloptionlist--swirl-option-list" />
-</Canvas>
+<Canvas of={Stories.SwirlOptionList} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlOptionList} />
 
 ## Theming
 

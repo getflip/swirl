@@ -1,4 +1,5 @@
 import { CategoryEnum, NavItem } from "../navigation.model";
+import { apiDocsNavItems } from "./apiDocs.data";
 import { componentsNavItems } from "./components.data";
 import { tokensNavItems } from "./tokens.data";
 
@@ -30,5 +31,13 @@ export const navItems: NavItem[] = [
     isRoot: true,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
+  },
+  {
+    title: "APIs and References",
+    url: "/api-docs",
+    isRoot: true,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
+    children: apiDocsNavItems,
   },
 ];

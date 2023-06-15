@@ -19,7 +19,7 @@ describe("swirl-button", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-button disabled="true" icon="<swirl-icon-close></swirl-icon-close>" intent="critical" label="Label" pill="true" size="l" type="submit" variant="flat">
+      <swirl-button disabled="true" icon="<swirl-icon-close></swirl-icon-close>" intent="critical" label="Label" pill="true" size="l" type="submit" variant="flat" style="pointer-events: none;">
         <button aria-disabled="true" class="button button--pill button--icon-position-start button--intent-critical button--size-l button--variant-flat" disabled="" type="submit">
           <span class="button__icon">
             <swirl-icon-close size="24"></swirl-icon-close>

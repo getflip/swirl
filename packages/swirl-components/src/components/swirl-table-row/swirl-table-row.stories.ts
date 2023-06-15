@@ -3,6 +3,7 @@ import Docs from "./swirl-table-row.mdx";
 
 export default {
   component: "swirl-table-row",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

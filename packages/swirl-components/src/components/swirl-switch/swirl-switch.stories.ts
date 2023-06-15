@@ -3,6 +3,7 @@ import Docs from "./swirl-switch.mdx";
 
 export default {
   component: "swirl-switch",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

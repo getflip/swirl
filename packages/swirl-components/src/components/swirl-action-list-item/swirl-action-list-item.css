@@ -93,6 +93,7 @@
   display: inline-flex;
   min-width: 0;
   flex-grow: 1;
+  flex-shrink: 1;
   align-items: flex-start;
   flex-direction: column;
 }
@@ -107,6 +108,18 @@
 
 .action-list-item__description {
   color: var(--s-text-subdued);
+}
+
+.action-list-item__badge {
+  overflow: hidden;
+  min-width: 4rem;
+  padding-left: var(--s-space-8);
+  flex-shrink: 3;
+  color: var(--s-text-subdued);
+  font-weight: var(--s-font-weight-medium);
+  text-align: right;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .action-list-item__suffix {

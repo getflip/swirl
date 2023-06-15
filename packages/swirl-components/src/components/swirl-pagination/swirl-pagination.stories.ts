@@ -3,6 +3,7 @@ import Docs from "./swirl-pagination.mdx";
 
 export default {
   component: "swirl-pagination",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

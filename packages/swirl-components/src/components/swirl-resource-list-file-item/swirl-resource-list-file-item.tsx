@@ -3,7 +3,8 @@ import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
 
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "swirl-resource-list-file-item.css",
   tag: "swirl-resource-list-file-item",
 })
@@ -24,10 +25,7 @@ export class SwirlResourceListFileItem {
   componentDidLoad() {
     this.forceIconProps(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.addEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
   }
 
   disconnectedCallback() {

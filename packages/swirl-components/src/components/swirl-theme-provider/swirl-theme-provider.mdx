@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-theme-provider.stories";
 
 <Meta title="Components/SwirlThemeProvider" />
 
@@ -13,8 +14,6 @@ colors can be set.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlthemeprovider--swirl-theme-provider" />
-</Canvas>
+<Canvas of={Stories.SwirlThemeProvider} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlThemeProvider} />

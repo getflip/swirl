@@ -7,14 +7,12 @@ import { generateDocumentPath } from "@swirl/lib/navigation";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import sectionize from "remark-sectionize";
-import { DocumentationCategory } from "./docs.model";
+import { ApiDocumentation, DocumentationCategory } from "./docs.model";
 
 export async function generateMdxFromDocumentation(
   category: DocumentationCategory,
   document: string
-): Promise<
-  MDXRemoteSerializeResult<Record<string, unknown>, Record<string, string>>
-> {
+): Promise<MDXRemoteSerializeResult> {
   const source = fs.readFileSync(
     generateDocumentPath(category, document),
     "utf8"

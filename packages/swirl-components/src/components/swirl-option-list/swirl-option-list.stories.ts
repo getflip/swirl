@@ -3,6 +3,7 @@ import Docs from "./swirl-option-list.mdx";
 
 export default {
   component: "swirl-option-list",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
@@ -19,7 +20,7 @@ const Template = (args) => {
     <swirl-option-list-item label="This is option 2" value="2"></swirl-option-list-item>
     <swirl-option-list-item label="This is option 3" value="3"></swirl-option-list-item>
     <swirl-option-list-item label="This is option 4" value="4"></swirl-option-list-item>
-`;
+  `;
 
   return element;
 };

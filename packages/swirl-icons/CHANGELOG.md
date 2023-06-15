@@ -1,5 +1,49 @@
 # @getflip/swirl-icons
 
+## 0.18.0
+
+### Minor Changes
+
+- [#297](https://github.com/getflip/swirl/pull/297)
+  [`d14251d`](https://github.com/getflip/swirl/commit/d14251dc1c599000333f99c135e67c9c9d729ad4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-symbol component(s)
+
+## 0.17.0
+
+### Minor Changes
+
+- [`d2cf484`](https://github.com/getflip/swirl/commit/d2cf484151a62ebb2c8fd4c758a0fa63f9fa3512)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icons
+
+## 0.16.0
+
+### Minor Changes
+
+- [`ff58993`](https://github.com/getflip/swirl/commit/ff58993d4500513c710e1b7a2fe5214ad2dc7d2c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icons
+
+## 0.15.0
+
+### Minor Changes
+
+- [`ab6c43c`](https://github.com/getflip/swirl/commit/ab6c43cfe8db40e5d4a583d21d46f331fbb10059)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add user status icons
+
+## 0.14.0
+
+### Minor Changes
+
+- [#237](https://github.com/getflip/swirl/pull/237)
+  [`5c67566`](https://github.com/getflip/swirl/commit/5c67566c99507550faee849a1ac6f2fd0f1629ec)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add Flip legacy icons
+
+## 0.13.0
+
+### Minor Changes
+
+- [`786f761`](https://github.com/getflip/swirl/commit/786f7619a35469377c6a0ad2529af0f6226684f3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add some icons
+
 ## 0.12.0
 
 ### Minor Changes

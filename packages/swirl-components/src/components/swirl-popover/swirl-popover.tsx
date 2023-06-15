@@ -43,11 +43,13 @@ export class SwirlPopover {
   @Prop() animation?: SwirlPopoverAnimation = "scale-in-xy";
   @Prop() disableScrollLock?: boolean;
   @Prop() enableFlip?: boolean = true;
+  @Prop() fullscreenBottomSheet?: boolean;
   @Prop() label!: string;
+  @Prop() maxHeight?: string = "22rem";
   @Prop() offset?: number | number[] = 8;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() popoverId!: string;
-  @Prop() trigger!: string;
+  @Prop() trigger!: string | HTMLElement;
   @Prop() useContainerWidth?: boolean | string;
 
   @State() active = false;
@@ -55,7 +57,7 @@ export class SwirlPopover {
   @State() position: ComputePositionReturn;
 
   @Event() popoverClose: EventEmitter<void>;
-  @Event() popoverOpen: EventEmitter<void>;
+  @Event() popoverOpen: EventEmitter<{ position: ComputePositionReturn }>;
 
   private contentContainer: HTMLDivElement;
   private disableAutoUpdate: any;
@@ -79,11 +81,20 @@ export class SwirlPopover {
       return;
     }
 
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     const target = event.target as HTMLElement;
+    const relatedTarget = event.relatedTarget as HTMLElement;
     const activeElement = getActiveElement();
 
     const popoverLostFocus =
-      !this.el.contains(target) && !this.el.contains(activeElement);
+      !this.el.contains(target) &&
+      !this.el.contains(activeElement) &&
+      target !== this.triggerEl &&
+      !this.triggerEl.contains(target) &&
+      (!isSafari ||
+        (isSafari &&
+          !this.el.contains(relatedTarget || target) &&
+          relatedTarget !== this.el));
 
     if (popoverLostFocus) {
       this.close();
@@ -157,13 +168,14 @@ export class SwirlPopover {
     this.adjustWidth();
 
     this.active = true;
-    this.popoverOpen.emit();
 
     this.updateFocusableChildren();
     this.updateTriggerAttributes();
 
     requestAnimationFrame(async () => {
       await this.reposition();
+
+      this.popoverOpen.emit({ position: this.position });
 
       if (this.focusableChildren.length > 0) {
         this.focusableChildren[0].focus();
@@ -197,7 +209,10 @@ export class SwirlPopover {
   };
 
   private connectTrigger() {
-    this.triggerEl = querySelectorAllDeep(document.body, `#${this.trigger}`)[0];
+    this.triggerEl =
+      typeof this.trigger === "string"
+        ? querySelectorAllDeep(document.body, `#${this.trigger}`)[0]
+        : this.trigger;
 
     if (!Boolean(this.triggerEl)) {
       return;
@@ -325,12 +340,16 @@ export class SwirlPopover {
   };
 
   render() {
+    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+
     const className = classnames(
       "popover",
       `popover--animation-${this.animation}`,
+      `popover--placement-${this.position?.placement}`,
       {
         "popover--closing": this.closing,
         "popover--active": this.active,
+        "popover--fullscreen-bottom-sheet": this.fullscreenBottomSheet,
         "popover--inactive": !this.active,
       }
     );
@@ -342,6 +361,7 @@ export class SwirlPopover {
             aria-hidden={!this.active ? "true" : "false"}
             aria-label={this.label}
             class="popover__content"
+            part="popover__content"
             role="dialog"
             ref={(el) => (this.contentContainer = el)}
             style={{
@@ -354,6 +374,12 @@ export class SwirlPopover {
             <div
               class="popover__scroll-container"
               ref={(el) => (this.scrollContainer = el)}
+              style={{
+                maxHeight:
+                  !mobile && Boolean(this.maxHeight)
+                    ? this.maxHeight
+                    : undefined,
+              }}
             >
               <slot></slot>
             </div>

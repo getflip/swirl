@@ -26,15 +26,30 @@
 .console-layout--sidebar-active {
   & .console-layout__sidebar {
     @media (--to-tablet) {
-      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.06);
       transform: translate3d(0, 0, 0);
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.06);
+    }
+  }
+}
+
+.console-layout--empty-app-bar {
+  & .console-layout__main {
+    @media (--from-tablet) {
+      grid-template-areas: "content";
+      grid-template-rows: 1fr;
+    }
+  }
+
+  & .console-layout__app-bar {
+    @media (--from-tablet) {
+      display: none;
     }
   }
 }
 
 .console-layout__sidebar {
   position: fixed;
-  z-index: 1;
+  z-index: var(--s-z-30);
   top: 4rem;
   bottom: 0;
   left: 0;
@@ -110,7 +125,7 @@
 
 .console-layout__app-bar {
   position: sticky;
-  z-index: 1;
+  z-index: var(--s-z-30);
   top: 0;
   display: flex;
   min-width: 0;
@@ -152,6 +167,7 @@
 
 .console-layout__content {
   display: flex;
+  min-width: 0;
   padding: var(--s-space-16);
   background-color: var(--s-background-default);
   flex-direction: column;
@@ -160,10 +176,6 @@
   @media (--from-tablet) {
     padding: 2.5rem;
   }
-}
-
-.console-layout__content-header {
-  flex-shrink: 0;
 }
 
 .console-layout__integration {
@@ -193,7 +205,8 @@
 
 .console-layout__content-header {
   display: flex;
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--s-space-24);
+  flex-shrink: 0;
   gap: var(--s-space-16);
 }
 
@@ -203,6 +216,15 @@
   flex-shrink: 0;
 }
 
+.console-layout__heading-container {
+  flex-grow: 1;
+}
+
 .console-layout__subheading {
   margin-top: var(--s-space-8);
+}
+
+.console-layout__content-header-tools {
+  display: flex;
+  flex-shrink: 0;
 }

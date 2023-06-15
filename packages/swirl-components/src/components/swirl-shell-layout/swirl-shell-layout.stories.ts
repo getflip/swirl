@@ -3,6 +3,7 @@ import Docs from "./swirl-shell-layout.mdx";
 
 export default {
   component: "swirl-shell-layout",
+  tags: ["autodocs"],
   decorators: [fullscreenStoryDecorator(false)],
   parameters: {
     docs: {
@@ -14,7 +15,10 @@ export default {
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("swirl-shell-layout", args);
+  const element = generateStoryElement(
+    "swirl-shell-layout",
+    args
+  ) as HTMLSwirlShellLayoutElement;
 
   element.innerHTML = `
     <div slot="logo-expanded">
@@ -31,33 +35,51 @@ const Template = (args) => {
       </svg>
     </div>
     <div slot="logo-collapsed">
-      <svg width="19" height="32" fill="none">
-        <path fill="#145AF5" d="M.754767 16.6882c-.36-.6516-.612-1.3756-.7200002-2.1358-.072-.7964-.03599996-1.5566.1440002-2.2806.18-.724.54-1.448.972003-2.0272.468-.6154 1.008-1.1222 1.692-1.4842L17.6748 0c.36.6516.612 1.3756.72 2.1358.108.7602.036 1.5204-.144 2.2806-.18.724-.54 1.448-.972 2.0272-.468.6154-1.008 1.1222-1.692 1.4842L.754767 16.6882ZM4.46264 25.702c-.36-.6516-.612-1.3756-.72-2.1358-.108-.7602-.036-1.5204.144-2.2806.18-.724.54-1.448.972-2.0272.468-.6154 1.008-1.1222 1.692-1.4842l8.20796-4.8508c.36.6516.612 1.3756.72 2.1358.108.7602.036 1.5204-.144 2.2806-.18.724-.54 1.448-.972 2.0272-.468.6154-1.008 1.1222-1.692 1.4842L4.46264 25.702Z"/>
-        <path fill="#80A8F4" d="m4.4624 25.702 4.932-2.896c.756 1.3394.936 2.9322.576 4.4164-.396 1.4842-1.332 2.7512-2.664 3.5476l-2.844-5.068ZM14.7584 12.9233l-5.90401-1.0136-8.099995 4.7784 5.759995 1.086 8.24401-4.8508Z"/>
-      </svg>
+      <swirl-app-icon slot="icon" border-hidden="true" label="link" src="/flip-logo.png"></swirl-app-icon>
     </div>
     <div slot="tools">
-      <swirl-stack spacing="4">
-        <swirl-shell-navigation-item icon="<swirl-icon-search></swirl-icon-search>" label="Search"></swirl-shell-navigation-item>
-        <swirl-shell-navigation-item icon="<swirl-icon-notifications></swirl-icon-notifications>" label="Notifications"></swirl-shell-navigation-item>
-        <swirl-shell-navigation-item icon="<swirl-icon-person></swirl-icon-person>" label="Profile & Settings"></swirl-shell-navigation-item>
-        <swirl-shell-navigation-item icon="<swirl-icon-add></swirl-icon-add>" label="Create"></swirl-shell-navigation-item>
+      <swirl-stack>
+        <swirl-shell-navigation-item label="Search">
+          <swirl-app-icon slot="icon" label="link" icon="<swirl-icon-search></swirl-icon-search>"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="Notifications" badge-label="1">
+          <swirl-app-icon slot="icon" label="link" icon="<swirl-icon-notifications></swirl-icon-notifications>"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="Profile & Settings">
+          <swirl-avatar slot="icon" label="John Doe" src="https://picsum.photos/id/433/144/144" size="xs"></swirl-avatar>
+        </swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="Create">
+          <swirl-app-icon slot="icon" label="link" icon="<swirl-icon-add></swirl-icon-add>"></swirl-app-icon>
+        </swirl-shell-navigation-item>
       </swirl-stack>
     </div>
     <div slot="main-navigation">
-      <swirl-stack spacing="4">
-        <swirl-shell-navigation-item active icon="<swirl-icon-menu-outlined></swirl-icon-menu-outlined>" label="Home"></swirl-shell-navigation-item>
-        <swirl-shell-navigation-item icon="<swirl-icon-chats-outlined></swirl-icon-chats-outlined>" label="Chats"></swirl-shell-navigation-item>
-        <swirl-shell-navigation-item icon="<swirl-icon-news-outlined></swirl-icon-news-outlined>" label="News"></swirl-shell-navigation-item>
+      <swirl-stack>
+        <swirl-shell-navigation-item active label="Home" badge-label="2">
+          <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/437/144/144"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="Chats">
+          <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/437/144/144"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+        <swirl-shell-navigation-item label="News">
+          <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/437/144/144"></swirl-app-icon>
+        </swirl-shell-navigation-item>
       </swirl-stack>
     </div>
+    <swirl-banner slot="banner" action-label="Update" content="New version available." dismissable="false" intent="info" size="s"></swirl-banner>
     <div slot="main">
       <swirl-app-layout
-        app-bar-media='<swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" variant="square"></swirl-avatar>'
         app-name="Chat"
-        heading="John Doe"
         navigation-label="Items"
       >
+        <swirl-banner slot="banner" action-label="Details" content="On leave until 16.05.2023" dismissable="false" intent="info"></swirl-banner>
+        <swirl-button
+          hide-label
+          icon="<swirl-icon-menu></swirl-icon-menu>"
+          id="navigation-mobile-menu-button"
+          label="Toggle sidebar"
+          slot="navigation-mobile-menu-button"
+        ></swirl-button>
         <swirl-resource-list label="Items" slot="navigation">
           <swirl-resource-list-item description="With a description" label="This is a resource item" class="item">
             <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>
@@ -75,6 +97,14 @@ const Template = (args) => {
           label="Settings"
           slot="navigation-controls"
         ></swirl-button>
+        <swirl-button
+          hide-label
+          icon="<swirl-icon-menu></swirl-icon-menu>"
+          id="app-bar-mobile-menu-button"
+          label="Toggle sidebar"
+          slot="app-bar-mobile-menu-button"
+        ></swirl-button>
+        <swirl-heading as="h2" level="3" slot="app-bar" text="Heading"></swirl-heading>
         <div slot="app-bar-controls">
           <swirl-button hide-label class="info-button" icon="<swirl-icon-info></swirl-icon-info>" label="More information"></swirl-button>
         </div>
@@ -83,6 +113,18 @@ const Template = (args) => {
       </swirl-app-layout>
     </div>
   `;
+
+  element
+    .querySelector("#navigation-mobile-menu-button")
+    .addEventListener("click", () => {
+      element.extendSidebar();
+    });
+
+  element
+    .querySelector("#app-bar-mobile-menu-button")
+    .addEventListener("click", () => {
+      element.extendSidebar();
+    });
 
   element.querySelector(".info-button").addEventListener("click", () => {
     element.querySelector("swirl-app-layout").changeMobileView("sidebar");

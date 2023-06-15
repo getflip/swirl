@@ -23,6 +23,7 @@ export default {
     },
   },
   component: "swirl-avatar",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

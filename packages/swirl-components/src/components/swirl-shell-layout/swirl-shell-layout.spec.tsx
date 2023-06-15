@@ -19,6 +19,9 @@ describe("swirl-shell-layout", () => {
       <swirl-shell-layout main-navigation-label="Test">
         <mock:shadow-root>
           <div class="shell-layout shell-layout--collapsed-sidebar shell-layout--collapsing">
+            <div class="shell-layout__banner">
+              <slot name="banner"></slot>
+            </div>
             <div class="shell-layout__sidebar-wrapper">
               <div class="shell-layout__sidebar">
                 <header class="shell-layout__header">

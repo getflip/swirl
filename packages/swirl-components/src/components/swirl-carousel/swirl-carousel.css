@@ -1,0 +1,99 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  margin-top: calc(-1 * var(--s-space-24));
+  margin-bottom: calc(-1 * var(--s-space-24));
+
+  &(:hover) {
+    & .carousel__previous-slide-button {
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    & .carousel__next-slide-button {
+      pointer-events: auto;
+      opacity: 1;
+    }
+  }
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel__slides {
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  padding: var(--s-space-24) var(--s-space-16) var(--s-space-24)
+    var(--s-space-16);
+  scroll-padding: var(--s-space-16);
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & ::slotted(*) {
+    margin-left: var(--s-space-16);
+    flex-grow: 0;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+
+    @media (--from-tablet) {
+      margin-left: var(--s-space-24);
+    }
+  }
+
+  @media (--from-tablet) {
+    padding-right: var(--s-space-24);
+    padding-left: var(--s-space-24);
+    scroll-padding: var(--s-space-24);
+  }
+}
+
+.carousel__previous-slide-button {
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - var(--s-space-12));
+  left: var(--s-space-4);
+  visibility: hidden;
+  transition: opacity 0.2s;
+  transform: translateY(-50%) scale(0.72);
+  pointer-events: none;
+  opacity: 0;
+
+  @media (--from-tablet) {
+    visibility: visible;
+  }
+}
+
+.carousel__next-slide-button {
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - var(--s-space-12));
+  right: var(--s-space-4);
+  visibility: hidden;
+  transition: opacity 0.2s;
+  transform: translateY(-50%) scale(0.72);
+  pointer-events: none;
+  opacity: 0;
+
+  @media (--from-tablet) {
+    visibility: visible;
+  }
+}

@@ -1,6 +1,7 @@
 import { Component, Element, h, Host, Listen, Prop } from "@stencil/core";
 import classnames from "classnames";
 import balanceText from "balance-text";
+import shave from "shave";
 
 export type SwirlTextAlign = "start" | "center" | "end";
 
@@ -11,9 +12,11 @@ export type SwirlTextColor =
   | "success"
   | "warning";
 
+export type SwirlTextFontFamily = "code" | "text";
+
 export type SwirlTextFontStyle = "normal" | "italic";
 
-export type SwirlTextSize = "sm" | "base" | "lg";
+export type SwirlTextSize = "sm" | "base" | "lg" | "xl" | "2xl";
 
 export type SwirlTextWeight = "normal" | "medium" | "semibold" | "bold";
 
@@ -30,7 +33,9 @@ export class SwirlText {
   @Prop() as?: string = "p";
   @Prop() balance?: boolean;
   @Prop() color?: SwirlTextColor = "default";
+  @Prop() fontFamily?: SwirlTextFontFamily = "text";
   @Prop() fontStyle?: SwirlTextFontStyle = "normal";
+  @Prop() lines?: number;
   @Prop() size?: SwirlTextSize = "base";
   @Prop() truncate?: boolean;
   @Prop() weight?: SwirlTextWeight = "normal";
@@ -39,11 +44,28 @@ export class SwirlText {
 
   componentDidRender() {
     this.rebalance();
+    this.handleTruncation();
   }
 
   @Listen("resize", { target: "window" })
   onWindowResize() {
     this.rebalance();
+    this.handleTruncation();
+  }
+
+  private handleTruncation() {
+    if (!this.truncate || !Boolean(this.lines) || this.lines === 1) {
+      return;
+    }
+
+    const lineHeight = +window
+      .getComputedStyle(this.textEl, null)
+      .getPropertyValue("line-height")
+      .replace("px", "");
+
+    if (lineHeight > 0) {
+      shave(this.textEl, lineHeight * this.lines);
+    }
   }
 
   private rebalance() {
@@ -61,10 +83,14 @@ export class SwirlText {
       "text",
       `text--align-${this.align}`,
       `text--color-${this.color}`,
+      `text--font-family-${this.fontFamily}`,
       `text--font-style-${this.fontStyle}`,
       `text--size-${this.size}`,
       `text--weight-${this.weight}`,
-      { "text--truncate": this.truncate }
+      {
+        "text--truncate":
+          this.truncate && (!Boolean(this.lines) || this.lines === 1),
+      }
     );
 
     return (

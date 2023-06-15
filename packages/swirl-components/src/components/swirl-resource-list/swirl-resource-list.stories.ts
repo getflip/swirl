@@ -3,6 +3,7 @@ import Docs from "./swirl-resource-list.mdx";
 
 export default {
   component: "swirl-resource-list",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
@@ -17,19 +18,19 @@ const Template = (args) => {
   element.innerHTML = `
     <swirl-resource-list-item
       description="With a description"
-      label="This is a resource item"
+      label="This is a resource item 1"
     >
       <swirl-avatar label="John Doe" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
     </swirl-resource-list-item>
     <swirl-resource-list-item
       description="With a description"
-      label="This is a resource item"
+      label="This is a resource item 2"
     >
       <swirl-avatar label="John Doe" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
     </swirl-resource-list-item>
     <swirl-resource-list-item
       description="With a description"
-      label="This is a resource item"
+      label="This is a resource item 3"
     >
       <swirl-avatar label="John Doe" src="https://picsum.photos/id/1027/144/144" slot="media"></swirl-avatar>
     </swirl-resource-list-item>

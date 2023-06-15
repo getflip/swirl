@@ -1,0 +1,28 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-status-indicator.stories";
+
+<Meta title="Components/SwirlStatusIndicator" />
+
+# SwirlStatusIndicator
+
+The SwirlStatusIndicator component is used to provide feedback about the status
+of a resource.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/branch/93vbxNnvthUq7KGOyXUmoP/Swirl-Components?type=design&node-id=4724-37065&t=1xV8b5eDlywA0Ogx-0)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-status-indicator)**
+
+## Usage
+
+<Canvas of={Stories.SwirlStatusIndicator} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlStatusIndicator} />
+
+## Theming
+
+| Variable            | Usage                                          |
+| ------------------- | ---------------------------------------------- |
+| `--s-text-default`  | The label text color                           |
+| `--s-icon-critical` | The dot background color for intent "critical" |
+| `--s-icon-info`     | The dot background color for intent "info"     |
+| `--s-icon-success`  | The dot background color for intent "success"  |
+| `--s-icon-warning`  | The dot background color for intent "warning"  |

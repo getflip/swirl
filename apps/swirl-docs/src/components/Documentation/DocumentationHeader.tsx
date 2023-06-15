@@ -1,31 +1,27 @@
-import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
-import { FunctionComponent } from "react";
+import classNames from "classnames";
+import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
+import { Tag } from "../Tags";
+import Heading from "../swirl-recreations/Headers";
+import { Text } from "../swirl-recreations";
 
-interface DocumentationHeaderProps {
-  frontMatter: FrontMatter;
-}
+export function DocumentationHeader({
+  className: additionalClassNames,
+}: {
+  className?: string;
+}) {
+  const { frontMatter } = useDocumentationLayoutContext();
 
-export const DocumentationHeader: FunctionComponent<
-  DocumentationHeaderProps
-> = ({ frontMatter }) => {
   return (
-    <header className="border-b-1 pb-12 mb-12">
+    <header
+      className={classNames("border-b-1 pb-12 mb-12", additionalClassNames)}
+    >
       <div className="mb-space-8 inline-flex items-center">
-        <h1 className="text-4xl text-text-default font-font-weight-bold">
-          {frontMatter.title}
-        </h1>
-        {frontMatter.tags?.map((tag) => (
-          <span
-            className="bg-surface-neutral-subdued px-2 py-1 rounded-md ml-3 font-medium text-sm"
-            key={tag}
-          >
-            {tag}
-          </span>
+        <Heading level={1}>{frontMatter?.title as string}</Heading>
+        {frontMatter?.tags?.map((tag: string) => (
+          <Tag key={tag} content={tag} />
         ))}
       </div>
-      <p className="text-lg leading-line-height-xl text-text-default">
-        {frontMatter.description}
-      </p>
+      <Text>{frontMatter?.description}</Text>
     </header>
   );
-};
+}

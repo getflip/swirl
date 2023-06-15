@@ -19,7 +19,7 @@
 
 .avatar--has-icon {
   color: var(--s-icon-default);
-  background-color: var(--s-surface-raised-default);
+  background-color: var(--swirl-avatar-background-color);
 }
 
 .avatar--has-initials {
@@ -205,8 +205,6 @@
 
 .avatar__icon {
   display: inline-flex;
-  width: 100%;
-  height: 100%;
 
   & > * {
     width: 100%;

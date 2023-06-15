@@ -14,6 +14,7 @@ export default {
     },
   },
   component: "swirl-badge",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

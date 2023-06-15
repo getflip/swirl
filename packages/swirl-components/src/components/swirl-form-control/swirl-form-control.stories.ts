@@ -4,6 +4,7 @@ import Docs from "./swirl-form-control.mdx";
 
 export default {
   component: "swirl-form-control",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
@@ -39,6 +40,15 @@ const Template = (args) => {
 
   dateInput.innerHTML = `
     <swirl-date-input></swirl-date-input>
+  `;
+
+  const timeInput = generateStoryElement("swirl-form-control", {
+    ...args,
+    label: "Time Control",
+  });
+
+  timeInput.innerHTML = `
+    <swirl-time-input></swirl-time-input>
   `;
 
   const passwordInput = generateStoryElement("swirl-form-control", {
@@ -134,6 +144,8 @@ const Template = (args) => {
     numberInput,
     "\n  ",
     dateInput,
+    "\n  ",
+    timeInput,
     "\n  ",
     passwordInput,
     "\n  ",

@@ -1,6 +1,3 @@
-import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
-import { NavItem } from "@swirl/lib/navigation";
-import { MDXRemote } from "next-mdx-remote";
 import { CategoryNav } from "./CategoryNav";
 import { DocLinksNav } from "./DocLinksNav";
 import Footer from "./Footer";
@@ -8,55 +5,63 @@ import { DocumentationHeader } from "../Documentation/DocumentationHeader";
 import { ComponentPreview } from "../ComponentPreview";
 import { useToC } from "@swirl/lib/hooks/useToC";
 import classNames from "classnames";
+import DocumentationLayoutContext, {
+  TDocumentationLayout,
+} from "./DocumentationLayoutContext";
+import { ReactNode } from "react";
+import MDXDocument from "./MDXDocument";
 
-export type ComponentExample = {
-  description: string;
-  url: string;
-  title: string;
+type DocumentationLayoutProps = {
+  data: TDocumentationLayout;
+  content: ReactNode | ReactNode[];
+  header?: ReactNode | ReactNode[];
+  disableToc?: boolean;
 };
 
-interface DocumentationLayoutProps {
-  categoryLinkList: NavItem[] | undefined;
-  document: any;
-  mdxComponents?: any;
-  frontMatter?: FrontMatter;
-}
-
-export const DocumentationLayout = ({
-  categoryLinkList,
-  mdxComponents,
-  document,
-  frontMatter,
-}: DocumentationLayoutProps) => {
-  const hasFrontMatterTitle = frontMatter?.title;
-  const isComponentDoc = frontMatter?.examples ? true : false;
-
-  const [tocItems] = useToC(document, isComponentDoc);
+export function DocumentationLayout({
+  header,
+  content,
+  data,
+  disableToc = false,
+}: DocumentationLayoutProps) {
+  const [tocItems] = useToC(data.mdxContent?.document!, false);
 
   return (
-    <div className="flex">
-      <CategoryNav categoryLinkList={categoryLinkList} />
-      <div className="h-full w-full">
-        <main
-          id="main"
-          className={classNames(
-            "grid grid-cols-1 md:grid-cols-[minmax(0,_45rem)_16rem] gap-8 justify-center",
-            "my-0 mx-auto mt-14 mb-4 md:mb-0 px-4 lg:px-0"
-          )}
-        >
-          <article className="w-full max-w-[45rem]">
-            {hasFrontMatterTitle && (
-              <DocumentationHeader frontMatter={frontMatter} />
+    <DocumentationLayoutContext.Provider value={data}>
+      <div className="grid grid-cols-1 lg:grid-cols-documentation-layout h-full overflow-hidden">
+        {data.navigationLinks && <CategoryNav />}
+        <div className="w-full h-full overflow-auto scroll-p-4">
+          <main
+            id="main"
+            className={classNames(
+              "grid grid-cols-1 justify-center",
+              "my-0 mx-auto mt-14 mb-4 md:mb-0 px-4 lg:px-0",
+              {
+                "md:grid-cols-1 md:mx-10": disableToc,
+              },
+              {
+                "md:grid-cols-[minmax(0,_45rem)_16rem] gap-8": !disableToc,
+              }
             )}
-            {isComponentDoc && <ComponentPreview frontMatter={frontMatter} />}
-            <MDXRemote {...document} components={mdxComponents} />
-          </article>
-          {tocItems && tocItems.length > 0 && (
-            <DocLinksNav documentLinkList={tocItems} />
-          )}
-        </main>
-        <Footer />
+          >
+            <div className="w-full">
+              {header}
+              {content}
+            </div>
+            {!disableToc && tocItems && tocItems.length > 0 && (
+              <DocLinksNav documentLinkList={tocItems} />
+            )}
+          </main>
+          <Footer />
+        </div>
       </div>
-    </div>
+    </DocumentationLayoutContext.Provider>
   );
-};
+}
+
+DocumentationLayout.Navigation = CategoryNav;
+DocumentationLayout.Header = DocumentationHeader;
+DocumentationLayout.ComponentPreview = ComponentPreview;
+DocumentationLayout.MDX = MDXDocument;
+// todo DocumentationLayout.ApiDoc = ApiDoc;
+DocumentationLayout.Footer = Footer;

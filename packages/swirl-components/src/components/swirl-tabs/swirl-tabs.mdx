@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-tabs.stories";
 
 <Meta title="Components/SwirlTabs" />
 
@@ -7,28 +8,14 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 The SwirlTabs component is used to organize related content into multiple
 panels.
 
-- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Flip-Components)**
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=34-6419&t=l6r0AzmK9ThWIT5N-0)**
 - **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-tabs)**
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirltabs--swirl-tabs" />
-</Canvas>
+<Canvas of={Stories.SwirlTabs} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
-
-## Theming
-
-| Variable                           | Usage                                               |
-| ---------------------------------- | --------------------------------------------------- |
-| `--s-interactive-neutral-default`  | Text color of inactive tabs                         |
-| `--s-interactive-neutral-hovered`  | Text color of hovered tabs                          |
-| `--s-interactive-neutral-pressed`  | Text color of active tabs                           |
-| `--s-interactive-neutral-disabled` | Text color of disabled tabs                         |
-| `--s-text-highlight`               | Text color of the active tab                        |
-| `--s-border-highlight`             | Border color of the active tab                      |
-| `--s-border-default`               | Border color of the tab bar and hovered/active tabs |
+<Controls of={Stories.SwirlTabs} />
 
 ## Accessibility
 

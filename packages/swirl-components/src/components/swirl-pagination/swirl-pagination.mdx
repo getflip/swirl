@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-pagination.stories";
 
 <Meta title="Components/SwirlPagination" />
 
@@ -12,11 +13,9 @@ navigate between them.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlpagination--swirl-pagination" />
-</Canvas>
+<Canvas of={Stories.SwirlPagination} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlPagination} />
 
 ## Theming
 

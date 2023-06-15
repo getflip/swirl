@@ -60,3 +60,9 @@
   font-weight: var(--s-font-weight-semibold);
   line-height: var(--s-line-height-sm);
 }
+
+.heading--truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

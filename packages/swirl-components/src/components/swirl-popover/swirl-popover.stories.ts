@@ -6,6 +6,7 @@ export default {
     disableScrollLock: {
       description:
         "You should disable the scroll lock for popovers inside modals and dialogs.",
+      name: "disable-scroll-lock",
     },
     offset: {
       description:
@@ -15,7 +16,10 @@ export default {
       },
     },
     trigger: {
-      description: "ID of the trigger element.",
+      description: "ID of the trigger element or the trigger DOM element.",
+      control: {
+        type: "text",
+      },
     },
     useContainerWidth: {
       description:
@@ -23,9 +27,11 @@ export default {
       control: {
         type: "boolean",
       },
+      name: "use-container-width",
     },
   },
   component: "swirl-popover",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

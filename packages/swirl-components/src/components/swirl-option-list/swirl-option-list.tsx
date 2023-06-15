@@ -31,6 +31,7 @@ import Sortable, { SortableEvent } from "sortablejs";
 export class SwirlOptionList implements SwirlFormInput<string[]> {
   @Element() el: HTMLElement;
 
+  @Prop() allowDeselect?: boolean = true;
   @Prop() allowDrag?: boolean;
   @Prop() assistiveTextItemGrabbed?: string =
     "Item grabbed. Use arrow keys to move item up or down. Use spacebar to save position.";
@@ -44,7 +45,11 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
   @State() assistiveText: string;
 
-  @Event() itemDrop: EventEmitter<{ oldIndex: number; newIndex: number }>;
+  @Event() itemDrop: EventEmitter<{
+    item: HTMLSwirlOptionListItemElement;
+    oldIndex: number;
+    newIndex: number;
+  }>;
   @Event() valueChange: EventEmitter<string[]>;
 
   private dragging: HTMLSwirlOptionListItemElement;
@@ -91,7 +96,11 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.syncItemsWithValue();
   }
 
-  private onFocus = async () => {
+  private onFocus = async (event: FocusEvent) => {
+    if (this.listboxEl.contains(event.relatedTarget as Element)) {
+      return;
+    }
+
     // prevent focus from canceling the drag event in Safari
     await new Promise((resolve) => setTimeout(resolve));
 
@@ -191,7 +200,9 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   private setItemDisabledState() {
-    this.items.forEach((item) => (item.disabled = this.disabled));
+    if (this.disabled) {
+      this.items.forEach((item) => (item.disabled = true));
+    }
   }
 
   private setItemContext() {
@@ -221,6 +232,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       handle: ".option-list-item__drag-handle",
       onEnd: (event: SortableEvent) => {
         this.itemDrop.emit({
+          item: event.item as HTMLSwirlOptionListItemElement,
           oldIndex: event.oldIndex,
           newIndex: event.newIndex,
         });
@@ -274,6 +286,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
     const itemIsAlreadySelected = this.value.includes(item.value);
 
+    if (itemIsAlreadySelected && !this.allowDeselect) {
+      return;
+    }
+
     if (!this.multiSelect) {
       this.value = [];
     }
@@ -315,7 +331,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   private syncItemsWithValue() {
-    this.items.forEach(
+    this.items?.forEach(
       (item) => (item.selected = this.value.includes(item.value))
     );
   }
@@ -401,7 +417,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
     this.assistiveText = `${this.assistiveTextItemMoved} ${newIndex + 1}`;
 
-    this.itemDrop.emit({ oldIndex: this.draggingStartIndex, newIndex });
+    this.itemDrop.emit({ item, oldIndex: this.draggingStartIndex, newIndex });
 
     this.draggingStartIndex = undefined;
   };

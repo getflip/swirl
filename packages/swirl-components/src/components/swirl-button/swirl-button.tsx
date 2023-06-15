@@ -57,10 +57,7 @@ export class SwirlButton {
   componentDidLoad() {
     this.forceIconProps(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.addEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
   }
 
   componentDidRender() {
@@ -121,7 +118,7 @@ export class SwirlButton {
     const Tag = isLink ? "a" : "button";
 
     return (
-      <Host>
+      <Host style={{ pointerEvents: this.disabled ? "none" : "" }}>
         <Tag
           aria-describedby={this.swirlAriaDescribedby}
           aria-disabled={this.disabled && !isLink ? "true" : undefined}

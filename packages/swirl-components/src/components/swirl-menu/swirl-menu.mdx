@@ -1,0 +1,49 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-menu.stories";
+
+<Meta title="Components/SwirlMenu" />
+
+# SwirlMenu
+
+The SwirlMenu component is used to offer a list of choices in form of a vertical
+menu bar. It should be used inside a
+[SwirlPopover component](?path=/docs/components-swirlpopover--docs). Menus can
+be nested.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-menu)**
+
+## Usage
+
+<Canvas of={Stories.SwirlMenu} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlMenu} />
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Menu and Menubar Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/).
+
+| ARIA                   | Usage                                                                 |
+| ---------------------- | --------------------------------------------------------------------- |
+| `role="menubar"`       | Set on the outer menu.                                                |
+| `role="menu"`          | Set on nested menu elements.                                          |
+| `role="menuitem"`      | Set on the menu item elements.                                        |
+| `role="menuitemradio"` | Set on the menu item elements inside a menu with variant "selection". |
+| `aria-label`           | Set on the menu bar/menu elements.                                    |
+| `aria-orientation`     | Set to "vertical" on the menu bar/menu elements.                      |
+| `aria-haspopup`        | Set to "menu" on parent menu items.                                   |
+| `aria-expanded`        | Set to "true" on an active parent menu items.                         |
+
+### Keyboard
+
+| Key                                    | Action                                                                                                                                                                                                      |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>TAB</kbd>, <kbd>SHIFT + TAB</kbd> | Move focus inside the menu bar, setting focus on the first item, or restoring focus if the menu has previously been focused. Move focus out of the menu, closing all menus, when menu was already in focus. |
+| <kbd>ENTER</kbd>, <kbd>SPACE</kbd>     | Activate sub menu and focus first menu item. If focused item has no sub menu, activate the item and close the menu.                                                                                         |
+| <kbd>ARROW DOWN</kbd>                  | Move focus to the next menu item.                                                                                                                                                                           |
+| <kbd>ARROW UP</kbd>                    | Move focus to the previous menu item.                                                                                                                                                                       |
+| <kbd>ARROW RIGHT</kbd>                 | Activate the sub menu and focus the first menu item.                                                                                                                                                        |
+| <kbd>ARROW LEFT</kbd>                  | Close currently active sub menu and focus the parent menu item.                                                                                                                                             |
+| <kbd>ESCAPE</kbd>                      | Close the menu.                                                                                                                                                                                             |

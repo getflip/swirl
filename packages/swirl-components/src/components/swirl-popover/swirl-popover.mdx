@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-popover.stories";
 
 <Meta title="Components/SwirlPopover" />
 
@@ -11,11 +12,9 @@ The SwirlPopover component is used to display small non-modal dialogs or menus.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlpopover--swirl-popover" />
-</Canvas>
+<Canvas of={Stories.SwirlPopover} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlPopover} />
 
 ## Theming
 

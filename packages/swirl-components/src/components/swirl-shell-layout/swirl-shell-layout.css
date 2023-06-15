@@ -1,7 +1,7 @@
 @import "../../styles/media-queries.css";
 
 :host {
-  --extended-sidebar-width: 17.5rem;
+  --extended-sidebar-width: 17rem;
   --collapsed-sidebar-width: 4rem;
   display: flex;
   width: 100%;
@@ -13,12 +13,24 @@
 }
 
 .shell-layout {
-  display: flex;
+  display: grid;
   width: 100%;
   min-height: 100%;
+  transition: grid-template-columns 0.2s;
+  grid-template-columns: 0 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "banner banner"
+    "sidebar main";
+
+  @media (--from-desktop) {
+    grid-template-columns: var(--extended-sidebar-width) 1fr;
+  }
 }
 
 .shell-layout--collapsed-sidebar {
+  grid-template-columns: 0 1fr;
+
   &:not(.shell-layout--collapsing) {
     & .shell-layout__sidebar-wrapper {
       @media (--from-desktop) {
@@ -35,7 +47,6 @@
   }
 
   & .shell-layout__sidebar-wrapper {
-    min-height: 100%;
     transform: translate3d(-100%, 0, 0);
 
     & .shell-layout__sidebar {
@@ -54,7 +65,9 @@
         }
 
         & .shell-layout__collapsed-logo {
-          display: block;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
         }
 
         & .shell-layout__expanded-logo {
@@ -67,6 +80,25 @@
       }
     }
   }
+
+  @media (--from-desktop) {
+    grid-template-columns: var(--collapsed-sidebar-width) 1fr;
+  }
+}
+
+.shell-layout--hide-sidebar {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "banner"
+    "main";
+
+  @media (--from-desktop) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.shell-layout__banner {
+  grid-area: banner;
 }
 
 .shell-layout__sidebar-wrapper {
@@ -77,9 +109,11 @@
   left: 0;
   width: 100%;
   max-width: var(--extended-sidebar-width);
+  min-height: 0;
   flex-basis: var(--extended-sidebar-width);
   flex-shrink: 0;
   transition: max-width 0.2s, transform 0.2s;
+  grid-area: sidebar;
 
   @media (--from-desktop) {
     position: relative;
@@ -103,37 +137,33 @@
 }
 
 .shell-layout__header {
-  padding: var(--s-space-8);
   flex-shrink: 0;
-  background-color: var(--s-background-default);
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  background-color: var(--s-background-default);
 }
 
 .shell-layout__logo-bar {
   display: flex;
   overflow: hidden;
   align-items: center;
+  height: 4.5rem;
 }
 
 .shell-layout__expanded-logo {
-  padding-top: var(--s-space-8);
-  padding-right: calc(var(--s-space-12) + var(--s-space-2));
-  padding-bottom: var(--s-space-8);
-  padding-left: calc(var(--s-space-12) + var(--s-space-2));
+  padding-right: var(--s-space-12);
+  padding-left: var(--s-space-12);
   flex-grow: 1;
 }
 
 .shell-layout__collapsed-logo {
   display: none;
-  padding-top: var(--s-space-8);
-  padding-right: calc(var(--s-space-12) + var(--s-space-2));
-  padding-bottom: var(--s-space-8);
-  padding-left: calc(var(--s-space-12) + var(--s-space-2));
+  padding-right: var(--s-space-12);
+  padding-left: var(--s-space-12);
   flex-grow: 1;
 }
 
 .shell-layout__toggle {
-  padding-right: var(--s-space-8);
+  padding-right: var(--s-space-16);
   padding-left: var(--s-space-12);
   flex-grow: 0;
   flex-shrink: 0;
@@ -150,22 +180,16 @@
   }
 }
 
-.shell-layout__tools {
-  margin-top: var(--s-space-4);
-  flex-basis: 100%;
-  flex-shrink: 0;
-}
-
 .shell-layout__main-navigation {
   overflow: auto;
-  padding: var(--s-space-8);
   flex-grow: 1;
   background-color: var(--s-background-default);
 }
 
 .shell-layout__main {
-  flex-grow: 1;
+  min-height: 0;
   background-color: var(--s-background-default);
+  grid-area: main;
 
   & > *,
   & ::slotted(*) {

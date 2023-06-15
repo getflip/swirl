@@ -9,24 +9,33 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
+import { getDesktopMediaQuery } from "../../utils";
+
+export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 
 /**
  * @slot media - Media displayed inside the item (e.g. swirl-avatar)
  */
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "swirl-resource-list-item.css",
   tag: "swirl-resource-list-item",
 })
 export class SwirlResourceListItem {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLSwirlResourceListItemElement;
 
+  @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() description?: string;
   @Prop() disabled?: boolean;
+  @Prop() dragging?: boolean;
+  @Prop() dragHandleDescription?: string = "Press spacebar to toggle grab";
+  @Prop() dragHandleLabel?: string = "Move item";
   @Prop() hideDivider?: boolean;
   @Prop() href?: string;
   @Prop() label!: string;
+  @Prop() labelWeight?: SwirlResourceListItemLabelWeight = "medium";
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
@@ -34,11 +43,45 @@ export class SwirlResourceListItem {
   @Prop() value?: string;
 
   @State() hasMedia: boolean = false;
+  @State() iconSize: 20 | 24 = 24;
 
+  @Event() toggleDrag: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() valueChange: EventEmitter<boolean>;
+
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
+  private iconEl: HTMLElement;
 
   async componentWillLoad() {
     this.updateMediaState();
+  }
+
+  componentDidLoad() {
+    this.forceIconProps(this.desktopMediaQuery.matches);
+    this.updateIconSize(this.desktopMediaQuery.matches);
+
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+  }
+
+  disconnectedCallback() {
+    this.desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+  }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+    this.updateIconSize(event.matches);
+  };
+
+  private forceIconProps(smallIcon: boolean) {
+    const icon = this.iconEl?.children[0];
+
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+  }
+
+  private updateIconSize(smallIcon: boolean) {
+    this.iconSize = smallIcon ? 20 : 24;
   }
 
   private updateMediaState() {
@@ -65,6 +108,13 @@ export class SwirlResourceListItem {
     }
   };
 
+  private onDragHandleKeyDown = (event: KeyboardEvent) => {
+    if (event.code === "Space" || event.code === "Enter") {
+      event.preventDefault();
+      this.toggleDrag.emit(this.el);
+    }
+  };
+
   render() {
     const Tag = Boolean(this.href) && !this.selectable ? "a" : "button";
 
@@ -76,12 +126,18 @@ export class SwirlResourceListItem {
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
     const role = this.selectable ? "checkbox" : undefined;
 
-    const className = classnames("resource-list-item", {
-      "resource-list-item--checked": this.checked,
-      "resource-list-item--has-menu": hasMenu,
-      "resource-list-item--hide-divider": this.hideDivider,
-      "resource-list-item--selectable": this.selectable,
-    });
+    const className = classnames(
+      "resource-list-item",
+      `resource-list-item--label-weight-${this.labelWeight}`,
+      {
+        "resource-list-item--checked": this.checked,
+        "resource-list-item--draggable": this.allowDrag,
+        "resource-list-item--dragging": this.dragging,
+        "resource-list-item--has-menu": hasMenu,
+        "resource-list-item--hide-divider": this.hideDivider,
+        "resource-list-item--selectable": this.selectable,
+      }
+    );
 
     return (
       <Host role="row">
@@ -104,9 +160,11 @@ export class SwirlResourceListItem {
               </span>
             )}
             <span class="resource-list-item__label-container">
-              <span class="resource-list-item__label" id="label">
-                {this.label}
-              </span>
+              <span
+                class="resource-list-item__label"
+                id="label"
+                innerHTML={this.label}
+              ></span>
               {this.description && (
                 <span class="resource-list-item__description">
                   {this.description}
@@ -140,6 +198,20 @@ export class SwirlResourceListItem {
             ></swirl-button>
           )}
         </div>
+
+        {this.allowDrag && (
+          <button
+            aria-describedby={this.dragHandleDescription}
+            aria-label={`${this.dragHandleLabel} "${this.label}"`}
+            class="resource-list-item__drag-handle"
+            onKeyDown={this.onDragHandleKeyDown}
+            type="button"
+          >
+            <swirl-icon-drag-handle
+              size={this.iconSize}
+            ></swirl-icon-drag-handle>
+          </button>
+        )}
       </Host>
     );
   }

@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-button.stories";
 import { extractArgTypes } from "@pxtrn/storybook-addon-docs-stencil";
 
 <Meta title="Components/SwirlButton" />
@@ -12,11 +13,9 @@ The SwirlButton component is used to trigger actions or events.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlbutton--swirl-button" />
-</Canvas>
+<Canvas of={Stories.SwirlButton} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlButton} />
 
 ## Theming
 

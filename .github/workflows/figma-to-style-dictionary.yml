@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - figma-tokens
+    paths:
+      - packages/swirl-tokens/**/*
 
 jobs:
   figma_to_style_dictionary:

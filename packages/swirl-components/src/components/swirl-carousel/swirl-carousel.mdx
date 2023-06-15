@@ -1,0 +1,30 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-carousel.stories";
+
+<Meta title="Components/SwirlCarousel" />
+
+# SwirlCarousel
+
+The SwirlCarousel component is used to display a set of slides, highlighting one
+at a time.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-carousel)**
+
+## Usage
+
+<Canvas of={Stories.SwirlCarousel} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlCarousel} />
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Carousel Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/).
+
+| ARIA                   | Usage                                                                               |
+| ---------------------- | ----------------------------------------------------------------------------------- |
+| `role="group"`         | Set on the carousel container and each slide container.                             |
+| `aria-roledescription` | Set on the carousel container to "carousel" and on each slide container to "slide". |
+| `aria-label`           | Set on the container to label the carousel and on each slide container.             |
