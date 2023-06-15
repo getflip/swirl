@@ -996,7 +996,7 @@
         "description": "Usally used as an border on info components."
       },
       "on-highlight": {
-        "value": "#0037AF33",
+        "value": "rgba(0,55,175,0.2)",
         "type": "color",
         "description": "Used as border color on containers that have an highlight surface"
       }
@@ -1358,20 +1358,20 @@
       "level-1": {
         "value": [
           {
-            "color": "#1717170a",
+            "color": "rgba(23,23,23,0.04)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 4,
-            "blur": 16,
-            "spread": 0
+            "x": "0",
+            "y": "4",
+            "blur": "16",
+            "spread": "0"
           },
           {
-            "color": "#1717170a",
+            "color": "rgba(23,23,23,0.04)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 1,
-            "blur": 4,
-            "spread": 0
+            "x": "0",
+            "y": "1",
+            "blur": "4",
+            "spread": "0"
           }
         ],
         "type": "boxShadow"
@@ -1379,20 +1379,20 @@
       "level-2": {
         "value": [
           {
-            "color": "#1717170a",
+            "color": "rgba(23,23,23,0.04)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 4,
-            "blur": 16,
-            "spread": 0
+            "x": "0",
+            "y": "4",
+            "blur": "16",
+            "spread": "0"
           },
           {
-            "color": "#17171729",
+            "color": "rgba(23,23,23,0.16)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 1,
-            "blur": 4,
-            "spread": 0
+            "x": "0",
+            "y": "1",
+            "blur": "4",
+            "spread": "0"
           }
         ],
         "type": "boxShadow"
@@ -1400,20 +1400,20 @@
       "level-3": {
         "value": [
           {
-            "color": "#1717171f",
+            "color": "rgba(23,23,23,0.12)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 12,
-            "blur": 32,
-            "spread": 0
+            "x": "0",
+            "y": "12",
+            "blur": "32",
+            "spread": "0"
           },
           {
-            "color": "#17171714",
+            "color": "rgba(23,23,23,0.08)",
             "type": "dropShadow",
-            "x": 0,
-            "y": 4,
-            "blur": 12,
-            "spread": 0
+            "x": "0",
+            "y": "4",
+            "blur": "12",
+            "spread": "0"
           }
         ],
         "type": "boxShadow"
@@ -1993,7 +1993,7 @@
       "level-1": {
         "value": [
           {
-            "color": "#00000052",
+            "color": "rgba(0,0,0,0.32)",
             "type": "dropShadow",
             "x": "0",
             "y": "1",
@@ -2001,7 +2001,7 @@
             "spread": "0"
           },
           {
-            "color": "#0000007a",
+            "color": "rgba(0,0,0,0.48)",
             "type": "dropShadow",
             "x": "0",
             "y": "0",
@@ -2014,7 +2014,7 @@
       "level-2": {
         "value": [
           {
-            "color": "#0000007a",
+            "color": "rgba(0,0,0,0.48)",
             "type": "dropShadow",
             "x": "0",
             "y": "4",
@@ -2022,7 +2022,7 @@
             "spread": "0"
           },
           {
-            "color": "#00000066",
+            "color": "rgba(0,0,0,0.40)",
             "type": "dropShadow",
             "x": "0",
             "y": "1",
@@ -2035,7 +2035,7 @@
       "level-3": {
         "value": [
           {
-            "color": "#00000052",
+            "color": "rgba(0,0,0,0.32)",
             "type": "dropShadow",
             "x": "0",
             "y": "12",
@@ -2043,10 +2043,10 @@
             "spread": "0"
           },
           {
-            "color": "#00000040",
+            "color": "rgba(0,0,0,0.24)",
             "type": "dropShadow",
             "x": "0",
-            "y": "4",
+            "y": "2",
             "blur": "4",
             "spread": "0"
           }
