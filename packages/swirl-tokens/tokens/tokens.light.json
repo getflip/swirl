@@ -1097,20 +1097,20 @@
   "shadow-level-1": {
     "value": [
       {
-        "color": "rgba(25, 26, 28, 0.16)",
+        "color": "#1717170a",
         "type": "dropShadow",
-        "x": "0",
-        "y": "1",
-        "blur": "4",
-        "spread": "0"
+        "x": 0,
+        "y": 4,
+        "blur": 16,
+        "spread": 0
       },
       {
-        "color": "rgba(25, 26, 28, 0.04)",
+        "color": "#17171729",
         "type": "dropShadow",
-        "x": "0",
-        "y": "4",
-        "blur": "16",
-        "spread": "0"
+        "x": 0,
+        "y": 1,
+        "blur": 4,
+        "spread": 0
       }
     ],
     "type": "boxShadow"
@@ -1118,20 +1118,20 @@
   "shadow-level-2": {
     "value": [
       {
-        "color": "rgba(25, 26, 28, 0.16)",
+        "color": "#17171714",
         "type": "dropShadow",
-        "x": "0",
-        "y": "4",
-        "blur": "32",
-        "spread": "0"
+        "x": 0,
+        "y": 1,
+        "blur": 2,
+        "spread": 0
       },
       {
-        "color": "rgba(25, 26, 28, 0.08)",
+        "color": "#17171729",
         "type": "dropShadow",
-        "x": "0",
-        "y": "1",
-        "blur": "2",
-        "spread": "0"
+        "x": 0,
+        "y": 4,
+        "blur": 32,
+        "spread": 0
       }
     ],
     "type": "boxShadow"
@@ -1139,20 +1139,20 @@
   "shadow-level-3": {
     "value": [
       {
-        "color": "rgba(25, 26, 28, 0.08)",
+        "color": "#1717171f",
         "type": "dropShadow",
-        "x": "0",
-        "y": "4",
-        "blur": "12",
-        "spread": "0"
+        "x": 0,
+        "y": 12,
+        "blur": 32,
+        "spread": 0
       },
       {
-        "color": "rgba(25, 26, 28, 0.12)",
+        "color": "#17171714",
         "type": "dropShadow",
-        "x": "0",
-        "y": "12",
-        "blur": "32",
-        "spread": "0"
+        "x": 0,
+        "y": 4,
+        "blur": 12,
+        "spread": 0
       }
     ],
     "type": "boxShadow"
