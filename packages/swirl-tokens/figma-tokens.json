@@ -2313,7 +2313,12 @@
         "decorative.kiwi.surface-subdued": "S:f66e203a5aedaa420029becaae274818779226f0,",
         "decorative.blueberry.text": "S:1b025933e406c361054be299e38cdf8176b16530,",
         "decorative.blueberry.surface": "S:2f6e7cc449c908aeecbe17801602ffd6f35959c1,",
-        "decorative.blueberry.surface-subdued": "S:138f59cb0a71d07ac8af647fdc805cb4b7c44508,"
+        "decorative.blueberry.surface-subdued": "S:138f59cb0a71d07ac8af647fdc805cb4b7c44508,",
+        "surface-sunken.default": "S:4ad00c9598849aca09b2190e89c83225aec14c63,",
+        "surface-sunken.hovered": "S:139193133fe0af92aefcd0213ecdc95f6fadbd48,",
+        "surface-sunken.pressed": "S:008e29b74c9df5faa8dbfc9eb3f52346acecbfba,",
+        "text.dark": "S:0725e456b8cd864da67d9fc8466aa312f51ed735,",
+        "icon.dark": "S:daff72f871baa7568f11a67fde7c10d9fbcdd43e,"
       }
     },
     {
