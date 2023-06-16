@@ -1,5 +1,3 @@
-import { SupportedTargets } from "@readme/oas-to-snippet";
-import { ApiEndpoint } from "@swirl/lib/docs";
 import { Request } from "har-format";
 import { ReactNode } from "react";
 
@@ -9,7 +7,7 @@ export type CodePreview = {
   codeExample: {
     code: string;
     isLongCode: boolean;
-    selectId?: string;
+    selectedId?: string;
     selectOptions?: CodePreviewSelectOptions;
     status?: string;
     request?: Request;

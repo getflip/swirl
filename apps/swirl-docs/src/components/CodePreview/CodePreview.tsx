@@ -24,20 +24,20 @@ export function CodePreview({
 }: CodePreview) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [selectId, handleSelect] = useState<
-    CodePreview["codeExample"]["selectId"]
-  >(codeExample.selectId);
+    CodePreview["codeExample"]["selectedId"]
+  >(codeExample.selectedId);
 
   const [codePreviewCodeExample, setCodeExample] = useState<
     CodePreview["codeExample"]
   >({
     code: codeExample.code,
     isLongCode: codeExample.isLongCode,
-    selectId: selectId,
+    selectedId: selectId,
   });
 
   useEffect(() => {
     // TODO: Heads up: not the best solution for now. A global reducer would be better for the long run.
-    if (codeExample) {
+    if (codeExample && !selectId) {
       setCodeExample({
         ...codeExample,
         code: codeExample.code,
@@ -47,7 +47,7 @@ export function CodePreview({
     if (codeExample.selectOptions && selectId) {
       setCodeExample({
         ...codeExample,
-        selectId: selectId,
+        selectedId: selectId,
         code: codeExample.selectOptions[selectId],
         isLongCode: codeExample.selectOptions[selectId].split("\n").length > 7,
       });

@@ -12,9 +12,7 @@ export function CodePreviewHighlight() {
       theme={isLightTheme ? lightTheme : darkTheme}
       code={codeExample.code}
       language={
-        (codeExample.selectId
-          ? codeExample.selectId
-          : ("tsx" as Language)) as Language
+        (codeExample.selectedId ? codeExample.selectedId : "tsx") as Language
       }
     >
       {({ tokens, getLineProps, getTokenProps }) => {

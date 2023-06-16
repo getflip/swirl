@@ -281,7 +281,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             code: endpoint.request.snippets["shell"],
                             selectOptions: endpoint.request.snippets,
                             isLongCode: false,
-                            selectId: "shell",
+                            selectedId: "shell",
                             request: endpoint.request.request,
                           }}
                           PreviewIndicator={<HttpMethod />}
@@ -314,7 +314,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                                   {} as Record<string, string>
                                 ),
                                 isLongCode: true,
-                                selectId: endpoint.responseExamples[0].status,
+                                selectedId: endpoint.responseExamples[0].status,
                               }}
                             />
                           )}

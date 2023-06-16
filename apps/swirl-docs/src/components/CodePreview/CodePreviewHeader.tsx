@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useCodePreviewContext } from "./CodePreviewContext";
 import { CopyButton } from "./CodePreviewCopyButton";
 import { SupportedTargets } from "@readme/oas-to-snippet";
-import { Select, SelectItemProps, SelectProps } from "./CodePreviewSelect";
+import { Select, SelectItemProps, SelectProps } from "./Select";
 
 export function CodePreviewHeader() {
   const {
@@ -68,7 +68,7 @@ export function RequestLanguage() {
   return (
     <Select
       options={options}
-      selectId={selectedId}
+      selectedId={selectedId}
       onItemClick={handleSelection}
     />
   );
@@ -85,7 +85,7 @@ export function ResponseSelector() {
   return (
     <Select
       options={options}
-      selectId={selectedId}
+      selectedId={selectedId}
       onItemClick={handleSelection}
     />
   );
@@ -107,6 +107,6 @@ function useSelectOptionsAndHandler(keys: string[]) {
   return {
     options,
     handleSelection,
-    selectedId: codeExample.selectId as string,
+    selectedId: codeExample.selectedId as string,
   };
 }

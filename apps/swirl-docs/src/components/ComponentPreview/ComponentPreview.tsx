@@ -83,7 +83,6 @@ export function ComponentPreview() {
     }
 
     const codeExample = generateCodePreview();
-    console.log(codeExample);
   }, [componentData, generateCodePreview, currentExample]);
 
   return (
