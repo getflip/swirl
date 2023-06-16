@@ -36,6 +36,8 @@ module.exports = {
         "z-index-token-list": "96px repeat(5, 1fr)",
         "spacing-token-list": "64px repeat(5, 1fr)",
         "token-list": "minmax(24px, 96px) repeat(5, 1fr)",
+        "api-spec": "repeat(2, minmax(0, 600px))",
+        "codepreview-header": "3rem 70% 8rem",
       },
       borderWidth: {
         "border-1": "1px",

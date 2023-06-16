@@ -10,14 +10,14 @@ export const navItems: NavItem[] = [
   //   url: "/foundations",
   //   children: foundationsNavItems,
   // },
-  {
-    title: CategoryEnum.COMPONENTS,
-    url: "/components",
-    isRoot: true,
-    children: componentsNavItems,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
-  },
+  // {
+  //   title: CategoryEnum.COMPONENTS,
+  //   url: "/components",
+  //   isRoot: true,
+  //   children: componentsNavItems,
+  //   description:
+  //     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
+  // },
   {
     title: CategoryEnum.TOKENS,
     url: "/tokens/color",
@@ -34,7 +34,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "APIs and References",
-    url: "/api-docs",
+    url: "/api-docs/public-post-api",
     isRoot: true,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",

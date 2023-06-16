@@ -15,13 +15,14 @@ export function DocumentationHeader({
     <header
       className={classNames("border-b-1 pb-12 mb-12", additionalClassNames)}
     >
-      <div className="mb-space-8 inline-flex items-center">
+      {/* DIV IS HERE FOR TAGS ONLY */}
+      <div className="mb-space-8 inline-flex items-center max-w-[37.5rem]">
         <Heading level={1}>{frontMatter?.title as string}</Heading>
         {frontMatter?.tags?.map((tag: string) => (
           <Tag key={tag} content={tag} />
         ))}
       </div>
-      <Text>{frontMatter?.description}</Text>
+      <Text className="max-w-[37.5rem]">{frontMatter?.description}</Text>
     </header>
   );
 }
