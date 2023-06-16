@@ -1,5 +1,38 @@
 # @getflip/swirl-components-react
 
+## 0.68.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @getflip/swirl-components@0.69.2
+
+## 0.68.1
+
+### Patch Changes
+
+- [`7e525f0`](https://github.com/getflip/swirl/commit/7e525f0aa1ff210d0ac0ea771679ca6c01867930)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow HTML inside swirl-radio
+  description
+
+- Updated dependencies
+  [[`7e525f0`](https://github.com/getflip/swirl/commit/7e525f0aa1ff210d0ac0ea771679ca6c01867930)]:
+  - @getflip/swirl-components@0.69.1
+
+## 0.68.0
+
+### Minor Changes
+
+- [#297](https://github.com/getflip/swirl/pull/297)
+  [`d14251d`](https://github.com/getflip/swirl/commit/d14251dc1c599000333f99c135e67c9c9d729ad4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-symbol component(s)
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d14251d`](https://github.com/getflip/swirl/commit/d14251dc1c599000333f99c135e67c9c9d729ad4)]:
+  - @getflip/swirl-components@0.69.0
+
 ## 0.67.3
 
 ### Patch Changes

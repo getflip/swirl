@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-components",
-  "version": "0.68.3",
+  "version": "0.69.2",
   "description": "Swirl Design System Web Component Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -21,7 +21,9 @@
     "dist/",
     "loader/",
     "vscode-data.json",
-    "components.json"
+    "components.json",
+    "icons.json",
+    "symbols.json"
   ],
   "scripts": {
     "start": "yarn stencil:build && concurrently \"npm:*:start\"",
@@ -40,8 +42,8 @@
   },
   "dependencies": {
     "@floating-ui/dom": "1.0.1",
-    "@getflip/swirl-icons": "^0.17.0",
-    "@getflip/swirl-tokens": "^2.2.1",
+    "@getflip/swirl-icons": "^0.18.0",
+    "@getflip/swirl-tokens": "^2.3.0",
     "@stencil/core": "^3.3.1",
     "a11y-dialog": "^7.5.2",
     "balance-text": "^3.3.1",

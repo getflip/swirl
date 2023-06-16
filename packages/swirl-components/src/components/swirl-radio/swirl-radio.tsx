@@ -79,7 +79,10 @@ export class SwirlRadio {
           <span class="radio__label-container">
             {this.label && <span class="radio__label">{this.label}</span>}
             {this.description && (
-              <span class="radio__description">{this.description}</span>
+              <span
+                class="radio__description"
+                innerHTML={this.description}
+              ></span>
             )}
           </span>
         </label>
