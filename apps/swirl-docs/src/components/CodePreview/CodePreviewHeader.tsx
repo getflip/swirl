@@ -79,8 +79,10 @@ export function ResponseSelector() {
   const keys = codeExample.selectOptions
     ? Object.keys(codeExample.selectOptions)
     : [];
-  const { options, handleSelection, selectedId } =
-    useSelectOptionsAndHandler(keys);
+  const { options, handleSelection, selectedId } = useSelectOptionsAndHandler(
+    keys,
+    " - Result"
+  );
 
   return (
     <Select
@@ -91,17 +93,17 @@ export function ResponseSelector() {
   );
 }
 
-function useSelectOptionsAndHandler(keys: string[]) {
+function useSelectOptionsAndHandler(keys: string[], labelSuffix = "") {
   const { codeExample, handleSelect } = useCodePreviewContext();
 
   const options: SelectProps["options"] = keys.map((key) => ({
-    label: key,
+    label: key + labelSuffix,
     value: key,
   }));
   const handleSelection = (
     option: Pick<SelectItemProps, "label" | "value">
   ) => {
-    handleSelect?.(option.label);
+    handleSelect?.(option.value as string);
   };
 
   return {
