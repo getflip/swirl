@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.69.4
+
+### Patch Changes
+
+- [`f86447c`](https://github.com/getflip/swirl/commit/f86447ccec81ae28788173919908307d7127804e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "trigger-container" prop to
+  swirl-popover
+
 ## 0.69.3
 
 ### Patch Changes
