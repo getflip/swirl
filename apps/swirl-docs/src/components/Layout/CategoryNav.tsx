@@ -215,6 +215,48 @@ export function CategoryNav() {
           );
         })}
       </ul>
+      <hr className="mt-8" />
+      {router.asPath.includes("/api-docs") && (
+        <div className="mt-8">
+          <div className="h-10 inline-flex items-center justify-center">
+            <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-[#8E8E93]">
+              Legacy APIs
+            </h4>
+          </div>
+          <ul className="w-full">
+            <LegacyApiLink
+              href="https://base.flip-app.com/openapi/external/post"
+              label="Public Post API"
+            />
+            <LegacyApiLink
+              href="https://base.flip-app.com/openapi/external/sync"
+              label="Public Users- and Groups-Sync-API"
+            />
+          </ul>
+        </div>
+      )}
     </nav>
+  );
+}
+
+function LegacyApiLink({ href, label }: { href: string; label: string }) {
+  return (
+    <li className="w-full">
+      <Link href={href}>
+        <a
+          target="_blank"
+          className={classNames(
+            "inline-flex justify-between items-center w-full h-10",
+            "text-font-size-sm leading-5 text-text-default",
+            "hover:text-border-info"
+          )}
+        >
+          {label}
+          <span>
+            <i className="swirl-icons-OpenInNew28 text-base ml-1"></i>
+          </span>
+        </a>
+      </Link>
+    </li>
   );
 }
