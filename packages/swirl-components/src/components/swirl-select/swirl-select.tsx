@@ -75,6 +75,11 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     }
   };
 
+  private unselectOption = (value: string) => {
+    this.value = this.value.filter((v) => v !== value);
+    this.valueChange.emit(this.value);
+  };
+
   private onSlotChange = () => {
     this.updateOptions();
   };
@@ -82,7 +87,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   private onOpen = (
     event: CustomEvent<{ position: ComputePositionReturn }>
   ) => {
-    this.placement = event.detail.position.placement;
+    this.placement = event.detail.position?.placement;
     this.open = true;
   };
 
@@ -118,6 +123,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
       {
         "select--disabled": this.disabled,
         "select--inline": this.inline,
+        "select--multi": this.multiSelect,
       }
     );
 
@@ -128,13 +134,28 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             aria-describedby={this.swirlAriaDescribedby}
             aria-disabled={this.disabled ? "true" : undefined}
             aria-invalid={ariaInvalid}
-            class="select__label"
+            class="select__input"
             disabled={this.disabled}
             id={`trigger-${this.selectId}`}
             readOnly={true}
             type="text"
             value={label}
           ></input>
+          <span class="select__multi-select-values">
+            {this.value
+              ?.map((value) =>
+                this.options.find((option) => option.value === value)
+              )
+              .map((option) => (
+                <swirl-tag
+                  aria-hidden="true"
+                  label={option?.label}
+                  // eslint-disable-next-line react/jsx-no-bind
+                  onRemove={() => this.unselectOption(option?.value)}
+                  removable={!this.disabled}
+                ></swirl-tag>
+              ))}
+          </span>
           <span class="select__indicator">
             {this.open ? (
               <swirl-icon-expand-less></swirl-icon-expand-less>

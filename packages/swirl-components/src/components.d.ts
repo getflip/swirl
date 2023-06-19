@@ -1120,6 +1120,7 @@ export namespace Components {
         "placement"?: Placement;
         "popoverId": string;
         "trigger": string | HTMLElement;
+        "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
     }
     interface SwirlProgressIndicator {
@@ -4608,6 +4609,7 @@ declare namespace LocalJSX {
         "placement"?: Placement;
         "popoverId": string;
         "trigger": string | HTMLElement;
+        "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
     }
     interface SwirlProgressIndicator {
