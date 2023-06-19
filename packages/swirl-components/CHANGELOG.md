@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.70.1
+
+### Patch Changes
+
+- [`25be7d3`](https://github.com/getflip/swirl/commit/25be7d310c813ea1393578a6db072091629eeb61)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-select tag spacing
+
 ## 0.70.0
 
 ### Minor Changes
