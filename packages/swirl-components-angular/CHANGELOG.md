@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.68.3
+
+### Patch Changes
+
+- [`2277e9f`](https://github.com/getflip/swirl/commit/2277e9f9c2311f464e5f41c2734416c97675b19a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve swirl-modal close button
+  positioning
+
+- Updated dependencies
+  [[`2277e9f`](https://github.com/getflip/swirl/commit/2277e9f9c2311f464e5f41c2734416c97675b19a)]:
+  - @getflip/swirl-components@0.69.3
+
 ## 0.68.2
 
 ### Patch Changes
