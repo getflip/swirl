@@ -189,7 +189,7 @@ const WrappingAnchor = forwardRef<
 
 WrappingAnchor.displayName = "WrappingAnchor";
 
-export function CategoryNav() {
+export function SidebarNavigation() {
   const { navigationLinks: categoryLinkList } = useDocumentationLayoutContext();
   const router = useRouter();
   const activePath = router.asPath;
