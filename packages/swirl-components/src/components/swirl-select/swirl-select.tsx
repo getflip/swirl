@@ -105,7 +105,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   render() {
     const label = Boolean(this.value)
       ? this.value
-          .map(
+          ?.map(
             (value) =>
               this.options.find((option) => option.value === value)?.label
           )
