@@ -220,30 +220,32 @@ export class SwirlModal {
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
           <div class="modal__body" style={{ maxWidth: this.maxWidth }}>
-            {!this.hideCloseButton && (
-              <swirl-button
-                class="modal__close-button"
-                hideLabel
-                icon={
-                  this.variant === "default"
-                    ? "<swirl-icon-close></swirl-icon-close>"
-                    : "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
-                }
-                label={this.closeButtonLabel}
-                onClick={this.onCloseButtonClick}
-              ></swirl-button>
-            )}
             <header class="modal__custom-header">
               <slot name="custom-header"></slot>
             </header>
-            {!this.hideLabel && (
+            {(!this.hideLabel || !this.hideCloseButton) && (
               <header class="modal__header">
-                <swirl-heading
-                  as="h2"
-                  class="modal__heading"
-                  level={3}
-                  text={this.label}
-                ></swirl-heading>
+                {!this.hideCloseButton && (
+                  <swirl-button
+                    class="modal__close-button"
+                    hideLabel
+                    icon={
+                      this.variant === "default"
+                        ? "<swirl-icon-close></swirl-icon-close>"
+                        : "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
+                    }
+                    label={this.closeButtonLabel}
+                    onClick={this.onCloseButtonClick}
+                  ></swirl-button>
+                )}
+                {!this.hideLabel && (
+                  <swirl-heading
+                    as="h2"
+                    class="modal__heading"
+                    level={3}
+                    text={this.label}
+                  ></swirl-heading>
+                )}
               </header>
             )}
             <div

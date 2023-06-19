@@ -77,8 +77,12 @@
   }
 
   &.modal--hide-label {
-    & .modal__content {
-      padding-top: calc(3.5rem + var(--s-space-8));
+    & .modal__header {
+      @media (--from-tablet) {
+        height: auto;
+        padding-top: var(--s-space-4);
+        padding-bottom: var(--s-space-4);
+      }
     }
   }
 
@@ -99,23 +103,21 @@
     }
   }
 
-  & .modal__close-button {
-    right: auto;
-    left: var(--s-space-8);
+  & .modal__header {
+    background-color: var(--s-surface-overlay-default);
+
+    & .modal__close-button {
+      margin-left: calc(-1 * var(--s-space-8));
+    }
 
     @media (--from-tablet) {
-      left: var(--s-space-16);
+      flex-direction: row;
     }
   }
 
-  & .modal__header {
-    padding-right: var(--s-space-16);
-    padding-left: calc(var(--s-space-8) + 2.5rem + var(--s-space-8));
-
+  &.modal--padded .modal__content {
     @media (--from-tablet) {
-      padding-top: var(--s-space-16);
-      padding-right: var(--s-space-24);
-      padding-left: calc(var(--s-space-16) + 2.5rem + var(--s-space-8));
+      padding-top: var(--s-space-8);
     }
   }
 }
@@ -207,38 +209,27 @@
   }
 }
 
-.modal__close-button {
-  position: absolute;
-  z-index: 1;
-  top: var(--s-space-8);
-  left: var(--s-space-8);
-
-  @media (--from-tablet) {
-    top: var(--s-space-16);
-    right: var(--s-space-16);
-    left: auto;
-  }
-}
-
 .modal__header {
   display: flex;
   height: 3.5rem;
   padding-top: var(--s-space-8);
   padding-right: var(--s-space-16);
   padding-bottom: var(--s-space-8);
-  padding-left: calc(var(--s-space-8) + 2.5rem + var(--s-space-8));
+  padding-left: var(--s-space-16);
   flex-shrink: 0;
   align-items: center;
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
-  gap: var(--s-space-16);
+  gap: var(--s-space-8);
 
   @media (--from-tablet) {
     height: 4.125rem;
     padding-top: var(--s-space-24);
-    padding-right: calc(var(--s-space-16) + 2.5rem + var(--s-space-8));
+    padding-right: var(--s-space-24);
     padding-bottom: var(--s-space-16);
     padding-left: var(--s-space-24);
     border-bottom: var(--s-border-width-default) solid transparent;
+    flex-direction: row-reverse;
+    gap: var(--s-space-16);
   }
 }
 
