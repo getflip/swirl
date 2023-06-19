@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.69.0
+
+### Minor Changes
+
+- [`f1f501c`](https://github.com/getflip/swirl/commit/f1f501c858caa801880c03b76178315e333db850)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Display multi select values as
+  tags
+
+### Patch Changes
+
+- Updated dependencies
+  [[`f1f501c`](https://github.com/getflip/swirl/commit/f1f501c858caa801880c03b76178315e333db850)]:
+  - @getflip/swirl-components@0.70.0
+
 ## 0.68.4
 
 ### Patch Changes
