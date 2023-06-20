@@ -208,17 +208,17 @@
 }
 
 .date-picker__date--selected {
-  color: var(--s-text-on-surface-highlight);
+  color: var(--s-text-on-action-primary);
 
   &:before {
-    background-color: var(--s-surface-highlight-default);
+    background-color: var(--s-action-primary-default);
   }
 
   &:hover {
-    color: var(--s-text-on-surface-highlight);
+    color: var(--s-text-on-action-primary);
 
     &:before {
-      background-color: var(--s-surface-highlight-default);
+      background-color: var(--s-action-primary-hovered);
     }
   }
 
