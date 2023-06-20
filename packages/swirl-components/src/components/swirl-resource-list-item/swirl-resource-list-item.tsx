@@ -131,6 +131,7 @@ export class SwirlResourceListItem {
       `resource-list-item--label-weight-${this.labelWeight}`,
       {
         "resource-list-item--checked": this.checked,
+        "resource-list-item--disabled": this.disabled,
         "resource-list-item--draggable": this.allowDrag,
         "resource-list-item--dragging": this.dragging,
         "resource-list-item--has-menu": hasMenu,

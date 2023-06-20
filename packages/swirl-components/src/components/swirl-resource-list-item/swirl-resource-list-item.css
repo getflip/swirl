@@ -81,6 +81,17 @@
   }
 }
 
+.resource-list-item--disabled {
+  & .resource-list-item__checkbox {
+    border-color: var(--s-icon-disabled);
+    background-color: var(--s-icon-disabled);
+  }
+
+  & .resource-list-item__checkbox-icon {
+    color: var(--s-text-on-status);
+  }
+}
+
 .resource-list-item__content {
   --swirl-avatar-group-border-color: var(--s-background-default);
   --swirl-badge-border-color: var(--s-background-default);
