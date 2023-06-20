@@ -1,5 +1,39 @@
 # @getflip/swirl-components-angular
 
+## 0.70.0
+
+### Minor Changes
+
+- [`814bae6`](https://github.com/getflip/swirl/commit/814bae6f726fae7f34bbab1271bfffa36fbe6c1a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "interactive" prop to
+  swirl-resource-list-item
+
+### Patch Changes
+
+- [`3963f56`](https://github.com/getflip/swirl/commit/3963f56ca5ffc15dece989612f973bb3cfb82496)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-progress-indicator
+  color
+
+* [`a0761d9`](https://github.com/getflip/swirl/commit/a0761d9864a523318888aec1f1e5fb8f02f62d7e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix disabled
+  swirl-resource-list-item checkbox color
+
+- [`98941a0`](https://github.com/getflip/swirl/commit/98941a0aab8244c203020ff1f84d9544770f242c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix text and icon color of
+  swirl-button with variant outline
+
+* [`3415232`](https://github.com/getflip/swirl/commit/3415232a9a699f054633d93dbac6c591796f2c54)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-date-picker selected
+  date color
+
+* Updated dependencies
+  [[`3963f56`](https://github.com/getflip/swirl/commit/3963f56ca5ffc15dece989612f973bb3cfb82496),
+  [`a0761d9`](https://github.com/getflip/swirl/commit/a0761d9864a523318888aec1f1e5fb8f02f62d7e),
+  [`98941a0`](https://github.com/getflip/swirl/commit/98941a0aab8244c203020ff1f84d9544770f242c),
+  [`3415232`](https://github.com/getflip/swirl/commit/3415232a9a699f054633d93dbac6c591796f2c54),
+  [`814bae6`](https://github.com/getflip/swirl/commit/814bae6f726fae7f34bbab1271bfffa36fbe6c1a)]:
+  - @getflip/swirl-components@0.71.0
+
 ## 0.69.1
 
 ### Patch Changes
