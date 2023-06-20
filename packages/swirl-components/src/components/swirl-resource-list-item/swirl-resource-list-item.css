@@ -13,9 +13,34 @@
 .resource-list-item {
   position: relative;
   width: 100%;
+}
 
+.resource-list-item--interactive {
   &:hover {
     --swirl-ghost-button-background-default: var(--s-background-hovered);
+  }
+
+  & .resource-list-item__content {
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      background-color: var(--swirl-resource-list-item-background-hovered);
+
+      & .resource-list-item__media {
+        --swirl-avatar-background-color: var(--s-surface-raised-hovered);
+        --swirl-avatar-group-border-color: var(--s-background-hovered);
+        --swirl-badge-border-color: var(--s-background-hovered);
+      }
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--swirl-resource-list-item-background-pressed);
+
+      & .resource-list-item__media {
+        --swirl-avatar-group-border-color: var(--s-background-pressed);
+        --swirl-badge-border-color: var(--s-background-pressed);
+      }
+    }
   }
 }
 
@@ -111,27 +136,7 @@
   line-height: var(--s-line-height-base);
   text-align: left;
   text-decoration: none;
-  cursor: pointer;
   gap: var(--s-space-12);
-
-  &:hover:not(:disabled) {
-    background-color: var(--swirl-resource-list-item-background-hovered);
-
-    & .resource-list-item__media {
-      --swirl-avatar-background-color: var(--s-surface-raised-hovered);
-      --swirl-avatar-group-border-color: var(--s-background-hovered);
-      --swirl-badge-border-color: var(--s-background-hovered);
-    }
-  }
-
-  &:active:not(:disabled) {
-    background-color: var(--swirl-resource-list-item-background-pressed);
-
-    & .resource-list-item__media {
-      --swirl-avatar-group-border-color: var(--s-background-pressed);
-      --swirl-badge-border-color: var(--s-background-pressed);
-    }
-  }
 
   &:focus {
     outline: none;

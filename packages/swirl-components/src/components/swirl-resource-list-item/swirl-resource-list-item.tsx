@@ -34,6 +34,7 @@ export class SwirlResourceListItem {
   @Prop() dragHandleLabel?: string = "Move item";
   @Prop() hideDivider?: boolean;
   @Prop() href?: string;
+  @Prop() interactive?: boolean = true;
   @Prop() label!: string;
   @Prop() labelWeight?: SwirlResourceListItemLabelWeight = "medium";
   @Prop() menuTriggerId?: string;
@@ -116,15 +117,21 @@ export class SwirlResourceListItem {
   };
 
   render() {
-    const Tag = Boolean(this.href) && !this.selectable ? "a" : "button";
+    const Tag =
+      !this.interactive && !this.selectable
+        ? "div"
+        : Boolean(this.href) && !this.selectable
+        ? "a"
+        : "button";
 
     const disabled = this.disabled && !Boolean(this.href);
     const hasMenu = Boolean(this.menuTriggerId);
+    const href = this.interactive && Boolean(this.href) ? this.href : undefined;
     const showMenu = hasMenu && !Boolean(this.meta) && !this.selectable;
     const showMeta = Boolean(this.meta) && !this.selectable;
 
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
-    const role = this.selectable ? "checkbox" : undefined;
+    const role = this.interactive && this.selectable ? "checkbox" : undefined;
 
     const className = classnames(
       "resource-list-item",
@@ -136,6 +143,7 @@ export class SwirlResourceListItem {
         "resource-list-item--dragging": this.dragging,
         "resource-list-item--has-menu": hasMenu,
         "resource-list-item--hide-divider": this.hideDivider,
+        "resource-list-item--interactive": this.interactive || this.selectable,
         "resource-list-item--selectable": this.selectable,
       }
     );
@@ -148,7 +156,7 @@ export class SwirlResourceListItem {
             aria-disabled={disabled ? "true" : undefined}
             aria-labelledby="label"
             class="resource-list-item__content"
-            href={this.href}
+            href={href}
             disabled={disabled}
             onClick={this.onClick}
             part="resource-list-item__content"

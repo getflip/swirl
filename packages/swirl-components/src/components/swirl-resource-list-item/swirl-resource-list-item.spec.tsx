@@ -18,7 +18,7 @@ describe("swirl-resource-list-item", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-resource-list-item description="Description" label="Label" role="row">
-        <div class="resource-list-item resource-list-item--label-weight-medium" role="gridcell">
+        <div class="resource-list-item resource-list-item--interactive resource-list-item--label-weight-medium" role="gridcell">
           <button aria-labelledby="label" class="resource-list-item__content" part="resource-list-item__content"  tabindex="0">
             <span class="resource-list-item__media">
               <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>

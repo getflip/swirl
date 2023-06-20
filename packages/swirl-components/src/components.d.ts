@@ -1169,6 +1169,7 @@ export namespace Components {
         "dragging"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
+        "interactive"?: boolean;
         "label": string;
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "menuTriggerId"?: string;
@@ -4666,6 +4667,7 @@ declare namespace LocalJSX {
         "dragging"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
+        "interactive"?: boolean;
         "label": string;
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "menuTriggerId"?: string;
