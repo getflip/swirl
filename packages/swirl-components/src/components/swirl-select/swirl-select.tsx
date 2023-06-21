@@ -155,7 +155,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
               ?.map((value) =>
                 this.options.find((option) => option.value === value)
               )
-              .map((option) => (
+              ?.map((option) => (
                 <swirl-tag
                   aria-hidden="true"
                   label={option?.label}
