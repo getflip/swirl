@@ -117,6 +117,15 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
         ? String(this.invalid)
         : undefined;
 
+    const formControl = this.el.closest<
+      HTMLSwirlFormControlElement | undefined
+    >("swirl-form-control");
+
+    const offset =
+      formControl?.inline || formControl?.labelPosition === "outside"
+        ? -12
+        : -16;
+
     const className = classnames(
       "select",
       `select--placement-${this.placement}`,
@@ -167,7 +176,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             animation="scale-in-y"
             class="select__popover"
             label={this.label}
-            offset={[0, -16]}
+            offset={[0, offset]}
             onPopoverClose={this.onClose}
             onPopoverOpen={this.onOpen}
             popoverId={`select-options-${this.selectId}`}
