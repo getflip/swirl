@@ -23,6 +23,10 @@
   & .resource-list-item__content {
     cursor: pointer;
 
+    &:disabled {
+      cursor: default;
+    }
+
     &:hover:not(:disabled) {
       background-color: var(--swirl-resource-list-item-background-hovered);
 
@@ -153,7 +157,6 @@
 
   &:disabled {
     color: var(--s-text-disabled);
-    background-color: var(--s-background-default);
     cursor: default;
 
     & .resource-list-item__description {
