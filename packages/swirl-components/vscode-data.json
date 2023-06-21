@@ -3647,6 +3647,44 @@
       ]
     },
     {
+      "name": "swirl-image-grid",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "aspect-ratio",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-image-grid-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "alt",
+          "description": ""
+        },
+        {
+          "name": "interactive",
+          "description": ""
+        },
+        {
+          "name": "overlay",
+          "description": ""
+        },
+        {
+          "name": "src",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-inline-error",
       "description": {
         "kind": "markdown",

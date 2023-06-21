@@ -904,6 +904,15 @@ export namespace Components {
     interface SwirlIconWarning {
         "size": SwirlIconSize;
     }
+    interface SwirlImageGrid {
+        "aspectRatio"?: string;
+    }
+    interface SwirlImageGridItem {
+        "alt": string;
+        "interactive"?: boolean;
+        "overlay"?: string;
+        "src": string;
+    }
     interface SwirlInlineError {
         "message": string;
         "size"?: SwirlInlineErrorSize;
@@ -2767,6 +2776,18 @@ declare global {
         prototype: HTMLSwirlIconWarningElement;
         new (): HTMLSwirlIconWarningElement;
     };
+    interface HTMLSwirlImageGridElement extends Components.SwirlImageGrid, HTMLStencilElement {
+    }
+    var HTMLSwirlImageGridElement: {
+        prototype: HTMLSwirlImageGridElement;
+        new (): HTMLSwirlImageGridElement;
+    };
+    interface HTMLSwirlImageGridItemElement extends Components.SwirlImageGridItem, HTMLStencilElement {
+    }
+    var HTMLSwirlImageGridItemElement: {
+        prototype: HTMLSwirlImageGridItemElement;
+        new (): HTMLSwirlImageGridItemElement;
+    };
     interface HTMLSwirlInlineErrorElement extends Components.SwirlInlineError, HTMLStencilElement {
     }
     var HTMLSwirlInlineErrorElement: {
@@ -3607,6 +3628,8 @@ declare global {
         "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
         "swirl-icon-voice": HTMLSwirlIconVoiceElement;
         "swirl-icon-warning": HTMLSwirlIconWarningElement;
+        "swirl-image-grid": HTMLSwirlImageGridElement;
+        "swirl-image-grid-item": HTMLSwirlImageGridItemElement;
         "swirl-inline-error": HTMLSwirlInlineErrorElement;
         "swirl-inline-notification": HTMLSwirlInlineNotificationElement;
         "swirl-inline-status": HTMLSwirlInlineStatusElement;
@@ -4454,6 +4477,15 @@ declare namespace LocalJSX {
     interface SwirlIconWarning {
         "size"?: SwirlIconSize;
     }
+    interface SwirlImageGrid {
+        "aspectRatio"?: string;
+    }
+    interface SwirlImageGridItem {
+        "alt": string;
+        "interactive"?: boolean;
+        "overlay"?: string;
+        "src": string;
+    }
     interface SwirlInlineError {
         "message": string;
         "size"?: SwirlInlineErrorSize;
@@ -5253,6 +5285,8 @@ declare namespace LocalJSX {
         "swirl-icon-visibility-off": SwirlIconVisibilityOff;
         "swirl-icon-voice": SwirlIconVoice;
         "swirl-icon-warning": SwirlIconWarning;
+        "swirl-image-grid": SwirlImageGrid;
+        "swirl-image-grid-item": SwirlImageGridItem;
         "swirl-inline-error": SwirlInlineError;
         "swirl-inline-notification": SwirlInlineNotification;
         "swirl-inline-status": SwirlInlineStatus;
@@ -5540,6 +5574,8 @@ declare module "@stencil/core" {
             "swirl-icon-visibility-off": LocalJSX.SwirlIconVisibilityOff & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
             "swirl-icon-voice": LocalJSX.SwirlIconVoice & JSXBase.HTMLAttributes<HTMLSwirlIconVoiceElement>;
             "swirl-icon-warning": LocalJSX.SwirlIconWarning & JSXBase.HTMLAttributes<HTMLSwirlIconWarningElement>;
+            "swirl-image-grid": LocalJSX.SwirlImageGrid & JSXBase.HTMLAttributes<HTMLSwirlImageGridElement>;
+            "swirl-image-grid-item": LocalJSX.SwirlImageGridItem & JSXBase.HTMLAttributes<HTMLSwirlImageGridItemElement>;
             "swirl-inline-error": LocalJSX.SwirlInlineError & JSXBase.HTMLAttributes<HTMLSwirlInlineErrorElement>;
             "swirl-inline-notification": LocalJSX.SwirlInlineNotification & JSXBase.HTMLAttributes<HTMLSwirlInlineNotificationElement>;
             "swirl-inline-status": LocalJSX.SwirlInlineStatus & JSXBase.HTMLAttributes<HTMLSwirlInlineStatusElement>;
