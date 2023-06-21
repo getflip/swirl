@@ -1,5 +1,21 @@
 # @getflip/swirl-components-angular
 
+## 0.70.3
+
+### Patch Changes
+
+- [`ea4fa03`](https://github.com/getflip/swirl/commit/ea4fa03afc76eb39be1bd31f02e57c04a239cb4e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a swirl-select issue
+
+* [`784edbb`](https://github.com/getflip/swirl/commit/784edbba7e606811821ee2f5682eb4b21e41cea6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-table empty row
+  styling
+
+* Updated dependencies
+  [[`ea4fa03`](https://github.com/getflip/swirl/commit/ea4fa03afc76eb39be1bd31f02e57c04a239cb4e),
+  [`784edbb`](https://github.com/getflip/swirl/commit/784edbba7e606811821ee2f5682eb4b21e41cea6)]:
+  - @getflip/swirl-components@0.71.3
+
 ## 0.70.2
 
 ### Patch Changes
