@@ -1,5 +1,26 @@
 # @getflip/swirl-components-react
 
+## 0.70.1
+
+### Patch Changes
+
+- [`994b5b3`](https://github.com/getflip/swirl/commit/994b5b3c930a1e4ffd962417fa425e4071315b21)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix active
+  swirl-tree-navigation-item border color
+
+* [`c683026`](https://github.com/getflip/swirl/commit/c683026792ae7cc3f5b04155b5f67749b26aa2c2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-select menu positioning
+
+- [`437b224`](https://github.com/getflip/swirl/commit/437b224d37b627b8b4b1af4cf6afebf8710a0c6a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix disabled
+  swirl-resource-list-item background color
+
+- Updated dependencies
+  [[`994b5b3`](https://github.com/getflip/swirl/commit/994b5b3c930a1e4ffd962417fa425e4071315b21),
+  [`c683026`](https://github.com/getflip/swirl/commit/c683026792ae7cc3f5b04155b5f67749b26aa2c2),
+  [`437b224`](https://github.com/getflip/swirl/commit/437b224d37b627b8b4b1af4cf6afebf8710a0c6a)]:
+  - @getflip/swirl-components@0.71.1
+
 ## 0.70.0
 
 ### Minor Changes
