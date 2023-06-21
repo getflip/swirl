@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.70.2
+
+### Patch Changes
+
+- [`3a0203e`](https://github.com/getflip/swirl/commit/3a0203e83676a6655ceaf3d1cf8529ab03129d37)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-date-picker range input
+  colors
+
+- Updated dependencies
+  [[`3a0203e`](https://github.com/getflip/swirl/commit/3a0203e83676a6655ceaf3d1cf8529ab03129d37)]:
+  - @getflip/swirl-components@0.71.2
+
 ## 0.70.1
 
 ### Patch Changes
