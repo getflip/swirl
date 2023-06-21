@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.71.4
+
+### Patch Changes
+
+- [`d13ae5e`](https://github.com/getflip/swirl/commit/d13ae5ec50f7a06a680c20d09696560f56de271f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-resource-list-item
+  checkbox color
+
 ## 0.71.3
 
 ### Patch Changes
