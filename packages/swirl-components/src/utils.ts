@@ -129,7 +129,13 @@ export function generateStoryElement(
   const element = document.createElement(tag);
 
   Object.entries(args)
-    .filter((arg) => arg[1] !== undefined && arg[1] !== null && arg[1] !== "")
+    .filter(
+      (arg) =>
+        arg[1] !== undefined &&
+        arg[1] !== null &&
+        arg[1] !== "" &&
+        arg[0] !== "slot"
+    )
     .forEach(([attr, value]) => {
       if (typeof value === "object") {
         element[attr] = value;
