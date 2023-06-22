@@ -16,6 +16,10 @@
       object-fit: cover;
     }
   }
+
+  &(:nth-child(n+5)) {
+    display: none;
+  }
 }
 
 .image-grid-item {
