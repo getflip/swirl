@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.72.0
+
+### Minor Changes
+
+- [`4c68c75`](https://github.com/getflip/swirl/commit/4c68c758360b0b1f2b5eeff47824333535bfdf76)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "label-weight" prop to
+  SwirlCheckbox
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4c68c75`](https://github.com/getflip/swirl/commit/4c68c758360b0b1f2b5eeff47824333535bfdf76)]:
+  - @getflip/swirl-components@0.73.0
+
 ## 0.71.0
 
 ### Minor Changes
