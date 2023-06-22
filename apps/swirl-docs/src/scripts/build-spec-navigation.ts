@@ -18,6 +18,7 @@ async function generateApiSpecNavItems(specName: string): Promise<NavItem> {
   const oasDocument = await new (OASNormalize as any).default(specPath, {
     enablePaths: true,
   }).validate();
+
   const oasBuilder = new OASBuilder(oasDocument)
     .setTitleAndPath()
     .setDescription()

@@ -1,0 +1,12 @@
+openapi: 3.0.0
+info:
+  title: Flip API V3
+  version: '3.0'
+  contact:
+    name: Flip
+    url: 'https://www.getflip.com'
+  description: Flip API version 3
+servers:
+  - url: 'http://localhost:3000'
+paths: {}
+components: {}

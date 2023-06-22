@@ -1,0 +1,974 @@
+openapi: 3.0.0
+info:
+  title: User Management API
+  version: '1.0'
+servers:
+  - url: "http://localhost:3000"
+paths:
+  /api/v3/admin/users:
+    parameters: [ ]
+    get:
+      x-experimental: true
+      summary: Search Users
+      description: Allows admin users to search users by a query string, filter by status and sort the resulting list by various user attributes.
+      operationId: search-users
+      responses:
+        '200':
+          description: A paged result list of matching users.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserManagementUserListResponse"
+      parameters:
+        - name: search_term
+          description: A term that needs a match in the user's first name, last name, username, email, department or location.
+          in: query
+          schema:
+            type: string
+        - name: status
+          description: A filter for the user's status.
+          in: query
+          schema:
+            $ref: "#/components/schemas/UserStatus"
+        - name: sort
+          description: Defines the order in which the items are returned. Refer to our general "pagination" concept for more information.
+          in: query
+          schema:
+            type: array
+            maxItems: 5
+            items:
+              $ref: '#/components/schemas/UserManagementUserListSortingOption'
+        - name: page_limit
+          description: See general API concepts
+          in: query
+          schema:
+            type: integer
+            maximum: 50
+            minimum: 1
+        - name: page_number
+          description: See general API concepts
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+      tags:
+        - user-admin
+    post:
+      x-experimental: true
+      summary: Create User
+      description: |-
+        Allows an admin user to create a new user.
+        Endpoint-specific error codes are:
+          - USER_ID_ALREADY_EXISTS (another user exists with the same id),
+          - USERNAME_ALREADY_EXISTS (another user exists with the same username),
+          - EXTERNAL_ID_ALREADY_EXISTS (another user exists with the same external ID)
+      operationId: create-user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserManagementUsersPostRequest"
+      responses:
+        '200':
+          description: The linked identity as the idempotent result of a repeated request.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserManagementUserResponse"
+        '201':
+          description: The created user.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserManagementUserResponse"
+      tags:
+        - user-admin
+  '/api/v3/admin/users/{userId}':
+    parameters:
+      - schema:
+          $ref: "#/components/schemas/UserId"
+        name: userId
+        in: path
+        required: true
+    get:
+      x-experimental: true
+      summary: Get User Details
+      description: Allows an admin user to get details about a user by its ID.
+      responses:
+        '200':
+          description: The requested user.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserManagementUserResponse"
+      operationId: get-user
+      tags:
+        - user-admin
+    patch:
+      x-experimental: true
+      summary: Update User
+      description: |-
+        Allows an admin user to (partially) update a user.
+        Endpoint-specific error codes are:
+         - USERNAME_ALREADY_EXISTS (another user exists with the same username),
+         - EXTERNAL_ID_ALREADY_EXISTS (another user exists with the same external ID)
+      operationId: patch-users-userId
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/UserManagementUsersPatchRequest'
+      responses:
+        '200':
+          description: The updated user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserManagementUserResponse'
+      tags:
+        - user-admin
+    delete:
+      x-experimental: true
+      summary: Delete User
+      description: Allows an admin user to delete a user identified by its ID.
+      operationId: delete-user
+      responses:
+        '200':
+          description: The user that has been deleted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserManagementUserResponse'
+      tags:
+        - user-admin
+  '/api/v3/admin/users/{userId}/lock':
+    parameters:
+      - schema:
+          $ref: '#/components/schemas/UserId'
+        name: userId
+        in: path
+        required: true
+    post:
+      x-experimental: true
+      summary: Lock User
+      description: Allows an admin user to lock a user identified by its ID. A locked user cannot log-in anymore or get refresh tokens.
+      operationId: lock-user
+      responses:
+        '200':
+          description: The user that has been locked.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserManagementUserResponse'
+      tags:
+        - user-admin
+  '/api/v3/admin/users/{userId}/unlock':
+    parameters:
+      - schema:
+          $ref: '#/components/schemas/UserId'
+        name: userId
+        in: path
+        required: true
+    post:
+      x-experimental: true
+      summary: Unlock User
+      description: Allows an admin user to unlock a user identified by its ID. A previously locked user can log-in again once unlocked.
+      operationId: unlock-user
+      responses:
+        '200':
+          description: The user that has been unlocked.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserManagementUserResponse'
+      tags:
+        - user-admin
+  /api/v3/admin/users/batch:
+    parameters: [ ]
+    delete:
+      x-experimental: true
+      summary: Delete multiple users
+      description: Allows an admin user to delete multiple users at once.
+      operationId: delete-multiple-users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserManagementUsersBatchDeleteRequest'
+      responses:
+        '200':
+          description: See general API concepts.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserManagementUsersBatchDeleteResponse"
+      tags:
+        - user-admin
+  '/api/v3/admin/users/identity-providers':
+    get:
+      x-experimental: true
+      x-internal: true
+      summary: List linkable identity providers
+      description: Provides a list of configured identity providers that can be linked to a user.
+      operationId: get-linkable-identity-providers
+      responses:
+        '200':
+          description: List of linkable identity providers
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LinkableIdentityProvidersResponse"
+      tags:
+        - user-admin
+  '/api/v3/admin/users/{userId}/linked-identities':
+    parameters:
+      - schema:
+          $ref: '#/components/schemas/UserId'
+        name: userId
+        in: path
+        required: true
+    get:
+      x-experimental: true
+      summary: Get linked identities for user
+      description: Lists all identities of a remote identity provider linked to a user.
+      operationId: get-linked-identities
+      responses:
+        '200':
+          description: List of linked identities for that user.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LinkedIdentityListResponse"
+      tags:
+        - user-admin
+    post:
+      x-experimental: true
+      summary: Link identity to user
+      description: |-
+        Links an identity of a remote identity provider to a user.
+        Endpoint-specific error codes are:
+        - INVALID_IDENTITY_PROVIDER (returned if the identity provider is not configured).
+      operationId: create-linked-identity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LinkedIdentityPostRequest"
+      responses:
+        '200':
+          description: The linked identity as the idempotent result of a repeated request.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LinkedIdentityResponse"
+        '201':
+          description: The identity linked to the user.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LinkedIdentityResponse"
+      tags:
+        - user-admin
+  '/api/v3/admin/users/{userId}/linked-identities/{providerId}':
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/UserId'
+      - name: providerId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/IdentityProviderId'
+    delete:
+      x-experimental: true
+      summary: Delete linked identity
+      description: Deletes a linked identity of a remote identity provider from a user.
+      operationId: delete-linked-identity
+      responses:
+        '200':
+          description: The identity that was removed from the user.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LinkedIdentityResponse"
+      tags:
+        - user-admin
+  '/api/v3/admin/users/{userId}/password':
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/UserId'
+    get:
+      x-experimental: true
+      summary: Check if a password is configured for a user
+      description: Checks if a password is configured for a user.
+      operationId: has-password
+      responses:
+        '204':
+          description: A password is configured for the user.
+        '404':
+          description: No password is configured for the user.
+      tags:
+        - user-admin
+    post:
+      x-experimental: true
+      summary: Set password for user
+      description: |-
+        Allows an admin user to set a new password for a user.
+        Endpoint-specific error codes are:
+         - PASSWORD_POLICY_NOT_RESPECTED (new password does not fulfill the password policy),
+         - PASSWORD_HISTORY_POLICY_NOT_RESPECTED (new password has been used before)'
+      operationId: change-password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserManagementPasswordPostRequest"
+      responses:
+        '204':
+          description: The new password has been set.
+      tags:
+        - user-admin
+    delete:
+      x-experimental: true
+      summary: Delete password of user
+      description: Allows an admin user to remove the password configured for a user. The user can no longer log-in via its credentials afterwards.'
+      operationId: delete-password
+      responses:
+        '204':
+          description: The password has been deleted.
+      tags:
+        - user-admin
+  '/api/v3/admin/users/{userId}/account-actions-email':
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/UserId'
+    post:
+      x-experimental: true
+      summary: Send email requesting account actions
+      description: |-
+        Sends an email to a user requesting one or multiple account actions.
+        Endpoint-specific error codes are:
+          - USER_IS_LOCKED (user is locked and therefore email cannot be sent),
+          - USER_HAS_NOT_EMAIL_ADDRESS (no email address configured for the user)'
+      operationId: send-account-actions-email
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountActionsEmailPostRequest"
+      responses:
+        '204':
+          description: Acknowledgment that account action request was received.
+      tags:
+        - user-admin
+  '/api/v3/admin/users/account-actions-email/batch':
+    post:
+      x-experimental: true
+      summary: Send emails to multiple users requesting account actions
+      description: |-
+        Sends emails to multiple users requesting one or multiple account actions.
+        Endpoint-specific error codes on each result equal those defined for corresponding single operation.'
+      operationId: send-multiple-account-actions-emails
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountActionsEmailBatchPostRequest"
+      responses:
+        '200':
+          description: List of responses from the single operation executions
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountActionsEmailBatchPostResponse"
+      tags:
+        - user-admin
+  '/api/v3/users/me/password':
+    get:
+      x-experimental: true
+      summary: Check if authenticated user has password
+      description: Provides the authenticated user information whether or not a password is configured for themselves.
+      operationId: do-I-have-a-password
+      responses:
+        '204':
+          description: A password is configured for the user.
+        '404':
+          description: No password is configured for the user.
+      tags:
+        - user-me
+    post:
+      x-experimental: true
+      summary: Change password of authenticated user
+      description: |-
+        Allows the authenticated user to change their own password.
+        Endpoint-specific error codes are:
+          - WRONG_PASSWORD (old password not correct),
+          - PASSWORD_POLICY_NOT_RESPECTED (new password does not fulfill the password policy),
+          - PASSWORD_HISTORY_POLICY_NOT_RESPECTED (new password has been used before)'
+      operationId: change-my-password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserMePasswordPostRequest"
+      responses:
+        '204':
+          description: The new password has been set.
+      tags:
+        - user-me
+  '/api/v3/users/me/email':
+    get:
+      x-experimental: true
+      summary: Get email address of authenticated user
+      description: Retrieves information about the email address of the authenticated user.
+      operationId: get-my-account-email
+      responses:
+        '200':
+          description: The current email address and whether you are allowed to change it.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMeEmailResponse'
+      tags:
+        - user-me
+    post:
+      x-experimental: true
+      summary: Change email address of authenticated user
+      description: |-
+        Allows the authenticated user to change their own email address.
+        Endpoint-specific error codes are:
+          - INVALID_EMAIL_ADDRESS (the email address is not valid)'
+      operationId: change-my-account-email
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserMeEmailPostRequest"
+      responses:
+        '204':
+          description: The new email address has been set.
+      tags:
+        - user-me
+components:
+  schemas:
+    AccountActionsEmailPostRequest:
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredAction'
+        validity_minutes:
+          description: Minutes that the link in the email should be valid for
+          minimum: 1
+          maximum: 43200
+          type: integer
+      required:
+        - actions
+        - validity_minutes
+    AccountActionsEmailBatchPostRequest:
+      type: object
+      properties:
+        items:
+          type: array
+          minItems: 1
+          maxItems: 50
+          items:
+            $ref: '#/components/schemas/AccountActionsEmailBatchPostRequestItem'
+      required:
+        - items
+    AccountActionsEmailBatchPostRequestItem:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        body:
+          $ref: '#/components/schemas/AccountActionsEmailPostRequest'
+      required:
+        - id
+        - body
+    AccountActionsEmailBatchPostResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountActionsEmailPostBatchResponseItem'
+      required:
+        - items
+    AccountActionsEmailPostBatchResponseItem:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        status:
+          $ref: "shared.yml#/components/schemas/HttpStatusCode"
+        error:
+          $ref: 'problem.yml#/components/schemas/Problem'
+      required:
+        - id
+        - status
+    LinkedIdentityPostRequest:
+      type: object
+      properties:
+        provider_id:
+          $ref: '#/components/schemas/IdentityProviderId'
+        linked_user_id:
+          $ref: '#/components/schemas/LinkedIdentityUserId'
+        linked_username:
+          $ref: '#/components/schemas/LinkedIdentityUsername'
+      required:
+        - provider_id
+        - linked_user_id
+        - linked_username
+    LinkedIdentityResponse:
+      type: object
+      properties:
+        provider:
+          $ref: '#/components/schemas/IdentityProviderReference'
+        linked_user_id:
+          $ref: '#/components/schemas/LinkedIdentityUserId'
+        linked_username:
+          $ref: '#/components/schemas/LinkedIdentityUsername'
+      required:
+        - provider
+        - linked_user_id
+        - linked_username
+    LinkedIdentityListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkedIdentityResponse'
+    LinkableIdentityProvidersResponse:
+      type: object
+      properties:
+        providers:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentityProviderReference'
+    UserManagementUsersBatchDeleteRequest:
+      type: object
+      properties:
+        items:
+          type: array
+          minItems: 1
+          maxItems: 50
+          items:
+            $ref: '#/components/schemas/UserManagementUsersBatchDeleteRequestItem'
+      required:
+        - items
+    UserManagementUsersBatchDeleteRequestItem:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+      required:
+        - id
+    UserManagementUsersBatchDeleteResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserManagementUsersBatchDeleteResponseItems'
+      required:
+        - items
+    UserManagementUsersBatchDeleteResponseItems:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        status:
+          $ref: "shared.yml#/components/schemas/HttpStatusCode"
+        body:
+          $ref: '#/components/schemas/UserManagementUserResponse'
+        error:
+          $ref: 'problem.yml#/components/schemas/Problem'
+      required:
+        - id
+        - status
+    UserManagementUsersPostRequest:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        external_id:
+          $ref: '#/components/schemas/ExternalUserId'
+        first_name:
+          $ref: '#/components/schemas/FirstName'
+        last_name:
+          $ref: '#/components/schemas/LastName'
+        email:
+          $ref: '#/components/schemas/EmailAddressNullable'
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        username:
+          $ref: '#/components/schemas/UserName'
+        profile:
+          $ref: '#/components/schemas/UserManagementUsersPostRequestProfile'
+        role:
+          $ref: '#/components/schemas/SystemRole'
+        required_actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredAction'
+      required:
+        - first_name
+        - last_name
+        - status
+        - username
+        - role
+    UserManagementUsersPostRequestProfile:
+      type: object
+      nullable: true
+      properties:
+        about_me:
+          $ref: '#/components/schemas/UserProfileAboutMe'
+        department:
+          $ref: '#/components/schemas/UserProfileDepartment'
+        job_title:
+          $ref: '#/components/schemas/UserProfileJobTitle'
+        location:
+          $ref: '#/components/schemas/UserProfileLocation'
+        mobile_number:
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
+        phone_number:
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
+    UserManagementUsersPatchRequest:
+      type: object
+      x-json-merge-patch: true
+      properties:
+        external_id:
+          $ref: '#/components/schemas/ExternalUserId'
+        first_name:
+          $ref: '#/components/schemas/FirstName'
+        last_name:
+          $ref: '#/components/schemas/LastName'
+        email:
+          $ref: '#/components/schemas/EmailAddressNullable'
+        username:
+          $ref: '#/components/schemas/UserName'
+        profile:
+          $ref: '#/components/schemas/UserManagementUsersPatchRequestProfile'
+        role:
+          $ref: '#/components/schemas/SystemRole'
+        required_actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredAction'
+    UserManagementUsersPatchRequestProfile:
+      type: object
+      x-json-merge-patch: true
+      properties:
+        about_me:
+          $ref: '#/components/schemas/UserProfileAboutMe'
+        department:
+          $ref: '#/components/schemas/UserProfileDepartment'
+        job_title:
+          $ref: '#/components/schemas/UserProfileJobTitle'
+        location:
+          $ref: '#/components/schemas/UserProfileLocation'
+        mobile_number:
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
+        phone_number:
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
+    UserManagementUserResponse:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        external_id:
+          $ref: '#/components/schemas/ExternalUserId'
+        first_name:
+          $ref: '#/components/schemas/FirstName'
+        last_name:
+          $ref: '#/components/schemas/LastName'
+        email:
+          $ref: '#/components/schemas/EmailAddressNullable'
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        username:
+          $ref: '#/components/schemas/UserName'
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        profile_picture:
+          $ref: 'shared.yml#/components/schemas/ProfilePicture'
+        profile:
+          $ref: '#/components/schemas/UserManagementUserResponseProfile'
+        role:
+          $ref: '#/components/schemas/SystemRole'
+        required_actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredAction'
+      required:
+        - id
+        - first_name
+        - last_name
+        - status
+        - username
+        - created_at
+        - profile
+        - role
+        - required_actions
+    UserManagementUserResponseProfile:
+      type: object
+      properties:
+        about_me:
+          $ref: '#/components/schemas/UserProfileAboutMe'
+        department:
+          $ref: '#/components/schemas/UserProfileDepartment'
+        job_title:
+          $ref: '#/components/schemas/UserProfileJobTitle'
+        location:
+          $ref: '#/components/schemas/UserProfileLocation'
+        mobile_number:
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
+        phone_number:
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
+        picture:
+          $ref: 'shared.yml#/components/schemas/ProfilePicture'
+    UserManagementUserListSortingOption:
+      type: string
+      enum:
+        - FIRST_NAME_ASC
+        - FIRST_NAME_DESC
+        - LAST_NAME_ASC
+        - LAST_NAME_DESC
+        - USERNAME_ASC
+        - USERNAME_DESC
+        - EMAIL_ASC
+        - EMAIL_DESC
+        - DEPARTMENT_ASC
+        - DEPARTMENT_DESC
+        - LOCATION_ASC
+        - LOCATION_DESC
+        - ROLE_ASC
+        - ROLE_DESC
+        - STATUS_ASC
+        - STATUS_DESC
+        - UPDATED_AT_ASC
+        - UPDATED_AT_DESC
+        - CREATED_AT_ASC
+        - CREATED_AT_DESC
+    UserManagementUserListResponse:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserManagementUserListResponseItem'
+        pagination:
+          $ref: 'shared.yml#/components/schemas/OffsetPagination'
+      required:
+        - users
+        - pagination
+    UserManagementUserListResponseItem:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        external_id:
+          $ref: '#/components/schemas/ExternalUserId'
+        first_name:
+          $ref: '#/components/schemas/FirstName'
+        last_name:
+          $ref: '#/components/schemas/LastName'
+        email:
+          $ref: '#/components/schemas/EmailAddressNullable'
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        username:
+          $ref: '#/components/schemas/UserName'
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        role:
+          $ref: '#/components/schemas/SystemRole'
+        profile:
+          $ref: '#/components/schemas/UserManagementUserListResponseItemProfile'
+        profile_picture:
+          $ref: 'shared.yml#/components/schemas/ProfilePicture'
+      required:
+        - id
+        - first_name
+        - last_name
+        - status
+        - username
+        - created_at
+        - role
+        - profile
+    UserManagementUserListResponseItemProfile:
+      type: object
+      properties:
+        department:
+          $ref: '#/components/schemas/UserProfileDepartment'
+        job_title:
+          $ref: '#/components/schemas/UserProfileJobTitle'
+        location:
+          $ref: '#/components/schemas/UserProfileLocation'
+        mobileNumber:
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
+        phoneNumber:
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
+        picture:
+          $ref: 'shared.yml#/components/schemas/ProfilePicture'
+    UserManagementPasswordPostRequest:
+      type: object
+      properties:
+        password:
+          type: string
+        temporary:
+          type: boolean
+          default: true
+      required:
+        - password
+    UserMeEmailPostRequest:
+      type: object
+      properties:
+        email:
+          $ref: '#/components/schemas/EmailAddress'
+      required:
+        - email
+    UserMeEmailResponse:
+      type: object
+      properties:
+        email:
+          $ref: '#/components/schemas/EmailAddressNullable'
+        verified:
+          type: boolean
+        update_allowed:
+          type: boolean
+      required:
+        - verified
+        - update_allowed
+    UserMePasswordPostRequest:
+      type: object
+      properties:
+        old_password:
+          type: string
+        new_password:
+          type: string
+      required:
+        - old_password
+        - new_password
+    EmailAddress:
+      type: string
+      pattern: '([a-zA-Z0-9!#$%&''*+/=?^_`{|}~-]+(\.)?)+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+'
+      maxLength: 255
+      minLength: 5
+      nullable: false
+    EmailAddressNullable:
+      type: string
+      pattern: '([a-zA-Z0-9!#$%&''*+/=?^_`{|}~-]+(\.)?)+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+'
+      maxLength: 255
+      minLength: 5
+      nullable: true
+    ExternalUserId:
+      type: string
+      maxLength: 255
+      minLength: 1
+      nullable: true
+    FirstName:
+      type: string
+      maxLength: 64
+      minLength: 1
+    IdentityProviderId:
+      description: Identifier of the linked identity provider.
+      type: string
+    IdentityProviderReference:
+      description: ID and display name of identity provider
+      type: object
+      properties:
+        active:
+          type: boolean
+          description: true if the identity provider can be used to perform a login.
+        id:
+          $ref: '#/components/schemas/IdentityProviderId'
+        name:
+          type: string
+      required:
+        - active
+        - id
+        - name
+    LastName:
+      type: string
+      minLength: 1
+      maxLength: 64
+    LinkedIdentityUserId:
+      description: Identifier of the user in the linked identity provider.
+      type: string
+    LinkedIdentityUsername:
+      description: Username of the user in the linked identity provider.
+      type: string
+    UserId:
+      type: string
+      description: Unique identifier for the given user.
+      format: uuid
+    RequiredAction:
+      type: string
+      enum:
+        - ACCEPT_TERMS_AND_CONDITIONS
+        - UPDATE_PASSWORD
+        - VERIFY_EMAIL
+    SystemRole:
+      type: string
+      enum:
+        - USER
+        - ADMIN
+    UserName:
+      type: string
+      minLength: 1
+      maxLength: 255
+    UserProfileAboutMe:
+      type: string
+      nullable: true
+    UserProfileDepartment:
+      type: string
+      maxLength: 255
+      nullable: true
+    UserProfileJobTitle:
+      type: string
+      maxLength: 255
+      nullable: true
+    UserProfileLocation:
+      type: string
+      maxLength: 255
+      nullable: true
+    UserProfilePhoneNumber:
+      type: string
+      maxLength: 50
+      nullable: true
+    UserStatus:
+      type: string
+      enum:
+        - ACTIVE
+        - LOCKED
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+  parameters: { }
+security:
+  - bearer: [ ]

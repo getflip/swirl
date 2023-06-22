@@ -28,7 +28,7 @@ export function CodePreviewHeader() {
       <span className="grow min-w-0" style={{ overflowWrap: "anywhere" }}>
         {MainHeaderContent}
       </span>
-      <div className="shrink-0 basis-0 flex items-center">
+      <div className="shrink-0 basis-auto flex items-center">
         {ActionItems}
         {hasCopyButton && <CopyButton />}
       </div>

@@ -6,7 +6,7 @@ interface IOASBuilder {
   title: string;
   path: string;
   description: string;
-  endpoints: PathsObject;
+  paths: PathsObject;
   operations: Operations;
   tags: string[];
 }
@@ -25,7 +25,7 @@ export default class OASBuilder implements IOASBuilder {
   public shortDescription: string = "";
   public path: string = "";
   public description: string = "";
-  public endpoints: PathsObject = {};
+  public paths: PathsObject = {};
   public operations: Operations = {};
   public operationsList: Endpoint[] = [];
   public tags: string[] = [];
@@ -58,7 +58,7 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   public setEndpoints() {
-    this.endpoints = this._oasBuilder.api.paths || {};
+    this.paths = this._oasBuilder.api.paths || {};
     return this;
   }
 
@@ -71,24 +71,29 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   public setOperations() {
-    if (Object.keys(this.endpoints).length === 0)
+    if (Object.keys(this.paths).length === 0)
       throw new Error("Endpoints not set");
 
-    for (const path in this.endpoints) {
-      const operationInPaths = this.endpoints[path];
-      const methods = Object.keys(operationInPaths ?? {}) as HttpMethods[];
+    for (const path in this.paths) {
+      const operationInPaths = this.paths[path];
 
-      methods.forEach((operation) => {
+      const operations = Object.keys(operationInPaths ?? {}).filter(
+        (operation) => operation !== "parameters"
+      ) as HttpMethods[];
+
+      operations.forEach((operation) => {
         const oasOperation = this._oasBuilder.operation(path, operation);
         if (!this.operations[operation]) {
           this.operations[operation] = [];
         }
+
         this.operations[operation]?.push({
           title: oasOperation.getSummary(),
           path: `/${this.path}#${oasOperation
             .getSummary()
             .toLowerCase()
             .replaceAll(" ", "-")}`.replaceAll(".", ""),
+          // path: "hello",
           operation: oasOperation,
         });
       });

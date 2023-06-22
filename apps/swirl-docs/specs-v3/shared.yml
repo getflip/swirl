@@ -1,0 +1,113 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 7fe458603b892
+info:
+  title: Shared
+  version: '3.0'
+servers:
+  - url: 'http://localhost:3000'
+paths: { }
+components:
+  schemas:
+    ExternalId:
+      type: string
+      minLength: 1
+      maxLength: 200
+      nullable: true
+      description: An arbitrary string referencing an external entity identifier.
+    EmbeddedUser:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        is_deleted:
+          type: boolean
+        username:
+          type: string
+          example: xxsasukexx
+    EmbeddedAttachment:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    ProfilePicture:
+      type: object
+      nullable: true
+      properties:
+        file_id:
+          type: string
+          format: uuid
+    ReactionType:
+      type: string
+      enum:
+        - THUMBS_UP
+        - CLAPPING
+        - HEART
+        - INSPIRING
+        - HAPPY
+        - SAD
+    ReactionsType:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReactionType'
+      description: ''
+    CursorPagination:
+      type: object
+      description: Information about the next page to fetch. Refer to our general "pagination" concept for more information.
+      properties:
+        next_cursor:
+          type: string
+          description: A cursor string pointing to the first element not contained in this response. Refer to our general "pagination" concept for more information.
+          nullable: true
+        has_more:
+          type: boolean
+          description: Describes whether there is at least one more element contained in this collection after the given response. Refer to our general "pagination" concept for more information.
+    OffsetPagination:
+      type: object
+      description: Information about the pages. Refer to our general "pagination" concept for more information.
+      properties:
+        page_number:
+          type: integer
+        total_pages:
+          type: integer
+        total_elements:
+          type: integer
+        page_limit:
+          type: integer
+          description: The _page_limit value used to generate the response
+    HttpStatusCode:
+      type: integer
+      format: int32
+      description: A well know HTTP status code (e.g. 200, 201, 400).
+  parameters:
+    _page_cursor:
+      name: _page_cursor
+      in: query
+      required: false
+      schema:
+        type: string
+      description: A cursor pointing to the first item to be contained in the response array. Refer to our general "pagination" concept for more information.
+    _page_limit:
+      name: _page_limit
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        format: int32
+      description: The maximum number of items to be contained in the response array. Refer to our general "pagination" concept for more information.
+    _sort:
+      name: _sort
+      in: query
+      required: false
+      schema:
+        type: string
+        pattern: ^\+|\-$
+      description: Defines the order in which the items are returned. Refer to our general "pagination" concept for more information.
+    external_id:
+      name: external_id
+      in: query
+      required: false
+      schema:
+        $ref: '#/components/schemas/ExternalId'

@@ -157,7 +157,10 @@ export default class OASBuilder implements IOASBuilder {
 
     for (const path in this.paths) {
       const operationInPaths = this.paths[path];
-      const methods = Object.keys(operationInPaths ?? {}) as HttpMethods[];
+
+      const methods = Object.keys(operationInPaths ?? {}).filter(
+        (method) => method !== "parameters"
+      ) as HttpMethods[];
 
       methods.forEach((operation) => {
         const oasOperation = this._oas.operation(path, operation);
@@ -248,18 +251,21 @@ export default class OASBuilder implements IOASBuilder {
 
   public generateResponse(operation: Operation) {
     // currently we just take the first element as our OA specs are not fully functional. E.g. 201 is not defined for post for some requests.
-    const responseExample = operation.getResponseExamples()[0].mediaTypes[
-      "application/json"
-    ] as Array<MediaTypeObject>;
+    console.log(operation.getResponseExamples());
 
-    const valueOfResponse = responseExample as any;
+    // const responseExample = operation.getResponseExamples()[0].mediaTypes[
+    //   "application/json"
+    // ] as Array<MediaTypeObject>;
 
-    return JSON.stringify(
-      responseExample
-        ? valueOfResponse[0].value
-        : "No Response Example was provided",
-      null,
-      2
-    );
+    // const valueOfResponse = responseExample as any;
+
+    return "lol";
+    // return JSON.stringify(
+    //   responseExample
+    //     ? valueOfResponse[0].value
+    //     : "No Response Example was provided",
+    //   null,
+    //   2
+    // );
   }
 }
