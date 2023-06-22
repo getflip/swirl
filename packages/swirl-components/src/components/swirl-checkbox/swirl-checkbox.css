@@ -87,6 +87,12 @@
   }
 }
 
+.checkbox--label-weight-regular {
+  & .checkbox__label {
+    font-weight: var(--s-font-weight-regular);
+  }
+}
+
 .checkbox__control {
   position: relative;
   width: 1.5rem;

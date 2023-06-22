@@ -16,7 +16,7 @@ import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
-import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
+import { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
@@ -72,7 +72,7 @@ export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
-export { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
+export { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
@@ -320,6 +320,7 @@ export namespace Components {
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
+        "labelWeight"?: SwirlCheckboxLabelWeight;
         "swirlAriaDescribedby"?: string;
         "swirlAriaLabel"?: string;
         "value"?: string;
@@ -3938,6 +3939,7 @@ declare namespace LocalJSX {
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
+        "labelWeight"?: SwirlCheckboxLabelWeight;
         "onValueChange"?: (event: SwirlCheckboxCustomEvent<boolean>) => void;
         "swirlAriaDescribedby"?: string;
         "swirlAriaLabel"?: string;
