@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.72.0
+
+### Minor Changes
+
+- [`2d851fc`](https://github.com/getflip/swirl/commit/2d851fc8f293042a1bae105662aa1b0bd9569af9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-image-grid component
+
 ## 0.71.4
 
 ### Patch Changes
