@@ -53,8 +53,8 @@ button.image-grid-item {
 .image-grid-item__background {
   position: absolute;
   background-size: cover;
-  inset: -20px;
-  filter: blur(10px);
+  inset: -40px;
+  filter: blur(20px);
 }
 
 .image-grid-item__image {
