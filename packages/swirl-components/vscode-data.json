@@ -4740,6 +4740,10 @@
       },
       "attributes": [
         {
+          "name": "allow-deselect",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },

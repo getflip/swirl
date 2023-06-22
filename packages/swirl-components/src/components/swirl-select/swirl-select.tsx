@@ -28,6 +28,7 @@ import { ComputePositionReturn, Placement } from "@floating-ui/dom";
 export class SwirlSelect implements SwirlFormInput<string[]> {
   @Element() el: HTMLElement;
 
+  @Prop() allowDeselect?: boolean = true;
   @Prop() disabled?: boolean;
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
@@ -76,6 +77,10 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   };
 
   private unselectOption = (value: string) => {
+    if (!this.allowDeselect) {
+      return;
+    }
+
     this.value = this.value.filter((v) => v !== value);
     this.valueChange.emit(this.value);
   };
@@ -161,7 +166,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
                   label={option?.label}
                   // eslint-disable-next-line react/jsx-no-bind
                   onRemove={() => this.unselectOption(option?.value)}
-                  removable={!this.disabled}
+                  removable={!this.disabled && this.allowDeselect}
                 ></swirl-tag>
               ))}
           </span>
@@ -185,6 +190,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             useContainerWidth="swirl-form-control"
           >
             <swirl-option-list
+              allowDeselect={this.allowDeselect}
               onValueChange={this.select}
               multiSelect={this.multiSelect}
               value={this.value}

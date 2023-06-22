@@ -1200,6 +1200,7 @@ export namespace Components {
         "variant"?: SwirlSearchVariant;
     }
     interface SwirlSelect {
+        "allowDeselect"?: boolean;
         "disabled"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
@@ -4728,6 +4729,7 @@ declare namespace LocalJSX {
         "variant"?: SwirlSearchVariant;
     }
     interface SwirlSelect {
+        "allowDeselect"?: boolean;
         "disabled"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
