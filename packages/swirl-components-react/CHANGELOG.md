@@ -1,5 +1,16 @@
 # @getflip/swirl-components-react
 
+## 0.73.1
+
+### Patch Changes
+
+- [`704fe68`](https://github.com/getflip/swirl/commit/704fe68a921d894db7c70f4dac408c9a5a7234d9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-text-input text cursor
+
+- Updated dependencies
+  [[`704fe68`](https://github.com/getflip/swirl/commit/704fe68a921d894db7c70f4dac408c9a5a7234d9)]:
+  - @getflip/swirl-components@0.74.1
+
 ## 0.73.0
 
 ### Minor Changes
