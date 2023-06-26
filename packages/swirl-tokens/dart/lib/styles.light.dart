@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Thu, 15 Jun 2023 13:48:01 GMT
+// Generated on Mon, 26 Jun 2023 11:47:02 GMT
 
 
 
@@ -13,6 +13,10 @@ import 'dart:ui';
 class SwirlDesignTokensLight {
   SwirlDesignTokensLight._();
 
+    static const actionCriticalDefault = Color(0xFFD50636); /* Used for containers that are critical and negative action elements. */
+    static const actionCriticalDisabled = Color(0xFFF2F2F2); /* Used if a component with “Action Primary/Default” has a disabled state. */
+    static const actionCriticalHovered = Color(0xFFB32739); /* Used if a component with “Action Critical/Default” has a hovered state. */
+    static const actionCriticalPressed = Color(0xFF9F2334); /* Used if a component with “Action Critical/Default” has a pressed state. */
     static const actionNeutralDefault = Color(0xFFF2F2F2); /* Used for containers that are low emphasis action elements. */
     static const actionNeutralDisabled = Color(0xFFF2F2F2); /* Used if a component with “Action Neutral/Default” has a disabled state. */
     static const actionNeutralHovered = Color(0xFFEAEAEA); /* Used if a component with “Action Neutral/Default” has a hovered state. */
@@ -120,6 +124,8 @@ class SwirlDesignTokensLight {
     static const coreOnCustomerColorLight1 = Color(0xFFFFFFFF);
     static const coreOnCustomerColorLight2 = Color(0xFF171717);
     static const coreStatusDarkCriticalDefault = Color(0xFFE46464);
+    static const coreStatusDarkCriticalHovered = Color(0xFFD27B79);
+    static const coreStatusDarkCriticalPressed = Color(0xFFD79391);
     static const coreStatusDarkCriticalSubdued = Color(0xFF382126);
     static const coreStatusDarkInfoDefault = Color(0xFF648EE9);
     static const coreStatusDarkInfoSubdued = Color(0xFF21293A);
@@ -128,6 +134,8 @@ class SwirlDesignTokensLight {
     static const coreStatusDarkWarningDefault = Color(0xFFF3B703);
     static const coreStatusDarkWarningSubdued = Color(0xFF2D2719);
     static const coreStatusLightCriticalDefault = Color(0xFFD50636);
+    static const coreStatusLightCriticalHovered = Color(0xFFB32739);
+    static const coreStatusLightCriticalPressed = Color(0xFF9F2334);
     static const coreStatusLightCriticalSubdued = Color(0xFFFCE7ED);
     static const coreStatusLightInfoDefault = Color(0xFF145AF5);
     static const coreStatusLightInfoSubdued = Color(0xFFE6F1FF);
@@ -189,6 +197,10 @@ class SwirlDesignTokensLight {
     static const iconStrong = Color(0xFF171717); /* Used for high emphasis icons. */
     static const iconSuccess = Color(0xFF088108); /* Used as success icon color */
     static const iconWarning = Color(0xFF935806); /* Used as warning icon color */
+    static const interactiveCriticalDefault = Color(0xFFD50636); /* Used for icon and text that are critical or negative interactive elements. */
+    static const interactiveCriticalDisabled = Color(0xFFCFCFCF); /* Used if a component with “Interactive Critical/Default” has a disabled state. */
+    static const interactiveCriticalHovered = Color(0xFFB32739); /* Used if a component with “Interactive Critical/Default” has a hovered state. */
+    static const interactiveCriticalPressed = Color(0xFF9F2334); /* Used if a component with “Interactive Critical/Default” has a pressed state. */
     static const interactiveNeutralDefault = Color(0xFF6E6E6E); /* Used for icon and text that are low emphasis interactive elements. */
     static const interactiveNeutralDisabled = Color(0xFFCFCFCF); /* Used if a component with “Interactive Neutral/Default” has a disabled state. */
     static const interactiveNeutralHovered = Color(0xFF989898); /* Used if a component with “Interactive Neutral/Default” has a hovered state. */

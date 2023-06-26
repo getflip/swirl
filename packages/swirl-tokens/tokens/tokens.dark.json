@@ -356,6 +356,14 @@
     "value": "rgba(213, 6, 54, 1)",
     "type": "color"
   },
+  "core-status-light-critical-hovered": {
+    "value": "rgba(179, 39, 57, 1)",
+    "type": "color"
+  },
+  "core-status-light-critical-pressed": {
+    "value": "rgba(159, 35, 52, 1)",
+    "type": "color"
+  },
   "core-status-light-critical-subdued": {
     "value": "rgba(252, 231, 237, 1)",
     "type": "color"
@@ -366,14 +374,6 @@
   },
   "core-status-light-success-subdued": {
     "value": "rgba(220, 247, 220, 1)",
-    "type": "color"
-  },
-  "core-status-light-info-default": {
-    "value": "rgba(20, 90, 245, 1)",
-    "type": "color"
-  },
-  "core-status-light-info-subdued": {
-    "value": "rgba(230, 241, 255, 1)",
     "type": "color"
   },
   "core-status-light-warning-strong": {
@@ -388,20 +388,28 @@
     "value": "rgba(250, 241, 200, 1)",
     "type": "color"
   },
-  "core-status-dark-info-default": {
-    "value": "rgba(100, 142, 233, 1)",
+  "core-status-light-info-default": {
+    "value": "rgba(20, 90, 245, 1)",
     "type": "color"
   },
-  "core-status-dark-info-subdued": {
-    "value": "rgba(33, 41, 58, 1)",
+  "core-status-light-info-subdued": {
+    "value": "rgba(230, 241, 255, 1)",
     "type": "color"
   },
-  "core-status-dark-success-default": {
-    "value": "rgba(80, 164, 80, 1)",
+  "core-status-dark-critical-default": {
+    "value": "rgba(228, 100, 100, 1)",
     "type": "color"
   },
-  "core-status-dark-success-subdued": {
-    "value": "rgba(26, 44, 26, 1)",
+  "core-status-dark-critical-hovered": {
+    "value": "rgba(210, 123, 121, 1)",
+    "type": "color"
+  },
+  "core-status-dark-critical-pressed": {
+    "value": "rgba(215, 147, 145, 1)",
+    "type": "color"
+  },
+  "core-status-dark-critical-subdued": {
+    "value": "rgba(56, 33, 38, 1)",
     "type": "color"
   },
   "core-status-dark-warning-default": {
@@ -412,12 +420,20 @@
     "value": "rgba(45, 39, 25, 1)",
     "type": "color"
   },
-  "core-status-dark-critical-default": {
-    "value": "rgba(228, 100, 100, 1)",
+  "core-status-dark-success-default": {
+    "value": "rgba(80, 164, 80, 1)",
     "type": "color"
   },
-  "core-status-dark-critical-subdued": {
-    "value": "rgba(56, 33, 38, 1)",
+  "core-status-dark-success-subdued": {
+    "value": "rgba(26, 44, 26, 1)",
+    "type": "color"
+  },
+  "core-status-dark-info-default": {
+    "value": "rgba(100, 142, 233, 1)",
+    "type": "color"
+  },
+  "core-status-dark-info-subdued": {
+    "value": "rgba(33, 41, 58, 1)",
     "type": "color"
   },
   "core-decorative-light-chilli-text": {
@@ -726,7 +742,7 @@
     "comment": "Used as a background for neutral surfaces."
   },
   "surface-neutral-subdued": {
-    "value": "{core-gray-10}",
+    "value": "{core-gray-09}",
     "type": "color",
     "comment": "Used for low prio neutral background."
   },
@@ -925,6 +941,26 @@
     "type": "color",
     "comment": "Used if a component with “Action Primary/Default” has a disabled state."
   },
+  "action-critical-default": {
+    "value": "{core-status-dark-critical-default}",
+    "type": "color",
+    "comment": "Used for icon and text that are critical or negative interactive elements."
+  },
+  "action-critical-hovered": {
+    "value": "{core-status-dark-critical-hovered}",
+    "type": "color",
+    "comment": "Used if a component with “Action Critical/Default” has a hovered state."
+  },
+  "action-critical-pressed": {
+    "value": "{core-status-dark-critical-pressed}",
+    "type": "color",
+    "comment": "Used if a component with “Action Critical/Default” has a pressed state."
+  },
+  "action-critical-disabled": {
+    "value": "{core-gray-10}",
+    "type": "color",
+    "comment": "Used if a component with “Action Critical/Default” has a disabled state."
+  },
   "action-neutral-default": {
     "value": "{core-gray-10}",
     "type": "color",
@@ -961,6 +997,26 @@
     "comment": "Used if a component with “Interactive Primary/Default” has a pressed state."
   },
   "interactive-primary-disabled": {
+    "value": "{core-gray-07}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Primary/Default” has a disabled state."
+  },
+  "interactive-critical-default": {
+    "value": "{core-status-dark-critical-default}",
+    "type": "color",
+    "comment": "Used for icon and text that are critical or negative interactive elements."
+  },
+  "interactive-critical-hovered": {
+    "value": "{core-status-dark-critical-hovered}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Critical/Default” has a hovered state."
+  },
+  "interactive-critical-pressed": {
+    "value": "{core-status-dark-critical-pressed}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Critical/Default” has a pressed state."
+  },
+  "interactive-critical-disabled": {
     "value": "{core-gray-07}",
     "type": "color",
     "comment": "Used if a component with “Interactive Primary/Default” has a disabled state."
