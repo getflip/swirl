@@ -27,8 +27,6 @@ import {
   ResponseIndicator,
   ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
-import { SupportedTargets } from "@readme/oas-to-snippet";
-import { ResponseExamples } from "oas/dist/operation/get-response-examples";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -53,8 +51,6 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
       return oas;
     });
 
-  // console.log("[apiSpec] ", oasBuilder);
-
   const serializedDescription = await serializeMarkdownString(
     oasBuilder.oasDocument.info.description
       ?.replace(oasDocument.title, "")
@@ -75,6 +71,7 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
       let examples: ApiEndpoint["responseExamples"] = [];
 
       const request = oasBuilder?.generateRequest(endpoint.operation);
+      console.log(endpoint.operation);
       const responseExamples = endpoint.operation.getResponseExamples();
       // const responseExamples: ResponseExamples = [];
 

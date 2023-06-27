@@ -1,7 +1,6 @@
 import Oas, { Operation } from "oas";
 import {
   HttpMethods,
-  MediaTypeObject,
   OASDocument,
   PathsObject,
   SchemaObject,
