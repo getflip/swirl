@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.74.2
+
+### Patch Changes
+
+- [`6d6db79`](https://github.com/getflip/swirl/commit/6d6db79d92640146c1f2960b5abf54b79b5400d1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-avatar image stretch
+
 ## 0.74.1
 
 ### Patch Changes
