@@ -279,7 +279,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetTaskCommentsResponse'
 
-      description: Retrieves a list of all comments on a specific task.
+      description: Retrieves a list of all comments on a specific task. React to a task comment. The commenting user is inferred from the access token and must be authenticated for the request.
       parameters:
         - $ref: 'shared.yml#/components/parameters/_page_cursor'
         - $ref: 'shared.yml#/components/parameters/_page_limit'
@@ -370,19 +370,26 @@ paths:
         - tasks
       summary: Create new task comment reaction
       operationId: create-task-comment-reaction
+      parameters:
+        - name: comment_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
       responses:
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PostTaskCommentsReactionsResponse'
-      description: Reacts to a task comment.
+                $ref: '#/components/schemas/TaskCommentReaction'
+      description: React to a task comment. The reacting user is inferred from the access token and must be authenticated for the request.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PostTaskCommentsReactionsRequest'
+              $ref: '#/components/schemas/TaskCommentReactionCreationRequest'
   '/api/v3/tasks/comments/{comment_id}/reactions/{user_id}':
     parameters:
       - schema:
@@ -537,7 +544,6 @@ components:
           format: int32
         due_at:
           $ref: '#/components/schemas/TaskDueAt'
-          description: The point in time by which this task should be completed before being marked as overdue.
         attachments:
           type: array
           description: An array of attachments contained in the body of a task. Refer to our general "attachment" concept for mo
@@ -718,7 +724,6 @@ components:
               description: Whether comments can be created on this task.
         due_at:
           $ref: '#/components/schemas/TaskDueAt'
-          description: The point in time by which this task should be completed before being marked as overdue.
         attachments:
           type: array
           description: An array of attachments contained in the body of a task. Refer to our general "attachment" concept for mo
@@ -777,7 +782,6 @@ components:
               description: Whether comments can be created on this task.
         due_at:
           $ref: '#/components/schemas/TaskDueAt'
-          description: The point in time by which this task should be completed before being marked as overdue.
         attachments:
           type: array
           description: An array of attachments contained in the body of a task. Refer to our general "attachment" concept for mo
@@ -820,6 +824,7 @@ components:
           description: The number of tasks of this user with assignment progress status `NEW`.
     TaskDueAt:
       title: TaskDueAt
+      description: The point in time by which this task should be completed before being marked as overdue.
       type: object
       discriminator:
         propertyName: due_at_type
@@ -1022,7 +1027,15 @@ components:
       description: ''
     TaskCommentReaction:
       type: object
+      required:
+        - type
+        - comment_id
+        - user_id
+        - id
       properties:
+        id:
+          type: string
+          format: uuid
         type:
           $ref: 'shared.yml#/components/schemas/ReactionType'
         comment_id:
@@ -1031,12 +1044,9 @@ components:
         user_id:
           type: string
           format: uuid
-        is_deleted:
-          type: boolean
         user:
+          # Information about the user who reacted. Is only present if requested by the `_embed` parameter. Refer to our general "embedment" concept for more information.
           $ref: 'shared.yml#/components/schemas/EmbeddedUser'
-          nullable: true
-          description: Information about the user who reacted. Is only present if requested by the `_embed` parameter. Refer to our general "embedment" concept for more information.
     TaskCommentsReactingUsers:
       title: TaskCommentsReactingUsers
       type: object
@@ -1051,17 +1061,16 @@ components:
       title: DeleteTaskCommentsReactionsResponse
       allOf:
         - $ref: '#/components/schemas/TaskCommentReaction'
-    PostTaskCommentsReactionsRequest:
-      title: PostTaskCommentsReactionsRequest
+    TaskCommentReactionCreationRequest:
       type: object
+      required:
+        - type
       properties:
-        type:
-          $ref: 'shared.yml#/components/schemas/ReactionsType'
-        author_id:
+        id:
           type: string
           format: uuid
-    PostTaskCommentsReactionsResponse:
-      $ref: '#/components/schemas/TaskCommentReaction'
+        type:
+          $ref: 'shared.yml#/components/schemas/ReactionType'
     TaskCommentCreation:
       type: object
       required:

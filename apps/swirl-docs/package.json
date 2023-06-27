@@ -18,7 +18,7 @@
     "build:spec-navigation": "tsx src/scripts/build-spec-navigation.ts && prettier --write src/lib/navigation/src/data/apiDocs.data.ts",
     "start": "next start",
     "lint": "next lint",
-    "fetch:spec": "rm -rf specs-v3/** && tsx src/scripts/fetch-specs.ts"
+    "fetch:spec": "rm -rf problem.yml && rm -rf shared.yml && rm -rf specs/** && tsx src/scripts/fetch-specs.ts"
   },
   "dependencies": {
     "@algolia/autocomplete-core": "^1.7.4",

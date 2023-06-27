@@ -18,7 +18,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserListResponse"
+                $ref: "#/components/schemas/UserAdminSearchResults"
       parameters:
         - name: search_term
           description: A term that needs a match in the user's first name, last name, username, email, department or location.
@@ -37,7 +37,7 @@ paths:
             type: array
             maxItems: 5
             items:
-              $ref: '#/components/schemas/UserManagementUserListSortingOption'
+              $ref: '#/components/schemas/UserAdminSearchSortingOption'
         - name: page_limit
           description: See general API concepts
           in: query
@@ -67,20 +67,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UserManagementUsersPostRequest"
+              $ref: "#/components/schemas/CreateUserAdminRequest"
       responses:
         '200':
           description: The linked identity as the idempotent result of a repeated request.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserResponse"
+                $ref: "#/components/schemas/UserAdminView"
         '201':
           description: The created user.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserResponse"
+                $ref: "#/components/schemas/UserAdminView"
       tags:
         - user-admin
   '/api/v3/admin/users/{userId}':
@@ -100,7 +100,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserResponse"
+                $ref: "#/components/schemas/UserAdminView"
       operationId: get-user
       tags:
         - user-admin
@@ -112,19 +112,19 @@ paths:
         Endpoint-specific error codes are:
          - USERNAME_ALREADY_EXISTS (another user exists with the same username),
          - EXTERNAL_ID_ALREADY_EXISTS (another user exists with the same external ID)
-      operationId: patch-users-userId
+      operationId: update-user
       requestBody:
         content:
           application/merge-patch+json:
             schema:
-              $ref: '#/components/schemas/UserManagementUsersPatchRequest'
+              $ref: '#/components/schemas/UpdateUserAdminRequest'
       responses:
         '200':
           description: The updated user.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserManagementUserResponse'
+                $ref: '#/components/schemas/UserAdminView'
       tags:
         - user-admin
     delete:
@@ -138,7 +138,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserManagementUserResponse'
+                $ref: '#/components/schemas/UserAdminView'
       tags:
         - user-admin
   '/api/v3/admin/users/{userId}/lock':
@@ -159,7 +159,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserManagementUserResponse'
+                $ref: '#/components/schemas/UserAdminView'
       tags:
         - user-admin
   '/api/v3/admin/users/{userId}/unlock':
@@ -180,7 +180,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserManagementUserResponse'
+                $ref: '#/components/schemas/UserAdminView'
       tags:
         - user-admin
   /api/v3/admin/users/batch:
@@ -189,19 +189,19 @@ paths:
       x-experimental: true
       summary: Delete multiple users
       description: Allows an admin user to delete multiple users at once.
-      operationId: delete-multiple-users
+      operationId: delete-users-batch
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UserManagementUsersBatchDeleteRequest'
+              $ref: '#/components/schemas/DeleteUsersAdminBatchRequest'
       responses:
         '200':
           description: See general API concepts.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUsersBatchDeleteResponse"
+                $ref: "#/components/schemas/DeleteUsersAdminBatchResults"
       tags:
         - user-admin
   '/api/v3/admin/users/identity-providers':
@@ -217,7 +217,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LinkableIdentityProvidersResponse"
+                $ref: "#/components/schemas/LinkableIdentityProviders"
       tags:
         - user-admin
   '/api/v3/admin/users/{userId}/linked-identities':
@@ -238,7 +238,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LinkedIdentityListResponse"
+                $ref: "#/components/schemas/LinkedIdentities"
       tags:
         - user-admin
     post:
@@ -253,20 +253,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/LinkedIdentityPostRequest"
+              $ref: "#/components/schemas/CreateLinkedIdentityAdminRequest"
       responses:
         '200':
           description: The linked identity as the idempotent result of a repeated request.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LinkedIdentityResponse"
+                $ref: "#/components/schemas/LinkedIdentity"
         '201':
           description: The identity linked to the user.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LinkedIdentityResponse"
+                $ref: "#/components/schemas/LinkedIdentity"
       tags:
         - user-admin
   '/api/v3/admin/users/{userId}/linked-identities/{providerId}':
@@ -292,7 +292,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LinkedIdentityResponse"
+                $ref: "#/components/schemas/LinkedIdentity"
       tags:
         - user-admin
   '/api/v3/admin/users/{userId}/password':
@@ -327,7 +327,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UserManagementPasswordPostRequest"
+              $ref: "#/components/schemas/ChangePasswordAdminRequest"
       responses:
         '204':
           description: The new password has been set.
@@ -363,7 +363,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AccountActionsEmailPostRequest"
+              $ref: "#/components/schemas/SendAccountActionsEmailAdminRequest"
       responses:
         '204':
           description: Acknowledgment that account action request was received.
@@ -376,19 +376,19 @@ paths:
       description: |-
         Sends emails to multiple users requesting one or multiple account actions.
         Endpoint-specific error codes on each result equal those defined for corresponding single operation.'
-      operationId: send-multiple-account-actions-emails
+      operationId: send-account-actions-emails-batch
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AccountActionsEmailBatchPostRequest"
+              $ref: "#/components/schemas/SendAccountActionsEmailsAdminBatchRequest"
       responses:
         '200':
           description: List of responses from the single operation executions
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AccountActionsEmailBatchPostResponse"
+                $ref: "#/components/schemas/SendAccountActionsEmailsAdminBatchResults"
       tags:
         - user-admin
   '/api/v3/users/me/password':
@@ -418,7 +418,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UserMePasswordPostRequest"
+              $ref: "#/components/schemas/ChangeMyPasswordRequest"
       responses:
         '204':
           description: The new password has been set.
@@ -429,14 +429,14 @@ paths:
       x-experimental: true
       summary: Get email address of authenticated user
       description: Retrieves information about the email address of the authenticated user.
-      operationId: get-my-account-email
+      operationId: get-my-email-address
       responses:
         '200':
           description: The current email address and whether you are allowed to change it.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserMeEmailResponse'
+                $ref: '#/components/schemas/MyEmailAddress'
       tags:
         - user-me
     post:
@@ -451,7 +451,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UserMeEmailPostRequest"
+              $ref: "#/components/schemas/ChangeMyEmailAddressRequest"
       responses:
         '204':
           description: The new email address has been set.
@@ -459,13 +459,13 @@ paths:
         - user-me
 components:
   schemas:
-    AccountActionsEmailPostRequest:
+    SendAccountActionsEmailAdminRequest:
       type: object
       properties:
         actions:
           type: array
           items:
-            $ref: '#/components/schemas/RequiredAction'
+            $ref: '#/components/schemas/AccountAction'
         validity_minutes:
           description: Minutes that the link in the email should be valid for
           minimum: 1
@@ -474,7 +474,7 @@ components:
       required:
         - actions
         - validity_minutes
-    AccountActionsEmailBatchPostRequest:
+    SendAccountActionsEmailsAdminBatchRequest:
       type: object
       properties:
         items:
@@ -482,29 +482,29 @@ components:
           minItems: 1
           maxItems: 50
           items:
-            $ref: '#/components/schemas/AccountActionsEmailBatchPostRequestItem'
+            $ref: '#/components/schemas/SendAccountActionsEmailsAdminBatchRequestItem'
       required:
         - items
-    AccountActionsEmailBatchPostRequestItem:
+    SendAccountActionsEmailsAdminBatchRequestItem:
       type: object
       properties:
         id:
           $ref: '#/components/schemas/UserId'
         body:
-          $ref: '#/components/schemas/AccountActionsEmailPostRequest'
+          $ref: '#/components/schemas/SendAccountActionsEmailAdminRequest'
       required:
         - id
         - body
-    AccountActionsEmailBatchPostResponse:
+    SendAccountActionsEmailsAdminBatchResults:
       type: object
       properties:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/AccountActionsEmailPostBatchResponseItem'
+            $ref: '#/components/schemas/SendAccountActionsEmailsAdminBatchResultItem'
       required:
         - items
-    AccountActionsEmailPostBatchResponseItem:
+    SendAccountActionsEmailsAdminBatchResultItem:
       type: object
       properties:
         id:
@@ -516,7 +516,7 @@ components:
       required:
         - id
         - status
-    LinkedIdentityPostRequest:
+    CreateLinkedIdentityAdminRequest:
       type: object
       properties:
         provider_id:
@@ -529,7 +529,7 @@ components:
         - provider_id
         - linked_user_id
         - linked_username
-    LinkedIdentityResponse:
+    LinkedIdentity:
       type: object
       properties:
         provider:
@@ -542,21 +542,21 @@ components:
         - provider
         - linked_user_id
         - linked_username
-    LinkedIdentityListResponse:
+    LinkedIdentities:
       type: object
       properties:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/LinkedIdentityResponse'
-    LinkableIdentityProvidersResponse:
+            $ref: '#/components/schemas/LinkedIdentity'
+    LinkableIdentityProviders:
       type: object
       properties:
         providers:
           type: array
           items:
             $ref: '#/components/schemas/IdentityProviderReference'
-    UserManagementUsersBatchDeleteRequest:
+    DeleteUsersAdminBatchRequest:
       type: object
       properties:
         items:
@@ -564,26 +564,26 @@ components:
           minItems: 1
           maxItems: 50
           items:
-            $ref: '#/components/schemas/UserManagementUsersBatchDeleteRequestItem'
+            $ref: '#/components/schemas/DeleteUsersAdminBatchRequestItem'
       required:
         - items
-    UserManagementUsersBatchDeleteRequestItem:
+    DeleteUsersAdminBatchRequestItem:
       type: object
       properties:
         id:
           $ref: '#/components/schemas/UserId'
       required:
         - id
-    UserManagementUsersBatchDeleteResponse:
+    DeleteUsersAdminBatchResults:
       type: object
       properties:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/UserManagementUsersBatchDeleteResponseItems'
+            $ref: '#/components/schemas/DeleteUsersAdminBatchResultItem'
       required:
         - items
-    UserManagementUsersBatchDeleteResponseItems:
+    DeleteUsersAdminBatchResultItem:
       type: object
       properties:
         id:
@@ -591,13 +591,13 @@ components:
         status:
           $ref: "shared.yml#/components/schemas/HttpStatusCode"
         body:
-          $ref: '#/components/schemas/UserManagementUserResponse'
+          $ref: '#/components/schemas/UserAdminView'
         error:
           $ref: 'problem.yml#/components/schemas/Problem'
       required:
         - id
         - status
-    UserManagementUsersPostRequest:
+    CreateUserAdminRequest:
       type: object
       properties:
         id:
@@ -615,20 +615,20 @@ components:
         username:
           $ref: '#/components/schemas/UserName'
         profile:
-          $ref: '#/components/schemas/UserManagementUsersPostRequestProfile'
+          $ref: '#/components/schemas/CreateUserAdminRequestProfile'
         role:
           $ref: '#/components/schemas/SystemRole'
         required_actions:
           type: array
           items:
-            $ref: '#/components/schemas/RequiredAction'
+            $ref: '#/components/schemas/AccountAction'
       required:
         - first_name
         - last_name
         - status
         - username
         - role
-    UserManagementUsersPostRequestProfile:
+    CreateUserAdminRequestProfile:
       type: object
       nullable: true
       properties:
@@ -644,7 +644,7 @@ components:
           $ref: '#/components/schemas/UserProfilePhoneNumber'
         phone_number:
           $ref: '#/components/schemas/UserProfilePhoneNumber'
-    UserManagementUsersPatchRequest:
+    UpdateUserAdminRequest:
       type: object
       x-json-merge-patch: true
       properties:
@@ -659,14 +659,14 @@ components:
         username:
           $ref: '#/components/schemas/UserName'
         profile:
-          $ref: '#/components/schemas/UserManagementUsersPatchRequestProfile'
+          $ref: '#/components/schemas/UpdateUserAdminRequestProfile'
         role:
           $ref: '#/components/schemas/SystemRole'
         required_actions:
           type: array
           items:
-            $ref: '#/components/schemas/RequiredAction'
-    UserManagementUsersPatchRequestProfile:
+            $ref: '#/components/schemas/AccountAction'
+    UpdateUserAdminRequestProfile:
       type: object
       x-json-merge-patch: true
       properties:
@@ -682,7 +682,7 @@ components:
           $ref: '#/components/schemas/UserProfilePhoneNumber'
         phone_number:
           $ref: '#/components/schemas/UserProfilePhoneNumber'
-    UserManagementUserResponse:
+    UserAdminView:
       type: object
       properties:
         id:
@@ -710,13 +710,13 @@ components:
         profile_picture:
           $ref: 'shared.yml#/components/schemas/ProfilePicture'
         profile:
-          $ref: '#/components/schemas/UserManagementUserResponseProfile'
+          $ref: '#/components/schemas/UserProfileAdminView'
         role:
           $ref: '#/components/schemas/SystemRole'
         required_actions:
           type: array
           items:
-            $ref: '#/components/schemas/RequiredAction'
+            $ref: '#/components/schemas/AccountAction'
       required:
         - id
         - first_name
@@ -727,7 +727,7 @@ components:
         - profile
         - role
         - required_actions
-    UserManagementUserResponseProfile:
+    UserProfileAdminView:
       type: object
       properties:
         about_me:
@@ -744,7 +744,7 @@ components:
           $ref: '#/components/schemas/UserProfilePhoneNumber'
         picture:
           $ref: 'shared.yml#/components/schemas/ProfilePicture'
-    UserManagementUserListSortingOption:
+    UserAdminSearchSortingOption:
       type: string
       enum:
         - FIRST_NAME_ASC
@@ -767,19 +767,19 @@ components:
         - UPDATED_AT_DESC
         - CREATED_AT_ASC
         - CREATED_AT_DESC
-    UserManagementUserListResponse:
+    UserAdminSearchResults:
       type: object
       properties:
         users:
           type: array
           items:
-            $ref: '#/components/schemas/UserManagementUserListResponseItem'
+            $ref: '#/components/schemas/UserAdminSearchResult'
         pagination:
           $ref: 'shared.yml#/components/schemas/OffsetPagination'
       required:
         - users
         - pagination
-    UserManagementUserListResponseItem:
+    UserAdminSearchResult:
       type: object
       properties:
         id:
@@ -807,7 +807,7 @@ components:
         role:
           $ref: '#/components/schemas/SystemRole'
         profile:
-          $ref: '#/components/schemas/UserManagementUserListResponseItemProfile'
+          $ref: '#/components/schemas/UserAdminSearchResultProfile'
         profile_picture:
           $ref: 'shared.yml#/components/schemas/ProfilePicture'
       required:
@@ -819,7 +819,7 @@ components:
         - created_at
         - role
         - profile
-    UserManagementUserListResponseItemProfile:
+    UserAdminSearchResultProfile:
       type: object
       properties:
         department:
@@ -834,7 +834,7 @@ components:
           $ref: '#/components/schemas/UserProfilePhoneNumber'
         picture:
           $ref: 'shared.yml#/components/schemas/ProfilePicture'
-    UserManagementPasswordPostRequest:
+    ChangePasswordAdminRequest:
       type: object
       properties:
         password:
@@ -844,14 +844,14 @@ components:
           default: true
       required:
         - password
-    UserMeEmailPostRequest:
+    ChangeMyEmailAddressRequest:
       type: object
       properties:
         email:
           $ref: '#/components/schemas/EmailAddress'
       required:
         - email
-    UserMeEmailResponse:
+    MyEmailAddress:
       type: object
       properties:
         email:
@@ -863,7 +863,7 @@ components:
       required:
         - verified
         - update_allowed
-    UserMePasswordPostRequest:
+    ChangeMyPasswordRequest:
       type: object
       properties:
         old_password:
@@ -926,7 +926,7 @@ components:
       type: string
       description: Unique identifier for the given user.
       format: uuid
-    RequiredAction:
+    AccountAction:
       type: string
       enum:
         - ACCEPT_TERMS_AND_CONDITIONS

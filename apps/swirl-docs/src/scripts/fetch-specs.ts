@@ -1,72 +1,63 @@
 import fetch from "node-fetch";
 import fs from "fs";
 import { env } from "@swirl/lib/env/server.config";
+import path from "path";
 
-const TASKS_SPEC = encodeURIComponent("api/spec/reference/v3/tasks.yml");
-const USERS_SPEC = encodeURIComponent("api/spec/reference/v3/users.yaml");
-const SHARED_SPEC = encodeURIComponent("api/spec/reference/v3/shared.yml");
-const MERGED_SPEC = encodeURIComponent("api/spec/reference/v3/merged.yaml");
-const PROBLEM_SPEC = encodeURIComponent("api/spec/reference/v3/problem.yml");
-const VERSION_INFO_SPEC = encodeURIComponent(
-  "api/spec/reference/v3/version-info.yml"
-);
-
-const specs = [
-  TASKS_SPEC,
-  USERS_SPEC,
-  SHARED_SPEC,
-  MERGED_SPEC,
-  PROBLEM_SPEC,
-  VERSION_INFO_SPEC,
-];
-
-const createGitlabEndpoint = (specPath: string) =>
-  `https://gitlab.com/api/v4/projects/${env.GITLAB_FLIP_REPO_ID}/repository/files/${specPath}?ref=master`;
-
+const globalSpecs = ["problem.yml", "shared.yml"];
+const specs = ["tasks.yml", "users.yaml", "merged.yaml", ...globalSpecs];
+const GITLAB_ENDPOINT = "https://gitlab.com/api/v4/projects";
 const headers = {
   "PRIVATE-TOKEN": env.GITLAB_ACCESS_TOKEN,
 };
 
-function extractSpecYmlName(specPath: string) {
-  return specPath.split("/").pop()?.split(".")[0];
-}
+const createGitlabEndpoint = (specPath: string) =>
+  `${GITLAB_ENDPOINT}/${
+    env.GITLAB_FLIP_REPO_ID
+  }/repository/files/${encodeURIComponent(specPath)}?ref=master`;
 
-async function fetchData(encodedSpecPath: string) {
+const extractSpecYmlName = (specPath: string) =>
+  specPath.split("/").pop()?.split(".")[0];
+
+async function fetchData(spec: string) {
+  const encodedSpecPath = `api/spec/reference/v3/${spec}`;
   console.log("Fetching data...");
 
   try {
     const response = await fetch(createGitlabEndpoint(encodedSpecPath), {
       headers,
     });
-
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
-    } else {
-      const json = await response.json();
-      const spec = Buffer.from(json.content, "base64").toString("utf-8");
-
-      console.log(
-        "EXTRACTED SPECNAME",
-        extractSpecYmlName(decodeURIComponent(encodedSpecPath))
-      );
-
-      console.log("SPEC", spec.length);
-
-      fs.writeFileSync(
-        `./specs/${extractSpecYmlName(
-          decodeURIComponent(encodedSpecPath)
-        )}.yml`,
-        spec,
-        "utf8"
-      );
     }
+
+    const json = await response.json();
+    const specData = Buffer.from(json.content, "base64").toString("utf8");
+    const specName = extractSpecYmlName(spec);
+    const specPath = `./specs/${specName}.yml`;
+
+    fs.writeFileSync(specPath, specData, "utf8");
+    return specName;
   } catch (error) {
     console.error("Error:", error);
   }
 }
 
+function moveSpec(spec: string) {
+  const sourcePath = path.join("specs", `${spec}`);
+  const destinationPath = path.join(".", `${spec}`);
+
+  fs.rename(sourcePath, destinationPath, (err) => {
+    if (err) {
+      console.error(`Error: Unable to rename ${spec}`, err);
+      return;
+    }
+    console.log(`Moved global spec ${spec} to root for oasBuilder`);
+  });
+}
+
 async function fetchSpecs() {
-  specs.forEach((spec) => fetchData(spec));
+  await Promise.all(specs.map(fetchData));
+  globalSpecs.forEach(moveSpec);
 }
 
 fetchSpecs();

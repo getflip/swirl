@@ -35,7 +35,11 @@
       "outputs": ["dist/**"]
     },
     "build:spec-navigation": {
-      "outputs": ["src/lib/navigation/src/data/apiDocs.data.ts"]
+      "outputs": ["src/lib/navigation/src/data/apiDocs.data.ts"],
+      "dependsOn": ["fetch:spec"]
+    },
+    "fetch:spec": {
+      "outputs": ["specs/**", "problem.yml", "shared.yml"]
     },
     "build:swirl-docs": {
       "outputs": [".next/**"],

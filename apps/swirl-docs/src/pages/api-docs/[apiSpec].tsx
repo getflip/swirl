@@ -28,6 +28,7 @@ import {
   ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
 import { SupportedTargets } from "@readme/oas-to-snippet";
+import { ResponseExamples } from "oas/dist/operation/get-response-examples";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -52,6 +53,8 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
       return oas;
     });
 
+  // console.log("[apiSpec] ", oasBuilder);
+
   const serializedDescription = await serializeMarkdownString(
     oasBuilder.oasDocument.info.description
       ?.replace(oasDocument.title, "")
@@ -73,6 +76,7 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
 
       const request = oasBuilder?.generateRequest(endpoint.operation);
       const responseExamples = endpoint.operation.getResponseExamples();
+      // const responseExamples: ResponseExamples = [];
 
       responseExamples.forEach((responseExample) => {
         const mediaTypes = Object.keys(responseExample.mediaTypes);
@@ -80,10 +84,13 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
           mediaTypes[0]
         ] as Array<any>;
 
+        // TODO: fix the response examples on tasks
         examples.push({
           status: responseExample.status,
-          mediaType: mediaTypes[0],
-          value: valueExample[0].value,
+          mediaType: "mediaTypes[0]",
+          value: "valueExample[0].value",
+          // mediaType: mediaTypes[0],
+          // value: valueExample[0].value,
         });
       });
 

@@ -1,13 +1,13 @@
 openapi: 3.0.3
 info:
   title: Flip API V3
-  version: "3.0"
+  version: '3.0'
   contact:
     name: Flip
-    url: "https://www.getflip.com"
+    url: 'https://www.getflip.com'
   description: Flip API version 3
 servers:
-  - url: "http://localhost:3000"
+  - url: 'http://localhost:3000'
 security:
   - bearer: []
 paths:
@@ -18,12 +18,12 @@ paths:
         - tasks
       summary: Get all tasks
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTasksResponse"
+                $ref: '#/components/schemas/GetTasksResponse'
       operationId: get-tasks
       description: Retrieves a list of all tasks visible to the acting user.
       parameters:
@@ -31,12 +31,12 @@ paths:
           in: query
           allowEmptyValue: true
           schema:
-            $ref: "#/components/schemas/ReceivedTasksProgressStatus"
+            $ref: '#/components/schemas/ReceivedTasksProgressStatus'
         - name: distributed_tasks_progress_status
           in: query
           allowEmptyValue: true
           schema:
-            $ref: "#/components/schemas/DistributedTasksProgressStatus"
+            $ref: '#/components/schemas/DistributedTasksProgressStatus'
         - schema:
             type: integer
             format: int32
@@ -56,19 +56,19 @@ paths:
       summary: Create a new task
       operationId: create-task
       responses:
-        "201":
+        '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/TaskInformation"
+                $ref: '#/components/schemas/TaskInformation'
       description: Creates a new task with the acting user as author.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/TaskCreation"
-        description: ""
+              $ref: '#/components/schemas/TaskCreation'
+        description: ''
   /api/v3/tasks/count:
     get:
       x-experimental: true
@@ -76,18 +76,18 @@ paths:
         - tasks
       summary: Get number of tasks
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/TasksCounter"
+                $ref: '#/components/schemas/TasksCounter'
       operationId: get-tasks-count
       description: >-
         Retrieve a count of the number of tasks by their assignment progress
         status of the acting user.
       parameters: []
-  "/api/v3/tasks/{task_id}":
+  '/api/v3/tasks/{task_id}':
     parameters:
       - schema:
           type: string
@@ -103,12 +103,12 @@ paths:
       summary: Delete a task
       operationId: delete-task
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/TaskInformation"
+                $ref: '#/components/schemas/TaskInformation'
       description: Deletes the task with this id.
     patch:
       x-experimental: true
@@ -117,22 +117,22 @@ paths:
       summary: Modify/Update existing task
       operationId: update-task
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/TaskInformation"
+                $ref: '#/components/schemas/TaskInformation'
       requestBody:
         content:
           application/merge-patch+json:
             schema:
-              $ref: "#/components/schemas/UpdateTask"
+              $ref: '#/components/schemas/UpdateTask'
       description: >-
         Modifies certain contents or settings of a previously created task. To
         change the assignments of a task, see the `/tasks/{task_id}/assignments`
         path.
-  "/api/v3/tasks/{task_id}/assignments":
+  '/api/v3/tasks/{task_id}/assignments':
     parameters:
       - schema:
           type: string
@@ -147,12 +147,12 @@ paths:
         - tasks
       summary: Get all task assignments
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTaskAssignmentsResponse"
+                $ref: '#/components/schemas/GetTaskAssignmentsResponse'
       operationId: get-task-assignments
       description: Retrieves a list of all assignments of a specific task.
       parameters:
@@ -189,7 +189,7 @@ paths:
             standard:
               value: +
             reversed:
-              value: "-"
+              value: '-'
     post:
       x-experimental: true
       tags:
@@ -197,20 +197,20 @@ paths:
       summary: Create new task assignment
       operationId: create-task-assignment
       responses:
-        "201":
+        '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostTaskAssignmentsResponse"
+                $ref: '#/components/schemas/PostTaskAssignmentsResponse'
       description: Assigns a task to a new user or group.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PostTaskAssignmentsRequest"
-        description: ""
-  "/api/v3/tasks/assignments/{assignment_id}":
+              $ref: '#/components/schemas/PostTaskAssignmentsRequest'
+        description: ''
+  '/api/v3/tasks/assignments/{assignment_id}':
     parameters:
       - schema:
           type: string
@@ -226,14 +226,14 @@ paths:
       summary: Delete existing task assignment
       operationId: delete-task-assignment
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteTaskAssignmentsResponse"
+                $ref: '#/components/schemas/DeleteTaskAssignmentsResponse'
       description: Removes an assignment from a task.
-  "/api/v3/tasks/{task_id}/assignments/batch":
+  '/api/v3/tasks/{task_id}/assignments/batch':
     parameters:
       - schema:
           type: string
@@ -249,14 +249,14 @@ paths:
       summary: Create multiple task assignments
       operationId: batch-create-task-assignment
       responses:
-        "200":
+        '200':
           description: OK
           content: {}
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PostTaskAssignmentsRequest"
+              $ref: '#/components/schemas/PostTaskAssignmentsRequest'
       description: Creates multiple assignments on a task at once.
     delete:
       x-experimental: true
@@ -266,15 +266,15 @@ paths:
       description: Removes multiple assignments from a task at once.
       operationId: batch-delete-task-assignments
       responses:
-        "200":
+        '200':
           description: OK
           content: {}
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/DeleteTaskAssignmentsRequest"
-  "/api/v3/tasks/{task_id}/comments":
+              $ref: '#/components/schemas/DeleteTaskAssignmentsRequest'
+  '/api/v3/tasks/{task_id}/comments':
     parameters:
       - schema:
           type: string
@@ -288,13 +288,16 @@ paths:
       tags:
         - tasks
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTaskCommentsResponse"
-      description: Retrieves a list of all comments on a specific task.
+                $ref: '#/components/schemas/GetTaskCommentsResponse'
+      description: >-
+        Retrieves a list of all comments on a specific task. React to a task
+        comment. The commenting user is inferred from the access token and must
+        be authenticated for the request.
       parameters:
         - $ref: "#/components/parameters/_page_cursor"
         - $ref: "#/components/parameters/_page_limit"
@@ -306,20 +309,20 @@ paths:
       summary: Create a task comment
       operationId: create-task-comment
       responses:
-        "201":
+        '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/TaskComment"
+                $ref: '#/components/schemas/TaskComment'
       description: Adds a new comment to a task.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/TaskCommentCreation"
-        description: ""
-  "/api/v3/tasks/comments/{comment_id}":
+              $ref: '#/components/schemas/TaskCommentCreation'
+        description: ''
+  '/api/v3/tasks/comments/{comment_id}':
     parameters:
       - schema:
           type: string
@@ -333,14 +336,14 @@ paths:
       summary: Delete existing task comment
       operationId: delete-task-comment
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteTaskCommentsResponse"
+                $ref: '#/components/schemas/DeleteTaskCommentsResponse'
       description: Removes a comment from a task or marks it as "deleted".
-  "/api/v3/tasks/comments/{comment_id}/reactions":
+  '/api/v3/tasks/comments/{comment_id}/reactions':
     parameters:
       - schema:
           type: string
@@ -353,12 +356,12 @@ paths:
         - tasks
       summary: Get all task reactions
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTaskCommentsReactionsResponse"
+                $ref: '#/components/schemas/GetTaskCommentsReactionsResponse'
       operationId: get-task-comment-reactions
       description: Gets all Reactions of a task comment
       parameters:
@@ -386,20 +389,29 @@ paths:
         - tasks
       summary: Create new task comment reaction
       operationId: create-task-comment-reaction
+      parameters:
+        - name: comment_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
       responses:
-        "201":
+        '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostTaskCommentsReactionsResponse"
-      description: Reacts to a task comment.
+                $ref: '#/components/schemas/TaskCommentReaction'
+      description: >-
+        React to a task comment. The reacting user is inferred from the access
+        token and must be authenticated for the request.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PostTaskCommentsReactionsRequest"
-  "/api/v3/tasks/comments/{comment_id}/reactions/{user_id}":
+              $ref: '#/components/schemas/TaskCommentReactionCreationRequest'
+  '/api/v3/tasks/comments/{comment_id}/reactions/{user_id}':
     parameters:
       - schema:
           type: string
@@ -418,12 +430,12 @@ paths:
       summary: Delete task comment reaction
       operationId: delete-task-comment-reaction
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteTaskCommentsReactionsResponse"
+                $ref: '#/components/schemas/DeleteTaskCommentsReactionsResponse'
       description: Removes the reaction from a task comment.
   /api/v3/admin/users:
     parameters: []
@@ -435,12 +447,12 @@ paths:
         and sort the resulting list by various user attributes.
       operationId: search-users
       responses:
-        "200":
+        '200':
           description: A paged result list of matching users.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserListResponse"
+                $ref: '#/components/schemas/UserAdminSearchResults'
       parameters:
         - name: search_term
           description: >-
@@ -453,7 +465,7 @@ paths:
           description: A filter for the user's status.
           in: query
           schema:
-            $ref: "#/components/schemas/UserStatus"
+            $ref: '#/components/schemas/UserStatus'
         - name: sort
           description: >-
             Defines the order in which the items are returned. Refer to our
@@ -463,7 +475,7 @@ paths:
             type: array
             maxItems: 5
             items:
-              $ref: "#/components/schemas/UserManagementUserListSortingOption"
+              $ref: '#/components/schemas/UserAdminSearchSortingOption'
         - name: page_limit
           description: See general API concepts
           in: query
@@ -493,27 +505,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UserManagementUsersPostRequest"
+              $ref: '#/components/schemas/CreateUserAdminRequest'
       responses:
-        "200":
-          description:
-            The linked identity as the idempotent result of a repeated request.
+        '200':
+          description: The linked identity as the idempotent result of a repeated request.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserResponse"
-        "201":
+                $ref: '#/components/schemas/UserAdminView'
+        '201':
           description: The created user.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserResponse"
+                $ref: '#/components/schemas/UserAdminView'
       tags:
         - user-admin
-  "/api/v3/admin/users/{userId}":
+  '/api/v3/admin/users/{userId}':
     parameters:
       - schema:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
         name: userId
         in: path
         required: true
@@ -522,12 +533,12 @@ paths:
       summary: Get User Details
       description: Allows an admin user to get details about a user by its ID.
       responses:
-        "200":
+        '200':
           description: The requested user.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserResponse"
+                $ref: '#/components/schemas/UserAdminView'
       operationId: get-user
       tags:
         - user-admin
@@ -539,19 +550,19 @@ paths:
         Endpoint-specific error codes are:
          - USERNAME_ALREADY_EXISTS (another user exists with the same username),
          - EXTERNAL_ID_ALREADY_EXISTS (another user exists with the same external ID)
-      operationId: patch-users-userId
+      operationId: update-user
       requestBody:
         content:
           application/merge-patch+json:
             schema:
-              $ref: "#/components/schemas/UserManagementUsersPatchRequest"
+              $ref: '#/components/schemas/UpdateUserAdminRequest'
       responses:
-        "200":
+        '200':
           description: The updated user.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserResponse"
+                $ref: '#/components/schemas/UserAdminView'
       tags:
         - user-admin
     delete:
@@ -560,18 +571,18 @@ paths:
       description: Allows an admin user to delete a user identified by its ID.
       operationId: delete-user
       responses:
-        "200":
+        '200':
           description: The user that has been deleted.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserResponse"
+                $ref: '#/components/schemas/UserAdminView'
       tags:
         - user-admin
-  "/api/v3/admin/users/{userId}/lock":
+  '/api/v3/admin/users/{userId}/lock':
     parameters:
       - schema:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
         name: userId
         in: path
         required: true
@@ -583,18 +594,18 @@ paths:
         cannot log-in anymore or get refresh tokens.
       operationId: lock-user
       responses:
-        "200":
+        '200':
           description: The user that has been locked.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserResponse"
+                $ref: '#/components/schemas/UserAdminView'
       tags:
         - user-admin
-  "/api/v3/admin/users/{userId}/unlock":
+  '/api/v3/admin/users/{userId}/unlock':
     parameters:
       - schema:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
         name: userId
         in: path
         required: true
@@ -606,12 +617,12 @@ paths:
         locked user can log-in again once unlocked.
       operationId: unlock-user
       responses:
-        "200":
+        '200':
           description: The user that has been unlocked.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUserResponse"
+                $ref: '#/components/schemas/UserAdminView'
       tags:
         - user-admin
   /api/v3/admin/users/batch:
@@ -620,19 +631,19 @@ paths:
       x-experimental: true
       summary: Delete multiple users
       description: Allows an admin user to delete multiple users at once.
-      operationId: delete-multiple-users
+      operationId: delete-users-batch
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UserManagementUsersBatchDeleteRequest"
+              $ref: '#/components/schemas/DeleteUsersAdminBatchRequest'
       responses:
-        "200":
+        '200':
           description: See general API concepts.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserManagementUsersBatchDeleteResponse"
+                $ref: '#/components/schemas/DeleteUsersAdminBatchResults'
       tags:
         - user-admin
   /api/v3/admin/users/identity-providers:
@@ -645,34 +656,33 @@ paths:
         user.
       operationId: get-linkable-identity-providers
       responses:
-        "200":
+        '200':
           description: List of linkable identity providers
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LinkableIdentityProvidersResponse"
+                $ref: '#/components/schemas/LinkableIdentityProviders'
       tags:
         - user-admin
-  "/api/v3/admin/users/{userId}/linked-identities":
+  '/api/v3/admin/users/{userId}/linked-identities':
     parameters:
       - schema:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
         name: userId
         in: path
         required: true
     get:
       x-experimental: true
       summary: Get linked identities for user
-      description:
-        Lists all identities of a remote identity provider linked to a user.
+      description: Lists all identities of a remote identity provider linked to a user.
       operationId: get-linked-identities
       responses:
-        "200":
+        '200':
           description: List of linked identities for that user.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LinkedIdentityListResponse"
+                $ref: '#/components/schemas/LinkedIdentities'
       tags:
         - user-admin
     post:
@@ -690,66 +700,64 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/LinkedIdentityPostRequest"
+              $ref: '#/components/schemas/CreateLinkedIdentityAdminRequest'
       responses:
-        "200":
-          description:
-            The linked identity as the idempotent result of a repeated request.
+        '200':
+          description: The linked identity as the idempotent result of a repeated request.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LinkedIdentityResponse"
-        "201":
+                $ref: '#/components/schemas/LinkedIdentity'
+        '201':
           description: The identity linked to the user.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LinkedIdentityResponse"
+                $ref: '#/components/schemas/LinkedIdentity'
       tags:
         - user-admin
-  "/api/v3/admin/users/{userId}/linked-identities/{providerId}":
+  '/api/v3/admin/users/{userId}/linked-identities/{providerId}':
     parameters:
       - name: userId
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
       - name: providerId
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/IdentityProviderId"
+          $ref: '#/components/schemas/IdentityProviderId'
     delete:
       x-experimental: true
       summary: Delete linked identity
-      description:
-        Deletes a linked identity of a remote identity provider from a user.
+      description: Deletes a linked identity of a remote identity provider from a user.
       operationId: delete-linked-identity
       responses:
-        "200":
+        '200':
           description: The identity that was removed from the user.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LinkedIdentityResponse"
+                $ref: '#/components/schemas/LinkedIdentity'
       tags:
         - user-admin
-  "/api/v3/admin/users/{userId}/password":
+  '/api/v3/admin/users/{userId}/password':
     parameters:
       - name: userId
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
     get:
       x-experimental: true
       summary: Check if a password is configured for a user
       description: Checks if a password is configured for a user.
       operationId: has-password
       responses:
-        "204":
+        '204':
           description: A password is configured for the user.
-        "404":
+        '404':
           description: No password is configured for the user.
       tags:
         - user-admin
@@ -766,9 +774,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UserManagementPasswordPostRequest"
+              $ref: '#/components/schemas/ChangePasswordAdminRequest'
       responses:
-        "204":
+        '204':
           description: The new password has been set.
       tags:
         - user-admin
@@ -780,17 +788,17 @@ paths:
         user can no longer log-in via its credentials afterwards.'
       operationId: delete-password
       responses:
-        "204":
+        '204':
           description: The password has been deleted.
       tags:
         - user-admin
-  "/api/v3/admin/users/{userId}/account-actions-email":
+  '/api/v3/admin/users/{userId}/account-actions-email':
     parameters:
       - name: userId
         in: path
         required: true
         schema:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
     post:
       x-experimental: true
       summary: Send email requesting account actions
@@ -804,9 +812,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AccountActionsEmailPostRequest"
+              $ref: '#/components/schemas/SendAccountActionsEmailAdminRequest'
       responses:
-        "204":
+        '204':
           description: Acknowledgment that account action request was received.
       tags:
         - user-admin
@@ -820,19 +828,19 @@ paths:
 
         Endpoint-specific error codes on each result equal those defined for
         corresponding single operation.'
-      operationId: send-multiple-account-actions-emails
+      operationId: send-account-actions-emails-batch
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AccountActionsEmailBatchPostRequest"
+              $ref: '#/components/schemas/SendAccountActionsEmailsAdminBatchRequest'
       responses:
-        "200":
+        '200':
           description: List of responses from the single operation executions
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AccountActionsEmailBatchPostResponse"
+                $ref: '#/components/schemas/SendAccountActionsEmailsAdminBatchResults'
       tags:
         - user-admin
   /api/v3/users/me/password:
@@ -844,9 +852,9 @@ paths:
         configured for themselves.
       operationId: do-I-have-a-password
       responses:
-        "204":
+        '204':
           description: A password is configured for the user.
-        "404":
+        '404':
           description: No password is configured for the user.
       tags:
         - user-me
@@ -864,9 +872,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UserMePasswordPostRequest"
+              $ref: '#/components/schemas/ChangeMyPasswordRequest'
       responses:
-        "204":
+        '204':
           description: The new password has been set.
       tags:
         - user-me
@@ -874,17 +882,15 @@ paths:
     get:
       x-experimental: true
       summary: Get email address of authenticated user
-      description:
-        Retrieves information about the email address of the authenticated user.
-      operationId: get-my-account-email
+      description: Retrieves information about the email address of the authenticated user.
+      operationId: get-my-email-address
       responses:
-        "200":
-          description:
-            The current email address and whether you are allowed to change it.
+        '200':
+          description: The current email address and whether you are allowed to change it.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UserMeEmailResponse"
+                $ref: '#/components/schemas/MyEmailAddress'
       tags:
         - user-me
     post:
@@ -899,9 +905,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UserMeEmailPostRequest"
+              $ref: '#/components/schemas/ChangeMyEmailAddressRequest'
       responses:
-        "204":
+        '204':
           description: The new email address has been set.
       tags:
         - user-me
@@ -912,8 +918,7 @@ components:
       minLength: 1
       maxLength: 200
       nullable: true
-      description:
-        An arbitrary string referencing an external entity identifier.
+      description: An arbitrary string referencing an external entity identifier.
     EmbeddedUser:
       type: object
       properties:
@@ -950,8 +955,8 @@ components:
     ReactionsType:
       type: array
       items:
-        $ref: "#/components/schemas/ReactionType"
-      description: ""
+        $ref: '#/components/schemas/ReactionType'
+      description: ''
     CursorPagination:
       type: object
       description: >-
@@ -989,7 +994,7 @@ components:
     HttpStatusCode:
       type: integer
       format: int32
-      description: "A well know HTTP status code (e.g. 200, 201, 400)."
+      description: 'A well know HTTP status code (e.g. 200, 201, 400).'
     Problem:
       type: object
       description: An RFC 7807 inspired "problem JSON" object.
@@ -1029,8 +1034,7 @@ components:
           nullable: true
         field:
           type: string
-          description:
-            The technical field name from the API that caused the problem.
+          description: The technical field name from the API that caused the problem.
           example: user_id
           nullable: true
       required:
@@ -1072,7 +1076,7 @@ components:
             An array of all retrieved tasks, according to the pagination and
             sort arguments.
           items:
-            $ref: "#/components/schemas/TaskInformation"
+            $ref: '#/components/schemas/TaskInformation'
         _pagination:
           $ref: "#/components/schemas/CursorPagination"
       description: Representation of a collection of tasks.
@@ -1090,15 +1094,15 @@ components:
                 html_body: >-
                   Hey @2b2b2af0-9644-4c0e-a606-5c3aa6ec1004, can you please
                   clean the aisles <b>until tomorrow</b>?
-              created_at: "2019-08-24T14:15:22Z"
-              updated_at: "2019-08-24T14:15:22Z"
+              created_at: '2019-08-24T14:15:22Z'
+              updated_at: '2019-08-24T14:15:22Z'
               is_deleted: false
               language: en-US
               settings:
                 comments_enabled: true
               comments_count: 0
               due_at:
-                date: "2019-08-25"
+                date: '2019-08-25'
                 discriminator: DATE
               attachments:
                 - id: string
@@ -1136,7 +1140,7 @@ components:
           example: Wet-clean all aisles
           description: A short descriptive title of the task.
         body:
-          $ref: "#/components/schemas/TaskBody"
+          $ref: '#/components/schemas/TaskBody'
         created_at:
           type: string
           format: date-time
@@ -1173,10 +1177,7 @@ components:
           description: The total number of non-deleted comments on this task.
           format: int32
         due_at:
-          $ref: "#/components/schemas/TaskDueAt"
-          description: >-
-            The point in time by which this task should be completed before
-            being marked as overdue.
+          $ref: '#/components/schemas/TaskDueAt'
         attachments:
           type: array
           description: >-
@@ -1254,7 +1255,7 @@ components:
       description: Representation of a single task.
       x-examples:
         Example:
-          $ref: "#/components/examples/TaskInformationExample"
+          $ref: '#/components/examples/TaskInformationExample'
     TaskAssignments:
       title: TaskAssignments
       type: object
@@ -1265,7 +1266,7 @@ components:
             An array of all retrieved assignments, according to the pagination
             and sort arguments.
           items:
-            $ref: "#/components/schemas/TaskAssignment"
+            $ref: '#/components/schemas/TaskAssignment'
         _pagination:
           $ref: "#/components/schemas/CursorPagination"
       description: Representation of a collection of tasks.
@@ -1349,7 +1350,7 @@ components:
     GetTasksResponse:
       title: GetTasksResponse
       allOf:
-        - $ref: "#/components/schemas/Tasks"
+        - $ref: '#/components/schemas/Tasks'
       additionalProperties: false
     TaskCreation:
       title: TaskCreation
@@ -1371,7 +1372,7 @@ components:
           example: Wet-clean all aisles
           description: A short descriptive title of the task.
         body:
-          $ref: "#/components/schemas/TaskBody"
+          $ref: '#/components/schemas/TaskBody'
         settings:
           type: object
           description: A collection of settings configured for a task.
@@ -1382,10 +1383,7 @@ components:
               type: boolean
               description: Whether comments can be created on this task.
         due_at:
-          $ref: "#/components/schemas/TaskDueAt"
-          description: >-
-            The point in time by which this task should be completed before
-            being marked as overdue.
+          $ref: '#/components/schemas/TaskDueAt'
         attachments:
           type: array
           description: >-
@@ -1396,8 +1394,7 @@ components:
             $ref: "#/components/schemas/EmbeddedAttachment"
         assignments:
           type: object
-          description:
-            Users and user groups which are marked as assignees to this task.
+          description: Users and user groups which are marked as assignees to this task.
           properties:
             recipient_user_ids:
               type: array
@@ -1439,7 +1436,7 @@ components:
           example: Wet-clean all aisles
           description: A short descriptive title of the task.
         body:
-          $ref: "#/components/schemas/TaskBody"
+          $ref: '#/components/schemas/TaskBody'
         settings:
           type: object
           description: A collection of settings configured for a task.
@@ -1448,10 +1445,7 @@ components:
               type: boolean
               description: Whether comments can be created on this task.
         due_at:
-          $ref: "#/components/schemas/TaskDueAt"
-          description: >-
-            The point in time by which this task should be completed before
-            being marked as overdue.
+          $ref: '#/components/schemas/TaskDueAt'
         attachments:
           type: array
           description: >-
@@ -1461,7 +1455,7 @@ components:
           items:
             $ref: "#/components/schemas/EmbeddedAttachment"
         mentions:
-          $ref: "#/components/schemas/UpdateTaskMentions"
+          $ref: '#/components/schemas/UpdateTaskMentions'
     TaskBody:
       type: object
       nullable: true
@@ -1473,8 +1467,7 @@ components:
         delta_body:
           type: string
           maxLength: 100000
-          description:
-            The content body of the task formatted as Quill delta format.
+          description: The content body of the task formatted as Quill delta format.
           nullable: true
         html_body:
           type: string
@@ -1501,12 +1494,15 @@ components:
             `NEW`.
     TaskDueAt:
       title: TaskDueAt
+      description: >-
+        The point in time by which this task should be completed before being
+        marked as overdue.
       type: object
       discriminator:
         propertyName: due_at_type
         mapping:
-          DATE: "#/components/schemas/TaskDueAtDate"
-          DATE_TIME: "#/components/schemas/TaskDueAtDateTime"
+          DATE: '#/components/schemas/TaskDueAtDate'
+          DATE_TIME: '#/components/schemas/TaskDueAtDateTime'
       properties:
         due_at_type:
           type: string
@@ -1516,7 +1512,7 @@ components:
     TaskDueAtDate:
       title: TaskDueAt with date
       allOf:
-        - $ref: "#/components/schemas/TaskDueAt"
+        - $ref: '#/components/schemas/TaskDueAt'
         - type: object
           required:
             - due_at_type
@@ -1533,7 +1529,7 @@ components:
     TaskDueAtDateTime:
       title: TaskDueAt with date-time
       allOf:
-        - $ref: "#/components/schemas/TaskDueAt"
+        - $ref: '#/components/schemas/TaskDueAt'
         - type: object
           required:
             - due_at_type
@@ -1550,7 +1546,7 @@ components:
     GetTaskAssignmentsResponse:
       title: GetTaskAssignmentsResponse
       allOf:
-        - $ref: "#/components/schemas/TaskAssignments"
+        - $ref: '#/components/schemas/TaskAssignments'
     DeleteTaskAssignmentsRequest:
       title: DeleteTaskAssignmentsRequest
       type: object
@@ -1571,29 +1567,29 @@ components:
           type: array
           maxItems: 100
           items:
-            $ref: "#/components/schemas/NewAssignee"
+            $ref: '#/components/schemas/NewAssignee'
     PostTaskAssignmentsResponse:
       title: PostTaskAssignmentsResponse
       allOf:
-        - $ref: "#/components/schemas/TaskAssignment"
+        - $ref: '#/components/schemas/TaskAssignment'
     DeleteTaskCommentsResponse:
       title: DeleteTaskCommentsResponse
       allOf:
-        - $ref: "#/components/schemas/TaskComment"
+        - $ref: '#/components/schemas/TaskComment'
     DeleteTaskAssignmentsResponse:
       title: DeleteTaskAssignmentsResponse
       allOf:
-        - $ref: "#/components/schemas/TaskAssignment"
+        - $ref: '#/components/schemas/TaskAssignment'
     NewAssignee:
       title: NewAssignee
       anyOf:
-        - $ref: "#/components/schemas/NewAssigneeUser"
-        - $ref: "#/components/schemas/NewAssigneeGroup"
+        - $ref: '#/components/schemas/NewAssigneeUser'
+        - $ref: '#/components/schemas/NewAssigneeGroup'
       discriminator:
         propertyName: assignee_type
         mapping:
-          DATE: "#/components/schemas/NewAssigneeUser"
-          DATE_TIME: "#/components/schemas/NewAssigneeGroup"
+          DATE: '#/components/schemas/NewAssigneeUser'
+          DATE_TIME: '#/components/schemas/NewAssigneeGroup'
     NewAssigneeUser:
       title: NewAssignee for a user
       type: object
@@ -1691,21 +1687,29 @@ components:
             The number of reactions on this comment grouped by the reaction
             type.
     GetTaskCommentsResponse:
-      title: ""
+      title: ''
       type: object
       properties:
         comments:
           type: array
           items:
-            $ref: "#/components/schemas/TaskComment"
+            $ref: '#/components/schemas/TaskComment'
         next_cursor:
           type: string
         has_more:
           type: boolean
-      description: ""
+      description: ''
     TaskCommentReaction:
       type: object
+      required:
+        - type
+        - comment_id
+        - user_id
+        - id
       properties:
+        id:
+          type: string
+          format: uuid
         type:
           $ref: "#/components/schemas/ReactionType"
         comment_id:
@@ -1714,40 +1718,32 @@ components:
         user_id:
           type: string
           format: uuid
-        is_deleted:
-          type: boolean
         user:
           $ref: "#/components/schemas/EmbeddedUser"
-          nullable: true
-          description: >-
-            Information about the user who reacted. Is only present if requested
-            by the `_embed` parameter. Refer to our general "embedment" concept
-            for more information.
     TaskCommentsReactingUsers:
       title: TaskCommentsReactingUsers
       type: object
       properties:
         reactions:
-          $ref: "#/components/schemas/TaskCommentReaction"
+          $ref: '#/components/schemas/TaskCommentReaction'
         _pagination:
           $ref: "#/components/schemas/CursorPagination"
     GetTaskCommentsReactionsResponse:
-      $ref: "#/components/schemas/TaskCommentsReactingUsers"
+      $ref: '#/components/schemas/TaskCommentsReactingUsers'
     DeleteTaskCommentsReactionsResponse:
       title: DeleteTaskCommentsReactionsResponse
       allOf:
-        - $ref: "#/components/schemas/TaskCommentReaction"
-    PostTaskCommentsReactionsRequest:
-      title: PostTaskCommentsReactionsRequest
+        - $ref: '#/components/schemas/TaskCommentReaction'
+    TaskCommentReactionCreationRequest:
       type: object
+      required:
+        - type
       properties:
-        type:
-          $ref: "#/components/schemas/ReactionsType"
-        author_id:
+        id:
           type: string
           format: uuid
-    PostTaskCommentsReactionsResponse:
-      $ref: "#/components/schemas/TaskCommentReaction"
+        type:
+          $ref: "#/components/schemas/ReactionType"
     TaskCommentCreation:
       type: object
       required:
@@ -1769,13 +1765,13 @@ components:
               user_id:
                 type: string
                 format: uuid
-    AccountActionsEmailPostRequest:
+    SendAccountActionsEmailAdminRequest:
       type: object
       properties:
         actions:
           type: array
           items:
-            $ref: "#/components/schemas/RequiredAction"
+            $ref: '#/components/schemas/AccountAction'
         validity_minutes:
           description: Minutes that the link in the email should be valid for
           minimum: 1
@@ -1784,7 +1780,7 @@ components:
       required:
         - actions
         - validity_minutes
-    AccountActionsEmailBatchPostRequest:
+    SendAccountActionsEmailsAdminBatchRequest:
       type: object
       properties:
         items:
@@ -1792,33 +1788,33 @@ components:
           minItems: 1
           maxItems: 50
           items:
-            $ref: "#/components/schemas/AccountActionsEmailBatchPostRequestItem"
+            $ref: '#/components/schemas/SendAccountActionsEmailsAdminBatchRequestItem'
       required:
         - items
-    AccountActionsEmailBatchPostRequestItem:
+    SendAccountActionsEmailsAdminBatchRequestItem:
       type: object
       properties:
         id:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
         body:
-          $ref: "#/components/schemas/AccountActionsEmailPostRequest"
+          $ref: '#/components/schemas/SendAccountActionsEmailAdminRequest'
       required:
         - id
         - body
-    AccountActionsEmailBatchPostResponse:
+    SendAccountActionsEmailsAdminBatchResults:
       type: object
       properties:
         items:
           type: array
           items:
-            $ref: "#/components/schemas/AccountActionsEmailPostBatchResponseItem"
+            $ref: '#/components/schemas/SendAccountActionsEmailsAdminBatchResultItem'
       required:
         - items
-    AccountActionsEmailPostBatchResponseItem:
+    SendAccountActionsEmailsAdminBatchResultItem:
       type: object
       properties:
         id:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
         status:
           $ref: "#/components/schemas/HttpStatusCode"
         error:
@@ -1826,47 +1822,47 @@ components:
       required:
         - id
         - status
-    LinkedIdentityPostRequest:
+    CreateLinkedIdentityAdminRequest:
       type: object
       properties:
         provider_id:
-          $ref: "#/components/schemas/IdentityProviderId"
+          $ref: '#/components/schemas/IdentityProviderId'
         linked_user_id:
-          $ref: "#/components/schemas/LinkedIdentityUserId"
+          $ref: '#/components/schemas/LinkedIdentityUserId'
         linked_username:
-          $ref: "#/components/schemas/LinkedIdentityUsername"
+          $ref: '#/components/schemas/LinkedIdentityUsername'
       required:
         - provider_id
         - linked_user_id
         - linked_username
-    LinkedIdentityResponse:
+    LinkedIdentity:
       type: object
       properties:
         provider:
-          $ref: "#/components/schemas/IdentityProviderReference"
+          $ref: '#/components/schemas/IdentityProviderReference'
         linked_user_id:
-          $ref: "#/components/schemas/LinkedIdentityUserId"
+          $ref: '#/components/schemas/LinkedIdentityUserId'
         linked_username:
-          $ref: "#/components/schemas/LinkedIdentityUsername"
+          $ref: '#/components/schemas/LinkedIdentityUsername'
       required:
         - provider
         - linked_user_id
         - linked_username
-    LinkedIdentityListResponse:
+    LinkedIdentities:
       type: object
       properties:
         items:
           type: array
           items:
-            $ref: "#/components/schemas/LinkedIdentityResponse"
-    LinkableIdentityProvidersResponse:
+            $ref: '#/components/schemas/LinkedIdentity'
+    LinkableIdentityProviders:
       type: object
       properties:
         providers:
           type: array
           items:
-            $ref: "#/components/schemas/IdentityProviderReference"
-    UserManagementUsersBatchDeleteRequest:
+            $ref: '#/components/schemas/IdentityProviderReference'
+    DeleteUsersAdminBatchRequest:
       type: object
       properties:
         items:
@@ -1874,141 +1870,141 @@ components:
           minItems: 1
           maxItems: 50
           items:
-            $ref: "#/components/schemas/UserManagementUsersBatchDeleteRequestItem"
+            $ref: '#/components/schemas/DeleteUsersAdminBatchRequestItem'
       required:
         - items
-    UserManagementUsersBatchDeleteRequestItem:
+    DeleteUsersAdminBatchRequestItem:
       type: object
       properties:
         id:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
       required:
         - id
-    UserManagementUsersBatchDeleteResponse:
+    DeleteUsersAdminBatchResults:
       type: object
       properties:
         items:
           type: array
           items:
-            $ref: "#/components/schemas/UserManagementUsersBatchDeleteResponseItems"
+            $ref: '#/components/schemas/DeleteUsersAdminBatchResultItem'
       required:
         - items
-    UserManagementUsersBatchDeleteResponseItems:
+    DeleteUsersAdminBatchResultItem:
       type: object
       properties:
         id:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
         status:
           $ref: "#/components/schemas/HttpStatusCode"
         body:
-          $ref: "#/components/schemas/UserManagementUserResponse"
+          $ref: '#/components/schemas/UserAdminView'
         error:
           $ref: "#/components/schemas/Problem"
       required:
         - id
         - status
-    UserManagementUsersPostRequest:
+    CreateUserAdminRequest:
       type: object
       properties:
         id:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
         external_id:
-          $ref: "#/components/schemas/ExternalUserId"
+          $ref: '#/components/schemas/ExternalUserId'
         first_name:
-          $ref: "#/components/schemas/FirstName"
+          $ref: '#/components/schemas/FirstName'
         last_name:
-          $ref: "#/components/schemas/LastName"
+          $ref: '#/components/schemas/LastName'
         email:
-          $ref: "#/components/schemas/EmailAddressNullable"
+          $ref: '#/components/schemas/EmailAddressNullable'
         status:
-          $ref: "#/components/schemas/UserStatus"
+          $ref: '#/components/schemas/UserStatus'
         username:
-          $ref: "#/components/schemas/UserName"
+          $ref: '#/components/schemas/UserName'
         profile:
-          $ref: "#/components/schemas/UserManagementUsersPostRequestProfile"
+          $ref: '#/components/schemas/CreateUserAdminRequestProfile'
         role:
-          $ref: "#/components/schemas/SystemRole"
+          $ref: '#/components/schemas/SystemRole'
         required_actions:
           type: array
           items:
-            $ref: "#/components/schemas/RequiredAction"
+            $ref: '#/components/schemas/AccountAction'
       required:
         - first_name
         - last_name
         - status
         - username
         - role
-    UserManagementUsersPostRequestProfile:
+    CreateUserAdminRequestProfile:
       type: object
       nullable: true
       properties:
         about_me:
-          $ref: "#/components/schemas/UserProfileAboutMe"
+          $ref: '#/components/schemas/UserProfileAboutMe'
         department:
-          $ref: "#/components/schemas/UserProfileDepartment"
+          $ref: '#/components/schemas/UserProfileDepartment'
         job_title:
-          $ref: "#/components/schemas/UserProfileJobTitle"
+          $ref: '#/components/schemas/UserProfileJobTitle'
         location:
-          $ref: "#/components/schemas/UserProfileLocation"
+          $ref: '#/components/schemas/UserProfileLocation'
         mobile_number:
-          $ref: "#/components/schemas/UserProfilePhoneNumber"
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
         phone_number:
-          $ref: "#/components/schemas/UserProfilePhoneNumber"
-    UserManagementUsersPatchRequest:
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
+    UpdateUserAdminRequest:
       type: object
       x-json-merge-patch: true
       properties:
         external_id:
-          $ref: "#/components/schemas/ExternalUserId"
+          $ref: '#/components/schemas/ExternalUserId'
         first_name:
-          $ref: "#/components/schemas/FirstName"
+          $ref: '#/components/schemas/FirstName'
         last_name:
-          $ref: "#/components/schemas/LastName"
+          $ref: '#/components/schemas/LastName'
         email:
-          $ref: "#/components/schemas/EmailAddressNullable"
+          $ref: '#/components/schemas/EmailAddressNullable'
         username:
-          $ref: "#/components/schemas/UserName"
+          $ref: '#/components/schemas/UserName'
         profile:
-          $ref: "#/components/schemas/UserManagementUsersPatchRequestProfile"
+          $ref: '#/components/schemas/UpdateUserAdminRequestProfile'
         role:
-          $ref: "#/components/schemas/SystemRole"
+          $ref: '#/components/schemas/SystemRole'
         required_actions:
           type: array
           items:
-            $ref: "#/components/schemas/RequiredAction"
-    UserManagementUsersPatchRequestProfile:
+            $ref: '#/components/schemas/AccountAction'
+    UpdateUserAdminRequestProfile:
       type: object
       x-json-merge-patch: true
       properties:
         about_me:
-          $ref: "#/components/schemas/UserProfileAboutMe"
+          $ref: '#/components/schemas/UserProfileAboutMe'
         department:
-          $ref: "#/components/schemas/UserProfileDepartment"
+          $ref: '#/components/schemas/UserProfileDepartment'
         job_title:
-          $ref: "#/components/schemas/UserProfileJobTitle"
+          $ref: '#/components/schemas/UserProfileJobTitle'
         location:
-          $ref: "#/components/schemas/UserProfileLocation"
+          $ref: '#/components/schemas/UserProfileLocation'
         mobile_number:
-          $ref: "#/components/schemas/UserProfilePhoneNumber"
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
         phone_number:
-          $ref: "#/components/schemas/UserProfilePhoneNumber"
-    UserManagementUserResponse:
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
+    UserAdminView:
       type: object
       properties:
         id:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
         external_id:
-          $ref: "#/components/schemas/ExternalUserId"
+          $ref: '#/components/schemas/ExternalUserId'
         first_name:
-          $ref: "#/components/schemas/FirstName"
+          $ref: '#/components/schemas/FirstName'
         last_name:
-          $ref: "#/components/schemas/LastName"
+          $ref: '#/components/schemas/LastName'
         email:
-          $ref: "#/components/schemas/EmailAddressNullable"
+          $ref: '#/components/schemas/EmailAddressNullable'
         status:
-          $ref: "#/components/schemas/UserStatus"
+          $ref: '#/components/schemas/UserStatus'
         username:
-          $ref: "#/components/schemas/UserName"
+          $ref: '#/components/schemas/UserName'
         created_at:
           type: string
           format: date-time
@@ -2020,13 +2016,13 @@ components:
         profile_picture:
           $ref: "#/components/schemas/ProfilePicture"
         profile:
-          $ref: "#/components/schemas/UserManagementUserResponseProfile"
+          $ref: '#/components/schemas/UserProfileAdminView'
         role:
-          $ref: "#/components/schemas/SystemRole"
+          $ref: '#/components/schemas/SystemRole'
         required_actions:
           type: array
           items:
-            $ref: "#/components/schemas/RequiredAction"
+            $ref: '#/components/schemas/AccountAction'
       required:
         - id
         - first_name
@@ -2037,24 +2033,24 @@ components:
         - profile
         - role
         - required_actions
-    UserManagementUserResponseProfile:
+    UserProfileAdminView:
       type: object
       properties:
         about_me:
-          $ref: "#/components/schemas/UserProfileAboutMe"
+          $ref: '#/components/schemas/UserProfileAboutMe'
         department:
-          $ref: "#/components/schemas/UserProfileDepartment"
+          $ref: '#/components/schemas/UserProfileDepartment'
         job_title:
-          $ref: "#/components/schemas/UserProfileJobTitle"
+          $ref: '#/components/schemas/UserProfileJobTitle'
         location:
-          $ref: "#/components/schemas/UserProfileLocation"
+          $ref: '#/components/schemas/UserProfileLocation'
         mobile_number:
-          $ref: "#/components/schemas/UserProfilePhoneNumber"
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
         phone_number:
-          $ref: "#/components/schemas/UserProfilePhoneNumber"
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
         picture:
           $ref: "#/components/schemas/ProfilePicture"
-    UserManagementUserListSortingOption:
+    UserAdminSearchSortingOption:
       type: string
       enum:
         - FIRST_NAME_ASC
@@ -2077,35 +2073,35 @@ components:
         - UPDATED_AT_DESC
         - CREATED_AT_ASC
         - CREATED_AT_DESC
-    UserManagementUserListResponse:
+    UserAdminSearchResults:
       type: object
       properties:
         users:
           type: array
           items:
-            $ref: "#/components/schemas/UserManagementUserListResponseItem"
+            $ref: '#/components/schemas/UserAdminSearchResult'
         pagination:
           $ref: "#/components/schemas/OffsetPagination"
       required:
         - users
         - pagination
-    UserManagementUserListResponseItem:
+    UserAdminSearchResult:
       type: object
       properties:
         id:
-          $ref: "#/components/schemas/UserId"
+          $ref: '#/components/schemas/UserId'
         external_id:
-          $ref: "#/components/schemas/ExternalUserId"
+          $ref: '#/components/schemas/ExternalUserId'
         first_name:
-          $ref: "#/components/schemas/FirstName"
+          $ref: '#/components/schemas/FirstName'
         last_name:
-          $ref: "#/components/schemas/LastName"
+          $ref: '#/components/schemas/LastName'
         email:
-          $ref: "#/components/schemas/EmailAddressNullable"
+          $ref: '#/components/schemas/EmailAddressNullable'
         status:
-          $ref: "#/components/schemas/UserStatus"
+          $ref: '#/components/schemas/UserStatus'
         username:
-          $ref: "#/components/schemas/UserName"
+          $ref: '#/components/schemas/UserName'
         created_at:
           type: string
           format: date-time
@@ -2115,9 +2111,9 @@ components:
           format: date-time
           readOnly: true
         role:
-          $ref: "#/components/schemas/SystemRole"
+          $ref: '#/components/schemas/SystemRole'
         profile:
-          $ref: "#/components/schemas/UserManagementUserListResponseItemProfile"
+          $ref: '#/components/schemas/UserAdminSearchResultProfile'
         profile_picture:
           $ref: "#/components/schemas/ProfilePicture"
       required:
@@ -2129,22 +2125,22 @@ components:
         - created_at
         - role
         - profile
-    UserManagementUserListResponseItemProfile:
+    UserAdminSearchResultProfile:
       type: object
       properties:
         department:
-          $ref: "#/components/schemas/UserProfileDepartment"
+          $ref: '#/components/schemas/UserProfileDepartment'
         job_title:
-          $ref: "#/components/schemas/UserProfileJobTitle"
+          $ref: '#/components/schemas/UserProfileJobTitle'
         location:
-          $ref: "#/components/schemas/UserProfileLocation"
+          $ref: '#/components/schemas/UserProfileLocation'
         mobileNumber:
-          $ref: "#/components/schemas/UserProfilePhoneNumber"
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
         phoneNumber:
-          $ref: "#/components/schemas/UserProfilePhoneNumber"
+          $ref: '#/components/schemas/UserProfilePhoneNumber'
         picture:
           $ref: "#/components/schemas/ProfilePicture"
-    UserManagementPasswordPostRequest:
+    ChangePasswordAdminRequest:
       type: object
       properties:
         password:
@@ -2154,18 +2150,18 @@ components:
           default: true
       required:
         - password
-    UserMeEmailPostRequest:
+    ChangeMyEmailAddressRequest:
       type: object
       properties:
         email:
-          $ref: "#/components/schemas/EmailAddress"
+          $ref: '#/components/schemas/EmailAddress'
       required:
         - email
-    UserMeEmailResponse:
+    MyEmailAddress:
       type: object
       properties:
         email:
-          $ref: "#/components/schemas/EmailAddressNullable"
+          $ref: '#/components/schemas/EmailAddressNullable'
         verified:
           type: boolean
         update_allowed:
@@ -2173,7 +2169,7 @@ components:
       required:
         - verified
         - update_allowed
-    UserMePasswordPostRequest:
+    ChangeMyPasswordRequest:
       type: object
       properties:
         old_password:
@@ -2213,10 +2209,9 @@ components:
       properties:
         active:
           type: boolean
-          description:
-            true if the identity provider can be used to perform a login.
+          description: true if the identity provider can be used to perform a login.
         id:
-          $ref: "#/components/schemas/IdentityProviderId"
+          $ref: '#/components/schemas/IdentityProviderId'
         name:
           type: string
       required:
@@ -2237,7 +2232,7 @@ components:
       type: string
       description: Unique identifier for the given user.
       format: uuid
-    RequiredAction:
+    AccountAction:
       type: string
       enum:
         - ACCEPT_TERMS_AND_CONDITIONS
@@ -2311,7 +2306,7 @@ components:
       in: query
       required: false
       schema:
-        $ref: "#/components/schemas/ExternalId"
+        $ref: '#/components/schemas/ExternalId'
   examples:
     TaskInformationExample:
       value:
@@ -2326,15 +2321,15 @@ components:
           html_body: >-
             Hey @2b2b2af0-9644-4c0e-a606-5c3aa6ec1004, can you please clean the
             aisles <b>until tomorrow</b>?
-        created_at: "2019-08-24T14:15:22Z"
-        updated_at: "2019-08-24T14:15:22Z"
+        created_at: '2019-08-24T14:15:22Z'
+        updated_at: '2019-08-24T14:15:22Z'
         is_deleted: false
         language: en-US
         settings:
           comments_enabled: true
         comments_count: 0
         due_at:
-          date: "2019-08-25"
+          date: '2019-08-25'
           discriminator: DATE
         attachments:
           - id: string
