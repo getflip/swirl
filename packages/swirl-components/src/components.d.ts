@@ -1016,10 +1016,6 @@ export namespace Components {
         "label": string;
         "value"?: string;
     }
-    /**
-     * slot - Modal contents
-     * custom-header - Optional custom header; should be used hidden label
-     */
     interface SwirlModal {
         /**
           * Close the modal.
@@ -2838,10 +2834,6 @@ declare global {
         prototype: HTMLSwirlMenuItemElement;
         new (): HTMLSwirlMenuItemElement;
     };
-    /**
-     * slot - Modal contents
-     * custom-header - Optional custom header; should be used hidden label
-     */
     interface HTMLSwirlModalElement extends Components.SwirlModal, HTMLStencilElement {
     }
     var HTMLSwirlModalElement: {
@@ -4542,10 +4534,6 @@ declare namespace LocalJSX {
         "label": string;
         "value"?: string;
     }
-    /**
-     * slot - Modal contents
-     * custom-header - Optional custom header; should be used hidden label
-     */
     interface SwirlModal {
         "closeButtonLabel"?: string;
         "hideCloseButton"?: boolean;
@@ -5588,10 +5576,6 @@ declare module "@stencil/core" {
             "swirl-list": LocalJSX.SwirlList & JSXBase.HTMLAttributes<HTMLSwirlListElement>;
             "swirl-menu": LocalJSX.SwirlMenu & JSXBase.HTMLAttributes<HTMLSwirlMenuElement>;
             "swirl-menu-item": LocalJSX.SwirlMenuItem & JSXBase.HTMLAttributes<HTMLSwirlMenuItemElement>;
-            /**
-             * slot - Modal contents
-             * custom-header - Optional custom header; should be used hidden label
-             */
             "swirl-modal": LocalJSX.SwirlModal & JSXBase.HTMLAttributes<HTMLSwirlModalElement>;
             "swirl-option-list": LocalJSX.SwirlOptionList & JSXBase.HTMLAttributes<HTMLSwirlOptionListElement>;
             "swirl-option-list-item": LocalJSX.SwirlOptionListItem & JSXBase.HTMLAttributes<HTMLSwirlOptionListItemElement>;

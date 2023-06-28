@@ -56,17 +56,9 @@ const Template = (args) => {
       sit amet.
     </swirl-text>
 
-    <swirl-form-control label="Test" label-position="outside"><swirl-select label="Select">
-    <swirl-option-list-section label="Section 1">
-      <swirl-option-list-item label="This is an option 1" value="1"></swirl-option-list-item>
-      <swirl-option-list-item label="This is an option 2" value="2"></swirl-option-list-item>
-      <swirl-option-list-item label="This is an option 3" value="3"></swirl-option-list-item>
-    </swirl-option-list-section>
-    <swirl-option-list-section label="Section 2">
-      <swirl-option-list-item label="This is an option 4" value="4"></swirl-option-list-item>
-    </swirl-option-list-section>
-  </swirl-select></swirl-form-control>
-
+    <swirl-box padding-block-start="0" padding-block-end="16" slot="header-tools">
+      <swirl-search label="Search"></swirl-search>
+    </div>
   `;
 
   container.append(trigger, element);
