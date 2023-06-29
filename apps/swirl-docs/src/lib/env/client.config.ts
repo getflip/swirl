@@ -25,4 +25,5 @@ export const env: z.infer<typeof envVariables> = {
     "NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY"
   ),
   ALGOLIA_SEARCH_ADMIN_KEY: getEnvironmentVariable("ALGOLIA_SEARCH_ADMIN_KEY"),
+  DEPLOYMENT_STAGE: getEnvironmentVariable("DEPLOYMENT_STAGE"),
 };

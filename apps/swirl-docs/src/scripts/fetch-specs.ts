@@ -103,11 +103,7 @@ function checkAndCreateSpecsDir() {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
     console.log("Directory 'specs' is created.");
-  } else {
-    console.log("Directory 'specs' already exists.");
   }
-
-  // Continue with the rest of your program...
 }
 
 async function fetchTreeList(path: string) {
