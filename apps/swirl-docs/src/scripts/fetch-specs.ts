@@ -86,7 +86,11 @@ async function fetchSpecData(spec: RepositoryTreeItem) {
 
     const json = await response.json();
     const specData = Buffer.from(json.content, "base64").toString("utf8");
-    const specPath = `./specs/${spec.name.replace(".yaml", ".yml")}`;
+    // const specPath = `./specs/${spec.name.replace(".yaml", ".yml")}`;
+    const specPath = `./apps/swirl-docs/specs/${spec.name.replace(
+      ".yaml",
+      ".yml"
+    )}`;
 
     fs.writeFileSync(specPath, specData, "utf8");
     return spec.name;
