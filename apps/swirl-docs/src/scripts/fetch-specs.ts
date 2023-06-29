@@ -86,23 +86,28 @@ async function fetchSpecData(spec: RepositoryTreeItem) {
 
     const json = await response.json();
     const specData = Buffer.from(json.content, "base64").toString("utf8");
-    // const specPath = `./specs/${spec.name.replace(".yaml", ".yml")}`;
+    const specPath = `./specs/${spec.name.replace(".yaml", ".yml")}`;
 
-    const files = fs.readdirSync(".");
-    files.forEach((file) => {
-      console.log(file);
-    });
-
-    const specPath = `apps/swirl-docs/specs/${spec.name.replace(
-      ".yaml",
-      ".yml"
-    )}`;
+    checkAndCreateSpecsDir();
 
     fs.writeFileSync(specPath, specData, "utf8");
     return spec.name;
   } catch (error) {
     console.error("Error:", error);
   }
+}
+
+function checkAndCreateSpecsDir() {
+  const dirPath = path.join(__dirname, "specs");
+
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+    console.log("Directory 'specs' is created.");
+  } else {
+    console.log("Directory 'specs' already exists.");
+  }
+
+  // Continue with the rest of your program...
 }
 
 async function fetchTreeList(path: string) {
