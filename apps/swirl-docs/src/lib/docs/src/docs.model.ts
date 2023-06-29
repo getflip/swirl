@@ -8,11 +8,7 @@ export enum DOCUMENTATION_SRC {
   DOCUMENTATION = "documentation",
 }
 
-export type DocumentationCategory =
-  | "components"
-  | "tokens"
-  | "icons"
-  | "apiDocs";
+export type DocumentationCategory = "components" | "tokens" | "icons" | "api";
 export type DocumentationParamKey =
   | "componentDoc"
   | "tokenDoc"
@@ -27,7 +23,7 @@ export enum DOCUMENTATION_CATEGORY {
   COMPONENTS = "components",
   TOKENS = "tokens",
   ICONS = "icons",
-  API_DOCS = "api",
+  API_DOCS = "apiDocs",
 }
 
 export enum DOCUMENT_TYPE {

@@ -18,7 +18,7 @@ export const StaticPathMap: StaticPathMapType = {
   components: "componentDoc",
   icons: "iconDoc",
   tokens: "tokenDoc",
-  apiDocs: "apiDoc",
+  api: "apiDoc",
 } as const;
 
 export function createStaticPathsForSpecs(): GetStaticPathsResult["paths"] {
