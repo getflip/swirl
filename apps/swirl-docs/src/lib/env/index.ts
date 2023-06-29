@@ -13,4 +13,5 @@ export const envVariables = z.object({
   ALGOLIA_SEARCH_ADMIN_KEY: z.string(),
   GITLAB_ACCESS_TOKEN: z.string(),
   GITLAB_FLIP_REPO_ID: z.string(),
+  DEPLOYMENT_STAGE: z.string(),
 });

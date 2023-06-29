@@ -93,7 +93,6 @@ export default class OASBuilder implements IOASBuilder {
             .getSummary()
             .toLowerCase()
             .replaceAll(" ", "-")}`.replaceAll(".", ""),
-          // path: "hello",
           operation: oasOperation,
         });
       });

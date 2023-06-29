@@ -26,8 +26,6 @@ async function generateApiSpecNavItems(specName: string): Promise<NavItem> {
     .setOperations()
     .setTags();
 
-  console.log("TAGS", oasBuilder.tags);
-
   const operationNavItems: NavItem[] =
     oasBuilder.operationsList?.map((endpoint) => ({
       title: endpoint.title,
