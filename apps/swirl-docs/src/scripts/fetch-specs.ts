@@ -98,7 +98,7 @@ async function fetchSpecData(spec: RepositoryTreeItem) {
 }
 
 function checkAndCreateSpecsDir() {
-  const dirPath = path.join(__dirname, "specs");
+  const dirPath = path.join(".", "specs");
 
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
