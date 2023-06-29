@@ -71,7 +71,6 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
       let examples: ApiEndpoint["responseExamples"] = [];
 
       const request = oasBuilder?.generateRequest(endpoint.operation);
-      console.log(endpoint.operation);
       const responseExamples = endpoint.operation.getResponseExamples();
       // const responseExamples: ResponseExamples = [];
 
