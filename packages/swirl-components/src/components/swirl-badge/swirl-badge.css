@@ -86,6 +86,11 @@
   background-color: var(--s-decorative-kiwi-surface);
 }
 
+.badge--intent-neutral {
+  color: var(--s-text-default);
+  background-color: var(--s-surface-neutral-subdued);
+}
+
 .badge--intent-pumpkin {
   color: var(--s-text-dark);
   background-color: var(--s-decorative-pumpkin-surface);

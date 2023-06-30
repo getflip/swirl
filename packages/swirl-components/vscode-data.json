@@ -445,6 +445,9 @@
               "name": "kiwi"
             },
             {
+              "name": "neutral"
+            },
+            {
               "name": "pumpkin"
             },
             {
@@ -1289,6 +1292,18 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "label-weight",
+          "description": "",
+          "values": [
+            {
+              "name": "medium"
+            },
+            {
+              "name": "regular"
+            }
+          ]
         },
         {
           "name": "swirl-aria-describedby",
@@ -3647,6 +3662,48 @@
       ]
     },
     {
+      "name": "swirl-image-grid",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "aspect-ratio",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-image-grid-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "alt",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "interactive",
+          "description": ""
+        },
+        {
+          "name": "overlay",
+          "description": ""
+        },
+        {
+          "name": "src",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-inline-error",
       "description": {
         "kind": "markdown",
@@ -3951,7 +4008,7 @@
       "name": "swirl-modal",
       "description": {
         "kind": "markdown",
-        "value": "slot - Modal contents\ncustom-header - Optional custom header; should be used hidden label"
+        "value": ""
       },
       "attributes": [
         {
@@ -4588,6 +4645,10 @@
           "description": ""
         },
         {
+          "name": "interactive",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
@@ -4685,6 +4746,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "allow-deselect",
+          "description": ""
+        },
         {
           "name": "disabled",
           "description": ""

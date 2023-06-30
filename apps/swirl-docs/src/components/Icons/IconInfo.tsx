@@ -13,9 +13,9 @@ export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => {
       <h2 className="font-semibold text-font-size-xl mb-2 text-text-default">
         {icon?.name}
       </h2>
-      <p className="text-font-size-sm font-normal mb-6 text-text-default">
+      {/* <p className="text-font-size-sm font-normal mb-6 text-text-default">
         {icon?.description}
-      </p>
+      </p> */}
       <IconDownload icon={icon} />
       <hr className="border-b-1 my-6" />
       <h2 className="font-semibold text-base mb-2">

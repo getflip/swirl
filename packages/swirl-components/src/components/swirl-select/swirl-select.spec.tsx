@@ -30,12 +30,13 @@ describe("swirl-select", () => {
     expect(page.root).toEqualHtml(`
       <swirl-select invalid="true" label="Select" required="true">
         <div class="select select--placement-undefined">
-          <input aria-invalid="true" class="select__label" id="trigger-${page.root.selectId}" readonly="" type="text" value="">
+          <input aria-invalid="true" class="select__input" id="trigger-${page.root.selectId}" readonly="" type="text" value="">
+          <span class="select__multi-select-values"></span>
           <span class="select__indicator">
             <swirl-icon-expand-more></swirl-icon-expand-more>
           </span>
           <swirl-popover animation="scale-in-y" class="select__popover" label="Select" popoverid="select-options-${page.root.selectId}" trigger="trigger-${page.root.selectId}" usecontainerwidth="swirl-form-control">
-            <swirl-option-list>
+            <swirl-option-list allowdeselect="">
               <swirl-option-list-item label="This is an option 1" value="1"></swirl-option-list-item>
               <swirl-option-list-item label="This is an option 2" value="2"></swirl-option-list-item>
             </swirl-option-list>
@@ -64,6 +65,17 @@ describe("swirl-select", () => {
     expect(
       page.root.querySelector("swirl-option-list").multiSelect
     ).toBeTruthy();
+
+    expect(
+      page.root.querySelector(".select__multi-select-values").children.length
+    ).toBe(0);
+
+    page.root.value = ["1"];
+    await page.waitForChanges();
+
+    expect(
+      page.root.querySelector(".select__multi-select-values").children.length
+    ).toBe(1);
   });
 
   it("can be disabled", async () => {

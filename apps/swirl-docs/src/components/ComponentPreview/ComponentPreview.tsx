@@ -3,8 +3,8 @@ import {
   Prop,
   SwirlComponentCodePreview,
 } from "@swirl/lib/components/src/components.model";
-import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
-import { FunctionComponent, useCallback, useEffect, useState } from "react";
+import { ComponentExample } from "@swirl/lib/docs/src/docs.model";
+import { useCallback, useEffect, useState } from "react";
 import { PropsTable } from "./PropsTable";
 import { VariantPreview } from "./VariantPreview";
 import prettier from "prettier/standalone";
@@ -12,6 +12,8 @@ import prettierHTML from "prettier/parser-html";
 import { CodePreview } from "../CodePreview";
 import { CodeExample } from "../CodePreview/types";
 import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
+import { NpmPackageLink } from "../CodePreview/NpmPackageLink";
+import { CodeSandboxButton } from "../CodePreview/CodeSandboxButton";
 
 export function ComponentPreview() {
   const { frontMatter } = useDocumentationLayoutContext();
@@ -47,7 +49,7 @@ export function ComponentPreview() {
       }
 
       return {
-        isLongCode: el.outerHTML.length > 180,
+        isLongCode: el.outerHTML.split("\n").length > 7,
         code: prettier.format(el.outerHTML, {
           parser: "html",
           plugins: [prettierHTML],
@@ -79,6 +81,8 @@ export function ComponentPreview() {
       // TO DO: add support for multiple examples in mdx file structure
       setCodeExample(generateCodePreview());
     }
+
+    const codeExample = generateCodePreview();
   }, [componentData, generateCodePreview, currentExample]);
 
   return (
@@ -90,10 +94,19 @@ export function ComponentPreview() {
         setIsLoading={setIsLoading}
         handleExampleChange={(example) => setCurrentExample(example)}
       />
-      <CodePreview codeExample={codeExample}>
-        <CodePreview.NpmPackageLink />
-        <CodePreview.CodeSandboxButton />
-      </CodePreview>
+      <CodePreview
+        hasCopyButton
+        codeExample={{
+          code: codeExample.code,
+          isLongCode: codeExample.code.split("\n").length > 7,
+        }}
+        MainHeaderContent={
+          <div className="flex">
+            <CodePreview.NpmPackageLink />
+            <CodePreview.CodeSandboxButton />
+          </div>
+        }
+      />
       {hasComponentProps && (
         <PropsTable componentPropsData={componentData.props}></PropsTable>
       )}

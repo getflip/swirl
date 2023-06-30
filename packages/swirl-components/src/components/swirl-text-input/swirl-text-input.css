@@ -17,6 +17,7 @@
   color: var(--s-text-default);
   font: inherit;
   line-height: var(--s-line-height-sm);
+  cursor: text;
 }
 
 .text-input--auto-grow {

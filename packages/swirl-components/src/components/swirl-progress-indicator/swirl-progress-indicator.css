@@ -26,14 +26,14 @@
 
   &::-webkit-progress-value {
     border-radius: 0.125rem;
-    background-color: var(--s-surface-highlight-default);
+    background-color: var(--s-border-highlight);
     transition: width 0.25s;
   }
 
   &::-moz-progress-bar {
     height: 0.25rem;
     border-radius: 0.125rem;
-    background-color: var(--s-surface-highlight-default);
+    background-color: var(--s-border-highlight);
     transition: width 0.25s;
 
     @media (prefers-reduced-motion) {

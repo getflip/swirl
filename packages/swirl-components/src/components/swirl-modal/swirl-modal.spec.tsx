@@ -14,10 +14,13 @@ describe("swirl-modal", () => {
         <section aria-hidden="true" aria-label="Dialog" aria-modal="true" class="modal modal--padded modal--variant-default" role="dialog">
           <div class="modal__backdrop"></div>
           <div class="modal__body">
-            <swirl-button class="modal__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close modal"></swirl-button>
             <header class="modal__custom-header"></header>
             <header class="modal__header">
-              <swirl-heading as="h2" class="modal__heading" level="3" text="Dialog"></swirl-heading>
+              <div class="modal__header-bar">
+                <swirl-button class="modal__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close modal"></swirl-button>
+                <swirl-heading as="h2" class="modal__heading" level="3" text="Dialog"></swirl-heading>
+              </div>
+              <div class="modal__header-tools"></div>
             </header>
             <div class="modal__content">
               Content

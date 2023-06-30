@@ -18,8 +18,10 @@ import classnames from "classnames";
 export type SwirlModalVariant = "default" | "drawer";
 
 /**
- * slot - Modal contents
- * custom-header - Optional custom header; should be used hidden label
+ * @slot slot - Modal contents
+ * @slot header-tools - Used to display elements inside the sticky header, below the label
+ * @slot custom-header - Optional custom header; should be used hidden label
+ * @slot custom-footer - Optional custom footer; replaces the default footer with primary and secondary actions
  */
 @Component({
   shadow: false,
@@ -48,6 +50,7 @@ export class SwirlModal {
   @State() closing = false;
   @State() hasCustomHeader: boolean;
   @State() hasCustomFooter: boolean;
+  @State() hasHeaderTools: boolean;
   @State() scrollable = false;
   @State() scrolled = false;
   @State() scrolledDown = false;
@@ -71,6 +74,7 @@ export class SwirlModal {
     queueMicrotask(() => {
       this.updateCustomFooterStatus();
       this.updateCustomHeaderStatus();
+      this.updateHeaderToolsStatus();
     });
   }
 
@@ -160,6 +164,12 @@ export class SwirlModal {
     );
   }
 
+  private updateHeaderToolsStatus() {
+    this.hasHeaderTools = Boolean(
+      this.el.querySelector('[slot="header-tools"]')
+    );
+  }
+
   private determineScrollStatus = () => {
     const scrolled = this.scrollContainer?.scrollTop > 0;
 
@@ -200,6 +210,7 @@ export class SwirlModal {
       "modal--closing": this.closing,
       "modal--has-custom-footer": this.hasCustomFooter,
       "modal--has-custom-header": this.hasCustomHeader,
+      "modal--has-header-tools": this.hasHeaderTools,
       "modal--hide-label": this.hideLabel,
       "modal--padded": this.padded,
       "modal--scrollable": this.scrollable,
@@ -220,30 +231,37 @@ export class SwirlModal {
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
           <div class="modal__body" style={{ maxWidth: this.maxWidth }}>
-            {!this.hideCloseButton && (
-              <swirl-button
-                class="modal__close-button"
-                hideLabel
-                icon={
-                  this.variant === "default"
-                    ? "<swirl-icon-close></swirl-icon-close>"
-                    : "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
-                }
-                label={this.closeButtonLabel}
-                onClick={this.onCloseButtonClick}
-              ></swirl-button>
-            )}
             <header class="modal__custom-header">
               <slot name="custom-header"></slot>
             </header>
-            {!this.hideLabel && (
+            {(!this.hideLabel || !this.hideCloseButton) && (
               <header class="modal__header">
-                <swirl-heading
-                  as="h2"
-                  class="modal__heading"
-                  level={3}
-                  text={this.label}
-                ></swirl-heading>
+                <div class="modal__header-bar">
+                  {!this.hideCloseButton && (
+                    <swirl-button
+                      class="modal__close-button"
+                      hideLabel
+                      icon={
+                        this.variant === "default"
+                          ? "<swirl-icon-close></swirl-icon-close>"
+                          : "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
+                      }
+                      label={this.closeButtonLabel}
+                      onClick={this.onCloseButtonClick}
+                    ></swirl-button>
+                  )}
+                  {!this.hideLabel && (
+                    <swirl-heading
+                      as="h2"
+                      class="modal__heading"
+                      level={3}
+                      text={this.label}
+                    ></swirl-heading>
+                  )}
+                </div>
+                <div class="modal__header-tools">
+                  <slot name="header-tools"></slot>
+                </div>
               </header>
             )}
             <div

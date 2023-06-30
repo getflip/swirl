@@ -1,5 +1,251 @@
 # @getflip/swirl-components-react
 
+## 0.75.0
+
+### Minor Changes
+
+- [`63d76c9`](https://github.com/getflip/swirl/commit/63d76c9febe96e616727b16bbfb84a3a8ef3bf3c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icon prop to
+  swirl-image-grid-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`63d76c9`](https://github.com/getflip/swirl/commit/63d76c9febe96e616727b16bbfb84a3a8ef3bf3c)]:
+  - @getflip/swirl-components@0.76.0
+
+## 0.74.0
+
+### Minor Changes
+
+- [`9d8fba3`](https://github.com/getflip/swirl/commit/9d8fba3008f017a3d4cfc7fc4e49ff50e3c0bf53)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add neutral badge color
+
+* [`2d21f72`](https://github.com/getflip/swirl/commit/2d21f723b1654a2ab27279d81de36f7b2ca83db8)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "header-tools" slot to
+  SwirlModal
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9d8fba3`](https://github.com/getflip/swirl/commit/9d8fba3008f017a3d4cfc7fc4e49ff50e3c0bf53),
+  [`2d21f72`](https://github.com/getflip/swirl/commit/2d21f723b1654a2ab27279d81de36f7b2ca83db8)]:
+  - @getflip/swirl-components@0.75.0
+
+## 0.73.2
+
+### Patch Changes
+
+- [`6d6db79`](https://github.com/getflip/swirl/commit/6d6db79d92640146c1f2960b5abf54b79b5400d1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-avatar image stretch
+
+- Updated dependencies
+  [[`6d6db79`](https://github.com/getflip/swirl/commit/6d6db79d92640146c1f2960b5abf54b79b5400d1)]:
+  - @getflip/swirl-components@0.74.2
+
+## 0.73.1
+
+### Patch Changes
+
+- [`704fe68`](https://github.com/getflip/swirl/commit/704fe68a921d894db7c70f4dac408c9a5a7234d9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-text-input text cursor
+
+- Updated dependencies
+  [[`704fe68`](https://github.com/getflip/swirl/commit/704fe68a921d894db7c70f4dac408c9a5a7234d9)]:
+  - @getflip/swirl-components@0.74.1
+
+## 0.73.0
+
+### Minor Changes
+
+- [`a403436`](https://github.com/getflip/swirl/commit/a4034367b80019d1e22c7bcf99d714f26c993802)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "allow-deselect" prop to
+  swirl-select
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a403436`](https://github.com/getflip/swirl/commit/a4034367b80019d1e22c7bcf99d714f26c993802)]:
+  - @getflip/swirl-components@0.74.0
+
+## 0.72.0
+
+### Minor Changes
+
+- [`4c68c75`](https://github.com/getflip/swirl/commit/4c68c758360b0b1f2b5eeff47824333535bfdf76)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "label-weight" prop to
+  SwirlCheckbox
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4c68c75`](https://github.com/getflip/swirl/commit/4c68c758360b0b1f2b5eeff47824333535bfdf76)]:
+  - @getflip/swirl-components@0.73.0
+
+## 0.71.0
+
+### Minor Changes
+
+- [`2d851fc`](https://github.com/getflip/swirl/commit/2d851fc8f293042a1bae105662aa1b0bd9569af9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-image-grid component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`2d851fc`](https://github.com/getflip/swirl/commit/2d851fc8f293042a1bae105662aa1b0bd9569af9)]:
+  - @getflip/swirl-components@0.72.0
+
+## 0.70.4
+
+### Patch Changes
+
+- [`d13ae5e`](https://github.com/getflip/swirl/commit/d13ae5ec50f7a06a680c20d09696560f56de271f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-resource-list-item
+  checkbox color
+
+- Updated dependencies
+  [[`d13ae5e`](https://github.com/getflip/swirl/commit/d13ae5ec50f7a06a680c20d09696560f56de271f)]:
+  - @getflip/swirl-components@0.71.4
+
+## 0.70.3
+
+### Patch Changes
+
+- [`ea4fa03`](https://github.com/getflip/swirl/commit/ea4fa03afc76eb39be1bd31f02e57c04a239cb4e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a swirl-select issue
+
+* [`784edbb`](https://github.com/getflip/swirl/commit/784edbba7e606811821ee2f5682eb4b21e41cea6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-table empty row
+  styling
+
+* Updated dependencies
+  [[`ea4fa03`](https://github.com/getflip/swirl/commit/ea4fa03afc76eb39be1bd31f02e57c04a239cb4e),
+  [`784edbb`](https://github.com/getflip/swirl/commit/784edbba7e606811821ee2f5682eb4b21e41cea6)]:
+  - @getflip/swirl-components@0.71.3
+
+## 0.70.2
+
+### Patch Changes
+
+- [`3a0203e`](https://github.com/getflip/swirl/commit/3a0203e83676a6655ceaf3d1cf8529ab03129d37)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-date-picker range input
+  colors
+
+- Updated dependencies
+  [[`3a0203e`](https://github.com/getflip/swirl/commit/3a0203e83676a6655ceaf3d1cf8529ab03129d37)]:
+  - @getflip/swirl-components@0.71.2
+
+## 0.70.1
+
+### Patch Changes
+
+- [`994b5b3`](https://github.com/getflip/swirl/commit/994b5b3c930a1e4ffd962417fa425e4071315b21)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix active
+  swirl-tree-navigation-item border color
+
+* [`c683026`](https://github.com/getflip/swirl/commit/c683026792ae7cc3f5b04155b5f67749b26aa2c2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-select menu positioning
+
+- [`437b224`](https://github.com/getflip/swirl/commit/437b224d37b627b8b4b1af4cf6afebf8710a0c6a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix disabled
+  swirl-resource-list-item background color
+
+- Updated dependencies
+  [[`994b5b3`](https://github.com/getflip/swirl/commit/994b5b3c930a1e4ffd962417fa425e4071315b21),
+  [`c683026`](https://github.com/getflip/swirl/commit/c683026792ae7cc3f5b04155b5f67749b26aa2c2),
+  [`437b224`](https://github.com/getflip/swirl/commit/437b224d37b627b8b4b1af4cf6afebf8710a0c6a)]:
+  - @getflip/swirl-components@0.71.1
+
+## 0.70.0
+
+### Minor Changes
+
+- [`814bae6`](https://github.com/getflip/swirl/commit/814bae6f726fae7f34bbab1271bfffa36fbe6c1a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "interactive" prop to
+  swirl-resource-list-item
+
+### Patch Changes
+
+- [`3963f56`](https://github.com/getflip/swirl/commit/3963f56ca5ffc15dece989612f973bb3cfb82496)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-progress-indicator
+  color
+
+* [`a0761d9`](https://github.com/getflip/swirl/commit/a0761d9864a523318888aec1f1e5fb8f02f62d7e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix disabled
+  swirl-resource-list-item checkbox color
+
+- [`98941a0`](https://github.com/getflip/swirl/commit/98941a0aab8244c203020ff1f84d9544770f242c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix text and icon color of
+  swirl-button with variant outline
+
+* [`3415232`](https://github.com/getflip/swirl/commit/3415232a9a699f054633d93dbac6c591796f2c54)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-date-picker selected
+  date color
+
+* Updated dependencies
+  [[`3963f56`](https://github.com/getflip/swirl/commit/3963f56ca5ffc15dece989612f973bb3cfb82496),
+  [`a0761d9`](https://github.com/getflip/swirl/commit/a0761d9864a523318888aec1f1e5fb8f02f62d7e),
+  [`98941a0`](https://github.com/getflip/swirl/commit/98941a0aab8244c203020ff1f84d9544770f242c),
+  [`3415232`](https://github.com/getflip/swirl/commit/3415232a9a699f054633d93dbac6c591796f2c54),
+  [`814bae6`](https://github.com/getflip/swirl/commit/814bae6f726fae7f34bbab1271bfffa36fbe6c1a)]:
+  - @getflip/swirl-components@0.71.0
+
+## 0.69.1
+
+### Patch Changes
+
+- [`25be7d3`](https://github.com/getflip/swirl/commit/25be7d310c813ea1393578a6db072091629eeb61)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-select tag spacing
+
+- Updated dependencies
+  [[`25be7d3`](https://github.com/getflip/swirl/commit/25be7d310c813ea1393578a6db072091629eeb61)]:
+  - @getflip/swirl-components@0.70.1
+
+## 0.69.0
+
+### Minor Changes
+
+- [`f1f501c`](https://github.com/getflip/swirl/commit/f1f501c858caa801880c03b76178315e333db850)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Display multi select values as
+  tags
+
+### Patch Changes
+
+- Updated dependencies
+  [[`f1f501c`](https://github.com/getflip/swirl/commit/f1f501c858caa801880c03b76178315e333db850)]:
+  - @getflip/swirl-components@0.70.0
+
+## 0.68.4
+
+### Patch Changes
+
+- [`f86447c`](https://github.com/getflip/swirl/commit/f86447ccec81ae28788173919908307d7127804e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "trigger-container" prop to
+  swirl-popover
+
+- Updated dependencies
+  [[`f86447c`](https://github.com/getflip/swirl/commit/f86447ccec81ae28788173919908307d7127804e)]:
+  - @getflip/swirl-components@0.69.4
+
+## 0.68.3
+
+### Patch Changes
+
+- [`2277e9f`](https://github.com/getflip/swirl/commit/2277e9f9c2311f464e5f41c2734416c97675b19a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve swirl-modal close button
+  positioning
+
+- Updated dependencies
+  [[`2277e9f`](https://github.com/getflip/swirl/commit/2277e9f9c2311f464e5f41c2734416c97675b19a)]:
+  - @getflip/swirl-components@0.69.3
+
+## 0.68.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @getflip/swirl-components@0.69.2
+
 ## 0.68.1
 
 ### Patch Changes

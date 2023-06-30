@@ -208,17 +208,17 @@
 }
 
 .date-picker__date--selected {
-  color: var(--s-text-on-surface-highlight);
+  color: var(--s-text-on-action-primary);
 
   &:before {
-    background-color: var(--s-surface-highlight-default);
+    background-color: var(--s-action-primary-default);
   }
 
   &:hover {
-    color: var(--s-text-on-surface-highlight);
+    color: var(--s-text-on-action-primary);
 
     &:before {
-      background-color: var(--s-surface-highlight-default);
+      background-color: var(--s-action-primary-hovered);
     }
   }
 
@@ -231,7 +231,7 @@
   &:after {
     position: absolute;
     border-radius: 0px;
-    background-color: var(--s-surface-highlight-default);
+    background-color: var(--s-action-primary-default);
     content: "";
     opacity: 0.2;
     inset: 0.0625rem 0px;
@@ -240,17 +240,17 @@
 
 .date-picker__date--start {
   &:not(.date-picker__date--end) {
-    color: var(--s-text-on-surface-highlight);
+    color: var(--s-text-on-action-primary);
 
     &:before {
-      background-color: var(--s-surface-highlight-default);
+      background-color: var(--s-action-primary-default);
     }
 
     &:after {
       position: absolute;
       z-index: -1;
       border-radius: 0;
-      background-color: var(--s-surface-highlight-default);
+      background-color: var(--s-action-primary-default);
       content: "";
       opacity: 0.2;
       inset: 0.0625rem 0 0.0625rem 50%;
@@ -260,17 +260,17 @@
 
 .date-picker__date--end {
   &:not(.date-picker__date--start) {
-    color: var(--s-text-on-surface-highlight);
+    color: var(--s-text-on-action-primary);
 
     &:before {
-      background-color: var(--s-surface-highlight-default);
+      background-color: var(--s-action-primary-default);
     }
 
     &:after {
       position: absolute;
       z-index: -1;
       border-radius: 0;
-      background-color: var(--s-surface-highlight-default);
+      background-color: var(--s-action-primary-default);
       content: "";
       opacity: 0.2;
       inset: 0.0625rem 50% 0.0625rem 0;

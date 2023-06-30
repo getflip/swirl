@@ -35,7 +35,7 @@ type EndpointWithDetails = Endpoint & {
     requiredProperties: SchemaObject["required"];
   }>;
   request: {
-    code: string;
+    snippets: Record<SupportedTargets, string>;
     request: Request;
   };
   response: string;
@@ -195,15 +195,50 @@ export default class OASBuilder implements IOASBuilder {
     operation: Operation,
     language?: SupportedTargets
   ): {
-    code: string;
-    request: Request;
+    snippets: EndpointWithDetails["request"]["snippets"];
+    request: EndpointWithDetails["request"]["request"];
   } {
     const har = oasToHar(this.oas, operation);
     const harRequest = har.log.entries[0].request;
-    const { code } = oasToSnippet(this.oas, operation, {}, {}, "shell");
 
     return {
-      code: code as string,
+      snippets: {
+        ocaml: String(oasToSnippet(this.oas, operation, {}, {}, "ocaml").code),
+        c: String(oasToSnippet(this.oas, operation, {}, {}, "c").code),
+        csharp: String(
+          oasToSnippet(this.oas, operation, {}, {}, "csharp").code
+        ),
+        go: String(oasToSnippet(this.oas, operation, {}, {}, "go").code),
+        java: String(oasToSnippet(this.oas, operation, {}, {}, "java").code),
+        javascript: String(
+          oasToSnippet(this.oas, operation, {}, {}, "javascript").code
+        ),
+        kotlin: String(
+          oasToSnippet(this.oas, operation, {}, {}, "kotlin").code
+        ),
+        node: String(oasToSnippet(this.oas, operation, {}, {}, "node").code),
+        php: String(oasToSnippet(this.oas, operation, {}, {}, "php").code),
+        python: String(
+          oasToSnippet(this.oas, operation, {}, {}, "python").code
+        ),
+        ruby: String(oasToSnippet(this.oas, operation, {}, {}, "ruby").code),
+        shell: String(oasToSnippet(this.oas, operation, {}, {}, "shell").code),
+        swift: String(oasToSnippet(this.oas, operation, {}, {}, "swift").code),
+        http: String(oasToSnippet(this.oas, operation, {}, {}, "http").code),
+        clojure: String(
+          oasToSnippet(this.oas, operation, {}, {}, "clojure").code
+        ),
+        cplusplus: String(
+          oasToSnippet(this.oas, operation, {}, {}, "cplusplus").code
+        ),
+        objectivec: String(
+          oasToSnippet(this.oas, operation, {}, {}, "objectivec").code
+        ),
+        powershell: String(
+          oasToSnippet(this.oas, operation, {}, {}, "powershell").code
+        ),
+        r: String(oasToSnippet(this.oas, operation, {}, {}, "r").code),
+      },
       request: {
         ...harRequest,
         url: operation.path,

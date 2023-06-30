@@ -13,9 +13,38 @@
 .resource-list-item {
   position: relative;
   width: 100%;
+}
 
+.resource-list-item--interactive {
   &:hover {
     --swirl-ghost-button-background-default: var(--s-background-hovered);
+  }
+
+  & .resource-list-item__content {
+    cursor: pointer;
+
+    &:disabled {
+      cursor: default;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: var(--swirl-resource-list-item-background-hovered);
+
+      & .resource-list-item__media {
+        --swirl-avatar-background-color: var(--s-surface-raised-hovered);
+        --swirl-avatar-group-border-color: var(--s-background-hovered);
+        --swirl-badge-border-color: var(--s-background-hovered);
+      }
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--swirl-resource-list-item-background-pressed);
+
+      & .resource-list-item__media {
+        --swirl-avatar-group-border-color: var(--s-background-pressed);
+        --swirl-badge-border-color: var(--s-background-pressed);
+      }
+    }
   }
 }
 
@@ -81,6 +110,24 @@
   }
 }
 
+.resource-list-item--disabled {
+  &.resource-list-item--checked {
+    & .resource-list-item__checkbox {
+      border-color: var(--s-icon-disabled);
+      background-color: var(--s-icon-disabled);
+    }
+  }
+
+  & .resource-list-item__checkbox {
+    border-color: var(--s-icon-disabled);
+    background-color: transparent;
+  }
+
+  & .resource-list-item__checkbox-icon {
+    color: var(--s-text-on-status);
+  }
+}
+
 .resource-list-item__content {
   --swirl-avatar-group-border-color: var(--s-background-default);
   --swirl-badge-border-color: var(--s-background-default);
@@ -100,27 +147,7 @@
   line-height: var(--s-line-height-base);
   text-align: left;
   text-decoration: none;
-  cursor: pointer;
   gap: var(--s-space-12);
-
-  &:hover:not(:disabled) {
-    background-color: var(--swirl-resource-list-item-background-hovered);
-
-    & .resource-list-item__media {
-      --swirl-avatar-background-color: var(--s-surface-raised-hovered);
-      --swirl-avatar-group-border-color: var(--s-background-hovered);
-      --swirl-badge-border-color: var(--s-background-hovered);
-    }
-  }
-
-  &:active:not(:disabled) {
-    background-color: var(--swirl-resource-list-item-background-pressed);
-
-    & .resource-list-item__media {
-      --swirl-avatar-group-border-color: var(--s-background-pressed);
-      --swirl-badge-border-color: var(--s-background-pressed);
-    }
-  }
 
   &:focus {
     outline: none;
@@ -137,7 +164,6 @@
 
   &:disabled {
     color: var(--s-text-disabled);
-    background-color: var(--s-background-default);
     cursor: default;
 
     & .resource-list-item__description {
