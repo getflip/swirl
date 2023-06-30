@@ -278,6 +278,18 @@
       "value": "32",
       "type": "spacing"
     },
+    "space-40": {
+      "value": "40",
+      "type": "spacing"
+    },
+    "space-48": {
+      "value": "48",
+      "type": "spacing"
+    },
+    "space-64": {
+      "value": "64",
+      "type": "spacing"
+    },
     "decoration-none": {
       "value": "None",
       "type": "textDecoration"
