@@ -70,14 +70,35 @@ button.image-grid-item {
   object-position: center;
 }
 
+.image-grid-item__icon {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: var(--s-icon-on-image);
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translate3d(-50%, -50%, 0);
+
+  & ::part(icon) {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
 .image-grid-item__overlay {
   position: absolute;
   z-index: 2;
-  inset: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
   color: var(--s-text-on-image);
+  background-color: rgba(0, 0, 0, 0.4);
   font-size: var(--s-font-size-2xl);
+  inset: 0;
 }

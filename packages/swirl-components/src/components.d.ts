@@ -910,6 +910,7 @@ export namespace Components {
     }
     interface SwirlImageGridItem {
         "alt": string;
+        "icon"?: string;
         "interactive"?: boolean;
         "overlay"?: string;
         "src": string;
@@ -4477,6 +4478,7 @@ declare namespace LocalJSX {
     }
     interface SwirlImageGridItem {
         "alt": string;
+        "icon"?: string;
         "interactive"?: boolean;
         "overlay"?: string;
         "src": string;

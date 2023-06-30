@@ -8,6 +8,7 @@ import classnames from "classnames";
 })
 export class SwirlImageGridItem {
   @Prop() alt!: string;
+  @Prop() icon?: string;
   @Prop() interactive?: boolean;
   @Prop() overlay?: string;
   @Prop() src!: string;
@@ -27,6 +28,9 @@ export class SwirlImageGridItem {
             style={{ backgroundImage: `url(${this.src})` }}
           ></div>
           <img alt={this.alt} class="image-grid-item__image" src={this.src} />
+          {this.icon && !Boolean(this.overlay) && (
+            <div class="image-grid-item__icon" innerHTML={this.icon}></div>
+          )}
           {this.overlay && (
             <div class="image-grid-item__overlay">{this.overlay}</div>
           )}
