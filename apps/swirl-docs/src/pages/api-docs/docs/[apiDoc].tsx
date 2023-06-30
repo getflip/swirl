@@ -1,7 +1,6 @@
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
-import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { createStaticPathsData } from "@swirl/lib/docs";
 import { ScriptProps } from "next/script";
