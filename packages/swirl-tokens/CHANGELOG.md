@@ -1,5 +1,13 @@
 # swirl-tokens
 
+## 2.4.0
+
+### Minor Changes
+
+- [#321](https://github.com/getflip/swirl/pull/321)
+  [`8304483`](https://github.com/getflip/swirl/commit/83044839e5c6e6c82fe88e59725c3035e07ff3ad)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update design tokens
+
 ## 2.3.0
 
 ### Minor Changes
