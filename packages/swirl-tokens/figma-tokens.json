@@ -278,6 +278,18 @@
       "value": "32",
       "type": "spacing"
     },
+    "space-40": {
+      "value": "40",
+      "type": "spacing"
+    },
+    "space-48": {
+      "value": "48",
+      "type": "spacing"
+    },
+    "space-64": {
+      "value": "64",
+      "type": "spacing"
+    },
     "decoration-none": {
       "value": "None",
       "type": "textDecoration"
@@ -516,6 +528,14 @@
           "value": "#d50636",
           "type": "color"
         },
+        "critical-hovered": {
+          "value": "#B32739",
+          "type": "color"
+        },
+        "critical-pressed": {
+          "value": "#9F2334",
+          "type": "color"
+        },
         "critical-subdued": {
           "value": "#fce7ed",
           "type": "color"
@@ -526,14 +546,6 @@
         },
         "success-subdued": {
           "value": "#dcf7dc",
-          "type": "color"
-        },
-        "info-default": {
-          "value": "#145af5",
-          "type": "color"
-        },
-        "info-subdued": {
-          "value": "#e6f1ff",
           "type": "color"
         },
         "warning-strong": {
@@ -547,23 +559,31 @@
         "warning-subdued": {
           "value": "#faf1c8",
           "type": "color"
-        }
-      },
-      "status-dark": {
+        },
         "info-default": {
-          "value": "#648EE9",
+          "value": "#145af5",
           "type": "color"
         },
         "info-subdued": {
-          "value": "#21293A",
+          "value": "#e6f1ff",
+          "type": "color"
+        }
+      },
+      "status-dark": {
+        "critical-default": {
+          "value": "#E46464",
           "type": "color"
         },
-        "success-default": {
-          "value": "#50A450",
+        "critical-hovered": {
+          "value": "#D27B79",
           "type": "color"
         },
-        "success-subdued": {
-          "value": "#1A2C1A",
+        "critical-pressed": {
+          "value": "#D79391",
+          "type": "color"
+        },
+        "critical-subdued": {
+          "value": "#382126",
           "type": "color"
         },
         "warning-default": {
@@ -574,12 +594,20 @@
           "value": "#2D2719",
           "type": "color"
         },
-        "critical-default": {
-          "value": "#E46464",
+        "success-default": {
+          "value": "#50A450",
           "type": "color"
         },
-        "critical-subdued": {
-          "value": "#382126",
+        "success-subdued": {
+          "value": "#1A2C1A",
+          "type": "color"
+        },
+        "info-default": {
+          "value": "#648EE9",
+          "type": "color"
+        },
+        "info-subdued": {
+          "value": "#21293A",
           "type": "color"
         }
       },
@@ -1161,6 +1189,28 @@
         "description": "Used if a component with “Action Primary/Default” has a disabled state."
       }
     },
+    "action-critical": {
+      "default": {
+        "value": "{core.status-light.critical-default}",
+        "type": "color",
+        "description": "Used for containers that are critical and negative action elements."
+      },
+      "hovered": {
+        "value": "{core.status-light.critical-hovered}",
+        "type": "color",
+        "description": "Used if a component with “Action Critical/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.status-light.critical-pressed}",
+        "type": "color",
+        "description": "Used if a component with “Action Critical/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.01}",
+        "type": "color",
+        "description": "Used if a component with “Action Primary/Default” has a disabled state."
+      }
+    },
     "action-neutral": {
       "default": {
         "value": "{core.gray.01}",
@@ -1203,6 +1253,28 @@
         "value": "#cccdd1",
         "type": "color",
         "description": "Used if a component with “Interactive Primary/Default” has a disabled state."
+      }
+    },
+    "interactive-critical": {
+      "default": {
+        "value": "{core.status-light.critical-default}",
+        "type": "color",
+        "description": "Used for icon and text that are critical or negative interactive elements."
+      },
+      "hovered": {
+        "value": "{core.status-light.critical-hovered}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Critical/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.status-light.critical-pressed}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Critical/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.04}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Critical/Default” has a disabled state."
       }
     },
     "interactive-neutral": {
@@ -1582,7 +1654,7 @@
         "description": "Used as a background for neutral surfaces."
       },
       "subdued": {
-        "value": "{core.gray.10}",
+        "value": "{core.gray.09}",
         "type": "color",
         "description": "Used for low prio neutral background."
       }
@@ -1796,6 +1868,28 @@
         "description": "Used if a component with “Action Primary/Default” has a disabled state."
       }
     },
+    "action-critical": {
+      "default": {
+        "value": "{core.status-dark.critical-default}",
+        "type": "color",
+        "description": "Used for icon and text that are critical or negative interactive elements."
+      },
+      "hovered": {
+        "value": "{core.status-dark.critical-hovered}",
+        "type": "color",
+        "description": "Used if a component with “Action Critical/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.status-dark.critical-pressed}",
+        "type": "color",
+        "description": "Used if a component with “Action Critical/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.10}",
+        "type": "color",
+        "description": "Used if a component with “Action Critical/Default” has a disabled state."
+      }
+    },
     "action-neutral": {
       "default": {
         "value": "{core.gray.10}",
@@ -1833,6 +1927,28 @@
         "value": "{core.customer-color-dark.3-pressed}",
         "type": "color",
         "description": "Used if a component with “Interactive Primary/Default” has a pressed state."
+      },
+      "disabled": {
+        "value": "{core.gray.07}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Primary/Default” has a disabled state."
+      }
+    },
+    "interactive-critical": {
+      "default": {
+        "value": "{core.status-dark.critical-default}",
+        "type": "color",
+        "description": "Used for icon and text that are critical or negative interactive elements."
+      },
+      "hovered": {
+        "value": "{core.status-dark.critical-hovered}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Critical/Default” has a hovered state."
+      },
+      "pressed": {
+        "value": "{core.status-dark.critical-pressed}",
+        "type": "color",
+        "description": "Used if a component with “Interactive Critical/Default” has a pressed state."
       },
       "disabled": {
         "value": "{core.gray.07}",
