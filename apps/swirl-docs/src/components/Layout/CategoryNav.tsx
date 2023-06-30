@@ -176,11 +176,13 @@ const WrappingAnchor = forwardRef<
           }
         )}
       >
-        <Tag
-          content={mapHttpMethodToTagContent(item.description!)}
-          scheme={mapHttpMethodToTagScheme(item.description as HttpMethods)}
-          httpTag
-        />
+        {item.description && (
+          <Tag
+            content={mapHttpMethodToTagContent(item.description!)}
+            scheme={mapHttpMethodToTagScheme(item.description as HttpMethods)}
+            httpTag
+          />
+        )}
         <span ref={textRef}>{item.title}</span>
       </a>
     </Link>

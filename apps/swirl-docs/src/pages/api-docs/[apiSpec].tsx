@@ -9,7 +9,7 @@ import {
 import Head from "next/head";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
+import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import OASNormalize from "oas-normalize";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { CodePreview } from "src/components/CodePreview";
@@ -32,7 +32,7 @@ import {
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
   let apiSpec: ApiDocumentation;
 
-  const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
+  const navItem = apiSpecsNavItems.find((item) => item.url.includes(spec));
   const specName = navItem?.specName;
   const specPath = `${API_SPEC_PATH}/${specName}`;
 
@@ -197,7 +197,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             description: document.shortDescription,
             examples: [],
           },
-          navigationLinks: apiDocsNavItems,
+          navigationLinks: apiSpecsNavItems,
         }}
         disableToc
         header={<DocumentationLayout.Header className="col-span-2" />}

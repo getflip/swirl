@@ -1,4 +1,4 @@
-import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
+import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
@@ -18,7 +18,7 @@ const ApiDocs = () => {
       </Head>
       <DocumentationLayout
         data={{
-          navigationLinks: apiDocsNavItems,
+          navigationLinks: apiSpecsNavItems,
         }}
         content={
           <div className="flex">

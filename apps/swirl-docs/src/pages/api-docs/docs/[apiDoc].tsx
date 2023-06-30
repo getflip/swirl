@@ -8,6 +8,7 @@ import { ScriptProps } from "next/script";
 import { GetStaticProps } from "next";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
@@ -78,7 +79,7 @@ export default function Component({
             document,
             components,
           },
-          navigationLinks: [],
+          navigationLinks: apiDocsNavItems,
           frontMatter,
         }}
         content={

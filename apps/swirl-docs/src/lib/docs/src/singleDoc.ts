@@ -19,6 +19,11 @@ export async function generateMdxFromDocumentation(
   // Derive the full path
   const fullPath = path.resolve(__dirname, document);
 
+  console.log(
+    "if abfrage",
+    fs.existsSync(fullPath) && !fs.lstatSync(fullPath).isDirectory()
+  );
+
   // Ensure that the document path is not a directory
   if (fs.existsSync(fullPath) && !fs.lstatSync(fullPath).isDirectory()) {
     const source = fs.readFileSync(

@@ -1,7 +1,19 @@
 import fs from "fs";
 import OASNormalize from "oas-normalize";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilderSetup";
-import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
+import { API_DOCS_PATH, API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
+import { createStaticPathsData } from "@swirl/lib/docs";
+import path from "path";
+
+function createApiSpecsDataString(data: string) {
+  return `
+import { NavItem } from "../navigation.model";
+
+export const apiSpecsNavItems: NavItem[] = [
+  ${data}
+];
+`;
+}
 
 function createApiDocsDataString(data: string) {
   return `
@@ -55,7 +67,29 @@ async function generateApiSpecNavigation(): Promise<void> {
   const dataString = navItems
     .map((navItem) => JSON.stringify(navItem))
     .join(",");
+  const apiSpecsData = createApiSpecsDataString(dataString);
+
+  fs.writeFileSync(
+    "./src/lib/navigation/src/data/apiSpecs.data.ts",
+    apiSpecsData,
+    "utf8"
+  );
+  console.log("Done! 🚀");
+}
+
+async function generateApiDocsSpecNavigation(): Promise<void> {
+  const files = fs.readdirSync(API_DOCS_PATH);
+
+  console.log(files);
+
+  const filesWithPaths = generateFileList(files);
+
+  const dataString = filesWithPaths
+    .map((navItem) => JSON.stringify(navItem))
+    .join(",");
   const apiDocsData = createApiDocsDataString(dataString);
+
+  console.log(apiDocsData);
 
   fs.writeFileSync(
     "./src/lib/navigation/src/data/apiDocs.data.ts",
@@ -65,4 +99,40 @@ async function generateApiSpecNavigation(): Promise<void> {
   console.log("Done! 🚀");
 }
 
-generateApiSpecNavigation();
+function generateFileList(paths: string[], rootPath?: string): NavItem[] {
+  const items = paths.map((pathItem) => {
+    const fullPath = rootPath ? `${rootPath}/${pathItem}` : pathItem;
+    const absolutePath = path.join(API_DOCS_PATH, fullPath);
+    console.log("FULL PATH", fullPath);
+
+    const isSubdirectory = fs.statSync(absolutePath).isDirectory();
+
+    if (isSubdirectory && !rootPath) {
+      const subdirectoryPaths = fs.readdirSync(absolutePath);
+      const children = generateFileList(subdirectoryPaths, fullPath);
+
+      // Here, consider the directory itself as a NavItem and the files in it as children.
+      return {
+        title: path.basename(fullPath),
+        url: `/api-docs/${fullPath}`,
+        isRoot: rootPath ? false : true,
+        children,
+      };
+    }
+
+    return generateDocNavItems(fullPath);
+  });
+
+  return items;
+}
+
+function generateDocNavItems(filePath: string): NavItem {
+  const cleanedFileName = filePath.replace(".mdx", "");
+  return {
+    title: cleanedFileName,
+    url: `/api-docs/docs/${cleanedFileName}`,
+  };
+}
+
+// generateApiSpecNavigation();
+generateApiDocsSpecNavigation();
