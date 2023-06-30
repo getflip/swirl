@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Mon, 26 Jun 2023 11:47:02 GMT
+// Generated on Fri, 30 Jun 2023 13:07:31 GMT
 
 
 
@@ -229,6 +229,9 @@ class SwirlDesignTokensLight {
     static const space24 = 24.00;
     static const space32 = 32.00;
     static const space4 = 4.00;
+    static const space40 = 40.00;
+    static const space48 = 48.00;
+    static const space64 = 64.00;
     static const space8 = 8.00;
     static const surfaceCriticalDefault = Color(0xFFD50636); /* Used as a background for critical surfaces. */
     static const surfaceCriticalSubdued = Color(0xFFFCE7ED); /* Used for low prio critical background. */

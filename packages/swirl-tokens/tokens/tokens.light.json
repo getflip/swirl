@@ -132,6 +132,18 @@
     "value": "2rem",
     "type": "spacing"
   },
+  "space-40": {
+    "value": "2.5rem",
+    "type": "spacing"
+  },
+  "space-48": {
+    "value": "3rem",
+    "type": "spacing"
+  },
+  "space-64": {
+    "value": "4rem",
+    "type": "spacing"
+  },
   "decoration-none": {
     "value": "none",
     "type": "textDecoration"
