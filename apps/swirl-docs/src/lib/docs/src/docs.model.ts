@@ -38,12 +38,13 @@ export type DocCategory = {
   path: string;
   htmlTag?: string;
   nextRoute?: string;
-  subpages?: DocCategory[];
+  subdirectories?: DocCategory[];
 };
 
 export type Document = {
   name: string;
   basePath: DOCUMENTATION_CATEGORY | string;
+  documentationSrc: DOCUMENTATION_SRC;
 };
 
 export type DocHeadline = {

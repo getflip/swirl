@@ -52,7 +52,6 @@ export const getStaticProps: GetStaticProps<
 export default function Component({
   document,
   frontMatter,
-  title,
 }: {
   title: string;
   document: MDXRemoteSerializeResult<

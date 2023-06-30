@@ -7,7 +7,7 @@ import { generateDocumentPath } from "@swirl/lib/navigation";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import sectionize from "remark-sectionize";
-import { ApiDocumentation, DocumentationCategory } from "./docs.model";
+import { DocumentationCategory } from "./docs.model";
 import path from "path";
 
 export async function generateMdxFromDocumentation(
@@ -15,21 +15,11 @@ export async function generateMdxFromDocumentation(
   document: string
 ): Promise<MDXRemoteSerializeResult> {
   console.log("generateMdxFromDocumentation", category, document);
-
-  // Derive the full path
-  const fullPath = path.resolve(__dirname, document);
-
-  console.log(
-    "if abfrage",
-    fs.existsSync(fullPath) && !fs.lstatSync(fullPath).isDirectory()
-  );
+  const fullPath = generateDocumentPath(category, document); // Derive the full path
 
   // Ensure that the document path is not a directory
   if (fs.existsSync(fullPath) && !fs.lstatSync(fullPath).isDirectory()) {
-    const source = fs.readFileSync(
-      generateDocumentPath(category, document),
-      "utf8"
-    );
+    const source = fs.readFileSync(fullPath, "utf8");
 
     const serializeAwait = serialize(source, {
       parseFrontmatter: true,
