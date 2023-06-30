@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.75.0
+
+### Minor Changes
+
+- [`63d76c9`](https://github.com/getflip/swirl/commit/63d76c9febe96e616727b16bbfb84a3a8ef3bf3c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icon prop to
+  swirl-image-grid-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`63d76c9`](https://github.com/getflip/swirl/commit/63d76c9febe96e616727b16bbfb84a3a8ef3bf3c)]:
+  - @getflip/swirl-components@0.76.0
+
 ## 0.74.0
 
 ### Minor Changes
