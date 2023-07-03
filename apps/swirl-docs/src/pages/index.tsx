@@ -36,12 +36,23 @@ const Home: NextPage = () => {
             </div>
           </header>
 
-          <section className="px-space-16 mb-space-40">
+          <section
+            aria-labelledby="heading-get-started"
+            className="px-space-16 mb-space-40"
+          >
             <div className="max-w-[50rem] mx-auto">
-              <h2 className="text-font-size-lg mb-space-16">Get started</h2>
+              <h2
+                id="heading-get-started"
+                className="text-font-size-lg mb-space-16"
+              >
+                Get started
+              </h2>
 
               <div className="flex gap-space-24 flex-wrap items-stretch">
-                <article className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]">
+                <article
+                  aria-labelledby="heading-apis"
+                  className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
+                >
                   <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base">
                     <Image
                       alt=""
@@ -50,20 +61,34 @@ const Home: NextPage = () => {
                       width="32"
                     />
                   </div>
-                  <h3 className="text-font-size-base font-semibold">APIs</h3>
+                  <h3
+                    id="heading-apis"
+                    className="text-font-size-base font-semibold"
+                  >
+                    APIs
+                  </h3>
                   <p className="text-font-size-sm mb-space-8 grow">
                     The FlipAvatar component is used to represent a user via an
                     image, icon or initials.
                   </p>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex items-center gap-space-4 text-font-size-sm font-medium text-interactive-primary-default hover:text-interactive-primary-hovered"
+                  >
+                    Get started
+                    <SwirlIconArrowRight size={20} />
+                  </span>
                   <Link href="/api-docs/public-post-api">
-                    <a className="inline-flex items-center gap-space-4 text-font-size-sm font-medium text-interactive-primary-default hover:text-interactive-primary-hovered">
-                      Get started{" "}
-                      <span className="sr-only">with Flip APIs</span>
-                      <SwirlIconArrowRight size={20} />
-                    </a>
+                    <a
+                      aria-label="Get started with Flip APIs"
+                      className="absolute inset-0"
+                    ></a>
                   </Link>
                 </article>
-                <article className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]">
+                <article
+                  aria-labelledby="heading-tokens"
+                  className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
+                >
                   <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base">
                     <Image
                       alt=""
@@ -72,20 +97,34 @@ const Home: NextPage = () => {
                       width="32"
                     />
                   </div>
-                  <h3 className="text-font-size-base font-semibold">Tokens</h3>
+                  <h3
+                    id="heading-tokens"
+                    className="text-font-size-base font-semibold"
+                  >
+                    Tokens
+                  </h3>
                   <p className="text-font-size-sm mb-space-8 grow">
                     Consistent variables defining visual elements, ensuring
                     harmony across platforms.
                   </p>
-                  <Link href="/icons">
-                    <a className="inline-flex items-center gap-space-4 text-font-size-sm font-medium text-interactive-primary-default hover:text-interactive-primary-hovered">
-                      Get started{" "}
-                      <span className="sr-only">with Flip Tokens</span>
-                      <SwirlIconArrowRight size={20} />
-                    </a>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex items-center gap-space-4 text-font-size-sm font-medium text-interactive-primary-default hover:text-interactive-primary-hovered"
+                  >
+                    Get started
+                    <SwirlIconArrowRight size={20} />
+                  </span>
+                  <Link href="/tokens/color">
+                    <a
+                      aria-label="Get started with Flip Tokens"
+                      className="absolute inset-0"
+                    ></a>
                   </Link>
                 </article>
-                <article className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]">
+                <article
+                  aria-labelledby="heading-icons"
+                  className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
+                >
                   <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base">
                     <Image
                       alt=""
@@ -94,30 +133,55 @@ const Home: NextPage = () => {
                       width="32"
                     />
                   </div>
-                  <h3 className="text-font-size-base font-semibold">Icons</h3>
+                  <h3
+                    id="heading-icons"
+                    className="text-font-size-base font-semibold"
+                  >
+                    Icons
+                  </h3>
                   <p className="text-font-size-sm mb-space-8 grow">
                     A collection of chosen material design and custom icons.
                   </p>
-                  <Link href="/tokens/color">
-                    <a className="inline-flex items-center gap-space-4 text-font-size-sm font-medium text-interactive-primary-default hover:text-interactive-primary-hovered">
-                      Get started{" "}
-                      <span className="sr-only">with Flip Icons</span>
-                      <SwirlIconArrowRight size={20} />
-                    </a>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex items-center gap-space-4 text-font-size-sm font-medium text-interactive-primary-default hover:text-interactive-primary-hovered"
+                  >
+                    Get started
+                    <SwirlIconArrowRight size={20} />
+                  </span>
+                  <Link href="/icons">
+                    <a
+                      aria-label="Get started with Flip Icons"
+                      className="absolute inset-0"
+                    ></a>
                   </Link>
                 </article>
               </div>
             </div>
           </section>
 
-          <section className="px-space-16">
+          <section
+            aria-labelledby="heading-coming-soon"
+            className="px-space-16"
+          >
             <div className="max-w-[50rem] mx-auto">
-              <h2 className="text-font-size-lg mb-space-16">Coming soon</h2>
+              <h2
+                id="heading-coming-soon"
+                className="text-font-size-lg mb-space-16"
+              >
+                Coming soon
+              </h2>
 
               <div className="flex gap-space-24 flex-wrap items-stretch">
-                <article className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]">
+                <article
+                  aria-labelledby="heading-components"
+                  className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
+                >
                   <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base"></div>
-                  <h3 className="text-font-size-base font-semibold">
+                  <h3
+                    id="heading-components"
+                    className="text-font-size-base font-semibold"
+                  >
                     Components
                   </h3>
                   <p className="text-font-size-sm mb-space-8 grow">
@@ -125,9 +189,15 @@ const Home: NextPage = () => {
                     image, icon or initials.
                   </p>
                 </article>
-                <article className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]">
+                <article
+                  aria-labelledby="heading-foundations"
+                  className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
+                >
                   <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base"></div>
-                  <h3 className="text-font-size-base font-semibold">
+                  <h3
+                    id="heading-foundations"
+                    className="text-font-size-base font-semibold"
+                  >
                     Foundations
                   </h3>
                   <p className="text-font-size-sm mb-space-8 grow">
