@@ -2,7 +2,6 @@ import fs from "fs";
 import OASNormalize from "oas-normalize";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilderSetup";
 import { API_DOCS_PATH, API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
-import { createStaticPathsData } from "@swirl/lib/docs";
 import path from "path";
 
 function createApiSpecsDataString(data: string) {
@@ -80,16 +79,12 @@ async function generateApiSpecNavigation(): Promise<void> {
 async function generateApiDocsSpecNavigation(): Promise<void> {
   const files = fs.readdirSync(API_DOCS_PATH);
 
-  console.log(files);
-
   const filesWithPaths = generateFileList(files);
 
   const dataString = filesWithPaths
     .map((navItem) => JSON.stringify(navItem))
     .join(",");
   const apiDocsData = createApiDocsDataString(dataString);
-
-  console.log(apiDocsData);
 
   fs.writeFileSync(
     "./src/lib/navigation/src/data/apiDocs.data.ts",
@@ -100,28 +95,37 @@ async function generateApiDocsSpecNavigation(): Promise<void> {
 }
 
 function generateFileList(paths: string[], rootPath?: string): NavItem[] {
-  const items = paths.map((pathItem) => {
+  const filteredPaths = paths.filter((pathItem) => {
     const fullPath = rootPath ? `${rootPath}/${pathItem}` : pathItem;
     const absolutePath = path.join(API_DOCS_PATH, fullPath);
-    console.log("FULL PATH", fullPath);
+    return !fs.statSync(absolutePath).isDirectory();
+  });
+
+  const items = filteredPaths.map((pathItem) => {
+    const fullPath = rootPath ? `${rootPath}/${pathItem}` : pathItem;
+    const absolutePath = path.join(API_DOCS_PATH, fullPath);
 
     const isSubdirectory = fs.statSync(absolutePath).isDirectory();
 
+    // for now no subdirectories
     if (isSubdirectory && !rootPath) {
-      const subdirectoryPaths = fs.readdirSync(absolutePath);
-      const children = generateFileList(subdirectoryPaths, fullPath);
+      console.log("subdirectories currently not supported", fullPath);
+      // const subdirectoryPaths = fs.readdirSync(absolutePath);
+      // const children = generateFileList(subdirectoryPaths, fullPath);
 
-      // Here, consider the directory itself as a NavItem and the files in it as children.
-      return {
-        title: path.basename(fullPath),
-        url: `/api-docs/${fullPath}`,
-        isRoot: rootPath ? false : true,
-        children,
-      };
+      // // Here, consider the directory itself as a NavItem and the files in it as children.
+      // return {
+      //   title: path.basename(fullPath),
+      //   url: `/api-docs/docs/${fullPath}`,
+      //   isRoot: rootPath ? false : true,
+      //   children,
+      // };
     }
 
-    return generateDocNavItems(fullPath);
-  });
+    if (!isSubdirectory) {
+      return generateDocNavItems(fullPath);
+    }
+  }) as NavItem[];
 
   return items;
 }
@@ -134,5 +138,5 @@ function generateDocNavItems(filePath: string): NavItem {
   };
 }
 
-// generateApiSpecNavigation();
+generateApiSpecNavigation();
 generateApiDocsSpecNavigation();

@@ -7,7 +7,7 @@ import { ScriptProps } from "next/script";
 import { GetStaticProps } from "next";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
+import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
@@ -22,8 +22,6 @@ async function getComponentData(document: string) {
 
 export async function getStaticPaths() {
   const categoryDocs = createStaticPathsData("api");
-
-  console.log("CATEGORY DOCS", categoryDocs);
 
   return {
     paths: categoryDocs,
@@ -78,7 +76,7 @@ export default function Component({
             document,
             components,
           },
-          navigationLinks: apiDocsNavItems,
+          navigationLinks: apiNavItems,
           frontMatter,
         }}
         content={

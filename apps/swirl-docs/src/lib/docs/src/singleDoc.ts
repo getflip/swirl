@@ -8,7 +8,6 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import sectionize from "remark-sectionize";
 import { DocumentationCategory } from "./docs.model";
-import path from "path";
 
 export async function generateMdxFromDocumentation(
   category: DocumentationCategory,

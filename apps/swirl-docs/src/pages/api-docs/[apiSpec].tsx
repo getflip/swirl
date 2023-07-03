@@ -27,6 +27,7 @@ import {
   ResponseIndicator,
   ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
+import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -197,7 +198,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             description: document.shortDescription,
             examples: [],
           },
-          navigationLinks: apiSpecsNavItems,
+          navigationLinks: apiNavItems,
         }}
         disableToc
         header={<DocumentationLayout.Header className="col-span-2" />}

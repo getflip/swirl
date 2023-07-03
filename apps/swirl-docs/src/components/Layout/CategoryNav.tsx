@@ -196,6 +196,8 @@ export function SidebarNavigation() {
   const router = useRouter();
   const activePath = router.asPath;
 
+  console.log("navigationLinks", categoryLinkList);
+
   return (
     <nav
       aria-label="category"
