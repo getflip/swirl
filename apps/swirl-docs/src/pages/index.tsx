@@ -12,8 +12,8 @@ const Home: NextPage = () => {
         <title>Flip & Swirl Developer Docs</title>
       </Head>
 
-      <div className="flex flex-col items-center h-[calc(100vh_-_72px)] md:px-space-16">
-        <main id="main" className="grow w-full max-w-[90rem]">
+      <div className="flex flex-col items-center h-[calc(100vh_-_72px)] md:px-space-16 overflow-auto">
+        <main id="main" className="grow w-full max-w-[90rem] pb-space-64">
           <header className="bg-surface-info-subdued flex items-center md:h-[28.75rem] md:rounded-b-[1.5rem] mb-space-48 md:mb-space-64 px-space-16 py-space-32">
             <div className="flex flex-col md:flex-row md:items-center w-full gap-4 justify-between md:max-w-[50rem] mx-auto">
               <div className="basis-0 grow max-w-[22.5rem]">
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
                 </h1>
                 <p className="text-font-size-lg text-text-subdued mb-space-24">
                   Flip developer APIs and Swirl provide everything you need to
-                  integrate your app seamless into Flip
+                  integrate your app seamlessly into Flip.
                 </p>
                 <Link href="/api-docs/public-post-api">
                   <a className="inline-flex bg-action-primary-default hover:bg-action-primary-hovered text-font-size-sm text-text-on-action-primary px-space-12 py-space-8 font-medium rounded-border-radius-sm">
@@ -36,9 +36,10 @@ const Home: NextPage = () => {
             </div>
           </header>
 
-          <section className="px-space-16">
+          <section className="px-space-16 mb-space-40">
             <div className="max-w-[50rem] mx-auto">
               <h2 className="text-font-size-lg mb-space-16">Get started</h2>
+
               <div className="flex gap-space-24 flex-wrap items-stretch">
                 <article className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]">
                   <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base">
@@ -108,9 +109,40 @@ const Home: NextPage = () => {
               </div>
             </div>
           </section>
+
+          <section className="px-space-16">
+            <div className="max-w-[50rem] mx-auto">
+              <h2 className="text-font-size-lg mb-space-16">Coming soon</h2>
+
+              <div className="flex gap-space-24 flex-wrap items-stretch">
+                <article className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]">
+                  <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base"></div>
+                  <h3 className="text-font-size-base font-semibold">
+                    Components
+                  </h3>
+                  <p className="text-font-size-sm mb-space-8 grow">
+                    The FlipAvatar component is used to represent a user via an
+                    image, icon or initials.
+                  </p>
+                </article>
+                <article className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]">
+                  <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base"></div>
+                  <h3 className="text-font-size-base font-semibold">
+                    Foundations
+                  </h3>
+                  <p className="text-font-size-sm mb-space-8 grow">
+                    The FlipAvatar component is used to represent a user via an
+                    image, icon or initials.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </section>
         </main>
 
-        <Footer />
+        <div className="max-w-[90rem] w-full mx-auto">
+          <Footer />
+        </div>
       </div>
     </>
   );
