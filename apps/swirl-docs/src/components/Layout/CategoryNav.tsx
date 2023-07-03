@@ -79,7 +79,7 @@ const CategoryNavSubItem = ({
                 }
               )}
             >
-              <span>{navItem.title}</span>
+              <span>{navItem.title.replaceAll("-", " ")}</span>
             </a>
           </Link>
           {navItem.children && (

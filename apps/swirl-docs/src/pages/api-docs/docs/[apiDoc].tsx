@@ -37,6 +37,8 @@ export const getStaticProps: GetStaticProps<
 
   const data = await getComponentData(apiDoc);
 
+  console.log(data);
+
   return {
     props: {
       document: data.document,
@@ -77,6 +79,7 @@ export default function Component({
           navigationLinks: apiNavItems,
           frontMatter,
         }}
+        header={<DocumentationLayout.Header />}
         content={
           <>
             <DocumentationLayout.MDX />
