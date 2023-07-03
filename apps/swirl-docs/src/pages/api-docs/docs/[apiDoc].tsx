@@ -35,8 +35,6 @@ export const getStaticProps: GetStaticProps<
 > = async (context: any) => {
   const { apiDoc } = context.params;
 
-  console.log("API DOC", apiDoc);
-
   const data = await getComponentData(apiDoc);
 
   return {

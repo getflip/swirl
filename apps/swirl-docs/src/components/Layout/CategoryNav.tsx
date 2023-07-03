@@ -15,6 +15,8 @@ import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
+import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 
 const CategoryNavSubItem = ({
   navItem,
@@ -196,8 +198,6 @@ export function SidebarNavigation() {
   const router = useRouter();
   const activePath = router.asPath;
 
-  console.log("navigationLinks", categoryLinkList);
-
   return (
     <nav
       aria-label="category"
@@ -207,37 +207,76 @@ export function SidebarNavigation() {
         { invisible: router.asPath.includes("/icons") }
       )}
     >
-      <ul className="mt-6">
-        {categoryLinkList?.map((navItem: NavItem, index) => {
-          return (
-            <CategoryNavSubItem
-              isCurrentlyInView={activePath.includes(navItem.url)}
-              key={navItem.title + `-${index}`}
-              navItem={navItem}
-              activePath={activePath}
-            />
-          );
-        })}
-      </ul>
-      <hr className="mt-8" />
       {router.asPath.includes("/api-docs") && (
-        <div className="mt-8">
-          <div className="h-10 inline-flex items-center justify-center">
+        <>
+          <ul className="mt-6">
+            {apiDocsNavItems?.map((navItem: NavItem, index) => {
+              return (
+                <CategoryNavSubItem
+                  isCurrentlyInView={activePath.includes(navItem.url)}
+                  key={navItem.title + `-${index}`}
+                  navItem={navItem}
+                  activePath={activePath}
+                />
+              );
+            })}
+          </ul>
+          <hr className="mt-6" />
+          <div className="flex mt-6 align-center h-10 max-h-10">
             <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-[#8E8E93]">
-              Legacy APIs
+              APIs
             </h4>
           </div>
-          <ul className="w-full">
-            <LegacyApiLink
-              href="https://base.flip-app.com/openapi/external/post"
-              label="Public Post API"
-            />
-            <LegacyApiLink
-              href="https://base.flip-app.com/openapi/external/sync"
-              label="Public Users- and Groups-Sync-API"
-            />
+          <ul>
+            {apiSpecsNavItems?.map((navItem: NavItem, index) => {
+              return (
+                <CategoryNavSubItem
+                  isCurrentlyInView={activePath.includes(navItem.url)}
+                  key={navItem.title + `-${index}`}
+                  navItem={navItem}
+                  activePath={activePath}
+                />
+              );
+            })}
           </ul>
-        </div>
+        </>
+      )}
+      {!router.asPath.includes("/api-docs") && (
+        <ul className="mt-6">
+          {categoryLinkList?.map((navItem: NavItem, index) => {
+            return (
+              <CategoryNavSubItem
+                isCurrentlyInView={activePath.includes(navItem.url)}
+                key={navItem.title + `-${index}`}
+                navItem={navItem}
+                activePath={activePath}
+              />
+            );
+          })}
+        </ul>
+      )}
+
+      {router.asPath.includes("/api-docs") && (
+        <>
+          <hr className="mt-8" />
+          <div className="mt-8">
+            <div className="h-10 inline-flex items-center justify-center">
+              <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-[#8E8E93]">
+                Legacy APIs
+              </h4>
+            </div>
+            <ul className="w-full">
+              <LegacyApiLink
+                href="https://base.flip-app.com/openapi/external/post"
+                label="Public Post API"
+              />
+              <LegacyApiLink
+                href="https://base.flip-app.com/openapi/external/sync"
+                label="Public Users- and Groups-Sync-API"
+              />
+            </ul>
+          </div>
+        </>
       )}
     </nav>
   );

@@ -4,6 +4,15 @@ import OASBuilder from "@swirl/lib/docs/src/oasBuilderSetup";
 import { API_DOCS_PATH, API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 import path from "path";
 
+/*******************************************************************************
+ * Run
+ ********************************************************************************/
+generateApiSpecNavigation();
+generateApiDocsSpecNavigation();
+
+/*******************************************************************************
+ * API Specs
+ ********************************************************************************/
 function createApiSpecsDataString(data: string) {
   return `
 import { NavItem } from "../navigation.model";
@@ -13,17 +22,6 @@ export const apiSpecsNavItems: NavItem[] = [
 ];
 `;
 }
-
-function createApiDocsDataString(data: string) {
-  return `
-import { NavItem } from "../navigation.model";
-
-export const apiDocsNavItems: NavItem[] = [
-  ${data}
-];
-`;
-}
-
 async function generateApiSpecNavItems(specName: string): Promise<NavItem> {
   const specPath = `${API_SPEC_PATH}/${specName}`;
   const oasDocument = await new (OASNormalize as any).default(specPath, {
@@ -74,6 +72,20 @@ async function generateApiSpecNavigation(): Promise<void> {
     "utf8"
   );
   console.log("Done! 🚀");
+}
+
+/*******************************************************************************
+ * API Docs
+ ********************************************************************************/
+
+function createApiDocsDataString(data: string) {
+  return `
+import { NavItem } from "../navigation.model";
+
+export const apiDocsNavItems: NavItem[] = [
+  ${data}
+];
+`;
 }
 
 async function generateApiDocsSpecNavigation(): Promise<void> {
@@ -137,6 +149,3 @@ function generateDocNavItems(filePath: string): NavItem {
     url: `/api-docs/docs/${cleanedFileName}`,
   };
 }
-
-generateApiSpecNavigation();
-generateApiDocsSpecNavigation();
