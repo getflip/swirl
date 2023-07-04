@@ -22,7 +22,10 @@ export type SwirlStackSpacing =
   | "12"
   | "16"
   | "24"
-  | "32";
+  | "32"
+  | "40"
+  | "48"
+  | "64";
 
 @Component({
   shadow: true,

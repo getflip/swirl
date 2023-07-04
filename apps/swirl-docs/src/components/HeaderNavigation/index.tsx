@@ -70,7 +70,7 @@ const HeaderNavigation = () => {
                   <li
                     key={link.url}
                     className={classNames(
-                      "relative mr-4",
+                      "relative mr-space-24",
                       "hover:text-border-info",
                       "before:block before:absolute before:bottom-[-23px] before:w-full before:h-1 before:bg-border-info",
                       {

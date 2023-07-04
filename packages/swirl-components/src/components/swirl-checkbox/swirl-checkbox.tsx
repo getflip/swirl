@@ -1,6 +1,8 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
+export type SwirlCheckboxLabelWeight = "medium" | "regular";
+
 export type SwirlCheckboxState = boolean | "true" | "false" | "indeterminate";
 
 @Component({
@@ -25,6 +27,7 @@ export class SwirlCheckbox {
   @Prop() inputName!: string;
   @Prop() invalid?: boolean;
   @Prop() label?: string;
+  @Prop() labelWeight?: SwirlCheckboxLabelWeight = "medium";
   @Prop() value?: string;
 
   @Event() valueChange: EventEmitter<boolean>;
@@ -59,13 +62,17 @@ export class SwirlCheckbox {
         ? String(this.invalid)
         : undefined;
 
-    const className = classnames("checkbox", {
-      "checkbox--checked": checked,
-      "checkbox--disabled": this.disabled,
-      "checkbox--indeterminate": indeterminate,
-      "checkbox--invalid": this.invalid,
-      "checkbox--unchecked": unchecked,
-    });
+    const className = classnames(
+      "checkbox",
+      `checkbox--label-weight-${this.labelWeight}`,
+      {
+        "checkbox--checked": checked,
+        "checkbox--disabled": this.disabled,
+        "checkbox--indeterminate": indeterminate,
+        "checkbox--invalid": this.invalid,
+        "checkbox--unchecked": unchecked,
+      }
+    );
 
     return (
       <Host>

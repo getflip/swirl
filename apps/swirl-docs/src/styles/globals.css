@@ -19,7 +19,11 @@
   #__next {
     @apply h-full grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 72px auto;
+    grid-template-rows: 64px auto;
+
+    @media screen(md) {
+      grid-template-rows: 72px auto;
+    }
   }
   html,
   body {

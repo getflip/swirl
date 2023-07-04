@@ -16,7 +16,7 @@ import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
-import { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
+import { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
@@ -72,7 +72,7 @@ export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
-export { SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
+export { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
@@ -320,6 +320,7 @@ export namespace Components {
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
+        "labelWeight"?: SwirlCheckboxLabelWeight;
         "swirlAriaDescribedby"?: string;
         "swirlAriaLabel"?: string;
         "value"?: string;
@@ -904,6 +905,16 @@ export namespace Components {
     interface SwirlIconWarning {
         "size": SwirlIconSize;
     }
+    interface SwirlImageGrid {
+        "aspectRatio"?: string;
+    }
+    interface SwirlImageGridItem {
+        "alt": string;
+        "icon"?: string;
+        "interactive"?: boolean;
+        "overlay"?: string;
+        "src": string;
+    }
     interface SwirlInlineError {
         "message": string;
         "size"?: SwirlInlineErrorSize;
@@ -1006,10 +1017,6 @@ export namespace Components {
         "label": string;
         "value"?: string;
     }
-    /**
-     * slot - Modal contents
-     * custom-header - Optional custom header; should be used hidden label
-     */
     interface SwirlModal {
         /**
           * Close the modal.
@@ -1169,6 +1176,7 @@ export namespace Components {
         "dragging"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
+        "interactive"?: boolean;
         "label": string;
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "menuTriggerId"?: string;
@@ -1189,6 +1197,7 @@ export namespace Components {
         "variant"?: SwirlSearchVariant;
     }
     interface SwirlSelect {
+        "allowDeselect"?: boolean;
         "disabled"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
@@ -2766,6 +2775,18 @@ declare global {
         prototype: HTMLSwirlIconWarningElement;
         new (): HTMLSwirlIconWarningElement;
     };
+    interface HTMLSwirlImageGridElement extends Components.SwirlImageGrid, HTMLStencilElement {
+    }
+    var HTMLSwirlImageGridElement: {
+        prototype: HTMLSwirlImageGridElement;
+        new (): HTMLSwirlImageGridElement;
+    };
+    interface HTMLSwirlImageGridItemElement extends Components.SwirlImageGridItem, HTMLStencilElement {
+    }
+    var HTMLSwirlImageGridItemElement: {
+        prototype: HTMLSwirlImageGridItemElement;
+        new (): HTMLSwirlImageGridItemElement;
+    };
     interface HTMLSwirlInlineErrorElement extends Components.SwirlInlineError, HTMLStencilElement {
     }
     var HTMLSwirlInlineErrorElement: {
@@ -2814,10 +2835,6 @@ declare global {
         prototype: HTMLSwirlMenuItemElement;
         new (): HTMLSwirlMenuItemElement;
     };
-    /**
-     * slot - Modal contents
-     * custom-header - Optional custom header; should be used hidden label
-     */
     interface HTMLSwirlModalElement extends Components.SwirlModal, HTMLStencilElement {
     }
     var HTMLSwirlModalElement: {
@@ -3606,6 +3623,8 @@ declare global {
         "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
         "swirl-icon-voice": HTMLSwirlIconVoiceElement;
         "swirl-icon-warning": HTMLSwirlIconWarningElement;
+        "swirl-image-grid": HTMLSwirlImageGridElement;
+        "swirl-image-grid-item": HTMLSwirlImageGridItemElement;
         "swirl-inline-error": HTMLSwirlInlineErrorElement;
         "swirl-inline-notification": HTMLSwirlInlineNotificationElement;
         "swirl-inline-status": HTMLSwirlInlineStatusElement;
@@ -3914,6 +3933,7 @@ declare namespace LocalJSX {
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
+        "labelWeight"?: SwirlCheckboxLabelWeight;
         "onValueChange"?: (event: SwirlCheckboxCustomEvent<boolean>) => void;
         "swirlAriaDescribedby"?: string;
         "swirlAriaLabel"?: string;
@@ -4453,6 +4473,16 @@ declare namespace LocalJSX {
     interface SwirlIconWarning {
         "size"?: SwirlIconSize;
     }
+    interface SwirlImageGrid {
+        "aspectRatio"?: string;
+    }
+    interface SwirlImageGridItem {
+        "alt": string;
+        "icon"?: string;
+        "interactive"?: boolean;
+        "overlay"?: string;
+        "src": string;
+    }
     interface SwirlInlineError {
         "message": string;
         "size"?: SwirlInlineErrorSize;
@@ -4506,10 +4536,6 @@ declare namespace LocalJSX {
         "label": string;
         "value"?: string;
     }
-    /**
-     * slot - Modal contents
-     * custom-header - Optional custom header; should be used hidden label
-     */
     interface SwirlModal {
         "closeButtonLabel"?: string;
         "hideCloseButton"?: boolean;
@@ -4666,6 +4692,7 @@ declare namespace LocalJSX {
         "dragging"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
+        "interactive"?: boolean;
         "label": string;
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "menuTriggerId"?: string;
@@ -4692,6 +4719,7 @@ declare namespace LocalJSX {
         "variant"?: SwirlSearchVariant;
     }
     interface SwirlSelect {
+        "allowDeselect"?: boolean;
         "disabled"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
@@ -5251,6 +5279,8 @@ declare namespace LocalJSX {
         "swirl-icon-visibility-off": SwirlIconVisibilityOff;
         "swirl-icon-voice": SwirlIconVoice;
         "swirl-icon-warning": SwirlIconWarning;
+        "swirl-image-grid": SwirlImageGrid;
+        "swirl-image-grid-item": SwirlImageGridItem;
         "swirl-inline-error": SwirlInlineError;
         "swirl-inline-notification": SwirlInlineNotification;
         "swirl-inline-status": SwirlInlineStatus;
@@ -5538,6 +5568,8 @@ declare module "@stencil/core" {
             "swirl-icon-visibility-off": LocalJSX.SwirlIconVisibilityOff & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
             "swirl-icon-voice": LocalJSX.SwirlIconVoice & JSXBase.HTMLAttributes<HTMLSwirlIconVoiceElement>;
             "swirl-icon-warning": LocalJSX.SwirlIconWarning & JSXBase.HTMLAttributes<HTMLSwirlIconWarningElement>;
+            "swirl-image-grid": LocalJSX.SwirlImageGrid & JSXBase.HTMLAttributes<HTMLSwirlImageGridElement>;
+            "swirl-image-grid-item": LocalJSX.SwirlImageGridItem & JSXBase.HTMLAttributes<HTMLSwirlImageGridItemElement>;
             "swirl-inline-error": LocalJSX.SwirlInlineError & JSXBase.HTMLAttributes<HTMLSwirlInlineErrorElement>;
             "swirl-inline-notification": LocalJSX.SwirlInlineNotification & JSXBase.HTMLAttributes<HTMLSwirlInlineNotificationElement>;
             "swirl-inline-status": LocalJSX.SwirlInlineStatus & JSXBase.HTMLAttributes<HTMLSwirlInlineStatusElement>;
@@ -5546,10 +5578,6 @@ declare module "@stencil/core" {
             "swirl-list": LocalJSX.SwirlList & JSXBase.HTMLAttributes<HTMLSwirlListElement>;
             "swirl-menu": LocalJSX.SwirlMenu & JSXBase.HTMLAttributes<HTMLSwirlMenuElement>;
             "swirl-menu-item": LocalJSX.SwirlMenuItem & JSXBase.HTMLAttributes<HTMLSwirlMenuItemElement>;
-            /**
-             * slot - Modal contents
-             * custom-header - Optional custom header; should be used hidden label
-             */
             "swirl-modal": LocalJSX.SwirlModal & JSXBase.HTMLAttributes<HTMLSwirlModalElement>;
             "swirl-option-list": LocalJSX.SwirlOptionList & JSXBase.HTMLAttributes<HTMLSwirlOptionListElement>;
             "swirl-option-list-item": LocalJSX.SwirlOptionListItem & JSXBase.HTMLAttributes<HTMLSwirlOptionListItemElement>;

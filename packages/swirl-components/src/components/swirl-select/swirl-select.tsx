@@ -28,6 +28,7 @@ import { ComputePositionReturn, Placement } from "@floating-ui/dom";
 export class SwirlSelect implements SwirlFormInput<string[]> {
   @Element() el: HTMLElement;
 
+  @Prop() allowDeselect?: boolean = true;
   @Prop() disabled?: boolean;
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
@@ -76,6 +77,10 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   };
 
   private unselectOption = (value: string) => {
+    if (!this.allowDeselect) {
+      return;
+    }
+
     this.value = this.value.filter((v) => v !== value);
     this.valueChange.emit(this.value);
   };
@@ -117,6 +122,15 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
         ? String(this.invalid)
         : undefined;
 
+    const formControl = this.el.closest<
+      HTMLSwirlFormControlElement | undefined
+    >("swirl-form-control");
+
+    const offset =
+      formControl?.inline || formControl?.labelPosition === "outside"
+        ? -12
+        : -16;
+
     const className = classnames(
       "select",
       `select--placement-${this.placement}`,
@@ -146,13 +160,13 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
               ?.map((value) =>
                 this.options.find((option) => option.value === value)
               )
-              .map((option) => (
+              ?.map((option) => (
                 <swirl-tag
                   aria-hidden="true"
                   label={option?.label}
                   // eslint-disable-next-line react/jsx-no-bind
                   onRemove={() => this.unselectOption(option?.value)}
-                  removable={!this.disabled}
+                  removable={!this.disabled && this.allowDeselect}
                 ></swirl-tag>
               ))}
           </span>
@@ -167,7 +181,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             animation="scale-in-y"
             class="select__popover"
             label={this.label}
-            offset={[0, -16]}
+            offset={[0, offset]}
             onPopoverClose={this.onClose}
             onPopoverOpen={this.onOpen}
             popoverId={`select-options-${this.selectId}`}
@@ -176,6 +190,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             useContainerWidth="swirl-form-control"
           >
             <swirl-option-list
+              allowDeselect={this.allowDeselect}
               onValueChange={this.select}
               multiSelect={this.multiSelect}
               value={this.value}

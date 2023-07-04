@@ -35,7 +35,7 @@
 
   &(.tree-navigation-item--active) {
     background-color: var(--s-surface-raised-default);
-    box-shadow: inset 0.25rem 0 0 0 var(--s-surface-highlight-default);
+    box-shadow: inset 0.25rem 0 0 0 var(--s-border-highlight);
   }
 
   &(.tree-navigation-item--active:hover) {

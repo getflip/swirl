@@ -55,6 +55,10 @@ const Template = (args) => {
       Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
       sit amet.
     </swirl-text>
+
+    <swirl-box padding-block-start="0" padding-block-end="16" slot="header-tools">
+      <swirl-search label="Search"></swirl-search>
+    </div>
   `;
 
   container.append(trigger, element);

@@ -36,7 +36,7 @@ describe("swirl-select", () => {
             <swirl-icon-expand-more></swirl-icon-expand-more>
           </span>
           <swirl-popover animation="scale-in-y" class="select__popover" label="Select" popoverid="select-options-${page.root.selectId}" trigger="trigger-${page.root.selectId}" usecontainerwidth="swirl-form-control">
-            <swirl-option-list>
+            <swirl-option-list allowdeselect="">
               <swirl-option-list-item label="This is an option 1" value="1"></swirl-option-list-item>
               <swirl-option-list-item label="This is an option 2" value="2"></swirl-option-list-item>
             </swirl-option-list>
