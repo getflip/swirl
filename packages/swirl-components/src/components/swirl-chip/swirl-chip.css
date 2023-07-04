@@ -1,4 +1,5 @@
 :host {
+  position: relative;
   display: inline-flex;
   max-width: 100%;
 
@@ -33,6 +34,18 @@
     & ::part(avatar) {
       background-color: var(--s-surface-raised-hovered);
     }
+
+    & + .chip__remove-button {
+      background-color: var(--s-surface-raised-default);
+
+      &:hover {
+        background-color: var(--s-surface-raised-hovered);
+      }
+
+      &:active {
+        background-color: var(--s-surface-raised-pressed);
+      }
+    }
   }
 
   &:active {
@@ -44,6 +57,10 @@
   }
 }
 
+.chip--removable {
+  padding-right: calc(2rem + var(--s-space-12));
+}
+
 .chip--intent-critical {
   border-color: var(--s-border-critical);
   color: var(--s-text-critical);
@@ -51,6 +68,10 @@
   & .chip__icon {
     color: var(--s-icon-critical);
   }
+}
+
+.chip--border-radius-sm {
+  border-radius: var(--s-border-radius-sm);
 }
 
 .chip--intent-success {
@@ -115,4 +136,30 @@
   flex-grow: 1;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.chip__remove-button {
+  position: absolute;
+  top: 50%;
+  right: var(--s-space-4);
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  color: var(--s-icon-default);
+  background-color: var(--s-surface-overlay-default);
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  &:hover {
+    background-color: var(--s-surface-overlay-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-surface-overlay-pressed);
+  }
 }
