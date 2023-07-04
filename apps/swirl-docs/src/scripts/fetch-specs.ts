@@ -15,33 +15,33 @@ const GITLAB_ENDPOINT = "https://gitlab.com/api/v4/projects";
 const headers = {
   "PRIVATE-TOKEN": env.GITLAB_ACCESS_TOKEN,
 };
-const refBranch = "15252-api-spec-automation--legcay-api-implementation";
+const refBranch = env.REFERENCE_BRANCH;
 const globalSpecs = ["shared.yml", "problem.yml"];
 
-function getDeploymentStage() {
-  if (!env.DEPLOYMENT_STAGE) {
-    throw new Error("DEPLOYMENT_ENVIRONMENT is not set");
+/*******************************************************************************
+ * Run
+ ********************************************************************************/
+fetchData();
+
+async function fetchData() {
+  const specs = await fetchFileList("spec");
+  const specFiles = specs?.filter((spec) => spec.type === "blob");
+
+  if (specFiles) {
+    await Promise.all(specFiles.map((spec) => fetchSpecData(spec)));
+    cleanGlobalSpecs();
   }
 
-  if (env.DEPLOYMENT_STAGE === "staging") {
-    return "development";
-  }
+  const docs = await fetchFileList("docs");
 
-  return "published";
+  if (docs) {
+    await Promise.all(docs.map((doc) => processFileOrTree(doc)));
+  }
 }
 
-const createSpecGitlabEndpoint = (spec: RepositoryTreeItem) => {
-  return `${GITLAB_ENDPOINT}/${
-    env.GITLAB_FLIP_REPO_ID
-  }/repository/files/${encodeURIComponent(spec.path)}?ref=${refBranch}`;
-};
-
-const createDocGitlabEndpoint = (doc: string) => {
-  return `${GITLAB_ENDPOINT}/${
-    env.GITLAB_FLIP_REPO_ID
-  }/repository/files/${encodeURIComponent(doc)}?ref=${refBranch}`;
-};
-
+/*******************************************************************************
+ * API Docs
+ ********************************************************************************/
 async function fetchDocData(doc: string, root?: string) {
   console.log("Fetching doc data...");
 
@@ -73,6 +73,15 @@ async function fetchDocData(doc: string, root?: string) {
   }
 }
 
+const createDocGitlabEndpoint = (doc: string) => {
+  return `${GITLAB_ENDPOINT}/${
+    env.GITLAB_FLIP_REPO_ID
+  }/repository/files/${encodeURIComponent(doc)}?ref=${refBranch}`;
+};
+
+/*******************************************************************************
+ * API Specs
+ ********************************************************************************/
 async function fetchSpecData(spec: RepositoryTreeItem) {
   console.log(`Fetching spec data for ${spec.name}...`);
 
@@ -97,6 +106,12 @@ async function fetchSpecData(spec: RepositoryTreeItem) {
   }
 }
 
+const createSpecGitlabEndpoint = (spec: RepositoryTreeItem) => {
+  return `${GITLAB_ENDPOINT}/${
+    env.GITLAB_FLIP_REPO_ID
+  }/repository/files/${encodeURIComponent(spec.path)}?ref=${refBranch}`;
+};
+
 function checkAndCreateSpecsDir() {
   const dirPath = path.join(".", "specs");
 
@@ -106,6 +121,9 @@ function checkAndCreateSpecsDir() {
   }
 }
 
+/*******************************************************************************
+ * Helper Functions
+ ********************************************************************************/
 async function fetchTreeList(path: string) {
   console.log(`Fetching tree list at path ${path}...`);
 
@@ -123,31 +141,6 @@ async function fetchTreeList(path: string) {
     return treeList;
   } catch (error) {
     console.error("Error:", error);
-  }
-}
-
-async function processFileOrTree(
-  item: RepositoryTreeItem,
-  root?: string
-): Promise<any> {
-  if (item.type === "blob") {
-    if (root) {
-      return fetchDocData(item.path, root);
-    }
-
-    return fetchDocData(item.path);
-  } else if (item.type === "tree") {
-    const itemsInTree = await fetchTreeList(item.path);
-
-    if (itemsInTree) {
-      return Promise.all(
-        itemsInTree.map((item: RepositoryTreeItem) => {
-          const length = item.path.split("/").length;
-          const root = item.path.split("/")[length - 2];
-          return processFileOrTree(item, root);
-        })
-      );
-    }
   }
 }
 
@@ -175,27 +168,18 @@ async function fetchFileList(type: "spec" | "docs") {
   }
 }
 
-async function fetchData() {
-  const specs = await fetchFileList("spec");
-  const specFiles = specs?.filter((spec) => spec.type === "blob");
-
-  if (specFiles) {
-    await Promise.all(specFiles.map((spec) => fetchSpecData(spec)));
-    cleanGlobalSpecs();
+function getDeploymentStage() {
+  if (!env.DEPLOYMENT_STAGE) {
+    throw new Error("DEPLOYMENT_ENVIRONMENT is not set");
   }
 
-  const docs = await fetchFileList("docs");
-
-  if (docs) {
-    await Promise.all(docs.map((doc) => processFileOrTree(doc)));
+  if (env.DEPLOYMENT_STAGE === "staging") {
+    return "development";
   }
+
+  return "published";
 }
 
-fetchData();
-
-/**
- * Spec maniuipulation functions
- */
 function cleanGlobalSpecs() {
   console.log("Cleaning global specs...");
   deleteGlobalSpecs();
@@ -256,5 +240,30 @@ function deleteAllInDirectory(directory: string): void {
     }
   } else {
     console.log(`Directory ${directory} does not exist.`);
+  }
+}
+
+async function processFileOrTree(
+  item: RepositoryTreeItem,
+  root?: string
+): Promise<any> {
+  if (item.type === "blob") {
+    if (root) {
+      return fetchDocData(item.path, root);
+    }
+
+    return fetchDocData(item.path);
+  } else if (item.type === "tree") {
+    const itemsInTree = await fetchTreeList(item.path);
+
+    if (itemsInTree) {
+      return Promise.all(
+        itemsInTree.map((item: RepositoryTreeItem) => {
+          const length = item.path.split("/").length;
+          const root = item.path.split("/")[length - 2];
+          return processFileOrTree(item, root);
+        })
+      );
+    }
   }
 }

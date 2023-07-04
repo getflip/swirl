@@ -14,4 +14,5 @@ export const envVariables = z.object({
   GITLAB_ACCESS_TOKEN: z.string(),
   GITLAB_FLIP_REPO_ID: z.string(),
   DEPLOYMENT_STAGE: z.string(),
+  REFERENCE_BRANCH: z.string(),
 });

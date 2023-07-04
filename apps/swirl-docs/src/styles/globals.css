@@ -117,3 +117,7 @@ h3 {
 .border-l-1 {
   border-left: 1px solid var(--s-border-default);
 }
+
+pre {
+  overflow: auto;
+}
