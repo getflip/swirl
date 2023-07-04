@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.78.0
+
+### Minor Changes
+
+- [`ecf808a0`](https://github.com/getflip/swirl/commit/ecf808a08aceeb3968a4e18c31a39a1ae2cba9fa)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "border-radius" prop and
+  remove button to swirl-chip.
+
 ## 0.77.0
 
 ### Minor Changes
