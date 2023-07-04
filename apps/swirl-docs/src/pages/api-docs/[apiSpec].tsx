@@ -28,6 +28,7 @@ import {
   ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
 import { SupportedTargets } from "@readme/oas-to-snippet";
+import { ResponseObject } from "openapi-typescript";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -90,6 +91,13 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
       const parameterTypes =
         endpoint.operation.getParametersAsJSONSchema() || [];
 
+      const responseBodySchemas = Object.entries(
+        endpoint.operation.schema.responses || {}
+      ).map(([statusCode, response]) => ({
+        schema: response.content?.["application/json"]?.schema || null,
+        statusCode,
+      }));
+
       return {
         title: endpoint.title,
         description: endpoint.operation.getDescription() || "",
@@ -122,6 +130,7 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
         }),
         request,
         responseExamples: examples,
+        responseBodySchemas,
       };
     }),
   };
@@ -158,6 +167,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 // CLIENT CODE
 export default function Document({ document }: { document: ApiDocumentation }) {
   const router = useRouter();
+
+  console.log(document);
 
   return (
     <>
