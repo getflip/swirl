@@ -24,7 +24,7 @@ const Home: NextPage = () => {
                   Flip developer APIs and Swirl provide everything you need to
                   integrate your app seamlessly into Flip.
                 </p>
-                <Link href="/api-docs/public-post-api">
+                <Link href="/api-docs">
                   <a className="inline-flex bg-action-primary-default hover:bg-action-primary-hovered text-font-size-sm text-text-on-action-primary px-space-12 py-space-8 font-medium rounded-border-radius-sm">
                     Explore APIs
                   </a>
