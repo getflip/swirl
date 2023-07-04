@@ -66,7 +66,10 @@ async function fetchDocData(doc: string, root?: string) {
       docPath = `${docPath}/${docName}.mdx`;
     }
 
-    fs.writeFileSync(docPath, docData, "utf8");
+    console.log("docPath", docPath);
+    console.log("docPath path join", path.join("./", docPath));
+
+    fs.writeFileSync(path.join("./", docPath), docData, "utf8");
     return docPath;
   } catch (error) {
     console.error("Error:", error);
