@@ -98,6 +98,11 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
         statusCode,
       }));
 
+      const requestBodySchema =
+        (endpoint.operation.schema.requestBody as any)?.content?.[
+          "application/json"
+        ]?.schema || null;
+
       return {
         title: endpoint.title,
         description: endpoint.operation.getDescription() || "",
@@ -129,6 +134,7 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
           return { title: label, type, parameters: [] };
         }),
         request,
+        requestBodySchema,
         responseExamples: examples,
         responseBodySchemas,
       };
@@ -167,8 +173,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 // CLIENT CODE
 export default function Document({ document }: { document: ApiDocumentation }) {
   const router = useRouter();
-
-  console.log(document);
 
   return (
     <>

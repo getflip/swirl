@@ -129,6 +129,7 @@ export type ApiEndpoint = {
   description: string;
   path: string;
   request: ReturnType<OASBuilder["generateRequest"]>;
+  requestBodySchema: OpenAPIV3_1.BaseSchemaObject | null;
   responseExamples: Array<ApiResponseExample>;
   responseBodySchemas: Array<ResponseBodySchema>;
   isDeprecated?: boolean;
