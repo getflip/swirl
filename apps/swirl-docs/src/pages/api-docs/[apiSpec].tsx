@@ -285,8 +285,8 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                         {endpoint.security?.length && (
                           <div className="mb-space-16">
                             <p className="mb-space-8 flex gap-space-4 text-font-size-sm font-font-weight-medium text-text-critical">
-                              <SwirlIconLock size={16} /> Requires
-                              authentication via{" "}
+                              <SwirlIconLock className="mt-[1px]" size={16} />{" "}
+                              Requires authentication via{" "}
                               {Object.keys(endpoint.security[0])[0]}.
                             </p>
                           </div>
