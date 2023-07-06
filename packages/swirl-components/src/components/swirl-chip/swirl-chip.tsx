@@ -1,6 +1,16 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
+
+export type SwirlChipBorderRadius = "pill" | "sm";
 
 export type SwirlChipIntent = "default" | "critical" | "success";
 
@@ -17,11 +27,16 @@ export type SwirlChipVariant = "outline" | "plain";
 export class SwirlChip {
   @Element() el: HTMLElement;
 
+  @Prop() borderRadius?: SwirlChipBorderRadius = "pill";
   @Prop() icon?: string;
   @Prop() intent?: SwirlChipIntent = "default";
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
+  @Prop() removable?: boolean;
+  @Prop() removeButtonLabel?: string = "Remove";
   @Prop() variant?: SwirlChipVariant = "outline";
+
+  @Event() remove: EventEmitter<MouseEvent>;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
@@ -61,10 +76,12 @@ export class SwirlChip {
 
     const className = classnames(
       "chip",
+      `chip--border-radius-${this.borderRadius}`,
       `chip--intent-${this.intent}`,
       `chip--variant-${this.variant}`,
       {
         "chip--interactive": this.interactive,
+        "chip--removable": this.removable,
       }
     );
 
@@ -85,6 +102,15 @@ export class SwirlChip {
           )}
           <span class="chip__label">{this.label}</span>
         </Tag>
+        {this.removable && (
+          <button
+            aria-label={this.removeButtonLabel}
+            class="chip__remove-button"
+            onClick={this.remove.emit}
+          >
+            <swirl-icon-close size={20}></swirl-icon-close>
+          </button>
+        )}
       </Host>
     );
   }

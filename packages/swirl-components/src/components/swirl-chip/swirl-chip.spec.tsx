@@ -12,7 +12,7 @@ describe("swirl-chip", () => {
     expect(page.root).toEqualHtml(`
       <swirl-chip intent="critical" label="Label">
         <mock:shadow-root>
-          <span class="chip chip--intent-critical chip--variant-outline">
+          <span class="chip chip--border-radius-pill chip--intent-critical chip--variant-outline">
             <span class="chip__label">Label</span>
           </span>
         </mock:shadow-root>
@@ -29,7 +29,7 @@ describe("swirl-chip", () => {
     expect(page.root).toEqualHtml(`
       <swirl-chip interactive="true" label="Label">
         <mock:shadow-root>
-          <button class="chip chip--intent-default chip--interactive chip--variant-outline" type="button">
+          <button class="chip chip--border-radius-pill chip--intent-default chip--interactive chip--variant-outline" type="button">
             <span class="chip__label">Label</span>
           </button>
         </mock:shadow-root>
@@ -46,7 +46,7 @@ describe("swirl-chip", () => {
     expect(page.root).toEqualHtml(`
       <swirl-chip label="Label">
         <mock:shadow-root>
-          <span class="chip chip--intent-default chip--variant-outline">
+          <span class="chip chip--border-radius-pill chip--intent-default chip--variant-outline">
             <span class="chip__label">
               Label
             </span>

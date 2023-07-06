@@ -32,4 +32,5 @@ export const SwirlChip = Template.bind({});
 
 SwirlChip.args = {
   label: "Label",
+  removable: true,
 };

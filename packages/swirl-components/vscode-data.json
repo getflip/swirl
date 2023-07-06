@@ -1327,6 +1327,18 @@
       },
       "attributes": [
         {
+          "name": "border-radius",
+          "description": "",
+          "values": [
+            {
+              "name": "pill"
+            },
+            {
+              "name": "sm"
+            }
+          ]
+        },
+        {
           "name": "icon",
           "description": ""
         },
@@ -1351,6 +1363,14 @@
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "removable",
+          "description": ""
+        },
+        {
+          "name": "remove-button-label",
           "description": ""
         },
         {
