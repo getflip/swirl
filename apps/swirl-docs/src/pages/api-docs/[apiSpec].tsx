@@ -209,8 +209,6 @@ export default function Document({ document }: { document: ApiDocumentation }) {
     });
   }
 
-  console.log(document);
-
   return (
     <>
       <Head>
