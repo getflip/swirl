@@ -28,6 +28,8 @@ import {
   ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
 import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
+import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
+import { ResponseExamples } from "oas/dist/operation/get-response-examples";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -69,28 +71,6 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
     shortDescription: oasBuilder.shortDescription,
     description: serializedDescription,
     endpoints: oasBuilder.endpoints.map((endpoint) => {
-      let examples: ApiEndpoint["responseExamples"] = [];
-
-      const request = oasBuilder?.generateRequest(endpoint.operation);
-      const responseExamples = endpoint.operation.getResponseExamples();
-      // const responseExamples: ResponseExamples = [];
-
-      responseExamples.forEach((responseExample) => {
-        const mediaTypes = Object.keys(responseExample.mediaTypes);
-        const valueExample = responseExample.mediaTypes[
-          mediaTypes[0]
-        ] as Array<any>;
-
-        // TODO: fix the response examples on tasks
-        examples.push({
-          status: responseExample.status,
-          mediaType: "mediaTypes[0]",
-          value: "valueExample[0].value",
-          // mediaType: mediaTypes[0],
-          // value: valueExample[0].value,
-        });
-      });
-
       const parameterTypes =
         endpoint.operation.getParametersAsJSONSchema() || [];
 
@@ -124,8 +104,10 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
           }
           return { title: label, type, parameters: [] };
         }),
-        request,
-        responseExamples: examples,
+        request: oasBuilder?.generateRequest(endpoint.operation),
+        responseExamples: oasBuilder?.generateResponseExamples(
+          endpoint.operation
+        ),
       };
     }),
   };
@@ -154,7 +136,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      document,
+      document: JSON.parse(JSON.stringify(document)), // remove undefined values
     },
   };
 };
@@ -209,6 +191,10 @@ export default function Document({ document }: { document: ApiDocumentation }) {
               {document.endpoints?.map((endpoint, index) => {
                 const path = `https://getflip.dev${router.asPath}`; // TODO: use env variable
                 const endpointId = endpoint.path.split("#")[1];
+
+                const initialResponseExampleStatus = Object.keys(
+                  endpoint.responseExamples
+                )[0];
 
                 return (
                   <article
@@ -293,32 +279,20 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                           ActionItems={<RequestLanguage />}
                         />
                         <div>
-                          {endpoint.responseExamples[0] && (
+                          {initialResponseExampleStatus && (
                             <CodePreview
                               isLightTheme
                               PreviewIndicator={<ResponseIndicator />}
                               ActionItems={<ResponseSelector />}
                               codeExample={{
-                                code: JSON.stringify(
-                                  endpoint.responseExamples[0].value as string,
-                                  null,
-                                  2
-                                ),
-                                selectOptions: endpoint.responseExamples.reduce(
-                                  (options, example) => {
-                                    return {
-                                      ...options,
-                                      [example.status]: JSON.stringify(
-                                        example.value,
-                                        null,
-                                        2
-                                      ),
-                                    };
-                                  },
-                                  {} as Record<string, string>
-                                ),
+                                code: endpoint.responseExamples[
+                                  initialResponseExampleStatus
+                                ],
+                                selectOptions: endpoint.responseExamples,
                                 isLongCode: true,
-                                selectedId: endpoint.responseExamples[0].status,
+                                selectedId: Object.keys(
+                                  endpoint.responseExamples
+                                )[0],
                               }}
                             />
                           )}

@@ -2,6 +2,8 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import Oas, { Operation } from "oas";
 import { HttpMethods, OASDocument } from "oas/dist/rmoas.types";
 import OASBuilder from "./oasBuilder";
+import { ResponseExamples } from "oas/dist/operation/get-response-examples";
+import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
 
 export enum DOCUMENTATION_SRC {
   PAGES = "pages",
@@ -116,7 +118,7 @@ export type ApiEndpoint = {
   description: string;
   path: string;
   request: ReturnType<OASBuilder["generateRequest"]>;
-  responseExamples: Array<ApiResponseExample>;
+  responseExamples: CodePreviewSelectOptions;
   isDeprecated?: boolean;
   parameterTypes?: EndpointParamTypeGroup;
 };

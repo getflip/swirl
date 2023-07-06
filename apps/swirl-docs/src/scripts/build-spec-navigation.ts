@@ -110,7 +110,10 @@ function generateFileList(paths: string[], rootPath?: string): NavItem[] {
   const filteredPaths = paths.filter((pathItem) => {
     const fullPath = rootPath ? `${rootPath}/${pathItem}` : pathItem;
     const absolutePath = path.join(API_DOCS_PATH, fullPath);
-    return !fs.statSync(absolutePath).isDirectory();
+
+    return (
+      !fs.statSync(absolutePath).isDirectory() && !fullPath.includes(".gitkeep")
+    );
   });
 
   const items = filteredPaths.map((pathItem) => {

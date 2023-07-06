@@ -1,7 +1,7 @@
 import { Request } from "har-format";
 import { ReactNode } from "react";
 
-type CodePreviewSelectOptions = Record<string, string>;
+export type CodePreviewSelectOptions = Record<string, string>;
 
 export type CodePreview = {
   codeExample: {
