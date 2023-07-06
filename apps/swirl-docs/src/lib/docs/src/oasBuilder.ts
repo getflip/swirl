@@ -254,12 +254,10 @@ export default class OASBuilder implements IOASBuilder {
     const responseExamplesList = operation.getResponseExamples();
     const responseExamples = responseExamplesList.reduce(
       (acc: CodePreviewSelectOptions, example) => {
-        // Assuming each MediaTypeObject has a 'code' property
         const firstMediaTypeCode = Object.values(
           example.mediaTypes
         )[0] as Array<unknown>;
 
-        // Only add the status if there is a corresponding code
         if (firstMediaTypeCode) {
           acc[example.status] = JSON.stringify(firstMediaTypeCode[0], null, 2);
         }

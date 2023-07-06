@@ -28,8 +28,6 @@ import {
   ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
 import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
-import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
-import { ResponseExamples } from "oas/dist/operation/get-response-examples";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
