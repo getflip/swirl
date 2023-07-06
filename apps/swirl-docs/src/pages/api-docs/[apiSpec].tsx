@@ -6,20 +6,17 @@ import {
   createStaticPathsForSpecs,
   serializeMarkdownString,
 } from "@swirl/lib/docs";
-import Head from "next/head";
-import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
-import OASNormalize from "oas-normalize";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { CodePreview } from "src/components/CodePreview";
-import { Tag } from "src/components/Tags";
-import { Parameter } from "src/components/Documentation/Parameter";
-import { SchemaObject } from "oas/dist/rmoas.types";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
-import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
+import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
+import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
+import OASNormalize from "oas-normalize";
+import { RequestBodyObject, SchemaObject } from "oas/dist/rmoas.types";
+import { OpenAPIV3_1 } from "openapi-types/dist";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { CodePreview } from "src/components/CodePreview";
 import {
   EndpointUrl,
   HttpMethod,
@@ -27,8 +24,10 @@ import {
   ResponseIndicator,
   ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
-import { SupportedTargets } from "@readme/oas-to-snippet";
-import { ResponseObject } from "openapi-typescript";
+import { Parameter } from "src/components/Documentation/Parameter";
+import { Tag } from "src/components/Tags";
+import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
+import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -99,9 +98,9 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
       }));
 
       const requestBodySchema =
-        (endpoint.operation.schema.requestBody as any)?.content?.[
-          "application/json"
-        ]?.schema || null;
+        ((endpoint.operation.schema.requestBody as RequestBodyObject)
+          ?.content?.["application/json"]
+          ?.schema as OpenAPIV3_1.BaseSchemaObject) || null;
 
       return {
         title: endpoint.title,
@@ -173,6 +172,41 @@ export const getStaticProps: GetStaticProps = async (context) => {
 // CLIENT CODE
 export default function Document({ document }: { document: ApiDocumentation }) {
   const router = useRouter();
+
+  function renderNestedProperties(
+    endpoint: any,
+    properties:
+      | {
+          [name: string]: SchemaObject;
+        }
+      | undefined
+  ) {
+    return Object.entries(properties || {}).map(([name, property]) => {
+      const type = String(
+        (property as SchemaObject).type ||
+          (property as SchemaObject).allOf
+            ?.map((prop) => (prop as SchemaObject).type)
+            .join(" | ")
+      );
+
+      return (
+        <Parameter
+          key={`request-body-property-${name}`}
+          name={name}
+          type={type}
+          description={property.description}
+          required={endpoint.required?.includes(name)}
+        >
+          {(property as any).items
+            ? renderNestedProperties(
+                (property as any).items,
+                (property as any).items.properties
+              )
+            : null}
+        </Parameter>
+      );
+    });
+  }
 
   return (
     <>
@@ -285,6 +319,18 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                               );
                             }
                           )}
+
+                          <div className="mb-6">
+                            <Heading level={4} className="mb-2">
+                              Request Body
+                            </Heading>
+                            <div>
+                              {renderNestedProperties(
+                                endpoint,
+                                endpoint.requestBodySchema?.properties
+                              )}
+                            </div>
+                          </div>
                         </div>
                       </div>
                       {/** CODE PREVIEWS */}
