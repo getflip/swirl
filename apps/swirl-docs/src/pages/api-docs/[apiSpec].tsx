@@ -1,3 +1,4 @@
+import { SwirlIconLock } from "@getflip/swirl-components-react";
 import {
   ApiDocumentation,
   ApiEndpoint,
@@ -136,6 +137,7 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
         requestBodySchema,
         responseExamples: examples,
         responseBodySchemas,
+        security: endpoint.operation.api.security,
       };
     }),
   };
@@ -280,6 +282,15 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             )}
                           </Heading>
                         </LinkedHeading>
+                        {endpoint.security?.length && (
+                          <div className="mb-space-16">
+                            <p className="mb-space-8 flex gap-space-4 text-font-size-sm font-font-weight-medium text-text-critical">
+                              <SwirlIconLock size={16} /> Requires
+                              authentication via{" "}
+                              {Object.keys(endpoint.security[0])[0]}.
+                            </p>
+                          </div>
+                        )}
                         <ReactMarkdown
                           className="text-base mb-6"
                           components={{

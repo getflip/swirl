@@ -134,6 +134,7 @@ export type ApiEndpoint = {
   responseBodySchemas: Array<ResponseBodySchema>;
   isDeprecated?: boolean;
   parameterTypes?: EndpointParamTypeGroup;
+  security?: OpenAPIV3_1.SecurityRequirementObject[];
 };
 
 export type ApiDocumentation = {
