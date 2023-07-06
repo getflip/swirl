@@ -8,7 +8,7 @@ import { SwirlIconAdd, SwirlIconRemove } from "@getflip/swirl-components-react";
 interface ParameterProps {
   children?: ReactNode;
   name: string;
-  type: string;
+  type?: string;
   required?: boolean;
   description?: string;
 }
@@ -37,8 +37,17 @@ export function Parameter({
       )}
     >
       <div className="flex items-center">
-        <code className="text-sm font-font-weight-bold mr-2">{name}</code>
-        <Tag content={type} />
+        <code
+          className={classNames("text-sm font-font-weight-bold mr-2", {
+            "text-text-success": name.match(/^2\d\d$/),
+            "text-text-warning": name.match(/^3\d\d$/),
+            "text-text-critical":
+              name.match(/^4\d\d$/) || name.match(/^5\d\d$/),
+          })}
+        >
+          {name}
+        </code>
+        {type && <Tag content={type} />}
         {required && <Tag content="required" scheme="critical" />}
       </div>
       {description && (

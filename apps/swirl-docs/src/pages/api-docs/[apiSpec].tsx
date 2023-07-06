@@ -185,7 +185,8 @@ export default function Document({ document }: { document: ApiDocumentation }) {
       const type = String(
         (property as SchemaObject).type ||
           (property as SchemaObject).allOf
-            ?.map((prop) => (prop as SchemaObject).type)
+            ?.map((prop: any) => prop?.type)
+            .filter((prop: any) => prop?.type)
             .join(" | ")
       );
 
@@ -197,7 +198,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
           description={property.description}
           required={endpoint.required?.includes(name)}
         >
-          {(property as any).items
+          {(property as any).items?.properties
             ? renderNestedProperties(
                 (property as any).items,
                 (property as any).items.properties
@@ -207,6 +208,8 @@ export default function Document({ document }: { document: ApiDocumentation }) {
       );
     });
   }
+
+  console.log(document);
 
   return (
     <>
@@ -320,17 +323,47 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             }
                           )}
 
-                          <div className="mb-6">
-                            <Heading level={4} className="mb-2">
-                              Request Body
-                            </Heading>
-                            <div>
-                              {renderNestedProperties(
-                                endpoint,
-                                endpoint.requestBodySchema?.properties
-                              )}
+                          {endpoint.requestBodySchema && (
+                            <div className="mb-6">
+                              <Heading level={4} className="mb-2">
+                                Request Body
+                              </Heading>
+                              <div>
+                                {renderNestedProperties(
+                                  endpoint,
+                                  endpoint.requestBodySchema?.properties
+                                )}
+                              </div>
                             </div>
-                          </div>
+                          )}
+
+                          {endpoint.responseBodySchemas.length && (
+                            <div className="mb-6">
+                              <Heading level={4} className="mb-2">
+                                Response Body
+                              </Heading>
+                              <div>
+                                {endpoint.responseBodySchemas.map(
+                                  (responseBodySchema) => {
+                                    return (
+                                      <Parameter
+                                        key={responseBodySchema.statusCode}
+                                        name={responseBodySchema.statusCode}
+                                      >
+                                        {responseBodySchema.schema?.properties
+                                          ? renderNestedProperties(
+                                              responseBodySchema.schema,
+                                              responseBodySchema.schema
+                                                .properties
+                                            )
+                                          : null}
+                                      </Parameter>
+                                    );
+                                  }
+                                )}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                       {/** CODE PREVIEWS */}
