@@ -11,6 +11,7 @@ interface ParameterProps {
   type?: string;
   required?: boolean;
   description?: string;
+  enumValues?: string[];
 }
 
 export function Parameter({
@@ -19,6 +20,7 @@ export function Parameter({
   type,
   description,
   required,
+  enumValues,
 }: ParameterProps) {
   const [expanded, setExpanded] = useState(false);
 
@@ -65,6 +67,35 @@ export function Parameter({
         >
           {description}
         </ReactMarkdown>
+      )}
+      {enumValues?.length && (
+        <div className="mt-space-8">
+          <div
+            className={classNames(
+              "border-border-1 border-border-default p-4",
+              "first-of-type:rounded-t-border-radius-sm last-of-type:rounded-b-border-radius-sm",
+              "border-b-0 last-of-type:border-border-1",
+              "only:rounded-border-radius-sm only:border-border-1"
+            )}
+          >
+            <span className="font-font-weight-medium text-font-size-sm text-text-subdued">
+              Possible enum values
+            </span>
+          </div>
+          <div
+            className={classNames(
+              "flex flex-wrap gap-y-space-8",
+              "border-border-1 border-border-default p-4",
+              "first-of-type:rounded-t-border-radius-sm last-of-type:rounded-b-border-radius-sm",
+              "border-b-0 last-of-type:border-border-1",
+              "only:rounded-border-radius-sm only:border-border-1"
+            )}
+          >
+            {enumValues.map((value) => (
+              <Tag key={value} content={value} />
+            ))}
+          </div>
+        </div>
       )}
       {children && (
         <div className="mt-space-8 empty:mt-0">

@@ -190,6 +190,9 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             .join(" | ")
       );
 
+      const enumValues = (property.allOf?.[0] as SchemaObject)
+        ?.enum as string[];
+
       return (
         <Parameter
           key={`request-body-property-${name}`}
@@ -197,6 +200,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
           type={type}
           description={property.description}
           required={endpoint.required?.includes(name)}
+          enumValues={enumValues}
         >
           {(property as any).items?.properties
             ? renderNestedProperties(
