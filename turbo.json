@@ -53,8 +53,8 @@
       "dependsOn": [
         "prebuild",
         "prebuild:api-docs",
-        "stencil:build",
-        "@getflip/swirl-tokens#build"
+        "^stencil:build",
+        "@getflip/swirl-components-react#build"
       ]
     },
     "stencil:build": {
