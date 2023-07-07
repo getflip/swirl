@@ -2,6 +2,8 @@ import fetch from "node-fetch";
 import fs from "fs";
 import { env } from "@swirl/lib/env/server.config";
 import path from "path";
+import { isProd } from "@swirl/lib/env";
+import { promisify } from "util";
 
 type RepositoryTreeItem = {
   id: string;
@@ -36,6 +38,10 @@ async function fetchData() {
 
   if (docs) {
     await Promise.all(docs.map((doc) => processFileOrTree(doc)));
+  }
+
+  if (isProd) {
+    fetchComponentsJSON();
   }
 }
 
@@ -118,6 +124,29 @@ function checkAndCreateSpecsDir() {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
     console.log("Directory 'specs' is created.");
+  }
+}
+
+/*******************************************************************************
+ * Components.json caching
+ ********************************************************************************/
+const writeFile = promisify(fs.writeFile);
+
+async function fetchComponentsJSON() {
+  const componentsJSONEndpoint = `https://www.unpkg.com/@getflip/swirl-components@latest/components.json`;
+
+  try {
+    const response = await fetch(componentsJSONEndpoint);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+      const jsonData = await response.json();
+      await writeFile("./components.json", JSON.stringify(jsonData, null, 2));
+
+      console.log("components.json was cached.");
+    }
+  } catch (error) {
+    console.error("There was a problem with the fetch operation:", error);
   }
 }
 

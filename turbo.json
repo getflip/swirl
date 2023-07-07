@@ -37,20 +37,20 @@
     "build:spec-navigation": {
       "outputs": ["src/lib/navigation/src/data/apiDocs.data.ts"]
     },
-    "fetch:spec": {
-      "outputs": ["specs/**", "problem.yml", "shared.yml"]
+    "prebuild": {
+      "outputs": ["specs/**", "problem.yml", "shared.yml", "components.json"]
     },
     "build:swirl-docs": {
       "outputs": [".next/**"],
       "dependsOn": [
-        "swirl-docs#fetch:spec",
+        "prebuild",
         "swirl-docs#build:spec-navigation",
         "^stencil:build",
         "@getflip/swirl-components-react#build"
       ]
     },
     "stencil:build": {
-      "outputs": ["dist/**"],
+      "outputs": ["dist/**", "components.json"],
       "dependsOn": ["@getflip/swirl-tokens#build"]
     }
   }

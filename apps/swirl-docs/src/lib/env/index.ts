@@ -6,6 +6,8 @@ declare global {
   }
 }
 
+export const isProd = process.env.NODE_ENV === "production";
+
 export const envVariables = z.object({
   GOOGLE_TAG_MANAGER_ID: z.string(),
   NEXT_PUBLIC_ALGOLIA_APP_ID: z.string(),

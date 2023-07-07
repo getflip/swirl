@@ -1,7 +1,6 @@
 import { NavLink } from "@swirl/lib/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import PreFooter from "./PreFooter";
 import classNames from "classnames";
 
 const links: NavLink[] = [
