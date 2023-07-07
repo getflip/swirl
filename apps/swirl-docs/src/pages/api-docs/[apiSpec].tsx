@@ -1,3 +1,4 @@
+import { SwirlIconLock } from "@getflip/swirl-components-react";
 import {
   ApiDocumentation,
   ApiEndpoint,
@@ -6,20 +7,17 @@ import {
   createStaticPathsForSpecs,
   serializeMarkdownString,
 } from "@swirl/lib/docs";
-import Head from "next/head";
-import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
-import OASNormalize from "oas-normalize";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { CodePreview } from "src/components/CodePreview";
-import { Tag } from "src/components/Tags";
-import { Parameter } from "src/components/Documentation/Parameter";
-import { SchemaObject } from "oas/dist/rmoas.types";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
-import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
+import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
+import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
+import OASNormalize from "oas-normalize";
+import { RequestBodyObject, SchemaObject } from "oas/dist/rmoas.types";
+import { OpenAPIV3_1 } from "openapi-types/dist";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { CodePreview } from "src/components/CodePreview";
 import {
   EndpointUrl,
   HttpMethod,
@@ -27,7 +25,10 @@ import {
   ResponseIndicator,
   ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
-import { SupportedTargets } from "@readme/oas-to-snippet";
+import { Parameter } from "src/components/Documentation/Parameter";
+import { Tag } from "src/components/Tags";
+import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
+import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -90,6 +91,18 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
       const parameterTypes =
         endpoint.operation.getParametersAsJSONSchema() || [];
 
+      const responseBodySchemas = Object.entries(
+        endpoint.operation.schema.responses || {}
+      ).map(([statusCode, response]) => ({
+        schema: response.content?.["application/json"]?.schema || null,
+        statusCode,
+      }));
+
+      const requestBodySchema =
+        ((endpoint.operation.schema.requestBody as RequestBodyObject)
+          ?.content?.["application/json"]
+          ?.schema as OpenAPIV3_1.BaseSchemaObject) || null;
+
       return {
         title: endpoint.title,
         description: endpoint.operation.getDescription() || "",
@@ -121,7 +134,10 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
           return { title: label, type, parameters: [] };
         }),
         request,
+        requestBodySchema,
         responseExamples: examples,
+        responseBodySchemas,
+        security: endpoint.operation.api.security,
       };
     }),
   };
@@ -158,6 +174,46 @@ export const getStaticProps: GetStaticProps = async (context) => {
 // CLIENT CODE
 export default function Document({ document }: { document: ApiDocumentation }) {
   const router = useRouter();
+
+  function renderNestedProperties(
+    endpoint: any,
+    properties:
+      | {
+          [name: string]: SchemaObject;
+        }
+      | undefined
+  ) {
+    return Object.entries(properties || {}).map(([name, property]) => {
+      const type = String(
+        (property as SchemaObject).type ||
+          (property as SchemaObject).allOf
+            ?.map((prop: any) => prop?.type)
+            .filter((prop: any) => prop?.type)
+            .join(" | ")
+      );
+
+      const enumValues = (property.allOf?.[0] as SchemaObject)
+        ?.enum as string[];
+
+      return (
+        <Parameter
+          key={`request-body-property-${name}`}
+          name={name}
+          type={type}
+          description={property.description}
+          required={endpoint.required?.includes(name)}
+          enumValues={enumValues}
+        >
+          {(property as any).items?.properties
+            ? renderNestedProperties(
+                (property as any).items,
+                (property as any).items.properties
+              )
+            : null}
+        </Parameter>
+      );
+    });
+  }
 
   return (
     <>
@@ -226,6 +282,15 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             )}
                           </Heading>
                         </LinkedHeading>
+                        {endpoint.security?.length && (
+                          <div className="mb-space-16">
+                            <p className="mb-space-8 flex gap-space-4 text-font-size-sm font-font-weight-medium text-text-critical">
+                              <SwirlIconLock className="mt-[1px]" size={16} />{" "}
+                              Requires authentication via{" "}
+                              {Object.keys(endpoint.security[0])[0]}.
+                            </p>
+                          </div>
+                        )}
                         <ReactMarkdown
                           className="text-base mb-6"
                           components={{
@@ -269,6 +334,48 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                                 </div>
                               );
                             }
+                          )}
+
+                          {endpoint.requestBodySchema && (
+                            <div className="mb-6">
+                              <Heading level={4} className="mb-2">
+                                Request Body
+                              </Heading>
+                              <div>
+                                {renderNestedProperties(
+                                  endpoint,
+                                  endpoint.requestBodySchema?.properties
+                                )}
+                              </div>
+                            </div>
+                          )}
+
+                          {endpoint.responseBodySchemas.length && (
+                            <div className="mb-6">
+                              <Heading level={4} className="mb-2">
+                                Response Body
+                              </Heading>
+                              <div>
+                                {endpoint.responseBodySchemas.map(
+                                  (responseBodySchema) => {
+                                    return (
+                                      <Parameter
+                                        key={responseBodySchema.statusCode}
+                                        name={responseBodySchema.statusCode}
+                                      >
+                                        {responseBodySchema.schema?.properties
+                                          ? renderNestedProperties(
+                                              responseBodySchema.schema,
+                                              responseBodySchema.schema
+                                                .properties
+                                            )
+                                          : null}
+                                      </Parameter>
+                                    );
+                                  }
+                                )}
+                              </div>
+                            </div>
                           )}
                         </div>
                       </div>
