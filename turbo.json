@@ -11,7 +11,7 @@
         "stencil-generated/**",
         ".next/**"
       ],
-      "dependsOn": ["^build", "swirl-docs#build:spec-navigation"]
+      "dependsOn": ["^build", "swirl-docs#prebuild:api-docs"]
     },
     "test": {
       "dependsOn": []
@@ -50,7 +50,12 @@
     },
     "build:swirl-docs": {
       "outputs": [".next/**"],
-      "dependsOn": ["prebuild", "prebuild:api-docs"]
+      "dependsOn": [
+        "prebuild",
+        "prebuild:api-docs",
+        "stencil:build",
+        "@getflip/swirl-tokens#build"
+      ]
     },
     "stencil:build": {
       "outputs": ["dist/**", "components.json"],
