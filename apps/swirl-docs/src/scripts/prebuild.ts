@@ -2,8 +2,6 @@ import fetch from "node-fetch";
 import fs from "fs";
 import { env } from "@swirl/lib/env/server.config";
 import path from "path";
-import { isProd } from "@swirl/lib/env";
-import { promisify } from "util";
 
 type RepositoryTreeItem = {
   id: string;
@@ -39,10 +37,6 @@ async function fetchData() {
   if (docs) {
     await Promise.all(docs.map((doc) => processFileOrTree(doc)));
   }
-
-  if (isProd) {
-    fetchComponentsJSON();
-  }
 }
 
 /*******************************************************************************
@@ -63,6 +57,12 @@ async function fetchDocData(doc: string, root?: string) {
     const docData = Buffer.from(json.content, "base64").toString("utf8");
 
     let docPath = "./src/documents/api";
+
+    if (!fs.existsSync(docPath)) {
+      console.log("Creating directory for api docs...");
+      fs.mkdirSync(docPath, { recursive: true });
+    }
+
     if (root) {
       fs.mkdirSync(path.join(docPath, root), { recursive: true });
       const docName = doc.split("/").pop()?.split(".")[0];
@@ -71,6 +71,8 @@ async function fetchDocData(doc: string, root?: string) {
       const docName = doc.split("/").pop()?.split(".")[0];
       docPath = `${docPath}/${docName}.mdx`;
     }
+
+    console.log("Writing doc data to file...", docPath);
 
     fs.writeFileSync(path.join("./", docPath), docData, "utf8");
     return docPath;
@@ -124,29 +126,6 @@ function checkAndCreateSpecsDir() {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
     console.log("Directory 'specs' is created.");
-  }
-}
-
-/*******************************************************************************
- * Components.json caching
- ********************************************************************************/
-const writeFile = promisify(fs.writeFile);
-
-async function fetchComponentsJSON() {
-  const componentsJSONEndpoint = `https://www.unpkg.com/@getflip/swirl-components@latest/components.json`;
-
-  try {
-    const response = await fetch(componentsJSONEndpoint);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    } else {
-      const jsonData = await response.json();
-      await writeFile("./components.json", JSON.stringify(jsonData, null, 2));
-
-      console.log("components.json was cached.");
-    }
-  } catch (error) {
-    console.error("There was a problem with the fetch operation:", error);
   }
 }
 

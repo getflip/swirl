@@ -15,10 +15,10 @@
     "build": "next build",
     "build:swirl-docs": "next build",
     "postbuild": "tsx src/scripts/build-search.ts",
-    "build:spec-navigation": "tsx src/scripts/build-spec-navigation.ts && prettier --write src/lib/navigation/src/data/apiDocs.data.ts",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "rm -rf components.json && rm -rf problem.yml && rm -rf shared.yml && rm -rf specs/** && tsx src/scripts/prebuild.ts"
+    "prebuild": "rm -rf components.json && rm -rf problem.yml && rm -rf shared.yml && rm -rf specs/** && tsx src/scripts/prebuild.ts",
+    "prebuild:api-docs": "tsx src/scripts/prebuild-api-docs.ts && prettier --write src/lib/navigation/src/data/apiDocs.data.ts"
   },
   "dependencies": {
     "@algolia/autocomplete-core": "^1.7.4",
