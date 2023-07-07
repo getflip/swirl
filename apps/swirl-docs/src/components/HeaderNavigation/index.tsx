@@ -66,30 +66,34 @@ const HeaderNavigation = () => {
             <div className="flex ">
               <HeaderLogo />
               <ul className="hidden md:flex flex-row items-center bg-background-default">
-                {navItems.map((link) => (
-                  <li
-                    key={link.url}
-                    className={classNames(
-                      "relative mr-space-24",
-                      "hover:text-border-info",
-                      "before:block before:absolute before:bottom-[-23px] before:w-full before:h-1 before:bg-border-info",
-                      {
-                        "before:opacity-100 text-border-info":
-                          activePath?.includes(link.url),
-                        "before:opacity-0": !activePath?.includes(link.url),
-                      }
-                    )}
-                  >
-                    <Link
-                      className={classNames("text-text-default text-base", {
-                        "text-text-highlight": activePath?.includes(link.url),
-                      })}
-                      href={link.url}
+                {navItems.map((link) => {
+                  const isActive =
+                    activePath.split("/")[1] === link.url.split("/")[1];
+
+                  return (
+                    <li
+                      key={link.url}
+                      className={classNames(
+                        "relative mr-space-24",
+                        "hover:text-border-info",
+                        "before:block before:absolute before:bottom-[-23px] before:w-full before:h-1 before:bg-border-info",
+                        {
+                          "before:opacity-100 text-border-info": isActive,
+                          "before:opacity-0": !isActive,
+                        }
+                      )}
                     >
-                      <a>{link.title}</a>
-                    </Link>
-                  </li>
-                ))}
+                      <Link
+                        className={classNames("text-text-default text-base", {
+                          "text-text-highlight": isActive,
+                        })}
+                        href={link.url}
+                      >
+                        <a>{link.title}</a>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <OpenSearchButton />

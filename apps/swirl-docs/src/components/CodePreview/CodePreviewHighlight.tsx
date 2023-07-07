@@ -6,20 +6,25 @@ import lightTheme from "prism-react-renderer/themes/nightOwlLight";
 
 export function CodePreviewHighlight() {
   const { isLightTheme, codeExample, isExpanded } = useCodePreviewContext();
+
+  const lang = (
+    codeExample.selectedId?.startsWith("2")
+      ? "json"
+      : codeExample.selectedId || "tsx"
+  ) as Language;
+
   return (
     <Highlight
       {...defaultProps}
       theme={isLightTheme ? lightTheme : darkTheme}
       code={codeExample.code}
-      language={
-        (codeExample.selectedId ? codeExample.selectedId : "tsx") as Language
-      }
+      language={lang}
     >
       {({ tokens, getLineProps, getTokenProps }) => {
         return (
           <pre
             className={classNames(
-              "cursor-text overflow-auto pt-space-16 md:pt-space-8 px-2 ",
+              "cursor-text overflow-auto pt-space-16 md:pt-space-8 px-2 grow",
               {
                 "pb-16": isExpanded,
                 "pb-space-16": !isExpanded || isLightTheme,
@@ -27,7 +32,7 @@ export function CodePreviewHighlight() {
               }
             )}
           >
-            <code>
+            <code className="text-font-size-sm">
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line, key: i })}>
                   {line.map((token, key) => (

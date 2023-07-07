@@ -1,8 +1,8 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import Oas, { Operation } from "oas";
 import { HttpMethods, OASDocument } from "oas/dist/rmoas.types";
+import { OpenAPIV3_1 } from "openapi-types/dist";
 import OASBuilder from "./oasBuilder";
-import { ResponseExamples } from "oas/dist/operation/get-response-examples";
 import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
 
 export enum DOCUMENTATION_SRC {
@@ -96,6 +96,7 @@ export type EndpointParam = {
   description: string;
   required: boolean;
 };
+
 export type EndpointParamType =
   | "path"
   | "query"
@@ -103,25 +104,37 @@ export type EndpointParamType =
   | "cookie"
   | "body"
   | "other";
+
 export type EndpointParamTypeGroup = Array<{
   type: EndpointParamType;
   title: string;
   parameters: Array<EndpointParam>;
 }>;
+
 export type ApiResponseExample = {
   status: string;
   mediaType: string;
   value: unknown;
 };
+
+export type ResponseBodySchema = {
+  schema: OpenAPIV3_1.BaseSchemaObject;
+  statusCode: string;
+};
+
 export type ApiEndpoint = {
   title: string;
   description: string;
   path: string;
   request: ReturnType<OASBuilder["generateRequest"]>;
   responseExamples: CodePreviewSelectOptions;
+  requestBodySchema: OpenAPIV3_1.BaseSchemaObject | null;
+  responseBodySchemas: Array<ResponseBodySchema>;
   isDeprecated?: boolean;
   parameterTypes?: EndpointParamTypeGroup;
+  security?: OpenAPIV3_1.SecurityRequirementObject[];
 };
+
 export type ApiDocumentation = {
   title: string;
   shortDescription: string;

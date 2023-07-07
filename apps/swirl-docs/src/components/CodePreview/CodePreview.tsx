@@ -82,6 +82,7 @@ export function CodePreview({
             className,
             "box-border relative max-w-full w-full rounded-xl",
             "p-2",
+            "flex flex-col",
             {
               "md:h-[240px] md:max-h-[240px] overflow-hidden":
                 !isExpanded && !isLightTheme,
