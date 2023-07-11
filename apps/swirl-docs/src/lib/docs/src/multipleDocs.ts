@@ -14,7 +14,7 @@ import {
   StaticPathMapType,
 } from "./docs.model";
 
-export const StaticPathMap: StaticPathMapType = {
+export const StaticPathMap = {
   components: "componentDoc",
   icons: "iconDoc",
   tokens: "tokenDoc",

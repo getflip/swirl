@@ -28,13 +28,6 @@ export enum DOCUMENTATION_CATEGORY {
   API_DOCS = "apiDocs",
 }
 
-export enum DOCUMENT_TYPE {
-  COMPONENTS = "componentDoc",
-  TOKENS = "tokenDoc",
-  ICONS = "iconDoc",
-  API_DOCS = "apiDoc",
-}
-
 export type DocCategory = {
   name: string;
   path: string;
