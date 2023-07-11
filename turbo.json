@@ -11,7 +11,7 @@
         "stencil-generated/**",
         ".next/**"
       ],
-      "dependsOn": ["^build", "swirl-docs#prebuild:api-docs"]
+      "dependsOn": ["^build"]
     },
     "test": {
       "dependsOn": []
