@@ -33,6 +33,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: yarn
-      - run: yarn build --filter=@getflip/swirl-tokens
+      - run: npx turbo run build --filter="@getflip/swirl-tokens"
       - run: yarn lint
       - run: yarn test
