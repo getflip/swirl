@@ -29,7 +29,7 @@ module.exports = {
       gridTemplateColumns: {
         "documentation-layout": " 320px minmax(0, 1fr)",
         "fill-rows": "repeat(auto-fill, 10rem)",
-        "icon-grid": "1fr 280px",
+        "icon-grid": "50rem 17.5rem",
         "icon-grid-4xl": "repeat(6, 1fr)",
         "color-token-list": "24px 16rem 9rem 1fr",
         "typography-token-list": "48px repeat(3, 1fr)",

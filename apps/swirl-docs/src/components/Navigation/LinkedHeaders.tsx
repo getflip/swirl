@@ -1,3 +1,5 @@
+import { Heading } from "../swirl-recreations";
+
 interface HeadlineProps
   extends React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLHeadingElement>,
@@ -8,44 +10,44 @@ interface HeadlineProps
 
 const H1 = ({ id, ...rest }: HeadlineProps) => {
   if (id) {
-    return <h1 id={id} {...rest} />;
+    return <Heading level={1} id={id} {...rest} />;
   }
-  return <h1 {...rest} />;
+  return <Heading level={1} {...rest} />;
 };
 
 const H2 = ({ id, ...rest }: HeadlineProps) => {
   if (id) {
-    return <h2 id={id} {...rest} />;
+    return <Heading level={2} id={id} {...rest} />;
   }
-  return <h2 {...rest} />;
+  return <Heading level={2} {...rest} />;
 };
 
 const H3 = ({ id, ...rest }: HeadlineProps) => {
   if (id) {
-    return <h3 id={id} {...rest} />;
+    return <Heading level={3} id={id} {...rest} />;
   }
-  return <h3 {...rest} />;
+  return <Heading level={3} {...rest} />;
 };
 
 const H4 = ({ id, ...rest }: HeadlineProps) => {
   if (id) {
-    return <h4 id={id} {...rest} />;
+    return <Heading level={4} id={id} {...rest} />;
   }
-  return <h4 {...rest} />;
+  return <Heading level={4} {...rest} />;
 };
 
 const H5 = ({ id, ...rest }: HeadlineProps) => {
   if (id) {
-    return <h5 id={id} {...rest} />;
+    return <Heading level={4} id={id} {...rest} />;
   }
-  return <h5 {...rest} />;
+  return <Heading level={4} {...rest} />;
 };
 
 const H6 = ({ id, ...rest }: HeadlineProps) => {
   if (id) {
-    return <h6 id={id} {...rest} />;
+    return <Heading level={4} {...rest} />;
   }
-  return <h6 {...rest} />;
+  return <Heading level={4} {...rest} />;
 };
 
 export const LinkedHeaders = {

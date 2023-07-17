@@ -50,8 +50,11 @@ const IconsIndex = () => {
         <title>Swirl | Icons</title>
       </Head>
       <div className="overflow-auto">
-        <main id="main" className="w-full h-full pt-14">
-          <section className="flex flex-col px-4 md:px-24">
+        <main
+          id="main"
+          className="relative md:grid md:grid-cols-icon-grid gap-8 pt-14 max-w-[1112px] mx-auto"
+        >
+          <div>
             <div className="mb-16">
               <h1 className="mb-4 font-bold text-4xl text-text-default">
                 Icons
@@ -61,25 +64,19 @@ const IconsIndex = () => {
                 searchQuery={searchWord}
               />
             </div>
-            <div className="flex md:grid md:grid-cols-icon-grid w-full">
-              <div className="w-full">
-                <h2 className="mb-4 font-semibold text-font-size-xl text-text-default">
-                  Icon List
-                </h2>
-                <IconGrid
-                  selectedIcon={selectedIcon}
-                  iconList={filteredIcons}
-                  icons={icons}
-                  handleTileClick={(iconname) =>
-                    setSelectedIcon(icons[iconname])
-                  }
-                />
-              </div>
-              <DesktopView>
-                <IconInfo icon={selectedIcon} />
-              </DesktopView>
-            </div>
-          </section>
+            <h2 className="mb-4 font-semibold text-font-size-xl text-text-default">
+              Icon List
+            </h2>
+            <IconGrid
+              selectedIcon={selectedIcon}
+              iconList={filteredIcons}
+              icons={icons}
+              handleTileClick={(iconname) => setSelectedIcon(icons[iconname])}
+            />
+          </div>
+          <DesktopView>
+            <IconInfo icon={selectedIcon} />
+          </DesktopView>
         </main>
       </div>
       <Footer />
