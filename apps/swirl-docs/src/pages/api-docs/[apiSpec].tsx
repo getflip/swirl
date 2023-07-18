@@ -29,6 +29,7 @@ import { Parameter } from "src/components/Documentation/Parameter";
 import { Tag } from "src/components/Tags";
 import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
+import { isProd } from "@swirl/lib/env";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -235,7 +236,11 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             {/* REMOVED FOR NOW: <DocumentationLayout.MDX /> (currently contains changelog, could contain more information in new specs) */}
             <div className="mt-20">
               {document.endpoints?.map((endpoint, index) => {
-                const path = `https://getflip.dev${router.asPath}`; // TODO: use env variable
+                const host = isProd
+                  ? "https://getflip.dev"
+                  : "http://localhost:3000";
+
+                const path = `${host}${router.asPath}`;
                 const endpointId = endpoint.path.split("#")[1];
 
                 const initialResponseExampleStatus = Object.keys(
@@ -253,7 +258,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                         <LinkedHeading
                           href={`${path}#${endpoint.path.split("#")[1]}`}
                         >
-                          <Heading level={3} headingId={endpointId}>
+                          <Heading level={3} id={endpointId}>
                             {endpoint.title}
                             {endpoint.isDeprecated && (
                               <span className="ml-2 inline-flex">

@@ -28,7 +28,7 @@ type HeadingProps = DetailedHTMLProps<
   align?: HeadingAlign;
   as?: HeadingTag;
   balance?: boolean;
-  headingId?: string;
+  id?: string;
   level?: HeadingLevel;
   lines?: number;
   truncate?: boolean;
@@ -38,7 +38,7 @@ export const Heading: React.FC<HeadingProps> = ({
   align = "start",
   as,
   balance = true,
-  headingId,
+  id,
   level = 1,
   lines,
   children,
@@ -87,7 +87,7 @@ export const Heading: React.FC<HeadingProps> = ({
         },
         className
       )}
-      id={headingId}
+      id={id}
       ref={headingEl as LegacyRef<HTMLHeadingElement>}
     >
       {children}

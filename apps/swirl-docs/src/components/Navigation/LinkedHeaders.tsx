@@ -1,4 +1,4 @@
-import { Heading } from "../swirl-recreations";
+import { Heading, LinkedHeading } from "../swirl-recreations";
 
 interface HeadlineProps
   extends React.DetailedHTMLProps<
@@ -6,46 +6,71 @@ interface HeadlineProps
     HTMLHeadingElement
   > {
   id: string;
+  href?: string;
 }
 
-const H1 = ({ id, ...rest }: HeadlineProps) => {
-  if (id) {
-    return <Heading level={1} id={id} {...rest} />;
+const H1 = ({ id, href, ...rest }: HeadlineProps) => {
+  if (id && href) {
+    return (
+      <LinkedHeading href={href}>
+        <Heading level={1} id={id} {...rest} />
+      </LinkedHeading>
+    );
   }
   return <Heading level={1} {...rest} />;
 };
 
-const H2 = ({ id, ...rest }: HeadlineProps) => {
-  if (id) {
-    return <Heading level={2} id={id} {...rest} />;
+export const H2 = ({ id, href, ...rest }: HeadlineProps) => {
+  if (id && href) {
+    return (
+      <LinkedHeading href={href}>
+        <Heading level={2} id={id} {...rest} />
+      </LinkedHeading>
+    );
   }
   return <Heading level={2} {...rest} />;
 };
 
-const H3 = ({ id, ...rest }: HeadlineProps) => {
-  if (id) {
-    return <Heading level={3} id={id} {...rest} />;
+export const H3 = ({ id, href, ...rest }: HeadlineProps) => {
+  if (id && href) {
+    return (
+      <LinkedHeading href={href}>
+        <Heading level={3} {...rest} />
+      </LinkedHeading>
+    );
   }
   return <Heading level={3} {...rest} />;
 };
 
-const H4 = ({ id, ...rest }: HeadlineProps) => {
-  if (id) {
-    return <Heading level={4} id={id} {...rest} />;
+const H4 = ({ id, href, ...rest }: HeadlineProps) => {
+  if (id && href) {
+    return (
+      <LinkedHeading href={id}>
+        <Heading level={4} {...rest} />
+      </LinkedHeading>
+    );
   }
   return <Heading level={4} {...rest} />;
 };
 
-const H5 = ({ id, ...rest }: HeadlineProps) => {
-  if (id) {
-    return <Heading level={4} id={id} {...rest} />;
+const H5 = ({ id, href, ...rest }: HeadlineProps) => {
+  if (id && href) {
+    return (
+      <LinkedHeading href={id}>
+        <Heading level={4} {...rest} />
+      </LinkedHeading>
+    );
   }
   return <Heading level={4} {...rest} />;
 };
 
-const H6 = ({ id, ...rest }: HeadlineProps) => {
-  if (id) {
-    return <Heading level={4} {...rest} />;
+const H6 = ({ id, href, ...rest }: HeadlineProps) => {
+  if (id && href) {
+    return (
+      <LinkedHeading href={id}>
+        <Heading level={4} {...rest} />
+      </LinkedHeading>
+    );
   }
   return <Heading level={4} {...rest} />;
 };

@@ -10,7 +10,6 @@ import {
 } from "../Tags";
 import { HttpMethods } from "oas/dist/rmoas.types";
 import Image from "next/image";
-
 import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -37,17 +36,6 @@ const CategoryNavSubItem = ({
       transition: {
         when: "beforeChildren",
         staggerChildren: 0.01,
-      },
-    },
-  };
-
-  const listItem = {
-    hidden: { x: -10, opacity: 0 },
-    show: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.125,
       },
     },
   };
@@ -125,11 +113,7 @@ const CategoryNavSubItem = ({
                 const isCurrentPath = activePath.includes(item.url);
 
                 return (
-                  <motion.li
-                    key={index}
-                    className="flex items-center ml-6"
-                    variants={listItem}
-                  >
+                  <motion.li key={index} className="flex items-center ml-6">
                     <WrappingAnchor
                       href={`${item.url}`}
                       item={item}

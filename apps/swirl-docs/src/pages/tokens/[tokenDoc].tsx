@@ -6,7 +6,7 @@ import {
 } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
-import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
+import { H2, H3, LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import TokensList from "src/components/Tokens/TokensList";
 import { ColorTokens } from "src/components/Tokens/ColorTokens";
 import { TypographyTokens } from "src/components/Tokens/TypographyTokens";
@@ -17,6 +17,8 @@ import { GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
 import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { useRouter } from "next/router";
+import { isProd } from "@swirl/lib/env";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
@@ -64,6 +66,9 @@ export default function Component({
   frontMatter: FrontMatter;
   title: string;
 }) {
+  const router = useRouter();
+  const host = isProd ? "https://getflip.dev" : "http://localhost:3000";
+  const path = `${host}${router.route.replace("[tokenDoc]", "")}${title}`;
   const components = {
     TokensList,
     ColorTokens,
@@ -73,7 +78,10 @@ export default function Component({
     ZIndexTokens,
     p: (props: any) => <p className="mb-4" {...props} />,
     ...LinkedHeaders,
+    h2: (props: any) => <H2 {...props} href={`${path}#${props.id}`} />,
   } as MDXRemoteProps["components"];
+
+  console.log("ROUTE IS", router.route.replace("[tokenDoc]", ""), title);
 
   return (
     <>
