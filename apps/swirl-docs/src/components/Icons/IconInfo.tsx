@@ -9,7 +9,7 @@ interface IconInfoProps {
 
 export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => {
   return (
-    <aside className="sticky top-0 max-w-[17.5rem] mt-[200px]">
+    <aside className="sticky top-8 max-w-[17.5rem] mt-[12.5rem] h-fit">
       <h2 className="font-semibold text-font-size-xl mb-2 text-text-default">
         {icon?.name}
       </h2>

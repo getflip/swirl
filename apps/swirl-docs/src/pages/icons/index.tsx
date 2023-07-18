@@ -52,11 +52,11 @@ const IconsIndex = () => {
       <div className="overflow-auto">
         <main
           id="main"
-          className="relative md:grid md:grid-cols-icon-grid gap-8 pt-14 max-w-[1112px] mx-auto"
+          className="relative md:grid md:grid-cols-icon-grid gap-8 pt-14 max-w-[1112px] px-4 md:px-0 md:mx-auto"
         >
           <div>
-            <div className="mb-16">
-              <h1 className="mb-4 font-bold text-4xl text-text-default">
+            <div className="mb-12">
+              <h1 className="mb-3 font-bold text-4xl text-text-default">
                 Icons
               </h1>
               <SearchBar

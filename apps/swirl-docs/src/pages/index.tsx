@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
       <div className="flex flex-col items-center h-[calc(100vh_-_72px)] md:px-space-16 overflow-auto">
         <main id="main" className="grow w-full max-w-[90rem] pb-space-64">
-          <header className="bg-surface-info-subdued flex items-center md:h-[28.75rem] md:rounded-b-[1.5rem] mb-space-48 md:mb-space-64 px-space-16 py-space-32">
+          <header className="bg-surface-info-subdued flex items-center md:h-[28.75rem] md:rounded-b-[1.5rem] mb-16 md:mb-space-64 px-space-16 py-space-32">
             <div className="flex flex-col md:flex-row md:items-center w-full gap-4 justify-between md:max-w-[50rem] mx-auto">
               <div className="basis-0 grow max-w-[22.5rem]">
                 <h1 className="font-bold text-[2.5rem] mb-space-8">
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
 
           <section
             aria-labelledby="heading-get-started"
-            className="px-space-16 mb-space-40"
+            className="px-space-16 mb-10"
           >
             <div className="max-w-[50rem] mx-auto">
               <h2
