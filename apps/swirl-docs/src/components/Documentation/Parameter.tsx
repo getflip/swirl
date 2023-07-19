@@ -66,7 +66,7 @@ export function Parameter({
             p: (props) => <Text size="sm" {...props} />,
             code: (props) => (
               <code
-                className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
+                className="bg-gray-100 rounded-md p-[2px] text-sm font-font-family-code"
                 {...{ ...props, inline: "inline" }}
               />
             ),

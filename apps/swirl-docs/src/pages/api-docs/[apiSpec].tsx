@@ -282,7 +282,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             p: (props) => <Text {...props} size="sm" />,
                             code: (props) => (
                               <code
-                                className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
+                                className="bg-gray-100 rounded-md p-[2px] text-sm font-font-family-code"
                                 {...{ ...props, inline: "inline" }}
                               />
                             ),

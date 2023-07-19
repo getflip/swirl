@@ -25,7 +25,7 @@ export function CodePreviewHeader() {
       )}
     >
       <span className="shrink-0 basis-0">{PreviewIndicator}</span>
-      <span className="grow min-w-0" style={{ overflowWrap: "anywhere" }}>
+      <span className="grow min-w-" style={{ overflowWrap: "anywhere" }}>
         {MainHeaderContent}
       </span>
       <div className="shrink-0 basis-auto flex items-center">
