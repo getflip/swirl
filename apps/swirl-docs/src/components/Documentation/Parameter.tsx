@@ -5,6 +5,11 @@ import classNames from "classnames";
 import { ReactNode, useState } from "react";
 import { SwirlIconAdd, SwirlIconRemove } from "@getflip/swirl-components-react";
 import { AnimatePresence, motion } from "framer-motion";
+import {
+  HttpStatusCode,
+  getStatusText,
+  isValidStatusCode,
+} from "./HttpStatusCodeMapper";
 
 interface ParameterProps {
   children?: ReactNode;
@@ -48,7 +53,9 @@ export function Parameter({
               name.match(/^4\d\d$/) || name.match(/^5\d\d$/),
           })}
         >
-          {name}
+          {name}{" "}
+          {isValidStatusCode(name) &&
+            `${getStatusText(Number(name) as HttpStatusCode)}`}
         </code>
         {type && <Tag content={type} />}
         {required && <Tag content="required" scheme="critical" />}
@@ -63,6 +70,8 @@ export function Parameter({
                 {...{ ...props, inline: "inline" }}
               />
             ),
+            ul: (props) => <ul className="mt-2" {...props} />,
+            li: (props) => <li className="mb-2" {...props} />,
           }}
           className="text-sm text-text-default mt-2"
         >
