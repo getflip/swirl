@@ -187,14 +187,14 @@ async function validateAlgoliaEnvironment() {
 }
 
 function getTransformedData() {
-  const components = getAlgoliaDataForCategory(
-    DOCUMENTATION_CATEGORY.COMPONENTS
-  );
+  // const components = getAlgoliaDataForCategory(
+  //   DOCUMENTATION_CATEGORY.COMPONENTS
+  // );
   const tokens = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.TOKENS);
   const iconsData = createIconAlgoliaData();
   const singleTokensData = getAlgoliaDataForTokens();
 
-  return [...components, ...iconsData, ...tokens, ...singleTokensData];
+  return [...iconsData, ...tokens, ...singleTokensData];
 }
 
 async function saveAlgoliaData(transformed: Array<AlgoliaRecord>) {

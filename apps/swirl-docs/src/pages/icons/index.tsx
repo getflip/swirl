@@ -78,8 +78,8 @@ const IconsIndex = () => {
             <IconInfo icon={selectedIcon} />
           </DesktopView>
         </main>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };
