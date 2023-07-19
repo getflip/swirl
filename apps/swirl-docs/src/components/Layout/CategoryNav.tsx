@@ -73,7 +73,7 @@ const CategoryNavSubItem = ({
           {navItem.children && (
             <button
               aria-label="Expand"
-              className="flex justify-center items-center"
+              className="flex justify-center items-center text-text-subdued"
               onClick={() => setIsExpanded(!isExpanded)}
               aria-expanded={isExpanded}
             >
