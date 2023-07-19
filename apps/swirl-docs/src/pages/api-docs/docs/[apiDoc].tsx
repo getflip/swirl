@@ -1,22 +1,18 @@
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import {
-  DOCUMENTATION_CATEGORY,
-  FrontMatter,
-} from "@swirl/lib/docs/src/docs.model";
+import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import Head from "next/head";
-import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { createStaticPathsData } from "@swirl/lib/docs";
 import { ScriptProps } from "next/script";
 import { GetStaticProps } from "next";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
-import path from "path";
-import fs from "fs";
+import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
+import { Heading, Text } from "src/components/swirl-recreations";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
-    DOCUMENTATION_CATEGORY.COMPONENTS,
+    "api",
     document
   );
   return {
@@ -26,7 +22,7 @@ async function getComponentData(document: string) {
 }
 
 export async function getStaticPaths() {
-  const categoryDocs = createStaticPathsData(DOCUMENTATION_CATEGORY.COMPONENTS);
+  const categoryDocs = createStaticPathsData("api");
 
   return {
     paths: categoryDocs,
@@ -38,27 +34,15 @@ export const getStaticProps: GetStaticProps<
   ScriptProps,
   { componentDoc: string }
 > = async (context: any) => {
-  const { componentDoc } = context.params;
+  const { apiDoc } = context.params;
 
-  const data = await getComponentData(componentDoc);
-  const componentsJsonPath = path.join(
-    process.cwd(),
-    "../../",
-    "packages",
-    "swirl-components",
-    "components.json"
-  );
-
-  const componentsJson = JSON.parse(
-    fs.readFileSync(componentsJsonPath, "utf-8")
-  );
+  const data = await getComponentData(apiDoc);
 
   return {
     props: {
       document: data.document,
       frontMatter: data.frontMatter,
-      title: componentDoc,
-      componentsJson,
+      title: apiDoc,
     },
   };
 };
@@ -66,7 +50,7 @@ export const getStaticProps: GetStaticProps<
 export default function Component({
   document,
   frontMatter,
-  componentsJson,
+  title,
 }: {
   title: string;
   document: MDXRemoteSerializeResult<
@@ -74,9 +58,24 @@ export default function Component({
     Record<string, string>
   >;
   frontMatter: FrontMatter;
-  componentsJson: any;
 }) {
   const components = {
+    // h1: (props) => <Heading level={1} {...props} />,
+    // h2: (props) => <Heading level={2} {...props} />,
+    a: (props) => (
+      <span className="inline-flex items-center text-interactive-primary-default">
+        <a {...props} />
+        <i className="swirl-icons-OpenInNew28 text-[1.25rem] ml-1"></i>
+      </span>
+    ),
+    ul: (props) => <ul className="mb-4 leading-line-height-xl" {...props} />,
+    p: (props) => <Text {...props} />,
+    code: (props) => (
+      <code
+        className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
+        {...props}
+      />
+    ),
     ...LinkedHeaders,
   } as MDXRemoteProps["components"];
 
@@ -92,14 +91,12 @@ export default function Component({
             document,
             components,
           },
-          navigationLinks: componentsNavItems,
+          navigationLinks: apiNavItems,
           frontMatter,
-          componentsJSON: componentsJson,
         }}
         header={<DocumentationLayout.Header />}
         content={
           <>
-            <DocumentationLayout.ComponentPreview />
             <DocumentationLayout.MDX />
           </>
         }

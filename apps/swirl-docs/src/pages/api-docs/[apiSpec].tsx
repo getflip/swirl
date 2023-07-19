@@ -1,15 +1,14 @@
 import { SwirlIconLock } from "@getflip/swirl-components-react";
 import {
   ApiDocumentation,
-  ApiEndpoint,
   EndpointParam,
   EndpointParamType,
   createStaticPathsForSpecs,
   serializeMarkdownString,
 } from "@swirl/lib/docs";
+import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
-import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -25,16 +24,18 @@ import {
   ResponseIndicator,
   ResponseSelector,
 } from "src/components/CodePreview/CodePreviewHeader";
+import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
 import { Parameter } from "src/components/Documentation/Parameter";
 import { Tag } from "src/components/Tags";
 import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
+import { isProd } from "@swirl/lib/env";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
   let apiSpec: ApiDocumentation;
 
-  const navItem = apiDocsNavItems.find((item) => item.url.includes(spec));
+  const navItem = apiSpecsNavItems.find((item) => item.url.includes(spec));
   const specName = navItem?.specName;
   const specPath = `${API_SPEC_PATH}/${specName}`;
 
@@ -54,15 +55,7 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
     });
 
   const serializedDescription = await serializeMarkdownString(
-    oasBuilder.oasDocument.info.description
-      ?.replace(oasDocument.title, "")
-      .replace(oasDocument.shortDescription, "")
-      .replace("<SecurityDefinitions />", "")
-      .replace("# Authentication", "")
-      .replaceAll("user_external_id", "123")
-      .replaceAll("postId", "123")
-      .replaceAll("commentId", "123")
-      .replaceAll("attachment_id", "123") as string
+    oasBuilder.oasDocument.info.description || ""
   );
 
   apiSpec = {
@@ -70,24 +63,6 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
     shortDescription: oasBuilder.shortDescription,
     description: serializedDescription,
     endpoints: oasBuilder.endpoints.map((endpoint) => {
-      let examples: ApiEndpoint["responseExamples"] = [];
-
-      const request = oasBuilder?.generateRequest(endpoint.operation);
-      const responseExamples = endpoint.operation.getResponseExamples();
-
-      responseExamples.forEach((responseExample) => {
-        const mediaTypes = Object.keys(responseExample.mediaTypes);
-        const valueExample = responseExample.mediaTypes[
-          mediaTypes[0]
-        ] as Array<any>;
-
-        examples.push({
-          status: responseExample.status,
-          mediaType: mediaTypes[0],
-          value: valueExample[0].value,
-        });
-      });
-
       const parameterTypes =
         endpoint.operation.getParametersAsJSONSchema() || [];
 
@@ -133,9 +108,11 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
           }
           return { title: label, type, parameters: [] };
         }),
-        request,
+        request: oasBuilder?.generateRequest(endpoint.operation),
+        responseExamples: oasBuilder?.generateResponseExamples(
+          endpoint.operation
+        ),
         requestBodySchema,
-        responseExamples: examples,
         responseBodySchemas,
         security: endpoint.operation.api.security,
       };
@@ -166,7 +143,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      document,
+      document: JSON.parse(JSON.stringify(document)), // remove undefined values
     },
   };
 };
@@ -250,7 +227,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             description: document.shortDescription,
             examples: [],
           },
-          navigationLinks: apiDocsNavItems,
+          navigationLinks: apiNavItems,
         }}
         disableToc
         header={<DocumentationLayout.Header className="col-span-2" />}
@@ -259,8 +236,16 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             {/* REMOVED FOR NOW: <DocumentationLayout.MDX /> (currently contains changelog, could contain more information in new specs) */}
             <div className="mt-20">
               {document.endpoints?.map((endpoint, index) => {
-                const path = `https://getflip.dev${router.asPath}`; // TODO: use env variable
+                const host = isProd
+                  ? "https://getflip.dev"
+                  : "http://localhost:3000";
+
+                const path = `${host}${router.asPath}`;
                 const endpointId = endpoint.path.split("#")[1];
+
+                const initialResponseExampleStatus = Object.keys(
+                  endpoint.responseExamples
+                )[0];
 
                 return (
                   <article
@@ -273,7 +258,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                         <LinkedHeading
                           href={`${path}#${endpoint.path.split("#")[1]}`}
                         >
-                          <Heading level={3} headingId={endpointId}>
+                          <Heading level={3} id={endpointId}>
                             {endpoint.title}
                             {endpoint.isDeprecated && (
                               <span className="ml-2 inline-flex">
@@ -297,7 +282,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                             p: (props) => <Text {...props} size="sm" />,
                             code: (props) => (
                               <code
-                                className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
+                                className="bg-gray-100 rounded-md p-[2px] text-sm font-font-family-code"
                                 {...{ ...props, inline: "inline" }}
                               />
                             ),
@@ -396,32 +381,20 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                           ActionItems={<RequestLanguage />}
                         />
                         <div>
-                          {endpoint.responseExamples[0] && (
+                          {initialResponseExampleStatus && (
                             <CodePreview
                               isLightTheme
                               PreviewIndicator={<ResponseIndicator />}
                               ActionItems={<ResponseSelector />}
                               codeExample={{
-                                code: JSON.stringify(
-                                  endpoint.responseExamples[0].value as string,
-                                  null,
-                                  2
-                                ),
-                                selectOptions: endpoint.responseExamples.reduce(
-                                  (options, example) => {
-                                    return {
-                                      ...options,
-                                      [example.status]: JSON.stringify(
-                                        example.value,
-                                        null,
-                                        2
-                                      ),
-                                    };
-                                  },
-                                  {} as Record<string, string>
-                                ),
+                                code: endpoint.responseExamples[
+                                  initialResponseExampleStatus
+                                ],
+                                selectOptions: endpoint.responseExamples,
                                 isLongCode: true,
-                                selectedId: endpoint.responseExamples[0].status,
+                                selectedId: Object.keys(
+                                  endpoint.responseExamples
+                                )[0],
                               }}
                             />
                           )}

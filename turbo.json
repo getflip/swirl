@@ -11,7 +11,7 @@
         "stencil-generated/**",
         ".next/**"
       ],
-      "dependsOn": ["^build", "swirl-docs#build:spec-navigation"]
+      "dependsOn": ["^build"]
     },
     "test": {
       "dependsOn": []
@@ -37,16 +37,28 @@
     "build:spec-navigation": {
       "outputs": ["src/lib/navigation/src/data/apiDocs.data.ts"]
     },
+    "prebuild": {
+      "outputs": ["specs/**", "problem.yml", "shared.yml", "components.json"]
+    },
+    "prebuild:api-docs": {
+      "outputs": [
+        "src/lib/navigation/src/data/apiDocs.data.ts",
+        "src/lib/navigation/src/data/apiSpecs.data.ts"
+      ],
+
+      "dependsOn": ["prebuild"]
+    },
     "build:swirl-docs": {
       "outputs": [".next/**"],
       "dependsOn": [
-        "swirl-docs#build:spec-navigation",
+        "prebuild",
+        "prebuild:api-docs",
         "^stencil:build",
         "@getflip/swirl-components-react#build"
       ]
     },
     "stencil:build": {
-      "outputs": ["dist/**"],
+      "outputs": ["dist/**", "components.json"],
       "dependsOn": ["@getflip/swirl-tokens#build"]
     }
   }

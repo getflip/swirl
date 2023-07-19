@@ -1,4 +1,4 @@
-import { CategoryNav } from "./CategoryNav";
+import { SidebarNavigation } from "./CategoryNav";
 import { DocLinksNav } from "./DocLinksNav";
 import Footer from "./Footer";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
@@ -29,7 +29,7 @@ export function DocumentationLayout({
   return (
     <DocumentationLayoutContext.Provider value={data}>
       <div className="grid grid-cols-1 lg:grid-cols-documentation-layout h-full overflow-hidden">
-        {data.navigationLinks && <CategoryNav />}
+        {data.navigationLinks && <SidebarNavigation />}
         <div className="w-full h-full overflow-auto scroll-p-4 flex flex-col items-center">
           <main
             id="main"
@@ -59,7 +59,7 @@ export function DocumentationLayout({
   );
 }
 
-DocumentationLayout.Navigation = CategoryNav;
+DocumentationLayout.Navigation = SidebarNavigation;
 DocumentationLayout.Header = DocumentationHeader;
 DocumentationLayout.ComponentPreview = ComponentPreview;
 DocumentationLayout.MDX = MDXDocument;

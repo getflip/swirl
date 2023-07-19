@@ -150,3 +150,10 @@ dist
 
 # Angular
 **/.angular/cache
+
+
+# Build Files swirl-docs
+apps/swirl-docs/specs
+apps/swirl-docs/problem.yml
+apps/swirl-docs/shared.yml
+apps/swirl-docs/src/documents/api/*

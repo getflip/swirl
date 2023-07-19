@@ -1,7 +1,7 @@
 import { ALGOLIA_INDEX } from "@swirl/lib/search";
 import classNames from "classnames";
 import { Command } from "cmdk";
-import { SyntheticEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { InstantSearch, SearchBox } from "react-instantsearch-hooks-web";
 import { searchClient } from "../Search/Algolia";
 import { useRouter } from "next/router";

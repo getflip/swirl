@@ -12,6 +12,7 @@ export type TDocumentationLayout = {
   navigationLinks?: NavItem[];
   frontMatter?: FrontMatter;
   oasSpec?: OASDocument;
+  componentsJSON?: Record<string, any>;
 };
 
 const DocumentationLayoutContext = createContext<TDocumentationLayout | null>(

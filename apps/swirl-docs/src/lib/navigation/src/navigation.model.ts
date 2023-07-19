@@ -6,8 +6,8 @@ export type NavLink = {
 
 export type NavItem = {
   title: string;
-  isRoot?: boolean;
   url: string;
+  isRoot?: boolean;
   children?: NavItem[];
   description?: string;
   specName?: string;

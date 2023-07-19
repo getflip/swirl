@@ -1661,6 +1661,10 @@ export interface SwirlCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlCheckboxElement;
 }
+export interface SwirlChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlChipElement;
+}
 export interface SwirlConsoleLayoutCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlConsoleLayoutElement;
@@ -3948,6 +3952,7 @@ declare namespace LocalJSX {
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+        "onRemove"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "removeButtonLabel"?: string;
         "variant"?: SwirlChipVariant;

@@ -15,9 +15,10 @@
     "build": "next build",
     "build:swirl-docs": "next build",
     "postbuild": "tsx src/scripts/build-search.ts",
-    "build:spec-navigation": "tsx src/scripts/build-spec-navigation.ts && prettier --write src/lib/navigation/src/data/apiDocs.data.ts",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prebuild": "rm -rf components.json && rm -rf problem.yml && rm -rf shared.yml && rm -rf specs/** && tsx src/scripts/prebuild.ts",
+    "prebuild:api-docs": "tsx src/scripts/prebuild-api-docs.ts && prettier --write src/lib/navigation/src/data/apiDocs.data.ts"
   },
   "dependencies": {
     "@algolia/autocomplete-core": "^1.7.4",
@@ -67,7 +68,8 @@
     "remark-gfm": "^3.0.1",
     "remark-sectionize": "^1.1.1",
     "shave": "^5.0.2",
-    "tsx": "^3.12.1"
+    "tsx": "^3.12.1",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",

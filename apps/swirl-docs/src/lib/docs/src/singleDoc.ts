@@ -7,27 +7,41 @@ import { generateDocumentPath } from "@swirl/lib/navigation";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import sectionize from "remark-sectionize";
-import { ApiDocumentation, DocumentationCategory } from "./docs.model";
+import { DocumentationCategory } from "./docs.model";
 
 export async function generateMdxFromDocumentation(
   category: DocumentationCategory,
   document: string
 ): Promise<MDXRemoteSerializeResult> {
-  const source = fs.readFileSync(
-    generateDocumentPath(category, document),
-    "utf8"
-  );
+  const fullPath = generateDocumentPath(category, document); // Derive the full path
 
-  const serializeAwait = serialize(source, {
-    parseFrontmatter: true,
-    mdxOptions: {
-      rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
-      remarkPlugins: [remarkGfm, sectionize],
-      format: "mdx",
-    },
-  });
+  // Ensure that the document path is not a directory
+  if (fs.existsSync(fullPath) && !fs.lstatSync(fullPath).isDirectory()) {
+    const source = fs.readFileSync(fullPath, "utf8");
 
-  return serializeAwait;
+    const serializeAwait = serialize(source, {
+      parseFrontmatter: true,
+      mdxOptions: {
+        rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+        remarkPlugins: [remarkGfm, sectionize],
+        format: "mdx",
+      },
+    });
+
+    return serializeAwait;
+  } else {
+    console.log(`${document} is a directory, not an .mdx file`);
+    const serializeAwait = serialize("# DIRECTORY", {
+      parseFrontmatter: true,
+      mdxOptions: {
+        rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+        remarkPlugins: [remarkGfm, sectionize],
+        format: "mdx",
+      },
+    });
+
+    return serializeAwait;
+  }
 }
 
 export function generateSerializableDocumentation(

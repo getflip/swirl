@@ -37,20 +37,28 @@ export function CodePreview({
 
   useEffect(() => {
     // TODO: Heads up: not the best solution for now. A global reducer would be better for the long run.
-    if (codeExample && !selectId) {
-      setCodeExample({
-        ...codeExample,
-        code: codeExample.code,
-        isLongCode: codeExample.code.split("\n").length > 7,
-      });
-    }
-    if (codeExample.selectOptions && selectId) {
-      setCodeExample({
-        ...codeExample,
-        selectedId: selectId,
-        code: codeExample.selectOptions[selectId],
-        isLongCode: codeExample.selectOptions[selectId].split("\n").length > 7,
-      });
+    if (codeExample) {
+      if (!selectId) {
+        setCodeExample({
+          ...codeExample,
+          code: codeExample.code,
+          isLongCode: codeExample.code.split("\n").length > 7,
+        });
+      }
+      // Additional check for selectOptions not being an empty object
+      else if (
+        codeExample.selectOptions &&
+        Object.keys(codeExample.selectOptions).length > 0 &&
+        selectId
+      ) {
+        setCodeExample({
+          ...codeExample,
+          selectedId: selectId,
+          code: codeExample.selectOptions[selectId],
+          isLongCode:
+            codeExample.selectOptions[selectId].split("\n").length > 7,
+        });
+      }
     }
   }, [selectId, codeExample]);
 
@@ -73,7 +81,7 @@ export function CodePreview({
           className={classNames(
             className,
             "box-border relative max-w-full w-full rounded-xl",
-            "p-2",
+            "text-font-size-sm p-2",
             "flex flex-col",
             {
               "md:h-[240px] md:max-h-[240px] overflow-hidden":

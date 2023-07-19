@@ -10,11 +10,12 @@ import {
 } from "../Tags";
 import { HttpMethods } from "oas/dist/rmoas.types";
 import Image from "next/image";
-
 import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
+import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 
 const CategoryNavSubItem = ({
   navItem,
@@ -35,17 +36,6 @@ const CategoryNavSubItem = ({
       transition: {
         when: "beforeChildren",
         staggerChildren: 0.01,
-      },
-    },
-  };
-
-  const listItem = {
-    hidden: { x: -10, opacity: 0 },
-    show: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.125,
       },
     },
   };
@@ -77,13 +67,13 @@ const CategoryNavSubItem = ({
                 }
               )}
             >
-              <span>{navItem.title}</span>
+              <span>{navItem.title.replaceAll("-", " ")}</span>
             </a>
           </Link>
           {navItem.children && (
             <button
               aria-label="Expand"
-              className="flex justify-center items-center"
+              className="flex justify-center items-center text-text-subdued"
               onClick={() => setIsExpanded(!isExpanded)}
               aria-expanded={isExpanded}
             >
@@ -123,11 +113,7 @@ const CategoryNavSubItem = ({
                 const isCurrentPath = activePath.includes(item.url);
 
                 return (
-                  <motion.li
-                    key={index}
-                    className="flex items-center ml-6"
-                    variants={listItem}
-                  >
+                  <motion.li key={index} className="flex items-center ml-6">
                     <WrappingAnchor
                       href={`${item.url}`}
                       item={item}
@@ -176,11 +162,13 @@ const WrappingAnchor = forwardRef<
           }
         )}
       >
-        <Tag
-          content={mapHttpMethodToTagContent(item.description!)}
-          scheme={mapHttpMethodToTagScheme(item.description as HttpMethods)}
-          httpTag
-        />
+        {item.description && (
+          <Tag
+            content={mapHttpMethodToTagContent(item.description!)}
+            scheme={mapHttpMethodToTagScheme(item.description as HttpMethods)}
+            httpTag
+          />
+        )}
         <span ref={textRef}>{item.title}</span>
       </a>
     </Link>
@@ -189,7 +177,7 @@ const WrappingAnchor = forwardRef<
 
 WrappingAnchor.displayName = "WrappingAnchor";
 
-export function CategoryNav() {
+export function SidebarNavigation() {
   const { navigationLinks: categoryLinkList } = useDocumentationLayoutContext();
   const router = useRouter();
   const activePath = router.asPath;
@@ -203,18 +191,99 @@ export function CategoryNav() {
         { invisible: router.asPath.includes("/icons") }
       )}
     >
-      <ul className="mt-6">
-        {categoryLinkList?.map((navItem: NavItem, index) => {
-          return (
-            <CategoryNavSubItem
-              isCurrentlyInView={activePath.includes(navItem.url)}
-              key={navItem.title + `-${index}`}
-              navItem={navItem}
-              activePath={activePath}
-            />
-          );
-        })}
-      </ul>
+      {router.asPath.includes("/api-docs") && (
+        <>
+          <ul className="mt-6">
+            {apiDocsNavItems?.map((navItem: NavItem, index) => {
+              return (
+                <CategoryNavSubItem
+                  isCurrentlyInView={activePath.includes(navItem.url)}
+                  key={navItem.title + `-${index}`}
+                  navItem={navItem}
+                  activePath={activePath}
+                />
+              );
+            })}
+          </ul>
+          <hr className="mt-6" />
+          <div className="flex mt-6 align-center h-10 max-h-10">
+            <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-[#8E8E93]">
+              APIs
+            </h4>
+          </div>
+          <ul>
+            {apiSpecsNavItems?.map((navItem: NavItem, index) => {
+              return (
+                <CategoryNavSubItem
+                  isCurrentlyInView={activePath.includes(navItem.url)}
+                  key={navItem.title + `-${index}`}
+                  navItem={navItem}
+                  activePath={activePath}
+                />
+              );
+            })}
+          </ul>
+        </>
+      )}
+      {!router.asPath.includes("/api-docs") && (
+        <ul className="mt-6">
+          {categoryLinkList?.map((navItem: NavItem, index) => {
+            return (
+              <CategoryNavSubItem
+                isCurrentlyInView={activePath.includes(navItem.url)}
+                key={navItem.title + `-${index}`}
+                navItem={navItem}
+                activePath={activePath}
+              />
+            );
+          })}
+        </ul>
+      )}
+
+      {router.asPath.includes("/api-docs") && (
+        <>
+          <hr className="mt-8" />
+          <div className="mt-8">
+            <div className="h-10 inline-flex items-center justify-center">
+              <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-[#8E8E93]">
+                Legacy APIs
+              </h4>
+            </div>
+            <ul className="w-full">
+              <LegacyApiLink
+                href="https://base.flip-app.com/openapi/external/post"
+                label="Public Post API"
+              />
+              <LegacyApiLink
+                href="https://base.flip-app.com/openapi/external/sync"
+                label="Public Users- and Groups-Sync-API"
+              />
+            </ul>
+          </div>
+        </>
+      )}
     </nav>
+  );
+}
+
+function LegacyApiLink({ href, label }: { href: string; label: string }) {
+  return (
+    <li className="w-full">
+      <Link href={href}>
+        <a
+          target="_blank"
+          className={classNames(
+            "inline-flex justify-between items-center w-full h-10",
+            "text-font-size-sm leading-5 text-text-default",
+            "hover:text-border-info"
+          )}
+        >
+          {label}
+          <span>
+            <i className="swirl-icons-OpenInNew28 text-base ml-1"></i>
+          </span>
+        </a>
+      </Link>
+    </li>
   );
 }

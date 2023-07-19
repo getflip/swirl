@@ -1,6 +1,6 @@
-import { getSwirlComponentData } from "@swirl/lib/components";
 import {
   Prop,
+  SwirlComponent,
   SwirlComponentCodePreview,
 } from "@swirl/lib/components/src/components.model";
 import { ComponentExample } from "@swirl/lib/docs/src/docs.model";
@@ -16,7 +16,7 @@ import { NpmPackageLink } from "../CodePreview/NpmPackageLink";
 import { CodeSandboxButton } from "../CodePreview/CodeSandboxButton";
 
 export function ComponentPreview() {
-  const { frontMatter } = useDocumentationLayoutContext();
+  const { frontMatter, componentsJSON } = useDocumentationLayoutContext();
 
   const [currentExample, setCurrentExample] = useState<ComponentExample | null>(
     null
@@ -63,6 +63,22 @@ export function ComponentPreview() {
     };
   }, [componentData]);
 
+  const getSwirlComponentData = useCallback(
+    (name: string): SwirlComponent => {
+      const tag = `swirl-${name.toLowerCase().replace(/ /g, "-")}`;
+
+      const component = componentsJSON?.components.find(
+        (c: any) => c.tag === tag
+      ) as unknown as SwirlComponent;
+
+      if (!component) {
+        throw new Error(`Component ${tag} not found`);
+      }
+      return component;
+    },
+    [componentsJSON]
+  );
+
   useEffect(() => {
     setIsLoading(true);
     if (frontMatter?.examples) {
@@ -74,7 +90,7 @@ export function ComponentPreview() {
         innerHtml: frontMatter?.innerHtml ? frontMatter?.innerHtml : "",
       });
     }
-  }, [frontMatter]);
+  }, [frontMatter, getSwirlComponentData]);
 
   useEffect(() => {
     if (componentData) {

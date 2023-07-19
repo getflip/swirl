@@ -1,7 +1,6 @@
 import Oas, { Operation } from "oas";
 import {
   HttpMethods,
-  MediaTypeObject,
   OASDocument,
   PathsObject,
   SchemaObject,
@@ -11,6 +10,8 @@ import { oasToSnippet } from "@readme/oas-to-snippet";
 import { SupportedTargets } from "@readme/oas-to-snippet";
 import { Request } from "har-format";
 import { Endpoint, Operations } from "./docs.model";
+import { ResponseExamples } from "oas/dist/operation/get-response-examples";
+import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
 
 interface IOASBuilder {
   title: string;
@@ -38,7 +39,7 @@ type EndpointWithDetails = Endpoint & {
     snippets: Record<SupportedTargets, string>;
     request: Request;
   };
-  response: string;
+  responseExamples: CodePreviewSelectOptions;
 };
 
 export default class OASBuilder implements IOASBuilder {
@@ -113,7 +114,7 @@ export default class OASBuilder implements IOASBuilder {
         request: {
           ...requestPreview,
         },
-        response: this.generateResponse(apiEndpoint.operation),
+        responseExamples: this.generateResponseExamples(apiEndpoint.operation),
         parameters: parameters,
       });
     });
@@ -157,7 +158,10 @@ export default class OASBuilder implements IOASBuilder {
 
     for (const path in this.paths) {
       const operationInPaths = this.paths[path];
-      const methods = Object.keys(operationInPaths ?? {}) as HttpMethods[];
+
+      const methods = Object.keys(operationInPaths ?? {}).filter(
+        (method) => method !== "parameters"
+      ) as HttpMethods[];
 
       methods.forEach((operation) => {
         const oasOperation = this._oas.operation(path, operation);
@@ -246,20 +250,23 @@ export default class OASBuilder implements IOASBuilder {
     };
   }
 
-  public generateResponse(operation: Operation) {
-    // currently we just take the first element as our OA specs are not fully functional. E.g. 201 is not defined for post for some requests.
-    const responseExample = operation.getResponseExamples()[0].mediaTypes[
-      "application/json"
-    ] as Array<MediaTypeObject>;
+  public generateResponseExamples(operation: Operation) {
+    const responseExamplesList = operation.getResponseExamples();
+    const responseExamples = responseExamplesList.reduce(
+      (acc: CodePreviewSelectOptions, example) => {
+        const firstMediaTypeCode = Object.values(
+          example.mediaTypes
+        )[0] as Array<unknown>;
 
-    const valueOfResponse = responseExample as any;
+        if (firstMediaTypeCode) {
+          acc[example.status] = JSON.stringify(firstMediaTypeCode[0], null, 2);
+        }
 
-    return JSON.stringify(
-      responseExample
-        ? valueOfResponse[0].value
-        : "No Response Example was provided",
-      null,
-      2
+        return acc;
+      },
+      {}
     );
+
+    return responseExamples;
   }
 }

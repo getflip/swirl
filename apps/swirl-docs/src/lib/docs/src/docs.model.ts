@@ -3,17 +3,14 @@ import Oas, { Operation } from "oas";
 import { HttpMethods, OASDocument } from "oas/dist/rmoas.types";
 import { OpenAPIV3_1 } from "openapi-types/dist";
 import OASBuilder from "./oasBuilder";
+import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
 
 export enum DOCUMENTATION_SRC {
   PAGES = "pages",
   DOCUMENTATION = "documentation",
 }
 
-export type DocumentationCategory =
-  | "components"
-  | "tokens"
-  | "icons"
-  | "apiDocs";
+export type DocumentationCategory = "components" | "tokens" | "icons" | "api";
 export type DocumentationParamKey =
   | "componentDoc"
   | "tokenDoc"
@@ -28,14 +25,7 @@ export enum DOCUMENTATION_CATEGORY {
   COMPONENTS = "components",
   TOKENS = "tokens",
   ICONS = "icons",
-  API_DOCS = "api",
-}
-
-export enum DOCUMENT_TYPE {
-  COMPONENTS = "componentDoc",
-  TOKENS = "tokenDoc",
-  ICONS = "iconDoc",
-  API_DOCS = "apiDoc",
+  API_DOCS = "apiDocs",
 }
 
 export type DocCategory = {
@@ -43,12 +33,13 @@ export type DocCategory = {
   path: string;
   htmlTag?: string;
   nextRoute?: string;
-  subpages?: DocCategory[];
+  subdirectories?: DocCategory[];
 };
 
 export type Document = {
   name: string;
   basePath: DOCUMENTATION_CATEGORY | string;
+  documentationSrc: DOCUMENTATION_SRC;
 };
 
 export type DocHeadline = {
@@ -129,8 +120,8 @@ export type ApiEndpoint = {
   description: string;
   path: string;
   request: ReturnType<OASBuilder["generateRequest"]>;
+  responseExamples: CodePreviewSelectOptions;
   requestBodySchema: OpenAPIV3_1.BaseSchemaObject | null;
-  responseExamples: Array<ApiResponseExample>;
   responseBodySchemas: Array<ResponseBodySchema>;
   isDeprecated?: boolean;
   parameterTypes?: EndpointParamTypeGroup;
