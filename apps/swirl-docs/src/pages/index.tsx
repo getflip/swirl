@@ -24,9 +24,9 @@ const Home: NextPage = () => {
                   Flip developer APIs and Swirl provide everything you need to
                   integrate your app seamlessly into Flip.
                 </p>
-                <Link href="/api-docs">
+                <Link href="/tokens/colors">
                   <a className="inline-flex bg-action-primary-default hover:bg-action-primary-hovered text-font-size-sm text-text-on-action-primary px-space-12 py-space-8 font-medium rounded-border-radius-sm">
-                    Explore APIs
+                    Explore Tokens
                   </a>
                 </Link>
               </div>
@@ -49,42 +49,6 @@ const Home: NextPage = () => {
               </h2>
 
               <div className="flex gap-space-24 flex-wrap items-stretch">
-                <article
-                  aria-labelledby="heading-apis"
-                  className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
-                >
-                  <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base">
-                    <Image
-                      alt=""
-                      height="32"
-                      src="/images/teaser-icon-api.svg"
-                      width="32"
-                    />
-                  </div>
-                  <h3
-                    id="heading-apis"
-                    className="text-font-size-base font-semibold"
-                  >
-                    APIs
-                  </h3>
-                  <p className="text-font-size-sm mb-space-8 grow">
-                    The FlipAvatar component is used to represent a user via an
-                    image, icon or initials.
-                  </p>
-                  <span
-                    aria-hidden="true"
-                    className="inline-flex items-center gap-space-4 text-font-size-sm font-medium text-interactive-primary-default hover:text-interactive-primary-hovered"
-                  >
-                    Get started
-                    <SwirlIconArrowRight size={20} />
-                  </span>
-                  <Link href="/api-docs/public-post-api">
-                    <a
-                      aria-label="Get started with Flip APIs"
-                      className="absolute inset-0"
-                    ></a>
-                  </Link>
-                </article>
                 <article
                   aria-labelledby="heading-tokens"
                   className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
@@ -174,10 +138,40 @@ const Home: NextPage = () => {
 
               <div className="flex gap-space-24 flex-wrap items-stretch">
                 <article
+                  aria-labelledby="heading-apis"
+                  className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
+                >
+                  <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base">
+                    <Image
+                      alt=""
+                      height="32"
+                      src="/images/teaser-icon-api.svg"
+                      width="32"
+                    />
+                  </div>
+                  <h3
+                    id="heading-apis"
+                    className="text-font-size-base font-semibold"
+                  >
+                    APIs
+                  </h3>
+                  <p className="text-font-size-sm mb-space-8 grow">
+                    Uniform APIs and documents for our Flip system, ensuring
+                    seamless integration across platforms.
+                  </p>
+                </article>
+                <article
                   aria-labelledby="heading-components"
                   className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
                 >
-                  <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base"></div>
+                  <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base">
+                    <Image
+                      alt=""
+                      height="32"
+                      src="/images/teaser-icon-component.svg"
+                      width="32"
+                    />
+                  </div>
                   <h3
                     id="heading-components"
                     className="text-font-size-base font-semibold"
@@ -185,15 +179,22 @@ const Home: NextPage = () => {
                     Components
                   </h3>
                   <p className="text-font-size-sm mb-space-8 grow">
-                    The FlipAvatar component is used to represent a user via an
-                    image, icon or initials.
+                    Consistent web components for our Flip system, ensuring
+                    harmony across platforms.
                   </p>
                 </article>
                 <article
                   aria-labelledby="heading-foundations"
                   className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
                 >
-                  <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base"></div>
+                  <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base">
+                    <Image
+                      alt=""
+                      height="32"
+                      src="/images/teaser-icon-book.svg"
+                      width="32"
+                    />
+                  </div>
                   <h3
                     id="heading-foundations"
                     className="text-font-size-base font-semibold"
@@ -201,8 +202,8 @@ const Home: NextPage = () => {
                     Foundations
                   </h3>
                   <p className="text-font-size-sm mb-space-8 grow">
-                    The FlipAvatar component is used to represent a user via an
-                    image, icon or initials.
+                    Comprehensive Foundations documentation, detailing the
+                    design system for consistent harmony across clients.
                   </p>
                 </article>
               </div>
