@@ -81,8 +81,6 @@ export default function Component({
     h2: (props: any) => <H2 {...props} href={`${path}#${props.id}`} />,
   } as MDXRemoteProps["components"];
 
-  console.log("ROUTE IS", router.route.replace("[tokenDoc]", ""), title);
-
   return (
     <>
       <Head>

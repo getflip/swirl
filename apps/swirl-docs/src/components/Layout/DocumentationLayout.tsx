@@ -1,4 +1,4 @@
-import { SidebarNavigation } from "./CategoryNav";
+import { SidebarNavigation } from "./SidebarNavigation";
 import { DocLinksNav } from "./DocLinksNav";
 import Footer from "./Footer";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
@@ -30,7 +30,12 @@ export function DocumentationLayout({
     <DocumentationLayoutContext.Provider value={data}>
       <div className="grid grid-cols-1 lg:grid-cols-documentation-layout h-full overflow-hidden">
         {data.navigationLinks && <SidebarNavigation />}
-        <div className="w-full h-full overflow-auto scroll-p-4 flex flex-col items-center">
+        <div
+          className={classNames(
+            "flex flex-col items-center justify-between",
+            "w-full h-full overflow-auto scroll-p-4"
+          )}
+        >
           <main
             id="main"
             className={classNames(
