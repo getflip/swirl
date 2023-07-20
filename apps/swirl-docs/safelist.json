@@ -319,6 +319,12 @@
     "bg-icon-on-status",
     "bg-icon-on-status",
     "bg-icon-on-image",
-    "bg-icon-on-image"
+    "bg-icon-on-image",
+    "bg-focus-default",
+    "bg-icon-on-status",
+    "bg-icon-on-image",
+    "bg-surface-sunken-default",
+    "bg-surface-sunken-hovered",
+    "bg-surface-sunken-pressed"
   ]
 }
