@@ -6,19 +6,15 @@ import classNames from "classnames";
 const links: NavLink[] = [
   {
     name: "About Flip",
-    path: "",
+    path: "https://www.getflip.com/about-us/",
   },
   {
     name: "Partners",
-    path: "",
+    path: "https://www.getflip.com/partner/",
   },
   {
     name: "Careers",
-    path: "",
-  },
-  {
-    name: "Press and Media",
-    path: "",
+    path: "https://www.getflip.com/open-positions/",
   },
 ];
 
