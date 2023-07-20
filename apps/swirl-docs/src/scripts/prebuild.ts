@@ -185,7 +185,7 @@ function getDeploymentStage() {
     return "development";
   }
 
-  return "published";
+  return "development";
 }
 
 function cleanGlobalSpecs() {
