@@ -205,13 +205,17 @@ function moveSpec(spec: string) {
   const sourcePath = path.join("specs", `${spec}`);
   const destinationPath = path.join(".", `${spec}`);
 
-  fs.rename(sourcePath, destinationPath, (err) => {
-    if (err) {
-      console.error(`Error: Unable to rename ${spec}`, err);
-      return;
-    }
-    console.log(`Moved global spec ${spec} to root for oasBuilder`);
-  });
+  if (fs.existsSync(sourcePath)) {
+    fs.rename(sourcePath, destinationPath, (err) => {
+      if (err) {
+        console.error(`Error: Unable to rename ${spec}`, err);
+        return;
+      }
+      console.log(`Moved global spec ${spec} to root for oasBuilder`);
+    });
+  } else {
+    console.log(`Spec ${spec} does not exist. Moving on...`);
+  }
 }
 
 function deleteGlobalSpecs() {
