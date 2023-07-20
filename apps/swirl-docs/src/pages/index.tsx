@@ -21,8 +21,8 @@ const Home: NextPage = () => {
                   Build with Flip
                 </h1>
                 <p className="text-font-size-lg text-text-subdued mb-space-24">
-                  Flip developer APIs and Swirl provide everything you need to
-                  integrate your app seamlessly into Flip.
+                  Design, build, and deliver improved experiences for the
+                  blue-collar world using the Swirl design system and Flip APIs.
                 </p>
                 <Link href="/tokens/color">
                   <a className="inline-flex bg-action-primary-default hover:bg-action-primary-hovered text-font-size-sm text-text-on-action-primary px-space-12 py-space-8 font-medium rounded-border-radius-sm">
@@ -65,7 +65,7 @@ const Home: NextPage = () => {
                     id="heading-tokens"
                     className="text-font-size-base font-semibold"
                   >
-                    Tokens
+                    Design Tokens
                   </h3>
                   <p className="text-font-size-sm mb-space-8 grow">
                     Consistent variables defining visual elements, ensuring

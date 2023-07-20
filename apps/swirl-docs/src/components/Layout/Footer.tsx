@@ -9,10 +9,6 @@ const links: NavLink[] = [
     path: "https://www.getflip.com/about-us/",
   },
   {
-    name: "Partners",
-    path: "https://www.getflip.com/partner/",
-  },
-  {
     name: "Careers",
     path: "https://www.getflip.com/open-positions/",
   },
@@ -36,7 +32,10 @@ const Footer = () => {
           {links.map((link, index) => (
             <li key={link.path + `-${index}`} className="mb-4 md:mb-0 md:mr-8">
               <Link href={link.path}>
-                <a className="text-font-size-base md:text-font-size-sm leading-6 text-text-default">
+                <a
+                  className="text-font-size-base md:text-font-size-sm leading-6 text-text-default"
+                  target="_blank"
+                >
                   {link.name}
                 </a>
               </Link>
