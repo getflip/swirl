@@ -59,6 +59,9 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
             className={classNames(
               "text-text-subdued font-normal text-font-size-sm",
               "max-w-[calc(120px_-_16px)]",
+              "md:max-w-[calc(188px_-_16px)]",
+              "supports-[not(container-type:inline-size)]:w-24",
+              "supports-[not(container-type:inline-size)]:text-center",
               "overflow-hidden",
               "text-ellipsis"
             )}
