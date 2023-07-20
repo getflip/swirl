@@ -97,17 +97,21 @@ function generateDoc(file: string, document: Document): DocCategory {
 export function createDocCategory(document: Document): DocCategory {
   const path = generateDocPath(document);
 
-  const files = fs.readdirSync(path);
+  if (fs.existsSync(path)) {
+    const files = fs.readdirSync(path);
 
-  const subdirectories = files
-    .map((file) => generateDoc(file, document))
-    .filter(Boolean) as DocCategory[];
+    const subdirectories = files
+      .map((file) => generateDoc(file, document))
+      .filter(Boolean) as DocCategory[];
 
-  return {
-    name: document.name,
-    path: document.basePath,
-    ...(subdirectories.length > 0 && { subdirectories }),
-  };
+    return {
+      name: document.name,
+      path: document.basePath,
+      ...(subdirectories.length > 0 && { subdirectories }),
+    };
+  }
+
+  return {} as DocCategory;
 }
 
 /***********************************************
