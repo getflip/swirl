@@ -222,13 +222,17 @@ function deleteGlobalSpecs() {
 function deleteSpec(spec: string) {
   const specPath = path.join("specs", `${spec}`);
 
-  fs.unlink(specPath, (err) => {
-    if (err) {
-      console.error(`Error: Unable to delete ${spec}`, err);
-      return;
-    }
-    console.log(`Deleted spec ${spec}`);
-  });
+  if (fs.existsSync(specPath)) {
+    fs.unlink(specPath, (err) => {
+      if (err) {
+        console.error(`Error: Unable to delete ${spec}`, err);
+        return;
+      }
+      console.log(`Deleted spec ${spec}`);
+    });
+  } else {
+    console.log(`Spec ${spec} does not exist. Moving on...`);
+  }
 }
 
 function deleteAllInDirectory(directory: string): void {
