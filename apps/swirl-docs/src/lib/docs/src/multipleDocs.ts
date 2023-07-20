@@ -37,7 +37,11 @@ function getFileType(path: string, file: string) {
 }
 
 export function createStaticPathsForSpecs(): GetStaticPathsResult["paths"] {
-  return fs.readdirSync(API_SPEC_PATH).filter(isYamlFile).map(createSpecPath);
+  if (fs.existsSync(API_SPEC_PATH)) {
+    return fs.readdirSync(API_SPEC_PATH).filter(isYamlFile).map(createSpecPath);
+  }
+
+  return [];
 }
 
 function isYamlFile(file: string) {
