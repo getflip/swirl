@@ -1,12 +1,8 @@
 import { FunctionComponent, LegacyRef } from "react";
-import { SwirlPopover } from "@getflip/swirl-components-react";
 import classNames from "classnames";
-
 import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
 import { MobileView, DesktopView } from "../View/Views";
-import IconInfo from "./IconInfo";
-import Portal from "./Portal";
 
 interface IconGridProps {
   id: string;
@@ -73,7 +69,8 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
       <MobileView>
         <div role={role}>
           <a
-            id={`${id}-popover-trigger`}
+            // id={`${id}-popover-trigger`}
+            id={`icon-popover-trigger`}
             tabIndex={index === 0 ? 0 : -1}
             ref={reference}
             href={`#${icons[icon]?.name}`}
@@ -86,17 +83,6 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
             ></i>
             <span className="text-text-subdued">{icons[icon]?.name}</span>
           </a>
-          <Portal>
-            <SwirlPopover
-              label="Icon Info"
-              popoverId={`popover-${id}`}
-              trigger={`${id}-popover-trigger`}
-            >
-              <div className="p-4">
-                <IconInfo icon={icons[icon]} />
-              </div>
-            </SwirlPopover>
-          </Portal>
         </div>
       </MobileView>
     </NoSsr>

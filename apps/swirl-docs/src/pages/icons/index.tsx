@@ -1,8 +1,7 @@
-import { iconsNavItems } from "@swirl/lib/navigation/src/data/iconsChildren.data";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import IconGrid from "src/components/Icons/IconGrid";
 import IconInfo from "src/components/Icons/IconInfo";
 import SearchBar from "src/components/Icons/SearchBar";
@@ -44,12 +43,16 @@ const IconsIndex = () => {
     }
   }, [router, asPath, icons]);
 
+  function handleTileClick(iconName: string) {
+    setSelectedIcon(icons[iconName]);
+  }
+
   return (
     <>
       <Head>
         <title>Swirl | Icons</title>
       </Head>
-      <div className="overflow-auto">
+      <div className="flex flex-col justify-between overflow-auto h-full">
         <main
           id="main"
           className="relative md:grid md:grid-cols-icon-grid gap-8 pt-14 max-w-[1112px] px-4 md:px-0 md:mx-auto"
@@ -71,8 +74,23 @@ const IconsIndex = () => {
               selectedIcon={selectedIcon}
               iconList={filteredIcons}
               icons={icons}
-              handleTileClick={(iconname) => setSelectedIcon(icons[iconname])}
+              handleTileClick={(iconname) => {
+                handleTileClick(iconname);
+              }}
             />
+            {/* <NoSsr>
+              <Portal>
+                <SwirlPopover
+                  label="Icon Info"
+                  popoverId={`icon-popover`}
+                  trigger={`icon-popover-trigger`}
+                >
+                  <div className="p-4">
+                    <IconInfo icon={icons[selectedIcon.name]} />
+                  </div>
+                </SwirlPopover>
+              </Portal>
+            </NoSsr> */}
           </div>
           <DesktopView>
             <IconInfo icon={selectedIcon} />
