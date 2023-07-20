@@ -78,15 +78,16 @@ export default class OASBuilder implements IOASBuilder {
       const operationInPaths = this.paths[path];
 
       const operations = Object.keys(operationInPaths ?? {}).filter(
-        (operation) => operation !== "parameters"
+        (operation) => operation !== "parameters" && operation !== "description"
       ) as HttpMethods[];
 
+      console.log("operations we look at are", operations);
       operations.forEach((operation) => {
         const oasOperation = this._oasBuilder.operation(path, operation);
         if (!this.operations[operation]) {
           this.operations[operation] = [];
         }
-
+        console.log("oepration we look at is", operation);
         this.operations[operation]?.push({
           title: oasOperation.getSummary(),
           path: `/${this.path}#${oasOperation
