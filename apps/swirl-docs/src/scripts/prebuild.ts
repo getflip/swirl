@@ -16,7 +16,12 @@ const headers = {
   "PRIVATE-TOKEN": env.GITLAB_ACCESS_TOKEN,
 };
 const refBranch = env.REFERENCE_BRANCH;
-const globalSpecs = ["shared.yml", "problem.yml"];
+const globalSpecs = [
+  "shared.yml",
+  "problem.yml",
+  "users.yml",
+  "usergroups.yml",
+];
 
 /*******************************************************************************
  * Run
