@@ -55,7 +55,7 @@ const IconsIndex = () => {
       <div className="flex flex-col justify-between overflow-auto h-full">
         <main
           id="main"
-          className="relative md:grid md:grid-cols-icon-grid gap-8 pt-14 max-w-[1112px] px-4 md:px-0 md:mx-auto"
+          className="relative xl:grid xl:grid-cols-icon-grid gap-8 pt-14 max-w-[1112px] px-4 xl:px-0 xl:mx-auto"
         >
           <div>
             <div className="mb-12">
