@@ -12,16 +12,19 @@ const isBrowser = typeof window !== "undefined";
 export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
   documentLinkList,
 }) => {
-  let documents: Element[] = [];
+  let headlines: Element[] = [];
+
   if (isBrowser) {
-    documents = documentLinkList.map(
-      (item: DocHeadline) =>
-        document.querySelector(`[id="${item.id}"]`)?.parentElement!
+    console.log("documentLinkList", documentLinkList);
+    headlines = documentLinkList.map(
+      (item) =>
+        document.querySelector(`[id="${item.id}"]`)?.parentElement
+          ?.parentElement?.parentElement!
     );
   }
 
   const [activeIndex, setActiveIndexInLinks] = useState(0);
-  const [currentActiveIndex] = useScrollObserver(documents);
+  const [currentActiveIndex] = useScrollObserver(headlines);
 
   useEffect(() => {
     setActiveIndexInLinks(currentActiveIndex);
