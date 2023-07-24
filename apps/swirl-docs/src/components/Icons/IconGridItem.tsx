@@ -27,6 +27,24 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
   handleKeyDown,
   handleTileClick,
 }) => {
+  function IconName() {
+    return (
+      <span
+        className={classNames(
+          "text-text-subdued font-normal text-font-size-sm",
+          "max-w-[calc(120px_-_16px)]",
+          "md:max-w-[calc(188px_-_16px)]",
+          "supports-[not(container-type:inline-size)]:w-24",
+          "supports-[not(container-type:inline-size)]:text-center",
+          "overflow-hidden",
+          "text-ellipsis"
+        )}
+      >
+        {icons[icon]?.name}
+      </span>
+    );
+  }
+
   return (
     <NoSsr>
       <DesktopView>
@@ -51,25 +69,12 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
           <i
             className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong text-2xl`}
           ></i>
-          <span
-            className={classNames(
-              "text-text-subdued font-normal text-font-size-sm",
-              "max-w-[calc(120px_-_16px)]",
-              "md:max-w-[calc(188px_-_16px)]",
-              "supports-[not(container-type:inline-size)]:w-24",
-              "supports-[not(container-type:inline-size)]:text-center",
-              "overflow-hidden",
-              "text-ellipsis"
-            )}
-          >
-            {icons[icon]?.name}
-          </span>
+          <IconName />
         </a>
       </DesktopView>
       <MobileView>
         <div role={role}>
           <a
-            // id={`${id}-popover-trigger`}
             id={`icon-popover-trigger`}
             tabIndex={index === 0 ? 0 : -1}
             ref={reference}
@@ -81,7 +86,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
             <i
               className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
             ></i>
-            <span className="text-text-subdued">{icons[icon]?.name}</span>
+            <IconName />
           </a>
         </div>
       </MobileView>
