@@ -6,8 +6,6 @@ export const OVERVIEW_HTML = fs.readFileSync(
   path.resolve("./public/overview.html")
 );
 
-console.log("UTILS");
-
 export const cssLight = loadFile("/css/styles.light.custom-properties.css");
 export const cssDark = loadFile("/css/styles.light.custom-properties.css");
 
