@@ -37,7 +37,11 @@ function getFileType(path: string, file: string) {
 }
 
 export function createStaticPathsForSpecs(): GetStaticPathsResult["paths"] {
-  return fs.readdirSync(API_SPEC_PATH).filter(isYamlFile).map(createSpecPath);
+  if (fs.existsSync(API_SPEC_PATH)) {
+    return fs.readdirSync(API_SPEC_PATH).filter(isYamlFile).map(createSpecPath);
+  }
+
+  return [];
 }
 
 function isYamlFile(file: string) {
@@ -93,17 +97,21 @@ function generateDoc(file: string, document: Document): DocCategory {
 export function createDocCategory(document: Document): DocCategory {
   const path = generateDocPath(document);
 
-  const files = fs.readdirSync(path);
+  if (fs.existsSync(path)) {
+    const files = fs.readdirSync(path);
 
-  const subdirectories = files
-    .map((file) => generateDoc(file, document))
-    .filter(Boolean) as DocCategory[];
+    const subdirectories = files
+      .map((file) => generateDoc(file, document))
+      .filter(Boolean) as DocCategory[];
 
-  return {
-    name: document.name,
-    path: document.basePath,
-    ...(subdirectories.length > 0 && { subdirectories }),
-  };
+    return {
+      name: document.name,
+      path: document.basePath,
+      ...(subdirectories.length > 0 && { subdirectories }),
+    };
+  }
+
+  return {} as DocCategory;
 }
 
 /***********************************************

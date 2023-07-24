@@ -34,11 +34,11 @@ export const IconGrid: FunctionComponent<IconGridProps> = ({
     >
       {iconList?.map((icon: string, index: number) => (
         <IconGridItem
+          role="gridcell"
           isSelected={selectedIcon?.name === icons[icon]?.name}
           id={`${icons[icon]?.name}-${index}`}
           key={`${icons[icon]?.name}-${index}`}
           index={index}
-          role="gridcell"
           icon={icon}
           icons={icons}
           reference={setRef(icon) as LegacyRef<HTMLAnchorElement>}

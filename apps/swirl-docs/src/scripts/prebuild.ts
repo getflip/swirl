@@ -154,9 +154,8 @@ async function fetchTreeList(path: string) {
 
 // Function to fetch file list from GitLab repository
 async function fetchFileList(type: "spec" | "docs") {
-  console.log("Fetching file list...");
-
   const stage = getDeploymentStage();
+  console.log(`Fetching file list for stage ${stage}...`);
   const path = type === "spec" ? "" : "docs";
 
   const fileListEndpoint = `${GITLAB_ENDPOINT}/${env.GITLAB_FLIP_REPO_ID}/repository/tree?ref=${refBranch}&path=api/spec/v3/${stage}/${path}`;
@@ -205,13 +204,17 @@ function moveSpec(spec: string) {
   const sourcePath = path.join("specs", `${spec}`);
   const destinationPath = path.join(".", `${spec}`);
 
-  fs.rename(sourcePath, destinationPath, (err) => {
-    if (err) {
-      console.error(`Error: Unable to rename ${spec}`, err);
-      return;
-    }
-    console.log(`Moved global spec ${spec} to root for oasBuilder`);
-  });
+  if (fs.existsSync(sourcePath)) {
+    fs.rename(sourcePath, destinationPath, (err) => {
+      if (err) {
+        console.error(`Error: Unable to rename ${spec}`, err);
+        return;
+      }
+      console.log(`Moved global spec ${spec} to root for oasBuilder`);
+    });
+  } else {
+    console.log(`Spec ${spec} does not exist. Moving on...`);
+  }
 }
 
 function deleteGlobalSpecs() {
@@ -222,13 +225,17 @@ function deleteGlobalSpecs() {
 function deleteSpec(spec: string) {
   const specPath = path.join("specs", `${spec}`);
 
-  fs.unlink(specPath, (err) => {
-    if (err) {
-      console.error(`Error: Unable to delete ${spec}`, err);
-      return;
-    }
-    console.log(`Deleted spec ${spec}`);
-  });
+  if (fs.existsSync(specPath)) {
+    fs.unlink(specPath, (err) => {
+      if (err) {
+        console.error(`Error: Unable to delete ${spec}`, err);
+        return;
+      }
+      console.log(`Deleted spec ${spec}`);
+    });
+  } else {
+    console.log(`Spec ${spec} does not exist. Moving on...`);
+  }
 }
 
 function deleteAllInDirectory(directory: string): void {

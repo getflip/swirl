@@ -123,7 +123,7 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const specs = createStaticPathsForSpecs();
+  const specs = createStaticPathsForSpecs() ?? [];
 
   return {
     fallback: false,

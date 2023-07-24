@@ -53,25 +53,31 @@ async function generateApiSpecNavItems(specName: string): Promise<NavItem> {
 }
 
 async function generateApiSpecNavigation(): Promise<void> {
-  const specs = fs
-    .readdirSync(API_SPEC_PATH)
-    .filter((file) => file.includes(".yml"));
+  if (fs.existsSync(API_SPEC_PATH)) {
+    const specs = fs
+      .readdirSync(API_SPEC_PATH)
+      .filter((file) => file.includes(".yml"));
 
-  const navItems = await Promise.all(
-    specs.map((spec) => generateApiSpecNavItems(spec))
-  );
+    const navItems = await Promise.all(
+      specs.map((spec) => generateApiSpecNavItems(spec))
+    );
 
-  const dataString = navItems
-    .map((navItem) => JSON.stringify(navItem))
-    .join(",");
-  const apiSpecsData = createApiSpecsDataString(dataString);
+    const dataString = navItems
+      .map((navItem) => JSON.stringify(navItem))
+      .join(",");
+    const apiSpecsData = createApiSpecsDataString(dataString);
 
-  fs.writeFileSync(
-    "./src/lib/navigation/src/data/apiSpecs.data.ts",
-    apiSpecsData,
-    "utf8"
-  );
-  console.log("Done! 🚀");
+    fs.writeFileSync(
+      "./src/lib/navigation/src/data/apiSpecs.data.ts",
+      apiSpecsData,
+      "utf8"
+    );
+    console.log("Done! 🚀");
+  } else {
+    console.log(
+      "No API specs found. Skipping generation of API specs navigation."
+    );
+  }
 }
 
 /*******************************************************************************
@@ -89,21 +95,27 @@ export const apiDocsNavItems: NavItem[] = [
 }
 
 async function generateApiDocsSpecNavigation(): Promise<void> {
-  const files = fs.readdirSync(API_DOCS_PATH);
+  if (fs.existsSync(API_DOCS_PATH)) {
+    const files = fs.readdirSync(API_DOCS_PATH);
 
-  const filesWithPaths = generateFileList(files);
+    const filesWithPaths = generateFileList(files);
 
-  const dataString = filesWithPaths
-    .map((navItem) => JSON.stringify(navItem))
-    .join(",");
-  const apiDocsData = createApiDocsDataString(dataString);
+    const dataString = filesWithPaths
+      .map((navItem) => JSON.stringify(navItem))
+      .join(",");
+    const apiDocsData = createApiDocsDataString(dataString);
 
-  fs.writeFileSync(
-    "./src/lib/navigation/src/data/apiDocs.data.ts",
-    apiDocsData,
-    "utf8"
-  );
-  console.log("Done! 🚀");
+    fs.writeFileSync(
+      "./src/lib/navigation/src/data/apiDocs.data.ts",
+      apiDocsData,
+      "utf8"
+    );
+    console.log("Done! 🚀");
+  } else {
+    console.log(
+      "No API docs found. Skipping generation of API docs navigation."
+    );
+  }
 }
 
 function generateFileList(paths: string[], rootPath?: string): NavItem[] {

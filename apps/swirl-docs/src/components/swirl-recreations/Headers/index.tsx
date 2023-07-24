@@ -106,7 +106,7 @@ type LinkedHeadingProps = DetailedHTMLProps<
 export function LinkedHeading({ children, href }: LinkedHeadingProps) {
   return (
     <CopyToClipboard text={href}>
-      <div className="relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer mb-4">
+      <div className="relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer mb-6">
         {/** DESKTOP ICON */}
         <i
           className={classnames(

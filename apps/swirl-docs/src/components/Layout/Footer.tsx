@@ -6,25 +6,17 @@ import classNames from "classnames";
 const links: NavLink[] = [
   {
     name: "About Flip",
-    path: "",
-  },
-  {
-    name: "Partners",
-    path: "",
+    path: "https://www.getflip.com/about-us/",
   },
   {
     name: "Careers",
-    path: "",
-  },
-  {
-    name: "Press and Media",
-    path: "",
+    path: "https://www.getflip.com/open-positions/",
   },
 ];
 
 const Footer = () => {
   return (
-    <footer id="footer" className="w-full">
+    <footer id="footer" className="w-full mt-4 md:mt-0">
       {/* <PreFooter /> */}
       <nav
         aria-label="footer"
@@ -40,7 +32,10 @@ const Footer = () => {
           {links.map((link, index) => (
             <li key={link.path + `-${index}`} className="mb-4 md:mb-0 md:mr-8">
               <Link href={link.path}>
-                <a className="text-font-size-base md:text-font-size-sm leading-6 text-text-default">
+                <a
+                  className="text-font-size-base md:text-font-size-sm leading-6 text-text-default"
+                  target="_blank"
+                >
                   {link.name}
                 </a>
               </Link>
