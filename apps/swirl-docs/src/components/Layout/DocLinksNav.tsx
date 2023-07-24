@@ -14,13 +14,20 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
 }) => {
   let headlines: Element[] = [];
 
+  // TODO: refactor mdx linked header logic to set id on sections. look at line 29 for reason why this is needed.
+  const getNthParent = (element: Element | null, n: number): Element => {
+    while (n > 0 && element) {
+      element = element.parentElement;
+      n--;
+    }
+    return element as Element;
+  };
+
   if (isBrowser) {
-    console.log("documentLinkList", documentLinkList);
-    headlines = documentLinkList.map(
-      (item) =>
-        document.querySelector(`[id="${item.id}"]`)?.parentElement
-          ?.parentElement?.parentElement!
-    );
+    headlines = documentLinkList.map((item) => {
+      const element = document.querySelector(`[id="${item.id}"]`);
+      return getNthParent(element, 3); // 3 for three parentElements up, caused by mdx structure and linked headers.
+    });
   }
 
   const [activeIndex, setActiveIndexInLinks] = useState(0);
