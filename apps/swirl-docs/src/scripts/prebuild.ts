@@ -220,8 +220,7 @@ function moveSpec(spec: string) {
 }
 
 function deleteGlobalSpecs() {
-  deleteSpec("version-info.yml");
-  deleteSpec("merged.yml");
+  globalSpecs.forEach((spec) => deleteSpec(spec));
 }
 
 function deleteSpec(spec: string) {
