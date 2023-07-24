@@ -6,6 +6,8 @@ export const OVERVIEW_HTML = fs.readFileSync(
   path.resolve("./public/overview.html")
 );
 
+console.log("UTILS");
+
 export const cssLight = loadFile("/css/styles.light.custom-properties.css");
 export const cssDark = loadFile("/css/styles.light.custom-properties.css");
 
@@ -19,7 +21,7 @@ export const scssLight = loadFile("/scss/styles.light.scss");
 export const scssDark = loadFile("/scss/styles.dark.scss");
 
 function loadFile(filePath: string) {
-  let nodeModuleRoot = "node_modules/@getflip/swirl-tokens/dist";
+  let nodeModuleRoot = "../../node_modules/@getflip/swirl-tokens/dist";
 
   if (!isProd) {
     nodeModuleRoot = "../../node_modules/@getflip/swirl-tokens/dist";
