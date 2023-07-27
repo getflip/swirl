@@ -15,8 +15,13 @@ const GITLAB_ENDPOINT = "https://gitlab.com/api/v4/projects";
 const headers = {
   "PRIVATE-TOKEN": env.GITLAB_ACCESS_TOKEN,
 };
-const refBranch = env.REFERENCE_BRANCH;
-const globalSpecs = ["shared.yml", "problem.yml"];
+const refBranch = "master";
+const globalSpecs = [
+  "shared.yml",
+  "problem.yml",
+  "users.yml",
+  "usergroups.yml",
+];
 
 /*******************************************************************************
  * Run
@@ -32,11 +37,11 @@ async function fetchData() {
     cleanGlobalSpecs();
   }
 
-  const docs = await fetchFileList("docs");
+  // const docs = await fetchFileList("docs");
 
-  if (docs) {
-    await Promise.all(docs.map((doc) => processFileOrTree(doc)));
-  }
+  // if (docs) {
+  //   await Promise.all(docs.map((doc) => processFileOrTree(doc)));
+  // }
 }
 
 /*******************************************************************************
@@ -160,6 +165,7 @@ async function fetchFileList(type: "spec" | "docs") {
 
   const fileListEndpoint = `${GITLAB_ENDPOINT}/${env.GITLAB_FLIP_REPO_ID}/repository/tree?ref=${refBranch}&path=api/spec/v3/${stage}/${path}`;
 
+  console.log(`Fetching file list at path ${fileListEndpoint}...`);
   try {
     const response = await fetch(fileListEndpoint, { headers });
 
@@ -176,15 +182,15 @@ async function fetchFileList(type: "spec" | "docs") {
 }
 
 function getDeploymentStage() {
-  if (!env.DEPLOYMENT_STAGE) {
-    throw new Error("DEPLOYMENT_ENVIRONMENT is not set");
-  }
+  // if (!env.DEPLOYMENT_STAGE) {
+  //   throw new Error("DEPLOYMENT_ENVIRONMENT is not set");
+  // }
 
-  if (env.DEPLOYMENT_STAGE === "staging") {
-    return "development";
-  }
+  // if (env.DEPLOYMENT_STAGE === "staging") {
+  //   return "development";
+  // }
 
-  return "published";
+  return "development";
 }
 
 function cleanGlobalSpecs() {
@@ -220,10 +226,13 @@ function moveSpec(spec: string) {
 function deleteGlobalSpecs() {
   deleteSpec("version-info.yml");
   deleteSpec("merged.yml");
+  deleteSpec("organisations.yml");
 }
 
 function deleteSpec(spec: string) {
   const specPath = path.join("specs", `${spec}`);
+
+  console.log(`Deleting spec ${specPath}...`);
 
   if (fs.existsSync(specPath)) {
     fs.unlink(specPath, (err) => {
