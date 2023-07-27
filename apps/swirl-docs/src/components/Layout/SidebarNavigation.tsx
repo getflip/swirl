@@ -193,19 +193,23 @@ export function SidebarNavigation() {
     >
       {router.asPath.includes("/api-docs") && (
         <>
-          <ul className="mt-6">
-            {apiDocsNavItems?.map((navItem: NavItem, index) => {
-              return (
-                <CategoryNavSubItem
-                  isCurrentlyInView={activePath.includes(navItem.url)}
-                  key={navItem.title + `-${index}`}
-                  navItem={navItem}
-                  activePath={activePath}
-                />
-              );
-            })}
-          </ul>
-          <hr className="mt-6" />
+          {apiDocsNavItems.length > 0 && (
+            <>
+              <ul className="mt-6">
+                {apiDocsNavItems?.map((navItem: NavItem, index) => {
+                  return (
+                    <CategoryNavSubItem
+                      isCurrentlyInView={activePath.includes(navItem.url)}
+                      key={navItem.title + `-${index}`}
+                      navItem={navItem}
+                      activePath={activePath}
+                    />
+                  );
+                })}
+              </ul>
+              <hr className="mt-6" />
+            </>
+          )}
           <div className="flex mt-6 align-center h-10 max-h-10">
             <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-[#8E8E93]">
               APIs
