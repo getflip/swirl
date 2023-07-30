@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.19.0
+
+### Minor Changes
+
+- [#333](https://github.com/getflip/swirl/pull/333)
+  [`4825e56`](https://github.com/getflip/swirl/commit/4825e56741a136ab363a4b449ce5cae0784f04e1)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Translate and
+  Format H1 Icon added
+
 ## 0.18.0
 
 ### Minor Changes
