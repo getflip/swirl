@@ -32,9 +32,11 @@ describe("swirl-lightbox", () => {
                 <button aria-label="Close" class="lightbox__close-button">
                   <swirl-icon-close></swirl-icon-close>
                 </button>
-                <button aria-label="Open slide menu" class="lightbox__menu-button" id="slide-menu-trigger">
-                  <swirl-icon-more-vertikal></swirl-icon-more-vertikal>
-                </button>
+                <swirl-popover-trigger>
+                  <button aria-label="Open slide menu" class="lightbox__menu-button">
+                    <swirl-icon-more-vertikal></swirl-icon-more-vertikal>
+                  </button>
+                </swirl-popover-trigger>
               </header>
               <div aria-roledescription="carousel" class="lightbox__content" role="group">
                 <div aria-atomic="false" aria-live="polite" class="lightbox__slides">
@@ -53,7 +55,7 @@ describe("swirl-lightbox", () => {
                 <span aria-current="page">1</span> / 2
               </span>
             </div>
-            <swirl-popover animation="scale-in-y" disablescrolllock="" label="Slide options" placement="bottom-end" popoverid="slide-menu" trigger="slide-menu-trigger">
+            <swirl-popover animation="scale-in-y" disablescrolllock="" id="slide-menu" label="Slide options" placement="bottom-end">
               <swirl-stack>
                 <div class="lightbox__meta">
                   <div class="lightbox__file-info">

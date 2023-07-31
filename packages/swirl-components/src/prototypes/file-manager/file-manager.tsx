@@ -48,6 +48,7 @@ const FileManagerMockData: { directories: FileManagerDirectory[] } = {
 export class FileManager {
   @State() selectedDirectory: FileManagerDirectory | undefined;
   @State() selectedFile: FileManagerFile | undefined;
+  @State() sortMenu: HTMLSwirlPopoverElement;
 
   private layout: HTMLSwirlAppLayoutElement;
 
@@ -120,11 +121,12 @@ export class FileManager {
           </swirl-resource-list>
 
           {/* Navigation controls */}
-          <swirl-button
-            id="sort-button"
-            label="Sort items"
+          <swirl-popover-trigger
+            popover={this.sortMenu}
             slot="navigation-controls"
-          ></swirl-button>
+          >
+            <swirl-button label="Sort items"></swirl-button>
+          </swirl-popover-trigger>
 
           {/* App bar */}
           <swirl-stack orientation="horizontal" slot="app-bar">
@@ -185,11 +187,7 @@ export class FileManager {
           </swirl-box>
         </swirl-app-layout>
 
-        <swirl-popover
-          label="Sort items"
-          popoverId="sort-menu"
-          trigger="sort-button"
-        >
+        <swirl-popover label="Sort items" ref={(el) => (this.sortMenu = el)}>
           <swirl-option-list value={["ascending"]}>
             <swirl-option-list-item
               icon="<swirl-icon-expand-less></swirl-icon-expand-less>"

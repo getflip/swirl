@@ -303,13 +303,14 @@ export class SwirlPdfReader {
                 </span>
               </span>
               <span class="pdf-reader__header-right">
-                <swirl-button
-                  class="pdf-reader__menu-button"
-                  hideLabel
-                  icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>"
-                  id="menu-trigger"
-                  label={this.menuTriggerLabel}
-                ></swirl-button>
+                <swirl-popover-trigger popover={this.menu}>
+                  <swirl-button
+                    class="pdf-reader__menu-button"
+                    hideLabel
+                    icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>"
+                    label={this.menuTriggerLabel}
+                  ></swirl-button>
+                </swirl-popover-trigger>
               </span>
               <span class="pdf-reader__floating-tools">
                 <button
@@ -411,11 +412,10 @@ export class SwirlPdfReader {
           <swirl-popover
             animation="scale-in-y"
             disableScrollLock
+            id="menu"
             label={this.menuLabel}
             placement="bottom-end"
-            popoverId="menu"
             ref={(el) => (this.menu = el)}
-            trigger="menu-trigger"
           >
             <swirl-stack>
               <div class="pdf-reader__meta">

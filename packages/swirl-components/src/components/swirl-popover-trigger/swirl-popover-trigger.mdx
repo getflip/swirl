@@ -1,0 +1,27 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-popover-trigger.stories";
+
+<Meta title="Components/SwirlPopoverTrigger" />
+
+# SwirlPopoverTrigger
+
+The SwirlPopover component is used to position and open a referenced
+[SwirlPopover component](?path=/docs/components-swirlpopover--docs).
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-popover-trigger)**
+
+## Usage
+
+<Canvas of={Stories.SwirlPopoverTrigger} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlPopoverTrigger} />
+
+## Accessibility
+
+### ARIA
+
+| ARIA            | Usage                                                                |
+| --------------- | -------------------------------------------------------------------- |
+| `aria-controls` | Set on the wrapped trigger element, referencing the popover element. |
+| `aria-expanded` | Set on the wrapped trigger element.                                  |
+| `aria-haspopup` | Set to "dialog" on the wrapped trigger element.                      |

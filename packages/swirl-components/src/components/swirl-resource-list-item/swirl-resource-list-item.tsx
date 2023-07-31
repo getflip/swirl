@@ -194,17 +194,18 @@ export class SwirlResourceListItem {
             <span class="resource-list-item__meta">{this.meta}</span>
           )}
           {showMenu && (
-            <swirl-button
-              aria-disabled={disabled ? "true" : undefined}
-              class="resource-list-item__menu-trigger"
-              disabled={disabled}
-              hideLabel
-              icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
-              id={this.menuTriggerId}
-              intent="primary"
-              label={this.menuTriggerLabel}
-              onClick={this.onMenuTriggerClick}
-            ></swirl-button>
+            <swirl-popover-trigger popover={this.menuTriggerId}>
+              <swirl-button
+                aria-disabled={disabled ? "true" : undefined}
+                class="resource-list-item__menu-trigger"
+                disabled={disabled}
+                hideLabel
+                icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
+                intent="primary"
+                label={this.menuTriggerLabel}
+                onClick={this.onMenuTriggerClick}
+              ></swirl-button>
+            </swirl-popover-trigger>
           )}
         </div>
 

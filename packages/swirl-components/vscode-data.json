@@ -857,11 +857,19 @@
           ]
         },
         {
+          "name": "swirl-aria-controls",
+          "description": ""
+        },
+        {
           "name": "swirl-aria-describedby",
           "description": ""
         },
         {
           "name": "swirl-aria-expanded",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-haspopup",
           "description": ""
         },
         {
@@ -4435,15 +4443,28 @@
           ]
         },
         {
-          "name": "popover-id",
-          "description": ""
-        },
-        {
           "name": "trigger",
           "description": ""
         },
         {
           "name": "use-container-width",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-popover-trigger",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "popover",
+          "description": ""
+        },
+        {
+          "name": "set-aria-attributes",
           "description": ""
         }
       ]

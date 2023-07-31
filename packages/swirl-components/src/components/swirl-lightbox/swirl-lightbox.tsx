@@ -339,13 +339,14 @@ export class SwirlLightbox {
               >
                 <swirl-icon-close></swirl-icon-close>
               </button>
-              <button
-                aria-label={this.menuTriggerLabel}
-                class="lightbox__menu-button"
-                id="slide-menu-trigger"
-              >
-                <swirl-icon-more-vertikal></swirl-icon-more-vertikal>
-              </button>
+              <swirl-popover-trigger popover={this.menu}>
+                <button
+                  aria-label={this.menuTriggerLabel}
+                  class="lightbox__menu-button"
+                >
+                  <swirl-icon-more-vertikal></swirl-icon-more-vertikal>
+                </button>
+              </swirl-popover-trigger>
             </header>
             <div
               aria-roledescription="carousel"
@@ -388,11 +389,10 @@ export class SwirlLightbox {
           <swirl-popover
             animation="scale-in-y"
             disableScrollLock
+            id="slide-menu"
             label={this.menuLabel}
             placement="bottom-end"
-            popoverId="slide-menu"
             ref={(el) => (this.menu = el)}
-            trigger="slide-menu-trigger"
           >
             <swirl-stack>
               <div class="lightbox__meta">

@@ -257,8 +257,10 @@ export namespace Components {
         "name"?: string;
         "pill"?: boolean;
         "size"?: SwirlButtonSize;
+        "swirlAriaControls"?: string;
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
+        "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
         "target"?: string;
         "type"?: SwirlButtonType;
@@ -1126,12 +1128,15 @@ export namespace Components {
           * Open the popover.
           * @returns
          */
-        "open": () => Promise<void>;
+        "open": (triggerEl?: HTMLElement) => Promise<void>;
         "placement"?: Placement;
-        "popoverId": string;
-        "trigger": string | HTMLElement;
+        "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
+    }
+    interface SwirlPopoverTrigger {
+        "popover": string | HTMLSwirlPopoverElement;
+        "setAriaAttributes"?: boolean;
     }
     interface SwirlProgressIndicator {
         "label": string;
@@ -2884,6 +2889,12 @@ declare global {
         prototype: HTMLSwirlPopoverElement;
         new (): HTMLSwirlPopoverElement;
     };
+    interface HTMLSwirlPopoverTriggerElement extends Components.SwirlPopoverTrigger, HTMLStencilElement {
+    }
+    var HTMLSwirlPopoverTriggerElement: {
+        prototype: HTMLSwirlPopoverTriggerElement;
+        new (): HTMLSwirlPopoverTriggerElement;
+    };
     interface HTMLSwirlProgressIndicatorElement extends Components.SwirlProgressIndicator, HTMLStencilElement {
     }
     var HTMLSwirlProgressIndicatorElement: {
@@ -3647,6 +3658,7 @@ declare global {
         "swirl-pagination": HTMLSwirlPaginationElement;
         "swirl-pdf-reader": HTMLSwirlPdfReaderElement;
         "swirl-popover": HTMLSwirlPopoverElement;
+        "swirl-popover-trigger": HTMLSwirlPopoverTriggerElement;
         "swirl-progress-indicator": HTMLSwirlProgressIndicatorElement;
         "swirl-radio": HTMLSwirlRadioElement;
         "swirl-radio-group": HTMLSwirlRadioGroupElement;
@@ -3880,8 +3892,10 @@ declare namespace LocalJSX {
         "name"?: string;
         "pill"?: boolean;
         "size"?: SwirlButtonSize;
+        "swirlAriaControls"?: string;
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
+        "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
         "target"?: string;
         "type"?: SwirlButtonType;
@@ -4644,10 +4658,13 @@ declare namespace LocalJSX {
         "onPopoverClose"?: (event: SwirlPopoverCustomEvent<void>) => void;
         "onPopoverOpen"?: (event: SwirlPopoverCustomEvent<{ position: ComputePositionReturn }>) => void;
         "placement"?: Placement;
-        "popoverId": string;
-        "trigger": string | HTMLElement;
+        "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
+    }
+    interface SwirlPopoverTrigger {
+        "popover": string | HTMLSwirlPopoverElement;
+        "setAriaAttributes"?: boolean;
     }
     interface SwirlProgressIndicator {
         "label": string;
@@ -5307,6 +5324,7 @@ declare namespace LocalJSX {
         "swirl-pagination": SwirlPagination;
         "swirl-pdf-reader": SwirlPdfReader;
         "swirl-popover": SwirlPopover;
+        "swirl-popover-trigger": SwirlPopoverTrigger;
         "swirl-progress-indicator": SwirlProgressIndicator;
         "swirl-radio": SwirlRadio;
         "swirl-radio-group": SwirlRadioGroup;
@@ -5596,6 +5614,7 @@ declare module "@stencil/core" {
             "swirl-pagination": LocalJSX.SwirlPagination & JSXBase.HTMLAttributes<HTMLSwirlPaginationElement>;
             "swirl-pdf-reader": LocalJSX.SwirlPdfReader & JSXBase.HTMLAttributes<HTMLSwirlPdfReaderElement>;
             "swirl-popover": LocalJSX.SwirlPopover & JSXBase.HTMLAttributes<HTMLSwirlPopoverElement>;
+            "swirl-popover-trigger": LocalJSX.SwirlPopoverTrigger & JSXBase.HTMLAttributes<HTMLSwirlPopoverTriggerElement>;
             "swirl-progress-indicator": LocalJSX.SwirlProgressIndicator & JSXBase.HTMLAttributes<HTMLSwirlProgressIndicatorElement>;
             "swirl-radio": LocalJSX.SwirlRadio & JSXBase.HTMLAttributes<HTMLSwirlRadioElement>;
             "swirl-radio-group": LocalJSX.SwirlRadioGroup & JSXBase.HTMLAttributes<HTMLSwirlRadioGroupElement>;
