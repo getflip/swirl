@@ -30,6 +30,12 @@ export class SwirlPopoverTrigger {
   }
 
   private getTriggerEl() {
+    if (this.el.children.length !== 1) {
+      console.warn(
+        '[Swirl] The "swirl-popover-trigger" component expects exactly one child element.'
+      );
+    }
+
     return this.el.children[0] as HTMLElement;
   }
 
