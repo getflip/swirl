@@ -1130,6 +1130,7 @@ export namespace Components {
          */
         "open": (triggerEl?: HTMLElement) => Promise<void>;
         "placement"?: Placement;
+        "popoverId"?: string;
         "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
@@ -4658,6 +4659,7 @@ declare namespace LocalJSX {
         "onPopoverClose"?: (event: SwirlPopoverCustomEvent<void>) => void;
         "onPopoverOpen"?: (event: SwirlPopoverCustomEvent<{ position: ComputePositionReturn }>) => void;
         "placement"?: Placement;
+        "popoverId"?: string;
         "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
