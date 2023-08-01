@@ -1,1 +1,3 @@
-packages/**/*
+packages
+.github
+.changeset
