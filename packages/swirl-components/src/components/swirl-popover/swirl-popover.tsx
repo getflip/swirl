@@ -47,6 +47,7 @@ export class SwirlPopover {
   @Prop() label!: string;
   @Prop() maxHeight?: string = "22rem";
   @Prop() offset?: number | number[] = 8;
+  @Prop() popoverId?: string;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() trigger?: string | HTMLElement;
   @Prop() triggerContainer?: HTMLElement;
@@ -372,6 +373,7 @@ export class SwirlPopover {
             aria-hidden={!this.active ? "true" : "false"}
             aria-label={this.label}
             class="popover__content"
+            id={this.popoverId}
             part="popover__content"
             role="dialog"
             ref={(el) => (this.contentContainer = el)}
