@@ -67,6 +67,12 @@ export class SwirlPopover {
   componentDidLoad() {
     this.connectTrigger();
     this.updateTriggerAttributes();
+
+    if (Boolean(this.trigger)) {
+      console.warn(
+        '[Swirl] The "trigger" prop of swirl-popover is deprecated and will be removed with the next major release. Please use the swirl-popover-trigger component instead. https://swirl-storybook.flip-app.dev/?path=/docs/components-swirlpopovertrigger--docs'
+      );
+    }
   }
 
   disconnectedCallback() {
