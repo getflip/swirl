@@ -6,11 +6,11 @@ on:
       - figma-tokens
     paths:
       - packages/swirl-tokens/**/*
-    paths-ignore:
-      - packages/swirl-icons/dart/lib/fonts/flip-legacy-icons.ttf
-      - packages/swirl-icons/dart/lib/fonts/swirl-icons.ttf
-      - packages/swirl-tokens/dart/lib/styles.dark.dart
-      - packages/swirl-tokens/dart/lib/styles.light.dart
+    # paths-ignore:
+    #   - packages/swirl-icons/dart/lib/fonts/flip-legacy-icons.ttf
+    #   - packages/swirl-icons/dart/lib/fonts/swirl-icons.ttf
+    #   - packages/swirl-tokens/dart/lib/styles.dark.dart
+    #   - packages/swirl-tokens/dart/lib/styles.light.dart
 
 jobs:
   figma_to_style_dictionary:

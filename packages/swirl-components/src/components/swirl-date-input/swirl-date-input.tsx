@@ -196,25 +196,25 @@ export class SwirlDateInput {
             value={displayValue}
           />
 
-          <button
-            aria-label={this.datePickerTriggerLabel}
-            class="date-input__date-picker-button"
-            disabled={this.disabled}
-            id={`${this.id}-trigger`}
-            type="button"
-          >
-            <swirl-icon-today size={this.iconSize}></swirl-icon-today>
-          </button>
+          <swirl-popover-trigger popover={`popover-${this.id}`}>
+            <button
+              aria-label={this.datePickerTriggerLabel}
+              class="date-input__date-picker-button"
+              disabled={this.disabled}
+              type="button"
+            >
+              <swirl-icon-today size={this.iconSize}></swirl-icon-today>
+            </button>
+          </swirl-popover-trigger>
         </div>
 
         {!this.disabled && (
           <swirl-popover
             animation="scale-in-y"
+            id={`popover-${this.id}`}
             label={this.datePickerLabel}
             placement="bottom-end"
-            popoverId={`popover-${this.id}`}
             ref={(el) => (this.pickerPopover = el)}
-            trigger={`${this.id}-trigger`}
           >
             <swirl-date-picker
               labels={this.labels}

@@ -14,6 +14,7 @@ import { getDesktopMediaQuery } from "../../utils";
 export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 
 /**
+ * @slot control - Used to add a menu button to the item
  * @slot media - Media displayed inside the item (e.g. swirl-avatar)
  */
 @Component({
@@ -61,6 +62,12 @@ export class SwirlResourceListItem {
     this.updateIconSize(this.desktopMediaQuery.matches);
 
     this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+
+    if (Boolean(this.menuTriggerId)) {
+      console.warn(
+        '[Swirl] The "menu-trigger-id" prop of swirl-resource-list-item is deprecated and will be removed with the next major release. Please use the "control" slot to add a menu button instead. https://swirl-storybook.flip-app.dev/?path=/docs/components-swirlresourcelistitem--docs'
+      );
+    }
   }
 
   disconnectedCallback() {
@@ -125,9 +132,11 @@ export class SwirlResourceListItem {
         : "button";
 
     const disabled = this.disabled && !Boolean(this.href);
-    const hasMenu = Boolean(this.menuTriggerId);
+    const hasMenu =
+      Boolean(this.menuTriggerId) || this.el.querySelector("[slot='control']");
     const href = this.interactive && Boolean(this.href) ? this.href : undefined;
-    const showMenu = hasMenu && !Boolean(this.meta) && !this.selectable;
+    const showMenu =
+      Boolean(this.menuTriggerId) && !Boolean(this.meta) && !this.selectable;
     const showMeta = Boolean(this.meta) && !this.selectable;
 
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
@@ -193,18 +202,22 @@ export class SwirlResourceListItem {
           {showMeta && (
             <span class="resource-list-item__meta">{this.meta}</span>
           )}
+          <span class="resource-list-item__control">
+            <slot name="control"></slot>
+          </span>
           {showMenu && (
-            <swirl-button
-              aria-disabled={disabled ? "true" : undefined}
-              class="resource-list-item__menu-trigger"
-              disabled={disabled}
-              hideLabel
-              icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
-              id={this.menuTriggerId}
-              intent="primary"
-              label={this.menuTriggerLabel}
-              onClick={this.onMenuTriggerClick}
-            ></swirl-button>
+            <swirl-popover-trigger popover={this.menuTriggerId}>
+              <swirl-button
+                aria-disabled={disabled ? "true" : undefined}
+                class="resource-list-item__menu-trigger"
+                disabled={disabled}
+                hideLabel
+                icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
+                intent="primary"
+                label={this.menuTriggerLabel}
+                onClick={this.onMenuTriggerClick}
+              ></swirl-button>
+            </swirl-popover-trigger>
           )}
         </div>
 

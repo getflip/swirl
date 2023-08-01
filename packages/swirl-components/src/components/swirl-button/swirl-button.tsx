@@ -33,8 +33,10 @@ export type SwirlButtonVariant =
 export class SwirlButton {
   @Prop() disabled?: boolean;
   @Prop() download?: string;
+  @Prop() swirlAriaControls?: string;
   @Prop() swirlAriaDescribedby?: string;
   @Prop() swirlAriaExpanded?: string;
+  @Prop() swirlAriaHaspopup?: string;
   @Prop() swirlAriaLabel?: string;
   @Prop() form?: string;
   @Prop() hideLabel?: boolean;
@@ -120,9 +122,11 @@ export class SwirlButton {
     return (
       <Host style={{ pointerEvents: this.disabled ? "none" : "" }}>
         <Tag
+          aria-controls={this.swirlAriaControls}
           aria-describedby={this.swirlAriaDescribedby}
           aria-disabled={this.disabled && !isLink ? "true" : undefined}
           aria-expanded={this.swirlAriaExpanded}
+          aria-haspopup={this.swirlAriaHaspopup}
           aria-label={ariaLabel}
           class={className}
           disabled={isLink ? undefined : this.disabled}
