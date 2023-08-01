@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.79.0
+
+### Minor Changes
+
+- [#335](https://github.com/getflip/swirl/pull/335)
+  [`bb0117d`](https://github.com/getflip/swirl/commit/bb0117d6105736046997d4b84f4c7274835f5a3b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Deprecate "menu-trigger" of
+  swirl-resource-list-item and replace with a "control" slot.
+
+* [#335](https://github.com/getflip/swirl/pull/335)
+  [`bb0117d`](https://github.com/getflip/swirl/commit/bb0117d6105736046997d4b84f4c7274835f5a3b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-popover-trigger
+  component; deprecate "trigger" prop of swirl-popover
+
 ## 0.78.1
 
 ### Patch Changes
