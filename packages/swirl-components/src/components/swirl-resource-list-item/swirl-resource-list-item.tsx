@@ -125,9 +125,11 @@ export class SwirlResourceListItem {
         : "button";
 
     const disabled = this.disabled && !Boolean(this.href);
-    const hasMenu = Boolean(this.menuTriggerId);
+    const hasMenu =
+      Boolean(this.menuTriggerId) || this.el.querySelector("[slot='control']");
     const href = this.interactive && Boolean(this.href) ? this.href : undefined;
-    const showMenu = hasMenu && !Boolean(this.meta) && !this.selectable;
+    const showMenu =
+      Boolean(this.menuTriggerId) && !Boolean(this.meta) && !this.selectable;
     const showMeta = Boolean(this.meta) && !this.selectable;
 
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
@@ -193,6 +195,9 @@ export class SwirlResourceListItem {
           {showMeta && (
             <span class="resource-list-item__meta">{this.meta}</span>
           )}
+          <span class="resource-list-item__control">
+            <slot name="control"></slot>
+          </span>
           {showMenu && (
             <swirl-popover-trigger popover={this.menuTriggerId}>
               <swirl-button

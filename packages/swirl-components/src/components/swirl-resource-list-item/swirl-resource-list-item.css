@@ -231,6 +231,13 @@
   transform: translateY(-50%);
 }
 
+.resource-list-item__control {
+  position: absolute;
+  top: 50%;
+  right: var(--s-space-16);
+  transform: translateY(-50%);
+}
+
 .resource-list-item__checkbox {
   position: absolute;
   top: 50%;

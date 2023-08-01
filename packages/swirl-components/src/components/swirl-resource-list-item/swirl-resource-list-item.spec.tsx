@@ -32,6 +32,7 @@ describe("swirl-resource-list-item", () => {
               </span>
             </span>
           </button>
+          <span class="resource-list-item__control"></span>
         </div>
       </swirl-resource-list-item>
     `);
