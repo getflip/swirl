@@ -25,6 +25,27 @@
   flex-direction: column;
 }
 
+.chip--size-s {
+  height: 2rem;
+
+  &.chip--removable {
+    & .chip__inner {
+      padding-right: calc(1.5rem + var(--s-space-12));
+    }
+  }
+
+  & .chip__inner {
+    padding-right: var(--s-space-12);
+    padding-left: var(--s-space-12);
+  }
+
+  & + .chip__remove-button {
+    top: var(--s-space-4);
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
 .chip--interactive {
   cursor: pointer;
 

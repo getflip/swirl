@@ -1402,6 +1402,18 @@
           "description": ""
         },
         {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
           "name": "variant",
           "description": "",
           "values": [

@@ -31,7 +31,6 @@ const Template = (args) => {
 export const SwirlChip = Template.bind({});
 
 SwirlChip.args = {
-  iconColor: "highlight",
   label: "Label",
   removable: true,
 };

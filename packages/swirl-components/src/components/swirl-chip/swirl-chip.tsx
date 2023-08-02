@@ -16,6 +16,8 @@ export type SwirlChipIconColor = "default" | "highlight";
 
 export type SwirlChipIntent = "default" | "critical" | "success";
 
+export type SwirlChipSize = "s" | "m";
+
 export type SwirlChipVariant = "outline" | "plain";
 
 /**
@@ -39,6 +41,7 @@ export class SwirlChip {
   @Prop() progressBarLabel?: string = "Loading progress";
   @Prop() removable?: boolean;
   @Prop() removeButtonLabel?: string = "Remove";
+  @Prop() size?: SwirlChipSize = "m";
   @Prop() variant?: SwirlChipVariant = "outline";
 
   @Event() remove: EventEmitter<MouseEvent>;
@@ -65,8 +68,9 @@ export class SwirlChip {
     }
 
     const icon = this.iconEl.children[0];
+    const iconSize = this.size === "s" ? "16" : smallIcon ? "20" : "24";
 
-    icon?.setAttribute("size", smallIcon ? "20" : "24");
+    icon?.setAttribute("size", iconSize);
   }
 
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
@@ -84,6 +88,7 @@ export class SwirlChip {
       `chip--border-radius-${this.borderRadius}`,
       `chip--icon-color-${this.iconColor}`,
       `chip--intent-${this.intent}`,
+      `chip--size-${this.size}`,
       `chip--variant-${this.variant}`,
       {
         "chip--has-progress": this.progress !== undefined,
