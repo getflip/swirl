@@ -4056,6 +4056,10 @@
           "description": ""
         },
         {
+          "name": "max-height",
+          "description": ""
+        },
+        {
           "name": "max-width",
           "description": ""
         },

@@ -1031,6 +1031,7 @@ export namespace Components {
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
+        "maxHeight"?: string;
         "maxWidth"?: string;
         /**
           * Open the modal.
@@ -4567,6 +4568,7 @@ declare namespace LocalJSX {
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
+        "maxHeight"?: string;
         "maxWidth"?: string;
         "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
