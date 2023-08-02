@@ -10,11 +10,10 @@
 
 .chip {
   display: inline-flex;
+  overflow: hidden;
   max-width: 100%;
   height: 2.5rem;
-  padding-right: var(--s-space-16);
-  padding-left: var(--s-space-16);
-  align-items: center;
+  padding: 0;
   border: 0.0625rem solid var(--s-border-default);
   border-radius: 1.25rem;
   color: var(--s-text-subdued);
@@ -23,6 +22,7 @@
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-sm);
+  flex-direction: column;
 }
 
 .chip--interactive {
@@ -43,7 +43,7 @@
       }
 
       &:active {
-        background-color: var(--s-surface-raised-pressed);
+        background-color: var(--s-surface-overlay-pressed);
       }
     }
   }
@@ -54,11 +54,23 @@
     & ::part(avatar) {
       background-color: var(--s-surface-raised-pressed);
     }
+
+    & + .chip__remove-button {
+      background-color: var(--s-surface-overlay-pressed);
+    }
+  }
+}
+
+.chip--icon-color-highlight {
+  & .chip__icon {
+    color: var(--s-icon-highlight);
   }
 }
 
 .chip--removable {
-  padding-right: calc(2rem + var(--s-space-12));
+  & .chip__inner {
+    padding-right: calc(1.875rem + var(--s-space-12));
+  }
 }
 
 .chip--intent-critical {
@@ -85,8 +97,6 @@
 
 .chip--variant-plain {
   height: auto;
-  padding-right: 0;
-  padding-left: 0;
   border: none;
   border-radius: 0;
   background-color: transparent;
@@ -110,6 +120,37 @@
       }
     }
   }
+
+  &.chip--removable {
+    & .chip__inner {
+      padding-right: var(--s-space-12);
+    }
+  }
+
+  & + .chip__remove-button {
+    position: relative;
+    top: 0;
+    right: auto;
+  }
+
+  & .chip__inner {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.chip--has-progress {
+  & + .chip__remove-button {
+    top: 0.1875rem;
+  }
+}
+
+.chip__inner {
+  display: inline-flex;
+  height: 100%;
+  padding-right: var(--s-space-16);
+  padding-left: var(--s-space-16);
+  align-items: center;
 }
 
 .chip__avatar,
@@ -138,13 +179,17 @@
   text-overflow: ellipsis;
 }
 
+.chip__progress-indicator {
+  width: 100%;
+}
+
 .chip__remove-button {
   position: absolute;
-  top: 50%;
+  top: 0.3125rem;
   right: var(--s-space-4);
   display: inline-flex;
-  width: 2rem;
-  height: 2rem;
+  width: 1.875rem;
+  height: 1.875rem;
   padding: 0;
   justify-content: center;
   align-items: center;
@@ -153,7 +198,6 @@
   color: var(--s-icon-default);
   background-color: var(--s-surface-overlay-default);
   cursor: pointer;
-  transform: translateY(-50%);
 
   &:hover {
     background-color: var(--s-surface-overlay-hovered);

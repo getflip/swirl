@@ -1351,6 +1351,18 @@
           "description": ""
         },
         {
+          "name": "icon-color",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "highlight"
+            }
+          ]
+        },
+        {
           "name": "intent",
           "description": "",
           "values": [
@@ -1371,6 +1383,14 @@
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "progress",
+          "description": ""
+        },
+        {
+          "name": "progress-bar-label",
           "description": ""
         },
         {

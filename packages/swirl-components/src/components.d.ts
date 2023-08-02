@@ -17,7 +17,7 @@ import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButto
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
-import { SwirlChipBorderRadius, SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
+import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
@@ -73,7 +73,7 @@ export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButto
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
-export { SwirlChipBorderRadius, SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
+export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
@@ -330,9 +330,12 @@ export namespace Components {
     interface SwirlChip {
         "borderRadius"?: SwirlChipBorderRadius;
         "icon"?: string;
+        "iconColor"?: SwirlChipIconColor;
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+        "progress"?: number;
+        "progressBarLabel"?: string;
         "removable"?: boolean;
         "removeButtonLabel"?: string;
         "variant"?: SwirlChipVariant;
@@ -3964,10 +3967,13 @@ declare namespace LocalJSX {
     interface SwirlChip {
         "borderRadius"?: SwirlChipBorderRadius;
         "icon"?: string;
+        "iconColor"?: SwirlChipIconColor;
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
         "onRemove"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
+        "progress"?: number;
+        "progressBarLabel"?: string;
         "removable"?: boolean;
         "removeButtonLabel"?: string;
         "variant"?: SwirlChipVariant;
