@@ -24,6 +24,18 @@
 
 .thumbnail--size-l {
   --swirl-thumbnail-size: 4rem;
+
+  & .thumbnail__remove-button {
+    top: 0;
+    right: 0;
+    transform: scale(0.75);
+  }
+}
+
+.thumbnail--size-xl {
+  --swirl-thumbnail-size: 5rem;
+
+  border-radius: var(--s-border-radius-sm);
 }
 
 .thumbnail--format-landscape {
@@ -53,9 +65,51 @@
   }
 }
 
+.thumbnail--has-progress {
+  & .thumbnail__timestamp {
+    bottom: var(--s-space-8);
+  }
+}
+
 .thumbnail__image {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
+}
+
+.thumbnail__progress-indicator {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.thumbnail__remove-button {
+  position: absolute;
+  z-index: 1;
+  top: var(--s-space-4);
+  right: var(--s-space-4);
+}
+
+.thumbnail__timestamp {
+  position: absolute;
+  z-index: 1;
+  bottom: var(--s-space-4);
+  left: var(--s-space-4);
+  display: block;
+  overflow: hidden;
+  max-width: calc(100% - 2 * var(--s-space-4));
+  height: 1.5rem;
+  padding-right: var(--s-space-8);
+  padding-left: var(--s-space-8);
+  align-items: center;
+  border-radius: var(--s-border-radius-s);
+  color: var(--s-text-on-image);
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: var(--s-font-size-sm);
+  line-height: 1.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
