@@ -35,6 +35,7 @@ export class SwirlModal {
   @Prop() hideCloseButton?: boolean;
   @Prop() hideLabel?: boolean;
   @Prop() label!: string;
+  @Prop() maxHeight?: string;
   @Prop() maxWidth?: string;
   @Prop() padded?: boolean = true;
   @Prop() primaryActionLabel?: string;
@@ -230,7 +231,10 @@ export class SwirlModal {
           ref={(el) => (this.modalEl = el)}
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
-          <div class="modal__body" style={{ maxWidth: this.maxWidth }}>
+          <div
+            class="modal__body"
+            style={{ maxHeight: this.maxHeight, maxWidth: this.maxWidth }}
+          >
             <header class="modal__custom-header">
               <slot name="custom-header"></slot>
             </header>
