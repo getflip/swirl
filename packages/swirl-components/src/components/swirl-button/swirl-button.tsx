@@ -4,7 +4,7 @@ import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlButtonIconPosition = "start" | "end";
 
-export type SwirlButtonIntent = "default" | "primary" | "critical";
+export type SwirlButtonIntent = "default" | "primary" | "critical" | "strong";
 
 export type SwirlButtonSize = "m" | "l";
 
