@@ -12,7 +12,11 @@ import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlChipBorderRadius = "pill" | "sm";
 
+export type SwirlChipIconColor = "default" | "highlight";
+
 export type SwirlChipIntent = "default" | "critical" | "success";
+
+export type SwirlChipSize = "s" | "m";
 
 export type SwirlChipVariant = "outline" | "plain";
 
@@ -29,11 +33,15 @@ export class SwirlChip {
 
   @Prop() borderRadius?: SwirlChipBorderRadius = "pill";
   @Prop() icon?: string;
+  @Prop() iconColor?: SwirlChipIconColor = "default";
   @Prop() intent?: SwirlChipIntent = "default";
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
+  @Prop() progress?: number;
+  @Prop() progressBarLabel?: string = "Loading progress";
   @Prop() removable?: boolean;
   @Prop() removeButtonLabel?: string = "Remove";
+  @Prop() size?: SwirlChipSize = "m";
   @Prop() variant?: SwirlChipVariant = "outline";
 
   @Event() remove: EventEmitter<MouseEvent>;
@@ -60,8 +68,9 @@ export class SwirlChip {
     }
 
     const icon = this.iconEl.children[0];
+    const iconSize = this.size === "s" ? "16" : smallIcon ? "20" : "24";
 
-    icon?.setAttribute("size", smallIcon ? "20" : "24");
+    icon?.setAttribute("size", iconSize);
   }
 
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
@@ -77,9 +86,12 @@ export class SwirlChip {
     const className = classnames(
       "chip",
       `chip--border-radius-${this.borderRadius}`,
+      `chip--icon-color-${this.iconColor}`,
       `chip--intent-${this.intent}`,
+      `chip--size-${this.size}`,
       `chip--variant-${this.variant}`,
       {
+        "chip--has-progress": this.progress !== undefined,
         "chip--interactive": this.interactive,
         "chip--removable": this.removable,
       }
@@ -88,19 +100,29 @@ export class SwirlChip {
     return (
       <Host>
         <Tag class={className} type={this.interactive ? "button" : undefined}>
-          {showAvatar && (
-            <span class="chip__avatar">
-              <slot name="avatar"></slot>
+          <span class="chip__inner">
+            {showAvatar && (
+              <span class="chip__avatar">
+                <slot name="avatar"></slot>
+              </span>
+            )}
+            {showIcon && (
+              <span
+                class="chip__icon"
+                innerHTML={this.icon}
+                ref={(el) => (this.iconEl = el)}
+              ></span>
+            )}
+            <span class="chip__label">{this.label}</span>
+          </span>
+          {this.progress !== undefined && (
+            <span class="chip__progress-indicator">
+              <swirl-progress-indicator
+                label={this.progressBarLabel}
+                value={this.progress}
+              ></swirl-progress-indicator>
             </span>
           )}
-          {showIcon && (
-            <span
-              class="chip__icon"
-              innerHTML={this.icon}
-              ref={(el) => (this.iconEl = el)}
-            ></span>
-          )}
-          <span class="chip__label">{this.label}</span>
         </Tag>
         {this.removable && (
           <button

@@ -1351,6 +1351,18 @@
           "description": ""
         },
         {
+          "name": "icon-color",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "highlight"
+            }
+          ]
+        },
+        {
           "name": "intent",
           "description": "",
           "values": [
@@ -1374,12 +1386,32 @@
           "description": ""
         },
         {
+          "name": "progress",
+          "description": ""
+        },
+        {
+          "name": "progress-bar-label",
+          "description": ""
+        },
+        {
           "name": "removable",
           "description": ""
         },
         {
           "name": "remove-button-label",
           "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
         },
         {
           "name": "variant",
