@@ -2728,6 +2728,19 @@
       ]
     },
     {
+      "name": "swirl-icon-format-h-one",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-fullscreen",
       "description": {
         "kind": "markdown",
@@ -3157,6 +3170,19 @@
       ]
     },
     {
+      "name": "swirl-icon-mic",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-more-horizontal",
       "description": {
         "kind": "markdown",
@@ -3248,7 +3274,46 @@
       ]
     },
     {
+      "name": "swirl-icon-open-in-full",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-open-in-new",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-pause",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-pause-circle",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3391,6 +3456,19 @@
       ]
     },
     {
+      "name": "swirl-icon-report",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-roadmap",
       "description": {
         "kind": "markdown",
@@ -3495,6 +3573,19 @@
       ]
     },
     {
+      "name": "swirl-icon-stop",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-sync",
       "description": {
         "kind": "markdown",
@@ -3561,6 +3652,19 @@
     },
     {
       "name": "swirl-icon-today",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-translate",
       "description": {
         "kind": "markdown",
         "value": ""
