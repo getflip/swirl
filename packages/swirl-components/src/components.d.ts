@@ -1605,8 +1605,13 @@ export namespace Components {
     interface SwirlThumbnail {
         "alt": string;
         "format"?: SwirlThumbnailFormat;
-        "size": SwirlThumbnailSize;
+        "progress"?: number;
+        "progressLabel"?: string;
+        "removeButtonLabel"?: string;
+        "showRemoveButton"?: boolean;
+        "size"?: SwirlThumbnailSize;
         "src": string;
+        "timestamp"?: string;
     }
     interface SwirlTimeInput {
         "autoFocus"?: boolean;
@@ -5209,8 +5214,13 @@ declare namespace LocalJSX {
     interface SwirlThumbnail {
         "alt": string;
         "format"?: SwirlThumbnailFormat;
+        "progress"?: number;
+        "progressLabel"?: string;
+        "removeButtonLabel"?: string;
+        "showRemoveButton"?: boolean;
         "size"?: SwirlThumbnailSize;
         "src": string;
+        "timestamp"?: string;
     }
     interface SwirlTimeInput {
         "autoFocus"?: boolean;

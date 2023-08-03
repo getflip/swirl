@@ -6684,6 +6684,22 @@
           ]
         },
         {
+          "name": "progress",
+          "description": ""
+        },
+        {
+          "name": "progress-label",
+          "description": ""
+        },
+        {
+          "name": "remove-button-label",
+          "description": ""
+        },
+        {
+          "name": "show-remove-button",
+          "description": ""
+        },
+        {
           "name": "size",
           "description": "",
           "values": [
@@ -6695,11 +6711,18 @@
             },
             {
               "name": "s"
+            },
+            {
+              "name": "xl"
             }
           ]
         },
         {
           "name": "src",
+          "description": ""
+        },
+        {
+          "name": "timestamp",
           "description": ""
         }
       ]
