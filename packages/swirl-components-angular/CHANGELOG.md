@@ -1,5 +1,47 @@
 # @getflip/swirl-components-angular
 
+## 0.80.0
+
+### Minor Changes
+
+- [#340](https://github.com/getflip/swirl/pull/340)
+  [`a1bf914`](https://github.com/getflip/swirl/commit/a1bf9147f008489a214c9dac8e3a65f6eb7d1fe3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add max-height prop to
+  swirl-modal
+
+* [#338](https://github.com/getflip/swirl/pull/338)
+  [`558bba0`](https://github.com/getflip/swirl/commit/558bba06f1109c6d5825bd12682d704ec3481540)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "size" prop to swirl-chip
+
+- [#339](https://github.com/getflip/swirl/pull/339)
+  [`b643ca2`](https://github.com/getflip/swirl/commit/b643ca25a8a6d690501c51894f83c88b455fc1e9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icons
+
+* [#342](https://github.com/getflip/swirl/pull/342)
+  [`5ee4d71`](https://github.com/getflip/swirl/commit/5ee4d71a138e58cf0bd78ce7e9d4451bb3be0bff)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add remove button, timestamp and
+  size "xl" to swirl-thumbnail.
+
+- [`84c9481`](https://github.com/getflip/swirl/commit/84c9481d4f0f79dabe8db4c6db2836f466d806e7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add intent "strong" for ghost and
+  plain swirl-button
+
+* [#338](https://github.com/getflip/swirl/pull/338)
+  [`558bba0`](https://github.com/getflip/swirl/commit/558bba06f1109c6d5825bd12682d704ec3481540)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "progress" and "icon-color"
+  props to swirl-chip
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a1bf914`](https://github.com/getflip/swirl/commit/a1bf9147f008489a214c9dac8e3a65f6eb7d1fe3),
+  [`558bba0`](https://github.com/getflip/swirl/commit/558bba06f1109c6d5825bd12682d704ec3481540),
+  [`b643ca2`](https://github.com/getflip/swirl/commit/b643ca25a8a6d690501c51894f83c88b455fc1e9),
+  [`5ee4d71`](https://github.com/getflip/swirl/commit/5ee4d71a138e58cf0bd78ce7e9d4451bb3be0bff),
+  [`84c9481`](https://github.com/getflip/swirl/commit/84c9481d4f0f79dabe8db4c6db2836f466d806e7),
+  [`558bba0`](https://github.com/getflip/swirl/commit/558bba06f1109c6d5825bd12682d704ec3481540)]:
+  - @getflip/swirl-components@0.81.0
+
 ## 0.79.0
 
 ### Minor Changes
