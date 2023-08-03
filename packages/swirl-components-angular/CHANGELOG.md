@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.80.3
+
+### Patch Changes
+
+- [`15a3833`](https://github.com/getflip/swirl/commit/15a383398782e66146e132749361ec9299a6835b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-select height in
+  multi-select mode
+
+- Updated dependencies
+  [[`15a3833`](https://github.com/getflip/swirl/commit/15a383398782e66146e132749361ec9299a6835b)]:
+  - @getflip/swirl-components@0.81.3
+
 ## 0.80.2
 
 ### Patch Changes
