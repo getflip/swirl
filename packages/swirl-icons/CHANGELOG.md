@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.20.0
+
+### Minor Changes
+
+- [#339](https://github.com/getflip/swirl/pull/339)
+  [`b643ca2`](https://github.com/getflip/swirl/commit/b643ca25a8a6d690501c51894f83c88b455fc1e9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icons
+
 ## 0.19.0
 
 ### Minor Changes
