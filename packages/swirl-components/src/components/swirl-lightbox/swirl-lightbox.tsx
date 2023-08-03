@@ -61,6 +61,7 @@ export class SwirlLightbox {
   async open() {
     this.modal.show();
     this.lockBodyScroll();
+    this.activateSlide(this.activeSlideIndex || 0);
   }
 
   /**
