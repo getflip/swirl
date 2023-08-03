@@ -2,18 +2,18 @@ This is a [Next.js](https://nextjs.org/) project.
 
 ## Getting Started
 
-Before starting the dev environment for this application, run the `yarn build`
-command. This will ensure that the dependencies within the monorepo are
-up-to-date and will help keep the `dev`-command running smoothly. It's
-recommended to run `yarn build` after publications of packages from the
-monorepo.
+Before starting the dev environment for this application, run the
+`turbo run build` command. This will ensure that the dependencies within the
+monorepo are up-to-date and will help keep the `dev`-command running smoothly.
+It's recommended to run `turbo run build` after publications of packages from
+the monorepo.
 
 The following commands need to run on root level of the monorepo.
 
 ```bash
 yarn build
 OR
-npx turbo run build
+npx turbo run build --filter=swirl-docs # filter to unly run the build command for the swirl-docs app
 ```
 
 When all the dependencies are up-to-date on your machine you can start the dev
@@ -22,7 +22,7 @@ environment:
 ```bash
 yarn workspace swirl-docs dev
 OR
-npx turbo run dev --filter="swirl-docs"
+npx turbo run dev --filter=swirl-docs # filter to unly run the dev command for the swirl-docs app
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the
