@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.80.1
+
+### Patch Changes
+
+- [`5a61147`](https://github.com/getflip/swirl/commit/5a611478ec5dd6dada267c940c157d10069cdb5d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a swirl-lightbox issue not
+  displaying its slides
+
+- Updated dependencies
+  [[`5a61147`](https://github.com/getflip/swirl/commit/5a611478ec5dd6dada267c940c157d10069cdb5d)]:
+  - @getflip/swirl-components@0.81.1
+
 ## 0.80.0
 
 ### Minor Changes
