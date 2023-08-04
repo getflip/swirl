@@ -40,7 +40,7 @@ export class SwirlTag {
 
     return (
       <Host>
-        <span class={className}>
+        <span class={className} part="tag">
           {this.label}
           {this.removable && (
             <button

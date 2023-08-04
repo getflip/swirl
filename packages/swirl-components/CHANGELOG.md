@@ -1,5 +1,29 @@
 # @getflip/swirl-components
 
+## 0.81.3
+
+### Patch Changes
+
+- [`15a3833`](https://github.com/getflip/swirl/commit/15a383398782e66146e132749361ec9299a6835b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-select height in
+  multi-select mode
+
+## 0.81.2
+
+### Patch Changes
+
+- [`52551a2`](https://github.com/getflip/swirl/commit/52551a2702b4600f518cca15e4454a057bb165f6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue with overflowing
+  text of swirl-description-list-item
+
+## 0.81.1
+
+### Patch Changes
+
+- [`5a61147`](https://github.com/getflip/swirl/commit/5a611478ec5dd6dada267c940c157d10069cdb5d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a swirl-lightbox issue not
+  displaying its slides
+
 ## 0.81.0
 
 ### Minor Changes
