@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.80.4
+
+### Patch Changes
+
+- [`e57991b`](https://github.com/getflip/swirl/commit/e57991b7efa94b74761c4b26ac55b799e806bfbc)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix autofocus of input components
+
+- Updated dependencies
+  [[`e57991b`](https://github.com/getflip/swirl/commit/e57991b7efa94b74761c4b26ac55b799e806bfbc)]:
+  - @getflip/swirl-components@0.81.4
+
 ## 0.80.3
 
 ### Patch Changes
