@@ -88,6 +88,13 @@ export class SwirlTextInput implements SwirlFormInput {
     this.updateIconSize(this.desktopMediaQuery.matches);
 
     this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+
+    // see https://stackoverflow.com/a/27314017
+    if (this.autoFocus) {
+      setTimeout(() => {
+        this.inputEl.focus();
+      });
+    }
   }
 
   componentDidRender() {

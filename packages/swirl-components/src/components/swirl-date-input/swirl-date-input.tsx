@@ -54,6 +54,7 @@ export class SwirlDateInput {
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private id: string;
+  private inputEl: HTMLInputElement;
   private mask: Maska;
   private pickerPopover: HTMLSwirlPopoverElement;
 
@@ -71,6 +72,13 @@ export class SwirlDateInput {
     this.updateIconSize(this.desktopMediaQuery.matches);
 
     this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+
+    // see https://stackoverflow.com/a/27314017
+    if (this.autoFocus) {
+      setTimeout(() => {
+        this.inputEl.focus();
+      });
+    }
   }
 
   disconnectedCallback() {
@@ -191,6 +199,7 @@ export class SwirlDateInput {
             onFocus={this.onFocus}
             onInput={this.onInput}
             placeholder={this.placeholder}
+            ref={(el) => (this.inputEl = el)}
             required={this.required}
             type="text"
             value={displayValue}

@@ -7,7 +7,6 @@ describe("swirl-text-input", () => {
     const page = await newSpecPage({
       components: [SwirlTextInput],
       html: `<swirl-text-input
-              auto-focus="true"
               disabled="true"
               swirl-aria-describedby="id"
               invalid="true"
@@ -20,8 +19,7 @@ describe("swirl-text-input", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-text-input auto-focus="true"
-                      disabled="true"
+      <swirl-text-input disabled="true"
                       swirl-aria-describedby="id"
                       invalid="true"
                       mode="decimal"
@@ -34,7 +32,6 @@ describe("swirl-text-input", () => {
                  aria-disabled="true"
                  aria-invalid="true"
                  autocomplete="on"
-                 autofocus=""
                  class="text-input__input"
                  disabled=""
                  inputmode="decimal"

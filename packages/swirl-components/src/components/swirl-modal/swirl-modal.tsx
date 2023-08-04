@@ -95,6 +95,7 @@ export class SwirlModal {
       // wait for animation
       setTimeout(() => {
         this.focusTrap.activate();
+        this.handleAutoFocus();
       }, 200);
     } else {
       this.focusTrap.deactivate();
@@ -194,6 +195,10 @@ export class SwirlModal {
       this.scrollable = scrollable;
     }
   };
+
+  private handleAutoFocus() {
+    this.modalEl.querySelector<HTMLInputElement>("input[autofocus]")?.focus();
+  }
 
   private lockBodyScroll() {
     disableBodyScroll(this.scrollContainer);

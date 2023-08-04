@@ -57,7 +57,7 @@ const Template = (args) => {
     </swirl-text>
 
     <swirl-box padding-block-start="0" padding-block-end="16" slot="header-tools">
-      <swirl-search label="Search"></swirl-search>
+      <swirl-search auto-focus label="Search"></swirl-search>
     </div>
   `;
 
