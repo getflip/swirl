@@ -113,8 +113,11 @@ export class SwirlDateInput {
 
     const newDate = parse(value, this.format, new Date());
 
+    // First, escape any backslashes in the format string
+    const escapedFormat = this.format.replace(/\\/g, "\\\\");
+    // Then construct the RegExp using the escaped format string
     const formatRegExp = new RegExp(
-      `^${this.format.replaceAll(/[ydM]/g, "\\d")}$`
+      `^${escapedFormat.replace(/[ydM]/g, "\\d")}$`
     );
 
     if (!Boolean(value.match(formatRegExp)) || !isValid(newDate)) {
