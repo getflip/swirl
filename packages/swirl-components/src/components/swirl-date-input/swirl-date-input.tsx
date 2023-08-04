@@ -114,7 +114,7 @@ export class SwirlDateInput {
     const newDate = parse(value, this.format, new Date());
 
     const formatRegExp = new RegExp(
-      `^${this.format.replace(/[ydM]/g, "\\d")}$`
+      `^${this.format.replaceAll(/[ydM]/g, "\\d")}$`
     );
 
     if (!Boolean(value.match(formatRegExp)) || !isValid(newDate)) {
