@@ -13,7 +13,7 @@ The following commands need to run on root level of the monorepo.
 ```bash
 yarn build
 OR
-npx turbo run build --filter=swirl-docs # filter to unly run the build command for the swirl-docs app
+npx turbo run build --filter=swirl-docs # filter to only run the build command for the swirl-docs app
 ```
 
 When all the dependencies are up-to-date on your machine you can start the dev
@@ -22,7 +22,7 @@ environment:
 ```bash
 yarn workspace swirl-docs dev
 OR
-npx turbo run dev --filter=swirl-docs # filter to unly run the dev command for the swirl-docs app
+npx turbo run dev --filter=swirl-docs # filter to only run the dev command for the swirl-docs app
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the
