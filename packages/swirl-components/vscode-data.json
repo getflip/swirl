@@ -4179,6 +4179,10 @@
       },
       "attributes": [
         {
+          "name": "closable",
+          "description": ""
+        },
+        {
           "name": "close-button-label",
           "description": ""
         },

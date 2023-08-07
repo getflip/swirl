@@ -1051,10 +1051,11 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlModal {
+        "closable"?: boolean;
         /**
-          * Close the modal.
+          * Close the modal. Pass `true` to force close even if the modal is not closable.
          */
-        "close": () => Promise<void>;
+        "close": (force?: boolean) => Promise<void>;
         "closeButtonLabel"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
@@ -4681,6 +4682,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlModal {
+        "closable"?: boolean;
         "closeButtonLabel"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
@@ -4690,6 +4692,7 @@ declare namespace LocalJSX {
         "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
+        "onRequestModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onSecondaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "padded"?: boolean;
         "primaryActionLabel"?: string;
