@@ -4001,6 +4001,10 @@
           "description": ""
         },
         {
+          "name": "hide-menu",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
