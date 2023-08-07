@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.20.1
+
+### Patch Changes
+
+- [#348](https://github.com/getflip/swirl/pull/348)
+  [`827353e`](https://github.com/getflip/swirl/commit/827353ea1bd4c7b159be0d750bca3040f0b02b66)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Fixed regex values.
+
 ## 0.20.0
 
 ### Minor Changes
