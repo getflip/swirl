@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.83.0
+
+### Minor Changes
+
+- [`a06de82`](https://github.com/getflip/swirl/commit/a06de82565fea5ef94931b73d13783e919cc3985)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "hide-menu" prop to
+  swirl-lightbox
+
 ## 0.82.0
 
 ### Minor Changes
