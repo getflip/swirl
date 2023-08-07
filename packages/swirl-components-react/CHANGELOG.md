@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.81.0
+
+### Minor Changes
+
+- [`691509d`](https://github.com/getflip/swirl/commit/691509db9437542083a854a37fc7c4ec1868109b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "closable" prop to
+  swirl-modal
+
+### Patch Changes
+
+- Updated dependencies
+  [[`827353e`](https://github.com/getflip/swirl/commit/827353ea1bd4c7b159be0d750bca3040f0b02b66),
+  [`691509d`](https://github.com/getflip/swirl/commit/691509db9437542083a854a37fc7c4ec1868109b)]:
+  - @getflip/swirl-components@0.82.0
+
 ## 0.80.4
 
 ### Patch Changes

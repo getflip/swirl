@@ -1,5 +1,23 @@
 # @getflip/swirl-components
 
+## 0.82.0
+
+### Minor Changes
+
+- [`691509d`](https://github.com/getflip/swirl/commit/691509db9437542083a854a37fc7c4ec1868109b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "closable" prop to
+  swirl-modal
+
+### Patch Changes
+
+- [#348](https://github.com/getflip/swirl/pull/348)
+  [`827353e`](https://github.com/getflip/swirl/commit/827353ea1bd4c7b159be0d750bca3040f0b02b66)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Fixed regex values.
+
+- Updated dependencies
+  [[`827353e`](https://github.com/getflip/swirl/commit/827353ea1bd4c7b159be0d750bca3040f0b02b66)]:
+  - @getflip/swirl-icons@0.20.1
+
 ## 0.81.4
 
 ### Patch Changes
