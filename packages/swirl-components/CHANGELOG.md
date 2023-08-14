@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.84.0
+
+### Minor Changes
+
+- [`8a987423`](https://github.com/getflip/swirl/commit/8a9874231ad7ecdf8531a6987372414b49071ba6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "invalidInput" event to
+  swirl-date-input
+
+### Patch Changes
+
+- [`219e6031`](https://github.com/getflip/swirl/commit/219e6031ff100229c4292609a79fefeaa2c270f4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue of
+  swirl-form-control sometimes not loosing focus state correctly
+
 ## 0.83.0
 
 ### Minor Changes
