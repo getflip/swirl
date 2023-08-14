@@ -4099,6 +4099,7 @@ declare namespace LocalJSX {
         "invalid"?: boolean;
         "labels"?: WCDatepickerLabels;
         "locale"?: string;
+        "onInvalidInput"?: (event: SwirlDateInputCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlDateInputCustomEvent<string>) => void;
         "placeholder"?: string;
         "required"?: boolean;

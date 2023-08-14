@@ -50,6 +50,7 @@ export class SwirlDateInput {
 
   @State() iconSize: 20 | 24 = 24;
 
+  @Event() invalidInput: EventEmitter<string>;
   @Event() valueChange: EventEmitter<string>;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
@@ -120,7 +121,12 @@ export class SwirlDateInput {
       `^${escapedFormat.replace(/[ydM]/g, "\\d")}$`
     );
 
-    if (!Boolean(value.match(formatRegExp)) || !isValid(newDate)) {
+    if (!Boolean(value.match(formatRegExp))) {
+      return;
+    }
+
+    if (!isValid(newDate)) {
+      this.invalidInput.emit(value);
       return;
     }
 
