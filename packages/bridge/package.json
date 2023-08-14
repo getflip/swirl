@@ -1,6 +1,6 @@
 {
   "name": "@getflip/bridge",
-  "version": "0.2.138",
+  "version": "0.2.139",
   "description": "Flip JavaScript Bridge for external integrations.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.mjs",
@@ -18,7 +18,7 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
-    "@getflip/swirl-components": "^0.84.0",
+    "@getflip/swirl-components": "^0.84.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
