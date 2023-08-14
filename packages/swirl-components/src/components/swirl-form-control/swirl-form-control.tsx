@@ -130,6 +130,8 @@ export class SwirlFormControl {
       return;
     }
 
+    event.stopPropagation();
+
     this.hasFocus = false;
   }
 
@@ -143,6 +145,10 @@ export class SwirlFormControl {
 
   private onFocusIn = () => {
     this.hasFocus = true;
+  };
+
+  private onFocusOut = () => {
+    this.hasFocus = false;
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
@@ -188,7 +194,11 @@ export class SwirlFormControl {
     );
 
     return (
-      <Host onFocusin={this.onFocusIn} onKeyDown={this.onKeyDown}>
+      <Host
+        onFocusin={this.onFocusIn}
+        onFocusout={this.onFocusOut}
+        onKeyDown={this.onKeyDown}
+      >
         <div class={className} role="group">
           <label class="form-control__label">
             <span class="form-control__label-text">{this.label}</span>
