@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.83.1
+
+### Patch Changes
+
+- [`10f73f45`](https://github.com/getflip/swirl/commit/10f73f458dc3472770049613da649f9f116c48a9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-tooltip positioning
+  inside table cells
+
+- Updated dependencies
+  [[`10f73f45`](https://github.com/getflip/swirl/commit/10f73f458dc3472770049613da649f9f116c48a9)]:
+  - @getflip/swirl-components@0.84.1
+
 ## 0.83.0
 
 ### Minor Changes
