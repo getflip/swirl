@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.85.0
+
+### Minor Changes
+
+- [`de974d10`](https://github.com/getflip/swirl/commit/de974d1005c5edc7a0b39cd344e617e2236b6705)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "remove" event to
+  swirl-thumbnail
+
 ## 0.84.1
 
 ### Patch Changes
