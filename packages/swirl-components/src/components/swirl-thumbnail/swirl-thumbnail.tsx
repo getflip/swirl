@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlThumbnailFormat = "portrait" | "landscape" | "square";
@@ -20,6 +20,8 @@ export class SwirlThumbnail {
   @Prop() size?: SwirlThumbnailSize = "m";
   @Prop() src!: string;
   @Prop() timestamp?: string;
+
+  @Event() remove: EventEmitter<MouseEvent>;
 
   render() {
     const showRemoveButton =
@@ -60,6 +62,7 @@ export class SwirlThumbnail {
                 hideLabel
                 icon="<swirl-icon-close></swirl-icon-close>"
                 label={this.removeButtonLabel}
+                onClick={this.remove.emit}
                 pill
                 variant="on-image"
               ></swirl-button>

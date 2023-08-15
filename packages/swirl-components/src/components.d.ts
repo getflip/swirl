@@ -1831,6 +1831,10 @@ export interface SwirlThemeProviderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlThemeProviderElement;
 }
+export interface SwirlThumbnailCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlThumbnailElement;
+}
 export interface SwirlTimeInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlTimeInputElement;
@@ -5220,6 +5224,7 @@ declare namespace LocalJSX {
     interface SwirlThumbnail {
         "alt": string;
         "format"?: SwirlThumbnailFormat;
+        "onRemove"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "progress"?: number;
         "progressLabel"?: string;
         "removeButtonLabel"?: string;
