@@ -1490,6 +1490,7 @@ export namespace Components {
     }
     interface SwirlTab {
         "active"?: boolean;
+        "icon"?: string;
         "label": string;
         "tabId": string;
     }
@@ -5125,6 +5126,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTab {
         "active"?: boolean;
+        "icon"?: string;
         "label": string;
         "tabId": string;
     }
