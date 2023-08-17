@@ -30,7 +30,13 @@
   --swirl-icon-button-border-bottom-right-radius: 50%;
   --swirl-icon-button-border-bottom-left-radius: 50%;
 
+  --swirl-flat-button-background-default: var(--s-action-neutral-default);
+  --swirl-flat-button-background-disabled: var(--s-action-neutral-disabled);
+  --swirl-flat-button-background-hovered: var(--s-action-neutral-hovered);
+  --swirl-flat-button-background-pressed: var(--s-action-neutral-pressed);
+
   --swirl-ghost-button-background-default: var(--s-background-default);
+  --swirl-ghost-button-background-disabled: var(--s-background-default);
   --swirl-ghost-button-background-hovered: var(--s-background-hovered);
   --swirl-ghost-button-background-pressed: var(--s-background-pressed);
 

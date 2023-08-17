@@ -1207,6 +1207,7 @@ export namespace Components {
         "removeButtonLabel"?: string;
     }
     interface SwirlResourceListItem {
+        "active"?: boolean;
         "allowDrag"?: boolean;
         "checked"?: boolean;
         "description"?: string;
@@ -4842,6 +4843,7 @@ declare namespace LocalJSX {
         "removeButtonLabel"?: string;
     }
     interface SwirlResourceListItem {
+        "active"?: boolean;
         "allowDrag"?: boolean;
         "checked"?: boolean;
         "description"?: string;
