@@ -41,7 +41,7 @@ export class SwirlTag {
     return (
       <Host>
         <span class={className} part="tag">
-          {this.label}
+          <span class="tag__label">{this.label}</span>
           {this.removable && (
             <button
               aria-label={this.removalButtonLabel}
