@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.85.1
+
+### Patch Changes
+
+- [`bcc109e3`](https://github.com/getflip/swirl/commit/bcc109e331b3f2199d83dfb7d0fe97640894e39b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-tag text overflow
+
 ## 0.85.0
 
 ### Minor Changes
