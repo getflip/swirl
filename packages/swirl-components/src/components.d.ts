@@ -22,6 +22,7 @@ import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
+import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
@@ -78,6 +79,7 @@ export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
+export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
@@ -415,6 +417,35 @@ export namespace Components {
         "open": () => Promise<void>;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface SwirlEmoji {
+        "label"?: string;
+        "name": string;
+        "size": SwirlEmojiSize;
+    }
+    interface SwirlEmojiClap {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiHappy {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiIdea {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiLove {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiSad {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiThumbsUp {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
     }
     interface SwirlEmptyState {
         "heading"?: string;
@@ -2012,6 +2043,48 @@ declare global {
         prototype: HTMLSwirlDialogElement;
         new (): HTMLSwirlDialogElement;
     };
+    interface HTMLSwirlEmojiElement extends Components.SwirlEmoji, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiElement: {
+        prototype: HTMLSwirlEmojiElement;
+        new (): HTMLSwirlEmojiElement;
+    };
+    interface HTMLSwirlEmojiClapElement extends Components.SwirlEmojiClap, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiClapElement: {
+        prototype: HTMLSwirlEmojiClapElement;
+        new (): HTMLSwirlEmojiClapElement;
+    };
+    interface HTMLSwirlEmojiHappyElement extends Components.SwirlEmojiHappy, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiHappyElement: {
+        prototype: HTMLSwirlEmojiHappyElement;
+        new (): HTMLSwirlEmojiHappyElement;
+    };
+    interface HTMLSwirlEmojiIdeaElement extends Components.SwirlEmojiIdea, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiIdeaElement: {
+        prototype: HTMLSwirlEmojiIdeaElement;
+        new (): HTMLSwirlEmojiIdeaElement;
+    };
+    interface HTMLSwirlEmojiLoveElement extends Components.SwirlEmojiLove, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiLoveElement: {
+        prototype: HTMLSwirlEmojiLoveElement;
+        new (): HTMLSwirlEmojiLoveElement;
+    };
+    interface HTMLSwirlEmojiSadElement extends Components.SwirlEmojiSad, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiSadElement: {
+        prototype: HTMLSwirlEmojiSadElement;
+        new (): HTMLSwirlEmojiSadElement;
+    };
+    interface HTMLSwirlEmojiThumbsUpElement extends Components.SwirlEmojiThumbsUp, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiThumbsUpElement: {
+        prototype: HTMLSwirlEmojiThumbsUpElement;
+        new (): HTMLSwirlEmojiThumbsUpElement;
+    };
     interface HTMLSwirlEmptyStateElement extends Components.SwirlEmptyState, HTMLStencilElement {
     }
     var HTMLSwirlEmptyStateElement: {
@@ -3594,6 +3667,13 @@ declare global {
         "swirl-description-list": HTMLSwirlDescriptionListElement;
         "swirl-description-list-item": HTMLSwirlDescriptionListItemElement;
         "swirl-dialog": HTMLSwirlDialogElement;
+        "swirl-emoji": HTMLSwirlEmojiElement;
+        "swirl-emoji-clap": HTMLSwirlEmojiClapElement;
+        "swirl-emoji-happy": HTMLSwirlEmojiHappyElement;
+        "swirl-emoji-idea": HTMLSwirlEmojiIdeaElement;
+        "swirl-emoji-love": HTMLSwirlEmojiLoveElement;
+        "swirl-emoji-sad": HTMLSwirlEmojiSadElement;
+        "swirl-emoji-thumbs-up": HTMLSwirlEmojiThumbsUpElement;
         "swirl-empty-state": HTMLSwirlEmptyStateElement;
         "swirl-file-uploader": HTMLSwirlFileUploaderElement;
         "swirl-file-viewer": HTMLSwirlFileViewerElement;
@@ -4133,6 +4213,35 @@ declare namespace LocalJSX {
         "onSecondaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface SwirlEmoji {
+        "label"?: string;
+        "name": string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiClap {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiHappy {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiIdea {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiLove {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiSad {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiThumbsUp {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
     }
     interface SwirlEmptyState {
         "heading"?: string;
@@ -5308,6 +5417,13 @@ declare namespace LocalJSX {
         "swirl-description-list": SwirlDescriptionList;
         "swirl-description-list-item": SwirlDescriptionListItem;
         "swirl-dialog": SwirlDialog;
+        "swirl-emoji": SwirlEmoji;
+        "swirl-emoji-clap": SwirlEmojiClap;
+        "swirl-emoji-happy": SwirlEmojiHappy;
+        "swirl-emoji-idea": SwirlEmojiIdea;
+        "swirl-emoji-love": SwirlEmojiLove;
+        "swirl-emoji-sad": SwirlEmojiSad;
+        "swirl-emoji-thumbs-up": SwirlEmojiThumbsUp;
         "swirl-empty-state": SwirlEmptyState;
         "swirl-file-uploader": SwirlFileUploader;
         "swirl-file-viewer": SwirlFileViewer;
@@ -5606,6 +5722,13 @@ declare module "@stencil/core" {
             "swirl-description-list": LocalJSX.SwirlDescriptionList & JSXBase.HTMLAttributes<HTMLSwirlDescriptionListElement>;
             "swirl-description-list-item": LocalJSX.SwirlDescriptionListItem & JSXBase.HTMLAttributes<HTMLSwirlDescriptionListItemElement>;
             "swirl-dialog": LocalJSX.SwirlDialog & JSXBase.HTMLAttributes<HTMLSwirlDialogElement>;
+            "swirl-emoji": LocalJSX.SwirlEmoji & JSXBase.HTMLAttributes<HTMLSwirlEmojiElement>;
+            "swirl-emoji-clap": LocalJSX.SwirlEmojiClap & JSXBase.HTMLAttributes<HTMLSwirlEmojiClapElement>;
+            "swirl-emoji-happy": LocalJSX.SwirlEmojiHappy & JSXBase.HTMLAttributes<HTMLSwirlEmojiHappyElement>;
+            "swirl-emoji-idea": LocalJSX.SwirlEmojiIdea & JSXBase.HTMLAttributes<HTMLSwirlEmojiIdeaElement>;
+            "swirl-emoji-love": LocalJSX.SwirlEmojiLove & JSXBase.HTMLAttributes<HTMLSwirlEmojiLoveElement>;
+            "swirl-emoji-sad": LocalJSX.SwirlEmojiSad & JSXBase.HTMLAttributes<HTMLSwirlEmojiSadElement>;
+            "swirl-emoji-thumbs-up": LocalJSX.SwirlEmojiThumbsUp & JSXBase.HTMLAttributes<HTMLSwirlEmojiThumbsUpElement>;
             "swirl-empty-state": LocalJSX.SwirlEmptyState & JSXBase.HTMLAttributes<HTMLSwirlEmptyStateElement>;
             "swirl-file-uploader": LocalJSX.SwirlFileUploader & JSXBase.HTMLAttributes<HTMLSwirlFileUploaderElement>;
             "swirl-file-viewer": LocalJSX.SwirlFileViewer & JSXBase.HTMLAttributes<HTMLSwirlFileViewerElement>;
