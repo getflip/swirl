@@ -10,6 +10,7 @@
   },
   "files": [
     "dist",
+    "emojis",
     "icons",
     "legacy-icons"
   ],
