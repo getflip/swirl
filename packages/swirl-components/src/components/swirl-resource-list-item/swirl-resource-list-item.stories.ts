@@ -30,7 +30,16 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-resource-list-item", args);
 
   element.innerHTML = `
-      <swirl-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" slot="media"></swirl-avatar>
+      <swirl-avatar
+        slot="media"
+        label="Jane Doe"
+        src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144"></swirl-avatar>
+
+      <swirl-stack slot="badges" align="center" orientation="horizontal" spacing="8">
+        <swirl-icon-notifications-off size="16"></swirl-icon-notifications-off>
+        <swirl-badge label="1" size="s"></swirl-badge>
+      </swirl-stack>
+
   `;
 
   control.slot = "control";
@@ -39,8 +48,9 @@ const Template = (args) => {
           <swirl-button
             hide-label
             icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
-            intent="primary"
-            label="Show menu"></swirl-button>
+            label="Show menu"
+            size="s"
+            variant="flat"></swirl-button>
         </swirl-popover-trigger>
       `;
 
@@ -67,7 +77,7 @@ const Template = (args) => {
 
   element.append("    ", control, "\n    ");
   list.append("\n    ", element, "\n  ");
-  container.append("\n  ", list, "\n  ", popover, "\n");
+  container.append("\n  ", list, "\n\n  ", popover, "\n");
 
   return container;
 };
@@ -77,4 +87,5 @@ export const SwirlResourceListItem = Template.bind({});
 SwirlResourceListItem.args = {
   description: "With a description",
   label: "This is a resource item",
+  meta: "Today",
 };

@@ -4805,6 +4805,10 @@
       },
       "attributes": [
         {
+          "name": "active",
+          "description": ""
+        },
+        {
           "name": "allow-drag",
           "description": ""
         },

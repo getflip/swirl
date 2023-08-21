@@ -40,7 +40,7 @@
 
   &:disabled {
     color: var(--s-text-disabled);
-    background-color: var(--swirl-ghost-button-background-default);
+    background-color: var(--swirl-ghost-button-background-disabled);
     cursor: default;
 
     & .button__icon {
@@ -101,18 +101,18 @@
 
 .button--variant-flat {
   color: var(--s-text-default);
-  background-color: var(--s-action-neutral-default);
+  background-color: var(--swirl-flat-button-background-default);
 
   &:hover {
-    background-color: var(--s-action-neutral-hovered);
+    background-color: var(--swirl-flat-button-background-hovered);
   }
 
   &:active {
-    background-color: var(--s-action-neutral-pressed);
+    background-color: var(--swirl-flat-button-background-pressed);
   }
 
   &:disabled {
-    background-color: var(--s-action-neutral-disabled);
+    background-color: var(--swirl-flat-button-background-disabled);
   }
 
   &.button--intent-primary:not(:disabled) {

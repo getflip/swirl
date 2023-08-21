@@ -15,6 +15,7 @@ export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 
 /**
  * @slot control - Used to add a menu button to the item
+ * @slot badges - Badges displayed inside the item
  * @slot media - Media displayed inside the item (e.g. swirl-avatar)
  */
 @Component({
@@ -26,6 +27,7 @@ export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 export class SwirlResourceListItem {
   @Element() el: HTMLSwirlResourceListItemElement;
 
+  @Prop() active?: boolean;
   @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() description?: string;
@@ -132,12 +134,17 @@ export class SwirlResourceListItem {
         : "button";
 
     const disabled = this.disabled && !Boolean(this.href);
+
+    const hasBadges = Boolean(this.el.querySelector("[slot='badges']"));
     const hasMenu =
       Boolean(this.menuTriggerId) || this.el.querySelector("[slot='control']");
+
     const href = this.interactive && Boolean(this.href) ? this.href : undefined;
+
+    const showControlOnFocus = Boolean(this.meta) || hasBadges;
     const showMenu =
       Boolean(this.menuTriggerId) && !Boolean(this.meta) && !this.selectable;
-    const showMeta = Boolean(this.meta) && !this.selectable;
+    const showMeta = (Boolean(this.meta) || hasBadges) && !this.selectable;
 
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
     const role = this.interactive && this.selectable ? "checkbox" : undefined;
@@ -146,6 +153,7 @@ export class SwirlResourceListItem {
       "resource-list-item",
       `resource-list-item--label-weight-${this.labelWeight}`,
       {
+        "resource-list-item--active": this.active,
         "resource-list-item--checked": this.checked,
         "resource-list-item--disabled": this.disabled,
         "resource-list-item--draggable": this.allowDrag,
@@ -154,6 +162,7 @@ export class SwirlResourceListItem {
         "resource-list-item--hide-divider": this.hideDivider,
         "resource-list-item--interactive": this.interactive || this.selectable,
         "resource-list-item--selectable": this.selectable,
+        "resource-list-item--show-control-on-focus": showControlOnFocus,
       }
     );
 
@@ -189,6 +198,14 @@ export class SwirlResourceListItem {
                 </span>
               )}
             </span>
+            {showMeta && (
+              <span class="resource-list-item__meta">
+                <span class="resource-list-item__meta-text">{this.meta}</span>
+                <span class="resource-list-item__badges">
+                  <slot name="badges"></slot>
+                </span>
+              </span>
+            )}
           </Tag>
           {this.selectable && (
             <span aria-hidden="true" class="resource-list-item__checkbox">
@@ -198,9 +215,6 @@ export class SwirlResourceListItem {
                 )}
               </span>
             </span>
-          )}
-          {showMeta && (
-            <span class="resource-list-item__meta">{this.meta}</span>
           )}
           <span class="resource-list-item__control">
             <slot name="control"></slot>
