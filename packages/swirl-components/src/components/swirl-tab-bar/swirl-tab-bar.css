@@ -19,10 +19,11 @@
 
 .tab-bar__tab {
   position: relative;
-  display: block;
+  display: flex;
   min-width: 0;
   margin: 0;
   padding: var(--s-space-4) var(--s-space-8);
+  align-items: center;
   border: none;
   color: var(--s-interactive-neutral-default);
   background-color: transparent;
@@ -65,8 +66,12 @@
   }
 }
 
+.tab-bar__tab-icon {
+  display: inline-flex;
+}
+
 .tab-bar__tab-label {
-  display: block;
+  display: inline-flex;
   overflow: hidden;
   width: 100%;
   padding: var(--s-space-8) var(--s-space-8);

@@ -29,11 +29,13 @@ SwirlTabBar.args = {
     },
     {
       active: true,
+      icon: '<swirl-icon glyph="emoji-mood" size="20"></swirl-icon>',
       id: "tab2",
       label: "Tab #2",
     },
     {
       active: false,
+      icon: '<swirl-icon glyph="emoji-satisfied" size="20"></swirl-icon>',
       id: "tab3",
       label: "Tab #3",
     },

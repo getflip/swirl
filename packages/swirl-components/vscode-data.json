@@ -6294,6 +6294,10 @@
           "description": ""
         },
         {
+          "name": "icon",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },

@@ -3,6 +3,7 @@ import classnames from "classnames";
 
 export type SwirlTabBarTab = {
   active?: boolean;
+  icon?: string;
   id: string;
   label: string;
 };
@@ -67,6 +68,9 @@ export class SwirlTabBar {
                 }
                 type="button"
               >
+                {tab.icon && (
+                  <span class="tab-bar__tab-icon" innerHTML={tab.icon}></span>
+                )}
                 <span class="tab-bar__tab-label">{tab.label}</span>
               </button>
             );
