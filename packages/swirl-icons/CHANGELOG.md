@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.21.0
+
+### Minor Changes
+
+- [#356](https://github.com/getflip/swirl/pull/356)
+  [`c4d7775d`](https://github.com/getflip/swirl/commit/c4d7775dd6097d28c66f4d2f976967461fc8f387)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add emojis
+
 ## 0.20.1
 
 ### Patch Changes

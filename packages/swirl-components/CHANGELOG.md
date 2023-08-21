@@ -1,5 +1,29 @@
 # @getflip/swirl-components
 
+## 0.86.0
+
+### Minor Changes
+
+- [#354](https://github.com/getflip/swirl/pull/354)
+  [`f2f16f17`](https://github.com/getflip/swirl/commit/f2f16f17411b04e24f27a3af278ff1990cde2335)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow icons inside swirl-tab-bar
+  tabs
+
+* [#356](https://github.com/getflip/swirl/pull/356)
+  [`c4d7775d`](https://github.com/getflip/swirl/commit/c4d7775dd6097d28c66f4d2f976967461fc8f387)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-emoji component(s)
+
+- [#357](https://github.com/getflip/swirl/pull/357)
+  [`d1da5f48`](https://github.com/getflip/swirl/commit/d1da5f48f9f2670273b0de3f6be8958091872afe)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "badges" slot to
+  swirl-resource-list-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c4d7775d`](https://github.com/getflip/swirl/commit/c4d7775dd6097d28c66f4d2f976967461fc8f387)]:
+  - @getflip/swirl-icons@0.21.0
+
 ## 0.85.1
 
 ### Patch Changes
