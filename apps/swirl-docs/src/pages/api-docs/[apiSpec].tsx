@@ -1,28 +1,14 @@
-import {
-  ApiDocumentation,
-  EndpointParam,
-  createStaticPathsForSpecs,
-} from "@swirl/lib/docs";
+import { ApiDocumentation, createStaticPathsForSpecs } from "@swirl/lib/docs";
 import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { SchemaObject } from "oas/dist/rmoas.types";
-import { CodePreview } from "src/components/CodePreview";
-import {
-  EndpointUrl,
-  HttpMethod,
-  RequestLanguage,
-  ResponseIndicator,
-  ResponseSelector,
-} from "src/components/CodePreview/CodePreviewHeader";
 import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
-import { Parameter } from "src/components/Documentation/Parameter";
-import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
+import { Heading, Text } from "src/components/swirl-recreations";
 import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 import { isProd } from "@swirl/lib/env";
-import { ApiDocumentationBuilder } from "@swirl/lib/docs/src/apiDocumentationBuilder";
+import { ApiDocumentationFacade } from "@swirl/lib/docs/src/ApiDocumentationFacade";
 import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
 
@@ -32,7 +18,7 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
   const specName = navItem?.specName;
   const specPath = `${API_SPEC_PATH}/${specName}`;
 
-  return await new ApiDocumentationBuilder(specPath).intialize();
+  return await new ApiDocumentationFacade(specPath).build();
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

@@ -11,7 +11,7 @@ import OASNormalize from "oas-normalize";
 import { OpenAPIV3_1 } from "openapi-types/dist";
 import { RequestBodyObject, SchemaObject } from "oas/dist/rmoas.types";
 
-export class ApiDocumentationBuilder implements ApiDocumentation {
+export class ApiDocumentationFacade implements ApiDocumentation {
   title: string = "";
   shortDescription: string = "";
   description: MDXRemoteSerializeResult =
@@ -25,7 +25,7 @@ export class ApiDocumentationBuilder implements ApiDocumentation {
     this.specPath = specPath;
   }
 
-  async intialize() {
+  async build() {
     const oasDocument = await new OASNormalize(this.specPath, {
       enablePaths: true,
     }).validate();
@@ -43,10 +43,6 @@ export class ApiDocumentationBuilder implements ApiDocumentation {
 
     this.description =
       (await serializeMarkdownString(this.oasBuilder.description)) || "";
-    return this.build();
-  }
-
-  build() {
     this.title = this.oasBuilder.title;
     this.shortDescription = this.oasBuilder.shortDescription;
     this.getEndpoints();
