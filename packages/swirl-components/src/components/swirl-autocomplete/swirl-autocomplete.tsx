@@ -264,7 +264,7 @@ export class SwirlAutocomplete implements SwirlFormInput<string | string[]> {
                       label={item}
                       // eslint-disable-next-line react/jsx-no-bind
                       onRemove={() => this.onRemoveValue(item)}
-                      removable
+                      removable={!this.disabled}
                     ></swirl-tag>
                   ))}
                 </swirl-stack>

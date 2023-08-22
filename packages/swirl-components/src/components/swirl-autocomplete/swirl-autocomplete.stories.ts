@@ -63,6 +63,7 @@ const Template = (args) => {
     args
   ) as HTMLSwirlAutocompleteElement;
 
+  formControl.setAttribute("disabled", args.disabled ? "true" : "false");
   formControl.label = "Autocomplete";
 
   const suggestions: SwirlAutocompleteSuggestion[] = [
