@@ -10,6 +10,8 @@
 }
 
 .form-control {
+  --swirl-autocomplete-tags-margin-top: var(--s-space-4);
+
   display: block;
   width: 100%;
   line-height: var(--s-line-height-sm);
@@ -59,9 +61,16 @@
       }
     }
   }
+
+  @media (--from-desktop-without-touch) {
+    --swirl-text-input-placeholder-size: var(--s-font-size-sm);
+  }
 }
 
 .form-control--label-position-outside {
+  --swirl-text-input-placeholder-size: var(--s-font-size-base);
+  --swirl-autocomplete-tags-margin-top: 0;
+
   padding-top: calc(var(--s-line-height-sm) + var(--s-space-4));
 
   &:not(.form-control--is-select) {
@@ -106,6 +115,10 @@
 
   &.form-control--has-character-counter .form-control__description {
     max-width: calc(100% - 6rem);
+  }
+
+  @media (--from-desktop-without-touch) {
+    --swirl-text-input-placeholder-size: var(--s-font-size-sm);
   }
 }
 

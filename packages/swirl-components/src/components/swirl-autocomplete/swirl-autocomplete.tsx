@@ -14,10 +14,15 @@ import {
   Listen,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import classnames from "classnames";
 import { debounce, SwirlFormInput } from "../../utils";
 import { SwirlTextInputMode } from "../swirl-text-input/swirl-text-input";
+
+export type SwirlAutocompleteValue =
+  | SwirlAutocompleteSuggestion
+  | SwirlAutocompleteSuggestion[];
 
 export type SwirlAutocompleteSuggestion = {
   disabled?: boolean;
@@ -37,7 +42,9 @@ export type SwirlAutocompleteSuggestion = {
   styleUrl: "swirl-autocomplete.css",
   tag: "swirl-autocomplete",
 })
-export class SwirlAutocomplete implements SwirlFormInput {
+export class SwirlAutocomplete
+  implements SwirlFormInput<SwirlAutocompleteValue>
+{
   @Element() el: HTMLElement;
 
   @Prop() autoSelect?: boolean;
@@ -45,24 +52,26 @@ export class SwirlAutocomplete implements SwirlFormInput {
   @Prop() clearButtonLabel?: string = "Clear input";
   @Prop() disabled?: boolean;
   @Prop({ mutable: true }) generateSuggestions?: (
-    currentValue: string
+    term: string
   ) => Promise<SwirlAutocompleteSuggestion[]> = async () => [];
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() maxLength?: number;
   @Prop() menuLabel?: string = "Suggestions";
   @Prop() mode?: SwirlTextInputMode;
+  @Prop() multiSelect?: boolean;
+  @Prop() placeholder?: string;
   @Prop() required?: boolean;
   @Prop() spellCheck?: boolean;
   @Prop() swirlAriaDescribedby?: string;
-  @Prop({ mutable: true, reflect: true }) value?: string;
+  @Prop({ mutable: true, reflect: true }) value?: SwirlAutocompleteValue;
 
   @State() active: boolean = false;
   @State() loading: boolean = false;
   @State() position: ComputePositionReturn;
   @State() suggestions: SwirlAutocompleteSuggestion[] = [];
 
-  @Event() valueChange: EventEmitter<string>;
+  @Event() valueChange: EventEmitter<SwirlAutocompleteValue>;
 
   private disableAutoUpdate: any;
   private id: string;
@@ -74,6 +83,8 @@ export class SwirlAutocomplete implements SwirlFormInput {
     const index = document.querySelectorAll("swirl-datepicker").length;
 
     this.id = `autocomplete-${index}`;
+
+    this.handleInitialValue();
   }
 
   @Listen("click", { target: "window" })
@@ -85,6 +96,11 @@ export class SwirlAutocomplete implements SwirlFormInput {
     }
   }
 
+  @Watch("multiSelect")
+  watchMultiSelect() {
+    this.handleInitialValue();
+  }
+
   private async close() {
     if (!this.active) {
       return;
@@ -92,6 +108,17 @@ export class SwirlAutocomplete implements SwirlFormInput {
 
     if (this.disableAutoUpdate) {
       this.disableAutoUpdate();
+    }
+
+    const inputEl = this.inputEl.querySelector("input");
+
+    if (Boolean(inputEl)) {
+      if (this.multiSelect) {
+        inputEl.value = "";
+      } else {
+        inputEl.value =
+          (this.value as SwirlAutocompleteSuggestion)?.label || "";
+      }
     }
 
     this.active = false;
@@ -114,10 +141,13 @@ export class SwirlAutocomplete implements SwirlFormInput {
       this.disableAutoUpdate = autoUpdate(
         this.inputEl,
         this.listboxContainerEl,
-        this.reposition.bind(this)
+        this.reposition.bind(this),
+        { animationFrame: true }
       );
 
       this.listboxContainerEl.scrollTop = 0;
+
+      this.updateSuggestions(this.inputEl.querySelector("input").value);
     });
   }
 
@@ -137,32 +167,92 @@ export class SwirlAutocomplete implements SwirlFormInput {
     );
   }
 
-  private async updateSuggestions() {
+  private async updateSuggestions(term?: string) {
     this.loading = true;
     this.suggestions = [];
-    this.suggestions = await this.generateSuggestions(this.value);
+    this.suggestions = await this.generateSuggestions(term);
     this.loading = false;
   }
 
-  private onChange = debounce(
+  private onChange = (event: CustomEvent<string>) => {
+    event.stopPropagation();
+    this.updateTerm(event);
+  };
+
+  private updateTerm = debounce(
     async (event: CustomEvent<string>) => {
-      this.value = event.detail;
-      this.valueChange.emit(this.value);
-      this.updateSuggestions();
+      this.updateSuggestions(event.detail);
       this.open();
+
+      if (this.multiSelect) {
+        return;
+      }
+
+      if (!Boolean(event.detail) || event.detail === "") {
+        this.value = undefined;
+        this.valueChange.emit(this.value);
+      }
     },
     250,
     false
   );
 
-  private onSelect = (event: CustomEvent<string[]>) => {
-    if (Boolean(event.detail[0])) {
-      this.value = event.detail[0];
+  private onSelect = async (event: CustomEvent<string[]>) => {
+    event.stopPropagation();
+
+    if (this.multiSelect) {
+      const selectedItemIds = event.detail;
+      const unselectedItemIds = this.suggestions
+        .filter((suggestion) => !selectedItemIds.includes(suggestion.id))
+        .map((suggestion) => suggestion.id);
+
+      this.value = [
+        ...(this.value as SwirlAutocompleteSuggestion[]).filter(
+          (item) => !unselectedItemIds.includes(item.id)
+        ),
+        ...this.suggestions.filter(
+          (suggestion) =>
+            selectedItemIds.includes(suggestion.id) &&
+            !(this.value as SwirlAutocompleteSuggestion[]).some(
+              (item) => item.id === suggestion.id
+            )
+        ),
+      ];
+
       this.valueChange.emit(this.value);
+      this.inputEl.querySelector("input")?.focus();
+
+      await this.updateSuggestions(this.inputEl.querySelector("input").value);
+    } else {
+      if (Boolean(event.detail[0])) {
+        const itemId = event.detail[0];
+        const suggestion = this.suggestions.find(
+          (suggestion) => suggestion.id === itemId
+        );
+
+        if (!Boolean(suggestion)) {
+          return;
+        }
+
+        this.value = suggestion;
+        this.valueChange.emit(this.value);
+
+        this.inputEl.querySelector("input")?.focus();
+        this.close();
+      }
+    }
+  };
+
+  private onRemoveValue = (value: string) => {
+    if (!Array.isArray(this.value)) {
+      return;
     }
 
-    this.inputEl.querySelector("input")?.focus();
-    this.close();
+    this.value = (this.value as SwirlAutocompleteSuggestion[]).filter(
+      (item) => item.id !== value
+    );
+
+    this.valueChange.emit(this.value);
   };
 
   private onFocusOut = (event: FocusEvent) => {
@@ -181,6 +271,7 @@ export class SwirlAutocomplete implements SwirlFormInput {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.preventDefault();
+      event.stopPropagation();
       this.inputEl.querySelector("input").focus();
       this.close();
     }
@@ -193,8 +284,30 @@ export class SwirlAutocomplete implements SwirlFormInput {
     }
   };
 
+  private handleInitialValue() {
+    if (this.multiSelect && !Array.isArray(this.value)) {
+      this.value = [];
+    }
+
+    if (!this.multiSelect && Array.isArray(this.value)) {
+      this.value = undefined;
+    }
+  }
+
   render() {
     const suggestionsMenuId = `${this.id}-suggestions`;
+
+    const clearable = this.clearable && !this.multiSelect;
+
+    const optionListValue = this.multiSelect
+      ? (this.value as SwirlAutocompleteSuggestion[]).map((item) => item.id)
+      : Boolean(this.value)
+      ? [(this.value as SwirlAutocompleteSuggestion).id]
+      : [];
+
+    const valueLabel = this.multiSelect
+      ? undefined
+      : (this.value as SwirlAutocompleteSuggestion)?.label || "";
 
     const className = classnames("autocomplete", {
       "autocomplete--inactive": !this.active,
@@ -207,10 +320,29 @@ export class SwirlAutocomplete implements SwirlFormInput {
           onFocusout={this.onFocusOut}
           onKeyDown={this.onKeyDown}
         >
+          {this.multiSelect &&
+            Array.isArray(this.value) &&
+            this.value.length > 0 && (
+              <div class="autocomplete__multi-select-tags">
+                <swirl-stack orientation="horizontal" spacing="8" wrap>
+                  {this.value.map((item) => {
+                    return (
+                      <swirl-tag
+                        key={item.id}
+                        label={item.label}
+                        // eslint-disable-next-line react/jsx-no-bind
+                        onRemove={() => this.onRemoveValue(item.id)}
+                        removable={!this.disabled}
+                      ></swirl-tag>
+                    );
+                  })}
+                </swirl-stack>
+              </div>
+            )}
           <swirl-text-input
             autoSelect={this.autoSelect}
             class="autocomplete__input"
-            clearable={this.clearable}
+            clearable={clearable}
             clearButtonLabel={this.clearButtonLabel}
             disabled={this.disabled}
             disableDynamicWidth
@@ -222,6 +354,7 @@ export class SwirlAutocomplete implements SwirlFormInput {
             onValueChange={this.onChange}
             maxLength={this.maxLength}
             mode={this.mode}
+            placeholder={this.placeholder}
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             spellCheck={this.spellCheck}
@@ -230,7 +363,7 @@ export class SwirlAutocomplete implements SwirlFormInput {
             swirlAriaDescribedby={this.swirlAriaDescribedby}
             swirlAriaExpanded={String(this.active)}
             swirlRole="combobox"
-            value={this.value}
+            value={valueLabel}
           ></swirl-text-input>
 
           <div
@@ -249,19 +382,25 @@ export class SwirlAutocomplete implements SwirlFormInput {
             )}
             {this.suggestions.length > 0 && (
               <swirl-option-list
+                allowDeselect={this.multiSelect === true}
                 label={this.menuLabel}
+                multiSelect={this.multiSelect}
                 onValueChange={this.onSelect}
                 optionListId={suggestionsMenuId}
                 ref={(el) => (this.listboxEl = el)}
-                value={[this.value]}
+                value={optionListValue}
               >
                 {this.suggestions.map((suggestion) => (
                   <swirl-option-list-item
-                    selected={this.value === suggestion.label}
+                    selected={
+                      Array.isArray(this.value)
+                        ? this.value.some((item) => item.id === suggestion.id)
+                        : this.value?.id === suggestion.id
+                    }
                     key={suggestion.id}
                     disabled={suggestion.disabled}
                     label={suggestion.label}
-                    value={suggestion.label}
+                    value={suggestion.id}
                   ></swirl-option-list-item>
                 ))}
               </swirl-option-list>

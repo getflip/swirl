@@ -5,6 +5,13 @@ import Docs from "./swirl-autocomplete.mdx";
 export default {
   component: "swirl-autocomplete",
   tags: ["autodocs"],
+  argTypes: {
+    value: {
+      control: {
+        type: "object",
+      },
+    },
+  },
   parameters: {
     docs: {
       page: Docs,
@@ -18,16 +25,16 @@ export default {
 
   const suggestions = [
     {
-      id: "1",
+      id: "item-1",
       label: "Item #1",
     },
     {
       disabled: true,
-      id: "2",
+      id: "item-2",
       label: "Item #2",
     },
     {
-      id: "3",
+      id: "item-3",
       label: "Item #3",
     },
   ];
@@ -56,21 +63,22 @@ const Template = (args) => {
     args
   ) as HTMLSwirlAutocompleteElement;
 
+  formControl.setAttribute("disabled", args.disabled ? "true" : "false");
   formControl.label = "Autocomplete";
 
   const suggestions: SwirlAutocompleteSuggestion[] = [
     {
-      id: "1",
+      id: "item-1",
       label: "Item #1",
     },
     {
       disabled: true,
-      id: "2",
+      id: "item-2",
       label: "Item #2",
     },
     {
-      id: "3",
-      label: "Item #3",
+      id: "item-3",
+      label: "Item #3 with a longer label",
     },
   ];
 

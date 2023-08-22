@@ -22,13 +22,19 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     type: "boolean",
   },
   {
-    elementSelectors: ["swirl-option-list", "swirl-select"],
+    elementSelectors: [
+      "swirl-autocomplete[multi-select]",
+      "swirl-autocomplete[multiSelect]",
+      "swirl-option-list",
+      "swirl-select",
+    ],
     event: "valueChange",
     targetAttr: "value",
     type: "select",
   },
   {
     elementSelectors: [
+      "swirl-autocomplete:not([multi-select]):not([multiSelect])",
       "swirl-date-input",
       "swirl-radio-group",
       "swirl-search",

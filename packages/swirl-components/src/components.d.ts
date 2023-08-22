@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 import { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
-import { SwirlAutocompleteSuggestion } from "./components/swirl-autocomplete/swirl-autocomplete";
+import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
@@ -64,7 +64,7 @@ import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-pr
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
-export { SwirlAutocompleteSuggestion } from "./components/swirl-autocomplete/swirl-autocomplete";
+export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
@@ -188,17 +188,19 @@ export namespace Components {
         "clearable"?: boolean;
         "disabled"?: boolean;
         "generateSuggestions"?: (
-    currentValue: string
+    term: string
   ) => Promise<SwirlAutocompleteSuggestion[]>;
         "inline"?: boolean;
         "invalid"?: boolean;
         "maxLength"?: number;
         "menuLabel"?: string;
         "mode"?: SwirlTextInputMode;
+        "multiSelect"?: boolean;
+        "placeholder"?: string;
         "required"?: boolean;
         "spellCheck"?: boolean;
         "swirlAriaDescribedby"?: string;
-        "value"?: string;
+        "value"?: SwirlAutocompleteValue;
     }
     interface SwirlAvatar {
         "badge"?: string;
@@ -3997,18 +3999,20 @@ declare namespace LocalJSX {
         "clearable"?: boolean;
         "disabled"?: boolean;
         "generateSuggestions"?: (
-    currentValue: string
+    term: string
   ) => Promise<SwirlAutocompleteSuggestion[]>;
         "inline"?: boolean;
         "invalid"?: boolean;
         "maxLength"?: number;
         "menuLabel"?: string;
         "mode"?: SwirlTextInputMode;
-        "onValueChange"?: (event: SwirlAutocompleteCustomEvent<string>) => void;
+        "multiSelect"?: boolean;
+        "onValueChange"?: (event: SwirlAutocompleteCustomEvent<SwirlAutocompleteValue>) => void;
+        "placeholder"?: string;
         "required"?: boolean;
         "spellCheck"?: boolean;
         "swirlAriaDescribedby"?: string;
-        "value"?: string;
+        "value"?: SwirlAutocompleteValue;
     }
     interface SwirlAvatar {
         "badge"?: string;
