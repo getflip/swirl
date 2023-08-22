@@ -91,10 +91,6 @@ const Template = (args) => {
     );
   };
 
-  element.addEventListener("valueChange", (e: CustomEvent) => {
-    console.log("p", e.detail);
-  });
-
   formControl.append(element);
 
   return formControl;
