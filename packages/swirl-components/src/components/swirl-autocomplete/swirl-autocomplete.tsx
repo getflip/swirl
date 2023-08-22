@@ -20,6 +20,10 @@ import classnames from "classnames";
 import { debounce, SwirlFormInput } from "../../utils";
 import { SwirlTextInputMode } from "../swirl-text-input/swirl-text-input";
 
+export type SwirlAutocompleteValue =
+  | SwirlAutocompleteSuggestion
+  | SwirlAutocompleteSuggestion[];
+
 export type SwirlAutocompleteSuggestion = {
   disabled?: boolean;
   id: string;
@@ -39,8 +43,7 @@ export type SwirlAutocompleteSuggestion = {
   tag: "swirl-autocomplete",
 })
 export class SwirlAutocomplete
-  implements
-    SwirlFormInput<SwirlAutocompleteSuggestion | SwirlAutocompleteSuggestion[]>
+  implements SwirlFormInput<SwirlAutocompleteValue>
 {
   @Element() el: HTMLElement;
 
@@ -61,18 +64,14 @@ export class SwirlAutocomplete
   @Prop() required?: boolean;
   @Prop() spellCheck?: boolean;
   @Prop() swirlAriaDescribedby?: string;
-  @Prop({ mutable: true, reflect: true }) value?:
-    | SwirlAutocompleteSuggestion
-    | SwirlAutocompleteSuggestion[];
+  @Prop({ mutable: true, reflect: true }) value?: SwirlAutocompleteValue;
 
   @State() active: boolean = false;
   @State() loading: boolean = false;
   @State() position: ComputePositionReturn;
   @State() suggestions: SwirlAutocompleteSuggestion[] = [];
 
-  @Event() valueChange: EventEmitter<
-    SwirlAutocompleteSuggestion | SwirlAutocompleteSuggestion[]
-  >;
+  @Event() valueChange: EventEmitter<SwirlAutocompleteValue>;
 
   private disableAutoUpdate: any;
   private id: string;
