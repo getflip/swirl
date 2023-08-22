@@ -73,7 +73,7 @@ async function generateApiSpecNavigation(): Promise<void> {
       apiSpecsData,
       "utf8"
     );
-    console.log("Done! 🚀");
+    console.log(`API Spec Navigation Done! 🚀`);
   } else {
     console.log(
       "No API specs found. Skipping generation of API specs navigation."
@@ -111,7 +111,7 @@ async function generateApiDocsSpecNavigation(): Promise<void> {
       apiDocsData,
       "utf8"
     );
-    console.log("Done! 🚀");
+    console.log("API Docs Navigation Done! 🚀");
   } else {
     console.log(
       "No API docs found. Skipping generation of API docs navigation."
