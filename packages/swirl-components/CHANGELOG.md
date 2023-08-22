@@ -1,5 +1,27 @@
 # @getflip/swirl-components
 
+## 0.87.0
+
+### Minor Changes
+
+- [#359](https://github.com/getflip/swirl/pull/359)
+  [`67fa3772`](https://github.com/getflip/swirl/commit/67fa3772909b63701dbd0801feb15fe07eaacb85)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add multi select support to
+  swirl-autocomplete
+
+* [#359](https://github.com/getflip/swirl/pull/359)
+  [`67fa3772`](https://github.com/getflip/swirl/commit/67fa3772909b63701dbd0801feb15fe07eaacb85)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Breaking: Change
+  swirl-autocomplete value type to SwirlAutocompleteSuggestion or
+  SwirlAutocompleteSuggestion[]
+
+### Patch Changes
+
+- [#359](https://github.com/getflip/swirl/pull/359)
+  [`67fa3772`](https://github.com/getflip/swirl/commit/67fa3772909b63701dbd0801feb15fe07eaacb85)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-select keyboard
+  controls
+
 ## 0.86.0
 
 ### Minor Changes
