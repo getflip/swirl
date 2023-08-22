@@ -221,6 +221,7 @@ export class SwirlAutocomplete implements SwirlFormInput<string | string[]> {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.preventDefault();
+      event.stopPropagation();
       this.inputEl.querySelector("input").focus();
       this.close();
     }
