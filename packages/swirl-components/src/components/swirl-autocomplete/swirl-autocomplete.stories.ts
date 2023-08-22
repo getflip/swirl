@@ -5,6 +5,13 @@ import Docs from "./swirl-autocomplete.mdx";
 export default {
   component: "swirl-autocomplete",
   tags: ["autodocs"],
+  argTypes: {
+    value: {
+      control: {
+        type: "object",
+      },
+    },
+  },
   parameters: {
     docs: {
       page: Docs,
@@ -70,7 +77,7 @@ const Template = (args) => {
     },
     {
       id: "3",
-      label: "Item #3",
+      label: "Item #3 with a longer label",
     },
   ];
 
@@ -83,6 +90,10 @@ const Template = (args) => {
       suggestion.label.toLowerCase().includes(value.toLowerCase())
     );
   };
+
+  element.addEventListener("valueChange", (e: CustomEvent) => {
+    console.log("p", e.detail);
+  });
 
   formControl.append(element);
 

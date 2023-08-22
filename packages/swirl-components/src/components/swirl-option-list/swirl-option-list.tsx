@@ -187,6 +187,11 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   private observeSlotChanges() {
     this.observer = new MutationObserver(() => {
       this.updateItems();
+      this.setItemAllowDragState();
+      this.setItemDisabledState();
+      this.setItemContext();
+      this.syncItemsWithValue();
+      this.setupDragDrop();
     });
 
     this.observer.observe(this.listboxEl, { childList: true });

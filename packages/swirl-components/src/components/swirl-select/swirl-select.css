@@ -36,7 +36,6 @@
 
   & .select__multi-select-values {
     display: flex;
-    margin-top: var(--s-space-4);
   }
 }
 

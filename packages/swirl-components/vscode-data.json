@@ -269,6 +269,14 @@
           ]
         },
         {
+          "name": "multi-select",
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "description": ""
+        },
+        {
           "name": "required",
           "description": ""
         },

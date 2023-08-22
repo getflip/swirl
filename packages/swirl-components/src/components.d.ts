@@ -188,17 +188,19 @@ export namespace Components {
         "clearable"?: boolean;
         "disabled"?: boolean;
         "generateSuggestions"?: (
-    currentValue: string
+    term: string
   ) => Promise<SwirlAutocompleteSuggestion[]>;
         "inline"?: boolean;
         "invalid"?: boolean;
         "maxLength"?: number;
         "menuLabel"?: string;
         "mode"?: SwirlTextInputMode;
+        "multiSelect"?: boolean;
+        "placeholder"?: string;
         "required"?: boolean;
         "spellCheck"?: boolean;
         "swirlAriaDescribedby"?: string;
-        "value"?: string;
+        "value"?: string | string[];
     }
     interface SwirlAvatar {
         "badge"?: string;
@@ -3997,18 +3999,20 @@ declare namespace LocalJSX {
         "clearable"?: boolean;
         "disabled"?: boolean;
         "generateSuggestions"?: (
-    currentValue: string
+    term: string
   ) => Promise<SwirlAutocompleteSuggestion[]>;
         "inline"?: boolean;
         "invalid"?: boolean;
         "maxLength"?: number;
         "menuLabel"?: string;
         "mode"?: SwirlTextInputMode;
-        "onValueChange"?: (event: SwirlAutocompleteCustomEvent<string>) => void;
+        "multiSelect"?: boolean;
+        "onValueChange"?: (event: SwirlAutocompleteCustomEvent<string | string[]>) => void;
+        "placeholder"?: string;
         "required"?: boolean;
         "spellCheck"?: boolean;
         "swirlAriaDescribedby"?: string;
-        "value"?: string;
+        "value"?: string | string[];
     }
     interface SwirlAvatar {
         "badge"?: string;
