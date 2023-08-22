@@ -85,9 +85,12 @@ export type ApiDoc = {
 
 export type EndpointParam = {
   name: string;
-  type: string;
+  type:
+    | OpenAPIV3_1.ArraySchemaObjectType
+    | OpenAPIV3_1.NonArraySchemaObjectType;
   description: string;
   required: boolean;
+  properties?: EndpointParam[];
 };
 
 export type EndpointParamType =
@@ -128,9 +131,9 @@ export type ApiEndpoint = {
   security?: OpenAPIV3_1.SecurityRequirementObject[];
 };
 
-export type ApiDocumentation = {
+export interface ApiDocumentation {
   title: string;
   shortDescription: string;
   description: MDXRemoteSerializeResult;
   endpoints: Array<ApiEndpoint>;
-};
+}

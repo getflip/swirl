@@ -16,7 +16,12 @@ const headers = {
   "PRIVATE-TOKEN": env.GITLAB_ACCESS_TOKEN,
 };
 const refBranch = env.REFERENCE_BRANCH;
-const globalSpecs = ["shared.yml", "problem.yml"];
+const globalSpecs = [
+  "shared.yml",
+  "problem.yml",
+  "users.yml",
+  "usergroups.yml",
+];
 
 /*******************************************************************************
  * Run
@@ -32,11 +37,11 @@ async function fetchData() {
     cleanGlobalSpecs();
   }
 
-  const docs = await fetchFileList("docs");
+  // const docs = await fetchFileList("docs");
 
-  if (docs) {
-    await Promise.all(docs.map((doc) => processFileOrTree(doc)));
-  }
+  // if (docs) {
+  //   await Promise.all(docs.map((doc) => processFileOrTree(doc)));
+  // }
 }
 
 /*******************************************************************************
@@ -220,6 +225,7 @@ function moveSpec(spec: string) {
 function deleteGlobalSpecs() {
   deleteSpec("version-info.yml");
   deleteSpec("merged.yml");
+  deleteSpec("organisations.yml");
 }
 
 function deleteSpec(spec: string) {

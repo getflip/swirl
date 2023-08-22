@@ -23,6 +23,7 @@ export const apiSpecsNavItems: NavItem[] = [
 `;
 }
 async function generateApiSpecNavItems(specName: string): Promise<NavItem> {
+  console.log("Generating navigation for", specName);
   const specPath = `${API_SPEC_PATH}/${specName}`;
   const oasDocument = await new (OASNormalize as any).default(specPath, {
     enablePaths: true,
