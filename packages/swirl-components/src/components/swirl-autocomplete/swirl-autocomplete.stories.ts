@@ -25,16 +25,16 @@ export default {
 
   const suggestions = [
     {
-      id: "1",
+      id: "item-1",
       label: "Item #1",
     },
     {
       disabled: true,
-      id: "2",
+      id: "item-2",
       label: "Item #2",
     },
     {
-      id: "3",
+      id: "item-3",
       label: "Item #3",
     },
   ];
@@ -68,16 +68,16 @@ const Template = (args) => {
 
   const suggestions: SwirlAutocompleteSuggestion[] = [
     {
-      id: "1",
+      id: "item-1",
       label: "Item #1",
     },
     {
       disabled: true,
-      id: "2",
+      id: "item-2",
       label: "Item #2",
     },
     {
-      id: "3",
+      id: "item-3",
       label: "Item #3 with a longer label",
     },
   ];
