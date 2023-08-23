@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.87.2
+
+### Patch Changes
+
+- [`c6032d45`](https://github.com/getflip/swirl/commit/c6032d45cda2e0ff7fcedf0537095e2a2fdd207b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-button "form" prop
+
 ## 0.87.1
 
 ### Patch Changes
