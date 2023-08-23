@@ -15,7 +15,9 @@
 .autocomplete__listbox-container {
   position: fixed;
   z-index: var(--s-z-40);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 18rem;
   padding-top: var(--s-space-8);
   padding-bottom: var(--s-space-8);
   border-radius: var(--s-border-radius-sm);
@@ -36,8 +38,8 @@
 }
 
 .autocomplete__multi-select-tags {
-  margin-bottom: var(--s-space-4);
   margin-top: var(--swirl-autocomplete-tags-margin-top);
+  margin-bottom: var(--s-space-4);
 }
 
 @keyframes autocomplete-enter {
