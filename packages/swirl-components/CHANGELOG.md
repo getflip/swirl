@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.87.5
+
+### Patch Changes
+
+- [`f8ed5afd`](https://github.com/getflip/swirl/commit/f8ed5afd1eff954bbc3fc68ae9bd3c9f00b58bfc)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Let swirl-text-input use full
+  width when used without a suffix
+
 ## 0.87.4
 
 ### Patch Changes
