@@ -133,6 +133,16 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
         this.moveDraggedItemUp();
       }
     } else if (event.code === "Space" || event.code === "Enter") {
+      const startingDrag = (event.target as HTMLElement).classList.contains(
+        "option-list-item__drag-handle"
+      );
+
+      if (!startingDrag && Boolean(this.dragging)) {
+        event.preventDefault();
+        this.stopDrag(this.dragging);
+        return;
+      }
+
       const target = event.composedPath()[0] as HTMLElement;
       const optionFocused = Boolean(
         closestPassShadow(target, '[role="option"]')
@@ -424,6 +434,8 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.itemDrop.emit({ item, oldIndex: this.draggingStartIndex, newIndex });
 
     this.draggingStartIndex = undefined;
+
+    this.focusItem(newIndex);
   };
 
   private moveDraggedItemDown() {
@@ -460,6 +472,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
   render() {
     const ariaMultiselectable = this.multiSelect ? "true" : undefined;
+    const tabIndex = Boolean(this.dragging) ? 0 : undefined;
 
     return (
       <Host>
@@ -475,6 +488,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
           onKeyDown={this.onKeyDown}
           ref={(el) => (this.listboxEl = el)}
           role="listbox"
+          tabIndex={tabIndex}
         >
           <slot></slot>
         </div>
