@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.86.4
+
+### Patch Changes
+
+- [`83bb0b97`](https://github.com/getflip/swirl/commit/83bb0b9748ea84ed7b6635da936bfe75d5f161e5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue closing the
+  swirl-autocomplete suggestions
+
+- Updated dependencies
+  [[`83bb0b97`](https://github.com/getflip/swirl/commit/83bb0b9748ea84ed7b6635da936bfe75d5f161e5)]:
+  - @getflip/swirl-components@0.87.4
+
 ## 0.86.3
 
 ### Patch Changes
