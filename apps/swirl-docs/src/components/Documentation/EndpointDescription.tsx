@@ -1,11 +1,10 @@
-import { FunctionComponent } from "react";
-import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
-import ReactMarkdown from "react-markdown";
-import { SchemaObject } from "oas/dist/rmoas.types";
-import { Parameter } from "./Parameter";
-import { ApiEndpoint, EndpointParam } from "@swirl/lib/docs";
 import { SwirlIconLock } from "@getflip/swirl-components-react";
+import { ApiEndpoint } from "@swirl/lib/docs";
+import { FunctionComponent } from "react";
+import ReactMarkdown from "react-markdown";
+import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
 import { Tag } from "../Tags";
+import { Parameter } from "./Parameter";
 import {
   EndpointParameterFactory,
   SchemaPropertiesRenderer,
@@ -22,6 +21,14 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
   endpointId,
   path,
 }) => {
+  const requestbody = endpoint.parameterTypes?.find(
+    (parameterType) => parameterType.type === "body"
+  );
+
+  const otherParameters = endpoint.parameterTypes?.filter(
+    (parameterType) => parameterType.type !== "body"
+  );
+
   return (
     <div className="max-w-[37.5rem]">
       <LinkedHeading href={path}>
@@ -57,7 +64,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
         {endpoint.description}
       </ReactMarkdown>
       <div className="mb-6">
-        {endpoint.parameterTypes?.map((parameterType, index) => {
+        {otherParameters?.map((parameterType, index) => {
           const parameterFactory = new EndpointParameterFactory(
             parameterType.parameters
           );
@@ -78,10 +85,10 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
               Request Body
             </Heading>
             <div>
-              {new SchemaPropertiesRenderer().render(
-                endpoint,
-                endpoint.requestBodySchema?.properties
-              )}
+              {requestbody &&
+                new EndpointParameterFactory(
+                  requestbody.parameters
+                ).renderProperties()}
             </div>
           </div>
         )}
