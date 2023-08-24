@@ -130,6 +130,7 @@ export class SwirlTextInput implements SwirlFormInput {
       this.inputEl.style.width = "";
 
       if (
+        this.suffixLabel &&
         this.type !== "password" &&
         !this.disableDynamicWidth &&
         !Boolean(this.placeholder)

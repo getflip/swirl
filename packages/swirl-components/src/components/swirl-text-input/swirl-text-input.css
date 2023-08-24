@@ -44,6 +44,13 @@
   }
 }
 
+.text-input--has-suffix {
+  & input.text-input__input:not([type="password"]) {
+    width: 0.25rem;
+    min-width: 0.25rem;
+  }
+}
+
 .text-input--inline {
   & .text-input__stepper {
     top: calc(-1 * var(--s-space-8));
@@ -137,11 +144,6 @@
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
   }
-}
-
-input.text-input__input:not([type="password"]) {
-  width: 0.25rem;
-  min-width: 0.25rem;
 }
 
 .text-input--disable-dynamic-width {
