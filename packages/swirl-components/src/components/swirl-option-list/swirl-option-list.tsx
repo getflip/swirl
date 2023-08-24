@@ -70,6 +70,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.setupDragDrop();
   }
 
+  componentDidRender() {
+    this.setupDragDrop();
+  }
+
   disconnectedCallback() {
     this.observer?.disconnect();
     this.sortable?.destroy();
@@ -95,21 +99,6 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   watchValue() {
     this.syncItemsWithValue();
   }
-
-  private onFocus = async (event: FocusEvent) => {
-    if (this.listboxEl.contains(event.relatedTarget as Element)) {
-      return;
-    }
-
-    // prevent focus from canceling the drag event in Safari
-    await new Promise((resolve) => setTimeout(resolve));
-
-    if (Boolean(this.focusedItem)) {
-      this.focusItem(this.getActiveItemIndex());
-    } else {
-      this.focusItem(0);
-    }
-  };
 
   private onClick = (event: MouseEvent) => {
     event.preventDefault();
@@ -148,6 +137,16 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
         this.moveDraggedItemUp();
       }
     } else if (event.code === "Space" || event.code === "Enter") {
+      const startingDrag = (event.target as HTMLElement).classList.contains(
+        "option-list-item__drag-handle"
+      );
+
+      if (!startingDrag && Boolean(this.dragging)) {
+        event.preventDefault();
+        this.stopDrag(this.dragging);
+        return;
+      }
+
       const target = event.composedPath()[0] as HTMLElement;
       const optionFocused = Boolean(
         closestPassShadow(target, '[role="option"]')
@@ -187,6 +186,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   private observeSlotChanges() {
     this.observer = new MutationObserver(() => {
       this.updateItems();
+      this.setItemAllowDragState();
+      this.setItemDisabledState();
+      this.setItemContext();
+      this.syncItemsWithValue();
     });
 
     this.observer.observe(this.listboxEl, { childList: true });
@@ -197,6 +200,18 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       this.el,
       "swirl-option-list-item"
     );
+
+    this.items.forEach((item) =>
+      item.querySelector('[role="option"]')?.removeAttribute("tabIndex")
+    );
+
+    const item = this.items[0]?.querySelector('[role="option"]') as HTMLElement;
+
+    if (!Boolean(item)) {
+      return;
+    }
+
+    item.setAttribute("tabIndex", "0");
   }
 
   private setItemDisabledState() {
@@ -299,6 +314,8 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     } else {
       this.updateValue(this.value.filter((v) => v !== item.value));
     }
+
+    this.focusItem(index);
   }
 
   private updateValue(value: string[]) {
@@ -420,6 +437,8 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.itemDrop.emit({ item, oldIndex: this.draggingStartIndex, newIndex });
 
     this.draggingStartIndex = undefined;
+
+    this.focusItem(newIndex);
   };
 
   private moveDraggedItemDown() {
@@ -456,7 +475,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
 
   render() {
     const ariaMultiselectable = this.multiSelect ? "true" : undefined;
-    const tabIndex = this.disabled ? -1 : 0;
+    const tabIndex = Boolean(this.dragging) ? 0 : undefined;
 
     return (
       <Host>
@@ -469,7 +488,6 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
           class="option-list"
           id={this.optionListId}
           onClick={this.onClick}
-          onFocus={this.onFocus}
           onKeyDown={this.onKeyDown}
           ref={(el) => (this.listboxEl = el)}
           role="listbox"

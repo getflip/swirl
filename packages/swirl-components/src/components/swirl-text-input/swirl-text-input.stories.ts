@@ -17,6 +17,7 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-text-input", args);
 
   formControl.setAttribute("label", "Input");
+  formControl.setAttribute("disabled", args.disabled ? "true" : "false");
   formControl.append("\n  ", element, "\n");
 
   return formControl;

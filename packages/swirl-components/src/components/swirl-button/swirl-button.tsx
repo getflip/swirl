@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop, Watch } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
 
@@ -31,6 +31,8 @@ export type SwirlButtonVariant =
   styleUrl: "swirl-button.css",
 })
 export class SwirlButton {
+  @Element() el: HTMLElement;
+
   @Prop() disabled?: boolean;
   @Prop() download?: string;
   @Prop() swirlAriaControls?: string;
@@ -53,17 +55,24 @@ export class SwirlButton {
   @Prop() value?: string;
   @Prop() variant?: SwirlButtonVariant = "ghost";
 
+  private buttonEl: HTMLButtonElement;
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
 
   componentDidLoad() {
     this.forceIconProps(this.desktopMediaQuery.matches);
+    this.updateFormAttribute();
 
     this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
   }
 
   componentDidRender() {
     this.forceIconProps(this.desktopMediaQuery.matches);
+  }
+
+  @Watch("form")
+  watchFormProp() {
+    this.updateFormAttribute();
   }
 
   disconnectedCallback() {
@@ -95,6 +104,18 @@ export class SwirlButton {
     }
 
     return undefined;
+  }
+
+  private updateFormAttribute() {
+    // Workaround: form attribute cannot be set via Stencil JSX
+    // https://github.com/ionic-team/stencil/issues/2703
+    const isLink = Boolean(this.href);
+
+    if (isLink || !Boolean(this.form)) {
+      this.buttonEl?.removeAttribute("form");
+    } else {
+      this.buttonEl?.setAttribute("form", this.form);
+    }
   }
 
   render() {
@@ -134,6 +155,7 @@ export class SwirlButton {
           form={isLink ? undefined : this.form}
           href={this.href}
           name={isLink ? undefined : this.name}
+          ref={(el) => (this.buttonEl = el)}
           target={isLink ? this.target : undefined}
           type={isLink ? undefined : this.type}
           value={isLink ? undefined : this.value}

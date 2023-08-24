@@ -269,6 +269,14 @@
           ]
         },
         {
+          "name": "multi-select",
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "description": ""
+        },
+        {
           "name": "required",
           "description": ""
         },
@@ -278,10 +286,6 @@
         },
         {
           "name": "swirl-aria-describedby",
-          "description": ""
-        },
-        {
-          "name": "value",
           "description": ""
         }
       ]

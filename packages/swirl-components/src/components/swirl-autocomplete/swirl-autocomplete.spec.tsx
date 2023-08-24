@@ -50,12 +50,12 @@ describe("swirl-autocomplete", () => {
     expect(page.root).toEqualHtml(`
       <swirl-autocomplete>
         <div class="autocomplete">
-          <swirl-text-input class="autocomplete__input" clearable="" clearbuttonlabel="Clear input" disabledynamicwidth="" swirlariaautocomplete="list" swirlariacontrols="autocomplete-0-suggestions" swirlariaexpanded="true" swirlrole="combobox" id="autocomplete-0"></swirl-text-input>
+          <swirl-text-input class="autocomplete__input" clearable="" clearbuttonlabel="Clear input" disabledynamicwidth="" swirlariaautocomplete="list" swirlariacontrols="autocomplete-0-suggestions" swirlariaexpanded="true" swirlrole="combobox" id="autocomplete-0" value=""></swirl-text-input>
           <div class="autocomplete__listbox-container" style="width: 32px;">
             <swirl-option-list label="Suggestions" optionlistid="autocomplete-0-suggestions">
-              <swirl-option-list-item label="Item #1" value="Item #1"></swirl-option-list-item>
-              <swirl-option-list-item disabled="" label="Item #2" value="Item #2"></swirl-option-list-item>
-              <swirl-option-list-item label="Item #3" value="Item #3"></swirl-option-list-item>
+              <swirl-option-list-item label="Item #1" value="1"></swirl-option-list-item>
+              <swirl-option-list-item disabled="" label="Item #2" value="2"></swirl-option-list-item>
+              <swirl-option-list-item label="Item #3" value="3"></swirl-option-list-item>
             </swirl-option-list>
           </div>
         </div>
@@ -79,12 +79,12 @@ describe("swirl-autocomplete", () => {
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <swirl-autocomplete value="#3">
+      <swirl-autocomplete>
         <div class="autocomplete">
-          <swirl-text-input class="autocomplete__input" clearable="" clearbuttonlabel="Clear input" disabledynamicwidth="" swirlariaautocomplete="list" swirlariacontrols="autocomplete-0-suggestions" swirlariaexpanded="true" swirlrole="combobox" id="autocomplete-0" value="#3"></swirl-text-input>
+          <swirl-text-input class="autocomplete__input" clearable="" clearbuttonlabel="Clear input" disabledynamicwidth="" swirlariaautocomplete="list" swirlariacontrols="autocomplete-0-suggestions" swirlariaexpanded="true" swirlrole="combobox" id="autocomplete-0" value=""></swirl-text-input>
           <div class="autocomplete__listbox-container" style="width: 32px;">
             <swirl-option-list label="Suggestions" optionlistid="autocomplete-0-suggestions">
-              <swirl-option-list-item label="Item #3" value="Item #3"></swirl-option-list-item>
+              <swirl-option-list-item label="Item #3" value="3"></swirl-option-list-item>
             </swirl-option-list>
           </div>
         </div>
@@ -109,19 +109,17 @@ describe("swirl-autocomplete", () => {
 
     const listbox = page.root.querySelector("swirl-option-list");
 
-    listbox.dispatchEvent(
-      new CustomEvent("valueChange", { detail: ["Item #3"] })
-    );
+    listbox.dispatchEvent(new CustomEvent("valueChange", { detail: ["3"] }));
 
     await page.waitForChanges();
 
     expect(page.root).toEqualHtml(`
-      <swirl-autocomplete value="Item #3">
+      <swirl-autocomplete>
         <div class="autocomplete autocomplete--inactive">
           <swirl-text-input class="autocomplete__input" clearable="" clearbuttonlabel="Clear input" disabledynamicwidth="" swirlariaautocomplete="list" swirlariacontrols="autocomplete-0-suggestions" swirlariaexpanded="false" swirlrole="combobox" id="autocomplete-0" value="Item #3"></swirl-text-input>
           <div class="autocomplete__listbox-container" style="width: 32px;">
             <swirl-option-list label="Suggestions" optionlistid="autocomplete-0-suggestions">
-              <swirl-option-list-item label="Item #3" selected="" value="Item #3"></swirl-option-list-item>
+              <swirl-option-list-item label="Item #3" selected="" value="3"></swirl-option-list-item>
             </swirl-option-list>
           </div>
         </div>
@@ -149,14 +147,8 @@ describe("swirl-autocomplete", () => {
 
     const listbox = page.root.querySelector("swirl-option-list");
 
-    listbox.dispatchEvent(
-      new CustomEvent("valueChange", { detail: ["Item #3"] })
-    );
+    listbox.dispatchEvent(new CustomEvent("valueChange", { detail: ["3"] }));
 
-    expect(spy.mock.calls[0][0].detail).toBe("#3");
-
-    input.dispatchEvent(new CustomEvent("valueChange", { detail: "#3" }));
-
-    expect(spy.mock.calls[1][0].detail).toBe("Item #3");
+    expect(spy.mock.calls[0][0].detail).toEqual({ id: "3", label: "Item #3" });
   });
 });

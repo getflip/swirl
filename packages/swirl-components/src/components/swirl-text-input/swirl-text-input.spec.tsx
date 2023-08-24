@@ -37,7 +37,6 @@ describe("swirl-text-input", () => {
                  inputmode="decimal"
                  required=""
                  type="url"
-                 style="width: NaNrem;"
                  value="Value">
         </div>
       </swirl-text-input>
@@ -57,6 +56,11 @@ describe("swirl-text-input", () => {
     expect(page.root.querySelector(".text-input__suffix").innerHTML).toBe(
       "Suffix"
     );
+
+    expect(
+      page.root.querySelector<HTMLInputElement>(".text-input__input").style
+        .width
+    ).toBeTruthy();
   });
 
   it("can be cleared", async () => {

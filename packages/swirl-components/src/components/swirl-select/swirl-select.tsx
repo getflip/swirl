@@ -103,7 +103,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Space" || event.code === "Enter") {
       event.preventDefault();
-      this.popover.open();
+      this.popover.open(this.el);
     }
   };
 
