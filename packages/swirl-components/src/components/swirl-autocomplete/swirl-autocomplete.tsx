@@ -237,8 +237,10 @@ export class SwirlAutocomplete
         this.value = suggestion;
         this.valueChange.emit(this.value);
 
-        this.inputEl.querySelector("input")?.focus();
-        this.close();
+        queueMicrotask(() => {
+          this.inputEl.querySelector("input")?.focus();
+          this.close();
+        });
       }
     }
   };
@@ -280,7 +282,10 @@ export class SwirlAutocomplete
   private onInputKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowDown") {
       event.preventDefault();
-      this.listboxEl.querySelector<HTMLDivElement>('[role="listbox"]').focus();
+      this.listboxEl
+        .querySelector<HTMLDivElement>('[role="listbox"]')
+        .querySelector<HTMLElement>('[tabIndex="0"]')
+        ?.focus();
     }
   };
 
