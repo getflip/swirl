@@ -68,6 +68,15 @@ export class ApiDocumentationFacade implements ApiDocumentation {
     return undefined;
   }
 
+  private getEndpointParamArrayItems(
+    prop: SchemaObject
+  ): Array<any> | undefined {
+    if (prop.type === "array" && prop.items) {
+      return prop.items as Array<any>;
+    }
+    return undefined;
+  }
+
   private getEndpoints() {
     this.endpoints = this.oasBuilder.endpoints.map((endpoint) => {
       const parameterTypes =
@@ -107,6 +116,7 @@ export class ApiDocumentationFacade implements ApiDocumentation {
                 description: prop.description || "",
                 required: requiredParams.includes(parameter),
                 properties: this.getEndpointParamProperties(prop),
+                items: this.getEndpointParamArrayItems(prop),
               };
             });
             return { title: label, type, parameters: parameters };

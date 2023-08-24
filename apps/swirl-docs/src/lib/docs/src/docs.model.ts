@@ -91,6 +91,7 @@ export type EndpointParam = {
   description: string;
   required: boolean;
   properties?: EndpointParam[];
+  items?: any;
 };
 
 export type EndpointParamType =

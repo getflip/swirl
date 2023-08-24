@@ -6,6 +6,10 @@ import { Parameter } from "./Parameter";
 import { ApiEndpoint, EndpointParam } from "@swirl/lib/docs";
 import { SwirlIconLock } from "@getflip/swirl-components-react";
 import { Tag } from "../Tags";
+import {
+  EndpointParameterFactory,
+  SchemaPropertiesRenderer,
+} from "./ParameterFactory";
 
 interface EndpointDescription {
   endpoint: ApiEndpoint;
@@ -54,14 +58,16 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
       </ReactMarkdown>
       <div className="mb-6">
         {endpoint.parameterTypes?.map((parameterType, index) => {
+          const parameterFactory = new EndpointParameterFactory(
+            parameterType.parameters
+          );
+
           return (
             <div key={`${parameterType.title}-${index}`} className="mb-6">
               <Heading level={4} className="mb-2">
                 {parameterType.title}
               </Heading>
-              <div>
-                {renderNestedEndpointProperties(parameterType.parameters)}
-              </div>
+              <div>{parameterFactory.renderProperties()}</div>
             </div>
           );
         })}
@@ -72,7 +78,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
               Request Body
             </Heading>
             <div>
-              {renderNestedSchemaProperties(
+              {new SchemaPropertiesRenderer().render(
                 endpoint,
                 endpoint.requestBodySchema?.properties
               )}
@@ -93,7 +99,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
                     name={responseBodySchema.statusCode}
                   >
                     {responseBodySchema.schema?.properties
-                      ? renderNestedSchemaProperties(
+                      ? new SchemaPropertiesRenderer().render(
                           responseBodySchema.schema,
                           responseBodySchema.schema.properties
                         )
@@ -108,60 +114,3 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
     </div>
   );
 };
-
-function renderNestedEndpointProperties(parameters: EndpointParam[]) {
-  return parameters.map((parameter) => {
-    return (
-      <Parameter
-        key={`parameter.name${parameter.name}`}
-        name={parameter.name}
-        type={parameter.type}
-        description={parameter.description}
-        required={parameter.required}
-      >
-        {parameter.properties
-          ? renderNestedEndpointProperties(parameter.properties)
-          : null}
-      </Parameter>
-    );
-  });
-}
-
-function renderNestedSchemaProperties(
-  endpoint: any,
-  properties:
-    | {
-        [name: string]: SchemaObject;
-      }
-    | undefined
-) {
-  return Object.entries(properties || {}).map(([name, property]) => {
-    const type = String(
-      (property as SchemaObject).type ||
-        (property as SchemaObject).allOf
-          ?.map((prop: any) => prop?.type)
-          .filter((prop: any) => prop?.type)
-          .join(" | ")
-    );
-
-    const enumValues = (property.allOf?.[0] as SchemaObject)?.enum as string[];
-
-    return (
-      <Parameter
-        key={`request-body-property-${name}`}
-        name={name}
-        type={type}
-        description={property.description}
-        required={endpoint.required?.includes(name)}
-        enumValues={enumValues}
-      >
-        {(property as any).items?.properties
-          ? renderNestedSchemaProperties(
-              (property as any).items,
-              (property as any).items.properties
-            )
-          : null}
-      </Parameter>
-    );
-  });
-}
