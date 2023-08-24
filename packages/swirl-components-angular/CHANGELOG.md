@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.86.3
+
+### Patch Changes
+
+- [`1c6cb1d9`](https://github.com/getflip/swirl/commit/1c6cb1d91daf726142f1d445a7a3e755d01cd333)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swil-option-list focus and
+  drag and drop issues
+
+- Updated dependencies
+  [[`1c6cb1d9`](https://github.com/getflip/swirl/commit/1c6cb1d91daf726142f1d445a7a3e755d01cd333)]:
+  - @getflip/swirl-components@0.87.3
+
 ## 0.86.2
 
 ### Patch Changes
