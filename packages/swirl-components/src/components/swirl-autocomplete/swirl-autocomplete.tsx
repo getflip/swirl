@@ -282,9 +282,10 @@ export class SwirlAutocomplete
   private onInputKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowDown") {
       event.preventDefault();
+
       this.listboxEl
         .querySelector<HTMLDivElement>('[role="listbox"]')
-        .querySelector<HTMLElement>('[tabIndex="0"]')
+        ?.querySelector<HTMLElement>('[tabIndex="0"]')
         ?.focus();
     }
   };
@@ -320,11 +321,7 @@ export class SwirlAutocomplete
 
     return (
       <Host>
-        <div
-          class={className}
-          onFocusout={this.onFocusOut}
-          onKeyDown={this.onKeyDown}
-        >
+        <div class={className} onKeyDown={this.onKeyDown}>
           {this.multiSelect &&
             Array.isArray(this.value) &&
             this.value.length > 0 && (
@@ -373,6 +370,7 @@ export class SwirlAutocomplete
 
           <div
             class="autocomplete__listbox-container"
+            onFocusout={this.onFocusOut}
             ref={(el) => (this.listboxContainerEl = el)}
             style={{
               top: Boolean(this.position) ? `${this.position?.y}px` : "",
