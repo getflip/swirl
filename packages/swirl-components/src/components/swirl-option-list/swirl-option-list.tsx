@@ -202,7 +202,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     );
 
     this.items.forEach((item) =>
-      item.querySelector('[role="option"]').removeAttribute("tabIndex")
+      item.querySelector('[role="option"]')?.removeAttribute("tabIndex")
     );
 
     const item = this.items[0]?.querySelector('[role="option"]') as HTMLElement;
