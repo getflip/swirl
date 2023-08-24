@@ -70,6 +70,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.setupDragDrop();
   }
 
+  componentDidRender() {
+    this.setupDragDrop();
+  }
+
   disconnectedCallback() {
     this.observer?.disconnect();
     this.sortable?.destroy();
@@ -186,7 +190,6 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       this.setItemDisabledState();
       this.setItemContext();
       this.syncItemsWithValue();
-      this.setupDragDrop();
     });
 
     this.observer.observe(this.listboxEl, { childList: true });
