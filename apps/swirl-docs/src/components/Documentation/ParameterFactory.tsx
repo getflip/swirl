@@ -1,6 +1,5 @@
 import { OperationSchemaObject } from "@swirl/lib/docs";
 import { Parameter } from "./Parameter";
-import { SchemaObject } from "oas/dist/rmoas.types";
 
 interface ParameterRenderer {
   render(parameter: OperationSchemaObject): JSX.Element | JSX.Element[];
@@ -108,6 +107,7 @@ class ArrayParameterRenderer implements ParameterRenderer {
             key={`string.${parameter.name}`}
             name={parameter.items.format ? parameter.items.format : "enum"}
             type={parameter.items?.type}
+            enumValues={parameter.items.enum}
             description={
               parameter.items.enum ? parameter.items.enum.join(", ") : "null"
             }
@@ -115,46 +115,5 @@ class ArrayParameterRenderer implements ParameterRenderer {
         )}
       </Parameter>
     );
-  }
-}
-
-export class SchemaPropertiesRenderer {
-  render(
-    endpoint: any,
-    properties:
-      | {
-          [name: string]: SchemaObject;
-        }
-      | undefined
-  ) {
-    return Object.entries(properties || {}).map(([name, property]) => {
-      const type = String(
-        (property as SchemaObject).type ||
-          (property as SchemaObject).allOf
-            ?.map((prop: any) => prop?.type)
-            .filter((prop: any) => prop?.type)
-            .join(" | ")
-      );
-
-      const enumValues = (property.allOf?.[0] as SchemaObject)
-        ?.enum as string[];
-      return (
-        <Parameter
-          key={`request-body-property-${name}`}
-          name={name}
-          type={type}
-          description={property.description}
-          required={endpoint.required?.includes(name)}
-          enumValues={enumValues}
-        >
-          {(property as any).items?.properties
-            ? this.render(
-                (property as any).items,
-                (property as any).items.properties
-              )
-            : null}
-        </Parameter>
-      );
-    });
   }
 }

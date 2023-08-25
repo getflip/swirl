@@ -5,10 +5,7 @@ import ReactMarkdown from "react-markdown";
 import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
 import { Tag } from "../Tags";
 import { Parameter } from "./Parameter";
-import {
-  EndpointParameterFactory,
-  SchemaPropertiesRenderer,
-} from "./ParameterFactory";
+import { EndpointParameterFactory } from "./ParameterFactory";
 
 interface EndpointDescription {
   endpoint: ApiEndpoint;
@@ -97,26 +94,6 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
           <div className="mb-6">
             <Heading level={4} className="mb-2">
               Response Body
-            </Heading>
-            <div>
-              {endpoint.responseBodySchemas.map((responseBodySchema) => {
-                return (
-                  <Parameter
-                    key={responseBodySchema.statusCode}
-                    name={responseBodySchema.statusCode}
-                  >
-                    {responseBodySchema.schema?.properties
-                      ? new SchemaPropertiesRenderer().render(
-                          responseBodySchema.schema,
-                          responseBodySchema.schema.properties
-                        )
-                      : null}
-                  </Parameter>
-                );
-              })}
-            </div>
-            <Heading level={4} className="mb-2">
-              Response Body 2
             </Heading>
             <div>
               {endpoint.responseBody?.map((parameterType) => {
