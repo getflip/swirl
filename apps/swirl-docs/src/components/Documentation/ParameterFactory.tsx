@@ -8,28 +8,31 @@ interface ParameterRenderer {
 export class EndpointParameterFactory {
   private parameters: OperationSchemaObject[];
 
-  private ParameterRenderers: {
-    [key in OperationSchemaObject["type"]]: ParameterRenderer;
-  } = {
-    array: new ArrayParameterRenderer(),
-    object: new ObjectParameterRenderer(),
-    boolean: new PrimitiveParameterRenderer(),
-    integer: new PrimitiveParameterRenderer(),
-    number: new PrimitiveParameterRenderer(),
-    string: new PrimitiveParameterRenderer(),
-    null: new PrimitiveParameterRenderer(),
-  };
-
   constructor(parameters: OperationSchemaObject[]) {
     this.parameters = parameters;
   }
 
+  getRenderer(type: string): ParameterRenderer {
+    switch (type) {
+      case "array":
+        return new ArrayParameterRenderer();
+      case "object":
+        return new ObjectParameterRenderer();
+      case "boolean":
+      case "integer":
+      case "number":
+      case "string":
+      case "null":
+        return new PrimitiveParameterRenderer();
+      default:
+        return new PrimitiveParameterRenderer(); // Default renderer
+    }
+  }
+
   renderProperties() {
     return this.parameters.map((parameter) => {
-      if (parameter.type) {
-        return this.ParameterRenderers[parameter.type].render(parameter);
-      }
-      return this.ParameterRenderers.string.render(parameter);
+      const renderer = this.getRenderer(parameter.type || "string");
+      return renderer.render(parameter);
     });
   }
 }
