@@ -226,6 +226,7 @@ function deleteGlobalSpecs() {
   deleteSpec("version-info.yml");
   deleteSpec("merged.yml");
   deleteSpec("organisations.yml");
+  deleteSpec("posts.yml");
 }
 
 function deleteSpec(spec: string) {
