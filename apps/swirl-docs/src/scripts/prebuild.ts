@@ -37,11 +37,11 @@ async function fetchData() {
     cleanGlobalSpecs();
   }
 
-  // const docs = await fetchFileList("docs");
+  const docs = await fetchFileList("docs");
 
-  // if (docs) {
-  //   await Promise.all(docs.map((doc) => processFileOrTree(doc)));
-  // }
+  if (docs) {
+    await Promise.all(docs.map((doc) => processFileOrTree(doc)));
+  }
 }
 
 /*******************************************************************************
