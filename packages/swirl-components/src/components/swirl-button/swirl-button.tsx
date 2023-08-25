@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop, Watch } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
 
@@ -49,13 +49,14 @@ export class SwirlButton {
   @Prop() label!: string;
   @Prop() name?: string;
   @Prop() pill?: boolean;
+  @Prop() pressed?: boolean;
   @Prop() size?: SwirlButtonSize = "m";
   @Prop() target?: string;
   @Prop() type?: SwirlButtonType = "button";
   @Prop() value?: string;
   @Prop() variant?: SwirlButtonVariant = "ghost";
 
-  private buttonEl: HTMLButtonElement;
+  private buttonEl: HTMLElement;
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
 
@@ -68,10 +69,6 @@ export class SwirlButton {
 
   componentDidRender() {
     this.forceIconProps(this.desktopMediaQuery.matches);
-  }
-
-  @Watch("form")
-  watchFormProp() {
     this.updateFormAttribute();
   }
 
@@ -135,6 +132,7 @@ export class SwirlButton {
       {
         "button--icon-only": hideLabel,
         "button--pill": this.pill,
+        "button--pressed": this.pressed,
       }
     );
 
@@ -149,13 +147,14 @@ export class SwirlButton {
           aria-expanded={this.swirlAriaExpanded}
           aria-haspopup={this.swirlAriaHaspopup}
           aria-label={ariaLabel}
+          aria-pressed={this.pressed ? "true" : undefined}
           class={className}
           disabled={isLink ? undefined : this.disabled}
           download={isLink ? undefined : this.download}
           form={isLink ? undefined : this.form}
           href={this.href}
           name={isLink ? undefined : this.name}
-          ref={(el) => (this.buttonEl = el)}
+          ref={(el: HTMLElement) => (this.buttonEl = el)}
           target={isLink ? this.target : undefined}
           type={isLink ? undefined : this.type}
           value={isLink ? undefined : this.value}
