@@ -21,11 +21,11 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
   endpointId,
   path,
 }) => {
-  const requestbody = endpoint.parameterTypes?.find(
+  const requestbody = endpoint.parameters?.find(
     (parameterType) => parameterType.type === "body"
   );
 
-  const otherParameters = endpoint.parameterTypes?.filter(
+  const otherParameters = endpoint.parameters?.filter(
     (parameterType) => parameterType.type !== "body"
   );
 
@@ -79,7 +79,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
           );
         })}
 
-        {endpoint.requestBodySchema && (
+        {requestbody && (
           <div className="mb-6">
             <Heading level={4} className="mb-2">
               Request Body
@@ -111,6 +111,23 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
                           responseBodySchema.schema.properties
                         )
                       : null}
+                  </Parameter>
+                );
+              })}
+            </div>
+            <Heading level={4} className="mb-2">
+              Response Body 2
+            </Heading>
+            <div>
+              {endpoint.responseBody?.map((parameterType, index) => {
+                return (
+                  <Parameter
+                    key={parameterType.title}
+                    name={parameterType.title}
+                  >
+                    {new EndpointParameterFactory(
+                      parameterType.parameters
+                    ).renderProperties()}
                   </Parameter>
                 );
               })}

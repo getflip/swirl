@@ -1,16 +1,16 @@
-import { EndpointParam } from "@swirl/lib/docs";
+import { OperationSchemaObject } from "@swirl/lib/docs";
 import { Parameter } from "./Parameter";
 import { SchemaObject } from "oas/dist/rmoas.types";
 
 interface ParameterRenderer {
-  render(parameter: EndpointParam): JSX.Element | JSX.Element[];
+  render(parameter: OperationSchemaObject): JSX.Element | JSX.Element[];
 }
 
 export class EndpointParameterFactory {
-  private parameters: EndpointParam[];
+  private parameters: OperationSchemaObject[];
 
   private ParameterRenderers: {
-    [key in EndpointParam["type"]]: ParameterRenderer;
+    [key in OperationSchemaObject["type"]]: ParameterRenderer;
   } = {
     array: new ArrayParameterRenderer(),
     object: new ObjectParameterRenderer(),
@@ -21,7 +21,7 @@ export class EndpointParameterFactory {
     null: new PrimitiveParameterRenderer(),
   };
 
-  constructor(parameters: EndpointParam[]) {
+  constructor(parameters: OperationSchemaObject[]) {
     this.parameters = parameters;
   }
 
@@ -36,7 +36,7 @@ export class EndpointParameterFactory {
 }
 
 class ObjectParameterRenderer implements ParameterRenderer {
-  render(parameter: EndpointParam) {
+  render(parameter: OperationSchemaObject) {
     return (
       <Parameter
         key={`parameter.name${parameter.name}`}
@@ -56,7 +56,7 @@ class ObjectParameterRenderer implements ParameterRenderer {
 }
 
 class PrimitiveParameterRenderer implements ParameterRenderer {
-  render(parameter: EndpointParam) {
+  render(parameter: OperationSchemaObject) {
     return (
       <Parameter
         key={`parameter.name${parameter.name}`}
@@ -70,7 +70,7 @@ class PrimitiveParameterRenderer implements ParameterRenderer {
 }
 
 class ArrayParameterRenderer implements ParameterRenderer {
-  render(parameter: EndpointParam) {
+  render(parameter: OperationSchemaObject) {
     if (parameter.items?.type === "object") {
       return (
         <Parameter
@@ -138,7 +138,7 @@ export class SchemaPropertiesRenderer {
 
       const enumValues = (property.allOf?.[0] as SchemaObject)
         ?.enum as string[];
-
+      console.log("prop", name, property);
       return (
         <Parameter
           key={`request-body-property-${name}`}
