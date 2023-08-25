@@ -138,7 +138,6 @@ export class SchemaPropertiesRenderer {
 
       const enumValues = (property.allOf?.[0] as SchemaObject)
         ?.enum as string[];
-      console.log("prop", name, property);
       return (
         <Parameter
           key={`request-body-property-${name}`}

@@ -119,7 +119,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
               Response Body 2
             </Heading>
             <div>
-              {endpoint.responseBody?.map((parameterType, index) => {
+              {endpoint.responseBody?.map((parameterType) => {
                 return (
                   <Parameter
                     key={parameterType.title}

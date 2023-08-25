@@ -67,12 +67,12 @@ export class ApiDocumentationFacade implements ApiDocumentation {
         path: endpoint.path,
         isDeprecated: endpoint.operation.isDeprecated(),
         parameters: requestSchemas
-          ? this.getEndpointOperationParameters(
+          ? this.getEndpointOperationSchema(
               requestSchemas.filter((param) => param.type !== "body")
             )
           : undefined,
         requestBody: requestSchemas
-          ? this.getEndpointOperationParameters(
+          ? this.getEndpointOperationSchema(
               requestSchemas.filter((param) => param.type === "body")
             )
           : undefined,
@@ -98,6 +98,7 @@ export class ApiDocumentationFacade implements ApiDocumentation {
     }));
 
     return responseBodySchemas.map((response) => {
+      const requiredProperties = response.schema.required || [];
       const parameters: Array<OperationSchemaObject> = Object.entries(
         response.schema?.properties || {}
       ).map(([name, property]) => {
@@ -107,8 +108,8 @@ export class ApiDocumentationFacade implements ApiDocumentation {
           name: String(name),
           type: prop.type as OperationSchemaObject["type"],
           description: prop.description || "",
-          required: Boolean(prop.required),
-          properties: this.getEndpointParamObjectProperties(prop),
+          required: requiredProperties.includes(name),
+          properties: this.getEndpointOperationSchemaObject(prop),
           items: this.getEndpointParamArrayItems(prop),
         };
       });
@@ -121,7 +122,7 @@ export class ApiDocumentationFacade implements ApiDocumentation {
     });
   }
 
-  private getEndpointOperationParameters(
+  private getEndpointOperationSchema(
     parameters: ReturnType<Endpoint["operation"]["getParametersAsJSONSchema"]>
   ): OperationSchemas {
     return parameters.map((parameter) => {
@@ -143,7 +144,7 @@ export class ApiDocumentationFacade implements ApiDocumentation {
             type: prop.type as OperationSchemaObject["type"],
             description: prop.description || "",
             required: requiredParams.includes(parameter),
-            properties: this.getEndpointParamObjectProperties(prop),
+            properties: this.getEndpointOperationSchemaObject(prop),
             items: this.getEndpointParamArrayItems(prop),
           };
         });
@@ -153,7 +154,7 @@ export class ApiDocumentationFacade implements ApiDocumentation {
     });
   }
 
-  private getEndpointParamObjectProperties(
+  private getEndpointOperationSchemaObject(
     prop: SchemaObject
   ): OperationSchemaObject[] | undefined {
     if (prop.type === "object") {
@@ -164,7 +165,7 @@ export class ApiDocumentationFacade implements ApiDocumentation {
             type: prop.type as OperationSchemaObject["type"],
             description: prop.description || "",
             required: prop.required || false,
-            properties: this.getEndpointParamObjectProperties(prop),
+            properties: this.getEndpointOperationSchemaObject(prop),
           };
         });
       }
