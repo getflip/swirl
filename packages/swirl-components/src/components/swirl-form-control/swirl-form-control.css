@@ -130,6 +130,10 @@
     }
   }
 
+  & .form-control__prefix {
+    border-color: var(--s-border-critical);
+  }
+
   & .form-control__label {
     border-color: var(--s-border-critical);
   }
@@ -192,6 +196,18 @@
     }
   }
   &.form-control--has-focus:not(.form-control--disabled) {
+    &.form-control--invalid {
+      & .form-control__label {
+        border-left-color: transparent;
+        box-shadow: 0 0 0 var(--s-border-width-default) var(--s-border-critical);
+      }
+
+      & .form-control__prefix {
+        border-color: var(--s-border-critical);
+        box-shadow: 0 0 0 var(--s-border-width-default) var(--s-border-critical);
+      }
+    }
+
     & .form-control__label {
       border-left-color: transparent;
       box-shadow: 0 0 0 var(--s-border-width-default) var(--s-border-highlight);
