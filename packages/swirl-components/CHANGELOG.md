@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.88.1
+
+### Patch Changes
+
+- [`5913c292`](https://github.com/getflip/swirl/commit/5913c292b9aabc83deec546c0c9e4cd79d169b6e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-description-list
+  semantics
+
 ## 0.88.0
 
 ### Minor Changes
