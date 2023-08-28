@@ -1,5 +1,30 @@
 # @getflip/swirl-components-react
 
+## 0.87.0
+
+### Minor Changes
+
+- [#367](https://github.com/getflip/swirl/pull/367)
+  [`8e577bec`](https://github.com/getflip/swirl/commit/8e577bec507cbf60b8a317d8778751403ad85693)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "pressed" prop to
+  swirl-button to enable toggle buttons
+
+* [#369](https://github.com/getflip/swirl/pull/369)
+  [`5fc6c92a`](https://github.com/getflip/swirl/commit/5fc6c92aa46393a172de11fa693e46c7a55f1446)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add prefix slot to
+  swirl-form-control
+
+### Patch Changes
+
+- [`f1fae3bb`](https://github.com/getflip/swirl/commit/f1fae3bb6c1193bed0e56cf41a4e76dda934c9f9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-resource-list IDs
+
+- Updated dependencies
+  [[`f1fae3bb`](https://github.com/getflip/swirl/commit/f1fae3bb6c1193bed0e56cf41a4e76dda934c9f9),
+  [`8e577bec`](https://github.com/getflip/swirl/commit/8e577bec507cbf60b8a317d8778751403ad85693),
+  [`5fc6c92a`](https://github.com/getflip/swirl/commit/5fc6c92aa46393a172de11fa693e46c7a55f1446)]:
+  - @getflip/swirl-components@0.88.0
+
 ## 0.86.5
 
 ### Patch Changes
