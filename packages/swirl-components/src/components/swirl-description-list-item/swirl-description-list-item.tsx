@@ -24,17 +24,18 @@ export class SwirlDescriptionListItem {
     );
 
     return (
-      <Host>
-        <div class={className} part="description-list-item">
-          <dt
+      <Host role="listitem">
+        <div class={className} part="description-list-item" role="group">
+          <div
             class="description-list-item__term"
             part="description-list-item__term"
+            role="term"
           >
             {this.term}
-          </dt>
-          <dd class="description-list-item__description">
+          </div>
+          <div class="description-list-item__description" role="definition">
             <slot></slot>
-          </dd>
+          </div>
         </div>
       </Host>
     );
