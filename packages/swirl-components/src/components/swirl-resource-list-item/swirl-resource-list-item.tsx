@@ -10,6 +10,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
+import { v4 as uuid } from "uuid";
 
 export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 
@@ -54,6 +55,7 @@ export class SwirlResourceListItem {
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
+  private id = uuid();
 
   async componentWillLoad() {
     this.updateMediaState();
@@ -172,7 +174,7 @@ export class SwirlResourceListItem {
           <Tag
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}
-            aria-labelledby="label"
+            aria-labelledby={this.id}
             class="resource-list-item__content"
             href={href}
             disabled={disabled}
@@ -189,7 +191,7 @@ export class SwirlResourceListItem {
             <span class="resource-list-item__label-container">
               <span
                 class="resource-list-item__label"
-                id="label"
+                id={this.id}
                 innerHTML={this.label}
               ></span>
               {this.description && (
