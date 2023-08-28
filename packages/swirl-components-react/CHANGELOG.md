@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.87.1
+
+### Patch Changes
+
+- [`5913c292`](https://github.com/getflip/swirl/commit/5913c292b9aabc83deec546c0c9e4cd79d169b6e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-description-list
+  semantics
+
+- Updated dependencies
+  [[`5913c292`](https://github.com/getflip/swirl/commit/5913c292b9aabc83deec546c0c9e4cd79d169b6e)]:
+  - @getflip/swirl-components@0.88.1
+
 ## 0.87.0
 
 ### Minor Changes

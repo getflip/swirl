@@ -1,5 +1,14 @@
 # swirl-docs
 
+## 0.1.172
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5913c292`](https://github.com/getflip/swirl/commit/5913c292b9aabc83deec546c0c9e4cd79d169b6e)]:
+  - @getflip/swirl-components@0.88.1
+  - @getflip/swirl-components-react@0.87.1
+
 ## 0.1.171
 
 ### Patch Changes
