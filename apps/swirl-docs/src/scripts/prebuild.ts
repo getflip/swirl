@@ -234,8 +234,6 @@ function deleteGlobalSpecs() {
 function deleteSpec(spec: string) {
   const specPath = path.join("specs", `${spec}`);
 
-  console.log(`Deleting spec ${specPath}...`);
-
   if (fs.existsSync(specPath)) {
     fs.unlink(specPath, (err) => {
       if (err) {
