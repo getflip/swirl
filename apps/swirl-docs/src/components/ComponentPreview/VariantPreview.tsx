@@ -4,6 +4,7 @@ import {
   SwirlButton,
   SwirlButtonGroup,
   SwirlPopover,
+  SwirlPopoverTrigger,
   SwirlSpinner,
 } from "@getflip/swirl-components-react";
 import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
@@ -39,18 +40,19 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
             <SwirlButtonGroup className="mb-2">
               {frontMatter?.examples.length > 1 && (
                 <>
-                  <SwirlButton
-                    id="variant-trigger"
-                    label={`Variant: ${currentExample.title}`}
-                    variant="flat"
-                    icon="<swirl-icon-expand-more></swirl-icon-expand-more>"
-                    iconPosition="end"
-                  />
+                  <SwirlPopoverTrigger popover={"variant-popover"}>
+                    <SwirlButton
+                      id="variant-trigger"
+                      label={`Variant: ${currentExample.title}`}
+                      variant="flat"
+                      icon="<swirl-icon-expand-more></swirl-icon-expand-more>"
+                      iconPosition="end"
+                    />
+                  </SwirlPopoverTrigger>
                   <SwirlPopover
                     ref={variantPopover}
                     label="Variants"
-                    popoverId="variant-trigger-popover"
-                    trigger="variant-trigger"
+                    id="variant-popover"
                   >
                     <SwirlActionList>
                       {frontMatter.examples.map((example) => (

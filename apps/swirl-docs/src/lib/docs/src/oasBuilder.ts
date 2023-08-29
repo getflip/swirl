@@ -10,7 +10,6 @@ import { oasToSnippet } from "@readme/oas-to-snippet";
 import { SupportedTargets } from "@readme/oas-to-snippet";
 import { Request } from "har-format";
 import { Endpoint, Operations } from "./docs.model";
-import { ResponseExamples } from "oas/dist/operation/get-response-examples";
 import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
 
 interface IOASBuilder {
@@ -65,6 +64,44 @@ export default class OASBuilder implements IOASBuilder {
     this._oas = new Oas(oasDocument);
   }
 
+  private createParameters(
+    parametersAsJsonSchema: ReturnType<
+      Endpoint["operation"]["getParametersAsJSONSchema"]
+    >
+  ): EndpointWithDetails["parameters"] {
+    return parametersAsJsonSchema.map((schemaWrapper) => {
+      const requiredParams = schemaWrapper.schema.required || [];
+      const allProperties = schemaWrapper.schema.properties || {};
+      const paramLabel = schemaWrapper.label || "";
+
+      if (typeof allProperties === "object" && Array.isArray(requiredParams)) {
+        const propertyKeys = Object.keys(allProperties);
+        const properties = propertyKeys.map((propertyKey) => {
+          const isRequired = Boolean(requiredParams.includes(propertyKey));
+          const property = allProperties[propertyKey] as SchemaObject;
+          return {
+            type: property.type as string,
+            name: propertyKey,
+            description: property.description || "",
+            required: isRequired,
+          };
+        });
+
+        return {
+          label: paramLabel,
+          properties: properties,
+          requiredProperties: requiredParams,
+        };
+      }
+
+      return {
+        label: paramLabel,
+        properties: [],
+        requiredProperties: requiredParams,
+      };
+    });
+  }
+
   public setDetailedEndpoints() {
     this.endpoints.forEach((apiEndpoint) => {
       const requestPreview = this.generateRequest(apiEndpoint.operation);
@@ -72,40 +109,7 @@ export default class OASBuilder implements IOASBuilder {
         apiEndpoint.operation.getParametersAsJSONSchema() || [];
 
       const parameters: EndpointWithDetails["parameters"] =
-        parameterSchemas.map((schemaWrapper) => {
-          const requiredParams = schemaWrapper.schema.required || [];
-          const allProperties = schemaWrapper.schema.properties || {};
-          const paramLabel = schemaWrapper.label || "";
-
-          if (
-            typeof allProperties === "object" &&
-            Array.isArray(requiredParams)
-          ) {
-            const propertyKeys = Object.keys(allProperties);
-            const properties = propertyKeys.map((propertyKey) => {
-              const isRequired = Boolean(requiredParams.includes(propertyKey));
-              const property = allProperties[propertyKey] as SchemaObject;
-              return {
-                type: property.type as string,
-                name: propertyKey,
-                description: property.description || "",
-                required: isRequired,
-              };
-            });
-
-            return {
-              label: paramLabel,
-              properties: properties,
-              requiredProperties: requiredParams,
-            };
-          }
-
-          return {
-            label: paramLabel,
-            properties: [],
-            requiredProperties: requiredParams,
-          };
-        });
+        this.createParameters(parameterSchemas);
 
       this.detailedEndpoints.push({
         ...apiEndpoint,
@@ -118,6 +122,7 @@ export default class OASBuilder implements IOASBuilder {
         parameters: parameters,
       });
     });
+
     return this;
   }
 

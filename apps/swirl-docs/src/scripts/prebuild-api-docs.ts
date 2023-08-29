@@ -23,6 +23,7 @@ export const apiSpecsNavItems: NavItem[] = [
 `;
 }
 async function generateApiSpecNavItems(specName: string): Promise<NavItem> {
+  console.log("Generating navigation for", specName);
   const specPath = `${API_SPEC_PATH}/${specName}`;
   const oasDocument = await new (OASNormalize as any).default(specPath, {
     enablePaths: true,
@@ -72,7 +73,7 @@ async function generateApiSpecNavigation(): Promise<void> {
       apiSpecsData,
       "utf8"
     );
-    console.log("Done! 🚀");
+    console.log(`API Spec Navigation Done! 🚀`);
   } else {
     console.log(
       "No API specs found. Skipping generation of API specs navigation."
@@ -110,7 +111,7 @@ async function generateApiDocsSpecNavigation(): Promise<void> {
       apiDocsData,
       "utf8"
     );
-    console.log("Done! 🚀");
+    console.log("API Docs Navigation Done! 🚀");
   } else {
     console.log(
       "No API docs found. Skipping generation of API docs navigation."

@@ -32,12 +32,12 @@ export const navItems: NavItem[] = [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
   },
-  // {
-  //   title: "APIs and References",
-  //   url: "/api-docs",
-  //   isRoot: true,
-  //   description:
-  //     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
-  //   children: apiSpecsNavItems,
-  // },
+  {
+    title: "APIs and References",
+    url: "/api-docs/tasks",
+    isRoot: true,
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
+    children: apiSpecsNavItems,
+  },
 ];
