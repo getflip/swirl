@@ -28,9 +28,10 @@
 .select--multi {
   & .select__input {
     position: absolute;
-    visibility: hidden;
     width: 100%;
     height: 100%;
+    pointer-events: none;
+    opacity: 0;
   }
 
   & .select__multi-select-values {
@@ -58,7 +59,7 @@
   display: block;
   overflow: hidden;
   width: 100%;
-  height: 1.375rem;
+  height: 1.25rem;
   margin: 0;
   padding: 0;
   padding-right: calc(1.5rem + var(--s-space-8));
@@ -85,10 +86,15 @@
   display: none;
   overflow: hidden;
   width: 100%;
-  min-height: 1.375rem;
+  min-height: 1.25rem;
   padding-right: calc(1.5rem + var(--s-space-8));
   flex-wrap: wrap;
   gap: var(--s-space-8);
+
+  & ::part(tag) {
+    height: 1.25rem;
+    padding: 0 var(--s-space-4);
+  }
 }
 
 .select__indicator {

@@ -31,10 +31,12 @@ export type SwirlModalVariant = "default" | "drawer";
 export class SwirlModal {
   @Element() el: HTMLElement;
 
+  @Prop() closable?: boolean = true;
   @Prop() closeButtonLabel?: string = "Close modal";
   @Prop() hideCloseButton?: boolean;
   @Prop() hideLabel?: boolean;
   @Prop() label!: string;
+  @Prop() maxHeight?: string;
   @Prop() maxWidth?: string;
   @Prop() padded?: boolean = true;
   @Prop() primaryActionLabel?: string;
@@ -44,6 +46,7 @@ export class SwirlModal {
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
   @Event() primaryAction: EventEmitter<MouseEvent>;
+  @Event() requestModalClose: EventEmitter<void>;
   @Event() secondaryAction: EventEmitter<MouseEvent>;
 
   @State() isOpen = false;
@@ -94,6 +97,7 @@ export class SwirlModal {
       // wait for animation
       setTimeout(() => {
         this.focusTrap.activate();
+        this.handleAutoFocus();
       }, 200);
     } else {
       this.focusTrap.deactivate();
@@ -112,11 +116,17 @@ export class SwirlModal {
   }
 
   /**
-   * Close the modal.
+   * Close the modal. Pass `true` to force close even if the modal is not closable.
    */
   @Method()
-  async close() {
+  async close(force?: boolean) {
     if (this.closing) {
+      return;
+    }
+
+    this.requestModalClose.emit();
+
+    if (!this.closable && !force) {
       return;
     }
 
@@ -194,6 +204,10 @@ export class SwirlModal {
     }
   };
 
+  private handleAutoFocus() {
+    this.modalEl.querySelector<HTMLInputElement>("input[autofocus]")?.focus();
+  }
+
   private lockBodyScroll() {
     disableBodyScroll(this.scrollContainer);
   }
@@ -230,7 +244,10 @@ export class SwirlModal {
           ref={(el) => (this.modalEl = el)}
         >
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
-          <div class="modal__body" style={{ maxWidth: this.maxWidth }}>
+          <div
+            class="modal__body"
+            style={{ maxHeight: this.maxHeight, maxWidth: this.maxWidth }}
+          >
             <header class="modal__custom-header">
               <slot name="custom-header"></slot>
             </header>

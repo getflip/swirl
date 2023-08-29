@@ -22,6 +22,12 @@ const Template = (args) => {
 
   textInput.innerHTML = `
     <swirl-text-input clearable="true" type="text"></swirl-text-input>
+    <select slot="prefix">
+      <option>CH</option>
+      <option selected>DE</option>
+      <option>EN</option>
+      <option>FR</option>
+    </select>
   `;
 
   const numberInput = generateStoryElement("swirl-form-control", {

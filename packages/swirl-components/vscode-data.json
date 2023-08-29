@@ -269,6 +269,14 @@
           ]
         },
         {
+          "name": "multi-select",
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "description": ""
+        },
+        {
           "name": "required",
           "description": ""
         },
@@ -278,10 +286,6 @@
         },
         {
           "name": "swirl-aria-describedby",
-          "description": ""
-        },
-        {
-          "name": "value",
           "description": ""
         }
       ]
@@ -829,6 +833,9 @@
             },
             {
               "name": "primary"
+            },
+            {
+              "name": "strong"
             }
           ]
         },
@@ -845,6 +852,10 @@
           "description": ""
         },
         {
+          "name": "pressed",
+          "description": ""
+        },
+        {
           "name": "size",
           "description": "",
           "values": [
@@ -857,11 +868,19 @@
           ]
         },
         {
+          "name": "swirl-aria-controls",
+          "description": ""
+        },
+        {
           "name": "swirl-aria-describedby",
           "description": ""
         },
         {
           "name": "swirl-aria-expanded",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-haspopup",
           "description": ""
         },
         {
@@ -1343,6 +1362,18 @@
           "description": ""
         },
         {
+          "name": "icon-color",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "highlight"
+            }
+          ]
+        },
+        {
           "name": "intent",
           "description": "",
           "values": [
@@ -1366,12 +1397,32 @@
           "description": ""
         },
         {
+          "name": "progress",
+          "description": ""
+        },
+        {
+          "name": "progress-bar-label",
+          "description": ""
+        },
+        {
           "name": "removable",
           "description": ""
         },
         {
           "name": "remove-button-label",
           "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
         },
         {
           "name": "variant",
@@ -1635,6 +1686,129 @@
         },
         {
           "name": "secondary-action-label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-emoji",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "name",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-emoji-clap",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-emoji-happy",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-emoji-idea",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-emoji-love",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-emoji-sad",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-emoji-thumbs-up",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "size",
           "description": ""
         }
       ]
@@ -2720,6 +2894,19 @@
       ]
     },
     {
+      "name": "swirl-icon-format-h-one",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-fullscreen",
       "description": {
         "kind": "markdown",
@@ -3149,6 +3336,19 @@
       ]
     },
     {
+      "name": "swirl-icon-mic",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-more-horizontal",
       "description": {
         "kind": "markdown",
@@ -3240,7 +3440,46 @@
       ]
     },
     {
+      "name": "swirl-icon-open-in-full",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-open-in-new",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-pause",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-pause-circle",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3383,6 +3622,19 @@
       ]
     },
     {
+      "name": "swirl-icon-report",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-roadmap",
       "description": {
         "kind": "markdown",
@@ -3487,6 +3739,19 @@
       ]
     },
     {
+      "name": "swirl-icon-stop",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-sync",
       "description": {
         "kind": "markdown",
@@ -3553,6 +3818,19 @@
     },
     {
       "name": "swirl-icon-today",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-translate",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3854,6 +4132,10 @@
           "description": ""
         },
         {
+          "name": "hide-menu",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
@@ -4032,6 +4314,10 @@
       },
       "attributes": [
         {
+          "name": "closable",
+          "description": ""
+        },
+        {
           "name": "close-button-label",
           "description": ""
         },
@@ -4045,6 +4331,10 @@
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "max-height",
           "description": ""
         },
         {
@@ -4449,6 +4739,23 @@
       ]
     },
     {
+      "name": "swirl-popover-trigger",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "popover",
+          "description": ""
+        },
+        {
+          "name": "set-aria-attributes",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-progress-indicator",
       "description": {
         "kind": "markdown",
@@ -4628,6 +4935,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
         {
           "name": "allow-drag",
           "description": ""
@@ -5991,6 +6302,10 @@
           "description": ""
         },
         {
+          "name": "icon",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
@@ -6516,6 +6831,22 @@
           ]
         },
         {
+          "name": "progress",
+          "description": ""
+        },
+        {
+          "name": "progress-label",
+          "description": ""
+        },
+        {
+          "name": "remove-button-label",
+          "description": ""
+        },
+        {
+          "name": "show-remove-button",
+          "description": ""
+        },
+        {
           "name": "size",
           "description": "",
           "values": [
@@ -6527,11 +6858,18 @@
             },
             {
               "name": "s"
+            },
+            {
+              "name": "xl"
             }
           ]
         },
         {
           "name": "src",
+          "description": ""
+        },
+        {
+          "name": "timestamp",
           "description": ""
         }
       ]

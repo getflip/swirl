@@ -2,6 +2,7 @@ import {
   componentTemplate,
   cssTemplate,
   docsTemplate,
+  emojiComponentTemplate,
   iconComponentTemplate,
   storiesTemplate,
   symbolComponentTemplate,
@@ -262,6 +263,87 @@ export default function (
         );
 
         return `${symbolNames.length} symbols generated.`;
+      },
+    ],
+  });
+
+  plop.setGenerator("emojis", {
+    description: "Generate emoji components from PNG",
+    prompts: [],
+    actions: [
+      function (answers, config, plop) {
+        const emojisPath = "../../node_modules/@getflip/swirl-icons/emojis";
+
+        const pngFileNames = readdirSync(emojisPath);
+
+        for (const pngFileName of pngFileNames) {
+          const path = `${emojisPath}/${pngFileName}`;
+          const png = readFileSync(path);
+
+          writeFileSync(`./public/emojis/${pngFileName}`, png);
+          writeFileSync(`./src/assets/emojis/${pngFileName}`, png);
+        }
+
+        const emojiNames = Array.from(
+          new Set(
+            pngFileNames.map((pngFileName) =>
+              pngFileName
+                .replaceAll("_", "-")
+                .replace("16", "")
+                .replace("20", "")
+                .replace("24", "")
+                .replace("32", "")
+                .replace(".png", "")
+            )
+          )
+        );
+
+        const emojisJson = emojiNames.reduce(
+          (content, emojiName) => ({
+            ...content,
+            [emojiName]: {
+              id: emojiName,
+              name: emojiName.replace(
+                /[A-Z]+(?![a-z])|[A-Z]/g,
+                ($, ofs) => (ofs ? "-" : "") + $.toLowerCase()
+              ),
+            },
+          }),
+          {}
+        );
+
+        writeFileSync(`./emojis.json`, JSON.stringify(emojisJson));
+
+        for (const emojiName of emojiNames) {
+          const componentTemplate = Handlebars.compile(emojiComponentTemplate);
+
+          const emojiNameKebab = emojiName.replace(
+            /[A-Z]+(?![a-z])|[A-Z]/g,
+            ($, ofs) => (ofs ? "-" : "") + $.toLowerCase()
+          );
+
+          const templateData = {
+            emojiName,
+            emojiNameKebab: emojiNameKebab,
+            iconPng16: `${emojiName}16.png`,
+            iconPng20: `${emojiName}20.png`,
+            iconPng24: `${emojiName}24.png`,
+            iconPng28: `${emojiName}28.png`,
+          };
+
+          const component = componentTemplate(templateData);
+
+          writeFileSync(
+            `./src/components/swirl-emoji/emojis/swirl-emoji-${emojiNameKebab}.tsx`,
+            component
+          );
+        }
+
+        execSync(
+          "PATH=$(npm bin):$PATH prettier ./src/components/swirl-emoji/emojis/* --write"
+        );
+
+        return `${emojiNames.length} emojis generated.`;
       },
     ],
   });

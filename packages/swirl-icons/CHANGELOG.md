@@ -1,5 +1,38 @@
 # @getflip/swirl-icons
 
+## 0.21.0
+
+### Minor Changes
+
+- [#356](https://github.com/getflip/swirl/pull/356)
+  [`c4d7775d`](https://github.com/getflip/swirl/commit/c4d7775dd6097d28c66f4d2f976967461fc8f387)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add emojis
+
+## 0.20.1
+
+### Patch Changes
+
+- [#348](https://github.com/getflip/swirl/pull/348)
+  [`827353e`](https://github.com/getflip/swirl/commit/827353ea1bd4c7b159be0d750bca3040f0b02b66)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Fixed regex values.
+
+## 0.20.0
+
+### Minor Changes
+
+- [#339](https://github.com/getflip/swirl/pull/339)
+  [`b643ca2`](https://github.com/getflip/swirl/commit/b643ca25a8a6d690501c51894f83c88b455fc1e9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icons
+
+## 0.19.0
+
+### Minor Changes
+
+- [#333](https://github.com/getflip/swirl/pull/333)
+  [`4825e56`](https://github.com/getflip/swirl/commit/4825e56741a136ab363a4b449ce5cae0784f04e1)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Translate and
+  Format H1 Icon added
+
 ## 0.18.0
 
 ### Minor Changes

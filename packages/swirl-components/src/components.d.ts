@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 import { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
-import { SwirlAutocompleteSuggestion } from "./components/swirl-autocomplete/swirl-autocomplete";
+import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
@@ -17,11 +17,12 @@ import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButto
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
-import { SwirlChipBorderRadius, SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
+import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
+import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
@@ -63,7 +64,7 @@ import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-pr
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
-export { SwirlAutocompleteSuggestion } from "./components/swirl-autocomplete/swirl-autocomplete";
+export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
@@ -73,11 +74,12 @@ export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButto
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
-export { SwirlChipBorderRadius, SwirlChipIntent, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
+export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
+export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
@@ -186,17 +188,19 @@ export namespace Components {
         "clearable"?: boolean;
         "disabled"?: boolean;
         "generateSuggestions"?: (
-    currentValue: string
+    term: string
   ) => Promise<SwirlAutocompleteSuggestion[]>;
         "inline"?: boolean;
         "invalid"?: boolean;
         "maxLength"?: number;
         "menuLabel"?: string;
         "mode"?: SwirlTextInputMode;
+        "multiSelect"?: boolean;
+        "placeholder"?: string;
         "required"?: boolean;
         "spellCheck"?: boolean;
         "swirlAriaDescribedby"?: string;
-        "value"?: string;
+        "value"?: SwirlAutocompleteValue;
     }
     interface SwirlAvatar {
         "badge"?: string;
@@ -256,9 +260,12 @@ export namespace Components {
         "label": string;
         "name"?: string;
         "pill"?: boolean;
+        "pressed"?: boolean;
         "size"?: SwirlButtonSize;
+        "swirlAriaControls"?: string;
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
+        "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
         "target"?: string;
         "type"?: SwirlButtonType;
@@ -328,11 +335,15 @@ export namespace Components {
     interface SwirlChip {
         "borderRadius"?: SwirlChipBorderRadius;
         "icon"?: string;
+        "iconColor"?: SwirlChipIconColor;
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+        "progress"?: number;
+        "progressBarLabel"?: string;
         "removable"?: boolean;
         "removeButtonLabel"?: string;
+        "size"?: SwirlChipSize;
         "variant"?: SwirlChipVariant;
     }
     interface SwirlColumns {
@@ -409,6 +420,35 @@ export namespace Components {
         "open": () => Promise<void>;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface SwirlEmoji {
+        "label"?: string;
+        "name": string;
+        "size": SwirlEmojiSize;
+    }
+    interface SwirlEmojiClap {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiHappy {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiIdea {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiLove {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiSad {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiThumbsUp {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
     }
     interface SwirlEmptyState {
         "heading"?: string;
@@ -686,6 +726,9 @@ export namespace Components {
     interface SwirlIconFolderShared {
         "size": SwirlIconSize;
     }
+    interface SwirlIconFormatHOne {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFullscreen {
         "size": SwirlIconSize;
     }
@@ -785,6 +828,9 @@ export namespace Components {
     interface SwirlIconMessage {
         "size": SwirlIconSize;
     }
+    interface SwirlIconMic {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconMoreHorizontal {
         "size": SwirlIconSize;
     }
@@ -806,7 +852,16 @@ export namespace Components {
     interface SwirlIconNotificationsOff {
         "size": SwirlIconSize;
     }
+    interface SwirlIconOpenInFull {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconOpenInNew {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconPause {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconPauseCircle {
         "size": SwirlIconSize;
     }
     interface SwirlIconPeopleAlt {
@@ -839,6 +894,9 @@ export namespace Components {
     interface SwirlIconReply {
         "size": SwirlIconSize;
     }
+    interface SwirlIconReport {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconRoadmap {
         "size": SwirlIconSize;
     }
@@ -863,6 +921,9 @@ export namespace Components {
     interface SwirlIconSpellcheck {
         "size": SwirlIconSize;
     }
+    interface SwirlIconStop {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconSync {
         "size": SwirlIconSize;
     }
@@ -879,6 +940,9 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconToday {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconTranslate {
         "size": SwirlIconSize;
     }
     interface SwirlIconUndo {
@@ -945,6 +1009,7 @@ export namespace Components {
         "close": () => Promise<void>;
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
+        "hideMenu"?: boolean;
         "label": string;
         "menuLabel"?: string;
         "menuTriggerLabel"?: string;
@@ -1021,14 +1086,16 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlModal {
+        "closable"?: boolean;
         /**
-          * Close the modal.
+          * Close the modal. Pass `true` to force close even if the modal is not closable.
          */
-        "close": () => Promise<void>;
+        "close": (force?: boolean) => Promise<void>;
         "closeButtonLabel"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
+        "maxHeight"?: string;
         "maxWidth"?: string;
         /**
           * Open the modal.
@@ -1126,12 +1193,16 @@ export namespace Components {
           * Open the popover.
           * @returns
          */
-        "open": () => Promise<void>;
+        "open": (triggerEl?: HTMLElement) => Promise<void>;
         "placement"?: Placement;
-        "popoverId": string;
-        "trigger": string | HTMLElement;
+        "popoverId"?: string;
+        "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
+    }
+    interface SwirlPopoverTrigger {
+        "popover": string | HTMLSwirlPopoverElement;
+        "setAriaAttributes"?: boolean;
     }
     interface SwirlProgressIndicator {
         "label": string;
@@ -1170,6 +1241,7 @@ export namespace Components {
         "removeButtonLabel"?: string;
     }
     interface SwirlResourceListItem {
+        "active"?: boolean;
         "allowDrag"?: boolean;
         "checked"?: boolean;
         "description"?: string;
@@ -1453,6 +1525,7 @@ export namespace Components {
     }
     interface SwirlTab {
         "active"?: boolean;
+        "icon"?: string;
         "label": string;
         "tabId": string;
     }
@@ -1570,8 +1643,13 @@ export namespace Components {
     interface SwirlThumbnail {
         "alt": string;
         "format"?: SwirlThumbnailFormat;
-        "size": SwirlThumbnailSize;
+        "progress"?: number;
+        "progressLabel"?: string;
+        "removeButtonLabel"?: string;
+        "showRemoveButton"?: boolean;
+        "size"?: SwirlThumbnailSize;
         "src": string;
+        "timestamp"?: string;
     }
     interface SwirlTimeInput {
         "autoFocus"?: boolean;
@@ -1789,6 +1867,10 @@ export interface SwirlThemeProviderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlThemeProviderElement;
 }
+export interface SwirlThumbnailCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlThumbnailElement;
+}
 export interface SwirlTimeInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlTimeInputElement;
@@ -1965,6 +2047,48 @@ declare global {
     var HTMLSwirlDialogElement: {
         prototype: HTMLSwirlDialogElement;
         new (): HTMLSwirlDialogElement;
+    };
+    interface HTMLSwirlEmojiElement extends Components.SwirlEmoji, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiElement: {
+        prototype: HTMLSwirlEmojiElement;
+        new (): HTMLSwirlEmojiElement;
+    };
+    interface HTMLSwirlEmojiClapElement extends Components.SwirlEmojiClap, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiClapElement: {
+        prototype: HTMLSwirlEmojiClapElement;
+        new (): HTMLSwirlEmojiClapElement;
+    };
+    interface HTMLSwirlEmojiHappyElement extends Components.SwirlEmojiHappy, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiHappyElement: {
+        prototype: HTMLSwirlEmojiHappyElement;
+        new (): HTMLSwirlEmojiHappyElement;
+    };
+    interface HTMLSwirlEmojiIdeaElement extends Components.SwirlEmojiIdea, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiIdeaElement: {
+        prototype: HTMLSwirlEmojiIdeaElement;
+        new (): HTMLSwirlEmojiIdeaElement;
+    };
+    interface HTMLSwirlEmojiLoveElement extends Components.SwirlEmojiLove, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiLoveElement: {
+        prototype: HTMLSwirlEmojiLoveElement;
+        new (): HTMLSwirlEmojiLoveElement;
+    };
+    interface HTMLSwirlEmojiSadElement extends Components.SwirlEmojiSad, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiSadElement: {
+        prototype: HTMLSwirlEmojiSadElement;
+        new (): HTMLSwirlEmojiSadElement;
+    };
+    interface HTMLSwirlEmojiThumbsUpElement extends Components.SwirlEmojiThumbsUp, HTMLStencilElement {
+    }
+    var HTMLSwirlEmojiThumbsUpElement: {
+        prototype: HTMLSwirlEmojiThumbsUpElement;
+        new (): HTMLSwirlEmojiThumbsUpElement;
     };
     interface HTMLSwirlEmptyStateElement extends Components.SwirlEmptyState, HTMLStencilElement {
     }
@@ -2338,6 +2462,12 @@ declare global {
         prototype: HTMLSwirlIconFolderSharedElement;
         new (): HTMLSwirlIconFolderSharedElement;
     };
+    interface HTMLSwirlIconFormatHOneElement extends Components.SwirlIconFormatHOne, HTMLStencilElement {
+    }
+    var HTMLSwirlIconFormatHOneElement: {
+        prototype: HTMLSwirlIconFormatHOneElement;
+        new (): HTMLSwirlIconFormatHOneElement;
+    };
     interface HTMLSwirlIconFullscreenElement extends Components.SwirlIconFullscreen, HTMLStencilElement {
     }
     var HTMLSwirlIconFullscreenElement: {
@@ -2536,6 +2666,12 @@ declare global {
         prototype: HTMLSwirlIconMessageElement;
         new (): HTMLSwirlIconMessageElement;
     };
+    interface HTMLSwirlIconMicElement extends Components.SwirlIconMic, HTMLStencilElement {
+    }
+    var HTMLSwirlIconMicElement: {
+        prototype: HTMLSwirlIconMicElement;
+        new (): HTMLSwirlIconMicElement;
+    };
     interface HTMLSwirlIconMoreHorizontalElement extends Components.SwirlIconMoreHorizontal, HTMLStencilElement {
     }
     var HTMLSwirlIconMoreHorizontalElement: {
@@ -2578,11 +2714,29 @@ declare global {
         prototype: HTMLSwirlIconNotificationsOffElement;
         new (): HTMLSwirlIconNotificationsOffElement;
     };
+    interface HTMLSwirlIconOpenInFullElement extends Components.SwirlIconOpenInFull, HTMLStencilElement {
+    }
+    var HTMLSwirlIconOpenInFullElement: {
+        prototype: HTMLSwirlIconOpenInFullElement;
+        new (): HTMLSwirlIconOpenInFullElement;
+    };
     interface HTMLSwirlIconOpenInNewElement extends Components.SwirlIconOpenInNew, HTMLStencilElement {
     }
     var HTMLSwirlIconOpenInNewElement: {
         prototype: HTMLSwirlIconOpenInNewElement;
         new (): HTMLSwirlIconOpenInNewElement;
+    };
+    interface HTMLSwirlIconPauseElement extends Components.SwirlIconPause, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPauseElement: {
+        prototype: HTMLSwirlIconPauseElement;
+        new (): HTMLSwirlIconPauseElement;
+    };
+    interface HTMLSwirlIconPauseCircleElement extends Components.SwirlIconPauseCircle, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPauseCircleElement: {
+        prototype: HTMLSwirlIconPauseCircleElement;
+        new (): HTMLSwirlIconPauseCircleElement;
     };
     interface HTMLSwirlIconPeopleAltElement extends Components.SwirlIconPeopleAlt, HTMLStencilElement {
     }
@@ -2644,6 +2798,12 @@ declare global {
         prototype: HTMLSwirlIconReplyElement;
         new (): HTMLSwirlIconReplyElement;
     };
+    interface HTMLSwirlIconReportElement extends Components.SwirlIconReport, HTMLStencilElement {
+    }
+    var HTMLSwirlIconReportElement: {
+        prototype: HTMLSwirlIconReportElement;
+        new (): HTMLSwirlIconReportElement;
+    };
     interface HTMLSwirlIconRoadmapElement extends Components.SwirlIconRoadmap, HTMLStencilElement {
     }
     var HTMLSwirlIconRoadmapElement: {
@@ -2692,6 +2852,12 @@ declare global {
         prototype: HTMLSwirlIconSpellcheckElement;
         new (): HTMLSwirlIconSpellcheckElement;
     };
+    interface HTMLSwirlIconStopElement extends Components.SwirlIconStop, HTMLStencilElement {
+    }
+    var HTMLSwirlIconStopElement: {
+        prototype: HTMLSwirlIconStopElement;
+        new (): HTMLSwirlIconStopElement;
+    };
     interface HTMLSwirlIconSyncElement extends Components.SwirlIconSync, HTMLStencilElement {
     }
     var HTMLSwirlIconSyncElement: {
@@ -2727,6 +2893,12 @@ declare global {
     var HTMLSwirlIconTodayElement: {
         prototype: HTMLSwirlIconTodayElement;
         new (): HTMLSwirlIconTodayElement;
+    };
+    interface HTMLSwirlIconTranslateElement extends Components.SwirlIconTranslate, HTMLStencilElement {
+    }
+    var HTMLSwirlIconTranslateElement: {
+        prototype: HTMLSwirlIconTranslateElement;
+        new (): HTMLSwirlIconTranslateElement;
     };
     interface HTMLSwirlIconUndoElement extends Components.SwirlIconUndo, HTMLStencilElement {
     }
@@ -2883,6 +3055,12 @@ declare global {
     var HTMLSwirlPopoverElement: {
         prototype: HTMLSwirlPopoverElement;
         new (): HTMLSwirlPopoverElement;
+    };
+    interface HTMLSwirlPopoverTriggerElement extends Components.SwirlPopoverTrigger, HTMLStencilElement {
+    }
+    var HTMLSwirlPopoverTriggerElement: {
+        prototype: HTMLSwirlPopoverTriggerElement;
+        new (): HTMLSwirlPopoverTriggerElement;
     };
     interface HTMLSwirlProgressIndicatorElement extends Components.SwirlProgressIndicator, HTMLStencilElement {
     }
@@ -3494,6 +3672,13 @@ declare global {
         "swirl-description-list": HTMLSwirlDescriptionListElement;
         "swirl-description-list-item": HTMLSwirlDescriptionListItemElement;
         "swirl-dialog": HTMLSwirlDialogElement;
+        "swirl-emoji": HTMLSwirlEmojiElement;
+        "swirl-emoji-clap": HTMLSwirlEmojiClapElement;
+        "swirl-emoji-happy": HTMLSwirlEmojiHappyElement;
+        "swirl-emoji-idea": HTMLSwirlEmojiIdeaElement;
+        "swirl-emoji-love": HTMLSwirlEmojiLoveElement;
+        "swirl-emoji-sad": HTMLSwirlEmojiSadElement;
+        "swirl-emoji-thumbs-up": HTMLSwirlEmojiThumbsUpElement;
         "swirl-empty-state": HTMLSwirlEmptyStateElement;
         "swirl-file-uploader": HTMLSwirlFileUploaderElement;
         "swirl-file-viewer": HTMLSwirlFileViewerElement;
@@ -3556,6 +3741,7 @@ declare global {
         "swirl-icon-filter": HTMLSwirlIconFilterElement;
         "swirl-icon-folder": HTMLSwirlIconFolderElement;
         "swirl-icon-folder-shared": HTMLSwirlIconFolderSharedElement;
+        "swirl-icon-format-h-one": HTMLSwirlIconFormatHOneElement;
         "swirl-icon-fullscreen": HTMLSwirlIconFullscreenElement;
         "swirl-icon-fullscreen-exit": HTMLSwirlIconFullscreenExitElement;
         "swirl-icon-gif": HTMLSwirlIconGifElement;
@@ -3589,6 +3775,7 @@ declare global {
         "swirl-icon-menu-filled": HTMLSwirlIconMenuFilledElement;
         "swirl-icon-menu-outlined": HTMLSwirlIconMenuOutlinedElement;
         "swirl-icon-message": HTMLSwirlIconMessageElement;
+        "swirl-icon-mic": HTMLSwirlIconMicElement;
         "swirl-icon-more-horizontal": HTMLSwirlIconMoreHorizontalElement;
         "swirl-icon-more-vertikal": HTMLSwirlIconMoreVertikalElement;
         "swirl-icon-news-filled": HTMLSwirlIconNewsFilledElement;
@@ -3596,7 +3783,10 @@ declare global {
         "swirl-icon-notifications": HTMLSwirlIconNotificationsElement;
         "swirl-icon-notifications-active": HTMLSwirlIconNotificationsActiveElement;
         "swirl-icon-notifications-off": HTMLSwirlIconNotificationsOffElement;
+        "swirl-icon-open-in-full": HTMLSwirlIconOpenInFullElement;
         "swirl-icon-open-in-new": HTMLSwirlIconOpenInNewElement;
+        "swirl-icon-pause": HTMLSwirlIconPauseElement;
+        "swirl-icon-pause-circle": HTMLSwirlIconPauseCircleElement;
         "swirl-icon-people-alt": HTMLSwirlIconPeopleAltElement;
         "swirl-icon-person": HTMLSwirlIconPersonElement;
         "swirl-icon-person-off": HTMLSwirlIconPersonOffElement;
@@ -3607,6 +3797,7 @@ declare global {
         "swirl-icon-recieved": HTMLSwirlIconRecievedElement;
         "swirl-icon-remove": HTMLSwirlIconRemoveElement;
         "swirl-icon-reply": HTMLSwirlIconReplyElement;
+        "swirl-icon-report": HTMLSwirlIconReportElement;
         "swirl-icon-roadmap": HTMLSwirlIconRoadmapElement;
         "swirl-icon-search": HTMLSwirlIconSearchElement;
         "swirl-icon-search-strong": HTMLSwirlIconSearchStrongElement;
@@ -3615,12 +3806,14 @@ declare global {
         "swirl-icon-short-text": HTMLSwirlIconShortTextElement;
         "swirl-icon-simplify": HTMLSwirlIconSimplifyElement;
         "swirl-icon-spellcheck": HTMLSwirlIconSpellcheckElement;
+        "swirl-icon-stop": HTMLSwirlIconStopElement;
         "swirl-icon-sync": HTMLSwirlIconSyncElement;
         "swirl-icon-tasks-filled": HTMLSwirlIconTasksFilledElement;
         "swirl-icon-tasks-outlined": HTMLSwirlIconTasksOutlinedElement;
         "swirl-icon-time-filled": HTMLSwirlIconTimeFilledElement;
         "swirl-icon-time-outlined": HTMLSwirlIconTimeOutlinedElement;
         "swirl-icon-today": HTMLSwirlIconTodayElement;
+        "swirl-icon-translate": HTMLSwirlIconTranslateElement;
         "swirl-icon-undo": HTMLSwirlIconUndoElement;
         "swirl-icon-unlock-person": HTMLSwirlIconUnlockPersonElement;
         "swirl-icon-user-assign": HTMLSwirlIconUserAssignElement;
@@ -3647,6 +3840,7 @@ declare global {
         "swirl-pagination": HTMLSwirlPaginationElement;
         "swirl-pdf-reader": HTMLSwirlPdfReaderElement;
         "swirl-popover": HTMLSwirlPopoverElement;
+        "swirl-popover-trigger": HTMLSwirlPopoverTriggerElement;
         "swirl-progress-indicator": HTMLSwirlProgressIndicatorElement;
         "swirl-radio": HTMLSwirlRadioElement;
         "swirl-radio-group": HTMLSwirlRadioGroupElement;
@@ -3806,18 +4000,20 @@ declare namespace LocalJSX {
         "clearable"?: boolean;
         "disabled"?: boolean;
         "generateSuggestions"?: (
-    currentValue: string
+    term: string
   ) => Promise<SwirlAutocompleteSuggestion[]>;
         "inline"?: boolean;
         "invalid"?: boolean;
         "maxLength"?: number;
         "menuLabel"?: string;
         "mode"?: SwirlTextInputMode;
-        "onValueChange"?: (event: SwirlAutocompleteCustomEvent<string>) => void;
+        "multiSelect"?: boolean;
+        "onValueChange"?: (event: SwirlAutocompleteCustomEvent<SwirlAutocompleteValue>) => void;
+        "placeholder"?: string;
         "required"?: boolean;
         "spellCheck"?: boolean;
         "swirlAriaDescribedby"?: string;
-        "value"?: string;
+        "value"?: SwirlAutocompleteValue;
     }
     interface SwirlAvatar {
         "badge"?: string;
@@ -3879,9 +4075,12 @@ declare namespace LocalJSX {
         "label": string;
         "name"?: string;
         "pill"?: boolean;
+        "pressed"?: boolean;
         "size"?: SwirlButtonSize;
+        "swirlAriaControls"?: string;
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
+        "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
         "target"?: string;
         "type"?: SwirlButtonType;
@@ -3949,12 +4148,16 @@ declare namespace LocalJSX {
     interface SwirlChip {
         "borderRadius"?: SwirlChipBorderRadius;
         "icon"?: string;
+        "iconColor"?: SwirlChipIconColor;
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
         "onRemove"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
+        "progress"?: number;
+        "progressBarLabel"?: string;
         "removable"?: boolean;
         "removeButtonLabel"?: string;
+        "size"?: SwirlChipSize;
         "variant"?: SwirlChipVariant;
     }
     interface SwirlColumns {
@@ -3988,6 +4191,7 @@ declare namespace LocalJSX {
         "invalid"?: boolean;
         "labels"?: WCDatepickerLabels;
         "locale"?: string;
+        "onInvalidInput"?: (event: SwirlDateInputCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlDateInputCustomEvent<string>) => void;
         "placeholder"?: string;
         "required"?: boolean;
@@ -4017,6 +4221,35 @@ declare namespace LocalJSX {
         "onSecondaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
         "secondaryActionLabel"?: string;
+    }
+    interface SwirlEmoji {
+        "label"?: string;
+        "name": string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiClap {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiHappy {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiIdea {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiLove {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiSad {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
+    }
+    interface SwirlEmojiThumbsUp {
+        "label"?: string;
+        "size"?: SwirlEmojiSize;
     }
     interface SwirlEmptyState {
         "heading"?: string;
@@ -4262,6 +4495,9 @@ declare namespace LocalJSX {
     interface SwirlIconFolderShared {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconFormatHOne {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconFullscreen {
         "size"?: SwirlIconSize;
     }
@@ -4361,6 +4597,9 @@ declare namespace LocalJSX {
     interface SwirlIconMessage {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconMic {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconMoreHorizontal {
         "size"?: SwirlIconSize;
     }
@@ -4382,7 +4621,16 @@ declare namespace LocalJSX {
     interface SwirlIconNotificationsOff {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconOpenInFull {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconOpenInNew {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconPause {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconPauseCircle {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPeopleAlt {
@@ -4415,6 +4663,9 @@ declare namespace LocalJSX {
     interface SwirlIconReply {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconReport {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconRoadmap {
         "size"?: SwirlIconSize;
     }
@@ -4439,6 +4690,9 @@ declare namespace LocalJSX {
     interface SwirlIconSpellcheck {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconStop {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconSync {
         "size"?: SwirlIconSize;
     }
@@ -4455,6 +4709,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconToday {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconTranslate {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUndo {
@@ -4512,6 +4769,7 @@ declare namespace LocalJSX {
     interface SwirlLightbox {
         "closeButtonLabel"?: string;
         "downloadButtonLabel"?: string;
+        "hideMenu"?: boolean;
         "label": string;
         "menuLabel"?: string;
         "menuTriggerLabel"?: string;
@@ -4548,14 +4806,17 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlModal {
+        "closable"?: boolean;
         "closeButtonLabel"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
+        "maxHeight"?: string;
         "maxWidth"?: string;
         "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
+        "onRequestModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onSecondaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "padded"?: boolean;
         "primaryActionLabel"?: string;
@@ -4644,10 +4905,14 @@ declare namespace LocalJSX {
         "onPopoverClose"?: (event: SwirlPopoverCustomEvent<void>) => void;
         "onPopoverOpen"?: (event: SwirlPopoverCustomEvent<{ position: ComputePositionReturn }>) => void;
         "placement"?: Placement;
-        "popoverId": string;
-        "trigger": string | HTMLElement;
+        "popoverId"?: string;
+        "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
+    }
+    interface SwirlPopoverTrigger {
+        "popover": string | HTMLSwirlPopoverElement;
+        "setAriaAttributes"?: boolean;
     }
     interface SwirlProgressIndicator {
         "label": string;
@@ -4694,6 +4959,7 @@ declare namespace LocalJSX {
         "removeButtonLabel"?: string;
     }
     interface SwirlResourceListItem {
+        "active"?: boolean;
         "allowDrag"?: boolean;
         "checked"?: boolean;
         "description"?: string;
@@ -4977,6 +5243,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTab {
         "active"?: boolean;
+        "icon"?: string;
         "label": string;
         "tabId": string;
     }
@@ -5076,8 +5343,14 @@ declare namespace LocalJSX {
     interface SwirlThumbnail {
         "alt": string;
         "format"?: SwirlThumbnailFormat;
+        "onRemove"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
+        "progress"?: number;
+        "progressLabel"?: string;
+        "removeButtonLabel"?: string;
+        "showRemoveButton"?: boolean;
         "size"?: SwirlThumbnailSize;
         "src": string;
+        "timestamp"?: string;
     }
     interface SwirlTimeInput {
         "autoFocus"?: boolean;
@@ -5154,6 +5427,13 @@ declare namespace LocalJSX {
         "swirl-description-list": SwirlDescriptionList;
         "swirl-description-list-item": SwirlDescriptionListItem;
         "swirl-dialog": SwirlDialog;
+        "swirl-emoji": SwirlEmoji;
+        "swirl-emoji-clap": SwirlEmojiClap;
+        "swirl-emoji-happy": SwirlEmojiHappy;
+        "swirl-emoji-idea": SwirlEmojiIdea;
+        "swirl-emoji-love": SwirlEmojiLove;
+        "swirl-emoji-sad": SwirlEmojiSad;
+        "swirl-emoji-thumbs-up": SwirlEmojiThumbsUp;
         "swirl-empty-state": SwirlEmptyState;
         "swirl-file-uploader": SwirlFileUploader;
         "swirl-file-viewer": SwirlFileViewer;
@@ -5216,6 +5496,7 @@ declare namespace LocalJSX {
         "swirl-icon-filter": SwirlIconFilter;
         "swirl-icon-folder": SwirlIconFolder;
         "swirl-icon-folder-shared": SwirlIconFolderShared;
+        "swirl-icon-format-h-one": SwirlIconFormatHOne;
         "swirl-icon-fullscreen": SwirlIconFullscreen;
         "swirl-icon-fullscreen-exit": SwirlIconFullscreenExit;
         "swirl-icon-gif": SwirlIconGif;
@@ -5249,6 +5530,7 @@ declare namespace LocalJSX {
         "swirl-icon-menu-filled": SwirlIconMenuFilled;
         "swirl-icon-menu-outlined": SwirlIconMenuOutlined;
         "swirl-icon-message": SwirlIconMessage;
+        "swirl-icon-mic": SwirlIconMic;
         "swirl-icon-more-horizontal": SwirlIconMoreHorizontal;
         "swirl-icon-more-vertikal": SwirlIconMoreVertikal;
         "swirl-icon-news-filled": SwirlIconNewsFilled;
@@ -5256,7 +5538,10 @@ declare namespace LocalJSX {
         "swirl-icon-notifications": SwirlIconNotifications;
         "swirl-icon-notifications-active": SwirlIconNotificationsActive;
         "swirl-icon-notifications-off": SwirlIconNotificationsOff;
+        "swirl-icon-open-in-full": SwirlIconOpenInFull;
         "swirl-icon-open-in-new": SwirlIconOpenInNew;
+        "swirl-icon-pause": SwirlIconPause;
+        "swirl-icon-pause-circle": SwirlIconPauseCircle;
         "swirl-icon-people-alt": SwirlIconPeopleAlt;
         "swirl-icon-person": SwirlIconPerson;
         "swirl-icon-person-off": SwirlIconPersonOff;
@@ -5267,6 +5552,7 @@ declare namespace LocalJSX {
         "swirl-icon-recieved": SwirlIconRecieved;
         "swirl-icon-remove": SwirlIconRemove;
         "swirl-icon-reply": SwirlIconReply;
+        "swirl-icon-report": SwirlIconReport;
         "swirl-icon-roadmap": SwirlIconRoadmap;
         "swirl-icon-search": SwirlIconSearch;
         "swirl-icon-search-strong": SwirlIconSearchStrong;
@@ -5275,12 +5561,14 @@ declare namespace LocalJSX {
         "swirl-icon-short-text": SwirlIconShortText;
         "swirl-icon-simplify": SwirlIconSimplify;
         "swirl-icon-spellcheck": SwirlIconSpellcheck;
+        "swirl-icon-stop": SwirlIconStop;
         "swirl-icon-sync": SwirlIconSync;
         "swirl-icon-tasks-filled": SwirlIconTasksFilled;
         "swirl-icon-tasks-outlined": SwirlIconTasksOutlined;
         "swirl-icon-time-filled": SwirlIconTimeFilled;
         "swirl-icon-time-outlined": SwirlIconTimeOutlined;
         "swirl-icon-today": SwirlIconToday;
+        "swirl-icon-translate": SwirlIconTranslate;
         "swirl-icon-undo": SwirlIconUndo;
         "swirl-icon-unlock-person": SwirlIconUnlockPerson;
         "swirl-icon-user-assign": SwirlIconUserAssign;
@@ -5307,6 +5595,7 @@ declare namespace LocalJSX {
         "swirl-pagination": SwirlPagination;
         "swirl-pdf-reader": SwirlPdfReader;
         "swirl-popover": SwirlPopover;
+        "swirl-popover-trigger": SwirlPopoverTrigger;
         "swirl-progress-indicator": SwirlProgressIndicator;
         "swirl-radio": SwirlRadio;
         "swirl-radio-group": SwirlRadioGroup;
@@ -5443,6 +5732,13 @@ declare module "@stencil/core" {
             "swirl-description-list": LocalJSX.SwirlDescriptionList & JSXBase.HTMLAttributes<HTMLSwirlDescriptionListElement>;
             "swirl-description-list-item": LocalJSX.SwirlDescriptionListItem & JSXBase.HTMLAttributes<HTMLSwirlDescriptionListItemElement>;
             "swirl-dialog": LocalJSX.SwirlDialog & JSXBase.HTMLAttributes<HTMLSwirlDialogElement>;
+            "swirl-emoji": LocalJSX.SwirlEmoji & JSXBase.HTMLAttributes<HTMLSwirlEmojiElement>;
+            "swirl-emoji-clap": LocalJSX.SwirlEmojiClap & JSXBase.HTMLAttributes<HTMLSwirlEmojiClapElement>;
+            "swirl-emoji-happy": LocalJSX.SwirlEmojiHappy & JSXBase.HTMLAttributes<HTMLSwirlEmojiHappyElement>;
+            "swirl-emoji-idea": LocalJSX.SwirlEmojiIdea & JSXBase.HTMLAttributes<HTMLSwirlEmojiIdeaElement>;
+            "swirl-emoji-love": LocalJSX.SwirlEmojiLove & JSXBase.HTMLAttributes<HTMLSwirlEmojiLoveElement>;
+            "swirl-emoji-sad": LocalJSX.SwirlEmojiSad & JSXBase.HTMLAttributes<HTMLSwirlEmojiSadElement>;
+            "swirl-emoji-thumbs-up": LocalJSX.SwirlEmojiThumbsUp & JSXBase.HTMLAttributes<HTMLSwirlEmojiThumbsUpElement>;
             "swirl-empty-state": LocalJSX.SwirlEmptyState & JSXBase.HTMLAttributes<HTMLSwirlEmptyStateElement>;
             "swirl-file-uploader": LocalJSX.SwirlFileUploader & JSXBase.HTMLAttributes<HTMLSwirlFileUploaderElement>;
             "swirl-file-viewer": LocalJSX.SwirlFileViewer & JSXBase.HTMLAttributes<HTMLSwirlFileViewerElement>;
@@ -5505,6 +5801,7 @@ declare module "@stencil/core" {
             "swirl-icon-filter": LocalJSX.SwirlIconFilter & JSXBase.HTMLAttributes<HTMLSwirlIconFilterElement>;
             "swirl-icon-folder": LocalJSX.SwirlIconFolder & JSXBase.HTMLAttributes<HTMLSwirlIconFolderElement>;
             "swirl-icon-folder-shared": LocalJSX.SwirlIconFolderShared & JSXBase.HTMLAttributes<HTMLSwirlIconFolderSharedElement>;
+            "swirl-icon-format-h-one": LocalJSX.SwirlIconFormatHOne & JSXBase.HTMLAttributes<HTMLSwirlIconFormatHOneElement>;
             "swirl-icon-fullscreen": LocalJSX.SwirlIconFullscreen & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenElement>;
             "swirl-icon-fullscreen-exit": LocalJSX.SwirlIconFullscreenExit & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenExitElement>;
             "swirl-icon-gif": LocalJSX.SwirlIconGif & JSXBase.HTMLAttributes<HTMLSwirlIconGifElement>;
@@ -5538,6 +5835,7 @@ declare module "@stencil/core" {
             "swirl-icon-menu-filled": LocalJSX.SwirlIconMenuFilled & JSXBase.HTMLAttributes<HTMLSwirlIconMenuFilledElement>;
             "swirl-icon-menu-outlined": LocalJSX.SwirlIconMenuOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconMenuOutlinedElement>;
             "swirl-icon-message": LocalJSX.SwirlIconMessage & JSXBase.HTMLAttributes<HTMLSwirlIconMessageElement>;
+            "swirl-icon-mic": LocalJSX.SwirlIconMic & JSXBase.HTMLAttributes<HTMLSwirlIconMicElement>;
             "swirl-icon-more-horizontal": LocalJSX.SwirlIconMoreHorizontal & JSXBase.HTMLAttributes<HTMLSwirlIconMoreHorizontalElement>;
             "swirl-icon-more-vertikal": LocalJSX.SwirlIconMoreVertikal & JSXBase.HTMLAttributes<HTMLSwirlIconMoreVertikalElement>;
             "swirl-icon-news-filled": LocalJSX.SwirlIconNewsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconNewsFilledElement>;
@@ -5545,7 +5843,10 @@ declare module "@stencil/core" {
             "swirl-icon-notifications": LocalJSX.SwirlIconNotifications & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsElement>;
             "swirl-icon-notifications-active": LocalJSX.SwirlIconNotificationsActive & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsActiveElement>;
             "swirl-icon-notifications-off": LocalJSX.SwirlIconNotificationsOff & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsOffElement>;
+            "swirl-icon-open-in-full": LocalJSX.SwirlIconOpenInFull & JSXBase.HTMLAttributes<HTMLSwirlIconOpenInFullElement>;
             "swirl-icon-open-in-new": LocalJSX.SwirlIconOpenInNew & JSXBase.HTMLAttributes<HTMLSwirlIconOpenInNewElement>;
+            "swirl-icon-pause": LocalJSX.SwirlIconPause & JSXBase.HTMLAttributes<HTMLSwirlIconPauseElement>;
+            "swirl-icon-pause-circle": LocalJSX.SwirlIconPauseCircle & JSXBase.HTMLAttributes<HTMLSwirlIconPauseCircleElement>;
             "swirl-icon-people-alt": LocalJSX.SwirlIconPeopleAlt & JSXBase.HTMLAttributes<HTMLSwirlIconPeopleAltElement>;
             "swirl-icon-person": LocalJSX.SwirlIconPerson & JSXBase.HTMLAttributes<HTMLSwirlIconPersonElement>;
             "swirl-icon-person-off": LocalJSX.SwirlIconPersonOff & JSXBase.HTMLAttributes<HTMLSwirlIconPersonOffElement>;
@@ -5556,6 +5857,7 @@ declare module "@stencil/core" {
             "swirl-icon-recieved": LocalJSX.SwirlIconRecieved & JSXBase.HTMLAttributes<HTMLSwirlIconRecievedElement>;
             "swirl-icon-remove": LocalJSX.SwirlIconRemove & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveElement>;
             "swirl-icon-reply": LocalJSX.SwirlIconReply & JSXBase.HTMLAttributes<HTMLSwirlIconReplyElement>;
+            "swirl-icon-report": LocalJSX.SwirlIconReport & JSXBase.HTMLAttributes<HTMLSwirlIconReportElement>;
             "swirl-icon-roadmap": LocalJSX.SwirlIconRoadmap & JSXBase.HTMLAttributes<HTMLSwirlIconRoadmapElement>;
             "swirl-icon-search": LocalJSX.SwirlIconSearch & JSXBase.HTMLAttributes<HTMLSwirlIconSearchElement>;
             "swirl-icon-search-strong": LocalJSX.SwirlIconSearchStrong & JSXBase.HTMLAttributes<HTMLSwirlIconSearchStrongElement>;
@@ -5564,12 +5866,14 @@ declare module "@stencil/core" {
             "swirl-icon-short-text": LocalJSX.SwirlIconShortText & JSXBase.HTMLAttributes<HTMLSwirlIconShortTextElement>;
             "swirl-icon-simplify": LocalJSX.SwirlIconSimplify & JSXBase.HTMLAttributes<HTMLSwirlIconSimplifyElement>;
             "swirl-icon-spellcheck": LocalJSX.SwirlIconSpellcheck & JSXBase.HTMLAttributes<HTMLSwirlIconSpellcheckElement>;
+            "swirl-icon-stop": LocalJSX.SwirlIconStop & JSXBase.HTMLAttributes<HTMLSwirlIconStopElement>;
             "swirl-icon-sync": LocalJSX.SwirlIconSync & JSXBase.HTMLAttributes<HTMLSwirlIconSyncElement>;
             "swirl-icon-tasks-filled": LocalJSX.SwirlIconTasksFilled & JSXBase.HTMLAttributes<HTMLSwirlIconTasksFilledElement>;
             "swirl-icon-tasks-outlined": LocalJSX.SwirlIconTasksOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconTasksOutlinedElement>;
             "swirl-icon-time-filled": LocalJSX.SwirlIconTimeFilled & JSXBase.HTMLAttributes<HTMLSwirlIconTimeFilledElement>;
             "swirl-icon-time-outlined": LocalJSX.SwirlIconTimeOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconTimeOutlinedElement>;
             "swirl-icon-today": LocalJSX.SwirlIconToday & JSXBase.HTMLAttributes<HTMLSwirlIconTodayElement>;
+            "swirl-icon-translate": LocalJSX.SwirlIconTranslate & JSXBase.HTMLAttributes<HTMLSwirlIconTranslateElement>;
             "swirl-icon-undo": LocalJSX.SwirlIconUndo & JSXBase.HTMLAttributes<HTMLSwirlIconUndoElement>;
             "swirl-icon-unlock-person": LocalJSX.SwirlIconUnlockPerson & JSXBase.HTMLAttributes<HTMLSwirlIconUnlockPersonElement>;
             "swirl-icon-user-assign": LocalJSX.SwirlIconUserAssign & JSXBase.HTMLAttributes<HTMLSwirlIconUserAssignElement>;
@@ -5596,6 +5900,7 @@ declare module "@stencil/core" {
             "swirl-pagination": LocalJSX.SwirlPagination & JSXBase.HTMLAttributes<HTMLSwirlPaginationElement>;
             "swirl-pdf-reader": LocalJSX.SwirlPdfReader & JSXBase.HTMLAttributes<HTMLSwirlPdfReaderElement>;
             "swirl-popover": LocalJSX.SwirlPopover & JSXBase.HTMLAttributes<HTMLSwirlPopoverElement>;
+            "swirl-popover-trigger": LocalJSX.SwirlPopoverTrigger & JSXBase.HTMLAttributes<HTMLSwirlPopoverTriggerElement>;
             "swirl-progress-indicator": LocalJSX.SwirlProgressIndicator & JSXBase.HTMLAttributes<HTMLSwirlProgressIndicatorElement>;
             "swirl-radio": LocalJSX.SwirlRadio & JSXBase.HTMLAttributes<HTMLSwirlRadioElement>;
             "swirl-radio-group": LocalJSX.SwirlRadioGroup & JSXBase.HTMLAttributes<HTMLSwirlRadioGroupElement>;

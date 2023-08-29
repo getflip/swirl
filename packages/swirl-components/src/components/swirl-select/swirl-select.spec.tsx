@@ -30,12 +30,14 @@ describe("swirl-select", () => {
     expect(page.root).toEqualHtml(`
       <swirl-select invalid="true" label="Select" required="true">
         <div class="select select--placement-undefined">
-          <input aria-invalid="true" class="select__input" id="trigger-${page.root.selectId}" readonly="" type="text" value="">
+          <swirl-popover-trigger>
+            <input aria-invalid="true" class="select__input" readonly="" type="text" value="">
+          </swirl-popover-trigger>
           <span class="select__multi-select-values"></span>
           <span class="select__indicator">
             <swirl-icon-expand-more></swirl-icon-expand-more>
           </span>
-          <swirl-popover animation="scale-in-y" class="select__popover" label="Select" popoverid="select-options-${page.root.selectId}" trigger="trigger-${page.root.selectId}" usecontainerwidth="swirl-form-control">
+          <swirl-popover animation="scale-in-y" class="select__popover" id="select-options-${page.root.selectId}" label="Select" usecontainerwidth="swirl-form-control">
             <swirl-option-list allowdeselect="">
               <swirl-option-list-item label="This is an option 1" value="1"></swirl-option-list-item>
               <swirl-option-list-item label="This is an option 2" value="2"></swirl-option-list-item>

@@ -47,7 +47,7 @@ function convertGlyphName(name: string, legacy: boolean): string {
 }
 
 function convertGlyphValue(value: string): string {
-  return value.replace("\\", "0x");
+  return value.replace(/\\/g, "0x");
 }
 
 function buildFlutterFile(

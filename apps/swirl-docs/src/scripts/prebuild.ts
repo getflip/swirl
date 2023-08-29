@@ -163,7 +163,7 @@ async function fetchFileList(type: "spec" | "docs") {
   console.log(`Fetching file list for stage ${stage}...`);
   const path = type === "spec" ? "" : "docs";
 
-  const fileListEndpoint = `${GITLAB_ENDPOINT}/${env.GITLAB_FLIP_REPO_ID}/repository/tree?ref=${refBranch}&path=api/spec/v3/${stage}/${path}`;
+  const fileListEndpoint = `${GITLAB_ENDPOINT}/${env.GITLAB_FLIP_REPO_ID}/repository/tree?ref=${refBranch}&path=api/spec/v4/${stage}/${path}`;
 
   console.log(`Fetching file list at path ${fileListEndpoint}...`);
   try {
@@ -226,6 +226,8 @@ function moveSpec(spec: string) {
 function deleteGlobalSpecs() {
   deleteSpec("version-info.yml");
   deleteSpec("merged.yml");
+  deleteSpec("organisations.yml");
+  deleteSpec("posts.yml");
   deleteSpec("organisations.yml");
 }
 

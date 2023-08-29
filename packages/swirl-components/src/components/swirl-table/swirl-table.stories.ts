@@ -57,7 +57,9 @@ const Template = (args) => {
           <swirl-tag label="Active" intent="success"></swirl-tag>
         </swirl-table-cell>
         <swirl-table-cell>
-          <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
+          <swirl-tooltip position="left" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.">
+            <swirl-button label="Test"></swirl-button>
+          </swirl-tooltip>
         </swirl-table-cell>
       </swirl-table-row>
       <swirl-table-row-group label="Pending users">

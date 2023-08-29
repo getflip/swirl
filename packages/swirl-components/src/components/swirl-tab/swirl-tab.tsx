@@ -8,6 +8,7 @@ import classnames from "classnames";
 })
 export class SwirlTab {
   @Prop() active?: boolean;
+  @Prop() icon?: string;
   @Prop() label!: string;
   @Prop() tabId!: string;
 

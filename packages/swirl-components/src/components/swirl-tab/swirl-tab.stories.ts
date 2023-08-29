@@ -24,6 +24,7 @@ export const SwirlTab = Template.bind({});
 
 SwirlTab.args = {
   active: true,
+  icon: '<swirl-icon glyph="emoji-satisfied" size="20"></swirl-icon>',
   label: "Label",
   tabId: "tab-id",
 };

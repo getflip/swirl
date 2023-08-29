@@ -103,7 +103,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Space" || event.code === "Enter") {
       event.preventDefault();
-      this.popover.open();
+      this.popover.open(this.el);
     }
   };
 
@@ -144,17 +144,21 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     return (
       <Host onKeyDown={this.onKeyDown}>
         <div class={className}>
-          <input
-            aria-describedby={this.swirlAriaDescribedby}
-            aria-disabled={this.disabled ? "true" : undefined}
-            aria-invalid={ariaInvalid}
-            class="select__input"
-            disabled={this.disabled}
-            id={`trigger-${this.selectId}`}
-            readOnly={true}
-            type="text"
-            value={label}
-          ></input>
+          <swirl-popover-trigger
+            popover={this.popover}
+            setAriaAttributes={false}
+          >
+            <input
+              aria-describedby={this.swirlAriaDescribedby}
+              aria-disabled={this.disabled ? "true" : undefined}
+              aria-invalid={ariaInvalid}
+              class="select__input"
+              disabled={this.disabled}
+              readOnly={true}
+              type="text"
+              value={label}
+            ></input>
+          </swirl-popover-trigger>
           <span class="select__multi-select-values">
             {this.value
               ?.map((value) =>
@@ -180,13 +184,12 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
           <swirl-popover
             animation="scale-in-y"
             class="select__popover"
+            id={`select-options-${this.selectId}`}
             label={this.label}
             offset={[0, offset]}
             onPopoverClose={this.onClose}
             onPopoverOpen={this.onOpen}
-            popoverId={`select-options-${this.selectId}`}
             ref={(el) => (this.popover = el)}
-            trigger={`trigger-${this.selectId}`}
             useContainerWidth="swirl-form-control"
           >
             <swirl-option-list

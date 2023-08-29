@@ -51,7 +51,9 @@ describe("swirl-pdf-reader", () => {
                   </span>
                 </span>
                 <span class="pdf-reader__header-right">
-                  <swirl-button class="pdf-reader__menu-button" hidelabel="" icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" id="menu-trigger" label="Open file menu"></swirl-button>
+                  <swirl-popover-trigger>
+                    <swirl-button class="pdf-reader__menu-button" hidelabel="" icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Open file menu"></swirl-button>
+                  </swirl-popover-trigger>
                 </span>
                 <span class="pdf-reader__floating-tools">
                   <button aria-label="Toggle side by side view" class="pdf-reader__floating-tool-button" type="button">
@@ -78,7 +80,7 @@ describe("swirl-pdf-reader", () => {
                 </div>
               </div>
             </div>
-            <swirl-popover animation="scale-in-y" disablescrolllock="" label="File menu" placement="bottom-end" popoverid="menu" trigger="menu-trigger">
+            <swirl-popover animation="scale-in-y" disablescrolllock="" id="menu" label="File menu" placement="bottom-end">
               <swirl-stack>
                 <div class="pdf-reader__meta">
                   <div class="pdf-reader__file-icon">

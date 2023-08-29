@@ -83,25 +83,32 @@ export type ApiDoc = {
   operations?: Operations;
 };
 
-export type EndpointParam = {
+export type OperationSchemaObject = {
   name: string;
-  type: string;
+  type:
+    | OpenAPIV3_1.ArraySchemaObjectType
+    | OpenAPIV3_1.NonArraySchemaObjectType;
   description: string;
   required: boolean;
+  properties?: OperationSchemaObject[];
+  items?: any;
+  statusCode?: string;
 };
 
-export type EndpointParamType =
+export type OperationParamType =
   | "path"
   | "query"
   | "header"
   | "cookie"
   | "body"
+  | "formData"
+  | "response"
   | "other";
 
-export type EndpointParamTypeGroup = Array<{
-  type: EndpointParamType;
+export type OperationSchemas = Array<{
+  type: OperationParamType;
   title: string;
-  parameters: Array<EndpointParam>;
+  parameters: Array<OperationSchemaObject>;
 }>;
 
 export type ApiResponseExample = {
@@ -121,16 +128,17 @@ export type ApiEndpoint = {
   path: string;
   request: ReturnType<OASBuilder["generateRequest"]>;
   responseExamples: CodePreviewSelectOptions;
-  requestBodySchema: OpenAPIV3_1.BaseSchemaObject | null;
   responseBodySchemas: Array<ResponseBodySchema>;
   isDeprecated?: boolean;
-  parameterTypes?: EndpointParamTypeGroup;
+  parameters?: OperationSchemas;
+  requestBody?: OperationSchemas;
+  responseBody?: OperationSchemas;
   security?: OpenAPIV3_1.SecurityRequirementObject[];
 };
 
-export type ApiDocumentation = {
+export interface ApiDocumentation {
   title: string;
   shortDescription: string;
   description: MDXRemoteSerializeResult;
   endpoints: Array<ApiEndpoint>;
-};
+}

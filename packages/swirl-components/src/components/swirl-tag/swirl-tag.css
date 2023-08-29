@@ -1,5 +1,6 @@
 :host {
   display: inline-flex;
+  max-width: 100%;
 
   & * {
     box-sizing: border-box;
@@ -8,6 +9,7 @@
 
 .tag {
   display: inline-flex;
+  max-width: 100%;
   padding: var(--s-space-2) var(--s-space-8);
   align-items: center;
   border-radius: var(--s-border-radius-s);
@@ -54,6 +56,13 @@
   & .tag__removal-button {
     color: var(--icon-success);
   }
+}
+
+.tag__label {
+  overflow: hidden;
+  min-width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .tag__removal-button {
