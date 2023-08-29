@@ -228,7 +228,7 @@ function deleteGlobalSpecs() {
   deleteSpec("merged.yml");
   deleteSpec("organisations.yml");
   deleteSpec("posts.yml");
-  deleteSpec("organisations.yml");
+  deleteSpec("sharepoint-pages.yml");
 }
 
 function deleteSpec(spec: string) {
