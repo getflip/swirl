@@ -32,16 +32,16 @@ async function fetchData() {
   const specs = await fetchFileList("spec");
   const specFiles = specs?.filter((spec) => spec.type === "blob");
 
-  if (specFiles) {
-    await Promise.all(specFiles.map((spec) => fetchSpecData(spec)));
-    cleanGlobalSpecs();
-  }
+  // if (specFiles) {
+  //   await Promise.all(specFiles.map((spec) => fetchSpecData(spec)));
+  //   cleanGlobalSpecs();
+  // }
 
   const docs = await fetchFileList("docs");
 
-  if (docs) {
-    await Promise.all(docs.map((doc) => processFileOrTree(doc)));
-  }
+  // if (docs) {
+  //   await Promise.all(docs.map((doc) => processFileOrTree(doc)));
+  // }
 }
 
 /*******************************************************************************
