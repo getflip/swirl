@@ -1335,6 +1335,18 @@
         {
           "name": "value",
           "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "card"
+            },
+            {
+              "name": "default"
+            }
+          ]
         }
       ]
     },
@@ -4842,6 +4854,18 @@
         {
           "name": "value",
           "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "card"
+            },
+            {
+              "name": "default"
+            }
+          ]
         }
       ]
     },

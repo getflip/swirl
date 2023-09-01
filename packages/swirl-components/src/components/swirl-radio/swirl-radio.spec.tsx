@@ -11,7 +11,7 @@ describe("swirl-radio", () => {
 
     expect(page.root).toMatchInlineSnapshot(`
       <swirl-radio checked="true" disabled="true" input-id="radio" input-name="radio" label="Label" value="Value">
-        <label class="radio radio--checked radio--disabled" htmlfor="radio">
+        <label class="radio radio--checked radio--disabled radio--variant-default" htmlfor="radio">
           <span class="radio__control">
             <swirl-visually-hidden>
               <input aria-checked="true" checked="" class="radio__input" disabled="" id="radio" name="radio" type="radio" value="Value">

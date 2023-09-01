@@ -16,7 +16,7 @@ import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
-import { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
+import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
@@ -41,7 +41,7 @@ import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagi
 import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
 import { ComputePositionReturn, Placement } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
-import { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
@@ -73,7 +73,7 @@ export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
-export { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
+export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
@@ -98,7 +98,7 @@ export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagi
 export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
 export { ComputePositionReturn, Placement } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
-export { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
@@ -331,6 +331,7 @@ export namespace Components {
         "swirlAriaDescribedby"?: string;
         "swirlAriaLabel"?: string;
         "value"?: string;
+        "variant"?: SwirlCheckboxVariant;
     }
     interface SwirlChip {
         "borderRadius"?: SwirlChipBorderRadius;
@@ -1219,6 +1220,7 @@ export namespace Components {
         "invalid"?: boolean;
         "label"?: string;
         "value": string;
+        "variant"?: SwirlRadioVariant;
     }
     interface SwirlRadioGroup {
         "swirlAriaDescribedby"?: string;
@@ -4144,6 +4146,7 @@ declare namespace LocalJSX {
         "swirlAriaDescribedby"?: string;
         "swirlAriaLabel"?: string;
         "value"?: string;
+        "variant"?: SwirlCheckboxVariant;
     }
     interface SwirlChip {
         "borderRadius"?: SwirlChipBorderRadius;
@@ -4930,6 +4933,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "onValueChange"?: (event: SwirlRadioCustomEvent<string>) => void;
         "value": string;
+        "variant"?: SwirlRadioVariant;
     }
     interface SwirlRadioGroup {
         "onValueChange"?: (event: SwirlRadioGroupCustomEvent<string>) => void;
