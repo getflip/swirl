@@ -19,6 +19,39 @@
   }
 }
 
+.checkbox--variant-card {
+  width: 100%;
+  padding: var(--s-space-16);
+  border: 0.0625rem solid var(--s-border-default);
+  border-radius: var(--s-border-radius-sm);
+  background-color: var(--s-surface);
+
+  &:focus-within {
+    box-shadow: 0 0 0 0.125rem var(--s-background-default),
+      0 0 0 0.25rem var(--s-focus-default);
+
+    & .checkbox__box {
+      box-shadow: none;
+    }
+  }
+
+  &:hover:not(.checkbox--disabled) {
+    background-color: var(--s-surface-hovered);
+  }
+
+  &:active:not(.checkbox--disabled) {
+    background-color: var(--s-surface-pressed);
+  }
+
+  &.checkbox--checked:not(.checkbox--disabled) {
+    border-color: var(--s-border-highlight);
+  }
+
+  &.checkbox--invalid:not(.checkbox--disabled) {
+    border-color: var(--s-border-critical);
+  }
+}
+
 .checkbox--checked,
 .checkbox--indeterminate {
   & .checkbox__control {

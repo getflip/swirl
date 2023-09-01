@@ -19,6 +19,39 @@
   }
 }
 
+.radio--variant-card {
+  width: 100%;
+  padding: var(--s-space-16);
+  border: 0.0625rem solid var(--s-border-default);
+  border-radius: var(--s-border-radius-sm);
+  background-color: var(--s-surface);
+
+  &:focus-within {
+    box-shadow: 0 0 0 0.125rem var(--s-background-default),
+      0 0 0 0.25rem var(--s-focus-default);
+
+    & .radio__box {
+      box-shadow: none;
+    }
+  }
+
+  &:hover:not(.radio--disabled) {
+    background-color: var(--s-surface-hovered);
+  }
+
+  &:active:not(.radio--disabled) {
+    background-color: var(--s-surface-pressed);
+  }
+
+  &.radio--checked:not(.radio--disabled) {
+    border-color: var(--s-border-highlight);
+  }
+
+  &.radio--invalid:not(.radio--disabled) {
+    border-color: var(--s-border-critical);
+  }
+}
+
 .radio--checked {
   & .radio__control {
     &:hover {
