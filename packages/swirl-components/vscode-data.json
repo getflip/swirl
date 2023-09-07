@@ -1652,6 +1652,10 @@
           "description": ""
         },
         {
+          "name": "max-width",
+          "description": ""
+        },
+        {
           "name": "orientation",
           "description": "",
           "values": [

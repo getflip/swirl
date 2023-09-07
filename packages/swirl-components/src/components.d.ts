@@ -405,6 +405,7 @@ export namespace Components {
     }
     interface SwirlDescriptionListItem {
         "bordered"?: boolean;
+        "maxWidth"?: string;
         "orientation"?: SwirlDescriptionListItemOrientation;
         "term": string;
     }
@@ -4215,6 +4216,7 @@ declare namespace LocalJSX {
     }
     interface SwirlDescriptionListItem {
         "bordered"?: boolean;
+        "maxWidth"?: string;
         "orientation"?: SwirlDescriptionListItemOrientation;
         "term": string;
     }
