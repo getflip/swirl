@@ -1,5 +1,32 @@
 # @getflip/swirl-components-react
 
+## 0.88.0
+
+### Minor Changes
+
+- [#371](https://github.com/getflip/swirl/pull/371)
+  [`fec62233`](https://github.com/getflip/swirl/commit/fec6223355a6f6b0b63ea1400c579e42691da204)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "card" variant to
+  swirl-checkbox and swirl-radio
+
+* [#374](https://github.com/getflip/swirl/pull/374)
+  [`75b7ba4a`](https://github.com/getflip/swirl/commit/75b7ba4a8fac2b4055e2d21e6600bd1333c5130b)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Add "maxWidth" prop
+  to swirl-description-list-item
+
+- [#374](https://github.com/getflip/swirl/pull/374)
+  [`75b7ba4a`](https://github.com/getflip/swirl/commit/75b7ba4a8fac2b4055e2d21e6600bd1333c5130b)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Add prop "pressed"
+  to swirl-chip
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fec62233`](https://github.com/getflip/swirl/commit/fec6223355a6f6b0b63ea1400c579e42691da204),
+  [`75b7ba4a`](https://github.com/getflip/swirl/commit/75b7ba4a8fac2b4055e2d21e6600bd1333c5130b),
+  [`75b7ba4a`](https://github.com/getflip/swirl/commit/75b7ba4a8fac2b4055e2d21e6600bd1333c5130b)]:
+  - @getflip/swirl-components@0.89.0
+
 ## 0.87.1
 
 ### Patch Changes
