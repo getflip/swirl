@@ -61,6 +61,25 @@ describe("swirl-chip", () => {
     `);
   });
 
+  it.only("renders pressed", async () => {
+    const page = await newSpecPage({
+      components: [SwirlChip],
+      html: `<swirl-chip pressed="true" label="Label"></swirl-chip>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-chip pressed="true" label="Label">
+        <mock:shadow-root>
+          <button aria-pressed="true" class="chip chip--border-radius-pill chip--icon-color-default chip--intent-default chip--size-m chip--variant-outline chip--interactive chip--pressed">
+            <span class="chip__inner">
+              <span class="chip__label">Label</span>
+            </span>
+          </button>
+        </mock:shadow-root>
+      </swirl-chip>
+    `);
+  });
+
   it("renders icon with overwritten props", async () => {
     const page = await newSpecPage({
       components: [SwirlChip],

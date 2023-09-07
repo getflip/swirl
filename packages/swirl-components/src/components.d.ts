@@ -340,6 +340,7 @@ export namespace Components {
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+        "pressed"?: boolean;
         "progress"?: number;
         "progressBarLabel"?: string;
         "removable"?: boolean;
@@ -404,6 +405,7 @@ export namespace Components {
     }
     interface SwirlDescriptionListItem {
         "bordered"?: boolean;
+        "maxWidth"?: string;
         "orientation"?: SwirlDescriptionListItemOrientation;
         "term": string;
     }
@@ -4156,6 +4158,7 @@ declare namespace LocalJSX {
         "interactive"?: boolean;
         "label": string;
         "onRemove"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
+        "pressed"?: boolean;
         "progress"?: number;
         "progressBarLabel"?: string;
         "removable"?: boolean;
@@ -4213,6 +4216,7 @@ declare namespace LocalJSX {
     }
     interface SwirlDescriptionListItem {
         "bordered"?: boolean;
+        "maxWidth"?: string;
         "orientation"?: SwirlDescriptionListItemOrientation;
         "term": string;
     }
