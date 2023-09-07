@@ -116,6 +116,41 @@
   }
 }
 
+.chip--variant-outline {
+  &.chip--pressed {
+    background-color: var(--s-action-primary-default);
+    color: var(--s-text-on-action-primary);
+
+    &:hover {
+      background-color: var(--s-action-primary-hovered);
+
+      & + .chip__remove-button {
+        background-color: var(--s-action-primary-hovered);
+      }
+    }
+
+    &:active {
+      background-color: var(--s-action-primary-pressed);
+      & + .chip__remove-button {
+        background-color: var(--s-action-primary-pressed);
+      }
+    }
+
+    & + .chip__remove-button {
+      background-color: var(--s-action-primary-default);
+      color: var(--s-text-on-action-primary);
+
+      &:hover {
+        background-color: var(--s-action-primary-hovered);
+      }
+
+      &:active {
+        background-color: var(--s-action-primary-pressed);
+      }
+    }
+  }
+}
+
 .chip--variant-plain {
   height: auto;
   border: none;

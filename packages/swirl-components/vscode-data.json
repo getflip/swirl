@@ -1409,6 +1409,10 @@
           "description": ""
         },
         {
+          "name": "pressed",
+          "description": ""
+        },
+        {
           "name": "progress",
           "description": ""
         },
