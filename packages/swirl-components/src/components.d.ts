@@ -1700,6 +1700,10 @@ export namespace Components {
          */
         "toast": (newToast: SwirlToastConfig) => Promise<SwirlToastMessage>;
     }
+    interface SwirlToolbar {
+        "label": string;
+        "orientation"?: "horizontal" | "vertical";
+    }
     interface SwirlTooltip {
         "content": string;
         "delay"?: number;
@@ -3624,6 +3628,12 @@ declare global {
         prototype: HTMLSwirlToastProviderElement;
         new (): HTMLSwirlToastProviderElement;
     };
+    interface HTMLSwirlToolbarElement extends Components.SwirlToolbar, HTMLStencilElement {
+    }
+    var HTMLSwirlToolbarElement: {
+        prototype: HTMLSwirlToolbarElement;
+        new (): HTMLSwirlToolbarElement;
+    };
     interface HTMLSwirlTooltipElement extends Components.SwirlTooltip, HTMLStencilElement {
     }
     var HTMLSwirlTooltipElement: {
@@ -3938,6 +3948,7 @@ declare global {
         "swirl-time-input": HTMLSwirlTimeInputElement;
         "swirl-toast": HTMLSwirlToastElement;
         "swirl-toast-provider": HTMLSwirlToastProviderElement;
+        "swirl-toolbar": HTMLSwirlToolbarElement;
         "swirl-tooltip": HTMLSwirlTooltipElement;
         "swirl-tree-navigation-item": HTMLSwirlTreeNavigationItemElement;
         "swirl-video-thumbnail": HTMLSwirlVideoThumbnailElement;
@@ -5389,6 +5400,10 @@ declare namespace LocalJSX {
          */
         "globalDuration"?: number;
     }
+    interface SwirlToolbar {
+        "label"?: string;
+        "orientation"?: "horizontal" | "vertical";
+    }
     interface SwirlTooltip {
         "content": string;
         "delay"?: number;
@@ -5697,6 +5712,7 @@ declare namespace LocalJSX {
         "swirl-time-input": SwirlTimeInput;
         "swirl-toast": SwirlToast;
         "swirl-toast-provider": SwirlToastProvider;
+        "swirl-toolbar": SwirlToolbar;
         "swirl-tooltip": SwirlTooltip;
         "swirl-tree-navigation-item": SwirlTreeNavigationItem;
         "swirl-video-thumbnail": SwirlVideoThumbnail;
@@ -6002,6 +6018,7 @@ declare module "@stencil/core" {
             "swirl-time-input": LocalJSX.SwirlTimeInput & JSXBase.HTMLAttributes<HTMLSwirlTimeInputElement>;
             "swirl-toast": LocalJSX.SwirlToast & JSXBase.HTMLAttributes<HTMLSwirlToastElement>;
             "swirl-toast-provider": LocalJSX.SwirlToastProvider & JSXBase.HTMLAttributes<HTMLSwirlToastProviderElement>;
+            "swirl-toolbar": LocalJSX.SwirlToolbar & JSXBase.HTMLAttributes<HTMLSwirlToolbarElement>;
             "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;
             "swirl-tree-navigation-item": LocalJSX.SwirlTreeNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationItemElement>;
             "swirl-video-thumbnail": LocalJSX.SwirlVideoThumbnail & JSXBase.HTMLAttributes<HTMLSwirlVideoThumbnailElement>;

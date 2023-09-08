@@ -7017,6 +7017,31 @@
       ]
     },
     {
+      "name": "swirl-toolbar",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "swirl-tooltip",
       "description": {
         "kind": "markdown",
