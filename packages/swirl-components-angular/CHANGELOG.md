@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.89.0
+
+### Minor Changes
+
+- [#375](https://github.com/getflip/swirl/pull/375)
+  [`5586652b`](https://github.com/getflip/swirl/commit/5586652bec2315b8182fdd13f6670890ebeffc7c)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Add SwirlToolbar
+  component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5586652b`](https://github.com/getflip/swirl/commit/5586652bec2315b8182fdd13f6670890ebeffc7c)]:
+  - @getflip/swirl-components@0.90.0
+
 ## 0.88.0
 
 ### Minor Changes
