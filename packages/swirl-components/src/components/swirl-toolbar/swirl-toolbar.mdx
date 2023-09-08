@@ -1,0 +1,36 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-toolbar.stories";
+
+<Meta title="Components/SwirlToolbar" />
+
+# SwirlToolbar
+
+The SwirlToolbar component is used to provide a set of actions that are relevant
+for the given context. It has to be used in conjunction with the
+[SwirlButton](?path=/docs/components-swirlbutton--docs) and / or
+[SwirlChip](?path=/docs/components-swirlchip--docs) component.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-toolbar)**
+
+## Usage
+
+<Canvas of={Stories.SwirlToolbar} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlToolbar} />
+
+## Accessibility
+
+### ARIA
+
+This component follows the
+[WAI-ARIA Toolbar Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/).
+
+### Keyboard
+
+| Key                    | Action                                    |
+| ---------------------- | ----------------------------------------- |
+| <kbd>TAB</kbd>         | Enters and leaves the toolbar             |
+| <kbd>ARROW-RIGHT</kbd> | Go to the next element in the toolbar     |
+| <kbd>ARROW-DOWN</kbd>  | Go to the next element in the toolbar     |
+| <kbd>ARROW-LEFT</kbd>  | Go to the previous element in the toolbar |
+| <kbd>ARROW-UP</kbd>    | Go to the previous element in the toolbar |

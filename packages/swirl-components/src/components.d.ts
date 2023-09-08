@@ -61,6 +61,7 @@ import { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from 
 import { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
+import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
@@ -118,6 +119,7 @@ export { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from 
 export { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
+export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export namespace Components {
     interface FileManager {
@@ -1699,6 +1701,10 @@ export namespace Components {
           * @returns
          */
         "toast": (newToast: SwirlToastConfig) => Promise<SwirlToastMessage>;
+    }
+    interface SwirlToolbar {
+        "label": string;
+        "orientation"?: SwirlToolbarOrientation;
     }
     interface SwirlTooltip {
         "content": string;
@@ -3624,6 +3630,12 @@ declare global {
         prototype: HTMLSwirlToastProviderElement;
         new (): HTMLSwirlToastProviderElement;
     };
+    interface HTMLSwirlToolbarElement extends Components.SwirlToolbar, HTMLStencilElement {
+    }
+    var HTMLSwirlToolbarElement: {
+        prototype: HTMLSwirlToolbarElement;
+        new (): HTMLSwirlToolbarElement;
+    };
     interface HTMLSwirlTooltipElement extends Components.SwirlTooltip, HTMLStencilElement {
     }
     var HTMLSwirlTooltipElement: {
@@ -3938,6 +3950,7 @@ declare global {
         "swirl-time-input": HTMLSwirlTimeInputElement;
         "swirl-toast": HTMLSwirlToastElement;
         "swirl-toast-provider": HTMLSwirlToastProviderElement;
+        "swirl-toolbar": HTMLSwirlToolbarElement;
         "swirl-tooltip": HTMLSwirlTooltipElement;
         "swirl-tree-navigation-item": HTMLSwirlTreeNavigationItemElement;
         "swirl-video-thumbnail": HTMLSwirlVideoThumbnailElement;
@@ -5389,6 +5402,10 @@ declare namespace LocalJSX {
          */
         "globalDuration"?: number;
     }
+    interface SwirlToolbar {
+        "label"?: string;
+        "orientation"?: SwirlToolbarOrientation;
+    }
     interface SwirlTooltip {
         "content": string;
         "delay"?: number;
@@ -5697,6 +5714,7 @@ declare namespace LocalJSX {
         "swirl-time-input": SwirlTimeInput;
         "swirl-toast": SwirlToast;
         "swirl-toast-provider": SwirlToastProvider;
+        "swirl-toolbar": SwirlToolbar;
         "swirl-tooltip": SwirlTooltip;
         "swirl-tree-navigation-item": SwirlTreeNavigationItem;
         "swirl-video-thumbnail": SwirlVideoThumbnail;
@@ -6002,6 +6020,7 @@ declare module "@stencil/core" {
             "swirl-time-input": LocalJSX.SwirlTimeInput & JSXBase.HTMLAttributes<HTMLSwirlTimeInputElement>;
             "swirl-toast": LocalJSX.SwirlToast & JSXBase.HTMLAttributes<HTMLSwirlToastElement>;
             "swirl-toast-provider": LocalJSX.SwirlToastProvider & JSXBase.HTMLAttributes<HTMLSwirlToastProviderElement>;
+            "swirl-toolbar": LocalJSX.SwirlToolbar & JSXBase.HTMLAttributes<HTMLSwirlToolbarElement>;
             "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;
             "swirl-tree-navigation-item": LocalJSX.SwirlTreeNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationItemElement>;
             "swirl-video-thumbnail": LocalJSX.SwirlVideoThumbnail & JSXBase.HTMLAttributes<HTMLSwirlVideoThumbnailElement>;

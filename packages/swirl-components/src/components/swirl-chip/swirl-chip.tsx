@@ -24,7 +24,8 @@ export type SwirlChipVariant = "outline" | "plain";
  * @slot avatar - Optional avatar displayed inside the chip. Should have size "xs".
  */
 @Component({
-  shadow: true,
+  shadow: false,
+  scoped: true,
   styleUrl: "swirl-chip.css",
   tag: "swirl-chip",
 })
