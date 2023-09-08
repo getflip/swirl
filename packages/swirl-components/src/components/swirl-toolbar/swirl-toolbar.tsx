@@ -14,12 +14,12 @@ export class SwirlToolbar {
   @Prop() label: string;
   @Prop() orientation?: SwirlToolbarOrientation = "horizontal";
 
-  componentWillLoad() {
+  componentDidLoad() {
     const items = this.getItems();
-    const firstButton = items[0]?.querySelector("button");
 
     this.deactivateTabIndexes(items);
 
+    const firstButton = items[0]?.querySelector("button");
     if (!Boolean(firstButton)) {
       return;
     }
