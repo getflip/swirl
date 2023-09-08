@@ -1,6 +1,8 @@
 import { Component, h, Host, Prop, Element } from "@stencil/core";
 import { getActiveElement } from "../../utils";
 
+export type SwirlToolbarOrientation = "horizontal" | "vertical";
+
 @Component({
   shadow: true,
   styleUrl: "swirl-toolbar.css",
@@ -10,11 +12,13 @@ export class SwirlToolbar {
   @Element() el: HTMLElement;
 
   @Prop() label: string;
-  @Prop() orientation?: "horizontal" | "vertical" = "horizontal";
+  @Prop() orientation?: SwirlToolbarOrientation = "horizontal";
 
   componentWillLoad() {
     const items = this.getItems();
-    const firstButton = items[0].querySelector("button");
+    const firstButton = items[0]?.querySelector("button");
+
+    this.deactivateTabIndexes(items);
 
     if (!Boolean(firstButton)) {
       return;
@@ -69,15 +73,7 @@ export class SwirlToolbar {
   private focusItem(item: HTMLElement) {
     const items = this.getItems();
 
-    items.forEach((item) => {
-      const button = item.querySelector("button");
-
-      if (!Boolean(button)) {
-        return;
-      }
-
-      button.tabIndex = -1;
-    });
+    this.deactivateTabIndexes(items);
 
     if (!Boolean(item)) {
       return;
@@ -92,15 +88,28 @@ export class SwirlToolbar {
     button.focus();
   }
 
+  private deactivateTabIndexes(items: Array<HTMLElement>) {
+    items.forEach((item) => {
+      const button = item.querySelector("button");
+
+      if (!Boolean(button)) {
+        return;
+      }
+
+      button.tabIndex = -1;
+    });
+  }
+
   render() {
     return (
       <Host>
         <swirl-stack
+          align="center"
           aria-label={this.label}
           aria-orientation={this.orientation}
           role="toolbar"
           onKeyDown={this.onKeyDown}
-          orientation="horizontal"
+          orientation={this.orientation}
           spacing="8"
         >
           <slot></slot>

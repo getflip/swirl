@@ -61,6 +61,7 @@ import { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from 
 import { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
+import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
@@ -118,6 +119,7 @@ export { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from 
 export { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
+export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export namespace Components {
     interface FileManager {
@@ -1702,7 +1704,7 @@ export namespace Components {
     }
     interface SwirlToolbar {
         "label": string;
-        "orientation"?: "horizontal" | "vertical";
+        "orientation"?: SwirlToolbarOrientation;
     }
     interface SwirlTooltip {
         "content": string;
@@ -5402,7 +5404,7 @@ declare namespace LocalJSX {
     }
     interface SwirlToolbar {
         "label"?: string;
-        "orientation"?: "horizontal" | "vertical";
+        "orientation"?: SwirlToolbarOrientation;
     }
     interface SwirlTooltip {
         "content": string;
