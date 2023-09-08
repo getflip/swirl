@@ -14,7 +14,13 @@ export class SwirlToolbar {
 
   componentWillLoad() {
     const items = this.getItems();
-    items[0].querySelector("button").tabIndex = 0;
+    const firstButton = items[0].querySelector("button");
+
+    if (!Boolean(firstButton)) {
+      return;
+    }
+
+    firstButton.tabIndex = 0;
   }
 
   private getItems() {
