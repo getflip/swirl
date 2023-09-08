@@ -17,7 +17,7 @@ describe("swirl-toolbar", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toolbar>
         <mock:shadow-root>
-          <swirl-stack aria-orientation="horizontal" orientation="horizontal" role="toolbar" spacing="8">
+          <swirl-stack align="center" aria-orientation="horizontal" orientation="horizontal" role="toolbar" spacing="8">
             <slot></slot>
           </swirl-stack>
         </mock:shadow-root>
