@@ -10,6 +10,7 @@ export type SwirlCardBorderRadius =
 export type SwirlCardIntent =
   | "critical-subdued"
   | "default"
+  | "default-subdued"
   | "info-subdued"
   | "success-subdued"
   | "warning-subdued";

@@ -57,7 +57,7 @@ const Template = (args) => {
     </swirl-text>
 
     <swirl-box cover slot="secondary-content">
-      <swirl-card elevated="false" height="100%">
+      <swirl-card elevated="false" height="100%" intent="default-subdued" is-borderless>
         <swirl-text slot="content">
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
           eirmod tempor invidunt.

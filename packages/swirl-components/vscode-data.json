@@ -1012,6 +1012,9 @@
               "name": "default"
             },
             {
+              "name": "default-subdued"
+            },
+            {
               "name": "info-subdued"
             },
             {
