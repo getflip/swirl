@@ -176,14 +176,50 @@
 }
 
 .modal--has-header-tools {
+  & .modal__header {
+    border-bottom-color: transparent;
+  }
+
   & .modal__header-tools {
+    display: block;
+  }
+}
+
+.modal--has-secondary-content {
+  & .modal__body {
+    max-width: 64rem;
+  }
+
+  & .modal__header-tools,
+  & .modal__content {
+    @media (--from-desktop) {
+      padding-right: 0;
+    }
+  }
+
+  & .modal__primary-content {
+    overflow: visible;
+    max-height: 60%;
+    flex-basis: auto;
+
+    @media (--from-desktop) {
+      max-height: none;
+      flex-basis: calc(100% - 20rem);
+    }
+  }
+
+  & .modal__secondary-content {
     display: block;
   }
 }
 
 .modal--scrolled {
   @media (--from-tablet) {
-    & .modal__header {
+    &:not(.modal--has-header-tools) .modal__header {
+      border-bottom-color: var(--s-border-default);
+    }
+
+    &.modal--has-header-tools .modal__header-tools {
       border-bottom-color: var(--s-border-default);
     }
   }
@@ -208,10 +244,13 @@
 
   @media (--from-tablet) {
     width: 90vw;
-    height: auto;
     max-height: 90vh;
     border-radius: var(--s-border-radius-base);
     box-shadow: var(--s-shadow-level-3);
+  }
+
+  @media (--from-desktop) {
+    height: auto;
   }
 }
 
@@ -249,10 +288,12 @@
   display: none;
   padding-right: var(--s-space-16);
   padding-left: var(--s-space-16);
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
 
   @media (--from-tablet) {
     padding-right: var(--s-space-24);
     padding-left: var(--s-space-24);
+    border-bottom-color: transparent;
   }
 }
 
@@ -271,14 +312,57 @@
   }
 }
 
+.modal__content-container {
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: var(--s-space-24);
+
+  @media (--from-desktop) {
+    flex-direction: row;
+  }
+}
+
+.modal__primary-content {
+  display: flex;
+  overflow: hidden;
+  flex-basis: 100%;
+  flex-direction: column;
+}
+
 .modal__content {
   overflow-x: hidden;
   overflow-y: auto;
-  flex-grow: 1;
-  line-height: var(--s-line-height-base);
 
   & ::slotted(*) {
     margin: 0;
+  }
+}
+
+.modal__secondary-content {
+  display: none;
+  overflow: visible;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: none;
+  max-height: 40%;
+  padding-right: var(--s-space-16);
+  padding-left: var(--s-space-16);
+
+  @media (--from-tablet) {
+    padding-left: var(--s-space-24);
+  }
+
+  @media (--from-desktop) {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-width: 20rem;
+    max-height: none;
+    padding-right: var(--s-space-24);
+    padding-bottom: var(--s-space-16);
+    padding-left: 0;
+    flex-basis: 50%;
   }
 }
 

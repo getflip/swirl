@@ -20,10 +20,15 @@ describe("swirl-modal", () => {
                 <swirl-button class="modal__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close modal"></swirl-button>
                 <swirl-heading as="h2" class="modal__heading" level="3" text="Dialog"></swirl-heading>
               </div>
-              <div class="modal__header-tools"></div>
             </header>
-            <div class="modal__content">
-              Content
+            <div class="modal__content-container">
+              <div class="modal__primary-content">
+                <div class="modal__header-tools"></div>
+                <div class="modal__content">
+                  Content
+                </div>
+              </div>
+              <div class="modal__secondary-content"></div>
             </div>
             <div class="modal__custom-footer"></div>
           </div>

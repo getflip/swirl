@@ -19,6 +19,7 @@ export type SwirlModalVariant = "default" | "drawer";
 
 /**
  * @slot slot - Modal contents
+ * @slot secondary-content - Secondary content
  * @slot header-tools - Used to display elements inside the sticky header, below the label
  * @slot custom-header - Optional custom header; should be used hidden label
  * @slot custom-footer - Optional custom footer; replaces the default footer with primary and secondary actions
@@ -54,6 +55,7 @@ export class SwirlModal {
   @State() hasCustomHeader: boolean;
   @State() hasCustomFooter: boolean;
   @State() hasHeaderTools: boolean;
+  @State() hasSecondaryContent: boolean;
   @State() scrollable = false;
   @State() scrolled = false;
   @State() scrolledDown = false;
@@ -78,6 +80,7 @@ export class SwirlModal {
       this.updateCustomFooterStatus();
       this.updateCustomHeaderStatus();
       this.updateHeaderToolsStatus();
+      this.updateSecondaryContentStatus();
     });
   }
 
@@ -180,6 +183,12 @@ export class SwirlModal {
     );
   }
 
+  private updateSecondaryContentStatus() {
+    this.hasSecondaryContent = Boolean(
+      this.el.querySelector('[slot="secondary-content"]')
+    );
+  }
+
   private determineScrollStatus = () => {
     const scrolled = this.scrollContainer?.scrollTop > 0;
 
@@ -225,6 +234,7 @@ export class SwirlModal {
       "modal--has-custom-footer": this.hasCustomFooter,
       "modal--has-custom-header": this.hasCustomHeader,
       "modal--has-header-tools": this.hasHeaderTools,
+      "modal--has-secondary-content": this.hasSecondaryContent,
       "modal--hide-label": this.hideLabel,
       "modal--padded": this.padded,
       "modal--scrollable": this.scrollable,
@@ -276,17 +286,24 @@ export class SwirlModal {
                     ></swirl-heading>
                   )}
                 </div>
+              </header>
+            )}
+            <div class="modal__content-container">
+              <div class="modal__primary-content">
                 <div class="modal__header-tools">
                   <slot name="header-tools"></slot>
                 </div>
-              </header>
-            )}
-            <div
-              class="modal__content"
-              onScroll={this.determineScrollStatus}
-              ref={(el) => (this.scrollContainer = el)}
-            >
-              <slot></slot>
+                <div
+                  class="modal__content"
+                  onScroll={this.determineScrollStatus}
+                  ref={(el) => (this.scrollContainer = el)}
+                >
+                  <slot></slot>
+                </div>
+              </div>
+              <div class="modal__secondary-content">
+                <slot name="secondary-content"></slot>
+              </div>
             </div>
             <div class="modal__custom-footer">
               <slot name="custom-footer"></slot>

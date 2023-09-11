@@ -45,18 +45,27 @@ const Template = (args) => {
 
   element.innerHTML = `
     <swirl-text>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-      eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-      voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-      clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-      amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-      diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
-      sit amet.
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+    amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+    diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+    sit amet.
     </swirl-text>
 
-    <swirl-box padding-block-start="0" padding-block-end="16" slot="header-tools">
+    <swirl-box cover slot="secondary-content">
+      <swirl-card elevated="false" height="100%">
+        <swirl-text slot="content">
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+          eirmod tempor invidunt.
+        </swirl-text>
+      </swirl-card>
+    </swirl-box>
+
+    <swirl-box padding-block-start="4" padding-block-end="16" slot="header-tools">
       <swirl-search auto-focus label="Search"></swirl-search>
     </div>
   `;
