@@ -1,5 +1,17 @@
 # @getflip/swirl-components
 
+## 0.91.0
+
+### Minor Changes
+
+- [`22dae240`](https://github.com/getflip/swirl/commit/22dae2406d2c1e20794df917935d9eadcdb63e55)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "secondary-content" slot to
+  swirl-modal
+
+* [`51d05d9c`](https://github.com/getflip/swirl/commit/51d05d9cb0476b012d62bc7717ab3acac234274d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "default-subdued" intent to
+  swirl-card
+
 ## 0.90.0
 
 ### Minor Changes
