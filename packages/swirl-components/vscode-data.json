@@ -1053,6 +1053,21 @@
           "description": ""
         },
         {
+          "name": "overflow",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "visible"
+            }
+          ]
+        },
+        {
           "name": "padding",
           "description": "",
           "values": [

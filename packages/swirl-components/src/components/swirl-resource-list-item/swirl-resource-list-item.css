@@ -276,8 +276,8 @@
   top: 50%;
   right: var(--s-space-16);
   display: flex;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
   justify-content: center;
   align-items: center;
   border: 0.125rem solid var(--s-icon-default);
@@ -287,7 +287,7 @@
 
   @media (--from-tablet) {
     right: auto;
-    left: var(--s-space-16);
+    left: calc(var(--s-space-16) - var(--s-space-2));
   }
 }
 

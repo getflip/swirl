@@ -17,6 +17,8 @@ export type SwirlCardIntent =
 
 export type SwirlCardJustifyContent = "start" | "center" | "end";
 
+export type SwirlCardOverflow = "auto" | "hidden" | "visible";
+
 export type SwirlCardPadding =
   | "0"
   | "2"
@@ -51,6 +53,7 @@ export class SwirlCard {
   @Prop() interactive?: boolean;
   @Prop() justifyContent?: SwirlCardJustifyContent = "start";
   @Prop() linkTarget?: string;
+  @Prop() overflow?: SwirlCardOverflow;
   @Prop() padding?: SwirlCardPadding;
   @Prop() paddingBlockEnd?: SwirlCardPadding;
   @Prop() paddingBlockStart?: SwirlCardPadding;
@@ -70,6 +73,7 @@ export class SwirlCard {
         ? `var(--s-border-radius-${this.borderRadius})`
         : this.borderRadius,
       height: this.height,
+      overflow: this.overflow,
     };
 
     const bodyStyles = {

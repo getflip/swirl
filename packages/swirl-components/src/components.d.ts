@@ -15,7 +15,7 @@ import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
-import { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
+import { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
@@ -73,7 +73,7 @@ export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
-export { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
+export { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
@@ -293,6 +293,7 @@ export namespace Components {
         "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
+        "overflow"?: SwirlCardOverflow;
         "padding"?: SwirlCardPadding;
         "paddingBlockEnd"?: SwirlCardPadding;
         "paddingBlockStart"?: SwirlCardPadding;
@@ -4123,6 +4124,7 @@ declare namespace LocalJSX {
         "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
+        "overflow"?: SwirlCardOverflow;
         "padding"?: SwirlCardPadding;
         "paddingBlockEnd"?: SwirlCardPadding;
         "paddingBlockStart"?: SwirlCardPadding;
