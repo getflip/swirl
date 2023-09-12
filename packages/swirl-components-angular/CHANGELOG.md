@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.91.1
+
+### Patch Changes
+
+- [`a7097ddd`](https://github.com/getflip/swirl/commit/a7097ddda6fabd4a8030c1dca15fe786898075c9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Minor style adjustments
+
+- Updated dependencies
+  [[`a7097ddd`](https://github.com/getflip/swirl/commit/a7097ddda6fabd4a8030c1dca15fe786898075c9)]:
+  - @getflip/swirl-components@0.92.1
+
 ## 0.91.0
 
 ### Minor Changes
