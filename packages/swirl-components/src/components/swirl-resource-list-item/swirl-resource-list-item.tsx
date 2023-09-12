@@ -165,6 +165,7 @@ export class SwirlResourceListItem {
         "resource-list-item--interactive": this.interactive || this.selectable,
         "resource-list-item--selectable": this.selectable,
         "resource-list-item--show-control-on-focus": showControlOnFocus,
+        "resource-list-item--show-meta": showMeta,
       }
     );
 

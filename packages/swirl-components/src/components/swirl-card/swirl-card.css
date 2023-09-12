@@ -7,6 +7,13 @@
 }
 
 .card {
+  --swirl-ghost-button-background-default: var(--s-surface-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-pressed);
+  --swirl-resource-list-item-background-default: var(--s-surface-default);
+  --swirl-resource-list-item-background-hovered: var(--s-surface-hovered);
+  --swirl-resource-list-item-background-pressed: var(--s-surface-pressed);
+
   display: flex;
   overflow: hidden;
   width: 100%;
@@ -19,13 +26,6 @@
   font: inherit;
   text-decoration: none;
   flex-direction: column;
-
-  --swirl-ghost-button-background-default: var(--s-surface-default);
-  --swirl-ghost-button-background-hovered: var(--s-surface-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-surface-pressed);
-  --swirl-resource-list-item-background-default: var(--s-surface-default);
-  --swirl-resource-list-item-background-hovered: var(--s-surface-hovered);
-  --swirl-resource-list-item-background-pressed: var(--s-surface-pressed);
 }
 
 a.card,
@@ -96,6 +96,20 @@ button.card,
 }
 
 .card--intent-default-subdued {
+  --swirl-resource-list-item-background-default: var(
+    --s-surface-raised-default
+  );
+  --swirl-resource-list-item-background-hovered: var(
+    --s-surface-raised-hovered
+  );
+  --swirl-resource-list-item-background-pressed: var(
+    --s-surface-raised-pressed
+  );
+
+  --swirl-ghost-button-background-default: var(--s-surface-raised-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-raised-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-raised-pressed);
+
   background-color: var(--s-surface-raised-default);
 }
 
