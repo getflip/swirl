@@ -21,7 +21,7 @@ describe("swirl-empty-state", () => {
           <div class="empty-state">
             <img alt="" class="empty-state__illustration" src="/assets/images/empty-state-1.svg">
             <div class="empty-state__body">
-              <swirl-heading align="center" as="p" text="Nothing to see here."></swirl-heading>
+              <swirl-heading align="center" as="p" level="4" text="Nothing to see here."></swirl-heading>
               <div class="empty-state__content">
                 <swirl-text align="center" color="subdued">
                   <slot></slot>
