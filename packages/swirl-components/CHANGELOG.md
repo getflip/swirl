@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.92.2
+
+### Patch Changes
+
+- [`bb0ea755`](https://github.com/getflip/swirl/commit/bb0ea7551a42b56cb6d64ae9bedb1837ca4122ad)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-empty-state styling
+
 ## 0.92.1
 
 ### Patch Changes
