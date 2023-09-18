@@ -14,7 +14,6 @@
       "dependsOn": ["^build"]
     },
     "test": {
-      "outputs": [],
       "dependsOn": []
     },
     "lint": {
@@ -23,13 +22,44 @@
     "dev": {
       "cache": false,
       "outputs": [".next/**"],
-      "dependsOn": ["@getflip/swirl-tokens#build", "@getflip/swirl-icons#build"]
+      "dependsOn": [
+        "@getflip/swirl-tokens#build",
+        "@getflip/swirl-icons#build",
+        "swirl-docs#build:spec-navigation"
+      ]
     },
     "clean": {
       "cache": false
     },
     "gulp": {
       "outputs": ["dist/**"]
+    },
+    "build:spec-navigation": {
+      "outputs": ["src/lib/navigation/src/data/apiDocs.data.ts"]
+    },
+    "prebuild": {
+      "outputs": ["specs/**", "problem.yml", "shared.yml", "components.json"]
+    },
+    "prebuild:api-docs": {
+      "outputs": [
+        "src/lib/navigation/src/data/apiDocs.data.ts",
+        "src/lib/navigation/src/data/apiSpecs.data.ts"
+      ],
+
+      "dependsOn": ["prebuild"]
+    },
+    "build:swirl-docs": {
+      "outputs": [".next/**"],
+      "dependsOn": [
+        "prebuild",
+        "prebuild:api-docs",
+        "^stencil:build",
+        "@getflip/swirl-components-react#build"
+      ]
+    },
+    "stencil:build": {
+      "outputs": ["dist/**", "components.json"],
+      "dependsOn": ["@getflip/swirl-tokens#build"]
     }
   }
 }

@@ -1,4 +1,12 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlTagIntent =
@@ -14,6 +22,8 @@ export type SwirlTagIntent =
   tag: "swirl-tag",
 })
 export class SwirlTag {
+  @Element() el: HTMLElement;
+
   @Prop() intent?: SwirlTagIntent = "default";
   @Prop() label!: string;
   @Prop() removable?: boolean;
@@ -30,13 +40,14 @@ export class SwirlTag {
 
     return (
       <Host>
-        <span class={className}>
-          {this.label}
+        <span class={className} part="tag">
+          <span class="tag__label">{this.label}</span>
           {this.removable && (
             <button
               aria-label={this.removalButtonLabel}
               class="tag__removal-button"
               onClick={this.onRemove}
+              tabIndex={this.el.ariaHidden === "true" ? -1 : undefined}
               type="button"
             >
               <swirl-icon-close size={16}></swirl-icon-close>

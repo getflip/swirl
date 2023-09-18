@@ -9,7 +9,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import classnames from "classnames";
+import { SwirlTabBarTab } from "../swirl-tab-bar/swirl-tab-bar";
 
 @Component({
   scoped: true,
@@ -24,6 +24,7 @@ export class SwirlTabs {
   @Prop() label!: string;
 
   @State() activeTab?: string;
+  @State() tabBarTabs: SwirlTabBarTab[] = [];
 
   @Event() tabActivated: EventEmitter<HTMLSwirlTabElement>;
 
@@ -31,6 +32,7 @@ export class SwirlTabs {
 
   componentWillLoad() {
     this.collectTabs();
+    this.updateTabBarTabs();
   }
 
   /**
@@ -54,6 +56,8 @@ export class SwirlTabs {
 
     tab.active = true;
     this.tabActivated.emit(tab);
+
+    this.updateTabBarTabs();
   }
 
   private activateNextTab() {
@@ -98,52 +102,40 @@ export class SwirlTabs {
     );
   }
 
-  private onKeyDown = (event: KeyboardEvent) => {
-    if (event.code === "ArrowLeft") {
-      event.preventDefault();
-      this.activatePreviousTab();
-    } else if (event.code === "ArrowRight") {
-      event.preventDefault();
-      this.activateNextTab();
-    }
+  private updateTabBarTabs() {
+    this.tabBarTabs = this.tabs.map((tab) => ({
+      icon: tab.icon,
+      id: tab.tabId,
+      label: tab.label,
+      active: this.activeTab === tab.tabId,
+    }));
+  }
+
+  private onActivateNextTab = () => {
+    this.activateNextTab();
+  };
+
+  private onActivatePreviousTab = () => {
+    this.activatePreviousTab();
+  };
+
+  private onActivateTab = (event: CustomEvent<string>) => {
+    this.activateTab(event.detail);
   };
 
   render() {
     return (
       <Host>
         <div class="tabs">
-          <div
-            aria-label={this.label}
-            class="tabs__tab-bar"
-            onKeyDown={this.onKeyDown}
-            role="tablist"
-          >
-            {this.tabs.map((tab) => {
-              const isActive = tab.tabId === this.activeTab;
-              const className = classnames("tabs__tab", {
-                "tabs__tab--active": isActive,
-              });
-
-              return (
-                <button
-                  aria-controls={tab.tabId}
-                  aria-selected={isActive ? "true" : "false"}
-                  class={className}
-                  id={`tab-${tab.tabId}`}
-                  key={tab.tabId}
-                  // eslint-disable-next-line react/jsx-no-bind
-                  onClick={() => this.activateTab(tab.tabId)}
-                  role="tab"
-                  tabIndex={isActive ? 0 : -1}
-                  type="button"
-                >
-                  <span class="tabs__tab-label">{tab.label}</span>
-                </button>
-              );
-            })}
-          </div>
-          <slot></slot>
+          <swirl-tab-bar
+            label={this.label}
+            onActivateNextTab={this.onActivateNextTab}
+            onActivatePreviousTab={this.onActivatePreviousTab}
+            onActivateTab={this.onActivateTab}
+            tabs={this.tabBarTabs}
+          ></swirl-tab-bar>
         </div>
+        <slot></slot>
       </Host>
     );
   }

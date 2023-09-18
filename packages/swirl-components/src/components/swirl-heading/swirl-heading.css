@@ -48,10 +48,21 @@
   line-height: var(--s-line-height-lg);
 }
 
-.heading--level-4,
-.heading--level-5,
-.heading--level-6 {
+.heading--level-4 {
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-semibold);
   line-height: var(--s-line-height-base);
+}
+
+.heading--level-5,
+.heading--level-6 {
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-semibold);
+  line-height: var(--s-line-height-sm);
+}
+
+.heading--truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

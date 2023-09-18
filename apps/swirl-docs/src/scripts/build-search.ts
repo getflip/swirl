@@ -11,7 +11,6 @@ import {
   ColorTokens,
   getColorTokens,
   Token,
-  SwirlTokensWithoutColor,
   TokensWithoutColors,
 } from "@swirl/lib/tokens";
 import {
@@ -23,40 +22,41 @@ import {
 } from "@swirl/lib/tokens/src/utils";
 import algoliasearch from "algoliasearch";
 import dotenv from "dotenv";
-// @ts-expect-error
+
 import icons from "@getflip/swirl-icons/dist/metadata.js";
+import { ParsedUrlQuery } from "querystring";
+
+function isObjectWithParams(
+  doc: any
+): doc is { params: ParsedUrlQuery; locale?: string } {
+  return typeof doc === "object" && "params" in doc;
+}
 
 function getAlgoliaDataForCategory(
   category: DocumentationCategory
 ): Array<AlgoliaRecord> {
   const categoryDocs = createStaticPathsData(category);
 
-  const algoliaIndexableData = categoryDocs?.map((doc) => {
-    const docParams = doc.params;
-
-    const document = generateSerializableDocumentation(
-      category,
-      docParams[StaticPathMap[category]]
+  if (!categoryDocs) {
+    throw new Error(
+      `Could not generate Algolia data for category: ${category}`
     );
+  }
+
+  return categoryDocs.filter(isObjectWithParams).map((doc) => {
+    const docParams = doc.params[StaticPathMap[category]] as string;
+    const document = generateSerializableDocumentation(category, docParams);
 
     return {
       objectID: document.data.title,
       title: document.data.title,
-      excerpt: document.excerpt ? document.excerpt : "",
+      excerpt: document.excerpt || "",
       path: `/${category}/${document.data.title
         .toLowerCase()
         .replace(" ", "-")}`,
       tagsCollection: { tags: document.data.tags },
     };
   });
-
-  if (!algoliaIndexableData) {
-    throw new Error(
-      `Could not generate Algolia data for category: ${category}`
-    );
-  }
-
-  return algoliaIndexableData;
 }
 
 function createColorTokenAlgoliaData(
@@ -72,9 +72,9 @@ function createColorTokenAlgoliaData(
     "text",
   ];
 
-  let algoliaIndexableData: Array<AlgoliaRecord> = [];
+  const algoliaIndexableData: Array<AlgoliaRecord> = [];
 
-  colorTokenGroups?.forEach((colorTokenGroup) => {
+  colorTokenGroups.forEach((colorTokenGroup) => {
     const transformedTokens = tokens[colorTokenGroup];
 
     transformedTokens?.forEach((token) => {
@@ -83,37 +83,26 @@ function createColorTokenAlgoliaData(
         title: token.name,
         type: "token",
         tokenCategory: "color",
-        excerpt: token.description ? token.description : "",
+        excerpt: token.description || "",
         path: `/tokens/color#${colorTokenGroup}`,
       });
     });
   });
 
-  if (!algoliaIndexableData) {
+  if (!algoliaIndexableData.length) {
     throw new Error(`Could not generate Algolia data for category: ${123}`);
   }
 
   return algoliaIndexableData;
 }
 
-function getTokenTypeUrl(
+function getTokenCategory(
   tokenType: Token["type"]
 ): AlgoliaRecord["tokenCategory"] {
-  if (isTypographyToken(tokenType as TokensWithoutColors)) {
-    return "typography";
-  }
-
-  if (isZindexToken(tokenType as TokensWithoutColors)) {
-    return "z-index";
-  }
-
-  if (isBorderToken(tokenType as TokensWithoutColors)) {
-    return "border";
-  }
-
-  if (isSpacingToken(tokenType as TokensWithoutColors)) {
-    return "spacing";
-  }
+  if (isTypographyToken(tokenType as TokensWithoutColors)) return "typography";
+  if (isZindexToken(tokenType as TokensWithoutColors)) return "z-index";
+  if (isBorderToken(tokenType as TokensWithoutColors)) return "border";
+  if (isSpacingToken(tokenType as TokensWithoutColors)) return "spacing";
 
   return "color";
 }
@@ -131,23 +120,22 @@ function createTokenAlgoliaData(): Array<AlgoliaRecord> {
   ];
 
   const tokens = getTokens(tokenGroups);
+  const algoliaIndexableData: Array<AlgoliaRecord> = [];
 
-  let algoliaIndexableData: Array<AlgoliaRecord> = [];
-
-  tokenGroups?.forEach((tokenGroup) => {
+  tokenGroups.forEach((tokenGroup) => {
     const transformedTokens = tokens[tokenGroup];
 
     transformedTokens?.forEach((token: Token) => {
-      const tokenTypeUrl = getTokenTypeUrl(token.type);
+      const tokenCategory = getTokenCategory(token.type);
       const hashValue = token.name.split("-").slice(0, 2).join("-");
 
       algoliaIndexableData.push({
         objectID: token.name,
         title: token.name,
         type: "token",
-        tokenCategory: tokenTypeUrl,
-        excerpt: token.description ? token.description : "",
-        path: `/tokens/${tokenTypeUrl}#${hashValue}`,
+        tokenCategory,
+        excerpt: token.description || "",
+        path: `/tokens/${tokenCategory}#${hashValue}`,
       });
     });
   });
@@ -188,47 +176,53 @@ function getAlgoliaDataForTokens(): Array<AlgoliaRecord> {
   return data;
 }
 
+async function validateAlgoliaEnvironment() {
+  if (!process.env.NEXT_PUBLIC_ALGOLIA_APP_ID) {
+    throw new Error("NEXT_PUBLIC_ALGOLIA_APP_ID is not defined");
+  }
+
+  if (!process.env.ALGOLIA_SEARCH_ADMIN_KEY) {
+    throw new Error("ALGOLIA_SEARCH_ADMIN_KEY is not defined");
+  }
+}
+
+function getTransformedData() {
+  // const components = getAlgoliaDataForCategory(
+  //   DOCUMENTATION_CATEGORY.COMPONENTS
+  // );
+  const tokens = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.TOKENS);
+  const iconsData = createIconAlgoliaData();
+  const singleTokensData = getAlgoliaDataForTokens();
+
+  return [...iconsData, ...tokens, ...singleTokensData];
+}
+
+async function saveAlgoliaData(transformed: Array<AlgoliaRecord>) {
+  const client = algoliasearch(
+    process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!!,
+    process.env.ALGOLIA_SEARCH_ADMIN_KEY!!
+  );
+
+  const index = client.initIndex(ALGOLIA_INDEX.DEV);
+  const algoliaResponse = await index.saveObjects(transformed);
+
+  console.log(
+    `🎉 Sucessfully added ${
+      algoliaResponse.objectIDs.length
+    } records to Algolia search. Object IDs:\n${algoliaResponse.objectIDs.join(
+      "\n"
+    )}`
+  );
+}
+
 async function generateAlgoliaData() {
   dotenv.config();
 
-  const singleTokensData = getAlgoliaDataForTokens();
-
   try {
-    if (!process.env.NEXT_PUBLIC_ALGOLIA_APP_ID) {
-      throw new Error("NEXT_PUBLIC_ALGOLIA_APP_ID is not defined");
-    }
-
-    if (!process.env.ALGOLIA_SEARCH_ADMIN_KEY) {
-      throw new Error("ALGOLIA_SEARCH_ADMIN_KEY is not defined");
-    }
-
-    const components = getAlgoliaDataForCategory(
-      DOCUMENTATION_CATEGORY.COMPONENTS
-    );
-    const tokens = getAlgoliaDataForCategory(DOCUMENTATION_CATEGORY.TOKENS);
-    const iconsData = createIconAlgoliaData();
-    const transformed = [
-      ...components,
-      ...iconsData,
-      ...tokens,
-      ...singleTokensData,
-    ];
-
-    const client = algoliasearch(
-      process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!!,
-      process.env.ALGOLIA_SEARCH_ADMIN_KEY!!
-    );
-
-    const index = client.initIndex(ALGOLIA_INDEX.DEV);
-    const algoliaResponse = await index.saveObjects(transformed);
-
-    console.log(
-      `🎉 Sucessfully added ${
-        algoliaResponse.objectIDs.length
-      } records to Algolia search. Object IDs:\n${algoliaResponse.objectIDs.join(
-        "\n"
-      )}`
-    );
+    await validateAlgoliaEnvironment();
+    const transformed = getTransformedData();
+    console.log(transformed);
+    await saveAlgoliaData(transformed);
   } catch (error) {
     console.error(error);
   }

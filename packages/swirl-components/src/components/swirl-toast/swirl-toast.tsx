@@ -19,7 +19,7 @@ export type SwirlToastIntent = "default" | "critical" | "success";
 })
 export class SwirlToast {
   @Prop() accessibleDismissLabel?: string = "Dismiss";
-  @Prop() content!: string;
+  @Prop() content?: string;
   @Prop() dismissLabel?: string;
   @Prop() duration?: number;
   @Prop() icon?: string;
@@ -43,10 +43,7 @@ export class SwirlToast {
 
     this.forceIconProps(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.addEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
   }
 
   disconnectedCallback() {
@@ -107,8 +104,12 @@ export class SwirlToast {
               ref={(el) => (this.iconEl = el)}
             ></span>
           )}
-          <span class="toast__content" part="toast__content">
-            {this.content}
+          <span
+            class="toast__content"
+            innerHTML={this.content}
+            part="toast__content"
+          >
+            <slot></slot>
           </span>
           <button
             aria-label={this.dismissLabel || this.accessibleDismissLabel}

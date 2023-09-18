@@ -1,0 +1,111 @@
+/**
+* seems the container query does not work as expected
+*/
+
+:host {
+  container-type: inline-size;
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  height: 3.5rem;
+  padding-right: var(--s-space-12);
+  padding-left: var(--s-space-12);
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--s-text-default);
+  background-color: var(--s-background-default);
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-sm);
+  cursor: pointer;
+  gap: var(--s-space-12);
+
+  &(:hover) {
+    background-color: var(--s-background-hovered);
+  }
+
+  &(:active) {
+    background-color: var(--s-background-pressed);
+    color: var(--s-text-highlight);
+  }
+
+  &(:focus) {
+    outline: none;
+  }
+
+  &(:focus-visible) {
+    & .shell-navigation-item__label {
+      border-radius: var(--s-border-radius-xs);
+      box-shadow: 0 0 0 0.125rem var(--s-focus-default);
+    }
+  }
+
+  &(.shell-navigation-item--active) {
+    color: var(--s-text-highlight);
+    background-color: var(--s-surface-raised-default);
+  }
+
+  &(.shell-navigation-item--active:hover) {
+    background-color: var(--s-surface-raised-hovered);
+  }
+
+  &(.shell-navigation-item--active:active) {
+    background-color: var(--s-surface-raised-pressed);
+    color: var(--s-text-highlight);
+  }
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+:host:before {
+  content: "";
+  display: none;
+  position: absolute;
+  left: 0;
+  height: 2.5rem;
+  width: 4px;
+  background-color: var(--s-icon-highlight);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+:host(.shell-navigation-item--active):before {
+  display: block;
+}
+
+.shell-navigation-item__icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+}
+
+.shell-navigation-item__label {
+  overflow: hidden;
+  min-width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@container (max-width: 4rem) {
+  .shell-navigation-item__label {
+    display: none;
+  }
+
+  .shell-navigation-item__badge {
+    position: absolute;
+    bottom: 0;
+    right: var(--s-space-4);
+  }
+}
+
+@container (min-width: 14rem) {
+  .shell-navigation-item__badge {
+    margin-left: auto;
+    padding-right: var(--s-space-4);
+  }
+}

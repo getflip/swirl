@@ -148,7 +148,7 @@ describe("swirl-avatar", () => {
               <swirl-icon-person></swirl-icon-person>
             </span>
             <span class="avatar__badge avatar__badge--position-top">
-              <swirl-badge aria-label="3 new messages" label="3" size="m"></swirl-badge>
+              <swirl-badge aria-label="3 new messages" label="3"></swirl-badge>
             </span>
           </span>
         </mock:shadow-root>

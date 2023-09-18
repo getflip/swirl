@@ -7,6 +7,9 @@ const useScrollObserver = (
 
   const observer = useRef<IntersectionObserver>();
 
+  console.log("elements", elements);
+  console.log("activeIndex", activeIndex);
+
   useEffect(() => {
     if (observer.current) {
       observer.current.disconnect();

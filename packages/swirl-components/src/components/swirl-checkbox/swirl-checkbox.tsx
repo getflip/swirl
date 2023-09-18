@@ -1,7 +1,11 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
+export type SwirlCheckboxLabelWeight = "medium" | "regular";
+
 export type SwirlCheckboxState = boolean | "true" | "false" | "indeterminate";
+
+export type SwirlCheckboxVariant = "default" | "card";
 
 @Component({
   /**
@@ -25,7 +29,9 @@ export class SwirlCheckbox {
   @Prop() inputName!: string;
   @Prop() invalid?: boolean;
   @Prop() label?: string;
+  @Prop() labelWeight?: SwirlCheckboxLabelWeight = "medium";
   @Prop() value?: string;
+  @Prop() variant?: SwirlCheckboxVariant = "default";
 
   @Event() valueChange: EventEmitter<boolean>;
 
@@ -59,16 +65,21 @@ export class SwirlCheckbox {
         ? String(this.invalid)
         : undefined;
 
-    const className = classnames("checkbox", {
-      "checkbox--checked": checked,
-      "checkbox--disabled": this.disabled,
-      "checkbox--indeterminate": indeterminate,
-      "checkbox--invalid": this.invalid,
-      "checkbox--unchecked": unchecked,
-    });
+    const className = classnames(
+      "checkbox",
+      `checkbox--label-weight-${this.labelWeight}`,
+      `checkbox--variant-${this.variant}`,
+      {
+        "checkbox--checked": checked,
+        "checkbox--disabled": this.disabled,
+        "checkbox--indeterminate": indeterminate,
+        "checkbox--invalid": this.invalid,
+        "checkbox--unchecked": unchecked,
+      }
+    );
 
     return (
-      <Host>
+      <Host style={{ width: this.variant === "card" ? "100%" : undefined }}>
         <label class={className} htmlFor={this.inputId}>
           <span class="checkbox__control">
             <swirl-visually-hidden>

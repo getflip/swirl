@@ -28,35 +28,51 @@ export type SwirlBoxPadding =
   tag: "swirl-box",
 })
 export class SwirlBox {
-  @Prop() as?: string = "div";
   @Prop() bordered?: boolean;
   @Prop() centerBlock?: boolean;
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
+  @Prop() maxWidth?: string;
   @Prop() overflow?: SwirlBoxOverflow = "visible";
   @Prop() padding?: SwirlBoxPadding = "0";
+  @Prop() paddingBlockEnd?: SwirlBoxPadding;
+  @Prop() paddingBlockStart?: SwirlBoxPadding;
+  @Prop() paddingInlineEnd?: SwirlBoxPadding;
+  @Prop() paddingInlineStart?: SwirlBoxPadding;
 
   render() {
-    const Tag = this.as;
-
     const styles = {
+      alignItems: this.centerBlock ? "center" : undefined,
+      display: this.centerBlock || this.centerInline ? "flex" : undefined,
+      height: this.cover ? "100%" : undefined,
+      justifyContent: this.centerInline ? "center" : undefined,
       overflow: this.overflow,
       padding: `var(--s-space-${this.padding})`,
+      paddingBlockEnd: Boolean(this.paddingBlockEnd)
+        ? `var(--s-space-${this.paddingBlockEnd})`
+        : undefined,
+      paddingBlockStart: Boolean(this.paddingBlockStart)
+        ? `var(--s-space-${this.paddingBlockStart})`
+        : undefined,
+      paddingInlineEnd: Boolean(this.paddingInlineEnd)
+        ? `var(--s-space-${this.paddingInlineEnd})`
+        : undefined,
+      paddingInlineStart: Boolean(this.paddingInlineStart)
+        ? `var(--s-space-${this.paddingInlineStart})`
+        : undefined,
       position: Boolean(this.overflow) ? "relative" : "",
+      maxWidth: this.maxWidth,
+      width: this.cover ? "100%" : undefined,
     };
 
     const className = classnames("box", {
       "box--bordered": this.bordered,
-      "box--center-block": this.centerBlock,
-      "box--center-inline": this.centerInline,
       "box--cover": this.cover,
     });
 
     return (
-      <Host style={this.cover ? { width: "100%", height: "100%" } : undefined}>
-        <Tag class={className} style={styles}>
-          <slot></slot>
-        </Tag>
+      <Host class={className} style={styles}>
+        <slot></slot>
       </Host>
     );
   }

@@ -13,6 +13,8 @@ import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlOptionListItemContext = "single-select" | "multi-select";
 
+export type SwirlOptionListItemRole = "option" | "menuitemradio";
+
 @Component({
   scoped: true,
   shadow: false,
@@ -32,11 +34,13 @@ export class SwirlOptionListItem {
   @Prop() icon?: string;
   @Prop() label!: string;
   @Prop({ mutable: true }) selected?: boolean = false;
+  @Prop() swirlAriaRole?: SwirlOptionListItemRole = "option";
   @Prop() value!: string;
 
   @Event() toggleDrag: EventEmitter<HTMLSwirlOptionListItemElement>;
 
   @State() iconSize: 20 | 24 = 24;
+  @State() focused: boolean;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
@@ -45,10 +49,7 @@ export class SwirlOptionListItem {
     this.forceIconProps(this.desktopMediaQuery.matches);
     this.updateIconSize(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.addEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
   }
 
   disconnectedCallback() {
@@ -80,6 +81,14 @@ export class SwirlOptionListItem {
     }
   };
 
+  private onBlur = () => {
+    this.focused = false;
+  };
+
+  private onFocus = () => {
+    this.focused = true;
+  };
+
   render() {
     const ariaDisabled = this.disabled ? "true" : undefined;
     const ariaSelected = String(this.selected);
@@ -102,11 +111,18 @@ export class SwirlOptionListItem {
     return (
       <Host>
         <div
+          aria-checked={
+            this.swirlAriaRole === "menuitemradio" ? ariaSelected : undefined
+          }
           aria-disabled={ariaDisabled}
-          aria-selected={ariaSelected}
+          aria-selected={
+            this.swirlAriaRole === "option" ? ariaSelected : undefined
+          }
           class={className}
+          onBlur={this.onBlur}
+          onFocus={this.onFocus}
           part="option-list-item"
-          role="option"
+          role={this.swirlAriaRole}
         >
           {showIcon && (
             <span
@@ -144,6 +160,7 @@ export class SwirlOptionListItem {
             aria-label={`${this.dragHandleLabel} "${this.label}"`}
             class="option-list-item__drag-handle"
             onKeyDown={this.onDragHandleKeyDown}
+            tabIndex={this.focused ? 0 : -1}
             type="button"
           >
             <swirl-icon-drag-handle

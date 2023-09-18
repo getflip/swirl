@@ -11,24 +11,28 @@ describe("swirl-modal", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-modal label="Dialog">
-        <mock:shadow-root>
-          <section aria-hidden="true" aria-label="Dialog" aria-modal="true" class="modal" id="modal" role="dialog" tabindex="-1">
-            <div class="modal__backdrop"></div>
-            <div class="modal__body" role="document">
-              <swirl-button class="modal__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close modal"></swirl-button>
-              <header class="modal__header">
+        <section aria-hidden="true" aria-label="Dialog" aria-modal="true" class="modal modal--padded modal--variant-default" role="dialog">
+          <div class="modal__backdrop"></div>
+          <div class="modal__body">
+            <header class="modal__custom-header"></header>
+            <header class="modal__header">
+              <div class="modal__header-bar">
+                <swirl-button class="modal__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close modal"></swirl-button>
                 <swirl-heading as="h2" class="modal__heading" level="3" text="Dialog"></swirl-heading>
-              </header>
-              <div class="modal__content">
-                <slot></slot>
               </div>
-              <footer class="modal__controls">
-                <swirl-button-group wrap=""></swirl-button-group>
-              </footer>
+            </header>
+            <div class="modal__content-container">
+              <div class="modal__primary-content">
+                <div class="modal__header-tools"></div>
+                <div class="modal__content">
+                  Content
+                </div>
+              </div>
+              <div class="modal__secondary-content"></div>
             </div>
-          </section>
-        </mock:shadow-root>
-        Content
+            <div class="modal__custom-footer"></div>
+          </div>
+        </section>
       </swirl-modal>
     `);
   });
@@ -42,10 +46,9 @@ describe("swirl-modal", () => {
     const primarySpy = jest.fn();
     const secondarySpy = jest.fn();
 
-    const buttons =
-      page.root.shadowRoot.querySelectorAll<HTMLSwirlButtonElement>(
-        ".modal__controls swirl-button"
-      );
+    const buttons = page.root.querySelectorAll<HTMLSwirlButtonElement>(
+      ".modal__controls swirl-button"
+    );
 
     page.root.addEventListener("primaryAction", primarySpy);
     page.root.addEventListener("secondaryAction", secondarySpy);

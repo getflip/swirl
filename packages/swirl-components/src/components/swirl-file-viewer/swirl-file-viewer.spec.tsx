@@ -213,7 +213,7 @@ describe("swirl-file-viewer", () => {
         <mock:shadow-root>
           <div class="file-viewer">
             <div class="file-viewer__file">
-              <swirl-file-viewer-pdf errormessage="File could not be loaded." file="/sample.pdf" zoom="1"></swirl-file-viewer-pdf>
+              <swirl-file-viewer-pdf errormessage="File could not be loaded." file="/sample.pdf" viewmode="single" zoom="1"></swirl-file-viewer-pdf>
             </div>
           </div>
         </mock:shadow-root>

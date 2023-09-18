@@ -1,5 +1,5 @@
 :host {
-  display: block;
+  display: contents;
 
   & * {
     box-sizing: border-box;
@@ -7,7 +7,15 @@
 }
 
 .card {
-  display: block;
+  --swirl-ghost-button-background-default: var(--s-surface-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-pressed);
+  --swirl-resource-list-item-background-default: var(--s-surface-default);
+  --swirl-resource-list-item-background-hovered: var(--s-surface-hovered);
+  --swirl-resource-list-item-background-pressed: var(--s-surface-pressed);
+
+  display: flex;
+  overflow: hidden;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -17,12 +25,7 @@
   background-color: var(--s-surface-default);
   font: inherit;
   text-decoration: none;
-}
-
-.card--elevated {
-  border-color: transparent;
-  box-shadow: 0 0.0625rem 0.25rem rgba(25, 26, 28, 0.16),
-    0 0.25rem 1rem rgba(25, 26, 28, 0.04);
+  flex-direction: column;
 }
 
 a.card,
@@ -46,4 +49,109 @@ button.card,
     outline-color: var(--s-focus-default);
     outline-offset: var(--s-space-4);
   }
+}
+
+.card--is--borderless {
+  border: 0;
+}
+
+.card--elevated {
+  border-color: transparent;
+  box-shadow: 0 0.75rem 1rem rgba(25, 26, 28, 0.12),
+    0 0.25rem 0.75rem rgba(25, 26, 28, 0.08);
+}
+
+.card--highlighted {
+  border-width: 0.1875rem;
+  border-color: var(--s-border-highlight);
+}
+
+.card--justify-content-start {
+  & .card__body {
+    justify-content: flex-start;
+  }
+}
+
+.card--justify-content-center {
+  & .card__body {
+    justify-content: center;
+  }
+}
+
+.card--justify-content-end {
+  & .card__body {
+    justify-content: flex-end;
+  }
+}
+
+:not(.card--has-image) {
+  & .card__image {
+    overflow: hidden;
+    height: 0;
+  }
+}
+
+.card--intent-critical-subdued {
+  background-color: var(--s-surface-critical-subdued);
+}
+
+.card--intent-default-subdued {
+  --swirl-resource-list-item-background-default: var(
+    --s-surface-raised-default
+  );
+  --swirl-resource-list-item-background-hovered: var(
+    --s-surface-raised-hovered
+  );
+  --swirl-resource-list-item-background-pressed: var(
+    --s-surface-raised-pressed
+  );
+
+  --swirl-ghost-button-background-default: var(--s-surface-raised-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-raised-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-raised-pressed);
+
+  background-color: var(--s-surface-raised-default);
+}
+
+.card--intent-info-subdued {
+  background-color: var(--s-surface-info-subdued);
+}
+
+.card--intent-success-subdued {
+  background-color: var(--s-surface-success-subdued);
+}
+
+.card--intent-warning-subdued {
+  background-color: var(--s-surface-warning-subdued);
+}
+
+.content-section {
+  padding: 0 var(--s-space-16);
+}
+
+.card__image {
+  overflow: hidden;
+  min-height: 0;
+
+  & ::slotted(img) {
+    display: inline-flex;
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+}
+
+.card__body {
+  display: flex;
+  min-height: 0;
+  padding: var(--s-space-12) var(--s-space-16) var(--s-space-16);
+  flex-grow: 1;
+  flex-direction: column;
+  gap: var(--s-space-16);
+}
+
+.card__header {
+}
+
+.card__content {
 }

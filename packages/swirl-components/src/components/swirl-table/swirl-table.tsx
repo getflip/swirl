@@ -4,11 +4,12 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
 } from "@stencil/core";
+import { debounce, isMobileViewport } from "../../utils";
 import debouncePromise from "debounce-promise";
-import { isMobileViewport } from "../../utils";
 
 /**
  * @slot columns - Column container, should contain SwirlTableColumns.
@@ -43,6 +44,82 @@ export class SwirlTable {
   async onWindowResize() {
     await this.updateLayout();
     this.updateScrolledState();
+  }
+
+  /**
+   * Force a re-render of the table
+   */
+  @Method()
+  async rerender() {
+    this.triggerRerender();
+  }
+
+  private triggerRerender = debounce(
+    async () => {
+      await this.updateLayout();
+      this.updateScrolledState();
+      this.updateEmptyState();
+    },
+    0,
+    true
+  );
+
+  private resetEmptyRowStyles() {
+    const emptyRow =
+      this.el.shadowRoot.querySelector<HTMLElement>(".table__empty-row");
+
+    if (!Boolean(emptyRow)) {
+      return;
+    }
+
+    emptyRow.style.width = "";
+  }
+
+  private resetRowGroupStyles() {
+    const tableRowGroups = Array.from(
+      this.el.querySelectorAll("swirl-table-row-group")
+    );
+
+    tableRowGroups.forEach((tableRowGroup) => {
+      const headerRow = tableRowGroup.shadowRoot.querySelector<HTMLDivElement>(
+        ".table-row-group__header-row"
+      );
+
+      if (!Boolean(headerRow)) {
+        return;
+      }
+
+      tableRowGroup.shadowRoot.querySelector<HTMLDivElement>(
+        ".table-row-group__header-row"
+      ).style.width = "";
+    });
+  }
+
+  private resetColumnStyles() {
+    const columns = this.getColumns();
+
+    columns.forEach((column) => {
+      column.classList.remove("table-column--has-shadow");
+
+      column.style.right = "";
+      column.style.left = "";
+      column.style.position = "";
+      column.style.zIndex = "";
+    });
+  }
+
+  private resetCellStyles() {
+    const cells = this.getCells();
+
+    cells.forEach((cell) => {
+      cell.classList.remove("table-cell--has-shadow");
+
+      cell.style.flex = "";
+      cell.style.left = "";
+      cell.style.right = "";
+      cell.style.position = "";
+      cell.style.zIndex = "";
+    });
   }
 
   private updateScrolledState() {
@@ -87,76 +164,21 @@ export class SwirlTable {
     return Array.from(this.el.querySelectorAll("swirl-table-cell"));
   }
 
-  private async resetEmptyRowStyles() {
-    const emptyRow =
-      this.el.shadowRoot.querySelector<HTMLElement>(".table__empty-row");
+  private updateLayout = debouncePromise(
+    async () => {
+      this.resetCellStyles();
+      this.resetColumnStyles();
+      this.resetEmptyRowStyles();
+      this.resetRowGroupStyles();
+      this.layoutEmptyRow();
+      this.layoutRowGroups();
+      this.layOutCells();
+    },
+    16,
+    { leading: true }
+  );
 
-    if (!Boolean(emptyRow)) {
-      return;
-    }
-
-    emptyRow.style.width = "";
-
-    await new Promise((resolve) => setTimeout(resolve));
-  }
-
-  private async resetRowGroupStyles() {
-    const tableRowGroups = Array.from(
-      this.el.querySelectorAll("swirl-table-row-group")
-    );
-
-    tableRowGroups.forEach((tableRowGroup) => {
-      tableRowGroup.shadowRoot.querySelector<HTMLDivElement>(
-        ".table-row-group__header-row"
-      ).style.width = "";
-    });
-
-    await new Promise((resolve) => setTimeout(resolve));
-  }
-
-  private async resetColumnStyles() {
-    const columns = this.getColumns();
-
-    columns.forEach((column) => {
-      column.classList.remove("table-column--has-shadow");
-
-      column.style.right = "";
-      column.style.left = "";
-      column.style.position = "";
-      column.style.zIndex = "";
-    });
-
-    await new Promise((resolve) => setTimeout(resolve));
-  }
-
-  private async resetCellStyles() {
-    const cells = this.getCells();
-
-    cells.forEach((cell) => {
-      cell.classList.remove("table-cell--has-shadow");
-
-      cell.style.flex = "";
-      cell.style.left = "";
-      cell.style.right = "";
-      cell.style.position = "";
-      cell.style.zIndex = "";
-    });
-
-    await new Promise((resolve) => setTimeout(resolve));
-  }
-
-  private updateLayout = debouncePromise(async () => {
-    await this.resetEmptyRowStyles();
-    await this.resetRowGroupStyles();
-    await this.resetCellStyles();
-    await this.resetColumnStyles();
-    await this.layoutEmptyRow();
-    await this.layoutRowGroups();
-    await this.layOutColumns();
-    this.layOutCells();
-  }, 100);
-
-  private async layoutEmptyRow() {
+  private layoutEmptyRow() {
     const emptyRow =
       this.el.shadowRoot.querySelector<HTMLElement>(".table__empty-row");
 
@@ -171,72 +193,28 @@ export class SwirlTable {
     emptyRow.style.width = scrollWidth;
   }
 
-  private async layoutRowGroups() {
+  private layoutRowGroups() {
     const tableRowGroups = Array.from(
       this.el.querySelectorAll("swirl-table-row-group")
     );
 
     const scrollWidth = `${
-      this.el.shadowRoot.querySelector(".table__container").scrollWidth
+      this.el.shadowRoot.querySelector(".table__container")?.scrollWidth
     }px`;
 
     tableRowGroups.forEach((tableRowGroup) => {
+      const headerRow = tableRowGroup.shadowRoot.querySelector<HTMLDivElement>(
+        ".table-row-group__header-row"
+      );
+
+      if (!Boolean(headerRow)) {
+        return;
+      }
+
       tableRowGroup.shadowRoot.querySelector<HTMLDivElement>(
         ".table-row-group__header-row"
       ).style.width = scrollWidth;
     });
-  }
-
-  private async layOutColumns() {
-    const columns = this.getColumns();
-    const tableContainer = this.container;
-    const tableContainerWidth = tableContainer.clientWidth;
-
-    columns.forEach((column, index) => {
-      if (!column.sticky || isMobileViewport()) {
-        return;
-      }
-
-      const isInFirstHalfOfTable = index <= Math.floor(columns.length / 2);
-      const nextColumnIsSticky = columns[index + 1]?.sticky;
-      const prevColumnIsSticky = columns[index - 1]?.sticky;
-      const columnIsOnTopOfShadow = isInFirstHalfOfTable && nextColumnIsSticky;
-
-      column.style.zIndex = columnIsOnTopOfShadow ? "1" : "";
-
-      const columnHasShadow =
-        (isInFirstHalfOfTable && !nextColumnIsSticky) ||
-        (!isInFirstHalfOfTable && !prevColumnIsSticky);
-
-      if (columnHasShadow) {
-        column.classList.add(
-          isInFirstHalfOfTable
-            ? "table-column--has-shadow-right"
-            : "table-column--has-shadow-left"
-        );
-      } else {
-        column.classList.remove("table-column--has-shadow-right");
-        column.classList.remove("table-column--has-shadow-left");
-      }
-
-      const offset = isInFirstHalfOfTable
-        ? column.offsetLeft
-        : Math.max(
-            0,
-            tableContainerWidth -
-              (column.offsetLeft + column.getBoundingClientRect().width)
-          );
-
-      column.style.position = "sticky";
-
-      if (isInFirstHalfOfTable) {
-        column.style.left = `${offset}px`;
-      } else {
-        column.style.right = `${offset}px`;
-      }
-    });
-
-    await new Promise((resolve) => setTimeout(resolve));
   }
 
   private layOutCells() {
@@ -248,56 +226,11 @@ export class SwirlTable {
         return (colIndex - cellIndex) % columns.length === 0;
       });
 
-      const isInFirstHalfOfTable = colIndex <= Math.floor(columns.length / 2);
-
-      const offset = isInFirstHalfOfTable
-        ? window.getComputedStyle(column).left
-        : window.getComputedStyle(column).right;
-
-      const nextColumnIsSticky = columns[colIndex + 1]?.sticky;
-      const prevColumnIsSticky = columns[colIndex - 1]?.sticky;
-      const columnIsSticky = column.sticky;
       const columnWidth =
         column.width || `${column.getBoundingClientRect().width}px`;
 
       cellsOfColumn.forEach((cell) => {
-        const cellSticksToLeft = columnIsSticky && isInFirstHalfOfTable;
-        const cellSticksToRight = columnIsSticky && !isInFirstHalfOfTable;
-        const cellIsOnTopOfShadow = isInFirstHalfOfTable && nextColumnIsSticky;
-
         cell.style.flex = Boolean(columnWidth) ? `0 0 ${columnWidth}` : "";
-
-        if (isMobileViewport()) {
-          cell.classList.remove("table-cell--has-shadow");
-
-          cell.style.left = "";
-          cell.style.right = "";
-          cell.style.position = "";
-          cell.style.zIndex = "";
-
-          return;
-        }
-
-        cell.style.left = cellSticksToLeft ? offset : "";
-        cell.style.right = cellSticksToRight ? offset : "";
-        cell.style.position = columnIsSticky ? "sticky" : "";
-        cell.style.zIndex = cellIsOnTopOfShadow ? "1" : "";
-
-        const cellHasShadow =
-          columnIsSticky &&
-          ((isInFirstHalfOfTable && !nextColumnIsSticky) ||
-            (!isInFirstHalfOfTable && !prevColumnIsSticky));
-
-        if (cellHasShadow) {
-          cell.classList.add(
-            isInFirstHalfOfTable
-              ? "table-cell--has-shadow-right"
-              : "table-cell--has-shadow-left"
-          );
-        } else {
-          cell.classList.remove("table-cell--has-shadow-right");
-          cell.classList.remove("table-cell--has-shadow-left");
-        }
       });
     });
   }
@@ -310,6 +243,12 @@ export class SwirlTable {
 
   private onScroll = () => {
     this.updateScrolledState();
+  };
+
+  private onSlotChange = async () => {
+    await this.updateLayout();
+    this.updateScrolledState();
+    this.updateEmptyState();
   };
 
   render() {
@@ -334,11 +273,11 @@ export class SwirlTable {
               )}
               <div role="rowgroup">
                 <div class="table__header" role="row">
-                  <slot name="columns"></slot>
+                  <slot name="columns" onSlotchange={this.onSlotChange}></slot>
                 </div>
               </div>
               <div class="table__body">
-                <slot name="rows"></slot>
+                <slot name="rows" onSlotchange={this.onSlotChange}></slot>
                 {this.empty && (
                   <div class="table__empty-row" role="row">
                     <div

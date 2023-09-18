@@ -1,4 +1,4 @@
-import { ColorTokenGroups, ColorTokens } from "./token.model";
+import { ColorTokenGroups } from "./token.model";
 import { Dictionary, generateTokenValueWithUnit } from "./utils";
 
 import tokensLight from "@getflip/swirl-tokens/dist/styles.light.json";

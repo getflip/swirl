@@ -12,13 +12,14 @@ import {
 import {
   SwirlActionList,
   SwirlActionListItem,
-  SwirlIconChevronRight,
-  SwirlSpinner,
+  SwirlButtonGroup,
+  SwirlButton,
 } from "@getflip/swirl-components-react";
 import classNames from "classnames";
 import { FunctionComponent, useState } from "react";
 import { IconData } from "src/pages/icons";
 import { initializeIconDownload } from "./utils";
+import NoSsr from "../Layout/NoSsr";
 
 interface IconDownloadProps {
   icon: IconData;
@@ -29,7 +30,6 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [iconPixelSize, setIconPixelSize] = useState(24);
-  const [isLoadingIconDownload, setIsLoadingIconDownload] = useState(false);
 
   const { reference, floating, strategy, context } = useFloating({
     open: isOpen,
@@ -55,54 +55,46 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
   }
 
   async function handleIconDownload(size?: number) {
-    setIsLoadingIconDownload(true);
     await initializeIconDownload({
       iconName: icon?.name,
       iconPixelSize: size ? size : iconPixelSize,
     });
-    setIsLoadingIconDownload(false);
   }
   return (
-    <>
-      <div
-        className={classNames(
-          "inline-flex justify-center items-center w-full font-medium text-white py-2",
-          "bg-surface-info-default hover:bg-surface-highlight-hovered active:bg-surface-highlight-pressed",
-          {
-            "rounded-border-radius-sm": !isOpen,
-            "rounded-t-border-radius-sm": isOpen,
-          }
-        )}
+    <NoSsr>
+      <SwirlButtonGroup
+        segmented
+        stretch
+        className={classNames({ "rounded-b-none": isOpen })}
       >
-        <button
-          className="w-full max-h-6 text-center"
-          onClick={() => handleIconDownload()}
+        <SwirlButton
+          intent="primary"
+          variant="flat"
+          label={`Download ${iconPixelSize}px Icon`}
           type="button"
-        >
-          {isLoadingIconDownload ? (
-            <SwirlSpinner label="loading icon from server" size="s" />
-          ) : (
-            `Download ${iconPixelSize}px Icon`
-          )}
-        </button>
-        <button
+          onClick={() => handleIconDownload()}
+          size="l"
+          icon=""
+        />
+        <SwirlButton
           aria-label="Icon Size Trigger"
           type="button"
           ref={reference}
           id="icon-size-trigger"
-          className={classNames(
-            "relative w-6 h-6 mx-2",
-            "before:absolute before:top-0 before:left-[-8px] before:h-[24px] before:w-[1px] before:bg-text-on-action-primary"
-          )}
           {...getReferenceProps()}
-        >
-          <SwirlIconChevronRight className="rotate-90" />
-        </button>
-      </div>
+          intent="primary"
+          variant="flat"
+          icon="<swirl-icon-expand-more></swirl-icon-expand-more>"
+          label={"Change Size"}
+          hideLabel
+          size="l"
+          className={classNames("max-w-[2.5rem]")}
+        />
+      </SwirlButtonGroup>
       {isOpen && (
         <FloatingFocusManager context={context} modal={false}>
           <div
-            className="Popover w-full border border-border-default rounded-b-border-radius-sm"
+            className="Popover w-full border border-border-default rounded-border-radius-sm overflow-hidden"
             ref={floating}
             style={{
               position: strategy,
@@ -132,6 +124,6 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
           </div>
         </FloatingFocusManager>
       )}
-    </>
+    </NoSsr>
   );
 };

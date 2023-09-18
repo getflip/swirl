@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-icons",
-  "version": "0.9.0",
+  "version": "0.21.0",
   "description": "Swirl Design System Icons package contains the Flip icon SVGs and web fonts.",
   "author": "Flip GmbH",
   "repository": "https://github.com/getflip/swirl",
@@ -10,16 +10,21 @@
   },
   "files": [
     "dist",
-    "icons"
+    "emojis",
+    "icons",
+    "legacy-icons"
   ],
   "devDependencies": {
+    "rimraf": "^5.0.0",
     "svgtofont": "^3.17.8",
     "ts-node": "^10.9.1"
   },
   "scripts": {
+    "clean": "rimraf dist",
     "build:dart": "ts-node ./scripts/build-dart-package.ts",
-    "build:fonts": "svgtofont --sources ./icons --output ./dist",
+    "build:fonts": "svgtofont --sources ./icons --output ./dist --css true --fontName swirl-icons && rimraf dist/react",
+    "build:legacy:fonts": "svgtofont --sources ./legacy-icons --output ./dist/legacy-icons --css true --fontName flip-legacy-icons && rimraf dist/legacy-icons/react",
     "build:metadata": "ts-node ./scripts/createMetaData.ts",
-    "build": "yarn build:fonts && yarn build:dart && yarn build:metadata"
+    "build": "yarn clean && yarn build:fonts && yarn run build:legacy:fonts && yarn build:dart && yarn build:metadata"
   }
 }

@@ -2,7 +2,16 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-thumbnail.mdx";
 
 export default {
+  argTypes: {
+    showRemoveButton: {
+      description: "Only displayed with size `xl` and format `square`.",
+    },
+    timestamp: {
+      description: "Only displayed with size `xl` and format `square`.",
+    },
+  },
   component: "swirl-thumbnail",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

@@ -2,6 +2,12 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlActionList } from "./swirl-action-list";
 
+(global as any).MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
+
 describe("swirl-action-list", () => {
   const template = `
     <swirl-action-list>

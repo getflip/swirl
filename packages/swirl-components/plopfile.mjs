@@ -2,12 +2,15 @@ import {
   componentTemplate,
   cssTemplate,
   docsTemplate,
+  emojiComponentTemplate,
   iconComponentTemplate,
   storiesTemplate,
+  symbolComponentTemplate,
   unitTestTemplate,
 } from "./templates.mjs";
 
 import Handlebars from "handlebars";
+import handlebarsHelpers from "handlebars-helpers";
 
 import { execSync } from "child_process";
 import { readdirSync, readFileSync, writeFileSync } from "fs";
@@ -20,6 +23,8 @@ export default function (
   plop.setHelper("camelCase", (txt) =>
     txt.replace(/-./g, (x) => x[1].toUpperCase())
   );
+
+  plop.setHelper("append", handlebarsHelpers().append);
 
   plop.setGenerator("component", {
     description: "Generate a new web component",
@@ -165,6 +170,180 @@ export default function (
         );
 
         return `${iconNames.length} icons generated.`;
+      },
+    ],
+  });
+
+  plop.setGenerator("symbols", {
+    description: "Generate symbol components from SVG",
+    prompts: [],
+    actions: [
+      function (answers, config, plop) {
+        const symbolsPath =
+          "../../node_modules/@getflip/swirl-icons/legacy-icons";
+
+        const svgFileNames = readdirSync(symbolsPath);
+
+        const optimizedSymbols = {};
+
+        for (const svgFileName of svgFileNames) {
+          const path = `${symbolsPath}/${svgFileName}`;
+          const svg = readFileSync(path);
+          const optimized = optimize(svg, {
+            path,
+            plugins: [
+              {
+                name: "convertColors",
+                params: {
+                  currentColor: true,
+                },
+              },
+            ],
+          });
+
+          optimizedSymbols[svgFileName] = optimized.data
+            .replace(/^<svg [^>]*>/, "")
+            .replace(/<\/svg>/, "");
+        }
+
+        const symbolNames = Array.from(
+          new Set(
+            svgFileNames.map((svgFileName) =>
+              svgFileName.replaceAll("_", "-").replace(".svg", "")
+            )
+          )
+        );
+
+        const legacyNames = Array.from(
+          new Set(
+            svgFileNames.map((svgFileName) => svgFileName.replace(".svg", ""))
+          )
+        );
+
+        const symbolsJson = symbolNames.reduce(
+          (content, symbolName, index) => ({
+            ...content,
+            [symbolName]: {
+              id: symbolName,
+              name: symbolName,
+              legacyName: legacyNames[index],
+            },
+          }),
+          {}
+        );
+
+        writeFileSync(`./symbols.json`, JSON.stringify(symbolsJson));
+
+        for (const symbolName of symbolNames) {
+          const componentTemplate = Handlebars.compile(symbolComponentTemplate);
+
+          const symbolNamePascalCase = symbolName
+            .split("-")
+            .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
+            .join("");
+
+          const legacyName = symbolsJson[symbolName].legacyName;
+
+          const templateData = {
+            symbolName: symbolName,
+            symbolNamePascalCase: symbolNamePascalCase,
+            symbolSvg: optimizedSymbols[`${legacyName}.svg`],
+          };
+
+          const component = componentTemplate(templateData);
+
+          writeFileSync(
+            `./src/components/swirl-symbol/symbols/swirl-symbol-${symbolName}.tsx`,
+            component
+          );
+        }
+
+        execSync(
+          "PATH=$(npm bin):$PATH prettier ./src/components/swirl-symbol/symbols/* --write"
+        );
+
+        return `${symbolNames.length} symbols generated.`;
+      },
+    ],
+  });
+
+  plop.setGenerator("emojis", {
+    description: "Generate emoji components from PNG",
+    prompts: [],
+    actions: [
+      function (answers, config, plop) {
+        const emojisPath = "../../node_modules/@getflip/swirl-icons/emojis";
+
+        const pngFileNames = readdirSync(emojisPath);
+
+        for (const pngFileName of pngFileNames) {
+          const path = `${emojisPath}/${pngFileName}`;
+          const png = readFileSync(path);
+
+          writeFileSync(`./public/emojis/${pngFileName}`, png);
+          writeFileSync(`./src/assets/emojis/${pngFileName}`, png);
+        }
+
+        const emojiNames = Array.from(
+          new Set(
+            pngFileNames.map((pngFileName) =>
+              pngFileName
+                .replaceAll("_", "-")
+                .replace("16", "")
+                .replace("20", "")
+                .replace("24", "")
+                .replace("32", "")
+                .replace(".png", "")
+            )
+          )
+        );
+
+        const emojisJson = emojiNames.reduce(
+          (content, emojiName) => ({
+            ...content,
+            [emojiName]: {
+              id: emojiName,
+              name: emojiName.replace(
+                /[A-Z]+(?![a-z])|[A-Z]/g,
+                ($, ofs) => (ofs ? "-" : "") + $.toLowerCase()
+              ),
+            },
+          }),
+          {}
+        );
+
+        writeFileSync(`./emojis.json`, JSON.stringify(emojisJson));
+
+        for (const emojiName of emojiNames) {
+          const componentTemplate = Handlebars.compile(emojiComponentTemplate);
+
+          const emojiNameKebab = emojiName.replace(
+            /[A-Z]+(?![a-z])|[A-Z]/g,
+            ($, ofs) => (ofs ? "-" : "") + $.toLowerCase()
+          );
+
+          const templateData = {
+            emojiName,
+            emojiNameKebab: emojiNameKebab,
+            iconPng16: `${emojiName}16.png`,
+            iconPng20: `${emojiName}20.png`,
+            iconPng24: `${emojiName}24.png`,
+            iconPng28: `${emojiName}28.png`,
+          };
+
+          const component = componentTemplate(templateData);
+
+          writeFileSync(
+            `./src/components/swirl-emoji/emojis/swirl-emoji-${emojiNameKebab}.tsx`,
+            component
+          );
+        }
+
+        execSync(
+          "PATH=$(npm bin):$PATH prettier ./src/components/swirl-emoji/emojis/* --write"
+        );
+
+        return `${emojiNames.length} emojis generated.`;
       },
     ],
   });

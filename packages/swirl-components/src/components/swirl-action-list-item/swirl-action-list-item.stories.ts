@@ -3,6 +3,7 @@ import Docs from "./swirl-action-list-item.mdx";
 
 export default {
   component: "swirl-action-list-item",
+  tags: ["autodocs"],
   decorators: [
     (story) => {
       const container = document.createElement("div");
@@ -30,6 +31,7 @@ const Template = (args) => {
 export const SwirlActionListItem = Template.bind({});
 
 SwirlActionListItem.args = {
+  badge: "Badge",
   description: "Description of the action list item",
   icon: `<swirl-icon-mention></swirl-icon-mention>`,
   label: "This is an action",

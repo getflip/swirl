@@ -2,6 +2,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import { SwirlTab } from "../swirl-tab/swirl-tab";
 
 import { SwirlTabs } from "./swirl-tabs";
+import { SwirlTabBar } from "../swirl-tab-bar/swirl-tab-bar";
 
 describe("swirl-tabs", () => {
   it("renders its tabs", async () => {
@@ -19,48 +20,32 @@ describe("swirl-tabs", () => {
     expect(page.root).toEqualHtml(`
       <swirl-tabs label="Tabs">
         <div class="tabs">
-          <div aria-label="Tabs" class="tabs__tab-bar" role="tablist">
-            <button aria-controls="tab-1" aria-selected="true" class="tabs__tab tabs__tab--active" id="tab-tab-1" role="tab" tabindex="0" type="button">
-              <span class="tabs__tab-label">
-                Tab #1
-              </span>
-            </button>
-            <button aria-controls="tab-2" aria-selected="false" class="tabs__tab" id="tab-tab-2" role="tab" tabindex="-1" type="button">
-              <span class="tabs__tab-label">
-                Tab #2
-              </span>
-            </button>
-            <button aria-controls="tab-3" aria-selected="false" class="tabs__tab" id="tab-tab-3" role="tab" tabindex="-1" type="button">
-              <span class="tabs__tab-label">
-                Tab Number 3
-              </span>
-            </button>
-          </div>
-          <swirl-tab aria-labelledby="tab-tab-1" id="tab-1" label="Tab #1" role="tabpanel" tab-id="tab-1" tabindex="0">
-            <mock:shadow-root>
-              <div class="tab tab--active">
-                <slot></slot>
-              </div>
-            </mock:shadow-root>
-            Tab 1
-          </swirl-tab>
-          <swirl-tab aria-labelledby="tab-tab-2" id="tab-2" label="Tab #2" role="tabpanel" tab-id="tab-2" tabindex="-1">
-            <mock:shadow-root>
-              <div class="tab">
-                <slot></slot>
-              </div>
-            </mock:shadow-root>
-            Tab 2
-          </swirl-tab>
-          <swirl-tab aria-labelledby="tab-tab-3" id="tab-3" label="Tab Number 3" role="tabpanel" tab-id="tab-3" tabindex="-1">
-            <mock:shadow-root>
-              <div class="tab">
-                <slot></slot>
-              </div>
-            </mock:shadow-root>
-            Tab 3
-          </swirl-tab>
+          <swirl-tab-bar label="Tabs"></swirl-tab-bar>
         </div>
+        <swirl-tab aria-labelledby="tab-tab-1" id="tab-1" label="Tab #1" role="tabpanel" tab-id="tab-1" tabindex="0">
+          <mock:shadow-root>
+            <div class="tab tab--active">
+              <slot></slot>
+            </div>
+          </mock:shadow-root>
+          Tab 1
+        </swirl-tab>
+        <swirl-tab aria-labelledby="tab-tab-2" id="tab-2" label="Tab #2" role="tabpanel" tab-id="tab-2" tabindex="-1">
+          <mock:shadow-root>
+            <div class="tab">
+              <slot></slot>
+            </div>
+          </mock:shadow-root>
+          Tab 2
+        </swirl-tab>
+        <swirl-tab aria-labelledby="tab-tab-3" id="tab-3" label="Tab Number 3" role="tabpanel" tab-id="tab-3" tabindex="-1">
+          <mock:shadow-root>
+            <div class="tab">
+              <slot></slot>
+            </div>
+          </mock:shadow-root>
+          Tab 3
+        </swirl-tab>
       </swirl-tabs>
     `);
   });
@@ -85,7 +70,7 @@ describe("swirl-tabs", () => {
 
   it("activates tabs via click", async () => {
     const page = await newSpecPage({
-      components: [SwirlTabs, SwirlTab],
+      components: [SwirlTabs, SwirlTab, SwirlTabBar],
       html: `
         <swirl-tabs label="Tabs">
           <swirl-tab label="Tab #1" tab-id="tab-1">Tab 1</swirl-tab>
@@ -106,7 +91,7 @@ describe("swirl-tabs", () => {
 
   it("activates tabs via keyboard", async () => {
     const page = await newSpecPage({
-      components: [SwirlTabs, SwirlTab],
+      components: [SwirlTabs, SwirlTab, SwirlTabBar],
       html: `
         <swirl-tabs label="Tabs">
           <swirl-tab label="Tab #1" tab-id="tab-1">Tab 1</swirl-tab>
@@ -121,13 +106,13 @@ describe("swirl-tabs", () => {
     expect(tabs.find((tab) => tab.active).tabId).toBe("tab-1");
 
     page.root
-      .querySelector<HTMLElement>(".tabs__tab-bar")
+      .querySelector<HTMLElement>(".tab-bar")
       .dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowRight" }));
 
     expect(tabs.find((tab) => tab.active).tabId).toBe("tab-2");
 
     page.root
-      .querySelector<HTMLElement>(".tabs__tab-bar")
+      .querySelector<HTMLElement>(".tab-bar")
       .dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowLeft" }));
 
     expect(tabs.find((tab) => tab.active).tabId).toBe("tab-1");

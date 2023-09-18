@@ -6,62 +6,102 @@ import {
   h,
   Host,
   Prop,
+  State,
 } from "@stencil/core";
 import classnames from "classnames";
+import { getDesktopMediaQuery } from "../../utils";
+import { v4 as uuid } from "uuid";
 
+export type SwirlResourceListItemLabelWeight = "medium" | "regular";
+
+/**
+ * @slot control - Used to add a menu button to the item
+ * @slot badges - Badges displayed inside the item
+ * @slot media - Media displayed inside the item (e.g. swirl-avatar)
+ */
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "swirl-resource-list-item.css",
   tag: "swirl-resource-list-item",
 })
 export class SwirlResourceListItem {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLSwirlResourceListItemElement;
 
+  @Prop() active?: boolean;
+  @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() description?: string;
   @Prop() disabled?: boolean;
+  @Prop() dragging?: boolean;
+  @Prop() dragHandleDescription?: string = "Press spacebar to toggle grab";
+  @Prop() dragHandleLabel?: string = "Move item";
   @Prop() hideDivider?: boolean;
   @Prop() href?: string;
+  @Prop() interactive?: boolean = true;
   @Prop() label!: string;
-  @Prop() media?: string;
+  @Prop() labelWeight?: SwirlResourceListItemLabelWeight = "medium";
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
   @Prop() selectable?: boolean;
   @Prop() value?: string;
 
+  @State() hasMedia: boolean = false;
+  @State() iconSize: 20 | 24 = 24;
+
+  @Event() toggleDrag: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() valueChange: EventEmitter<boolean>;
 
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
+  private iconEl: HTMLElement;
+  private id = uuid();
+
+  async componentWillLoad() {
+    this.updateMediaState();
+  }
+
   componentDidLoad() {
-    this.forceAvatarProps();
-    this.forceThumbnailProps();
+    this.forceIconProps(this.desktopMediaQuery.matches);
+    this.updateIconSize(this.desktopMediaQuery.matches);
+
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+
+    if (Boolean(this.menuTriggerId)) {
+      console.warn(
+        '[Swirl] The "menu-trigger-id" prop of swirl-resource-list-item is deprecated and will be removed with the next major release. Please use the "control" slot to add a menu button instead. https://swirl-storybook.flip-app.dev/?path=/docs/components-swirlresourcelistitem--docs'
+      );
+    }
   }
 
-  private forceAvatarProps() {
-    const avatarEl = this.el.querySelector("swirl-avatar");
-
-    if (!Boolean(avatarEl)) {
-      return;
-    }
-
-    avatarEl.removeAttribute("interactive");
-    avatarEl.removeAttribute("show-label");
-    avatarEl.removeAttribute("variant");
-
-    avatarEl.setAttribute("size", "l");
+  disconnectedCallback() {
+    this.desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
-  private forceThumbnailProps() {
-    const thumbnailEl = this.el.querySelector("swirl-thumbnail");
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.forceIconProps(event.matches);
+    this.updateIconSize(event.matches);
+  };
 
-    if (!Boolean(thumbnailEl)) {
-      return;
-    }
+  private forceIconProps(smallIcon: boolean) {
+    const icon = this.iconEl?.children[0];
 
-    thumbnailEl.setAttribute("format", "landscape");
+    icon?.setAttribute("size", smallIcon ? "20" : "24");
+  }
 
-    if (!["s", "m"].includes(thumbnailEl.getAttribute("size"))) {
-      thumbnailEl.setAttribute("size", "m");
+  private updateIconSize(smallIcon: boolean) {
+    this.iconSize = smallIcon ? 20 : 24;
+  }
+
+  private updateMediaState() {
+    const mediaContainer = this.el.querySelector('[slot="media"]');
+    const hasMedia = Boolean(mediaContainer);
+
+    if (hasMedia !== this.hasMedia) {
+      this.hasMedia = hasMedia;
     }
   }
 
@@ -80,23 +120,54 @@ export class SwirlResourceListItem {
     }
   };
 
+  private onDragHandleKeyDown = (event: KeyboardEvent) => {
+    if (event.code === "Space" || event.code === "Enter") {
+      event.preventDefault();
+      this.toggleDrag.emit(this.el);
+    }
+  };
+
   render() {
-    const Tag = Boolean(this.href) && !this.selectable ? "a" : "button";
+    const Tag =
+      !this.interactive && !this.selectable
+        ? "div"
+        : Boolean(this.href) && !this.selectable
+        ? "a"
+        : "button";
 
     const disabled = this.disabled && !Boolean(this.href);
-    const hasMenu = Boolean(this.menuTriggerId);
-    const showMenu = hasMenu && !Boolean(this.meta) && !this.selectable;
-    const showMeta = Boolean(this.meta) && !this.selectable;
+
+    const hasBadges = Boolean(this.el.querySelector("[slot='badges']"));
+    const hasMenu =
+      Boolean(this.menuTriggerId) || this.el.querySelector("[slot='control']");
+
+    const href = this.interactive && Boolean(this.href) ? this.href : undefined;
+
+    const showControlOnFocus = Boolean(this.meta) || hasBadges;
+    const showMenu =
+      Boolean(this.menuTriggerId) && !Boolean(this.meta) && !this.selectable;
+    const showMeta = (Boolean(this.meta) || hasBadges) && !this.selectable;
 
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
-    const role = this.selectable ? "checkbox" : undefined;
+    const role = this.interactive && this.selectable ? "checkbox" : undefined;
 
-    const className = classnames("resource-list-item", {
-      "resource-list-item--checked": this.checked,
-      "resource-list-item--has-menu": hasMenu,
-      "resource-list-item--hide-divider": this.hideDivider,
-      "resource-list-item--selectable": this.selectable,
-    });
+    const className = classnames(
+      "resource-list-item",
+      `resource-list-item--label-weight-${this.labelWeight}`,
+      {
+        "resource-list-item--active": this.active,
+        "resource-list-item--checked": this.checked,
+        "resource-list-item--disabled": this.disabled,
+        "resource-list-item--draggable": this.allowDrag,
+        "resource-list-item--dragging": this.dragging,
+        "resource-list-item--has-menu": hasMenu,
+        "resource-list-item--hide-divider": this.hideDivider,
+        "resource-list-item--interactive": this.interactive || this.selectable,
+        "resource-list-item--selectable": this.selectable,
+        "resource-list-item--show-control-on-focus": showControlOnFocus,
+        "resource-list-item--show-meta": showMeta,
+      }
+    );
 
     return (
       <Host role="row">
@@ -104,31 +175,40 @@ export class SwirlResourceListItem {
           <Tag
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}
-            aria-labelledby="label"
+            aria-labelledby={this.id}
             class="resource-list-item__content"
-            href={this.href}
+            href={href}
             disabled={disabled}
             onClick={this.onClick}
             part="resource-list-item__content"
             role={role}
             tabIndex={0}
           >
-            {Boolean(this.media) && (
-              <span
-                class="resource-list-item__media"
-                innerHTML={this.media}
-              ></span>
+            {this.hasMedia && (
+              <span class="resource-list-item__media">
+                <slot name="media"></slot>
+              </span>
             )}
             <span class="resource-list-item__label-container">
-              <span class="resource-list-item__label" id="label">
-                {this.label}
-              </span>
+              <span
+                class="resource-list-item__label"
+                id={this.id}
+                innerHTML={this.label}
+              ></span>
               {this.description && (
                 <span class="resource-list-item__description">
                   {this.description}
                 </span>
               )}
             </span>
+            {showMeta && (
+              <span class="resource-list-item__meta">
+                <span class="resource-list-item__meta-text">{this.meta}</span>
+                <span class="resource-list-item__badges">
+                  <slot name="badges"></slot>
+                </span>
+              </span>
+            )}
           </Tag>
           {this.selectable && (
             <span aria-hidden="true" class="resource-list-item__checkbox">
@@ -139,23 +219,38 @@ export class SwirlResourceListItem {
               </span>
             </span>
           )}
-          {showMeta && (
-            <span class="resource-list-item__meta">{this.meta}</span>
-          )}
+          <span class="resource-list-item__control">
+            <slot name="control"></slot>
+          </span>
           {showMenu && (
-            <swirl-button
-              aria-disabled={disabled ? "true" : undefined}
-              class="resource-list-item__menu-trigger"
-              disabled={disabled}
-              hideLabel
-              icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
-              id={this.menuTriggerId}
-              intent="primary"
-              label={this.menuTriggerLabel}
-              onClick={this.onMenuTriggerClick}
-            ></swirl-button>
+            <swirl-popover-trigger popover={this.menuTriggerId}>
+              <swirl-button
+                aria-disabled={disabled ? "true" : undefined}
+                class="resource-list-item__menu-trigger"
+                disabled={disabled}
+                hideLabel
+                icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
+                intent="primary"
+                label={this.menuTriggerLabel}
+                onClick={this.onMenuTriggerClick}
+              ></swirl-button>
+            </swirl-popover-trigger>
           )}
         </div>
+
+        {this.allowDrag && (
+          <button
+            aria-describedby={this.dragHandleDescription}
+            aria-label={`${this.dragHandleLabel} "${this.label}"`}
+            class="resource-list-item__drag-handle"
+            onKeyDown={this.onDragHandleKeyDown}
+            type="button"
+          >
+            <swirl-icon-drag-handle
+              size={this.iconSize}
+            ></swirl-icon-drag-handle>
+          </button>
+        )}
       </Host>
     );
   }

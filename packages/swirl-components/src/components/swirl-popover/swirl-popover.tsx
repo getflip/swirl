@@ -21,7 +21,11 @@ import {
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
-import { isMobileViewport, querySelectorAllDeep } from "../../utils";
+import {
+  getActiveElement,
+  isMobileViewport,
+  querySelectorAllDeep,
+} from "../../utils";
 
 export type SwirlPopoverAnimation = "scale-in-xy" | "scale-in-y";
 
@@ -37,12 +41,16 @@ export class SwirlPopover {
   @Element() el: HTMLElement;
 
   @Prop() animation?: SwirlPopoverAnimation = "scale-in-xy";
+  @Prop() disableScrollLock?: boolean;
   @Prop() enableFlip?: boolean = true;
+  @Prop() fullscreenBottomSheet?: boolean;
   @Prop() label!: string;
+  @Prop() maxHeight?: string = "22rem";
   @Prop() offset?: number | number[] = 8;
+  @Prop() popoverId?: string;
   @Prop() placement?: Placement = "bottom-start";
-  @Prop() popoverId!: string;
-  @Prop() trigger!: string;
+  @Prop() trigger?: string | HTMLElement;
+  @Prop() triggerContainer?: HTMLElement;
   @Prop() useContainerWidth?: boolean | string;
 
   @State() active = false;
@@ -50,22 +58,26 @@ export class SwirlPopover {
   @State() position: ComputePositionReturn;
 
   @Event() popoverClose: EventEmitter<void>;
-  @Event() popoverOpen: EventEmitter<void>;
+  @Event() popoverOpen: EventEmitter<{ position: ComputePositionReturn }>;
 
   private contentContainer: HTMLDivElement;
   private disableAutoUpdate: any;
-  private focusableChildren: HTMLElement[];
   private scrollContainer: HTMLDivElement;
-  private triggerEl: HTMLElement;
+  private triggerEl: HTMLElement | undefined;
 
   componentDidLoad() {
     this.connectTrigger();
-    this.updateFocusableChildren();
     this.updateTriggerAttributes();
+
+    if (Boolean(this.trigger)) {
+      console.warn(
+        '[Swirl] The "trigger" prop of swirl-popover is deprecated and will be removed with the next major release. Please use the swirl-popover-trigger component instead. https://swirl-storybook.flip-app.dev/?path=/docs/components-swirlpopovertrigger--docs'
+      );
+    }
   }
 
   disconnectedCallback() {
-    enableBodyScroll(this.scrollContainer);
+    this.unlockBodyScroll();
   }
 
   @Listen("focusin", { target: "window" })
@@ -74,9 +86,20 @@ export class SwirlPopover {
       return;
     }
 
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     const target = event.target as HTMLElement;
+    const relatedTarget = event.relatedTarget as HTMLElement;
+    const activeElement = getActiveElement();
 
-    const popoverLostFocus = !this.el.contains(target);
+    const popoverLostFocus =
+      !this.el.contains(target) &&
+      !this.el.contains(activeElement) &&
+      target !== this.triggerEl &&
+      !this.triggerEl?.contains(target) &&
+      (!isSafari ||
+        (isSafari &&
+          !this.el.contains(relatedTarget || target) &&
+          relatedTarget !== this.el));
 
     if (popoverLostFocus) {
       this.close();
@@ -101,7 +124,7 @@ export class SwirlPopover {
           : false
       );
 
-    const clickedTrigger = event.target === this.triggerEl;
+    const clickedTrigger = target === this.triggerEl;
 
     if (!clickedChild && !clickedShadowChild && !clickedTrigger) {
       this.close();
@@ -133,7 +156,6 @@ export class SwirlPopover {
     }, 150);
 
     this.unlockBodyScroll();
-
     this.getNativeTriggerElement()?.focus();
   }
 
@@ -142,24 +164,28 @@ export class SwirlPopover {
    * @returns
    */
   @Method()
-  public async open() {
-    if (this.active) {
+  public async open(triggerEl?: HTMLElement) {
+    this.triggerEl = triggerEl || this.triggerEl;
+
+    if (this.active || !Boolean(this.triggerEl)) {
       return;
     }
 
     this.adjustWidth();
 
     this.active = true;
-    this.popoverOpen.emit();
 
-    this.updateFocusableChildren();
     this.updateTriggerAttributes();
+
+    const focusableChildren = this.getFocusableChildren();
 
     requestAnimationFrame(async () => {
       await this.reposition();
 
-      if (this.focusableChildren.length > 0) {
-        this.focusableChildren[0].focus();
+      this.popoverOpen.emit({ position: this.position });
+
+      if (focusableChildren.length > 0) {
+        focusableChildren[0].focus();
       } else {
         this.contentContainer.focus();
       }
@@ -171,7 +197,7 @@ export class SwirlPopover {
       this.disableAutoUpdate = autoUpdate(
         this.triggerEl,
         this.contentContainer,
-        this.reposition
+        () => this.reposition()
       );
 
       this.scrollContainer.scrollTop = 0;
@@ -190,7 +216,18 @@ export class SwirlPopover {
   };
 
   private connectTrigger() {
-    this.triggerEl = querySelectorAllDeep(document.body, `#${this.trigger}`)[0];
+    if (!Boolean(this.trigger)) {
+      this.triggerEl = undefined;
+      return;
+    }
+
+    this.triggerEl =
+      typeof this.trigger === "string"
+        ? querySelectorAllDeep(
+            this.triggerContainer || document.body,
+            `#${this.trigger}`
+          )[0]
+        : this.trigger;
 
     if (!Boolean(this.triggerEl)) {
       return;
@@ -202,7 +239,7 @@ export class SwirlPopover {
   }
 
   private getNativeTriggerElement() {
-    return this.triggerEl.tagName.startsWith("SWIRL-")
+    return this.triggerEl?.tagName.startsWith("SWIRL-")
       ? ((this.triggerEl?.children[0] ||
           this.triggerEl?.shadowRoot?.children[0] ||
           this.triggerEl) as HTMLElement)
@@ -223,16 +260,13 @@ export class SwirlPopover {
 
     const nativeTriggerEl = this.getNativeTriggerElement();
 
-    nativeTriggerEl.setAttribute("aria-controls", this.popoverId);
+    nativeTriggerEl.setAttribute("aria-controls", this.el.id);
     nativeTriggerEl.setAttribute("aria-expanded", String(this.active));
     nativeTriggerEl.setAttribute("aria-haspopup", "dialog");
   }
 
-  private updateFocusableChildren() {
-    this.focusableChildren = querySelectorAllDeep(
-      this.el,
-      '[role="menuitem"], [role="listbox"]'
-    );
+  private getFocusableChildren() {
+    return querySelectorAllDeep(this.el, '[role="menuitem"], [role="listbox"]');
   }
 
   private adjustWidth() {
@@ -296,7 +330,7 @@ export class SwirlPopover {
   private lockBodyScroll() {
     const mobile = isMobileViewport();
 
-    if (!mobile) {
+    if (!mobile || this.disableScrollLock) {
       return;
     }
 
@@ -304,6 +338,12 @@ export class SwirlPopover {
   }
 
   private unlockBodyScroll() {
+    const mobile = isMobileViewport();
+
+    if (!mobile || this.disableScrollLock) {
+      return;
+    }
+
     enableBodyScroll(this.scrollContainer);
   }
 
@@ -312,23 +352,29 @@ export class SwirlPopover {
   };
 
   render() {
+    const mobile = !window.matchMedia("(min-width: 768px)").matches;
+
     const className = classnames(
       "popover",
       `popover--animation-${this.animation}`,
+      `popover--placement-${this.position?.placement}`,
       {
         "popover--closing": this.closing,
         "popover--active": this.active,
+        "popover--fullscreen-bottom-sheet": this.fullscreenBottomSheet,
         "popover--inactive": !this.active,
       }
     );
 
     return (
-      <Host id={this.popoverId}>
+      <Host>
         <div class={className} onKeyDown={this.onKeydown}>
           <div
             aria-hidden={!this.active ? "true" : "false"}
             aria-label={this.label}
             class="popover__content"
+            id={this.popoverId}
+            part="popover__content"
             role="dialog"
             ref={(el) => (this.contentContainer = el)}
             style={{
@@ -341,6 +387,12 @@ export class SwirlPopover {
             <div
               class="popover__scroll-container"
               ref={(el) => (this.scrollContainer = el)}
+              style={{
+                maxHeight:
+                  !mobile && Boolean(this.maxHeight)
+                    ? this.maxHeight
+                    : undefined,
+              }}
             >
               <slot></slot>
             </div>

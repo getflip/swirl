@@ -11,7 +11,7 @@ describe("swirl-checkbox", () => {
 
     expect(page.root).toMatchInlineSnapshot(`
       <swirl-checkbox checked="true" description="Description" disabled="true" input-id="checkbox" input-name="checkbox" label="Label" value="Value">
-        <label class="checkbox checkbox--checked checkbox--disabled" htmlfor="checkbox">
+        <label class="checkbox checkbox--checked checkbox--disabled checkbox--label-weight-medium checkbox--variant-default" htmlfor="checkbox">
           <span class="checkbox__control">
             <swirl-visually-hidden>
               <input aria-checked="true" checked="" class="checkbox__input" disabled="" id="checkbox" name="checkbox" type="checkbox" value="Value">

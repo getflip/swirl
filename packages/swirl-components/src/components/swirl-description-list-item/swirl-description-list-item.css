@@ -11,6 +11,8 @@
 .description-list-item {
   display: block;
   max-width: 100%;
+  padding-top: var(--s-space-8);
+  padding-bottom: var(--s-space-8);
   color: var(--s-text-default);
   line-height: var(--s-line-height-base);
 
@@ -20,10 +22,17 @@
   }
 }
 
+.description-list-item--bordered {
+  padding-top: var(--s-space-16);
+  padding-bottom: var(--s-space-16);
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+}
+
 .description-list-item__term {
   display: block;
   margin-bottom: var(--s-space-4);
   font-weight: var(--s-font-weight-semibold);
+  overflow-wrap: break-word;
 
   @media (--from-desktop-without-touch) {
     margin-bottom: var(--s-space-2);
@@ -34,34 +43,14 @@
   display: block;
   max-width: 40rem;
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 @container description-list (min-width: 480px) {
-  .description-list-item {
+  .description-list-item--orientation-horizontal {
     display: flex;
-  }
 
-  .description-list-item__term {
-    margin-right: var(--s-space-16);
-    margin-bottom: 0;
-    flex-basis: 12rem;
-    flex-grow: 0;
-    flex-shrink: 0;
-  }
-
-  .description-list-item__description {
-    flex-grow: 1;
-  }
-}
-
-/* Fallback styles for browsers without container query support */
-@supports not (container-type: inline-size) {
-  @media (--from-tablet) {
-    .description-list-item {
-      display: flex;
-    }
-
-    .description-list-item__term {
+    & .description-list-item__term {
       margin-right: var(--s-space-16);
       margin-bottom: 0;
       flex-basis: 12rem;
@@ -69,8 +58,29 @@
       flex-shrink: 0;
     }
 
-    .description-list-item__description {
+    & .description-list-item__description {
       flex-grow: 1;
+    }
+  }
+}
+
+/* Fallback styles for browsers without container query support */
+@supports not (container-type: inline-size) {
+  @media (--from-tablet) {
+    .description-list-item--orientation-horizontal {
+      display: flex;
+
+      & .description-list-item__term {
+        margin-right: var(--s-space-16);
+        margin-bottom: 0;
+        flex-basis: 12rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+
+      & .description-list-item__description {
+        flex-grow: 1;
+      }
     }
   }
 }

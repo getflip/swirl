@@ -9,13 +9,13 @@ interface IconInfoProps {
 
 export const IconInfo: FunctionComponent<IconInfoProps> = ({ icon }) => {
   return (
-    <aside className="sticky top-16 md:ml-8">
+    <aside className="sticky top-8 max-w-[17.5rem] mt-[12.5rem] h-fit">
       <h2 className="font-semibold text-font-size-xl mb-2 text-text-default">
         {icon?.name}
       </h2>
-      <p className="text-font-size-sm font-normal mb-6 text-text-default">
+      {/* <p className="text-font-size-sm font-normal mb-6 text-text-default">
         {icon?.description}
-      </p>
+      </p> */}
       <IconDownload icon={icon} />
       <hr className="border-b-1 my-6" />
       <h2 className="font-semibold text-base mb-2">

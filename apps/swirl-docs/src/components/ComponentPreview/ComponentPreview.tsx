@@ -1,23 +1,23 @@
-import { getSwirlComponentData } from "@swirl/lib/components";
 import {
   Prop,
+  SwirlComponent,
   SwirlComponentCodePreview,
 } from "@swirl/lib/components/src/components.model";
-import { ComponentExample, FrontMatter } from "@swirl/lib/docs/src/docs.model";
-import { FunctionComponent, useCallback, useEffect, useState } from "react";
-import { CodeExample, CodePreview } from "./CodePreview";
+import { ComponentExample } from "@swirl/lib/docs/src/docs.model";
+import { useCallback, useEffect, useState } from "react";
 import { PropsTable } from "./PropsTable";
 import { VariantPreview } from "./VariantPreview";
 import prettier from "prettier/standalone";
 import prettierHTML from "prettier/parser-html";
+import { CodePreview } from "../CodePreview";
+import { CodeExample } from "../CodePreview/types";
+import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
+import { NpmPackageLink } from "../CodePreview/NpmPackageLink";
+import { CodeSandboxButton } from "../CodePreview/CodeSandboxButton";
 
-interface ComponentPreviewProps {
-  frontMatter: FrontMatter | undefined;
-}
+export function ComponentPreview() {
+  const { frontMatter, componentsJSON } = useDocumentationLayoutContext();
 
-export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
-  frontMatter,
-}) => {
   const [currentExample, setCurrentExample] = useState<ComponentExample | null>(
     null
   );
@@ -49,7 +49,7 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
       }
 
       return {
-        isLongCode: el.outerHTML.length > 180,
+        isLongCode: el.outerHTML.split("\n").length > 7,
         code: prettier.format(el.outerHTML, {
           parser: "html",
           plugins: [prettierHTML],
@@ -63,6 +63,22 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
     };
   }, [componentData]);
 
+  const getSwirlComponentData = useCallback(
+    (name: string): SwirlComponent => {
+      const tag = `swirl-${name.toLowerCase().replace(/ /g, "-")}`;
+
+      const component = componentsJSON?.components.find(
+        (c: any) => c.tag === tag
+      ) as unknown as SwirlComponent;
+
+      if (!component) {
+        throw new Error(`Component ${tag} not found`);
+      }
+      return component;
+    },
+    [componentsJSON]
+  );
+
   useEffect(() => {
     setIsLoading(true);
     if (frontMatter?.examples) {
@@ -74,13 +90,15 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
         innerHtml: frontMatter?.innerHtml ? frontMatter?.innerHtml : "",
       });
     }
-  }, [frontMatter]);
+  }, [frontMatter, getSwirlComponentData]);
 
   useEffect(() => {
     if (componentData) {
       // TO DO: add support for multiple examples in mdx file structure
       setCodeExample(generateCodePreview());
     }
+
+    const codeExample = generateCodePreview();
   }, [componentData, generateCodePreview, currentExample]);
 
   return (
@@ -92,10 +110,22 @@ export const ComponentPreview: FunctionComponent<ComponentPreviewProps> = ({
         setIsLoading={setIsLoading}
         handleExampleChange={(example) => setCurrentExample(example)}
       />
-      <CodePreview codeExample={codeExample} />
+      <CodePreview
+        hasCopyButton
+        codeExample={{
+          code: codeExample.code,
+          isLongCode: codeExample.code.split("\n").length > 7,
+        }}
+        MainHeaderContent={
+          <div className="flex">
+            <CodePreview.NpmPackageLink />
+            <CodePreview.CodeSandboxButton />
+          </div>
+        }
+      />
       {hasComponentProps && (
         <PropsTable componentPropsData={componentData.props}></PropsTable>
       )}
     </>
   );
-};
+}

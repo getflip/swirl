@@ -1,7 +1,7 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlSpinnerSize = "s" | "m";
+export type SwirlSpinnerSize = "xs" | "s" | "m" | 20 | 24 | 36;
 
 @Component({
   shadow: true,

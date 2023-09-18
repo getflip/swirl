@@ -1,4 +1,7 @@
 import { Component, h, Host, Prop } from "@stencil/core";
+import classNames from "classnames";
+
+export type SwirlDescriptionListItemOrientation = "vertical" | "horizontal";
 
 /**
  * @slot slot - The description
@@ -9,21 +12,35 @@ import { Component, h, Host, Prop } from "@stencil/core";
   tag: "swirl-description-list-item",
 })
 export class SwirlDescriptionListItem {
+  @Prop() bordered?: boolean = true;
+  @Prop() maxWidth?: string;
+  @Prop() orientation?: SwirlDescriptionListItemOrientation = "horizontal";
   @Prop() term!: string;
 
   render() {
+    const className = classNames(
+      "description-list-item",
+      `description-list-item--orientation-${this.orientation}`,
+      { "description-list-item--bordered": this.bordered }
+    );
+
     return (
-      <Host>
-        <div class="description-list-item" part="description-list-item">
-          <dt
+      <Host role="listitem">
+        <div class={className} part="description-list-item" role="group">
+          <div
             class="description-list-item__term"
             part="description-list-item__term"
+            role="term"
           >
             {this.term}
-          </dt>
-          <dd class="description-list-item__description">
+          </div>
+          <div
+            style={{ maxWidth: this.maxWidth }}
+            class="description-list-item__description"
+            role="definition"
+          >
             <slot></slot>
-          </dd>
+          </div>
         </div>
       </Host>
     );

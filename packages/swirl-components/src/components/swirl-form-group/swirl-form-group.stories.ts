@@ -3,6 +3,7 @@ import Docs from "./swirl-form-group.mdx";
 
 export default {
   component: "swirl-form-group",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

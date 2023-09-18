@@ -1,0 +1,12 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.columns {
+  display: grid;
+  width: 100%;
+}

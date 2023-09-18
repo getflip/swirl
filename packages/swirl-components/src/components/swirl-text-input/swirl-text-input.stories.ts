@@ -3,6 +3,7 @@ import Docs from "./swirl-text-input.mdx";
 
 export default {
   component: "swirl-text-input",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
@@ -16,6 +17,7 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-text-input", args);
 
   formControl.setAttribute("label", "Input");
+  formControl.setAttribute("disabled", args.disabled ? "true" : "false");
   formControl.append("\n  ", element, "\n");
 
   return formControl;

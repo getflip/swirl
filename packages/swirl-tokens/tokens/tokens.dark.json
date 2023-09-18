@@ -132,6 +132,18 @@
     "value": "2rem",
     "type": "spacing"
   },
+  "space-40": {
+    "value": "2.5rem",
+    "type": "spacing"
+  },
+  "space-48": {
+    "value": "3rem",
+    "type": "spacing"
+  },
+  "space-64": {
+    "value": "4rem",
+    "type": "spacing"
+  },
   "decoration-none": {
     "value": "none",
     "type": "textDecoration"
@@ -209,15 +221,15 @@
     "type": "zIndex"
   },
   "core-gray-10": {
-    "value": "rgba(42, 43, 45, 1)",
+    "value": "rgba(38, 38, 38, 1)",
     "type": "color"
   },
   "core-gray-11": {
-    "value": "rgba(35, 36, 38, 1)",
+    "value": "rgba(28, 28, 28, 1)",
     "type": "color"
   },
   "core-gray-12": {
-    "value": "rgba(25, 26, 28, 1)",
+    "value": "rgba(23, 23, 23, 1)",
     "type": "color"
   },
   "core-gray-black": {
@@ -225,39 +237,39 @@
     "type": "color"
   },
   "core-gray-09": {
-    "value": "rgba(50, 51, 53, 1)",
+    "value": "rgba(46, 46, 46, 1)",
     "type": "color"
   },
   "core-gray-08": {
-    "value": "rgba(58, 59, 61, 1)",
+    "value": "rgba(54, 54, 54, 1)",
     "type": "color"
   },
   "core-gray-07": {
-    "value": "rgba(79, 80, 84, 1)",
+    "value": "rgba(66, 66, 66, 1)",
     "type": "color"
   },
   "core-gray-06": {
-    "value": "rgba(109, 110, 114, 1)",
+    "value": "rgba(110, 110, 110, 1)",
     "type": "color"
   },
   "core-gray-05": {
-    "value": "rgba(161, 162, 165, 1)",
+    "value": "rgba(152, 152, 152, 1)",
     "type": "color"
   },
   "core-gray-04": {
-    "value": "rgba(204, 205, 209, 1)",
+    "value": "rgba(207, 207, 207, 1)",
     "type": "color"
   },
   "core-gray-03": {
-    "value": "rgba(221, 222, 224, 1)",
+    "value": "rgba(223, 223, 223, 1)",
     "type": "color"
   },
   "core-gray-02": {
-    "value": "rgba(232, 233, 235, 1)",
+    "value": "rgba(234, 234, 234, 1)",
     "type": "color"
   },
   "core-gray-01": {
-    "value": "rgba(242, 243, 245, 1)",
+    "value": "rgba(242, 242, 242, 1)",
     "type": "color"
   },
   "core-gray-white": {
@@ -265,39 +277,39 @@
     "type": "color"
   },
   "core-customer-color-light-1-default": {
-    "value": "rgba(21, 25, 47, 1)",
+    "value": "rgba(20, 90, 245, 1)",
     "type": "color"
   },
   "core-customer-color-light-1-hovered": {
-    "value": "rgba(56, 60, 78, 1)",
+    "value": "rgba(55, 115, 247, 1)",
     "type": "color"
   },
   "core-customer-color-light-1-pressed": {
-    "value": "rgba(91, 94, 109, 1)",
+    "value": "rgba(91, 139, 248, 1)",
     "type": "color"
   },
   "core-customer-color-light-2-default": {
-    "value": "rgba(0, 38, 255, 1)",
+    "value": "rgba(230, 238, 255, 1)",
     "type": "color"
   },
   "core-customer-color-light-2-hovered": {
-    "value": "rgba(38, 71, 255, 1)",
+    "value": "rgba(213, 226, 255, 1)",
     "type": "color"
   },
   "core-customer-color-light-2-pressed": {
-    "value": "rgba(77, 103, 255, 1)",
+    "value": "rgba(190, 210, 255, 1)",
     "type": "color"
   },
   "core-customer-color-light-3-default": {
-    "value": "rgba(0, 61, 175, 1)",
+    "value": "rgba(0, 55, 175, 1)",
     "type": "color"
   },
   "core-customer-color-light-3-hovered": {
-    "value": "rgba(38, 90, 187, 1)",
+    "value": "rgba(38, 85, 187, 1)",
     "type": "color"
   },
   "core-customer-color-light-3-pressed": {
-    "value": "rgba(77, 119, 199, 1)",
+    "value": "rgba(77, 116, 199, 1)",
     "type": "color"
   },
   "core-on-customer-color-light-1": {
@@ -305,43 +317,43 @@
     "type": "color"
   },
   "core-on-customer-color-light-2": {
-    "value": "rgba(255, 255, 255, 1)",
+    "value": "rgba(23, 23, 23, 1)",
     "type": "color"
   },
   "core-customer-color-dark-1-default": {
-    "value": "rgba(145, 145, 162, 1)",
+    "value": "rgba(86, 143, 222, 1)",
     "type": "color"
   },
   "core-customer-color-dark-1-hovered": {
-    "value": "rgba(123, 123, 138, 1)",
+    "value": "rgba(121, 164, 223, 1)",
     "type": "color"
   },
   "core-customer-color-dark-1-pressed": {
-    "value": "rgba(102, 102, 113, 1)",
+    "value": "rgba(150, 181, 224, 1)",
     "type": "color"
   },
   "core-customer-color-dark-2-default": {
-    "value": "rgba(115, 148, 211, 1)",
+    "value": "rgba(45, 71, 127, 1)",
     "type": "color"
   },
   "core-customer-color-dark-2-hovered": {
-    "value": "rgba(98, 126, 179, 1)",
+    "value": "rgba(52, 80, 141, 1)",
     "type": "color"
   },
   "core-customer-color-dark-2-pressed": {
-    "value": "rgba(80, 104, 148, 1)",
+    "value": "rgba(64, 91, 151, 1)",
     "type": "color"
   },
   "core-customer-color-dark-3-default": {
-    "value": "rgba(115, 148, 211, 1)",
+    "value": "rgba(86, 143, 222, 1)",
     "type": "color"
   },
   "core-customer-color-dark-3-hovered": {
-    "value": "rgba(98, 126, 179, 1)",
+    "value": "rgba(121, 164, 223, 1)",
     "type": "color"
   },
   "core-customer-color-dark-3-pressed": {
-    "value": "rgba(80, 104, 148, 1)",
+    "value": "rgba(150, 181, 224, 1)",
     "type": "color"
   },
   "core-on-customer-color-dark-1": {
@@ -349,11 +361,19 @@
     "type": "color"
   },
   "core-on-customer-color-dark-2": {
-    "value": "rgba(0, 0, 0, 1)",
+    "value": "rgba(242, 242, 242, 1)",
     "type": "color"
   },
   "core-status-light-critical-default": {
     "value": "rgba(213, 6, 54, 1)",
+    "type": "color"
+  },
+  "core-status-light-critical-hovered": {
+    "value": "rgba(179, 39, 57, 1)",
+    "type": "color"
+  },
+  "core-status-light-critical-pressed": {
+    "value": "rgba(159, 35, 52, 1)",
     "type": "color"
   },
   "core-status-light-critical-subdued": {
@@ -368,14 +388,6 @@
     "value": "rgba(220, 247, 220, 1)",
     "type": "color"
   },
-  "core-status-light-info-default": {
-    "value": "rgba(20, 90, 245, 1)",
-    "type": "color"
-  },
-  "core-status-light-info-subdued": {
-    "value": "rgba(230, 241, 255, 1)",
-    "type": "color"
-  },
   "core-status-light-warning-strong": {
     "value": "rgba(147, 88, 6, 1)",
     "type": "color"
@@ -388,36 +400,52 @@
     "value": "rgba(250, 241, 200, 1)",
     "type": "color"
   },
-  "core-status-dark-info-default": {
-    "value": "rgba(115, 167, 242, 1)",
+  "core-status-light-info-default": {
+    "value": "rgba(20, 90, 245, 1)",
     "type": "color"
   },
-  "core-status-dark-info-subdued": {
-    "value": "rgba(16, 38, 72, 1)",
-    "type": "color"
-  },
-  "core-status-dark-success-default": {
-    "value": "rgba(104, 196, 104, 1)",
-    "type": "color"
-  },
-  "core-status-dark-success-subdued": {
-    "value": "rgba(18, 58, 18, 1)",
-    "type": "color"
-  },
-  "core-status-dark-warning-default": {
-    "value": "rgba(249, 199, 99, 1)",
-    "type": "color"
-  },
-  "core-status-dark-warning-subdued": {
-    "value": "rgba(57, 46, 17, 1)",
+  "core-status-light-info-subdued": {
+    "value": "rgba(230, 241, 255, 1)",
     "type": "color"
   },
   "core-status-dark-critical-default": {
-    "value": "rgba(251, 100, 134, 1)",
+    "value": "rgba(228, 100, 100, 1)",
+    "type": "color"
+  },
+  "core-status-dark-critical-hovered": {
+    "value": "rgba(210, 123, 121, 1)",
+    "type": "color"
+  },
+  "core-status-dark-critical-pressed": {
+    "value": "rgba(215, 147, 145, 1)",
     "type": "color"
   },
   "core-status-dark-critical-subdued": {
-    "value": "rgba(71, 14, 27, 1)",
+    "value": "rgba(56, 33, 38, 1)",
+    "type": "color"
+  },
+  "core-status-dark-warning-default": {
+    "value": "rgba(243, 183, 3, 1)",
+    "type": "color"
+  },
+  "core-status-dark-warning-subdued": {
+    "value": "rgba(45, 39, 25, 1)",
+    "type": "color"
+  },
+  "core-status-dark-success-default": {
+    "value": "rgba(80, 164, 80, 1)",
+    "type": "color"
+  },
+  "core-status-dark-success-subdued": {
+    "value": "rgba(26, 44, 26, 1)",
+    "type": "color"
+  },
+  "core-status-dark-info-default": {
+    "value": "rgba(100, 142, 233, 1)",
+    "type": "color"
+  },
+  "core-status-dark-info-subdued": {
+    "value": "rgba(33, 41, 58, 1)",
     "type": "color"
   },
   "core-decorative-light-chilli-text": {
@@ -505,146 +533,158 @@
     "type": "color"
   },
   "core-decorative-dark-chilli-text": {
-    "value": "rgba(255, 128, 128, 1)",
+    "value": "rgba(218, 109, 109, 1)",
     "type": "color"
   },
   "core-decorative-dark-chilli-surface": {
-    "value": "rgba(255, 128, 128, 1)",
+    "value": "rgba(218, 109, 109, 1)",
     "type": "color"
   },
   "core-decorative-dark-chilli-surface-subdued": {
-    "value": "rgba(65, 27, 38, 1)",
+    "value": "rgba(56, 34, 33, 1)",
     "type": "color"
   },
   "core-decorative-dark-pumpkin-text": {
-    "value": "rgba(255, 164, 115, 1)",
+    "value": "rgba(212, 128, 49, 1)",
     "type": "color"
   },
   "core-decorative-dark-pumpkin-surface": {
-    "value": "rgba(243, 149, 62, 1)",
+    "value": "rgba(212, 128, 49, 1)",
     "type": "color"
   },
   "core-decorative-dark-pumpkin-surface-subdued": {
-    "value": "rgba(65, 42, 21, 1)",
+    "value": "rgba(51, 37, 26, 1)",
     "type": "color"
   },
   "core-decorative-dark-banana-text": {
-    "value": "rgba(236, 193, 64, 1)",
+    "value": "rgba(175, 145, 27, 1)",
     "type": "color"
   },
   "core-decorative-dark-banana-surface": {
-    "value": "rgba(236, 193, 64, 1)",
+    "value": "rgba(175, 145, 27, 1)",
     "type": "color"
   },
   "core-decorative-dark-banana-surface-subdued": {
-    "value": "rgba(54, 47, 16, 1)",
+    "value": "rgba(44, 39, 29, 1)",
     "type": "color"
   },
   "core-decorative-dark-radish-text": {
-    "value": "rgba(228, 95, 191, 1)",
+    "value": "rgba(221, 105, 189, 1)",
     "type": "color"
   },
   "core-decorative-dark-radish-surface": {
-    "value": "rgba(228, 95, 191, 1)",
+    "value": "rgba(221, 105, 189, 1)",
     "type": "color"
   },
   "core-decorative-dark-radish-surface-subdued": {
-    "value": "rgba(66, 22, 53, 1)",
+    "value": "rgba(50, 35, 45, 1)",
     "type": "color"
   },
   "core-decorative-dark-grape-text": {
-    "value": "rgba(194, 113, 226, 1)",
+    "value": "rgba(194, 107, 233, 1)",
     "type": "color"
   },
   "core-decorative-dark-grape-surface": {
-    "value": "rgba(194, 113, 226, 1)",
+    "value": "rgba(194, 107, 233, 1)",
     "type": "color"
   },
   "core-decorative-dark-grape-surface-subdued": {
-    "value": "rgba(57, 28, 81, 1)",
+    "value": "rgba(47, 36, 56, 1)",
     "type": "color"
   },
   "core-decorative-dark-kiwi-text": {
-    "value": "rgba(136, 200, 151, 1)",
+    "value": "rgba(89, 164, 105, 1)",
     "type": "color"
   },
   "core-decorative-dark-kiwi-surface": {
-    "value": "rgba(136, 200, 151, 1)",
+    "value": "rgba(89, 164, 105, 1)",
     "type": "color"
   },
   "core-decorative-dark-kiwi-surface-subdued": {
-    "value": "rgba(24, 47, 24, 1)",
+    "value": "rgba(34, 43, 34, 1)",
     "type": "color"
   },
   "core-decorative-dark-blueberry-text": {
-    "value": "rgba(123, 156, 232, 1)",
+    "value": "rgba(86, 143, 222, 1)",
     "type": "color"
   },
   "core-decorative-dark-blueberry-surface": {
-    "value": "rgba(123, 156, 232, 1)",
+    "value": "rgba(86, 143, 222, 1)",
     "type": "color"
   },
   "core-decorative-dark-blueberry-surface-subdued": {
-    "value": "rgba(17, 41, 71, 1)",
+    "value": "rgba(30, 41, 54, 1)",
     "type": "color"
   },
   "background-default": {
-    "value": "{core-gray-black}",
+    "value": "{core-gray-12}",
     "type": "color",
     "comment": "Usually used for the page background and elements that should not elevate from the background."
   },
   "background-hovered": {
-    "value": "{core-gray-12}",
+    "value": "{core-gray-11}",
     "type": "color",
     "comment": "Used if a component with “Background/Default” has a hovered state."
   },
   "background-pressed": {
-    "value": "{core-gray-11}",
+    "value": "{core-gray-10}",
     "type": "color",
     "comment": "Used if a component with “Background/Default” has a pressed state."
   },
   "surface-default": {
-    "value": "{core-gray-12}",
+    "value": "{core-gray-11}",
     "type": "color",
     "comment": "Usually used for containers that need to be elevated."
   },
   "surface-hovered": {
-    "value": "{core-gray-11}",
+    "value": "{core-gray-10}",
     "type": "color",
     "comment": "Used if a component with “Surface/Default” has a hovered state."
   },
   "surface-pressed": {
-    "value": "{core-gray-10}",
+    "value": "{core-gray-09}",
     "type": "color",
     "comment": "Used if a component with “Surface/Default” has a pressed state."
   },
-  "surface-overlay-default": {
+  "surface-sunken-default": {
+    "value": "{core-gray-black}",
+    "type": "color"
+  },
+  "surface-sunken-hovered": {
+    "value": "{core-gray-12}",
+    "type": "color"
+  },
+  "surface-sunken-pressed": {
     "value": "{core-gray-11}",
+    "type": "color"
+  },
+  "surface-overlay-default": {
+    "value": "{core-gray-10}",
     "type": "color",
     "comment": "Usually used for containers that need to be more elevated."
   },
   "surface-overlay-hovered": {
-    "value": "{core-gray-10}",
+    "value": "{core-gray-09}",
     "type": "color",
     "comment": "Used if a component with “Surface Overlay/Default” has a hovered state."
   },
   "surface-overlay-pressed": {
-    "value": "{core-gray-09}",
+    "value": "{core-gray-08}",
     "type": "color",
     "comment": "Used if a component with “Surface Overlay/Default” has a pressed state."
   },
   "surface-raised-default": {
-    "value": "{core-gray-10}",
+    "value": "{core-gray-09}",
     "type": "color",
     "comment": "Usually used for elements that need contrast on surfaces or background"
   },
   "surface-raised-hovered": {
-    "value": "{core-gray-09}",
+    "value": "{core-gray-08}",
     "type": "color",
     "comment": "Used if a component with “On Surface/Default” has a hovered state."
   },
   "surface-raised-pressed": {
-    "value": "{core-gray-08}",
+    "value": "{core-gray-07}",
     "type": "color",
     "comment": "Used if a component with “On Surface/Default” has a pressed state."
   },
@@ -714,7 +754,7 @@
     "comment": "Used as a background for neutral surfaces."
   },
   "surface-neutral-subdued": {
-    "value": "{core-gray-10}",
+    "value": "{core-gray-09}",
     "type": "color",
     "comment": "Used for low prio neutral background."
   },
@@ -724,12 +764,12 @@
     "comment": "Usually used for containers on images"
   },
   "border-strong": {
-    "value": "rgba(255, 255, 255, 0.18)",
+    "value": "rgba(255, 255, 255, 0.20)",
     "type": "color",
     "comment": "Usually used for high emphasis borders."
   },
   "border-default": {
-    "value": "rgba(255, 255, 255, 0.09)",
+    "value": "rgba(255, 255, 255, 0.12)",
     "type": "color",
     "comment": "Usually used for low emphasis borders and espacially divider elements."
   },
@@ -913,6 +953,26 @@
     "type": "color",
     "comment": "Used if a component with “Action Primary/Default” has a disabled state."
   },
+  "action-critical-default": {
+    "value": "{core-status-dark-critical-default}",
+    "type": "color",
+    "comment": "Used for icon and text that are critical or negative interactive elements."
+  },
+  "action-critical-hovered": {
+    "value": "{core-status-dark-critical-hovered}",
+    "type": "color",
+    "comment": "Used if a component with “Action Critical/Default” has a hovered state."
+  },
+  "action-critical-pressed": {
+    "value": "{core-status-dark-critical-pressed}",
+    "type": "color",
+    "comment": "Used if a component with “Action Critical/Default” has a pressed state."
+  },
+  "action-critical-disabled": {
+    "value": "{core-gray-10}",
+    "type": "color",
+    "comment": "Used if a component with “Action Critical/Default” has a disabled state."
+  },
   "action-neutral-default": {
     "value": "{core-gray-10}",
     "type": "color",
@@ -949,6 +1009,26 @@
     "comment": "Used if a component with “Interactive Primary/Default” has a pressed state."
   },
   "interactive-primary-disabled": {
+    "value": "{core-gray-07}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Primary/Default” has a disabled state."
+  },
+  "interactive-critical-default": {
+    "value": "{core-status-dark-critical-default}",
+    "type": "color",
+    "comment": "Used for icon and text that are critical or negative interactive elements."
+  },
+  "interactive-critical-hovered": {
+    "value": "{core-status-dark-critical-hovered}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Critical/Default” has a hovered state."
+  },
+  "interactive-critical-pressed": {
+    "value": "{core-status-dark-critical-pressed}",
+    "type": "color",
+    "comment": "Used if a component with “Interactive Critical/Default” has a pressed state."
+  },
+  "interactive-critical-disabled": {
     "value": "{core-gray-07}",
     "type": "color",
     "comment": "Used if a component with “Interactive Primary/Default” has a disabled state."
@@ -1081,5 +1161,68 @@
     "value": "{core-decorative-dark-blueberry-surface-subdued}",
     "type": "color",
     "comment": "Used as a decorative color."
+  },
+  "shadow-level-1": {
+    "value": [
+      {
+        "color": "rgba(0,0,0,0.32)",
+        "type": "dropShadow",
+        "x": "0",
+        "y": "1",
+        "blur": "8",
+        "spread": "0"
+      },
+      {
+        "color": "rgba(0,0,0,0.48)",
+        "type": "dropShadow",
+        "x": "0",
+        "y": "0",
+        "blur": "1",
+        "spread": "0"
+      }
+    ],
+    "type": "boxShadow"
+  },
+  "shadow-level-2": {
+    "value": [
+      {
+        "color": "rgba(0,0,0,0.48)",
+        "type": "dropShadow",
+        "x": "0",
+        "y": "4",
+        "blur": "16",
+        "spread": "0"
+      },
+      {
+        "color": "rgba(0,0,0,0.40)",
+        "type": "dropShadow",
+        "x": "0",
+        "y": "1",
+        "blur": "4",
+        "spread": "0"
+      }
+    ],
+    "type": "boxShadow"
+  },
+  "shadow-level-3": {
+    "value": [
+      {
+        "color": "rgba(0,0,0,0.32)",
+        "type": "dropShadow",
+        "x": "0",
+        "y": "12",
+        "blur": "32",
+        "spread": "0"
+      },
+      {
+        "color": "rgba(0,0,0,0.24)",
+        "type": "dropShadow",
+        "x": "0",
+        "y": "2",
+        "blur": "4",
+        "spread": "0"
+      }
+    ],
+    "type": "boxShadow"
   }
 }

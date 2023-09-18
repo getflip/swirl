@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-button-group.stories";
 
 <Meta title="Components/SwirlButtonGroup" />
 
@@ -12,11 +13,9 @@ vertical stack.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirlbuttongroup--swirl-button-group" />
-</Canvas>
+<Canvas of={Stories.SwirlButtonGroup} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlButtonGroup} />
 
 ## Theming
 

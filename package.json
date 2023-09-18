@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "author": "Flip GmbH",
   "engines": {
-    "node": "^14.17.0 || ^16.13.0"
+    "node": "^14.17.0 || ^16.13.0 || ^18.17.0"
   },
   "workspaces": [
     "./packages/bridge",
@@ -20,13 +20,12 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "test:watch": "jest --watch",
     "clean": "turbo run clean && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "format": "prettier . --write",
     "type-check": "tsc --build",
     "changeset": "changeset",
     "prepare-dart-packages": "node packages/swirl-tokens/scripts/update-dart-package-version.js && node packages/swirl-icons/scripts/update-dart-package-version.js",
-    "release": "turbo run build && changeset publish",
+    "release": "turbo run build --filter=!swirl-docs && changeset publish",
     "preversion": "echo \"Error: use @changsets/cli to version packages\" && exit 1",
     "postinstall": "patch-package"
   },
@@ -37,7 +36,7 @@
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.5.0",
-    "turbo": "^1.2.8"
+    "turbo": "^1.9.9"
   },
   "resolutions": {
     "svgicons2svgfont": "^10.0.0",

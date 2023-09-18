@@ -29,6 +29,22 @@ export function closestPassShadow(node, selector) {
   return closestPassShadow(node.parentNode, selector);
 }
 
+export function getActiveElement(
+  root: Document | ShadowRoot = document
+): Element | undefined {
+  const activeEl = root.activeElement;
+
+  if (!Boolean(activeEl)) {
+    return undefined;
+  }
+
+  if (Boolean(activeEl.shadowRoot)) {
+    return getActiveElement(activeEl.shadowRoot);
+  } else {
+    return activeEl;
+  }
+}
+
 export const getDesktopMediaQuery = () =>
   document.documentElement.classList.contains("disable-desktop-style-tweaks")
     ? window.matchMedia(null)
@@ -40,7 +56,7 @@ export function debounce(
   func: Function,
   wait: number,
   immediate: boolean = false
-) {
+): any {
   let timeout: NodeJS.Timeout;
 
   return async function executedFunction() {
@@ -67,24 +83,27 @@ export function debounce(
   };
 }
 
-export function fullscreenStoryDecorator(story: any) {
-  const container = document.createElement("div");
-  const styles = document.createElement("style");
-  const script = document.createElement("script");
+export function fullscreenStoryDecorator(padded = true) {
+  return (story: any) => {
+    const container = document.createElement("div");
+    const styles = document.createElement("style");
+    const script = document.createElement("script");
 
-  container.classList.add("container");
-  container.style.backgroundColor = "var(--s-surface-raised-default)";
-  container.style.height = "100vh";
+    container.classList.add("container");
+    container.style.backgroundColor = "var(--s-surface-raised-default)";
+    container.style.height = "100vh";
 
-  styles.innerHTML = `
-    @media (min-width: 1440px) {
-      .container {
-        padding: 1rem;
+    if (padded) {
+      styles.innerHTML = `
+      @media (min-width: 1440px) {
+        .container {
+          padding: 1rem;
+        }
       }
+    `;
     }
-  `;
 
-  script.innerHTML = `
+    script.innerHTML = `
     if (!window.updateContainerHeight) {
       window.updateContainerHeight = () => {
         document.querySelector('.container').style.height = window.innerHeight+'px';
@@ -96,9 +115,10 @@ export function fullscreenStoryDecorator(story: any) {
     window.updateContainerHeight();
   `;
 
-  container.append(styles, story(), script);
+    container.append(styles, story(), script);
 
-  return container;
+    return container;
+  };
 }
 
 export function generateStoryElement(
@@ -109,7 +129,13 @@ export function generateStoryElement(
   const element = document.createElement(tag);
 
   Object.entries(args)
-    .filter((arg) => arg[1] !== undefined && arg[1] !== null && arg[1] !== "")
+    .filter(
+      (arg) =>
+        arg[1] !== undefined &&
+        arg[1] !== null &&
+        arg[1] !== "" &&
+        arg[0] !== "slot"
+    )
     .forEach(([attr, value]) => {
       if (typeof value === "object") {
         element[attr] = value;
@@ -154,6 +180,26 @@ export function getVisibleHeight(element: HTMLElement, container: HTMLElement) {
 
 export function isMobileViewport() {
   return !window.matchMedia("(min-width: 768px)").matches;
+}
+
+export function parentsPassShadow(node, selector, matches = []) {
+  if (!node) {
+    return matches;
+  }
+
+  if (node instanceof ShadowRoot) {
+    return parentsPassShadow(node.host, selector, matches);
+  }
+
+  if (node instanceof HTMLElement) {
+    if (node.matches(selector)) {
+      return parentsPassShadow(node.parentNode, selector, [...matches, node]);
+    } else {
+      return parentsPassShadow(node.parentNode, selector, matches);
+    }
+  }
+
+  return parentsPassShadow(node.parentNode, selector, matches);
 }
 
 export function querySelectorAllDeep<TargetType extends Element = HTMLElement>(

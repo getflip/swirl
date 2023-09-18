@@ -33,6 +33,7 @@
   }
 
   & .badge__icon {
+    & > swirl-icon,
     & > *::part(icon) {
       width: 0.75rem;
       height: 0.75rem;
@@ -85,6 +86,11 @@
   background-color: var(--s-decorative-kiwi-surface);
 }
 
+.badge--intent-neutral {
+  color: var(--s-text-default);
+  background-color: var(--s-surface-neutral-subdued);
+}
+
 .badge--intent-pumpkin {
   color: var(--s-text-dark);
   background-color: var(--s-decorative-pumpkin-surface);
@@ -114,6 +120,7 @@
 .badge__icon {
   display: inline-flex;
 
+  & > swirl-icon,
   & > *::part(icon) {
     width: 1rem;
     height: 1rem;

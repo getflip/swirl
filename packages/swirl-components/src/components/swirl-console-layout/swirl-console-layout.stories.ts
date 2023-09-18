@@ -3,6 +3,7 @@ import Docs from "./swirl-console-layout.mdx";
 
 export default {
   component: "swirl-console-layout",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
@@ -19,6 +20,7 @@ const Template = (args) => {
     <swirl-box padding="24" slot="navigation"><a href="#">Test</a></swirl-box>
     <div slot="user">User</div>
     <swirl-box center-block center-inline cover slot="content">Content</swirl-box>
+    <swirl-button intent="primary" label="Button" slot="content-header-tools" variant="flat"></swirl-button>
   `;
 
   return element;

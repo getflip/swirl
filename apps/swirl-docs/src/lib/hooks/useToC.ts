@@ -1,7 +1,14 @@
-import { useEffect, useState, ReactNode } from "react";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { useEffect, useState } from "react";
 import { DocHeadline } from "../docs/src/docs.model";
 
-export const useToC = (children: ReactNode, isComponentDoc?: boolean) => {
+export const useToC = (
+  children: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, unknown>
+  >,
+  isComponentDoc?: boolean
+) => {
   const [toc, setToc] = useState<DocHeadline[]>([]);
 
   useEffect(() => {
@@ -10,6 +17,7 @@ export const useToC = (children: ReactNode, isComponentDoc?: boolean) => {
 
     const headlines =
       document.querySelectorAll<HTMLHeadingElement>("h2[id], h3[id]");
+
     headlines.forEach((headline, index) => {
       const id = headline.getAttribute("id");
 

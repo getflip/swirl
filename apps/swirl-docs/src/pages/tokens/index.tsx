@@ -1,7 +1,7 @@
 import { NavItem } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
-import { CategoryNav } from "src/components/Layout/CategoryNav";
+import { SidebarNavigation } from "src/components/Layout/SidebarNavigation";
 import Link from "next/link";
 import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
 
@@ -12,7 +12,6 @@ const Tokens = () => {
         <title>Swirl Components</title>
       </Head>
       <div className="flex">
-        <CategoryNav categoryLinkList={tokensNavItems} />
         <main id="main" className="w-full h-full">
           <section className="flex flex-col py-14 px-24">
             <h1 className="mb-4">Tokens</h1>

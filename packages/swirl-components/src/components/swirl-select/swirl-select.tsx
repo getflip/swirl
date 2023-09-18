@@ -11,6 +11,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { SwirlFormInput, querySelectorAllDeep } from "../../utils";
+import { ComputePositionReturn, Placement } from "@floating-ui/dom";
 
 @Component({
   /**
@@ -27,17 +28,20 @@ import { SwirlFormInput, querySelectorAllDeep } from "../../utils";
 export class SwirlSelect implements SwirlFormInput<string[]> {
   @Element() el: HTMLElement;
 
+  @Prop() allowDeselect?: boolean = true;
   @Prop() disabled?: boolean;
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
   @Prop() multiSelect?: boolean;
   @Prop() required?: boolean;
+  @Prop() selectId?: string = Math.round(Math.random() * 1000000).toString();
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string[];
 
   @State() options: HTMLSwirlOptionListItemElement[] = [];
   @State() open: boolean;
+  @State() placement: Placement;
 
   @Event() valueChange: EventEmitter<string[]>;
 
@@ -72,11 +76,23 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     }
   };
 
+  private unselectOption = (value: string) => {
+    if (!this.allowDeselect) {
+      return;
+    }
+
+    this.value = this.value.filter((v) => v !== value);
+    this.valueChange.emit(this.value);
+  };
+
   private onSlotChange = () => {
     this.updateOptions();
   };
 
-  private onOpen = () => {
+  private onOpen = (
+    event: CustomEvent<{ position: ComputePositionReturn }>
+  ) => {
+    this.placement = event.detail.position?.placement;
     this.open = true;
   };
 
@@ -87,14 +103,14 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Space" || event.code === "Enter") {
       event.preventDefault();
-      this.popover.open();
+      this.popover.open(this.el);
     }
   };
 
   render() {
     const label = Boolean(this.value)
       ? this.value
-          .map(
+          ?.map(
             (value) =>
               this.options.find((option) => option.value === value)?.label
           )
@@ -106,25 +122,58 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
         ? String(this.invalid)
         : undefined;
 
-    const className = classnames("select", {
-      "select--disabled": this.disabled,
-      "select--inline": this.inline,
-    });
+    const formControl = this.el.closest<
+      HTMLSwirlFormControlElement | undefined
+    >("swirl-form-control");
+
+    const offset =
+      formControl?.inline || formControl?.labelPosition === "outside"
+        ? -12
+        : -16;
+
+    const className = classnames(
+      "select",
+      `select--placement-${this.placement}`,
+      {
+        "select--disabled": this.disabled,
+        "select--inline": this.inline,
+        "select--multi": this.multiSelect,
+      }
+    );
 
     return (
       <Host onKeyDown={this.onKeyDown}>
         <div class={className}>
-          <input
-            aria-describedby={this.swirlAriaDescribedby}
-            aria-disabled={this.disabled ? "true" : undefined}
-            aria-invalid={ariaInvalid}
-            class="select__label"
-            disabled={this.disabled}
-            id="trigger"
-            readOnly={true}
-            type="text"
-            value={label}
-          ></input>
+          <swirl-popover-trigger
+            popover={this.popover}
+            setAriaAttributes={false}
+          >
+            <input
+              aria-describedby={this.swirlAriaDescribedby}
+              aria-disabled={this.disabled ? "true" : undefined}
+              aria-invalid={ariaInvalid}
+              class="select__input"
+              disabled={this.disabled}
+              readOnly={true}
+              type="text"
+              value={label}
+            ></input>
+          </swirl-popover-trigger>
+          <span class="select__multi-select-values">
+            {this.value
+              ?.map((value) =>
+                this.options.find((option) => option.value === value)
+              )
+              ?.map((option) => (
+                <swirl-tag
+                  aria-hidden="true"
+                  label={option?.label}
+                  // eslint-disable-next-line react/jsx-no-bind
+                  onRemove={() => this.unselectOption(option?.value)}
+                  removable={!this.disabled && this.allowDeselect}
+                ></swirl-tag>
+              ))}
+          </span>
           <span class="select__indicator">
             {this.open ? (
               <swirl-icon-expand-less></swirl-icon-expand-less>
@@ -135,17 +184,16 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
           <swirl-popover
             animation="scale-in-y"
             class="select__popover"
-            enableFlip={false}
+            id={`select-options-${this.selectId}`}
             label={this.label}
-            offset={[16, -16]}
+            offset={[0, offset]}
             onPopoverClose={this.onClose}
             onPopoverOpen={this.onOpen}
-            popoverId="select-options"
             ref={(el) => (this.popover = el)}
-            trigger="trigger"
             useContainerWidth="swirl-form-control"
           >
             <swirl-option-list
+              allowDeselect={this.allowDeselect}
               onValueChange={this.select}
               multiSelect={this.multiSelect}
               value={this.value}

@@ -1,0 +1,80 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: inline-flex;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.inline-status {
+  display: inline-flex;
+  color: var(--s-text-default);
+  line-height: var(--s-line-height-base);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}
+
+.inline-status--size-s {
+  font-size: var(--s-font-size-sm);
+
+  & .inline-status__icon {
+    padding-top: 0.125rem;
+  }
+
+  & .inline-status__message {
+    padding-top: 0;
+  }
+}
+
+.inline-status--intent-critical {
+  color: var(--s-text-critical);
+
+  & .inline-status__icon {
+    color: var(--s-icon-critical);
+  }
+}
+
+.inline-status--intent-info {
+  color: var(--s-text-info);
+
+  & .inline-status__icon {
+    color: var(--s-icon-info);
+  }
+}
+
+.inline-status--intent-success {
+  color: var(--s-text-success);
+
+  & .inline-status__icon {
+    color: var(--s-icon-success);
+  }
+}
+
+.inline-status--intent-warning {
+  color: var(--s-text-warning);
+
+  & .inline-status__icon {
+    color: var(--s-icon-warning);
+  }
+}
+
+.inline-status__icon {
+  display: inline-flex;
+  margin-right: var(--s-space-4);
+  color: var(--s-icon-default);
+  align-self: flex-start;
+}
+
+.inline-status__message {
+  width: fit-content;
+  padding-top: 0.0625rem;
+
+  @media (--from-desktop-without-touch) {
+    padding-top: 0;
+  }
+}

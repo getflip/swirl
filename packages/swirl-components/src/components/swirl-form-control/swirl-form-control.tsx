@@ -9,9 +9,13 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
+import { getActiveElement } from "../../utils";
+
+export type SwirlFormControlLabelPosition = "inside" | "outside";
 
 /**
  * @slot slot - The input element, e.g. `<swirl-text-input></swirl-text-input>`
+ * @slot prefix - The prefix element, e.g. `<select slot="prefix">…</select>` or `<swirl-icon-poll></swirl-icon-poll>`
  */
 @Component({
   /**
@@ -31,9 +35,11 @@ export class SwirlFormControl {
   @Prop() description?: string;
   @Prop() disabled?: boolean;
   @Prop() errorMessage?: string;
+  @Prop() hideLabel?: boolean;
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
+  @Prop() labelPosition?: SwirlFormControlLabelPosition = "inside";
 
   @State() hasFocus: boolean;
   @State() inputValue: string;
@@ -84,7 +90,7 @@ export class SwirlFormControl {
       return;
     }
 
-    if (this.inline) {
+    if (this.inline || this.labelPosition === "outside") {
       this.inputEl.setAttribute("inline", "true");
     } else {
       this.inputEl.removeAttribute("inline");
@@ -125,6 +131,8 @@ export class SwirlFormControl {
       return;
     }
 
+    event.stopPropagation();
+
     this.hasFocus = false;
   }
 
@@ -141,41 +149,72 @@ export class SwirlFormControl {
   };
 
   private onFocusOut = () => {
-    if (!this.hasFocus) {
-      return;
-    }
-
     this.hasFocus = false;
+  };
+
+  private onKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Tab") {
+      setTimeout(() => {
+        if (!this.el.contains(getActiveElement())) {
+          this.hasFocus = false;
+        }
+      });
+    }
   };
 
   render() {
     const showErrorMessage = Boolean(this.errorMessage);
     const showDescription = Boolean(this.description) && !showErrorMessage;
 
+    const hasPrefix = Boolean(this.el.querySelector('[slot="prefix"]'));
+
     const hasValue = Array.isArray(this.inputValue)
       ? this.inputValue.length > 0
       : Boolean(this.inputValue);
 
+    const hasCharacterCounter = Boolean(
+      this.inputEl.getAttribute("show-character-counter")
+    );
+
+    const hasPlaceholder = Boolean(this.inputEl.getAttribute("placeholder"));
+
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
-    const className = classnames("form-control", {
-      "form-control--disabled": this.disabled,
-      "form-control--inline": this.inline,
-      "form-control--has-focus": this.hasFocus,
-      "form-control--has-value": hasValue,
-      "form-control--invalid": this.invalid,
-      "form-control--is-select": isSelect,
-    });
+    const className = classnames(
+      "form-control",
+      `form-control--label-position-${this.labelPosition}`,
+      {
+        "form-control--disabled": this.disabled,
+        "form-control--has-character-counter": hasCharacterCounter,
+        "form-control--has-focus": this.hasFocus,
+        "form-control--has-placeholder": hasPlaceholder,
+        "form-control--has-prefix": hasPrefix,
+        "form-control--has-value": hasValue,
+        "form-control--hide-label": this.hideLabel,
+        "form-control--inline": this.inline,
+        "form-control--invalid": this.invalid,
+        "form-control--is-select": isSelect,
+      }
+    );
 
     return (
-      <Host onFocusin={this.onFocusIn} onFocusout={this.onFocusOut}>
+      <Host
+        onFocusin={this.onFocusIn}
+        onFocusout={this.onFocusOut}
+        onKeyDown={this.onKeyDown}
+      >
         <div class={className} role="group">
-          <label class="form-control__label">
-            <span class="form-control__label-text">{this.label}</span>
-            <span class="form-control__input">
-              <slot></slot>
+          <span class="form-control__controls">
+            <span class="form-control__prefix">
+              <slot name="prefix"></slot>
             </span>
-          </label>
+            <label class="form-control__label">
+              <span class="form-control__label-text">{this.label}</span>
+              <span class="form-control__input">
+                <slot></slot>
+              </span>
+            </label>
+          </span>
           {showDescription && (
             <span class="form-control__description" id={this.descriptionId}>
               {this.description}

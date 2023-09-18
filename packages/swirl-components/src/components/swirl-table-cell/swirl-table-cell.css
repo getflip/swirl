@@ -9,7 +9,7 @@
   flex-grow: 1;
   flex-shrink: 1;
   align-items: center;
-  background-color: var(--s-background-default);
+  background-color: var(--s-surface-default);
   word-break: break-word;
   hyphens: auto;
   transition: box-shadow 0.15s;
@@ -20,14 +20,6 @@
 
   &(.table-cell--has-shadow-left) {
     box-shadow: var(--swirl-table-sticky-left-shadow);
-  }
-
-  &(:first-child) {
-    border-left: var(--s-border-width-default) solid var(--s-border-default);
-  }
-
-  &(:last-child) {
-    border-right: var(--s-border-width-default) solid var(--s-border-default);
   }
 
   & * {

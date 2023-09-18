@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-lightbox.stories";
 
 <Meta title="Components/SwirlLightbox" />
 
@@ -12,11 +13,9 @@ overlay.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirllightbox--swirl-lightbox" />
-</Canvas>
+<Canvas of={Stories.SwirlLightbox} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlLightbox} />
 
 ## Theming
 

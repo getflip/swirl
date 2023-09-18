@@ -15,15 +15,18 @@ describe("swirl-form-control", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-form-control label="Label">
-        <div class="form-control" role="group">
-          <label class="form-control__label">
-            <span class="form-control__label-text">
-              Label
-            </span>
-            <span class="form-control__input">
-              <swirl-text-input label="Label"></swirl-text-input>
-            </span>
-          </label>
+        <div class="form-control form-control--label-position-inside" role="group">
+          <span class="form-control__controls">
+            <span class="form-control__prefix"></span>
+            <label class="form-control__label">
+              <span class="form-control__label-text">
+                Label
+              </span>
+              <span class="form-control__input">
+                <swirl-text-input label="Label"></swirl-text-input>
+              </span>
+            </label>
+          </span>
         </div>
       </swirl-form-control>
     `);

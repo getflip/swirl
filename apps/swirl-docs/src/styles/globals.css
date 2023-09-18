@@ -15,6 +15,22 @@
     url("/fonts/Inter.var.woff2") format("woff2");
 }
 
+@layer components {
+  #__next {
+    @apply h-full grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px auto;
+
+    @media screen(md) {
+      grid-template-rows: 72px auto;
+    }
+  }
+  html,
+  body {
+    @apply h-full overflow-hidden;
+  }
+}
+
 .ais-SearchBox-submit {
   display: none;
 }
@@ -89,13 +105,6 @@ h3 {
   color: var(--s-text-default);
 }
 
-p {
-  font-size: var(--s-font-size-base);
-  color: var(--s-text-default);
-  line-height: 1.5rem;
-  font-weight: var(--s-font-weight-normal);
-}
-
 /** Custom Utility Classes */
 .border-1 {
   border: 1px solid var(--s-border-default);
@@ -111,4 +120,8 @@ p {
 
 .border-l-1 {
   border-left: 1px solid var(--s-border-default);
+}
+
+pre {
+  overflow: auto;
 }

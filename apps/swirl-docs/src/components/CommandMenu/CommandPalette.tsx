@@ -1,7 +1,7 @@
 import { ALGOLIA_INDEX } from "@swirl/lib/search";
 import classNames from "classnames";
 import { Command } from "cmdk";
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { InstantSearch, SearchBox } from "react-instantsearch-hooks-web";
 import { searchClient } from "../Search/Algolia";
 import { useRouter } from "next/router";
@@ -36,6 +36,7 @@ const algoliaClient: SearchClient = {
 
 export const CommandPalette = () => {
   const [open, setOpen] = useState(false);
+  const [searchString, setSearchString] = useState("");
   const router = useRouter();
   const previousActiveElement = useRef<HTMLElement | null>(null);
   const containerRef = useRef(null);
@@ -121,10 +122,11 @@ export const CommandPalette = () => {
             autoFocus
             placeholder="Search..."
             className="px-4 py-3 w-full outline-none border-b-1 text-text-subdued"
+            onChangeCapture={(e: any) => setSearchString(e.target.value)}
           />
 
           <Command.List className="max-h-[36rem] overflow-y-auto">
-            <CustomHits />
+            <CustomHits currentSearchString={searchString} />
           </Command.List>
         </InstantSearch>
       </Command.Dialog>

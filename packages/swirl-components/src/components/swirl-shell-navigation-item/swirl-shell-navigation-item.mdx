@@ -1,0 +1,49 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-shell-navigation-item.stories";
+
+<Meta title="Components/SwirlShellNavigationItem" />
+
+# SwirlShellNavigationItem
+
+The SwirlShellNavigationItem component is used to provide the main navigation
+for the [SwirlShellLayout](?path=/docs/components-swirlshelllayout--docs).
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-shell-navigation-item)**
+
+## Usage
+
+<Canvas of={Stories.SwirlShellNavigationItem} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlShellNavigationItem} />
+
+## Theming
+
+| Variable                     | Usage                                           |
+| ---------------------------- | ----------------------------------------------- |
+| `--s-text-default`           | Text color of the item                          |
+| `--s-text-highlight`         | Text color of the active item                   |
+| `--s-icon-default`           | Icon color of the active item                   |
+| `--s-icon-highlight`         | Icon color of the item                          |
+| `--s-background-default`     | Background color of the item                    |
+| `--s-background-hovered`     | Background color of the hovered item            |
+| `--s-background-pressed`     | Background color of the pressed item            |
+| `--s-surface-raised-default` | Background color of the active item             |
+| `--s-surface-raised-hovered` | Background color of the active and hovered item |
+| `--s-surface-raised-pressed` | Background color of the active and pressed item |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Link Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/link/).
+
+| ARIA          | Usage |
+| ------------- | ----- |
+| `role="link"` |       |
+
+### Keyboard
+
+| Key              | Action              |
+| ---------------- | ------------------- |
+| <kbd>ENTER</kbd> | Activates the link. |

@@ -48,6 +48,7 @@ const FileManagerMockData: { directories: FileManagerDirectory[] } = {
 export class FileManager {
   @State() selectedDirectory: FileManagerDirectory | undefined;
   @State() selectedFile: FileManagerFile | undefined;
+  @State() sortMenu: HTMLSwirlPopoverElement;
 
   private layout: HTMLSwirlAppLayoutElement;
 
@@ -79,14 +80,15 @@ export class FileManager {
           description={item.description}
           key={item.name}
           label={item.name}
-          media={
-            "type" in item
-              ? "<swirl-icon-file></swirl-icon-file>"
-              : "<swirl-icon-folder-shared></swirl-icon-folder-shared>"
-          }
           // eslint-disable-next-line react/jsx-no-bind
           onClick={() => this.selectItem(item)}
-        ></swirl-resource-list-item>
+        >
+          {"type" in item ? (
+            <swirl-icon-file slot="media"></swirl-icon-file>
+          ) : (
+            <swirl-icon-folder-shared slot="media"></swirl-icon-folder-shared>
+          )}
+        </swirl-resource-list-item>
       ))
     ) : (
       <swirl-box padding="16">
@@ -105,14 +107,12 @@ export class FileManager {
           backToNavigationViewButtonLabel="Back to documents list"
           ctaIcon="<swirl-icon-add></swirl-icon-add>"
           ctaLabel="Upload file"
-          heading={this.selectedFile?.name}
           navigationLabel="Documents"
           onNavigationBackButtonClick={this.resetSelectedDirectory}
           ref={(el) => (this.layout = el)}
           sidebarCloseButtonLabel="Close file info"
           sidebarHeading="File info"
           showNavigationBackButton={Boolean(this.selectedDirectory)}
-          subheading={this.selectedFile?.description}
           transitionStyle="dialog"
         >
           {/* Navigation */}
@@ -121,11 +121,26 @@ export class FileManager {
           </swirl-resource-list>
 
           {/* Navigation controls */}
-          <swirl-button
-            id="sort-button"
-            label="Sort items"
+          <swirl-popover-trigger
+            popover={this.sortMenu}
             slot="navigation-controls"
-          ></swirl-button>
+          >
+            <swirl-button label="Sort items"></swirl-button>
+          </swirl-popover-trigger>
+
+          {/* App bar */}
+          <swirl-stack orientation="horizontal" slot="app-bar">
+            <swirl-stack>
+              <swirl-heading
+                as="h2"
+                level={4}
+                text={this.selectedFile?.name}
+              ></swirl-heading>
+              <swirl-text color="subdued" truncate>
+                {this.selectedFile?.description}
+              </swirl-text>
+            </swirl-stack>
+          </swirl-stack>
 
           {/* Content */}
           {Boolean(this.selectedFile) ? (
@@ -172,11 +187,7 @@ export class FileManager {
           </swirl-box>
         </swirl-app-layout>
 
-        <swirl-popover
-          label="Sort items"
-          popoverId="sort-menu"
-          trigger="sort-button"
-        >
+        <swirl-popover label="Sort items" ref={(el) => (this.sortMenu = el)}>
           <swirl-option-list value={["ascending"]}>
             <swirl-option-list-item
               icon="<swirl-icon-expand-less></swirl-icon-expand-less>"

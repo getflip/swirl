@@ -9,6 +9,7 @@ export default {
     },
   },
   component: "swirl-heading",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

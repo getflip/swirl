@@ -7,11 +7,11 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <>
-      <HeaderNavigation />
+    <div className="flex flex-col min-h-screen">
       <CommandPalette />
+      <HeaderNavigation />
       {children}
-    </>
+    </div>
   );
 };
 

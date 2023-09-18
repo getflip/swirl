@@ -11,6 +11,7 @@ import {
   State,
   Watch,
 } from "@stencil/core";
+import classnames from "classnames";
 import pdf, {
   getDocument,
   PDFDocumentProxy,
@@ -27,6 +28,8 @@ pdf.GlobalWorkerOptions.workerSrc = "/pdfjs/pdf.worker.min.js";
 
 export type SwirlFileViewerPdfZoom = number | "auto";
 
+export type SwirlFileViewerPdfViewMode = "single" | "side-by-side";
+
 @Component({
   shadow: true,
   styleUrl: "swirl-file-viewer-pdf.css",
@@ -38,6 +41,7 @@ export class SwirlFileViewerPdf {
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
   @Prop() singlePageMode: boolean;
+  @Prop() viewMode?: SwirlFileViewerPdfViewMode = "single";
   @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
 
   @State() doc: PDFDocumentProxy;
@@ -49,6 +53,7 @@ export class SwirlFileViewerPdf {
   @State() visiblePages: number[] = [];
 
   @Event() activate: EventEmitter<HTMLElement>;
+  @Event() visiblePagesChange: EventEmitter<number[]>;
 
   private pages: PDFPageProxy[] = [];
   private renderingPageNumbers: number[] = [];
@@ -87,6 +92,17 @@ export class SwirlFileViewerPdf {
     this.determineScrollStatus();
   }
 
+  @Watch("viewMode")
+  async watchViewMode() {
+    queueMicrotask(async () => {
+      this.visiblePages = [];
+      this.renderedPages = [];
+      await this.updateVisiblePages();
+
+      this.determineScrollStatus();
+    });
+  }
+
   @Watch("zoom")
   watchZoom() {
     queueMicrotask(async () => {
@@ -98,6 +114,36 @@ export class SwirlFileViewerPdf {
 
       this.determineScrollStatus();
     });
+  }
+
+  /**
+   * Get thumbnails of all pages.
+   */
+  @Method()
+  async getThumbnails() {
+    return await Promise.all(
+      this.pages.filter(Boolean).map((page) => {
+        const vp = page.getViewport({ scale: 1 });
+        const canvas = document.createElement("canvas");
+
+        canvas.width = vp.width;
+        canvas.height = vp.height;
+
+        const scale = Math.min(
+          canvas.width / vp.width,
+          canvas.height / vp.height
+        );
+
+        return page
+          .render({
+            canvasContext: canvas.getContext("2d"),
+            viewport: page.getViewport({ scale: scale }),
+          })
+          .promise.then(function () {
+            return canvas;
+          });
+      })
+    );
   }
 
   /**
@@ -236,17 +282,19 @@ export class SwirlFileViewerPdf {
       viewport: viewport,
     };
 
-    await page.render(renderContext).promise;
+    try {
+      await page.render(renderContext).promise;
 
-    page.cleanup();
+      page.cleanup();
 
-    textContainer.innerHTML = "";
+      textContainer.innerHTML = "";
 
-    this.renderTextLayer(page, textContainer);
+      this.renderTextLayer(page, textContainer).catch();
 
-    this.renderingPageNumbers = this.renderingPageNumbers.filter(
-      (pageNumber) => pageNumber !== page.pageNumber
-    );
+      this.renderingPageNumbers = this.renderingPageNumbers.filter(
+        (pageNumber) => pageNumber !== page.pageNumber
+      );
+    } catch (e) {}
   }
 
   private destroyPage(page: PDFPageProxy) {
@@ -297,6 +345,8 @@ export class SwirlFileViewerPdf {
     this.visiblePages = visiblePages;
 
     await this.renderVisiblePages(forPrint);
+
+    this.visiblePagesChange.emit(this.visiblePages);
   }
 
   private async renderTextLayer(page: PDFPageProxy, container: HTMLElement) {
@@ -429,8 +479,13 @@ export class SwirlFileViewerPdf {
 
     const showSpinner = this.loading;
 
+    const className = classnames(
+      "file-viewer-pdf",
+      `file-viewer-pdf--view-mode-${this.viewMode}`
+    );
+
     return (
-      <Host class="file-viewer-pdf" exportparts="file-viewer-pdf__pagination">
+      <Host class={className} exportparts="file-viewer-pdf__pagination">
         {this.error && (
           <swirl-inline-error
             class="file-viewer-pdf__error"

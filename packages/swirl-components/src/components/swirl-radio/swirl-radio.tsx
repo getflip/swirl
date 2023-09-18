@@ -3,6 +3,8 @@ import classnames from "classnames";
 
 export type SwirlRadioState = boolean | "true" | "false";
 
+export type SwirlRadioVariant = "default" | "card";
+
 @Component({
   /**
    * Form controls in shadow dom can still not be associated with labels in the
@@ -24,6 +26,7 @@ export class SwirlRadio {
   @Prop() invalid?: boolean;
   @Prop() label?: string;
   @Prop() value!: string;
+  @Prop() variant?: SwirlRadioVariant = "default";
 
   @Event() valueChange: EventEmitter<string>;
 
@@ -49,7 +52,7 @@ export class SwirlRadio {
     const ariaCheckedLabel = this.getAriaCheckedLabel(checked, unchecked);
     const ariaInvalid = this.invalid;
 
-    const className = classnames("radio", {
+    const className = classnames("radio", `radio--variant-${this.variant}`, {
       "radio--checked": checked,
       "radio--disabled": this.disabled,
       "radio--invalid": this.invalid,
@@ -57,7 +60,7 @@ export class SwirlRadio {
     });
 
     return (
-      <Host>
+      <Host style={{ width: this.variant === "card" ? "100%" : undefined }}>
         <label class={className} htmlFor={this.inputId}>
           <span class="radio__control">
             <swirl-visually-hidden>
@@ -79,7 +82,10 @@ export class SwirlRadio {
           <span class="radio__label-container">
             {this.label && <span class="radio__label">{this.label}</span>}
             {this.description && (
-              <span class="radio__description">{this.description}</span>
+              <span
+                class="radio__description"
+                innerHTML={this.description}
+              ></span>
             )}
           </span>
         </label>

@@ -1,5 +1,5 @@
 import { Component, Element, h, Host } from "@stencil/core";
-import { querySelectorAllDeep } from "../../utils";
+import { getActiveElement, querySelectorAllDeep } from "../../utils";
 
 /**
  * @slot slot - The action list items and sections
@@ -13,8 +13,26 @@ export class SwirlActionList {
   @Element() el: HTMLElement;
 
   private items: HTMLElement[];
+  private observer: MutationObserver;
 
   componentDidLoad() {
+    this.updateItems();
+    this.observeSlotChanges();
+  }
+
+  disconnectedCallback() {
+    this.observer?.disconnect();
+  }
+
+  private observeSlotChanges() {
+    this.observer = new MutationObserver(() => {
+      this.updateItems();
+    });
+
+    this.observer.observe(this.el, { childList: true });
+  }
+
+  private updateItems() {
     this.items = querySelectorAllDeep(this.el, '[role="menuitem"]');
   }
 
@@ -40,15 +58,16 @@ export class SwirlActionList {
     const newIndex =
       activeItemIndex === 0 ? this.items.length - 1 : activeItemIndex - 1;
 
-    this.items[newIndex].focus();
+    this.items[newIndex]?.focus();
   }
 
   private getActiveItemIndex(): number {
+    const activeElement = getActiveElement();
+
     return this.items.findIndex(
       (item) =>
-        item === document.activeElement ||
-        item ===
-          document.activeElement?.shadowRoot?.querySelector('[role="menuitem"]')
+        item === activeElement ||
+        item === activeElement?.querySelector('[role="menuitem"]')
     );
   }
 

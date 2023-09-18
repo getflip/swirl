@@ -13,6 +13,14 @@ import {
 import classnames from "classnames";
 import { isMobileViewport } from "../../utils";
 
+/**
+ * @slot content - The main content
+ * @slot content-header-tools - Button positioned next to the heading
+ * @slot heading - The main content's heading (only rendered if "heading" prop is not set).
+ * @slot navigation - The main navigation
+ * @slot overlays - Overlays like dialogs, modals and toasts
+ * @slot user - The signed in user information at the bottom of the sidebar
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-console-layout.css",
@@ -21,16 +29,17 @@ import { isMobileViewport } from "../../utils";
 export class SwirlConsoleLayout {
   @Element() el: HTMLElement;
 
-  @Prop() appName!: string;
+  @Prop() appName?: string;
   @Prop() backButonLabel?: string = "Back";
-  @Prop() heading!: string;
+  @Prop() heading?: string;
   @Prop() helpButonLabel?: string = "Help";
   @Prop() hideNavigationButtonLabel?: string = "Hide main navigation";
   @Prop() logoText?: string = "Admin";
-  @Prop() showNavigationButtonLabel?: string = "Show main navigation";
   @Prop() navigationLabel?: string = "Main";
+  @Prop() maxContentWidth?: string;
   @Prop() showBackButton?: boolean;
   @Prop() showHelpButton?: boolean;
+  @Prop() showNavigationButtonLabel?: string = "Show main navigation";
   @Prop() subheading?: string;
 
   @State() sidebarActive: boolean;
@@ -149,8 +158,18 @@ export class SwirlConsoleLayout {
   };
 
   render() {
+    const contentStyles = Boolean(this.maxContentWidth)
+      ? {
+          maxWidth: this.maxContentWidth,
+          justifySelf: "center",
+          width: "100%",
+        }
+      : undefined;
+
     const className = classnames("console-layout", {
       "console-layout--sidebar-active": this.sidebarActive,
+      "console-layout--empty-app-bar":
+        !Boolean(this.appName) && !this.showHelpButton,
     });
 
     return (
@@ -207,7 +226,10 @@ export class SwirlConsoleLayout {
               <slot name="user"></slot>
             </div>
           </div>
-          <main aria-labelledby="app-name" class="console-layout__main">
+          <main
+            aria-labelledby={Boolean(this.appName) ? "app-name" : undefined}
+            class="console-layout__main"
+          >
             <header class="console-layout__app-bar">
               <span class="console-layout__mobile-navigation-button">
                 <swirl-button
@@ -226,13 +248,16 @@ export class SwirlConsoleLayout {
                   onClick={this.onMobileNavigationToggleClick}
                 ></swirl-button>
               </span>
-              <swirl-heading
-                as="h1"
-                class="console-layout__app-name"
-                headingId="app-name"
-                level={4}
-                text={this.appName}
-              ></swirl-heading>
+              <div class="console-layout__app-name">
+                {this.appName && (
+                  <swirl-heading
+                    as="h1"
+                    headingId="app-name"
+                    level={4}
+                    text={this.appName}
+                  ></swirl-heading>
+                )}
+              </div>
               {this.showHelpButton && (
                 <swirl-button
                   class="console-layout__help-button"
@@ -243,7 +268,11 @@ export class SwirlConsoleLayout {
                 ></swirl-button>
               )}
             </header>
-            <section aria-labelledby="heading" class="console-layout__content">
+            <section
+              aria-labelledby="heading"
+              class="console-layout__content"
+              style={contentStyles}
+            >
               <header class="console-layout__content-header">
                 {this.showBackButton && (
                   <swirl-button
@@ -254,22 +283,32 @@ export class SwirlConsoleLayout {
                     onClick={this.onBackButtonClick}
                   ></swirl-button>
                 )}
-                <div>
-                  <swirl-heading
-                    as="h2"
-                    class="console-layout__heading"
-                    headingId="heading"
-                    level={1}
-                    text={this.heading}
-                  ></swirl-heading>
-                  {this.subheading && (
-                    <swirl-text
-                      class="console-layout__subheading"
-                      color="subdued"
-                    >
-                      {this.subheading}
-                    </swirl-text>
-                  )}
+                {Boolean(this.heading) && (
+                  <div class="console-layout__heading-container">
+                    <swirl-heading
+                      as="h2"
+                      class="console-layout__heading"
+                      headingId="heading"
+                      level={1}
+                      text={this.heading}
+                    ></swirl-heading>
+                    {this.subheading && (
+                      <swirl-text
+                        class="console-layout__subheading"
+                        color="subdued"
+                      >
+                        {this.subheading}
+                      </swirl-text>
+                    )}
+                  </div>
+                )}
+                {!Boolean(this.heading) && (
+                  <div class="console-layout__heading-container">
+                    <slot name="heading"></slot>
+                  </div>
+                )}
+                <div class="console-layout__content-header-tools">
+                  <slot name="content-header-tools"></slot>
                 </div>
               </header>
               <div class="console-layout__integration">

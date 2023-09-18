@@ -1,10 +1,10 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlButtonIconPosition = "start" | "end";
 
-export type SwirlButtonIntent = "default" | "primary" | "critical";
+export type SwirlButtonIntent = "default" | "primary" | "critical" | "strong";
 
 export type SwirlButtonSize = "m" | "l";
 
@@ -31,10 +31,14 @@ export type SwirlButtonVariant =
   styleUrl: "swirl-button.css",
 })
 export class SwirlButton {
+  @Element() el: HTMLElement;
+
   @Prop() disabled?: boolean;
   @Prop() download?: string;
+  @Prop() swirlAriaControls?: string;
   @Prop() swirlAriaDescribedby?: string;
   @Prop() swirlAriaExpanded?: string;
+  @Prop() swirlAriaHaspopup?: string;
   @Prop() swirlAriaLabel?: string;
   @Prop() form?: string;
   @Prop() hideLabel?: boolean;
@@ -45,22 +49,27 @@ export class SwirlButton {
   @Prop() label!: string;
   @Prop() name?: string;
   @Prop() pill?: boolean;
+  @Prop() pressed?: boolean;
   @Prop() size?: SwirlButtonSize = "m";
   @Prop() target?: string;
   @Prop() type?: SwirlButtonType = "button";
   @Prop() value?: string;
   @Prop() variant?: SwirlButtonVariant = "ghost";
 
+  private buttonEl: HTMLElement;
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
 
   componentDidLoad() {
     this.forceIconProps(this.desktopMediaQuery.matches);
+    this.updateFormAttribute();
 
-    this.desktopMediaQuery.addEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+  }
+
+  componentDidRender() {
+    this.forceIconProps(this.desktopMediaQuery.matches);
+    this.updateFormAttribute();
   }
 
   disconnectedCallback() {
@@ -94,6 +103,18 @@ export class SwirlButton {
     return undefined;
   }
 
+  private updateFormAttribute() {
+    // Workaround: form attribute cannot be set via Stencil JSX
+    // https://github.com/ionic-team/stencil/issues/2703
+    const isLink = Boolean(this.href);
+
+    if (isLink || !Boolean(this.form)) {
+      this.buttonEl?.removeAttribute("form");
+    } else {
+      this.buttonEl?.setAttribute("form", this.form);
+    }
+  }
+
   render() {
     const hideLabel =
       (this.hideLabel && Boolean(this.icon)) ||
@@ -111,24 +132,29 @@ export class SwirlButton {
       {
         "button--icon-only": hideLabel,
         "button--pill": this.pill,
+        "button--pressed": this.pressed,
       }
     );
 
     const Tag = isLink ? "a" : "button";
 
     return (
-      <Host>
+      <Host style={{ pointerEvents: this.disabled ? "none" : "" }}>
         <Tag
+          aria-controls={this.swirlAriaControls}
           aria-describedby={this.swirlAriaDescribedby}
           aria-disabled={this.disabled && !isLink ? "true" : undefined}
           aria-expanded={this.swirlAriaExpanded}
+          aria-haspopup={this.swirlAriaHaspopup}
           aria-label={ariaLabel}
+          aria-pressed={this.pressed ? "true" : undefined}
           class={className}
           disabled={isLink ? undefined : this.disabled}
           download={isLink ? undefined : this.download}
           form={isLink ? undefined : this.form}
           href={this.href}
           name={isLink ? undefined : this.name}
+          ref={(el: HTMLElement) => (this.buttonEl = el)}
           target={isLink ? this.target : undefined}
           type={isLink ? undefined : this.type}
           value={isLink ? undefined : this.value}

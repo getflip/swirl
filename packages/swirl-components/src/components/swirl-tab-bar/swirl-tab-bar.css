@@ -1,0 +1,98 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: flex;
+  height: var(--swirl-tab-bar-height);
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.tab-bar {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  border-bottom: var(--swirl-tab-bar-border-width) solid var(--s-border-default);
+}
+
+.tab-bar__tab {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  padding: var(--s-space-4) var(--s-space-8);
+  align-items: center;
+  border: none;
+  color: var(--s-interactive-neutral-default);
+  background-color: transparent;
+  font: inherit;
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-base);
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    & .tab-bar__tab-label {
+      border-radius: var(--s-border-radius-s);
+      box-shadow: inset 0 0 0 0.125rem var(--s-focus-default);
+    }
+  }
+
+  &:not(.tab-bar__tab--active) {
+    &:hover {
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: calc(100% - var(--s-space-8));
+        height: 0.1875rem;
+        border-radius: 0.125rem;
+        background-color: var(--s-border-default);
+        content: "";
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+    }
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}
+
+.tab-bar__tab-icon {
+  display: inline-flex;
+}
+
+.tab-bar__tab-label {
+  display: inline-flex;
+  overflow: hidden;
+  width: 100%;
+  padding: var(--s-space-8) var(--s-space-8);
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.tab-bar__tab--active {
+  color: var(--s-text-highlight);
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: calc(100% - var(--s-space-8));
+    height: 0.1875rem;
+    border-radius: 0.125rem;
+    background-color: var(--s-border-highlight);
+    content: "";
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+}

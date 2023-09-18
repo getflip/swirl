@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  min-width: 0;
+
+  &(.carousel-slide--has-min-height) {
+    & ::slotted(*) {
+      height: 100%;
+    }
+  }
+
+  & * {
+    box-sizing: border-box;
+  }
+
+  & ::slotted(*) {
+    width: 100%;
+    min-height: 100%;
+  }
+}

@@ -13,10 +13,34 @@
   position: relative;
   display: flex;
   width: 100%;
+
+  & ::part(popover__content) {
+    margin-top: var(--s-space-16);
+  }
+}
+
+.select--placement-top-start {
+  & ::part(popover__content) {
+    margin-top: -2.25rem;
+  }
+}
+
+.select--multi {
+  & .select__input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  & .select__multi-select-values {
+    display: flex;
+  }
 }
 
 .select--disabled {
-  & .select__label {
+  & .select__input {
     color: var(--s-text-disabled);
   }
 
@@ -27,15 +51,15 @@
 
 .select--inline {
   & .select__indicator {
-    top: 0;
+    transform: translateY(-50%);
   }
 }
 
-.select__label {
+.select__input {
   display: block;
   overflow: hidden;
   width: 100%;
-  height: 1.375rem;
+  height: 1.25rem;
   margin: 0;
   padding: 0;
   padding-right: calc(1.5rem + var(--s-space-8));
@@ -58,10 +82,26 @@
   }
 }
 
+.select__multi-select-values {
+  display: none;
+  overflow: hidden;
+  width: 100%;
+  min-height: 1.25rem;
+  padding-right: calc(1.5rem + var(--s-space-8));
+  flex-wrap: wrap;
+  gap: var(--s-space-8);
+
+  & ::part(tag) {
+    height: 1.25rem;
+    padding: 0 var(--s-space-4);
+  }
+}
+
 .select__indicator {
   position: absolute;
-  top: calc(-1 * var(--s-space-12));
+  top: 50%;
   right: 0;
   display: inline-flex;
   color: var(--s-icon-default);
+  transform: translateY(calc(-50% - var(--s-space-8)));
 }

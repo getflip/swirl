@@ -4,10 +4,22 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - apps/swirl-docs/**/*
+      - packages/swirl-icons/dart/lib/fonts/flip-legacy-icons.ttf
+      - packages/swirl-icons/dart/lib/fonts/swirl-icons.ttf
+      - packages/swirl-tokens/dart/lib/styles.dark.dart
+      - packages/swirl-tokens/dart/lib/styles.light.dart
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+    paths-ignore:
+      - apps/swirl-docs/**/*
+      - packages/swirl-icons/dart/lib/fonts/flip-legacy-icons.ttf
+      - packages/swirl-icons/dart/lib/fonts/swirl-icons.ttf
+      - packages/swirl-tokens/dart/lib/styles.dark.dart
+      - packages/swirl-tokens/dart/lib/styles.light.dart
 
 jobs:
   lint_and_test_job:

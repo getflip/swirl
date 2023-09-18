@@ -32,9 +32,11 @@ describe("swirl-lightbox", () => {
                 <button aria-label="Close" class="lightbox__close-button">
                   <swirl-icon-close></swirl-icon-close>
                 </button>
-                <button aria-label="Download" class="lightbox__download-button">
-                  <swirl-icon-download></swirl-icon-download>
-                </button>
+                <swirl-popover-trigger>
+                  <button aria-label="Open slide menu" class="lightbox__menu-button">
+                    <swirl-icon-more-vertikal></swirl-icon-more-vertikal>
+                  </button>
+                </swirl-popover-trigger>
               </header>
               <div aria-roledescription="carousel" class="lightbox__content" role="group">
                 <div aria-atomic="false" aria-live="polite" class="lightbox__slides">
@@ -53,6 +55,21 @@ describe("swirl-lightbox", () => {
                 <span aria-current="page">1</span> / 2
               </span>
             </div>
+            <swirl-popover animation="scale-in-y" disablescrolllock="" id="slide-menu" label="Slide options" placement="bottom-end">
+              <swirl-stack>
+                <div class="lightbox__meta">
+                  <div class="lightbox__file-info">
+                    <swirl-text truncate="" weight="semibold"></swirl-text>
+                    <swirl-text color="subdued" size="sm" truncate=""></swirl-text>
+                  </div>
+                </div>
+                <swirl-separator></swirl-separator>
+                <swirl-action-list>
+                  <swirl-action-list-item icon="<swirl-icon-download></swirl-icon-download>" label="Download"></swirl-action-list-item>
+                  <slot name="menu-items"></slot>
+                </swirl-action-list>
+              </swirl-stack>
+            </swirl-popover>
           </section>
         </mock:shadow-root>
         <swirl-file-viewer active="true" aria-label="undefined" aria-roledescription="slide" description="Cute dog in a blaket." file="/sample.jpg" role="group" type="image/jpeg" style="transform: translate3d(-0%, 0, 0);"></swirl-file-viewer>

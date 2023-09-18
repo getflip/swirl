@@ -2,32 +2,21 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-resource-list-item.mdx";
 
 export default {
+  argTypes: {
+    menuTriggerId: {
+      description:
+        "**Deprecated!** Please use the `control` slot to render an item control.",
+    },
+    menuTriggerLabel: {
+      description:
+        "**Deprecated!** Please use the `control` slot to render an item control.",
+    },
+  },
   component: "swirl-resource-list-item",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,
-      source: {
-        code: `<swirl-resource-list-item
-  description="With a description"
-  label="This is a resource item"
-  media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"
-  menu-trigger-id="trigger"
->
-</swirl-resource-list-item>
-
-<swirl-popover label="Popover" popover-id="popover" trigger="trigger">
-  <swirl-action-list>
-    <swirl-action-list-item
-      icon="<swirl-icon-mention></swirl-icon-mention>"
-      label="Action item 1"
-    ></swirl-action-list-item>
-    <swirl-action-list-item
-      icon="<swirl-icon-mention></swirl-icon-mention>"
-      label="Action item 2"
-    ></swirl-action-list-item>
-  </swirl-action-list>
-</swirl-popover>`,
-      },
     },
   },
   title: "Components/SwirlResourceListItem",
@@ -35,15 +24,43 @@ export default {
 
 const Template = (args) => {
   const container = document.createElement("div");
+  const list = document.createElement("div");
   const popover = document.createElement("swirl-popover");
+  const control = document.createElement("span");
   const element = generateStoryElement("swirl-resource-list-item", args);
 
-  container.setAttribute("aria-label", "List");
-  container.setAttribute("role", "grid");
+  element.innerHTML = `
+      <swirl-avatar
+        slot="media"
+        label="Jane Doe"
+        src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144"></swirl-avatar>
 
+      <swirl-stack slot="badges" align="center" orientation="horizontal" spacing="8">
+        <swirl-icon-notifications-off size="16"></swirl-icon-notifications-off>
+        <swirl-badge label="1" size="s"></swirl-badge>
+      </swirl-stack>
+
+  `;
+
+  control.slot = "control";
+  control.innerHTML = `
+        <swirl-popover-trigger popover="popover">
+          <swirl-button
+            hide-label
+            icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
+            label="Show menu"
+            size="s"
+            variant="flat"></swirl-button>
+        </swirl-popover-trigger>
+      `;
+
+  list.setAttribute("aria-label", "List");
+  list.setAttribute("role", "grid");
+
+  popover.id = "popover";
+  popover.animation = "scale-in-y";
   popover.label = "Options";
-  popover.popoverId = "popover";
-  popover.trigger = "trigger";
+  popover.placement = "bottom-end";
 
   popover.innerHTML = `
     <swirl-action-list>
@@ -58,7 +75,9 @@ const Template = (args) => {
     </swirl-action-list>
   `;
 
-  container.append(element, popover);
+  element.append("    ", control, "\n    ");
+  list.append("\n    ", element, "\n  ");
+  container.append("\n  ", list, "\n\n  ", popover, "\n");
 
   return container;
 };
@@ -68,6 +87,5 @@ export const SwirlResourceListItem = Template.bind({});
 SwirlResourceListItem.args = {
   description: "With a description",
   label: "This is a resource item",
-  media: `<swirl-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" size="s"></swirl-avatar>`,
-  menuTriggerId: "trigger",
+  meta: "Today",
 };

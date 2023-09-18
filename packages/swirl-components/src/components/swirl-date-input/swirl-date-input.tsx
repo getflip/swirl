@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -30,6 +31,8 @@ const internalDateFormat = "yyyy-MM-dd";
   tag: "swirl-date-input",
 })
 export class SwirlDateInput {
+  @Element() el: HTMLSwirlDateInputElement;
+
   @Prop() autoFocus?: boolean;
   @Prop() autoSelect?: boolean;
   @Prop() datePickerLabel?: string = "Date picker";
@@ -47,15 +50,19 @@ export class SwirlDateInput {
 
   @State() iconSize: 20 | 24 = 24;
 
+  @Event() invalidInput: EventEmitter<string>;
   @Event() valueChange: EventEmitter<string>;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private id: string;
+  private inputEl: HTMLInputElement;
   private mask: Maska;
   private pickerPopover: HTMLSwirlPopoverElement;
 
   componentWillLoad() {
-    const index = document.querySelectorAll("swirl-date-input").length;
+    const index = Array.from(
+      document.querySelectorAll("swirl-date-input")
+    ).indexOf(this.el);
 
     this.id = `swirl-date-input-${index}`;
   }
@@ -65,10 +72,14 @@ export class SwirlDateInput {
 
     this.updateIconSize(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.addEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+
+    // see https://stackoverflow.com/a/27314017
+    if (this.autoFocus) {
+      setTimeout(() => {
+        this.inputEl.focus();
+      });
+    }
   }
 
   disconnectedCallback() {
@@ -103,11 +114,19 @@ export class SwirlDateInput {
 
     const newDate = parse(value, this.format, new Date());
 
+    // First, escape any backslashes in the format string
+    const escapedFormat = this.format.replace(/\\/g, "\\\\");
+    // Then construct the RegExp using the escaped format string
     const formatRegExp = new RegExp(
-      `^${this.format.replace(/[ydM]/g, "\\d")}$`
+      `^${escapedFormat.replace(/[ydM]/g, "\\d")}$`
     );
 
-    if (!Boolean(value.match(formatRegExp)) || !isValid(newDate)) {
+    if (!Boolean(value.match(formatRegExp))) {
+      return;
+    }
+
+    if (!isValid(newDate)) {
+      this.invalidInput.emit(value);
       return;
     }
 
@@ -189,29 +208,31 @@ export class SwirlDateInput {
             onFocus={this.onFocus}
             onInput={this.onInput}
             placeholder={this.placeholder}
+            ref={(el) => (this.inputEl = el)}
             required={this.required}
             type="text"
             value={displayValue}
           />
 
-          <button
-            aria-label={this.datePickerTriggerLabel}
-            class="date-input__date-picker-button"
-            disabled={this.disabled}
-            id={`${this.id}-trigger`}
-            type="button"
-          >
-            <swirl-icon-today size={this.iconSize}></swirl-icon-today>
-          </button>
+          <swirl-popover-trigger popover={`popover-${this.id}`}>
+            <button
+              aria-label={this.datePickerTriggerLabel}
+              class="date-input__date-picker-button"
+              disabled={this.disabled}
+              type="button"
+            >
+              <swirl-icon-today size={this.iconSize}></swirl-icon-today>
+            </button>
+          </swirl-popover-trigger>
         </div>
 
         {!this.disabled && (
           <swirl-popover
+            animation="scale-in-y"
+            id={`popover-${this.id}`}
             label={this.datePickerLabel}
             placement="bottom-end"
-            popoverId="popover"
             ref={(el) => (this.pickerPopover = el)}
-            trigger={`${this.id}-trigger`}
           >
             <swirl-date-picker
               labels={this.labels}

@@ -9,6 +9,7 @@ export type SwirlBadgeIntent =
   | "critical"
   | "grape"
   | "kiwi"
+  | "neutral"
   | "pumpkin"
   | "radish";
 

@@ -12,7 +12,10 @@
 }
 
 :root {
+  --swirl-autocomplete-tags-margin-top: 0;
+
   --swirl-avatar-group-border-color: var(--s-background-default);
+  --swirl-avatar-background-color: var(--s-surface-raised-default);
 
   --swirl-badge-border-color: var(--s-background-default);
 
@@ -21,17 +24,34 @@
   --swirl-button-border-bottom-right-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-left-radius: var(--s-border-radius-base);
 
+  --swirl-carousel-gradient: 255, 255, 255;
+
   --swirl-icon-button-border-top-right-radius: 50%;
   --swirl-icon-button-border-top-left-radius: 50%;
   --swirl-icon-button-border-bottom-right-radius: 50%;
   --swirl-icon-button-border-bottom-left-radius: 50%;
 
+  --swirl-flat-button-background-default: var(--s-action-neutral-default);
+  --swirl-flat-button-background-disabled: var(--s-action-neutral-disabled);
+  --swirl-flat-button-background-hovered: var(--s-action-neutral-hovered);
+  --swirl-flat-button-background-pressed: var(--s-action-neutral-pressed);
+
   --swirl-ghost-button-background-default: var(--s-background-default);
+  --swirl-ghost-button-background-disabled: var(--s-background-default);
   --swirl-ghost-button-background-hovered: var(--s-background-hovered);
   --swirl-ghost-button-background-pressed: var(--s-background-pressed);
 
+  --swirl-resource-list-item-background-default: var(--s-background-default);
+  --swirl-resource-list-item-background-hovered: var(--s-background-hovered);
+  --swirl-resource-list-item-background-pressed: var(--s-background-pressed);
+
   --swirl-table-sticky-left-shadow: none;
   --swirl-table-sticky-right-shadow: none;
+
+  --swirl-tab-bar-border-width: var(--s-border-width-default);
+  --swirl-tab-bar-height: auto;
+
+  --swirl-text-input-placeholder-size: var(--s-font-size-base);
 
   @media (--from-desktop-without-touch) {
     --swirl-button-border-top-right-radius: var(--s-border-radius-sm);
@@ -49,6 +69,8 @@
 
 html.theme-dark {
   color-scheme: dark;
+
+  --swirl-carousel-gradient: 25, 26, 28;
 }
 
 body {

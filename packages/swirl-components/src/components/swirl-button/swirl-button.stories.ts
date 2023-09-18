@@ -14,6 +14,7 @@ export default {
     },
   },
   component: "swirl-button",
+  tags: ["autodocs"],
   parameters: {
     docs: {
       page: Docs,

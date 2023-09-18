@@ -12,7 +12,7 @@ describe("swirl-link", () => {
     expect(page.root).toEqualHtml(`
       <swirl-link href="/" label="Label">
         <mock:shadow-root>
-          <a class="link" href="/" part="link">
+          <a class="link link--color-default" href="/" part="link">
             Label
           </a>
         </mock:shadow-root>

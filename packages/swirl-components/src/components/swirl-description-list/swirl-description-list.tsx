@@ -12,9 +12,9 @@ export class SwirlDescriptionList {
   render() {
     return (
       <Host>
-        <dl class="description-list">
+        <div class="description-list" role="list">
           <slot></slot>
-        </dl>
+        </div>
       </Host>
     );
   }

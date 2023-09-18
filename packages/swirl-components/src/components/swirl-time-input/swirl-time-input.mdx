@@ -1,0 +1,28 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-time-input.stories";
+
+<Meta title="Components/SwirlTimeInput" />
+
+# SwirlTimeInput
+
+The SwirlDateInput component is used to enter time values. It should always be
+used in combination with the
+[SwirlFormControl component](?path=/docs/components-swirlformcontrol--docs).
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?type=design&node-id=205-4334&t=oPzrbpq03fbccFIJ-0)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-time-input)**
+
+## Usage
+
+<Canvas of={Stories.SwirlTimeInput} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlTimeInput} />
+
+## Theming
+
+| Variable               | Usage                                  |
+| ---------------------- | -------------------------------------- |
+| `--s-text-default`     | Text color of the input value          |
+| `--s-text-disabled`    | Text color of the disabled input value |
+| `--s-icon-default`     | Icon color of the time indicator       |
+| `--s-border-highlight` | Caret color                            |

@@ -1,4 +1,5 @@
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-dialog.stories";
 
 <Meta title="Components/SwirlDialog" />
 
@@ -12,11 +13,9 @@ that needs the user's confirmation or action.
 
 ## Usage
 
-<Canvas withSource="open">
-  <Story id="components-swirldialog--swirl-dialog" />
-</Canvas>
+<Canvas of={Stories.SwirlDialog} sourceState="shown"></Canvas>
 
-<ArgsTable story="." />
+<Controls of={Stories.SwirlDialog} />
 
 ## Theming
 

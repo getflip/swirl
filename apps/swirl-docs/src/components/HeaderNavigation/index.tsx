@@ -1,20 +1,13 @@
 import Image from "next/image";
-import icon from "@getflip/swirl-icons/icons/Close16.svg";
 import MobileNav from "./mobileNav";
 import Link from "next/link";
 import { navItems } from "@swirl/lib/navigation";
 import { useRouter } from "next/router";
 import { DesktopView, MobileView } from "../View/Views";
 import { useEffect, useState } from "react";
-import { Autocomplete } from "../Search/AutoComplete";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classNames from "classnames";
-import {
-  SwirlIconClose,
-  SwirlIconMenu,
-  SwirlIconSearch,
-  SwirlSearch,
-} from "@getflip/swirl-components-react";
+import { SwirlIconClose } from "@getflip/swirl-components-react";
 import { OpenSearchButton } from "./OpenSearchButton";
 
 export const HeaderLogo = () => {
@@ -27,7 +20,7 @@ export const HeaderLogo = () => {
           width={32}
           height={32}
         />
-        <span className="font-medium ml-3">Swirl</span>
+        <span className="font-medium ml-3">Dev</span>
       </a>
     </Link>
   );
@@ -65,7 +58,7 @@ const HeaderNavigation = () => {
         </a>
       </Link>
       <DesktopView>
-        <header className="sticky top-0 bg-background-default z-10">
+        <header className="bg-background-default z-10 max-h-[72px]">
           <nav
             aria-label="main"
             className="flex justify-between items-center h-[72px] w-full px-4 border-b-1 font-normal text-base"
@@ -73,36 +66,37 @@ const HeaderNavigation = () => {
             <div className="flex ">
               <HeaderLogo />
               <ul className="hidden md:flex flex-row items-center bg-background-default">
-                {navItems.map((link) => (
-                  <li
-                    key={link.url}
-                    className={classNames(
-                      "relative mr-4",
-                      "before:block before:absolute before:bottom-[-23px] before:w-full before:h-1 before:bg-border-info",
-                      {
-                        "before:opacity-100": activePath?.includes(link.url),
-                        "before:opacity-0": !activePath?.includes(link.url),
-                      }
-                    )}
-                  >
-                    <Link
-                      className={classNames("text-text-default text-base", {
-                        "text-border-info": activePath?.includes(link.url),
-                      })}
-                      href={link.url}
+                {navItems.map((link) => {
+                  const isActive =
+                    activePath.split("/")[1] === link.url.split("/")[1];
+
+                  return (
+                    <li
+                      key={link.url}
+                      className={classNames(
+                        "relative mr-space-24",
+                        "hover:text-border-info",
+                        "before:block before:absolute before:bottom-[-23px] before:w-full before:h-1 before:bg-border-info",
+                        {
+                          "before:opacity-100 text-border-info": isActive,
+                          "before:opacity-0": !isActive,
+                        }
+                      )}
                     >
-                      <a>{link.title}</a>
-                    </Link>
-                  </li>
-                ))}
+                      <Link
+                        className={classNames("text-text-default text-base", {
+                          "text-text-highlight": isActive,
+                        })}
+                        href={link.url}
+                      >
+                        <a>{link.title}</a>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <OpenSearchButton />
-            {/* <Autocomplete
-              placeholder="Search"
-              openOnFocus={true}
-              defaultActiveItemId={0}
-            /> */}
           </nav>
         </header>
       </DesktopView>
@@ -124,7 +118,9 @@ const HeaderNavigation = () => {
               {isMobileNavOpen ? (
                 <SwirlIconClose size={24} />
               ) : (
-                <SwirlIconMenu size={24} />
+                <i
+                  className={`swirl-icons-Menu28 text-icon-strong text-2xl`}
+                ></i>
               )}
             </button>
           </div>
