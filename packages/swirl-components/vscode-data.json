@@ -2321,6 +2321,19 @@
       ]
     },
     {
+      "name": "swirl-icon-add-reaction",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-admin-panel-settings",
       "description": {
         "kind": "markdown",
@@ -2335,6 +2348,19 @@
     },
     {
       "name": "swirl-icon-ai",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-apps",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2972,6 +2998,19 @@
     },
     {
       "name": "swirl-icon-gif",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-group-add",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3712,6 +3751,19 @@
       ]
     },
     {
+      "name": "swirl-icon-secure",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-send",
       "description": {
         "kind": "markdown",
@@ -3881,6 +3933,19 @@
       ]
     },
     {
+      "name": "swirl-icon-tree-structure",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-undo",
       "description": {
         "kind": "markdown",
@@ -3895,6 +3960,19 @@
     },
     {
       "name": "swirl-icon-unlock-person",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-user-add",
       "description": {
         "kind": "markdown",
         "value": ""
