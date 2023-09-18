@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.93.0
+
+### Minor Changes
+
+- [`2d91a2b0`](https://github.com/getflip/swirl/commit/2d91a2b018d9414abb9e2e292c59ecb68640aa7d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "truncate-direction" prop to
+  swirl-text
+
 ## 0.92.2
 
 ### Patch Changes
