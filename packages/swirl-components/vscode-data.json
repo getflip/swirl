@@ -6646,6 +6646,18 @@
           "description": ""
         },
         {
+          "name": "truncate-direction",
+          "description": "",
+          "values": [
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            }
+          ]
+        },
+        {
           "name": "weight",
           "description": "",
           "values": [
