@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.92.1
+
+### Patch Changes
+
+- [`4846aa42`](https://github.com/getflip/swirl/commit/4846aa42ca1f217889ac41e81ee8d69df1ae439a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix value update issue of
+  swirl-form-control
+
+- Updated dependencies
+  [[`4846aa42`](https://github.com/getflip/swirl/commit/4846aa42ca1f217889ac41e81ee8d69df1ae439a),
+  [`12b83d54`](https://github.com/getflip/swirl/commit/12b83d54b591c7748a9c27018e8946df16303e59)]:
+  - @getflip/swirl-components@0.94.0
+
 ## 0.92.0
 
 ### Minor Changes
