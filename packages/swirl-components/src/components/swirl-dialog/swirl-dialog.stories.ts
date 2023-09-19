@@ -45,7 +45,7 @@ const Template = (args) => {
 export const SwirlDialog = Template.bind({});
 
 SwirlDialog.args = {
-  intent: "critical",
+  intent: "primary",
   label: "Dialog",
   primaryActionLabel: "Leave",
   secondaryActionLabel: "Cancel",

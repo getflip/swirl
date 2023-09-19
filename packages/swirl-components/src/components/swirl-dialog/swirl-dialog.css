@@ -65,34 +65,42 @@
   width: 18.5rem;
   max-height: 90vh;
   padding-top: var(--s-space-24);
-  padding-right: var(--s-space-8);
-  padding-bottom: var(--s-space-8);
-  padding-left: var(--s-space-8);
+  padding-right: var(--s-space-16);
+  padding-bottom: var(--s-space-16);
+  padding-left: var(--s-space-16);
   border-radius: var(--s-border-radius-l);
   background-color: var(--s-surface-overlay-default);
   text-align: center;
   box-shadow: var(--s-shadow-level-3);
 
   @media (--from-desktop-without-touch) {
+    width: 25rem;
     border-radius: var(--s-border-radius-base);
+  }
+
+  @media (--from-desktop) {
+    text-align: start;
   }
 }
 
 .dialog__heading {
   margin: 0;
   margin-bottom: var(--s-space-8);
+  padding-right: var(--s-space-8);
+  padding-left: var(--s-space-8);
   font-size: var(--s-font-size-lg);
   font-weight: var(--s-font-weight-semibold);
   line-height: var(--s-line-height-lg);
 
   @media (--from-desktop-without-touch) {
-    font-size: var(--s-font-size-base);
     line-height: var(--s-line-height-base);
   }
 }
 
 .dialog__content {
-  margin-bottom: var(--s-space-24);
+  margin-bottom: var(--s-space-20);
+  padding-right: var(--s-space-8);
+  padding-left: var(--s-space-8);
   line-height: var(--s-line-height-base);
 
   & ::slotted(*) {
@@ -102,6 +110,29 @@
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
+  }
+
+  @media (--from-desktop) {
+    margin-bottom: var(--s-space-24);
+  }
+}
+
+.dialog__controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  gap: var(--s-space-8);
+
+  & > * {
+    flex-grow: 1;
+
+    @media (--from-desktop) {
+      flex-grow: 0;
+    }
+  }
+
+  @media (--from-desktop) {
+    justify-content: flex-end;
   }
 }
 
