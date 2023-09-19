@@ -1,5 +1,13 @@
 # @getflip/swirl-components-react
 
+## 0.93.0
+
+### Minor Changes
+
+- [`c5405a64`](https://github.com/getflip/swirl/commit/c5405a6422a6d78f031936b3484791d656940ee3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Align version numbers with
+  swirl-components package
+
 ## 0.92.1
 
 ### Patch Changes
