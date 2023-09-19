@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.94.1
+
+### Patch Changes
+
+- [`4b29fde8`](https://github.com/getflip/swirl/commit/4b29fde8ef5daab13c6be149b98bb78cb096eb26)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix value update issue of
+  swirl-text-input
+
+- Updated dependencies
+  [[`4b29fde8`](https://github.com/getflip/swirl/commit/4b29fde8ef5daab13c6be149b98bb78cb096eb26)]:
+  - @getflip/swirl-components@0.94.1
+
 ## 0.94.0
 
 ### Minor Changes
