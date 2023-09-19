@@ -50,7 +50,6 @@ import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-sk
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
-import { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
 import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 import { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
@@ -108,7 +107,6 @@ export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-sk
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
-export { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
 export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 export { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
@@ -1364,7 +1362,6 @@ export namespace Components {
         "inputId": string;
         "inputName": string;
         "label"?: string;
-        "size"?: SwirlSwitchSize;
         "value"?: string;
     }
     interface SwirlSymbol {
@@ -5159,7 +5156,6 @@ declare namespace LocalJSX {
         "inputName": string;
         "label"?: string;
         "onValueChange"?: (event: SwirlSwitchCustomEvent<boolean>) => void;
-        "size"?: SwirlSwitchSize;
         "value"?: string;
     }
     interface SwirlSymbol {
