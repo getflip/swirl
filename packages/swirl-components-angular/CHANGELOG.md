@@ -1,5 +1,29 @@
 # @getflip/swirl-components-angular
 
+## 0.95.0
+
+### Minor Changes
+
+- [#388](https://github.com/getflip/swirl/pull/388)
+  [`9f7f3e83`](https://github.com/getflip/swirl/commit/9f7f3e83dcb20904cc422bbe6b742de6dc72a11e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-switch styling;
+  remove size prop
+
+* [`af6c1409`](https://github.com/getflip/swirl/commit/af6c1409e95e5d21312651d50babc42ec7dc3d13)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "height" prop to swirl-modal
+
+- [#387](https://github.com/getflip/swirl/pull/387)
+  [`a6826827`](https://github.com/getflip/swirl/commit/a68268275d0d56d4ba7c7dbb2778b9f841c5b21b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-dialog styling
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9f7f3e83`](https://github.com/getflip/swirl/commit/9f7f3e83dcb20904cc422bbe6b742de6dc72a11e),
+  [`af6c1409`](https://github.com/getflip/swirl/commit/af6c1409e95e5d21312651d50babc42ec7dc3d13),
+  [`a6826827`](https://github.com/getflip/swirl/commit/a68268275d0d56d4ba7c7dbb2778b9f841c5b21b)]:
+  - @getflip/swirl-components@0.95.0
+
 ## 0.94.1
 
 ### Patch Changes
