@@ -1114,6 +1114,7 @@ export namespace Components {
          */
         "close": (force?: boolean) => Promise<void>;
         "closeButtonLabel"?: string;
+        "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
@@ -4906,6 +4907,7 @@ declare namespace LocalJSX {
     interface SwirlModal {
         "closable"?: boolean;
         "closeButtonLabel"?: string;
+        "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;

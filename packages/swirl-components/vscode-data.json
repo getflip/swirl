@@ -4438,6 +4438,10 @@
           "description": ""
         },
         {
+          "name": "height",
+          "description": ""
+        },
+        {
           "name": "hide-close-button",
           "description": ""
         },

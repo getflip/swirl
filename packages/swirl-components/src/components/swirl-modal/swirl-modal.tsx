@@ -34,6 +34,7 @@ export class SwirlModal {
 
   @Prop() closable?: boolean = true;
   @Prop() closeButtonLabel?: string = "Close modal";
+  @Prop() height?: string;
   @Prop() hideCloseButton?: boolean;
   @Prop() hideLabel?: boolean;
   @Prop() label!: string;
@@ -85,7 +86,7 @@ export class SwirlModal {
   }
 
   disconnectedCallback() {
-    this.focusTrap.deactivate();
+    this.focusTrap?.deactivate();
     this.unlockBodyScroll();
   }
 
@@ -256,7 +257,11 @@ export class SwirlModal {
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
           <div
             class="modal__body"
-            style={{ maxHeight: this.maxHeight, maxWidth: this.maxWidth }}
+            style={{
+              height: this.height,
+              maxHeight: this.maxHeight,
+              maxWidth: this.maxWidth,
+            }}
           >
             <header class="modal__custom-header">
               <slot name="custom-header"></slot>
