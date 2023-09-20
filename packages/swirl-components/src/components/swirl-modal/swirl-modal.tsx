@@ -258,8 +258,8 @@ export class SwirlModal {
           <div
             class="modal__body"
             style={{
-              height: this.height,
-              maxHeight: this.maxHeight,
+              "--swirl-modal-max-height": this.maxHeight,
+              "--swirl-modal-height": this.height,
               maxWidth: this.maxWidth,
             }}
           >

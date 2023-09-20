@@ -21,6 +21,8 @@
   --swirl-resource-list-item-background-pressed: var(
     --s-surface-overlay-pressed
   );
+  --swirl-modal-height: auto;
+  --swirl-modal-max-height: 90vh;
 
   position: fixed;
   z-index: var(--s-z-40);
@@ -264,13 +266,13 @@
 
   @media (--from-tablet) {
     width: 90vw;
-    max-height: 90vh;
+    max-height: var(--swirl-modal-max-height);
     border-radius: var(--s-border-radius-base);
     box-shadow: var(--s-shadow-level-3);
   }
 
   @media (--from-desktop) {
-    height: auto;
+    height: var(--swirl-modal-height);
   }
 }
 
