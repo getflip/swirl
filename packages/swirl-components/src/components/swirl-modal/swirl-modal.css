@@ -225,6 +225,7 @@
     flex-basis: auto;
 
     @media (--from-desktop) {
+      max-width: calc(100% - 24rem);
       max-height: none;
       flex-basis: calc(100% - 24rem);
     }
