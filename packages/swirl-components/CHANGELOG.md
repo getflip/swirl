@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.95.1
+
+### Patch Changes
+
+- [`9b63e4f4`](https://github.com/getflip/swirl/commit/9b63e4f40e25e6d8329ef3c1022c8ede2661c1a7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent primary modal content
+  from displacing secondary content
+
 ## 0.95.0
 
 ### Minor Changes
