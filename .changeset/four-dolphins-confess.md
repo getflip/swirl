@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": patch
 ---
 
-Clear swirl-autocomplete search after item was seelcted in multi select variant
+Clear swirl-autocomplete search after item was selected in multi select variant
