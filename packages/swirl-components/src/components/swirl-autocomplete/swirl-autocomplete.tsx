@@ -220,9 +220,21 @@ export class SwirlAutocomplete
       ];
 
       this.valueChange.emit(this.value);
-      this.inputEl.querySelector("input")?.focus();
 
-      await this.updateSuggestions(this.inputEl.querySelector("input").value);
+      this.inputEl.value = "";
+
+      const input = this.inputEl.querySelector("input");
+
+      if (Boolean(input)) {
+        input.value = "";
+
+        queueMicrotask(() => {
+          input.focus();
+          this.close();
+        });
+
+        this.updateSuggestions(input.value);
+      }
     } else {
       if (Boolean(event.detail[0])) {
         const itemId = event.detail[0];
