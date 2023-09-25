@@ -62,7 +62,11 @@ export class SwirlResourceList {
       this.setupDragDrop();
     });
 
-    this.observer.observe(this.el, { childList: true });
+    this.observer.observe(this.el, {
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
   }
 
   @Watch("allowDrag")
