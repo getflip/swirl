@@ -45,6 +45,8 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
 
   @Event() valueChange: EventEmitter<string[]>;
 
+  private input: HTMLInputElement;
+  private optionList: HTMLSwirlOptionListElement;
   private popover: HTMLSwirlPopoverElement;
 
   componentWillLoad() {
@@ -94,10 +96,12 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   ) => {
     this.placement = event.detail.position?.placement;
     this.open = true;
+    this.optionList.querySelector<HTMLElement>('[tabIndex="0"]')?.focus();
   };
 
   private onClose = () => {
     this.open = false;
+    this.input.focus();
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
@@ -155,6 +159,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
               class="select__input"
               disabled={this.disabled}
               readOnly={true}
+              ref={(el) => (this.input = el)}
               type="text"
               value={label}
             ></input>
@@ -196,6 +201,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
               allowDeselect={this.allowDeselect}
               onValueChange={this.select}
               multiSelect={this.multiSelect}
+              ref={(el) => (this.optionList = el)}
               value={this.value}
             >
               <slot onSlotchange={this.onSlotChange}></slot>
