@@ -1303,9 +1303,12 @@ export namespace Components {
         "label": string;
         "multiSelect"?: boolean;
         "required"?: boolean;
+        "searchLoading"?: boolean;
+        "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];
+        "withSearch"?: boolean;
     }
     interface SwirlSeparator {
         "orientation"?: SwirlSeparatorOrientation;
@@ -5103,11 +5106,15 @@ declare namespace LocalJSX {
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
+        "onSearchChange"?: (event: SwirlSelectCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlSelectCustomEvent<string[]>) => void;
         "required"?: boolean;
+        "searchLoading"?: boolean;
+        "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];
+        "withSearch"?: boolean;
     }
     interface SwirlSeparator {
         "orientation"?: SwirlSeparatorOrientation;

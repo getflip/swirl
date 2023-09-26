@@ -5238,11 +5238,23 @@
           "description": ""
         },
         {
+          "name": "search-loading",
+          "description": ""
+        },
+        {
+          "name": "search-placeholder",
+          "description": ""
+        },
+        {
           "name": "select-id",
           "description": ""
         },
         {
           "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "with-search",
           "description": ""
         }
       ]
