@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.95.2
+
+### Patch Changes
+
+- [#392](https://github.com/getflip/swirl/pull/392)
+  [`c10e8bff`](https://github.com/getflip/swirl/commit/c10e8bffd3cce7dc906d39df77c94bc9d91421b8)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Clear swirl-autocomplete search
+  after item was selected in multi select variant
+
+* [#391](https://github.com/getflip/swirl/pull/391)
+  [`880b45cb`](https://github.com/getflip/swirl/commit/880b45cbc8bdc1461c5dec3b57898a0d19853e39)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix various issue with component
+  keyboard controls
+
+* Updated dependencies
+  [[`c10e8bff`](https://github.com/getflip/swirl/commit/c10e8bffd3cce7dc906d39df77c94bc9d91421b8),
+  [`880b45cb`](https://github.com/getflip/swirl/commit/880b45cbc8bdc1461c5dec3b57898a0d19853e39)]:
+  - @getflip/swirl-components@0.95.2
+
 ## 0.95.1
 
 ### Patch Changes
