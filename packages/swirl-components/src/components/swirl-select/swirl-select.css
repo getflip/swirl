@@ -183,3 +183,15 @@
   display: inline-flex;
   transform: translateY(-50%);
 }
+
+.select__empty-list-label {
+  padding: var(--s-space-12) var(--s-space-12) 0;
+
+  &:not(:only-child) {
+    display: none;
+  }
+
+  @media (--from-tablet) {
+    padding: var(--s-space-12) var(--s-space-12) var(--s-space-8);
+  }
+}

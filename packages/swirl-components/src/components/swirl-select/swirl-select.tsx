@@ -30,11 +30,13 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
 
   @Prop() allowDeselect?: boolean = true;
   @Prop() disabled?: boolean;
+  @Prop() emptyListLabel?: string = "No results found.";
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
   @Prop() multiSelect?: boolean;
   @Prop() required?: boolean;
+  @Prop() searchInputLabel?: string = "Search options";
   @Prop() searchLoading?: boolean;
   @Prop() searchPlaceholder?: string;
   @Prop() selectId?: string = Math.round(Math.random() * 1000000).toString();
@@ -233,6 +235,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
                   size={20}
                 ></swirl-icon-search>
                 <input
+                  aria-label={this.searchInputLabel}
                   class="select__search-input"
                   onInput={this.onSearchInput}
                   placeholder={this.searchPlaceholder}
@@ -254,6 +257,17 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
               ref={(el) => (this.optionList = el)}
               value={this.value}
             >
+              {!this.searchLoading && (
+                <div
+                  aria-disabled="true"
+                  class="select__empty-list-label"
+                  role="option"
+                >
+                  <swirl-text color="subdued" weight="medium">
+                    {this.emptyListLabel}
+                  </swirl-text>
+                </div>
+              )}
               <slot onSlotchange={this.onSlotChange}></slot>
             </swirl-option-list>
           </swirl-popover>
