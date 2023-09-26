@@ -1298,14 +1298,19 @@ export namespace Components {
     interface SwirlSelect {
         "allowDeselect"?: boolean;
         "disabled"?: boolean;
+        "emptyListLabel"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
         "required"?: boolean;
+        "searchInputLabel"?: string;
+        "searchLoading"?: boolean;
+        "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];
+        "withSearch"?: boolean;
     }
     interface SwirlSeparator {
         "orientation"?: SwirlSeparatorOrientation;
@@ -5099,15 +5104,21 @@ declare namespace LocalJSX {
     interface SwirlSelect {
         "allowDeselect"?: boolean;
         "disabled"?: boolean;
+        "emptyListLabel"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
+        "onSearchChange"?: (event: SwirlSelectCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlSelectCustomEvent<string[]>) => void;
         "required"?: boolean;
+        "searchInputLabel"?: string;
+        "searchLoading"?: boolean;
+        "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];
+        "withSearch"?: boolean;
     }
     interface SwirlSeparator {
         "orientation"?: SwirlSeparatorOrientation;

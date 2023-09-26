@@ -50,5 +50,7 @@ export const SwirlSelect = Template.bind({});
 
 SwirlSelect.args = {
   label: "Select",
+  searchPlaceholder: "Search …",
   value: ["2"],
+  withSearch: true,
 };

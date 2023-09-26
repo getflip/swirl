@@ -30,24 +30,31 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
 
   @Prop() allowDeselect?: boolean = true;
   @Prop() disabled?: boolean;
+  @Prop() emptyListLabel?: string = "No results found.";
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
   @Prop() multiSelect?: boolean;
   @Prop() required?: boolean;
+  @Prop() searchInputLabel?: string = "Search options";
+  @Prop() searchLoading?: boolean;
+  @Prop() searchPlaceholder?: string;
   @Prop() selectId?: string = Math.round(Math.random() * 1000000).toString();
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string[];
+  @Prop() withSearch?: boolean;
 
   @State() options: HTMLSwirlOptionListItemElement[] = [];
   @State() open: boolean;
   @State() placement: Placement;
 
+  @Event() searchChange: EventEmitter<string>;
   @Event() valueChange: EventEmitter<string[]>;
 
   private input: HTMLInputElement;
   private optionList: HTMLSwirlOptionListElement;
   private popover: HTMLSwirlPopoverElement;
+  private searchInput: HTMLInputElement;
 
   componentWillLoad() {
     queueMicrotask(() => {
@@ -96,19 +103,42 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   ) => {
     this.placement = event.detail.position?.placement;
     this.open = true;
-    this.optionList.querySelector<HTMLElement>('[tabIndex="0"]')?.focus();
+
+    if (this.withSearch && Boolean(this.searchInput)) {
+      this.searchInput.focus();
+    } else {
+      this.optionList.querySelector<HTMLElement>('[tabIndex="0"]')?.focus();
+    }
   };
 
   private onClose = () => {
+    if (Boolean(this.searchInput)) {
+      this.searchInput.value = "";
+      this.searchChange.emit("");
+    }
+
     this.open = false;
     this.input.focus();
   };
 
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Space" || event.code === "Enter") {
+      if (event.target === this.searchInput) {
+        return;
+      }
+
       event.preventDefault();
       this.popover.open(this.el);
+    } else if (
+      event.code === "ArrowDown" &&
+      event.target === this.searchInput
+    ) {
+      this.optionList.querySelector<HTMLElement>('[tabIndex="0"]')?.focus();
     }
+  };
+
+  private onSearchInput = (event: InputEvent) => {
+    this.searchChange.emit((event.target as HTMLInputElement).value);
   };
 
   render() {
@@ -142,6 +172,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
         "select--disabled": this.disabled,
         "select--inline": this.inline,
         "select--multi": this.multiSelect,
+        "select--search-loading": this.searchLoading,
       }
     );
 
@@ -197,6 +228,28 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             ref={(el) => (this.popover = el)}
             useContainerWidth="swirl-form-control"
           >
+            {this.withSearch && (
+              <div class="select__search">
+                <swirl-icon-search
+                  class="select__search-icon"
+                  size={20}
+                ></swirl-icon-search>
+                <input
+                  aria-label={this.searchInputLabel}
+                  class="select__search-input"
+                  onInput={this.onSearchInput}
+                  placeholder={this.searchPlaceholder}
+                  ref={(el) => (this.searchInput = el)}
+                  type="search"
+                />
+                {this.searchLoading && (
+                  <swirl-spinner
+                    class="select__search-spinner"
+                    size="s"
+                  ></swirl-spinner>
+                )}
+              </div>
+            )}
             <swirl-option-list
               allowDeselect={this.allowDeselect}
               onValueChange={this.select}
@@ -204,6 +257,17 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
               ref={(el) => (this.optionList = el)}
               value={this.value}
             >
+              {!this.searchLoading && (
+                <div
+                  aria-disabled="true"
+                  class="select__empty-list-label"
+                  role="option"
+                >
+                  <swirl-text color="subdued" weight="medium">
+                    {this.emptyListLabel}
+                  </swirl-text>
+                </div>
+              )}
               <slot onSlotchange={this.onSlotChange}></slot>
             </swirl-option-list>
           </swirl-popover>
