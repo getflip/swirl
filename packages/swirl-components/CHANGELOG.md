@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.96.1
+
+### Patch Changes
+
+- [`06c65a47`](https://github.com/getflip/swirl/commit/06c65a47ee9ad2ae72b6da9d8d88d2de50114829)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix update issue caused by
+  dynamically rendered swirl-option-list items
+
 ## 0.96.0
 
 ### Minor Changes
