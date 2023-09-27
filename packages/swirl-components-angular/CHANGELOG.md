@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.96.2
+
+### Patch Changes
+
+- [`64804527`](https://github.com/getflip/swirl/commit/648045276083af5bee31550811773cbf9d034712)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-select search spinner
+  positioning
+
+- Updated dependencies
+  [[`64804527`](https://github.com/getflip/swirl/commit/648045276083af5bee31550811773cbf9d034712)]:
+  - @getflip/swirl-components@0.96.2
+
 ## 0.96.1
 
 ### Patch Changes
