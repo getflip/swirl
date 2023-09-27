@@ -52,6 +52,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   @Event() valueChange: EventEmitter<string[]>;
 
   private input: HTMLInputElement;
+  private observer: MutationObserver;
   private optionList: HTMLSwirlOptionListElement;
   private popover: HTMLSwirlPopoverElement;
   private searchInput: HTMLInputElement;
@@ -59,7 +60,12 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   componentWillLoad() {
     queueMicrotask(() => {
       this.updateOptions();
+      this.observeSlotChanges();
     });
+  }
+
+  disconnectedCallback() {
+    this.observer?.disconnect();
   }
 
   @Listen("focusin", { target: "window" })
@@ -67,6 +73,17 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     if (event.target === this.el.querySelector("input")) {
       event.stopImmediatePropagation();
     }
+  }
+
+  private observeSlotChanges() {
+    this.observer = new MutationObserver(() => {
+      this.updateOptions();
+    });
+
+    this.observer.observe(this.el, {
+      childList: true,
+      subtree: true,
+    });
   }
 
   private updateOptions() {

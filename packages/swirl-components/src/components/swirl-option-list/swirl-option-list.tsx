@@ -192,7 +192,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       this.syncItemsWithValue();
     });
 
-    this.observer.observe(this.listboxEl, { childList: true });
+    this.observer.observe(this.listboxEl, { childList: true, subtree: true });
   }
 
   private updateItems() {
