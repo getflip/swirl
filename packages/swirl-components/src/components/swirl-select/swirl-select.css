@@ -195,6 +195,10 @@
   right: var(--s-space-12);
   display: inline-flex;
   transform: translateY(-50%);
+
+  @media (--from-tablet) {
+    margin-top: var(--s-space-4);
+  }
 }
 
 .select__empty-list-label {
