@@ -117,6 +117,10 @@
     }
   }
 
+  & .modal__content {
+    min-height: 100%;
+  }
+
   &.modal--padded .modal__content {
     @media (--from-tablet) {
       padding-top: var(--s-space-8);
