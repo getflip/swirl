@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.97.0
+
+### Minor Changes
+
+- [`7bbdbf09`](https://github.com/getflip/swirl/commit/7bbdbf091abaac4c99a80c54bdfb7547a66dc5c6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add props controlling the
+  swirl-file-uploader button
+
+### Patch Changes
+
+- Updated dependencies
+  [[`7bbdbf09`](https://github.com/getflip/swirl/commit/7bbdbf091abaac4c99a80c54bdfb7547a66dc5c6)]:
+  - @getflip/swirl-components@0.97.0
+
 ## 0.96.2
 
 ### Patch Changes
