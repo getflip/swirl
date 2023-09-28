@@ -1916,8 +1916,36 @@
           "description": ""
         },
         {
+          "name": "upload-button-icon",
+          "description": ""
+        },
+        {
           "name": "upload-button-label",
           "description": ""
+        },
+        {
+          "name": "upload-button-variant",
+          "description": "",
+          "values": [
+            {
+              "name": "flat"
+            },
+            {
+              "name": "floating"
+            },
+            {
+              "name": "ghost"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "outline"
+            },
+            {
+              "name": "plain"
+            }
+          ]
         }
       ]
     },

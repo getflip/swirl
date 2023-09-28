@@ -23,6 +23,7 @@ import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datep
 import { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
+import { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
@@ -80,6 +81,7 @@ export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datep
 export { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
+export { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
@@ -473,7 +475,9 @@ export namespace Components {
          */
         "reset": () => Promise<void>;
         "showDropzone"?: boolean;
+        "uploadButtonIcon"?: string;
         "uploadButtonLabel"?: string;
+        "uploadButtonVariant"?: SwirlButtonVariant1;
     }
     interface SwirlFileViewer {
         "active"?: boolean;
@@ -4353,7 +4357,9 @@ declare namespace LocalJSX {
         "multiple"?: boolean;
         "onValueChange"?: (event: SwirlFileUploaderCustomEvent<FileList>) => void;
         "showDropzone"?: boolean;
+        "uploadButtonIcon"?: string;
         "uploadButtonLabel"?: string;
+        "uploadButtonVariant"?: SwirlButtonVariant1;
     }
     interface SwirlFileViewer {
         "active"?: boolean;
