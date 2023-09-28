@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.97.1
+
+### Patch Changes
+
+- [`bd30ffd1`](https://github.com/getflip/swirl/commit/bd30ffd11aa2f6bb13d2666d8ab5ffa9cc943c4a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue of swirl-modal content
+  height
+
+- Updated dependencies
+  [[`bd30ffd1`](https://github.com/getflip/swirl/commit/bd30ffd11aa2f6bb13d2666d8ab5ffa9cc943c4a)]:
+  - @getflip/swirl-components@0.97.1
+
 ## 0.97.0
 
 ### Minor Changes
