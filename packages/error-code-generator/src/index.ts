@@ -31,8 +31,8 @@ export class ErrorCodeGenerator {
 
     // Initialize handlers
     const extractErrorCodes = new ErrorCodeExtractorHandler();
-    const generateTypeScriptCode = new TypeScriptCodeGeneratorHandler();
-    const writeFiles = new FileWriterHandler();
+    const generateTypeScriptCode = new TypeScriptCodeGeneratorHandler(); // TODO: Add support for other languages through a factory
+    const writeFiles = new FileWriterHandler(); // TODO: Add support for other languages through a factory
 
     // Chain handlers
     extractErrorCodes
