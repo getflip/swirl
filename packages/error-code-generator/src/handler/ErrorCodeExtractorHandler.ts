@@ -1,11 +1,5 @@
-import OASNormalize from "oas-normalize";
-import { Handler, Request } from "..";
-import OASBuilder, { Endpoint, Operations } from "../Oas.builder";
-
-export type EndpointErrorCodes = {
-  endpoint: string;
-  errorCodes: Array<Required<Endpoint["errorCodes"]>>;
-};
+import { ErrorCodeBuilder } from "../builder/ErrorCode.builder";
+import { Handler, ProcessingData } from "../types";
 
 export class ErrorCodeExtractorHandler implements Handler {
   private next: Handler | null = null;
@@ -15,69 +9,19 @@ export class ErrorCodeExtractorHandler implements Handler {
     return handler;
   }
 
-  handle(request: Request): void {
-    const dataPromises = request.specpaths?.map(async (specpath) => {
-      const errorCodeBuilder = await new ErrorCodeBuilder(
-        specpath
-      ).initialize();
+  handle(request: ProcessingData): void {
+    if (!request.sourcePath) {
+      return;
+    }
 
-      return errorCodeBuilder.build();
-    });
-
-    Promise.all(dataPromises || []).then((data) => {
-      request.errorCodes = data;
-
+    const builder = this.createBuilder(request.sourcePath);
+    builder.initialize().then(() => {
+      request.endpointErrorCollections = builder.build();
       this.next?.handle(request);
     });
   }
-}
 
-class ErrorCodeBuilder {
-  private path: string;
-  private oasBuilder: OASBuilder = {} as OASBuilder;
-  private errorCodes: Array<Endpoint["errorCodes"]> = [];
-
-  constructor(path: string) {
-    this.path = path;
-  }
-
-  async initialize() {
-    console.log("ErrorCodeExtractorHandler", this.path);
-
-    const oasDocument = await new OASNormalize(this.path, {
-      enablePaths: true,
-      colorizeErrors: true,
-    }).validate();
-
-    console.log("ErrorCodeExtractorHandler", oasDocument);
-
-    const oasBuilder = await new OASBuilder(oasDocument).dereference();
-
-    this.oasBuilder = oasBuilder
-      .setTitleAndPath()
-      .setDescription()
-      .setEndpoints()
-      .setOperations()
-      .setTags();
-
-    return this;
-  }
-
-  public build(): EndpointErrorCodes {
-    for (const operation in this.oasBuilder.operations) {
-      const operations =
-        this.oasBuilder.operations[operation as keyof Operations];
-
-      operations?.forEach((operation) => {
-        if (operation.errorCodes) {
-          this.errorCodes.push(operation.errorCodes);
-        }
-      });
-    }
-
-    return {
-      endpoint: this.oasBuilder.title.replaceAll(" ", ""),
-      errorCodes: this.errorCodes,
-    };
+  protected createBuilder(specpath: string): ErrorCodeBuilder {
+    return new ErrorCodeBuilder(specpath);
   }
 }

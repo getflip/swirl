@@ -1,42 +1,64 @@
-import { FileLoaderHandler } from "./handler/FileLoaderHandler";
+import path from "path";
 import { ErrorCodeExtractorHandler } from "./handler/ErrorCodeExtractorHandler";
 import { FileWriterHandler } from "./handler/FileWriterHandler";
 import { TypeScriptCodeGeneratorHandler } from "./handler/TypeScriptCodeGeneratorHandler";
+import { GeneratedCode, ProcessingData } from "./types";
 
-import path from "path";
-import { EndpointErrorCodes } from "./handler/ErrorCodeExtractorHandler";
-import { ErrorCodeStringFactoryImpl } from "./ErrorCodeStringFactory";
+export class ErrorCodeGenerator {
+  private sourcePath: string = "";
+  private outputDirectory: string = "";
+  private language: string = "TypeScript"; // default language
 
-const specpath = path.join("apps/swirl-docs/specs/users2.yml");
+  setSourcePath(sourcePath: string): ErrorCodeGenerator {
+    this.sourcePath = sourcePath;
+    return this;
+  }
 
-/** IMPLEMENTATION */
+  setOutputDirectory(outputDirectory: string): ErrorCodeGenerator {
+    this.outputDirectory = outputDirectory;
+    return this;
+  }
 
-export interface Handler {
-  setNext(handler: Handler): Handler;
-  handle(request: Request): void;
+  setLanguage(language: GeneratedCode["language"]): ErrorCodeGenerator {
+    this.language = language;
+    return this;
+  }
+
+  generate(): void {
+    // Validate inputs
+    if (!this.sourcePath || !this.outputDirectory) {
+      throw new Error("Source path and output directory must be set");
+    }
+
+    // Initialize handlers
+    const extractErrorCodes = new ErrorCodeExtractorHandler();
+    const generateTypeScriptCode = new TypeScriptCodeGeneratorHandler();
+    const writeFiles = new FileWriterHandler();
+
+    // Chain handlers
+    extractErrorCodes
+      .setNext(extractErrorCodes)
+      .setNext(generateTypeScriptCode)
+      .setNext(writeFiles);
+
+    // Create and configure request
+    const request: ProcessingData = {
+      sourcePath: path.resolve(__dirname, this.sourcePath),
+      outputDirectory: path.resolve(__dirname, this.outputDirectory),
+    };
+
+    // Start the process
+    extractErrorCodes.handle(request);
+  }
 }
 
-export interface Request {
-  folderPath: string; // Pfad zum Ordner, der die API-Specs enthält
-  specpaths?: string[]; // Liste der gesammelten API-Specs
-  errorCodes?: Array<EndpointErrorCodes>; // Liste der extrahierten Error Codes
-  generatedCode?: Array<ReturnType<ErrorCodeStringFactoryImpl["generate"]>>; // Liste der generierten TypeScript-Code-Schnipsel zu geordnet zu einem Endpunkt Typ
-}
-
-//** RUNNING CODE */
-const loadApiSpecs = new FileLoaderHandler();
-const extractErrorCodes = new ErrorCodeExtractorHandler();
-const generateTypeScriptCode = new TypeScriptCodeGeneratorHandler();
-const writeFiles = new FileWriterHandler();
-
-loadApiSpecs
-  .setNext(extractErrorCodes)
-  .setNext(generateTypeScriptCode)
-  .setNext(writeFiles);
-
-const request: Request = {
-  folderPath:
-    "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/merged.yml",
-};
-
-loadApiSpecs.handle(request);
+// Usage Example:
+const generator = new ErrorCodeGenerator()
+  .setSourcePath(
+    "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/merged.yml"
+  )
+  .setOutputDirectory(
+    "/Users/adam/Documents/dev/flip-corp/swirl/generated-error-codes"
+  )
+  .setLanguage("TypeScript")
+  .generate();
