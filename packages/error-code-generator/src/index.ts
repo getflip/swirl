@@ -9,6 +9,10 @@ export class ErrorCodeGenerator {
   private outputDirectory: string = "";
   private language: string = "TypeScript"; // default language
 
+  constructor(language: GeneratedCode["language"]) {
+    this.language = language;
+  }
+
   setSourcePath(sourcePath: string): ErrorCodeGenerator {
     this.sourcePath = sourcePath;
     return this;
@@ -16,11 +20,6 @@ export class ErrorCodeGenerator {
 
   setOutputDirectory(outputDirectory: string): ErrorCodeGenerator {
     this.outputDirectory = outputDirectory;
-    return this;
-  }
-
-  setLanguage(language: GeneratedCode["language"]): ErrorCodeGenerator {
-    this.language = language;
     return this;
   }
 
@@ -53,12 +52,11 @@ export class ErrorCodeGenerator {
 }
 
 // Usage Example:
-const generator = new ErrorCodeGenerator()
+const generator = new ErrorCodeGenerator("TypeScript")
   .setSourcePath(
     "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/merged.yml"
   )
   .setOutputDirectory(
     "/Users/adam/Documents/dev/flip-corp/swirl/generated-error-codes"
   )
-  .setLanguage("TypeScript")
   .generate();
