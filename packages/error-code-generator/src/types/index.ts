@@ -32,6 +32,9 @@ export type GeneratedCode = {
 export interface ProcessingData {
   outputDirectory: string;
   sourcePath: string;
-  endpointErrorCollections?: AllEndpointErrorCollections;
-  generatedErrorCodes?: Array<GeneratedCode>;
+  languages: Array<GeneratedCode["language"]>;
+  endpointErrorCollections?: AllEndpointErrorCollections; // Will be set by the ErrorCodeExtractorHandler
+  generatedErrorCodes?: Partial<
+    Record<GeneratedCode["language"], Array<GeneratedCode>>
+  >; // Will be set by the CodeGeneratorHandler
 }

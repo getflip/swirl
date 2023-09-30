@@ -1,16 +1,16 @@
 import path from "path";
 import { ErrorCodeExtractorHandler } from "./handler/ErrorCodeExtractorHandler";
 import { FileWriterHandler } from "./handler/FileWriterHandler";
-import { TypeScriptCodeGeneratorHandler } from "./handler/TypeScriptCodeGeneratorHandler";
+import { CodeGeneratorHandler } from "./handler/CodeGeneratorHandler";
 import { GeneratedCode, ProcessingData } from "./types";
 
 export class ErrorCodeGenerator {
   private sourcePath: string = "";
   private outputDirectory: string = "";
-  private language: string = "TypeScript"; // default language
+  private languages: Array<GeneratedCode["language"]> = ["TypeScript"]; // default language
 
-  constructor(language: GeneratedCode["language"]) {
-    this.language = language;
+  constructor(languages: Array<GeneratedCode["language"]>) {
+    this.languages = languages;
   }
 
   setSourcePath(sourcePath: string): ErrorCodeGenerator {
@@ -23,36 +23,32 @@ export class ErrorCodeGenerator {
     return this;
   }
 
-  generate(): void {
-    // Validate inputs
+  generate() {
     if (!this.sourcePath || !this.outputDirectory) {
       throw new Error("Source path and output directory must be set");
     }
 
-    // Initialize handlers
     const extractErrorCodes = new ErrorCodeExtractorHandler();
-    const generateTypeScriptCode = new TypeScriptCodeGeneratorHandler(); // TODO: Add support for other languages through a factory
+    const generateTypeScriptCode = new CodeGeneratorHandler();
     const writeFiles = new FileWriterHandler(); // TODO: Add support for other languages through a factory
 
-    // Chain handlers
     extractErrorCodes
       .setNext(extractErrorCodes)
       .setNext(generateTypeScriptCode)
       .setNext(writeFiles);
 
-    // Create and configure request
     const request: ProcessingData = {
       sourcePath: path.resolve(__dirname, this.sourcePath),
       outputDirectory: path.resolve(__dirname, this.outputDirectory),
+      languages: this.languages,
     };
 
-    // Start the process
     extractErrorCodes.handle(request);
   }
 }
 
 // Usage Example:
-const generator = new ErrorCodeGenerator("TypeScript")
+const generator = new ErrorCodeGenerator(["TypeScript", "Dart"])
   .setSourcePath(
     "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/merged.yml"
   )

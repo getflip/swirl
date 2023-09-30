@@ -7,7 +7,7 @@ export class DartGenerator implements CodeGenerator {
 
   constructor(errorCodes: EndpointErrorCollection) {
     this.endpointErrorCollection = errorCodes;
-    this.endpointErrorCollection.errorCodes.forEach((errorCode) => {
+    this.endpointErrorCollection.errorCodes?.forEach((errorCode) => {
       if (errorCode) {
         this.refNames.push(errorCode["x-readme-ref-name"]);
       }
@@ -15,6 +15,10 @@ export class DartGenerator implements CodeGenerator {
   }
 
   generateCode(): GeneratedCode {
-    throw new Error("Method not implemented.");
+    return {
+      endpoint: this.endpointErrorCollection.endpoint,
+      language: "Dart",
+      code: "NO CODE NO CODE",
+    };
   }
 }

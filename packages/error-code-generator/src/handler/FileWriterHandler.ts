@@ -1,6 +1,7 @@
 import fs from "fs";
-import { Handler, ProcessingData } from "../types";
+import { GeneratedCode, Handler, ProcessingData } from "../types";
 import prettier from "prettier";
+import { formatCode } from "../factories/FormaterFactory";
 
 export class FileWriterHandler implements Handler {
   private next: Handler | null = null;
@@ -14,24 +15,31 @@ export class FileWriterHandler implements Handler {
 
   private writeErrorCodesToFile(request: ProcessingData): void {
     if (request.generatedErrorCodes) {
-      request.generatedErrorCodes.forEach((generatedErrorCode) => {
-        const { code, endpoint, language } = generatedErrorCode;
-        const fileName = `${endpoint}.ts`;
+      Object.keys(request.generatedErrorCodes).forEach((generatedErrorCode) => {
+        const generatedErrorCodeCollection =
+          request.generatedErrorCodes?.[
+            generatedErrorCode as GeneratedCode["language"]
+          ];
 
-        const formattedCode = prettier.format(code, { parser: "typescript" });
+        generatedErrorCodeCollection?.forEach((generatedErrorCode) => {
+          const { code, endpoint, language } = generatedErrorCode;
+          const fileName = `${endpoint}.ts`;
 
-        if (!fs.existsSync(`${request.outputDirectory}`)) {
-          fs.mkdirSync(`${request.outputDirectory}`);
-        }
+          const formattedCode = formatCode(language, code);
 
-        if (!fs.existsSync(`${request.outputDirectory}/${language}`)) {
-          fs.mkdirSync(`${request.outputDirectory}/${language}`);
-        }
+          if (!fs.existsSync(`${request.outputDirectory}`)) {
+            fs.mkdirSync(`${request.outputDirectory}`);
+          }
 
-        fs.writeFileSync(
-          `${request.outputDirectory}/typescript/${fileName}`,
-          formattedCode
-        );
+          if (!fs.existsSync(`${request.outputDirectory}/${language}`)) {
+            fs.mkdirSync(`${request.outputDirectory}/${language}`);
+          }
+
+          fs.writeFileSync(
+            `${request.outputDirectory}/${language}/${fileName}`,
+            formattedCode
+          );
+        });
       });
     }
   }

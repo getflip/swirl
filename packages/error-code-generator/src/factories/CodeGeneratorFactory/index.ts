@@ -7,7 +7,7 @@ export interface CodeGenerator {
 }
 
 // CodeGenerator Factory
-export class CodeGeneratorFactory {
+export default class CodeGeneratorFactory {
   static createGenerator(
     language: string,
     errorCodes: EndpointErrorCollection
