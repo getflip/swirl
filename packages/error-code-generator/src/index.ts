@@ -25,7 +25,7 @@ export class ErrorCodeGenerator {
   }
 
   // We don't need this for now, but adds flexibility for the future
-  addCodeGenerator(
+  addCodeGenerators(
     codeGenerators: ProcessingData["codeGenerators"]
   ): ErrorCodeGenerator {
     this.codeGenerators = [...this.codeGenerators, ...codeGenerators];
