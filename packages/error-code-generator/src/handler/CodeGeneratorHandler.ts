@@ -1,5 +1,6 @@
 import CodeGeneratorFactory from "../factories/CodeGeneratorFactory";
 import { Handler, ProcessingData } from "../types";
+import { GeneratedCodeMapCreator } from "../utils/GeneratedCodeMapCreator";
 
 export class CodeGeneratorHandler implements Handler {
   private next: Handler | null = null;
@@ -8,29 +9,31 @@ export class CodeGeneratorHandler implements Handler {
     return handler;
   }
   handle(request: ProcessingData): void {
-    request.languages.forEach((language) => {
-      if (!request.generatedErrorCodes) {
-        request.generatedErrorCodes = { [language]: [] };
-      } else {
-        request.generatedErrorCodes = {
-          ...request.generatedErrorCodes,
-          [language]: [],
-        };
-      }
-      if (request.endpointErrorCollections) {
-        request.endpointErrorCollections.forEach((endpointErrorCollection) => {
-          const generator = CodeGeneratorFactory.createGenerator(
-            "TypeScript",
-            endpointErrorCollection
-          );
-          const code = generator.generateCode();
+    if (!request.codeGenerators) {
+      throw new Error("No code generators provided");
+    }
 
-          if (request.generatedErrorCodes) {
-            request.generatedErrorCodes[language]?.push(code);
-          }
-        });
-      }
+    if (!request.endpointErrorCollections) {
+      throw new Error("No endpoint error collections provided");
+    }
+
+    if (!request.generatedCodeMap) {
+      request.generatedCodeMap = new Map();
+    }
+
+    const generatedCodeMapCreator = new GeneratedCodeMapCreator();
+
+    request.codeGenerators.forEach((codeGenerator) => {
+      request.endpointErrorCollections?.forEach((endpointErrorCollection) =>
+        generatedCodeMapCreator.add(
+          codeGenerator
+            .setEndpointErrorCollection(endpointErrorCollection)
+            .generateCode()
+        )
+      );
     });
+
+    request.generatedCodeMap = generatedCodeMapCreator.getMap();
 
     this.next?.handle(request);
   }

@@ -3,22 +3,29 @@ import { CodeGenerator } from ".";
 import { EndpointErrorCollection, GeneratedCode } from "../../types";
 
 export class TypeScriptGenerator implements CodeGenerator {
+  language = "TypeScript";
   private refNames: Array<string> = [];
-  private endpointErrorCollection: EndpointErrorCollection;
+  private endpointErrorCollection?: EndpointErrorCollection;
 
-  constructor(errorCodes: EndpointErrorCollection) {
-    this.endpointErrorCollection = errorCodes;
+  setEndpointErrorCollection(errorCollection: EndpointErrorCollection) {
+    this.endpointErrorCollection = errorCollection;
     this.endpointErrorCollection.errorCodes?.forEach((errorCode) => {
       if (errorCode) {
         this.refNames.push(errorCode["x-readme-ref-name"]);
       }
     });
+
+    return this;
   }
 
   generateCode(): GeneratedCode {
+    if (!this.endpointErrorCollection) {
+      throw new Error("No endpoint error collection provided");
+    }
+
     return {
       endpoint: this.endpointErrorCollection.endpoint,
-      language: "TypeScript",
+      language: this.language,
       code: this.generate(),
     };
   }
@@ -29,7 +36,7 @@ export class TypeScriptGenerator implements CodeGenerator {
 
     let errorObjects = "";
 
-    if (this.endpointErrorCollection.errorCodes) {
+    if (this.endpointErrorCollection?.errorCodes) {
       errorObjects += this.endpointErrorCollection.errorCodes
         ?.map((errorCode) => {
           if (errorCode) {
@@ -62,7 +69,7 @@ export class TypeScriptGenerator implements CodeGenerator {
   }
 
   private generateSummaryErrorCodeObject(): string {
-    let code = `export const ${this.endpointErrorCollection.endpoint}ErrorCodes = {\n`;
+    let code = `export const ${this.endpointErrorCollection?.endpoint}ErrorCodes = {\n`;
 
     this.refNames.forEach((category) => {
       code += `  ...${category},\n`;
@@ -74,6 +81,6 @@ export class TypeScriptGenerator implements CodeGenerator {
   }
 
   private generateEndpointErrorType() {
-    return `export type ${this.endpointErrorCollection.endpoint}Error = keyof typeof ${this.endpointErrorCollection.endpoint}ErrorCodes;`;
+    return `export type ${this.endpointErrorCollection?.endpoint}Error = keyof typeof ${this.endpointErrorCollection?.endpoint}ErrorCodes;`;
   }
 }

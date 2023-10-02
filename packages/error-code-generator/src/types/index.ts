@@ -1,4 +1,5 @@
 import type Operation from "oas/dist/operation";
+import { CodeGenerator } from "../factories/CodeGeneratorFactory";
 
 export interface Handler {
   setNext(handler: Handler): Handler;
@@ -25,16 +26,16 @@ export type AllEndpointErrorCollections = Array<EndpointErrorCollection>;
 
 export type GeneratedCode = {
   endpoint: string;
-  language: "TypeScript" | "Dart";
+  language: string;
   code: string;
 };
+
+export type GeneratedCodeMap = Map<string, Array<GeneratedCode>>;
 
 export interface ProcessingData {
   outputDirectory: string;
   sourcePath: string;
-  languages: Array<GeneratedCode["language"]>;
-  endpointErrorCollections?: AllEndpointErrorCollections; // Will be set by the ErrorCodeExtractorHandler
-  generatedErrorCodes?: Partial<
-    Record<GeneratedCode["language"], Array<GeneratedCode>>
-  >; // Will be set by the CodeGeneratorHandler
+  codeGenerators: Array<CodeGenerator>;
+  endpointErrorCollections?: AllEndpointErrorCollections;
+  generatedCodeMap?: GeneratedCodeMap;
 }

@@ -1,16 +1,17 @@
 import path from "path";
+import CodeGeneratorFactory from "./factories/CodeGeneratorFactory";
+import { CodeGeneratorHandler } from "./handler/CodeGeneratorHandler";
 import { ErrorCodeExtractorHandler } from "./handler/ErrorCodeExtractorHandler";
 import { FileWriterHandler } from "./handler/FileWriterHandler";
-import { CodeGeneratorHandler } from "./handler/CodeGeneratorHandler";
-import { GeneratedCode, ProcessingData } from "./types";
+import { ProcessingData } from "./types";
 
 export class ErrorCodeGenerator {
   private sourcePath: string = "";
   private outputDirectory: string = "";
-  private languages: Array<GeneratedCode["language"]> = ["TypeScript"]; // default language
+  private codeGenerators: ProcessingData["codeGenerators"] = [];
 
-  constructor(languages: Array<GeneratedCode["language"]>) {
-    this.languages = languages;
+  constructor(codeGenerators: ProcessingData["codeGenerators"]) {
+    this.codeGenerators = codeGenerators;
   }
 
   setSourcePath(sourcePath: string): ErrorCodeGenerator {
@@ -23,14 +24,24 @@ export class ErrorCodeGenerator {
     return this;
   }
 
+  // We don't need this for now, but adds flexibility for the future
+  addCodeGenerator(
+    codeGenerators: ProcessingData["codeGenerators"]
+  ): ErrorCodeGenerator {
+    this.codeGenerators = [...this.codeGenerators, ...codeGenerators];
+    return this;
+  }
+
   generate() {
-    if (!this.sourcePath || !this.outputDirectory) {
-      throw new Error("Source path and output directory must be set");
+    if (!this.sourcePath || !this.outputDirectory || !this.codeGenerators) {
+      throw new Error(
+        "Source path, output directory and code generators must be set"
+      );
     }
 
     const extractErrorCodes = new ErrorCodeExtractorHandler();
     const generateTypeScriptCode = new CodeGeneratorHandler();
-    const writeFiles = new FileWriterHandler(); // TODO: Add support for other languages through a factory
+    const writeFiles = new FileWriterHandler();
 
     extractErrorCodes
       .setNext(extractErrorCodes)
@@ -40,15 +51,18 @@ export class ErrorCodeGenerator {
     const request: ProcessingData = {
       sourcePath: path.resolve(__dirname, this.sourcePath),
       outputDirectory: path.resolve(__dirname, this.outputDirectory),
-      languages: this.languages,
+      codeGenerators: this.codeGenerators,
     };
 
     extractErrorCodes.handle(request);
   }
 }
 
-// Usage Example:
-const generator = new ErrorCodeGenerator(["TypeScript", "Dart"])
+// Usage Example
+const generator = new ErrorCodeGenerator([
+  CodeGeneratorFactory.createGenerator("TypeScript"),
+  CodeGeneratorFactory.createGenerator("Dart"),
+])
   .setSourcePath(
     "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/merged.yml"
   )

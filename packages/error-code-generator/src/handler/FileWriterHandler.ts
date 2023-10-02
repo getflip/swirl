@@ -14,15 +14,10 @@ export class FileWriterHandler implements Handler {
   }
 
   private writeErrorCodesToFile(request: ProcessingData): void {
-    if (request.generatedErrorCodes) {
-      Object.keys(request.generatedErrorCodes).forEach((generatedErrorCode) => {
-        const generatedErrorCodeCollection =
-          request.generatedErrorCodes?.[
-            generatedErrorCode as GeneratedCode["language"]
-          ];
-
-        generatedErrorCodeCollection?.forEach((generatedErrorCode) => {
-          const { code, endpoint, language } = generatedErrorCode;
+    if (request.generatedCodeMap) {
+      for (const [code, generatedCodes] of request.generatedCodeMap.entries()) {
+        generatedCodes.forEach((generatedCode) => {
+          const { code, endpoint, language } = generatedCode;
           const fileName = `${endpoint}.ts`;
 
           const formattedCode = formatCode(language, code);
@@ -40,7 +35,7 @@ export class FileWriterHandler implements Handler {
             formattedCode
           );
         });
-      });
+      }
     }
   }
 }
