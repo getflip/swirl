@@ -351,6 +351,17 @@ export namespace Components {
         "size"?: SwirlChipSize;
         "variant"?: SwirlChipVariant;
     }
+    interface SwirlColorInput {
+        "autoFocus"?: boolean;
+        "autoSelect"?: boolean;
+        "disabled"?: boolean;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
+        "value"?: string;
+    }
     interface SwirlColumns {
         "columns"?: string;
         "spacing"?: SwirlColumnsSpacing;
@@ -1780,6 +1791,10 @@ export interface SwirlChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlChipElement;
 }
+export interface SwirlColorInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlColorInputElement;
+}
 export interface SwirlConsoleLayoutCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlConsoleLayoutElement;
@@ -2042,6 +2057,12 @@ declare global {
     var HTMLSwirlChipElement: {
         prototype: HTMLSwirlChipElement;
         new (): HTMLSwirlChipElement;
+    };
+    interface HTMLSwirlColorInputElement extends Components.SwirlColorInput, HTMLStencilElement {
+    }
+    var HTMLSwirlColorInputElement: {
+        prototype: HTMLSwirlColorInputElement;
+        new (): HTMLSwirlColorInputElement;
     };
     interface HTMLSwirlColumnsElement extends Components.SwirlColumns, HTMLStencilElement {
     }
@@ -3744,6 +3765,7 @@ declare global {
         "swirl-carousel-slide": HTMLSwirlCarouselSlideElement;
         "swirl-checkbox": HTMLSwirlCheckboxElement;
         "swirl-chip": HTMLSwirlChipElement;
+        "swirl-color-input": HTMLSwirlColorInputElement;
         "swirl-columns": HTMLSwirlColumnsElement;
         "swirl-console-layout": HTMLSwirlConsoleLayoutElement;
         "swirl-date-input": HTMLSwirlDateInputElement;
@@ -4248,6 +4270,20 @@ declare namespace LocalJSX {
         "removeButtonLabel"?: string;
         "size"?: SwirlChipSize;
         "variant"?: SwirlChipVariant;
+    }
+    interface SwirlColorInput {
+        "autoFocus"?: boolean;
+        "autoSelect"?: boolean;
+        "disabled"?: boolean;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "onInputBlur"?: (event: SwirlColorInputCustomEvent<FocusEvent>) => void;
+        "onInputFocus"?: (event: SwirlColorInputCustomEvent<FocusEvent>) => void;
+        "onValueChange"?: (event: SwirlColorInputCustomEvent<string>) => void;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
+        "value"?: string;
     }
     interface SwirlColumns {
         "columns"?: string;
@@ -5542,6 +5578,7 @@ declare namespace LocalJSX {
         "swirl-carousel-slide": SwirlCarouselSlide;
         "swirl-checkbox": SwirlCheckbox;
         "swirl-chip": SwirlChip;
+        "swirl-color-input": SwirlColorInput;
         "swirl-columns": SwirlColumns;
         "swirl-console-layout": SwirlConsoleLayout;
         "swirl-date-input": SwirlDateInput;
@@ -5854,6 +5891,7 @@ declare module "@stencil/core" {
             "swirl-carousel-slide": LocalJSX.SwirlCarouselSlide & JSXBase.HTMLAttributes<HTMLSwirlCarouselSlideElement>;
             "swirl-checkbox": LocalJSX.SwirlCheckbox & JSXBase.HTMLAttributes<HTMLSwirlCheckboxElement>;
             "swirl-chip": LocalJSX.SwirlChip & JSXBase.HTMLAttributes<HTMLSwirlChipElement>;
+            "swirl-color-input": LocalJSX.SwirlColorInput & JSXBase.HTMLAttributes<HTMLSwirlColorInputElement>;
             "swirl-columns": LocalJSX.SwirlColumns & JSXBase.HTMLAttributes<HTMLSwirlColumnsElement>;
             "swirl-console-layout": LocalJSX.SwirlConsoleLayout & JSXBase.HTMLAttributes<HTMLSwirlConsoleLayoutElement>;
             "swirl-date-input": LocalJSX.SwirlDateInput & JSXBase.HTMLAttributes<HTMLSwirlDateInputElement>;
