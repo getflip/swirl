@@ -49,6 +49,17 @@ const Template = (args) => {
       <swirl-button label="A button" variant="flat"></swirl-button>
     </swirl-stack>
   </swirl-accordion-item>
+  <swirl-accordion-item description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." disabled heading="Accordion item 4">
+    <swirl-stack spacing="16">
+      <swirl-text size="sm">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
+        euismod libero, nec sollicitudin diam ultricies ut. Donec eget
+        consectetur libero. Donec et mi non mauris fermentum dictum. Sed
+        scelerisque, sapien vitae fringilla aliquam, quam sapien aliquet.
+      </swirl-text>
+      <swirl-button label="A button" variant="flat"></swirl-button>
+    </swirl-stack>
+  </swirl-accordion-item>
 `;
 
   return element;

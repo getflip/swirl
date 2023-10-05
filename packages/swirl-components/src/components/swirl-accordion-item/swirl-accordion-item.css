@@ -61,7 +61,7 @@
   align-items: center;
   border: none;
   color: var(--s-text-default);
-  background-color: var(--s-background-default);
+  background-color: var(--s-surface-default);
   font: inherit;
   line-height: var(--s-line-height-lg);
   text-align: start;
@@ -69,11 +69,21 @@
   gap: var(--s-space-16);
 
   &:hover {
-    background-color: var(--s-background-hovered);
+    background-color: var(--s-surface-hovered);
   }
 
   &:active {
-    background-color: var(--s-background-pressed);
+    background-color: var(--s-surface-pressed);
+  }
+
+  &:disabled {
+    color: var(--s-text-disabled);
+    background-color: var(--s-surface-default);
+    cursor: default;
+
+    & .text {
+      color: var(--s-text-disabled);
+    }
   }
 
   &:focus:not(:focus-visible) {

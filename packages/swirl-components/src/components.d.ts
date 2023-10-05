@@ -134,6 +134,7 @@ export namespace Components {
          */
         "collapse": () => Promise<void>;
         "description"?: string;
+        "disabled"?: boolean;
         /**
           * Expands the accordion item.
          */
@@ -4073,6 +4074,7 @@ declare namespace LocalJSX {
     }
     interface SwirlAccordionItem {
         "description"?: string;
+        "disabled"?: boolean;
         "heading": string;
         "headingLevel"?: SwirlHeadingLevel;
         "initiallyOpen"?: boolean;

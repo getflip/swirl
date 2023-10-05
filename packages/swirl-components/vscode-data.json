@@ -29,6 +29,10 @@
           "description": ""
         },
         {
+          "name": "disabled",
+          "description": ""
+        },
+        {
           "name": "heading",
           "description": ""
         },

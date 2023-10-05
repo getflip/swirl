@@ -22,6 +22,7 @@ export class SwirlAccordionItem {
   @Element() el: HTMLElement;
 
   @Prop() description?: string;
+  @Prop() disabled?: boolean;
   @Prop() heading!: string;
   @Prop() headingLevel?: SwirlHeadingLevel = 2;
   @Prop() initiallyOpen?: boolean;
@@ -36,7 +37,7 @@ export class SwirlAccordionItem {
 
   componentWillLoad() {
     this.accordion = this.el.closest("swirl-accordion");
-    this.expanded = this.initiallyOpen || false;
+    this.expanded = (this.initiallyOpen && !this.disabled) || false;
 
     if (!Boolean(this.accordion)) {
       throw new Error(
@@ -50,7 +51,7 @@ export class SwirlAccordionItem {
    */
   @Method()
   async collapse() {
-    if (!this.expanded) {
+    if (!this.expanded || this.disabled) {
       return;
     }
 
@@ -63,7 +64,7 @@ export class SwirlAccordionItem {
    */
   @Method()
   async expand() {
-    if (this.expanded) {
+    if (this.expanded || this.disabled) {
       return;
     }
 
@@ -102,6 +103,7 @@ export class SwirlAccordionItem {
               aria-controls={this.id}
               aria-expanded={String(this.expanded)}
               class="accordion-item__toggle"
+              disabled={this.disabled}
               id={this.headingId}
               onClick={this.onHeadingClick}
               type="button"
