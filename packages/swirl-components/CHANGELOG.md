@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.98.1
+
+### Patch Changes
+
+- [`4837a480`](https://github.com/getflip/swirl/commit/4837a480e7f7a313a483c8c536c50d7d637a0b57)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix incorrect swirl-file-uploader
+  label id
+
 ## 0.98.0
 
 ### Minor Changes
