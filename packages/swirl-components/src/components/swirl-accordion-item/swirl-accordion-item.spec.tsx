@@ -25,14 +25,16 @@ describe("swirl-accordion-item", () => {
           <div class="accordion-item">
             <h2 class="accordion-item__heading">
               <button aria-controls="${id}" aria-expanded="false" class="accordion-item__toggle" id="${id}-heading" type="button">
-                heading
-                <swirl-text as="span" color="subdued" size="sm">
-                  Description
-                </swirl-text>
+                <span class="accordion-item__toggle-text">
+                  heading
+                  <swirl-text as="span" color="subdued" size="sm">
+                    Description
+                  </swirl-text>
+                </span>
+                <span class="accordion-item__icon">
+                  <swirl-icon glyph="chevron-right" size="20"></swirl-icon>
+                </span>
               </button>
-              <span class="accordion-item__icon">
-                <swirl-icon glyph="chevron-right" size="20"></swirl-icon>
-              </span>
             </h2>
             <div aria-labelledby="${id}-heading" class="accordion-item__content" id="${id}" role="region">
               <slot></slot>

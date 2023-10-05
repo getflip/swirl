@@ -14,8 +14,6 @@
 
 .accordion-item {
   display: grid;
-  padding-top: var(--s-space-16);
-  padding-bottom: var(--s-space-16);
   align-content: start;
   border-top: 0.0625rem solid var(--s-border-default);
   transition: grid-template-rows 0.15s;
@@ -31,25 +29,23 @@
   grid-template-rows: auto 1fr;
 
   & .accordion-item__content {
-    padding-top: var(--s-space-32);
+    padding-top: var(--s-space-16);
+    padding-bottom: var(--s-space-16);
     animation: accordion-overflow 0.01s;
     animation-delay: 0.15s;
     animation-fill-mode: forwards;
 
     @media (--from-desktop-without-touch) {
-      padding-top: var(--s-space-24);
+      padding-top: var(--s-space-8);
     }
   }
 }
 
 .accordion-item__heading {
-  display: flex;
   margin: 0;
   padding: 0;
-  align-items: center;
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-semibold);
-  gap: var(--s-space-16);
 
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
@@ -57,16 +53,28 @@
 }
 
 .accordion-item__toggle {
-  display: block;
+  display: flex;
+  width: 100%;
   padding: 0;
-  flex-grow: 1;
+  padding-top: var(--s-space-16);
+  padding-bottom: var(--s-space-16);
+  align-items: center;
   border: none;
   color: var(--s-text-default);
-  background-color: transparent;
+  background-color: var(--s-background-default);
   font: inherit;
   line-height: var(--s-line-height-lg);
   text-align: start;
   cursor: pointer;
+  gap: var(--s-space-16);
+
+  &:hover {
+    background-color: var(--s-background-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-background-pressed);
+  }
 
   &:focus:not(:focus-visible) {
     outline: none;
@@ -82,15 +90,21 @@
   }
 }
 
+.accordion-item__toggle-text {
+  flex-grow: 1;
+}
+
 .accordion-item__icon {
   display: inline-flex;
+  padding-right: var(--s-space-8);
   flex-shrink: 0;
 }
 
 .accordion-item__content {
   overflow: hidden;
   padding-top: 0;
-  transition: padding-top 0.15s;
+  padding-bottom: 0;
+  transition: padding-top 0.15s, padding-bottom 0.15s;
   animation: accordion-display 0.01s;
   animation-delay: 0.15s;
   animation-fill-mode: forwards;

@@ -106,21 +106,23 @@ export class SwirlAccordionItem {
               onClick={this.onHeadingClick}
               type="button"
             >
-              {this.heading}
-              {this.description && (
-                <swirl-text as="span" color="subdued" size="sm">
-                  {this.description}
-                </swirl-text>
-              )}
+              <span class="accordion-item__toggle-text">
+                {this.heading}
+                {this.description && (
+                  <swirl-text as="span" color="subdued" size="sm">
+                    {this.description}
+                  </swirl-text>
+                )}
+              </span>
+              <span class="accordion-item__icon">
+                {!this.expanded && (
+                  <swirl-icon glyph="chevron-right" size={20}></swirl-icon>
+                )}
+                {this.expanded && (
+                  <swirl-icon glyph="expand-more" size={20}></swirl-icon>
+                )}
+              </span>
             </button>
-            <span class="accordion-item__icon">
-              {!this.expanded && (
-                <swirl-icon glyph="chevron-right" size={20}></swirl-icon>
-              )}
-              {this.expanded && (
-                <swirl-icon glyph="expand-more" size={20}></swirl-icon>
-              )}
-            </span>
           </HeadingTag>
           <div
             aria-labelledby={this.headingId}
