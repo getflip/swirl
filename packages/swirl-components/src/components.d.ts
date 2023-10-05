@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 import { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
@@ -28,7 +29,7 @@ import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components
 import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
-import { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
+import { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
@@ -63,6 +64,7 @@ import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
+export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
@@ -86,7 +88,7 @@ export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components
 export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
-export { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
+export { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
@@ -123,6 +125,26 @@ export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolba
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export namespace Components {
     interface FileManager {
+    }
+    interface SwirlAccordion {
+    }
+    interface SwirlAccordionItem {
+        /**
+          * Collapsed the accordion item.
+         */
+        "collapse": () => Promise<void>;
+        "description"?: string;
+        /**
+          * Expands the accordion item.
+         */
+        "expand": () => Promise<void>;
+        "heading": string;
+        "headingLevel"?: SwirlHeadingLevel;
+        "initiallyOpen"?: boolean;
+        /**
+          * Toggles the accordion item.
+         */
+        "toggle": () => Promise<void>;
     }
     interface SwirlActionList {
     }
@@ -578,7 +600,7 @@ export namespace Components {
         "as"?: SwirlHeadingTag;
         "balance"?: boolean;
         "headingId"?: string;
-        "level"?: SwirlHeadingLevel;
+        "level"?: SwirlHeadingLevel1;
         "lines"?: number;
         "text": string;
         "truncate"?: boolean;
@@ -1752,6 +1774,10 @@ export namespace Components {
     interface SwirlVisuallyHidden {
     }
 }
+export interface SwirlAccordionItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlAccordionItemElement;
+}
 export interface SwirlAppBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlAppBarElement;
@@ -1922,6 +1948,18 @@ declare global {
     var HTMLFileManagerElement: {
         prototype: HTMLFileManagerElement;
         new (): HTMLFileManagerElement;
+    };
+    interface HTMLSwirlAccordionElement extends Components.SwirlAccordion, HTMLStencilElement {
+    }
+    var HTMLSwirlAccordionElement: {
+        prototype: HTMLSwirlAccordionElement;
+        new (): HTMLSwirlAccordionElement;
+    };
+    interface HTMLSwirlAccordionItemElement extends Components.SwirlAccordionItem, HTMLStencilElement {
+    }
+    var HTMLSwirlAccordionItemElement: {
+        prototype: HTMLSwirlAccordionItemElement;
+        new (): HTMLSwirlAccordionItemElement;
     };
     interface HTMLSwirlActionListElement extends Components.SwirlActionList, HTMLStencilElement {
     }
@@ -3725,6 +3763,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "file-manager": HTMLFileManagerElement;
+        "swirl-accordion": HTMLSwirlAccordionElement;
+        "swirl-accordion-item": HTMLSwirlAccordionItemElement;
         "swirl-action-list": HTMLSwirlActionListElement;
         "swirl-action-list-item": HTMLSwirlActionListItemElement;
         "swirl-action-list-section": HTMLSwirlActionListSectionElement;
@@ -4028,6 +4068,15 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FileManager {
+    }
+    interface SwirlAccordion {
+    }
+    interface SwirlAccordionItem {
+        "description"?: string;
+        "heading": string;
+        "headingLevel"?: SwirlHeadingLevel;
+        "initiallyOpen"?: boolean;
+        "onExpansionChange"?: (event: SwirlAccordionItemCustomEvent<boolean>) => void;
     }
     interface SwirlActionList {
     }
@@ -4431,7 +4480,7 @@ declare namespace LocalJSX {
         "as"?: SwirlHeadingTag;
         "balance"?: boolean;
         "headingId"?: string;
-        "level"?: SwirlHeadingLevel;
+        "level"?: SwirlHeadingLevel1;
         "lines"?: number;
         "text": string;
         "truncate"?: boolean;
@@ -5523,6 +5572,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "file-manager": FileManager;
+        "swirl-accordion": SwirlAccordion;
+        "swirl-accordion-item": SwirlAccordionItem;
         "swirl-action-list": SwirlActionList;
         "swirl-action-list-item": SwirlActionListItem;
         "swirl-action-list-section": SwirlActionListSection;
@@ -5829,6 +5880,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "file-manager": LocalJSX.FileManager & JSXBase.HTMLAttributes<HTMLFileManagerElement>;
+            "swirl-accordion": LocalJSX.SwirlAccordion & JSXBase.HTMLAttributes<HTMLSwirlAccordionElement>;
+            "swirl-accordion-item": LocalJSX.SwirlAccordionItem & JSXBase.HTMLAttributes<HTMLSwirlAccordionItemElement>;
             "swirl-action-list": LocalJSX.SwirlActionList & JSXBase.HTMLAttributes<HTMLSwirlActionListElement>;
             "swirl-action-list-item": LocalJSX.SwirlActionListItem & JSXBase.HTMLAttributes<HTMLSwirlActionListItemElement>;
             "swirl-action-list-section": LocalJSX.SwirlActionListSection & JSXBase.HTMLAttributes<HTMLSwirlActionListSectionElement>;

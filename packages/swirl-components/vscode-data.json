@@ -10,6 +10,39 @@
       "attributes": []
     },
     {
+      "name": "swirl-accordion",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "swirl-accordion-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "heading",
+          "description": ""
+        },
+        {
+          "name": "heading-level",
+          "description": ""
+        },
+        {
+          "name": "initially-open",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-action-list",
       "description": {
         "kind": "markdown",
