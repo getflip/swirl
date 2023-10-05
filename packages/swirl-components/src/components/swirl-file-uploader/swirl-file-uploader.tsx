@@ -78,7 +78,7 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
           <label
             class="file-uploader__label"
             htmlFor={this.inputId}
-            id={`${this.inputEl}-label`}
+            id={`${this.inputId}-label`}
           >
             {this.label}
           </label>
