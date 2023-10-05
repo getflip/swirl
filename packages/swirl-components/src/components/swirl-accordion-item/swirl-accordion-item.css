@@ -92,7 +92,6 @@
 
   &:focus-visible {
     outline-color: var(--s-focus-default);
-    outline-offset: var(--s-space-2);
   }
 
   @media (--from-desktop-without-touch) {
