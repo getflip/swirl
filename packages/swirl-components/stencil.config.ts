@@ -35,7 +35,6 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
     elementSelectors: [
       "swirl-autocomplete:not([multi-select]):not([multiSelect])",
-      "swirl-color-input",
       "swirl-date-input",
       "swirl-radio-group",
       "swirl-search",
