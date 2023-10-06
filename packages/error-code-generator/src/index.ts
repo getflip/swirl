@@ -26,7 +26,7 @@ export class ErrorCodeGenerator {
 
   // We don't need this for now, but adds flexibility for the future
   addCodeGenerators(
-    codeGenerators: ProcessingData["codeGenerators"]
+    codeGenerators: ProcessingData["codeGenerators"],
   ): ErrorCodeGenerator {
     this.codeGenerators = [...this.codeGenerators, ...codeGenerators];
     return this;
@@ -35,7 +35,7 @@ export class ErrorCodeGenerator {
   generate() {
     if (!this.sourcePath || !this.outputDirectory || !this.codeGenerators) {
       throw new Error(
-        "Source path, output directory and code generators must be set"
+        "Source path, output directory and code generators must be set",
       );
     }
 

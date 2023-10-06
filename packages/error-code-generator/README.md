@@ -1,4 +1,4 @@
-# Error Code Generator Library
+# Error Code Generator Library for Open API Specs
 
 ## Overview
 
@@ -6,7 +6,8 @@ Error Code Generator is a TypeScript library aimed at simplifying the process of
 managing and generating error codes in a systematic manner across different
 programming languages in your projects. This allows you to create, manage, and
 implement error codes efficiently, ensuring coherent error management throughout
-your applications.
+your applications. Define the error codes in your OpenAPI specification, and the
+library will generate the associated code in the languages of your choice.
 
 ## Installation
 
@@ -42,14 +43,30 @@ associated TypeScript code and writing them to files.
    ```
 
    Where `codeGenerators` contains instances of code generators, such as
-   TypeScript or Dart generators.
+   TypeScript or Dart generators. The `codeGenerators` array can be created
+   through the CodeGeneratorFactory. There are two languages supported at the
+   moment: TypeScript and Dart.
 
-2. **Configuration:**
+   ```typescript
+   const codeGenerators = [
+     CodeGeneratorFactory.createGenerator("TypeScript"),
+     CodeGeneratorFactory.createGenerator("Dart"),
+   ];
+
+   // or
+   const generator = new ErrorCodeGenerator([
+     CodeGeneratorFactory.createGenerator("TypeScript"),
+     CodeGeneratorFactory.createGenerator("Dart"),
+   ]);
+   ```
+
+2. **Configuration:** The Error Code Generator requires a few configurations to
+   be set before running the generation process. These configurations are:
 
    - Set the source path:
 
      ```typescript
-     generator.setSourcePath("[your-source-path]");
+     generator.setSourcePath("[your-openapi-spec-source-path]");
      ```
 
    - Set the output directory:
@@ -58,7 +75,8 @@ associated TypeScript code and writing them to files.
      generator.setOutputDirectory("[your-output-directory]");
      ```
 
-   - Optionally, add more code generators:
+   - Optionally, add more code generators, in case you need additional
+     languages:
 
      ```typescript
      generator.addCodeGenerators(additionalCodeGenerators);
@@ -83,21 +101,46 @@ associated TypeScript code and writing them to files.
 - **FileWriterHandler:** Writes the generated code to files in a specified
   directory.
 
-### Additional Elements
+### Adding Code Generators
+
+The Error Code Generator library supports TypeScript and Dart code generation
+out of the box through the `TypeScriptCodeGenerator` and `DartCodeGenerator`
+classes. However, the library is designed to be extensible, allowing you to add
+support for additional languages. To add support for a new language, you need to
+create a new class that implements the `CodeGenerator` interface. The interface
+contains a single method, `generate`, which takes in an array of `ErrorCode`
+objects and returns a string containing the generated code.
 
 - **CodeGeneratorFactory:** A factory to instantiate and manage various code
   generators, facilitating easy extension to support additional languages in the
   future.
 
+- **CodeGenerator:** An interface that defines the contract for code generators.
+  The interface contains a single method, `generate`, which takes in an array of
+  `ErrorCode` objects and returns a string containing the generated code.
+  ```typescript
+  export interface CodeGenerator {
+    language: string;
+    fileExtension: string;
+    generateCode(): GeneratedCode;
+    setEndpointErrorCollection(
+      errorCollection: EndpointErrorCollection,
+    ): CodeGenerator;
+  }
+  ```
+
 ## Example Usage
 
+The following example demonstrates how to use the Error Code Generator library.
+As it is build with the help of the Builder pattern, you can chain the methods
+to set the configurations and generate the error codes.
+
 ```typescript
-// Usage Example
 const generator = new ErrorCodeGenerator([
   CodeGeneratorFactory.createGenerator("TypeScript"),
   CodeGeneratorFactory.createGenerator("Dart"),
 ])
-  .setSourcePath("[your-source-path]")
+  .setSourcePath("[your-openapi-spec-source-path]")
   .setOutputDirectory("[your-output-directory]")
   .generate();
 ```
