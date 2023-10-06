@@ -380,6 +380,8 @@ export namespace Components {
         "disabled"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
+        "pickerButtonLabel"?: string;
+        "pickerLabel"?: string;
         "placeholder"?: string;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
@@ -4331,6 +4333,8 @@ declare namespace LocalJSX {
         "onInputBlur"?: (event: SwirlColorInputCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlColorInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlColorInputCustomEvent<string>) => void;
+        "pickerButtonLabel"?: string;
+        "pickerLabel"?: string;
         "placeholder"?: string;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;

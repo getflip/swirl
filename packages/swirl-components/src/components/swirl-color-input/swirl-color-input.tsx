@@ -7,7 +7,10 @@ import {
   Prop,
   Watch,
 } from "@stencil/core";
+import { v4 as uuid } from "uuid";
 import classnames from "classnames";
+import "vanilla-colorful";
+import type { HexColorPicker } from "vanilla-colorful";
 
 @Component({
   /**
@@ -28,6 +31,8 @@ export class SwirlColorInput {
   @Prop() swirlAriaDescribedby?: string;
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
+  @Prop() pickerButtonLabel?: string = "Open color picker";
+  @Prop() pickerLabel?: string = "Color picker";
   @Prop() placeholder?: string;
   @Prop() required?: boolean;
   @Prop({ mutable: true, reflect: true }) value?: string;
@@ -37,6 +42,8 @@ export class SwirlColorInput {
   @Event() valueChange: EventEmitter<string>;
 
   private inputEl: HTMLInputElement;
+  private picker: HexColorPicker;
+  private pickerId = uuid();
 
   componentDidLoad() {
     // see https://stackoverflow.com/a/27314017
@@ -45,6 +52,12 @@ export class SwirlColorInput {
         this.inputEl.focus();
       });
     }
+
+    this.picker.addEventListener("color-changed", this.onPickerChange);
+  }
+
+  disconnectedCallback() {
+    this.picker?.removeEventListener("color-changed", this.onPickerChange);
   }
 
   @Watch("value")
@@ -53,6 +66,10 @@ export class SwirlColorInput {
       this.valueChange.emit(newValue);
     }
   }
+
+  private onPickerChange = (event: CustomEvent<{ value: string }>) => {
+    this.value = event.detail.value;
+  };
 
   private onChange = (event: Event) => {
     const el = event.target as HTMLInputElement;
@@ -101,7 +118,7 @@ export class SwirlColorInput {
             autoFocus={this.autoFocus}
             class="color-input__input"
             disabled={this.disabled}
-            maxLength={9}
+            maxLength={7}
             onBlur={this.onBlur}
             onFocus={this.onFocus}
             onInput={this.onInput}
@@ -112,14 +129,37 @@ export class SwirlColorInput {
             type="text"
             value={this.value}
           />
-          <span
-            class="color-input__preview"
-            style={{
-              backgroundColor: this.disabled
-                ? "var(--s-border-subdued)"
-                : this.value,
-            }}
-          ></span>
+          <swirl-popover-trigger popover={this.pickerId}>
+            <button
+              aria-label={this.pickerButtonLabel}
+              class="color-input__preview-button"
+              style={{
+                backgroundColor: this.disabled
+                  ? "var(--s-border-subdued)"
+                  : this.value,
+              }}
+              type="button"
+            ></button>
+          </swirl-popover-trigger>
+          <swirl-popover
+            animation="scale-in-y"
+            id={this.pickerId}
+            label={this.pickerLabel}
+            placement="bottom-end"
+          >
+            <swirl-box
+              centerInline
+              paddingBlockEnd="8"
+              paddingBlockStart="8"
+              paddingInlineEnd="16"
+              paddingInlineStart="16"
+            >
+              <hex-color-picker
+                color={this.value}
+                ref={(el: HexColorPicker) => (this.picker = el)}
+              ></hex-color-picker>
+            </swirl-box>
+          </swirl-popover>
         </div>
       </Host>
     );

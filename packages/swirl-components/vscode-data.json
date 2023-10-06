@@ -1537,6 +1537,14 @@
           "description": ""
         },
         {
+          "name": "picker-button-label",
+          "description": ""
+        },
+        {
+          "name": "picker-label",
+          "description": ""
+        },
+        {
           "name": "placeholder",
           "description": ""
         },

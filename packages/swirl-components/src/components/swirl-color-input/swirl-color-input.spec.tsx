@@ -27,12 +27,19 @@ describe("swirl-color-input", () => {
                  aria-invalid="true"
                  class="color-input__input"
                  disabled=""
-                 maxlength="9"
+                 maxlength="7"
                  required=""
                  spellcheck="false"
                  type="text"
                  value="#ff0000">
-          <span class="color-input__preview" style="background-color: var(--s-border-subdued);"></span>
+          <swirl-popover-trigger>
+            <button aria-label="Open color picker" class="color-input__preview-button" type="button" style="background-color: var(--s-border-subdued);"></button>
+          </swirl-popover-trigger>
+          <swirl-popover animation="scale-in-y" label="Color picker" placement="bottom-end">
+            <swirl-box centerinline="" paddingblockend="8" paddingblockstart="8" paddinginlineend="16" paddinginlinestart="16">
+              <hex-color-picker color="#ff0000"></hex-color-picker>
+            </swirl-box>
+          </swirl-popover>
         </div>
       </swirl-color-input>
     `);
@@ -53,7 +60,7 @@ describe("swirl-color-input", () => {
     await page.waitForChanges();
 
     expect(
-      page.root.querySelector<HTMLElement>(".color-input__preview").style
+      page.root.querySelector<HTMLElement>(".color-input__preview-button").style
         .backgroundColor
     ).toEqual("#ccddee");
   });
