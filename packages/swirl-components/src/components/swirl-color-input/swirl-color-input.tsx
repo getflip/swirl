@@ -43,7 +43,7 @@ export class SwirlColorInput {
 
   private inputEl: HTMLInputElement;
   private picker: HexColorPicker;
-  private pickerId = uuid();
+  private pickerId = `color-picker-${uuid()}`;
 
   componentDidLoad() {
     // see https://stackoverflow.com/a/27314017
