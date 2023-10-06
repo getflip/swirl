@@ -15,6 +15,8 @@ describe("swirl-color-input", () => {
             </swirl-color-input>`,
     });
 
+    const pickerId = page.root.querySelector("swirl-popover").id;
+
     expect(page.root).toEqualHtml(`
       <swirl-color-input disabled="true"
                       swirl-aria-describedby="id"
@@ -32,10 +34,10 @@ describe("swirl-color-input", () => {
                  spellcheck="false"
                  type="text"
                  value="#ff0000">
-          <swirl-popover-trigger>
+          <swirl-popover-trigger popover="${pickerId}">
             <button aria-label="Open color picker" class="color-input__preview-button" type="button" style="background-color: var(--s-border-subdued);"></button>
           </swirl-popover-trigger>
-          <swirl-popover animation="scale-in-y" label="Color picker" placement="bottom-end">
+          <swirl-popover animation="scale-in-y" id="${pickerId}" label="Color picker" placement="bottom-end">
             <swirl-box centerinline="" paddingblockend="8" paddingblockstart="8" paddinginlineend="16" paddinginlinestart="16">
               <hex-color-picker color="#ff0000"></hex-color-picker>
             </swirl-box>
