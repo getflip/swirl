@@ -4,6 +4,7 @@ import { TypeScriptGenerator } from "./TypeScriptGenerator";
 
 export interface CodeGenerator {
   language: string;
+  fileExtension: string;
   generateCode(): GeneratedCode;
   setEndpointErrorCollection(
     errorCollection: EndpointErrorCollection

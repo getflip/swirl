@@ -3,6 +3,7 @@ import { EndpointErrorCollection, GeneratedCode } from "../../types";
 
 export class DartGenerator implements CodeGenerator {
   language = "Dart";
+  fileExtension: string = "dart";
   private refNames: Array<string> = [];
   private endpointErrorCollection?: EndpointErrorCollection;
 

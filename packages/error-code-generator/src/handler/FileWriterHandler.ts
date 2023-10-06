@@ -1,7 +1,6 @@
 import fs from "fs";
-import { GeneratedCode, Handler, ProcessingData } from "../types";
-import prettier from "prettier";
 import { formatCode } from "../factories/FormaterFactory";
+import { Handler, ProcessingData } from "../types";
 
 export class FileWriterHandler implements Handler {
   private next: Handler | null = null;

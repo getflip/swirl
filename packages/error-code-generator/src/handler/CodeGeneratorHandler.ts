@@ -1,4 +1,3 @@
-import CodeGeneratorFactory from "../factories/CodeGeneratorFactory";
 import { Handler, ProcessingData } from "../types";
 import { GeneratedCodeMapCreator } from "../utils/GeneratedCodeMapCreator";
 

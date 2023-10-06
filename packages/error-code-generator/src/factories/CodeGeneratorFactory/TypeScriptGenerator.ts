@@ -1,9 +1,9 @@
 import { CodeGenerator } from ".";
-
 import { EndpointErrorCollection, GeneratedCode } from "../../types";
 
 export class TypeScriptGenerator implements CodeGenerator {
   language = "TypeScript";
+  fileExtension: string = "ts";
   private refNames: Array<string> = [];
   private endpointErrorCollection?: EndpointErrorCollection;
 
