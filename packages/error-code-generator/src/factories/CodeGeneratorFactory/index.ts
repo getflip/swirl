@@ -7,11 +7,11 @@ export interface CodeGenerator {
   fileExtension: string;
   generateCode(): GeneratedCode;
   setEndpointErrorCollection(
-    errorCollection: EndpointErrorCollection
+    errorCollection: EndpointErrorCollection,
   ): CodeGenerator;
 }
 
-export default class CodeGeneratorFactory {
+export class CodeGeneratorFactory {
   static createGenerator(language: "TypeScript" | "Dart"): CodeGenerator {
     switch (language) {
       case "TypeScript":
@@ -20,7 +20,7 @@ export default class CodeGeneratorFactory {
         return new DartGenerator();
       default:
         throw new Error(
-          `CodeGenerator not implemented for language: ${language}`
+          `CodeGenerator not implemented for language: ${language}`,
         );
     }
   }

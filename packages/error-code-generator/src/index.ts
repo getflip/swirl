@@ -5,6 +5,7 @@ import { FileWriterHandler } from "./handler/FileWriterHandler";
 import { ProcessingData } from "./types";
 
 export * from "./factories/CodeGeneratorFactory";
+
 export class ErrorCodeGenerator {
   private sourcePath: string = "";
   private outputDirectory: string = "";

@@ -17,6 +17,15 @@ export class ErrorCodeExtractorHandler implements Handler {
     const builder = this.createBuilder(request.sourcePath);
     builder.initialize().then(() => {
       request.endpointErrorCollections = builder.build();
+
+      if (!this.next) {
+        console.error(
+          "No next handler. Stopping chain. Current processing object: ",
+          request,
+        );
+        return;
+      }
+
       this.next?.handle(request);
     });
   }

@@ -27,12 +27,20 @@ export class CodeGeneratorHandler implements Handler {
         generatedCodeMapCreator.add(
           codeGenerator
             .setEndpointErrorCollection(endpointErrorCollection)
-            .generateCode()
-        )
+            .generateCode(),
+        ),
       );
     });
 
     request.generatedCodeMap = generatedCodeMapCreator.getMap();
+
+    if (!this.next) {
+      console.error(
+        "No next handler. Stopping chain. Current processing object: ",
+        request,
+      );
+      return;
+    }
 
     this.next?.handle(request);
   }

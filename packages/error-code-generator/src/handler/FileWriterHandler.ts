@@ -15,11 +15,9 @@ export class FileWriterHandler implements Handler {
   private writeErrorCodesToFile(request: ProcessingData): void {
     if (request.generatedCodeMap) {
       for (const [code, generatedCodes] of request.generatedCodeMap.entries()) {
-        generatedCodes.forEach((generatedCode) => {
+        generatedCodes.forEach(async (generatedCode) => {
           const { code, endpoint, language } = generatedCode;
           const fileName = `${endpoint}.ts`;
-
-          const formattedCode = formatCode(language, code);
 
           if (!fs.existsSync(`${request.outputDirectory}`)) {
             fs.mkdirSync(`${request.outputDirectory}`);
@@ -29,9 +27,13 @@ export class FileWriterHandler implements Handler {
             fs.mkdirSync(`${request.outputDirectory}/${language}`);
           }
 
+          const formattedCode = await formatCode(language, code);
+
+          console.log("Writing file: ", fileName, formattedCode);
+
           fs.writeFileSync(
             `${request.outputDirectory}/${language}/${fileName}`,
-            formattedCode
+            formattedCode,
           );
         });
       }
