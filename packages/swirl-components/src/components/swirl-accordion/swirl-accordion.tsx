@@ -1,4 +1,4 @@
-import { Component, Element, h, Host } from "@stencil/core";
+import { Component, Element, h, Host, Method } from "@stencil/core";
 
 @Component({
   shadow: true,
@@ -19,6 +19,38 @@ export class SwirlAccordion {
         }
       }
     );
+  }
+
+  /**
+   * Collapses an accordion item.
+   */
+  @Method()
+  async collapseItem(itemId: string) {
+    const item = Array.from(
+      this.el.querySelectorAll("swirl-accordion-item")
+    ).find((item) => item.itemId === itemId);
+
+    if (!Boolean(item)) {
+      return;
+    }
+
+    item.collapse();
+  }
+
+  /**
+   * Expands an accordion item.
+   */
+  @Method()
+  async expandItem(itemId: string) {
+    const item = Array.from(
+      this.el.querySelectorAll("swirl-accordion-item")
+    ).find((item) => item.itemId === itemId);
+
+    if (!Boolean(item)) {
+      return;
+    }
+
+    item.expand();
   }
 
   private collapseInactiveItems(activeItem: HTMLSwirlAccordionItemElement) {

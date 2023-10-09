@@ -43,6 +43,10 @@
         {
           "name": "initially-open",
           "description": ""
+        },
+        {
+          "name": "item-id",
+          "description": ""
         }
       ]
     },

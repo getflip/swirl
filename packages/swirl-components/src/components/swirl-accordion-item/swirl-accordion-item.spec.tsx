@@ -8,23 +8,23 @@ describe("swirl-accordion-item", () => {
       components: [SwirlAccordionItem],
       html: `
         <swirl-accordion>
-          <swirl-accordion-item description="Description" heading="heading">
+          <swirl-accordion-item description="Description" heading="heading" item-id="item-id">
             Content
           </swirl-accordion-item>
         </swirl-accordion>
       `,
     });
 
-    const id = page.root.shadowRoot.querySelector(
-      ".accordion-item__content"
+    const headingId = page.root.shadowRoot.querySelector(
+      ".accordion-item__toggle"
     ).id;
 
     expect(page.root).toEqualHtml(`
-      <swirl-accordion-item description="Description" heading="heading">
+      <swirl-accordion-item description="Description" heading="heading" item-id="item-id">
         <mock:shadow-root>
           <div class="accordion-item">
             <h2 class="accordion-item__heading">
-              <button aria-controls="${id}" aria-expanded="false" class="accordion-item__toggle" id="${id}-heading" type="button">
+              <button aria-controls="item-id" aria-expanded="false" class="accordion-item__toggle" id="${headingId}" type="button">
                 <span class="accordion-item__toggle-text">
                   heading
                   <swirl-text as="span" color="subdued" size="sm">
@@ -36,7 +36,7 @@ describe("swirl-accordion-item", () => {
                 </span>
               </button>
             </h2>
-            <div aria-labelledby="${id}-heading" class="accordion-item__content" id="${id}" role="region">
+            <div aria-labelledby="${headingId}" class="accordion-item__content" id="item-id" role="region">
               <slot></slot>
             </div>
           </div>

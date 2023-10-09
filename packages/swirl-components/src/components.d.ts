@@ -127,10 +127,18 @@ export namespace Components {
     interface FileManager {
     }
     interface SwirlAccordion {
+        /**
+          * Collapses an accordion item.
+         */
+        "collapseItem": (itemId: string) => Promise<void>;
+        /**
+          * Expands an accordion item.
+         */
+        "expandItem": (itemId: string) => Promise<void>;
     }
     interface SwirlAccordionItem {
         /**
-          * Collapsed the accordion item.
+          * Collapses the accordion item.
          */
         "collapse": () => Promise<void>;
         "description"?: string;
@@ -142,6 +150,7 @@ export namespace Components {
         "heading": string;
         "headingLevel"?: SwirlHeadingLevel;
         "initiallyOpen"?: boolean;
+        "itemId"?: string;
         /**
           * Toggles the accordion item.
          */
@@ -4100,6 +4109,7 @@ declare namespace LocalJSX {
         "heading": string;
         "headingLevel"?: SwirlHeadingLevel;
         "initiallyOpen"?: boolean;
+        "itemId"?: string;
         "onExpansionChange"?: (event: SwirlAccordionItemCustomEvent<boolean>) => void;
     }
     interface SwirlActionList {

@@ -26,14 +26,14 @@ export class SwirlAccordionItem {
   @Prop() heading!: string;
   @Prop() headingLevel?: SwirlHeadingLevel = 2;
   @Prop() initiallyOpen?: boolean;
+  @Prop() itemId?: string = uuid();
 
   @Event() expansionChange: EventEmitter<boolean>;
 
   @State() expanded = false;
 
   private accordion: HTMLSwirlAccordionElement;
-  private id = `accordion-item-${uuid()}`;
-  private headingId = `${this.id}-heading`;
+  private headingId = `${uuid()}-heading`;
 
   componentWillLoad() {
     this.accordion = this.el.closest("swirl-accordion");
@@ -47,7 +47,7 @@ export class SwirlAccordionItem {
   }
 
   /**
-   * Collapsed the accordion item.
+   * Collapses the accordion item.
    */
   @Method()
   async collapse() {
@@ -100,7 +100,7 @@ export class SwirlAccordionItem {
         <div class={className}>
           <HeadingTag class="accordion-item__heading">
             <button
-              aria-controls={this.id}
+              aria-controls={this.itemId}
               aria-expanded={String(this.expanded)}
               class="accordion-item__toggle"
               disabled={this.disabled}
@@ -129,7 +129,7 @@ export class SwirlAccordionItem {
           <div
             aria-labelledby={this.headingId}
             class="accordion-item__content"
-            id={this.id}
+            id={this.itemId}
             role="region"
           >
             <slot></slot>

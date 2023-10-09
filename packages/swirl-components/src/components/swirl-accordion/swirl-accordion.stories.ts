@@ -16,7 +16,7 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-accordion", args);
 
   element.innerHTML = `
-  <swirl-accordion-item description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." heading="Accordion item 1" initially-open>
+  <swirl-accordion-item description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." heading="Accordion item 1" initially-open item-id="item-1">
     <swirl-stack spacing="16">
       <swirl-text size="sm">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
@@ -27,7 +27,7 @@ const Template = (args) => {
       <swirl-button label="A button" variant="flat"></swirl-button>
     </swirl-stack>
   </swirl-accordion-item>
-  <swirl-accordion-item description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." heading="Accordion item 2">
+  <swirl-accordion-item description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." heading="Accordion item 2" item-id="item-2">
     <swirl-stack spacing="16">
       <swirl-text size="sm">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
@@ -38,7 +38,7 @@ const Template = (args) => {
       <swirl-button label="A button" variant="flat"></swirl-button>
     </swirl-stack>
   </swirl-accordion-item>
-  <swirl-accordion-item description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." heading="Accordion item 3">
+  <swirl-accordion-item description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." heading="Accordion item 3" item-id="item-3">
     <swirl-stack spacing="16">
       <swirl-text size="sm">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
@@ -49,7 +49,7 @@ const Template = (args) => {
       <swirl-button label="A button" variant="flat"></swirl-button>
     </swirl-stack>
   </swirl-accordion-item>
-  <swirl-accordion-item description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." disabled heading="Accordion item 4">
+  <swirl-accordion-item description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." disabled heading="Accordion item 4" item-id="item-4">
     <swirl-stack spacing="16">
       <swirl-text size="sm">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
