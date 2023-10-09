@@ -1,5 +1,16 @@
 # @getflip/swirl-components-react
 
+## 0.100.1
+
+### Patch Changes
+
+- [`852d9b2e`](https://github.com/getflip/swirl/commit/852d9b2e1008c662f690d6e42107e4e62c51b303)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-resource-list drag&drop
+
+- Updated dependencies
+  [[`852d9b2e`](https://github.com/getflip/swirl/commit/852d9b2e1008c662f690d6e42107e4e62c51b303)]:
+  - @getflip/swirl-components@0.100.1
+
 ## 0.100.0
 
 ### Minor Changes
