@@ -50,6 +50,10 @@ export class SwirlResourceList {
     this.setupDragDrop();
   }
 
+  componentDidRender() {
+    this.setupDragDrop();
+  }
+
   disconnectedCallback() {
     this.sortable?.destroy();
     this.observer?.disconnect();
@@ -59,7 +63,6 @@ export class SwirlResourceList {
     this.observer = new MutationObserver(() => {
       this.collectItems();
       this.setItemAllowDragState();
-      this.setupDragDrop();
     });
 
     this.observer.observe(this.el, {
