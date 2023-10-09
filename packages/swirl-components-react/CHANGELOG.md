@@ -1,5 +1,25 @@
 # @getflip/swirl-components-react
 
+## 0.100.0
+
+### Minor Changes
+
+- [#407](https://github.com/getflip/swirl/pull/407)
+  [`8b84ef94`](https://github.com/getflip/swirl/commit/8b84ef94ac94701bc93dcff97b79a32773175608)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add color picker to
+  swirl-color-input
+
+* [`86bc87e7`](https://github.com/getflip/swirl/commit/86bc87e77569829d0ec84540a7ffa47e278d51d7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "expandedItemChange" event to
+  swirl-accordion
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8b84ef94`](https://github.com/getflip/swirl/commit/8b84ef94ac94701bc93dcff97b79a32773175608),
+  [`86bc87e7`](https://github.com/getflip/swirl/commit/86bc87e77569829d0ec84540a7ffa47e278d51d7)]:
+  - @getflip/swirl-components@0.100.0
+
 ## 0.99.0
 
 ### Minor Changes
