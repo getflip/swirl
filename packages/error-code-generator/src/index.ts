@@ -3,6 +3,7 @@ import { CodeGeneratorHandler } from "./handler/CodeGeneratorHandler";
 import { ErrorCodeExtractorHandler } from "./handler/ErrorCodeExtractorHandler";
 import { FileWriterHandler } from "./handler/FileWriterHandler";
 import { ProcessingData } from "./types";
+import { CodeGeneratorFactory } from "./factories/CodeGeneratorFactory";
 
 export * from "./factories/CodeGeneratorFactory";
 
@@ -60,14 +61,13 @@ export class ErrorCodeGenerator {
 }
 
 // Usage Example
-// const generator = new ErrorCodeGenerator([
-//   CodeGeneratorFactory.createGenerator("TypeScript"),
-//   CodeGeneratorFactory.createGenerator("Dart"),
-// ])
-//   .setSourcePath(
-//     "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/merged.yml"
-//   )
-//   .setOutputDirectory(
-//     "/Users/adam/Documents/dev/flip-corp/swirl/generated-error-codes"
-//   )
-//   .generate();
+const generator = new ErrorCodeGenerator([
+  CodeGeneratorFactory.createGenerator("TypeScript"),
+])
+  .setSourcePath(
+    "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/merged.yml",
+  )
+  .setOutputDirectory(
+    "/Users/adam/Documents/dev/flip-corp/swirl/generated-error-codes",
+  )
+  .generate();

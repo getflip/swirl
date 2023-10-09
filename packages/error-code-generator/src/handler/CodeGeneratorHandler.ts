@@ -1,3 +1,4 @@
+import { hasIndexFileRendering } from "../factories/CodeGeneratorFactory";
 import { Handler, ProcessingData } from "../types";
 import { GeneratedCodeMapCreator } from "../utils/GeneratedCodeMapCreator";
 
@@ -23,13 +24,17 @@ export class CodeGeneratorHandler implements Handler {
     const generatedCodeMapCreator = new GeneratedCodeMapCreator();
 
     request.codeGenerators.forEach((codeGenerator) => {
-      request.endpointErrorCollections?.forEach((endpointErrorCollection) =>
-        generatedCodeMapCreator.add(
-          codeGenerator
-            .setEndpointErrorCollection(endpointErrorCollection)
-            .generateCode(),
-        ),
-      );
+      if (hasIndexFileRendering(codeGenerator)) {
+        request.endpointErrorCollections?.forEach((endpointErrorCollection) => {
+          generatedCodeMapCreator.add(
+            codeGenerator
+              .setEndpointErrorCollection(endpointErrorCollection)
+              .generateCode(),
+          );
+        });
+
+        generatedCodeMapCreator.add(codeGenerator.generateIndexCode());
+      }
     });
 
     request.generatedCodeMap = generatedCodeMapCreator.getMap();
