@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.99.0
+
+### Minor Changes
+
+- [`4e297efa`](https://github.com/getflip/swirl/commit/4e297efa331f4bca7c359c6ed65077712e0d04e3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "expandItem" and
+  "collapseItem" methods to swirl-accordion
+
 ## 0.98.1
 
 ### Patch Changes
