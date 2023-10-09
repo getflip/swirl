@@ -1,4 +1,12 @@
-import { Component, Element, h, Host, Method } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+} from "@stencil/core";
 
 @Component({
   shadow: true,
@@ -8,11 +16,17 @@ import { Component, Element, h, Host, Method } from "@stencil/core";
 export class SwirlAccordion {
   @Element() el: HTMLElement;
 
+  @Event() expandedItemChange: EventEmitter<string>;
+
   componentDidLoad() {
     this.el.addEventListener(
       "expansionChange",
       (event: CustomEvent<boolean>) => {
         if (event.detail) {
+          this.expandedItemChange.emit(
+            (event.target as HTMLSwirlAccordionItemElement).itemId
+          );
+
           this.collapseInactiveItems(
             event.target as HTMLSwirlAccordionItemElement
           );

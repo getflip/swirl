@@ -1797,6 +1797,10 @@ export namespace Components {
     interface SwirlVisuallyHidden {
     }
 }
+export interface SwirlAccordionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlAccordionElement;
+}
 export interface SwirlAccordionItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlAccordionItemElement;
@@ -4104,6 +4108,7 @@ declare namespace LocalJSX {
     interface FileManager {
     }
     interface SwirlAccordion {
+        "onExpandedItemChange"?: (event: SwirlAccordionCustomEvent<string>) => void;
     }
     interface SwirlAccordionItem {
         "description"?: string;
