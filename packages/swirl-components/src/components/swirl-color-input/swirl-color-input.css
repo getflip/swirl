@@ -21,12 +21,12 @@
 }
 
 .color-input--inline {
-  & .color-input__preview {
+  & .color-input__preview-button {
     width: 1.5rem;
     height: 1.5rem;
     margin-top: -0.125rem;
-    margin-bottom: -0.125rem;
     margin-right: -0.25rem;
+    margin-bottom: -0.125rem;
   }
 }
 
@@ -59,11 +59,13 @@
   }
 }
 
-.color-input__preview {
+.color-input__preview-button {
   width: 2.75rem;
   height: 2.75rem;
   margin-top: -1.25rem;
   flex-shrink: 0;
   border: 0.0625rem solid var(--s-border-default);
   border-radius: var(--s-border-radius-s);
+  cursor: pointer;
+  appearance: none;
 }
