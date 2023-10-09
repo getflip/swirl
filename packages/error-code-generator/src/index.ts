@@ -61,13 +61,13 @@ export class ErrorCodeGenerator {
 }
 
 // Usage Example
-const generator = new ErrorCodeGenerator([
-  CodeGeneratorFactory.createGenerator("TypeScript"),
-])
-  .setSourcePath(
-    "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/merged.yml",
-  )
-  .setOutputDirectory(
-    "/Users/adam/Documents/dev/flip-corp/swirl/generated-error-codes",
-  )
-  .generate();
+// const generator = new ErrorCodeGenerator([
+//   CodeGeneratorFactory.createGenerator("TypeScript"),
+// ])
+//   .setSourcePath(
+//     "/Users/adam/Documents/dev/flip-corp/swirl/apps/swirl-docs/specs/merged.yml",
+//   )
+//   .setOutputDirectory(
+//     "/Users/adam/Documents/dev/flip-corp/swirl/generated-error-codes",
+//   )
+//   .generate();
