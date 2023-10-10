@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.100.3
+
+### Patch Changes
+
+- [`e1078098`](https://github.com/getflip/swirl/commit/e1078098905830c3ed6577f969593e2484af78e3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a swirl-accordion border
+  issue
+
+- Updated dependencies
+  [[`e1078098`](https://github.com/getflip/swirl/commit/e1078098905830c3ed6577f969593e2484af78e3)]:
+  - @getflip/swirl-components@0.100.3
+
 ## 0.100.2
 
 ### Patch Changes
