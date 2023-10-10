@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 import { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
@@ -15,19 +16,20 @@ import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
-import { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
-import { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
+import { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
+import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
+import { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
-import { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
+import { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
@@ -41,7 +43,7 @@ import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagi
 import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
 import { ComputePositionReturn, Placement } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
-import { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
@@ -50,18 +52,19 @@ import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-sk
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
-import { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
 import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 import { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 import { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
-import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextWeight } from "./components/swirl-text/swirl-text";
+import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight } from "./components/swirl-text/swirl-text";
 import { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider";
 import { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
+import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
+export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
@@ -72,19 +75,20 @@ export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./compo
 export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
-export { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardPadding } from "./components/swirl-card/swirl-card";
-export { SwirlCheckboxLabelWeight, SwirlCheckboxState } from "./components/swirl-checkbox/swirl-checkbox";
+export { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
+export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
+export { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
-export { SwirlHeadingAlign, SwirlHeadingLevel, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
+export { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
@@ -98,7 +102,7 @@ export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagi
 export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
 export { ComputePositionReturn, Placement } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
-export { SwirlRadioState } from "./components/swirl-radio/swirl-radio";
+export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
@@ -107,20 +111,50 @@ export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-sk
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
-export { SwirlSwitchSize } from "./components/swirl-switch/swirl-switch";
 export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 export { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 export { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
-export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextWeight } from "./components/swirl-text/swirl-text";
+export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight } from "./components/swirl-text/swirl-text";
 export { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider";
 export { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
+export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export namespace Components {
     interface FileManager {
+    }
+    interface SwirlAccordion {
+        /**
+          * Collapses an accordion item.
+         */
+        "collapseItem": (itemId: string) => Promise<void>;
+        /**
+          * Expands an accordion item.
+         */
+        "expandItem": (itemId: string) => Promise<void>;
+    }
+    interface SwirlAccordionItem {
+        /**
+          * Collapses the accordion item.
+         */
+        "collapse": () => Promise<void>;
+        "description"?: string;
+        "disabled"?: boolean;
+        /**
+          * Expands the accordion item.
+         */
+        "expand": () => Promise<void>;
+        "heading": string;
+        "headingLevel"?: SwirlHeadingLevel;
+        "initiallyOpen"?: boolean;
+        "itemId"?: string;
+        /**
+          * Toggles the accordion item.
+         */
+        "toggle": () => Promise<void>;
     }
     interface SwirlActionList {
     }
@@ -291,6 +325,7 @@ export namespace Components {
         "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
+        "overflow"?: SwirlCardOverflow;
         "padding"?: SwirlCardPadding;
         "paddingBlockEnd"?: SwirlCardPadding;
         "paddingBlockStart"?: SwirlCardPadding;
@@ -331,6 +366,7 @@ export namespace Components {
         "swirlAriaDescribedby"?: string;
         "swirlAriaLabel"?: string;
         "value"?: string;
+        "variant"?: SwirlCheckboxVariant;
     }
     interface SwirlChip {
         "borderRadius"?: SwirlChipBorderRadius;
@@ -339,12 +375,26 @@ export namespace Components {
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+        "pressed"?: boolean;
         "progress"?: number;
         "progressBarLabel"?: string;
         "removable"?: boolean;
         "removeButtonLabel"?: string;
         "size"?: SwirlChipSize;
         "variant"?: SwirlChipVariant;
+    }
+    interface SwirlColorInput {
+        "autoFocus"?: boolean;
+        "autoSelect"?: boolean;
+        "disabled"?: boolean;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "pickerButtonLabel"?: string;
+        "pickerLabel"?: string;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
+        "value"?: string;
     }
     interface SwirlColumns {
         "columns"?: string;
@@ -403,6 +453,7 @@ export namespace Components {
     }
     interface SwirlDescriptionListItem {
         "bordered"?: boolean;
+        "maxWidth"?: string;
         "orientation"?: SwirlDescriptionListItemOrientation;
         "term": string;
     }
@@ -469,7 +520,9 @@ export namespace Components {
          */
         "reset": () => Promise<void>;
         "showDropzone"?: boolean;
+        "uploadButtonIcon"?: string;
         "uploadButtonLabel"?: string;
+        "uploadButtonVariant"?: SwirlButtonVariant1;
     }
     interface SwirlFileViewer {
         "active"?: boolean;
@@ -570,7 +623,7 @@ export namespace Components {
         "as"?: SwirlHeadingTag;
         "balance"?: boolean;
         "headingId"?: string;
-        "level"?: SwirlHeadingLevel;
+        "level"?: SwirlHeadingLevel1;
         "lines"?: number;
         "text": string;
         "truncate"?: boolean;
@@ -585,10 +638,16 @@ export namespace Components {
     interface SwirlIconAddPhoto {
         "size": SwirlIconSize;
     }
+    interface SwirlIconAddReaction {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconAdminPanelSettings {
         "size": SwirlIconSize;
     }
     interface SwirlIconAi {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconApps {
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowBack {
@@ -736,6 +795,9 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconGif {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconGroupAdd {
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupAssign {
@@ -906,6 +968,9 @@ export namespace Components {
     interface SwirlIconSearchStrong {
         "size": SwirlIconSize;
     }
+    interface SwirlIconSecure {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconSend {
         "size": SwirlIconSize;
     }
@@ -945,10 +1010,16 @@ export namespace Components {
     interface SwirlIconTranslate {
         "size": SwirlIconSize;
     }
+    interface SwirlIconTreeStructure {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconUndo {
         "size": SwirlIconSize;
     }
     interface SwirlIconUnlockPerson {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconUserAdd {
         "size": SwirlIconSize;
     }
     interface SwirlIconUserAssign {
@@ -1092,6 +1163,7 @@ export namespace Components {
          */
         "close": (force?: boolean) => Promise<void>;
         "closeButtonLabel"?: string;
+        "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
@@ -1219,6 +1291,7 @@ export namespace Components {
         "invalid"?: boolean;
         "label"?: string;
         "value": string;
+        "variant"?: SwirlRadioVariant;
     }
     interface SwirlRadioGroup {
         "swirlAriaDescribedby"?: string;
@@ -1274,14 +1347,19 @@ export namespace Components {
     interface SwirlSelect {
         "allowDeselect"?: boolean;
         "disabled"?: boolean;
+        "emptyListLabel"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
         "required"?: boolean;
+        "searchInputLabel"?: string;
+        "searchLoading"?: boolean;
+        "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];
+        "withSearch"?: boolean;
     }
     interface SwirlSeparator {
         "orientation"?: SwirlSeparatorOrientation;
@@ -1339,7 +1417,6 @@ export namespace Components {
         "inputId": string;
         "inputName": string;
         "label"?: string;
-        "size"?: SwirlSwitchSize;
         "value"?: string;
     }
     interface SwirlSymbol {
@@ -1585,6 +1662,7 @@ export namespace Components {
         "lines"?: number;
         "size"?: SwirlTextSize;
         "truncate"?: boolean;
+        "truncateDirection"?: SwirlTextTruncateDirection;
         "weight"?: SwirlTextWeight;
     }
     interface SwirlTextInput {
@@ -1696,6 +1774,10 @@ export namespace Components {
          */
         "toast": (newToast: SwirlToastConfig) => Promise<SwirlToastMessage>;
     }
+    interface SwirlToolbar {
+        "label": string;
+        "orientation"?: SwirlToolbarOrientation;
+    }
     interface SwirlTooltip {
         "content": string;
         "delay"?: number;
@@ -1714,6 +1796,14 @@ export namespace Components {
     }
     interface SwirlVisuallyHidden {
     }
+}
+export interface SwirlAccordionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlAccordionElement;
+}
+export interface SwirlAccordionItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlAccordionItemElement;
 }
 export interface SwirlAppBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1742,6 +1832,10 @@ export interface SwirlCheckboxCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlChipElement;
+}
+export interface SwirlColorInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlColorInputElement;
 }
 export interface SwirlConsoleLayoutCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1886,6 +1980,18 @@ declare global {
         prototype: HTMLFileManagerElement;
         new (): HTMLFileManagerElement;
     };
+    interface HTMLSwirlAccordionElement extends Components.SwirlAccordion, HTMLStencilElement {
+    }
+    var HTMLSwirlAccordionElement: {
+        prototype: HTMLSwirlAccordionElement;
+        new (): HTMLSwirlAccordionElement;
+    };
+    interface HTMLSwirlAccordionItemElement extends Components.SwirlAccordionItem, HTMLStencilElement {
+    }
+    var HTMLSwirlAccordionItemElement: {
+        prototype: HTMLSwirlAccordionItemElement;
+        new (): HTMLSwirlAccordionItemElement;
+    };
     interface HTMLSwirlActionListElement extends Components.SwirlActionList, HTMLStencilElement {
     }
     var HTMLSwirlActionListElement: {
@@ -2005,6 +2111,12 @@ declare global {
     var HTMLSwirlChipElement: {
         prototype: HTMLSwirlChipElement;
         new (): HTMLSwirlChipElement;
+    };
+    interface HTMLSwirlColorInputElement extends Components.SwirlColorInput, HTMLStencilElement {
+    }
+    var HTMLSwirlColorInputElement: {
+        prototype: HTMLSwirlColorInputElement;
+        new (): HTMLSwirlColorInputElement;
     };
     interface HTMLSwirlColumnsElement extends Components.SwirlColumns, HTMLStencilElement {
     }
@@ -2180,6 +2292,12 @@ declare global {
         prototype: HTMLSwirlIconAddPhotoElement;
         new (): HTMLSwirlIconAddPhotoElement;
     };
+    interface HTMLSwirlIconAddReactionElement extends Components.SwirlIconAddReaction, HTMLStencilElement {
+    }
+    var HTMLSwirlIconAddReactionElement: {
+        prototype: HTMLSwirlIconAddReactionElement;
+        new (): HTMLSwirlIconAddReactionElement;
+    };
     interface HTMLSwirlIconAdminPanelSettingsElement extends Components.SwirlIconAdminPanelSettings, HTMLStencilElement {
     }
     var HTMLSwirlIconAdminPanelSettingsElement: {
@@ -2191,6 +2309,12 @@ declare global {
     var HTMLSwirlIconAiElement: {
         prototype: HTMLSwirlIconAiElement;
         new (): HTMLSwirlIconAiElement;
+    };
+    interface HTMLSwirlIconAppsElement extends Components.SwirlIconApps, HTMLStencilElement {
+    }
+    var HTMLSwirlIconAppsElement: {
+        prototype: HTMLSwirlIconAppsElement;
+        new (): HTMLSwirlIconAppsElement;
     };
     interface HTMLSwirlIconArrowBackElement extends Components.SwirlIconArrowBack, HTMLStencilElement {
     }
@@ -2485,6 +2609,12 @@ declare global {
     var HTMLSwirlIconGifElement: {
         prototype: HTMLSwirlIconGifElement;
         new (): HTMLSwirlIconGifElement;
+    };
+    interface HTMLSwirlIconGroupAddElement extends Components.SwirlIconGroupAdd, HTMLStencilElement {
+    }
+    var HTMLSwirlIconGroupAddElement: {
+        prototype: HTMLSwirlIconGroupAddElement;
+        new (): HTMLSwirlIconGroupAddElement;
     };
     interface HTMLSwirlIconGroupAssignElement extends Components.SwirlIconGroupAssign, HTMLStencilElement {
     }
@@ -2822,6 +2952,12 @@ declare global {
         prototype: HTMLSwirlIconSearchStrongElement;
         new (): HTMLSwirlIconSearchStrongElement;
     };
+    interface HTMLSwirlIconSecureElement extends Components.SwirlIconSecure, HTMLStencilElement {
+    }
+    var HTMLSwirlIconSecureElement: {
+        prototype: HTMLSwirlIconSecureElement;
+        new (): HTMLSwirlIconSecureElement;
+    };
     interface HTMLSwirlIconSendElement extends Components.SwirlIconSend, HTMLStencilElement {
     }
     var HTMLSwirlIconSendElement: {
@@ -2900,6 +3036,12 @@ declare global {
         prototype: HTMLSwirlIconTranslateElement;
         new (): HTMLSwirlIconTranslateElement;
     };
+    interface HTMLSwirlIconTreeStructureElement extends Components.SwirlIconTreeStructure, HTMLStencilElement {
+    }
+    var HTMLSwirlIconTreeStructureElement: {
+        prototype: HTMLSwirlIconTreeStructureElement;
+        new (): HTMLSwirlIconTreeStructureElement;
+    };
     interface HTMLSwirlIconUndoElement extends Components.SwirlIconUndo, HTMLStencilElement {
     }
     var HTMLSwirlIconUndoElement: {
@@ -2911,6 +3053,12 @@ declare global {
     var HTMLSwirlIconUnlockPersonElement: {
         prototype: HTMLSwirlIconUnlockPersonElement;
         new (): HTMLSwirlIconUnlockPersonElement;
+    };
+    interface HTMLSwirlIconUserAddElement extends Components.SwirlIconUserAdd, HTMLStencilElement {
+    }
+    var HTMLSwirlIconUserAddElement: {
+        prototype: HTMLSwirlIconUserAddElement;
+        new (): HTMLSwirlIconUserAddElement;
     };
     interface HTMLSwirlIconUserAssignElement extends Components.SwirlIconUserAssign, HTMLStencilElement {
     }
@@ -3620,6 +3768,12 @@ declare global {
         prototype: HTMLSwirlToastProviderElement;
         new (): HTMLSwirlToastProviderElement;
     };
+    interface HTMLSwirlToolbarElement extends Components.SwirlToolbar, HTMLStencilElement {
+    }
+    var HTMLSwirlToolbarElement: {
+        prototype: HTMLSwirlToolbarElement;
+        new (): HTMLSwirlToolbarElement;
+    };
     interface HTMLSwirlTooltipElement extends Components.SwirlTooltip, HTMLStencilElement {
     }
     var HTMLSwirlTooltipElement: {
@@ -3646,6 +3800,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "file-manager": HTMLFileManagerElement;
+        "swirl-accordion": HTMLSwirlAccordionElement;
+        "swirl-accordion-item": HTMLSwirlAccordionItemElement;
         "swirl-action-list": HTMLSwirlActionListElement;
         "swirl-action-list-item": HTMLSwirlActionListItemElement;
         "swirl-action-list-section": HTMLSwirlActionListSectionElement;
@@ -3665,6 +3821,7 @@ declare global {
         "swirl-carousel-slide": HTMLSwirlCarouselSlideElement;
         "swirl-checkbox": HTMLSwirlCheckboxElement;
         "swirl-chip": HTMLSwirlChipElement;
+        "swirl-color-input": HTMLSwirlColorInputElement;
         "swirl-columns": HTMLSwirlColumnsElement;
         "swirl-console-layout": HTMLSwirlConsoleLayoutElement;
         "swirl-date-input": HTMLSwirlDateInputElement;
@@ -3694,8 +3851,10 @@ declare global {
         "swirl-icon": HTMLSwirlIconElement;
         "swirl-icon-add": HTMLSwirlIconAddElement;
         "swirl-icon-add-photo": HTMLSwirlIconAddPhotoElement;
+        "swirl-icon-add-reaction": HTMLSwirlIconAddReactionElement;
         "swirl-icon-admin-panel-settings": HTMLSwirlIconAdminPanelSettingsElement;
         "swirl-icon-ai": HTMLSwirlIconAiElement;
+        "swirl-icon-apps": HTMLSwirlIconAppsElement;
         "swirl-icon-arrow-back": HTMLSwirlIconArrowBackElement;
         "swirl-icon-arrow-downward": HTMLSwirlIconArrowDownwardElement;
         "swirl-icon-arrow-forward": HTMLSwirlIconArrowForwardElement;
@@ -3745,6 +3904,7 @@ declare global {
         "swirl-icon-fullscreen": HTMLSwirlIconFullscreenElement;
         "swirl-icon-fullscreen-exit": HTMLSwirlIconFullscreenExitElement;
         "swirl-icon-gif": HTMLSwirlIconGifElement;
+        "swirl-icon-group-add": HTMLSwirlIconGroupAddElement;
         "swirl-icon-group-assign": HTMLSwirlIconGroupAssignElement;
         "swirl-icon-groups": HTMLSwirlIconGroupsElement;
         "swirl-icon-groups-custom": HTMLSwirlIconGroupsCustomElement;
@@ -3801,6 +3961,7 @@ declare global {
         "swirl-icon-roadmap": HTMLSwirlIconRoadmapElement;
         "swirl-icon-search": HTMLSwirlIconSearchElement;
         "swirl-icon-search-strong": HTMLSwirlIconSearchStrongElement;
+        "swirl-icon-secure": HTMLSwirlIconSecureElement;
         "swirl-icon-send": HTMLSwirlIconSendElement;
         "swirl-icon-settings": HTMLSwirlIconSettingsElement;
         "swirl-icon-short-text": HTMLSwirlIconShortTextElement;
@@ -3814,8 +3975,10 @@ declare global {
         "swirl-icon-time-outlined": HTMLSwirlIconTimeOutlinedElement;
         "swirl-icon-today": HTMLSwirlIconTodayElement;
         "swirl-icon-translate": HTMLSwirlIconTranslateElement;
+        "swirl-icon-tree-structure": HTMLSwirlIconTreeStructureElement;
         "swirl-icon-undo": HTMLSwirlIconUndoElement;
         "swirl-icon-unlock-person": HTMLSwirlIconUnlockPersonElement;
+        "swirl-icon-user-add": HTMLSwirlIconUserAddElement;
         "swirl-icon-user-assign": HTMLSwirlIconUserAssignElement;
         "swirl-icon-video-camera": HTMLSwirlIconVideoCameraElement;
         "swirl-icon-video-library": HTMLSwirlIconVideoLibraryElement;
@@ -3934,6 +4097,7 @@ declare global {
         "swirl-time-input": HTMLSwirlTimeInputElement;
         "swirl-toast": HTMLSwirlToastElement;
         "swirl-toast-provider": HTMLSwirlToastProviderElement;
+        "swirl-toolbar": HTMLSwirlToolbarElement;
         "swirl-tooltip": HTMLSwirlTooltipElement;
         "swirl-tree-navigation-item": HTMLSwirlTreeNavigationItemElement;
         "swirl-video-thumbnail": HTMLSwirlVideoThumbnailElement;
@@ -3942,6 +4106,18 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FileManager {
+    }
+    interface SwirlAccordion {
+        "onExpandedItemChange"?: (event: SwirlAccordionCustomEvent<string>) => void;
+    }
+    interface SwirlAccordionItem {
+        "description"?: string;
+        "disabled"?: boolean;
+        "heading": string;
+        "headingLevel"?: SwirlHeadingLevel;
+        "initiallyOpen"?: boolean;
+        "itemId"?: string;
+        "onExpansionChange"?: (event: SwirlAccordionItemCustomEvent<boolean>) => void;
     }
     interface SwirlActionList {
     }
@@ -4106,6 +4282,7 @@ declare namespace LocalJSX {
         "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
+        "overflow"?: SwirlCardOverflow;
         "padding"?: SwirlCardPadding;
         "paddingBlockEnd"?: SwirlCardPadding;
         "paddingBlockStart"?: SwirlCardPadding;
@@ -4144,6 +4321,7 @@ declare namespace LocalJSX {
         "swirlAriaDescribedby"?: string;
         "swirlAriaLabel"?: string;
         "value"?: string;
+        "variant"?: SwirlCheckboxVariant;
     }
     interface SwirlChip {
         "borderRadius"?: SwirlChipBorderRadius;
@@ -4153,12 +4331,29 @@ declare namespace LocalJSX {
         "interactive"?: boolean;
         "label": string;
         "onRemove"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
+        "pressed"?: boolean;
         "progress"?: number;
         "progressBarLabel"?: string;
         "removable"?: boolean;
         "removeButtonLabel"?: string;
         "size"?: SwirlChipSize;
         "variant"?: SwirlChipVariant;
+    }
+    interface SwirlColorInput {
+        "autoFocus"?: boolean;
+        "autoSelect"?: boolean;
+        "disabled"?: boolean;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "onInputBlur"?: (event: SwirlColorInputCustomEvent<FocusEvent>) => void;
+        "onInputFocus"?: (event: SwirlColorInputCustomEvent<FocusEvent>) => void;
+        "onValueChange"?: (event: SwirlColorInputCustomEvent<string>) => void;
+        "pickerButtonLabel"?: string;
+        "pickerLabel"?: string;
+        "placeholder"?: string;
+        "required"?: boolean;
+        "swirlAriaDescribedby"?: string;
+        "value"?: string;
     }
     interface SwirlColumns {
         "columns"?: string;
@@ -4210,6 +4405,7 @@ declare namespace LocalJSX {
     }
     interface SwirlDescriptionListItem {
         "bordered"?: boolean;
+        "maxWidth"?: string;
         "orientation"?: SwirlDescriptionListItemOrientation;
         "term": string;
     }
@@ -4267,7 +4463,9 @@ declare namespace LocalJSX {
         "multiple"?: boolean;
         "onValueChange"?: (event: SwirlFileUploaderCustomEvent<FileList>) => void;
         "showDropzone"?: boolean;
+        "uploadButtonIcon"?: string;
         "uploadButtonLabel"?: string;
+        "uploadButtonVariant"?: SwirlButtonVariant1;
     }
     interface SwirlFileViewer {
         "active"?: boolean;
@@ -4339,7 +4537,7 @@ declare namespace LocalJSX {
         "as"?: SwirlHeadingTag;
         "balance"?: boolean;
         "headingId"?: string;
-        "level"?: SwirlHeadingLevel;
+        "level"?: SwirlHeadingLevel1;
         "lines"?: number;
         "text": string;
         "truncate"?: boolean;
@@ -4354,10 +4552,16 @@ declare namespace LocalJSX {
     interface SwirlIconAddPhoto {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconAddReaction {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconAdminPanelSettings {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAi {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconApps {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowBack {
@@ -4505,6 +4709,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGif {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconGroupAdd {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroupAssign {
@@ -4675,6 +4882,9 @@ declare namespace LocalJSX {
     interface SwirlIconSearchStrong {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconSecure {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconSend {
         "size"?: SwirlIconSize;
     }
@@ -4714,10 +4924,16 @@ declare namespace LocalJSX {
     interface SwirlIconTranslate {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconTreeStructure {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconUndo {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUnlockPerson {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconUserAdd {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUserAssign {
@@ -4808,6 +5024,7 @@ declare namespace LocalJSX {
     interface SwirlModal {
         "closable"?: boolean;
         "closeButtonLabel"?: string;
+        "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
         "label": string;
@@ -4930,6 +5147,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "onValueChange"?: (event: SwirlRadioCustomEvent<string>) => void;
         "value": string;
+        "variant"?: SwirlRadioVariant;
     }
     interface SwirlRadioGroup {
         "onValueChange"?: (event: SwirlRadioGroupCustomEvent<string>) => void;
@@ -4998,15 +5216,21 @@ declare namespace LocalJSX {
     interface SwirlSelect {
         "allowDeselect"?: boolean;
         "disabled"?: boolean;
+        "emptyListLabel"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
+        "onSearchChange"?: (event: SwirlSelectCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlSelectCustomEvent<string[]>) => void;
         "required"?: boolean;
+        "searchInputLabel"?: string;
+        "searchLoading"?: boolean;
+        "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
         "value"?: string[];
+        "withSearch"?: boolean;
     }
     interface SwirlSeparator {
         "orientation"?: SwirlSeparatorOrientation;
@@ -5057,7 +5281,6 @@ declare namespace LocalJSX {
         "inputName": string;
         "label"?: string;
         "onValueChange"?: (event: SwirlSwitchCustomEvent<boolean>) => void;
-        "size"?: SwirlSwitchSize;
         "value"?: string;
     }
     interface SwirlSymbol {
@@ -5299,6 +5522,7 @@ declare namespace LocalJSX {
         "lines"?: number;
         "size"?: SwirlTextSize;
         "truncate"?: boolean;
+        "truncateDirection"?: SwirlTextTruncateDirection;
         "weight"?: SwirlTextWeight;
     }
     interface SwirlTextInput {
@@ -5381,6 +5605,10 @@ declare namespace LocalJSX {
          */
         "globalDuration"?: number;
     }
+    interface SwirlToolbar {
+        "label"?: string;
+        "orientation"?: SwirlToolbarOrientation;
+    }
     interface SwirlTooltip {
         "content": string;
         "delay"?: number;
@@ -5401,6 +5629,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "file-manager": FileManager;
+        "swirl-accordion": SwirlAccordion;
+        "swirl-accordion-item": SwirlAccordionItem;
         "swirl-action-list": SwirlActionList;
         "swirl-action-list-item": SwirlActionListItem;
         "swirl-action-list-section": SwirlActionListSection;
@@ -5420,6 +5650,7 @@ declare namespace LocalJSX {
         "swirl-carousel-slide": SwirlCarouselSlide;
         "swirl-checkbox": SwirlCheckbox;
         "swirl-chip": SwirlChip;
+        "swirl-color-input": SwirlColorInput;
         "swirl-columns": SwirlColumns;
         "swirl-console-layout": SwirlConsoleLayout;
         "swirl-date-input": SwirlDateInput;
@@ -5449,8 +5680,10 @@ declare namespace LocalJSX {
         "swirl-icon": SwirlIcon;
         "swirl-icon-add": SwirlIconAdd;
         "swirl-icon-add-photo": SwirlIconAddPhoto;
+        "swirl-icon-add-reaction": SwirlIconAddReaction;
         "swirl-icon-admin-panel-settings": SwirlIconAdminPanelSettings;
         "swirl-icon-ai": SwirlIconAi;
+        "swirl-icon-apps": SwirlIconApps;
         "swirl-icon-arrow-back": SwirlIconArrowBack;
         "swirl-icon-arrow-downward": SwirlIconArrowDownward;
         "swirl-icon-arrow-forward": SwirlIconArrowForward;
@@ -5500,6 +5733,7 @@ declare namespace LocalJSX {
         "swirl-icon-fullscreen": SwirlIconFullscreen;
         "swirl-icon-fullscreen-exit": SwirlIconFullscreenExit;
         "swirl-icon-gif": SwirlIconGif;
+        "swirl-icon-group-add": SwirlIconGroupAdd;
         "swirl-icon-group-assign": SwirlIconGroupAssign;
         "swirl-icon-groups": SwirlIconGroups;
         "swirl-icon-groups-custom": SwirlIconGroupsCustom;
@@ -5556,6 +5790,7 @@ declare namespace LocalJSX {
         "swirl-icon-roadmap": SwirlIconRoadmap;
         "swirl-icon-search": SwirlIconSearch;
         "swirl-icon-search-strong": SwirlIconSearchStrong;
+        "swirl-icon-secure": SwirlIconSecure;
         "swirl-icon-send": SwirlIconSend;
         "swirl-icon-settings": SwirlIconSettings;
         "swirl-icon-short-text": SwirlIconShortText;
@@ -5569,8 +5804,10 @@ declare namespace LocalJSX {
         "swirl-icon-time-outlined": SwirlIconTimeOutlined;
         "swirl-icon-today": SwirlIconToday;
         "swirl-icon-translate": SwirlIconTranslate;
+        "swirl-icon-tree-structure": SwirlIconTreeStructure;
         "swirl-icon-undo": SwirlIconUndo;
         "swirl-icon-unlock-person": SwirlIconUnlockPerson;
+        "swirl-icon-user-add": SwirlIconUserAdd;
         "swirl-icon-user-assign": SwirlIconUserAssign;
         "swirl-icon-video-camera": SwirlIconVideoCamera;
         "swirl-icon-video-library": SwirlIconVideoLibrary;
@@ -5689,6 +5926,7 @@ declare namespace LocalJSX {
         "swirl-time-input": SwirlTimeInput;
         "swirl-toast": SwirlToast;
         "swirl-toast-provider": SwirlToastProvider;
+        "swirl-toolbar": SwirlToolbar;
         "swirl-tooltip": SwirlTooltip;
         "swirl-tree-navigation-item": SwirlTreeNavigationItem;
         "swirl-video-thumbnail": SwirlVideoThumbnail;
@@ -5700,6 +5938,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "file-manager": LocalJSX.FileManager & JSXBase.HTMLAttributes<HTMLFileManagerElement>;
+            "swirl-accordion": LocalJSX.SwirlAccordion & JSXBase.HTMLAttributes<HTMLSwirlAccordionElement>;
+            "swirl-accordion-item": LocalJSX.SwirlAccordionItem & JSXBase.HTMLAttributes<HTMLSwirlAccordionItemElement>;
             "swirl-action-list": LocalJSX.SwirlActionList & JSXBase.HTMLAttributes<HTMLSwirlActionListElement>;
             "swirl-action-list-item": LocalJSX.SwirlActionListItem & JSXBase.HTMLAttributes<HTMLSwirlActionListItemElement>;
             "swirl-action-list-section": LocalJSX.SwirlActionListSection & JSXBase.HTMLAttributes<HTMLSwirlActionListSectionElement>;
@@ -5725,6 +5965,7 @@ declare module "@stencil/core" {
             "swirl-carousel-slide": LocalJSX.SwirlCarouselSlide & JSXBase.HTMLAttributes<HTMLSwirlCarouselSlideElement>;
             "swirl-checkbox": LocalJSX.SwirlCheckbox & JSXBase.HTMLAttributes<HTMLSwirlCheckboxElement>;
             "swirl-chip": LocalJSX.SwirlChip & JSXBase.HTMLAttributes<HTMLSwirlChipElement>;
+            "swirl-color-input": LocalJSX.SwirlColorInput & JSXBase.HTMLAttributes<HTMLSwirlColorInputElement>;
             "swirl-columns": LocalJSX.SwirlColumns & JSXBase.HTMLAttributes<HTMLSwirlColumnsElement>;
             "swirl-console-layout": LocalJSX.SwirlConsoleLayout & JSXBase.HTMLAttributes<HTMLSwirlConsoleLayoutElement>;
             "swirl-date-input": LocalJSX.SwirlDateInput & JSXBase.HTMLAttributes<HTMLSwirlDateInputElement>;
@@ -5754,8 +5995,10 @@ declare module "@stencil/core" {
             "swirl-icon": LocalJSX.SwirlIcon & JSXBase.HTMLAttributes<HTMLSwirlIconElement>;
             "swirl-icon-add": LocalJSX.SwirlIconAdd & JSXBase.HTMLAttributes<HTMLSwirlIconAddElement>;
             "swirl-icon-add-photo": LocalJSX.SwirlIconAddPhoto & JSXBase.HTMLAttributes<HTMLSwirlIconAddPhotoElement>;
+            "swirl-icon-add-reaction": LocalJSX.SwirlIconAddReaction & JSXBase.HTMLAttributes<HTMLSwirlIconAddReactionElement>;
             "swirl-icon-admin-panel-settings": LocalJSX.SwirlIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLSwirlIconAdminPanelSettingsElement>;
             "swirl-icon-ai": LocalJSX.SwirlIconAi & JSXBase.HTMLAttributes<HTMLSwirlIconAiElement>;
+            "swirl-icon-apps": LocalJSX.SwirlIconApps & JSXBase.HTMLAttributes<HTMLSwirlIconAppsElement>;
             "swirl-icon-arrow-back": LocalJSX.SwirlIconArrowBack & JSXBase.HTMLAttributes<HTMLSwirlIconArrowBackElement>;
             "swirl-icon-arrow-downward": LocalJSX.SwirlIconArrowDownward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowDownwardElement>;
             "swirl-icon-arrow-forward": LocalJSX.SwirlIconArrowForward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowForwardElement>;
@@ -5805,6 +6048,7 @@ declare module "@stencil/core" {
             "swirl-icon-fullscreen": LocalJSX.SwirlIconFullscreen & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenElement>;
             "swirl-icon-fullscreen-exit": LocalJSX.SwirlIconFullscreenExit & JSXBase.HTMLAttributes<HTMLSwirlIconFullscreenExitElement>;
             "swirl-icon-gif": LocalJSX.SwirlIconGif & JSXBase.HTMLAttributes<HTMLSwirlIconGifElement>;
+            "swirl-icon-group-add": LocalJSX.SwirlIconGroupAdd & JSXBase.HTMLAttributes<HTMLSwirlIconGroupAddElement>;
             "swirl-icon-group-assign": LocalJSX.SwirlIconGroupAssign & JSXBase.HTMLAttributes<HTMLSwirlIconGroupAssignElement>;
             "swirl-icon-groups": LocalJSX.SwirlIconGroups & JSXBase.HTMLAttributes<HTMLSwirlIconGroupsElement>;
             "swirl-icon-groups-custom": LocalJSX.SwirlIconGroupsCustom & JSXBase.HTMLAttributes<HTMLSwirlIconGroupsCustomElement>;
@@ -5861,6 +6105,7 @@ declare module "@stencil/core" {
             "swirl-icon-roadmap": LocalJSX.SwirlIconRoadmap & JSXBase.HTMLAttributes<HTMLSwirlIconRoadmapElement>;
             "swirl-icon-search": LocalJSX.SwirlIconSearch & JSXBase.HTMLAttributes<HTMLSwirlIconSearchElement>;
             "swirl-icon-search-strong": LocalJSX.SwirlIconSearchStrong & JSXBase.HTMLAttributes<HTMLSwirlIconSearchStrongElement>;
+            "swirl-icon-secure": LocalJSX.SwirlIconSecure & JSXBase.HTMLAttributes<HTMLSwirlIconSecureElement>;
             "swirl-icon-send": LocalJSX.SwirlIconSend & JSXBase.HTMLAttributes<HTMLSwirlIconSendElement>;
             "swirl-icon-settings": LocalJSX.SwirlIconSettings & JSXBase.HTMLAttributes<HTMLSwirlIconSettingsElement>;
             "swirl-icon-short-text": LocalJSX.SwirlIconShortText & JSXBase.HTMLAttributes<HTMLSwirlIconShortTextElement>;
@@ -5874,8 +6119,10 @@ declare module "@stencil/core" {
             "swirl-icon-time-outlined": LocalJSX.SwirlIconTimeOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconTimeOutlinedElement>;
             "swirl-icon-today": LocalJSX.SwirlIconToday & JSXBase.HTMLAttributes<HTMLSwirlIconTodayElement>;
             "swirl-icon-translate": LocalJSX.SwirlIconTranslate & JSXBase.HTMLAttributes<HTMLSwirlIconTranslateElement>;
+            "swirl-icon-tree-structure": LocalJSX.SwirlIconTreeStructure & JSXBase.HTMLAttributes<HTMLSwirlIconTreeStructureElement>;
             "swirl-icon-undo": LocalJSX.SwirlIconUndo & JSXBase.HTMLAttributes<HTMLSwirlIconUndoElement>;
             "swirl-icon-unlock-person": LocalJSX.SwirlIconUnlockPerson & JSXBase.HTMLAttributes<HTMLSwirlIconUnlockPersonElement>;
+            "swirl-icon-user-add": LocalJSX.SwirlIconUserAdd & JSXBase.HTMLAttributes<HTMLSwirlIconUserAddElement>;
             "swirl-icon-user-assign": LocalJSX.SwirlIconUserAssign & JSXBase.HTMLAttributes<HTMLSwirlIconUserAssignElement>;
             "swirl-icon-video-camera": LocalJSX.SwirlIconVideoCamera & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraElement>;
             "swirl-icon-video-library": LocalJSX.SwirlIconVideoLibrary & JSXBase.HTMLAttributes<HTMLSwirlIconVideoLibraryElement>;
@@ -5994,6 +6241,7 @@ declare module "@stencil/core" {
             "swirl-time-input": LocalJSX.SwirlTimeInput & JSXBase.HTMLAttributes<HTMLSwirlTimeInputElement>;
             "swirl-toast": LocalJSX.SwirlToast & JSXBase.HTMLAttributes<HTMLSwirlToastElement>;
             "swirl-toast-provider": LocalJSX.SwirlToastProvider & JSXBase.HTMLAttributes<HTMLSwirlToastProviderElement>;
+            "swirl-toolbar": LocalJSX.SwirlToolbar & JSXBase.HTMLAttributes<HTMLSwirlToolbarElement>;
             "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;
             "swirl-tree-navigation-item": LocalJSX.SwirlTreeNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationItemElement>;
             "swirl-video-thumbnail": LocalJSX.SwirlVideoThumbnail & JSXBase.HTMLAttributes<HTMLSwirlVideoThumbnailElement>;

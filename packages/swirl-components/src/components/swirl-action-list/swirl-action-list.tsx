@@ -12,28 +12,8 @@ import { getActiveElement, querySelectorAllDeep } from "../../utils";
 export class SwirlActionList {
   @Element() el: HTMLElement;
 
-  private items: HTMLElement[];
-  private observer: MutationObserver;
-
-  componentDidLoad() {
-    this.updateItems();
-    this.observeSlotChanges();
-  }
-
-  disconnectedCallback() {
-    this.observer?.disconnect();
-  }
-
-  private observeSlotChanges() {
-    this.observer = new MutationObserver(() => {
-      this.updateItems();
-    });
-
-    this.observer.observe(this.el, { childList: true });
-  }
-
-  private updateItems() {
-    this.items = querySelectorAllDeep(this.el, '[role="menuitem"]');
+  private getItems() {
+    return querySelectorAllDeep(this.el, '[role="menuitem"]');
   }
 
   private onKeyDown = (event: KeyboardEvent) => {
@@ -47,24 +27,27 @@ export class SwirlActionList {
   };
 
   private focusNextItem() {
+    const items = this.getItems();
     const activeItemIndex = this.getActiveItemIndex();
-    const newIndex = (activeItemIndex + 1) % this.items.length;
+    const newIndex = (activeItemIndex + 1) % items.length;
 
-    this.items[newIndex].focus();
+    items[newIndex].focus();
   }
 
   private focusPreviousItem() {
+    const items = this.getItems();
     const activeItemIndex = this.getActiveItemIndex();
     const newIndex =
-      activeItemIndex === 0 ? this.items.length - 1 : activeItemIndex - 1;
+      activeItemIndex === 0 ? items.length - 1 : activeItemIndex - 1;
 
-    this.items[newIndex]?.focus();
+    items[newIndex]?.focus();
   }
 
   private getActiveItemIndex(): number {
+    const items = this.getItems();
     const activeElement = getActiveElement();
 
-    return this.items.findIndex(
+    return items.findIndex(
       (item) =>
         item === activeElement ||
         item === activeElement?.querySelector('[role="menuitem"]')

@@ -50,6 +50,10 @@ export class SwirlResourceList {
     this.setupDragDrop();
   }
 
+  componentDidRender() {
+    this.setupDragDrop();
+  }
+
   disconnectedCallback() {
     this.sortable?.destroy();
     this.observer?.disconnect();
@@ -59,10 +63,13 @@ export class SwirlResourceList {
     this.observer = new MutationObserver(() => {
       this.collectItems();
       this.setItemAllowDragState();
-      this.setupDragDrop();
     });
 
-    this.observer.observe(this.el, { childList: true });
+    this.observer.observe(this.el, {
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
   }
 
   @Watch("allowDrag")
@@ -87,13 +94,18 @@ export class SwirlResourceList {
   }
 
   private removeItemsFromTabOrder() {
-    this.items.forEach((item) =>
-      item
-        ?.querySelector(
-          ".resource-list-item__content, .resource-list-file-item"
-        )
-        ?.setAttribute("tabIndex", "-1")
-    );
+    this.items.forEach((item) => {
+      const focusableEl = item?.querySelector(
+        ".resource-list-item__content, .resource-list-file-item"
+      );
+
+      const dragHandle = item?.querySelector(
+        ".resource-list-item__drag-handle"
+      );
+
+      focusableEl?.setAttribute("tabIndex", "-1");
+      dragHandle?.setAttribute("tabIndex", "-1");
+    });
   }
 
   private setItemAllowDragState() {
@@ -182,6 +194,12 @@ export class SwirlResourceList {
       ".resource-list-item__content, .resource-list-file-item"
     );
 
+    const dragHandle = item.querySelector(".resource-list-item__drag-handle");
+
+    if (Boolean(dragHandle)) {
+      dragHandle.setAttribute("tabIndex", "0");
+    }
+
     if (!Boolean(interactiveElement)) {
       return;
     }
@@ -240,7 +258,7 @@ export class SwirlResourceList {
   }
 
   private onKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "ArrowDown") {
+    if (event.code === "ArrowDown") {
       event.preventDefault();
 
       if (!Boolean(this.dragging)) {
@@ -248,7 +266,7 @@ export class SwirlResourceList {
       } else {
         this.moveDraggedItemDown();
       }
-    } else if (event.key === "ArrowUp") {
+    } else if (event.code === "ArrowUp") {
       event.preventDefault();
 
       if (!Boolean(this.dragging)) {
@@ -261,7 +279,7 @@ export class SwirlResourceList {
       } else {
         this.moveDraggedItemUp();
       }
-    } else if (event.key === "Space" || event.key === "Enter") {
+    } else if (event.code === "Space" || event.code === "Enter") {
       const target = event.composedPath()[0] as HTMLElement;
 
       if (
@@ -271,11 +289,11 @@ export class SwirlResourceList {
         event.preventDefault();
         this.stopDrag(this.dragging);
       }
-    } else if (event.key === "Home") {
+    } else if (event.code === "Home") {
       event.preventDefault();
 
       this.focusItemAtIndex(0);
-    } else if (event.key === "End") {
+    } else if (event.code === "End") {
       event.preventDefault();
 
       this.focusItemAtIndex(this.items.length - 1);

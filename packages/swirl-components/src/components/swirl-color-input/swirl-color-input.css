@@ -1,0 +1,71 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: block;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.color-input {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: var(--s-text-default);
+  font: inherit;
+  line-height: var(--s-line-height-sm);
+  cursor: text;
+}
+
+.color-input--inline {
+  & .color-input__preview-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: -0.125rem;
+    margin-right: -0.25rem;
+    margin-bottom: -0.125rem;
+  }
+}
+
+.color-input__input {
+  display: inline-flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+  border: none;
+  color: var(--s-text-default);
+  background-color: transparent;
+  font: inherit;
+  font-size: var(--s-font-size-base);
+  line-height: var(--s-line-height-base);
+  caret-color: var(--s-border-highlight);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    color: var(--s-text-disabled);
+    background-color: transparent;
+  }
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}
+
+.color-input__preview-button {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-top: -1.25rem;
+  flex-shrink: 0;
+  border: 0.0625rem solid var(--s-border-default);
+  border-radius: var(--s-border-radius-s);
+  cursor: pointer;
+  appearance: none;
+}

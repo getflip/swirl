@@ -9,6 +9,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { SwirlFormInput } from "../../utils";
+import { SwirlButtonVariant } from "../swirl-button/swirl-button";
 
 @Component({
   /**
@@ -33,7 +34,9 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
   @Prop() label!: string;
   @Prop() multiple?: boolean;
   @Prop() showDropzone?: boolean = true;
+  @Prop() uploadButtonIcon?: string;
   @Prop() uploadButtonLabel?: string = "Select file";
+  @Prop() uploadButtonVariant?: SwirlButtonVariant = "flat";
 
   @Event() valueChange: EventEmitter<FileList>;
 
@@ -75,7 +78,7 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
           <label
             class="file-uploader__label"
             htmlFor={this.inputId}
-            id={`${this.inputEl}-label`}
+            id={`${this.inputId}-label`}
           >
             {this.label}
           </label>
@@ -109,11 +112,12 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
               <swirl-button
                 class="file-uploader__upload-button"
                 disabled={this.disabled}
-                swirlAriaDescribedby={ariaDescribedby}
+                icon={this.uploadButtonIcon}
                 intent="primary"
                 label={this.uploadButtonLabel}
                 onClick={this.onUploadButtonClick}
-                variant="flat"
+                swirlAriaDescribedby={ariaDescribedby}
+                variant={this.uploadButtonVariant}
               ></swirl-button>
             )}
 

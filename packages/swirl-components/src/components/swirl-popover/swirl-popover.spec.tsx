@@ -41,7 +41,7 @@ describe("swirl-popover", () => {
             <div class="popover popover--animation-scale-in-xy popover--inactive  popover--placement-undefined">
               <div aria-hidden="true" aria-label="Popover" class="popover__content" part="popover__content" role="dialog" tabindex="-1">
                 <span class="popover__handle"></span>
-                <div class="popover__scroll-container">
+                <div class="popover__scroll-container" part="popover__scroll-container">
                   <slot></slot>
                 </div>
               </div>

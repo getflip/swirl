@@ -122,11 +122,9 @@ export class SwirlDialog {
             <div class="dialog__content" part="dialog__content" id="content">
               <slot></slot>
             </div>
-            <swirl-button-group
+            <div
               class="dialog__controls"
               ref={(el) => (this.controlsContainerEl = el)}
-              stretch
-              wrap
             >
               {this.secondaryActionLabel && (
                 <swirl-button
@@ -142,7 +140,7 @@ export class SwirlDialog {
                   variant={this.intent === "critical" ? "ghost" : "flat"}
                 ></swirl-button>
               )}
-            </swirl-button-group>
+            </div>
           </div>
         </div>
       </Host>

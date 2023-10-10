@@ -21,7 +21,7 @@ describe("swirl-dialog", () => {
               <div class="dialog__content" part="dialog__content" id="content">
                 <slot></slot>
               </div>
-              <swirl-button-group class="dialog__controls" stretch="" wrap=""></swirl-button-group>
+              <div class="dialog__controls"></div>
             </div>
           </div>
         </mock:shadow-root>

@@ -192,7 +192,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
       this.syncItemsWithValue();
     });
 
-    this.observer.observe(this.listboxEl, { childList: true });
+    this.observer.observe(this.listboxEl, { childList: true, subtree: true });
   }
 
   private updateItems() {
@@ -395,9 +395,11 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   private getActiveItemIndex(): number {
-    return this.items
-      .map((item) => item.querySelector('[role="option"]'))
-      .findIndex((item) => item === this.focusedItem);
+    return Boolean(this.focusedItem)
+      ? this.items
+          .map((item) => item.querySelector('[role="option"]'))
+          .findIndex((item) => item === this.focusedItem)
+      : 0;
   }
 
   private getItemIndex(item: HTMLSwirlOptionListItemElement): number {
