@@ -1,8 +1,11 @@
 :host {
   display: block;
-  border-bottom: 0.0625rem solid var(--s-border-default);
 
   & * {
     box-sizing: border-box;
   }
+}
+
+::slotted(*:last-child) {
+  border-bottom: 0.0625rem solid var(--s-border-default);
 }
