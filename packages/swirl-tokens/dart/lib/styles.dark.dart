@@ -4,11 +4,7 @@
 //
 
 // Do not edit directly
-<<<<<<< HEAD
 // Generated on Mon, 09 Oct 2023 10:13:22 GMT
-=======
-// Generated on Mon, 18 Sep 2023 08:27:18 GMT
->>>>>>> main
 
 
 
