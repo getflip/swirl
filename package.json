@@ -12,6 +12,7 @@
     "./packages/swirl-components-react",
     "./packages/swirl-icons",
     "./packages/swirl-tokens",
+    "./packages/error-code-generator",
     "./apps/swirl-docs"
   ],
   "private": true,

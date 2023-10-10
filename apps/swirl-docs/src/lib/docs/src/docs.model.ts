@@ -68,6 +68,11 @@ export type Endpoint = {
   title: string;
   path: string;
   operation: Operation;
+  errorCodes?: {
+    type: string;
+    enum: Array<string>;
+    "x-readme-ref-name": string;
+  };
 };
 
 export type Operations = {

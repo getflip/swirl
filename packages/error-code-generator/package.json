@@ -1,0 +1,40 @@
+{
+  "name": "@getflip/error-code-generator",
+  "version": "0.0.1",
+  "description": "A library to extract error codes from an open api spec and generate error codes types and objects for TypeScript and Dart.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "error-code-generator": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsup src/index.ts --format cjs,esm --dts && tsup src/cli.ts --format cjs && fix-tsup-cjs",
+    "release": "pnpm run build && changeset publish",
+    "lint": "tsc"
+  },
+  "dependencies": {
+    "fix-tsup-cjs": "^1.2.0",
+    "oas": "^22.0.0",
+    "oas-normalize": "^11.0.0",
+    "prettier": "^3.0.3",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "tsup": "7.2.0",
+    "typescript": "^5.2.2"
+  },
+  "author": "Flip GmbH",
+  "license": "ISC"
+}

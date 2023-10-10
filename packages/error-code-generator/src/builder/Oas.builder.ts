@@ -1,33 +1,31 @@
 import Oas from "oas";
-import { HttpMethods, OASDocument, PathsObject } from "oas/dist/rmoas.types";
-import { Endpoint, Operations } from "./docs.model";
+
+import type {
+  HttpMethods,
+  OASDocument,
+  PathsObject,
+} from "oas/dist/rmoas.types";
+import { Endpoint, TaggedEndpointsMap } from "../types";
 
 interface IOASBuilder {
   title: string;
   path: string;
   description: string;
   paths: PathsObject;
-  operations: Operations;
+  taggedEndpointsMap: TaggedEndpointsMap;
   tags: string[];
 }
 
-/**
- * This Class is a duplicate of the OASBuilder class.
- * It is needed as we have to initilize the Oas lib differently to run this in a Node Script.
- *
- * As this is a duplicate, we have to keep it in sync with the OASBuilder class, when API changes are made.
- */
 export default class OASBuilder implements IOASBuilder {
   private _oasDocument: OASDocument = {} as OASDocument;
-  private _oasBuilder: Oas = new (Oas as any).default({} as OASDocument);
+  private _oasBuilder: Oas = new Oas({} as OASDocument);
 
   public title: string = "";
   public shortDescription: string = "";
   public path: string = "";
   public description: string = "";
   public paths: PathsObject = {};
-  public operations: Operations = {};
-  public operationsList: Endpoint[] = [];
+  public taggedEndpointsMap: TaggedEndpointsMap = {};
   public tags: string[] = [];
 
   constructor(oasDocument: OASDocument) {
@@ -36,7 +34,7 @@ export default class OASBuilder implements IOASBuilder {
 
   private initializeProperties(oasDocument: OASDocument) {
     this._oasDocument = oasDocument;
-    this._oasBuilder = new (Oas as any).default(oasDocument);
+    this._oasBuilder = new Oas(oasDocument);
   }
 
   public async dereference() {
@@ -57,7 +55,7 @@ export default class OASBuilder implements IOASBuilder {
     return this;
   }
 
-  public setEndpoints() {
+  public setPaths() {
     this.paths = this._oasBuilder.api.paths || {};
     return this;
   }
@@ -71,8 +69,7 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   public setOperations() {
-    if (Object.keys(this.paths).length === 0)
-      throw new Error("Endpoints not set");
+    if (Object.keys(this.paths).length === 0) throw new Error("Paths not set");
 
     for (const path in this.paths) {
       const operationInPaths = this.paths[path];
@@ -83,29 +80,22 @@ export default class OASBuilder implements IOASBuilder {
 
       operations.forEach((operation) => {
         const oasOperation = this._oasBuilder.operation(path, operation);
-        if (!this.operations[operation]) {
-          this.operations[operation] = [];
+
+        if (typeof oasOperation.schema.tags?.[0] === "string") {
+          const tag = oasOperation.schema.tags?.[0] as string;
+
+          if (!this.taggedEndpointsMap[tag]) {
+            this.taggedEndpointsMap[tag] = [];
+          }
+
+          this.taggedEndpointsMap[tag]?.push({
+            title: oasOperation.getSummary(),
+            operation: oasOperation,
+            errorCodes: oasOperation.getExtension(
+              "x-flip-error-codes"
+            ) as Endpoint["errorCodes"],
+          });
         }
-
-        this.operations[operation]?.push({
-          title: oasOperation.getSummary(),
-          path: `/${this.path}#${oasOperation
-            .getSummary()
-            .toLowerCase()
-            .replaceAll(" ", "-")}`.replaceAll(".", ""),
-          operation: oasOperation,
-          errorCodes: oasOperation.getExtension(
-            "x-flip-error-codes"
-          ) as Endpoint["errorCodes"],
-        });
-      });
-    }
-
-    for (const operation in this.operations) {
-      const endpoints = this.operations[operation as HttpMethods];
-
-      endpoints?.forEach((endpoint) => {
-        this.operationsList.push(endpoint);
       });
     }
 
@@ -114,6 +104,7 @@ export default class OASBuilder implements IOASBuilder {
 
   public setTags() {
     this.tags = this._oasBuilder.getTags();
+
     return this;
   }
 }
