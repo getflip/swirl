@@ -6,10 +6,6 @@
   & * {
     box-sizing: border-box;
   }
-
-  &(:last-child) .accordion-item {
-    border-bottom: 0.0625rem solid var(--s-border-default);
-  }
 }
 
 .accordion-item {
