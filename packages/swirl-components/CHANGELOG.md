@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.100.2
+
+### Patch Changes
+
+- [`e152417b`](https://github.com/getflip/swirl/commit/e152417bb4ff440a0cc515a4dc7eaae89e43baf6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-accordion-item border
+  display
+
 ## 0.100.1
 
 ### Patch Changes
