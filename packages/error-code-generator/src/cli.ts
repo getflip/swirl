@@ -25,13 +25,18 @@ yargs(hideBin(process.argv)).command(
     console.log("Output path: ", argv["output-path"]);
     console.log("Generating error codes...");
 
-    if (typeof argv.source === "string" && typeof argv.output === "string") {
+    if (
+      typeof argv["source-path"] === "string" &&
+      typeof argv["output-path"] === "string"
+    ) {
       new ErrorCodeGenerator([
         CodeGeneratorFactory.createGenerator("TypeScript"),
       ])
-        .setSourcePath(argv.source)
-        .setOutputDirectory(argv.output)
+        .setSourcePath(argv["source-path"])
+        .setOutputDirectory(argv["output-path"])
         .generate();
+
+      console.log("Done!");
     } else {
       throw new Error("Invalid arguments");
     }
