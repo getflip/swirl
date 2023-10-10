@@ -1,7 +1,7 @@
-import { CodeGenerator } from ".";
+import { BaseCodeGenerator } from ".";
 import { EndpointErrorCollection, GeneratedCode } from "../../types";
 
-export class DartGenerator implements CodeGenerator {
+export class DartGenerator implements BaseCodeGenerator {
   language = "Dart";
   fileExtension: string = "dart";
   private refNames: Array<string> = [];
