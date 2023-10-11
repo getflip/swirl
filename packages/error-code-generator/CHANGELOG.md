@@ -1,5 +1,12 @@
 # @getflip/error-code-generator
 
+## 0.3.0
+
+### Minor Changes
+
+- [`e187b0bd`](https://github.com/getflip/swirl/commit/e187b0bd80ba230b5f1fb5e85e893f93f48ba885) -
+  Reentered named cli import for bin file
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @getflip/swirl-components
 
+## 0.101.0
+
+### Minor Changes
+
+- [#415](https://github.com/getflip/swirl/pull/415)
+  [`82761f4d`](https://github.com/getflip/swirl/commit/82761f4d25e20ab1c9228a2ec2a842169d783da3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "tool" slot and
+  "tool-position" prop to swirl-avatar; deprecate "badge" and "badge-position"
+  props"
+
 ## 0.100.3
 
 ### Patch Changes
