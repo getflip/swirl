@@ -3,7 +3,6 @@ import { CodeGeneratorHandler } from "./handler/CodeGeneratorHandler";
 import { ErrorCodeExtractorHandler } from "./handler/ErrorCodeExtractorHandler";
 import { FileWriterHandler } from "./handler/FileWriterHandler";
 import { ProcessingData } from "./types";
-import { CodeGeneratorFactory } from "./factories/CodeGeneratorFactory";
 
 export * from "./factories/CodeGeneratorFactory";
 
@@ -51,8 +50,8 @@ export class ErrorCodeGenerator {
       .setNext(writeFiles);
 
     const request: ProcessingData = {
-      sourcePath: path.resolve(__dirname, this.sourcePath),
-      outputDirectory: path.resolve(__dirname, this.outputDirectory),
+      sourcePath: path.resolve(process.cwd(), this.sourcePath),
+      outputDirectory: path.resolve(process.cwd(), this.outputDirectory),
       codeGenerators: this.codeGenerators,
     };
 
