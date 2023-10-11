@@ -10,7 +10,7 @@ import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components
 import { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
-import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
+import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
@@ -69,7 +69,7 @@ export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components
 export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
-export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
+export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
@@ -247,6 +247,7 @@ export namespace Components {
         "showLabel"?: boolean;
         "size"?: SwirlAvatarSize;
         "src"?: string;
+        "toolPosition"?: SwirlAvatarToolPosition;
         "variant"?: SwirlAvatarVariant;
     }
     interface SwirlAvatarGroup {
@@ -4202,6 +4203,7 @@ declare namespace LocalJSX {
         "showLabel"?: boolean;
         "size"?: SwirlAvatarSize;
         "src"?: string;
+        "toolPosition"?: SwirlAvatarToolPosition;
         "variant"?: SwirlAvatarVariant;
     }
     interface SwirlAvatarGroup {
