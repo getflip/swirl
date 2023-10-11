@@ -1,5 +1,12 @@
 # @getflip/error-code-generator
 
+## 0.4.0
+
+### Minor Changes
+
+- [`fad12fb1`](https://github.com/getflip/swirl/commit/fad12fb104a954ee278daff101b160480df80655) -
+  Relative Path support.
+
 ## 0.3.0
 
 ### Minor Changes
