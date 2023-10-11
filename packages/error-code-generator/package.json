@@ -8,7 +8,9 @@
   "files": [
     "dist"
   ],
-  "bin": "./dist/cli.js",
+  "bin": {
+    "error-code-generator": "./dist/cli.js"
+  },
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
