@@ -430,6 +430,18 @@
           "description": ""
         },
         {
+          "name": "tool-position",
+          "description": "",
+          "values": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "top"
+            }
+          ]
+        },
+        {
           "name": "variant",
           "description": "",
           "values": [
