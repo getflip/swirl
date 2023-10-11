@@ -19,8 +19,8 @@ const refBranch = env.REFERENCE_BRANCH;
 const globalSpecs = [
   "shared.yml",
   "problem.yml",
-  // "users.yml",
-  // "usergroups.yml",
+  "users.yml",
+  "usergroups.yml",
 ];
 
 /*******************************************************************************
@@ -224,8 +224,8 @@ function moveSpec(spec: string) {
 
 function deleteGlobalSpecs() {
   deleteSpec("version-info.yml");
-  // deleteSpec("merged.yml");
-  // deleteSpec("organisations.yml");
+  deleteSpec("merged.yml");
+  deleteSpec("organisations.yml");
   deleteSpec("sharepoint-pages.yml");
 }
 
