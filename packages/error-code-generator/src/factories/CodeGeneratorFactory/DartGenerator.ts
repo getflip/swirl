@@ -4,17 +4,10 @@ import { EndpointErrorCollection, GeneratedCode } from "../../types";
 export class DartGenerator implements BaseCodeGenerator {
   language = "Dart";
   fileExtension: string = "dart";
-  private refNames: Array<string> = [];
   private endpointErrorCollection?: EndpointErrorCollection;
 
-  setEndpointErrorCollection(errorCollection: EndpointErrorCollection) {
+  setEndpointErrorCollection(errorCollection: EndpointErrorCollection): this {
     this.endpointErrorCollection = errorCollection;
-    this.endpointErrorCollection.errorCodes?.forEach((errorCode) => {
-      if (errorCode) {
-        this.refNames.push(errorCode["x-readme-ref-name"]);
-      }
-    });
-
     return this;
   }
 
@@ -25,8 +18,24 @@ export class DartGenerator implements BaseCodeGenerator {
 
     return {
       endpoint: this.endpointErrorCollection.endpoint,
-      language: "Dart",
-      code: "NO CODE NO CODE",
+      language: this.language,
+      code: this.generateFlipErrorCodesArray(),
+      fileExtension: this.fileExtension,
     };
+  }
+
+  private generateFlipErrorCodesArray(): string {
+    const errorCodes = this.generateErrorCodeArray();
+    const errorCodesString = errorCodes.map((code) => `'${code}'`).join(", ");
+    return `const flipErrorCodes = [${errorCodesString}];\n\n`;
+  }
+
+  private generateErrorCodeArray(): string[] {
+    const errorCodes =
+      this.endpointErrorCollection?.errorCodes?.flatMap(
+        (errorCode) => errorCode?.enum ?? [],
+      ) ?? [];
+
+    return [...new Set(errorCodes)];
   }
 }

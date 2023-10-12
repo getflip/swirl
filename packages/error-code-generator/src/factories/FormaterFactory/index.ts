@@ -9,7 +9,9 @@ export function formatCode(
     case "TypeScript":
       return prettier.format(code, { parser: "typescript" });
     case "Dart":
-      return prettier.format(code, { parser: "dart" });
+      return new Promise((resolve, reject) => {
+        resolve(code);
+      });
     default:
       throw new Error(`Language ${language} is not supported`);
   }

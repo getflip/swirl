@@ -4,8 +4,8 @@ import { TypeScriptGenerator } from "./TypeScriptGenerator";
 
 // Base interface
 export interface BaseCodeGenerator {
-  language: string;
-  fileExtension: string;
+  readonly language: string;
+  readonly fileExtension: string;
   generateCode(): GeneratedCode;
   setEndpointErrorCollection(
     errorCollection: EndpointErrorCollection,

@@ -1,5 +1,5 @@
 import { hasIndexFileRendering } from "../factories/CodeGeneratorFactory";
-import { Handler, ProcessingData } from "../types";
+import { EndpointErrorCollection, Handler, ProcessingData } from "../types";
 import { GeneratedCodeMapCreator } from "../utils/GeneratedCodeMapCreator";
 
 export class CodeGeneratorHandler implements Handler {
@@ -34,6 +34,34 @@ export class CodeGeneratorHandler implements Handler {
         });
 
         generatedCodeMapCreator.add(codeGenerator.generateIndexCode());
+
+        return;
+      }
+
+      if (!hasIndexFileRendering(codeGenerator)) {
+        const cummulatedErrorCollection: EndpointErrorCollection = {
+          endpoint: "error_codes",
+          errorCodes: [],
+        };
+
+        request.endpointErrorCollections?.forEach((endpointErrorCollection) => {
+          endpointErrorCollection.errorCodes;
+
+          if (endpointErrorCollection.errorCodes) {
+            cummulatedErrorCollection.errorCodes?.push(
+              ...endpointErrorCollection.errorCodes,
+            );
+          }
+        });
+
+        codeGenerator.setEndpointErrorCollection(cummulatedErrorCollection);
+
+        generatedCodeMapCreator.add(
+          codeGenerator
+            .setEndpointErrorCollection(cummulatedErrorCollection)
+            .generateCode(),
+        );
+        return;
       }
     });
 

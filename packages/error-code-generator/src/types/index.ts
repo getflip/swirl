@@ -25,6 +25,7 @@ export type EndpointErrorCollection = {
 export type AllEndpointErrorCollections = Array<EndpointErrorCollection>;
 
 export type GeneratedCode = {
+  fileExtension: string;
   endpoint: string;
   language: string;
   code: string;

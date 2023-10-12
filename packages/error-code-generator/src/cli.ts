@@ -31,6 +31,7 @@ yargs(hideBin(process.argv)).command(
     ) {
       new ErrorCodeGenerator([
         CodeGeneratorFactory.createGenerator("TypeScript"),
+        CodeGeneratorFactory.createGenerator("Dart"),
       ])
         .setSourcePath(argv["source-path"])
         .setOutputDirectory(argv["output-path"])

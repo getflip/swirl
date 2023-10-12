@@ -2,14 +2,15 @@ import { CodeGeneratorWithIndex } from ".";
 import { EndpointErrorCollection, GeneratedCode } from "../../types";
 
 export class TypeScriptGenerator implements CodeGeneratorWithIndex {
-  language = "TypeScript";
-  fileExtension: string = "ts";
+  readonly language = "TypeScript";
+  readonly fileExtension: string = "ts";
   hasIndexFileRendering: true = true;
 
   indexFileConfig: GeneratedCode = {
     endpoint: "index",
     language: this.language,
     code: "",
+    fileExtension: "ts",
   };
 
   private refNames: Array<string> = [];
@@ -22,16 +23,14 @@ export class TypeScriptGenerator implements CodeGeneratorWithIndex {
 
   private endpointErrorStringsCache: Map<string, Array<string>> = new Map();
 
-  setEndpointErrorCollection(errorCollection: EndpointErrorCollection) {
+  setEndpointErrorCollection(errorCollection: EndpointErrorCollection): this {
     this.endpointErrorCollection = errorCollection;
-    this.endpointErrorCollection.errorCodes?.forEach((errorCode) => {
-      if (errorCode) {
-        this.refNames.push(errorCode["x-readme-ref-name"]);
-      }
-    });
-    this.endpointErrorCodesTypeString = `${this.endpointErrorCollection.endpoint}ErrorCodes`;
-    this.endpointErrorTypeString = `${this.endpointErrorCollection.endpoint}Error`;
-
+    this.refNames =
+      errorCollection.errorCodes?.map(
+        (errorCode) => errorCode?.["x-readme-ref-name"] ?? "",
+      ) ?? [];
+    this.endpointErrorCodesTypeString = `${errorCollection.endpoint}ErrorCodes`;
+    this.endpointErrorTypeString = `${errorCollection.endpoint}Error`;
     return this;
   }
 
@@ -44,67 +43,105 @@ export class TypeScriptGenerator implements CodeGeneratorWithIndex {
       endpoint: this.endpointErrorCollection.endpoint,
       language: this.language,
       code: this.generate(),
+      fileExtension: "ts",
     };
 
-    this.resetGenerator();
+    this.resetGeneratorState();
     return generatedCode;
   }
 
-  private generate() {
-    const summaryErrorObject: string = this.generateSummaryErrorCodeObject();
-    const endpointErrorType: string = this.generateEndpointErrorType();
-
-    let errorObjects = "";
-
-    if (this.endpointErrorCollection?.errorCodes) {
-      errorObjects += this.endpointErrorCollection.errorCodes
-        ?.map((errorCode) => {
-          if (errorCode) {
-            return this.createErrorAsConstObject(
-              errorCode["x-readme-ref-name"],
-              errorCode.enum,
-            );
-          }
-          return "";
-        })
-        .join("\n");
-    }
-
-    return `
-        ${errorObjects}
-        ${summaryErrorObject}
-        ${endpointErrorType}
-      `;
+  generateIndexCode(): GeneratedCode {
+    return {
+      code: `
+        ${this.generateServerErrorCodeImports()}
+        ${this.generateServerErrorCodeType()}
+        ${this.generateAllServerErrorCodesString()}
+        ${this.generateCummulatedServerErrorCodes()}
+      `,
+      endpoint: "index",
+      language: this.language,
+      fileExtension: "ts",
+    };
   }
 
-  private createErrorAsConstObject(variableName: string, errorCodes: string[]) {
+  private generate(): string {
+    const summaryErrorObject = this.generateSummaryErrorCodeObject();
+    const endpointErrorType = this.generateEndpointErrorType();
+
+    const errorObjects =
+      this.endpointErrorCollection?.errorCodes
+        ?.map((errorCode) =>
+          errorCode
+            ? this.createErrorAsConstObject(
+                errorCode["x-readme-ref-name"],
+                errorCode.enum,
+              )
+            : "",
+        )
+        .join("\n") ?? "";
+
+    return `
+      ${errorObjects}
+      ${summaryErrorObject}
+      ${endpointErrorType}
+    `;
+  }
+
+  private createErrorAsConstObject(
+    variableName: string,
+    errorCodes: string[],
+  ): string {
     const mapObject = Object.fromEntries(
       errorCodes.map((error) => [error, error]),
     );
-    return `const ${variableName} = ${JSON.stringify(
-      mapObject,
-      null,
-      2,
-    )} as const;`;
+    const jsonString = JSON.stringify(mapObject, null, 2);
+
+    return `const ${variableName} = ${jsonString} as const;`;
   }
 
   private generateSummaryErrorCodeObject(): string {
-    let code = `export const ${this.endpointErrorCodesTypeString} = {\n`;
+    const codeEntries = this.refNames
+      .map((category) => `  ...${category},`)
+      .join("\n");
 
-    this.refNames.forEach((category) => {
-      code += `  ...${category},\n`;
-    });
-
-    code += "} as const;";
-
-    return code;
+    return `export const ${this.endpointErrorCodesTypeString} = {\n${codeEntries}\n} as const;`;
   }
 
   private generateEndpointErrorType() {
     return `export type ${this.endpointErrorTypeString} = keyof typeof ${this.endpointErrorCodesTypeString};`;
   }
 
-  private resetGenerator() {
+  private generateServerErrorCodeType(): string {
+    return `export type ServerErrorCode = ${this.endpointErrorTypeStringCache.join(
+      " | ",
+    )};`;
+  }
+
+  private generateAllServerErrorCodesString(): string {
+    const codeEntries = this.endpointErrorCodesTypeStringCache
+      .map((type) => `  ...${type},`)
+      .join("\n");
+
+    return `export const AllServerErrorCodes = {\n${codeEntries}\n} as const;`;
+  }
+
+  private generateServerErrorCodeImports(): string {
+    const imports: string[] = [];
+
+    for (const [key, [type, codesType]] of this.endpointErrorStringsCache) {
+      imports.push(`import { ${type}, ${codesType} } from "./${key}";`);
+    }
+
+    return imports.join("\n");
+  }
+
+  generateCummulatedServerErrorCodes(): string {
+    return `export const ServerErrorCodes = Object.keys(
+    AllServerErrorCodes
+  ) as ServerErrorCode[];`;
+  }
+
+  private resetGeneratorState(): void {
     this.endpointErrorTypeStringCache.push(this.endpointErrorTypeString!);
     this.endpointErrorCodesTypeStringCache.push(
       this.endpointErrorCodesTypeString!,
@@ -119,62 +156,5 @@ export class TypeScriptGenerator implements CodeGeneratorWithIndex {
     this.endpointErrorCodesTypeString = undefined;
     this.refNames = [];
     this.endpointErrorCollection = undefined;
-  }
-
-  private generateServerErrorCodeType() {
-    const serverErrorCodeIndexUnion =
-      this.endpointErrorTypeStringCache.join(" | ");
-
-    return `export type ServerErrorCode = ${serverErrorCodeIndexUnion};`;
-  }
-
-  private generateAllServerErrorCodesString() {
-    let code = `export const AllServerErrorCodes = {\n`;
-
-    this.endpointErrorCodesTypeStringCache.forEach((type) => {
-      code += `  ...${type},\n`;
-    });
-
-    code += "} as const;";
-
-    return code;
-  }
-
-  private generateServerErrorCodeImports() {
-    const cummulatedImports: string[] = [];
-
-    for (const key of this.endpointErrorStringsCache.keys()) {
-      const [endpointErrorTypeString, endpointErrorCodesTypeString] =
-        this.endpointErrorStringsCache.get(key)!!;
-
-      cummulatedImports.push(
-        `import { ${endpointErrorTypeString}, ${endpointErrorCodesTypeString} } from "./${key}";`,
-      );
-    }
-
-    return cummulatedImports.join("\n");
-  }
-
-  generateCummulatedServerErrorCodes() {
-    let code = `export const ServerErrorCodes = Object.keys(\n`;
-
-    code += "AllServerErrorCodes";
-
-    code += ") as ServerErrorCode[];";
-
-    return code;
-  }
-
-  generateIndexCode(): GeneratedCode {
-    return {
-      code: `
-        ${this.generateServerErrorCodeImports()}
-        ${this.generateServerErrorCodeType()}
-        ${this.generateAllServerErrorCodesString()}
-        ${this.generateCummulatedServerErrorCodes()}
-      `,
-      endpoint: "index",
-      language: this.language,
-    };
   }
 }
