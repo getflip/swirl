@@ -1,6 +1,6 @@
 {
   "name": "@getflip/error-code-generator",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A library to extract error codes from an open api spec and generate error codes types and objects for TypeScript and Dart.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
