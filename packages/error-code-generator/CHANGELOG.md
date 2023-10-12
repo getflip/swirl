@@ -1,5 +1,12 @@
 # @getflip/error-code-generator
 
+## 0.5.0
+
+### Minor Changes
+
+- [`e10f8dc3`](https://github.com/getflip/swirl/commit/e10f8dc3d58f1459474f421acb1986a09bc62da9) -
+  Implemented Dart Generator
+
 ## 0.4.0
 
 ### Minor Changes
