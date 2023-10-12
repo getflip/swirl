@@ -1,5 +1,12 @@
 # @getflip/error-code-generator
 
+## 0.6.0
+
+### Minor Changes
+
+- [`23465852`](https://github.com/getflip/swirl/commit/234658525f39407ed410d61f4e1e3b56c4d5f281) -
+  Implemented deduplication of ref-names in TypeScriptGenerator
+
 ## 0.5.0
 
 ### Minor Changes
