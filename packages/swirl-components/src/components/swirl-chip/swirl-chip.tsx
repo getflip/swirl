@@ -24,7 +24,8 @@ export type SwirlChipVariant = "outline" | "plain";
  * @slot avatar - Optional avatar displayed inside the chip. Should have size "xs".
  */
 @Component({
-  shadow: true,
+  shadow: false,
+  scoped: true,
   styleUrl: "swirl-chip.css",
   tag: "swirl-chip",
 })
@@ -38,6 +39,7 @@ export class SwirlChip {
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
   @Prop() progress?: number;
+  @Prop() pressed?: boolean;
   @Prop() progressBarLabel?: string = "Loading progress";
   @Prop() removable?: boolean;
   @Prop() removeButtonLabel?: string = "Remove";
@@ -78,7 +80,8 @@ export class SwirlChip {
   };
 
   render() {
-    const Tag = this.interactive ? "button" : "span";
+    const Tag =
+      this.interactive || this.pressed !== undefined ? "button" : "span";
 
     const showAvatar = Boolean(this.el.querySelector('[slot="avatar"]'));
     const showIcon = !showAvatar && Boolean(this.icon);
@@ -91,15 +94,22 @@ export class SwirlChip {
       `chip--size-${this.size}`,
       `chip--variant-${this.variant}`,
       {
+        "chip--pressed": this.pressed,
         "chip--has-progress": this.progress !== undefined,
-        "chip--interactive": this.interactive,
+        "chip--interactive": this.interactive || this.pressed !== undefined,
         "chip--removable": this.removable,
       }
     );
 
     return (
       <Host>
-        <Tag class={className} type={this.interactive ? "button" : undefined}>
+        <Tag
+          class={className}
+          type={this.interactive ? "button" : undefined}
+          aria-pressed={
+            this.pressed !== undefined ? String(this.pressed) : undefined
+          }
+        >
           <span class="chip__inner">
             {showAvatar && (
               <span class="chip__avatar">

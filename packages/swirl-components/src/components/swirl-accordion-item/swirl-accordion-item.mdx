@@ -1,0 +1,30 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-accordion-item.stories";
+
+<Meta title="Components/SwirlAccordionItem" />
+
+# SwirlAccordionItem
+
+The SwirlAccordionItem component is used to provide a collapsible section of
+content. It is always contained within a
+[SwirlAccordion](?path=/docs/components-swirlaccordion--docs) component.
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=5488%3A32622&mode=dev)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-accordion-item)**
+
+## Usage
+
+<Canvas of={Stories.SwirlAccordionItem} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlAccordionItem} />
+
+## Theming
+
+| Variable             | Usage             |
+| -------------------- | ----------------- |
+| `--s-border-default` | Separator color   |
+| `--s-text-subdued`   | Description color |
+
+## Accessibility
+
+See [SwirlAccordion](?path=/docs/components-swirlaccordion--docs).

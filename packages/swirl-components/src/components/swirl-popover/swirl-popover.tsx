@@ -386,6 +386,7 @@ export class SwirlPopover {
             <span class="popover__handle"></span>
             <div
               class="popover__scroll-container"
+              part="popover__scroll-container"
               ref={(el) => (this.scrollContainer = el)}
               style={{
                 maxHeight:

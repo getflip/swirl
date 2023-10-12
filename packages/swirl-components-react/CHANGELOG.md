@@ -1,5 +1,393 @@
 # @getflip/swirl-components-react
 
+## 0.101.0
+
+### Minor Changes
+
+- [#415](https://github.com/getflip/swirl/pull/415)
+  [`82761f4d`](https://github.com/getflip/swirl/commit/82761f4d25e20ab1c9228a2ec2a842169d783da3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "tool" slot and
+  "tool-position" prop to swirl-avatar; deprecate "badge" and "badge-position"
+  props"
+
+### Patch Changes
+
+- Updated dependencies
+  [[`82761f4d`](https://github.com/getflip/swirl/commit/82761f4d25e20ab1c9228a2ec2a842169d783da3)]:
+  - @getflip/swirl-components@0.101.0
+
+## 0.100.3
+
+### Patch Changes
+
+- [`e1078098`](https://github.com/getflip/swirl/commit/e1078098905830c3ed6577f969593e2484af78e3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a swirl-accordion border
+  issue
+
+- Updated dependencies
+  [[`e1078098`](https://github.com/getflip/swirl/commit/e1078098905830c3ed6577f969593e2484af78e3)]:
+  - @getflip/swirl-components@0.100.3
+
+## 0.100.2
+
+### Patch Changes
+
+- [`e152417b`](https://github.com/getflip/swirl/commit/e152417bb4ff440a0cc515a4dc7eaae89e43baf6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-accordion-item border
+  display
+
+- Updated dependencies
+  [[`e152417b`](https://github.com/getflip/swirl/commit/e152417bb4ff440a0cc515a4dc7eaae89e43baf6)]:
+  - @getflip/swirl-components@0.100.2
+
+## 0.100.1
+
+### Patch Changes
+
+- [`852d9b2e`](https://github.com/getflip/swirl/commit/852d9b2e1008c662f690d6e42107e4e62c51b303)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-resource-list drag&drop
+
+- Updated dependencies
+  [[`852d9b2e`](https://github.com/getflip/swirl/commit/852d9b2e1008c662f690d6e42107e4e62c51b303)]:
+  - @getflip/swirl-components@0.100.1
+
+## 0.100.0
+
+### Minor Changes
+
+- [#407](https://github.com/getflip/swirl/pull/407)
+  [`8b84ef94`](https://github.com/getflip/swirl/commit/8b84ef94ac94701bc93dcff97b79a32773175608)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add color picker to
+  swirl-color-input
+
+* [`86bc87e7`](https://github.com/getflip/swirl/commit/86bc87e77569829d0ec84540a7ffa47e278d51d7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "expandedItemChange" event to
+  swirl-accordion
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8b84ef94`](https://github.com/getflip/swirl/commit/8b84ef94ac94701bc93dcff97b79a32773175608),
+  [`86bc87e7`](https://github.com/getflip/swirl/commit/86bc87e77569829d0ec84540a7ffa47e278d51d7)]:
+  - @getflip/swirl-components@0.100.0
+
+## 0.99.0
+
+### Minor Changes
+
+- [`4e297efa`](https://github.com/getflip/swirl/commit/4e297efa331f4bca7c359c6ed65077712e0d04e3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "expandItem" and
+  "collapseItem" methods to swirl-accordion
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4e297efa`](https://github.com/getflip/swirl/commit/4e297efa331f4bca7c359c6ed65077712e0d04e3)]:
+  - @getflip/swirl-components@0.99.0
+
+## 0.98.1
+
+### Patch Changes
+
+- [`4837a480`](https://github.com/getflip/swirl/commit/4837a480e7f7a313a483c8c536c50d7d637a0b57)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix incorrect swirl-file-uploader
+  label id
+
+- Updated dependencies
+  [[`4837a480`](https://github.com/getflip/swirl/commit/4837a480e7f7a313a483c8c536c50d7d637a0b57)]:
+  - @getflip/swirl-components@0.98.1
+
+## 0.98.0
+
+### Minor Changes
+
+- [#402](https://github.com/getflip/swirl/pull/402)
+  [`074c3d0f`](https://github.com/getflip/swirl/commit/074c3d0f86449320b21d09264d81de6f07d22d5d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-color-input component
+
+* [#401](https://github.com/getflip/swirl/pull/401)
+  [`4d803670`](https://github.com/getflip/swirl/commit/4d8036700263890a874b51647c46aef79d9721c9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-accordion and
+  swirl-accordion-item components
+
+### Patch Changes
+
+- Updated dependencies
+  [[`074c3d0f`](https://github.com/getflip/swirl/commit/074c3d0f86449320b21d09264d81de6f07d22d5d),
+  [`4d803670`](https://github.com/getflip/swirl/commit/4d8036700263890a874b51647c46aef79d9721c9)]:
+  - @getflip/swirl-components@0.98.0
+
+## 0.97.1
+
+### Patch Changes
+
+- [`bd30ffd1`](https://github.com/getflip/swirl/commit/bd30ffd11aa2f6bb13d2666d8ab5ffa9cc943c4a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix issue of swirl-modal content
+  height
+
+- Updated dependencies
+  [[`bd30ffd1`](https://github.com/getflip/swirl/commit/bd30ffd11aa2f6bb13d2666d8ab5ffa9cc943c4a)]:
+  - @getflip/swirl-components@0.97.1
+
+## 0.97.0
+
+### Minor Changes
+
+- [`7bbdbf09`](https://github.com/getflip/swirl/commit/7bbdbf091abaac4c99a80c54bdfb7547a66dc5c6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add props controlling the
+  swirl-file-uploader button
+
+### Patch Changes
+
+- Updated dependencies
+  [[`7bbdbf09`](https://github.com/getflip/swirl/commit/7bbdbf091abaac4c99a80c54bdfb7547a66dc5c6)]:
+  - @getflip/swirl-components@0.97.0
+
+## 0.96.2
+
+### Patch Changes
+
+- [`64804527`](https://github.com/getflip/swirl/commit/648045276083af5bee31550811773cbf9d034712)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-select search spinner
+  positioning
+
+- Updated dependencies
+  [[`64804527`](https://github.com/getflip/swirl/commit/648045276083af5bee31550811773cbf9d034712)]:
+  - @getflip/swirl-components@0.96.2
+
+## 0.96.1
+
+### Patch Changes
+
+- [`06c65a47`](https://github.com/getflip/swirl/commit/06c65a47ee9ad2ae72b6da9d8d88d2de50114829)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix update issue caused by
+  dynamically rendered swirl-option-list items
+
+- Updated dependencies
+  [[`06c65a47`](https://github.com/getflip/swirl/commit/06c65a47ee9ad2ae72b6da9d8d88d2de50114829)]:
+  - @getflip/swirl-components@0.96.1
+
+## 0.96.0
+
+### Minor Changes
+
+- [#394](https://github.com/getflip/swirl/pull/394)
+  [`92ebda07`](https://github.com/getflip/swirl/commit/92ebda07f1e656ad1a0b2f69411ab87cd939b7c9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add optional search input to
+  swirl-select
+
+### Patch Changes
+
+- Updated dependencies
+  [[`92ebda07`](https://github.com/getflip/swirl/commit/92ebda07f1e656ad1a0b2f69411ab87cd939b7c9)]:
+  - @getflip/swirl-components@0.96.0
+
+## 0.95.2
+
+### Patch Changes
+
+- [#392](https://github.com/getflip/swirl/pull/392)
+  [`c10e8bff`](https://github.com/getflip/swirl/commit/c10e8bffd3cce7dc906d39df77c94bc9d91421b8)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Clear swirl-autocomplete search
+  after item was selected in multi select variant
+
+* [#391](https://github.com/getflip/swirl/pull/391)
+  [`880b45cb`](https://github.com/getflip/swirl/commit/880b45cbc8bdc1461c5dec3b57898a0d19853e39)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix various issue with component
+  keyboard controls
+
+* Updated dependencies
+  [[`c10e8bff`](https://github.com/getflip/swirl/commit/c10e8bffd3cce7dc906d39df77c94bc9d91421b8),
+  [`880b45cb`](https://github.com/getflip/swirl/commit/880b45cbc8bdc1461c5dec3b57898a0d19853e39)]:
+  - @getflip/swirl-components@0.95.2
+
+## 0.95.1
+
+### Patch Changes
+
+- [`9b63e4f4`](https://github.com/getflip/swirl/commit/9b63e4f40e25e6d8329ef3c1022c8ede2661c1a7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent primary modal content
+  from displacing secondary content
+
+- Updated dependencies
+  [[`9b63e4f4`](https://github.com/getflip/swirl/commit/9b63e4f40e25e6d8329ef3c1022c8ede2661c1a7)]:
+  - @getflip/swirl-components@0.95.1
+
+## 0.95.0
+
+### Minor Changes
+
+- [#388](https://github.com/getflip/swirl/pull/388)
+  [`9f7f3e83`](https://github.com/getflip/swirl/commit/9f7f3e83dcb20904cc422bbe6b742de6dc72a11e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-switch styling;
+  remove size prop
+
+* [`af6c1409`](https://github.com/getflip/swirl/commit/af6c1409e95e5d21312651d50babc42ec7dc3d13)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "height" prop to swirl-modal
+
+- [#387](https://github.com/getflip/swirl/pull/387)
+  [`a6826827`](https://github.com/getflip/swirl/commit/a68268275d0d56d4ba7c7dbb2778b9f841c5b21b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-dialog styling
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9f7f3e83`](https://github.com/getflip/swirl/commit/9f7f3e83dcb20904cc422bbe6b742de6dc72a11e),
+  [`af6c1409`](https://github.com/getflip/swirl/commit/af6c1409e95e5d21312651d50babc42ec7dc3d13),
+  [`a6826827`](https://github.com/getflip/swirl/commit/a68268275d0d56d4ba7c7dbb2778b9f841c5b21b)]:
+  - @getflip/swirl-components@0.95.0
+
+## 0.94.1
+
+### Patch Changes
+
+- [`4b29fde8`](https://github.com/getflip/swirl/commit/4b29fde8ef5daab13c6be149b98bb78cb096eb26)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix value update issue of
+  swirl-text-input
+
+- Updated dependencies
+  [[`4b29fde8`](https://github.com/getflip/swirl/commit/4b29fde8ef5daab13c6be149b98bb78cb096eb26)]:
+  - @getflip/swirl-components@0.94.1
+
+## 0.94.0
+
+### Minor Changes
+
+- [`c74db482`](https://github.com/getflip/swirl/commit/c74db48246bf8ec9754f89eef6880fdbb8b80b82)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Align versions with
+  swirl-components package
+
+## 0.93.0
+
+### Minor Changes
+
+- [`c5405a64`](https://github.com/getflip/swirl/commit/c5405a6422a6d78f031936b3484791d656940ee3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Align version numbers with
+  swirl-components package
+
+## 0.92.1
+
+### Patch Changes
+
+- [`4846aa42`](https://github.com/getflip/swirl/commit/4846aa42ca1f217889ac41e81ee8d69df1ae439a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix value update issue of
+  swirl-form-control
+
+- Updated dependencies
+  [[`4846aa42`](https://github.com/getflip/swirl/commit/4846aa42ca1f217889ac41e81ee8d69df1ae439a),
+  [`12b83d54`](https://github.com/getflip/swirl/commit/12b83d54b591c7748a9c27018e8946df16303e59)]:
+  - @getflip/swirl-components@0.94.0
+
+## 0.92.0
+
+### Minor Changes
+
+- [`2d91a2b0`](https://github.com/getflip/swirl/commit/2d91a2b018d9414abb9e2e292c59ecb68640aa7d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "truncate-direction" prop to
+  swirl-text
+
+### Patch Changes
+
+- Updated dependencies
+  [[`2d91a2b0`](https://github.com/getflip/swirl/commit/2d91a2b018d9414abb9e2e292c59ecb68640aa7d)]:
+  - @getflip/swirl-components@0.93.0
+
+## 0.91.2
+
+### Patch Changes
+
+- [`bb0ea755`](https://github.com/getflip/swirl/commit/bb0ea7551a42b56cb6d64ae9bedb1837ca4122ad)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-empty-state styling
+
+- Updated dependencies
+  [[`bb0ea755`](https://github.com/getflip/swirl/commit/bb0ea7551a42b56cb6d64ae9bedb1837ca4122ad)]:
+  - @getflip/swirl-components@0.92.2
+
+## 0.91.1
+
+### Patch Changes
+
+- [`a7097ddd`](https://github.com/getflip/swirl/commit/a7097ddda6fabd4a8030c1dca15fe786898075c9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Minor style adjustments
+
+- Updated dependencies
+  [[`a7097ddd`](https://github.com/getflip/swirl/commit/a7097ddda6fabd4a8030c1dca15fe786898075c9)]:
+  - @getflip/swirl-components@0.92.1
+
+## 0.91.0
+
+### Minor Changes
+
+- [`979a8b0a`](https://github.com/getflip/swirl/commit/979a8b0ad0338845fd0b5a8d178142c8f959a727)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "overflow" prop to swirl-card
+
+### Patch Changes
+
+- Updated dependencies
+  [[`979a8b0a`](https://github.com/getflip/swirl/commit/979a8b0ad0338845fd0b5a8d178142c8f959a727)]:
+  - @getflip/swirl-components@0.92.0
+
+## 0.90.0
+
+### Minor Changes
+
+- [`22dae240`](https://github.com/getflip/swirl/commit/22dae2406d2c1e20794df917935d9eadcdb63e55)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "secondary-content" slot to
+  swirl-modal
+
+* [`51d05d9c`](https://github.com/getflip/swirl/commit/51d05d9cb0476b012d62bc7717ab3acac234274d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "default-subdued" intent to
+  swirl-card
+
+### Patch Changes
+
+- Updated dependencies
+  [[`22dae240`](https://github.com/getflip/swirl/commit/22dae2406d2c1e20794df917935d9eadcdb63e55),
+  [`51d05d9c`](https://github.com/getflip/swirl/commit/51d05d9cb0476b012d62bc7717ab3acac234274d)]:
+  - @getflip/swirl-components@0.91.0
+
+## 0.89.0
+
+### Minor Changes
+
+- [#375](https://github.com/getflip/swirl/pull/375)
+  [`5586652b`](https://github.com/getflip/swirl/commit/5586652bec2315b8182fdd13f6670890ebeffc7c)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Add SwirlToolbar
+  component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5586652b`](https://github.com/getflip/swirl/commit/5586652bec2315b8182fdd13f6670890ebeffc7c)]:
+  - @getflip/swirl-components@0.90.0
+
+## 0.88.0
+
+### Minor Changes
+
+- [#371](https://github.com/getflip/swirl/pull/371)
+  [`fec62233`](https://github.com/getflip/swirl/commit/fec6223355a6f6b0b63ea1400c579e42691da204)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "card" variant to
+  swirl-checkbox and swirl-radio
+
+* [#374](https://github.com/getflip/swirl/pull/374)
+  [`75b7ba4a`](https://github.com/getflip/swirl/commit/75b7ba4a8fac2b4055e2d21e6600bd1333c5130b)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Add "maxWidth" prop
+  to swirl-description-list-item
+
+- [#374](https://github.com/getflip/swirl/pull/374)
+  [`75b7ba4a`](https://github.com/getflip/swirl/commit/75b7ba4a8fac2b4055e2d21e6600bd1333c5130b)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Add prop "pressed"
+  to swirl-chip
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fec62233`](https://github.com/getflip/swirl/commit/fec6223355a6f6b0b63ea1400c579e42691da204),
+  [`75b7ba4a`](https://github.com/getflip/swirl/commit/75b7ba4a8fac2b4055e2d21e6600bd1333c5130b),
+  [`75b7ba4a`](https://github.com/getflip/swirl/commit/75b7ba4a8fac2b4055e2d21e6600bd1333c5130b)]:
+  - @getflip/swirl-components@0.89.0
+
 ## 0.87.1
 
 ### Patch Changes

@@ -16,6 +16,9 @@ describe("swirl-avatar", () => {
             <span class="avatar__icon">
               <swirl-icon-person></swirl-icon-person>
             </span>
+            <span class="avatar__tool avatar__tool--position-bottom">
+              <slot name="tool"></slot>
+            </span>
           </span>
         </mock:shadow-root>
       </swirl-avatar>
@@ -42,6 +45,9 @@ describe("swirl-avatar", () => {
             <span class="avatar__image">
               <img alt="" height="40" src="https://" width="40">
             </span>
+            <span class="avatar__tool avatar__tool--position-bottom">
+              <slot name="tool"></slot>
+            </span>
           </span>
         </mock:shadow-root>
       </swirl-avatar>
@@ -63,6 +69,9 @@ describe("swirl-avatar", () => {
                 JD
               </span>
             </span>
+            <span class="avatar__tool avatar__tool--position-bottom">
+              <slot name="tool"></slot>
+            </span>
           </span>
         </mock:shadow-root>
       </swirl-avatar>
@@ -81,6 +90,9 @@ describe("swirl-avatar", () => {
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
               <swirl-icon-close></swirl-icon-close>
+            </span>
+            <span class="avatar__tool avatar__tool--position-bottom">
+              <slot name="tool"></slot>
             </span>
           </span>
         </mock:shadow-root>
@@ -150,6 +162,9 @@ describe("swirl-avatar", () => {
             <span class="avatar__badge avatar__badge--position-top">
               <swirl-badge aria-label="3 new messages" label="3"></swirl-badge>
             </span>
+            <span class="avatar__tool avatar__tool--position-bottom">
+              <slot name="tool"></slot>
+            </span>
           </span>
         </mock:shadow-root>
       </swirl-avatar>
@@ -168,6 +183,9 @@ describe("swirl-avatar", () => {
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
               <swirl-icon-person></swirl-icon-person>
+            </span>
+            <span class="avatar__tool avatar__tool--position-bottom">
+              <slot name="tool"></slot>
             </span>
           </span>
           <span aria-hidden="" class="avatar__label">

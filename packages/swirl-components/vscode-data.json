@@ -10,6 +10,47 @@
       "attributes": []
     },
     {
+      "name": "swirl-accordion",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "swirl-accordion-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "heading",
+          "description": ""
+        },
+        {
+          "name": "heading-level",
+          "description": ""
+        },
+        {
+          "name": "initially-open",
+          "description": ""
+        },
+        {
+          "name": "item-id",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-action-list",
       "description": {
         "kind": "markdown",
@@ -387,6 +428,18 @@
         {
           "name": "src",
           "description": ""
+        },
+        {
+          "name": "tool-position",
+          "description": "",
+          "values": [
+            {
+              "name": "bottom"
+            },
+            {
+              "name": "top"
+            }
+          ]
         },
         {
           "name": "variant",
@@ -1012,6 +1065,9 @@
               "name": "default"
             },
             {
+              "name": "default-subdued"
+            },
+            {
               "name": "info-subdued"
             },
             {
@@ -1048,6 +1104,21 @@
         {
           "name": "link-target",
           "description": ""
+        },
+        {
+          "name": "overflow",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "visible"
+            }
+          ]
         },
         {
           "name": "padding",
@@ -1335,6 +1406,18 @@
         {
           "name": "value",
           "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "card"
+            },
+            {
+              "name": "default"
+            }
+          ]
         }
       ]
     },
@@ -1397,6 +1480,10 @@
           "description": ""
         },
         {
+          "name": "pressed",
+          "description": ""
+        },
+        {
           "name": "progress",
           "description": ""
         },
@@ -1435,6 +1522,59 @@
               "name": "plain"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "swirl-color-input",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "auto-focus",
+          "description": ""
+        },
+        {
+          "name": "auto-select",
+          "description": ""
+        },
+        {
+          "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "inline",
+          "description": ""
+        },
+        {
+          "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "picker-button-label",
+          "description": ""
+        },
+        {
+          "name": "picker-label",
+          "description": ""
+        },
+        {
+          "name": "placeholder",
+          "description": ""
+        },
+        {
+          "name": "required",
+          "description": ""
+        },
+        {
+          "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
         }
       ]
     },
@@ -1633,6 +1773,10 @@
       "attributes": [
         {
           "name": "bordered",
+          "description": ""
+        },
+        {
+          "name": "max-width",
           "description": ""
         },
         {
@@ -1878,8 +2022,36 @@
           "description": ""
         },
         {
+          "name": "upload-button-icon",
+          "description": ""
+        },
+        {
           "name": "upload-button-label",
           "description": ""
+        },
+        {
+          "name": "upload-button-variant",
+          "description": "",
+          "values": [
+            {
+              "name": "flat"
+            },
+            {
+              "name": "floating"
+            },
+            {
+              "name": "ghost"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "outline"
+            },
+            {
+              "name": "plain"
+            }
+          ]
         }
       ]
     },
@@ -2283,6 +2455,19 @@
       ]
     },
     {
+      "name": "swirl-icon-add-reaction",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-admin-panel-settings",
       "description": {
         "kind": "markdown",
@@ -2297,6 +2482,19 @@
     },
     {
       "name": "swirl-icon-ai",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-apps",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -2934,6 +3132,19 @@
     },
     {
       "name": "swirl-icon-gif",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-group-add",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3674,6 +3885,19 @@
       ]
     },
     {
+      "name": "swirl-icon-secure",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-send",
       "description": {
         "kind": "markdown",
@@ -3843,6 +4067,19 @@
       ]
     },
     {
+      "name": "swirl-icon-tree-structure",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-undo",
       "description": {
         "kind": "markdown",
@@ -3857,6 +4094,19 @@
     },
     {
       "name": "swirl-icon-unlock-person",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-user-add",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -4319,6 +4569,10 @@
         },
         {
           "name": "close-button-label",
+          "description": ""
+        },
+        {
+          "name": "height",
           "description": ""
         },
         {
@@ -4842,6 +5096,18 @@
         {
           "name": "value",
           "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "card"
+            },
+            {
+              "name": "default"
+            }
+          ]
         }
       ]
     },
@@ -5086,6 +5352,10 @@
           "description": ""
         },
         {
+          "name": "empty-list-label",
+          "description": ""
+        },
+        {
           "name": "inline",
           "description": ""
         },
@@ -5106,11 +5376,27 @@
           "description": ""
         },
         {
+          "name": "search-input-label",
+          "description": ""
+        },
+        {
+          "name": "search-loading",
+          "description": ""
+        },
+        {
+          "name": "search-placeholder",
+          "description": ""
+        },
+        {
           "name": "select-id",
           "description": ""
         },
         {
           "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "with-search",
           "description": ""
         }
       ]
@@ -5487,18 +5773,6 @@
         {
           "name": "label",
           "description": ""
-        },
-        {
-          "name": "size",
-          "description": "",
-          "values": [
-            {
-              "name": "m"
-            },
-            {
-              "name": "s"
-            }
-          ]
         },
         {
           "name": "value",
@@ -6596,6 +6870,18 @@
           "description": ""
         },
         {
+          "name": "truncate-direction",
+          "description": "",
+          "values": [
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            }
+          ]
+        },
+        {
           "name": "weight",
           "description": "",
           "values": [
@@ -6981,6 +7267,31 @@
         {
           "name": "global-duration",
           "description": "Optional global duration for all toasts. Overrides any durations set via\nthe `toast` method. Set to 0 to disable automatic closing of toasts."
+        }
+      ]
+    },
+    {
+      "name": "swirl-toolbar",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "orientation",
+          "description": "",
+          "values": [
+            {
+              "name": "horizontal"
+            },
+            {
+              "name": "vertical"
+            }
+          ]
         }
       ]
     },

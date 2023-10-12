@@ -6,6 +6,7 @@ import {
   Host,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery, SwirlFormInput } from "../../utils";
@@ -108,6 +109,13 @@ export class SwirlTextInput implements SwirlFormInput {
     );
   }
 
+  @Watch("value")
+  watchValue(newValue: string, oldValue: string) {
+    if (newValue !== oldValue) {
+      this.valueChange.emit(newValue);
+    }
+  }
+
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
     this.updateIconSize(event.matches);
   };
@@ -151,7 +159,6 @@ export class SwirlTextInput implements SwirlFormInput {
     const el = event.target as HTMLInputElement;
 
     this.value = el.value;
-    this.valueChange.emit(el.value);
   };
 
   private onBlur = (event: FocusEvent) => {

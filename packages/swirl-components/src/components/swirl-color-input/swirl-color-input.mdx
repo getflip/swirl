@@ -1,0 +1,28 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-color-input.stories";
+
+<Meta title="Components/SwirlColorInput" />
+
+# SwirlColorInput
+
+The SwirlTextInput component is used to render a text input field with a preview
+for entered hex color values. It should always be used in combination with the
+[SwirlFormControl component](?path=/docs/components-swirlformcontrol--docs).
+
+- **[Figma Design Specs](https://www.figma.com/file/iRHiAFsHxnzux8gQ9EjlZe/Swirl-Components?node-id=534%3A7978&mode=dev)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-color-input)**
+
+## Usage
+
+<Canvas of={Stories.SwirlColorInput} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlColorInput} />
+
+## Theming
+
+| Variable               | Usage                                  |
+| ---------------------- | -------------------------------------- |
+| `--s-text-default`     | Text color of the input value          |
+| `--s-text-disabled`    | Text color of the disabled input value |
+| `--s-border-default`   | Border color of the color preview      |
+| `--s-border-highlight` | Caret color                            |

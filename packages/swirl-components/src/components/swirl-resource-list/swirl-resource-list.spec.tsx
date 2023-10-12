@@ -78,27 +78,27 @@ describe("swirl-resource-list", () => {
       item.querySelector<HTMLElement>(".resource-list-item__content")
     );
 
-    // focuses the first element if list is focused
-    (page.root.children[0] as HTMLElement).focus();
     expect(interactiveElements[0].getAttribute("tabIndex")).toBe("0");
 
-    // Down arrow focues the next element
-    page.root.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown" }));
+    // Down arrow focuses the next element
+    page.root.dispatchEvent(
+      new KeyboardEvent("keydown", { code: "ArrowDown" })
+    );
     expect(interactiveElements[0].getAttribute("tabIndex")).toBe("-1");
     expect(interactiveElements[1].getAttribute("tabIndex")).toBe("0");
 
     // Up arrow focues the next element
-    page.root.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp" }));
+    page.root.dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowUp" }));
     expect(interactiveElements[0].getAttribute("tabIndex")).toBe("0");
     expect(interactiveElements[1].getAttribute("tabIndex")).toBe("-1");
 
     // End key focues the first element
-    page.root.dispatchEvent(new KeyboardEvent("keydown", { key: "End" }));
+    page.root.dispatchEvent(new KeyboardEvent("keydown", { code: "End" }));
     expect(interactiveElements[0].getAttribute("tabIndex")).toBe("-1");
     expect(interactiveElements[1].getAttribute("tabIndex")).toBe("0");
 
     // Home key focues the first element
-    page.root.dispatchEvent(new KeyboardEvent("keydown", { key: "Home" }));
+    page.root.dispatchEvent(new KeyboardEvent("keydown", { code: "Home" }));
     expect(interactiveElements[0].getAttribute("tabIndex")).toBe("0");
     expect(interactiveElements[1].getAttribute("tabIndex")).toBe("-1");
   });
@@ -139,15 +139,16 @@ describe("swirl-resource-list", () => {
       "Item grabbed. Use arrow keys to move item up or down. Use spacebar to save position."
     );
 
+    await page.waitForChanges();
     resourceList.dispatchEvent(
-      new KeyboardEvent("keydown", { key: "ArrowDown" })
+      new KeyboardEvent("keydown", { code: "ArrowDown" })
     );
     await page.waitForChanges();
 
     expect(assistiveText.innerHTML).toBe("Current position: 2");
 
     resourceList.dispatchEvent(
-      new KeyboardEvent("keydown", { key: "ArrowUp" })
+      new KeyboardEvent("keydown", { code: "ArrowUp" })
     );
     await page.waitForChanges();
 

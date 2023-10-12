@@ -1,0 +1,138 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.accordion-item {
+  display: grid;
+  align-content: start;
+  border-top: 0.0625rem solid var(--s-border-default);
+  transition: grid-template-rows 0.15s;
+  grid-template-rows: auto 0fr;
+  will-change: grid-template-rows;
+
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+}
+
+.accordion-item--expanded {
+  grid-template-rows: auto 1fr;
+
+  & .accordion-item__content {
+    padding-top: var(--s-space-16);
+    padding-bottom: var(--s-space-16);
+    animation: accordion-overflow 0.01s;
+    animation-delay: 0.15s;
+    animation-fill-mode: forwards;
+
+    @media (--from-desktop-without-touch) {
+      padding-top: var(--s-space-8);
+    }
+  }
+}
+
+.accordion-item__heading {
+  margin: 0;
+  padding: 0;
+  font-size: var(--s-font-size-base);
+  font-weight: var(--s-font-weight-semibold);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+  }
+}
+
+.accordion-item__toggle {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  padding-top: var(--s-space-16);
+  padding-bottom: var(--s-space-16);
+  align-items: center;
+  border: none;
+  color: var(--s-text-default);
+  background-color: var(--s-surface-default);
+  font: inherit;
+  line-height: var(--s-line-height-lg);
+  text-align: start;
+  cursor: pointer;
+  gap: var(--s-space-16);
+
+  &:hover {
+    background-color: var(--s-surface-hovered);
+  }
+
+  &:active {
+    background-color: var(--s-surface-pressed);
+  }
+
+  &:disabled {
+    color: var(--s-text-disabled);
+    background-color: var(--s-surface-default);
+    cursor: default;
+
+    & .text {
+      color: var(--s-text-disabled);
+    }
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline-color: var(--s-focus-default);
+  }
+
+  @media (--from-desktop-without-touch) {
+    line-height: var(--s-line-height-sm);
+  }
+}
+
+.accordion-item__toggle-text {
+  flex-grow: 1;
+}
+
+.accordion-item__icon {
+  display: inline-flex;
+  padding-right: var(--s-space-8);
+  flex-shrink: 0;
+}
+
+.accordion-item__content {
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: padding-top 0.15s, padding-bottom 0.15s;
+  animation: accordion-display 0.01s;
+  animation-delay: 0.15s;
+  animation-fill-mode: forwards;
+
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+}
+
+@keyframes accordion-overflow {
+  from {
+    overflow: hidden;
+  }
+  to {
+    overflow: visible;
+  }
+}
+
+@keyframes accordion-display {
+  from {
+    display: block;
+  }
+  to {
+    display: none;
+  }
+}

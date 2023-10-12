@@ -62,6 +62,10 @@ export class SwirlFormControl {
     this.listenToInputValueChanges();
   }
 
+  componentDidRender() {
+    this.checkInputValue();
+  }
+
   @Watch("description")
   associateDescriptionWithInputElement() {
     if (!Boolean(this.description) || !Boolean(this.inputEl)) {

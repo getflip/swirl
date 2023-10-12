@@ -13,6 +13,7 @@ export type SwirlDescriptionListItemOrientation = "vertical" | "horizontal";
 })
 export class SwirlDescriptionListItem {
   @Prop() bordered?: boolean = true;
+  @Prop() maxWidth?: string;
   @Prop() orientation?: SwirlDescriptionListItemOrientation = "horizontal";
   @Prop() term!: string;
 
@@ -33,7 +34,11 @@ export class SwirlDescriptionListItem {
           >
             {this.term}
           </div>
-          <div class="description-list-item__description" role="definition">
+          <div
+            style={{ maxWidth: this.maxWidth }}
+            class="description-list-item__description"
+            role="definition"
+          >
             <slot></slot>
           </div>
         </div>

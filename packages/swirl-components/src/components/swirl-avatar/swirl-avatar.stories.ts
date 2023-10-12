@@ -4,7 +4,8 @@ import Docs from "./swirl-avatar.mdx";
 export default {
   argTypes: {
     badge: {
-      description: 'Visible with default size "m".',
+      description:
+        '**Deprecated! Please use the "tool" slot instead.** Visible with default size "m".',
       table: {
         type: {
           detail:
@@ -12,6 +13,11 @@ export default {
           summary: "swirl-badge",
         },
       },
+    },
+    badgePosition: {
+      description:
+        '**Deprecated! Please use the "toolPosition" prop in combination with the "tool" slot instead.**',
+      name: "badge-position",
     },
     icon: {
       table: {
@@ -35,14 +41,16 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-avatar", args);
 
+  element.innerHTML = `
+  <swirl-badge aria-label="3 new messages" label="3" size="s" slot="tool"></swirl-badge>
+`;
+
   return element;
 };
 
 export const SwirlAvatar = Template.bind({});
 
 SwirlAvatar.args = {
-  badge:
-    '<swirl-badge aria-label="3 new messages" label="3" size="s"></swirl-badge>',
   label: "John Doe",
   src: "https://picsum.photos/id/433/144/144",
 };
