@@ -25,10 +25,14 @@ export class TypeScriptGenerator implements CodeGeneratorWithIndex {
 
   setEndpointErrorCollection(errorCollection: EndpointErrorCollection): this {
     this.endpointErrorCollection = errorCollection;
-    this.refNames =
-      errorCollection.errorCodes?.map(
-        (errorCode) => errorCode?.["x-readme-ref-name"] ?? "",
-      ) ?? [];
+    this.refNames = [
+      ...new Set(
+        errorCollection.errorCodes?.map(
+          (errorCode) => errorCode?.["x-readme-ref-name"] ?? "",
+        ) ?? [],
+      ),
+    ];
+
     this.endpointErrorCodesTypeString = `${errorCollection.endpoint}ErrorCodes`;
     this.endpointErrorTypeString = `${errorCollection.endpoint}Error`;
     return this;
@@ -68,23 +72,31 @@ export class TypeScriptGenerator implements CodeGeneratorWithIndex {
     const summaryErrorObject = this.generateSummaryErrorCodeObject();
     const endpointErrorType = this.generateEndpointErrorType();
 
-    const errorObjects =
-      this.endpointErrorCollection?.errorCodes
-        ?.map((errorCode) =>
-          errorCode
-            ? this.createErrorAsConstObject(
-                errorCode["x-readme-ref-name"],
-                errorCode.enum,
-              )
-            : "",
-        )
-        .join("\n") ?? "";
+    const errorObjects = this.generateErrorObjects();
 
     return `
       ${errorObjects}
       ${summaryErrorObject}
       ${endpointErrorType}
     `;
+  }
+
+  private generateErrorObjects(): string {
+    return this.refNames
+      .map((refName) => this.createErrorObjectForRefName(refName))
+      .join("\n");
+  }
+
+  private createErrorObjectForRefName(refName: string) {
+    const errorCodeForRefName = this.findErrorCodeForRefName(refName);
+    const errorEnums = errorCodeForRefName?.enum ?? [];
+    return this.createErrorAsConstObject(refName, errorEnums);
+  }
+
+  private findErrorCodeForRefName(refName: string) {
+    return this.endpointErrorCollection?.errorCodes?.find(
+      (errorCode) => errorCode?.["x-readme-ref-name"] === refName,
+    );
   }
 
   private createErrorAsConstObject(

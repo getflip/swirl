@@ -3,6 +3,7 @@ import { CodeGeneratorHandler } from "./handler/CodeGeneratorHandler";
 import { ErrorCodeExtractorHandler } from "./handler/ErrorCodeExtractorHandler";
 import { FileWriterHandler } from "./handler/FileWriterHandler";
 import { ProcessingData } from "./types";
+import { CodeGeneratorFactory } from "./factories/CodeGeneratorFactory";
 
 export * from "./factories/CodeGeneratorFactory";
 
