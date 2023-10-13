@@ -85,6 +85,10 @@ export class SwirlModal {
     });
   }
 
+  componentDidRender() {
+    this.focusTrap?.updateContainerElements(this.modalEl);
+  }
+
   disconnectedCallback() {
     this.focusTrap?.deactivate();
     this.unlockBodyScroll();
