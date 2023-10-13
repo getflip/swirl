@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.101.1
+
+### Patch Changes
+
+- [`8353578d`](https://github.com/getflip/swirl/commit/8353578dd81650addea2bf0b1b79f62e42c51cf9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a focus trap issue of
+  swirl-modal
+
+- Updated dependencies
+  [[`8353578d`](https://github.com/getflip/swirl/commit/8353578dd81650addea2bf0b1b79f62e42c51cf9)]:
+  - @getflip/swirl-components@0.101.1
+
 ## 0.101.0
 
 ### Minor Changes
