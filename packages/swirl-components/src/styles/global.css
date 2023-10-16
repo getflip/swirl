@@ -12,6 +12,10 @@
 }
 
 :root {
+  --swirl-accordion-item-toggle-default: var(--s-surface-default);
+  --swirl-accordion-item-toggle-hovered: var(--s-surface-hovered);
+  --swirl-accordion-item-toggle-pressed: var(--s-surface-pressed);
+
   --swirl-autocomplete-tags-margin-top: 0;
 
   --swirl-avatar-group-border-color: var(--s-background-default);

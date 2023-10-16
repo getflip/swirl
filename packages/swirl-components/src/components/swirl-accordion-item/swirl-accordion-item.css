@@ -57,7 +57,7 @@
   align-items: center;
   border: none;
   color: var(--s-text-default);
-  background-color: var(--s-surface-default);
+  background-color: var(--swirl-accordion-item-toggle-default);
   font: inherit;
   line-height: var(--s-line-height-lg);
   text-align: start;
@@ -65,16 +65,16 @@
   gap: var(--s-space-16);
 
   &:hover {
-    background-color: var(--s-surface-hovered);
+    background-color: var(--swirl-accordion-item-toggle-hovered);
   }
 
   &:active {
-    background-color: var(--s-surface-pressed);
+    background-color: var(--swirl-accordion-item-toggle-pressed);
   }
 
   &:disabled {
     color: var(--s-text-disabled);
-    background-color: var(--s-surface-default);
+    background-color: var(--swirl-accordion-item-toggle-default);
     cursor: default;
 
     & .text {

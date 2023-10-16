@@ -263,6 +263,10 @@
   --swirl-card-background-hovered: var(--s-surface-overlay-hovered);
   --swirl-card-background-pressed: var(--s-surface-overlay-pressed);
 
+  --swirl-accordion-item-toggle-default: var(--s-surface-overlay-default);
+  --swirl-accordion-item-toggle-hovered: var(--s-surface-overlay-hovered);
+  --swirl-accordion-item-toggle-pressed: var(--s-surface-overlay-pressed);
+
   position: relative;
   z-index: var(--s-z-40);
   display: flex;
