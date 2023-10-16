@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.101.2
+
+### Patch Changes
+
+- [`3b57dde1`](https://github.com/getflip/swirl/commit/3b57dde1ab0ef60ecb59c320c996b3506b29b811)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-card background color
+  when used inside swirl-modal
+
+- Updated dependencies
+  [[`3b57dde1`](https://github.com/getflip/swirl/commit/3b57dde1ab0ef60ecb59c320c996b3506b29b811)]:
+  - @getflip/swirl-components@0.101.2
+
 ## 0.101.1
 
 ### Patch Changes
