@@ -22,7 +22,7 @@
   border: var(--s-border-width-default) solid var(--s-border-default);
   border-radius: var(--s-border-radius-base);
   color: var(--s-text-default);
-  background-color: var(--s-surface-default);
+  background-color: var(--swirl-card-background-default);
   font: inherit;
   text-decoration: none;
   flex-direction: column;
@@ -34,11 +34,11 @@ button.card,
   cursor: pointer;
 
   &:hover {
-    background-color: var(--s-surface-hovered);
+    background-color: var(--swirl-card-background-hovered);
   }
 
   &:active {
-    background-color: var(--s-surface-pressed);
+    background-color: var(--swirl-card-background-pressed);
   }
 
   &:focus:not(:focus-visible) {

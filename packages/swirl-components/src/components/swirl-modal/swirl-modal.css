@@ -259,6 +259,10 @@
 }
 
 .modal__body {
+  --swirl-card-background-default: var(--s-surface-overlay-default);
+  --swirl-card-background-hovered: var(--s-surface-overlay-hovered);
+  --swirl-card-background-pressed: var(--s-surface-overlay-pressed);
+
   position: relative;
   z-index: var(--s-z-40);
   display: flex;

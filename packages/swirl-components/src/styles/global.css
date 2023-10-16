@@ -24,6 +24,10 @@
   --swirl-button-border-bottom-right-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-left-radius: var(--s-border-radius-base);
 
+  --swirl-card-background-default: var(--s-surface-default);
+  --swirl-card-background-hovered: var(--s-surface-hovered);
+  --swirl-card-background-pressed: var(--s-surface-pressed);
+
   --swirl-carousel-gradient: 255, 255, 255;
 
   --swirl-icon-button-border-top-right-radius: 50%;
