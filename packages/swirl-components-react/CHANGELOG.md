@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.101.3
+
+### Patch Changes
+
+- [`90a76301`](https://github.com/getflip/swirl/commit/90a763013c9f3b923a4e77b9ac7553d89e0dbd7b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-accordion-item toggle
+  color when used inside swirl-modal
+
+- Updated dependencies
+  [[`90a76301`](https://github.com/getflip/swirl/commit/90a763013c9f3b923a4e77b9ac7553d89e0dbd7b)]:
+  - @getflip/swirl-components@0.101.3
+
 ## 0.101.2
 
 ### Patch Changes
