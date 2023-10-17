@@ -14,8 +14,6 @@
   display: flex;
   min-width: min-content;
   min-height: 3.5rem;
-  padding-right: var(--s-space-16);
-  padding-left: var(--s-space-16);
   align-items: center;
   gap: var(--s-space-16);
 }
