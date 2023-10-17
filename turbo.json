@@ -38,21 +38,19 @@
       "outputs": ["src/lib/navigation/src/data/apiDocs.data.ts"]
     },
     "prebuild": {
-      "outputs": ["specs/**", "problem.yml", "shared.yml", "components.json"]
-    },
-    "prebuild:api-docs": {
       "outputs": [
+        "specs/**",
+        "problem.yml",
+        "shared.yml",
+        "components.json",
         "src/lib/navigation/src/data/apiDocs.data.ts",
         "src/lib/navigation/src/data/apiSpecs.data.ts"
-      ],
-
-      "dependsOn": ["prebuild"]
+      ]
     },
     "build:swirl-docs": {
       "outputs": [".next/**"],
       "dependsOn": [
         "prebuild",
-        "prebuild:api-docs",
         "^stencil:build",
         "@getflip/swirl-components-react#build"
       ]

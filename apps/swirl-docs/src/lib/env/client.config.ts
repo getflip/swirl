@@ -16,7 +16,7 @@ const getEnvironmentVariable = (
   }
 };
 
-export const env: z.infer<typeof envVariables> = {
+export const Env: z.infer<typeof envVariables> = {
   GITLAB_ACCESS_TOKEN: getEnvironmentVariable("GITLAB_ACCESS_TOKEN"),
   GITLAB_FLIP_REPO_ID: getEnvironmentVariable("GITLAB_FLIP_REPO_ID"),
   NEXT_PUBLIC_ALGOLIA_APP_ID: getEnvironmentVariable(
