@@ -1,8 +1,11 @@
 import path from "path";
 import fs from "fs";
+import { DeploymentStrategy } from ".";
 
 export class FileDeleter {
   private globalSpecs = ["shared.yml", "problem.yml"];
+
+  constructor(private strategy: DeploymentStrategy["strategy"]) {}
 
   moveAndDeleteSpecs() {
     console.log("Cleaning global specs...");
@@ -10,7 +13,10 @@ export class FileDeleter {
     console.log("Moving global specs...");
     this.moveGlobalSpecs();
     console.log("Deleting api directory...");
-    this.deleteAllInDirectory("./src/documents/api");
+
+    if (this.strategy === "production") {
+      this.deleteAllInDirectory("./src/documents/api");
+    }
   }
 
   private moveGlobalSpecs() {

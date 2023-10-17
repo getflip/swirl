@@ -6,19 +6,22 @@ import {
 } from "./NavigationGenerator";
 
 export interface DeploymentStrategy {
+  strategy: "production" | "staging";
   fetchData(): Promise<void>;
   handleFileDeletion(): void;
   generateApiNavigation(): Promise<void>;
 }
 
 export class ProductionDeployment implements DeploymentStrategy {
+  strategy: DeploymentStrategy["strategy"] = "production";
+
   async fetchData() {
     const fetcher = new FileFetcher();
     await fetcher.fetchFiles();
   }
 
   async handleFileDeletion() {
-    const deleter = new FileDeleter();
+    const deleter = new FileDeleter(this.strategy);
     await deleter.moveAndDeleteSpecs();
   }
 
@@ -32,13 +35,15 @@ export class ProductionDeployment implements DeploymentStrategy {
 }
 
 export class StagingDeployment implements DeploymentStrategy {
+  strategy: DeploymentStrategy["strategy"] = "staging";
+
   async fetchData() {
     const fetcher = new FileFetcher();
     await fetcher.fetchFiles();
   }
 
   async handleFileDeletion() {
-    const deleter = new FileDeleter();
+    const deleter = new FileDeleter(this.strategy);
     await deleter.moveAndDeleteSpecs();
   }
 
