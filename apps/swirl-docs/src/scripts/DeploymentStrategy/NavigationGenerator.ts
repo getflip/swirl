@@ -55,6 +55,12 @@ export class ApiSpecsNavigationGenerator
   private async generateNavItems(specName: string): Promise<NavItem> {
     console.log("Generating navigation for", specName);
     const specPath = `${API_SPEC_PATH}/${specName}`;
+
+    // write a check to see if the file at the end exists if not skip
+    if (!fs.existsSync(specPath)) {
+      throw new Error(`Spec file ${specPath} does not exist!`);
+    }
+
     const oasDocument = await new OASNormalize(specPath, {
       enablePaths: true,
     }).validate();
