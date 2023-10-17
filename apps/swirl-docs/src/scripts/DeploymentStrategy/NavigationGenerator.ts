@@ -14,31 +14,31 @@ export class ApiSpecsNavigationGenerator
   implements NavigationGeneratorStrategy
 {
   public async generate(): Promise<void> {
-    if (fs.existsSync(API_SPEC_PATH)) {
-      const specs = fs
-        .readdirSync(API_SPEC_PATH)
-        .filter((file) => file.includes(".yml"));
+    try {
+      if (fs.existsSync(API_SPEC_PATH)) {
+        const specs = fs
+          .readdirSync(API_SPEC_PATH)
+          .filter((file) => file.includes(".yml"));
 
-      const navItems = await Promise.all(
-        specs.map((spec) => this.generateNavItems(spec))
-      );
+        const navItems = await Promise.all(
+          specs.map((spec) => this.generateNavItems(spec))
+        );
 
-      const dataString = navItems
-        .map((navItem) => JSON.stringify(navItem))
-        .join(",");
-      const apiSpecsData = this.createDataString(dataString);
+        const dataString = navItems
+          .map((navItem) => JSON.stringify(navItem))
+          .join(",");
+        const apiSpecsData = this.createDataString(dataString);
 
-      fs.writeFileSync(
-        "./src/lib/navigation/src/data/apiSpecs.data.ts",
-        prettier.format(apiSpecsData, { parser: "typescript" }),
-        "utf8"
-      );
+        fs.writeFileSync(
+          "./src/lib/navigation/src/data/apiSpecs.data.ts",
+          prettier.format(apiSpecsData, { parser: "typescript" }),
+          "utf8"
+        );
 
-      console.log(`API Spec Navigation Done! 🚀`);
-    } else {
-      console.log(
-        "No API specs found. Skipping generation of API specs navigation."
-      );
+        console.log(`API Spec Navigation Done! 🚀`);
+      }
+    } catch (error) {
+      console.error("Error reading directory:", error);
     }
   }
 
