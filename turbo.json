@@ -22,20 +22,13 @@
     "dev": {
       "cache": false,
       "outputs": [".next/**"],
-      "dependsOn": [
-        "@getflip/swirl-tokens#build",
-        "@getflip/swirl-icons#build",
-        "swirl-docs#build:spec-navigation"
-      ]
+      "dependsOn": ["@getflip/swirl-tokens#build", "@getflip/swirl-icons#build"]
     },
     "clean": {
       "cache": false
     },
     "gulp": {
       "outputs": ["dist/**"]
-    },
-    "build:spec-navigation": {
-      "outputs": ["src/lib/navigation/src/data/apiDocs.data.ts"]
     },
     "prebuild": {
       "outputs": [

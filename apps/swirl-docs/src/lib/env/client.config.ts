@@ -5,7 +5,6 @@ const getEnvironmentVariable = (
   environmentVariable: keyof z.infer<typeof envVariables>
 ): string => {
   const unvalidatedEnvironmentVariable = process.env[environmentVariable];
-  console.log("client.config", process.env);
   if (!unvalidatedEnvironmentVariable) {
     // throw new Error(
     //   `Couldn't find environment variable: ${environmentVariable}`
