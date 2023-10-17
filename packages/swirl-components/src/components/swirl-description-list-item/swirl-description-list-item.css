@@ -32,6 +32,7 @@
   display: block;
   margin-bottom: var(--s-space-4);
   font-weight: var(--s-font-weight-semibold);
+  overflow-wrap: break-word;
 
   @media (--from-desktop-without-touch) {
     margin-bottom: var(--s-space-2);
@@ -42,6 +43,7 @@
   display: block;
   max-width: 40rem;
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 @container description-list (min-width: 480px) {

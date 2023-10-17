@@ -23,11 +23,13 @@ describe("swirl-date-input", () => {
       <swirl-date-input>
         <div class="date-input">
           <input class="date-input__input" id="swirl-date-input-0" placeholder="yyyy-mm-dd" type="text">
-          <button aria-label="Open date picker" class="date-input__date-picker-button" id="swirl-date-input-0-trigger" type="button">
-            <swirl-icon-today size="24"></swirl-icon-today>
-          </button>
+          <swirl-popover-trigger popover="popover-swirl-date-input-0">
+          <button aria-label="Open date picker" class="date-input__date-picker-button" type="button">
+              <swirl-icon-today size="24"></swirl-icon-today>
+            </button>
+          </swirl-popover-trigger>
         </div>
-        <swirl-popover animation="scale-in-y" label="Date picker" placement="bottom-end" popoverid="popover-swirl-date-input-0" trigger="swirl-date-input-0-trigger">
+        <swirl-popover animation="scale-in-y" id="popover-swirl-date-input-0" label="Date picker" placement="bottom-end">
           <swirl-date-picker locale="en-US"></swirl-date-picker>
         </swirl-popover>
       </swirl-date-input>
@@ -93,5 +95,27 @@ describe("swirl-date-input", () => {
     input.dispatchEvent(new Event("input"));
 
     expect(spy.mock.calls[1][0].detail).toBe("2022-12-01");
+  });
+
+  it("fires invalidInPut event for invalid values", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+
+    const spy = jest.fn();
+    const input = page.root.querySelector("input");
+
+    page.root.addEventListener("invalidInput", spy);
+
+    input.value = "2022-12-12";
+    input.dispatchEvent(new Event("input"));
+
+    expect(spy).toHaveBeenCalledTimes(0);
+
+    input.value = "2022-22-22";
+    input.dispatchEvent(new Event("input"));
+
+    expect(spy.mock.calls[0][0].detail).toBe("2022-22-22");
   });
 });

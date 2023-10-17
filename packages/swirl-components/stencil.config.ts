@@ -10,6 +10,8 @@ import { Config } from "@stencil/core";
 import { postcss } from "@stencil/postcss";
 import { reactOutputTarget } from "@stencil/react-output-target";
 
+const esModules = ["vanilla-colorful"].join("|");
+
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
     elementSelectors: [
@@ -22,13 +24,20 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     type: "boolean",
   },
   {
-    elementSelectors: ["swirl-option-list", "swirl-select"],
+    elementSelectors: [
+      "swirl-autocomplete[multi-select]",
+      "swirl-autocomplete[multiSelect]",
+      "swirl-option-list",
+      "swirl-select",
+    ],
     event: "valueChange",
     targetAttr: "value",
     type: "select",
   },
   {
     elementSelectors: [
+      "swirl-autocomplete:not([multi-select]):not([multiSelect])",
+      "swirl-color-input",
       "swirl-date-input",
       "swirl-radio-group",
       "swirl-search",
@@ -86,7 +95,7 @@ export const config: Config = {
     },
     reactOutputTarget({
       componentCorePackage: "@getflip/swirl-components",
-      excludeComponents: ["wc-datepicker"],
+      excludeComponents: ["hex-color-picker", "wc-datepicker"],
       proxiesFile: "../swirl-components-react/lib/stencil-generated/index.ts",
       includeDefineCustomElements: true,
     }),
@@ -96,7 +105,7 @@ export const config: Config = {
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/components.ts",
       directivesArrayFile:
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/index.ts",
-      excludeComponents: ["wc-datepicker"],
+      excludeComponents: ["hex-color-picker", "wc-datepicker"],
       includeImportCustomElements: false,
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
@@ -110,5 +119,12 @@ export const config: Config = {
     }),
   ],
   sourceMap: false,
+  testing: {
+    // https://github.com/ionic-team/stencil/issues/2178#issuecomment-1289389916
+    transform: {
+      "^.+\\.(ts|tsx|js|jsx|css)$": "@stencil/core/testing/jest-preprocessor",
+    },
+    transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
+  },
   watchIgnoredRegex: [/pdf\.worker\.min\.js/, /vscode-data\.json/],
 };

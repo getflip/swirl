@@ -6,6 +6,7 @@ import {
   Host,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery, SwirlFormInput } from "../../utils";
@@ -88,6 +89,13 @@ export class SwirlTextInput implements SwirlFormInput {
     this.updateIconSize(this.desktopMediaQuery.matches);
 
     this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+
+    // see https://stackoverflow.com/a/27314017
+    if (this.autoFocus) {
+      setTimeout(() => {
+        this.inputEl.focus();
+      });
+    }
   }
 
   componentDidRender() {
@@ -99,6 +107,13 @@ export class SwirlTextInput implements SwirlFormInput {
       "change",
       this.desktopMediaQueryHandler
     );
+  }
+
+  @Watch("value")
+  watchValue(newValue: string, oldValue: string) {
+    if (newValue !== oldValue) {
+      this.valueChange.emit(newValue);
+    }
   }
 
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
@@ -123,6 +138,7 @@ export class SwirlTextInput implements SwirlFormInput {
       this.inputEl.style.width = "";
 
       if (
+        this.suffixLabel &&
         this.type !== "password" &&
         !this.disableDynamicWidth &&
         !Boolean(this.placeholder)
@@ -143,7 +159,6 @@ export class SwirlTextInput implements SwirlFormInput {
     const el = event.target as HTMLInputElement;
 
     this.value = el.value;
-    this.valueChange.emit(el.value);
   };
 
   private onBlur = (event: FocusEvent) => {

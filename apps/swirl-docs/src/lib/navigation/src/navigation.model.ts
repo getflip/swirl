@@ -16,6 +16,6 @@ export type NavItem = {
 export const CategoryEnum = {
   FOUNDATIONS: "Foundations",
   COMPONENTS: "Components",
-  TOKENS: "Tokens",
+  TOKENS: "Design Tokens",
   ICONS: "Icons",
 } as const;

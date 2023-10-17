@@ -40,6 +40,7 @@ export class SwirlOptionListItem {
   @Event() toggleDrag: EventEmitter<HTMLSwirlOptionListItemElement>;
 
   @State() iconSize: 20 | 24 = 24;
+  @State() focused: boolean;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
@@ -80,6 +81,14 @@ export class SwirlOptionListItem {
     }
   };
 
+  private onBlur = () => {
+    this.focused = false;
+  };
+
+  private onFocus = () => {
+    this.focused = true;
+  };
+
   render() {
     const ariaDisabled = this.disabled ? "true" : undefined;
     const ariaSelected = String(this.selected);
@@ -110,6 +119,8 @@ export class SwirlOptionListItem {
             this.swirlAriaRole === "option" ? ariaSelected : undefined
           }
           class={className}
+          onBlur={this.onBlur}
+          onFocus={this.onFocus}
           part="option-list-item"
           role={this.swirlAriaRole}
         >
@@ -149,6 +160,7 @@ export class SwirlOptionListItem {
             aria-label={`${this.dragHandleLabel} "${this.label}"`}
             class="option-list-item__drag-handle"
             onKeyDown={this.onDragHandleKeyDown}
+            tabIndex={this.focused ? 0 : -1}
             type="button"
           >
             <swirl-icon-drag-handle

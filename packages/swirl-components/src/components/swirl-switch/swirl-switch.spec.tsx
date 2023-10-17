@@ -11,7 +11,7 @@ describe("swirl-switch", () => {
 
     expect(page.root).toMatchInlineSnapshot(`
       <swirl-switch checked="true" disabled="true" input-id="switch" input-name="switch" label="Label" value="Value">
-        <label class="switch switch--disabled switch--on switch--size-m" htmlfor="switch">
+        <label class="switch switch--disabled switch--on" htmlfor="switch">
           <span class="switch__control">
             <swirl-visually-hidden>
               <input aria-checked="true" checked="" class="switch__input" disabled="" id="switch" name="switch" role="switch" type="checkbox" value="Value">

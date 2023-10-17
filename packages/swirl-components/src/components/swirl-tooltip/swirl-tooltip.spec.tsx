@@ -26,6 +26,16 @@ const expectedHidden = `
 </span>`;
 
 describe("swirl-tooltip", () => {
+  beforeAll(() => {
+    class ResizeObserver {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    }
+
+    global.ResizeObserver = ResizeObserver;
+  });
+
   it("renders the reference", async () => {
     const page = await newSpecPage({
       components: [SwirlTooltip],

@@ -22,7 +22,7 @@ async function getComponentData(document: string) {
 }
 
 export async function getStaticPaths() {
-  const categoryDocs = createStaticPathsData("api");
+  const categoryDocs = createStaticPathsData("api") ?? [];
 
   return {
     paths: categoryDocs,

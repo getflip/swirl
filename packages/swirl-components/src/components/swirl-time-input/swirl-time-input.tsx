@@ -49,6 +49,7 @@ export class SwirlTimeInput {
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private id: string;
+  private inputEl: HTMLInputElement;
   private mask: Maska;
 
   componentWillLoad() {
@@ -65,6 +66,13 @@ export class SwirlTimeInput {
     this.updateIconSize(this.desktopMediaQuery.matches);
 
     this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+
+    // see https://stackoverflow.com/a/27314017
+    if (this.autoFocus) {
+      setTimeout(() => {
+        this.inputEl.focus();
+      });
+    }
   }
 
   disconnectedCallback() {
@@ -198,6 +206,7 @@ export class SwirlTimeInput {
             onFocus={this.onFocus}
             onInput={this.onInput}
             placeholder={this.placeholder}
+            ref={(el) => (this.inputEl = el)}
             required={this.required}
             type="text"
             value={displayValue}

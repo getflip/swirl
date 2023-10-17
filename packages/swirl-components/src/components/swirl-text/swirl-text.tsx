@@ -18,6 +18,8 @@ export type SwirlTextFontStyle = "normal" | "italic";
 
 export type SwirlTextSize = "sm" | "base" | "lg" | "xl" | "2xl";
 
+export type SwirlTextTruncateDirection = "end" | "start";
+
 export type SwirlTextWeight = "normal" | "medium" | "semibold" | "bold";
 
 @Component({
@@ -38,6 +40,7 @@ export class SwirlText {
   @Prop() lines?: number;
   @Prop() size?: SwirlTextSize = "base";
   @Prop() truncate?: boolean;
+  @Prop() truncateDirection?: SwirlTextTruncateDirection = "end";
   @Prop() weight?: SwirlTextWeight = "normal";
 
   private textEl: HTMLElement;
@@ -86,6 +89,7 @@ export class SwirlText {
       `text--font-family-${this.fontFamily}`,
       `text--font-style-${this.fontStyle}`,
       `text--size-${this.size}`,
+      `text--truncate-direction-${this.truncateDirection}`,
       `text--weight-${this.weight}`,
       {
         "text--truncate":

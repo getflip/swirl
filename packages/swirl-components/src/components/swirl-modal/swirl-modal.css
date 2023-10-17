@@ -21,6 +21,8 @@
   --swirl-resource-list-item-background-pressed: var(
     --s-surface-overlay-pressed
   );
+  --swirl-modal-height: auto;
+  --swirl-modal-max-height: 90vh;
 
   position: fixed;
   z-index: var(--s-z-40);
@@ -115,6 +117,10 @@
     }
   }
 
+  & .modal__content {
+    min-height: 100%;
+  }
+
   &.modal--padded .modal__content {
     @media (--from-tablet) {
       padding-top: var(--s-space-8);
@@ -176,14 +182,71 @@
 }
 
 .modal--has-header-tools {
+  & .modal__header {
+    border-bottom-color: transparent;
+  }
+
   & .modal__header-tools {
+    display: block;
+  }
+}
+
+.modal--has-secondary-content {
+  & .modal__body {
+    max-width: 64rem;
+  }
+
+  &:not(.modal--has-header-tools) .modal__header {
+    border-bottom-color: var(--s-border-default);
+  }
+
+  &.modal--has-header-tools .modal__header-tools {
+    border-bottom-color: var(--s-border-default);
+  }
+
+  &.modal--has-custom-footer {
+    & .modal__custom-footer {
+      border-top: var(--s-border-width-default) solid var(--s-border-default);
+    }
+  }
+
+  &:not(.modal--has-custom-footer) {
+    & .modal__controls {
+      border-top: var(--s-border-width-default) solid var(--s-border-default);
+    }
+  }
+
+  & .modal__header-tools,
+  & .modal__content {
+    @media (--from-desktop) {
+      padding-right: 0;
+    }
+  }
+
+  & .modal__primary-content {
+    overflow: visible;
+    max-height: 60%;
+    flex-basis: auto;
+
+    @media (--from-desktop) {
+      max-width: calc(100% - 24rem);
+      max-height: none;
+      flex-basis: calc(100% - 24rem);
+    }
+  }
+
+  & .modal__secondary-content {
     display: block;
   }
 }
 
 .modal--scrolled {
   @media (--from-tablet) {
-    & .modal__header {
+    &:not(.modal--has-header-tools) .modal__header {
+      border-bottom-color: var(--s-border-default);
+    }
+
+    &.modal--has-header-tools .modal__header-tools {
       border-bottom-color: var(--s-border-default);
     }
   }
@@ -196,6 +259,14 @@
 }
 
 .modal__body {
+  --swirl-card-background-default: var(--s-surface-overlay-default);
+  --swirl-card-background-hovered: var(--s-surface-overlay-hovered);
+  --swirl-card-background-pressed: var(--s-surface-overlay-pressed);
+
+  --swirl-accordion-item-toggle-default: var(--s-surface-overlay-default);
+  --swirl-accordion-item-toggle-hovered: var(--s-surface-overlay-hovered);
+  --swirl-accordion-item-toggle-pressed: var(--s-surface-overlay-pressed);
+
   position: relative;
   z-index: var(--s-z-40);
   display: flex;
@@ -208,10 +279,13 @@
 
   @media (--from-tablet) {
     width: 90vw;
-    height: auto;
-    max-height: 90vh;
+    max-height: var(--swirl-modal-max-height);
     border-radius: var(--s-border-radius-base);
     box-shadow: var(--s-shadow-level-3);
+  }
+
+  @media (--from-desktop) {
+    height: var(--swirl-modal-height);
   }
 }
 
@@ -249,10 +323,12 @@
   display: none;
   padding-right: var(--s-space-16);
   padding-left: var(--s-space-16);
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
 
   @media (--from-tablet) {
     padding-right: var(--s-space-24);
     padding-left: var(--s-space-24);
+    border-bottom-color: transparent;
   }
 }
 
@@ -271,14 +347,57 @@
   }
 }
 
+.modal__content-container {
+  display: flex;
+  overflow: hidden;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: var(--s-space-24);
+
+  @media (--from-desktop) {
+    flex-direction: row;
+  }
+}
+
+.modal__primary-content {
+  display: flex;
+  overflow: hidden;
+  flex-basis: 100%;
+  flex-direction: column;
+}
+
 .modal__content {
   overflow-x: hidden;
   overflow-y: auto;
-  flex-grow: 1;
-  line-height: var(--s-line-height-base);
 
   & ::slotted(*) {
     margin: 0;
+  }
+}
+
+.modal__secondary-content {
+  display: none;
+  overflow: visible;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: none;
+  max-height: 40%;
+  padding-right: var(--s-space-16);
+  padding-left: var(--s-space-16);
+
+  @media (--from-tablet) {
+    padding-left: var(--s-space-24);
+  }
+
+  @media (--from-desktop) {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-width: 24rem;
+    max-height: none;
+    padding-right: var(--s-space-24);
+    padding-bottom: var(--s-space-16);
+    padding-left: 0;
+    flex-basis: 50%;
   }
 }
 

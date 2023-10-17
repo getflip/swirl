@@ -15,8 +15,6 @@ export const useToC = (
     let tocHeadlines: DocHeadline[] = [];
     let currentHeadline: DocHeadline | null = null;
 
-    console.log(document);
-
     const headlines =
       document.querySelectorAll<HTMLHeadingElement>("h2[id], h3[id]");
 

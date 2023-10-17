@@ -15,6 +15,7 @@ export type SwirlFormControlLabelPosition = "inside" | "outside";
 
 /**
  * @slot slot - The input element, e.g. `<swirl-text-input></swirl-text-input>`
+ * @slot prefix - The prefix element, e.g. `<select slot="prefix">…</select>` or `<swirl-icon-poll></swirl-icon-poll>`
  */
 @Component({
   /**
@@ -59,6 +60,10 @@ export class SwirlFormControl {
     this.setInputElementLabel();
     this.checkInputValue();
     this.listenToInputValueChanges();
+  }
+
+  componentDidRender() {
+    this.checkInputValue();
   }
 
   @Watch("description")
@@ -130,6 +135,8 @@ export class SwirlFormControl {
       return;
     }
 
+    event.stopPropagation();
+
     this.hasFocus = false;
   }
 
@@ -145,6 +152,10 @@ export class SwirlFormControl {
     this.hasFocus = true;
   };
 
+  private onFocusOut = () => {
+    this.hasFocus = false;
+  };
+
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Tab") {
       setTimeout(() => {
@@ -158,6 +169,8 @@ export class SwirlFormControl {
   render() {
     const showErrorMessage = Boolean(this.errorMessage);
     const showDescription = Boolean(this.description) && !showErrorMessage;
+
+    const hasPrefix = Boolean(this.el.querySelector('[slot="prefix"]'));
 
     const hasValue = Array.isArray(this.inputValue)
       ? this.inputValue.length > 0
@@ -179,6 +192,7 @@ export class SwirlFormControl {
         "form-control--has-character-counter": hasCharacterCounter,
         "form-control--has-focus": this.hasFocus,
         "form-control--has-placeholder": hasPlaceholder,
+        "form-control--has-prefix": hasPrefix,
         "form-control--has-value": hasValue,
         "form-control--hide-label": this.hideLabel,
         "form-control--inline": this.inline,
@@ -188,14 +202,23 @@ export class SwirlFormControl {
     );
 
     return (
-      <Host onFocusin={this.onFocusIn} onKeyDown={this.onKeyDown}>
+      <Host
+        onFocusin={this.onFocusIn}
+        onFocusout={this.onFocusOut}
+        onKeyDown={this.onKeyDown}
+      >
         <div class={className} role="group">
-          <label class="form-control__label">
-            <span class="form-control__label-text">{this.label}</span>
-            <span class="form-control__input">
-              <slot></slot>
+          <span class="form-control__controls">
+            <span class="form-control__prefix">
+              <slot name="prefix"></slot>
             </span>
-          </label>
+            <label class="form-control__label">
+              <span class="form-control__label-text">{this.label}</span>
+              <span class="form-control__input">
+                <slot></slot>
+              </span>
+            </label>
+          </span>
           {showDescription && (
             <span class="form-control__description" id={this.descriptionId}>
               {this.description}

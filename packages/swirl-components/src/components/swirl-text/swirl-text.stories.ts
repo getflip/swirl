@@ -21,13 +21,11 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-text", args);
 
-  element.innerHTML = `
-    Est, odio dis scelerisque risus sagittis lorem rhoncus. Vivamus tristique
+  element.innerHTML = `Est, odio dis scelerisque risus sagittis lorem rhoncus. Vivamus tristique
     habitant vitae cursus nisl. Sed adipiscing proin suspendisse aliquam
     maecenas faucibus mauris purus. Tortor ut habitant erat adipiscing nulla
     pretium, cursus tortor. Amet viverra et platea lacus, nec molestie
-    tincidunt.
-  `;
+    tincidunt.`;
 
   return element;
 };

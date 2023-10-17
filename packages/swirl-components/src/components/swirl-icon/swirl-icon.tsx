@@ -6,7 +6,7 @@ import { SwirlIconSize } from "./swirl-icon.types";
   styleUrl: "swirl-icon.css",
   tag: "swirl-icon",
 })
-export class SwirlHeading {
+export class SwirlIcon {
   @Prop() glyph!: string;
   @Prop() size: SwirlIconSize = 24;
 

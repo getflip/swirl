@@ -18,9 +18,9 @@ describe("swirl-description-list", () => {
     expect(page.root).toEqualHtml(`
       <swirl-description-list>
         <mock:shadow-root>
-          <dl class="description-list">
+          <div class="description-list" role="list">
             <slot></slot>
-          </dl>
+          </div>
         </mock:shadow-root>
         <swirl-description-list-item term="Term #1">
           A short description

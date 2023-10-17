@@ -40,7 +40,7 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   public async dereference() {
-    this._oasBuilder.dereference();
+    await this._oasBuilder.dereference();
     return this;
   }
 
@@ -93,6 +93,9 @@ export default class OASBuilder implements IOASBuilder {
             .toLowerCase()
             .replaceAll(" ", "-")}`.replaceAll(".", ""),
           operation: oasOperation,
+          errorCodes: oasOperation.getExtension(
+            "x-flip-error-codes"
+          ) as Endpoint["errorCodes"],
         });
       });
     }

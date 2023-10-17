@@ -1,0 +1,42 @@
+import {
+  Controls,
+  Canvas,
+  Meta,
+  Story,
+  IconGallery,
+  IconItem,
+  Source,
+} from "@storybook/addon-docs";
+import * as Stories from "./swirl-emoji.stories";
+import EmojisJSON from "../../../emojis.json";
+
+<Meta title="Components/SwirlEmoji" />
+
+# SwirlEmoji
+
+Emojis are visual symbols used to provide emotional cues.
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-emoji)**
+
+## Usage
+
+<Canvas of={Stories.SwirlEmoji} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlEmoji} />
+
+## Alternative usage
+
+Each emoji also comes with its own component, used via
+`<swirl-emoji-*></swirl-emoji-*>`. E.g.:
+
+<Source code={"<swirl-emoji-clap></swirl-emoji-clap>"} />
+
+## Emoji overview
+
+<IconGallery>
+  {Object.values(EmojisJSON).map((emoji) => (
+    <IconItem key={emoji.id} name={emoji.name}>
+      <swirl-emoji name={emoji.name} />
+    </IconItem>
+  ))}
+</IconGallery>
