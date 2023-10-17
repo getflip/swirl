@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.101.4
+
+### Patch Changes
+
+- [`cdb91035`](https://github.com/getflip/swirl/commit/cdb91035869359fc210959f3f5e877baf789f1c2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-app-layout styling
+
 ## 0.101.3
 
 ### Patch Changes
