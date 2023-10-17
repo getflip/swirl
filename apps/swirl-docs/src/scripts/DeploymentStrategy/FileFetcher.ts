@@ -1,9 +1,8 @@
-import fetch from "node-fetch";
-import fs from "fs";
-import { Env } from "@swirl/lib/env/server.config";
 import path from "path";
+import { FileSystemHandler } from "./FileSystemHandler";
+import { GitLabAPI } from "./GitlabApi";
 
-type RepositoryTreeItem = {
+export type RepositoryTreeItem = {
   id: string;
   name: string;
   type: string;
@@ -11,45 +10,28 @@ type RepositoryTreeItem = {
   mode: string;
 };
 
-const GITLAB_ENDPOINT = "https://gitlab.com/api/v4/projects";
-
 export class FileFetcher {
-  private headers = {
-    "PRIVATE-TOKEN": Env.GITLAB_ACCESS_TOKEN,
-  };
-  private refBranch = Env.REFERENCE_BRANCH;
+  private gitlabAPI = new GitLabAPI();
+  private fileSystemHandler = new FileSystemHandler();
 
-  async fetchData() {
-    const specs = await this.fetchFileList("spec");
+  async fetchFiles() {
+    const specs = await this.gitlabAPI.fetchFileList("spec");
     const specFiles = specs?.filter((spec) => spec.type === "blob");
 
     if (specFiles) {
-      await Promise.all(specFiles.map((spec) => this.fetchSpecData(spec)));
+      await Promise.all(specFiles.map((spec) => this.fetchSpecFiles(spec)));
     }
 
-    const docs = await this.fetchFileList("docs");
+    const docs = await this.gitlabAPI.fetchFileList("docs");
 
     if (docs) {
       await Promise.all(docs.map((doc) => this.processFileOrTree(doc)));
     }
   }
 
-  private async fetchDocData(doc: string, root?: string) {
-    const response = await fetch(this.createDocGitlabEndpoint(doc), {
-      headers: this.headers,
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const json = await response.json();
-    const docData = Buffer.from(json.content, "base64").toString("utf8");
+  private async fetchDocFiles(doc: string, root?: string) {
+    const docData = await this.gitlabAPI.fetchDocData(doc);
     let docPath = "./src/documents/api";
-
-    if (!fs.existsSync(docPath)) {
-      fs.mkdirSync(docPath, { recursive: true });
-    }
 
     if (root) {
       const docName = doc.split("/").pop()?.split(".")[0];
@@ -59,75 +41,15 @@ export class FileFetcher {
       docPath = `${docPath}/${docName}.mdx`;
     }
 
-    fs.writeFileSync(path.join("./", docPath), docData, "utf8");
-    return docPath;
+    this.fileSystemHandler.writeToFile(path.join("./", docPath), docData);
   }
 
-  private createDocGitlabEndpoint(doc: string) {
-    return `${GITLAB_ENDPOINT}/${
-      Env.GITLAB_FLIP_REPO_ID
-    }/repository/files/${encodeURIComponent(doc)}?ref=${this.refBranch}`;
-  }
-
-  private async fetchSpecData(spec: RepositoryTreeItem) {
-    const response = await fetch(this.createSpecGitlabEndpoint(spec), {
-      headers: this.headers,
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const json = await response.json();
-    const specData = Buffer.from(json.content, "base64").toString("utf8");
+  private async fetchSpecFiles(spec: RepositoryTreeItem) {
+    const specData = await this.gitlabAPI.fetchSpecData(spec);
     const specPath = `./specs/${spec.name.replace(".yaml", ".yml")}`;
 
-    this.checkAndCreateSpecsDir();
-    fs.writeFileSync(specPath, specData, "utf8");
-    return spec.name;
-  }
-
-  private createSpecGitlabEndpoint(spec: RepositoryTreeItem) {
-    return `${GITLAB_ENDPOINT}/${
-      Env.GITLAB_FLIP_REPO_ID
-    }/repository/files/${encodeURIComponent(spec.path)}?ref=${this.refBranch}`;
-  }
-
-  private checkAndCreateSpecsDir() {
-    const dirPath = path.join(".", "specs");
-
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
-    }
-  }
-
-  private async fetchFileList(type: "spec" | "docs") {
-    const path = type === "spec" ? "" : "docs";
-    const fileListEndpoint = `${GITLAB_ENDPOINT}/${
-      Env.GITLAB_FLIP_REPO_ID
-    }/repository/tree?ref=${
-      this.refBranch
-    }&path=api/spec/v4/${this.getDeploymentStage()}/${path}`;
-
-    const response = await fetch(fileListEndpoint, { headers: this.headers });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const fileList = (await response.json()) as RepositoryTreeItem[];
-    return fileList;
-  }
-
-  private getDeploymentStage() {
-    if (!Env.DEPLOYMENT_STAGE) {
-      throw new Error("DEPLOYMENT_ENVIRONMENT is not set");
-    }
-
-    if (Env.DEPLOYMENT_STAGE === "staging") {
-      return "development";
-    }
-
-    return "development";
+    this.fileSystemHandler.checkAndCreateDir(path.join(".", "specs"));
+    this.fileSystemHandler.writeToFile(specPath, specData);
   }
 
   private async processFileOrTree(
@@ -135,33 +57,31 @@ export class FileFetcher {
     root?: string
   ): Promise<any> {
     if (item.type === "blob") {
-      if (root) {
-        return this.fetchDocData(item.path, root);
-      }
-      return this.fetchDocData(item.path);
-    } else if (item.type === "tree") {
-      const itemsInTree = await this.fetchTreeList(item.path);
-      if (itemsInTree) {
-        return Promise.all(
-          itemsInTree.map((item: RepositoryTreeItem) => {
-            const length = item.path.split("/").length;
-            const newRoot = item.path.split("/")[length - 2];
-            return this.processFileOrTree(item, newRoot);
-          })
-        );
-      }
+      return this.fetchDocFiles(item.path, root);
+    }
+
+    if (item.type === "tree") {
+      return this.processTree(item, root);
     }
   }
 
-  private async fetchTreeList(pathString: string) {
-    const treeListEndpoint = `${GITLAB_ENDPOINT}/${Env.GITLAB_FLIP_REPO_ID}/repository/tree?ref=${this.refBranch}&path=${pathString}`;
+  private getRootFromPath(itemPath: string): string {
+    const pathComponents = itemPath.split("/");
+    return pathComponents[pathComponents.length - 2];
+  }
 
-    const response = await fetch(treeListEndpoint, { headers: this.headers });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+  private async processTree(
+    tree: RepositoryTreeItem,
+    root?: string
+  ): Promise<any> {
+    const itemsInTree = await this.gitlabAPI.fetchTreeList(tree.path);
+    if (!itemsInTree) return;
 
-    const treeList = (await response.json()) as RepositoryTreeItem[];
-    return treeList;
+    return Promise.all(
+      itemsInTree.map((item: RepositoryTreeItem) => {
+        const newRoot = root || this.getRootFromPath(item.path);
+        return this.processFileOrTree(item, newRoot);
+      })
+    );
   }
 }

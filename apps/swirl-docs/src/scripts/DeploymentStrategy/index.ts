@@ -14,7 +14,7 @@ export interface DeploymentStrategy {
 export class ProductionDeployment implements DeploymentStrategy {
   async fetchData() {
     const fetcher = new FileFetcher();
-    await fetcher.fetchData();
+    await fetcher.fetchFiles();
   }
 
   async handleFileDeletion() {
@@ -34,7 +34,7 @@ export class ProductionDeployment implements DeploymentStrategy {
 export class StagingDeployment implements DeploymentStrategy {
   async fetchData() {
     const fetcher = new FileFetcher();
-    await fetcher.fetchData();
+    await fetcher.fetchFiles();
   }
 
   async handleFileDeletion() {
