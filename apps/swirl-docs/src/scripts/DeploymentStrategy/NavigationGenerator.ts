@@ -14,11 +14,14 @@ export class ApiSpecsNavigationGenerator
   implements NavigationGeneratorStrategy
 {
   public async generate(): Promise<void> {
+    console.log("Generating API Spec Navigation...");
     try {
       if (fs.existsSync(API_SPEC_PATH)) {
         const specs = fs
           .readdirSync(API_SPEC_PATH)
           .filter((file) => file.includes(".yml"));
+
+        console.log("available specs", specs);
 
         const navItems = await Promise.all(
           specs.map((spec) => this.generateNavItems(spec))
