@@ -51,7 +51,6 @@ const HeaderNavigation = () => {
   }
 
   const filteredNavItems = navItems.filter((navItem) => {
-    console.log(process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE!!);
     if (process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production") {
       return !navItem.title.includes("APIs and References");
     }
