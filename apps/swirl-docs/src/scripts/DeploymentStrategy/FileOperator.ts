@@ -6,14 +6,12 @@ import { DeploymentStrategy } from ".";
 const renameAsync = promisify(fs.rename);
 const unlinkAsync = promisify(fs.unlink);
 const readdirAsync = promisify(fs.readdir);
+const copyFileAsync = promisify(fs.copyFile);
 
 export class FileOperator {
-  private globalSpecs = [
-    "shared.yml",
-    "problem.yml",
-    "usergroups.yml",
-    "users.yml",
-  ];
+  private globalSpecs = ["shared.yml", "problem.yml"];
+
+  private crossReferencedSpecs = ["usergroups.yml", "users.yml"];
 
   constructor(private strategy: DeploymentStrategy["strategy"]) {}
 
@@ -23,6 +21,9 @@ export class FileOperator {
 
     console.log("Moving global specs...");
     await this.moveGlobalSpecs();
+
+    console.log("Copying cross-referenced specs..."); // Added this
+    await this.copyCrossReferencedSpecs();
 
     if (this.strategy === "production") {
       console.log("Deleting api directory...");
@@ -66,6 +67,32 @@ export class FileOperator {
         console.log(`Deleted spec ${spec}`);
       } catch (err) {
         console.error(`Error: Unable to delete ${spec}`, err);
+      }
+    } else {
+      console.log(`Spec ${spec} does not exist. Moving on...`);
+    }
+  }
+
+  private async copyCrossReferencedSpecs() {
+    // New function for copying specs
+    for (const spec of this.crossReferencedSpecs) {
+      await this.copySpec(spec);
+    }
+  }
+
+  private async copySpec(spec: string) {
+    // New function to copy individual spec
+    const sourcePath = path.join("specs", `${spec}`);
+    const destinationPath = path.join(".", `${spec}`);
+
+    if (fs.existsSync(sourcePath)) {
+      try {
+        await copyFileAsync(sourcePath, destinationPath);
+        console.log(
+          `Copied cross-referenced spec ${spec} to root for oasBuilder`
+        );
+      } catch (err) {
+        console.error(`Error: Unable to copy ${spec}`, err);
       }
     } else {
       console.log(`Spec ${spec} does not exist. Moving on...`);
