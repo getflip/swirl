@@ -194,7 +194,7 @@ export function SidebarNavigation() {
     >
       {router.asPath.includes("/api-docs") && (
         <>
-          {Env.DEPLOYMENT_STAGE !== "production" && (
+          {Env.NEXT_PUBLIC_DEPLOYMENT_STAGE !== "production" && (
             <>
               <ul className="mt-6">
                 {apiDocsNavItems?.map((navItem: NavItem, index) => {

@@ -40,10 +40,12 @@ export class GitLabAPI {
   }
 
   private getDeploymentStage(): string {
-    if (!Env.DEPLOYMENT_STAGE) {
+    if (!Env.NEXT_PUBLIC_DEPLOYMENT_STAGE) {
       throw new Error("DEPLOYMENT_ENVIRONMENT is not set");
     }
-    return Env.DEPLOYMENT_STAGE === "staging" ? "development" : "development";
+    return Env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "staging"
+      ? "development"
+      : "development";
   }
 
   private async request<T>(endpoint: string): Promise<T> {

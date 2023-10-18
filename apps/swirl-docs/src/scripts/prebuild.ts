@@ -6,7 +6,7 @@ import {
 } from "./DeploymentStrategy";
 
 const getDeploymentStrategy = (): DeploymentStrategy => {
-  if (Env.DEPLOYMENT_STAGE === "production") {
+  if (Env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production") {
     return new ProductionDeployment();
   }
   return new StagingDeployment();
