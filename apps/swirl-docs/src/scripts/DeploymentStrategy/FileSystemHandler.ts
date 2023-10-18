@@ -9,8 +9,6 @@ export class FileSystemHandler {
       fs.mkdirSync(path.dirname(filePath), { recursive: true });
     }
 
-    console.log("Writing to file: ", filePath);
-
     fs.writeFileSync(filePath, data, "utf8");
   }
 

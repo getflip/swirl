@@ -19,7 +19,9 @@ export class FileFetcher {
     const specFiles = specs?.filter((spec) => spec.type === "blob");
 
     if (specFiles) {
-      await Promise.all(specFiles.map((spec) => this.fetchSpecFiles(spec)));
+      await Promise.all(
+        specFiles.map(async (spec) => await this.fetchSpecFiles(spec))
+      );
     }
 
     const docs = await this.gitlabAPI.fetchFileList("docs");

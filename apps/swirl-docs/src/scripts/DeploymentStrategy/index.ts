@@ -1,4 +1,4 @@
-import { FileDeleter } from "./FileDeleter";
+import { FileOperator } from "./FileOperator";
 import { FileFetcher } from "./FileFetcher";
 import {
   ApiSpecsNavigationGenerator,
@@ -8,7 +8,7 @@ import {
 export interface DeploymentStrategy {
   strategy: "production" | "staging";
   fetchData(): Promise<void>;
-  handleFileDeletion(): void;
+  handleFileOperations(): void;
   generateApiNavigation(): Promise<void>;
 }
 
@@ -20,9 +20,9 @@ export class ProductionDeployment implements DeploymentStrategy {
     await fetcher.fetchFiles();
   }
 
-  async handleFileDeletion() {
-    const deleter = new FileDeleter(this.strategy);
-    await deleter.moveAndDeleteSpecs();
+  async handleFileOperations() {
+    const operator = new FileOperator(this.strategy);
+    await operator.moveAndDeleteSpecs();
   }
 
   async generateApiNavigation() {
@@ -42,9 +42,9 @@ export class StagingDeployment implements DeploymentStrategy {
     await fetcher.fetchFiles();
   }
 
-  async handleFileDeletion() {
-    const deleter = new FileDeleter(this.strategy);
-    await deleter.moveAndDeleteSpecs();
+  async handleFileOperations() {
+    const operator = new FileOperator(this.strategy);
+    await operator.moveAndDeleteSpecs();
   }
 
   async generateApiNavigation() {

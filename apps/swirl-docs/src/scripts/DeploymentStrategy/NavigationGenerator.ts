@@ -21,10 +21,8 @@ export class ApiSpecsNavigationGenerator
           .readdirSync(API_SPEC_PATH)
           .filter((file) => file.includes(".yml"));
 
-        console.log("available specs", specs);
-
         const navItems = await Promise.all(
-          specs.map((spec) => this.generateNavItems(spec))
+          specs.map(async (spec) => await this.generateNavItems(spec))
         );
 
         const dataString = navItems
@@ -57,18 +55,20 @@ export class ApiSpecsNavigationGenerator
 
   private async generateNavItems(specName: string): Promise<NavItem> {
     console.log("Generating navigation for", specName);
-    const specPath = `${API_SPEC_PATH}/${specName}`;
 
-    // write a check to see if the file at the end exists if not skip
+    const specPath = path.resolve(`${API_SPEC_PATH}/${specName}`);
+
     if (!fs.existsSync(specPath)) {
-      throw new Error(`Spec file ${specPath} does not exist!`);
+      throw new Error(`Spec ${specName} does not exist. Moving on...`);
     }
 
     const oasDocument = await new OASNormalize(specPath, {
       enablePaths: true,
     }).validate();
 
-    const oasBuilder = new OASBuilder(oasDocument)
+    const oasBuilder = await new OASBuilder(oasDocument).dereference();
+
+    const oasBuilderDereffed = oasBuilder
       .setTitleAndPath()
       .setDescription()
       .setEndpoints()
@@ -76,7 +76,7 @@ export class ApiSpecsNavigationGenerator
       .setTags();
 
     const operationNavItems: NavItem[] =
-      oasBuilder.operationsList?.map((endpoint) => ({
+      oasBuilderDereffed.operationsList?.map((endpoint) => ({
         title: endpoint.title,
         url: `/api-docs${endpoint.path}`,
         description: endpoint.operation.method,
@@ -84,12 +84,19 @@ export class ApiSpecsNavigationGenerator
       })) || [];
 
     return {
-      title: oasBuilder.title,
-      url: `/api-docs/${oasBuilder.path}`,
+      title: oasBuilderDereffed.title,
+      url: `/api-docs/${oasBuilderDereffed.path}`,
       isRoot: true,
       children: operationNavItems,
       specName,
     };
+    try {
+    } catch (error) {
+      console.error("Error [generateNavItems]:", error);
+      throw new Error(
+        `Error generating navigation for ${specName} in ${specPath}`
+      );
+    }
   }
 }
 
