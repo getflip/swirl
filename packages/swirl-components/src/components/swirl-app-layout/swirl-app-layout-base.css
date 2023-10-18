@@ -329,11 +329,6 @@
   background-color: var(--s-background-default);
   grid-area: app-bar;
   gap: var(--s-space-8);
-
-  @media (--from-tablet) {
-    padding-right: var(--s-space-16);
-    padding-left: var(--s-space-16);
-  }
 }
 
 .app-layout__back-to-navigation-button {
@@ -351,11 +346,6 @@
 .app-layout__app-bar-content {
   min-width: 0;
   flex-grow: 1;
-  padding-right: var(--s-space-8);
-
-  @media (--from-tablet) {
-    padding-right: 0;
-  }
 }
 
 .app-layout__app-bar-controls {
@@ -363,7 +353,7 @@
   padding-right: var(--s-space-8);
 
   @media (--from-tablet) {
-    padding-right: 0;
+    padding-right: var(--s-space-16);
   }
 }
 

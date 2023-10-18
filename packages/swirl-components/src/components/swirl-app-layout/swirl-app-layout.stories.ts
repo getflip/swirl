@@ -33,16 +33,16 @@ const Template = (args) => {
   element.innerHTML = `
     <swirl-button hide-label="true" icon="<swirl-icon-menu></swirl-icon-menu>" label="Menu" slot="navigation-mobile-menu-button"></swirl-button>
     <swirl-resource-list label="Items" slot="navigation">
-    <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
-    <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
-    <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+      <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+      <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+      <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
     </swirl-resource-list>
     <swirl-button
-    hide-label
-    icon="<swirl-icon-settings></swirl-icon-settings>"
-    label="Settings"
-    slot="navigation-controls"
-    ></swirl-button>
+      hide-label
+      icon="<swirl-icon-settings></swirl-icon-settings>"
+      label="Settings"
+      slot="navigation-controls"
+      ></swirl-button>
     <swirl-app-bar show-close-button="false" show-stepper-controls="false" slot="app-bar">
       <swirl-heading as="h2" level="3" slot="heading" text="Heading" truncate=""></swirl-heading>
       <swirl-stack justify="center" orientation="horizontal" spacing="8" slot="center-controls">
