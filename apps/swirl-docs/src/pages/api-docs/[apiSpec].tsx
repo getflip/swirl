@@ -31,6 +31,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  if (process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production") {
+    return { notFound: true };
+  }
+
   if (!context.params || !("apiSpec" in context.params)) {
     return {
       notFound: true,

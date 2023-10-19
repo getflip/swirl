@@ -1,14 +1,15 @@
+import { DesktopView, MobileView } from "../View/Views";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { useEffect, useState } from "react";
+
 import Image from "next/image";
-import MobileNav from "./mobileNav";
 import Link from "next/link";
+import MobileNav from "./mobileNav";
+import { OpenSearchButton } from "./OpenSearchButton";
+import { SwirlIconClose } from "@getflip/swirl-components-react";
+import classNames from "classnames";
 import { navItems } from "@swirl/lib/navigation";
 import { useRouter } from "next/router";
-import { DesktopView, MobileView } from "../View/Views";
-import { useEffect, useState } from "react";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import classNames from "classnames";
-import { SwirlIconClose } from "@getflip/swirl-components-react";
-import { OpenSearchButton } from "./OpenSearchButton";
 
 export const HeaderLogo = () => {
   return (
@@ -50,6 +51,14 @@ const HeaderNavigation = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   }
 
+  const filteredNavItems = navItems.filter((navItem) => {
+    if (process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production") {
+      return !navItem.title.includes("APIs and References");
+    }
+
+    return navItem;
+  });
+
   return (
     <>
       <Link tabIndex={1} href="#main">
@@ -66,7 +75,7 @@ const HeaderNavigation = () => {
             <div className="flex ">
               <HeaderLogo />
               <ul className="hidden md:flex flex-row items-center bg-background-default">
-                {navItems.map((link) => {
+                {filteredNavItems.map((link) => {
                   const isActive =
                     activePath.split("/")[1] === link.url.split("/")[1];
 
