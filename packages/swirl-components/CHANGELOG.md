@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.103.0
+
+### Minor Changes
+
+- [`e3848897`](https://github.com/getflip/swirl/commit/e384889772c7ebe3dd054cf426e93d10a50ab682)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "tools" slot to
+  swirl-description-list-item
+
 ## 0.102.1
 
 ### Patch Changes
