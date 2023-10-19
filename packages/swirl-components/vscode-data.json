@@ -925,6 +925,10 @@
           "description": ""
         },
         {
+          "name": "swirl-aria-current",
+          "description": ""
+        },
+        {
           "name": "swirl-aria-describedby",
           "description": ""
         },
@@ -943,6 +947,21 @@
         {
           "name": "target",
           "description": ""
+        },
+        {
+          "name": "text-align",
+          "description": "",
+          "values": [
+            {
+              "name": "center"
+            },
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            }
+          ]
         },
         {
           "name": "type",

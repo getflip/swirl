@@ -65,6 +65,18 @@
   }
 }
 
+.button--text-align-start {
+  justify-content: flex-start;
+}
+
+.button--text-align-center {
+  justify-content: center;
+}
+
+.button--text-align-end {
+  justify-content: flex-end;
+}
+
 .button--variant-ghost {
   &.button--intent-strong:not(:disabled) {
     color: var(--s-text-default);

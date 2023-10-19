@@ -8,6 +8,8 @@ export type SwirlButtonIntent = "default" | "primary" | "critical" | "strong";
 
 export type SwirlButtonSize = "m" | "l";
 
+export type SwirlButtonTextAlign = "start" | "center" | "end";
+
 export type SwirlButtonType = "button" | "submit";
 
 export type SwirlButtonVariant =
@@ -36,6 +38,7 @@ export class SwirlButton {
   @Prop() disabled?: boolean;
   @Prop() download?: string;
   @Prop() swirlAriaControls?: string;
+  @Prop() swirlAriaCurrent?: string;
   @Prop() swirlAriaDescribedby?: string;
   @Prop() swirlAriaExpanded?: string;
   @Prop() swirlAriaHaspopup?: string;
@@ -52,6 +55,7 @@ export class SwirlButton {
   @Prop() pressed?: boolean;
   @Prop() size?: SwirlButtonSize = "m";
   @Prop() target?: string;
+  @Prop() textAlign?: SwirlButtonTextAlign = "center";
   @Prop() type?: SwirlButtonType = "button";
   @Prop() value?: string;
   @Prop() variant?: SwirlButtonVariant = "ghost";
@@ -128,6 +132,7 @@ export class SwirlButton {
       `button--icon-position-${this.iconPosition}`,
       `button--intent-${this.intent}`,
       `button--size-${this.size}`,
+      `button--text-align-${this.textAlign}`,
       `button--variant-${this.variant}`,
       {
         "button--icon-only": hideLabel,
@@ -142,6 +147,7 @@ export class SwirlButton {
       <Host style={{ pointerEvents: this.disabled ? "none" : "" }}>
         <Tag
           aria-controls={this.swirlAriaControls}
+          aria-current={this.swirlAriaCurrent}
           aria-describedby={this.swirlAriaDescribedby}
           aria-disabled={this.disabled && !isLink ? "true" : undefined}
           aria-expanded={this.swirlAriaExpanded}

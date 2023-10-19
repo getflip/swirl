@@ -14,7 +14,7 @@ import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvata
 import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 import { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
-import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
+import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
@@ -73,7 +73,7 @@ export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvata
 export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 export { SwirlBoxOverflow, SwirlBoxPadding } from "./components/swirl-box/swirl-box";
-export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
+export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardBorderRadius, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
@@ -298,11 +298,13 @@ export namespace Components {
         "pressed"?: boolean;
         "size"?: SwirlButtonSize;
         "swirlAriaControls"?: string;
+        "swirlAriaCurrent"?: string;
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
         "target"?: string;
+        "textAlign"?: SwirlButtonTextAlign;
         "type"?: SwirlButtonType;
         "value"?: string;
         "variant"?: SwirlButtonVariant;
@@ -4256,11 +4258,13 @@ declare namespace LocalJSX {
         "pressed"?: boolean;
         "size"?: SwirlButtonSize;
         "swirlAriaControls"?: string;
+        "swirlAriaCurrent"?: string;
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
         "target"?: string;
+        "textAlign"?: SwirlButtonTextAlign;
         "type"?: SwirlButtonType;
         "value"?: string;
         "variant"?: SwirlButtonVariant;
