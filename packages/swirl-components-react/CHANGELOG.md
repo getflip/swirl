@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.103.1
+
+### Patch Changes
+
+- [`7f895c41`](https://github.com/getflip/swirl/commit/7f895c41b59010bc3b299158223daebd2be334b9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Correctly hide custom header of
+  swirl-modal if empty
+
+- Updated dependencies
+  [[`7f895c41`](https://github.com/getflip/swirl/commit/7f895c41b59010bc3b299158223daebd2be334b9)]:
+  - @getflip/swirl-components@0.103.1
+
 ## 0.103.0
 
 ### Minor Changes
