@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.102.0
+
+### Minor Changes
+
+- [`138bf768`](https://github.com/getflip/swirl/commit/138bf768a14aecaf342f91588166b28f9300b693)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "text-align" and
+  "swirl-aria-current" prop to swirl-button
+
+* [`f6069b63`](https://github.com/getflip/swirl/commit/f6069b63e401bdbdc73c0d07d2352c879e378bac)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow to control swirl-box
+  borders separately
+
+### Patch Changes
+
+- Updated dependencies
+  [[`138bf768`](https://github.com/getflip/swirl/commit/138bf768a14aecaf342f91588166b28f9300b693),
+  [`f6069b63`](https://github.com/getflip/swirl/commit/f6069b63e401bdbdc73c0d07d2352c879e378bac)]:
+  - @getflip/swirl-components@0.102.0
+
 ## 0.101.6
 
 ### Patch Changes
