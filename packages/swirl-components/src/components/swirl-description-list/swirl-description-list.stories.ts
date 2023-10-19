@@ -18,11 +18,12 @@ const Template = (args) => {
   element.innerHTML = `
     <swirl-description-list-item term="Term #1">
       A short description
-    </swirl-description-list-item>
-    <swirl-description-list-item term="A longer term that might wrap">
+      </swirl-description-list-item>
+      <swirl-description-list-item term="A longer term that might wrap">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Metus eu
       consectetur vestibulum tempus, nulla lobortis ipsum. Odio a ipsum purus
       pellentesque maecenas.
+      <swirl-button label="A button" slot="tools" variant="outline"></swirl-button>
     </swirl-description-list-item>
     <swirl-description-list-item term="Term #3">
       A short description
