@@ -22,6 +22,8 @@ export class ApiDocumentationFacade implements ApiDocumentation {
   }
 
   async build() {
+    console.log("Generating documentation for", this.specPath);
+
     const oasDocument = await new OASNormalize(this.specPath, {
       enablePaths: true,
     }).validate();

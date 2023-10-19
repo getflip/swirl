@@ -57,7 +57,6 @@ export class EndpointMapper {
     }));
 
     return responseBodySchemas.map((response) => {
-      console.log("problems on response", response);
       const requiredProperties = response.schema?.required || [];
       const parameters: Array<OperationSchemaObject> = Object.entries(
         response.schema?.properties || {}

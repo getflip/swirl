@@ -3,4 +3,4 @@ import { envVariables } from ".";
 
 dotenv.config();
 
-export const env = envVariables.parse(process.env);
+export const Env = envVariables.parse(process.env);
