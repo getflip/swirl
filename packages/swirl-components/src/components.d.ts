@@ -272,6 +272,10 @@ export namespace Components {
     }
     interface SwirlBox {
         "bordered"?: boolean;
+        "borderedBlockEnd"?: boolean;
+        "borderedBlockStart"?: boolean;
+        "borderedInlineEnd"?: boolean;
+        "borderedInlineStart"?: boolean;
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
@@ -4232,6 +4236,10 @@ declare namespace LocalJSX {
     }
     interface SwirlBox {
         "bordered"?: boolean;
+        "borderedBlockEnd"?: boolean;
+        "borderedBlockStart"?: boolean;
+        "borderedInlineEnd"?: boolean;
+        "borderedInlineStart"?: boolean;
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;

@@ -628,6 +628,22 @@
           "description": ""
         },
         {
+          "name": "bordered-block-end",
+          "description": ""
+        },
+        {
+          "name": "bordered-block-start",
+          "description": ""
+        },
+        {
+          "name": "bordered-inline-end",
+          "description": ""
+        },
+        {
+          "name": "bordered-inline-start",
+          "description": ""
+        },
+        {
           "name": "center-block",
           "description": ""
         },
