@@ -19,12 +19,12 @@ export class EndpointMapper {
       }));
 
       const requestSchemas = endpoint.operation.getParametersAsJSONSchema();
-
       return {
         title: endpoint.title,
         description: endpoint.operation.getDescription() || "",
         path: endpoint.path,
         isDeprecated: endpoint.operation.isDeprecated(),
+        isExperimental: endpoint.operation.schema["x-experimental"] ?? false,
         parameters: requestSchemas
           ? this.getEndpointOperationSchema(
               requestSchemas.filter((param) => param.type !== "body")

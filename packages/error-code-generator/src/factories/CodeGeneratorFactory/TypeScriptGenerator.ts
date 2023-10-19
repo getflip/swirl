@@ -28,8 +28,8 @@ export class TypeScriptGenerator implements CodeGeneratorWithIndex {
     this.refNames = [
       ...new Set(
         errorCollection.errorCodes?.map(
-          (errorCode) => errorCode?.["x-readme-ref-name"] ?? "",
-        ) ?? [],
+          (errorCode) => errorCode?.["x-readme-ref-name"] ?? ""
+        ) ?? []
       ),
     ];
 
@@ -95,16 +95,16 @@ export class TypeScriptGenerator implements CodeGeneratorWithIndex {
 
   private findErrorCodeForRefName(refName: string) {
     return this.endpointErrorCollection?.errorCodes?.find(
-      (errorCode) => errorCode?.["x-readme-ref-name"] === refName,
+      (errorCode) => errorCode?.["x-readme-ref-name"] === refName
     );
   }
 
   private createErrorAsConstObject(
     variableName: string,
-    errorCodes: string[],
+    errorCodes: string[]
   ): string {
     const mapObject = Object.fromEntries(
-      errorCodes.map((error) => [error, error]),
+      errorCodes.map((error) => [error, error])
     );
     const jsonString = JSON.stringify(mapObject, null, 2);
 
@@ -125,7 +125,7 @@ export class TypeScriptGenerator implements CodeGeneratorWithIndex {
 
   private generateServerErrorCodeType(): string {
     return `export type ServerErrorCode = ${this.endpointErrorTypeStringCache.join(
-      " | ",
+      " | "
     )};`;
   }
 
@@ -156,12 +156,12 @@ export class TypeScriptGenerator implements CodeGeneratorWithIndex {
   private resetGeneratorState(): void {
     this.endpointErrorTypeStringCache.push(this.endpointErrorTypeString!);
     this.endpointErrorCodesTypeStringCache.push(
-      this.endpointErrorCodesTypeString!,
+      this.endpointErrorCodesTypeString!
     );
 
     this.endpointErrorStringsCache.set(
       this.endpointErrorCollection?.endpoint!!,
-      [this.endpointErrorTypeString!, this.endpointErrorCodesTypeString!],
+      [this.endpointErrorTypeString!, this.endpointErrorCodesTypeString!]
     );
 
     this.endpointErrorTypeString = undefined;

@@ -33,7 +33,7 @@ export class DartGenerator implements BaseCodeGenerator {
   private generateErrorCodeArray(): string[] {
     const errorCodes =
       this.endpointErrorCollection?.errorCodes?.flatMap(
-        (errorCode) => errorCode?.enum ?? [],
+        (errorCode) => errorCode?.enum ?? []
       ) ?? [];
 
     return [...new Set(errorCodes)];

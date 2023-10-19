@@ -29,7 +29,7 @@ export class CodeGeneratorHandler implements Handler {
           generatedCodeMapCreator.add(
             codeGenerator
               .setEndpointErrorCollection(endpointErrorCollection)
-              .generateCode(),
+              .generateCode()
           );
         });
 
@@ -49,7 +49,7 @@ export class CodeGeneratorHandler implements Handler {
 
           if (endpointErrorCollection.errorCodes) {
             cummulatedErrorCollection.errorCodes?.push(
-              ...endpointErrorCollection.errorCodes,
+              ...endpointErrorCollection.errorCodes
             );
           }
         });
@@ -59,7 +59,7 @@ export class CodeGeneratorHandler implements Handler {
         generatedCodeMapCreator.add(
           codeGenerator
             .setEndpointErrorCollection(cummulatedErrorCollection)
-            .generateCode(),
+            .generateCode()
         );
         return;
       }
@@ -70,7 +70,7 @@ export class CodeGeneratorHandler implements Handler {
     if (!this.next) {
       console.error(
         "No next handler. Stopping chain. Current processing object: ",
-        request,
+        request
       );
       return;
     }

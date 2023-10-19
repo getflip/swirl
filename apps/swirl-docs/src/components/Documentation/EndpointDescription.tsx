@@ -36,6 +36,11 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
               <Tag content="deprecated" scheme="warning" />
             </span>
           )}
+          {endpoint.isExperimental && (
+            <span className="ml-2 inline-flex">
+              <Tag content="experimental" scheme="warning" />
+            </span>
+          )}
         </Heading>
       </LinkedHeading>
       {endpoint.security?.length && (

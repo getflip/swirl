@@ -41,5 +41,5 @@ yargs(hideBin(process.argv)).command(
     } else {
       throw new Error("Invalid arguments");
     }
-  },
+  }
 ).argv;
