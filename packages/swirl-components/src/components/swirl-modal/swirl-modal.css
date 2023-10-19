@@ -167,6 +167,10 @@
 }
 
 .modal--has-custom-header {
+  & .modal__custom-header {
+    display: block;
+  }
+
   & .modal__content {
     padding-top: var(--s-space-16);
   }
@@ -333,6 +337,7 @@
 }
 
 .modal__custom-header {
+  display: none;
   flex-shrink: 0;
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
 }
