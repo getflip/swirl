@@ -1,5 +1,16 @@
 # @getflip/swirl-components-react
 
+## 0.102.1
+
+### Patch Changes
+
+- [`0e2aa150`](https://github.com/getflip/swirl/commit/0e2aa150c6cec823b4b50fdc7255281c430e4c6d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-modal header padding
+
+- Updated dependencies
+  [[`0e2aa150`](https://github.com/getflip/swirl/commit/0e2aa150c6cec823b4b50fdc7255281c430e4c6d)]:
+  - @getflip/swirl-components@0.102.1
+
 ## 0.102.0
 
 ### Minor Changes
