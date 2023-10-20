@@ -23,7 +23,9 @@
     }
   }
 
-  &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select):not(.form-control--has-placeholder) {
+  &:not(.form-control--has-value):not(.form-control--has-focus):not(
+      .form-control--is-select
+    ):not(.form-control--has-placeholder) {
     & .form-control__input {
       overflow: hidden;
       max-height: 0;
@@ -90,7 +92,9 @@
   }
 
   & .form-control__label-text,
-  &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select):not(.form-control--has-placeholder)
+  &:not(.form-control--has-value):not(.form-control--has-focus):not(
+      .form-control--is-select
+    ):not(.form-control--has-placeholder)
     .form-control__label-text,
   &:not(.form-control--has-value).form-control--is-select
     .form-control__label-text {
@@ -105,7 +109,9 @@
 
   &.form-control--disabled {
     & .form-control__label-text,
-    &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select):not(.form-control--has-placeholder)
+    &:not(.form-control--has-value):not(.form-control--has-focus):not(
+        .form-control--is-select
+      ):not(.form-control--has-placeholder)
       .form-control__label-text,
     &:not(.form-control--has-value).form-control--is-select
       .form-control__label-text {

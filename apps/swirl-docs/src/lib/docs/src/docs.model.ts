@@ -135,6 +135,7 @@ export type ApiEndpoint = {
   responseExamples: CodePreviewSelectOptions;
   responseBodySchemas: Array<ResponseBodySchema>;
   isDeprecated?: boolean;
+  isExperimental?: boolean;
   parameters?: OperationSchemas;
   requestBody?: OperationSchemas;
   responseBody?: OperationSchemas;

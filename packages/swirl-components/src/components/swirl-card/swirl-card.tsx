@@ -4,7 +4,7 @@ import classnames from "classnames";
 const swirlCardBorderRadiusTokens = ["xs", "sm", "base", "l", "xl"] as const;
 
 export type SwirlCardBorderRadius =
-  | typeof swirlCardBorderRadiusTokens[number]
+  | (typeof swirlCardBorderRadiusTokens)[number]
   | string;
 
 export type SwirlCardIntent =
@@ -68,7 +68,7 @@ export class SwirlCard {
 
     const styles = {
       borderRadius: swirlCardBorderRadiusTokens.includes(
-        this.borderRadius as typeof swirlCardBorderRadiusTokens[number]
+        this.borderRadius as (typeof swirlCardBorderRadiusTokens)[number]
       )
         ? `var(--s-border-radius-${this.borderRadius})`
         : this.borderRadius,

@@ -106,7 +106,9 @@ html.disable-desktop-style-tweaks {
         min-height: calc(2.375rem + 2 * var(--s-border-width-default));
       }
 
-      &:not(.form-control--has-value):not(.form-control--has-focus):not(.form-control--is-select) {
+      &:not(.form-control--has-value):not(.form-control--has-focus):not(
+          .form-control--is-select
+        ) {
         & .form-control__label-text {
           font-size: var(--s-font-size-base) !important;
           line-height: var(--s-line-height-base) !important;
