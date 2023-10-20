@@ -19,24 +19,6 @@ export const apiSpecsNavItems: NavItem[] = [
         isRoot: false,
       },
       {
-        title: "Get pwa theme for the authenticated user.",
-        url: "/api-docs/branding-api#get-pwa-theme-for-the-authenticated-user",
-        description: "get",
-        isRoot: false,
-      },
-      {
-        title: "Get mobile theme for the authenticated user.",
-        url: "/api-docs/branding-api#get-mobile-theme-for-the-authenticated-user",
-        description: "get",
-        isRoot: false,
-      },
-      {
-        title: "Get web theme for the authenticated user.",
-        url: "/api-docs/branding-api#get-web-theme-for-the-authenticated-user",
-        description: "get",
-        isRoot: false,
-      },
-      {
         title: "Updates the theme settings for a user group",
         url: "/api-docs/branding-api#updates-the-theme-settings-for-a-user-group",
         description: "patch",

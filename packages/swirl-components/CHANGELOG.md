@@ -1,5 +1,21 @@
 # @getflip/swirl-components
 
+## 0.103.1
+
+### Patch Changes
+
+- [`7f895c41`](https://github.com/getflip/swirl/commit/7f895c41b59010bc3b299158223daebd2be334b9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Correctly hide custom header of
+  swirl-modal if empty
+
+## 0.103.0
+
+### Minor Changes
+
+- [`e3848897`](https://github.com/getflip/swirl/commit/e384889772c7ebe3dd054cf426e93d10a50ab682)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "tools" slot to
+  swirl-description-list-item
+
 ## 0.102.1
 
 ### Patch Changes

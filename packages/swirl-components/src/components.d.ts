@@ -21,7 +21,6 @@ import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } fr
 import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
-import { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 import { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
@@ -80,7 +79,6 @@ export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } fr
 export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
 export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
-export { SwirlDescriptionListItemOrientation } from "./components/swirl-description-list-item/swirl-description-list-item";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 export { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
@@ -461,7 +459,6 @@ export namespace Components {
     interface SwirlDescriptionListItem {
         "bordered"?: boolean;
         "maxWidth"?: string;
-        "orientation"?: SwirlDescriptionListItemOrientation;
         "term": string;
     }
     interface SwirlDialog {
@@ -4420,7 +4417,6 @@ declare namespace LocalJSX {
     interface SwirlDescriptionListItem {
         "bordered"?: boolean;
         "maxWidth"?: string;
-        "orientation"?: SwirlDescriptionListItemOrientation;
         "term": string;
     }
     interface SwirlDialog {
