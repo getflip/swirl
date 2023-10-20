@@ -10,7 +10,6 @@ import { EndpointDescription } from "src/components/Documentation/EndpointDescri
 import Head from "next/head";
 import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
 import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
-import fs from "fs";
 import { isProd } from "@swirl/lib/env";
 import { useRouter } from "next/router";
 

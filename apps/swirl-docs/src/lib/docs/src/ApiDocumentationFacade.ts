@@ -1,8 +1,9 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import OASNormalize from "oas-normalize";
-import { EndpointMapper } from "./EndpointMapper";
 import { ApiDocumentation, ApiEndpoint } from "./docs.model";
+
+import { EndpointMapper } from "./EndpointMapper";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import OASBuilder from "./oasBuilder";
+import OASNormalize from "oas-normalize";
 import { serializeMarkdownString } from "./utils";
 
 export class ApiDocumentationFacade implements ApiDocumentation {
@@ -39,7 +40,7 @@ export class ApiDocumentationFacade implements ApiDocumentation {
         return oas;
       });
 
-    this.title = this.oasBuilder.title;
+    this.title = this.oasBuilder.title.replace("API", "").trim();
     this.description =
       (await serializeMarkdownString(this.oasBuilder.description)) || "";
     this.shortDescription = this.oasBuilder.shortDescription;

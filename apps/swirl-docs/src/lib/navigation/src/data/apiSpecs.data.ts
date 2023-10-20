@@ -2,7 +2,7 @@ import { NavItem } from "../navigation.model";
 
 export const apiSpecsNavItems: NavItem[] = [
   {
-    title: "Branding API",
+    title: "Branding",
     url: "/api-docs/branding-api",
     isRoot: true,
     children: [
@@ -73,7 +73,7 @@ export const apiSpecsNavItems: NavItem[] = [
     specName: "files.yml",
   },
   {
-    title: "Flip API V4",
+    title: "Flip  V4",
     url: "/api-docs/flip-api-v4",
     isRoot: true,
     children: [
@@ -263,7 +263,7 @@ export const apiSpecsNavItems: NavItem[] = [
     specName: "tasks.yml",
   },
   {
-    title: "User Group API",
+    title: "User Group",
     url: "/api-docs/user-group-api",
     isRoot: true,
     children: [
@@ -379,7 +379,7 @@ export const apiSpecsNavItems: NavItem[] = [
     specName: "usergroups.yml",
   },
   {
-    title: "User Management API",
+    title: "User Management",
     url: "/api-docs/user-management-api",
     isRoot: true,
     children: [
