@@ -21,7 +21,7 @@ export class ApiDocumentationFacade implements ApiDocumentation {
     this.endpointMapper = new EndpointMapper();
   }
 
-  async build() {
+  async build(): Promise<ApiDocumentation> {
     console.log("Generating documentation for", this.specPath);
 
     const oasDocument = await new OASNormalize(this.specPath, {
@@ -45,6 +45,11 @@ export class ApiDocumentationFacade implements ApiDocumentation {
     this.shortDescription = this.oasBuilder.shortDescription;
     this.endpoints = this.endpointMapper.map(this.oasBuilder);
 
-    return this;
+    return {
+      title: this.title,
+      shortDescription: this.shortDescription,
+      description: this.description,
+      endpoints: this.endpoints,
+    };
   }
 }
