@@ -8,11 +8,12 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import classNames from "classnames";
-import balanceText from "balance-text";
-import { SwirlIconLink } from "@getflip/swirl-components-react";
-import classnames from "classnames";
+
 import CopyToClipboard from "react-copy-to-clipboard";
+import { SwirlIconLink } from "@getflip/swirl-components-react";
+import balanceText from "balance-text";
+import classNames from "classnames";
+import classnames from "classnames";
 
 type HeadingAlign = "start" | "center" | "end";
 

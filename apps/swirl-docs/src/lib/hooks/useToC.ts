@@ -1,6 +1,7 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { useEffect, useState } from "react";
+
 import { DocHeadline } from "../docs/src/docs.model";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export const useToC = (
   children: MDXRemoteSerializeResult<

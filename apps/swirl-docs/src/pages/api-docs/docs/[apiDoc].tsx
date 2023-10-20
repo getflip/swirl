@@ -1,14 +1,15 @@
-import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
-import Head from "next/head";
-import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
-import { createStaticPathsData } from "@swirl/lib/docs";
-import { ScriptProps } from "next/script";
-import { GetStaticProps } from "next";
-import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
+import { H2, LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
+
+import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
+import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
+import { GetStaticProps } from "next";
+import Head from "next/head";
+import { ScriptProps } from "next/script";
+import { Text } from "src/components/swirl-recreations";
 import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
-import { Heading, Text } from "src/components/swirl-recreations";
+import { createStaticPathsData } from "@swirl/lib/docs";
+import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
@@ -60,14 +61,19 @@ export default function Component({
   frontMatter: FrontMatter;
 }) {
   const components = {
-    // h1: (props) => <Heading level={1} {...props} />,
-    // h2: (props) => <Heading level={2} {...props} />,
-    a: (props) => (
-      <span className="inline-flex items-center text-interactive-primary-default">
+    a: (props) => {
+      const isRegularLink = typeof props.children === "string";
+
+      return isRegularLink ? (
+        <span className="inline-flex items-center text-interactive-primary-default">
+          <a {...props} />
+          <i className="swirl-icons-OpenInNew28 text-[1.25rem] ml-1"></i>
+        </span>
+      ) : (
         <a {...props} />
-        <i className="swirl-icons-OpenInNew28 text-[1.25rem] ml-1"></i>
-      </span>
-    ),
+      );
+    },
+
     ul: (props) => <ul className="mb-4 leading-line-height-xl" {...props} />,
     p: (props) => <Text {...props} />,
     code: (props) => (
@@ -76,7 +82,8 @@ export default function Component({
         {...props}
       />
     ),
-    ...LinkedHeaders,
+    h1: (props: any) => <H2 {...props} href={`#${props.id}`} />,
+    h2: (props: any) => <H2 {...props} href={`#${props.id}`} />,
   } as MDXRemoteProps["components"];
 
   return (
