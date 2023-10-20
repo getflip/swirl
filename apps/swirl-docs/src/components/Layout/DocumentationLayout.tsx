@@ -1,15 +1,16 @@
-import { SidebarNavigation } from "./SidebarNavigation";
-import { DocLinksNav } from "./DocLinksNav";
-import Footer from "./Footer";
-import { DocumentationHeader } from "../Documentation/DocumentationHeader";
-import { ComponentPreview } from "../ComponentPreview";
-import { useToC } from "@swirl/lib/hooks/useToC";
-import classNames from "classnames";
 import DocumentationLayoutContext, {
   TDocumentationLayout,
 } from "./DocumentationLayoutContext";
-import { ReactNode } from "react";
+
+import { ComponentPreview } from "../ComponentPreview";
+import { DocLinksNav } from "./DocLinksNav";
+import { DocumentationHeader } from "../Documentation/DocumentationHeader";
+import Footer from "./Footer";
 import MDXDocument from "./MDXDocument";
+import { ReactNode } from "react";
+import { SidebarNavigation } from "./SidebarNavigation";
+import classNames from "classnames";
+import { useToC } from "@swirl/lib/hooks/useToC";
 
 type DocumentationLayoutProps = {
   data: TDocumentationLayout;
@@ -25,6 +26,8 @@ export function DocumentationLayout({
   disableToc = false,
 }: DocumentationLayoutProps) {
   const [tocItems] = useToC(data.mdxContent?.document!, false);
+
+  console.log("tocItems", tocItems);
 
   return (
     <DocumentationLayoutContext.Provider value={data}>

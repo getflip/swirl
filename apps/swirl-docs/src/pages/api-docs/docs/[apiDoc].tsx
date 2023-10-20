@@ -1,14 +1,15 @@
-import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
-import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
-import Head from "next/head";
-import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
-import { createStaticPathsData } from "@swirl/lib/docs";
-import { ScriptProps } from "next/script";
-import { GetStaticProps } from "next";
-import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
+
+import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
+import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
+import { GetStaticProps } from "next";
+import Head from "next/head";
+import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
+import { ScriptProps } from "next/script";
+import { Text } from "src/components/swirl-recreations";
 import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
-import { Heading, Text } from "src/components/swirl-recreations";
+import { createStaticPathsData } from "@swirl/lib/docs";
+import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
