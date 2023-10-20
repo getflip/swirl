@@ -18,13 +18,16 @@ export class EndpointMapper {
         statusCode,
       }));
 
+      const isEndpointExperimental: ApiDocumentation["endpoints"][0]["isExperimental"] =
+        (endpoint.operation.schema["x-experimental"] as boolean) ?? false;
+
       const requestSchemas = endpoint.operation.getParametersAsJSONSchema();
       return {
         title: endpoint.title,
         description: endpoint.operation.getDescription() || "",
         path: endpoint.path,
         isDeprecated: endpoint.operation.isDeprecated(),
-        isExperimental: endpoint.operation.schema["x-experimental"] ?? false,
+        isExperimental: isEndpointExperimental,
         parameters: requestSchemas
           ? this.getEndpointOperationSchema(
               requestSchemas.filter((param) => param.type !== "body")
