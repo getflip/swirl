@@ -21,7 +21,7 @@ export class ErrorCodeExtractorHandler implements Handler {
       if (!this.next) {
         console.error(
           "No next handler. Stopping chain. Current processing object: ",
-          request
+          request,
         );
         return;
       }

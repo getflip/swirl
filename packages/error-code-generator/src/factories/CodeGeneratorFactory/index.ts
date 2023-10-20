@@ -8,7 +8,7 @@ export interface BaseCodeGenerator {
   readonly fileExtension: string;
   generateCode(): GeneratedCode;
   setEndpointErrorCollection(
-    errorCollection: EndpointErrorCollection
+    errorCollection: EndpointErrorCollection,
   ): CodeGenerator;
 }
 
@@ -28,7 +28,7 @@ export type CodeGenerator = CodeGeneratorWithIndex | CodeGeneratorWithoutIndex;
 
 // Type guard to check if a generator has index file rendering
 export function hasIndexFileRendering(
-  generator: CodeGenerator
+  generator: CodeGenerator,
 ): generator is CodeGeneratorWithIndex {
   return generator.hasIndexFileRendering === true;
 }
@@ -42,7 +42,7 @@ export class CodeGeneratorFactory {
         return new DartGenerator();
       default:
         throw new Error(
-          `CodeGenerator not implemented for language: ${language}`
+          `CodeGenerator not implemented for language: ${language}`,
         );
     }
   }

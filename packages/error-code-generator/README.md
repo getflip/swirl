@@ -124,7 +124,7 @@ objects and returns a string containing the generated code.
     fileExtension: string;
     generateCode(): GeneratedCode;
     setEndpointErrorCollection(
-      errorCollection: EndpointErrorCollection
+      errorCollection: EndpointErrorCollection,
     ): CodeGenerator;
   }
   ```

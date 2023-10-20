@@ -31,7 +31,7 @@ export class FileWriterHandler implements Handler {
 
           fs.writeFileSync(
             `${request.outputDirectory}/${language}/${fileName}`,
-            formattedCode
+            formattedCode,
           );
         });
       }

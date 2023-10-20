@@ -3,7 +3,7 @@ import prettier from "prettier";
 
 export function formatCode(
   language: GeneratedCode["language"],
-  code: string
+  code: string,
 ): Promise<string> {
   switch (language) {
     case "TypeScript":
