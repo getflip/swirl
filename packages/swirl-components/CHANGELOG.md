@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.104.1
+
+### Patch Changes
+
+- [`87d04c01`](https://github.com/getflip/swirl/commit/87d04c01cf78eb584d8a5c012504594e4d0bf168)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make swirl-inline-error message
+  respect line breaks
+
 ## 0.104.0
 
 ### Minor Changes
