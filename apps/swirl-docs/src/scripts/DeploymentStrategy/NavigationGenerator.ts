@@ -1,7 +1,8 @@
-import fs from "fs";
-import OASNormalize from "oas-normalize";
-import OASBuilder from "@swirl/lib/docs/src/oasBuilderSetup";
 import { API_DOCS_PATH, API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
+
+import OASBuilder from "@swirl/lib/docs/src/oasBuilderSetup";
+import OASNormalize from "oas-normalize";
+import fs from "fs";
 import path from "path";
 import prettier from "prettier";
 
@@ -84,19 +85,12 @@ export class ApiSpecsNavigationGenerator
       })) || [];
 
     return {
-      title: oasBuilderDereffed.title,
+      title: oasBuilderDereffed.title.replace("API", "").trim(),
       url: `/api-docs/${oasBuilderDereffed.path}`,
       isRoot: true,
       children: operationNavItems,
       specName,
     };
-    try {
-    } catch (error) {
-      console.error("Error [generateNavItems]:", error);
-      throw new Error(
-        `Error generating navigation for ${specName} in ${specPath}`
-      );
-    }
   }
 }
 

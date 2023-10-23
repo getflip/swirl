@@ -1,24 +1,25 @@
-import { createStaticPathsData } from "@swirl/lib/docs";
-import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 import {
   DOCUMENTATION_CATEGORY,
   FrontMatter,
 } from "@swirl/lib/docs/src/docs.model";
-import Head from "next/head";
-import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
-import { H2, H3, LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
-import TokensList from "src/components/Tokens/TokensList";
-import { ColorTokens } from "src/components/Tokens/ColorTokens";
-import { TypographyTokens } from "src/components/Tokens/TypographyTokens";
-import { BorderTokens } from "src/components/Tokens/BorderTokens";
-import { SpacingTokens } from "src/components/Tokens/SpacingTokens";
-import { ZIndexTokens } from "src/components/Tokens/ZIndexTokens";
-import { GetStaticProps } from "next";
-import { ScriptProps } from "next/script";
-import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
+import { H2, LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { useRouter } from "next/router";
+
+import { BorderTokens } from "src/components/Tokens/BorderTokens";
+import { ColorTokens } from "src/components/Tokens/ColorTokens";
+import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
+import { GetStaticProps } from "next";
+import Head from "next/head";
+import { ScriptProps } from "next/script";
+import { SpacingTokens } from "src/components/Tokens/SpacingTokens";
+import TokensList from "src/components/Tokens/TokensList";
+import { TypographyTokens } from "src/components/Tokens/TypographyTokens";
+import { ZIndexTokens } from "src/components/Tokens/ZIndexTokens";
+import { createStaticPathsData } from "@swirl/lib/docs";
+import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 import { isProd } from "@swirl/lib/env";
+import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
+import { useRouter } from "next/router";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(

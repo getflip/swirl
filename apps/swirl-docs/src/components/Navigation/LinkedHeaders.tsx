@@ -9,10 +9,12 @@ interface HeadlineProps
   href?: string;
 }
 
+const idToHref = (id: string) => `#${id}`;
+
 const H1 = ({ id, href, ...rest }: HeadlineProps) => {
   if (id && href) {
     return (
-      <LinkedHeading href={href}>
+      <LinkedHeading href={idToHref(id)}>
         <Heading level={1} id={id} {...rest} />
       </LinkedHeading>
     );
@@ -23,7 +25,7 @@ const H1 = ({ id, href, ...rest }: HeadlineProps) => {
 export const H2 = ({ id, href, ...rest }: HeadlineProps) => {
   if (id && href) {
     return (
-      <LinkedHeading href={href}>
+      <LinkedHeading href={idToHref(id)}>
         <Heading level={2} id={id} {...rest} />
       </LinkedHeading>
     );
