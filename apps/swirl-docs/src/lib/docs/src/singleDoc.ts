@@ -1,13 +1,13 @@
-import fs from "fs";
-import matter from "gray-matter";
-import remarkGfm from "remark-gfm";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import { generateDocumentPath } from "@swirl/lib/navigation";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import sectionize from "remark-sectionize";
 import { DocumentationCategory } from "./docs.model";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import fs from "fs";
+import { generateDocumentPath } from "@swirl/lib/navigation";
+import matter from "gray-matter";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import sectionize from "remark-sectionize";
+import { serialize } from "next-mdx-remote/serialize";
 
 export async function generateMdxFromDocumentation(
   category: DocumentationCategory,

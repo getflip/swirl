@@ -73,19 +73,19 @@ export const apiSpecsNavItems: NavItem[] = [
     specName: "files.yml",
   },
   {
-    title: "Flip  V4",
-    url: "/api-docs/flip-api-v4",
+    title: "Organisations",
+    url: "/api-docs/organisations",
     isRoot: true,
     children: [
       {
         title: "Get language settings for organisation",
-        url: "/api-docs/flip-api-v4#get-language-settings-for-organisation",
+        url: "/api-docs/organisations#get-language-settings-for-organisation",
         description: "get",
         isRoot: false,
       },
       {
         title: "Update language settings for organisation",
-        url: "/api-docs/flip-api-v4#update-language-settings-for-organisation",
+        url: "/api-docs/organisations#update-language-settings-for-organisation",
         description: "patch",
         isRoot: false,
       },
