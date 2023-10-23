@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.104.1
+
+### Patch Changes
+
+- [`87d04c01`](https://github.com/getflip/swirl/commit/87d04c01cf78eb584d8a5c012504594e4d0bf168)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make swirl-inline-error message
+  respect line breaks
+
+- Updated dependencies
+  [[`87d04c01`](https://github.com/getflip/swirl/commit/87d04c01cf78eb584d8a5c012504594e4d0bf168)]:
+  - @getflip/swirl-components@0.104.1
+
 ## 0.104.0
 
 ### Minor Changes
