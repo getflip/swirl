@@ -102,12 +102,22 @@ type LinkedHeadingProps = DetailedHTMLProps<
 > & {
   children: ReactElement<typeof Heading>;
   href: string;
+  className?: string;
 };
 
-export function LinkedHeading({ children, href }: LinkedHeadingProps) {
+export function LinkedHeading({
+  children,
+  href,
+  className,
+}: LinkedHeadingProps) {
   return (
     <CopyToClipboard text={href}>
-      <div className="relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer mb-6">
+      <div
+        className={classNames(
+          "relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer",
+          className
+        )}
+      >
         {/** DESKTOP ICON */}
         <i
           className={classnames(
