@@ -62,7 +62,34 @@ export default function Component({
   >;
   frontMatter: FrontMatter;
 }) {
-  const components = {
+  return (
+    <>
+      <Head>
+        <title>Swirl | Components</title>
+      </Head>
+
+      <DocumentationLayout
+        data={{
+          mdxContent: {
+            document,
+            components: generateMdxThemeComponents(),
+          },
+          navigationLinks: apiNavItems,
+          frontMatter,
+        }}
+        header={<DocumentationLayout.Header />}
+        content={
+          <>
+            <DocumentationLayout.MDX />
+          </>
+        }
+      />
+    </>
+  );
+}
+
+function generateMdxThemeComponents() {
+  return {
     a: (props) => {
       const isRegularLink = typeof props.children === "string";
 
@@ -126,30 +153,6 @@ export default function Component({
     h6: (props: any) => (
       <H4 className="mb-2" {...props} href={`#${props.id}`} />
     ),
+    hr: (props) => <hr className="my-8" {...props} />,
   } as MDXRemoteProps["components"];
-
-  return (
-    <>
-      <Head>
-        <title>Swirl | Components</title>
-      </Head>
-
-      <DocumentationLayout
-        data={{
-          mdxContent: {
-            document,
-            components,
-          },
-          navigationLinks: apiNavItems,
-          frontMatter,
-        }}
-        header={<DocumentationLayout.Header />}
-        content={
-          <>
-            <DocumentationLayout.MDX />
-          </>
-        }
-      />
-    </>
-  );
 }
