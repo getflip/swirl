@@ -1,5 +1,16 @@
 # @getflip/swirl-components-react
 
+## 0.104.2
+
+### Patch Changes
+
+- [`f1375c45`](https://github.com/getflip/swirl/commit/f1375c45dce1d6263fb72e0354290fd1988ef154)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-emoji asset paths
+
+- Updated dependencies
+  [[`f1375c45`](https://github.com/getflip/swirl/commit/f1375c45dce1d6263fb72e0354290fd1988ef154)]:
+  - @getflip/swirl-components@0.104.2
+
 ## 0.104.1
 
 ### Patch Changes
