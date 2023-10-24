@@ -23,7 +23,7 @@ export class SwirlEmojiClap {
             alt={this.label}
             class={className}
             height="16"
-            src="/emojis/Clap16.png"
+            src="emojis/Clap16.png"
             width="16"
           />
         )}
@@ -32,7 +32,7 @@ export class SwirlEmojiClap {
             alt={this.label}
             class={className}
             height="20"
-            src="/emojis/Clap20.png"
+            src="emojis/Clap20.png"
             width="20"
           />
         )}
@@ -41,7 +41,7 @@ export class SwirlEmojiClap {
             alt={this.label}
             class={className}
             height="24"
-            src="/emojis/Clap24.png"
+            src="emojis/Clap24.png"
             width="24"
           />
         )}
@@ -50,7 +50,7 @@ export class SwirlEmojiClap {
             alt={this.label}
             class={className}
             height="32"
-            src="/emojis/Clap32.png"
+            src="emojis/Clap32.png"
             width="32"
           />
         )}

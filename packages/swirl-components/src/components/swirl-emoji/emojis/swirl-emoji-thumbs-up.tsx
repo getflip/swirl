@@ -23,7 +23,7 @@ export class SwirlEmojiThumbsUp {
             alt={this.label}
             class={className}
             height="16"
-            src="/emojis/ThumbsUp16.png"
+            src="emojis/ThumbsUp16.png"
             width="16"
           />
         )}
@@ -32,7 +32,7 @@ export class SwirlEmojiThumbsUp {
             alt={this.label}
             class={className}
             height="20"
-            src="/emojis/ThumbsUp20.png"
+            src="emojis/ThumbsUp20.png"
             width="20"
           />
         )}
@@ -41,7 +41,7 @@ export class SwirlEmojiThumbsUp {
             alt={this.label}
             class={className}
             height="24"
-            src="/emojis/ThumbsUp24.png"
+            src="emojis/ThumbsUp24.png"
             width="24"
           />
         )}
@@ -50,7 +50,7 @@ export class SwirlEmojiThumbsUp {
             alt={this.label}
             class={className}
             height="32"
-            src="/emojis/ThumbsUp32.png"
+            src="emojis/ThumbsUp32.png"
             width="32"
           />
         )}

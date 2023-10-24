@@ -2920,6 +2920,19 @@
       ]
     },
     {
+      "name": "swirl-icon-discover",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-double-arrow-left",
       "description": {
         "kind": "markdown",
