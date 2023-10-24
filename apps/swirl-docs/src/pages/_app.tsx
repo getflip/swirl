@@ -29,4 +29,4 @@ const App =
     ? GetFlipDev
     : PasswordProtectedGetFlipDev;
 
-export default App;
+export default GetFlipDev;
