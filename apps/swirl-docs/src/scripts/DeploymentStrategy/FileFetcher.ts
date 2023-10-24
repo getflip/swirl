@@ -1,6 +1,6 @@
-import path from "path";
 import { FileSystemHandler } from "./FileSystemHandler";
 import { GitLabAPI } from "./GitlabApi";
+import path from "path";
 
 export type RepositoryTreeItem = {
   id: string;
@@ -24,11 +24,11 @@ export class FileFetcher {
       );
     }
 
-    const docs = await this.gitlabAPI.fetchFileList("docs");
+    // const docs = await this.gitlabAPI.fetchFileList("docs");
 
-    if (docs) {
-      await Promise.all(docs.map((doc) => this.processFileOrTree(doc)));
-    }
+    // if (docs) {
+    //   await Promise.all(docs.map((doc) => this.processFileOrTree(doc)));
+    // }
   }
 
   private async fetchDocFiles(doc: string, root?: string) {

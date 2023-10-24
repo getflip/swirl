@@ -1,7 +1,7 @@
-import path from "path";
-import fs from "fs";
-import { promisify } from "util";
 import { DeploymentStrategy } from ".";
+import fs from "fs";
+import path from "path";
+import { promisify } from "util";
 
 const renameAsync = promisify(fs.rename);
 const unlinkAsync = promisify(fs.unlink);
@@ -55,6 +55,15 @@ export class FileOperator {
   private async deleteGlobalSpecs() {
     await this.deleteSpec("version-info.yml");
     await this.deleteSpec("merged.yml");
+
+    // for preview
+    await this.deleteSpec("branding.yml");
+    await this.deleteSpec("files.yml");
+    await this.deleteSpec("organisations.yml");
+    await this.deleteSpec("posts.yml");
+    await this.deleteSpec("sharepoint-pages.yml");
+    await this.deleteSpec("usergroups.yml");
+    await this.deleteSpec("users.yml");
   }
 
   private async deleteSpec(spec: string) {

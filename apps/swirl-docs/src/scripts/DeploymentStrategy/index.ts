@@ -1,9 +1,10 @@
-import { FileOperator } from "./FileOperator";
-import { FileFetcher } from "./FileFetcher";
 import {
-  ApiSpecsNavigationGenerator,
   ApiDocsNavigationGenerator,
+  ApiSpecsNavigationGenerator,
 } from "./NavigationGenerator";
+
+import { FileFetcher } from "./FileFetcher";
+import { FileOperator } from "./FileOperator";
 
 export interface DeploymentStrategy {
   strategy: "production" | "staging";
@@ -27,10 +28,10 @@ export class ProductionDeployment implements DeploymentStrategy {
 
   async generateApiNavigation() {
     const apiSpecNavigationGenerator = new ApiSpecsNavigationGenerator();
-    const apiDocsNavigationGenerator = new ApiDocsNavigationGenerator();
+    // const apiDocsNavigationGenerator = new ApiDocsNavigationGenerator();
 
     await apiSpecNavigationGenerator.generate();
-    await apiDocsNavigationGenerator.generate();
+    // await apiDocsNavigationGenerator.generate();
   }
 }
 
