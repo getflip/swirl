@@ -62,8 +62,8 @@ export class FileOperator {
     await this.deleteSpec("organisations.yml");
     await this.deleteSpec("posts.yml");
     await this.deleteSpec("sharepoint-pages.yml");
-    await this.deleteSpec("usergroups.yml");
-    await this.deleteSpec("users.yml");
+    // await this.deleteSpec("usergroups.yml");
+    // await this.deleteSpec("users.yml");
   }
 
   private async deleteSpec(spec: string) {

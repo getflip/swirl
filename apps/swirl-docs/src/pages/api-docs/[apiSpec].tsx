@@ -25,9 +25,15 @@ async function generateSpecData(spec: string): Promise<ApiDocumentation> {
 export const getStaticPaths: GetStaticPaths = async () => {
   const specs = createStaticPathsForSpecs() ?? [];
 
+  const filteredSpecs = specs.filter((spec) => {
+    if (typeof spec !== "string") {
+      return spec.params.apiSpec === "tasks";
+    }
+  });
+
   return {
     fallback: false,
-    paths: specs,
+    paths: filteredSpecs,
   };
 };
 

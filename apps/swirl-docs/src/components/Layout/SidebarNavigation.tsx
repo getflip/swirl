@@ -10,7 +10,6 @@ import { HttpMethods } from "oas/dist/rmoas.types";
 import Image from "next/image";
 import Link from "next/link";
 import { NavItem } from "@swirl/lib/navigation/";
-import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import classNames from "classnames";
 import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";

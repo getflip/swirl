@@ -50,9 +50,9 @@ export class StagingDeployment implements DeploymentStrategy {
 
   async generateApiNavigation() {
     const apiSpecNavigationGenerator = new ApiSpecsNavigationGenerator();
-    const apiDocsNavigationGenerator = new ApiDocsNavigationGenerator();
+    // const apiDocsNavigationGenerator = new ApiDocsNavigationGenerator();
 
     await apiSpecNavigationGenerator.generate();
-    await apiDocsNavigationGenerator.generate();
+    // await apiDocsNavigationGenerator.generate();
   }
 }
