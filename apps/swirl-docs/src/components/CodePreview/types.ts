@@ -1,5 +1,5 @@
-import { Request } from "har-format";
 import { ReactNode } from "react";
+import { Request } from "har-format";
 
 export type CodePreviewSelectOptions = Record<string, string>;
 
@@ -13,6 +13,7 @@ export type CodePreview = {
     request?: Request;
   };
   isExpanded?: boolean;
+  disableHeader?: boolean;
   isLightTheme?: boolean;
   hasCopyButton?: boolean;
   className?: string;

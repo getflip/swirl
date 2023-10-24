@@ -22,7 +22,6 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
         document.querySelector(`[id="${sub.id}"]`)
       );
 
-      // Here, we filter out any null elements
       return [sectionElement, ...subsectionElements].filter(
         (el) => el !== null
       ) as Element[];

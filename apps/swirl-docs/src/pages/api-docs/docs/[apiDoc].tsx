@@ -97,6 +97,7 @@ export default function Component({
       if (props.children && typeof props.children === "string") {
         return (
           <CodePreview
+            disableHeader
             className="mb-4"
             hasCopyButton
             codeExample={{
