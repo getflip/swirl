@@ -628,6 +628,22 @@
           "description": ""
         },
         {
+          "name": "bordered-block-end",
+          "description": ""
+        },
+        {
+          "name": "bordered-block-start",
+          "description": ""
+        },
+        {
+          "name": "bordered-inline-end",
+          "description": ""
+        },
+        {
+          "name": "bordered-inline-start",
+          "description": ""
+        },
+        {
           "name": "center-block",
           "description": ""
         },
@@ -925,6 +941,10 @@
           "description": ""
         },
         {
+          "name": "swirl-aria-current",
+          "description": ""
+        },
+        {
           "name": "swirl-aria-describedby",
           "description": ""
         },
@@ -943,6 +963,21 @@
         {
           "name": "target",
           "description": ""
+        },
+        {
+          "name": "text-align",
+          "description": "",
+          "values": [
+            {
+              "name": "center"
+            },
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            }
+          ]
         },
         {
           "name": "type",
@@ -1778,18 +1813,6 @@
         {
           "name": "max-width",
           "description": ""
-        },
-        {
-          "name": "orientation",
-          "description": "",
-          "values": [
-            {
-              "name": "horizontal"
-            },
-            {
-              "name": "vertical"
-            }
-          ]
         },
         {
           "name": "term",
@@ -2885,6 +2908,19 @@
     },
     {
       "name": "swirl-icon-description",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-discover",
       "description": {
         "kind": "markdown",
         "value": ""

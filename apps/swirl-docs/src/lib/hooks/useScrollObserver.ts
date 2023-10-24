@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
 const useScrollObserver = (
   elements: Element[]
@@ -6,9 +6,6 @@ const useScrollObserver = (
   const [activeIndex, setActiveIndex] = useState(-1);
 
   const observer = useRef<IntersectionObserver>();
-
-  console.log("elements", elements);
-  console.log("activeIndex", activeIndex);
 
   useEffect(() => {
     if (observer.current) {

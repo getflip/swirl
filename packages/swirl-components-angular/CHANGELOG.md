@@ -1,5 +1,166 @@
 # @getflip/swirl-components-angular
 
+## 0.104.2
+
+### Patch Changes
+
+- [`f1375c45`](https://github.com/getflip/swirl/commit/f1375c45dce1d6263fb72e0354290fd1988ef154)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-emoji asset paths
+
+- Updated dependencies
+  [[`f1375c45`](https://github.com/getflip/swirl/commit/f1375c45dce1d6263fb72e0354290fd1988ef154)]:
+  - @getflip/swirl-components@0.104.2
+
+## 0.104.1
+
+### Patch Changes
+
+- [`87d04c01`](https://github.com/getflip/swirl/commit/87d04c01cf78eb584d8a5c012504594e4d0bf168)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make swirl-inline-error message
+  respect line breaks
+
+- Updated dependencies
+  [[`87d04c01`](https://github.com/getflip/swirl/commit/87d04c01cf78eb584d8a5c012504594e4d0bf168)]:
+  - @getflip/swirl-components@0.104.1
+
+## 0.104.0
+
+### Minor Changes
+
+- [`fc722d3e`](https://github.com/getflip/swirl/commit/fc722d3e33b3f34289581eaef29cd890889d60e7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "discover" icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fc722d3e`](https://github.com/getflip/swirl/commit/fc722d3e33b3f34289581eaef29cd890889d60e7)]:
+  - @getflip/swirl-components@0.104.0
+
+## 0.103.1
+
+### Patch Changes
+
+- [`7f895c41`](https://github.com/getflip/swirl/commit/7f895c41b59010bc3b299158223daebd2be334b9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Correctly hide custom header of
+  swirl-modal if empty
+
+- Updated dependencies
+  [[`7f895c41`](https://github.com/getflip/swirl/commit/7f895c41b59010bc3b299158223daebd2be334b9)]:
+  - @getflip/swirl-components@0.103.1
+
+## 0.103.0
+
+### Minor Changes
+
+- [`e3848897`](https://github.com/getflip/swirl/commit/e384889772c7ebe3dd054cf426e93d10a50ab682)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "tools" slot to
+  swirl-description-list-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e3848897`](https://github.com/getflip/swirl/commit/e384889772c7ebe3dd054cf426e93d10a50ab682)]:
+  - @getflip/swirl-components@0.103.0
+
+## 0.102.1
+
+### Patch Changes
+
+- [`0e2aa150`](https://github.com/getflip/swirl/commit/0e2aa150c6cec823b4b50fdc7255281c430e4c6d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-modal header padding
+
+- Updated dependencies
+  [[`0e2aa150`](https://github.com/getflip/swirl/commit/0e2aa150c6cec823b4b50fdc7255281c430e4c6d)]:
+  - @getflip/swirl-components@0.102.1
+
+## 0.102.0
+
+### Minor Changes
+
+- [`138bf768`](https://github.com/getflip/swirl/commit/138bf768a14aecaf342f91588166b28f9300b693)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "text-align" and
+  "swirl-aria-current" prop to swirl-button
+
+* [`f6069b63`](https://github.com/getflip/swirl/commit/f6069b63e401bdbdc73c0d07d2352c879e378bac)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow to control swirl-box
+  borders separately
+
+### Patch Changes
+
+- Updated dependencies
+  [[`138bf768`](https://github.com/getflip/swirl/commit/138bf768a14aecaf342f91588166b28f9300b693),
+  [`f6069b63`](https://github.com/getflip/swirl/commit/f6069b63e401bdbdc73c0d07d2352c879e378bac)]:
+  - @getflip/swirl-components@0.102.0
+
+## 0.101.6
+
+### Patch Changes
+
+- [`016b09da`](https://github.com/getflip/swirl/commit/016b09da53b88c25e5cbf59772c5d93da0047360)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-app-layout styles
+
+- Updated dependencies
+  [[`016b09da`](https://github.com/getflip/swirl/commit/016b09da53b88c25e5cbf59772c5d93da0047360)]:
+  - @getflip/swirl-components@0.101.6
+
+## 0.101.5
+
+### Patch Changes
+
+- [`be883790`](https://github.com/getflip/swirl/commit/be883790ceb3f24ff5f7aa6136b27156602bcb87)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-app-layout padding
+
+- Updated dependencies
+  [[`be883790`](https://github.com/getflip/swirl/commit/be883790ceb3f24ff5f7aa6136b27156602bcb87)]:
+  - @getflip/swirl-components@0.101.5
+
+## 0.101.4
+
+### Patch Changes
+
+- [`cdb91035`](https://github.com/getflip/swirl/commit/cdb91035869359fc210959f3f5e877baf789f1c2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-app-layout styling
+
+- Updated dependencies
+  [[`cdb91035`](https://github.com/getflip/swirl/commit/cdb91035869359fc210959f3f5e877baf789f1c2)]:
+  - @getflip/swirl-components@0.101.4
+
+## 0.101.3
+
+### Patch Changes
+
+- [`90a76301`](https://github.com/getflip/swirl/commit/90a763013c9f3b923a4e77b9ac7553d89e0dbd7b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-accordion-item toggle
+  color when used inside swirl-modal
+
+- Updated dependencies
+  [[`90a76301`](https://github.com/getflip/swirl/commit/90a763013c9f3b923a4e77b9ac7553d89e0dbd7b)]:
+  - @getflip/swirl-components@0.101.3
+
+## 0.101.2
+
+### Patch Changes
+
+- [`3b57dde1`](https://github.com/getflip/swirl/commit/3b57dde1ab0ef60ecb59c320c996b3506b29b811)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-card background color
+  when used inside swirl-modal
+
+- Updated dependencies
+  [[`3b57dde1`](https://github.com/getflip/swirl/commit/3b57dde1ab0ef60ecb59c320c996b3506b29b811)]:
+  - @getflip/swirl-components@0.101.2
+
+## 0.101.1
+
+### Patch Changes
+
+- [`8353578d`](https://github.com/getflip/swirl/commit/8353578dd81650addea2bf0b1b79f62e42c51cf9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a focus trap issue of
+  swirl-modal
+
+- Updated dependencies
+  [[`8353578d`](https://github.com/getflip/swirl/commit/8353578dd81650addea2bf0b1b79f62e42c51cf9)]:
+  - @getflip/swirl-components@0.101.1
+
 ## 0.101.0
 
 ### Minor Changes

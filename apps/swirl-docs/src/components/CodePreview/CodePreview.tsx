@@ -21,6 +21,7 @@ export function CodePreview({
   PreviewIndicator,
   MainHeaderContent,
   ActionItems,
+  disableHeader,
 }: CodePreview) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [selectId, handleSelect] = useState<
@@ -71,6 +72,7 @@ export function CodePreview({
           hasCopyButton,
           className,
           isExpanded,
+          disableHeader,
           PreviewIndicator,
           MainHeaderContent,
           ActionItems,
@@ -86,6 +88,7 @@ export function CodePreview({
             {
               "md:h-[240px] md:max-h-[240px] overflow-hidden":
                 !isExpanded && !isLightTheme,
+              "md:h-full": disableHeader,
               "min-h-[240px]": isExpanded,
               "h-full": isLightTheme,
             },
@@ -95,7 +98,7 @@ export function CodePreview({
             }
           )}
         >
-          <CodePreviewHeader />
+          {!disableHeader && <CodePreviewHeader />}
           <CodePreviewHighlight />
           {codePreviewCodeExample.isLongCode && !isLightTheme && (
             <CodePreviewExpandButton

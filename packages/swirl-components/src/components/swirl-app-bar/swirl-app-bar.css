@@ -26,6 +26,12 @@
   }
 }
 
+.app-bar:not(.app-bar--has-right-controls) {
+  & .app-bar__right-controls {
+    display: none;
+  }
+}
+
 .app-bar__left-controls {
   display: flex;
   min-width: 0;

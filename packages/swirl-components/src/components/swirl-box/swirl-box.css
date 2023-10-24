@@ -6,6 +6,26 @@
     border: var(--s-border-width-default) solid var(--s-border-default);
   }
 
+  &(.box--bordered-block-end) {
+    border-block-end: var(--s-border-width-default) solid
+      var(--s-border-default);
+  }
+
+  &(.box--bordered-block-start) {
+    border-block-start: var(--s-border-width-default) solid
+      var(--s-border-default);
+  }
+
+  &(.box--bordered-inline-end) {
+    border-inline-end: var(--s-border-width-default) solid
+      var(--s-border-default);
+  }
+
+  &(.box--bordered-inline-start) {
+    border-inline-start: var(--s-border-width-default) solid
+      var(--s-border-default);
+  }
+
   &(.box--cover) {
     width: 100%;
     height: 100%;

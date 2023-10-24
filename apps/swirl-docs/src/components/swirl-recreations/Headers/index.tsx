@@ -8,11 +8,12 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import classNames from "classnames";
-import balanceText from "balance-text";
-import { SwirlIconLink } from "@getflip/swirl-components-react";
-import classnames from "classnames";
+
 import CopyToClipboard from "react-copy-to-clipboard";
+import { SwirlIconLink } from "@getflip/swirl-components-react";
+import balanceText from "balance-text";
+import classNames from "classnames";
+import classnames from "classnames";
 
 type HeadingAlign = "start" | "center" | "end";
 
@@ -101,12 +102,22 @@ type LinkedHeadingProps = DetailedHTMLProps<
 > & {
   children: ReactElement<typeof Heading>;
   href: string;
+  className?: string;
 };
 
-export function LinkedHeading({ children, href }: LinkedHeadingProps) {
+export function LinkedHeading({
+  children,
+  href,
+  className,
+}: LinkedHeadingProps) {
   return (
     <CopyToClipboard text={href}>
-      <div className="relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer mb-6">
+      <div
+        className={classNames(
+          "relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer",
+          className
+        )}
+      >
         {/** DESKTOP ICON */}
         <i
           className={classnames(

@@ -23,7 +23,7 @@ export class SwirlEmojiSad {
             alt={this.label}
             class={className}
             height="16"
-            src="/emojis/Sad16.png"
+            src="emojis/Sad16.png"
             width="16"
           />
         )}
@@ -32,7 +32,7 @@ export class SwirlEmojiSad {
             alt={this.label}
             class={className}
             height="20"
-            src="/emojis/Sad20.png"
+            src="emojis/Sad20.png"
             width="20"
           />
         )}
@@ -41,7 +41,7 @@ export class SwirlEmojiSad {
             alt={this.label}
             class={className}
             height="24"
-            src="/emojis/Sad24.png"
+            src="emojis/Sad24.png"
             width="24"
           />
         )}
@@ -50,7 +50,7 @@ export class SwirlEmojiSad {
             alt={this.label}
             class={className}
             height="32"
-            src="/emojis/Sad32.png"
+            src="emojis/Sad32.png"
             width="32"
           />
         )}

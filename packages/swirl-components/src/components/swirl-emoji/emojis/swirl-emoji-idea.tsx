@@ -23,7 +23,7 @@ export class SwirlEmojiIdea {
             alt={this.label}
             class={className}
             height="16"
-            src="/emojis/Idea16.png"
+            src="emojis/Idea16.png"
             width="16"
           />
         )}
@@ -32,7 +32,7 @@ export class SwirlEmojiIdea {
             alt={this.label}
             class={className}
             height="20"
-            src="/emojis/Idea20.png"
+            src="emojis/Idea20.png"
             width="20"
           />
         )}
@@ -41,7 +41,7 @@ export class SwirlEmojiIdea {
             alt={this.label}
             class={className}
             height="24"
-            src="/emojis/Idea24.png"
+            src="emojis/Idea24.png"
             width="24"
           />
         )}
@@ -50,7 +50,7 @@ export class SwirlEmojiIdea {
             alt={this.label}
             class={className}
             height="32"
-            src="/emojis/Idea32.png"
+            src="emojis/Idea32.png"
             width="32"
           />
         )}

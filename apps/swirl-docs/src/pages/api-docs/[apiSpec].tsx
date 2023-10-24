@@ -1,16 +1,17 @@
 import { ApiDocumentation, createStaticPathsForSpecs } from "@swirl/lib/docs";
-import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
-import { API_SPEC_PATH } from "@swirl/lib/navigation";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
 import { Heading, Text } from "src/components/swirl-recreations";
-import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
-import { isProd } from "@swirl/lib/env";
+
+import { API_SPEC_PATH } from "@swirl/lib/navigation";
 import { ApiDocumentationFacade } from "@swirl/lib/docs/src/ApiDocumentationFacade";
-import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
+import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
+import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
+import Head from "next/head";
+import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
+import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
+import { isProd } from "@swirl/lib/env";
+import { useRouter } from "next/router";
 
 // SERVER CODE
 async function generateSpecData(spec: string): Promise<ApiDocumentation> {
@@ -31,6 +32,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  if (process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production") {
+    return { notFound: true };
+  }
+
   if (!context.params || !("apiSpec" in context.params)) {
     return {
       notFound: true,

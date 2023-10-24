@@ -1,5 +1,12 @@
 # @getflip/swirl-icons
 
+## 0.22.0
+
+### Minor Changes
+
+- [`fc722d3e`](https://github.com/getflip/swirl/commit/fc722d3e33b3f34289581eaef29cd890889d60e7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "discover" icon
+
 ## 0.21.0
 
 ### Minor Changes

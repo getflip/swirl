@@ -41,4 +41,5 @@
   width: fit-content;
   margin-left: var(--s-space-4);
   padding-top: 0.0625rem;
+  white-space: pre-line;
 }

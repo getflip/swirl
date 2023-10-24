@@ -23,7 +23,7 @@ export class SwirlEmojiLove {
             alt={this.label}
             class={className}
             height="16"
-            src="/emojis/Love16.png"
+            src="emojis/Love16.png"
             width="16"
           />
         )}
@@ -32,7 +32,7 @@ export class SwirlEmojiLove {
             alt={this.label}
             class={className}
             height="20"
-            src="/emojis/Love20.png"
+            src="emojis/Love20.png"
             width="20"
           />
         )}
@@ -41,7 +41,7 @@ export class SwirlEmojiLove {
             alt={this.label}
             class={className}
             height="24"
-            src="/emojis/Love24.png"
+            src="emojis/Love24.png"
             width="24"
           />
         )}
@@ -50,7 +50,7 @@ export class SwirlEmojiLove {
             alt={this.label}
             class={className}
             height="32"
-            src="/emojis/Love32.png"
+            src="emojis/Love32.png"
             width="32"
           />
         )}

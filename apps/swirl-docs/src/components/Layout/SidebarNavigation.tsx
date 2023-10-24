@@ -1,21 +1,21 @@
-import { NavItem } from "@swirl/lib/navigation/";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import classNames from "classnames";
-import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Tag,
   mapHttpMethodToTagContent,
   mapHttpMethodToTagScheme,
 } from "../Tags";
+import { forwardRef, useEffect, useRef, useState } from "react";
+
 import { HttpMethods } from "oas/dist/rmoas.types";
 import Image from "next/image";
-import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
-import { forwardRef, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import React from "react";
-import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
+import Link from "next/link";
+import { NavItem } from "@swirl/lib/navigation/";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
+import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
+import classNames from "classnames";
+import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
+import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
+import { useRouter } from "next/router";
 
 const CategoryNavSubItem = ({
   navItem,
@@ -193,7 +193,7 @@ export function SidebarNavigation() {
     >
       {router.asPath.includes("/api-docs") && (
         <>
-          {apiDocsNavItems.length > 0 && (
+          {process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE !== "production" && (
             <>
               <ul className="mt-6">
                 {apiDocsNavItems?.map((navItem: NavItem, index) => {

@@ -12,7 +12,7 @@ describe("swirl-emoji", () => {
     expect(page.root).toEqualHtml(`
       <swirl-emoji-clap>
         <mock:shadow-root>
-          <img class="emoji emoji--size-24" height="24" width="24" src="/emojis/Clap24.png" alt="">
+          <img class="emoji emoji--size-24" height="24" width="24" src="emojis/Clap24.png" alt="">
         </mock:shadow-root>
       </swirl-emoji-clap>
     `);

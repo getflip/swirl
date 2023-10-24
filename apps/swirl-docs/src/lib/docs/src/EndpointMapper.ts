@@ -18,13 +18,16 @@ export class EndpointMapper {
         statusCode,
       }));
 
-      const requestSchemas = endpoint.operation.getParametersAsJSONSchema();
+      const isEndpointExperimental: ApiDocumentation["endpoints"][0]["isExperimental"] =
+        (endpoint.operation.schema["x-experimental"] as boolean) ?? false;
 
+      const requestSchemas = endpoint.operation.getParametersAsJSONSchema();
       return {
         title: endpoint.title,
         description: endpoint.operation.getDescription() || "",
         path: endpoint.path,
         isDeprecated: endpoint.operation.isDeprecated(),
+        isExperimental: isEndpointExperimental,
         parameters: requestSchemas
           ? this.getEndpointOperationSchema(
               requestSchemas.filter((param) => param.type !== "body")
@@ -57,7 +60,6 @@ export class EndpointMapper {
     }));
 
     return responseBodySchemas.map((response) => {
-      console.log("problems on response", response);
       const requiredProperties = response.schema?.required || [];
       const parameters: Array<OperationSchemaObject> = Object.entries(
         response.schema?.properties || {}

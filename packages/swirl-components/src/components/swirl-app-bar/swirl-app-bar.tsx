@@ -81,8 +81,13 @@ export class SwirlAppBar {
     const showLeftControls =
       this.showBackButton || this.showCloseButton || this.showStepperControls;
 
+    const hasRightControls = Boolean(
+      this.el.querySelector('[slot="right-controls"]')
+    );
+
     const className = classnames("app-bar", {
       "app-bar--has-cta": this.hasCta,
+      "app-bar--has-right-controls": hasRightControls,
     });
 
     return (

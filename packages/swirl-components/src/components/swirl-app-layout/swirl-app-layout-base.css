@@ -60,6 +60,12 @@
   }
 }
 
+.app-layout:not(.app-layout--has-app-bar-mobile-menu-button) {
+  & .app-layout__app-bar-mobile-menu-button {
+    display: none;
+  }
+}
+
 .app-layout--has-navigation {
   & .app-layout__grid {
     grid-template-columns: 100%;
@@ -228,9 +234,9 @@
   display: flex;
   min-width: 0;
   padding-top: var(--s-space-12);
-  padding-right: var(--s-space-16);
+  padding-right: var(--s-space-8);
   padding-bottom: var(--s-space-12);
-  padding-left: var(--s-space-16);
+  padding-left: var(--s-space-8);
   align-items: center;
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
@@ -240,6 +246,11 @@
 
   @media (--from-tablet) {
     border-right: var(--s-border-width-default) solid var(--s-border-default);
+  }
+
+  @media (--from-desktop) {
+    padding-right: var(--s-space-16);
+    padding-left: var(--s-space-16);
   }
 }
 
@@ -259,6 +270,14 @@
 
   @media (--from-desktop) {
     display: none;
+  }
+}
+
+.app-layout__app-bar-mobile-menu-button {
+  padding-left: var(--s-space-8);
+
+  @media (--from-tablet) {
+    padding-left: 0;
   }
 }
 
@@ -301,6 +320,8 @@
 }
 
 .app-layout__app-bar {
+  --swirl-tab-bar-border-width: 0;
+  --swirl-tab-bar-height: 3.5rem;
   display: flex;
   min-width: 0;
   align-items: center;
@@ -308,13 +329,10 @@
   background-color: var(--s-background-default);
   grid-area: app-bar;
   gap: var(--s-space-8);
-
-  --swirl-tab-bar-border-width: 0;
-  --swirl-tab-bar-height: 3.5rem;
 }
 
 .app-layout__back-to-navigation-button {
-  margin-left: calc(-1 * var(--s-space-4));
+  padding-left: var(--s-space-8);
 
   @media (--from-tablet) {
     display: none;
@@ -332,7 +350,11 @@
 
 .app-layout__app-bar-controls {
   display: none;
-  padding-right: var(--s-space-16);
+  padding-right: var(--s-space-8);
+
+  @media (--from-tablet) {
+    padding-right: var(--s-space-16);
+  }
 }
 
 .app-layout__content {
@@ -368,16 +390,17 @@
   display: flex;
   min-width: 0;
   padding-top: var(--s-space-12);
-  padding-right: var(--s-space-16);
+  padding-right: var(--s-space-8);
   padding-bottom: var(--s-space-12);
-  padding-left: var(--s-space-16);
+  padding-left: var(--s-space-8);
   align-items: center;
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: sidebar-header;
   gap: var(--s-space-8);
 
-  @media (--from-desktop) {
+  @media (--from-tablet) {
+    padding-right: var(--s-space-16);
     padding-left: var(--s-space-16);
   }
 }

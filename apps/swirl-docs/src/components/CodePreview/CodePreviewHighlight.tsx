@@ -1,24 +1,39 @@
 import Highlight, { Language, defaultProps } from "prism-react-renderer";
-import { useCodePreviewContext } from "./CodePreviewContext";
+
 import classNames from "classnames";
 import darkTheme from "prism-react-renderer/themes/vsDark";
 import lightTheme from "prism-react-renderer/themes/nightOwlLight";
+import { useCodePreviewContext } from "./CodePreviewContext";
 
 export function CodePreviewHighlight() {
-  const { isLightTheme, codeExample, isExpanded } = useCodePreviewContext();
+  const { isLightTheme, codeExample, isExpanded, disableHeader } =
+    useCodePreviewContext();
 
-  const lang = (
-    codeExample.selectedId?.startsWith("2")
-      ? "json"
-      : codeExample.selectedId || "tsx"
-  ) as Language;
+  const determineLanguage = (): Language => {
+    if (codeExample.selectedId?.startsWith("2")) {
+      return "json";
+    }
+    return (codeExample.selectedId || "tsx") as Language;
+  };
+
+  const isLastLineAndEmpty = (
+    line: any[],
+    index: number,
+    allTokens: any[][]
+  ) => {
+    return (
+      allTokens.length - 1 === index &&
+      line.length === 1 &&
+      line[0].content === "\n"
+    );
+  };
 
   return (
     <Highlight
       {...defaultProps}
       theme={isLightTheme ? lightTheme : darkTheme}
       code={codeExample.code}
-      language={lang}
+      language={determineLanguage()}
     >
       {({ tokens, getLineProps, getTokenProps }) => {
         return (
@@ -29,17 +44,24 @@ export function CodePreviewHighlight() {
                 "pb-16": isExpanded,
                 "pb-space-16": !isExpanded || isLightTheme,
                 "md:pb-space-16": isLightTheme,
+                "pb-pb-space-8 md:pb-space-8": disableHeader,
               }
             )}
           >
             <code className="text-font-size-sm">
-              {tokens.map((line, i) => (
-                <div key={i} {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span key={i} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
+              {tokens.map((line, i) => {
+                if (isLastLineAndEmpty(line, i, tokens)) {
+                  return null;
+                }
+
+                return (
+                  <div key={i} {...getLineProps({ line, key: i })}>
+                    {line.map((token, key) => (
+                      <span key={i} {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
+                );
+              })}
             </code>
           </pre>
         );

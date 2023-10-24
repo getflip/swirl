@@ -12,6 +12,10 @@
 }
 
 :root {
+  --swirl-accordion-item-toggle-default: var(--s-surface-default);
+  --swirl-accordion-item-toggle-hovered: var(--s-surface-hovered);
+  --swirl-accordion-item-toggle-pressed: var(--s-surface-pressed);
+
   --swirl-autocomplete-tags-margin-top: 0;
 
   --swirl-avatar-group-border-color: var(--s-background-default);
@@ -23,6 +27,10 @@
   --swirl-button-border-top-left-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-right-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-left-radius: var(--s-border-radius-base);
+
+  --swirl-card-background-default: var(--s-surface-default);
+  --swirl-card-background-hovered: var(--s-surface-hovered);
+  --swirl-card-background-pressed: var(--s-surface-pressed);
 
   --swirl-carousel-gradient: 255, 255, 255;
 

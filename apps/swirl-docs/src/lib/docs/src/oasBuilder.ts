@@ -165,7 +165,7 @@ export default class OASBuilder implements IOASBuilder {
       const operationInPaths = this.paths[path];
 
       const methods = Object.keys(operationInPaths ?? {}).filter(
-        (method) => method !== "parameters"
+        (method) => method !== "parameters" && method !== "description"
       ) as HttpMethods[];
 
       methods.forEach((operation) => {
