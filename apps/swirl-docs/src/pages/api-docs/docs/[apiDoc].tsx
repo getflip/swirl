@@ -112,28 +112,28 @@ function generateMdxThemeComponents() {
     li: (props) => <li className="ml-4" {...props} />,
     p: (props) => <Text className="mb-8" {...props} />,
     code: (props) => {
-      if (!props.className?.includes("language-")) {
-        return (
-          <code
-            className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
-            {...props}
-          />
-        );
-      }
+      const { className, children } = props;
 
-      if (props.children && typeof props.children === "string") {
+      if (className?.includes("language-") && typeof children === "string") {
         return (
           <CodePreview
             disableHeader
             className="mb-4"
             hasCopyButton
             codeExample={{
-              code: props.children,
+              code: children,
               isLongCode: false,
             }}
           />
         );
       }
+
+      return (
+        <code
+          className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
+          {...props}
+        />
+      );
     },
     h1: (props: any) => (
       <H2 className="mb-6" {...props} href={`#${props.id}`} />
