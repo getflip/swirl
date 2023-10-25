@@ -47,6 +47,7 @@ export class SwirlAppLayout {
   @Prop() sidebarHeading?: string;
   @Prop() transitionStyle?: string = "slides";
 
+  @State() hasCustomAppBarBackButton: boolean;
   @State() hasNavigation: boolean;
   @State() hasSidebar: boolean;
   @State() mobileView: SwirlAppLayoutMobileView = "navigation";
@@ -66,6 +67,7 @@ export class SwirlAppLayout {
 
   componentWillLoad() {
     this.mutationObserver = new MutationObserver(() => {
+      this.updateCustomAppBarBackButtonStatus();
       this.updateNavigationStatus();
       this.updateSidebarStatus();
     });
@@ -73,6 +75,7 @@ export class SwirlAppLayout {
     this.mutationObserver.observe(this.el, { childList: true });
 
     queueMicrotask(() => {
+      this.updateCustomAppBarBackButtonStatus();
       this.updateSidebarStatus();
       this.updateNavigationStatus();
       this.checkMobileView();
@@ -220,6 +223,12 @@ export class SwirlAppLayout {
     this.hasNavigation = Boolean(this.el.querySelector('[slot="navigation"]'));
   }
 
+  private updateCustomAppBarBackButtonStatus() {
+    this.hasCustomAppBarBackButton = Boolean(
+      this.el.querySelector('[slot="custom-app-bar-back-button"]')
+    );
+  }
+
   private updateSidebarStatus() {
     this.hasSidebar = Boolean(this.el.querySelector('[slot="sidebar"]'));
   }
@@ -241,14 +250,10 @@ export class SwirlAppLayout {
   };
 
   render() {
-    const hasCustomAppBarBackButton = Boolean(
-      this.el.querySelector('[slot="custom-app-bar-back-button"]')
-    );
-
     const showBackToNavigationButton =
       (this.mobileView === "body" || this.transitioningTo) &&
       this.hasNavigation &&
-      !hasCustomAppBarBackButton;
+      !this.hasCustomAppBarBackButton;
 
     const hasAppBarControls = Boolean(
       this.el.querySelector('[slot="app-bar-controls"]')
@@ -267,7 +272,8 @@ export class SwirlAppLayout {
       {
         "app-layout--has-app-bar-mobile-menu-button": hasAppBarMobileMenuButton,
         "app-layout--has-app-bar-controls": hasAppBarControls,
-        "app-layout--has-custom-app-bar-back-button": hasCustomAppBarBackButton,
+        "app-layout--has-custom-app-bar-back-button":
+          this.hasCustomAppBarBackButton,
         "app-layout--has-navigation": this.hasNavigation,
         "app-layout--has-sidebar": this.hasSidebar,
         "app-layout--sidebar-active":
