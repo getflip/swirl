@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.105.0
+
+### Minor Changes
+
+- [`a26c4758`](https://github.com/getflip/swirl/commit/a26c4758de54cece2dc984fd16cd961169d21671)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "custom-app-bar-back-button"
+  slot to swirl-app-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a26c4758`](https://github.com/getflip/swirl/commit/a26c4758de54cece2dc984fd16cd961169d21671)]:
+  - @getflip/swirl-components@0.105.0
+
 ## 0.104.2
 
 ### Patch Changes
