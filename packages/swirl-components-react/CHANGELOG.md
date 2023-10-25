@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.105.1
+
+### Patch Changes
+
+- [`571fae98`](https://github.com/getflip/swirl/commit/571fae9848df0732e52bac3f78ed8de45b2c8d92)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix display of dynamically added
+  custom app bar back button
+
+- Updated dependencies
+  [[`571fae98`](https://github.com/getflip/swirl/commit/571fae9848df0732e52bac3f78ed8de45b2c8d92)]:
+  - @getflip/swirl-components@0.105.1
+
 ## 0.105.0
 
 ### Minor Changes
