@@ -229,6 +229,12 @@
   }
 }
 
+.app-layout--has-custom-app-bar-back-button {
+  & .app-layout__custom-app-bar-back-button {
+    display: block;
+  }
+}
+
 .app-layout__header {
   z-index: 1;
   display: flex;
@@ -346,6 +352,11 @@
 .app-layout__app-bar-content {
   min-width: 0;
   flex-grow: 1;
+}
+
+.app-layout__custom-app-bar-back-button {
+  display: none;
+  padding-left: var(--s-space-8);
 }
 
 .app-layout__app-bar-controls {
