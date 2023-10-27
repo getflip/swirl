@@ -16,6 +16,7 @@ export class SwirlDescriptionListItem {
   @Prop() bordered?: boolean = true;
   @Prop() maxWidth?: string;
   @Prop() term!: string;
+  @Prop() tooltip?: string;
 
   render() {
     const hasTools = Boolean(this.el.querySelector('[slot="tools"]'));
@@ -35,6 +36,13 @@ export class SwirlDescriptionListItem {
               role="term"
             >
               {this.term}
+              {this.tooltip && (
+                <span class="description-list-item__tooltip">
+                  <swirl-tooltip content={this.tooltip} position="right">
+                    <swirl-icon-info size={16}></swirl-icon-info>
+                  </swirl-tooltip>
+                </span>
+              )}
             </div>
             <div
               style={{ maxWidth: this.maxWidth }}
