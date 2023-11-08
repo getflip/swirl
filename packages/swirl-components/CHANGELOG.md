@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.106.0
+
+### Minor Changes
+
+- [#444](https://github.com/getflip/swirl/pull/444)
+  [`a8548166`](https://github.com/getflip/swirl/commit/a85481661ed894fee70478cf64f0af46e4302bb1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add optional tooltip to
+  swirl-description-list-item
+
 ## 0.105.1
 
 ### Patch Changes
