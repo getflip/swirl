@@ -460,6 +460,7 @@ export namespace Components {
         "bordered"?: boolean;
         "maxWidth"?: string;
         "term": string;
+        "tooltip"?: string;
     }
     interface SwirlDialog {
         /**
@@ -4428,6 +4429,7 @@ declare namespace LocalJSX {
         "bordered"?: boolean;
         "maxWidth"?: string;
         "term": string;
+        "tooltip"?: string;
     }
     interface SwirlDialog {
         "hideLabel"?: boolean;

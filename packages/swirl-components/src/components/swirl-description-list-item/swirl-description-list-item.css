@@ -52,6 +52,12 @@
   }
 }
 
+.description-list-item__tooltip {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-left: var(--s-space-4);
+}
+
 .description-list-item__description {
   display: block;
   max-width: 40rem;
