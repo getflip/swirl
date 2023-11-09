@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.107.0
+
+### Minor Changes
+
+- [#447](https://github.com/getflip/swirl/pull/447)
+  [`3fd861f6`](https://github.com/getflip/swirl/commit/3fd861f6c1869839281e91543d9528815c584c20)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Fixed losing focus
+  in `swirl-popover` in WKWebView.
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3fd861f6`](https://github.com/getflip/swirl/commit/3fd861f6c1869839281e91543d9528815c584c20)]:
+  - @getflip/swirl-components@0.107.0
+
 ## 0.106.0
 
 ### Minor Changes
