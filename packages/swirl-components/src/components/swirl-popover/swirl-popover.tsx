@@ -137,6 +137,7 @@ export class SwirlPopover {
    */
   @Method()
   public async close() {
+    console.log("close", this.getNativeTriggerElement());
     if (this.closing || !this.active) {
       return;
     }
@@ -165,6 +166,7 @@ export class SwirlPopover {
    */
   @Method()
   public async open(triggerEl?: HTMLElement) {
+    console.log("open", triggerEl);
     this.triggerEl = triggerEl || this.triggerEl;
 
     if (this.active || !Boolean(this.triggerEl)) {
