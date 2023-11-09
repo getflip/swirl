@@ -307,26 +307,7 @@ export class SwirlModal {
                   onScroll={this.determineScrollStatus}
                   ref={(el) => (this.scrollContainer = el)}
                 >
-                  <swirl-stack spacing="8">
-                    <swirl-form-control label="testform">
-                      <swirl-select label="select">
-                        <swirl-option-list-item
-                          label="1"
-                          value="1"
-                        ></swirl-option-list-item>
-                        <swirl-option-list-item
-                          label="2"
-                          value="2"
-                        ></swirl-option-list-item>
-                      </swirl-select>
-                    </swirl-form-control>
-                    <swirl-form-control label="start">
-                      <swirl-date-input></swirl-date-input>
-                    </swirl-form-control>
-                    <swirl-form-control label="end">
-                      <swirl-date-input></swirl-date-input>
-                    </swirl-form-control>
-                  </swirl-stack>
+                  <slot></slot>
                 </div>
               </div>
               <div class="modal__secondary-content">

@@ -87,21 +87,29 @@ export class SwirlPopover {
     }
 
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const isWKWebView = "webkit" in window;
+    const isSafariOrWKWebView = isSafari || isWKWebView;
+
     const target = event.target as HTMLElement;
     const relatedTarget = event.relatedTarget as HTMLElement;
     const activeElement = getActiveElement();
 
-    const popoverLostFocus =
-      !this.el.contains(target) &&
-      !this.el.contains(activeElement) &&
-      target !== this.triggerEl &&
-      !this.triggerEl?.contains(target) &&
-      (!isSafari ||
-        (isSafari &&
-          !this.el.contains(relatedTarget || target) &&
-          relatedTarget !== this.el));
+    // Check if the focus has moved outside the popover or its trigger.
+    const focusIsOutsidePopover =
+      !this.el.contains(target) && !this.el.contains(activeElement);
+    const focusIsNotOnTrigger =
+      target !== this.triggerEl && !this.triggerEl?.contains(target);
+    const extraCheckForSafariOrWKWebView =
+      isSafariOrWKWebView &&
+      !this.el.contains(relatedTarget || target) &&
+      relatedTarget !== this.el;
 
-    if (popoverLostFocus) {
+    // Close the popover if the focus is outside and additional checks for Safari or WKWebView pass.
+    if (
+      focusIsOutsidePopover &&
+      focusIsNotOnTrigger &&
+      (!isSafariOrWKWebView || extraCheckForSafariOrWKWebView)
+    ) {
       this.close();
     }
   }
@@ -137,7 +145,6 @@ export class SwirlPopover {
    */
   @Method()
   public async close() {
-    console.log("close", this.getNativeTriggerElement());
     if (this.closing || !this.active) {
       return;
     }
