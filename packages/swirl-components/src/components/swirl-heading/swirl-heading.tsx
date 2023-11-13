@@ -1,6 +1,5 @@
-import { Component, h, Host, Listen, Prop } from "@stencil/core";
+import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
-import balanceText from "balance-text";
 
 export type SwirlHeadingAlign = "start" | "center" | "end";
 
@@ -33,25 +32,6 @@ export class SwirlHeading {
   @Prop() text!: string;
   @Prop() truncate?: boolean;
 
-  private headingEl: HTMLElement;
-
-  componentDidRender() {
-    this.rebalance();
-  }
-
-  @Listen("resize", { target: "window" })
-  onWindowResize() {
-    this.rebalance();
-  }
-
-  private rebalance() {
-    if (!this.balance || !Boolean(this.headingEl) || Boolean(this.lines)) {
-      return;
-    }
-
-    balanceText(this.headingEl);
-  }
-
   render() {
     const Tag = this.as || `h${this.level}`;
 
@@ -70,18 +50,14 @@ export class SwirlHeading {
       `heading--align-${this.align}`,
       `heading--level-${this.level}`,
       {
+        "heading--balanced": this.balance,
         "heading--truncate": this.truncate,
       }
     );
 
     return (
       <Host>
-        <Tag
-          class={className}
-          id={this.headingId}
-          ref={(el) => (this.headingEl = el)}
-          style={styles}
-        >
+        <Tag class={className} id={this.headingId} style={styles}>
           {this.text}
         </Tag>
       </Host>

@@ -17,6 +17,10 @@
   text-align: start;
 }
 
+.heading--balanced {
+  text-wrap: balance;
+}
+
 .heading--align-start {
   text-align: start;
 }
