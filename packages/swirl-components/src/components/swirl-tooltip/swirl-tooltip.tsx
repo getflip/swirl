@@ -124,7 +124,7 @@ export class SwirlTooltip {
     this.options = {
       middleware: [offset(margin), shift(), flip()],
       placement: this.position,
-      strategy: "fixed",
+      strategy: "absolute",
     };
   };
 

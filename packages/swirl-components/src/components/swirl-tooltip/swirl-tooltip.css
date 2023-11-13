@@ -17,7 +17,7 @@
 }
 
 .tooltip__popper {
-  position: fixed;
+  position: absolute;
   z-index: var(--s-z-40);
   max-width: 17.5rem;
 }
