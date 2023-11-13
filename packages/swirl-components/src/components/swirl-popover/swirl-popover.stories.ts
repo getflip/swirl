@@ -15,6 +15,10 @@ export default {
         type: "number",
       },
     },
+    returnFocusToTrigger: {
+      description:
+        "By default, the focus is returned to the trigger element when the popover is closed. Pass false to disable this behavior.",
+    },
     trigger: {
       description:
         "**Deprecated! Please use the swirl-popover-trigger component instead.** ID of the trigger element or the trigger DOM element.",

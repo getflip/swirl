@@ -49,6 +49,7 @@ export class SwirlPopover {
   @Prop() offset?: number | number[] = 8;
   @Prop() popoverId?: string;
   @Prop() placement?: Placement = "bottom-start";
+  @Prop() returnFocusToTrigger?: boolean = true;
   @Prop() trigger?: string | HTMLElement;
   @Prop() triggerContainer?: HTMLElement;
   @Prop() useContainerWidth?: boolean | string;
@@ -164,7 +165,10 @@ export class SwirlPopover {
     }, 150);
 
     this.unlockBodyScroll();
-    this.getNativeTriggerElement()?.focus();
+
+    if (this.returnFocusToTrigger) {
+      this.getNativeTriggerElement()?.focus();
+    }
   }
 
   /**
