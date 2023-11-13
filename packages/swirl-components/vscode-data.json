@@ -5023,6 +5023,10 @@
           "description": ""
         },
         {
+          "name": "return-focus-to-trigger",
+          "description": ""
+        },
+        {
           "name": "trigger",
           "description": ""
         },
