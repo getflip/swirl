@@ -1,5 +1,30 @@
 # @getflip/swirl-components-angular
 
+## 0.108.0
+
+### Minor Changes
+
+- [#450](https://github.com/getflip/swirl/pull/450)
+  [`89726d7e`](https://github.com/getflip/swirl/commit/89726d7e2ae84f496799737ac518d634fcbeba1a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "returnFocusToTrigger" prop
+  to swirl-popover
+
+### Patch Changes
+
+- [`9da58803`](https://github.com/getflip/swirl/commit/9da58803572ad79b55186c5cb5d0b481f86e74ca)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Remove debug output
+
+* [#451](https://github.com/getflip/swirl/pull/451)
+  [`8d4ce24e`](https://github.com/getflip/swirl/commit/8d4ce24ea2e89cc77265a5a3f8fc1416a88a11bc)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Replace JS text balancing of
+  swirl-heading with native css text wrap
+
+* Updated dependencies
+  [[`9da58803`](https://github.com/getflip/swirl/commit/9da58803572ad79b55186c5cb5d0b481f86e74ca),
+  [`89726d7e`](https://github.com/getflip/swirl/commit/89726d7e2ae84f496799737ac518d634fcbeba1a),
+  [`8d4ce24e`](https://github.com/getflip/swirl/commit/8d4ce24ea2e89cc77265a5a3f8fc1416a88a11bc)]:
+  - @getflip/swirl-components@0.108.0
+
 ## 0.107.0
 
 ### Minor Changes
