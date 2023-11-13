@@ -173,7 +173,6 @@ export class SwirlPopover {
    */
   @Method()
   public async open(triggerEl?: HTMLElement) {
-    console.log("open", triggerEl);
     this.triggerEl = triggerEl || this.triggerEl;
 
     if (this.active || !Boolean(this.triggerEl)) {

@@ -33,10 +33,6 @@ const Template = (args) => {
   formControl.setAttribute("label", "Time");
   formControl.append("\n  ", element, "\n");
 
-  element.addEventListener("valueChange", (event) => {
-    console.log(event);
-  });
-
   return formControl;
 };
 
