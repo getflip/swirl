@@ -18,7 +18,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
   endpointId,
   path,
 }) => {
-  const requestbody = endpoint.parameters?.find(
+  const requestbody = endpoint.requestBody?.find(
     (parameterType) => parameterType.type === "body"
   );
 

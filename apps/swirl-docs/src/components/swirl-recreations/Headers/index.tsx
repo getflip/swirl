@@ -4,16 +4,11 @@ import React, {
   LegacyRef,
   ReactElement,
   ReactNode,
-  useCallback,
-  useEffect,
   useRef,
 } from "react";
 
+import { default as classNames, default as classnames } from "classnames";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { SwirlIconLink } from "@getflip/swirl-components-react";
-import balanceText from "balance-text";
-import classNames from "classnames";
-import classnames from "classnames";
 
 type HeadingAlign = "start" | "center" | "end";
 
@@ -46,28 +41,6 @@ export const Heading: React.FC<HeadingProps> = ({
   className,
 }) => {
   const headingEl = useRef<HTMLElement>(null);
-
-  const rebalance = useCallback(() => {
-    if (!balance || !headingEl.current || lines) {
-      return;
-    }
-
-    balanceText(headingEl.current);
-  }, [balance, lines]);
-
-  useEffect(() => {
-    rebalance();
-
-    const handleResize = () => {
-      rebalance();
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [rebalance]);
 
   const Tag = as || (`h${level}` as HeadingTag);
 

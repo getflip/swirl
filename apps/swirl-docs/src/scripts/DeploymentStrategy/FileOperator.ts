@@ -10,7 +10,11 @@ const copyFileAsync = promisify(fs.copyFile);
 
 export class FileOperator {
   private globalSpecs = ["shared.yml", "problem.yml"];
-  private crossReferencedSpecs = ["usergroups.yml", "users.yml"];
+  private crossReferencedSpecs = [
+    "usergroups.yml",
+    "users.yml",
+    "channels.yml",
+  ];
 
   constructor(private strategy: DeploymentStrategy["strategy"]) {}
 

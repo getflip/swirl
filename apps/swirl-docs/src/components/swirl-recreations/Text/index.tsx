@@ -8,7 +8,6 @@ import {
   useRef,
 } from "react";
 import classnames from "classnames";
-import balanceText from "balance-text";
 import shave from "shave";
 
 type TextAlign = "start" | "center" | "end";
@@ -69,14 +68,6 @@ export const Text: FC<TextProps> = ({
 }) => {
   const textEl = useRef<HTMLElement>(null);
 
-  const rebalance = useCallback(() => {
-    if (!balance || !textEl.current) {
-      return;
-    }
-
-    balanceText(textEl.current);
-  }, [balance, textEl]);
-
   const handleTruncation = useCallback(() => {
     if (!truncate || !lines || lines === 1) {
       return;
@@ -92,11 +83,9 @@ export const Text: FC<TextProps> = ({
   }, [truncate, lines, textEl]);
 
   useEffect(() => {
-    rebalance();
     handleTruncation();
 
     const handleResize = () => {
-      rebalance();
       handleTruncation();
     };
 
@@ -105,7 +94,7 @@ export const Text: FC<TextProps> = ({
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [rebalance, handleTruncation]);
+  }, [handleTruncation]);
 
   const Tag = as as TextTag;
   return (

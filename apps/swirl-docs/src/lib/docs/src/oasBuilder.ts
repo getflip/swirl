@@ -175,10 +175,10 @@ export default class OASBuilder implements IOASBuilder {
         }
         this.operations[operation]?.push({
           title: oasOperation.getSummary(),
-          path: `/${this.path}#${oasOperation
-            .getSummary()
-            .toLowerCase()
-            .replaceAll(" ", "-")}`.replaceAll(".", ""),
+          path: `/${this.path}#${oasOperation.getOperationId()}`.replaceAll(
+            ".",
+            ""
+          ),
           operation: oasOperation,
         });
       });

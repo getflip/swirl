@@ -86,12 +86,13 @@ export default class OASBuilder implements IOASBuilder {
         if (!this.operations[operation]) {
           this.operations[operation] = [];
         }
+
         this.operations[operation]?.push({
           title: oasOperation.getSummary(),
-          path: `/${this.path}#${oasOperation
-            .getSummary()
-            .toLowerCase()
-            .replaceAll(" ", "-")}`.replaceAll(".", ""),
+          path: `/${this.path}#${oasOperation.getOperationId()}`.replaceAll(
+            ".",
+            ""
+          ),
           operation: oasOperation,
           errorCodes: oasOperation.getExtension(
             "x-flip-error-codes"
