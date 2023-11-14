@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.110.0
+
+### Minor Changes
+
+- [`dc953b36`](https://github.com/getflip/swirl/commit/dc953b36c0ec9110456c97fcb2004a4a316d6c96)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "hide-label" prop to
+  swirl-switch
+
 ## 0.109.1
 
 ### Patch Changes
