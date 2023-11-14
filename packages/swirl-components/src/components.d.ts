@@ -1424,6 +1424,7 @@ export namespace Components {
     interface SwirlSwitch {
         "checked"?: boolean;
         "disabled"?: boolean;
+        "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
         "label"?: string;
@@ -5306,6 +5307,7 @@ declare namespace LocalJSX {
     interface SwirlSwitch {
         "checked"?: boolean;
         "disabled"?: boolean;
+        "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
         "label"?: string;

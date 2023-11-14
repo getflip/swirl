@@ -5811,6 +5811,10 @@
           "description": ""
         },
         {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
           "name": "input-id",
           "description": ""
         },
