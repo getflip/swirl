@@ -60,6 +60,7 @@ export class SwirlCard {
   @Prop() paddingInlineEnd?: SwirlCardPadding;
   @Prop() paddingInlineStart?: SwirlCardPadding;
   @Prop() swirlAriaLabel?: string;
+  @Prop() swirlAriaLabelledby?: string;
 
   render() {
     const Tag = Boolean(this.href) ? "a" : this.as;
@@ -111,6 +112,7 @@ export class SwirlCard {
       <Host styles={{ height: this.height }}>
         <Tag
           aria-label={this.swirlAriaLabel}
+          aria-labelledby={this.swirlAriaLabelledby}
           class={className}
           href={this.href}
           rel={

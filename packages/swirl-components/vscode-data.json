@@ -1323,6 +1323,10 @@
         {
           "name": "swirl-aria-label",
           "description": ""
+        },
+        {
+          "name": "swirl-aria-labelledby",
+          "description": ""
         }
       ]
     },

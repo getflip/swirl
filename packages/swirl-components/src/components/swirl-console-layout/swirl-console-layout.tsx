@@ -179,12 +179,12 @@ export class SwirlConsoleLayout {
           onClick={this.onClick}
           onKeyDown={this.onKeyDown}
         >
-          <div
+          <header
             aria-hidden={String(!this.sidebarActive)}
             class="console-layout__sidebar"
             ref={(el) => (this.sidebarEl = el)}
           >
-            <header class="console-layout__header">
+            <div class="console-layout__header">
               <div class="console-layout__logo">
                 <svg
                   class="console-layout__logo-mark"
@@ -215,7 +215,7 @@ export class SwirlConsoleLayout {
                   {this.logoText}
                 </swirl-text>
               </div>
-            </header>
+            </div>
             <nav
               aria-label={this.navigationLabel}
               class="console-layout__navigation"
@@ -225,7 +225,7 @@ export class SwirlConsoleLayout {
             <div class="console-layout__user">
               <slot name="user"></slot>
             </div>
-          </div>
+          </header>
           <main
             aria-labelledby={Boolean(this.appName) ? "app-name" : undefined}
             class="console-layout__main"

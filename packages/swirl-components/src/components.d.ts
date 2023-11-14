@@ -337,6 +337,7 @@ export namespace Components {
         "paddingInlineEnd"?: SwirlCardPadding;
         "paddingInlineStart"?: SwirlCardPadding;
         "swirlAriaLabel"?: string;
+        "swirlAriaLabelledby"?: string;
     }
     /**
      * slot - The slides
@@ -4312,6 +4313,7 @@ declare namespace LocalJSX {
         "paddingInlineEnd"?: SwirlCardPadding;
         "paddingInlineStart"?: SwirlCardPadding;
         "swirlAriaLabel"?: string;
+        "swirlAriaLabelledby"?: string;
     }
     /**
      * slot - The slides
