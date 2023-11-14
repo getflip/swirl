@@ -106,7 +106,6 @@ export default function Document({ document }: { document: ApiDocumentation }) {
 
                 const path = `${host}${router.asPath}`;
                 const endpointId = endpoint.path.split("#")[1];
-                console.log(endpoint.path, endpointId, path);
 
                 const initialResponseExampleStatus = Object.keys(
                   endpoint.responseExamples
