@@ -286,7 +286,7 @@ export class SwirlConsoleLayout {
                 {Boolean(this.heading) && (
                   <div class="console-layout__heading-container">
                     <swirl-heading
-                      as="h2"
+                      as={Boolean(this.appName) ? "h2" : "h1"}
                       class="console-layout__heading"
                       headingId="heading"
                       level={1}
