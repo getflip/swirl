@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.109.0
+
+### Minor Changes
+
+- [`16bb2f9e`](https://github.com/getflip/swirl/commit/16bb2f9e8fa1347635d13d6c891436b3e6f40307)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-aria-labelledby prop to
+  swirl-car
+
 ## 0.108.1
 
 ### Patch Changes
