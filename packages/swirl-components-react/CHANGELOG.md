@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.109.1
+
+### Patch Changes
+
+- [`1a92500e`](https://github.com/getflip/swirl/commit/1a92500ed52a88ab37dda096aee854aa42883fe6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-console-layout heading
+  levels when no appName is set
+
+- Updated dependencies
+  [[`1a92500e`](https://github.com/getflip/swirl/commit/1a92500ed52a88ab37dda096aee854aa42883fe6)]:
+  - @getflip/swirl-components@0.109.1
+
 ## 0.109.0
 
 ### Minor Changes
