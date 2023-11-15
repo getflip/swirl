@@ -47,7 +47,7 @@
     "framer-motion": "^10.12.12",
     "gray-matter": "^4.0.3",
     "iframe-resizer-react": "^1.1.0",
-    "next": "12.2.5",
+    "next": "13.5.0",
     "next-mdx-remote": "^4.1.0",
     "next-password-protect": "^1.8.0",
     "oas": "^20.5.3",
