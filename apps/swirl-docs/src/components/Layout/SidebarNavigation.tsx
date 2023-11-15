@@ -10,7 +10,6 @@ import { HttpMethods } from "oas/dist/rmoas.types";
 import Image from "next/image";
 import Link from "next/link";
 import { NavItem } from "@swirl/lib/navigation/";
-import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import classNames from "classnames";
 import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
@@ -193,7 +192,7 @@ export function SidebarNavigation() {
     >
       {router.asPath.includes("/api-docs") && (
         <>
-          {process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE !== "production" && (
+          {/* {process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE !== "production" && (
             <>
               <ul className="mt-6">
                 {apiDocsNavItems?.map((navItem: NavItem, index) => {
@@ -209,7 +208,7 @@ export function SidebarNavigation() {
               </ul>
               <hr className="mt-6" />
             </>
-          )}
+          )} */}
           <div className="flex mt-6 align-center h-10 max-h-10">
             <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-[#8E8E93]">
               APIs

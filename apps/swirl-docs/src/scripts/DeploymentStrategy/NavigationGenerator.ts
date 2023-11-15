@@ -22,11 +22,17 @@ export class ApiSpecsNavigationGenerator
           .readdirSync(API_SPEC_PATH)
           .filter((file) => file.includes(".yml"));
 
+        console.log("specs", specs);
+
         const navItems = await Promise.all(
           specs.map(async (spec) => await this.generateNavItems(spec))
         );
 
-        const dataString = navItems
+        const filteredNavItems = navItems.filter((navItem) =>
+          navItem.title.includes("Tasks")
+        );
+
+        const dataString = filteredNavItems
           .map((navItem) => JSON.stringify(navItem))
           .join(",");
         const apiSpecsData = this.createDataString(dataString);
