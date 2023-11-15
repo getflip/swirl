@@ -94,7 +94,13 @@ export class SwirlButton {
 
     const icon = this.iconEl.children[0];
 
-    icon?.setAttribute("size", smallIcon ? "20" : "24");
+    if (
+      icon.tagName.startsWith("SWIRL-ICON") ||
+      icon.tagName.startsWith("SWIRL-EMOJI") ||
+      icon.tagName.startsWith("SWIRL-SYMBOL")
+    ) {
+      icon?.setAttribute("size", smallIcon ? "20" : "24");
+    }
   }
 
   private getAriaLabel(hideLabel: boolean) {
