@@ -59,6 +59,7 @@ export const Heading: React.FC<HeadingProps> = ({
           [`text-text-default text-font-size-base leading-[1.5rem]`]:
             level === 4,
         },
+        { "text-balance": balance },
         className
       )}
       id={id}

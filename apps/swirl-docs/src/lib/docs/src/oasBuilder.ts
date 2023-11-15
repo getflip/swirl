@@ -269,7 +269,12 @@ export default class OASBuilder implements IOASBuilder {
         )[0] as Array<unknown>;
 
         if (firstMediaTypeCode) {
-          acc[example.status] = JSON.stringify(firstMediaTypeCode[0], null, 2);
+          acc[example.status] = JSON.stringify(
+            // @ts-ignore
+            firstMediaTypeCode[0].value,
+            null,
+            2
+          );
         }
 
         return acc;
