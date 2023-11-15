@@ -1,5 +1,22 @@
 # @getflip/swirl-components-angular
 
+## 0.111.0
+
+### Minor Changes
+
+- [`3a3165b5`](https://github.com/getflip/swirl/commit/3a3165b5302b9b3fe2f8123d7ef161cdc3f49772)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "icon" slot to swirl-button
+
+* [`36583ddb`](https://github.com/getflip/swirl/commit/36583ddb8b19f0fb84cbe7678f7cb60c5c902d88)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "2xs" size to swirl-avatar
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3a3165b5`](https://github.com/getflip/swirl/commit/3a3165b5302b9b3fe2f8123d7ef161cdc3f49772),
+  [`36583ddb`](https://github.com/getflip/swirl/commit/36583ddb8b19f0fb84cbe7678f7cb60c5c902d88)]:
+  - @getflip/swirl-components@0.111.0
+
 ## 0.110.0
 
 ### Minor Changes
