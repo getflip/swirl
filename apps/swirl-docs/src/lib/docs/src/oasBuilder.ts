@@ -174,11 +174,16 @@ export default class OASBuilder implements IOASBuilder {
           this.operations[operation] = [];
         }
         this.operations[operation]?.push({
-          title: oasOperation.getSummary(),
-          path: `/${this.path}#${oasOperation
-            .getSummary()
-            .toLowerCase()
-            .replaceAll(" ", "-")}`.replaceAll(".", ""),
+          title:
+            oasOperation.getSummary() ||
+            oasOperation
+              .getOperationId()
+              .replaceAll("-", " ")
+              .replace(/\b\w/g, (char) => char.toUpperCase()), // Capitalize first letter of each word
+          path: `/${this.path}#${oasOperation.getOperationId()}`.replaceAll(
+            ".",
+            ""
+          ),
           operation: oasOperation,
         });
       });
@@ -264,7 +269,12 @@ export default class OASBuilder implements IOASBuilder {
         )[0] as Array<unknown>;
 
         if (firstMediaTypeCode) {
-          acc[example.status] = JSON.stringify(firstMediaTypeCode[0], null, 2);
+          acc[example.status] = JSON.stringify(
+            // @ts-ignore
+            firstMediaTypeCode[0].value,
+            null,
+            2
+          );
         }
 
         return acc;

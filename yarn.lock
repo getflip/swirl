@@ -3081,7 +3081,7 @@
 
 "@next/env@12.2.5":
   version "12.2.5"
-  resolved "https://registry.npmjs.org/@next/env/-/env-12.2.5.tgz"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-12.2.5.tgz#d908c57b35262b94db3e431e869b72ac3e1ad3e3"
   integrity sha512-vLPLV3cpPGjUPT3PjgRj7e3nio9t6USkuew3JE/jMeon/9Mvp1WyR18v3iwnCuX7eUAm1HmAbJHHLAbcu/EJcw==
 
 "@next/eslint-plugin-next@12.2.5":
@@ -3108,7 +3108,7 @@
 
 "@next/swc-darwin-arm64@12.2.5":
   version "12.2.5"
-  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-12.2.5.tgz"
+  resolved "https://registry.yarnpkg.com/@next/swc-darwin-arm64/-/swc-darwin-arm64-12.2.5.tgz#31b1c3c659d54be546120c488a1e1bad21c24a1d"
   integrity sha512-VOPWbO5EFr6snla/WcxUKtvzGVShfs302TEMOtzYyWni6f9zuOetijJvVh9CCTzInnXAZMtHyNhefijA4HMYLg==
 
 "@next/swc-darwin-x64@12.2.5":
@@ -4839,7 +4839,7 @@
 
 "@swc/helpers@0.4.3":
   version "0.4.3"
-  resolved "https://registry.npmjs.org/@swc/helpers/-/helpers-0.4.3.tgz"
+  resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.4.3.tgz#16593dfc248c53b699d4b5026040f88ddb497012"
   integrity sha512-6JrF+fdUK2zbGpJIlN7G3v966PQjyx/dPt1T9km2wj+EUBqgrxCk3uX4Kct16MIm9gGxfKRcfax2hVf5jvlTzA==
   dependencies:
     tslib "^2.4.0"
@@ -6874,7 +6874,7 @@ bail@^2.0.0:
 
 balance-text@^3.3.1:
   version "3.3.1"
-  resolved "https://registry.npmjs.org/balance-text/-/balance-text-3.3.1.tgz"
+  resolved "https://registry.yarnpkg.com/balance-text/-/balance-text-3.3.1.tgz#d1d7c182c9b60c57028383c8ed19765b6a6b1603"
   integrity sha512-tpnHvo1w0rJ5rbu+jZKf7NLKKg6XZ6eAwREP/9jEDJ+ZTBi6jQFqn/UGARL3/oqD8SgQbyTwBXBjhKDdTgoPRw==
 
 balanced-match@^1.0.0:
@@ -7370,7 +7370,12 @@ camelcase@^6.2.0:
   resolved "https://registry.npmjs.org/camelcase/-/camelcase-6.3.0.tgz"
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
 
-caniuse-lite@^1.0.30001332, caniuse-lite@^1.0.30001373, caniuse-lite@^1.0.30001541:
+caniuse-lite@^1.0.30001332:
+  version "1.0.30001562"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001562.tgz#9d16c5fd7e9c592c4cd5e304bc0f75b0008b2759"
+  integrity sha512-kfte3Hym//51EdX4239i+Rmp20EsLIYGdPkERegTgU19hQWCRhsRFGKHTliUlsry53tv17K7n077Kqa0WJU4ng==
+
+caniuse-lite@^1.0.30001373, caniuse-lite@^1.0.30001541:
   version "1.0.30001547"
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001547.tgz"
   integrity sha512-W7CrtIModMAxobGhz8iXmDfuJiiKg1WADMO/9x7/CLNin5cpSbuBjooyoIUVB5eyCc36QuTVlkVa1iB2S5+/eA==
@@ -15187,7 +15192,7 @@ next-tick@1, next-tick@^1.1.0:
 
 next@12.2.5:
   version "12.2.5"
-  resolved "https://registry.npmjs.org/next/-/next-12.2.5.tgz"
+  resolved "https://registry.yarnpkg.com/next/-/next-12.2.5.tgz#14fb5975e8841fad09553b8ef41fe1393602b717"
   integrity sha512-tBdjqX5XC/oFs/6gxrZhjmiq90YWizUYU6qOWAfat7zJwrwapJ+BYgX2PmiacunXMaRpeVT4vz5MSPSLgNkrpA==
   dependencies:
     "@next/env" "12.2.5"
@@ -19279,7 +19284,7 @@ style-to-object@^0.4.0:
 
 styled-jsx@5.0.4:
   version "5.0.4"
-  resolved "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.0.4.tgz"
+  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-5.0.4.tgz#5b1bd0b9ab44caae3dd1361295559706e044aa53"
   integrity sha512-sDFWLbg4zR+UkNzfk5lPilyIgtpddfxXEULxhujorr5jtePTUqiPDc5BC0v1NRqTr/WaFBGQQUoYToGlF4B2KQ==
 
 stylus-loader@7.0.0:
