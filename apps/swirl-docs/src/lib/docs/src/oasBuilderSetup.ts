@@ -88,7 +88,12 @@ export default class OASBuilder implements IOASBuilder {
         }
 
         this.operations[operation]?.push({
-          title: oasOperation.getSummary(),
+          title:
+            oasOperation.getSummary() ||
+            oasOperation
+              .getOperationId()
+              .replaceAll("-", " ")
+              .replace(/\b\w/g, (char) => char.toUpperCase()), // Capitalize first letter of each word
           path: `/${this.path}#${oasOperation.getOperationId()}`.replaceAll(
             ".",
             ""

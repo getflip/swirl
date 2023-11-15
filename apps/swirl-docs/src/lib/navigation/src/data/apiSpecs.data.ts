@@ -674,6 +674,7 @@ export const apiSpecsNavItems: NavItem[] = [
         isRoot: false,
       },
       {
+        title: "Create On Leave Note",
         url: "/api-docs/user-management-api#create-on-leave-note",
         description: "post",
         isRoot: false,
@@ -685,6 +686,7 @@ export const apiSpecsNavItems: NavItem[] = [
         isRoot: false,
       },
       {
+        title: "Update On Leave Note",
         url: "/api-docs/user-management-api#update-on-leave-note",
         description: "patch",
         isRoot: false,
