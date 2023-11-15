@@ -20,6 +20,9 @@ export type SwirlButtonVariant =
   | "on-image"
   | "outline";
 
+/**
+ * @slot icon - Icon to be displayed inside the button.
+ */
 @Component({
   /**
    * Form controls in shadow dom can still not be associated with labels in the
@@ -94,7 +97,13 @@ export class SwirlButton {
 
     const icon = this.iconEl.children[0];
 
-    icon?.setAttribute("size", smallIcon ? "20" : "24");
+    if (
+      icon?.tagName.startsWith("SWIRL-ICON") ||
+      icon?.tagName.startsWith("SWIRL-EMOJI") ||
+      icon?.tagName.startsWith("SWIRL-SYMBOL")
+    ) {
+      icon?.setAttribute("size", smallIcon ? "20" : "24");
+    }
   }
 
   private getAriaLabel(hideLabel: boolean) {
@@ -127,6 +136,9 @@ export class SwirlButton {
     const isLink = Boolean(this.href);
     const ariaLabel = this.getAriaLabel(hideLabel);
 
+    const hasIcon =
+      this.icon || Boolean(this.el.querySelector("[slot='icon']"));
+
     const className = classnames(
       "button",
       `button--icon-position-${this.iconPosition}`,
@@ -135,6 +147,7 @@ export class SwirlButton {
       `button--text-align-${this.textAlign}`,
       `button--variant-${this.variant}`,
       {
+        "button--has-icon": hasIcon,
         "button--icon-only": hideLabel,
         "button--pill": this.pill,
         "button--pressed": this.pressed,
@@ -165,12 +178,17 @@ export class SwirlButton {
           type={isLink ? undefined : this.type}
           value={isLink ? undefined : this.value}
         >
-          {this.icon && (
+          {Boolean(this.icon) && (
             <span
               class="button__icon"
               innerHTML={this.icon}
               ref={(el) => (this.iconEl = el)}
             ></span>
+          )}
+          {!Boolean(this.icon) && (
+            <span class="button__icon" ref={(el) => (this.iconEl = el)}>
+              <slot name="icon"></slot>
+            </span>
           )}
           {!hideLabel && <span class="button__label">{this.label}</span>}
         </Tag>

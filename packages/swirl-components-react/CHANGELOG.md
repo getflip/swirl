@@ -1,5 +1,155 @@
 # @getflip/swirl-components-react
 
+## 0.111.0
+
+### Minor Changes
+
+- [`3a3165b5`](https://github.com/getflip/swirl/commit/3a3165b5302b9b3fe2f8123d7ef161cdc3f49772)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "icon" slot to swirl-button
+
+* [`36583ddb`](https://github.com/getflip/swirl/commit/36583ddb8b19f0fb84cbe7678f7cb60c5c902d88)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "2xs" size to swirl-avatar
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3a3165b5`](https://github.com/getflip/swirl/commit/3a3165b5302b9b3fe2f8123d7ef161cdc3f49772),
+  [`36583ddb`](https://github.com/getflip/swirl/commit/36583ddb8b19f0fb84cbe7678f7cb60c5c902d88)]:
+  - @getflip/swirl-components@0.111.0
+
+## 0.110.0
+
+### Minor Changes
+
+- [`dc953b36`](https://github.com/getflip/swirl/commit/dc953b36c0ec9110456c97fcb2004a4a316d6c96)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "hide-label" prop to
+  swirl-switch
+
+### Patch Changes
+
+- Updated dependencies
+  [[`dc953b36`](https://github.com/getflip/swirl/commit/dc953b36c0ec9110456c97fcb2004a4a316d6c96)]:
+  - @getflip/swirl-components@0.110.0
+
+## 0.109.1
+
+### Patch Changes
+
+- [`1a92500e`](https://github.com/getflip/swirl/commit/1a92500ed52a88ab37dda096aee854aa42883fe6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-console-layout heading
+  levels when no appName is set
+
+- Updated dependencies
+  [[`1a92500e`](https://github.com/getflip/swirl/commit/1a92500ed52a88ab37dda096aee854aa42883fe6)]:
+  - @getflip/swirl-components@0.109.1
+
+## 0.109.0
+
+### Minor Changes
+
+- [`16bb2f9e`](https://github.com/getflip/swirl/commit/16bb2f9e8fa1347635d13d6c891436b3e6f40307)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-aria-labelledby prop to
+  swirl-car
+
+### Patch Changes
+
+- Updated dependencies
+  [[`16bb2f9e`](https://github.com/getflip/swirl/commit/16bb2f9e8fa1347635d13d6c891436b3e6f40307)]:
+  - @getflip/swirl-components@0.109.0
+
+## 0.108.1
+
+### Patch Changes
+
+- [`6fdbca87`](https://github.com/getflip/swirl/commit/6fdbca87aef2e67007f152f2fb0d4bc6041eb547)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-tooltip positioning
+  inside modals
+
+- Updated dependencies
+  [[`6fdbca87`](https://github.com/getflip/swirl/commit/6fdbca87aef2e67007f152f2fb0d4bc6041eb547)]:
+  - @getflip/swirl-components@0.108.1
+
+## 0.108.0
+
+### Minor Changes
+
+- [#450](https://github.com/getflip/swirl/pull/450)
+  [`89726d7e`](https://github.com/getflip/swirl/commit/89726d7e2ae84f496799737ac518d634fcbeba1a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "returnFocusToTrigger" prop
+  to swirl-popover
+
+### Patch Changes
+
+- [`9da58803`](https://github.com/getflip/swirl/commit/9da58803572ad79b55186c5cb5d0b481f86e74ca)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Remove debug output
+
+* [#451](https://github.com/getflip/swirl/pull/451)
+  [`8d4ce24e`](https://github.com/getflip/swirl/commit/8d4ce24ea2e89cc77265a5a3f8fc1416a88a11bc)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Replace JS text balancing of
+  swirl-heading with native css text wrap
+
+* Updated dependencies
+  [[`9da58803`](https://github.com/getflip/swirl/commit/9da58803572ad79b55186c5cb5d0b481f86e74ca),
+  [`89726d7e`](https://github.com/getflip/swirl/commit/89726d7e2ae84f496799737ac518d634fcbeba1a),
+  [`8d4ce24e`](https://github.com/getflip/swirl/commit/8d4ce24ea2e89cc77265a5a3f8fc1416a88a11bc)]:
+  - @getflip/swirl-components@0.108.0
+
+## 0.107.0
+
+### Minor Changes
+
+- [#447](https://github.com/getflip/swirl/pull/447)
+  [`3fd861f6`](https://github.com/getflip/swirl/commit/3fd861f6c1869839281e91543d9528815c584c20)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Fixed losing focus
+  in `swirl-popover` in WKWebView.
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3fd861f6`](https://github.com/getflip/swirl/commit/3fd861f6c1869839281e91543d9528815c584c20)]:
+  - @getflip/swirl-components@0.107.0
+
+## 0.106.0
+
+### Minor Changes
+
+- [#444](https://github.com/getflip/swirl/pull/444)
+  [`a8548166`](https://github.com/getflip/swirl/commit/a85481661ed894fee70478cf64f0af46e4302bb1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add optional tooltip to
+  swirl-description-list-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a8548166`](https://github.com/getflip/swirl/commit/a85481661ed894fee70478cf64f0af46e4302bb1)]:
+  - @getflip/swirl-components@0.106.0
+
+## 0.105.1
+
+### Patch Changes
+
+- [`571fae98`](https://github.com/getflip/swirl/commit/571fae9848df0732e52bac3f78ed8de45b2c8d92)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix display of dynamically added
+  custom app bar back button
+
+- Updated dependencies
+  [[`571fae98`](https://github.com/getflip/swirl/commit/571fae9848df0732e52bac3f78ed8de45b2c8d92)]:
+  - @getflip/swirl-components@0.105.1
+
+## 0.105.0
+
+### Minor Changes
+
+- [`a26c4758`](https://github.com/getflip/swirl/commit/a26c4758de54cece2dc984fd16cd961169d21671)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "custom-app-bar-back-button"
+  slot to swirl-app-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a26c4758`](https://github.com/getflip/swirl/commit/a26c4758de54cece2dc984fd16cd961169d21671)]:
+  - @getflip/swirl-components@0.105.0
+
 ## 0.104.2
 
 ### Patch Changes

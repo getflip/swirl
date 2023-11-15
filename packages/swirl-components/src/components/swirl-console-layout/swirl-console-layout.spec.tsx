@@ -19,8 +19,8 @@ describe("swirl-console-layout", () => {
       <swirl-console-layout app-name="App name" heading="Heading">
         <mock:shadow-root>
           <div class="console-layout">
-            <div aria-hidden="true" class="console-layout__sidebar" inert="">
-              <header class="console-layout__header">
+            <header aria-hidden="true" class="console-layout__sidebar" inert="">
+              <div class="console-layout__header">
                 <div class="console-layout__logo">
                   <svg class="console-layout__logo-mark" fill="none" height="26" viewBox="0 0 16 26" width="16" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.624238 14.0705C0.326496 13.5353 0.118077 12.9406 0.0287543 12.3161C-0.0307941 11.662 -0.0010199 11.0375 0.147851 10.4428C0.296722 9.84813 0.594464 9.25343 0.951754 8.77767C1.33882 8.27217 1.78543 7.85588 2.35114 7.55853L14.6181 0.362671C14.9159 0.8979 15.1243 1.4926 15.2136 2.11703C15.3029 2.74147 15.2434 3.3659 15.0945 3.99034C14.9456 4.58504 14.6479 5.17974 14.2906 5.6555C13.9035 6.16099 13.4569 6.57728 12.8912 6.87463L0.624238 14.0705Z" fill="#145AF5"></path>
@@ -32,14 +32,14 @@ describe("swirl-console-layout", () => {
                     Admin
                   </swirl-text>
                 </div>
-              </header>
+              </div>
               <nav aria-label="Main" class="console-layout__navigation">
                 <slot name="navigation"></slot>
               </nav>
               <div class="console-layout__user">
                 <slot name="user"></slot>
               </div>
-            </div>
+            </header>
             <main aria-labelledby="app-name" class="console-layout__main">
               <header class="console-layout__app-bar">
                 <span class="console-layout__mobile-navigation-button">

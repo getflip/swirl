@@ -27,6 +27,7 @@ export class SwirlSwitch {
 
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() disabled?: boolean = false;
+  @Prop() hideLabel?: boolean;
   @Prop() inputId!: string;
   @Prop() inputName!: string;
   @Prop() label?: string;
@@ -160,7 +161,12 @@ export class SwirlSwitch {
               ref={(el) => (this.thumb = el)}
             ></span>
           </span>
-          {this.label && <span class="switch__label">{this.label}</span>}
+          {this.label && !this.hideLabel && (
+            <span class="switch__label">{this.label}</span>
+          )}
+          {this.label && this.hideLabel && (
+            <swirl-visually-hidden>{this.label}</swirl-visually-hidden>
+          )}
         </label>
       </Host>
     );

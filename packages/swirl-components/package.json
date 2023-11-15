@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-components",
-  "version": "0.104.2",
+  "version": "0.111.0",
   "description": "Swirl Design System Web Component Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -108,7 +108,7 @@
     "remark-gfm": "^3.0.1",
     "storybook": "^7.4.0",
     "storybook-addon-themes": "^6.1.0",
-    "storybook-design-token": "^3.0.0-beta.3",
+    "storybook-design-token": "^3.0.0-beta.7",
     "svgo": "^2.8.0",
     "typescript": "^4.7.4",
     "vite": "^3.2.7"

@@ -23,6 +23,7 @@ export type SwirlAppLayoutTransitionStyle = "none" | "slides" | "dialog";
  * @slot navigation-controls - Controls for the navigation header
  * @slot navigation-mobile-menu-button - Used to add a mobile shell layout menu button to navigation
  * @slot app-bar - The app bar contents
+ * @slot custom-app-bar-back-button - Replaces the mobile default back button of the content app bar
  * @slot app-bar-mobile-menu-button - Used to add a mobile shell layout menu button to the app bar
  * @slot banner - Used to show a banner below the app bar
  * @slot sidebar - Content of the right sidebar
@@ -46,6 +47,7 @@ export class SwirlAppLayout {
   @Prop() sidebarHeading?: string;
   @Prop() transitionStyle?: string = "slides";
 
+  @State() hasCustomAppBarBackButton: boolean;
   @State() hasNavigation: boolean;
   @State() hasSidebar: boolean;
   @State() mobileView: SwirlAppLayoutMobileView = "navigation";
@@ -65,6 +67,7 @@ export class SwirlAppLayout {
 
   componentWillLoad() {
     this.mutationObserver = new MutationObserver(() => {
+      this.updateCustomAppBarBackButtonStatus();
       this.updateNavigationStatus();
       this.updateSidebarStatus();
     });
@@ -72,6 +75,7 @@ export class SwirlAppLayout {
     this.mutationObserver.observe(this.el, { childList: true });
 
     queueMicrotask(() => {
+      this.updateCustomAppBarBackButtonStatus();
       this.updateSidebarStatus();
       this.updateNavigationStatus();
       this.checkMobileView();
@@ -219,6 +223,12 @@ export class SwirlAppLayout {
     this.hasNavigation = Boolean(this.el.querySelector('[slot="navigation"]'));
   }
 
+  private updateCustomAppBarBackButtonStatus() {
+    this.hasCustomAppBarBackButton = Boolean(
+      this.el.querySelector('[slot="custom-app-bar-back-button"]')
+    );
+  }
+
   private updateSidebarStatus() {
     this.hasSidebar = Boolean(this.el.querySelector('[slot="sidebar"]'));
   }
@@ -242,7 +252,8 @@ export class SwirlAppLayout {
   render() {
     const showBackToNavigationButton =
       (this.mobileView === "body" || this.transitioningTo) &&
-      this.hasNavigation;
+      this.hasNavigation &&
+      !this.hasCustomAppBarBackButton;
 
     const hasAppBarControls = Boolean(
       this.el.querySelector('[slot="app-bar-controls"]')
@@ -261,6 +272,8 @@ export class SwirlAppLayout {
       {
         "app-layout--has-app-bar-mobile-menu-button": hasAppBarMobileMenuButton,
         "app-layout--has-app-bar-controls": hasAppBarControls,
+        "app-layout--has-custom-app-bar-back-button":
+          this.hasCustomAppBarBackButton,
         "app-layout--has-navigation": this.hasNavigation,
         "app-layout--has-sidebar": this.hasSidebar,
         "app-layout--sidebar-active":
@@ -330,6 +343,9 @@ export class SwirlAppLayout {
                     ></swirl-button>
                   </span>
                 )}
+                <span class="app-layout__custom-app-bar-back-button">
+                  <slot name="custom-app-bar-back-button"></slot>
+                </span>
                 <div class="app-layout__app-bar-content">
                   <slot name="app-bar"></slot>
                 </div>

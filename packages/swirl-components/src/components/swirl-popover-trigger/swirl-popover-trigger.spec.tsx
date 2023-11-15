@@ -18,6 +18,7 @@ describe("swirl-popover-trigger", () => {
       <swirl-popover-trigger popover="popover">
         <swirl-button label="trigger" swirl-aria-controls="popover" swirl-aria-expanded="false" swirl-aria-haspopup="dialog">
           <button aria-controls="popover" aria-expanded="false" aria-haspopup="dialog" class="button button--icon-position-start button--intent-default button--size-m button--text-align-center button--variant-ghost" type="button">
+            <span class="button__icon"></span>
             <span class="button__label">
               trigger
             </span>

@@ -86,12 +86,18 @@ export default class OASBuilder implements IOASBuilder {
         if (!this.operations[operation]) {
           this.operations[operation] = [];
         }
+
         this.operations[operation]?.push({
-          title: oasOperation.getSummary(),
-          path: `/${this.path}#${oasOperation
-            .getSummary()
-            .toLowerCase()
-            .replaceAll(" ", "-")}`.replaceAll(".", ""),
+          title:
+            oasOperation.getSummary() ||
+            oasOperation
+              .getOperationId()
+              .replaceAll("-", " ")
+              .replace(/\b\w/g, (char) => char.toUpperCase()), // Capitalize first letter of each word
+          path: `/${this.path}#${oasOperation.getOperationId()}`.replaceAll(
+            ".",
+            ""
+          ),
           operation: oasOperation,
           errorCodes: oasOperation.getExtension(
             "x-flip-error-codes"

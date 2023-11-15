@@ -409,6 +409,9 @@
               "name": "2xl"
             },
             {
+              "name": "2xs"
+            },
+            {
               "name": "l"
             },
             {
@@ -1323,6 +1326,10 @@
         {
           "name": "swirl-aria-label",
           "description": ""
+        },
+        {
+          "name": "swirl-aria-labelledby",
+          "description": ""
         }
       ]
     },
@@ -1816,6 +1823,10 @@
         },
         {
           "name": "term",
+          "description": ""
+        },
+        {
+          "name": "tooltip",
           "description": ""
         }
       ]
@@ -5019,6 +5030,10 @@
           "description": ""
         },
         {
+          "name": "return-focus-to-trigger",
+          "description": ""
+        },
+        {
           "name": "trigger",
           "description": ""
         },
@@ -5796,6 +5811,10 @@
         },
         {
           "name": "disabled",
+          "description": ""
+        },
+        {
+          "name": "hide-label",
           "description": ""
         },
         {

@@ -31,7 +31,8 @@ result.
 ### React Pages
 
 Under `src/pages/*` the folder structure sets the navigational-structure of the
-application.
+application. For futher information check the
+[NextJS Documentation](https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts).
 
 ### API Routes
 

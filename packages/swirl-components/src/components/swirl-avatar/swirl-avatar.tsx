@@ -13,10 +13,11 @@ export type SwirlAvatarColor =
   | "kiwi"
   | "pumpkin"
   | "radish";
-export type SwirlAvatarSize = "xs" | "s" | "m" | "l" | "xl" | "2xl";
+export type SwirlAvatarSize = "2xs" | "xs" | "s" | "m" | "l" | "xl" | "2xl";
 export type SwirlAvatarVariant = "round" | "square";
 
 const swirlAvatarSizeMappings: { [key in SwirlAvatarSize]: number } = {
+  "2xs": 20,
   xs: 28,
   s: 32,
   m: 40,

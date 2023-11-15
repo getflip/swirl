@@ -337,6 +337,7 @@ export namespace Components {
         "paddingInlineEnd"?: SwirlCardPadding;
         "paddingInlineStart"?: SwirlCardPadding;
         "swirlAriaLabel"?: string;
+        "swirlAriaLabelledby"?: string;
     }
     /**
      * slot - The slides
@@ -460,6 +461,7 @@ export namespace Components {
         "bordered"?: boolean;
         "maxWidth"?: string;
         "term": string;
+        "tooltip"?: string;
     }
     interface SwirlDialog {
         /**
@@ -1275,6 +1277,7 @@ export namespace Components {
         "open": (triggerEl?: HTMLElement) => Promise<void>;
         "placement"?: Placement;
         "popoverId"?: string;
+        "returnFocusToTrigger"?: boolean;
         "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
@@ -1421,6 +1424,7 @@ export namespace Components {
     interface SwirlSwitch {
         "checked"?: boolean;
         "disabled"?: boolean;
+        "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
         "label"?: string;
@@ -4310,6 +4314,7 @@ declare namespace LocalJSX {
         "paddingInlineEnd"?: SwirlCardPadding;
         "paddingInlineStart"?: SwirlCardPadding;
         "swirlAriaLabel"?: string;
+        "swirlAriaLabelledby"?: string;
     }
     /**
      * slot - The slides
@@ -4428,6 +4433,7 @@ declare namespace LocalJSX {
         "bordered"?: boolean;
         "maxWidth"?: string;
         "term": string;
+        "tooltip"?: string;
     }
     interface SwirlDialog {
         "hideLabel"?: boolean;
@@ -5146,6 +5152,7 @@ declare namespace LocalJSX {
         "onPopoverOpen"?: (event: SwirlPopoverCustomEvent<{ position: ComputePositionReturn }>) => void;
         "placement"?: Placement;
         "popoverId"?: string;
+        "returnFocusToTrigger"?: boolean;
         "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
@@ -5300,6 +5307,7 @@ declare namespace LocalJSX {
     interface SwirlSwitch {
         "checked"?: boolean;
         "disabled"?: boolean;
+        "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
         "label"?: string;
