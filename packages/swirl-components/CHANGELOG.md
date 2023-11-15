@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.111.1
+
+### Patch Changes
+
+- [#459](https://github.com/getflip/swirl/pull/459)
+  [`6ba96480`](https://github.com/getflip/swirl/commit/6ba96480a865c9427b7d6170f5e421422d8d0e38)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix timezone issue of
+  swirl-date-picker/swirl-date-input
+
 ## 0.111.0
 
 ### Minor Changes
