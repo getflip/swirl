@@ -247,3 +247,11 @@ export function querySelectorAllDeep<TargetType extends Element = HTMLElement>(
 
   return matches;
 }
+
+export function removeTimezoneOffset(date: Date): Date {
+  const newDate = new Date(date);
+
+  newDate.setMinutes(newDate.getMinutes() + newDate.getTimezoneOffset());
+
+  return newDate;
+}
