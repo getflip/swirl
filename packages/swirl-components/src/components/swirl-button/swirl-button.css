@@ -411,8 +411,14 @@
   }
 }
 
+.button--has-icon {
+  & .button__icon {
+    display: inline-flex;
+  }
+}
+
 .button__icon {
-  display: inline-flex;
+  display: none;
   margin-left: calc(-1 * var(--s-space-4));
   color: var(--s-icon-default);
   order: 0;
