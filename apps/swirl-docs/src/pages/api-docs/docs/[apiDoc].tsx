@@ -39,15 +39,21 @@ export const getStaticProps: GetStaticProps<
 > = async (context: any) => {
   const { apiDoc } = context.params;
 
-  const data = await getComponentData(apiDoc);
-
-  return {
-    props: {
-      document: data.document,
-      frontMatter: data.frontMatter,
-      title: apiDoc,
-    },
-  };
+  try {
+    const data = await getComponentData(apiDoc);
+    return {
+      props: {
+        document: data.document,
+        frontMatter: data.frontMatter,
+        title: apiDoc,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export default function Component({
