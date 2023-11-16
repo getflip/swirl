@@ -42,7 +42,11 @@
     },
     "build:swirl-docs": {
       "outputs": [".next/**"],
-      "dependsOn": ["prebuild"]
+      "dependsOn": [
+        "prebuild",
+        "^stencil:build",
+        "@getflip/swirl-components-react#build"
+      ]
     },
     "stencil:build": {
       "outputs": ["dist/**", "components.json"],
