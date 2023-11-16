@@ -15,6 +15,8 @@ export async function generateMdxFromDocumentation(
 ): Promise<MDXRemoteSerializeResult> {
   const fullPath = generateDocumentPath(category, document); // Derive the full path
 
+  console.log("Does mdxFileExist?", fs.existsSync(fullPath), fullPath);
+
   // Ensure that the document path is not a directory
   if (fs.existsSync(fullPath) && !fs.lstatSync(fullPath).isDirectory()) {
     const source = fs.readFileSync(fullPath, "utf8");
