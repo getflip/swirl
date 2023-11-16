@@ -195,6 +195,7 @@ export namespace Components {
         "changeMobileView": (mobileView: SwirlAppLayoutMobileView, transition?: boolean) => Promise<void>;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
+        "hideAppBar"?: boolean;
         /**
           * Hide the sidebar
          */
@@ -4177,6 +4178,7 @@ declare namespace LocalJSX {
         "backToNavigationViewButtonLabel"?: string;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
+        "hideAppBar"?: boolean;
         "navigationBackButtonLabel"?: string;
         "navigationLabel"?: string;
         "onCtaClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;

@@ -235,6 +235,15 @@
   }
 }
 
+.app-layout--hide-app-bar {
+  & .app-layout__body {
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "banner"
+      "content";
+  }
+}
+
 .app-layout__header {
   z-index: 1;
   display: flex;

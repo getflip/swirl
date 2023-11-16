@@ -40,6 +40,7 @@ export class SwirlAppLayout {
   @Prop() backToNavigationViewButtonLabel?: string = "Back to navigation";
   @Prop() ctaIcon?: string;
   @Prop() ctaLabel?: string;
+  @Prop() hideAppBar?: boolean;
   @Prop() navigationBackButtonLabel?: string = "Go back";
   @Prop() navigationLabel?: string;
   @Prop() showNavigationBackButton?: boolean;
@@ -276,6 +277,7 @@ export class SwirlAppLayout {
           this.hasCustomAppBarBackButton,
         "app-layout--has-navigation": this.hasNavigation,
         "app-layout--has-sidebar": this.hasSidebar,
+        "app-layout--hide-app-bar": this.hideAppBar,
         "app-layout--sidebar-active":
           this.mobileView === "sidebar" || this.sidebarActive,
         "app-layout--sidebar-closing": this.sidebarClosing,
@@ -325,34 +327,36 @@ export class SwirlAppLayout {
               <slot name="navigation"></slot>
             </nav>
             <section aria-labelledby="app-name" class="app-layout__body">
-              <header class="app-layout__app-bar">
-                <span class="app-layout__app-bar-mobile-menu-button">
-                  <slot name="app-bar-mobile-menu-button"></slot>
-                </span>
-                {showBackToNavigationButton && (
-                  <span class="app-layout__back-to-navigation-button">
-                    <swirl-button
-                      hideLabel
-                      icon={
-                        this.transitionStyle === "dialog"
-                          ? "<swirl-icon-close></swirl-icon-close>"
-                          : "<swirl-icon-arrow-back></swirl-icon-arrow-back>"
-                      }
-                      label={this.backToNavigationViewButtonLabel}
-                      onClick={this.onBackToNavigationViewButtonClick}
-                    ></swirl-button>
+              {!this.hideAppBar && (
+                <header class="app-layout__app-bar">
+                  <span class="app-layout__app-bar-mobile-menu-button">
+                    <slot name="app-bar-mobile-menu-button"></slot>
                   </span>
-                )}
-                <span class="app-layout__custom-app-bar-back-button">
-                  <slot name="custom-app-bar-back-button"></slot>
-                </span>
-                <div class="app-layout__app-bar-content">
-                  <slot name="app-bar"></slot>
-                </div>
-                <div class="app-layout__app-bar-controls">
-                  <slot name="app-bar-controls"></slot>
-                </div>
-              </header>
+                  {showBackToNavigationButton && (
+                    <span class="app-layout__back-to-navigation-button">
+                      <swirl-button
+                        hideLabel
+                        icon={
+                          this.transitionStyle === "dialog"
+                            ? "<swirl-icon-close></swirl-icon-close>"
+                            : "<swirl-icon-arrow-back></swirl-icon-arrow-back>"
+                        }
+                        label={this.backToNavigationViewButtonLabel}
+                        onClick={this.onBackToNavigationViewButtonClick}
+                      ></swirl-button>
+                    </span>
+                  )}
+                  <span class="app-layout__custom-app-bar-back-button">
+                    <slot name="custom-app-bar-back-button"></slot>
+                  </span>
+                  <div class="app-layout__app-bar-content">
+                    <slot name="app-bar"></slot>
+                  </div>
+                  <div class="app-layout__app-bar-controls">
+                    <slot name="app-bar-controls"></slot>
+                  </div>
+                </header>
+              )}
               <div class="app-layout__banner">
                 <slot name="banner"></slot>
               </div>

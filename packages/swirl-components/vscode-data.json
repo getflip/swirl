@@ -218,6 +218,10 @@
           "description": ""
         },
         {
+          "name": "hide-app-bar",
+          "description": ""
+        },
+        {
           "name": "navigation-back-button-label",
           "description": ""
         },
