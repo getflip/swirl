@@ -41,6 +41,7 @@
       ]
     },
     "build:swirl-docs": {
+      "cache": false,
       "outputs": [".next/**"],
       "dependsOn": [
         "prebuild",
