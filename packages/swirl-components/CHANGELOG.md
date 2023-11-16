@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.112.1
+
+### Patch Changes
+
+- [`ad3cb092`](https://github.com/getflip/swirl/commit/ad3cb09289ff81e521f78a68ca3aeab11bf2beda)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Minor style tweak
+
 ## 0.112.0
 
 ### Minor Changes
