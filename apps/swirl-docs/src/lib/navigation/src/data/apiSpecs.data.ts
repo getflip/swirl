@@ -194,6 +194,12 @@ export const apiSpecsNavItems: NavItem[] = [
         isRoot: false,
       },
       {
+        title: "Retrieve the password policy",
+        url: "/api-docs/organisations#get-password-policy",
+        description: "get",
+        isRoot: false,
+      },
+      {
         title: "Update language settings for organisation",
         url: "/api-docs/organisations#update-language-settings",
         description: "patch",
