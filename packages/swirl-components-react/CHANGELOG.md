@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.112.0
+
+### Minor Changes
+
+- [`f1e9654c`](https://github.com/getflip/swirl/commit/f1e9654c09404582d19f8e2730cf25183db05a4b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "hideAppBar" prop to
+  swirl-app-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`f1e9654c`](https://github.com/getflip/swirl/commit/f1e9654c09404582d19f8e2730cf25183db05a4b)]:
+  - @getflip/swirl-components@0.112.0
+
 ## 0.111.1
 
 ### Patch Changes
