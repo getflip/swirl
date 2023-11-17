@@ -214,6 +214,10 @@
       },
       "type": "typography"
     },
+    "border-radius-null": {
+      "value": "0",
+      "type": "borderRadius"
+    },
     "border-radius-xs": {
       "value": "2",
       "type": "borderRadius"
@@ -541,7 +545,7 @@
           "type": "color"
         },
         "success-default": {
-          "value": "#088108",
+          "value": "#087C08",
           "type": "color"
         },
         "success-subdued": {
@@ -2435,7 +2439,8 @@
         "surface-sunken.pressed": "S:008e29b74c9df5faa8dbfc9eb3f52346acecbfba,",
         "text.dark": "S:0725e456b8cd864da67d9fc8466aa312f51ed735,",
         "icon.dark": "S:daff72f871baa7568f11a67fde7c10d9fbcdd43e,"
-      }
+      },
+      "group": "Color"
     },
     {
       "id": "42468b6ed8dc2332e804197d2777f0a3046af3d3",
@@ -2596,7 +2601,17 @@
         "Decorative.5 Default": "S:deffbcc3d4b22c2688943c52a263b9f8f64a6883,",
         "Decorative.6 Default": "S:e0e99ebc91e015ff50921c14eb4fdb16f691f440,",
         "Decorative.7 Default": "S:7716164482a7029c41fb7d63e819f8c855ccca66,"
-      }
+      },
+      "group": "Color"
+    },
+    {
+      "id": "be70e5aab0d5e0114972cfd25f229215f463c526",
+      "name": "values",
+      "$figmaStyleReferences": {},
+      "selectedTokenSets": {
+        "core": "enabled"
+      },
+      "group": "Layout"
     }
   ],
   "$metadata": {
