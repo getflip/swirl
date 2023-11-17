@@ -47,6 +47,7 @@ export class SwirlFormControl {
   private descriptionId = `form-control-description-${Math.round(
     Math.random() * 100000
   )}`;
+  private labelId = `form-control-label-${Math.round(Math.random() * 100000)}`;
 
   private inputEl: HTMLElement;
 
@@ -54,6 +55,7 @@ export class SwirlFormControl {
     this.inputEl = this.el.children[0] as HTMLElement;
 
     this.associateDescriptionWithInputElement();
+    this.associateLabelWithInputElement();
     this.setInputElementDisabledState();
     this.setInputElementInlineState();
     this.setInputElementInvalidState();
@@ -72,7 +74,11 @@ export class SwirlFormControl {
       return;
     }
 
-    this.inputEl.setAttribute("swirl-aria-describedby", this.descriptionId);
+    if (Boolean(this.inputEl.getAttribute("contenteditable"))) {
+      this.inputEl.setAttribute("aria-describedby", this.descriptionId);
+    } else {
+      this.inputEl.setAttribute("swirl-aria-describedby", this.descriptionId);
+    }
   }
 
   @Watch("disabled")
@@ -140,6 +146,14 @@ export class SwirlFormControl {
     this.hasFocus = false;
   }
 
+  private associateLabelWithInputElement() {
+    if (!Boolean(this.inputEl.getAttribute("contenteditable"))) {
+      return;
+    }
+
+    this.inputEl.setAttribute("aria-labelledby", this.labelId);
+  }
+
   private listenToInputValueChanges = () => {
     this.inputEl.addEventListener("valueChange", this.checkInputValue);
   };
@@ -166,15 +180,26 @@ export class SwirlFormControl {
     }
   };
 
+  private onLabelClick = () => {
+    if (Boolean(this.inputEl.getAttribute("contenteditable"))) {
+      this.inputEl.focus();
+    }
+  };
+
   render() {
     const showErrorMessage = Boolean(this.errorMessage);
     const showDescription = Boolean(this.description) && !showErrorMessage;
+
+    const hasContenteditableControl = Boolean(
+      this.inputEl.getAttribute("contenteditable")
+    );
 
     const hasPrefix = Boolean(this.el.querySelector('[slot="prefix"]'));
 
     const hasValue = Array.isArray(this.inputValue)
       ? this.inputValue.length > 0
-      : Boolean(this.inputValue);
+      : Boolean(this.inputValue) ||
+        (hasContenteditableControl && Boolean(this.inputEl.innerHTML));
 
     const hasCharacterCounter = Boolean(
       this.inputEl.getAttribute("show-character-counter")
@@ -201,6 +226,8 @@ export class SwirlFormControl {
       }
     );
 
+    const LabelTag = hasContenteditableControl ? "div" : "label";
+
     return (
       <Host
         onFocusin={this.onFocusIn}
@@ -212,12 +239,14 @@ export class SwirlFormControl {
             <span class="form-control__prefix">
               <slot name="prefix"></slot>
             </span>
-            <label class="form-control__label">
-              <span class="form-control__label-text">{this.label}</span>
+            <LabelTag class="form-control__label" onClick={this.onLabelClick}>
+              <span class="form-control__label-text" id={this.labelId}>
+                {this.label}
+              </span>
               <span class="form-control__input">
                 <slot></slot>
               </span>
-            </label>
+            </LabelTag>
           </span>
           {showDescription && (
             <span class="form-control__description" id={this.descriptionId}>

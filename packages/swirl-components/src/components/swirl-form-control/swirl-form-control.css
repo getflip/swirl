@@ -323,3 +323,27 @@
   display: block;
   margin-top: var(--s-space-4);
 }
+
+.form-control__input {
+  &::slotted([contenteditable]:focus) {
+    outline: none;
+  }
+
+  &::slotted([contenteditable]) {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: var(--s-text-default);
+    background-color: transparent;
+    font: inherit;
+    font-size: var(--s-font-size-base);
+    line-height: var(--s-line-height-base);
+    caret-color: var(--s-border-highlight);
+
+    @media (--from-desktop-without-touch) {
+      font-size: var(--s-font-size-sm);
+      line-height: var(--s-line-height-sm);
+    }
+  }
+}

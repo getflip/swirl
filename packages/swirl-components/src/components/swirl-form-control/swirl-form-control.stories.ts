@@ -143,6 +143,15 @@ const Template = (args) => {
     <swirl-text-input max-length="200" show-character-counter="true" rows="5" type="text"></swirl-text-input>
   `;
 
+  const contenteditable = generateStoryElement("swirl-form-control", {
+    ...args,
+    label: "Contenteditable Control",
+  });
+
+  contenteditable.innerHTML = `
+    <div contenteditable="plaintext-only" role="textbox"></div>
+  `;
+
   container.append(
     "\n  ",
     textInput,
@@ -160,6 +169,8 @@ const Template = (args) => {
     autocomplete,
     "\n  ",
     multilineInput,
+    "\n  ",
+    contenteditable,
     "\n"
   );
 
