@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.113.1
+
+### Patch Changes
+
+- [`7b309a4b`](https://github.com/getflip/swirl/commit/7b309a4b644b1a0ba96404cf441a06df7c65030a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-resource-list-item
+  button type
+
+- Updated dependencies
+  [[`7b309a4b`](https://github.com/getflip/swirl/commit/7b309a4b644b1a0ba96404cf441a06df7c65030a)]:
+  - @getflip/swirl-components@0.113.1
+
 ## 0.113.0
 
 ### Minor Changes
