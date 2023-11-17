@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.113.0
+
+### Minor Changes
+
+- [`0304a9fa`](https://github.com/getflip/swirl/commit/0304a9fae317496318cba0c88af14e1b6d5dea70)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add support for contenteditable
+  to swirl-form-control
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0304a9fa`](https://github.com/getflip/swirl/commit/0304a9fae317496318cba0c88af14e1b6d5dea70)]:
+  - @getflip/swirl-components@0.113.0
+
 ## 0.112.1
 
 ### Patch Changes
