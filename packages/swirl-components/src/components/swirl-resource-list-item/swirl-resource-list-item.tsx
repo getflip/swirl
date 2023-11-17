@@ -183,6 +183,7 @@ export class SwirlResourceListItem {
             part="resource-list-item__content"
             role={role}
             tabIndex={0}
+            type={Tag === "button" ? "button" : undefined}
           >
             {this.hasMedia && (
               <span class="resource-list-item__media">
