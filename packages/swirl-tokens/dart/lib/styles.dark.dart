@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 30 Jun 2023 13:53:50 GMT
+// Generated on Fri, 17 Nov 2023 14:02:59 GMT
 
 
 
@@ -36,6 +36,7 @@ class SwirlDesignTokensDark {
     static const borderRadiusBase = 12.00;
     static const borderRadiusFullRound = 99999.00;
     static const borderRadiusL = 16.00;
+    static const borderRadiusNull = 0.00;
     static const borderRadiusS = 4.00;
     static const borderRadiusSm = 8.00;
     static const borderRadiusXl = 20.00;
@@ -139,7 +140,7 @@ class SwirlDesignTokensDark {
     static const coreStatusLightCriticalSubdued = Color(0xFFFCE7ED);
     static const coreStatusLightInfoDefault = Color(0xFF145AF5);
     static const coreStatusLightInfoSubdued = Color(0xFFE6F1FF);
-    static const coreStatusLightSuccessDefault = Color(0xFF088108);
+    static const coreStatusLightSuccessDefault = Color(0xFF087C08);
     static const coreStatusLightSuccessSubdued = Color(0xFFDCF7DC);
     static const coreStatusLightWarningDefault = Color(0xFFF3B703);
     static const coreStatusLightWarningStrong = Color(0xFF935806);

@@ -68,6 +68,10 @@
     "value": "underline",
     "type": "textDecoration"
   },
+  "border-radius-null": {
+    "value": 0,
+    "type": "borderRadius"
+  },
   "border-radius-xs": {
     "value": "0.125rem",
     "type": "borderRadius"
@@ -381,7 +385,7 @@
     "type": "color"
   },
   "core-status-light-success-default": {
-    "value": "rgba(8, 129, 8, 1)",
+    "value": "rgba(8, 124, 8, 1)",
     "type": "color"
   },
   "core-status-light-success-subdued": {

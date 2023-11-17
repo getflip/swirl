@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 30 Jun 2023 13:53:50 GMT
+// Generated on Fri, 17 Nov 2023 14:02:58 GMT
 
 
 
@@ -36,12 +36,13 @@ class SwirlDesignTokensLight {
     static const borderRadiusBase = 12.00;
     static const borderRadiusFullRound = 99999.00;
     static const borderRadiusL = 16.00;
+    static const borderRadiusNull = 0.00;
     static const borderRadiusS = 4.00;
     static const borderRadiusSm = 8.00;
     static const borderRadiusXl = 20.00;
     static const borderRadiusXs = 2.00;
     static const borderStrong = Color(0xFFCFCFCF); /* Usually used for high emphasis borders. */
-    static const borderSuccess = Color(0xFF088108); /* Usally used as an border on success components. */
+    static const borderSuccess = Color(0xFF087C08); /* Usally used as an border on success components. */
     static const borderWarning = Color(0xFF935806); /* Usally used as an border on warning components. */
     static const borderWidth0 = 0.00;
     static const borderWidthDefault = 1.00;
@@ -139,7 +140,7 @@ class SwirlDesignTokensLight {
     static const coreStatusLightCriticalSubdued = Color(0xFFFCE7ED);
     static const coreStatusLightInfoDefault = Color(0xFF145AF5);
     static const coreStatusLightInfoSubdued = Color(0xFFE6F1FF);
-    static const coreStatusLightSuccessDefault = Color(0xFF088108);
+    static const coreStatusLightSuccessDefault = Color(0xFF087C08);
     static const coreStatusLightSuccessSubdued = Color(0xFFDCF7DC);
     static const coreStatusLightWarningDefault = Color(0xFFF3B703);
     static const coreStatusLightWarningStrong = Color(0xFF935806);
@@ -195,7 +196,7 @@ class SwirlDesignTokensLight {
     static const iconOnStatus = Color(0xFFFFFFFF); /* Used as a icon color on containers with a default status color except on warning. */
     static const iconOnSurfaceHighlight = Color(0xFF171717); /* Used as icon color on containers with highlight color. */
     static const iconStrong = Color(0xFF171717); /* Used for high emphasis icons. */
-    static const iconSuccess = Color(0xFF088108); /* Used as success icon color */
+    static const iconSuccess = Color(0xFF087C08); /* Used as success icon color */
     static const iconWarning = Color(0xFF935806); /* Used as warning icon color */
     static const interactiveCriticalDefault = Color(0xFFD50636); /* Used for icon and text that are critical or negative interactive elements. */
     static const interactiveCriticalDisabled = Color(0xFFCFCFCF); /* Used if a component with “Interactive Critical/Default” has a disabled state. */
@@ -252,7 +253,7 @@ class SwirlDesignTokensLight {
     static const surfaceRaisedDefault = Color(0xFFF2F2F2); /* Usually used for elements that need contrast on surfaces or background */
     static const surfaceRaisedHovered = Color(0xFFEAEAEA); /* Used if a component with “On Surface/Default” has a hovered state. */
     static const surfaceRaisedPressed = Color(0xFFDFDFDF); /* Used if a component with “On Surface/Default” has a pressed state. */
-    static const surfaceSuccessDefault = Color(0xFF088108); /* Used as a background for success surfaces. */
+    static const surfaceSuccessDefault = Color(0xFF087C08); /* Used as a background for success surfaces. */
     static const surfaceSuccessSubdued = Color(0xFFDCF7DC); /* Used for low prio success background. */
     static const surfaceSunkenDefault = Color(0xFFF2F2F2);
     static const surfaceSunkenHovered = Color(0xFFEAEAEA);
@@ -270,7 +271,7 @@ class SwirlDesignTokensLight {
     static const textOnStatus = Color(0xFFFFFFFF); /* Used as a text color on containers with a default status color except on warning. */
     static const textOnSurfaceHighlight = Color(0xFF171717); /* Used as text color on containers with highlight color. */
     static const textSubdued = Color(0xFF6E6E6E); /* Used for low emphasis text. */
-    static const textSuccess = Color(0xFF088108); /* Used as success text color */
+    static const textSuccess = Color(0xFF087C08); /* Used as success text color */
     static const textWarning = Color(0xFF935806); /* Used as warning text color */
     static const z0 = "0";
     static const z10 = "10";
