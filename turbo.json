@@ -31,6 +31,7 @@
       "outputs": ["dist/**"]
     },
     "prebuild": {
+      "cache": false,
       "outputs": [
         "specs/**",
         "problem.yml",
