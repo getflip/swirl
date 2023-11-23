@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.114.0
+
+### Minor Changes
+
+- [`f12a2a99`](https://github.com/getflip/swirl/commit/f12a2a99515ec43f1b62d36afa80ef685fcd09ce)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "height" prop to swirl-stack
+
 ## 0.113.1
 
 ### Patch Changes
