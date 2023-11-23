@@ -35,6 +35,7 @@ export type SwirlStackSpacing =
 export class SwirlStack {
   @Prop() align?: SwirlStackAlign = "start";
   @Prop() as?: string = "div";
+  @Prop() height?: string;
   @Prop() justify?: SwirlStackJustify = "start";
   @Prop() orientation?: SwirlStackOrientation = "vertical";
   @Prop() spacing?: SwirlStackSpacing = "0";
@@ -52,10 +53,10 @@ export class SwirlStack {
     );
 
     return (
-      <Host>
+      <Host style={{ height: this.height }}>
         <Tag
           class={className}
-          style={{ gap: `var(--s-space-${this.spacing})` }}
+          style={{ gap: `var(--s-space-${this.spacing})`, height: this.height }}
         >
           <slot></slot>
         </Tag>
