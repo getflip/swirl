@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.115.0
+
+### Minor Changes
+
+- [`601957a1`](https://github.com/getflip/swirl/commit/601957a1cbdc500d17a0a0c4dc087bf4eaf56d40)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adapt swirl-theme-provider for
+  new v4 branding APIs
+
 ## 0.114.0
 
 ### Minor Changes
