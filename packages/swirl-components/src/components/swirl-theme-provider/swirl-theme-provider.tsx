@@ -8,54 +8,13 @@ import {
   Prop,
   Watch,
 } from "@stencil/core";
-import { hsla, parseToHsla, toRgba } from "color2k";
-
-export type SwirlTheme = "light" | "dark";
-
-export type SwirlThemeChangeEventData = {
-  activeTheme: SwirlTheme;
-  preferredTheme: SwirlTheme | undefined;
-};
-
-export type SwirlThemeProviderStorage = {
-  getItem: (key: string) => string;
-  removeItem: (key: string) => void;
-  setItem: (key: string, value: string) => void;
-};
-
-export type SwirlThemeProviderTenantColors = {
-  primary?: string;
-  primaryContrast?: string;
-  secondary?: string;
-  secondaryContrast?: string;
-  text?: string;
-};
-
-export type SwirlThemeProviderConfig = {
-  rootElement?: HTMLElement;
-  storage?: SwirlThemeProviderStorage;
-  tenantColors?: SwirlThemeProviderTenantColors;
-};
+import {
+  SwirlOSTheme,
+  SwirlOSThemeChangeEventData,
+  SwirlThemeProviderConfig,
+} from "./swirl-theme-provider.types";
 
 const preferredThemeStorageKey = "swirl-preferred-theme";
-
-const tenantColorMapping = {
-  "--s-action-primary-default": "primary",
-  "--s-action-primary-hovered": "primaryHovered",
-  "--s-action-primary-pressed": "primaryPressed",
-  "--s-text-on-action-primary": "primaryContrast",
-  "--s-icon-on-action-primary": "primaryContrast",
-  "--s-surface-highlight-default": "secondary",
-  "--s-surface-highlight-hovered": "secondaryHovered",
-  "--s-surface-highlight-pressed": "secondaryPressed",
-  "--s-on-surface-highlight-default": "secondaryHovered",
-  "--s-text-on-surface-highlight": "secondaryContrast",
-  "--s-icon-on-surface-highlight": "secondaryContrast",
-  "--s-text-highlight": "text",
-  "--s-interactive-primary-default": "text",
-  "--s-interactive-primary-hovered": "textHovered",
-  "--s-interactive-primary-pressed": "textPressed",
-};
 
 @Component({
   scoped: true,
@@ -65,12 +24,13 @@ const tenantColorMapping = {
 export class SwirlThemeProvider {
   @Prop() config: SwirlThemeProviderConfig;
 
-  @Event() themeChange: EventEmitter<SwirlThemeChangeEventData>;
+  @Event() themeChange: EventEmitter<SwirlOSThemeChangeEventData>;
 
-  private appTheme: SwirlTheme;
-  private osTheme: SwirlTheme;
-  private recentThemeChangeEventData: SwirlThemeChangeEventData;
+  private appOSTheme: SwirlOSTheme;
+  private osTheme: SwirlOSTheme;
+  private recentOSThemeChangeEventData: SwirlOSThemeChangeEventData;
   private resolvedConfig: SwirlThemeProviderConfig;
+  private setDesignTokens: string[] = [];
 
   componentWillLoad() {
     this.resolveConfig();
@@ -86,35 +46,35 @@ export class SwirlThemeProvider {
   }
 
   /**
-   * Returns the active app theme.
+   * Returns the active OS theme.
    * @returns SwirlTheme
    */
   @Method()
-  async getActiveTheme() {
-    return this.appTheme;
+  async getActiveOSTheme() {
+    return this.appOSTheme;
   }
 
   /**
-   * Returns the user's preferred theme stored in local storage.
+   * Returns the user's preferred OS theme stored in local storage.
    * @returns SwirlTheme
    */
   @Method()
-  async getPreferredTheme() {
+  async getPreferredOSTheme() {
     if (!Boolean(this.resolvedConfig.storage)) {
       return;
     }
 
     return this.resolvedConfig.storage.getItem(
       preferredThemeStorageKey
-    ) as SwirlTheme | null;
+    ) as SwirlOSTheme | null;
   }
 
   /**
-   * Sets the user's preferred theme and stores it in local storage. Overrides
-   * the OS theme.
+   * Sets the user's preferred OS theme and stores it in local storage. Overrides
+   * the system theme.
    */
   @Method()
-  async setPreferredTheme(theme: SwirlTheme) {
+  async setPreferredOSTheme(theme: SwirlOSTheme) {
     if (!Boolean(this.resolvedConfig.storage)) {
       return;
     }
@@ -125,10 +85,10 @@ export class SwirlThemeProvider {
   }
 
   /**
-   * Resets the user's preferred theme, using the OS theme instead.
+   * Resets the user's preferred OS theme, using the system theme instead.
    */
   @Method()
-  async resetPreferredTheme() {
+  async resetPreferredOSTheme() {
     if (!Boolean(this.resolvedConfig.storage)) {
       return;
     }
@@ -166,9 +126,9 @@ export class SwirlThemeProvider {
   }
 
   private async updateAppTheme() {
-    this.appTheme = (await this.getPreferredTheme()) || this.osTheme;
+    this.appOSTheme = (await this.getPreferredOSTheme()) || this.osTheme;
 
-    if (this.appTheme === "dark") {
+    if (this.appOSTheme === "dark") {
       document.documentElement.classList.remove("theme-light");
       document.documentElement.classList.add("theme-dark");
     } else {
@@ -177,93 +137,69 @@ export class SwirlThemeProvider {
     }
 
     this.updateTenantVariables();
+    this.updateTenantAssets();
 
-    const themeChangeEventData: SwirlThemeChangeEventData = {
-      activeTheme: await this.getActiveTheme(),
-      preferredTheme: await this.getPreferredTheme(),
+    const themeChangeEventData: SwirlOSThemeChangeEventData = {
+      activeTheme: await this.getActiveOSTheme(),
+      preferredTheme: await this.getPreferredOSTheme(),
     };
 
     if (
-      !Boolean(this.recentThemeChangeEventData) ||
+      !Boolean(this.recentOSThemeChangeEventData) ||
       themeChangeEventData.activeTheme !==
-        this.recentThemeChangeEventData.activeTheme ||
+        this.recentOSThemeChangeEventData.activeTheme ||
       themeChangeEventData.preferredTheme !==
-        this.recentThemeChangeEventData.preferredTheme
+        this.recentOSThemeChangeEventData.preferredTheme
     ) {
-      this.recentThemeChangeEventData = themeChangeEventData;
-      this.themeChange.emit(this.recentThemeChangeEventData);
+      this.recentOSThemeChangeEventData = themeChangeEventData;
+      this.themeChange.emit(this.recentOSThemeChangeEventData);
     }
   }
 
-  private updateTenantVariables() {
-    const tenantTheme = this.resolvedConfig?.tenantColors;
+  private updateTenantAssets() {
+    const theme = this.resolvedConfig?.themes?.[this.appOSTheme];
 
-    if (!Boolean(tenantTheme)) {
+    if (!Boolean(theme)) {
+      return;
+    }
+
+    document.head
+      .querySelector('link[rel="icon"]')
+      ?.setAttribute("href", theme.favicon.link);
+  }
+
+  private updateTenantVariables() {
+    const theme = this.resolvedConfig?.themes?.[this.appOSTheme];
+
+    if (!Boolean(theme)) {
       this.resetTenantVariables();
       return;
     }
 
     const rootElement = this.resolvedConfig.rootElement;
 
-    // generate state colors (hovered, pressed) from base colors
-    const primaryHsla = parseToHsla(tenantTheme.primary);
-    const secondaryHsla = parseToHsla(tenantTheme.secondary);
-    const textHsla = parseToHsla(tenantTheme.text);
+    this.setDesignTokens = [];
 
-    const primaryHovered = toRgba(
-      hsla(primaryHsla[0], primaryHsla[1] - 0.21, primaryHsla[2] + 0.09, 1)
-    );
-    const primaryPressed = toRgba(
-      hsla(primaryHsla[0], primaryHsla[1] - 0.2, primaryHsla[2] + 0.17, 1)
-    );
+    theme.design_tokens.forEach((token) => {
+      const propertyName = `--s-${token.id}`;
 
-    const secondaryHovered = toRgba(
-      hsla(secondaryHsla[0], secondaryHsla[1], secondaryHsla[2] + 0.07, 1)
-    );
-    const secondaryPressed = toRgba(
-      hsla(secondaryHsla[0], secondaryHsla[1], secondaryHsla[2] + 0.15, 1)
-    );
-
-    const textHovered = toRgba(
-      hsla(textHsla[0], textHsla[1] - 0.34, textHsla[2] + 0.1, 1)
-    );
-    const textPressed = toRgba(
-      hsla(textHsla[0], textHsla[1] - 0.48, textHsla[2] + 0.2, 1)
-    );
-
-    const tenantThemeWithGeneratedStateColors: SwirlThemeProviderTenantColors & {
-      [key: string]: string;
-    } = {
-      ...tenantTheme,
-      primaryHovered: primaryHovered,
-      primaryPressed: primaryPressed,
-      secondaryHovered: secondaryHovered,
-      secondaryPressed: secondaryPressed,
-      textHovered: textHovered,
-      textPressed: textPressed,
-    };
-
-    // set custom properties for tenant theme colors
-    Object.entries(tenantColorMapping).forEach(([key, value]) =>
       rootElement.style.setProperty(
-        key,
-        tenantThemeWithGeneratedStateColors[value]
-      )
-    );
+        propertyName,
+        `rgba(${token.color.r}, ${token.color.g}, ${token.color.b}, ${token.color.a})`
+      );
+
+      this.setDesignTokens.push(propertyName);
+    });
   }
 
   private resetTenantVariables() {
     const rootElement = this.resolvedConfig.rootElement;
 
-    [
-      ...Object.keys(tenantColorMapping),
-      "primaryHovered",
-      "primaryPressed",
-      "secondaryHovered",
-      "secondaryPressed",
-      "textHovered",
-      "textPressed",
-    ].forEach((key) => rootElement.style.removeProperty(key));
+    this.setDesignTokens.forEach((property) => {
+      rootElement.style.removeProperty(property);
+    });
+
+    this.setDesignTokens = [];
   }
 
   render() {

@@ -57,7 +57,7 @@ import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-tabl
 import { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight } from "./components/swirl-text/swirl-text";
 import { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
-import { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider";
+import { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
 import { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
@@ -115,7 +115,7 @@ export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-tabl
 export { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight } from "./components/swirl-text/swirl-text";
 export { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
-export { SwirlTheme, SwirlThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider";
+export { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
 export { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
@@ -1713,23 +1713,23 @@ export namespace Components {
     interface SwirlThemeProvider {
         "config": SwirlThemeProviderConfig;
         /**
-          * Returns the active app theme.
+          * Returns the active OS theme.
           * @returns SwirlTheme
          */
-        "getActiveTheme": () => Promise<SwirlTheme>;
+        "getActiveOSTheme": () => Promise<SwirlOSTheme>;
         /**
-          * Returns the user's preferred theme stored in local storage.
+          * Returns the user's preferred OS theme stored in local storage.
           * @returns SwirlTheme
          */
-        "getPreferredTheme": () => Promise<SwirlTheme>;
+        "getPreferredOSTheme": () => Promise<SwirlOSTheme>;
         /**
-          * Resets the user's preferred theme, using the OS theme instead.
+          * Resets the user's preferred OS theme, using the system theme instead.
          */
-        "resetPreferredTheme": () => Promise<void>;
+        "resetPreferredOSTheme": () => Promise<void>;
         /**
-          * Sets the user's preferred theme and stores it in local storage. Overrides the OS theme.
+          * Sets the user's preferred OS theme and stores it in local storage. Overrides the system theme.
          */
-        "setPreferredTheme": (theme: SwirlTheme) => Promise<void>;
+        "setPreferredOSTheme": (theme: SwirlOSTheme) => Promise<void>;
     }
     interface SwirlThumbnail {
         "alt": string;
@@ -5597,7 +5597,7 @@ declare namespace LocalJSX {
     }
     interface SwirlThemeProvider {
         "config"?: SwirlThemeProviderConfig;
-        "onThemeChange"?: (event: SwirlThemeProviderCustomEvent<SwirlThemeChangeEventData>) => void;
+        "onOSThemeChange"?: (event: SwirlThemeProviderCustomEvent<SwirlOSThemeChangeEventData>) => void;
     }
     interface SwirlThumbnail {
         "alt": string;
