@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -41,6 +43,9 @@ export class SwirlPdfReader {
   @Prop() zoomInButtonLabel?: string = "Zoom in";
   @Prop() zoomOutButtonLabel?: string = "Zoom out";
   @Prop() zoomSelectLabel?: string = "Select zoom";
+
+  @Event() modalClose: EventEmitter<void>;
+  @Event() modalOpen: EventEmitter<void>;
 
   @State() active = false;
   @State() closing = false;
@@ -93,6 +98,7 @@ export class SwirlPdfReader {
   async open() {
     this.modal.show();
     this.active = true;
+    this.modalOpen.emit();
   }
 
   /**
@@ -112,6 +118,7 @@ export class SwirlPdfReader {
       this.modal.hide();
       this.closing = false;
       this.active = false;
+      this.modalClose.emit();
     }, 150);
   }
 

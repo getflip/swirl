@@ -1918,6 +1918,10 @@ export interface SwirlPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlPaginationElement;
 }
+export interface SwirlPdfReaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlPdfReaderElement;
+}
 export interface SwirlPopoverCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlPopoverElement;
@@ -5134,6 +5138,8 @@ declare namespace LocalJSX {
         "label": string;
         "menuLabel"?: string;
         "menuTriggerLabel"?: string;
+        "onModalClose"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
+        "onModalOpen"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
         "thumbnailButtonLabel"?: string;
@@ -5597,7 +5603,7 @@ declare namespace LocalJSX {
     }
     interface SwirlThemeProvider {
         "config"?: SwirlThemeProviderConfig;
-        "onOSThemeChange"?: (event: SwirlThemeProviderCustomEvent<SwirlOSThemeChangeEventData>) => void;
+        "onThemeChange"?: (event: SwirlThemeProviderCustomEvent<SwirlOSThemeChangeEventData>) => void;
     }
     interface SwirlThumbnail {
         "alt": string;
