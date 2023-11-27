@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.116.0
+
+### Minor Changes
+
+- [`9bd62d26`](https://github.com/getflip/swirl/commit/9bd62d26ab47c33b1381bb64a6993a519fb42f59)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "modalOpen" and "modalClose"
+  events to swril-pdf-reader
+
+* [`6c51e73e`](https://github.com/getflip/swirl/commit/6c51e73e0ce6b9c24d21efebe034bf4d3d3c3c4c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow configuration of the PDF.js
+  worker js file path
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9bd62d26`](https://github.com/getflip/swirl/commit/9bd62d26ab47c33b1381bb64a6993a519fb42f59),
+  [`6c51e73e`](https://github.com/getflip/swirl/commit/6c51e73e0ce6b9c24d21efebe034bf4d3d3c3c4c)]:
+  - @getflip/swirl-components@0.116.0
+
 ## 0.115.0
 
 ### Minor Changes
