@@ -35,6 +35,7 @@ export class SwirlPdfReader {
   @Prop() label!: string;
   @Prop() menuLabel?: string = "File menu";
   @Prop() menuTriggerLabel?: string = "Open file menu";
+  @Prop() pdfWorkerSrc?: string;
   @Prop() printButtonLabel?: string = "Print PDF";
   @Prop() sideBySideButtonLabel?: string = "Toggle side by side view";
   @Prop() thumbnailButtonLabel?: string = "Scroll to page";
@@ -374,6 +375,7 @@ export class SwirlPdfReader {
                 file={this.file}
                 onActivate={this.onActivate}
                 onVisiblePagesChange={this.onVisiblePagesChange}
+                pdfWorkerSrc={this.pdfWorkerSrc}
                 ref={(el) => (this.viewer = el)}
                 type="application/pdf"
                 viewMode={this.viewMode}

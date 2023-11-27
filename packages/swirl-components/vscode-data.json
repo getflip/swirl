@@ -2121,6 +2121,10 @@
           "description": ""
         },
         {
+          "name": "pdf-worker-src",
+          "description": ""
+        },
+        {
           "name": "thumbnail-url",
           "description": ""
         },
@@ -2248,6 +2252,10 @@
               "name": "single"
             }
           ]
+        },
+        {
+          "name": "worker-src",
+          "description": ""
         },
         {
           "name": "zoom",
@@ -4908,6 +4916,10 @@
         },
         {
           "name": "menu-trigger-label",
+          "description": ""
+        },
+        {
+          "name": "pdf-worker-src",
           "description": ""
         },
         {

@@ -24,6 +24,7 @@ export class SwirlFileViewer {
   @Prop() description?: string;
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
+  @Prop() pdfWorkerSrc?: string;
   @Prop() thumbnailUrl?: string;
   @Prop() type!: string;
   @Prop() typeUnsupportedMessage?: string = "File type is not supported.";
@@ -116,6 +117,7 @@ export class SwirlFileViewer {
                   onVisiblePagesChange={this.onVisiblePagesChange}
                   ref={(el) => (this.viewer = el)}
                   viewMode={this.viewMode}
+                  workerSrc={this.pdfWorkerSrc}
                   zoom={this.zoom}
                 ></swirl-file-viewer-pdf>
               )}

@@ -541,6 +541,7 @@ export namespace Components {
         "download": () => Promise<void>;
         "errorMessage"?: string;
         "file": string;
+        "pdfWorkerSrc"?: string;
         /**
           * Print the file. Applicable to PDFs only.
          */
@@ -601,6 +602,7 @@ export namespace Components {
         "setPage": (page: number) => Promise<void>;
         "singlePageMode": boolean;
         "viewMode"?: SwirlFileViewerPdfViewMode1;
+        "workerSrc"?: string;
         "zoom"?: SwirlFileViewerPdfZoom1;
     }
     interface SwirlFileViewerText {
@@ -1249,6 +1251,7 @@ export namespace Components {
           * Open the reader.
          */
         "open": () => Promise<void>;
+        "pdfWorkerSrc"?: string;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
         "thumbnailButtonLabel"?: string;
@@ -4508,6 +4511,7 @@ declare namespace LocalJSX {
         "file": string;
         "onActivate"?: (event: SwirlFileViewerCustomEvent<HTMLElement>) => void;
         "onVisiblePagesChange"?: (event: SwirlFileViewerCustomEvent<number[]>) => void;
+        "pdfWorkerSrc"?: string;
         "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
@@ -4539,6 +4543,7 @@ declare namespace LocalJSX {
         "onVisiblePagesChange"?: (event: SwirlFileViewerPdfCustomEvent<number[]>) => void;
         "singlePageMode"?: boolean;
         "viewMode"?: SwirlFileViewerPdfViewMode1;
+        "workerSrc"?: string;
         "zoom"?: SwirlFileViewerPdfZoom1;
     }
     interface SwirlFileViewerText {
@@ -5140,6 +5145,7 @@ declare namespace LocalJSX {
         "menuTriggerLabel"?: string;
         "onModalClose"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
+        "pdfWorkerSrc"?: string;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
         "thumbnailButtonLabel"?: string;
