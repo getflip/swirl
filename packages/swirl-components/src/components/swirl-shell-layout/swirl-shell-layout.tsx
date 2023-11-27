@@ -158,7 +158,7 @@ export class SwirlShellLayout {
             </div>
             <div class="shell-layout__header-right">
               <button
-                class="shell-layout__header-tool"
+                class="shell-layout__header-tool shell-layout__sidebar-toggle"
                 onClick={this.sidebarToggleClick.emit}
                 type="button"
               >

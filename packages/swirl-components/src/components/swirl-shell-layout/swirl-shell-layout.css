@@ -27,12 +27,20 @@
   transition: grid-template-columns 0.2s;
   grid-template-columns: 0 1fr 0;
   grid-template-rows: 1fr;
-  grid-template-areas: "nav main sidebar";
+  grid-template-areas: "nav main";
 
   @media (--from-desktop) {
     padding-right: var(--s-space-8);
     padding-bottom: var(--s-space-8);
     gap: var(--s-space-8);
+    grid-template-columns: var(--swirl-shell-extended-nav-width) 1fr;
+    grid-template-rows: var(--swirl-shell-header-height) 1fr;
+    grid-template-areas:
+      "header header"
+      "nav main";
+  }
+
+  @media (--from-large-desktop) {
     grid-template-columns: var(--swirl-shell-extended-nav-width) 1fr 0;
     grid-template-rows: var(--swirl-shell-header-height) 1fr;
     grid-template-areas:
@@ -43,19 +51,23 @@
 
 .shell-layout--navigation-collapsed {
   @media (--from-desktop) {
+    grid-template-columns: var(--swirl-shell-collapsed-nav-width) 1fr;
+  }
+
+  @media (--from-large-desktop) {
     grid-template-columns: var(--swirl-shell-collapsed-nav-width) 1fr 0;
   }
 }
 
 .shell-layout--sidebar-active {
   &.shell-layout--navigation-collapsed {
-    @media (--from-desktop) {
+    @media (--from-large-desktop) {
       grid-template-columns: var(--swirl-shell-collapsed-nav-width) 1fr var(
           --swirl-shell-sidebar-width
         );
     }
   }
-  @media (--from-desktop) {
+  @media (--from-large-desktop) {
     grid-template-columns: var(--swirl-shell-extended-nav-width) 1fr var(
         --swirl-shell-sidebar-width
       );
@@ -172,6 +184,14 @@
   }
 }
 
+.shell-layout__sidebar-toggle {
+  display: none;
+
+  @media (--from-large-desktop) {
+    display: block;
+  }
+}
+
 .shell-layout__nav {
   position: fixed;
   z-index: 9;
@@ -218,6 +238,10 @@
   &::slotted(img) {
     max-height: 1.75rem;
   }
+
+  @media (--from-desktop) {
+    display: none;
+  }
 }
 
 .shell-layout__mobile-nav-backdrop {
@@ -239,12 +263,14 @@
 }
 
 .shell-layout__sidebar {
+  display: none;
   overflow: hidden;
+  border-radius: var(--s-border-radius-sm);
   background-color: var(--s-background-default);
   grid-area: sidebar;
 
-  @media (--from-desktop) {
-    border-radius: var(--s-border-radius-sm);
+  @media (--from-large-desktop) {
+    display: block;
   }
 }
 
