@@ -173,6 +173,7 @@ export namespace Components {
     }
     interface SwirlAppBar {
         "backButtonLabel"?: string;
+        "closeButtonIcon"?: string;
         "closeButtonLabel"?: string;
         "showBackButton"?: boolean;
         "showCloseButton"?: boolean;
@@ -748,6 +749,9 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconDiscover {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconDockLeft {
         "size": SwirlIconSize;
     }
     interface SwirlIconDoubleArrowLeft {
@@ -1377,17 +1381,21 @@ export namespace Components {
         "spacing"?: SwirlSeparatorSpacing;
     }
     interface SwirlShellLayout {
+        "browserBackButtonLabel"?: string;
+        "browserForwardButtonLabel"?: string;
         /**
-          * Collapse the left sidebar.
+          * Hides the mobile navigation.
          */
-        "collapseSidebar": () => Promise<void>;
+        "hideMobileNavigation": () => Promise<void>;
+        "navigationLabel"?: string;
+        "navigationToggleLabel"?: string;
         /**
-          * Extend the left sidebar.
+          * Opens the mobile navigation.
          */
-        "extendSidebar": () => Promise<void>;
-        "hideSidebar"?: boolean;
-        "mainNavigationLabel": string;
-        "sidebarToggleLabel": string;
+        "showMobileNavigation": () => Promise<void>;
+        "sidebarActive"?: boolean;
+        "sidebarToggleLabel"?: string;
+        "skipLinkLabel"?: string;
     }
     interface SwirlShellNavigationItem {
         "active"?: boolean;
@@ -1949,6 +1957,10 @@ export interface SwirlSearchCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlSelectElement;
+}
+export interface SwirlShellLayoutCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlShellLayoutElement;
 }
 export interface SwirlSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2514,6 +2526,12 @@ declare global {
     var HTMLSwirlIconDiscoverElement: {
         prototype: HTMLSwirlIconDiscoverElement;
         new (): HTMLSwirlIconDiscoverElement;
+    };
+    interface HTMLSwirlIconDockLeftElement extends Components.SwirlIconDockLeft, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDockLeftElement: {
+        prototype: HTMLSwirlIconDockLeftElement;
+        new (): HTMLSwirlIconDockLeftElement;
     };
     interface HTMLSwirlIconDoubleArrowLeftElement extends Components.SwirlIconDoubleArrowLeft, HTMLStencilElement {
     }
@@ -3905,6 +3923,7 @@ declare global {
         "swirl-icon-delete": HTMLSwirlIconDeleteElement;
         "swirl-icon-description": HTMLSwirlIconDescriptionElement;
         "swirl-icon-discover": HTMLSwirlIconDiscoverElement;
+        "swirl-icon-dock-left": HTMLSwirlIconDockLeftElement;
         "swirl-icon-double-arrow-left": HTMLSwirlIconDoubleArrowLeftElement;
         "swirl-icon-double-arrow-right": HTMLSwirlIconDoubleArrowRightElement;
         "swirl-icon-download": HTMLSwirlIconDownloadElement;
@@ -4158,6 +4177,7 @@ declare namespace LocalJSX {
     }
     interface SwirlAppBar {
         "backButtonLabel"?: string;
+        "closeButtonIcon"?: string;
         "closeButtonLabel"?: string;
         "onBackButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
         "onCloseButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
@@ -4684,6 +4704,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDiscover {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconDockLeft {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDoubleArrowLeft {
@@ -5270,9 +5293,14 @@ declare namespace LocalJSX {
         "spacing"?: SwirlSeparatorSpacing;
     }
     interface SwirlShellLayout {
-        "hideSidebar"?: boolean;
-        "mainNavigationLabel"?: string;
+        "browserBackButtonLabel"?: string;
+        "browserForwardButtonLabel"?: string;
+        "navigationLabel"?: string;
+        "navigationToggleLabel"?: string;
+        "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
+        "sidebarActive"?: boolean;
         "sidebarToggleLabel"?: string;
+        "skipLinkLabel"?: string;
     }
     interface SwirlShellNavigationItem {
         "active"?: boolean;
@@ -5750,6 +5778,7 @@ declare namespace LocalJSX {
         "swirl-icon-delete": SwirlIconDelete;
         "swirl-icon-description": SwirlIconDescription;
         "swirl-icon-discover": SwirlIconDiscover;
+        "swirl-icon-dock-left": SwirlIconDockLeft;
         "swirl-icon-double-arrow-left": SwirlIconDoubleArrowLeft;
         "swirl-icon-double-arrow-right": SwirlIconDoubleArrowRight;
         "swirl-icon-download": SwirlIconDownload;
@@ -6066,6 +6095,7 @@ declare module "@stencil/core" {
             "swirl-icon-delete": LocalJSX.SwirlIconDelete & JSXBase.HTMLAttributes<HTMLSwirlIconDeleteElement>;
             "swirl-icon-description": LocalJSX.SwirlIconDescription & JSXBase.HTMLAttributes<HTMLSwirlIconDescriptionElement>;
             "swirl-icon-discover": LocalJSX.SwirlIconDiscover & JSXBase.HTMLAttributes<HTMLSwirlIconDiscoverElement>;
+            "swirl-icon-dock-left": LocalJSX.SwirlIconDockLeft & JSXBase.HTMLAttributes<HTMLSwirlIconDockLeftElement>;
             "swirl-icon-double-arrow-left": LocalJSX.SwirlIconDoubleArrowLeft & JSXBase.HTMLAttributes<HTMLSwirlIconDoubleArrowLeftElement>;
             "swirl-icon-double-arrow-right": LocalJSX.SwirlIconDoubleArrowRight & JSXBase.HTMLAttributes<HTMLSwirlIconDoubleArrowRightElement>;
             "swirl-icon-download": LocalJSX.SwirlIconDownload & JSXBase.HTMLAttributes<HTMLSwirlIconDownloadElement>;

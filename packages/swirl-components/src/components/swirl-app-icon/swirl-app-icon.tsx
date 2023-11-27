@@ -7,9 +7,9 @@ import classnames from "classnames";
   tag: "swirl-app-icon",
 })
 export class SwirlAppIcon {
+  @Prop() hideBorder?: boolean = false;
   @Prop() icon?: string;
   @Prop() src?: string;
-  @Prop() hideBorder?: boolean = false;
 
   @State() imageAvailable: boolean | undefined;
 

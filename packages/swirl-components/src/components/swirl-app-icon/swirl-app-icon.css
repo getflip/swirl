@@ -9,27 +9,14 @@
 .app-icon {
   position: relative;
   overflow: hidden;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.625rem;
-  background-color: var(--s-surface-default);
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: var(--s-border-radius-s);
 
   & > img {
     width: 100%;
     height: 100%;
   }
-}
-
-.app-icon::after {
-  position: absolute;
-  top: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 0.625rem;
-  content: "";
-  box-shadow: 0 0 var(--s-border-width-default) rgba(0, 0, 0, 0.1) inset,
-    0 0 var(--s-border-width-default) rgba(0, 0, 0, 0.1) inset;
 }
 
 .app-icon--hide-border::after {
@@ -42,6 +29,4 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-
-  color: var(--s-icon-default);
 }

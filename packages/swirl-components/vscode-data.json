@@ -148,6 +148,10 @@
           "description": ""
         },
         {
+          "name": "close-button-icon",
+          "description": ""
+        },
+        {
           "name": "close-button-label",
           "description": ""
         },
@@ -2948,6 +2952,19 @@
       ]
     },
     {
+      "name": "swirl-icon-dock-left",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-double-arrow-left",
       "description": {
         "kind": "markdown",
@@ -5515,15 +5532,31 @@
       },
       "attributes": [
         {
-          "name": "hide-sidebar",
+          "name": "browser-back-button-label",
           "description": ""
         },
         {
-          "name": "main-navigation-label",
+          "name": "browser-forward-button-label",
+          "description": ""
+        },
+        {
+          "name": "navigation-label",
+          "description": ""
+        },
+        {
+          "name": "navigation-toggle-label",
+          "description": ""
+        },
+        {
+          "name": "sidebar-active",
           "description": ""
         },
         {
           "name": "sidebar-toggle-label",
+          "description": ""
+        },
+        {
+          "name": "skip-link-label",
           "description": ""
         }
       ]
