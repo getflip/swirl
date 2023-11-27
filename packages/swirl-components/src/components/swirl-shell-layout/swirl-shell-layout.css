@@ -1,7 +1,18 @@
 @import "../../styles/media-queries.css";
 
+:root {
+  & :host {
+    --swirl-shell-background: rgba(20, 90, 245, 1);
+  }
+}
+
+:root.theme-dark {
+  & :host {
+    --swirl-shell-background: rgba(45, 72, 127, 1);
+  }
+}
+
 :host {
-  --swirl-shell-background: rgba(20, 90, 245, 1);
   --swirl-shell-text-color: rgba(255, 255, 255, 1);
 
   --swirl-shell-header-height: 3.25rem;

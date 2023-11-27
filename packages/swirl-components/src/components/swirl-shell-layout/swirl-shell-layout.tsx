@@ -4,6 +4,7 @@ import {
   EventEmitter,
   h,
   Host,
+  Listen,
   Method,
   Prop,
   State,
@@ -61,6 +62,13 @@ export class SwirlShellLayout {
 
   disconnectedCallback() {
     this.focusTrap?.deactivate();
+  }
+
+  @Listen("keydown", { target: "window" })
+  onWindowKeyDown(event: KeyboardEvent) {
+    if (event.key === "Escape" && this.mobileNavigationActive) {
+      this.hideMobileNavigation();
+    }
   }
 
   @Watch("mobileNavigationActive")
