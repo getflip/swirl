@@ -5597,7 +5597,7 @@ declare namespace LocalJSX {
     }
     interface SwirlThemeProvider {
         "config"?: SwirlThemeProviderConfig;
-        "onOSThemeChange"?: (event: SwirlThemeProviderCustomEvent<SwirlOSThemeChangeEventData>) => void;
+        "onThemeChange"?: (event: SwirlThemeProviderCustomEvent<SwirlOSThemeChangeEventData>) => void;
     }
     interface SwirlThumbnail {
         "alt": string;
