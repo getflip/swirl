@@ -24,9 +24,9 @@ describe("swirl-shell-layout", () => {
         </div>
         <div class=\"shell-layout\">
           <header class=\"shell-layout__header\">
-            <a class=\"shell-layout__skip-link\" href=\"#main-content\">
+            <button class=\"shell-layout__skip-link\" type="button">
               Skip to main content
-            </a>
+            </button>
             <div class=\"shell-layout__header-left\">
               <button class=\"shell-layout__header-tool\" type=\"button\">
                 <swirl-icon-dock-left size=\"20\"></swirl-icon-dock-left>
@@ -54,7 +54,7 @@ describe("swirl-shell-layout", () => {
             </div>
             <div class=\"shell-layout__header-right\">
               <button class=\"shell-layout__header-tool shell-layout__sidebar-toggle\" type=\"button\">
-                <swirl-icon-notifications size=\"20\"></swirl-icon-notifications>
+                <swirl-icon glyph="notifications" size=\"20\"></swirl-icon>
                 <swirl-visually-hidden>
                   Toggle sidebar
                 </swirl-visually-hidden>
