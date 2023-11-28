@@ -5299,6 +5299,7 @@ declare namespace LocalJSX {
         "navigationLabel"?: string;
         "navigationToggleLabel"?: string;
         "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
+        "onSkipLinkClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "sidebarActive"?: boolean;
         "sidebarToggleIcon"?: string;
         "sidebarToggleLabel"?: string;

@@ -13,6 +13,9 @@ import {
 import classnames from "classnames";
 import * as focusTrap from "focus-trap";
 
+const NAVIGATION_COLLAPSE_STORAGE_KEY = "SWIRL_SHELL_NAVIGATION_COLLAPSE_STATE";
+const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
+
 /**
  * @slot logo - Logo shown inside header.
  * @slot header-tools - Tools positioned on the header's right-hand side.
@@ -33,18 +36,34 @@ export class SwirlShellLayout {
   @Prop() browserForwardButtonLabel?: string = "Navigate forward";
   @Prop() navigationLabel?: string = "Main";
   @Prop() navigationToggleLabel?: string = "Toggle navigation";
-  @Prop() sidebarActive?: boolean;
+  @Prop({ mutable: true }) sidebarActive?: boolean;
   @Prop() sidebarToggleIcon?: string = "notifications";
   @Prop() sidebarToggleLabel?: string = "Toggle sidebar";
   @Prop() skipLinkLabel?: string = "Skip to main content";
 
   @Event() sidebarToggleClick: EventEmitter<MouseEvent>;
+  @Event() skipLinkClick: EventEmitter<MouseEvent>;
 
   @State() mobileNavigationActive?: boolean;
   @State() navigationCollapsed?: boolean;
 
   private focusTrap: focusTrap.FocusTrap;
   private navElement: HTMLElement;
+
+  componentWillLoad() {
+    const restoredSidebarState =
+      localStorage.getItem(SIDEBAR_STORAGE_KEY) === "true";
+
+    this.sidebarActive =
+      this.sidebarActive === undefined
+        ? restoredSidebarState
+        : this.sidebarActive;
+
+    const restoredNavigationCollapseState =
+      localStorage.getItem(NAVIGATION_COLLAPSE_STORAGE_KEY) === "true";
+
+    this.navigationCollapsed = restoredNavigationCollapseState;
+  }
 
   componentDidLoad() {
     this.focusTrap = focusTrap.createFocusTrap(this.navElement, {
@@ -82,6 +101,19 @@ export class SwirlShellLayout {
     } else {
       this.focusTrap.deactivate();
     }
+  }
+
+  @Watch("navigationCollapsed")
+  watchNavigationCollapsed() {
+    localStorage.setItem(
+      NAVIGATION_COLLAPSE_STORAGE_KEY,
+      String(this.navigationCollapsed)
+    );
+  }
+
+  @Watch("sidebarActive")
+  watchSidebarActive() {
+    localStorage.setItem(SIDEBAR_STORAGE_KEY, String(this.sidebarActive));
   }
 
   /**
@@ -127,9 +159,13 @@ export class SwirlShellLayout {
       <Host>
         <div class={className}>
           <header class="shell-layout__header">
-            <a class="shell-layout__skip-link" href="#main-content">
+            <button
+              class="shell-layout__skip-link"
+              onClick={this.skipLinkClick.emit}
+              type="button"
+            >
               {this.skipLinkLabel}
-            </a>
+            </button>
             <div class="shell-layout__header-left">
               <button
                 class="shell-layout__header-tool"

@@ -127,8 +127,11 @@
   top: 0;
   left: 0;
   padding: var(--s-space-4);
+  border: none;
   color: var(--swirl-shell-text-color);
   background-color: var(--swirl-shell-background);
+  font: inherit;
+  cursor: pointer;
 
   &:not(:focus):not(:active) {
     position: absolute;
@@ -288,6 +291,7 @@
 .shell-layout__sidebar-body {
   display: flex;
   width: var(--swirl-shell-sidebar-width);
+  height: 100%;
   flex-direction: column;
 }
 

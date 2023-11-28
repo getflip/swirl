@@ -112,11 +112,14 @@ const Template = (args) => {
     );
   });
 
+  element.addEventListener("skipLinkClick", () => {
+    console.log("s");
+    window.location.hash = "main-content";
+  });
+
   return element;
 };
 
 export const SwirlShellLayout = Template.bind({});
 
-SwirlShellLayout.args = {
-  sidebarActive: true,
-};
+SwirlShellLayout.args = {};
