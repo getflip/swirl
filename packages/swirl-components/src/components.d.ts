@@ -1394,6 +1394,7 @@ export namespace Components {
          */
         "showMobileNavigation": () => Promise<void>;
         "sidebarActive"?: boolean;
+        "sidebarToggleIcon"?: string;
         "sidebarToggleLabel"?: string;
         "skipLinkLabel"?: string;
     }
@@ -5299,6 +5300,7 @@ declare namespace LocalJSX {
         "navigationToggleLabel"?: string;
         "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "sidebarActive"?: boolean;
+        "sidebarToggleIcon"?: string;
         "sidebarToggleLabel"?: string;
         "skipLinkLabel"?: string;
     }

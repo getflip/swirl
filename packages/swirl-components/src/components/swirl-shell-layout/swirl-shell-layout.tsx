@@ -34,6 +34,7 @@ export class SwirlShellLayout {
   @Prop() navigationLabel?: string = "Main";
   @Prop() navigationToggleLabel?: string = "Toggle navigation";
   @Prop() sidebarActive?: boolean;
+  @Prop() sidebarToggleIcon?: string = "notifications";
   @Prop() sidebarToggleLabel?: string = "Toggle sidebar";
   @Prop() skipLinkLabel?: string = "Skip to main content";
 
@@ -170,7 +171,10 @@ export class SwirlShellLayout {
                 onClick={this.sidebarToggleClick.emit}
                 type="button"
               >
-                <swirl-icon-notifications size={20}></swirl-icon-notifications>
+                <swirl-icon
+                  glyph={this.sidebarToggleIcon}
+                  size={20}
+                ></swirl-icon>
                 <swirl-visually-hidden>
                   {this.sidebarToggleLabel}
                 </swirl-visually-hidden>

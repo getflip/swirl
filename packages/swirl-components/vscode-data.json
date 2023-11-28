@@ -5552,6 +5552,10 @@
           "description": ""
         },
         {
+          "name": "sidebar-toggle-icon",
+          "description": ""
+        },
+        {
           "name": "sidebar-toggle-label",
           "description": ""
         },
