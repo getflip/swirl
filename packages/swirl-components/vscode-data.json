@@ -5528,6 +5528,10 @@
       },
       "attributes": [
         {
+          "name": "branded-header",
+          "description": ""
+        },
+        {
           "name": "browser-back-button-label",
           "description": ""
         },

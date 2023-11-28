@@ -1380,6 +1380,7 @@ export namespace Components {
         "spacing"?: SwirlSeparatorSpacing;
     }
     interface SwirlShellLayout {
+        "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
         /**
@@ -5292,6 +5293,7 @@ declare namespace LocalJSX {
         "spacing"?: SwirlSeparatorSpacing;
     }
     interface SwirlShellLayout {
+        "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
         "navigationLabel"?: string;

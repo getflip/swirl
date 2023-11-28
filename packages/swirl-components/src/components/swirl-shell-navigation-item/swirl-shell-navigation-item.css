@@ -12,7 +12,7 @@
   justify-content: flex-start;
   align-items: center;
   border-radius: var(--s-border-radius-sm);
-  background-color: transparent;
+  background-color: var(--s-surface-sunken-default);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-sm);
@@ -21,18 +21,18 @@
   gap: var(--s-space-16);
 
   &(:hover) {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: var(--s-surface-sunken-hovered);
 
     & .shell-navigation-item__badge {
-      --swirl-badge-border-color: rgba(255, 255, 255, 0.15);
+      --swirl-badge-border-color: var(--s-surface-sunken-hovered);
     }
   }
 
   &(:active) {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--s-surface-sunken-pressed);
 
     & .shell-navigation-item__badge {
-      --swirl-badge-border-color: rgba(255, 255, 255, 0.2);
+      --swirl-badge-border-color: var(--s-surface-sunken-pressed);
     }
   }
 
@@ -41,30 +41,31 @@
   }
 
   &(:focus-visible) {
+    z-index: 1;
     box-shadow: 0 0 0 0.125rem var(--s-focus-default);
   }
 
   &(.shell-navigation-item--active) {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--s-surface-sunken-hovered);
 
     & .shell-navigation-item__badge {
-      --swirl-badge-border-color: rgba(255, 255, 255, 0.1);
+      --swirl-badge-border-color: var(--s-surface-sunken-hovered);
     }
   }
 
   &(.shell-navigation-item--active:hover) {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: var(--s-surface-sunken-hovered);
 
     & .shell-navigation-item__badge {
-      --swirl-badge-border-color: rgba(255, 255, 255, 0.15);
+      --swirl-badge-border-color: var(--s-surface-sunken-hovered);
     }
   }
 
   &(.shell-navigation-item--active:active) {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--s-surface-sunken-pressed);
 
     & .shell-navigation-item__badge {
-      --swirl-badge-border-color: rgba(255, 255, 255, 0.2);
+      --swirl-badge-border-color: var(--s-surface-sunken-pressed);
     }
   }
 

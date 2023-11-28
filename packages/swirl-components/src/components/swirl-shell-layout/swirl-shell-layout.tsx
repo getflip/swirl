@@ -32,6 +32,7 @@ const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
   tag: "swirl-shell-layout",
 })
 export class SwirlShellLayout {
+  @Prop() brandedHeader?: boolean;
   @Prop() browserBackButtonLabel?: string = "Navigate back";
   @Prop() browserForwardButtonLabel?: string = "Navigate forward";
   @Prop() navigationLabel?: string = "Main";
@@ -150,6 +151,7 @@ export class SwirlShellLayout {
 
   render() {
     const className = classnames("shell-layout", {
+      "shell-layout--branded-header": this.brandedHeader,
       "shell-layout--mobile-navigation-active": this.mobileNavigationActive,
       "shell-layout--navigation-collapsed": this.navigationCollapsed,
       "shell-layout--sidebar-active": this.sidebarActive,

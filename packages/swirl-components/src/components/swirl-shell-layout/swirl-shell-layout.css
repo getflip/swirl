@@ -1,19 +1,8 @@
 @import "../../styles/media-queries.css";
 
-:root {
-  & :host {
-    --swirl-shell-background: rgba(20, 90, 245, 1);
-  }
-}
-
-:root.theme-dark {
-  & :host {
-    --swirl-shell-background: rgba(45, 72, 127, 1);
-  }
-}
-
 :host {
-  --swirl-shell-text-color: rgba(255, 255, 255, 1);
+  --swirl-shell-background: var(--s-surface-sunken-default);
+  --swirl-shell-text-color: var(--s-text-default);
 
   --swirl-shell-header-height: 3.25rem;
 
@@ -41,7 +30,6 @@
   grid-template-areas: "nav main";
 
   @media (--from-desktop) {
-    padding-right: var(--s-space-8);
     padding-bottom: var(--s-space-8);
     gap: var(--s-space-8);
     grid-template-columns: var(--swirl-shell-extended-nav-width) 1fr;
@@ -57,6 +45,26 @@
     grid-template-areas:
       "header header header"
       "nav main sidebar";
+  }
+}
+
+.shell-layout--branded-header {
+  & .shell-layout__header {
+    color: var(--s-text-on-action-primary);
+    background-color: var(--s-action-primary-default);
+  }
+
+  & .shell-layout__header-tool {
+    color: var(--s-text-on-action-primary);
+    background-color: var(--s-action-primary-default);
+
+    &:hover {
+      background-color: var(--s-action-primary-hovered);
+    }
+
+    &:active {
+      background-color: var(--s-action-primary-pressed);
+    }
   }
 }
 
@@ -109,8 +117,8 @@
   position: relative;
   display: none;
   padding-top: var(--s-space-8);
-  padding-right: var(--s-space-8);
-  padding-bottom: 0;
+  padding-right: var(--s-space-16);
+  padding-bottom: var(--s-space-8);
   padding-left: var(--s-space-16);
   justify-content: space-between;
   align-items: center;
@@ -178,16 +186,16 @@
   border: none;
   border-radius: var(--s-border-radius-sm);
   color: var(--swirl-shell-text-color);
-  background-color: transparent;
+  background-color: var(--s-surface-sunken-default);
   font: inherit;
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: var(--s-surface-sunken-hovered);
   }
 
   &:active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--s-surface-sunken-pressed);
   }
 
   &:focus {
@@ -280,6 +288,7 @@
 .shell-layout__sidebar {
   display: none;
   overflow: hidden;
+  margin-right: var(--s-space-8);
   border-radius: var(--s-border-radius-sm);
   background-color: var(--s-background-default);
   grid-area: sidebar;
