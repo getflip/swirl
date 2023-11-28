@@ -158,7 +158,7 @@ export class SwirlShellLayout {
     return (
       <Host>
         <div class={className}>
-          <header class="shell-layout__header">
+          <header class="shell-layout__header" data-tauri-drag-region="true">
             <button
               class="shell-layout__skip-link"
               onClick={this.skipLinkClick.emit}
