@@ -113,7 +113,6 @@ const Template = (args) => {
   });
 
   element.addEventListener("skipLinkClick", () => {
-    console.log("s");
     window.location.hash = "main-content";
   });
 
