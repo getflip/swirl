@@ -19,10 +19,6 @@
   }
 }
 
-.app-icon--hide-border::after {
-  box-shadow: none;
-}
-
 .app-icon__icon {
   display: inline-flex;
   width: 100%;
