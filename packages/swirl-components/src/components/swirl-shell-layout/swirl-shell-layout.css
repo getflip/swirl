@@ -30,6 +30,7 @@
   grid-template-areas: "nav main";
 
   @media (--from-desktop) {
+    padding-right: var(--s-space-8);
     padding-bottom: var(--s-space-8);
     gap: var(--s-space-8);
     grid-template-columns: var(--swirl-shell-extended-nav-width) 1fr;
@@ -79,6 +80,12 @@
 }
 
 .shell-layout--sidebar-active {
+  & .shell-layout__main {
+    @media (--from-large-desktop) {
+      width: 100%;
+    }
+  }
+
   &.shell-layout--navigation-collapsed {
     @media (--from-large-desktop) {
       grid-template-columns: var(--swirl-shell-collapsed-nav-width) 1fr var(
@@ -86,6 +93,7 @@
         );
     }
   }
+
   @media (--from-large-desktop) {
     grid-template-columns: var(--swirl-shell-extended-nav-width) 1fr var(
         --swirl-shell-sidebar-width
@@ -116,6 +124,7 @@
 .shell-layout__header {
   position: relative;
   display: none;
+  width: calc(100% + var(--s-space-8));
   padding-top: var(--s-space-8);
   padding-right: var(--s-space-16);
   padding-bottom: var(--s-space-8);
@@ -282,15 +291,17 @@
 
   @media (--from-desktop) {
     border-radius: var(--s-border-radius-sm);
+    box-shadow: inset 0 0 0 0.0625rem var(--s-border-default);
+    width: calc(100% + var(--s-space-8));
   }
 }
 
 .shell-layout__sidebar {
   display: none;
   overflow: hidden;
-  margin-right: var(--s-space-8);
   border-radius: var(--s-border-radius-sm);
   background-color: var(--s-background-default);
+  box-shadow: inset 0 0 0 0.0625rem var(--s-border-default);
   grid-area: sidebar;
 
   @media (--from-large-desktop) {
