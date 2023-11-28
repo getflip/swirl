@@ -185,10 +185,6 @@
       },
       "attributes": [
         {
-          "name": "hide-border",
-          "description": ""
-        },
-        {
           "name": "icon",
           "description": ""
         },

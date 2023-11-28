@@ -182,7 +182,6 @@ export namespace Components {
         "stepUpButtonLabel"?: string;
     }
     interface SwirlAppIcon {
-        "hideBorder"?: boolean;
         "icon"?: string;
         "src"?: string;
     }
@@ -4191,7 +4190,6 @@ declare namespace LocalJSX {
         "stepUpButtonLabel"?: string;
     }
     interface SwirlAppIcon {
-        "hideBorder"?: boolean;
         "icon"?: string;
         "src"?: string;
     }
