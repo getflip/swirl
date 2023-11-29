@@ -80,18 +80,22 @@
 }
 
 .shell-layout--sidebar-active {
-  & .shell-layout__main {
-    @media (--from-large-desktop) {
-      width: 100%;
-    }
-  }
-
   &.shell-layout--navigation-collapsed {
     @media (--from-large-desktop) {
       grid-template-columns: var(--swirl-shell-collapsed-nav-width) 1fr var(
           --swirl-shell-sidebar-width
         );
     }
+  }
+
+  & .shell-layout__main {
+    @media (--from-large-desktop) {
+      width: 100%;
+    }
+  }
+
+  & .shell-layout__sidebar {
+    border: 0.0625rem solid var(--s-border-default);
   }
 
   @media (--from-large-desktop) {
@@ -292,6 +296,9 @@
   @media (--from-desktop) {
     border-radius: var(--s-border-radius-sm);
     border: 0.0625rem solid var(--s-border-default);
+  }
+
+  @media (--from-large-desktop) {
     width: calc(100% + var(--s-space-8));
   }
 }
@@ -301,7 +308,6 @@
   overflow: hidden;
   border-radius: var(--s-border-radius-sm);
   background-color: var(--s-background-default);
-  box-shadow: inset 0 0 0 0.0625rem var(--s-border-default);
   grid-area: sidebar;
 
   @media (--from-large-desktop) {
