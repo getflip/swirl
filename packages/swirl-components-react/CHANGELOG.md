@@ -1,5 +1,24 @@
 # @getflip/swirl-components-react
 
+## 0.117.0
+
+### Minor Changes
+
+- [#467](https://github.com/getflip/swirl/pull/467)
+  [`a1899d4e`](https://github.com/getflip/swirl/commit/a1899d4ecf6402a53a3a91e2e97c24f20b27ff8c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "DockLeft" icon component
+
+* [#467](https://github.com/getflip/swirl/pull/467)
+  [`a1899d4e`](https://github.com/getflip/swirl/commit/a1899d4ecf6402a53a3a91e2e97c24f20b27ff8c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Implement new swirl-shell-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a1899d4e`](https://github.com/getflip/swirl/commit/a1899d4ecf6402a53a3a91e2e97c24f20b27ff8c),
+  [`a1899d4e`](https://github.com/getflip/swirl/commit/a1899d4ecf6402a53a3a91e2e97c24f20b27ff8c)]:
+  - @getflip/swirl-components@0.117.0
+
 ## 0.116.0
 
 ### Minor Changes
