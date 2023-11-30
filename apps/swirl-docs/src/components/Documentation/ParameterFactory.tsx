@@ -83,13 +83,16 @@ class ArrayParameterRenderer implements ParameterRenderer {
           required={parameter.required}
         >
           {Object.keys(parameter.items?.properties).map((name) => {
+            const isRequired = parameter.items?.required
+              ? parameter.items?.required.includes(name)
+              : false;
             return (
               <Parameter
                 key={`parameter.name${parameter.name}`}
                 name={name}
                 type={parameter.items?.properties[name].type}
                 description={parameter.items?.properties[name].description}
-                required={parameter.items?.required.includes(name)}
+                required={isRequired}
               />
             );
           })}
