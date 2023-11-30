@@ -532,6 +532,9 @@
             },
             {
               "name": "s"
+            },
+            {
+              "name": "xs"
             }
           ]
         },
@@ -5540,6 +5543,10 @@
           "description": ""
         },
         {
+          "name": "hide-mobile-navigation-button-label",
+          "description": ""
+        },
+        {
           "name": "navigation-label",
           "description": ""
         },
@@ -5549,6 +5556,14 @@
         },
         {
           "name": "sidebar-active",
+          "description": ""
+        },
+        {
+          "name": "sidebar-toggle-badge",
+          "description": ""
+        },
+        {
+          "name": "sidebar-toggle-badge-aria-label",
           "description": ""
         },
         {

@@ -25,6 +25,7 @@ const Template = (args) => {
     <img alt="Flip logo" slot="mobile-logo" src="/images/flip-logo.png">
 
     <swirl-avatar label="John Doe" slot="header-tools" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
+    <swirl-avatar label="John Doe" slot="mobile-header-tools" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
 
     <div slot="nav">
       <ul>
@@ -121,4 +122,7 @@ const Template = (args) => {
 
 export const SwirlShellLayout = Template.bind({});
 
-SwirlShellLayout.args = {};
+SwirlShellLayout.args = {
+  sidebarToggleBadgeAriaLabel: "3 new notifications",
+  sidebarToggleBadge: "3",
+};

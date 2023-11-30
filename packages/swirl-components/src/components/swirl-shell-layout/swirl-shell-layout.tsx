@@ -19,6 +19,7 @@ const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
 /**
  * @slot logo - Logo shown inside header.
  * @slot header-tools - Tools positioned on the header's right-hand side.
+ * @slot mobile-header-tools - Tools positioned in the mobile drawer header.
  * @slot nav - Items shown in the lower sidebar part.
  * @slot mobile-logo - Logo shown inside the mobile navigation drawer.
  * @slot default - Contents of the main area.
@@ -35,9 +36,12 @@ export class SwirlShellLayout {
   @Prop() brandedHeader?: boolean;
   @Prop() browserBackButtonLabel?: string = "Navigate back";
   @Prop() browserForwardButtonLabel?: string = "Navigate forward";
+  @Prop() hideMobileNavigationButtonLabel?: string = "Close navigation";
   @Prop() navigationLabel?: string = "Main";
   @Prop() navigationToggleLabel?: string = "Toggle navigation";
   @Prop({ mutable: true }) sidebarActive?: boolean;
+  @Prop() sidebarToggleBadge?: string;
+  @Prop() sidebarToggleBadgeAriaLabel?: string;
   @Prop() sidebarToggleIcon?: string = "notifications";
   @Prop() sidebarToggleLabel?: string = "Toggle sidebar";
   @Prop() skipLinkLabel?: string = "Skip to main content";
@@ -216,6 +220,13 @@ export class SwirlShellLayout {
                 <swirl-visually-hidden>
                   {this.sidebarToggleLabel}
                 </swirl-visually-hidden>
+                {this.sidebarToggleBadge && (
+                  <swirl-badge
+                    aria-label={this.sidebarToggleBadgeAriaLabel}
+                    label={this.sidebarToggleBadge}
+                    size="xs"
+                  ></swirl-badge>
+                )}
               </button>
               <slot name="header-tools"></slot>
             </div>
@@ -230,13 +241,26 @@ export class SwirlShellLayout {
             onClick={this.onNavigationClick}
             ref={(el) => (this.navElement = el)}
           >
-            <div class="shell-layout__mobile-logo">
+            <div class="shell-layout__mobile-header">
               <slot name="mobile-logo"></slot>
+              <div class="shell-layout__mobile-header-tools">
+                <slot name="mobile-header-tools"></slot>
+                <button class="shell-layout__header-tool" type="button">
+                  <swirl-icon-double-arrow-left
+                    size={20}
+                  ></swirl-icon-double-arrow-left>
+                  <swirl-visually-hidden>
+                    {this.hideMobileNavigationButtonLabel}
+                  </swirl-visually-hidden>
+                </button>
+              </div>
             </div>
-            <swirl-visually-hidden>
-              <span id="main-navigation-label">{this.navigationLabel}</span>
-            </swirl-visually-hidden>
-            <slot name="nav"></slot>
+            <div class="shell-layout__nav-body">
+              <swirl-visually-hidden>
+                <span id="main-navigation-label">{this.navigationLabel}</span>
+              </swirl-visually-hidden>
+              <slot name="nav"></slot>
+            </div>
           </nav>
           <main class="shell-layout__main" id="main-content">
             <slot></slot>

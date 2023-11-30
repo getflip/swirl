@@ -1387,6 +1387,7 @@ export namespace Components {
           * Hides the mobile navigation.
          */
         "hideMobileNavigation": () => Promise<void>;
+        "hideMobileNavigationButtonLabel"?: string;
         "navigationLabel"?: string;
         "navigationToggleLabel"?: string;
         /**
@@ -1394,6 +1395,8 @@ export namespace Components {
          */
         "showMobileNavigation": () => Promise<void>;
         "sidebarActive"?: boolean;
+        "sidebarToggleBadge"?: string;
+        "sidebarToggleBadgeAriaLabel"?: string;
         "sidebarToggleIcon"?: string;
         "sidebarToggleLabel"?: string;
         "skipLinkLabel"?: string;
@@ -5296,11 +5299,14 @@ declare namespace LocalJSX {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
+        "hideMobileNavigationButtonLabel"?: string;
         "navigationLabel"?: string;
         "navigationToggleLabel"?: string;
         "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "onSkipLinkClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "sidebarActive"?: boolean;
+        "sidebarToggleBadge"?: string;
+        "sidebarToggleBadgeAriaLabel"?: string;
         "sidebarToggleIcon"?: string;
         "sidebarToggleLabel"?: string;
         "skipLinkLabel"?: string;

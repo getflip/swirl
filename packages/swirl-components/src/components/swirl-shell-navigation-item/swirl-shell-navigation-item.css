@@ -12,7 +12,7 @@
   justify-content: flex-start;
   align-items: center;
   border-radius: var(--s-border-radius-sm);
-  background-color: var(--s-surface-sunken-default);
+  background-color: var(--s-surface-overlay-default);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-sm);
@@ -71,6 +71,10 @@
 
   & * {
     box-sizing: border-box;
+  }
+
+  @media (--from-desktop) {
+    background-color: var(--s-surface-sunken-default);
   }
 }
 
