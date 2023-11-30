@@ -154,6 +154,7 @@
 
 .shell-layout__skip-link {
   position: absolute;
+  z-index: 9;
   top: 0;
   left: 0;
   padding: var(--s-space-4);
