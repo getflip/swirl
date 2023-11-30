@@ -89,22 +89,31 @@
 }
 
 .app-layout--has-sidebar {
-  &.app-layout--sidebar-active {
-    @media (--from-tablet) {
-      & .app-layout__grid {
-        animation: app-layout-no-nav-sidebar-slide-in 0.3s;
-        grid-template-columns: 1fr min(50%, 25rem);
-        grid-template-areas:
-          "body sidebar"
-          "body sidebar";
+  &:not(.app-layout--has-navigation) {
+    &.app-layout--sidebar-active {
+      @media (--from-tablet) {
+        & .app-layout__grid {
+          animation: app-layout-no-nav-sidebar-slide-in 0.3s;
+        }
+      }
+    }
+
+    &.app-layout--sidebar-closing {
+      @media (--from-tablet) {
+        & .app-layout__grid {
+          animation: app-layout-no-nav-sidebar-slide-out 0.3s;
+        }
       }
     }
   }
 
-  &.app-layout--sidebar-closing {
+  &.app-layout--sidebar-active {
     @media (--from-tablet) {
       & .app-layout__grid {
-        animation: app-layout-no-nav-sidebar-slide-out 0.3s;
+        grid-template-columns: 1fr min(50%, 25rem);
+        grid-template-areas:
+          "body sidebar"
+          "body sidebar";
       }
     }
   }

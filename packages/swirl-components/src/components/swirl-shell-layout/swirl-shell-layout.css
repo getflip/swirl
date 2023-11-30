@@ -67,6 +67,18 @@
 }
 
 .shell-layout--navigation-collapsed {
+  & .shell-layout__navigation-toggle {
+    &:hover {
+      & swirl-icon-double-arrow-left {
+        display: none;
+      }
+
+      & swirl-icon-double-arrow-right {
+        display: inline-flex;
+      }
+    }
+  }
+
   @media (--from-desktop) {
     grid-template-columns: var(--swirl-shell-collapsed-nav-width) 1fr 0;
   }
@@ -235,6 +247,23 @@
   }
 }
 
+.shell-layout__navigation-toggle {
+  &:hover {
+    & swirl-icon-menu {
+      display: none;
+    }
+
+    & swirl-icon-double-arrow-left {
+      display: inline-flex;
+    }
+  }
+
+  & swirl-icon-double-arrow-right,
+  & swirl-icon-double-arrow-left {
+    display: none;
+  }
+}
+
 .shell-layout__nav {
   position: fixed;
   z-index: 9;
@@ -254,7 +283,7 @@
   @media (--from-desktop) {
     position: static;
     max-width: none;
-    padding-top: var(--s-space-8);
+    padding-top: 0;
     padding-right: var(--s-space-4);
     padding-bottom: var(--s-space-8);
     padding-left: var(--s-space-12);
