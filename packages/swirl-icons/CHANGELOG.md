@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.23.0
+
+### Minor Changes
+
+- [#467](https://github.com/getflip/swirl/pull/467)
+  [`a1899d4e`](https://github.com/getflip/swirl/commit/a1899d4ecf6402a53a3a91e2e97c24f20b27ff8c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "DockLeft" icon
+
 ## 0.22.0
 
 ### Minor Changes
