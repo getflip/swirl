@@ -312,3 +312,25 @@
     grid-template-columns: 25rem 1fr 0;
   }
 }
+
+@keyframes app-layout-no-nav-sidebar-slide-in {
+  from {
+    overflow: hidden;
+    grid-template-columns: 1fr 0;
+  }
+  to {
+    overflow: hidden;
+    grid-template-columns: 1fr 25rem;
+  }
+}
+
+@keyframes app-layout-no-nav-sidebar-slide-out {
+  from {
+    overflow: hidden;
+    grid-template-columns: 1fr 25rem;
+  }
+  to {
+    overflow: hidden;
+    grid-template-columns: 1fr 0;
+  }
+}

@@ -89,6 +89,24 @@
 }
 
 .app-layout--has-sidebar {
+  &:not(.app-layout--has-navigation) {
+    &.app-layout--sidebar-active {
+      @media (--from-tablet) {
+        & .app-layout__grid {
+          animation: app-layout-no-nav-sidebar-slide-in 0.3s;
+        }
+      }
+    }
+
+    &.app-layout--sidebar-closing {
+      @media (--from-tablet) {
+        & .app-layout__grid {
+          animation: app-layout-no-nav-sidebar-slide-out 0.3s;
+        }
+      }
+    }
+  }
+
   &.app-layout--sidebar-active {
     @media (--from-tablet) {
       & .app-layout__grid {
@@ -110,7 +128,7 @@
 
 .app-layout--has-navigation.app-layout--has-sidebar {
   &.app-layout--sidebar-active {
-    @media (--from-large-desktop) {
+    @media (--from-larger-desktop) {
       & .app-layout__grid {
         animation: app-layout-sidebar-slide-in 0.3s;
         grid-template-columns: 25rem 1fr 25rem;
@@ -145,7 +163,7 @@
     }
   }
 
-  @media (--from-tablet) and (--to-large-desktop) {
+  @media (--from-tablet) and (--to-larger-desktop) {
     & .app-layout__sidebar {
       position: absolute;
       top: 0;
@@ -217,7 +235,7 @@
       animation: app-layout-sidebar-overlay-slide-out 0.3s;
     }
 
-    @media (--from-large-desktop) {
+    @media (--from-larger-desktop) {
       animation: none;
     }
   }
@@ -400,7 +418,7 @@
     animation: app-layout-slide-in 0.3s;
   }
 
-  @media (--from-large-desktop) {
+  @media (--from-larger-desktop) {
     width: 25rem;
     animation: none;
   }
