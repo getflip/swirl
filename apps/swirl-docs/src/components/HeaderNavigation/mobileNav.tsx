@@ -54,20 +54,26 @@ interface ListItemProps {
   ariaId?: number;
   item: NavItem;
   currentPath: string;
+  hasParent?: boolean;
   handleCloseMenu?: () => void;
 }
 
 function ListItem({
   ariaId,
   item,
+  hasParent,
   currentPath,
   handleCloseMenu,
 }: ListItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const isSubRoot = item.isRoot && item.children && hasParent;
+
+  console.log("isSubRoot", isSubRoot, item.title);
+
   return (
     <li>
-      {item.children && (
+      {item.children && !isSubRoot && (
         <>
           <button
             id={`accordion-${ariaId}`}
@@ -97,6 +103,48 @@ function ListItem({
           >
             {item.children.map((child) => (
               <ListItem
+                hasParent
+                key={child.url}
+                item={child}
+                currentPath={currentPath}
+                handleCloseMenu={handleCloseMenu}
+              />
+            ))}
+          </ul>
+        </>
+      )}
+
+      {isSubRoot && item.children && (
+        <>
+          <button
+            id={`accordion-${ariaId}`}
+            type="button"
+            aria-expanded={isExpanded}
+            aria-controls={`accordion-panel-${ariaId}`}
+            onClick={() => setIsExpanded((prevState) => !prevState)}
+            className="flex justify-between py-2 pl-10 pr-4 w-full text-base font-normal"
+          >
+            <span>{item.title}</span>
+            <Image
+              alt=""
+              className={isExpanded ? "rotate-90" : ""}
+              src={icon.src}
+              width={24}
+              height={24}
+            />
+          </button>
+
+          <ul
+            id={`accordion-panel-${ariaId}`}
+            aria-labelledby={`accordion-${ariaId}`}
+            className={classNames({
+              block: isExpanded,
+              hidden: !isExpanded,
+            })}
+          >
+            {item.children.map((child) => (
+              <ListItem
+                hasParent
                 key={child.url}
                 item={child}
                 currentPath={currentPath}

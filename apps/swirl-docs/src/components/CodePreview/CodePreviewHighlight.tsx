@@ -39,7 +39,7 @@ export function CodePreviewHighlight() {
         return (
           <pre
             className={classNames(
-              "cursor-text overflow-hidden pt-space-16 md:pt-space-8 px-2 grow",
+              "cursor-text overflow-x-auto pt-space-16 md:pt-space-8 px-2 grow",
               {
                 "pb-16": isExpanded,
                 "pb-space-16": !isExpanded || isLightTheme,
