@@ -477,6 +477,10 @@
         "2": {
           "value": "#171717",
           "type": "color"
+        },
+        "2-subdued": {
+          "value": "#6A6D74",
+          "type": "color"
         }
       },
       "customer-color-dark": {
@@ -525,6 +529,10 @@
         "2": {
           "value": "#f2f2f2",
           "type": "color"
+        },
+        "2-subdued": {
+          "value": "#5C76AE",
+          "type": "color"
         }
       },
       "status-light": {
@@ -545,7 +553,7 @@
           "type": "color"
         },
         "success-default": {
-          "value": "#087C08",
+          "value": "#088108",
           "type": "color"
         },
         "success-subdued": {
@@ -1028,7 +1036,7 @@
         "description": "Usally used as an border on info components."
       },
       "on-highlight": {
-        "value": "rgba(0,55,175,0.2)",
+        "value": "#AEC9F6",
         "type": "color",
         "description": "Used as border color on containers that have an highlight surface"
       }
@@ -1090,6 +1098,11 @@
         "value": "{core.on-customer-color-light.2}",
         "type": "color",
         "description": "Used as text color on containers with highlight color."
+      },
+      "surface-highlight-subdued": {
+        "value": "{core.on-customer-color-light.2-subdued}",
+        "type": "color",
+        "description": "Used as subdued text color on containers with highlight color."
       },
       "status": {
         "value": "{core.gray.white}",
@@ -1159,6 +1172,11 @@
         "value": "{core.on-customer-color-light.2}",
         "type": "color",
         "description": "Used as icon color on containers with highlight color."
+      },
+      "surface-highlight-subdued": {
+        "value": "{core.on-customer-color-light.2-subdued}",
+        "type": "color",
+        "description": "Used as subdued icon color on containers with highlight color."
       },
       "status": {
         "value": "{core.gray.white}",
@@ -1707,7 +1725,7 @@
         "description": "Usally used as an border on info components."
       },
       "on-highlight": {
-        "value": "rgba(190, 255, 240, 0.2)",
+        "value": "#5C76AE",
         "type": "color",
         "description": "Used as border color on containers that have an highlight surface"
       }
@@ -1767,6 +1785,11 @@
       },
       "surface-highlight": {
         "value": "{core.on-customer-color-dark.2}",
+        "type": "color",
+        "description": "Used as text color on containers with highlight color."
+      },
+      "surface-highlight-subdued": {
+        "value": "{core.on-customer-color-dark.2-subdued}",
         "type": "color",
         "description": "Used as text color on containers with highlight color."
       },
@@ -1836,6 +1859,11 @@
       },
       "surface-highlight": {
         "value": "{core.on-customer-color-dark.2}",
+        "type": "color",
+        "description": "Used as icon color on containers with highlight color."
+      },
+      "surface-highlight-subdued": {
+        "value": "{core.on-customer-color-dark.2-subdued}",
         "type": "color",
         "description": "Used as icon color on containers with highlight color."
       },
@@ -2438,7 +2466,17 @@
         "surface-sunken.hovered": "S:139193133fe0af92aefcd0213ecdc95f6fadbd48,",
         "surface-sunken.pressed": "S:008e29b74c9df5faa8dbfc9eb3f52346acecbfba,",
         "text.dark": "S:0725e456b8cd864da67d9fc8466aa312f51ed735,",
-        "icon.dark": "S:daff72f871baa7568f11a67fde7c10d9fbcdd43e,"
+        "icon.dark": "S:daff72f871baa7568f11a67fde7c10d9fbcdd43e,",
+        "text-on.surface-highlight-subdued": "S:7d86702d9b677fe17f127fd246f4169d4c309b04,",
+        "icon-on.surface-highlight-subdued": "S:09fc0995e480cfaac9dc52498d386f19c7cd019a,",
+        "action-critical.default": "S:3380951807f73888d9ae013d08d2794df6482033,",
+        "action-critical.hovered": "S:71bbc4e232353c92ed681cdee7ebf657a4ae2a0d,",
+        "action-critical.pressed": "S:9fc2d049b0442737a5491b9e988be75c395f9791,",
+        "action-critical.disabled": "S:f2204ca9a4af853b137ea0584898d4268ee1cbd5,",
+        "interactive-critical.default": "S:204361cd6a6b9b58e2980e65f97ea3362e22ae6d,",
+        "interactive-critical.hovered": "S:bf0ef698e81a2f85db0cbf5abd4aca24ef2f981b,",
+        "interactive-critical.pressed": "S:b97c028222963ec92fcf71cdff2d08f9530e5916,",
+        "interactive-critical.disabled": "S:cf687712ea330c967738e691e659a0bce4eef161,"
       },
       "group": "Color"
     },
