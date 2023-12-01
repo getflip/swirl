@@ -1,5 +1,17 @@
 # @getflip/swirl-components
 
+## 0.118.0
+
+### Minor Changes
+
+- [`041925f1`](https://github.com/getflip/swirl/commit/041925f1150bb564fdd69b60f5eaa20de5869757)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "description" prop to
+  swirl-option-list-item
+
+* [`e832d53d`](https://github.com/getflip/swirl/commit/e832d53dd4758141e531edf05e507fdedbb59cc0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "custom-sidebar-header" slot
+  to swirl-app-layout
+
 ## 0.117.0
 
 ### Minor Changes
