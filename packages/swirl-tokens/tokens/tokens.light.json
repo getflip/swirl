@@ -324,6 +324,10 @@
     "value": "rgba(23, 23, 23, 1)",
     "type": "color"
   },
+  "core-on-customer-color-light-2-subdued": {
+    "value": "rgba(106, 109, 116, 1)",
+    "type": "color"
+  },
   "core-customer-color-dark-1-default": {
     "value": "rgba(86, 143, 222, 1)",
     "type": "color"
@@ -368,6 +372,10 @@
     "value": "rgba(242, 242, 242, 1)",
     "type": "color"
   },
+  "core-on-customer-color-dark-2-subdued": {
+    "value": "rgba(92, 118, 174, 1)",
+    "type": "color"
+  },
   "core-status-light-critical-default": {
     "value": "rgba(213, 6, 54, 1)",
     "type": "color"
@@ -385,7 +393,7 @@
     "type": "color"
   },
   "core-status-light-success-default": {
-    "value": "rgba(8, 124, 8, 1)",
+    "value": "rgba(8, 129, 8, 1)",
     "type": "color"
   },
   "core-status-light-success-subdued": {
@@ -803,7 +811,7 @@
     "comment": "Usally used as an border on info components."
   },
   "border-on-highlight": {
-    "value": "rgba(0,55,175,0.2)",
+    "value": "rgba(174, 201, 246, 1)",
     "type": "color",
     "comment": "Used as border color on containers that have an highlight surface"
   },
@@ -861,6 +869,11 @@
     "value": "{core-on-customer-color-light-2}",
     "type": "color",
     "comment": "Used as text color on containers with highlight color."
+  },
+  "text-on-surface-highlight-subdued": {
+    "value": "{core-on-customer-color-light-2-subdued}",
+    "type": "color",
+    "comment": "Used as subdued text color on containers with highlight color."
   },
   "text-on-status": {
     "value": "{core-gray-white}",
@@ -926,6 +939,11 @@
     "value": "{core-on-customer-color-light-2}",
     "type": "color",
     "comment": "Used as icon color on containers with highlight color."
+  },
+  "icon-on-surface-highlight-subdued": {
+    "value": "{core-on-customer-color-light-2-subdued}",
+    "type": "color",
+    "comment": "Used as subdued icon color on containers with highlight color."
   },
   "icon-on-status": {
     "value": "{core-gray-white}",

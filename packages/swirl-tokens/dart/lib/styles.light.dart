@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 17 Nov 2023 14:02:58 GMT
+// Generated on Fri, 01 Dec 2023 15:04:59 GMT
 
 
 
@@ -32,7 +32,7 @@ class SwirlDesignTokensLight {
     static const borderDefault = Color(0xFFEAEAEA); /* Usually used for low emphasis borders and espacially divider elements. */
     static const borderHighlight = Color(0xFF0037AF); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
     static const borderInfo = Color(0xFF145AF5); /* Usally used as an border on info components. */
-    static const borderOnHighlight = Color(0x330037AF); /* Used as border color on containers that have an highlight surface */
+    static const borderOnHighlight = Color(0xFFAEC9F6); /* Used as border color on containers that have an highlight surface */
     static const borderRadiusBase = 12.00;
     static const borderRadiusFullRound = 99999.00;
     static const borderRadiusL = 16.00;
@@ -42,7 +42,7 @@ class SwirlDesignTokensLight {
     static const borderRadiusXl = 20.00;
     static const borderRadiusXs = 2.00;
     static const borderStrong = Color(0xFFCFCFCF); /* Usually used for high emphasis borders. */
-    static const borderSuccess = Color(0xFF087C08); /* Usally used as an border on success components. */
+    static const borderSuccess = Color(0xFF088108); /* Usally used as an border on success components. */
     static const borderWarning = Color(0xFF935806); /* Usally used as an border on warning components. */
     static const borderWidth0 = 0.00;
     static const borderWidthDefault = 1.00;
@@ -122,8 +122,10 @@ class SwirlDesignTokensLight {
     static const coreGrayWhite = Color(0xFFFFFFFF);
     static const coreOnCustomerColorDark1 = Color(0xFF000000);
     static const coreOnCustomerColorDark2 = Color(0xFFF2F2F2);
+    static const coreOnCustomerColorDark2Subdued = Color(0xFF5C76AE);
     static const coreOnCustomerColorLight1 = Color(0xFFFFFFFF);
     static const coreOnCustomerColorLight2 = Color(0xFF171717);
+    static const coreOnCustomerColorLight2Subdued = Color(0xFF6A6D74);
     static const coreStatusDarkCriticalDefault = Color(0xFFE46464);
     static const coreStatusDarkCriticalHovered = Color(0xFFD27B79);
     static const coreStatusDarkCriticalPressed = Color(0xFFD79391);
@@ -140,7 +142,7 @@ class SwirlDesignTokensLight {
     static const coreStatusLightCriticalSubdued = Color(0xFFFCE7ED);
     static const coreStatusLightInfoDefault = Color(0xFF145AF5);
     static const coreStatusLightInfoSubdued = Color(0xFFE6F1FF);
-    static const coreStatusLightSuccessDefault = Color(0xFF087C08);
+    static const coreStatusLightSuccessDefault = Color(0xFF088108);
     static const coreStatusLightSuccessSubdued = Color(0xFFDCF7DC);
     static const coreStatusLightWarningDefault = Color(0xFFF3B703);
     static const coreStatusLightWarningStrong = Color(0xFF935806);
@@ -195,8 +197,9 @@ class SwirlDesignTokensLight {
     static const iconOnImage = Color(0xFFFFFFFF); /* Used as a icon color on “Surface On Image/Default”. */
     static const iconOnStatus = Color(0xFFFFFFFF); /* Used as a icon color on containers with a default status color except on warning. */
     static const iconOnSurfaceHighlight = Color(0xFF171717); /* Used as icon color on containers with highlight color. */
+    static const iconOnSurfaceHighlightSubdued = Color(0xFF6A6D74); /* Used as subdued icon color on containers with highlight color. */
     static const iconStrong = Color(0xFF171717); /* Used for high emphasis icons. */
-    static const iconSuccess = Color(0xFF087C08); /* Used as success icon color */
+    static const iconSuccess = Color(0xFF088108); /* Used as success icon color */
     static const iconWarning = Color(0xFF935806); /* Used as warning icon color */
     static const interactiveCriticalDefault = Color(0xFFD50636); /* Used for icon and text that are critical or negative interactive elements. */
     static const interactiveCriticalDisabled = Color(0xFFCFCFCF); /* Used if a component with “Interactive Critical/Default” has a disabled state. */
@@ -253,7 +256,7 @@ class SwirlDesignTokensLight {
     static const surfaceRaisedDefault = Color(0xFFF2F2F2); /* Usually used for elements that need contrast on surfaces or background */
     static const surfaceRaisedHovered = Color(0xFFEAEAEA); /* Used if a component with “On Surface/Default” has a hovered state. */
     static const surfaceRaisedPressed = Color(0xFFDFDFDF); /* Used if a component with “On Surface/Default” has a pressed state. */
-    static const surfaceSuccessDefault = Color(0xFF087C08); /* Used as a background for success surfaces. */
+    static const surfaceSuccessDefault = Color(0xFF088108); /* Used as a background for success surfaces. */
     static const surfaceSuccessSubdued = Color(0xFFDCF7DC); /* Used for low prio success background. */
     static const surfaceSunkenDefault = Color(0xFFF2F2F2);
     static const surfaceSunkenHovered = Color(0xFFEAEAEA);
@@ -270,8 +273,9 @@ class SwirlDesignTokensLight {
     static const textOnImage = Color(0xFFFFFFFF); /* Used as a text color on “Surface On Image/Default”. */
     static const textOnStatus = Color(0xFFFFFFFF); /* Used as a text color on containers with a default status color except on warning. */
     static const textOnSurfaceHighlight = Color(0xFF171717); /* Used as text color on containers with highlight color. */
+    static const textOnSurfaceHighlightSubdued = Color(0xFF6A6D74); /* Used as subdued text color on containers with highlight color. */
     static const textSubdued = Color(0xFF6E6E6E); /* Used for low emphasis text. */
-    static const textSuccess = Color(0xFF087C08); /* Used as success text color */
+    static const textSuccess = Color(0xFF088108); /* Used as success text color */
     static const textWarning = Color(0xFF935806); /* Used as warning text color */
     static const z0 = "0";
     static const z10 = "10";
