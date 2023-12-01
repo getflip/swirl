@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 01 Dec 2023 13:48:59 GMT
+// Generated on Fri, 01 Dec 2023 15:04:59 GMT
 
 
 
@@ -32,10 +32,11 @@ class SwirlDesignTokensLight {
     static const borderDefault = Color(0xFFEAEAEA); /* Usually used for low emphasis borders and espacially divider elements. */
     static const borderHighlight = Color(0xFF0037AF); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
     static const borderInfo = Color(0xFF145AF5); /* Usally used as an border on info components. */
-    static const borderOnHighlight = Color(0x330037AF); /* Used as border color on containers that have an highlight surface */
+    static const borderOnHighlight = Color(0xFFAEC9F6); /* Used as border color on containers that have an highlight surface */
     static const borderRadiusBase = 12.00;
     static const borderRadiusFullRound = 99999.00;
     static const borderRadiusL = 16.00;
+    static const borderRadiusNull = 0.00;
     static const borderRadiusS = 4.00;
     static const borderRadiusSm = 8.00;
     static const borderRadiusXl = 20.00;
@@ -121,8 +122,10 @@ class SwirlDesignTokensLight {
     static const coreGrayWhite = Color(0xFFFFFFFF);
     static const coreOnCustomerColorDark1 = Color(0xFF000000);
     static const coreOnCustomerColorDark2 = Color(0xFFF2F2F2);
+    static const coreOnCustomerColorDark2Subdued = Color(0xFF5C76AE);
     static const coreOnCustomerColorLight1 = Color(0xFFFFFFFF);
     static const coreOnCustomerColorLight2 = Color(0xFF171717);
+    static const coreOnCustomerColorLight2Subdued = Color(0xFF6A6D74);
     static const coreStatusDarkCriticalDefault = Color(0xFFE46464);
     static const coreStatusDarkCriticalHovered = Color(0xFFD27B79);
     static const coreStatusDarkCriticalPressed = Color(0xFFD79391);
@@ -194,6 +197,7 @@ class SwirlDesignTokensLight {
     static const iconOnImage = Color(0xFFFFFFFF); /* Used as a icon color on “Surface On Image/Default”. */
     static const iconOnStatus = Color(0xFFFFFFFF); /* Used as a icon color on containers with a default status color except on warning. */
     static const iconOnSurfaceHighlight = Color(0xFF171717); /* Used as icon color on containers with highlight color. */
+    static const iconOnSurfaceHighlightSubdued = Color(0xFF6A6D74); /* Used as subdued icon color on containers with highlight color. */
     static const iconStrong = Color(0xFF171717); /* Used for high emphasis icons. */
     static const iconSuccess = Color(0xFF088108); /* Used as success icon color */
     static const iconWarning = Color(0xFF935806); /* Used as warning icon color */
@@ -269,6 +273,7 @@ class SwirlDesignTokensLight {
     static const textOnImage = Color(0xFFFFFFFF); /* Used as a text color on “Surface On Image/Default”. */
     static const textOnStatus = Color(0xFFFFFFFF); /* Used as a text color on containers with a default status color except on warning. */
     static const textOnSurfaceHighlight = Color(0xFF171717); /* Used as text color on containers with highlight color. */
+    static const textOnSurfaceHighlightSubdued = Color(0xFF6A6D74); /* Used as subdued text color on containers with highlight color. */
     static const textSubdued = Color(0xFF6E6E6E); /* Used for low emphasis text. */
     static const textSuccess = Color(0xFF088108); /* Used as success text color */
     static const textWarning = Color(0xFF935806); /* Used as warning text color */

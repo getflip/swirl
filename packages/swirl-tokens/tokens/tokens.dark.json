@@ -68,6 +68,10 @@
     "value": "underline",
     "type": "textDecoration"
   },
+  "border-radius-null": {
+    "value": 0,
+    "type": "borderRadius"
+  },
   "border-radius-xs": {
     "value": "0.125rem",
     "type": "borderRadius"
@@ -320,6 +324,10 @@
     "value": "rgba(23, 23, 23, 1)",
     "type": "color"
   },
+  "core-on-customer-color-light-2-subdued": {
+    "value": "rgba(106, 109, 116, 1)",
+    "type": "color"
+  },
   "core-customer-color-dark-1-default": {
     "value": "rgba(86, 143, 222, 1)",
     "type": "color"
@@ -362,6 +370,10 @@
   },
   "core-on-customer-color-dark-2": {
     "value": "rgba(242, 242, 242, 1)",
+    "type": "color"
+  },
+  "core-on-customer-color-dark-2-subdued": {
+    "value": "rgba(92, 118, 174, 1)",
     "type": "color"
   },
   "core-status-light-critical-default": {
@@ -799,7 +811,7 @@
     "comment": "Usally used as an border on info components."
   },
   "border-on-highlight": {
-    "value": "rgba(190, 255, 240, 0.2)",
+    "value": "rgba(92, 118, 174, 1)",
     "type": "color",
     "comment": "Used as border color on containers that have an highlight surface"
   },
@@ -855,6 +867,11 @@
   },
   "text-on-surface-highlight": {
     "value": "{core-on-customer-color-dark-2}",
+    "type": "color",
+    "comment": "Used as text color on containers with highlight color."
+  },
+  "text-on-surface-highlight-subdued": {
+    "value": "{core-on-customer-color-dark-2-subdued}",
     "type": "color",
     "comment": "Used as text color on containers with highlight color."
   },
@@ -920,6 +937,11 @@
   },
   "icon-on-surface-highlight": {
     "value": "{core-on-customer-color-dark-2}",
+    "type": "color",
+    "comment": "Used as icon color on containers with highlight color."
+  },
+  "icon-on-surface-highlight-subdued": {
+    "value": "{core-on-customer-color-dark-2-subdued}",
     "type": "color",
     "comment": "Used as icon color on containers with highlight color."
   },
