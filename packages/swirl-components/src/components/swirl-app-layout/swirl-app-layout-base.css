@@ -253,6 +253,16 @@
   }
 }
 
+.app-layout--has-custom-sidebar-header {
+  & .app-layout__sidebar-header {
+    display: none;
+  }
+
+  & .app-layout__custom-sidebar-header {
+    display: block;
+  }
+}
+
 .app-layout--hide-app-bar {
   & .app-layout__body {
     grid-template-rows: auto 1fr;
@@ -422,6 +432,14 @@
     width: 25rem;
     animation: none;
   }
+}
+
+.app-layout__custom-sidebar-header {
+  display: none;
+  min-width: 0;
+  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  background-color: var(--s-background-default);
+  grid-area: sidebar-header;
 }
 
 .app-layout__sidebar-header {
