@@ -1,187 +1,286 @@
-import { Component, h, Host, Method, Prop, State } from "@stencil/core";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
 import classnames from "classnames";
-import { getDesktopMediaQuery, getActiveElement } from "../../utils";
+import * as focusTrap from "focus-trap";
+
+const NAVIGATION_COLLAPSE_STORAGE_KEY = "SWIRL_SHELL_NAVIGATION_COLLAPSE_STATE";
+const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
 
 /**
- * @slot logo-expanded - Logo shown inside expanded sidebar.
- * @slot logo-collapsed - Logo shown inside collapsed sidebar.
- * @slot tools - Items shown in the upper sidebar part.
- * @slot main-navigation - Items shown in the lower sidebar part.
- * @slot banner - Used to show a swirl-banner on top of the page.
- * @slot main - Contents of the main area.
+ * @slot logo - Logo shown inside header.
+ * @slot header-tools - Tools positioned on the header's right-hand side.
+ * @slot mobile-header-tools - Tools positioned in the mobile drawer header.
+ * @slot nav - Items shown in the lower sidebar part.
+ * @slot mobile-logo - Logo shown inside the mobile navigation drawer.
+ * @slot default - Contents of the main area.
+ * @slot sidebar-app-bar - Contents of the right sidebar header.
+ * @slot sidebar - Contents of the right sidebar.
  */
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "swirl-shell-layout.css",
   tag: "swirl-shell-layout",
 })
 export class SwirlShellLayout {
-  @Prop() hideSidebar?: boolean;
-  @Prop() mainNavigationLabel: string = "Main";
-  @Prop() sidebarToggleLabel: string = "Toggle sidebar";
+  @Prop() brandedHeader?: boolean;
+  @Prop() browserBackButtonLabel?: string = "Navigate back";
+  @Prop() browserForwardButtonLabel?: string = "Navigate forward";
+  @Prop() hideMobileNavigationButtonLabel?: string = "Close navigation";
+  @Prop() navigationLabel?: string = "Main";
+  @Prop() navigationToggleLabel?: string = "Toggle navigation";
+  @Prop({ mutable: true }) sidebarActive?: boolean;
+  @Prop() sidebarToggleBadge?: string;
+  @Prop() sidebarToggleBadgeAriaLabel?: string;
+  @Prop() sidebarToggleIcon?: string = "notifications";
+  @Prop() sidebarToggleLabel?: string = "Toggle sidebar";
+  @Prop() skipLinkLabel?: string = "Skip to main content";
 
-  @State() collapsedSidebar: boolean;
-  @State() collapsing: boolean;
-  @State() sidebarHovered: boolean;
+  @Event() sidebarToggleClick: EventEmitter<MouseEvent>;
+  @Event() skipLinkClick: EventEmitter<MouseEvent>;
 
-  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
+  @State() mobileNavigationActive?: boolean;
+  @State() navigationCollapsed?: boolean;
+
+  private focusTrap: focusTrap.FocusTrap;
+  private navElement: HTMLElement;
 
   componentWillLoad() {
-    if (!this.desktopMediaQuery.matches) {
-      this.collapseLeftSidebar();
-    }
+    const restoredSidebarState =
+      localStorage.getItem(SIDEBAR_STORAGE_KEY) === "true";
 
-    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+    this.sidebarActive =
+      this.sidebarActive === undefined
+        ? restoredSidebarState
+        : this.sidebarActive;
+
+    const restoredNavigationCollapseState =
+      localStorage.getItem(NAVIGATION_COLLAPSE_STORAGE_KEY) === "true";
+
+    this.navigationCollapsed = restoredNavigationCollapseState;
+  }
+
+  componentDidLoad() {
+    this.focusTrap = focusTrap.createFocusTrap(this.navElement, {
+      allowOutsideClick: true,
+      tabbableOptions: {
+        getShadowRoot: (node) => {
+          return node.shadowRoot;
+        },
+      },
+    });
+  }
+
+  componentDidRender() {
+    this.focusTrap?.updateContainerElements(this.navElement);
+  }
+
+  disconnectedCallback() {
+    this.focusTrap?.deactivate();
+  }
+
+  @Listen("keydown", { target: "window" })
+  onWindowKeyDown(event: KeyboardEvent) {
+    if (event.key === "Escape" && this.mobileNavigationActive) {
+      this.hideMobileNavigation();
+    }
+  }
+
+  @Watch("mobileNavigationActive")
+  watchMobileNavigationState() {
+    if (this.mobileNavigationActive) {
+      // wait for animation
+      setTimeout(() => {
+        this.focusTrap.activate();
+      }, 200);
+    } else {
+      this.focusTrap.deactivate();
+    }
+  }
+
+  @Watch("navigationCollapsed")
+  watchNavigationCollapsed() {
+    localStorage.setItem(
+      NAVIGATION_COLLAPSE_STORAGE_KEY,
+      String(this.navigationCollapsed)
+    );
+  }
+
+  @Watch("sidebarActive")
+  watchSidebarActive() {
+    localStorage.setItem(SIDEBAR_STORAGE_KEY, String(this.sidebarActive));
   }
 
   /**
-   * Collapse the left sidebar.
+   * Opens the mobile navigation.
    */
   @Method()
-  async collapseSidebar() {
-    this.collapseLeftSidebar();
+  async showMobileNavigation() {
+    this.mobileNavigationActive = true;
   }
 
   /**
-   * Extend the left sidebar.
+   * Hides the mobile navigation.
    */
   @Method()
-  async extendSidebar() {
-    this.expandLeftSidebar();
+  async hideMobileNavigation() {
+    this.mobileNavigationActive = false;
   }
 
-  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
-    if (event.matches) {
-      this.expandLeftSidebar();
-    } else {
-      this.collapseLeftSidebar();
-    }
+  private onBrowserBackClick = () => {
+    history.back();
   };
 
-  private collapseLeftSidebar = () => {
-    this.collapsedSidebar = true;
-    this.collapsing = true;
-
-    setTimeout(() => {
-      this.collapsing = false;
-
-      // Some browsers don't update the hovered state of an element correctly,
-      // if the element was moved and is no longer underneath the cursor.
-      // https://bugs.chromium.org/p/chromium/issues/detail?id=276329
-      this.sidebarHovered = false;
-    }, 200);
+  private onBrowserForwardClick = () => {
+    history.forward();
   };
 
-  private expandLeftSidebar = () => {
-    if (this.hideSidebar) {
-      return;
-    }
-
-    this.collapsedSidebar = false;
+  private onNavigationToggleClick = () => {
+    this.navigationCollapsed = !this.navigationCollapsed;
   };
 
-  private toggleSidebar = () => {
-    if (this.collapsedSidebar) {
-      this.expandLeftSidebar();
-    } else {
-      this.collapseLeftSidebar();
-    }
-  };
-
-  private onBackdropClick = () => {
-    if (!this.collapsedSidebar) {
-      this.collapseLeftSidebar();
-    }
-  };
-
-  private onSidebarClick = () => {
-    if (this.collapsedSidebar) {
-      (document.activeElement as HTMLElement)?.blur();
-      (getActiveElement() as HTMLElement)?.blur();
-    }
-  };
-
-  private onSidebarMouseEnter = () => {
-    this.sidebarHovered = true;
-  };
-
-  private onSidebarMouseLeave = () => {
-    this.sidebarHovered = false;
+  private onNavigationClick = () => {
+    this.hideMobileNavigation();
   };
 
   render() {
     const className = classnames("shell-layout", {
-      "shell-layout--collapsed-sidebar": this.collapsedSidebar,
-      "shell-layout--collapsing": this.collapsing,
-      "shell-layout--hide-sidebar": this.hideSidebar,
-    });
-
-    const sidebarWrapperClassName = classnames(
-      "shell-layout__sidebar-wrapper",
-      {
-        "shell-layout__sidebar-wrapper--hovered": this.sidebarHovered,
-      }
-    );
-
-    const backdropClassName = classnames("shell-layout__backdrop", {
-      "shell-layout__backdrop--fading": this.collapsing,
+      "shell-layout--branded-header": this.brandedHeader,
+      "shell-layout--mobile-navigation-active": this.mobileNavigationActive,
+      "shell-layout--navigation-collapsed": this.navigationCollapsed,
+      "shell-layout--sidebar-active": this.sidebarActive,
     });
 
     return (
       <Host>
         <div class={className}>
-          <div class="shell-layout__banner">
-            <slot name="banner"></slot>
-          </div>
+          <header class="shell-layout__header" data-tauri-drag-region="true">
+            <button
+              class="shell-layout__skip-link"
+              onClick={this.skipLinkClick.emit}
+              type="button"
+            >
+              {this.skipLinkLabel}
+            </button>
+            <div class="shell-layout__header-left">
+              <button
+                class="shell-layout__header-tool shell-layout__navigation-toggle"
+                onClick={this.onNavigationToggleClick}
+                type="button"
+              >
+                <swirl-icon-menu size={20}></swirl-icon-menu>
+                <swirl-icon-double-arrow-left
+                  size={20}
+                ></swirl-icon-double-arrow-left>
+                <swirl-icon-double-arrow-right
+                  size={20}
+                ></swirl-icon-double-arrow-right>
+                <swirl-visually-hidden>
+                  {this.navigationToggleLabel}
+                </swirl-visually-hidden>
+              </button>
+              <button
+                class="shell-layout__header-tool"
+                onClick={this.onBrowserBackClick}
+                type="button"
+              >
+                <swirl-icon-arrow-back size={20}></swirl-icon-arrow-back>
+                <swirl-visually-hidden>
+                  {this.browserBackButtonLabel}
+                </swirl-visually-hidden>
+              </button>
+              <button
+                class="shell-layout__header-tool"
+                onClick={this.onBrowserForwardClick}
+                type="button"
+              >
+                <swirl-icon-arrow-forward size={20}></swirl-icon-arrow-forward>
+                <swirl-visually-hidden>
+                  {this.browserForwardButtonLabel}
+                </swirl-visually-hidden>
+              </button>
+            </div>
+            <div class="shell-layout__logo">
+              <slot name="logo"></slot>
+            </div>
+            <div class="shell-layout__header-right">
+              <button
+                class="shell-layout__header-tool shell-layout__sidebar-toggle"
+                onClick={this.sidebarToggleClick.emit}
+                type="button"
+              >
+                <swirl-icon
+                  glyph={this.sidebarToggleIcon}
+                  size={20}
+                ></swirl-icon>
+                <swirl-visually-hidden>
+                  {this.sidebarToggleLabel}
+                </swirl-visually-hidden>
+                {this.sidebarToggleBadge && (
+                  <swirl-badge
+                    aria-label={this.sidebarToggleBadgeAriaLabel}
+                    label={this.sidebarToggleBadge}
+                    size="xs"
+                  ></swirl-badge>
+                )}
+              </button>
+              <slot name="header-tools"></slot>
+            </div>
+          </header>
           <div
-            class={sidebarWrapperClassName}
-            onClick={this.onSidebarClick}
-            onMouseEnter={this.onSidebarMouseEnter}
-            onMouseLeave={this.onSidebarMouseLeave}
+            class="shell-layout__mobile-nav-backdrop"
+            onClick={this.onNavigationClick}
+          ></div>
+          <nav
+            aria-labelledby="main-navigation-label"
+            class="shell-layout__nav"
+            onClick={this.onNavigationClick}
+            ref={(el) => (this.navElement = el)}
           >
-            {!this.hideSidebar && (
-              <div class="shell-layout__sidebar">
-                <header class="shell-layout__header">
-                  <div class="shell-layout__logo-bar">
-                    <div class="shell-layout__expanded-logo">
-                      <slot name="logo-expanded"></slot>
-                    </div>
-                    <div class="shell-layout__collapsed-logo">
-                      <slot name="logo-collapsed"></slot>
-                    </div>
-                    <div class="shell-layout__toggle">
-                      <swirl-button
-                        swirlAriaExpanded={String(!this.collapsedSidebar)}
-                        hideLabel
-                        icon={
-                          this.collapsedSidebar
-                            ? "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
-                            : "<swirl-icon-double-arrow-left></swirl-icon-double-arrow-left>"
-                        }
-                        label={this.sidebarToggleLabel}
-                        onClick={this.toggleSidebar}
-                      ></swirl-button>
-                    </div>
-                  </div>
-                  <div class="shell-layout__tools">
-                    <slot name="tools"></slot>
-                  </div>
-                </header>
-                <nav
-                  aria-label={this.mainNavigationLabel}
-                  class="shell-layout__main-navigation"
-                >
-                  <slot name="main-navigation"></slot>
-                </nav>
+            <div class="shell-layout__mobile-header">
+              <slot name="mobile-logo"></slot>
+              <div class="shell-layout__mobile-header-tools">
+                <slot name="mobile-header-tools"></slot>
+                <button class="shell-layout__header-tool" type="button">
+                  <swirl-icon-double-arrow-left
+                    size={20}
+                  ></swirl-icon-double-arrow-left>
+                  <swirl-visually-hidden>
+                    {this.hideMobileNavigationButtonLabel}
+                  </swirl-visually-hidden>
+                </button>
               </div>
-            )}
-          </div>
-          <main class="shell-layout__main">
-            <slot name="main"></slot>
+            </div>
+            <div class="shell-layout__nav-body">
+              <swirl-visually-hidden>
+                <span id="main-navigation-label">{this.navigationLabel}</span>
+              </swirl-visually-hidden>
+              <slot name="nav"></slot>
+            </div>
+          </nav>
+          <main class="shell-layout__main" id="main-content">
+            <slot></slot>
           </main>
-          {(!this.collapsedSidebar || this.collapsing) && (
-            <div class={backdropClassName} onClick={this.onBackdropClick}></div>
-          )}
+          <aside class="shell-layout__sidebar">
+            <div class="shell-layout__sidebar-body">
+              <div class="shell-layout__sidebar-app-bar">
+                <slot name="sidebar-app-bar"></slot>
+              </div>
+              <div class="shell-layout__sidebar-content">
+                <slot name="sidebar"></slot>
+              </div>
+            </div>
+          </aside>
         </div>
       </Host>
     );

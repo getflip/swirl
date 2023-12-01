@@ -11,9 +11,6 @@ describe("swirl-visually-hidden", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-visually-hidden>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
         Content
       </swirl-visually-hidden>
     `);

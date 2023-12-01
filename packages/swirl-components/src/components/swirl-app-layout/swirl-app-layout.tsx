@@ -27,6 +27,7 @@ export type SwirlAppLayoutTransitionStyle = "none" | "slides" | "dialog";
  * @slot app-bar-mobile-menu-button - Used to add a mobile shell layout menu button to the app bar
  * @slot banner - Used to show a banner below the app bar
  * @slot sidebar - Content of the right sidebar
+ * @slot custom-sidebar-header - Replaces the default sidebar header
  */
 @Component({
   shadow: true,
@@ -264,6 +265,10 @@ export class SwirlAppLayout {
       this.el.querySelector('[slot="app-bar-mobile-menu-button"]')
     );
 
+    const hasCustomSidebarHeader = Boolean(
+      this.el.querySelector('[slot="custom-sidebar-header"]')
+    );
+
     const className = classnames(
       "app-layout",
       `app-layout--mobile-view-${this.mobileView}`,
@@ -275,6 +280,7 @@ export class SwirlAppLayout {
         "app-layout--has-app-bar-controls": hasAppBarControls,
         "app-layout--has-custom-app-bar-back-button":
           this.hasCustomAppBarBackButton,
+        "app-layout--has-custom-sidebar-header": hasCustomSidebarHeader,
         "app-layout--has-navigation": this.hasNavigation,
         "app-layout--has-sidebar": this.hasSidebar,
         "app-layout--hide-app-bar": this.hideAppBar,
@@ -365,6 +371,9 @@ export class SwirlAppLayout {
               </div>
             </section>
             <aside class="app-layout__sidebar">
+              <header class="app-layout__custom-sidebar-header">
+                <slot name="custom-sidebar-header"></slot>
+              </header>
               <header class="app-layout__sidebar-header">
                 <swirl-button
                   class="app-layout__sidebar-close-button"

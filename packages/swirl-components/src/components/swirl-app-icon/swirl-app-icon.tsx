@@ -9,7 +9,6 @@ import classnames from "classnames";
 export class SwirlAppIcon {
   @Prop() icon?: string;
   @Prop() src?: string;
-  @Prop() hideBorder?: boolean = false;
 
   @State() imageAvailable: boolean | undefined;
 
@@ -31,7 +30,6 @@ export class SwirlAppIcon {
 
     const className = classnames("app-icon", {
       "app-icon--has-icon": showIcon || showFallbackIcon,
-      "app-icon--hide-border": this.hideBorder,
     });
 
     return (

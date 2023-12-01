@@ -15,11 +15,30 @@
   max-width: 100%;
   justify-content: center;
   align-items: center;
-  border: 0.25rem solid var(--swirl-badge-border-color);
+  border: 0.125rem solid var(--swirl-badge-border-color);
   border-radius: 2rem;
   color: var(--s-text-on-status);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
+}
+
+.badge--size-xs {
+  min-width: 1.25rem;
+  height: 1.25rem;
+  font-size: 0.6875rem;
+
+  & .badge__label {
+    padding-right: 0.125rem;
+    padding-left: 0.125rem;
+  }
+
+  & .badge__icon {
+    & > swirl-icon,
+    & > *::part(icon) {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+  }
 }
 
 .badge--size-s {
