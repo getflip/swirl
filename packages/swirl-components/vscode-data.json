@@ -148,6 +148,10 @@
           "description": ""
         },
         {
+          "name": "close-button-icon",
+          "description": ""
+        },
+        {
           "name": "close-button-label",
           "description": ""
         },
@@ -180,10 +184,6 @@
         "value": ""
       },
       "attributes": [
-        {
-          "name": "hide-border",
-          "description": ""
-        },
         {
           "name": "icon",
           "description": ""
@@ -532,6 +532,9 @@
             },
             {
               "name": "s"
+            },
+            {
+              "name": "xs"
             }
           ]
         },
@@ -2944,6 +2947,19 @@
     },
     {
       "name": "swirl-icon-discover",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-dock-left",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -5527,15 +5543,51 @@
       },
       "attributes": [
         {
-          "name": "hide-sidebar",
+          "name": "branded-header",
           "description": ""
         },
         {
-          "name": "main-navigation-label",
+          "name": "browser-back-button-label",
+          "description": ""
+        },
+        {
+          "name": "browser-forward-button-label",
+          "description": ""
+        },
+        {
+          "name": "hide-mobile-navigation-button-label",
+          "description": ""
+        },
+        {
+          "name": "navigation-label",
+          "description": ""
+        },
+        {
+          "name": "navigation-toggle-label",
+          "description": ""
+        },
+        {
+          "name": "sidebar-active",
+          "description": ""
+        },
+        {
+          "name": "sidebar-toggle-badge",
+          "description": ""
+        },
+        {
+          "name": "sidebar-toggle-badge-aria-label",
+          "description": ""
+        },
+        {
+          "name": "sidebar-toggle-icon",
           "description": ""
         },
         {
           "name": "sidebar-toggle-label",
+          "description": ""
+        },
+        {
+          "name": "skip-link-label",
           "description": ""
         }
       ]

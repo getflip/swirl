@@ -1,7 +1,8 @@
 import { Component, h, Host } from "@stencil/core";
 
 @Component({
-  shadow: true,
+  scoped: true,
+  shadow: false,
   styleUrl: "swirl-visually-hidden.css",
   tag: "swirl-visually-hidden",
 })
