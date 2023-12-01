@@ -1208,6 +1208,7 @@ export namespace Components {
     interface SwirlOptionListItem {
         "allowDrag"?: boolean;
         "context"?: SwirlOptionListItemContext;
+        "description"?: string;
         "disabled"?: boolean;
         "dragHandleDescription"?: string;
         "dragHandleLabel"?: string;
@@ -5128,6 +5129,7 @@ declare namespace LocalJSX {
     interface SwirlOptionListItem {
         "allowDrag"?: boolean;
         "context"?: SwirlOptionListItemContext;
+        "description"?: string;
         "disabled"?: boolean;
         "dragHandleDescription"?: string;
         "dragHandleLabel"?: string;
