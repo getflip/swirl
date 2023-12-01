@@ -4,14 +4,10 @@ import React, {
   LegacyRef,
   ReactElement,
   ReactNode,
-  useCallback,
-  useEffect,
   useRef,
 } from "react";
-import classNames from "classnames";
-import balanceText from "balance-text";
-import { SwirlIconLink } from "@getflip/swirl-components-react";
-import classnames from "classnames";
+
+import { default as classNames, default as classnames } from "classnames";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 type HeadingAlign = "start" | "center" | "end";
@@ -28,7 +24,7 @@ type HeadingProps = DetailedHTMLProps<
   align?: HeadingAlign;
   as?: HeadingTag;
   balance?: boolean;
-  headingId?: string;
+  id?: string;
   level?: HeadingLevel;
   lines?: number;
   truncate?: boolean;
@@ -38,35 +34,13 @@ export const Heading: React.FC<HeadingProps> = ({
   align = "start",
   as,
   balance = true,
-  headingId,
+  id,
   level = 1,
   lines,
   children,
   className,
 }) => {
   const headingEl = useRef<HTMLElement>(null);
-
-  const rebalance = useCallback(() => {
-    if (!balance || !headingEl.current || lines) {
-      return;
-    }
-
-    balanceText(headingEl.current);
-  }, [balance, lines]);
-
-  useEffect(() => {
-    rebalance();
-
-    const handleResize = () => {
-      rebalance();
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [rebalance]);
 
   const Tag = as || (`h${level}` as HeadingTag);
 
@@ -85,9 +59,10 @@ export const Heading: React.FC<HeadingProps> = ({
           [`text-text-default text-font-size-base leading-[1.5rem]`]:
             level === 4,
         },
+        { "text-balance": balance },
         className
       )}
-      id={headingId}
+      id={id}
       ref={headingEl as LegacyRef<HTMLHeadingElement>}
     >
       {children}
@@ -101,12 +76,22 @@ type LinkedHeadingProps = DetailedHTMLProps<
 > & {
   children: ReactElement<typeof Heading>;
   href: string;
+  className?: string;
 };
 
-export function LinkedHeading({ children, href }: LinkedHeadingProps) {
+export function LinkedHeading({
+  children,
+  href,
+  className,
+}: LinkedHeadingProps) {
   return (
     <CopyToClipboard text={href}>
-      <div className="relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer mb-4">
+      <div
+        className={classNames(
+          "relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer",
+          className
+        )}
+      >
         {/** DESKTOP ICON */}
         <i
           className={classnames(

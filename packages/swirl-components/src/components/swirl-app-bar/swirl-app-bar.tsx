@@ -25,6 +25,7 @@ export class SwirlAppBar {
   @Element() el: HTMLElement;
 
   @Prop() backButtonLabel?: string = "Go back";
+  @Prop() closeButtonIcon?: string = "<swirl-icon-close></swirl-icon-close>";
   @Prop() closeButtonLabel?: string = "Close";
   @Prop() stepUpButtonLabel?: string = "Previous item";
   @Prop() stepDownButtonLabel?: string = "Next item";
@@ -81,8 +82,13 @@ export class SwirlAppBar {
     const showLeftControls =
       this.showBackButton || this.showCloseButton || this.showStepperControls;
 
+    const hasRightControls = Boolean(
+      this.el.querySelector('[slot="right-controls"]')
+    );
+
     const className = classnames("app-bar", {
       "app-bar--has-cta": this.hasCta,
+      "app-bar--has-right-controls": hasRightControls,
     });
 
     return (
@@ -103,7 +109,7 @@ export class SwirlAppBar {
                   {this.showCloseButton && (
                     <swirl-button
                       hideLabel
-                      icon="<swirl-icon-close></swirl-icon-close>"
+                      icon={this.closeButtonIcon}
                       label={this.closeButtonLabel}
                       onClick={this.onCloseButtonClick}
                     ></swirl-button>

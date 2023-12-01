@@ -16,14 +16,18 @@ describe("swirl-option-list-item", () => {
             </swirl-option-list-item>`,
     });
 
+    const id = page.root.children[0].id;
+
     expect(page.root).toEqualHtml(`
       <swirl-option-list-item context="single-select" disabled="false" icon="<swirl-icon-mention></swirl-icon-mention>" label="Option List Item" selected="true" value="Value">
-        <div aria-selected="true" class="option-list-item option-list-item--context-single-select option-list-item--selected" part="option-list-item" role="option">
+        <div aria-labelledby="${id}-label" aria-selected="true" class="option-list-item option-list-item--context-single-select option-list-item--selected" id="${id}" part="option-list-item" role="option">
           <span class="option-list-item__icon">
             <swirl-icon-mention size="24"></swirl-icon-mention>
           </span>
-          <span class="option-list-item__label" part="option-list-item__label">
-            Option List Item
+          <span class="option-list-item__label-container">
+            <span class="option-list-item__label" id="${id}-label" part="option-list-item__label">
+              Option List Item
+            </span>
           </span>
           <span class="option-list-item__selection-icon">
             <swirl-icon-check-small size="24"></swirl-icon-check-small>

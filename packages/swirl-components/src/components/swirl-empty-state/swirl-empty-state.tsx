@@ -26,6 +26,7 @@ export class SwirlEmptyState {
               <swirl-heading
                 align="center"
                 as="p"
+                level={4}
                 text={this.heading}
               ></swirl-heading>
             )}

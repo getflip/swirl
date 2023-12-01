@@ -26,7 +26,7 @@ export function CodePreviewExpandButton({
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className={classNames(
-          "bottom-2 left-auto right-auto flex justify-center items-center text-[#F2F2F2] text-base font-medium",
+          "bottom-2 left-auto right-auto flex justify-center items-center text-[#F2F2F2] text-font-size-sm font-medium",
           {
             "text-[#F2F2F2]": !isLightTheme,
             "text-[#24292E]": isLightTheme,
@@ -35,9 +35,9 @@ export function CodePreviewExpandButton({
       >
         {isExpanded ? "Collapse" : "Expand"}
         {isExpanded ? (
-          <SwirlIconExpandLess className="ml-2" size={24} />
+          <SwirlIconExpandLess className="ml-2" size={20} />
         ) : (
-          <SwirlIconExpandMore className="ml-2" size={24} />
+          <SwirlIconExpandMore className="ml-2" size={20} />
         )}
       </button>
     </div>

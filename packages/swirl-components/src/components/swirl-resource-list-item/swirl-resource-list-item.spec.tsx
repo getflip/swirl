@@ -16,15 +16,17 @@ describe("swirl-resource-list-item", () => {
       `,
     });
 
+    const id = page.root.querySelector("[id]").id;
+
     expect(page.root).toEqualHtml(`
       <swirl-resource-list-item description="Description" label="Label" role="row">
         <div class="resource-list-item resource-list-item--interactive resource-list-item--label-weight-medium" role="gridcell">
-          <button aria-labelledby="label" class="resource-list-item__content" part="resource-list-item__content"  tabindex="0">
+          <button aria-labelledby="${id}" class="resource-list-item__content" part="resource-list-item__content" tabindex="0" type="button">
             <span class="resource-list-item__media">
               <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>
             </span>
             <span class="resource-list-item__label-container">
-              <span class="resource-list-item__label" id="label">
+              <span class="resource-list-item__label" id="${id}">
                 Label
               </span>
               <span class="resource-list-item__description">
@@ -32,6 +34,7 @@ describe("swirl-resource-list-item", () => {
               </span>
             </span>
           </button>
+          <span class="resource-list-item__control"></span>
         </div>
       </swirl-resource-list-item>
     `);

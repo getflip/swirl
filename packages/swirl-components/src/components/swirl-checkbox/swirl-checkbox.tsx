@@ -5,6 +5,8 @@ export type SwirlCheckboxLabelWeight = "medium" | "regular";
 
 export type SwirlCheckboxState = boolean | "true" | "false" | "indeterminate";
 
+export type SwirlCheckboxVariant = "default" | "card";
+
 @Component({
   /**
    * Form controls in shadow dom can still not be associated with labels in the
@@ -29,6 +31,7 @@ export class SwirlCheckbox {
   @Prop() label?: string;
   @Prop() labelWeight?: SwirlCheckboxLabelWeight = "medium";
   @Prop() value?: string;
+  @Prop() variant?: SwirlCheckboxVariant = "default";
 
   @Event() valueChange: EventEmitter<boolean>;
 
@@ -65,6 +68,7 @@ export class SwirlCheckbox {
     const className = classnames(
       "checkbox",
       `checkbox--label-weight-${this.labelWeight}`,
+      `checkbox--variant-${this.variant}`,
       {
         "checkbox--checked": checked,
         "checkbox--disabled": this.disabled,
@@ -75,7 +79,7 @@ export class SwirlCheckbox {
     );
 
     return (
-      <Host>
+      <Host style={{ width: this.variant === "card" ? "100%" : undefined }}>
         <label class={className} htmlFor={this.inputId}>
           <span class="checkbox__control">
             <swirl-visually-hidden>

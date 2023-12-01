@@ -11,6 +11,7 @@ import { WcDatepickerCustomEvent } from "wc-datepicker/dist/types/components";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 
 import "wc-datepicker";
+import { removeTimezoneOffset } from "../../utils";
 
 @Component({
   shadow: true,
@@ -37,9 +38,11 @@ export class SwirlDatePicker {
     event: WcDatepickerCustomEvent<string | string[]>
   ) => {
     if (typeof event.detail === "string") {
-      this.valueChange.emit(new Date(event.detail));
+      this.valueChange.emit(removeTimezoneOffset(new Date(event.detail)));
     } else {
-      this.valueChange.emit(event.detail.map((date) => new Date(date)));
+      this.valueChange.emit(
+        event.detail.map((date) => removeTimezoneOffset(new Date(date)))
+      );
     }
   };
 

@@ -29,6 +29,10 @@ export type SwirlBoxPadding =
 })
 export class SwirlBox {
   @Prop() bordered?: boolean;
+  @Prop() borderedBlockEnd?: boolean;
+  @Prop() borderedBlockStart?: boolean;
+  @Prop() borderedInlineEnd?: boolean;
+  @Prop() borderedInlineStart?: boolean;
   @Prop() centerBlock?: boolean;
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
@@ -67,6 +71,10 @@ export class SwirlBox {
 
     const className = classnames("box", {
       "box--bordered": this.bordered,
+      "box--bordered-block-end": this.borderedBlockEnd,
+      "box--bordered-block-start": this.borderedBlockStart,
+      "box--bordered-inline-end": this.borderedInlineEnd,
+      "box--bordered-inline-start": this.borderedInlineStart,
       "box--cover": this.cover,
     });
 

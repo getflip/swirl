@@ -40,6 +40,23 @@
   }
 }
 
+.avatar--size-2xs {
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: 0.625rem;
+
+  &.avatar--has-icon {
+    padding-right: 0.125rem;
+    padding-left: 0.125rem;
+  }
+
+  &.avatar--variant-square,
+  &.avatar--variant-square .avatar__image,
+  &.avatar--variant-square .avatar__initials {
+    border-radius: 0.25rem;
+  }
+}
+
 .avatar--size-xs {
   width: 1.75rem;
   height: 1.75rem;
@@ -139,6 +156,14 @@
   &.avatar--variant-square .avatar__image,
   &.avatar--variant-square .avatar__initials {
     border-radius: 2.25rem;
+  }
+
+  & .avatar__tool {
+    transform: none;
+  }
+
+  & .avatar__tool--position-top {
+    transform: none;
   }
 }
 
@@ -261,4 +286,18 @@
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-sm);
   text-align: center;
+}
+
+.avatar__tool {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-flex;
+  transform: translate3d(25%, 25%, 0);
+}
+
+.avatar__tool--position-top {
+  top: 0;
+  bottom: auto;
+  transform: translate3d(25%, -25%, 0);
 }

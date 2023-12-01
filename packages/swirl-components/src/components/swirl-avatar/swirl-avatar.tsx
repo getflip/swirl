@@ -2,6 +2,9 @@ import { Component, Element, h, Host, Prop, State, Watch } from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlAvatarBadgePosition = "bottom" | "top";
+
+export type SwirlAvatarToolPosition = "bottom" | "top";
+
 export type SwirlAvatarColor =
   | "banana"
   | "blueberry"
@@ -10,10 +13,11 @@ export type SwirlAvatarColor =
   | "kiwi"
   | "pumpkin"
   | "radish";
-export type SwirlAvatarSize = "xs" | "s" | "m" | "l" | "xl" | "2xl";
+export type SwirlAvatarSize = "2xs" | "xs" | "s" | "m" | "l" | "xl" | "2xl";
 export type SwirlAvatarVariant = "round" | "square";
 
 const swirlAvatarSizeMappings: { [key in SwirlAvatarSize]: number } = {
+  "2xs": 20,
   xs: 28,
   s: 32,
   m: 40,
@@ -22,6 +26,9 @@ const swirlAvatarSizeMappings: { [key in SwirlAvatarSize]: number } = {
   "2xl": 144,
 };
 
+/**
+ * @slot tool - Used to show a badge or (icon) button on the avatar.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-avatar.css",
@@ -40,6 +47,7 @@ export class SwirlAvatar {
   @Prop() showLabel?: boolean = false;
   @Prop() size?: SwirlAvatarSize = "m";
   @Prop() src?: string;
+  @Prop() toolPosition?: SwirlAvatarToolPosition = "bottom";
   @Prop() variant?: SwirlAvatarVariant = "round";
 
   @State() imageAvailable: boolean | undefined;
@@ -108,6 +116,11 @@ export class SwirlAvatar {
       `avatar__badge--position-${this.badgePosition}`
     );
 
+    const toolClassName = classnames(
+      "avatar__tool",
+      `avatar__tool--position-${this.toolPosition}`
+    );
+
     return (
       <Host
         aria-label={this.label}
@@ -143,6 +156,9 @@ export class SwirlAvatar {
           {showBadge && (
             <span class={badgeClassName} innerHTML={this.badge}></span>
           )}
+          <span class={toolClassName}>
+            <slot name="tool"></slot>
+          </span>
         </span>
         {this.showLabel && (
           <span aria-hidden class="avatar__label">

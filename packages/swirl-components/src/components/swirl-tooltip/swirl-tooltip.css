@@ -17,7 +17,7 @@
 }
 
 .tooltip__popper {
-  position: fixed;
+  position: absolute;
   z-index: var(--s-z-40);
   max-width: 17.5rem;
 }
@@ -33,7 +33,10 @@
   color: var(--s-text-on-status);
   background-color: var(--s-surface-neutral-default);
   line-height: var(--s-line-height-base);
-  animation: tooltip-fade-in 0.1s;
+  animation: tooltip-fade-in 0.2s;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);

@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
@@ -33,6 +35,7 @@ export class SwirlPdfReader {
   @Prop() label!: string;
   @Prop() menuLabel?: string = "File menu";
   @Prop() menuTriggerLabel?: string = "Open file menu";
+  @Prop() pdfWorkerSrc?: string;
   @Prop() printButtonLabel?: string = "Print PDF";
   @Prop() sideBySideButtonLabel?: string = "Toggle side by side view";
   @Prop() thumbnailButtonLabel?: string = "Scroll to page";
@@ -41,6 +44,9 @@ export class SwirlPdfReader {
   @Prop() zoomInButtonLabel?: string = "Zoom in";
   @Prop() zoomOutButtonLabel?: string = "Zoom out";
   @Prop() zoomSelectLabel?: string = "Select zoom";
+
+  @Event() modalClose: EventEmitter<void>;
+  @Event() modalOpen: EventEmitter<void>;
 
   @State() active = false;
   @State() closing = false;
@@ -93,6 +99,7 @@ export class SwirlPdfReader {
   async open() {
     this.modal.show();
     this.active = true;
+    this.modalOpen.emit();
   }
 
   /**
@@ -112,6 +119,7 @@ export class SwirlPdfReader {
       this.modal.hide();
       this.closing = false;
       this.active = false;
+      this.modalClose.emit();
     }, 150);
   }
 
@@ -303,13 +311,14 @@ export class SwirlPdfReader {
                 </span>
               </span>
               <span class="pdf-reader__header-right">
-                <swirl-button
-                  class="pdf-reader__menu-button"
-                  hideLabel
-                  icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>"
-                  id="menu-trigger"
-                  label={this.menuTriggerLabel}
-                ></swirl-button>
+                <swirl-popover-trigger popover={this.menu}>
+                  <swirl-button
+                    class="pdf-reader__menu-button"
+                    hideLabel
+                    icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>"
+                    label={this.menuTriggerLabel}
+                  ></swirl-button>
+                </swirl-popover-trigger>
               </span>
               <span class="pdf-reader__floating-tools">
                 <button
@@ -366,6 +375,7 @@ export class SwirlPdfReader {
                 file={this.file}
                 onActivate={this.onActivate}
                 onVisiblePagesChange={this.onVisiblePagesChange}
+                pdfWorkerSrc={this.pdfWorkerSrc}
                 ref={(el) => (this.viewer = el)}
                 type="application/pdf"
                 viewMode={this.viewMode}
@@ -411,11 +421,10 @@ export class SwirlPdfReader {
           <swirl-popover
             animation="scale-in-y"
             disableScrollLock
+            id="menu"
             label={this.menuLabel}
             placement="bottom-end"
-            popoverId="menu"
             ref={(el) => (this.menu = el)}
-            trigger="menu-trigger"
           >
             <swirl-stack>
               <div class="pdf-reader__meta">

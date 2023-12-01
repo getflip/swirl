@@ -1,7 +1,6 @@
 import Oas, { Operation } from "oas";
 import {
   HttpMethods,
-  MediaTypeObject,
   OASDocument,
   PathsObject,
   SchemaObject,
@@ -11,6 +10,7 @@ import { oasToSnippet } from "@readme/oas-to-snippet";
 import { SupportedTargets } from "@readme/oas-to-snippet";
 import { Request } from "har-format";
 import { Endpoint, Operations } from "./docs.model";
+import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
 
 interface IOASBuilder {
   title: string;
@@ -38,7 +38,7 @@ type EndpointWithDetails = Endpoint & {
     snippets: Record<SupportedTargets, string>;
     request: Request;
   };
-  response: string;
+  responseExamples: CodePreviewSelectOptions;
 };
 
 export default class OASBuilder implements IOASBuilder {
@@ -64,6 +64,44 @@ export default class OASBuilder implements IOASBuilder {
     this._oas = new Oas(oasDocument);
   }
 
+  private createParameters(
+    parametersAsJsonSchema: ReturnType<
+      Endpoint["operation"]["getParametersAsJSONSchema"]
+    >
+  ): EndpointWithDetails["parameters"] {
+    return parametersAsJsonSchema.map((schemaWrapper) => {
+      const requiredParams = schemaWrapper.schema.required || [];
+      const allProperties = schemaWrapper.schema.properties || {};
+      const paramLabel = schemaWrapper.label || "";
+
+      if (typeof allProperties === "object" && Array.isArray(requiredParams)) {
+        const propertyKeys = Object.keys(allProperties);
+        const properties = propertyKeys.map((propertyKey) => {
+          const isRequired = Boolean(requiredParams.includes(propertyKey));
+          const property = allProperties[propertyKey] as SchemaObject;
+          return {
+            type: property.type as string,
+            name: propertyKey,
+            description: property.description || "",
+            required: isRequired,
+          };
+        });
+
+        return {
+          label: paramLabel,
+          properties: properties,
+          requiredProperties: requiredParams,
+        };
+      }
+
+      return {
+        label: paramLabel,
+        properties: [],
+        requiredProperties: requiredParams,
+      };
+    });
+  }
+
   public setDetailedEndpoints() {
     this.endpoints.forEach((apiEndpoint) => {
       const requestPreview = this.generateRequest(apiEndpoint.operation);
@@ -71,40 +109,7 @@ export default class OASBuilder implements IOASBuilder {
         apiEndpoint.operation.getParametersAsJSONSchema() || [];
 
       const parameters: EndpointWithDetails["parameters"] =
-        parameterSchemas.map((schemaWrapper) => {
-          const requiredParams = schemaWrapper.schema.required || [];
-          const allProperties = schemaWrapper.schema.properties || {};
-          const paramLabel = schemaWrapper.label || "";
-
-          if (
-            typeof allProperties === "object" &&
-            Array.isArray(requiredParams)
-          ) {
-            const propertyKeys = Object.keys(allProperties);
-            const properties = propertyKeys.map((propertyKey) => {
-              const isRequired = Boolean(requiredParams.includes(propertyKey));
-              const property = allProperties[propertyKey] as SchemaObject;
-              return {
-                type: property.type as string,
-                name: propertyKey,
-                description: property.description || "",
-                required: isRequired,
-              };
-            });
-
-            return {
-              label: paramLabel,
-              properties: properties,
-              requiredProperties: requiredParams,
-            };
-          }
-
-          return {
-            label: paramLabel,
-            properties: [],
-            requiredProperties: requiredParams,
-          };
-        });
+        this.createParameters(parameterSchemas);
 
       this.detailedEndpoints.push({
         ...apiEndpoint,
@@ -113,10 +118,11 @@ export default class OASBuilder implements IOASBuilder {
         request: {
           ...requestPreview,
         },
-        response: this.generateResponse(apiEndpoint.operation),
+        responseExamples: this.generateResponseExamples(apiEndpoint.operation),
         parameters: parameters,
       });
     });
+
     return this;
   }
 
@@ -157,7 +163,10 @@ export default class OASBuilder implements IOASBuilder {
 
     for (const path in this.paths) {
       const operationInPaths = this.paths[path];
-      const methods = Object.keys(operationInPaths ?? {}) as HttpMethods[];
+
+      const methods = Object.keys(operationInPaths ?? {}).filter(
+        (method) => method !== "parameters" && method !== "description"
+      ) as HttpMethods[];
 
       methods.forEach((operation) => {
         const oasOperation = this._oas.operation(path, operation);
@@ -165,11 +174,16 @@ export default class OASBuilder implements IOASBuilder {
           this.operations[operation] = [];
         }
         this.operations[operation]?.push({
-          title: oasOperation.getSummary(),
-          path: `/${this.path}#${oasOperation
-            .getSummary()
-            .toLowerCase()
-            .replaceAll(" ", "-")}`.replaceAll(".", ""),
+          title:
+            oasOperation.getSummary() ||
+            oasOperation
+              .getOperationId()
+              .replaceAll("-", " ")
+              .replace(/\b\w/g, (char) => char.toUpperCase()), // Capitalize first letter of each word
+          path: `/${this.path}#${oasOperation.getOperationId()}`.replaceAll(
+            ".",
+            ""
+          ),
           operation: oasOperation,
         });
       });
@@ -246,20 +260,28 @@ export default class OASBuilder implements IOASBuilder {
     };
   }
 
-  public generateResponse(operation: Operation) {
-    // currently we just take the first element as our OA specs are not fully functional. E.g. 201 is not defined for post for some requests.
-    const responseExample = operation.getResponseExamples()[0].mediaTypes[
-      "application/json"
-    ] as Array<MediaTypeObject>;
+  public generateResponseExamples(operation: Operation) {
+    const responseExamplesList = operation.getResponseExamples();
+    const responseExamples = responseExamplesList.reduce(
+      (acc: CodePreviewSelectOptions, example) => {
+        const firstMediaTypeCode = Object.values(
+          example.mediaTypes
+        )[0] as Array<unknown>;
 
-    const valueOfResponse = responseExample as any;
+        if (firstMediaTypeCode) {
+          acc[example.status] = JSON.stringify(
+            // @ts-ignore
+            firstMediaTypeCode[0].value,
+            null,
+            2
+          );
+        }
 
-    return JSON.stringify(
-      responseExample
-        ? valueOfResponse[0].value
-        : "No Response Example was provided",
-      null,
-      2
+        return acc;
+      },
+      {}
     );
+
+    return responseExamples;
   }
 }

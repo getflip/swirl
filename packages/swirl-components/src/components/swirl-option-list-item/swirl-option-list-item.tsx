@@ -10,6 +10,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
+import { v4 as uuid } from "uuid";
 
 export type SwirlOptionListItemContext = "single-select" | "multi-select";
 
@@ -27,6 +28,7 @@ export class SwirlOptionListItem {
   @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) context?: SwirlOptionListItemContext =
     "single-select";
+  @Prop() description?: string;
   @Prop() disabled?: boolean;
   @Prop() dragging?: boolean;
   @Prop() dragHandleDescription?: string = "Press spacebar to toggle grab";
@@ -40,9 +42,11 @@ export class SwirlOptionListItem {
   @Event() toggleDrag: EventEmitter<HTMLSwirlOptionListItemElement>;
 
   @State() iconSize: 20 | 24 = 24;
+  @State() focused: boolean;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
+  private id = uuid();
 
   componentDidLoad() {
     this.forceIconProps(this.desktopMediaQuery.matches);
@@ -80,6 +84,14 @@ export class SwirlOptionListItem {
     }
   };
 
+  private onBlur = () => {
+    this.focused = false;
+  };
+
+  private onFocus = () => {
+    this.focused = true;
+  };
+
   render() {
     const ariaDisabled = this.disabled ? "true" : undefined;
     const ariaSelected = String(this.selected);
@@ -105,11 +117,20 @@ export class SwirlOptionListItem {
           aria-checked={
             this.swirlAriaRole === "menuitemradio" ? ariaSelected : undefined
           }
+          aria-describedby={
+            Boolean(this.description)
+              ? `option-list-item-${this.id}-description`
+              : undefined
+          }
           aria-disabled={ariaDisabled}
+          aria-labelledby={`option-list-item-${this.id}-label`}
           aria-selected={
             this.swirlAriaRole === "option" ? ariaSelected : undefined
           }
           class={className}
+          id={`option-list-item-${this.id}`}
+          onBlur={this.onBlur}
+          onFocus={this.onFocus}
           part="option-list-item"
           role={this.swirlAriaRole}
         >
@@ -132,8 +153,22 @@ export class SwirlOptionListItem {
               </span>
             </span>
           )}
-          <span class="option-list-item__label" part="option-list-item__label">
-            {this.label}
+          <span class="option-list-item__label-container">
+            <span
+              class="option-list-item__label"
+              id={`option-list-item-${this.id}-label`}
+              part="option-list-item__label"
+            >
+              {this.label}
+            </span>
+            {this.description && (
+              <span
+                class="option-list-item__description"
+                id={`option-list-item-${this.id}-description`}
+              >
+                {this.description}
+              </span>
+            )}
           </span>
           {showSelectionIcon && (
             <span class="option-list-item__selection-icon">
@@ -149,6 +184,7 @@ export class SwirlOptionListItem {
             aria-label={`${this.dragHandleLabel} "${this.label}"`}
             class="option-list-item__drag-handle"
             onKeyDown={this.onDragHandleKeyDown}
+            tabIndex={this.focused ? 0 : -1}
             type="button"
           >
             <swirl-icon-drag-handle

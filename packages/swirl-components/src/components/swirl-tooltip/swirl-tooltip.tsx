@@ -1,4 +1,5 @@
 import {
+  autoUpdate,
   computePosition,
   ComputePositionConfig,
   ComputePositionReturn,
@@ -23,6 +24,7 @@ export class SwirlTooltip {
   @State() actualPosition: ComputePositionReturn;
   @State() visible = false;
 
+  private disableAutoUpdate;
   private showTimeout: NodeJS.Timeout;
   private options: Partial<ComputePositionConfig>;
   private popperEl: HTMLSpanElement;
@@ -84,6 +86,11 @@ export class SwirlTooltip {
 
     requestAnimationFrame(() => {
       this.reposition();
+      this.disableAutoUpdate = autoUpdate(
+        this.referenceEl,
+        this.popperEl,
+        this.reposition.bind(this)
+      );
     });
   };
 
@@ -105,6 +112,7 @@ export class SwirlTooltip {
     }
 
     this.visible = false;
+    this.disableAutoUpdate?.();
   };
 
   private updateOptions = () => {
@@ -116,7 +124,7 @@ export class SwirlTooltip {
     this.options = {
       middleware: [offset(margin), shift(), flip()],
       placement: this.position,
-      strategy: "fixed",
+      strategy: "absolute",
     };
   };
 

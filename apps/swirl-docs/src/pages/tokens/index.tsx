@@ -1,7 +1,7 @@
 import { NavItem } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
-import { CategoryNav } from "src/components/Layout/CategoryNav";
+import { SidebarNavigation } from "src/components/Layout/SidebarNavigation";
 import Link from "next/link";
 import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
 

@@ -48,6 +48,13 @@ export class SwirlSearch {
     this.forceIconProps(this.desktopMediaQuery.matches);
 
     this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+
+    // see https://stackoverflow.com/a/27314017
+    if (this.autoFocus) {
+      setTimeout(() => {
+        this.input.focus();
+      });
+    }
   }
 
   disconnectedCallback() {

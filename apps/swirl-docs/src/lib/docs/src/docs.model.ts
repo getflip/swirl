@@ -1,18 +1,16 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import Oas, { Operation } from "oas";
 import { HttpMethods, OASDocument } from "oas/dist/rmoas.types";
+import { OpenAPIV3_1 } from "openapi-types/dist";
 import OASBuilder from "./oasBuilder";
+import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
 
 export enum DOCUMENTATION_SRC {
   PAGES = "pages",
   DOCUMENTATION = "documentation",
 }
 
-export type DocumentationCategory =
-  | "components"
-  | "tokens"
-  | "icons"
-  | "apiDocs";
+export type DocumentationCategory = "components" | "tokens" | "icons" | "api";
 export type DocumentationParamKey =
   | "componentDoc"
   | "tokenDoc"
@@ -27,14 +25,7 @@ export enum DOCUMENTATION_CATEGORY {
   COMPONENTS = "components",
   TOKENS = "tokens",
   ICONS = "icons",
-  API_DOCS = "api",
-}
-
-export enum DOCUMENT_TYPE {
-  COMPONENTS = "componentDoc",
-  TOKENS = "tokenDoc",
-  ICONS = "iconDoc",
-  API_DOCS = "apiDoc",
+  API_DOCS = "apiDocs",
 }
 
 export type DocCategory = {
@@ -42,12 +33,13 @@ export type DocCategory = {
   path: string;
   htmlTag?: string;
   nextRoute?: string;
-  subpages?: DocCategory[];
+  subdirectories?: DocCategory[];
 };
 
 export type Document = {
   name: string;
   basePath: DOCUMENTATION_CATEGORY | string;
+  documentationSrc: DOCUMENTATION_SRC;
 };
 
 export type DocHeadline = {
@@ -76,6 +68,11 @@ export type Endpoint = {
   title: string;
   path: string;
   operation: Operation;
+  errorCodes?: {
+    type: string;
+    enum: Array<string>;
+    "x-readme-ref-name": string;
+  };
 };
 
 export type Operations = {
@@ -91,41 +88,63 @@ export type ApiDoc = {
   operations?: Operations;
 };
 
-export type EndpointParam = {
+export type OperationSchemaObject = {
   name: string;
-  type: string;
+  type:
+    | OpenAPIV3_1.ArraySchemaObjectType
+    | OpenAPIV3_1.NonArraySchemaObjectType;
   description: string;
   required: boolean;
+  properties?: OperationSchemaObject[];
+  items?: any;
+  statusCode?: string;
 };
-export type EndpointParamType =
+
+export type OperationParamType =
   | "path"
   | "query"
   | "header"
   | "cookie"
   | "body"
+  | "formData"
+  | "response"
   | "other";
-export type EndpointParamTypeGroup = Array<{
-  type: EndpointParamType;
+
+export type OperationSchemas = Array<{
+  type: OperationParamType;
   title: string;
-  parameters: Array<EndpointParam>;
+  parameters: Array<OperationSchemaObject>;
 }>;
+
 export type ApiResponseExample = {
   status: string;
   mediaType: string;
   value: unknown;
 };
+
+export type ResponseBodySchema = {
+  schema: OpenAPIV3_1.BaseSchemaObject;
+  statusCode: string;
+};
+
 export type ApiEndpoint = {
   title: string;
   description: string;
   path: string;
   request: ReturnType<OASBuilder["generateRequest"]>;
-  responseExamples: Array<ApiResponseExample>;
+  responseExamples: CodePreviewSelectOptions;
+  responseBodySchemas: Array<ResponseBodySchema>;
   isDeprecated?: boolean;
-  parameterTypes?: EndpointParamTypeGroup;
+  isExperimental?: boolean;
+  parameters?: OperationSchemas;
+  requestBody?: OperationSchemas;
+  responseBody?: OperationSchemas;
+  security?: OpenAPIV3_1.SecurityRequirementObject[];
 };
-export type ApiDocumentation = {
+
+export interface ApiDocumentation {
   title: string;
   shortDescription: string;
   description: MDXRemoteSerializeResult;
   endpoints: Array<ApiEndpoint>;
-};
+}

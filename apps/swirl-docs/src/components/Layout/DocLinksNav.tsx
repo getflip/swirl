@@ -1,7 +1,8 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
+
 import { DocHeadline } from "@swirl/lib/docs/src/docs.model";
-import useScrollObserver from "@swirl/lib/hooks/useScrollObserver";
 import Link from "next/link";
+import useScrollObserver from "@swirl/lib/hooks/useScrollObserver";
 
 type DocLinksNavProps = {
   documentLinkList: DocHeadline[];
@@ -12,16 +13,23 @@ const isBrowser = typeof window !== "undefined";
 export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
   documentLinkList,
 }) => {
-  let documents: Element[] = [];
+  let headlines: Element[] = [];
+
   if (isBrowser) {
-    documents = documentLinkList.map(
-      (item: DocHeadline) =>
-        document.querySelector(`[id="${item.id}"]`)?.parentElement!
-    );
+    headlines = documentLinkList.flatMap((item) => {
+      const sectionElement = document.querySelector(`[id="${item.id}"]`);
+      const subsectionElements = item.children.map((sub) =>
+        document.querySelector(`[id="${sub.id}"]`)
+      );
+
+      return [sectionElement, ...subsectionElements].filter(
+        (el) => el !== null
+      ) as Element[];
+    });
   }
 
   const [activeIndex, setActiveIndexInLinks] = useState(0);
-  const [currentActiveIndex] = useScrollObserver(documents);
+  const [currentActiveIndex] = useScrollObserver(headlines);
 
   useEffect(() => {
     setActiveIndexInLinks(currentActiveIndex);

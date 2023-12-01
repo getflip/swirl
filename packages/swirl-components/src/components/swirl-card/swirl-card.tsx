@@ -4,17 +4,20 @@ import classnames from "classnames";
 const swirlCardBorderRadiusTokens = ["xs", "sm", "base", "l", "xl"] as const;
 
 export type SwirlCardBorderRadius =
-  | typeof swirlCardBorderRadiusTokens[number]
+  | (typeof swirlCardBorderRadiusTokens)[number]
   | string;
 
 export type SwirlCardIntent =
   | "critical-subdued"
   | "default"
+  | "default-subdued"
   | "info-subdued"
   | "success-subdued"
   | "warning-subdued";
 
 export type SwirlCardJustifyContent = "start" | "center" | "end";
+
+export type SwirlCardOverflow = "auto" | "hidden" | "visible";
 
 export type SwirlCardPadding =
   | "0"
@@ -50,12 +53,14 @@ export class SwirlCard {
   @Prop() interactive?: boolean;
   @Prop() justifyContent?: SwirlCardJustifyContent = "start";
   @Prop() linkTarget?: string;
+  @Prop() overflow?: SwirlCardOverflow;
   @Prop() padding?: SwirlCardPadding;
   @Prop() paddingBlockEnd?: SwirlCardPadding;
   @Prop() paddingBlockStart?: SwirlCardPadding;
   @Prop() paddingInlineEnd?: SwirlCardPadding;
   @Prop() paddingInlineStart?: SwirlCardPadding;
   @Prop() swirlAriaLabel?: string;
+  @Prop() swirlAriaLabelledby?: string;
 
   render() {
     const Tag = Boolean(this.href) ? "a" : this.as;
@@ -64,11 +69,12 @@ export class SwirlCard {
 
     const styles = {
       borderRadius: swirlCardBorderRadiusTokens.includes(
-        this.borderRadius as typeof swirlCardBorderRadiusTokens[number]
+        this.borderRadius as (typeof swirlCardBorderRadiusTokens)[number]
       )
         ? `var(--s-border-radius-${this.borderRadius})`
         : this.borderRadius,
       height: this.height,
+      overflow: this.overflow,
     };
 
     const bodyStyles = {
@@ -106,6 +112,7 @@ export class SwirlCard {
       <Host styles={{ height: this.height }}>
         <Tag
           aria-label={this.swirlAriaLabel}
+          aria-labelledby={this.swirlAriaLabelledby}
           class={className}
           href={this.href}
           rel={

@@ -10,10 +10,13 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
+import { v4 as uuid } from "uuid";
 
 export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 
 /**
+ * @slot control - Used to add a menu button to the item
+ * @slot badges - Badges displayed inside the item
  * @slot media - Media displayed inside the item (e.g. swirl-avatar)
  */
 @Component({
@@ -25,6 +28,7 @@ export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 export class SwirlResourceListItem {
   @Element() el: HTMLSwirlResourceListItemElement;
 
+  @Prop() active?: boolean;
   @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() description?: string;
@@ -51,6 +55,7 @@ export class SwirlResourceListItem {
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
+  private id = uuid();
 
   async componentWillLoad() {
     this.updateMediaState();
@@ -61,6 +66,12 @@ export class SwirlResourceListItem {
     this.updateIconSize(this.desktopMediaQuery.matches);
 
     this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+
+    if (Boolean(this.menuTriggerId)) {
+      console.warn(
+        '[Swirl] The "menu-trigger-id" prop of swirl-resource-list-item is deprecated and will be removed with the next major release. Please use the "control" slot to add a menu button instead. https://swirl-storybook.flip-app.dev/?path=/docs/components-swirlresourcelistitem--docs'
+      );
+    }
   }
 
   disconnectedCallback() {
@@ -125,10 +136,17 @@ export class SwirlResourceListItem {
         : "button";
 
     const disabled = this.disabled && !Boolean(this.href);
-    const hasMenu = Boolean(this.menuTriggerId);
+
+    const hasBadges = Boolean(this.el.querySelector("[slot='badges']"));
+    const hasMenu =
+      Boolean(this.menuTriggerId) || this.el.querySelector("[slot='control']");
+
     const href = this.interactive && Boolean(this.href) ? this.href : undefined;
-    const showMenu = hasMenu && !Boolean(this.meta) && !this.selectable;
-    const showMeta = Boolean(this.meta) && !this.selectable;
+
+    const showControlOnFocus = Boolean(this.meta) || hasBadges;
+    const showMenu =
+      Boolean(this.menuTriggerId) && !Boolean(this.meta) && !this.selectable;
+    const showMeta = (Boolean(this.meta) || hasBadges) && !this.selectable;
 
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
     const role = this.interactive && this.selectable ? "checkbox" : undefined;
@@ -137,6 +155,7 @@ export class SwirlResourceListItem {
       "resource-list-item",
       `resource-list-item--label-weight-${this.labelWeight}`,
       {
+        "resource-list-item--active": this.active,
         "resource-list-item--checked": this.checked,
         "resource-list-item--disabled": this.disabled,
         "resource-list-item--draggable": this.allowDrag,
@@ -145,6 +164,8 @@ export class SwirlResourceListItem {
         "resource-list-item--hide-divider": this.hideDivider,
         "resource-list-item--interactive": this.interactive || this.selectable,
         "resource-list-item--selectable": this.selectable,
+        "resource-list-item--show-control-on-focus": showControlOnFocus,
+        "resource-list-item--show-meta": showMeta,
       }
     );
 
@@ -154,7 +175,7 @@ export class SwirlResourceListItem {
           <Tag
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}
-            aria-labelledby="label"
+            aria-labelledby={this.id}
             class="resource-list-item__content"
             href={href}
             disabled={disabled}
@@ -162,6 +183,7 @@ export class SwirlResourceListItem {
             part="resource-list-item__content"
             role={role}
             tabIndex={0}
+            type={Tag === "button" ? "button" : undefined}
           >
             {this.hasMedia && (
               <span class="resource-list-item__media">
@@ -171,7 +193,7 @@ export class SwirlResourceListItem {
             <span class="resource-list-item__label-container">
               <span
                 class="resource-list-item__label"
-                id="label"
+                id={this.id}
                 innerHTML={this.label}
               ></span>
               {this.description && (
@@ -180,6 +202,14 @@ export class SwirlResourceListItem {
                 </span>
               )}
             </span>
+            {showMeta && (
+              <span class="resource-list-item__meta">
+                <span class="resource-list-item__meta-text">{this.meta}</span>
+                <span class="resource-list-item__badges">
+                  <slot name="badges"></slot>
+                </span>
+              </span>
+            )}
           </Tag>
           {this.selectable && (
             <span aria-hidden="true" class="resource-list-item__checkbox">
@@ -190,21 +220,22 @@ export class SwirlResourceListItem {
               </span>
             </span>
           )}
-          {showMeta && (
-            <span class="resource-list-item__meta">{this.meta}</span>
-          )}
+          <span class="resource-list-item__control">
+            <slot name="control"></slot>
+          </span>
           {showMenu && (
-            <swirl-button
-              aria-disabled={disabled ? "true" : undefined}
-              class="resource-list-item__menu-trigger"
-              disabled={disabled}
-              hideLabel
-              icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
-              id={this.menuTriggerId}
-              intent="primary"
-              label={this.menuTriggerLabel}
-              onClick={this.onMenuTriggerClick}
-            ></swirl-button>
+            <swirl-popover-trigger popover={this.menuTriggerId}>
+              <swirl-button
+                aria-disabled={disabled ? "true" : undefined}
+                class="resource-list-item__menu-trigger"
+                disabled={disabled}
+                hideLabel
+                icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"
+                intent="primary"
+                label={this.menuTriggerLabel}
+                onClick={this.onMenuTriggerClick}
+              ></swirl-button>
+            </swirl-popover-trigger>
           )}
         </div>
 

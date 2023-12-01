@@ -12,7 +12,7 @@ describe("swirl-heading", () => {
     expect(page.root).toEqualHtml(`
       <swirl-heading heading-id="id" level="3">
         Heading
-        <h3 class="heading heading--align-start heading--level-3" id="id"></h3>
+        <h3 class="heading heading--align-start heading--balanced heading--level-3" id="id"></h3>
       </swirl-heading>
     `);
   });
@@ -26,7 +26,7 @@ describe("swirl-heading", () => {
     expect(page.root).toEqualHtml(`
       <swirl-heading as="h6" heading-id="id" level="3">
         Heading
-        <h6 class="heading heading--align-start heading--level-3" id="id"></h6>
+        <h6 class="heading heading--align-start heading--balanced heading--level-3" id="id"></h6>
       </swirl-heading>
     `);
   });

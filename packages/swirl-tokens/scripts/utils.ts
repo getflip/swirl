@@ -1,21 +1,21 @@
 import fs from "fs";
 
-export enum TailwindTypes {
-  COLOR = "colors",
-  SPACING = "spacing",
-  BORDER_RADIUS = "borderRadius",
-  BORDER_WIDTH = "borderWidth",
-  LINE_HEIGHTS = "lineHeight",
-  FONT_WEIGHTS = "fontWeight",
-  FONT_FAMILIES = "fontFamily",
-  FONT_SIZES = "fontSize",
-  LETTER_SPACING = "letterSpacing",
-  OTHER = "zIndex",
-}
+const TailwindTypes = {
+  COLOR: "colors",
+  SPACING: "spacing",
+  BORDER_RADIUS: "borderRadius",
+  BORDER_WIDTH: "borderWidth",
+  LINE_HEIGHTS: "lineHeight",
+  FONT_WEIGHTS: "fontWeight",
+  FONT_FAMILIES: "fontFamily",
+  FONT_SIZES: "fontSize",
+  LETTER_SPACING: "letterSpacing",
+  OTHER: "zIndex",
+} as const;
 
 export type mappedTokensType =
   | {
-      [key in TailwindTypes]: Object;
+      [key in keyof typeof TailwindTypes]: Object;
     }
   | {};
 

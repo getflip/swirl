@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "swirl-docs",
-  "version": "0.1.147",
+  "version": "0.1.232",
   "author": "Flip GmbH",
   "description": "Swirl documentation",
   "licence": "SEE LICENCE IN LICENSE.md",
@@ -15,9 +15,9 @@
     "build": "next build",
     "build:swirl-docs": "next build",
     "postbuild": "tsx src/scripts/build-search.ts",
-    "build:spec-navigation": "tsx src/scripts/build-spec-navigation.ts && prettier --write src/lib/navigation/src/data/apiDocs.data.ts",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prebuild": "rm -rf components.json && rm -rf problem.yml && rm -rf shared.yml && rm -rf specs/** && tsx src/scripts/prebuild.ts"
   },
   "dependencies": {
     "@algolia/autocomplete-core": "^1.7.4",
@@ -27,10 +27,10 @@
     "@algolia/autocomplete-theme-classic": "^1.7.4",
     "@floating-ui/dom": "^1.1.0",
     "@floating-ui/react": "^0.18.0",
-    "@getflip/swirl-components": "^0.76.0",
-    "@getflip/swirl-components-react": "^0.75.0",
-    "@getflip/swirl-icons": "^0.18.0",
-    "@getflip/swirl-tokens": "^2.3.0",
+    "@getflip/swirl-components": "^0.118.0",
+    "@getflip/swirl-components-react": "^0.118.0",
+    "@getflip/swirl-icons": "^0.23.0",
+    "@getflip/swirl-tokens": "^2.4.0",
     "@mdx-js/loader": "^2.1.3",
     "@next/mdx": "^12.2.5",
     "@readme/oas-to-har": "^20.1.1",
@@ -39,7 +39,6 @@
     "@types/har-format": "^1.2.10",
     "@vercel/analytics": "^1.0.1",
     "algoliasearch": "^4.14.2",
-    "balance-text": "^3.3.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "classnames": "^2.3.2",
     "cmdk": "^0.1.21",
@@ -52,7 +51,7 @@
     "next-mdx-remote": "^4.1.0",
     "next-password-protect": "^1.8.0",
     "oas": "^20.5.3",
-    "oas-normalize": "^8.3.3",
+    "oas-normalize": "^11.0.1",
     "openapi-typescript": "^6.2.0",
     "prism-react-renderer": "^1.3.5",
     "prismjs": "^1.29.0",
@@ -65,9 +64,10 @@
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
-    "remark-sectionize": "^1.1.1",
+    "remark-sectionize": "^2.0.0",
     "shave": "^5.0.2",
-    "tsx": "^3.12.1"
+    "tsx": "^3.12.1",
+    "zod": "^3.22.3"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
@@ -82,7 +82,7 @@
     "autoprefixer": "^10.4.8",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
-    "postcss": "^8.4.16",
+    "postcss": "^8.4.31",
     "prettier": "^2.8.0",
     "tailwindcss": "^3.2.4",
     "typescript": "4.8.2"

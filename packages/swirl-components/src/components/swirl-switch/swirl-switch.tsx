@@ -10,8 +10,6 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlSwitchSize = "s" | "m";
-
 @Component({
   /**
    * Form controls in shadow dom can still not be associated with labels in the
@@ -29,10 +27,10 @@ export class SwirlSwitch {
 
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() disabled?: boolean = false;
+  @Prop() hideLabel?: boolean;
   @Prop() inputId!: string;
   @Prop() inputName!: string;
   @Prop() label?: string;
-  @Prop() size?: SwirlSwitchSize = "m";
   @Prop() value?: string;
 
   @Event() valueChange: EventEmitter<boolean>;
@@ -127,7 +125,7 @@ export class SwirlSwitch {
 
     const ariaCheckedLabel = on ? "true" : "false";
 
-    const className = classnames("switch", `switch--size-${this.size}`, {
+    const className = classnames("switch", {
       "switch--off": off,
       "switch--on": on,
       "switch--disabled": this.disabled,
@@ -163,7 +161,12 @@ export class SwirlSwitch {
               ref={(el) => (this.thumb = el)}
             ></span>
           </span>
-          {this.label && <span class="switch__label">{this.label}</span>}
+          {this.label && !this.hideLabel && (
+            <span class="switch__label">{this.label}</span>
+          )}
+          {this.label && this.hideLabel && (
+            <swirl-visually-hidden>{this.label}</swirl-visually-hidden>
+          )}
         </label>
       </Host>
     );

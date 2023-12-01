@@ -15,8 +15,13 @@ export default {
         type: "number",
       },
     },
+    returnFocusToTrigger: {
+      description:
+        "By default, the focus is returned to the trigger element when the popover is closed. Pass false to disable this behavior.",
+    },
     trigger: {
-      description: "ID of the trigger element or the trigger DOM element.",
+      description:
+        "**Deprecated! Please use the swirl-popover-trigger component instead.** ID of the trigger element or the trigger DOM element.",
       control: {
         type: "text",
       },
@@ -35,24 +40,6 @@ export default {
   parameters: {
     docs: {
       page: Docs,
-      source: {
-        code: `<swirl-button id="trigger" label="Trigger"></swirl-button>
-
-<swirl-popover label="Popover" popover-id="popover" trigger="trigger">
-  <swirl-action-list>
-    <swirl-action-list-section label="Section 1">
-      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 1"></swirl-action-list-item>
-      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 2"></swirl-action-list-item>
-      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 3"></swirl-action-list-item>
-    </swirl-action-list-section>
-    <swirl-action-list-section label="Section 2">
-      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 1"></swirl-action-list-item>
-      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 2"></swirl-action-list-item>
-      <swirl-action-list-item icon="<swirl-icon-mention></swirl-icon-mention>" label="Action item 3"></swirl-action-list-item>
-    </swirl-action-list-section>
-  </swirl-action-list>
-</swirl-popover>`,
-      },
     },
   },
   title: "Components/SwirlPopover",
@@ -60,14 +47,16 @@ export default {
 
 const Template = (args) => {
   const container = document.createElement("div");
-  const trigger = document.createElement("swirl-button");
+  const trigger = document.createElement("swirl-popover-trigger");
   const element = generateStoryElement(
     "swirl-popover",
     args
   ) as HTMLSwirlPopoverElement;
 
-  trigger.id = "trigger";
-  trigger.label = "Trigger popover";
+  trigger.setAttribute("popover", "popover");
+  trigger.innerHTML = `
+    <swirl-button label="Trigger popover"></swirl-button>
+  `;
 
   element.innerHTML = `
     <swirl-action-list>
@@ -84,7 +73,7 @@ const Template = (args) => {
     </swirl-action-list>
   `;
 
-  container.append(trigger, element);
+  container.append("\n  ", trigger, "\n  ", element);
 
   element.addEventListener("click", (event: MouseEvent) => {
     const target = event.target as HTMLElement;
@@ -100,7 +89,6 @@ const Template = (args) => {
 export const SwirlPopover = Template.bind({});
 
 SwirlPopover.args = {
+  id: "popover",
   label: "Popover",
-  popoverId: "popover",
-  trigger: "trigger",
 };

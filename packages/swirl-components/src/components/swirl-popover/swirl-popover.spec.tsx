@@ -1,12 +1,15 @@
 import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlPopover } from "./swirl-popover";
+import { SwirlPopoverTrigger } from "../swirl-popover-trigger/swirl-popover-trigger";
 
 describe("swirl-popover", () => {
   const template = `
     <div>
-      <button id="trigger">Trigger popover</button>
-      <swirl-popover label="Popover" popover-id="popover" trigger="trigger">
+      <swirl-popover-trigger popover="popover">
+        <button id="trigger">Trigger popover</button>
+      </swirl-popover-trigger>
+      <swirl-popover label="Popover" id="popover">
         <div>Content</div>
       </swirl-popover>
     </div>
@@ -24,19 +27,21 @@ describe("swirl-popover", () => {
 
   it("renders the trigger and content", async () => {
     const page = await newSpecPage({
-      components: [SwirlPopover],
+      components: [SwirlPopover, SwirlPopoverTrigger],
       html: template,
     });
 
     expect(page.body).toEqualHtml(`
       <div>
-        <button aria-controls="popover" aria-expanded="false" aria-haspopup="dialog" id="trigger">Trigger popover</button>
-        <swirl-popover id="popover" label="Popover" popover-id="popover" trigger="trigger">
+        <swirl-popover-trigger popover="popover">
+          <button aria-controls="popover" aria-expanded="false" aria-haspopup="dialog" id="trigger">Trigger popover</button>
+        </swirl-popover-trigger>
+        <swirl-popover id="popover" label="Popover">
           <mock:shadow-root>
             <div class="popover popover--animation-scale-in-xy popover--inactive  popover--placement-undefined">
               <div aria-hidden="true" aria-label="Popover" class="popover__content" part="popover__content" role="dialog" tabindex="-1">
                 <span class="popover__handle"></span>
-                <div class="popover__scroll-container">
+                <div class="popover__scroll-container" part="popover__scroll-container">
                   <slot></slot>
                 </div>
               </div>
@@ -52,22 +57,24 @@ describe("swirl-popover", () => {
 
   it("opens on click and closes on blur/esc", async () => {
     const page = await newSpecPage({
-      components: [SwirlPopover],
+      components: [SwirlPopover, SwirlPopoverTrigger],
       html: template,
     });
 
     function isOpen() {
-      return !page.root.shadowRoot
-        .querySelector(".popover")
+      return !page.doc
+        .querySelector("swirl-popover")
+        .shadowRoot.querySelector(".popover")
         .classList.contains("popover--inactive");
     }
 
     expect(isOpen()).toBeFalsy();
 
     // click trigger
-    const trigger = page.body.querySelector("#trigger") as HTMLElement;
+    const trigger = page.root;
 
     trigger.click();
+    await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
     expect(isOpen()).toBeTruthy();
@@ -82,13 +89,15 @@ describe("swirl-popover", () => {
 
     // re-open popover
     trigger.click();
+    await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
     expect(isOpen()).toBeTruthy();
 
     // close via escape key
-    page.root.shadowRoot
-      .querySelector(".popover")
+    page.doc
+      .querySelector("swirl-popover")
+      .shadowRoot.querySelector(".popover")
       .dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
 
     await new Promise((resolve) => setTimeout(resolve, 150));

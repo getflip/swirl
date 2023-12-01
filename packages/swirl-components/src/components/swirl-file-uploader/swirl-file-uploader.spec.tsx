@@ -21,7 +21,7 @@ describe("swirl-file-uploader", () => {
     expect(page.root).toEqualHtml(`
       <swirl-file-uploader accept="image/*" cta-label="CTA Label" description="Only image files are allowed." drag-drop-label="DragDropLabel" input-id="file-upload" input-name="file-upload" label="Label" multiple="true">
         <div class="file-uploader file-uploader--show-dropzone">
-          <label class="file-uploader__label" htmlfor="file-upload" id="undefined-label">
+          <label class="file-uploader__label" htmlfor="file-upload" id="file-upload-label">
             Label
           </label>
           <span class="file-uploader__description" id="file-upload-description">

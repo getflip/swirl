@@ -7,7 +7,6 @@ describe("swirl-text-input", () => {
     const page = await newSpecPage({
       components: [SwirlTextInput],
       html: `<swirl-text-input
-              auto-focus="true"
               disabled="true"
               swirl-aria-describedby="id"
               invalid="true"
@@ -20,8 +19,7 @@ describe("swirl-text-input", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-text-input auto-focus="true"
-                      disabled="true"
+      <swirl-text-input disabled="true"
                       swirl-aria-describedby="id"
                       invalid="true"
                       mode="decimal"
@@ -34,13 +32,11 @@ describe("swirl-text-input", () => {
                  aria-disabled="true"
                  aria-invalid="true"
                  autocomplete="on"
-                 autofocus=""
                  class="text-input__input"
                  disabled=""
                  inputmode="decimal"
                  required=""
                  type="url"
-                 style="width: NaNrem;"
                  value="Value">
         </div>
       </swirl-text-input>
@@ -60,6 +56,11 @@ describe("swirl-text-input", () => {
     expect(page.root.querySelector(".text-input__suffix").innerHTML).toBe(
       "Suffix"
     );
+
+    expect(
+      page.root.querySelector<HTMLInputElement>(".text-input__input").style
+        .width
+    ).toBeTruthy();
   });
 
   it("can be cleared", async () => {

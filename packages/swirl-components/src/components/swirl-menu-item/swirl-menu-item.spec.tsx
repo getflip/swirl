@@ -18,7 +18,7 @@ describe("swirl-menu-item", () => {
     const page = await newSpecPage({
       components: [SwirlPopover, SwirlMenu, SwirlMenuItem],
       html: `
-        <swirl-popover label="Menu" trigger="trigger">
+        <swirl-popover label="Menu">
           <swirl-menu label="Menu">
             <swirl-menu-item label="Item"></swirl-menu-item>
           </swirl-menu>
@@ -42,7 +42,7 @@ describe("swirl-menu-item", () => {
     const page = await newSpecPage({
       components: [SwirlPopover, SwirlMenu, SwirlMenuItem],
       html: `
-        <swirl-popover label="Menu" trigger="trigger">
+        <swirl-popover label="Menu">
           <swirl-menu label="Menu" variant="selection">
             <swirl-menu-item label="Item" value="Value"></swirl-menu-item>
           </swirl-menu>

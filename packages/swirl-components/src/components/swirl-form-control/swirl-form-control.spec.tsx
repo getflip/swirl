@@ -13,17 +13,22 @@ describe("swirl-form-control", () => {
       `,
     });
 
+    const labelId = page.root.querySelector(".form-control__label-text").id;
+
     expect(page.root).toEqualHtml(`
       <swirl-form-control label="Label">
         <div class="form-control form-control--label-position-inside" role="group">
-          <label class="form-control__label">
-            <span class="form-control__label-text">
-              Label
-            </span>
-            <span class="form-control__input">
-              <swirl-text-input label="Label"></swirl-text-input>
-            </span>
-          </label>
+          <span class="form-control__controls">
+            <span class="form-control__prefix"></span>
+            <label class="form-control__label">
+              <span class="form-control__label-text" id="${labelId}">
+                Label
+              </span>
+              <span class="form-control__input">
+                <swirl-text-input label="Label"></swirl-text-input>
+              </span>
+            </label>
+          </span>
         </div>
       </swirl-form-control>
     `);

@@ -22,6 +22,12 @@ const Template = (args) => {
 
   textInput.innerHTML = `
     <swirl-text-input clearable="true" type="text"></swirl-text-input>
+    <select slot="prefix">
+      <option>CH</option>
+      <option selected>DE</option>
+      <option>EN</option>
+      <option>FR</option>
+    </select>
   `;
 
   const numberInput = generateStoryElement("swirl-form-control", {
@@ -137,6 +143,15 @@ const Template = (args) => {
     <swirl-text-input max-length="200" show-character-counter="true" rows="5" type="text"></swirl-text-input>
   `;
 
+  const contenteditable = generateStoryElement("swirl-form-control", {
+    ...args,
+    label: "Contenteditable Control",
+  });
+
+  contenteditable.innerHTML = `
+    <div contenteditable="plaintext-only" role="textbox"></div>
+  `;
+
   container.append(
     "\n  ",
     textInput,
@@ -154,6 +169,8 @@ const Template = (args) => {
     autocomplete,
     "\n  ",
     multilineInput,
+    "\n  ",
+    contenteditable,
     "\n"
   );
 

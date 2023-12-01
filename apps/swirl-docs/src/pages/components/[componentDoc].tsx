@@ -11,6 +11,8 @@ import { ScriptProps } from "next/script";
 import { GetStaticProps } from "next";
 import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
+import path from "path";
+import fs from "fs";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
@@ -39,12 +41,24 @@ export const getStaticProps: GetStaticProps<
   const { componentDoc } = context.params;
 
   const data = await getComponentData(componentDoc);
+  const componentsJsonPath = path.join(
+    process.cwd(),
+    "../../",
+    "packages",
+    "swirl-components",
+    "components.json"
+  );
+
+  const componentsJson = JSON.parse(
+    fs.readFileSync(componentsJsonPath, "utf-8")
+  );
 
   return {
     props: {
       document: data.document,
       frontMatter: data.frontMatter,
       title: componentDoc,
+      componentsJson,
     },
   };
 };
@@ -52,7 +66,7 @@ export const getStaticProps: GetStaticProps<
 export default function Component({
   document,
   frontMatter,
-  title,
+  componentsJson,
 }: {
   title: string;
   document: MDXRemoteSerializeResult<
@@ -60,6 +74,7 @@ export default function Component({
     Record<string, string>
   >;
   frontMatter: FrontMatter;
+  componentsJson: any;
 }) {
   const components = {
     ...LinkedHeaders,
@@ -79,6 +94,7 @@ export default function Component({
           },
           navigationLinks: componentsNavItems,
           frontMatter,
+          componentsJSON: componentsJson,
         }}
         header={<DocumentationLayout.Header />}
         content={

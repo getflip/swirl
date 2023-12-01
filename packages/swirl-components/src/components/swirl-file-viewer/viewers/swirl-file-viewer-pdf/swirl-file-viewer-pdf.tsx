@@ -24,7 +24,13 @@ import {
   isMobileViewport,
 } from "../../../../utils";
 
-pdf.GlobalWorkerOptions.workerSrc = "/pdfjs/pdf.worker.min.js";
+declare global {
+  interface Window {
+    pdf: any;
+  }
+}
+
+window.pdf = pdf;
 
 export type SwirlFileViewerPdfZoom = number | "auto";
 
@@ -42,6 +48,7 @@ export class SwirlFileViewerPdf {
   @Prop() file!: string;
   @Prop() singlePageMode: boolean;
   @Prop() viewMode?: SwirlFileViewerPdfViewMode = "single";
+  @Prop() workerSrc?: string = "/pdfjs/pdf.worker.min.js";
   @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
 
   @State() doc: PDFDocumentProxy;
@@ -61,6 +68,7 @@ export class SwirlFileViewerPdf {
   private recentScrollPosition: { x: number; y: number } = { x: 0, y: 0 };
 
   async componentWillLoad() {
+    window.pdf.GlobalWorkerOptions.workerSrc = this.workerSrc;
     await this.getPages();
   }
 

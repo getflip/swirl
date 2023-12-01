@@ -6,16 +6,16 @@ export type NavLink = {
 
 export type NavItem = {
   title: string;
-  isRoot?: boolean;
   url: string;
+  isRoot?: boolean;
   children?: NavItem[];
   description?: string;
   specName?: string;
 };
 
-export enum CategoryEnum {
-  FOUNDATIONS = "Foundations",
-  COMPONENTS = "Components",
-  TOKENS = "Tokens",
-  ICONS = "Icons",
-}
+export const CategoryEnum = {
+  FOUNDATIONS: "Foundations",
+  COMPONENTS: "Components",
+  TOKENS: "Design Tokens",
+  ICONS: "Icons",
+} as const;

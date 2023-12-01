@@ -25,7 +25,7 @@ describe("swirl-app-bar", () => {
     expect(page.root).toEqualHtml(`
       <swirl-app-bar>
         <mock:shadow-root>
-          <div class="app-bar app-bar--has-cta">
+          <div class="app-bar app-bar--has-cta app-bar--has-right-controls">
             <div class="app-bar__cta">
               <slot name="cta"></slot>
             </div>

@@ -1,22 +1,25 @@
-import { createStaticPathsData } from "@swirl/lib/docs";
-import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 import {
   DOCUMENTATION_CATEGORY,
   FrontMatter,
 } from "@swirl/lib/docs/src/docs.model";
-import Head from "next/head";
-import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
-import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
-import TokensList from "src/components/Tokens/TokensList";
-import { ColorTokens } from "src/components/Tokens/ColorTokens";
-import { TypographyTokens } from "src/components/Tokens/TypographyTokens";
-import { BorderTokens } from "src/components/Tokens/BorderTokens";
-import { SpacingTokens } from "src/components/Tokens/SpacingTokens";
-import { ZIndexTokens } from "src/components/Tokens/ZIndexTokens";
-import { GetStaticProps } from "next";
-import { ScriptProps } from "next/script";
-import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
+import { H2, LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
+
+import { BorderTokens } from "src/components/Tokens/BorderTokens";
+import { ColorTokens } from "src/components/Tokens/ColorTokens";
+import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
+import { GetStaticProps } from "next";
+import Head from "next/head";
+import { ScriptProps } from "next/script";
+import { SpacingTokens } from "src/components/Tokens/SpacingTokens";
+import TokensList from "src/components/Tokens/TokensList";
+import { TypographyTokens } from "src/components/Tokens/TypographyTokens";
+import { ZIndexTokens } from "src/components/Tokens/ZIndexTokens";
+import { createStaticPathsData } from "@swirl/lib/docs";
+import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
+import { isProd } from "@swirl/lib/env";
+import { tokensNavItems } from "@swirl/lib/navigation/src/data/tokens.data";
+import { useRouter } from "next/router";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
@@ -64,6 +67,9 @@ export default function Component({
   frontMatter: FrontMatter;
   title: string;
 }) {
+  const router = useRouter();
+  const host = isProd ? "https://getflip.dev" : "http://localhost:3000";
+  const path = `${host}${router.route.replace("[tokenDoc]", "")}${title}`;
   const components = {
     TokensList,
     ColorTokens,
@@ -73,6 +79,7 @@ export default function Component({
     ZIndexTokens,
     p: (props: any) => <p className="mb-4" {...props} />,
     ...LinkedHeaders,
+    h2: (props: any) => <H2 {...props} href={`${path}#${props.id}`} />,
   } as MDXRemoteProps["components"];
 
   return (

@@ -11,7 +11,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
 }) => {
   return (
     <form role="search">
-      <div className="relative md:grid md:grid-cols-icon-grid">
+      <div className="relative lg:grid xl:grid-cols-icon-grid">
         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <i className="swirl-icons-Search28 text-icon-default text-2xl" />
         </div>

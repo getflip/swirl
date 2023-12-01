@@ -1,8 +1,7 @@
-import { iconsNavItems } from "@swirl/lib/navigation/src/data/iconsChildren.data";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import IconGrid from "src/components/Icons/IconGrid";
 import IconInfo from "src/components/Icons/IconInfo";
 import SearchBar from "src/components/Icons/SearchBar";
@@ -44,16 +43,23 @@ const IconsIndex = () => {
     }
   }, [router, asPath, icons]);
 
+  function handleTileClick(iconName: string) {
+    setSelectedIcon(icons[iconName]);
+  }
+
   return (
     <>
       <Head>
         <title>Swirl | Icons</title>
       </Head>
-      <div className="overflow-auto">
-        <main id="main" className="w-full h-full pt-14">
-          <section className="flex flex-col px-4 md:px-24">
-            <div className="mb-16">
-              <h1 className="mb-4 font-bold text-4xl text-text-default">
+      <div className="flex flex-col justify-between overflow-auto h-full">
+        <main
+          id="main"
+          className="relative xl:grid xl:grid-cols-icon-grid gap-8 pt-14 max-w-[1112px] px-4 xl:px-0 xl:mx-auto"
+        >
+          <div>
+            <div className="mb-12">
+              <h1 className="mb-3 font-bold text-4xl text-text-default">
                 Icons
               </h1>
               <SearchBar
@@ -61,28 +67,37 @@ const IconsIndex = () => {
                 searchQuery={searchWord}
               />
             </div>
-            <div className="flex md:grid md:grid-cols-icon-grid w-full">
-              <div className="w-full">
-                <h2 className="mb-4 font-semibold text-font-size-xl text-text-default">
-                  Icon List
-                </h2>
-                <IconGrid
-                  selectedIcon={selectedIcon}
-                  iconList={filteredIcons}
-                  icons={icons}
-                  handleTileClick={(iconname) =>
-                    setSelectedIcon(icons[iconname])
-                  }
-                />
-              </div>
-              <DesktopView>
-                <IconInfo icon={selectedIcon} />
-              </DesktopView>
-            </div>
-          </section>
+            <h2 className="mb-4 font-semibold text-font-size-xl text-text-default">
+              Icon List
+            </h2>
+            <IconGrid
+              selectedIcon={selectedIcon}
+              iconList={filteredIcons}
+              icons={icons}
+              handleTileClick={(iconname) => {
+                handleTileClick(iconname);
+              }}
+            />
+            {/* <NoSsr>
+              <Portal>
+                <SwirlPopover
+                  label="Icon Info"
+                  popoverId={`icon-popover`}
+                  trigger={`icon-popover-trigger`}
+                >
+                  <div className="p-4">
+                    <IconInfo icon={icons[selectedIcon.name]} />
+                  </div>
+                </SwirlPopover>
+              </Portal>
+            </NoSsr> */}
+          </div>
+          <DesktopView>
+            <IconInfo icon={selectedIcon} />
+          </DesktopView>
         </main>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

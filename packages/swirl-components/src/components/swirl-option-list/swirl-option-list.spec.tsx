@@ -53,7 +53,7 @@ describe("swirl-option-list", () => {
     expect(page.root).toEqualHtml(`
       <swirl-option-list label="Option List" multi-select="true">
         <swirl-visually-hidden role="alert"></swirl-visually-hidden>
-        <div aria-label="Option List" aria-multiselectable="true" class="option-list" role="listbox" tabindex="0">
+        <div aria-label="Option List" aria-multiselectable="true" class="option-list" role="listbox">
           <swirl-option-list-item label="This is an option" value="1"></swirl-option-list-item>
           <swirl-option-list-item label="This is an option" value="2"></swirl-option-list-item>
           <swirl-option-list-item label="This is an option" value="3"></swirl-option-list-item>

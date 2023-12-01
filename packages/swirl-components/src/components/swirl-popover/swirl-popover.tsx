@@ -47,9 +47,10 @@ export class SwirlPopover {
   @Prop() label!: string;
   @Prop() maxHeight?: string = "22rem";
   @Prop() offset?: number | number[] = 8;
+  @Prop() popoverId?: string;
   @Prop() placement?: Placement = "bottom-start";
-  @Prop() popoverId!: string;
-  @Prop() trigger!: string | HTMLElement;
+  @Prop() returnFocusToTrigger?: boolean = true;
+  @Prop() trigger?: string | HTMLElement;
   @Prop() triggerContainer?: HTMLElement;
   @Prop() useContainerWidth?: boolean | string;
 
@@ -62,14 +63,18 @@ export class SwirlPopover {
 
   private contentContainer: HTMLDivElement;
   private disableAutoUpdate: any;
-  private focusableChildren: HTMLElement[];
   private scrollContainer: HTMLDivElement;
-  private triggerEl: HTMLElement;
+  private triggerEl: HTMLElement | undefined;
 
   componentDidLoad() {
     this.connectTrigger();
-    this.updateFocusableChildren();
     this.updateTriggerAttributes();
+
+    if (Boolean(this.trigger)) {
+      console.warn(
+        '[Swirl] The "trigger" prop of swirl-popover is deprecated and will be removed with the next major release. Please use the swirl-popover-trigger component instead. https://swirl-storybook.flip-app.dev/?path=/docs/components-swirlpopovertrigger--docs'
+      );
+    }
   }
 
   disconnectedCallback() {
@@ -83,21 +88,29 @@ export class SwirlPopover {
     }
 
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const isWKWebView = "webkit" in window;
+    const isSafariOrWKWebView = isSafari || isWKWebView;
+
     const target = event.target as HTMLElement;
     const relatedTarget = event.relatedTarget as HTMLElement;
     const activeElement = getActiveElement();
 
-    const popoverLostFocus =
-      !this.el.contains(target) &&
-      !this.el.contains(activeElement) &&
-      target !== this.triggerEl &&
-      !this.triggerEl.contains(target) &&
-      (!isSafari ||
-        (isSafari &&
-          !this.el.contains(relatedTarget || target) &&
-          relatedTarget !== this.el));
+    // Check if the focus has moved outside the popover or its trigger.
+    const focusIsOutsidePopover =
+      !this.el.contains(target) && !this.el.contains(activeElement);
+    const focusIsNotOnTrigger =
+      target !== this.triggerEl && !this.triggerEl?.contains(target);
+    const extraCheckForSafariOrWKWebView =
+      isSafariOrWKWebView &&
+      !this.el.contains(relatedTarget || target) &&
+      relatedTarget !== this.el;
 
-    if (popoverLostFocus) {
+    // Close the popover if the focus is outside and additional checks for Safari or WKWebView pass.
+    if (
+      focusIsOutsidePopover &&
+      focusIsNotOnTrigger &&
+      (!isSafariOrWKWebView || extraCheckForSafariOrWKWebView)
+    ) {
       this.close();
     }
   }
@@ -120,7 +133,7 @@ export class SwirlPopover {
           : false
       );
 
-    const clickedTrigger = event.target === this.triggerEl;
+    const clickedTrigger = target === this.triggerEl;
 
     if (!clickedChild && !clickedShadowChild && !clickedTrigger) {
       this.close();
@@ -153,7 +166,9 @@ export class SwirlPopover {
 
     this.unlockBodyScroll();
 
-    this.getNativeTriggerElement()?.focus();
+    if (this.returnFocusToTrigger) {
+      this.getNativeTriggerElement()?.focus();
+    }
   }
 
   /**
@@ -161,8 +176,10 @@ export class SwirlPopover {
    * @returns
    */
   @Method()
-  public async open() {
-    if (this.active) {
+  public async open(triggerEl?: HTMLElement) {
+    this.triggerEl = triggerEl || this.triggerEl;
+
+    if (this.active || !Boolean(this.triggerEl)) {
       return;
     }
 
@@ -170,16 +187,17 @@ export class SwirlPopover {
 
     this.active = true;
 
-    this.updateFocusableChildren();
     this.updateTriggerAttributes();
+
+    const focusableChildren = this.getFocusableChildren();
 
     requestAnimationFrame(async () => {
       await this.reposition();
 
       this.popoverOpen.emit({ position: this.position });
 
-      if (this.focusableChildren.length > 0) {
-        this.focusableChildren[0].focus();
+      if (focusableChildren.length > 0) {
+        focusableChildren[0].focus();
       } else {
         this.contentContainer.focus();
       }
@@ -191,7 +209,7 @@ export class SwirlPopover {
       this.disableAutoUpdate = autoUpdate(
         this.triggerEl,
         this.contentContainer,
-        this.reposition
+        () => this.reposition()
       );
 
       this.scrollContainer.scrollTop = 0;
@@ -210,6 +228,11 @@ export class SwirlPopover {
   };
 
   private connectTrigger() {
+    if (!Boolean(this.trigger)) {
+      this.triggerEl = undefined;
+      return;
+    }
+
     this.triggerEl =
       typeof this.trigger === "string"
         ? querySelectorAllDeep(
@@ -228,7 +251,7 @@ export class SwirlPopover {
   }
 
   private getNativeTriggerElement() {
-    return this.triggerEl.tagName.startsWith("SWIRL-")
+    return this.triggerEl?.tagName.startsWith("SWIRL-")
       ? ((this.triggerEl?.children[0] ||
           this.triggerEl?.shadowRoot?.children[0] ||
           this.triggerEl) as HTMLElement)
@@ -249,16 +272,13 @@ export class SwirlPopover {
 
     const nativeTriggerEl = this.getNativeTriggerElement();
 
-    nativeTriggerEl.setAttribute("aria-controls", this.popoverId);
+    nativeTriggerEl.setAttribute("aria-controls", this.el.id);
     nativeTriggerEl.setAttribute("aria-expanded", String(this.active));
     nativeTriggerEl.setAttribute("aria-haspopup", "dialog");
   }
 
-  private updateFocusableChildren() {
-    this.focusableChildren = querySelectorAllDeep(
-      this.el,
-      '[role="menuitem"], [role="listbox"]'
-    );
+  private getFocusableChildren() {
+    return querySelectorAllDeep(this.el, '[role="menuitem"], [role="listbox"]');
   }
 
   private adjustWidth() {
@@ -359,12 +379,13 @@ export class SwirlPopover {
     );
 
     return (
-      <Host id={this.popoverId}>
+      <Host>
         <div class={className} onKeyDown={this.onKeydown}>
           <div
             aria-hidden={!this.active ? "true" : "false"}
             aria-label={this.label}
             class="popover__content"
+            id={this.popoverId}
             part="popover__content"
             role="dialog"
             ref={(el) => (this.contentContainer = el)}
@@ -377,6 +398,7 @@ export class SwirlPopover {
             <span class="popover__handle"></span>
             <div
               class="popover__scroll-container"
+              part="popover__scroll-container"
               ref={(el) => (this.scrollContainer = el)}
               style={{
                 maxHeight:

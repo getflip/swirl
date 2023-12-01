@@ -73,6 +73,7 @@
   display: block;
   margin-top: var(--s-space-4);
   margin-bottom: var(--s-space-8);
+  color: var(--s-text-subdued);
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
 

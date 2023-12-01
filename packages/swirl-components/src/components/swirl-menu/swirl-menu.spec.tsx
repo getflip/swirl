@@ -4,6 +4,7 @@ import { SwirlButton } from "../swirl-button/swirl-button";
 import { SwirlMenuItem } from "../swirl-menu-item/swirl-menu-item";
 import { SwirlPopover } from "../swirl-popover/swirl-popover";
 import { SwirlMenu } from "./swirl-menu";
+import { SwirlPopoverTrigger } from "../swirl-popover-trigger/swirl-popover-trigger";
 
 (global as any).DocumentFragment = class DocumentFragment extends Node {};
 (global as any).ShadowRoot = class ShadowRoot extends DocumentFragment {};
@@ -16,8 +17,10 @@ import { SwirlMenu } from "./swirl-menu";
 
 const template = `
   <div>
-    <swirl-button id="trigger" label="Trigger"></swirl-button>
-    <swirl-popover label="Menu" trigger="trigger">
+    <swirl-popover-trigger popover="menu">
+      <swirl-button label="Trigger"></swirl-button>
+    </swirl-popover-trigger>
+    <swirl-popover label="Menu" id="menu">
       <swirl-menu label="Menu">
         <swirl-menu-item label="Item 1"></swirl-menu-item>
         <swirl-menu-item label="Item 2">
@@ -50,25 +53,36 @@ describe("swirl-menu", () => {
 
   it("renders", async () => {
     const page = await newSpecPage({
-      components: [SwirlButton, SwirlPopover, SwirlMenu, SwirlMenuItem],
+      components: [
+        SwirlButton,
+        SwirlPopover,
+        SwirlPopoverTrigger,
+        SwirlMenu,
+        SwirlMenuItem,
+      ],
       html: template,
     });
 
     expect(page.body.children[0]).toMatchInlineSnapshot(`
       <div>
-        <swirl-button id="trigger" label="Trigger">
-          <button aria-controls="undefined" aria-expanded="false" aria-haspopup="dialog" class="button button--icon-position-start button--intent-default button--size-m button--variant-ghost" type="button">
-            <span class="button__label">
-              Trigger
-            </span>
-          </button>
-        </swirl-button>
-        <swirl-popover label="Menu" trigger="trigger">
+        <swirl-popover-trigger popover="menu">
+          <!---->
+          <swirl-button label="Trigger" swirl-aria-controls="menu" swirl-aria-expanded="false" swirl-aria-haspopup="dialog">
+            <!---->
+            <button aria-controls="menu" aria-expanded="false" aria-haspopup="dialog" class="button button--icon-position-start button--intent-default button--size-m button--text-align-center button--variant-ghost" type="button">
+              <span class="button__icon"></span>
+              <span class="button__label">
+                Trigger
+              </span>
+            </button>
+          </swirl-button>
+        </swirl-popover-trigger>
+        <swirl-popover id="menu" label="Menu">
           <mock:shadow-root>
             <div class="popover popover--animation-scale-in-xy popover--inactive popover--placement-undefined">
               <div aria-hidden="true" aria-label="Menu" class="popover__content" part="popover__content" role="dialog" tabindex="-1">
                 <span class="popover__handle"></span>
-                <div class="popover__scroll-container">
+                <div class="popover__scroll-container" part="popover__scroll-container">
                   <slot></slot>
                 </div>
               </div>
@@ -79,7 +93,8 @@ describe("swirl-menu", () => {
               <div class="menu menu--active menu--level-0 menu--mobile menu--root">
                 <div class="menu__mobile-header">
                   <swirl-button>
-                    <button aria-label="Close menu" class="button button--icon-only button--icon-position-start button--intent-default button--size-m button--variant-plain" type="button">
+                    <!---->
+                    <button aria-label="Close menu" class="button button--has-icon button--icon-only button--icon-position-start button--intent-default button--size-m button--text-align-center button--variant-plain" type="button">
                       <span class="button__icon">
                         <swirl-icon-close size="24"></swirl-icon-close>
                       </span>
@@ -89,7 +104,9 @@ describe("swirl-menu", () => {
                     <swirl-heading align="center" as="span" level="4" text="Menu" truncate=""></swirl-heading>
                   </span>
                   <swirl-button class="menu__done-button">
-                    <button class="button button--icon-position-start button--intent-primary button--size-m button--variant-ghost" type="button">
+                    <!---->
+                    <button class="button button--icon-position-start button--intent-primary button--size-m button--text-align-center button--variant-ghost" type="button">
+                      <span class="button__icon"></span>
                       <span class="button__label">
                         Done
                       </span>
@@ -121,7 +138,8 @@ describe("swirl-menu", () => {
                   <div class="menu menu--active menu--level-1 menu--mobile menu--root">
                     <div class="menu__mobile-header">
                       <swirl-button>
-                        <button aria-label="Close menu" class="button button--icon-only button--icon-position-start button--intent-default button--size-m button--variant-plain" type="button">
+                        <!---->
+                        <button aria-label="Close menu" class="button button--has-icon button--icon-only button--icon-position-start button--intent-default button--size-m button--text-align-center button--variant-plain" type="button">
                           <span class="button__icon">
                             <swirl-icon-close size="24"></swirl-icon-close>
                           </span>
@@ -131,7 +149,9 @@ describe("swirl-menu", () => {
                         <swirl-heading align="center" as="span" level="4" text="Sub menu" truncate=""></swirl-heading>
                       </span>
                       <swirl-button class="menu__done-button">
-                        <button class="button button--icon-position-start button--intent-primary button--size-m button--variant-ghost" type="button">
+                        <!---->
+                        <button class="button button--icon-position-start button--intent-primary button--size-m button--text-align-center button--variant-ghost" type="button">
+                          <span class="button__icon"></span>
                           <span class="button__label">
                             Done
                           </span>
@@ -177,7 +197,13 @@ describe("swirl-menu", () => {
 
   it("starts as active if root menu", async () => {
     const page = await newSpecPage({
-      components: [SwirlButton, SwirlPopover, SwirlMenu, SwirlMenuItem],
+      components: [
+        SwirlButton,
+        SwirlPopover,
+        SwirlPopoverTrigger,
+        SwirlMenu,
+        SwirlMenuItem,
+      ],
       html: template,
     });
 
@@ -189,13 +215,21 @@ describe("swirl-menu", () => {
 
   it("fires done event", async () => {
     const page = await newSpecPage({
-      components: [SwirlButton, SwirlPopover, SwirlMenu, SwirlMenuItem],
+      components: [
+        SwirlButton,
+        SwirlPopover,
+        SwirlPopoverTrigger,
+        SwirlMenu,
+        SwirlMenuItem,
+      ],
       html: template,
     });
 
     const spy = jest.fn();
     const menu = page.body.querySelector("swirl-menu");
-    const trigger = page.body.querySelector<HTMLSwirlButtonElement>("#trigger");
+    const trigger = page.body.querySelector<HTMLSwirlButtonElement>(
+      "swirl-popover-trigger"
+    );
 
     menu.addEventListener("done", spy);
 

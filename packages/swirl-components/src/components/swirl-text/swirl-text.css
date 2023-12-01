@@ -125,3 +125,8 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.text--truncate-direction-start {
+  direction: rtl;
+  text-align: left;
+}

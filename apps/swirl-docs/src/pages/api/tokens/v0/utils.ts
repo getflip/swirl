@@ -1,3 +1,4 @@
+import { isProd } from "@swirl/lib/env";
 import fs from "fs";
 import path from "path";
 
@@ -17,15 +18,18 @@ export const lessDark = loadFile("/less/styles.dark.less");
 export const scssLight = loadFile("/scss/styles.light.scss");
 export const scssDark = loadFile("/scss/styles.dark.scss");
 
-export const isProd = process.env.NODE_ENV === "production";
-
 function loadFile(filePath: string) {
   let nodeModuleRoot = "node_modules/@getflip/swirl-tokens/dist";
 
   if (!isProd) {
     nodeModuleRoot = "../../node_modules/@getflip/swirl-tokens/dist";
   }
-  return fs.readFileSync(nodeModuleRoot + filePath);
+
+  console.log("nodeModuleRoot", nodeModuleRoot);
+
+  if (fs.existsSync(nodeModuleRoot + filePath)) {
+    return fs.readFileSync(nodeModuleRoot + filePath);
+  }
 }
 
 export type TokenGroupType =

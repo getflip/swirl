@@ -1,14 +1,15 @@
+import { DesktopView, MobileView } from "../View/Views";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { useEffect, useState } from "react";
+
 import Image from "next/image";
-import MobileNav from "./mobileNav";
 import Link from "next/link";
+import MobileNav from "./Mobile";
+import { OpenSearchButton } from "./OpenSearchButton";
+import { SwirlIconClose } from "@getflip/swirl-components-react";
+import classNames from "classnames";
 import { navItems } from "@swirl/lib/navigation";
 import { useRouter } from "next/router";
-import { DesktopView, MobileView } from "../View/Views";
-import { useEffect, useState } from "react";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import classNames from "classnames";
-import { SwirlIconClose } from "@getflip/swirl-components-react";
-import { OpenSearchButton } from "./OpenSearchButton";
 
 export const HeaderLogo = () => {
   return (
@@ -43,12 +44,21 @@ const HeaderNavigation = () => {
   const activePath = router.pathname;
 
   const handleCloseMenu = () => {
+    console.log("handleCloseMenu");
     setIsMobileNavOpen(false);
   };
 
   function toggleMobile() {
     setIsMobileNavOpen(!isMobileNavOpen);
   }
+
+  const filteredNavItems = navItems.filter((navItem) => {
+    if (process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production") {
+      return !navItem.title.includes("APIs and References");
+    }
+
+    return navItem;
+  });
 
   return (
     <>
@@ -66,30 +76,34 @@ const HeaderNavigation = () => {
             <div className="flex ">
               <HeaderLogo />
               <ul className="hidden md:flex flex-row items-center bg-background-default">
-                {navItems.map((link) => (
-                  <li
-                    key={link.url}
-                    className={classNames(
-                      "relative mr-4",
-                      "hover:text-border-info",
-                      "before:block before:absolute before:bottom-[-23px] before:w-full before:h-1 before:bg-border-info",
-                      {
-                        "before:opacity-100 text-border-info":
-                          activePath?.includes(link.url),
-                        "before:opacity-0": !activePath?.includes(link.url),
-                      }
-                    )}
-                  >
-                    <Link
-                      className={classNames("text-text-default text-base", {
-                        "text-text-highlight": activePath?.includes(link.url),
-                      })}
-                      href={link.url}
+                {filteredNavItems.map((link) => {
+                  const isActive =
+                    activePath.split("/")[1] === link.url.split("/")[1];
+
+                  return (
+                    <li
+                      key={link.url}
+                      className={classNames(
+                        "relative mr-space-24",
+                        "hover:text-border-info",
+                        "before:block before:absolute before:bottom-[-23px] before:w-full before:h-1 before:bg-border-info",
+                        {
+                          "before:opacity-100 text-border-info": isActive,
+                          "before:opacity-0": !isActive,
+                        }
+                      )}
                     >
-                      <a>{link.title}</a>
-                    </Link>
-                  </li>
-                ))}
+                      <Link
+                        className={classNames("text-text-default text-base", {
+                          "text-text-highlight": isActive,
+                        })}
+                        href={link.url}
+                      >
+                        <a>{link.title}</a>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <OpenSearchButton />

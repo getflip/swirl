@@ -1,5 +1,5 @@
 :host {
-  display: block;
+  display: contents;
 
   & * {
     box-sizing: border-box;
@@ -7,6 +7,13 @@
 }
 
 .card {
+  --swirl-ghost-button-background-default: var(--s-surface-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-pressed);
+  --swirl-resource-list-item-background-default: var(--s-surface-default);
+  --swirl-resource-list-item-background-hovered: var(--s-surface-hovered);
+  --swirl-resource-list-item-background-pressed: var(--s-surface-pressed);
+
   display: flex;
   overflow: hidden;
   width: 100%;
@@ -15,17 +22,10 @@
   border: var(--s-border-width-default) solid var(--s-border-default);
   border-radius: var(--s-border-radius-base);
   color: var(--s-text-default);
-  background-color: var(--s-surface-default);
+  background-color: var(--swirl-card-background-default);
   font: inherit;
   text-decoration: none;
   flex-direction: column;
-
-  --swirl-ghost-button-background-default: var(--s-surface-default);
-  --swirl-ghost-button-background-hovered: var(--s-surface-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-surface-pressed);
-  --swirl-resource-list-item-background-default: var(--s-surface-default);
-  --swirl-resource-list-item-background-hovered: var(--s-surface-hovered);
-  --swirl-resource-list-item-background-pressed: var(--s-surface-pressed);
 }
 
 a.card,
@@ -34,11 +34,11 @@ button.card,
   cursor: pointer;
 
   &:hover {
-    background-color: var(--s-surface-hovered);
+    background-color: var(--swirl-card-background-hovered);
   }
 
   &:active {
-    background-color: var(--s-surface-pressed);
+    background-color: var(--swirl-card-background-pressed);
   }
 
   &:focus:not(:focus-visible) {
@@ -93,6 +93,24 @@ button.card,
 
 .card--intent-critical-subdued {
   background-color: var(--s-surface-critical-subdued);
+}
+
+.card--intent-default-subdued {
+  --swirl-resource-list-item-background-default: var(
+    --s-surface-raised-default
+  );
+  --swirl-resource-list-item-background-hovered: var(
+    --s-surface-raised-hovered
+  );
+  --swirl-resource-list-item-background-pressed: var(
+    --s-surface-raised-pressed
+  );
+
+  --swirl-ghost-button-background-default: var(--s-surface-raised-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-raised-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-raised-pressed);
+
+  background-color: var(--s-surface-raised-default);
 }
 
 .card--intent-info-subdued {

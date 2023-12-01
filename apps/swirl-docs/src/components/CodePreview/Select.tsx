@@ -75,7 +75,7 @@ export function Select({
       <button
         ref={refs.setReference}
         className={classnames(
-          "relative flex items-center justify-center",
+          "relative flex items-center justify-center whitespace-nowrap",
           "bg-transparent max-h-5 text-interactive-neutral-default text-font-size-sm",
           "pr-2",
           "after:block after:absolute after:h-full after:bg-border-default after:w-[1px] after:opacity-20 after:right-0"
@@ -85,7 +85,7 @@ export function Select({
         {...getReferenceProps()}
       >
         {selectedLabel}
-        <span className="rotate-90 max-h-[1.25rem] max-w-[1.25rem]">
+        <span className="rotate-90 max-h-[1.25rem] max-w-[1.25rem] ml-space-4">
           <SwirlIconChevronRight size={20} />
         </span>
       </button>

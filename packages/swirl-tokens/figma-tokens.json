@@ -2653,11 +2653,6 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": [
-      "core",
-      "core-colors",
-      "light",
-      "dark"
-    ]
+    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
   }
 }

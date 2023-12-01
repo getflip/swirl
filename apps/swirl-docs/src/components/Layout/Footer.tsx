@@ -1,41 +1,43 @@
 import { NavLink } from "@swirl/lib/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import PreFooter from "./PreFooter";
+import classNames from "classnames";
 
 const links: NavLink[] = [
   {
     name: "About Flip",
-    path: "",
-  },
-  {
-    name: "Partners",
-    path: "",
+    path: "https://www.getflip.com/about-us/",
   },
   {
     name: "Careers",
-    path: "",
-  },
-  {
-    name: "Press and Media",
-    path: "",
+    path: "https://www.getflip.com/open-positions/",
   },
 ];
 
 const Footer = () => {
   return (
-    <footer id="footer">
+    <footer id="footer" className="w-full mt-4 md:mt-0">
       {/* <PreFooter /> */}
       <nav
         aria-label="footer"
-        className="hidden md:flex bottom-0 col-start-3 col-span-10 bg-white justify-between items-center h-20 px-4 w-full"
+        className={classNames(
+          "flex flex-col md:flex-row justify-between items-center",
+          "w-full bottom-0 bg-white h-full md:h-20 md:max-h-20 px-4"
+        )}
       >
-        <Image alt="Flip Logo" src="/flip-logo.svg" width={70} height={30} />
-        <ul className="flex justify-center items-center">
+        <span className="mb-6 md:mb-0">
+          <Image alt="Flip Logo" src="/flip-logo.svg" width={70} height={30} />
+        </span>
+        <ul className="flex flex-col md:flex-row justify-center items-center">
           {links.map((link, index) => (
-            <li key={link.path + `-${index}`} className="mr-8">
+            <li key={link.path + `-${index}`} className="mb-4 md:mb-0 md:mr-8">
               <Link href={link.path}>
-                <a className="text-sm text-text-default">{link.name}</a>
+                <a
+                  className="text-font-size-base md:text-font-size-sm leading-6 text-text-default"
+                  target="_blank"
+                >
+                  {link.name}
+                </a>
               </Link>
             </li>
           ))}
