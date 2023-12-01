@@ -31,7 +31,7 @@ export default function ListItemStrategy({
   currentPath,
   handleCloseMenu,
 }: ListItemProps) {
-  const componentByStatus = {
+  const componentByStrategy = {
     [COMPONENT_STRATEGY.EXPANDABLE_NAV_GROUP]: () => (
       <ExpandableNavGroup
         item={item}
@@ -66,7 +66,7 @@ export default function ListItemStrategy({
     ),
   };
 
-  return componentByStatus[
+  return componentByStrategy[
     determineComponentStrategy(item, hasParent ? hasParent : false)
   ]();
 }
