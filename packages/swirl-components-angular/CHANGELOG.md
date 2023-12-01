@@ -1,5 +1,12 @@
 # @getflip/swirl-components-angular
 
+## 0.118.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @getflip/swirl-components@0.118.1
+
 ## 0.118.0
 
 ### Minor Changes

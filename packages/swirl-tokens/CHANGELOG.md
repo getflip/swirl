@@ -1,5 +1,13 @@
 # swirl-tokens
 
+## 2.5.0
+
+### Minor Changes
+
+- [#473](https://github.com/getflip/swirl/pull/473)
+  [`21bedf5b`](https://github.com/getflip/swirl/commit/21bedf5bc1a2e9c0a9cfca75da54a5a2080ed62f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust color tokens
+
 ## 2.4.0
 
 ### Minor Changes
