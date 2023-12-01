@@ -27,7 +27,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
   );
 
   return (
-    <div className="max-w-[37.5rem]">
+    <div className="max-w-full md:max-w-[37.5rem] overflow-x-auto">
       <LinkedHeading href={path}>
         <Heading level={3} id={endpointId}>
           {endpoint.title}
@@ -57,7 +57,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
           p: (props) => <Text {...props} size="sm" />,
           code: (props) => (
             <code
-              className="bg-gray-100 rounded-md p-[2px] text-sm font-font-family-code"
+              className="max-w-full bg-gray-100 rounded-md p-[2px] text-sm font-font-family-code break-words"
               {...{ ...props, inline: "inline" }}
             />
           ),

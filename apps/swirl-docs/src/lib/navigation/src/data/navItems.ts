@@ -19,7 +19,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "APIs and References",
-    url: "/api-docs/tasks",
+    url: "/api-docs/docs/getting-started-test",
     isRoot: true,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",

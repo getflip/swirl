@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
-import MobileNav from "./mobileNav";
+import MobileNav from "./Mobile";
 import { OpenSearchButton } from "./OpenSearchButton";
 import { SwirlIconClose } from "@getflip/swirl-components-react";
 import classNames from "classnames";
@@ -44,6 +44,7 @@ const HeaderNavigation = () => {
   const activePath = router.pathname;
 
   const handleCloseMenu = () => {
+    console.log("handleCloseMenu");
     setIsMobileNavOpen(false);
   };
 
