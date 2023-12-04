@@ -6,8 +6,8 @@ type CommandHitProps = {
   title: string;
   description?: string;
   icon: ReactNode;
-  handleOnSelect: (value: any) => void;
-  handleOnFocus: (value: any) => void;
+  handleOnSelect: (value: unknown) => void;
+  handleOnFocus: (value: unknown) => void;
 };
 
 export function CommandHit({
