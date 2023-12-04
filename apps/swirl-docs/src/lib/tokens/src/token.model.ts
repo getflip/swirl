@@ -1,3 +1,12 @@
+import tokensLight from "@getflip/swirl-tokens/dist/styles.light.json";
+
+export type SwirlTokens = {
+  [K in keyof typeof tokensLight]: (typeof tokensLight)[K];
+};
+export type SwirlTokenKey = keyof SwirlTokens;
+export type SwirlToken = SwirlTokens[keyof SwirlTokens] & { comment: string };
+export type SwirlColorToken = SwirlToken & { type: "color" };
+
 export type SwirlTokenCategory =
   | ColorTokenCategory
   | SizeTokenCategory
@@ -70,10 +79,13 @@ export type ColorTokenGroups =
   | "background"
   | "surface"
   | "border"
+  | "text"
+  | "icon"
   | "action"
   | "interactive"
-  | "text"
-  | "icon";
+  | "focus"
+  | "skeleton"
+  | "decorative";
 
 export type ColorTokens = {
   background?: Token[];
