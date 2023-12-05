@@ -1,60 +1,89 @@
-import { ColorTokenGroups } from "./token.model";
-import { Dictionary, generateTokenValueWithUnit } from "./utils";
-
 import tokensLight from "@getflip/swirl-tokens/dist/styles.light.json";
+import {
+  ColorTokenGroups,
+  SwirlColorToken,
+  SwirlToken,
+  SwirlTokenKey,
+  SwirlTokens,
+  Token,
+} from "./token.model";
+import { generateTokenValueWithUnit } from "./utils";
 
-export const getColorTokens = (): any => {
-  const colorTokens: any = {
+type ColorTokenGroup = Record<ColorTokenGroups, Token[]>;
+
+export function getColorTokens(): ColorTokenGroup {
+  const colorTokens: ColorTokenGroup = {
     background: [],
     surface: [],
     border: [],
-    action: [],
-    interactive: [],
     text: [],
     icon: [],
+    action: [],
+    interactive: [],
+    focus: [],
+    skeleton: [],
+    decorative: [],
   };
 
-  const lightTokenKeys = Object.keys(tokensLight) as any;
-  const tokensLightTyped = tokensLight as Dictionary;
-
-  const baseTokens = lightTokenKeys
-    .filter((key: any) => {
-      return tokensLightTyped[key].type === "color" && !key.includes("core");
-    })
-    .map((key: any) => tokensLightTyped[key]);
-
-  baseTokens.forEach((token: any) => {
-    const tokenValueWithUnit = generateTokenValueWithUnit(token);
-
-    const colorCategory = getColorCategory(token);
-    colorTokens[colorCategory]?.push({
-      name: token.name,
-      type: token.type,
-      value: token.value,
-      description: token.comment,
-      valueAsString: tokenValueWithUnit?.value,
-      unitAsString: tokenValueWithUnit?.unit,
-    });
+  getFilteredColorTokens().forEach((token) => {
+    const transformedToken = transformTokenToColorToken(token);
+    if (transformedToken) {
+      const colorTokenGroup = getColorCategory(token as SwirlColorToken);
+      colorTokens[colorTokenGroup]?.push(transformedToken);
+    }
   });
 
   return colorTokens;
-};
+}
 
-// TODO: refactor this function to use better mapping
-function getColorCategory(token: any): ColorTokenGroups {
-  if (token.name.includes("background")) {
-    return "background";
-  } else if (token.name.includes("surface")) {
-    return "surface";
-  } else if (token.name.includes("border")) {
-    return "border";
-  } else if (token.name.includes("action")) {
-    return "action";
-  } else if (token.name.includes("interactive")) {
-    return "interactive";
-  } else if (token.name.includes("text")) {
-    return "text";
-  } else {
-    return "icon";
+const colorCategories = new Map<string, ColorTokenGroups>([
+  ["background", "background"],
+  ["surface", "surface"],
+  ["border", "border"],
+  ["action", "action"],
+  ["interactive", "interactive"],
+  ["text", "text"],
+  ["icon", "icon"],
+  ["focus", "focus"],
+  ["skeleton", "skeleton"],
+  ["decorative", "decorative"],
+]);
+
+function getColorCategory(token: SwirlColorToken): ColorTokenGroups {
+  return colorCategories.get(token.name.split("-")[0]) || "background";
+}
+
+function transformTokenToColorToken(token: SwirlToken): Token | null {
+  const tokenValueWithUnit = generateTokenValueWithUnit(token);
+  const colorToken = isColorToken(token) ? token : null;
+
+  if (!colorToken) {
+    return null;
   }
+
+  return {
+    name: token.name,
+    type: "color",
+    value: String(token.value),
+    description: String(token.comment || ""),
+    valueAsString: tokenValueWithUnit?.value,
+    unitAsString: tokenValueWithUnit?.unit,
+  };
+}
+
+function isColorToken(token: SwirlToken): token is SwirlColorToken {
+  return token.type === "color" && !token.name.includes("core");
+}
+
+function getFilteredColorTokens(): SwirlToken[] {
+  const lightTokenKeys = Object.keys(tokensLight) as SwirlTokenKey[];
+  const tokensLightTyped = tokensLight as SwirlTokens;
+
+  return lightTokenKeys
+    .filter((key: SwirlTokenKey) => {
+      const token = tokensLightTyped[key] as SwirlToken;
+
+      return isColorToken(token);
+    })
+    .map((key: SwirlTokenKey) => tokensLightTyped[key]) as SwirlToken[];
 }

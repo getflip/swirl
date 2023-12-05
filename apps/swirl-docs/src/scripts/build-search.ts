@@ -74,20 +74,20 @@ function createColorTokenAlgoliaData(
 
   const algoliaIndexableData: Array<AlgoliaRecord> = [];
 
-  colorTokenGroups.forEach((colorTokenGroup) => {
-    const transformedTokens = tokens[colorTokenGroup];
+  // colorTokenGroups.forEach((colorTokenGroup) => {
+  //   const transformedTokens = tokens[colorTokenGroup];
 
-    transformedTokens?.forEach((token) => {
-      algoliaIndexableData.push({
-        objectID: token.name,
-        title: token.name,
-        type: "token",
-        tokenCategory: "color",
-        excerpt: token.description || "",
-        path: `/tokens/color#${colorTokenGroup}`,
-      });
-    });
-  });
+  //   transformedTokens?.forEach((token) => {
+  //     algoliaIndexableData.push({
+  //       objectID: token.name,
+  //       title: token.name,
+  //       type: "token",
+  //       tokenCategory: "color",
+  //       excerpt: token.description || "",
+  //       path: `/tokens/color#${colorTokenGroup}`,
+  //     });
+  //   });
+  // });
 
   if (!algoliaIndexableData.length) {
     throw new Error(`Could not generate Algolia data for category: ${123}`);
