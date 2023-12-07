@@ -50,7 +50,7 @@ const IconsIndex = () => {
   return (
     <>
       <Head>
-        <title>Swirl | Icons</title>
+        <title>Icons — Swirl</title>
       </Head>
       <div className="flex flex-col justify-between overflow-auto h-full">
         <main

@@ -59,7 +59,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
   return (
     <>
       <Head>
-        <title>{`API | ${document.title}`}</title>
+        <title>{`${document.title} — getflip.dev`}</title>
       </Head>
       <DocumentationLayout
         data={{
@@ -108,7 +108,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                 const endpointId = endpoint.path.split("#")[1];
 
                 const initialResponseExampleStatus = Object.keys(
-                  endpoint.responseExamples
+                  endpoint.responseExamples,
                 )[0];
 
                 return (

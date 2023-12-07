@@ -24,7 +24,7 @@ import { useRouter } from "next/router";
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
     DOCUMENTATION_CATEGORY.TOKENS,
-    document
+    document,
   );
   return {
     document: serializedDocument,
@@ -85,7 +85,7 @@ export default function Component({
   return (
     <>
       <Head>
-        <title>{`Swirl | ${title}`}</title>
+        <title>{`${document.frontmatter?.title} — Swirl`}</title>
       </Head>
       <DocumentationLayout
         header={<DocumentationLayout.Header />}
