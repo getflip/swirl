@@ -21,7 +21,7 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
     return (
       <div
         style={{ fontWeight: token.value }}
-        className={`w-12 h-12 mr-2 text-lg`}
+        className={`flex items-center w-12 h-12 mr-2 text-lg`}
       >
         Aa
       </div>
@@ -30,7 +30,7 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
     return (
       <div
         style={{ fontSize: token.value }}
-        className={`w-12 h-12 mr-2 text-lg`}
+        className={`flex items-center w-12 h-12 mr-2 text-lg`}
       >
         Aa
       </div>
@@ -39,7 +39,7 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
     return (
       <div
         style={{ lineHeight: token.value }}
-        className={`w-16 h-16 mr-2 text-lg`}
+        className={`flex items-center w-16 h-16 mr-2 text-lg`}
       >
         Aa
         <br />
@@ -50,7 +50,7 @@ const TokenPreview: FunctionComponent<TokenPreviewProps> = ({ token }) => {
     return (
       <div
         style={{ letterSpacing: token.value }}
-        className={`w-12 h-12 mr-2 text-lg`}
+        className={`flex items-center w-12 h-12 mr-2 text-lg`}
       >
         Aa
       </div>

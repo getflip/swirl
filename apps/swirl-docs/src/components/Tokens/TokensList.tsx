@@ -36,7 +36,7 @@ export const TokensList: FunctionComponent<TokensListProps> = ({ tokens }) => {
 
   return (
     <table className="w-full mb-10">
-      <thead>
+      <thead className="sr-only md:not-sr-only">
         <tr
           className={classNames(
             `grid gap-3 grid-cols-1 md:grid-cols-typography-token-list items-start py-4 border-b-1`,
