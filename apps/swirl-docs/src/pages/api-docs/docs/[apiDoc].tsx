@@ -15,7 +15,7 @@ import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
     "api",
-    document,
+    document
   );
 
   return {
@@ -96,6 +96,7 @@ export default function Component({
 
 function generateMdxThemeComponents() {
   return {
+    section: (props) => <section className="mb-8 last:mb-0" {...props} />,
     a: (props) => {
       const isRegularLink = typeof props.children === "string";
 
@@ -110,13 +111,19 @@ function generateMdxThemeComponents() {
     },
 
     ul: (props) => (
-      <ul className="mb-8 leading-line-height-xl list-disc" {...props} />
+      <ul
+        className="mb-8 last:mb-0 leading-line-height-xl list-disc"
+        {...props}
+      />
     ),
     ol: (props) => (
-      <ol className="mb-8 leading-line-height-xl list-decimal" {...props} />
+      <ol
+        className="mb-8 last:mb-0 leading-line-height-xl list-decimal"
+        {...props}
+      />
     ),
     li: (props) => <li className="ml-4" {...props} />,
-    p: (props) => <Text className="mb-8" {...props} />,
+    p: (props) => <Text className="mb-8 last:mb-0" {...props} />,
     code: (props) => {
       const { className, children } = props;
 
@@ -124,7 +131,7 @@ function generateMdxThemeComponents() {
         return (
           <CodePreview
             disableHeader
-            className="mb-4"
+            className="mb-4 last:mb-0"
             hasCopyButton
             codeExample={{
               code: children,
@@ -142,22 +149,22 @@ function generateMdxThemeComponents() {
       );
     },
     h1: (props: any) => (
-      <H2 className="mb-6" {...props} href={`#${props.id}`} />
+      <H2 className="mb-6 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     h2: (props: any) => (
-      <H2 className="mb-6" {...props} href={`#${props.id}`} />
+      <H2 className="mb-6 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     h3: (props: any) => (
-      <H3 className="mb-2" {...props} href={`#${props.id}`} />
+      <H3 className="mb-2 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     h4: (props: any) => (
-      <H4 className="mb-2" {...props} href={`#${props.id}`} />
+      <H4 className="mb-2 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     h5: (props: any) => (
-      <H4 className="mb-2" {...props} href={`#${props.id}`} />
+      <H4 className="mb-2 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     h6: (props: any) => (
-      <H4 className="mb-2" {...props} href={`#${props.id}`} />
+      <H4 className="mb-2 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     hr: (props) => <hr className="my-8" {...props} />,
   } as MDXRemoteProps["components"];

@@ -38,7 +38,7 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
   return (
     <nav
       aria-label="document"
-      className="sticky top-[128px] h-max hidden min-w-[12rem] md:block px-4 border-l-1"
+      className="sticky top-[4rem] h-max hidden min-w-[12rem] md:block px-4 border-l-1"
     >
       <div className="mb-4 font-sm font-semibold text-text-subdued text-sm">
         On this Page
