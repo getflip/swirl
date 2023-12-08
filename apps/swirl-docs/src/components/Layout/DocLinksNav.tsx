@@ -1,8 +1,8 @@
-import { FunctionComponent, useEffect, useRef, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 
 import { DocHeadline } from "@swirl/lib/docs/src/docs.model";
-import Link from "next/link";
 import useScrollObserver from "@swirl/lib/hooks/useScrollObserver";
+import Link from "next/link";
 
 type DocLinksNavProps = {
   documentLinkList: DocHeadline[];
@@ -13,13 +13,18 @@ const isBrowser = typeof window !== "undefined";
 export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
   documentLinkList,
 }) => {
-  let headlines: Element[] = [];
+  let sections: Element[] = [];
 
   if (isBrowser) {
-    headlines = documentLinkList.flatMap((item) => {
-      const sectionElement = document.querySelector(`[id="${item.id}"]`);
+    sections = documentLinkList.flatMap((item) => {
+      const sectionElement = document
+        .querySelector(`[id="${item.id}"]`)
+        ?.closest<HTMLElement>("section");
+
       const subsectionElements = item.children.map((sub) =>
-        document.querySelector(`[id="${sub.id}"]`)
+        document
+          .querySelector(`[id="${sub.id}"]`)
+          ?.closest<HTMLElement>("section")
       );
 
       return [sectionElement, ...subsectionElements].filter(
@@ -29,7 +34,7 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
   }
 
   const [activeIndex, setActiveIndexInLinks] = useState(0);
-  const [currentActiveIndex] = useScrollObserver(headlines);
+  const [currentActiveIndex] = useScrollObserver(sections);
 
   useEffect(() => {
     setActiveIndexInLinks(currentActiveIndex);
