@@ -15,7 +15,7 @@ import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
     "api",
-    document
+    document,
   );
 
   return {
@@ -66,12 +66,12 @@ export default function Component({
     Record<string, unknown>,
     Record<string, string>
   >;
-  frontMatter: FrontMatter;
+  frontMatter: FrontMatter; // TODO: Frontmatter could be put in document
 }) {
   return (
     <>
       <Head>
-        <title>Swirl | Components</title>
+        <title>{frontMatter.title} — getflip.dev</title>
       </Head>
 
       <DocumentationLayout

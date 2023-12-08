@@ -39,7 +39,7 @@ export function DocumentationLayout({
           <main
             id="main"
             className={classNames(
-              "grid grid-cols-1 justify-center max-w-[77.5rem]",
+              "grid grid-cols-1 justify-center max-w-[77.5rem] w-full",
               "my-0 mx-auto mt-14 mb-4 md:mb-0 px-4 lg:px-10 xl:px-0",
               {
                 "xl:grid-cols-1 md:mx-10": disableToc,

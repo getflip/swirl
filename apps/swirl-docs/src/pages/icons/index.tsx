@@ -1,11 +1,14 @@
+import { SwirlPopover } from "@getflip/swirl-components-react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetStaticProps } from "next/types";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import IconGrid from "src/components/Icons/IconGrid";
 import IconInfo from "src/components/Icons/IconInfo";
+import Portal from "src/components/Icons/Portal";
 import SearchBar from "src/components/Icons/SearchBar";
 import Footer from "src/components/Layout/Footer";
+import NoSsr from "src/components/Layout/NoSsr";
 import { DesktopView } from "src/components/View/Views";
 
 type Usage = "app" | "admin";
@@ -50,7 +53,7 @@ const IconsIndex = () => {
   return (
     <>
       <Head>
-        <title>Swirl | Icons</title>
+        <title>Icons — Swirl</title>
       </Head>
       <div className="flex flex-col justify-between overflow-auto h-full">
         <main
@@ -78,19 +81,15 @@ const IconsIndex = () => {
                 handleTileClick(iconname);
               }}
             />
-            {/* <NoSsr>
+            <NoSsr>
               <Portal>
-                <SwirlPopover
-                  label="Icon Info"
-                  popoverId={`icon-popover`}
-                  trigger={`icon-popover-trigger`}
-                >
+                <SwirlPopover label="Icon Info" id="icon-popover">
                   <div className="p-4">
                     <IconInfo icon={icons[selectedIcon.name]} />
                   </div>
                 </SwirlPopover>
               </Portal>
-            </NoSsr> */}
+            </NoSsr>
           </div>
           <DesktopView>
             <IconInfo icon={selectedIcon} />

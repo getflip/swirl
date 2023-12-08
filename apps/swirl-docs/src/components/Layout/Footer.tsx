@@ -12,6 +12,14 @@ const links: NavLink[] = [
     name: "Careers",
     path: "https://www.getflip.com/open-positions/",
   },
+  {
+    name: "Privacy policy",
+    path: "https://www.getflip.com/privacy-policy/",
+  },
+  {
+    name: "Contact",
+    path: "https://www.getflip.com/contact/",
+  },
 ];
 
 const Footer = () => {

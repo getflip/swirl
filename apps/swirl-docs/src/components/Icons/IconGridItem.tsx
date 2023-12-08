@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
 import { MobileView, DesktopView } from "../View/Views";
+import { SwirlPopoverTrigger } from "@getflip/swirl-components-react";
 
 interface IconGridProps {
   id: string;
@@ -81,7 +82,9 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
             href={`#${icons[icon]?.name}`}
             className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
             onKeyDown={(event) => handleKeyDown(event)}
-            onClick={() => handleTileClick(icons[icon]?.name)}
+            onClick={() => {
+              handleTileClick(icons[icon]?.name);
+            }}
           >
             <i
               className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
