@@ -56,19 +56,18 @@ const CategoryNavSubItem = ({
         )}
       >
         <div className="flex justify-between items-center h-10">
-          <Link href={`${navItem.url}`}>
-            <a
-              className={classNames(
-                "text-sm capitalize w-full",
-                "hover:text-border-info",
-                {
-                  "text-text-default": !isCurrentlyInView,
-                  "text-border-info": isCurrentlyInView,
-                }
-              )}
-            >
-              <span>{navItem.title.replaceAll("-", " ")}</span>
-            </a>
+          <Link
+            href={`${navItem.url}`}
+            className={classNames(
+              "text-sm capitalize w-full",
+              "hover:text-border-info",
+              {
+                "text-text-default": !isCurrentlyInView,
+                "text-border-info": isCurrentlyInView,
+              }
+            )}
+          >
+            <span>{navItem.title.replaceAll("-", " ")}</span>
           </Link>
           {navItem.children && (
             <button
@@ -146,31 +145,30 @@ const WrappingAnchor = forwardRef<
   const alignmentClass = isWrapping ? "items-start" : "items-center";
 
   return (
-    <Link href={href}>
-      <a
-        ref={ref}
-        aria-current={isCurrentPath}
-        className={classNames(
-          "flex",
-          alignmentClass,
-          "w-full",
-          "text-sm capitalize leading-5",
-          "hover:text-border-info",
-          {
-            "text-border-info": isCurrentPath,
-            "text-text-default": !isCurrentPath,
-          }
-        )}
-      >
-        {item.description && (
-          <Tag
-            content={mapHttpMethodToTagContent(item.description!)}
-            scheme={mapHttpMethodToTagScheme(item.description as HttpMethods)}
-            httpTag
-          />
-        )}
-        <span ref={textRef}>{item.title}</span>
-      </a>
+    <Link
+      href={href}
+      ref={ref}
+      aria-current={isCurrentPath}
+      className={classNames(
+        "flex",
+        alignmentClass,
+        "w-full",
+        "text-sm capitalize leading-5",
+        "hover:text-border-info",
+        {
+          "text-border-info": isCurrentPath,
+          "text-text-default": !isCurrentPath,
+        }
+      )}
+    >
+      {item.description && (
+        <Tag
+          content={mapHttpMethodToTagContent(item.description!)}
+          scheme={mapHttpMethodToTagScheme(item.description as HttpMethods)}
+          httpTag
+        />
+      )}
+      <span ref={textRef}>{item.title}</span>
     </Link>
   );
 });
@@ -273,20 +271,19 @@ export function SidebarNavigation() {
 function LegacyApiLink({ href, label }: { href: string; label: string }) {
   return (
     <li className="w-full">
-      <Link href={href}>
-        <a
-          target="_blank"
-          className={classNames(
-            "inline-flex justify-between items-center w-full h-10",
-            "text-font-size-sm leading-5 text-text-default",
-            "hover:text-border-info"
-          )}
-        >
-          {label}
-          <span>
-            <i className="swirl-icons-OpenInNew28 text-base ml-1"></i>
-          </span>
-        </a>
+      <Link
+        href={href}
+        target="_blank"
+        className={classNames(
+          "inline-flex justify-between items-center w-full h-10",
+          "text-font-size-sm leading-5 text-text-default",
+          "hover:text-border-info"
+        )}
+      >
+        {label}
+        <span>
+          <i className="swirl-icons-OpenInNew28 text-base ml-1"></i>
+        </span>
       </Link>
     </li>
   );

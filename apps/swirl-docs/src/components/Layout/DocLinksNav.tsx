@@ -47,28 +47,27 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
         {documentLinkList?.map((link: DocHeadline, index: number) => {
           return (
             <li key={link.id} className="relative font-sm mb-2">
-              <Link href={`#${link.id}`}>
-                <a
-                  className={`
-                    transition-colors duration-500 ease-in-out
-                    before:transition-colors before:duration-500 before:ease-in-out
-                    before:block before:absolute before:top-0 before:left-[-17px] before:w-[2px] before:h-6 text-sm
-                    ${
-                      activeIndex === index
-                        ? "text-border-info before:bg-border-info"
-                        : "text-text-subdued"
-                    }
-                  `}
-                  onClick={() => {
+              <Link
+                href={`#${link.id}`}
+                className={`
+                  transition-colors duration-500 ease-in-out
+                  before:transition-colors before:duration-500 before:ease-in-out
+                  before:block before:absolute before:top-0 before:left-[-17px] before:w-[2px] before:h-6 text-sm
+                  ${
+                    activeIndex === index
+                      ? "text-border-info before:bg-border-info"
+                      : "text-text-subdued"
+                  }
+                `}
+                onClick={() => {
+                  setActiveIndexInLinks(index);
+                  // Wait for the scroll observer to update the active index, then set the active index manually
+                  setTimeout(() => {
                     setActiveIndexInLinks(index);
-                    // Wait for the scroll observer to update the active index, then set the active index manually
-                    setTimeout(() => {
-                      setActiveIndexInLinks(index);
-                    }, 100);
-                  }}
-                >
-                  {link.title}
-                </a>
+                  }, 100);
+                }}
+              >
+                {link.title}
               </Link>
             </li>
           );

@@ -25,9 +25,7 @@ const Tokens = () => {
                     className="border-1 rounded-lg p-4 mr-4 font-bold"
                     key={`${category.title}-${index}`}
                   >
-                    <Link href={category.url!!}>
-                      <a>{category.title}</a>
-                    </Link>
+                    <Link href={category.url!!}>{category.title}</Link>
                   </li>
                 ))}
               </ul>

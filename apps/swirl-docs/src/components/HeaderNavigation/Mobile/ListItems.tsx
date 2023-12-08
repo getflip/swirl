@@ -58,14 +58,14 @@ export function TopLevelNavLink({
 }: ListItemProps) {
   return (
     <li>
-      <Link href={url} passHref>
-        <a
-          aria-current={url === currentPath ? "page" : "false"}
-          onClick={handleCloseMenu}
-          className="flex justify-between py-3 font-normal px-4 w-full text-base capitalize"
-        >
-          {title}
-        </a>
+      <Link
+        href={url}
+        passHref
+        aria-current={url === currentPath ? "page" : "false"}
+        onClick={handleCloseMenu}
+        className="flex justify-between py-3 font-normal px-4 w-full text-base capitalize"
+      >
+        {title}
       </Link>
     </li>
   );
@@ -157,16 +157,16 @@ export function NestedNavLink({
 }: ListItemProps) {
   return (
     <li>
-      <Link href={url} passHref>
-        <a
-          aria-current={url === currentPath ? "page" : "false"}
-          onClick={() => {
-            handleCloseMenu();
-          }}
-          className="flex justify-between py-2 px-10 w-full capitalize"
-        >
-          {title}
-        </a>
+      <Link
+        href={url}
+        passHref
+        aria-current={url === currentPath ? "page" : "false"}
+        onClick={() => {
+          handleCloseMenu();
+        }}
+        className="flex justify-between py-2 px-10 w-full capitalize"
+      >
+        {title}
       </Link>
     </li>
   );
