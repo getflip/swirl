@@ -63,10 +63,9 @@ export function TopLevelNavLink({
         passHref
         aria-current={url === currentPath ? "page" : "false"}
         onClick={handleCloseMenu}
-        className="flex justify-between py-3 font-normal px-4 w-full text-base capitalize">
-
+        className="flex justify-between py-3 font-normal px-4 w-full text-base capitalize"
+      >
         {title}
-
       </Link>
     </li>
   );
@@ -165,10 +164,9 @@ export function NestedNavLink({
         onClick={() => {
           handleCloseMenu();
         }}
-        className="flex justify-between py-2 px-10 w-full capitalize">
-
+        className="flex justify-between py-2 px-10 w-full capitalize"
+      >
         {title}
-
       </Link>
     </li>
   );

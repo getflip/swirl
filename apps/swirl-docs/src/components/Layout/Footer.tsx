@@ -34,10 +34,9 @@ const Footer = () => {
               <Link
                 href={link.path}
                 className="text-font-size-base md:text-font-size-sm leading-6 text-text-default"
-                target="_blank">
-
+                target="_blank"
+              >
                 {link.name}
-
               </Link>
             </li>
           ))}

@@ -46,86 +46,87 @@ const CategoryNavSubItem = ({
     }
   }, [navItem.url, activePath]);
 
-  return <>
-    <li
-      className={classNames(
-        "flex flex-col justify-center",
-        { "h-10 max-h-10": !isExpanded },
-        { "h-full": isExpanded }
-      )}
-    >
-      <div className="flex justify-between items-center h-10">
-        <Link
-          href={`${navItem.url}`}
-          className={classNames(
-            "text-sm capitalize w-full",
-            "hover:text-border-info",
-            {
-              "text-text-default": !isCurrentlyInView,
-              "text-border-info": isCurrentlyInView,
-            }
-          )}>
-
-          <span>{navItem.title.replaceAll("-", " ")}</span>
-
-        </Link>
-        {navItem.children && (
-          <button
-            aria-label="Expand"
-            className="flex justify-center items-center text-text-subdued"
-            onClick={() => setIsExpanded(!isExpanded)}
-            aria-expanded={isExpanded}
-          >
-            <Image
-              className={classNames(
-                {
-                  "animate-rotate-in": isExpanded,
-                  "animate-rotate-out": !isExpanded,
-                },
-                { "rotate-90": isExpanded }
-              )}
-              alt=""
-              src={icon.src}
-              width={24}
-              height={24}
-            />
-          </button>
+  return (
+    <>
+      <li
+        className={classNames(
+          "flex flex-col justify-center",
+          { "h-10 max-h-10": !isExpanded },
+          { "h-full": isExpanded }
         )}
-      </div>
-    </li>
-    <li>
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.ul
+      >
+        <div className="flex justify-between items-center h-10">
+          <Link
+            href={`${navItem.url}`}
             className={classNames(
-              "flex flex-col gap-y-4",
-              "border-l-[1px] border-border-default overflow-hidden",
-              { "h-0": !isExpanded },
-              { "h-auto": isExpanded }
+              "text-sm capitalize w-full",
+              "hover:text-border-info",
+              {
+                "text-text-default": !isCurrentlyInView,
+                "text-border-info": isCurrentlyInView,
+              }
             )}
-            initial="hidden"
-            exit={{ opacity: 0, height: 0 }}
-            animate={isExpanded ? "show" : "hidden"}
-            variants={list}
           >
-            {navItem.children?.map((item, index) => {
-              const isCurrentPath = activePath.includes(item.url);
+            <span>{navItem.title.replaceAll("-", " ")}</span>
+          </Link>
+          {navItem.children && (
+            <button
+              aria-label="Expand"
+              className="flex justify-center items-center text-text-subdued"
+              onClick={() => setIsExpanded(!isExpanded)}
+              aria-expanded={isExpanded}
+            >
+              <Image
+                className={classNames(
+                  {
+                    "animate-rotate-in": isExpanded,
+                    "animate-rotate-out": !isExpanded,
+                  },
+                  { "rotate-90": isExpanded }
+                )}
+                alt=""
+                src={icon.src}
+                width={24}
+                height={24}
+              />
+            </button>
+          )}
+        </div>
+      </li>
+      <li>
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.ul
+              className={classNames(
+                "flex flex-col gap-y-4",
+                "border-l-[1px] border-border-default overflow-hidden",
+                { "h-0": !isExpanded },
+                { "h-auto": isExpanded }
+              )}
+              initial="hidden"
+              exit={{ opacity: 0, height: 0 }}
+              animate={isExpanded ? "show" : "hidden"}
+              variants={list}
+            >
+              {navItem.children?.map((item, index) => {
+                const isCurrentPath = activePath.includes(item.url);
 
-              return (
-                <motion.li key={index} className="flex items-center ml-6">
-                  <WrappingAnchor
-                    href={`${item.url}`}
-                    item={item}
-                    isCurrentPath={isCurrentPath}
-                  />
-                </motion.li>
-              );
-            })}
-          </motion.ul>
-        )}
-      </AnimatePresence>
-    </li>
-  </>;
+                return (
+                  <motion.li key={index} className="flex items-center ml-6">
+                    <WrappingAnchor
+                      href={`${item.url}`}
+                      item={item}
+                      isCurrentPath={isCurrentPath}
+                    />
+                  </motion.li>
+                );
+              })}
+            </motion.ul>
+          )}
+        </AnimatePresence>
+      </li>
+    </>
+  );
 };
 
 const WrappingAnchor = forwardRef<
@@ -144,7 +145,7 @@ const WrappingAnchor = forwardRef<
   const alignmentClass = isWrapping ? "items-start" : "items-center";
 
   return (
-    (<Link
+    <Link
       href={href}
       ref={ref}
       aria-current={isCurrentPath}
@@ -158,8 +159,8 @@ const WrappingAnchor = forwardRef<
           "text-border-info": isCurrentPath,
           "text-text-default": !isCurrentPath,
         }
-      )}>
-
+      )}
+    >
       {item.description && (
         <Tag
           content={mapHttpMethodToTagContent(item.description!)}
@@ -168,8 +169,7 @@ const WrappingAnchor = forwardRef<
         />
       )}
       <span ref={textRef}>{item.title}</span>
-
-    </Link>)
+    </Link>
   );
 });
 
@@ -278,13 +278,12 @@ function LegacyApiLink({ href, label }: { href: string; label: string }) {
           "inline-flex justify-between items-center w-full h-10",
           "text-font-size-sm leading-5 text-text-default",
           "hover:text-border-info"
-        )}>
-
+        )}
+      >
         {label}
         <span>
           <i className="swirl-icons-OpenInNew28 text-base ml-1"></i>
         </span>
-
       </Link>
     </li>
   );

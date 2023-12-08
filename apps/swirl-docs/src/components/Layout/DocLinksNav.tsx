@@ -65,10 +65,9 @@ export const DocLinksNav: FunctionComponent<DocLinksNavProps> = ({
                   setTimeout(() => {
                     setActiveIndexInLinks(index);
                   }, 100);
-                }}>
-
+                }}
+              >
                 {link.title}
-
               </Link>
             </li>
           );
