@@ -13,11 +13,23 @@ const useScrollObserver = (
     }
 
     observer.current = new IntersectionObserver((entries) => {
-      const newHightlightIndex = entries.findIndex((entry) => {
+      const intersecting = entries.filter((entry) => {
         return entry.intersectionRatio > 0;
       });
 
-      setActiveIndex(newHightlightIndex);
+      // check if first intersecting element has an intersecting child to highlight
+      if (
+        intersecting.length > 1 &&
+        intersecting[0].target.contains(intersecting[1].target)
+      ) {
+        const index = entries.indexOf(intersecting[1]);
+        setActiveIndex(index);
+        return;
+      }
+
+      const index = entries.indexOf(intersecting[0]);
+
+      setActiveIndex(index);
     });
 
     const { current: currentObserver } = observer;
