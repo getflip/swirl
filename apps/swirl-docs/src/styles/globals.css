@@ -125,3 +125,7 @@ h3 {
 pre {
   overflow: auto;
 }
+
+[cmdk-item][aria-selected="true"] > button {
+  background-color: var(--s-surface-hovered);
+}
