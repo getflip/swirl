@@ -14,6 +14,8 @@ export class FileOperator {
     "usergroups.yml",
     "users.yml",
     "channels.yml",
+    "users-common.yml",
+    "roles-and-permissions.yml",
   ];
 
   constructor(private strategy: DeploymentStrategy["strategy"]) {}

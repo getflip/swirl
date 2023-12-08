@@ -160,3 +160,5 @@ apps/swirl-docs/users.yml
 apps/swirl-docs/usergroups.yml
 apps/swirl-docs/channels.yml
 apps/swirl-docs/src/documents/api/*
+apps/swirl-docs/roles-and-permissions.yml
+apps/swirl-docs/users-common.yml

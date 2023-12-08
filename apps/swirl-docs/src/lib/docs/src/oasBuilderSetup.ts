@@ -71,8 +71,9 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   public setOperations() {
-    if (Object.keys(this.paths).length === 0)
-      throw new Error("Endpoints not set");
+    if (Object.keys(this.paths).length === 0) {
+      this.paths = this._oasBuilder.api.paths || {};
+    }
 
     for (const path in this.paths) {
       const operationInPaths = this.paths[path];
