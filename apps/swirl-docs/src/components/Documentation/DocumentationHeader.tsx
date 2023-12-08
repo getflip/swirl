@@ -12,7 +12,11 @@ export function DocumentationHeader({
 
   return (
     <header
-      className={classNames("border-b-1 pb-12 mb-12", additionalClassNames)}
+      className={classNames(
+        "flex flex-col gap-4",
+        "border-b-1 pb-[3.5rem] mb-12",
+        additionalClassNames
+      )}
     >
       <Heading level={1}>{frontMatter?.title as string}</Heading>
       <Text className="max-w-[37.5rem]">{frontMatter?.description}</Text>
