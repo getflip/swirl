@@ -17,11 +17,11 @@ const useScrollObserver = (
         return entry.intersectionRatio > 0;
       });
 
-      // check if first intersecting element has an intersecting child to highlight
-      if (
+      const firstIntersectingElementHasIntersectingChild =
         intersecting.length > 1 &&
-        intersecting[0].target.contains(intersecting[1].target)
-      ) {
+        intersecting[0].target.contains(intersecting[1].target);
+
+      if (firstIntersectingElementHasIntersectingChild) {
         const index = entries.indexOf(intersecting[1]);
         setActiveIndex(index);
         return;
