@@ -9,7 +9,7 @@ import oasToHar from "@readme/oas-to-har";
 import { oasToSnippet } from "@readme/oas-to-snippet";
 import { SupportedTargets } from "@readme/oas-to-snippet";
 import { Request } from "har-format";
-import { Endpoint, Operations } from "./docs.model";
+import { ApiDocumentation, Endpoint, Operations } from "./docs.model";
 import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
 
 interface IOASBuilder {
@@ -42,6 +42,7 @@ type EndpointWithDetails = Endpoint & {
 };
 
 export default class OASBuilder implements IOASBuilder {
+  private static X_FLIP_API_NAME = "x-flip-api-name";
   private _oasDocument: OASDocument = {} as OASDocument;
   private _oas: Oas = new Oas({} as OASDocument);
 
@@ -54,6 +55,8 @@ export default class OASBuilder implements IOASBuilder {
   public endpoints: Endpoint[] = [];
   public detailedEndpoints: EndpointWithDetails[] = [];
   public tags: string[] = [];
+
+  public apiDocumentations: Array<ApiDocumentation> = [];
 
   constructor(oasDocument: OASDocument) {
     this.initializeProperties(oasDocument);
@@ -137,6 +140,53 @@ export default class OASBuilder implements IOASBuilder {
 
   public get oasDocument() {
     return this._oasDocument;
+  }
+
+  public setApiDocumentations() {
+    const apiNames = Array.from(
+      new Set(
+        Object.entries(this._oas.api.paths ?? {}).map(
+          ([path, pathItemObject]) => {
+            if (!pathItemObject) {
+              return;
+            }
+
+            const firstPathItemMethod = Object.keys(pathItemObject).filter(
+              (method) => method !== "parameters"
+            )[0];
+
+            if (!firstPathItemMethod) {
+              return;
+            }
+
+            return this._oas
+              .operation(path, firstPathItemMethod as HttpMethods)
+              .getExtension(OASBuilder.X_FLIP_API_NAME);
+          }
+        )
+      )
+    ).filter(Boolean);
+
+    // go through each method and allocate the resource to the correct api name and resource name
+
+    // final return
+    this.apiDocumentations = apiNames
+      .map((extensionApiName) => {
+        return {
+          title: this.getApiNameFromExtension(extensionApiName as string),
+          resources: [],
+        };
+      })
+      .sort((a, b) => a.title.localeCompare(b.title));
+
+    return this;
+  }
+
+  private getApiNameFromExtension(extension: string) {
+    return extension
+      .split("-")
+      .map((word) => word[0].toUpperCase() + word.slice(1))
+      .join(" ");
   }
 
   public setDescription() {

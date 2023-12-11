@@ -1,6 +1,6 @@
 import Oas from "oas";
 import { HttpMethods, OASDocument, PathsObject } from "oas/dist/rmoas.types";
-import { Endpoint, Operations } from "./docs.model";
+import { ApiDocumentation, Endpoint, Operations } from "./docs.model";
 
 interface IOASBuilder {
   title: string;
@@ -18,6 +18,7 @@ interface IOASBuilder {
  * As this is a duplicate, we have to keep it in sync with the OASBuilder class, when API changes are made.
  */
 export default class OASBuilder implements IOASBuilder {
+  private static X_FLIP_API_NAME = "x-flip-api-name";
   private _oasDocument: OASDocument = {} as OASDocument;
   private _oasBuilder: Oas = new (Oas as any).default({} as OASDocument);
 
@@ -29,6 +30,8 @@ export default class OASBuilder implements IOASBuilder {
   public operations: Operations = {};
   public operationsList: Endpoint[] = [];
   public tags: string[] = [];
+
+  public apiDocumentations: Array<ApiDocumentation> = [];
 
   constructor(oasDocument: OASDocument) {
     this.initializeProperties(oasDocument);
@@ -50,6 +53,36 @@ export default class OASBuilder implements IOASBuilder {
 
   public get oasDocument() {
     return this._oasDocument;
+  }
+
+  public setApiDocumentations() {
+    const apiNames = Array.from(
+      new Set(
+        Object.entries(this._oasBuilder.api.paths ?? {}).map(
+          ([path, operation]) => {
+            if (!operation) {
+              return;
+            }
+
+            const oasOperation = this._oasBuilder.operation(
+              path,
+              operation as unknown as HttpMethods
+            );
+
+            return oasOperation.getExtension(OASBuilder.X_FLIP_API_NAME);
+          }
+        )
+      )
+    ).filter(Boolean);
+
+    this.apiDocumentations = apiNames.map((apiName) => {
+      return {
+        title: apiName as string,
+        resources: [],
+      };
+    });
+
+    return this;
   }
 
   public setDescription() {

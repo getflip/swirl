@@ -60,7 +60,6 @@ export class FileOperator {
 
   private async deleteGlobalSpecs() {
     await this.deleteSpec("version-info.yml");
-    await this.deleteSpec("merged.yml");
   }
 
   private async deleteSpec(spec: string) {

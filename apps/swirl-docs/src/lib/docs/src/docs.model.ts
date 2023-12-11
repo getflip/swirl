@@ -144,6 +144,11 @@ export type ApiEndpoint = {
 
 export interface ApiDocumentation {
   title: string;
+  resources: Array<ApiResourceDocumentation>;
+}
+
+export interface ApiResourceDocumentation {
+  title: string;
   shortDescription: string;
   description: MDXRemoteSerializeResult;
   endpoints: Array<ApiEndpoint>;

@@ -1,4 +1,4 @@
-import { ApiDocumentation, ApiEndpoint } from "./docs.model";
+import { ApiResourceDocumentation, ApiEndpoint } from "./docs.model";
 
 import { EndpointMapper } from "./EndpointMapper";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -6,7 +6,7 @@ import OASBuilder from "./oasBuilder";
 import OASNormalize from "oas-normalize";
 import { serializeMarkdownString } from "./utils";
 
-export class ApiDocumentationFacade implements ApiDocumentation {
+export class ApiDocumentationFacade implements ApiResourceDocumentation {
   title: string = "";
   shortDescription: string = "";
   description: MDXRemoteSerializeResult =
@@ -22,7 +22,7 @@ export class ApiDocumentationFacade implements ApiDocumentation {
     this.endpointMapper = new EndpointMapper();
   }
 
-  async build(): Promise<ApiDocumentation> {
+  async build(): Promise<ApiResourceDocumentation> {
     console.log("Generating documentation for", this.specPath);
 
     const oasDocument = await new OASNormalize(this.specPath, {

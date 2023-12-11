@@ -1,13 +1,12 @@
 import {
   ApiResourceDocumentation,
-  createStaticPathsForSpecs,
+  createStaticPathsForSpec,
 } from "@swirl/lib/docs";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Heading, Text } from "src/components/swirl-recreations";
 
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
 import { ApiDocumentationFacade } from "@swirl/lib/docs/src/ApiDocumentationFacade";
-import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
 import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
 import Head from "next/head";
@@ -15,6 +14,7 @@ import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
 import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import { isProd } from "@swirl/lib/env";
 import { useRouter } from "next/router";
+import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 
 // STATIC GENERATION CODE
 async function generateSpecData(
@@ -28,7 +28,7 @@ async function generateSpecData(
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const specs = createStaticPathsForSpecs() ?? [];
+  const specs = (await createStaticPathsForSpec()) ?? [];
 
   return {
     fallback: false,

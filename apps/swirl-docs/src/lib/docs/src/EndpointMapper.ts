@@ -1,7 +1,7 @@
 import { SchemaObject } from "oas/dist/rmoas.types";
 import {
   Endpoint,
-  ApiDocumentation,
+  ApiResourceDocumentation,
   OperationSchemas,
   OperationSchemaObject,
   OperationParamType,
@@ -9,7 +9,7 @@ import {
 import OASBuilder from "./oasBuilder";
 
 export class EndpointMapper {
-  map(oasBuilder: OASBuilder): ApiDocumentation["endpoints"] {
+  map(oasBuilder: OASBuilder): ApiResourceDocumentation["endpoints"] {
     return oasBuilder.endpoints.map((endpoint) => {
       const responseBodySchemas = Object.entries(
         endpoint.operation.schema.responses || {}
@@ -18,7 +18,7 @@ export class EndpointMapper {
         statusCode,
       }));
 
-      const isEndpointExperimental: ApiDocumentation["endpoints"][0]["isExperimental"] =
+      const isEndpointExperimental: ApiResourceDocumentation["endpoints"][0]["isExperimental"] =
         (endpoint.operation.schema["x-experimental"] as boolean) ?? false;
 
       const requestSchemas = endpoint.operation.getParametersAsJSONSchema();
