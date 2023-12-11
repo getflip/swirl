@@ -11,6 +11,7 @@ export type NavItem = {
   children?: NavItem[];
   description?: string;
   specName?: string;
+  tag?: string;
 };
 
 export const CategoryEnum = {

@@ -1,21 +1,20 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import {
   Tag,
   mapHttpMethodToTagContent,
   mapHttpMethodToTagScheme,
 } from "../Tags";
-import { forwardRef, useEffect, useRef, useState } from "react";
 
-import { HttpMethods } from "oas/dist/rmoas.types";
-import Image from "next/image";
-import Link from "next/link";
+import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
 import { NavItem } from "@swirl/lib/navigation/";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
-import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import classNames from "classnames";
-import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
-import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
+import { HttpMethods } from "oas/dist/rmoas.types";
+import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
 
 const CategoryNavSubItem = ({
   navItem,
@@ -27,18 +26,6 @@ const CategoryNavSubItem = ({
   isCurrentlyInView: boolean;
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
-  const list = {
-    hidden: { opacity: 0, height: 0 },
-    show: {
-      height: "auto",
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.01,
-      },
-    },
-  };
 
   useEffect(() => {
     if (activePath.includes(navItem.url)) {
@@ -55,23 +42,32 @@ const CategoryNavSubItem = ({
           { "h-full": isExpanded }
         )}
       >
-        <div className="flex justify-between items-center h-10">
-          <Link
-            href={`${navItem.url}`}
-            className={classNames(
-              "text-sm capitalize w-full",
-              "hover:text-border-info",
-              {
-                "text-text-default": !isCurrentlyInView,
-                "text-border-info": isCurrentlyInView,
-              }
-            )}
-          >
-            <span>{navItem.title.replaceAll("-", " ")}</span>
-          </Link>
+        <div className="flex justify-between items-center h-10 py-2">
+          {navItem.isRoot ? (
+            <Link
+              href={`${navItem.url}`}
+              className={classNames(
+                "text-sm capitalize w-full",
+                "hover:text-border-info",
+                {
+                  "text-text-default": !isCurrentlyInView,
+                  "text-border-info": isCurrentlyInView,
+                  "font-semibold": navItem.isRoot,
+                }
+              )}
+            >
+              <span>{navItem.title.replaceAll("-", " ")}</span>
+            </Link>
+          ) : (
+            <WrappingAnchor
+              href={navItem.url}
+              item={navItem}
+              isCurrentPath={activePath.includes(navItem.url)}
+            />
+          )}
           {navItem.children && (
             <button
-              aria-label="Expand"
+              aria-label="Toggle"
               className="flex justify-center items-center text-text-subdued"
               onClick={() => setIsExpanded(!isExpanded)}
               aria-expanded={isExpanded}
@@ -92,8 +88,8 @@ const CategoryNavSubItem = ({
             </button>
           )}
         </div>
-        {navItem.children && (
-          <ul>
+        {navItem.children && isExpanded && (
+          <ul className="pl-4">
             {navItem.children.map((item) => (
               <CategoryNavSubItem
                 activePath={activePath}
@@ -104,38 +100,6 @@ const CategoryNavSubItem = ({
             ))}
           </ul>
         )}
-      </li>
-      <li>
-        <AnimatePresence>
-          {isExpanded && (
-            <motion.ul
-              className={classNames(
-                "flex flex-col gap-y-4",
-                "border-l-[1px] border-border-default overflow-hidden",
-                { "h-0": !isExpanded },
-                { "h-auto": isExpanded }
-              )}
-              initial="hidden"
-              exit={{ opacity: 0, height: 0 }}
-              animate={isExpanded ? "show" : "hidden"}
-              variants={list}
-            >
-              {navItem.children?.map((item, index) => {
-                const isCurrentPath = activePath.includes(item.url);
-
-                return (
-                  <motion.li key={index} className="flex items-center ml-6">
-                    <WrappingAnchor
-                      href={`${item.url}`}
-                      item={item}
-                      isCurrentPath={isCurrentPath}
-                    />
-                  </motion.li>
-                );
-              })}
-            </motion.ul>
-          )}
-        </AnimatePresence>
       </li>
     </>
   );
@@ -165,6 +129,7 @@ const WrappingAnchor = forwardRef<
         "flex",
         alignmentClass,
         "w-full",
+        "-ml-4",
         "text-sm capitalize leading-5",
         "hover:text-border-info",
         {
@@ -173,10 +138,10 @@ const WrappingAnchor = forwardRef<
         }
       )}
     >
-      {item.description && (
+      {item.tag && (
         <Tag
-          content={mapHttpMethodToTagContent(item.description!)}
-          scheme={mapHttpMethodToTagScheme(item.description as HttpMethods)}
+          content={mapHttpMethodToTagContent(item.tag)}
+          scheme={mapHttpMethodToTagScheme(item.tag as HttpMethods)}
           httpTag
         />
       )}
@@ -191,8 +156,6 @@ export function SidebarNavigation() {
   const { navigationLinks: categoryLinkList } = useDocumentationLayoutContext();
   const router = useRouter();
   const activePath = router.asPath;
-
-  console.log(categoryLinkList);
 
   return (
     <nav

@@ -65,8 +65,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
     children: api.resources.map((resource) => ({
       children: resource.endpoints.map((endpoint) => ({
         title: endpoint.title,
+        tag: endpoint.method,
         url: `/api-docs-2/${api.id}/${resource.id}#${endpoint.id}`,
       })),
+      isRoot: true,
       title: resource.title,
       url: `/api-docs-2/${api.id}/${resource.id}`,
     })),
@@ -141,7 +143,6 @@ export default function Document({
                   : "http://localhost:3000";
 
                 const path = `${host}${router.asPath}`;
-                const endpointId = endpoint.path.split("#")[1];
 
                 const initialResponseExampleStatus = Object.keys(
                   endpoint.responseExamples
@@ -155,7 +156,7 @@ export default function Document({
                     <div className="grid md:grid-cols-api-spec gap-[2.5rem] mb-20">
                       <EndpointDescription
                         endpoint={endpoint}
-                        endpointId={endpointId}
+                        endpointId={endpoint.id}
                         path={path}
                       />
                       <EndpointCodePreview

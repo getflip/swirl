@@ -132,6 +132,7 @@ export type ApiEndpoint = {
   title: string;
   description: string;
   path: string;
+  method?: HttpMethods;
   request: ReturnType<OASBuilder["generateRequest"]>;
   responseExamples: CodePreviewSelectOptions;
   responseBodySchemas: Array<ResponseBodySchema>;

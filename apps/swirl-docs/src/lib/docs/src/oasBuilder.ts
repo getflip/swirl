@@ -204,8 +204,10 @@ export default class OASBuilder implements IOASBuilder {
                   endpoints: {
                     ...(apiDocumentations[apiName]?.resources?.[resourceName]
                       ?.endpoints || {}),
-                    [operation.getOperationId()]:
-                      this.endpointMapper.mapEndpoint(operation, this),
+                    [operation.getOperationId()]: {
+                      ...this.endpointMapper.mapEndpoint(operation, this),
+                      method: pathItemObject as HttpMethods,
+                    },
                   },
                 },
               },

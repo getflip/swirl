@@ -9,7 +9,7 @@ import { EndpointParameterFactory } from "./ParameterFactory";
 
 interface EndpointDescription {
   endpoint: ApiEndpoint;
-  endpointId: string;
+  endpointId?: string;
   path: string;
 }
 
