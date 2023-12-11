@@ -92,6 +92,18 @@ const CategoryNavSubItem = ({
             </button>
           )}
         </div>
+        {navItem.children && (
+          <ul>
+            {navItem.children.map((item) => (
+              <CategoryNavSubItem
+                activePath={activePath}
+                isCurrentlyInView={false}
+                key={item.url}
+                navItem={item}
+              ></CategoryNavSubItem>
+            ))}
+          </ul>
+        )}
       </li>
       <li>
         <AnimatePresence>
@@ -180,6 +192,8 @@ export function SidebarNavigation() {
   const router = useRouter();
   const activePath = router.asPath;
 
+  console.log(categoryLinkList);
+
   return (
     <nav
       aria-label="category"
@@ -214,7 +228,7 @@ export function SidebarNavigation() {
             </h4>
           </div>
           <ul>
-            {apiSpecsNavItems?.map((navItem: NavItem, index) => {
+            {categoryLinkList?.map((navItem: NavItem, index) => {
               return (
                 <CategoryNavSubItem
                   isCurrentlyInView={activePath.includes(navItem.url)}
@@ -226,20 +240,6 @@ export function SidebarNavigation() {
             })}
           </ul>
         </>
-      )}
-      {!router.asPath.includes("/api-docs") && (
-        <ul className="mt-6">
-          {categoryLinkList?.map((navItem: NavItem, index) => {
-            return (
-              <CategoryNavSubItem
-                isCurrentlyInView={activePath.includes(navItem.url)}
-                key={navItem.title + `-${index}`}
-                navItem={navItem}
-                activePath={activePath}
-              />
-            );
-          })}
-        </ul>
       )}
 
       {router.asPath.includes("/api-docs") && (

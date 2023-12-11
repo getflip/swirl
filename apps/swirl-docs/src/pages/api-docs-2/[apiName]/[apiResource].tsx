@@ -7,7 +7,7 @@ import { Heading, Text } from "src/components/swirl-recreations";
 
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { isProd } from "@swirl/lib/env";
-import { API_SPEC_PATH } from "@swirl/lib/navigation";
+import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -59,9 +59,25 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return { notFound: true };
   }
 
+  const navItems: NavItem[] = apiDocumentations.map((api) => ({
+    title: api.title,
+    url: `/api-docs-2/${api.id}`,
+    children: api.resources.map((resource) => ({
+      children: resource.endpoints.map((endpoint) => ({
+        title: endpoint.title,
+        url: `/api-docs-2/${api.id}/${resource.id}#${endpoint.id}`,
+      })),
+      title: resource.title,
+      url: `/api-docs-2/${api.id}/${resource.id}`,
+    })),
+    description: "",
+    isRoot: true,
+  }));
+
   return {
     props: {
       document: JSON.parse(JSON.stringify(document)), // remove undefined values
+      navItems,
     },
   };
 };
@@ -69,8 +85,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 // CLIENT CODE
 export default function Document({
   document,
+  navItems,
 }: {
   document: ApiResourceDocumentation;
+  navItems: NavItem[];
 }) {
   const router = useRouter();
 
@@ -109,7 +127,7 @@ export default function Document({
             description: document.shortDescription,
             examples: [],
           },
-          navigationLinks: apiNavItems,
+          navigationLinks: navItems,
         }}
         disableToc
         header={<DocumentationLayout.Header className="col-span-2" />}

@@ -66,6 +66,7 @@ export class EndpointMapper {
 
     const requestSchemas = operation.getParametersAsJSONSchema();
     return {
+      id: operation.getOperationId(),
       title: operation.getSummary(),
       description: operation.getDescription() || "",
       path: operation.path,
