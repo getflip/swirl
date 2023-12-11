@@ -15,11 +15,18 @@ export async function createStaticPathsForSpec(): Promise<
 
   const oasBuilderDereffed = oasBuilder.setApiDocumentations();
 
-  return [
-    {
-      params: {},
-    },
-  ];
+  const paths = oasBuilderDereffed.apiDocumentations
+    .map((api) =>
+      api.resources.map((resource) => ({
+        params: {
+          apiName: api.id,
+          apiResource: resource.id,
+        },
+      }))
+    )
+    .flat();
+
+  return paths;
 }
 
 function isYamlFile(file: string) {

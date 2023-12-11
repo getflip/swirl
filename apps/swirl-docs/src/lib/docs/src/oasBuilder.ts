@@ -1,3 +1,6 @@
+import oasToHar from "@readme/oas-to-har";
+import { SupportedTargets, oasToSnippet } from "@readme/oas-to-snippet";
+import { Request } from "har-format";
 import Oas, { Operation } from "oas";
 import {
   HttpMethods,
@@ -5,12 +8,14 @@ import {
   PathsObject,
   SchemaObject,
 } from "oas/dist/rmoas.types";
-import oasToHar from "@readme/oas-to-har";
-import { oasToSnippet } from "@readme/oas-to-snippet";
-import { SupportedTargets } from "@readme/oas-to-snippet";
-import { Request } from "har-format";
-import { ApiDocumentation, Endpoint, Operations } from "./docs.model";
 import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
+import { EndpointMapper } from "./EndpointMapper";
+import {
+  ApiDocumentation,
+  ApiEndpoint,
+  Endpoint,
+  Operations,
+} from "./docs.model";
 
 interface IOASBuilder {
   title: string;
@@ -43,8 +48,10 @@ type EndpointWithDetails = Endpoint & {
 
 export default class OASBuilder implements IOASBuilder {
   private static X_FLIP_API_NAME = "x-flip-api-name";
+  private static X_FLIP_RESOURCE_NAME = "x-flip-resource-name";
   private _oasDocument: OASDocument = {} as OASDocument;
   private _oas: Oas = new Oas({} as OASDocument);
+  private endpointMapper = new EndpointMapper();
 
   public title: string = "";
   public shortDescription: string = "";
@@ -143,38 +150,83 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   public setApiDocumentations() {
-    const apiNames = Array.from(
-      new Set(
-        Object.entries(this._oas.api.paths ?? {}).map(
-          ([path, pathItemObject]) => {
-            if (!pathItemObject) {
+    const apiDocumentations: {
+      [apiName: string]: {
+        id: string;
+        resources: {
+          [resourceName: string]: {
+            id: string;
+            endpoints: { [endpointName: string]: ApiEndpoint };
+          };
+        };
+      };
+    } = {};
+
+    Object.entries(this._oas.api.paths ?? {}).forEach(
+      ([path, pathItemObject]) => {
+        if (!pathItemObject) {
+          return;
+        }
+
+        Object.keys(pathItemObject)
+          .filter((method) => method !== "parameters")
+          .forEach((pathItemObject) => {
+            const operation = this._oas.operation(
+              path,
+              pathItemObject as HttpMethods
+            );
+
+            const apiName = operation.getExtension(
+              OASBuilder.X_FLIP_API_NAME
+            ) as string;
+
+            if (!apiName) {
               return;
             }
 
-            const firstPathItemMethod = Object.keys(pathItemObject).filter(
-              (method) => method !== "parameters"
-            )[0];
+            const resourceName = operation.getExtension(
+              OASBuilder.X_FLIP_RESOURCE_NAME
+            ) as string;
 
-            if (!firstPathItemMethod) {
+            if (!resourceName) {
               return;
             }
 
-            return this._oas
-              .operation(path, firstPathItemMethod as HttpMethods)
-              .getExtension(OASBuilder.X_FLIP_API_NAME);
-          }
-        )
-      )
-    ).filter(Boolean);
+            apiDocumentations[apiName] = {
+              ...apiDocumentations[apiName],
+              id: apiName,
+              resources: {
+                ...apiDocumentations[apiName]?.resources,
+                [resourceName]: {
+                  ...(apiDocumentations[apiName]?.resources?.[resourceName] ||
+                    {}),
+                  id: resourceName,
+                  endpoints: {
+                    ...(apiDocumentations[apiName]?.resources?.[resourceName]
+                      ?.endpoints || {}),
+                    [operation.getOperationId()]:
+                      this.endpointMapper.mapEndpoint(operation, this),
+                  },
+                },
+              },
+            };
+          });
+      }
+    );
 
-    // go through each method and allocate the resource to the correct api name and resource name
-
-    // final return
-    this.apiDocumentations = apiNames
-      .map((extensionApiName) => {
+    this.apiDocumentations = Object.entries(apiDocumentations)
+      .map(([apiName, api]) => {
         return {
-          title: this.getApiNameFromExtension(extensionApiName as string),
-          resources: [],
+          id: api.id,
+          title: this.getDisplayNameFromExtension(apiName),
+          resources: Object.entries(api.resources).map(
+            ([resourceName, resource]) => ({
+              id: resource.id,
+              title: this.getDisplayNameFromExtension(resourceName),
+              shortDescription: "",
+              endpoints: Object.values(resource.endpoints),
+            })
+          ),
         };
       })
       .sort((a, b) => a.title.localeCompare(b.title));
@@ -182,7 +234,7 @@ export default class OASBuilder implements IOASBuilder {
     return this;
   }
 
-  private getApiNameFromExtension(extension: string) {
+  private getDisplayNameFromExtension(extension: string) {
     return extension
       .split("-")
       .map((word) => word[0].toUpperCase() + word.slice(1))

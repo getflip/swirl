@@ -6,7 +6,7 @@ import { createContext, useContext } from "react";
 
 export type TDocumentationLayout = {
   mdxContent?: {
-    document: MDXRemoteSerializeResult;
+    document?: MDXRemoteSerializeResult;
     components?: MDXRemoteProps["components"];
   };
   navigationLinks?: NavItem[];

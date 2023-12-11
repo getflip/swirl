@@ -5,28 +5,18 @@ import {
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Heading, Text } from "src/components/swirl-recreations";
 
+import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
+import { isProd } from "@swirl/lib/env";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
-import { ApiDocumentationFacade } from "@swirl/lib/docs/src/ApiDocumentationFacade";
+import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import OASNormalize from "oas-normalize";
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
 import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
-import Head from "next/head";
-import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
-import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
-import { isProd } from "@swirl/lib/env";
-import { useRouter } from "next/router";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 
 // STATIC GENERATION CODE
-async function generateSpecData(
-  spec: string
-): Promise<ApiResourceDocumentation> {
-  const navItem = apiSpecsNavItems.find((item) => item.url.includes(spec));
-  const specName = navItem?.specName;
-  const specPath = `${API_SPEC_PATH}/${specName}`;
-
-  return await new ApiDocumentationFacade(specPath).build();
-}
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const specs = (await createStaticPathsForSpec()) ?? [];
 
@@ -41,14 +31,33 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return { notFound: true };
   }
 
-  if (!context.params || !("apiSpec" in context.params)) {
+  if (
+    !context.params ||
+    !("apiName" in context.params) ||
+    !("apiResource" in context.params)
+  ) {
     return {
       notFound: true,
     };
   }
 
-  const { apiSpec } = context.params;
-  const document = await generateSpecData(apiSpec as string);
+  // TODO: singleton for apiDocumentations
+  const oasDocument = await new OASNormalize(`${API_SPEC_PATH}/merged.yml`, {
+    enablePaths: true,
+  }).validate();
+
+  const oasBuilder = await new OASBuilder(oasDocument).dereference();
+  const apiDocumentations = oasBuilder.setApiDocumentations().apiDocumentations;
+
+  const { apiName, apiResource } = context.params;
+
+  const document: ApiResourceDocumentation | undefined = apiDocumentations
+    .find((api) => api.id === apiName)
+    ?.resources.find((resource) => resource.id === apiResource);
+
+  if (!document) {
+    return { notFound: true };
+  }
 
   return {
     props: {
