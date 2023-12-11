@@ -126,7 +126,10 @@ export const CommandPalette = () => {
           />
 
           <Command.List className="max-h-[36rem] overflow-y-auto">
-            <CustomHits currentSearchString={searchString} />
+            <CustomHits
+              currentSearchString={searchString}
+              onSelected={() => setOpen(false)}
+            />
           </Command.List>
         </InstantSearch>
       </Command.Dialog>
