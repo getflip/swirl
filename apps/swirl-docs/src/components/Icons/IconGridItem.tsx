@@ -75,22 +75,24 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
       </DesktopView>
       <MobileView>
         <div role={role}>
-          <a
-            id={`icon-popover-trigger`}
-            tabIndex={index === 0 ? 0 : -1}
-            ref={reference}
-            href={`#${icons[icon]?.name}`}
-            className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
-            onKeyDown={(event) => handleKeyDown(event)}
-            onClick={() => {
-              handleTileClick(icons[icon]?.name);
-            }}
-          >
-            <i
-              className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
-            ></i>
-            <IconName />
-          </a>
+          <SwirlPopoverTrigger popover="icon-popover">
+            <a
+              id={`icon-popover-trigger`}
+              tabIndex={index === 0 ? 0 : -1}
+              ref={reference}
+              href={`#${icons[icon]?.name}`}
+              className="flex flex-col justify-center items-center py-4 border-1 rounded-lg"
+              onKeyDown={(event) => handleKeyDown(event)}
+              onClick={() => {
+                handleTileClick(icons[icon]?.name);
+              }}
+            >
+              <i
+                className={`swirl-icons-${icons[icon]?.name}28 text-icon-strong`}
+              ></i>
+              <IconName />
+            </a>
+          </SwirlPopoverTrigger>
         </div>
       </MobileView>
     </NoSsr>
