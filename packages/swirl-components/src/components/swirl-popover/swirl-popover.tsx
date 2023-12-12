@@ -117,7 +117,7 @@ export class SwirlPopover {
 
   @Listen("click", { target: "window" })
   onWindowClick(event: MouseEvent) {
-    if (!this.active) {
+    if (!this.active || this.closing) {
       return;
     }
 
@@ -133,7 +133,8 @@ export class SwirlPopover {
           : false
       );
 
-    const clickedTrigger = target === this.triggerEl;
+    const clickedTrigger =
+      target === this.triggerEl || this.triggerEl.contains(target);
 
     if (!clickedChild && !clickedShadowChild && !clickedTrigger) {
       this.close();

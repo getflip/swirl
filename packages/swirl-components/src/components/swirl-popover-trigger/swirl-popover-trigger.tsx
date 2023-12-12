@@ -39,9 +39,7 @@ export class SwirlPopoverTrigger {
     return this.el.children[0] as HTMLElement;
   }
 
-  private onClick = (event: Event) => {
-    event.stopPropagation();
-
+  private onClick = () => {
     const popoverEl = this.getPopoverEl();
 
     if (!Boolean(popoverEl)) {
