@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.118.2
+
+### Patch Changes
+
+- [#483](https://github.com/getflip/swirl/pull/483)
+  [`6c0affef`](https://github.com/getflip/swirl/commit/6c0affef835427fd76852dfa16b86d0b85a673a6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Do not stop propagation for
+  swirl-popover-trigger click events
+
+- Updated dependencies
+  [[`6c0affef`](https://github.com/getflip/swirl/commit/6c0affef835427fd76852dfa16b86d0b85a673a6)]:
+  - @getflip/swirl-components@0.118.2
+
 ## 0.118.1
 
 ### Patch Changes
