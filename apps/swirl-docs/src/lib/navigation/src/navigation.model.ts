@@ -15,6 +15,7 @@ export type NavItem = {
 };
 
 export const CategoryEnum = {
+  API: "APIs and References",
   FOUNDATIONS: "Foundations",
   COMPONENTS: "Components",
   TOKENS: "Design Tokens",

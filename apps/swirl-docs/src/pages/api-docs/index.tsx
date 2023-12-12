@@ -1,16 +1,10 @@
-import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
+import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
+import { NavItem } from "@swirl/lib/navigation";
 import Head from "next/head";
 import { GetStaticProps } from "next/types";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 
-const ApiDocs = () => {
-  const codeExample = `
-  curl --request GET
-  --url 'http://localhost:3000/app-compatibility?app_type=DESKTOP&device_type=MOBILE&os_family=IOS'
-  --header 'Accept-Language: '
-  --header 'Content-Type: application/json'
-  `;
-
+const ApiDocs = ({ navItems }: { navItems: NavItem[] }) => {
   return (
     <>
       <Head>
@@ -18,7 +12,7 @@ const ApiDocs = () => {
       </Head>
       <DocumentationLayout
         data={{
-          navigationLinks: apiSpecsNavItems,
+          navigationLinks: navItems,
         }}
         content={
           <div className="flex">
@@ -36,8 +30,12 @@ const ApiDocs = () => {
 };
 
 export const getStaticProps: GetStaticProps<{}> = async () => {
+  const navItems = await ApiDocumentationsFacade.navItems;
+
   return {
-    props: {},
+    props: {
+      navItems,
+    },
   };
 };
 

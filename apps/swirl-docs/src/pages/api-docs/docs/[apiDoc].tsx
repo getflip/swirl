@@ -1,16 +1,16 @@
-import { H2, H3, H4 } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { H2, H3, H4 } from "src/components/Navigation/LinkedHeaders";
 
-import { CodePreview } from "src/components/CodePreview";
-import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
+import { createStaticPathsData } from "@swirl/lib/docs";
+import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
 import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
+import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
+import { NavItem } from "@swirl/lib/navigation";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import { ScriptProps } from "next/script";
+import { CodePreview } from "src/components/CodePreview";
+import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { Text } from "src/components/swirl-recreations";
-import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
-import { createStaticPathsData } from "@swirl/lib/docs";
-import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
@@ -33,11 +33,10 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps: GetStaticProps<
-  ScriptProps,
-  { componentDoc: string }
-> = async (context: any) => {
+export const getStaticProps: GetStaticProps = async (context: any) => {
   const { apiDoc } = context.params;
+
+  const navItems = await ApiDocumentationsFacade.navItems;
 
   try {
     const data = await getComponentData(apiDoc);
@@ -45,11 +44,10 @@ export const getStaticProps: GetStaticProps<
       props: {
         document: data.document,
         frontMatter: data.frontMatter,
-        title: apiDoc,
+        navItems,
       },
     };
   } catch (error) {
-    console.error(error);
     return {
       notFound: true,
     };
@@ -59,14 +57,14 @@ export const getStaticProps: GetStaticProps<
 export default function Component({
   document,
   frontMatter,
-  title,
+  navItems,
 }: {
-  title: string;
   document: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, string>
   >;
   frontMatter: FrontMatter; // TODO: Frontmatter could be put in document
+  navItems: NavItem[];
 }) {
   return (
     <>
@@ -80,7 +78,7 @@ export default function Component({
             document,
             components: generateMdxThemeComponents(),
           },
-          navigationLinks: apiNavItems,
+          navigationLinks: navItems,
           frontMatter,
         }}
         header={<DocumentationLayout.Header />}

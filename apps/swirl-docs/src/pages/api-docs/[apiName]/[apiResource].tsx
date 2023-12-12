@@ -14,6 +14,7 @@ import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePr
 import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { useRouter } from "next/router";
+import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
 
 // STATIC GENERATION CODE
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -58,22 +59,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return { notFound: true };
   }
 
-  const navItems: NavItem[] = apiDocumentations.map((api) => ({
-    title: api.title,
-    url: `/api-docs-2/${api.id}/${api.resources[0].id}`,
-    children: api.resources.map((resource) => ({
-      children: resource.endpoints.map((endpoint) => ({
-        title: endpoint.title,
-        tag: endpoint.method,
-        url: `/api-docs-2/${api.id}/${resource.id}#${endpoint.id}`,
-      })),
-      isRoot: true,
-      title: resource.title,
-      url: `/api-docs-2/${api.id}/${resource.id}`,
-    })),
-    description: "",
-    isRoot: true,
-  }));
+  const navItems = await ApiDocumentationsFacade.navItems;
 
   return {
     props: {

@@ -27,19 +27,23 @@ const CategoryNavSubItem = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  useEffect(() => {
-    const activePathWithoutHash = activePath.split("#")[0] + "/";
-    const navItemPath = navItem.url.split("#")[0] + "/";
+  const activePathWithoutHash = activePath.split("#")[0] + "/";
+  const navItemPath = navItem.url.split("#")[0] + "/";
 
-    if (activePathWithoutHash.startsWith(navItemPath)) {
-      setIsExpanded(true);
-    }
-  }, [navItem.url, activePath]);
+  const isActive =
+    activePathWithoutHash.startsWith(navItemPath) ||
+    (navItem.children || []).some((child) =>
+      activePathWithoutHash.startsWith(child.url.split("#")[0] + "/")
+    );
+
+  useEffect(() => {
+    setIsExpanded(isActive);
+  }, [isActive]);
 
   return (
     <>
       <li className={classNames("flex flex-col justify-center")}>
-        <div className="flex justify-between items-center h-10 py-2">
+        <div className="flex justify-between items-center py-2">
           {navItem.isRoot ? (
             <Link
               href={`${navItem.url}`}
@@ -49,7 +53,7 @@ const CategoryNavSubItem = ({
                 {
                   "text-text-default": !isCurrentlyInView,
                   "text-border-info": isCurrentlyInView,
-                  "font-semibold": navItem.isRoot,
+                  "font-semibold": isActive,
                 }
               )}
             >
@@ -134,12 +138,12 @@ const WrappingAnchor = forwardRef<
         "flex",
         alignmentClass,
         "w-full",
-        "-ml-4",
         "text-sm capitalize leading-5",
         "hover:text-border-info",
         {
           "text-border-info": isCurrentPath,
           "text-text-default": !isCurrentPath,
+          "-ml-4": item.tag,
         }
       )}
     >
@@ -231,6 +235,21 @@ export function SidebarNavigation() {
             </ul>
           </div>
         </>
+      )}
+
+      {!router.asPath.includes("/api-docs") && (
+        <ul className="mt-6">
+          {categoryLinkList?.map((navItem: NavItem, index) => {
+            return (
+              <CategoryNavSubItem
+                isCurrentlyInView={activePath.includes(navItem.url)}
+                key={navItem.title + `-${index}`}
+                navItem={navItem}
+                activePath={activePath}
+              />
+            );
+          })}
+        </ul>
       )}
     </nav>
   );
