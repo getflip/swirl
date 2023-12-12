@@ -8,7 +8,6 @@ import { Heading, Text } from "src/components/swirl-recreations";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { isProd } from "@swirl/lib/env";
 import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
-import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import OASNormalize from "oas-normalize";
@@ -61,7 +60,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const navItems: NavItem[] = apiDocumentations.map((api) => ({
     title: api.title,
-    url: `/api-docs-2/${api.id}`,
+    url: `/api-docs-2/${api.id}/${api.resources[0].id}`,
     children: api.resources.map((resource) => ({
       children: resource.endpoints.map((endpoint) => ({
         title: endpoint.title,

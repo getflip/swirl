@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import {
   Tag,
@@ -15,6 +14,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { HttpMethods } from "oas/dist/rmoas.types";
 import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
+import { AnimatePresence, motion } from "framer-motion";
 
 const CategoryNavSubItem = ({
   navItem,
@@ -28,20 +28,17 @@ const CategoryNavSubItem = ({
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
-    if (activePath.includes(navItem.url)) {
+    const activePathWithoutHash = activePath.split("#")[0] + "/";
+    const navItemPath = navItem.url.split("#")[0] + "/";
+
+    if (activePathWithoutHash.startsWith(navItemPath)) {
       setIsExpanded(true);
     }
   }, [navItem.url, activePath]);
 
   return (
     <>
-      <li
-        className={classNames(
-          "flex flex-col justify-center",
-          { "h-10 max-h-10": !isExpanded },
-          { "h-full": isExpanded }
-        )}
-      >
+      <li className={classNames("flex flex-col justify-center")}>
         <div className="flex justify-between items-center h-10 py-2">
           {navItem.isRoot ? (
             <Link
@@ -88,18 +85,26 @@ const CategoryNavSubItem = ({
             </button>
           )}
         </div>
-        {navItem.children && isExpanded && (
-          <ul className="pl-4">
-            {navItem.children.map((item) => (
-              <CategoryNavSubItem
-                activePath={activePath}
-                isCurrentlyInView={false}
-                key={item.url}
-                navItem={item}
-              ></CategoryNavSubItem>
-            ))}
-          </ul>
-        )}
+        <AnimatePresence>
+          {navItem.children && isExpanded && (
+            <motion.ul
+              className="pl-4"
+              key={navItem.url + "-children"}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+            >
+              {navItem.children.map((item) => (
+                <CategoryNavSubItem
+                  activePath={activePath}
+                  isCurrentlyInView={false}
+                  key={item.url}
+                  navItem={item}
+                ></CategoryNavSubItem>
+              ))}
+            </motion.ul>
+          )}
+        </AnimatePresence>
       </li>
     </>
   );
