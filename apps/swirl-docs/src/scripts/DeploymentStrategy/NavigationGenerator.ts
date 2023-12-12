@@ -23,9 +23,7 @@ export class ApiSpecsNavigationGenerator
           ?.map((navItem) => JSON.stringify(navItem))
           .join(",");
 
-        const apiSpecsData = dataString
-          ? this.createDataString(dataString)
-          : "";
+        const apiSpecsData = this.createDataString(dataString || "");
 
         fs.writeFileSync(
           "./src/lib/navigation/src/data/apiSpecs.data.ts",
