@@ -15,14 +15,7 @@ export class FileFetcher {
   private fileSystemHandler = new FileSystemHandler();
 
   async fetchFiles() {
-    const specs = await this.gitlabAPI.fetchFileList("spec");
-    const specFiles = specs?.filter((spec) => spec.type === "blob");
-
-    if (specFiles) {
-      await Promise.all(
-        specFiles.map(async (spec) => await this.fetchSpecFiles(spec))
-      );
-    }
+    await this.fetchSpecFile();
 
     const docs = await this.gitlabAPI.fetchFileList("docs");
 
@@ -31,7 +24,7 @@ export class FileFetcher {
     }
   }
 
-  private async fetchDocFiles(doc: string, root?: string) {
+  private async fetchDocFile(doc: string, root?: string) {
     const docData = await this.gitlabAPI.fetchDocData(doc);
     let docPath = "./src/documents/api";
 
@@ -46,12 +39,10 @@ export class FileFetcher {
     this.fileSystemHandler.writeToFile(path.join("./", docPath), docData);
   }
 
-  private async fetchSpecFiles(spec: RepositoryTreeItem) {
-    const specData = await this.gitlabAPI.fetchSpecData(spec);
-    const specPath = `./specs/${spec.name.replace(".yaml", ".yml")}`;
-
+  private async fetchSpecFile() {
+    const specData = await this.gitlabAPI.fetchMergedYml();
     this.fileSystemHandler.checkAndCreateDir(path.join(".", "specs"));
-    this.fileSystemHandler.writeToFile(specPath, specData);
+    this.fileSystemHandler.writeToFile("./specs/merged.yml", specData);
   }
 
   private async processFileOrTree(
@@ -59,7 +50,7 @@ export class FileFetcher {
     root?: string
   ): Promise<any> {
     if (item.type === "blob") {
-      return this.fetchDocFiles(item.path, root);
+      return this.fetchDocFile(item.path, root);
     }
 
     if (item.type === "tree") {

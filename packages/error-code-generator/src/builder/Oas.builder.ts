@@ -74,12 +74,12 @@ export default class OASBuilder implements IOASBuilder {
     for (const path in this.paths) {
       const operationInPaths = this.paths[path];
 
-      const operations = Object.keys(operationInPaths ?? {}).filter(
-        (operation) => operation !== "parameters"
+      const methods = Object.keys(operationInPaths ?? {}).filter(
+        (method) => method !== "parameters",
       ) as HttpMethods[];
 
-      operations.forEach((operation) => {
-        const oasOperation = this._oasBuilder.operation(path, operation);
+      methods.forEach((method) => {
+        const oasOperation = this._oasBuilder.operation(path, method);
 
         if (typeof oasOperation.schema.tags?.[0] === "string") {
           const tag = oasOperation.schema.tags?.[0] as string;
@@ -92,7 +92,7 @@ export default class OASBuilder implements IOASBuilder {
             title: oasOperation.getSummary(),
             operation: oasOperation,
             errorCodes: oasOperation.getExtension(
-              "x-flip-error-codes"
+              "x-flip-error-codes",
             ) as Endpoint["errorCodes"],
           });
         }

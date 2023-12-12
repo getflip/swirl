@@ -19,7 +19,7 @@ const nextConfig = {
     defaultLocale: "en",
   },
   env: {
-    PASSWORD_PROTECT: true,
+    PASSWORD_PROTECT: "true",
   },
   // output: "standalone",
 };

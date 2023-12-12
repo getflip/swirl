@@ -1,29 +1,26 @@
-import { ApiDocumentation, createStaticPathsForSpecs } from "@swirl/lib/docs";
+import {
+  ApiResourceDocumentation,
+  createStaticPathsForSpec,
+  serializeMarkdownString,
+} from "@swirl/lib/docs";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Heading, Text } from "src/components/swirl-recreations";
 
-import { API_SPEC_PATH } from "@swirl/lib/navigation";
-import { ApiDocumentationFacade } from "@swirl/lib/docs/src/ApiDocumentationFacade";
-import { DocumentationLayout } from "../../components/Layout/DocumentationLayout";
+import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
+import { isProd } from "@swirl/lib/env";
+import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
+import Head from "next/head";
+import OASNormalize from "oas-normalize";
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
 import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
-import Head from "next/head";
-import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
-import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
-import { isProd } from "@swirl/lib/env";
+import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { useRouter } from "next/router";
+import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
-// SERVER CODE
-async function generateSpecData(spec: string): Promise<ApiDocumentation> {
-  const navItem = apiSpecsNavItems.find((item) => item.url.includes(spec));
-  const specName = navItem?.specName;
-  const specPath = `${API_SPEC_PATH}/${specName}`;
-
-  return await new ApiDocumentationFacade(specPath).build();
-}
-
+// STATIC GENERATION CODE
 export const getStaticPaths: GetStaticPaths = async () => {
-  const specs = createStaticPathsForSpecs() ?? [];
+  const specs = (await createStaticPathsForSpec()) ?? [];
 
   return {
     fallback: false,
@@ -36,24 +33,55 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return { notFound: true };
   }
 
-  if (!context.params || !("apiSpec" in context.params)) {
+  if (
+    !context.params ||
+    !("apiName" in context.params) ||
+    !("apiResource" in context.params)
+  ) {
     return {
       notFound: true,
     };
   }
 
-  const { apiSpec } = context.params;
-  const document = await generateSpecData(apiSpec as string);
+  // TODO: singleton for apiDocumentations
+  const oasDocument = await new OASNormalize(`${API_SPEC_PATH}/merged.yml`, {
+    enablePaths: true,
+  }).validate();
+
+  const oasBuilder = await new OASBuilder(oasDocument).dereference();
+  const apiDocumentations = oasBuilder.setApiDocumentations().apiDocumentations;
+
+  const { apiName, apiResource } = context.params;
+
+  const document: ApiResourceDocumentation | undefined = apiDocumentations
+    .find((api) => api.id === apiName)
+    ?.resources.find((resource) => resource.id === apiResource);
+
+  if (!document) {
+    return { notFound: true };
+  }
+
+  const navItems = await ApiDocumentationsFacade.navItems;
 
   return {
     props: {
       document: JSON.parse(JSON.stringify(document)), // remove undefined values
+      description: await serializeMarkdownString(""),
+      navItems,
     },
   };
 };
 
 // CLIENT CODE
-export default function Document({ document }: { document: ApiDocumentation }) {
+export default function Document({
+  document,
+  description,
+  navItems,
+}: {
+  document: ApiResourceDocumentation;
+  description: MDXRemoteSerializeResult;
+  navItems: NavItem[];
+}) {
   const router = useRouter();
 
   return (
@@ -64,7 +92,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
       <DocumentationLayout
         data={{
           mdxContent: {
-            document: document.description,
+            document: description,
             components: {
               h1: (props) => <Heading level={1} {...props} />,
               h2: (props) => <Heading level={2} {...props} />,
@@ -91,7 +119,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
             description: document.shortDescription,
             examples: [],
           },
-          navigationLinks: apiNavItems,
+          navigationLinks: navItems,
         }}
         disableToc
         header={<DocumentationLayout.Header className="col-span-2" />}
@@ -105,10 +133,9 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                   : "http://localhost:3000";
 
                 const path = `${host}${router.asPath}`;
-                const endpointId = endpoint.path.split("#")[1];
 
                 const initialResponseExampleStatus = Object.keys(
-                  endpoint.responseExamples,
+                  endpoint.responseExamples
                 )[0];
 
                 return (
@@ -119,7 +146,7 @@ export default function Document({ document }: { document: ApiDocumentation }) {
                     <div className="grid md:grid-cols-api-spec gap-[2.5rem] mb-20">
                       <EndpointDescription
                         endpoint={endpoint}
-                        endpointId={endpointId}
+                        endpointId={endpoint.id}
                         path={path}
                       />
                       <EndpointCodePreview

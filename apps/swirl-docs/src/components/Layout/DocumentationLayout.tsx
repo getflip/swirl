@@ -8,8 +8,9 @@ import classNames from "classnames";
 import DocumentationLayoutContext, {
   TDocumentationLayout,
 } from "./DocumentationLayoutContext";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import MDXDocument from "./MDXDocument";
+import { useRouter } from "next/router";
 
 type DocumentationLayoutProps = {
   data: TDocumentationLayout;
@@ -26,6 +27,21 @@ export function DocumentationLayout({
 }: DocumentationLayoutProps) {
   const [tocItems] = useToC(data.mdxContent?.document!, false);
 
+  const scrollContainer = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    function handler() {
+      scrollContainer.current?.scrollTo(0, 0);
+    }
+
+    router.events.on("routeChangeComplete", handler);
+
+    return () => {
+      router.events.off("routeChangeComplete", handler);
+    };
+  }, [router.events]);
+
   return (
     <DocumentationLayoutContext.Provider value={data}>
       <div className="grid grid-cols-1 lg:grid-cols-documentation-layout h-full overflow-hidden">
@@ -35,6 +51,7 @@ export function DocumentationLayout({
             "flex flex-col items-center justify-between",
             "w-full h-full overflow-auto scroll-p-4"
           )}
+          ref={scrollContainer}
         >
           <main
             id="main"

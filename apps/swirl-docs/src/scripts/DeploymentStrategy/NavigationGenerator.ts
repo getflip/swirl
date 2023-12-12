@@ -1,7 +1,6 @@
 import { API_DOCS_PATH, API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 
-import OASBuilder from "@swirl/lib/docs/src/oasBuilderSetup";
-import OASNormalize from "oas-normalize";
+import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
 import fs from "fs";
 import path from "path";
 import prettier from "prettier";
@@ -18,18 +17,13 @@ export class ApiSpecsNavigationGenerator
     console.log("Generating API Spec Navigation...");
     try {
       if (fs.existsSync(API_SPEC_PATH)) {
-        const specs = fs
-          .readdirSync(API_SPEC_PATH)
-          .filter((file) => file.includes(".yml"));
+        const apiNavItem = await this.generateAPINavItem();
 
-        const navItems = await Promise.all(
-          specs.map(async (spec) => await this.generateNavItems(spec))
-        );
-
-        const dataString = navItems
-          .map((navItem) => JSON.stringify(navItem))
+        const dataString = apiNavItem.children
+          ?.map((navItem) => JSON.stringify(navItem))
           .join(",");
-        const apiSpecsData = this.createDataString(dataString);
+
+        const apiSpecsData = this.createDataString(dataString || "");
 
         fs.writeFileSync(
           "./src/lib/navigation/src/data/apiSpecs.data.ts",
@@ -54,42 +48,14 @@ export class ApiSpecsNavigationGenerator
     `;
   }
 
-  private async generateNavItems(specName: string): Promise<NavItem> {
-    console.log("Generating navigation for", specName);
-
-    const specPath = path.resolve(`${API_SPEC_PATH}/${specName}`);
-
-    if (!fs.existsSync(specPath)) {
-      throw new Error(`Spec ${specName} does not exist. Moving on...`);
-    }
-
-    const oasDocument = await new OASNormalize(specPath, {
-      enablePaths: true,
-    }).validate();
-
-    const oasBuilder = await new OASBuilder(oasDocument).dereference();
-
-    const oasBuilderDereffed = oasBuilder
-      .setTitleAndPath()
-      .setDescription()
-      .setEndpoints()
-      .setOperations()
-      .setTags();
-
-    const operationNavItems: NavItem[] =
-      oasBuilderDereffed.operationsList?.map((endpoint) => ({
-        title: endpoint.title,
-        url: `/api-docs${endpoint.path}`,
-        description: endpoint.operation.method,
-        isRoot: false,
-      })) || [];
+  private async generateAPINavItem(): Promise<NavItem> {
+    console.log("Generating navigation for API");
 
     return {
-      title: oasBuilderDereffed.title.replace("API", "").trim(),
-      url: `/api-docs/${oasBuilderDereffed.path}`,
+      title: "API",
+      url: `/api-docs`,
       isRoot: true,
-      children: operationNavItems,
-      specName,
+      children: await ApiDocumentationsFacade.navItems,
     };
   }
 }
@@ -142,28 +108,7 @@ export class ApiDocsNavigationGenerator implements NavigationGeneratorStrategy {
 
     const items = filteredPaths.map((pathItem) => {
       const fullPath = rootPath ? `${rootPath}/${pathItem}` : pathItem;
-      const absolutePath = path.join(API_DOCS_PATH, fullPath);
-
-      const isSubdirectory = fs.statSync(absolutePath).isDirectory();
-
-      // for now no subdirectories
-      if (isSubdirectory && !rootPath) {
-        console.log("subdirectories currently not supported", fullPath);
-        // const subdirectoryPaths = fs.readdirSync(absolutePath);
-        // const children = generateFileList(subdirectoryPaths, fullPath);
-
-        // // Here, consider the directory itself as a NavItem and the files in it as children.
-        // return {
-        //   title: path.basename(fullPath),
-        //   url: `/api-docs/docs/${fullPath}`,
-        //   isRoot: rootPath ? false : true,
-        //   children,
-        // };
-      }
-
-      if (!isSubdirectory) {
-        return this.generateNavItems(fullPath);
-      }
+      return this.generateNavItems(fullPath);
     }) as NavItem[];
 
     return items;
