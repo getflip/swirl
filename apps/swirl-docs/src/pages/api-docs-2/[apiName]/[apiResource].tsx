@@ -9,11 +9,11 @@ import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { isProd } from "@swirl/lib/env";
 import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import OASNormalize from "oas-normalize";
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
 import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
+import { useRouter } from "next/router";
 
 // STATIC GENERATION CODE
 export const getStaticPaths: GetStaticPaths = async () => {
