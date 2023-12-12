@@ -1,17 +1,16 @@
-import fs from "fs";
-import { GetStaticPathsResult } from "next";
 import {
   API_SPEC_PATH,
   generateDocumentationPath,
   generatePagesPath,
 } from "@swirl/lib/navigation";
 import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
+import fs from "fs";
+import { GetStaticPathsResult } from "next";
 import {
+  DOCUMENTATION_SRC,
   DocCategory,
   Document,
   DocumentationCategory,
-  DOCUMENTATION_SRC,
-  StaticPathMapType,
 } from "./docs.model";
 
 export const StaticPathMap = {

@@ -52,7 +52,8 @@ const CategoryNavSubItem = ({
                 "hover:text-border-info",
                 {
                   "text-text-default": !isCurrentlyInView,
-                  "text-border-info": isCurrentlyInView,
+                  "text-border-info":
+                    isCurrentlyInView && !navItem.tag && !navItem.children,
                   "font-semibold": isActive,
                 }
               )}

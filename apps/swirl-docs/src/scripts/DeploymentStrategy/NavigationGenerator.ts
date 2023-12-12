@@ -110,28 +110,7 @@ export class ApiDocsNavigationGenerator implements NavigationGeneratorStrategy {
 
     const items = filteredPaths.map((pathItem) => {
       const fullPath = rootPath ? `${rootPath}/${pathItem}` : pathItem;
-      const absolutePath = path.join(API_DOCS_PATH, fullPath);
-
-      const isSubdirectory = fs.statSync(absolutePath).isDirectory();
-
-      // for now no subdirectories
-      if (isSubdirectory && !rootPath) {
-        console.log("subdirectories currently not supported", fullPath);
-        // const subdirectoryPaths = fs.readdirSync(absolutePath);
-        // const children = generateFileList(subdirectoryPaths, fullPath);
-
-        // // Here, consider the directory itself as a NavItem and the files in it as children.
-        // return {
-        //   title: path.basename(fullPath),
-        //   url: `/api-docs/docs/${fullPath}`,
-        //   isRoot: rootPath ? false : true,
-        //   children,
-        // };
-      }
-
-      if (!isSubdirectory) {
-        return this.generateNavItems(fullPath);
-      }
+      return this.generateNavItems(fullPath);
     }) as NavItem[];
 
     return items;

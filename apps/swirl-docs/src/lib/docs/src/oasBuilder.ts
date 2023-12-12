@@ -52,6 +52,8 @@ const OASToHar = (oasToHar as any).default || oasToHar;
 export default class OASBuilder implements IOASBuilder {
   private static X_FLIP_API_NAME = "x-flip-api-name";
   private static X_FLIP_RESOURCE_NAME = "x-flip-resource-name";
+  private static X_FLIP_INTERNAL = "x-flip-internal";
+
   private _oasDocument: OASDocument = {} as OASDocument;
   private _oas: Oas = new OAS({} as OASDocument);
   private endpointMapper = new EndpointMapper();
@@ -178,6 +180,17 @@ export default class OASBuilder implements IOASBuilder {
               path,
               pathItemObject as HttpMethods
             );
+
+            const isInternal = operation.getExtension(
+              OASBuilder.X_FLIP_INTERNAL
+            );
+
+            if (
+              isInternal &&
+              process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE !== "staging"
+            ) {
+              return;
+            }
 
             const apiName = operation.getExtension(
               OASBuilder.X_FLIP_API_NAME
@@ -313,10 +326,7 @@ export default class OASBuilder implements IOASBuilder {
     return this;
   }
 
-  public generateRequest(
-    operation: Operation,
-    language?: SupportedTargets
-  ): {
+  public generateRequest(operation: Operation): {
     snippets: EndpointWithDetails["request"]["snippets"];
     request: EndpointWithDetails["request"]["request"];
   } {
