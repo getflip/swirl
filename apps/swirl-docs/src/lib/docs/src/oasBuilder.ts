@@ -46,11 +46,14 @@ type EndpointWithDetails = Endpoint & {
   responseExamples: CodePreviewSelectOptions;
 };
 
+const OAS = (Oas as any).default || Oas;
+const OASToHar = (oasToHar as any).default || oasToHar;
+
 export default class OASBuilder implements IOASBuilder {
   private static X_FLIP_API_NAME = "x-flip-api-name";
   private static X_FLIP_RESOURCE_NAME = "x-flip-resource-name";
   private _oasDocument: OASDocument = {} as OASDocument;
-  private _oas: Oas = new Oas({} as OASDocument);
+  private _oas: Oas = new OAS({} as OASDocument);
   private endpointMapper = new EndpointMapper();
 
   public title: string = "";
@@ -71,7 +74,7 @@ export default class OASBuilder implements IOASBuilder {
 
   private initializeProperties(oasDocument: OASDocument) {
     this._oasDocument = oasDocument;
-    this._oas = new Oas(oasDocument);
+    this._oas = new OAS(oasDocument);
   }
 
   private createParameters(
@@ -317,7 +320,7 @@ export default class OASBuilder implements IOASBuilder {
     snippets: EndpointWithDetails["request"]["snippets"];
     request: EndpointWithDetails["request"]["request"];
   } {
-    const har = oasToHar(this.oas, operation);
+    const har = OASToHar(this.oas, operation);
     const harRequest = har.log.entries[0].request;
 
     return {

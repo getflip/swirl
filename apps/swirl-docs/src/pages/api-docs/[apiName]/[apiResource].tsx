@@ -1,6 +1,7 @@
 import {
   ApiResourceDocumentation,
   createStaticPathsForSpec,
+  serializeMarkdownString,
 } from "@swirl/lib/docs";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Heading, Text } from "src/components/swirl-recreations";
@@ -15,6 +16,7 @@ import { EndpointDescription } from "src/components/Documentation/EndpointDescri
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { useRouter } from "next/router";
 import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 // STATIC GENERATION CODE
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -64,6 +66,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       document: JSON.parse(JSON.stringify(document)), // remove undefined values
+      description: await serializeMarkdownString(""),
       navItems,
     },
   };
@@ -72,9 +75,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
 // CLIENT CODE
 export default function Document({
   document,
+  description,
   navItems,
 }: {
   document: ApiResourceDocumentation;
+  description: MDXRemoteSerializeResult;
   navItems: NavItem[];
 }) {
   const router = useRouter();
@@ -87,7 +92,7 @@ export default function Document({
       <DocumentationLayout
         data={{
           mdxContent: {
-            document: document.description,
+            document: description,
             components: {
               h1: (props) => <Heading level={1} {...props} />,
               h2: (props) => <Heading level={2} {...props} />,
