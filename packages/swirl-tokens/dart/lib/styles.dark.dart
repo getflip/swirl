@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Mon, 11 Dec 2023 15:37:50 GMT
+// Generated on Wed, 13 Dec 2023 08:24:26 GMT
 
 
 
@@ -122,7 +122,7 @@ class SwirlDesignTokensDark {
     static const coreGrayWhite = Color(0xFFFFFFFF);
     static const coreOnCustomerColorDark1 = Color(0xFF000000);
     static const coreOnCustomerColorDark2 = Color(0xFFF2F2F2);
-    static const coreOnCustomerColorDark2Subdued = Color(0xFF5C76AE);
+    static const coreOnCustomerColorDark2Subdued = Color(0xFF96A3BF);
     static const coreOnCustomerColorLight1 = Color(0xFFFFFFFF);
     static const coreOnCustomerColorLight2 = Color(0xFF171717);
     static const coreOnCustomerColorLight2Subdued = Color(0xFF6A6D74);
@@ -197,7 +197,7 @@ class SwirlDesignTokensDark {
     static const iconOnImage = Color(0xFFFFFFFF); /* Used as a icon color on “Surface On Image/Default”. */
     static const iconOnStatus = Color(0xFF000000); /* Used as a icon color on containers with a status color. */
     static const iconOnSurfaceHighlight = Color(0xFFF2F2F2); /* Used as icon color on containers with highlight color. */
-    static const iconOnSurfaceHighlightSubdued = Color(0xFF5C76AE); /* Used as icon color on containers with highlight color. */
+    static const iconOnSurfaceHighlightSubdued = Color(0xFF96A3BF); /* Used as icon color on containers with highlight color. */
     static const iconStrong = Color(0xFFF2F2F2); /* Used for high emphasis icons. */
     static const iconSuccess = Color(0xFF50A450); /* Used as success icon color */
     static const iconWarning = Color(0xFFF3B703); /* Used as warning icon color */
@@ -273,7 +273,7 @@ class SwirlDesignTokensDark {
     static const textOnImage = Color(0xFFFFFFFF); /* Used as a text color on “Surface On Image/Default”. */
     static const textOnStatus = Color(0xFF000000); /* Used as a text color on containers with a status color. */
     static const textOnSurfaceHighlight = Color(0xFFF2F2F2); /* Used as text color on containers with highlight color. */
-    static const textOnSurfaceHighlightSubdued = Color(0xFF5C76AE); /* Used as text color on containers with highlight color. */
+    static const textOnSurfaceHighlightSubdued = Color(0xFF96A3BF); /* Used as text color on containers with highlight color. */
     static const textSubdued = Color(0xFF989898); /* Used for low emphasis text. */
     static const textSuccess = Color(0xFF50A450); /* Used as success text color */
     static const textWarning = Color(0xFFF3B703); /* Used as warning text color */

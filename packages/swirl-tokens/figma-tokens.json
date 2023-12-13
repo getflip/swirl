@@ -531,7 +531,7 @@
           "type": "color"
         },
         "2-subdued": {
-          "value": "#5C76AE",
+          "value": "#96A3BF",
           "type": "color"
         }
       },
@@ -2653,6 +2653,11 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
+    "tokenSetOrder": [
+      "core",
+      "core-colors",
+      "light",
+      "dark"
+    ]
   }
 }
