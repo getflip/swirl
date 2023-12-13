@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 01 Dec 2023 15:04:59 GMT
+// Generated on Wed, 13 Dec 2023 08:24:26 GMT
 
 
 
@@ -122,7 +122,7 @@ class SwirlDesignTokensLight {
     static const coreGrayWhite = Color(0xFFFFFFFF);
     static const coreOnCustomerColorDark1 = Color(0xFF000000);
     static const coreOnCustomerColorDark2 = Color(0xFFF2F2F2);
-    static const coreOnCustomerColorDark2Subdued = Color(0xFF5C76AE);
+    static const coreOnCustomerColorDark2Subdued = Color(0xFF96A3BF);
     static const coreOnCustomerColorLight1 = Color(0xFFFFFFFF);
     static const coreOnCustomerColorLight2 = Color(0xFF171717);
     static const coreOnCustomerColorLight2Subdued = Color(0xFF6A6D74);
