@@ -13,16 +13,15 @@ import { useRouter } from "next/router";
 
 export const HeaderLogo = () => {
   return (
-    <Link href="/">
-      <a className="flex justify-center items-center mr-8">
-        <Image
-          alt="Swirl home"
-          src="/swirl-icon-temp.svg"
-          width={32}
-          height={32}
-        />
-        <span className="font-medium ml-3">Dev</span>
-      </a>
+    <Link href="/" className="flex justify-center items-center mr-8 max-h-7">
+      <Image
+        alt="Swirl home"
+        src="/swirl-icon-temp.svg"
+        width={28}
+        height={28}
+        className="max-h-7"
+      />
+      <span className="font-medium ml-3">Dev</span>
     </Link>
   );
 };
@@ -62,10 +61,12 @@ const HeaderNavigation = () => {
 
   return (
     <>
-      <Link tabIndex={1} href="#main">
-        <a className="absolute translate-x-[-200px] focus:static focus:translate-x-0">
-          Skip Navigation Links
-        </a>
+      <Link
+        tabIndex={1}
+        href="#main"
+        className="absolute translate-x-[-200px] focus:static focus:translate-x-0"
+      >
+        Skip Navigation Links
       </Link>
       <DesktopView>
         <header className="bg-background-default z-10 max-h-[72px]">
@@ -99,7 +100,7 @@ const HeaderNavigation = () => {
                         })}
                         href={link.url}
                       >
-                        <a>{link.title}</a>
+                        {link.title}
                       </Link>
                     </li>
                   );

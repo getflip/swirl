@@ -9,7 +9,7 @@ import { EndpointParameterFactory } from "./ParameterFactory";
 
 interface EndpointDescription {
   endpoint: ApiEndpoint;
-  endpointId: string;
+  endpointId?: string;
   path: string;
 }
 
@@ -29,7 +29,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
   return (
     <div className="max-w-full md:max-w-[37.5rem] overflow-x-auto">
       <LinkedHeading href={path}>
-        <Heading level={3} id={endpointId}>
+        <Heading level={2} id={endpointId}>
           {endpoint.title}
           {endpoint.isDeprecated && (
             <span className="ml-2 inline-flex">
@@ -73,7 +73,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
 
           return (
             <div key={`${parameterType.title}-${index}`} className="mb-6">
-              <Heading level={4} className="mb-2">
+              <Heading level={3} className="mb-2">
                 {parameterType.title}
               </Heading>
               <div>{parameterFactory.renderProperties()}</div>
@@ -83,7 +83,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
 
         {requestbody && (
           <div className="mb-6">
-            <Heading level={4} className="mb-2">
+            <Heading level={3} className="mb-2">
               Request Body
             </Heading>
             <div>
@@ -97,7 +97,7 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
 
         {endpoint.responseBodySchemas.length && (
           <div className="mb-6">
-            <Heading level={4} className="mb-2">
+            <Heading level={3} className="mb-2">
               Response Body
             </Heading>
             <div>

@@ -157,6 +157,9 @@ apps/swirl-docs/specs/*
 apps/swirl-docs/problem.yml
 apps/swirl-docs/shared.yml
 apps/swirl-docs/users.yml
-apps/swirl-docs/usergroups.yml
 apps/swirl-docs/channels.yml
 apps/swirl-docs/src/documents/api/*
+apps/swirl-docs/users-common.yml
+apps/swirl-docs/users-roles-and-permissions.yml
+apps/swirl-docs/users-admin-user-groups.yml
+apps/swirl-docs/users-admin-usergroups.yml

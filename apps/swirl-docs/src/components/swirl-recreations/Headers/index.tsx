@@ -52,9 +52,11 @@ export const Heading: React.FC<HeadingProps> = ({
         { "text-center": align === "center" },
         { "text-right": align === "end" },
         {
-          [`text-text-default text-3xl leading-[3rem]`]: level === 1,
-          [`text-text-default text-font-size-2xl leading-[2rem]`]: level === 2,
+          [`text-text-default text-3xl leading-[2.25rem] font-font-weight-bold`]:
+            level === 1,
           [`text-text-default text-font-size-xl leading-[1.625rem]`]:
+            level === 2,
+          [`text-text-default text-font-size-l leading-[1.625rem]`]:
             level === 3,
           [`text-text-default text-font-size-base leading-[1.5rem]`]:
             level === 4,
@@ -88,7 +90,7 @@ export function LinkedHeading({
     <CopyToClipboard text={href}>
       <div
         className={classNames(
-          "relative inline-flex w-full justify-between items-center group delay-200 cursor-pointer",
+          "relative inline-flex gap-4 w-full justify-between items-center group delay-200 cursor-pointer",
           className
         )}
       >

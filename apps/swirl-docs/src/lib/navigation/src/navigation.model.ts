@@ -11,9 +11,11 @@ export type NavItem = {
   children?: NavItem[];
   description?: string;
   specName?: string;
+  tag?: string;
 };
 
 export const CategoryEnum = {
+  API: "APIs and References",
   FOUNDATIONS: "Foundations",
   COMPONENTS: "Components",
   TOKENS: "Design Tokens",

@@ -7,7 +7,6 @@ type CommandHitProps = {
   description?: string;
   icon: ReactNode;
   handleOnSelect: (value: any) => void;
-  handleOnFocus: (value: any) => void;
 };
 
 export function CommandHit({
@@ -15,10 +14,9 @@ export function CommandHit({
   icon,
   description,
   handleOnSelect,
-  handleOnFocus,
 }: CommandHitProps) {
   return (
-    <Command.Item onFocus={handleOnFocus} onSelect={handleOnSelect}>
+    <Command.Item onSelect={handleOnSelect}>
       <button
         type="button"
         className={classNames(

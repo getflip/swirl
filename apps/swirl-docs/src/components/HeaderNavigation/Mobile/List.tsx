@@ -12,7 +12,7 @@ export default function List({
   return (
     <ul
       className={classNames(
-        "z-40 w-full h-[calc(100vh_-_64px)] max-h-[calc(100vh_-_64px)] bg-white",
+        "z-40 w-full h-[calc(100vh_-_64px)] max-h-[calc(100vh_-_64px)] bg-white px-4",
         { block: isOpen },
         { hidden: !isOpen }
       )}

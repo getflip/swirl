@@ -128,9 +128,11 @@ export type ResponseBodySchema = {
 };
 
 export type ApiEndpoint = {
+  id?: string;
   title: string;
   description: string;
   path: string;
+  method?: HttpMethods;
   request: ReturnType<OASBuilder["generateRequest"]>;
   responseExamples: CodePreviewSelectOptions;
   responseBodySchemas: Array<ResponseBodySchema>;
@@ -143,8 +145,15 @@ export type ApiEndpoint = {
 };
 
 export interface ApiDocumentation {
+  id?: string;
+  title: string;
+  resources: Array<ApiResourceDocumentation>;
+}
+
+export interface ApiResourceDocumentation {
+  id?: string;
   title: string;
   shortDescription: string;
-  description: MDXRemoteSerializeResult;
+  description?: MDXRemoteSerializeResult;
   endpoints: Array<ApiEndpoint>;
 }

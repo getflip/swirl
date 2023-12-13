@@ -12,6 +12,14 @@ const links: NavLink[] = [
     name: "Careers",
     path: "https://www.getflip.com/open-positions/",
   },
+  {
+    name: "Privacy policy",
+    path: "https://www.getflip.com/privacy-policy/",
+  },
+  {
+    name: "Contact",
+    path: "https://www.getflip.com/contact/",
+  },
 ];
 
 const Footer = () => {
@@ -31,13 +39,12 @@ const Footer = () => {
         <ul className="flex flex-col md:flex-row justify-center items-center">
           {links.map((link, index) => (
             <li key={link.path + `-${index}`} className="mb-4 md:mb-0 md:mr-8">
-              <Link href={link.path}>
-                <a
-                  className="text-font-size-base md:text-font-size-sm leading-6 text-text-default"
-                  target="_blank"
-                >
-                  {link.name}
-                </a>
+              <Link
+                href={link.path}
+                className="text-font-size-base md:text-font-size-sm leading-6 text-text-default"
+                target="_blank"
+              >
+                {link.name}
               </Link>
             </li>
           ))}

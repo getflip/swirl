@@ -1,5 +1,36 @@
 # @getflip/swirl-components-angular
 
+## 0.118.3
+
+### Patch Changes
+
+- [`d4567b59`](https://github.com/getflip/swirl/commit/d4567b592ab80a65545b57ce351a812de7b01f16)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue resulting in the
+  swirl-popover-trigger not detecting its controlled popover state correctly
+- Updated dependencies
+  [[`d4567b59`](https://github.com/getflip/swirl/commit/d4567b592ab80a65545b57ce351a812de7b01f16)]:
+  - @getflip/swirl-components@0.118.3
+
+## 0.118.2
+
+### Patch Changes
+
+- [#483](https://github.com/getflip/swirl/pull/483)
+  [`6c0affef`](https://github.com/getflip/swirl/commit/6c0affef835427fd76852dfa16b86d0b85a673a6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Do not stop propagation for
+  swirl-popover-trigger click events
+
+- Updated dependencies
+  [[`6c0affef`](https://github.com/getflip/swirl/commit/6c0affef835427fd76852dfa16b86d0b85a673a6)]:
+  - @getflip/swirl-components@0.118.2
+
+## 0.118.1
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @getflip/swirl-components@0.118.1
+
 ## 0.118.0
 
 ### Minor Changes

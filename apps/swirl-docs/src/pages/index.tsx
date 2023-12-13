@@ -24,10 +24,11 @@ const Home: NextPage = () => {
                   Design, build, and deliver improved experiences for the
                   blue-collar world using the Swirl design system and Flip APIs.
                 </p>
-                <Link href="/tokens/color">
-                  <a className="inline-flex bg-action-primary-default hover:bg-action-primary-hovered text-font-size-sm text-text-on-action-primary px-space-12 py-space-8 font-medium rounded-border-radius-sm">
-                    Explore Tokens
-                  </a>
+                <Link
+                  href="/tokens/color"
+                  className="inline-flex bg-action-primary-default hover:bg-action-primary-hovered text-font-size-sm text-text-on-action-primary px-space-12 py-space-8 font-medium rounded-border-radius-sm"
+                >
+                  Explore Tokens
                 </Link>
               </div>
               <div className="hidden md:inline-flex justify-end basis-0 grow text-right">
@@ -78,12 +79,11 @@ const Home: NextPage = () => {
                     Get started
                     <SwirlIconArrowRight size={20} />
                   </span>
-                  <Link href="/tokens/color">
-                    <a
-                      aria-label="Get started with Flip Tokens"
-                      className="absolute inset-0"
-                    ></a>
-                  </Link>
+                  <Link
+                    href="/tokens/color"
+                    aria-label="Get started with Flip Tokens"
+                    className="absolute inset-0"
+                  ></Link>
                 </article>
                 <article
                   aria-labelledby="heading-icons"
@@ -113,12 +113,11 @@ const Home: NextPage = () => {
                     Get started
                     <SwirlIconArrowRight size={20} />
                   </span>
-                  <Link href="/icons">
-                    <a
-                      aria-label="Get started with Flip Icons"
-                      className="absolute inset-0"
-                    ></a>
-                  </Link>
+                  <Link
+                    href="/icons"
+                    aria-label="Get started with Flip Icons"
+                    className="absolute inset-0"
+                  ></Link>
                 </article>
               </div>
             </div>

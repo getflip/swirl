@@ -12,8 +12,6 @@ export class SwirlPopoverTrigger {
   @Prop() popover!: string | HTMLSwirlPopoverElement;
   @Prop() setAriaAttributes?: boolean = true;
 
-  private popoverOpen: boolean = false;
-
   componentDidLoad() {
     this.updateTriggerElAriaAttributes();
   }
@@ -39,16 +37,14 @@ export class SwirlPopoverTrigger {
     return this.el.children[0] as HTMLElement;
   }
 
-  private onClick = (event: Event) => {
-    event.stopPropagation();
-
+  private onClick = () => {
     const popoverEl = this.getPopoverEl();
 
     if (!Boolean(popoverEl)) {
       return;
     }
 
-    if (this.popoverOpen) {
+    if (this.isPopoverOpen()) {
       popoverEl.close();
       return;
     }
@@ -64,7 +60,6 @@ export class SwirlPopoverTrigger {
     popoverEl.addEventListener(
       "popoverOpen",
       () => {
-        this.popoverOpen = true;
         this.updateTriggerElAriaAttributes(true);
       },
       { once: true }
@@ -73,7 +68,6 @@ export class SwirlPopoverTrigger {
     popoverEl.addEventListener(
       "popoverClose",
       () => {
-        this.popoverOpen = false;
         this.updateTriggerElAriaAttributes(false);
       },
       { once: true }
@@ -100,6 +94,16 @@ export class SwirlPopoverTrigger {
       triggerEl.setAttribute("aria-haspopup", "dialog");
     }
   };
+
+  private isPopoverOpen() {
+    const popover = this.getPopoverEl();
+
+    const isActive = (
+      popover.shadowRoot.firstChild as HTMLElement
+    )?.classList.contains("popover--active");
+
+    return isActive;
+  }
 
   render() {
     return (

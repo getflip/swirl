@@ -16,7 +16,6 @@ const strategy = getDeploymentStrategy();
 
 async function main() {
   await strategy.fetchData();
-  await strategy.handleFileOperations();
   await strategy.generateApiNavigation();
 }
 

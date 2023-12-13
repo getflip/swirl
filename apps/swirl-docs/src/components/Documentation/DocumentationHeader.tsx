@@ -1,8 +1,7 @@
 import classNames from "classnames";
 import { useDocumentationLayoutContext } from "../Layout/DocumentationLayoutContext";
-import { Tag } from "../Tags";
-import Heading from "../swirl-recreations/Headers";
 import { Text } from "../swirl-recreations";
+import Heading from "../swirl-recreations/Headers";
 
 export function DocumentationHeader({
   className: additionalClassNames,
@@ -13,15 +12,13 @@ export function DocumentationHeader({
 
   return (
     <header
-      className={classNames("border-b-1 pb-12 mb-12", additionalClassNames)}
+      className={classNames(
+        "flex flex-col gap-4",
+        "border-b-1 pb-[3.5rem] mb-12",
+        additionalClassNames
+      )}
     >
-      {/* DIV IS HERE FOR TAGS ONLY */}
-      <div className="mb-space-8 inline-flex items-center max-w-[37.5rem]">
-        <Heading level={1}>{frontMatter?.title as string}</Heading>
-        {frontMatter?.tags?.map((tag: string) => (
-          <Tag key={tag} content={tag} />
-        ))}
-      </div>
+      <Heading level={1}>{frontMatter?.title as string}</Heading>
       <Text className="max-w-[37.5rem]">{frontMatter?.description}</Text>
     </header>
   );

@@ -1,6 +1,8 @@
 import { Env } from "@swirl/lib/env/server.config";
 import { RepositoryTreeItem } from "./FileFetcher";
 
+const MERGED_YAML_PATH = "api/spec/v4/development/merged.yaml";
+
 export class GitLabAPI {
   private GITLAB_ENDPOINT = "https://gitlab.com/api/v4/projects";
   private headers = {
@@ -15,11 +17,11 @@ export class GitLabAPI {
     return this.request<RepositoryTreeItem[]>(endpoint);
   }
 
-  async fetchSpecData(spec: RepositoryTreeItem): Promise<string> {
+  async fetchMergedYml(): Promise<string> {
     const endpoint = this.constructEndpoint(
-      `repository/files/${encodeURIComponent(spec.path)}`
+      `repository/files/${encodeURIComponent(MERGED_YAML_PATH)}`
     );
-    const json = await this.request<any>(endpoint);
+    const json = await this.request<{ content: string }>(endpoint);
     return Buffer.from(json.content, "base64").toString("utf8");
   }
 

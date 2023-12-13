@@ -1,16 +1,16 @@
-import { H2, H3, H4 } from "src/components/Navigation/LinkedHeaders";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { H2, H3, H4 } from "src/components/Navigation/LinkedHeaders";
 
-import { CodePreview } from "src/components/CodePreview";
-import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
+import { createStaticPathsData } from "@swirl/lib/docs";
+import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
 import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
+import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
+import { NavItem } from "@swirl/lib/navigation";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import { ScriptProps } from "next/script";
+import { CodePreview } from "src/components/CodePreview";
+import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
 import { Text } from "src/components/swirl-recreations";
-import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
-import { createStaticPathsData } from "@swirl/lib/docs";
-import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
@@ -33,11 +33,10 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps: GetStaticProps<
-  ScriptProps,
-  { componentDoc: string }
-> = async (context: any) => {
+export const getStaticProps: GetStaticProps = async (context: any) => {
   const { apiDoc } = context.params;
+
+  const navItems = await ApiDocumentationsFacade.navItems;
 
   try {
     const data = await getComponentData(apiDoc);
@@ -45,11 +44,10 @@ export const getStaticProps: GetStaticProps<
       props: {
         document: data.document,
         frontMatter: data.frontMatter,
-        title: apiDoc,
+        navItems,
       },
     };
   } catch (error) {
-    console.error(error);
     return {
       notFound: true,
     };
@@ -59,19 +57,19 @@ export const getStaticProps: GetStaticProps<
 export default function Component({
   document,
   frontMatter,
-  title,
+  navItems,
 }: {
-  title: string;
   document: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, string>
   >;
-  frontMatter: FrontMatter;
+  frontMatter: FrontMatter; // TODO: Frontmatter could be put in document
+  navItems: NavItem[];
 }) {
   return (
     <>
       <Head>
-        <title>Swirl | Components</title>
+        <title>{frontMatter.title} — getflip.dev</title>
       </Head>
 
       <DocumentationLayout
@@ -80,7 +78,7 @@ export default function Component({
             document,
             components: generateMdxThemeComponents(),
           },
-          navigationLinks: apiNavItems,
+          navigationLinks: navItems,
           frontMatter,
         }}
         header={<DocumentationLayout.Header />}
@@ -96,6 +94,7 @@ export default function Component({
 
 function generateMdxThemeComponents() {
   return {
+    section: (props) => <section className="mb-8 last:mb-0" {...props} />,
     a: (props) => {
       const isRegularLink = typeof props.children === "string";
 
@@ -110,13 +109,19 @@ function generateMdxThemeComponents() {
     },
 
     ul: (props) => (
-      <ul className="mb-8 leading-line-height-xl list-disc" {...props} />
+      <ul
+        className="mb-8 last:mb-0 leading-line-height-xl list-disc"
+        {...props}
+      />
     ),
     ol: (props) => (
-      <ol className="mb-8 leading-line-height-xl list-decimal" {...props} />
+      <ol
+        className="mb-8 last:mb-0 leading-line-height-xl list-decimal"
+        {...props}
+      />
     ),
     li: (props) => <li className="ml-4" {...props} />,
-    p: (props) => <Text className="mb-8" {...props} />,
+    p: (props) => <Text className="mb-8 last:mb-0" {...props} />,
     code: (props) => {
       const { className, children } = props;
 
@@ -124,7 +129,7 @@ function generateMdxThemeComponents() {
         return (
           <CodePreview
             disableHeader
-            className="mb-4"
+            className="mb-4 last:mb-0"
             hasCopyButton
             codeExample={{
               code: children,
@@ -142,22 +147,22 @@ function generateMdxThemeComponents() {
       );
     },
     h1: (props: any) => (
-      <H2 className="mb-6" {...props} href={`#${props.id}`} />
+      <H2 className="mb-6 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     h2: (props: any) => (
-      <H2 className="mb-6" {...props} href={`#${props.id}`} />
+      <H2 className="mb-6 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     h3: (props: any) => (
-      <H3 className="mb-2" {...props} href={`#${props.id}`} />
+      <H3 className="mb-2 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     h4: (props: any) => (
-      <H4 className="mb-2" {...props} href={`#${props.id}`} />
+      <H4 className="mb-2 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     h5: (props: any) => (
-      <H4 className="mb-2" {...props} href={`#${props.id}`} />
+      <H4 className="mb-2 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     h6: (props: any) => (
-      <H4 className="mb-2" {...props} href={`#${props.id}`} />
+      <H4 className="mb-2 last:mb-0" {...props} href={`#${props.id}`} />
     ),
     hr: (props) => <hr className="my-8" {...props} />,
   } as MDXRemoteProps["components"];

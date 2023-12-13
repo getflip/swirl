@@ -27,8 +27,7 @@ function ChevronButton({
       aria-controls={`accordion-panel-${ariaId}`}
       onClick={toggle}
       className={classNames(
-        "flex justify-between py-2 w-full text-base font-normal",
-        isNestedNavGroup ? "pl-10 pr-4" : "px-4"
+        "flex justify-between py-2 w-full text-base font-normal"
       )}
     >
       <span>{title}</span>
@@ -58,14 +57,14 @@ export function TopLevelNavLink({
 }: ListItemProps) {
   return (
     <li>
-      <Link href={url} passHref>
-        <a
-          aria-current={url === currentPath ? "page" : "false"}
-          onClick={handleCloseMenu}
-          className="flex justify-between py-3 font-normal px-4 w-full text-base capitalize"
-        >
-          {title}
-        </a>
+      <Link
+        href={url}
+        passHref
+        aria-current={url === currentPath ? "page" : "false"}
+        onClick={handleCloseMenu}
+        className="flex justify-between py-3 font-normal w-full text-base capitalize"
+      >
+        {title}
       </Link>
     </li>
   );
@@ -90,7 +89,7 @@ export function ExpandableNavGroup({
       <ul
         id={`accordion-panel-${ariaId}`}
         aria-labelledby={`accordion-${ariaId}`}
-        className={classNames({
+        className={classNames("pl-4", {
           block: isExpanded,
           hidden: !isExpanded,
         })}
@@ -130,7 +129,7 @@ export function NestedNavGroup({
         <ul
           id={`accordion-panel-${ariaId}`}
           aria-labelledby={`accordion-${ariaId}`}
-          className={classNames({
+          className={classNames("pl-4", {
             block: isExpanded,
             hidden: !isExpanded,
           })}
@@ -157,16 +156,16 @@ export function NestedNavLink({
 }: ListItemProps) {
   return (
     <li>
-      <Link href={url} passHref>
-        <a
-          aria-current={url === currentPath ? "page" : "false"}
-          onClick={() => {
-            handleCloseMenu();
-          }}
-          className="flex justify-between py-2 px-10 w-full capitalize"
-        >
-          {title}
-        </a>
+      <Link
+        href={url}
+        passHref
+        aria-current={url === currentPath ? "page" : "false"}
+        onClick={() => {
+          handleCloseMenu();
+        }}
+        className="flex justify-between py-2 w-full capitalize"
+      >
+        {title}
       </Link>
     </li>
   );

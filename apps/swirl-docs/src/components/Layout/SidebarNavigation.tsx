@@ -1,21 +1,20 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import {
   Tag,
   mapHttpMethodToTagContent,
   mapHttpMethodToTagScheme,
 } from "../Tags";
-import { forwardRef, useEffect, useRef, useState } from "react";
 
-import { HttpMethods } from "oas/dist/rmoas.types";
-import Image from "next/image";
-import Link from "next/link";
+import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
 import { NavItem } from "@swirl/lib/navigation/";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
-import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import classNames from "classnames";
-import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
-import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
+import { HttpMethods } from "oas/dist/rmoas.types";
+import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
+import { AnimatePresence, motion } from "framer-motion";
 
 const CategoryNavSubItem = ({
   navItem,
@@ -28,51 +27,49 @@ const CategoryNavSubItem = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const list = {
-    hidden: { opacity: 0, height: 0 },
-    show: {
-      height: "auto",
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.01,
-      },
-    },
-  };
+  const activePathWithoutHash = activePath.split("#")[0] + "/";
+  const navItemPath = navItem.url.split("#")[0] + "/";
+
+  const isActive =
+    activePathWithoutHash.startsWith(navItemPath) ||
+    (navItem.children || []).some((child) =>
+      activePathWithoutHash.startsWith(child.url.split("#")[0] + "/")
+    );
 
   useEffect(() => {
-    if (activePath.includes(navItem.url)) {
-      setIsExpanded(true);
-    }
-  }, [navItem.url, activePath]);
+    setIsExpanded(isActive);
+  }, [isActive]);
 
   return (
     <>
-      <li
-        className={classNames(
-          "flex flex-col justify-center",
-          { "h-10 max-h-10": !isExpanded },
-          { "h-full": isExpanded }
-        )}
-      >
-        <div className="flex justify-between items-center h-10">
-          <Link href={`${navItem.url}`}>
-            <a
+      <li className={classNames("flex flex-col justify-center")}>
+        <div className="flex justify-between items-center py-2">
+          {navItem.isRoot ? (
+            <Link
+              href={`${navItem.url}`}
               className={classNames(
                 "text-sm capitalize w-full",
                 "hover:text-border-info",
                 {
                   "text-text-default": !isCurrentlyInView,
-                  "text-border-info": isCurrentlyInView,
+                  "text-border-info":
+                    isCurrentlyInView && !navItem.tag && !navItem.children,
+                  "font-semibold": isActive,
                 }
               )}
             >
               <span>{navItem.title.replaceAll("-", " ")}</span>
-            </a>
-          </Link>
+            </Link>
+          ) : (
+            <WrappingAnchor
+              href={navItem.url}
+              item={navItem}
+              isCurrentPath={activePath.includes(navItem.url)}
+            />
+          )}
           {navItem.children && (
             <button
-              aria-label="Expand"
+              aria-label="Toggle"
               className="flex justify-center items-center text-text-subdued"
               onClick={() => setIsExpanded(!isExpanded)}
               aria-expanded={isExpanded}
@@ -93,35 +90,23 @@ const CategoryNavSubItem = ({
             </button>
           )}
         </div>
-      </li>
-      <li>
         <AnimatePresence>
-          {isExpanded && (
+          {navItem.children && isExpanded && (
             <motion.ul
-              className={classNames(
-                "flex flex-col gap-y-4",
-                "border-l-[1px] border-border-default overflow-hidden",
-                { "h-0": !isExpanded },
-                { "h-auto": isExpanded }
-              )}
-              initial="hidden"
+              className="pl-4"
+              key={navItem.url + "-children"}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              animate={isExpanded ? "show" : "hidden"}
-              variants={list}
             >
-              {navItem.children?.map((item, index) => {
-                const isCurrentPath = activePath.includes(item.url);
-
-                return (
-                  <motion.li key={index} className="flex items-center ml-6">
-                    <WrappingAnchor
-                      href={`${item.url}`}
-                      item={item}
-                      isCurrentPath={isCurrentPath}
-                    />
-                  </motion.li>
-                );
-              })}
+              {navItem.children.map((item) => (
+                <CategoryNavSubItem
+                  activePath={activePath}
+                  isCurrentlyInView={false}
+                  key={item.url}
+                  navItem={item}
+                ></CategoryNavSubItem>
+              ))}
             </motion.ul>
           )}
         </AnimatePresence>
@@ -146,31 +131,31 @@ const WrappingAnchor = forwardRef<
   const alignmentClass = isWrapping ? "items-start" : "items-center";
 
   return (
-    <Link href={href}>
-      <a
-        ref={ref}
-        aria-current={isCurrentPath}
-        className={classNames(
-          "flex",
-          alignmentClass,
-          "w-full",
-          "text-sm capitalize leading-5",
-          "hover:text-border-info",
-          {
-            "text-border-info": isCurrentPath,
-            "text-text-default": !isCurrentPath,
-          }
-        )}
-      >
-        {item.description && (
-          <Tag
-            content={mapHttpMethodToTagContent(item.description!)}
-            scheme={mapHttpMethodToTagScheme(item.description as HttpMethods)}
-            httpTag
-          />
-        )}
-        <span ref={textRef}>{item.title}</span>
-      </a>
+    <Link
+      href={href}
+      ref={ref}
+      aria-current={isCurrentPath}
+      className={classNames(
+        "flex",
+        alignmentClass,
+        "w-full",
+        "text-sm capitalize leading-5",
+        "hover:text-border-info",
+        {
+          "text-border-info": isCurrentPath,
+          "text-text-default": !isCurrentPath,
+          "-ml-4": item.tag,
+        }
+      )}
+    >
+      {item.tag && (
+        <Tag
+          content={mapHttpMethodToTagContent(item.tag)}
+          scheme={mapHttpMethodToTagScheme(item.tag as HttpMethods)}
+          httpTag
+        />
+      )}
+      <span ref={textRef}>{item.title}</span>
     </Link>
   );
 });
@@ -216,7 +201,7 @@ export function SidebarNavigation() {
             </h4>
           </div>
           <ul>
-            {apiSpecsNavItems?.map((navItem: NavItem, index) => {
+            {categoryLinkList?.map((navItem: NavItem, index) => {
               return (
                 <CategoryNavSubItem
                   isCurrentlyInView={activePath.includes(navItem.url)}
@@ -228,20 +213,6 @@ export function SidebarNavigation() {
             })}
           </ul>
         </>
-      )}
-      {!router.asPath.includes("/api-docs") && (
-        <ul className="mt-6">
-          {categoryLinkList?.map((navItem: NavItem, index) => {
-            return (
-              <CategoryNavSubItem
-                isCurrentlyInView={activePath.includes(navItem.url)}
-                key={navItem.title + `-${index}`}
-                navItem={navItem}
-                activePath={activePath}
-              />
-            );
-          })}
-        </ul>
       )}
 
       {router.asPath.includes("/api-docs") && (
@@ -266,6 +237,21 @@ export function SidebarNavigation() {
           </div>
         </>
       )}
+
+      {!router.asPath.includes("/api-docs") && (
+        <ul className="mt-6">
+          {categoryLinkList?.map((navItem: NavItem, index) => {
+            return (
+              <CategoryNavSubItem
+                isCurrentlyInView={activePath.includes(navItem.url)}
+                key={navItem.title + `-${index}`}
+                navItem={navItem}
+                activePath={activePath}
+              />
+            );
+          })}
+        </ul>
+      )}
     </nav>
   );
 }
@@ -273,20 +259,19 @@ export function SidebarNavigation() {
 function LegacyApiLink({ href, label }: { href: string; label: string }) {
   return (
     <li className="w-full">
-      <Link href={href}>
-        <a
-          target="_blank"
-          className={classNames(
-            "inline-flex justify-between items-center w-full h-10",
-            "text-font-size-sm leading-5 text-text-default",
-            "hover:text-border-info"
-          )}
-        >
-          {label}
-          <span>
-            <i className="swirl-icons-OpenInNew28 text-base ml-1"></i>
-          </span>
-        </a>
+      <Link
+        href={href}
+        target="_blank"
+        className={classNames(
+          "inline-flex justify-between items-center w-full h-10",
+          "text-font-size-sm leading-5 text-text-default",
+          "hover:text-border-info"
+        )}
+      >
+        {label}
+        <span>
+          <i className="swirl-icons-OpenInNew28 text-base ml-1"></i>
+        </span>
       </Link>
     </li>
   );

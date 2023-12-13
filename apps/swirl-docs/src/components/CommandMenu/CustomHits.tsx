@@ -2,7 +2,7 @@ import { SwirlIconDescription } from "@getflip/swirl-components-react";
 import { AlgoliaRecord } from "@swirl/lib/search";
 import { Command } from "cmdk";
 import { useRouter } from "next/router";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import { useHits } from "react-instantsearch-hooks-web";
 import { IconsMetaData } from "src/pages/components";
 import { CommandHit } from "./CommandHit";
@@ -10,16 +10,17 @@ import { HitTokenPreview } from "./HitTokenPreview";
 
 interface CustomHitsProps {
   currentSearchString: string;
+  onSelected?: () => void;
 }
 
 export const CustomHits: FunctionComponent<CustomHitsProps> = ({
   currentSearchString,
+  onSelected,
 }) => {
   const icons: IconsMetaData = require("@getflip/swirl-icons/dist/metadata.js");
 
   const router = useRouter();
   const { hits } = useHits<AlgoliaRecord>();
-  const [activeItem, setActiveItem] = useState<any>();
 
   const tokenPagesHits = hits.filter((hit) => hit.path?.includes("-tokens"));
   const tokenHits = hits.filter((hit) => hit.type === "token");
@@ -60,9 +61,13 @@ export const CustomHits: FunctionComponent<CustomHitsProps> = ({
                     }16 text-icon-default w-5 h-5`}
                   ></i>
                 }
-                handleOnFocus={() => setActiveItem(hit)}
                 handleOnSelect={() => {
-                  router.push(activeItem.path.replace("-tokens", ""));
+                  if (!hit.path) {
+                    return;
+                  }
+
+                  router.push(hit.path.replace("-tokens", ""));
+                  onSelected?.();
                 }}
               />
             );
@@ -81,9 +86,13 @@ export const CustomHits: FunctionComponent<CustomHitsProps> = ({
               title={hit.objectID}
               description={hit.excerpt}
               icon={<SwirlIconDescription size={20} />}
-              handleOnFocus={() => setActiveItem(hit)}
-              handleOnSelect={() => {
-                router.push(activeItem.path.replace("-tokens", ""));
+              handleOnSelect={(hit) => {
+                if (!hit.path) {
+                  return;
+                }
+
+                router.push(hit.path.replace("-tokens", ""));
+                onSelected?.();
               }}
             />
           ))}
@@ -99,9 +108,13 @@ export const CustomHits: FunctionComponent<CustomHitsProps> = ({
                     tokenCategory={hit.tokenCategory}
                   />
                 }
-                handleOnFocus={() => setActiveItem(hit)}
                 handleOnSelect={() => {
-                  router.push(activeItem.path.replace("-tokens", ""));
+                  if (!hit.path) {
+                    return;
+                  }
+
+                  router.push(hit.path.replace("-tokens", ""));
+                  onSelected?.();
                 }}
               />
             );
@@ -126,9 +139,13 @@ export const CustomHits: FunctionComponent<CustomHitsProps> = ({
                   alt="component"
                 />
               }
-              handleOnFocus={() => setActiveItem(hit)}
               handleOnSelect={() => {
-                router.push(activeItem.path);
+                if (!hit.path) {
+                  return;
+                }
+
+                router.push(hit.path);
+                onSelected?.();
               }}
             />
           ))}
