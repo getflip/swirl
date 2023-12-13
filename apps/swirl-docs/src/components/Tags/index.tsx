@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { FunctionComponent } from "react";
 
 export interface TagProps {
   content: string;
@@ -10,28 +9,7 @@ export interface TagProps {
 export function mapHttpMethodToTagContent(
   httpMethod: string
 ): TagProps["content"] {
-  switch (httpMethod.toUpperCase()) {
-    case "GET":
-      return "GET";
-    case "POST":
-      return "POST";
-    case "PUT":
-      return "PUT";
-    case "DELETE":
-      return "DEL";
-    case "OPTIONS":
-      return "OPT";
-    case "PATCH":
-      return "PAT";
-    case "HEAD":
-      return "HEAD";
-    case "TRACE":
-      return "TRA";
-    case "CONNECT":
-      return "CON";
-    default:
-      return "GET";
-  }
+  return httpMethod.toUpperCase();
 }
 
 export function mapHttpMethodToTagScheme(

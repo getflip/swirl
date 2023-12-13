@@ -4,8 +4,19 @@ import { ApiDocumentation } from "./docs.model";
 import OASBuilder from "./oasBuilder";
 
 export class ApiDocumentationsFacade {
-  static _apiDocumentations: ApiDocumentation[];
-  static _navItems: NavItem[];
+  private static _apiDocumentations: ApiDocumentation[];
+  private static _navItems: NavItem[];
+
+  private static _endpointMethodOrder: Record<string, number> = {
+    GET: 1,
+    POST: 2,
+    PUT: 3,
+    PATCH: 4,
+    DELETE: 5,
+    HEAD: 6,
+    OPTIONS: 7,
+    TRACE: 8,
+  };
 
   static get apiDocumentations(): Promise<ApiDocumentation[]> {
     if (ApiDocumentationsFacade._apiDocumentations) {
@@ -30,6 +41,10 @@ export class ApiDocumentationsFacade {
     });
   }
 
+  private static getEndpointMethodOrder(method: string | undefined): number {
+    return (method && this._endpointMethodOrder[method.toUpperCase()]) || 1000;
+  }
+
   static get navItems(): Promise<NavItem[]> {
     if (ApiDocumentationsFacade._navItems) {
       return Promise.resolve(ApiDocumentationsFacade._navItems);
@@ -41,16 +56,28 @@ export class ApiDocumentationsFacade {
       const navItems: NavItem[] = apiDocumentations.map((api) => ({
         title: api.title,
         url: `/api-docs/${api.id}/${api.resources[0].id}`,
-        children: api.resources.map((resource) => ({
-          children: resource.endpoints.map((endpoint) => ({
-            title: endpoint.title,
-            tag: endpoint.method,
-            url: `/api-docs/${api.id}/${resource.id}#${endpoint.id}`,
-          })),
-          isRoot: true,
-          title: resource.title,
-          url: `/api-docs/${api.id}/${resource.id}`,
-        })),
+        children: api.resources.map((resource) => {
+          return {
+            children: [...resource.endpoints]
+              .sort(
+                (a, b) =>
+                  a.path.localeCompare(b.path) ||
+                  this.getEndpointMethodOrder(a.method) -
+                    this.getEndpointMethodOrder(b.method)
+              )
+              .map((e) => {
+                return e;
+              })
+              .map((endpoint) => ({
+                title: endpoint.title,
+                tag: endpoint.method,
+                url: `/api-docs/${api.id}/${resource.id}#${endpoint.id}`,
+              })),
+            isRoot: true,
+            title: resource.title,
+            url: `/api-docs/${api.id}/${resource.id}`,
+          };
+        }),
         description: "",
         isRoot: true,
       }));
