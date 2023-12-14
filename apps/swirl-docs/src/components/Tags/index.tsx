@@ -44,7 +44,7 @@ export function Tag({ content, scheme, httpTag }: TagProps) {
           "bg-surface-warning-subdued text-text-warning": scheme === "warning",
         },
         {
-          "flex items-center justify-center min-w-[3rem] px-0": httpTag,
+          "flex items-center justify-center min-w-[3.5rem] px-0": httpTag,
         }
       )}
     >
