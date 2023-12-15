@@ -38,7 +38,7 @@ const CategoryNavSubItem = ({
 
   useEffect(() => {
     setIsExpanded(isActive);
-  }, [isActive]);
+  }, [activePathWithoutHash]);
 
   return (
     <>
