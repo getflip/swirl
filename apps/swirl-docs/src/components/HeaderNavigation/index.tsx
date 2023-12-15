@@ -62,7 +62,6 @@ const HeaderNavigation = () => {
   return (
     <>
       <Link
-        tabIndex={1}
         href="#main"
         className="absolute translate-x-[-200px] focus:static focus:translate-x-0"
       >

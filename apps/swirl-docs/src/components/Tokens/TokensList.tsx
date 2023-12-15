@@ -52,15 +52,13 @@ export const TokensList: FunctionComponent<TokensListProps> = ({ tokens }) => {
           )}
         >
           <th className="col-span-2 font-semibold text-start text-sm">
-            <h4>Token Name</h4>
+            Token Name
           </th>
           <th className="font-semibold text-start text-sm">
-            <h4>Value ({tokenValueTypes[0]})</h4>
+            Value ({tokenValueTypes[0]})
           </th>
           {hasTokenDescription && (
-            <th className="font-semibold text-start text-sm">
-              <h4>Description</h4>
-            </th>
+            <th className="font-semibold text-start text-sm">Description</th>
           )}
         </tr>
       </thead>

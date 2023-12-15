@@ -125,7 +125,7 @@ export const CommandPalette = () => {
             onChangeCapture={(e: any) => setSearchString(e.target.value)}
           />
 
-          <Command.List className="max-h-[36rem] overflow-y-auto">
+          <Command.List className="max-h-[36rem] overflow-y-auto" tabIndex={0}>
             <CustomHits
               currentSearchString={searchString}
               onSelected={() => setOpen(false)}

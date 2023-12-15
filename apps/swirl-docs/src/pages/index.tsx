@@ -20,7 +20,7 @@ const Home: NextPage = () => {
                 <h1 className="font-bold text-[2.5rem] mb-space-8">
                   Build with Flip
                 </h1>
-                <p className="text-font-size-lg text-text-subdued mb-space-24">
+                <p className="text-font-size-lg text-text-on-surface-highlight-subdued mb-space-24">
                   Design, build, and deliver improved experiences for the
                   blue-collar world using the Swirl design system and Flip APIs.
                 </p>

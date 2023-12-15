@@ -45,10 +45,13 @@ export const CustomHits: FunctionComponent<CustomHitsProps> = ({
       )}
       {/* ICON HITS */}
       {iconHits.length > 0 && (
-        <Command.Group>
-          <h3 className="text-font-size-sm font-font-weight-medium text-text-subdued pt-4 px-4 pb-1">
-            Icons
-          </h3>
+        <Command.Group
+          heading={
+            <h3 className="text-font-size-sm font-font-weight-medium text-text-subdued pt-4 px-4 pb-1">
+              Icons
+            </h3>
+          }
+        >
           {iconHits.map((hit) => {
             return (
               <CommandHit
@@ -76,10 +79,13 @@ export const CustomHits: FunctionComponent<CustomHitsProps> = ({
       )}
       {/* TOKENHITS */}
       {(tokenHits.length > 0 || tokenPagesHits.length > 0) && (
-        <Command.Group>
-          <h3 className="text-font-size-sm font-font-weight-medium text-text-subdued pt-4 px-4 pb-1">
-            Tokens
-          </h3>
+        <Command.Group
+          heading={
+            <h3 className="text-font-size-sm font-font-weight-medium text-text-subdued pt-4 px-4 pb-1">
+              Tokens
+            </h3>
+          }
+        >
           {tokenPagesHits.map((hit) => (
             <CommandHit
               key={hit.objectID}
@@ -123,10 +129,13 @@ export const CustomHits: FunctionComponent<CustomHitsProps> = ({
       )}
       {/* COMPONENT HITS */}
       {componentHits.length > 0 && (
-        <Command.Group>
-          <h3 className="text-font-size-sm font-font-weight-medium text-text-subdued pt-4 px-4 pb-1">
-            Components
-          </h3>
+        <Command.Group
+          heading={
+            <h3 className="text-font-size-sm font-font-weight-medium text-text-subdued pt-4 px-4 pb-1">
+              Components
+            </h3>
+          }
+        >
           {componentHits.map((hit) => (
             <CommandHit
               key={hit.objectID}
