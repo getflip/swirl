@@ -16,6 +16,9 @@ import { HttpMethods } from "oas/dist/rmoas.types";
 import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
 import { AnimatePresence, motion } from "framer-motion";
 
+const ANIMATION_OPENED = { opacity: 1, height: "auto" };
+const ANIMATION_CLOSED = { opacity: 0, height: 0 };
+
 const CategoryNavSubItem = ({
   navItem,
   activePath,
@@ -25,8 +28,6 @@ const CategoryNavSubItem = ({
   activePath: string;
   isCurrentlyInView: boolean;
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   const activePathWithoutHash = activePath.split("#")[0] + "/";
   const navItemPath = navItem.url.split("#")[0] + "/";
 
@@ -36,8 +37,19 @@ const CategoryNavSubItem = ({
       activePathWithoutHash.startsWith(child.url.split("#")[0] + "/")
     );
 
+  const [{ isExpanded, isToggled }, setState] = useState(() => ({
+    isExpanded: isActive,
+    isToggled: false,
+  }));
+
+  function toggleExpanded(expanded: boolean) {
+    setState({ isToggled: true, isExpanded: expanded });
+  }
+
   useEffect(() => {
-    setIsExpanded(isActive);
+    if (isExpanded != isActive) {
+      toggleExpanded(isActive);
+    }
   }, [activePathWithoutHash]);
 
   return (
@@ -71,14 +83,14 @@ const CategoryNavSubItem = ({
             <button
               aria-label="Toggle"
               className="flex justify-center items-center text-text-subdued"
-              onClick={() => setIsExpanded(!isExpanded)}
+              onClick={() => toggleExpanded(!isExpanded)}
               aria-expanded={isExpanded}
             >
               <Image
                 className={classNames(
                   {
-                    "animate-rotate-in": isExpanded,
-                    "animate-rotate-out": !isExpanded,
+                    "animate-rotate-in": isToggled && isExpanded,
+                    "animate-rotate-out": isToggled && !isExpanded,
                   },
                   { "rotate-90": isExpanded }
                 )}
@@ -95,9 +107,9 @@ const CategoryNavSubItem = ({
             <motion.ul
               className="pl-4"
               key={navItem.url + "-children"}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
+              initial={isToggled ? ANIMATION_CLOSED : ANIMATION_OPENED}
+              animate={ANIMATION_OPENED}
+              exit={ANIMATION_CLOSED}
             >
               {navItem.children.map((item) => (
                 <CategoryNavSubItem
