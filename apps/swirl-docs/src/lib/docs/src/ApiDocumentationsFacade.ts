@@ -1,6 +1,7 @@
+import { sort } from "fast-sort";
 import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 import OASNormalize from "oas-normalize";
-import { ApiDocumentation } from "./docs.model";
+import { ApiDocumentation, ApiEndpoint, Endpoint } from "./docs.model";
 import OASBuilder from "./oasBuilder";
 
 export class ApiDocumentationsFacade {
@@ -41,8 +42,11 @@ export class ApiDocumentationsFacade {
     });
   }
 
-  private static getEndpointMethodOrder(method: string | undefined): number {
-    return (method && this._endpointMethodOrder[method.toUpperCase()]) || 1000;
+  private static getEndpointMethodOrder(endpoint: ApiEndpoint): number {
+    return (
+      this._endpointMethodOrder[endpoint.method?.toUpperCase() || ""] ||
+      Number.MAX_SAFE_INTEGER
+    );
   }
 
   static get navItems(): Promise<NavItem[]> {
@@ -58,13 +62,8 @@ export class ApiDocumentationsFacade {
         url: `/api-docs/${api.id}/${api.resources[0].id}`,
         children: api.resources.map((resource) => {
           return {
-            children: [...resource.endpoints]
-              .sort(
-                (a, b) =>
-                  a.path.localeCompare(b.path) ||
-                  this.getEndpointMethodOrder(a.method) -
-                    this.getEndpointMethodOrder(b.method)
-              )
+            children: sort(resource.endpoints)
+              .asc([(endpoint) => endpoint.path, this.getEndpointMethodOrder])
               .map((e) => {
                 return e;
               })

@@ -208,89 +208,29 @@ export default class OASBuilder implements IOASBuilder {
               return;
             }
 
-            // Current
+            const endpoint = {
+              ...this.endpointMapper.mapEndpoint(operation, this),
+              method: pathItemObject as HttpMethods,
+            };
 
-            apiDocumentations[apiName] = {
-              ...apiDocumentations[apiName],
-              id: apiName,
-              resources: {
-                ...apiDocumentations[apiName]?.resources,
-                [resourceName]: {
-                  ...(apiDocumentations[apiName]?.resources?.[resourceName] ||
-                    {}),
-                  id: resourceName,
-                  endpoints: {
-                    ...(apiDocumentations[apiName]?.resources?.[resourceName]
-                      ?.endpoints || {}),
-                    [operation.getOperationId()]: {
-                      ...this.endpointMapper.mapEndpoint(operation, this),
-                      method: pathItemObject as HttpMethods,
-                    },
-                  },
-                },
+            const endpoints = {
+              ...(apiDocumentations[apiName]?.resources?.[resourceName]
+                ?.endpoints || {}),
+              [operation.getOperationId()]: endpoint,
+            };
+
+            const resources = {
+              ...apiDocumentations[apiName]?.resources,
+              [resourceName]: {
+                id: resourceName,
+                endpoints,
               },
             };
 
-            // Option 1
-
-            // computeValue(apiDocumentations, apiName, (a) => ({
-            //   id: apiName,
-            //   resources: computeValue(a?.resources, resourceName, (r) => ({
-            //     id: resourceName,
-            //     endpoints: computeValue(
-            //       r?.endpoints,
-            //       operation.getOperationId(),
-            //       () => ({
-            //         ...this.endpointMapper.mapEndpoint(operation, this),
-            //         method: pathItemObject as HttpMethods,
-            //       })
-            //     ),
-            //   })),
-            // }));
-
-            // Option 2
-
-            // if (!apiDocumentations[apiName])
-            //   apiDocumentations[apiName] = { id: apiName, resources: {} };
-
-            // if (!apiDocumentations[apiName].resources[resourceName])
-            //   apiDocumentations[apiName].resources[resourceName] = {
-            //     id: resourceName,
-            //     endpoints: {},
-            //   };
-
-            // apiDocumentations[apiName].resources[resourceName].endpoints[
-            //   operation.getOperationId()
-            // ] = {
-            //   ...this.endpointMapper.mapEndpoint(operation, this),
-            //   method: pathItemObject as HttpMethods,
-            // };
-
-            // Option 3
-
-            // const endpoint = {
-            //   ...this.endpointMapper.mapEndpoint(operation, this),
-            //   method: pathItemObject as HttpMethods,
-            // };
-
-            // const endpoints = {
-            //   ...(apiDocumentations[apiName]?.resources?.[resourceName]
-            //     ?.endpoints || {}),
-            //   [operation.getOperationId()]: endpoint,
-            // };
-
-            // const resources = {
-            //   ...apiDocumentations[apiName]?.resources,
-            //   [resourceName]: {
-            //     id: resourceName,
-            //     endpoints,
-            //   },
-            // };
-
-            // apiDocumentations[apiName] = {
-            //   id: apiName,
-            //   resources,
-            // };
+            apiDocumentations[apiName] = {
+              id: apiName,
+              resources,
+            };
           });
       }
     );
