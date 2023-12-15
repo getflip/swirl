@@ -10,10 +10,16 @@ export function CodePreviewHighlight() {
     useCodePreviewContext();
 
   const determineLanguage = (): Language => {
-    if (codeExample.selectedId?.startsWith("2")) {
+    const langId = codeExample.selectedId || "tsx";
+
+    if (parseInt(langId)) {
+      // HTTP Response Code
       return "json";
+    } else if (langId === "node") {
+      return "javascript";
     }
-    return (codeExample.selectedId || "tsx") as Language;
+
+    return langId as Language;
   };
 
   const isLastLineAndEmpty = (
