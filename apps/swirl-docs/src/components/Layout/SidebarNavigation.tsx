@@ -47,7 +47,9 @@ const CategoryNavSubItem = ({
   }
 
   useEffect(() => {
-    if (isExpanded != isActive) toggleExpanded(isActive);
+    if (isExpanded != isActive) {
+      toggleExpanded(isActive);
+    }
   }, [activePathWithoutHash]);
 
   return (
