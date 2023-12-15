@@ -212,25 +212,28 @@ export default class OASBuilder implements IOASBuilder {
               return;
             }
 
-            apiDocumentations[apiName] = {
-              ...apiDocumentations[apiName],
-              id: apiName,
-              resources: {
-                ...apiDocumentations[apiName]?.resources,
-                [resourceName]: {
-                  ...(apiDocumentations[apiName]?.resources?.[resourceName] ||
-                    {}),
-                  id: resourceName,
-                  endpoints: {
-                    ...(apiDocumentations[apiName]?.resources?.[resourceName]
-                      ?.endpoints || {}),
-                    [operation.getOperationId()]: {
-                      ...this.endpointMapper.mapEndpoint(operation, this),
-                      method: pathItemObject as HttpMethods,
-                    },
-                  },
-                },
+            const endpoint = {
+              ...this.endpointMapper.mapEndpoint(operation, this),
+              method: pathItemObject as HttpMethods,
+            };
+
+            const endpoints = {
+              ...(apiDocumentations[apiName]?.resources?.[resourceName]
+                ?.endpoints || {}),
+              [operation.getOperationId()]: endpoint,
+            };
+
+            const resources = {
+              ...apiDocumentations[apiName]?.resources,
+              [resourceName]: {
+                id: resourceName,
+                endpoints,
               },
+            };
+
+            apiDocumentations[apiName] = {
+              id: apiName,
+              resources,
             };
           });
       }
@@ -390,4 +393,14 @@ export default class OASBuilder implements IOASBuilder {
 
     return responseExamples;
   }
+}
+
+function computeValue<V>(
+  record: Record<string, V> | undefined,
+  key: string,
+  callback: (v?: V) => V
+) {
+  const value = callback(record?.[key]);
+  if (record) record[key] = value;
+  return record || { [key]: value };
 }
