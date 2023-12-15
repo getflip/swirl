@@ -102,13 +102,18 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
             </Heading>
             <div>
               {endpoint.responseBody?.map((parameterType) => {
+                const schema = endpoint.responseBodySchemas.find(
+                  (schema) => schema.statusCode === parameterType.title
+                )?.schema;
+
                 return (
                   <Parameter
                     key={parameterType.title}
                     name={parameterType.title}
                   >
                     {new EndpointParameterFactory(
-                      parameterType.parameters
+                      parameterType.parameters,
+                      schema
                     ).renderProperties()}
                   </Parameter>
                 );
