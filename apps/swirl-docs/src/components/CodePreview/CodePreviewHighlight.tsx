@@ -11,12 +11,15 @@ export function CodePreviewHighlight() {
 
   const determineLanguage = (): Language => {
     const langId = codeExample.selectedId || "tsx";
+
     if (parseInt(langId)) {
       // HTTP Response Code
       return "json";
     } else if (langId === "node") {
       return "javascript";
-    } else return langId as Language;
+    }
+
+    return langId as Language;
   };
 
   const isLastLineAndEmpty = (
