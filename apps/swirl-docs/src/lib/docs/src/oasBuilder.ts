@@ -338,23 +338,27 @@ export default class OASBuilder implements IOASBuilder {
     const harRequest = har.log.entries[0].request;
     const body = operation.getRequestBodyExamples()[0]?.examples[0]?.value;
 
+    const allLanguages = Object.keys(supportedLanguages) as SupportedTargets[];
+    const allLanguageSnippets = allLanguages.map((language) => [
+      language,
+      String(
+        oasToSnippet(
+          this.oas,
+          operation,
+          {
+            body,
+          },
+          {},
+          language
+        ).code
+      ),
+    ]);
+
     return {
-      snippets: Object.fromEntries(
-        (Object.keys(supportedLanguages) as SupportedTargets[]).map((l) => [
-          l,
-          String(
-            oasToSnippet(
-              this.oas,
-              operation,
-              {
-                body,
-              },
-              {},
-              l
-            ).code
-          ),
-        ])
-      ) as Record<SupportedTargets, string>,
+      snippets: Object.fromEntries(allLanguageSnippets) as Record<
+        SupportedTargets,
+        string
+      >,
       request: {
         ...harRequest,
         url: operation.path,
