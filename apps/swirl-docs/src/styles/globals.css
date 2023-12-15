@@ -126,6 +126,6 @@ pre {
   overflow: auto;
 }
 
-[cmdk-item][aria-selected="true"] > button {
+[cmdk-item][aria-selected="true"] {
   background-color: var(--s-surface-hovered);
 }

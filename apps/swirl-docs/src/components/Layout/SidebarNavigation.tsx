@@ -196,7 +196,7 @@ export function SidebarNavigation() {
             </>
           )}
           <div className="flex mt-6 align-center h-10 max-h-10">
-            <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-[#8E8E93]">
+            <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-text-subdued">
               APIs
             </h4>
           </div>
@@ -220,7 +220,7 @@ export function SidebarNavigation() {
           <hr className="mt-8" />
           <div className="mt-8">
             <div className="h-10 inline-flex items-center justify-center">
-              <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-[#8E8E93]">
+              <h4 className="text-font-size-sm leading-6 font-font-weight-bold text-text-subdued">
                 Legacy APIs
               </h4>
             </div>
