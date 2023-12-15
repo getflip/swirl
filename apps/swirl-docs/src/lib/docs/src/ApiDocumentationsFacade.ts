@@ -44,8 +44,9 @@ export class ApiDocumentationsFacade {
 
   private static getEndpointMethodOrder(endpoint: ApiEndpoint): number {
     return (
-      this._endpointMethodOrder[endpoint.method?.toUpperCase() || ""] ||
-      Number.MAX_SAFE_INTEGER
+      ApiDocumentationsFacade._endpointMethodOrder[
+        endpoint.method?.toUpperCase() || ""
+      ] || Number.MAX_SAFE_INTEGER
     );
   }
 
