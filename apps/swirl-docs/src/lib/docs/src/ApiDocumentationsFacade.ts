@@ -78,6 +78,7 @@ export class ApiDocumentationsFacade {
             url: `/api-docs/${api.id}/${resource.id}`,
           };
         }),
+        specName: api.id,
         description: "",
         isRoot: true,
       }));

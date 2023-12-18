@@ -1,6 +1,7 @@
 import { CategoryEnum, NavItem } from "../navigation.model";
 import { apiSpecsNavItems } from "./apiSpecs.data";
 import { tokensNavItems } from "./tokens.data";
+import { apiDocsNavItems } from "./apiDocs.data";
 
 export const navItems: NavItem[] = [
   {
@@ -19,7 +20,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: CategoryEnum.API,
-    url: "/api-docs/docs/getting-started-test",
+    url: apiDocsNavItems[0].url,
     isRoot: true,
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",

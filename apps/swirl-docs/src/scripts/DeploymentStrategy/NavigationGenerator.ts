@@ -1,6 +1,8 @@
 import { API_DOCS_PATH, API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 
+import { serializeMarkdownString } from "@swirl/lib/docs";
 import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
+import { sort } from "fast-sort";
 import fs from "fs";
 import path from "path";
 import prettier from "prettier";
@@ -65,7 +67,7 @@ export class ApiDocsNavigationGenerator implements NavigationGeneratorStrategy {
     if (fs.existsSync(API_DOCS_PATH)) {
       const files = fs.readdirSync(API_DOCS_PATH);
 
-      const filesWithPaths = this.generateFileList(files);
+      const filesWithPaths = await this.generateFileList(sort(files).asc());
 
       const dataString = filesWithPaths
         .map((navItem) => JSON.stringify(navItem))
@@ -95,7 +97,10 @@ export class ApiDocsNavigationGenerator implements NavigationGeneratorStrategy {
     `;
   }
 
-  private generateFileList(paths: string[], rootPath?: string): NavItem[] {
+  private async generateFileList(
+    paths: string[],
+    rootPath?: string
+  ): Promise<NavItem[]> {
     const filteredPaths = paths.filter((pathItem) => {
       const fullPath = rootPath ? `${rootPath}/${pathItem}` : pathItem;
       const absolutePath = path.join(API_DOCS_PATH, fullPath);
@@ -106,18 +111,27 @@ export class ApiDocsNavigationGenerator implements NavigationGeneratorStrategy {
       );
     });
 
-    const items = filteredPaths.map((pathItem) => {
-      const fullPath = rootPath ? `${rootPath}/${pathItem}` : pathItem;
-      return this.generateNavItems(fullPath);
-    }) as NavItem[];
+    const items = (await Promise.all(
+      filteredPaths.map(async (pathItem) => {
+        const fullPath = rootPath ? `${rootPath}/${pathItem}` : pathItem;
+        const absolutePath = path.join(API_DOCS_PATH, fullPath);
+        const source = fs.readFileSync(absolutePath, "utf8");
+        const md = await serializeMarkdownString(source);
+
+        return this.generateNavItems(fullPath, md.frontmatter?.title);
+      })
+    )) as NavItem[];
 
     return items;
   }
 
-  private generateNavItems(filePath: string): NavItem {
-    const cleanedFileName = filePath.replace(".mdx", "");
+  private generateNavItems(filePath: string, title?: string): NavItem {
+    const cleanedFileName = filePath
+      .replace(".mdx", "")
+      .replace(/^[0-9]+-/, "");
     return {
-      title: cleanedFileName,
+      title: title || cleanedFileName,
+      mdxFilename: filePath.replace(".mdx", ""),
       url: `/api-docs/docs/${cleanedFileName}`,
     };
   }
