@@ -1,9 +1,9 @@
-import { SwirlIconArrowRight } from "@getflip/swirl-components-react";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "src/components/Layout/Footer";
+import GetStartedLink from "src/components/Layout/GetStartedLink";
 
 const Home: NextPage = () => {
   return (
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
               <div className="flex gap-space-24 flex-wrap items-stretch">
                 <article
                   aria-labelledby="heading-tokens"
-                  className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
+                  className="group relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
                 >
                   <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base">
                     <Image
@@ -72,13 +72,7 @@ const Home: NextPage = () => {
                     Consistent variables defining visual elements, ensuring
                     harmony across platforms.
                   </p>
-                  <span
-                    aria-hidden="true"
-                    className="inline-flex items-center gap-space-4 text-font-size-sm font-medium text-interactive-primary-default hover:text-interactive-primary-hovered"
-                  >
-                    Get started
-                    <SwirlIconArrowRight size={20} />
-                  </span>
+                  <GetStartedLink />
                   <Link
                     href="/tokens/color"
                     aria-label="Get started with Flip Tokens"
@@ -87,7 +81,7 @@ const Home: NextPage = () => {
                 </article>
                 <article
                   aria-labelledby="heading-icons"
-                  className="relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
+                  className="group relative flex flex-col min-[400px]:basis-[calc(100%_/_2_-_1.5rem_/_2)] sm:basis-[calc(100%_/_3_-_1.5rem_/_3_*_2)]"
                 >
                   <div className="flex items-center justify-center aspect-[3/2] mb-space-12 bg-surface-raised-default rounded-border-radius-base">
                     <Image
@@ -106,13 +100,7 @@ const Home: NextPage = () => {
                   <p className="text-font-size-sm mb-space-8 grow">
                     A collection of chosen material design and custom icons.
                   </p>
-                  <span
-                    aria-hidden="true"
-                    className="inline-flex items-center gap-space-4 text-font-size-sm font-medium text-interactive-primary-default hover:text-interactive-primary-hovered"
-                  >
-                    Get started
-                    <SwirlIconArrowRight size={20} />
-                  </span>
+                  <GetStartedLink />
                   <Link
                     href="/icons"
                     aria-label="Get started with Flip Icons"
