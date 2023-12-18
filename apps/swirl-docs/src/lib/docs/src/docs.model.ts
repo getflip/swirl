@@ -1,6 +1,7 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import Oas, { Operation } from "oas";
-import { HttpMethods, OASDocument } from "oas/dist/rmoas.types";
+import Oas from "oas";
+import type { Operation } from "oas/operation";
+import type { HttpMethods, OASDocument } from "oas/types";
 import { OpenAPIV3_1 } from "openapi-types/dist";
 import OASBuilder from "./oasBuilder";
 import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
@@ -133,7 +134,7 @@ export type ApiEndpoint = {
   description: string;
   path: string;
   method?: HttpMethods;
-  request: ReturnType<OASBuilder["generateRequest"]>;
+  request: Awaited<ReturnType<OASBuilder["generateRequest"]>>;
   responseExamples: CodePreviewSelectOptions;
   responseBodySchemas: Array<ResponseBodySchema>;
   isDeprecated?: boolean;

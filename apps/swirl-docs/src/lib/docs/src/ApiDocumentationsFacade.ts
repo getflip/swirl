@@ -33,8 +33,8 @@ export class ApiDocumentationsFacade {
       ).validate();
 
       const oasBuilder = await new OASBuilder(oasDocument).dereference();
-      const apiDocumentations =
-        oasBuilder.setApiDocumentations().apiDocumentations;
+      const apiDocumentations = (await oasBuilder.setApiDocumentations())
+        .apiDocumentations;
 
       this._apiDocumentations = apiDocumentations;
 

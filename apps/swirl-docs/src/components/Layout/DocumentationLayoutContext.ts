@@ -1,7 +1,7 @@
 import { FrontMatter } from "@swirl/lib/docs";
 import { NavItem } from "@swirl/lib/navigation";
 import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { OASDocument } from "oas/dist/rmoas.types";
+import { OASDocument } from "oas/types";
 import { createContext, useContext } from "react";
 
 export type TDocumentationLayout = {

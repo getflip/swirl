@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { useCodePreviewContext } from "./CodePreviewContext";
 import { CopyButton } from "./CodePreviewCopyButton";
-import { SupportedTargets } from "@readme/oas-to-snippet";
 import { Select, SelectItemProps, SelectProps } from "./Select";
+import { SupportedTargets } from "@readme/oas-to-snippet/languages";
 
 export function CodePreviewHeader() {
   const {

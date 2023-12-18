@@ -49,7 +49,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }).validate();
 
   const oasBuilder = await new OASBuilder(oasDocument).dereference();
-  const apiDocumentations = oasBuilder.setApiDocumentations().apiDocumentations;
+  const apiDocumentations = (await oasBuilder.setApiDocumentations())
+    .apiDocumentations;
 
   const { apiName, apiResource } = context.params;
 

@@ -13,7 +13,7 @@ export async function createStaticPathsForSpec(): Promise<
 
   const oasBuilder = await new OASBuilder(oasDocument).dereference();
 
-  const oasBuilderDereffed = oasBuilder.setApiDocumentations();
+  const oasBuilderDereffed = await oasBuilder.setApiDocumentations();
 
   const paths = oasBuilderDereffed.apiDocumentations
     .map((api) =>

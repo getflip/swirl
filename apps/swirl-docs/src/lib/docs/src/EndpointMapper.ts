@@ -1,4 +1,4 @@
-import { SchemaObject } from "oas/dist/rmoas.types";
+import { SchemaObject } from "oas/types";
 import {
   Endpoint,
   ApiResourceDocumentation,
@@ -8,52 +8,59 @@ import {
   ApiEndpoint,
 } from "./docs.model";
 import OASBuilder from "./oasBuilder";
-import { Operation } from "oas";
+import { Operation } from "oas/operation";
 
 export class EndpointMapper {
-  map(oasBuilder: OASBuilder): ApiResourceDocumentation["endpoints"] {
-    return oasBuilder.endpoints.map((endpoint) => {
-      const responseBodySchemas = Object.entries(
-        endpoint.operation.schema.responses || {}
-      ).map(([statusCode, response]) => ({
-        schema: response.content?.["application/json"]?.schema || null,
-        statusCode,
-      }));
+  async map(
+    oasBuilder: OASBuilder
+  ): Promise<ApiResourceDocumentation["endpoints"]> {
+    return Promise.all(
+      oasBuilder.endpoints.map(async (endpoint) => {
+        const responseBodySchemas = Object.entries(
+          endpoint.operation.schema.responses || {}
+        ).map(([statusCode, response]) => ({
+          schema: response.content?.["application/json"]?.schema || null,
+          statusCode,
+        }));
 
-      const isEndpointExperimental: ApiResourceDocumentation["endpoints"][0]["isExperimental"] =
-        (endpoint.operation.schema["x-experimental"] as boolean) ?? false;
+        const isEndpointExperimental: ApiResourceDocumentation["endpoints"][0]["isExperimental"] =
+          (endpoint.operation.schema["x-experimental"] as boolean) ?? false;
 
-      const requestSchemas = endpoint.operation.getParametersAsJSONSchema();
-      return {
-        title: endpoint.title,
-        description: endpoint.operation.getDescription() || "",
-        path: endpoint.path,
-        isDeprecated: endpoint.operation.isDeprecated(),
-        isExperimental: isEndpointExperimental,
-        parameters: requestSchemas
-          ? this.getEndpointOperationSchema(
-              requestSchemas.filter((param) => param.type !== "body")
-            )
-          : undefined,
-        requestBody: requestSchemas
-          ? this.getEndpointOperationSchema(
-              requestSchemas.filter((param) => param.type === "body")
-            )
-          : undefined,
-        responseBody: this.getEndpointOperationResponseParameters(
-          endpoint.operation
-        ),
-        request: oasBuilder?.generateRequest(endpoint.operation),
-        responseExamples: oasBuilder?.generateResponseExamples(
-          endpoint.operation
-        ),
-        responseBodySchemas,
-        security: endpoint.operation.api.security,
-      };
-    });
+        const requestSchemas = endpoint.operation.getParametersAsJSONSchema();
+        return {
+          title: endpoint.title,
+          description: endpoint.operation.getDescription() || "",
+          path: endpoint.path,
+          isDeprecated: endpoint.operation.isDeprecated(),
+          isExperimental: isEndpointExperimental,
+          parameters: requestSchemas
+            ? this.getEndpointOperationSchema(
+                requestSchemas.filter((param) => param.type !== "body")
+              )
+            : undefined,
+          requestBody: requestSchemas
+            ? this.getEndpointOperationSchema(
+                requestSchemas.filter((param) => param.type === "body")
+              )
+            : undefined,
+          responseBody: this.getEndpointOperationResponseParameters(
+            endpoint.operation
+          ),
+          request: await oasBuilder?.generateRequest(endpoint.operation),
+          responseExamples: oasBuilder?.generateResponseExamples(
+            endpoint.operation
+          ),
+          responseBodySchemas,
+          security: endpoint.operation.api.security,
+        };
+      })
+    );
   }
 
-  mapEndpoint(operation: Operation, oasBuilder: OASBuilder): ApiEndpoint {
+  async mapEndpoint(
+    operation: Operation,
+    oasBuilder: OASBuilder
+  ): Promise<ApiEndpoint> {
     const responseBodySchemas = Object.entries(
       operation.schema.responses || {}
     ).map(([statusCode, response]) => ({
@@ -83,7 +90,7 @@ export class EndpointMapper {
           )
         : undefined,
       responseBody: this.getEndpointOperationResponseParameters(operation),
-      request: oasBuilder?.generateRequest(operation),
+      request: await oasBuilder?.generateRequest(operation),
       responseExamples: oasBuilder?.generateResponseExamples(operation),
       responseBodySchemas,
       security: operation.api.security,
@@ -126,7 +133,7 @@ export class EndpointMapper {
   }
 
   private getEndpointOperationSchema(
-    parameters: ReturnType<Endpoint["operation"]["getParametersAsJSONSchema"]>
+    parameters: ReturnType<Operation["getParametersAsJSONSchema"]>
   ): OperationSchemas {
     return parameters.map((parameter) => {
       const label = parameter.label || "other";

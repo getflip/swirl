@@ -1,17 +1,9 @@
-import oasToHar from "@readme/oas-to-har";
-import {
-  SupportedTargets,
-  oasToSnippet,
-  supportedLanguages,
-} from "@readme/oas-to-snippet";
+import OASToHar from "@readme/oas-to-har";
+import oasToSnippet from "@readme/oas-to-snippet";
 import { Request } from "har-format";
-import Oas, { Operation } from "oas";
-import {
-  HttpMethods,
-  OASDocument,
-  PathsObject,
-  SchemaObject,
-} from "oas/dist/rmoas.types";
+import OAS from "oas";
+import { Operation } from "oas/operation";
+import { HttpMethods, OASDocument, PathsObject, SchemaObject } from "oas/types";
 import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
 import { EndpointMapper } from "./EndpointMapper";
 import {
@@ -20,6 +12,7 @@ import {
   Endpoint,
   Operations,
 } from "./docs.model";
+import { SupportedTargets } from "@readme/oas-to-snippet/languages";
 
 interface IOASBuilder {
   title: string;
@@ -50,16 +43,13 @@ type EndpointWithDetails = Endpoint & {
   responseExamples: CodePreviewSelectOptions;
 };
 
-const OAS = (Oas as any).default || Oas;
-const OASToHar = (oasToHar as any).default || oasToHar;
-
 export default class OASBuilder implements IOASBuilder {
   private static X_FLIP_API_NAME = "x-flip-api-name";
   private static X_FLIP_RESOURCE_NAME = "x-flip-resource-name";
   private static X_FLIP_INTERNAL = "x-flip-internal";
 
   private _oasDocument: OASDocument = {} as OASDocument;
-  private _oas: Oas = new OAS({} as OASDocument);
+  private _oas = new OAS({} as OASDocument);
   private endpointMapper = new EndpointMapper();
 
   public title: string = "";
@@ -84,9 +74,7 @@ export default class OASBuilder implements IOASBuilder {
   }
 
   private createParameters(
-    parametersAsJsonSchema: ReturnType<
-      Endpoint["operation"]["getParametersAsJSONSchema"]
-    >
+    parametersAsJsonSchema: ReturnType<Operation["getParametersAsJSONSchema"]>
   ): EndpointWithDetails["parameters"] {
     return parametersAsJsonSchema.map((schemaWrapper) => {
       const requiredParams = schemaWrapper.schema.required || [];
@@ -121,9 +109,9 @@ export default class OASBuilder implements IOASBuilder {
     });
   }
 
-  public setDetailedEndpoints() {
-    this.endpoints.forEach((apiEndpoint) => {
-      const requestPreview = this.generateRequest(apiEndpoint.operation);
+  public async setDetailedEndpoints() {
+    for (const apiEndpoint of this.endpoints) {
+      const requestPreview = await this.generateRequest(apiEndpoint.operation);
       const parameterSchemas =
         apiEndpoint.operation.getParametersAsJSONSchema() || [];
 
@@ -140,7 +128,7 @@ export default class OASBuilder implements IOASBuilder {
         responseExamples: this.generateResponseExamples(apiEndpoint.operation),
         parameters: parameters,
       });
-    });
+    }
 
     return this;
   }
@@ -158,7 +146,7 @@ export default class OASBuilder implements IOASBuilder {
     return this._oasDocument;
   }
 
-  public setApiDocumentations() {
+  public async setApiDocumentations() {
     const apiDocumentations: {
       [apiName: string]: {
         id: string;
@@ -171,73 +159,68 @@ export default class OASBuilder implements IOASBuilder {
       };
     } = {};
 
-    Object.entries(this._oas.api.paths ?? {}).forEach(
-      ([path, pathItemObject]) => {
-        if (!pathItemObject) {
-          return;
+    for (const [path, pathItemObject] of Object.entries(
+      this._oas.api.paths ?? {}
+    )) {
+      if (!pathItemObject) {
+        break;
+      }
+
+      for (const method of Object.keys(pathItemObject).filter(
+        (method) => method !== "parameters"
+      )) {
+        const operation = this._oas.operation(path, method as HttpMethods);
+
+        const isInternal = operation.getExtension(OASBuilder.X_FLIP_INTERNAL);
+
+        if (
+          isInternal &&
+          process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE !== "staging"
+        ) {
+          break;
         }
 
-        Object.keys(pathItemObject)
-          .filter((method) => method !== "parameters")
-          .forEach((pathItemObject) => {
-            const operation = this._oas.operation(
-              path,
-              pathItemObject as HttpMethods
-            );
+        const apiName = operation.getExtension(
+          OASBuilder.X_FLIP_API_NAME
+        ) as string;
 
-            const isInternal = operation.getExtension(
-              OASBuilder.X_FLIP_INTERNAL
-            );
+        if (!apiName) {
+          break;
+        }
 
-            if (
-              isInternal &&
-              process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE !== "staging"
-            ) {
-              return;
-            }
+        const resourceName = operation.getExtension(
+          OASBuilder.X_FLIP_RESOURCE_NAME
+        ) as string;
 
-            const apiName = operation.getExtension(
-              OASBuilder.X_FLIP_API_NAME
-            ) as string;
+        if (!resourceName) {
+          break;
+        }
 
-            if (!apiName) {
-              return;
-            }
+        const endpoint = {
+          ...(await this.endpointMapper.mapEndpoint(operation, this)),
+          method: method as HttpMethods,
+        };
 
-            const resourceName = operation.getExtension(
-              OASBuilder.X_FLIP_RESOURCE_NAME
-            ) as string;
+        const endpoints = {
+          ...(apiDocumentations[apiName]?.resources?.[resourceName]
+            ?.endpoints || {}),
+          [operation.getOperationId()]: endpoint,
+        };
 
-            if (!resourceName) {
-              return;
-            }
+        const resources = {
+          ...apiDocumentations[apiName]?.resources,
+          [resourceName]: {
+            id: resourceName,
+            endpoints,
+          },
+        };
 
-            const endpoint = {
-              ...this.endpointMapper.mapEndpoint(operation, this),
-              method: pathItemObject as HttpMethods,
-            };
-
-            const endpoints = {
-              ...(apiDocumentations[apiName]?.resources?.[resourceName]
-                ?.endpoints || {}),
-              [operation.getOperationId()]: endpoint,
-            };
-
-            const resources = {
-              ...apiDocumentations[apiName]?.resources,
-              [resourceName]: {
-                id: resourceName,
-                endpoints,
-              },
-            };
-
-            apiDocumentations[apiName] = {
-              id: apiName,
-              resources,
-            };
-          });
+        apiDocumentations[apiName] = {
+          id: apiName,
+          resources,
+        };
       }
-    );
+    }
 
     this.apiDocumentations = Object.entries(apiDocumentations)
       .map(([apiName, api]) => {
@@ -333,29 +316,33 @@ export default class OASBuilder implements IOASBuilder {
     return this;
   }
 
-  public generateRequest(operation: Operation): {
+  public async generateRequest(operation: Operation): Promise<{
     snippets: EndpointWithDetails["request"]["snippets"];
     request: EndpointWithDetails["request"]["request"];
-  } {
+  }> {
     const har = OASToHar(this.oas, operation);
     const harRequest = har.log.entries[0].request;
     const body = operation.getRequestBodyExamples()[0]?.examples[0]?.value;
 
-    const allLanguages = Object.keys(supportedLanguages) as SupportedTargets[];
-    const allLanguageSnippets = allLanguages.map((language) => [
-      language,
-      String(
-        oasToSnippet(
-          this.oas,
-          operation,
-          {
-            body,
-          },
-          {},
-          language
-        ).code
-      ),
-    ]);
+    const allLanguages: SupportedTargets[] = ["node", "python", "shell"];
+    const allLanguageSnippets = await Promise.all(
+      allLanguages.map(async (language) => [
+        language,
+        String(
+          (
+            await oasToSnippet(
+              this.oas,
+              operation,
+              {
+                body,
+              },
+              {},
+              language
+            )
+          ).code
+        ),
+      ])
+    );
 
     return {
       snippets: Object.fromEntries(allLanguageSnippets) as Record<
