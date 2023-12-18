@@ -401,6 +401,8 @@ function computeValue<V>(
   callback: (v?: V) => V
 ) {
   const value = callback(record?.[key]);
-  if (record) record[key] = value;
+  if (record) {
+    record[key] = value;
+  }
   return record || { [key]: value };
 }

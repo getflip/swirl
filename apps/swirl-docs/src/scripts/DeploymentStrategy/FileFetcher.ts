@@ -68,7 +68,9 @@ export class FileFetcher {
     root?: string
   ): Promise<any> {
     const itemsInTree = await this.gitlabAPI.fetchTreeList(tree.path);
-    if (!itemsInTree) return;
+    if (!itemsInTree) {
+      return;
+    }
 
     return Promise.all(
       itemsInTree.map((item: RepositoryTreeItem) => {

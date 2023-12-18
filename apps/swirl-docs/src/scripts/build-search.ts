@@ -99,10 +99,18 @@ function createColorTokenAlgoliaData(
 function getTokenCategory(
   tokenType: Token["type"]
 ): AlgoliaRecord["tokenCategory"] {
-  if (isTypographyToken(tokenType as TokensWithoutColors)) return "typography";
-  if (isZindexToken(tokenType as TokensWithoutColors)) return "z-index";
-  if (isBorderToken(tokenType as TokensWithoutColors)) return "border";
-  if (isSpacingToken(tokenType as TokensWithoutColors)) return "spacing";
+  if (isTypographyToken(tokenType as TokensWithoutColors)) {
+    return "typography";
+  }
+  if (isZindexToken(tokenType as TokensWithoutColors)) {
+    return "z-index";
+  }
+  if (isBorderToken(tokenType as TokensWithoutColors)) {
+    return "border";
+  }
+  if (isSpacingToken(tokenType as TokensWithoutColors)) {
+    return "spacing";
+  }
 
   return "color";
 }
