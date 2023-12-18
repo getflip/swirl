@@ -9,13 +9,12 @@ import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { CodePreview } from "src/components/CodePreview";
-import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
-import { Text } from "src/components/swirl-recreations";
 import ApiGrid from "src/components/Documentation/ApiGrid";
 import ApiTile from "src/components/Documentation/ApiTile";
+import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
+import { Text } from "src/components/swirl-recreations";
 
 async function getComponentData(document: string) {
-  console.log(apiDocsNavItems, "/api-docs/docs/" + document);
   const apiDocNavItem = apiDocsNavItems.find(
     (apiDoc) => apiDoc.url == "/api-docs/docs/" + document
   );

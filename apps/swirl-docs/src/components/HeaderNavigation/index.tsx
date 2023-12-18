@@ -1,15 +1,15 @@
-import { DesktopView, MobileView } from "../View/Views";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { useEffect, useState } from "react";
+import { DesktopView, MobileView } from "../View/Views";
 
+import { SwirlIconClose } from "@getflip/swirl-components-react";
+import { navItems } from "@swirl/lib/navigation";
+import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import MobileNav from "./Mobile";
 import { OpenSearchButton } from "./OpenSearchButton";
-import { SwirlIconClose } from "@getflip/swirl-components-react";
-import classNames from "classnames";
-import { navItems } from "@swirl/lib/navigation";
-import { useRouter } from "next/router";
 
 export const HeaderLogo = () => {
   return (
@@ -43,7 +43,6 @@ const HeaderNavigation = () => {
   const activePath = router.pathname;
 
   const handleCloseMenu = () => {
-    console.log("handleCloseMenu");
     setIsMobileNavOpen(false);
   };
 
