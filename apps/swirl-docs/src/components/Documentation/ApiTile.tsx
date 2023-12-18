@@ -21,14 +21,18 @@ const ApiTile = ({
   return (
     <Link
       href={navItem.url}
-      className="border-border-1 p-3 rounded-border-radius-base active:bg-surface-overlay-pressed flex flex-col"
+      className="border-border-1 p-3 rounded-border-radius-base active:bg-surface-overlay-pressed flex flex-col group"
     >
       <div className="grow">
         <div className="font-semibold">{title}</div>
         <div>{children}</div>
       </div>
-      <div className="flex justify-start items-center gap-1 text-border-info hover:opacity-75">
-        Get started <SwirlIconArrowRight size={20} />
+      <div className="flex justify-start items-center gap-1 text-border-info">
+        Get started{" "}
+        <SwirlIconArrowRight
+          size={20}
+          className="transition-margin ease-in-out duration-300 group-hover:ml-2"
+        />
       </div>
     </Link>
   );
