@@ -35,7 +35,7 @@ export const OpenSearchButton: FunctionComponent = () => {
           "hidden md:inline-flex justify-center items-center",
           {
             "w-7": isMacOs,
-            "w-10": !isMacOs,
+            "w-16": !isMacOs,
           },
           "h-7 rounded-border-radius-s border-border-default border-1",
           "text-xs text-text-subdued"

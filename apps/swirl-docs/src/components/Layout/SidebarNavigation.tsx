@@ -131,16 +131,7 @@ const WrappingAnchor = forwardRef<
   HTMLAnchorElement,
   { item: NavItem; isCurrentPath: boolean; href: string }
 >(({ item, isCurrentPath, href }, ref) => {
-  const [isWrapping, setIsWrapping] = useState(false);
   const textRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (textRef.current) {
-      setIsWrapping(190 < textRef.current.scrollWidth);
-    }
-  }, [item.title]); // Re-run effect when the item.title changes
-
-  const alignmentClass = isWrapping ? "items-start" : "items-center";
 
   return (
     <Link
@@ -149,7 +140,7 @@ const WrappingAnchor = forwardRef<
       aria-current={isCurrentPath}
       className={classNames(
         "flex",
-        alignmentClass,
+        "items-start",
         "w-full",
         "text-sm capitalize leading-5",
         "hover:text-border-info",
@@ -167,7 +158,9 @@ const WrappingAnchor = forwardRef<
           httpTag
         />
       )}
-      <span ref={textRef}>{item.title}</span>
+      <span ref={textRef} className="align-middle leading-5">
+        {item.title}
+      </span>
     </Link>
   );
 });
@@ -184,7 +177,7 @@ export function SidebarNavigation() {
       aria-label="category"
       className={classNames(
         "hidden lg:block px-4 border-r-1 min-h-full w-80 min-w-[20rem] max-w-xs",
-        "overflow-auto",
+        "overflow-y-scroll",
         { invisible: router.asPath.includes("/icons") }
       )}
     >
