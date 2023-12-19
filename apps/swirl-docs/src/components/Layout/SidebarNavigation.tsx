@@ -9,12 +9,12 @@ import icon from "@getflip/swirl-icons/icons/ChevronRight28.svg";
 import { NavItem } from "@swirl/lib/navigation/";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import classNames from "classnames";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { HttpMethods } from "oas/dist/rmoas.types";
 import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
-import { AnimatePresence, motion } from "framer-motion";
 
 const ANIMATION_OPENED = { opacity: 1, height: "auto" };
 const ANIMATION_CLOSED = { opacity: 0, height: 0 };
@@ -177,7 +177,7 @@ export function SidebarNavigation() {
       aria-label="category"
       className={classNames(
         "hidden lg:block px-4 border-r-1 min-h-full w-80 min-w-[20rem] max-w-xs",
-        "overflow-y-scroll",
+        "overflow-y-auto",
         { invisible: router.asPath.includes("/icons") }
       )}
     >
