@@ -33,7 +33,7 @@ export function Tag({ content, scheme, httpTag }: TagProps) {
   return (
     <span
       className={classNames(
-        "px-2 py-1 rounded-md font-medium text-xs mr-2 align-middle",
+        "px-2 py-[4px] rounded-md text-xs mr-2 align-middle leading-3",
         {
           "bg-surface-neutral-subdued text-text-default":
             scheme === "default" || !scheme,
