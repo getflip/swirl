@@ -30,7 +30,9 @@ export const handleGridKeyDown = (
       const nextRef = getRefFn(
         gridCellData.data[gridCellData.index + 1]
       ) as React.RefObject<any>;
-      if (gridCellData.index === gridCellData.data.length - 1) return;
+      if (gridCellData.index === gridCellData.data.length - 1) {
+        return;
+      }
 
       currentRef.current.tabIndex = -1;
       nextRef.current.tabIndex = 0;
@@ -41,7 +43,9 @@ export const handleGridKeyDown = (
       const previousRef = getRefFn(
         gridCellData.data[gridCellData.index - 1]
       ) as React.RefObject<any>;
-      if (gridCellData.index === 0) return;
+      if (gridCellData.index === 0) {
+        return;
+      }
 
       currentRef.current.tabIndex = -1;
       previousRef.current.tabIndex = 0;
@@ -63,12 +67,16 @@ function handlePreventScroll(event: React.KeyboardEvent): void {
 }
 
 function getRef<T>(key: string): React.RefObject<T> | undefined | void {
-  if (!key) return console.warn(`useDynamicRefs: Cannot get ref without key`);
+  if (!key) {
+    return console.warn(`useDynamicRefs: Cannot get ref without key`);
+  }
   return map.get(key) as React.RefObject<T>;
 }
 
 function setRef<T>(key: string): React.RefObject<T> | void {
-  if (!key) return console.warn(`useDynamicRefs: Cannot set ref without key `);
+  if (!key) {
+    return console.warn(`useDynamicRefs: Cannot set ref without key `);
+  }
   const ref = React.createRef<T>();
   map.set(key, ref);
   return ref;

@@ -107,7 +107,9 @@ export function Select({
             <SelectItem
               onClick={(event) => {
                 const target = event.target as HTMLButtonElement;
-                if (target && onItemClick) onItemClick(option);
+                if (target && onItemClick) {
+                  onItemClick(option);
+                }
                 setIsOpen(false);
               }}
               key={option.label as string}

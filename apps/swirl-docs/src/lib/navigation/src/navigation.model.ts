@@ -6,6 +6,7 @@ export type NavLink = {
 
 export type NavItem = {
   title: string;
+  mdxFilename?: string;
   url: string;
   isRoot?: boolean;
   children?: NavItem[];
