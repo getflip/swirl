@@ -32,6 +32,14 @@ const MobileNav = ({ isOpen, handleCloseMenu }: MobileNavProps) => {
 
   const showTopLevel = !!topLevelSelection?.children?.length;
 
+  const onTopLevelNavClick = (navItem: NavItem) => {
+    if (navItem.children?.length) {
+      setTopLevelSelection(navItem);
+    } else {
+      handleCloseMenu();
+    }
+  };
+
   return (
     <nav
       id="mobile-navigation"
@@ -53,7 +61,7 @@ const MobileNav = ({ isOpen, handleCloseMenu }: MobileNavProps) => {
               <MobileNavTopLevelItem
                 navItem={navItem}
                 key={navItem.title}
-                handleCloseMenu={handleCloseMenu}
+                onClick={() => onTopLevelNavClick(navItem)}
                 active={navItem === activeNavItemBase}
               />
             ))}
