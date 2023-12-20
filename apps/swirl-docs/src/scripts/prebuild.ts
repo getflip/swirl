@@ -1,4 +1,4 @@
-import { Env } from "@swirl/lib/env/server.config";
+import { isProdDeployment } from "@swirl/lib/env";
 import {
   DeploymentStrategy,
   ProductionDeployment,
@@ -6,7 +6,7 @@ import {
 } from "./DeploymentStrategy";
 
 const getDeploymentStrategy = (): DeploymentStrategy => {
-  if (Env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production") {
+  if (isProdDeployment) {
     return new ProductionDeployment();
   }
   return new StagingDeployment();
