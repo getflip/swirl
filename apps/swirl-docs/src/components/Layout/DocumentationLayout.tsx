@@ -4,13 +4,13 @@ import { useRouter } from "next/router";
 import { ReactNode, useEffect, useRef } from "react";
 import { ComponentPreview } from "../ComponentPreview";
 import { DocumentationHeader } from "../Documentation/DocumentationHeader";
+import { SidebarNavigation } from "../Navigation/SidebarNavigation";
 import { DocLinksNav } from "./DocLinksNav";
 import DocumentationLayoutContext, {
   TDocumentationLayout,
 } from "./DocumentationLayoutContext";
 import Footer from "./Footer";
 import MDXDocument from "./MDXDocument";
-import { SidebarNavigation } from "./SidebarNavigation";
 
 type DocumentationLayoutProps = {
   data: TDocumentationLayout;

@@ -1,19 +1,28 @@
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { useEffect, useState } from "react";
-import { DesktopView, MobileView } from "../View/Views";
+import { DesktopView, MobileView } from "../../View/Views";
 
-import { SwirlIconClose } from "@getflip/swirl-components-react";
+import {
+  SwirlIconClose,
+  SwirlIconSearch,
+} from "@getflip/swirl-components-react";
+import { isProdDeployment } from "@swirl/lib/env";
 import { navItems } from "@swirl/lib/navigation";
+import commandPaletteObserver from "@swirl/lib/search/commandPaletteObserver";
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import MobileNav from "./Mobile";
+import MobileNav from "../MobileNavigation";
 import { OpenSearchButton } from "./OpenSearchButton";
 
-export const HeaderLogo = () => {
+export const HeaderLogo = ({ onClick }: { onClick?: () => void }) => {
   return (
-    <Link href="/" className="flex justify-center items-center mr-8 max-h-7">
+    <Link
+      href="/"
+      className="flex justify-center items-center mr-8 max-h-7"
+      onClick={onClick}
+    >
       <Image
         alt="Swirl home"
         src="/swirl-icon-temp.svg"
@@ -50,13 +59,13 @@ const HeaderNavigation = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   }
 
-  const filteredNavItems = navItems.filter((navItem) => {
-    if (process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production") {
-      return !navItem.title.includes("APIs and References");
-    }
+  function openCommandPalette() {
+    commandPaletteObserver.set(true);
+  }
 
-    return navItem;
-  });
+  const filteredNavItems = navItems.filter(
+    (navItem) => !isProdDeployment || !navItem.devOnly
+  );
 
   return (
     <>
@@ -77,7 +86,7 @@ const HeaderNavigation = () => {
               <ul className="hidden md:flex flex-row items-center bg-background-default">
                 {filteredNavItems.map((link) => {
                   const isActive =
-                    activePath.split("/")[1] === link.url.split("/")[1];
+                    activePath.split("/")[1] === link.url?.split("/")[1];
 
                   return (
                     <li
@@ -92,14 +101,18 @@ const HeaderNavigation = () => {
                         }
                       )}
                     >
-                      <Link
-                        className={classNames("text-text-default text-base", {
-                          "text-text-highlight": isActive,
-                        })}
-                        href={link.url}
-                      >
-                        {link.title}
-                      </Link>
+                      {link.url ? (
+                        <Link
+                          className={classNames("text-text-default text-base", {
+                            "text-text-highlight": isActive,
+                          })}
+                          href={link.url}
+                        >
+                          {link.title}
+                        </Link>
+                      ) : (
+                        link.title
+                      )}
                     </li>
                   );
                 })}
@@ -116,22 +129,41 @@ const HeaderNavigation = () => {
           className="sticky top-0 z-10 flex justify-between items-center px-4 border-b-1 font-normal text-base w-full h-16 max-h-screen bg-background-default"
         >
           <div className="flex justify-between items-center h-16 w-full border-b-1 font-normal text-base">
-            <HeaderLogo />
-            <button
-              type="button"
-              className="inline-flex items-center"
-              aria-controls="mobile-navigation"
-              aria-label={isMobileNavOpen ? "close menu" : "open menu"}
-              onClick={toggleMobile}
-            >
-              {isMobileNavOpen ? (
-                <SwirlIconClose size={24} />
-              ) : (
-                <i
-                  className={`swirl-icons-Menu28 text-icon-strong text-2xl`}
-                ></i>
+            <HeaderLogo onClick={() => setIsMobileNavOpen(false)} />
+            <div>
+              {isMobileNavOpen && (
+                <button
+                  type="button"
+                  className="inline-flex items-center mr-4"
+                  aria-controls="mobile-navigation"
+                  aria-label={isMobileNavOpen ? "close menu" : "open menu"}
+                  onClick={openCommandPalette}
+                >
+                  {isMobileNavOpen ? (
+                    <SwirlIconSearch size={24} />
+                  ) : (
+                    <i
+                      className={`swirl-icons-Menu28 text-icon-strong text-2xl`}
+                    ></i>
+                  )}
+                </button>
               )}
-            </button>
+              <button
+                type="button"
+                className="inline-flex items-center"
+                aria-controls="mobile-navigation"
+                aria-label={isMobileNavOpen ? "close menu" : "open menu"}
+                onClick={toggleMobile}
+              >
+                {isMobileNavOpen ? (
+                  <SwirlIconClose size={24} />
+                ) : (
+                  <i
+                    className={`swirl-icons-Menu28 text-icon-strong text-2xl`}
+                  ></i>
+                )}
+              </button>
+            </div>
           </div>
           <MobileNav
             isOpen={isMobileNavOpen}

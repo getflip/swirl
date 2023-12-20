@@ -20,7 +20,7 @@ const ApiTile = ({
 
   return (
     <Link
-      href={navItem.url}
+      href={navItem.url || "/"}
       className="border-border-1 p-4 rounded-border-radius-base active:bg-surface-overlay-pressed flex flex-col group"
     >
       <div className="grow">

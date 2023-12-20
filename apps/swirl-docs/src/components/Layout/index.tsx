@@ -1,5 +1,5 @@
 import { CommandPalette } from "../CommandMenu/CommandPalette";
-import HeaderNavigation from "../HeaderNavigation";
+import HeaderNavigation from "../Navigation/HeaderNavigation";
 
 interface LayoutProps {
   children: React.ReactNode;

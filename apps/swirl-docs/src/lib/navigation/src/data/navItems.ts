@@ -9,21 +9,57 @@ export const navItems: NavItem[] = [
     url: "/tokens/color",
     children: tokensNavItems,
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
+      "Consistent variables defining visual elements, ensuring harmony across platforms.",
+    teaserIcon: "/images/teaser-icon-tokens.svg",
   },
   {
     title: CategoryEnum.ICONS,
     url: "/icons",
     isRoot: true,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
+    description: "A collection of chosen material design and custom icons.",
+    teaserIcon: "/images/teaser-icon-icons.svg",
   },
   {
     title: CategoryEnum.API,
     url: apiDocsNavItems[0].url,
     isRoot: true,
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. The quick brown fox jumps over the lazy dog.",
-    children: [...apiDocsNavItems, ...apiSpecsNavItems],
+      "Uniform APIs and documents for our Flip system, ensuring seamless integration across platforms.",
+    teaserIcon: "/images/teaser-icon-api.svg",
+    devOnly: true,
+    children: [
+      ...apiDocsNavItems,
+      { title: "APIs", isHeader: true },
+      ...apiSpecsNavItems,
+      { title: "Legacy APIs", isHeader: true },
+      {
+        title: "Public Post API",
+        url: "https://base.flip-app.com/openapi/external/post",
+        isExternal: true,
+      },
+      {
+        title: "Public Users- and Groups-Sync-API",
+        url: "https://base.flip-app.com/openapi/external/sync",
+        isExternal: true,
+      },
+    ],
+  },
+  {
+    title: CategoryEnum.COMPONENTS,
+    url: "/components",
+    isRoot: true,
+    devOnly: true,
+    description:
+      "Consistent web components for our Flip system, ensuring harmony across platforms.",
+    teaserIcon: "/images/teaser-icon-component.svg",
+  },
+  {
+    title: CategoryEnum.FOUNDATIONS,
+    url: "/foundations",
+    isRoot: true,
+    devOnly: true,
+    description:
+      "Comprehensive Foundations documentation, detailing the design system for consistent harmony across clients.",
+    teaserIcon: "/images/teaser-icon-book.svg",
   },
 ];
