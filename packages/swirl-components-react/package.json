@@ -10,7 +10,10 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/swirl-components-react.js",
+      "import": {
+        "default": "./dist/swirl-components-react.js",
+        "types": "./dist/index.d.ts"
+      },
       "require": "./dist/swirl-components-react.umd.cjs"
     }
   },

@@ -13,7 +13,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { HttpMethods } from "oas/dist/rmoas.types";
+import { HttpMethods } from "oas/types";
 import { useDocumentationLayoutContext } from "./DocumentationLayoutContext";
 
 const ANIMATION_OPENED = { opacity: 1, height: "auto" };
