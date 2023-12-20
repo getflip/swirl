@@ -4,6 +4,7 @@ import {
   oasToSnippet,
   supportedLanguages,
 } from "@readme/oas-to-snippet";
+import { isProdDeployment } from "@swirl/lib/env";
 import { Request } from "har-format";
 import Oas, { Operation } from "oas";
 import {
@@ -189,10 +190,7 @@ export default class OASBuilder implements IOASBuilder {
               OASBuilder.X_FLIP_INTERNAL
             );
 
-            if (
-              isInternal &&
-              process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE !== "staging"
-            ) {
+            if (isInternal && isProdDeployment) {
               return;
             }
 

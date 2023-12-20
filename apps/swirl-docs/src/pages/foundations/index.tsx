@@ -1,4 +1,6 @@
+import { isProdDeployment } from "@swirl/lib/env";
 import Head from "next/head";
+import { GetStaticProps } from "next/types";
 import { Card } from "src/components/Documentation/Card";
 
 const FoundationsIndexPage = () => {
@@ -27,6 +29,13 @@ const FoundationsIndexPage = () => {
       </main>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps<{}> = async () => {
+  if (isProdDeployment) {
+    return { notFound: true };
+  }
+  return { props: {} };
 };
 
 export default FoundationsIndexPage;

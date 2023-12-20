@@ -39,7 +39,7 @@ function isYamlFile(file: string) {
 function createSpecPath(spec: string) {
   const apiDoc = apiSpecsNavItems.find((item) => item.specName?.includes(spec));
 
-  const apiSpecParam = apiDoc?.url.replace("/api-docs/", "");
+  const apiSpecParam = apiDoc?.url?.replace("/api-docs/", "");
 
   return {
     params: {

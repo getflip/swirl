@@ -1,11 +1,12 @@
-import "../styles/globals.css";
 import "@getflip/swirl-components/dist/swirl-components/swirl-components.css";
+import "../styles/globals.css";
 import "../styles/prism-vs-code-dark.css";
 
+import { isProdDeployment } from "@swirl/lib/env";
 import { Analytics } from "@vercel/analytics/react";
+import { withPasswordProtect } from "next-password-protect";
 import type { AppProps } from "next/app";
 import Layout from "src/components/Layout";
-import { withPasswordProtect } from "next-password-protect";
 
 function GetFlipDev({ Component, pageProps }: AppProps) {
   return (
@@ -24,9 +25,6 @@ const PasswordProtectedGetFlipDev = withPasswordProtect(GetFlipDev, {
   },
 });
 
-const App =
-  process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production"
-    ? GetFlipDev
-    : PasswordProtectedGetFlipDev;
+const App = isProdDeployment ? GetFlipDev : PasswordProtectedGetFlipDev;
 
 export default App;
