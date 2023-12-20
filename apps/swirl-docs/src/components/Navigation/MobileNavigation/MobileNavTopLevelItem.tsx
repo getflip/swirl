@@ -6,11 +6,11 @@ import { Tag } from "src/components/Tags";
 
 export const MobileNavTopLevelItem = ({
   navItem,
-  handleCloseMenu,
+  onClick,
   active,
 }: {
   navItem: NavItem;
-  handleCloseMenu: () => void;
+  onClick: () => void;
   active: boolean;
 }) => {
   const itemContent = (
@@ -39,11 +39,7 @@ export const MobileNavTopLevelItem = ({
 
   if (navItem.url) {
     return (
-      <Link
-        href={navItem.url}
-        className={classes}
-        onClick={navItem.children?.length ? undefined : handleCloseMenu}
-      >
+      <Link href={navItem.url} className={classes} onClick={onClick}>
         {itemContent}
       </Link>
     );
