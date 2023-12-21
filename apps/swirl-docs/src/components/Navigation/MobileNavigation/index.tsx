@@ -70,7 +70,7 @@ const MobileNav = ({ isOpen, handleCloseMenu }: MobileNavProps) => {
       {isOpen && topLevelSelection && showTopLevel && (
         <>
           <div
-            className="flex gap-2 justify-start items-center font-medium p-4 pointer-cursor"
+            className="flex gap-2 justify-start items-center font-medium p-4 cursor-pointer active:bg-surface-pressed"
             onClick={() => setTopLevelSelection(undefined)}
           >
             <SwirlIconChevronLeft />
