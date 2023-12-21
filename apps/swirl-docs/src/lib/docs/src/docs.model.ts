@@ -2,8 +2,8 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import Oas, { Operation } from "oas";
 import { HttpMethods, OASDocument } from "oas/dist/rmoas.types";
 import { OpenAPIV3_1 } from "openapi-types/dist";
-import OASBuilder from "./oasBuilder";
 import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
+import OASBuilder from "./oasBuilder";
 
 export enum DOCUMENTATION_SRC {
   PAGES = "pages",
@@ -138,10 +138,12 @@ export type ApiEndpoint = {
   responseBodySchemas: Array<ResponseBodySchema>;
   isDeprecated?: boolean;
   isExperimental?: boolean;
+  isInternal?: boolean;
   parameters?: OperationSchemas;
   requestBody?: OperationSchemas;
   responseBody?: OperationSchemas;
   security?: OpenAPIV3_1.SecurityRequirementObject[];
+  globalErrorCodes?: string[];
 };
 
 export interface ApiDocumentation {

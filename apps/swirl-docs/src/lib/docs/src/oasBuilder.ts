@@ -14,6 +14,7 @@ import {
 } from "oas/dist/rmoas.types";
 import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
 import { EndpointMapper } from "./EndpointMapper";
+import { FlipApiExtensions } from "./FlipApiExtensions";
 import {
   ApiDocumentation,
   ApiEndpoint,
@@ -54,10 +55,6 @@ const OAS = (Oas as any).default || Oas;
 const OASToHar = (oasToHar as any).default || oasToHar;
 
 export default class OASBuilder implements IOASBuilder {
-  private static X_FLIP_API_NAME = "x-flip-api-name";
-  private static X_FLIP_RESOURCE_NAME = "x-flip-resource-name";
-  private static X_FLIP_INTERNAL = "x-flip-internal";
-
   private _oasDocument: OASDocument = {} as OASDocument;
   private _oas: Oas = new OAS({} as OASDocument);
   private endpointMapper = new EndpointMapper();
@@ -185,9 +182,7 @@ export default class OASBuilder implements IOASBuilder {
               pathItemObject as HttpMethods
             );
 
-            const isInternal = operation.getExtension(
-              OASBuilder.X_FLIP_INTERNAL
-            );
+            const isInternal = FlipApiExtensions.getInternal(operation);
 
             if (
               isInternal &&
@@ -196,17 +191,13 @@ export default class OASBuilder implements IOASBuilder {
               return;
             }
 
-            const apiName = operation.getExtension(
-              OASBuilder.X_FLIP_API_NAME
-            ) as string;
+            const apiName = FlipApiExtensions.getApiName(operation);
 
             if (!apiName) {
               return;
             }
 
-            const resourceName = operation.getExtension(
-              OASBuilder.X_FLIP_RESOURCE_NAME
-            ) as string;
+            const resourceName = FlipApiExtensions.getResourceName(operation);
 
             if (!resourceName) {
               return;
