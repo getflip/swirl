@@ -8,10 +8,10 @@ export type NavItem = {
   title: string;
   mdxFilename?: string;
   url?: string;
-  isRoot?: boolean;
   isHeader?: boolean;
   isExternal?: boolean;
   devOnly?: boolean;
+  comingSoon?: boolean;
   children?: NavItem[];
   description?: string;
   specName?: string;

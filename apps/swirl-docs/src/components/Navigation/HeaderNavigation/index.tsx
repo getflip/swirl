@@ -2,10 +2,7 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { useEffect, useState } from "react";
 import { DesktopView, MobileView } from "../../View/Views";
 
-import {
-  SwirlIconClose,
-  SwirlIconSearch,
-} from "@getflip/swirl-components-react";
+import { SwirlIconClose, SwirlIconMenu } from "@getflip/swirl-components-react";
 import { isProdDeployment } from "@swirl/lib/env";
 import { navItems } from "@swirl/lib/navigation";
 import commandPaletteObserver from "@swirl/lib/search/commandPaletteObserver";
@@ -14,7 +11,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import MobileNav from "../MobileNavigation";
-import { OpenSearchButton } from "./OpenSearchButton";
+import { OpenSearchDesktopButton } from "./OpenSearchDesktopButton";
+import { OpenSearchMobileButton } from "./OpenSearchMobileButton";
 
 export const HeaderLogo = ({ onClick }: { onClick?: () => void }) => {
   return (
@@ -49,7 +47,7 @@ const HeaderNavigation = () => {
     }
   }, [isMobileNavOpen]);
 
-  const activePath = router.pathname;
+  const activePath = router.asPath;
 
   const handleCloseMenu = () => {
     setIsMobileNavOpen(false);
@@ -118,7 +116,7 @@ const HeaderNavigation = () => {
                 })}
               </ul>
             </div>
-            <OpenSearchButton />
+            <OpenSearchDesktopButton />
           </nav>
         </header>
       </DesktopView>
@@ -130,24 +128,8 @@ const HeaderNavigation = () => {
         >
           <div className="flex justify-between items-center h-16 w-full border-b-1 font-normal text-base">
             <HeaderLogo onClick={() => setIsMobileNavOpen(false)} />
-            <div>
-              {isMobileNavOpen && (
-                <button
-                  type="button"
-                  className="inline-flex items-center mr-4"
-                  aria-controls="mobile-navigation"
-                  aria-label={isMobileNavOpen ? "close menu" : "open menu"}
-                  onClick={openCommandPalette}
-                >
-                  {isMobileNavOpen ? (
-                    <SwirlIconSearch size={24} />
-                  ) : (
-                    <i
-                      className={`swirl-icons-Menu28 text-icon-strong text-2xl`}
-                    ></i>
-                  )}
-                </button>
-              )}
+            <div className="flex items-center">
+              <OpenSearchMobileButton />
               <button
                 type="button"
                 className="inline-flex items-center"
@@ -158,9 +140,7 @@ const HeaderNavigation = () => {
                 {isMobileNavOpen ? (
                   <SwirlIconClose size={24} />
                 ) : (
-                  <i
-                    className={`swirl-icons-Menu28 text-icon-strong text-2xl`}
-                  ></i>
+                  <SwirlIconMenu size={24} />
                 )}
               </button>
             </div>

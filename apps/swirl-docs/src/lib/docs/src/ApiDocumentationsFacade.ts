@@ -1,7 +1,7 @@
-import { sort } from "fast-sort";
 import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
+import { sort } from "fast-sort";
 import OASNormalize from "oas-normalize";
-import { ApiDocumentation, ApiEndpoint, Endpoint } from "./docs.model";
+import { ApiDocumentation, ApiEndpoint } from "./docs.model";
 import OASBuilder from "./oasBuilder";
 
 export class ApiDocumentationsFacade {
@@ -73,14 +73,12 @@ export class ApiDocumentationsFacade {
                 tag: endpoint.method,
                 url: `/api-docs/${api.id}/${resource.id}#${endpoint.id}`,
               })),
-            isRoot: true,
             title: resource.title,
             url: `/api-docs/${api.id}/${resource.id}`,
           };
         }),
         specName: api.id,
         description: "",
-        isRoot: true,
       }));
 
       ApiDocumentationsFacade._navItems = navItems;

@@ -2,7 +2,7 @@ import { isProdDeployment } from "@swirl/lib/env";
 import { NavItem, navItems } from "@swirl/lib/navigation/";
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import { SidebarNavSubItem } from "./SidebarNavSubItem";
+import { NavItemStrategy } from "../components/NavItemStrategy";
 
 export const ANIMATION_OPENED = { opacity: 1, height: "auto" };
 export const ANIMATION_CLOSED = { opacity: 0, height: 0 };
@@ -17,13 +17,13 @@ export function SidebarNavigation() {
   );
 
   if (navItemBase?.devOnly && isProdDeployment) {
-    return null;
+    return undefined;
   }
 
   const navChildren = navItemBase?.children;
 
   if (!navChildren?.length) {
-    return null;
+    return undefined;
   }
 
   return (
@@ -38,13 +38,10 @@ export function SidebarNavigation() {
       <ul className="mt-6">
         {navChildren.map((navItem: NavItem, index) => {
           return (
-            <SidebarNavSubItem
-              isCurrentlyInView={
-                !!navItem.url && activePath.includes(navItem.url)
-              }
+            <NavItemStrategy
               key={navItem.title + `-${index}`}
-              navItem={navItem}
               activePath={activePath}
+              navItem={navItem}
             />
           );
         })}

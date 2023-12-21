@@ -23,21 +23,23 @@ function SiteMap() {
   // getServerSideProps will do the heavy lifting
 }
 
-function addNavItemsToPaths(paths: string[], navItems: NavItem[]) {
+function addNavItemsToPaths(navItems: NavItem[]) {
+  const paths: string[] = [];
+
   navItems.forEach((item) => {
     if (item.url) {
       paths.push(item.url);
     }
     if (item.children) {
-      addNavItemsToPaths(paths, item.children);
+      paths.push(...addNavItemsToPaths(item.children));
     }
   });
+
+  return paths;
 }
 
 export async function getServerSideProps({ res }: any) {
-  const paths: string[] = [];
-
-  addNavItemsToPaths(paths, navItems);
+  const paths = addNavItemsToPaths(navItems);
 
   const filteredPaths = paths.filter((path) => !path.includes("foundations"));
 

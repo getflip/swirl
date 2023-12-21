@@ -4,7 +4,7 @@ import { NavItem, navItems } from "@swirl/lib/navigation";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { SidebarNavSubItem } from "../SidebarNavigation/SidebarNavSubItem";
+import { NavItemStrategy } from "../components/NavItemStrategy";
 import { MobileNavTopLevelItem } from "./MobileNavTopLevelItem";
 
 interface MobileNavProps {
@@ -79,14 +79,11 @@ const MobileNav = ({ isOpen, handleCloseMenu }: MobileNavProps) => {
           <hr />
           <ul className="p-4">
             {topLevelSelection.children?.map((navItem) => (
-              <SidebarNavSubItem
+              <NavItemStrategy
                 handleCloseMenu={handleCloseMenu}
                 activePath={activePath}
                 navItem={navItem}
                 key={navItem.title}
-                isCurrentlyInView={
-                  !!navItem.url && activePath.includes(navItem.url)
-                }
               />
             ))}
           </ul>

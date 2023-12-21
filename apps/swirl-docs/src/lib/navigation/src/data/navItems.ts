@@ -15,18 +15,17 @@ export const navItems: NavItem[] = [
   {
     title: CategoryEnum.ICONS,
     url: "/icons",
-    isRoot: true,
     description: "A collection of chosen material design and custom icons.",
     teaserIcon: "/images/teaser-icon-icons.svg",
   },
   {
     title: CategoryEnum.API,
     url: apiDocsNavItems[0].url,
-    isRoot: true,
     description:
       "Uniform APIs and documents for our Flip system, ensuring seamless integration across platforms.",
     teaserIcon: "/images/teaser-icon-api.svg",
     devOnly: true,
+    comingSoon: true,
     children: [
       ...apiDocsNavItems,
       { title: "APIs", isHeader: true },
@@ -47,7 +46,6 @@ export const navItems: NavItem[] = [
   {
     title: CategoryEnum.COMPONENTS,
     url: "/components",
-    isRoot: true,
     devOnly: true,
     description:
       "Consistent web components for our Flip system, ensuring harmony across platforms.",
@@ -56,7 +54,6 @@ export const navItems: NavItem[] = [
   {
     title: CategoryEnum.FOUNDATIONS,
     url: "/foundations",
-    isRoot: true,
     devOnly: true,
     description:
       "Comprehensive Foundations documentation, detailing the design system for consistent harmony across clients.",

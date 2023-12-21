@@ -10,7 +10,9 @@ import { Tag } from "src/components/Tags";
 
 const Home: NextPage = () => {
   const mainItems = navItems.filter((navItem) => !navItem.devOnly);
-  const comingSoonItems = navItems.filter((navItem) => navItem.devOnly);
+  const comingSoonItems = navItems.filter(
+    (navItem) => navItem.devOnly && (!isProdDeployment || navItem.comingSoon)
+  );
 
   return (
     <>
