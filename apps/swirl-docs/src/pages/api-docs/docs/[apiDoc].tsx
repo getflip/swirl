@@ -32,7 +32,7 @@ async function getComponentData(document: string) {
 
 export async function getStaticPaths() {
   const categoryDocs = apiDocsNavItems.map((item) => ({
-    params: { apiDoc: item.url.split("/").slice(-1)[0] },
+    params: { apiDoc: item.url?.split("/").slice(-1)[0] },
   }));
   return {
     paths: categoryDocs,

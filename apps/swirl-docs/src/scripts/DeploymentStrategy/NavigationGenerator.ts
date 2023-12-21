@@ -56,7 +56,6 @@ export class ApiSpecsNavigationGenerator
     return {
       title: "API",
       url: `/api-docs`,
-      isRoot: true,
       children: await ApiDocumentationsFacade.navItems,
     };
   }

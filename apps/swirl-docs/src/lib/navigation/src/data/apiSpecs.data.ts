@@ -2,6 +2,189 @@ import { NavItem } from "../navigation.model";
 
 export const apiSpecsNavItems: NavItem[] = [
   {
+    title: "Navigation",
+    url: "/api-docs/navigation/menu-items",
+    children: [
+      {
+        children: [
+          {
+            title: "Get menu items",
+            tag: "get",
+            url: "/api-docs/navigation/menu-items#get-menu-items",
+          },
+          {
+            title: "Create a new menu item",
+            tag: "post",
+            url: "/api-docs/navigation/menu-items#create-menu-item",
+          },
+          {
+            title: "Get menu items for the selected user group",
+            tag: "get",
+            url: "/api-docs/navigation/menu-items#get-menu-items-for-user-group",
+          },
+        ],
+        title: "Menu Items",
+        url: "/api-docs/navigation/menu-items",
+      },
+    ],
+    specName: "navigation",
+    description: "",
+  },
+  {
+    title: "Tasks",
+    url: "/api-docs/tasks/tasks",
+    children: [
+      {
+        children: [
+          {
+            title: "Get all tasks",
+            tag: "get",
+            url: "/api-docs/tasks/tasks#get-tasks",
+          },
+          {
+            title: "Create a new task",
+            tag: "post",
+            url: "/api-docs/tasks/tasks#create-task",
+          },
+          {
+            title: "Modify/Update existing task",
+            tag: "patch",
+            url: "/api-docs/tasks/tasks#update-task",
+          },
+          {
+            title: "Delete a task",
+            tag: "delete",
+            url: "/api-docs/tasks/tasks#delete-task",
+          },
+        ],
+        title: "Tasks",
+        url: "/api-docs/tasks/tasks",
+      },
+      {
+        children: [
+          {
+            title: "Get task assignments",
+            tag: "get",
+            url: "/api-docs/tasks/task-assignments#get-task-assignments-by-actor",
+          },
+          {
+            title: "Delete existing task assignment",
+            tag: "delete",
+            url: "/api-docs/tasks/task-assignments#delete-task-assignment",
+          },
+          {
+            title: "Marking a task assignment as finished",
+            tag: "post",
+            url: "/api-docs/tasks/task-assignments#finish-task-assignment",
+          },
+          {
+            title: "Marking a task assignment as open",
+            tag: "post",
+            url: "/api-docs/tasks/task-assignments#open-task-assignment",
+          },
+          {
+            title: "Get task assignments",
+            tag: "get",
+            url: "/api-docs/tasks/task-assignments#get-task-assignments-by-task",
+          },
+          {
+            title: "Create new task assignment",
+            tag: "post",
+            url: "/api-docs/tasks/task-assignments#create-task-assignment",
+          },
+          {
+            title: "Create multiple task assignments",
+            tag: "post",
+            url: "/api-docs/tasks/task-assignments#batch-create-task-assignments",
+          },
+          {
+            title: "Delete multiple task assignments",
+            tag: "delete",
+            url: "/api-docs/tasks/task-assignments#batch-delete-task-assignments",
+          },
+        ],
+        title: "Task Assignments",
+        url: "/api-docs/tasks/task-assignments",
+      },
+      {
+        children: [
+          {
+            title: "Get number of tasks",
+            tag: "get",
+            url: "/api-docs/tasks/task-assignments-summary#get-tasks-assignments-summary",
+          },
+          {
+            title: "Get a summary for the task assignments.",
+            tag: "get",
+            url: "/api-docs/tasks/task-assignments-summary#get-task-assignments-summary",
+          },
+        ],
+        title: "Task Assignments Summary",
+        url: "/api-docs/tasks/task-assignments-summary",
+      },
+      {
+        children: [
+          {
+            title: "Search recipients for a task",
+            tag: "get",
+            url: "/api-docs/tasks/task-recipients#search-task-recipients",
+          },
+        ],
+        title: "Task Recipients",
+        url: "/api-docs/tasks/task-recipients",
+      },
+      {
+        children: [
+          {
+            title: "Delete existing task comment",
+            tag: "delete",
+            url: "/api-docs/tasks/task-comments#delete-task-comment",
+          },
+          {
+            title: "Get all task comments",
+            tag: "get",
+            url: "/api-docs/tasks/task-comments#get-tasks-comments",
+          },
+          {
+            title: "Create a task comment",
+            tag: "post",
+            url: "/api-docs/tasks/task-comments#create-task-comment",
+          },
+        ],
+        title: "Task Comments",
+        url: "/api-docs/tasks/task-comments",
+      },
+      {
+        children: [
+          {
+            title: "Update task comment reaction",
+            tag: "patch",
+            url: "/api-docs/tasks/task-comment-reactions#update-task-comment-reaction",
+          },
+          {
+            title: "Delete task comment reaction",
+            tag: "delete",
+            url: "/api-docs/tasks/task-comment-reactions#delete-task-comment-reaction",
+          },
+          {
+            title: "Get paginated reactions to a task comment",
+            tag: "get",
+            url: "/api-docs/tasks/task-comment-reactions#get-task-comment-reactions",
+          },
+          {
+            title: "Create new task comment reaction",
+            tag: "post",
+            url: "/api-docs/tasks/task-comment-reactions#create-task-comment-reaction",
+          },
+        ],
+        title: "Task Comment Reactions",
+        url: "/api-docs/tasks/task-comment-reactions",
+      },
+    ],
+    specName: "tasks",
+    description: "",
+  },
+  {
     title: "User",
     url: "/api-docs/user/user",
     children: [
@@ -43,7 +226,6 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user/user#unlock-user",
           },
         ],
-        isRoot: true,
         title: "User",
         url: "/api-docs/user/user",
       },
@@ -75,7 +257,6 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user/user-role-assignment#remove-role-from-user",
           },
         ],
-        isRoot: true,
         title: "User Role Assignment",
         url: "/api-docs/user/user-role-assignment",
       },
@@ -102,7 +283,6 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user/linked-identity#delete-linked-identity",
           },
         ],
-        isRoot: true,
         title: "Linked Identity",
         url: "/api-docs/user/linked-identity",
       },
@@ -119,7 +299,6 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user/one-time-password#delete-otp",
           },
         ],
-        isRoot: true,
         title: "One Time Password",
         url: "/api-docs/user/one-time-password",
       },
@@ -141,7 +320,6 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user/password#delete-password",
           },
         ],
-        isRoot: true,
         title: "Password",
         url: "/api-docs/user/password",
       },
@@ -158,7 +336,6 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user/account-actions-email#send-account-actions-email",
           },
         ],
-        isRoot: true,
         title: "Account Actions Email",
         url: "/api-docs/user/account-actions-email",
       },
@@ -190,7 +367,6 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user/user-me#change-my-password",
           },
         ],
-        isRoot: true,
         title: "User Me",
         url: "/api-docs/user/user-me",
       },
@@ -227,14 +403,12 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user/on-leave#delete-on-leave-note",
           },
         ],
-        isRoot: true,
         title: "On Leave",
         url: "/api-docs/user/on-leave",
       },
     ],
     specName: "user",
     description: "",
-    isRoot: true,
   },
   {
     title: "User Admin",
@@ -253,7 +427,6 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user-admin/role#get-role",
           },
         ],
-        isRoot: true,
         title: "Role",
         url: "/api-docs/user-admin/role",
       },
@@ -300,7 +473,6 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user-admin/user-groups#restore-user-group",
           },
         ],
-        isRoot: true,
         title: "User Groups",
         url: "/api-docs/user-admin/user-groups",
       },
@@ -362,13 +534,11 @@ export const apiSpecsNavItems: NavItem[] = [
             url: "/api-docs/user-admin/user-group-assignments#delete-user-group-assignment",
           },
         ],
-        isRoot: true,
         title: "User Group Assignments",
         url: "/api-docs/user-admin/user-group-assignments",
       },
     ],
     specName: "user-admin",
     description: "",
-    isRoot: true,
   },
 ];

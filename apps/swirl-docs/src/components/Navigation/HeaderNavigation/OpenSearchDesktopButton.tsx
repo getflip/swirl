@@ -1,16 +1,13 @@
-import { SwirlIconSearch } from "@getflip/swirl-components-react";
 import commandPaletteObserver from "@swirl/lib/search/commandPaletteObserver";
 import classNames from "classnames";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useState } from "react";
 
-export const OpenSearchButton: FunctionComponent = () => {
-  const [isMacOs, setIsMacOs] = useState(false);
+const macosPlatforms = /(macintosh|macintel|macppc|mac68k|macos)/i;
 
-  useEffect(() => {
-    let userAgent = window.navigator.userAgent.toLowerCase();
-    const macosPlatforms = /(macintosh|macintel|macppc|mac68k|macos)/i;
-    setIsMacOs(macosPlatforms.test(userAgent));
-  }, []);
+export const OpenSearchDesktopButton: FunctionComponent = () => {
+  const [isMacOs] = useState(() =>
+    macosPlatforms.test(window.navigator.userAgent.toLowerCase())
+  );
 
   function openCommandPalette() {
     commandPaletteObserver.set(true);

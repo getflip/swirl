@@ -6,17 +6,18 @@ import {
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Heading, Text } from "src/components/swirl-recreations";
 
+import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
-import { isProd } from "@swirl/lib/env";
+import { isProd, isProdDeployment } from "@swirl/lib/env";
 import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import OASNormalize from "oas-normalize";
+import { useLayoutEffect } from "react";
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
 import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
-import { useRouter } from "next/router";
-import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 // STATIC GENERATION CODE
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -29,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  if (process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production") {
+  if (isProdDeployment) {
     return { notFound: true };
   }
 
@@ -83,6 +84,15 @@ export default function Document({
   navItems: NavItem[];
 }) {
   const router = useRouter();
+
+  useLayoutEffect(() => {
+    // First scroll on page reload
+    if (location.hash) {
+      window.document
+        .getElementById(location.hash.substring(1))
+        ?.scrollIntoView();
+    }
+  }, []);
 
   return (
     <>
@@ -141,7 +151,7 @@ export default function Document({
                 return (
                   <article
                     key={`${endpoint.path}-${index}`}
-                    aria-labelledby={endpoint.path.split("#")[1]}
+                    aria-labelledby={endpoint.id}
                   >
                     <div className="grid md:grid-cols-api-spec gap-[2.5rem] mb-20">
                       <EndpointDescription

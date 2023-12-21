@@ -1,18 +1,19 @@
-import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
+import { createStaticPathsData } from "@swirl/lib/docs";
 import {
   DOCUMENTATION_CATEGORY,
   FrontMatter,
 } from "@swirl/lib/docs/src/docs.model";
-import Head from "next/head";
+import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
+import { isProdDeployment } from "@swirl/lib/env";
 import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
-import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
-import { createStaticPathsData } from "@swirl/lib/docs";
-import { ScriptProps } from "next/script";
-import { GetStaticProps } from "next";
-import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
-import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
-import path from "path";
 import fs from "fs";
+import { GetStaticProps } from "next";
+import { MDXRemoteProps, MDXRemoteSerializeResult } from "next-mdx-remote";
+import Head from "next/head";
+import { ScriptProps } from "next/script";
+import path from "path";
+import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
+import { LinkedHeaders } from "src/components/Navigation/LinkedHeaders";
 
 async function getComponentData(document: string) {
   const serializedDocument = await generateMdxFromDocumentation(
@@ -38,6 +39,10 @@ export const getStaticProps: GetStaticProps<
   ScriptProps,
   { componentDoc: string }
 > = async (context: any) => {
+  if (isProdDeployment) {
+    return { notFound: true };
+  }
+
   const { componentDoc } = context.params;
 
   const data = await getComponentData(componentDoc);
