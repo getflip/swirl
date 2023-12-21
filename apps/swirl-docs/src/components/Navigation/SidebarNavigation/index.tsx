@@ -17,13 +17,13 @@ export function SidebarNavigation() {
   );
 
   if (navItemBase?.devOnly && isProdDeployment) {
-    return undefined;
+    return null;
   }
 
   const navChildren = navItemBase?.children;
 
   if (!navChildren?.length) {
-    return undefined;
+    return null;
   }
 
   return (
