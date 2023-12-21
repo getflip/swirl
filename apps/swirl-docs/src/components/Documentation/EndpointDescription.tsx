@@ -1,5 +1,6 @@
 import { SwirlIconLock } from "@getflip/swirl-components-react";
 import { ApiEndpoint } from "@swirl/lib/docs";
+import classNames from "classnames";
 import { FunctionComponent } from "react";
 import ReactMarkdown from "react-markdown";
 import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
@@ -39,6 +40,11 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
           {endpoint.isExperimental && (
             <span className="ml-2 inline-flex">
               <Tag content="experimental" scheme="warning" />
+            </span>
+          )}
+          {endpoint.isInternal && (
+            <span className="ml-2 inline-flex">
+              <Tag content="internal" scheme="info" />
             </span>
           )}
         </Heading>
@@ -119,6 +125,30 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
                 );
               })}
             </div>
+          </div>
+        )}
+
+        {!!endpoint.globalErrorCodes?.length && (
+          <div className="mb-6">
+            <Heading level={3} className="mb-2">
+              Error Codes
+            </Heading>
+            <ul>
+              {endpoint.globalErrorCodes?.map((errorCode) => (
+                <li
+                  key={errorCode}
+                  className={classNames(
+                    "font-font-family-code font-bold",
+                    "border-border-1 border-border-default p-4",
+                    "first-of-type:rounded-t-border-radius-sm last-of-type:rounded-b-border-radius-sm",
+                    "border-b-0 last-of-type:border-border-1",
+                    "only:rounded-border-radius-sm only:border-border-1"
+                  )}
+                >
+                  {errorCode}
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>

@@ -1,14 +1,15 @@
+import { Operation } from "oas";
 import { SchemaObject } from "oas/dist/rmoas.types";
+import { FlipApiExtensions } from "./FlipApiExtensions";
 import {
-  Endpoint,
-  ApiResourceDocumentation,
-  OperationSchemas,
-  OperationSchemaObject,
-  OperationParamType,
   ApiEndpoint,
+  ApiResourceDocumentation,
+  Endpoint,
+  OperationParamType,
+  OperationSchemaObject,
+  OperationSchemas,
 } from "./docs.model";
 import OASBuilder from "./oasBuilder";
-import { Operation } from "oas";
 
 export class EndpointMapper {
   map(oasBuilder: OASBuilder): ApiResourceDocumentation["endpoints"] {
@@ -72,6 +73,8 @@ export class EndpointMapper {
       path: operation.path,
       isDeprecated: operation.isDeprecated(),
       isExperimental: isEndpointExperimental,
+      isInternal: FlipApiExtensions.getInternal(operation),
+      globalErrorCodes: FlipApiExtensions.getErrorCodes(operation),
       parameters: requestSchemas
         ? this.getEndpointOperationSchema(
             requestSchemas.filter((param) => param.type !== "body")
