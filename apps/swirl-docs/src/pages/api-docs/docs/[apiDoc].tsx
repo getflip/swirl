@@ -1,9 +1,9 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
-import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
 import { FrontMatter } from "@swirl/lib/docs/src/docs.model";
 import { generateMdxFromDocumentation } from "@swirl/lib/docs/src/singleDoc";
 import { NavItem } from "@swirl/lib/navigation";
+import { apiNavItems } from "@swirl/lib/navigation/src/data/api.data";
 import { apiDocsNavItems } from "@swirl/lib/navigation/src/data/apiDocs.data";
 import { GetStaticProps } from "next";
 import Head from "next/head";
@@ -39,15 +39,13 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps = async (context: any) => {
   const { apiDoc } = context.params;
 
-  const navItems = await ApiDocumentationsFacade.navItems;
-
   try {
     const data = await getComponentData(apiDoc);
     return {
       props: {
         document: data.document,
         frontMatter: data.frontMatter,
-        navItems,
+        navItems: apiNavItems,
       },
     };
   } catch (error) {

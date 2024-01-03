@@ -5,14 +5,13 @@ import {
 } from "@swirl/lib/docs";
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
-import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
 import { isProd, isProdDeployment } from "@swirl/lib/env";
-import { API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
+import { NavItem } from "@swirl/lib/navigation";
+import { apiEndpointDocumentation } from "@swirl/lib/navigation/src/data/apiEndpoints.data";
+import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import OASNormalize from "oas-normalize";
 import { useLayoutEffect } from "react";
 import { DocumentationMdxComponents } from "src/components/Documentation/DocumentationMdxComponents";
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
@@ -44,13 +43,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   }
 
-  // TODO: singleton for apiDocumentations
-  const oasDocument = await new OASNormalize(`${API_SPEC_PATH}/merged.yml`, {
-    enablePaths: true,
-  }).validate();
-
-  const oasBuilder = await new OASBuilder(oasDocument).dereference();
-  const apiDocumentations = oasBuilder.setApiDocumentations().apiDocumentations;
+  const apiDocumentations = apiEndpointDocumentation;
 
   const { apiName, apiResource } = context.params;
 
@@ -62,13 +55,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return { notFound: true };
   }
 
-  const navItems = await ApiDocumentationsFacade.navItems;
-
   return {
     props: {
       document: JSON.parse(JSON.stringify(document)), // remove undefined values
       description: await serializeMarkdownString(""),
-      navItems,
+      navItems: apiSpecsNavItems,
     },
   };
 };
