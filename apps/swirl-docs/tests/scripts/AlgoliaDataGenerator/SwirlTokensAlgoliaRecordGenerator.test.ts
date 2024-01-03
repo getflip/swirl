@@ -1,4 +1,3 @@
-// SwirlTokensAlgoliaRecordGenerator.test.ts
 import SwirlTokensAlgoliaRecordGenerator from "src/scripts/AlgoliaDataGenerator/SwirlTokensAlgoliaRecordGenerator";
 import { describe, expect, it } from "vitest";
 
@@ -11,7 +10,7 @@ describe("SwirlTokensAlgoliaRecordGenerator", () => {
     expect(records.length).toBeGreaterThan(0);
   });
 
-  it("should generate a combined array of color and token records with the correct necessary properties", () => {
+  it("should generate a combined array of color and token records with the necessary properties", () => {
     const generator = new SwirlTokensAlgoliaRecordGenerator();
     const records = generator.generate();
 
