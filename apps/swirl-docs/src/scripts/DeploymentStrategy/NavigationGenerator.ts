@@ -1,7 +1,7 @@
 import { API_DOCS_PATH, API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
 
 import { serializeMarkdownString } from "@swirl/lib/docs";
-import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
+import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import { sort } from "fast-sort";
 import fs from "fs";
 import path from "path";
@@ -56,7 +56,7 @@ export class ApiSpecsNavigationGenerator
     return {
       title: "API",
       url: `/api-docs`,
-      children: await ApiDocumentationsFacade.navItems,
+      children: apiSpecsNavItems,
     };
   }
 }

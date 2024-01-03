@@ -1,7 +1,8 @@
+import { ApiEndpointGenerator } from "./ApiEndpointGenerator";
 import { FileFetcher } from "./FileFetcher";
 import {
-  ApiSpecsNavigationGenerator,
   ApiDocsNavigationGenerator,
+  ApiSpecsNavigationGenerator,
 } from "./NavigationGenerator";
 
 export interface DeploymentStrategy {
@@ -21,9 +22,11 @@ export class ProductionDeployment implements DeploymentStrategy {
   async generateApiNavigation() {
     const apiSpecNavigationGenerator = new ApiSpecsNavigationGenerator();
     const apiDocsNavigationGenerator = new ApiDocsNavigationGenerator();
+    const apiEndpointGenerator = new ApiEndpointGenerator();
 
     await apiSpecNavigationGenerator.generate();
     await apiDocsNavigationGenerator.generate();
+    await apiEndpointGenerator.generate();
   }
 }
 
@@ -38,8 +41,10 @@ export class StagingDeployment implements DeploymentStrategy {
   async generateApiNavigation() {
     const apiSpecNavigationGenerator = new ApiSpecsNavigationGenerator();
     const apiDocsNavigationGenerator = new ApiDocsNavigationGenerator();
+    const apiEndpointGenerator = new ApiEndpointGenerator();
 
     await apiSpecNavigationGenerator.generate();
     await apiDocsNavigationGenerator.generate();
+    await apiEndpointGenerator.generate();
   }
 }
