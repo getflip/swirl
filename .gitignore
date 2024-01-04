@@ -163,6 +163,3 @@ apps/swirl-docs/users-common.yml
 apps/swirl-docs/users-roles-and-permissions.yml
 apps/swirl-docs/users-admin-user-groups.yml
 apps/swirl-docs/users-admin-usergroups.yml
-apps/swirl-docs/src/lib/navigation/src/data/apiDocs.data.ts
-apps/swirl-docs/src/lib/navigation/src/data/apiEndpoints.data.ts
-apps/swirl-docs/src/lib/navigation/src/data/apiSpecs.data.ts
