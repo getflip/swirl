@@ -1,22 +1,21 @@
-import { isProdDeployment } from "@swirl/lib/env";
+import { ApiEndpointGenerator } from "./DeploymentStrategy/ApiEndpointGenerator";
+import { FileFetcher } from "./DeploymentStrategy/FileFetcher";
 import {
-  DeploymentStrategy,
-  ProductionDeployment,
-  StagingDeployment,
-} from "./DeploymentStrategy";
-
-const getDeploymentStrategy = (): DeploymentStrategy => {
-  if (isProdDeployment) {
-    return new ProductionDeployment();
-  }
-  return new StagingDeployment();
-};
-
-const strategy = getDeploymentStrategy();
+  ApiDocsNavigationGenerator,
+  ApiSpecsNavigationGenerator,
+} from "./DeploymentStrategy/NavigationGenerator";
 
 async function main() {
-  await strategy.fetchData();
-  await strategy.generateApiNavigation();
+  const fetcher = new FileFetcher();
+  await fetcher.fetchFiles();
+
+  const apiEndpointGenerator = new ApiEndpointGenerator();
+  const apiSpecNavigationGenerator = new ApiSpecsNavigationGenerator();
+  const apiDocsNavigationGenerator = new ApiDocsNavigationGenerator();
+
+  const apiDocumentations = await apiEndpointGenerator.generate();
+  await apiSpecNavigationGenerator.generate(apiDocumentations);
+  await apiDocsNavigationGenerator.generate();
 }
 
 main();
