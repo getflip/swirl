@@ -8,7 +8,7 @@ import {
   OperationParamType,
   OperationSchemaObject,
   OperationSchemas,
-} from "./docs.model";
+} from "../../lib/docs/src/docs.model";
 import { FlipApiExtensions } from "./FlipApiExtensions";
 import OASBuilder from "./oasBuilder";
 

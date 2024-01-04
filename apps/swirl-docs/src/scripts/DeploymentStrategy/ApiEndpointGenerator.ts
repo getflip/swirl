@@ -1,35 +1,47 @@
+import { ApiDocumentation } from "@swirl/lib/docs";
 import { API_SPEC_PATH } from "@swirl/lib/navigation";
 
-import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
-import fs, { writeFileSync } from "fs";
+import { writeFileSync } from "fs";
+import OASNormalize from "oas-normalize";
 import prettier from "prettier";
+import OASBuilder from "../ApiDocumentation/oasBuilder";
 
 export class ApiEndpointGenerator {
-  public async generate(): Promise<void> {
-    console.log("Generating API Spec Navigation...");
+  private async generateApiDocumentations() {
+    const oasDocument = await new OASNormalize(`${API_SPEC_PATH}/merged.yml`, {
+      enablePaths: true,
+    }).validate();
+
+    const oasBuilder = await new OASBuilder(oasDocument).dereference();
+    return oasBuilder.setApiDocumentations().apiDocumentations;
+  }
+
+  public async generate(): Promise<ApiDocumentation[]> {
+    console.log("Generating API Endpoint Documentation...");
     try {
-      if (fs.existsSync(API_SPEC_PATH)) {
-        const docs = await ApiDocumentationsFacade.apiDocumentations;
+      const apiDocumentations = await this.generateApiDocumentations();
 
-        writeFileSync(
-          "./src/lib/navigation/src/data/apiEndpoints.data.ts",
-          prettier.format(
-            this.createDataString(
-              JSON.stringify(docs, (k, v) => {
-                return k === "x-readme-ref-name" ? undefined : v;
-              })
-            ),
-            {
-              parser: "typescript",
-            }
+      writeFileSync(
+        "./src/lib/navigation/src/data/apiEndpoints.data.ts",
+        prettier.format(
+          this.createDataString(
+            JSON.stringify(apiDocumentations, (k, v) => {
+              return k === "x-readme-ref-name" ? undefined : v;
+            })
           ),
-          "utf8"
-        );
+          {
+            parser: "typescript",
+          }
+        ),
+        "utf8"
+      );
 
-        console.log(`API Endpoint Documentation Done! 🚀`);
-      }
+      console.log(`API Endpoint Documentation Done! 🚀`);
+
+      return apiDocumentations;
     } catch (error) {
       console.error("Error reading directory:", error);
+      throw error;
     }
   }
 

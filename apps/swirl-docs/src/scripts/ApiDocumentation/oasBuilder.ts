@@ -1,10 +1,11 @@
 import oasToHar from "@readme/oas-to-har";
 import {
-  SupportedTargets,
   oasToSnippet,
   supportedLanguages,
+  SupportedTargets,
 } from "@readme/oas-to-snippet";
 import { isProdDeployment } from "@swirl/lib/env";
+import { sort } from "fast-sort";
 import { Request } from "har-format";
 import Oas, { Operation } from "oas";
 import {
@@ -14,14 +15,14 @@ import {
   SchemaObject,
 } from "oas/dist/rmoas.types";
 import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
-import { EndpointMapper } from "./EndpointMapper";
-import { FlipApiExtensions } from "./FlipApiExtensions";
 import {
   ApiDocumentation,
   ApiEndpoint,
   Endpoint,
   Operations,
-} from "./docs.model";
+} from "../../lib/docs/src/docs.model";
+import { EndpointMapper } from "./EndpointMapper";
+import { FlipApiExtensions } from "./FlipApiExtensions";
 
 interface IOASBuilder {
   title: string;
@@ -119,30 +120,6 @@ export default class OASBuilder implements IOASBuilder {
     });
   }
 
-  public setDetailedEndpoints() {
-    this.endpoints.forEach((apiEndpoint) => {
-      const requestPreview = this.generateRequest(apiEndpoint.operation);
-      const parameterSchemas =
-        apiEndpoint.operation.getParametersAsJSONSchema() || [];
-
-      const parameters: EndpointWithDetails["parameters"] =
-        this.createParameters(parameterSchemas);
-
-      this.detailedEndpoints.push({
-        ...apiEndpoint,
-        description: apiEndpoint.operation.getDescription(),
-        isDeprecated: apiEndpoint.operation.isDeprecated(),
-        request: {
-          ...requestPreview,
-        },
-        responseExamples: this.generateResponseExamples(apiEndpoint.operation),
-        parameters: parameters,
-      });
-    });
-
-    return this;
-  }
-
   public async dereference() {
     await this._oas.dereference().then(() => console.log("Dereferenced!"));
     return this;
@@ -238,7 +215,10 @@ export default class OASBuilder implements IOASBuilder {
               id: resource.id,
               title: this.getDisplayNameFromExtension(resourceName),
               shortDescription: "",
-              endpoints: Object.values(resource.endpoints),
+              endpoints: sort(Object.values(resource.endpoints)).asc([
+                (endpoint) => endpoint.path,
+                this.getEndpointMethodOrder,
+              ]),
             })
           ),
         };
@@ -382,16 +362,22 @@ export default class OASBuilder implements IOASBuilder {
 
     return responseExamples;
   }
-}
 
-function computeValue<V>(
-  record: Record<string, V> | undefined,
-  key: string,
-  callback: (v?: V) => V
-) {
-  const value = callback(record?.[key]);
-  if (record) {
-    record[key] = value;
-  }
-  return record || { [key]: value };
+  private _endpointMethodOrder: Record<string, number> = {
+    GET: 1,
+    POST: 2,
+    PUT: 3,
+    PATCH: 4,
+    DELETE: 5,
+    HEAD: 6,
+    OPTIONS: 7,
+    TRACE: 8,
+  };
+
+  private getEndpointMethodOrder = (endpoint: ApiEndpoint) => {
+    return (
+      this._endpointMethodOrder[endpoint.method?.toUpperCase() || ""] ||
+      Number.MAX_SAFE_INTEGER
+    );
+  };
 }
