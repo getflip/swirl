@@ -1,13 +1,12 @@
-import { Tag } from "../Tags";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { Text } from "../swirl-recreations";
-import classNames from "classnames";
-import { ReactNode, useState } from "react";
 import { SwirlIconAdd, SwirlIconRemove } from "@getflip/swirl-components-react";
+import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
+import { ReactNode, useState } from "react";
+import { Tag } from "../Tags";
+import { DocumentationMarkdown } from "./DocumentationMarkdown";
 import {
-  HttpStatusCode,
   getStatusText,
+  HttpStatusCode,
   isValidStatusCode,
 } from "./HttpStatusCodeMapper";
 
@@ -61,22 +60,9 @@ export function Parameter({
         {required && <Tag content="required" scheme="critical" />}
       </div>
       {description && (
-        <ReactMarkdown
-          components={{
-            p: (props) => <Text size="sm" {...props} />,
-            code: (props) => (
-              <code
-                className="bg-gray-100 rounded-md p-[2px] text-sm font-font-family-code"
-                {...{ ...props, inline: "inline" }}
-              />
-            ),
-            ul: (props) => <ul className="mt-2" {...props} />,
-            li: (props) => <li className="mb-2" {...props} />,
-          }}
-          className="text-sm text-text-default mt-2"
-        >
+        <DocumentationMarkdown className="text-sm text-text-default mt-2">
           {description}
-        </ReactMarkdown>
+        </DocumentationMarkdown>
       )}
       {enumValues?.length && (
         <div className="mt-space-8">
