@@ -1,10 +1,12 @@
-import { ApiDocumentation } from "@swirl/lib/docs";
-import { API_SPEC_PATH } from "@swirl/lib/navigation";
+import type { ApiDocumentation } from "@swirl/lib/docs";
 
 import { writeFileSync } from "fs";
 import OASNormalize from "oas-normalize";
+import path from "path";
 import prettier from "prettier";
 import OASBuilder from "../ApiDocumentation/oasBuilder";
+
+export const API_SPEC_PATH = path.resolve(`${process.cwd()}/specs`);
 
 export class ApiEndpointGenerator {
   private async generateApiDocumentations() {
