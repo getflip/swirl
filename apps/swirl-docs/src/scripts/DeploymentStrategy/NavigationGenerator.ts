@@ -10,7 +10,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import sectionize from "remark-sectionize";
 
-export const API_DOCS_PATH = path.resolve(`${process.cwd()}/docs`);
+export const API_DOCS_PATH = path.resolve(`${process.cwd()}/src/documents/api`);
 
 export function serializeMarkdownString(source: string) {
   return serialize(source, {
