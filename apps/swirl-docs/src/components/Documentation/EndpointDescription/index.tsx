@@ -1,7 +1,7 @@
 import { ApiEndpoint } from "@swirl/lib/docs";
 import { FunctionComponent } from "react";
-import ReactMarkdown from "react-markdown";
-import { LinkedHeading, Text } from "src/components/swirl-recreations";
+import { LinkedHeading } from "src/components/swirl-recreations";
+import { DocumentationMarkdown } from "../DocumentationMarkdown";
 import { EndpointHeading } from "./EndpointHeading";
 import { EndpointSecurity } from "./EndpointSecurity";
 import { GlobalErrorCodes } from "./GlobalErrorCodes";
@@ -26,20 +26,8 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
 
       <EndpointSecurity endpoint={endpoint} />
 
-      <ReactMarkdown
-        className="text-base mb-6"
-        components={{
-          p: (props) => <Text {...props} size="sm" />,
-          code: (props) => (
-            <code
-              className="max-w-full bg-gray-100 rounded-md p-[2px] text-sm font-font-family-code break-words"
-              {...{ ...props, inline: "inline" }}
-            />
-          ),
-        }}
-      >
-        {endpoint.description}
-      </ReactMarkdown>
+      <DocumentationMarkdown>{endpoint.description}</DocumentationMarkdown>
+
       <div className="mb-6">
         <RequestParameters endpoint={endpoint} />
 
