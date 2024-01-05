@@ -1,10 +1,27 @@
-import { API_DOCS_PATH, NavItem } from "@swirl/lib/navigation";
+import type { NavItem } from "@swirl/lib/navigation";
 
-import { ApiDocumentation, serializeMarkdownString } from "@swirl/lib/docs";
+import type { ApiDocumentation } from "@swirl/lib/docs";
 import { sort } from "fast-sort";
 import fs from "fs";
+import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
 import prettier from "prettier";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import sectionize from "remark-sectionize";
+
+export const API_DOCS_PATH = path.resolve(`${process.cwd()}/docs`);
+
+export function serializeMarkdownString(source: string) {
+  return serialize(source, {
+    parseFrontmatter: true,
+    mdxOptions: {
+      rehypePlugins: [rehypeSlug],
+      remarkPlugins: [remarkGfm, sectionize],
+      format: "mdx",
+    },
+  });
+}
 
 // Strategy Interface
 
