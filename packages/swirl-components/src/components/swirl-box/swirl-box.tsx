@@ -19,6 +19,13 @@ export type SwirlBoxPadding =
   | "24"
   | "32";
 
+export type SwirlBoxPosition =
+  | "absolute"
+  | "fixed"
+  | "relative"
+  | "static"
+  | "sticky";
+
 /**
  * @slot slot - The box contents
  */
@@ -33,9 +40,11 @@ export class SwirlBox {
   @Prop() borderedBlockStart?: boolean;
   @Prop() borderedInlineEnd?: boolean;
   @Prop() borderedInlineStart?: boolean;
+  @Prop() bottom?: string;
   @Prop() centerBlock?: boolean;
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
+  @Prop() left?: string;
   @Prop() maxWidth?: string;
   @Prop() overflow?: SwirlBoxOverflow = "visible";
   @Prop() padding?: SwirlBoxPadding = "0";
@@ -43,13 +52,19 @@ export class SwirlBox {
   @Prop() paddingBlockStart?: SwirlBoxPadding;
   @Prop() paddingInlineEnd?: SwirlBoxPadding;
   @Prop() paddingInlineStart?: SwirlBoxPadding;
+  @Prop() position?: SwirlBoxPosition;
+  @Prop() right?: string;
+  @Prop() top?: string;
+  @Prop() zIndex?: string;
 
   render() {
     const styles = {
       alignItems: this.centerBlock ? "center" : undefined,
+      bottom: this.bottom,
       display: this.centerBlock || this.centerInline ? "flex" : undefined,
       height: this.cover ? "100%" : undefined,
       justifyContent: this.centerInline ? "center" : undefined,
+      left: this.left,
       overflow: this.overflow,
       padding: `var(--s-space-${this.padding})`,
       paddingBlockEnd: Boolean(this.paddingBlockEnd)
@@ -64,9 +79,14 @@ export class SwirlBox {
       paddingInlineStart: Boolean(this.paddingInlineStart)
         ? `var(--s-space-${this.paddingInlineStart})`
         : undefined,
-      position: Boolean(this.overflow) ? "relative" : "",
+      position: Boolean(this.overflow)
+        ? this.position || "relative"
+        : this.position,
       maxWidth: this.maxWidth,
+      right: this.right,
+      top: this.top,
       width: this.cover ? "100%" : undefined,
+      zIndex: this.zIndex,
     };
 
     const className = classnames("box", {

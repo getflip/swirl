@@ -654,6 +654,10 @@
           "description": ""
         },
         {
+          "name": "bottom",
+          "description": ""
+        },
+        {
           "name": "center-block",
           "description": ""
         },
@@ -663,6 +667,10 @@
         },
         {
           "name": "cover",
+          "description": ""
+        },
+        {
+          "name": "left",
           "description": ""
         },
         {
@@ -854,6 +862,39 @@
               "name": "8"
             }
           ]
+        },
+        {
+          "name": "position",
+          "description": "",
+          "values": [
+            {
+              "name": "absolute"
+            },
+            {
+              "name": "fixed"
+            },
+            {
+              "name": "relative"
+            },
+            {
+              "name": "static"
+            },
+            {
+              "name": "sticky"
+            }
+          ]
+        },
+        {
+          "name": "right",
+          "description": ""
+        },
+        {
+          "name": "top",
+          "description": ""
+        },
+        {
+          "name": "z-index",
+          "description": ""
         }
       ]
     },
