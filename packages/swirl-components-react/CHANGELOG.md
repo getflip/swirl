@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.119.1
+
+### Patch Changes
+
+- [`daf9c186`](https://github.com/getflip/swirl/commit/daf9c1869003e3fd17aab689172377d107e2b766)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent scroll lock issue of
+  swirl-popover on mobile devices
+
+- Updated dependencies
+  [[`daf9c186`](https://github.com/getflip/swirl/commit/daf9c1869003e3fd17aab689172377d107e2b766)]:
+  - @getflip/swirl-components@0.119.1
+
 ## 0.119.0
 
 ### Minor Changes
