@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.119.0
+
+### Minor Changes
+
+- [`6aa594bd`](https://github.com/getflip/swirl/commit/6aa594bd195ea6f90893fdabaa98ace51f3ba581)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add positioning props to
+  swirl-box
+
 ## 0.118.5
 
 ### Patch Changes
