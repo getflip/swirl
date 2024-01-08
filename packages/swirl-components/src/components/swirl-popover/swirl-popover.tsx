@@ -343,7 +343,7 @@ export class SwirlPopover {
   private lockBodyScroll() {
     const mobile = isMobileViewport();
 
-    if (!mobile || this.disableScrollLock) {
+    if (!mobile || this.disableScrollLock || !Boolean(this.scrollContainer)) {
       return;
     }
 
@@ -353,7 +353,7 @@ export class SwirlPopover {
   private unlockBodyScroll() {
     const mobile = isMobileViewport();
 
-    if (!mobile || this.disableScrollLock) {
+    if (!mobile || this.disableScrollLock || !Boolean(this.scrollContainer)) {
       return;
     }
 
