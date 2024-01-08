@@ -135,11 +135,7 @@ export default function Document({
                     aria-labelledby={endpoint.id}
                   >
                     <div className="grid md:grid-cols-api-spec gap-[2.5rem] mb-20">
-                      <EndpointDescription
-                        endpoint={endpoint}
-                        endpointId={endpoint.id}
-                        path={path}
-                      />
+                      <EndpointDescription endpoint={endpoint} path={path} />
                       <EndpointCodePreview
                         endpoint={endpoint}
                         initialResponseExampleStatus={

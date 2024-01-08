@@ -2,13 +2,13 @@ import { SwirlIconAdd, SwirlIconRemove } from "@getflip/swirl-components-react";
 import classNames from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import { ReactNode, useState } from "react";
-import { Tag } from "../Tags";
-import { DocumentationMarkdown } from "./DocumentationMarkdown";
+import { Tag } from "../../Tags";
+import { DocumentationMarkdown } from "../DocumentationMarkdown";
 import {
   getStatusText,
   HttpStatusCode,
   isValidStatusCode,
-} from "./HttpStatusCodeMapper";
+} from "../HttpStatusCodeMapper";
 
 interface ParameterProps {
   children?: ReactNode;
