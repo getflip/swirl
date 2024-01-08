@@ -2,9 +2,9 @@ import { SwirlIconLock } from "@getflip/swirl-components-react";
 import { ApiEndpoint } from "@swirl/lib/docs";
 import classNames from "classnames";
 import { FunctionComponent } from "react";
-import ReactMarkdown from "react-markdown";
-import { Heading, LinkedHeading, Text } from "src/components/swirl-recreations";
+import { Heading, LinkedHeading } from "src/components/swirl-recreations";
 import { Tag } from "../Tags";
+import { DocumentationMarkdown } from "./DocumentationMarkdown";
 import { Parameter } from "./Parameter";
 import { EndpointParameterFactory } from "./ParameterFactory";
 
@@ -57,20 +57,9 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
           </p>
         </div>
       )}
-      <ReactMarkdown
-        className="text-base mb-6"
-        components={{
-          p: (props) => <Text {...props} size="sm" />,
-          code: (props) => (
-            <code
-              className="max-w-full bg-gray-100 rounded-md p-[2px] text-sm font-font-family-code break-words"
-              {...{ ...props, inline: "inline" }}
-            />
-          ),
-        }}
-      >
+      <DocumentationMarkdown className="text-sm text-text-default mb-4">
         {endpoint.description}
-      </ReactMarkdown>
+      </DocumentationMarkdown>
       <div className="mb-6">
         {otherParameters?.map((parameterType, index) => {
           const parameterFactory = new EndpointParameterFactory(

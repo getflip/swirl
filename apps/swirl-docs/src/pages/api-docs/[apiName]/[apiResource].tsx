@@ -4,7 +4,6 @@ import {
   serializeMarkdownString,
 } from "@swirl/lib/docs";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Heading, Text } from "src/components/swirl-recreations";
 
 import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
 import OASBuilder from "@swirl/lib/docs/src/oasBuilder";
@@ -15,6 +14,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import OASNormalize from "oas-normalize";
 import { useLayoutEffect } from "react";
+import { DocumentationMdxComponents } from "src/components/Documentation/DocumentationMdxComponents";
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
 import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
@@ -103,26 +103,7 @@ export default function Document({
         data={{
           mdxContent: {
             document: description,
-            components: {
-              h1: (props) => <Heading level={1} {...props} />,
-              h2: (props) => <Heading level={2} {...props} />,
-              a: (props) => (
-                <span className="inline-flex items-center text-interactive-primary-default">
-                  <a {...props} />
-                  <i className="swirl-icons-OpenInNew28 text-[1.25rem] ml-1"></i>
-                </span>
-              ),
-              ul: (props) => (
-                <ul className="mb-4 leading-line-height-xl" {...props} />
-              ),
-              p: (props) => <Text {...props} />,
-              code: (props) => (
-                <code
-                  className="bg-gray-100 rounded-md p-1 text-sm font-font-family-code"
-                  {...props}
-                />
-              ),
-            },
+            components: DocumentationMdxComponents,
           },
           frontMatter: {
             title: document.title,
