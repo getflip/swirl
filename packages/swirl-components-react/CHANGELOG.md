@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.118.5
+
+### Patch Changes
+
+- [`3ac24edd`](https://github.com/getflip/swirl/commit/3ac24edd05aa01050748fe41dc8b4f266c28ba56)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue not hiding the
+  sidebar of swirl-shell-layout correctly
+
+- Updated dependencies
+  [[`3ac24edd`](https://github.com/getflip/swirl/commit/3ac24edd05aa01050748fe41dc8b4f266c28ba56)]:
+  - @getflip/swirl-components@0.118.5
+
 ## 0.118.4
 
 ### Patch Changes
