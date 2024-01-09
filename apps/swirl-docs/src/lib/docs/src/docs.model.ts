@@ -3,7 +3,7 @@ import Oas, { Operation } from "oas";
 import { HttpMethods, OASDocument } from "oas/dist/rmoas.types";
 import { OpenAPIV3_1 } from "openapi-types/dist";
 import { CodePreviewSelectOptions } from "src/components/CodePreview/types";
-import OASBuilder from "../../../scripts/ApiDocumentation/oasBuilder";
+import type OASBuilder from "../../../scripts/ApiDocumentation/oasBuilder";
 
 export enum DOCUMENTATION_SRC {
   PAGES = "pages",

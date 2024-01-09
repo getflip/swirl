@@ -1,9 +1,9 @@
-import { ApiEndpointGenerator } from "./DeploymentStrategy/ApiEndpointGenerator";
-import { FileFetcher } from "./DeploymentStrategy/FileFetcher";
+import { ApiEndpointGenerator } from "./Generators/ApiEndpointGenerator";
+import { FileFetcher } from "./Generators/FileFetcher";
 import {
   ApiDocsNavigationGenerator,
   ApiSpecsNavigationGenerator,
-} from "./DeploymentStrategy/NavigationGenerator";
+} from "./Generators/NavigationGenerator";
 
 async function main() {
   const fetcher = new FileFetcher();
