@@ -163,3 +163,5 @@ apps/swirl-docs/users-common.yml
 apps/swirl-docs/users-roles-and-permissions.yml
 apps/swirl-docs/users-admin-user-groups.yml
 apps/swirl-docs/users-admin-usergroups.yml
+
+.idea
