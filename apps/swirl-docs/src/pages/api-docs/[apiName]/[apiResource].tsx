@@ -43,13 +43,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     };
   }
 
-  const apiDocumentations = apiEndpointDocumentation;
-
   const { apiName, apiResource } = context.params;
 
-  const document: ApiResourceDocumentation | undefined = apiDocumentations
-    .find((api) => api.id === apiName)
-    ?.resources.find((resource) => resource.id === apiResource);
+  const document: ApiResourceDocumentation | undefined =
+    apiEndpointDocumentation
+      .find((api) => api.id === apiName)
+      ?.resources.find((resource) => resource.id === apiResource);
 
   if (!document) {
     return { notFound: true };

@@ -33,16 +33,16 @@ export class EndpointMapper {
       (param) => param.type !== "body"
     );
 
-    // if (
-    //   requestBody?.[0]?.schema.type &&
-    //   requestBody?.[0]?.schema.type !== "object"
-    // ) {
-    //   throw new Error(
-    //     `Request body schema type must be object, got ${
-    //       requestBody[0]?.schema.type
-    //     } for operation ${operation.getOperationId()}`
-    //   );
-    // }
+    if (
+      requestBody?.[0]?.schema.type &&
+      requestBody?.[0]?.schema.type !== "object"
+    ) {
+      throw new Error(
+        `Request body schema type must be object, got ${
+          requestBody[0]?.schema.type
+        } for operation ${operation.getOperationId()}`
+      );
+    }
 
     for (const schema of responseBodySchemas) {
       if (schema.schema?.type && schema.schema?.type !== "object") {

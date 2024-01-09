@@ -217,7 +217,7 @@ export default class OASBuilder implements IOASBuilder {
               shortDescription: "",
               endpoints: sort(Object.values(resource.endpoints)).asc([
                 (endpoint) => endpoint.path,
-                this.getEndpointMethodOrder,
+                OASBuilder._getEndpointMethodOrder,
               ]),
             })
           ),
@@ -363,7 +363,7 @@ export default class OASBuilder implements IOASBuilder {
     return responseExamples;
   }
 
-  private _endpointMethodOrder: Record<string, number> = {
+  private static _endpointMethodOrder: Record<string, number> = {
     GET: 1,
     POST: 2,
     PUT: 3,
@@ -374,9 +374,9 @@ export default class OASBuilder implements IOASBuilder {
     TRACE: 8,
   };
 
-  private getEndpointMethodOrder = (endpoint: ApiEndpoint) => {
+  private static _getEndpointMethodOrder = (endpoint: ApiEndpoint) => {
     return (
-      this._endpointMethodOrder[endpoint.method?.toUpperCase() || ""] ||
+      OASBuilder._endpointMethodOrder[endpoint.method?.toUpperCase() || ""] ||
       Number.MAX_SAFE_INTEGER
     );
   };

@@ -23,8 +23,6 @@ export function serializeMarkdownString(source: string) {
   });
 }
 
-// Strategy Interface
-
 export class ApiSpecsNavigationGenerator {
   public async generate(apiDocumentations: ApiDocumentation[]): Promise<void> {
     console.log("Generating API Spec Navigation...");
