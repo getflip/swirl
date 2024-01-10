@@ -10,6 +10,7 @@ export class SwirlImageGrid {
   @Element() el: HTMLSwirlImageGridElement;
 
   @Prop() aspectRatio?: string = "1/1";
+  @Prop() label?: string;
 
   @State() items: HTMLSwirlImageGridItemElement[] = [];
 
@@ -36,6 +37,7 @@ export class SwirlImageGrid {
     return (
       <Host>
         <div
+          aria-label={this.label}
           class={className}
           role="list"
           style={{ aspectRatio: this.aspectRatio }}

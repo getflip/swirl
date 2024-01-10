@@ -1066,6 +1066,7 @@ export namespace Components {
     }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
+        "label"?: string;
     }
     interface SwirlImageGridItem {
         "alt": string;
@@ -5039,6 +5040,7 @@ declare namespace LocalJSX {
     }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
+        "label"?: string;
     }
     interface SwirlImageGridItem {
         "alt": string;
