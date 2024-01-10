@@ -7,7 +7,7 @@ export type AlgoliaIndex = keyof typeof ALGOLIA_INDEX;
 export type AlgoliaRecord = {
   objectID: string;
   title: string;
-  type?: "icon" | "token" | "component";
+  type: "icon" | "token" | "component" | "apiDoc" | "apiSpec";
   tokenCategory?: "color" | "typography" | "z-index" | "border" | "spacing";
   excerpt?: string;
   path?: string;

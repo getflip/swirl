@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       document: JSON.parse(JSON.stringify(document)), // remove undefined values
-      description: await serializeMarkdownString(""),
+      description: await serializeMarkdownString(""), // needed to use the documentation layout component.
       navItems: apiSpecsNavItems,
     },
   };

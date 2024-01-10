@@ -1,3 +1,4 @@
+import { isProd } from "@swirl/lib/env";
 import { ALGOLIA_INDEX, AlgoliaRecord } from "@swirl/lib/search";
 import algoliasearch from "algoliasearch";
 
@@ -19,7 +20,9 @@ export async function sendDataToAlgolia(data: Array<AlgoliaRecord>) {
     process.env.ALGOLIA_SEARCH_ADMIN_KEY!!
   );
 
-  const index = client.initIndex(ALGOLIA_INDEX.DEV);
+  const index = client.initIndex(
+    isProd ? ALGOLIA_INDEX.PROD : ALGOLIA_INDEX.DEV
+  );
 
   const algoliaResponse = await index.saveObjects(data);
 

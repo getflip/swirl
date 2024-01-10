@@ -1,4 +1,6 @@
 import { AlgoliaRecord } from "@swirl/lib/search";
+import FlipApiDocAlgoliaRecordGenerator from "./FlipApiDocAlgoliaRecordGenerator";
+import FlipApiSpecAlgoliaRecordGenerator from "./FlipApiSpecAlgoliaRecordGenerator";
 import SwirlIconAlgoliaRecordGenerator from "./SwirlIconAlgoliaRecordGenerator";
 import SwirlTokensAlgoliaRecordGenerator from "./SwirlTokensAlgoliaRecordGenerator";
 
@@ -21,6 +23,8 @@ export class AlgoliaDataFactory {
 const AlgoliaFactory = new AlgoliaDataFactory([
   new SwirlIconAlgoliaRecordGenerator(),
   new SwirlTokensAlgoliaRecordGenerator(),
+  new FlipApiSpecAlgoliaRecordGenerator(),
+  new FlipApiDocAlgoliaRecordGenerator(),
 ]);
 
 export default AlgoliaFactory;
