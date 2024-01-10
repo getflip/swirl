@@ -52,7 +52,7 @@ export class ApiEndpointGenerator {
     import { ApiDocumentation } from "@swirl/lib/docs";
 
     export const apiEndpointDocumentation =
-      ${data} as ApiDocumentation[]
+      ${data} as unknown as ApiDocumentation[]
     ;
     `;
   }
