@@ -1,20 +1,10 @@
-import { API_SPEC_PATH } from "@swirl/lib/navigation";
+import { apiEndpointDocumentation } from "@swirl/lib/navigation/src/data/apiEndpoints.data";
 import { GetStaticPathsResult } from "next";
-import OASNormalize from "oas-normalize";
-import OASBuilder from "./oasBuilder";
 
 export async function createStaticPathsForSpec(): Promise<
   GetStaticPathsResult["paths"]
 > {
-  const oasDocument = await new OASNormalize(`${API_SPEC_PATH}/merged.yml`, {
-    enablePaths: true,
-  }).validate();
-
-  const oasBuilder = await new OASBuilder(oasDocument).dereference();
-
-  const oasBuilderDereffed = oasBuilder.setApiDocumentations();
-
-  const paths = oasBuilderDereffed.apiDocumentations
+  const paths = apiEndpointDocumentation
     .map((api) =>
       api.resources.map((resource) => ({
         params: {

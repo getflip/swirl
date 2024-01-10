@@ -1,40 +1,48 @@
-import { API_DOCS_PATH, API_SPEC_PATH, NavItem } from "@swirl/lib/navigation";
+import type { NavItem } from "@swirl/lib/navigation";
 
-import { serializeMarkdownString } from "@swirl/lib/docs";
-import { ApiDocumentationsFacade } from "@swirl/lib/docs/src/ApiDocumentationsFacade";
+import type { ApiDocumentation } from "@swirl/lib/docs";
 import { sort } from "fast-sort";
 import fs from "fs";
+import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
 import prettier from "prettier";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import sectionize from "remark-sectionize";
 
-// Strategy Interface
-interface NavigationGeneratorStrategy {
-  generate(): Promise<void>;
+export const API_DOCS_PATH = path.resolve(`${process.cwd()}/src/documents/api`);
+
+export function serializeMarkdownString(source: string) {
+  return serialize(source, {
+    parseFrontmatter: true,
+    mdxOptions: {
+      rehypePlugins: [rehypeSlug],
+      remarkPlugins: [remarkGfm, sectionize],
+      format: "mdx",
+    },
+  });
 }
 
-export class ApiSpecsNavigationGenerator
-  implements NavigationGeneratorStrategy
-{
-  public async generate(): Promise<void> {
+export class ApiSpecsNavigationGenerator {
+  public async generate(apiDocumentations: ApiDocumentation[]): Promise<void> {
     console.log("Generating API Spec Navigation...");
+
     try {
-      if (fs.existsSync(API_SPEC_PATH)) {
-        const apiNavItem = await this.generateAPINavItem();
+      const apiNavItem = await this.generateAPINavItem(apiDocumentations);
 
-        const dataString = apiNavItem.children
-          ?.map((navItem) => JSON.stringify(navItem))
-          .join(",");
+      const dataString = apiNavItem.children
+        ?.map((navItem) => JSON.stringify(navItem))
+        .join(",");
 
-        const apiSpecsData = this.createDataString(dataString || "");
+      const apiSpecsData = this.createDataString(dataString || "");
 
-        fs.writeFileSync(
-          "./src/lib/navigation/src/data/apiSpecs.data.ts",
-          prettier.format(apiSpecsData, { parser: "typescript" }),
-          "utf8"
-        );
+      fs.writeFileSync(
+        "./src/lib/navigation/src/data/apiSpecs.data.ts",
+        prettier.format(apiSpecsData, { parser: "typescript" }),
+        "utf8"
+      );
 
-        console.log(`API Spec Navigation Done! 🚀`);
-      }
+      console.log(`API Spec Navigation Done! 🚀`);
     } catch (error) {
       console.error("Error reading directory:", error);
     }
@@ -50,18 +58,36 @@ export class ApiSpecsNavigationGenerator
     `;
   }
 
-  private async generateAPINavItem(): Promise<NavItem> {
+  private async generateAPINavItem(
+    apiDocumentations: ApiDocumentation[]
+  ): Promise<NavItem> {
     console.log("Generating navigation for API");
 
     return {
       title: "API",
       url: `/api-docs`,
-      children: await ApiDocumentationsFacade.navItems,
+      children: apiDocumentations.map((api) => ({
+        title: api.title,
+        url: `/api-docs/${api.id}/${api.resources[0].id}`,
+        children: api.resources.map((resource) => {
+          return {
+            children: resource.endpoints.map((endpoint) => ({
+              title: endpoint.title,
+              tag: endpoint.method,
+              url: `/api-docs/${api.id}/${resource.id}#${endpoint.id}`,
+            })),
+            title: resource.title,
+            url: `/api-docs/${api.id}/${resource.id}`,
+          };
+        }),
+        specName: api.id,
+        description: "",
+      })),
     };
   }
 }
 
-export class ApiDocsNavigationGenerator implements NavigationGeneratorStrategy {
+export class ApiDocsNavigationGenerator {
   public async generate(): Promise<void> {
     if (fs.existsSync(API_DOCS_PATH)) {
       const files = fs.readdirSync(API_DOCS_PATH);
