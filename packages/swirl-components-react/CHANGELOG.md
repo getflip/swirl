@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.120.0
+
+### Minor Changes
+
+- [`bf7362a0`](https://github.com/getflip/swirl/commit/bf7362a0e9333ebd2ebcb70799d85aad8a4d6052)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "label" prop to
+  swirl-image-grid
+
+### Patch Changes
+
+- Updated dependencies
+  [[`bf7362a0`](https://github.com/getflip/swirl/commit/bf7362a0e9333ebd2ebcb70799d85aad8a4d6052)]:
+  - @getflip/swirl-components@0.120.0
+
 ## 0.119.1
 
 ### Patch Changes
