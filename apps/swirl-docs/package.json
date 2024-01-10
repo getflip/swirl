@@ -14,7 +14,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:swirl-docs": "next build",
-    "postbuild": "tsx src/scripts/build-search.ts",
+    "postbuild": "tsx src/scripts/postbuild.ts",
     "start": "next start",
     "test": "vitest",
     "lint": "next lint",
