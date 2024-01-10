@@ -271,7 +271,10 @@ export class SwirlShellLayout {
           <main class="shell-layout__main" id="main-content">
             <slot></slot>
           </main>
-          <aside class="shell-layout__sidebar">
+          <aside
+            class="shell-layout__sidebar"
+            {...{ inert: this.sidebarActive ? undefined : true }}
+          >
             <div class="shell-layout__sidebar-body">
               <div class="shell-layout__sidebar-app-bar">
                 <slot name="sidebar-app-bar"></slot>
