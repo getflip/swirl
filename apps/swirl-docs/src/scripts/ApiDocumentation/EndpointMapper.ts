@@ -1,6 +1,6 @@
 import { Operation } from "oas";
+import { SchemaWrapper } from "oas/dist/operation/get-parameters-as-json-schema";
 import { SchemaObject } from "oas/dist/rmoas.types";
-import { FlipApiExtensions } from "./FlipApiExtensions";
 import {
   ApiEndpoint,
   ApiResourceDocumentation,
@@ -8,52 +8,11 @@ import {
   OperationParamType,
   OperationSchemaObject,
   OperationSchemas,
-} from "./docs.model";
+} from "../../lib/docs/src/docs.model";
+import { FlipApiExtensions } from "./FlipApiExtensions";
 import OASBuilder from "./oasBuilder";
 
 export class EndpointMapper {
-  map(oasBuilder: OASBuilder): ApiResourceDocumentation["endpoints"] {
-    return oasBuilder.endpoints.map((endpoint) => {
-      const responseBodySchemas = Object.entries(
-        endpoint.operation.schema.responses || {}
-      ).map(([statusCode, response]) => ({
-        schema: response.content?.["application/json"]?.schema || null,
-        statusCode,
-      }));
-
-      const isEndpointExperimental: ApiResourceDocumentation["endpoints"][0]["isExperimental"] =
-        (endpoint.operation.schema["x-experimental"] as boolean) ?? false;
-
-      const requestSchemas = endpoint.operation.getParametersAsJSONSchema();
-      return {
-        title: endpoint.title,
-        description: endpoint.operation.getDescription() || "",
-        path: endpoint.path,
-        isDeprecated: endpoint.operation.isDeprecated(),
-        isExperimental: isEndpointExperimental,
-        parameters: requestSchemas
-          ? this.getEndpointOperationSchema(
-              requestSchemas.filter((param) => param.type !== "body")
-            )
-          : undefined,
-        requestBody: requestSchemas
-          ? this.getEndpointOperationSchema(
-              requestSchemas.filter((param) => param.type === "body")
-            )
-          : undefined,
-        responseBody: this.getEndpointOperationResponseParameters(
-          endpoint.operation
-        ),
-        request: oasBuilder?.generateRequest(endpoint.operation),
-        responseExamples: oasBuilder?.generateResponseExamples(
-          endpoint.operation
-        ),
-        responseBodySchemas,
-        security: endpoint.operation.api.security,
-      };
-    });
-  }
-
   mapEndpoint(operation: Operation, oasBuilder: OASBuilder): ApiEndpoint {
     const responseBodySchemas = Object.entries(
       operation.schema.responses || {}
@@ -65,7 +24,38 @@ export class EndpointMapper {
     const isEndpointExperimental: ApiResourceDocumentation["endpoints"][0]["isExperimental"] =
       (operation.schema["x-experimental"] as boolean) ?? false;
 
-    const requestSchemas = operation.getParametersAsJSONSchema();
+    const requestSchemas: SchemaWrapper[] | undefined =
+      operation.getParametersAsJSONSchema();
+    const requestBody = requestSchemas?.filter(
+      (param) => param.type === "body"
+    );
+    const otherParameters = requestSchemas?.filter(
+      (param) => param.type !== "body"
+    );
+
+    if (
+      requestBody?.[0]?.schema.type &&
+      requestBody?.[0]?.schema.type !== "object"
+    ) {
+      throw new Error(
+        `Request body schema type must be object, got ${
+          requestBody[0]?.schema.type
+        } for operation ${operation.getOperationId()}`
+      );
+    }
+
+    for (const schema of responseBodySchemas) {
+      if (schema.schema?.type && schema.schema?.type !== "object") {
+        throw new Error(
+          `Response body schema type must be object, got ${
+            schema.schema.type
+          } for operation ${operation.getOperationId()} / Status ${
+            schema.statusCode
+          }`
+        );
+      }
+    }
+
     return {
       id: operation.getOperationId(),
       title: operation.getSummary(),
@@ -75,16 +65,8 @@ export class EndpointMapper {
       isExperimental: isEndpointExperimental,
       isInternal: FlipApiExtensions.getInternal(operation),
       globalErrorCodes: FlipApiExtensions.getErrorCodes(operation),
-      parameters: requestSchemas
-        ? this.getEndpointOperationSchema(
-            requestSchemas.filter((param) => param.type !== "body")
-          )
-        : undefined,
-      requestBody: requestSchemas
-        ? this.getEndpointOperationSchema(
-            requestSchemas.filter((param) => param.type === "body")
-          )
-        : undefined,
+      parameters: this.getEndpointOperationSchema(otherParameters),
+      requestBody: this.getEndpointOperationSchema(requestBody),
       responseBody: this.getEndpointOperationResponseParameters(operation),
       request: oasBuilder?.generateRequest(operation),
       responseExamples: oasBuilder?.generateResponseExamples(operation),
@@ -129,9 +111,9 @@ export class EndpointMapper {
   }
 
   private getEndpointOperationSchema(
-    parameters: ReturnType<Endpoint["operation"]["getParametersAsJSONSchema"]>
-  ): OperationSchemas {
-    return parameters.map((parameter) => {
+    parameters?: ReturnType<Endpoint["operation"]["getParametersAsJSONSchema"]>
+  ): OperationSchemas | undefined {
+    return parameters?.map((parameter) => {
       const label = parameter.label || "other";
       const type = parameter.type as OperationParamType;
       const requiredParams = parameter.schema.required || [];
