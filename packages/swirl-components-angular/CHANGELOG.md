@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.120.1
+
+### Patch Changes
+
+- [`9372e264`](https://github.com/getflip/swirl/commit/9372e264bad24241d6c0ef127f89714b040fd44e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Correctly disable contents of the
+  inactive sidebar of swirl-shell-layout
+
+- Updated dependencies
+  [[`9372e264`](https://github.com/getflip/swirl/commit/9372e264bad24241d6c0ef127f89714b040fd44e)]:
+  - @getflip/swirl-components@0.120.1
+
 ## 0.120.0
 
 ### Minor Changes
