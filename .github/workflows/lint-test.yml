@@ -47,9 +47,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
+      - run: env
       - run: yarn
       - run: yarn build --filter=@getflip/swirl-tokens
-      - run: env
       - run: npx turbo run prebuild # needed for swirl-docs tests
       - run: yarn lint
       - run: yarn test
