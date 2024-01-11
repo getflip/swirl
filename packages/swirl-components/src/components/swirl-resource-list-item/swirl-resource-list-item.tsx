@@ -9,8 +9,8 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { getDesktopMediaQuery } from "../../utils";
 import { v4 as uuid } from "uuid";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 
@@ -66,6 +66,7 @@ export class SwirlResourceListItem {
     this.updateIconSize(this.desktopMediaQuery.matches);
 
     this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+    this.makeControlUnfocusable();
 
     if (Boolean(this.menuTriggerId)) {
       console.warn(
@@ -105,6 +106,30 @@ export class SwirlResourceListItem {
     }
   }
 
+  private getControl() {
+    return this.el.querySelector<HTMLButtonElement>('[slot="control"] button');
+  }
+
+  private makeControlFocusable() {
+    const control = this.getControl();
+
+    if (!Boolean(control)) {
+      return;
+    }
+
+    control.tabIndex = 0;
+  }
+
+  private makeControlUnfocusable() {
+    const control = this.getControl();
+
+    if (!Boolean(control)) {
+      return;
+    }
+
+    control.tabIndex = -1;
+  }
+
   private onClick = () => {
     if (!this.selectable) {
       return;
@@ -112,6 +137,14 @@ export class SwirlResourceListItem {
 
     this.checked = !this.checked;
     this.valueChange.emit(this.checked);
+  };
+
+  private onBlur = () => {
+    this.makeControlUnfocusable();
+  };
+
+  private onFocus = () => {
+    this.makeControlFocusable();
   };
 
   private onMenuTriggerClick = (event: MouseEvent) => {
@@ -180,6 +213,8 @@ export class SwirlResourceListItem {
             href={href}
             disabled={disabled}
             onClick={this.onClick}
+            onBlur={this.onBlur}
+            onFocus={this.onFocus}
             part="resource-list-item__content"
             role={role}
             tabIndex={0}
