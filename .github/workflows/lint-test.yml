@@ -51,6 +51,7 @@ jobs:
             ${{ secrets.NEXT_PUBLIC_DEPLOYMENT_STAGE }}
       - run: yarn
       - run: yarn build --filter=@getflip/swirl-tokens
+      - run: env
       - run: npx turbo run prebuild # needed for swirl-docs tests
       - run: yarn lint
       - run: yarn test
