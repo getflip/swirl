@@ -25,6 +25,7 @@ jobs:
   lint_and_test_job:
     runs-on: ubuntu-latest
     env:
+      TESTVARIABLE_ADAM: "adam"
       ALGOLIA_SEARCH_ADMIN_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
       SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
       GITLAB_FLIP_REPO_ID: ${{ secrets.GITLAB_FLIP_REPO_ID }}
