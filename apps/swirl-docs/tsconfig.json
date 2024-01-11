@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "types": ["node", "jest"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -21,6 +22,7 @@
     }
   },
   "include": [
+    "./jest.config.ts",
     "./eslintrc.cjs",
     "*.config.js",
     "next-env.d.ts",
@@ -30,7 +32,8 @@
     "pages/_document.js",
     "pages/_document.js",
     "next.config.mjs",
-    "src/scripts/metadata.d.ts"
+    "src/scripts/metadata.d.ts",
+    "tests/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

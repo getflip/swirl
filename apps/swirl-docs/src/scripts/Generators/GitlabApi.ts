@@ -54,7 +54,11 @@ export class GitLabAPI {
     const response = await fetch(endpoint, { headers: this.headers });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(
+        `HTTP error! status: ${
+          response.status
+        }. Full response: ${await response.text()}`
+      );
     }
 
     return response.json();

@@ -1,12 +1,12 @@
 import {
-  Token,
   BorderTokenCategories,
   SpacingTokenCategories,
+  SwirlTokenCategory,
   SwirlTokensWithoutColor,
+  Token,
+  TokensWithoutColors,
   TypographyTokenCategories,
   ZIndexTokenCategories,
-  SwirlTokenCategory,
-  TokensWithoutColors,
 } from "./token.model";
 
 import tokensLightFromPackage from "@getflip/swirl-tokens/dist/styles.light.json";
@@ -40,6 +40,7 @@ export function getTokens(
     zIndex: [],
     size: [],
   };
+
   tokenCategories.forEach((category) => {
     if (category !== "color") {
       tokensObject[category] = [];
