@@ -40,5 +40,6 @@ jobs:
           cache: "npm"
       - run: yarn
       - run: yarn build --filter=@getflip/swirl-tokens
+      - run: npx turbo run prebuild # needed for swirl-docs tests
       - run: yarn lint
       - run: yarn test
