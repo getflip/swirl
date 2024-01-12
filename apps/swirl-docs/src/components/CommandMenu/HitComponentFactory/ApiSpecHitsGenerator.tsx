@@ -26,7 +26,7 @@ export class ApiSpecHitsGenerator implements HitComponentGenerator {
               title={hit.title}
               icon={
                 <i
-                  className={`swirl-icons-NewsFilled16 text-icon-default w-5 h-5`}
+                  className={`swirl-icons-Terminal16 text-icon-default w-5 h-5`}
                 ></i>
               }
               description={hit.excerpt}
