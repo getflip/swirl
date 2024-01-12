@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.24.0
+
+### Minor Changes
+
+- [#523](https://github.com/getflip/swirl/pull/523)
+  [`437402f3`](https://github.com/getflip/swirl/commit/437402f388dd00ecd0293099fb03373cc088ca34)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Add "Terminal" icon
+
 ## 0.23.0
 
 ### Minor Changes
