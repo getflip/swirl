@@ -1,5 +1,6 @@
 import { AlgoliaRecord } from "@swirl/lib/search";
 import { useHits } from "react-instantsearch-hooks-web";
+import { ApiSpecHitsGenerator } from "./ApiSpecHitsGenerator";
 import { ComponentHitsGenerator } from "./ComponentHitsGenerator";
 import { IconHitsGenerator } from "./IconHitsGenerator";
 import { TokenHitsGenerator } from "./TokenHitsGenerator";
@@ -36,6 +37,7 @@ class HitComponentFactory {
       new IconHitsGenerator(),
       new TokenHitsGenerator(),
       new ComponentHitsGenerator(),
+      new ApiSpecHitsGenerator(),
     ];
 
     const assignedHits = this.assignHitsToAlgoliaRecordTypes(hits);

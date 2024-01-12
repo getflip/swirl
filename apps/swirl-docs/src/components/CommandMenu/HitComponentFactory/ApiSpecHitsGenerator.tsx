@@ -1,14 +1,11 @@
 import { AlgoliaRecord } from "@swirl/lib/search";
 import { Command } from "cmdk";
 import router from "next/router";
-import { IconsMetaData } from "src/pages/icons";
 import { AlgoliaRecordHits, HitComponentGenerator } from ".";
 import { Hit } from "./Hit";
 
-export class IconHitsGenerator implements HitComponentGenerator {
-  icons: IconsMetaData = require("@getflip/swirl-icons/dist/metadata.js");
-
-  type: AlgoliaRecord["type"] = "icon";
+export class ApiSpecHitsGenerator implements HitComponentGenerator {
+  type: AlgoliaRecord["type"] = "apiSpec";
   generateHits(hits: AlgoliaRecordHits, onSelected?: () => void): JSX.Element {
     if (hits.length === 0) {
       return <></>;
@@ -18,7 +15,7 @@ export class IconHitsGenerator implements HitComponentGenerator {
       <Command.Group
         heading={
           <h3 className="text-font-size-sm font-font-weight-medium text-text-subdued pt-4 px-4 pb-1">
-            Icons
+            API
           </h3>
         }
       >
@@ -29,11 +26,10 @@ export class IconHitsGenerator implements HitComponentGenerator {
               title={hit.title}
               icon={
                 <i
-                  className={`swirl-icons-${this.getIconName(
-                    hit.title
-                  )}16 text-icon-default w-5 h-5`}
+                  className={`swirl-icons-NewsFilled16 text-icon-default w-5 h-5`}
                 ></i>
               }
+              description={hit.excerpt}
               handleOnSelect={() => {
                 if (!hit.path) {
                   return;
@@ -47,9 +43,5 @@ export class IconHitsGenerator implements HitComponentGenerator {
         })}
       </Command.Group>
     );
-  }
-
-  private getIconName(title: string) {
-    return this.icons[title].name;
   }
 }

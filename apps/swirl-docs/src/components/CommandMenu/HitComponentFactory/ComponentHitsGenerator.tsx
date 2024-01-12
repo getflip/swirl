@@ -2,11 +2,14 @@ import { AlgoliaRecord } from "@swirl/lib/search";
 import { Command } from "cmdk";
 import { useRouter } from "next/router";
 import { AlgoliaRecordHits, HitComponentGenerator } from ".";
-import { CommandHit } from "../CommandHit";
+import { Hit } from "./Hit";
 
 export class ComponentHitsGenerator implements HitComponentGenerator {
   type: AlgoliaRecord["type"] = "component";
+
   generateHits(hits: AlgoliaRecordHits, onSelected?: () => void): JSX.Element {
+    console.log("api spec hits", hits);
+
     if (hits.length === 0) {
       return <></>;
     }
@@ -36,7 +39,7 @@ function ComponentHit({
 }) {
   const router = useRouter();
   return (
-    <CommandHit
+    <Hit
       key={hit.objectID}
       title={hit.objectID}
       description={hit.objectID}

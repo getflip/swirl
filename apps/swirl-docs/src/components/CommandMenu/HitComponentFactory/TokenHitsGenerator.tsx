@@ -2,8 +2,8 @@ import { AlgoliaRecord } from "@swirl/lib/search";
 import { Command } from "cmdk";
 import router from "next/router";
 import { AlgoliaRecordHits, HitComponentGenerator } from ".";
-import { CommandHit } from "../CommandHit";
-import { HitTokenPreview } from "../HitTokenPreview";
+import { Hit } from "./Hit";
+import { HitTokenPreview } from "./HitTokenPreview";
 
 export class TokenHitsGenerator implements HitComponentGenerator {
   type: AlgoliaRecord["type"] = "token";
@@ -22,7 +22,7 @@ export class TokenHitsGenerator implements HitComponentGenerator {
       >
         {hits.map((hit) => {
           return (
-            <CommandHit
+            <Hit
               key={hit.objectID}
               title={hit.title}
               description={hit.excerpt}

@@ -9,7 +9,7 @@ type CommandHitProps = {
   handleOnSelect: (value: any) => void;
 };
 
-export function CommandHit({
+export function Hit({
   title,
   icon,
   description,
