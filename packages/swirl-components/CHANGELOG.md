@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.122.1
+
+### Patch Changes
+
+- [`e593878f`](https://github.com/getflip/swirl/commit/e593878f511cd0256ac99f1cea3d1e10994435a4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-stack styling when used
+  as ul/ol
+
 ## 0.122.0
 
 ### Minor Changes
