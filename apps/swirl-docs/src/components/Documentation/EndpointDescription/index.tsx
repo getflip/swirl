@@ -26,7 +26,9 @@ export const EndpointDescription: FunctionComponent<EndpointDescription> = ({
 
       <EndpointSecurity endpoint={endpoint} />
 
-      <DocumentationMarkdown>{endpoint.description}</DocumentationMarkdown>
+      <DocumentationMarkdown className="mb-6">
+        {endpoint.description}
+      </DocumentationMarkdown>
 
       <div className="mb-6">
         <RequestParameters endpoint={endpoint} />

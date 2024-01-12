@@ -205,13 +205,13 @@ export default class OASBuilder implements IOASBuilder {
       }
     );
 
-    this.apiDocumentations = Object.entries(apiDocumentations)
-      .map(([apiName, api]) => {
+    this.apiDocumentations = sort(
+      Object.entries(apiDocumentations).map(([apiName, api]) => {
         return {
           id: api.id,
           title: this.getDisplayNameFromExtension(apiName),
-          resources: Object.entries(api.resources).map(
-            ([resourceName, resource]) => ({
+          resources: sort(
+            Object.entries(api.resources).map(([resourceName, resource]) => ({
               id: resource.id,
               title: this.getDisplayNameFromExtension(resourceName),
               shortDescription: "",
@@ -219,11 +219,11 @@ export default class OASBuilder implements IOASBuilder {
                 (endpoint) => endpoint.path,
                 OASBuilder._getEndpointMethodOrder,
               ]),
-            })
-          ),
+            }))
+          ).asc((a) => a.title),
         };
       })
-      .sort((a, b) => a.title.localeCompare(b.title));
+    ).asc((a) => a.title);
 
     return this;
   }
@@ -309,6 +309,12 @@ export default class OASBuilder implements IOASBuilder {
     const har = OASToHar(this.oas, operation);
     const harRequest = har.log.entries[0].request;
     const body = operation.getRequestBodyExamples()[0]?.examples[0]?.value;
+    const path = Object.fromEntries(
+      Object.keys(
+        operation.getParametersAsJSONSchema()?.find((t) => t.type === "path")
+          ?.schema.properties || {}
+      ).map((key) => [key, "(" + key + ")"]) // {} does not work as its encoded in the url
+    );
 
     const allLanguages = Object.keys(supportedLanguages) as SupportedTargets[];
     const allLanguageSnippets = allLanguages.map((language) => [
@@ -319,6 +325,7 @@ export default class OASBuilder implements IOASBuilder {
           operation,
           {
             body,
+            path,
           },
           {},
           language
