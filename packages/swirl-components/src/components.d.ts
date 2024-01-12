@@ -52,6 +52,7 @@ import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
 import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
+import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 import { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 import { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
@@ -110,6 +111,7 @@ export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
 export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
+export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 export { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 export { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
@@ -1640,6 +1642,7 @@ export namespace Components {
         "active"?: boolean;
         "icon"?: string;
         "label": string;
+        "padding"?: SwirlTabPadding;
         "tabId": string;
     }
     interface SwirlTabBar {
@@ -5568,6 +5571,7 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "icon"?: string;
         "label": string;
+        "padding"?: SwirlTabPadding;
         "tabId": string;
     }
     interface SwirlTabBar {

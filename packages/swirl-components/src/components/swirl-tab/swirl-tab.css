@@ -10,7 +10,6 @@
 .tab {
   display: none;
   width: 100%;
-  padding: var(--s-space-8);
 }
 
 .tab--active {
