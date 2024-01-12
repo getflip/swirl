@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.121.0
+
+### Minor Changes
+
+- [`e812fc4c`](https://github.com/getflip/swirl/commit/e812fc4c7765c6657d962a498beb781faedcf1fc)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "padding" prop to swirl-tab
+  component
+
 ## 0.120.5
 
 ### Patch Changes
