@@ -171,12 +171,12 @@ export class SwirlResourceListItem {
     const disabled = this.disabled && !Boolean(this.href);
 
     const hasBadges = Boolean(this.el.querySelector("[slot='badges']"));
-    const hasMenu =
-      Boolean(this.menuTriggerId) || this.el.querySelector("[slot='control']");
+    const hasControl = this.el.querySelector("[slot='control']");
+    const hasMenu = Boolean(this.menuTriggerId) || hasControl;
 
     const href = this.interactive && Boolean(this.href) ? this.href : undefined;
 
-    const showControlOnFocus = Boolean(this.meta) || hasBadges;
+    const showControlOnFocus = hasControl && (Boolean(this.meta) || hasBadges);
     const showMenu =
       Boolean(this.menuTriggerId) && !Boolean(this.meta) && !this.selectable;
     const showMeta = (Boolean(this.meta) || hasBadges) && !this.selectable;
@@ -232,9 +232,10 @@ export class SwirlResourceListItem {
                 innerHTML={this.label}
               ></span>
               {this.description && (
-                <span class="resource-list-item__description">
-                  {this.description}
-                </span>
+                <span
+                  class="resource-list-item__description"
+                  innerHTML={this.description}
+                ></span>
               )}
             </span>
             {showMeta && (

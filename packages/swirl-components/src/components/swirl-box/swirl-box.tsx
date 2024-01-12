@@ -45,6 +45,7 @@ export class SwirlBox {
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
   @Prop() left?: string;
+  @Prop() maxHeight?: string;
   @Prop() maxWidth?: string;
   @Prop() overflow?: SwirlBoxOverflow = "visible";
   @Prop() padding?: SwirlBoxPadding = "0";
@@ -65,6 +66,8 @@ export class SwirlBox {
       height: this.cover ? "100%" : undefined,
       justifyContent: this.centerInline ? "center" : undefined,
       left: this.left,
+      maxHeight: this.maxHeight,
+      maxWidth: this.maxWidth,
       overflow: this.overflow,
       padding: `var(--s-space-${this.padding})`,
       paddingBlockEnd: Boolean(this.paddingBlockEnd)
@@ -82,7 +85,6 @@ export class SwirlBox {
       position: Boolean(this.overflow)
         ? this.position || "relative"
         : this.position,
-      maxWidth: this.maxWidth,
       right: this.right,
       top: this.top,
       width: this.cover ? "100%" : undefined,

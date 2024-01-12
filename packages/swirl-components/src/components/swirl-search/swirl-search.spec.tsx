@@ -12,7 +12,7 @@ describe("swirl-search", () => {
     expect(page.root).toEqualHtml(`
       <swirl-search auto-focus="" clear-button-label="Clear" disabled="" input-id="search" input-name="search" label="Label" placeholder="Placeholder" value="Value">
         <span class="search search--disabled search--variant-filled">
-          <swirl-icon-search class="search__icon" size="24"></swirl-icon-search>
+          <swirl-icon-search aria-hidden="true" class="search__icon" size="24"></swirl-icon-search>
           <input aria-disabled="true" aria-label="Label" autocomplete="off" autofocus="" class="search__input" disabled="" id="search" inputmode="search" name="search" placeholder="Placeholder" type="search" value="Value">
         </span>
       </swirl-search>

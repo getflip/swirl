@@ -21,6 +21,13 @@
   }
 }
 
+ol.stack,
+ul.stack {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .stack--align-start {
   align-items: flex-start;
 }

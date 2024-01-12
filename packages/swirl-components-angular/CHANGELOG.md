@@ -1,5 +1,87 @@
 # @getflip/swirl-components-angular
 
+## 0.122.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @getflip/swirl-components@0.122.2
+
+## 0.122.1
+
+### Patch Changes
+
+- [`e593878f`](https://github.com/getflip/swirl/commit/e593878f511cd0256ac99f1cea3d1e10994435a4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-stack styling when used
+  as ul/ol
+
+- Updated dependencies
+  [[`e593878f`](https://github.com/getflip/swirl/commit/e593878f511cd0256ac99f1cea3d1e10994435a4)]:
+  - @getflip/swirl-components@0.122.1
+
+## 0.122.0
+
+### Minor Changes
+
+- [`9dfda910`](https://github.com/getflip/swirl/commit/9dfda9108b163754273a421c52307b07a21b1e2a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "max-height" prop to
+  swirl-box component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9dfda910`](https://github.com/getflip/swirl/commit/9dfda9108b163754273a421c52307b07a21b1e2a)]:
+  - @getflip/swirl-components@0.122.0
+
+## 0.121.0
+
+### Minor Changes
+
+- [`e812fc4c`](https://github.com/getflip/swirl/commit/e812fc4c7765c6657d962a498beb781faedcf1fc)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "padding" prop to swirl-tab
+  component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e812fc4c`](https://github.com/getflip/swirl/commit/e812fc4c7765c6657d962a498beb781faedcf1fc)]:
+  - @getflip/swirl-components@0.121.0
+
+## 0.120.5
+
+### Patch Changes
+
+- [`bcb6459d`](https://github.com/getflip/swirl/commit/bcb6459d09a5e16ab6fe06bc0285307fe6de1019)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix minor style issues
+
+- Updated dependencies
+  [[`bcb6459d`](https://github.com/getflip/swirl/commit/bcb6459d09a5e16ab6fe06bc0285307fe6de1019)]:
+  - @getflip/swirl-components@0.120.5
+
+## 0.120.4
+
+### Patch Changes
+
+- [`f989faa2`](https://github.com/getflip/swirl/commit/f989faa2fae51f3f11e383890a4b1592aa2e9225)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Hide swirl-search icon from
+  accessibility tree
+
+- Updated dependencies
+  [[`f989faa2`](https://github.com/getflip/swirl/commit/f989faa2fae51f3f11e383890a4b1592aa2e9225)]:
+  - @getflip/swirl-components@0.120.4
+
+## 0.120.3
+
+### Patch Changes
+
+- [`c252b192`](https://github.com/getflip/swirl/commit/c252b19243af1bc2b5134a02ae890b4fe8f03a93)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-chip from
+  overflowing its container
+
+- Updated dependencies
+  [[`c252b192`](https://github.com/getflip/swirl/commit/c252b19243af1bc2b5134a02ae890b4fe8f03a93)]:
+  - @getflip/swirl-components@0.120.3
+
 ## 0.120.2
 
 ### Patch Changes

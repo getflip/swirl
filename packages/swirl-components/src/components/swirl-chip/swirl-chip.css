@@ -118,8 +118,8 @@
 
 .chip--variant-outline {
   &.chip--pressed {
-    background-color: var(--s-action-primary-default);
     color: var(--s-text-on-action-primary);
+    background-color: var(--s-action-primary-default);
 
     &:hover {
       background-color: var(--s-action-primary-hovered);
@@ -137,8 +137,8 @@
     }
 
     & + .chip__remove-button {
-      background-color: var(--s-action-primary-default);
       color: var(--s-text-on-action-primary);
+      background-color: var(--s-action-primary-default);
 
       &:hover {
         background-color: var(--s-action-primary-hovered);
@@ -203,6 +203,7 @@
 
 .chip__inner {
   display: inline-flex;
+  max-width: 100%;
   height: 100%;
   padding-right: var(--s-space-16);
   padding-left: var(--s-space-16);

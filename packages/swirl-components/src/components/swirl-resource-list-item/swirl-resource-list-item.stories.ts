@@ -86,7 +86,7 @@ const Template = (args) => {
 export const SwirlResourceListItem = Template.bind({});
 
 SwirlResourceListItem.args = {
-  description: "With a description",
-  label: "This is a resource item",
+  description: "With a <strong>description</strong>",
+  label: "This is a <strong>resource item</strong>",
   meta: "Today",
 };

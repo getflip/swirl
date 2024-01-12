@@ -90,3 +90,8 @@ body {
 
   -webkit-font-smoothing: antialiased;
 }
+
+b,
+strong {
+  font-weight: var(--s-font-weight-semibold);
+}
