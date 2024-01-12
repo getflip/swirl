@@ -13,7 +13,7 @@ export function GlobalErrorCodes({ endpoint }: { endpoint: ApiEndpoint }) {
           <li
             key={errorCode}
             className={classNames(
-              "font-font-family-code font-bold",
+              "font-font-family-code text-sm font-font-weight-bold",
               "border-border-1 border-border-default p-4",
               "first-of-type:rounded-t-border-radius-sm last-of-type:rounded-b-border-radius-sm",
               "border-b-0 last-of-type:border-border-1",
