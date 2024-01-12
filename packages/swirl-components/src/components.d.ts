@@ -282,6 +282,7 @@ export namespace Components {
         "centerInline"?: boolean;
         "cover"?: boolean;
         "left"?: string;
+        "maxHeight"?: string;
         "maxWidth"?: string;
         "overflow"?: SwirlBoxOverflow;
         "padding"?: SwirlBoxPadding;
@@ -4300,6 +4301,7 @@ declare namespace LocalJSX {
         "centerInline"?: boolean;
         "cover"?: boolean;
         "left"?: string;
+        "maxHeight"?: string;
         "maxWidth"?: string;
         "overflow"?: SwirlBoxOverflow;
         "padding"?: SwirlBoxPadding;
