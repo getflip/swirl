@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.120.4
+
+### Patch Changes
+
+- [`f989faa2`](https://github.com/getflip/swirl/commit/f989faa2fae51f3f11e383890a4b1592aa2e9225)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Hide swirl-search icon from
+  accessibility tree
+
 ## 0.120.3
 
 ### Patch Changes
