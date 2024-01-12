@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.122.0
+
+### Minor Changes
+
+- [`9dfda910`](https://github.com/getflip/swirl/commit/9dfda9108b163754273a421c52307b07a21b1e2a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "max-height" prop to
+  swirl-box component
+
 ## 0.121.0
 
 ### Minor Changes
