@@ -13,7 +13,6 @@ export default {
 };
 
 const Template = (args) => {
-  const container = document.createElement("div");
   const element = generateStoryElement("swirl-resource-list", args);
 
   element.innerHTML = `
@@ -38,19 +37,11 @@ const Template = (args) => {
     </swirl-resource-list-item>
   `;
 
-  const input = document.createElement("input");
-
-  container.appendChild(element);
-  container.appendChild(input);
-
-  (element as any).controllingElement = input;
-
-  return container;
+  return element;
 };
 
 export const SwirlResourceList = Template.bind({});
 
 SwirlResourceList.args = {
   label: "A resource list",
-  focusSelectedItems: false,
 };

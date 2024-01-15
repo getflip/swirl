@@ -25,7 +25,7 @@ describe("swirl-action-list", () => {
     expect(page.root).toEqualHtml(`
       <swirl-action-list>
         <mock:shadow-root>
-          <div aria-orientation="vertical" class="action-list" role="menu">
+          <div aria-orientation="vertical" class="action-list" role="menu" tabindex="0">
             <slot></slot>
           </div>
         </mock:shadow-root>
