@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.124.0
+
+### Minor Changes
+
+- [`6b24541b`](https://github.com/getflip/swirl/commit/6b24541bcc42dd8c3cab8cd5e996c2834dae9605)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Implement focus handling for
+  standalone swirl-action-list (outside swirl-popover)
+
+### Patch Changes
+
+- Updated dependencies
+  [[`6b24541b`](https://github.com/getflip/swirl/commit/6b24541bcc42dd8c3cab8cd5e996c2834dae9605)]:
+  - @getflip/swirl-components@0.124.0
+
 ## 0.123.0
 
 ### Minor Changes
