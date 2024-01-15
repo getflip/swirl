@@ -1330,6 +1330,7 @@ export namespace Components {
         "assistiveTextItemGrabbed"?: string;
         "assistiveTextItemMoved"?: string;
         "assistiveTextItemMoving"?: string;
+        "controllingElement"?: HTMLElement;
         "label"?: string;
     }
     interface SwirlResourceListFileItem {
@@ -5251,6 +5252,7 @@ declare namespace LocalJSX {
         "assistiveTextItemGrabbed"?: string;
         "assistiveTextItemMoved"?: string;
         "assistiveTextItemMoving"?: string;
+        "controllingElement"?: HTMLElement;
         "label"?: string;
         "onItemDrop"?: (event: SwirlResourceListCustomEvent<{
     item: HTMLSwirlResourceListItemElement;

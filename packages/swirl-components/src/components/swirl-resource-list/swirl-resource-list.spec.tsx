@@ -1,7 +1,7 @@
+import { MockElement } from "@stencil/core/mock-doc";
 import { newSpecPage } from "@stencil/core/testing";
 import { SwirlResourceListItem } from "../swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlResourceList } from "./swirl-resource-list";
-import { MockElement } from "@stencil/core/mock-doc";
 
 (global as any).MutationObserver = class {
   constructor() {}
@@ -53,10 +53,12 @@ describe("swirl-resource-list", () => {
       html: template,
     });
 
+    const id = page.root.querySelector(".resource-list")?.id;
+
     expect(page.root).toEqualHtml(`
       <swirl-resource-list label="Label">
         <swirl-visually-hidden role="alert"></swirl-visually-hidden>
-        <swirl-stack aria-label="Label" class="resource-list" role="grid">
+        <swirl-stack aria-label="Label" class="resource-list" id="${id}" role="grid">
           <swirl-resource-list-item description="With a description" label="This is a resource item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
           <swirl-resource-list-item description="With a description" label="This is a resource item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
         </swirl-stack>

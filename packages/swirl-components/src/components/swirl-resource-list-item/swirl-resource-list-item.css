@@ -8,6 +8,19 @@
   & * {
     box-sizing: border-box;
   }
+
+  &[aria-selected="true"] {
+    & .resource-list-item__content {
+      background-color: var(--swirl-resource-list-item-background-hovered);
+
+      & .resource-list-item__media,
+      & .resource-list-item__meta {
+        --swirl-avatar-background-color: var(--s-surface-raised-hovered);
+        --swirl-avatar-group-border-color: var(--s-background-hovered);
+        --swirl-badge-border-color: var(--s-background-hovered);
+      }
+    }
+  }
 }
 
 .resource-list-item {

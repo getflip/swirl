@@ -10,6 +10,7 @@ import {
   Watch,
 } from "@stencil/core";
 import Sortable, { SortableEvent } from "sortablejs";
+import { v4 as uuid } from "uuid";
 
 @Component({
   scoped: true,
@@ -25,9 +26,11 @@ export class SwirlResourceList {
     "Item grabbed. Use arrow keys to move item up or down. Use spacebar to save position.";
   @Prop() assistiveTextItemMoving?: string = "Current position:";
   @Prop() assistiveTextItemMoved?: string = "Item moved. New position:";
+  @Prop() controllingElement?: HTMLElement;
   @Prop() label?: string;
 
   @State() assistiveText: string;
+  @State() listId = uuid();
 
   @Event() itemDrop: EventEmitter<{
     item: HTMLSwirlResourceListItemElement;
@@ -46,6 +49,7 @@ export class SwirlResourceList {
   componentDidLoad() {
     this.observeSlotChanges();
     this.collectItems();
+    this.setupControllingElement();
     this.setItemAllowDragState();
     this.setupDragDrop();
   }
@@ -57,6 +61,7 @@ export class SwirlResourceList {
   disconnectedCallback() {
     this.sortable?.destroy();
     this.observer?.disconnect();
+    this.controllingElement?.removeEventListener("keydown", this.onKeyDown);
   }
 
   private observeSlotChanges() {
@@ -87,6 +92,22 @@ export class SwirlResourceList {
 
     this.removeItemsFromTabOrder();
     this.enableItemFocus(this.items[this.focusedIndex]);
+
+    if (Boolean(this.controllingElement)) {
+      this.items[0]?.setAttribute("aria-selected", "true");
+    }
+  }
+
+  private setupControllingElement() {
+    if (!Boolean(this.controllingElement)) {
+      return;
+    }
+
+    this.controllingElement.setAttribute("aria-controls", this.listId);
+    this.controllingElement.setAttribute("role", "combobox");
+    this.controllingElement.setAttribute("aria-autocomplete", "list");
+
+    this.controllingElement.addEventListener("keydown", this.onKeyDown);
   }
 
   private getItemIndex(item: HTMLSwirlResourceListItemElement): number {
@@ -102,6 +123,10 @@ export class SwirlResourceList {
       const dragHandle = item?.querySelector(
         ".resource-list-item__drag-handle"
       );
+
+      if (Boolean(this.controllingElement)) {
+        item.setAttribute("aria-selected", "false");
+      }
 
       focusableEl?.setAttribute("tabIndex", "-1");
       dragHandle?.setAttribute("tabIndex", "-1");
@@ -186,7 +211,7 @@ export class SwirlResourceList {
     item?: HTMLSwirlResourceListItemElement,
     focus?: boolean
   ) {
-    if (!Boolean(item)) {
+    if (!Boolean(item) || Boolean(this.controllingElement)) {
       return;
     }
 
@@ -206,7 +231,7 @@ export class SwirlResourceList {
 
     interactiveElement.setAttribute("tabIndex", "0");
 
-    if (focus) {
+    if (focus && !Boolean(this.controllingElement)) {
       interactiveElement.focus();
     }
   }
@@ -220,7 +245,13 @@ export class SwirlResourceList {
       return;
     }
 
-    this.enableItemFocus(item, true);
+    this.enableItemFocus(item, !Boolean(this.controllingElement));
+
+    if (Boolean(this.controllingElement)) {
+      item.setAttribute("aria-selected", "true");
+
+      item.scrollIntoView({ block: "nearest" });
+    }
 
     this.focusedIndex = index;
   }
@@ -288,6 +319,17 @@ export class SwirlResourceList {
       ) {
         event.preventDefault();
         this.stopDrag(this.dragging);
+      } else if (Boolean(this.controllingElement)) {
+        const item = this.items[this.focusedIndex];
+
+        if (!Boolean(item) || !item.isConnected) {
+          return;
+        }
+
+        event.stopPropagation();
+        event.preventDefault();
+
+        item.click();
       }
     } else if (event.code === "Home") {
       event.preventDefault();
@@ -309,6 +351,7 @@ export class SwirlResourceList {
         <swirl-stack
           aria-label={this.label}
           class="resource-list"
+          id={this.listId}
           ref={(el) => (this.gridEl = el)}
           role="grid"
         >
