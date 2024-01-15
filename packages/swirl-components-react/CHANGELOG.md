@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.123.0
+
+### Minor Changes
+
+- [`e85e9001`](https://github.com/getflip/swirl/commit/e85e90013df1c2417d47f6d881652c02344f0547)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Implement combobox pattern for
+  swirl-resource-list when used with a controlling element
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e85e9001`](https://github.com/getflip/swirl/commit/e85e90013df1c2417d47f6d881652c02344f0547)]:
+  - @getflip/swirl-components@0.123.0
+
 ## 0.122.2
 
 ### Patch Changes
