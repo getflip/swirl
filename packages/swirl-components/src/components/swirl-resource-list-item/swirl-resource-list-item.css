@@ -250,6 +250,7 @@
 
 .resource-list-item__media {
   display: inline-flex;
+  flex-shrink: 0;
 }
 
 .resource-list-item__label-container {
