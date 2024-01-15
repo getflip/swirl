@@ -38,7 +38,8 @@
         "shared.yml",
         "components.json",
         "src/lib/navigation/src/data/apiDocs.data.ts",
-        "src/lib/navigation/src/data/apiSpecs.data.ts"
+        "src/lib/navigation/src/data/apiSpecs.data.ts",
+        "src/lib/navigation/src/data/apiEndpoints.data.ts"
       ]
     },
     "build:swirl-docs": {

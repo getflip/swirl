@@ -12,11 +12,18 @@ import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { HttpMethods } from "oas/dist/rmoas.types";
 import { useLayoutEffect } from "react";
 import { DocumentationMdxComponents } from "src/components/Documentation/DocumentationMdxComponents";
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
 import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
+import {
+  Tag,
+  mapHttpMethodToTagContent,
+  mapHttpMethodToTagScheme,
+} from "src/components/Tags";
+import { Heading } from "src/components/swirl-recreations";
 
 // STATIC GENERATION CODE
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -106,6 +113,30 @@ export default function Document({
         header={<DocumentationLayout.Header className="col-span-2" />}
         content={
           <>
+            <article>
+              <Heading level={2} className="mb-3">
+                Endpoint Overview
+              </Heading>
+              {document.endpoints.map((endpoint) => (
+                <a href={"#" + endpoint.id} key={endpoint.id} className="">
+                  <div className="mb-3 box-border border-border-1 border-border-default max-w-full w-full rounded-xl text-font-size-sm p-2 flex flex-col md:flex-row bg-surface-default hover:bg-surface-hovered pressed:bg-surface-pressed">
+                    <Tag
+                      httpTag
+                      content={mapHttpMethodToTagContent(endpoint.method || "")}
+                      scheme={mapHttpMethodToTagScheme(
+                        endpoint.method as HttpMethods
+                      )}
+                    />{" "}
+                    <code style={{ wordBreak: "break-all" }}>
+                      {endpoint.path}
+                    </code>
+                    <div className="md:text-right flex-grow">
+                      {endpoint.title}
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </article>
             {/* REMOVED FOR NOW: <DocumentationLayout.MDX /> (currently contains changelog, could contain more information in new specs) */}
             <div className="mt-20">
               {document.endpoints?.map((endpoint, index) => {
