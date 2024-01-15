@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.124.1
+
+### Patch Changes
+
+- [`87c174b9`](https://github.com/getflip/swirl/commit/87c174b907a15445c4151fb64b2e688acd07e923)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-resource-list-item
+  meda from shrinking
+
 ## 0.124.0
 
 ### Minor Changes
