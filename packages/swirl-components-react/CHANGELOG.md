@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.125.1
+
+### Patch Changes
+
+- [`e159d270`](https://github.com/getflip/swirl/commit/e159d2708f42c12429f2333db978169ee56ba418)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Remove separate stacking context
+  from swirl-app-layout body
+
+- Updated dependencies
+  [[`e159d270`](https://github.com/getflip/swirl/commit/e159d2708f42c12429f2333db978169ee56ba418)]:
+  - @getflip/swirl-components@0.125.1
+
 ## 0.125.0
 
 ### Minor Changes
