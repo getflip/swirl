@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.126.0
+
+### Minor Changes
+
+- [`bf0400d6`](https://github.com/getflip/swirl/commit/bf0400d6163a858df24bfcf45f5358040df17d79)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "label-wrap" prop to
+  swirl-resource-list-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`bf0400d6`](https://github.com/getflip/swirl/commit/bf0400d6163a858df24bfcf45f5358040df17d79)]:
+  - @getflip/swirl-components@0.126.0
+
 ## 0.125.1
 
 ### Patch Changes
