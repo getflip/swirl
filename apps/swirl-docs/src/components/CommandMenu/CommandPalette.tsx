@@ -1,15 +1,15 @@
 import { ALGOLIA_INDEX } from "@swirl/lib/search";
-import classNames from "classnames";
-import { Command } from "cmdk";
-import { useEffect, useRef, useState } from "react";
-import { InstantSearch, SearchBox } from "react-instantsearch-hooks-web";
-import { searchClient } from "../Search/Algolia";
-import { useRouter } from "next/router";
-import { CustomHits } from "./CustomHits";
-import { SearchClient } from "algoliasearch/lite";
 import commandPaletteObserver, {
   CommandPaletteObserver,
 } from "@swirl/lib/search/commandPaletteObserver";
+import { SearchClient } from "algoliasearch/lite";
+import classNames from "classnames";
+import { Command } from "cmdk";
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
+import { InstantSearch, SearchBox } from "react-instantsearch-hooks-web";
+import { searchClient } from "../Search/Algolia";
+import { Hits } from "./Hits";
 
 const algoliaClient: SearchClient = {
   ...searchClient,
@@ -126,7 +126,7 @@ export const CommandPalette = () => {
           />
 
           <Command.List className="max-h-[36rem] overflow-y-auto" tabIndex={0}>
-            <CustomHits
+            <Hits
               currentSearchString={searchString}
               onSelected={() => setOpen(false)}
             />

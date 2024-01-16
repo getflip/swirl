@@ -9,7 +9,7 @@ type CommandHitProps = {
   handleOnSelect: (value: any) => void;
 };
 
-export function CommandHit({
+export function Hit({
   title,
   icon,
   description,
@@ -28,7 +28,7 @@ export function CommandHit({
       )}
       onSelect={handleOnSelect}
     >
-      <span className="inline-flex items-center max-w-5 pl-4 pr-3">{icon}</span>
+      <span className="inline-flex items-start max-w-5 pl-4 pr-3">{icon}</span>
       <span className="flex flex-col items-start">
         <p className="text-font-size-sm font-medium text-text-default">
           {title}

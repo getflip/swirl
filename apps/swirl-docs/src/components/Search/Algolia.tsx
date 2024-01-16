@@ -1,4 +1,3 @@
-import { isProd } from "@swirl/lib/env";
 import { ALGOLIA_INDEX } from "@swirl/lib/search";
 import algoliasearch from "algoliasearch/lite";
 import { FunctionComponent, useMemo, useState } from "react";
@@ -30,7 +29,11 @@ export const AlgoliaSearch: FunctionComponent<FCProps> = () => {
     <>
       <InstantSearch
         searchClient={searchClient}
-        indexName={isProd ? ALGOLIA_INDEX.PROD : ALGOLIA_INDEX.DEV}
+        indexName={
+          process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production"
+            ? ALGOLIA_INDEX.PROD
+            : ALGOLIA_INDEX.DEV
+        }
       >
         <Autocomplete
           placeholder="Search"
