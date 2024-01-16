@@ -263,6 +263,12 @@
   }
 }
 
+.app-layout--has-floating-action-button {
+  & .app-layout__floating-action-button {
+    display: block;
+  }
+}
+
 .app-layout--hide-app-bar {
   & .app-layout__body {
     grid-template-rows: auto 1fr;
@@ -328,11 +334,12 @@
   margin-left: calc(-1 * var(--s-space-4));
 }
 
-.app-layout__floating-cta {
+.app-layout__floating-action-button {
   position: absolute;
   z-index: 4;
   right: var(--s-space-16);
   bottom: var(--s-space-16);
+  display: none;
 }
 
 .app-layout__navigation-controls {

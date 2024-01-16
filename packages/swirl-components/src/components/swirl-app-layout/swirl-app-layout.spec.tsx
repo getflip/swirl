@@ -95,8 +95,9 @@ describe("swirl-app-layout", () => {
 
     const spy = jest.fn();
 
-    const cta = page.root.shadowRoot.querySelector(".app-layout__floating-cta")
-      .children[0] as HTMLSwirlButtonElement;
+    const cta = page.root.shadowRoot.querySelector(
+      ".app-layout__floating-action-button"
+    ).children[0] as HTMLSwirlButtonElement;
 
     page.root.addEventListener("ctaClick", spy);
 
