@@ -366,7 +366,6 @@
     "app-bar"
     "banner"
     "content";
-  will-change: transform;
 }
 
 .app-layout__app-bar {
