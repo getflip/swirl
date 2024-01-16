@@ -5398,6 +5398,10 @@
           ]
         },
         {
+          "name": "label-wrap",
+          "description": ""
+        },
+        {
           "name": "menu-trigger-id",
           "description": ""
         },

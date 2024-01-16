@@ -41,6 +41,7 @@ export class SwirlResourceListItem {
   @Prop() interactive?: boolean = true;
   @Prop() label!: string;
   @Prop() labelWeight?: SwirlResourceListItemLabelWeight = "medium";
+  @Prop() labelWrap?: boolean;
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
@@ -199,6 +200,7 @@ export class SwirlResourceListItem {
         "resource-list-item--selectable": this.selectable,
         "resource-list-item--show-control-on-focus": showControlOnFocus,
         "resource-list-item--show-meta": showMeta,
+        "resource-list-item--wrap-label": this.labelWrap,
       }
     );
 

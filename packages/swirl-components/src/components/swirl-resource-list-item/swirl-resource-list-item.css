@@ -186,6 +186,12 @@
   }
 }
 
+.resource-list-item--wrap-label {
+  & .resource-list-item__label {
+    white-space: normal;
+  }
+}
+
 .resource-list-item__content {
   --swirl-avatar-group-border-color: var(--s-background-default);
   --swirl-badge-border-color: var(--s-background-default);
