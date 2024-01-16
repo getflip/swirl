@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.125.0
+
+### Minor Changes
+
+- [`d61a70b8`](https://github.com/getflip/swirl/commit/d61a70b8e174835277f038a26e737f582e663827)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "floating-action-button" slot
+  to swirl-app-layout
+
 ## 0.124.1
 
 ### Patch Changes
