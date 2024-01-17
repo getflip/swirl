@@ -220,12 +220,20 @@ export default class OASBuilder implements IOASBuilder {
                 OASBuilder._getEndpointMethodOrder,
               ]),
             }))
-          ).asc((a) => a.title),
+          ).asc((a) => this.removePlural(a.title)),
         };
       })
-    ).asc((a) => a.title);
+    ).asc((a) => this.removePlural(a.title));
 
     return this;
+  }
+
+  private removePlural(words: string) {
+    // remove plural from multiple words separated by spaces
+    return words
+      .split(" ")
+      .map((word) => word.replace(/s$/, ""))
+      .join(" ");
   }
 
   private getDisplayNameFromExtension(extension: string) {
