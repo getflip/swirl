@@ -290,7 +290,6 @@
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: header;
-  will-change: transform;
   gap: var(--s-space-8);
 
   @media (--from-tablet) {
@@ -352,7 +351,6 @@
   border-right: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: navigation;
-  will-change: transform;
 }
 
 .app-layout__body {
@@ -423,7 +421,6 @@
   width: 100%;
   height: 100%;
   border-left: var(--s-border-width-default) solid var(--s-border-default);
-  will-change: transform;
   grid-area: sidebar;
   grid-template-rows: 3.5625rem 1fr;
   grid-template-areas:
