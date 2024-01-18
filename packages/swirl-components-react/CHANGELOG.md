@@ -1,5 +1,16 @@
 # @getflip/swirl-components-react
 
+## 0.127.1
+
+### Patch Changes
+
+- [`83f9e0fc`](https://github.com/getflip/swirl/commit/83f9e0fc58fe281082ebccbf3db811b2ca39ed2e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-card border styles
+
+- Updated dependencies
+  [[`83f9e0fc`](https://github.com/getflip/swirl/commit/83f9e0fc58fe281082ebccbf3db811b2ca39ed2e)]:
+  - @getflip/swirl-components@0.127.1
+
 ## 0.127.0
 
 ### Minor Changes
