@@ -57,8 +57,18 @@ button.card,
 
 .card--elevated {
   border-color: transparent;
-  box-shadow: 0 0.75rem 1rem rgba(25, 26, 28, 0.12),
-    0 0.25rem 0.75rem rgba(25, 26, 28, 0.08);
+
+  &.card--elevation-level-1 {
+    box-shadow: var(--s-shadow-level-1);
+  }
+
+  &.card--elevation-level-2 {
+    box-shadow: var(--s-shadow-level-2);
+  }
+
+  &.card--elevation-level-3 {
+    box-shadow: var(--s-shadow-level-3);
+  }
 }
 
 .card--highlighted {

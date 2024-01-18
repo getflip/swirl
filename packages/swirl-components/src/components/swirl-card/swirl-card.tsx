@@ -7,6 +7,8 @@ export type SwirlCardBorderRadius =
   | (typeof swirlCardBorderRadiusTokens)[number]
   | string;
 
+export type SwirlCardElevationLevel = 1 | 2 | 3;
+
 export type SwirlCardIntent =
   | "critical-subdued"
   | "default"
@@ -44,6 +46,7 @@ export class SwirlCard {
   @Prop() as?: string = "div";
   @Prop() borderRadius?: SwirlCardBorderRadius = "base";
   @Prop() elevated?: boolean;
+  @Prop() elevationLevel?: SwirlCardElevationLevel = 3;
   @Prop() height?: string;
   @Prop() highlighted?: boolean;
   @Prop() href?: string;
@@ -97,6 +100,7 @@ export class SwirlCard {
 
     const className = classnames(
       "card",
+      `card--elevation-level-${this.elevationLevel}`,
       `card--intent-${this.intent}`,
       `card--justify-content-${this.justifyContent}`,
       {
