@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.127.0
+
+### Minor Changes
+
+- [`e2c2130c`](https://github.com/getflip/swirl/commit/e2c2130c951fa004850c665a0d374cfe2b78498a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "elevation-level" prop to
+  swirl-card component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e2c2130c`](https://github.com/getflip/swirl/commit/e2c2130c951fa004850c665a0d374cfe2b78498a)]:
+  - @getflip/swirl-components@0.127.0
+
 ## 0.126.0
 
 ### Minor Changes
