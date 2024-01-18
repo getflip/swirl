@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.127.2
+
+### Patch Changes
+
+- [`685b874a`](https://github.com/getflip/swirl/commit/685b874a3385b7c2fefb65ddbcdcb4758eb1b2f4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Remove unnecessary stacking
+  context from swirl-app-layout elements
+
+- Updated dependencies
+  [[`685b874a`](https://github.com/getflip/swirl/commit/685b874a3385b7c2fefb65ddbcdcb4758eb1b2f4)]:
+  - @getflip/swirl-components@0.127.2
+
 ## 0.127.1
 
 ### Patch Changes
