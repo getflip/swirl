@@ -155,6 +155,10 @@ any project-specific requirements. Any contributions, feature requests, and
 issue tracking are welcome! To get started with contributing, please refer to
 our [contribution guide]([link-to-guide]).
 
+## Development
+
+To develop locally, run `yarn`, then `yarn dev generate -s {source-yaml} -o {output-folder}`.
+
 ## License
 
 This library is licensed under [Your License Name]. For more details, see the
