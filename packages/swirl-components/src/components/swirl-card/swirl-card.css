@@ -56,8 +56,6 @@ button.card,
 }
 
 .card--elevated {
-  border-color: transparent;
-
   &.card--elevation-level-1 {
     box-shadow: var(--s-shadow-level-1);
   }
