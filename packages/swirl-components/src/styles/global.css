@@ -76,17 +76,16 @@
 }
 
 html.theme-dark {
-  color-scheme: dark;
-
   --swirl-carousel-gradient: 25, 26, 28;
+  color-scheme: dark;
 }
 
 body {
+  color: var(--s-text-default);
   background-color: var(--s-background-default);
   font-family: var(--s-font-family-text);
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-normal);
-  color: var(--s-text-default);
 
   -webkit-font-smoothing: antialiased;
 }
@@ -94,4 +93,11 @@ body {
 b,
 strong {
   font-weight: var(--s-font-weight-semibold);
+}
+
+dl,
+dd,
+dt {
+  margin: 0;
+  padding: 0;
 }
