@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.127.3
+
+### Patch Changes
+
+- [`66002e1e`](https://github.com/getflip/swirl/commit/66002e1ecd4128fbe4b2bab923b365172bbd839c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Reset default dl element styles
+
 ## 0.127.2
 
 ### Patch Changes
