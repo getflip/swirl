@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.128.0
+
+### Minor Changes
+
+- [`c7598006`](https://github.com/getflip/swirl/commit/c7598006832da007d6f6e5d2a1a8ba2849946547)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "bottom-bar" slot to
+  swirl-app-layout
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c7598006`](https://github.com/getflip/swirl/commit/c7598006832da007d6f6e5d2a1a8ba2849946547)]:
+  - @getflip/swirl-components@0.128.0
+
 ## 0.127.3
 
 ### Patch Changes
