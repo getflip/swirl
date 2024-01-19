@@ -23,6 +23,7 @@ export type SwirlAppLayoutTransitionStyle = "none" | "slides" | "dialog";
  * @slot navigation-controls - Controls for the navigation header
  * @slot navigation-mobile-menu-button - Used to add a mobile shell layout menu button to navigation
  * @slot app-bar - The app bar contents
+ * @slot bottom-bar - The bottom bar contents
  * @slot custom-app-bar-back-button - Replaces the mobile default back button of the content app bar
  * @slot app-bar-mobile-menu-button - Used to add a mobile shell layout menu button to the app bar
  * @slot banner - Used to show a banner below the app bar
@@ -262,6 +263,8 @@ export class SwirlAppLayout {
       this.el.querySelector('[slot="app-bar-controls"]')
     );
 
+    const hasBottomBar = Boolean(this.el.querySelector('[slot="bottom-bar"]'));
+
     const hasAppBarMobileMenuButton = Boolean(
       this.el.querySelector('[slot="app-bar-mobile-menu-button"]')
     );
@@ -283,6 +286,7 @@ export class SwirlAppLayout {
       {
         "app-layout--has-app-bar-mobile-menu-button": hasAppBarMobileMenuButton,
         "app-layout--has-app-bar-controls": hasAppBarControls,
+        "app-layout--has-bottom-bar": hasBottomBar,
         "app-layout--has-custom-app-bar-back-button":
           this.hasCustomAppBarBackButton,
         "app-layout--has-custom-sidebar-header": hasCustomSidebarHeader,
@@ -374,6 +378,9 @@ export class SwirlAppLayout {
               </div>
               <div class="app-layout__content">
                 <slot name="content"></slot>
+              </div>
+              <div class="app-layout__bottom-bar">
+                <slot name="bottom-bar"></slot>
               </div>
             </section>
             <aside class="app-layout__sidebar">

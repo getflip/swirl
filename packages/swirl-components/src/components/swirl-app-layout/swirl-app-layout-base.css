@@ -247,6 +247,21 @@
   }
 }
 
+.app-layout--has-bottom-bar {
+  & .app-layout__body {
+    grid-template-rows: minmax(3.5rem, auto) auto 1fr auto;
+    grid-template-areas:
+      "app-bar"
+      "banner"
+      "content"
+      "bottom-bar";
+  }
+
+  & .app-layout__bottom-bar {
+    display: block;
+  }
+}
+
 .app-layout--has-custom-app-bar-back-button {
   & .app-layout__custom-app-bar-back-button {
     display: block;
@@ -376,6 +391,15 @@
   background-color: var(--s-background-default);
   grid-area: app-bar;
   gap: var(--s-space-8);
+}
+
+.app-layout__bottom-bar {
+  display: none;
+  min-width: 0;
+  align-items: center;
+  border-top: var(--s-border-width-default) solid var(--s-border-default);
+  background-color: var(--s-background-default);
+  grid-area: bottom-bar;
 }
 
 .app-layout__back-to-navigation-button {
