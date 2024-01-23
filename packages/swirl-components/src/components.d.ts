@@ -5721,6 +5721,8 @@ declare namespace LocalJSX {
         "format"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
+        "onInputBlur"?: (event: SwirlTimeInputCustomEvent<FocusEvent>) => void;
+        "onInputFocus"?: (event: SwirlTimeInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlTimeInputCustomEvent<string>) => void;
         "placeholder"?: string;
         "required"?: boolean;
