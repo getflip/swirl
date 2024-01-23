@@ -3,6 +3,7 @@ import {
   Element,
   h,
   Host,
+  Listen,
   Method,
   Prop,
   State,
@@ -40,6 +41,7 @@ export class SwirlLightbox {
   private modal: A11yDialog;
   private modalEl: HTMLElement;
   private mediaPlayers: (HTMLVideoElement | HTMLAudioElement)[] = [];
+  private slidesContainer: HTMLElement;
 
   componentWillLoad() {
     this.registerSlides();
@@ -53,6 +55,21 @@ export class SwirlLightbox {
   disconnectedCallback() {
     this.modal?.destroy();
     this.unlockBodyScroll();
+  }
+
+  @Listen("keydown", { target: "document" })
+  onKeyDown(event: KeyboardEvent) {
+    if (!Boolean(this.modal.shown)) {
+      return;
+    }
+
+    if (event.code === "Escape") {
+      this.close();
+    } else if (event.code === "ArrowLeft") {
+      this.onPreviousSlideClick();
+    } else if (event.code === "ArrowRight") {
+      this.onNextSlideClick();
+    }
   }
 
   /**
@@ -178,16 +195,6 @@ export class SwirlLightbox {
     this.menu.close();
   };
 
-  private onKeyDown = (event: KeyboardEvent) => {
-    if (event.code === "Escape") {
-      this.close();
-    } else if (event.code === "ArrowLeft") {
-      this.onPreviousSlideClick();
-    } else if (event.code === "ArrowRight") {
-      this.onNextSlideClick();
-    }
-  };
-
   private onNextSlideClick = () => {
     this.activateSlide(
       Math.min(this.slides.length - 1, this.activeSlideIndex + 1)
@@ -304,6 +311,14 @@ export class SwirlLightbox {
     }
   };
 
+  private onBackdropClick = (event: MouseEvent) => {
+    if (event.target !== this.slidesContainer) {
+      return;
+    }
+
+    this.close();
+  };
+
   render() {
     const showPagination = this.slides.length > 1;
 
@@ -326,7 +341,6 @@ export class SwirlLightbox {
           onMouseMove={this.onPointerMove}
           onMouseOut={this.onPointerUp}
           onMouseUp={this.onPointerUp}
-          onKeyDown={this.onKeyDown}
           onTouchEnd={this.onPointerUp}
           onTouchMove={this.onPointerMove}
           onTouchStart={this.onPointerDown}
@@ -361,6 +375,8 @@ export class SwirlLightbox {
                 aria-atomic="false"
                 aria-live="polite"
                 class="lightbox__slides"
+                onClick={this.onBackdropClick}
+                ref={(el) => (this.slidesContainer = el)}
               >
                 <slot onSlotchange={this.registerSlides}></slot>
               </div>

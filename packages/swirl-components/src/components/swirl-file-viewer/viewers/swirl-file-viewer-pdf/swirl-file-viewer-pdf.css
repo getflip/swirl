@@ -5,6 +5,7 @@
   display: inline-flex;
   width: 100%;
   height: 100%;
+  pointer-events: auto;
 
   &(.file-viewer-pdf--view-mode-side-by-side) {
     & .file-viewer-pdf__pages {

@@ -134,7 +134,9 @@ export class SwirlPopover {
       );
 
     const clickedTrigger =
-      target === this.triggerEl || this.triggerEl.contains(target);
+      target === this.triggerEl ||
+      this.triggerEl.contains(target) ||
+      event.composedPath().includes(this.triggerEl);
 
     if (!clickedChild && !clickedShadowChild && !clickedTrigger) {
       this.close();
