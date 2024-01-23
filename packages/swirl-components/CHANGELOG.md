@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.129.1
+
+### Patch Changes
+
+- [`4b624ee0`](https://github.com/getflip/swirl/commit/4b624ee0cac7bb17ce3f1d02225a8c414edac8d9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-shell-layout
+  sidebar from entering view even if hidden
+
 ## 0.129.0
 
 ### Minor Changes
