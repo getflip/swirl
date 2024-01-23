@@ -1023,6 +1023,9 @@ export namespace Components {
     interface SwirlIconTasksOutlined {
         "size": SwirlIconSize;
     }
+    interface SwirlIconTerminal {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconTimeFilled {
         "size": SwirlIconSize;
     }
@@ -1030,6 +1033,9 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconToday {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconTodayOutlined {
         "size": SwirlIconSize;
     }
     interface SwirlIconTranslate {
@@ -3075,6 +3081,12 @@ declare global {
         prototype: HTMLSwirlIconTasksOutlinedElement;
         new (): HTMLSwirlIconTasksOutlinedElement;
     };
+    interface HTMLSwirlIconTerminalElement extends Components.SwirlIconTerminal, HTMLStencilElement {
+    }
+    var HTMLSwirlIconTerminalElement: {
+        prototype: HTMLSwirlIconTerminalElement;
+        new (): HTMLSwirlIconTerminalElement;
+    };
     interface HTMLSwirlIconTimeFilledElement extends Components.SwirlIconTimeFilled, HTMLStencilElement {
     }
     var HTMLSwirlIconTimeFilledElement: {
@@ -3092,6 +3104,12 @@ declare global {
     var HTMLSwirlIconTodayElement: {
         prototype: HTMLSwirlIconTodayElement;
         new (): HTMLSwirlIconTodayElement;
+    };
+    interface HTMLSwirlIconTodayOutlinedElement extends Components.SwirlIconTodayOutlined, HTMLStencilElement {
+    }
+    var HTMLSwirlIconTodayOutlinedElement: {
+        prototype: HTMLSwirlIconTodayOutlinedElement;
+        new (): HTMLSwirlIconTodayOutlinedElement;
     };
     interface HTMLSwirlIconTranslateElement extends Components.SwirlIconTranslate, HTMLStencilElement {
     }
@@ -4036,9 +4054,11 @@ declare global {
         "swirl-icon-sync": HTMLSwirlIconSyncElement;
         "swirl-icon-tasks-filled": HTMLSwirlIconTasksFilledElement;
         "swirl-icon-tasks-outlined": HTMLSwirlIconTasksOutlinedElement;
+        "swirl-icon-terminal": HTMLSwirlIconTerminalElement;
         "swirl-icon-time-filled": HTMLSwirlIconTimeFilledElement;
         "swirl-icon-time-outlined": HTMLSwirlIconTimeOutlinedElement;
         "swirl-icon-today": HTMLSwirlIconTodayElement;
+        "swirl-icon-today-outlined": HTMLSwirlIconTodayOutlinedElement;
         "swirl-icon-translate": HTMLSwirlIconTranslateElement;
         "swirl-icon-tree-structure": HTMLSwirlIconTreeStructureElement;
         "swirl-icon-undo": HTMLSwirlIconUndoElement;
@@ -5002,6 +5022,9 @@ declare namespace LocalJSX {
     interface SwirlIconTasksOutlined {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconTerminal {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconTimeFilled {
         "size"?: SwirlIconSize;
     }
@@ -5009,6 +5032,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconToday {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconTodayOutlined {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTranslate {
@@ -5914,9 +5940,11 @@ declare namespace LocalJSX {
         "swirl-icon-sync": SwirlIconSync;
         "swirl-icon-tasks-filled": SwirlIconTasksFilled;
         "swirl-icon-tasks-outlined": SwirlIconTasksOutlined;
+        "swirl-icon-terminal": SwirlIconTerminal;
         "swirl-icon-time-filled": SwirlIconTimeFilled;
         "swirl-icon-time-outlined": SwirlIconTimeOutlined;
         "swirl-icon-today": SwirlIconToday;
+        "swirl-icon-today-outlined": SwirlIconTodayOutlined;
         "swirl-icon-translate": SwirlIconTranslate;
         "swirl-icon-tree-structure": SwirlIconTreeStructure;
         "swirl-icon-undo": SwirlIconUndo;
@@ -6231,9 +6259,11 @@ declare module "@stencil/core" {
             "swirl-icon-sync": LocalJSX.SwirlIconSync & JSXBase.HTMLAttributes<HTMLSwirlIconSyncElement>;
             "swirl-icon-tasks-filled": LocalJSX.SwirlIconTasksFilled & JSXBase.HTMLAttributes<HTMLSwirlIconTasksFilledElement>;
             "swirl-icon-tasks-outlined": LocalJSX.SwirlIconTasksOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconTasksOutlinedElement>;
+            "swirl-icon-terminal": LocalJSX.SwirlIconTerminal & JSXBase.HTMLAttributes<HTMLSwirlIconTerminalElement>;
             "swirl-icon-time-filled": LocalJSX.SwirlIconTimeFilled & JSXBase.HTMLAttributes<HTMLSwirlIconTimeFilledElement>;
             "swirl-icon-time-outlined": LocalJSX.SwirlIconTimeOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconTimeOutlinedElement>;
             "swirl-icon-today": LocalJSX.SwirlIconToday & JSXBase.HTMLAttributes<HTMLSwirlIconTodayElement>;
+            "swirl-icon-today-outlined": LocalJSX.SwirlIconTodayOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconTodayOutlinedElement>;
             "swirl-icon-translate": LocalJSX.SwirlIconTranslate & JSXBase.HTMLAttributes<HTMLSwirlIconTranslateElement>;
             "swirl-icon-tree-structure": LocalJSX.SwirlIconTreeStructure & JSXBase.HTMLAttributes<HTMLSwirlIconTreeStructureElement>;
             "swirl-icon-undo": LocalJSX.SwirlIconUndo & JSXBase.HTMLAttributes<HTMLSwirlIconUndoElement>;

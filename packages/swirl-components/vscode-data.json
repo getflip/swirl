@@ -4139,6 +4139,19 @@
       ]
     },
     {
+      "name": "swirl-icon-terminal",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-time-filled",
       "description": {
         "kind": "markdown",
@@ -4166,6 +4179,19 @@
     },
     {
       "name": "swirl-icon-today",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-today-outlined",
       "description": {
         "kind": "markdown",
         "value": ""
