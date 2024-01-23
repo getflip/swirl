@@ -143,14 +143,16 @@ describe("swirl-lightbox", () => {
       `,
     });
 
+    page.rootInstance.modal.shown = true;
+
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));
 
     const slides = page.rootInstance.slides;
 
-    page.root.shadowRoot
-      .querySelector("#lightbox")
-      .dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowRight" }));
+    page.doc.dispatchEvent(
+      new KeyboardEvent("keydown", { code: "ArrowRight" })
+    );
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));
@@ -160,9 +162,7 @@ describe("swirl-lightbox", () => {
     expect(slides[2].getAttribute("active")).toBe("true");
     expect(page.rootInstance.activeSlideIndex).toBe(1);
 
-    page.root.shadowRoot
-      .querySelector("#lightbox")
-      .dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowLeft" }));
+    page.doc.dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowLeft" }));
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));
