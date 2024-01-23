@@ -100,6 +100,10 @@
     }
   }
 
+  & .shell-layout__sidebar {
+    overflow: initial;
+  }
+
   & .shell-layout__sidebar-body {
     @media (--from-desktop) {
       border: 0.0625rem solid var(--s-border-default);
@@ -111,6 +115,13 @@
     grid-template-columns: var(--swirl-shell-extended-nav-width) 1fr var(
         --swirl-shell-sidebar-width
       );
+  }
+}
+
+:not(.shell-layout--sidebar-active) {
+  & .shell-layout__sidebar {
+    animation: shell-layout-no-overflow-after-transition 0.2s;
+    animation-fill-mode: forwards;
   }
 }
 
@@ -381,10 +392,6 @@
   @media (--from-desktop) {
     display: block;
   }
-
-  @media (--from-large-desktop) {
-    overflow: hidden;
-  }
 }
 
 .shell-layout__sidebar-body {
@@ -431,5 +438,17 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes shell-layout-no-overflow-after-transition {
+  0% {
+    overflow: initial;
+  }
+  99% {
+    overflow: initial;
+  }
+  100% {
+    overflow: hidden;
   }
 }
