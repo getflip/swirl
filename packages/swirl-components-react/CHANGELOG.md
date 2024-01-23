@@ -1,5 +1,23 @@
 # @getflip/swirl-components-react
 
+## 0.130.0
+
+### Minor Changes
+
+- [`db77b79f`](https://github.com/getflip/swirl/commit/db77b79fc6f228d1a2dcc029b2f6b8142ca64ddb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "inputBlur" and "inputFocus"
+  events to swirl-time-input
+
+### Patch Changes
+
+- [`fe98ff2e`](https://github.com/getflip/swirl/commit/fe98ff2e7163fd60657aeacc94d806e46b0f3f76)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Minor swirl-lightbox adjustments
+
+- Updated dependencies
+  [[`fe98ff2e`](https://github.com/getflip/swirl/commit/fe98ff2e7163fd60657aeacc94d806e46b0f3f76),
+  [`db77b79f`](https://github.com/getflip/swirl/commit/db77b79fc6f228d1a2dcc029b2f6b8142ca64ddb)]:
+  - @getflip/swirl-components@0.130.0
+
 ## 0.129.1
 
 ### Patch Changes
