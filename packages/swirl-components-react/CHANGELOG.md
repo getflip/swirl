@@ -1,5 +1,16 @@
 # @getflip/swirl-components-react
 
+## 0.131.1
+
+### Patch Changes
+
+- [`550a5bc5`](https://github.com/getflip/swirl/commit/550a5bc50c2a13dcaca6e2d6ed14224d42bea78b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-avatar-group dimensions
+
+- Updated dependencies
+  [[`550a5bc5`](https://github.com/getflip/swirl/commit/550a5bc50c2a13dcaca6e2d6ed14224d42bea78b)]:
+  - @getflip/swirl-components@0.131.1
+
 ## 0.131.0
 
 ### Minor Changes
