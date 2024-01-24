@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.131.0
+
+### Minor Changes
+
+- [`c596a958`](https://github.com/getflip/swirl/commit/c596a9588e77bde22a9dbabd8cc733d38bc1dbfc)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-icon size "3xs"
+
 ## 0.130.0
 
 ### Minor Changes
