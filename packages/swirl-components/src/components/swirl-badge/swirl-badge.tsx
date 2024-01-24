@@ -42,7 +42,7 @@ export class SwirlBadge {
 
     return (
       <Host role="status">
-        <span class={className}>
+        <span class={className} part="badge">
           {this.icon && <span class="badge__icon" innerHTML={this.icon}></span>}
           {this.icon === undefined && (
             <span class="badge__label">{this.label}</span>
