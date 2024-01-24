@@ -1,5 +1,24 @@
 # @getflip/swirl-components-react
 
+## 0.132.0
+
+### Minor Changes
+
+- [`d237d76c`](https://github.com/getflip/swirl/commit/d237d76cb3609b26d8c712821598c3aafe364025)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "controls" slot to
+  swirl-empty-state
+
+### Patch Changes
+
+- [`97bcb765`](https://github.com/getflip/swirl/commit/97bcb7657ebe89504f2d253dca6128f28afbcaa2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Minor style adjustments for
+  swirl-resource-list-item
+
+- Updated dependencies
+  [[`d237d76c`](https://github.com/getflip/swirl/commit/d237d76cb3609b26d8c712821598c3aafe364025),
+  [`97bcb765`](https://github.com/getflip/swirl/commit/97bcb7657ebe89504f2d253dca6128f28afbcaa2)]:
+  - @getflip/swirl-components@0.132.0
+
 ## 0.131.1
 
 ### Patch Changes

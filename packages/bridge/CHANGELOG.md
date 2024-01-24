@@ -1,5 +1,19 @@
 # @getflip/bridge
 
+## 0.4.0
+
+### Minor Changes
+
+- [`873c97f0`](https://github.com/getflip/swirl/commit/873c97f06742547c5cfe35311e87533b5fd96887)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add NAVIGATION_END event type
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d237d76c`](https://github.com/getflip/swirl/commit/d237d76cb3609b26d8c712821598c3aafe364025),
+  [`97bcb765`](https://github.com/getflip/swirl/commit/97bcb7657ebe89504f2d253dca6128f28afbcaa2)]:
+  - @getflip/swirl-components@0.132.0
+
 ## 0.3.36
 
 ### Patch Changes
