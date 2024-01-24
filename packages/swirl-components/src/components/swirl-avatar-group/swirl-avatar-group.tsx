@@ -25,7 +25,7 @@ export class SwirlAvatarGroup {
 
     const badge = this.badgeEl.querySelector("swirl-badge");
 
-    badge?.setAttribute("size", "m");
+    badge?.setAttribute("size", "s");
   }
 
   render() {

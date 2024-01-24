@@ -38,7 +38,7 @@
 .avatar-group__badge {
   position: absolute;
   z-index: 2;
-  right: 0;
+  right: calc(-1 * var(--s-space-4));
   bottom: 0;
   display: inline-flex;
   width: 1.5rem;

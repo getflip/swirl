@@ -27,8 +27,8 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-avatar-group", args);
 
   element.innerHTML = `
-    <swirl-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" size="s"></swirl-avatar>
-    <swirl-avatar label="John Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/b.svg?size=144" size="s"></swirl-avatar>
+    <swirl-avatar label="Jane Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a" size="xs"></swirl-avatar>
+    <swirl-avatar label="John Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b" size="xs"></swirl-avatar>
   `;
 
   return element;
