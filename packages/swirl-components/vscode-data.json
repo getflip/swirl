@@ -5387,6 +5387,10 @@
           "description": ""
         },
         {
+          "name": "description-wrap",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },

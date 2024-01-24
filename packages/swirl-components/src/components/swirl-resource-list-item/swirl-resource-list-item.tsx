@@ -32,6 +32,7 @@ export class SwirlResourceListItem {
   @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() description?: string;
+  @Prop() descriptionWrap?: boolean;
   @Prop() disabled?: boolean;
   @Prop() dragging?: boolean;
   @Prop() dragHandleDescription?: string = "Press spacebar to toggle grab";
@@ -54,6 +55,7 @@ export class SwirlResourceListItem {
   @Event() toggleDrag: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() valueChange: EventEmitter<boolean>;
 
+  private controlContainer: HTMLElement;
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
   private id = uuid();
@@ -185,6 +187,15 @@ export class SwirlResourceListItem {
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
     const role = this.interactive && this.selectable ? "checkbox" : undefined;
 
+    const labelContainerStyles =
+      !showMeta && Boolean(this.controlContainer)
+        ? {
+            paddingRight: `calc(${
+              this.controlContainer?.getBoundingClientRect().width
+            }px + var(--s-space-16))`,
+          }
+        : undefined;
+
     const className = classnames(
       "resource-list-item",
       `resource-list-item--label-weight-${this.labelWeight}`,
@@ -200,6 +211,7 @@ export class SwirlResourceListItem {
         "resource-list-item--selectable": this.selectable,
         "resource-list-item--show-control-on-focus": showControlOnFocus,
         "resource-list-item--show-meta": showMeta,
+        "resource-list-item--wrap-description": this.descriptionWrap,
         "resource-list-item--wrap-label": this.labelWrap,
       }
     );
@@ -227,7 +239,10 @@ export class SwirlResourceListItem {
                 <slot name="media"></slot>
               </span>
             )}
-            <span class="resource-list-item__label-container">
+            <span
+              class="resource-list-item__label-container"
+              style={labelContainerStyles}
+            >
               <span
                 class="resource-list-item__label"
                 id={this.id}
@@ -258,7 +273,10 @@ export class SwirlResourceListItem {
               </span>
             </span>
           )}
-          <span class="resource-list-item__control">
+          <span
+            class="resource-list-item__control"
+            ref={(el) => (this.controlContainer = el)}
+          >
             <slot name="control"></slot>
           </span>
           {showMenu && (

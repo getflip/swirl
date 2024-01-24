@@ -33,7 +33,8 @@ const Template = (args) => {
       <swirl-avatar
         slot="media"
         label="Jane Doe"
-        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144"></swirl-avatar>
+        size="l"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"></swirl-avatar>
 
       <swirl-stack slot="badges" align="center" orientation="horizontal" spacing="8">
         <swirl-icon-notifications-off size="16"></swirl-icon-notifications-off>
@@ -86,7 +87,7 @@ const Template = (args) => {
 export const SwirlResourceListItem = Template.bind({});
 
 SwirlResourceListItem.args = {
-  description: "With a <strong>description</strong>",
-  label: "This is a <strong>resource item</strong>",
+  description: "With a description",
+  label: "This is a resource item",
   meta: "Today",
 };

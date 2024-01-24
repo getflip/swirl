@@ -1354,6 +1354,7 @@ export namespace Components {
         "allowDrag"?: boolean;
         "checked"?: boolean;
         "description"?: string;
+        "descriptionWrap"?: boolean;
         "disabled"?: boolean;
         "dragHandleDescription"?: string;
         "dragHandleLabel"?: string;
@@ -5304,6 +5305,7 @@ declare namespace LocalJSX {
         "allowDrag"?: boolean;
         "checked"?: boolean;
         "description"?: string;
+        "descriptionWrap"?: boolean;
         "disabled"?: boolean;
         "dragHandleDescription"?: string;
         "dragHandleLabel"?: string;
