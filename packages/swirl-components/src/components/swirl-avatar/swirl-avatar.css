@@ -40,9 +40,26 @@
   }
 }
 
-.avatar--size-2xs {
+.avatar--size-3xs {
   width: 1.25rem;
   height: 1.25rem;
+  font-size: 0.625rem;
+
+  &.avatar--has-icon {
+    padding-right: 0.125rem;
+    padding-left: 0.125rem;
+  }
+
+  &.avatar--variant-square,
+  &.avatar--variant-square .avatar__image,
+  &.avatar--variant-square .avatar__initials {
+    border-radius: 0.25rem;
+  }
+}
+
+.avatar--size-2xs {
+  width: 1.5rem;
+  height: 1.5rem;
   font-size: 0.625rem;
 
   &.avatar--has-icon {

@@ -42,7 +42,6 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-avatar", args);
 
   element.innerHTML = `
-  <swirl-badge aria-label="3 new messages" label="3" size="s" slot="tool"></swirl-badge>
 `;
 
   return element;
