@@ -1772,6 +1772,7 @@ export namespace Components {
     interface SwirlThumbnail {
         "alt": string;
         "format"?: SwirlThumbnailFormat;
+        "interactive"?: boolean;
         "progress"?: number;
         "progressLabel"?: string;
         "removeButtonLabel"?: string;
@@ -5709,6 +5710,7 @@ declare namespace LocalJSX {
     interface SwirlThumbnail {
         "alt": string;
         "format"?: SwirlThumbnailFormat;
+        "interactive"?: boolean;
         "onRemove"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "progress"?: number;
         "progressLabel"?: string;

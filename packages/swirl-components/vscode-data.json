@@ -7372,6 +7372,10 @@
           ]
         },
         {
+          "name": "interactive",
+          "description": ""
+        },
+        {
           "name": "progress",
           "description": ""
         },
