@@ -164,6 +164,10 @@ export class SwirlResourceListItem {
     }
   };
 
+  private onControlClick = (event: MouseEvent) => {
+    event.stopPropagation();
+  };
+
   render() {
     const Tag =
       !this.interactive && !this.selectable
@@ -277,6 +281,7 @@ export class SwirlResourceListItem {
           )}
           <span
             class="resource-list-item__control"
+            onClick={this.onControlClick}
             ref={(el) => (this.controlContainer = el)}
           >
             <slot name="control"></slot>
