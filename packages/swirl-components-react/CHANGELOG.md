@@ -1,5 +1,24 @@
 # @getflip/swirl-components-react
 
+## 0.134.0
+
+### Minor Changes
+
+- [`649475c7`](https://github.com/getflip/swirl/commit/649475c75fb5913c00f37a4c7fdc463cc37cfdcd)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "interactive" prop to
+  swirl-thumbnail
+
+### Patch Changes
+
+- [`39aebf2f`](https://github.com/getflip/swirl/commit/39aebf2f2421678982b04de2d2166ca3328ea587)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-resource-list-item
+  control click propagation
+
+- Updated dependencies
+  [[`649475c7`](https://github.com/getflip/swirl/commit/649475c75fb5913c00f37a4c7fdc463cc37cfdcd),
+  [`39aebf2f`](https://github.com/getflip/swirl/commit/39aebf2f2421678982b04de2d2166ca3328ea587)]:
+  - @getflip/swirl-components@0.134.0
+
 ## 0.133.0
 
 ### Minor Changes
