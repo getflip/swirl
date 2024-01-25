@@ -5383,6 +5383,10 @@
           "description": ""
         },
         {
+          "name": "compact",
+          "description": ""
+        },
+        {
           "name": "description",
           "description": ""
         },

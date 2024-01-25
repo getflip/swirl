@@ -348,15 +348,17 @@ export class SwirlResourceList {
         <swirl-visually-hidden role="alert">
           {this.assistiveText}
         </swirl-visually-hidden>
-        <swirl-stack
-          aria-label={this.label}
-          class="resource-list"
-          id={this.listId}
-          ref={(el) => (this.gridEl = el)}
-          role="grid"
-        >
-          <slot></slot>
-        </swirl-stack>
+        <swirl-box paddingInlineEnd="8" paddingInlineStart="8">
+          <swirl-stack
+            aria-label={this.label}
+            class="resource-list"
+            id={this.listId}
+            ref={(el) => (this.gridEl = el)}
+            role="grid"
+          >
+            <slot></slot>
+          </swirl-stack>
+        </swirl-box>
       </Host>
     );
   }

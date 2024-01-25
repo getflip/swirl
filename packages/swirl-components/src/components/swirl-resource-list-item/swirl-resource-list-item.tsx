@@ -31,6 +31,7 @@ export class SwirlResourceListItem {
   @Prop() active?: boolean;
   @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) checked?: boolean = false;
+  @Prop() compact?: boolean;
   @Prop() description?: string;
   @Prop() descriptionWrap?: boolean;
   @Prop() disabled?: boolean;
@@ -202,6 +203,7 @@ export class SwirlResourceListItem {
       {
         "resource-list-item--active": this.active,
         "resource-list-item--checked": this.checked,
+        "resource-list-item--compact": this.compact,
         "resource-list-item--disabled": this.disabled,
         "resource-list-item--draggable": this.allowDrag,
         "resource-list-item--dragging": this.dragging,

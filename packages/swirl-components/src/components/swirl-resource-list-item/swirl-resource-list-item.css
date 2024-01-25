@@ -82,6 +82,20 @@
   }
 }
 
+.resource-list-item--compact {
+  & .resource-list-item__content {
+    padding: var(--s-space-8);
+
+    @media (--from-desktop-without-touch) {
+      padding: var(--s-space-8);
+    }
+  }
+
+  & .resource-list-item__label-container {
+    min-height: 0;
+  }
+}
+
 .resource-list-item--selectable {
   & .resource-list-item__content {
     @media (--from-tablet) {
@@ -95,12 +109,6 @@
     @media (--from-tablet) {
       padding-right: var(--s-space-16);
     }
-  }
-}
-
-.resource-list-item--hide-divider {
-  & .resource-list-item__content:after {
-    display: none;
   }
 }
 
@@ -200,13 +208,14 @@
   padding-top: var(--s-space-12);
   padding-right: 0;
   padding-bottom: var(--s-space-12);
-  padding-left: var(--s-space-16);
+  padding-left: var(--s-space-8);
   align-items: flex-start;
   border: none;
+  border-radius: var(--s-border-radius-sm);
   color: var(--s-text-default);
   background-color: var(--swirl-resource-list-item-background-default);
   font: inherit;
-  line-height: var(--s-line-height-base);
+  line-height: var(--s-line-height-sm);
   text-align: left;
   text-decoration: none;
   gap: var(--s-space-12);
@@ -233,18 +242,9 @@
     }
   }
 
-  &:after {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 0.0625rem;
-    background-color: var(--s-border-default);
-    content: "";
-  }
-
   @media (--from-desktop-without-touch) {
-    padding: var(--s-space-12);
+    padding: var(--s-space-12) var(--s-space-8);
+    line-height: var(--s-line-height-base);
   }
 }
 
@@ -267,13 +267,18 @@
 .resource-list-item__label {
   overflow: hidden;
   font-size: var(--s-font-size-base);
+  line-height: var(--s-line-height-base);
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
 }
 
 .resource-list-item__description {
   overflow: hidden;
-  margin-top: var(--s-space-2);
   color: var(--s-text-subdued);
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
@@ -291,7 +296,7 @@
 .resource-list-item__control {
   position: absolute;
   top: 50%;
-  right: var(--s-space-16);
+  right: var(--s-space-8);
   transform: translateY(-50%);
 }
 

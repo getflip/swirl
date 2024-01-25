@@ -38,7 +38,7 @@ const Template = (args) => {
 
       <swirl-stack slot="badges" align="center" orientation="horizontal" spacing="8">
         <swirl-icon-notifications-off size="16"></swirl-icon-notifications-off>
-        <swirl-badge label="1" size="s"></swirl-badge>
+        <swirl-badge label="1" size="xs"></swirl-badge>
       </swirl-stack>
 
   `;

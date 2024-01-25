@@ -1353,6 +1353,7 @@ export namespace Components {
         "active"?: boolean;
         "allowDrag"?: boolean;
         "checked"?: boolean;
+        "compact"?: boolean;
         "description"?: string;
         "descriptionWrap"?: boolean;
         "disabled"?: boolean;
@@ -5304,6 +5305,7 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "allowDrag"?: boolean;
         "checked"?: boolean;
+        "compact"?: boolean;
         "description"?: string;
         "descriptionWrap"?: boolean;
         "disabled"?: boolean;
