@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.133.0
+
+### Minor Changes
+
+- [`dd60b8b6`](https://github.com/getflip/swirl/commit/dd60b8b6283812c8e3efa5cbd342855f0142a91d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "compact" prop to
+  swirl-resource-list-item; adjust styles
+
+### Patch Changes
+
+- Updated dependencies
+  [[`dd60b8b6`](https://github.com/getflip/swirl/commit/dd60b8b6283812c8e3efa5cbd342855f0142a91d)]:
+  - @getflip/swirl-components@0.133.0
+
 ## 0.132.0
 
 ### Minor Changes
