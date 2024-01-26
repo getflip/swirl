@@ -7065,6 +7065,24 @@
               "name": "default"
             },
             {
+              "name": "highlight"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
               "name": "subdued"
             },
             {

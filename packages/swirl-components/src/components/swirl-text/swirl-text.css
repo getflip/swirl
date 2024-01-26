@@ -31,6 +31,30 @@
   color: var(--s-text-default);
 }
 
+.text--color-highlight {
+  color: var(--s-text-highlight);
+}
+
+.text--color-on-action-primary {
+  color: var(--s-text-on-action-primary);
+}
+
+.text--color-on-image {
+  color: var(--s-text-on-image);
+}
+
+.text--color-on-status {
+  color: var(--s-text-on-status);
+}
+
+.text--color-on-surface-highlight {
+  color: var(--s-text-on-surface-highlight);
+}
+
+.text--color-on-surface-highlight-subdued {
+  color: var(--s-text-on-surface-highlight-subdued);
+}
+
 .text--color-subdued {
   color: var(--s-text-subdued);
 }

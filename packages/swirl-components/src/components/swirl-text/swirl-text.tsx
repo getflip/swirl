@@ -1,14 +1,20 @@
 import { Component, Element, h, Host, Listen, Prop } from "@stencil/core";
-import classnames from "classnames";
 import balanceText from "balance-text";
+import classnames from "classnames";
 import shave from "shave";
 
 export type SwirlTextAlign = "start" | "center" | "end";
 
 export type SwirlTextColor =
-  | "default"
-  | "subdued"
   | "critical"
+  | "default"
+  | "highlight"
+  | "on-action-primary"
+  | "on-image"
+  | "on-status"
+  | "on-surface-highlight"
+  | "on-surface-highlight-subdued"
+  | "subdued"
   | "success"
   | "warning";
 
