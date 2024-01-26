@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.136.0
+
+### Minor Changes
+
+- [`74b6a871`](https://github.com/getflip/swirl/commit/74b6a8715c00356ab21d71abdd176e0eaa49b3dd)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add colors to swirl-text
+
+### Patch Changes
+
+- Updated dependencies
+  [[`74b6a871`](https://github.com/getflip/swirl/commit/74b6a8715c00356ab21d71abdd176e0eaa49b3dd)]:
+  - @getflip/swirl-components@0.136.0
+
 ## 0.135.0
 
 ### Minor Changes
