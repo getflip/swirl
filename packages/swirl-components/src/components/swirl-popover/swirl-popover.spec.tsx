@@ -1,7 +1,13 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { SwirlPopover } from "./swirl-popover";
 import { SwirlPopoverTrigger } from "../swirl-popover-trigger/swirl-popover-trigger";
+import { SwirlPopover } from "./swirl-popover";
+
+(global as any).IntersectionObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
 
 describe("swirl-popover", () => {
   const template = `

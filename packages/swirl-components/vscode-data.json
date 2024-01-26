@@ -5169,6 +5169,10 @@
       },
       "attributes": [
         {
+          "name": "hide-popover-when-invisible",
+          "description": ""
+        },
+        {
           "name": "popover",
           "description": ""
         },

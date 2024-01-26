@@ -9,11 +9,37 @@ import { Component, Element, h, Host, Prop, Watch } from "@stencil/core";
 export class SwirlPopoverTrigger {
   @Element() el!: HTMLSwirlPopoverTriggerElement;
 
+  @Prop() hidePopoverWhenInvisible?: boolean = true;
+  @Prop() parentScrollContainer?: HTMLElement;
   @Prop() popover!: string | HTMLSwirlPopoverElement;
   @Prop() setAriaAttributes?: boolean = true;
 
+  private intersectionObserver: IntersectionObserver;
+
   componentDidLoad() {
     this.updateTriggerElAriaAttributes();
+
+    if (this.hidePopoverWhenInvisible) {
+      this.intersectionObserver = new IntersectionObserver(
+        this.onVisibilityChange.bind(this),
+        {
+          root: this.parentScrollContainer,
+          threshold: 1,
+        }
+      );
+
+      const firstChild = this.el.querySelector("*");
+
+      if (!Boolean(firstChild)) {
+        return;
+      }
+
+      this.intersectionObserver.observe(firstChild);
+    }
+  }
+
+  disconnectedCallback() {
+    this.intersectionObserver?.disconnect();
   }
 
   @Watch("popover")
@@ -35,6 +61,14 @@ export class SwirlPopoverTrigger {
     }
 
     return this.el.children[0] as HTMLElement;
+  }
+
+  private onVisibilityChange(entries: IntersectionObserverEntry[]) {
+    const triggerIsVisible = entries[0].isIntersecting;
+
+    if (!triggerIsVisible && this.isPopoverOpen()) {
+      this.getPopoverEl()?.close();
+    }
   }
 
   private onClick = () => {
@@ -99,7 +133,7 @@ export class SwirlPopoverTrigger {
     const popover = this.getPopoverEl();
 
     const isActive = (
-      popover.shadowRoot.firstChild as HTMLElement
+      popover?.shadowRoot.firstChild as HTMLElement
     )?.classList.contains("popover--active");
 
     return isActive;

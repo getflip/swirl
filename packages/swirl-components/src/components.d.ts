@@ -1308,6 +1308,8 @@ export namespace Components {
         "useContainerWidth"?: boolean | string;
     }
     interface SwirlPopoverTrigger {
+        "hidePopoverWhenInvisible"?: boolean;
+        "parentScrollContainer"?: HTMLElement;
         "popover": string | HTMLSwirlPopoverElement;
         "setAriaAttributes"?: boolean;
     }
@@ -5253,6 +5255,8 @@ declare namespace LocalJSX {
         "useContainerWidth"?: boolean | string;
     }
     interface SwirlPopoverTrigger {
+        "hidePopoverWhenInvisible"?: boolean;
+        "parentScrollContainer"?: HTMLElement;
         "popover": string | HTMLSwirlPopoverElement;
         "setAriaAttributes"?: boolean;
     }
