@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.135.0
+
+### Minor Changes
+
+- [`e1ecefb9`](https://github.com/getflip/swirl/commit/e1ecefb9770101fb0eb7b884b1b0dca5f8959490)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add a auto closing mechanism to
+  swirl-popover-trigger, closing the associated popover if the trigger leaves
+  the visible area of the screen
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e1ecefb9`](https://github.com/getflip/swirl/commit/e1ecefb9770101fb0eb7b884b1b0dca5f8959490)]:
+  - @getflip/swirl-components@0.135.0
+
 ## 0.134.0
 
 ### Minor Changes
