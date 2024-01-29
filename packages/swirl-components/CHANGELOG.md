@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.137.0
+
+### Minor Changes
+
+- [`97c658dd`](https://github.com/getflip/swirl/commit/97c658dd2d21539a5c75f40ea9f91fdddee60322)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "transparent" prop to
+  swirl-popover
+
 ## 0.136.0
 
 ### Minor Changes
