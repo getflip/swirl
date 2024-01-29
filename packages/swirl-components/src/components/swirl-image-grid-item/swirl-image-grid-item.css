@@ -102,3 +102,13 @@ button.image-grid-item {
   font-size: var(--s-font-size-2xl);
   inset: 0;
 }
+
+.image-grid-item__spinner {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  inset: 0;
+}

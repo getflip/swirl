@@ -4409,6 +4409,9 @@
               "name": "eager"
             },
             {
+              "name": "intersecting"
+            },
+            {
               "name": "lazy"
             }
           ]
