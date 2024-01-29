@@ -1303,6 +1303,7 @@ export namespace Components {
         "placement"?: Placement;
         "popoverId"?: string;
         "returnFocusToTrigger"?: boolean;
+        "transparent"?: boolean;
         "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;
@@ -5250,6 +5251,7 @@ declare namespace LocalJSX {
         "placement"?: Placement;
         "popoverId"?: string;
         "returnFocusToTrigger"?: boolean;
+        "transparent"?: boolean;
         "trigger"?: string | HTMLElement;
         "triggerContainer"?: HTMLElement;
         "useContainerWidth"?: boolean | string;

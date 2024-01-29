@@ -123,6 +123,21 @@
   }
 }
 
+.popover--transparent {
+  & .popover__content {
+    @media (--from-tablet) {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+
+  & .popover__scroll-container {
+    @media (--from-tablet) {
+      padding: 0;
+    }
+  }
+}
+
 .popover__backdrop {
   position: fixed;
   z-index: 0;

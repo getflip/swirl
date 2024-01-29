@@ -50,6 +50,7 @@ export class SwirlPopover {
   @Prop() popoverId?: string;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() returnFocusToTrigger?: boolean = true;
+  @Prop() transparent?: boolean;
   @Prop() trigger?: string | HTMLElement;
   @Prop() triggerContainer?: HTMLElement;
   @Prop() useContainerWidth?: boolean | string;
@@ -374,10 +375,11 @@ export class SwirlPopover {
       `popover--animation-${this.animation}`,
       `popover--placement-${this.position?.placement}`,
       {
-        "popover--closing": this.closing,
         "popover--active": this.active,
+        "popover--closing": this.closing,
         "popover--fullscreen-bottom-sheet": this.fullscreenBottomSheet,
         "popover--inactive": !this.active,
+        "popover--transparent": this.transparent,
       }
     );
 

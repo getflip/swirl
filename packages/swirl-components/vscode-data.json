@@ -5152,6 +5152,10 @@
           "description": ""
         },
         {
+          "name": "transparent",
+          "description": ""
+        },
+        {
           "name": "trigger",
           "description": ""
         },
