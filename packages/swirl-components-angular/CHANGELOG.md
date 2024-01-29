@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.138.0
+
+### Minor Changes
+
+- [`26fa91c9`](https://github.com/getflip/swirl/commit/26fa91c9b4e4e63303c8e8ad317e18e01dba2420)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "intersecting" loading
+  strategy to swirl-image-grid-item
+
+* [`2dcf3da3`](https://github.com/getflip/swirl/commit/2dcf3da34df6b098967d4fd7b9a871d16e00e70c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Support lazy loading for
+  swirl-image-grid-items
+
+### Patch Changes
+
+- Updated dependencies
+  [[`26fa91c9`](https://github.com/getflip/swirl/commit/26fa91c9b4e4e63303c8e8ad317e18e01dba2420),
+  [`2dcf3da3`](https://github.com/getflip/swirl/commit/2dcf3da34df6b098967d4fd7b9a871d16e00e70c)]:
+  - @getflip/swirl-components@0.138.0
+
 ## 0.137.0
 
 ### Minor Changes
