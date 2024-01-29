@@ -13,18 +13,31 @@ export default {
 };
 
 const Template = (args) => {
+  const container = document.createElement("div");
   const element = generateStoryElement("swirl-image-grid", args);
+
+  container.style.height = "1000vh";
+  container.style.paddingTop = "calc(200vh)";
 
   element.innerHTML = args.slot;
 
-  return element;
+  container.append(element.cloneNode(true));
+  container.append(element.cloneNode(true));
+  container.append(element.cloneNode(true));
+  container.append(element.cloneNode(true));
+  container.append(element.cloneNode(true));
+  container.append(element.cloneNode(true));
+  container.append(element.cloneNode(true));
+  container.append(element.cloneNode(true));
+  container.append(element.cloneNode(true));
+  container.append(element.cloneNode(true));
+
+  return container;
 };
 
 export const SwirlImageGrid = Template.bind({});
 
 SwirlImageGrid.args = {
   aspectRatio: "16 / 9",
-  slot: `<swirl-image-grid-item alt="Cute dog in a blanket" interactive src="/sample.jpg"></swirl-image-grid-item>
-<swirl-image-grid-item alt="Another cute dog in a blanket" icon="<swirl-icon-play-arrow></swirl-icon-play-arrow>" interactive src="/sample-2.jpg"></swirl-image-grid-item>
-<swirl-image-grid-item alt="Third cute dog in a blanket" interactive src="/sample-3.jpg"></swirl-image-grid-item>`,
+  slot: `<swirl-image-grid-item alt="Cute dog in a blanket" interactive src="/sample.jpg"></swirl-image-grid-item>`,
 };

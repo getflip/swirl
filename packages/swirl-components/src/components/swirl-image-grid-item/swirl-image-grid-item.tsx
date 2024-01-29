@@ -1,5 +1,7 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
+
+export type SwirlImageGridItemLoading = "lazy" | "auto" | "eager";
 
 @Component({
   shadow: true,
@@ -10,8 +12,15 @@ export class SwirlImageGridItem {
   @Prop() alt!: string;
   @Prop() icon?: string;
   @Prop() interactive?: boolean;
+  @Prop() loading?: SwirlImageGridItemLoading;
   @Prop() overlay?: string;
   @Prop() src!: string;
+
+  @State() loaded = false;
+
+  private onLoad = () => {
+    this.loaded = true;
+  };
 
   render() {
     const Tag = this.interactive ? "button" : "div";
@@ -25,9 +34,22 @@ export class SwirlImageGridItem {
         <Tag class={className} type={this.interactive ? "button" : undefined}>
           <div
             class="image-grid-item__background"
-            style={{ backgroundImage: `url(${this.src})` }}
+            style={{
+              backgroundImage:
+                !Boolean(this.loading) ||
+                this.loading === "eager" ||
+                this.loaded
+                  ? `url(${this.src})`
+                  : undefined,
+            }}
           ></div>
-          <img alt={this.alt} class="image-grid-item__image" src={this.src} />
+          <img
+            alt={this.alt}
+            class="image-grid-item__image"
+            loading={this.loading}
+            onLoad={this.onLoad}
+            src={this.src}
+          />
           {this.icon && !Boolean(this.overlay) && (
             <div class="image-grid-item__icon" innerHTML={this.icon}></div>
           )}

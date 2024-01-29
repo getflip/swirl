@@ -30,6 +30,7 @@ import { SwirlFormControlLabelPosition } from "./components/swirl-form-control/s
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 import { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
+import { SwirlImageGridItemLoading } from "./components/swirl-image-grid-item/swirl-image-grid-item";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 import { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swirl-inline-status/swirl-inline-status";
@@ -89,6 +90,7 @@ export { SwirlFormControlLabelPosition } from "./components/swirl-form-control/s
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 export { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
+export { SwirlImageGridItemLoading } from "./components/swirl-image-grid-item/swirl-image-grid-item";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
 export { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swirl-inline-status/swirl-inline-status";
@@ -1082,6 +1084,7 @@ export namespace Components {
         "alt": string;
         "icon"?: string;
         "interactive"?: boolean;
+        "loading"?: SwirlImageGridItemLoading;
         "overlay"?: string;
         "src": string;
     }
@@ -5087,6 +5090,7 @@ declare namespace LocalJSX {
         "alt": string;
         "icon"?: string;
         "interactive"?: boolean;
+        "loading"?: SwirlImageGridItemLoading;
         "overlay"?: string;
         "src": string;
     }
