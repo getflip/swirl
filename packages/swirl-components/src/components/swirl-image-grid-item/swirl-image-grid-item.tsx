@@ -58,7 +58,6 @@ export class SwirlImageGridItem {
 
   private onLoad = () => {
     this.loaded = true;
-    console.log(this.loaded);
   };
 
   render() {
