@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.139.0
+
+### Minor Changes
+
+- [`8d61d221`](https://github.com/getflip/swirl/commit/8d61d2213ab50ff0908d03c482157bd7f577f8bb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add dimension props to swirl-box
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8d61d221`](https://github.com/getflip/swirl/commit/8d61d2213ab50ff0908d03c482157bd7f577f8bb)]:
+  - @getflip/swirl-components@0.139.0
+
 ## 0.138.1
 
 ### Patch Changes
