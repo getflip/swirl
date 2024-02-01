@@ -283,9 +283,12 @@ export namespace Components {
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
+        "height"?: string;
         "left"?: string;
         "maxHeight"?: string;
         "maxWidth"?: string;
+        "minHeight"?: string;
+        "minWidth"?: string;
         "overflow"?: SwirlBoxOverflow;
         "padding"?: SwirlBoxPadding;
         "paddingBlockEnd"?: SwirlBoxPadding;
@@ -294,7 +297,9 @@ export namespace Components {
         "paddingInlineStart"?: SwirlBoxPadding;
         "position"?: SwirlBoxPosition;
         "right"?: string;
+        "shrink"?: string;
         "top"?: string;
+        "width"?: string;
         "zIndex"?: string;
     }
     interface SwirlButton {
@@ -4332,9 +4337,12 @@ declare namespace LocalJSX {
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
+        "height"?: string;
         "left"?: string;
         "maxHeight"?: string;
         "maxWidth"?: string;
+        "minHeight"?: string;
+        "minWidth"?: string;
         "overflow"?: SwirlBoxOverflow;
         "padding"?: SwirlBoxPadding;
         "paddingBlockEnd"?: SwirlBoxPadding;
@@ -4343,7 +4351,9 @@ declare namespace LocalJSX {
         "paddingInlineStart"?: SwirlBoxPadding;
         "position"?: SwirlBoxPosition;
         "right"?: string;
+        "shrink"?: string;
         "top"?: string;
+        "width"?: string;
         "zIndex"?: string;
     }
     interface SwirlButton {

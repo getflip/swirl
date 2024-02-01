@@ -673,6 +673,10 @@
           "description": ""
         },
         {
+          "name": "height",
+          "description": ""
+        },
+        {
           "name": "left",
           "description": ""
         },
@@ -682,6 +686,14 @@
         },
         {
           "name": "max-width",
+          "description": ""
+        },
+        {
+          "name": "min-height",
+          "description": ""
+        },
+        {
+          "name": "min-width",
           "description": ""
         },
         {
@@ -896,7 +908,15 @@
           "description": ""
         },
         {
+          "name": "shrink",
+          "description": ""
+        },
+        {
           "name": "top",
+          "description": ""
+        },
+        {
+          "name": "width",
           "description": ""
         },
         {

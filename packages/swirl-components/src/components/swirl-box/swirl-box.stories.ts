@@ -32,7 +32,4 @@ const Template = (args) => {
 
 export const SwirlBox = Template.bind({});
 
-SwirlBox.args = {
-  cover: true,
-  padding: "16",
-};
+SwirlBox.args = {};

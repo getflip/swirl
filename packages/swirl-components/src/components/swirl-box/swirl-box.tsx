@@ -44,9 +44,12 @@ export class SwirlBox {
   @Prop() centerBlock?: boolean;
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
+  @Prop() height?: string;
   @Prop() left?: string;
   @Prop() maxHeight?: string;
+  @Prop() minHeight?: string;
   @Prop() maxWidth?: string;
+  @Prop() minWidth?: string;
   @Prop() overflow?: SwirlBoxOverflow = "visible";
   @Prop() padding?: SwirlBoxPadding = "0";
   @Prop() paddingBlockEnd?: SwirlBoxPadding;
@@ -55,7 +58,9 @@ export class SwirlBox {
   @Prop() paddingInlineStart?: SwirlBoxPadding;
   @Prop() position?: SwirlBoxPosition;
   @Prop() right?: string;
+  @Prop() shrink?: string;
   @Prop() top?: string;
+  @Prop() width?: string;
   @Prop() zIndex?: string;
 
   render() {
@@ -63,11 +68,14 @@ export class SwirlBox {
       alignItems: this.centerBlock ? "center" : undefined,
       bottom: this.bottom,
       display: this.centerBlock || this.centerInline ? "flex" : undefined,
-      height: this.cover ? "100%" : undefined,
+      flexShrink: this.shrink,
+      height: this.cover ? "100%" : this.height,
       justifyContent: this.centerInline ? "center" : undefined,
       left: this.left,
       maxHeight: this.maxHeight,
+      minHeight: this.minHeight,
       maxWidth: this.maxWidth,
+      minWidth: this.minWidth,
       overflow: this.overflow,
       padding: `var(--s-space-${this.padding})`,
       paddingBlockEnd: Boolean(this.paddingBlockEnd)
@@ -87,7 +95,7 @@ export class SwirlBox {
         : this.position,
       right: this.right,
       top: this.top,
-      width: this.cover ? "100%" : undefined,
+      width: this.cover ? "100%" : this.width,
       zIndex: this.zIndex,
     };
 
