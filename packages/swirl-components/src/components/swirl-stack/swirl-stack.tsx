@@ -12,7 +12,11 @@ export type SwirlStackJustify =
   | "space-evenly"
   | "stretch";
 
-export type SwirlStackOrientation = "horizontal" | "vertical";
+export type SwirlStackOrientation =
+  | "horizontal"
+  | "horizontal-reverse"
+  | "vertical"
+  | "vertical-reverse";
 
 export type SwirlStackSpacing =
   | "0"

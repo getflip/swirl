@@ -1114,7 +1114,13 @@
               "name": "horizontal"
             },
             {
+              "name": "horizontal-reverse"
+            },
+            {
               "name": "vertical"
+            },
+            {
+              "name": "vertical-reverse"
             }
           ]
         },
@@ -5934,7 +5940,13 @@
               "name": "horizontal"
             },
             {
+              "name": "horizontal-reverse"
+            },
+            {
               "name": "vertical"
+            },
+            {
+              "name": "vertical-reverse"
             }
           ]
         },

@@ -81,8 +81,16 @@ ul.stack {
   flex-direction: column;
 }
 
+.stack--orientation-vertical-reverse {
+  flex-direction: column-reverse;
+}
+
 .stack--orientation-horizontal {
   flex-direction: row;
+}
+
+.stack--orientation-horizontal-reverse {
+  flex-direction: row-reverse;
 }
 
 .stack--wrap {
