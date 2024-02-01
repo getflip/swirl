@@ -81,7 +81,7 @@ export class SwirlImageGridItem {
                   : undefined,
             }}
           ></div>
-          {(this.loading !== "intersecting" || this.inViewport) && (
+          {this.loading !== "intersecting" || this.inViewport ? (
             <img
               alt={this.alt}
               class="image-grid-item__image"
@@ -91,6 +91,8 @@ export class SwirlImageGridItem {
               onLoad={this.onLoad}
               src={this.src}
             />
+          ) : (
+            <div class="image-grid-item__loading-placeholder"></div>
           )}
           {this.loaded && this.icon && !Boolean(this.overlay) && (
             <div class="image-grid-item__icon" innerHTML={this.icon}></div>
