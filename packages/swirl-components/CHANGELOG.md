@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.140.0
+
+### Minor Changes
+
+- [`845976b0`](https://github.com/getflip/swirl/commit/845976b0ccbf6a7b8130f2c92c802373e7a71673)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add reverse orientations to
+  swirl-stack
+
 ## 0.139.0
 
 ### Minor Changes
