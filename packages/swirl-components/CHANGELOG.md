@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.140.1
+
+### Patch Changes
+
+- [`434309fc`](https://github.com/getflip/swirl/commit/434309fc1a79f30eca56ea2e0f5bcf1458d5d3b0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-image-grid layout
+  shifts while loading
+
 ## 0.140.0
 
 ### Minor Changes
