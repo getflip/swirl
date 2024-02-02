@@ -123,6 +123,20 @@
   }
 }
 
+.popover--animation-fade-in {
+  &.popover--active:not(.popover--closing) {
+    & .popover__content {
+      @media (--from-tablet) {
+        animation: 0.15s popover-fade-in;
+      }
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
+    }
+  }
+}
+
 .popover--transparent {
   & .popover__content {
     @media (--from-tablet) {
@@ -172,7 +186,7 @@
     max-width: 22.5rem;
     border-radius: var(--s-border-radius-sm);
     animation: none;
-    box-shadow: var(--s-shadow-level-1);
+    box-shadow: var(--s-shadow-level-2);
   }
 }
 

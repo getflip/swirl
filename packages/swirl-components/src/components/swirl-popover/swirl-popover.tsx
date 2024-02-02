@@ -27,7 +27,7 @@ import {
   querySelectorAllDeep,
 } from "../../utils";
 
-export type SwirlPopoverAnimation = "scale-in-xy" | "scale-in-y";
+export type SwirlPopoverAnimation = "fade-in" | "scale-in-xy" | "scale-in-y";
 
 /**
  * @slot slot - The popover content.

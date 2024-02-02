@@ -5114,6 +5114,9 @@
           "description": "",
           "values": [
             {
+              "name": "fade-in"
+            },
+            {
               "name": "scale-in-xy"
             },
             {
