@@ -29,7 +29,7 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-tooltip", args);
 
-  element.innerHTML = "Hover or focus me";
+  element.innerHTML = `<swirl-button label="Hover or focus me"></swirl-button>`;
 
   return element;
 };
@@ -37,6 +37,6 @@ const Template = (args) => {
 export const SwirlTooltip = Template.bind({});
 
 SwirlTooltip.args = {
-  content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid officia, enim reiciendis esse minus impedit earum veniam, sunt eveniet.`,
+  content: `Tooltip`,
   position: "top",
 };

@@ -3,8 +3,8 @@ import { newSpecPage } from "@stencil/core/testing";
 import { SwirlTooltip } from "./swirl-tooltip";
 
 const expectedVisible = `
-<span class="tooltip">
-  <span aria-describedby="tooltip" class="tooltip__reference" tabindex="0">
+<span class="tooltip tooltip--actual-placement-undefined tooltip--visible">
+  <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>
   <span class="tooltip__popper">
@@ -12,17 +12,19 @@ const expectedVisible = `
       <span class="tooltip__content">
         Tooltip
       </span>
-      <span class="tooltip__arrow"></span>
     </span>
+    <span class="tooltip__arrow" style="visibility: visible;"></span>
   </span>
 </span>`;
 
 const expectedHidden = `
-<span class="tooltip">
-  <span aria-describedby="tooltip" class="tooltip__reference" tabindex="0">
+<span class="tooltip tooltip--actual-placement-top">
+  <span aria-describedby="tooltip" class="tooltip__reference">
     <slot></slot>
   </span>
-  <span class="tooltip__popper" style="top: 0px; left: NaNpx;"></span>
+  <span class="tooltip__popper" style="top: 0px; left: NaNpx;">
+    <span class="tooltip__arrow" style="visibility: hidden;"></span>
+  </span>
 </span>`;
 
 describe("swirl-tooltip", () => {
@@ -39,32 +41,32 @@ describe("swirl-tooltip", () => {
   it("renders the reference", async () => {
     const page = await newSpecPage({
       components: [SwirlTooltip],
-      html: `<swirl-tooltip content="Tooltip" position="top"><swirl-badge label="Trigger"></swirl-badge></swirl-tooltip>`,
+      html: `<swirl-tooltip content="Tooltip" position="top"><swirl-button label="Trigger"></swirl-button></swirl-tooltip>`,
     });
 
     expect(page.root.children[0]).toEqualHtml(
-      '<swirl-badge label="Trigger"></swirl-badge>'
+      '<swirl-button label="Trigger"></swirl-button>'
     );
   });
 
   it("shows/hides the positioned popper on focus/blur", async () => {
     const page = await newSpecPage({
       components: [SwirlTooltip],
-      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom"><swirl-badge label="Trigger"></swirl-badge></swirl-tooltip>`,
+      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom"><swirl-button label="Trigger"></swirl-button></swirl-tooltip>`,
     });
 
     const referenceEl = page.root.shadowRoot.querySelector(
       ".tooltip__reference"
     ) as HTMLElement;
 
-    referenceEl.focus();
+    referenceEl.dispatchEvent(new FocusEvent("focusin"));
 
     page.waitForChanges();
     await new Promise((resolve) => setTimeout(resolve));
 
     expect(page.root.shadowRoot.innerHTML).toEqualHtml(expectedVisible);
 
-    referenceEl.blur();
+    referenceEl.dispatchEvent(new FocusEvent("focusout"));
 
     page.waitForChanges();
     await new Promise((resolve) => setTimeout(resolve));
@@ -75,7 +77,7 @@ describe("swirl-tooltip", () => {
   it("shows/hides the positioned popper on mouseenter/mouseleave", async () => {
     const page = await newSpecPage({
       components: [SwirlTooltip],
-      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom"><swirl-badge label="Trigger"></swirl-badge></swirl-tooltip>`,
+      html: `<swirl-tooltip content="Tooltip" delay="0" position="bottom"><swirl-button label="Trigger"></swirl-button></swirl-tooltip>`,
     });
 
     page.root.dispatchEvent(new MouseEvent("mouseenter"));

@@ -1,7 +1,7 @@
 @import "../../styles/media-queries.css";
 
 :host {
-  display: inline-flex;
+  display: contents;
 
   & * {
     box-sizing: border-box;
@@ -9,17 +9,55 @@
 }
 
 .tooltip {
-  display: inline-flex;
+  display: contents;
+}
+
+.tooltip--visible {
+  & .tooltip__popper {
+    animation: tooltip-fade-in 0.15s;
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+}
+
+.tooltip--actual-placement-top {
+  & .tooltip__arrow {
+    top: calc(100% - 0.0625rem);
+    transform: translate3d(0, -50%, 0) rotate(45deg);
+  }
+}
+
+.tooltip--actual-placement-bottom {
+  & .tooltip__arrow {
+    bottom: calc(100% - 0.0625rem);
+    transform: translate3d(0, 50%, 0) rotate(45deg);
+  }
+}
+
+.tooltip--actual-placement-left {
+  & .tooltip__arrow {
+    left: calc(100% - 0.0625rem);
+    transform: translate3d(-50%, 0, 0) rotate(45deg);
+  }
+}
+
+.tooltip--actual-placement-right {
+  & .tooltip__arrow {
+    right: calc(100% - 0.0625rem);
+    transform: translate3d(50%, 0, 0) rotate(45deg);
+  }
 }
 
 .tooltip .tooltip__reference {
-  display: inline-flex;
+  display: contents;
 }
 
 .tooltip__popper {
   position: absolute;
   z-index: var(--s-z-40);
   max-width: 17.5rem;
+  opacity: 0;
 }
 
 .tooltip__bubble {
@@ -27,16 +65,13 @@
   display: block;
   padding-top: var(--s-space-8);
   padding-right: var(--s-space-12);
-  padding-bottom: var(--s-space-8);
+  padding-bottom: calc(var(--s-space-8) + 0.0625rem);
   padding-left: var(--s-space-12);
   border-radius: var(--s-border-radius-sm);
   color: var(--s-text-on-status);
   background-color: var(--s-surface-neutral-default);
   line-height: var(--s-line-height-base);
-  animation: tooltip-fade-in 0.2s;
-  animation-delay: 0.1s;
-  animation-fill-mode: forwards;
-  opacity: 0;
+  box-shadow: var(--s-shadow-level-2);
 
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
@@ -46,8 +81,9 @@
 
 .tooltip__arrow {
   position: absolute;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.6875rem;
+  height: 0.6875rem;
+  border-radius: 0.125rem;
   background-color: var(--s-surface-neutral-default);
 }
 

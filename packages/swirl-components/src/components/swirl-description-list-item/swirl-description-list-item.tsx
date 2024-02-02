@@ -39,7 +39,7 @@ export class SwirlDescriptionListItem {
               {this.tooltip && (
                 <span class="description-list-item__tooltip">
                   <swirl-tooltip content={this.tooltip} position="right">
-                    <swirl-icon-info size={16}></swirl-icon-info>
+                    <swirl-icon-info size={16} tabIndex={0}></swirl-icon-info>
                   </swirl-tooltip>
                 </span>
               )}
