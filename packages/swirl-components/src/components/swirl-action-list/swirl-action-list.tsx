@@ -118,6 +118,7 @@ export class SwirlActionList {
           onFocusout={this.isInsidePopover ? undefined : this.onFocusOut}
           onFocus={this.isInsidePopover ? undefined : this.onFocus}
           onKeyDown={this.onKeyDown}
+          part="action-list"
           ref={(el) => (this.container = el)}
           role="menu"
         >
