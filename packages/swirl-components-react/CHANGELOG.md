@@ -1,5 +1,28 @@
 # @getflip/swirl-components-react
 
+## 0.141.0
+
+### Minor Changes
+
+- [`e95c89ae`](https://github.com/getflip/swirl/commit/e95c89ae2da7fb7a9cd19a28ba3f9ee66ef714df)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "fade-in" animation to
+  swirl-popover
+
+### Patch Changes
+
+- [`e95c89ae`](https://github.com/getflip/swirl/commit/e95c89ae2da7fb7a9cd19a28ba3f9ee66ef714df)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust swirl-popover shadow
+
+* [`a2b7eca7`](https://github.com/getflip/swirl/commit/a2b7eca793b741f1ad1f39a52000342e5d80a0b6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-tooltip arrow
+  positioning
+
+* Updated dependencies
+  [[`e95c89ae`](https://github.com/getflip/swirl/commit/e95c89ae2da7fb7a9cd19a28ba3f9ee66ef714df),
+  [`e95c89ae`](https://github.com/getflip/swirl/commit/e95c89ae2da7fb7a9cd19a28ba3f9ee66ef714df),
+  [`a2b7eca7`](https://github.com/getflip/swirl/commit/a2b7eca793b741f1ad1f39a52000342e5d80a0b6)]:
+  - @getflip/swirl-components@0.141.0
+
 ## 0.140.1
 
 ### Patch Changes
