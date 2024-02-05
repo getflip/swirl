@@ -18,7 +18,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "dev": "turbo run dev --parallel --filter='!error-code-generator' --filter='!swirl-components-angular' --filter='!swirl-components-react' --filter='!swirl-docs'",
     "dev:docs": "turbo run dev --filter='swirl-docs'",
     "lint": "turbo run lint",
     "test": "turbo run test",

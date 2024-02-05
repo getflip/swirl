@@ -7030,6 +7030,10 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "tooltip",
+          "description": ""
         }
       ]
     },

@@ -1700,6 +1700,7 @@ export namespace Components {
     }
     interface SwirlTableRowGroup {
         "label": string;
+        "tooltip"?: string;
     }
     interface SwirlTabs {
         /**
@@ -5666,6 +5667,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTableRowGroup {
         "label": string;
+        "tooltip"?: string;
     }
     interface SwirlTabs {
         "initialTab"?: string;
