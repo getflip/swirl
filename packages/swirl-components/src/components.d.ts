@@ -456,6 +456,7 @@ export namespace Components {
         "datePickerLabel"?: string;
         "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
+        "firstDayOfWeek"?: number;
         "format"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
@@ -467,6 +468,7 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlDatePicker {
+        "firstDayOfWeek"?: number;
         "labels"?: WCDatepickerLabels;
         "locale"?: string;
         "range"?: boolean;
@@ -4502,6 +4504,7 @@ declare namespace LocalJSX {
         "datePickerLabel"?: string;
         "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
+        "firstDayOfWeek"?: number;
         "format"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
@@ -4515,6 +4518,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlDatePicker {
+        "firstDayOfWeek"?: number;
         "labels"?: WCDatepickerLabels;
         "locale"?: string;
         "onValueChange"?: (event: SwirlDatePickerCustomEvent<Date | Date[]>) => void;

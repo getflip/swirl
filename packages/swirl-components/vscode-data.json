@@ -1833,6 +1833,10 @@
           "description": ""
         },
         {
+          "name": "first-day-of-week",
+          "description": ""
+        },
+        {
           "name": "format",
           "description": ""
         },
@@ -1873,6 +1877,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "first-day-of-week",
+          "description": ""
+        },
         {
           "name": "locale",
           "description": ""

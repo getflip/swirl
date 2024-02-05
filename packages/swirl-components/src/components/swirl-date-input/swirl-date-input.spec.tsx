@@ -30,7 +30,7 @@ describe("swirl-date-input", () => {
           </swirl-popover-trigger>
         </div>
         <swirl-popover animation="scale-in-y" id="popover-swirl-date-input-0" label="Date picker" placement="bottom-end">
-          <swirl-date-picker locale="en-US"></swirl-date-picker>
+          <swirl-date-picker firstdayofweek="0" locale="en-US"></swirl-date-picker>
         </swirl-popover>
       </swirl-date-input>
     `);

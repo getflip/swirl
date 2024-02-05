@@ -21847,10 +21847,10 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-wc-datepicker@^0.5.1:
-  version "0.5.2"
-  resolved "https://registry.npmjs.org/wc-datepicker/-/wc-datepicker-0.5.2.tgz"
-  integrity sha512-hwzN02URlWqaMd1nKhRdOSa4FBFJVmAco6gGKNB9ru/Ra6cH8Eags6QKE2ffvVW1xUWmGOgUjaaRBCdcNOkSFg==
+wc-datepicker@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/wc-datepicker/-/wc-datepicker-0.5.3.tgz#92dc5faffb9e98c6421472a80304f3775d68747f"
+  integrity sha512-SiQaTV6yZwcVcF3oODA1SEoOa/EnCSO5PnwQi+mDCAkrqhdGMdimKrqzRHbE0zZCrNhFAWnV+ZW6vbTDQe0VpQ==
   dependencies:
     "@stencil/core" "^2.13.0"
 
