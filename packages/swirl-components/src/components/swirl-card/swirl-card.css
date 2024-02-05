@@ -133,6 +133,11 @@ button.card,
   background-color: var(--s-surface-warning-subdued);
 }
 
+.card--intent-highlight {
+  background-color: var(--s-surface-highlight-default);
+  color: var(--s-text-on-surface-highlight);
+}
+
 .content-section {
   padding: 0 var(--s-space-16);
 }

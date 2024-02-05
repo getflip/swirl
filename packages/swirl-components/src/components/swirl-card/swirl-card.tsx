@@ -13,6 +13,7 @@ export type SwirlCardIntent =
   | "critical-subdued"
   | "default"
   | "default-subdued"
+  | "highlight"
   | "info-subdued"
   | "success-subdued"
   | "warning-subdued";

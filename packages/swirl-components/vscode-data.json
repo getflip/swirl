@@ -1191,6 +1191,9 @@
               "name": "default-subdued"
             },
             {
+              "name": "highlight"
+            },
+            {
               "name": "info-subdued"
             },
             {
