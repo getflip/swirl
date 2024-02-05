@@ -1,5 +1,14 @@
 # @getflip/error-code-generator
 
+## 0.7.0
+
+### Minor Changes
+
+- [#533](https://github.com/getflip/swirl/pull/533)
+  [`34cf61a9`](https://github.com/getflip/swirl/commit/34cf61a997f1a4a14cbc44ec9e2404fda4528fc2)
+  Thanks [@fellmann](https://github.com/fellmann)! - Improve error message for
+  invalid specs
+
 ## 0.6.0
 
 ### Minor Changes
