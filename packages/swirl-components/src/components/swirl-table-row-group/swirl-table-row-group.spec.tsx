@@ -24,7 +24,7 @@ describe("swirl-table-row-group", () => {
     `);
   });
 
-  it("renders its label and content", async () => {
+  it("renders its label and content with tooltip", async () => {
     const page = await newSpecPage({
       components: [SwirlTableRowGroup],
       html: `<swirl-table-row-group label="Label" tooltip="Test">Content</swirl-table-row-group>`,
