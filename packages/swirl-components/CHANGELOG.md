@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.142.0
+
+### Minor Changes
+
+- [`60f58f59`](https://github.com/getflip/swirl/commit/60f58f5979955051c5c7317b128e514e19aa5206)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "first-day-of-week" prop to
+  swirl-date-picker and swirl-date-input
+
 ## 0.141.0
 
 ### Minor Changes
