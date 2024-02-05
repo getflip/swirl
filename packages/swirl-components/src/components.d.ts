@@ -1272,6 +1272,7 @@ export namespace Components {
          */
         "close": () => Promise<void>;
         "closeButtonLabel"?: string;
+        "downloadButtonEnabled"?: boolean;
         "downloadButtonLabel"?: string;
         "file": string;
         "fileTypeLabel"?: string;
@@ -1283,6 +1284,7 @@ export namespace Components {
          */
         "open": () => Promise<void>;
         "pdfWorkerSrc"?: string;
+        "printButtonEnabled"?: boolean;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
         "thumbnailButtonLabel"?: string;
@@ -5239,6 +5241,7 @@ declare namespace LocalJSX {
     interface SwirlPdfReader {
         "autoZoomLabel"?: string;
         "closeButtonLabel"?: string;
+        "downloadButtonEnabled"?: boolean;
         "downloadButtonLabel"?: string;
         "file": string;
         "fileTypeLabel"?: string;
@@ -5248,6 +5251,7 @@ declare namespace LocalJSX {
         "onModalClose"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "pdfWorkerSrc"?: string;
+        "printButtonEnabled"?: boolean;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
         "thumbnailButtonLabel"?: string;

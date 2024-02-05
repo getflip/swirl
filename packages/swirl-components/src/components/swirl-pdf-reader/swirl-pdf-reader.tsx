@@ -29,6 +29,7 @@ export class SwirlPdfReader {
 
   @Prop() autoZoomLabel?: string = "Full width";
   @Prop() closeButtonLabel?: string = "Close PDF viewer";
+  @Prop() downloadButtonEnabled?: boolean = true;
   @Prop() downloadButtonLabel?: string = "Download PDF";
   @Prop() file!: string;
   @Prop() fileTypeLabel?: string = "PDF Document";
@@ -36,6 +37,7 @@ export class SwirlPdfReader {
   @Prop() menuLabel?: string = "File menu";
   @Prop() menuTriggerLabel?: string = "Open file menu";
   @Prop() pdfWorkerSrc?: string;
+  @Prop() printButtonEnabled?: boolean = true;
   @Prop() printButtonLabel?: string = "Print PDF";
   @Prop() sideBySideButtonLabel?: string = "Toggle side by side view";
   @Prop() thumbnailButtonLabel?: string = "Scroll to page";
@@ -238,8 +240,14 @@ export class SwirlPdfReader {
   };
 
   render() {
+    const hasMenuItems =
+      Boolean(this.el.querySelector("[slot='menu-items']")) ||
+      this.printButtonEnabled ||
+      this.downloadButtonEnabled;
+
     const className = classnames("pdf-reader", {
       "pdf-reader--closing": this.closing,
+      "pdf-reader--hide-menu": !hasMenuItems,
       "pdf-reader--show-thumbnails": this.showThumbnails,
     });
 
@@ -473,25 +481,29 @@ export class SwirlPdfReader {
                   </swirl-text>
                 </div>
               </div>
-              <swirl-separator></swirl-separator>
-              <swirl-action-list>
-                <swirl-action-list-item
-                  class="pdf-reader__print-button"
-                  icon="<swirl-icon-print></swirl-icon-print>"
-                  label={this.printButtonLabel}
-                  onClick={this.onPrintButtonClick}
-                ></swirl-action-list-item>
-                <swirl-action-list-item
-                  class="pdf-reader__download-button"
-                  disabled={this.downloading}
-                  icon={
-                    !this.downloading
-                      ? "<swirl-icon-download></swirl-icon-download>"
-                      : '<swirl-spinner size="xs"></swirl-spinner>'
-                  }
-                  label={this.downloadButtonLabel}
-                  onClick={this.onDownloadButtonClick}
-                ></swirl-action-list-item>
+              {hasMenuItems && <swirl-separator></swirl-separator>}
+              <swirl-action-list class="pdf-reader__menu">
+                {this.printButtonEnabled && (
+                  <swirl-action-list-item
+                    class="pdf-reader__print-button"
+                    icon="<swirl-icon-print></swirl-icon-print>"
+                    label={this.printButtonLabel}
+                    onClick={this.onPrintButtonClick}
+                  ></swirl-action-list-item>
+                )}
+                {this.downloadButtonEnabled && (
+                  <swirl-action-list-item
+                    class="pdf-reader__download-button"
+                    disabled={this.downloading}
+                    icon={
+                      !this.downloading
+                        ? "<swirl-icon-download></swirl-icon-download>"
+                        : '<swirl-spinner size="xs"></swirl-spinner>'
+                    }
+                    label={this.downloadButtonLabel}
+                    onClick={this.onDownloadButtonClick}
+                  ></swirl-action-list-item>
+                )}
                 <slot name="menu-items"></slot>
               </swirl-action-list>
             </swirl-stack>

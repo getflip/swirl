@@ -5052,6 +5052,10 @@
           "description": ""
         },
         {
+          "name": "download-button-enabled",
+          "description": ""
+        },
+        {
           "name": "download-button-label",
           "description": ""
         },
@@ -5077,6 +5081,10 @@
         },
         {
           "name": "pdf-worker-src",
+          "description": ""
+        },
+        {
+          "name": "print-button-enabled",
           "description": ""
         },
         {
