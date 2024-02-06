@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.145.0
+
+### Minor Changes
+
+- [`fd309384`](https://github.com/getflip/swirl/commit/fd30938441c57b8c10562a44f4133cd96dc63ed7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow to disable the
+  swirl-lightbox download button
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fd309384`](https://github.com/getflip/swirl/commit/fd30938441c57b8c10562a44f4133cd96dc63ed7)]:
+  - @getflip/swirl-components@0.145.0
+
 ## 0.144.0
 
 ### Minor Changes
