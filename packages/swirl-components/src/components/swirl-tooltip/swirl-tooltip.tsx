@@ -33,6 +33,7 @@ export class SwirlTooltip {
   @Prop() content!: string;
   @Prop() delay?: number = 300;
   @Prop() position?: SwirlTooltipPosition = "top";
+  @Prop() positioning?: "fixed" | "absolute" = "absolute";
 
   @State() actualPosition: ComputePositionReturn;
   @State() arrowStyles: { [key: string]: string };
@@ -162,7 +163,7 @@ export class SwirlTooltip {
     this.options = {
       middleware: [offset(margin), shift(), flip()],
       placement: this.position,
-      strategy: "absolute",
+      strategy: this.positioning,
     };
   };
 

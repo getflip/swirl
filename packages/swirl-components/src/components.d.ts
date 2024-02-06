@@ -1851,6 +1851,7 @@ export namespace Components {
         "content": string;
         "delay"?: number;
         "position"?: SwirlTooltipPosition;
+        "positioning"?: "fixed" | "absolute";
     }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
@@ -5791,6 +5792,7 @@ declare namespace LocalJSX {
         "content": string;
         "delay"?: number;
         "position"?: SwirlTooltipPosition;
+        "positioning"?: "fixed" | "absolute";
     }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
