@@ -42,6 +42,12 @@
   }
 }
 
+.lightbox--hide-menu {
+  & .lightbox__menu {
+    display: none;
+  }
+}
+
 .lightbox__body {
   position: relative;
   width: 100%;

@@ -22,6 +22,7 @@ export class SwirlLightbox {
   @Element() el: HTMLElement;
 
   @Prop() closeButtonLabel?: string = "Close modal";
+  @Prop() downloadButtonEnabled?: boolean = true;
   @Prop() downloadButtonLabel?: string = "Download";
   @Prop() hideMenu?: boolean;
   @Prop() label!: string;
@@ -322,8 +323,13 @@ export class SwirlLightbox {
     const currentFileType = this.getCurrentFileType();
     const currentThumbnailUrl = this.getCurrentThumbnailUrl();
 
+    const hasMenuItems =
+      Boolean(this.el.querySelector("[slot='menu-items']")) ||
+      this.downloadButtonEnabled;
+
     const className = classnames("lightbox", {
       "lightbox--closing": this.closing,
+      "lightbox--hide-menu": !hasMenuItems,
     });
 
     return (
@@ -430,13 +436,15 @@ export class SwirlLightbox {
                     </swirl-text>
                   </div>
                 </div>
-                <swirl-separator></swirl-separator>
+                {hasMenuItems && <swirl-separator></swirl-separator>}
                 <swirl-action-list>
-                  <swirl-action-list-item
-                    icon="<swirl-icon-download></swirl-icon-download>"
-                    label={this.downloadButtonLabel}
-                    onClick={this.onDownloadButtonClick}
-                  ></swirl-action-list-item>
+                  {this.downloadButtonEnabled && (
+                    <swirl-action-list-item
+                      icon="<swirl-icon-download></swirl-icon-download>"
+                      label={this.downloadButtonLabel}
+                      onClick={this.onDownloadButtonClick}
+                    ></swirl-action-list-item>
+                  )}
                   <slot name="menu-items"></slot>
                 </swirl-action-list>
               </swirl-stack>

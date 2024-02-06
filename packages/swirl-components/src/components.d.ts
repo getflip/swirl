@@ -1121,6 +1121,7 @@ export namespace Components {
          */
         "close": () => Promise<void>;
         "closeButtonLabel"?: string;
+        "downloadButtonEnabled"?: boolean;
         "downloadButtonLabel"?: string;
         "hideMenu"?: boolean;
         "label": string;
@@ -5128,6 +5129,7 @@ declare namespace LocalJSX {
     }
     interface SwirlLightbox {
         "closeButtonLabel"?: string;
+        "downloadButtonEnabled"?: boolean;
         "downloadButtonLabel"?: string;
         "hideMenu"?: boolean;
         "label": string;

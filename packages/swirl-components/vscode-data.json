@@ -4590,6 +4590,10 @@
           "description": ""
         },
         {
+          "name": "download-button-enabled",
+          "description": ""
+        },
+        {
           "name": "download-button-label",
           "description": ""
         },
