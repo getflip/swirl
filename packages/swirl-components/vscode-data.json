@@ -2996,6 +2996,19 @@
       ]
     },
     {
+      "name": "swirl-icon-dark-mode",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-date-range",
       "description": {
         "kind": "markdown",
@@ -3049,6 +3062,19 @@
     },
     {
       "name": "swirl-icon-dock-left",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-dot",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3503,6 +3529,19 @@
       ]
     },
     {
+      "name": "swirl-icon-light-mode",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-like",
       "description": {
         "kind": "markdown",
@@ -3530,6 +3569,19 @@
     },
     {
       "name": "swirl-icon-lock",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-lock-open",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3907,6 +3959,19 @@
     },
     {
       "name": "swirl-icon-phone",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-photo-camera",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -4388,6 +4453,19 @@
     },
     {
       "name": "swirl-icon-warning",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-work",
       "description": {
         "kind": "markdown",
         "value": ""
