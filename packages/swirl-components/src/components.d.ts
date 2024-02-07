@@ -711,6 +711,9 @@ export namespace Components {
     interface SwirlIconBookmark {
         "size": SwirlIconSize;
     }
+    interface SwirlIconBookmarkFilled {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconCancel {
         "size": SwirlIconSize;
     }
@@ -2483,6 +2486,12 @@ declare global {
         prototype: HTMLSwirlIconBookmarkElement;
         new (): HTMLSwirlIconBookmarkElement;
     };
+    interface HTMLSwirlIconBookmarkFilledElement extends Components.SwirlIconBookmarkFilled, HTMLStencilElement {
+    }
+    var HTMLSwirlIconBookmarkFilledElement: {
+        prototype: HTMLSwirlIconBookmarkFilledElement;
+        new (): HTMLSwirlIconBookmarkFilledElement;
+    };
     interface HTMLSwirlIconCancelElement extends Components.SwirlIconCancel, HTMLStencilElement {
     }
     var HTMLSwirlIconCancelElement: {
@@ -4039,6 +4048,7 @@ declare global {
         "swirl-icon-bar-chart": HTMLSwirlIconBarChartElement;
         "swirl-icon-block": HTMLSwirlIconBlockElement;
         "swirl-icon-bookmark": HTMLSwirlIconBookmarkElement;
+        "swirl-icon-bookmark-filled": HTMLSwirlIconBookmarkFilledElement;
         "swirl-icon-cancel": HTMLSwirlIconCancelElement;
         "swirl-icon-chat-bubble": HTMLSwirlIconChatBubbleElement;
         "swirl-icon-chats-filled": HTMLSwirlIconChatsFilledElement;
@@ -4806,6 +4816,9 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBookmark {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconBookmarkFilled {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCancel {
@@ -5977,6 +5990,7 @@ declare namespace LocalJSX {
         "swirl-icon-bar-chart": SwirlIconBarChart;
         "swirl-icon-block": SwirlIconBlock;
         "swirl-icon-bookmark": SwirlIconBookmark;
+        "swirl-icon-bookmark-filled": SwirlIconBookmarkFilled;
         "swirl-icon-cancel": SwirlIconCancel;
         "swirl-icon-chat-bubble": SwirlIconChatBubble;
         "swirl-icon-chats-filled": SwirlIconChatsFilled;
@@ -6304,6 +6318,7 @@ declare module "@stencil/core" {
             "swirl-icon-bar-chart": LocalJSX.SwirlIconBarChart & JSXBase.HTMLAttributes<HTMLSwirlIconBarChartElement>;
             "swirl-icon-block": LocalJSX.SwirlIconBlock & JSXBase.HTMLAttributes<HTMLSwirlIconBlockElement>;
             "swirl-icon-bookmark": LocalJSX.SwirlIconBookmark & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkElement>;
+            "swirl-icon-bookmark-filled": LocalJSX.SwirlIconBookmarkFilled & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkFilledElement>;
             "swirl-icon-cancel": LocalJSX.SwirlIconCancel & JSXBase.HTMLAttributes<HTMLSwirlIconCancelElement>;
             "swirl-icon-chat-bubble": LocalJSX.SwirlIconChatBubble & JSXBase.HTMLAttributes<HTMLSwirlIconChatBubbleElement>;
             "swirl-icon-chats-filled": LocalJSX.SwirlIconChatsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconChatsFilledElement>;
