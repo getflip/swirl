@@ -8,9 +8,16 @@
   & * {
     box-sizing: border-box;
   }
+
+  &(:hover),
+  &(:focus-within) {
+    z-index: 2;
+  }
 }
 
 .table-row-group__header-row {
+  position: relative;
+  z-index: var(--s-z-10);
   padding: var(--s-space-12) var(--s-space-16);
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-surface-raised-default);
@@ -28,8 +35,8 @@
 
 .table-row-group__tooltip {
   display: inline-flex;
-  vertical-align: middle;
   margin-left: var(--s-space-4);
+  vertical-align: middle;
 }
 
 .table-row-group__tooltip-icon {

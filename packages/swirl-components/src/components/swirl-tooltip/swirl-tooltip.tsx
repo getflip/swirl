@@ -7,6 +7,7 @@ import {
   flip,
   offset,
   shift,
+  Strategy,
 } from "@floating-ui/dom";
 import {
   Component,
@@ -33,6 +34,7 @@ export class SwirlTooltip {
   @Prop() content!: string;
   @Prop() delay?: number = 300;
   @Prop() position?: SwirlTooltipPosition = "top";
+  @Prop() positioning?: Strategy = "absolute";
 
   @State() actualPosition: ComputePositionReturn;
   @State() arrowStyles: { [key: string]: string };
@@ -162,7 +164,7 @@ export class SwirlTooltip {
     this.options = {
       middleware: [offset(margin), shift(), flip()],
       placement: this.position,
-      strategy: "absolute",
+      strategy: this.positioning,
     };
   };
 
@@ -197,6 +199,7 @@ export class SwirlTooltip {
               left: Boolean(this.actualPosition)
                 ? `${this.actualPosition?.x}px`
                 : "",
+              position: this.positioning,
             }}
           >
             {this.visible && (

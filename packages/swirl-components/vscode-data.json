@@ -7770,6 +7770,18 @@
               "name": "top"
             }
           ]
+        },
+        {
+          "name": "positioning",
+          "description": "",
+          "values": [
+            {
+              "name": "absolute"
+            },
+            {
+              "name": "fixed"
+            }
+          ]
         }
       ]
     },
