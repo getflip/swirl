@@ -47,3 +47,22 @@ via the `img` tag.
 ```html
 <img src="icons/Add16.svg" alt="" />
 ```
+
+## Add or update icons
+
+All icon deliverables are generated from the svg files inside
+`packages/swirl-icons/icons`. To change, add or delete icons, modify the
+corresponding svg file.
+
+**⚠️ Every icon svg file needs to come in three sizes (16, 24, 28). The files
+have to be named in PascalCase followed by the size, e.g. `AddPhoto16.svg`!**
+
+1. Modify the icon files in a new branch
+2. Inside `packages/swirl-components` run:
+   1. `yarn`
+   2. `yarn generate`
+   3. Select "icons" when prompted
+3. Run `yarn changeset` from the root directory to create a corresponding
+   changelog item
+4. Run `yarn build` from the root directory
+5. Check, commit and push all changes and create a PR
