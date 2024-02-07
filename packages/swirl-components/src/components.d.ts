@@ -711,6 +711,9 @@ export namespace Components {
     interface SwirlIconBookmark {
         "size": SwirlIconSize;
     }
+    interface SwirlIconBookmarkFilled {
+        "size": SwirlIconSize;
+    }
     interface SwirlIconCancel {
         "size": SwirlIconSize;
     }
@@ -769,6 +772,12 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconDescription {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconDirectoryFilled {
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconDirectoryOutlined {
         "size": SwirlIconSize;
     }
     interface SwirlIconDiscover {
@@ -2478,6 +2487,12 @@ declare global {
         prototype: HTMLSwirlIconBookmarkElement;
         new (): HTMLSwirlIconBookmarkElement;
     };
+    interface HTMLSwirlIconBookmarkFilledElement extends Components.SwirlIconBookmarkFilled, HTMLStencilElement {
+    }
+    var HTMLSwirlIconBookmarkFilledElement: {
+        prototype: HTMLSwirlIconBookmarkFilledElement;
+        new (): HTMLSwirlIconBookmarkFilledElement;
+    };
     interface HTMLSwirlIconCancelElement extends Components.SwirlIconCancel, HTMLStencilElement {
     }
     var HTMLSwirlIconCancelElement: {
@@ -2597,6 +2612,18 @@ declare global {
     var HTMLSwirlIconDescriptionElement: {
         prototype: HTMLSwirlIconDescriptionElement;
         new (): HTMLSwirlIconDescriptionElement;
+    };
+    interface HTMLSwirlIconDirectoryFilledElement extends Components.SwirlIconDirectoryFilled, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDirectoryFilledElement: {
+        prototype: HTMLSwirlIconDirectoryFilledElement;
+        new (): HTMLSwirlIconDirectoryFilledElement;
+    };
+    interface HTMLSwirlIconDirectoryOutlinedElement extends Components.SwirlIconDirectoryOutlined, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDirectoryOutlinedElement: {
+        prototype: HTMLSwirlIconDirectoryOutlinedElement;
+        new (): HTMLSwirlIconDirectoryOutlinedElement;
     };
     interface HTMLSwirlIconDiscoverElement extends Components.SwirlIconDiscover, HTMLStencilElement {
     }
@@ -4022,6 +4049,7 @@ declare global {
         "swirl-icon-bar-chart": HTMLSwirlIconBarChartElement;
         "swirl-icon-block": HTMLSwirlIconBlockElement;
         "swirl-icon-bookmark": HTMLSwirlIconBookmarkElement;
+        "swirl-icon-bookmark-filled": HTMLSwirlIconBookmarkFilledElement;
         "swirl-icon-cancel": HTMLSwirlIconCancelElement;
         "swirl-icon-chat-bubble": HTMLSwirlIconChatBubbleElement;
         "swirl-icon-chats-filled": HTMLSwirlIconChatsFilledElement;
@@ -4042,6 +4070,8 @@ declare global {
         "swirl-icon-date-range": HTMLSwirlIconDateRangeElement;
         "swirl-icon-delete": HTMLSwirlIconDeleteElement;
         "swirl-icon-description": HTMLSwirlIconDescriptionElement;
+        "swirl-icon-directory-filled": HTMLSwirlIconDirectoryFilledElement;
+        "swirl-icon-directory-outlined": HTMLSwirlIconDirectoryOutlinedElement;
         "swirl-icon-discover": HTMLSwirlIconDiscoverElement;
         "swirl-icon-dock-left": HTMLSwirlIconDockLeftElement;
         "swirl-icon-dot": HTMLSwirlIconDotElement;
@@ -4789,6 +4819,9 @@ declare namespace LocalJSX {
     interface SwirlIconBookmark {
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconBookmarkFilled {
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconCancel {
         "size"?: SwirlIconSize;
     }
@@ -4847,6 +4880,12 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDescription {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconDirectoryFilled {
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconDirectoryOutlined {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDiscover {
@@ -5953,6 +5992,7 @@ declare namespace LocalJSX {
         "swirl-icon-bar-chart": SwirlIconBarChart;
         "swirl-icon-block": SwirlIconBlock;
         "swirl-icon-bookmark": SwirlIconBookmark;
+        "swirl-icon-bookmark-filled": SwirlIconBookmarkFilled;
         "swirl-icon-cancel": SwirlIconCancel;
         "swirl-icon-chat-bubble": SwirlIconChatBubble;
         "swirl-icon-chats-filled": SwirlIconChatsFilled;
@@ -5973,6 +6013,8 @@ declare namespace LocalJSX {
         "swirl-icon-date-range": SwirlIconDateRange;
         "swirl-icon-delete": SwirlIconDelete;
         "swirl-icon-description": SwirlIconDescription;
+        "swirl-icon-directory-filled": SwirlIconDirectoryFilled;
+        "swirl-icon-directory-outlined": SwirlIconDirectoryOutlined;
         "swirl-icon-discover": SwirlIconDiscover;
         "swirl-icon-dock-left": SwirlIconDockLeft;
         "swirl-icon-dot": SwirlIconDot;
@@ -6278,6 +6320,7 @@ declare module "@stencil/core" {
             "swirl-icon-bar-chart": LocalJSX.SwirlIconBarChart & JSXBase.HTMLAttributes<HTMLSwirlIconBarChartElement>;
             "swirl-icon-block": LocalJSX.SwirlIconBlock & JSXBase.HTMLAttributes<HTMLSwirlIconBlockElement>;
             "swirl-icon-bookmark": LocalJSX.SwirlIconBookmark & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkElement>;
+            "swirl-icon-bookmark-filled": LocalJSX.SwirlIconBookmarkFilled & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkFilledElement>;
             "swirl-icon-cancel": LocalJSX.SwirlIconCancel & JSXBase.HTMLAttributes<HTMLSwirlIconCancelElement>;
             "swirl-icon-chat-bubble": LocalJSX.SwirlIconChatBubble & JSXBase.HTMLAttributes<HTMLSwirlIconChatBubbleElement>;
             "swirl-icon-chats-filled": LocalJSX.SwirlIconChatsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconChatsFilledElement>;
@@ -6298,6 +6341,8 @@ declare module "@stencil/core" {
             "swirl-icon-date-range": LocalJSX.SwirlIconDateRange & JSXBase.HTMLAttributes<HTMLSwirlIconDateRangeElement>;
             "swirl-icon-delete": LocalJSX.SwirlIconDelete & JSXBase.HTMLAttributes<HTMLSwirlIconDeleteElement>;
             "swirl-icon-description": LocalJSX.SwirlIconDescription & JSXBase.HTMLAttributes<HTMLSwirlIconDescriptionElement>;
+            "swirl-icon-directory-filled": LocalJSX.SwirlIconDirectoryFilled & JSXBase.HTMLAttributes<HTMLSwirlIconDirectoryFilledElement>;
+            "swirl-icon-directory-outlined": LocalJSX.SwirlIconDirectoryOutlined & JSXBase.HTMLAttributes<HTMLSwirlIconDirectoryOutlinedElement>;
             "swirl-icon-discover": LocalJSX.SwirlIconDiscover & JSXBase.HTMLAttributes<HTMLSwirlIconDiscoverElement>;
             "swirl-icon-dock-left": LocalJSX.SwirlIconDockLeft & JSXBase.HTMLAttributes<HTMLSwirlIconDockLeftElement>;
             "swirl-icon-dot": LocalJSX.SwirlIconDot & JSXBase.HTMLAttributes<HTMLSwirlIconDotElement>;

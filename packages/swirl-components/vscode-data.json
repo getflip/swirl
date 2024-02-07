@@ -2788,6 +2788,19 @@
       ]
     },
     {
+      "name": "swirl-icon-bookmark-filled",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-cancel",
       "description": {
         "kind": "markdown",
@@ -3036,6 +3049,32 @@
     },
     {
       "name": "swirl-icon-description",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-directory-filled",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-directory-outlined",
       "description": {
         "kind": "markdown",
         "value": ""
