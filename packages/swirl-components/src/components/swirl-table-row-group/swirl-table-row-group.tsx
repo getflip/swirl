@@ -28,7 +28,11 @@ export class SwirlTableRowGroup {
             {this.label}
             {this.tooltip && (
               <span class="table-row-group__tooltip">
-                <swirl-tooltip content={this.tooltip} position="top">
+                <swirl-tooltip
+                  content={this.tooltip}
+                  position="top"
+                  positioning="fixed"
+                >
                   <swirl-icon-info
                     size={16}
                     tabIndex={0}

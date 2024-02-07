@@ -41,7 +41,7 @@ import { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 import { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
-import { ComputePositionReturn, Placement } from "@floating-ui/dom";
+import { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
@@ -101,7 +101,7 @@ export { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 export { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
-export { ComputePositionReturn, Placement } from "@floating-ui/dom";
+export { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
@@ -1869,6 +1869,7 @@ export namespace Components {
         "content": string;
         "delay"?: number;
         "position"?: SwirlTooltipPosition;
+        "positioning"?: Strategy;
     }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
@@ -5869,6 +5870,7 @@ declare namespace LocalJSX {
         "content": string;
         "delay"?: number;
         "position"?: SwirlTooltipPosition;
+        "positioning"?: Strategy;
     }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
