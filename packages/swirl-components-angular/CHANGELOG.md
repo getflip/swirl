@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.146.0
+
+### Minor Changes
+
+- [`5a1bc4be`](https://github.com/getflip/swirl/commit/5a1bc4bebc50e3e24df62e69d54ad41bb63dbe6b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update icons
+
+* [#567](https://github.com/getflip/swirl/pull/567)
+  [`37c0ce44`](https://github.com/getflip/swirl/commit/37c0ce445cd933c6c406f0bf3d1a57df90c9e97b)
+  Thanks [@fellmann](https://github.com/fellmann)! - remove swirl-switch drag
+  events
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5a1bc4be`](https://github.com/getflip/swirl/commit/5a1bc4bebc50e3e24df62e69d54ad41bb63dbe6b),
+  [`37c0ce44`](https://github.com/getflip/swirl/commit/37c0ce445cd933c6c406f0bf3d1a57df90c9e97b)]:
+  - @getflip/swirl-components@0.146.0
+
 ## 0.145.1
 
 ### Patch Changes
