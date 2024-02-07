@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.147.0
+
+### Minor Changes
+
+- [#569](https://github.com/getflip/swirl/pull/569)
+  [`3ae0e9ae`](https://github.com/getflip/swirl/commit/3ae0e9aefa56cd700dc9b783a6469ed5d8fc0caa)
+  Thanks [@fellmann](https://github.com/fellmann)! - fix row group tooltip
+  positioning
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3ae0e9ae`](https://github.com/getflip/swirl/commit/3ae0e9aefa56cd700dc9b783a6469ed5d8fc0caa)]:
+  - @getflip/swirl-components@0.147.0
+
 ## 0.146.0
 
 ### Minor Changes
