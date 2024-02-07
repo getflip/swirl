@@ -1,5 +1,15 @@
 # @getflip/swirl-icons
 
+## 0.27.0
+
+### Minor Changes
+
+- [`5a1bc4be`](https://github.com/getflip/swirl/commit/5a1bc4bebc50e3e24df62e69d54ad41bb63dbe6b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update icons
+
+* [`79d1f5da`](https://github.com/getflip/swirl/commit/79d1f5dac80926a5ec527f2365751415cc6f5fcd)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Dart Build of v26
+
 ## 0.26.0
 
 ### Minor Changes
