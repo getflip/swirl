@@ -5,7 +5,6 @@ import {
   EventEmitter,
   h,
   Host,
-  Listen,
   Prop,
 } from "@stencil/core";
 import classnames from "classnames";
@@ -35,88 +34,9 @@ export class SwirlSwitch {
 
   @Event() valueChange: EventEmitter<boolean>;
 
-  private control: HTMLElement;
-  private dragging = false;
-  private recentlyDragged = false;
-  private thumb: HTMLElement;
-
-  @Listen("pointerup", { target: "window" })
-  onWindowPointerUp() {
-    this.onEndDrag();
-  }
-
   private onChange = () => {
-    if (this.dragging) {
-      return;
-    }
-
-    if (this.recentlyDragged) {
-      this.recentlyDragged = false;
-      return;
-    }
-
     this.checked = !this.checked;
     this.valueChange.emit(this.checked);
-  };
-
-  private onStartDrag = () => {
-    if (this.disabled) {
-      return;
-    }
-
-    this.dragging = true;
-    this.thumb.style.transition = "none";
-  };
-
-  private onEndDrag = () => {
-    if (this.disabled) {
-      return;
-    }
-
-    if (this.recentlyDragged) {
-      const controlBonds = this.control.getBoundingClientRect();
-      const thumbBounds = this.thumb.getBoundingClientRect();
-
-      const on =
-        this.thumb.offsetLeft + thumbBounds.width / 2 > controlBonds.width / 2;
-
-      if (this.checked !== on) {
-        this.checked = on;
-        this.valueChange.emit(on);
-      }
-    }
-
-    this.thumb.style.left = "";
-    this.thumb.style.transition = "";
-
-    this.dragging = false;
-
-    setTimeout(() => {
-      this.recentlyDragged = false;
-    });
-  };
-
-  private onDrag = (event: PointerEvent) => {
-    if (!this.dragging) {
-      return;
-    }
-
-    this.recentlyDragged = true;
-
-    const controlBonds = this.control.getBoundingClientRect();
-    const thumbBounds = this.thumb.getBoundingClientRect();
-
-    let pos = Math.round(event.offsetX - thumbBounds.width / 2);
-
-    if (pos < 0) {
-      pos = 0;
-    }
-
-    if (pos > Math.round(controlBonds.width - thumbBounds.width)) {
-      pos = Math.round(controlBonds.width - thumbBounds.width);
-    }
-
-    this.thumb.style.left = `${pos}px`;
   };
 
   render() {
@@ -134,13 +54,7 @@ export class SwirlSwitch {
     return (
       <Host>
         <label class={className} htmlFor={this.inputId}>
-          <span
-            class="switch__control"
-            onPointerDown={this.onStartDrag}
-            onPointerMove={this.onDrag}
-            onPointerUp={this.onEndDrag}
-            ref={(el) => (this.control = el)}
-          >
+          <span class="switch__control">
             <swirl-visually-hidden>
               <input
                 aria-checked={ariaCheckedLabel}
@@ -155,11 +69,7 @@ export class SwirlSwitch {
                 value={this.value}
               />
             </swirl-visually-hidden>
-            <span
-              aria-hidden="true"
-              class="switch__thumb"
-              ref={(el) => (this.thumb = el)}
-            ></span>
+            <span aria-hidden="true" class="switch__thumb"></span>
           </span>
           {this.label && !this.hideLabel && (
             <span class="switch__label">{this.label}</span>
