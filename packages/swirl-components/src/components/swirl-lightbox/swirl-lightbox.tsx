@@ -61,6 +61,7 @@ export class SwirlLightbox {
   @Listen("keydown", { target: "document" })
   onKeyDown(event: KeyboardEvent) {
     if (event.code === "Escape") {
+      event.stopImmediatePropagation();
       this.close();
     } else if (event.code === "ArrowLeft") {
       this.onPreviousSlideClick();

@@ -169,6 +169,7 @@ export class SwirlPdfReader {
 
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
+      event.stopImmediatePropagation();
       this.close();
     }
   };

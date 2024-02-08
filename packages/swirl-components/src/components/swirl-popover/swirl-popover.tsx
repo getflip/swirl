@@ -264,6 +264,7 @@ export class SwirlPopover {
 
   private onKeydown = (event: KeyboardEvent) => {
     if (event.code === "Escape" && this.active) {
+      event.stopImmediatePropagation();
       event.stopPropagation();
       this.close();
     }
