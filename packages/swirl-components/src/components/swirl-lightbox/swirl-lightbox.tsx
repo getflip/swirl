@@ -60,6 +60,10 @@ export class SwirlLightbox {
 
   @Listen("keydown", { target: "document" })
   onKeyDown(event: KeyboardEvent) {
+    if (!(this.modal.shown as boolean)) {
+      return;
+    }
+
     if (event.code === "Escape") {
       event.stopImmediatePropagation();
       this.close();
