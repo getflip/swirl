@@ -29,6 +29,8 @@
 
 .toast__icon {
   display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
   margin-top: calc(-1 * var(--s-space-2));
   margin-right: 0.625rem;
   flex-shrink: 0;
@@ -38,6 +40,8 @@
   }
 
   @media (--from-desktop-without-touch) {
+    width: 1.25rem;
+    height: 1.25rem;
     margin-top: 0;
   }
 }
@@ -48,13 +52,13 @@
   text-align: left;
   align-self: flex-start;
 
+  & ::part(link) {
+    color: var(--text-default);
+  }
+
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
-  }
-
-  & ::part(link) {
-    color: var(--text-default);
   }
 }
 
