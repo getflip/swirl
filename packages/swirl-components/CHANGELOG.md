@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.148.1
+
+### Patch Changes
+
+- [`38cf78bf`](https://github.com/getflip/swirl/commit/38cf78bfb005fd71da364b8bbfb17bf6774df891)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent icons from
+  jumping/resizing after first render
+
 ## 0.148.0
 
 ### Minor Changes
