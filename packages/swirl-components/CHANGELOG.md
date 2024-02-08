@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.149.0
+
+### Minor Changes
+
+- [`a6189785`](https://github.com/getflip/swirl/commit/a6189785b0dbc4d9a3060a67d8ef35e586b24f58)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Stop event propagation when
+  closing a modal/dialog component via ESC
+
 ## 0.148.1
 
 ### Patch Changes
