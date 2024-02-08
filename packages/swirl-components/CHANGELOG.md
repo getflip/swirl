@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.149.1
+
+### Patch Changes
+
+- [`9c83e676`](https://github.com/getflip/swirl/commit/9c83e676152472d2338dfa89d0ff159e28bcd3b7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-lightbox keydown event
+  handling
+
 ## 0.149.0
 
 ### Minor Changes
