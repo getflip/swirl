@@ -152,6 +152,23 @@
     }
   }
 
+  &.button--intent-critical:not(:disabled) {
+    color: var(--s-text-on-status);
+    background-color: var(--s-action-critical-default);
+
+    &:hover {
+      background-color: var(--s-action-critical-hovered);
+    }
+
+    &:active {
+      background-color: var(--s-action-critical-pressed);
+    }
+
+    & .button__icon {
+      color: var(--s-icon-on-status);
+    }
+  }
+
   & .button__icon {
     color: var(--s-icon-strong);
   }
