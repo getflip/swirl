@@ -2,6 +2,7 @@
 
 import { Component, Fragment, h, Prop } from "@stencil/core";
 import { SwirlIconSize } from "../swirl-icon.types";
+import { SwirlIconColor } from "../swirl-icon";
 import classnames from "classnames";
 
 @Component({
@@ -10,10 +11,15 @@ import classnames from "classnames";
   tag: "swirl-icon-menu-book",
 })
 export class SwirlIconMenuBook {
+  @Prop() color?: SwirlIconColor;
   @Prop() size: SwirlIconSize = 24;
 
   render() {
     const viewBoxSize = this.size === 20 ? 24 : this.size;
+
+    const styles = {
+      color: Boolean(this.color) ? `var(--s-icon-${this.color})` : undefined,
+    };
 
     const className = classnames("swirl-icon", `swirl-icon--size-${this.size}`);
 
@@ -23,6 +29,7 @@ export class SwirlIconMenuBook {
         fill="none"
         height={this.size}
         part="icon"
+        style={styles}
         viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         width={this.size}
         xmlns="http://www.w3.org/2000/svg"

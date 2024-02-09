@@ -1,6 +1,6 @@
+import IconsJSON from "../../../icons.json";
 import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-icon.mdx";
-import IconsJSON from "../../../icons.json";
 
 export default {
   argTypes: {

@@ -29,7 +29,9 @@ import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileVie
 import { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 import { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
+import { SwirlIconColor } from "./components/swirl-icon/swirl-icon";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
+import { SwirlIconColor as SwirlIconColor1 } from "./components/swirl-icon/swirl-icon";
 import { SwirlImageGridItemLoading } from "./components/swirl-image-grid-item/swirl-image-grid-item";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
@@ -89,7 +91,9 @@ export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileVie
 export { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 export { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
+export { SwirlIconColor } from "./components/swirl-icon/swirl-icon";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
+export { SwirlIconColor as SwirlIconColor1 } from "./components/swirl-icon/swirl-icon";
 export { SwirlImageGridItemLoading } from "./components/swirl-image-grid-item/swirl-image-grid-item";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
@@ -657,457 +661,608 @@ export namespace Components {
         "truncate"?: boolean;
     }
     interface SwirlIcon {
+        "color"?: SwirlIconColor;
         "glyph": string;
         "size": SwirlIconSize;
     }
     interface SwirlIconAdd {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconAddPhoto {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconAddReaction {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconAdminPanelSettings {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconAi {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconApps {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowBack {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowDownward {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowForward {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowLeft {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowRight {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowRightSmall {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowUpward {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconAttachment {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconBarChart {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconBlock {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconBookmark {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconBookmarkFilled {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconCancel {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconChatBubble {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconChatsFilled {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconChatsOutlined {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconCheck {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckCircle {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckSmall {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckStrong {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconChevronLeft {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconChevronRight {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconClose {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconCloseSmall {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconCloudUpload {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconColumn {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconComment {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconCopy {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDarkMode {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDateRange {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDelete {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDescription {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDirectoryFilled {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDirectoryOutlined {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDiscover {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDockLeft {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDot {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDoubleArrowLeft {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDoubleArrowRight {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDownload {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconDragHandle {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconEdit {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconEmojiMood {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconEmojiSatisfied {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconError {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconExpandLess {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconExpandMore {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconFile {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconFileCopy {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconFilter {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconFolder {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconFolderShared {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconFormatHOne {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconFullscreen {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconFullscreenExit {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconGif {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupAdd {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupAssign {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconGroups {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupsCustom {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupsFilled {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupsOutlined {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconHelp {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconHighlight {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconHome {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconImage {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconImproveText {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconInfo {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconInsertBelow {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconInsertOnTop {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconInventory {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconLightMode {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconLike {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconLink {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconLock {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconLockOpen {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconLockPerson {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconLogout {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconLongText {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMail {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconManageAccounts {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMarkChatRead {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMarkChatUnread {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMention {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMenu {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuBook {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuFilled {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuOutlined {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMessage {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMic {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMoreHorizontal {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconMoreVertikal {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconNewsFilled {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconNewsOutlined {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconNotifications {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconNotificationsActive {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconNotificationsOff {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconOpenInFull {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconOpenInNew {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconPause {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconPauseCircle {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconPeopleAlt {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconPerson {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconPersonOff {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconPhone {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconPhotoCamera {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconPlayArrow {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconPoll {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconPrint {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconRecieved {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconRemove {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconReply {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconReport {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconRoadmap {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconSearch {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconSearchStrong {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconSecure {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconSend {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconSettings {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconShortText {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconSimplify {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconSpellcheck {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconStop {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconSync {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconTasksFilled {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconTasksOutlined {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconTerminal {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconTimeFilled {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconTimeOutlined {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconToday {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconTodayOutlined {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconTranslate {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconTreeStructure {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconUndo {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconUnlockPerson {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconUserAdd {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconUserAssign {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoCamera {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoLibrary {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconVisibility {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconVisibilityOff {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconVoice {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconWarning {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlIconWork {
+        "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
     interface SwirlImageGrid {
@@ -4765,457 +4920,608 @@ declare namespace LocalJSX {
         "truncate"?: boolean;
     }
     interface SwirlIcon {
+        "color"?: SwirlIconColor;
         "glyph": string;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAdd {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAddPhoto {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAddReaction {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAdminPanelSettings {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAi {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconApps {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowBack {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowDownward {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowForward {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowLeft {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowRight {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowRightSmall {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowUpward {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAttachment {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBarChart {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBlock {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBookmark {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBookmarkFilled {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCancel {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconChatBubble {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconChatsFilled {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconChatsOutlined {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheck {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheckCircle {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheckSmall {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheckStrong {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconChevronLeft {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconChevronRight {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconClose {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCloseSmall {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCloudUpload {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconColumn {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconComment {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCopy {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDarkMode {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDateRange {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDelete {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDescription {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDirectoryFilled {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDirectoryOutlined {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDiscover {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDockLeft {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDot {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDoubleArrowLeft {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDoubleArrowRight {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDownload {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDragHandle {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconEdit {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconEmojiMood {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconEmojiSatisfied {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconError {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconExpandLess {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconExpandMore {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFile {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFileCopy {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFilter {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFolder {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFolderShared {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFormatHOne {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFullscreen {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFullscreenExit {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGif {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroupAdd {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroupAssign {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroups {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroupsCustom {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroupsFilled {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroupsOutlined {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHelp {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHighlight {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHome {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconImage {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconImproveText {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInfo {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInsertBelow {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInsertOnTop {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInventory {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLightMode {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLike {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLink {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLock {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLockOpen {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLockPerson {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLogout {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLongText {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMail {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconManageAccounts {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMarkChatRead {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMarkChatUnread {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMention {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenu {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenuBook {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenuFilled {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenuOutlined {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMessage {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMic {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMoreHorizontal {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMoreVertikal {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNewsFilled {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNewsOutlined {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNotifications {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNotificationsActive {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNotificationsOff {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconOpenInFull {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconOpenInNew {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPause {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPauseCircle {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPeopleAlt {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPerson {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPersonOff {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPhone {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPhotoCamera {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPlayArrow {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPoll {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPrint {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRecieved {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRemove {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconReply {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconReport {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRoadmap {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSearch {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSearchStrong {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSecure {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSend {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSettings {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconShortText {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSimplify {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSpellcheck {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconStop {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSync {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTasksFilled {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTasksOutlined {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTerminal {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTimeFilled {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTimeOutlined {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconToday {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTodayOutlined {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTranslate {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTreeStructure {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUndo {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUnlockPerson {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUserAdd {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUserAssign {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVideoCamera {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVideoLibrary {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVisibility {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVisibilityOff {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVoice {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconWarning {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlIconWork {
+        "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
     interface SwirlImageGrid {
