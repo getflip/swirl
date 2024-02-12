@@ -21,7 +21,7 @@ describe("swirl-badge", () => {
     });
 
     expect(page.root.shadowRoot.innerHTML).toMatchInlineSnapshot(
-      `"<span class=\\"badge badge--intent-critical badge--size-m badge--variant-default badge--has-icon\\" part=\\"badge\\"><span class=\\"badge__icon\\"><swirl-icon-close></swirl-icon-close></span></span>"`
+      `"<span class=\\"badge badge--intent-critical badge--size-m badge--variant-default badge--has-icon\\" part=\\"badge\\"><span class=\\"badge__icon\\"><swirl-icon-close></swirl-icon-close></span><swirl-visually-hidden>Label</swirl-visually-hidden></span>"`
     );
 
     expect(page.root.querySelector(".badge__icon")).toBeDefined();

@@ -32,6 +32,5 @@ const Template = (args) => {
 export const SwirlBadge = Template.bind({});
 
 SwirlBadge.args = {
-  "aria-label": "3 new messages",
-  label: "3",
+  label: "3 new messages",
 };
