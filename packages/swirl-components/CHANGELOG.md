@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.151.2
+
+### Patch Changes
+
+- [`f4c40190`](https://github.com/getflip/swirl/commit/f4c401902170bf6d0818c482846547ce60731ab1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Remove icons from accessibility
+  tree
+
 ## 0.151.1
 
 ### Patch Changes
