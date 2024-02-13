@@ -20,6 +20,9 @@ describe("swirl-empty-state", () => {
         <mock:shadow-root>
           <div class="empty-state">
             <img alt="" class="empty-state__illustration" src="/assets/images/empty-state-1.svg">
+            <div class="empty-state__slotted-illustration">
+              <slot name="illustration"></slot>
+            </div>
             <div class="empty-state__body">
               <swirl-stack align="stretch" spacing="8">
                 <swirl-heading align="center" as="p" level="4" text="Nothing to see here."></swirl-heading>

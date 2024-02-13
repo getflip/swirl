@@ -4,6 +4,7 @@ import classnames from "classnames";
 /**
  * @slot slot - The component content
  * @slot controls - The component content
+ * @slot illustration - The placeholder illustration
  */
 @Component({
   shadow: true,
@@ -18,21 +19,29 @@ export class SwirlEmptyState {
 
   render() {
     const hasControls = Boolean(this.el.querySelector('[slot="controls"]'));
+    const hasSlottedIllustration = Boolean(
+      this.el.querySelector('[slot="illustration"]')
+    );
 
     const className = classnames("empty-state", {
       "empty-state--has-controls": hasControls,
+      "empty-state--has-slotted-illustration": hasSlottedIllustration,
     });
 
     return (
       <Host>
         <div class={className}>
-          {this.illustration && (
+          {this.illustration && !hasSlottedIllustration && (
             <img
               alt=""
               class="empty-state__illustration"
               src={this.illustration}
             />
           )}
+
+          <div class="empty-state__slotted-illustration">
+            <slot name="illustration"></slot>
+          </div>
 
           <div class="empty-state__body">
             <swirl-stack align="stretch" spacing="8">

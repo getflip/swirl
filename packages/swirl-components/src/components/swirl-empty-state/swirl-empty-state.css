@@ -22,6 +22,12 @@
   }
 }
 
+.empty-state--has-slotted-illustration {
+  & .empty-state__slotted-illustration {
+    display: block;
+  }
+}
+
 .empty-state__illustration {
   max-width: 16rem;
 }
@@ -35,4 +41,9 @@
 
 .empty-state__controls {
   display: none;
+}
+
+.empty-state__slotted-illustration {
+  display: none;
+  max-width: 16rem;
 }
