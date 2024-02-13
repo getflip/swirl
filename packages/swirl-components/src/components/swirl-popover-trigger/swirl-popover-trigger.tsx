@@ -115,6 +115,10 @@ export class SwirlPopoverTrigger {
 
     const triggerEl = this.getTriggerEl();
 
+    if (!Boolean(triggerEl)) {
+      return;
+    }
+
     const popoverId =
       typeof this.popover === "string" ? this.popover : this.popover?.id;
 
