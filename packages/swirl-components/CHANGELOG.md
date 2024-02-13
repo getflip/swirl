@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.151.1
+
+### Patch Changes
+
+- [`48ad3e43`](https://github.com/getflip/swirl/commit/48ad3e43605e3b8d5b398b7e04fdcdf09e1186d7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-shell-layout sidebar
+  height
+
 ## 0.151.0
 
 ### Minor Changes
