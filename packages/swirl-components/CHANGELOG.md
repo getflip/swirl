@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.152.0
+
+### Minor Changes
+
+- [`0114772e`](https://github.com/getflip/swirl/commit/0114772e5cbbfde2eeada436f8ce2ee78f0a559f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "illustration" slot to
+  swirl-empty-state
+
 ## 0.151.2
 
 ### Patch Changes
