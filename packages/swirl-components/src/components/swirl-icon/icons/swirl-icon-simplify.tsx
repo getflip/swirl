@@ -25,6 +25,7 @@ export class SwirlIconSimplify {
 
     return (
       <svg
+        aria-hidden="true"
         class={className}
         fill="none"
         height={this.size}

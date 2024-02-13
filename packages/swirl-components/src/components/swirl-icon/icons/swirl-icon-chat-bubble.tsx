@@ -25,6 +25,7 @@ export class SwirlIconChatBubble {
 
     return (
       <svg
+        aria-hidden="true"
         class={className}
         fill="none"
         height={this.size}
