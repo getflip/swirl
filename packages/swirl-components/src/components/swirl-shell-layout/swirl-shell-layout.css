@@ -387,6 +387,7 @@
 .shell-layout__sidebar {
   position: relative;
   display: none;
+  min-height: 0;
   grid-area: sidebar;
 
   @media (--from-desktop) {
