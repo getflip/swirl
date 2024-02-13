@@ -302,12 +302,7 @@ export class SwirlAppLayout {
 
     return (
       <Host>
-        <section
-          aria-labelledby="app-name"
-          class={className}
-          role="document"
-          tabIndex={0}
-        >
+        <section aria-labelledby="app-name" class={className}>
           <div class="app-layout__grid">
             <header class="app-layout__header">
               <span class="app-layout__navigation-mobile-menu-button">
