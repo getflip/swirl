@@ -70,7 +70,7 @@
     &:hover {
       &:after {
         position: absolute;
-        background-color: rgba(0, 0, 0, 0.06);
+        background-color: rgba(0, 0, 0, 0.15);
         content: "";
         inset: 0;
       }
@@ -79,7 +79,7 @@
     &:active {
       &:after {
         position: absolute;
-        background-color: rgba(0, 0, 0, 0.13);
+        background-color: rgba(0, 0, 0, 0.3);
         content: "";
         inset: 0;
       }
@@ -88,6 +88,7 @@
 }
 
 .thumbnail__image-wrapper {
+  overflow: hidden;
   width: 100%;
   height: 100%;
   border-radius: var(--s-border-radius-s);

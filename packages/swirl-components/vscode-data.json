@@ -3772,7 +3772,7 @@
       ]
     },
     {
-      "name": "swirl-icon-chats-filled",
+      "name": "swirl-icon-chats",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -3830,7 +3830,7 @@
       ]
     },
     {
-      "name": "swirl-icon-chats-outlined",
+      "name": "swirl-icon-chats-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -4816,7 +4816,7 @@
       ]
     },
     {
-      "name": "swirl-icon-directory-filled",
+      "name": "swirl-icon-directory",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -4874,7 +4874,7 @@
       ]
     },
     {
-      "name": "swirl-icon-directory-outlined",
+      "name": "swirl-icon-directory-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -6382,123 +6382,7 @@
       ]
     },
     {
-      "name": "swirl-icon-groups-custom",
-      "description": {
-        "kind": "markdown",
-        "value": ""
-      },
-      "attributes": [
-        {
-          "name": "color",
-          "description": "",
-          "values": [
-            {
-              "name": "critical"
-            },
-            {
-              "name": "default"
-            },
-            {
-              "name": "disabled"
-            },
-            {
-              "name": "highlight"
-            },
-            {
-              "name": "info"
-            },
-            {
-              "name": "on-action-primary"
-            },
-            {
-              "name": "on-image"
-            },
-            {
-              "name": "on-status"
-            },
-            {
-              "name": "on-surface-highlight"
-            },
-            {
-              "name": "on-surface-highlight-subdued"
-            },
-            {
-              "name": "strong"
-            },
-            {
-              "name": "success"
-            },
-            {
-              "name": "warning"
-            }
-          ]
-        },
-        {
-          "name": "size",
-          "description": ""
-        }
-      ]
-    },
-    {
       "name": "swirl-icon-groups-filled",
-      "description": {
-        "kind": "markdown",
-        "value": ""
-      },
-      "attributes": [
-        {
-          "name": "color",
-          "description": "",
-          "values": [
-            {
-              "name": "critical"
-            },
-            {
-              "name": "default"
-            },
-            {
-              "name": "disabled"
-            },
-            {
-              "name": "highlight"
-            },
-            {
-              "name": "info"
-            },
-            {
-              "name": "on-action-primary"
-            },
-            {
-              "name": "on-image"
-            },
-            {
-              "name": "on-status"
-            },
-            {
-              "name": "on-surface-highlight"
-            },
-            {
-              "name": "on-surface-highlight-subdued"
-            },
-            {
-              "name": "strong"
-            },
-            {
-              "name": "success"
-            },
-            {
-              "name": "warning"
-            }
-          ]
-        },
-        {
-          "name": "size",
-          "description": ""
-        }
-      ]
-    },
-    {
-      "name": "swirl-icon-groups-outlined",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -8006,64 +7890,6 @@
       ]
     },
     {
-      "name": "swirl-icon-menu-outlined",
-      "description": {
-        "kind": "markdown",
-        "value": ""
-      },
-      "attributes": [
-        {
-          "name": "color",
-          "description": "",
-          "values": [
-            {
-              "name": "critical"
-            },
-            {
-              "name": "default"
-            },
-            {
-              "name": "disabled"
-            },
-            {
-              "name": "highlight"
-            },
-            {
-              "name": "info"
-            },
-            {
-              "name": "on-action-primary"
-            },
-            {
-              "name": "on-image"
-            },
-            {
-              "name": "on-status"
-            },
-            {
-              "name": "on-surface-highlight"
-            },
-            {
-              "name": "on-surface-highlight-subdued"
-            },
-            {
-              "name": "strong"
-            },
-            {
-              "name": "success"
-            },
-            {
-              "name": "warning"
-            }
-          ]
-        },
-        {
-          "name": "size",
-          "description": ""
-        }
-      ]
-    },
-    {
       "name": "swirl-icon-message",
       "description": {
         "kind": "markdown",
@@ -8296,7 +8122,7 @@
       ]
     },
     {
-      "name": "swirl-icon-news-filled",
+      "name": "swirl-icon-news",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -8354,7 +8180,7 @@
       ]
     },
     {
-      "name": "swirl-icon-news-outlined",
+      "name": "swirl-icon-news-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -10152,7 +9978,7 @@
       ]
     },
     {
-      "name": "swirl-icon-tasks-filled",
+      "name": "swirl-icon-tasks",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -10210,7 +10036,7 @@
       ]
     },
     {
-      "name": "swirl-icon-tasks-outlined",
+      "name": "swirl-icon-tasks-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -10326,7 +10152,7 @@
       ]
     },
     {
-      "name": "swirl-icon-time-filled",
+      "name": "swirl-icon-time",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -10384,7 +10210,7 @@
       ]
     },
     {
-      "name": "swirl-icon-time-outlined",
+      "name": "swirl-icon-time-filled",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -10500,7 +10326,7 @@
       ]
     },
     {
-      "name": "swirl-icon-today-outlined",
+      "name": "swirl-icon-today-filled",
       "description": {
         "kind": "markdown",
         "value": ""
