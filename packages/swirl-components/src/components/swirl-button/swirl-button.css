@@ -219,35 +219,35 @@
 .button--variant-plain {
   padding: 0;
   border-radius: 0;
-  color: var(--s-interactive-neutral-default);
+  color: var(--swirl-plain-button-text-color-default);
   background-color: transparent;
 
   &:hover:not(:disabled) {
-    color: var(--s-interactive-neutral-default);
+    color: var(--swirl-plain-button-text-color-hovered);
     background-color: transparent;
     text-decoration: underline;
     text-underline-offset: var(--s-space-4);
 
     & .button__icon {
-      color: var(--s-interactive-neutral-default);
+      color: var(--swirl-plain-button-text-color-hovered);
     }
   }
 
   &:active:not(:disabled) {
-    color: var(--s-interactive-neutral-hovered);
+    color: var(--swirl-plain-button-text-color-pressed);
     background-color: transparent;
 
     & .button__icon {
-      color: var(--s-interactive-neutral-hovered);
+      color: var(--swirl-plain-button-text-color-pressed);
     }
   }
 
   &:disabled {
-    color: var(--s-interactive-neutral-disabled);
+    color: var(--swirl-plain-button-text-color-disabled);
     background-color: transparent;
 
     & .button__icon {
-      color: var(--s-interactive-neutral-disabled);
+      color: var(--swirl-plain-button-text-color-disabled);
     }
   }
 
@@ -297,7 +297,7 @@
 
   & .button__icon {
     margin-left: 0;
-    color: var(--s-interactive-neutral-default);
+    color: var(--swirl-plain-button-text-color-default);
   }
 }
 

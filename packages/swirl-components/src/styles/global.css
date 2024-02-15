@@ -49,6 +49,13 @@
   --swirl-ghost-button-background-hovered: var(--s-background-hovered);
   --swirl-ghost-button-background-pressed: var(--s-background-pressed);
 
+  --swirl-plain-button-text-color-default: var(--s-interactive-neutral-default);
+  --swirl-plain-button-text-color-disabled: var(
+    --s-interactive-neutral-disabled
+  );
+  --swirl-plain-button-text-color-hovered: var(--s-interactive-neutral-hovered);
+  --swirl-plain-button-text-color-pressed: var(--s-interactive-neutral-pressed);
+
   --swirl-resource-list-item-background-default: var(--s-background-default);
   --swirl-resource-list-item-background-hovered: var(--s-background-hovered);
   --swirl-resource-list-item-background-pressed: var(--s-background-pressed);
