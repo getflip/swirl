@@ -1,5 +1,26 @@
 # @getflip/swirl-components-react
 
+## 0.153.0
+
+### Minor Changes
+
+- [#583](https://github.com/getflip/swirl/pull/583)
+  [`711c2067`](https://github.com/getflip/swirl/commit/711c2067bbd84b87e9e5d34938cff92322f06bd8)
+  Thanks [@danizep](https://github.com/danizep)! - Added blur and focus methods
+  to SwirlTextInput
+
+### Patch Changes
+
+- [#580](https://github.com/getflip/swirl/pull/580)
+  [`1b5d69cc`](https://github.com/getflip/swirl/commit/1b5d69ccd786b69494fa849c649f52e5a3bc1095)
+  Thanks [@fellmann](https://github.com/fellmann)! - Fix error on missing
+  popover trigger element
+
+- Updated dependencies
+  [[`1b5d69cc`](https://github.com/getflip/swirl/commit/1b5d69ccd786b69494fa849c649f52e5a3bc1095),
+  [`711c2067`](https://github.com/getflip/swirl/commit/711c2067bbd84b87e9e5d34938cff92322f06bd8)]:
+  - @getflip/swirl-components@0.153.0
+
 ## 0.152.1
 
 ### Patch Changes
