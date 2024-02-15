@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.155.0
+
+### Minor Changes
+
+- [`e8d164aa`](https://github.com/getflip/swirl/commit/e8d164aab57295d39c0b2bd758174296daff767a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add hamburger-menu icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e8d164aa`](https://github.com/getflip/swirl/commit/e8d164aab57295d39c0b2bd758174296daff767a)]:
+  - @getflip/swirl-components@0.155.0
+
 ## 0.154.1
 
 ### Patch Changes
