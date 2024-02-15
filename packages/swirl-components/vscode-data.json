@@ -13952,6 +13952,10 @@
       },
       "attributes": [
         {
+          "name": "collapsable",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },

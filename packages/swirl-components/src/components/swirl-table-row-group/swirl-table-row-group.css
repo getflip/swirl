@@ -24,6 +24,8 @@
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-sm);
+  display: flex;
+  align-items: center;
 }
 
 .table-row-group__label {
@@ -41,4 +43,23 @@
 
 .table-row-group__tooltip-icon {
   color: var(--s-icon-default);
+}
+
+.table-row-group__collapse-icon {
+  color: var(--s-icon-default);
+  padding-right: var(--s-space-20);
+}
+
+.rows-container {
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+}
+
+.rows-container.is-hidden {
+  height: 0;
+}
+
+
+.is-collapsed {
+  transform: rotate(180deg); 
 }

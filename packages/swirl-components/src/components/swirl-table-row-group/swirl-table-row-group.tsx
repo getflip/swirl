@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 
 /**
  * @slot slot - The rows of this group.
@@ -13,13 +13,40 @@ export class SwirlTableRowGroup {
 
   @Prop() label!: string;
   @Prop() tooltip?: string;
+  @Prop() collapsable?: boolean = false;
+
+  @State() isVisible: boolean = true;
+
+  private toggleShowItems = () => {
+    const rowsContainer = this.el.shadowRoot.querySelector(
+      ".rows-container"
+    ) as HTMLElement;
+    if (this.isVisible) {
+      rowsContainer.style.height = "0";
+    } else {
+      rowsContainer.style.height = "auto";
+      const height = rowsContainer.clientHeight + "px";
+      rowsContainer.style.height = "0";
+      setTimeout(() => (rowsContainer.style.height = height), 0);
+    }
+    this.isVisible = !this.isVisible;
+  };
 
   render() {
     const rowspan = this.el.querySelectorAll("swirl-table-row").length;
+    const Icon = this.isVisible
+      ? "swirl-icon-expand-less"
+      : "swirl-icon-expand-more";
 
     return (
       <Host class="table-row-group" role="rowgroup">
         <div class="table-row-group__header-row" role="row">
+          {this.collapsable && (
+            <Icon
+              class="table-row-group__collapse-icon"
+              onClick={this.toggleShowItems}
+            ></Icon>
+          )}
           <span
             aria-rowspan={rowspan}
             class="table-row-group__label"
@@ -43,7 +70,9 @@ export class SwirlTableRowGroup {
             )}
           </span>
         </div>
-        <slot></slot>
+        <div class={{ "rows-container": true, "is-hidden": !this.isVisible }}>
+          <slot></slot>
+        </div>
       </Host>
     );
   }
