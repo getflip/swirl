@@ -13952,7 +13952,7 @@
       },
       "attributes": [
         {
-          "name": "collapsable",
+          "name": "collapsible",
           "description": ""
         },
         {

@@ -13,7 +13,7 @@ export class SwirlTableRowGroup {
 
   @Prop() label!: string;
   @Prop() tooltip?: string;
-  @Prop() collapsable?: boolean = false;
+  @Prop() collapsible?: boolean = true;
 
   @State() isVisible: boolean = true;
 
@@ -21,6 +21,12 @@ export class SwirlTableRowGroup {
     const rowsContainer = this.el.shadowRoot.querySelector(
       ".rows-container"
     ) as HTMLElement;
+
+    const headerRow = this.el.shadowRoot.querySelector(
+      ".table-row-group__header-row"
+    ) as HTMLElement;
+    headerRow.focus();
+
     if (this.isVisible) {
       rowsContainer.style.height = "0";
     } else {
@@ -32,6 +38,13 @@ export class SwirlTableRowGroup {
     this.isVisible = !this.isVisible;
   };
 
+  private handleKeyPress = (e: KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      this.toggleShowItems();
+    }
+  };
+
   render() {
     const rowspan = this.el.querySelectorAll("swirl-table-row").length;
     const Icon = this.isVisible
@@ -41,8 +54,10 @@ export class SwirlTableRowGroup {
     return (
       <Host class="table-row-group" role="rowgroup">
         <div class="table-row-group__header-row" role="row">
-          {this.collapsable && (
+          {this.collapsible && (
             <Icon
+              tabIndex={0}
+              onKeyPress={this.handleKeyPress}
               class="table-row-group__collapse-icon"
               onClick={this.toggleShowItems}
             ></Icon>
@@ -70,7 +85,10 @@ export class SwirlTableRowGroup {
             )}
           </span>
         </div>
-        <div class={{ "rows-container": true, "is-hidden": !this.isVisible }}>
+        <div
+          class={{ "rows-container": true, "is-hidden": !this.isVisible }}
+          aria-hidden={!this.isVisible}
+        >
           <slot></slot>
         </div>
       </Host>
