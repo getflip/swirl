@@ -178,7 +178,9 @@ export class SwirlShellLayout {
                 onClick={this.onNavigationToggleClick}
                 type="button"
               >
-                <swirl-icon-menu size={20}></swirl-icon-menu>
+                <swirl-icon-hamburger-menu
+                  size={20}
+                ></swirl-icon-hamburger-menu>
                 <swirl-icon-double-arrow-left
                   size={20}
                 ></swirl-icon-double-arrow-left>

@@ -262,7 +262,7 @@
 
 .shell-layout__navigation-toggle {
   &:hover {
-    & swirl-icon-menu {
+    & swirl-icon-hamburger-menu {
       display: none;
     }
 
