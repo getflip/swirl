@@ -1920,10 +1920,12 @@ export namespace Components {
         "autoFocus"?: boolean;
         "autoGrow"?: boolean;
         "autoSelect"?: boolean;
+        "blurInput": () => Promise<void>;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
+        "focusInput": () => Promise<void>;
         "inline"?: boolean;
         "invalid"?: boolean;
         "max"?: number;

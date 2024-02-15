@@ -3,10 +3,10 @@ import {
   Event,
   EventEmitter,
   h,
-  Host,
+  Host, Method,
   Prop,
   State,
-  Watch,
+  Watch
 } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery, SwirlFormInput } from "../../utils";
@@ -107,6 +107,16 @@ export class SwirlTextInput implements SwirlFormInput {
       "change",
       this.desktopMediaQueryHandler
     );
+  }
+
+  @Method()
+  async blurInput() {
+    this.inputEl.blur();
+  }
+
+  @Method()
+  async focusInput() {
+    this.inputEl.focus();
   }
 
   @Watch("value")
