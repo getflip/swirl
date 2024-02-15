@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.155.1
+
+### Patch Changes
+
+- [`64af292e`](https://github.com/getflip/swirl/commit/64af292eb9c1f5b4d1fc0bb78e8b0e29b028c244)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-shell-layout menu
+  button icon
+
 ## 0.155.0
 
 ### Minor Changes
