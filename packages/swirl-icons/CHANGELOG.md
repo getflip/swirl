@@ -1,5 +1,12 @@
 # @getflip/swirl-icons
 
+## 0.30.0
+
+### Minor Changes
+
+- [`eaf0df80`](https://github.com/getflip/swirl/commit/eaf0df80edcd9e7001979757077edd3599faf858)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update Dart icon package
+
 ## 0.29.0
 
 ### Minor Changes

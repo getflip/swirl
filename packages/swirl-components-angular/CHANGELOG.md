@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.154.1
+
+### Patch Changes
+
+- [`9cc3519a`](https://github.com/getflip/swirl/commit/9cc3519a747dde82b218f230c6c4f794aeccf7b0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-thumbnail hover and
+  pressed state visibility
+
+- Updated dependencies
+  [[`9cc3519a`](https://github.com/getflip/swirl/commit/9cc3519a747dde82b218f230c6c4f794aeccf7b0)]:
+  - @getflip/swirl-components@0.154.1
+
 ## 0.154.0
 
 ### Minor Changes
