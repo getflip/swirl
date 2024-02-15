@@ -8,9 +8,9 @@ import classnames from "classnames";
 @Component({
   shadow: true,
   styleUrl: "../swirl-icon.css",
-  tag: "swirl-icon-directory-outlined",
+  tag: "swirl-icon-directory",
 })
-export class SwirlIconDirectoryOutlined {
+export class SwirlIconDirectory {
   @Prop() color?: SwirlIconColor;
   @Prop() size: SwirlIconSize = 24;
 
