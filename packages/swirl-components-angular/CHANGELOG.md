@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.154.0
+
+### Minor Changes
+
+- [#584](https://github.com/getflip/swirl/pull/584)
+  [`69f2651a`](https://github.com/getflip/swirl/commit/69f2651a9b0b80417921682e7b132a73300a3d19)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Breaking! Clean up icon naming.
+  Removes "-outlined" suffix and unused icons.
+
+### Patch Changes
+
+- Updated dependencies
+  [[`69f2651a`](https://github.com/getflip/swirl/commit/69f2651a9b0b80417921682e7b132a73300a3d19)]:
+  - @getflip/swirl-components@0.154.0
+
 ## 0.153.0
 
 ### Minor Changes

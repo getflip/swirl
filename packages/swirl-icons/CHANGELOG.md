@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.29.0
+
+### Minor Changes
+
+- [#584](https://github.com/getflip/swirl/pull/584)
+  [`69f2651a`](https://github.com/getflip/swirl/commit/69f2651a9b0b80417921682e7b132a73300a3d19)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Breaking! Clean up icon naming.
+  Removes "-outlined" suffix and unused icons.
+
 ## 0.28.0
 
 ### Minor Changes
