@@ -1,5 +1,12 @@
 # @getflip/swirl-icons
 
+## 0.31.0
+
+### Minor Changes
+
+- [`e8d164aa`](https://github.com/getflip/swirl/commit/e8d164aab57295d39c0b2bd758174296daff767a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add hamburger-menu icon
+
 ## 0.30.0
 
 ### Minor Changes
