@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.152.1
+
+### Patch Changes
+
+- [`e4f6d11e`](https://github.com/getflip/swirl/commit/e4f6d11ede458932166313269157c775cfe51af5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add custom css properties to
+  conrtol plain swirl-button text colors
+
+- Updated dependencies
+  [[`e4f6d11e`](https://github.com/getflip/swirl/commit/e4f6d11ede458932166313269157c775cfe51af5)]:
+  - @getflip/swirl-components@0.152.1
+
 ## 0.152.0
 
 ### Minor Changes
