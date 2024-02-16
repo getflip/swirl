@@ -263,6 +263,7 @@
   left: var(--s-space-16);
   overflow: hidden;
   font-size: var(--s-font-size-sm);
+  text-align: start;
   white-space: nowrap;
   text-overflow: ellipsis;
   transition: font-size 0.15s, transform 0.15s, top 0.15s;
