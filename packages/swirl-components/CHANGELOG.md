@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.155.2
+
+### Patch Changes
+
+- [`d85c5d40`](https://github.com/getflip/swirl/commit/d85c5d4091a5f976504b99639fda8164b8f5749c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent misalignment
+  swirl-form-control label text
+
 ## 0.155.1
 
 ### Patch Changes
