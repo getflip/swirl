@@ -22,4 +22,77 @@ describe("swirl-carousel", () => {
       </swirl-carousel>
     `);
   });
+
+  it("scroll to a slide", async () => {
+    const page = await newSpecPage({
+      components: [SwirlCarousel],
+      html: `
+        <swirl-carousel>
+          <swirl-carousel-slide id="1" label="Slide 1"><img alt="Slide 1" src="/sample-1.jpg"></swirl-carousel-slide>
+          <swirl-carousel-slide id="2" label="Slide 2"><img alt="Slide 1" src="/sample-2.jpg"></swirl-carousel-slide>
+          <swirl-carousel-slide id="3" label="Slide 3"><img alt="Slide 1" src="/sample-3.jpg"></swirl-carousel-slide>
+          <swirl-carousel-slide id="4" label="Slide 4"><img alt="Slide 1" src="/sample-4.jpg"></swirl-carousel-slide>
+        </swirl-carousel>
+      `,
+    });
+
+    const spy = jest.fn();
+    const slide = page.root.querySelector("#3");
+
+    slide.scrollIntoView = spy;
+
+    page.rootInstance.scrollToSlide("3");
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it("hides scroll buttons if not scrollable", async () => {
+    const page = await newSpecPage({
+      components: [SwirlCarousel],
+      html: `
+        <swirl-carousel>
+          <swirl-carousel-slide id="1" label="Slide 1"><img alt="Slide 1" src="/sample-1.jpg"></swirl-carousel-slide>
+          <swirl-carousel-slide id="2" label="Slide 2"><img alt="Slide 1" src="/sample-2.jpg"></swirl-carousel-slide>
+          <swirl-carousel-slide id="3" label="Slide 3"><img alt="Slide 1" src="/sample-3.jpg"></swirl-carousel-slide>
+          <swirl-carousel-slide id="4" label="Slide 4"><img alt="Slide 1" src="/sample-4.jpg"></swirl-carousel-slide>
+        </swirl-carousel>
+      `,
+    });
+
+    const previousButton = page.root.shadowRoot.querySelector(
+      ".carousel__previous-slide-button"
+    );
+
+    const nextButton = page.root.shadowRoot.querySelector(
+      ".carousel__next-slide-button"
+    );
+
+    expect(previousButton).toBeNull();
+    expect(nextButton).toBeNull();
+  });
+
+  it("restores scroll when slides change", async () => {
+    const page = await newSpecPage({
+      components: [SwirlCarousel],
+      html: `
+        <swirl-carousel>
+          <swirl-carousel-slide id="1" label="Slide 1"><img alt="Slide 1" src="/sample-1.jpg"></swirl-carousel-slide>
+          <swirl-carousel-slide id="2" label="Slide 2"><img alt="Slide 1" src="/sample-2.jpg"></swirl-carousel-slide>
+          <swirl-carousel-slide id="3" label="Slide 3"><img alt="Slide 1" src="/sample-3.jpg"></swirl-carousel-slide>
+          <swirl-carousel-slide id="4" label="Slide 4"><img alt="Slide 1" src="/sample-4.jpg"></swirl-carousel-slide>
+        </swirl-carousel>
+      `,
+    });
+
+    const spy = jest.fn();
+    const slide = page.root.querySelector("#3");
+    const slot = page.root.shadowRoot.querySelector("slot");
+
+    slide.scrollIntoView = spy;
+    page.rootInstance.activeSlides = [slide];
+
+    slot.dispatchEvent(new Event("slotchange"));
+
+    expect(spy).toHaveBeenCalled();
+  });
 });

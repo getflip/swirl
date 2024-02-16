@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Element } from "@stencil/core";
+import { Component, Element, Host, Prop, h } from "@stencil/core";
 import { getActiveElement } from "../../utils";
 
 export type SwirlToolbarOrientation = "horizontal" | "vertical";
