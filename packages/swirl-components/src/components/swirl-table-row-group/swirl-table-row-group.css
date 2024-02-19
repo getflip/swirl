@@ -50,16 +50,26 @@
   padding-right: var(--s-space-20);
 }
 
-.rows-container {
+.table-row-group__rows-container {
   overflow: hidden;
   transition: height 0.3s ease-out;
 }
 
-.rows-container.is-hidden {
+.table-row-group__rows-container.is-hidden {
   height: 0;
 }
 
+/* .rows-container {
+  display: grid;
+  grid-template-rows: 0; 
+  overflow: hidden;
+  transition: grid-template-rows 0.3s ease-out;
+}
 
-.is-collapsed {
-  transform: rotate(180deg); 
+.rows-container.expanded {
+  grid-template-rows: auto; 
+} */
+
+.sc-swirl-button-h {
+  display: flex;
 }

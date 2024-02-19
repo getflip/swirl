@@ -123,6 +123,7 @@ const Template = (args) => {
             <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
           </swirl-table-cell>
         </swirl-table-row>
+        
       </swirl-table-row-group>
     </div>
   `;
