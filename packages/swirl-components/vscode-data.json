@@ -12580,7 +12580,15 @@
           "description": ""
         },
         {
+          "name": "href",
+          "description": ""
+        },
+        {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "target",
           "description": ""
         }
       ]

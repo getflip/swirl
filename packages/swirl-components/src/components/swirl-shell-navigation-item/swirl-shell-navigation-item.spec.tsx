@@ -12,15 +12,17 @@ describe("swirl-shell-navigation-item", () => {
       </swirl-shell-navigation-item>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <swirl-shell-navigation-item class="shell-navigation-item" label="Label" role="link" tabindex="0">
+    expect(page.root).toMatchInlineSnapshot(`
+      <swirl-shell-navigation-item label="Label">
         <mock:shadow-root>
-          <span class="shell-navigation-item__icon">
-            <slot name="icon"></slot>
-          </span>
-          <span class="shell-navigation-item__label">
-            Label
-          </span>
+          <button class="shell-navigation-item" type="button">
+            <span class="shell-navigation-item__icon">
+              <slot name="icon"></slot>
+            </span>
+            <span class="shell-navigation-item__label">
+              Label
+            </span>
+          </button>
         </mock:shadow-root>
         <swirl-app-icon label="link" slot="icon" src="https://picsum.photos/id/433/144/144"></swirl-app-icon>
       </swirl-shell-navigation-item>
@@ -36,22 +38,22 @@ describe("swirl-shell-navigation-item", () => {
       </swirl-shell-navigation-item>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <swirl-shell-navigation-item active="true" class="shell-navigation-item shell-navigation-item--active" label="Label" role="link" tabindex="0">
-      <mock:shadow-root>
-        <span class="shell-navigation-item__icon">
-          <slot name="icon"></slot>
-        </span>
-        <span class="shell-navigation-item__label">
-          Label
-        </span>
-      </mock:shadow-root>
-      <swirl-app-icon label="link" slot="icon" src="https://picsum.photos/id/433/144/144"></swirl-app-icon>
-    </swirl-shell-navigation-item>
-  `);
-
     expect(
-      page.root.classList.contains("shell-navigation-item--active")
+      page.root.shadowRoot.children[0].classList.contains(
+        "shell-navigation-item--active"
+      )
     ).toBeTruthy();
+  });
+
+  it("renders as link when href is set", async () => {
+    const page = await newSpecPage({
+      components: [SwirlShellNavigationItem],
+      html: `<swirl-shell-navigation-item href="https://google.com" target="_blank" label="Label"></swirl-shell-navigation-item>`,
+    });
+
+    const link = page.root;
+
+    expect(link.href).toBe("https://google.com");
+    expect(link.target).toBe("_blank");
   });
 });

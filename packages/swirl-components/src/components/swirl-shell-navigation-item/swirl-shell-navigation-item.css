@@ -3,16 +3,29 @@
 */
 
 :host {
-  position: relative;
   display: inline-flex;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.shell-navigation-item {
+  position: relative;
+  display: flex;
   width: 100%;
   height: 2.75rem;
   padding: var(--s-space-12);
   flex-shrink: 0;
   justify-content: flex-start;
   align-items: center;
+  border: none;
   border-radius: var(--s-border-radius-sm);
   background-color: var(--s-surface-overlay-default);
+  color: var(--s-text-default);
+  text-decoration: none;
+  font: inherit;
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-sm);
@@ -20,7 +33,7 @@
   container-type: inline-size;
   gap: var(--s-space-16);
 
-  &(:hover) {
+  &:hover {
     background-color: var(--s-surface-sunken-hovered);
 
     & .shell-navigation-item__badge {
@@ -28,7 +41,7 @@
     }
   }
 
-  &(:active) {
+  &:active {
     background-color: var(--s-surface-sunken-pressed);
 
     & .shell-navigation-item__badge {
@@ -36,16 +49,16 @@
     }
   }
 
-  &(:focus) {
+  &:focus {
     outline: none;
   }
 
-  &(:focus-visible) {
+  &:focus-visible {
     z-index: 1;
     box-shadow: 0 0 0 0.125rem var(--s-focus-default);
   }
 
-  &(.shell-navigation-item--active) {
+  &.shell-navigation-item--active {
     background-color: var(--s-surface-sunken-hovered);
 
     & .shell-navigation-item__badge {
@@ -53,7 +66,7 @@
     }
   }
 
-  &(.shell-navigation-item--active:hover) {
+  &.shell-navigation-item--active:hover {
     background-color: var(--s-surface-sunken-hovered);
 
     & .shell-navigation-item__badge {
@@ -61,16 +74,12 @@
     }
   }
 
-  &(.shell-navigation-item--active:active) {
+  &.shell-navigation-item--active:active {
     background-color: var(--s-surface-sunken-pressed);
 
     & .shell-navigation-item__badge {
       --swirl-badge-border-color: var(--s-surface-sunken-pressed);
     }
-  }
-
-  & * {
-    box-sizing: border-box;
   }
 
   @media (--from-desktop) {

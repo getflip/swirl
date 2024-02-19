@@ -1619,7 +1619,9 @@ export namespace Components {
     interface SwirlShellNavigationItem {
         "active"?: boolean;
         "badgeLabel"?: string;
+        "href"?: string;
         "label": string;
+        "target"?: string;
     }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
@@ -5811,7 +5813,9 @@ declare namespace LocalJSX {
     interface SwirlShellNavigationItem {
         "active"?: boolean;
         "badgeLabel"?: string;
+        "href"?: string;
         "label": string;
+        "target"?: string;
     }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
