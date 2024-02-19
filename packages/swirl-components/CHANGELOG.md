@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.156.0
+
+### Minor Changes
+
+- [`fa65a158`](https://github.com/getflip/swirl/commit/fa65a158c1e9b06527a4b2fe68189e7a2796c0c0)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Add href and target
+  props to swirl-shell-navigation-item
+
 ## 0.155.2
 
 ### Patch Changes
