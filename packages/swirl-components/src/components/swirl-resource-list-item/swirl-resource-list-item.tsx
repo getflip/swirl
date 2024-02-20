@@ -287,7 +287,7 @@ export class SwirlResourceListItem {
             <slot name="control"></slot>
           </span>
           {showMenu && (
-            <swirl-popover-trigger popover={this.menuTriggerId}>
+            <swirl-popover-trigger popoverEl={this.menuTriggerId}>
               <swirl-button
                 aria-disabled={disabled ? "true" : undefined}
                 class="resource-list-item__menu-trigger"

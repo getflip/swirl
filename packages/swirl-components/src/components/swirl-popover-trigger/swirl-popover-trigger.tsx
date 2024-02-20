@@ -11,7 +11,7 @@ export class SwirlPopoverTrigger {
 
   @Prop() hidePopoverWhenInvisible?: boolean = true;
   @Prop() parentScrollContainer?: HTMLElement;
-  @Prop() popover!: string | HTMLSwirlPopoverElement;
+  @Prop() popoverEl!: string | HTMLSwirlPopoverElement;
   @Prop() setAriaAttributes?: boolean = true;
 
   private intersectionObserver: IntersectionObserver;
@@ -42,15 +42,15 @@ export class SwirlPopoverTrigger {
     this.intersectionObserver?.disconnect();
   }
 
-  @Watch("popover")
+  @Watch("popoverEl")
   watchPopover() {
     this.updateTriggerElAriaAttributes();
   }
 
   private getPopoverEl() {
-    return typeof this.popover === "string"
-      ? document.querySelector<HTMLSwirlPopoverElement>(`#${this.popover}`)
-      : this.popover;
+    return typeof this.popoverEl === "string"
+      ? document.querySelector<HTMLSwirlPopoverElement>(`#${this.popoverEl}`)
+      : this.popoverEl;
   }
 
   private getTriggerEl() {
@@ -120,7 +120,7 @@ export class SwirlPopoverTrigger {
     }
 
     const popoverId =
-      typeof this.popover === "string" ? this.popover : this.popover?.id;
+      typeof this.popoverEl === "string" ? this.popoverEl : this.popoverEl?.id;
 
     if (triggerEl.tagName.startsWith("SWIRL-")) {
       triggerEl.setAttribute("swirl-aria-controls", popoverId);

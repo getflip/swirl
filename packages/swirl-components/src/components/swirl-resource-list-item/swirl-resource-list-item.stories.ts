@@ -45,7 +45,7 @@ const Template = (args) => {
 
   control.slot = "control";
   control.innerHTML = `
-        <swirl-popover-trigger popover="popover">
+        <swirl-popover-trigger popoverEl="popover">
           <swirl-button
             hide-label
             icon="<swirl-icon-more-horizontal></swirl-icon-more-horizontal>"

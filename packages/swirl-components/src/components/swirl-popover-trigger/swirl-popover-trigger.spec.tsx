@@ -14,14 +14,14 @@ describe("swirl-popover-trigger", () => {
     const page = await newSpecPage({
       components: [SwirlPopoverTrigger, SwirlButton],
       html: `
-        <swirl-popover-trigger popover="popover">
+        <swirl-popover-trigger popoverEl="popover">
           <swirl-button label="trigger"></swirl-button>
         </swirl-popover-trigger>
       `,
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-popover-trigger popover="popover">
+      <swirl-popover-trigger popoverEl="popover">
         <swirl-button label="trigger" swirl-aria-controls="popover" swirl-aria-expanded="false" swirl-aria-haspopup="dialog">
           <button aria-controls="popover" aria-expanded="false" aria-haspopup="dialog" class="button button--icon-position-start button--intent-default button--size-m button--text-align-center button--variant-ghost" type="button">
             <span class="button__icon"></span>

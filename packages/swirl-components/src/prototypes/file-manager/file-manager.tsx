@@ -122,7 +122,7 @@ export class FileManager {
 
           {/* Navigation controls */}
           <swirl-popover-trigger
-            popover={this.sortMenu}
+            popoverEl={this.sortMenu}
             slot="navigation-controls"
           >
             <swirl-button label="Sort items"></swirl-button>

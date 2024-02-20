@@ -215,7 +215,7 @@ export class SwirlDateInput {
             value={displayValue}
           />
 
-          <swirl-popover-trigger popover={`popover-${this.id}`}>
+          <swirl-popover-trigger popoverEl={`popover-${this.id}`}>
             <button
               aria-label={this.datePickerTriggerLabel}
               class="date-input__date-picker-button"
