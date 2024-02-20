@@ -13,7 +13,7 @@ export class SwirlTableRowGroup {
 
   @Prop() label!: string;
   @Prop() tooltip?: string;
-  @Prop() collapsible?: boolean = true;
+  @Prop() collapsible?: boolean = false;
   @Prop() collapseButtonLabel?: string = "Previous slide";
 
   @State() isVisible: boolean = true;
@@ -22,7 +22,6 @@ export class SwirlTableRowGroup {
   private headerRowElement: HTMLElement;
 
   private toggleShowItems = () => {
-    console.log("is visible?", this.isVisible);
     this.headerRowElement.focus();
 
     if (!this.tableRowElements) return;
@@ -46,17 +45,7 @@ export class SwirlTableRowGroup {
       });
     }
 
-    //this.tableRowElements.classList.toggle("expanded");
-    //this.isVisible = this.tableRowElements.classList.contains("expanded");
-
     this.isVisible = !this.isVisible;
-  };
-
-  private handleKeyPress = (e: KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      this.toggleShowItems();
-    }
   };
 
   render() {
@@ -74,17 +63,13 @@ export class SwirlTableRowGroup {
         >
           {this.collapsible && (
             <swirl-button
-              tabIndex={0}
               class="table-row-group__collapse-icon"
-              hideLabel
               icon={iconType}
               label={this.collapseButtonLabel}
-              variant="plain"
               onClick={this.toggleShowItems}
-              onKeyPress={this.handleKeyPress}
-              iconPosition="end"
-              role="button"
-              aria-expanded={this.isVisible}
+              swirlAriaExpanded={String(this.isVisible)}
+              variant="plain"
+              hideLabel
             ></swirl-button>
           )}
           <span
