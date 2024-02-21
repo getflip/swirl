@@ -74,10 +74,14 @@
       "navigation";
 
     @media (--from-tablet) {
-      grid-template-columns: min(50%, 25rem) 1fr;
+      grid-template-columns: min(50%, 22.5rem) 1fr;
       grid-template-areas:
         "header body"
         "navigation body";
+    }
+
+    @media (--from-large-desktop) {
+      grid-template-columns: min(50%, 25rem) 1fr;
     }
   }
 
@@ -140,7 +144,7 @@
   }
 
   &.app-layout--sidebar-closing {
-    @media (--from-large-desktop) {
+    @media (--from-larger-desktop) {
       & .app-layout__grid {
         animation: app-layout-sidebar-slide-out 0.3s;
       }
@@ -149,17 +153,18 @@
 
   & .app-layout__grid {
     @media (--from-tablet) {
-      grid-template-columns: min(50%, 25rem) 1fr;
+      grid-template-columns: min(50%, 22.5rem) 1fr;
       grid-template-areas:
         "header body"
         "navigation body";
     }
 
     @media (--from-desktop) {
+      grid-template-columns: 22.5rem 1fr;
+    }
+
+    @media (--from-large-desktop) {
       grid-template-columns: 25rem 1fr;
-      grid-template-areas:
-        "header body"
-        "navigation body";
     }
   }
 

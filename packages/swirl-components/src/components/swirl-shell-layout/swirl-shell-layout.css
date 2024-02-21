@@ -380,6 +380,7 @@
 
 .shell-layout__main {
   overflow: hidden;
+  background-color: var(--s-background-default);
   grid-area: main;
 
   @media (--from-desktop) {
