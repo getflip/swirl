@@ -2,6 +2,7 @@
 
 :host {
   display: contents;
+  font-weight: var(--s-font-weight-normal);
 
   & * {
     box-sizing: border-box;
