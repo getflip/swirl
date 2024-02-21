@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.157.0
+
+### Minor Changes
+
+- [`ff7425ec`](https://github.com/getflip/swirl/commit/ff7425ecc395e3e69de29ab0ab7cd95f58dd73f6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow links to be used as
+  swirl-shell-layout logo
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ff7425ec`](https://github.com/getflip/swirl/commit/ff7425ecc395e3e69de29ab0ab7cd95f58dd73f6)]:
+  - @getflip/swirl-components@0.157.0
+
 ## 0.156.0
 
 ### Minor Changes
