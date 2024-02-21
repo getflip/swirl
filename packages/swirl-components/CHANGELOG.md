@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.157.2
+
+### Patch Changes
+
+- [`6dc37570`](https://github.com/getflip/swirl/commit/6dc375703e1f426c526b8199a8939fc01dd6c218)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Reset font weight for
+  swirl-tooltip
+
 ## 0.157.1
 
 ### Patch Changes
