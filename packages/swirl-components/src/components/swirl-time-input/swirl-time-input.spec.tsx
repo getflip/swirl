@@ -22,7 +22,7 @@ describe("swirl-time-input", () => {
     expect(page.root).toEqualHtml(`
       <swirl-time-input>
         <div class="time-input">
-          <input class="time-input__input" id="swirl-time-input-0" placeholder="hh:mm" type="text">
+          <input class="time-input__input" id="swirl-time-input-0" inputmode="numeric" placeholder="hh:mm" type="text">
           <span class="time-input__icon">
             <swirl-icon-time-outlined size="24"></swirl-icon-time-outlined>
           </span>
