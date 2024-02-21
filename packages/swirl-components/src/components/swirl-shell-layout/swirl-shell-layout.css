@@ -209,6 +209,11 @@
   justify-content: center;
   align-items: center;
 
+  &::slotted(a) {
+    display: flex;
+  }
+
+  &::slotted(a img),
   &::slotted(img) {
     max-height: 1.75rem;
   }

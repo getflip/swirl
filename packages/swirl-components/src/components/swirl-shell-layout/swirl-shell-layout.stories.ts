@@ -21,7 +21,9 @@ const Template = (args) => {
   ) as HTMLSwirlShellLayoutElement;
 
   element.innerHTML = `
-    <img alt="Flip logo" slot="logo" src="/images/flip-logo.png">
+    <a href="" slot="logo">
+      <img alt="Flip logo" src="/images/flip-logo.png">
+    </a>
     <img alt="Flip logo" slot="mobile-logo" src="/images/flip-logo.png">
 
     <swirl-avatar label="John Doe" slot="header-tools" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
