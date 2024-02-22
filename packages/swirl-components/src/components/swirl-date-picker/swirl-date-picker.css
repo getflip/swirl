@@ -296,6 +296,7 @@
 .date-picker__date--disabled {
   color: var(--s-text-disabled);
   cursor: default;
+  pointer-events: none;
 
   &:before {
     background-color: transparent;
