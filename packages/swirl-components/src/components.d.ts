@@ -472,6 +472,7 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlDatePicker {
+        "disableDate"?: (date: Date) => boolean;
         "firstDayOfWeek"?: number;
         "labels"?: WCDatepickerLabels;
         "locale"?: string;
@@ -4818,6 +4819,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlDatePicker {
+        "disableDate"?: (date: Date) => boolean;
         "firstDayOfWeek"?: number;
         "labels"?: WCDatepickerLabels;
         "locale"?: string;

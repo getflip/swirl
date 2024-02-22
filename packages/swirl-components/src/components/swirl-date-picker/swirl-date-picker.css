@@ -292,3 +292,20 @@
     font-style: normal;
   }
 }
+
+.date-picker__date--disabled {
+  color: var(--s-text-disabled);
+  cursor: default;
+
+  &:before {
+    background-color: transparent;
+  }
+
+  &:hover {
+    color: var(--s-text-disabled);
+
+    &:before {
+      background-color: transparent;
+    }
+  }
+}
