@@ -206,6 +206,7 @@ export class SwirlTimeInput {
             class="time-input__input"
             disabled={this.disabled}
             id={this.id}
+            inputmode="numeric"
             onBlur={this.onBlur}
             onClick={this.onClick}
             onFocus={this.onFocus}
