@@ -2670,6 +2670,64 @@
       ]
     },
     {
+      "name": "swirl-icon-add-moderator",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-add-photo",
       "description": {
         "kind": "markdown",
@@ -7020,6 +7078,64 @@
       ]
     },
     {
+      "name": "swirl-icon-keyboard-hide",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-light-mode",
       "description": {
         "kind": "markdown",
@@ -7194,6 +7310,64 @@
       ]
     },
     {
+      "name": "swirl-icon-load",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-lock",
       "description": {
         "kind": "markdown",
@@ -7311,6 +7485,64 @@
     },
     {
       "name": "swirl-icon-lock-person",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-login",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -8992,6 +9224,64 @@
       ]
     },
     {
+      "name": "swirl-icon-place",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-play-arrow",
       "description": {
         "kind": "markdown",
@@ -9225,6 +9515,64 @@
     },
     {
       "name": "swirl-icon-remove",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-remove-moderator",
       "description": {
         "kind": "markdown",
         "value": ""
