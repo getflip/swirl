@@ -121,13 +121,10 @@ export function fullscreenStoryDecorator(padded = true) {
   };
 }
 
-export function generateStoryElement(
-  tag: string,
-  args: { [arg: string]: any },
-  content?: string
-): HTMLElement {
-  const element = document.createElement(tag);
-
+export function addArgumentsToElement(
+  element: HTMLElement,
+  args: { [arg: string]: any }
+): void {
   Object.entries(args)
     .filter(
       (arg) =>
@@ -150,6 +147,16 @@ export function generateStoryElement(
         String(value)
       );
     });
+}
+
+export function generateStoryElement(
+  tag: string,
+  args: { [arg: string]: any },
+  content?: string
+): HTMLElement {
+  const element = document.createElement(tag);
+
+  addArgumentsToElement(element, args);
 
   if (Boolean(content)) {
     element.innerHTML = content;
