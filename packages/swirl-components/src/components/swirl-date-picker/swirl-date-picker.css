@@ -207,6 +207,10 @@
   }
 }
 
+.date-picker__date--overflowing {
+  color: var(--s-text-subdued);
+}
+
 .date-picker__date--selected {
   color: var(--s-text-on-action-primary);
 
@@ -276,10 +280,6 @@
       inset: 0.0625rem 50% 0.0625rem 0;
     }
   }
-}
-
-.date-picker__date--overflowing {
-  color: var(--s-text-subdued);
 }
 
 .date-picker__date--today {
