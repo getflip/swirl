@@ -31,6 +31,7 @@ const Template = (args) => {
       <swirl-table-column sticky width="74px"><swirl-visually-hidden>Tools</swirl-visually-hidden></swirl-table-column>
     </div>
     <div slot="rows">
+    <swirl-table-row-group label="Active users">
       <swirl-table-row>
         <swirl-table-cell>
           <swirl-checkbox swirl-aria-label="Select Isabel Lakin" input-id="select-1" input-name="select-1">
@@ -62,6 +63,7 @@ const Template = (args) => {
           </swirl-tooltip>
         </swirl-table-cell>
       </swirl-table-row>
+      </swirl-table-row-group>
       <swirl-table-row-group label="Pending users">
         <swirl-table-row>
           <swirl-table-cell>
@@ -121,6 +123,7 @@ const Template = (args) => {
             <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
           </swirl-table-cell>
         </swirl-table-row>
+        
       </swirl-table-row-group>
     </div>
   `;

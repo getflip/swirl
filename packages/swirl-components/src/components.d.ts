@@ -1902,6 +1902,8 @@ export namespace Components {
         "index"?: number;
     }
     interface SwirlTableRowGroup {
+        "collapseButtonLabel"?: string;
+        "collapsible"?: boolean;
         "label": string;
         "tooltip"?: string;
     }
@@ -6162,6 +6164,8 @@ declare namespace LocalJSX {
         "index"?: number;
     }
     interface SwirlTableRowGroup {
+        "collapseButtonLabel"?: string;
+        "collapsible"?: boolean;
         "label": string;
         "tooltip"?: string;
     }

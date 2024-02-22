@@ -14192,6 +14192,14 @@
       },
       "attributes": [
         {
+          "name": "collapse-button-label",
+          "description": ""
+        },
+        {
+          "name": "collapsible",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
