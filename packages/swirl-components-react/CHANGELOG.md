@@ -1,5 +1,25 @@
 # @getflip/swirl-components-react
 
+## 0.160.0
+
+### Minor Changes
+
+- [#604](https://github.com/getflip/swirl/pull/604)
+  [`3953aac2`](https://github.com/getflip/swirl/commit/3953aac2541a0a299bfaffa86574cb70c2903e98)
+  Thanks [@danizep](https://github.com/danizep)! - Allow to disable arbitrary
+  dates on SwirlDatePicker and SwirlDateInput
+
+### Patch Changes
+
+- [`d733ee0d`](https://github.com/getflip/swirl/commit/d733ee0ddd92e0e0429b9fca6761608ef1c20579)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix label position of compact
+  swirl-resource-list-item
+
+- Updated dependencies
+  [[`3953aac2`](https://github.com/getflip/swirl/commit/3953aac2541a0a299bfaffa86574cb70c2903e98),
+  [`d733ee0d`](https://github.com/getflip/swirl/commit/d733ee0ddd92e0e0429b9fca6761608ef1c20579)]:
+  - @getflip/swirl-components@0.160.0
+
 ## 0.159.0
 
 ### Minor Changes
