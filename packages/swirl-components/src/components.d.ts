@@ -457,6 +457,7 @@ export namespace Components {
     interface SwirlDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
+        "datePickerDisableDate"?: (date: Date) => boolean;
         "datePickerLabel"?: string;
         "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
@@ -472,6 +473,7 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlDatePicker {
+        "disableDate"?: (date: Date) => boolean;
         "firstDayOfWeek"?: number;
         "labels"?: WCDatepickerLabels;
         "locale"?: string;
@@ -4801,6 +4803,7 @@ declare namespace LocalJSX {
     interface SwirlDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
+        "datePickerDisableDate"?: (date: Date) => boolean;
         "datePickerLabel"?: string;
         "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
@@ -4818,6 +4821,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlDatePicker {
+        "disableDate"?: (date: Date) => boolean;
         "firstDayOfWeek"?: number;
         "labels"?: WCDatepickerLabels;
         "locale"?: string;

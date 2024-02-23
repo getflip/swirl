@@ -21,6 +21,7 @@ import { removeTimezoneOffset } from "../../utils";
 export class SwirlDatePicker {
   @Element() el: HTMLElement;
 
+  @Prop() disableDate?: (date: Date) => boolean = () => false;
   @Prop() firstDayOfWeek?: number = 0;
   @Prop() labels?: WCDatepickerLabels;
   @Prop() locale?: string = "en-US";
@@ -55,6 +56,7 @@ export class SwirlDatePicker {
       <Host onClick={this.onClick}>
         <wc-datepicker
           elementClassName="date-picker"
+          disableDate={this.disableDate}
           firstDayOfWeek={this.firstDayOfWeek}
           labels={this.labels}
           locale={this.locale}

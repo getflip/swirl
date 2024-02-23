@@ -35,6 +35,7 @@ export class SwirlDateInput {
 
   @Prop() autoFocus?: boolean;
   @Prop() autoSelect?: boolean;
+  @Prop() datePickerDisableDate?: (date: Date) => boolean = () => false;
   @Prop() datePickerLabel?: string = "Date picker";
   @Prop() datePickerTriggerLabel?: string = "Open date picker";
   @Prop() disabled?: boolean;
@@ -236,6 +237,7 @@ export class SwirlDateInput {
             ref={(el) => (this.pickerPopover = el)}
           >
             <swirl-date-picker
+              disableDate={this.datePickerDisableDate}
               firstDayOfWeek={this.firstDayOfWeek}
               labels={this.labels}
               locale={this.locale}

@@ -207,6 +207,10 @@
   }
 }
 
+.date-picker__date--overflowing {
+  color: var(--s-text-subdued);
+}
+
 .date-picker__date--selected {
   color: var(--s-text-on-action-primary);
 
@@ -278,10 +282,6 @@
   }
 }
 
-.date-picker__date--overflowing {
-  color: var(--s-text-subdued);
-}
-
 .date-picker__date--today {
   &:before {
     box-shadow: inset 0 0 0 var(--s-border-width-default)
@@ -290,5 +290,23 @@
 
   & > em {
     font-style: normal;
+  }
+}
+
+.date-picker__date--disabled {
+  color: var(--s-text-disabled);
+  cursor: default;
+  pointer-events: none;
+
+  &:before {
+    background-color: transparent;
+  }
+
+  &:hover {
+    color: var(--s-text-disabled);
+
+    &:before {
+      background-color: transparent;
+    }
   }
 }
