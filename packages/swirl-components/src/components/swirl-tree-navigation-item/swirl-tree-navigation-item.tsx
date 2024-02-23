@@ -10,33 +10,37 @@ export class SwirlTreeNavigationItem {
   @Element() el: HTMLElement;
 
   @Prop() active?: boolean;
+  @Prop() href?: string;
   @Prop() icon?: string;
   @Prop() label!: string;
-
-  private onKeyDown = (event: KeyboardEvent) => {
-    if (event.code === "Enter") {
-      event.preventDefault();
-      this.el.click();
-    }
-  };
+  @Prop() target?: string;
 
   render() {
+    const isLink = Boolean(this.href);
+
+    const Tag = isLink ? "a" : "button";
+
     const className = classnames("tree-navigation-item", {
       "tree-navigation-item--active": this.active,
       "tree-navigation-item--has-icon": Boolean(this.icon),
     });
 
     return (
-      <Host
-        class={className}
-        onKeyDown={this.onKeyDown}
-        role="link"
-        tabIndex={0}
-      >
-        {this.icon && (
-          <span class="tree-navigation-item__icon" innerHTML={this.icon}></span>
-        )}
-        <span class="tree-navigation-item__label">{this.label}</span>
+      <Host>
+        <Tag
+          class={className}
+          href={this.href}
+          target={this.target}
+          type={isLink ? undefined : "button"}
+        >
+          {this.icon && (
+            <span
+              class="tree-navigation-item__icon"
+              innerHTML={this.icon}
+            ></span>
+          )}
+          <span class="tree-navigation-item__label">{this.label}</span>
+        </Tag>
       </Host>
     );
   }

@@ -14879,11 +14879,19 @@
           "description": ""
         },
         {
+          "name": "href",
+          "description": ""
+        },
+        {
           "name": "icon",
           "description": ""
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "target",
           "description": ""
         }
       ]

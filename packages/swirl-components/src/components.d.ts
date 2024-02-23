@@ -2061,8 +2061,10 @@ export namespace Components {
     }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
+        "href"?: string;
         "icon"?: string;
         "label": string;
+        "target"?: string;
     }
     interface SwirlVideoThumbnail {
         "duration"?: string;
@@ -6293,8 +6295,10 @@ declare namespace LocalJSX {
     }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
+        "href"?: string;
         "icon"?: string;
         "label": string;
+        "target"?: string;
     }
     interface SwirlVideoThumbnail {
         "duration"?: string;
