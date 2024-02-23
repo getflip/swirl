@@ -1,5 +1,25 @@
 # @getflip/swirl-components
 
+## 0.159.0
+
+### Minor Changes
+
+- [`5146c536`](https://github.com/getflip/swirl/commit/5146c53675ccf853818c34aa9e3c9035dc0c92d9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Expand collapsed
+  swirl-shell-layout navigation on hover
+
+### Patch Changes
+
+- [#600](https://github.com/getflip/swirl/pull/600)
+  [`3fdaa619`](https://github.com/getflip/swirl/commit/3fdaa6190ce61b984427f90a162ddd977b003a57)
+  Thanks [@danizep](https://github.com/danizep)! - Open numeric keyboard when
+  inputing time on SwirlTimeInput
+
+* [#590](https://github.com/getflip/swirl/pull/590)
+  [`39fbaaa3`](https://github.com/getflip/swirl/commit/39fbaaa3d968e9e31e0bdaf5f21916b09848df3c)
+  Thanks [@ttobollik](https://github.com/ttobollik)! - Making Row Groups
+  collapsible
+
 ## 0.158.0
 
 ### Minor Changes
