@@ -457,6 +457,7 @@ export namespace Components {
     interface SwirlDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
+        "datePickerDisableDate"?: (date: Date) => boolean;
         "datePickerLabel"?: string;
         "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
@@ -4802,6 +4803,7 @@ declare namespace LocalJSX {
     interface SwirlDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
+        "datePickerDisableDate"?: (date: Date) => boolean;
         "datePickerLabel"?: string;
         "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
