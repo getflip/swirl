@@ -121,7 +121,7 @@ export function fullscreenStoryDecorator(padded = true) {
   };
 }
 
-export function addArgumentsToElement(
+export function addAttributesToElement(
   element: HTMLElement,
   args: { [arg: string]: any }
 ): void {
@@ -156,7 +156,7 @@ export function generateStoryElement(
 ): HTMLElement {
   const element = document.createElement(tag);
 
-  addArgumentsToElement(element, args);
+  addAttributesToElement(element, args);
 
   if (Boolean(content)) {
     element.innerHTML = content;

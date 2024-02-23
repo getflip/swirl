@@ -1,4 +1,4 @@
-import { addArgumentsToElement, generateStoryElement } from "../../utils";
+import { addAttributesToElement, generateStoryElement } from "../../utils";
 import Docs from "./swirl-date-input.mdx";
 
 export default {
@@ -30,7 +30,7 @@ const Template = (args) => {
   const formControl = document.createElement("swirl-form-control");
   const element = generateStoryElement("swirl-date-input", args);
 
-  addArgumentsToElement(formControl, { ...args, label: "Date" });
+  addAttributesToElement(formControl, { ...args, label: "Date" });
   formControl.append("\n  ", element, "\n");
 
   return formControl;

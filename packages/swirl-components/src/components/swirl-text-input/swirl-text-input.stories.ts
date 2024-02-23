@@ -1,4 +1,4 @@
-import { addArgumentsToElement, generateStoryElement } from "../../utils";
+import { addAttributesToElement, generateStoryElement } from "../../utils";
 import Docs from "./swirl-text-input.mdx";
 
 export default {
@@ -16,7 +16,7 @@ const Template = (args) => {
   const formControl = document.createElement("swirl-form-control");
   const element = generateStoryElement("swirl-text-input", args);
 
-  addArgumentsToElement(formControl, { ...args, label: "Input" });
+  addAttributesToElement(formControl, { ...args, label: "Input" });
   formControl.append("\n  ", element, "\n");
 
   return formControl;
