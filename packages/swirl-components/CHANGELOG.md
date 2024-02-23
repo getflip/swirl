@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.161.0
+
+### Minor Changes
+
+- [`8f1b5482`](https://github.com/getflip/swirl/commit/8f1b54824aa1093545c43e60c22cf0f8dabb4699)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "href" and "target" props to
+  swirl-tree-navigation-item
+
 ## 0.160.0
 
 ### Minor Changes
