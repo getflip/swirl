@@ -1,4 +1,4 @@
-import { generateStoryElement } from "../../utils";
+import { addAttributesToElement, generateStoryElement } from "../../utils";
 import Docs from "./swirl-color-input.mdx";
 
 export default {
@@ -16,8 +16,7 @@ const Template = (args) => {
   const formControl = document.createElement("swirl-form-control");
   const element = generateStoryElement("swirl-color-input", args);
 
-  formControl.setAttribute("label", "Color input");
-  formControl.setAttribute("disabled", args.disabled ? "true" : "false");
+  addAttributesToElement(formControl, { ...args, label: "Color input" });
   formControl.append("\n  ", element, "\n");
 
   return formControl;
