@@ -92,7 +92,7 @@
   }
 
   & .resource-list-item__label-container {
-    min-height: 0;
+    min-height: 2.5rem;
   }
 }
 
