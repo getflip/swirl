@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.162.0
+
+### Minor Changes
+
+- [`34df0c89`](https://github.com/getflip/swirl/commit/34df0c89f473dbd46f046d7b9fbd238a4ebc6c05)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow for custom items to be used
+  inside swirl-resource-list
+
 ## 0.161.0
 
 ### Minor Changes
