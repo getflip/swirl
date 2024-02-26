@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.163.0
+
+### Minor Changes
+
+- [#609](https://github.com/getflip/swirl/pull/609)
+  [`0a9a291a`](https://github.com/getflip/swirl/commit/0a9a291a708609022fac7fca6fc79839be871453)
+  Thanks [@fellmann](https://github.com/fellmann)! - add flex basis and grow to
+  swirl-box
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0a9a291a`](https://github.com/getflip/swirl/commit/0a9a291a708609022fac7fca6fc79839be871453)]:
+  - @getflip/swirl-components@0.163.0
+
 ## 0.162.0
 
 ### Minor Changes
