@@ -58,7 +58,9 @@ export class SwirlBox {
   @Prop() paddingInlineStart?: SwirlBoxPadding;
   @Prop() position?: SwirlBoxPosition;
   @Prop() right?: string;
+  @Prop() basis?: string;
   @Prop() shrink?: string;
+  @Prop() grow?: string;
   @Prop() top?: string;
   @Prop() width?: string;
   @Prop() zIndex?: string;
@@ -68,7 +70,9 @@ export class SwirlBox {
       alignItems: this.centerBlock ? "center" : undefined,
       bottom: this.bottom,
       display: this.centerBlock || this.centerInline ? "flex" : undefined,
+      flexBasis: this.basis,
       flexShrink: this.shrink,
+      flexGrow: this.grow,
       height: this.cover ? "100%" : this.height,
       justifyContent: this.centerInline ? "center" : undefined,
       left: this.left,

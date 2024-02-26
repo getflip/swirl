@@ -637,6 +637,10 @@
       },
       "attributes": [
         {
+          "name": "basis",
+          "description": ""
+        },
+        {
           "name": "bordered",
           "description": ""
         },
@@ -670,6 +674,10 @@
         },
         {
           "name": "cover",
+          "description": ""
+        },
+        {
+          "name": "grow",
           "description": ""
         },
         {
