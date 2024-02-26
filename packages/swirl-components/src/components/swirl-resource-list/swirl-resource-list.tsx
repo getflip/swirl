@@ -86,7 +86,7 @@ export class SwirlResourceList {
   private collectItems() {
     this.items = Array.from(
       this.el.querySelectorAll<HTMLSwirlResourceListItemElement>(
-        "swirl-resource-list-item, swirl-resource-list-file-item"
+        "swirl-resource-list-item, swirl-resource-list-file-item, [data-resource-list-item]"
       )
     ).filter((el) => el.isConnected);
 
@@ -117,7 +117,7 @@ export class SwirlResourceList {
   private removeItemsFromTabOrder() {
     this.items.forEach((item) => {
       const focusableEl = item?.querySelector(
-        ".resource-list-item__content, .resource-list-file-item"
+        ".resource-list-item__content, .resource-list-file-item, [data-resource-list-item-button]"
       );
 
       const dragHandle = item?.querySelector(
@@ -216,7 +216,7 @@ export class SwirlResourceList {
     }
 
     const interactiveElement = item.querySelector<HTMLElement>(
-      ".resource-list-item__content, .resource-list-file-item"
+      ".resource-list-item__content, .resource-list-file-item, [data-resource-list-item-button]"
     );
 
     const dragHandle = item.querySelector(".resource-list-item__drag-handle");
