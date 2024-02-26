@@ -278,6 +278,7 @@ export namespace Components {
         "size"?: SwirlBannerSize;
     }
     interface SwirlBox {
+        "basis"?: string;
         "bordered"?: boolean;
         "borderedBlockEnd"?: boolean;
         "borderedBlockStart"?: boolean;
@@ -287,6 +288,7 @@ export namespace Components {
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
+        "grow"?: string;
         "height"?: string;
         "left"?: string;
         "maxHeight"?: string;
@@ -4634,6 +4636,7 @@ declare namespace LocalJSX {
         "size"?: SwirlBannerSize;
     }
     interface SwirlBox {
+        "basis"?: string;
         "bordered"?: boolean;
         "borderedBlockEnd"?: boolean;
         "borderedBlockStart"?: boolean;
@@ -4643,6 +4646,7 @@ declare namespace LocalJSX {
         "centerBlock"?: boolean;
         "centerInline"?: boolean;
         "cover"?: boolean;
+        "grow"?: string;
         "height"?: string;
         "left"?: string;
         "maxHeight"?: string;
