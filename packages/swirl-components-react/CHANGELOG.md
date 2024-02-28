@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.165.0
+
+### Minor Changes
+
+- [`70938c35`](https://github.com/getflip/swirl/commit/70938c35f9c3f867413b273de847f26f6ab2d1c4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "intersecting" loading
+  strategy to swirl-avatar
+
+### Patch Changes
+
+- Updated dependencies
+  [[`70938c35`](https://github.com/getflip/swirl/commit/70938c35f9c3f867413b273de847f26f6ab2d1c4)]:
+  - @getflip/swirl-components@0.165.0
+
 ## 0.164.0
 
 ### Minor Changes
