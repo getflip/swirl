@@ -38,12 +38,13 @@ export class SwirlShellNavigationItem {
             <slot name="icon"></slot>
           </span>
           <span class="shell-navigation-item__label">{this.label}</span>
-          {this.badgeLabel && (
+          {this.badgeLabel !== undefined && this.badgeLabel !== null && (
             <swirl-badge
-              class="shell-navigation-item__badge"
-              size="s"
               aria-label={this.badgeLabel}
+              class="shell-navigation-item__badge"
               label={this.badgeLabel}
+              size="xs"
+              variant={this.badgeLabel === "" ? "dot" : "default"}
             ></swirl-badge>
           )}
         </Tag>

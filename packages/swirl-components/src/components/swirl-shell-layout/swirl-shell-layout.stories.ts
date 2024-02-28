@@ -44,12 +44,12 @@ const Template = (args) => {
           </swirl-shell-navigation-item>
         </li>
         <li>
-          <swirl-shell-navigation-item active label="News">
+          <swirl-shell-navigation-item active label="News" badge-label="">
             <swirl-app-icon icon="<swirl-icon-news-filled size=&quot;20&quot;></swirl-icon-news-filled>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
         <li>
-          <swirl-shell-navigation-item label="Chat">
+          <swirl-shell-navigation-item label="Chat" badge-label="3">
             <swirl-app-icon icon="<swirl-icon-chat-bubble size=&quot;20&quot;></swirl-icon-chat-bubble>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
