@@ -18,6 +18,14 @@ const Template = (args) => {
 
   container.append(element);
 
+  element.addEventListener("imageLoad", () => {
+    console.log("load");
+  });
+
+  element.addEventListener("imageError", () => {
+    console.log("error");
+  });
+
   return container;
 };
 
@@ -25,6 +33,6 @@ export const SwirlImageGridItem = Template.bind({});
 
 SwirlImageGridItem.args = {
   alt: "Dog in a blanket",
-  icon: "<swirl-icon-play-arrow></swirl-icon-play-arrow>",
-  src: "/sample.jpg",
+  // icon: "<swirl-icon-play-arrow></swirl-icon-play-arrow>",
+  src: "/sampledsds.jpg",
 };

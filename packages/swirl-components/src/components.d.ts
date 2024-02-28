@@ -2165,6 +2165,10 @@ export interface SwirlFileViewerVideoCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlFileViewerVideoElement;
 }
+export interface SwirlImageGridItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlImageGridItemElement;
+}
 export interface SwirlMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlMenuElement;
@@ -5609,6 +5613,8 @@ declare namespace LocalJSX {
         "icon"?: string;
         "interactive"?: boolean;
         "loading"?: SwirlImageGridItemLoading;
+        "onImageError"?: (event: SwirlImageGridItemCustomEvent<void>) => void;
+        "onImageLoad"?: (event: SwirlImageGridItemCustomEvent<void>) => void;
         "overlay"?: string;
         "src": string;
     }

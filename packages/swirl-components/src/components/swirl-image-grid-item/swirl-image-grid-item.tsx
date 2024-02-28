@@ -1,4 +1,13 @@
-import { Component, Element, h, Host, Prop, State } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+} from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlImageGridItemLoading =
@@ -22,8 +31,12 @@ export class SwirlImageGridItem {
   @Prop() overlay?: string;
   @Prop() src!: string;
 
+  @State() error = false;
   @State() loaded = false;
   @State() inViewport = false;
+
+  @Event() imageError: EventEmitter<void>;
+  @Event() imageLoad: EventEmitter<void>;
 
   private intersectionObserver: IntersectionObserver;
 
@@ -57,13 +70,22 @@ export class SwirlImageGridItem {
   }
 
   private onLoad = () => {
+    this.error = false;
     this.loaded = true;
+    this.imageLoad.emit();
+  };
+
+  private onError = () => {
+    this.loaded = true;
+    this.error = true;
+    this.imageError.emit();
   };
 
   render() {
     const Tag = this.interactive ? "button" : "div";
 
     const className = classnames("image-grid-item", {
+      "image-grid-item--has-error": this.error,
       "image-grid-item--has-overlay": this.overlay,
     });
 
@@ -88,21 +110,30 @@ export class SwirlImageGridItem {
               loading={
                 this.loading !== "intersecting" ? this.loading : undefined
               }
+              onError={this.onError}
               onLoad={this.onLoad}
               src={this.src}
             />
           ) : (
             <div class="image-grid-item__loading-placeholder"></div>
           )}
-          {this.loaded && this.icon && !Boolean(this.overlay) && (
-            <div class="image-grid-item__icon" innerHTML={this.icon}></div>
-          )}
+          {this.loaded &&
+            !this.error &&
+            this.icon &&
+            !Boolean(this.overlay) && (
+              <div class="image-grid-item__icon" innerHTML={this.icon}></div>
+            )}
           {this.overlay && (
             <div class="image-grid-item__overlay">{this.overlay}</div>
           )}
           {!this.loaded && (
             <div class="image-grid-item__spinner">
               <swirl-spinner></swirl-spinner>
+            </div>
+          )}
+          {this.loaded && this.error && (
+            <div class="image-grid-item__error">
+              <swirl-icon-error color="critical"></swirl-icon-error>
             </div>
           )}
         </Tag>

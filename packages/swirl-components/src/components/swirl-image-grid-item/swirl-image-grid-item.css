@@ -47,6 +47,12 @@ button.image-grid-item {
   }
 }
 
+.image-grid-item--has-error {
+  & .image-grid-item__image {
+    display: none;
+  }
+}
+
 .image-grid-item--has-overlay {
   & .image-grid-item__image {
     scale: 1.1;
@@ -116,5 +122,15 @@ button.image-grid-item {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.4);
+  inset: 0;
+}
+
+.image-grid-item__error {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
   inset: 0;
 }
