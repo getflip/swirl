@@ -262,16 +262,16 @@
 }
 
 .avatar__initials {
+  position: absolute;
   display: inline-flex;
-  width: 100%;
   min-width: 0;
-  height: 100%;
   padding-right: 0.0625rem;
   padding-left: 0.0625rem;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   font-weight: var(--s-font-weight-medium);
+  inset: 0;
 
   & > span {
     overflow: hidden;
@@ -307,8 +307,8 @@
 
 .avatar__tool {
   position: absolute;
-  bottom: 0;
   right: 0;
+  bottom: 0;
   display: inline-flex;
   transform: translate3d(25%, 25%, 0);
 }

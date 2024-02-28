@@ -52,5 +52,6 @@ export const SwirlAvatar = Template.bind({});
 
 SwirlAvatar.args = {
   label: "John Doe",
+  initials: "PS",
   src: "https://picsum.photos/id/433/144/144",
 };

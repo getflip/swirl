@@ -13,7 +13,7 @@ import classnames from "classnames";
 
 export type SwirlAvatarBadgePosition = "bottom" | "top";
 
-export type SwirlAvatarLoading = "lazy" | "auto" | "eager";
+export type SwirlAvatarLoading = "lazy" | "auto" | "eager" | "intersecting";
 
 export type SwirlAvatarToolPosition = "bottom" | "top";
 
@@ -82,9 +82,40 @@ export class SwirlAvatar {
   @Event() imageError: EventEmitter<void>;
   @Event() imageLoad: EventEmitter<void>;
 
+  private intersectionObserver: IntersectionObserver;
+
+  componentDidLoad() {
+    this.setupIntersectionObserver();
+  }
+
+  disconnectedCallback() {
+    this.intersectionObserver?.disconnect();
+  }
+
   @Watch("src")
   watchSrcProp() {
     this.imageAvailable = undefined;
+  }
+
+  private setupIntersectionObserver() {
+    if (this.loading !== "intersecting") {
+      return;
+    }
+
+    this.intersectionObserver = new IntersectionObserver(
+      this.onVisibilityChange.bind(this),
+      {
+        threshold: 0,
+      }
+    );
+
+    this.intersectionObserver.observe(this.element);
+  }
+
+  private onVisibilityChange(entries: IntersectionObserverEntry[]) {
+    if (entries[0].isIntersecting) {
+      this.inViewport = true;
+    }
   }
 
   private setImageAvailable = () => {
@@ -126,9 +157,12 @@ export class SwirlAvatar {
   render() {
     const showImage =
       Boolean(this.src) &&
-      (this.imageAvailable || this.imageAvailable === undefined);
+      (this.imageAvailable || this.imageAvailable === undefined) &&
+      (this.loading !== "intersecting" || this.inViewport);
 
-    const showInitials = !showImage && Boolean(this.initials);
+    const showInitials =
+      (!showImage || (!this.loaded && !this.loadingError)) &&
+      Boolean(this.initials);
     const showIcon = !showImage && !showInitials && Boolean(this.icon);
     const showFallbackIcon = !showImage && !showInitials && !showIcon;
     const showBadge = Boolean(this.badge) && this.size === "m";
@@ -171,7 +205,9 @@ export class SwirlAvatar {
               <img
                 alt=""
                 height={swirlAvatarSizeMappings[this.size]}
-                loading={this.loading}
+                loading={
+                  this.loading !== "intersecting" ? this.loading : undefined
+                }
                 onError={this.setImageUnavailable}
                 onLoad={this.setImageAvailable}
                 src={this.src}
