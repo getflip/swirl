@@ -10,7 +10,7 @@ import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components
 import { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
-import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
+import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 import { SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
@@ -72,7 +72,7 @@ export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components
 export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
-export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
+export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 export { SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
@@ -251,6 +251,7 @@ export namespace Components {
         "initials"?: string;
         "interactive"?: boolean;
         "label": string;
+        "loading"?: SwirlAvatarLoading;
         "showLabel"?: boolean;
         "size"?: SwirlAvatarSize;
         "src"?: string;
@@ -2096,6 +2097,10 @@ export interface SwirlAppLayoutCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlAutocompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlAutocompleteElement;
+}
+export interface SwirlAvatarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlAvatarElement;
 }
 export interface SwirlBannerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -4611,6 +4616,9 @@ declare namespace LocalJSX {
         "initials"?: string;
         "interactive"?: boolean;
         "label": string;
+        "loading"?: SwirlAvatarLoading;
+        "onImageError"?: (event: SwirlAvatarCustomEvent<void>) => void;
+        "onImageLoad"?: (event: SwirlAvatarCustomEvent<void>) => void;
         "showLabel"?: boolean;
         "size"?: SwirlAvatarSize;
         "src"?: string;

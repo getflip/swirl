@@ -1,7 +1,19 @@
-import { Component, Element, h, Host, Prop, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlAvatarBadgePosition = "bottom" | "top";
+
+export type SwirlAvatarLoading = "lazy" | "auto" | "eager";
 
 export type SwirlAvatarToolPosition = "bottom" | "top";
 
@@ -13,6 +25,7 @@ export type SwirlAvatarColor =
   | "kiwi"
   | "pumpkin"
   | "radish";
+
 export type SwirlAvatarSize =
   | "3xs"
   | "2xs"
@@ -22,6 +35,7 @@ export type SwirlAvatarSize =
   | "l"
   | "xl"
   | "2xl";
+
 export type SwirlAvatarVariant = "round" | "square";
 
 const swirlAvatarSizeMappings: { [key in SwirlAvatarSize]: number } = {
@@ -53,13 +67,20 @@ export class SwirlAvatar {
   @Prop() initials?: string;
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
+  @Prop() loading?: SwirlAvatarLoading;
   @Prop() showLabel?: boolean = false;
   @Prop() size?: SwirlAvatarSize = "m";
   @Prop() src?: string;
   @Prop() toolPosition?: SwirlAvatarToolPosition = "bottom";
   @Prop() variant?: SwirlAvatarVariant = "round";
 
+  @State() loadingError = false;
+  @State() loaded = false;
   @State() imageAvailable: boolean | undefined;
+  @State() inViewport = false;
+
+  @Event() imageError: EventEmitter<void>;
+  @Event() imageLoad: EventEmitter<void>;
 
   @Watch("src")
   watchSrcProp() {
@@ -68,10 +89,16 @@ export class SwirlAvatar {
 
   private setImageAvailable = () => {
     this.imageAvailable = true;
+    this.loadingError = false;
+    this.loaded = true;
+    this.imageLoad.emit();
   };
 
   private setImageUnavailable = () => {
     this.imageAvailable = false;
+    this.loaded = true;
+    this.loadingError = true;
+    this.imageError.emit();
   };
 
   private onKeydown = (event: KeyboardEvent) => {
@@ -144,6 +171,7 @@ export class SwirlAvatar {
               <img
                 alt=""
                 height={swirlAvatarSizeMappings[this.size]}
+                loading={this.loading}
                 onError={this.setImageUnavailable}
                 onLoad={this.setImageAvailable}
                 src={this.src}

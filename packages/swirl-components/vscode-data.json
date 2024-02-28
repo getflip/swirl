@@ -402,6 +402,21 @@
           "description": ""
         },
         {
+          "name": "loading",
+          "description": "",
+          "values": [
+            {
+              "name": "auto"
+            },
+            {
+              "name": "eager"
+            },
+            {
+              "name": "lazy"
+            }
+          ]
+        },
+        {
           "name": "show-label",
           "description": ""
         },
