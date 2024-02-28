@@ -2,6 +2,13 @@ import { fullscreenStoryDecorator, generateStoryElement } from "../../utils";
 import Docs from "./swirl-shell-layout.mdx";
 
 export default {
+  argTypes: {
+    sidebarToggleBadge: {
+      control: {
+        type: "text",
+      },
+    },
+  },
   component: "swirl-shell-layout",
   tags: ["autodocs"],
   decorators: [fullscreenStoryDecorator(false)],

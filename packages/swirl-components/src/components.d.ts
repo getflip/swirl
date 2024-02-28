@@ -1639,7 +1639,7 @@ export namespace Components {
          */
         "showMobileNavigation": () => Promise<void>;
         "sidebarActive"?: boolean;
-        "sidebarToggleBadge"?: string;
+        "sidebarToggleBadge"?: string | boolean;
         "sidebarToggleBadgeAriaLabel"?: string;
         "sidebarToggleIcon"?: string;
         "sidebarToggleLabel"?: string;
@@ -5920,7 +5920,7 @@ declare namespace LocalJSX {
         "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "onSkipLinkClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "sidebarActive"?: boolean;
-        "sidebarToggleBadge"?: string;
+        "sidebarToggleBadge"?: string | boolean;
         "sidebarToggleBadgeAriaLabel"?: string;
         "sidebarToggleIcon"?: string;
         "sidebarToggleLabel"?: string;

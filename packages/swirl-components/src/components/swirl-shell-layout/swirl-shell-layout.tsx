@@ -40,7 +40,7 @@ export class SwirlShellLayout {
   @Prop() navigationLabel?: string = "Main";
   @Prop() navigationToggleLabel?: string = "Toggle navigation";
   @Prop({ mutable: true }) sidebarActive?: boolean;
-  @Prop() sidebarToggleBadge?: string;
+  @Prop() sidebarToggleBadge?: string | boolean;
   @Prop() sidebarToggleBadgeAriaLabel?: string;
   @Prop() sidebarToggleIcon?: string = "notifications";
   @Prop() sidebarToggleLabel?: string = "Toggle sidebar";
@@ -154,6 +154,9 @@ export class SwirlShellLayout {
   };
 
   render() {
+    const hasSidebarToggleBadgeWithLabel =
+      this.sidebarToggleBadge !== true && this.sidebarToggleBadge !== "true";
+
     const className = classnames("shell-layout", {
       "shell-layout--branded-header": this.brandedHeader,
       "shell-layout--mobile-navigation-active": this.mobileNavigationActive,
@@ -231,8 +234,15 @@ export class SwirlShellLayout {
                 {this.sidebarToggleBadge && (
                   <swirl-badge
                     aria-label={this.sidebarToggleBadgeAriaLabel}
-                    label={this.sidebarToggleBadge}
+                    label={
+                      !hasSidebarToggleBadgeWithLabel
+                        ? this.sidebarToggleBadgeAriaLabel
+                        : String(this.sidebarToggleBadge)
+                    }
                     size="xs"
+                    variant={
+                      !hasSidebarToggleBadgeWithLabel ? "dot" : "default"
+                    }
                   ></swirl-badge>
                 )}
               </button>
