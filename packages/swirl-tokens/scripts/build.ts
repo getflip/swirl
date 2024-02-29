@@ -1,9 +1,10 @@
 import StyleDictionary from "style-dictionary";
+import Color from "tinycolor2";
 import {
-  mappedTokensType,
   TailwindTokenMap,
-  tokenGroups,
   createSwirlTailwindTheme,
+  mappedTokensType,
+  tokenGroups,
 } from "./utils";
 
 const { fileHeader, createPropertyFormatter } = StyleDictionary.formatHelpers;
@@ -148,12 +149,42 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: "shadow-attribute/flutter",
+  type: "attribute",
+  matcher: (token) => token.type === "boxShadow",
+  transformer: function () {
+    return { category: "shadow", type: "boxShadow" };
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: "shadow/flutter",
+  type: "value",
+  transitive: true,
+  matcher: (token) => token.type === "boxShadow",
+  transformer: function (token) {
+    return `[${token.value
+      .map((value: any) => {
+        const { x, y, blur, color } = value;
+
+        const hexColor = Color(color).toHex8().toUpperCase();
+
+        return `BoxShadow(Color(0x${hexColor.slice(6)}${hexColor.slice(
+          0,
+          6
+        )}), Offset(${x}, ${y}), ${blur})`;
+      })
+      .join(", ")}]`;
+  },
+});
+
+StyleDictionary.registerTransform({
   name: "fontWeight/flutter",
   type: "value",
   transitive: true,
   matcher: (token) => token.type === "fontWeights",
   transformer: function (token) {
-    return token.value.replace(/^"(\d+)"$/, "FontWeight.w$1");
+    return String(token.value).replace(/^"(\d+)"$/, "FontWeight.w$1");
   },
 });
 
