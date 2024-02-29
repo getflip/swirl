@@ -1,5 +1,13 @@
 # swirl-tokens
 
+## 2.5.2
+
+### Patch Changes
+
+- [`218a1ff0`](https://github.com/getflip/swirl/commit/218a1ff0f863861638218a1c7968c6cc6ee4920e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix shadow token mappings for
+  Flutter
+
 ## 2.5.1
 
 ### Patch Changes
