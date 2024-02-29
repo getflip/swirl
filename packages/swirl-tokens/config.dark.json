@@ -27,13 +27,16 @@
       "transforms": [
         "attribute/custom",
         "name/cti/camel",
-        "color/hex8flutter",
         "size/flutter/remToDouble",
+        "color/hex8flutter",
+        "shadow-attribute/flutter",
+        "shadow/flutter",
         "content/flutter/literal",
         "asset/flutter/literal",
         "font/flutter/literal",
         "fontWeight/flutter"
       ],
+      "actions": ["add_flutter_imports"],
       "prefix": "",
       "buildPath": "dart/lib/",
       "files": [

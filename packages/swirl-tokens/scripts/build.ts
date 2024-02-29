@@ -1,9 +1,11 @@
+import { readFileSync, writeFileSync } from "fs";
 import StyleDictionary from "style-dictionary";
+import Color from "tinycolor2";
 import {
-  mappedTokensType,
   TailwindTokenMap,
-  tokenGroups,
   createSwirlTailwindTheme,
+  mappedTokensType,
+  tokenGroups,
 } from "./utils";
 
 const { fileHeader, createPropertyFormatter } = StyleDictionary.formatHelpers;
@@ -148,12 +150,59 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: "shadow-attribute/flutter",
+  type: "attribute",
+  matcher: (token) => token.type === "boxShadow",
+  transformer: function () {
+    return { category: "shadow", type: "boxShadow" };
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: "shadow/flutter",
+  type: "value",
+  transitive: true,
+  matcher: (token) => token.type === "boxShadow",
+  transformer: function (token) {
+    return `[${token.value
+      .map((value: any) => {
+        const { x, y, blur, color } = value;
+
+        const hexColor = Color(color).toHex8().toUpperCase();
+
+        return `BoxShadow(color: Color(0x${hexColor.slice(6)}${hexColor.slice(
+          0,
+          6
+        )}), offset: Offset(${x}, ${y}), blurRadius: ${blur})`;
+      })
+      .join(", ")}]`;
+  },
+});
+
+StyleDictionary.registerTransform({
   name: "fontWeight/flutter",
   type: "value",
   transitive: true,
   matcher: (token) => token.type === "fontWeights",
   transformer: function (token) {
-    return token.value.replace(/^"(\d+)"$/, "FontWeight.w$1");
+    return String(token.value).replace(/^"(\d+)"$/, "FontWeight.w$1");
+  },
+});
+
+StyleDictionary.registerAction({
+  name: "add_flutter_imports",
+  do(_, config) {
+    config.files?.forEach((file) => {
+      const path = __dirname + "/../dart/lib/" + file.destination;
+      const outputWithImports = readFileSync(path, {
+        encoding: "utf-8",
+      }).replace(
+        `import 'dart:ui';`,
+        `import 'dart:ui';\nimport 'package:flutter/widgets.dart';`
+      );
+
+      writeFileSync(path, outputWithImports, { encoding: "utf-8" });
+    });
   },
 });
 
