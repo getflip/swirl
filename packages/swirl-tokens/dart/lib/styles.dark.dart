@@ -4,11 +4,12 @@
 //
 
 // Do not edit directly
-// Generated on Thu, 29 Feb 2024 08:41:15 GMT
+// Generated on Thu, 29 Feb 2024 09:04:10 GMT
 
 
 
 import 'dart:ui';
+import 'package:flutter/widgets.dart';
 
 class SwirlDesignTokensDark {
   SwirlDesignTokensDark._();
@@ -222,9 +223,9 @@ class SwirlDesignTokensDark {
     static const lineHeightSm = 20.00;
     static const lineHeightXl = 26.00;
     static const onSurfaceHighlightDefault = Color(0xFF34508D); /* Used to place containers on “Surface Highlight/Default”. */
-    static const shadowLevel1 = [BoxShadow(Color(0x52000000), Offset(0, 1), 8), BoxShadow(Color(0x7A000000), Offset(0, 0), 1)];
-    static const shadowLevel2 = [BoxShadow(Color(0x7A000000), Offset(0, 4), 16), BoxShadow(Color(0x66000000), Offset(0, 1), 4)];
-    static const shadowLevel3 = [BoxShadow(Color(0x52000000), Offset(0, 12), 32), BoxShadow(Color(0x3D000000), Offset(0, 2), 4)];
+    static const shadowLevel1 = [BoxShadow(color: Color(0x52000000), offset: Offset(0, 1), blurRadius: 8), BoxShadow(color: Color(0x7A000000), offset: Offset(0, 0), blurRadius: 1)];
+    static const shadowLevel2 = [BoxShadow(color: Color(0x7A000000), offset: Offset(0, 4), blurRadius: 16), BoxShadow(color: Color(0x66000000), offset: Offset(0, 1), blurRadius: 4)];
+    static const shadowLevel3 = [BoxShadow(color: Color(0x52000000), offset: Offset(0, 12), blurRadius: 32), BoxShadow(color: Color(0x3D000000), offset: Offset(0, 2), blurRadius: 4)];
     static const space0 = 0.00;
     static const space12 = 12.00;
     static const space16 = 16.00;

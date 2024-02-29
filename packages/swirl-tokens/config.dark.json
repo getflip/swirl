@@ -36,6 +36,7 @@
         "font/flutter/literal",
         "fontWeight/flutter"
       ],
+      "actions": ["add_flutter_imports"],
       "prefix": "",
       "buildPath": "dart/lib/",
       "files": [
