@@ -2,6 +2,9 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlFormControl } from "./swirl-form-control";
 
+(global as any).DocumentFragment = class DocumentFragment extends Node {};
+(global as any).ShadowRoot = class ShadowRoot extends DocumentFragment {};
+
 describe("swirl-form-control", () => {
   it("renders its input with label", async () => {
     const page = await newSpecPage({
@@ -89,5 +92,55 @@ describe("swirl-form-control", () => {
         .querySelector(".form-control__error-message > *")
         .getAttribute("message")
     ).toBe("Error");
+  });
+
+  it("keeps focus when Tab is pressed and the active element is descendent of the input", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label">
+          <mock:shadow-root>
+            <span id="active-element"></span>
+          </mock:shadow-root>
+        </swirl-form-control>
+      `,
+    });
+    const activeElement = page.doc.querySelector("#active-element");
+    const formControl =   page.root.children[0];
+
+    page.root.dispatchEvent(new FocusEvent("focusin"));
+    (page.doc as any).activeElement = activeElement;
+
+    page.root.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab" }));
+
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(formControl.classList.contains('form-control--has-focus')).toBeTruthy();
+  });
+
+  it("doesn't keep focus when Tab is pressed and the active element is not descendent of the input", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label">
+          <swirl-text-input></swirl-text-input>
+        </swirl-form-control>
+        <span id="active-element"></span>>
+      `,
+    });
+    const activeElement = page.doc.querySelector("#active-element");
+    const formControl =   page.root.children[0];
+
+    page.root.dispatchEvent(new FocusEvent("focusin"));
+
+    (page.doc as any).activeElement = activeElement;
+
+    page.root.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab" }));
+
+    await new Promise((resolve) => setTimeout(resolve, 150));
+    await page.waitForChanges();
+
+    expect(formControl.classList.contains('form-control--has-focus')).toBeFalsy();
   });
 });
