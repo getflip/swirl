@@ -41,7 +41,9 @@ export class SwirlShellNavigationItem {
           {this.badgeLabel !== undefined && this.badgeLabel !== null && (
             <swirl-badge
               aria-label={this.badgeLabel}
-              class="shell-navigation-item__badge"
+              class={classnames("shell-navigation-item__badge", {
+                "shell-navigation-item__badge--dot": this.badgeLabel === "",
+              })}
               label={this.badgeLabel}
               size="xs"
               variant={this.badgeLabel === "" ? "dot" : "default"}

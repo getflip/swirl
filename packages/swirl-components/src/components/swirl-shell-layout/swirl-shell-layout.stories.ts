@@ -133,5 +133,5 @@ export const SwirlShellLayout = Template.bind({});
 
 SwirlShellLayout.args = {
   sidebarToggleBadgeAriaLabel: "3 new notifications",
-  sidebarToggleBadge: "3",
+  sidebarToggleBadge: true,
 };

@@ -272,8 +272,9 @@
     --swirl-badge-border-color: var(--s-surface-sunken-default);
 
     position: absolute;
-    right: 0;
-    bottom: 0;
+    top: var(--s-space-4);
+    right: var(--s-space-4);
+    padding-right: var(--s-space-2);
     transform: translate3d(0.1875rem, 0, 0);
   }
 }
