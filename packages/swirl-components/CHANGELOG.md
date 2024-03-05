@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.167.0
+
+### Minor Changes
+
+- [`561d69c0`](https://github.com/getflip/swirl/commit/561d69c03645ccab9251f7891bbd19c499edacbb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust swirl-badge sizes for
+  "dot" variant
+
 ## 0.166.1
 
 ### Patch Changes
