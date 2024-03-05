@@ -206,6 +206,7 @@ export class SwirlDateInput {
             class="date-input__input"
             disabled={this.disabled}
             id={this.id}
+            inputmode="numeric"
             onClick={this.onClick}
             onFocus={this.onFocus}
             onInput={this.onInput}

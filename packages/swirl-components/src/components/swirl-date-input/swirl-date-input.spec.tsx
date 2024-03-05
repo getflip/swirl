@@ -22,7 +22,7 @@ describe("swirl-date-input", () => {
     expect(page.root).toEqualHtml(`
       <swirl-date-input>
         <div class="date-input">
-          <input class="date-input__input" id="swirl-date-input-0" placeholder="yyyy-mm-dd" type="text">
+          <input class="date-input__input" id="swirl-date-input-0" inputmode="numeric" placeholder="yyyy-mm-dd" type="text">
           <swirl-popover-trigger popover="popover-swirl-date-input-0">
           <button aria-label="Open date picker" class="date-input__date-picker-button" type="button">
               <swirl-icon-today size="24"></swirl-icon-today>
