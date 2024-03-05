@@ -1886,6 +1886,18 @@
           "description": ""
         },
         {
+          "name": "preferred-input-mode",
+          "description": "",
+          "values": [
+            {
+              "name": "input"
+            },
+            {
+              "name": "pick"
+            }
+          ]
+        },
+        {
           "name": "required",
           "description": ""
         },

@@ -46,6 +46,7 @@ export class SwirlDateInput {
   @Prop() labels?: WCDatepickerLabels;
   @Prop() locale?: string = "en-US";
   @Prop() placeholder?: string = "yyyy-mm-dd";
+  @Prop() preferredInputMode?: "input" | "pick" = "input";
   @Prop() required?: boolean;
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
@@ -146,7 +147,16 @@ export class SwirlDateInput {
     event.preventDefault();
   };
 
+  private onMouseDown = () => {
+    if (this.preferredInputMode === "pick") {
+      this.pickerPopover.close();
+    }
+  };
+
   private onFocus = (event: FocusEvent) => {
+    if (this.preferredInputMode === "pick") {
+      this.pickerPopover.open(this.el);
+    }
     this.handleAutoSelect(event);
   };
 
@@ -208,6 +218,7 @@ export class SwirlDateInput {
             id={this.id}
             inputmode="numeric"
             onClick={this.onClick}
+            onMouseDown={this.onMouseDown}
             onFocus={this.onFocus}
             onInput={this.onInput}
             placeholder={this.placeholder}
