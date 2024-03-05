@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.167.1
+
+### Patch Changes
+
+- [`59fe56dd`](https://github.com/getflip/swirl/commit/59fe56dda7dc577b8b7a9dc86f469be3b4d0b437)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix button style of "critical"
+  swirl-dialog
+
+- Updated dependencies
+  [[`59fe56dd`](https://github.com/getflip/swirl/commit/59fe56dda7dc577b8b7a9dc86f469be3b4d0b437)]:
+  - @getflip/swirl-components@0.167.1
+
 ## 0.167.0
 
 ### Minor Changes
