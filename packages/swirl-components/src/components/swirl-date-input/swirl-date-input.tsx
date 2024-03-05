@@ -14,7 +14,7 @@ import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
-import { getDesktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery, isMobileViewport } from "../../utils";
 
 const internalDateFormat = "yyyy-MM-dd";
 
@@ -79,9 +79,7 @@ export class SwirlDateInput {
 
     // see https://stackoverflow.com/a/27314017
     if (this.autoFocus) {
-      setTimeout(() => {
-        this.inputEl.focus();
-      });
+      this.focus();
     }
   }
 
@@ -102,6 +100,12 @@ export class SwirlDateInput {
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
     this.updateIconSize(event.matches);
   };
+
+  private focus(): void {
+    setTimeout(() => {
+      this.inputEl.focus();
+    });
+  }
 
   private updateIconSize(smallIcon: boolean) {
     this.iconSize = smallIcon ? 20 : 24;
@@ -156,6 +160,10 @@ export class SwirlDateInput {
   private onFocus = (event: FocusEvent) => {
     if (this.preferredInputMode === "pick") {
       this.pickerPopover.open(this.el);
+
+      if (!isMobileViewport()) {
+        this.focus();
+      }
     }
     this.handleAutoSelect(event);
   };

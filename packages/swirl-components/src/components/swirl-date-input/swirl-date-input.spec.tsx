@@ -1,8 +1,18 @@
 const maskSpy = jest.fn();
+const isMobileViewportSpy = jest.fn();
 
 jest.mock("maska/dist/es6/maska", () => ({
   create: maskSpy,
 }));
+
+jest.mock("../../utils", () => {
+  const original = jest.requireActual("../../utils");
+
+  return {
+    ...original,
+    isMobileViewport: isMobileViewportSpy,
+  };
+});
 
 (global as any).IntersectionObserver = class {
   constructor() {}
@@ -18,6 +28,7 @@ import { SwirlPopover } from "../swirl-popover/swirl-popover";
 describe("swirl-date-input", () => {
   beforeEach(() => {
     maskSpy.mockReset();
+    isMobileViewportSpy.mockReset();
   });
 
   it("renders the input and picker", async () => {
@@ -188,5 +199,43 @@ describe("swirl-date-input", () => {
     input.dispatchEvent(new MouseEvent("mousedown"));
 
     expect(spy).not.toHaveBeenCalled();
+  });
+
+  it("keeps the focus on the input when the datepicker is opened with focus on desktop", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+    const spy = jest.fn();
+
+    isMobileViewportSpy.mockImplementation(() => false);
+    page.root.preferredInputMode = "pick";
+
+    input.addEventListener("focus", spy);
+    input.dispatchEvent(new FocusEvent("focus"));
+
+    await new Promise((resolve) => setTimeout(resolve));
+
+    expect(spy).toHaveBeenCalledTimes(2);
+  });
+
+  it("lose the focus on the input when the datepicker is opened with focus on mobile", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+    const spy = jest.fn();
+
+    isMobileViewportSpy.mockImplementation(() => true);
+    page.root.preferredInputMode = "pick";
+
+    input.addEventListener("focus", spy);
+    input.dispatchEvent(new FocusEvent("focus"));
+
+    await new Promise((resolve) => setTimeout(resolve));
+
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });
