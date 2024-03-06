@@ -61,6 +61,7 @@ export class SwirlDateInput {
   private inputEl: HTMLInputElement;
   private mask: Maska;
   private pickerPopover: HTMLSwirlPopoverElement;
+  private recursiveFocus = false;
 
   componentWillLoad() {
     const index = Array.from(
@@ -158,10 +159,16 @@ export class SwirlDateInput {
   };
 
   private onFocus = (event: FocusEvent) => {
+    if (this.recursiveFocus) {
+      this.recursiveFocus = false;
+      return;
+    }
+
     if (this.preferredInputMode === "pick") {
       this.pickerPopover.open(this.el);
 
       if (!isMobileViewport()) {
+        this.recursiveFocus = true;
         this.focus();
       }
     }
