@@ -1,5 +1,16 @@
 # @getflip/swirl-components-react
 
+## 0.167.3
+
+### Patch Changes
+
+- [`f5a05a64`](https://github.com/getflip/swirl/commit/f5a05a6461acd5bd4d415af0e788efcf6c1e40d0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Remove img role from swirl-avatar
+
+- Updated dependencies
+  [[`f5a05a64`](https://github.com/getflip/swirl/commit/f5a05a6461acd5bd4d415af0e788efcf6c1e40d0)]:
+  - @getflip/swirl-components@0.167.3
+
 ## 0.167.2
 
 ### Patch Changes
