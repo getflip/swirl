@@ -167,7 +167,7 @@ export class SwirlAvatar {
     const showFallbackIcon = !showImage && !showInitials && !showIcon;
     const showBadge = Boolean(this.badge) && this.size === "m";
 
-    const role = this.interactive ? "button" : "img";
+    const role = this.interactive ? "button" : undefined;
 
     const className = classnames(
       "avatar",
