@@ -471,6 +471,7 @@ export namespace Components {
         "labels"?: WCDatepickerLabels;
         "locale"?: string;
         "placeholder"?: string;
+        "preferredInputMode"?: "input" | "pick";
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
@@ -4834,6 +4835,7 @@ declare namespace LocalJSX {
         "onInvalidInput"?: (event: SwirlDateInputCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlDateInputCustomEvent<string>) => void;
         "placeholder"?: string;
+        "preferredInputMode"?: "input" | "pick";
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;

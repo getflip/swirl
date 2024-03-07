@@ -29,6 +29,27 @@ export function closestPassShadow(node, selector) {
   return closestPassShadow(node.parentNode, selector);
 }
 
+export function isDescendantOf(
+  element: Element,
+  potentialParent: Element
+): boolean {
+  let current: Node | null = element;
+
+  while (current !== null) {
+    if (current === potentialParent) {
+      return true;
+    }
+
+    current = current.parentNode;
+
+    if (current instanceof ShadowRoot) {
+      current = current.host;
+    }
+  }
+
+  return false;
+}
+
 export function getActiveElement(
   root: Document | ShadowRoot = document
 ): Element | undefined {

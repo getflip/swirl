@@ -14,7 +14,7 @@ import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
-import { getDesktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery, isMobileViewport } from "../../utils";
 
 const internalDateFormat = "yyyy-MM-dd";
 
@@ -46,6 +46,7 @@ export class SwirlDateInput {
   @Prop() labels?: WCDatepickerLabels;
   @Prop() locale?: string = "en-US";
   @Prop() placeholder?: string = "yyyy-mm-dd";
+  @Prop() preferredInputMode?: "input" | "pick" = "input";
   @Prop() required?: boolean;
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
@@ -60,6 +61,7 @@ export class SwirlDateInput {
   private inputEl: HTMLInputElement;
   private mask: Maska;
   private pickerPopover: HTMLSwirlPopoverElement;
+  private recursiveFocus = false;
 
   componentWillLoad() {
     const index = Array.from(
@@ -78,9 +80,7 @@ export class SwirlDateInput {
 
     // see https://stackoverflow.com/a/27314017
     if (this.autoFocus) {
-      setTimeout(() => {
-        this.inputEl.focus();
-      });
+      this.focus();
     }
   }
 
@@ -101,6 +101,12 @@ export class SwirlDateInput {
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
     this.updateIconSize(event.matches);
   };
+
+  private focus(): void {
+    setTimeout(() => {
+      this.inputEl.focus();
+    });
+  }
 
   private updateIconSize(smallIcon: boolean) {
     this.iconSize = smallIcon ? 20 : 24;
@@ -146,7 +152,26 @@ export class SwirlDateInput {
     event.preventDefault();
   };
 
+  private onMouseDown = () => {
+    if (this.preferredInputMode === "pick") {
+      this.pickerPopover.close();
+    }
+  };
+
   private onFocus = (event: FocusEvent) => {
+    if (this.recursiveFocus) {
+      this.recursiveFocus = false;
+      return;
+    }
+
+    if (this.preferredInputMode === "pick") {
+      this.pickerPopover.open(this.el);
+
+      if (!isMobileViewport()) {
+        this.recursiveFocus = true;
+        this.focus();
+      }
+    }
     this.handleAutoSelect(event);
   };
 
@@ -206,7 +231,9 @@ export class SwirlDateInput {
             class="date-input__input"
             disabled={this.disabled}
             id={this.id}
+            inputmode="numeric"
             onClick={this.onClick}
+            onMouseDown={this.onMouseDown}
             onFocus={this.onFocus}
             onInput={this.onInput}
             placeholder={this.placeholder}
