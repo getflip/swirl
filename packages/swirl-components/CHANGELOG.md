@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.167.2
+
+### Patch Changes
+
+- [#607](https://github.com/getflip/swirl/pull/607)
+  [`7edd7ff2`](https://github.com/getflip/swirl/commit/7edd7ff2036e188ea91acb73d7c17f6cd31e1484)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add option to
+  open the datepicker at focus in swirl-date-input
+
 ## 0.167.1
 
 ### Patch Changes
