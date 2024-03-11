@@ -49,6 +49,7 @@ export class SwirlDateInput {
   @Prop() preferredInputMode?: "input" | "pick" = "input";
   @Prop() required?: boolean;
   @Prop() swirlAriaDescribedby?: string;
+  @Prop() tooltip?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
 
   @State() iconSize: 20 | 24 = 24;

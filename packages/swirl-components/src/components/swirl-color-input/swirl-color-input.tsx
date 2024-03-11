@@ -35,6 +35,7 @@ export class SwirlColorInput {
   @Prop() pickerLabel?: string = "Color picker";
   @Prop() placeholder?: string;
   @Prop() required?: boolean;
+  @Prop() toolip?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
 
   @Event() inputBlur: EventEmitter<FocusEvent>;

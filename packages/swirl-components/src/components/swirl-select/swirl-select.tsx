@@ -41,6 +41,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   @Prop() searchPlaceholder?: string;
   @Prop() selectId?: string = Math.round(Math.random() * 1000000).toString();
   @Prop() swirlAriaDescribedby?: string;
+  @Prop() tooltip?: string;
   @Prop({ mutable: true, reflect: true }) value?: string[];
   @Prop() withSearch?: boolean;
 

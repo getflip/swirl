@@ -41,6 +41,7 @@ export class SwirlTimeInput {
   @Prop() placeholder?: string = "hh:mm";
   @Prop() required?: boolean;
   @Prop() swirlAriaDescribedby?: string;
+  @Prop() tooltip?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
 
   @State() iconSize: 20 | 24 = 24;

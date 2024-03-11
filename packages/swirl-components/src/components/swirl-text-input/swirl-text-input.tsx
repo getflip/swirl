@@ -3,10 +3,11 @@ import {
   Event,
   EventEmitter,
   h,
-  Host, Method,
+  Host,
+  Method,
   Prop,
   State,
-  Watch
+  Watch,
 } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery, SwirlFormInput } from "../../utils";
@@ -71,6 +72,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() spellCheck?: boolean;
   @Prop() suffixLabel?: string;
   @Prop() step?: number;
+  @Prop() tooltip?: string;
   @Prop() passwordToggleLabel?: string = "Toggle password display";
   @Prop() type?: SwirlTextInputType = "text";
   @Prop({ mutable: true, reflect: true }) value?: string;
