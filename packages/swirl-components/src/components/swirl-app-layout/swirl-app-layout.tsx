@@ -43,6 +43,7 @@ export class SwirlAppLayout {
   @Prop() backToNavigationViewButtonLabel?: string = "Back to navigation";
   @Prop() ctaIcon?: string;
   @Prop() ctaLabel?: string;
+  @Prop({ mutable: true }) hasNavigation: boolean;
   @Prop() hideAppBar?: boolean;
   @Prop() navigationBackButtonLabel?: string = "Go back";
   @Prop() navigationLabel?: string;
@@ -52,7 +53,6 @@ export class SwirlAppLayout {
   @Prop() transitionStyle?: string = "slides";
 
   @State() hasCustomAppBarBackButton: boolean;
-  @State() hasNavigation: boolean;
   @State() hasSidebar: boolean;
   @State() mobileView: SwirlAppLayoutMobileView = "navigation";
   @State() sidebarActive: boolean;

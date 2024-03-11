@@ -78,6 +78,7 @@ export const SwirlAppLayout = Template.bind({});
 
 SwirlAppLayout.args = {
   appName: "App Name",
+  hasNavigation: true,
   navigationLabel: "Items",
   sidebarHeading: "Sidebar Heading",
 };
