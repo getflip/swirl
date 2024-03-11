@@ -126,6 +126,21 @@
   @media (--from-desktop-without-touch) {
     --swirl-text-input-placeholder-size: var(--s-font-size-sm);
   }
+
+  & .form-control__label-text {
+    @media (--from-desktop-without-touch) {
+      display: flex;
+      align-items: center;
+    }
+
+    & .form-control__tooltip {
+      display: none;
+      @media (--from-desktop-without-touch) {
+        display: inline-flex;
+        margin-left: 4px;
+      }
+    }
+  }
 }
 
 .form-control--invalid {

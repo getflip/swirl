@@ -209,6 +209,8 @@ export class SwirlFormControl {
 
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
+    const tooltip = String(this.inputEl.getAttribute("tooltip"));
+
     const className = classnames(
       "form-control",
       `form-control--label-position-${this.labelPosition}`,
@@ -242,7 +244,15 @@ export class SwirlFormControl {
             <LabelTag class="form-control__label" onClick={this.onLabelClick}>
               <span class="form-control__label-text" id={this.labelId}>
                 {this.label}
+                {tooltip && (
+                  <span class="form-control__tooltip">
+                    <swirl-tooltip content={tooltip} positioning="fixed">
+                      <swirl-icon-help size={16}></swirl-icon-help>
+                    </swirl-tooltip>
+                  </span>
+                )}
               </span>
+
               <span class="form-control__input">
                 <slot></slot>
               </span>
