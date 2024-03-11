@@ -1729,6 +1729,10 @@
           "description": ""
         },
         {
+          "name": "toolip",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         }
@@ -1903,6 +1907,10 @@
         },
         {
           "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "tooltip",
           "description": ""
         },
         {
@@ -12837,6 +12845,10 @@
           "description": ""
         },
         {
+          "name": "tooltip",
+          "description": ""
+        },
+        {
           "name": "with-search",
           "description": ""
         }
@@ -14603,6 +14615,10 @@
           "description": ""
         },
         {
+          "name": "tooltip",
+          "description": ""
+        },
+        {
           "name": "type",
           "description": "",
           "values": [
@@ -14764,6 +14780,10 @@
         },
         {
           "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "tooltip",
           "description": ""
         },
         {

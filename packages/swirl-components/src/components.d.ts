@@ -425,6 +425,7 @@ export namespace Components {
         "placeholder"?: string;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
+        "toolip"?: string;
         "value"?: string;
     }
     interface SwirlColumns {
@@ -474,6 +475,7 @@ export namespace Components {
         "preferredInputMode"?: "input" | "pick";
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
+        "tooltip"?: string;
         "value"?: string;
     }
     interface SwirlDatePicker {
@@ -1617,6 +1619,7 @@ export namespace Components {
         "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
+        "tooltip"?: string;
         "value"?: string[];
         "withSearch"?: boolean;
     }
@@ -1972,6 +1975,7 @@ export namespace Components {
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
         "swirlRole"?: string;
+        "tooltip"?: string;
         "type"?: SwirlTextInputType;
         "value"?: string;
     }
@@ -2018,6 +2022,7 @@ export namespace Components {
         "placeholder"?: string;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
+        "tooltip"?: string;
         "value"?: string;
     }
     interface SwirlToast {
@@ -4797,6 +4802,7 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
+        "toolip"?: string;
         "value"?: string;
     }
     interface SwirlColumns {
@@ -4838,6 +4844,7 @@ declare namespace LocalJSX {
         "preferredInputMode"?: "input" | "pick";
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
+        "tooltip"?: string;
         "value"?: string;
     }
     interface SwirlDatePicker {
@@ -5905,6 +5912,7 @@ declare namespace LocalJSX {
         "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
+        "tooltip"?: string;
         "value"?: string[];
         "withSearch"?: boolean;
     }
@@ -6252,6 +6260,7 @@ declare namespace LocalJSX {
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
         "swirlRole"?: string;
+        "tooltip"?: string;
         "type"?: SwirlTextInputType;
         "value"?: string;
     }
@@ -6285,6 +6294,7 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
+        "tooltip"?: string;
         "value"?: string;
     }
     interface SwirlToast {
