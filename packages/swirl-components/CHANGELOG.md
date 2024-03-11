@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.168.0
+
+### Minor Changes
+
+- [`542b500e`](https://github.com/getflip/swirl/commit/542b500eaa55036e726e05b90dc13d5d800390fb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Change hasNavigation state of
+  swirl-app-layout to prop
+
 ## 0.167.3
 
 ### Patch Changes
