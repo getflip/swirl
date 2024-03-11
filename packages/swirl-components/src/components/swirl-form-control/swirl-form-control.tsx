@@ -209,7 +209,11 @@ export class SwirlFormControl {
 
     const isSelect = this.inputEl.tagName === "SWIRL-SELECT";
 
-    const tooltip = String(this.inputEl.getAttribute("tooltip"));
+    const tooltip: string | null = (() => {
+      const el = this.inputEl.getAttribute("tooltip");
+      console.log(el);
+      return el !== null ? el : null;
+    })();
 
     const className = classnames(
       "form-control",
