@@ -137,7 +137,7 @@ describe("swirl-date-input", () => {
     expect(spy.mock.calls[0][0].detail).toBe("2022-22-22");
   });
 
-  it("opens the datepicker when input gets focused and preferredInputMode is 'pick'", async () => {
+  it("opens the datepicker when input gets clicked and preferredInputMode is 'pick'", async () => {
     const page = await newSpecPage({
       components: [SwirlDateInput, SwirlPopover],
       html: `<swirl-date-input></swirl-date-input>`,
@@ -148,12 +148,12 @@ describe("swirl-date-input", () => {
 
     Object.defineProperty(popover, "open", { value: spy });
     page.root.preferredInputMode = "pick";
-    input.dispatchEvent(new FocusEvent("focus"));
+    input.dispatchEvent(new MouseEvent("click"));
 
     expect(spy).toHaveBeenCalled();
   });
 
-  it("doesn't open the datepicker when input gets focused and preferredInputMode isn't 'pick'", async () => {
+  it("doesn't open the datepicker when input gets clicked and preferredInputMode isn't 'pick'", async () => {
     const page = await newSpecPage({
       components: [SwirlDateInput, SwirlPopover],
       html: `<swirl-date-input></swirl-date-input>`,
@@ -164,7 +164,7 @@ describe("swirl-date-input", () => {
 
     Object.defineProperty(popover, "open", { value: spy });
     page.root.preferredInputMode = "input";
-    input.dispatchEvent(new FocusEvent("focus"));
+    input.dispatchEvent(new MouseEvent("click"));
 
     expect(spy).not.toHaveBeenCalled();
   });
@@ -201,7 +201,7 @@ describe("swirl-date-input", () => {
     expect(spy).not.toHaveBeenCalled();
   });
 
-  it("keeps the focus on the input when the datepicker is opened with focus on desktop", async () => {
+  it("keeps the focus on the input when the datepicker is opened with click on desktop", async () => {
     const page = await newSpecPage({
       components: [SwirlDateInput, SwirlPopover],
       html: `<swirl-date-input></swirl-date-input>`,
@@ -213,11 +213,11 @@ describe("swirl-date-input", () => {
     page.root.preferredInputMode = "pick";
 
     input.addEventListener("focus", spy);
-    input.dispatchEvent(new FocusEvent("focus"));
+    input.dispatchEvent(new MouseEvent("click"));
 
     await new Promise((resolve) => setTimeout(resolve));
 
-    expect(spy).toHaveBeenCalledTimes(2);
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it("lose the focus on the input when the datepicker is opened with focus on mobile", async () => {
@@ -232,10 +232,10 @@ describe("swirl-date-input", () => {
     page.root.preferredInputMode = "pick";
 
     input.addEventListener("focus", spy);
-    input.dispatchEvent(new FocusEvent("focus"));
+    input.dispatchEvent(new MouseEvent("click"));
 
     await new Promise((resolve) => setTimeout(resolve));
 
-    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).not.toHaveBeenCalled();
   });
 });
