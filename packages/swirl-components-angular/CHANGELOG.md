@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.168.1
+
+### Patch Changes
+
+- [`c3b857b2`](https://github.com/getflip/swirl/commit/c3b857b2a7696429fc3789354a02514b80756aec)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-image-grid-item loading
+  state for cached images
+
+- Updated dependencies
+  [[`c3b857b2`](https://github.com/getflip/swirl/commit/c3b857b2a7696429fc3789354a02514b80756aec)]:
+  - @getflip/swirl-components@0.168.1
+
 ## 0.168.0
 
 ### Minor Changes
