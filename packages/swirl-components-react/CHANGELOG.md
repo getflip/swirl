@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.169.0
+
+### Minor Changes
+
+- [`f2c3ff7e`](https://github.com/getflip/swirl/commit/f2c3ff7e0036450b7f4ddcbbba71221b2e224a93)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust swirl-shell-layout header
+  tool position
+
+### Patch Changes
+
+- Updated dependencies
+  [[`f2c3ff7e`](https://github.com/getflip/swirl/commit/f2c3ff7e0036450b7f4ddcbbba71221b2e224a93)]:
+  - @getflip/swirl-components@0.169.0
+
 ## 0.168.1
 
 ### Patch Changes
