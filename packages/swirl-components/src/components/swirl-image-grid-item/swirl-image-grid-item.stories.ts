@@ -26,5 +26,5 @@ export const SwirlImageGridItem = Template.bind({});
 SwirlImageGridItem.args = {
   alt: "Dog in a blanket",
   icon: "<swirl-icon-play-arrow></swirl-icon-play-arrow>",
-  src: "/sampledsds.jpg",
+  src: "/sample.jpg",
 };

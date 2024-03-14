@@ -39,9 +39,20 @@ export class SwirlImageGridItem {
   @Event() imageLoad: EventEmitter<void>;
 
   private intersectionObserver: IntersectionObserver;
+  private img?: HTMLImageElement;
 
   componentDidLoad() {
     this.setupIntersectionObserver();
+
+    if (this.img?.complete) {
+      this.loaded = true;
+    }
+  }
+
+  componentDidRender() {
+    if (this.img?.complete && !this.loaded) {
+      this.loaded = true;
+    }
   }
 
   disconnectedCallback() {
@@ -112,6 +123,7 @@ export class SwirlImageGridItem {
               }
               onError={this.onError}
               onLoad={this.onLoad}
+              ref={(el) => (this.img = el)}
               src={this.src}
             />
           ) : (
