@@ -222,6 +222,10 @@
   justify-content: flex-end;
   align-items: center;
   gap: var(--s-space-8);
+
+  --swirl-ghost-button-background-default: var(--s-surface-sunken-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-sunken-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-sunken-pressed);
 }
 
 .shell-layout__logo {

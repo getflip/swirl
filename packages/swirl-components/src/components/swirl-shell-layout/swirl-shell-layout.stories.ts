@@ -33,8 +33,10 @@ const Template = (args) => {
     </a>
     <img alt="Flip logo" slot="mobile-logo" src="/images/flip-logo.png">
 
-    <swirl-avatar label="John Doe" slot="header-tools" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
+    <swirl-avatar label="John Doe" slot="avatar" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
     <swirl-avatar label="John Doe" slot="mobile-header-tools" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
+
+    <swirl-button label="Header tool" slot="header-tools" variant="outline"></swirl-button>
 
     <div slot="nav">
       <ul>
