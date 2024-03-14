@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery } from "../../utils";
 
@@ -6,12 +6,17 @@ export type SwirlActionListItemIntent = "default" | "critical";
 
 export type SwirlActionListItemSize = "m" | "l";
 
+/**
+ * @slot suffix - Used to add custom content to the end of the action list item.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-action-list-item.css",
   tag: "swirl-action-list-item",
 })
 export class SwirlActionListItem {
+  @Element() el: HTMLElement;
+
   @Prop() badge?: string;
   @Prop() disabled?: boolean;
   @Prop() description?: string;
@@ -58,7 +63,9 @@ export class SwirlActionListItem {
 
   render() {
     const showBadge = Boolean(this.badge);
-    const showSuffix = Boolean(this.suffix) && !this.disabled;
+    const showSuffixSlot = Boolean(this.el.querySelector('[slot="suffix"]'));
+    const showSuffix =
+      (Boolean(this.suffix) || showSuffixSlot) && !this.disabled;
 
     const className = classnames(
       "action-list-item",
@@ -99,9 +106,11 @@ export class SwirlActionListItem {
           {showSuffix && (
             <span
               class="action-list-item__suffix"
-              innerHTML={this.suffix}
+              innerHTML={!showSuffixSlot ? this.suffix : undefined}
               ref={(el) => (this.suffixEl = el)}
-            ></span>
+            >
+              <slot name="suffix"></slot>
+            </span>
           )}
         </button>
       </Host>

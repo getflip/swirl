@@ -1402,6 +1402,7 @@ export namespace Components {
         "icon"?: string;
         "intent"?: SwirlActionListItemIntent1;
         "label": string;
+        "suffix"?: string;
         "value"?: string;
     }
     interface SwirlModal {
@@ -5683,6 +5684,7 @@ declare namespace LocalJSX {
         "icon"?: string;
         "intent"?: SwirlActionListItemIntent1;
         "label": string;
+        "suffix"?: string;
         "value"?: string;
     }
     interface SwirlModal {

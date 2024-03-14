@@ -11953,6 +11953,10 @@
           "description": ""
         },
         {
+          "name": "suffix",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         }

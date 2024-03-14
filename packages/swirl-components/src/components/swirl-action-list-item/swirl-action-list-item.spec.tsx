@@ -26,6 +26,7 @@ describe("swirl-action-list-item", () => {
             </span>
             <span class="action-list-item__suffix">
               <swirl-icon-chevron-right size="24"></swirl-icon-chevron-right>
+              <slot name="suffix"></slot>
             </span>
           </button>
         </mock:shadow-root>
