@@ -212,20 +212,21 @@
   display: flex;
   flex-basis: 8rem;
   flex-shrink: 0;
+  align-items: center;
   gap: var(--s-space-8);
 }
 
 .shell-layout__header-right {
+  --swirl-ghost-button-background-default: var(--s-surface-sunken-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-sunken-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-sunken-pressed);
+
   display: flex;
   flex-basis: 8rem;
   flex-shrink: 0;
   justify-content: flex-end;
   align-items: center;
   gap: var(--s-space-8);
-
-  --swirl-ghost-button-background-default: var(--s-surface-sunken-default);
-  --swirl-ghost-button-background-hovered: var(--s-surface-sunken-hovered);
-  --swirl-ghost-button-background-pressed: var(--s-surface-sunken-pressed);
 }
 
 .shell-layout__logo {
@@ -249,6 +250,7 @@
   width: 2.25rem;
   height: 2.25rem;
   padding: var(--s-space-8);
+  flex-shrink: 0;
   border: none;
   border-radius: var(--s-border-radius-sm);
   color: var(--swirl-shell-text-color);

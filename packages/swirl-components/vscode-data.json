@@ -13282,6 +13282,18 @@
           "description": ""
         },
         {
+          "name": "label-position",
+          "description": "",
+          "values": [
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            }
+          ]
+        },
+        {
           "name": "value",
           "description": ""
         }

@@ -18,9 +18,10 @@ const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
 
 /**
  * @slot logo - Logo shown inside header.
- * @slot avatar - User avatar positioned on the header's right-hand side.
- * @slot header-tools - Tools positioned on the header's right-hand side.
+ * @slot left-header-tools - Tools positioned on the header's left-hand side.
+ * @slot right-header-tools - Tools positioned on the header's right-hand side.
  * @slot mobile-header-tools - Tools positioned in the mobile drawer header.
+ * @slot avatar - User avatar positioned on the header's right-hand side.
  * @slot nav - Items shown in the lower sidebar part.
  * @slot mobile-logo - Logo shown inside the mobile navigation drawer.
  * @slot default - Contents of the main area.
@@ -215,12 +216,13 @@ export class SwirlShellLayout {
                   {this.browserForwardButtonLabel}
                 </swirl-visually-hidden>
               </button>
+              <slot name="left-header-tools"></slot>
             </div>
             <div class="shell-layout__logo">
               <slot name="logo"></slot>
             </div>
             <div class="shell-layout__header-right">
-              <slot name="header-tools"></slot>
+              <slot name="right-header-tools"></slot>
               <button
                 class="shell-layout__header-tool shell-layout__sidebar-toggle"
                 onClick={this.sidebarToggleClick.emit}

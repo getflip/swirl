@@ -36,7 +36,11 @@ const Template = (args) => {
     <swirl-avatar label="John Doe" slot="avatar" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
     <swirl-avatar label="John Doe" slot="mobile-header-tools" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
 
-    <swirl-button label="Header tool" slot="header-tools" variant="outline"></swirl-button>
+    <swirl-box padding-inline-start="16" slot="left-header-tools">
+      <swirl-switch label="Header tool" label-position="start"></swirl-switch>
+    </swirl-box>
+
+    <swirl-button label="Header tool" slot="right-header-tools" variant="outline"></swirl-button>
 
     <div slot="nav">
       <ul>
