@@ -16,6 +16,7 @@ const Template = (args) => {
   const container = document.createElement("swirl-image-grid");
   const element = generateStoryElement("swirl-image-grid-item", args);
 
+  container.style.paddingTop = "200vh";
   container.append(element);
 
   return container;
@@ -26,5 +27,6 @@ export const SwirlImageGridItem = Template.bind({});
 SwirlImageGridItem.args = {
   alt: "Dog in a blanket",
   icon: "<swirl-icon-play-arrow></swirl-icon-play-arrow>",
+  loading: "intersecting",
   src: "/sample.jpg",
 };

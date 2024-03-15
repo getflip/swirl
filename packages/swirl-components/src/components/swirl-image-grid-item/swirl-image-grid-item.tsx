@@ -75,9 +75,7 @@ export class SwirlImageGridItem {
   }
 
   private onVisibilityChange(entries: IntersectionObserverEntry[]) {
-    if (entries[0].isIntersecting) {
-      this.inViewport = true;
-    }
+    this.inViewport = entries.some((entry) => entry.isIntersecting);
   }
 
   private onLoad = () => {
