@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.171.0
+
+### Minor Changes
+
+- [`671240fe`](https://github.com/getflip/swirl/commit/671240fe6c559379060b96b354360b824a4a2b78)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add left-header-tools slot to
+  swirl-shell-layout
+
+* [`bfd1c0d5`](https://github.com/getflip/swirl/commit/bfd1c0d5b675d156e22ff0217666a2464ec6ec3d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add label-position prop to
+  swirl-switch
+
+### Patch Changes
+
+- Updated dependencies
+  [[`671240fe`](https://github.com/getflip/swirl/commit/671240fe6c559379060b96b354360b824a4a2b78),
+  [`bfd1c0d5`](https://github.com/getflip/swirl/commit/bfd1c0d5b675d156e22ff0217666a2464ec6ec3d)]:
+  - @getflip/swirl-components@0.171.0
+
 ## 0.170.0
 
 ### Minor Changes
