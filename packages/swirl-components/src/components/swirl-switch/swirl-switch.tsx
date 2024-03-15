@@ -9,6 +9,8 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
+export type SwirlSwitchLabelPosition = "start" | "end";
+
 @Component({
   /**
    * Form controls in shadow dom can still not be associated with labels in the
@@ -30,6 +32,7 @@ export class SwirlSwitch {
   @Prop() inputId!: string;
   @Prop() inputName!: string;
   @Prop() label?: string;
+  @Prop() labelPosition?: SwirlSwitchLabelPosition = "end";
   @Prop() value?: string;
 
   @Event() valueChange: EventEmitter<boolean>;
@@ -45,11 +48,15 @@ export class SwirlSwitch {
 
     const ariaCheckedLabel = on ? "true" : "false";
 
-    const className = classnames("switch", {
-      "switch--off": off,
-      "switch--on": on,
-      "switch--disabled": this.disabled,
-    });
+    const className = classnames(
+      "switch",
+      `switch--label-position-${this.labelPosition}`,
+      {
+        "switch--off": off,
+        "switch--on": on,
+        "switch--disabled": this.disabled,
+      }
+    );
 
     return (
       <Host>

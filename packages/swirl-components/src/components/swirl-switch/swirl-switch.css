@@ -19,6 +19,15 @@
   }
 }
 
+.switch--label-position-start {
+  flex-direction: row-reverse;
+
+  & .switch__label {
+    margin-right: var(--s-space-12);
+    margin-left: 0;
+  }
+}
+
 .switch--on {
   & .switch__thumb {
     left: calc(100% - 1.25rem - var(--s-space-2));
@@ -97,4 +106,5 @@
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-base);
+  white-space: nowrap;
 }
