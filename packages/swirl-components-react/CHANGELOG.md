@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.171.1
+
+### Patch Changes
+
+- [`91f8aa8b`](https://github.com/getflip/swirl/commit/91f8aa8b23b547a9bffc8e560d2b95e9e4424a21)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix "intersecting" loading
+  strategy for multiple host elements
+
+- Updated dependencies
+  [[`91f8aa8b`](https://github.com/getflip/swirl/commit/91f8aa8b23b547a9bffc8e560d2b95e9e4424a21)]:
+  - @getflip/swirl-components@0.171.1
+
 ## 0.171.0
 
 ### Minor Changes
