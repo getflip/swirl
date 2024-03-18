@@ -137,7 +137,7 @@
       display: none;
       @media (--from-desktop-without-touch) {
         display: inline-flex;
-        margin-left: 4px;
+        margin-left: var(--s-space-4);
       }
     }
   }
