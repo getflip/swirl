@@ -1906,10 +1906,6 @@
           "description": ""
         },
         {
-          "name": "tooltip",
-          "description": ""
-        },
-        {
           "name": "value",
           "description": ""
         }
@@ -14615,10 +14611,6 @@
           "description": ""
         },
         {
-          "name": "tooltip",
-          "description": ""
-        },
-        {
           "name": "type",
           "description": "",
           "values": [
@@ -14780,10 +14772,6 @@
         },
         {
           "name": "swirl-aria-describedby",
-          "description": ""
-        },
-        {
-          "name": "tooltip",
           "description": ""
         },
         {

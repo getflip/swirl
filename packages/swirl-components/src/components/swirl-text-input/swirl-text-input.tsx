@@ -72,7 +72,6 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() spellCheck?: boolean;
   @Prop() suffixLabel?: string;
   @Prop() step?: number;
-  @Prop() tooltip?: string;
   @Prop() passwordToggleLabel?: string = "Toggle password display";
   @Prop() type?: SwirlTextInputType = "text";
   @Prop({ mutable: true, reflect: true }) value?: string;
