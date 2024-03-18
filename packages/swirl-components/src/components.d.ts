@@ -830,6 +830,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconDesktop {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconDirectory {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -2817,6 +2821,12 @@ declare global {
         prototype: HTMLSwirlIconDescriptionElement;
         new (): HTMLSwirlIconDescriptionElement;
     };
+    interface HTMLSwirlIconDesktopElement extends Components.SwirlIconDesktop, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDesktopElement: {
+        prototype: HTMLSwirlIconDesktopElement;
+        new (): HTMLSwirlIconDesktopElement;
+    };
     interface HTMLSwirlIconDirectoryElement extends Components.SwirlIconDirectory, HTMLStencilElement {
     }
     var HTMLSwirlIconDirectoryElement: {
@@ -4293,6 +4303,7 @@ declare global {
         "swirl-icon-date-range": HTMLSwirlIconDateRangeElement;
         "swirl-icon-delete": HTMLSwirlIconDeleteElement;
         "swirl-icon-description": HTMLSwirlIconDescriptionElement;
+        "swirl-icon-desktop": HTMLSwirlIconDesktopElement;
         "swirl-icon-directory": HTMLSwirlIconDirectoryElement;
         "swirl-icon-directory-filled": HTMLSwirlIconDirectoryFilledElement;
         "swirl-icon-discover": HTMLSwirlIconDiscoverElement;
@@ -5157,6 +5168,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDescription {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconDesktop {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -6426,6 +6441,7 @@ declare namespace LocalJSX {
         "swirl-icon-date-range": SwirlIconDateRange;
         "swirl-icon-delete": SwirlIconDelete;
         "swirl-icon-description": SwirlIconDescription;
+        "swirl-icon-desktop": SwirlIconDesktop;
         "swirl-icon-directory": SwirlIconDirectory;
         "swirl-icon-directory-filled": SwirlIconDirectoryFilled;
         "swirl-icon-discover": SwirlIconDiscover;
@@ -6758,6 +6774,7 @@ declare module "@stencil/core" {
             "swirl-icon-date-range": LocalJSX.SwirlIconDateRange & JSXBase.HTMLAttributes<HTMLSwirlIconDateRangeElement>;
             "swirl-icon-delete": LocalJSX.SwirlIconDelete & JSXBase.HTMLAttributes<HTMLSwirlIconDeleteElement>;
             "swirl-icon-description": LocalJSX.SwirlIconDescription & JSXBase.HTMLAttributes<HTMLSwirlIconDescriptionElement>;
+            "swirl-icon-desktop": LocalJSX.SwirlIconDesktop & JSXBase.HTMLAttributes<HTMLSwirlIconDesktopElement>;
             "swirl-icon-directory": LocalJSX.SwirlIconDirectory & JSXBase.HTMLAttributes<HTMLSwirlIconDirectoryElement>;
             "swirl-icon-directory-filled": LocalJSX.SwirlIconDirectoryFilled & JSXBase.HTMLAttributes<HTMLSwirlIconDirectoryFilledElement>;
             "swirl-icon-discover": LocalJSX.SwirlIconDiscover & JSXBase.HTMLAttributes<HTMLSwirlIconDiscoverElement>;
