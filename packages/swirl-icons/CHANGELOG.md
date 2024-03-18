@@ -1,5 +1,12 @@
 # @getflip/swirl-icons
 
+## 0.33.0
+
+### Minor Changes
+
+- [`c46e6bb6`](https://github.com/getflip/swirl/commit/c46e6bb68416531ea02d5e6bc8d62d79e13ac5c7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "desktop" icon
+
 ## 0.32.0
 
 ### Minor Changes
