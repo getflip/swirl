@@ -1729,10 +1729,6 @@
           "description": ""
         },
         {
-          "name": "toolip",
-          "description": ""
-        },
-        {
           "name": "value",
           "description": ""
         }
@@ -2490,6 +2486,10 @@
               "name": "outside"
             }
           ]
+        },
+        {
+          "name": "tooltip",
+          "description": ""
         }
       ]
     },
