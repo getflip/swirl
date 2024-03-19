@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.172.1
+
+### Patch Changes
+
+- [#634](https://github.com/getflip/swirl/pull/634)
+  [`74279589`](https://github.com/getflip/swirl/commit/742795895783fb5d1cbcf7693e9bcfc34c446795)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Update
+  focus-trap dependency
+
+- Updated dependencies
+  [[`74279589`](https://github.com/getflip/swirl/commit/742795895783fb5d1cbcf7693e9bcfc34c446795)]:
+  - @getflip/swirl-components@0.172.1
+
 ## 0.172.0
 
 ### Minor Changes
