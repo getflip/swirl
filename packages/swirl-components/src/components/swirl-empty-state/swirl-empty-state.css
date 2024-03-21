@@ -16,6 +16,18 @@
   gap: var(--s-space-16);
 }
 
+.empty-state--has-controls {
+  & .empty-state__controls {
+    display: block;
+  }
+}
+
+.empty-state--has-slotted-illustration {
+  & .empty-state__slotted-illustration {
+    display: block;
+  }
+}
+
 .empty-state__illustration {
   max-width: 16rem;
 }
@@ -24,5 +36,14 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: var(--s-space-8);
+  gap: var(--s-space-24);
+}
+
+.empty-state__controls {
+  display: none;
+}
+
+.empty-state__slotted-illustration {
+  display: none;
+  max-width: 16rem;
 }

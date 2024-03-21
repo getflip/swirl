@@ -19,6 +19,13 @@ export type SwirlBoxPadding =
   | "24"
   | "32";
 
+export type SwirlBoxPosition =
+  | "absolute"
+  | "fixed"
+  | "relative"
+  | "static"
+  | "sticky";
+
 /**
  * @slot slot - The box contents
  */
@@ -33,23 +40,46 @@ export class SwirlBox {
   @Prop() borderedBlockStart?: boolean;
   @Prop() borderedInlineEnd?: boolean;
   @Prop() borderedInlineStart?: boolean;
+  @Prop() bottom?: string;
   @Prop() centerBlock?: boolean;
   @Prop() centerInline?: boolean;
   @Prop() cover?: boolean;
+  @Prop() height?: string;
+  @Prop() left?: string;
+  @Prop() maxHeight?: string;
+  @Prop() minHeight?: string;
   @Prop() maxWidth?: string;
+  @Prop() minWidth?: string;
   @Prop() overflow?: SwirlBoxOverflow = "visible";
   @Prop() padding?: SwirlBoxPadding = "0";
   @Prop() paddingBlockEnd?: SwirlBoxPadding;
   @Prop() paddingBlockStart?: SwirlBoxPadding;
   @Prop() paddingInlineEnd?: SwirlBoxPadding;
   @Prop() paddingInlineStart?: SwirlBoxPadding;
+  @Prop() position?: SwirlBoxPosition;
+  @Prop() right?: string;
+  @Prop() basis?: string;
+  @Prop() shrink?: string;
+  @Prop() grow?: string;
+  @Prop() top?: string;
+  @Prop() width?: string;
+  @Prop() zIndex?: string;
 
   render() {
     const styles = {
       alignItems: this.centerBlock ? "center" : undefined,
+      bottom: this.bottom,
       display: this.centerBlock || this.centerInline ? "flex" : undefined,
-      height: this.cover ? "100%" : undefined,
+      flexBasis: this.basis,
+      flexShrink: this.shrink,
+      flexGrow: this.grow,
+      height: this.cover ? "100%" : this.height,
       justifyContent: this.centerInline ? "center" : undefined,
+      left: this.left,
+      maxHeight: this.maxHeight,
+      minHeight: this.minHeight,
+      maxWidth: this.maxWidth,
+      minWidth: this.minWidth,
       overflow: this.overflow,
       padding: `var(--s-space-${this.padding})`,
       paddingBlockEnd: Boolean(this.paddingBlockEnd)
@@ -64,9 +94,13 @@ export class SwirlBox {
       paddingInlineStart: Boolean(this.paddingInlineStart)
         ? `var(--s-space-${this.paddingInlineStart})`
         : undefined,
-      position: Boolean(this.overflow) ? "relative" : "",
-      maxWidth: this.maxWidth,
-      width: this.cover ? "100%" : undefined,
+      position: Boolean(this.overflow)
+        ? this.position || "relative"
+        : this.position,
+      right: this.right,
+      top: this.top,
+      width: this.cover ? "100%" : this.width,
+      zIndex: this.zIndex,
     };
 
     const className = classnames("box", {

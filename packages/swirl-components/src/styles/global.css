@@ -49,6 +49,13 @@
   --swirl-ghost-button-background-hovered: var(--s-background-hovered);
   --swirl-ghost-button-background-pressed: var(--s-background-pressed);
 
+  --swirl-plain-button-text-color-default: var(--s-interactive-neutral-default);
+  --swirl-plain-button-text-color-disabled: var(
+    --s-interactive-neutral-disabled
+  );
+  --swirl-plain-button-text-color-hovered: var(--s-interactive-neutral-hovered);
+  --swirl-plain-button-text-color-pressed: var(--s-interactive-neutral-pressed);
+
   --swirl-resource-list-item-background-default: var(--s-background-default);
   --swirl-resource-list-item-background-hovered: var(--s-background-hovered);
   --swirl-resource-list-item-background-pressed: var(--s-background-pressed);
@@ -76,17 +83,28 @@
 }
 
 html.theme-dark {
-  color-scheme: dark;
-
   --swirl-carousel-gradient: 25, 26, 28;
+  color-scheme: dark;
 }
 
 body {
+  color: var(--s-text-default);
   background-color: var(--s-background-default);
   font-family: var(--s-font-family-text);
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-normal);
-  color: var(--s-text-default);
 
   -webkit-font-smoothing: antialiased;
+}
+
+b,
+strong {
+  font-weight: var(--s-font-weight-semibold);
+}
+
+dl,
+dd,
+dt {
+  margin: 0;
+  padding: 0;
 }

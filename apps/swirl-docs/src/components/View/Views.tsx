@@ -5,20 +5,20 @@ export type MobileViewProps = {
   children: JSX.Element | JSX.Element[];
 };
 
+const isMobile = (width: number) => width < 768;
+
 export const MobileView: FunctionComponent<MobileViewProps> = ({
   children,
 }) => {
-  const size = useWindowSize();
-  const isMobile = size.width < 768;
+  const { width } = useWindowSize();
 
-  return isMobile ? <Fragment>{children}</Fragment> : null;
+  return isMobile(width) ? <Fragment>{children}</Fragment> : null;
 };
 
 export const DesktopView: FunctionComponent<MobileViewProps> = ({
   children,
 }) => {
-  const size = useWindowSize();
-  const isMobile = size.width > 768;
+  const { width } = useWindowSize();
 
-  return isMobile ? <Fragment>{children}</Fragment> : null;
+  return !isMobile(width) ? <Fragment>{children}</Fragment> : null;
 };

@@ -27,7 +27,7 @@ import {
   querySelectorAllDeep,
 } from "../../utils";
 
-export type SwirlPopoverAnimation = "scale-in-xy" | "scale-in-y";
+export type SwirlPopoverAnimation = "fade-in" | "scale-in-xy" | "scale-in-y";
 
 /**
  * @slot slot - The popover content.
@@ -50,6 +50,7 @@ export class SwirlPopover {
   @Prop() popoverId?: string;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() returnFocusToTrigger?: boolean = true;
+  @Prop() transparent?: boolean;
   @Prop() trigger?: string | HTMLElement;
   @Prop() triggerContainer?: HTMLElement;
   @Prop() useContainerWidth?: boolean | string;
@@ -134,7 +135,9 @@ export class SwirlPopover {
       );
 
     const clickedTrigger =
-      target === this.triggerEl || this.triggerEl.contains(target);
+      target === this.triggerEl ||
+      this.triggerEl.contains(target) ||
+      event.composedPath().includes(this.triggerEl);
 
     if (!clickedChild && !clickedShadowChild && !clickedTrigger) {
       this.close();
@@ -261,6 +264,7 @@ export class SwirlPopover {
 
   private onKeydown = (event: KeyboardEvent) => {
     if (event.code === "Escape" && this.active) {
+      event.stopImmediatePropagation();
       event.stopPropagation();
       this.close();
     }
@@ -343,7 +347,7 @@ export class SwirlPopover {
   private lockBodyScroll() {
     const mobile = isMobileViewport();
 
-    if (!mobile || this.disableScrollLock) {
+    if (!mobile || this.disableScrollLock || !Boolean(this.scrollContainer)) {
       return;
     }
 
@@ -353,7 +357,7 @@ export class SwirlPopover {
   private unlockBodyScroll() {
     const mobile = isMobileViewport();
 
-    if (!mobile || this.disableScrollLock) {
+    if (!mobile || this.disableScrollLock || !Boolean(this.scrollContainer)) {
       return;
     }
 
@@ -372,10 +376,11 @@ export class SwirlPopover {
       `popover--animation-${this.animation}`,
       `popover--placement-${this.position?.placement}`,
       {
-        "popover--closing": this.closing,
         "popover--active": this.active,
+        "popover--closing": this.closing,
         "popover--fullscreen-bottom-sheet": this.fullscreenBottomSheet,
         "popover--inactive": !this.active,
+        "popover--transparent": this.transparent,
       }
     );
 

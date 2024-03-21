@@ -116,4 +116,38 @@ describe("swirl-text-input", () => {
     expect(spy).toHaveBeenCalled();
     expect(spy.mock.calls[0][0].detail).toBe("New Value");
   });
+
+  it("can focus", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTextInput],
+      html: `<swirl-text-input value="Value"></swirl-text-input>`,
+    });
+
+    const spy = jest.fn();
+    const input =
+      page.root.querySelector<HTMLButtonElement>(".text-input__input");
+
+    input.addEventListener("focus", spy);
+
+    page.rootInstance.focusInput();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it("can blur", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTextInput],
+      html: `<swirl-text-input value="Value"></swirl-text-input>`,
+    });
+
+    const spy = jest.fn();
+    const input =
+      page.root.querySelector<HTMLButtonElement>(".text-input__input");
+
+    input.addEventListener("blur", spy);
+
+    page.rootInstance.blurInput();
+
+    expect(spy).toHaveBeenCalled();
+  });
 });

@@ -10,7 +10,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar aria-label="John Doe" label="John Doe" role="img">
+      <swirl-avatar aria-label="John Doe" label="John Doe">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
@@ -39,7 +39,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar aria-label="John Doe" label="John Doe" role="img" src="https://">
+      <swirl-avatar aria-label="John Doe" label="John Doe" src="https://">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__image">
@@ -61,7 +61,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar aria-label="John Doe" initials="JD" label="John Doe" role="img">
+      <swirl-avatar aria-label="John Doe" initials="JD" label="John Doe">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-initials avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__initials">
@@ -85,7 +85,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar aria-label="John Doe" icon="<swirl-icon-close></swirl-icon-close>" label="John Doe" role="img">
+      <swirl-avatar aria-label="John Doe" icon="<swirl-icon-close></swirl-icon-close>" label="John Doe">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
@@ -153,7 +153,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar aria-label="John Doe" badge="<swirl-badge aria-label='3 new messages' label='3'></swirl-badge>" badge-position="top" label="John Doe" role="img">
+      <swirl-avatar aria-label="John Doe" badge="<swirl-badge aria-label='3 new messages' label='3'></swirl-badge>" badge-position="top" label="John Doe">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">
@@ -178,7 +178,7 @@ describe("swirl-avatar", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-avatar aria-label="John Doe" label="John Doe" role="img" show-label="">
+      <swirl-avatar aria-label="John Doe" label="John Doe" show-label="">
         <mock:shadow-root>
           <span class="avatar avatar--color-kiwi avatar--has-icon avatar--size-m avatar--variant-round" part="avatar">
             <span class="avatar__icon">

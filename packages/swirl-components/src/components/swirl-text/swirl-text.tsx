@@ -1,14 +1,20 @@
 import { Component, Element, h, Host, Listen, Prop } from "@stencil/core";
-import classnames from "classnames";
 import balanceText from "balance-text";
+import classnames from "classnames";
 import shave from "shave";
 
 export type SwirlTextAlign = "start" | "center" | "end";
 
 export type SwirlTextColor =
-  | "default"
-  | "subdued"
   | "critical"
+  | "default"
+  | "highlight"
+  | "on-action-primary"
+  | "on-image"
+  | "on-status"
+  | "on-surface-highlight"
+  | "on-surface-highlight-subdued"
+  | "subdued"
   | "success"
   | "warning";
 
@@ -21,6 +27,14 @@ export type SwirlTextSize = "sm" | "base" | "lg" | "xl" | "2xl";
 export type SwirlTextTruncateDirection = "end" | "start";
 
 export type SwirlTextWeight = "normal" | "medium" | "semibold" | "bold";
+
+export type SwirlTextWhiteSpace =
+  | "normal"
+  | "nowrap"
+  | "pre"
+  | "pre-line"
+  | "pre-wrap"
+  | "break-spaces";
 
 @Component({
   scoped: true,
@@ -42,6 +56,7 @@ export class SwirlText {
   @Prop() truncate?: boolean;
   @Prop() truncateDirection?: SwirlTextTruncateDirection = "end";
   @Prop() weight?: SwirlTextWeight = "normal";
+  @Prop() whiteSpace?: SwirlTextWhiteSpace = "normal";
 
   private textEl: HTMLElement;
 
@@ -97,9 +112,17 @@ export class SwirlText {
       }
     );
 
+    const styles = {
+      whiteSpace: this.whiteSpace,
+    };
+
     return (
       <Host>
-        <Tag class={className} ref={(el: HTMLElement) => (this.textEl = el)}>
+        <Tag
+          class={className}
+          ref={(el: HTMLElement) => (this.textEl = el)}
+          style={styles}
+        >
           <slot></slot>
         </Tag>
       </Host>

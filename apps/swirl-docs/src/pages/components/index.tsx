@@ -1,3 +1,4 @@
+import { isProdDeployment } from "@swirl/lib/env";
 import { NavItem } from "@swirl/lib/navigation";
 import { componentsNavItems } from "@swirl/lib/navigation/src/data/components.data";
 import Head from "next/head";
@@ -55,6 +56,9 @@ const ComponentsIndex = ({ links }: { links: NavItem[] }) => {
 };
 
 export const getStaticProps: GetStaticProps<{}> = async () => {
+  if (isProdDeployment) {
+    return { notFound: true };
+  }
   return {
     props: {
       links: componentsNavItems,

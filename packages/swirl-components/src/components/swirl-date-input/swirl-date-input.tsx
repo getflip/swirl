@@ -14,7 +14,7 @@ import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
-import { getDesktopMediaQuery } from "../../utils";
+import { getDesktopMediaQuery, isMobileViewport } from "../../utils";
 
 const internalDateFormat = "yyyy-MM-dd";
 
@@ -35,15 +35,18 @@ export class SwirlDateInput {
 
   @Prop() autoFocus?: boolean;
   @Prop() autoSelect?: boolean;
+  @Prop() datePickerDisableDate?: (date: Date) => boolean = () => false;
   @Prop() datePickerLabel?: string = "Date picker";
   @Prop() datePickerTriggerLabel?: string = "Open date picker";
   @Prop() disabled?: boolean;
+  @Prop() firstDayOfWeek?: number = 0;
   @Prop() format?: string = "yyyy-MM-dd";
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() labels?: WCDatepickerLabels;
   @Prop() locale?: string = "en-US";
   @Prop() placeholder?: string = "yyyy-mm-dd";
+  @Prop() preferredInputMode?: "input" | "pick" = "input";
   @Prop() required?: boolean;
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string;
@@ -76,9 +79,7 @@ export class SwirlDateInput {
 
     // see https://stackoverflow.com/a/27314017
     if (this.autoFocus) {
-      setTimeout(() => {
-        this.inputEl.focus();
-      });
+      this.focus();
     }
   }
 
@@ -99,6 +100,12 @@ export class SwirlDateInput {
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
     this.updateIconSize(event.matches);
   };
+
+  private focus(): void {
+    setTimeout(() => {
+      this.inputEl.focus();
+    });
+  }
 
   private updateIconSize(smallIcon: boolean) {
     this.iconSize = smallIcon ? 20 : 24;
@@ -142,6 +149,20 @@ export class SwirlDateInput {
 
   private onClick = (event: MouseEvent) => {
     event.preventDefault();
+
+    if (this.preferredInputMode === "pick") {
+      this.pickerPopover.open(this.el);
+
+      if (!isMobileViewport()) {
+        this.focus();
+      }
+    }
+  };
+
+  private onMouseDown = () => {
+    if (this.preferredInputMode === "pick") {
+      this.pickerPopover.close();
+    }
   };
 
   private onFocus = (event: FocusEvent) => {
@@ -204,7 +225,9 @@ export class SwirlDateInput {
             class="date-input__input"
             disabled={this.disabled}
             id={this.id}
+            inputmode="numeric"
             onClick={this.onClick}
+            onMouseDown={this.onMouseDown}
             onFocus={this.onFocus}
             onInput={this.onInput}
             placeholder={this.placeholder}
@@ -235,6 +258,8 @@ export class SwirlDateInput {
             ref={(el) => (this.pickerPopover = el)}
           >
             <swirl-date-picker
+              disableDate={this.datePickerDisableDate}
+              firstDayOfWeek={this.firstDayOfWeek}
               labels={this.labels}
               locale={this.locale}
               onValueChange={this.onPickDate}

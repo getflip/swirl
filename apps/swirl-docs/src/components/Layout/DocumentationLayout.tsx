@@ -1,16 +1,16 @@
-import { SidebarNavigation } from "./SidebarNavigation";
-import { DocLinksNav } from "./DocLinksNav";
-import Footer from "./Footer";
-import { DocumentationHeader } from "../Documentation/DocumentationHeader";
-import { ComponentPreview } from "../ComponentPreview";
 import { useToC } from "@swirl/lib/hooks/useToC";
 import classNames from "classnames";
+import { useRouter } from "next/router";
+import { ReactNode, useEffect, useRef } from "react";
+import { ComponentPreview } from "../ComponentPreview";
+import { DocumentationHeader } from "../Documentation/DocumentationHeader";
+import { SidebarNavigation } from "../Navigation/SidebarNavigation";
+import { DocLinksNav } from "./DocLinksNav";
 import DocumentationLayoutContext, {
   TDocumentationLayout,
 } from "./DocumentationLayoutContext";
-import { ReactNode, useEffect, useRef } from "react";
+import Footer from "./Footer";
 import MDXDocument from "./MDXDocument";
-import { useRouter } from "next/router";
 
 type DocumentationLayoutProps = {
   data: TDocumentationLayout;
@@ -59,7 +59,7 @@ export function DocumentationLayout({
               "grid grid-cols-1 justify-center max-w-[77.5rem] w-full",
               "my-0 mx-auto mt-14 mb-4 md:mb-0 px-4 lg:px-10",
               {
-                "xl:grid-cols-1 md:mx-10": disableToc,
+                "xl:grid-cols-1": disableToc,
               },
               {
                 "xl:grid-cols-[minmax(0,_45rem)_16rem] gap-8": !disableToc,

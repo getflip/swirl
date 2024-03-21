@@ -19,7 +19,7 @@
   }
 
   @media (--from-tablet) {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
   }
 }
 
@@ -39,6 +39,12 @@
 
   @media (prefers-reduced-motion) {
     animation: none;
+  }
+}
+
+.lightbox--hide-menu {
+  & .lightbox__menu {
+    display: none;
   }
 }
 

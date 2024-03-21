@@ -9,8 +9,8 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { getDesktopMediaQuery } from "../../utils";
 import { v4 as uuid } from "uuid";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 
@@ -31,7 +31,9 @@ export class SwirlResourceListItem {
   @Prop() active?: boolean;
   @Prop() allowDrag?: boolean;
   @Prop({ mutable: true }) checked?: boolean = false;
+  @Prop() compact?: boolean;
   @Prop() description?: string;
+  @Prop() descriptionWrap?: boolean;
   @Prop() disabled?: boolean;
   @Prop() dragging?: boolean;
   @Prop() dragHandleDescription?: string = "Press spacebar to toggle grab";
@@ -41,6 +43,7 @@ export class SwirlResourceListItem {
   @Prop() interactive?: boolean = true;
   @Prop() label!: string;
   @Prop() labelWeight?: SwirlResourceListItemLabelWeight = "medium";
+  @Prop() labelWrap?: boolean;
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
@@ -53,6 +56,7 @@ export class SwirlResourceListItem {
   @Event() toggleDrag: EventEmitter<HTMLSwirlResourceListItemElement>;
   @Event() valueChange: EventEmitter<boolean>;
 
+  private controlContainer: HTMLElement;
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
   private id = uuid();
@@ -66,6 +70,7 @@ export class SwirlResourceListItem {
     this.updateIconSize(this.desktopMediaQuery.matches);
 
     this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+    this.makeControlUnfocusable();
 
     if (Boolean(this.menuTriggerId)) {
       console.warn(
@@ -105,6 +110,30 @@ export class SwirlResourceListItem {
     }
   }
 
+  private getControl() {
+    return this.el.querySelector<HTMLButtonElement>('[slot="control"] button');
+  }
+
+  private makeControlFocusable() {
+    const control = this.getControl();
+
+    if (!Boolean(control)) {
+      return;
+    }
+
+    control.tabIndex = 0;
+  }
+
+  private makeControlUnfocusable() {
+    const control = this.getControl();
+
+    if (!Boolean(control)) {
+      return;
+    }
+
+    control.tabIndex = -1;
+  }
+
   private onClick = () => {
     if (!this.selectable) {
       return;
@@ -112,6 +141,14 @@ export class SwirlResourceListItem {
 
     this.checked = !this.checked;
     this.valueChange.emit(this.checked);
+  };
+
+  private onBlur = () => {
+    this.makeControlUnfocusable();
+  };
+
+  private onFocus = () => {
+    this.makeControlFocusable();
   };
 
   private onMenuTriggerClick = (event: MouseEvent) => {
@@ -127,6 +164,10 @@ export class SwirlResourceListItem {
     }
   };
 
+  private onControlClick = (event: MouseEvent) => {
+    event.stopPropagation();
+  };
+
   render() {
     const Tag =
       !this.interactive && !this.selectable
@@ -138,12 +179,12 @@ export class SwirlResourceListItem {
     const disabled = this.disabled && !Boolean(this.href);
 
     const hasBadges = Boolean(this.el.querySelector("[slot='badges']"));
-    const hasMenu =
-      Boolean(this.menuTriggerId) || this.el.querySelector("[slot='control']");
+    const hasControl = this.el.querySelector("[slot='control']");
+    const hasMenu = Boolean(this.menuTriggerId) || hasControl;
 
     const href = this.interactive && Boolean(this.href) ? this.href : undefined;
 
-    const showControlOnFocus = Boolean(this.meta) || hasBadges;
+    const showControlOnFocus = hasControl && (Boolean(this.meta) || hasBadges);
     const showMenu =
       Boolean(this.menuTriggerId) && !Boolean(this.meta) && !this.selectable;
     const showMeta = (Boolean(this.meta) || hasBadges) && !this.selectable;
@@ -151,12 +192,22 @@ export class SwirlResourceListItem {
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
     const role = this.interactive && this.selectable ? "checkbox" : undefined;
 
+    const labelContainerStyles =
+      !showMeta && Boolean(this.controlContainer)
+        ? {
+            paddingRight: `calc(${
+              this.controlContainer?.getBoundingClientRect().width
+            }px + var(--s-space-16))`,
+          }
+        : undefined;
+
     const className = classnames(
       "resource-list-item",
       `resource-list-item--label-weight-${this.labelWeight}`,
       {
         "resource-list-item--active": this.active,
         "resource-list-item--checked": this.checked,
+        "resource-list-item--compact": this.compact,
         "resource-list-item--disabled": this.disabled,
         "resource-list-item--draggable": this.allowDrag,
         "resource-list-item--dragging": this.dragging,
@@ -166,6 +217,8 @@ export class SwirlResourceListItem {
         "resource-list-item--selectable": this.selectable,
         "resource-list-item--show-control-on-focus": showControlOnFocus,
         "resource-list-item--show-meta": showMeta,
+        "resource-list-item--wrap-description": this.descriptionWrap,
+        "resource-list-item--wrap-label": this.labelWrap,
       }
     );
 
@@ -180,6 +233,8 @@ export class SwirlResourceListItem {
             href={href}
             disabled={disabled}
             onClick={this.onClick}
+            onBlur={this.onBlur}
+            onFocus={this.onFocus}
             part="resource-list-item__content"
             role={role}
             tabIndex={0}
@@ -190,16 +245,20 @@ export class SwirlResourceListItem {
                 <slot name="media"></slot>
               </span>
             )}
-            <span class="resource-list-item__label-container">
+            <span
+              class="resource-list-item__label-container"
+              style={labelContainerStyles}
+            >
               <span
                 class="resource-list-item__label"
                 id={this.id}
                 innerHTML={this.label}
               ></span>
               {this.description && (
-                <span class="resource-list-item__description">
-                  {this.description}
-                </span>
+                <span
+                  class="resource-list-item__description"
+                  innerHTML={this.description}
+                ></span>
               )}
             </span>
             {showMeta && (
@@ -220,7 +279,11 @@ export class SwirlResourceListItem {
               </span>
             </span>
           )}
-          <span class="resource-list-item__control">
+          <span
+            class="resource-list-item__control"
+            onClick={this.onControlClick}
+            ref={(el) => (this.controlContainer = el)}
+          >
             <slot name="control"></slot>
           </span>
           {showMenu && (

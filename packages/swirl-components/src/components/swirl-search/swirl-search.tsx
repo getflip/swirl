@@ -118,7 +118,10 @@ export class SwirlSearch {
     return (
       <Host>
         <span class={className} ref={(el) => (this.iconEl = el)}>
-          <swirl-icon-search class="search__icon"></swirl-icon-search>
+          <swirl-icon-search
+            aria-hidden="true"
+            class="search__icon"
+          ></swirl-icon-search>
           <input
             aria-disabled={this.disabled ? "true" : undefined}
             aria-label={this.label}

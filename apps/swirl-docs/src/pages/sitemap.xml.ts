@@ -1,4 +1,4 @@
-import { navItems } from "@swirl/lib/navigation";
+import { NavItem, navItems } from "@swirl/lib/navigation";
 
 function generateSiteMap(paths: string[]) {
   const baseUrl = "https://getflip.dev";
@@ -23,17 +23,23 @@ function SiteMap() {
   // getServerSideProps will do the heavy lifting
 }
 
-export async function getServerSideProps({ res }: any) {
+function addNavItemsToPaths(navItems: NavItem[]) {
   const paths: string[] = [];
 
   navItems.forEach((item) => {
-    paths.push(item.url);
+    if (item.url) {
+      paths.push(item.url);
+    }
     if (item.children) {
-      item.children.forEach((child) => {
-        paths.push(child.url);
-      });
+      paths.push(...addNavItemsToPaths(item.children));
     }
   });
+
+  return paths;
+}
+
+export async function getServerSideProps({ res }: any) {
+  const paths = addNavItemsToPaths(navItems);
 
   const filteredPaths = paths.filter((path) => !path.includes("foundations"));
 

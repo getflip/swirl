@@ -24,9 +24,18 @@ on:
 jobs:
   lint_and_test_job:
     runs-on: ubuntu-latest
-
+    env:
+      TESTVARIABLE_ADAM: "adam"
+      ALGOLIA_SEARCH_ADMIN_KEY: ${{ secrets.ALGOLIA_SEARCH_ADMIN_KEY }}
+      SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+      GITLAB_FLIP_REPO_ID: ${{ secrets.GITLAB_FLIP_REPO_ID }}
+      GITLAB_ACCESS_TOKEN: ${{ secrets.GITLAB_ACCESS_TOKEN }}
+      REFERENCE_BRANCH: ${{ secrets.REFERENCE_BRANCH }}
+      NEXT_PUBLIC_ALGOLIA_APP_ID: ${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID }}
+      NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY:
+        ${{ secrets.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY }}
+      NEXT_PUBLIC_DEPLOYMENT_STAGE: ${{ secrets.NEXT_PUBLIC_DEPLOYMENT_STAGE }}
     name: Lint and Test Job
-
     strategy:
       matrix:
         node-version: [18.x]
@@ -40,5 +49,6 @@ jobs:
           cache: "npm"
       - run: yarn
       - run: yarn build --filter=@getflip/swirl-tokens
+      - run: npx turbo run prebuild # needed for swirl-docs tests
       - run: yarn lint
       - run: yarn test

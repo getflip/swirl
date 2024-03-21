@@ -105,7 +105,7 @@ describe("swirl-pdf-reader", () => {
                   </div>
                 </div>
                 <swirl-separator></swirl-separator>
-                <swirl-action-list>
+                <swirl-action-list class="pdf-reader__menu">
                   <swirl-action-list-item class="pdf-reader__print-button" icon="<swirl-icon-print></swirl-icon-print>" label="Print PDF"></swirl-action-list-item>
                   <swirl-action-list-item class="pdf-reader__download-button" icon="<swirl-icon-download></swirl-icon-download>" label="Download PDF"></swirl-action-list-item>
                   <slot name="menu-items"></slot>

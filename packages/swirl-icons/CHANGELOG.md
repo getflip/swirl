@@ -1,5 +1,82 @@
 # @getflip/swirl-icons
 
+## 0.33.0
+
+### Minor Changes
+
+- [`c46e6bb6`](https://github.com/getflip/swirl/commit/c46e6bb68416531ea02d5e6bc8d62d79e13ac5c7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "desktop" icon
+
+## 0.32.0
+
+### Minor Changes
+
+- [`fb512c0b`](https://github.com/getflip/swirl/commit/fb512c0b4452107d2c00b54d0f601de66c2f3274)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icons
+
+## 0.31.0
+
+### Minor Changes
+
+- [`e8d164aa`](https://github.com/getflip/swirl/commit/e8d164aab57295d39c0b2bd758174296daff767a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add hamburger-menu icon
+
+## 0.30.0
+
+### Minor Changes
+
+- [`eaf0df80`](https://github.com/getflip/swirl/commit/eaf0df80edcd9e7001979757077edd3599faf858)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update Dart icon package
+
+## 0.29.0
+
+### Minor Changes
+
+- [#584](https://github.com/getflip/swirl/pull/584)
+  [`69f2651a`](https://github.com/getflip/swirl/commit/69f2651a9b0b80417921682e7b132a73300a3d19)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Breaking! Clean up icon naming.
+  Removes "-outlined" suffix and unused icons.
+
+## 0.28.0
+
+### Minor Changes
+
+- [#568](https://github.com/getflip/swirl/pull/568)
+  [`0f5262a9`](https://github.com/getflip/swirl/commit/0f5262a96bb5e06a7c6e3d9ddff1beb00b926539)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update icons
+
+## 0.27.0
+
+### Minor Changes
+
+- [`5a1bc4be`](https://github.com/getflip/swirl/commit/5a1bc4bebc50e3e24df62e69d54ad41bb63dbe6b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update icons
+
+* [`79d1f5da`](https://github.com/getflip/swirl/commit/79d1f5dac80926a5ec527f2365751415cc6f5fcd)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Dart Build of v26
+
+## 0.26.0
+
+### Minor Changes
+
+- [`f5158cf2`](https://github.com/getflip/swirl/commit/f5158cf29701599b19fe1f306ff4f5f749b7d777) -
+  icon update
+
+## 0.25.0
+
+### Minor Changes
+
+- [`cda2899f`](https://github.com/getflip/swirl/commit/cda2899f6250042bfb5a2df90c023f724ffd3590)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icon
+
+## 0.24.0
+
+### Minor Changes
+
+- [#523](https://github.com/getflip/swirl/pull/523)
+  [`437402f3`](https://github.com/getflip/swirl/commit/437402f388dd00ecd0293099fb03373cc088ca34)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Add "Terminal" icon
+
 ## 0.23.0
 
 ### Minor Changes

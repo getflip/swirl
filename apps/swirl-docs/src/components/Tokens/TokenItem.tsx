@@ -48,7 +48,7 @@ const TokenItem = ({ token }: TokenItemProps) => {
   });
   const focus = useFocus(context);
   const dismiss = useDismiss(context);
-  const role = useRole(context);
+  const role = useRole(context, { role: "tooltip" });
 
   // Merge all the interactions into prop getters
   const { getReferenceProps, getFloatingProps } = useInteractions([
@@ -104,6 +104,7 @@ const TokenItem = ({ token }: TokenItemProps) => {
                 ) : (
                   <SwirlIconCopy size={16} className="ml-1" />
                 )}
+                <span className="sr-only">Copy token name to clipboard</span>
               </button>
             </CopyToClipboard>
             {open && (

@@ -1,16 +1,34 @@
 const maskSpy = jest.fn();
+const isMobileViewportSpy = jest.fn();
 
 jest.mock("maska/dist/es6/maska", () => ({
   create: maskSpy,
 }));
 
+jest.mock("../../utils", () => {
+  const original = jest.requireActual("../../utils");
+
+  return {
+    ...original,
+    isMobileViewport: isMobileViewportSpy,
+  };
+});
+
+(global as any).IntersectionObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
+
 import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlDateInput } from "./swirl-date-input";
+import { SwirlPopover } from "../swirl-popover/swirl-popover";
 
 describe("swirl-date-input", () => {
   beforeEach(() => {
     maskSpy.mockReset();
+    isMobileViewportSpy.mockReset();
   });
 
   it("renders the input and picker", async () => {
@@ -22,7 +40,7 @@ describe("swirl-date-input", () => {
     expect(page.root).toEqualHtml(`
       <swirl-date-input>
         <div class="date-input">
-          <input class="date-input__input" id="swirl-date-input-0" placeholder="yyyy-mm-dd" type="text">
+          <input class="date-input__input" id="swirl-date-input-0" inputmode="numeric" placeholder="yyyy-mm-dd" type="text">
           <swirl-popover-trigger popover="popover-swirl-date-input-0">
           <button aria-label="Open date picker" class="date-input__date-picker-button" type="button">
               <swirl-icon-today size="24"></swirl-icon-today>
@@ -30,7 +48,7 @@ describe("swirl-date-input", () => {
           </swirl-popover-trigger>
         </div>
         <swirl-popover animation="scale-in-y" id="popover-swirl-date-input-0" label="Date picker" placement="bottom-end">
-          <swirl-date-picker locale="en-US"></swirl-date-picker>
+          <swirl-date-picker firstdayofweek="0" locale="en-US"></swirl-date-picker>
         </swirl-popover>
       </swirl-date-input>
     `);
@@ -117,5 +135,107 @@ describe("swirl-date-input", () => {
     input.dispatchEvent(new Event("input"));
 
     expect(spy.mock.calls[0][0].detail).toBe("2022-22-22");
+  });
+
+  it("opens the datepicker when input gets clicked and preferredInputMode is 'pick'", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+    const popover = page.root.querySelector("swirl-popover");
+    const spy = jest.fn();
+
+    Object.defineProperty(popover, "open", { value: spy });
+    page.root.preferredInputMode = "pick";
+    input.dispatchEvent(new MouseEvent("click"));
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it("doesn't open the datepicker when input gets clicked and preferredInputMode isn't 'pick'", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+    const popover = page.root.querySelector("swirl-popover");
+    const spy = jest.fn();
+
+    Object.defineProperty(popover, "open", { value: spy });
+    page.root.preferredInputMode = "input";
+    input.dispatchEvent(new MouseEvent("click"));
+
+    expect(spy).not.toHaveBeenCalled();
+  });
+
+  it("closes the datepicker on mouse down when preferredInputMode is 'pick'", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+    const popover = page.root.querySelector("swirl-popover");
+    const spy = jest.fn();
+
+    Object.defineProperty(popover, "close", { value: spy });
+    page.root.preferredInputMode = "pick";
+    input.dispatchEvent(new MouseEvent("mousedown"));
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it("doesn't close the datepicker on mouse down when preferredInputMode isn't 'pick'", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+    const popover = page.root.querySelector("swirl-popover");
+    const spy = jest.fn();
+
+    Object.defineProperty(popover, "close", { value: spy });
+    page.root.preferredInputMode = "input";
+    input.dispatchEvent(new MouseEvent("mousedown"));
+
+    expect(spy).not.toHaveBeenCalled();
+  });
+
+  it("keeps the focus on the input when the datepicker is opened with click on desktop", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+    const spy = jest.fn();
+
+    isMobileViewportSpy.mockImplementation(() => false);
+    page.root.preferredInputMode = "pick";
+
+    input.addEventListener("focus", spy);
+    input.dispatchEvent(new MouseEvent("click"));
+
+    await new Promise((resolve) => setTimeout(resolve));
+
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it("lose the focus on the input when the datepicker is opened with focus on mobile", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+    const spy = jest.fn();
+
+    isMobileViewportSpy.mockImplementation(() => true);
+    page.root.preferredInputMode = "pick";
+
+    input.addEventListener("focus", spy);
+    input.dispatchEvent(new MouseEvent("click"));
+
+    await new Promise((resolve) => setTimeout(resolve));
+
+    expect(spy).not.toHaveBeenCalled();
   });
 });

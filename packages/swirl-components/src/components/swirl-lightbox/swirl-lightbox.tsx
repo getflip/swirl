@@ -3,6 +3,7 @@ import {
   Element,
   h,
   Host,
+  Listen,
   Method,
   Prop,
   State,
@@ -21,6 +22,7 @@ export class SwirlLightbox {
   @Element() el: HTMLElement;
 
   @Prop() closeButtonLabel?: string = "Close modal";
+  @Prop() downloadButtonEnabled?: boolean = true;
   @Prop() downloadButtonLabel?: string = "Download";
   @Prop() hideMenu?: boolean;
   @Prop() label!: string;
@@ -40,6 +42,7 @@ export class SwirlLightbox {
   private modal: A11yDialog;
   private modalEl: HTMLElement;
   private mediaPlayers: (HTMLVideoElement | HTMLAudioElement)[] = [];
+  private slidesContainer: HTMLElement;
 
   componentWillLoad() {
     this.registerSlides();
@@ -53,6 +56,22 @@ export class SwirlLightbox {
   disconnectedCallback() {
     this.modal?.destroy();
     this.unlockBodyScroll();
+  }
+
+  @Listen("keydown", { target: "document" })
+  onKeyDown(event: KeyboardEvent) {
+    if (!(this.modal.shown as boolean)) {
+      return;
+    }
+
+    if (event.code === "Escape") {
+      event.stopImmediatePropagation();
+      this.close();
+    } else if (event.code === "ArrowLeft") {
+      this.onPreviousSlideClick();
+    } else if (event.code === "ArrowRight") {
+      this.onNextSlideClick();
+    }
   }
 
   /**
@@ -178,16 +197,6 @@ export class SwirlLightbox {
     this.menu.close();
   };
 
-  private onKeyDown = (event: KeyboardEvent) => {
-    if (event.code === "Escape") {
-      this.close();
-    } else if (event.code === "ArrowLeft") {
-      this.onPreviousSlideClick();
-    } else if (event.code === "ArrowRight") {
-      this.onNextSlideClick();
-    }
-  };
-
   private onNextSlideClick = () => {
     this.activateSlide(
       Math.min(this.slides.length - 1, this.activeSlideIndex + 1)
@@ -304,6 +313,14 @@ export class SwirlLightbox {
     }
   };
 
+  private onBackdropClick = (event: MouseEvent) => {
+    if (event.target !== this.slidesContainer) {
+      return;
+    }
+
+    this.close();
+  };
+
   render() {
     const showPagination = this.slides.length > 1;
 
@@ -311,8 +328,13 @@ export class SwirlLightbox {
     const currentFileType = this.getCurrentFileType();
     const currentThumbnailUrl = this.getCurrentThumbnailUrl();
 
+    const hasMenuItems =
+      Boolean(this.el.querySelector("[slot='menu-items']")) ||
+      this.downloadButtonEnabled;
+
     const className = classnames("lightbox", {
       "lightbox--closing": this.closing,
+      "lightbox--hide-menu": !hasMenuItems,
     });
 
     return (
@@ -326,7 +348,6 @@ export class SwirlLightbox {
           onMouseMove={this.onPointerMove}
           onMouseOut={this.onPointerUp}
           onMouseUp={this.onPointerUp}
-          onKeyDown={this.onKeyDown}
           onTouchEnd={this.onPointerUp}
           onTouchMove={this.onPointerMove}
           onTouchStart={this.onPointerDown}
@@ -361,6 +382,8 @@ export class SwirlLightbox {
                 aria-atomic="false"
                 aria-live="polite"
                 class="lightbox__slides"
+                onClick={this.onBackdropClick}
+                ref={(el) => (this.slidesContainer = el)}
               >
                 <slot onSlotchange={this.registerSlides}></slot>
               </div>
@@ -418,13 +441,15 @@ export class SwirlLightbox {
                     </swirl-text>
                   </div>
                 </div>
-                <swirl-separator></swirl-separator>
+                {hasMenuItems && <swirl-separator></swirl-separator>}
                 <swirl-action-list>
-                  <swirl-action-list-item
-                    icon="<swirl-icon-download></swirl-icon-download>"
-                    label={this.downloadButtonLabel}
-                    onClick={this.onDownloadButtonClick}
-                  ></swirl-action-list-item>
+                  {this.downloadButtonEnabled && (
+                    <swirl-action-list-item
+                      icon="<swirl-icon-download></swirl-icon-download>"
+                      label={this.downloadButtonLabel}
+                      onClick={this.onDownloadButtonClick}
+                    ></swirl-action-list-item>
+                  )}
                   <slot name="menu-items"></slot>
                 </swirl-action-list>
               </swirl-stack>

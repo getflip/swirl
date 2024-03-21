@@ -6,12 +6,17 @@ export type NavLink = {
 
 export type NavItem = {
   title: string;
-  url: string;
-  isRoot?: boolean;
+  mdxFilename?: string;
+  url?: string;
+  isHeader?: boolean;
+  isExternal?: boolean;
+  devOnly?: boolean;
+  comingSoon?: boolean;
   children?: NavItem[];
   description?: string;
   specName?: string;
   tag?: string;
+  teaserIcon?: string;
 };
 
 export const CategoryEnum = {

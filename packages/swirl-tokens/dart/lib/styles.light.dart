@@ -9,6 +9,7 @@
 
 
 import 'dart:ui';
+import 'package:flutter/widgets.dart';
 
 class SwirlDesignTokensLight {
   SwirlDesignTokensLight._();
@@ -222,9 +223,9 @@ class SwirlDesignTokensLight {
     static const lineHeightSm = 20.00;
     static const lineHeightXl = 26.00;
     static const onSurfaceHighlightDefault = Color(0xFFD5E2FF); /* Used to place containers on “Surface Highlight/Default”. */
-    static const shadowLevel1 = "[object Object],[object Object]";
-    static const shadowLevel2 = "[object Object],[object Object]";
-    static const shadowLevel3 = "[object Object],[object Object]";
+    static const shadowLevel1 = [BoxShadow(color: Color(0x0A171717), offset: Offset(0, 4), blurRadius: 16), BoxShadow(color: Color(0x0A171717), offset: Offset(0, 1), blurRadius: 4)];
+    static const shadowLevel2 = [BoxShadow(color: Color(0x0A171717), offset: Offset(0, 4), blurRadius: 16), BoxShadow(color: Color(0x29171717), offset: Offset(0, 1), blurRadius: 4)];
+    static const shadowLevel3 = [BoxShadow(color: Color(0x1F171717), offset: Offset(0, 12), blurRadius: 32), BoxShadow(color: Color(0x14171717), offset: Offset(0, 4), blurRadius: 12)];
     static const space0 = 0.00;
     static const space12 = 12.00;
     static const space16 = 16.00;

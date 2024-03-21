@@ -6,7 +6,7 @@
 
   --swirl-shell-header-height: 3.25rem;
 
-  --swirl-shell-collapsed-nav-width: 3.75rem;
+  --swirl-shell-collapsed-nav-width: 4rem;
   --swirl-shell-extended-nav-width: 14rem;
   --swirl-shell-sidebar-width: 21rem;
 
@@ -21,6 +21,7 @@
 
 .shell-layout {
   display: grid;
+  overflow: hidden;
   width: 100%;
   min-height: 100%;
   background-color: var(--swirl-shell-background);
@@ -79,6 +80,27 @@
     }
   }
 
+  & .shell-layout__nav {
+    &:hover {
+      @media (--from-desktop) {
+        width: var(--swirl-shell-extended-nav-width);
+        padding-right: var(--s-space-12);
+      }
+    }
+
+    @media (--from-desktop) {
+      &:not(:hover) {
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          width: 0;
+          background: transparent;
+          -webkit-appearance: none;
+        }
+      }
+    }
+  }
+
   @media (--from-desktop) {
     grid-template-columns: var(--swirl-shell-collapsed-nav-width) 1fr 0;
   }
@@ -99,6 +121,10 @@
     }
   }
 
+  & .shell-layout__sidebar {
+    overflow: initial;
+  }
+
   & .shell-layout__sidebar-body {
     @media (--from-desktop) {
       border: 0.0625rem solid var(--s-border-default);
@@ -110,6 +136,13 @@
     grid-template-columns: var(--swirl-shell-extended-nav-width) 1fr var(
         --swirl-shell-sidebar-width
       );
+  }
+}
+
+:not(.shell-layout--sidebar-active) {
+  & .shell-layout__sidebar {
+    animation: shell-layout-no-overflow-after-transition 0.2s;
+    animation-fill-mode: forwards;
   }
 }
 
@@ -179,10 +212,15 @@
   display: flex;
   flex-basis: 8rem;
   flex-shrink: 0;
+  align-items: center;
   gap: var(--s-space-8);
 }
 
 .shell-layout__header-right {
+  --swirl-ghost-button-background-default: var(--s-surface-sunken-default);
+  --swirl-ghost-button-background-hovered: var(--s-surface-sunken-hovered);
+  --swirl-ghost-button-background-pressed: var(--s-surface-sunken-pressed);
+
   display: flex;
   flex-basis: 8rem;
   flex-shrink: 0;
@@ -197,6 +235,11 @@
   justify-content: center;
   align-items: center;
 
+  &::slotted(a) {
+    display: flex;
+  }
+
+  &::slotted(a img),
   &::slotted(img) {
     max-height: 1.75rem;
   }
@@ -207,6 +250,7 @@
   width: 2.25rem;
   height: 2.25rem;
   padding: var(--s-space-8);
+  flex-shrink: 0;
   border: none;
   border-radius: var(--s-border-radius-sm);
   color: var(--swirl-shell-text-color);
@@ -234,8 +278,9 @@
     --swirl-badge-border-color: var(--s-surface-sunken-default);
 
     position: absolute;
-    right: 0;
-    bottom: 0;
+    top: var(--s-space-4);
+    right: var(--s-space-4);
+    padding-right: var(--s-space-2);
     transform: translate3d(0.1875rem, 0, 0);
   }
 }
@@ -250,7 +295,7 @@
 
 .shell-layout__navigation-toggle {
   &:hover {
-    & swirl-icon-menu {
+    & swirl-icon-hamburger-menu {
       display: none;
     }
 
@@ -276,7 +321,7 @@
   max-width: 18.75rem;
   color: var(--swirl-shell-text-color);
   background-color: var(--s-surface-overlay-default);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, width 0.2s;
   transform: translate3d(-100%, 0, 0);
   grid-area: nav;
 
@@ -363,6 +408,7 @@
 
 .shell-layout__main {
   overflow: hidden;
+  background-color: var(--s-background-default);
   grid-area: main;
 
   @media (--from-desktop) {
@@ -375,14 +421,11 @@
 .shell-layout__sidebar {
   position: relative;
   display: none;
+  min-height: 0;
   grid-area: sidebar;
 
   @media (--from-desktop) {
     display: block;
-  }
-
-  @media (--from-large-desktop) {
-    overflow: hidden;
   }
 }
 
@@ -430,5 +473,17 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes shell-layout-no-overflow-after-transition {
+  0% {
+    overflow: initial;
+  }
+  99% {
+    overflow: initial;
+  }
+  100% {
+    overflow: hidden;
   }
 }

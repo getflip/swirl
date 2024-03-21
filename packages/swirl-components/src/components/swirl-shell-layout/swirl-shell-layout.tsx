@@ -18,8 +18,10 @@ const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
 
 /**
  * @slot logo - Logo shown inside header.
- * @slot header-tools - Tools positioned on the header's right-hand side.
+ * @slot left-header-tools - Tools positioned on the header's left-hand side.
+ * @slot right-header-tools - Tools positioned on the header's right-hand side.
  * @slot mobile-header-tools - Tools positioned in the mobile drawer header.
+ * @slot avatar - User avatar positioned on the header's right-hand side.
  * @slot nav - Items shown in the lower sidebar part.
  * @slot mobile-logo - Logo shown inside the mobile navigation drawer.
  * @slot default - Contents of the main area.
@@ -40,7 +42,7 @@ export class SwirlShellLayout {
   @Prop() navigationLabel?: string = "Main";
   @Prop() navigationToggleLabel?: string = "Toggle navigation";
   @Prop({ mutable: true }) sidebarActive?: boolean;
-  @Prop() sidebarToggleBadge?: string;
+  @Prop() sidebarToggleBadge?: string | boolean;
   @Prop() sidebarToggleBadgeAriaLabel?: string;
   @Prop() sidebarToggleIcon?: string = "notifications";
   @Prop() sidebarToggleLabel?: string = "Toggle sidebar";
@@ -154,6 +156,9 @@ export class SwirlShellLayout {
   };
 
   render() {
+    const hasSidebarToggleBadgeWithLabel =
+      this.sidebarToggleBadge !== true && this.sidebarToggleBadge !== "true";
+
     const className = classnames("shell-layout", {
       "shell-layout--branded-header": this.brandedHeader,
       "shell-layout--mobile-navigation-active": this.mobileNavigationActive,
@@ -178,7 +183,9 @@ export class SwirlShellLayout {
                 onClick={this.onNavigationToggleClick}
                 type="button"
               >
-                <swirl-icon-menu size={20}></swirl-icon-menu>
+                <swirl-icon-hamburger-menu
+                  size={20}
+                ></swirl-icon-hamburger-menu>
                 <swirl-icon-double-arrow-left
                   size={20}
                 ></swirl-icon-double-arrow-left>
@@ -209,11 +216,13 @@ export class SwirlShellLayout {
                   {this.browserForwardButtonLabel}
                 </swirl-visually-hidden>
               </button>
+              <slot name="left-header-tools"></slot>
             </div>
             <div class="shell-layout__logo">
               <slot name="logo"></slot>
             </div>
             <div class="shell-layout__header-right">
+              <slot name="right-header-tools"></slot>
               <button
                 class="shell-layout__header-tool shell-layout__sidebar-toggle"
                 onClick={this.sidebarToggleClick.emit}
@@ -229,12 +238,19 @@ export class SwirlShellLayout {
                 {this.sidebarToggleBadge && (
                   <swirl-badge
                     aria-label={this.sidebarToggleBadgeAriaLabel}
-                    label={this.sidebarToggleBadge}
+                    label={
+                      !hasSidebarToggleBadgeWithLabel
+                        ? this.sidebarToggleBadgeAriaLabel
+                        : String(this.sidebarToggleBadge)
+                    }
                     size="xs"
+                    variant={
+                      !hasSidebarToggleBadgeWithLabel ? "dot" : "default"
+                    }
                   ></swirl-badge>
                 )}
               </button>
-              <slot name="header-tools"></slot>
+              <slot name="avatar"></slot>
             </div>
           </header>
           <div
@@ -271,7 +287,10 @@ export class SwirlShellLayout {
           <main class="shell-layout__main" id="main-content">
             <slot></slot>
           </main>
-          <aside class="shell-layout__sidebar">
+          <aside
+            class="shell-layout__sidebar"
+            {...{ inert: this.sidebarActive ? undefined : true }}
+          >
             <div class="shell-layout__sidebar-body">
               <div class="shell-layout__sidebar-app-bar">
                 <slot name="sidebar-app-bar"></slot>

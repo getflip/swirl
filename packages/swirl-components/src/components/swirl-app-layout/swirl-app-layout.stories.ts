@@ -58,6 +58,7 @@ const Template = (args) => {
     </div>
     <div slot="content"></div>
     <div slot="sidebar"></div>
+    <swirl-button slot="floating-action-button" icon="<swirl-icon-add></swirl-icon-add>" label="CTA" variant="floating" intent="primary" hide-label="true"></swirl-button>
   `;
 
   element.querySelector(".info-button").addEventListener("click", () => {
@@ -77,8 +78,7 @@ export const SwirlAppLayout = Template.bind({});
 
 SwirlAppLayout.args = {
   appName: "App Name",
-  ctaIcon: "<swirl-icon-add></swirl-icon-add>",
-  ctaLabel: "Call to action",
+  hasNavigation: true,
   navigationLabel: "Items",
   sidebarHeading: "Sidebar Heading",
 };

@@ -1,7 +1,7 @@
-import { FunctionComponent, useMemo, useState } from "react";
-import algoliasearch from "algoliasearch/lite";
-import { InstantSearch } from "react-instantsearch-dom";
 import { ALGOLIA_INDEX } from "@swirl/lib/search";
+import algoliasearch from "algoliasearch/lite";
+import { FunctionComponent, useMemo, useState } from "react";
+import { InstantSearch } from "react-instantsearch-dom";
 import { Autocomplete } from "./AutoComplete";
 
 function createAlgoliaClient() {
@@ -27,7 +27,14 @@ export const AlgoliaSearch: FunctionComponent<FCProps> = () => {
   }, []);
   return (
     <>
-      <InstantSearch searchClient={searchClient} indexName={ALGOLIA_INDEX.DEV}>
+      <InstantSearch
+        searchClient={searchClient}
+        indexName={
+          process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production"
+            ? ALGOLIA_INDEX.PROD
+            : ALGOLIA_INDEX.DEV
+        }
+      >
         <Autocomplete
           placeholder="Search"
           initialState={{

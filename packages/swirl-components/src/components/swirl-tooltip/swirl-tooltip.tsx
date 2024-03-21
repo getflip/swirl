@@ -1,4 +1,5 @@
 import {
+  arrow,
   autoUpdate,
   computePosition,
   ComputePositionConfig,
@@ -6,8 +7,19 @@ import {
   flip,
   offset,
   shift,
+  Strategy,
 } from "@floating-ui/dom";
-import { Component, h, Host, Listen, Prop, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
+import classnames from "classnames";
 
 export type SwirlTooltipPosition = "top" | "right" | "bottom" | "left";
 
@@ -17,18 +29,23 @@ export type SwirlTooltipPosition = "top" | "right" | "bottom" | "left";
   tag: "swirl-tooltip",
 })
 export class SwirlTooltip {
+  @Element() el: HTMLElement;
+
   @Prop() content!: string;
   @Prop() delay?: number = 300;
   @Prop() position?: SwirlTooltipPosition = "top";
+  @Prop() positioning?: Strategy = "absolute";
 
   @State() actualPosition: ComputePositionReturn;
+  @State() arrowStyles: { [key: string]: string };
   @State() visible = false;
 
-  private disableAutoUpdate;
+  private disableAutoUpdate: () => void;
+
+  private arrowElement: HTMLElement;
   private showTimeout: NodeJS.Timeout;
   private options: Partial<ComputePositionConfig>;
   private popperEl: HTMLSpanElement;
-  private referenceEl: HTMLSpanElement;
 
   @Watch("position")
   watchPosition() {
@@ -70,24 +87,47 @@ export class SwirlTooltip {
   };
 
   private reposition = async () => {
-    if (!Boolean(this.referenceEl) || !Boolean(this.popperEl)) {
+    const referenceElement = this.el.children[0] as HTMLElement;
+
+    if (!Boolean(referenceElement) || !Boolean(this.popperEl)) {
       return;
     }
 
+    const middleware = [
+      ...this.options.middleware.filter(
+        (middleware) => middleware.name !== "arrow"
+      ),
+      arrow({ element: this.arrowElement, padding: 12 }),
+    ];
+
     this.actualPosition = await computePosition(
-      this.referenceEl,
+      referenceElement,
       this.popperEl,
-      this.options
+      { ...this.options, middleware }
     );
+
+    const arrowX = this.actualPosition.middlewareData.arrow?.x;
+    const arrowY = this.actualPosition.middlewareData.arrow?.y;
+
+    this.arrowStyles = {
+      left: Boolean(arrowX) ? arrowX + "px" : undefined,
+      top: Boolean(arrowY) ? arrowY + "px" : undefined,
+    };
   };
 
   private show = () => {
     this.visible = true;
 
     requestAnimationFrame(() => {
+      const referenceElement = this.el.children[0] as HTMLElement;
+
+      if (!Boolean(referenceElement)) {
+        return;
+      }
+
       this.reposition();
       this.disableAutoUpdate = autoUpdate(
-        this.referenceEl,
+        referenceElement,
         this.popperEl,
         this.reposition.bind(this)
       );
@@ -124,58 +164,28 @@ export class SwirlTooltip {
     this.options = {
       middleware: [offset(margin), shift(), flip()],
       placement: this.position,
-      strategy: "absolute",
+      strategy: this.positioning,
     };
   };
 
-  private getArrowStyles = () => {
-    if (this.actualPosition?.placement === "top") {
-      return {
-        top: "100%",
-        left: "50%",
-        transform: "translate3d(-50%, -50%, 0) rotate(45deg)",
-      };
-    }
-
-    if (this.actualPosition?.placement === "bottom") {
-      return {
-        bottom: "100%",
-        left: "50%",
-        transform: "translate3d(-50%, 50%, 0) rotate(45deg)",
-      };
-    }
-
-    if (this.actualPosition?.placement === "right") {
-      return {
-        top: "50%",
-        right: "100%",
-        transform: "translate3d(50%, -50%, 0) rotate(45deg)",
-      };
-    }
-
-    if (this.actualPosition?.placement === "left") {
-      return {
-        top: "50%",
-        left: "100%",
-        transform: "translate3d(-50%, -50%, 0) rotate(45deg)",
-      };
-    }
-  };
-
   render() {
-    const arrowStyles = this.getArrowStyles();
+    const className = classnames(
+      "tooltip",
+      `tooltip--actual-placement-${this.actualPosition?.placement}`,
+      {
+        "tooltip--visible": this.visible,
+      }
+    );
 
     return (
       <Host onKeydown={this.onKeydown}>
-        <span class="tooltip">
+        <span class={className}>
           <span
             class="tooltip__reference"
             aria-describedby="tooltip"
-            onBlur={this.hide}
+            onFocusout={this.hide}
             onClick={this.hide}
-            onFocus={this.show}
-            ref={(el) => (this.referenceEl = el)}
-            tabIndex={0}
+            onFocusin={this.show}
           >
             <slot></slot>
           </span>
@@ -189,6 +199,7 @@ export class SwirlTooltip {
               left: Boolean(this.actualPosition)
                 ? `${this.actualPosition?.x}px`
                 : "",
+              position: this.positioning,
             }}
           >
             {this.visible && (
@@ -199,9 +210,16 @@ export class SwirlTooltip {
                 role="tooltip"
               >
                 <span class="tooltip__content" innerHTML={this.content}></span>
-                <span class="tooltip__arrow" style={arrowStyles}></span>
               </span>
             )}
+            <span
+              class="tooltip__arrow"
+              ref={(el) => (this.arrowElement = el)}
+              style={{
+                ...this.arrowStyles,
+                visibility: this.visible ? "visible" : "hidden",
+              }}
+            ></span>
           </span>
         </span>
       </Host>

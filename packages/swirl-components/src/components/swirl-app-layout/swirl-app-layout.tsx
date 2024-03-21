@@ -23,11 +23,13 @@ export type SwirlAppLayoutTransitionStyle = "none" | "slides" | "dialog";
  * @slot navigation-controls - Controls for the navigation header
  * @slot navigation-mobile-menu-button - Used to add a mobile shell layout menu button to navigation
  * @slot app-bar - The app bar contents
+ * @slot bottom-bar - The bottom bar contents
  * @slot custom-app-bar-back-button - Replaces the mobile default back button of the content app bar
  * @slot app-bar-mobile-menu-button - Used to add a mobile shell layout menu button to the app bar
  * @slot banner - Used to show a banner below the app bar
  * @slot sidebar - Content of the right sidebar
  * @slot custom-sidebar-header - Replaces the default sidebar header
+ * @slot floating-action-button - Floating button displayed in the bottom right corner
  */
 @Component({
   shadow: true,
@@ -41,6 +43,7 @@ export class SwirlAppLayout {
   @Prop() backToNavigationViewButtonLabel?: string = "Back to navigation";
   @Prop() ctaIcon?: string;
   @Prop() ctaLabel?: string;
+  @Prop({ mutable: true }) hasNavigation: boolean;
   @Prop() hideAppBar?: boolean;
   @Prop() navigationBackButtonLabel?: string = "Go back";
   @Prop() navigationLabel?: string;
@@ -50,7 +53,6 @@ export class SwirlAppLayout {
   @Prop() transitionStyle?: string = "slides";
 
   @State() hasCustomAppBarBackButton: boolean;
-  @State() hasNavigation: boolean;
   @State() hasSidebar: boolean;
   @State() mobileView: SwirlAppLayoutMobileView = "navigation";
   @State() sidebarActive: boolean;
@@ -261,6 +263,8 @@ export class SwirlAppLayout {
       this.el.querySelector('[slot="app-bar-controls"]')
     );
 
+    const hasBottomBar = Boolean(this.el.querySelector('[slot="bottom-bar"]'));
+
     const hasAppBarMobileMenuButton = Boolean(
       this.el.querySelector('[slot="app-bar-mobile-menu-button"]')
     );
@@ -268,6 +272,10 @@ export class SwirlAppLayout {
     const hasCustomSidebarHeader = Boolean(
       this.el.querySelector('[slot="custom-sidebar-header"]')
     );
+
+    const hasFloatingActionButton =
+      Boolean(this.el.querySelector('[slot="floating-action-button"]')) ||
+      Boolean(this.ctaLabel);
 
     const className = classnames(
       "app-layout",
@@ -278,9 +286,11 @@ export class SwirlAppLayout {
       {
         "app-layout--has-app-bar-mobile-menu-button": hasAppBarMobileMenuButton,
         "app-layout--has-app-bar-controls": hasAppBarControls,
+        "app-layout--has-bottom-bar": hasBottomBar,
         "app-layout--has-custom-app-bar-back-button":
           this.hasCustomAppBarBackButton,
         "app-layout--has-custom-sidebar-header": hasCustomSidebarHeader,
+        "app-layout--has-floating-action-button": hasFloatingActionButton,
         "app-layout--has-navigation": this.hasNavigation,
         "app-layout--has-sidebar": this.hasSidebar,
         "app-layout--hide-app-bar": this.hideAppBar,
@@ -292,12 +302,7 @@ export class SwirlAppLayout {
 
     return (
       <Host>
-        <section
-          aria-labelledby="app-name"
-          class={className}
-          role="document"
-          tabIndex={0}
-        >
+        <section aria-labelledby="app-name" class={className}>
           <div class="app-layout__grid">
             <header class="app-layout__header">
               <span class="app-layout__navigation-mobile-menu-button">
@@ -369,6 +374,9 @@ export class SwirlAppLayout {
               <div class="app-layout__content">
                 <slot name="content"></slot>
               </div>
+              <div class="app-layout__bottom-bar">
+                <slot name="bottom-bar"></slot>
+              </div>
             </section>
             <aside class="app-layout__sidebar">
               <header class="app-layout__custom-sidebar-header">
@@ -394,8 +402,8 @@ export class SwirlAppLayout {
                 <slot name="sidebar"></slot>
               </div>
             </aside>
-            {this.ctaLabel && (
-              <span class="app-layout__floating-cta">
+            <span class="app-layout__floating-action-button">
+              {this.ctaLabel && (
                 <swirl-button
                   hideLabel={Boolean(this.ctaIcon)}
                   icon={this.ctaIcon}
@@ -404,8 +412,9 @@ export class SwirlAppLayout {
                   onClick={this.onCtaClick}
                   variant="floating"
                 ></swirl-button>
-              </span>
-            )}
+              )}
+              <slot name="floating-action-button"></slot>
+            </span>
           </div>
         </section>
       </Host>

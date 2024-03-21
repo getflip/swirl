@@ -45,6 +45,8 @@ export class SwirlTimeInput {
 
   @State() iconSize: 20 | 24 = 24;
 
+  @Event() inputBlur: EventEmitter<FocusEvent>;
+  @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
@@ -127,6 +129,8 @@ export class SwirlTimeInput {
   };
 
   private onBlur = (event: FocusEvent) => {
+    this.inputBlur.emit(event);
+
     const input = event.target as HTMLInputElement;
 
     const dateValue = parse(input.value, this.format, new Date());
@@ -153,6 +157,7 @@ export class SwirlTimeInput {
   };
 
   private onFocus = (event: FocusEvent) => {
+    this.inputFocus.emit(event);
     this.handleAutoSelect(event);
   };
 
@@ -201,6 +206,7 @@ export class SwirlTimeInput {
             class="time-input__input"
             disabled={this.disabled}
             id={this.id}
+            inputmode="numeric"
             onBlur={this.onBlur}
             onClick={this.onClick}
             onFocus={this.onFocus}

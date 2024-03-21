@@ -29,6 +29,27 @@ export function closestPassShadow(node, selector) {
   return closestPassShadow(node.parentNode, selector);
 }
 
+export function isDescendantOf(
+  element: Element,
+  potentialParent: Element
+): boolean {
+  let current: Node | null = element;
+
+  while (current !== null) {
+    if (current === potentialParent) {
+      return true;
+    }
+
+    current = current.parentNode;
+
+    if (current instanceof ShadowRoot) {
+      current = current.host;
+    }
+  }
+
+  return false;
+}
+
 export function getActiveElement(
   root: Document | ShadowRoot = document
 ): Element | undefined {
@@ -121,13 +142,10 @@ export function fullscreenStoryDecorator(padded = true) {
   };
 }
 
-export function generateStoryElement(
-  tag: string,
-  args: { [arg: string]: any },
-  content?: string
-): HTMLElement {
-  const element = document.createElement(tag);
-
+export function addAttributesToElement(
+  element: HTMLElement,
+  args: { [arg: string]: any }
+): void {
   Object.entries(args)
     .filter(
       (arg) =>
@@ -150,6 +168,16 @@ export function generateStoryElement(
         String(value)
       );
     });
+}
+
+export function generateStoryElement(
+  tag: string,
+  args: { [arg: string]: any },
+  content?: string
+): HTMLElement {
+  const element = document.createElement(tag);
+
+  addAttributesToElement(element, args);
 
   if (Boolean(content)) {
     element.innerHTML = content;

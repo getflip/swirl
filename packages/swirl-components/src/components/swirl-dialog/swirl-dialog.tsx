@@ -78,6 +78,7 @@ export class SwirlDialog {
 
   onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
+      event.stopImmediatePropagation();
       this.close();
     }
   };
@@ -137,7 +138,7 @@ export class SwirlDialog {
                   intent={this.intent}
                   label={this.primaryActionLabel}
                   onClick={this.onPrimaryAction}
-                  variant={this.intent === "critical" ? "ghost" : "flat"}
+                  variant="flat"
                 ></swirl-button>
               )}
             </div>

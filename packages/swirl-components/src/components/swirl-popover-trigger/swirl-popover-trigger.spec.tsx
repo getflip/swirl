@@ -1,7 +1,13 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { SwirlPopoverTrigger } from "./swirl-popover-trigger";
 import { SwirlButton } from "../swirl-button/swirl-button";
+import { SwirlPopoverTrigger } from "./swirl-popover-trigger";
+
+(global as any).IntersectionObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
 
 describe("swirl-popover-trigger", () => {
   it("renders its trigger element and adds aria attributes", async () => {

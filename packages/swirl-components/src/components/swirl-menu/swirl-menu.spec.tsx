@@ -2,14 +2,20 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlButton } from "../swirl-button/swirl-button";
 import { SwirlMenuItem } from "../swirl-menu-item/swirl-menu-item";
+import { SwirlPopoverTrigger } from "../swirl-popover-trigger/swirl-popover-trigger";
 import { SwirlPopover } from "../swirl-popover/swirl-popover";
 import { SwirlMenu } from "./swirl-menu";
-import { SwirlPopoverTrigger } from "../swirl-popover-trigger/swirl-popover-trigger";
 
 (global as any).DocumentFragment = class DocumentFragment extends Node {};
 (global as any).ShadowRoot = class ShadowRoot extends DocumentFragment {};
 
 (global as any).MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+};
+
+(global as any).IntersectionObserver = class {
   constructor() {}
   disconnect() {}
   observe() {}

@@ -1,22 +1,21 @@
-import { Env } from "@swirl/lib/env/server.config";
+import { ApiEndpointGenerator } from "./Generators/ApiEndpointGenerator";
+import { FileFetcher } from "./Generators/FileFetcher";
 import {
-  DeploymentStrategy,
-  ProductionDeployment,
-  StagingDeployment,
-} from "./DeploymentStrategy";
-
-const getDeploymentStrategy = (): DeploymentStrategy => {
-  if (Env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production") {
-    return new ProductionDeployment();
-  }
-  return new StagingDeployment();
-};
-
-const strategy = getDeploymentStrategy();
+  ApiDocsNavigationGenerator,
+  ApiSpecsNavigationGenerator,
+} from "./Generators/NavigationGenerator";
 
 async function main() {
-  await strategy.fetchData();
-  await strategy.generateApiNavigation();
+  const fetcher = new FileFetcher();
+  await fetcher.fetchFiles();
+
+  const apiEndpointGenerator = new ApiEndpointGenerator();
+  const apiSpecNavigationGenerator = new ApiSpecsNavigationGenerator();
+  const apiDocsNavigationGenerator = new ApiDocsNavigationGenerator();
+
+  const apiDocumentations = await apiEndpointGenerator.generate();
+  await apiSpecNavigationGenerator.generate(apiDocumentations);
+  await apiDocsNavigationGenerator.generate();
 }
 
 main();

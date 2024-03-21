@@ -8,23 +8,24 @@
   & * {
     box-sizing: border-box;
   }
+
+  &[aria-selected="true"] {
+    & .resource-list-item__content {
+      background-color: var(--swirl-resource-list-item-background-hovered);
+
+      & .resource-list-item__media,
+      & .resource-list-item__meta {
+        --swirl-avatar-background-color: var(--s-surface-raised-hovered);
+        --swirl-avatar-group-border-color: var(--s-background-hovered);
+        --swirl-badge-border-color: var(--s-background-hovered);
+      }
+    }
+  }
 }
 
 .resource-list-item {
   position: relative;
   width: 100%;
-
-  &:not(.resource-list-item--show-meta) {
-    display: flex;
-    align-items: center;
-
-    & .resource-list-item__control {
-      position: relative;
-      top: auto;
-      right: auto;
-      transform: none;
-    }
-  }
 }
 
 .resource-list-item--interactive {
@@ -81,6 +82,20 @@
   }
 }
 
+.resource-list-item--compact {
+  & .resource-list-item__content {
+    padding: var(--s-space-8);
+
+    @media (--from-desktop-without-touch) {
+      padding: var(--s-space-8);
+    }
+  }
+
+  & .resource-list-item__label-container {
+    min-height: 2.5rem;
+  }
+}
+
 .resource-list-item--selectable {
   & .resource-list-item__content {
     @media (--from-tablet) {
@@ -97,14 +112,10 @@
   }
 }
 
-.resource-list-item--hide-divider {
-  & .resource-list-item__label-container:after {
-    display: none;
-  }
-}
-
 .resource-list-item--label-weight-medium {
-  font-weight: var(--s-font-weight-medium);
+  & .resource-list-item__label {
+    font-weight: var(--s-font-weight-medium);
+  }
 }
 
 .resource-list-item--show-control-on-focus {
@@ -173,10 +184,23 @@
   }
 }
 
+.resource-list-item--wrap-description {
+  & .resource-list-item__description {
+    white-space: normal;
+  }
+}
+
+.resource-list-item--wrap-label {
+  & .resource-list-item__label {
+    white-space: normal;
+  }
+}
+
 .resource-list-item__content {
   --swirl-avatar-group-border-color: var(--s-background-default);
   --swirl-badge-border-color: var(--s-background-default);
 
+  position: relative;
   display: flex;
   width: 100%;
   min-width: 0;
@@ -184,13 +208,14 @@
   padding-top: var(--s-space-12);
   padding-right: 0;
   padding-bottom: var(--s-space-12);
-  padding-left: var(--s-space-16);
-  align-items: center;
+  padding-left: var(--s-space-8);
+  align-items: flex-start;
   border: none;
+  border-radius: var(--s-border-radius-sm);
   color: var(--s-text-default);
   background-color: var(--swirl-resource-list-item-background-default);
   font: inherit;
-  line-height: var(--s-line-height-base);
+  line-height: var(--s-line-height-sm);
   text-align: left;
   text-decoration: none;
   gap: var(--s-space-12);
@@ -218,51 +243,42 @@
   }
 
   @media (--from-desktop-without-touch) {
-    padding: var(--s-space-12);
-    font-size: var(--s-font-size-sm);
-    line-height: var(--s-line-height-sm);
+    padding: var(--s-space-12) var(--s-space-8);
+    line-height: var(--s-line-height-base);
   }
 }
 
 .resource-list-item__media {
   display: inline-flex;
+  flex-shrink: 0;
 }
 
 .resource-list-item__label-container {
   position: relative;
   display: flex;
   min-width: 0;
-  min-height: 2.875rem;
+  min-height: 3rem;
   padding-right: var(--s-space-16);
   flex-grow: 1;
   justify-content: center;
   flex-direction: column;
-
-  &:after {
-    position: absolute;
-    right: 0;
-    bottom: calc(-1 * var(--s-space-12));
-    left: 0;
-    height: 0.0625rem;
-    background-color: var(--s-border-default);
-    content: "";
-  }
 }
 
 .resource-list-item__label {
   overflow: hidden;
+  font-size: var(--s-font-size-base);
+  line-height: var(--s-line-height-base);
   white-space: nowrap;
   text-overflow: ellipsis;
 
-  & b,
-  & strong {
-    font-weight: var(--s-font-weight-semibold);
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
   }
 }
 
 .resource-list-item__description {
   overflow: hidden;
-  margin-top: var(--s-space-2);
   color: var(--s-text-subdued);
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
@@ -280,7 +296,7 @@
 .resource-list-item__control {
   position: absolute;
   top: 50%;
-  right: var(--s-space-16);
+  right: var(--s-space-8);
   transform: translateY(-50%);
 }
 
@@ -322,6 +338,11 @@
   font-size: var(--s-font-size-sm);
   flex-direction: column;
   align-self: flex-start;
+  gap: var(--s-space-2);
+}
+
+.resource-list-item__badges {
+  display: inline-flex;
 }
 
 .resource-list-item__drag-handle {

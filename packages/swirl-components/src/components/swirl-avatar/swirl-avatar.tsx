@@ -1,7 +1,19 @@
-import { Component, Element, h, Host, Prop, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlAvatarBadgePosition = "bottom" | "top";
+
+export type SwirlAvatarLoading = "lazy" | "auto" | "eager" | "intersecting";
 
 export type SwirlAvatarToolPosition = "bottom" | "top";
 
@@ -13,11 +25,22 @@ export type SwirlAvatarColor =
   | "kiwi"
   | "pumpkin"
   | "radish";
-export type SwirlAvatarSize = "2xs" | "xs" | "s" | "m" | "l" | "xl" | "2xl";
+
+export type SwirlAvatarSize =
+  | "3xs"
+  | "2xs"
+  | "xs"
+  | "s"
+  | "m"
+  | "l"
+  | "xl"
+  | "2xl";
+
 export type SwirlAvatarVariant = "round" | "square";
 
 const swirlAvatarSizeMappings: { [key in SwirlAvatarSize]: number } = {
-  "2xs": 20,
+  "3xs": 20,
+  "2xs": 24,
   xs: 28,
   s: 32,
   m: 40,
@@ -44,25 +67,67 @@ export class SwirlAvatar {
   @Prop() initials?: string;
   @Prop() interactive?: boolean = false;
   @Prop() label!: string;
+  @Prop() loading?: SwirlAvatarLoading;
   @Prop() showLabel?: boolean = false;
   @Prop() size?: SwirlAvatarSize = "m";
   @Prop() src?: string;
   @Prop() toolPosition?: SwirlAvatarToolPosition = "bottom";
   @Prop() variant?: SwirlAvatarVariant = "round";
 
+  @State() loadingError = false;
+  @State() loaded = false;
   @State() imageAvailable: boolean | undefined;
+  @State() inViewport = false;
+
+  @Event() imageError: EventEmitter<void>;
+  @Event() imageLoad: EventEmitter<void>;
+
+  private intersectionObserver: IntersectionObserver;
+
+  componentDidLoad() {
+    this.setupIntersectionObserver();
+  }
+
+  disconnectedCallback() {
+    this.intersectionObserver?.disconnect();
+  }
 
   @Watch("src")
   watchSrcProp() {
     this.imageAvailable = undefined;
   }
 
+  private setupIntersectionObserver() {
+    if (this.loading !== "intersecting") {
+      return;
+    }
+
+    this.intersectionObserver = new IntersectionObserver(
+      this.onVisibilityChange.bind(this),
+      {
+        threshold: 0,
+      }
+    );
+
+    this.intersectionObserver.observe(this.element);
+  }
+
+  private onVisibilityChange(entries: IntersectionObserverEntry[]) {
+    this.inViewport = entries.some((entry) => entry.isIntersecting);
+  }
+
   private setImageAvailable = () => {
     this.imageAvailable = true;
+    this.loadingError = false;
+    this.loaded = true;
+    this.imageLoad.emit();
   };
 
   private setImageUnavailable = () => {
     this.imageAvailable = false;
+    this.loaded = true;
+    this.loadingError = true;
+    this.imageError.emit();
   };
 
   private onKeydown = (event: KeyboardEvent) => {
@@ -90,14 +155,17 @@ export class SwirlAvatar {
   render() {
     const showImage =
       Boolean(this.src) &&
-      (this.imageAvailable || this.imageAvailable === undefined);
+      (this.imageAvailable || this.imageAvailable === undefined) &&
+      (this.loading !== "intersecting" || this.inViewport);
 
-    const showInitials = !showImage && Boolean(this.initials);
+    const showInitials =
+      (!showImage || (!this.loaded && !this.loadingError)) &&
+      Boolean(this.initials);
     const showIcon = !showImage && !showInitials && Boolean(this.icon);
     const showFallbackIcon = !showImage && !showInitials && !showIcon;
     const showBadge = Boolean(this.badge) && this.size === "m";
 
-    const role = this.interactive ? "button" : "img";
+    const role = this.interactive ? "button" : undefined;
 
     const className = classnames(
       "avatar",
@@ -135,6 +203,9 @@ export class SwirlAvatar {
               <img
                 alt=""
                 height={swirlAvatarSizeMappings[this.size]}
+                loading={
+                  this.loading !== "intersecting" ? this.loading : undefined
+                }
                 onError={this.setImageUnavailable}
                 onLoad={this.setImageAvailable}
                 src={this.src}

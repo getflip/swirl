@@ -9,7 +9,7 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import { getActiveElement } from "../../utils";
+import { getActiveElement, isDescendantOf } from "../../utils";
 
 export type SwirlFormControlLabelPosition = "inside" | "outside";
 
@@ -173,7 +173,7 @@ export class SwirlFormControl {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Tab") {
       setTimeout(() => {
-        if (!this.el.contains(getActiveElement())) {
+        if (!isDescendantOf(getActiveElement(), this.el)) {
           this.hasFocus = false;
         }
       });

@@ -13,6 +13,7 @@ export type SwirlThumbnailSize = "s" | "m" | "l" | "xl";
 export class SwirlThumbnail {
   @Prop() alt!: string;
   @Prop() format?: SwirlThumbnailFormat = "landscape";
+  @Prop() interactive?: boolean;
   @Prop() progress?: number;
   @Prop() progressLabel?: string = "Loading progress";
   @Prop() removeButtonLabel?: string = "Remove";
@@ -30,11 +31,14 @@ export class SwirlThumbnail {
     const showTimestamp =
       Boolean(this.timestamp) && this.size === "xl" && this.format === "square";
 
+    const ImageWrapper = this.interactive ? "button" : "span";
+
     const className = classnames(
       "thumbnail",
       `thumbnail--format-${this.format}`,
       `thumbnail--size-${this.size}`,
       {
+        "thumbnail--interactive": this.interactive,
         "thumbnail--has-progress": this.progress !== undefined,
       }
     );
@@ -42,12 +46,17 @@ export class SwirlThumbnail {
     return (
       <Host>
         <span class={className} role="group">
-          <img
-            alt={this.alt}
-            class="thumbnail__image"
-            loading="lazy"
-            src={this.src}
-          />
+          <ImageWrapper
+            class="thumbnail__image-wrapper"
+            type={this.interactive ? "button" : undefined}
+          >
+            <img
+              alt={this.alt}
+              class="thumbnail__image"
+              loading="lazy"
+              src={this.src}
+            />
+          </ImageWrapper>
           {this.progress !== undefined && (
             <span class="thumbnail__progress-indicator">
               <swirl-progress-indicator

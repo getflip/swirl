@@ -25,6 +25,8 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-action-list-item", args);
 
+  element.innerHTML = `<swirl-switch checked hide-label label="Test" slot="suffix"></swirl-switch>`;
+
   return element;
 };
 

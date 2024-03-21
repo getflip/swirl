@@ -1,4 +1,4 @@
-import { Component, Element, h, Host } from "@stencil/core";
+import { Component, Element, h, Host, State } from "@stencil/core";
 import { getActiveElement, querySelectorAllDeep } from "../../utils";
 
 /**
@@ -12,6 +12,20 @@ import { getActiveElement, querySelectorAllDeep } from "../../utils";
 export class SwirlActionList {
   @Element() el: HTMLElement;
 
+  @State() isInsidePopover: boolean;
+
+  private container: HTMLElement;
+
+  componentDidLoad() {
+    queueMicrotask(() => {
+      this.isInsidePopover = this.el.closest("swirl-popover") !== null;
+
+      if (!this.isInsidePopover) {
+        this.container.setAttribute("tabindex", "0");
+      }
+    });
+  }
+
   private getItems() {
     return querySelectorAllDeep(this.el, '[role="menuitem"]');
   }
@@ -23,6 +37,47 @@ export class SwirlActionList {
     } else if (event.code === "ArrowUp" || event.code === "ArrowLeft") {
       event.preventDefault();
       this.focusPreviousItem();
+    }
+  };
+
+  private onFocusOut = (event: FocusEvent) => {
+    if (this.isInsidePopover) {
+      return;
+    }
+
+    const elementReceivingFocus = event.relatedTarget as HTMLElement;
+    const elementLosingFocus = event.target as HTMLElement;
+
+    const losingElementIsListItem =
+      elementLosingFocus?.tagName === "SWIRL-ACTION-LIST-ITEM";
+
+    const receivingElementIsOutsideActionList =
+      elementReceivingFocus === null ||
+      !this.el.contains(elementReceivingFocus);
+
+    if (
+      !this.isInsidePopover &&
+      receivingElementIsOutsideActionList &&
+      losingElementIsListItem
+    ) {
+      this.container.setAttribute("tabindex", "0");
+    }
+  };
+
+  private onFocus = () => {
+    if (this.isInsidePopover) {
+      return;
+    }
+
+    this.container.removeAttribute("tabindex");
+
+    const items = this.getItems();
+    const activeItemIndex = this.getActiveItemIndex();
+
+    if (activeItemIndex > -1) {
+      items[activeItemIndex]?.focus();
+    } else {
+      items[0]?.focus();
     }
   };
 
@@ -60,7 +115,11 @@ export class SwirlActionList {
         <div
           aria-orientation="vertical"
           class="action-list"
+          onFocusout={this.isInsidePopover ? undefined : this.onFocusOut}
+          onFocus={this.isInsidePopover ? undefined : this.onFocus}
           onKeyDown={this.onKeyDown}
+          part="action-list"
+          ref={(el) => (this.container = el)}
           role="menu"
         >
           <slot></slot>

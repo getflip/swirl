@@ -1,19 +1,19 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
-  h,
   Host,
   Listen,
   Method,
-  Element,
   Prop,
   State,
   Watch,
+  h,
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import * as focusTrap from "focus-trap";
 import classnames from "classnames";
+import * as focusTrap from "focus-trap";
 
 export type SwirlModalVariant = "default" | "drawer";
 
@@ -150,6 +150,7 @@ export class SwirlModal {
 
   onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
+      event.stopImmediatePropagation();
       this.close();
     }
   };

@@ -51,6 +51,12 @@
   }
 }
 
+.pdf-reader--hide-menu {
+  & .pdf-reader__menu {
+    display: none;
+  }
+}
+
 .pdf-reader__body {
   position: relative;
   width: 100%;

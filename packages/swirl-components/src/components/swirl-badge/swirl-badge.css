@@ -15,21 +15,21 @@
   max-width: 100%;
   justify-content: center;
   align-items: center;
-  border: 0.125rem solid var(--swirl-badge-border-color);
   border-radius: 2rem;
   color: var(--s-text-on-status);
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-medium);
+  box-shadow: 0 0 0 0.125rem var(--swirl-badge-border-color);
 }
 
 .badge--size-xs {
-  min-width: 1.25rem;
-  height: 1.25rem;
+  min-width: 1rem;
+  height: 1rem;
   font-size: 0.6875rem;
 
   & .badge__label {
-    padding-right: 0.125rem;
-    padding-left: 0.125rem;
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
   }
 
   & .badge__icon {
@@ -42,31 +42,31 @@
 }
 
 .badge--size-s {
-  min-width: 1.5rem;
-  height: 1.5rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
   font-size: 0.75rem;
 
   & .badge__label {
-    padding-right: 0.1875rem;
-    padding-left: 0.1875rem;
+    padding-right: 0.375rem;
+    padding-left: 0.375rem;
   }
 
   & .badge__icon {
     & > swirl-icon,
     & > *::part(icon) {
-      width: 0.75rem;
-      height: 0.75rem;
+      width: 1rem;
+      height: 1rem;
     }
   }
 }
 
 .badge--size-m {
-  min-width: 2rem;
-  height: 2rem;
+  min-width: 1.5rem;
+  height: 1.5rem;
 
   & .badge__label {
-    padding-right: 0.375rem;
-    padding-left: 0.375rem;
+    padding-right: 0.4375rem;
+    padding-left: 0.4375rem;
   }
 }
 
@@ -121,16 +121,30 @@
 }
 
 .badge--variant-dot {
-  width: 1.25rem;
+  width: 1.5rem;
   min-width: 0;
-  height: 1.25rem;
+  height: 1.5rem;
+
+  &.badge--size-xs {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  &.badge--size-s {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  &.badge--size-m {
+    width: 1rem;
+    height: 1rem;
+  }
 
   & .badge__label {
     padding-right: 0;
     padding-left: 0;
   }
 
-  & .badge__label,
   & .badge__icon {
     display: none;
   }

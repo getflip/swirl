@@ -47,6 +47,12 @@ button.image-grid-item {
   }
 }
 
+.image-grid-item--has-error {
+  & .image-grid-item__image {
+    display: none;
+  }
+}
+
 .image-grid-item--has-overlay {
   & .image-grid-item__image {
     scale: 1.1;
@@ -68,6 +74,12 @@ button.image-grid-item {
   height: 100%;
   object-fit: contain;
   object-position: center;
+}
+
+.image-grid-item__loading-placeholder {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
 }
 
 .image-grid-item__icon {
@@ -100,5 +112,25 @@ button.image-grid-item {
   color: var(--s-text-on-image);
   background-color: rgba(0, 0, 0, 0.4);
   font-size: var(--s-font-size-2xl);
+  inset: 0;
+}
+
+.image-grid-item__spinner {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  inset: 0;
+}
+
+.image-grid-item__error {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
   inset: 0;
 }

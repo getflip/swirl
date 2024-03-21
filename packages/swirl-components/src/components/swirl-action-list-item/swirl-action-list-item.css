@@ -85,8 +85,15 @@
 
 .action-list-item__icon {
   display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
   flex-shrink: 0;
   color: var(--s-icon-default);
+
+  @media (--from-desktop-without-touch) {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 }
 
 .action-list-item__label-container {

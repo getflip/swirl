@@ -378,6 +378,21 @@ const unsubscribe = await subscribe(BridgeEventType.THEME_CHANGE, (event) => {
 await unsubscribe();
 ```
 
+### `NAVIGATION_END`
+
+Fires when the application successfully navigated to a different route.
+
+**Event**
+
+```js
+{
+  data: {
+    route: string; // e.g. '/notifications'
+  }
+  type: BridgeEventType.NAVIGATION_END;
+}
+```
+
 ### `LANG_CHANGE`
 
 Fires when the user selected language changes.

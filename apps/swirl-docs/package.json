@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "swirl-docs",
-  "version": "0.1.235",
+  "version": "0.1.328",
   "author": "Flip GmbH",
   "description": "Swirl documentation",
   "licence": "SEE LICENCE IN LICENSE.md",
@@ -14,8 +14,9 @@
     "dev": "next dev",
     "build": "next build",
     "build:swirl-docs": "next build",
-    "postbuild": "tsx src/scripts/build-search.ts",
+    "postbuild": "tsx src/scripts/postbuild.ts",
     "start": "next start",
+    "test": "vitest",
     "lint": "next lint",
     "prebuild": "rm -rf components.json && rm -rf problem.yml && rm -rf shared.yml && rm -rf specs/** && tsx src/scripts/prebuild.ts"
   },
@@ -27,10 +28,10 @@
     "@algolia/autocomplete-theme-classic": "^1.7.4",
     "@floating-ui/dom": "^1.1.0",
     "@floating-ui/react": "^0.18.0",
-    "@getflip/swirl-components": "^0.118.3",
-    "@getflip/swirl-components-react": "^0.118.3",
-    "@getflip/swirl-icons": "^0.23.0",
-    "@getflip/swirl-tokens": "^2.5.0",
+    "@getflip/swirl-components": "^0.172.1",
+    "@getflip/swirl-components-react": "^0.172.1",
+    "@getflip/swirl-icons": "^0.33.0",
+    "@getflip/swirl-tokens": "^2.5.2",
     "@mdx-js/loader": "^2.1.3",
     "@next/mdx": "^12.2.5",
     "@readme/oas-to-har": "^20.1.1",
@@ -44,6 +45,7 @@
     "cmdk": "^0.1.21",
     "codesandbox": "^2.2.3",
     "dotenv": "^16.0.3",
+    "fast-sort": "^3.4.0",
     "framer-motion": "^10.12.12",
     "gray-matter": "^4.0.3",
     "iframe-resizer-react": "^1.1.0",
@@ -72,6 +74,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
     "@types/body-scroll-lock": "^3.1.0",
+    "@types/jest": "^29.5.11",
     "@types/node": "18.7.14",
     "@types/prettier": "^2.7.1",
     "@types/prismjs": "^1.26.0",
@@ -85,6 +88,8 @@
     "postcss": "^8.4.31",
     "prettier": "^2.8.0",
     "tailwindcss": "^3.2.4",
-    "typescript": "4.8.2"
+    "typescript": "4.8.2",
+    "vite-tsconfig-paths": "^4.2.3",
+    "vitest": "^1.1.3"
   }
 }

@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { FunctionComponent } from "react";
 
 export interface TagProps {
   content: string;
@@ -10,28 +9,7 @@ export interface TagProps {
 export function mapHttpMethodToTagContent(
   httpMethod: string
 ): TagProps["content"] {
-  switch (httpMethod.toUpperCase()) {
-    case "GET":
-      return "GET";
-    case "POST":
-      return "POST";
-    case "PUT":
-      return "PUT";
-    case "DELETE":
-      return "DEL";
-    case "OPTIONS":
-      return "OPT";
-    case "PATCH":
-      return "PAT";
-    case "HEAD":
-      return "HEAD";
-    case "TRACE":
-      return "TRA";
-    case "CONNECT":
-      return "CON";
-    default:
-      return "GET";
-  }
+  return httpMethod.toUpperCase();
 }
 
 export function mapHttpMethodToTagScheme(
@@ -55,7 +33,7 @@ export function Tag({ content, scheme, httpTag }: TagProps) {
   return (
     <span
       className={classNames(
-        "px-2 py-1 rounded-md font-medium text-xs mr-2 align-middle",
+        "px-2 py-[4px] rounded-md text-xs mr-2 align-middle leading-3",
         {
           "bg-surface-neutral-subdued text-text-default":
             scheme === "default" || !scheme,
@@ -66,7 +44,7 @@ export function Tag({ content, scheme, httpTag }: TagProps) {
           "bg-surface-warning-subdued text-text-warning": scheme === "warning",
         },
         {
-          "flex items-center justify-center min-w-[3rem] px-0": httpTag,
+          "flex items-center justify-center min-w-[3.5rem] px-0": httpTag,
         }
       )}
     >

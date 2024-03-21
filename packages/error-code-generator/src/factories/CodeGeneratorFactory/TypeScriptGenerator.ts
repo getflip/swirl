@@ -27,9 +27,24 @@ export class TypeScriptGenerator implements CodeGeneratorWithIndex {
     this.endpointErrorCollection = errorCollection;
     this.refNames = [
       ...new Set(
-        errorCollection.errorCodes?.map(
-          (errorCode) => errorCode?.["x-readme-ref-name"] ?? "",
-        ) ?? [],
+        errorCollection.errorCodes?.map((errorCode) => {
+          const refName = errorCode?.["x-readme-ref-name"];
+          if (Array.isArray(errorCode)) {
+            throw new Error("Error code definition must an object");
+          }
+          if (!Array.isArray(errorCode?.enum)) {
+            throw new Error("Error code definition must have an enum array");
+          }
+          if (errorCode?.type !== "string") {
+            throw new Error("Error code definition must be of type string!");
+          }
+          if (!refName) {
+            throw new Error(
+              "Error code definition must be a single reference to an error code reference object",
+            );
+          }
+          return refName;
+        }) ?? [],
       ),
     ];
 

@@ -1,6 +1,6 @@
 import classnames from "classnames";
 
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Fragment, h, Host, Prop } from "@stencil/core";
 
 export type SwirlBadgeIntent =
   | "banana"
@@ -42,10 +42,17 @@ export class SwirlBadge {
 
     return (
       <Host role="status">
-        <span class={className}>
+        <span class={className} part="badge">
           {this.icon && <span class="badge__icon" innerHTML={this.icon}></span>}
-          {this.icon === undefined && (
+          {this.icon === undefined && this.variant !== "dot" ? (
             <span class="badge__label">{this.label}</span>
+          ) : (
+            <Fragment>
+              {this.icon === undefined && (
+                <span class="badge__label">&nbsp;</span>
+              )}
+              <swirl-visually-hidden>{this.label}</swirl-visually-hidden>
+            </Fragment>
           )}
         </span>
       </Host>

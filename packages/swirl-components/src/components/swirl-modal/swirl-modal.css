@@ -23,12 +23,19 @@
   );
   --swirl-modal-height: auto;
   --swirl-modal-max-height: 90vh;
+  --swirl-modal-view-height: 100vh;
+
+  @supports (height: 100dvh) {
+    --swirl-modal-max-height: 90dvh;
+    --swirl-modal-view-height: 100dvh;
+  }
 
   position: fixed;
   z-index: var(--s-z-40);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: var(--swirl-modal-view-height);
   inset: 0;
 
   &[aria-hidden="true"] {
@@ -277,7 +284,7 @@
   overflow: hidden;
   width: 100vw;
   max-width: 40rem;
-  height: 100vh;
+  height: var(--swirl-modal-view-height);
   background-color: var(--s-surface-overlay-default);
   flex-direction: column;
 

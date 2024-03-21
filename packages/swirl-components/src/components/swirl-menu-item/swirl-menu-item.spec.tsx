@@ -1,8 +1,8 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { SwirlMenuItem } from "./swirl-menu-item";
 import { SwirlMenu } from "../swirl-menu/swirl-menu";
 import { SwirlPopover } from "../swirl-popover/swirl-popover";
+import { SwirlMenuItem } from "./swirl-menu-item";
 
 (global as any).DocumentFragment = class DocumentFragment extends Node {};
 (global as any).ShadowRoot = class ShadowRoot extends DocumentFragment {};
@@ -59,5 +59,21 @@ describe("swirl-menu-item", () => {
         </mock:shadow-root>
       </swirl-menu-item>
     `);
+  });
+
+  it("returns the parent menu", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlMenu, SwirlMenuItem],
+      html: `
+        <swirl-popover label="Menu">
+          <swirl-menu id="root" label="Menu" variant="selection">
+            <swirl-menu-item id="item" label="Item" value="Value"></swirl-menu-item>
+          </swirl-menu>
+        </swirl-popover>`,
+    });
+
+    const item = page.root.querySelector<HTMLSwirlMenuItemElement>("#item");
+
+    expect((await item.getParentMenu()).id).toBe("root");
   });
 });

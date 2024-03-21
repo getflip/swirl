@@ -2,6 +2,13 @@ import { fullscreenStoryDecorator, generateStoryElement } from "../../utils";
 import Docs from "./swirl-shell-layout.mdx";
 
 export default {
+  argTypes: {
+    sidebarToggleBadge: {
+      control: {
+        type: "text",
+      },
+    },
+  },
   component: "swirl-shell-layout",
   tags: ["autodocs"],
   decorators: [fullscreenStoryDecorator(false)],
@@ -21,11 +28,19 @@ const Template = (args) => {
   ) as HTMLSwirlShellLayoutElement;
 
   element.innerHTML = `
-    <img alt="Flip logo" slot="logo" src="/images/flip-logo.png">
+    <a href="" slot="logo">
+      <img alt="Flip logo" src="/images/flip-logo.png">
+    </a>
     <img alt="Flip logo" slot="mobile-logo" src="/images/flip-logo.png">
 
-    <swirl-avatar label="John Doe" slot="header-tools" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
+    <swirl-avatar label="John Doe" slot="avatar" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
     <swirl-avatar label="John Doe" slot="mobile-header-tools" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
+
+    <swirl-box padding-inline-start="16" slot="left-header-tools">
+      <swirl-switch label="Header tool" label-position="start"></swirl-switch>
+    </swirl-box>
+
+    <swirl-button label="Header tool" slot="right-header-tools" variant="outline"></swirl-button>
 
     <div slot="nav">
       <ul>
@@ -35,12 +50,12 @@ const Template = (args) => {
           </swirl-shell-navigation-item>
         </li>
         <li>
-          <swirl-shell-navigation-item active label="News">
+          <swirl-shell-navigation-item active label="News" badge-label="">
             <swirl-app-icon icon="<swirl-icon-news-filled size=&quot;20&quot;></swirl-icon-news-filled>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
         <li>
-          <swirl-shell-navigation-item label="Chat">
+          <swirl-shell-navigation-item label="Chat" badge-label="3">
             <swirl-app-icon icon="<swirl-icon-chat-bubble size=&quot;20&quot;></swirl-icon-chat-bubble>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
@@ -124,5 +139,5 @@ export const SwirlShellLayout = Template.bind({});
 
 SwirlShellLayout.args = {
   sidebarToggleBadgeAriaLabel: "3 new notifications",
-  sidebarToggleBadge: "3",
+  sidebarToggleBadge: true,
 };

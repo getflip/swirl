@@ -8,8 +8,8 @@ describe("swirl-avatar-group", () => {
       components: [SwirlAvatarGroup],
       html: `
         <swirl-avatar-group badge="<swirl-badge aria-label=&quot;3 new messages&quot; label=&quot;3&quot;></swirl-badge>">
-          <swirl-avatar label="Jane Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144" size="s"></swirl-avatar>
-          <swirl-avatar label="John Doe" src="https://avatars.dicebear.com/api/adventurer-neutral/b.svg?size=144" size="s"></swirl-avatar>
+          <swirl-avatar label="Jane Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a" size="s"></swirl-avatar>
+          <swirl-avatar label="John Doe" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b" size="s"></swirl-avatar>
         </swirl-avatar-group>
       `,
     });
@@ -20,12 +20,12 @@ describe("swirl-avatar-group", () => {
           <div class="avatar-group avatar-group--has-badge" role="group">
             <slot></slot>
             <span class="avatar-group__badge">
-              <swirl-badge aria-label="3 new messages" label="3" size="m"></swirl-badge>
+              <swirl-badge aria-label="3 new messages" label="3" size="s"></swirl-badge>
             </span>
           </div>
         </mock:shadow-root>
-       <swirl-avatar label="Jane Doe" size="s" src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144"></swirl-avatar>
-       <swirl-avatar label="John Doe" size="s" src="https://avatars.dicebear.com/api/adventurer-neutral/b.svg?size=144"></swirl-avatar>
+       <swirl-avatar label="Jane Doe" size="s" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"></swirl-avatar>
+       <swirl-avatar label="John Doe" size="s" src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=b"></swirl-avatar>
       </swirl-avatar-group>
     `);
   });

@@ -33,11 +33,12 @@ const Template = (args) => {
       <swirl-avatar
         slot="media"
         label="Jane Doe"
-        src="https://avatars.dicebear.com/api/adventurer-neutral/a.svg?size=144"></swirl-avatar>
+        size="l"
+        src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"></swirl-avatar>
 
       <swirl-stack slot="badges" align="center" orientation="horizontal" spacing="8">
         <swirl-icon-notifications-off size="16"></swirl-icon-notifications-off>
-        <swirl-badge label="1" size="s"></swirl-badge>
+        <swirl-badge label="1" size="xs"></swirl-badge>
       </swirl-stack>
 
   `;

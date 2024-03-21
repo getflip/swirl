@@ -1,7 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 
-import { SwirlImageGrid } from "./swirl-image-grid";
 import { SwirlImageGridItem } from "../swirl-image-grid-item/swirl-image-grid-item";
+import { SwirlImageGrid } from "./swirl-image-grid";
 
 describe("swirl-image-grid", () => {
   it("renders a single item", async () => {
@@ -26,6 +26,9 @@ describe("swirl-image-grid", () => {
             <button class="image-grid-item" type="button">
               <div class="image-grid-item__background" style="background-image: url(/sample.jpg);"></div>
               <img alt="Cute dog in a blanket" class="image-grid-item__image" src="/sample.jpg">
+              <div class="image-grid-item__spinner">
+                <swirl-spinner></swirl-spinner>
+              </div>
             </button>
           </mock:shadow-root>
         </swirl-image-grid-item>

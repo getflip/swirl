@@ -95,17 +95,19 @@ describe("swirl-resource-list-item", () => {
     expect(page.root.querySelector(".resource-list-item__meta")).not.toBeNull();
   });
 
-  it("renders a menu trigger", async () => {
+  it("renders a control", async () => {
     const page = await newSpecPage({
       components: [SwirlResourceListItem],
       html: `
-        <swirl-resource-list-item label="Label" menu-trigger-id="trigger"></swirl-resource-list-item>
+        <swirl-resource-list-item label="Label">
+          <swirl-button label="Label" slot="control"></swirl-button>
+        </swirl-resource-list-item>
       `,
     });
 
     expect(
-      page.root.querySelector(".resource-list-item__menu-trigger")
-    ).not.toBeNull();
+      page.root.querySelector(".resource-list-item__control").children.length
+    ).toBe(1);
   });
 
   it("can be draggable", async () => {
