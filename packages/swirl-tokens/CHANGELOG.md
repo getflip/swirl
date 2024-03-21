@@ -1,5 +1,21 @@
 # swirl-tokens
 
+## 2.6.0
+
+### Minor Changes
+
+- [#638](https://github.com/getflip/swirl/pull/638)
+  [`ad607412`](https://github.com/getflip/swirl/commit/ad6074123e69865f9c304d9399fef0f42f61047a)
+  Thanks [@lschiffers](https://github.com/lschiffers)! - Update color tokens for
+  better dark mode contrast
+
+### Patch Changes
+
+- [#638](https://github.com/getflip/swirl/pull/638)
+  [`ad607412`](https://github.com/getflip/swirl/commit/ad6074123e69865f9c304d9399fef0f42f61047a)
+  Thanks [@lschiffers](https://github.com/lschiffers)! - Fix a minor issue with
+  a color token
+
 ## 2.5.2
 
 ### Patch Changes
