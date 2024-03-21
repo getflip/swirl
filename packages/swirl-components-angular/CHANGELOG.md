@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.173.3
+
+### Patch Changes
+
+- [`6b26db06`](https://github.com/getflip/swirl/commit/6b26db06b8c412c7147654f37c205c0e6fb8a266)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-text truncation
+
+- Updated dependencies
+  [[`6b26db06`](https://github.com/getflip/swirl/commit/6b26db06b8c412c7147654f37c205c0e6fb8a266)]:
+  - @getflip/swirl-components@0.173.3
+
 ## 0.173.2
 
 ### Patch Changes
