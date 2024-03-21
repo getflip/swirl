@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.173.0
+
+### Minor Changes
+
+- [`2c6946fb`](https://github.com/getflip/swirl/commit/2c6946fb8e1196284f6363cb719790408af3b2a2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "white-space" prop to
+  swirl-text
+
+### Patch Changes
+
+- Updated dependencies
+  [[`2c6946fb`](https://github.com/getflip/swirl/commit/2c6946fb8e1196284f6363cb719790408af3b2a2)]:
+  - @getflip/swirl-components@0.173.0
+
 ## 0.172.1
 
 ### Patch Changes
