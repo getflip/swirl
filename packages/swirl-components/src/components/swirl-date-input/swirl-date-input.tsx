@@ -52,6 +52,7 @@ export class SwirlDateInput {
   @Prop({ mutable: true, reflect: true }) value?: string;
 
   @State() iconSize: 20 | 24 = 24;
+  @State() readonly: boolean = false;
 
   @Event() invalidInput: EventEmitter<string>;
   @Event() valueChange: EventEmitter<string>;
@@ -68,6 +69,7 @@ export class SwirlDateInput {
     ).indexOf(this.el);
 
     this.id = `swirl-date-input-${index}`;
+    this.setReadOnly(true);
   }
 
   componentDidLoad() {
@@ -169,6 +171,14 @@ export class SwirlDateInput {
     this.handleAutoSelect(event);
   };
 
+  private onBlur = (event: FocusEvent) => {
+    const popoverReceivingFocus = this.pickerPopover.contains(
+      event.relatedTarget as HTMLElement
+    );
+
+    this.setReadOnly(!popoverReceivingFocus);
+  };
+
   private onPickDate = (event: CustomEvent<Date | Date[]>) => {
     const newDateValue = event.detail as Date;
 
@@ -177,6 +187,7 @@ export class SwirlDateInput {
     this.value = newValue;
     this.valueChange.emit(newValue);
 
+    this.setReadOnly(true);
     this.pickerPopover.close();
   };
 
@@ -186,6 +197,14 @@ export class SwirlDateInput {
     }
 
     (event.target as HTMLInputElement).select();
+  }
+
+  private setReadOnly(readOnly: boolean) {
+    if (this.preferredInputMode === "pick" && isMobileViewport()) {
+      this.readonly = readOnly;
+    } else {
+      this.readonly = false;
+    }
   }
 
   private setupMask() {
@@ -224,11 +243,13 @@ export class SwirlDateInput {
             autoFocus={this.autoFocus}
             class="date-input__input"
             disabled={this.disabled}
+            readonly={this.readonly}
             id={this.id}
             inputmode="numeric"
             onClick={this.onClick}
             onMouseDown={this.onMouseDown}
             onFocus={this.onFocus}
+            onBlur={this.onBlur}
             onInput={this.onInput}
             placeholder={this.placeholder}
             ref={(el) => (this.inputEl = el)}

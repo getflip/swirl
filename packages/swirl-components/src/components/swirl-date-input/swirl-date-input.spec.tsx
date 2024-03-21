@@ -150,6 +150,8 @@ describe("swirl-date-input", () => {
     page.root.preferredInputMode = "pick";
     input.dispatchEvent(new MouseEvent("click"));
 
+    await new Promise((resolve) => setTimeout(resolve));
+
     expect(spy).toHaveBeenCalled();
   });
 
@@ -220,7 +222,7 @@ describe("swirl-date-input", () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  it("lose the focus on the input when the datepicker is opened with focus on mobile", async () => {
+  it("loses the focus on the input when the datepicker is opened with focus on mobile", async () => {
     const page = await newSpecPage({
       components: [SwirlDateInput, SwirlPopover],
       html: `<swirl-date-input></swirl-date-input>`,
@@ -237,5 +239,101 @@ describe("swirl-date-input", () => {
     await new Promise((resolve) => setTimeout(resolve));
 
     expect(spy).not.toHaveBeenCalled();
+  });
+
+  it("makes the input as readonly on initialization when preferredInputMode is 'pick' and viewport is mobile", async () => {
+    isMobileViewportSpy.mockImplementation(() => true);
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input preferred-input-mode="pick"></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+
+    expect(input.readOnly).toBeTruthy();
+  });
+
+  it("doesn't make the input as readonly on initialization when preferredInputMode isn't 'pick'", async () => {
+    isMobileViewportSpy.mockImplementation(() => true);
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input preferred-input-mode="input"></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+
+    expect(input.readOnly).toBeFalsy();
+  });
+
+  it("doesn't make the input as readonly on initialization when viewport isn't mobile", async () => {
+    isMobileViewportSpy.mockImplementation(() => false);
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input preferred-input-mode="pick"></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+
+    expect(input.readOnly).toBeFalsy();
+  });
+
+  it("makes the input as readonly on blur when element receiving focus in not the popover", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+
+    isMobileViewportSpy.mockImplementation(() => true);
+    page.root.preferredInputMode = "pick";
+    input.dispatchEvent(new FocusEvent("blur", { relatedTarget: null }));
+    await page.waitForChanges();
+
+    expect(input.readOnly).toBeTruthy();
+  });
+
+  it("makes the input as not readonly on blur when element receiving focus in the popover", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+    const popover = page.root.querySelector("swirl-popover");
+
+    isMobileViewportSpy.mockImplementation(() => true);
+    page.root.preferredInputMode = "pick";
+    input.dispatchEvent(new FocusEvent("blur", { relatedTarget: null }));
+    await page.waitForChanges();
+    input.dispatchEvent(new FocusEvent("blur", { relatedTarget: popover }));
+    await page.waitForChanges();
+
+    expect(input.readOnly).toBeFalsy();
+  });
+
+  it("doesn't make the input as readonly on blur when preferredInputMode isn't 'pick'", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+
+    isMobileViewportSpy.mockImplementation(() => true);
+    page.root.preferredInputMode = "input";
+    input.dispatchEvent(new FocusEvent("blur"));
+    await page.waitForChanges();
+
+    expect(input.readOnly).toBeFalsy();
+  });
+
+  it("doesn't make the input as readonly on blur when viewport isn't mobile", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput, SwirlPopover],
+      html: `<swirl-date-input></swirl-date-input>`,
+    });
+    const input = page.root.querySelector("input");
+
+    isMobileViewportSpy.mockImplementation(() => false);
+    page.root.preferredInputMode = "pick";
+    input.dispatchEvent(new FocusEvent("blur"));
+    await page.waitForChanges();
+
+    expect(input.readOnly).toBeFalsy();
   });
 });
