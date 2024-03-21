@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.174.0
+
+### Minor Changes
+
+- [`f0573987`](https://github.com/getflip/swirl/commit/f0573987f35885cd6d5b9cb13d49123e902a8390)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "appThemeUpdated" event to
+  swirl-theme-provider
+
+### Patch Changes
+
+- Updated dependencies
+  [[`f0573987`](https://github.com/getflip/swirl/commit/f0573987f35885cd6d5b9cb13d49123e902a8390)]:
+  - @getflip/swirl-components@0.174.0
+
 ## 0.173.3
 
 ### Patch Changes
