@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Tue, 05 Mar 2024 10:49:05 GMT
+// Generated on Thu, 21 Mar 2024 09:33:12 GMT
 
 
 
@@ -65,27 +65,27 @@ class SwirlDesignTokensLight {
     static const coreCustomerColorLight3Default = Color(0xFF0037AF);
     static const coreCustomerColorLight3Hovered = Color(0xFF2655BB);
     static const coreCustomerColorLight3Pressed = Color(0xFF4D74C7);
-    static const coreDecorativeDarkBananaSurface = Color(0xFFAF911B);
-    static const coreDecorativeDarkBananaSurfaceSubdued = Color(0xFF2C271D);
-    static const coreDecorativeDarkBananaText = Color(0xFFAF911B);
-    static const coreDecorativeDarkBlueberrySurface = Color(0xFF568FDE);
-    static const coreDecorativeDarkBlueberrySurfaceSubdued = Color(0xFF1E2936);
-    static const coreDecorativeDarkBlueberryText = Color(0xFF568FDE);
-    static const coreDecorativeDarkChilliSurface = Color(0xFFDA6D6D);
-    static const coreDecorativeDarkChilliSurfaceSubdued = Color(0xFF382221);
-    static const coreDecorativeDarkChilliText = Color(0xFFDA6D6D);
-    static const coreDecorativeDarkGrapeSurface = Color(0xFFC26BE9);
-    static const coreDecorativeDarkGrapeSurfaceSubdued = Color(0xFF2F2438);
-    static const coreDecorativeDarkGrapeText = Color(0xFFC26BE9);
-    static const coreDecorativeDarkKiwiSurface = Color(0xFF59A469);
-    static const coreDecorativeDarkKiwiSurfaceSubdued = Color(0xFF222B22);
-    static const coreDecorativeDarkKiwiText = Color(0xFF59A469);
-    static const coreDecorativeDarkPumpkinSurface = Color(0xFFD48031);
-    static const coreDecorativeDarkPumpkinSurfaceSubdued = Color(0xFF33251A);
-    static const coreDecorativeDarkPumpkinText = Color(0xFFD48031);
-    static const coreDecorativeDarkRadishSurface = Color(0xFFDD69BD);
-    static const coreDecorativeDarkRadishSurfaceSubdued = Color(0xFF32232D);
-    static const coreDecorativeDarkRadishText = Color(0xFFDD69BD);
+    static const coreDecorativeDarkBananaSurface = Color(0xFFD1AF29);
+    static const coreDecorativeDarkBananaSurfaceSubdued = Color(0xFF4D3E1E);
+    static const coreDecorativeDarkBananaText = Color(0xFFD1AF29);
+    static const coreDecorativeDarkBlueberrySurface = Color(0xFF7AACF0);
+    static const coreDecorativeDarkBlueberrySurfaceSubdued = Color(0xFF29405B);
+    static const coreDecorativeDarkBlueberryText = Color(0xFF7AACF0);
+    static const coreDecorativeDarkChilliSurface = Color(0xFFF47878);
+    static const coreDecorativeDarkChilliSurfaceSubdued = Color(0xFF4D2D2C);
+    static const coreDecorativeDarkChilliText = Color(0xFFF47878);
+    static const coreDecorativeDarkGrapeSurface = Color(0xFFD683FB);
+    static const coreDecorativeDarkGrapeSurfaceSubdued = Color(0xFF4B2F62);
+    static const coreDecorativeDarkGrapeText = Color(0xFFD683FB);
+    static const coreDecorativeDarkKiwiSurface = Color(0xFF6FC882);
+    static const coreDecorativeDarkKiwiSurfaceSubdued = Color(0xFF2A462A);
+    static const coreDecorativeDarkKiwiText = Color(0xFF6FC882);
+    static const coreDecorativeDarkPumpkinSurface = Color(0xFFED994B);
+    static const coreDecorativeDarkPumpkinSurfaceSubdued = Color(0xFF523824);
+    static const coreDecorativeDarkPumpkinText = Color(0xFFED994B);
+    static const coreDecorativeDarkRadishSurface = Color(0xFFF278CC);
+    static const coreDecorativeDarkRadishSurfaceSubdued = Color(0xFF4F3045);
+    static const coreDecorativeDarkRadishText = Color(0xFFF278CC);
     static const coreDecorativeLightBananaSurface = Color(0xFFEABA2A);
     static const coreDecorativeLightBananaSurfaceSubdued = Color(0xFFFAF1C8);
     static const coreDecorativeLightBananaText = Color(0xFF9A5C00);
@@ -111,14 +111,14 @@ class SwirlDesignTokensLight {
     static const coreGray02 = Color(0xFFEAEAEA);
     static const coreGray03 = Color(0xFFDFDFDF);
     static const coreGray04 = Color(0xFFCFCFCF);
-    static const coreGray05 = Color(0xFF989898);
+    static const coreGray05 = Color(0xFF9E9E9E);
     static const coreGray06 = Color(0xFF6E6E6E);
-    static const coreGray07 = Color(0xFF424242);
-    static const coreGray08 = Color(0xFF363636);
-    static const coreGray09 = Color(0xFF2E2E2E);
-    static const coreGray10 = Color(0xFF262626);
-    static const coreGray11 = Color(0xFF1C1C1C);
-    static const coreGray12 = Color(0xFF171717);
+    static const coreGray07 = Color(0xFF515151);
+    static const coreGray08 = Color(0xFF3F3F3F);
+    static const coreGray09 = Color(0xFF363636);
+    static const coreGray10 = Color(0xFF2B2B2B);
+    static const coreGray11 = Color(0xFF232323);
+    static const coreGray12 = Color(0xFF191919);
     static const coreGrayBlack = Color(0xFF000000);
     static const coreGrayWhite = Color(0xFFFFFFFF);
     static const coreOnCustomerColorDark1 = Color(0xFF000000);
@@ -189,7 +189,7 @@ class SwirlDesignTokensLight {
     static const fontWeightNormal = FontWeight.w400;
     static const fontWeightSemibold = FontWeight.w600;
     static const iconCritical = Color(0xFFD50636); /* Used as critical icon color */
-    static const iconDark = Color(0xFF171717); /* Used for low contrast decorative colors. */
+    static const iconDark = Color(0xFF191919); /* Used for low contrast decorative colors. */
     static const iconDefault = Color(0xFF6E6E6E); /* Used for low emphasis icons. */
     static const iconDisabled = Color(0xFFCFCFCF); /* Used if a icon element is disabled. */
     static const iconHighlight = Color(0xFF0037AF); /* Used to highlight icons. */
@@ -199,7 +199,7 @@ class SwirlDesignTokensLight {
     static const iconOnStatus = Color(0xFFFFFFFF); /* Used as a icon color on containers with a default status color except on warning. */
     static const iconOnSurfaceHighlight = Color(0xFF171717); /* Used as icon color on containers with highlight color. */
     static const iconOnSurfaceHighlightSubdued = Color(0xFF6A6D74); /* Used as subdued icon color on containers with highlight color. */
-    static const iconStrong = Color(0xFF171717); /* Used for high emphasis icons. */
+    static const iconStrong = Color(0xFF191919); /* Used for high emphasis icons. */
     static const iconSuccess = Color(0xFF088108); /* Used as success icon color */
     static const iconWarning = Color(0xFF935806); /* Used as warning icon color */
     static const interactiveCriticalDefault = Color(0xFFD50636); /* Used for icon and text that are critical or negative interactive elements. */
@@ -208,8 +208,8 @@ class SwirlDesignTokensLight {
     static const interactiveCriticalPressed = Color(0xFF9F2334); /* Used if a component with “Interactive Critical/Default” has a pressed state. */
     static const interactiveNeutralDefault = Color(0xFF6E6E6E); /* Used for icon and text that are low emphasis interactive elements. */
     static const interactiveNeutralDisabled = Color(0xFFCFCFCF); /* Used if a component with “Interactive Neutral/Default” has a disabled state. */
-    static const interactiveNeutralHovered = Color(0xFF989898); /* Used if a component with “Interactive Neutral/Default” has a hovered state. */
-    static const interactiveNeutralPressed = Color(0xFF989898); /* Used if a component with “Interactive Neutral/Default” has a pressed state. */
+    static const interactiveNeutralHovered = Color(0xFF9E9E9E); /* Used if a component with “Interactive Neutral/Default” has a hovered state. */
+    static const interactiveNeutralPressed = Color(0xFF9E9E9E); /* Used if a component with “Interactive Neutral/Default” has a pressed state. */
     static const interactivePrimaryDefault = Color(0xFF003DAF); /* Used for icon and text that are high emphasis interactive elements. */
     static const interactivePrimaryDisabled = Color(0xFFCCCDD1); /* Used if a component with “Interactive Primary/Default” has a disabled state. */
     static const interactivePrimaryHovered = Color(0xFF2655BB); /* Used if a component with “Interactive Primary/Default” has a hovered state. */
@@ -247,7 +247,7 @@ class SwirlDesignTokensLight {
     static const surfaceHovered = Color(0xFFF2F2F2); /* Used if a component with “Surface/Default” has a hovered state. */
     static const surfaceInfoDefault = Color(0xFF145AF5); /* Used as a background for info surfaces. */
     static const surfaceInfoSubdued = Color(0xFFE6F1FF); /* Used for low prio info background. */
-    static const surfaceNeutralDefault = Color(0xFF363636); /* Used as a background for neutral surfaces. */
+    static const surfaceNeutralDefault = Color(0xFF3F3F3F); /* Used as a background for neutral surfaces. */
     static const surfaceNeutralSubdued = Color(0xFFF2F2F2); /* Used for low prio neutral background. */
     static const surfaceOnImageDefault = Color(0x99000000); /* Usually used for containers on images */
     static const surfaceOverlayDefault = Color(0xFFFFFFFF); /* Usually used for containers that need to be more elevated. */
@@ -265,8 +265,8 @@ class SwirlDesignTokensLight {
     static const surfaceWarningDefault = Color(0xFFF3B703); /* Used as a background for warning surfaces. */
     static const surfaceWarningSubdued = Color(0xFFFAF1C8); /* Used for low prio warning background. */
     static const textCritical = Color(0xFFD50636); /* Used as critical text color */
-    static const textDark = Color(0xFF171717); /* Used for low contrast decorative colors. */
-    static const textDefault = Color(0xFF171717); /* Used for high emphasis text. */
+    static const textDark = Color(0xFF191919); /* Used for low contrast decorative colors. */
+    static const textDefault = Color(0xFF191919); /* Used for high emphasis text. */
     static const textDisabled = Color(0xFFCFCFCF); /* Used if a text element is disabled. */
     static const textHighlight = Color(0xFF0037AF); /* Used to highlight text. */
     static const textInfo = Color(0xFF145AF5); /* Used as info text color */
