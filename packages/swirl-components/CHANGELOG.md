@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.173.1
+
+### Patch Changes
+
+- [#637](https://github.com/getflip/swirl/pull/637)
+  [`b76482fc`](https://github.com/getflip/swirl/commit/b76482fc85debc9c7476457c232b0090cfc0c914)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Block mobile
+  keyboard from opening in pick mode on swirl-date-input
+
 ## 0.173.0
 
 ### Minor Changes
