@@ -663,11 +663,11 @@
     "type": "color"
   },
   "surface-sunken-hovered": {
-    "value": "{core-gray-12}",
+    "value": "{core-gray-11}",
     "type": "color"
   },
   "surface-sunken-pressed": {
-    "value": "{core-gray-11}",
+    "value": "{core-gray-10}",
     "type": "color"
   },
   "surface-overlay-default": {

@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Thu, 21 Mar 2024 09:12:05 GMT
+// Generated on Thu, 21 Mar 2024 09:17:05 GMT
 
 
 
@@ -259,8 +259,8 @@ class SwirlDesignTokensDark {
     static const surfaceSuccessDefault = Color(0xFF50A450); /* Used as a background for success surfaces. */
     static const surfaceSuccessSubdued = Color(0xFF1A2C1A); /* Used for low prio success background. */
     static const surfaceSunkenDefault = Color(0xFF000000);
-    static const surfaceSunkenHovered = Color(0xFF191919);
-    static const surfaceSunkenPressed = Color(0xFF232323);
+    static const surfaceSunkenHovered = Color(0xFF232323);
+    static const surfaceSunkenPressed = Color(0xFF2B2B2B);
     static const surfaceWarningDefault = Color(0xFFF3B703); /* Used as a background for warning surfaces. */
     static const surfaceWarningSubdued = Color(0xFF2D2719); /* Used for low prio warning background. */
     static const textCritical = Color(0xFFE46464); /* Used as critical text color */
