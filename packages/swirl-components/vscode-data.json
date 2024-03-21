@@ -14535,6 +14535,30 @@
               "name": "semibold"
             }
           ]
+        },
+        {
+          "name": "white-space",
+          "description": "",
+          "values": [
+            {
+              "name": "break-spaces"
+            },
+            {
+              "name": "normal"
+            },
+            {
+              "name": "nowrap"
+            },
+            {
+              "name": "pre"
+            },
+            {
+              "name": "pre-line"
+            },
+            {
+              "name": "pre-wrap"
+            }
+          ]
         }
       ]
     },

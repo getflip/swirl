@@ -28,6 +28,14 @@ export type SwirlTextTruncateDirection = "end" | "start";
 
 export type SwirlTextWeight = "normal" | "medium" | "semibold" | "bold";
 
+export type SwirlTextWhiteSpace =
+  | "normal"
+  | "nowrap"
+  | "pre"
+  | "pre-line"
+  | "pre-wrap"
+  | "break-spaces";
+
 @Component({
   scoped: true,
   shadow: false,
@@ -48,6 +56,7 @@ export class SwirlText {
   @Prop() truncate?: boolean;
   @Prop() truncateDirection?: SwirlTextTruncateDirection = "end";
   @Prop() weight?: SwirlTextWeight = "normal";
+  @Prop() whiteSpace?: SwirlTextWhiteSpace = "normal";
 
   private textEl: HTMLElement;
 
@@ -103,9 +112,17 @@ export class SwirlText {
       }
     );
 
+    const styles = {
+      whiteSpace: this.whiteSpace,
+    };
+
     return (
       <Host>
-        <Tag class={className} ref={(el: HTMLElement) => (this.textEl = el)}>
+        <Tag
+          class={className}
+          ref={(el: HTMLElement) => (this.textEl = el)}
+          style={styles}
+        >
           <slot></slot>
         </Tag>
       </Host>

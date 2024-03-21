@@ -19,7 +19,7 @@ describe("swirl-text", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-text align="center" color="critical" font-style="italic" size="lg" weight="medium">
-        <p class="text text--align-center text--color-critical text--font-family-text text--font-style-italic text--size-lg text--truncate-direction-end text--weight-medium">
+        <p class="text text--align-center text--color-critical text--font-family-text text--font-style-italic text--size-lg text--truncate-direction-end text--weight-medium" style="white-space: normal;">
           Est, odio dis scelerisque risus sagittis lorem rhoncus. Vivamus tristique habitant vitae cursus nisl. Sed adipiscing proin suspendisse aliquam maecenas faucibus mauris purus. Tortor ut habitant erat adipiscing nulla pretium, cursus tortor. Amet viverra et platea lacus, nec molestie tincidunt.
         </p>
       </swirl-text>
@@ -42,7 +42,7 @@ describe("swirl-text", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-text as="span">
-        <span class="text text--align-start text--color-default text--font-family-text text--font-style-normal text--size-base text--truncate-direction-end text--weight-normal">
+        <span class="text text--align-start text--color-default text--font-family-text text--font-style-normal text--size-base text--truncate-direction-end text--weight-normal" style="white-space: normal;">
           Est, odio dis scelerisque risus sagittis lorem rhoncus. Vivamus tristique habitant vitae cursus nisl. Sed adipiscing proin suspendisse aliquam maecenas faucibus mauris purus. Tortor ut habitant erat adipiscing nulla pretium, cursus tortor. Amet viverra et platea lacus, nec molestie tincidunt.
         </span>
       </swirl-text>
