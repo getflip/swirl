@@ -99,6 +99,7 @@ export class SwirlLightbox {
     setTimeout(() => {
       this.modal.hide();
       this.resetImageZoom();
+      this.stopAllMediaPlayers();
       this.closing = false;
     }, 150);
   }
