@@ -225,15 +225,15 @@
     "type": "zIndex"
   },
   "core-gray-10": {
-    "value": "rgba(38, 38, 38, 1)",
+    "value": "rgba(43, 43, 43, 1)",
     "type": "color"
   },
   "core-gray-11": {
-    "value": "rgba(28, 28, 28, 1)",
+    "value": "rgba(35, 35, 35, 1)",
     "type": "color"
   },
   "core-gray-12": {
-    "value": "rgba(23, 23, 23, 1)",
+    "value": "rgba(25, 25, 25, 1)",
     "type": "color"
   },
   "core-gray-black": {
@@ -241,15 +241,15 @@
     "type": "color"
   },
   "core-gray-09": {
-    "value": "rgba(46, 46, 46, 1)",
-    "type": "color"
-  },
-  "core-gray-08": {
     "value": "rgba(54, 54, 54, 1)",
     "type": "color"
   },
+  "core-gray-08": {
+    "value": "rgba(63, 63, 63, 1)",
+    "type": "color"
+  },
   "core-gray-07": {
-    "value": "rgba(66, 66, 66, 1)",
+    "value": "rgba(81, 81, 81, 1)",
     "type": "color"
   },
   "core-gray-06": {
@@ -257,7 +257,7 @@
     "type": "color"
   },
   "core-gray-05": {
-    "value": "rgba(152, 152, 152, 1)",
+    "value": "rgba(158, 158, 158, 1)",
     "type": "color"
   },
   "core-gray-04": {
@@ -545,87 +545,87 @@
     "type": "color"
   },
   "core-decorative-dark-chilli-text": {
-    "value": "rgba(218, 109, 109, 1)",
+    "value": "rgba(244, 120, 120, 1)",
     "type": "color"
   },
   "core-decorative-dark-chilli-surface": {
-    "value": "rgba(218, 109, 109, 1)",
+    "value": "rgba(244, 120, 120, 1)",
     "type": "color"
   },
   "core-decorative-dark-chilli-surface-subdued": {
-    "value": "rgba(56, 34, 33, 1)",
+    "value": "rgba(77, 45, 44, 1)",
     "type": "color"
   },
   "core-decorative-dark-pumpkin-text": {
-    "value": "rgba(212, 128, 49, 1)",
+    "value": "rgba(237, 153, 75, 1)",
     "type": "color"
   },
   "core-decorative-dark-pumpkin-surface": {
-    "value": "rgba(212, 128, 49, 1)",
+    "value": "rgba(237, 153, 75, 1)",
     "type": "color"
   },
   "core-decorative-dark-pumpkin-surface-subdued": {
-    "value": "rgba(51, 37, 26, 1)",
+    "value": "rgba(82, 56, 36, 1)",
     "type": "color"
   },
   "core-decorative-dark-banana-text": {
-    "value": "rgba(175, 145, 27, 1)",
+    "value": "rgba(209, 175, 41, 1)",
     "type": "color"
   },
   "core-decorative-dark-banana-surface": {
-    "value": "rgba(175, 145, 27, 1)",
+    "value": "rgba(209, 175, 41, 1)",
     "type": "color"
   },
   "core-decorative-dark-banana-surface-subdued": {
-    "value": "rgba(44, 39, 29, 1)",
+    "value": "rgba(77, 62, 30, 1)",
     "type": "color"
   },
   "core-decorative-dark-radish-text": {
-    "value": "rgba(221, 105, 189, 1)",
+    "value": "rgba(242, 120, 204, 1)",
     "type": "color"
   },
   "core-decorative-dark-radish-surface": {
-    "value": "rgba(221, 105, 189, 1)",
+    "value": "rgba(242, 120, 204, 1)",
     "type": "color"
   },
   "core-decorative-dark-radish-surface-subdued": {
-    "value": "rgba(50, 35, 45, 1)",
+    "value": "rgba(79, 48, 69, 1)",
     "type": "color"
   },
   "core-decorative-dark-grape-text": {
-    "value": "rgba(194, 107, 233, 1)",
+    "value": "rgba(214, 131, 251, 1)",
     "type": "color"
   },
   "core-decorative-dark-grape-surface": {
-    "value": "rgba(194, 107, 233, 1)",
+    "value": "rgba(214, 131, 251, 1)",
     "type": "color"
   },
   "core-decorative-dark-grape-surface-subdued": {
-    "value": "rgba(47, 36, 56, 1)",
+    "value": "rgba(75, 47, 98, 1)",
     "type": "color"
   },
   "core-decorative-dark-kiwi-text": {
-    "value": "rgba(89, 164, 105, 1)",
+    "value": "rgba(111, 200, 130, 1)",
     "type": "color"
   },
   "core-decorative-dark-kiwi-surface": {
-    "value": "rgba(89, 164, 105, 1)",
+    "value": "rgba(111, 200, 130, 1)",
     "type": "color"
   },
   "core-decorative-dark-kiwi-surface-subdued": {
-    "value": "rgba(34, 43, 34, 1)",
+    "value": "rgba(42, 70, 42, 1)",
     "type": "color"
   },
   "core-decorative-dark-blueberry-text": {
-    "value": "rgba(86, 143, 222, 1)",
+    "value": "rgba(122, 172, 240, 1)",
     "type": "color"
   },
   "core-decorative-dark-blueberry-surface": {
-    "value": "rgba(86, 143, 222, 1)",
+    "value": "rgba(122, 172, 240, 1)",
     "type": "color"
   },
   "core-decorative-dark-blueberry-surface-subdued": {
-    "value": "rgba(30, 41, 54, 1)",
+    "value": "rgba(41, 64, 91, 1)",
     "type": "color"
   },
   "background-default": {
