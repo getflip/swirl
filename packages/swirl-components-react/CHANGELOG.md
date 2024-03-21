@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.173.2
+
+### Patch Changes
+
+- [`ee52cb4f`](https://github.com/getflip/swirl/commit/ee52cb4fe0d2f51caa12aaef58b14aaad59c78d9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Stop media players when lightbox
+  is closed
+
+- Updated dependencies
+  [[`ee52cb4f`](https://github.com/getflip/swirl/commit/ee52cb4fe0d2f51caa12aaef58b14aaad59c78d9)]:
+  - @getflip/swirl-components@0.173.2
+
 ## 0.173.1
 
 ### Patch Changes
