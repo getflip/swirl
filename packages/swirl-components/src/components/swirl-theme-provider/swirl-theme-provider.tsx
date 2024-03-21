@@ -24,6 +24,7 @@ const preferredThemeStorageKey = "swirl-preferred-theme";
 export class SwirlThemeProvider {
   @Prop() config: SwirlThemeProviderConfig;
 
+  @Event() appThemeUpdated: EventEmitter<void>;
   @Event() themeChange: EventEmitter<SwirlOSThemeChangeEventData>;
 
   private appOSTheme: SwirlOSTheme;
@@ -154,6 +155,8 @@ export class SwirlThemeProvider {
       this.recentOSThemeChangeEventData = themeChangeEventData;
       this.themeChange.emit(this.recentOSThemeChangeEventData);
     }
+
+    this.appThemeUpdated.emit();
   }
 
   private updateTenantAssets() {
