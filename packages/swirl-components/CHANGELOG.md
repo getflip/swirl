@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.174.1
+
+### Patch Changes
+
+- [`ca65daa8`](https://github.com/getflip/swirl/commit/ca65daa88109ec1fee19a3f880dddade8301c794)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue not pausing media
+  players in swirl-lightbox when closing
+
 ## 0.174.0
 
 ### Minor Changes
