@@ -9,6 +9,7 @@ import {
   Method,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
@@ -54,6 +55,7 @@ export class SwirlPdfReader {
   @State() active = false;
   @State() closing = false;
   @State() downloading = false;
+  @State() loadingThumbnails = false;
   @State() thumbnails: HTMLCanvasElement[] = [];
   @State() showThumbnails: boolean;
   @State() viewMode: SwirlFileViewerPdfViewMode = "single";
@@ -93,6 +95,17 @@ export class SwirlPdfReader {
     this.updateZoomSteps();
 
     this.zoom = isMobileViewport() ? "auto" : 1;
+  }
+
+  @Watch("showThumbnails")
+  watchShowThumbnails() {
+    if (this.showThumbnails) {
+      this.loadingThumbnails = true;
+      queueMicrotask(async () => {
+        await this.generateThumbnails();
+        this.loadingThumbnails = false;
+      });
+    }
   }
 
   /**
@@ -179,7 +192,6 @@ export class SwirlPdfReader {
     this.pdfViewer = event.detail as HTMLSwirlFileViewerPdfElement;
 
     this.lockBodyScroll();
-    this.generateThumbnails();
   };
 
   private onVisiblePagesChange = async (event: CustomEvent<number[]>) => {
@@ -357,26 +369,28 @@ export class SwirlPdfReader {
                 class="pdf-reader__thumbnails"
                 id="thumbnails"
               >
-                {this.thumbnails.map((thumbnail, index) => {
-                  const thumbnailClassName = classnames(
-                    "pdf-reader__thumbnail",
-                    {
-                      "pdf-reader__thumbnail--active":
-                        this.visiblePages[0] === index + 1,
-                    }
-                  );
+                {this.loadingThumbnails && <swirl-spinner></swirl-spinner>}
+                {!this.loadingThumbnails &&
+                  this.thumbnails.map((thumbnail, index) => {
+                    const thumbnailClassName = classnames(
+                      "pdf-reader__thumbnail",
+                      {
+                        "pdf-reader__thumbnail--active":
+                          this.visiblePages[0] === index + 1,
+                      }
+                    );
 
-                  return (
-                    <button
-                      aria-label={`${this.thumbnailButtonLabel} ${index + 1}`}
-                      class={thumbnailClassName}
-                      onClick={this.onThumbnailClick(index)}
-                      type="button"
-                    >
-                      <img src={thumbnail.toDataURL("image/png")} alt="" />
-                    </button>
-                  );
-                })}
+                    return (
+                      <button
+                        aria-label={`${this.thumbnailButtonLabel} ${index + 1}`}
+                        class={thumbnailClassName}
+                        onClick={this.onThumbnailClick(index)}
+                        type="button"
+                      >
+                        <img src={thumbnail.toDataURL("image/png")} alt="" />
+                      </button>
+                    );
+                  })}
               </nav>
 
               <swirl-file-viewer

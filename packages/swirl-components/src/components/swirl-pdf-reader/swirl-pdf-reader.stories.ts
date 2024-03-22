@@ -47,6 +47,6 @@ const Template = (args) => {
 export const SwirlPdfReader = Template.bind({});
 
 SwirlPdfReader.args = {
-  file: "/sample.pdf",
+  file: "/sample-2.pdf",
   label: "sample.pdf",
 };
