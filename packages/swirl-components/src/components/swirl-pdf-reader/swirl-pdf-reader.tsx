@@ -32,6 +32,7 @@ export class SwirlPdfReader {
   @Prop() downloadButtonEnabled?: boolean = true;
   @Prop() downloadButtonLabel?: string = "Download PDF";
   @Prop() file!: string;
+  @Prop() fileName?: string;
   @Prop() fileTypeLabel?: string = "PDF Document";
   @Prop() label!: string;
   @Prop() menuLabel?: string = "File menu";
@@ -382,6 +383,7 @@ export class SwirlPdfReader {
                 active={this.active}
                 class="pdf-reader__viewer"
                 file={this.file}
+                fileName={this.fileName}
                 onActivate={this.onActivate}
                 onVisiblePagesChange={this.onVisiblePagesChange}
                 pdfWorkerSrc={this.pdfWorkerSrc}

@@ -573,6 +573,7 @@ export namespace Components {
         "download": () => Promise<void>;
         "errorMessage"?: string;
         "file": string;
+        "fileName"?: string;
         "pdfWorkerSrc"?: string;
         /**
           * Print the file. Applicable to PDFs only.
@@ -1488,6 +1489,7 @@ export namespace Components {
         "downloadButtonEnabled"?: boolean;
         "downloadButtonLabel"?: string;
         "file": string;
+        "fileName"?: string;
         "fileTypeLabel"?: string;
         "label": string;
         "menuLabel"?: string;
@@ -4940,6 +4942,7 @@ declare namespace LocalJSX {
         "description"?: string;
         "errorMessage"?: string;
         "file": string;
+        "fileName"?: string;
         "onActivate"?: (event: SwirlFileViewerCustomEvent<HTMLElement>) => void;
         "onVisiblePagesChange"?: (event: SwirlFileViewerCustomEvent<number[]>) => void;
         "pdfWorkerSrc"?: string;
@@ -5785,6 +5788,7 @@ declare namespace LocalJSX {
         "downloadButtonEnabled"?: boolean;
         "downloadButtonLabel"?: string;
         "file": string;
+        "fileName"?: string;
         "fileTypeLabel"?: string;
         "label": string;
         "menuLabel"?: string;

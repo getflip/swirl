@@ -24,6 +24,7 @@ export class SwirlFileViewer {
   @Prop() description?: string;
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
+  @Prop() fileName?: string;
   @Prop() pdfWorkerSrc?: string;
   @Prop() thumbnailUrl?: string;
   @Prop() type!: string;
@@ -41,7 +42,7 @@ export class SwirlFileViewer {
    */
   @Method()
   async download() {
-    const fileName = this.file.split("/").pop();
+    const fileName = this.fileName || this.file.split("/").pop();
     const file = await fetch(this.file);
 
     saveAs(await file.blob(), fileName);

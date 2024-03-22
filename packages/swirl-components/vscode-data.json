@@ -2255,6 +2255,10 @@
           "description": ""
         },
         {
+          "name": "file-name",
+          "description": ""
+        },
+        {
           "name": "pdf-worker-src",
           "description": ""
         },
@@ -12313,6 +12317,10 @@
         },
         {
           "name": "file",
+          "description": ""
+        },
+        {
+          "name": "file-name",
           "description": ""
         },
         {
