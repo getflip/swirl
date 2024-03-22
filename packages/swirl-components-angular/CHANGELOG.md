@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.175.0
+
+### Minor Changes
+
+- [`08061cbc`](https://github.com/getflip/swirl/commit/08061cbc871a35918bd9a976c4afc4af3a23a4e2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "file-name" prop to
+  swirl-pdf-reader and swirl-file-viewer
+
+### Patch Changes
+
+- Updated dependencies
+  [[`08061cbc`](https://github.com/getflip/swirl/commit/08061cbc871a35918bd9a976c4afc4af3a23a4e2)]:
+  - @getflip/swirl-components@0.175.0
+
 ## 0.174.2
 
 ### Patch Changes
