@@ -69,13 +69,17 @@ export class SwirlFileViewerPdf {
 
   async componentWillLoad() {
     window.pdf.GlobalWorkerOptions.workerSrc = this.workerSrc;
-    await this.getPages();
   }
 
   async componentDidLoad() {
+    await this.getPages();
     await this.updateVisiblePages();
-    this.activate.emit(this.el);
 
+    this.activate.emit(this.el);
+  }
+
+  componentDidRender() {
+    this.updateVisiblePages();
     this.determineScrollStatus();
   }
 
@@ -209,11 +213,13 @@ export class SwirlFileViewerPdf {
 
       this.doc = await getDocument(this.file).promise;
 
+      const pages = [];
+
       for (let i = 1; i <= this.doc.numPages; i++) {
-        const page = await this.doc.getPage(i);
-        this.pages[i] = page;
+        pages.push(this.doc.getPage(i));
       }
 
+      this.pages = await Promise.all(pages);
       this.loading = false;
     } catch (e) {
       this.error = true;
