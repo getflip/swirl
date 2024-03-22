@@ -41,7 +41,6 @@ export class SwirlLightbox {
   private menu: HTMLSwirlPopoverElement;
   private modal: A11yDialog;
   private modalEl: HTMLElement;
-  private mediaPlayers: (HTMLVideoElement | HTMLAudioElement)[] = [];
   private slidesContainer: HTMLElement;
 
   componentWillLoad() {
@@ -148,7 +147,6 @@ export class SwirlLightbox {
     }, 300);
 
     this.stopAllMediaPlayers();
-    this.updateMediaPlayers();
     this.resetImageZoom();
   }
 
@@ -213,19 +211,18 @@ export class SwirlLightbox {
       (el) => el.tagName === "SWIRL-FILE-VIEWER"
     ) as HTMLSwirlFileViewerElement[];
     this.setSlideAttributes();
-    this.updateMediaPlayers();
   };
 
-  private updateMediaPlayers() {
+  private getMediaPlayers() {
     const mediaPlayers = querySelectorAllDeep<
       HTMLAudioElement | HTMLVideoElement
     >(this.el, "video");
 
-    this.mediaPlayers = mediaPlayers;
+    return mediaPlayers;
   }
 
   private stopAllMediaPlayers() {
-    this.mediaPlayers.forEach((mediaPlayer) => mediaPlayer.pause());
+    this.getMediaPlayers().forEach((mediaPlayer) => mediaPlayer.pause());
   }
 
   private resetImageZoom() {
