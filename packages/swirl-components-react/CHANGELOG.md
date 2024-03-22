@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.175.1
+
+### Patch Changes
+
+- [`54bab36c`](https://github.com/getflip/swirl/commit/54bab36c2bee315ee6ca2507194596ff497fcb28)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve swirl-pdf-reader
+  performance
+
+- Updated dependencies
+  [[`54bab36c`](https://github.com/getflip/swirl/commit/54bab36c2bee315ee6ca2507194596ff497fcb28)]:
+  - @getflip/swirl-components@0.175.1
+
 ## 0.175.0
 
 ### Minor Changes
