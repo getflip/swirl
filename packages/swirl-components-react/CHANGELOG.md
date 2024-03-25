@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.176.0
+
+### Minor Changes
+
+- [`9f5b17fc`](https://github.com/getflip/swirl/commit/9f5b17fc6a6196d12cefe328c58cd5a08bc4a1cf)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Allow to disable themes via the
+  swirl-theme-provider
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9f5b17fc`](https://github.com/getflip/swirl/commit/9f5b17fc6a6196d12cefe328c58cd5a08bc4a1cf)]:
+  - @getflip/swirl-components@0.176.0
+
 ## 0.175.1
 
 ### Patch Changes
