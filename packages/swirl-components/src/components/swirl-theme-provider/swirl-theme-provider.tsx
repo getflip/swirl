@@ -76,7 +76,10 @@ export class SwirlThemeProvider {
    */
   @Method()
   async setPreferredOSTheme(theme: SwirlOSTheme) {
-    if (!Boolean(this.resolvedConfig.storage)) {
+    if (
+      !Boolean(this.resolvedConfig.storage) ||
+      !this.resolvedConfig.enabledThemes.includes(theme)
+    ) {
       return;
     }
 
@@ -102,9 +105,14 @@ export class SwirlThemeProvider {
   private resolveConfig() {
     this.resolvedConfig = {
       ...(this.config || {}),
+      enabledThemes: this.config?.enabledThemes || ["light", "dark"],
       rootElement: this.config?.rootElement || document.documentElement,
       storage: this.config?.storage || window?.localStorage,
     };
+
+    if (!this.resolvedConfig.enabledThemes.includes("light")) {
+      throw new Error("[Swirl Theme Provider] Light theme must be enabled.");
+    }
   }
 
   private determineOSTheme() {
@@ -127,7 +135,13 @@ export class SwirlThemeProvider {
   }
 
   private async updateAppTheme() {
-    this.appOSTheme = (await this.getPreferredOSTheme()) || this.osTheme;
+    const newAppOSTheme = (await this.getPreferredOSTheme()) || this.osTheme;
+
+    if (!this.resolvedConfig.enabledThemes.includes(newAppOSTheme)) {
+      this.appOSTheme = "light";
+    } else {
+      this.appOSTheme = newAppOSTheme;
+    }
 
     if (this.appOSTheme === "dark") {
       document.documentElement.classList.remove("theme-light");

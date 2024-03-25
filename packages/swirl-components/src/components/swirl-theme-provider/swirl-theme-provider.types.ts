@@ -12,6 +12,7 @@ export type SwirlThemeProviderStorage = {
 };
 
 export type SwirlThemeProviderConfig = {
+  enabledThemes?: (keyof SwirlThemes)[];
   rootElement?: HTMLElement;
   storage?: SwirlThemeProviderStorage;
   themes?: SwirlThemes;
