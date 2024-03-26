@@ -24,6 +24,9 @@ const Template = (args) => {
       consectetur vestibulum tempus, nulla lobortis ipsum. Odio a ipsum purus
       pellentesque maecenas.
       <swirl-button label="A button" slot="tools" variant="outline"></swirl-button>
+      <swirl-inline-notification heading="Notification title" slot="additional-content">
+    Lorem ipsum dolor sit amet. <swirl-link href="#" label="With a link."></swirl-link>
+  </swirl-inline-notification>
     </swirl-description-list-item>
     <swirl-description-list-item term="Term #3">
       A short description
