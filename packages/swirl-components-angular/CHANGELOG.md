@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.177.0
+
+### Minor Changes
+
+- [`9eab05b5`](https://github.com/getflip/swirl/commit/9eab05b5928fe37f17c412e7cf253b936ae14584)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "additional-content" slot to
+  swirl-description-list-item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9eab05b5`](https://github.com/getflip/swirl/commit/9eab05b5928fe37f17c412e7cf253b936ae14584)]:
+  - @getflip/swirl-components@0.177.0
+
 ## 0.176.0
 
 ### Minor Changes
