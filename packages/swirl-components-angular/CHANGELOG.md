@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.177.1
+
+### Patch Changes
+
+- [`8b25ea35`](https://github.com/getflip/swirl/commit/8b25ea356cd3454bf08771e0f4478c26f36c466c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Disable context menu for
+  swirl-lightbox slides if download is disabled
+
+- Updated dependencies
+  [[`8b25ea35`](https://github.com/getflip/swirl/commit/8b25ea356cd3454bf08771e0f4478c26f36c466c)]:
+  - @getflip/swirl-components@0.177.1
+
 ## 0.177.0
 
 ### Minor Changes
