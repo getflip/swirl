@@ -319,6 +319,12 @@ export class SwirlLightbox {
     this.close();
   };
 
+  private onContextMenu = (event: MouseEvent) => {
+    if (!this.downloadButtonEnabled) {
+      event.preventDefault();
+    }
+  };
+
   render() {
     const showPagination = this.slides.length > 1;
 
@@ -381,6 +387,7 @@ export class SwirlLightbox {
                 aria-live="polite"
                 class="lightbox__slides"
                 onClick={this.onBackdropClick}
+                onContextMenu={this.onContextMenu}
                 ref={(el) => (this.slidesContainer = el)}
               >
                 <slot onSlotchange={this.registerSlides}></slot>
