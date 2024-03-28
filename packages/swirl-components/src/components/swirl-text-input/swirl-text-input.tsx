@@ -3,10 +3,11 @@ import {
   Event,
   EventEmitter,
   h,
-  Host, Method,
+  Host,
+  Method,
   Prop,
   State,
-  Watch
+  Watch,
 } from "@stencil/core";
 import classnames from "classnames";
 import { getDesktopMediaQuery, SwirlFormInput } from "../../utils";

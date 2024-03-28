@@ -2490,6 +2490,10 @@
               "name": "outside"
             }
           ]
+        },
+        {
+          "name": "tooltip",
+          "description": ""
         }
       ]
     },
@@ -12908,6 +12912,10 @@
         },
         {
           "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "tooltip",
           "description": ""
         },
         {

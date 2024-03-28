@@ -656,6 +656,7 @@ export namespace Components {
         "invalid"?: boolean;
         "label": string;
         "labelPosition"?: SwirlFormControlLabelPosition;
+        "tooltip"?: string;
     }
     interface SwirlFormGroup {
         "orientation": SwirlFormGroupOrientation;
@@ -1627,6 +1628,7 @@ export namespace Components {
         "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
+        "tooltip"?: string;
         "value"?: string[];
         "withSearch"?: boolean;
     }
@@ -5000,6 +5002,7 @@ declare namespace LocalJSX {
         "invalid"?: boolean;
         "label": string;
         "labelPosition"?: SwirlFormControlLabelPosition;
+        "tooltip"?: string;
     }
     interface SwirlFormGroup {
         "orientation"?: SwirlFormGroupOrientation;
@@ -5932,6 +5935,7 @@ declare namespace LocalJSX {
         "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
+        "tooltip"?: string;
         "value"?: string[];
         "withSearch"?: boolean;
     }
