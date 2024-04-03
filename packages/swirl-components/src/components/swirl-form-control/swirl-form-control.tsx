@@ -245,7 +245,11 @@ export class SwirlFormControl {
                 {this.label}
                 {this.tooltip && this.labelPosition === "outside" && (
                   <span class="form-control__tooltip">
-                    <swirl-tooltip content={this.tooltip} positioning="fixed">
+                    <swirl-tooltip
+                      content={this.tooltip}
+                      positioning="fixed"
+                      position="top"
+                    >
                       <swirl-icon-help size={16} tabindex="0"></swirl-icon-help>
                     </swirl-tooltip>
                   </span>

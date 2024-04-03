@@ -136,7 +136,7 @@
     & .form-control__tooltip {
       display: none;
       @media (--from-desktop-without-touch) {
-        display: inline-flex;
+        display: flex;
         margin-left: var(--s-space-4);
       }
     }
