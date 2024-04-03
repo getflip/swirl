@@ -80,6 +80,10 @@
   }
 }
 
+.tooltip__content {
+  white-space: normal;
+}
+
 .tooltip__arrow {
   position: absolute;
   width: 0.6875rem;
