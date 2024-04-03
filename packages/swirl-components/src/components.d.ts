@@ -4882,6 +4882,8 @@ declare namespace LocalJSX {
         "hideLabel"?: boolean;
         "intent"?: SwirlDialogIntent;
         "label": string;
+        "onDialogClose"?: (event: SwirlDialogCustomEvent<void>) => void;
+        "onDialogOpen"?: (event: SwirlDialogCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
         "onSecondaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
