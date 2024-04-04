@@ -24,6 +24,7 @@
   --swirl-modal-height: auto;
   --swirl-modal-max-height: 90vh;
   --swirl-modal-view-height: 100vh;
+  --swirl-modal-max-width: 40rem;
 
   @supports (height: 100dvh) {
     --swirl-modal-max-height: 90dvh;
@@ -283,13 +284,13 @@
   display: flex;
   overflow: hidden;
   width: 100vw;
-  max-width: 40rem;
   height: var(--swirl-modal-view-height);
   background-color: var(--s-surface-overlay-default);
   flex-direction: column;
 
   @media (--from-tablet) {
     width: 90vw;
+    max-width: var(--swirl-modal-max-width);
     max-height: var(--swirl-modal-max-height);
     border-radius: var(--s-border-radius-base);
     box-shadow: var(--s-shadow-level-3);
