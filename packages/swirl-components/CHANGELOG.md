@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.178.0
+
+### Minor Changes
+
+- [#653](https://github.com/getflip/swirl/pull/653)
+  [`ff03e503`](https://github.com/getflip/swirl/commit/ff03e503aebb5b178264c38cb253dce865b19185)
+  Thanks [@danizep](https://github.com/danizep)! - Add dialogOpen and
+  dialogClose event emitters to SwirlDialog
+
+### Patch Changes
+
+- [#652](https://github.com/getflip/swirl/pull/652)
+  [`daa39206`](https://github.com/getflip/swirl/commit/daa39206caa72ab3f27eca8e11cdf920f5b3c292)
+  Thanks [@danizep](https://github.com/danizep)! - Fix modal max-width on mobile
+
 ## 0.177.1
 
 ### Patch Changes
