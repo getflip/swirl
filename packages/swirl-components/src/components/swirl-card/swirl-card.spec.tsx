@@ -77,4 +77,25 @@ describe("swirl-card", () => {
       </swirl-card>
     `);
   });
+
+  it("flashes for set duration", async () => {
+    const page = await newSpecPage({
+      components: [SwirlCard],
+      html: `<swirl-card>Content</swirl-card>`,
+    });
+
+    const card = page.root.shadowRoot.firstChild as HTMLElement;
+
+    expect(card.classList.contains("card--flashing")).toBe(false);
+
+    await page.root.flash(10);
+    await page.waitForChanges();
+
+    expect(card.classList.contains("card--flashing")).toBe(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 10));
+    await page.waitForChanges();
+
+    expect(card.classList.contains("card--flashing")).toBe(false);
+  });
 });

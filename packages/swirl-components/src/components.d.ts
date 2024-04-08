@@ -349,6 +349,10 @@ export namespace Components {
         "borderRadius"?: SwirlCardBorderRadius;
         "elevated"?: boolean;
         "elevationLevel"?: SwirlCardElevationLevel;
+        /**
+          * Flashes the card to draw focus.
+         */
+        "flash": (duration?: number) => Promise<void>;
         "height"?: string;
         "highlighted"?: boolean;
         "href"?: string;

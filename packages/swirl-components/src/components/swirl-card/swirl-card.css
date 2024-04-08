@@ -26,6 +26,7 @@
   font: inherit;
   text-decoration: none;
   flex-direction: column;
+  transition: background-color 0.2s;
 }
 
 a.card,
@@ -66,6 +67,18 @@ button.card,
 
   &.card--elevation-level-3 {
     box-shadow: var(--s-shadow-level-3);
+  }
+}
+
+.card--flashing {
+  background-color: var(--swirl-card-background-pressed);
+
+  &.card--intent-default-subdued {
+    background-color: var(--s-surface-raised-pressed);
+  }
+
+  &.card--intent-highlight {
+    background-color: var(--s-surface-highlight-pressed);
   }
 }
 
@@ -134,8 +147,8 @@ button.card,
 }
 
 .card--intent-highlight {
-  background-color: var(--s-surface-highlight-default);
   color: var(--s-text-on-surface-highlight);
+  background-color: var(--s-surface-highlight-default);
 }
 
 .content-section {
