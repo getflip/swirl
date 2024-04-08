@@ -138,6 +138,10 @@
       @media (--from-desktop-without-touch) {
         display: flex;
         margin-left: var(--s-space-4);
+
+        &:hover {
+          cursor: default;
+        }
       }
     }
   }
