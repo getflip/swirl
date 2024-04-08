@@ -40,6 +40,7 @@ export class SwirlFormControl {
   @Prop() invalid?: boolean;
   @Prop() label!: string;
   @Prop() labelPosition?: SwirlFormControlLabelPosition = "inside";
+  @Prop() tooltip?: string;
 
   @State() hasFocus: boolean;
   @State() inputValue: string;
@@ -242,7 +243,19 @@ export class SwirlFormControl {
             <LabelTag class="form-control__label" onClick={this.onLabelClick}>
               <span class="form-control__label-text" id={this.labelId}>
                 {this.label}
+                {this.tooltip && this.labelPosition === "outside" && (
+                  <span class="form-control__tooltip">
+                    <swirl-tooltip
+                      content={this.tooltip}
+                      positioning="fixed"
+                      position="top"
+                    >
+                      <swirl-icon-help size={16} tabindex="0"></swirl-icon-help>
+                    </swirl-tooltip>
+                  </span>
+                )}
               </span>
+
               <span class="form-control__input">
                 <slot></slot>
               </span>

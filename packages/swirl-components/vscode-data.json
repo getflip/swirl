@@ -2490,6 +2490,10 @@
               "name": "outside"
             }
           ]
+        },
+        {
+          "name": "tooltip",
+          "description": ""
         }
       ]
     },
