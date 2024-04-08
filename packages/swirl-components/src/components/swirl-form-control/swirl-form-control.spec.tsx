@@ -5,21 +5,6 @@ import { SwirlFormControl } from "./swirl-form-control";
 (global as any).DocumentFragment = class DocumentFragment extends Node {};
 (global as any).ShadowRoot = class ShadowRoot extends DocumentFragment {};
 
-const expectedVisible = `
-<span class="tooltip tooltip--actual-placement-undefined tooltip--visible">
-  <span aria-describedby="tooltip" class="tooltip__reference">
-    <slot></slot>
-  </span>
-  <span class="tooltip__popper" style="position: absolute;">
-    <span class="tooltip__bubble" id="tooltip" part="tooltip__bubble" role="tooltip">
-      <span class="tooltip__content">
-        This is a tooltip
-      </span>
-    </span>
-    <span class="tooltip__arrow" style="visibility: visible;"></span>
-  </span>
-</span>`;
-
 describe("swirl-form-control", () => {
   it("renders its input with label", async () => {
     const page = await newSpecPage({
