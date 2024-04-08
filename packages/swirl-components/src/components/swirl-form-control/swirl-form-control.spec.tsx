@@ -5,6 +5,21 @@ import { SwirlFormControl } from "./swirl-form-control";
 (global as any).DocumentFragment = class DocumentFragment extends Node {};
 (global as any).ShadowRoot = class ShadowRoot extends DocumentFragment {};
 
+const expectedVisible = `
+<span class="tooltip tooltip--actual-placement-undefined tooltip--visible">
+  <span aria-describedby="tooltip" class="tooltip__reference">
+    <slot></slot>
+  </span>
+  <span class="tooltip__popper" style="position: absolute;">
+    <span class="tooltip__bubble" id="tooltip" part="tooltip__bubble" role="tooltip">
+      <span class="tooltip__content">
+        This is a tooltip
+      </span>
+    </span>
+    <span class="tooltip__arrow" style="visibility: visible;"></span>
+  </span>
+</span>`;
+
 describe("swirl-form-control", () => {
   it("renders its input with label", async () => {
     const page = await newSpecPage({
@@ -146,5 +161,19 @@ describe("swirl-form-control", () => {
     expect(
       formControl.classList.contains("form-control--has-focus")
     ).toBeFalsy();
+  });
+
+  it("renders a tooltip icon when tooltip is set an label position is outside", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label" label-position="outside" tooltip="This is a tooltip">
+          <swirl-text-input></swirl-text-input>
+        </swirl-form-control>
+      `,
+    });
+
+    const tooltip = page.root.querySelector("swirl-tooltip");
+    expect(tooltip).not.toBeNull();
   });
 });

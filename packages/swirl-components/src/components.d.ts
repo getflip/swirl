@@ -1618,7 +1618,6 @@ export namespace Components {
         "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
-        "tooltip"?: string;
         "value"?: string[];
         "withSearch"?: boolean;
     }
@@ -5908,7 +5907,6 @@ declare namespace LocalJSX {
         "searchPlaceholder"?: string;
         "selectId"?: string;
         "swirlAriaDescribedby"?: string;
-        "tooltip"?: string;
         "value"?: string[];
         "withSearch"?: boolean;
     }
