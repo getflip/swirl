@@ -382,6 +382,7 @@
 .modal__content {
   overflow-x: hidden;
   overflow-y: auto;
+  height: 100%;
 
   & ::slotted(*) {
     margin: 0;
