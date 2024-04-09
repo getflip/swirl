@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.180.0
+
+### Minor Changes
+
+- [`8d66e456`](https://github.com/getflip/swirl/commit/8d66e4565a7693a99cccc8a705221cb136d64289) -
+  added tooltip prop form-control
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8d66e456`](https://github.com/getflip/swirl/commit/8d66e4565a7693a99cccc8a705221cb136d64289)]:
+  - @getflip/swirl-components@0.180.0
+
 ## 0.179.0
 
 ### Minor Changes
