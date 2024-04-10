@@ -39,6 +39,8 @@
   --swirl-icon-button-border-bottom-right-radius: 50%;
   --swirl-icon-button-border-bottom-left-radius: 50%;
 
+  --swirl-app-icon-size: 1.25rem;
+
   --swirl-flat-button-background-default: var(--s-action-neutral-default);
   --swirl-flat-button-background-disabled: var(--s-action-neutral-disabled);
   --swirl-flat-button-background-hovered: var(--s-action-neutral-hovered);

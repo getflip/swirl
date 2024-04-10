@@ -1664,6 +1664,7 @@ export namespace Components {
     interface SwirlShellNavigationItem {
         "active"?: boolean;
         "badgeLabel"?: string;
+        "boxed"?: boolean;
         "href"?: string;
         "label": string;
         "target"?: string;
@@ -5966,6 +5967,7 @@ declare namespace LocalJSX {
     interface SwirlShellNavigationItem {
         "active"?: boolean;
         "badgeLabel"?: string;
+        "boxed"?: boolean;
         "href"?: string;
         "label": string;
         "target"?: string;
