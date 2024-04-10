@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.181.0
+
+### Minor Changes
+
+- [#660](https://github.com/getflip/swirl/pull/660)
+  [`0f17b74f`](https://github.com/getflip/swirl/commit/0f17b74f6155797c55341babda6f716fe6c2a8a2)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Added Boxed
+  prop to Shell Navigation Item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0f17b74f`](https://github.com/getflip/swirl/commit/0f17b74f6155797c55341babda6f716fe6c2a8a2)]:
+  - @getflip/swirl-components@0.181.0
+
 ## 0.180.0
 
 ### Minor Changes
