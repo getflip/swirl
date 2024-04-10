@@ -16,7 +16,7 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-shell-navigation-item", args);
 
   element.innerHTML = `
-    <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/433/144/144"></swirl-app-icon>
+    <swirl-app-icon slot="icon" label="link" src="https://cdn-icons-png.flaticon.com/512/1076/1076744.png"></swirl-app-icon>
   `;
 
   return element;

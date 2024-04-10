@@ -65,7 +65,7 @@ const Template = (args) => {
           </swirl-shell-navigation-item>
         </li>
         <li>
-          <swirl-shell-navigation-item label="Employee directory">
+          <swirl-shell-navigation-item label="Employee directory" boxed="true">
             <swirl-app-icon icon="<swirl-icon-groups-filled size=&quot;20&quot;></swirl-icon-groups-filled>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
