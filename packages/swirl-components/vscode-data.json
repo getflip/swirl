@@ -12717,6 +12717,10 @@
           "description": ""
         },
         {
+          "name": "allow-html",
+          "description": ""
+        },
+        {
           "name": "checked",
           "description": ""
         },

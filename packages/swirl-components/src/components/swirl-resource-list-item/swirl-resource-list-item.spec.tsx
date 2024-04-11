@@ -134,4 +134,24 @@ describe("swirl-resource-list-item", () => {
 
     expect(spy).toHaveBeenCalled();
   });
+
+  it("renders a plain text", async () => {
+    const page = await newSpecPage({
+      components: [SwirlResourceListItem],
+      html: `
+        <swirl-resource-list-item label="<button>Button</button>" allow-html="false" description="<button>Description</button>">
+        </swirl-resource-list-item>
+      `,
+    });
+
+    expect(
+      page.root.querySelector<HTMLElement>(".resource-list-item__label")
+        .innerText
+    ).toBe("<button>Button</button>");
+
+    expect(
+      page.root.querySelector<HTMLElement>(".resource-list-item__description")
+        .innerText
+    ).toBe("<button>Description</button>");
+  });
 });
