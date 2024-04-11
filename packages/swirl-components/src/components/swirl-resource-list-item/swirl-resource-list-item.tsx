@@ -1,16 +1,9 @@
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Prop,
-  State,
-} from "@stencil/core";
-import classnames from "classnames";
-import { v4 as uuid } from "uuid";
-import { getDesktopMediaQuery } from "../../utils";
+import classnames from 'classnames';
+import { v4 as uuid } from 'uuid';
+
+import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
+
+import { getDesktopMediaQuery } from '../../utils';
 
 export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 
@@ -30,6 +23,7 @@ export class SwirlResourceListItem {
 
   @Prop() active?: boolean;
   @Prop() allowDrag?: boolean;
+  @Prop() allowHtml?: boolean = true;
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() compact?: boolean;
   @Prop() description?: string;
@@ -252,13 +246,17 @@ export class SwirlResourceListItem {
               <span
                 class="resource-list-item__label"
                 id={this.id}
-                innerHTML={this.label}
-              ></span>
+                innerHTML={this.allowHtml ? this.label : undefined}
+              >
+                {!this.allowHtml && this.label}
+              </span>
               {this.description && (
                 <span
                   class="resource-list-item__description"
-                  innerHTML={this.description}
-                ></span>
+                  innerHTML={this.allowHtml ? this.description : undefined}
+                >
+                  {!this.allowHtml && this.description}
+                </span>
               )}
             </span>
             {showMeta && (
