@@ -65,9 +65,10 @@
       border-radius: var(--s-border-radius-sm);
       border-width: var(--s-border-width-default);
       border-style: solid;
+      overflow: hidden;
     }
 
-    --swirl-app-icon-size: calc(2rem - 2 * var(--s-border-width-default));
+    --swirl-app-icon-size: 2rem;
   }
 
   &.shell-navigation-item--active {
@@ -103,6 +104,8 @@
   display: inline-flex;
   min-width: 2rem;
   min-height: 2rem;
+  height: 2rem;
+  width: 2rem;
   justify-content: center;
   align-items: center;
 }

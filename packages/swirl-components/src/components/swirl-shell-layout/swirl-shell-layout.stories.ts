@@ -69,6 +69,11 @@ const Template = (args) => {
             <swirl-app-icon icon="<swirl-icon-groups-filled size=&quot;20&quot;></swirl-icon-groups-filled>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
+        <li>
+          <swirl-shell-navigation-item label="Custom Link" boxed="true">
+          <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/433/144/144" slot="icon"></swirl-app-icon>
+          </swirl-shell-navigation-item>
+        </li>
       </ul>
     </div>
 
