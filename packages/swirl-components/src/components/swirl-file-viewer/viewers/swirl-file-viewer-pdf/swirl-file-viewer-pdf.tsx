@@ -382,11 +382,26 @@ export class SwirlFileViewerPdf {
       *, *:before, *:after {
         margin: 0;
         padding: 0;
+        outline: 0;
+      }
+
+      @page {
+        size: a4;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        height: 100%;
+        width: 100%;
       }
 
       img {
         display: block;
+        max-width: 100%;
+        max-height: 100%;
         width: 100%;
+        height: auto;
         page-break-after: always;
       }
       `;
