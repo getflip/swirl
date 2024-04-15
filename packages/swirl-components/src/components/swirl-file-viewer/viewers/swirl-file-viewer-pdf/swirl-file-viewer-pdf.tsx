@@ -247,7 +247,7 @@ export class SwirlFileViewerPdf {
         continue;
       }
 
-      if (!this.visiblePages.includes(page.pageNumber)) {
+      if (!this.visiblePages.includes(page.pageNumber) && !forPrint) {
         this.destroyPage(page);
         continue;
       }
