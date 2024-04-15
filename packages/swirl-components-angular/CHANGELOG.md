@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.184.2
+
+### Patch Changes
+
+- [`7ebf5662`](https://github.com/getflip/swirl/commit/7ebf5662c78c409313a56249af68e3a004f3d988)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix printing size of
+  swirl-pdf-viewer
+
+- Updated dependencies
+  [[`7ebf5662`](https://github.com/getflip/swirl/commit/7ebf5662c78c409313a56249af68e3a004f3d988)]:
+  - @getflip/swirl-components@0.184.2
+
 ## 0.184.1
 
 ### Patch Changes
