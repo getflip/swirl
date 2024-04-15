@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.184.1
+
+### Patch Changes
+
+- [`84f21718`](https://github.com/getflip/swirl/commit/84f21718a3bf11e87eaaf9d6f9a335468f0f0989)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue causing the PDF
+  viewer to not print all pages
+
+- Updated dependencies
+  [[`84f21718`](https://github.com/getflip/swirl/commit/84f21718a3bf11e87eaaf9d6f9a335468f0f0989)]:
+  - @getflip/swirl-components@0.184.1
+
 ## 0.184.0
 
 ### Minor Changes
