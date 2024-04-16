@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.185.1
+
+### Patch Changes
+
+- [`95fddd24`](https://github.com/getflip/swirl/commit/95fddd24d143bd93ef4bd65c151ec7e5ee8f66ef)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Switch swirl-shell-layout
+  navigation toggle icon
+
 ## 0.185.0
 
 ### Minor Changes
