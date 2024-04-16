@@ -179,19 +179,11 @@ export class SwirlShellLayout {
             </button>
             <div class="shell-layout__header-left">
               <button
-                class="shell-layout__header-tool shell-layout__navigation-toggle"
+                class="shell-layout__header-tool"
                 onClick={this.onNavigationToggleClick}
                 type="button"
               >
-                <swirl-icon-hamburger-menu
-                  size={20}
-                ></swirl-icon-hamburger-menu>
-                <swirl-icon-double-arrow-left
-                  size={20}
-                ></swirl-icon-double-arrow-left>
-                <swirl-icon-double-arrow-right
-                  size={20}
-                ></swirl-icon-double-arrow-right>
+                <swirl-icon-dock-left size={20}></swirl-icon-dock-left>
                 <swirl-visually-hidden>
                   {this.navigationToggleLabel}
                 </swirl-visually-hidden>

@@ -68,18 +68,6 @@
 }
 
 .shell-layout--navigation-collapsed {
-  & .shell-layout__navigation-toggle {
-    &:hover {
-      & swirl-icon-double-arrow-left {
-        display: none;
-      }
-
-      & swirl-icon-double-arrow-right {
-        display: inline-flex;
-      }
-    }
-  }
-
   & .shell-layout__nav {
     &:hover {
       @media (--from-desktop) {
@@ -210,6 +198,7 @@
 
 .shell-layout__header-left {
   display: flex;
+  padding-left: var(--s-space-2);
   flex-basis: 8rem;
   flex-shrink: 0;
   align-items: center;
@@ -290,23 +279,6 @@
 
   @media (--from-desktop) {
     display: block;
-  }
-}
-
-.shell-layout__navigation-toggle {
-  &:hover {
-    & swirl-icon-hamburger-menu {
-      display: none;
-    }
-
-    & swirl-icon-double-arrow-left {
-      display: inline-flex;
-    }
-  }
-
-  & swirl-icon-double-arrow-right,
-  & swirl-icon-double-arrow-left {
-    display: none;
   }
 }
 
