@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.184.3
+
+### Patch Changes
+
+- [`fe7e1677`](https://github.com/getflip/swirl/commit/fe7e1677ef895ce6873018d52e3e857221a149a8)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix closing issue of
+  swirl-popover within an active swirl-tab
+
 ## 0.184.2
 
 ### Patch Changes
