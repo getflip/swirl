@@ -1,5 +1,12 @@
 # @getflip/swirl-icons
 
+## 0.34.0
+
+### Minor Changes
+
+- [`7324393b`](https://github.com/getflip/swirl/commit/7324393b591488441f4ed28858894825306e2e17)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "news-off" icon
+
 ## 0.33.0
 
 ### Minor Changes

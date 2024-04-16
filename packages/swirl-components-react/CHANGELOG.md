@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.185.0
+
+### Minor Changes
+
+- [`7324393b`](https://github.com/getflip/swirl/commit/7324393b591488441f4ed28858894825306e2e17)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "news-off" icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`7324393b`](https://github.com/getflip/swirl/commit/7324393b591488441f4ed28858894825306e2e17)]:
+  - @getflip/swirl-components@0.185.0
+
 ## 0.184.3
 
 ### Patch Changes
