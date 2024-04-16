@@ -1092,6 +1092,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconNewsOff {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconNotifications {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3215,6 +3219,12 @@ declare global {
         prototype: HTMLSwirlIconNewsFilledElement;
         new (): HTMLSwirlIconNewsFilledElement;
     };
+    interface HTMLSwirlIconNewsOffElement extends Components.SwirlIconNewsOff, HTMLStencilElement {
+    }
+    var HTMLSwirlIconNewsOffElement: {
+        prototype: HTMLSwirlIconNewsOffElement;
+        new (): HTMLSwirlIconNewsOffElement;
+    };
     interface HTMLSwirlIconNotificationsElement extends Components.SwirlIconNotifications, HTMLStencilElement {
     }
     var HTMLSwirlIconNotificationsElement: {
@@ -4377,6 +4387,7 @@ declare global {
         "swirl-icon-more-vertikal": HTMLSwirlIconMoreVertikalElement;
         "swirl-icon-news": HTMLSwirlIconNewsElement;
         "swirl-icon-news-filled": HTMLSwirlIconNewsFilledElement;
+        "swirl-icon-news-off": HTMLSwirlIconNewsOffElement;
         "swirl-icon-notifications": HTMLSwirlIconNotificationsElement;
         "swirl-icon-notifications-active": HTMLSwirlIconNotificationsActiveElement;
         "swirl-icon-notifications-off": HTMLSwirlIconNotificationsOffElement;
@@ -5438,6 +5449,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNewsFilled {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconNewsOff {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -6524,6 +6539,7 @@ declare namespace LocalJSX {
         "swirl-icon-more-vertikal": SwirlIconMoreVertikal;
         "swirl-icon-news": SwirlIconNews;
         "swirl-icon-news-filled": SwirlIconNewsFilled;
+        "swirl-icon-news-off": SwirlIconNewsOff;
         "swirl-icon-notifications": SwirlIconNotifications;
         "swirl-icon-notifications-active": SwirlIconNotificationsActive;
         "swirl-icon-notifications-off": SwirlIconNotificationsOff;
@@ -6857,6 +6873,7 @@ declare module "@stencil/core" {
             "swirl-icon-more-vertikal": LocalJSX.SwirlIconMoreVertikal & JSXBase.HTMLAttributes<HTMLSwirlIconMoreVertikalElement>;
             "swirl-icon-news": LocalJSX.SwirlIconNews & JSXBase.HTMLAttributes<HTMLSwirlIconNewsElement>;
             "swirl-icon-news-filled": LocalJSX.SwirlIconNewsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconNewsFilledElement>;
+            "swirl-icon-news-off": LocalJSX.SwirlIconNewsOff & JSXBase.HTMLAttributes<HTMLSwirlIconNewsOffElement>;
             "swirl-icon-notifications": LocalJSX.SwirlIconNotifications & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsElement>;
             "swirl-icon-notifications-active": LocalJSX.SwirlIconNotificationsActive & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsActiveElement>;
             "swirl-icon-notifications-off": LocalJSX.SwirlIconNotificationsOff & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsOffElement>;
