@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.186.0
+
+### Minor Changes
+
+- [`71d06977`](https://github.com/getflip/swirl/commit/71d06977dc87e2c7a4010ce13c07306e700156d7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update to Angular 16
+
 ## 0.185.1
 
 ### Patch Changes
