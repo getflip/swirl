@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.189.0
+
+### Minor Changes
+
+- [`36cba2ff`](https://github.com/getflip/swirl/commit/36cba2ff59668b984222866db92793e69dd73aed)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update to Stencil 4
+
+### Patch Changes
+
+- Updated dependencies
+  [[`36cba2ff`](https://github.com/getflip/swirl/commit/36cba2ff59668b984222866db92793e69dd73aed)]:
+  - @getflip/swirl-components@0.189.0
+
 ## 0.188.0
 
 ### Minor Changes
