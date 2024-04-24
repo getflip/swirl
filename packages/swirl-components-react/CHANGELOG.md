@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.190.0
+
+### Minor Changes
+
+- [`d62fc672`](https://github.com/getflip/swirl/commit/d62fc672d1ed4982c727dab4cadcebf801694803)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Revert back to Angular 16
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d62fc672`](https://github.com/getflip/swirl/commit/d62fc672d1ed4982c727dab4cadcebf801694803)]:
+  - @getflip/swirl-components@0.190.0
+
 ## 0.189.0
 
 ### Minor Changes
