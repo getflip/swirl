@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.188.0
+
+### Minor Changes
+
+- [`3b05fadc`](https://github.com/getflip/swirl/commit/3b05fadc217b55958d11d584f561c1e7fe8e64ad)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Breaking! Rename "popover" prop
+  of swirl-popover-trigger to "swirl-popover" to resolve name conflict with
+  native "popover" attribute
+
 ## 0.187.0
 
 ### Minor Changes
