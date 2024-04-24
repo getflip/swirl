@@ -1,9 +1,18 @@
-import classnames from 'classnames';
-import { v4 as uuid } from 'uuid';
+import classnames from "classnames";
+import { v4 as uuid } from "uuid";
 
-import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+} from "@stencil/core";
 
-import { getDesktopMediaQuery } from '../../utils';
+import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlResourceListItemLabelWeight = "medium" | "regular";
 
@@ -285,7 +294,7 @@ export class SwirlResourceListItem {
             <slot name="control"></slot>
           </span>
           {showMenu && (
-            <swirl-popover-trigger popover={this.menuTriggerId}>
+            <swirl-popover-trigger swirlPopover={this.menuTriggerId}>
               <swirl-button
                 aria-disabled={disabled ? "true" : undefined}
                 class="resource-list-item__menu-trigger"

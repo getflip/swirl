@@ -69,8 +69,14 @@ export class SwirlMenu {
 
   componentDidLoad() {
     this.mobileMediaQuery.onchange = this.mediaQueryHandler;
-    this.parentMenu = closestPassShadow(this.el.parentElement, "swirl-menu");
-    this.popover = closestPassShadow(this.el, "swirl-popover");
+    this.parentMenu = closestPassShadow(
+      this.el.parentElement,
+      "swirl-menu"
+    ) as HTMLSwirlMenuElement;
+    this.popover = closestPassShadow(
+      this.el,
+      "swirl-popover"
+    ) as HTMLSwirlPopoverElement;
     this.rootMenu = parentsPassShadow(this.el, "swirl-menu").pop();
 
     if (Boolean(this.parentMenu)) {
@@ -394,7 +400,7 @@ export class SwirlMenu {
       const activeItem = closestPassShadow(
         this.items[this.getActiveItemIndex()],
         "swirl-menu-item"
-      );
+      ) as HTMLSwirlMenuItemElement;
 
       if (!Boolean(activeItem)) {
         return;

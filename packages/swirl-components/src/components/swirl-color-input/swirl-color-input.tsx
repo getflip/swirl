@@ -7,8 +7,8 @@ import {
   Prop,
   Watch,
 } from "@stencil/core";
-import { v4 as uuid } from "uuid";
 import classnames from "classnames";
+import { v4 as uuid } from "uuid";
 import "vanilla-colorful";
 import type { HexColorPicker } from "vanilla-colorful";
 
@@ -129,7 +129,7 @@ export class SwirlColorInput {
             type="text"
             value={this.value}
           />
-          <swirl-popover-trigger popover={this.pickerId}>
+          <swirl-popover-trigger swirlPopover={this.pickerId}>
             <button
               aria-label={this.pickerButtonLabel}
               class="color-input__preview-button"

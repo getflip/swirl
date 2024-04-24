@@ -367,7 +367,7 @@ export class SwirlLightbox {
                 <swirl-icon-close></swirl-icon-close>
               </button>
               {!this.hideMenu && (
-                <swirl-popover-trigger popover={this.menu}>
+                <swirl-popover-trigger swirlPopover={this.menu}>
                   <button
                     aria-label={this.menuTriggerLabel}
                     class="lightbox__menu-button"

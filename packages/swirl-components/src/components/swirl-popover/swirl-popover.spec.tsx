@@ -12,7 +12,7 @@ import { SwirlPopover } from "./swirl-popover";
 describe("swirl-popover", () => {
   const template = `
     <div>
-      <swirl-popover-trigger popover="popover">
+      <swirl-popover-trigger swirl-popover="popover">
         <button id="trigger">Trigger popover</button>
       </swirl-popover-trigger>
       <swirl-popover label="Popover" id="popover">
@@ -39,7 +39,7 @@ describe("swirl-popover", () => {
 
     expect(page.body).toEqualHtml(`
       <div>
-        <swirl-popover-trigger popover="popover">
+        <swirl-popover-trigger swirl-popover="popover">
           <button aria-controls="popover" aria-expanded="false" aria-haspopup="dialog" id="trigger">Trigger popover</button>
         </swirl-popover-trigger>
         <swirl-popover id="popover" label="Popover">

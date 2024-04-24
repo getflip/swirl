@@ -1,9 +1,9 @@
-import { FunctionComponent, LegacyRef } from "react";
+import { SwirlPopoverTrigger } from "@getflip/swirl-components-react";
 import classNames from "classnames";
+import { FunctionComponent, LegacyRef } from "react";
 import { IconsMetaData } from "src/pages/icons";
 import NoSsr from "../Layout/NoSsr";
-import { MobileView, DesktopView } from "../View/Views";
-import { SwirlPopoverTrigger } from "@getflip/swirl-components-react";
+import { DesktopView, MobileView } from "../View/Views";
 
 interface IconGridProps {
   id: string;
@@ -76,7 +76,7 @@ const IconGridItem: FunctionComponent<IconGridProps> = ({
       </DesktopView>
       <MobileView>
         <div role={role}>
-          <SwirlPopoverTrigger popover="icon-popover">
+          <SwirlPopoverTrigger swirlPopover="icon-popover">
             <a
               id={`icon-popover-trigger`}
               tabIndex={index === 0 ? 0 : -1}

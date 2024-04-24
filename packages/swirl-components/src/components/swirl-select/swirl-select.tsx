@@ -1,17 +1,17 @@
+import { ComputePositionReturn, Placement } from "@floating-ui/dom";
 import {
   Component,
   Element,
   Event,
   EventEmitter,
-  h,
   Host,
   Listen,
   Prop,
   State,
+  h,
 } from "@stencil/core";
 import classnames from "classnames";
 import { SwirlFormInput, querySelectorAllDeep } from "../../utils";
-import { ComputePositionReturn, Placement } from "@floating-ui/dom";
 
 @Component({
   /**
@@ -197,7 +197,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
       <Host onKeyDown={this.onKeyDown}>
         <div class={className}>
           <swirl-popover-trigger
-            popover={this.popover}
+            swirlPopover={this.popover}
             setAriaAttributes={false}
           >
             <input

@@ -333,7 +333,7 @@ export class SwirlPdfReader {
                 </span>
               </span>
               <span class="pdf-reader__header-right">
-                <swirl-popover-trigger popover={this.menu}>
+                <swirl-popover-trigger swirlPopover={this.menu}>
                   <swirl-button
                     class="pdf-reader__menu-button"
                     hideLabel

@@ -53,7 +53,7 @@ const Template = (args) => {
     args
   ) as HTMLSwirlPopoverElement;
 
-  trigger.setAttribute("popover", "popover");
+  trigger.setAttribute("swirl-popover", "popover");
   trigger.innerHTML = `
     <swirl-button label="Trigger popover"></swirl-button>
   `;

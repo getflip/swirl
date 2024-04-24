@@ -18,7 +18,7 @@ const Template = (args) => {
   const popover = document.createElement("swirl-popover");
   const element = generateStoryElement("swirl-menu", args);
 
-  trigger.popover = "menu-popover";
+  trigger.swirlPopover = "menu-popover";
   trigger.innerHTML = `
     <swirl-button label="Open menu"></swirl-button>
   `;

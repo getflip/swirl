@@ -34,7 +34,7 @@ describe("swirl-color-input", () => {
                  spellcheck="false"
                  type="text"
                  value="#ff0000">
-          <swirl-popover-trigger popover="${pickerId}">
+          <swirl-popover-trigger swirl-popover="${pickerId}">
             <button aria-label="Open color picker" class="color-input__preview-button" type="button" style="background-color: var(--s-border-subdued);"></button>
           </swirl-popover-trigger>
           <swirl-popover animation="scale-in-y" id="${pickerId}" label="Color picker" placement="bottom-end">

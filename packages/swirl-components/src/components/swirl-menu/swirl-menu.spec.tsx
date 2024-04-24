@@ -23,7 +23,7 @@ import { SwirlMenu } from "./swirl-menu";
 
 const template = `
   <div>
-    <swirl-popover-trigger popover="menu">
+    <swirl-popover-trigger swirl-popover="menu">
       <swirl-button label="Trigger"></swirl-button>
     </swirl-popover-trigger>
     <swirl-popover label="Menu" id="menu">
@@ -71,7 +71,7 @@ describe("swirl-menu", () => {
 
     expect(page.body.children[0]).toMatchInlineSnapshot(`
       <div>
-        <swirl-popover-trigger popover="menu">
+        <swirl-popover-trigger swirl-popover="menu">
           <!---->
           <swirl-button label="Trigger" swirl-aria-controls="menu" swirl-aria-expanded="false" swirl-aria-haspopup="dialog">
             <!---->
