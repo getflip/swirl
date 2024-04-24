@@ -106,7 +106,7 @@ export const config: Config = {
       directivesArrayFile:
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/index.ts",
       excludeComponents: ["hex-color-picker", "wc-datepicker"],
-      includeImportCustomElements: false,
+      outputType: "component",
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
   ],
