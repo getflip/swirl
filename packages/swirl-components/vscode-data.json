@@ -12565,11 +12565,11 @@
           "description": ""
         },
         {
-          "name": "popover",
+          "name": "set-aria-attributes",
           "description": ""
         },
         {
-          "name": "set-aria-attributes",
+          "name": "swirl-popover",
           "description": ""
         }
       ]
