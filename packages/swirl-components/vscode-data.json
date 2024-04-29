@@ -1184,6 +1184,10 @@
           "description": ""
         },
         {
+          "name": "custom-background-color",
+          "description": ""
+        },
+        {
           "name": "elevated",
           "description": ""
         },

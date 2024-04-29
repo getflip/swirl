@@ -54,6 +54,7 @@ export class SwirlCard {
 
   @Prop() as?: string = "div";
   @Prop() borderRadius?: SwirlCardBorderRadius = "base";
+  @Prop() customBackgroundColor?: string;
   @Prop() elevated?: boolean;
   @Prop() elevationLevel?: SwirlCardElevationLevel = 3;
   @Prop() height?: string;
@@ -111,6 +112,7 @@ export class SwirlCard {
     };
 
     const bodyStyles = {
+      backgroundColor: this.customBackgroundColor,
       padding: Boolean(this.padding)
         ? `var(--s-space-${this.padding})`
         : undefined,
