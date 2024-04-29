@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.192.0
+
+### Minor Changes
+
+- [`9174a3ac`](https://github.com/getflip/swirl/commit/9174a3ac178147d33e4050795d7765bc442fb143)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "custom-background-color"
+  prop to swirl-card
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9174a3ac`](https://github.com/getflip/swirl/commit/9174a3ac178147d33e4050795d7765bc442fb143)]:
+  - @getflip/swirl-components@0.192.0
+
 ## 0.191.0
 
 ### Minor Changes
