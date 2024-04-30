@@ -386,25 +386,23 @@ export class SwirlFileViewerPdf {
       }
 
       @page {
-        size: a4;
+        size: a4 !important;
         margin: 0;
         padding: 0;
       }
 
-      body {
-        height: 100%;
-        width: 100%;
+      html, body {
+        width: 210mm;
+        height: 297mm;
       }
 
       img {
         display: block;
         max-width: 100%;
         max-height: 100%;
-        width: 100%;
-        height: auto;
         page-break-after: always;
       }
-      `;
+    `;
 
     let html = `
       <!DOCTYPE html>
@@ -438,6 +436,9 @@ export class SwirlFileViewerPdf {
     win.focus();
 
     await new Promise((resolve) => setTimeout(resolve, 100));
+
+    // var wnd = window.open("about:blank", "", "_blank");
+    // wnd.document.write(html);
 
     win.print();
     iframe.remove();
