@@ -25,7 +25,6 @@ import {
   Tag,
 } from "src/components/Tags";
 
-// STATIC GENERATION CODE
 export const getStaticPaths: GetStaticPaths = async () => {
   const specs = (await createStaticPathsForSpec()) ?? [];
 
