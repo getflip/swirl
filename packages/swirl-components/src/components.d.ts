@@ -48,7 +48,7 @@ import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./com
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
-import { SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+import { SwirlSeparatorBorderColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -111,7 +111,7 @@ export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./com
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
-export { SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+export { SwirlSeparatorBorderColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -1642,6 +1642,7 @@ export namespace Components {
         "withSearch"?: boolean;
     }
     interface SwirlSeparator {
+        "borderColor"?: SwirlSeparatorBorderColor;
         "orientation"?: SwirlSeparatorOrientation;
         "spacing"?: SwirlSeparatorSpacing;
     }
@@ -5964,6 +5965,7 @@ declare namespace LocalJSX {
         "withSearch"?: boolean;
     }
     interface SwirlSeparator {
+        "borderColor"?: SwirlSeparatorBorderColor;
         "orientation"?: SwirlSeparatorOrientation;
         "spacing"?: SwirlSeparatorSpacing;
     }

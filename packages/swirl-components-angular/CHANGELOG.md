@@ -1,5 +1,31 @@
 # @getflip/swirl-components-angular
 
+## 0.193.0
+
+### Minor Changes
+
+- [`0b03c41b`](https://github.com/getflip/swirl/commit/0b03c41b511170ef4c6e10596538f1ad2f6959b4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "borderColor" prop to
+  swirl-separator
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0b03c41b`](https://github.com/getflip/swirl/commit/0b03c41b511170ef4c6e10596538f1ad2f6959b4)]:
+  - @getflip/swirl-components@0.193.0
+
+## 0.192.2
+
+### Patch Changes
+
+- [`591f1eb9`](https://github.com/getflip/swirl/commit/591f1eb9b9f0aaba9ee2cf45030d4d889431d61f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-resource-list-item
+  badges from shrinking
+
+- Updated dependencies
+  [[`591f1eb9`](https://github.com/getflip/swirl/commit/591f1eb9b9f0aaba9ee2cf45030d4d889431d61f)]:
+  - @getflip/swirl-components@0.192.2
+
 ## 0.192.1
 
 ### Patch Changes
