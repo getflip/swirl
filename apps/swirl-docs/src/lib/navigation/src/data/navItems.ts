@@ -24,7 +24,6 @@ export const navItems: NavItem[] = [
     description:
       "Uniform APIs and documents for our Flip system, ensuring seamless integration across platforms.",
     teaserIcon: "/images/teaser-icon-api.svg",
-    devOnly: true,
     comingSoon: true,
     children: [
       ...apiDocsNavItems,
