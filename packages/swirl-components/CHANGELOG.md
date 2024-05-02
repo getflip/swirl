@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.193.0
+
+### Minor Changes
+
+- [`0b03c41b`](https://github.com/getflip/swirl/commit/0b03c41b511170ef4c6e10596538f1ad2f6959b4)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "borderColor" prop to
+  swirl-separator
+
 ## 0.192.2
 
 ### Patch Changes
