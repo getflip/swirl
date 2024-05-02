@@ -5,7 +5,7 @@ import {
 } from "@swirl/lib/docs";
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import { isProd, isProdDeployment } from "@swirl/lib/env";
+import { isProd } from "@swirl/lib/env";
 import { NavItem } from "@swirl/lib/navigation";
 import { apiEndpointDocumentation } from "@swirl/lib/navigation/src/data/apiEndpoints.data";
 import { apiSpecsNavItems } from "@swirl/lib/navigation/src/data/apiSpecs.data";
@@ -18,12 +18,12 @@ import { DocumentationMdxComponents } from "src/components/Documentation/Documen
 import { EndpointCodePreview } from "src/components/Documentation/EndpointCodePreview";
 import { EndpointDescription } from "src/components/Documentation/EndpointDescription";
 import { DocumentationLayout } from "src/components/Layout/DocumentationLayout";
+import { Heading } from "src/components/swirl-recreations";
 import {
-  Tag,
   mapHttpMethodToTagContent,
   mapHttpMethodToTagScheme,
+  Tag,
 } from "src/components/Tags";
-import { Heading } from "src/components/swirl-recreations";
 
 // STATIC GENERATION CODE
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -36,10 +36,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  if (isProdDeployment) {
-    return { notFound: true };
-  }
-
   if (
     !context.params ||
     !("apiName" in context.params) ||
