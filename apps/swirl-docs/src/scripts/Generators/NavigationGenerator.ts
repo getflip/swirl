@@ -132,7 +132,8 @@ export class ApiDocsNavigationGenerator {
 
       return (
         !fs.statSync(absolutePath).isDirectory() &&
-        !fullPath.includes(".gitkeep")
+        !fullPath.includes(".gitkeep") &&
+        !fullPath.includes("getting-started-test")
       );
     });
 
