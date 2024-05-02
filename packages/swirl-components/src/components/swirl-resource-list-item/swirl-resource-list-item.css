@@ -343,6 +343,7 @@
 
 .resource-list-item__badges {
   display: inline-flex;
+  width: max-content;
 }
 
 .resource-list-item__drag-handle {
