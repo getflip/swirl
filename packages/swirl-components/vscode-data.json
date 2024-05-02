@@ -12994,6 +12994,18 @@
       },
       "attributes": [
         {
+          "name": "border-color",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "strong"
+            }
+          ]
+        },
+        {
           "name": "orientation",
           "description": "",
           "values": [
