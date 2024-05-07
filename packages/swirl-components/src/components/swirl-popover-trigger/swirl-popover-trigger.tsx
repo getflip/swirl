@@ -13,6 +13,7 @@ export class SwirlPopoverTrigger {
   @Prop() parentScrollContainer?: HTMLElement;
   @Prop() setAriaAttributes?: boolean = true;
   @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
+  @Prop() triggerOnHover?: boolean = false;
 
   private intersectionObserver: IntersectionObserver;
 
@@ -71,27 +72,12 @@ export class SwirlPopoverTrigger {
     }
   }
 
-  private onClick = () => {
-    const popoverEl = this.getPopoverEl();
+  private onMouseenter = () => {
+    const popoverElements = this.getPopoverAndTriggerEls();
 
-    if (!Boolean(popoverEl)) {
-      return;
-    }
+    popoverElements.popoverEl.open(popoverElements.triggerEl);
 
-    if (this.isPopoverOpen()) {
-      popoverEl.close();
-      return;
-    }
-
-    const triggerEl = this.getTriggerEl();
-
-    if (!Boolean(triggerEl)) {
-      return;
-    }
-
-    popoverEl.open(triggerEl);
-
-    popoverEl.addEventListener(
+    popoverElements.popoverEl.addEventListener(
       "popoverOpen",
       () => {
         this.updateTriggerElAriaAttributes(true);
@@ -99,7 +85,35 @@ export class SwirlPopoverTrigger {
       { once: true }
     );
 
-    popoverEl.addEventListener(
+    popoverElements.popoverEl.addEventListener(
+      "popoverClose",
+      () => {
+        this.updateTriggerElAriaAttributes(false);
+      },
+      { once: true }
+    );
+  };
+
+  private onMouseleave = () => {
+    const popoverElements = this.getPopoverAndTriggerEls();
+
+    popoverElements.popoverEl.close();
+  };
+
+  private onClick = () => {
+    const popoverElements = this.getPopoverAndTriggerEls();
+
+    popoverElements.popoverEl.open(popoverElements.triggerEl);
+
+    popoverElements.popoverEl.addEventListener(
+      "popoverOpen",
+      () => {
+        this.updateTriggerElAriaAttributes(true);
+      },
+      { once: true }
+    );
+
+    popoverElements.popoverEl.addEventListener(
       "popoverClose",
       () => {
         this.updateTriggerElAriaAttributes(false);
@@ -145,7 +159,30 @@ export class SwirlPopoverTrigger {
     return isActive;
   }
 
+  private getPopoverAndTriggerEls() {
+    const popoverEl = this.getPopoverEl();
+
+    if (!Boolean(popoverEl)) {
+      return { popoverEl: null, triggerEl: null };
+    }
+
+    const triggerEl = this.getTriggerEl();
+
+    if (!Boolean(triggerEl)) {
+      return { popoverEl: null, triggerEl: null };
+    }
+
+    return { popoverEl, triggerEl };
+  }
+
   render() {
+    if (this.triggerOnHover) {
+      return (
+        <Host onMouseenter={this.onMouseenter} onMouseleave={this.onMouseleave}>
+          <slot></slot>
+        </Host>
+      );
+    }
     return (
       <Host onClick={this.onClick}>
         <slot></slot>

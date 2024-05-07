@@ -12575,6 +12575,10 @@
         {
           "name": "swirl-popover",
           "description": ""
+        },
+        {
+          "name": "trigger-on-hover",
+          "description": ""
         }
       ]
     },
