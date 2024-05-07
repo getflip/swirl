@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.194.0
+
+### Minor Changes
+
+- [`02d783a3`](https://github.com/getflip/swirl/commit/02d783a38939200ca254cca2316d6b498b443d39) -
+  Add bordered prop to tag
+
 ## 0.193.0
 
 ### Minor Changes
