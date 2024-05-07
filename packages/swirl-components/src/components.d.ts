@@ -1947,6 +1947,7 @@ export namespace Components {
         "label": string;
     }
     interface SwirlTag {
+        "bordered"?: boolean;
         "intent"?: SwirlTagIntent;
         "label": string;
         "removable"?: boolean;
@@ -6260,6 +6261,7 @@ declare namespace LocalJSX {
         "onTabActivated"?: (event: SwirlTabsCustomEvent<HTMLSwirlTabElement>) => void;
     }
     interface SwirlTag {
+        "bordered"?: boolean;
         "intent"?: SwirlTagIntent;
         "label": string;
         "onRemove"?: (event: SwirlTagCustomEvent<MouseEvent>) => void;
