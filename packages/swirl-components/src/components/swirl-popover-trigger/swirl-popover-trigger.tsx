@@ -178,7 +178,11 @@ export class SwirlPopoverTrigger {
   render() {
     if (this.triggerOnHover) {
       return (
-        <Host onMouseenter={this.onMouseenter} onMouseleave={this.onMouseleave}>
+        <Host
+          onClick={this.onClick}
+          onMouseenter={this.onMouseenter}
+          onMouseleave={this.onMouseleave}
+        >
           <slot></slot>
         </Host>
       );
