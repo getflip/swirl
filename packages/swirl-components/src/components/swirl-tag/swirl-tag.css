@@ -22,12 +22,22 @@
   gap: var(--s-space-4);
 }
 
+.tag--bordered {
+  border-style: solid;
+  border-width: var(--s-border-width-default);
+  border-color: var(--s-border-strong);
+}
+
 .tag--intent-info {
   color: var(--s-text-info);
   background-color: var(--s-surface-info-subdued);
 
   & .tag__removal-button {
     color: var(--icon-info);
+  }
+
+  &.tag--bordered {
+    border-color: var(--s-border-info);
   }
 }
 
@@ -38,6 +48,10 @@
   & .tag__removal-button {
     color: var(--icon-critical);
   }
+
+  &.tag--bordered {
+    border-color: var(--s-border-critical);
+  }
 }
 
 .tag--intent-warning {
@@ -47,6 +61,10 @@
   & .tag__removal-button {
     color: var(--icon-warning);
   }
+
+  &.tag--bordered {
+    border-color: var(--s-border-warning);
+  }
 }
 
 .tag--intent-success {
@@ -55,6 +73,10 @@
 
   & .tag__removal-button {
     color: var(--icon-success);
+  }
+
+  &.tag--bordered {
+    border-color: var(--s-border-success);
   }
 }
 

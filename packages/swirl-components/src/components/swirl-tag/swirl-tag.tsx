@@ -27,6 +27,7 @@ export class SwirlTag {
   @Prop() intent?: SwirlTagIntent = "default";
   @Prop() label!: string;
   @Prop() removable?: boolean;
+  @Prop() bordered?: boolean;
   @Prop() removalButtonLabel?: string = "Remove";
 
   @Event() remove?: EventEmitter<MouseEvent>;
@@ -36,7 +37,9 @@ export class SwirlTag {
   };
 
   render() {
-    const className = classnames("tag", `tag--intent-${this.intent}`);
+    const className = classnames("tag", `tag--intent-${this.intent}`, {
+      "tag--bordered": this.bordered,
+    });
 
     return (
       <Host>
