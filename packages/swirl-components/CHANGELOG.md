@@ -1,5 +1,18 @@
 # @getflip/swirl-components
 
+## 0.195.0
+
+### Minor Changes
+
+- [`148e39f4`](https://github.com/getflip/swirl/commit/148e39f4e9e84010f96080e9e46e1f2f5bbc8b41)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "trigger-on-hover" prop to
+  swirl-popover-trigger
+
+* [#690](https://github.com/getflip/swirl/pull/690)
+  [`e52250c7`](https://github.com/getflip/swirl/commit/e52250c725f9afa5587381b509dbacae7bc16784)
+  Thanks [@manuel-pross](https://github.com/manuel-pross)! - add mousenter
+  trigger for popover
+
 ## 0.194.1
 
 ### Patch Changes
