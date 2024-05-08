@@ -211,7 +211,9 @@ export class SwirlFileViewerPdf {
         this.doc.destroy();
       }
 
-      this.doc = await getDocument(this.file).promise;
+      // Don't remove the isEvalSupported property. https://github.com/advisories/GHSA-wgrm-67xf-hhpq
+      this.doc = await getDocument({ isEvalSupported: false, url: this.file })
+        .promise;
 
       const pages = [];
 
