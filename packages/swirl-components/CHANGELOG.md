@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.194.1
+
+### Patch Changes
+
+- [`7d5ea77c`](https://github.com/getflip/swirl/commit/7d5ea77c2ea3933a7ad499619bbfcf796b6984fd)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Close PDF.js vulnerability
+  (https://github.com/advisories/GHSA-wgrm-67xf-hhpq)
+
 ## 0.194.0
 
 ### Minor Changes
