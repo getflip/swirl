@@ -1525,7 +1525,7 @@ export namespace Components {
           * Close the popover.
           * @returns
          */
-        "close": () => Promise<void>;
+        "close": (disableFocus?: boolean) => Promise<void>;
         "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "fullscreenBottomSheet"?: boolean;
@@ -1536,7 +1536,7 @@ export namespace Components {
           * Open the popover.
           * @returns
          */
-        "open": (triggerEl?: HTMLElement) => Promise<void>;
+        "open": (triggerEl?: HTMLElement, disableFocus?: boolean) => Promise<void>;
         "placement"?: Placement;
         "popoverId"?: string;
         "returnFocusToTrigger"?: boolean;
@@ -1550,6 +1550,7 @@ export namespace Components {
         "parentScrollContainer"?: HTMLElement;
         "setAriaAttributes"?: boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement;
+        "triggerOnHover"?: boolean;
     }
     interface SwirlProgressIndicator {
         "label": string;
@@ -5858,6 +5859,7 @@ declare namespace LocalJSX {
         "parentScrollContainer"?: HTMLElement;
         "setAriaAttributes"?: boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement;
+        "triggerOnHover"?: boolean;
     }
     interface SwirlProgressIndicator {
         "label": string;

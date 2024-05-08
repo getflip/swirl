@@ -152,7 +152,7 @@ export class SwirlPopover {
    * @returns
    */
   @Method()
-  public async close() {
+  public async close(disableFocus?: boolean) {
     if (this.closing || !this.active) {
       return;
     }
@@ -173,7 +173,7 @@ export class SwirlPopover {
 
     this.unlockBodyScroll();
 
-    if (this.returnFocusToTrigger) {
+    if (this.returnFocusToTrigger && !disableFocus) {
       this.getNativeTriggerElement()?.focus();
     }
   }
@@ -183,7 +183,7 @@ export class SwirlPopover {
    * @returns
    */
   @Method()
-  public async open(triggerEl?: HTMLElement) {
+  public async open(triggerEl?: HTMLElement, disableFocus?: boolean) {
     this.triggerEl = triggerEl || this.triggerEl;
 
     if (this.active || !Boolean(this.triggerEl)) {
@@ -203,9 +203,9 @@ export class SwirlPopover {
 
       this.popoverOpen.emit({ position: this.position });
 
-      if (focusableChildren.length > 0) {
+      if (focusableChildren.length > 0 && !disableFocus) {
         focusableChildren[0].focus();
-      } else {
+      } else if (!disableFocus) {
         this.contentContainer.focus();
       }
 

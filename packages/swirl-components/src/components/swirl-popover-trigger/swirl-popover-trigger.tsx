@@ -13,6 +13,7 @@ export class SwirlPopoverTrigger {
   @Prop() parentScrollContainer?: HTMLElement;
   @Prop() setAriaAttributes?: boolean = true;
   @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
+  @Prop() triggerOnHover?: boolean = false;
 
   private intersectionObserver: IntersectionObserver;
 
@@ -71,23 +72,42 @@ export class SwirlPopoverTrigger {
     }
   }
 
-  private onClick = () => {
+  private onMouseenter = () => {
+    if (!this.triggerOnHover) return;
+
     const popoverEl = this.getPopoverEl();
-
-    if (!Boolean(popoverEl)) {
-      return;
-    }
-
-    if (this.isPopoverOpen()) {
-      popoverEl.close();
-      return;
-    }
-
     const triggerEl = this.getTriggerEl();
 
-    if (!Boolean(triggerEl)) {
-      return;
-    }
+    popoverEl.open(triggerEl, true);
+
+    popoverEl.addEventListener(
+      "popoverOpen",
+      () => {
+        this.updateTriggerElAriaAttributes(true);
+      },
+      { once: true }
+    );
+
+    popoverEl.addEventListener(
+      "popoverClose",
+      () => {
+        this.updateTriggerElAriaAttributes(false);
+      },
+      { once: true }
+    );
+  };
+
+  private onMouseleave = () => {
+    if (!this.triggerOnHover) return;
+
+    const popoverEl = this.getPopoverEl();
+
+    popoverEl.close(true);
+  };
+
+  private onClick = () => {
+    const popoverEl = this.getPopoverEl();
+    const triggerEl = this.getTriggerEl();
 
     popoverEl.open(triggerEl);
 
@@ -147,7 +167,11 @@ export class SwirlPopoverTrigger {
 
   render() {
     return (
-      <Host onClick={this.onClick}>
+      <Host
+        onClick={this.onClick}
+        onMouseenter={this.onMouseenter}
+        onMouseleave={this.onMouseleave}
+      >
         <slot></slot>
       </Host>
     );
