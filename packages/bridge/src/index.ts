@@ -9,6 +9,7 @@ export * from "./i18n";
 export * from "./modal";
 export * from "./navigation";
 export * from "./theming";
+export * from "./toast";
 
 declare global {
   interface Window {

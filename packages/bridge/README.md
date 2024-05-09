@@ -13,6 +13,7 @@ App or Flip Admin Console.
   - [Theming](#theming)
   - [Dialogs](#dialogs)
   - [Modals](#modals)
+  - [Toasts](#toasts)
 - [Events](#events)
 - [Error Handling](#error-handling)
 - [Development](#development)
@@ -360,6 +361,39 @@ Destroys a modal, removing it from the DOM.
 import { destroyModal } from "@getflip/bridge";
 
 await destroyModal({ id: "my-modal" });
+```
+
+### Toasts
+
+#### `showToast`
+
+Shows a toast by the host app.
+
+**Param**
+
+```js
+{
+  content: string;
+  duration?: number;
+  icon?: string; 
+  intent?: SwirlToastIntent;
+}
+```
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { showToast } from "@getflip/bridge";
+
+await showToast({
+  content: "My toast",
+  duration: 5000,
+  icon: "icon",
+  intent: "success",
+});
+
 ```
 
 ## Events
