@@ -1,5 +1,14 @@
 # @getflip/bridge
 
+## 0.5.0
+
+### Minor Changes
+
+- [#696](https://github.com/getflip/swirl/pull/696)
+  [`cbb156ad`](https://github.com/getflip/swirl/commit/cbb156addc997e1b5662e857a84bfef91e96ec18)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Create
+  showToast method
+
 ## 0.4.99
 
 ### Patch Changes
