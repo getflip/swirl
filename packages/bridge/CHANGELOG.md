@@ -1,5 +1,14 @@
 # @getflip/bridge
 
+## 0.5.1
+
+### Patch Changes
+
+- [#699](https://github.com/getflip/swirl/pull/699)
+  [`c88b5d1d`](https://github.com/getflip/swirl/commit/c88b5d1de1f71618659cf55e4c0f15c512e0b26c)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix showToast
+  return type
+
 ## 0.5.0
 
 ### Minor Changes
