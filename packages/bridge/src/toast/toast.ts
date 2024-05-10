@@ -1,7 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
 import { makeRequest } from "../messaging";
 import { BridgeMethod } from "../types";
-import { ShowToastRequestParams, ShowToastRequest } from "./toast.types";
+import {
+  ShowToastRequestParams,
+  ShowToastRequest,
+  ShowToastResult,
+} from "./toast.types";
 
 export async function showToast(params: ShowToastRequestParams) {
   const request: ShowToastRequest = {
@@ -10,5 +14,5 @@ export async function showToast(params: ShowToastRequestParams) {
     params,
   };
 
-  return await makeRequest<ShowToastRequest>(request);
+  return await makeRequest<ShowToastResult>(request);
 }
