@@ -373,7 +373,7 @@ Shows a toast by the host app.
 
 ```js
 {
-  content: string;
+  text: string;
   duration?: number;
   icon?: string; 
   intent?: SwirlToastIntent;
@@ -388,7 +388,7 @@ Shows a toast by the host app.
 import { showToast } from "@getflip/bridge";
 
 await showToast({
-  content: "My toast",
+  text: "My toast",
   duration: 5000,
   icon: "icon",
   intent: "success",

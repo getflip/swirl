@@ -23,7 +23,7 @@ describe("toast", () => {
 
   test("'showToast' sends correct request", async () => {
     const params: ShowToastRequestParams = {
-      content: "My toast",
+      text: "My toast",
       duration: 5000,
       icon: "icon",
       intent: "success",

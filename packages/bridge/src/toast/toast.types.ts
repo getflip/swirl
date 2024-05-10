@@ -3,7 +3,7 @@ import { BridgeMethod } from "../types";
 import { SwirlToastIntent } from "@getflip/swirl-components/loader";
 
 export type ShowToastRequestParams = {
-  content: string;
+  text: string;
   duration?: number;
   icon?: string;
   intent?: SwirlToastIntent;
