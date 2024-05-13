@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop, Watch } from "@stencil/core";
+import { Component, Element, h, Host, Prop, State, Watch } from "@stencil/core";
 
 @Component({
   shadow: false,
@@ -14,6 +14,18 @@ export class SwirlPopoverTrigger {
   @Prop() setAriaAttributes?: boolean = true;
   @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
   @Prop() triggerOnHover?: boolean = false;
+
+  @State() mouseX = 0;
+  @State() mouseY = 0;
+
+  @State() svgWidth = 0;
+  @State() svgHeight = 0;
+
+  @State() popoverWidth = 0;
+  @State() popoverHeight = 0;
+
+  @State() popoverX = 0;
+  @State() popoverY = 0;
 
   private intersectionObserver: IntersectionObserver;
 
@@ -79,6 +91,12 @@ export class SwirlPopoverTrigger {
     const triggerEl = this.getTriggerEl();
 
     popoverEl.open(triggerEl, true);
+    window.addEventListener("mousemove", this.onMousemove);
+    //this.popoverWidth = popoverEl.clientWidth;
+    //this.popoverWidth = popoverEl.clientHeight;
+    const popoverContent = popoverEl.firstElementChild;
+    this.svgWidth = popoverContent.clientWidth;
+    console.log(this.svgWidth);
 
     popoverEl.addEventListener(
       "popoverOpen",
@@ -97,12 +115,19 @@ export class SwirlPopoverTrigger {
     );
   };
 
+  private onMousemove = (event: MouseEvent) => {
+    this.mouseX = event.clientX;
+    this.mouseY = event.clientY;
+    //console.log(event.clientX);
+  };
+
   private onMouseleave = () => {
     if (!this.triggerOnHover) return;
 
     const popoverEl = this.getPopoverEl();
 
     popoverEl.close(true);
+    window.removeEventListener("mousemove", this.onMousemove);
   };
 
   private onClick = () => {
@@ -173,6 +198,31 @@ export class SwirlPopoverTrigger {
         onMouseleave={this.onMouseleave}
       >
         <slot></slot>
+
+        <svg
+          style={{
+            position: "fixed",
+            width: this.svgWidth.toString(),
+            height: this.popoverHeight.toString(),
+            pointerEvents: "none",
+            zIndex: "2",
+            top: this.popoverY.toString(),
+            left: (this.mouseX - 2).toString(),
+          }}
+          id="svg-safe-area"
+        >
+          {/* Safe Area */}
+          <path
+            pointer-events="auto"
+            stroke="red"
+            stroke-width="0.4"
+            fill="rgb(114 140 89 / 0.3)"
+            d={`M 0, ${this.mouseY - this.popoverY}
+        L ${this.svgWidth},${this.svgHeight}
+        L ${this.svgWidth},0
+        z`}
+          />
+        </svg>
       </Host>
     );
   }
