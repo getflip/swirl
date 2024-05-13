@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.196.0
+
+### Minor Changes
+
+- [#701](https://github.com/getflip/swirl/pull/701)
+  [`d142acd7`](https://github.com/getflip/swirl/commit/d142acd7fd7c0bd9c00f0c109d220be79488b91e)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add size prop
+  to tag
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d142acd7`](https://github.com/getflip/swirl/commit/d142acd7fd7c0bd9c00f0c109d220be79488b91e)]:
+  - @getflip/swirl-components@0.196.0
+
 ## 0.195.0
 
 ### Minor Changes
