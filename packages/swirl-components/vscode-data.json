@@ -14483,6 +14483,18 @@
         {
           "name": "removal-button-label",
           "description": ""
+        },
+        {
+          "name": "size",
+          "description": "",
+          "values": [
+            {
+              "name": "m"
+            },
+            {
+              "name": "s"
+            }
+          ]
         }
       ]
     },

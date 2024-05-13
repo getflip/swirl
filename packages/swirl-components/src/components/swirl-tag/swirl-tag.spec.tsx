@@ -12,7 +12,7 @@ describe("swirl-tag", () => {
     expect(page.root).toEqualHtml(`
       <swirl-tag intent="info" label="Label">
         <mock:shadow-root>
-          <span class="tag tag--intent-info" part="tag">
+          <span class="tag tag--intent-info tag--size-m" part="tag">
             <span class="tag__label">
               Label
             </span>

@@ -59,7 +59,7 @@ import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 import { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
-import { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
+import { SwirlTagIntent, SwirlTagSize } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 import { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
@@ -122,7 +122,7 @@ export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 export { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
-export { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
+export { SwirlTagIntent, SwirlTagSize } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 export { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
@@ -1953,6 +1953,7 @@ export namespace Components {
         "label": string;
         "removable"?: boolean;
         "removalButtonLabel"?: string;
+        "size"?: SwirlTagSize;
     }
     interface SwirlText {
         "align"?: SwirlTextAlign;
@@ -6269,6 +6270,7 @@ declare namespace LocalJSX {
         "onRemove"?: (event: SwirlTagCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "removalButtonLabel"?: string;
+        "size"?: SwirlTagSize;
     }
     interface SwirlText {
         "align"?: SwirlTextAlign;

@@ -16,6 +16,8 @@ export type SwirlTagIntent =
   | "success"
   | "info";
 
+export type SwirlTagSize = "s" | "m";
+
 @Component({
   shadow: true,
   styleUrl: "swirl-tag.css",
@@ -28,6 +30,7 @@ export class SwirlTag {
   @Prop() label!: string;
   @Prop() removable?: boolean;
   @Prop() bordered?: boolean;
+  @Prop() size?: SwirlTagSize = "m";
   @Prop() removalButtonLabel?: string = "Remove";
 
   @Event() remove?: EventEmitter<MouseEvent>;
@@ -37,9 +40,14 @@ export class SwirlTag {
   };
 
   render() {
-    const className = classnames("tag", `tag--intent-${this.intent}`, {
-      "tag--bordered": this.bordered,
-    });
+    const className = classnames(
+      "tag",
+      `tag--intent-${this.intent}`,
+      `tag--size-${this.size}`,
+      {
+        "tag--bordered": this.bordered,
+      }
+    );
 
     return (
       <Host>
