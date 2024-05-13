@@ -10,7 +10,6 @@
 .tag {
   display: inline-flex;
   max-width: 100%;
-  padding: var(--s-space-2) var(--s-space-8);
   align-items: center;
   border-radius: var(--s-border-radius-s);
   color: var(--s-text-default);
@@ -20,6 +19,14 @@
   line-height: var(--s-line-height-sm);
   white-space: nowrap;
   gap: var(--s-space-4);
+}
+
+.tag--size-s {
+  padding: var(--s-space-0) var(--s-space-4);
+}
+
+.tag--size-m {
+  padding: var(--s-space-2) var(--s-space-8);
 }
 
 .tag--bordered {
