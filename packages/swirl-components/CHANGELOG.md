@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.197.0
+
+### Minor Changes
+
+- [#704](https://github.com/getflip/swirl/pull/704)
+  [`310838f4`](https://github.com/getflip/swirl/commit/310838f477bada1b779dd144d41841dc97db8937)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Extended
+  swirl-banner to customize icon
+
 ## 0.196.0
 
 ### Minor Changes
