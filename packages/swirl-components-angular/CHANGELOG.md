@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.197.0
+
+### Minor Changes
+
+- [#704](https://github.com/getflip/swirl/pull/704)
+  [`310838f4`](https://github.com/getflip/swirl/commit/310838f477bada1b779dd144d41841dc97db8937)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Extended
+  swirl-banner to customize icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`310838f4`](https://github.com/getflip/swirl/commit/310838f477bada1b779dd144d41841dc97db8937)]:
+  - @getflip/swirl-components@0.197.0
+
 ## 0.196.0
 
 ### Minor Changes
