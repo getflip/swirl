@@ -93,6 +93,11 @@ export class SwirlImageGridItem {
   render() {
     const Tag = this.interactive ? "button" : "div";
 
+    const showBlurredBackground =
+      !Boolean(this.loading) ||
+      this.loading === "eager" ||
+      (this.loaded && (this.loading !== "intersecting" || this.inViewport));
+
     const className = classnames("image-grid-item", {
       "image-grid-item--has-error": this.error,
       "image-grid-item--has-overlay": this.overlay,
@@ -104,12 +109,9 @@ export class SwirlImageGridItem {
           <div
             class="image-grid-item__background"
             style={{
-              backgroundImage:
-                !Boolean(this.loading) ||
-                this.loading === "eager" ||
-                this.loaded
-                  ? `url(${this.src})`
-                  : undefined,
+              backgroundImage: showBlurredBackground
+                ? `url(${this.src})`
+                : undefined,
             }}
           ></div>
           {this.loading !== "intersecting" || this.inViewport ? (
