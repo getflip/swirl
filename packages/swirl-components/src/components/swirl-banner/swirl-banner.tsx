@@ -122,7 +122,7 @@ export class SwirlBanner {
                 ref={(el) => (this.iconEl = el)}
               ></span>
             )}
-            <span>{this.content}</span>
+            <span class="banner__text">{this.content}</span>
           </div>
           {showControls && (
             <div class="banner__controls">

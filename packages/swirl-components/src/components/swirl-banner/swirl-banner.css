@@ -10,7 +10,7 @@
 
 .banner {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 
   max-width: 100%;
   min-height: 3.5rem;
@@ -87,6 +87,21 @@
   }
 }
 
+.banner__content {
+  display: flex;
+  align-items: flex-start;
+
+  min-height: 1.5rem;
+  flex-grow: 1;
+  line-height: var(--s-line-height-base);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+    min-height: 1.25rem;
+  }
+}
+
 .banner__icon {
   display: none;
   width: 1.5rem;
@@ -105,17 +120,10 @@
   }
 }
 
-.banner__content {
-  display: flex;
-  align-items: start;
-
+.banner__text {
   min-height: 1.5rem;
-  flex-grow: 1;
-  line-height: var(--s-line-height-base);
 
   @media (--from-desktop-without-touch) {
-    font-size: var(--s-font-size-sm);
-    line-height: var(--s-line-height-sm);
     min-height: 1.25rem;
   }
 }
@@ -123,7 +131,7 @@
 .banner__controls {
   display: inline-flex;
   flex-shrink: 0;
-  align-items: start;
+  align-items: flex-start;
   line-height: var(--s-line-height-base);
   gap: var(--s-space-16);
 
