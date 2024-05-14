@@ -2,6 +2,16 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-banner.mdx";
 
 export default {
+  argTypes: {
+    icon: {
+      table: {
+        type: {
+          detail: "e.g. <swirl-icon-download></swirl-icon-download>",
+          summary: "swirl-icon-*",
+        },
+      },
+    },
+  },
   component: "swirl-banner",
   tags: ["autodocs"],
   parameters: {

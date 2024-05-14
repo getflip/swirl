@@ -44,6 +44,7 @@ export class SwirlBanner {
   @Prop() importance?: SwirlBannerAriaRole = "status";
   @Prop() intent?: SwirlBannerIntent = "default";
   @Prop() showIcon?: boolean = false;
+  @Prop() icon?: string;
   @Prop() size?: SwirlBannerSize = "m";
 
   @Event() action?: EventEmitter<MouseEvent>;
@@ -78,6 +79,10 @@ export class SwirlBanner {
     dismissButtonIcon?.setAttribute("size", smallIcon ? "20" : "24");
   }
 
+  private determineIcon() {
+    return this.icon ? this.icon : swirlBannerIconMapping[this.intent];
+  }
+
   onAction = (event: MouseEvent) => {
     this.action.emit(event);
   };
@@ -87,9 +92,9 @@ export class SwirlBanner {
   };
 
   render() {
-    const icon = swirlBannerIconMapping[this.intent];
+    const icon = this.determineIcon();
     const showControls = Boolean(this.actionLabel) || this.dismissable;
-    const showIcon = this.showIcon && Boolean(icon);
+    const showIcon = this.icon || (this.showIcon && Boolean(icon));
 
     const className = classnames(
       "banner",
@@ -108,19 +113,19 @@ export class SwirlBanner {
           role={this.importance}
           tabIndex={0}
         >
-          {showIcon && (
-            <span
-              aria-hidden="true"
-              class="banner__icon"
-              innerHTML={icon}
-              ref={(el) => (this.iconEl = el)}
-            ></span>
-          )}
-          <span class="banner__content" id="content" part="banner__content">
-            {this.content}
-          </span>
+          <div class="banner__content" id="content" part="banner__content">
+            {showIcon && (
+              <span
+                aria-hidden="true"
+                class="banner__icon"
+                innerHTML={icon}
+                ref={(el) => (this.iconEl = el)}
+              ></span>
+            )}
+            <span class="banner__text">{this.content}</span>
+          </div>
           {showControls && (
-            <span class="banner__controls">
+            <div class="banner__controls">
               {this.actionLabel && (
                 <button
                   class="banner__action-button"
@@ -143,7 +148,7 @@ export class SwirlBanner {
                   <swirl-icon-close></swirl-icon-close>
                 </button>
               )}
-            </span>
+            </div>
           )}
         </div>
       </Host>
