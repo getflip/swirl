@@ -47,11 +47,16 @@ export class SwirlPopoverTrigger {
         return;
       }
 
+      if (this.triggerOnHover) {
+        window.addEventListener("mousemove", this.onMousemove);
+      }
+
       this.intersectionObserver.observe(firstChild);
     }
   }
 
   disconnectedCallback() {
+    window.removeEventListener("mousemove", this.onMousemove);
     this.intersectionObserver?.disconnect();
   }
 
@@ -89,18 +94,22 @@ export class SwirlPopoverTrigger {
 
     const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
+    console.log("mouseenter");
 
     popoverEl.open(triggerEl, true);
-    window.addEventListener("mousemove", this.onMousemove);
-    //this.popoverWidth = popoverEl.clientWidth;
-    //this.popoverWidth = popoverEl.clientHeight;
-    const popoverContent = popoverEl.firstElementChild;
-    this.svgWidth = popoverContent.clientWidth;
-    console.log(this.svgWidth);
+    this.popoverWidth = popoverEl.clientWidth;
+    this.popoverWidth = popoverEl.clientHeight;
+    const popoverContent =
+      popoverEl.shadowRoot.querySelector(".popover__content");
 
     popoverEl.addEventListener(
       "popoverOpen",
       () => {
+        this.popoverHeight = popoverContent.clientHeight;
+        this.popoverWidth = popoverContent.clientWidth;
+
+        this.svgWidth = this.popoverWidth;
+
         this.updateTriggerElAriaAttributes(true);
       },
       { once: true }
@@ -116,9 +125,13 @@ export class SwirlPopoverTrigger {
   };
 
   private onMousemove = (event: MouseEvent) => {
+    const popoverEl = this.getPopoverEl();
+    const popoverContent =
+      popoverEl.shadowRoot.querySelector(".popover__content");
     this.mouseX = event.clientX;
     this.mouseY = event.clientY;
-    //console.log(event.clientX);
+    this.svgHeight =
+      popoverContent.getBoundingClientRect().y - (this.mouseY + 4);
   };
 
   private onMouseleave = () => {
@@ -203,25 +216,24 @@ export class SwirlPopoverTrigger {
           style={{
             position: "fixed",
             width: this.svgWidth.toString(),
-            height: this.popoverHeight.toString(),
+            height: this.svgHeight.toString(),
             pointerEvents: "none",
             zIndex: "2",
-            top: this.popoverY.toString(),
-            left: (this.mouseX - 2).toString(),
+            top: (this.mouseY - 2).toString(),
+            left: this.popoverX.toString(),
           }}
           id="svg-safe-area"
         >
-          {/* Safe Area */}
           <path
-            pointer-events="auto"
+            pointer-3vents="auto"
             stroke="red"
             stroke-width="0.4"
-            fill="rgb(114 140 89 / 0.3)"
-            d={`M 0, ${this.mouseY - this.popoverY}
-        L ${this.svgWidth},${this.svgHeight}
-        L ${this.svgWidth},0
-        z`}
-          />
+            fill="rgba(114,140,89,0.3)"
+            // prettier-ignore
+            d={`M${this.mouseX - this.popoverY}, 0
+                L ${this.svgWidth}, ${this.svgHeight}
+                L ${this.popoverX}, ${this.svgHeight} z`}
+          ></path>
         </svg>
       </Host>
     );

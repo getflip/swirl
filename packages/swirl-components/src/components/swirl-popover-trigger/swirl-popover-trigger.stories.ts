@@ -65,4 +65,5 @@ export const SwirlPopoverTrigger = Template.bind({});
 
 SwirlPopoverTrigger.args = {
   swirlPopover: "popover",
+  triggerOnHover: true,
 };
