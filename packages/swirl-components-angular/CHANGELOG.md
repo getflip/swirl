@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.197.1
+
+### Patch Changes
+
+- [`27f578d4`](https://github.com/getflip/swirl/commit/27f578d4a744f7a83af57486ca328ec5d5718064)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Don't load swirl-image-grid-item
+  blurred background image prematurely
+
+- Updated dependencies
+  [[`27f578d4`](https://github.com/getflip/swirl/commit/27f578d4a744f7a83af57486ca328ec5d5718064)]:
+  - @getflip/swirl-components@0.197.1
+
 ## 0.197.0
 
 ### Minor Changes
