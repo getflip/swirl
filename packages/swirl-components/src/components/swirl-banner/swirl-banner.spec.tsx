@@ -13,18 +13,22 @@ describe("swirl-banner", () => {
       <swirl-banner action-label="Action" content="Content" dismissable="true" intent="info" show-icon="true">
         <mock:shadow-root>
           <div aria-describedby="content" class="banner banner--has-icon banner--intent-info banner--size-m" role="status" tabindex="0">
-            <span aria-hidden="true" class="banner__icon">
-              <swirl-icon-info size="24"></swirl-icon-info>
-            </span>
-            <span class="banner__content" id="content" part="banner__content">Content</span>
-            <span class="banner__controls">
+            <div class="banner__content" id="content" part="banner__content">
+              <span aria-hidden="true" class="banner__icon">
+                <swirl-icon-info size="24"></swirl-icon-info>
+              </span>
+              <span class="banner__text">
+                Content
+              </span>
+            </div>
+            <div class="banner__controls">
               <button class="banner__action-button" part="banner__action-button" type="button">
                 Action
               </button>
               <button aria-label="Dismiss" class="banner__dismiss-button" part="banner__dismiss-button" type="button">
                 <swirl-icon-close size="24"></swirl-icon-close>
               </button>
-            </span>
+            </div>
           </div>
         </mock:shadow-root>
       </swirl-banner>
@@ -74,21 +78,25 @@ describe("swirl-banner", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-banner action-label="Action" content="Content" dismissable="true" intent="info" icon="<swirl-icon-download></swirl-icon-download>">
+      <swirl-banner action-label="Action" content="Content" dismissable="true" icon="<swirl-icon-download></swirl-icon-download>" intent="info">
         <mock:shadow-root>
           <div aria-describedby="content" class="banner banner--has-icon banner--intent-info banner--size-m" role="status" tabindex="0">
-            <span aria-hidden="true" class="banner__icon">
-              <swirl-icon-download size="24"></swirl-icon-download>
-            </span>
-            <span class="banner__content" id="content" part="banner__content">Content</span>
-            <span class="banner__controls">
+            <div class="banner__content" id="content" part="banner__content">
+              <span aria-hidden="true" class="banner__icon">
+                <swirl-icon-download size="24"></swirl-icon-download>
+              </span>
+              <span class="banner__text">
+                Content
+              </span>
+            </div>
+            <div class="banner__controls">
               <button class="banner__action-button" part="banner__action-button" type="button">
                 Action
               </button>
               <button aria-label="Dismiss" class="banner__dismiss-button" part="banner__dismiss-button" type="button">
                 <swirl-icon-close size="24"></swirl-icon-close>
               </button>
-            </span>
+            </div>
           </div>
         </mock:shadow-root>
       </swirl-banner>
