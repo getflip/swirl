@@ -113,19 +113,19 @@ export class SwirlBanner {
           role={this.importance}
           tabIndex={0}
         >
-          {showIcon && (
-            <span
-              aria-hidden="true"
-              class="banner__icon"
-              innerHTML={icon}
-              ref={(el) => (this.iconEl = el)}
-            ></span>
-          )}
-          <span class="banner__content" id="content" part="banner__content">
-            {this.content}
-          </span>
+          <div class="banner__content" id="content" part="banner__content">
+            {showIcon && (
+              <span
+                aria-hidden="true"
+                class="banner__icon"
+                innerHTML={icon}
+                ref={(el) => (this.iconEl = el)}
+              ></span>
+            )}
+            <span>{this.content}</span>
+          </div>
           {showControls && (
-            <span class="banner__controls">
+            <div class="banner__controls">
               {this.actionLabel && (
                 <button
                   class="banner__action-button"
@@ -148,7 +148,7 @@ export class SwirlBanner {
                   <swirl-icon-close></swirl-icon-close>
                 </button>
               )}
-            </span>
+            </div>
           )}
         </div>
       </Host>

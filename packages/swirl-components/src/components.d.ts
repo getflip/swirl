@@ -276,6 +276,7 @@ export namespace Components {
         "content": string;
         "dismissLabel"?: string;
         "dismissable"?: boolean;
+        "icon"?: string;
         "importance"?: SwirlBannerAriaRole;
         "intent"?: SwirlBannerIntent;
         "showIcon"?: boolean;
@@ -4684,6 +4685,7 @@ declare namespace LocalJSX {
         "content": string;
         "dismissLabel"?: string;
         "dismissable"?: boolean;
+        "icon"?: string;
         "importance"?: SwirlBannerAriaRole;
         "intent"?: SwirlBannerIntent;
         "onAction"?: (event: SwirlBannerCustomEvent<MouseEvent>) => void;
