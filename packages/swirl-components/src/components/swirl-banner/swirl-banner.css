@@ -11,6 +11,7 @@
 .banner {
   display: flex;
   align-items: flex-start;
+  gap: var(--s-space-16);
 
   max-width: 100%;
   min-height: 3.5rem;
