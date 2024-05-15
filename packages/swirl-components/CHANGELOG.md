@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.198.0
+
+### Minor Changes
+
+- [`cb633422`](https://github.com/getflip/swirl/commit/cb63342294380543516743bad0ef01acac17654a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Upgrade to Stencil v4
+
 ## 0.197.1
 
 ### Patch Changes
