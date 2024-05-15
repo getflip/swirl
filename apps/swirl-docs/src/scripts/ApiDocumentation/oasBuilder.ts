@@ -4,6 +4,7 @@ import {
   supportedLanguages,
   SupportedTargets,
 } from "@readme/oas-to-snippet";
+import { isStagingDeployment } from "@swirl/lib/env";
 import { sort } from "fast-sort";
 import { Request } from "har-format";
 import Oas, { Operation } from "oas";
@@ -161,7 +162,7 @@ export default class OASBuilder implements IOASBuilder {
 
             const isInternal = FlipApiExtensions.getInternal(operation);
 
-            if (isInternal) {
+            if (isInternal && !isStagingDeployment()) {
               return;
             }
 
