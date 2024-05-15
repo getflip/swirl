@@ -67,7 +67,7 @@ export class SwirlFileViewerPdf {
   private scrollContainer: HTMLDivElement;
   private recentScrollPosition: { x: number; y: number } = { x: 0, y: 0 };
 
-  async componentWillLoad() {
+  componentWillLoad() {
     window.pdf.GlobalWorkerOptions.workerSrc = this.workerSrc;
   }
 

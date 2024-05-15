@@ -54,8 +54,8 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   private input: HTMLInputElement;
   private observer: MutationObserver;
   private optionList: HTMLSwirlOptionListElement;
-  private popover: HTMLSwirlPopoverElement;
   private searchInput: HTMLInputElement;
+  private swirlPopover: HTMLSwirlPopoverElement;
 
   componentWillLoad() {
     queueMicrotask(() => {
@@ -98,7 +98,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     this.valueChange.emit(this.value);
 
     if (!this.multiSelect) {
-      this.popover.close();
+      this.swirlPopover.close();
     }
   };
 
@@ -145,7 +145,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
       }
 
       event.preventDefault();
-      this.popover.open(this.el);
+      this.swirlPopover.open(this.el);
     } else if (
       event.code === "ArrowDown" &&
       event.target === this.searchInput
@@ -197,7 +197,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
       <Host onKeyDown={this.onKeyDown}>
         <div class={className}>
           <swirl-popover-trigger
-            swirlPopover={this.popover}
+            swirlPopover={this.swirlPopover}
             setAriaAttributes={false}
           >
             <input
@@ -242,7 +242,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             offset={[0, offset]}
             onPopoverClose={this.onClose}
             onPopoverOpen={this.onOpen}
-            ref={(el) => (this.popover = el)}
+            ref={(el) => (this.swirlPopover = el)}
             useContainerWidth="swirl-form-control"
           >
             {this.withSearch && (

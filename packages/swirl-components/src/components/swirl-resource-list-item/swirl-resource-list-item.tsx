@@ -61,10 +61,10 @@ export class SwirlResourceListItem {
 
   private controlContainer: HTMLElement;
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
+  private elementId = uuid();
   private iconEl: HTMLElement;
-  private id = uuid();
 
-  async componentWillLoad() {
+  componentWillLoad() {
     this.updateMediaState();
   }
 
@@ -231,7 +231,7 @@ export class SwirlResourceListItem {
           <Tag
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}
-            aria-labelledby={this.id}
+            aria-labelledby={this.elementId}
             class="resource-list-item__content"
             href={href}
             disabled={disabled}
@@ -254,7 +254,7 @@ export class SwirlResourceListItem {
             >
               <span
                 class="resource-list-item__label"
-                id={this.id}
+                id={this.elementId}
                 innerHTML={this.allowHtml ? this.label : undefined}
               >
                 {!this.allowHtml && this.label}
