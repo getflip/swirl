@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.200.0
+
+### Minor Changes
+
+- [`28cb4676`](https://github.com/getflip/swirl/commit/28cb4676bc994e41932f41af4dc3e8b427a96aa3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add padding props to
+  swirl-app-bar
+
+### Patch Changes
+
+- Updated dependencies
+  [[`28cb4676`](https://github.com/getflip/swirl/commit/28cb4676bc994e41932f41af4dc3e8b427a96aa3)]:
+  - @getflip/swirl-components@0.200.0
+
 ## 0.199.0
 
 ### Minor Changes
