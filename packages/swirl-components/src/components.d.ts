@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
+import { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
 import { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
@@ -70,6 +71,7 @@ import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolba
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
+export { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
 export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
@@ -185,6 +187,8 @@ export namespace Components {
         "backButtonLabel"?: string;
         "closeButtonIcon"?: string;
         "closeButtonLabel"?: string;
+        "paddingInlineEnd"?: SwirlAppBarPadding;
+        "paddingInlineStart"?: SwirlAppBarPadding;
         "showBackButton"?: boolean;
         "showCloseButton"?: boolean;
         "showStepperControls"?: boolean;
@@ -5180,6 +5184,8 @@ declare namespace LocalJSX {
         "onCloseButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
         "onStepDownButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
         "onStepUpButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        "paddingInlineEnd"?: SwirlAppBarPadding;
+        "paddingInlineStart"?: SwirlAppBarPadding;
         "showBackButton"?: boolean;
         "showCloseButton"?: boolean;
         "showStepperControls"?: boolean;

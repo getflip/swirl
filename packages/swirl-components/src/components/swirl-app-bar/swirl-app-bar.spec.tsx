@@ -25,7 +25,7 @@ describe("swirl-app-bar", () => {
     expect(page.root).toEqualHtml(`
       <swirl-app-bar>
         <mock:shadow-root>
-          <div class="app-bar app-bar--has-cta app-bar--has-right-controls">
+          <div class="app-bar app-bar--has-cta app-bar--has-right-controls" style="padding-inline-end: 16; padding-inline-start: 16;">
             <div class="app-bar__cta">
               <slot name="cta"></slot>
             </div>
@@ -79,7 +79,7 @@ describe("swirl-app-bar", () => {
     expect(page.root).toEqualHtml(`
       <swirl-app-bar show-stepper-controls="true">
         <mock:shadow-root>
-          <div class="app-bar">
+          <div class="app-bar" style="padding-inline-end: 16; padding-inline-start: 16;">
             <div class="app-bar__left-controls">
               <div class="app-bar__stepper-controls">
                 <swirl-button hidelabel="" icon="<swirl-icon-arrow-upward></swirl-icon-arrow-upward>" label="Previous item"></swirl-button>
@@ -123,7 +123,7 @@ describe("swirl-app-bar", () => {
     expect(page.root).toEqualHtml(`
       <swirl-app-bar show-close-button="true">
         <mock:shadow-root>
-          <div class="app-bar">
+          <div class="app-bar" style="padding-inline-end: 16; padding-inline-start: 16;">
             <div class="app-bar__left-controls">
               <div class="app-bar__main-navigation-control">
                 <swirl-button hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close"></swirl-button>

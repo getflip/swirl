@@ -10,6 +10,17 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 
+export type SwirlAppBarPadding =
+  | "0"
+  | "2"
+  | "4"
+  | "8"
+  | "12"
+  | "16"
+  | "20"
+  | "24"
+  | "32";
+
 /**
  * @slot heading - The app bar's heading element
  * @slot center-controls - Container for controls displayed in the center
@@ -27,6 +38,8 @@ export class SwirlAppBar {
   @Prop() backButtonLabel?: string = "Go back";
   @Prop() closeButtonIcon?: string = "<swirl-icon-close></swirl-icon-close>";
   @Prop() closeButtonLabel?: string = "Close";
+  @Prop() paddingInlineEnd?: SwirlAppBarPadding = "16";
+  @Prop() paddingInlineStart?: SwirlAppBarPadding = "16";
   @Prop() stepUpButtonLabel?: string = "Previous item";
   @Prop() stepDownButtonLabel?: string = "Next item";
   @Prop() showBackButton?: boolean;
@@ -91,9 +104,14 @@ export class SwirlAppBar {
       "app-bar--has-right-controls": hasRightControls,
     });
 
+    const styles = {
+      paddingInlineEnd: this.paddingInlineEnd,
+      paddingInlineStart: this.paddingInlineStart,
+    };
+
     return (
       <Host>
-        <div class={className}>
+        <div class={className} style={styles}>
           {showLeftControls && (
             <div class="app-bar__left-controls">
               {(this.showBackButton || this.showCloseButton) && (
