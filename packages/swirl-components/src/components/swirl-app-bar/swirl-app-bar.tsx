@@ -105,8 +105,8 @@ export class SwirlAppBar {
     });
 
     const styles = {
-      paddingInlineEnd: this.paddingInlineEnd,
-      paddingInlineStart: this.paddingInlineStart,
+      paddingInlineEnd: `var(--s-space-${this.paddingInlineEnd})`,
+      paddingInlineStart: `var(--s-space-${this.paddingInlineStart})`,
     };
 
     return (
