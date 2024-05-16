@@ -111,3 +111,59 @@ dt {
   margin: 0;
   padding: 0;
 }
+
+/* Responsive design helper classes to hide elements for specific viewports */
+
+.hide-from-mobile {
+  @media (--from-mobile) {
+    display: none;
+  }
+}
+
+.hide-from-tablet {
+  @media (--from-tablet) {
+    display: none;
+  }
+}
+
+.hide-from-desktop {
+  @media (--from-desktop) {
+    display: none;
+  }
+}
+
+.hide-from-large-desktop {
+  @media (--from-large-desktop) {
+    display: none;
+  }
+}
+
+.hide-from-larger-desktop {
+  @media (--from-larger-desktop) {
+    display: none;
+  }
+}
+
+.hide-to-tablet {
+  @media (--to-tablet) {
+    display: none;
+  }
+}
+
+.hide-to-desktop {
+  @media (--to-desktop) {
+    display: none;
+  }
+}
+
+.hide-to-large-desktop {
+  @media (--to-large-desktop) {
+    display: none;
+  }
+}
+
+.hide-to-larger-desktop {
+  @media (--to-larger-desktop) {
+    display: none;
+  }
+}
