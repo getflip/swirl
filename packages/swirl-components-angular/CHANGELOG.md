@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.199.0
+
+### Minor Changes
+
+- [`a9100b04`](https://github.com/getflip/swirl/commit/a9100b04bac7380c5727374dff1c64965f43f463)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add responsive design css helper
+  classes to hide elements for specific viewports
+
+### Patch Changes
+
+- Updated dependencies
+  [[`a9100b04`](https://github.com/getflip/swirl/commit/a9100b04bac7380c5727374dff1c64965f43f463)]:
+  - @getflip/swirl-components@0.199.0
+
 ## 0.198.0
 
 ### Minor Changes
