@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.200.2
+
+### Patch Changes
+
+- [#711](https://github.com/getflip/swirl/pull/711)
+  [`09d75be7`](https://github.com/getflip/swirl/commit/09d75be71b823615facfb65935cea4b5718505af)
+  Thanks [@danizep](https://github.com/danizep)! - Fix SwirlModal footer padding
+  on small devices
+
+- Updated dependencies
+  [[`09d75be7`](https://github.com/getflip/swirl/commit/09d75be71b823615facfb65935cea4b5718505af)]:
+  - @getflip/swirl-components@0.200.2
+
 ## 0.200.1
 
 ### Patch Changes
