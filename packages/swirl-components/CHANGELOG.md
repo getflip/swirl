@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.200.1
+
+### Patch Changes
+
+- [`bb925a66`](https://github.com/getflip/swirl/commit/bb925a66aa05692a8767567feacb1c15348975f2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-app-bar width on mobile
+  viewports
+
 ## 0.200.0
 
 ### Minor Changes
