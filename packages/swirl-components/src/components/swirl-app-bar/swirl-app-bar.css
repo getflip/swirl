@@ -12,12 +12,15 @@
 
 .app-bar {
   display: flex;
-  min-width: min-content;
   min-height: 3.5rem;
   padding-right: var(--s-space-16);
   padding-left: var(--s-space-16);
   align-items: center;
   gap: var(--s-space-16);
+
+  @media (--from-desktop) {
+    min-width: min-content;
+  }
 }
 
 .app-bar--has-cta {
@@ -50,11 +53,12 @@
 
 .app-bar__heading {
   display: flex;
-  min-width: min-content;
+  min-width: 10rem;
   flex-grow: 1;
   align-items: center;
 
   @media (--from-desktop) {
+    min-width: min-content;
     flex-grow: 0;
   }
 }

@@ -35,5 +35,5 @@ export const SwirlAppBar = Template.bind({});
 
 SwirlAppBar.args = {
   showCloseButton: true,
-  showStepperControls: true,
+  showStepperControls: false,
 };
