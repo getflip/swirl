@@ -25,6 +25,8 @@
   --swirl-modal-max-height: 90vh;
   --swirl-modal-view-height: 100vh;
   --swirl-modal-max-width: 40rem;
+  --swirl-modal-footer-padding-small: var(--s-space-12) var(--s-space-16) var(--s-space-12) var(--s-space-16);
+  --swirl-modal-footer-padding-large: var(--s-space-16) var(--s-space-24) var(--s-space-16) var(--s-space-24);
 
   @supports (height: 100dvh) {
     --swirl-modal-max-height: 90dvh;
@@ -182,10 +184,11 @@
 
 .modal--has-custom-footer {
   & .modal__custom-footer {
-    padding-top: var(--s-space-16);
-    padding-right: var(--s-space-24);
-    padding-bottom: var(--s-space-16);
-    padding-left: var(--s-space-24);
+    padding: var(--swirl-modal-footer-padding-small);
+
+    @media (--from-tablet) {
+      padding: var(--swirl-modal-footer-padding-large);
+    }
   }
 }
 
@@ -417,12 +420,13 @@
 
 .modal__controls {
   display: flex;
-  padding-top: var(--s-space-16);
-  padding-right: var(--s-space-24);
-  padding-bottom: var(--s-space-16);
-  padding-left: var(--s-space-24);
+  padding: var(--swirl-modal-footer-padding-small);
   flex-shrink: 0;
   justify-content: flex-end;
+
+  @media (--from-tablet) {
+    padding: var(--swirl-modal-footer-padding-large);
+  }
 }
 
 @keyframes modal-scale-in {
