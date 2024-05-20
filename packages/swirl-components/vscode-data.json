@@ -11937,6 +11937,9 @@
               "name": "info"
             },
             {
+              "name": "neutral"
+            },
+            {
               "name": "success"
             },
             {
