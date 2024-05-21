@@ -1,5 +1,24 @@
 # @getflip/swirl-components
 
+## 0.201.0
+
+### Minor Changes
+
+- [#713](https://github.com/getflip/swirl/pull/713)
+  [`4fcbedc4`](https://github.com/getflip/swirl/commit/4fcbedc43a88d59bef65f9b9a14657c0e581930f)
+  Thanks [@danizep](https://github.com/danizep)! - Add neutral intent to
+  SwirlInlineStatus
+
+* [#714](https://github.com/getflip/swirl/pull/714)
+  [`c882ceda`](https://github.com/getflip/swirl/commit/c882ceda7ba353858ff28b280187884edd6bc15d)
+  Thanks [@manuel-pross](https://github.com/manuel-pross)! - add keyboard icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c882ceda`](https://github.com/getflip/swirl/commit/c882ceda7ba353858ff28b280187884edd6bc15d)]:
+  - @getflip/swirl-icons@0.35.0
+
 ## 0.200.2
 
 ### Patch Changes
