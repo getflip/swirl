@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.35.0
+
+### Minor Changes
+
+- [#714](https://github.com/getflip/swirl/pull/714)
+  [`c882ceda`](https://github.com/getflip/swirl/commit/c882ceda7ba353858ff28b280187884edd6bc15d)
+  Thanks [@manuel-pross](https://github.com/manuel-pross)! - add keyboard icon
+
 ## 0.34.0
 
 ### Minor Changes
