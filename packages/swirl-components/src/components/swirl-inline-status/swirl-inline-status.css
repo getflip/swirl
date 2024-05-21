@@ -49,6 +49,14 @@
   }
 }
 
+.inline-status--intent-neutral {
+  color: var(--s-text-subdued);
+
+  & .inline-status__icon {
+    color: var(--s-icon-default);
+  }
+}
+
 .inline-status--intent-success {
   color: var(--s-text-success);
 

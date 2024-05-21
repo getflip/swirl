@@ -6,6 +6,7 @@ import { SwirlIconSize } from "../swirl-icon/swirl-icon.types";
 export type SwirlInlineStatusIntent =
   | "critical"
   | "info"
+  | "neutral"
   | "success"
   | "warning";
 
