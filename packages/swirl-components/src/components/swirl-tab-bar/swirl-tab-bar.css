@@ -29,7 +29,7 @@
   background-color: transparent;
   font: inherit;
   font-weight: var(--s-font-weight-medium);
-  line-height: var(--s-line-height-base);
+  line-height: var(--s-line-height-lg);
   cursor: pointer;
 
   &:focus {
@@ -63,6 +63,7 @@
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
+    padding: calc(var(--s-space-4) + var(--s-space-2)) var(--s-space-8);
   }
 }
 
