@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.202.0
+
+### Minor Changes
+
+- [#716](https://github.com/getflip/swirl/pull/716)
+  [`ae0bd0a3`](https://github.com/getflip/swirl/commit/ae0bd0a30832d2d267ca7a77d618804bc10e40d3)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add Pin Icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ae0bd0a3`](https://github.com/getflip/swirl/commit/ae0bd0a30832d2d267ca7a77d618804bc10e40d3)]:
+  - @getflip/swirl-components@0.202.0
+
 ## 0.201.1
 
 ### Patch Changes
