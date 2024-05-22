@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.201.1
+
+### Patch Changes
+
+- [`eef57e69`](https://github.com/getflip/swirl/commit/eef57e69c8253dc53f4f0f416c17e94ae8afe3e9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix display of swirl-card images
+
 ## 0.201.0
 
 ### Minor Changes
