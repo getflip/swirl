@@ -119,8 +119,11 @@ export class SwirlModal {
   async open() {
     this.isOpen = true;
     this.modalOpen.emit();
-    this.lockBodyScroll();
-    this.determineScrollStatus();
+
+    setTimeout(() => {
+      this.lockBodyScroll();
+      this.determineScrollStatus();
+    });
   }
 
   /**
