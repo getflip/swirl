@@ -2315,13 +2315,35 @@ declare global {
         prototype: HTMLFileManagerElement;
         new (): HTMLFileManagerElement;
     };
+    interface HTMLSwirlAccordionElementEventMap {
+        "expandedItemChange": string;
+    }
     interface HTMLSwirlAccordionElement extends Components.SwirlAccordion, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAccordionElementEventMap>(type: K, listener: (this: HTMLSwirlAccordionElement, ev: SwirlAccordionCustomEvent<HTMLSwirlAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAccordionElementEventMap>(type: K, listener: (this: HTMLSwirlAccordionElement, ev: SwirlAccordionCustomEvent<HTMLSwirlAccordionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAccordionElement: {
         prototype: HTMLSwirlAccordionElement;
         new (): HTMLSwirlAccordionElement;
     };
+    interface HTMLSwirlAccordionItemElementEventMap {
+        "expansionChange": boolean;
+    }
     interface HTMLSwirlAccordionItemElement extends Components.SwirlAccordionItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAccordionItemElementEventMap>(type: K, listener: (this: HTMLSwirlAccordionItemElement, ev: SwirlAccordionItemCustomEvent<HTMLSwirlAccordionItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAccordionItemElementEventMap>(type: K, listener: (this: HTMLSwirlAccordionItemElement, ev: SwirlAccordionItemCustomEvent<HTMLSwirlAccordionItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAccordionItemElement: {
         prototype: HTMLSwirlAccordionItemElement;
@@ -2345,7 +2367,21 @@ declare global {
         prototype: HTMLSwirlActionListSectionElement;
         new (): HTMLSwirlActionListSectionElement;
     };
+    interface HTMLSwirlAppBarElementEventMap {
+        "backButtonClick": MouseEvent;
+        "closeButtonClick": MouseEvent;
+        "stepUpButtonClick": MouseEvent;
+        "stepDownButtonClick": MouseEvent;
+    }
     interface HTMLSwirlAppBarElement extends Components.SwirlAppBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAppBarElementEventMap>(type: K, listener: (this: HTMLSwirlAppBarElement, ev: SwirlAppBarCustomEvent<HTMLSwirlAppBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAppBarElementEventMap>(type: K, listener: (this: HTMLSwirlAppBarElement, ev: SwirlAppBarCustomEvent<HTMLSwirlAppBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAppBarElement: {
         prototype: HTMLSwirlAppBarElement;
@@ -2357,19 +2393,56 @@ declare global {
         prototype: HTMLSwirlAppIconElement;
         new (): HTMLSwirlAppIconElement;
     };
+    interface HTMLSwirlAppLayoutElementEventMap {
+        "ctaClick": MouseEvent;
+        "mobileViewChange": SwirlAppLayoutMobileView;
+        "navigationBackButtonClick": MouseEvent;
+        "sidebarToggle": boolean;
+    }
     interface HTMLSwirlAppLayoutElement extends Components.SwirlAppLayout, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAppLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlAppLayoutElement, ev: SwirlAppLayoutCustomEvent<HTMLSwirlAppLayoutElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAppLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlAppLayoutElement, ev: SwirlAppLayoutCustomEvent<HTMLSwirlAppLayoutElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAppLayoutElement: {
         prototype: HTMLSwirlAppLayoutElement;
         new (): HTMLSwirlAppLayoutElement;
     };
+    interface HTMLSwirlAutocompleteElementEventMap {
+        "valueChange": SwirlAutocompleteValue;
+    }
     interface HTMLSwirlAutocompleteElement extends Components.SwirlAutocomplete, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAutocompleteElementEventMap>(type: K, listener: (this: HTMLSwirlAutocompleteElement, ev: SwirlAutocompleteCustomEvent<HTMLSwirlAutocompleteElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAutocompleteElementEventMap>(type: K, listener: (this: HTMLSwirlAutocompleteElement, ev: SwirlAutocompleteCustomEvent<HTMLSwirlAutocompleteElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAutocompleteElement: {
         prototype: HTMLSwirlAutocompleteElement;
         new (): HTMLSwirlAutocompleteElement;
     };
+    interface HTMLSwirlAvatarElementEventMap {
+        "imageError": void;
+        "imageLoad": void;
+    }
     interface HTMLSwirlAvatarElement extends Components.SwirlAvatar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAvatarElementEventMap>(type: K, listener: (this: HTMLSwirlAvatarElement, ev: SwirlAvatarCustomEvent<HTMLSwirlAvatarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAvatarElementEventMap>(type: K, listener: (this: HTMLSwirlAvatarElement, ev: SwirlAvatarCustomEvent<HTMLSwirlAvatarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAvatarElement: {
         prototype: HTMLSwirlAvatarElement;
@@ -2387,7 +2460,19 @@ declare global {
         prototype: HTMLSwirlBadgeElement;
         new (): HTMLSwirlBadgeElement;
     };
+    interface HTMLSwirlBannerElementEventMap {
+        "action": MouseEvent;
+        "dismiss": MouseEvent;
+    }
     interface HTMLSwirlBannerElement extends Components.SwirlBanner, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlBannerElementEventMap>(type: K, listener: (this: HTMLSwirlBannerElement, ev: SwirlBannerCustomEvent<HTMLSwirlBannerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlBannerElementEventMap>(type: K, listener: (this: HTMLSwirlBannerElement, ev: SwirlBannerCustomEvent<HTMLSwirlBannerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlBannerElement: {
         prototype: HTMLSwirlBannerElement;
@@ -2417,10 +2502,21 @@ declare global {
         prototype: HTMLSwirlCardElement;
         new (): HTMLSwirlCardElement;
     };
+    interface HTMLSwirlCarouselElementEventMap {
+        "activeSlidesChange": HTMLSwirlCarouselSlideElement[];
+    }
     /**
      * slot - The slides
      */
     interface HTMLSwirlCarouselElement extends Components.SwirlCarousel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlCarouselElementEventMap>(type: K, listener: (this: HTMLSwirlCarouselElement, ev: SwirlCarouselCustomEvent<HTMLSwirlCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlCarouselElementEventMap>(type: K, listener: (this: HTMLSwirlCarouselElement, ev: SwirlCarouselCustomEvent<HTMLSwirlCarouselElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlCarouselElement: {
         prototype: HTMLSwirlCarouselElement;
@@ -2435,19 +2531,54 @@ declare global {
         prototype: HTMLSwirlCarouselSlideElement;
         new (): HTMLSwirlCarouselSlideElement;
     };
+    interface HTMLSwirlCheckboxElementEventMap {
+        "valueChange": boolean;
+    }
     interface HTMLSwirlCheckboxElement extends Components.SwirlCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlCheckboxElementEventMap>(type: K, listener: (this: HTMLSwirlCheckboxElement, ev: SwirlCheckboxCustomEvent<HTMLSwirlCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlCheckboxElementEventMap>(type: K, listener: (this: HTMLSwirlCheckboxElement, ev: SwirlCheckboxCustomEvent<HTMLSwirlCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlCheckboxElement: {
         prototype: HTMLSwirlCheckboxElement;
         new (): HTMLSwirlCheckboxElement;
     };
+    interface HTMLSwirlChipElementEventMap {
+        "remove": MouseEvent;
+    }
     interface HTMLSwirlChipElement extends Components.SwirlChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlChipElementEventMap>(type: K, listener: (this: HTMLSwirlChipElement, ev: SwirlChipCustomEvent<HTMLSwirlChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlChipElementEventMap>(type: K, listener: (this: HTMLSwirlChipElement, ev: SwirlChipCustomEvent<HTMLSwirlChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlChipElement: {
         prototype: HTMLSwirlChipElement;
         new (): HTMLSwirlChipElement;
     };
+    interface HTMLSwirlColorInputElementEventMap {
+        "inputBlur": FocusEvent;
+        "inputFocus": FocusEvent;
+        "valueChange": string;
+    }
     interface HTMLSwirlColorInputElement extends Components.SwirlColorInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlColorInputElementEventMap>(type: K, listener: (this: HTMLSwirlColorInputElement, ev: SwirlColorInputCustomEvent<HTMLSwirlColorInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlColorInputElementEventMap>(type: K, listener: (this: HTMLSwirlColorInputElement, ev: SwirlColorInputCustomEvent<HTMLSwirlColorInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlColorInputElement: {
         prototype: HTMLSwirlColorInputElement;
@@ -2459,19 +2590,54 @@ declare global {
         prototype: HTMLSwirlColumnsElement;
         new (): HTMLSwirlColumnsElement;
     };
+    interface HTMLSwirlConsoleLayoutElementEventMap {
+        "backButtonClick": MouseEvent;
+        "helpButtonClick": MouseEvent;
+    }
     interface HTMLSwirlConsoleLayoutElement extends Components.SwirlConsoleLayout, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlConsoleLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlConsoleLayoutElement, ev: SwirlConsoleLayoutCustomEvent<HTMLSwirlConsoleLayoutElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlConsoleLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlConsoleLayoutElement, ev: SwirlConsoleLayoutCustomEvent<HTMLSwirlConsoleLayoutElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlConsoleLayoutElement: {
         prototype: HTMLSwirlConsoleLayoutElement;
         new (): HTMLSwirlConsoleLayoutElement;
     };
+    interface HTMLSwirlDateInputElementEventMap {
+        "invalidInput": string;
+        "valueChange": string;
+    }
     interface HTMLSwirlDateInputElement extends Components.SwirlDateInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlDateInputElementEventMap>(type: K, listener: (this: HTMLSwirlDateInputElement, ev: SwirlDateInputCustomEvent<HTMLSwirlDateInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlDateInputElementEventMap>(type: K, listener: (this: HTMLSwirlDateInputElement, ev: SwirlDateInputCustomEvent<HTMLSwirlDateInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlDateInputElement: {
         prototype: HTMLSwirlDateInputElement;
         new (): HTMLSwirlDateInputElement;
     };
+    interface HTMLSwirlDatePickerElementEventMap {
+        "valueChange": Date | Date[];
+    }
     interface HTMLSwirlDatePickerElement extends Components.SwirlDatePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlDatePickerElementEventMap>(type: K, listener: (this: HTMLSwirlDatePickerElement, ev: SwirlDatePickerCustomEvent<HTMLSwirlDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlDatePickerElementEventMap>(type: K, listener: (this: HTMLSwirlDatePickerElement, ev: SwirlDatePickerCustomEvent<HTMLSwirlDatePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlDatePickerElement: {
         prototype: HTMLSwirlDatePickerElement;
@@ -2489,7 +2655,21 @@ declare global {
         prototype: HTMLSwirlDescriptionListItemElement;
         new (): HTMLSwirlDescriptionListItemElement;
     };
+    interface HTMLSwirlDialogElementEventMap {
+        "dialogClose": void;
+        "dialogOpen": void;
+        "primaryAction": MouseEvent;
+        "secondaryAction": MouseEvent;
+    }
     interface HTMLSwirlDialogElement extends Components.SwirlDialog, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlDialogElementEventMap>(type: K, listener: (this: HTMLSwirlDialogElement, ev: SwirlDialogCustomEvent<HTMLSwirlDialogElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlDialogElementEventMap>(type: K, listener: (this: HTMLSwirlDialogElement, ev: SwirlDialogCustomEvent<HTMLSwirlDialogElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlDialogElement: {
         prototype: HTMLSwirlDialogElement;
@@ -2543,49 +2723,139 @@ declare global {
         prototype: HTMLSwirlEmptyStateElement;
         new (): HTMLSwirlEmptyStateElement;
     };
+    interface HTMLSwirlFileUploaderElementEventMap {
+        "valueChange": FileList;
+    }
     interface HTMLSwirlFileUploaderElement extends Components.SwirlFileUploader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileUploaderElementEventMap>(type: K, listener: (this: HTMLSwirlFileUploaderElement, ev: SwirlFileUploaderCustomEvent<HTMLSwirlFileUploaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileUploaderElementEventMap>(type: K, listener: (this: HTMLSwirlFileUploaderElement, ev: SwirlFileUploaderCustomEvent<HTMLSwirlFileUploaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileUploaderElement: {
         prototype: HTMLSwirlFileUploaderElement;
         new (): HTMLSwirlFileUploaderElement;
     };
+    interface HTMLSwirlFileViewerElementEventMap {
+        "activate": HTMLElement;
+        "visiblePagesChange": number[];
+    }
     interface HTMLSwirlFileViewerElement extends Components.SwirlFileViewer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerElement, ev: SwirlFileViewerCustomEvent<HTMLSwirlFileViewerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerElement, ev: SwirlFileViewerCustomEvent<HTMLSwirlFileViewerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerElement: {
         prototype: HTMLSwirlFileViewerElement;
         new (): HTMLSwirlFileViewerElement;
     };
+    interface HTMLSwirlFileViewerAudioElementEventMap {
+        "activate": HTMLElement;
+    }
     interface HTMLSwirlFileViewerAudioElement extends Components.SwirlFileViewerAudio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerAudioElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerAudioElement, ev: SwirlFileViewerAudioCustomEvent<HTMLSwirlFileViewerAudioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerAudioElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerAudioElement, ev: SwirlFileViewerAudioCustomEvent<HTMLSwirlFileViewerAudioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerAudioElement: {
         prototype: HTMLSwirlFileViewerAudioElement;
         new (): HTMLSwirlFileViewerAudioElement;
     };
+    interface HTMLSwirlFileViewerCsvElementEventMap {
+        "activate": HTMLElement;
+    }
     interface HTMLSwirlFileViewerCsvElement extends Components.SwirlFileViewerCsv, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerCsvElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerCsvElement, ev: SwirlFileViewerCsvCustomEvent<HTMLSwirlFileViewerCsvElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerCsvElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerCsvElement, ev: SwirlFileViewerCsvCustomEvent<HTMLSwirlFileViewerCsvElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerCsvElement: {
         prototype: HTMLSwirlFileViewerCsvElement;
         new (): HTMLSwirlFileViewerCsvElement;
     };
+    interface HTMLSwirlFileViewerImageElementEventMap {
+        "activate": HTMLElement;
+    }
     interface HTMLSwirlFileViewerImageElement extends Components.SwirlFileViewerImage, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerImageElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerImageElement, ev: SwirlFileViewerImageCustomEvent<HTMLSwirlFileViewerImageElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerImageElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerImageElement, ev: SwirlFileViewerImageCustomEvent<HTMLSwirlFileViewerImageElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerImageElement: {
         prototype: HTMLSwirlFileViewerImageElement;
         new (): HTMLSwirlFileViewerImageElement;
     };
+    interface HTMLSwirlFileViewerPdfElementEventMap {
+        "activate": HTMLElement;
+        "visiblePagesChange": number[];
+    }
     interface HTMLSwirlFileViewerPdfElement extends Components.SwirlFileViewerPdf, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerPdfElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerPdfElement, ev: SwirlFileViewerPdfCustomEvent<HTMLSwirlFileViewerPdfElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerPdfElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerPdfElement, ev: SwirlFileViewerPdfCustomEvent<HTMLSwirlFileViewerPdfElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerPdfElement: {
         prototype: HTMLSwirlFileViewerPdfElement;
         new (): HTMLSwirlFileViewerPdfElement;
     };
+    interface HTMLSwirlFileViewerTextElementEventMap {
+        "activate": HTMLElement;
+    }
     interface HTMLSwirlFileViewerTextElement extends Components.SwirlFileViewerText, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerTextElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerTextElement, ev: SwirlFileViewerTextCustomEvent<HTMLSwirlFileViewerTextElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerTextElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerTextElement, ev: SwirlFileViewerTextCustomEvent<HTMLSwirlFileViewerTextElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerTextElement: {
         prototype: HTMLSwirlFileViewerTextElement;
         new (): HTMLSwirlFileViewerTextElement;
     };
+    interface HTMLSwirlFileViewerVideoElementEventMap {
+        "activate": HTMLElement;
+    }
     interface HTMLSwirlFileViewerVideoElement extends Components.SwirlFileViewerVideo, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerVideoElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerVideoElement, ev: SwirlFileViewerVideoCustomEvent<HTMLSwirlFileViewerVideoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerVideoElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerVideoElement, ev: SwirlFileViewerVideoCustomEvent<HTMLSwirlFileViewerVideoElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerVideoElement: {
         prototype: HTMLSwirlFileViewerVideoElement;
@@ -3563,7 +3833,19 @@ declare global {
         prototype: HTMLSwirlImageGridElement;
         new (): HTMLSwirlImageGridElement;
     };
+    interface HTMLSwirlImageGridItemElementEventMap {
+        "imageError": void;
+        "imageLoad": void;
+    }
     interface HTMLSwirlImageGridItemElement extends Components.SwirlImageGridItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlImageGridItemElementEventMap>(type: K, listener: (this: HTMLSwirlImageGridItemElement, ev: SwirlImageGridItemCustomEvent<HTMLSwirlImageGridItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlImageGridItemElementEventMap>(type: K, listener: (this: HTMLSwirlImageGridItemElement, ev: SwirlImageGridItemCustomEvent<HTMLSwirlImageGridItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlImageGridItemElement: {
         prototype: HTMLSwirlImageGridItemElement;
@@ -3605,7 +3887,19 @@ declare global {
         prototype: HTMLSwirlListElement;
         new (): HTMLSwirlListElement;
     };
+    interface HTMLSwirlMenuElementEventMap {
+        "done": void;
+        "valueChange": string;
+    }
     interface HTMLSwirlMenuElement extends Components.SwirlMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlMenuElementEventMap>(type: K, listener: (this: HTMLSwirlMenuElement, ev: SwirlMenuCustomEvent<HTMLSwirlMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlMenuElementEventMap>(type: K, listener: (this: HTMLSwirlMenuElement, ev: SwirlMenuCustomEvent<HTMLSwirlMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlMenuElement: {
         prototype: HTMLSwirlMenuElement;
@@ -3617,19 +3911,61 @@ declare global {
         prototype: HTMLSwirlMenuItemElement;
         new (): HTMLSwirlMenuItemElement;
     };
+    interface HTMLSwirlModalElementEventMap {
+        "modalClose": void;
+        "modalOpen": void;
+        "primaryAction": MouseEvent;
+        "requestModalClose": void;
+        "secondaryAction": MouseEvent;
+    }
     interface HTMLSwirlModalElement extends Components.SwirlModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlModalElementEventMap>(type: K, listener: (this: HTMLSwirlModalElement, ev: SwirlModalCustomEvent<HTMLSwirlModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlModalElementEventMap>(type: K, listener: (this: HTMLSwirlModalElement, ev: SwirlModalCustomEvent<HTMLSwirlModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlModalElement: {
         prototype: HTMLSwirlModalElement;
         new (): HTMLSwirlModalElement;
     };
+    interface HTMLSwirlOptionListElementEventMap {
+        "itemDrop": {
+    item: HTMLSwirlOptionListItemElement;
+    oldIndex: number;
+    newIndex: number;
+  };
+        "valueChange": string[];
+    }
     interface HTMLSwirlOptionListElement extends Components.SwirlOptionList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlOptionListElementEventMap>(type: K, listener: (this: HTMLSwirlOptionListElement, ev: SwirlOptionListCustomEvent<HTMLSwirlOptionListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlOptionListElementEventMap>(type: K, listener: (this: HTMLSwirlOptionListElement, ev: SwirlOptionListCustomEvent<HTMLSwirlOptionListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlOptionListElement: {
         prototype: HTMLSwirlOptionListElement;
         new (): HTMLSwirlOptionListElement;
     };
+    interface HTMLSwirlOptionListItemElementEventMap {
+        "toggleDrag": HTMLSwirlOptionListItemElement;
+    }
     interface HTMLSwirlOptionListItemElement extends Components.SwirlOptionListItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlOptionListItemElementEventMap>(type: K, listener: (this: HTMLSwirlOptionListItemElement, ev: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlOptionListItemElementEventMap>(type: K, listener: (this: HTMLSwirlOptionListItemElement, ev: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlOptionListItemElement: {
         prototype: HTMLSwirlOptionListItemElement;
@@ -3641,19 +3977,55 @@ declare global {
         prototype: HTMLSwirlOptionListSectionElement;
         new (): HTMLSwirlOptionListSectionElement;
     };
+    interface HTMLSwirlPaginationElementEventMap {
+        "setPage": number;
+        "setPageSize": number;
+    }
     interface HTMLSwirlPaginationElement extends Components.SwirlPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlPaginationElementEventMap>(type: K, listener: (this: HTMLSwirlPaginationElement, ev: SwirlPaginationCustomEvent<HTMLSwirlPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlPaginationElementEventMap>(type: K, listener: (this: HTMLSwirlPaginationElement, ev: SwirlPaginationCustomEvent<HTMLSwirlPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlPaginationElement: {
         prototype: HTMLSwirlPaginationElement;
         new (): HTMLSwirlPaginationElement;
     };
+    interface HTMLSwirlPdfReaderElementEventMap {
+        "modalClose": void;
+        "modalOpen": void;
+    }
     interface HTMLSwirlPdfReaderElement extends Components.SwirlPdfReader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlPdfReaderElementEventMap>(type: K, listener: (this: HTMLSwirlPdfReaderElement, ev: SwirlPdfReaderCustomEvent<HTMLSwirlPdfReaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlPdfReaderElementEventMap>(type: K, listener: (this: HTMLSwirlPdfReaderElement, ev: SwirlPdfReaderCustomEvent<HTMLSwirlPdfReaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlPdfReaderElement: {
         prototype: HTMLSwirlPdfReaderElement;
         new (): HTMLSwirlPdfReaderElement;
     };
+    interface HTMLSwirlPopoverElementEventMap {
+        "popoverClose": void;
+        "popoverOpen": { position: ComputePositionReturn };
+    }
     interface HTMLSwirlPopoverElement extends Components.SwirlPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlPopoverElementEventMap>(type: K, listener: (this: HTMLSwirlPopoverElement, ev: SwirlPopoverCustomEvent<HTMLSwirlPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlPopoverElementEventMap>(type: K, listener: (this: HTMLSwirlPopoverElement, ev: SwirlPopoverCustomEvent<HTMLSwirlPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlPopoverElement: {
         prototype: HTMLSwirlPopoverElement;
@@ -3671,43 +4043,129 @@ declare global {
         prototype: HTMLSwirlProgressIndicatorElement;
         new (): HTMLSwirlProgressIndicatorElement;
     };
+    interface HTMLSwirlRadioElementEventMap {
+        "valueChange": string;
+    }
     interface HTMLSwirlRadioElement extends Components.SwirlRadio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlRadioElementEventMap>(type: K, listener: (this: HTMLSwirlRadioElement, ev: SwirlRadioCustomEvent<HTMLSwirlRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlRadioElementEventMap>(type: K, listener: (this: HTMLSwirlRadioElement, ev: SwirlRadioCustomEvent<HTMLSwirlRadioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlRadioElement: {
         prototype: HTMLSwirlRadioElement;
         new (): HTMLSwirlRadioElement;
     };
+    interface HTMLSwirlRadioGroupElementEventMap {
+        "valueChange": string;
+    }
     interface HTMLSwirlRadioGroupElement extends Components.SwirlRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlRadioGroupElementEventMap>(type: K, listener: (this: HTMLSwirlRadioGroupElement, ev: SwirlRadioGroupCustomEvent<HTMLSwirlRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlRadioGroupElementEventMap>(type: K, listener: (this: HTMLSwirlRadioGroupElement, ev: SwirlRadioGroupCustomEvent<HTMLSwirlRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlRadioGroupElement: {
         prototype: HTMLSwirlRadioGroupElement;
         new (): HTMLSwirlRadioGroupElement;
     };
+    interface HTMLSwirlResourceListElementEventMap {
+        "itemDrop": {
+    item: HTMLSwirlResourceListItemElement;
+    oldIndex: number;
+    newIndex: number;
+  };
+    }
     interface HTMLSwirlResourceListElement extends Components.SwirlResourceList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlResourceListElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListElement, ev: SwirlResourceListCustomEvent<HTMLSwirlResourceListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlResourceListElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListElement, ev: SwirlResourceListCustomEvent<HTMLSwirlResourceListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlResourceListElement: {
         prototype: HTMLSwirlResourceListElement;
         new (): HTMLSwirlResourceListElement;
     };
+    interface HTMLSwirlResourceListFileItemElementEventMap {
+        "remove": MouseEvent;
+    }
     interface HTMLSwirlResourceListFileItemElement extends Components.SwirlResourceListFileItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlResourceListFileItemElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListFileItemElement, ev: SwirlResourceListFileItemCustomEvent<HTMLSwirlResourceListFileItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlResourceListFileItemElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListFileItemElement, ev: SwirlResourceListFileItemCustomEvent<HTMLSwirlResourceListFileItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlResourceListFileItemElement: {
         prototype: HTMLSwirlResourceListFileItemElement;
         new (): HTMLSwirlResourceListFileItemElement;
     };
+    interface HTMLSwirlResourceListItemElementEventMap {
+        "toggleDrag": HTMLSwirlResourceListItemElement;
+        "valueChange": boolean;
+    }
     interface HTMLSwirlResourceListItemElement extends Components.SwirlResourceListItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlResourceListItemElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListItemElement, ev: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlResourceListItemElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListItemElement, ev: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlResourceListItemElement: {
         prototype: HTMLSwirlResourceListItemElement;
         new (): HTMLSwirlResourceListItemElement;
     };
+    interface HTMLSwirlSearchElementEventMap {
+        "inputBlur": FocusEvent;
+        "inputFocus": FocusEvent;
+        "inputInput": string;
+        "valueChange": string;
+    }
     interface HTMLSwirlSearchElement extends Components.SwirlSearch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlSearchElementEventMap>(type: K, listener: (this: HTMLSwirlSearchElement, ev: SwirlSearchCustomEvent<HTMLSwirlSearchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlSearchElementEventMap>(type: K, listener: (this: HTMLSwirlSearchElement, ev: SwirlSearchCustomEvent<HTMLSwirlSearchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlSearchElement: {
         prototype: HTMLSwirlSearchElement;
         new (): HTMLSwirlSearchElement;
     };
+    interface HTMLSwirlSelectElementEventMap {
+        "searchChange": string;
+        "valueChange": string[];
+    }
     interface HTMLSwirlSelectElement extends Components.SwirlSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlSelectElementEventMap>(type: K, listener: (this: HTMLSwirlSelectElement, ev: SwirlSelectCustomEvent<HTMLSwirlSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlSelectElementEventMap>(type: K, listener: (this: HTMLSwirlSelectElement, ev: SwirlSelectCustomEvent<HTMLSwirlSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlSelectElement: {
         prototype: HTMLSwirlSelectElement;
@@ -3719,7 +4177,19 @@ declare global {
         prototype: HTMLSwirlSeparatorElement;
         new (): HTMLSwirlSeparatorElement;
     };
+    interface HTMLSwirlShellLayoutElementEventMap {
+        "sidebarToggleClick": MouseEvent;
+        "skipLinkClick": MouseEvent;
+    }
     interface HTMLSwirlShellLayoutElement extends Components.SwirlShellLayout, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlShellLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlShellLayoutElement, ev: SwirlShellLayoutCustomEvent<HTMLSwirlShellLayoutElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlShellLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlShellLayoutElement, ev: SwirlShellLayoutCustomEvent<HTMLSwirlShellLayoutElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlShellLayoutElement: {
         prototype: HTMLSwirlShellLayoutElement;
@@ -3761,7 +4231,18 @@ declare global {
         prototype: HTMLSwirlStatusIndicatorElement;
         new (): HTMLSwirlStatusIndicatorElement;
     };
+    interface HTMLSwirlSwitchElementEventMap {
+        "valueChange": boolean;
+    }
     interface HTMLSwirlSwitchElement extends Components.SwirlSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlSwitchElementEventMap>(type: K, listener: (this: HTMLSwirlSwitchElement, ev: SwirlSwitchCustomEvent<HTMLSwirlSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlSwitchElementEventMap>(type: K, listener: (this: HTMLSwirlSwitchElement, ev: SwirlSwitchCustomEvent<HTMLSwirlSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlSwitchElement: {
         prototype: HTMLSwirlSwitchElement;
@@ -4133,7 +4614,20 @@ declare global {
         prototype: HTMLSwirlTabElement;
         new (): HTMLSwirlTabElement;
     };
+    interface HTMLSwirlTabBarElementEventMap {
+        "activateNextTab": void;
+        "activatePreviousTab": void;
+        "activateTab": string;
+    }
     interface HTMLSwirlTabBarElement extends Components.SwirlTabBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTabBarElementEventMap>(type: K, listener: (this: HTMLSwirlTabBarElement, ev: SwirlTabBarCustomEvent<HTMLSwirlTabBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTabBarElementEventMap>(type: K, listener: (this: HTMLSwirlTabBarElement, ev: SwirlTabBarCustomEvent<HTMLSwirlTabBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTabBarElement: {
         prototype: HTMLSwirlTabBarElement;
@@ -4169,13 +4663,35 @@ declare global {
         prototype: HTMLSwirlTableRowGroupElement;
         new (): HTMLSwirlTableRowGroupElement;
     };
+    interface HTMLSwirlTabsElementEventMap {
+        "tabActivated": HTMLSwirlTabElement;
+    }
     interface HTMLSwirlTabsElement extends Components.SwirlTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTabsElementEventMap>(type: K, listener: (this: HTMLSwirlTabsElement, ev: SwirlTabsCustomEvent<HTMLSwirlTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTabsElementEventMap>(type: K, listener: (this: HTMLSwirlTabsElement, ev: SwirlTabsCustomEvent<HTMLSwirlTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTabsElement: {
         prototype: HTMLSwirlTabsElement;
         new (): HTMLSwirlTabsElement;
     };
+    interface HTMLSwirlTagElementEventMap {
+        "remove": MouseEvent;
+    }
     interface HTMLSwirlTagElement extends Components.SwirlTag, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTagElementEventMap>(type: K, listener: (this: HTMLSwirlTagElement, ev: SwirlTagCustomEvent<HTMLSwirlTagElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTagElementEventMap>(type: K, listener: (this: HTMLSwirlTagElement, ev: SwirlTagCustomEvent<HTMLSwirlTagElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTagElement: {
         prototype: HTMLSwirlTagElement;
@@ -4187,31 +4703,91 @@ declare global {
         prototype: HTMLSwirlTextElement;
         new (): HTMLSwirlTextElement;
     };
+    interface HTMLSwirlTextInputElementEventMap {
+        "inputBlur": FocusEvent;
+        "inputFocus": FocusEvent;
+        "valueChange": string;
+    }
     interface HTMLSwirlTextInputElement extends Components.SwirlTextInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTextInputElementEventMap>(type: K, listener: (this: HTMLSwirlTextInputElement, ev: SwirlTextInputCustomEvent<HTMLSwirlTextInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTextInputElementEventMap>(type: K, listener: (this: HTMLSwirlTextInputElement, ev: SwirlTextInputCustomEvent<HTMLSwirlTextInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTextInputElement: {
         prototype: HTMLSwirlTextInputElement;
         new (): HTMLSwirlTextInputElement;
     };
+    interface HTMLSwirlThemeProviderElementEventMap {
+        "appThemeUpdated": void;
+        "themeChange": SwirlOSThemeChangeEventData;
+    }
     interface HTMLSwirlThemeProviderElement extends Components.SwirlThemeProvider, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlThemeProviderElementEventMap>(type: K, listener: (this: HTMLSwirlThemeProviderElement, ev: SwirlThemeProviderCustomEvent<HTMLSwirlThemeProviderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlThemeProviderElementEventMap>(type: K, listener: (this: HTMLSwirlThemeProviderElement, ev: SwirlThemeProviderCustomEvent<HTMLSwirlThemeProviderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlThemeProviderElement: {
         prototype: HTMLSwirlThemeProviderElement;
         new (): HTMLSwirlThemeProviderElement;
     };
+    interface HTMLSwirlThumbnailElementEventMap {
+        "remove": MouseEvent;
+    }
     interface HTMLSwirlThumbnailElement extends Components.SwirlThumbnail, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlThumbnailElementEventMap>(type: K, listener: (this: HTMLSwirlThumbnailElement, ev: SwirlThumbnailCustomEvent<HTMLSwirlThumbnailElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlThumbnailElementEventMap>(type: K, listener: (this: HTMLSwirlThumbnailElement, ev: SwirlThumbnailCustomEvent<HTMLSwirlThumbnailElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlThumbnailElement: {
         prototype: HTMLSwirlThumbnailElement;
         new (): HTMLSwirlThumbnailElement;
     };
+    interface HTMLSwirlTimeInputElementEventMap {
+        "inputBlur": FocusEvent;
+        "inputFocus": FocusEvent;
+        "valueChange": string;
+    }
     interface HTMLSwirlTimeInputElement extends Components.SwirlTimeInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTimeInputElementEventMap>(type: K, listener: (this: HTMLSwirlTimeInputElement, ev: SwirlTimeInputCustomEvent<HTMLSwirlTimeInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTimeInputElementEventMap>(type: K, listener: (this: HTMLSwirlTimeInputElement, ev: SwirlTimeInputCustomEvent<HTMLSwirlTimeInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTimeInputElement: {
         prototype: HTMLSwirlTimeInputElement;
         new (): HTMLSwirlTimeInputElement;
     };
+    interface HTMLSwirlToastElementEventMap {
+        "dismiss": string;
+    }
     interface HTMLSwirlToastElement extends Components.SwirlToast, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlToastElementEventMap>(type: K, listener: (this: HTMLSwirlToastElement, ev: SwirlToastCustomEvent<HTMLSwirlToastElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlToastElementEventMap>(type: K, listener: (this: HTMLSwirlToastElement, ev: SwirlToastCustomEvent<HTMLSwirlToastElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlToastElement: {
         prototype: HTMLSwirlToastElement;

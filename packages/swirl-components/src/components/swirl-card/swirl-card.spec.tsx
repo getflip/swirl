@@ -53,6 +53,21 @@ describe("swirl-card", () => {
     `);
   });
 
+  it("renders with an image", async () => {
+    const page = await newSpecPage({
+      components: [SwirlCard],
+      html: `
+        <swirl-card href="#" link-target="_blank">
+          <img slot="image" alt="Dog in a blanket." src="/sample-2.jpg" />
+        </swirl-card>
+      `,
+    });
+
+    const card = page.root.shadowRoot.firstChild as HTMLElement;
+
+    expect(card.classList.contains("card--has-image")).toBeTruthy();
+  });
+
   it("has adjustable paddings", async () => {
     const page = await newSpecPage({
       components: [SwirlCard],

@@ -27,6 +27,13 @@
   text-decoration: none;
   flex-direction: column;
   transition: background-color 0.2s;
+
+  &:not(.card--has-image) {
+    & .card__image {
+      overflow: hidden;
+      height: 0;
+    }
+  }
 }
 
 a.card,
@@ -102,13 +109,6 @@ button.card,
 .card--justify-content-end {
   & .card__body {
     justify-content: flex-end;
-  }
-}
-
-:not(.card--has-image) {
-  & .card__image {
-    overflow: hidden;
-    height: 0;
   }
 }
 
