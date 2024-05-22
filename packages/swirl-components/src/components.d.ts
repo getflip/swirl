@@ -58,9 +58,9 @@ import { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/
 import { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch";
 import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
-import { SwirlTabBarJustify, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
+import { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
-import { SwirlTabBarJustify as SwirlTabBarJustify1 } from "./components/swirl-tab-bar/swirl-tab-bar";
+import { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTagIntent, SwirlTagSize } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 import { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
@@ -123,9 +123,9 @@ export { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/
 export { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch";
 export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
-export { SwirlTabBarJustify, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
+export { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
-export { SwirlTabBarJustify as SwirlTabBarJustify1 } from "./components/swirl-tab-bar/swirl-tab-bar";
+export { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTagIntent, SwirlTagSize } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 export { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
@@ -1923,6 +1923,8 @@ export namespace Components {
         "disableTabSemantics"?: boolean;
         "justify"?: SwirlTabBarJustify;
         "label": string;
+        "paddingInlineEnd"?: SwirlTabBarPadding;
+        "paddingInlineStart"?: SwirlTabBarPadding;
         "tabs": SwirlTabBarTab[];
     }
     interface SwirlTable {
@@ -1963,6 +1965,8 @@ export namespace Components {
         "initialTab"?: string;
         "justifyTabBar"?: SwirlTabBarJustify1;
         "label": string;
+        "tabBarPaddingInlineEnd"?: SwirlTabBarPadding1;
+        "tabBarPaddingInlineStart"?: SwirlTabBarPadding1;
     }
     interface SwirlTag {
         "bordered"?: boolean;
@@ -6850,6 +6854,8 @@ declare namespace LocalJSX {
         "onActivateNextTab"?: (event: SwirlTabBarCustomEvent<void>) => void;
         "onActivatePreviousTab"?: (event: SwirlTabBarCustomEvent<void>) => void;
         "onActivateTab"?: (event: SwirlTabBarCustomEvent<string>) => void;
+        "paddingInlineEnd"?: SwirlTabBarPadding;
+        "paddingInlineStart"?: SwirlTabBarPadding;
         "tabs"?: SwirlTabBarTab[];
     }
     interface SwirlTable {
@@ -6882,6 +6888,8 @@ declare namespace LocalJSX {
         "justifyTabBar"?: SwirlTabBarJustify1;
         "label": string;
         "onTabActivated"?: (event: SwirlTabsCustomEvent<HTMLSwirlTabElement>) => void;
+        "tabBarPaddingInlineEnd"?: SwirlTabBarPadding1;
+        "tabBarPaddingInlineStart"?: SwirlTabBarPadding1;
     }
     interface SwirlTag {
         "bordered"?: boolean;

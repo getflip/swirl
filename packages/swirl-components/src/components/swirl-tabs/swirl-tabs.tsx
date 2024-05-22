@@ -11,6 +11,7 @@ import {
 } from "@stencil/core";
 import {
   SwirlTabBarJustify,
+  SwirlTabBarPadding,
   SwirlTabBarTab,
 } from "../swirl-tab-bar/swirl-tab-bar";
 
@@ -26,6 +27,8 @@ export class SwirlTabs {
   @Prop() initialTab?: string;
   @Prop() label!: string;
   @Prop() justifyTabBar?: SwirlTabBarJustify;
+  @Prop() tabBarPaddingInlineEnd?: SwirlTabBarPadding;
+  @Prop() tabBarPaddingInlineStart?: SwirlTabBarPadding;
 
   @State() activeTab?: string;
   @State() tabBarTabs: SwirlTabBarTab[] = [];
@@ -138,6 +141,8 @@ export class SwirlTabs {
             onActivateTab={this.onActivateTab}
             tabs={this.tabBarTabs}
             justify={this.justifyTabBar}
+            paddingInlineEnd={this.tabBarPaddingInlineEnd}
+            paddingInlineStart={this.tabBarPaddingInlineStart}
           ></swirl-tab-bar>
         </div>
         <slot></slot>

@@ -10,6 +10,15 @@ export type SwirlTabBarTab = {
 
 export type SwirlTabBarJustify = "start" | "evenly";
 
+export type SwirlTabBarPadding =
+  | "0"
+  | "2"
+  | "4"
+  | "8"
+  | "12"
+  | "16"
+  | "20"
+  | "24";
 
 @Component({
   scoped: true,
@@ -21,6 +30,8 @@ export class SwirlTabBar {
   @Prop() disableTabSemantics?: boolean;
   @Prop() label!: string;
   @Prop() justify?: SwirlTabBarJustify = "start";
+  @Prop() paddingInlineEnd?: SwirlTabBarPadding;
+  @Prop() paddingInlineStart?: SwirlTabBarPadding;
   @Prop() tabs: SwirlTabBarTab[] = [];
 
   @Event() activateNextTab: EventEmitter<void>;
@@ -39,6 +50,14 @@ export class SwirlTabBar {
 
   render() {
     const className = classnames("tab-bar", `tab-bar--justify-${this.justify}`);
+    const styles = {
+      paddingInlineEnd: Boolean(this.paddingInlineEnd)
+        ? `var(--s-space-${this.paddingInlineEnd})`
+        : undefined,
+      paddingInlineStart: Boolean(this.paddingInlineStart)
+        ? `var(--s-space-${this.paddingInlineStart})`
+        : undefined,
+    };
 
     return (
       <Host>
@@ -47,6 +66,7 @@ export class SwirlTabBar {
           class={className}
           onKeyDown={this.onKeyDown}
           role={this.disableTabSemantics ? undefined : "tablist"}
+          style={styles}
         >
           {this.tabs.map((tab) => {
             const className = classnames("tab-bar__tab", {
