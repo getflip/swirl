@@ -14495,6 +14495,18 @@
           "description": ""
         },
         {
+          "name": "justify",
+          "description": "",
+          "values": [
+            {
+              "name": "evenly"
+            },
+            {
+              "name": "start"
+            }
+          ]
+        },
+        {
           "name": "label",
           "description": ""
         }
@@ -14622,6 +14634,18 @@
         {
           "name": "initial-tab",
           "description": ""
+        },
+        {
+          "name": "justify-tab-bar",
+          "description": "",
+          "values": [
+            {
+              "name": "evenly"
+            },
+            {
+              "name": "start"
+            }
+          ]
         },
         {
           "name": "label",

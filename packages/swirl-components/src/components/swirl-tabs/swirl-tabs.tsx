@@ -9,7 +9,10 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { SwirlTabBarTab } from "../swirl-tab-bar/swirl-tab-bar";
+import {
+  SwirlTabBarJustify,
+  SwirlTabBarTab,
+} from "../swirl-tab-bar/swirl-tab-bar";
 
 @Component({
   scoped: true,
@@ -22,6 +25,7 @@ export class SwirlTabs {
 
   @Prop() initialTab?: string;
   @Prop() label!: string;
+  @Prop() justifyTabBar?: SwirlTabBarJustify;
 
   @State() activeTab?: string;
   @State() tabBarTabs: SwirlTabBarTab[] = [];
@@ -133,6 +137,7 @@ export class SwirlTabs {
             onActivatePreviousTab={this.onActivatePreviousTab}
             onActivateTab={this.onActivateTab}
             tabs={this.tabBarTabs}
+            justify={this.justifyTabBar}
           ></swirl-tab-bar>
         </div>
         <slot></slot>

@@ -58,8 +58,9 @@ import { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/
 import { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch";
 import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
-import { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
+import { SwirlTabBarJustify, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
+import { SwirlTabBarJustify as SwirlTabBarJustify1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTagIntent, SwirlTagSize } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 import { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
@@ -122,8 +123,9 @@ export { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/
 export { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch";
 export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
-export { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
+export { SwirlTabBarJustify, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
+export { SwirlTabBarJustify as SwirlTabBarJustify1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTagIntent, SwirlTagSize } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 export { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
@@ -1919,6 +1921,7 @@ export namespace Components {
     }
     interface SwirlTabBar {
         "disableTabSemantics"?: boolean;
+        "justify"?: SwirlTabBarJustify;
         "label": string;
         "tabs": SwirlTabBarTab[];
     }
@@ -1958,6 +1961,7 @@ export namespace Components {
          */
         "activateTab": (tabId: string) => Promise<void>;
         "initialTab"?: string;
+        "justifyTabBar"?: SwirlTabBarJustify1;
         "label": string;
     }
     interface SwirlTag {
@@ -6841,6 +6845,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTabBar {
         "disableTabSemantics"?: boolean;
+        "justify"?: SwirlTabBarJustify;
         "label": string;
         "onActivateNextTab"?: (event: SwirlTabBarCustomEvent<void>) => void;
         "onActivatePreviousTab"?: (event: SwirlTabBarCustomEvent<void>) => void;
@@ -6874,6 +6879,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTabs {
         "initialTab"?: string;
+        "justifyTabBar"?: SwirlTabBarJustify1;
         "label": string;
         "onTabActivated"?: (event: SwirlTabsCustomEvent<HTMLSwirlTabElement>) => void;
     }

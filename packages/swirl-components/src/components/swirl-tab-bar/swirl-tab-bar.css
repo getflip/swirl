@@ -17,6 +17,10 @@
   border-bottom: var(--swirl-tab-bar-border-width) solid var(--s-border-default);
 }
 
+.tab-bar--justify-evenly > * {
+  flex: 1;
+}
+
 .tab-bar__tab {
   position: relative;
   display: flex;
@@ -31,6 +35,7 @@
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-lg);
   cursor: pointer;
+  justify-content: center;
 
   &:focus {
     outline: none;
@@ -74,7 +79,6 @@
 .tab-bar__tab-label {
   display: inline-flex;
   overflow: hidden;
-  width: 100%;
   padding: var(--s-space-8) var(--s-space-8);
   text-align: center;
   white-space: nowrap;

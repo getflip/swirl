@@ -8,6 +8,9 @@ export type SwirlTabBarTab = {
   label: string;
 };
 
+export type SwirlTabBarJustify = "start" | "evenly";
+
+
 @Component({
   scoped: true,
   shadow: false,
@@ -17,6 +20,7 @@ export type SwirlTabBarTab = {
 export class SwirlTabBar {
   @Prop() disableTabSemantics?: boolean;
   @Prop() label!: string;
+  @Prop() justify?: SwirlTabBarJustify = "start";
   @Prop() tabs: SwirlTabBarTab[] = [];
 
   @Event() activateNextTab: EventEmitter<void>;
@@ -34,11 +38,13 @@ export class SwirlTabBar {
   };
 
   render() {
+    const className = classnames("tab-bar", `tab-bar--justify-${this.justify}`);
+
     return (
       <Host>
         <div
           aria-label={this.label}
-          class="tab-bar"
+          class={className}
           onKeyDown={this.onKeyDown}
           role={this.disableTabSemantics ? undefined : "tablist"}
         >
