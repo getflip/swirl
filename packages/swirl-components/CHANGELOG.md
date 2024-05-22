@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.202.1
+
+### Patch Changes
+
+- [`4796f482`](https://github.com/getflip/swirl/commit/4796f482611faf0722465e496affad195d5e0308)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix scroll lock timing of
+  swirl-modal
+
 ## 0.202.0
 
 ### Minor Changes
