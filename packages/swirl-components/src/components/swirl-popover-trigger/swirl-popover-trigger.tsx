@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop, Watch } from "@stencil/core";
+import { Component, Element, h, Host, Prop, State, Watch } from "@stencil/core";
 
 @Component({
   shadow: false,
@@ -14,6 +14,18 @@ export class SwirlPopoverTrigger {
   @Prop() setAriaAttributes?: boolean = true;
   @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
   @Prop() triggerOnHover?: boolean = false;
+
+  @State() mouseX = 0;
+  @State() mouseY = 0;
+
+  @State() svgWidth = 0;
+  @State() svgHeight = 0;
+
+  @State() popoverWidth = 0;
+  @State() popoverHeight = 0;
+
+  @State() popoverX = 0;
+  @State() popoverY = 0;
 
   private intersectionObserver: IntersectionObserver;
 
@@ -35,11 +47,16 @@ export class SwirlPopoverTrigger {
         return;
       }
 
+      if (this.triggerOnHover) {
+        window.addEventListener("mousemove", this.onMousemove);
+      }
+
       this.intersectionObserver.observe(firstChild);
     }
   }
 
   disconnectedCallback() {
+    window.removeEventListener("mousemove", this.onMousemove);
     this.intersectionObserver?.disconnect();
   }
 
@@ -77,12 +94,22 @@ export class SwirlPopoverTrigger {
 
     const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
+    console.log("mouseenter");
 
     popoverEl.open(triggerEl, true);
+    this.popoverWidth = popoverEl.clientWidth;
+    this.popoverWidth = popoverEl.clientHeight;
+    const popoverContent =
+      popoverEl.shadowRoot.querySelector(".popover__content");
 
     popoverEl.addEventListener(
       "popoverOpen",
       () => {
+        this.popoverHeight = popoverContent.clientHeight;
+        this.popoverWidth = popoverContent.clientWidth;
+
+        this.svgWidth = this.popoverWidth;
+
         this.updateTriggerElAriaAttributes(true);
       },
       { once: true }
@@ -97,12 +124,23 @@ export class SwirlPopoverTrigger {
     );
   };
 
+  private onMousemove = (event: MouseEvent) => {
+    const popoverEl = this.getPopoverEl();
+    const popoverContent =
+      popoverEl.shadowRoot.querySelector(".popover__content");
+    this.mouseX = event.clientX;
+    this.mouseY = event.clientY;
+    this.svgHeight =
+      popoverContent.getBoundingClientRect().y - (this.mouseY + 4);
+  };
+
   private onMouseleave = () => {
     if (!this.triggerOnHover) return;
 
     const popoverEl = this.getPopoverEl();
 
     popoverEl.close(true);
+    window.removeEventListener("mousemove", this.onMousemove);
   };
 
   private onClick = () => {
@@ -173,6 +211,30 @@ export class SwirlPopoverTrigger {
         onMouseleave={this.onMouseleave}
       >
         <slot></slot>
+
+        <svg
+          style={{
+            position: "fixed",
+            width: this.svgWidth.toString(),
+            height: this.svgHeight.toString(),
+            pointerEvents: "none",
+            zIndex: "2",
+            top: (this.mouseY - 2).toString(),
+            left: this.popoverX.toString(),
+          }}
+          id="svg-safe-area"
+        >
+          <path
+            pointer-3vents="auto"
+            stroke="red"
+            stroke-width="0.4"
+            fill="rgba(114,140,89,0.3)"
+            // prettier-ignore
+            d={`M${this.mouseX - this.popoverY}, 0
+                L ${this.svgWidth}, ${this.svgHeight}
+                L ${this.popoverX}, ${this.svgHeight} z`}
+          ></path>
+        </svg>
       </Host>
     );
   }
