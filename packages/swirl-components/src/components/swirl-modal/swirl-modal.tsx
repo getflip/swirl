@@ -8,7 +8,6 @@ import {
   Method,
   Prop,
   State,
-  Watch,
   h,
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
@@ -99,19 +98,6 @@ export class SwirlModal {
     this.determineScrollStatus();
   }
 
-  @Watch("isOpen")
-  watchIsOpen() {
-    if (this.isOpen) {
-      // wait for animation
-      setTimeout(() => {
-        this.focusTrap.activate();
-        this.handleAutoFocus();
-      }, 200);
-    } else {
-      this.focusTrap.deactivate();
-    }
-  }
-
   /**
    * Open the modal.
    */
@@ -124,6 +110,11 @@ export class SwirlModal {
       this.lockBodyScroll();
       this.determineScrollStatus();
     });
+
+    setTimeout(() => {
+      this.focusTrap.activate();
+      this.handleAutoFocus();
+    }, 200);
   }
 
   /**
@@ -145,6 +136,7 @@ export class SwirlModal {
     this.unlockBodyScroll();
 
     setTimeout(() => {
+      this.focusTrap.deactivate();
       this.isOpen = false;
       this.modalClose.emit();
       this.closing = false;
