@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.203.0
+
+### Minor Changes
+
+- [#720](https://github.com/getflip/swirl/pull/720)
+  [`604ea002`](https://github.com/getflip/swirl/commit/604ea0027a7274d787cc38788e4083fd05101278)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Adjust swirl
+  tab styles and add justify and padding props
+
+### Patch Changes
+
+- Updated dependencies
+  [[`604ea002`](https://github.com/getflip/swirl/commit/604ea0027a7274d787cc38788e4083fd05101278)]:
+  - @getflip/swirl-components@0.203.0
+
 ## 0.202.1
 
 ### Patch Changes
