@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.203.1
+
+### Patch Changes
+
+- [`670d5fb1`](https://github.com/getflip/swirl/commit/670d5fb1e615f8961d13487d68a02e24e7097e00)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-modal focus trap
+
 ## 0.203.0
 
 ### Minor Changes
