@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": minor
 ---
 
-Extend and align swirl tabs with designs
+Adjust swirl tab styles and add justify and padding props
