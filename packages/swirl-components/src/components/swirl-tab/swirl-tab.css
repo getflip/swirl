@@ -1,17 +1,12 @@
 :host {
-  display: block;
+  display: none;
   width: 100%;
+
+  &(.tab--active) {
+    display: block;
+  }
 
   & * {
     box-sizing: border-box;
   }
-}
-
-.tab {
-  display: none;
-  width: 100%;
-}
-
-.tab--active {
-  display: block;
 }
