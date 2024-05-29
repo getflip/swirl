@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.204.1
+
+### Patch Changes
+
+- [`fb54565a`](https://github.com/getflip/swirl/commit/fb54565a3e173ce7d1cd938a9823806a9f8fdd18)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix clean up of
+  swirl-theme-provider subscriptions
+
 ## 0.204.0
 
 ### Minor Changes
