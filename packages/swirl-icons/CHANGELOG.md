@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.37.0
+
+### Minor Changes
+
+- [#724](https://github.com/getflip/swirl/pull/724)
+  [`14c0f1d0`](https://github.com/getflip/swirl/commit/14c0f1d0add14ebef07cabb9d8822a2dd09825dd)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add PinOff
+  Icon
+
 ## 0.36.0
 
 ### Minor Changes
