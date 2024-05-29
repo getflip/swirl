@@ -28,6 +28,9 @@ export class SwirlThemeProvider {
   @Event() themeChange: EventEmitter<SwirlOSThemeChangeEventData>;
 
   private appOSTheme: SwirlOSTheme;
+  private darkThemeMediaQuery = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  );
   private osTheme: SwirlOSTheme;
   private recentOSThemeChangeEventData: SwirlOSThemeChangeEventData;
   private resolvedConfig: SwirlThemeProviderConfig;
@@ -37,6 +40,13 @@ export class SwirlThemeProvider {
     this.resolveConfig();
     this.determineOSTheme();
     this.updateAppTheme();
+  }
+
+  disconnectedCallback() {
+    this.darkThemeMediaQuery.removeEventListener(
+      "change",
+      this.osThemeChangeHandler
+    );
   }
 
   @Watch("config")
@@ -121,18 +131,24 @@ export class SwirlThemeProvider {
       return;
     }
 
-    const darkThemeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+    this.osTheme = this.darkThemeMediaQuery.matches ? "dark" : "light";
+
+    this.darkThemeMediaQuery.removeEventListener(
+      "change",
+      this.osThemeChangeHandler
     );
 
-    this.osTheme = darkThemeMediaQuery.matches ? "dark" : "light";
-
-    darkThemeMediaQuery.addEventListener("change", (e) => {
-      this.osTheme = e.matches ? "dark" : "light";
-
-      this.updateAppTheme();
-    });
+    this.darkThemeMediaQuery.addEventListener(
+      "change",
+      this.osThemeChangeHandler
+    );
   }
+
+  private osThemeChangeHandler = (e: MediaQueryListEvent) => {
+    this.osTheme = e.matches ? "dark" : "light";
+
+    this.updateAppTheme();
+  };
 
   private async updateAppTheme() {
     const newAppOSTheme = (await this.getPreferredOSTheme()) || this.osTheme;
