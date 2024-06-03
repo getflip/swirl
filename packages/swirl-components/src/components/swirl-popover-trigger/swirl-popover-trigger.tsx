@@ -14,8 +14,10 @@ export class SwirlPopoverTrigger {
   @Prop() setAriaAttributes?: boolean = true;
   @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
   @Prop() triggerOnHover?: boolean = false;
+  @Prop() hoverLingerDuration?: number = 200;
 
   private intersectionObserver: IntersectionObserver;
+  private hoverLingerReference: NodeJS.Timeout;
 
   componentDidLoad() {
     this.updateTriggerElAriaAttributes();
@@ -80,6 +82,8 @@ export class SwirlPopoverTrigger {
 
     popoverEl.open(triggerEl, true);
 
+    this.stopHoverLingerDelay();
+
     popoverEl.addEventListener(
       "popoverOpen",
       () => {
@@ -99,11 +103,28 @@ export class SwirlPopoverTrigger {
 
   private onMouseleave = () => {
     if (!this.triggerOnHover) return;
-
     const popoverEl = this.getPopoverEl();
 
-    popoverEl.close(true);
+    popoverEl.addEventListener("mouseenter", () => {
+      this.stopHoverLingerDelay();
+      popoverEl.addEventListener("mouseleave", () => {
+        this.startHoverLingerDelay();
+      });
+    });
+    this.startHoverLingerDelay();
   };
+
+  private startHoverLingerDelay() {
+    this.stopHoverLingerDelay();
+    this.hoverLingerReference = setTimeout(() => {
+      this.getPopoverEl().close(true);
+    }, this.hoverLingerDuration);
+  }
+
+  private stopHoverLingerDelay() {
+    clearTimeout(this.hoverLingerReference);
+    this.hoverLingerReference = undefined;
+  }
 
   private onClick = () => {
     const popoverEl = this.getPopoverEl();
