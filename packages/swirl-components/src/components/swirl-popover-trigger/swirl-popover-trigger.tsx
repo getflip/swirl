@@ -15,9 +15,11 @@ export class SwirlPopoverTrigger {
   @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
   @Prop() triggerOnHover?: boolean = false;
   @Prop() hoverLingerDuration?: number;
+  @Prop() hoverDelay?: number;
 
   private intersectionObserver: IntersectionObserver;
-  private hoverLingerReference: NodeJS.Timeout;
+  private hoverLingerReference?: NodeJS.Timeout;
+  private hoverDelayReference?: NodeJS.Timeout;
 
   componentDidLoad() {
     this.updateTriggerElAriaAttributes();
@@ -76,13 +78,19 @@ export class SwirlPopoverTrigger {
 
   private onMouseenter = () => {
     if (!this.triggerOnHover) return;
+    this.stopHoverLingerTimer();
 
+    this.hoverDelayReference = setTimeout(() => {
+      this.hoverDelayReference = undefined;
+      this.mouseenterHandler();
+    }, this.hoverDelay);
+  };
+
+  private mouseenterHandler = () => {
     const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
 
     popoverEl.open(triggerEl, true);
-
-    this.stopHoverLingerDelay();
 
     popoverEl.addEventListener(
       "popoverOpen",
@@ -102,19 +110,27 @@ export class SwirlPopoverTrigger {
   };
 
   private onMouseleave = () => {
+    clearTimeout(this.hoverDelayReference);
+    // eslint-disable-next-line @stencil/strict-boolean-conditions
+    if (!this.hoverDelayReference) {
+      this.mouseleaveHandler();
+    }
+  };
+
+  private mouseleaveHandler = () => {
     if (!this.triggerOnHover) return;
-    this.startHoverLingerDelay();
+    this.startHoverLingerTimer();
 
     const popoverEl = this.getPopoverEl();
     popoverEl.addEventListener(
       "mouseenter",
       () => {
-        this.stopHoverLingerDelay();
+        this.stopHoverLingerTimer();
 
         popoverEl.addEventListener(
           "mouseleave",
           () => {
-            this.startHoverLingerDelay();
+            this.mouseleaveHandler();
           },
           { once: true }
         );
@@ -123,14 +139,14 @@ export class SwirlPopoverTrigger {
     );
   };
 
-  private startHoverLingerDelay() {
+  private startHoverLingerTimer() {
     clearTimeout(this.hoverLingerReference);
     this.hoverLingerReference = setTimeout(() => {
       this.getPopoverEl().close(true);
     }, this.hoverLingerDuration);
   }
 
-  private stopHoverLingerDelay() {
+  private stopHoverLingerTimer() {
     clearTimeout(this.hoverLingerReference);
   }
 

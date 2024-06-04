@@ -12816,6 +12816,10 @@
           "description": ""
         },
         {
+          "name": "hover-delay",
+          "description": ""
+        },
+        {
           "name": "hover-linger-duration",
           "description": ""
         },
