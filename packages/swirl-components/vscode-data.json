@@ -12816,6 +12816,14 @@
           "description": ""
         },
         {
+          "name": "hover-delay",
+          "description": ""
+        },
+        {
+          "name": "hover-linger-duration",
+          "description": ""
+        },
+        {
           "name": "set-aria-attributes",
           "description": ""
         },

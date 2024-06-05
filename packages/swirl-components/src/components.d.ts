@@ -1566,6 +1566,8 @@ export namespace Components {
     }
     interface SwirlPopoverTrigger {
         "hidePopoverWhenInvisible"?: boolean;
+        "hoverDelay"?: number;
+        "hoverLingerDuration"?: number;
         "parentScrollContainer"?: HTMLElement;
         "setAriaAttributes"?: boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement;
@@ -5918,6 +5920,8 @@ declare namespace LocalJSX {
     }
     interface SwirlPopoverTrigger {
         "hidePopoverWhenInvisible"?: boolean;
+        "hoverDelay"?: number;
+        "hoverLingerDuration"?: number;
         "parentScrollContainer"?: HTMLElement;
         "setAriaAttributes"?: boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement;

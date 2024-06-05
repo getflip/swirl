@@ -14,11 +14,17 @@ export class SwirlPopoverTrigger {
   @Prop() setAriaAttributes?: boolean = true;
   @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
   @Prop() triggerOnHover?: boolean = false;
+  @Prop() hoverLingerDuration?: number;
+  @Prop() hoverDelay?: number;
 
   private intersectionObserver: IntersectionObserver;
+  private hoverLingerReference?: NodeJS.Timeout;
+  private hoverDelayReference?: NodeJS.Timeout;
+  private triggerIsActive: boolean = false;
 
   componentDidLoad() {
     this.updateTriggerElAriaAttributes();
+    this.setupHoverListeners();
 
     if (this.hidePopoverWhenInvisible) {
       this.intersectionObserver = new IntersectionObserver(
@@ -41,6 +47,11 @@ export class SwirlPopoverTrigger {
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
+    const popoverEl = this.getPopoverEl();
+    if (Boolean(popoverEl)) {
+      popoverEl.removeEventListener("mouseenter", this.popoverMouseEnter);
+      popoverEl.removeEventListener("mouseleave", this.popoverMouseLeave);
+    }
   }
 
   @Watch("swirlPopover")
@@ -72,9 +83,38 @@ export class SwirlPopoverTrigger {
     }
   }
 
+  private setupHoverListeners() {
+    const popoverEl = this.getPopoverEl();
+
+    if (Boolean(popoverEl)) {
+      popoverEl.addEventListener("mouseenter", this.popoverMouseEnter);
+      popoverEl.addEventListener("mouseleave", this.popoverMouseLeave);
+    }
+  }
+
+  popoverMouseEnter = () => {
+    this.stopHoverLingerTimer();
+  };
+
+  popoverMouseLeave = () => {
+    if (this.triggerIsActive) {
+      this.mouseleaveHandler();
+    }
+  };
+
   private onMouseenter = () => {
     if (!this.triggerOnHover) return;
+    this.stopHoverLingerTimer();
 
+    this.triggerIsActive = true;
+
+    this.hoverDelayReference = setTimeout(() => {
+      this.hoverDelayReference = undefined;
+      this.mouseenterHandler();
+    }, this.hoverDelay);
+  };
+
+  private mouseenterHandler = () => {
     const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
 
@@ -98,12 +138,28 @@ export class SwirlPopoverTrigger {
   };
 
   private onMouseleave = () => {
-    if (!this.triggerOnHover) return;
-
-    const popoverEl = this.getPopoverEl();
-
-    popoverEl.close(true);
+    clearTimeout(this.hoverDelayReference);
+    if (!Boolean(this.hoverDelayReference)) {
+      this.mouseleaveHandler();
+    }
   };
+
+  private mouseleaveHandler = () => {
+    if (!this.triggerOnHover) return;
+    this.startHoverLingerTimer();
+  };
+
+  private startHoverLingerTimer() {
+    clearTimeout(this.hoverLingerReference);
+    this.hoverLingerReference = setTimeout(() => {
+      this.getPopoverEl().close(true);
+      this.triggerIsActive = false;
+    }, this.hoverLingerDuration);
+  }
+
+  private stopHoverLingerTimer() {
+    clearTimeout(this.hoverLingerReference);
+  }
 
   private onClick = () => {
     const popoverEl = this.getPopoverEl();
