@@ -140,8 +140,6 @@ export class SwirlButton {
     const hasIcon =
       this.icon || Boolean(this.el.querySelector("[slot='icon']"));
 
-    const hasTag = this.icon || Boolean(this.el.querySelector(".button__tag"));
-
     const className = classnames(
       "button",
       `button--icon-position-${this.iconPosition}`,
@@ -151,7 +149,6 @@ export class SwirlButton {
       `button--variant-${this.variant}`,
       {
         "button--has-icon": hasIcon,
-        "button--has-tag": hasTag,
         "button--icon-only": hideLabel,
         "button--pill": this.pill,
         "button--pressed": this.pressed,

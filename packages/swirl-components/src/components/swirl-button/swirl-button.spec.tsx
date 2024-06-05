@@ -14,18 +14,22 @@ describe("swirl-button", () => {
               pill="true"
               size="l"
               type="submit"
+              tag="<swirl-tag label='Tag'></swirl-tag>"
               variant="flat">
             </swirl-button>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-button disabled="true" icon="<swirl-icon-close></swirl-icon-close>" intent="critical" label="Label" pill="true" size="l" type="submit" variant="flat" style="pointer-events: none;">
+      <swirl-button disabled="true" icon="<swirl-icon-close></swirl-icon-close>" intent="critical" label="Label" pill="true" size="l" type="submit" tag="<swirl-tag label='Tag'></swirl-tag>" variant="flat" style="pointer-events: none;">
         <button aria-disabled="true" class="button button--has-icon button--icon-position-start button--intent-critical button--pill button--size-l button--text-align-center button--variant-flat" disabled="" type="submit">
           <span class="button__icon">
             <swirl-icon-close size="24"></swirl-icon-close>
           </span>
           <span class="button__label">
             Label
+          </span>
+          <span class="button__tag">
+            <swirl-tag label="Tag"></swirl-tag>
           </span>
         </button>
       </swirl-button>
