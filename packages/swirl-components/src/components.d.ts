@@ -339,6 +339,7 @@ export namespace Components {
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
+        "tag"?: string;
         "target"?: string;
         "textAlign"?: SwirlButtonTextAlign;
         "type"?: SwirlButtonType;
@@ -4793,6 +4794,7 @@ declare namespace LocalJSX {
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
+        "tag"?: string;
         "target"?: string;
         "textAlign"?: SwirlButtonTextAlign;
         "type"?: SwirlButtonType;

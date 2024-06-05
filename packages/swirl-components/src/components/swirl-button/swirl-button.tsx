@@ -57,6 +57,7 @@ export class SwirlButton {
   @Prop() pill?: boolean;
   @Prop() pressed?: boolean;
   @Prop() size?: SwirlButtonSize = "m";
+  @Prop() tag?: string;
   @Prop() target?: string;
   @Prop() textAlign?: SwirlButtonTextAlign = "center";
   @Prop() type?: SwirlButtonType = "button";
@@ -139,6 +140,8 @@ export class SwirlButton {
     const hasIcon =
       this.icon || Boolean(this.el.querySelector("[slot='icon']"));
 
+    const hasTag = this.icon || Boolean(this.el.querySelector(".button__tag"));
+
     const className = classnames(
       "button",
       `button--icon-position-${this.iconPosition}`,
@@ -148,6 +151,7 @@ export class SwirlButton {
       `button--variant-${this.variant}`,
       {
         "button--has-icon": hasIcon,
+        "button--has-tag": hasTag,
         "button--icon-only": hideLabel,
         "button--pill": this.pill,
         "button--pressed": this.pressed,
@@ -191,6 +195,9 @@ export class SwirlButton {
             </span>
           )}
           {!hideLabel && <span class="button__label">{this.label}</span>}
+          {Boolean(this.tag) && (
+            <span class="button__tag" innerHTML={this.tag}></span>
+          )}
         </Tag>
       </Host>
     );

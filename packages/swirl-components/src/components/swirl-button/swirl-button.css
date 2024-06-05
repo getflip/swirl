@@ -434,6 +434,10 @@
   }
 }
 
+.button__tag {
+  order: 3;
+}
+
 .button__icon {
   display: none;
   width: 1.5rem;
