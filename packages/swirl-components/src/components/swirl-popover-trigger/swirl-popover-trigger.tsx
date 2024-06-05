@@ -47,6 +47,11 @@ export class SwirlPopoverTrigger {
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
+    const popoverEl = this.getPopoverEl();
+    if (Boolean(popoverEl)) {
+      popoverEl.removeEventListener("mouseenter", this.popoverMouseEnter);
+      popoverEl.removeEventListener("mouseenter", this.popoverMouseLeave);
+    }
   }
 
   @Watch("swirlPopover")
@@ -81,16 +86,25 @@ export class SwirlPopoverTrigger {
   private setupHoverListeners() {
     const popoverEl = this.getPopoverEl();
 
-    popoverEl.addEventListener("mouseenter", () => {
-      if (this.triggerIsActive) {
-        this.stopHoverLingerTimer();
-      }
-    });
-    popoverEl.addEventListener("mouseleave", () => {
-      if (this.triggerIsActive) {
-        this.mouseleaveHandler();
-      }
-    });
+    this.popoverMouseEnter = this.popoverMouseEnter.bind(this);
+    this.popoverMouseLeave = this.popoverMouseLeave.bind(this);
+
+    popoverEl.addEventListener("mouseenter", this.popoverMouseEnter);
+    popoverEl.addEventListener("mouseleave", this.popoverMouseLeave);
+  }
+
+  popoverMouseEnter() {
+    this.stopHoverLingerTimer();
+
+    if (this.triggerIsActive) {
+      this.stopHoverLingerTimer();
+    }
+  }
+
+  popoverMouseLeave() {
+    if (this.triggerIsActive) {
+      this.mouseleaveHandler();
+    }
   }
 
   private onMouseenter = () => {
