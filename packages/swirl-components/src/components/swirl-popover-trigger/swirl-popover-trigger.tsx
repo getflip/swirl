@@ -86,11 +86,13 @@ export class SwirlPopoverTrigger {
   private setupHoverListeners() {
     const popoverEl = this.getPopoverEl();
 
-    this.popoverMouseEnter = this.popoverMouseEnter.bind(this);
-    this.popoverMouseLeave = this.popoverMouseLeave.bind(this);
+    if (Boolean(popoverEl)) {
+      this.popoverMouseEnter = this.popoverMouseEnter.bind(this);
+      this.popoverMouseLeave = this.popoverMouseLeave.bind(this);
 
-    popoverEl.addEventListener("mouseenter", this.popoverMouseEnter);
-    popoverEl.addEventListener("mouseleave", this.popoverMouseLeave);
+      popoverEl.addEventListener("mouseenter", this.popoverMouseEnter);
+      popoverEl.addEventListener("mouseleave", this.popoverMouseLeave);
+    }
   }
 
   popoverMouseEnter() {
