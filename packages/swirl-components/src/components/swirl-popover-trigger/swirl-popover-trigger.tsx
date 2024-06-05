@@ -20,9 +20,11 @@ export class SwirlPopoverTrigger {
   private intersectionObserver: IntersectionObserver;
   private hoverLingerReference?: NodeJS.Timeout;
   private hoverDelayReference?: NodeJS.Timeout;
+  private triggerIsActive: boolean = false;
 
   componentDidLoad() {
     this.updateTriggerElAriaAttributes();
+    this.setupHoverListeners();
 
     if (this.hidePopoverWhenInvisible) {
       this.intersectionObserver = new IntersectionObserver(
@@ -76,9 +78,26 @@ export class SwirlPopoverTrigger {
     }
   }
 
+  private setupHoverListeners() {
+    const popoverEl = this.getPopoverEl();
+
+    popoverEl.addEventListener("mouseenter", () => {
+      if (this.triggerIsActive) {
+        this.stopHoverLingerTimer();
+      }
+    });
+    popoverEl.addEventListener("mouseleave", () => {
+      if (this.triggerIsActive) {
+        this.mouseleaveHandler();
+      }
+    });
+  }
+
   private onMouseenter = () => {
     if (!this.triggerOnHover) return;
     this.stopHoverLingerTimer();
+
+    this.triggerIsActive = true;
 
     this.hoverDelayReference = setTimeout(() => {
       this.hoverDelayReference = undefined;
@@ -111,8 +130,7 @@ export class SwirlPopoverTrigger {
 
   private onMouseleave = () => {
     clearTimeout(this.hoverDelayReference);
-    // eslint-disable-next-line @stencil/strict-boolean-conditions
-    if (!this.hoverDelayReference) {
+    if (!Boolean(this.hoverDelayReference)) {
       this.mouseleaveHandler();
     }
   };
@@ -120,29 +138,13 @@ export class SwirlPopoverTrigger {
   private mouseleaveHandler = () => {
     if (!this.triggerOnHover) return;
     this.startHoverLingerTimer();
-
-    const popoverEl = this.getPopoverEl();
-    popoverEl.addEventListener(
-      "mouseenter",
-      () => {
-        this.stopHoverLingerTimer();
-
-        popoverEl.addEventListener(
-          "mouseleave",
-          () => {
-            this.mouseleaveHandler();
-          },
-          { once: true }
-        );
-      },
-      { once: true }
-    );
   };
 
   private startHoverLingerTimer() {
     clearTimeout(this.hoverLingerReference);
     this.hoverLingerReference = setTimeout(() => {
       this.getPopoverEl().close(true);
+      this.triggerIsActive = false;
     }, this.hoverLingerDuration);
   }
 
