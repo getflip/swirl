@@ -87,27 +87,20 @@ export class SwirlPopoverTrigger {
     const popoverEl = this.getPopoverEl();
 
     if (Boolean(popoverEl)) {
-      this.popoverMouseEnter = this.popoverMouseEnter.bind(this);
-      this.popoverMouseLeave = this.popoverMouseLeave.bind(this);
-
       popoverEl.addEventListener("mouseenter", this.popoverMouseEnter);
       popoverEl.addEventListener("mouseleave", this.popoverMouseLeave);
     }
   }
 
-  popoverMouseEnter() {
+  popoverMouseEnter = () => {
     this.stopHoverLingerTimer();
+  };
 
-    if (this.triggerIsActive) {
-      this.stopHoverLingerTimer();
-    }
-  }
-
-  popoverMouseLeave() {
+  popoverMouseLeave = () => {
     if (this.triggerIsActive) {
       this.mouseleaveHandler();
     }
-  }
+  };
 
   private onMouseenter = () => {
     if (!this.triggerOnHover) return;
