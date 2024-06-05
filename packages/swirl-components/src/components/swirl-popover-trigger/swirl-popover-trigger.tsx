@@ -50,7 +50,7 @@ export class SwirlPopoverTrigger {
     const popoverEl = this.getPopoverEl();
     if (Boolean(popoverEl)) {
       popoverEl.removeEventListener("mouseenter", this.popoverMouseEnter);
-      popoverEl.removeEventListener("mouseenter", this.popoverMouseLeave);
+      popoverEl.removeEventListener("mouseleave", this.popoverMouseLeave);
     }
   }
 
