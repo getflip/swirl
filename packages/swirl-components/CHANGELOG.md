@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.205.0
+
+### Minor Changes
+
+- [#727](https://github.com/getflip/swirl/pull/727)
+  [`981fc23d`](https://github.com/getflip/swirl/commit/981fc23d08d4abaf11760b16c7209141b40dda39)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add linger
+  duration to popover hover
+
 ## 0.204.1
 
 ### Patch Changes
