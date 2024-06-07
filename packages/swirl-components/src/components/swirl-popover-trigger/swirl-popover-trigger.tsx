@@ -147,9 +147,7 @@ export class SwirlPopoverTrigger {
 
   private onMouseleave = () => {
     clearTimeout(this.hoverDelayReference);
-    if (!Boolean(this.hoverDelayReference)) {
-      this.mouseleaveHandler();
-    }
+    this.mouseleaveHandler();
   };
 
   private mouseleaveHandler = () => {
@@ -160,7 +158,9 @@ export class SwirlPopoverTrigger {
   private startHoverLingerTimer() {
     clearTimeout(this.hoverLingerReference);
     this.hoverLingerReference = setTimeout(() => {
-      this.getPopoverEl().close(true);
+      if (this.triggerIsActive && this.isPopoverOpen()) {
+        this.getPopoverEl().close(true);
+      }
       this.triggerIsActive = false;
     }, this.hoverLingerDuration);
   }
