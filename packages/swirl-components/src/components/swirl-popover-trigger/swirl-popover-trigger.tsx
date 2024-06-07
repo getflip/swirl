@@ -59,6 +59,12 @@ export class SwirlPopoverTrigger {
     this.updateTriggerElAriaAttributes();
   }
 
+  @Watch("triggerOnHover")
+  watchHover() {
+    clearTimeout(this.hoverDelayReference);
+    clearTimeout(this.hoverLingerReference);
+  }
+
   private getPopoverEl() {
     return typeof this.swirlPopover === "string"
       ? document.querySelector<HTMLSwirlPopoverElement>(`#${this.swirlPopover}`)
@@ -110,7 +116,9 @@ export class SwirlPopoverTrigger {
 
     this.hoverDelayReference = setTimeout(() => {
       this.hoverDelayReference = undefined;
-      this.mouseenterHandler();
+      if (this.triggerOnHover) {
+        this.mouseenterHandler();
+      }
     }, this.hoverDelay);
   };
 
@@ -162,6 +170,8 @@ export class SwirlPopoverTrigger {
   }
 
   private onClick = () => {
+    if (this.triggerOnHover) return;
+
     const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
 
