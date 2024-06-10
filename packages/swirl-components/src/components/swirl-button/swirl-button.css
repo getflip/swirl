@@ -32,6 +32,8 @@
 
   &:hover {
     background-color: var(--swirl-ghost-button-background-hovered);
+
+    --swirl-button-tag-hovered-background-color: var(--s-surface-sunken-pressed);
   }
 
   &:active {
@@ -435,6 +437,7 @@
 }
 
 .button__tag {
+  padding-left: var(--s-space-8);
   order: 3;
 }
 

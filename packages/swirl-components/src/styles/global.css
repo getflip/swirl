@@ -27,6 +27,7 @@
   --swirl-button-border-top-left-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-right-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-left-radius: var(--s-border-radius-base);
+  --swirl-button-tag-hovered-background-color: var(--s-surface-neutral-subdued);
 
   --swirl-card-background-default: var(--s-surface-default);
   --swirl-card-background-hovered: var(--s-surface-hovered);
