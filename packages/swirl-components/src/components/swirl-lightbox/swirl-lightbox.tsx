@@ -3,7 +3,6 @@ import {
   Element,
   h,
   Host,
-  Listen,
   Method,
   Prop,
   State,
@@ -57,8 +56,7 @@ export class SwirlLightbox {
     this.unlockBodyScroll();
   }
 
-  @Listen("keydown", { target: "document" })
-  onKeyDown(event: KeyboardEvent) {
+  onKeyDown = (event: KeyboardEvent) => {
     if (!(this.modal.shown as boolean)) {
       return;
     }
@@ -71,7 +69,7 @@ export class SwirlLightbox {
     } else if (event.code === "ArrowRight") {
       this.onNextSlideClick();
     }
-  }
+  };
 
   /**
    * Open the lightbox.
@@ -342,7 +340,7 @@ export class SwirlLightbox {
     });
 
     return (
-      <Host>
+      <Host onKeydown={this.onKeyDown}>
         <section
           aria-hidden="true"
           aria-label={this.label}
