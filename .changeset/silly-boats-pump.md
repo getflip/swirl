@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": minor
 ---
 
-Add optional tag prop to swirl-button to render tag inside button
+Add optional slot to swirl-button to render tag inside button
