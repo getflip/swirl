@@ -22,6 +22,7 @@ export type SwirlButtonVariant =
 
 /**
  * @slot icon - Icon to be displayed inside the button.
+ * @slot tag - Tag to be displayed inside the button.
  */
 @Component({
   /**
@@ -139,6 +140,8 @@ export class SwirlButton {
     const hasIcon =
       this.icon || Boolean(this.el.querySelector("[slot='icon']"));
 
+    const hasTag = Boolean(this.el.querySelector("[slot='tag']"));
+
     const className = classnames(
       "button",
       `button--icon-position-${this.iconPosition}`,
@@ -191,6 +194,11 @@ export class SwirlButton {
             </span>
           )}
           {!hideLabel && <span class="button__label">{this.label}</span>}
+          {hasTag && (
+            <span class="button__tag">
+              <slot name="tag"></slot>
+            </span>
+          )}
         </Tag>
       </Host>
     );

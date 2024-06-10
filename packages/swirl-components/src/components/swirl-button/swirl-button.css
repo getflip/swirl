@@ -32,6 +32,8 @@
 
   &:hover {
     background-color: var(--swirl-ghost-button-background-hovered);
+
+    --swirl-tag-background-default: var(--s-surface-sunken-pressed);
   }
 
   &:active {
@@ -122,6 +124,7 @@
 .button--variant-flat {
   color: var(--s-text-default);
   background-color: var(--swirl-flat-button-background-default);
+  --swirl-tag-background-default: var(--s-surface-sunken-pressed);
 
   &:hover {
     background-color: var(--swirl-flat-button-background-hovered);
@@ -432,6 +435,11 @@
   & .button__icon {
     display: inline-flex;
   }
+}
+
+.button__tag {
+  padding-left: var(--s-space-8);
+  order: 3;
 }
 
 .button__icon {
