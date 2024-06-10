@@ -1,5 +1,16 @@
 # @getflip/swirl-components-angular
 
+## 0.205.1
+
+### Patch Changes
+
+- [`c4d525fa`](https://github.com/getflip/swirl/commit/c4d525fa4a6e29712bd4025117632538fe479f31)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-lightbox key handling
+
+- Updated dependencies
+  [[`c4d525fa`](https://github.com/getflip/swirl/commit/c4d525fa4a6e29712bd4025117632538fe479f31)]:
+  - @getflip/swirl-components@0.205.1
+
 ## 0.205.0
 
 ### Minor Changes
