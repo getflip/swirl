@@ -28,9 +28,6 @@ describe("swirl-button", () => {
           <span class="button__label">
             Label
           </span>
-          <span class="button__tag">
-            <swirl-tag label="Tag"></swirl-tag>
-          </span>
         </button>
       </swirl-button>
     `);
