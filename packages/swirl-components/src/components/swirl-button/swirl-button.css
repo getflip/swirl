@@ -124,6 +124,7 @@
 .button--variant-flat {
   color: var(--s-text-default);
   background-color: var(--swirl-flat-button-background-default);
+  --swirl-tag-background-default: var(--s-surface-sunken-pressed);
 
   &:hover {
     background-color: var(--swirl-flat-button-background-hovered);
