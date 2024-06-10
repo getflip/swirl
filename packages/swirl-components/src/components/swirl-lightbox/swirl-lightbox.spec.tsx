@@ -150,7 +150,7 @@ describe("swirl-lightbox", () => {
 
     const slides = page.rootInstance.slides;
 
-    page.doc.dispatchEvent(
+    page.root.dispatchEvent(
       new KeyboardEvent("keydown", { code: "ArrowRight" })
     );
 
@@ -162,7 +162,9 @@ describe("swirl-lightbox", () => {
     expect(slides[2].getAttribute("active")).toBe("true");
     expect(page.rootInstance.activeSlideIndex).toBe(1);
 
-    page.doc.dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowLeft" }));
+    page.root.dispatchEvent(
+      new KeyboardEvent("keydown", { code: "ArrowLeft" })
+    );
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));
