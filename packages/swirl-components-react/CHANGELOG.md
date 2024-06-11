@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.206.0
+
+### Minor Changes
+
+- [#729](https://github.com/getflip/swirl/pull/729)
+  [`af35456e`](https://github.com/getflip/swirl/commit/af35456ebc068e81c6f3d1565f54075550df454b)
+  Thanks [@manuel-pross](https://github.com/manuel-pross)! - Add optional slot
+  to swirl-button to render tag inside button
+
+### Patch Changes
+
+- Updated dependencies
+  [[`af35456e`](https://github.com/getflip/swirl/commit/af35456ebc068e81c6f3d1565f54075550df454b)]:
+  - @getflip/swirl-components@0.206.0
+
 ## 0.205.1
 
 ### Patch Changes
