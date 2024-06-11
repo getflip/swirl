@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.208.0
+
+### Minor Changes
+
+- [`63c63874`](https://github.com/getflip/swirl/commit/63c6387433641eb1e1eb34a8ab1f547a9adf2d4b) -
+  Improve Popover Hover experience
+
 ## 0.207.0
 
 ### Minor Changes
