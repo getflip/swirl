@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.207.0
+
+### Minor Changes
+
+- [#733](https://github.com/getflip/swirl/pull/733)
+  [`dd48d8b4`](https://github.com/getflip/swirl/commit/dd48d8b4d7f214b60f9b597c3897be84cb4651cb)
+  Thanks [@manuel-pross](https://github.com/manuel-pross)! - Enable tag as valid
+  suffix inside menu-item with correct sizing and spacing
+
+### Patch Changes
+
+- Updated dependencies
+  [[`dd48d8b4`](https://github.com/getflip/swirl/commit/dd48d8b4d7f214b60f9b597c3897be84cb4651cb)]:
+  - @getflip/swirl-components@0.207.0
+
 ## 0.206.0
 
 ### Minor Changes
