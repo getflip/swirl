@@ -27,6 +27,8 @@
 
   &:hover {
     background-color: var(--s-surface-overlay-hovered);
+
+    --swirl-tag-background-default: var(--s-surface-sunken-pressed);
   }
 
   &:focus {
