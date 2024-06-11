@@ -59,7 +59,7 @@ export class SwirlActionListItem {
 
     icon?.setAttribute("size", smallIcon ? "20" : "24");
 
-    if (suffix.tagName === "SWIRL-TAG") return;
+    if (suffix?.tagName === "SWIRL-TAG") return;
 
     suffix?.setAttribute("size", smallIcon ? "20" : "24");
   }
