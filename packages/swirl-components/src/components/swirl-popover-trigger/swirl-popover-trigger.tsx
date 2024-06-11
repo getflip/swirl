@@ -13,6 +13,7 @@ export class SwirlPopoverTrigger {
   @Prop() parentScrollContainer?: HTMLElement;
   @Prop() setAriaAttributes?: boolean = true;
   @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
+  @Prop() triggerOnClick?: boolean = true;
   @Prop() triggerOnHover?: boolean = false;
   @Prop() hoverLingerDuration?: number;
   @Prop() hoverDelay?: number;
@@ -57,6 +58,12 @@ export class SwirlPopoverTrigger {
   @Watch("swirlPopover")
   watchPopover() {
     this.updateTriggerElAriaAttributes();
+  }
+
+  @Watch("triggerOnHover")
+  watchHover() {
+    clearTimeout(this.hoverDelayReference);
+    clearTimeout(this.hoverLingerReference);
   }
 
   private getPopoverEl() {
@@ -110,7 +117,9 @@ export class SwirlPopoverTrigger {
 
     this.hoverDelayReference = setTimeout(() => {
       this.hoverDelayReference = undefined;
-      this.mouseenterHandler();
+      if (this.triggerOnHover) {
+        this.mouseenterHandler();
+      }
     }, this.hoverDelay);
   };
 
@@ -139,9 +148,7 @@ export class SwirlPopoverTrigger {
 
   private onMouseleave = () => {
     clearTimeout(this.hoverDelayReference);
-    if (!Boolean(this.hoverDelayReference)) {
-      this.mouseleaveHandler();
-    }
+    this.mouseleaveHandler();
   };
 
   private mouseleaveHandler = () => {
@@ -152,7 +159,9 @@ export class SwirlPopoverTrigger {
   private startHoverLingerTimer() {
     clearTimeout(this.hoverLingerReference);
     this.hoverLingerReference = setTimeout(() => {
-      this.getPopoverEl().close(true);
+      if (this.triggerIsActive && this.isPopoverOpen()) {
+        this.getPopoverEl().close(true);
+      }
       this.triggerIsActive = false;
     }, this.hoverLingerDuration);
   }
@@ -162,6 +171,8 @@ export class SwirlPopoverTrigger {
   }
 
   private onClick = () => {
+    if (!this.triggerOnClick) return;
+
     const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
 

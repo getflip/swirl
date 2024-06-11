@@ -12832,6 +12832,10 @@
           "description": ""
         },
         {
+          "name": "trigger-on-click",
+          "description": ""
+        },
+        {
           "name": "trigger-on-hover",
           "description": ""
         }

@@ -1571,6 +1571,7 @@ export namespace Components {
         "parentScrollContainer"?: HTMLElement;
         "setAriaAttributes"?: boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement;
+        "triggerOnClick"?: boolean;
         "triggerOnHover"?: boolean;
     }
     interface SwirlProgressIndicator {
@@ -6501,6 +6502,7 @@ declare namespace LocalJSX {
         "parentScrollContainer"?: HTMLElement;
         "setAriaAttributes"?: boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement;
+        "triggerOnClick"?: boolean;
         "triggerOnHover"?: boolean;
     }
     interface SwirlProgressIndicator {
