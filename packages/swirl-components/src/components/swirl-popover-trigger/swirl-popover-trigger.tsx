@@ -13,6 +13,7 @@ export class SwirlPopoverTrigger {
   @Prop() parentScrollContainer?: HTMLElement;
   @Prop() setAriaAttributes?: boolean = true;
   @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
+  @Prop() triggerOnClick?: boolean = true;
   @Prop() triggerOnHover?: boolean = false;
   @Prop() hoverLingerDuration?: number;
   @Prop() hoverDelay?: number;
@@ -170,7 +171,7 @@ export class SwirlPopoverTrigger {
   }
 
   private onClick = () => {
-    if (this.triggerOnHover) return;
+    if (!this.triggerOnClick) return;
 
     const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
