@@ -98,6 +98,10 @@
       @media (--from-tablet) {
         & .app-layout__grid {
           animation: app-layout-no-nav-sidebar-slide-in 0.3s;
+
+          @media (prefers-reduced-motion) {
+            animation: none;
+          }
         }
       }
     }
@@ -106,6 +110,10 @@
       @media (--from-tablet) {
         & .app-layout__grid {
           animation: app-layout-no-nav-sidebar-slide-out 0.3s;
+
+          @media (prefers-reduced-motion) {
+            animation: none;
+          }
         }
       }
     }
@@ -139,6 +147,10 @@
         grid-template-areas:
           "header body sidebar"
           "navigation body sidebar";
+
+        @media (prefers-reduced-motion) {
+          animation: none;
+        }
       }
     }
   }
@@ -147,6 +159,10 @@
     @media (--from-larger-desktop) {
       & .app-layout__grid {
         animation: app-layout-sidebar-slide-out 0.3s;
+
+        @media (prefers-reduced-motion) {
+          animation: none;
+        }
       }
     }
   }
@@ -238,6 +254,10 @@
   & .app-layout__sidebar {
     @media (--from-tablet) {
       animation: app-layout-sidebar-overlay-slide-out 0.3s;
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
     }
 
     @media (--from-larger-desktop) {
@@ -458,6 +478,10 @@
 
   @media (--from-tablet) {
     animation: app-layout-slide-in 0.3s;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
   }
 
   @media (--from-larger-desktop) {

@@ -210,6 +210,10 @@ export function isMobileViewport() {
   return !window.matchMedia("(min-width: 768px)").matches;
 }
 
+export function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 export function parentsPassShadow(node, selector, matches = []) {
   if (!node) {
     return matches;

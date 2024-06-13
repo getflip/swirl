@@ -30,6 +30,10 @@
   grid-template-rows: 1fr;
   grid-template-areas: "nav main";
 
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+
   @media (--from-desktop) {
     padding-right: var(--s-space-8);
     padding-bottom: var(--s-space-8);
@@ -297,6 +301,10 @@
   transform: translate3d(-100%, 0, 0);
   grid-area: nav;
 
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+
   @media (--from-desktop) {
     position: static;
     max-width: none;
@@ -425,6 +433,10 @@
     transform: none;
     box-shadow: none;
     inset: auto;
+  }
+
+  @media (prefers-reduced-motion) {
+    transition: none;
   }
 }
 
