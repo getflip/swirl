@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.208.2
+
+### Patch Changes
+
+- [`f04bd094`](https://github.com/getflip/swirl/commit/f04bd0949d72878072514b624194a143b6f06964)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Use links for swirl-shell-layout
+  browser history buttons
+
+- Updated dependencies
+  [[`f04bd094`](https://github.com/getflip/swirl/commit/f04bd0949d72878072514b624194a143b6f06964)]:
+  - @getflip/swirl-components@0.208.2
+
 ## 0.208.1
 
 ### Patch Changes
