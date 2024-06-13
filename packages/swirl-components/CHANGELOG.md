@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.208.3
+
+### Patch Changes
+
+- [`52f0c6a0`](https://github.com/getflip/swirl/commit/52f0c6a0162d88d37c9b71944b7e4b80caf5fd32)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make swirl-shell-layout and
+  swirl-app-layout respect "prefers-reduced-motion" browser setting
+
 ## 0.208.2
 
 ### Patch Changes
