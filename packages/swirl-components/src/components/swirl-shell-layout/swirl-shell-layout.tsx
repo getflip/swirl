@@ -139,14 +139,6 @@ export class SwirlShellLayout {
     this.mobileNavigationActive = false;
   }
 
-  private onBrowserBackClick = () => {
-    history.back();
-  };
-
-  private onBrowserForwardClick = () => {
-    history.forward();
-  };
-
   private onNavigationToggleClick = () => {
     this.navigationCollapsed = !this.navigationCollapsed;
   };
@@ -188,26 +180,24 @@ export class SwirlShellLayout {
                   {this.navigationToggleLabel}
                 </swirl-visually-hidden>
               </button>
-              <button
+              <a
                 class="shell-layout__header-tool"
-                onClick={this.onBrowserBackClick}
-                type="button"
+                href="javascript:history.back()"
               >
                 <swirl-icon-arrow-back size={20}></swirl-icon-arrow-back>
                 <swirl-visually-hidden>
                   {this.browserBackButtonLabel}
                 </swirl-visually-hidden>
-              </button>
-              <button
+              </a>
+              <a
                 class="shell-layout__header-tool"
-                onClick={this.onBrowserForwardClick}
-                type="button"
+                href="javascript:history.forward()"
               >
                 <swirl-icon-arrow-forward size={20}></swirl-icon-arrow-forward>
                 <swirl-visually-hidden>
                   {this.browserForwardButtonLabel}
                 </swirl-visually-hidden>
-              </button>
+              </a>
               <slot name="left-header-tools"></slot>
             </div>
             <div class="shell-layout__logo">
