@@ -98,13 +98,15 @@ export class SwirlImageGridItem {
       this.loading === "eager" ||
       (this.loaded && (this.loading !== "intersecting" || this.inViewport));
 
+    const siblingCount = Math.min(this.el.parentElement.children.length, 4);
+
     const className = classnames("image-grid-item", {
       "image-grid-item--has-error": this.error,
       "image-grid-item--has-overlay": this.overlay,
     });
 
     return (
-      <Host role="listitem">
+      <Host data-sibling-count={siblingCount} role="listitem">
         <Tag class={className} type={this.interactive ? "button" : undefined}>
           <div
             class="image-grid-item__background"

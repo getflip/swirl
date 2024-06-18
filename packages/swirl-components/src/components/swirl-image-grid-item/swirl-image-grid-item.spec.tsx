@@ -10,7 +10,7 @@ describe("swirl-image-grid-item", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-image-grid-item alt="Dog in a blanket" role="listitem" src="/image.jpg">
+      <swirl-image-grid-item alt="Dog in a blanket" data-sibling-count="1" role="listitem" src="/image.jpg">
         <mock:shadow-root>
           <div class="image-grid-item">
             <div class="image-grid-item__background" style="background-image: url(/image.jpg);"></div>
