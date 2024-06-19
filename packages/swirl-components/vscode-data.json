@@ -13126,6 +13126,10 @@
           "description": ""
         },
         {
+          "name": "swirl-aria-label",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         }
