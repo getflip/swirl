@@ -236,7 +236,9 @@ export class SwirlResourceListItem {
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}
             aria-label={ariaLabel}
-            aria-labelledby={this.elementId}
+            aria-labelledby={
+              Boolean(this.swirlAriaLabel) ? undefined : this.elementId
+            }
             class="resource-list-item__content"
             href={href}
             disabled={disabled}
