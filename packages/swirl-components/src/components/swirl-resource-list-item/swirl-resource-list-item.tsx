@@ -51,6 +51,7 @@ export class SwirlResourceListItem {
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
   @Prop() selectable?: boolean;
+  @Prop() swirlAriaLabel?: string;
   @Prop() value?: string;
 
   @State() hasMedia: boolean = false;
@@ -192,6 +193,9 @@ export class SwirlResourceListItem {
       Boolean(this.menuTriggerId) && !Boolean(this.meta) && !this.selectable;
     const showMeta = (Boolean(this.meta) || hasBadges) && !this.selectable;
 
+    const ariaLabel = Boolean(this.swirlAriaLabel)
+      ? this.swirlAriaLabel
+      : this.label;
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
     const role = this.interactive && this.selectable ? "checkbox" : undefined;
 
@@ -231,6 +235,7 @@ export class SwirlResourceListItem {
           <Tag
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}
+            aria-label={ariaLabel}
             aria-labelledby={this.elementId}
             class="resource-list-item__content"
             href={href}

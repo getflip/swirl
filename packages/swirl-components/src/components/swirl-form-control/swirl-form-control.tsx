@@ -153,6 +153,7 @@ export class SwirlFormControl {
     }
 
     this.inputEl.setAttribute("aria-labelledby", this.labelId);
+    this.inputEl.setAttribute("aria-describedby", this.descriptionId);
   }
 
   private listenToInputValueChanges = () => {
