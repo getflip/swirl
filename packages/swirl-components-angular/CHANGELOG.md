@@ -1,5 +1,25 @@
 # @getflip/swirl-components-angular
 
+## 0.209.0
+
+### Minor Changes
+
+- [#740](https://github.com/getflip/swirl/pull/740)
+  [`6f69af50`](https://github.com/getflip/swirl/commit/6f69af5098ca21ef6b551273f1c132a5cca66737)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add
+  additional Aria-Labels
+
+### Patch Changes
+
+- [`93e48670`](https://github.com/getflip/swirl/commit/93e486709ef73c50868a921a23fe55a065e30f54)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix focus style of
+  swirl-image-grid-item
+
+- Updated dependencies
+  [[`93e48670`](https://github.com/getflip/swirl/commit/93e486709ef73c50868a921a23fe55a065e30f54),
+  [`6f69af50`](https://github.com/getflip/swirl/commit/6f69af5098ca21ef6b551273f1c132a5cca66737)]:
+  - @getflip/swirl-components@0.209.0
+
 ## 0.208.3
 
 ### Patch Changes
