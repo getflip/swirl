@@ -2055,11 +2055,14 @@ export namespace Components {
     }
     interface SwirlThumbnail {
         "alt": string;
+        "editButtonIcon"?: string;
+        "editButtonLabel"?: string;
         "format"?: SwirlThumbnailFormat;
         "interactive"?: boolean;
         "progress"?: number;
         "progressLabel"?: string;
         "removeButtonLabel"?: string;
+        "showEditButton"?: boolean;
         "showRemoveButton"?: boolean;
         "size"?: SwirlThumbnailSize;
         "src": string;
@@ -6403,12 +6406,16 @@ declare namespace LocalJSX {
     }
     interface SwirlThumbnail {
         "alt": string;
+        "editButtonIcon"?: string;
+        "editButtonLabel"?: string;
         "format"?: SwirlThumbnailFormat;
         "interactive"?: boolean;
+        "onEdit"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "onRemove"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "progress"?: number;
         "progressLabel"?: string;
         "removeButtonLabel"?: string;
+        "showEditButton"?: boolean;
         "showRemoveButton"?: boolean;
         "size"?: SwirlThumbnailSize;
         "src": string;

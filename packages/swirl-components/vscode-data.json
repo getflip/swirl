@@ -15284,6 +15284,14 @@
           "description": ""
         },
         {
+          "name": "edit-button-icon",
+          "description": ""
+        },
+        {
+          "name": "edit-button-label",
+          "description": ""
+        },
+        {
           "name": "format",
           "description": "",
           "values": [
@@ -15315,6 +15323,10 @@
           "description": ""
         },
         {
+          "name": "show-edit-button",
+          "description": ""
+        },
+        {
           "name": "show-remove-button",
           "description": ""
         },
@@ -15322,6 +15334,9 @@
           "name": "size",
           "description": "",
           "values": [
+            {
+              "name": "2xl"
+            },
             {
               "name": "l"
             },

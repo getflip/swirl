@@ -34,7 +34,11 @@
 
 .thumbnail--size-xl {
   --swirl-thumbnail-size: 5rem;
+  border-radius: var(--s-border-radius-sm);
+}
 
+.thumbnail--size-2xl {
+  --swirl-thumbnail-size: 8rem;
   border-radius: var(--s-border-radius-sm);
 }
 
@@ -114,6 +118,13 @@
   z-index: 1;
   top: var(--s-space-4);
   right: var(--s-space-4);
+}
+
+.thumbnail__edit-button {
+  position: absolute;
+  z-index: 1;
+  bottom: var(--s-space-4);
+  left: var(--s-space-4);
 }
 
 .thumbnail__timestamp {

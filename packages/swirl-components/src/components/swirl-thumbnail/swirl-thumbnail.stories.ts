@@ -4,10 +4,20 @@ import Docs from "./swirl-thumbnail.mdx";
 export default {
   argTypes: {
     showRemoveButton: {
-      description: "Only displayed with size `xl` and format `square`.",
+      description:
+        "Only displayed with size `xl` or `2xl` and format `square`.",
     },
     timestamp: {
-      description: "Only displayed with size `xl` and format `square`.",
+      description:
+        "Only displayed with size `xl` or `2xl` and format `square`.",
+    },
+    editButtonIcon: {
+      table: {
+        type: {
+          detail: "e.g. <swirl-icon-edit></swirl-icon-edit>",
+          summary: "swirl-icon-*",
+        },
+      },
     },
   },
   component: "swirl-thumbnail",
