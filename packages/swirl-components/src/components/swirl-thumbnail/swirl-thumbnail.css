@@ -24,17 +24,15 @@
 
 .thumbnail--size-l {
   --swirl-thumbnail-size: 4rem;
-
-  & .thumbnail__remove-button {
-    top: 0;
-    right: 0;
-    transform: scale(0.75);
-  }
 }
 
 .thumbnail--size-xl {
   --swirl-thumbnail-size: 5rem;
   border-radius: var(--s-border-radius-sm);
+
+  & .thumbnail__buttons {
+    transform: scale(0.75);
+  }
 }
 
 .thumbnail--size-2xl {
@@ -113,18 +111,18 @@
   left: 0;
 }
 
-.thumbnail__remove-button {
+.thumbnail__buttons {
   position: absolute;
+  opacity: 0;
   z-index: 1;
   top: var(--s-space-4);
   right: var(--s-space-4);
 }
 
-.thumbnail__edit-button {
-  position: absolute;
-  z-index: 1;
-  bottom: var(--s-space-4);
-  left: var(--s-space-4);
+.thumbnail:hover {
+  .thumbnail__buttons {
+    opacity: 1;
+  }
 }
 
 .thumbnail__timestamp {

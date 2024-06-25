@@ -744,6 +744,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconAspectRatio {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconAttachment {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -825,6 +829,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconCopy {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconCrop {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -1180,6 +1188,30 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconRatioFourToThree {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioFreeform {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioSixteenToNine {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioSquare {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioThreeToFour {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioThreeToTwo {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconRecieved {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -1201,6 +1233,14 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconRoadmap {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRotateLeft {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRotateRight {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -2722,6 +2762,12 @@ declare global {
         prototype: HTMLSwirlIconArrowUpwardElement;
         new (): HTMLSwirlIconArrowUpwardElement;
     };
+    interface HTMLSwirlIconAspectRatioElement extends Components.SwirlIconAspectRatio, HTMLStencilElement {
+    }
+    var HTMLSwirlIconAspectRatioElement: {
+        prototype: HTMLSwirlIconAspectRatioElement;
+        new (): HTMLSwirlIconAspectRatioElement;
+    };
     interface HTMLSwirlIconAttachmentElement extends Components.SwirlIconAttachment, HTMLStencilElement {
     }
     var HTMLSwirlIconAttachmentElement: {
@@ -2847,6 +2893,12 @@ declare global {
     var HTMLSwirlIconCopyElement: {
         prototype: HTMLSwirlIconCopyElement;
         new (): HTMLSwirlIconCopyElement;
+    };
+    interface HTMLSwirlIconCropElement extends Components.SwirlIconCrop, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCropElement: {
+        prototype: HTMLSwirlIconCropElement;
+        new (): HTMLSwirlIconCropElement;
     };
     interface HTMLSwirlIconDarkModeElement extends Components.SwirlIconDarkMode, HTMLStencilElement {
     }
@@ -3376,6 +3428,42 @@ declare global {
         prototype: HTMLSwirlIconPrintElement;
         new (): HTMLSwirlIconPrintElement;
     };
+    interface HTMLSwirlIconRatioFourToThreeElement extends Components.SwirlIconRatioFourToThree, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioFourToThreeElement: {
+        prototype: HTMLSwirlIconRatioFourToThreeElement;
+        new (): HTMLSwirlIconRatioFourToThreeElement;
+    };
+    interface HTMLSwirlIconRatioFreeformElement extends Components.SwirlIconRatioFreeform, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioFreeformElement: {
+        prototype: HTMLSwirlIconRatioFreeformElement;
+        new (): HTMLSwirlIconRatioFreeformElement;
+    };
+    interface HTMLSwirlIconRatioSixteenToNineElement extends Components.SwirlIconRatioSixteenToNine, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioSixteenToNineElement: {
+        prototype: HTMLSwirlIconRatioSixteenToNineElement;
+        new (): HTMLSwirlIconRatioSixteenToNineElement;
+    };
+    interface HTMLSwirlIconRatioSquareElement extends Components.SwirlIconRatioSquare, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioSquareElement: {
+        prototype: HTMLSwirlIconRatioSquareElement;
+        new (): HTMLSwirlIconRatioSquareElement;
+    };
+    interface HTMLSwirlIconRatioThreeToFourElement extends Components.SwirlIconRatioThreeToFour, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioThreeToFourElement: {
+        prototype: HTMLSwirlIconRatioThreeToFourElement;
+        new (): HTMLSwirlIconRatioThreeToFourElement;
+    };
+    interface HTMLSwirlIconRatioThreeToTwoElement extends Components.SwirlIconRatioThreeToTwo, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioThreeToTwoElement: {
+        prototype: HTMLSwirlIconRatioThreeToTwoElement;
+        new (): HTMLSwirlIconRatioThreeToTwoElement;
+    };
     interface HTMLSwirlIconRecievedElement extends Components.SwirlIconRecieved, HTMLStencilElement {
     }
     var HTMLSwirlIconRecievedElement: {
@@ -3411,6 +3499,18 @@ declare global {
     var HTMLSwirlIconRoadmapElement: {
         prototype: HTMLSwirlIconRoadmapElement;
         new (): HTMLSwirlIconRoadmapElement;
+    };
+    interface HTMLSwirlIconRotateLeftElement extends Components.SwirlIconRotateLeft, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRotateLeftElement: {
+        prototype: HTMLSwirlIconRotateLeftElement;
+        new (): HTMLSwirlIconRotateLeftElement;
+    };
+    interface HTMLSwirlIconRotateRightElement extends Components.SwirlIconRotateRight, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRotateRightElement: {
+        prototype: HTMLSwirlIconRotateRightElement;
+        new (): HTMLSwirlIconRotateRightElement;
     };
     interface HTMLSwirlIconSearchElement extends Components.SwirlIconSearch, HTMLStencilElement {
     }
@@ -4353,6 +4453,7 @@ declare global {
         "swirl-icon-arrow-right": HTMLSwirlIconArrowRightElement;
         "swirl-icon-arrow-right-small": HTMLSwirlIconArrowRightSmallElement;
         "swirl-icon-arrow-upward": HTMLSwirlIconArrowUpwardElement;
+        "swirl-icon-aspect-ratio": HTMLSwirlIconAspectRatioElement;
         "swirl-icon-attachment": HTMLSwirlIconAttachmentElement;
         "swirl-icon-bar-chart": HTMLSwirlIconBarChartElement;
         "swirl-icon-block": HTMLSwirlIconBlockElement;
@@ -4374,6 +4475,7 @@ declare global {
         "swirl-icon-column": HTMLSwirlIconColumnElement;
         "swirl-icon-comment": HTMLSwirlIconCommentElement;
         "swirl-icon-copy": HTMLSwirlIconCopyElement;
+        "swirl-icon-crop": HTMLSwirlIconCropElement;
         "swirl-icon-dark-mode": HTMLSwirlIconDarkModeElement;
         "swirl-icon-date-range": HTMLSwirlIconDateRangeElement;
         "swirl-icon-delete": HTMLSwirlIconDeleteElement;
@@ -4462,12 +4564,20 @@ declare global {
         "swirl-icon-play-arrow": HTMLSwirlIconPlayArrowElement;
         "swirl-icon-poll": HTMLSwirlIconPollElement;
         "swirl-icon-print": HTMLSwirlIconPrintElement;
+        "swirl-icon-ratio-four-to-three": HTMLSwirlIconRatioFourToThreeElement;
+        "swirl-icon-ratio-freeform": HTMLSwirlIconRatioFreeformElement;
+        "swirl-icon-ratio-sixteen-to-nine": HTMLSwirlIconRatioSixteenToNineElement;
+        "swirl-icon-ratio-square": HTMLSwirlIconRatioSquareElement;
+        "swirl-icon-ratio-three-to-four": HTMLSwirlIconRatioThreeToFourElement;
+        "swirl-icon-ratio-three-to-two": HTMLSwirlIconRatioThreeToTwoElement;
         "swirl-icon-recieved": HTMLSwirlIconRecievedElement;
         "swirl-icon-remove": HTMLSwirlIconRemoveElement;
         "swirl-icon-remove-moderator": HTMLSwirlIconRemoveModeratorElement;
         "swirl-icon-reply": HTMLSwirlIconReplyElement;
         "swirl-icon-report": HTMLSwirlIconReportElement;
         "swirl-icon-roadmap": HTMLSwirlIconRoadmapElement;
+        "swirl-icon-rotate-left": HTMLSwirlIconRotateLeftElement;
+        "swirl-icon-rotate-right": HTMLSwirlIconRotateRightElement;
         "swirl-icon-search": HTMLSwirlIconSearchElement;
         "swirl-icon-search-strong": HTMLSwirlIconSearchStrongElement;
         "swirl-icon-secure": HTMLSwirlIconSecureElement;
@@ -5158,6 +5268,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconAspectRatio {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconAttachment {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -5239,6 +5353,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCopy {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconCrop {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -5594,6 +5712,30 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconRatioFourToThree {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioFreeform {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioSixteenToNine {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioSquare {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioThreeToFour {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioThreeToTwo {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconRecieved {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -5615,6 +5757,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRoadmap {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRotateLeft {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRotateRight {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -6542,6 +6692,7 @@ declare namespace LocalJSX {
         "swirl-icon-arrow-right": SwirlIconArrowRight;
         "swirl-icon-arrow-right-small": SwirlIconArrowRightSmall;
         "swirl-icon-arrow-upward": SwirlIconArrowUpward;
+        "swirl-icon-aspect-ratio": SwirlIconAspectRatio;
         "swirl-icon-attachment": SwirlIconAttachment;
         "swirl-icon-bar-chart": SwirlIconBarChart;
         "swirl-icon-block": SwirlIconBlock;
@@ -6563,6 +6714,7 @@ declare namespace LocalJSX {
         "swirl-icon-column": SwirlIconColumn;
         "swirl-icon-comment": SwirlIconComment;
         "swirl-icon-copy": SwirlIconCopy;
+        "swirl-icon-crop": SwirlIconCrop;
         "swirl-icon-dark-mode": SwirlIconDarkMode;
         "swirl-icon-date-range": SwirlIconDateRange;
         "swirl-icon-delete": SwirlIconDelete;
@@ -6651,12 +6803,20 @@ declare namespace LocalJSX {
         "swirl-icon-play-arrow": SwirlIconPlayArrow;
         "swirl-icon-poll": SwirlIconPoll;
         "swirl-icon-print": SwirlIconPrint;
+        "swirl-icon-ratio-four-to-three": SwirlIconRatioFourToThree;
+        "swirl-icon-ratio-freeform": SwirlIconRatioFreeform;
+        "swirl-icon-ratio-sixteen-to-nine": SwirlIconRatioSixteenToNine;
+        "swirl-icon-ratio-square": SwirlIconRatioSquare;
+        "swirl-icon-ratio-three-to-four": SwirlIconRatioThreeToFour;
+        "swirl-icon-ratio-three-to-two": SwirlIconRatioThreeToTwo;
         "swirl-icon-recieved": SwirlIconRecieved;
         "swirl-icon-remove": SwirlIconRemove;
         "swirl-icon-remove-moderator": SwirlIconRemoveModerator;
         "swirl-icon-reply": SwirlIconReply;
         "swirl-icon-report": SwirlIconReport;
         "swirl-icon-roadmap": SwirlIconRoadmap;
+        "swirl-icon-rotate-left": SwirlIconRotateLeft;
+        "swirl-icon-rotate-right": SwirlIconRotateRight;
         "swirl-icon-search": SwirlIconSearch;
         "swirl-icon-search-strong": SwirlIconSearchStrong;
         "swirl-icon-secure": SwirlIconSecure;
@@ -6879,6 +7039,7 @@ declare module "@stencil/core" {
             "swirl-icon-arrow-right": LocalJSX.SwirlIconArrowRight & JSXBase.HTMLAttributes<HTMLSwirlIconArrowRightElement>;
             "swirl-icon-arrow-right-small": LocalJSX.SwirlIconArrowRightSmall & JSXBase.HTMLAttributes<HTMLSwirlIconArrowRightSmallElement>;
             "swirl-icon-arrow-upward": LocalJSX.SwirlIconArrowUpward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowUpwardElement>;
+            "swirl-icon-aspect-ratio": LocalJSX.SwirlIconAspectRatio & JSXBase.HTMLAttributes<HTMLSwirlIconAspectRatioElement>;
             "swirl-icon-attachment": LocalJSX.SwirlIconAttachment & JSXBase.HTMLAttributes<HTMLSwirlIconAttachmentElement>;
             "swirl-icon-bar-chart": LocalJSX.SwirlIconBarChart & JSXBase.HTMLAttributes<HTMLSwirlIconBarChartElement>;
             "swirl-icon-block": LocalJSX.SwirlIconBlock & JSXBase.HTMLAttributes<HTMLSwirlIconBlockElement>;
@@ -6900,6 +7061,7 @@ declare module "@stencil/core" {
             "swirl-icon-column": LocalJSX.SwirlIconColumn & JSXBase.HTMLAttributes<HTMLSwirlIconColumnElement>;
             "swirl-icon-comment": LocalJSX.SwirlIconComment & JSXBase.HTMLAttributes<HTMLSwirlIconCommentElement>;
             "swirl-icon-copy": LocalJSX.SwirlIconCopy & JSXBase.HTMLAttributes<HTMLSwirlIconCopyElement>;
+            "swirl-icon-crop": LocalJSX.SwirlIconCrop & JSXBase.HTMLAttributes<HTMLSwirlIconCropElement>;
             "swirl-icon-dark-mode": LocalJSX.SwirlIconDarkMode & JSXBase.HTMLAttributes<HTMLSwirlIconDarkModeElement>;
             "swirl-icon-date-range": LocalJSX.SwirlIconDateRange & JSXBase.HTMLAttributes<HTMLSwirlIconDateRangeElement>;
             "swirl-icon-delete": LocalJSX.SwirlIconDelete & JSXBase.HTMLAttributes<HTMLSwirlIconDeleteElement>;
@@ -6988,12 +7150,20 @@ declare module "@stencil/core" {
             "swirl-icon-play-arrow": LocalJSX.SwirlIconPlayArrow & JSXBase.HTMLAttributes<HTMLSwirlIconPlayArrowElement>;
             "swirl-icon-poll": LocalJSX.SwirlIconPoll & JSXBase.HTMLAttributes<HTMLSwirlIconPollElement>;
             "swirl-icon-print": LocalJSX.SwirlIconPrint & JSXBase.HTMLAttributes<HTMLSwirlIconPrintElement>;
+            "swirl-icon-ratio-four-to-three": LocalJSX.SwirlIconRatioFourToThree & JSXBase.HTMLAttributes<HTMLSwirlIconRatioFourToThreeElement>;
+            "swirl-icon-ratio-freeform": LocalJSX.SwirlIconRatioFreeform & JSXBase.HTMLAttributes<HTMLSwirlIconRatioFreeformElement>;
+            "swirl-icon-ratio-sixteen-to-nine": LocalJSX.SwirlIconRatioSixteenToNine & JSXBase.HTMLAttributes<HTMLSwirlIconRatioSixteenToNineElement>;
+            "swirl-icon-ratio-square": LocalJSX.SwirlIconRatioSquare & JSXBase.HTMLAttributes<HTMLSwirlIconRatioSquareElement>;
+            "swirl-icon-ratio-three-to-four": LocalJSX.SwirlIconRatioThreeToFour & JSXBase.HTMLAttributes<HTMLSwirlIconRatioThreeToFourElement>;
+            "swirl-icon-ratio-three-to-two": LocalJSX.SwirlIconRatioThreeToTwo & JSXBase.HTMLAttributes<HTMLSwirlIconRatioThreeToTwoElement>;
             "swirl-icon-recieved": LocalJSX.SwirlIconRecieved & JSXBase.HTMLAttributes<HTMLSwirlIconRecievedElement>;
             "swirl-icon-remove": LocalJSX.SwirlIconRemove & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveElement>;
             "swirl-icon-remove-moderator": LocalJSX.SwirlIconRemoveModerator & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveModeratorElement>;
             "swirl-icon-reply": LocalJSX.SwirlIconReply & JSXBase.HTMLAttributes<HTMLSwirlIconReplyElement>;
             "swirl-icon-report": LocalJSX.SwirlIconReport & JSXBase.HTMLAttributes<HTMLSwirlIconReportElement>;
             "swirl-icon-roadmap": LocalJSX.SwirlIconRoadmap & JSXBase.HTMLAttributes<HTMLSwirlIconRoadmapElement>;
+            "swirl-icon-rotate-left": LocalJSX.SwirlIconRotateLeft & JSXBase.HTMLAttributes<HTMLSwirlIconRotateLeftElement>;
+            "swirl-icon-rotate-right": LocalJSX.SwirlIconRotateRight & JSXBase.HTMLAttributes<HTMLSwirlIconRotateRightElement>;
             "swirl-icon-search": LocalJSX.SwirlIconSearch & JSXBase.HTMLAttributes<HTMLSwirlIconSearchElement>;
             "swirl-icon-search-strong": LocalJSX.SwirlIconSearchStrong & JSXBase.HTMLAttributes<HTMLSwirlIconSearchStrongElement>;
             "swirl-icon-secure": LocalJSX.SwirlIconSecure & JSXBase.HTMLAttributes<HTMLSwirlIconSecureElement>;
