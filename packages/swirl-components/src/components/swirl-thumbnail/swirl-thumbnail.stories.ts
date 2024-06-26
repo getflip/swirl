@@ -3,6 +3,10 @@ import Docs from "./swirl-thumbnail.mdx";
 
 export default {
   argTypes: {
+    showEditButton: {
+      description:
+        "Only displayed with format `square` and either size `2xl` or size `xl` with `show-remove-button` set to `false`. ",
+    },
     showRemoveButton: {
       description:
         "Only displayed with size `xl` or `2xl` and format `square`.",
