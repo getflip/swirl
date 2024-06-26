@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 export type SwirlThumbnailFormat = "portrait" | "landscape" | "square";
 
-export type SwirlThumbnailSize = "s" | "m" | "l" | "xl";
+export type SwirlThumbnailSize = "s" | "m" | "l" | "xl" | "2xl";
 
 @Component({
   shadow: true,
@@ -12,24 +12,36 @@ export type SwirlThumbnailSize = "s" | "m" | "l" | "xl";
 })
 export class SwirlThumbnail {
   @Prop() alt!: string;
+  @Prop() editButtonIcon?: string = "<swirl-icon-crop></swirl-icon-crop>";
+  @Prop() editButtonLabel?: string = "Edit";
   @Prop() format?: SwirlThumbnailFormat = "landscape";
   @Prop() interactive?: boolean;
   @Prop() progress?: number;
   @Prop() progressLabel?: string = "Loading progress";
   @Prop() removeButtonLabel?: string = "Remove";
+  @Prop() showEditButton?: boolean;
   @Prop() showRemoveButton?: boolean;
   @Prop() size?: SwirlThumbnailSize = "m";
   @Prop() src!: string;
   @Prop() timestamp?: string;
 
+  @Event() edit: EventEmitter<MouseEvent>;
   @Event() remove: EventEmitter<MouseEvent>;
 
   render() {
-    const showRemoveButton =
-      this.showRemoveButton && this.size === "xl" && this.format === "square";
+    const showInteractable =
+      (this.size === "xl" || this.size === "2xl") && this.format === "square";
 
-    const showTimestamp =
-      Boolean(this.timestamp) && this.size === "xl" && this.format === "square";
+    const showRemoveButton = this.showRemoveButton && showInteractable;
+
+    const showEditButton =
+      this.showEditButton &&
+      showInteractable &&
+      !(this.size === "xl" && showRemoveButton);
+
+    const showButtonGroup = showEditButton || showRemoveButton;
+
+    const showTimestamp = Boolean(this.timestamp) && showInteractable;
 
     const ImageWrapper = this.interactive ? "button" : "span";
 
@@ -65,17 +77,36 @@ export class SwirlThumbnail {
               ></swirl-progress-indicator>
             </span>
           )}
-          {showRemoveButton && (
-            <span class="thumbnail__remove-button">
-              <swirl-button
-                hideLabel
-                icon="<swirl-icon-close></swirl-icon-close>"
-                label={this.removeButtonLabel}
-                onClick={this.remove.emit}
-                pill
-                variant="on-image"
-              ></swirl-button>
-            </span>
+          {showButtonGroup && (
+            <swirl-button-group
+              class="thumbnail__buttons"
+              segmented={showEditButton && showRemoveButton}
+            >
+              {showEditButton && (
+                <span>
+                  <swirl-button
+                    hideLabel
+                    icon={this.editButtonIcon}
+                    label={this.editButtonLabel}
+                    onClick={this.edit.emit}
+                    pill={this.size === "xl"}
+                    variant="on-image"
+                  ></swirl-button>
+                </span>
+              )}
+              {showRemoveButton && (
+                <span>
+                  <swirl-button
+                    hideLabel
+                    icon="<swirl-icon-close></swirl-icon-close>"
+                    label={this.removeButtonLabel}
+                    onClick={this.remove.emit}
+                    pill={this.size === "xl"}
+                    variant="on-image"
+                  ></swirl-button>
+                </span>
+              )}
+            </swirl-button-group>
           )}
           {showTimestamp && (
             <span class="thumbnail__timestamp">{this.timestamp}</span>
