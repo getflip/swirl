@@ -36,7 +36,7 @@
 }
 
 .thumbnail--size-2xl {
-  --swirl-thumbnail-size: 8rem;
+  --swirl-thumbnail-size: 7.5rem;
   border-radius: var(--s-border-radius-sm);
 }
 
