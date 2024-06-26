@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.210.0
+
+### Minor Changes
+
+- [#741](https://github.com/getflip/swirl/pull/741)
+  [`477631b6`](https://github.com/getflip/swirl/commit/477631b6d3dc4b91a4ecc2791ea47189bcd9d1f6)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add new props
+  to Thumbnail
+
+### Patch Changes
+
+- Updated dependencies
+  [[`477631b6`](https://github.com/getflip/swirl/commit/477631b6d3dc4b91a4ecc2791ea47189bcd9d1f6)]:
+  - @getflip/swirl-components@0.210.0
+
 ## 0.209.0
 
 ### Minor Changes
