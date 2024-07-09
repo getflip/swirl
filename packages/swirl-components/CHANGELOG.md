@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.211.0
+
+### Minor Changes
+
+- [#743](https://github.com/getflip/swirl/pull/743)
+  [`8059e687`](https://github.com/getflip/swirl/commit/8059e687d09aed86f49c3bc7b9d043fb02f1a805)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add MicOff,
+  VideoCameraOff, WebAssetOff, and WebAsset icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8059e687`](https://github.com/getflip/swirl/commit/8059e687d09aed86f49c3bc7b9d043fb02f1a805)]:
+  - @getflip/swirl-icons@0.38.0
+
 ## 0.210.0
 
 ### Minor Changes
