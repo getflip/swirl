@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.212.0
+
+### Minor Changes
+
+- [`c62d3090`](https://github.com/getflip/swirl/commit/c62d309095d8def98b2e6cca69c78990eb7575a1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add thumbnailClick click event to
+  swirl-thumbnail
+
 ## 0.211.0
 
 ### Minor Changes
