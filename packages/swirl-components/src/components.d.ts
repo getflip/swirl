@@ -4918,6 +4918,7 @@ declare global {
     interface HTMLSwirlThumbnailElementEventMap {
         "edit": MouseEvent;
         "remove": MouseEvent;
+        "thumbnailClick": MouseEvent;
     }
     interface HTMLSwirlThumbnailElement extends Components.SwirlThumbnail, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlThumbnailElementEventMap>(type: K, listener: (this: HTMLSwirlThumbnailElement, ev: SwirlThumbnailCustomEvent<HTMLSwirlThumbnailElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -7199,6 +7200,7 @@ declare namespace LocalJSX {
         "interactive"?: boolean;
         "onEdit"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "onRemove"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
+        "onThumbnailClick"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "progress"?: number;
         "progressLabel"?: string;
         "removeButtonLabel"?: string;

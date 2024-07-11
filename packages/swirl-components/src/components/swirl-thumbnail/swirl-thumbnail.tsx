@@ -27,6 +27,7 @@ export class SwirlThumbnail {
 
   @Event() edit: EventEmitter<MouseEvent>;
   @Event() remove: EventEmitter<MouseEvent>;
+  @Event() thumbnailClick: EventEmitter<MouseEvent>;
 
   render() {
     const showInteractable =
@@ -60,6 +61,7 @@ export class SwirlThumbnail {
         <span class={className} role="group">
           <ImageWrapper
             class="thumbnail__image-wrapper"
+            onClick={this.thumbnailClick.emit}
             type={this.interactive ? "button" : undefined}
           >
             <img
