@@ -111,7 +111,7 @@ export class SwirlLightbox {
     }
 
     this.closing = true;
-    this.focusTrap.deactivate();
+    this.focusTrap?.deactivate();
     this.unlockBodyScroll();
 
     setTimeout(() => {
