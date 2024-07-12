@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.213.2
+
+### Patch Changes
+
+- [`4a0a2a0b`](https://github.com/getflip/swirl/commit/4a0a2a0b962833fa96954a44e174b8ed5d80c6b3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix another focus trap issue of
+  swirl-lightbox
+
+- Updated dependencies
+  [[`4a0a2a0b`](https://github.com/getflip/swirl/commit/4a0a2a0b962833fa96954a44e174b8ed5d80c6b3)]:
+  - @getflip/swirl-components@0.213.2
+
 ## 0.213.1
 
 ### Patch Changes
