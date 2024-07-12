@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.213.0
+
+### Minor Changes
+
+- [`48717e7a`](https://github.com/getflip/swirl/commit/48717e7a2ceb66f846406fb1df3de4380ababf1b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "toolbar" slot to
+  swirl-lightbox
+
 ## 0.212.0
 
 ### Minor Changes
