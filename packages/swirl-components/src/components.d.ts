@@ -916,6 +916,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconExperiment {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFile {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3306,6 +3310,12 @@ declare global {
         prototype: HTMLSwirlIconExpandMoreElement;
         new (): HTMLSwirlIconExpandMoreElement;
     };
+    interface HTMLSwirlIconExperimentElement extends Components.SwirlIconExperiment, HTMLStencilElement {
+    }
+    var HTMLSwirlIconExperimentElement: {
+        prototype: HTMLSwirlIconExperimentElement;
+        new (): HTMLSwirlIconExperimentElement;
+    };
     interface HTMLSwirlIconFileElement extends Components.SwirlIconFile, HTMLStencilElement {
     }
     var HTMLSwirlIconFileElement: {
@@ -5114,6 +5124,7 @@ declare global {
         "swirl-icon-error": HTMLSwirlIconErrorElement;
         "swirl-icon-expand-less": HTMLSwirlIconExpandLessElement;
         "swirl-icon-expand-more": HTMLSwirlIconExpandMoreElement;
+        "swirl-icon-experiment": HTMLSwirlIconExperimentElement;
         "swirl-icon-file": HTMLSwirlIconFileElement;
         "swirl-icon-file-copy": HTMLSwirlIconFileCopyElement;
         "swirl-icon-filter": HTMLSwirlIconFilterElement;
@@ -6059,6 +6070,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconExpandMore {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconExperiment {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -7374,6 +7389,7 @@ declare namespace LocalJSX {
         "swirl-icon-error": SwirlIconError;
         "swirl-icon-expand-less": SwirlIconExpandLess;
         "swirl-icon-expand-more": SwirlIconExpandMore;
+        "swirl-icon-experiment": SwirlIconExperiment;
         "swirl-icon-file": SwirlIconFile;
         "swirl-icon-file-copy": SwirlIconFileCopy;
         "swirl-icon-filter": SwirlIconFilter;
@@ -7725,6 +7741,7 @@ declare module "@stencil/core" {
             "swirl-icon-error": LocalJSX.SwirlIconError & JSXBase.HTMLAttributes<HTMLSwirlIconErrorElement>;
             "swirl-icon-expand-less": LocalJSX.SwirlIconExpandLess & JSXBase.HTMLAttributes<HTMLSwirlIconExpandLessElement>;
             "swirl-icon-expand-more": LocalJSX.SwirlIconExpandMore & JSXBase.HTMLAttributes<HTMLSwirlIconExpandMoreElement>;
+            "swirl-icon-experiment": LocalJSX.SwirlIconExperiment & JSXBase.HTMLAttributes<HTMLSwirlIconExperimentElement>;
             "swirl-icon-file": LocalJSX.SwirlIconFile & JSXBase.HTMLAttributes<HTMLSwirlIconFileElement>;
             "swirl-icon-file-copy": LocalJSX.SwirlIconFileCopy & JSXBase.HTMLAttributes<HTMLSwirlIconFileCopyElement>;
             "swirl-icon-filter": LocalJSX.SwirlIconFilter & JSXBase.HTMLAttributes<HTMLSwirlIconFilterElement>;
