@@ -7,11 +7,14 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
+import * as focusTrap from "focus-trap";
 import { querySelectorAllDeep } from "../../utils";
 
+/**
+ * @slot toolbar - Slot for additional toolbar items displayed in the header.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-lightbox.css",
@@ -32,13 +35,14 @@ export class SwirlLightbox {
 
   @State() activeSlideIndex: number = 0;
   @State() closing = false;
+  @State() isOpen = false;
   @State() slides: HTMLSwirlFileViewerElement[];
 
   private dragging: boolean = false;
   private dragStartPosition: number;
   private dragDelta: number;
+  private focusTrap: focusTrap.FocusTrap;
   private menu: HTMLSwirlPopoverElement;
-  private modal: A11yDialog;
   private modalEl: HTMLElement;
   private slidesContainer: HTMLElement;
 
@@ -47,17 +51,20 @@ export class SwirlLightbox {
   }
 
   componentDidLoad() {
-    this.modal = new A11yDialog(this.modalEl);
     this.activateSlide(0);
   }
 
+  componentDidRender() {
+    this.focusTrap?.updateContainerElements(this.modalEl);
+  }
+
   disconnectedCallback() {
-    this.modal?.destroy();
+    this.focusTrap?.deactivate();
     this.unlockBodyScroll();
   }
 
   onKeyDown = (event: KeyboardEvent) => {
-    if (!(this.modal.shown as boolean)) {
+    if (!this.isOpen) {
       return;
     }
 
@@ -76,9 +83,22 @@ export class SwirlLightbox {
    */
   @Method()
   async open() {
-    this.modal.show();
+    this.isOpen = true;
     this.lockBodyScroll();
     this.activateSlide(this.activeSlideIndex || 0);
+
+    setTimeout(() => {
+      this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
+        allowOutsideClick: true,
+        tabbableOptions: {
+          getShadowRoot: (node) => {
+            return node.shadowRoot;
+          },
+        },
+      });
+
+      this.focusTrap.activate();
+    });
   }
 
   /**
@@ -91,10 +111,11 @@ export class SwirlLightbox {
     }
 
     this.closing = true;
+    this.focusTrap.deactivate();
     this.unlockBodyScroll();
 
     setTimeout(() => {
-      this.modal.hide();
+      this.isOpen = false;
       this.resetImageZoom();
       this.stopAllMediaPlayers();
       this.closing = false;
@@ -154,6 +175,7 @@ export class SwirlLightbox {
       slide.setAttribute("aria-label", slide.file);
       slide.setAttribute("aria-roledescription", "slide");
       slide.setAttribute("role", "group");
+      slide.addEventListener("dragstart", (event) => event.preventDefault());
     });
   }
 
@@ -334,16 +356,20 @@ export class SwirlLightbox {
       Boolean(this.el.querySelector("[slot='menu-items']")) ||
       this.downloadButtonEnabled;
 
+    const hasToolbar = Boolean(this.el.querySelector("[slot='toolbar']"));
+
     const className = classnames("lightbox", {
       "lightbox--closing": this.closing,
       "lightbox--hide-menu": !hasMenuItems,
+      "lightbox--hide-toolbar": !hasToolbar,
     });
 
     return (
       <Host onKeydown={this.onKeyDown}>
         <section
-          aria-hidden="true"
+          aria-hidden={String(!this.isOpen)}
           aria-label={this.label}
+          aria-modal="true"
           class={className}
           id="lightbox"
           onMouseDown={this.onPointerDown}
@@ -354,6 +380,8 @@ export class SwirlLightbox {
           onTouchMove={this.onPointerMove}
           onTouchStart={this.onPointerDown}
           ref={(el) => (this.modalEl = el)}
+          role="dialog"
+          tabIndex={this.isOpen ? 0 : -1}
         >
           <div class="lightbox__body" role="document">
             <header class="lightbox__header">
@@ -364,6 +392,11 @@ export class SwirlLightbox {
               >
                 <swirl-icon-close></swirl-icon-close>
               </button>
+
+              <div class="lightbox__toolbar">
+                <slot name="toolbar"></slot>
+              </div>
+
               {!this.hideMenu && (
                 <swirl-popover-trigger swirlPopover={this.menu}>
                   <button

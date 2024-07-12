@@ -53,6 +53,8 @@ const Template = (args) => {
       label="Custom action 2"
       slot="menu-items"
     ></swirl-action-list-item>
+
+    <swirl-button icon="<swirl-icon-crop></swirl-icon-crop>" label="Crop image" pill slot="toolbar" variant="on-image"></swirl-button>
   `;
 
   container.append(trigger, element);

@@ -48,6 +48,12 @@
   }
 }
 
+.lightbox--hide-toolbar {
+  & .lightbox__toolbar {
+    display: none;
+  }
+}
+
 .lightbox__body {
   position: relative;
   width: 100%;
@@ -65,6 +71,10 @@
   justify-content: space-between;
   align-items: flex-start;
   pointer-events: none;
+}
+
+.lightbox__toolbar {
+  pointer-events: auto;
 }
 
 .lightbox__controls {

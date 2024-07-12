@@ -26,12 +26,15 @@ describe("swirl-lightbox", () => {
     expect(page.root).toEqualHtml(`
       <swirl-lightbox close-button-label="Close" download-button-label="Download" label="Lightbox" next-slide-button-label="Next" previous-slide-button-label="Previous">
         <mock:shadow-root>
-          <section aria-hidden="true" aria-label="Lightbox" aria-modal="true" class="lightbox" id="lightbox" role="dialog" tabindex="-1">
+          <section aria-hidden="true" aria-label="Lightbox" aria-modal="true" class="lightbox lightbox--hide-toolbar" id="lightbox" role="dialog" tabindex="-1">
             <div class="lightbox__body" role="document">
               <header class="lightbox__header">
                 <button aria-label="Close" class="lightbox__close-button">
                   <swirl-icon-close></swirl-icon-close>
                 </button>
+                <div class="lightbox__toolbar">
+                  <slot name="toolbar"></slot>
+                </div>
                 <swirl-popover-trigger>
                   <button aria-label="Open slide menu" class="lightbox__menu-button">
                     <swirl-icon-more-vertikal></swirl-icon-more-vertikal>
@@ -143,7 +146,7 @@ describe("swirl-lightbox", () => {
       `,
     });
 
-    page.rootInstance.modal.shown = true;
+    page.rootInstance.isOpen = true;
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));
