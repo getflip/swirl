@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.213.1
+
+### Patch Changes
+
+- [`a49090e2`](https://github.com/getflip/swirl/commit/a49090e24b54931fbf1792ae20702899cf2db7cb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a focus trap issue of
+  swirl-lightbox
+
 ## 0.213.0
 
 ### Minor Changes
