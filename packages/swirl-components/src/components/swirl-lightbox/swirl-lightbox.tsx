@@ -97,7 +97,7 @@ export class SwirlLightbox {
         },
       });
 
-      this.focusTrap.activate();
+      this.focusTrap?.activate();
     });
   }
 
@@ -230,6 +230,7 @@ export class SwirlLightbox {
     this.slides = Array.from(this.el.children).filter(
       (el) => el.tagName === "SWIRL-FILE-VIEWER"
     ) as HTMLSwirlFileViewerElement[];
+
     this.setSlideAttributes();
   };
 
