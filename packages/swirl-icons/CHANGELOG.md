@@ -1,5 +1,17 @@
 # @getflip/swirl-icons
 
+## 0.39.0
+
+### Minor Changes
+
+- [#748](https://github.com/getflip/swirl/pull/748)
+  [`0c50ca29`](https://github.com/getflip/swirl/commit/0c50ca2996b21cecc16d716dece43d691167b327)
+  Thanks [@danizep](https://github.com/danizep)! - Add Experiment icon
+
+* [#751](https://github.com/getflip/swirl/pull/751)
+  [`196fc921`](https://github.com/getflip/swirl/commit/196fc92154bbdb0a9c652f51f4fb684d45dea427)
+  Thanks [@tobias-bahls](https://github.com/tobias-bahls)! - Add History icon
+
 ## 0.38.0
 
 ### Minor Changes
