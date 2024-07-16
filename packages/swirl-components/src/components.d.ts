@@ -984,6 +984,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconHistory {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconHome {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3412,6 +3416,12 @@ declare global {
         prototype: HTMLSwirlIconHighlightElement;
         new (): HTMLSwirlIconHighlightElement;
     };
+    interface HTMLSwirlIconHistoryElement extends Components.SwirlIconHistory, HTMLStencilElement {
+    }
+    var HTMLSwirlIconHistoryElement: {
+        prototype: HTMLSwirlIconHistoryElement;
+        new (): HTMLSwirlIconHistoryElement;
+    };
     interface HTMLSwirlIconHomeElement extends Components.SwirlIconHome, HTMLStencilElement {
     }
     var HTMLSwirlIconHomeElement: {
@@ -5141,6 +5151,7 @@ declare global {
         "swirl-icon-hamburger-menu": HTMLSwirlIconHamburgerMenuElement;
         "swirl-icon-help": HTMLSwirlIconHelpElement;
         "swirl-icon-highlight": HTMLSwirlIconHighlightElement;
+        "swirl-icon-history": HTMLSwirlIconHistoryElement;
         "swirl-icon-home": HTMLSwirlIconHomeElement;
         "swirl-icon-image": HTMLSwirlIconImageElement;
         "swirl-icon-improve-text": HTMLSwirlIconImproveTextElement;
@@ -6138,6 +6149,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHighlight {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconHistory {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -7406,6 +7421,7 @@ declare namespace LocalJSX {
         "swirl-icon-hamburger-menu": SwirlIconHamburgerMenu;
         "swirl-icon-help": SwirlIconHelp;
         "swirl-icon-highlight": SwirlIconHighlight;
+        "swirl-icon-history": SwirlIconHistory;
         "swirl-icon-home": SwirlIconHome;
         "swirl-icon-image": SwirlIconImage;
         "swirl-icon-improve-text": SwirlIconImproveText;
@@ -7758,6 +7774,7 @@ declare module "@stencil/core" {
             "swirl-icon-hamburger-menu": LocalJSX.SwirlIconHamburgerMenu & JSXBase.HTMLAttributes<HTMLSwirlIconHamburgerMenuElement>;
             "swirl-icon-help": LocalJSX.SwirlIconHelp & JSXBase.HTMLAttributes<HTMLSwirlIconHelpElement>;
             "swirl-icon-highlight": LocalJSX.SwirlIconHighlight & JSXBase.HTMLAttributes<HTMLSwirlIconHighlightElement>;
+            "swirl-icon-history": LocalJSX.SwirlIconHistory & JSXBase.HTMLAttributes<HTMLSwirlIconHistoryElement>;
             "swirl-icon-home": LocalJSX.SwirlIconHome & JSXBase.HTMLAttributes<HTMLSwirlIconHomeElement>;
             "swirl-icon-image": LocalJSX.SwirlIconImage & JSXBase.HTMLAttributes<HTMLSwirlIconImageElement>;
             "swirl-icon-improve-text": LocalJSX.SwirlIconImproveText & JSXBase.HTMLAttributes<HTMLSwirlIconImproveTextElement>;
