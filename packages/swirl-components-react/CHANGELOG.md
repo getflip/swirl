@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.214.1
+
+### Patch Changes
+
+- [`8f3458c3`](https://github.com/getflip/swirl/commit/8f3458c3cc5c1f1010d782c42876d4b7ea098f13)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue determining the
+  swirl-image-grid layout
+
+- Updated dependencies
+  [[`8f3458c3`](https://github.com/getflip/swirl/commit/8f3458c3cc5c1f1010d782c42876d4b7ea098f13)]:
+  - @getflip/swirl-components@0.214.1
+
 ## 0.214.0
 
 ### Minor Changes
