@@ -15834,6 +15834,21 @@
               "name": "s"
             }
           ]
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "outline"
+            },
+            {
+              "name": "strong"
+            }
+          ]
         }
       ]
     },

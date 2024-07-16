@@ -18,6 +18,8 @@ export type SwirlTagIntent =
 
 export type SwirlTagSize = "s" | "m";
 
+export type SwirlTagVariant = "default" | "outline" | "strong";
+
 @Component({
   shadow: true,
   styleUrl: "swirl-tag.css",
@@ -33,6 +35,7 @@ export class SwirlTag {
   @Prop() bordered?: boolean;
   @Prop() size?: SwirlTagSize = "m";
   @Prop() removalButtonLabel?: string = "Remove";
+  @Prop({ mutable: true }) variant?: SwirlTagVariant = "default";
 
   @Event() remove?: EventEmitter<MouseEvent>;
 
@@ -42,10 +45,23 @@ export class SwirlTag {
     this.forceIconProps();
   }
 
+  componentWillLoad() {
+    this.forceVariant();
+  }
+
   private forceIconProps() {
     const icon = this.iconEl?.children[0];
 
     icon?.setAttribute("size", "16");
+  }
+
+  private forceVariant() {
+    if (Boolean(this.bordered)) {
+      console.warn(
+        '[Swirl] The "bordered" prop of swirl-tag is deprecated and will be removed with the next major release. Please use the "variant" prop as "outline" to achieve the same result.'
+      );
+      this.variant = "outline";
+    }
   }
 
   private onRemove = (event: MouseEvent) => {
@@ -57,9 +73,7 @@ export class SwirlTag {
       "tag",
       `tag--intent-${this.intent}`,
       `tag--size-${this.size}`,
-      {
-        "tag--bordered": this.bordered,
-      }
+      `tag--variant-${this.variant}`
     );
 
     return (
