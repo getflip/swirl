@@ -15787,6 +15787,10 @@
           "description": ""
         },
         {
+          "name": "icon",
+          "description": ""
+        },
+        {
           "name": "intent",
           "description": "",
           "values": [

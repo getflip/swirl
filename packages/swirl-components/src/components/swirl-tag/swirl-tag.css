@@ -87,6 +87,10 @@
   }
 }
 
+.tag__icon {
+  display: inline-flex;
+}
+
 .tag__label {
   overflow: hidden;
   min-width: 0;

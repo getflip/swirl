@@ -2042,6 +2042,7 @@ export namespace Components {
     }
     interface SwirlTag {
         "bordered"?: boolean;
+        "icon"?: string;
         "intent"?: SwirlTagIntent;
         "label": string;
         "removable"?: boolean;
@@ -7161,6 +7162,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTag {
         "bordered"?: boolean;
+        "icon"?: string;
         "intent"?: SwirlTagIntent;
         "label": string;
         "onRemove"?: (event: SwirlTagCustomEvent<MouseEvent>) => void;

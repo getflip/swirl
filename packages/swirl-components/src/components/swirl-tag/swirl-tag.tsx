@@ -26,6 +26,7 @@ export type SwirlTagSize = "s" | "m";
 export class SwirlTag {
   @Element() el: HTMLElement;
 
+  @Prop() icon?: string;
   @Prop() intent?: SwirlTagIntent = "default";
   @Prop() label!: string;
   @Prop() removable?: boolean;
@@ -34,6 +35,18 @@ export class SwirlTag {
   @Prop() removalButtonLabel?: string = "Remove";
 
   @Event() remove?: EventEmitter<MouseEvent>;
+
+  private iconEl: HTMLElement;
+
+  componentDidLoad() {
+    this.forceIconProps();
+  }
+
+  private forceIconProps() {
+    const icon = this.iconEl?.children[0];
+
+    icon?.setAttribute("size", "16");
+  }
 
   private onRemove = (event: MouseEvent) => {
     this.remove?.emit(event);
@@ -52,6 +65,13 @@ export class SwirlTag {
     return (
       <Host>
         <span class={className} part="tag">
+          {this.icon && (
+            <span
+              class="tag__icon"
+              innerHTML={this.icon}
+              ref={(el) => (this.iconEl = el)}
+            ></span>
+          )}
           <span class="tag__label">{this.label}</span>
           {this.removable && (
             <button
