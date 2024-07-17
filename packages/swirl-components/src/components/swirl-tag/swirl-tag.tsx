@@ -14,9 +14,13 @@ export type SwirlTagIntent =
   | "critical"
   | "warning"
   | "success"
-  | "info";
+  | "info"
+  | "special"
+  | "translucent";
 
 export type SwirlTagSize = "s" | "m";
+
+export type SwirlTagVariant = "default" | "outline" | "strong";
 
 @Component({
   shadow: true,
@@ -26,14 +30,41 @@ export type SwirlTagSize = "s" | "m";
 export class SwirlTag {
   @Element() el: HTMLElement;
 
+  @Prop() icon?: string;
   @Prop() intent?: SwirlTagIntent = "default";
   @Prop() label!: string;
   @Prop() removable?: boolean;
   @Prop() bordered?: boolean;
   @Prop() size?: SwirlTagSize = "m";
   @Prop() removalButtonLabel?: string = "Remove";
+  @Prop({ mutable: true }) variant?: SwirlTagVariant = "default";
 
   @Event() remove?: EventEmitter<MouseEvent>;
+
+  private iconEl: HTMLElement;
+
+  componentDidLoad() {
+    this.forceIconProps();
+  }
+
+  componentWillLoad() {
+    this.forceVariant();
+  }
+
+  private forceIconProps() {
+    const icon = this.iconEl?.children[0];
+
+    icon?.setAttribute("size", "16");
+  }
+
+  private forceVariant() {
+    if (Boolean(this.bordered)) {
+      console.warn(
+        '[Swirl] The "bordered" prop of swirl-tag is deprecated and will be removed with the next major release. Please use the "variant" prop as "outline" to achieve the same result.'
+      );
+      this.variant = "outline";
+    }
+  }
 
   private onRemove = (event: MouseEvent) => {
     this.remove?.emit(event);
@@ -44,14 +75,19 @@ export class SwirlTag {
       "tag",
       `tag--intent-${this.intent}`,
       `tag--size-${this.size}`,
-      {
-        "tag--bordered": this.bordered,
-      }
+      `tag--variant-${this.variant}`
     );
 
     return (
       <Host>
         <span class={className} part="tag">
+          {this.icon && (
+            <span
+              class="tag__icon"
+              innerHTML={this.icon}
+              ref={(el) => (this.iconEl = el)}
+            ></span>
+          )}
           <span class="tag__label">{this.label}</span>
           {this.removable && (
             <button

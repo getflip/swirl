@@ -61,7 +61,7 @@ import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 import { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 import { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1 } from "./components/swirl-tab-bar/swirl-tab-bar";
-import { SwirlTagIntent, SwirlTagSize } from "./components/swirl-tag/swirl-tag";
+import { SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 import { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
@@ -126,7 +126,7 @@ export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 export { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 export { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1 } from "./components/swirl-tab-bar/swirl-tab-bar";
-export { SwirlTagIntent, SwirlTagSize } from "./components/swirl-tag/swirl-tag";
+export { SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 export { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
@@ -2042,11 +2042,13 @@ export namespace Components {
     }
     interface SwirlTag {
         "bordered"?: boolean;
+        "icon"?: string;
         "intent"?: SwirlTagIntent;
         "label": string;
         "removable"?: boolean;
         "removalButtonLabel"?: string;
         "size"?: SwirlTagSize;
+        "variant"?: SwirlTagVariant;
     }
     interface SwirlText {
         "align"?: SwirlTextAlign;
@@ -7161,12 +7163,14 @@ declare namespace LocalJSX {
     }
     interface SwirlTag {
         "bordered"?: boolean;
+        "icon"?: string;
         "intent"?: SwirlTagIntent;
         "label": string;
         "onRemove"?: (event: SwirlTagCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "removalButtonLabel"?: string;
         "size"?: SwirlTagSize;
+        "variant"?: SwirlTagVariant;
     }
     interface SwirlText {
         "align"?: SwirlTextAlign;
