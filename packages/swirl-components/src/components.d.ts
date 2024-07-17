@@ -1801,6 +1801,10 @@ export namespace Components {
         "inputName": string;
         "label"?: string;
         "labelPosition"?: SwirlSwitchLabelPosition;
+        /**
+          * Toggle the switch state programmatically.
+         */
+        "toggle": () => Promise<void>;
         "value"?: string;
     }
     interface SwirlSymbol {

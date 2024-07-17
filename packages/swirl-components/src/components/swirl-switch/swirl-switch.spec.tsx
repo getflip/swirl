@@ -59,4 +59,22 @@ describe("swirl-switch", () => {
     expect(spy).toHaveBeenCalled();
     expect(spy.mock.calls[0][0].detail).toBe(true);
   });
+
+  it("can be toggled programmatically", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSwitch],
+      html: `<swirl-switch checked="false" input-id="switch" input-name="switch" label="Label"></swirl-switch>`,
+    });
+
+    const spy = jest.fn();
+
+    page.root.addEventListener("valueChange", spy);
+
+    await page.root.toggle();
+    expect(spy).toHaveBeenCalled();
+    expect(spy.mock.calls[0][0].detail).toBe(true);
+
+    await page.root.toggle();
+    expect(spy.mock.calls[1][0].detail).toBe(false);
+  });
 });
