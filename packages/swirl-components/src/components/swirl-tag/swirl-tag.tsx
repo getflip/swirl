@@ -14,7 +14,9 @@ export type SwirlTagIntent =
   | "critical"
   | "warning"
   | "success"
-  | "info";
+  | "info"
+  | "special"
+  | "translucent";
 
 export type SwirlTagSize = "s" | "m";
 

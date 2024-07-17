@@ -15804,7 +15804,13 @@
               "name": "info"
             },
             {
+              "name": "special"
+            },
+            {
               "name": "success"
+            },
+            {
+              "name": "translucent"
             },
             {
               "name": "warning"

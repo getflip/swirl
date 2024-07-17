@@ -132,6 +132,41 @@
   }
 }
 
+.tag--intent-special {
+  color: var(--s-decorative-grape-text);
+  background-color: var(--s-decorative-grape-surface-subdued);
+
+  & .tag__removal-button {
+    color: var(--s-decorative-grape-text);
+  }
+
+  &.tag--variant-outline {
+    border-color: var(--s-decorative-grape-text);
+  }
+
+  &.tag--variant-strong {
+    color: var(--s-text-on-action-primary);
+    background-color: var(--s-decorative-grape-surface);
+
+    & .tag__removal-button {
+      color: var(--s-icon-on-action-primary);
+    }
+  }
+}
+
+.tag--intent-translucent {
+  color: var(--s-text-on-image);
+  background-color: var(--s-surface-on-image-default);
+
+  & .tag__removal-button {
+    color: var(--s-icon-on-image);
+  }
+
+  &.tag--variant-outline {
+    border-color: var(--s-text-on-image);
+  }
+}
+
 .tag__icon {
   display: inline-flex;
 }
