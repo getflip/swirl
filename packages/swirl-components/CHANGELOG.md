@@ -1,5 +1,18 @@
 # @getflip/swirl-components
 
+## 0.215.0
+
+### Minor Changes
+
+- [#753](https://github.com/getflip/swirl/pull/753)
+  [`d7225823`](https://github.com/getflip/swirl/commit/d7225823e1116480a2ef0b642be08012dcf74aea)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add icon,
+  variant and new intents to swirl-tag
+
+* [`a450cf83`](https://github.com/getflip/swirl/commit/a450cf836b6eb44a94ca5db12add493274fda034)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "toggle" method to
+  swirl-switch
+
 ## 0.214.1
 
 ### Patch Changes
