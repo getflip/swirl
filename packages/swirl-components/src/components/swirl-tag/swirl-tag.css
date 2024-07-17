@@ -169,6 +169,7 @@
 
 .tag__icon {
   display: inline-flex;
+  margin-left: calc(-1 * var(--s-space-4));
 }
 
 .tag__label {
