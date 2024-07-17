@@ -101,11 +101,11 @@
   }
 
   &.tag--variant-strong {
-    color: var(--s-text-on-action-primary);
+    color: var(--s-text-dark);
     background-color: var(--s-surface-warning-default);
 
     & .tag__removal-button {
-      color: var(--s-icon-on-action-primary);
+      color: var(--s-icon-dark);
     }
   }
 }
