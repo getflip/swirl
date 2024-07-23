@@ -243,4 +243,39 @@ describe("swirl-lightbox", () => {
     expect(slides[2].getAttribute("active")).toBe("false");
     expect(page.rootInstance.activeSlideIndex).toBe(0);
   });
+
+  it("fires slide change events", async () => {
+    const page = await newSpecPage({
+      components: [SwirlLightbox],
+      html: `
+        <swirl-lightbox label="Lightbox">
+          <swirl-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer description="Another dog in a blaket." file="/sample-2.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer file="/sample.mp4" type="video/mp4"></swirl-file-viewer>
+        </swirl-lightbox>
+      `,
+    });
+
+    const spy = jest.fn();
+
+    page.root.addEventListener("activeSlideChange", spy);
+
+    await page.root.activateSlide(1);
+    await page.root.activateSlide(2);
+    await page.root.activateSlide(0);
+
+    expect(spy).toHaveBeenCalledTimes(3);
+    expect(spy).toHaveBeenNthCalledWith(
+      1,
+      expect.objectContaining({ detail: 1 })
+    );
+    expect(spy).toHaveBeenNthCalledWith(
+      2,
+      expect.objectContaining({ detail: 2 })
+    );
+    expect(spy).toHaveBeenNthCalledWith(
+      3,
+      expect.objectContaining({ detail: 0 })
+    );
+  });
 });

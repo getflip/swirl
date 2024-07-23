@@ -1,11 +1,14 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Method,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
@@ -32,6 +35,8 @@ export class SwirlLightbox {
   @Prop() menuTriggerLabel?: string = "Open slide menu";
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
+
+  @Event() activeSlideChange: EventEmitter<number>;
 
   @State() activeSlideIndex: number = 0;
   @State() closing = false;
@@ -61,6 +66,11 @@ export class SwirlLightbox {
   disconnectedCallback() {
     this.focusTrap?.deactivate();
     this.unlockBodyScroll();
+  }
+
+  @Watch("activeSlideIndex")
+  watchActiveSlideIndex() {
+    this.activeSlideChange.emit(this.activeSlideIndex);
   }
 
   onKeyDown = (event: KeyboardEvent) => {
