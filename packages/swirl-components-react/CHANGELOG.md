@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.216.1
+
+### Patch Changes
+
+- [`337eba8c`](https://github.com/getflip/swirl/commit/337eba8cfef7956ef50b840bdbb5bacca826b0d1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix button type of swirl-chip
+  remove button
+
+- Updated dependencies
+  [[`337eba8c`](https://github.com/getflip/swirl/commit/337eba8cfef7956ef50b840bdbb5bacca826b0d1)]:
+  - @getflip/swirl-components@0.216.1
+
 ## 0.216.0
 
 ### Minor Changes
