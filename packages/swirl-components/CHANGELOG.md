@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.216.0
+
+### Minor Changes
+
+- [`a0a26292`](https://github.com/getflip/swirl/commit/a0a2629265d16d3450ff9bf64f3278268f4fec67)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "activeSlideChange" event to
+  swirl-lightbox
+
 ## 0.215.0
 
 ### Minor Changes
