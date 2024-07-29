@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.217.0
+
+### Minor Changes
+
+- [`7bfab2c0`](https://github.com/getflip/swirl/commit/7bfab2c0468e147926e630030d4598701f8ef3d1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "disable-download" prop to
+  swirl-file-viewer
+
+### Patch Changes
+
+- Updated dependencies
+  [[`7bfab2c0`](https://github.com/getflip/swirl/commit/7bfab2c0468e147926e630030d4598701f8ef3d1)]:
+  - @getflip/swirl-components@0.217.0
+
 ## 0.216.1
 
 ### Patch Changes
