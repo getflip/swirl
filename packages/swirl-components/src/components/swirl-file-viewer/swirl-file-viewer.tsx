@@ -22,6 +22,7 @@ export class SwirlFileViewer {
   @Prop() active?: boolean = true;
   @Prop() autoplay?: boolean;
   @Prop() description?: string;
+  @Prop() disableDownload?: boolean;
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
   @Prop() fileName?: string;
@@ -127,6 +128,7 @@ export class SwirlFileViewer {
               {this.type.startsWith("video/") && (
                 <swirl-file-viewer-video
                   autoplay={this.autoplay}
+                  disableDownload={this.disableDownload}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
                   type={this.type}

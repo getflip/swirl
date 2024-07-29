@@ -579,6 +579,7 @@ export namespace Components {
         "active"?: boolean;
         "autoplay"?: boolean;
         "description"?: string;
+        "disableDownload"?: boolean;
         /**
           * Download the file.
          */
@@ -656,6 +657,7 @@ export namespace Components {
     }
     interface SwirlFileViewerVideo {
         "autoplay"?: boolean;
+        "disableDownload"?: boolean;
         "file": string;
         "type": string;
     }
@@ -5797,6 +5799,7 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "autoplay"?: boolean;
         "description"?: string;
+        "disableDownload"?: boolean;
         "errorMessage"?: string;
         "file": string;
         "fileName"?: string;
@@ -5844,6 +5847,7 @@ declare namespace LocalJSX {
     }
     interface SwirlFileViewerVideo {
         "autoplay"?: boolean;
+        "disableDownload"?: boolean;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerVideoCustomEvent<HTMLElement>) => void;
         "type": string;

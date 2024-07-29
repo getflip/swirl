@@ -2321,6 +2321,10 @@
           "description": ""
         },
         {
+          "name": "disable-download",
+          "description": ""
+        },
+        {
           "name": "error-message",
           "description": ""
         },
@@ -2506,6 +2510,10 @@
       "attributes": [
         {
           "name": "autoplay",
+          "description": ""
+        },
+        {
+          "name": "disable-download",
           "description": ""
         },
         {

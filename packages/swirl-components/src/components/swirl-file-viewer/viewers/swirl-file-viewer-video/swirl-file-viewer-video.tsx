@@ -6,6 +6,7 @@ import {
   h,
   Host,
   Prop,
+  Watch,
 } from "@stencil/core";
 
 @Component({
@@ -17,13 +18,29 @@ export class SwirlFileViewerVideo {
   @Element() el: HTMLElement;
 
   @Prop() autoplay?: boolean;
+  @Prop() disableDownload?: boolean;
   @Prop() file!: string;
   @Prop() type!: string;
 
   @Event() activate: EventEmitter<HTMLElement>;
 
+  private videoEl: HTMLVideoElement;
+
   componentDidLoad() {
     this.activate.emit(this.el);
+
+    if (this.disableDownload) {
+      this.videoEl.setAttribute("controlsList", "nodownload");
+    }
+  }
+
+  @Watch("disableDownload")
+  watchDisableDownload() {
+    if (this.disableDownload) {
+      this.videoEl.setAttribute("controlsList", "nodownload");
+    } else {
+      this.videoEl.removeAttribute("controlsList");
+    }
   }
 
   render() {
@@ -33,6 +50,7 @@ export class SwirlFileViewerVideo {
           autoplay={this.autoplay}
           class="file-viewer-video__video"
           controls
+          ref={(el) => (this.videoEl = el)}
         >
           <source src={this.file} type={this.type}></source>
         </video>
