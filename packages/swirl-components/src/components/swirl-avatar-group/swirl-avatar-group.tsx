@@ -24,8 +24,11 @@ export class SwirlAvatarGroup {
     }
 
     const badge = this.badgeEl.querySelector("swirl-badge");
+    const badgeSize = badge?.getAttribute("size");
 
-    badge?.setAttribute("size", "s");
+    if (!Boolean(badgeSize)) {
+      badge?.setAttribute("size", "s");
+    }
   }
 
   render() {
