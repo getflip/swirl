@@ -17,10 +17,12 @@ export class SwirlShellNavigationItem {
   @Prop() href?: string;
   @Prop() label!: string;
   @Prop() target?: string;
+  @Prop() boxed?: boolean;
 
   render() {
     const className = classnames("shell-navigation-item", {
       "shell-navigation-item--active": this.active,
+      "shell-navigation-item--boxed": this.boxed,
     });
 
     const isLink = Boolean(this.href);

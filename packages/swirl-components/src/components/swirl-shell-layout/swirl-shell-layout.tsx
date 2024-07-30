@@ -139,14 +139,6 @@ export class SwirlShellLayout {
     this.mobileNavigationActive = false;
   }
 
-  private onBrowserBackClick = () => {
-    history.back();
-  };
-
-  private onBrowserForwardClick = () => {
-    history.forward();
-  };
-
   private onNavigationToggleClick = () => {
     this.navigationCollapsed = !this.navigationCollapsed;
   };
@@ -179,43 +171,33 @@ export class SwirlShellLayout {
             </button>
             <div class="shell-layout__header-left">
               <button
-                class="shell-layout__header-tool shell-layout__navigation-toggle"
+                class="shell-layout__header-tool"
                 onClick={this.onNavigationToggleClick}
                 type="button"
               >
-                <swirl-icon-hamburger-menu
-                  size={20}
-                ></swirl-icon-hamburger-menu>
-                <swirl-icon-double-arrow-left
-                  size={20}
-                ></swirl-icon-double-arrow-left>
-                <swirl-icon-double-arrow-right
-                  size={20}
-                ></swirl-icon-double-arrow-right>
+                <swirl-icon-dock-left size={20}></swirl-icon-dock-left>
                 <swirl-visually-hidden>
                   {this.navigationToggleLabel}
                 </swirl-visually-hidden>
               </button>
-              <button
+              <a
                 class="shell-layout__header-tool"
-                onClick={this.onBrowserBackClick}
-                type="button"
+                href="javascript:history.back()"
               >
                 <swirl-icon-arrow-back size={20}></swirl-icon-arrow-back>
                 <swirl-visually-hidden>
                   {this.browserBackButtonLabel}
                 </swirl-visually-hidden>
-              </button>
-              <button
+              </a>
+              <a
                 class="shell-layout__header-tool"
-                onClick={this.onBrowserForwardClick}
-                type="button"
+                href="javascript:history.forward()"
               >
                 <swirl-icon-arrow-forward size={20}></swirl-icon-arrow-forward>
                 <swirl-visually-hidden>
                   {this.browserForwardButtonLabel}
                 </swirl-visually-hidden>
-              </button>
+              </a>
               <slot name="left-header-tools"></slot>
             </div>
             <div class="shell-layout__logo">

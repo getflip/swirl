@@ -58,8 +58,8 @@ export class SwirlMenu {
   private mobileMediaQuery = window.matchMedia("(min-width: 768px)");
   private observer: MutationObserver;
   private parentMenu: HTMLSwirlMenuElement;
-  private popover: HTMLSwirlPopoverElement;
   private rootMenu: HTMLSwirlMenuElement;
+  private swirlPopover: HTMLSwirlPopoverElement;
 
   componentWillLoad() {
     this.updateMobileState();
@@ -69,8 +69,14 @@ export class SwirlMenu {
 
   componentDidLoad() {
     this.mobileMediaQuery.onchange = this.mediaQueryHandler;
-    this.parentMenu = closestPassShadow(this.el.parentElement, "swirl-menu");
-    this.popover = closestPassShadow(this.el, "swirl-popover");
+    this.parentMenu = closestPassShadow(
+      this.el.parentElement,
+      "swirl-menu"
+    ) as HTMLSwirlMenuElement;
+    this.swirlPopover = closestPassShadow(
+      this.el,
+      "swirl-popover"
+    ) as HTMLSwirlPopoverElement;
     this.rootMenu = parentsPassShadow(this.el, "swirl-menu").pop();
 
     if (Boolean(this.parentMenu)) {
@@ -79,13 +85,13 @@ export class SwirlMenu {
       });
     }
 
-    this.popover.addEventListener("popoverClose", this.resetMenu);
+    this.swirlPopover.addEventListener("popoverClose", this.resetMenu);
 
     this.updateItems();
   }
 
   disconnectedCallback() {
-    this.popover.removeEventListener("popoverClose", this.resetMenu);
+    this.swirlPopover?.removeEventListener("popoverClose", this.resetMenu);
 
     this.mobileMediaQuery.removeEventListener?.(
       "change",
@@ -349,7 +355,7 @@ export class SwirlMenu {
       this.disableAutoUpdate();
     }
 
-    this.popover.close();
+    this.swirlPopover.close();
     this.resetMenu();
   };
 
@@ -394,7 +400,7 @@ export class SwirlMenu {
       const activeItem = closestPassShadow(
         this.items[this.getActiveItemIndex()],
         "swirl-menu-item"
-      );
+      ) as HTMLSwirlMenuItemElement;
 
       if (!Boolean(activeItem)) {
         return;

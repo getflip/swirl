@@ -31,7 +31,7 @@ describe("swirl-tab-bar", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-tab-bar label="Tabs">
-        <div aria-label="Tabs" class="tab-bar" role="tablist">
+        <div aria-label="Tabs" class="tab-bar tab-bar--justify-start" role="tablist">
           <button aria-controls="tab1" aria-selected="false" class="tab-bar__tab" id="tab-tab1" role="tab" tabindex="-1" type="button">
             <span class="tab-bar__tab-label">
               Tab #1

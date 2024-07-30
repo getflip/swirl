@@ -18,7 +18,10 @@ export default {
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("swirl-card", args);
+  const element = generateStoryElement(
+    "swirl-card",
+    args
+  ) as HTMLSwirlCardElement;
 
   element.innerHTML = `
     <img slot="image" alt="Dog in a blanket." src="/sample-2.jpg" >
@@ -43,6 +46,10 @@ const Template = (args) => {
       </swirl-text>
     </swirl-stack>
   `;
+
+  element.addEventListener("click", () => {
+    element.flash();
+  });
 
   return element;
 };

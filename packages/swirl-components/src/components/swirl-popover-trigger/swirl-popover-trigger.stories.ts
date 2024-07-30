@@ -3,7 +3,7 @@ import Docs from "./swirl-popover-trigger.mdx";
 
 export default {
   argTypes: {
-    popover: {
+    swirlPopover: {
       description:
         "ID of a popover element or a reference to a DOM element of type HTMLSwirlPopoverElement.",
       control: {
@@ -64,5 +64,5 @@ const Template = (args) => {
 export const SwirlPopoverTrigger = Template.bind({});
 
 SwirlPopoverTrigger.args = {
-  popover: "popover",
+  swirlPopover: "popover",
 };

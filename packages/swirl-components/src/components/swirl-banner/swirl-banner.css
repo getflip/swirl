@@ -10,9 +10,12 @@
 
 .banner {
   display: flex;
+  align-items: flex-start;
+  gap: var(--s-space-16);
+
   max-width: 100%;
-  padding: var(--s-space-12);
-  align-items: baseline;
+  min-height: 3.5rem;
+  padding: var(--s-space-16);
 
   &:focus:not(:focus-visible) {
     outline: none;
@@ -23,8 +26,9 @@
     outline-offset: var(--s-space-4);
   }
 
-  @media (--from-tablet) {
+  @media (--from-desktop-without-touch) {
     padding: var(--s-space-16);
+    min-height: 3.25rem;
   }
 }
 
@@ -33,13 +37,11 @@
   justify-content: center;
 
   & .banner__content {
-    margin-right: var(--s-space-8);
     flex-grow: 0;
     text-align: center;
   }
 
   & .banner__controls {
-    margin-right: var(--s-space-4);
     margin-left: 0;
   }
 }
@@ -86,17 +88,22 @@
   }
 }
 
-.banner--has-icon {
-  & .banner__content {
-    @media (--from-mobile) {
-      padding-top: var(--s-space-2);
-    }
+.banner__content {
+  display: flex;
+  align-items: flex-start;
+
+  min-height: 1.5rem;
+  flex-grow: 1;
+  line-height: var(--s-line-height-base);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+    min-height: 1.25rem;
   }
 }
 
 .banner__icon {
-  position: relative;
-  top: var(--s-space-4);
   display: none;
   width: 1.5rem;
   height: 1.5rem;
@@ -114,23 +121,18 @@
   }
 }
 
-.banner__content {
+.banner__text {
   min-height: 1.5rem;
-  margin-right: var(--s-space-12);
-  flex-grow: 1;
-  line-height: var(--s-line-height-base);
 
   @media (--from-desktop-without-touch) {
-    font-size: var(--s-font-size-sm);
-    line-height: var(--s-line-height-sm);
+    min-height: 1.25rem;
   }
 }
 
 .banner__controls {
   display: inline-flex;
-  margin-left: var(--s-space-16);
   flex-shrink: 0;
-  align-items: center;
+  align-items: flex-start;
   line-height: var(--s-line-height-base);
   gap: var(--s-space-16);
 
@@ -167,5 +169,6 @@
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
+    height: 1.25rem;
   }
 }

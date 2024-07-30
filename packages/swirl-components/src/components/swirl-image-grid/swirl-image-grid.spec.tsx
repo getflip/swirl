@@ -21,7 +21,7 @@ describe("swirl-image-grid", () => {
             <slot></slot>
           </div>
         </mock:shadow-root>
-        <swirl-image-grid-item alt="Cute dog in a blanket" interactive="" role="listitem" src="/sample.jpg">
+        <swirl-image-grid-item alt="Cute dog in a blanket" data-sibling-count="1" interactive="" role="listitem" src="/sample.jpg">
           <mock:shadow-root>
             <button class="image-grid-item" type="button">
               <div class="image-grid-item__background" style="background-image: url(/sample.jpg);"></div>

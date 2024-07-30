@@ -96,6 +96,8 @@ export class SwirlPopover {
     const relatedTarget = event.relatedTarget as HTMLElement;
     const activeElement = getActiveElement();
 
+    const swirlComponentsExcludedFromAutoClosing = ["SWIRL-TAB"];
+
     // Check if the focus has moved outside the popover or its trigger.
     const focusIsOutsidePopover =
       !this.el.contains(target) && !this.el.contains(activeElement);
@@ -108,6 +110,7 @@ export class SwirlPopover {
 
     // Close the popover if the focus is outside and additional checks for Safari or WKWebView pass.
     if (
+      !swirlComponentsExcludedFromAutoClosing.includes(target.tagName) &&
       focusIsOutsidePopover &&
       focusIsNotOnTrigger &&
       (!isSafariOrWKWebView || extraCheckForSafariOrWKWebView)
@@ -149,7 +152,7 @@ export class SwirlPopover {
    * @returns
    */
   @Method()
-  public async close() {
+  public async close(disableFocus?: boolean) {
     if (this.closing || !this.active) {
       return;
     }
@@ -170,7 +173,7 @@ export class SwirlPopover {
 
     this.unlockBodyScroll();
 
-    if (this.returnFocusToTrigger) {
+    if (this.returnFocusToTrigger && !disableFocus) {
       this.getNativeTriggerElement()?.focus();
     }
   }
@@ -180,7 +183,7 @@ export class SwirlPopover {
    * @returns
    */
   @Method()
-  public async open(triggerEl?: HTMLElement) {
+  public async open(triggerEl?: HTMLElement, disableFocus?: boolean) {
     this.triggerEl = triggerEl || this.triggerEl;
 
     if (this.active || !Boolean(this.triggerEl)) {
@@ -200,9 +203,9 @@ export class SwirlPopover {
 
       this.popoverOpen.emit({ position: this.position });
 
-      if (focusableChildren.length > 0) {
+      if (focusableChildren.length > 0 && !disableFocus) {
         focusableChildren[0].focus();
-      } else {
+      } else if (!disableFocus) {
         this.contentContainer.focus();
       }
 

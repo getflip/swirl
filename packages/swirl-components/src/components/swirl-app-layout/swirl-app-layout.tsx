@@ -11,7 +11,7 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import { isMobileViewport } from "../../utils";
+import { isMobileViewport, prefersReducedMotion } from "../../utils";
 
 export type SwirlAppLayoutMobileView = "navigation" | "body" | "sidebar";
 
@@ -125,7 +125,7 @@ export class SwirlAppLayout {
 
     this.sidebarClosing = true;
 
-    const delay = isMobileViewport() ? 0 : 300;
+    const delay = isMobileViewport() || prefersReducedMotion() ? 0 : 300;
 
     this.sidebarClosingTimeout = setTimeout(() => {
       this.sidebarActive = false;
@@ -184,13 +184,15 @@ export class SwirlAppLayout {
     this.transitioningFrom = this.mobileView;
     this.transitioningTo = mobileView;
 
-    let delay = 0;
+    const userPrefersReducedMotion = prefersReducedMotion();
 
-    if (this.transitionStyle === "slides") {
-      delay = 400;
-    } else if (this.transitionStyle === "dialog") {
-      delay = 300;
-    }
+    const delay = userPrefersReducedMotion
+      ? 0
+      : this.transitionStyle === "slides"
+      ? 400
+      : this.transitionStyle === "dialog"
+      ? 300
+      : 0;
 
     this.transitionTimeout = setTimeout(() => {
       this.mobileView = mobileView;

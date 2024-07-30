@@ -53,6 +53,21 @@ describe("swirl-card", () => {
     `);
   });
 
+  it("renders with an image", async () => {
+    const page = await newSpecPage({
+      components: [SwirlCard],
+      html: `
+        <swirl-card href="#" link-target="_blank">
+          <img slot="image" alt="Dog in a blanket." src="/sample-2.jpg" />
+        </swirl-card>
+      `,
+    });
+
+    const card = page.root.shadowRoot.firstChild as HTMLElement;
+
+    expect(card.classList.contains("card--has-image")).toBeTruthy();
+  });
+
   it("has adjustable paddings", async () => {
     const page = await newSpecPage({
       components: [SwirlCard],
@@ -76,5 +91,26 @@ describe("swirl-card", () => {
         Content
       </swirl-card>
     `);
+  });
+
+  it("flashes for set duration", async () => {
+    const page = await newSpecPage({
+      components: [SwirlCard],
+      html: `<swirl-card>Content</swirl-card>`,
+    });
+
+    const card = page.root.shadowRoot.firstChild as HTMLElement;
+
+    expect(card.classList.contains("card--flashing")).toBe(false);
+
+    await page.root.flash(10);
+    await page.waitForChanges();
+
+    expect(card.classList.contains("card--flashing")).toBe(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 10));
+    await page.waitForChanges();
+
+    expect(card.classList.contains("card--flashing")).toBe(false);
   });
 });

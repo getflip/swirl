@@ -9,8 +9,8 @@ import {
   State,
 } from "@stencil/core";
 import classnames from "classnames";
-import { getDesktopMediaQuery } from "../../utils";
 import { v4 as uuid } from "uuid";
+import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlOptionListItemContext = "single-select" | "multi-select";
 
@@ -46,7 +46,7 @@ export class SwirlOptionListItem {
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
-  private id = uuid();
+  private elementId = uuid();
 
   componentDidLoad() {
     this.forceIconProps(this.desktopMediaQuery.matches);
@@ -119,16 +119,16 @@ export class SwirlOptionListItem {
           }
           aria-describedby={
             Boolean(this.description)
-              ? `option-list-item-${this.id}-description`
+              ? `option-list-item-${this.elementId}-description`
               : undefined
           }
           aria-disabled={ariaDisabled}
-          aria-labelledby={`option-list-item-${this.id}-label`}
+          aria-labelledby={`option-list-item-${this.elementId}-label`}
           aria-selected={
             this.swirlAriaRole === "option" ? ariaSelected : undefined
           }
           class={className}
-          id={`option-list-item-${this.id}`}
+          id={`option-list-item-${this.elementId}`}
           onBlur={this.onBlur}
           onFocus={this.onFocus}
           part="option-list-item"
@@ -156,7 +156,7 @@ export class SwirlOptionListItem {
           <span class="option-list-item__label-container">
             <span
               class="option-list-item__label"
-              id={`option-list-item-${this.id}-label`}
+              id={`option-list-item-${this.elementId}-label`}
               part="option-list-item__label"
             >
               {this.label}
@@ -164,7 +164,7 @@ export class SwirlOptionListItem {
             {this.description && (
               <span
                 class="option-list-item__description"
-                id={`option-list-item-${this.id}-description`}
+                id={`option-list-item-${this.elementId}-description`}
               >
                 {this.description}
               </span>

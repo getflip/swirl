@@ -139,6 +139,7 @@ export class SwirlChip {
             aria-label={this.removeButtonLabel}
             class="chip__remove-button"
             onClick={this.remove.emit}
+            type="button"
           >
             <swirl-icon-close size={20}></swirl-icon-close>
           </button>

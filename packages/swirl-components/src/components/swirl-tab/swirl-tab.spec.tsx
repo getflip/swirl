@@ -10,11 +10,9 @@ describe("swirl-tab", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-tab active="true" aria-labelledby="tab-tab-id" id="tab-id" label="Label" role="tabpanel" tab-id="tab-id" tabindex="0">
+      <swirl-tab active="true" aria-labelledby="tab-tab-id" class="tab tab--active" id="tab-id" label="Label" role="tabpanel" tab-id="tab-id" tabindex="0" style="padding: var(--s-space-8);">
         <mock:shadow-root>
-          <div class="tab tab--active" style="padding: var(--s-space-8);">
-            <slot></slot>
-          </div>
+          <slot></slot>
         </mock:shadow-root>
         Content
       </swirl-tab>
@@ -28,11 +26,9 @@ describe("swirl-tab", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-tab active="false" aria-labelledby="tab-tab-id" id="tab-id" label="Label" role="tabpanel" tab-id="tab-id" tabindex="-1">
+      <swirl-tab active="false" aria-labelledby="tab-tab-id" class="tab" id="tab-id" label="Label" role="tabpanel" tab-id="tab-id" tabindex="-1" style="padding: var(--s-space-8);">
         <mock:shadow-root>
-          <div class="tab" style="padding: var(--s-space-8);">
-            <slot></slot>
-          </div>
+          <slot></slot>
         </mock:shadow-root>
         Content
       </swirl-tab>

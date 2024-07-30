@@ -1,4 +1,12 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+} from "@stencil/core";
 import classnames from "classnames";
 
 const swirlCardBorderRadiusTokens = ["xs", "sm", "base", "l", "xl"] as const;
@@ -46,6 +54,7 @@ export class SwirlCard {
 
   @Prop() as?: string = "div";
   @Prop() borderRadius?: SwirlCardBorderRadius = "base";
+  @Prop() customBackgroundColor?: string;
   @Prop() elevated?: boolean;
   @Prop() elevationLevel?: SwirlCardElevationLevel = 3;
   @Prop() height?: string;
@@ -66,6 +75,27 @@ export class SwirlCard {
   @Prop() swirlAriaLabel?: string;
   @Prop() swirlAriaLabelledby?: string;
 
+  @State() flashing = false;
+
+  private flashingTimeout?: NodeJS.Timeout;
+
+  /**
+   * Flashes the card to draw focus.
+   */
+  @Method()
+  async flash(duration = 5000) {
+    if (Boolean(this.flashingTimeout)) {
+      clearTimeout(this.flashingTimeout);
+      this.flashingTimeout = undefined;
+    }
+
+    this.flashing = true;
+
+    this.flashingTimeout = setTimeout(() => {
+      this.flashing = false;
+    }, duration);
+  }
+
   render() {
     const Tag = Boolean(this.href) ? "a" : this.as;
 
@@ -82,6 +112,7 @@ export class SwirlCard {
     };
 
     const bodyStyles = {
+      backgroundColor: this.customBackgroundColor,
       padding: Boolean(this.padding)
         ? `var(--s-space-${this.padding})`
         : undefined,
@@ -106,6 +137,7 @@ export class SwirlCard {
       `card--justify-content-${this.justifyContent}`,
       {
         "card--elevated": this.elevated,
+        "card--flashing": this.flashing,
         "card--has-image": hasImage,
         "card--highlighted": this.highlighted,
         "card--interactive": this.interactive || this.href,

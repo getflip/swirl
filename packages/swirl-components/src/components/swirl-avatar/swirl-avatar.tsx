@@ -191,7 +191,7 @@ export class SwirlAvatar {
 
     return (
       <Host
-        aria-label={this.label}
+        aria-label={this.interactive ? this.label : undefined}
         onKeydown={this.interactive ? this.onKeydown : undefined}
         onKeyup={this.interactive ? this.onKeyup : undefined}
         role={role}

@@ -11,13 +11,21 @@ export class SwirlPopoverTrigger {
 
   @Prop() hidePopoverWhenInvisible?: boolean = true;
   @Prop() parentScrollContainer?: HTMLElement;
-  @Prop() popover!: string | HTMLSwirlPopoverElement;
   @Prop() setAriaAttributes?: boolean = true;
+  @Prop() swirlPopover!: string | HTMLSwirlPopoverElement;
+  @Prop() triggerOnClick?: boolean = true;
+  @Prop() triggerOnHover?: boolean = false;
+  @Prop() hoverLingerDuration?: number;
+  @Prop() hoverDelay?: number;
 
   private intersectionObserver: IntersectionObserver;
+  private hoverLingerReference?: NodeJS.Timeout;
+  private hoverDelayReference?: NodeJS.Timeout;
+  private triggerIsActive: boolean = false;
 
   componentDidLoad() {
     this.updateTriggerElAriaAttributes();
+    this.setupHoverListeners();
 
     if (this.hidePopoverWhenInvisible) {
       this.intersectionObserver = new IntersectionObserver(
@@ -40,17 +48,28 @@ export class SwirlPopoverTrigger {
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
+    const popoverEl = this.getPopoverEl();
+    if (Boolean(popoverEl)) {
+      popoverEl.removeEventListener("mouseenter", this.popoverMouseEnter);
+      popoverEl.removeEventListener("mouseleave", this.popoverMouseLeave);
+    }
   }
 
-  @Watch("popover")
+  @Watch("swirlPopover")
   watchPopover() {
     this.updateTriggerElAriaAttributes();
   }
 
+  @Watch("triggerOnHover")
+  watchHover() {
+    clearTimeout(this.hoverDelayReference);
+    clearTimeout(this.hoverLingerReference);
+  }
+
   private getPopoverEl() {
-    return typeof this.popover === "string"
-      ? document.querySelector<HTMLSwirlPopoverElement>(`#${this.popover}`)
-      : this.popover;
+    return typeof this.swirlPopover === "string"
+      ? document.querySelector<HTMLSwirlPopoverElement>(`#${this.swirlPopover}`)
+      : this.swirlPopover;
   }
 
   private getTriggerEl() {
@@ -71,23 +90,91 @@ export class SwirlPopoverTrigger {
     }
   }
 
-  private onClick = () => {
+  private setupHoverListeners() {
     const popoverEl = this.getPopoverEl();
 
-    if (!Boolean(popoverEl)) {
-      return;
+    if (Boolean(popoverEl)) {
+      popoverEl.addEventListener("mouseenter", this.popoverMouseEnter);
+      popoverEl.addEventListener("mouseleave", this.popoverMouseLeave);
     }
+  }
 
-    if (this.isPopoverOpen()) {
-      popoverEl.close();
-      return;
+  popoverMouseEnter = () => {
+    this.stopHoverLingerTimer();
+  };
+
+  popoverMouseLeave = () => {
+    if (this.triggerIsActive) {
+      this.mouseleaveHandler();
     }
+  };
 
+  private onMouseenter = () => {
+    if (!this.triggerOnHover) return;
+    this.stopHoverLingerTimer();
+
+    this.triggerIsActive = true;
+
+    this.hoverDelayReference = setTimeout(() => {
+      this.hoverDelayReference = undefined;
+      if (this.triggerOnHover) {
+        this.mouseenterHandler();
+      }
+    }, this.hoverDelay);
+  };
+
+  private mouseenterHandler = () => {
+    const popoverEl = this.getPopoverEl();
     const triggerEl = this.getTriggerEl();
 
-    if (!Boolean(triggerEl)) {
-      return;
-    }
+    popoverEl.open(triggerEl, true);
+
+    popoverEl.addEventListener(
+      "popoverOpen",
+      () => {
+        this.updateTriggerElAriaAttributes(true);
+      },
+      { once: true }
+    );
+
+    popoverEl.addEventListener(
+      "popoverClose",
+      () => {
+        this.updateTriggerElAriaAttributes(false);
+      },
+      { once: true }
+    );
+  };
+
+  private onMouseleave = () => {
+    clearTimeout(this.hoverDelayReference);
+    this.mouseleaveHandler();
+  };
+
+  private mouseleaveHandler = () => {
+    if (!this.triggerOnHover) return;
+    this.startHoverLingerTimer();
+  };
+
+  private startHoverLingerTimer() {
+    clearTimeout(this.hoverLingerReference);
+    this.hoverLingerReference = setTimeout(() => {
+      if (this.triggerIsActive && this.isPopoverOpen()) {
+        this.getPopoverEl().close(true);
+      }
+      this.triggerIsActive = false;
+    }, this.hoverLingerDuration);
+  }
+
+  private stopHoverLingerTimer() {
+    clearTimeout(this.hoverLingerReference);
+  }
+
+  private onClick = () => {
+    if (!this.triggerOnClick) return;
+
+    const popoverEl = this.getPopoverEl();
+    const triggerEl = this.getTriggerEl();
 
     popoverEl.open(triggerEl);
 
@@ -120,7 +207,9 @@ export class SwirlPopoverTrigger {
     }
 
     const popoverId =
-      typeof this.popover === "string" ? this.popover : this.popover?.id;
+      typeof this.swirlPopover === "string"
+        ? this.swirlPopover
+        : this.swirlPopover?.id;
 
     if (triggerEl.tagName.startsWith("SWIRL-")) {
       triggerEl.setAttribute("swirl-aria-controls", popoverId);
@@ -145,7 +234,11 @@ export class SwirlPopoverTrigger {
 
   render() {
     return (
-      <Host onClick={this.onClick}>
+      <Host
+        onClick={this.onClick}
+        onMouseenter={this.onMouseenter}
+        onMouseleave={this.onMouseleave}
+      >
         <slot></slot>
       </Host>
     );

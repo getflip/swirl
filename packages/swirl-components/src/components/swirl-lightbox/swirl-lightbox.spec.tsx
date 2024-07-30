@@ -26,12 +26,15 @@ describe("swirl-lightbox", () => {
     expect(page.root).toEqualHtml(`
       <swirl-lightbox close-button-label="Close" download-button-label="Download" label="Lightbox" next-slide-button-label="Next" previous-slide-button-label="Previous">
         <mock:shadow-root>
-          <section aria-hidden="true" aria-label="Lightbox" aria-modal="true" class="lightbox" id="lightbox" role="dialog" tabindex="-1">
+          <section aria-hidden="true" aria-label="Lightbox" aria-modal="true" class="lightbox lightbox--hide-toolbar" id="lightbox" role="dialog" tabindex="-1">
             <div class="lightbox__body" role="document">
               <header class="lightbox__header">
                 <button aria-label="Close" class="lightbox__close-button">
                   <swirl-icon-close></swirl-icon-close>
                 </button>
+                <div class="lightbox__toolbar">
+                  <slot name="toolbar"></slot>
+                </div>
                 <swirl-popover-trigger>
                   <button aria-label="Open slide menu" class="lightbox__menu-button">
                     <swirl-icon-more-vertikal></swirl-icon-more-vertikal>
@@ -143,14 +146,14 @@ describe("swirl-lightbox", () => {
       `,
     });
 
-    page.rootInstance.modal.shown = true;
+    page.rootInstance.isOpen = true;
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));
 
     const slides = page.rootInstance.slides;
 
-    page.doc.dispatchEvent(
+    page.root.dispatchEvent(
       new KeyboardEvent("keydown", { code: "ArrowRight" })
     );
 
@@ -162,7 +165,9 @@ describe("swirl-lightbox", () => {
     expect(slides[2].getAttribute("active")).toBe("true");
     expect(page.rootInstance.activeSlideIndex).toBe(1);
 
-    page.doc.dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowLeft" }));
+    page.root.dispatchEvent(
+      new KeyboardEvent("keydown", { code: "ArrowLeft" })
+    );
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));
@@ -237,5 +242,40 @@ describe("swirl-lightbox", () => {
     expect(slides[1].getAttribute("active")).toBe("true");
     expect(slides[2].getAttribute("active")).toBe("false");
     expect(page.rootInstance.activeSlideIndex).toBe(0);
+  });
+
+  it("fires slide change events", async () => {
+    const page = await newSpecPage({
+      components: [SwirlLightbox],
+      html: `
+        <swirl-lightbox label="Lightbox">
+          <swirl-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer description="Another dog in a blaket." file="/sample-2.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer file="/sample.mp4" type="video/mp4"></swirl-file-viewer>
+        </swirl-lightbox>
+      `,
+    });
+
+    const spy = jest.fn();
+
+    page.root.addEventListener("activeSlideChange", spy);
+
+    await page.root.activateSlide(1);
+    await page.root.activateSlide(2);
+    await page.root.activateSlide(0);
+
+    expect(spy).toHaveBeenCalledTimes(3);
+    expect(spy).toHaveBeenNthCalledWith(
+      1,
+      expect.objectContaining({ detail: 1 })
+    );
+    expect(spy).toHaveBeenNthCalledWith(
+      2,
+      expect.objectContaining({ detail: 2 })
+    );
+    expect(spy).toHaveBeenNthCalledWith(
+      3,
+      expect.objectContaining({ detail: 0 })
+    );
   });
 });

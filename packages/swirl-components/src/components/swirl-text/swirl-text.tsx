@@ -97,6 +97,9 @@ export class SwirlText {
   render() {
     const Tag = this.as;
 
+    const truncate =
+      this.truncate && (!Boolean(this.lines) || this.lines === 1);
+
     const className = classnames(
       "text",
       `text--align-${this.align}`,
@@ -107,13 +110,12 @@ export class SwirlText {
       `text--truncate-direction-${this.truncateDirection}`,
       `text--weight-${this.weight}`,
       {
-        "text--truncate":
-          this.truncate && (!Boolean(this.lines) || this.lines === 1),
+        "text--truncate": truncate,
       }
     );
 
     const styles = {
-      whiteSpace: this.whiteSpace,
+      whiteSpace: truncate ? "nowrap" : this.whiteSpace,
     };
 
     return (

@@ -1,11 +1,12 @@
 import {
   Component,
   Element,
-  Event,
   EventEmitter,
   h,
   Host,
+  Method,
   Prop,
+  Event as StencilEvent,
 } from "@stencil/core";
 import classnames from "classnames";
 
@@ -35,7 +36,17 @@ export class SwirlSwitch {
   @Prop() labelPosition?: SwirlSwitchLabelPosition = "end";
   @Prop() value?: string;
 
-  @Event() valueChange: EventEmitter<boolean>;
+  @StencilEvent() valueChange: EventEmitter<boolean>;
+
+  private inputEl: HTMLInputElement;
+
+  /**
+   * Toggle the switch state programmatically.
+   */
+  @Method()
+  async toggle() {
+    this.inputEl.dispatchEvent(new Event("change"));
+  }
 
   private onChange = () => {
     this.checked = !this.checked;
@@ -71,6 +82,7 @@ export class SwirlSwitch {
                 id={this.inputId}
                 name={this.inputName}
                 onChange={this.onChange}
+                ref={(el) => (this.inputEl = el)}
                 role="switch"
                 type="checkbox"
                 value={this.value}

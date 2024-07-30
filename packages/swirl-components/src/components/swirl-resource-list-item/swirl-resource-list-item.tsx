@@ -1,3 +1,6 @@
+import classnames from "classnames";
+import { v4 as uuid } from "uuid";
+
 import {
   Component,
   Element,
@@ -8,8 +11,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import classnames from "classnames";
-import { v4 as uuid } from "uuid";
+
 import { getDesktopMediaQuery } from "../../utils";
 
 export type SwirlResourceListItemLabelWeight = "medium" | "regular";
@@ -30,6 +32,7 @@ export class SwirlResourceListItem {
 
   @Prop() active?: boolean;
   @Prop() allowDrag?: boolean;
+  @Prop() allowHtml?: boolean = true;
   @Prop({ mutable: true }) checked?: boolean = false;
   @Prop() compact?: boolean;
   @Prop() description?: string;
@@ -48,6 +51,7 @@ export class SwirlResourceListItem {
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
   @Prop() selectable?: boolean;
+  @Prop() swirlAriaLabel?: string;
   @Prop() value?: string;
 
   @State() hasMedia: boolean = false;
@@ -58,10 +62,10 @@ export class SwirlResourceListItem {
 
   private controlContainer: HTMLElement;
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
+  private elementId = uuid();
   private iconEl: HTMLElement;
-  private id = uuid();
 
-  async componentWillLoad() {
+  componentWillLoad() {
     this.updateMediaState();
   }
 
@@ -189,6 +193,9 @@ export class SwirlResourceListItem {
       Boolean(this.menuTriggerId) && !Boolean(this.meta) && !this.selectable;
     const showMeta = (Boolean(this.meta) || hasBadges) && !this.selectable;
 
+    const ariaLabel = Boolean(this.swirlAriaLabel)
+      ? this.swirlAriaLabel
+      : this.label;
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
     const role = this.interactive && this.selectable ? "checkbox" : undefined;
 
@@ -228,7 +235,10 @@ export class SwirlResourceListItem {
           <Tag
             aria-checked={ariaChecked}
             aria-disabled={disabled ? "true" : undefined}
-            aria-labelledby={this.id}
+            aria-label={ariaLabel}
+            aria-labelledby={
+              Boolean(this.swirlAriaLabel) ? undefined : this.elementId
+            }
             class="resource-list-item__content"
             href={href}
             disabled={disabled}
@@ -251,14 +261,18 @@ export class SwirlResourceListItem {
             >
               <span
                 class="resource-list-item__label"
-                id={this.id}
-                innerHTML={this.label}
-              ></span>
+                id={this.elementId}
+                innerHTML={this.allowHtml ? this.label : undefined}
+              >
+                {!this.allowHtml && this.label}
+              </span>
               {this.description && (
                 <span
                   class="resource-list-item__description"
-                  innerHTML={this.description}
-                ></span>
+                  innerHTML={this.allowHtml ? this.description : undefined}
+                >
+                  {!this.allowHtml && this.description}
+                </span>
               )}
             </span>
             {showMeta && (
@@ -287,7 +301,7 @@ export class SwirlResourceListItem {
             <slot name="control"></slot>
           </span>
           {showMenu && (
-            <swirl-popover-trigger popover={this.menuTriggerId}>
+            <swirl-popover-trigger swirlPopover={this.menuTriggerId}>
               <swirl-button
                 aria-disabled={disabled ? "true" : undefined}
                 class="resource-list-item__menu-trigger"

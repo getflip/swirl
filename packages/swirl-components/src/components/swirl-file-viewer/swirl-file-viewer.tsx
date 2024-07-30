@@ -22,8 +22,10 @@ export class SwirlFileViewer {
   @Prop() active?: boolean = true;
   @Prop() autoplay?: boolean;
   @Prop() description?: string;
+  @Prop() disableDownload?: boolean;
   @Prop() errorMessage?: string = "File could not be loaded.";
   @Prop() file!: string;
+  @Prop() fileName?: string;
   @Prop() pdfWorkerSrc?: string;
   @Prop() thumbnailUrl?: string;
   @Prop() type!: string;
@@ -41,7 +43,7 @@ export class SwirlFileViewer {
    */
   @Method()
   async download() {
-    const fileName = this.file.split("/").pop();
+    const fileName = this.fileName || this.file.split("/").pop();
     const file = await fetch(this.file);
 
     saveAs(await file.blob(), fileName);
@@ -126,6 +128,7 @@ export class SwirlFileViewer {
               {this.type.startsWith("video/") && (
                 <swirl-file-viewer-video
                   autoplay={this.autoplay}
+                  disableDownload={this.disableDownload}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
                   type={this.type}

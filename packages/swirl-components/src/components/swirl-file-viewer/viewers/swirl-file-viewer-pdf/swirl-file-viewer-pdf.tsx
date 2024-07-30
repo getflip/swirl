@@ -67,15 +67,19 @@ export class SwirlFileViewerPdf {
   private scrollContainer: HTMLDivElement;
   private recentScrollPosition: { x: number; y: number } = { x: 0, y: 0 };
 
-  async componentWillLoad() {
+  componentWillLoad() {
     window.pdf.GlobalWorkerOptions.workerSrc = this.workerSrc;
-    await this.getPages();
   }
 
   async componentDidLoad() {
+    await this.getPages();
     await this.updateVisiblePages();
-    this.activate.emit(this.el);
 
+    this.activate.emit(this.el);
+  }
+
+  componentDidRender() {
+    this.updateVisiblePages();
     this.determineScrollStatus();
   }
 
@@ -207,13 +211,17 @@ export class SwirlFileViewerPdf {
         this.doc.destroy();
       }
 
-      this.doc = await getDocument(this.file).promise;
+      // Don't remove the isEvalSupported property. https://github.com/advisories/GHSA-wgrm-67xf-hhpq
+      this.doc = await getDocument({ isEvalSupported: false, url: this.file })
+        .promise;
+
+      const pages = [];
 
       for (let i = 1; i <= this.doc.numPages; i++) {
-        const page = await this.doc.getPage(i);
-        this.pages[i] = page;
+        pages.push(this.doc.getPage(i));
       }
 
+      this.pages = await Promise.all(pages);
       this.loading = false;
     } catch (e) {
       this.error = true;
@@ -241,7 +249,7 @@ export class SwirlFileViewerPdf {
         continue;
       }
 
-      if (!this.visiblePages.includes(page.pageNumber)) {
+      if (!this.visiblePages.includes(page.pageNumber) && !forPrint) {
         this.destroyPage(page);
         continue;
       }
@@ -376,14 +384,27 @@ export class SwirlFileViewerPdf {
       *, *:before, *:after {
         margin: 0;
         padding: 0;
+        outline: 0;
+      }
+
+      @page {
+        size: a4 !important;
+        margin: 0;
+        padding: 0;
+      }
+
+      html, body {
+        width: 210mm;
+        height: 297mm;
       }
 
       img {
         display: block;
-        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
         page-break-after: always;
       }
-      `;
+    `;
 
     let html = `
       <!DOCTYPE html>
@@ -417,6 +438,9 @@ export class SwirlFileViewerPdf {
     win.focus();
 
     await new Promise((resolve) => setTimeout(resolve, 100));
+
+    // var wnd = window.open("about:blank", "", "_blank");
+    // wnd.document.write(html);
 
     win.print();
     iframe.remove();

@@ -22,27 +22,21 @@ describe("swirl-tabs", () => {
         <div class="tabs">
           <swirl-tab-bar label="Tabs"></swirl-tab-bar>
         </div>
-        <swirl-tab aria-labelledby="tab-tab-1" id="tab-1" label="Tab #1" role="tabpanel" tab-id="tab-1" tabindex="0">
+        <swirl-tab aria-labelledby="tab-tab-1" class="tab tab--active" id="tab-1" label="Tab #1" role="tabpanel" tab-id="tab-1" tabindex="0" style="padding: var(--s-space-8);">
           <mock:shadow-root>
-            <div class="tab tab--active" style="padding: var(--s-space-8);">
-              <slot></slot>
-            </div>
+            <slot></slot>
           </mock:shadow-root>
           Tab 1
         </swirl-tab>
-        <swirl-tab aria-labelledby="tab-tab-2" id="tab-2" label="Tab #2" role="tabpanel" tab-id="tab-2" tabindex="-1">
+        <swirl-tab aria-labelledby="tab-tab-2" class="tab" id="tab-2" label="Tab #2" role="tabpanel" tab-id="tab-2" tabindex="-1" style="padding: var(--s-space-8);">
           <mock:shadow-root>
-            <div class="tab" style="padding: var(--s-space-8);">
-              <slot></slot>
-            </div>
+            <slot></slot>
           </mock:shadow-root>
           Tab 2
         </swirl-tab>
-        <swirl-tab aria-labelledby="tab-tab-3" id="tab-3" label="Tab Number 3" role="tabpanel" tab-id="tab-3" tabindex="-1">
+        <swirl-tab aria-labelledby="tab-tab-3" class="tab" id="tab-3" label="Tab Number 3" role="tabpanel" tab-id="tab-3" tabindex="-1" style="padding: var(--s-space-8);">
           <mock:shadow-root>
-            <div class="tab" style="padding: var(--s-space-8);">
-              <slot></slot>
-            </div>
+            <slot></slot>
           </mock:shadow-root>
           Tab 3
         </swirl-tab>

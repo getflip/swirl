@@ -106,7 +106,7 @@ describe("swirl-form-control", () => {
       `,
     });
     const activeElement = page.doc.querySelector("#active-element");
-    const formControl =   page.root.children[0];
+    const formControl = page.root.children[0];
 
     page.root.dispatchEvent(new FocusEvent("focusin"));
     (page.doc as any).activeElement = activeElement;
@@ -116,7 +116,9 @@ describe("swirl-form-control", () => {
     await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
-    expect(formControl.classList.contains('form-control--has-focus')).toBeTruthy();
+    expect(
+      formControl.classList.contains("form-control--has-focus")
+    ).toBeTruthy();
   });
 
   it("doesn't keep focus when Tab is pressed and the active element is not descendent of the input", async () => {
@@ -130,7 +132,7 @@ describe("swirl-form-control", () => {
       `,
     });
     const activeElement = page.doc.querySelector("#active-element");
-    const formControl =   page.root.children[0];
+    const formControl = page.root.children[0];
 
     page.root.dispatchEvent(new FocusEvent("focusin"));
 
@@ -141,6 +143,22 @@ describe("swirl-form-control", () => {
     await new Promise((resolve) => setTimeout(resolve, 150));
     await page.waitForChanges();
 
-    expect(formControl.classList.contains('form-control--has-focus')).toBeFalsy();
+    expect(
+      formControl.classList.contains("form-control--has-focus")
+    ).toBeFalsy();
+  });
+
+  it("renders a tooltip icon when tooltip is set an label position is outside", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFormControl],
+      html: `
+        <swirl-form-control label="Label" label-position="outside" tooltip="This is a tooltip">
+          <swirl-text-input></swirl-text-input>
+        </swirl-form-control>
+      `,
+    });
+
+    const tooltip = page.root.querySelector("swirl-tooltip");
+    expect(tooltip).not.toBeNull();
   });
 });

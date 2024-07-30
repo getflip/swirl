@@ -24,9 +24,13 @@ const preferredThemeStorageKey = "swirl-preferred-theme";
 export class SwirlThemeProvider {
   @Prop() config: SwirlThemeProviderConfig;
 
+  @Event() appThemeUpdated: EventEmitter<void>;
   @Event() themeChange: EventEmitter<SwirlOSThemeChangeEventData>;
 
   private appOSTheme: SwirlOSTheme;
+  private darkThemeMediaQuery = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  );
   private osTheme: SwirlOSTheme;
   private recentOSThemeChangeEventData: SwirlOSThemeChangeEventData;
   private resolvedConfig: SwirlThemeProviderConfig;
@@ -36,6 +40,13 @@ export class SwirlThemeProvider {
     this.resolveConfig();
     this.determineOSTheme();
     this.updateAppTheme();
+  }
+
+  disconnectedCallback() {
+    this.darkThemeMediaQuery.removeEventListener(
+      "change",
+      this.osThemeChangeHandler
+    );
   }
 
   @Watch("config")
@@ -75,7 +86,10 @@ export class SwirlThemeProvider {
    */
   @Method()
   async setPreferredOSTheme(theme: SwirlOSTheme) {
-    if (!Boolean(this.resolvedConfig.storage)) {
+    if (
+      !Boolean(this.resolvedConfig.storage) ||
+      !this.resolvedConfig.enabledThemes.includes(theme)
+    ) {
       return;
     }
 
@@ -101,9 +115,14 @@ export class SwirlThemeProvider {
   private resolveConfig() {
     this.resolvedConfig = {
       ...(this.config || {}),
+      enabledThemes: this.config?.enabledThemes || ["light", "dark"],
       rootElement: this.config?.rootElement || document.documentElement,
       storage: this.config?.storage || window?.localStorage,
     };
+
+    if (!this.resolvedConfig.enabledThemes.includes("light")) {
+      throw new Error("[Swirl Theme Provider] Light theme must be enabled.");
+    }
   }
 
   private determineOSTheme() {
@@ -112,21 +131,33 @@ export class SwirlThemeProvider {
       return;
     }
 
-    const darkThemeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+    this.osTheme = this.darkThemeMediaQuery.matches ? "dark" : "light";
+
+    this.darkThemeMediaQuery.removeEventListener(
+      "change",
+      this.osThemeChangeHandler
     );
 
-    this.osTheme = darkThemeMediaQuery.matches ? "dark" : "light";
-
-    darkThemeMediaQuery.addEventListener("change", (e) => {
-      this.osTheme = e.matches ? "dark" : "light";
-
-      this.updateAppTheme();
-    });
+    this.darkThemeMediaQuery.addEventListener(
+      "change",
+      this.osThemeChangeHandler
+    );
   }
 
+  private osThemeChangeHandler = (e: MediaQueryListEvent) => {
+    this.osTheme = e.matches ? "dark" : "light";
+
+    this.updateAppTheme();
+  };
+
   private async updateAppTheme() {
-    this.appOSTheme = (await this.getPreferredOSTheme()) || this.osTheme;
+    const newAppOSTheme = (await this.getPreferredOSTheme()) || this.osTheme;
+
+    if (!this.resolvedConfig.enabledThemes.includes(newAppOSTheme)) {
+      this.appOSTheme = "light";
+    } else {
+      this.appOSTheme = newAppOSTheme;
+    }
 
     if (this.appOSTheme === "dark") {
       document.documentElement.classList.remove("theme-light");
@@ -154,6 +185,8 @@ export class SwirlThemeProvider {
       this.recentOSThemeChangeEventData = themeChangeEventData;
       this.themeChange.emit(this.recentOSThemeChangeEventData);
     }
+
+    this.appThemeUpdated.emit();
   }
 
   private updateTenantAssets() {

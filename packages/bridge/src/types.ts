@@ -14,6 +14,7 @@ import {
 } from "./modal";
 import { NavigateResult } from "./navigation";
 import { GetThemeResult } from "./theming";
+import { ShowToastResult } from "./toast";
 
 export type BridgeOptions = {
   debug?: boolean;
@@ -42,6 +43,7 @@ export enum BridgeMethod {
   NAVIGATE = "NAVIGATE",
   OPEN_DIALOG = "OPEN_DIALOG",
   OPEN_MODAL = "OPEN_MODAL",
+  SHOW_TOAST = "SHOW_TOAST",
   SUBSCRIBE = "SUBSCRIBE",
   UNSUBSCRIBE = "UNSUBSCRIBE",
 }
@@ -59,6 +61,7 @@ export type BridgeMethodResultMapping = {
   [BridgeMethod.NAVIGATE]: NavigateResult;
   [BridgeMethod.OPEN_DIALOG]: OpenDialogResult;
   [BridgeMethod.OPEN_MODAL]: OpenModalResult;
+  [BridgeMethod.SHOW_TOAST]: ShowToastResult;
   [BridgeMethod.SUBSCRIBE]: SubscribeResult;
   [BridgeMethod.UNSUBSCRIBE]: UnsubscribeResult;
 };

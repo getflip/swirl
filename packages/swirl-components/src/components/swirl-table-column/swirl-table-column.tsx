@@ -22,7 +22,10 @@ export class SwirlTableColumn {
   @Prop() width?: string;
 
   componentDidRender() {
-    const table = closestPassShadow(this.el, "swirl-table");
+    const table = closestPassShadow(
+      this.el,
+      "swirl-table"
+    ) as HTMLSwirlTableElement;
 
     table?.rerender();
   }

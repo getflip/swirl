@@ -92,10 +92,18 @@
       & .app-layout__header,
       & .app-layout__navigation {
         animation: app-layout-slide-out 0.4s;
+
+        @media (prefers-reduced-motion) {
+          animation: none;
+        }
       }
 
       & .app-layout__body {
         animation: app-layout-slide-in 0.4s;
+
+        @media (prefers-reduced-motion) {
+          animation: none;
+        }
 
         &:after {
           position: absolute;
@@ -107,6 +115,10 @@
           background-color: rgba(0, 0, 0, 0.3);
           content: "";
           animation: app-layout-fade-in 0.4s;
+
+          @media (prefers-reduced-motion) {
+            animation: none;
+          }
         }
       }
     }
@@ -143,10 +155,18 @@
     @media (--to-desktop) {
       & .app-layout__body {
         animation: app-layout-slide-out 0.4s;
+
+        @media (prefers-reduced-motion) {
+          animation: none;
+        }
       }
 
       & .app-layout__sidebar {
         animation: app-layout-slide-in 0.4s;
+
+        @media (prefers-reduced-motion) {
+          animation: none;
+        }
 
         &:after {
           position: absolute;
@@ -158,6 +178,10 @@
           background-color: rgba(0, 0, 0, 0.3);
           content: "";
           animation: app-layout-fade-in 0.4s;
+
+          @media (prefers-reduced-motion) {
+            animation: none;
+          }
         }
       }
     }
@@ -194,6 +218,10 @@
     @media (--to-tablet) {
       & .app-layout__body {
         animation: app-layout-scale-in 0.3s;
+
+        @media (prefers-reduced-motion) {
+          animation: none;
+        }
       }
     }
   }
@@ -225,6 +253,10 @@
     @media (--to-desktop) {
       & .app-layout__sidebar {
         animation: app-layout-scale-in 0.3s;
+
+        @media (prefers-reduced-motion) {
+          animation: none;
+        }
       }
     }
   }

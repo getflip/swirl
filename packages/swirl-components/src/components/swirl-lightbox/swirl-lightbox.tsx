@@ -1,18 +1,23 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
-  Listen,
   Method,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
-import A11yDialog from "a11y-dialog";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import classnames from "classnames";
+import * as focusTrap from "focus-trap";
 import { querySelectorAllDeep } from "../../utils";
 
+/**
+ * @slot toolbar - Slot for additional toolbar items displayed in the header.
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-lightbox.css",
@@ -31,17 +36,19 @@ export class SwirlLightbox {
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
 
+  @Event() activeSlideChange: EventEmitter<number>;
+
   @State() activeSlideIndex: number = 0;
   @State() closing = false;
+  @State() isOpen = false;
   @State() slides: HTMLSwirlFileViewerElement[];
 
   private dragging: boolean = false;
   private dragStartPosition: number;
   private dragDelta: number;
+  private focusTrap: focusTrap.FocusTrap;
   private menu: HTMLSwirlPopoverElement;
-  private modal: A11yDialog;
   private modalEl: HTMLElement;
-  private mediaPlayers: (HTMLVideoElement | HTMLAudioElement)[] = [];
   private slidesContainer: HTMLElement;
 
   componentWillLoad() {
@@ -49,18 +56,25 @@ export class SwirlLightbox {
   }
 
   componentDidLoad() {
-    this.modal = new A11yDialog(this.modalEl);
     this.activateSlide(0);
   }
 
+  componentDidRender() {
+    this.focusTrap?.updateContainerElements(this.modalEl);
+  }
+
   disconnectedCallback() {
-    this.modal?.destroy();
+    this.focusTrap?.deactivate();
     this.unlockBodyScroll();
   }
 
-  @Listen("keydown", { target: "document" })
-  onKeyDown(event: KeyboardEvent) {
-    if (!(this.modal.shown as boolean)) {
+  @Watch("activeSlideIndex")
+  watchActiveSlideIndex() {
+    this.activeSlideChange.emit(this.activeSlideIndex);
+  }
+
+  onKeyDown = (event: KeyboardEvent) => {
+    if (!this.isOpen) {
       return;
     }
 
@@ -72,16 +86,29 @@ export class SwirlLightbox {
     } else if (event.code === "ArrowRight") {
       this.onNextSlideClick();
     }
-  }
+  };
 
   /**
    * Open the lightbox.
    */
   @Method()
   async open() {
-    this.modal.show();
+    this.isOpen = true;
     this.lockBodyScroll();
     this.activateSlide(this.activeSlideIndex || 0);
+
+    setTimeout(() => {
+      this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
+        allowOutsideClick: true,
+        tabbableOptions: {
+          getShadowRoot: (node) => {
+            return node.shadowRoot;
+          },
+        },
+      });
+
+      this.focusTrap?.activate();
+    });
   }
 
   /**
@@ -94,10 +121,11 @@ export class SwirlLightbox {
     }
 
     this.closing = true;
+    this.focusTrap?.deactivate();
     this.unlockBodyScroll();
 
     setTimeout(() => {
-      this.modal.hide();
+      this.isOpen = false;
       this.resetImageZoom();
       this.stopAllMediaPlayers();
       this.closing = false;
@@ -148,7 +176,6 @@ export class SwirlLightbox {
     }, 300);
 
     this.stopAllMediaPlayers();
-    this.updateMediaPlayers();
     this.resetImageZoom();
   }
 
@@ -158,6 +185,7 @@ export class SwirlLightbox {
       slide.setAttribute("aria-label", slide.file);
       slide.setAttribute("aria-roledescription", "slide");
       slide.setAttribute("role", "group");
+      slide.addEventListener("dragstart", (event) => event.preventDefault());
     });
   }
 
@@ -212,20 +240,20 @@ export class SwirlLightbox {
     this.slides = Array.from(this.el.children).filter(
       (el) => el.tagName === "SWIRL-FILE-VIEWER"
     ) as HTMLSwirlFileViewerElement[];
+
     this.setSlideAttributes();
-    this.updateMediaPlayers();
   };
 
-  private updateMediaPlayers() {
+  private getMediaPlayers() {
     const mediaPlayers = querySelectorAllDeep<
       HTMLAudioElement | HTMLVideoElement
     >(this.el, "video");
 
-    this.mediaPlayers = mediaPlayers;
+    return mediaPlayers;
   }
 
   private stopAllMediaPlayers() {
-    this.mediaPlayers.forEach((mediaPlayer) => mediaPlayer.pause());
+    this.getMediaPlayers().forEach((mediaPlayer) => mediaPlayer.pause());
   }
 
   private resetImageZoom() {
@@ -322,6 +350,12 @@ export class SwirlLightbox {
     this.close();
   };
 
+  private onContextMenu = (event: MouseEvent) => {
+    if (!this.downloadButtonEnabled) {
+      event.preventDefault();
+    }
+  };
+
   render() {
     const showPagination = this.slides.length > 1;
 
@@ -333,16 +367,20 @@ export class SwirlLightbox {
       Boolean(this.el.querySelector("[slot='menu-items']")) ||
       this.downloadButtonEnabled;
 
+    const hasToolbar = Boolean(this.el.querySelector("[slot='toolbar']"));
+
     const className = classnames("lightbox", {
       "lightbox--closing": this.closing,
       "lightbox--hide-menu": !hasMenuItems,
+      "lightbox--hide-toolbar": !hasToolbar,
     });
 
     return (
-      <Host>
+      <Host onKeydown={this.onKeyDown}>
         <section
-          aria-hidden="true"
+          aria-hidden={String(!this.isOpen)}
           aria-label={this.label}
+          aria-modal="true"
           class={className}
           id="lightbox"
           onMouseDown={this.onPointerDown}
@@ -353,6 +391,8 @@ export class SwirlLightbox {
           onTouchMove={this.onPointerMove}
           onTouchStart={this.onPointerDown}
           ref={(el) => (this.modalEl = el)}
+          role="dialog"
+          tabIndex={this.isOpen ? 0 : -1}
         >
           <div class="lightbox__body" role="document">
             <header class="lightbox__header">
@@ -363,8 +403,13 @@ export class SwirlLightbox {
               >
                 <swirl-icon-close></swirl-icon-close>
               </button>
+
+              <div class="lightbox__toolbar">
+                <slot name="toolbar"></slot>
+              </div>
+
               {!this.hideMenu && (
-                <swirl-popover-trigger popover={this.menu}>
+                <swirl-popover-trigger swirlPopover={this.menu}>
                   <button
                     aria-label={this.menuTriggerLabel}
                     class="lightbox__menu-button"
@@ -384,6 +429,7 @@ export class SwirlLightbox {
                 aria-live="polite"
                 class="lightbox__slides"
                 onClick={this.onBackdropClick}
+                onContextMenu={this.onContextMenu}
                 ref={(el) => (this.slidesContainer = el)}
               >
                 <slot onSlotchange={this.registerSlides}></slot>

@@ -24,13 +24,10 @@ export class SwirlTab {
         id={this.tabId}
         role="tabpanel"
         tabIndex={this.active ? 0 : -1}
+        class={className}
+        style={{ padding: `var(--s-space-${this.padding})` }}
       >
-        <div
-          class={className}
-          style={{ padding: `var(--s-space-${this.padding})` }}
-        >
-          <slot></slot>
-        </div>
+        <slot></slot>
       </Host>
     );
   }

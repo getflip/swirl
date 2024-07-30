@@ -9,6 +9,9 @@ declare global {
 export const isProd = process.env.NODE_ENV === "production";
 export const isProdDeployment =
   process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "production";
+export function isStagingDeployment() {
+  return process.env.NEXT_PUBLIC_DEPLOYMENT_STAGE === "staging";
+}
 
 export const envVariables = z.object({
   NEXT_PUBLIC_ALGOLIA_APP_ID: z.string(),

@@ -27,6 +27,7 @@
   --swirl-button-border-top-left-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-right-radius: var(--s-border-radius-base);
   --swirl-button-border-bottom-left-radius: var(--s-border-radius-base);
+  --swirl-tag-background-default: var(--s-surface-neutral-subdued);
 
   --swirl-card-background-default: var(--s-surface-default);
   --swirl-card-background-hovered: var(--s-surface-hovered);
@@ -38,6 +39,8 @@
   --swirl-icon-button-border-top-left-radius: 50%;
   --swirl-icon-button-border-bottom-right-radius: 50%;
   --swirl-icon-button-border-bottom-left-radius: 50%;
+
+  --swirl-app-icon-size: 1.25rem;
 
   --swirl-flat-button-background-default: var(--s-action-neutral-default);
   --swirl-flat-button-background-disabled: var(--s-action-neutral-disabled);
@@ -93,6 +96,7 @@ body {
   font-family: var(--s-font-family-text);
   font-size: var(--s-font-size-base);
   font-weight: var(--s-font-weight-normal);
+  font-variation-settings: "slnt" 0;
 
   -webkit-font-smoothing: antialiased;
 }
@@ -107,4 +111,60 @@ dd,
 dt {
   margin: 0;
   padding: 0;
+}
+
+/* Responsive design helper classes to hide elements for specific viewports */
+
+.hide-from-mobile {
+  @media (--from-mobile) {
+    display: none;
+  }
+}
+
+.hide-from-tablet {
+  @media (--from-tablet) {
+    display: none;
+  }
+}
+
+.hide-from-desktop {
+  @media (--from-desktop) {
+    display: none;
+  }
+}
+
+.hide-from-large-desktop {
+  @media (--from-large-desktop) {
+    display: none;
+  }
+}
+
+.hide-from-larger-desktop {
+  @media (--from-larger-desktop) {
+    display: none;
+  }
+}
+
+.hide-to-tablet {
+  @media (--to-tablet) {
+    display: none;
+  }
+}
+
+.hide-to-desktop {
+  @media (--to-desktop) {
+    display: none;
+  }
+}
+
+.hide-to-large-desktop {
+  @media (--to-large-desktop) {
+    display: none;
+  }
+}
+
+.hide-to-larger-desktop {
+  @media (--to-larger-desktop) {
+    display: none;
+  }
 }

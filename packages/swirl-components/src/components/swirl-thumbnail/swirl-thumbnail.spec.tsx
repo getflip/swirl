@@ -35,9 +35,11 @@ describe("swirl-thumbnail", () => {
             <span class="thumbnail__image-wrapper">
               <img alt="Brief description of the image." class="thumbnail__image" loading="lazy" src="https://picsum.photos/id/433/400/400">
             </span>
-            <span class="thumbnail__remove-button">
-              <swirl-button hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Remove" pill="" variant="on-image"></swirl-button>
-            </span>
+            <swirl-button-group class="thumbnail__buttons">
+              <span>
+                <swirl-button hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Remove" pill="" variant="on-image"></swirl-button>
+              </span>
+            </swirl-button-group>
             <span class="thumbnail__timestamp">
               12:12
             </span>

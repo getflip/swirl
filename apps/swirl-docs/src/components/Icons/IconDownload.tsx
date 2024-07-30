@@ -45,7 +45,7 @@ export const IconDownload: FunctionComponent<IconDownloadProps> = ({
           size="l"
           icon=""
         />
-        <SwirlPopoverTrigger popover="icon-size-menu-popover">
+        <SwirlPopoverTrigger swirlPopover="icon-size-menu-popover">
           <SwirlButton
             aria-label="Icon Size Trigger"
             type="button"

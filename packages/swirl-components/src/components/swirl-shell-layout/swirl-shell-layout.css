@@ -30,6 +30,10 @@
   grid-template-rows: 1fr;
   grid-template-areas: "nav main";
 
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+
   @media (--from-desktop) {
     padding-right: var(--s-space-8);
     padding-bottom: var(--s-space-8);
@@ -68,18 +72,6 @@
 }
 
 .shell-layout--navigation-collapsed {
-  & .shell-layout__navigation-toggle {
-    &:hover {
-      & swirl-icon-double-arrow-left {
-        display: none;
-      }
-
-      & swirl-icon-double-arrow-right {
-        display: inline-flex;
-      }
-    }
-  }
-
   & .shell-layout__nav {
     &:hover {
       @media (--from-desktop) {
@@ -210,6 +202,7 @@
 
 .shell-layout__header-left {
   display: flex;
+  padding-left: var(--s-space-2);
   flex-basis: 8rem;
   flex-shrink: 0;
   align-items: center;
@@ -293,23 +286,6 @@
   }
 }
 
-.shell-layout__navigation-toggle {
-  &:hover {
-    & swirl-icon-hamburger-menu {
-      display: none;
-    }
-
-    & swirl-icon-double-arrow-left {
-      display: inline-flex;
-    }
-  }
-
-  & swirl-icon-double-arrow-right,
-  & swirl-icon-double-arrow-left {
-    display: none;
-  }
-}
-
 .shell-layout__nav {
   position: fixed;
   z-index: 9;
@@ -324,6 +300,10 @@
   transition: transform 0.2s, box-shadow 0.2s, width 0.2s;
   transform: translate3d(-100%, 0, 0);
   grid-area: nav;
+
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
 
   @media (--from-desktop) {
     position: static;
@@ -453,6 +433,10 @@
     transform: none;
     box-shadow: none;
     inset: auto;
+  }
+
+  @media (prefers-reduced-motion) {
+    transition: none;
   }
 }
 

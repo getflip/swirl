@@ -81,7 +81,7 @@ export const config: Config = {
           warn: true,
         },
       ],
-      customElementsExportBehavior: "auto-define-custom-elements",
+      customElementsExportBehavior: "bundle",
       generateTypeDeclarations: true,
       type: "dist-custom-elements",
     },
@@ -106,7 +106,6 @@ export const config: Config = {
       directivesArrayFile:
         "../swirl-components-angular/projects/component-library/src/lib/stencil-generated/index.ts",
       excludeComponents: ["hex-color-picker", "wc-datepicker"],
-      includeImportCustomElements: false,
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
   ],

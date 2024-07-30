@@ -28,6 +28,8 @@ export class SwirlDialog {
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
 
+  @Event() dialogClose: EventEmitter<void>;
+  @Event() dialogOpen: EventEmitter<void>;
   @Event() primaryAction: EventEmitter<MouseEvent>;
   @Event() secondaryAction: EventEmitter<MouseEvent>;
 
@@ -57,6 +59,7 @@ export class SwirlDialog {
   @Method()
   async open() {
     this.dialog.show();
+    this.dialogOpen.emit();
   }
 
   /**
@@ -72,6 +75,7 @@ export class SwirlDialog {
 
     setTimeout(() => {
       this.dialog.hide();
+      this.dialogClose.emit();
       this.closing = false;
     }, 150);
   }

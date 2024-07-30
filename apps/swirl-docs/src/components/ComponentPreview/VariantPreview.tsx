@@ -40,7 +40,7 @@ export const VariantPreview: FunctionComponent<VariantPreviewProps> = ({
             <SwirlButtonGroup className="mb-2">
               {frontMatter?.examples.length > 1 && (
                 <>
-                  <SwirlPopoverTrigger popover={"variant-popover"}>
+                  <SwirlPopoverTrigger swirlPopover={"variant-popover"}>
                     <SwirlButton
                       id="variant-trigger"
                       label={`Variant: ${currentExample.title}`}

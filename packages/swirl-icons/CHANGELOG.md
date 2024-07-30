@@ -1,5 +1,58 @@
 # @getflip/swirl-icons
 
+## 0.39.0
+
+### Minor Changes
+
+- [#748](https://github.com/getflip/swirl/pull/748)
+  [`0c50ca29`](https://github.com/getflip/swirl/commit/0c50ca2996b21cecc16d716dece43d691167b327)
+  Thanks [@danizep](https://github.com/danizep)! - Add Experiment icon
+
+* [#751](https://github.com/getflip/swirl/pull/751)
+  [`196fc921`](https://github.com/getflip/swirl/commit/196fc92154bbdb0a9c652f51f4fb684d45dea427)
+  Thanks [@tobias-bahls](https://github.com/tobias-bahls)! - Add History icon
+
+## 0.38.0
+
+### Minor Changes
+
+- [#743](https://github.com/getflip/swirl/pull/743)
+  [`8059e687`](https://github.com/getflip/swirl/commit/8059e687d09aed86f49c3bc7b9d043fb02f1a805)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add MicOff,
+  VideoCameraOff, WebAssetOff, and WebAsset icons
+
+## 0.37.0
+
+### Minor Changes
+
+- [#724](https://github.com/getflip/swirl/pull/724)
+  [`14c0f1d0`](https://github.com/getflip/swirl/commit/14c0f1d0add14ebef07cabb9d8822a2dd09825dd)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add PinOff
+  Icon
+
+## 0.36.0
+
+### Minor Changes
+
+- [#716](https://github.com/getflip/swirl/pull/716)
+  [`ae0bd0a3`](https://github.com/getflip/swirl/commit/ae0bd0a30832d2d267ca7a77d618804bc10e40d3)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add Pin Icon
+
+## 0.35.0
+
+### Minor Changes
+
+- [#714](https://github.com/getflip/swirl/pull/714)
+  [`c882ceda`](https://github.com/getflip/swirl/commit/c882ceda7ba353858ff28b280187884edd6bc15d)
+  Thanks [@manuel-pross](https://github.com/manuel-pross)! - add keyboard icon
+
+## 0.34.0
+
+### Minor Changes
+
+- [`7324393b`](https://github.com/getflip/swirl/commit/7324393b591488441f4ed28858894825306e2e17)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "news-off" icon
+
 ## 0.33.0
 
 ### Minor Changes

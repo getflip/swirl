@@ -58,6 +58,9 @@ export class SwirlActionListItem {
     const suffix = this.suffixEl?.children[0];
 
     icon?.setAttribute("size", smallIcon ? "20" : "24");
+
+    if (suffix?.tagName === "SWIRL-TAG") return;
+
     suffix?.setAttribute("size", smallIcon ? "20" : "24");
   }
 

@@ -9,6 +9,7 @@ describe("swirl-theme-provider", () => {
       value: jest.fn().mockImplementation(() => ({
         matches: true,
         addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
       })),
     });
   });

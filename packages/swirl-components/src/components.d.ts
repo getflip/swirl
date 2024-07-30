@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
+import { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
 import { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
@@ -48,7 +49,7 @@ import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./com
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
-import { SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+import { SwirlSeparatorBorderColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -57,9 +58,10 @@ import { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/
 import { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch";
 import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
-import { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
+import { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
-import { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
+import { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1 } from "./components/swirl-tab-bar/swirl-tab-bar";
+import { SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 import { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
@@ -70,6 +72,7 @@ import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolba
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
+export { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
 export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
 export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
@@ -111,7 +114,7 @@ export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./com
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
-export { SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+export { SwirlSeparatorBorderColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -120,9 +123,10 @@ export { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/
 export { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch";
 export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
-export { SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
+export { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
-export { SwirlTagIntent } from "./components/swirl-tag/swirl-tag";
+export { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1 } from "./components/swirl-tab-bar/swirl-tab-bar";
+export { SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 export { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
@@ -185,6 +189,8 @@ export namespace Components {
         "backButtonLabel"?: string;
         "closeButtonIcon"?: string;
         "closeButtonLabel"?: string;
+        "paddingInlineEnd"?: SwirlAppBarPadding;
+        "paddingInlineStart"?: SwirlAppBarPadding;
         "showBackButton"?: boolean;
         "showCloseButton"?: boolean;
         "showStepperControls"?: boolean;
@@ -276,6 +282,7 @@ export namespace Components {
         "content": string;
         "dismissLabel"?: string;
         "dismissable"?: boolean;
+        "icon"?: string;
         "importance"?: SwirlBannerAriaRole;
         "intent"?: SwirlBannerIntent;
         "showIcon"?: boolean;
@@ -347,8 +354,13 @@ export namespace Components {
     interface SwirlCard {
         "as"?: string;
         "borderRadius"?: SwirlCardBorderRadius;
+        "customBackgroundColor"?: string;
         "elevated"?: boolean;
         "elevationLevel"?: SwirlCardElevationLevel;
+        /**
+          * Flashes the card to draw focus.
+         */
+        "flash": (duration?: number) => Promise<void>;
         "height"?: string;
         "highlighted"?: boolean;
         "href"?: string;
@@ -567,12 +579,14 @@ export namespace Components {
         "active"?: boolean;
         "autoplay"?: boolean;
         "description"?: string;
+        "disableDownload"?: boolean;
         /**
           * Download the file.
          */
         "download": () => Promise<void>;
         "errorMessage"?: string;
         "file": string;
+        "fileName"?: string;
         "pdfWorkerSrc"?: string;
         /**
           * Print the file. Applicable to PDFs only.
@@ -643,6 +657,7 @@ export namespace Components {
     }
     interface SwirlFileViewerVideo {
         "autoplay"?: boolean;
+        "disableDownload"?: boolean;
         "file": string;
         "type": string;
     }
@@ -655,6 +670,7 @@ export namespace Components {
         "invalid"?: boolean;
         "label": string;
         "labelPosition"?: SwirlFormControlLabelPosition;
+        "tooltip"?: string;
     }
     interface SwirlFormGroup {
         "orientation": SwirlFormGroupOrientation;
@@ -727,6 +743,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowUpward {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconAspectRatio {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -814,6 +834,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconCrop {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconDarkMode {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -894,6 +918,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconExperiment {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconFile {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -958,6 +986,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconHistory {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconHome {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -983,6 +1015,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconInventory {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconKeyboard {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -1070,6 +1106,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconMicOff {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconMoreHorizontal {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -1083,6 +1123,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconNewsFilled {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconNewsOff {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -1134,6 +1178,14 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconPin {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconPinOff {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconPlace {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -1147,6 +1199,30 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconPrint {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioFourToThree {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioFreeform {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioSixteenToNine {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioSquare {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioThreeToFour {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRatioThreeToTwo {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -1171,6 +1247,14 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconRoadmap {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRotateLeft {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconRotateRight {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -1270,6 +1354,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconVideoCameraOff {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconVideoLibrary {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -1287,6 +1375,14 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconWarning {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconWebAsset {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconWebAssetOff {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -1488,6 +1584,7 @@ export namespace Components {
         "downloadButtonEnabled"?: boolean;
         "downloadButtonLabel"?: string;
         "file": string;
+        "fileName"?: string;
         "fileTypeLabel"?: string;
         "label": string;
         "menuLabel"?: string;
@@ -1513,7 +1610,7 @@ export namespace Components {
           * Close the popover.
           * @returns
          */
-        "close": () => Promise<void>;
+        "close": (disableFocus?: boolean) => Promise<void>;
         "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "fullscreenBottomSheet"?: boolean;
@@ -1524,7 +1621,7 @@ export namespace Components {
           * Open the popover.
           * @returns
          */
-        "open": (triggerEl?: HTMLElement) => Promise<void>;
+        "open": (triggerEl?: HTMLElement, disableFocus?: boolean) => Promise<void>;
         "placement"?: Placement;
         "popoverId"?: string;
         "returnFocusToTrigger"?: boolean;
@@ -1535,9 +1632,13 @@ export namespace Components {
     }
     interface SwirlPopoverTrigger {
         "hidePopoverWhenInvisible"?: boolean;
+        "hoverDelay"?: number;
+        "hoverLingerDuration"?: number;
         "parentScrollContainer"?: HTMLElement;
-        "popover": string | HTMLSwirlPopoverElement;
         "setAriaAttributes"?: boolean;
+        "swirlPopover": string | HTMLSwirlPopoverElement;
+        "triggerOnClick"?: boolean;
+        "triggerOnHover"?: boolean;
     }
     interface SwirlProgressIndicator {
         "label": string;
@@ -1580,6 +1681,7 @@ export namespace Components {
     interface SwirlResourceListItem {
         "active"?: boolean;
         "allowDrag"?: boolean;
+        "allowHtml"?: boolean;
         "checked"?: boolean;
         "compact"?: boolean;
         "description"?: string;
@@ -1598,6 +1700,7 @@ export namespace Components {
         "menuTriggerLabel"?: string;
         "meta"?: string;
         "selectable"?: boolean;
+        "swirlAriaLabel"?: string;
         "value"?: string;
     }
     interface SwirlSearch {
@@ -1629,6 +1732,7 @@ export namespace Components {
         "withSearch"?: boolean;
     }
     interface SwirlSeparator {
+        "borderColor"?: SwirlSeparatorBorderColor;
         "orientation"?: SwirlSeparatorOrientation;
         "spacing"?: SwirlSeparatorSpacing;
     }
@@ -1657,6 +1761,7 @@ export namespace Components {
     interface SwirlShellNavigationItem {
         "active"?: boolean;
         "badgeLabel"?: string;
+        "boxed"?: boolean;
         "href"?: string;
         "label": string;
         "target"?: string;
@@ -1698,6 +1803,10 @@ export namespace Components {
         "inputName": string;
         "label"?: string;
         "labelPosition"?: SwirlSwitchLabelPosition;
+        /**
+          * Toggle the switch state programmatically.
+         */
+        "toggle": () => Promise<void>;
         "value"?: string;
     }
     interface SwirlSymbol {
@@ -1890,7 +1999,10 @@ export namespace Components {
     }
     interface SwirlTabBar {
         "disableTabSemantics"?: boolean;
+        "justify"?: SwirlTabBarJustify;
         "label": string;
+        "paddingInlineEnd"?: SwirlTabBarPadding;
+        "paddingInlineStart"?: SwirlTabBarPadding;
         "tabs": SwirlTabBarTab[];
     }
     interface SwirlTable {
@@ -1929,13 +2041,20 @@ export namespace Components {
          */
         "activateTab": (tabId: string) => Promise<void>;
         "initialTab"?: string;
+        "justifyTabBar"?: SwirlTabBarJustify1;
         "label": string;
+        "tabBarPaddingInlineEnd"?: SwirlTabBarPadding1;
+        "tabBarPaddingInlineStart"?: SwirlTabBarPadding1;
     }
     interface SwirlTag {
+        "bordered"?: boolean;
+        "icon"?: string;
         "intent"?: SwirlTagIntent;
         "label": string;
         "removable"?: boolean;
         "removalButtonLabel"?: string;
+        "size"?: SwirlTagSize;
+        "variant"?: SwirlTagVariant;
     }
     interface SwirlText {
         "align"?: SwirlTextAlign;
@@ -2008,11 +2127,14 @@ export namespace Components {
     }
     interface SwirlThumbnail {
         "alt": string;
+        "editButtonIcon"?: string;
+        "editButtonLabel"?: string;
         "format"?: SwirlThumbnailFormat;
         "interactive"?: boolean;
         "progress"?: number;
         "progressLabel"?: string;
         "removeButtonLabel"?: string;
+        "showEditButton"?: boolean;
         "showRemoveButton"?: boolean;
         "size"?: SwirlThumbnailSize;
         "src": string;
@@ -2185,6 +2307,10 @@ export interface SwirlImageGridItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlImageGridItemElement;
 }
+export interface SwirlLightboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlLightboxElement;
+}
 export interface SwirlMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlMenuElement;
@@ -2288,13 +2414,35 @@ declare global {
         prototype: HTMLFileManagerElement;
         new (): HTMLFileManagerElement;
     };
+    interface HTMLSwirlAccordionElementEventMap {
+        "expandedItemChange": string;
+    }
     interface HTMLSwirlAccordionElement extends Components.SwirlAccordion, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAccordionElementEventMap>(type: K, listener: (this: HTMLSwirlAccordionElement, ev: SwirlAccordionCustomEvent<HTMLSwirlAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAccordionElementEventMap>(type: K, listener: (this: HTMLSwirlAccordionElement, ev: SwirlAccordionCustomEvent<HTMLSwirlAccordionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAccordionElement: {
         prototype: HTMLSwirlAccordionElement;
         new (): HTMLSwirlAccordionElement;
     };
+    interface HTMLSwirlAccordionItemElementEventMap {
+        "expansionChange": boolean;
+    }
     interface HTMLSwirlAccordionItemElement extends Components.SwirlAccordionItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAccordionItemElementEventMap>(type: K, listener: (this: HTMLSwirlAccordionItemElement, ev: SwirlAccordionItemCustomEvent<HTMLSwirlAccordionItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAccordionItemElementEventMap>(type: K, listener: (this: HTMLSwirlAccordionItemElement, ev: SwirlAccordionItemCustomEvent<HTMLSwirlAccordionItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAccordionItemElement: {
         prototype: HTMLSwirlAccordionItemElement;
@@ -2318,7 +2466,21 @@ declare global {
         prototype: HTMLSwirlActionListSectionElement;
         new (): HTMLSwirlActionListSectionElement;
     };
+    interface HTMLSwirlAppBarElementEventMap {
+        "backButtonClick": MouseEvent;
+        "closeButtonClick": MouseEvent;
+        "stepUpButtonClick": MouseEvent;
+        "stepDownButtonClick": MouseEvent;
+    }
     interface HTMLSwirlAppBarElement extends Components.SwirlAppBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAppBarElementEventMap>(type: K, listener: (this: HTMLSwirlAppBarElement, ev: SwirlAppBarCustomEvent<HTMLSwirlAppBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAppBarElementEventMap>(type: K, listener: (this: HTMLSwirlAppBarElement, ev: SwirlAppBarCustomEvent<HTMLSwirlAppBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAppBarElement: {
         prototype: HTMLSwirlAppBarElement;
@@ -2330,19 +2492,56 @@ declare global {
         prototype: HTMLSwirlAppIconElement;
         new (): HTMLSwirlAppIconElement;
     };
+    interface HTMLSwirlAppLayoutElementEventMap {
+        "ctaClick": MouseEvent;
+        "mobileViewChange": SwirlAppLayoutMobileView;
+        "navigationBackButtonClick": MouseEvent;
+        "sidebarToggle": boolean;
+    }
     interface HTMLSwirlAppLayoutElement extends Components.SwirlAppLayout, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAppLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlAppLayoutElement, ev: SwirlAppLayoutCustomEvent<HTMLSwirlAppLayoutElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAppLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlAppLayoutElement, ev: SwirlAppLayoutCustomEvent<HTMLSwirlAppLayoutElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAppLayoutElement: {
         prototype: HTMLSwirlAppLayoutElement;
         new (): HTMLSwirlAppLayoutElement;
     };
+    interface HTMLSwirlAutocompleteElementEventMap {
+        "valueChange": SwirlAutocompleteValue;
+    }
     interface HTMLSwirlAutocompleteElement extends Components.SwirlAutocomplete, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAutocompleteElementEventMap>(type: K, listener: (this: HTMLSwirlAutocompleteElement, ev: SwirlAutocompleteCustomEvent<HTMLSwirlAutocompleteElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAutocompleteElementEventMap>(type: K, listener: (this: HTMLSwirlAutocompleteElement, ev: SwirlAutocompleteCustomEvent<HTMLSwirlAutocompleteElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAutocompleteElement: {
         prototype: HTMLSwirlAutocompleteElement;
         new (): HTMLSwirlAutocompleteElement;
     };
+    interface HTMLSwirlAvatarElementEventMap {
+        "imageError": void;
+        "imageLoad": void;
+    }
     interface HTMLSwirlAvatarElement extends Components.SwirlAvatar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlAvatarElementEventMap>(type: K, listener: (this: HTMLSwirlAvatarElement, ev: SwirlAvatarCustomEvent<HTMLSwirlAvatarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlAvatarElementEventMap>(type: K, listener: (this: HTMLSwirlAvatarElement, ev: SwirlAvatarCustomEvent<HTMLSwirlAvatarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlAvatarElement: {
         prototype: HTMLSwirlAvatarElement;
@@ -2360,7 +2559,19 @@ declare global {
         prototype: HTMLSwirlBadgeElement;
         new (): HTMLSwirlBadgeElement;
     };
+    interface HTMLSwirlBannerElementEventMap {
+        "action": MouseEvent;
+        "dismiss": MouseEvent;
+    }
     interface HTMLSwirlBannerElement extends Components.SwirlBanner, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlBannerElementEventMap>(type: K, listener: (this: HTMLSwirlBannerElement, ev: SwirlBannerCustomEvent<HTMLSwirlBannerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlBannerElementEventMap>(type: K, listener: (this: HTMLSwirlBannerElement, ev: SwirlBannerCustomEvent<HTMLSwirlBannerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlBannerElement: {
         prototype: HTMLSwirlBannerElement;
@@ -2390,10 +2601,21 @@ declare global {
         prototype: HTMLSwirlCardElement;
         new (): HTMLSwirlCardElement;
     };
+    interface HTMLSwirlCarouselElementEventMap {
+        "activeSlidesChange": HTMLSwirlCarouselSlideElement[];
+    }
     /**
      * slot - The slides
      */
     interface HTMLSwirlCarouselElement extends Components.SwirlCarousel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlCarouselElementEventMap>(type: K, listener: (this: HTMLSwirlCarouselElement, ev: SwirlCarouselCustomEvent<HTMLSwirlCarouselElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlCarouselElementEventMap>(type: K, listener: (this: HTMLSwirlCarouselElement, ev: SwirlCarouselCustomEvent<HTMLSwirlCarouselElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlCarouselElement: {
         prototype: HTMLSwirlCarouselElement;
@@ -2408,19 +2630,54 @@ declare global {
         prototype: HTMLSwirlCarouselSlideElement;
         new (): HTMLSwirlCarouselSlideElement;
     };
+    interface HTMLSwirlCheckboxElementEventMap {
+        "valueChange": boolean;
+    }
     interface HTMLSwirlCheckboxElement extends Components.SwirlCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlCheckboxElementEventMap>(type: K, listener: (this: HTMLSwirlCheckboxElement, ev: SwirlCheckboxCustomEvent<HTMLSwirlCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlCheckboxElementEventMap>(type: K, listener: (this: HTMLSwirlCheckboxElement, ev: SwirlCheckboxCustomEvent<HTMLSwirlCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlCheckboxElement: {
         prototype: HTMLSwirlCheckboxElement;
         new (): HTMLSwirlCheckboxElement;
     };
+    interface HTMLSwirlChipElementEventMap {
+        "remove": MouseEvent;
+    }
     interface HTMLSwirlChipElement extends Components.SwirlChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlChipElementEventMap>(type: K, listener: (this: HTMLSwirlChipElement, ev: SwirlChipCustomEvent<HTMLSwirlChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlChipElementEventMap>(type: K, listener: (this: HTMLSwirlChipElement, ev: SwirlChipCustomEvent<HTMLSwirlChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlChipElement: {
         prototype: HTMLSwirlChipElement;
         new (): HTMLSwirlChipElement;
     };
+    interface HTMLSwirlColorInputElementEventMap {
+        "inputBlur": FocusEvent;
+        "inputFocus": FocusEvent;
+        "valueChange": string;
+    }
     interface HTMLSwirlColorInputElement extends Components.SwirlColorInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlColorInputElementEventMap>(type: K, listener: (this: HTMLSwirlColorInputElement, ev: SwirlColorInputCustomEvent<HTMLSwirlColorInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlColorInputElementEventMap>(type: K, listener: (this: HTMLSwirlColorInputElement, ev: SwirlColorInputCustomEvent<HTMLSwirlColorInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlColorInputElement: {
         prototype: HTMLSwirlColorInputElement;
@@ -2432,19 +2689,54 @@ declare global {
         prototype: HTMLSwirlColumnsElement;
         new (): HTMLSwirlColumnsElement;
     };
+    interface HTMLSwirlConsoleLayoutElementEventMap {
+        "backButtonClick": MouseEvent;
+        "helpButtonClick": MouseEvent;
+    }
     interface HTMLSwirlConsoleLayoutElement extends Components.SwirlConsoleLayout, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlConsoleLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlConsoleLayoutElement, ev: SwirlConsoleLayoutCustomEvent<HTMLSwirlConsoleLayoutElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlConsoleLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlConsoleLayoutElement, ev: SwirlConsoleLayoutCustomEvent<HTMLSwirlConsoleLayoutElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlConsoleLayoutElement: {
         prototype: HTMLSwirlConsoleLayoutElement;
         new (): HTMLSwirlConsoleLayoutElement;
     };
+    interface HTMLSwirlDateInputElementEventMap {
+        "invalidInput": string;
+        "valueChange": string;
+    }
     interface HTMLSwirlDateInputElement extends Components.SwirlDateInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlDateInputElementEventMap>(type: K, listener: (this: HTMLSwirlDateInputElement, ev: SwirlDateInputCustomEvent<HTMLSwirlDateInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlDateInputElementEventMap>(type: K, listener: (this: HTMLSwirlDateInputElement, ev: SwirlDateInputCustomEvent<HTMLSwirlDateInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlDateInputElement: {
         prototype: HTMLSwirlDateInputElement;
         new (): HTMLSwirlDateInputElement;
     };
+    interface HTMLSwirlDatePickerElementEventMap {
+        "valueChange": Date | Date[];
+    }
     interface HTMLSwirlDatePickerElement extends Components.SwirlDatePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlDatePickerElementEventMap>(type: K, listener: (this: HTMLSwirlDatePickerElement, ev: SwirlDatePickerCustomEvent<HTMLSwirlDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlDatePickerElementEventMap>(type: K, listener: (this: HTMLSwirlDatePickerElement, ev: SwirlDatePickerCustomEvent<HTMLSwirlDatePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlDatePickerElement: {
         prototype: HTMLSwirlDatePickerElement;
@@ -2462,7 +2754,21 @@ declare global {
         prototype: HTMLSwirlDescriptionListItemElement;
         new (): HTMLSwirlDescriptionListItemElement;
     };
+    interface HTMLSwirlDialogElementEventMap {
+        "dialogClose": void;
+        "dialogOpen": void;
+        "primaryAction": MouseEvent;
+        "secondaryAction": MouseEvent;
+    }
     interface HTMLSwirlDialogElement extends Components.SwirlDialog, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlDialogElementEventMap>(type: K, listener: (this: HTMLSwirlDialogElement, ev: SwirlDialogCustomEvent<HTMLSwirlDialogElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlDialogElementEventMap>(type: K, listener: (this: HTMLSwirlDialogElement, ev: SwirlDialogCustomEvent<HTMLSwirlDialogElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlDialogElement: {
         prototype: HTMLSwirlDialogElement;
@@ -2516,49 +2822,139 @@ declare global {
         prototype: HTMLSwirlEmptyStateElement;
         new (): HTMLSwirlEmptyStateElement;
     };
+    interface HTMLSwirlFileUploaderElementEventMap {
+        "valueChange": FileList;
+    }
     interface HTMLSwirlFileUploaderElement extends Components.SwirlFileUploader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileUploaderElementEventMap>(type: K, listener: (this: HTMLSwirlFileUploaderElement, ev: SwirlFileUploaderCustomEvent<HTMLSwirlFileUploaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileUploaderElementEventMap>(type: K, listener: (this: HTMLSwirlFileUploaderElement, ev: SwirlFileUploaderCustomEvent<HTMLSwirlFileUploaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileUploaderElement: {
         prototype: HTMLSwirlFileUploaderElement;
         new (): HTMLSwirlFileUploaderElement;
     };
+    interface HTMLSwirlFileViewerElementEventMap {
+        "activate": HTMLElement;
+        "visiblePagesChange": number[];
+    }
     interface HTMLSwirlFileViewerElement extends Components.SwirlFileViewer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerElement, ev: SwirlFileViewerCustomEvent<HTMLSwirlFileViewerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerElement, ev: SwirlFileViewerCustomEvent<HTMLSwirlFileViewerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerElement: {
         prototype: HTMLSwirlFileViewerElement;
         new (): HTMLSwirlFileViewerElement;
     };
+    interface HTMLSwirlFileViewerAudioElementEventMap {
+        "activate": HTMLElement;
+    }
     interface HTMLSwirlFileViewerAudioElement extends Components.SwirlFileViewerAudio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerAudioElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerAudioElement, ev: SwirlFileViewerAudioCustomEvent<HTMLSwirlFileViewerAudioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerAudioElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerAudioElement, ev: SwirlFileViewerAudioCustomEvent<HTMLSwirlFileViewerAudioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerAudioElement: {
         prototype: HTMLSwirlFileViewerAudioElement;
         new (): HTMLSwirlFileViewerAudioElement;
     };
+    interface HTMLSwirlFileViewerCsvElementEventMap {
+        "activate": HTMLElement;
+    }
     interface HTMLSwirlFileViewerCsvElement extends Components.SwirlFileViewerCsv, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerCsvElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerCsvElement, ev: SwirlFileViewerCsvCustomEvent<HTMLSwirlFileViewerCsvElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerCsvElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerCsvElement, ev: SwirlFileViewerCsvCustomEvent<HTMLSwirlFileViewerCsvElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerCsvElement: {
         prototype: HTMLSwirlFileViewerCsvElement;
         new (): HTMLSwirlFileViewerCsvElement;
     };
+    interface HTMLSwirlFileViewerImageElementEventMap {
+        "activate": HTMLElement;
+    }
     interface HTMLSwirlFileViewerImageElement extends Components.SwirlFileViewerImage, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerImageElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerImageElement, ev: SwirlFileViewerImageCustomEvent<HTMLSwirlFileViewerImageElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerImageElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerImageElement, ev: SwirlFileViewerImageCustomEvent<HTMLSwirlFileViewerImageElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerImageElement: {
         prototype: HTMLSwirlFileViewerImageElement;
         new (): HTMLSwirlFileViewerImageElement;
     };
+    interface HTMLSwirlFileViewerPdfElementEventMap {
+        "activate": HTMLElement;
+        "visiblePagesChange": number[];
+    }
     interface HTMLSwirlFileViewerPdfElement extends Components.SwirlFileViewerPdf, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerPdfElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerPdfElement, ev: SwirlFileViewerPdfCustomEvent<HTMLSwirlFileViewerPdfElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerPdfElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerPdfElement, ev: SwirlFileViewerPdfCustomEvent<HTMLSwirlFileViewerPdfElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerPdfElement: {
         prototype: HTMLSwirlFileViewerPdfElement;
         new (): HTMLSwirlFileViewerPdfElement;
     };
+    interface HTMLSwirlFileViewerTextElementEventMap {
+        "activate": HTMLElement;
+    }
     interface HTMLSwirlFileViewerTextElement extends Components.SwirlFileViewerText, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerTextElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerTextElement, ev: SwirlFileViewerTextCustomEvent<HTMLSwirlFileViewerTextElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerTextElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerTextElement, ev: SwirlFileViewerTextCustomEvent<HTMLSwirlFileViewerTextElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerTextElement: {
         prototype: HTMLSwirlFileViewerTextElement;
         new (): HTMLSwirlFileViewerTextElement;
     };
+    interface HTMLSwirlFileViewerVideoElementEventMap {
+        "activate": HTMLElement;
+    }
     interface HTMLSwirlFileViewerVideoElement extends Components.SwirlFileViewerVideo, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerVideoElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerVideoElement, ev: SwirlFileViewerVideoCustomEvent<HTMLSwirlFileViewerVideoElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerVideoElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerVideoElement, ev: SwirlFileViewerVideoCustomEvent<HTMLSwirlFileViewerVideoElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlFileViewerVideoElement: {
         prototype: HTMLSwirlFileViewerVideoElement;
@@ -2671,6 +3067,12 @@ declare global {
     var HTMLSwirlIconArrowUpwardElement: {
         prototype: HTMLSwirlIconArrowUpwardElement;
         new (): HTMLSwirlIconArrowUpwardElement;
+    };
+    interface HTMLSwirlIconAspectRatioElement extends Components.SwirlIconAspectRatio, HTMLStencilElement {
+    }
+    var HTMLSwirlIconAspectRatioElement: {
+        prototype: HTMLSwirlIconAspectRatioElement;
+        new (): HTMLSwirlIconAspectRatioElement;
     };
     interface HTMLSwirlIconAttachmentElement extends Components.SwirlIconAttachment, HTMLStencilElement {
     }
@@ -2798,6 +3200,12 @@ declare global {
         prototype: HTMLSwirlIconCopyElement;
         new (): HTMLSwirlIconCopyElement;
     };
+    interface HTMLSwirlIconCropElement extends Components.SwirlIconCrop, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCropElement: {
+        prototype: HTMLSwirlIconCropElement;
+        new (): HTMLSwirlIconCropElement;
+    };
     interface HTMLSwirlIconDarkModeElement extends Components.SwirlIconDarkMode, HTMLStencilElement {
     }
     var HTMLSwirlIconDarkModeElement: {
@@ -2918,6 +3326,12 @@ declare global {
         prototype: HTMLSwirlIconExpandMoreElement;
         new (): HTMLSwirlIconExpandMoreElement;
     };
+    interface HTMLSwirlIconExperimentElement extends Components.SwirlIconExperiment, HTMLStencilElement {
+    }
+    var HTMLSwirlIconExperimentElement: {
+        prototype: HTMLSwirlIconExperimentElement;
+        new (): HTMLSwirlIconExperimentElement;
+    };
     interface HTMLSwirlIconFileElement extends Components.SwirlIconFile, HTMLStencilElement {
     }
     var HTMLSwirlIconFileElement: {
@@ -3014,6 +3428,12 @@ declare global {
         prototype: HTMLSwirlIconHighlightElement;
         new (): HTMLSwirlIconHighlightElement;
     };
+    interface HTMLSwirlIconHistoryElement extends Components.SwirlIconHistory, HTMLStencilElement {
+    }
+    var HTMLSwirlIconHistoryElement: {
+        prototype: HTMLSwirlIconHistoryElement;
+        new (): HTMLSwirlIconHistoryElement;
+    };
     interface HTMLSwirlIconHomeElement extends Components.SwirlIconHome, HTMLStencilElement {
     }
     var HTMLSwirlIconHomeElement: {
@@ -3055,6 +3475,12 @@ declare global {
     var HTMLSwirlIconInventoryElement: {
         prototype: HTMLSwirlIconInventoryElement;
         new (): HTMLSwirlIconInventoryElement;
+    };
+    interface HTMLSwirlIconKeyboardElement extends Components.SwirlIconKeyboard, HTMLStencilElement {
+    }
+    var HTMLSwirlIconKeyboardElement: {
+        prototype: HTMLSwirlIconKeyboardElement;
+        new (): HTMLSwirlIconKeyboardElement;
     };
     interface HTMLSwirlIconKeyboardHideElement extends Components.SwirlIconKeyboardHide, HTMLStencilElement {
     }
@@ -3182,6 +3608,12 @@ declare global {
         prototype: HTMLSwirlIconMicElement;
         new (): HTMLSwirlIconMicElement;
     };
+    interface HTMLSwirlIconMicOffElement extends Components.SwirlIconMicOff, HTMLStencilElement {
+    }
+    var HTMLSwirlIconMicOffElement: {
+        prototype: HTMLSwirlIconMicOffElement;
+        new (): HTMLSwirlIconMicOffElement;
+    };
     interface HTMLSwirlIconMoreHorizontalElement extends Components.SwirlIconMoreHorizontal, HTMLStencilElement {
     }
     var HTMLSwirlIconMoreHorizontalElement: {
@@ -3205,6 +3637,12 @@ declare global {
     var HTMLSwirlIconNewsFilledElement: {
         prototype: HTMLSwirlIconNewsFilledElement;
         new (): HTMLSwirlIconNewsFilledElement;
+    };
+    interface HTMLSwirlIconNewsOffElement extends Components.SwirlIconNewsOff, HTMLStencilElement {
+    }
+    var HTMLSwirlIconNewsOffElement: {
+        prototype: HTMLSwirlIconNewsOffElement;
+        new (): HTMLSwirlIconNewsOffElement;
     };
     interface HTMLSwirlIconNotificationsElement extends Components.SwirlIconNotifications, HTMLStencilElement {
     }
@@ -3278,6 +3716,18 @@ declare global {
         prototype: HTMLSwirlIconPhotoCameraElement;
         new (): HTMLSwirlIconPhotoCameraElement;
     };
+    interface HTMLSwirlIconPinElement extends Components.SwirlIconPin, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPinElement: {
+        prototype: HTMLSwirlIconPinElement;
+        new (): HTMLSwirlIconPinElement;
+    };
+    interface HTMLSwirlIconPinOffElement extends Components.SwirlIconPinOff, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPinOffElement: {
+        prototype: HTMLSwirlIconPinOffElement;
+        new (): HTMLSwirlIconPinOffElement;
+    };
     interface HTMLSwirlIconPlaceElement extends Components.SwirlIconPlace, HTMLStencilElement {
     }
     var HTMLSwirlIconPlaceElement: {
@@ -3301,6 +3751,42 @@ declare global {
     var HTMLSwirlIconPrintElement: {
         prototype: HTMLSwirlIconPrintElement;
         new (): HTMLSwirlIconPrintElement;
+    };
+    interface HTMLSwirlIconRatioFourToThreeElement extends Components.SwirlIconRatioFourToThree, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioFourToThreeElement: {
+        prototype: HTMLSwirlIconRatioFourToThreeElement;
+        new (): HTMLSwirlIconRatioFourToThreeElement;
+    };
+    interface HTMLSwirlIconRatioFreeformElement extends Components.SwirlIconRatioFreeform, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioFreeformElement: {
+        prototype: HTMLSwirlIconRatioFreeformElement;
+        new (): HTMLSwirlIconRatioFreeformElement;
+    };
+    interface HTMLSwirlIconRatioSixteenToNineElement extends Components.SwirlIconRatioSixteenToNine, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioSixteenToNineElement: {
+        prototype: HTMLSwirlIconRatioSixteenToNineElement;
+        new (): HTMLSwirlIconRatioSixteenToNineElement;
+    };
+    interface HTMLSwirlIconRatioSquareElement extends Components.SwirlIconRatioSquare, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioSquareElement: {
+        prototype: HTMLSwirlIconRatioSquareElement;
+        new (): HTMLSwirlIconRatioSquareElement;
+    };
+    interface HTMLSwirlIconRatioThreeToFourElement extends Components.SwirlIconRatioThreeToFour, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioThreeToFourElement: {
+        prototype: HTMLSwirlIconRatioThreeToFourElement;
+        new (): HTMLSwirlIconRatioThreeToFourElement;
+    };
+    interface HTMLSwirlIconRatioThreeToTwoElement extends Components.SwirlIconRatioThreeToTwo, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRatioThreeToTwoElement: {
+        prototype: HTMLSwirlIconRatioThreeToTwoElement;
+        new (): HTMLSwirlIconRatioThreeToTwoElement;
     };
     interface HTMLSwirlIconRecievedElement extends Components.SwirlIconRecieved, HTMLStencilElement {
     }
@@ -3337,6 +3823,18 @@ declare global {
     var HTMLSwirlIconRoadmapElement: {
         prototype: HTMLSwirlIconRoadmapElement;
         new (): HTMLSwirlIconRoadmapElement;
+    };
+    interface HTMLSwirlIconRotateLeftElement extends Components.SwirlIconRotateLeft, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRotateLeftElement: {
+        prototype: HTMLSwirlIconRotateLeftElement;
+        new (): HTMLSwirlIconRotateLeftElement;
+    };
+    interface HTMLSwirlIconRotateRightElement extends Components.SwirlIconRotateRight, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRotateRightElement: {
+        prototype: HTMLSwirlIconRotateRightElement;
+        new (): HTMLSwirlIconRotateRightElement;
     };
     interface HTMLSwirlIconSearchElement extends Components.SwirlIconSearch, HTMLStencilElement {
     }
@@ -3482,6 +3980,12 @@ declare global {
         prototype: HTMLSwirlIconVideoCameraElement;
         new (): HTMLSwirlIconVideoCameraElement;
     };
+    interface HTMLSwirlIconVideoCameraOffElement extends Components.SwirlIconVideoCameraOff, HTMLStencilElement {
+    }
+    var HTMLSwirlIconVideoCameraOffElement: {
+        prototype: HTMLSwirlIconVideoCameraOffElement;
+        new (): HTMLSwirlIconVideoCameraOffElement;
+    };
     interface HTMLSwirlIconVideoLibraryElement extends Components.SwirlIconVideoLibrary, HTMLStencilElement {
     }
     var HTMLSwirlIconVideoLibraryElement: {
@@ -3512,6 +4016,18 @@ declare global {
         prototype: HTMLSwirlIconWarningElement;
         new (): HTMLSwirlIconWarningElement;
     };
+    interface HTMLSwirlIconWebAssetElement extends Components.SwirlIconWebAsset, HTMLStencilElement {
+    }
+    var HTMLSwirlIconWebAssetElement: {
+        prototype: HTMLSwirlIconWebAssetElement;
+        new (): HTMLSwirlIconWebAssetElement;
+    };
+    interface HTMLSwirlIconWebAssetOffElement extends Components.SwirlIconWebAssetOff, HTMLStencilElement {
+    }
+    var HTMLSwirlIconWebAssetOffElement: {
+        prototype: HTMLSwirlIconWebAssetOffElement;
+        new (): HTMLSwirlIconWebAssetOffElement;
+    };
     interface HTMLSwirlIconWorkElement extends Components.SwirlIconWork, HTMLStencilElement {
     }
     var HTMLSwirlIconWorkElement: {
@@ -3524,7 +4040,19 @@ declare global {
         prototype: HTMLSwirlImageGridElement;
         new (): HTMLSwirlImageGridElement;
     };
+    interface HTMLSwirlImageGridItemElementEventMap {
+        "imageError": void;
+        "imageLoad": void;
+    }
     interface HTMLSwirlImageGridItemElement extends Components.SwirlImageGridItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlImageGridItemElementEventMap>(type: K, listener: (this: HTMLSwirlImageGridItemElement, ev: SwirlImageGridItemCustomEvent<HTMLSwirlImageGridItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlImageGridItemElementEventMap>(type: K, listener: (this: HTMLSwirlImageGridItemElement, ev: SwirlImageGridItemCustomEvent<HTMLSwirlImageGridItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlImageGridItemElement: {
         prototype: HTMLSwirlImageGridItemElement;
@@ -3548,7 +4076,18 @@ declare global {
         prototype: HTMLSwirlInlineStatusElement;
         new (): HTMLSwirlInlineStatusElement;
     };
+    interface HTMLSwirlLightboxElementEventMap {
+        "activeSlideChange": number;
+    }
     interface HTMLSwirlLightboxElement extends Components.SwirlLightbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlLightboxElementEventMap>(type: K, listener: (this: HTMLSwirlLightboxElement, ev: SwirlLightboxCustomEvent<HTMLSwirlLightboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlLightboxElementEventMap>(type: K, listener: (this: HTMLSwirlLightboxElement, ev: SwirlLightboxCustomEvent<HTMLSwirlLightboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlLightboxElement: {
         prototype: HTMLSwirlLightboxElement;
@@ -3566,7 +4105,19 @@ declare global {
         prototype: HTMLSwirlListElement;
         new (): HTMLSwirlListElement;
     };
+    interface HTMLSwirlMenuElementEventMap {
+        "done": void;
+        "valueChange": string;
+    }
     interface HTMLSwirlMenuElement extends Components.SwirlMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlMenuElementEventMap>(type: K, listener: (this: HTMLSwirlMenuElement, ev: SwirlMenuCustomEvent<HTMLSwirlMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlMenuElementEventMap>(type: K, listener: (this: HTMLSwirlMenuElement, ev: SwirlMenuCustomEvent<HTMLSwirlMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlMenuElement: {
         prototype: HTMLSwirlMenuElement;
@@ -3578,19 +4129,61 @@ declare global {
         prototype: HTMLSwirlMenuItemElement;
         new (): HTMLSwirlMenuItemElement;
     };
+    interface HTMLSwirlModalElementEventMap {
+        "modalClose": void;
+        "modalOpen": void;
+        "primaryAction": MouseEvent;
+        "requestModalClose": void;
+        "secondaryAction": MouseEvent;
+    }
     interface HTMLSwirlModalElement extends Components.SwirlModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlModalElementEventMap>(type: K, listener: (this: HTMLSwirlModalElement, ev: SwirlModalCustomEvent<HTMLSwirlModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlModalElementEventMap>(type: K, listener: (this: HTMLSwirlModalElement, ev: SwirlModalCustomEvent<HTMLSwirlModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlModalElement: {
         prototype: HTMLSwirlModalElement;
         new (): HTMLSwirlModalElement;
     };
+    interface HTMLSwirlOptionListElementEventMap {
+        "itemDrop": {
+    item: HTMLSwirlOptionListItemElement;
+    oldIndex: number;
+    newIndex: number;
+  };
+        "valueChange": string[];
+    }
     interface HTMLSwirlOptionListElement extends Components.SwirlOptionList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlOptionListElementEventMap>(type: K, listener: (this: HTMLSwirlOptionListElement, ev: SwirlOptionListCustomEvent<HTMLSwirlOptionListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlOptionListElementEventMap>(type: K, listener: (this: HTMLSwirlOptionListElement, ev: SwirlOptionListCustomEvent<HTMLSwirlOptionListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlOptionListElement: {
         prototype: HTMLSwirlOptionListElement;
         new (): HTMLSwirlOptionListElement;
     };
+    interface HTMLSwirlOptionListItemElementEventMap {
+        "toggleDrag": HTMLSwirlOptionListItemElement;
+    }
     interface HTMLSwirlOptionListItemElement extends Components.SwirlOptionListItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlOptionListItemElementEventMap>(type: K, listener: (this: HTMLSwirlOptionListItemElement, ev: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlOptionListItemElementEventMap>(type: K, listener: (this: HTMLSwirlOptionListItemElement, ev: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlOptionListItemElement: {
         prototype: HTMLSwirlOptionListItemElement;
@@ -3602,19 +4195,55 @@ declare global {
         prototype: HTMLSwirlOptionListSectionElement;
         new (): HTMLSwirlOptionListSectionElement;
     };
+    interface HTMLSwirlPaginationElementEventMap {
+        "setPage": number;
+        "setPageSize": number;
+    }
     interface HTMLSwirlPaginationElement extends Components.SwirlPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlPaginationElementEventMap>(type: K, listener: (this: HTMLSwirlPaginationElement, ev: SwirlPaginationCustomEvent<HTMLSwirlPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlPaginationElementEventMap>(type: K, listener: (this: HTMLSwirlPaginationElement, ev: SwirlPaginationCustomEvent<HTMLSwirlPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlPaginationElement: {
         prototype: HTMLSwirlPaginationElement;
         new (): HTMLSwirlPaginationElement;
     };
+    interface HTMLSwirlPdfReaderElementEventMap {
+        "modalClose": void;
+        "modalOpen": void;
+    }
     interface HTMLSwirlPdfReaderElement extends Components.SwirlPdfReader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlPdfReaderElementEventMap>(type: K, listener: (this: HTMLSwirlPdfReaderElement, ev: SwirlPdfReaderCustomEvent<HTMLSwirlPdfReaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlPdfReaderElementEventMap>(type: K, listener: (this: HTMLSwirlPdfReaderElement, ev: SwirlPdfReaderCustomEvent<HTMLSwirlPdfReaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlPdfReaderElement: {
         prototype: HTMLSwirlPdfReaderElement;
         new (): HTMLSwirlPdfReaderElement;
     };
+    interface HTMLSwirlPopoverElementEventMap {
+        "popoverClose": void;
+        "popoverOpen": { position: ComputePositionReturn };
+    }
     interface HTMLSwirlPopoverElement extends Components.SwirlPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlPopoverElementEventMap>(type: K, listener: (this: HTMLSwirlPopoverElement, ev: SwirlPopoverCustomEvent<HTMLSwirlPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlPopoverElementEventMap>(type: K, listener: (this: HTMLSwirlPopoverElement, ev: SwirlPopoverCustomEvent<HTMLSwirlPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlPopoverElement: {
         prototype: HTMLSwirlPopoverElement;
@@ -3632,43 +4261,129 @@ declare global {
         prototype: HTMLSwirlProgressIndicatorElement;
         new (): HTMLSwirlProgressIndicatorElement;
     };
+    interface HTMLSwirlRadioElementEventMap {
+        "valueChange": string;
+    }
     interface HTMLSwirlRadioElement extends Components.SwirlRadio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlRadioElementEventMap>(type: K, listener: (this: HTMLSwirlRadioElement, ev: SwirlRadioCustomEvent<HTMLSwirlRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlRadioElementEventMap>(type: K, listener: (this: HTMLSwirlRadioElement, ev: SwirlRadioCustomEvent<HTMLSwirlRadioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlRadioElement: {
         prototype: HTMLSwirlRadioElement;
         new (): HTMLSwirlRadioElement;
     };
+    interface HTMLSwirlRadioGroupElementEventMap {
+        "valueChange": string;
+    }
     interface HTMLSwirlRadioGroupElement extends Components.SwirlRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlRadioGroupElementEventMap>(type: K, listener: (this: HTMLSwirlRadioGroupElement, ev: SwirlRadioGroupCustomEvent<HTMLSwirlRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlRadioGroupElementEventMap>(type: K, listener: (this: HTMLSwirlRadioGroupElement, ev: SwirlRadioGroupCustomEvent<HTMLSwirlRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlRadioGroupElement: {
         prototype: HTMLSwirlRadioGroupElement;
         new (): HTMLSwirlRadioGroupElement;
     };
+    interface HTMLSwirlResourceListElementEventMap {
+        "itemDrop": {
+    item: HTMLSwirlResourceListItemElement;
+    oldIndex: number;
+    newIndex: number;
+  };
+    }
     interface HTMLSwirlResourceListElement extends Components.SwirlResourceList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlResourceListElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListElement, ev: SwirlResourceListCustomEvent<HTMLSwirlResourceListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlResourceListElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListElement, ev: SwirlResourceListCustomEvent<HTMLSwirlResourceListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlResourceListElement: {
         prototype: HTMLSwirlResourceListElement;
         new (): HTMLSwirlResourceListElement;
     };
+    interface HTMLSwirlResourceListFileItemElementEventMap {
+        "remove": MouseEvent;
+    }
     interface HTMLSwirlResourceListFileItemElement extends Components.SwirlResourceListFileItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlResourceListFileItemElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListFileItemElement, ev: SwirlResourceListFileItemCustomEvent<HTMLSwirlResourceListFileItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlResourceListFileItemElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListFileItemElement, ev: SwirlResourceListFileItemCustomEvent<HTMLSwirlResourceListFileItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlResourceListFileItemElement: {
         prototype: HTMLSwirlResourceListFileItemElement;
         new (): HTMLSwirlResourceListFileItemElement;
     };
+    interface HTMLSwirlResourceListItemElementEventMap {
+        "toggleDrag": HTMLSwirlResourceListItemElement;
+        "valueChange": boolean;
+    }
     interface HTMLSwirlResourceListItemElement extends Components.SwirlResourceListItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlResourceListItemElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListItemElement, ev: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlResourceListItemElementEventMap>(type: K, listener: (this: HTMLSwirlResourceListItemElement, ev: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlResourceListItemElement: {
         prototype: HTMLSwirlResourceListItemElement;
         new (): HTMLSwirlResourceListItemElement;
     };
+    interface HTMLSwirlSearchElementEventMap {
+        "inputBlur": FocusEvent;
+        "inputFocus": FocusEvent;
+        "inputInput": string;
+        "valueChange": string;
+    }
     interface HTMLSwirlSearchElement extends Components.SwirlSearch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlSearchElementEventMap>(type: K, listener: (this: HTMLSwirlSearchElement, ev: SwirlSearchCustomEvent<HTMLSwirlSearchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlSearchElementEventMap>(type: K, listener: (this: HTMLSwirlSearchElement, ev: SwirlSearchCustomEvent<HTMLSwirlSearchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlSearchElement: {
         prototype: HTMLSwirlSearchElement;
         new (): HTMLSwirlSearchElement;
     };
+    interface HTMLSwirlSelectElementEventMap {
+        "searchChange": string;
+        "valueChange": string[];
+    }
     interface HTMLSwirlSelectElement extends Components.SwirlSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlSelectElementEventMap>(type: K, listener: (this: HTMLSwirlSelectElement, ev: SwirlSelectCustomEvent<HTMLSwirlSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlSelectElementEventMap>(type: K, listener: (this: HTMLSwirlSelectElement, ev: SwirlSelectCustomEvent<HTMLSwirlSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlSelectElement: {
         prototype: HTMLSwirlSelectElement;
@@ -3680,7 +4395,19 @@ declare global {
         prototype: HTMLSwirlSeparatorElement;
         new (): HTMLSwirlSeparatorElement;
     };
+    interface HTMLSwirlShellLayoutElementEventMap {
+        "sidebarToggleClick": MouseEvent;
+        "skipLinkClick": MouseEvent;
+    }
     interface HTMLSwirlShellLayoutElement extends Components.SwirlShellLayout, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlShellLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlShellLayoutElement, ev: SwirlShellLayoutCustomEvent<HTMLSwirlShellLayoutElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlShellLayoutElementEventMap>(type: K, listener: (this: HTMLSwirlShellLayoutElement, ev: SwirlShellLayoutCustomEvent<HTMLSwirlShellLayoutElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlShellLayoutElement: {
         prototype: HTMLSwirlShellLayoutElement;
@@ -3722,7 +4449,18 @@ declare global {
         prototype: HTMLSwirlStatusIndicatorElement;
         new (): HTMLSwirlStatusIndicatorElement;
     };
+    interface HTMLSwirlSwitchElementEventMap {
+        "valueChange": boolean;
+    }
     interface HTMLSwirlSwitchElement extends Components.SwirlSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlSwitchElementEventMap>(type: K, listener: (this: HTMLSwirlSwitchElement, ev: SwirlSwitchCustomEvent<HTMLSwirlSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlSwitchElementEventMap>(type: K, listener: (this: HTMLSwirlSwitchElement, ev: SwirlSwitchCustomEvent<HTMLSwirlSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlSwitchElement: {
         prototype: HTMLSwirlSwitchElement;
@@ -4094,7 +4832,20 @@ declare global {
         prototype: HTMLSwirlTabElement;
         new (): HTMLSwirlTabElement;
     };
+    interface HTMLSwirlTabBarElementEventMap {
+        "activateNextTab": void;
+        "activatePreviousTab": void;
+        "activateTab": string;
+    }
     interface HTMLSwirlTabBarElement extends Components.SwirlTabBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTabBarElementEventMap>(type: K, listener: (this: HTMLSwirlTabBarElement, ev: SwirlTabBarCustomEvent<HTMLSwirlTabBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTabBarElementEventMap>(type: K, listener: (this: HTMLSwirlTabBarElement, ev: SwirlTabBarCustomEvent<HTMLSwirlTabBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTabBarElement: {
         prototype: HTMLSwirlTabBarElement;
@@ -4130,13 +4881,35 @@ declare global {
         prototype: HTMLSwirlTableRowGroupElement;
         new (): HTMLSwirlTableRowGroupElement;
     };
+    interface HTMLSwirlTabsElementEventMap {
+        "tabActivated": HTMLSwirlTabElement;
+    }
     interface HTMLSwirlTabsElement extends Components.SwirlTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTabsElementEventMap>(type: K, listener: (this: HTMLSwirlTabsElement, ev: SwirlTabsCustomEvent<HTMLSwirlTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTabsElementEventMap>(type: K, listener: (this: HTMLSwirlTabsElement, ev: SwirlTabsCustomEvent<HTMLSwirlTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTabsElement: {
         prototype: HTMLSwirlTabsElement;
         new (): HTMLSwirlTabsElement;
     };
+    interface HTMLSwirlTagElementEventMap {
+        "remove": MouseEvent;
+    }
     interface HTMLSwirlTagElement extends Components.SwirlTag, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTagElementEventMap>(type: K, listener: (this: HTMLSwirlTagElement, ev: SwirlTagCustomEvent<HTMLSwirlTagElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTagElementEventMap>(type: K, listener: (this: HTMLSwirlTagElement, ev: SwirlTagCustomEvent<HTMLSwirlTagElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTagElement: {
         prototype: HTMLSwirlTagElement;
@@ -4148,31 +4921,93 @@ declare global {
         prototype: HTMLSwirlTextElement;
         new (): HTMLSwirlTextElement;
     };
+    interface HTMLSwirlTextInputElementEventMap {
+        "inputBlur": FocusEvent;
+        "inputFocus": FocusEvent;
+        "valueChange": string;
+    }
     interface HTMLSwirlTextInputElement extends Components.SwirlTextInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTextInputElementEventMap>(type: K, listener: (this: HTMLSwirlTextInputElement, ev: SwirlTextInputCustomEvent<HTMLSwirlTextInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTextInputElementEventMap>(type: K, listener: (this: HTMLSwirlTextInputElement, ev: SwirlTextInputCustomEvent<HTMLSwirlTextInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTextInputElement: {
         prototype: HTMLSwirlTextInputElement;
         new (): HTMLSwirlTextInputElement;
     };
+    interface HTMLSwirlThemeProviderElementEventMap {
+        "appThemeUpdated": void;
+        "themeChange": SwirlOSThemeChangeEventData;
+    }
     interface HTMLSwirlThemeProviderElement extends Components.SwirlThemeProvider, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlThemeProviderElementEventMap>(type: K, listener: (this: HTMLSwirlThemeProviderElement, ev: SwirlThemeProviderCustomEvent<HTMLSwirlThemeProviderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlThemeProviderElementEventMap>(type: K, listener: (this: HTMLSwirlThemeProviderElement, ev: SwirlThemeProviderCustomEvent<HTMLSwirlThemeProviderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlThemeProviderElement: {
         prototype: HTMLSwirlThemeProviderElement;
         new (): HTMLSwirlThemeProviderElement;
     };
+    interface HTMLSwirlThumbnailElementEventMap {
+        "edit": MouseEvent;
+        "remove": MouseEvent;
+        "thumbnailClick": MouseEvent;
+    }
     interface HTMLSwirlThumbnailElement extends Components.SwirlThumbnail, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlThumbnailElementEventMap>(type: K, listener: (this: HTMLSwirlThumbnailElement, ev: SwirlThumbnailCustomEvent<HTMLSwirlThumbnailElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlThumbnailElementEventMap>(type: K, listener: (this: HTMLSwirlThumbnailElement, ev: SwirlThumbnailCustomEvent<HTMLSwirlThumbnailElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlThumbnailElement: {
         prototype: HTMLSwirlThumbnailElement;
         new (): HTMLSwirlThumbnailElement;
     };
+    interface HTMLSwirlTimeInputElementEventMap {
+        "inputBlur": FocusEvent;
+        "inputFocus": FocusEvent;
+        "valueChange": string;
+    }
     interface HTMLSwirlTimeInputElement extends Components.SwirlTimeInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTimeInputElementEventMap>(type: K, listener: (this: HTMLSwirlTimeInputElement, ev: SwirlTimeInputCustomEvent<HTMLSwirlTimeInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTimeInputElementEventMap>(type: K, listener: (this: HTMLSwirlTimeInputElement, ev: SwirlTimeInputCustomEvent<HTMLSwirlTimeInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTimeInputElement: {
         prototype: HTMLSwirlTimeInputElement;
         new (): HTMLSwirlTimeInputElement;
     };
+    interface HTMLSwirlToastElementEventMap {
+        "dismiss": string;
+    }
     interface HTMLSwirlToastElement extends Components.SwirlToast, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlToastElementEventMap>(type: K, listener: (this: HTMLSwirlToastElement, ev: SwirlToastCustomEvent<HTMLSwirlToastElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlToastElementEventMap>(type: K, listener: (this: HTMLSwirlToastElement, ev: SwirlToastCustomEvent<HTMLSwirlToastElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlToastElement: {
         prototype: HTMLSwirlToastElement;
@@ -4279,6 +5114,7 @@ declare global {
         "swirl-icon-arrow-right": HTMLSwirlIconArrowRightElement;
         "swirl-icon-arrow-right-small": HTMLSwirlIconArrowRightSmallElement;
         "swirl-icon-arrow-upward": HTMLSwirlIconArrowUpwardElement;
+        "swirl-icon-aspect-ratio": HTMLSwirlIconAspectRatioElement;
         "swirl-icon-attachment": HTMLSwirlIconAttachmentElement;
         "swirl-icon-bar-chart": HTMLSwirlIconBarChartElement;
         "swirl-icon-block": HTMLSwirlIconBlockElement;
@@ -4300,6 +5136,7 @@ declare global {
         "swirl-icon-column": HTMLSwirlIconColumnElement;
         "swirl-icon-comment": HTMLSwirlIconCommentElement;
         "swirl-icon-copy": HTMLSwirlIconCopyElement;
+        "swirl-icon-crop": HTMLSwirlIconCropElement;
         "swirl-icon-dark-mode": HTMLSwirlIconDarkModeElement;
         "swirl-icon-date-range": HTMLSwirlIconDateRangeElement;
         "swirl-icon-delete": HTMLSwirlIconDeleteElement;
@@ -4320,6 +5157,7 @@ declare global {
         "swirl-icon-error": HTMLSwirlIconErrorElement;
         "swirl-icon-expand-less": HTMLSwirlIconExpandLessElement;
         "swirl-icon-expand-more": HTMLSwirlIconExpandMoreElement;
+        "swirl-icon-experiment": HTMLSwirlIconExperimentElement;
         "swirl-icon-file": HTMLSwirlIconFileElement;
         "swirl-icon-file-copy": HTMLSwirlIconFileCopyElement;
         "swirl-icon-filter": HTMLSwirlIconFilterElement;
@@ -4336,6 +5174,7 @@ declare global {
         "swirl-icon-hamburger-menu": HTMLSwirlIconHamburgerMenuElement;
         "swirl-icon-help": HTMLSwirlIconHelpElement;
         "swirl-icon-highlight": HTMLSwirlIconHighlightElement;
+        "swirl-icon-history": HTMLSwirlIconHistoryElement;
         "swirl-icon-home": HTMLSwirlIconHomeElement;
         "swirl-icon-image": HTMLSwirlIconImageElement;
         "swirl-icon-improve-text": HTMLSwirlIconImproveTextElement;
@@ -4343,6 +5182,7 @@ declare global {
         "swirl-icon-insert-below": HTMLSwirlIconInsertBelowElement;
         "swirl-icon-insert-on-top": HTMLSwirlIconInsertOnTopElement;
         "swirl-icon-inventory": HTMLSwirlIconInventoryElement;
+        "swirl-icon-keyboard": HTMLSwirlIconKeyboardElement;
         "swirl-icon-keyboard-hide": HTMLSwirlIconKeyboardHideElement;
         "swirl-icon-light-mode": HTMLSwirlIconLightModeElement;
         "swirl-icon-like": HTMLSwirlIconLikeElement;
@@ -4364,10 +5204,12 @@ declare global {
         "swirl-icon-menu-filled": HTMLSwirlIconMenuFilledElement;
         "swirl-icon-message": HTMLSwirlIconMessageElement;
         "swirl-icon-mic": HTMLSwirlIconMicElement;
+        "swirl-icon-mic-off": HTMLSwirlIconMicOffElement;
         "swirl-icon-more-horizontal": HTMLSwirlIconMoreHorizontalElement;
         "swirl-icon-more-vertikal": HTMLSwirlIconMoreVertikalElement;
         "swirl-icon-news": HTMLSwirlIconNewsElement;
         "swirl-icon-news-filled": HTMLSwirlIconNewsFilledElement;
+        "swirl-icon-news-off": HTMLSwirlIconNewsOffElement;
         "swirl-icon-notifications": HTMLSwirlIconNotificationsElement;
         "swirl-icon-notifications-active": HTMLSwirlIconNotificationsActiveElement;
         "swirl-icon-notifications-off": HTMLSwirlIconNotificationsOffElement;
@@ -4380,16 +5222,26 @@ declare global {
         "swirl-icon-person-off": HTMLSwirlIconPersonOffElement;
         "swirl-icon-phone": HTMLSwirlIconPhoneElement;
         "swirl-icon-photo-camera": HTMLSwirlIconPhotoCameraElement;
+        "swirl-icon-pin": HTMLSwirlIconPinElement;
+        "swirl-icon-pin-off": HTMLSwirlIconPinOffElement;
         "swirl-icon-place": HTMLSwirlIconPlaceElement;
         "swirl-icon-play-arrow": HTMLSwirlIconPlayArrowElement;
         "swirl-icon-poll": HTMLSwirlIconPollElement;
         "swirl-icon-print": HTMLSwirlIconPrintElement;
+        "swirl-icon-ratio-four-to-three": HTMLSwirlIconRatioFourToThreeElement;
+        "swirl-icon-ratio-freeform": HTMLSwirlIconRatioFreeformElement;
+        "swirl-icon-ratio-sixteen-to-nine": HTMLSwirlIconRatioSixteenToNineElement;
+        "swirl-icon-ratio-square": HTMLSwirlIconRatioSquareElement;
+        "swirl-icon-ratio-three-to-four": HTMLSwirlIconRatioThreeToFourElement;
+        "swirl-icon-ratio-three-to-two": HTMLSwirlIconRatioThreeToTwoElement;
         "swirl-icon-recieved": HTMLSwirlIconRecievedElement;
         "swirl-icon-remove": HTMLSwirlIconRemoveElement;
         "swirl-icon-remove-moderator": HTMLSwirlIconRemoveModeratorElement;
         "swirl-icon-reply": HTMLSwirlIconReplyElement;
         "swirl-icon-report": HTMLSwirlIconReportElement;
         "swirl-icon-roadmap": HTMLSwirlIconRoadmapElement;
+        "swirl-icon-rotate-left": HTMLSwirlIconRotateLeftElement;
+        "swirl-icon-rotate-right": HTMLSwirlIconRotateRightElement;
         "swirl-icon-search": HTMLSwirlIconSearchElement;
         "swirl-icon-search-strong": HTMLSwirlIconSearchStrongElement;
         "swirl-icon-secure": HTMLSwirlIconSecureElement;
@@ -4414,11 +5266,14 @@ declare global {
         "swirl-icon-user-add": HTMLSwirlIconUserAddElement;
         "swirl-icon-user-assign": HTMLSwirlIconUserAssignElement;
         "swirl-icon-video-camera": HTMLSwirlIconVideoCameraElement;
+        "swirl-icon-video-camera-off": HTMLSwirlIconVideoCameraOffElement;
         "swirl-icon-video-library": HTMLSwirlIconVideoLibraryElement;
         "swirl-icon-visibility": HTMLSwirlIconVisibilityElement;
         "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
         "swirl-icon-voice": HTMLSwirlIconVoiceElement;
         "swirl-icon-warning": HTMLSwirlIconWarningElement;
+        "swirl-icon-web-asset": HTMLSwirlIconWebAssetElement;
+        "swirl-icon-web-asset-off": HTMLSwirlIconWebAssetOffElement;
         "swirl-icon-work": HTMLSwirlIconWorkElement;
         "swirl-image-grid": HTMLSwirlImageGridElement;
         "swirl-image-grid-item": HTMLSwirlImageGridItemElement;
@@ -4578,6 +5433,8 @@ declare namespace LocalJSX {
         "onCloseButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
         "onStepDownButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
         "onStepUpButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        "paddingInlineEnd"?: SwirlAppBarPadding;
+        "paddingInlineStart"?: SwirlAppBarPadding;
         "showBackButton"?: boolean;
         "showCloseButton"?: boolean;
         "showStepperControls"?: boolean;
@@ -4659,6 +5516,7 @@ declare namespace LocalJSX {
         "content": string;
         "dismissLabel"?: string;
         "dismissable"?: boolean;
+        "icon"?: string;
         "importance"?: SwirlBannerAriaRole;
         "intent"?: SwirlBannerIntent;
         "onAction"?: (event: SwirlBannerCustomEvent<MouseEvent>) => void;
@@ -4732,6 +5590,7 @@ declare namespace LocalJSX {
     interface SwirlCard {
         "as"?: string;
         "borderRadius"?: SwirlCardBorderRadius;
+        "customBackgroundColor"?: string;
         "elevated"?: boolean;
         "elevationLevel"?: SwirlCardElevationLevel;
         "height"?: string;
@@ -4880,6 +5739,8 @@ declare namespace LocalJSX {
         "hideLabel"?: boolean;
         "intent"?: SwirlDialogIntent;
         "label": string;
+        "onDialogClose"?: (event: SwirlDialogCustomEvent<void>) => void;
+        "onDialogOpen"?: (event: SwirlDialogCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
         "onSecondaryAction"?: (event: SwirlDialogCustomEvent<MouseEvent>) => void;
         "primaryActionLabel"?: string;
@@ -4938,8 +5799,10 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "autoplay"?: boolean;
         "description"?: string;
+        "disableDownload"?: boolean;
         "errorMessage"?: string;
         "file": string;
+        "fileName"?: string;
         "onActivate"?: (event: SwirlFileViewerCustomEvent<HTMLElement>) => void;
         "onVisiblePagesChange"?: (event: SwirlFileViewerCustomEvent<number[]>) => void;
         "pdfWorkerSrc"?: string;
@@ -4984,6 +5847,7 @@ declare namespace LocalJSX {
     }
     interface SwirlFileViewerVideo {
         "autoplay"?: boolean;
+        "disableDownload"?: boolean;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerVideoCustomEvent<HTMLElement>) => void;
         "type": string;
@@ -4997,6 +5861,7 @@ declare namespace LocalJSX {
         "invalid"?: boolean;
         "label": string;
         "labelPosition"?: SwirlFormControlLabelPosition;
+        "tooltip"?: string;
     }
     interface SwirlFormGroup {
         "orientation"?: SwirlFormGroupOrientation;
@@ -5069,6 +5934,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowUpward {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconAspectRatio {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -5156,6 +6025,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconCrop {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconDarkMode {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -5236,6 +6109,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconExperiment {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconFile {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -5300,6 +6177,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconHistory {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconHome {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -5325,6 +6206,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInventory {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconKeyboard {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -5412,6 +6297,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconMicOff {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconMoreHorizontal {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -5425,6 +6314,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNewsFilled {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconNewsOff {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -5476,6 +6369,14 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconPin {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconPinOff {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconPlace {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -5489,6 +6390,30 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPrint {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioFourToThree {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioFreeform {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioSixteenToNine {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioSquare {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioThreeToFour {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRatioThreeToTwo {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -5513,6 +6438,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRoadmap {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRotateLeft {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconRotateRight {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -5612,6 +6545,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconVideoCameraOff {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconVideoLibrary {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -5629,6 +6566,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconWarning {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconWebAsset {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconWebAssetOff {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -5674,6 +6619,7 @@ declare namespace LocalJSX {
         "menuLabel"?: string;
         "menuTriggerLabel"?: string;
         "nextSlideButtonLabel"?: string;
+        "onActiveSlideChange"?: (event: SwirlLightboxCustomEvent<number>) => void;
         "previousSlideButtonLabel"?: string;
     }
     interface SwirlLink {
@@ -5785,6 +6731,7 @@ declare namespace LocalJSX {
         "downloadButtonEnabled"?: boolean;
         "downloadButtonLabel"?: string;
         "file": string;
+        "fileName"?: string;
         "fileTypeLabel"?: string;
         "label": string;
         "menuLabel"?: string;
@@ -5822,9 +6769,13 @@ declare namespace LocalJSX {
     }
     interface SwirlPopoverTrigger {
         "hidePopoverWhenInvisible"?: boolean;
+        "hoverDelay"?: number;
+        "hoverLingerDuration"?: number;
         "parentScrollContainer"?: HTMLElement;
-        "popover": string | HTMLSwirlPopoverElement;
         "setAriaAttributes"?: boolean;
+        "swirlPopover": string | HTMLSwirlPopoverElement;
+        "triggerOnClick"?: boolean;
+        "triggerOnHover"?: boolean;
     }
     interface SwirlProgressIndicator {
         "label": string;
@@ -5875,6 +6826,7 @@ declare namespace LocalJSX {
     interface SwirlResourceListItem {
         "active"?: boolean;
         "allowDrag"?: boolean;
+        "allowHtml"?: boolean;
         "checked"?: boolean;
         "compact"?: boolean;
         "description"?: string;
@@ -5895,6 +6847,7 @@ declare namespace LocalJSX {
         "onToggleDrag"?: (event: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElement>) => void;
         "onValueChange"?: (event: SwirlResourceListItemCustomEvent<boolean>) => void;
         "selectable"?: boolean;
+        "swirlAriaLabel"?: string;
         "value"?: string;
     }
     interface SwirlSearch {
@@ -5932,6 +6885,7 @@ declare namespace LocalJSX {
         "withSearch"?: boolean;
     }
     interface SwirlSeparator {
+        "borderColor"?: SwirlSeparatorBorderColor;
         "orientation"?: SwirlSeparatorOrientation;
         "spacing"?: SwirlSeparatorSpacing;
     }
@@ -5954,6 +6908,7 @@ declare namespace LocalJSX {
     interface SwirlShellNavigationItem {
         "active"?: boolean;
         "badgeLabel"?: string;
+        "boxed"?: boolean;
         "href"?: string;
         "label": string;
         "target"?: string;
@@ -6188,10 +7143,13 @@ declare namespace LocalJSX {
     }
     interface SwirlTabBar {
         "disableTabSemantics"?: boolean;
+        "justify"?: SwirlTabBarJustify;
         "label": string;
         "onActivateNextTab"?: (event: SwirlTabBarCustomEvent<void>) => void;
         "onActivatePreviousTab"?: (event: SwirlTabBarCustomEvent<void>) => void;
         "onActivateTab"?: (event: SwirlTabBarCustomEvent<string>) => void;
+        "paddingInlineEnd"?: SwirlTabBarPadding;
+        "paddingInlineStart"?: SwirlTabBarPadding;
         "tabs"?: SwirlTabBarTab[];
     }
     interface SwirlTable {
@@ -6221,15 +7179,22 @@ declare namespace LocalJSX {
     }
     interface SwirlTabs {
         "initialTab"?: string;
+        "justifyTabBar"?: SwirlTabBarJustify1;
         "label": string;
         "onTabActivated"?: (event: SwirlTabsCustomEvent<HTMLSwirlTabElement>) => void;
+        "tabBarPaddingInlineEnd"?: SwirlTabBarPadding1;
+        "tabBarPaddingInlineStart"?: SwirlTabBarPadding1;
     }
     interface SwirlTag {
+        "bordered"?: boolean;
+        "icon"?: string;
         "intent"?: SwirlTagIntent;
         "label": string;
         "onRemove"?: (event: SwirlTagCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "removalButtonLabel"?: string;
+        "size"?: SwirlTagSize;
+        "variant"?: SwirlTagVariant;
     }
     interface SwirlText {
         "align"?: SwirlTextAlign;
@@ -6282,16 +7247,22 @@ declare namespace LocalJSX {
     }
     interface SwirlThemeProvider {
         "config"?: SwirlThemeProviderConfig;
+        "onAppThemeUpdated"?: (event: SwirlThemeProviderCustomEvent<void>) => void;
         "onThemeChange"?: (event: SwirlThemeProviderCustomEvent<SwirlOSThemeChangeEventData>) => void;
     }
     interface SwirlThumbnail {
         "alt": string;
+        "editButtonIcon"?: string;
+        "editButtonLabel"?: string;
         "format"?: SwirlThumbnailFormat;
         "interactive"?: boolean;
+        "onEdit"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "onRemove"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
+        "onThumbnailClick"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "progress"?: number;
         "progressLabel"?: string;
         "removeButtonLabel"?: string;
+        "showEditButton"?: boolean;
         "showRemoveButton"?: boolean;
         "size"?: SwirlThumbnailSize;
         "src": string;
@@ -6418,6 +7389,7 @@ declare namespace LocalJSX {
         "swirl-icon-arrow-right": SwirlIconArrowRight;
         "swirl-icon-arrow-right-small": SwirlIconArrowRightSmall;
         "swirl-icon-arrow-upward": SwirlIconArrowUpward;
+        "swirl-icon-aspect-ratio": SwirlIconAspectRatio;
         "swirl-icon-attachment": SwirlIconAttachment;
         "swirl-icon-bar-chart": SwirlIconBarChart;
         "swirl-icon-block": SwirlIconBlock;
@@ -6439,6 +7411,7 @@ declare namespace LocalJSX {
         "swirl-icon-column": SwirlIconColumn;
         "swirl-icon-comment": SwirlIconComment;
         "swirl-icon-copy": SwirlIconCopy;
+        "swirl-icon-crop": SwirlIconCrop;
         "swirl-icon-dark-mode": SwirlIconDarkMode;
         "swirl-icon-date-range": SwirlIconDateRange;
         "swirl-icon-delete": SwirlIconDelete;
@@ -6459,6 +7432,7 @@ declare namespace LocalJSX {
         "swirl-icon-error": SwirlIconError;
         "swirl-icon-expand-less": SwirlIconExpandLess;
         "swirl-icon-expand-more": SwirlIconExpandMore;
+        "swirl-icon-experiment": SwirlIconExperiment;
         "swirl-icon-file": SwirlIconFile;
         "swirl-icon-file-copy": SwirlIconFileCopy;
         "swirl-icon-filter": SwirlIconFilter;
@@ -6475,6 +7449,7 @@ declare namespace LocalJSX {
         "swirl-icon-hamburger-menu": SwirlIconHamburgerMenu;
         "swirl-icon-help": SwirlIconHelp;
         "swirl-icon-highlight": SwirlIconHighlight;
+        "swirl-icon-history": SwirlIconHistory;
         "swirl-icon-home": SwirlIconHome;
         "swirl-icon-image": SwirlIconImage;
         "swirl-icon-improve-text": SwirlIconImproveText;
@@ -6482,6 +7457,7 @@ declare namespace LocalJSX {
         "swirl-icon-insert-below": SwirlIconInsertBelow;
         "swirl-icon-insert-on-top": SwirlIconInsertOnTop;
         "swirl-icon-inventory": SwirlIconInventory;
+        "swirl-icon-keyboard": SwirlIconKeyboard;
         "swirl-icon-keyboard-hide": SwirlIconKeyboardHide;
         "swirl-icon-light-mode": SwirlIconLightMode;
         "swirl-icon-like": SwirlIconLike;
@@ -6503,10 +7479,12 @@ declare namespace LocalJSX {
         "swirl-icon-menu-filled": SwirlIconMenuFilled;
         "swirl-icon-message": SwirlIconMessage;
         "swirl-icon-mic": SwirlIconMic;
+        "swirl-icon-mic-off": SwirlIconMicOff;
         "swirl-icon-more-horizontal": SwirlIconMoreHorizontal;
         "swirl-icon-more-vertikal": SwirlIconMoreVertikal;
         "swirl-icon-news": SwirlIconNews;
         "swirl-icon-news-filled": SwirlIconNewsFilled;
+        "swirl-icon-news-off": SwirlIconNewsOff;
         "swirl-icon-notifications": SwirlIconNotifications;
         "swirl-icon-notifications-active": SwirlIconNotificationsActive;
         "swirl-icon-notifications-off": SwirlIconNotificationsOff;
@@ -6519,16 +7497,26 @@ declare namespace LocalJSX {
         "swirl-icon-person-off": SwirlIconPersonOff;
         "swirl-icon-phone": SwirlIconPhone;
         "swirl-icon-photo-camera": SwirlIconPhotoCamera;
+        "swirl-icon-pin": SwirlIconPin;
+        "swirl-icon-pin-off": SwirlIconPinOff;
         "swirl-icon-place": SwirlIconPlace;
         "swirl-icon-play-arrow": SwirlIconPlayArrow;
         "swirl-icon-poll": SwirlIconPoll;
         "swirl-icon-print": SwirlIconPrint;
+        "swirl-icon-ratio-four-to-three": SwirlIconRatioFourToThree;
+        "swirl-icon-ratio-freeform": SwirlIconRatioFreeform;
+        "swirl-icon-ratio-sixteen-to-nine": SwirlIconRatioSixteenToNine;
+        "swirl-icon-ratio-square": SwirlIconRatioSquare;
+        "swirl-icon-ratio-three-to-four": SwirlIconRatioThreeToFour;
+        "swirl-icon-ratio-three-to-two": SwirlIconRatioThreeToTwo;
         "swirl-icon-recieved": SwirlIconRecieved;
         "swirl-icon-remove": SwirlIconRemove;
         "swirl-icon-remove-moderator": SwirlIconRemoveModerator;
         "swirl-icon-reply": SwirlIconReply;
         "swirl-icon-report": SwirlIconReport;
         "swirl-icon-roadmap": SwirlIconRoadmap;
+        "swirl-icon-rotate-left": SwirlIconRotateLeft;
+        "swirl-icon-rotate-right": SwirlIconRotateRight;
         "swirl-icon-search": SwirlIconSearch;
         "swirl-icon-search-strong": SwirlIconSearchStrong;
         "swirl-icon-secure": SwirlIconSecure;
@@ -6553,11 +7541,14 @@ declare namespace LocalJSX {
         "swirl-icon-user-add": SwirlIconUserAdd;
         "swirl-icon-user-assign": SwirlIconUserAssign;
         "swirl-icon-video-camera": SwirlIconVideoCamera;
+        "swirl-icon-video-camera-off": SwirlIconVideoCameraOff;
         "swirl-icon-video-library": SwirlIconVideoLibrary;
         "swirl-icon-visibility": SwirlIconVisibility;
         "swirl-icon-visibility-off": SwirlIconVisibilityOff;
         "swirl-icon-voice": SwirlIconVoice;
         "swirl-icon-warning": SwirlIconWarning;
+        "swirl-icon-web-asset": SwirlIconWebAsset;
+        "swirl-icon-web-asset-off": SwirlIconWebAssetOff;
         "swirl-icon-work": SwirlIconWork;
         "swirl-image-grid": SwirlImageGrid;
         "swirl-image-grid-item": SwirlImageGridItem;
@@ -6751,6 +7742,7 @@ declare module "@stencil/core" {
             "swirl-icon-arrow-right": LocalJSX.SwirlIconArrowRight & JSXBase.HTMLAttributes<HTMLSwirlIconArrowRightElement>;
             "swirl-icon-arrow-right-small": LocalJSX.SwirlIconArrowRightSmall & JSXBase.HTMLAttributes<HTMLSwirlIconArrowRightSmallElement>;
             "swirl-icon-arrow-upward": LocalJSX.SwirlIconArrowUpward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowUpwardElement>;
+            "swirl-icon-aspect-ratio": LocalJSX.SwirlIconAspectRatio & JSXBase.HTMLAttributes<HTMLSwirlIconAspectRatioElement>;
             "swirl-icon-attachment": LocalJSX.SwirlIconAttachment & JSXBase.HTMLAttributes<HTMLSwirlIconAttachmentElement>;
             "swirl-icon-bar-chart": LocalJSX.SwirlIconBarChart & JSXBase.HTMLAttributes<HTMLSwirlIconBarChartElement>;
             "swirl-icon-block": LocalJSX.SwirlIconBlock & JSXBase.HTMLAttributes<HTMLSwirlIconBlockElement>;
@@ -6772,6 +7764,7 @@ declare module "@stencil/core" {
             "swirl-icon-column": LocalJSX.SwirlIconColumn & JSXBase.HTMLAttributes<HTMLSwirlIconColumnElement>;
             "swirl-icon-comment": LocalJSX.SwirlIconComment & JSXBase.HTMLAttributes<HTMLSwirlIconCommentElement>;
             "swirl-icon-copy": LocalJSX.SwirlIconCopy & JSXBase.HTMLAttributes<HTMLSwirlIconCopyElement>;
+            "swirl-icon-crop": LocalJSX.SwirlIconCrop & JSXBase.HTMLAttributes<HTMLSwirlIconCropElement>;
             "swirl-icon-dark-mode": LocalJSX.SwirlIconDarkMode & JSXBase.HTMLAttributes<HTMLSwirlIconDarkModeElement>;
             "swirl-icon-date-range": LocalJSX.SwirlIconDateRange & JSXBase.HTMLAttributes<HTMLSwirlIconDateRangeElement>;
             "swirl-icon-delete": LocalJSX.SwirlIconDelete & JSXBase.HTMLAttributes<HTMLSwirlIconDeleteElement>;
@@ -6792,6 +7785,7 @@ declare module "@stencil/core" {
             "swirl-icon-error": LocalJSX.SwirlIconError & JSXBase.HTMLAttributes<HTMLSwirlIconErrorElement>;
             "swirl-icon-expand-less": LocalJSX.SwirlIconExpandLess & JSXBase.HTMLAttributes<HTMLSwirlIconExpandLessElement>;
             "swirl-icon-expand-more": LocalJSX.SwirlIconExpandMore & JSXBase.HTMLAttributes<HTMLSwirlIconExpandMoreElement>;
+            "swirl-icon-experiment": LocalJSX.SwirlIconExperiment & JSXBase.HTMLAttributes<HTMLSwirlIconExperimentElement>;
             "swirl-icon-file": LocalJSX.SwirlIconFile & JSXBase.HTMLAttributes<HTMLSwirlIconFileElement>;
             "swirl-icon-file-copy": LocalJSX.SwirlIconFileCopy & JSXBase.HTMLAttributes<HTMLSwirlIconFileCopyElement>;
             "swirl-icon-filter": LocalJSX.SwirlIconFilter & JSXBase.HTMLAttributes<HTMLSwirlIconFilterElement>;
@@ -6808,6 +7802,7 @@ declare module "@stencil/core" {
             "swirl-icon-hamburger-menu": LocalJSX.SwirlIconHamburgerMenu & JSXBase.HTMLAttributes<HTMLSwirlIconHamburgerMenuElement>;
             "swirl-icon-help": LocalJSX.SwirlIconHelp & JSXBase.HTMLAttributes<HTMLSwirlIconHelpElement>;
             "swirl-icon-highlight": LocalJSX.SwirlIconHighlight & JSXBase.HTMLAttributes<HTMLSwirlIconHighlightElement>;
+            "swirl-icon-history": LocalJSX.SwirlIconHistory & JSXBase.HTMLAttributes<HTMLSwirlIconHistoryElement>;
             "swirl-icon-home": LocalJSX.SwirlIconHome & JSXBase.HTMLAttributes<HTMLSwirlIconHomeElement>;
             "swirl-icon-image": LocalJSX.SwirlIconImage & JSXBase.HTMLAttributes<HTMLSwirlIconImageElement>;
             "swirl-icon-improve-text": LocalJSX.SwirlIconImproveText & JSXBase.HTMLAttributes<HTMLSwirlIconImproveTextElement>;
@@ -6815,6 +7810,7 @@ declare module "@stencil/core" {
             "swirl-icon-insert-below": LocalJSX.SwirlIconInsertBelow & JSXBase.HTMLAttributes<HTMLSwirlIconInsertBelowElement>;
             "swirl-icon-insert-on-top": LocalJSX.SwirlIconInsertOnTop & JSXBase.HTMLAttributes<HTMLSwirlIconInsertOnTopElement>;
             "swirl-icon-inventory": LocalJSX.SwirlIconInventory & JSXBase.HTMLAttributes<HTMLSwirlIconInventoryElement>;
+            "swirl-icon-keyboard": LocalJSX.SwirlIconKeyboard & JSXBase.HTMLAttributes<HTMLSwirlIconKeyboardElement>;
             "swirl-icon-keyboard-hide": LocalJSX.SwirlIconKeyboardHide & JSXBase.HTMLAttributes<HTMLSwirlIconKeyboardHideElement>;
             "swirl-icon-light-mode": LocalJSX.SwirlIconLightMode & JSXBase.HTMLAttributes<HTMLSwirlIconLightModeElement>;
             "swirl-icon-like": LocalJSX.SwirlIconLike & JSXBase.HTMLAttributes<HTMLSwirlIconLikeElement>;
@@ -6836,10 +7832,12 @@ declare module "@stencil/core" {
             "swirl-icon-menu-filled": LocalJSX.SwirlIconMenuFilled & JSXBase.HTMLAttributes<HTMLSwirlIconMenuFilledElement>;
             "swirl-icon-message": LocalJSX.SwirlIconMessage & JSXBase.HTMLAttributes<HTMLSwirlIconMessageElement>;
             "swirl-icon-mic": LocalJSX.SwirlIconMic & JSXBase.HTMLAttributes<HTMLSwirlIconMicElement>;
+            "swirl-icon-mic-off": LocalJSX.SwirlIconMicOff & JSXBase.HTMLAttributes<HTMLSwirlIconMicOffElement>;
             "swirl-icon-more-horizontal": LocalJSX.SwirlIconMoreHorizontal & JSXBase.HTMLAttributes<HTMLSwirlIconMoreHorizontalElement>;
             "swirl-icon-more-vertikal": LocalJSX.SwirlIconMoreVertikal & JSXBase.HTMLAttributes<HTMLSwirlIconMoreVertikalElement>;
             "swirl-icon-news": LocalJSX.SwirlIconNews & JSXBase.HTMLAttributes<HTMLSwirlIconNewsElement>;
             "swirl-icon-news-filled": LocalJSX.SwirlIconNewsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconNewsFilledElement>;
+            "swirl-icon-news-off": LocalJSX.SwirlIconNewsOff & JSXBase.HTMLAttributes<HTMLSwirlIconNewsOffElement>;
             "swirl-icon-notifications": LocalJSX.SwirlIconNotifications & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsElement>;
             "swirl-icon-notifications-active": LocalJSX.SwirlIconNotificationsActive & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsActiveElement>;
             "swirl-icon-notifications-off": LocalJSX.SwirlIconNotificationsOff & JSXBase.HTMLAttributes<HTMLSwirlIconNotificationsOffElement>;
@@ -6852,16 +7850,26 @@ declare module "@stencil/core" {
             "swirl-icon-person-off": LocalJSX.SwirlIconPersonOff & JSXBase.HTMLAttributes<HTMLSwirlIconPersonOffElement>;
             "swirl-icon-phone": LocalJSX.SwirlIconPhone & JSXBase.HTMLAttributes<HTMLSwirlIconPhoneElement>;
             "swirl-icon-photo-camera": LocalJSX.SwirlIconPhotoCamera & JSXBase.HTMLAttributes<HTMLSwirlIconPhotoCameraElement>;
+            "swirl-icon-pin": LocalJSX.SwirlIconPin & JSXBase.HTMLAttributes<HTMLSwirlIconPinElement>;
+            "swirl-icon-pin-off": LocalJSX.SwirlIconPinOff & JSXBase.HTMLAttributes<HTMLSwirlIconPinOffElement>;
             "swirl-icon-place": LocalJSX.SwirlIconPlace & JSXBase.HTMLAttributes<HTMLSwirlIconPlaceElement>;
             "swirl-icon-play-arrow": LocalJSX.SwirlIconPlayArrow & JSXBase.HTMLAttributes<HTMLSwirlIconPlayArrowElement>;
             "swirl-icon-poll": LocalJSX.SwirlIconPoll & JSXBase.HTMLAttributes<HTMLSwirlIconPollElement>;
             "swirl-icon-print": LocalJSX.SwirlIconPrint & JSXBase.HTMLAttributes<HTMLSwirlIconPrintElement>;
+            "swirl-icon-ratio-four-to-three": LocalJSX.SwirlIconRatioFourToThree & JSXBase.HTMLAttributes<HTMLSwirlIconRatioFourToThreeElement>;
+            "swirl-icon-ratio-freeform": LocalJSX.SwirlIconRatioFreeform & JSXBase.HTMLAttributes<HTMLSwirlIconRatioFreeformElement>;
+            "swirl-icon-ratio-sixteen-to-nine": LocalJSX.SwirlIconRatioSixteenToNine & JSXBase.HTMLAttributes<HTMLSwirlIconRatioSixteenToNineElement>;
+            "swirl-icon-ratio-square": LocalJSX.SwirlIconRatioSquare & JSXBase.HTMLAttributes<HTMLSwirlIconRatioSquareElement>;
+            "swirl-icon-ratio-three-to-four": LocalJSX.SwirlIconRatioThreeToFour & JSXBase.HTMLAttributes<HTMLSwirlIconRatioThreeToFourElement>;
+            "swirl-icon-ratio-three-to-two": LocalJSX.SwirlIconRatioThreeToTwo & JSXBase.HTMLAttributes<HTMLSwirlIconRatioThreeToTwoElement>;
             "swirl-icon-recieved": LocalJSX.SwirlIconRecieved & JSXBase.HTMLAttributes<HTMLSwirlIconRecievedElement>;
             "swirl-icon-remove": LocalJSX.SwirlIconRemove & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveElement>;
             "swirl-icon-remove-moderator": LocalJSX.SwirlIconRemoveModerator & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveModeratorElement>;
             "swirl-icon-reply": LocalJSX.SwirlIconReply & JSXBase.HTMLAttributes<HTMLSwirlIconReplyElement>;
             "swirl-icon-report": LocalJSX.SwirlIconReport & JSXBase.HTMLAttributes<HTMLSwirlIconReportElement>;
             "swirl-icon-roadmap": LocalJSX.SwirlIconRoadmap & JSXBase.HTMLAttributes<HTMLSwirlIconRoadmapElement>;
+            "swirl-icon-rotate-left": LocalJSX.SwirlIconRotateLeft & JSXBase.HTMLAttributes<HTMLSwirlIconRotateLeftElement>;
+            "swirl-icon-rotate-right": LocalJSX.SwirlIconRotateRight & JSXBase.HTMLAttributes<HTMLSwirlIconRotateRightElement>;
             "swirl-icon-search": LocalJSX.SwirlIconSearch & JSXBase.HTMLAttributes<HTMLSwirlIconSearchElement>;
             "swirl-icon-search-strong": LocalJSX.SwirlIconSearchStrong & JSXBase.HTMLAttributes<HTMLSwirlIconSearchStrongElement>;
             "swirl-icon-secure": LocalJSX.SwirlIconSecure & JSXBase.HTMLAttributes<HTMLSwirlIconSecureElement>;
@@ -6886,11 +7894,14 @@ declare module "@stencil/core" {
             "swirl-icon-user-add": LocalJSX.SwirlIconUserAdd & JSXBase.HTMLAttributes<HTMLSwirlIconUserAddElement>;
             "swirl-icon-user-assign": LocalJSX.SwirlIconUserAssign & JSXBase.HTMLAttributes<HTMLSwirlIconUserAssignElement>;
             "swirl-icon-video-camera": LocalJSX.SwirlIconVideoCamera & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraElement>;
+            "swirl-icon-video-camera-off": LocalJSX.SwirlIconVideoCameraOff & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraOffElement>;
             "swirl-icon-video-library": LocalJSX.SwirlIconVideoLibrary & JSXBase.HTMLAttributes<HTMLSwirlIconVideoLibraryElement>;
             "swirl-icon-visibility": LocalJSX.SwirlIconVisibility & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityElement>;
             "swirl-icon-visibility-off": LocalJSX.SwirlIconVisibilityOff & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
             "swirl-icon-voice": LocalJSX.SwirlIconVoice & JSXBase.HTMLAttributes<HTMLSwirlIconVoiceElement>;
             "swirl-icon-warning": LocalJSX.SwirlIconWarning & JSXBase.HTMLAttributes<HTMLSwirlIconWarningElement>;
+            "swirl-icon-web-asset": LocalJSX.SwirlIconWebAsset & JSXBase.HTMLAttributes<HTMLSwirlIconWebAssetElement>;
+            "swirl-icon-web-asset-off": LocalJSX.SwirlIconWebAssetOff & JSXBase.HTMLAttributes<HTMLSwirlIconWebAssetOffElement>;
             "swirl-icon-work": LocalJSX.SwirlIconWork & JSXBase.HTMLAttributes<HTMLSwirlIconWorkElement>;
             "swirl-image-grid": LocalJSX.SwirlImageGrid & JSXBase.HTMLAttributes<HTMLSwirlImageGridElement>;
             "swirl-image-grid-item": LocalJSX.SwirlImageGridItem & JSXBase.HTMLAttributes<HTMLSwirlImageGridItemElement>;

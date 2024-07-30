@@ -52,10 +52,10 @@ const Template = (args) => {
         <swirl-button label="Scheduled"></swirl-button>
       </swirl-stack>
     </swirl-app-bar>
-    <div slot="app-bar-controls">
+    <swirl-stack orientation="horizontal" slot="app-bar-controls">
       <swirl-button hide-label="true" icon="<swirl-icon-search></swirl-icon-search>" label="Search"></swirl-button>
       <swirl-button hide-label class="info-button" icon="<swirl-icon-info></swirl-icon-info>" label="More information"></swirl-button>
-    </div>
+    </swirl-stack>
     <div slot="content"></div>
     <div slot="sidebar"></div>
     <swirl-button slot="floating-action-button" icon="<swirl-icon-add></swirl-icon-add>" label="CTA" variant="floating" intent="primary" hide-label="true"></swirl-button>
