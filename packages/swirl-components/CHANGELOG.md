@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.218.0
+
+### Minor Changes
+
+- [#758](https://github.com/getflip/swirl/pull/758)
+  [`a842a881`](https://github.com/getflip/swirl/commit/a842a8813b8c124fa952124053c648a43fd826c3)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Avatar group
+  customizable badge size
+
 ## 0.217.0
 
 ### Minor Changes
