@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.40.0
+
+### Minor Changes
+
+- [#760](https://github.com/getflip/swirl/pull/760)
+  [`9b7ec15d`](https://github.com/getflip/swirl/commit/9b7ec15d6f3f8ad7fb5886fa79c0ec56c28e06d6)
+  Thanks [@koraxis](https://github.com/koraxis)! - Add RemoveCircle icon
+
 ## 0.39.0
 
 ### Minor Changes
