@@ -1234,6 +1234,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconRemoveCircle {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconRemoveModerator {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3800,6 +3804,12 @@ declare global {
         prototype: HTMLSwirlIconRemoveElement;
         new (): HTMLSwirlIconRemoveElement;
     };
+    interface HTMLSwirlIconRemoveCircleElement extends Components.SwirlIconRemoveCircle, HTMLStencilElement {
+    }
+    var HTMLSwirlIconRemoveCircleElement: {
+        prototype: HTMLSwirlIconRemoveCircleElement;
+        new (): HTMLSwirlIconRemoveCircleElement;
+    };
     interface HTMLSwirlIconRemoveModeratorElement extends Components.SwirlIconRemoveModerator, HTMLStencilElement {
     }
     var HTMLSwirlIconRemoveModeratorElement: {
@@ -5236,6 +5246,7 @@ declare global {
         "swirl-icon-ratio-three-to-two": HTMLSwirlIconRatioThreeToTwoElement;
         "swirl-icon-recieved": HTMLSwirlIconRecievedElement;
         "swirl-icon-remove": HTMLSwirlIconRemoveElement;
+        "swirl-icon-remove-circle": HTMLSwirlIconRemoveCircleElement;
         "swirl-icon-remove-moderator": HTMLSwirlIconRemoveModeratorElement;
         "swirl-icon-reply": HTMLSwirlIconReplyElement;
         "swirl-icon-report": HTMLSwirlIconReportElement;
@@ -6425,6 +6436,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconRemoveCircle {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconRemoveModerator {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -7511,6 +7526,7 @@ declare namespace LocalJSX {
         "swirl-icon-ratio-three-to-two": SwirlIconRatioThreeToTwo;
         "swirl-icon-recieved": SwirlIconRecieved;
         "swirl-icon-remove": SwirlIconRemove;
+        "swirl-icon-remove-circle": SwirlIconRemoveCircle;
         "swirl-icon-remove-moderator": SwirlIconRemoveModerator;
         "swirl-icon-reply": SwirlIconReply;
         "swirl-icon-report": SwirlIconReport;
@@ -7864,6 +7880,7 @@ declare module "@stencil/core" {
             "swirl-icon-ratio-three-to-two": LocalJSX.SwirlIconRatioThreeToTwo & JSXBase.HTMLAttributes<HTMLSwirlIconRatioThreeToTwoElement>;
             "swirl-icon-recieved": LocalJSX.SwirlIconRecieved & JSXBase.HTMLAttributes<HTMLSwirlIconRecievedElement>;
             "swirl-icon-remove": LocalJSX.SwirlIconRemove & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveElement>;
+            "swirl-icon-remove-circle": LocalJSX.SwirlIconRemoveCircle & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveCircleElement>;
             "swirl-icon-remove-moderator": LocalJSX.SwirlIconRemoveModerator & JSXBase.HTMLAttributes<HTMLSwirlIconRemoveModeratorElement>;
             "swirl-icon-reply": LocalJSX.SwirlIconReply & JSXBase.HTMLAttributes<HTMLSwirlIconReplyElement>;
             "swirl-icon-report": LocalJSX.SwirlIconReport & JSXBase.HTMLAttributes<HTMLSwirlIconReportElement>;
