@@ -98,7 +98,7 @@
       min-width: 100%;
       height: auto;
       min-height: auto;
-      border-radius: var(--s-border-radius-sm);
+      border-radius: var(--s-border-radius-base);
       background-color: var(--s-surface-sunken-hovered);
       aspect-ratio: 1;
     }
