@@ -1740,11 +1740,15 @@ export namespace Components {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
+        "customNavCollapseLabel"?: string;
+        "customNavExpandLabel"?: string;
+        "gridNavLayoutToggleLabel"?: string;
         /**
           * Hides the mobile navigation.
          */
         "hideMobileNavigation": () => Promise<void>;
         "hideMobileNavigationButtonLabel"?: string;
+        "listNavLayoutToggleLabel"?: string;
         "navigationLabel"?: string;
         "navigationToggleLabel"?: string;
         /**
@@ -1762,9 +1766,11 @@ export namespace Components {
         "active"?: boolean;
         "badgeLabel"?: string;
         "boxed"?: boolean;
+        "hideLabel"?: boolean;
         "href"?: string;
         "label": string;
         "target"?: string;
+        "tiled"?: boolean;
     }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
@@ -6893,7 +6899,11 @@ declare namespace LocalJSX {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
+        "customNavCollapseLabel"?: string;
+        "customNavExpandLabel"?: string;
+        "gridNavLayoutToggleLabel"?: string;
         "hideMobileNavigationButtonLabel"?: string;
+        "listNavLayoutToggleLabel"?: string;
         "navigationLabel"?: string;
         "navigationToggleLabel"?: string;
         "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
@@ -6909,9 +6919,11 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "badgeLabel"?: string;
         "boxed"?: boolean;
+        "hideLabel"?: boolean;
         "href"?: string;
         "label": string;
         "target"?: string;
+        "tiled"?: boolean;
     }
     interface SwirlSkeletonBox {
         "animated"?: boolean;

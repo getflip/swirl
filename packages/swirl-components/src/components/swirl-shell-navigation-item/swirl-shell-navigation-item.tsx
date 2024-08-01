@@ -14,15 +14,18 @@ export class SwirlShellNavigationItem {
 
   @Prop() active?: boolean;
   @Prop() badgeLabel?: string;
+  @Prop() boxed?: boolean;
+  @Prop() hideLabel?: boolean;
   @Prop() href?: string;
   @Prop() label!: string;
   @Prop() target?: string;
-  @Prop() boxed?: boolean;
+  @Prop() tiled?: boolean;
 
   render() {
     const className = classnames("shell-navigation-item", {
       "shell-navigation-item--active": this.active,
       "shell-navigation-item--boxed": this.boxed,
+      "shell-navigation-item--tiled": this.tiled,
     });
 
     const isLink = Boolean(this.href);
@@ -39,7 +42,13 @@ export class SwirlShellNavigationItem {
           <span class="shell-navigation-item__icon">
             <slot name="icon"></slot>
           </span>
-          <span class="shell-navigation-item__label">{this.label}</span>
+          {!this.hideLabel ? (
+            <span class="shell-navigation-item__label">{this.label}</span>
+          ) : (
+            <swirl-visually-hidden>
+              <span class="shell-navigation-item__label">{this.label}</span>
+            </swirl-visually-hidden>
+          )}
           {this.badgeLabel !== undefined && this.badgeLabel !== null && (
             <swirl-badge
               aria-label={this.badgeLabel}

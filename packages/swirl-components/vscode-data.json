@@ -14272,7 +14272,23 @@
           "description": ""
         },
         {
+          "name": "custom-nav-collapse-label",
+          "description": ""
+        },
+        {
+          "name": "custom-nav-expand-label",
+          "description": ""
+        },
+        {
+          "name": "grid-nav-layout-toggle-label",
+          "description": ""
+        },
+        {
           "name": "hide-mobile-navigation-button-label",
+          "description": ""
+        },
+        {
+          "name": "list-nav-layout-toggle-label",
           "description": ""
         },
         {
@@ -14329,6 +14345,10 @@
           "description": ""
         },
         {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
           "name": "href",
           "description": ""
         },
@@ -14338,6 +14358,10 @@
         },
         {
           "name": "target",
+          "description": ""
+        },
+        {
+          "name": "tiled",
           "description": ""
         }
       ]

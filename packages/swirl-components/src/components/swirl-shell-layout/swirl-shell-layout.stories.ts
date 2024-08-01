@@ -64,18 +64,24 @@ const Template = (args) => {
             <swirl-app-icon icon="<swirl-icon-tasks-filled size=&quot;20&quot;></swirl-icon-tasks-filled>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
-        <li>
-          <swirl-shell-navigation-item label="Employee directory" boxed="true">
-            <swirl-app-icon icon="<swirl-icon-groups-filled size=&quot;20&quot;></swirl-icon-groups-filled>" slot="icon"></swirl-app-icon>
-          </swirl-shell-navigation-item>
-        </li>
-        <li>
-          <swirl-shell-navigation-item label="Custom Link" boxed="true">
-          <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/433/144/144" slot="icon"></swirl-app-icon>
-          </swirl-shell-navigation-item>
-        </li>
       </ul>
-    </div>
+      </div>
+
+      <li slot="custom-nav">
+        <swirl-shell-navigation-item label="Employee directory">
+          <swirl-app-icon icon="<swirl-icon-groups-filled size=&quot;20&quot;></swirl-icon-groups-filled>" slot="icon"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+      </li>
+      <li slot="custom-nav">
+        <swirl-shell-navigation-item badge-label="3" label="Custom Link">
+          <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/433/144/144" slot="icon"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+      </li>
+      <li slot="custom-nav">
+        <swirl-shell-navigation-item label="Custom Link with an unusually long label">
+          <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/433/144/144" slot="icon"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+      </li>
 
     <swirl-app-layout app-name="App name">
       <swirl-button hide-label="true" icon="<swirl-icon-menu></swirl-icon-menu>" label="Menu" slot="navigation-mobile-menu-button"></swirl-button>

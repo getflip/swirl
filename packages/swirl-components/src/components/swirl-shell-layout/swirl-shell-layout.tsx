@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -13,8 +14,14 @@ import {
 import classnames from "classnames";
 import * as focusTrap from "focus-trap";
 
+const CUSTOM_NAVIGATION_COLLAPSE_STORAGE_KEY =
+  "SWIRL_SHELL_CUSTOM_NAVIGATION_COLLAPSE_STATE";
+const CUSTOM_NAVIGATION_VIEW_STORAGE_KEY =
+  "SWIRL_SHELL_CUSTOM_NAVIGATION_VIEW_STATE";
 const NAVIGATION_COLLAPSE_STORAGE_KEY = "SWIRL_SHELL_NAVIGATION_COLLAPSE_STATE";
 const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
+
+export type SwirlShellLayoutCustomNavView = "grid" | "list";
 
 /**
  * @slot logo - Logo shown inside header.
@@ -35,10 +42,16 @@ const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
   tag: "swirl-shell-layout",
 })
 export class SwirlShellLayout {
+  @Element() el: HTMLElement;
+
   @Prop() brandedHeader?: boolean;
   @Prop() browserBackButtonLabel?: string = "Navigate back";
   @Prop() browserForwardButtonLabel?: string = "Navigate forward";
+  @Prop() customNavCollapseLabel?: string = "Show less";
+  @Prop() customNavExpandLabel?: string = "Show more";
+  @Prop() gridNavLayoutToggleLabel?: string = "Grid";
   @Prop() hideMobileNavigationButtonLabel?: string = "Close navigation";
+  @Prop() listNavLayoutToggleLabel?: string = "List";
   @Prop() navigationLabel?: string = "Main";
   @Prop() navigationToggleLabel?: string = "Toggle navigation";
   @Prop({ mutable: true }) sidebarActive?: boolean;
@@ -53,9 +66,13 @@ export class SwirlShellLayout {
 
   @State() mobileNavigationActive?: boolean;
   @State() navigationCollapsed?: boolean;
+  @State() collapsedNavigationHovered?: boolean;
+  @State() customNavCollapsed?: boolean;
+  @State() customNavView?: SwirlShellLayoutCustomNavView = "list";
 
   private focusTrap: focusTrap.FocusTrap;
   private navElement: HTMLElement;
+  private customNavItems: HTMLSwirlShellNavigationItemElement[];
 
   componentWillLoad() {
     const restoredSidebarState =
@@ -70,6 +87,18 @@ export class SwirlShellLayout {
       localStorage.getItem(NAVIGATION_COLLAPSE_STORAGE_KEY) === "true";
 
     this.navigationCollapsed = restoredNavigationCollapseState;
+
+    const restoredCustomNavigationCollapseState =
+      localStorage.getItem(CUSTOM_NAVIGATION_COLLAPSE_STORAGE_KEY) === "true";
+
+    this.customNavCollapsed = restoredCustomNavigationCollapseState;
+
+    const restoredCustomNavigationViewState = localStorage.getItem(
+      CUSTOM_NAVIGATION_VIEW_STORAGE_KEY
+    );
+
+    this.customNavView =
+      restoredCustomNavigationViewState as SwirlShellLayoutCustomNavView;
   }
 
   componentDidLoad() {
@@ -81,6 +110,10 @@ export class SwirlShellLayout {
         },
       },
     });
+
+    this.collectCustomNavItems();
+    this.toggleCustomNavItemLabels();
+    this.setCustomNavItemsTiled();
   }
 
   componentDidRender() {
@@ -116,6 +149,13 @@ export class SwirlShellLayout {
       NAVIGATION_COLLAPSE_STORAGE_KEY,
       String(this.navigationCollapsed)
     );
+
+    this.toggleCustomNavItemLabels();
+  }
+
+  @Watch("collapsedNavigationHovered")
+  watchCollapsedNavigationHovered() {
+    this.toggleCustomNavItemLabels();
   }
 
   @Watch("sidebarActive")
@@ -130,6 +170,52 @@ export class SwirlShellLayout {
   async showMobileNavigation() {
     this.mobileNavigationActive = true;
   }
+
+  onMouseEnter = () => {
+    if (this.navigationCollapsed && !this.collapsedNavigationHovered) {
+      this.collapsedNavigationHovered = true;
+    }
+  };
+
+  onMouseLeave = () => {
+    if (this.navigationCollapsed && this.collapsedNavigationHovered) {
+      this.collapsedNavigationHovered = false;
+    }
+  };
+
+  collectCustomNavItems = () => {
+    this.customNavItems = Array.from(
+      this.el.querySelectorAll(
+        "swirl-shell-navigation-item[slot='custom-nav'], [slot='custom-nav'] swirl-shell-navigation-item"
+      )
+    );
+
+    this.toggleCustomNavItemLabels();
+  };
+
+  toggleCustomNavView = () => {
+    if (this.customNavView === "grid") {
+      this.customNavView = "list";
+    } else {
+      this.customNavView = "grid";
+    }
+
+    this.setCustomNavItemsTiled();
+
+    localStorage.setItem(
+      CUSTOM_NAVIGATION_VIEW_STORAGE_KEY,
+      String(this.customNavView)
+    );
+  };
+
+  toggleCustomNavCollapse = () => {
+    this.customNavCollapsed = !this.customNavCollapsed;
+
+    localStorage.setItem(
+      CUSTOM_NAVIGATION_COLLAPSE_STORAGE_KEY,
+      String(this.customNavCollapsed)
+    );
+  };
 
   /**
    * Hides the mobile navigation.
@@ -147,14 +233,35 @@ export class SwirlShellLayout {
     this.hideMobileNavigation();
   };
 
+  private toggleCustomNavItemLabels() {
+    this.customNavItems.forEach((item) => {
+      item.hideLabel =
+        this.customNavView === "grid" &&
+        this.navigationCollapsed &&
+        !this.collapsedNavigationHovered;
+    });
+  }
+
+  private setCustomNavItemsTiled() {
+    this.customNavItems.forEach((item) => {
+      item.tiled = this.customNavView === "grid";
+    });
+  }
+
   render() {
     const hasSidebarToggleBadgeWithLabel =
       this.sidebarToggleBadge !== true && this.sidebarToggleBadge !== "true";
 
+    const hasCustomNav = Boolean(this.el.querySelector("[slot='custom-nav']"));
+
     const className = classnames("shell-layout", {
       "shell-layout--branded-header": this.brandedHeader,
+      "shell-layout--custom-nav-collapsed": this.customNavCollapsed,
+      "shell-layout--has-custom-nav": hasCustomNav,
       "shell-layout--mobile-navigation-active": this.mobileNavigationActive,
       "shell-layout--navigation-collapsed": this.navigationCollapsed,
+      "shell-layout--collapsed-navigation-hovered":
+        this.collapsedNavigationHovered,
       "shell-layout--sidebar-active": this.sidebarActive,
     });
 
@@ -243,6 +350,8 @@ export class SwirlShellLayout {
             aria-labelledby="main-navigation-label"
             class="shell-layout__nav"
             onClick={this.onNavigationClick}
+            onMouseEnter={this.onMouseEnter}
+            onMouseLeave={this.onMouseLeave}
             ref={(el) => (this.navElement = el)}
           >
             <div class="shell-layout__mobile-header">
@@ -264,6 +373,73 @@ export class SwirlShellLayout {
                 <span id="main-navigation-label">{this.navigationLabel}</span>
               </swirl-visually-hidden>
               <slot name="nav"></slot>
+              <div class="shell-layout__custom-nav">
+                <swirl-separator
+                  borderColor="strong"
+                  spacing="16"
+                ></swirl-separator>
+                <swirl-box paddingBlockEnd="16">
+                  <swirl-stack
+                    justify={
+                      this.navigationCollapsed &&
+                      !this.collapsedNavigationHovered
+                        ? "center"
+                        : "space-between"
+                    }
+                    orientation="horizontal"
+                  >
+                    <swirl-button
+                      hideLabel={
+                        this.navigationCollapsed &&
+                        !this.collapsedNavigationHovered
+                      }
+                      icon={
+                        this.customNavCollapsed
+                          ? "<swirl-icon-expand-more></swirl-icon-expand-more>"
+                          : "<swirl-icon-expand-less></swirl-icon-expand-less>"
+                      }
+                      label={
+                        this.customNavCollapsed
+                          ? this.customNavExpandLabel
+                          : this.customNavCollapseLabel
+                      }
+                      onClick={this.toggleCustomNavCollapse}
+                      variant="plain"
+                    ></swirl-button>
+                    {(!this.navigationCollapsed ||
+                      this.collapsedNavigationHovered) &&
+                      !this.customNavCollapsed && (
+                        <swirl-button
+                          icon={
+                            this.customNavView === "grid"
+                              ? "<swirl-icon-menu></swirl-icon-menu>"
+                              : "<swirl-icon-hamburger-menu></swirl-icon-hamburger-menu>"
+                          }
+                          iconPosition="end"
+                          label={
+                            this.customNavView === "grid"
+                              ? this.gridNavLayoutToggleLabel
+                              : this.listNavLayoutToggleLabel
+                          }
+                          onClick={this.toggleCustomNavView}
+                          variant="plain"
+                        ></swirl-button>
+                      )}
+                  </swirl-stack>
+                </swirl-box>
+                <ul
+                  class={{
+                    "shell-layout__custom-nav-items": true,
+                    "shell-layout__custom-nav-items--grid-view":
+                      this.customNavView === "grid",
+                  }}
+                >
+                  <slot
+                    name="custom-nav"
+                    onSlotchange={this.collectCustomNavItems}
+                  ></slot>
+                </ul>
+              </div>
             </div>
           </nav>
           <main class="shell-layout__main" id="main-content">
