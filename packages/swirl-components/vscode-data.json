@@ -14330,14 +14330,6 @@
           "description": ""
         },
         {
-          "name": "custom-nav-collapse-label",
-          "description": ""
-        },
-        {
-          "name": "custom-nav-expand-label",
-          "description": ""
-        },
-        {
           "name": "grid-nav-layout-toggle-label",
           "description": ""
         },
@@ -14355,6 +14347,14 @@
         },
         {
           "name": "navigation-toggle-label",
+          "description": ""
+        },
+        {
+          "name": "secondary-nav-collapse-label",
+          "description": ""
+        },
+        {
+          "name": "secondary-nav-expand-label",
           "description": ""
         },
         {
@@ -16546,6 +16546,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
         {
           "name": "content",
           "description": ""

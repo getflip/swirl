@@ -33,34 +33,40 @@ export class SwirlShellNavigationItem {
 
     return (
       <Host>
-        <Tag
-          class={className}
-          href={this.href}
-          target={this.target}
-          type={isLink ? undefined : "button"}
+        <swirl-tooltip
+          active={this.hideLabel}
+          content={this.label}
+          position="right"
         >
-          <span class="shell-navigation-item__icon">
-            <slot name="icon"></slot>
-          </span>
-          {!this.hideLabel ? (
-            <span class="shell-navigation-item__label">{this.label}</span>
-          ) : (
-            <swirl-visually-hidden>
+          <Tag
+            class={className}
+            href={this.href}
+            target={this.target}
+            type={isLink ? undefined : "button"}
+          >
+            <span class="shell-navigation-item__icon">
+              <slot name="icon"></slot>
+            </span>
+            {!this.hideLabel ? (
               <span class="shell-navigation-item__label">{this.label}</span>
-            </swirl-visually-hidden>
-          )}
-          {this.badgeLabel !== undefined && this.badgeLabel !== null && (
-            <swirl-badge
-              aria-label={this.badgeLabel}
-              class={classnames("shell-navigation-item__badge", {
-                "shell-navigation-item__badge--dot": this.badgeLabel === "",
-              })}
-              label={this.badgeLabel}
-              size="xs"
-              variant={this.badgeLabel === "" ? "dot" : "default"}
-            ></swirl-badge>
-          )}
-        </Tag>
+            ) : (
+              <swirl-visually-hidden>
+                <span class="shell-navigation-item__label">{this.label}</span>
+              </swirl-visually-hidden>
+            )}
+            {this.badgeLabel !== undefined && this.badgeLabel !== null && (
+              <swirl-badge
+                aria-label={this.badgeLabel}
+                class={classnames("shell-navigation-item__badge", {
+                  "shell-navigation-item__badge--dot": this.badgeLabel === "",
+                })}
+                label={this.badgeLabel}
+                size="xs"
+                variant={this.badgeLabel === "" ? "dot" : "default"}
+              ></swirl-badge>
+            )}
+          </Tag>
+        </swirl-tooltip>
       </Host>
     );
   }

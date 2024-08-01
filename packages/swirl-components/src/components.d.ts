@@ -1744,8 +1744,6 @@ export namespace Components {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
-        "customNavCollapseLabel"?: string;
-        "customNavExpandLabel"?: string;
         "gridNavLayoutToggleLabel"?: string;
         /**
           * Hides the mobile navigation.
@@ -1755,6 +1753,8 @@ export namespace Components {
         "listNavLayoutToggleLabel"?: string;
         "navigationLabel"?: string;
         "navigationToggleLabel"?: string;
+        "secondaryNavCollapseLabel"?: string;
+        "secondaryNavExpandLabel"?: string;
         /**
           * Opens the mobile navigation.
          */
@@ -2200,6 +2200,7 @@ export namespace Components {
         "orientation"?: SwirlToolbarOrientation;
     }
     interface SwirlTooltip {
+        "active": boolean;
         "content": string;
         "delay"?: number;
         "position"?: SwirlTooltipPosition;
@@ -6914,8 +6915,6 @@ declare namespace LocalJSX {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
-        "customNavCollapseLabel"?: string;
-        "customNavExpandLabel"?: string;
         "gridNavLayoutToggleLabel"?: string;
         "hideMobileNavigationButtonLabel"?: string;
         "listNavLayoutToggleLabel"?: string;
@@ -6923,6 +6922,8 @@ declare namespace LocalJSX {
         "navigationToggleLabel"?: string;
         "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "onSkipLinkClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
+        "secondaryNavCollapseLabel"?: string;
+        "secondaryNavExpandLabel"?: string;
         "sidebarActive"?: boolean;
         "sidebarToggleBadge"?: string | boolean;
         "sidebarToggleBadgeAriaLabel"?: string;
@@ -7331,6 +7332,7 @@ declare namespace LocalJSX {
         "orientation"?: SwirlToolbarOrientation;
     }
     interface SwirlTooltip {
+        "active"?: boolean;
         "content": string;
         "delay"?: number;
         "position"?: SwirlTooltipPosition;

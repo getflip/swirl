@@ -67,17 +67,17 @@ const Template = (args) => {
       </ul>
       </div>
 
-      <li slot="custom-nav">
+      <li slot="secondary-nav">
         <swirl-shell-navigation-item label="Employee directory">
           <swirl-app-icon icon="<swirl-icon-groups-filled size=&quot;20&quot;></swirl-icon-groups-filled>" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>
       </li>
-      <li slot="custom-nav">
+      <li slot="secondary-nav">
         <swirl-shell-navigation-item badge-label="3" label="Custom Link">
           <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/433/144/144" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>
       </li>
-      <li slot="custom-nav">
+      <li slot="secondary-nav">
         <swirl-shell-navigation-item label="Custom Link with an unusually long label">
           <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/433/144/144" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>

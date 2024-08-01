@@ -31,6 +31,7 @@ export type SwirlTooltipPosition = "top" | "right" | "bottom" | "left";
 export class SwirlTooltip {
   @Element() el: HTMLElement;
 
+  @Prop() active = true;
   @Prop() content!: string;
   @Prop() delay?: number = 300;
   @Prop() position?: SwirlTooltipPosition = "top";
@@ -173,6 +174,7 @@ export class SwirlTooltip {
       "tooltip",
       `tooltip--actual-placement-${this.actualPosition?.placement}`,
       {
+        "tooltip--active": this.active,
         "tooltip--visible": this.visible,
       }
     );
