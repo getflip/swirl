@@ -46,22 +46,22 @@ const Template = (args) => {
       <ul>
         <li>
           <swirl-shell-navigation-item label="Home">
-            <swirl-app-icon icon="<swirl-icon-home size=&quot;20&quot;></swirl-icon-home>" slot="icon"></swirl-app-icon>
+            <swirl-app-icon icon="<swirl-icon-home size=&quot;24&quot;></swirl-icon-home>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
         <li>
           <swirl-shell-navigation-item active label="News" badge-label="">
-            <swirl-app-icon icon="<swirl-icon-news-filled size=&quot;20&quot;></swirl-icon-news-filled>" slot="icon"></swirl-app-icon>
+            <swirl-app-icon icon="<swirl-icon-news-filled size=&quot;24&quot;></swirl-icon-news-filled>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
         <li>
           <swirl-shell-navigation-item label="Chat" badge-label="3">
-            <swirl-app-icon icon="<swirl-icon-chat-bubble size=&quot;20&quot;></swirl-icon-chat-bubble>" slot="icon"></swirl-app-icon>
+            <swirl-app-icon icon="<swirl-icon-chat-bubble size=&quot;24&quot;></swirl-icon-chat-bubble>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
         <li>
           <swirl-shell-navigation-item label="Tasks">
-            <swirl-app-icon icon="<swirl-icon-tasks-filled size=&quot;20&quot;></swirl-icon-tasks-filled>" slot="icon"></swirl-app-icon>
+            <swirl-app-icon icon="<swirl-icon-tasks-filled size=&quot;24&quot;></swirl-icon-tasks-filled>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
       </ul>
@@ -69,7 +69,7 @@ const Template = (args) => {
 
       <li slot="secondary-nav">
         <swirl-shell-navigation-item label="Employee directory">
-          <swirl-app-icon icon="<swirl-icon-groups-filled size=&quot;20&quot;></swirl-icon-groups-filled>" slot="icon"></swirl-app-icon>
+          <swirl-app-icon icon="<swirl-icon-groups-filled size=&quot;24&quot;></swirl-icon-groups-filled>" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>
       </li>
       <li slot="secondary-nav">
