@@ -426,7 +426,7 @@ export class SwirlShellLayout {
                     </swirl-stack>
                   </swirl-box>
                 )}
-                <ul
+                <div
                   class={{
                     "shell-layout__secondary-nav-items": true,
                     "shell-layout__secondary-nav-items--grid-view":
@@ -438,7 +438,7 @@ export class SwirlShellLayout {
                     name="secondary-nav"
                     onSlotchange={this.collectNavItems}
                   ></slot>
-                </ul>
+                </div>
               </div>
             </div>
           </nav>

@@ -72,26 +72,28 @@ const Template = (args) => {
       </swirl-stack>
     </div>
 
-    <li slot="secondary-nav">
-      <swirl-shell-navigation-item label="Reporting hub">
-        <swirl-app-icon src="/menu-item-1.png" slot="icon"></swirl-app-icon>
-      </swirl-shell-navigation-item>
-    </li>
-    <li slot="secondary-nav">
-      <swirl-shell-navigation-item label="My absences">
-        <swirl-app-icon src="/menu-item-2.png" slot="icon"></swirl-app-icon>
-      </swirl-shell-navigation-item>
-    </li>
-    <li slot="secondary-nav">
-      <swirl-shell-navigation-item label="IT self-service">
-        <swirl-app-icon src="/menu-item-3.png" slot="icon"></swirl-app-icon>
-      </swirl-shell-navigation-item>
-    </li>
-    <li slot="secondary-nav">
-      <swirl-shell-navigation-item label="Office door key">
-        <swirl-app-icon src="/menu-item-4.png" slot="icon"></swirl-app-icon>
-      </swirl-shell-navigation-item>
-    </li>
+    <ul slot="secondary-nav">
+      <li>
+        <swirl-shell-navigation-item label="Reporting hub">
+          <swirl-app-icon src="/menu-item-1.png" slot="icon"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+      </li>
+      <li>
+        <swirl-shell-navigation-item label="My absences">
+          <swirl-app-icon src="/menu-item-2.png" slot="icon"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+      </li>
+      <li>
+        <swirl-shell-navigation-item label="IT self-service">
+          <swirl-app-icon src="/menu-item-3.png" slot="icon"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+      </li>
+      <li>
+        <swirl-shell-navigation-item label="Office door key">
+          <swirl-app-icon src="/menu-item-4.png" slot="icon"></swirl-app-icon>
+        </swirl-shell-navigation-item>
+      </li>
+    </ul>
 
     <swirl-app-layout app-name="App name">
       <swirl-button hide-label="true" icon="<swirl-icon-menu></swirl-icon-menu>" label="Menu" slot="navigation-mobile-menu-button"></swirl-button>
