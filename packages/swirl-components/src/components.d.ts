@@ -1744,6 +1744,7 @@ export namespace Components {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
+        "enableSecondaryNavGridLayout"?: boolean;
         "gridNavLayoutToggleLabel"?: string;
         /**
           * Hides the mobile navigation.
@@ -6915,6 +6916,7 @@ declare namespace LocalJSX {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
+        "enableSecondaryNavGridLayout"?: boolean;
         "gridNavLayoutToggleLabel"?: string;
         "hideMobileNavigationButtonLabel"?: string;
         "listNavLayoutToggleLabel"?: string;
