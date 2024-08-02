@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.220.2
+
+### Patch Changes
+
+- [`b54e20a7`](https://github.com/getflip/swirl/commit/b54e20a77aae792a8e3afa5f0069457a5985530f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix allowed shell layout
+  navigation markup
+
 ## 0.220.1
 
 ### Patch Changes
