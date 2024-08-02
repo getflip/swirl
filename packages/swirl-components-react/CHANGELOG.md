@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.220.1
+
+### Patch Changes
+
+- [`ebde720e`](https://github.com/getflip/swirl/commit/ebde720ea7a1e80d9e8db13e9852d3601013a5f6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix shell layout navigation item
+  handling if items change at runtime
+
+- Updated dependencies
+  [[`ebde720e`](https://github.com/getflip/swirl/commit/ebde720ea7a1e80d9e8db13e9852d3601013a5f6)]:
+  - @getflip/swirl-components@0.220.1
+
 ## 0.220.0
 
 ### Minor Changes
