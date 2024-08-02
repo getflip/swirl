@@ -318,7 +318,7 @@
   }
 
   @media (--from-desktop) {
-    position: static;
+    position: relative;
     max-width: none;
     padding-top: 0;
     padding-right: var(--s-space-4);
