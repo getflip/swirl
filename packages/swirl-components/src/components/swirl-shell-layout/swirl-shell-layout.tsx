@@ -73,6 +73,7 @@ export class SwirlShellLayout {
   private focusTrap: focusTrap.FocusTrap;
   private mainNavItems: HTMLSwirlShellNavigationItemElement[];
   private navElement: HTMLElement;
+  private navMutationObserver: MutationObserver;
   private secondaryNavItems: HTMLSwirlShellNavigationItemElement[];
 
   componentWillLoad() {
@@ -119,6 +120,15 @@ export class SwirlShellLayout {
 
     this.toggleNavItemLabels();
     this.setSecondaryNavItemsTiled();
+
+    this.navMutationObserver = new MutationObserver(() => {
+      this.collectNavItems();
+    });
+
+    this.navMutationObserver.observe(this.navElement, {
+      childList: true,
+      subtree: true,
+    });
   }
 
   componentDidRender() {
@@ -127,6 +137,7 @@ export class SwirlShellLayout {
 
   disconnectedCallback() {
     this.focusTrap?.deactivate();
+    this.navMutationObserver?.disconnect();
   }
 
   @Listen("keydown", { target: "window" })
@@ -185,6 +196,7 @@ export class SwirlShellLayout {
     );
 
     this.toggleNavItemLabels();
+    console.log(this.secondaryNavItems);
   };
 
   toggleSecondaryNavView = () => {
@@ -232,10 +244,6 @@ export class SwirlShellLayout {
       item.hideLabel =
         !!(this.enableSecondaryNavGridLayout && this.navigationCollapsed) ||
         (!this.enableSecondaryNavGridLayout && this.navigationCollapsed);
-
-      console.log(
-        this.enableSecondaryNavGridLayout && this.navigationCollapsed
-      );
     });
   }
 
