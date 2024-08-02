@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -13,8 +14,14 @@ import {
 import classnames from "classnames";
 import * as focusTrap from "focus-trap";
 
+const SECONDARY_NAVIGATION_COLLAPSE_STORAGE_KEY =
+  "SWIRL_SHELL_SECONDARY_NAVIGATION_COLLAPSE_STATE";
+const SECONDARY_NAVIGATION_VIEW_STORAGE_KEY =
+  "SWIRL_SHELL_SECONDARY_NAVIGATION_VIEW_STATE";
 const NAVIGATION_COLLAPSE_STORAGE_KEY = "SWIRL_SHELL_NAVIGATION_COLLAPSE_STATE";
 const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
+
+export type SwirlShellLayoutSecondaryNavView = "grid" | "list";
 
 /**
  * @slot logo - Logo shown inside header.
@@ -35,12 +42,19 @@ const SIDEBAR_STORAGE_KEY = "SWIRL_SHELL_SIDEBAR_STATE";
   tag: "swirl-shell-layout",
 })
 export class SwirlShellLayout {
+  @Element() el: HTMLElement;
+
   @Prop() brandedHeader?: boolean;
   @Prop() browserBackButtonLabel?: string = "Navigate back";
   @Prop() browserForwardButtonLabel?: string = "Navigate forward";
+  @Prop() enableSecondaryNavGridLayout?: boolean = true;
+  @Prop() gridNavLayoutToggleLabel?: string = "Grid";
   @Prop() hideMobileNavigationButtonLabel?: string = "Close navigation";
+  @Prop() listNavLayoutToggleLabel?: string = "List";
   @Prop() navigationLabel?: string = "Main";
   @Prop() navigationToggleLabel?: string = "Toggle navigation";
+  @Prop() secondaryNavCollapseLabel?: string = "Show less";
+  @Prop() secondaryNavExpandLabel?: string = "Show more";
   @Prop({ mutable: true }) sidebarActive?: boolean;
   @Prop() sidebarToggleBadge?: string | boolean;
   @Prop() sidebarToggleBadgeAriaLabel?: string;
@@ -53,11 +67,17 @@ export class SwirlShellLayout {
 
   @State() mobileNavigationActive?: boolean;
   @State() navigationCollapsed?: boolean;
+  @State() secondaryNavCollapsed?: boolean;
+  @State() secondaryNavView?: SwirlShellLayoutSecondaryNavView = "list";
 
   private focusTrap: focusTrap.FocusTrap;
+  private mainNavItems: HTMLSwirlShellNavigationItemElement[];
   private navElement: HTMLElement;
+  private secondaryNavItems: HTMLSwirlShellNavigationItemElement[];
 
   componentWillLoad() {
+    this.collectNavItems();
+
     const restoredSidebarState =
       localStorage.getItem(SIDEBAR_STORAGE_KEY) === "true";
 
@@ -70,6 +90,21 @@ export class SwirlShellLayout {
       localStorage.getItem(NAVIGATION_COLLAPSE_STORAGE_KEY) === "true";
 
     this.navigationCollapsed = restoredNavigationCollapseState;
+
+    if (this.enableSecondaryNavGridLayout) {
+      const restoredSecondaryNavigationCollapseState =
+        localStorage.getItem(SECONDARY_NAVIGATION_COLLAPSE_STORAGE_KEY) ===
+        "true";
+
+      this.secondaryNavCollapsed = restoredSecondaryNavigationCollapseState;
+
+      const restoredSecondaryNavigationViewState = localStorage.getItem(
+        SECONDARY_NAVIGATION_VIEW_STORAGE_KEY
+      );
+
+      this.secondaryNavView =
+        restoredSecondaryNavigationViewState as SwirlShellLayoutSecondaryNavView;
+    }
   }
 
   componentDidLoad() {
@@ -81,6 +116,9 @@ export class SwirlShellLayout {
         },
       },
     });
+
+    this.toggleNavItemLabels();
+    this.setSecondaryNavItemsTiled();
   }
 
   componentDidRender() {
@@ -116,6 +154,8 @@ export class SwirlShellLayout {
       NAVIGATION_COLLAPSE_STORAGE_KEY,
       String(this.navigationCollapsed)
     );
+
+    this.toggleNavItemLabels();
   }
 
   @Watch("sidebarActive")
@@ -130,6 +170,46 @@ export class SwirlShellLayout {
   async showMobileNavigation() {
     this.mobileNavigationActive = true;
   }
+
+  collectNavItems = () => {
+    this.mainNavItems = Array.from(
+      this.el.querySelectorAll(
+        "swirl-shell-navigation-item[slot='nav'], [slot='nav'] swirl-shell-navigation-item"
+      )
+    );
+
+    this.secondaryNavItems = Array.from(
+      this.el.querySelectorAll(
+        "swirl-shell-navigation-item[slot='secondary-nav'], [slot='secondary-nav'] swirl-shell-navigation-item"
+      )
+    );
+
+    this.toggleNavItemLabels();
+  };
+
+  toggleSecondaryNavView = () => {
+    if (this.secondaryNavView === "grid") {
+      this.secondaryNavView = "list";
+    } else {
+      this.secondaryNavView = "grid";
+    }
+
+    this.setSecondaryNavItemsTiled();
+
+    localStorage.setItem(
+      SECONDARY_NAVIGATION_VIEW_STORAGE_KEY,
+      String(this.secondaryNavView)
+    );
+  };
+
+  toggleSecondaryNavCollapse = () => {
+    this.secondaryNavCollapsed = !this.secondaryNavCollapsed;
+
+    localStorage.setItem(
+      SECONDARY_NAVIGATION_COLLAPSE_STORAGE_KEY,
+      String(this.secondaryNavCollapsed)
+    );
+  };
 
   /**
    * Hides the mobile navigation.
@@ -147,12 +227,37 @@ export class SwirlShellLayout {
     this.hideMobileNavigation();
   };
 
+  private toggleNavItemLabels() {
+    [...this.secondaryNavItems, ...this.mainNavItems].forEach((item) => {
+      item.hideLabel =
+        !!(this.enableSecondaryNavGridLayout && this.navigationCollapsed) ||
+        (!this.enableSecondaryNavGridLayout && this.navigationCollapsed);
+
+      console.log(
+        this.enableSecondaryNavGridLayout && this.navigationCollapsed
+      );
+    });
+  }
+
+  private setSecondaryNavItemsTiled() {
+    this.secondaryNavItems.forEach((item) => {
+      item.tiled =
+        this.enableSecondaryNavGridLayout && this.secondaryNavView === "grid";
+    });
+  }
+
   render() {
     const hasSidebarToggleBadgeWithLabel =
       this.sidebarToggleBadge !== true && this.sidebarToggleBadge !== "true";
 
+    const hasSecondaryNav = Boolean(
+      this.el.querySelector("[slot='secondary-nav']")
+    );
+
     const className = classnames("shell-layout", {
       "shell-layout--branded-header": this.brandedHeader,
+      "shell-layout--secondary-nav-collapsed": this.secondaryNavCollapsed,
+      "shell-layout--has-secondary-nav": hasSecondaryNav,
       "shell-layout--mobile-navigation-active": this.mobileNavigationActive,
       "shell-layout--navigation-collapsed": this.navigationCollapsed,
       "shell-layout--sidebar-active": this.sidebarActive,
@@ -263,7 +368,70 @@ export class SwirlShellLayout {
               <swirl-visually-hidden>
                 <span id="main-navigation-label">{this.navigationLabel}</span>
               </swirl-visually-hidden>
-              <slot name="nav"></slot>
+              <slot name="nav" onSlotchange={this.collectNavItems}></slot>
+              <div class="shell-layout__secondary-nav">
+                <swirl-separator
+                  borderColor="strong"
+                  spacing="16"
+                ></swirl-separator>
+                {this.enableSecondaryNavGridLayout && (
+                  <swirl-box paddingBlockEnd="16">
+                    <swirl-stack
+                      justify={
+                        this.navigationCollapsed ? "center" : "space-between"
+                      }
+                      orientation="horizontal"
+                    >
+                      <swirl-button
+                        hideLabel={this.navigationCollapsed}
+                        icon={
+                          this.secondaryNavCollapsed
+                            ? "<swirl-icon-expand-more></swirl-icon-expand-more>"
+                            : "<swirl-icon-expand-less></swirl-icon-expand-less>"
+                        }
+                        label={
+                          this.secondaryNavCollapsed
+                            ? this.secondaryNavExpandLabel
+                            : this.secondaryNavCollapseLabel
+                        }
+                        onClick={this.toggleSecondaryNavCollapse}
+                        variant="plain"
+                      ></swirl-button>
+                      {!this.navigationCollapsed &&
+                        !this.secondaryNavCollapsed && (
+                          <swirl-button
+                            icon={
+                              this.secondaryNavView === "grid"
+                                ? "<swirl-icon-menu></swirl-icon-menu>"
+                                : "<swirl-icon-hamburger-menu></swirl-icon-hamburger-menu>"
+                            }
+                            iconPosition="end"
+                            label={
+                              this.secondaryNavView === "grid"
+                                ? this.gridNavLayoutToggleLabel
+                                : this.listNavLayoutToggleLabel
+                            }
+                            onClick={this.toggleSecondaryNavView}
+                            variant="plain"
+                          ></swirl-button>
+                        )}
+                    </swirl-stack>
+                  </swirl-box>
+                )}
+                <ul
+                  class={{
+                    "shell-layout__secondary-nav-items": true,
+                    "shell-layout__secondary-nav-items--grid-view":
+                      this.enableSecondaryNavGridLayout &&
+                      this.secondaryNavView === "grid",
+                  }}
+                >
+                  <slot
+                    name="secondary-nav"
+                    onSlotchange={this.collectNavItems}
+                  ></slot>
+                </ul>
+              </div>
             </div>
           </nav>
           <main class="shell-layout__main" id="main-content">

@@ -15,14 +15,16 @@ describe("swirl-shell-navigation-item", () => {
     expect(page.root).toMatchInlineSnapshot(`
       <swirl-shell-navigation-item label="Label">
         <mock:shadow-root>
-          <button class="shell-navigation-item" type="button">
-            <span class="shell-navigation-item__icon">
-              <slot name="icon"></slot>
-            </span>
-            <span class="shell-navigation-item__label">
-              Label
-            </span>
-          </button>
+          <swirl-tooltip content="Label" delay="200" position="right" positioning="fixed">
+            <button class="shell-navigation-item" type="button">
+              <span class="shell-navigation-item__icon">
+                <slot name="icon"></slot>
+              </span>
+              <span class="shell-navigation-item__label">
+                Label
+              </span>
+            </button>
+          </swirl-tooltip>
         </mock:shadow-root>
         <swirl-app-icon label="link" slot="icon" src="https://picsum.photos/id/433/144/144"></swirl-app-icon>
       </swirl-shell-navigation-item>
@@ -39,9 +41,9 @@ describe("swirl-shell-navigation-item", () => {
     });
 
     expect(
-      page.root.shadowRoot.children[0].classList.contains(
-        "shell-navigation-item--active"
-      )
+      page.root.shadowRoot
+        .querySelector(".shell-navigation-item")
+        .classList.contains("shell-navigation-item--active")
     ).toBeTruthy();
   });
 

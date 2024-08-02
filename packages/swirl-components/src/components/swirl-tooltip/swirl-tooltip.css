@@ -13,6 +13,12 @@
   display: contents;
 }
 
+.tooltip--active {
+  & .tooltip__popper {
+    display: block;
+  }
+}
+
 .tooltip--visible {
   & .tooltip__popper {
     animation: tooltip-fade-in 0.15s;
@@ -57,6 +63,7 @@
 .tooltip__popper {
   position: absolute;
   z-index: var(--s-z-40);
+  display: none;
   max-width: 17.5rem;
   opacity: 0;
 }

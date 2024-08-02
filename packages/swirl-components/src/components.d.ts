@@ -1744,13 +1744,18 @@ export namespace Components {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
+        "enableSecondaryNavGridLayout"?: boolean;
+        "gridNavLayoutToggleLabel"?: string;
         /**
           * Hides the mobile navigation.
          */
         "hideMobileNavigation": () => Promise<void>;
         "hideMobileNavigationButtonLabel"?: string;
+        "listNavLayoutToggleLabel"?: string;
         "navigationLabel"?: string;
         "navigationToggleLabel"?: string;
+        "secondaryNavCollapseLabel"?: string;
+        "secondaryNavExpandLabel"?: string;
         /**
           * Opens the mobile navigation.
          */
@@ -1766,9 +1771,11 @@ export namespace Components {
         "active"?: boolean;
         "badgeLabel"?: string;
         "boxed"?: boolean;
+        "hideLabel"?: boolean;
         "href"?: string;
         "label": string;
         "target"?: string;
+        "tiled"?: boolean;
     }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
@@ -2194,6 +2201,7 @@ export namespace Components {
         "orientation"?: SwirlToolbarOrientation;
     }
     interface SwirlTooltip {
+        "active": boolean;
         "content": string;
         "delay"?: number;
         "position"?: SwirlTooltipPosition;
@@ -6908,11 +6916,16 @@ declare namespace LocalJSX {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
+        "enableSecondaryNavGridLayout"?: boolean;
+        "gridNavLayoutToggleLabel"?: string;
         "hideMobileNavigationButtonLabel"?: string;
+        "listNavLayoutToggleLabel"?: string;
         "navigationLabel"?: string;
         "navigationToggleLabel"?: string;
         "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "onSkipLinkClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
+        "secondaryNavCollapseLabel"?: string;
+        "secondaryNavExpandLabel"?: string;
         "sidebarActive"?: boolean;
         "sidebarToggleBadge"?: string | boolean;
         "sidebarToggleBadgeAriaLabel"?: string;
@@ -6924,9 +6937,11 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "badgeLabel"?: string;
         "boxed"?: boolean;
+        "hideLabel"?: boolean;
         "href"?: string;
         "label": string;
         "target"?: string;
+        "tiled"?: boolean;
     }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
@@ -7319,6 +7334,7 @@ declare namespace LocalJSX {
         "orientation"?: SwirlToolbarOrientation;
     }
     interface SwirlTooltip {
+        "active"?: boolean;
         "content": string;
         "delay"?: number;
         "position"?: SwirlTooltipPosition;

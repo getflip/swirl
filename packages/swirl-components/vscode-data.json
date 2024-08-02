@@ -14330,7 +14330,19 @@
           "description": ""
         },
         {
+          "name": "enable-secondary-nav-grid-layout",
+          "description": ""
+        },
+        {
+          "name": "grid-nav-layout-toggle-label",
+          "description": ""
+        },
+        {
           "name": "hide-mobile-navigation-button-label",
+          "description": ""
+        },
+        {
+          "name": "list-nav-layout-toggle-label",
           "description": ""
         },
         {
@@ -14339,6 +14351,14 @@
         },
         {
           "name": "navigation-toggle-label",
+          "description": ""
+        },
+        {
+          "name": "secondary-nav-collapse-label",
+          "description": ""
+        },
+        {
+          "name": "secondary-nav-expand-label",
           "description": ""
         },
         {
@@ -14387,6 +14407,10 @@
           "description": ""
         },
         {
+          "name": "hide-label",
+          "description": ""
+        },
+        {
           "name": "href",
           "description": ""
         },
@@ -14396,6 +14420,10 @@
         },
         {
           "name": "target",
+          "description": ""
+        },
+        {
+          "name": "tiled",
           "description": ""
         }
       ]
@@ -16522,6 +16550,10 @@
         "value": ""
       },
       "attributes": [
+        {
+          "name": "active",
+          "description": ""
+        },
         {
           "name": "content",
           "description": ""
