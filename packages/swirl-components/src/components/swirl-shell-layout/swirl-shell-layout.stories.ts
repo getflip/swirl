@@ -43,7 +43,7 @@ const Template = (args) => {
     <swirl-button label="Header tool" slot="right-header-tools" variant="outline"></swirl-button>
 
     <div slot="nav">
-      <ul>
+      <swirl-stack align="stretch" as="ul" spacing="2">
         <li>
           <swirl-shell-navigation-item label="Home">
             <swirl-app-icon icon="<swirl-icon-home size=&quot;24&quot;></swirl-icon-home>" slot="icon"></swirl-app-icon>
@@ -64,8 +64,8 @@ const Template = (args) => {
             <swirl-app-icon icon="<swirl-icon-tasks-filled size=&quot;24&quot;></swirl-icon-tasks-filled>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
-      </ul>
-      </div>
+      </swirl-stack>
+    </div>
 
       <li slot="secondary-nav">
         <swirl-shell-navigation-item label="Employee directory">

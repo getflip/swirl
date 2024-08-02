@@ -402,8 +402,14 @@
   display: none;
 }
 
-.shell-layout__secondary-nav-items--grid-view {
+.shell-layout__secondary-nav-items {
   display: flex;
+  flex-direction: column;
+  gap: var(--s-space-2);
+}
+
+.shell-layout__secondary-nav-items--grid-view {
+  flex-direction: row;
   flex-wrap: wrap;
   gap: var(--s-space-16);
 
