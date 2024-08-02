@@ -303,7 +303,8 @@
   top: 0;
   bottom: 0;
   left: 0;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   width: 100%;
   max-width: 18.75rem;
   color: var(--swirl-shell-text-color);
