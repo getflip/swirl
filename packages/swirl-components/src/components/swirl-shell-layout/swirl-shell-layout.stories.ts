@@ -45,43 +45,53 @@ const Template = (args) => {
     <div slot="nav">
       <swirl-stack align="stretch" as="ul" spacing="2">
         <li>
-          <swirl-shell-navigation-item label="Home">
-            <swirl-app-icon icon="<swirl-icon-home size=&quot;24&quot;></swirl-icon-home>" slot="icon"></swirl-app-icon>
+          <swirl-shell-navigation-item label="News">
+            <swirl-app-icon icon="<swirl-icon-news size=&quot;24&quot;></swirl-icon-news>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
         <li>
-          <swirl-shell-navigation-item active label="News" badge-label="">
-            <swirl-app-icon icon="<swirl-icon-news-filled size=&quot;24&quot;></swirl-icon-news-filled>" slot="icon"></swirl-app-icon>
+          <swirl-shell-navigation-item active label="Chats">
+            <swirl-app-icon icon="<swirl-icon-chats size=&quot;24&quot;></swirl-icon-chats>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
         <li>
-          <swirl-shell-navigation-item label="Chat" badge-label="3">
-            <swirl-app-icon icon="<swirl-icon-chat-bubble size=&quot;24&quot;></swirl-icon-chat-bubble>" slot="icon"></swirl-app-icon>
+          <swirl-shell-navigation-item label="Tasks" badge-label="3">
+            <swirl-app-icon icon="<swirl-icon-tasks size=&quot;24&quot;></swirl-icon-tasks>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
         <li>
-          <swirl-shell-navigation-item label="Tasks">
-            <swirl-app-icon icon="<swirl-icon-tasks-filled size=&quot;24&quot;></swirl-icon-tasks-filled>" slot="icon"></swirl-app-icon>
+          <swirl-shell-navigation-item label="Calendar">
+            <swirl-app-icon icon="<swirl-icon-today size=&quot;24&quot;></swirl-icon-today>" slot="icon"></swirl-app-icon>
+          </swirl-shell-navigation-item>
+        </li>
+        <li>
+          <swirl-shell-navigation-item label="Employee directory">
+            <swirl-app-icon icon="<swirl-icon-directory size=&quot;24&quot;></swirl-icon-directory>" slot="icon"></swirl-app-icon>
           </swirl-shell-navigation-item>
         </li>
       </swirl-stack>
     </div>
 
-      <li slot="secondary-nav">
-        <swirl-shell-navigation-item label="Employee directory">
-          <swirl-app-icon icon="<swirl-icon-groups-filled size=&quot;24&quot;></swirl-icon-groups-filled>" slot="icon"></swirl-app-icon>
-        </swirl-shell-navigation-item>
-      </li>
-      <li slot="secondary-nav">
-        <swirl-shell-navigation-item badge-label="3" label="Custom Link">
-          <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/433/144/144" slot="icon"></swirl-app-icon>
-        </swirl-shell-navigation-item>
-      </li>
-      <li slot="secondary-nav">
-        <swirl-shell-navigation-item label="Custom Link with an unusually long label">
-          <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/433/144/144" slot="icon"></swirl-app-icon>
-        </swirl-shell-navigation-item>
-      </li>
+    <li slot="secondary-nav">
+      <swirl-shell-navigation-item label="Reporting hub">
+        <swirl-app-icon src="/menu-item-1.png" slot="icon"></swirl-app-icon>
+      </swirl-shell-navigation-item>
+    </li>
+    <li slot="secondary-nav">
+      <swirl-shell-navigation-item label="My absences">
+        <swirl-app-icon src="/menu-item-2.png" slot="icon"></swirl-app-icon>
+      </swirl-shell-navigation-item>
+    </li>
+    <li slot="secondary-nav">
+      <swirl-shell-navigation-item label="IT self-service">
+        <swirl-app-icon src="/menu-item-3.png" slot="icon"></swirl-app-icon>
+      </swirl-shell-navigation-item>
+    </li>
+    <li slot="secondary-nav">
+      <swirl-shell-navigation-item label="Office door key">
+        <swirl-app-icon src="/menu-item-4.png" slot="icon"></swirl-app-icon>
+      </swirl-shell-navigation-item>
+    </li>
 
     <swirl-app-layout app-name="App name">
       <swirl-button hide-label="true" icon="<swirl-icon-menu></swirl-icon-menu>" label="Menu" slot="navigation-mobile-menu-button"></swirl-button>
