@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.220.0
+
+### Minor Changes
+
+- [#762](https://github.com/getflip/swirl/pull/762)
+  [`e9ffdb07`](https://github.com/getflip/swirl/commit/e9ffdb073a2b8dcfcaf56ecdb87fbd037ba3d125)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add optional grid layout for
+  shell layout navigation
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e9ffdb07`](https://github.com/getflip/swirl/commit/e9ffdb073a2b8dcfcaf56ecdb87fbd037ba3d125)]:
+  - @getflip/swirl-components@0.220.0
+
 ## 0.219.0
 
 ### Minor Changes
