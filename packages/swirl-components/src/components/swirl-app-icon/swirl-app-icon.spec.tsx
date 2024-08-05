@@ -34,7 +34,7 @@ describe("swirl-app-icon", () => {
       <swirl-app-icon label="link" src="https://">
         <mock:shadow-root>
           <span class="app-icon">
-            <img alt="" height="40" src="https://" width="40">
+            <img alt="" height="256" src="https://" width="256">
           </span>
         </mock:shadow-root>
       </swirl-app-icon>

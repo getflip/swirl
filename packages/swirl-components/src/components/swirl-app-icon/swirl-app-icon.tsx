@@ -38,11 +38,11 @@ export class SwirlAppIcon {
           {showImage && (
             <img
               alt=""
-              height="40"
+              height="256"
               onError={this.setImageUnavailable}
               onLoad={this.setImageAvailable}
               src={this.src}
-              width="40"
+              width="256"
             />
           )}
           {showIcon && (

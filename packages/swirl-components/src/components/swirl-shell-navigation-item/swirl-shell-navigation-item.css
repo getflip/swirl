@@ -78,6 +78,7 @@
 
     height: auto;
     padding: 0;
+    align-items: start;
     flex-direction: column;
     container-type: unset;
 
@@ -115,7 +116,7 @@
     & .shell-navigation-item__label {
       display: -webkit-box;
       overflow: hidden;
-      text-align: center;
+      text-align: start;
       white-space: normal;
       text-overflow: unset;
       -webkit-line-clamp: 2;
