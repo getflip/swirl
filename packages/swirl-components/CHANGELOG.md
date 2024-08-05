@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.220.5
+
+### Patch Changes
+
+- [`93f59bef`](https://github.com/getflip/swirl/commit/93f59bef3ce31d09e112795f7c520564c0d99355)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-shell-navigation-item
+  label wrapping
+
 ## 0.220.4
 
 ### Patch Changes
