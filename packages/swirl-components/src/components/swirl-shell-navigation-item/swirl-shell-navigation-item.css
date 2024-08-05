@@ -81,6 +81,7 @@
     align-items: start;
     flex-direction: column;
     container-type: unset;
+    gap: var(--s-space-8);
 
     &:hover {
       background-color: transparent;
