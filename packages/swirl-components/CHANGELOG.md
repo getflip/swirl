@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.220.3
+
+### Patch Changes
+
+- [`875d491a`](https://github.com/getflip/swirl/commit/875d491a355ce89d2f15f880ad55f0b714ab0aaf)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Tweak swirl-shell-navigation-item
+  styling
+
 ## 0.220.2
 
 ### Patch Changes
