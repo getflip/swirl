@@ -1,6 +1,8 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
+export type SwirlBoxBorderColor = "default" | "strong";
+
 export type SwirlBoxOverflow =
   | "visible"
   | "hidden"
@@ -35,6 +37,7 @@ export type SwirlBoxPosition =
   tag: "swirl-box",
 })
 export class SwirlBox {
+  @Prop() borderColor?: SwirlBoxBorderColor = "default";
   @Prop() bordered?: boolean;
   @Prop() borderedBlockEnd?: boolean;
   @Prop() borderedBlockStart?: boolean;
@@ -68,6 +71,10 @@ export class SwirlBox {
   render() {
     const styles = {
       alignItems: this.centerBlock ? "center" : undefined,
+      borderColor:
+        this.borderColor === "default"
+          ? "var(--s-border-default)"
+          : "var(--s-border-strong)",
       bottom: this.bottom,
       display: this.centerBlock || this.centerInline ? "flex" : undefined,
       flexBasis: this.basis,

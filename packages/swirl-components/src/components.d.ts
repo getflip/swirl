@@ -14,7 +14,7 @@ import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-inp
 import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
-import { SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
+import { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
@@ -79,7 +79,7 @@ export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-inp
 export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
 export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./components/swirl-badge/swirl-badge";
 export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
-export { SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
+export { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
@@ -290,6 +290,7 @@ export namespace Components {
     }
     interface SwirlBox {
         "basis"?: string;
+        "borderColor"?: SwirlBoxBorderColor;
         "bordered"?: boolean;
         "borderedBlockEnd"?: boolean;
         "borderedBlockStart"?: boolean;
@@ -5545,6 +5546,7 @@ declare namespace LocalJSX {
     }
     interface SwirlBox {
         "basis"?: string;
+        "borderColor"?: SwirlBoxBorderColor;
         "bordered"?: boolean;
         "borderedBlockEnd"?: boolean;
         "borderedBlockStart"?: boolean;

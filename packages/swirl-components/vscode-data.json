@@ -733,6 +733,18 @@
           "description": ""
         },
         {
+          "name": "border-color",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "strong"
+            }
+          ]
+        },
+        {
           "name": "bordered",
           "description": ""
         },
