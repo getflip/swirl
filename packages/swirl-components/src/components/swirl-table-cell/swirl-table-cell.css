@@ -14,6 +14,16 @@
   hyphens: auto;
   transition: box-shadow 0.15s;
 
+  &(.table-cell--is-sticky) {
+    position: sticky;
+  }
+
+  &(.table-cell--is-sticky-right) {
+    position: sticky;
+    right: 0;
+    overflow: hidden;
+  }
+
   &(.table-cell--has-shadow-right) {
     box-shadow: var(--swirl-table-sticky-right-shadow);
   }

@@ -1,3 +1,5 @@
+import debouncePromise from "debounce-promise";
+
 import {
   Component,
   Element,
@@ -8,8 +10,8 @@ import {
   Prop,
   State,
 } from "@stencil/core";
+
 import { debounce, isMobileViewport } from "../../utils";
-import debouncePromise from "debounce-promise";
 
 /**
  * @slot columns - Column container, should contain SwirlTableColumns.
@@ -99,12 +101,15 @@ export class SwirlTable {
     const columns = this.getColumns();
 
     columns.forEach((column) => {
-      column.classList.remove("table-column--has-shadow");
+      column.classList.remove(
+        "table-column--has-shadow",
+        "table-column--is-sticky",
+        "table-column--is-sticky-right"
+      );
 
       column.style.right = "";
       column.style.left = "";
       column.style.position = "";
-      column.style.zIndex = "";
     });
   }
 
@@ -112,13 +117,16 @@ export class SwirlTable {
     const cells = this.getCells();
 
     cells.forEach((cell) => {
-      cell.classList.remove("table-cell--has-shadow");
+      cell.classList.remove(
+        "table-cell--has-shadow",
+        "table-cell-is-sticky",
+        "table-cell-is-sticky-right"
+      );
 
       cell.style.flex = "";
       cell.style.left = "";
       cell.style.right = "";
       cell.style.position = "";
-      cell.style.zIndex = "";
     });
   }
 
@@ -220,6 +228,7 @@ export class SwirlTable {
   private layOutCells() {
     const columns = this.getColumns();
     const cells = this.getCells();
+    let leftOffsetForStickyColumn = 0;
 
     columns.forEach((column, colIndex) => {
       const cellsOfColumn = cells.filter((_, cellIndex) => {
@@ -228,10 +237,43 @@ export class SwirlTable {
 
       const columnWidth =
         column.width || `${column.getBoundingClientRect().width}px`;
+      const isLastColumnSticky =
+        column.sticky && columns.length === colIndex + 1;
+      const hasShadowRight =
+        column.sticky &&
+        !columns.slice(colIndex + 1, columns.length - 1).some((c) => c.sticky);
 
       cellsOfColumn.forEach((cell) => {
         cell.style.flex = Boolean(columnWidth) ? `0 0 ${columnWidth}` : "";
+        if (column.sticky && !isLastColumnSticky) {
+          cell.classList.add("table-cell--is-sticky");
+          cell.style.left = leftOffsetForStickyColumn + "px";
+          if (hasShadowRight) {
+            cell.classList.add("table-cell--has-shadow-right");
+          }
+        }
+        if (isLastColumnSticky) {
+          cell.classList.add(
+            "table-cell--is-sticky-right",
+            "table-cell--has-shadow-left"
+          );
+        }
       });
+      if (column.sticky && !isLastColumnSticky) {
+        column.classList.add("table-column--is-sticky");
+        column.style.left = leftOffsetForStickyColumn + "px";
+        if (hasShadowRight) {
+          column.classList.add("table-column--has-shadow-right");
+        }
+
+        leftOffsetForStickyColumn += column.getBoundingClientRect().width;
+      }
+      if (isLastColumnSticky) {
+        column.classList.add(
+          "table-column--is-sticky-right",
+          "table-column--has-shadow-left"
+        );
+      }
     });
   }
 
