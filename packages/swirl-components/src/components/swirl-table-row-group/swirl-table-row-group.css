@@ -29,10 +29,8 @@
 }
 
 .table-row-group__label {
-  @media (--from-tablet) {
-    position: sticky;
-    left: var(--s-space-16);
-  }
+  position: sticky;
+  left: var(--s-space-16);
 }
 
 .table-row-group__tooltip {
