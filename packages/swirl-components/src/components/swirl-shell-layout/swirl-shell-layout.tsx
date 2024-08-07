@@ -199,7 +199,9 @@ export class SwirlShellLayout {
     this.toggleNavItemLabels();
   };
 
-  toggleSecondaryNavView = () => {
+  toggleSecondaryNavView = (event: Event) => {
+    event.stopPropagation();
+
     if (this.secondaryNavView === "grid") {
       this.secondaryNavView = "list";
     } else {
@@ -214,7 +216,9 @@ export class SwirlShellLayout {
     );
   };
 
-  toggleSecondaryNavCollapse = () => {
+  toggleSecondaryNavCollapse = (event: Event) => {
+    event.stopPropagation();
+
     this.secondaryNavCollapsed = !this.secondaryNavCollapsed;
 
     localStorage.setItem(
