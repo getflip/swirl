@@ -119,8 +119,8 @@ export class SwirlTable {
     cells.forEach((cell) => {
       cell.classList.remove(
         "table-cell--has-shadow",
-        "table-cell-is-sticky",
-        "table-cell-is-sticky-right"
+        "table-cell--is-sticky",
+        "table-cell--is-sticky-right"
       );
 
       cell.style.flex = "";
