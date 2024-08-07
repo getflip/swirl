@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.222.1
+
+### Patch Changes
+
+- [`4390b336`](https://github.com/getflip/swirl/commit/4390b336e500e2785eda0db99e2b6f9d98a5bd0f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Don't close mobile shell
+  navigation when secondary navigation is toggled
+
+- Updated dependencies
+  [[`4390b336`](https://github.com/getflip/swirl/commit/4390b336e500e2785eda0db99e2b6f9d98a5bd0f)]:
+  - @getflip/swirl-components@0.222.1
+
 ## 0.222.0
 
 ### Minor Changes
