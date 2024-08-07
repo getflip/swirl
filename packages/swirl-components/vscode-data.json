@@ -2558,6 +2558,21 @@
           "description": ""
         },
         {
+          "name": "font-size",
+          "description": "",
+          "values": [
+            {
+              "name": "base"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "sm"
+            }
+          ]
+        },
+        {
           "name": "hide-label",
           "description": ""
         },
@@ -16180,6 +16195,21 @@
         {
           "name": "disabled",
           "description": ""
+        },
+        {
+          "name": "font-size",
+          "description": "",
+          "values": [
+            {
+              "name": "base"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "sm"
+            }
+          ]
         },
         {
           "name": "inline",

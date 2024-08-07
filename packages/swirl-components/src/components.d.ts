@@ -27,7 +27,7 @@ import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 import { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 import { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 import { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
-import { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
+import { SwirlFormControlFontSize, SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 import { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 import { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 import { SwirlIconColor } from "./components/swirl-icon/swirl-icon";
@@ -63,7 +63,7 @@ import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-tabl
 import { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
-import { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
+import { SwirlTextInputFontSize, SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
 import { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
@@ -92,7 +92,7 @@ export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 export { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
 export { SwirlFileViewerPdfViewMode, SwirlFileViewerPdfZoom } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
 export { SwirlFileViewerPdfViewMode as SwirlFileViewerPdfViewMode1, SwirlFileViewerPdfZoom as SwirlFileViewerPdfZoom1 } from "./components/swirl-file-viewer/viewers/swirl-file-viewer-pdf/swirl-file-viewer-pdf";
-export { SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
+export { SwirlFormControlFontSize, SwirlFormControlLabelPosition } from "./components/swirl-form-control/swirl-form-control";
 export { SwirlFormGroupOrientation } from "./components/swirl-form-group/swirl-form-group";
 export { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadingTag } from "./components/swirl-heading/swirl-heading";
 export { SwirlIconColor } from "./components/swirl-icon/swirl-icon";
@@ -128,7 +128,7 @@ export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-tabl
 export { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
-export { SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
+export { SwirlTextInputFontSize, SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
 export { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
@@ -666,6 +666,7 @@ export namespace Components {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
+        "fontSize"?: SwirlFormControlFontSize;
         "hideLabel"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
@@ -2093,6 +2094,7 @@ export namespace Components {
         "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
         "focusInput": () => Promise<void>;
+        "fontSize"?: SwirlTextInputFontSize;
         "inline"?: boolean;
         "invalid"?: boolean;
         "max"?: number;
@@ -5877,6 +5879,7 @@ declare namespace LocalJSX {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
+        "fontSize"?: SwirlFormControlFontSize;
         "hideLabel"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
@@ -7251,6 +7254,7 @@ declare namespace LocalJSX {
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
+        "fontSize"?: SwirlTextInputFontSize;
         "inline"?: boolean;
         "invalid"?: boolean;
         "max"?: number;

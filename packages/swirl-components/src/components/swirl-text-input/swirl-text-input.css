@@ -44,6 +44,32 @@
   }
 }
 
+.text-input--font-size-sm {
+  font-size: var(--s-font-size-sm);
+  line-height: var(--s-line-height-sm);
+
+  & .text-input__input {
+    @media (--from-desktop-without-touch) {
+      font-size: var(--s-font-size-sm);
+      line-height: var(--s-line-height-sm);
+    }
+  }
+}
+
+.text-input--font-size-base {
+  --swirl-text-input-placeholder-size: var(--s-font-size-base);
+
+  font-size: var(--s-font-size-base);
+  line-height: var(--s-line-height-base);
+
+  & .text-input__input {
+    @media (--from-desktop-without-touch) {
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+    }
+  }
+}
+
 .text-input--has-suffix {
   & input.text-input__input:not([type="password"]) {
     width: 0.25rem;

@@ -12,6 +12,8 @@ import {
 import classnames from "classnames";
 import { getDesktopMediaQuery, SwirlFormInput } from "../../utils";
 
+export type SwirlTextInputFontSize = "default" | "sm" | "base";
+
 export type SwirlTextInputType =
   | "date"
   | "datetime-local"
@@ -53,17 +55,14 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() clearButtonLabel?: string = "Clear input";
   @Prop() disabled?: boolean;
   @Prop() disableDynamicWidth?: boolean;
-  @Prop() swirlAriaAutocomplete?: string;
-  @Prop() swirlAriaControls?: string;
-  @Prop() swirlAriaDescribedby?: string;
-  @Prop() swirlAriaExpanded?: string;
-  @Prop() swirlRole?: string;
+  @Prop() fontSize?: SwirlTextInputFontSize = "default";
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() maxLength?: number;
   @Prop() max?: number;
   @Prop() min?: number;
   @Prop() mode?: SwirlTextInputMode;
+  @Prop() passwordToggleLabel?: string = "Toggle password display";
   @Prop() placeholder?: string;
   @Prop() prefixLabel?: string;
   @Prop() required?: boolean;
@@ -72,7 +71,11 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() spellCheck?: boolean;
   @Prop() suffixLabel?: string;
   @Prop() step?: number;
-  @Prop() passwordToggleLabel?: string = "Toggle password display";
+  @Prop() swirlAriaAutocomplete?: string;
+  @Prop() swirlAriaControls?: string;
+  @Prop() swirlAriaDescribedby?: string;
+  @Prop() swirlAriaExpanded?: string;
+  @Prop() swirlRole?: string;
   @Prop() type?: SwirlTextInputType = "text";
   @Prop({ mutable: true, reflect: true }) value?: string;
 
@@ -268,6 +271,7 @@ export class SwirlTextInput implements SwirlFormInput {
 
     const className = classnames(
       "text-input",
+      `text-input--font-size-${this.fontSize}`,
       `text-input--type-${this.type}`,
       {
         "text-input--auto-grow": this.autoGrow,

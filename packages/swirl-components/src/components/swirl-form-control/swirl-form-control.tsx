@@ -11,6 +11,8 @@ import {
 import classnames from "classnames";
 import { getActiveElement, isDescendantOf } from "../../utils";
 
+export type SwirlFormControlFontSize = "default" | "sm" | "base";
+
 export type SwirlFormControlLabelPosition = "inside" | "outside";
 
 /**
@@ -35,6 +37,7 @@ export class SwirlFormControl {
   @Prop() description?: string;
   @Prop() disabled?: boolean;
   @Prop() errorMessage?: string;
+  @Prop() fontSize?: SwirlFormControlFontSize = "default";
   @Prop() hideLabel?: boolean;
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
@@ -213,6 +216,7 @@ export class SwirlFormControl {
 
     const className = classnames(
       "form-control",
+      `form-control--font-size-${this.fontSize}`,
       `form-control--label-position-${this.labelPosition}`,
       {
         "form-control--disabled": this.disabled,
