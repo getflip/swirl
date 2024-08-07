@@ -286,6 +286,7 @@ export class SwirlTable {
     if (column.sticky && !isLastColumnSticky) {
       cell.classList.add("table-cell--is-sticky");
       cell.style.left = leftOffsetForStickyColumn + "px";
+
       if (hasShadowRight) {
         cell.classList.add("table-cell--has-shadow-right");
       }
