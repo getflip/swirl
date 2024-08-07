@@ -180,7 +180,7 @@ export class SwirlTable {
       this.resetRowGroupStyles();
       this.layoutEmptyRow();
       this.layoutRowGroups();
-      this.layOutCells();
+      this.layOutCellsAndColumns();
     },
     16,
     { leading: true }
@@ -225,7 +225,7 @@ export class SwirlTable {
     });
   }
 
-  private layOutCells() {
+  private layOutCellsAndColumns() {
     const columns = this.getColumns();
     const cells = this.getCells();
     let leftOffsetForStickyColumn = 0;
@@ -245,6 +245,9 @@ export class SwirlTable {
 
       cellsOfColumn.forEach((cell) => {
         cell.style.flex = Boolean(columnWidth) ? `0 0 ${columnWidth}` : "";
+        if (isMobileViewport()) {
+          return;
+        }
         if (column.sticky && !isLastColumnSticky) {
           cell.classList.add("table-cell--is-sticky");
           cell.style.left = leftOffsetForStickyColumn + "px";
@@ -259,6 +262,9 @@ export class SwirlTable {
           );
         }
       });
+      if (isMobileViewport()) {
+        return;
+      }
       if (column.sticky && !isLastColumnSticky) {
         column.classList.add("table-column--is-sticky");
         column.style.left = leftOffsetForStickyColumn + "px";
