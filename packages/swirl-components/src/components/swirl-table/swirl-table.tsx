@@ -228,59 +228,115 @@ export class SwirlTable {
   private layOutCellsAndColumns() {
     const columns = this.getColumns();
     const cells = this.getCells();
-    let leftOffsetForStickyColumn = 0;
 
     columns.forEach((column, colIndex) => {
-      const cellsOfColumn = cells.filter((_, cellIndex) => {
-        return (colIndex - cellIndex) % columns.length === 0;
-      });
+      const cellsOfColumn = this.getCellsForColumn(cells, columns, colIndex);
+      const columnProperties = this.calculateColumnProperties(
+        column,
+        columns,
+        colIndex
+      );
 
-      const columnWidth =
-        column.width || `${column.getBoundingClientRect().width}px`;
-      const isLastColumnSticky =
-        column.sticky && columns.length === colIndex + 1;
-      const hasShadowRight =
-        column.sticky &&
-        !columns.slice(colIndex + 1, columns.length - 1).some((c) => c.sticky);
+      cellsOfColumn.forEach((cell) =>
+        this.applyCellStyles(cell, column, columnProperties)
+      );
 
-      cellsOfColumn.forEach((cell) => {
-        cell.style.flex = Boolean(columnWidth) ? `0 0 ${columnWidth}` : "";
-        if (isMobileViewport()) {
-          return;
-        }
-        if (column.sticky && !isLastColumnSticky) {
-          cell.classList.add("table-cell--is-sticky");
-          cell.style.left = leftOffsetForStickyColumn + "px";
-          if (hasShadowRight) {
-            cell.classList.add("table-cell--has-shadow-right");
-          }
-        }
-        if (isLastColumnSticky) {
-          cell.classList.add(
-            "table-cell--is-sticky-right",
-            "table-cell--has-shadow-left"
-          );
-        }
-      });
-      if (isMobileViewport()) {
-        return;
-      }
-      if (column.sticky && !isLastColumnSticky) {
-        column.classList.add("table-column--is-sticky");
-        column.style.left = leftOffsetForStickyColumn + "px";
-        if (hasShadowRight) {
-          column.classList.add("table-column--has-shadow-right");
-        }
-
-        leftOffsetForStickyColumn += column.getBoundingClientRect().width;
-      }
-      if (isLastColumnSticky) {
-        column.classList.add(
-          "table-column--is-sticky-right",
-          "table-column--has-shadow-left"
-        );
-      }
+      this.applyColumnStyles(column, columnProperties);
     });
+  }
+
+  private getCellsForColumn(cells, columns, colIndex) {
+    return cells.filter(
+      (_, cellIndex) => (colIndex - cellIndex) % columns.length === 0
+    );
+  }
+
+  private calculateColumnProperties(column, columns, colIndex) {
+    const leftOffsetForStickyColumn = column.sticky
+      ? this.getLeftOffsetForStickyColumn(columns, colIndex)
+      : 0;
+    const columnWidth =
+      column.width || `${column.getBoundingClientRect().width}px`;
+    const isLastColumnSticky = column.sticky && columns.length === colIndex + 1;
+    const hasShadowRight =
+      column.sticky && !this.hasStickyColumnsToRight(columns, colIndex);
+
+    return {
+      leftOffsetForStickyColumn,
+      columnWidth,
+      isLastColumnSticky,
+      hasShadowRight,
+    };
+  }
+
+  private applyCellStyles(cell, column, columnProperties) {
+    const {
+      leftOffsetForStickyColumn,
+      columnWidth,
+      isLastColumnSticky,
+      hasShadowRight,
+    } = columnProperties;
+
+    cell.style.flex = Boolean(columnWidth) ? `0 0 ${columnWidth}` : "";
+
+    if (isMobileViewport()) {
+      return;
+    }
+
+    if (column.sticky && !isLastColumnSticky) {
+      cell.classList.add("table-cell--is-sticky");
+      cell.style.left = leftOffsetForStickyColumn + "px";
+      if (hasShadowRight) {
+        cell.classList.add("table-cell--has-shadow-right");
+      }
+    }
+
+    if (isLastColumnSticky) {
+      cell.classList.add(
+        "table-cell--is-sticky-right",
+        "table-cell--has-shadow-left"
+      );
+    }
+  }
+
+  private applyColumnStyles(column, columnProperties) {
+    if (isMobileViewport()) {
+      return;
+    }
+
+    const { leftOffsetForStickyColumn, isLastColumnSticky, hasShadowRight } =
+      columnProperties;
+
+    if (column.sticky && !isLastColumnSticky) {
+      column.classList.add("table-column--is-sticky");
+      column.style.left = leftOffsetForStickyColumn + "px";
+
+      if (hasShadowRight) {
+        column.classList.add("table-column--has-shadow-right");
+      }
+    }
+
+    if (isLastColumnSticky) {
+      column.classList.add(
+        "table-column--is-sticky-right",
+        "table-column--has-shadow-left"
+      );
+    }
+  }
+
+  private getLeftOffsetForStickyColumn(columns, colIndex) {
+    return columns.slice(0, colIndex).reduce((acc, column) => {
+      if (column.sticky) {
+        acc += column.getBoundingClientRect().width;
+        return acc;
+      }
+    }, 0);
+  }
+
+  private hasStickyColumnsToRight(columns, colIndex) {
+    return columns
+      .slice(colIndex + 1, columns.length - 1)
+      .some((column) => column.sticky);
   }
 
   private updateEmptyState() {
