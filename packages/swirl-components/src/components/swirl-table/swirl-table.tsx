@@ -255,8 +255,7 @@ export class SwirlTable {
     const leftOffsetForStickyColumn = column.sticky
       ? this.getLeftOffsetForStickyColumn(columns, colIndex)
       : 0;
-    const columnWidth =
-      column.width || `${column.getBoundingClientRect().width}px`;
+    const columnWidth = `${column.getBoundingClientRect().width}px`;
     const isLastColumnSticky = column.sticky && columns.length === colIndex + 1;
     const hasShadowRight =
       column.sticky && !this.hasStickyColumnsToRight(columns, colIndex);
