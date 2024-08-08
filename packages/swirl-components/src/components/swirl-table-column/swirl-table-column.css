@@ -21,6 +21,15 @@
   transition: box-shadow 0.15s;
   gap: var(--s-space-8);
 
+  &(.table-column--is-sticky) {
+    position: sticky;
+  }
+
+  &(.table-column--is-sticky-right) {
+    position: sticky;
+    right: 0;
+  }
+
   &(.table-column--has-shadow-right) {
     box-shadow: var(--swirl-table-sticky-right-shadow);
   }

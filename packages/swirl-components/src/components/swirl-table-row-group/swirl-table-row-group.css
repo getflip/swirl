@@ -29,10 +29,8 @@
 }
 
 .table-row-group__label {
-  @media (--from-tablet) {
-    position: sticky;
-    left: var(--s-space-16);
-  }
+  position: sticky;
+  left: var(--s-space-16);
 }
 
 .table-row-group__tooltip {
@@ -51,7 +49,7 @@
 }
 
 .table-row-group__rows-container {
-  overflow: hidden;
+  display: contents;
   transition: height 0.3s ease-out;
 }
 

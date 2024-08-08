@@ -1,3 +1,5 @@
+import debouncePromise from "debounce-promise";
+
 import {
   Component,
   Element,
@@ -8,8 +10,8 @@ import {
   Prop,
   State,
 } from "@stencil/core";
+
 import { debounce, isMobileViewport } from "../../utils";
-import debouncePromise from "debounce-promise";
 
 /**
  * @slot columns - Column container, should contain SwirlTableColumns.
@@ -99,12 +101,15 @@ export class SwirlTable {
     const columns = this.getColumns();
 
     columns.forEach((column) => {
-      column.classList.remove("table-column--has-shadow");
+      column.classList.remove(
+        "table-column--has-shadow",
+        "table-column--is-sticky",
+        "table-column--is-sticky-right"
+      );
 
       column.style.right = "";
       column.style.left = "";
       column.style.position = "";
-      column.style.zIndex = "";
     });
   }
 
@@ -112,13 +117,16 @@ export class SwirlTable {
     const cells = this.getCells();
 
     cells.forEach((cell) => {
-      cell.classList.remove("table-cell--has-shadow");
+      cell.classList.remove(
+        "table-cell--has-shadow",
+        "table-cell--is-sticky",
+        "table-cell--is-sticky-right"
+      );
 
       cell.style.flex = "";
       cell.style.left = "";
       cell.style.right = "";
       cell.style.position = "";
-      cell.style.zIndex = "";
     });
   }
 
@@ -172,7 +180,7 @@ export class SwirlTable {
       this.resetRowGroupStyles();
       this.layoutEmptyRow();
       this.layoutRowGroups();
-      this.layOutCells();
+      this.layOutCellsAndColumns();
     },
     16,
     { leading: true }
@@ -217,22 +225,118 @@ export class SwirlTable {
     });
   }
 
-  private layOutCells() {
+  private layOutCellsAndColumns() {
     const columns = this.getColumns();
     const cells = this.getCells();
 
     columns.forEach((column, colIndex) => {
-      const cellsOfColumn = cells.filter((_, cellIndex) => {
-        return (colIndex - cellIndex) % columns.length === 0;
-      });
+      const cellsOfColumn = this.getCellsForColumn(cells, columns, colIndex);
+      const columnProperties = this.calculateColumnProperties(
+        column,
+        columns,
+        colIndex
+      );
 
-      const columnWidth =
-        column.width || `${column.getBoundingClientRect().width}px`;
+      cellsOfColumn.forEach((cell) =>
+        this.applyCellStyles(cell, column, columnProperties)
+      );
 
-      cellsOfColumn.forEach((cell) => {
-        cell.style.flex = Boolean(columnWidth) ? `0 0 ${columnWidth}` : "";
-      });
+      this.applyColumnStyles(column, columnProperties);
     });
+  }
+
+  private getCellsForColumn(cells, columns, colIndex) {
+    return cells.filter(
+      (_, cellIndex) => (colIndex - cellIndex) % columns.length === 0
+    );
+  }
+
+  private calculateColumnProperties(column, columns, colIndex) {
+    const leftOffsetForStickyColumn = column.sticky
+      ? this.getLeftOffsetForStickyColumn(columns, colIndex)
+      : 0;
+    const columnWidth = `${column.getBoundingClientRect().width}px`;
+    const isLastColumnSticky = column.sticky && columns.length === colIndex + 1;
+    const hasShadowRight =
+      column.sticky && !this.hasStickyColumnsToRight(columns, colIndex);
+
+    return {
+      leftOffsetForStickyColumn,
+      columnWidth,
+      isLastColumnSticky,
+      hasShadowRight,
+    };
+  }
+
+  private applyCellStyles(cell, column, columnProperties) {
+    const {
+      leftOffsetForStickyColumn,
+      columnWidth,
+      isLastColumnSticky,
+      hasShadowRight,
+    } = columnProperties;
+
+    cell.style.flex = Boolean(columnWidth) ? `0 0 ${columnWidth}` : "";
+
+    if (isMobileViewport()) {
+      return;
+    }
+
+    if (column.sticky && !isLastColumnSticky) {
+      cell.classList.add("table-cell--is-sticky");
+      cell.style.left = leftOffsetForStickyColumn + "px";
+
+      if (hasShadowRight) {
+        cell.classList.add("table-cell--has-shadow-right");
+      }
+    }
+
+    if (isLastColumnSticky) {
+      cell.classList.add(
+        "table-cell--is-sticky-right",
+        "table-cell--has-shadow-left"
+      );
+    }
+  }
+
+  private applyColumnStyles(column, columnProperties) {
+    if (isMobileViewport()) {
+      return;
+    }
+
+    const { leftOffsetForStickyColumn, isLastColumnSticky, hasShadowRight } =
+      columnProperties;
+
+    if (column.sticky && !isLastColumnSticky) {
+      column.classList.add("table-column--is-sticky");
+      column.style.left = leftOffsetForStickyColumn + "px";
+
+      if (hasShadowRight) {
+        column.classList.add("table-column--has-shadow-right");
+      }
+    }
+
+    if (isLastColumnSticky) {
+      column.classList.add(
+        "table-column--is-sticky-right",
+        "table-column--has-shadow-left"
+      );
+    }
+  }
+
+  private getLeftOffsetForStickyColumn(columns, colIndex) {
+    return columns.slice(0, colIndex).reduce((acc, column) => {
+      if (column.sticky) {
+        acc += column.getBoundingClientRect().width;
+        return acc;
+      }
+    }, 0);
+  }
+
+  private hasStickyColumnsToRight(columns, colIndex) {
+    return columns
+      .slice(colIndex + 1, columns.length - 1)
+      .some((column) => column.sticky);
   }
 
   private updateEmptyState() {
