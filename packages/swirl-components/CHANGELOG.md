@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.223.0
+
+### Minor Changes
+
+- [#770](https://github.com/getflip/swirl/pull/770)
+  [`9df750c0`](https://github.com/getflip/swirl/commit/9df750c0eb68db1c28bba983461d1cec3f1d31ba)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Apply
+  sticky property to table columns and cells
+
 ## 0.222.1
 
 ### Patch Changes
