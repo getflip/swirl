@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.224.0
+
+### Minor Changes
+
+- [`6a1af78a`](https://github.com/getflip/swirl/commit/6a1af78a11afe552d7e49f1b2ed93f5ba0623c9a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add chipClick event to swirl-chip
+
+### Patch Changes
+
+- Updated dependencies
+  [[`6a1af78a`](https://github.com/getflip/swirl/commit/6a1af78a11afe552d7e49f1b2ed93f5ba0623c9a)]:
+  - @getflip/swirl-components@0.224.0
+
 ## 0.223.0
 
 ### Minor Changes
