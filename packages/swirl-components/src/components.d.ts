@@ -2663,6 +2663,7 @@ declare global {
         new (): HTMLSwirlCheckboxElement;
     };
     interface HTMLSwirlChipElementEventMap {
+        "chipClick": MouseEvent;
         "remove": MouseEvent;
     }
     interface HTMLSwirlChipElement extends Components.SwirlChip, HTMLStencilElement {
@@ -5674,6 +5675,7 @@ declare namespace LocalJSX {
         "intent"?: SwirlChipIntent;
         "interactive"?: boolean;
         "label": string;
+        "onChipClick"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
         "onRemove"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
         "pressed"?: boolean;
         "progress"?: number;

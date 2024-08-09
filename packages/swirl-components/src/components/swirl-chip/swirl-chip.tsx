@@ -46,6 +46,7 @@ export class SwirlChip {
   @Prop() size?: SwirlChipSize = "m";
   @Prop() variant?: SwirlChipVariant = "outline";
 
+  @Event() chipClick: EventEmitter<MouseEvent>;
   @Event() remove: EventEmitter<MouseEvent>;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
@@ -104,11 +105,12 @@ export class SwirlChip {
     return (
       <Host>
         <Tag
-          class={className}
-          type={this.interactive ? "button" : undefined}
           aria-pressed={
             this.pressed !== undefined ? String(this.pressed) : undefined
           }
+          class={className}
+          onClick={this.chipClick.emit}
+          type={this.interactive ? "button" : undefined}
         >
           <span class="chip__inner">
             {showAvatar && (
