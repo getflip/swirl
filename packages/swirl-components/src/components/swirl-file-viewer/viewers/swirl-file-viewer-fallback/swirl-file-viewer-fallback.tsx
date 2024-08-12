@@ -7,6 +7,7 @@ import {
   Host,
   Prop,
 } from "@stencil/core";
+import { saveAs } from "file-saver";
 
 @Component({
   shadow: true,
@@ -26,6 +27,15 @@ export class SwirlFileViewerFallback {
   componentDidLoad() {
     this.activate.emit(this.el);
   }
+
+  download = async (event: Event) => {
+    event.preventDefault();
+
+    const fileName = this.fileName || this.file.split("/").pop();
+    const file = await fetch(this.file);
+
+    saveAs(await file.blob(), fileName);
+  };
 
   render() {
     return (
@@ -47,6 +57,7 @@ export class SwirlFileViewerFallback {
               href={this.file}
               icon="<swirl-icon-download></swirl-icon-download>"
               label={this.downloadButtonLabel}
+              onClick={this.download}
               variant="on-image"
             ></swirl-button>
           )}
