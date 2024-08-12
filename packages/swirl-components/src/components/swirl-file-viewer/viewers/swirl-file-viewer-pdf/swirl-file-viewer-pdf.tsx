@@ -346,16 +346,16 @@ export class SwirlFileViewerPdf {
         : pages
             .filter((page) => getVisibleHeight(page, this.scrollContainer) > 0)
             .map((page) => +page.dataset.pageNumber);
+    }
 
-      const visiblePagesDidNotChanged =
-        this.visiblePages.length === visiblePages.length &&
-        this.visiblePages.every((pageNumber) =>
-          visiblePages.includes(pageNumber)
-        );
+    const visiblePagesDidNotChanged =
+      this.visiblePages.length === visiblePages.length &&
+      this.visiblePages.every((pageNumber) =>
+        visiblePages.includes(pageNumber)
+      );
 
-      if (visiblePagesDidNotChanged) {
-        return;
-      }
+    if (visiblePagesDidNotChanged) {
+      return;
     }
 
     this.visiblePages = visiblePages;
