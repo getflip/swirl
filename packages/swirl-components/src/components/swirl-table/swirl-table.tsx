@@ -35,17 +35,52 @@ export class SwirlTable {
   @State() scrolledToEnd: boolean;
 
   private container: HTMLElement;
+  private intersectionObserver: IntersectionObserver;
+
+  async componentDidLoad() {
+    this.setupIntersectionObserver();
+  }
+
+  disconnectedCallback() {
+    this.intersectionObserver?.disconnect();
+  }
+
+  /**
+   * Set up an Intersection Observer to monitor when the table container becomes visible.
+   * This is important because the table's layout may need updating when it becomes visible,
+   * especially if it is rendered within a modal that opens after rendering.
+   */
+  private setupIntersectionObserver() {
+    this.intersectionObserver = new IntersectionObserver(
+      this.onVisibilityChange.bind(this),
+      {
+        threshold: 0,
+      }
+    );
+
+    this.intersectionObserver.observe(this.container);
+  }
+
+  private async onVisibilityChange(entries: IntersectionObserverEntry[]) {
+    const inViewport = entries.some((entry) => entry.isIntersecting);
+
+    if (inViewport) {
+      // Delay layout update to ensure the container is fully visible,
+      // especially if it was initially rendered in a modal.
+      setTimeout(async () => {
+        await this.updateLayout();
+      }, 0);
+    }
+  }
 
   async componentDidRender() {
     await this.updateLayout();
-    this.updateScrolledState();
     this.updateEmptyState();
   }
 
   @Listen("resize", { target: "window" })
   async onWindowResize() {
     await this.updateLayout();
-    this.updateScrolledState();
   }
 
   /**
@@ -59,7 +94,6 @@ export class SwirlTable {
   private triggerRerender = debounce(
     async () => {
       await this.updateLayout();
-      this.updateScrolledState();
       this.updateEmptyState();
     },
     0,
@@ -110,6 +144,7 @@ export class SwirlTable {
       column.style.right = "";
       column.style.left = "";
       column.style.position = "";
+      column.style.zIndex = "";
     });
   }
 
@@ -127,6 +162,7 @@ export class SwirlTable {
       cell.style.left = "";
       cell.style.right = "";
       cell.style.position = "";
+      cell.style.zIndex = "";
     });
   }
 
@@ -181,6 +217,7 @@ export class SwirlTable {
       this.layoutEmptyRow();
       this.layoutRowGroups();
       this.layOutCellsAndColumns();
+      this.updateScrolledState();
     },
     16,
     { leading: true }
@@ -351,7 +388,6 @@ export class SwirlTable {
 
   private onSlotChange = async () => {
     await this.updateLayout();
-    this.updateScrolledState();
     this.updateEmptyState();
   };
 
