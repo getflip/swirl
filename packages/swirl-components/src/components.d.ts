@@ -608,6 +608,12 @@ export namespace Components {
         "errorMessage"?: string;
         "file": string;
     }
+    interface SwirlFileViewerFallback {
+        "disableDownload"?: boolean;
+        "downloadButtonLabel"?: string;
+        "file": string;
+        "fileName"?: string;
+    }
     interface SwirlFileViewerImage {
         "description"?: string;
         "errorMessage"?: string;
@@ -2302,6 +2308,10 @@ export interface SwirlFileViewerCsvCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlFileViewerCsvElement;
 }
+export interface SwirlFileViewerFallbackCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlFileViewerFallbackElement;
+}
 export interface SwirlFileViewerImageCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlFileViewerImageElement;
@@ -2906,6 +2916,23 @@ declare global {
     var HTMLSwirlFileViewerCsvElement: {
         prototype: HTMLSwirlFileViewerCsvElement;
         new (): HTMLSwirlFileViewerCsvElement;
+    };
+    interface HTMLSwirlFileViewerFallbackElementEventMap {
+        "activate": HTMLElement;
+    }
+    interface HTMLSwirlFileViewerFallbackElement extends Components.SwirlFileViewerFallback, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileViewerFallbackElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerFallbackElement, ev: SwirlFileViewerFallbackCustomEvent<HTMLSwirlFileViewerFallbackElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileViewerFallbackElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerFallbackElement, ev: SwirlFileViewerFallbackCustomEvent<HTMLSwirlFileViewerFallbackElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSwirlFileViewerFallbackElement: {
+        prototype: HTMLSwirlFileViewerFallbackElement;
+        new (): HTMLSwirlFileViewerFallbackElement;
     };
     interface HTMLSwirlFileViewerImageElementEventMap {
         "activate": HTMLElement;
@@ -5114,6 +5141,7 @@ declare global {
         "swirl-file-viewer": HTMLSwirlFileViewerElement;
         "swirl-file-viewer-audio": HTMLSwirlFileViewerAudioElement;
         "swirl-file-viewer-csv": HTMLSwirlFileViewerCsvElement;
+        "swirl-file-viewer-fallback": HTMLSwirlFileViewerFallbackElement;
         "swirl-file-viewer-image": HTMLSwirlFileViewerImageElement;
         "swirl-file-viewer-pdf": HTMLSwirlFileViewerPdfElement;
         "swirl-file-viewer-text": HTMLSwirlFileViewerTextElement;
@@ -5847,6 +5875,13 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerCsvCustomEvent<HTMLElement>) => void;
+    }
+    interface SwirlFileViewerFallback {
+        "disableDownload"?: boolean;
+        "downloadButtonLabel"?: string;
+        "file": string;
+        "fileName"?: string;
+        "onActivate"?: (event: SwirlFileViewerFallbackCustomEvent<HTMLElement>) => void;
     }
     interface SwirlFileViewerImage {
         "description"?: string;
@@ -7406,6 +7441,7 @@ declare namespace LocalJSX {
         "swirl-file-viewer": SwirlFileViewer;
         "swirl-file-viewer-audio": SwirlFileViewerAudio;
         "swirl-file-viewer-csv": SwirlFileViewerCsv;
+        "swirl-file-viewer-fallback": SwirlFileViewerFallback;
         "swirl-file-viewer-image": SwirlFileViewerImage;
         "swirl-file-viewer-pdf": SwirlFileViewerPdf;
         "swirl-file-viewer-text": SwirlFileViewerText;
@@ -7760,6 +7796,7 @@ declare module "@stencil/core" {
             "swirl-file-viewer": LocalJSX.SwirlFileViewer & JSXBase.HTMLAttributes<HTMLSwirlFileViewerElement>;
             "swirl-file-viewer-audio": LocalJSX.SwirlFileViewerAudio & JSXBase.HTMLAttributes<HTMLSwirlFileViewerAudioElement>;
             "swirl-file-viewer-csv": LocalJSX.SwirlFileViewerCsv & JSXBase.HTMLAttributes<HTMLSwirlFileViewerCsvElement>;
+            "swirl-file-viewer-fallback": LocalJSX.SwirlFileViewerFallback & JSXBase.HTMLAttributes<HTMLSwirlFileViewerFallbackElement>;
             "swirl-file-viewer-image": LocalJSX.SwirlFileViewerImage & JSXBase.HTMLAttributes<HTMLSwirlFileViewerImageElement>;
             "swirl-file-viewer-pdf": LocalJSX.SwirlFileViewerPdf & JSXBase.HTMLAttributes<HTMLSwirlFileViewerPdfElement>;
             "swirl-file-viewer-text": LocalJSX.SwirlFileViewerText & JSXBase.HTMLAttributes<HTMLSwirlFileViewerTextElement>;

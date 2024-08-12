@@ -1,5 +1,43 @@
 # @getflip/swirl-components-react
 
+## 0.225.2
+
+### Patch Changes
+
+- [`97c45d46`](https://github.com/getflip/swirl/commit/97c45d46eb7cec30d6c49b6192c2b7a51aaf95a9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve download handling of
+  fallback file viewer
+
+- Updated dependencies
+  [[`97c45d46`](https://github.com/getflip/swirl/commit/97c45d46eb7cec30d6c49b6192c2b7a51aaf95a9)]:
+  - @getflip/swirl-components@0.225.2
+
+## 0.225.1
+
+### Patch Changes
+
+- [`3f98de9e`](https://github.com/getflip/swirl/commit/3f98de9e198a3f25c57551f14ee6495ab0f7d837)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make swirl-file-viewer-fallback
+  respect disabled downloads
+
+- Updated dependencies
+  [[`3f98de9e`](https://github.com/getflip/swirl/commit/3f98de9e198a3f25c57551f14ee6495ab0f7d837)]:
+  - @getflip/swirl-components@0.225.1
+
+## 0.225.0
+
+### Minor Changes
+
+- [`0c855fb9`](https://github.com/getflip/swirl/commit/0c855fb9772d0555da72b82cee6df30e9d6ac8d1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-file-viewer-fallback
+  for unsupported file types
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0c855fb9`](https://github.com/getflip/swirl/commit/0c855fb9772d0555da72b82cee6df30e9d6ac8d1)]:
+  - @getflip/swirl-components@0.225.0
+
 ## 0.224.0
 
 ### Minor Changes

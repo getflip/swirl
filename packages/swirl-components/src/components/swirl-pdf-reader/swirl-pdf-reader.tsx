@@ -140,7 +140,7 @@ export class SwirlPdfReader {
   }
 
   private lockBodyScroll() {
-    const scrollContainer = this.pdfViewer.shadowRoot.querySelector(
+    const scrollContainer = this.pdfViewer?.shadowRoot.querySelector(
       ".file-viewer-pdf__pages"
     );
 
@@ -150,7 +150,7 @@ export class SwirlPdfReader {
   }
 
   private unlockBodyScroll() {
-    const scrollContainer = this.pdfViewer.shadowRoot.querySelector(
+    const scrollContainer = this.pdfViewer?.shadowRoot.querySelector(
       ".file-viewer-pdf__pages"
     );
 
