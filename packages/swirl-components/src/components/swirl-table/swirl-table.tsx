@@ -69,7 +69,7 @@ export class SwirlTable {
       // especially if it was initially rendered in a modal.
       setTimeout(async () => {
         await this.updateLayout();
-      }, 0);
+      }, 100);
     }
   }
 
