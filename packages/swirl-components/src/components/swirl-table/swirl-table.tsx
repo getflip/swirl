@@ -168,6 +168,11 @@ export class SwirlTable {
 
   private updateScrolledState() {
     const isMobile = isMobileViewport();
+
+    if (this.container === undefined) {
+      return;
+    }
+
     const scrollable = this.container.scrollWidth > this.container.clientWidth;
     const scrolled = this.container.scrollLeft > 0;
 
