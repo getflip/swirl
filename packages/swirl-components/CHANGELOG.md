@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.225.2
+
+### Patch Changes
+
+- [`97c45d46`](https://github.com/getflip/swirl/commit/97c45d46eb7cec30d6c49b6192c2b7a51aaf95a9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Improve download handling of
+  fallback file viewer
+
 ## 0.225.1
 
 ### Patch Changes
