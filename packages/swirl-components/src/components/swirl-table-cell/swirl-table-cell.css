@@ -16,10 +16,12 @@
 
   &(.table-cell--is-sticky) {
     position: sticky;
+    z-index: 1;
   }
 
   &(.table-cell--is-sticky-right) {
     position: sticky;
+    z-index: 1;
     right: 0;
     overflow: hidden;
   }
