@@ -221,7 +221,7 @@ describe("swirl-file-viewer", () => {
     `);
   });
 
-  it("shows error for unsupported type", async () => {
+  it("shows fallback for unsupported type", async () => {
     const page = await newSpecPage({
       components: [SwirlFileViewer],
       html: `
@@ -237,7 +237,7 @@ describe("swirl-file-viewer", () => {
         <mock:shadow-root>
           <div class="file-viewer">
             <div class="file-viewer__file">
-              <swirl-inline-error message="File type is not supported."></swirl-inline-error>
+              <swirl-file-viewer-fallback file="/sample.html"></swirl-file-viewer-fallback>
             </div>
           </div>
         </mock:shadow-root>

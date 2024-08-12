@@ -2426,6 +2426,27 @@
       ]
     },
     {
+      "name": "swirl-file-viewer-fallback",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "download-button-label",
+          "description": ""
+        },
+        {
+          "name": "file",
+          "description": ""
+        },
+        {
+          "name": "file-name",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-file-viewer-image",
       "description": {
         "kind": "markdown",

@@ -146,9 +146,10 @@ export class SwirlFileViewer {
               )}
 
               {unsupportedType && (
-                <swirl-inline-error
-                  message={this.typeUnsupportedMessage}
-                ></swirl-inline-error>
+                <swirl-file-viewer-fallback
+                  file={this.file}
+                  fileName={this.fileName}
+                ></swirl-file-viewer-fallback>
               )}
             </div>
           )}
