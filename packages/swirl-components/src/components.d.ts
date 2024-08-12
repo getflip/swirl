@@ -609,6 +609,7 @@ export namespace Components {
         "file": string;
     }
     interface SwirlFileViewerFallback {
+        "disableDownload"?: boolean;
         "downloadButtonLabel"?: string;
         "file": string;
         "fileName"?: string;
@@ -5876,6 +5877,7 @@ declare namespace LocalJSX {
         "onActivate"?: (event: SwirlFileViewerCsvCustomEvent<HTMLElement>) => void;
     }
     interface SwirlFileViewerFallback {
+        "disableDownload"?: boolean;
         "downloadButtonLabel"?: string;
         "file": string;
         "fileName"?: string;

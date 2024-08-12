@@ -16,6 +16,7 @@ import {
 export class SwirlFileViewerFallback {
   @Element() el: HTMLElement;
 
+  @Prop() disableDownload?: boolean;
   @Prop() downloadButtonLabel?: string = "Download";
   @Prop() fileName?: string;
   @Prop() file!: string;
@@ -40,13 +41,15 @@ export class SwirlFileViewerFallback {
               {this.fileName}
             </swirl-text>
           )}
-          <swirl-button
-            download={this.fileName}
-            href={this.file}
-            icon="<swirl-icon-download></swirl-icon-download>"
-            label={this.downloadButtonLabel}
-            variant="on-image"
-          ></swirl-button>
+          {!this.disableDownload && (
+            <swirl-button
+              download={this.fileName}
+              href={this.file}
+              icon="<swirl-icon-download></swirl-icon-download>"
+              label={this.downloadButtonLabel}
+              variant="on-image"
+            ></swirl-button>
+          )}
         </swirl-stack>
       </Host>
     );

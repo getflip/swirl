@@ -145,8 +145,10 @@ export class SwirlFileViewer {
                 ></swirl-file-viewer-audio>
               )}
 
+              {/* fallback */}
               {unsupportedType && (
                 <swirl-file-viewer-fallback
+                  disableDownload={this.disableDownload}
                   file={this.file}
                   fileName={this.fileName}
                 ></swirl-file-viewer-fallback>

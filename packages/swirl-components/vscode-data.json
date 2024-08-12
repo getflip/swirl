@@ -2433,6 +2433,10 @@
       },
       "attributes": [
         {
+          "name": "disable-download",
+          "description": ""
+        },
+        {
           "name": "download-button-label",
           "description": ""
         },
