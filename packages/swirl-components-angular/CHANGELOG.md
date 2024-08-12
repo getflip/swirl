@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.225.0
+
+### Minor Changes
+
+- [`0c855fb9`](https://github.com/getflip/swirl/commit/0c855fb9772d0555da72b82cee6df30e9d6ac8d1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-file-viewer-fallback
+  for unsupported file types
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0c855fb9`](https://github.com/getflip/swirl/commit/0c855fb9772d0555da72b82cee6df30e9d6ac8d1)]:
+  - @getflip/swirl-components@0.225.0
+
 ## 0.224.0
 
 ### Minor Changes
