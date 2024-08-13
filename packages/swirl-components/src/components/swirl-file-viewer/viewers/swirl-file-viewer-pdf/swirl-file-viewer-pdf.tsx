@@ -51,11 +51,11 @@ export class SwirlFileViewerPdf {
   @Prop() workerSrc?: string = "/pdfjs/pdf.worker.min.js";
   @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
 
+  @State() currentPage: number = null;
   @State() doc: PDFDocumentProxy;
   @State() error: boolean;
   @State() loading: boolean = true;
   @State() renderedPages: number[] = [];
-  @State() scrolledDown: boolean = false;
   @State() singlePageModePage: number = 1;
   @State() visiblePages: number[] = [];
 
@@ -80,7 +80,6 @@ export class SwirlFileViewerPdf {
 
   componentDidRender() {
     this.updateVisiblePages();
-    this.determineScrollStatus();
   }
 
   disconnectedCallback() {
@@ -92,16 +91,12 @@ export class SwirlFileViewerPdf {
     this.visiblePages = [];
     this.renderedPages = [];
     await this.updateVisiblePages();
-
-    this.determineScrollStatus();
   }
 
   @Watch("file")
   async watchProps() {
     await this.getPages();
     await this.updateVisiblePages();
-
-    this.determineScrollStatus();
   }
 
   @Watch("viewMode")
@@ -110,8 +105,6 @@ export class SwirlFileViewerPdf {
       this.visiblePages = [];
       this.renderedPages = [];
       await this.updateVisiblePages();
-
-      this.determineScrollStatus();
     });
   }
 
@@ -123,8 +116,6 @@ export class SwirlFileViewerPdf {
       this.visiblePages = [];
       this.renderedPages = [];
       await this.updateVisiblePages();
-
-      this.determineScrollStatus();
     });
   }
 
@@ -337,28 +328,45 @@ export class SwirlFileViewerPdf {
     );
 
     let visiblePages: number[] = [];
+    let currentPage = null;
 
     if (this.singlePageMode) {
       visiblePages = [this.singlePageModePage];
+      currentPage = this.singlePageModePage;
+    } else if (forPrint) {
+      visiblePages = pages.map((page) => +page.dataset.pageNumber);
     } else {
-      visiblePages = forPrint
-        ? pages.map((page) => +page.dataset.pageNumber)
-        : pages
-            .filter((page) => getVisibleHeight(page, this.scrollContainer) > 0)
-            .map((page) => +page.dataset.pageNumber);
+      const visiblePagesVisibleHeight = pages
+        .map((page) => ({
+          pageNumber: +page.dataset.pageNumber,
+          visibleHeight: getVisibleHeight(page, this.scrollContainer),
+        }))
+        .filter(({ visibleHeight }) => visibleHeight > 0);
 
-      const visiblePagesDidNotChanged =
-        this.visiblePages.length === visiblePages.length &&
-        this.visiblePages.every((pageNumber) =>
-          visiblePages.includes(pageNumber)
+      visiblePages = visiblePagesVisibleHeight.map((page) => page.pageNumber);
+
+      if (visiblePagesVisibleHeight.length > 0) {
+        const firstMostVisiblePage = visiblePagesVisibleHeight.reduce(
+          (previous, current) =>
+            current.visibleHeight > previous.visibleHeight ? current : previous
         );
 
-      if (visiblePagesDidNotChanged) {
-        return;
+        currentPage = firstMostVisiblePage.pageNumber;
       }
     }
 
+    const visiblePagesDidNotChanged =
+      this.visiblePages.length === visiblePages.length &&
+      this.visiblePages.every((pageNumber) =>
+        visiblePages.includes(pageNumber)
+      );
+
+    if (visiblePagesDidNotChanged && this.currentPage === currentPage) {
+      return;
+    }
+
     this.visiblePages = visiblePages;
+    this.currentPage = currentPage;
 
     await this.renderVisiblePages(forPrint);
 
@@ -466,17 +474,6 @@ export class SwirlFileViewerPdf {
       this.recentScrollPosition.x * this.scrollContainer?.scrollWidth;
   }
 
-  private determineScrollStatus = () => {
-    const scrolledDown =
-      Math.ceil(
-        this.scrollContainer?.scrollTop + this.scrollContainer?.offsetHeight
-      ) >= this.scrollContainer?.scrollHeight;
-
-    if (scrolledDown !== this.scrolledDown) {
-      this.scrolledDown = scrolledDown;
-    }
-  };
-
   private storeRecentScrollPosition = () => {
     this.recentScrollPosition = {
       x:
@@ -496,18 +493,12 @@ export class SwirlFileViewerPdf {
 
   private onScroll = debounce(() => {
     this.updateVisiblePages();
-    this.determineScrollStatus();
     this.storeRecentScrollPosition();
   }, 60);
 
   render() {
     const showPagination =
       !this.error && !this.loading && this.visiblePages.length > 0;
-
-    const currentPage =
-      this.scrolledDown && !this.singlePageMode
-        ? this.pages.length - 1
-        : this.visiblePages[0];
 
     const showSpinner = this.loading;
 
@@ -578,7 +569,8 @@ export class SwirlFileViewerPdf {
             id="pagination"
             part="file-viewer-pdf__pagination"
           >
-            <span aria-current="page">{currentPage}</span> / {this.doc.numPages}
+            <span aria-current="page">{this.currentPage}</span> /{" "}
+            {this.doc.numPages}
           </span>
         )}
         {showSpinner && (
