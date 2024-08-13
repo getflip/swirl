@@ -92,20 +92,7 @@ export class SwirlShellLayout {
 
     this.navigationCollapsed = restoredNavigationCollapseState;
 
-    if (this.enableSecondaryNavGridLayout) {
-      const restoredSecondaryNavigationCollapseState =
-        localStorage.getItem(SECONDARY_NAVIGATION_COLLAPSE_STORAGE_KEY) ===
-        "true";
-
-      this.secondaryNavCollapsed = restoredSecondaryNavigationCollapseState;
-
-      const restoredSecondaryNavigationViewState = localStorage.getItem(
-        SECONDARY_NAVIGATION_VIEW_STORAGE_KEY
-      );
-
-      this.secondaryNavView =
-        restoredSecondaryNavigationViewState as SwirlShellLayoutSecondaryNavView;
-    }
+    this.restoreSecondaryNavState();
   }
 
   componentDidLoad() {
@@ -146,6 +133,11 @@ export class SwirlShellLayout {
     if (event.key === "Escape" && this.mobileNavigationActive) {
       this.hideMobileNavigation();
     }
+  }
+
+  @Watch("enableSecondaryNavGridLayout")
+  watchEnableSecondaryNavGridLayout() {
+    this.restoreSecondaryNavState();
   }
 
   @Watch("mobileNavigationActive")
@@ -256,6 +248,23 @@ export class SwirlShellLayout {
       item.tiled =
         this.enableSecondaryNavGridLayout && this.secondaryNavView === "grid";
     });
+  }
+
+  private restoreSecondaryNavState() {
+    if (this.enableSecondaryNavGridLayout) {
+      const restoredSecondaryNavigationCollapseState =
+        localStorage.getItem(SECONDARY_NAVIGATION_COLLAPSE_STORAGE_KEY) ===
+        "true";
+
+      this.secondaryNavCollapsed = restoredSecondaryNavigationCollapseState;
+
+      const restoredSecondaryNavigationViewState = localStorage.getItem(
+        SECONDARY_NAVIGATION_VIEW_STORAGE_KEY
+      );
+
+      this.secondaryNavView =
+        restoredSecondaryNavigationViewState as SwirlShellLayoutSecondaryNavView;
+    }
   }
 
   render() {
