@@ -2,7 +2,7 @@ import { newSpecPage } from "@stencil/core/testing";
 
 import { SwirlTable } from "./swirl-table";
 
-(global as any).MutationObserver = class {
+(global as any).IntersectionObserver = class {
   constructor() {}
   disconnect() {}
   observe() {}

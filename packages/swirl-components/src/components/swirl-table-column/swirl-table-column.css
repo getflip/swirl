@@ -23,10 +23,12 @@
 
   &(.table-column--is-sticky) {
     position: sticky;
+    z-index: 1;
   }
 
   &(.table-column--is-sticky-right) {
     position: sticky;
+    z-index: 1;
     right: 0;
   }
 
