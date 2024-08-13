@@ -80,9 +80,11 @@
   font-size: var(--s-font-size-base);
   line-height: var(--s-line-height-base);
 
-  @media (--from-desktop-without-touch) {
-    font-size: var(--s-font-size-sm);
-    line-height: var(--s-line-height-sm);
+  &.text--responsive {
+    @media (--from-desktop-without-touch) {
+      font-size: var(--s-font-size-sm);
+      line-height: var(--s-line-height-sm);
+    }
   }
 }
 
@@ -90,9 +92,11 @@
   font-size: var(--s-font-size-lg);
   line-height: var(--s-line-height-lg);
 
-  @media (--from-desktop-without-touch) {
-    font-size: var(--s-font-size-base);
-    line-height: var(--s-line-height-base);
+  &.text--responsive {
+    @media (--from-desktop-without-touch) {
+      font-size: var(--s-font-size-base);
+      line-height: var(--s-line-height-base);
+    }
   }
 }
 
@@ -100,9 +104,11 @@
   font-size: var(--s-font-size-xl);
   line-height: var(--s-line-height-xl);
 
-  @media (--from-desktop-without-touch) {
-    font-size: var(--s-font-size-lg);
-    line-height: var(--s-line-height-lg);
+  &.text--responsive {
+    @media (--from-desktop-without-touch) {
+      font-size: var(--s-font-size-lg);
+      line-height: var(--s-line-height-lg);
+    }
   }
 }
 
@@ -110,9 +116,11 @@
   font-size: var(--s-font-size-2xl);
   line-height: var(--s-line-height-2xl);
 
-  @media (--from-desktop-without-touch) {
-    font-size: var(--s-font-size-xl);
-    line-height: var(--s-line-height-xl);
+  &.text--responsive {
+    @media (--from-desktop-without-touch) {
+      font-size: var(--s-font-size-xl);
+      line-height: var(--s-line-height-xl);
+    }
   }
 }
 
