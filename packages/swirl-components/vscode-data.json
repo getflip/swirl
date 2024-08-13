@@ -16102,6 +16102,10 @@
           "description": ""
         },
         {
+          "name": "responsive",
+          "description": ""
+        },
+        {
           "name": "size",
           "description": "",
           "values": [

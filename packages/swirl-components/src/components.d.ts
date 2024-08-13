@@ -2083,6 +2083,7 @@ export namespace Components {
         "fontFamily"?: SwirlTextFontFamily;
         "fontStyle"?: SwirlTextFontStyle;
         "lines"?: number;
+        "responsive"?: boolean;
         "size"?: SwirlTextSize;
         "truncate"?: boolean;
         "truncateDirection"?: SwirlTextTruncateDirection;
@@ -7276,6 +7277,7 @@ declare namespace LocalJSX {
         "fontFamily"?: SwirlTextFontFamily;
         "fontStyle"?: SwirlTextFontStyle;
         "lines"?: number;
+        "responsive"?: boolean;
         "size"?: SwirlTextSize;
         "truncate"?: boolean;
         "truncateDirection"?: SwirlTextTruncateDirection;

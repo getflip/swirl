@@ -52,6 +52,7 @@ export class SwirlText {
   @Prop() fontFamily?: SwirlTextFontFamily = "text";
   @Prop() fontStyle?: SwirlTextFontStyle = "normal";
   @Prop() lines?: number;
+  @Prop() responsive?: boolean = true;
   @Prop() size?: SwirlTextSize = "base";
   @Prop() truncate?: boolean;
   @Prop() truncateDirection?: SwirlTextTruncateDirection = "end";
@@ -111,6 +112,7 @@ export class SwirlText {
       `text--weight-${this.weight}`,
       {
         "text--truncate": truncate,
+        "text--responsive": this.responsive,
       }
     );
 
