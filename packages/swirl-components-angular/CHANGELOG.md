@@ -1,5 +1,23 @@
 # @getflip/swirl-components-angular
 
+## 0.226.1
+
+### Patch Changes
+
+- [`bce80621`](https://github.com/getflip/swirl/commit/bce80621f5e9d3e47d68e6278d1e7e499b096809)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix secondary navigation state
+  restoration of swirl-shell-layout
+
+* [#778](https://github.com/getflip/swirl/pull/778)
+  [`b1b7b434`](https://github.com/getflip/swirl/commit/b1b7b434b04e593e53ba71b20c358e5315e52e63)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix
+  swirl-file-viewer-pdf current page number
+
+* Updated dependencies
+  [[`bce80621`](https://github.com/getflip/swirl/commit/bce80621f5e9d3e47d68e6278d1e7e499b096809),
+  [`b1b7b434`](https://github.com/getflip/swirl/commit/b1b7b434b04e593e53ba71b20c358e5315e52e63)]:
+  - @getflip/swirl-components@0.226.1
+
 ## 0.226.0
 
 ### Minor Changes
