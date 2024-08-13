@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.226.0
+
+### Minor Changes
+
+- [#775](https://github.com/getflip/swirl/pull/775)
+  [`fbf71bc9`](https://github.com/getflip/swirl/commit/fbf71bc94c4eb9e5276b002dc40a90c582feb69f)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Fix
+  handling of table layout when table is rendered within a modal
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fbf71bc9`](https://github.com/getflip/swirl/commit/fbf71bc94c4eb9e5276b002dc40a90c582feb69f)]:
+  - @getflip/swirl-components@0.226.0
+
 ## 0.225.2
 
 ### Patch Changes
