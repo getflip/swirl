@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.227.0
+
+### Minor Changes
+
+- [#782](https://github.com/getflip/swirl/pull/782)
+  [`2025e3e4`](https://github.com/getflip/swirl/commit/2025e3e4735595b40190cc5b1e22d9ed53fdcb6f)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add
+  responsive prop to text
+
 ## 0.226.1
 
 ### Patch Changes
