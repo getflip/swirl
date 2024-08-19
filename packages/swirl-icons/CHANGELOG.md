@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.41.0
+
+### Minor Changes
+
+- [`815a91bd`](https://github.com/getflip/swirl/commit/815a91bd6b0e2348e3277073116004f50db77477)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icons "public" and
+  "public-off"
+
 ## 0.40.0
 
 ### Minor Changes
