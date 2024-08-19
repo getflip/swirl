@@ -1210,6 +1210,14 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconPublic {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconPublicOff {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconRatioFourToThree {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3796,6 +3804,18 @@ declare global {
         prototype: HTMLSwirlIconPrintElement;
         new (): HTMLSwirlIconPrintElement;
     };
+    interface HTMLSwirlIconPublicElement extends Components.SwirlIconPublic, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPublicElement: {
+        prototype: HTMLSwirlIconPublicElement;
+        new (): HTMLSwirlIconPublicElement;
+    };
+    interface HTMLSwirlIconPublicOffElement extends Components.SwirlIconPublicOff, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPublicOffElement: {
+        prototype: HTMLSwirlIconPublicOffElement;
+        new (): HTMLSwirlIconPublicOffElement;
+    };
     interface HTMLSwirlIconRatioFourToThreeElement extends Components.SwirlIconRatioFourToThree, HTMLStencilElement {
     }
     var HTMLSwirlIconRatioFourToThreeElement: {
@@ -5279,6 +5299,8 @@ declare global {
         "swirl-icon-play-arrow": HTMLSwirlIconPlayArrowElement;
         "swirl-icon-poll": HTMLSwirlIconPollElement;
         "swirl-icon-print": HTMLSwirlIconPrintElement;
+        "swirl-icon-public": HTMLSwirlIconPublicElement;
+        "swirl-icon-public-off": HTMLSwirlIconPublicOffElement;
         "swirl-icon-ratio-four-to-three": HTMLSwirlIconRatioFourToThreeElement;
         "swirl-icon-ratio-freeform": HTMLSwirlIconRatioFreeformElement;
         "swirl-icon-ratio-sixteen-to-nine": HTMLSwirlIconRatioSixteenToNineElement;
@@ -6455,6 +6477,14 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconPublic {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconPublicOff {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconRatioFourToThree {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -7580,6 +7610,8 @@ declare namespace LocalJSX {
         "swirl-icon-play-arrow": SwirlIconPlayArrow;
         "swirl-icon-poll": SwirlIconPoll;
         "swirl-icon-print": SwirlIconPrint;
+        "swirl-icon-public": SwirlIconPublic;
+        "swirl-icon-public-off": SwirlIconPublicOff;
         "swirl-icon-ratio-four-to-three": SwirlIconRatioFourToThree;
         "swirl-icon-ratio-freeform": SwirlIconRatioFreeform;
         "swirl-icon-ratio-sixteen-to-nine": SwirlIconRatioSixteenToNine;
@@ -7935,6 +7967,8 @@ declare module "@stencil/core" {
             "swirl-icon-play-arrow": LocalJSX.SwirlIconPlayArrow & JSXBase.HTMLAttributes<HTMLSwirlIconPlayArrowElement>;
             "swirl-icon-poll": LocalJSX.SwirlIconPoll & JSXBase.HTMLAttributes<HTMLSwirlIconPollElement>;
             "swirl-icon-print": LocalJSX.SwirlIconPrint & JSXBase.HTMLAttributes<HTMLSwirlIconPrintElement>;
+            "swirl-icon-public": LocalJSX.SwirlIconPublic & JSXBase.HTMLAttributes<HTMLSwirlIconPublicElement>;
+            "swirl-icon-public-off": LocalJSX.SwirlIconPublicOff & JSXBase.HTMLAttributes<HTMLSwirlIconPublicOffElement>;
             "swirl-icon-ratio-four-to-three": LocalJSX.SwirlIconRatioFourToThree & JSXBase.HTMLAttributes<HTMLSwirlIconRatioFourToThreeElement>;
             "swirl-icon-ratio-freeform": LocalJSX.SwirlIconRatioFreeform & JSXBase.HTMLAttributes<HTMLSwirlIconRatioFreeformElement>;
             "swirl-icon-ratio-sixteen-to-nine": LocalJSX.SwirlIconRatioSixteenToNine & JSXBase.HTMLAttributes<HTMLSwirlIconRatioSixteenToNineElement>;
