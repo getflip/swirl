@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.229.0
+
+### Minor Changes
+
+- [`c22e465f`](https://github.com/getflip/swirl/commit/c22e465fbb938e2da9900a0c1390ed2458b32ddb) -
+  Fix changeset
+
+### Patch Changes
+
+- [#785](https://github.com/getflip/swirl/pull/785)
+  [`947da5d3`](https://github.com/getflip/swirl/commit/947da5d3cc60b5a0e040c487ae4b3c5137294c51)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add spacing
+  prop to swirl-resource-list
+
+- Updated dependencies
+  [[`947da5d3`](https://github.com/getflip/swirl/commit/947da5d3cc60b5a0e040c487ae4b3c5137294c51),
+  [`c22e465f`](https://github.com/getflip/swirl/commit/c22e465fbb938e2da9900a0c1390ed2458b32ddb)]:
+  - @getflip/swirl-components@0.229.0
+
 ## 0.228.0
 
 ### Minor Changes
