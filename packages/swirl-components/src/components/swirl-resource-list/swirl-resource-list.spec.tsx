@@ -59,7 +59,7 @@ describe("swirl-resource-list", () => {
       <swirl-resource-list label="Label">
         <swirl-visually-hidden role="alert"></swirl-visually-hidden>
         <swirl-box paddinginlineend="8" paddinginlinestart="8">
-          <swirl-stack aria-label="Label" class="resource-list" id="${id}" role="grid">
+          <swirl-stack aria-label="Label" class="resource-list" id="${id}" role="grid" spacing="0">
             <swirl-resource-list-item description="With a description" label="This is a resource item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/433/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
             <swirl-resource-list-item description="With a description" label="This is a resource item" media="<swirl-avatar label=&quot;John Doe&quot; src=&quot;https://picsum.photos/id/103/144/144&quot;></swirl-avatar>"></swirl-resource-list-item>
           </swirl-stack>

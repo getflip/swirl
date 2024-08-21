@@ -47,13 +47,14 @@ import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 import { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
+import { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorBorderColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
-import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
+import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing as SwirlStackSpacing1 } from "./components/swirl-stack/swirl-stack";
 import { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
 import { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch";
 import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
@@ -112,13 +113,14 @@ export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 export { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
+export { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorBorderColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
-export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
+export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing as SwirlStackSpacing1 } from "./components/swirl-stack/swirl-stack";
 export { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
 export { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch";
 export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
@@ -1688,6 +1690,7 @@ export namespace Components {
         "assistiveTextItemMoving"?: string;
         "controllingElement"?: HTMLElement;
         "label"?: string;
+        "spacing"?: SwirlStackSpacing;
     }
     interface SwirlResourceListFileItem {
         "description"?: string;
@@ -1815,7 +1818,7 @@ export namespace Components {
         "height"?: string;
         "justify"?: SwirlStackJustify;
         "orientation"?: SwirlStackOrientation;
-        "spacing"?: SwirlStackSpacing;
+        "spacing"?: SwirlStackSpacing1;
         "wrap"?: boolean;
     }
     interface SwirlStatusIndicator {
@@ -6908,6 +6911,7 @@ declare namespace LocalJSX {
     oldIndex: number;
     newIndex: number;
   }>) => void;
+        "spacing"?: SwirlStackSpacing;
     }
     interface SwirlResourceListFileItem {
         "description"?: string;
@@ -7038,7 +7042,7 @@ declare namespace LocalJSX {
         "height"?: string;
         "justify"?: SwirlStackJustify;
         "orientation"?: SwirlStackOrientation;
-        "spacing"?: SwirlStackSpacing;
+        "spacing"?: SwirlStackSpacing1;
         "wrap"?: boolean;
     }
     interface SwirlStatusIndicator {
