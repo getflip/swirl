@@ -11,6 +11,7 @@ import {
 } from "@stencil/core";
 import Sortable, { SortableEvent } from "sortablejs";
 import { v4 as uuid } from "uuid";
+import { SwirlStackSpacing } from "../swirl-stack/swirl-stack";
 
 @Component({
   scoped: true,
@@ -28,6 +29,7 @@ export class SwirlResourceList {
   @Prop() assistiveTextItemMoved?: string = "Item moved. New position:";
   @Prop() controllingElement?: HTMLElement;
   @Prop() label?: string;
+  @Prop() spacing?: SwirlStackSpacing = "0";
 
   @State() assistiveText: string;
   @State() listId = uuid();
@@ -355,6 +357,7 @@ export class SwirlResourceList {
             id={this.listId}
             ref={(el) => (this.gridEl = el)}
             role="grid"
+            spacing={this.spacing}
           >
             <slot></slot>
           </swirl-stack>
