@@ -173,6 +173,7 @@ export class SwirlShellLayout {
   @Method()
   async showMobileNavigation() {
     this.mobileNavigationActive = true;
+    this.toggleNavItemLabels();
   }
 
   collectNavItems = () => {
@@ -225,6 +226,7 @@ export class SwirlShellLayout {
   @Method()
   async hideMobileNavigation() {
     this.mobileNavigationActive = false;
+    this.toggleNavItemLabels();
   }
 
   private onNavigationToggleClick = () => {
@@ -237,9 +239,7 @@ export class SwirlShellLayout {
 
   private toggleNavItemLabels() {
     [...this.secondaryNavItems, ...this.mainNavItems].forEach((item) => {
-      item.hideLabel =
-        !!(this.enableSecondaryNavGridLayout && this.navigationCollapsed) ||
-        (!this.enableSecondaryNavGridLayout && this.navigationCollapsed);
+      item.hideLabel = this.navigationCollapsed && !this.mobileNavigationActive;
     });
   }
 
