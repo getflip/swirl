@@ -13,6 +13,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import * as focusTrap from "focus-trap";
+import { isDesktopViewport } from "../../utils";
 
 const SECONDARY_NAVIGATION_COLLAPSE_STORAGE_KEY =
   "SWIRL_SHELL_SECONDARY_NAVIGATION_COLLAPSE_STATE";
@@ -69,6 +70,7 @@ export class SwirlShellLayout {
   @State() navigationCollapsed?: boolean;
   @State() secondaryNavCollapsed?: boolean;
   @State() secondaryNavView?: SwirlShellLayoutSecondaryNavView = "list";
+  @State() isDesktopViewport: boolean = true;
 
   private focusTrap: focusTrap.FocusTrap;
   private mainNavItems: HTMLSwirlShellNavigationItemElement[];
@@ -77,6 +79,7 @@ export class SwirlShellLayout {
   private secondaryNavItems: HTMLSwirlShellNavigationItemElement[];
 
   componentWillLoad() {
+    this.isDesktopViewport = isDesktopViewport();
     this.collectNavItems();
 
     const restoredSidebarState =
@@ -105,8 +108,7 @@ export class SwirlShellLayout {
       },
     });
 
-    this.toggleNavItemLabels();
-    this.setSecondaryNavItemsTiled();
+    this.collectNavItems();
 
     this.navMutationObserver = new MutationObserver(() => {
       this.collectNavItems();
@@ -167,12 +169,21 @@ export class SwirlShellLayout {
     localStorage.setItem(SIDEBAR_STORAGE_KEY, String(this.sidebarActive));
   }
 
+  @Listen("resize", { target: "window" })
+  onWindowResize() {
+    if (this.isDesktopViewport !== isDesktopViewport()) {
+      this.isDesktopViewport = isDesktopViewport();
+      this.collectNavItems();
+    }
+  }
+
   /**
    * Opens the mobile navigation.
    */
   @Method()
   async showMobileNavigation() {
     this.mobileNavigationActive = true;
+    this.collectNavItems();
   }
 
   collectNavItems = () => {
@@ -189,6 +200,7 @@ export class SwirlShellLayout {
     );
 
     this.toggleNavItemLabels();
+    this.setSecondaryNavItemsTiled();
   };
 
   toggleSecondaryNavView = (event: Event) => {
@@ -225,6 +237,7 @@ export class SwirlShellLayout {
   @Method()
   async hideMobileNavigation() {
     this.mobileNavigationActive = false;
+    this.toggleNavItemLabels();
   }
 
   private onNavigationToggleClick = () => {
@@ -237,16 +250,16 @@ export class SwirlShellLayout {
 
   private toggleNavItemLabels() {
     [...this.secondaryNavItems, ...this.mainNavItems].forEach((item) => {
-      item.hideLabel =
-        !!(this.enableSecondaryNavGridLayout && this.navigationCollapsed) ||
-        (!this.enableSecondaryNavGridLayout && this.navigationCollapsed);
+      item.hideLabel = this.navigationCollapsed && this.isDesktopViewport;
     });
   }
 
   private setSecondaryNavItemsTiled() {
     this.secondaryNavItems.forEach((item) => {
       item.tiled =
-        this.enableSecondaryNavGridLayout && this.secondaryNavView === "grid";
+        this.enableSecondaryNavGridLayout &&
+        (this.secondaryNavView === "grid" ||
+          (this.navigationCollapsed && this.isDesktopViewport));
     });
   }
 
@@ -271,6 +284,8 @@ export class SwirlShellLayout {
     const hasSidebarToggleBadgeWithLabel =
       this.sidebarToggleBadge !== true && this.sidebarToggleBadge !== "true";
 
+    const mainNavCollapsed = this.navigationCollapsed && this.isDesktopViewport;
+
     const hasSecondaryNav = Boolean(
       this.el.querySelector("[slot='secondary-nav']")
     );
@@ -280,7 +295,7 @@ export class SwirlShellLayout {
       "shell-layout--secondary-nav-collapsed": this.secondaryNavCollapsed,
       "shell-layout--has-secondary-nav": hasSecondaryNav,
       "shell-layout--mobile-navigation-active": this.mobileNavigationActive,
-      "shell-layout--navigation-collapsed": this.navigationCollapsed,
+      "shell-layout--navigation-collapsed": mainNavCollapsed,
       "shell-layout--sidebar-active": this.sidebarActive,
     });
 
@@ -398,13 +413,11 @@ export class SwirlShellLayout {
                 {this.enableSecondaryNavGridLayout && (
                   <swirl-box paddingBlockEnd="16">
                     <swirl-stack
-                      justify={
-                        this.navigationCollapsed ? "center" : "space-between"
-                      }
+                      justify={mainNavCollapsed ? "center" : "space-between"}
                       orientation="horizontal"
                     >
                       <swirl-button
-                        hideLabel={this.navigationCollapsed}
+                        hideLabel={mainNavCollapsed}
                         icon={
                           this.secondaryNavCollapsed
                             ? "<swirl-icon-expand-more></swirl-icon-expand-more>"
@@ -418,24 +431,23 @@ export class SwirlShellLayout {
                         onClick={this.toggleSecondaryNavCollapse}
                         variant="plain"
                       ></swirl-button>
-                      {!this.navigationCollapsed &&
-                        !this.secondaryNavCollapsed && (
-                          <swirl-button
-                            icon={
-                              this.secondaryNavView === "grid"
-                                ? "<swirl-icon-menu></swirl-icon-menu>"
-                                : "<swirl-icon-hamburger-menu></swirl-icon-hamburger-menu>"
-                            }
-                            iconPosition="end"
-                            label={
-                              this.secondaryNavView === "grid"
-                                ? this.gridNavLayoutToggleLabel
-                                : this.listNavLayoutToggleLabel
-                            }
-                            onClick={this.toggleSecondaryNavView}
-                            variant="plain"
-                          ></swirl-button>
-                        )}
+                      {!mainNavCollapsed && !this.secondaryNavCollapsed && (
+                        <swirl-button
+                          icon={
+                            this.secondaryNavView === "grid"
+                              ? "<swirl-icon-menu></swirl-icon-menu>"
+                              : "<swirl-icon-hamburger-menu></swirl-icon-hamburger-menu>"
+                          }
+                          iconPosition="end"
+                          label={
+                            this.secondaryNavView === "grid"
+                              ? this.gridNavLayoutToggleLabel
+                              : this.listNavLayoutToggleLabel
+                          }
+                          onClick={this.toggleSecondaryNavView}
+                          variant="plain"
+                        ></swirl-button>
+                      )}
                     </swirl-stack>
                   </swirl-box>
                 )}
@@ -444,7 +456,7 @@ export class SwirlShellLayout {
                     "shell-layout__secondary-nav-items": true,
                     "shell-layout__secondary-nav-items--grid-view":
                       this.enableSecondaryNavGridLayout &&
-                      this.secondaryNavView === "grid",
+                      (this.secondaryNavView === "grid" || mainNavCollapsed),
                   }}
                 >
                   <slot
