@@ -2245,7 +2245,7 @@ export namespace Components {
         "expand": () => Promise<void>;
         "href"?: string;
         "icon"?: string;
-        "id": string;
+        "itemId": string;
         "label": string;
         "select": (focus?: boolean) => Promise<void>;
         "unselect": () => Promise<void>;
@@ -7493,7 +7493,7 @@ declare namespace LocalJSX {
     interface SwirlTreeViewItem {
         "href"?: string;
         "icon"?: string;
-        "id": string;
+        "itemId": string;
         "label": string;
         "onExpandedChange"?: (event: SwirlTreeViewItemCustomEvent<boolean>) => void;
     }

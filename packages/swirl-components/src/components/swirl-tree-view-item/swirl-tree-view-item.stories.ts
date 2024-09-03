@@ -23,6 +23,6 @@ export const SwirlTreeViewItem = Template.bind({});
 SwirlTreeViewItem.args = {
   href: "#",
   icon: "🪁",
-  id: "item",
+  itemId: "item",
   label: "Label",
 };

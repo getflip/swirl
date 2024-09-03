@@ -90,8 +90,6 @@ export class SwirlTreeView {
       );
     }
 
-    console.log(expandedItemIds);
-
     this.expandedItemsChanged.emit(expandedItemIds);
   }
 

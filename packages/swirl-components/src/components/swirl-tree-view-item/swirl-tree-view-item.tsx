@@ -11,7 +11,6 @@ import {
   State,
 } from "@stencil/core";
 import classNames from "classnames";
-import { v4 as uuid } from "uuid";
 
 @Component({
   scoped: true,
@@ -24,12 +23,11 @@ export class SwirlTreeViewItem {
 
   @Prop() href?: string;
   @Prop() icon?: string;
-  @Prop() id!: string;
+  @Prop() itemId!: string;
   @Prop() label!: string;
 
   @Event() expandedChange!: EventEmitter<boolean>;
 
-  @State() childListId = uuid();
   @State() expanded = false;
   @State() hasChildren = false;
   @State() level = 0;
@@ -37,9 +35,8 @@ export class SwirlTreeViewItem {
 
   private link?: HTMLAnchorElement;
 
-  componentDidLoad() {
+  componentWillLoad() {
     this.updateLevel();
-
     this.hasChildren = Boolean(this.el.querySelector("swirl-tree-view-item"));
   }
 
@@ -104,14 +101,14 @@ export class SwirlTreeViewItem {
     });
 
     return (
-      <Host role="none">
+      <Host id={this.itemId} role="none">
         <li class={className} role="none">
           <a
             aria-expanded={
               !this.hasChildren ? undefined : String(this.expanded)
             }
             aria-level={this.level + 1}
-            aria-owns={this.hasChildren ? this.childListId : undefined}
+            aria-owns={this.hasChildren ? `${this.itemId}-children` : undefined}
             aria-selected={String(this.selected)}
             class="tree-view-item__link"
             href={this.href}
@@ -152,7 +149,7 @@ export class SwirlTreeViewItem {
           <ul
             aria-label={this.label}
             class="tree-view-item__children"
-            id={this.childListId}
+            id={`${this.itemId}-children`}
             role="group"
             style={{
               display: !this.expanded || !this.hasChildren ? "none" : undefined,
