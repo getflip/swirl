@@ -11,6 +11,12 @@
   list-style: none;
 }
 
+.tree-view-item--active {
+  & .tree-view-item__link {
+    background-color: var(--s-background-hovered);
+  }
+}
+
 .tree-view-item--has-tags {
   & .tree-view-item__tags {
     display: flex;

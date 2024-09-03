@@ -2241,6 +2241,7 @@ export namespace Components {
         "label": string;
     }
     interface SwirlTreeViewItem {
+        "active"?: boolean;
         "collapse": () => Promise<void>;
         "expand": () => Promise<void>;
         "href"?: string;
@@ -5152,6 +5153,7 @@ declare global {
     };
     interface HTMLSwirlTreeViewItemElementEventMap {
         "expandedChange": boolean;
+        "itemSelected": HTMLSwirlTreeViewItemElement;
     }
     interface HTMLSwirlTreeViewItemElement extends Components.SwirlTreeViewItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlTreeViewItemElementEventMap>(type: K, listener: (this: HTMLSwirlTreeViewItemElement, ev: SwirlTreeViewItemCustomEvent<HTMLSwirlTreeViewItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -7491,11 +7493,13 @@ declare namespace LocalJSX {
         "onExpandedItemsChanged"?: (event: SwirlTreeViewCustomEvent<string[]>) => void;
     }
     interface SwirlTreeViewItem {
+        "active"?: boolean;
         "href"?: string;
         "icon"?: string;
         "itemId": string;
         "label": string;
         "onExpandedChange"?: (event: SwirlTreeViewItemCustomEvent<boolean>) => void;
+        "onItemSelected"?: (event: SwirlTreeViewItemCustomEvent<HTMLSwirlTreeViewItemElement>) => void;
     }
     interface SwirlVideoThumbnail {
         "duration"?: string;

@@ -67,6 +67,15 @@ export class SwirlTreeView {
     }
   }
 
+  @Listen("itemSelected")
+  onItemSelected(event: Event) {
+    this.getItems().forEach((item) => {
+      if (item !== event.target) {
+        item.unselect();
+      }
+    });
+  }
+
   @Listen("expandedChange")
   onExpandedChange(event: Event) {
     const expandedItemIds = this.getItems()

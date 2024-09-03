@@ -24,7 +24,7 @@ const Template = (args) => {
       </swirl-tree-view-item>
       <swirl-tree-view-item href="#" icon="🎾" item-id="item-6" label="Item 1.3"></swirl-tree-view-item>
     </swirl-tree-view-item>
-    <swirl-tree-view-item href="#" icon="🎷" item-id="item-7" label="Item 2">
+    <swirl-tree-view-item active href="#" icon="🎷" item-id="item-7" label="Item 2">
       <swirl-tag bordered item-id="item-2" label="Draft" size="s" slot="tags"></swirl-tag>
     </swirl-tree-view-item>
     <swirl-tree-view-item href="#" icon="🎮" item-id="item-8" label="Item 3">

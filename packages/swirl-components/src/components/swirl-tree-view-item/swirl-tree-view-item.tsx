@@ -21,12 +21,14 @@ import classNames from "classnames";
 export class SwirlTreeViewItem {
   @Element() el!: HTMLSwirlTreeViewItemElement;
 
+  @Prop() active?: boolean;
   @Prop() href?: string;
   @Prop() icon?: string;
   @Prop() itemId!: string;
   @Prop() label!: string;
 
   @Event() expandedChange!: EventEmitter<boolean>;
+  @Event() itemSelected!: EventEmitter<HTMLSwirlTreeViewItemElement>;
 
   @State() expanded = false;
   @State() hasChildren = false;
@@ -59,6 +61,8 @@ export class SwirlTreeViewItem {
     if (focus) {
       this.link?.focus();
     }
+
+    this.itemSelected.emit(this.el);
   }
 
   @Method()
@@ -75,12 +79,10 @@ export class SwirlTreeViewItem {
     }
   }
 
-  private onClick = () => {
-    this.select();
-  };
-
   private onFocus = () => {
-    this.select();
+    if (!this.selected) {
+      this.select();
+    }
   };
 
   private onClickCollapse = (event: Event) => {
@@ -97,6 +99,7 @@ export class SwirlTreeViewItem {
     const hasTags = Boolean(this.el.querySelector('[slot="tags"]'));
 
     const className = classNames("tree-view-item", {
+      "tree-view-item--active": this.active,
       "tree-view-item--has-tags": hasTags,
     });
 
@@ -104,6 +107,7 @@ export class SwirlTreeViewItem {
       <Host id={this.itemId} role="none">
         <li class={className} role="none">
           <a
+            aria-current={this.active ? "page" : undefined}
             aria-expanded={
               !this.hasChildren ? undefined : String(this.expanded)
             }
@@ -112,7 +116,6 @@ export class SwirlTreeViewItem {
             aria-selected={String(this.selected)}
             class="tree-view-item__link"
             href={this.href}
-            onClick={this.onClick}
             onFocus={this.onFocus}
             style={{
               paddingLeft: `calc(${this.level} * var(--s-space-12) + var(--s-space-4))`,
