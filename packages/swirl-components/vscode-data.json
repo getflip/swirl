@@ -16850,6 +16850,44 @@
       ]
     },
     {
+      "name": "swirl-tree-view",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-tree-view-item",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "href",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "id",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-video-thumbnail",
       "description": {
         "kind": "markdown",

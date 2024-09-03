@@ -2235,6 +2235,21 @@ export namespace Components {
         "label": string;
         "target"?: string;
     }
+    interface SwirlTreeView {
+        "expandItems": (itemIds: string[]) => Promise<void>;
+        "initiallyExpandedItemIds"?: string[];
+        "label": string;
+    }
+    interface SwirlTreeViewItem {
+        "collapse": () => Promise<void>;
+        "expand": () => Promise<void>;
+        "href"?: string;
+        "icon"?: string;
+        "id": string;
+        "label": string;
+        "select": (focus?: boolean) => Promise<void>;
+        "unselect": () => Promise<void>;
+    }
     interface SwirlVideoThumbnail {
         "duration"?: string;
         "durationLabel"?: string;
@@ -2443,6 +2458,14 @@ export interface SwirlTimeInputCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlToastElement;
+}
+export interface SwirlTreeViewCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlTreeViewElement;
+}
+export interface SwirlTreeViewItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlTreeViewItemElement;
 }
 declare global {
     interface HTMLFileManagerElement extends Components.FileManager, HTMLStencilElement {
@@ -5110,6 +5133,40 @@ declare global {
         prototype: HTMLSwirlTreeNavigationItemElement;
         new (): HTMLSwirlTreeNavigationItemElement;
     };
+    interface HTMLSwirlTreeViewElementEventMap {
+        "expandedItemsChanged": string[];
+    }
+    interface HTMLSwirlTreeViewElement extends Components.SwirlTreeView, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTreeViewElementEventMap>(type: K, listener: (this: HTMLSwirlTreeViewElement, ev: SwirlTreeViewCustomEvent<HTMLSwirlTreeViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTreeViewElementEventMap>(type: K, listener: (this: HTMLSwirlTreeViewElement, ev: SwirlTreeViewCustomEvent<HTMLSwirlTreeViewElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSwirlTreeViewElement: {
+        prototype: HTMLSwirlTreeViewElement;
+        new (): HTMLSwirlTreeViewElement;
+    };
+    interface HTMLSwirlTreeViewItemElementEventMap {
+        "expandedChange": boolean;
+    }
+    interface HTMLSwirlTreeViewItemElement extends Components.SwirlTreeViewItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTreeViewItemElementEventMap>(type: K, listener: (this: HTMLSwirlTreeViewItemElement, ev: SwirlTreeViewItemCustomEvent<HTMLSwirlTreeViewItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTreeViewItemElementEventMap>(type: K, listener: (this: HTMLSwirlTreeViewItemElement, ev: SwirlTreeViewItemCustomEvent<HTMLSwirlTreeViewItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSwirlTreeViewItemElement: {
+        prototype: HTMLSwirlTreeViewItemElement;
+        new (): HTMLSwirlTreeViewItemElement;
+    };
     interface HTMLSwirlVideoThumbnailElement extends Components.SwirlVideoThumbnail, HTMLStencilElement {
     }
     var HTMLSwirlVideoThumbnailElement: {
@@ -5466,6 +5523,8 @@ declare global {
         "swirl-toolbar": HTMLSwirlToolbarElement;
         "swirl-tooltip": HTMLSwirlTooltipElement;
         "swirl-tree-navigation-item": HTMLSwirlTreeNavigationItemElement;
+        "swirl-tree-view": HTMLSwirlTreeViewElement;
+        "swirl-tree-view-item": HTMLSwirlTreeViewItemElement;
         "swirl-video-thumbnail": HTMLSwirlVideoThumbnailElement;
         "swirl-visually-hidden": HTMLSwirlVisuallyHiddenElement;
     }
@@ -7426,6 +7485,18 @@ declare namespace LocalJSX {
         "label": string;
         "target"?: string;
     }
+    interface SwirlTreeView {
+        "initiallyExpandedItemIds"?: string[];
+        "label": string;
+        "onExpandedItemsChanged"?: (event: SwirlTreeViewCustomEvent<string[]>) => void;
+    }
+    interface SwirlTreeViewItem {
+        "href"?: string;
+        "icon"?: string;
+        "id": string;
+        "label": string;
+        "onExpandedChange"?: (event: SwirlTreeViewItemCustomEvent<boolean>) => void;
+    }
     interface SwirlVideoThumbnail {
         "duration"?: string;
         "durationLabel"?: string;
@@ -7778,6 +7849,8 @@ declare namespace LocalJSX {
         "swirl-toolbar": SwirlToolbar;
         "swirl-tooltip": SwirlTooltip;
         "swirl-tree-navigation-item": SwirlTreeNavigationItem;
+        "swirl-tree-view": SwirlTreeView;
+        "swirl-tree-view-item": SwirlTreeViewItem;
         "swirl-video-thumbnail": SwirlVideoThumbnail;
         "swirl-visually-hidden": SwirlVisuallyHidden;
     }
@@ -8135,6 +8208,8 @@ declare module "@stencil/core" {
             "swirl-toolbar": LocalJSX.SwirlToolbar & JSXBase.HTMLAttributes<HTMLSwirlToolbarElement>;
             "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;
             "swirl-tree-navigation-item": LocalJSX.SwirlTreeNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationItemElement>;
+            "swirl-tree-view": LocalJSX.SwirlTreeView & JSXBase.HTMLAttributes<HTMLSwirlTreeViewElement>;
+            "swirl-tree-view-item": LocalJSX.SwirlTreeViewItem & JSXBase.HTMLAttributes<HTMLSwirlTreeViewItemElement>;
             "swirl-video-thumbnail": LocalJSX.SwirlVideoThumbnail & JSXBase.HTMLAttributes<HTMLSwirlVideoThumbnailElement>;
             "swirl-visually-hidden": LocalJSX.SwirlVisuallyHidden & JSXBase.HTMLAttributes<HTMLSwirlVisuallyHiddenElement>;
         }
