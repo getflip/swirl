@@ -12,6 +12,10 @@ import {
 } from "@stencil/core";
 import classNames from "classnames";
 
+/**
+ * @slot slot - The children of the tree view item
+ * @slot tags - The tags of the tree view item
+ */
 @Component({
   scoped: true,
   shadow: false,
