@@ -39,7 +39,7 @@ describe("swirl-tree-view", () => {
           <li class="tree-view-item" role="none">
             <a aria-expanded="false" aria-level="1" aria-owns="undefined-children" aria-selected="true" class="tree-view-item__link" href="#" role="treeitem" tabindex="0" style="padding-left: calc(0 * var(--s-space-12) + var(--s-space-4));">
               <span class="tree-view-item__toggle-icon">
-                <swirl-icon-chevron-right size="20"></swirl-icon-chevron-right>
+                <swirl-icon-chevron-right size="24"></swirl-icon-chevron-right>
               </span>
               <span class="tree-view-item__icon">
                 🪁
@@ -71,7 +71,7 @@ describe("swirl-tree-view", () => {
                 <li class="tree-view-item" role="none">
                   <a aria-expanded="false" aria-level="2" aria-owns="undefined-children" aria-selected="false" class="tree-view-item__link" href="#" role="treeitem" tabindex="-1" style="padding-left: calc(1 * var(--s-space-12) + var(--s-space-4));">
                     <span class="tree-view-item__toggle-icon">
-                      <swirl-icon-chevron-right size="20"></swirl-icon-chevron-right>
+                      <swirl-icon-chevron-right size="24"></swirl-icon-chevron-right>
                     </span>
                     <span class="tree-view-item__icon">
                       🌎
@@ -160,7 +160,7 @@ describe("swirl-tree-view", () => {
           <li class="tree-view-item" role="none">
             <a aria-expanded="false" aria-level="1" aria-owns="undefined-children" aria-selected="false" class="tree-view-item__link" href="#" role="treeitem" tabindex="-1" style="padding-left: calc(0 * var(--s-space-12) + var(--s-space-4));">
               <span class="tree-view-item__toggle-icon">
-                <swirl-icon-chevron-right size="20"></swirl-icon-chevron-right>
+                <swirl-icon-chevron-right size="24"></swirl-icon-chevron-right>
               </span>
               <span class="tree-view-item__icon">
                 🎮
