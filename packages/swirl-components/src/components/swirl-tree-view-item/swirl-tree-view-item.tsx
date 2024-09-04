@@ -132,12 +132,12 @@ export class SwirlTreeViewItem {
                   {this.expanded ? (
                     <swirl-icon-expand-more
                       onClick={this.onClickCollapse}
-                      size={20}
+                      size={24}
                     ></swirl-icon-expand-more>
                   ) : (
                     <swirl-icon-chevron-right
                       onClick={this.onClickExpand}
-                      size={20}
+                      size={24}
                     ></swirl-icon-chevron-right>
                   )}
                 </Fragment>
@@ -149,7 +149,7 @@ export class SwirlTreeViewItem {
                   {iconIsEmoji ? (
                     this.icon
                   ) : (
-                    <swirl-icon glyph={this.icon} size={20}></swirl-icon>
+                    <swirl-icon glyph={this.icon} size={24}></swirl-icon>
                   )}
                 </span>
               </Fragment>
