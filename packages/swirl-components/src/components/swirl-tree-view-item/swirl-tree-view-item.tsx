@@ -91,11 +91,13 @@ export class SwirlTreeViewItem {
 
   private onClickCollapse = (event: Event) => {
     event.preventDefault();
+    event.stopPropagation();
     this.collapse();
   };
 
   private onClickExpand = (event: Event) => {
     event.preventDefault();
+    event.stopPropagation();
     this.expand();
   };
 
