@@ -884,6 +884,14 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconDockLeftCollapse {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconDockLeftExpand {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconDot {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3315,6 +3323,18 @@ declare global {
         prototype: HTMLSwirlIconDockLeftElement;
         new (): HTMLSwirlIconDockLeftElement;
     };
+    interface HTMLSwirlIconDockLeftCollapseElement extends Components.SwirlIconDockLeftCollapse, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDockLeftCollapseElement: {
+        prototype: HTMLSwirlIconDockLeftCollapseElement;
+        new (): HTMLSwirlIconDockLeftCollapseElement;
+    };
+    interface HTMLSwirlIconDockLeftExpandElement extends Components.SwirlIconDockLeftExpand, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDockLeftExpandElement: {
+        prototype: HTMLSwirlIconDockLeftExpandElement;
+        new (): HTMLSwirlIconDockLeftExpandElement;
+    };
     interface HTMLSwirlIconDotElement extends Components.SwirlIconDot, HTMLStencilElement {
     }
     var HTMLSwirlIconDotElement: {
@@ -5220,6 +5240,8 @@ declare global {
         "swirl-icon-directory-filled": HTMLSwirlIconDirectoryFilledElement;
         "swirl-icon-discover": HTMLSwirlIconDiscoverElement;
         "swirl-icon-dock-left": HTMLSwirlIconDockLeftElement;
+        "swirl-icon-dock-left-collapse": HTMLSwirlIconDockLeftCollapseElement;
+        "swirl-icon-dock-left-expand": HTMLSwirlIconDockLeftExpandElement;
         "swirl-icon-dot": HTMLSwirlIconDotElement;
         "swirl-icon-double-arrow-left": HTMLSwirlIconDoubleArrowLeftElement;
         "swirl-icon-double-arrow-right": HTMLSwirlIconDoubleArrowRightElement;
@@ -6149,6 +6171,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDockLeft {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconDockLeftCollapse {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconDockLeftExpand {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -7532,6 +7562,8 @@ declare namespace LocalJSX {
         "swirl-icon-directory-filled": SwirlIconDirectoryFilled;
         "swirl-icon-discover": SwirlIconDiscover;
         "swirl-icon-dock-left": SwirlIconDockLeft;
+        "swirl-icon-dock-left-collapse": SwirlIconDockLeftCollapse;
+        "swirl-icon-dock-left-expand": SwirlIconDockLeftExpand;
         "swirl-icon-dot": SwirlIconDot;
         "swirl-icon-double-arrow-left": SwirlIconDoubleArrowLeft;
         "swirl-icon-double-arrow-right": SwirlIconDoubleArrowRight;
@@ -7889,6 +7921,8 @@ declare module "@stencil/core" {
             "swirl-icon-directory-filled": LocalJSX.SwirlIconDirectoryFilled & JSXBase.HTMLAttributes<HTMLSwirlIconDirectoryFilledElement>;
             "swirl-icon-discover": LocalJSX.SwirlIconDiscover & JSXBase.HTMLAttributes<HTMLSwirlIconDiscoverElement>;
             "swirl-icon-dock-left": LocalJSX.SwirlIconDockLeft & JSXBase.HTMLAttributes<HTMLSwirlIconDockLeftElement>;
+            "swirl-icon-dock-left-collapse": LocalJSX.SwirlIconDockLeftCollapse & JSXBase.HTMLAttributes<HTMLSwirlIconDockLeftCollapseElement>;
+            "swirl-icon-dock-left-expand": LocalJSX.SwirlIconDockLeftExpand & JSXBase.HTMLAttributes<HTMLSwirlIconDockLeftExpandElement>;
             "swirl-icon-dot": LocalJSX.SwirlIconDot & JSXBase.HTMLAttributes<HTMLSwirlIconDotElement>;
             "swirl-icon-double-arrow-left": LocalJSX.SwirlIconDoubleArrowLeft & JSXBase.HTMLAttributes<HTMLSwirlIconDoubleArrowLeftElement>;
             "swirl-icon-double-arrow-right": LocalJSX.SwirlIconDoubleArrowRight & JSXBase.HTMLAttributes<HTMLSwirlIconDoubleArrowRightElement>;
