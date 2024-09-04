@@ -1,5 +1,15 @@
 # @getflip/swirl-components
 
+## 0.232.0
+
+### Minor Changes
+
+- [`62afe3d8`](https://github.com/getflip/swirl/commit/62afe3d80984f5016703b178412e9120d68b400e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Align versions
+
+* [`c917a77a`](https://github.com/getflip/swirl/commit/c917a77a2bd1b378d6176f667b4e25e175ca9f3e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Align package versions
+
 ## 0.230.1
 
 ### Patch Changes
