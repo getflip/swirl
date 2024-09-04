@@ -31,13 +31,7 @@ export class SwirlTreeView {
       this.expandItems(this.initiallyExpandedItemIds);
     }
 
-    const selectedItem = this.getSelectedItem();
-
-    if (Boolean(selectedItem)) {
-      selectedItem.select();
-    } else {
-      this.getItems()[0]?.select();
-    }
+    this.init();
   }
 
   @Method()
@@ -103,6 +97,19 @@ export class SwirlTreeView {
     }
 
     this.expandedItemsChanged.emit(expandedItemIds);
+  }
+
+  private init() {
+    const selectedItem = this.getSelectedItem();
+    const allItems = this.getItems();
+
+    allItems.forEach((item) => item.unselect());
+
+    if (Boolean(selectedItem)) {
+      selectedItem.select();
+    } else {
+      allItems[0]?.select();
+    }
   }
 
   private selectFirstItem() {
@@ -258,7 +265,8 @@ export class SwirlTreeView {
 
   private getSelectedItem() {
     return this.getItems().find(
-      (item) => item.querySelector("a").getAttribute("aria-selected") === "true"
+      (item) =>
+        item.querySelector("a")?.getAttribute("aria-selected") === "true"
     );
   }
 
@@ -296,11 +304,15 @@ export class SwirlTreeView {
     return (nestedSibling as HTMLSwirlTreeViewItemElement) ?? undefined;
   }
 
+  private onSlotChange = () => {
+    this.init();
+  };
+
   render() {
     return (
       <Host>
         <ul aria-label={this.label} class="tree-view" role="tree">
-          <slot></slot>
+          <slot onSlotchange={this.onSlotChange}></slot>
         </ul>
       </Host>
     );
