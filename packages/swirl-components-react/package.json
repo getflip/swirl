@@ -18,7 +18,7 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@getflip/swirl-components": "^0.231.0",
+    "@getflip/swirl-components": "^0.232.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
