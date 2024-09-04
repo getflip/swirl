@@ -10,6 +10,9 @@ import {
   Prop,
 } from "@stencil/core";
 
+/**
+ * @slot slot - The tree view items
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-tree-view.css",

@@ -62,9 +62,11 @@
   display: block;
   width: 1.25rem;
   height: 1.25rem;
-  padding-right: var(--s-space-4);
+  margin-right: var(--s-space-4);
   flex-grow: 0;
   flex-shrink: 0;
+  color: var(--s-icon-default);
+  font-size: var(--s-font-size-base);
 }
 
 .tree-view-item__toggle-icon {
@@ -73,6 +75,7 @@
   height: 1.25rem;
   flex-grow: 0;
   flex-shrink: 0;
+  color: var(--s-icon-default);
 }
 
 .tree-view-item__label {

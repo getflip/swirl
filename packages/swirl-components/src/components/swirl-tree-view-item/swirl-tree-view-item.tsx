@@ -97,6 +97,8 @@ export class SwirlTreeViewItem {
 
   render() {
     const hasTags = Boolean(this.el.querySelector('[slot="tags"]'));
+    const iconIsEmoji =
+      Boolean(this.icon) && /\p{Extended_Pictographic}/u.test(this.icon);
 
     const className = classNames("tree-view-item", {
       "tree-view-item--active": this.active,
@@ -142,7 +144,15 @@ export class SwirlTreeViewItem {
               )}
             </span>
             {Boolean(this.icon) && (
-              <span class="tree-view-item__icon">{this.icon}</span>
+              <Fragment>
+                <span class="tree-view-item__icon">
+                  {iconIsEmoji ? (
+                    this.icon
+                  ) : (
+                    <swirl-icon glyph={this.icon} size={20}></swirl-icon>
+                  )}
+                </span>
+              </Fragment>
             )}
             <span class="tree-view-item__label">{this.label}</span>
             <span class="tree-view-item__tags">
