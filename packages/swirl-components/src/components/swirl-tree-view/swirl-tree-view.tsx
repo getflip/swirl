@@ -170,14 +170,11 @@ export class SwirlTreeView {
   private selectNextItem() {
     const selectedItem = this.getSelectedItem();
     const selectedItemExpanded = this.isItemExpanded(selectedItem);
+    const nextSibling = this.getNextSibling(selectedItem);
 
-    const nextSibling = selectedItem?.nextElementSibling as
-      | HTMLSwirlTreeViewItemElement
-      | undefined;
-
-    const nextSiblingOfParent = selectedItem.parentElement.closest(
-      "swirl-tree-view-item"
-    )?.nextElementSibling as HTMLSwirlTreeViewItemElement | undefined;
+    const nextSiblingOfParent = this.getNextSibling(
+      selectedItem.parentElement.closest("swirl-tree-view-item")
+    );
 
     const firstChild = selectedItem.querySelector("swirl-tree-view-item");
 
@@ -195,10 +192,7 @@ export class SwirlTreeView {
 
   private selectPreviousItem() {
     const selectedItem = this.getSelectedItem();
-
-    const previousSibling = selectedItem?.previousElementSibling as
-      | HTMLSwirlTreeViewItemElement
-      | undefined;
+    const previousSibling = this.getPreviousSibling(selectedItem);
 
     const previousSiblingExpanded = Boolean(
       previousSibling?.querySelector('[aria-expanded="true"]')
@@ -206,7 +200,7 @@ export class SwirlTreeView {
 
     const lastChildOfPreviousSibling =
       previousSibling?.querySelector<HTMLSwirlTreeViewItemElement>(
-        ":scope > li > ul > swirl-tree-view-item:last-child"
+        ":scope > li > ul > swirl-tree-view-item:last-child, :scope > li > ul > *:last-child > swirl-tree-view-item"
       );
 
     const parent = selectedItem.parentElement.closest("swirl-tree-view-item");
@@ -241,6 +235,36 @@ export class SwirlTreeView {
 
   private isItemExpanded(item: HTMLSwirlTreeViewItemElement) {
     return Boolean(item.querySelector(':scope > li > [aria-expanded="true"]'));
+  }
+
+  private getNextSibling(
+    item?: HTMLSwirlTreeViewItemElement
+  ): HTMLSwirlTreeViewItemElement | undefined {
+    if (item?.nextElementSibling?.tagName === "SWIRL-TREE-VIEW-ITEM") {
+      return item.nextElementSibling as HTMLSwirlTreeViewItemElement;
+    }
+
+    const nestedSibling =
+      item?.parentElement?.nextElementSibling?.querySelector(
+        "swirl-tree-view-item"
+      );
+
+    return (nestedSibling as HTMLSwirlTreeViewItemElement) ?? undefined;
+  }
+
+  private getPreviousSibling(
+    item?: HTMLSwirlTreeViewItemElement
+  ): HTMLSwirlTreeViewItemElement | undefined {
+    if (item?.previousElementSibling?.tagName === "SWIRL-TREE-VIEW-ITEM") {
+      return item.previousElementSibling as HTMLSwirlTreeViewItemElement;
+    }
+
+    const nestedSibling =
+      item?.parentElement?.previousElementSibling?.querySelector(
+        "swirl-tree-view-item"
+      );
+
+    return (nestedSibling as HTMLSwirlTreeViewItemElement) ?? undefined;
   }
 
   render() {

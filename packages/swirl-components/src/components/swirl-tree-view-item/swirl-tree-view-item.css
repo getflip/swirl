@@ -14,7 +14,7 @@
 }
 
 .tree-view-item--active {
-  & .tree-view-item__link {
+  & > .tree-view-item__link {
     background-color: var(--s-background-hovered);
   }
 }
@@ -26,8 +26,11 @@
 }
 
 .tree-view-item__children {
+  display: flex;
   margin: 0;
   padding: 0;
+  flex-direction: column;
+  gap: var(--s-space-2);
 }
 
 .tree-view-item__link {
