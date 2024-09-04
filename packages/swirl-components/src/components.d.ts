@@ -1771,7 +1771,9 @@ export namespace Components {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
+        "collapseNavigationButtonLabel"?: string;
         "enableSecondaryNavGridLayout"?: boolean;
+        "expandNavigationButtonLabel"?: string;
         "gridNavLayoutToggleLabel"?: string;
         /**
           * Hides the mobile navigation.
@@ -1780,7 +1782,6 @@ export namespace Components {
         "hideMobileNavigationButtonLabel"?: string;
         "listNavLayoutToggleLabel"?: string;
         "navigationLabel"?: string;
-        "navigationToggleLabel"?: string;
         "secondaryNavCollapseLabel"?: string;
         "secondaryNavExpandLabel"?: string;
         /**
@@ -7023,12 +7024,13 @@ declare namespace LocalJSX {
         "brandedHeader"?: boolean;
         "browserBackButtonLabel"?: string;
         "browserForwardButtonLabel"?: string;
+        "collapseNavigationButtonLabel"?: string;
         "enableSecondaryNavGridLayout"?: boolean;
+        "expandNavigationButtonLabel"?: string;
         "gridNavLayoutToggleLabel"?: string;
         "hideMobileNavigationButtonLabel"?: string;
         "listNavLayoutToggleLabel"?: string;
         "navigationLabel"?: string;
-        "navigationToggleLabel"?: string;
         "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "onSkipLinkClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "secondaryNavCollapseLabel"?: string;

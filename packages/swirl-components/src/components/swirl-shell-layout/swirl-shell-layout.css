@@ -37,7 +37,7 @@
   @media (--from-desktop) {
     padding-right: var(--s-space-8);
     padding-bottom: var(--s-space-8);
-    gap: var(--s-space-8);
+    column-gap: var(--s-space-8);
     grid-template-columns: var(--swirl-shell-extended-nav-width) 1fr 0;
     grid-template-rows: var(--swirl-shell-header-height) 1fr;
     grid-template-areas:
@@ -179,7 +179,6 @@
   padding-left: var(--s-space-16);
   justify-content: space-between;
   align-items: center;
-  border-bottom: 0.0625rem solid var(--s-border-default);
   color: var(--swirl-shell-text-color);
   grid-area: header;
 

@@ -48,12 +48,13 @@ export class SwirlShellLayout {
   @Prop() brandedHeader?: boolean;
   @Prop() browserBackButtonLabel?: string = "Navigate back";
   @Prop() browserForwardButtonLabel?: string = "Navigate forward";
+  @Prop() collapseNavigationButtonLabel?: string = "Collapse navigation";
   @Prop() enableSecondaryNavGridLayout?: boolean = true;
+  @Prop() expandNavigationButtonLabel?: string = "Expand navigation";
   @Prop() gridNavLayoutToggleLabel?: string = "Grid";
   @Prop() hideMobileNavigationButtonLabel?: string = "Close navigation";
   @Prop() listNavLayoutToggleLabel?: string = "List";
   @Prop() navigationLabel?: string = "Main";
-  @Prop() navigationToggleLabel?: string = "Toggle navigation";
   @Prop() secondaryNavCollapseLabel?: string = "Show less";
   @Prop() secondaryNavExpandLabel?: string = "Show more";
   @Prop({ mutable: true }) sidebarActive?: boolean;
@@ -311,16 +312,36 @@ export class SwirlShellLayout {
               {this.skipLinkLabel}
             </button>
             <div class="shell-layout__header-left">
-              <button
-                class="shell-layout__header-tool"
-                onClick={this.onNavigationToggleClick}
-                type="button"
+              <swirl-tooltip
+                content={
+                  this.navigationCollapsed
+                    ? this.expandNavigationButtonLabel
+                    : this.collapseNavigationButtonLabel
+                }
+                delay={100}
+                position="right"
               >
-                <swirl-icon-dock-left size={20}></swirl-icon-dock-left>
-                <swirl-visually-hidden>
-                  {this.navigationToggleLabel}
-                </swirl-visually-hidden>
-              </button>
+                <button
+                  class="shell-layout__header-tool"
+                  onClick={this.onNavigationToggleClick}
+                  type="button"
+                >
+                  {this.navigationCollapsed ? (
+                    <swirl-icon-dock-left-expand
+                      size={20}
+                    ></swirl-icon-dock-left-expand>
+                  ) : (
+                    <swirl-icon-dock-left-collapse
+                      size={20}
+                    ></swirl-icon-dock-left-collapse>
+                  )}
+                  <swirl-visually-hidden>
+                    {this.navigationCollapsed
+                      ? this.expandNavigationButtonLabel
+                      : this.collapseNavigationButtonLabel}
+                  </swirl-visually-hidden>
+                </button>
+              </swirl-tooltip>
               <a
                 class="shell-layout__header-tool"
                 href="javascript:history.back()"

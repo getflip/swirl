@@ -36,7 +36,7 @@ export class SwirlShellNavigationItem {
         <swirl-tooltip
           active={this.hideLabel}
           content={this.label}
-          delay={200}
+          delay={100}
           position="right"
           positioning="fixed"
         >

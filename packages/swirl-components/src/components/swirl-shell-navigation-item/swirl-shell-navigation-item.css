@@ -129,6 +129,14 @@
   &.shell-navigation-item--active {
     background-color: var(--s-surface-sunken-hovered);
 
+    & .shell-navigation-item__icon {
+      color: var(--s-icon-highlight);
+    }
+
+    & .shell-navigation-item__label {
+      color: var(--s-text-highlight);
+    }
+
     & .shell-navigation-item__badge {
       --swirl-badge-border-color: var(--s-surface-sunken-hovered);
     }

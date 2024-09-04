@@ -14653,7 +14653,15 @@
           "description": ""
         },
         {
+          "name": "collapse-navigation-button-label",
+          "description": ""
+        },
+        {
           "name": "enable-secondary-nav-grid-layout",
+          "description": ""
+        },
+        {
+          "name": "expand-navigation-button-label",
           "description": ""
         },
         {
@@ -14670,10 +14678,6 @@
         },
         {
           "name": "navigation-label",
-          "description": ""
-        },
-        {
-          "name": "navigation-toggle-label",
           "description": ""
         },
         {
