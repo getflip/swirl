@@ -172,9 +172,16 @@ export class SwirlTreeView {
     const selectedItemExpanded = this.isItemExpanded(selectedItem);
     const nextSibling = this.getNextSibling(selectedItem);
 
-    const nextSiblingOfParent = this.getNextSibling(
-      selectedItem.parentElement.closest("swirl-tree-view-item")
-    );
+    let parent = selectedItem.parentElement.closest("swirl-tree-view-item");
+    let nextSiblingOfParent = this.getNextSibling(parent);
+
+    while (Boolean(parent) && !Boolean(nextSiblingOfParent)) {
+      parent = parent?.parentElement.closest(
+        "swirl-tree-view-item, swirl-tree-view"
+      );
+
+      nextSiblingOfParent = this.getNextSibling(parent);
+    }
 
     const firstChild = selectedItem.querySelector("swirl-tree-view-item");
 
@@ -191,29 +198,51 @@ export class SwirlTreeView {
   }
 
   private selectPreviousItem() {
+    const allItems = this.getItems();
     const selectedItem = this.getSelectedItem();
     const previousSibling = this.getPreviousSibling(selectedItem);
-
     const previousSiblingExpanded = Boolean(
       previousSibling?.querySelector('[aria-expanded="true"]')
     );
 
-    const lastChildOfPreviousSibling =
-      previousSibling?.querySelector<HTMLSwirlTreeViewItemElement>(
-        ":scope > li > ul > swirl-tree-view-item:last-child, :scope > li > ul > *:last-child > swirl-tree-view-item"
+    // find the last child of the nested previous sibling
+    if (previousSiblingExpanded) {
+      let lastChildOfNestedPreviousSibling =
+        previousSibling?.querySelector<HTMLSwirlTreeViewItemElement>(
+          ":scope > li > ul > swirl-tree-view-item:last-child, :scope > li > ul > *:last-child > swirl-tree-view-item"
+        );
+
+      let lastChildOfNestedPreviousSiblingExpanded = Boolean(
+        lastChildOfNestedPreviousSibling?.querySelector(
+          '[aria-expanded="true"]'
+        )
       );
 
-    const parent = selectedItem.parentElement.closest("swirl-tree-view-item");
+      while (lastChildOfNestedPreviousSiblingExpanded) {
+        lastChildOfNestedPreviousSibling =
+          lastChildOfNestedPreviousSibling?.querySelector<HTMLSwirlTreeViewItemElement>(
+            ":scope > li > ul > swirl-tree-view-item:last-child, :scope > li > ul > *:last-child > swirl-tree-view-item"
+          );
 
-    const previousItem = previousSiblingExpanded
-      ? lastChildOfPreviousSibling
-      : previousSibling || parent;
+        lastChildOfNestedPreviousSiblingExpanded = Boolean(
+          lastChildOfNestedPreviousSibling?.querySelector(
+            '[aria-expanded="true"]'
+          )
+        );
+      }
+
+      allItems.forEach((item) => item.unselect());
+      lastChildOfNestedPreviousSibling.select?.(true);
+
+      return;
+    }
+
+    const parent = selectedItem.parentElement.closest("swirl-tree-view-item");
+    const previousItem = previousSibling || parent;
 
     if (!Boolean(previousItem)) {
       return;
     }
-
-    const allItems = this.getItems();
 
     allItems.forEach((item) => item.unselect());
     previousItem.select?.(true);
