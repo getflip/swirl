@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.233.1
+
+### Patch Changes
+
+- [`0ec94e7e`](https://github.com/getflip/swirl/commit/0ec94e7e002a3c00ed43cc31125e47575506cfac)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Adjust swirl-tree-view expansion
+  change event
+
 ## 0.233.0
 
 ### Minor Changes
