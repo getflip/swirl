@@ -1056,6 +1056,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconLive {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconLoad {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -1216,6 +1220,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconPresent {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconPrint {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -1285,6 +1293,14 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconRotateRight {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconScreenshare {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconScreenshareOff {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -1389,6 +1405,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoLibrary {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconVideoPlayer {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -3606,6 +3626,12 @@ declare global {
         prototype: HTMLSwirlIconLinkElement;
         new (): HTMLSwirlIconLinkElement;
     };
+    interface HTMLSwirlIconLiveElement extends Components.SwirlIconLive, HTMLStencilElement {
+    }
+    var HTMLSwirlIconLiveElement: {
+        prototype: HTMLSwirlIconLiveElement;
+        new (): HTMLSwirlIconLiveElement;
+    };
     interface HTMLSwirlIconLoadElement extends Components.SwirlIconLoad, HTMLStencilElement {
     }
     var HTMLSwirlIconLoadElement: {
@@ -3846,6 +3872,12 @@ declare global {
         prototype: HTMLSwirlIconPollElement;
         new (): HTMLSwirlIconPollElement;
     };
+    interface HTMLSwirlIconPresentElement extends Components.SwirlIconPresent, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPresentElement: {
+        prototype: HTMLSwirlIconPresentElement;
+        new (): HTMLSwirlIconPresentElement;
+    };
     interface HTMLSwirlIconPrintElement extends Components.SwirlIconPrint, HTMLStencilElement {
     }
     var HTMLSwirlIconPrintElement: {
@@ -3953,6 +3985,18 @@ declare global {
     var HTMLSwirlIconRotateRightElement: {
         prototype: HTMLSwirlIconRotateRightElement;
         new (): HTMLSwirlIconRotateRightElement;
+    };
+    interface HTMLSwirlIconScreenshareElement extends Components.SwirlIconScreenshare, HTMLStencilElement {
+    }
+    var HTMLSwirlIconScreenshareElement: {
+        prototype: HTMLSwirlIconScreenshareElement;
+        new (): HTMLSwirlIconScreenshareElement;
+    };
+    interface HTMLSwirlIconScreenshareOffElement extends Components.SwirlIconScreenshareOff, HTMLStencilElement {
+    }
+    var HTMLSwirlIconScreenshareOffElement: {
+        prototype: HTMLSwirlIconScreenshareOffElement;
+        new (): HTMLSwirlIconScreenshareOffElement;
     };
     interface HTMLSwirlIconSearchElement extends Components.SwirlIconSearch, HTMLStencilElement {
     }
@@ -4109,6 +4153,12 @@ declare global {
     var HTMLSwirlIconVideoLibraryElement: {
         prototype: HTMLSwirlIconVideoLibraryElement;
         new (): HTMLSwirlIconVideoLibraryElement;
+    };
+    interface HTMLSwirlIconVideoPlayerElement extends Components.SwirlIconVideoPlayer, HTMLStencilElement {
+    }
+    var HTMLSwirlIconVideoPlayerElement: {
+        prototype: HTMLSwirlIconVideoPlayerElement;
+        new (): HTMLSwirlIconVideoPlayerElement;
     };
     interface HTMLSwirlIconVisibilityElement extends Components.SwirlIconVisibility, HTMLStencilElement {
     }
@@ -5346,6 +5396,7 @@ declare global {
         "swirl-icon-light-mode": HTMLSwirlIconLightModeElement;
         "swirl-icon-like": HTMLSwirlIconLikeElement;
         "swirl-icon-link": HTMLSwirlIconLinkElement;
+        "swirl-icon-live": HTMLSwirlIconLiveElement;
         "swirl-icon-load": HTMLSwirlIconLoadElement;
         "swirl-icon-lock": HTMLSwirlIconLockElement;
         "swirl-icon-lock-open": HTMLSwirlIconLockOpenElement;
@@ -5386,6 +5437,7 @@ declare global {
         "swirl-icon-place": HTMLSwirlIconPlaceElement;
         "swirl-icon-play-arrow": HTMLSwirlIconPlayArrowElement;
         "swirl-icon-poll": HTMLSwirlIconPollElement;
+        "swirl-icon-present": HTMLSwirlIconPresentElement;
         "swirl-icon-print": HTMLSwirlIconPrintElement;
         "swirl-icon-public": HTMLSwirlIconPublicElement;
         "swirl-icon-public-off": HTMLSwirlIconPublicOffElement;
@@ -5404,6 +5456,8 @@ declare global {
         "swirl-icon-roadmap": HTMLSwirlIconRoadmapElement;
         "swirl-icon-rotate-left": HTMLSwirlIconRotateLeftElement;
         "swirl-icon-rotate-right": HTMLSwirlIconRotateRightElement;
+        "swirl-icon-screenshare": HTMLSwirlIconScreenshareElement;
+        "swirl-icon-screenshare-off": HTMLSwirlIconScreenshareOffElement;
         "swirl-icon-search": HTMLSwirlIconSearchElement;
         "swirl-icon-search-strong": HTMLSwirlIconSearchStrongElement;
         "swirl-icon-secure": HTMLSwirlIconSecureElement;
@@ -5430,6 +5484,7 @@ declare global {
         "swirl-icon-video-camera": HTMLSwirlIconVideoCameraElement;
         "swirl-icon-video-camera-off": HTMLSwirlIconVideoCameraOffElement;
         "swirl-icon-video-library": HTMLSwirlIconVideoLibraryElement;
+        "swirl-icon-video-player": HTMLSwirlIconVideoPlayerElement;
         "swirl-icon-visibility": HTMLSwirlIconVisibilityElement;
         "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
         "swirl-icon-voice": HTMLSwirlIconVoiceElement;
@@ -6411,6 +6466,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconLive {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconLoad {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -6571,6 +6630,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconPresent {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconPrint {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -6640,6 +6703,14 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRotateRight {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconScreenshare {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconScreenshareOff {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -6744,6 +6815,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVideoLibrary {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconVideoPlayer {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -7688,6 +7763,7 @@ declare namespace LocalJSX {
         "swirl-icon-light-mode": SwirlIconLightMode;
         "swirl-icon-like": SwirlIconLike;
         "swirl-icon-link": SwirlIconLink;
+        "swirl-icon-live": SwirlIconLive;
         "swirl-icon-load": SwirlIconLoad;
         "swirl-icon-lock": SwirlIconLock;
         "swirl-icon-lock-open": SwirlIconLockOpen;
@@ -7728,6 +7804,7 @@ declare namespace LocalJSX {
         "swirl-icon-place": SwirlIconPlace;
         "swirl-icon-play-arrow": SwirlIconPlayArrow;
         "swirl-icon-poll": SwirlIconPoll;
+        "swirl-icon-present": SwirlIconPresent;
         "swirl-icon-print": SwirlIconPrint;
         "swirl-icon-public": SwirlIconPublic;
         "swirl-icon-public-off": SwirlIconPublicOff;
@@ -7746,6 +7823,8 @@ declare namespace LocalJSX {
         "swirl-icon-roadmap": SwirlIconRoadmap;
         "swirl-icon-rotate-left": SwirlIconRotateLeft;
         "swirl-icon-rotate-right": SwirlIconRotateRight;
+        "swirl-icon-screenshare": SwirlIconScreenshare;
+        "swirl-icon-screenshare-off": SwirlIconScreenshareOff;
         "swirl-icon-search": SwirlIconSearch;
         "swirl-icon-search-strong": SwirlIconSearchStrong;
         "swirl-icon-secure": SwirlIconSecure;
@@ -7772,6 +7851,7 @@ declare namespace LocalJSX {
         "swirl-icon-video-camera": SwirlIconVideoCamera;
         "swirl-icon-video-camera-off": SwirlIconVideoCameraOff;
         "swirl-icon-video-library": SwirlIconVideoLibrary;
+        "swirl-icon-video-player": SwirlIconVideoPlayer;
         "swirl-icon-visibility": SwirlIconVisibility;
         "swirl-icon-visibility-off": SwirlIconVisibilityOff;
         "swirl-icon-voice": SwirlIconVoice;
@@ -8049,6 +8129,7 @@ declare module "@stencil/core" {
             "swirl-icon-light-mode": LocalJSX.SwirlIconLightMode & JSXBase.HTMLAttributes<HTMLSwirlIconLightModeElement>;
             "swirl-icon-like": LocalJSX.SwirlIconLike & JSXBase.HTMLAttributes<HTMLSwirlIconLikeElement>;
             "swirl-icon-link": LocalJSX.SwirlIconLink & JSXBase.HTMLAttributes<HTMLSwirlIconLinkElement>;
+            "swirl-icon-live": LocalJSX.SwirlIconLive & JSXBase.HTMLAttributes<HTMLSwirlIconLiveElement>;
             "swirl-icon-load": LocalJSX.SwirlIconLoad & JSXBase.HTMLAttributes<HTMLSwirlIconLoadElement>;
             "swirl-icon-lock": LocalJSX.SwirlIconLock & JSXBase.HTMLAttributes<HTMLSwirlIconLockElement>;
             "swirl-icon-lock-open": LocalJSX.SwirlIconLockOpen & JSXBase.HTMLAttributes<HTMLSwirlIconLockOpenElement>;
@@ -8089,6 +8170,7 @@ declare module "@stencil/core" {
             "swirl-icon-place": LocalJSX.SwirlIconPlace & JSXBase.HTMLAttributes<HTMLSwirlIconPlaceElement>;
             "swirl-icon-play-arrow": LocalJSX.SwirlIconPlayArrow & JSXBase.HTMLAttributes<HTMLSwirlIconPlayArrowElement>;
             "swirl-icon-poll": LocalJSX.SwirlIconPoll & JSXBase.HTMLAttributes<HTMLSwirlIconPollElement>;
+            "swirl-icon-present": LocalJSX.SwirlIconPresent & JSXBase.HTMLAttributes<HTMLSwirlIconPresentElement>;
             "swirl-icon-print": LocalJSX.SwirlIconPrint & JSXBase.HTMLAttributes<HTMLSwirlIconPrintElement>;
             "swirl-icon-public": LocalJSX.SwirlIconPublic & JSXBase.HTMLAttributes<HTMLSwirlIconPublicElement>;
             "swirl-icon-public-off": LocalJSX.SwirlIconPublicOff & JSXBase.HTMLAttributes<HTMLSwirlIconPublicOffElement>;
@@ -8107,6 +8189,8 @@ declare module "@stencil/core" {
             "swirl-icon-roadmap": LocalJSX.SwirlIconRoadmap & JSXBase.HTMLAttributes<HTMLSwirlIconRoadmapElement>;
             "swirl-icon-rotate-left": LocalJSX.SwirlIconRotateLeft & JSXBase.HTMLAttributes<HTMLSwirlIconRotateLeftElement>;
             "swirl-icon-rotate-right": LocalJSX.SwirlIconRotateRight & JSXBase.HTMLAttributes<HTMLSwirlIconRotateRightElement>;
+            "swirl-icon-screenshare": LocalJSX.SwirlIconScreenshare & JSXBase.HTMLAttributes<HTMLSwirlIconScreenshareElement>;
+            "swirl-icon-screenshare-off": LocalJSX.SwirlIconScreenshareOff & JSXBase.HTMLAttributes<HTMLSwirlIconScreenshareOffElement>;
             "swirl-icon-search": LocalJSX.SwirlIconSearch & JSXBase.HTMLAttributes<HTMLSwirlIconSearchElement>;
             "swirl-icon-search-strong": LocalJSX.SwirlIconSearchStrong & JSXBase.HTMLAttributes<HTMLSwirlIconSearchStrongElement>;
             "swirl-icon-secure": LocalJSX.SwirlIconSecure & JSXBase.HTMLAttributes<HTMLSwirlIconSecureElement>;
@@ -8133,6 +8217,7 @@ declare module "@stencil/core" {
             "swirl-icon-video-camera": LocalJSX.SwirlIconVideoCamera & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraElement>;
             "swirl-icon-video-camera-off": LocalJSX.SwirlIconVideoCameraOff & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraOffElement>;
             "swirl-icon-video-library": LocalJSX.SwirlIconVideoLibrary & JSXBase.HTMLAttributes<HTMLSwirlIconVideoLibraryElement>;
+            "swirl-icon-video-player": LocalJSX.SwirlIconVideoPlayer & JSXBase.HTMLAttributes<HTMLSwirlIconVideoPlayerElement>;
             "swirl-icon-visibility": LocalJSX.SwirlIconVisibility & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityElement>;
             "swirl-icon-visibility-off": LocalJSX.SwirlIconVisibilityOff & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
             "swirl-icon-voice": LocalJSX.SwirlIconVoice & JSXBase.HTMLAttributes<HTMLSwirlIconVoiceElement>;
