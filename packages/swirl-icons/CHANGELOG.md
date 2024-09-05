@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.43.0
+
+### Minor Changes
+
+- [#794](https://github.com/getflip/swirl/pull/794)
+  [`28309df9`](https://github.com/getflip/swirl/commit/28309df93eef2c55134ac1f51c60c073662d6860)
+  Thanks [@danizep](https://github.com/danizep)! - Add livestream icons
+
 ## 0.42.0
 
 ### Minor Changes
