@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.235.0
+
+### Minor Changes
+
+- [#796](https://github.com/getflip/swirl/pull/796)
+  [`95a50fe3`](https://github.com/getflip/swirl/commit/95a50fe33070170ccee37d3d5a4ff3cfc6047458)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Remove drag
+  behavior when the swirl-lightbox has only one item
+
+### Patch Changes
+
+- [`f66bfa94`](https://github.com/getflip/swirl/commit/f66bfa94fc5d230d71fb1efe8d3ded1d8d6dbc0b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Only emit swirl-tree-view-item
+  expansion state events if not already in same state
+- Updated dependencies
+  [[`95a50fe3`](https://github.com/getflip/swirl/commit/95a50fe33070170ccee37d3d5a4ff3cfc6047458),
+  [`f66bfa94`](https://github.com/getflip/swirl/commit/f66bfa94fc5d230d71fb1efe8d3ded1d8d6dbc0b)]:
+  - @getflip/swirl-components@0.235.0
+
 ## 0.234.0
 
 ### Minor Changes
