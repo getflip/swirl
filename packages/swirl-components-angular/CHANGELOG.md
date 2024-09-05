@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.233.0
+
+### Minor Changes
+
+- [#789](https://github.com/getflip/swirl/pull/789)
+  [`8fc64d9c`](https://github.com/getflip/swirl/commit/8fc64d9c1637c04e46ecaf221199e23be73379ef)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add swirl-tree-view and
+  swirl-tree-view-item components
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8fc64d9c`](https://github.com/getflip/swirl/commit/8fc64d9c1637c04e46ecaf221199e23be73379ef)]:
+  - @getflip/swirl-components@0.233.0
+
 ## 0.232.0
 
 ### Minor Changes
