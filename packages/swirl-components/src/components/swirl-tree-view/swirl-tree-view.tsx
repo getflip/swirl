@@ -24,7 +24,10 @@ export class SwirlTreeView {
   @Prop() initiallyExpandedItemIds?: string[];
   @Prop() label!: string;
 
-  @Event() expandedItemsChanged!: EventEmitter<string[]>;
+  @Event() itemExpansionChanged!: EventEmitter<{
+    itemId: string;
+    expanded: boolean;
+  }>;
 
   componentDidLoad() {
     if (Boolean(this.initiallyExpandedItemIds)) {
@@ -36,7 +39,9 @@ export class SwirlTreeView {
 
   @Method()
   async expandItems(itemIds: string[]) {
-    const items = this.getItems().filter((item) => itemIds.includes(item.id));
+    const items = this.getItems().filter((item) =>
+      itemIds.includes(item.itemId)
+    );
 
     items.forEach((item) => item.expand());
   }
@@ -74,29 +79,15 @@ export class SwirlTreeView {
   }
 
   @Listen("expandedChange")
-  onExpandedChange(event: Event) {
-    const expandedItemIds = this.getItems()
-      .filter((item) => this.isItemExpanded(item))
-      .map((item) => item.id);
+  onExpandedChange(event: CustomEvent) {
+    const target = event.target as HTMLSwirlTreeViewItemElement | undefined;
 
-    const changedItemGotExpanded = !Boolean(
-      (event.target as HTMLSwirlTreeViewItemElement).querySelector(
-        ':scope > li > [aria-expanded="true"]'
-      )
-    );
-
-    if (changedItemGotExpanded) {
-      expandedItemIds.push((event.target as HTMLSwirlTreeViewItemElement).id);
-    } else {
-      expandedItemIds.splice(
-        expandedItemIds.indexOf(
-          (event.target as HTMLSwirlTreeViewItemElement).id
-        ),
-        1
-      );
+    if (target?.tagName === "SWIRL-TREE-VIEW-ITEM") {
+      this.itemExpansionChanged.emit({
+        itemId: target.itemId,
+        expanded: event.detail,
+      });
     }
-
-    this.expandedItemsChanged.emit(expandedItemIds);
   }
 
   private init() {

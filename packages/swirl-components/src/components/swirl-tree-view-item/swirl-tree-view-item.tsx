@@ -49,13 +49,19 @@ export class SwirlTreeViewItem {
   @Method()
   async expand() {
     this.expanded = true;
-    this.expandedChange.emit(this.expanded);
+
+    setTimeout(() => {
+      this.expandedChange.emit(this.expanded);
+    });
   }
 
   @Method()
   async collapse() {
     this.expanded = false;
-    this.expandedChange.emit(this.expanded);
+
+    setTimeout(() => {
+      this.expandedChange.emit(this.expanded);
+    });
   }
 
   @Method()

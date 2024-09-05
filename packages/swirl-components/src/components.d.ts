@@ -5156,7 +5156,10 @@ declare global {
         new (): HTMLSwirlTreeNavigationItemElement;
     };
     interface HTMLSwirlTreeViewElementEventMap {
-        "expandedItemsChanged": string[];
+        "itemExpansionChanged": {
+    itemId: string;
+    expanded: boolean;
+  };
     }
     interface HTMLSwirlTreeViewElement extends Components.SwirlTreeView, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlTreeViewElementEventMap>(type: K, listener: (this: HTMLSwirlTreeViewElement, ev: SwirlTreeViewCustomEvent<HTMLSwirlTreeViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -7522,7 +7525,10 @@ declare namespace LocalJSX {
     interface SwirlTreeView {
         "initiallyExpandedItemIds"?: string[];
         "label": string;
-        "onExpandedItemsChanged"?: (event: SwirlTreeViewCustomEvent<string[]>) => void;
+        "onItemExpansionChanged"?: (event: SwirlTreeViewCustomEvent<{
+    itemId: string;
+    expanded: boolean;
+  }>) => void;
     }
     interface SwirlTreeViewItem {
         "active"?: boolean;
