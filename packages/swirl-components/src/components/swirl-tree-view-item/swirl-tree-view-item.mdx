@@ -1,0 +1,35 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-tree-view-item.stories";
+
+<Meta title="Components/SwirlTreeViewItem" />
+
+# SwirlTreeViewItem
+
+The SwirlTreeViewItem component is used to render nodes in a
+[SwirlTreeView](?path=/docs/components-swirltreeview--docs).
+
+- **[Figma Design Specs](https://www.figma.com/design/t6ISOeXcBoEErcolnLivai/Pages?node-id=773-158235&node-type=FRAME&m=dev)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-tree-view-item)**
+
+## Usage
+
+<Canvas of={Stories.SwirlTreeViewItem} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlTreeViewItem} />
+
+## Theming
+
+| Variable                 | Usage                                               |
+| ------------------------ | --------------------------------------------------- |
+| `--s-background-default` | Background color of the item                        |
+| `--s-background-hovered` | Background color of the hovered and active item     |
+| `--s-text-default`       | Text color of the label                             |
+| `--s-icon-default`       | Color of the item's custom and epxand/collapse icon |
+| `--s-text-disabled`      | Text color of the disabled item's label             |
+
+## Accessibility
+
+### ARIA
+
+The component follows the
+[WAI-ARIA Tree View Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
