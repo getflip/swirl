@@ -269,6 +269,10 @@ export class SwirlLightbox {
   }
 
   private onPointerDown = (event: MouseEvent | TouchEvent) => {
+    if (this.slides.length <= 1) {
+      return;
+    }
+
     this.dragging = true;
 
     this.dragStartPosition =
@@ -280,6 +284,10 @@ export class SwirlLightbox {
   };
 
   private onPointerMove = async (event: MouseEvent | TouchEvent) => {
+    if (!this.dragging) {
+      return;
+    }
+
     const isMultiTouch =
       !(event instanceof MouseEvent) && event.touches.length > 1;
 
@@ -295,28 +303,30 @@ export class SwirlLightbox {
       return;
     }
 
-    if (this.dragging) {
-      event.preventDefault();
+    event.preventDefault();
 
-      const deltaX =
-        event instanceof MouseEvent
-          ? event.clientX - this.dragStartPosition
-          : event.touches[0].clientX - this.dragStartPosition;
+    const deltaX =
+      event instanceof MouseEvent
+        ? event.clientX - this.dragStartPosition
+        : event.touches[0].clientX - this.dragStartPosition;
 
-      this.slides.forEach((slide) => {
-        const pixelOffset =
-          this.activeSlideIndex * slide.getBoundingClientRect().width;
+    this.slides.forEach((slide) => {
+      const pixelOffset =
+        this.activeSlideIndex * slide.getBoundingClientRect().width;
 
-        this.dragDelta = deltaX;
+      this.dragDelta = deltaX;
 
-        slide.style.transform = `translate3d(${
-          (-pixelOffset + this.dragDelta) / 16
-        }rem, 0, 0)`;
-      });
-    }
+      slide.style.transform = `translate3d(${
+        (-pixelOffset + this.dragDelta) / 16
+      }rem, 0, 0)`;
+    });
   };
 
   private onPointerUp = () => {
+    if (!this.dragging) {
+      return;
+    }
+
     this.dragging = false;
     this.dragStartPosition = undefined;
 
