@@ -244,6 +244,39 @@ describe("swirl-lightbox", () => {
     expect(page.rootInstance.activeSlideIndex).toBe(0);
   });
 
+  it("doesn't have the drag behavior when there's only one slide", async () => {
+    const page = await newSpecPage({
+      components: [SwirlLightbox],
+      html: `
+        <swirl-lightbox label="Lightbox">
+          <swirl-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+        </swirl-lightbox>
+      `,
+    });
+
+    // wait for animation
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    const slides = page.rootInstance.slides;
+
+    page.root.shadowRoot
+      .querySelector("#lightbox")
+      .dispatchEvent(
+        new Event("touchStart", { touches: [{ clientX: 0 } as Touch] } as any)
+      );
+
+    page.root.shadowRoot
+      .querySelector("#lightbox")
+      .dispatchEvent(
+        new Event("touchMove", { touches: [{ clientX: -100 } as Touch] } as any)
+      );
+
+    // wait for animation
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    expect(slides[0].style.transform).toBe("translate3d(-0%, 0, 0)");
+  });
+
   it("fires slide change events", async () => {
     const page = await newSpecPage({
       components: [SwirlLightbox],
