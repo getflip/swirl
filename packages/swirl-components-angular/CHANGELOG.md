@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.234.0
+
+### Minor Changes
+
+- [#794](https://github.com/getflip/swirl/pull/794)
+  [`28309df9`](https://github.com/getflip/swirl/commit/28309df93eef2c55134ac1f51c60c073662d6860)
+  Thanks [@danizep](https://github.com/danizep)! - Add livestream icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`28309df9`](https://github.com/getflip/swirl/commit/28309df93eef2c55134ac1f51c60c073662d6860)]:
+  - @getflip/swirl-components@0.234.0
+
 ## 0.233.1
 
 ### Patch Changes
