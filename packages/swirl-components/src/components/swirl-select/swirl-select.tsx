@@ -94,6 +94,8 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   }
 
   private select = (event: CustomEvent<string[]>) => {
+    event.stopPropagation();
+
     this.value = event.detail;
     this.valueChange.emit(this.value);
 
