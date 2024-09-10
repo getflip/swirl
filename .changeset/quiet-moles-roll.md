@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": minor
 ---
 
-Minor styling adjustments for swirl-shell-layout and swirl-app-layout
+Reveal borders of swirl-shell-layout and swirl-app-layout on scroll
