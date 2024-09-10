@@ -10,6 +10,8 @@
   --swirl-shell-extended-nav-width: 18rem;
   --swirl-shell-sidebar-width: 21rem;
 
+  --swirl-shell-sidebar-border-visibility: hidden;
+
   display: flex;
   width: 100%;
   height: 100%;
@@ -480,12 +482,41 @@
 .shell-layout__sidebar-app-bar {
   flex-grow: 0;
   flex-shrink: 0;
-  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
 }
 
 .shell-layout__sidebar-content {
   overflow: auto;
   flex-grow: 1;
+
+  /*
+  * Use scroll-timeline and animation-timeline to detect scrollable and
+  * scrolled sidebar content and display the top border accordingly.
+  */
+  animation: shell-layout-detect-scroll;
+  animation-fill-mode: none;
+  scroll-timeline: --scroll-timeline y;
+  animation-timeline: --scroll-timeline;
+
+  &:before {
+    position: sticky;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: var(--s-border-width-default);
+    background-color: var(--s-border-default);
+    content: "";
+
+    @supports (
+      (scroll-timeline: --scroll-timeline y) and
+        (animation-timeline: --scroll-timeline)
+    ) {
+      visibility: var(--swirl-shell-sidebar-border-visibility);
+      animation-name: shell-layout-sidebar-border-reveal;
+      animation-fill-mode: both;
+      animation-range: 1px 1px;
+      animation-timeline: --scroll-timeline;
+    }
+  }
 }
 
 @keyframes shell-layout-backdrop-fade-in {
@@ -506,5 +537,21 @@
   }
   100% {
     overflow: hidden;
+  }
+}
+
+@keyframes shell-layout-sidebar-border-reveal {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: var(--s-border-default);
+  }
+}
+
+@keyframes shell-layout-detect-scroll {
+  from,
+  to {
+    --swirl-shell-sidebar-border-visibility: visible;
   }
 }
