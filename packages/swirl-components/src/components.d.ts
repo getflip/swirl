@@ -295,7 +295,9 @@ export namespace Components {
         "borderColor"?: SwirlBoxBorderColor;
         "bordered"?: boolean;
         "borderedBlockEnd"?: boolean;
+        "borderedBlockEndWhenScrolled"?: boolean;
         "borderedBlockStart"?: boolean;
+        "borderedBlockStartWhenScrolled"?: boolean;
         "borderedInlineEnd"?: boolean;
         "borderedInlineStart"?: boolean;
         "bottom"?: string;
@@ -5748,7 +5750,9 @@ declare namespace LocalJSX {
         "borderColor"?: SwirlBoxBorderColor;
         "bordered"?: boolean;
         "borderedBlockEnd"?: boolean;
+        "borderedBlockEndWhenScrolled"?: boolean;
         "borderedBlockStart"?: boolean;
+        "borderedBlockStartWhenScrolled"?: boolean;
         "borderedInlineEnd"?: boolean;
         "borderedInlineStart"?: boolean;
         "bottom"?: string;
