@@ -10,7 +10,7 @@
   --swirl-shell-extended-nav-width: 18rem;
   --swirl-shell-sidebar-width: 21rem;
 
-  --swirl-shell-sidebar-border-visibility: hidden;
+  --swirl-shell-border-visibility: hidden;
 
   display: flex;
   width: 100%;
@@ -487,10 +487,12 @@
 .shell-layout__sidebar-content {
   overflow: auto;
   flex-grow: 1;
+}
 
+.shell-layout__revealing-scroll-border-container {
   /*
   * Use scroll-timeline and animation-timeline to detect scrollable and
-  * scrolled sidebar content and display the top border accordingly.
+  * scrolled content and display the top border accordingly.
   */
   animation: shell-layout-detect-scroll;
   animation-fill-mode: none;
@@ -499,6 +501,7 @@
 
   &:before {
     position: sticky;
+    z-index: 1;
     top: 0;
     display: block;
     width: 100%;
@@ -510,12 +513,28 @@
       (scroll-timeline: --scroll-timeline y) and
         (animation-timeline: --scroll-timeline)
     ) {
-      visibility: var(--swirl-shell-sidebar-border-visibility);
-      animation-name: shell-layout-sidebar-border-reveal;
+      visibility: var(--swirl-shell-layout-border-visibility);
+      animation-name: shell-layout-border-reveal;
       animation-fill-mode: both;
       animation-range: 1px 1px;
       animation-timeline: --scroll-timeline;
     }
+  }
+}
+
+@keyframes shell-layout-border-reveal {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: var(--s-border-default);
+  }
+}
+
+@keyframes shell-layout-detect-scroll {
+  from,
+  to {
+    --swirl-shell-layout-border-visibility: visible;
   }
 }
 
@@ -537,21 +556,5 @@
   }
   100% {
     overflow: hidden;
-  }
-}
-
-@keyframes shell-layout-sidebar-border-reveal {
-  0% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: var(--s-border-default);
-  }
-}
-
-@keyframes shell-layout-detect-scroll {
-  from,
-  to {
-    --swirl-shell-sidebar-border-visibility: visible;
   }
 }

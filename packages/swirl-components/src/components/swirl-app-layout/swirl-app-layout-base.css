@@ -1,4 +1,6 @@
 :host {
+  --swirl-app-layout-border-visibility: hidden;
+
   position: relative;
   z-index: 1;
   display: flex;
@@ -274,7 +276,7 @@
 
 .app-layout--has-bottom-bar {
   & .app-layout__body {
-    grid-template-rows: minmax(3.5rem, auto) auto 1fr auto;
+    grid-template-rows: minmax(3.5625rem, auto) auto 1fr auto;
     grid-template-areas:
       "app-bar"
       "banner"
@@ -327,7 +329,6 @@
   padding-bottom: var(--s-space-12);
   padding-left: var(--s-space-8);
   align-items: center;
-  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: header;
   gap: var(--s-space-8);
@@ -399,7 +400,7 @@
   width: 100%;
   height: 100%;
   grid-area: body;
-  grid-template-rows: minmax(3.5rem, auto) auto 1fr;
+  grid-template-rows: minmax(3.5625rem, auto) auto 1fr;
   grid-template-areas:
     "app-bar"
     "banner"
@@ -409,10 +410,10 @@
 .app-layout__app-bar {
   --swirl-tab-bar-border-width: 0;
   --swirl-tab-bar-height: 3.5rem;
+
   display: flex;
   min-width: 0;
   align-items: center;
-  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: app-bar;
   gap: var(--s-space-8);
@@ -422,7 +423,6 @@
   display: none;
   min-width: 0;
   align-items: center;
-  border-top: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: bottom-bar;
 }
@@ -506,7 +506,6 @@
   padding-bottom: var(--s-space-12);
   padding-left: var(--s-space-8);
   align-items: center;
-  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   background-color: var(--s-background-default);
   grid-area: sidebar-header;
   gap: var(--s-space-8);
@@ -536,4 +535,68 @@
   overflow-y: auto;
   background-color: var(--s-background-default);
   grid-area: sidebar-content;
+}
+
+.app-layout__revealing-scroll-border-container {
+  /*
+  * Use scroll-timeline and animation-timeline to detect scrollable and
+  * scrolled content and display the top border accordingly.
+  */
+  animation: app-layout-detect-scroll;
+  animation-fill-mode: none;
+  scroll-timeline: --scroll-timeline y;
+  animation-timeline: --scroll-timeline;
+
+  &:before,
+  &:after {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: var(--s-border-width-default);
+    background-color: var(--s-border-default);
+    content: "";
+
+    @supports (
+      (scroll-timeline: --scroll-timeline y) and
+        (animation-timeline: --scroll-timeline)
+    ) {
+      visibility: var(--swirl-app-layout-border-visibility);
+      animation-name: app-layout-border-reveal;
+      animation-fill-mode: both;
+      animation-range: 1px 1px;
+      animation-timeline: --scroll-timeline;
+    }
+  }
+
+  &:after {
+    display: none;
+    top: auto;
+    bottom: 0;
+  }
+}
+
+.app-layout__revealing-scroll-border-container--with-top {
+  &:after {
+    display: block;
+    animation-direction: reverse;
+    animation-range: calc(100% - 1px) calc(100% - 1px);
+  }
+}
+
+@keyframes app-layout-border-reveal {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: var(--s-border-default);
+  }
+}
+
+@keyframes app-layout-detect-scroll {
+  from,
+  to {
+    --swirl-app-layout-border-visibility: visible;
+  }
 }

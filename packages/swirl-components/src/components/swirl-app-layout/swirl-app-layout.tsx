@@ -335,7 +335,7 @@ export class SwirlAppLayout {
             </header>
             <nav
               aria-label={this.navigationLabel}
-              class="app-layout__navigation"
+              class="app-layout__navigation app-layout__revealing-scroll-border-container"
             >
               <slot name="navigation"></slot>
             </nav>
@@ -373,7 +373,7 @@ export class SwirlAppLayout {
               <div class="app-layout__banner">
                 <slot name="banner"></slot>
               </div>
-              <div class="app-layout__content">
+              <div class="app-layout__content app-layout__revealing-scroll-border-container app-layout__revealing-scroll-border-container--with-top">
                 <slot name="content"></slot>
               </div>
               <div class="app-layout__bottom-bar">
@@ -400,7 +400,7 @@ export class SwirlAppLayout {
                   text={this.sidebarHeading}
                 ></swirl-heading>
               </header>
-              <div class="app-layout__sidebar-content">
+              <div class="app-layout__sidebar-content app-layout__revealing-scroll-border-container">
                 <slot name="sidebar"></slot>
               </div>
             </aside>
