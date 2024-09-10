@@ -302,6 +302,15 @@ export class SwirlAppLayout {
       }
     );
 
+    const contentClassName = classnames(
+      "app-layout__content",
+      "app-layout__bordered-container-when-scrolled",
+      {
+        "app-layout__bordered-container-when-scrolled--with-bottom":
+          hasBottomBar,
+      }
+    );
+
     return (
       <Host>
         <section aria-labelledby="app-name" class={className}>
@@ -335,7 +344,7 @@ export class SwirlAppLayout {
             </header>
             <nav
               aria-label={this.navigationLabel}
-              class="app-layout__navigation app-layout__revealing-scroll-border-container"
+              class="app-layout__navigation app-layout__bordered-container-when-scrolled"
             >
               <slot name="navigation"></slot>
             </nav>
@@ -373,7 +382,7 @@ export class SwirlAppLayout {
               <div class="app-layout__banner">
                 <slot name="banner"></slot>
               </div>
-              <div class="app-layout__content app-layout__revealing-scroll-border-container app-layout__revealing-scroll-border-container--with-top">
+              <div class={contentClassName}>
                 <slot name="content"></slot>
               </div>
               <div class="app-layout__bottom-bar">
@@ -400,7 +409,7 @@ export class SwirlAppLayout {
                   text={this.sidebarHeading}
                 ></swirl-heading>
               </header>
-              <div class="app-layout__sidebar-content app-layout__revealing-scroll-border-container">
+              <div class="app-layout__sidebar-content app-layout__bordered-container-when-scrolled">
                 <slot name="sidebar"></slot>
               </div>
             </aside>

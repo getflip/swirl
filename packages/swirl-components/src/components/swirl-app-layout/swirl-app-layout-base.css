@@ -537,7 +537,7 @@
   grid-area: sidebar-content;
 }
 
-.app-layout__revealing-scroll-border-container {
+.app-layout__bordered-container-when-scrolled {
   /*
   * Use scroll-timeline and animation-timeline to detect scrollable and
   * scrolled content and display the top border accordingly.
@@ -577,7 +577,7 @@
   }
 }
 
-.app-layout__revealing-scroll-border-container--with-top {
+.app-layout__bordered-container-when-scrolled--with-bottom {
   &:after {
     display: block;
     animation-direction: reverse;
