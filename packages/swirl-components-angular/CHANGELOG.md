@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.235.1
+
+### Patch Changes
+
+- [#798](https://github.com/getflip/swirl/pull/798)
+  [`cadf77f3`](https://github.com/getflip/swirl/commit/cadf77f34397e530e35060dbc31e1c71b6141ea2)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Prevent
+  valueChange event propagation in swirl-select
+
+- Updated dependencies
+  [[`cadf77f3`](https://github.com/getflip/swirl/commit/cadf77f34397e530e35060dbc31e1c71b6141ea2)]:
+  - @getflip/swirl-components@0.235.1
+
 ## 0.235.0
 
 ### Minor Changes
