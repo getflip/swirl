@@ -25,7 +25,7 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-box", args);
 
-  element.innerHTML = `\n <swirl-chip label="Label"></swirl-chip>\n `;
+  element.innerHTML = `\n    <swirl-chip label="Label"></swirl-chip>\n  `;
 
   return element;
 };
