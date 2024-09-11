@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlBoxBorderColor = "default" | "strong";
@@ -37,6 +37,8 @@ export type SwirlBoxPosition =
   tag: "swirl-box",
 })
 export class SwirlBox {
+  @Element() el: HTMLElement;
+
   @Prop() borderColor?: SwirlBoxBorderColor = "default";
   @Prop() bordered?: boolean;
   @Prop() borderedBlockEnd?: boolean;
@@ -70,13 +72,44 @@ export class SwirlBox {
   @Prop() width?: string;
   @Prop() zIndex?: string;
 
+  @State() scrollState = {
+    scrollable: false,
+    scrolledToBottom: false,
+    scrolledToTop: false,
+  };
+
+  componentDidLoad() {
+    queueMicrotask(() => {
+      this.updateScrollState();
+    });
+  }
+
+  private onScroll = () => {
+    this.updateScrollState();
+  };
+
+  private updateScrollState() {
+    const newScrollState = {
+      scrollable: this.el.scrollHeight > this.el.clientHeight,
+      scrolledToTop: this.el.scrollTop === 0,
+      scrolledToBottom:
+        Math.round(this.el.scrollTop + this.el.clientHeight) >=
+        this.el.scrollHeight,
+    };
+
+    if (
+      Object.keys(newScrollState).some(
+        (key) => newScrollState[key] !== this.scrollState[key]
+      )
+    ) {
+      this.scrollState = newScrollState;
+      console.log(this.scrollState);
+    }
+  }
+
   render() {
     const styles = {
       alignItems: this.centerBlock ? "center" : undefined,
-      borderColor:
-        this.borderColor === "default"
-          ? "var(--s-border-default)"
-          : "var(--s-border-strong)",
       bottom: this.bottom,
       display: this.centerBlock || this.centerInline ? "flex" : undefined,
       flexBasis: this.basis,
@@ -112,31 +145,28 @@ export class SwirlBox {
       zIndex: this.zIndex,
     };
 
-    if (
-      this.borderedBlockEndWhenScrolled &&
-      this.borderedBlockStartWhenScrolled
-    ) {
-      console.warn(
-        `[Swirl] swirl-box does not support both borderedBlockEndWhenScrolled and borderedBlockStartWhenScrolled properties to be active at the same time. Please use only one of them.`
-      );
-    }
-
-    const className = classnames("box", {
-      "box--bordered": this.bordered,
-      "box--bordered-block-end": this.borderedBlockEnd,
-      "box--bordered-block-end-when-scrolled":
-        this.borderedBlockEndWhenScrolled,
-      "box--bordered-block-start": this.borderedBlockStart,
-      "box--bordered-block-start-when-scrolled":
-        this.borderedBlockStartWhenScrolled &&
-        !this.borderedBlockEndWhenScrolled,
-      "box--bordered-inline-end": this.borderedInlineEnd,
-      "box--bordered-inline-start": this.borderedInlineStart,
-      "box--cover": this.cover,
-    });
+    const className = classnames(
+      "box",
+      `box--border-color-${this.borderColor}`,
+      {
+        "box--bordered": this.bordered,
+        "box--bordered-block-end": this.borderedBlockEnd,
+        "box--bordered-block-end-when-scrolled":
+          this.borderedBlockEndWhenScrolled,
+        "box--bordered-block-start": this.borderedBlockStart,
+        "box--bordered-block-start-when-scrolled":
+          this.borderedBlockStartWhenScrolled,
+        "box--bordered-inline-end": this.borderedInlineEnd,
+        "box--bordered-inline-start": this.borderedInlineStart,
+        "box--cover": this.cover,
+        "box--scrollable": this.scrollState.scrollable,
+        "box--scrolled-to-top": this.scrollState.scrolledToTop,
+        "box--scrolled-to-bottom": this.scrollState.scrolledToBottom,
+      }
+    );
 
     return (
-      <Host class={className} style={styles}>
+      <Host class={className} onScroll={this.onScroll} style={styles}>
         <slot></slot>
       </Host>
     );

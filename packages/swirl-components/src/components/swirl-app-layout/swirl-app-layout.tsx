@@ -284,8 +284,8 @@ export class SwirlAppLayout {
       scrollable: this.contentEl.scrollHeight > this.contentEl.clientHeight,
       scrolledToTop: this.contentEl.scrollTop === 0,
       scrolledToBottom:
-        Math.floor(this.contentEl.scrollTop + this.contentEl.clientHeight) ===
-        Math.floor(this.contentEl.scrollHeight),
+        Math.round(this.contentEl.scrollTop + this.contentEl.clientHeight) >=
+        this.contentEl.scrollHeight,
     };
 
     if (

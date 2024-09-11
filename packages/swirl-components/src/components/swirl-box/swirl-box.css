@@ -1,7 +1,4 @@
 :host {
-  --swirl-box-scroll-border-top-width: var(--s-border-width-default);
-  --swirl-box-scroll-border-bottom-width: var(--s-border-width-default);
-
   display: block;
   width: 100%;
 
@@ -9,63 +6,52 @@
     border: var(--s-border-width-default) solid var(--s-border-default);
   }
 
+  &(.box--border-color-default) {
+    border-color: var(--s-border-default);
+  }
+
+  &(.box--border-color-strong) {
+    border-color: var(--s-border-strong);
+  }
+
   &(.box--bordered-block-end) {
-    border-block-end: var(--s-border-width-default) solid
-      var(--s-border-default);
+    border-block-end-width: var(--s-border-width-default);
+    border-block-end-style: solid;
   }
 
   &(.box--bordered-block-start) {
-    border-block-start: var(--s-border-width-default) solid
-      var(--s-border-default);
+    border-block-start-width: var(--s-border-width-default);
+    border-block-start-style: solid;
   }
 
   &(.box--bordered-inline-end) {
-    border-inline-end: var(--s-border-width-default) solid
-      var(--s-border-default);
+    border-inline-end-width: var(--s-border-width-default);
+    border-inline-end-style: solid;
   }
 
   &(.box--bordered-inline-start) {
-    border-inline-start: var(--s-border-width-default) solid
-      var(--s-border-default);
+    border-inline-start-width: var(--s-border-width-default);
+    border-inline-start-style: solid;
   }
 
-  &(.box--bordered-block-start-when-scrolled),
-  &(.box--bordered-block-end-when-scrolled) {
-    /*
-    * Use scroll-timeline and animation-timeline to detect scrollable and
-    * scrolled content and display the top border accordingly.
-    */
-    @supports (
-      (scroll-timeline: --scroll-timeline y) and
-        (animation-timeline: --scroll-timeline)
-    ) {
-      animation: box-border-reveal both, box-detect-scroll none;
-      scroll-timeline: --scroll-timeline y;
-      animation-timeline: --scroll-timeline;
-    }
+  &(.box--bordered-block-start-when-scrolled.box--scrollable) {
+    border-block-start-width: var(--s-border-width-default);
+    border-block-start-style: solid;
+    border-block-start-color: transparent;
   }
 
-  &(.box--bordered-block-start-when-scrolled) {
-    @supports (
-      (scroll-timeline: --scroll-timeline y) and
-        (animation-timeline: --scroll-timeline)
-    ) {
-      border-top: var(--swirl-box-scroll-border-top-width) solid
-        var(--s-border-default);
-      animation-range: 1px 1px;
-    }
+  &(.box--bordered-block-start-when-scrolled.box--scrollable:not(.box--scrolled-to-top)) {
+    border-block-start-color: var(--s-border-default);
   }
 
-  &(.box--bordered-block-end-when-scrolled) {
-    @supports (
-      (scroll-timeline: --scroll-timeline y) and
-        (animation-timeline: --scroll-timeline)
-    ) {
-      border-bottom: var(--swirl-box-scroll-border-bottom-width) solid
-        var(--s-border-default);
-      animation-range: calc(100% - 1px) calc(100% - 1px);
-      animation-direction: reverse;
-    }
+  &(.box--bordered-block-end-when-scrolled.box--scrollable) {
+    border-block-end-width: var(--s-border-width-default);
+    border-block-end-style: solid;
+    border-block-end-color: transparent;
+  }
+
+  &(.box--bordered-block-end-when-scrolled.box--scrollable:not(.box--scrolled-to-bottom)) {
+    border-block-end-color: var(--s-border-default);
   }
 
   &(.box--cover) {
@@ -75,22 +61,5 @@
 
   & * {
     box-sizing: border-box;
-  }
-}
-
-@keyframes box-border-reveal {
-  0% {
-    border-color: transparent;
-  }
-  100% {
-    border-color: var(--s-border-default);
-  }
-}
-
-@keyframes box-detect-scroll {
-  from,
-  to {
-    --swirl-box-scroll-border-top-width: var(--s-border-width-default);
-    --swirl-box-scroll-border-bottom-width: var(--s-border-width-default);
   }
 }
