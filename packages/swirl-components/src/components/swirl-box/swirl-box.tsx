@@ -103,7 +103,6 @@ export class SwirlBox {
       )
     ) {
       this.scrollState = newScrollState;
-      console.log(this.scrollState);
     }
   }
 
