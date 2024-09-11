@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.236.1
+
+### Patch Changes
+
+- [#802](https://github.com/getflip/swirl/pull/802)
+  [`ec850064`](https://github.com/getflip/swirl/commit/ec850064fe4e3639222161bce3c3a313ba9bc698)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-shell-layout and
+  swirl-app-layout scroll detection and border visibility
+- Updated dependencies
+  [[`ec850064`](https://github.com/getflip/swirl/commit/ec850064fe4e3639222161bce3c3a313ba9bc698)]:
+  - @getflip/swirl-components@0.236.1
+
 ## 0.236.0
 
 ### Minor Changes
