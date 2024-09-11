@@ -200,7 +200,7 @@ export class SwirlTreeView {
     const selectedItem = this.getSelectedItem();
     const previousSibling = this.getPreviousSibling(selectedItem);
     const previousSiblingExpanded = Boolean(
-      previousSibling?.querySelector('[aria-expanded="true"]')
+      previousSibling?.querySelector(':scope > li > [aria-expanded="true"]')
     );
 
     // find the last child of the nested previous sibling
@@ -212,7 +212,7 @@ export class SwirlTreeView {
 
       let lastChildOfNestedPreviousSiblingExpanded = Boolean(
         lastChildOfNestedPreviousSibling?.querySelector(
-          '[aria-expanded="true"]'
+          ':scope > li > [aria-expanded="true"]'
         )
       );
 
