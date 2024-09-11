@@ -499,7 +499,7 @@ export class SwirlShellLayout {
               <div class="shell-layout__sidebar-app-bar">
                 <slot name="sidebar-app-bar"></slot>
               </div>
-              <div class="shell-layout__sidebar-content">
+              <div class="shell-layout__sidebar-content shell-layout__revealing-scroll-border-container">
                 <slot name="sidebar"></slot>
               </div>
             </div>

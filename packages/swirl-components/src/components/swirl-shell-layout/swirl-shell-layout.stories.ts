@@ -1,6 +1,8 @@
 import { fullscreenStoryDecorator, generateStoryElement } from "../../utils";
 import Docs from "./swirl-shell-layout.mdx";
 
+const dummyText = `Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.     Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.     Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.     Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.     Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.     At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.     Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.     Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.     Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.     Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo`;
+
 export default {
   argTypes: {
     sidebarToggleBadge: {
@@ -101,6 +103,24 @@ const Template = (args) => {
         <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
         <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
         <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
+        <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>
       </swirl-resource-list>
       <swirl-button
         hide-label
@@ -115,15 +135,32 @@ const Template = (args) => {
         <swirl-button hide-label="true" icon="<swirl-icon-search></swirl-icon-search>" label="Search"></swirl-button>
         <swirl-button hide-label class="info-button" icon="<swirl-icon-info></swirl-icon-info>" label="More information"></swirl-button>
       </div>
-      <div slot="content"></div>
-      <div slot="sidebar"></div>
+      <div slot="content">
+        <swirl-box padding-inline-start="16" padding-inline-end="16" padding-block-end="16">
+          ${dummyText} ${dummyText} ${dummyText}
+        </swirl-box>
+      </div>
+      <div slot="sidebar">
+        <swirl-box padding-inline-start="16" padding-inline-end="16" padding-block-end="16">
+          ${dummyText}
+        </swirl-box>
+      </div>
+      <div slot="bottom-bar">
+        <swirl-box padding="16">
+          Bottom bar
+        </swirl-box>
+      </div>
     </swirl-app-layout>
 
     <swirl-app-bar close-button-icon="<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>" close-button-label="Hide sidebar" show-close-button slot="sidebar-app-bar">
       <swirl-heading level="3" slot="heading" text="Sidebar" truncate=""></swirl-heading>
     </swirl-app-bar>
 
-    <div slot="sidebar"></div>
+    <div slot="sidebar">
+      <swirl-box padding-inline-start="16" padding-inline-end="16" padding-block-end="16">
+        ${dummyText}
+      </swirl-box>
+    </div>
   `;
 
   const appLayout = element.querySelector("swirl-app-layout");

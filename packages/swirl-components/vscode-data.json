@@ -753,7 +753,15 @@
           "description": ""
         },
         {
+          "name": "bordered-block-end-when-scrolled",
+          "description": ""
+        },
+        {
           "name": "bordered-block-start",
+          "description": ""
+        },
+        {
+          "name": "bordered-block-start-when-scrolled",
           "description": ""
         },
         {

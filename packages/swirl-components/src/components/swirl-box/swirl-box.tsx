@@ -40,7 +40,9 @@ export class SwirlBox {
   @Prop() borderColor?: SwirlBoxBorderColor = "default";
   @Prop() bordered?: boolean;
   @Prop() borderedBlockEnd?: boolean;
+  @Prop() borderedBlockEndWhenScrolled?: boolean;
   @Prop() borderedBlockStart?: boolean;
+  @Prop() borderedBlockStartWhenScrolled?: boolean;
   @Prop() borderedInlineEnd?: boolean;
   @Prop() borderedInlineStart?: boolean;
   @Prop() bottom?: string;
@@ -110,10 +112,24 @@ export class SwirlBox {
       zIndex: this.zIndex,
     };
 
+    if (
+      this.borderedBlockEndWhenScrolled &&
+      this.borderedBlockStartWhenScrolled
+    ) {
+      console.warn(
+        `[Swirl] swirl-box does not support both borderedBlockEndWhenScrolled and borderedBlockStartWhenScrolled properties to be active at the same time. Please use only one of them.`
+      );
+    }
+
     const className = classnames("box", {
       "box--bordered": this.bordered,
       "box--bordered-block-end": this.borderedBlockEnd,
+      "box--bordered-block-end-when-scrolled":
+        this.borderedBlockEndWhenScrolled,
       "box--bordered-block-start": this.borderedBlockStart,
+      "box--bordered-block-start-when-scrolled":
+        this.borderedBlockStartWhenScrolled &&
+        !this.borderedBlockEndWhenScrolled,
       "box--bordered-inline-end": this.borderedInlineEnd,
       "box--bordered-inline-start": this.borderedInlineStart,
       "box--cover": this.cover,
