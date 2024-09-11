@@ -1,5 +1,32 @@
 # @getflip/swirl-components-angular
 
+## 0.236.0
+
+### Minor Changes
+
+- [#800](https://github.com/getflip/swirl/pull/800)
+  [`369515d4`](https://github.com/getflip/swirl/commit/369515d4e38ed4b0c63977c529fcf06ca8d5dfc0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add
+  bordered-block-end-when-scrolled and bordered-block-start-when-scrolled props
+  to swirl-box
+
+* [#800](https://github.com/getflip/swirl/pull/800)
+  [`369515d4`](https://github.com/getflip/swirl/commit/369515d4e38ed4b0c63977c529fcf06ca8d5dfc0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Reveal borders of
+  swirl-shell-layout and swirl-app-layout on scroll
+
+### Patch Changes
+
+- [`d7142aa4`](https://github.com/getflip/swirl/commit/d7142aa41ea06e662155d221285196d85ff58572)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a keyboard control issue of
+  swirl-tree-view
+
+- Updated dependencies
+  [[`369515d4`](https://github.com/getflip/swirl/commit/369515d4e38ed4b0c63977c529fcf06ca8d5dfc0),
+  [`369515d4`](https://github.com/getflip/swirl/commit/369515d4e38ed4b0c63977c529fcf06ca8d5dfc0),
+  [`d7142aa4`](https://github.com/getflip/swirl/commit/d7142aa41ea06e662155d221285196d85ff58572)]:
+  - @getflip/swirl-components@0.236.0
+
 ## 0.235.1
 
 ### Patch Changes
