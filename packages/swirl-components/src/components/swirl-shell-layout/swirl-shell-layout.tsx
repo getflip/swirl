@@ -13,7 +13,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import * as focusTrap from "focus-trap";
-import { isDesktopViewport } from "../../utils";
+import { debounce, isDesktopViewport } from "../../utils";
 
 const SECONDARY_NAVIGATION_COLLAPSE_STORAGE_KEY =
   "SWIRL_SHELL_SECONDARY_NAVIGATION_COLLAPSE_STATE";
@@ -67,17 +67,22 @@ export class SwirlShellLayout {
   @Event() sidebarToggleClick: EventEmitter<MouseEvent>;
   @Event() skipLinkClick: EventEmitter<MouseEvent>;
 
+  @State() isDesktopViewport: boolean = true;
   @State() mobileNavigationActive?: boolean;
   @State() navigationCollapsed?: boolean;
   @State() secondaryNavCollapsed?: boolean;
   @State() secondaryNavView?: SwirlShellLayoutSecondaryNavView = "list";
-  @State() isDesktopViewport: boolean = true;
+  @State() sidebarScrollState = {
+    scrollable: false,
+    scrolledToTop: false,
+  };
 
   private focusTrap: focusTrap.FocusTrap;
   private mainNavItems: HTMLSwirlShellNavigationItemElement[];
   private navElement: HTMLElement;
   private navMutationObserver: MutationObserver;
   private secondaryNavItems: HTMLSwirlShellNavigationItemElement[];
+  private sidebarContentEl: HTMLElement;
 
   componentWillLoad() {
     this.isDesktopViewport = isDesktopViewport();
@@ -119,6 +124,10 @@ export class SwirlShellLayout {
     this.navMutationObserver.observe(this.navElement, {
       childList: true,
       subtree: true,
+    });
+
+    queueMicrotask(() => {
+      this.updateSidebarScrollState();
     });
   }
 
@@ -281,6 +290,26 @@ export class SwirlShellLayout {
     }
   }
 
+  private updateSidebarScrollState() {
+    const newSidebarScrollState = {
+      scrollable:
+        this.sidebarContentEl.scrollHeight > this.sidebarContentEl.clientHeight,
+      scrolledToTop: this.sidebarContentEl.scrollTop === 0,
+    };
+
+    if (
+      Object.keys(newSidebarScrollState).some(
+        (key) => newSidebarScrollState[key] !== this.sidebarScrollState[key]
+      )
+    ) {
+      this.sidebarScrollState = newSidebarScrollState;
+    }
+  }
+
+  private onSidebarScroll = debounce(() => {
+    this.updateSidebarScrollState();
+  }, 16);
+
   render() {
     const hasSidebarToggleBadgeWithLabel =
       this.sidebarToggleBadge !== true && this.sidebarToggleBadge !== "true";
@@ -298,6 +327,9 @@ export class SwirlShellLayout {
       "shell-layout--mobile-navigation-active": this.mobileNavigationActive,
       "shell-layout--navigation-collapsed": mainNavCollapsed,
       "shell-layout--sidebar-active": this.sidebarActive,
+      "shell-layout--sidebar-scrollable": this.sidebarScrollState.scrollable,
+      "shell-layout--sidebar-scrolled-to-top":
+        this.sidebarScrollState.scrolledToTop,
     });
 
     return (
@@ -499,7 +531,11 @@ export class SwirlShellLayout {
               <div class="shell-layout__sidebar-app-bar">
                 <slot name="sidebar-app-bar"></slot>
               </div>
-              <div class="shell-layout__sidebar-content shell-layout__revealing-scroll-border-container">
+              <div
+                class="shell-layout__sidebar-content"
+                onScroll={this.onSidebarScroll}
+                ref={(el) => (this.sidebarContentEl = el)}
+              >
                 <slot name="sidebar"></slot>
               </div>
             </div>
