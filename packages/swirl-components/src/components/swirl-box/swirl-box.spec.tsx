@@ -10,7 +10,7 @@ describe("swirl-box", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-box class="box" style="border-color: var(--s-border-default); overflow: visible; padding: var(--s-space-0); position: relative;">
+      <swirl-box class="box box--border-color-default" style="overflow: visible; padding: var(--s-space-0); position: relative;">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
@@ -26,7 +26,7 @@ describe("swirl-box", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-box class="box box--cover" cover="true" padding="12" style="border-color: var(--s-border-default); height: 100%; overflow: visible; padding: var(--s-space-12); position: relative; width: 100%;">
+      <swirl-box class="box box--border-color-default box--cover" cover="true" padding="12" style="height: 100%; overflow: visible; padding: var(--s-space-12); position: relative; width: 100%;">
         <mock:shadow-root>
             <slot></slot>
           </div>
@@ -43,7 +43,7 @@ describe("swirl-box", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-box bordered="true" center-block="true" center-inline="true" class="box box--bordered box--cover" cover="true" padding="12" style="align-items: center; border-color: var(--s-border-default); display: flex; height: 100%; justify-content: center; overflow: visible; padding: var(--s-space-12); position: relative; width: 100%;">
+      <swirl-box bordered="true" center-block="true" center-inline="true" class="box box--border-color-default box--bordered box--cover" cover="true" padding="12" style="align-items: center; display: flex; height: 100%; justify-content: center; overflow: visible; padding: var(--s-space-12); position: relative; width: 100%;">
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
