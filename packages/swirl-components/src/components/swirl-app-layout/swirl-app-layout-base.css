@@ -1,6 +1,4 @@
 :host {
-  --swirl-app-layout-border-visibility: hidden;
-
   position: relative;
   z-index: 1;
   display: flex;
@@ -320,6 +318,37 @@
   }
 }
 
+.app-layout--content-scrollable {
+  &:not(.app-layout--content-scrolled-to-top) {
+    & .app-layout__app-bar {
+      border-bottom-color: var(--s-border-default);
+    }
+  }
+
+  &.app-layout--has-bottom-bar:not(.app-layout--content-scrolled-to-bottom) {
+    & .app-layout__content {
+      border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+    }
+  }
+}
+
+.app-layout--nav-scrollable {
+  &:not(.app-layout--nav-scrolled-to-top) {
+    & .app-layout__header {
+      border-bottom-color: var(--s-border-default);
+    }
+  }
+}
+
+.app-layout--sidebar-scrollable {
+  &:not(.app-layout--sidebar-scrolled-to-top) {
+    & .app-layout__sidebar-header,
+    & .app-layout__custom-sidebar-header {
+      border-bottom-color: var(--s-border-default);
+    }
+  }
+}
+
 .app-layout__header {
   z-index: 1;
   display: flex;
@@ -329,6 +358,7 @@
   padding-bottom: var(--s-space-12);
   padding-left: var(--s-space-8);
   align-items: center;
+  border-bottom: var(--s-border-width-default) solid transparent;
   background-color: var(--s-background-default);
   grid-area: header;
   gap: var(--s-space-8);
@@ -414,6 +444,7 @@
   display: flex;
   min-width: 0;
   align-items: center;
+  border-bottom: var(--s-border-width-default) solid transparent;
   background-color: var(--s-background-default);
   grid-area: app-bar;
   gap: var(--s-space-8);
@@ -493,7 +524,7 @@
 .app-layout__custom-sidebar-header {
   display: none;
   min-width: 0;
-  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+  border-bottom: var(--s-border-width-default) solid transparent;
   background-color: var(--s-background-default);
   grid-area: sidebar-header;
 }
@@ -506,6 +537,7 @@
   padding-bottom: var(--s-space-12);
   padding-left: var(--s-space-8);
   align-items: center;
+  border-bottom: var(--s-border-width-default) solid transparent;
   background-color: var(--s-background-default);
   grid-area: sidebar-header;
   gap: var(--s-space-8);
@@ -535,68 +567,4 @@
   overflow-y: auto;
   background-color: var(--s-background-default);
   grid-area: sidebar-content;
-}
-
-.app-layout__bordered-container-when-scrolled {
-  /*
-  * Use scroll-timeline and animation-timeline to detect scrollable and
-  * scrolled content and display the top border accordingly.
-  */
-  animation: app-layout-detect-scroll;
-  animation-fill-mode: none;
-  scroll-timeline: --scroll-timeline y;
-  animation-timeline: --scroll-timeline;
-
-  &:before,
-  &:after {
-    position: sticky;
-    z-index: 1;
-    top: 0;
-    display: block;
-    width: 100%;
-    height: var(--s-border-width-default);
-    background-color: var(--s-border-default);
-    content: "";
-
-    @supports (
-      (scroll-timeline: --scroll-timeline y) and
-        (animation-timeline: --scroll-timeline)
-    ) {
-      visibility: var(--swirl-app-layout-border-visibility);
-      animation-name: app-layout-border-reveal;
-      animation-fill-mode: both;
-      animation-range: 1px 1px;
-      animation-timeline: --scroll-timeline;
-    }
-  }
-
-  &:after {
-    display: none;
-    top: auto;
-    bottom: 0;
-  }
-}
-
-.app-layout__bordered-container-when-scrolled--with-bottom {
-  &:after {
-    display: block;
-    animation-direction: reverse;
-    animation-range: calc(100% - 1px) calc(100% - 1px);
-  }
-}
-
-@keyframes app-layout-border-reveal {
-  0% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: var(--s-border-default);
-  }
-}
-
-@keyframes app-layout-detect-scroll {
-  from,
-  to {
-    --swirl-app-layout-border-visibility: visible;
-  }
 }

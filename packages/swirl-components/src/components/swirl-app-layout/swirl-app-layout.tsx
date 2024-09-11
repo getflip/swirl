@@ -11,7 +11,7 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import { isMobileViewport, prefersReducedMotion } from "../../utils";
+import { debounce, isMobileViewport, prefersReducedMotion } from "../../utils";
 
 export type SwirlAppLayoutMobileView = "navigation" | "body" | "sidebar";
 
@@ -52,11 +52,24 @@ export class SwirlAppLayout {
   @Prop() sidebarHeading?: string;
   @Prop() transitionStyle?: string = "slides";
 
+  @State() contentScrollState = {
+    scrollable: false,
+    scrolledToTop: false,
+    scrolledToBottom: false,
+  };
   @State() hasCustomAppBarBackButton: boolean;
   @State() hasSidebar: boolean;
   @State() mobileView: SwirlAppLayoutMobileView = "navigation";
+  @State() navScrollState = {
+    scrollable: false,
+    scrolledToTop: false,
+  };
   @State() sidebarActive: boolean;
   @State() sidebarClosing: boolean;
+  @State() sidebarScrollState = {
+    scrollable: false,
+    scrolledToTop: false,
+  };
   @State() transitioningFrom: string;
   @State() transitioningTo: string;
 
@@ -65,8 +78,11 @@ export class SwirlAppLayout {
   @Event() navigationBackButtonClick: EventEmitter<MouseEvent>;
   @Event() sidebarToggle: EventEmitter<boolean>;
 
+  private contentEl: HTMLElement;
   private mutationObserver: MutationObserver;
+  private navEl: HTMLElement;
   private sidebarClosingTimeout: NodeJS.Timeout;
+  private sidebarEl: HTMLElement;
   private transitionTimeout: NodeJS.Timeout;
 
   componentWillLoad() {
@@ -83,6 +99,14 @@ export class SwirlAppLayout {
       this.updateSidebarStatus();
       this.updateNavigationStatus();
       this.checkMobileView();
+    });
+  }
+
+  componentDidLoad() {
+    queueMicrotask(() => {
+      this.updateContentScrollState();
+      this.updateSidebarScrollState();
+      this.updateNavScrollState();
     });
   }
 
@@ -255,6 +279,67 @@ export class SwirlAppLayout {
     this.hideSidebar();
   };
 
+  private updateContentScrollState() {
+    const newContentScrollState = {
+      scrollable: this.contentEl.scrollHeight > this.contentEl.clientHeight,
+      scrolledToTop: this.contentEl.scrollTop === 0,
+      scrolledToBottom:
+        Math.floor(this.contentEl.scrollTop + this.contentEl.clientHeight) ===
+        Math.floor(this.contentEl.scrollHeight),
+    };
+
+    if (
+      Object.keys(newContentScrollState).some(
+        (key) => newContentScrollState[key] !== this.contentScrollState[key]
+      )
+    ) {
+      this.contentScrollState = newContentScrollState;
+    }
+  }
+
+  private onContentScroll = debounce(() => {
+    this.updateContentScrollState();
+  }, 16);
+
+  private updateNavScrollState() {
+    const newNavScrollState = {
+      scrollable: this.navEl.scrollHeight > this.navEl.clientHeight,
+      scrolledToTop: this.navEl.scrollTop === 0,
+    };
+
+    if (
+      Object.keys(newNavScrollState).some(
+        (key) => newNavScrollState[key] !== this.navScrollState[key]
+      )
+    ) {
+      this.navScrollState = newNavScrollState;
+      console.log(this.navScrollState);
+    }
+  }
+
+  private onNavScroll = debounce(() => {
+    this.updateNavScrollState();
+  }, 16);
+
+  private updateSidebarScrollState() {
+    const newSidebarScrollState = {
+      scrollable: this.sidebarEl.scrollHeight > this.sidebarEl.clientHeight,
+      scrolledToTop: this.sidebarEl.scrollTop === 0,
+    };
+
+    if (
+      Object.keys(newSidebarScrollState).some(
+        (key) => newSidebarScrollState[key] !== this.sidebarScrollState[key]
+      )
+    ) {
+      this.sidebarScrollState = newSidebarScrollState;
+    }
+  }
+
+  private onSidebarScroll = debounce(() => {
+    this.updateSidebarScrollState();
+  }, 16);
+
   render() {
     const showBackToNavigationButton =
       (this.mobileView === "body" || this.transitioningTo) &&
@@ -286,6 +371,11 @@ export class SwirlAppLayout {
       `app-layout--transitioning-to-${this.transitioningTo}`,
       `app-layout--transition-style-${this.transitionStyle}`,
       {
+        "app-layout--content-scrollable": this.contentScrollState.scrollable,
+        "app-layout--content-scrolled-to-top":
+          this.contentScrollState.scrolledToTop,
+        "app-layout--content-scrolled-to-bottom":
+          this.contentScrollState.scrolledToBottom,
         "app-layout--has-app-bar-mobile-menu-button": hasAppBarMobileMenuButton,
         "app-layout--has-app-bar-controls": hasAppBarControls,
         "app-layout--has-bottom-bar": hasBottomBar,
@@ -296,18 +386,14 @@ export class SwirlAppLayout {
         "app-layout--has-navigation": this.hasNavigation,
         "app-layout--has-sidebar": this.hasSidebar,
         "app-layout--hide-app-bar": this.hideAppBar,
+        "app-layout--nav-scrollable": this.navScrollState.scrollable,
+        "app-layout--nav-scrolled-to-top": this.navScrollState.scrolledToTop,
         "app-layout--sidebar-active":
           this.mobileView === "sidebar" || this.sidebarActive,
         "app-layout--sidebar-closing": this.sidebarClosing,
-      }
-    );
-
-    const contentClassName = classnames(
-      "app-layout__content",
-      "app-layout__bordered-container-when-scrolled",
-      {
-        "app-layout__bordered-container-when-scrolled--with-bottom":
-          hasBottomBar,
+        "app-layout--sidebar-scrollable": this.sidebarScrollState.scrollable,
+        "app-layout--sidebar-scrolled-to-top":
+          this.sidebarScrollState.scrolledToTop,
       }
     );
 
@@ -344,7 +430,9 @@ export class SwirlAppLayout {
             </header>
             <nav
               aria-label={this.navigationLabel}
-              class="app-layout__navigation app-layout__bordered-container-when-scrolled"
+              class="app-layout__navigation"
+              onScroll={this.onNavScroll}
+              ref={(el) => (this.navEl = el)}
             >
               <slot name="navigation"></slot>
             </nav>
@@ -382,7 +470,11 @@ export class SwirlAppLayout {
               <div class="app-layout__banner">
                 <slot name="banner"></slot>
               </div>
-              <div class={contentClassName}>
+              <div
+                class="app-layout__content"
+                onScroll={this.onContentScroll}
+                ref={(el) => (this.contentEl = el)}
+              >
                 <slot name="content"></slot>
               </div>
               <div class="app-layout__bottom-bar">
@@ -409,7 +501,11 @@ export class SwirlAppLayout {
                   text={this.sidebarHeading}
                 ></swirl-heading>
               </header>
-              <div class="app-layout__sidebar-content app-layout__bordered-container-when-scrolled">
+              <div
+                class="app-layout__sidebar-content"
+                onScroll={this.onSidebarScroll}
+                ref={(el) => (this.sidebarEl = el)}
+              >
                 <slot name="sidebar"></slot>
               </div>
             </aside>
