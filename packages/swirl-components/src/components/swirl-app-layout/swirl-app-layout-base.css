@@ -282,6 +282,10 @@
       "bottom-bar";
   }
 
+  & .app-layout__content {
+    border-bottom: var(--s-border-width-default) solid transparent;
+  }
+
   & .app-layout__bottom-bar {
     display: block;
   }
@@ -327,7 +331,7 @@
 
   &.app-layout--has-bottom-bar:not(.app-layout--content-scrolled-to-bottom) {
     & .app-layout__content {
-      border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+      border-bottom-color: var(--s-border-default);
     }
   }
 }
