@@ -71,13 +71,6 @@ const Template = (args) => {
     });
   });
 
-  element.addEventListener(
-    "navigationExpansionStateChange",
-    (event: CustomEvent) => {
-      console.log(event.detail);
-    }
-  );
-
   return element;
 };
 
