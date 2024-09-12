@@ -227,6 +227,20 @@ export class SwirlAppLayout {
   }
 
   /**
+   * Set state of the collapsible navigation
+   */
+  @Method()
+  async setCollapsibleNavigationState(
+    state: SwirlAppLayoutNavigationExpansionState
+  ) {
+    if (!this.collapsibleNavigation) {
+      return;
+    }
+
+    this.navExpansionState = state;
+  }
+
+  /**
    * Change the currently displayed view on mobile viewports
    * @param mobileView
    */
