@@ -203,27 +203,31 @@
 
 .app-layout--has-navigation.app-layout--has-sidebar {
   &.app-layout--sidebar-active {
-    @media (--from-larger-desktop) {
-      & .app-layout__grid {
-        animation: app-layout-sidebar-slide-in 0.3s;
+    & .app-layout__grid {
+      @media (--from-larger-desktop) {
         grid-template-columns: 25rem 1fr 25rem;
         grid-template-areas:
           "header body sidebar"
           "navigation body sidebar";
+      }
+    }
+  }
+
+  &.app-layout--sidebar-opening {
+    @media (--from-larger-desktop) {
+      & .app-layout__grid {
+        animation: app-layout-sidebar-slide-in 0.3s;
+        animation-fill-mode: forwards;
 
         @media (prefers-reduced-motion) {
           animation: none;
         }
       }
-    }
 
-    &.app-layout--nav-collapsible {
-      @media (--from-desktop) {
-        &.app-layout--nav-collapsed,
-        &.app-layout--nav-overlayed {
-          & .app-layout__grid {
-            animation: app-layout-sidebar-slide-in-with-collapsed-nav 0.3s;
-          }
+      &.app-layout--nav-collapsed,
+      &.app-layout--nav-overlayed {
+        & .app-layout__grid {
+          animation: app-layout-sidebar-slide-in-with-collapsed-nav 0.3s;
         }
       }
     }
@@ -238,15 +242,11 @@
           animation: none;
         }
       }
-    }
 
-    &.app-layout--nav-collapsible {
-      @media (--from-desktop) {
-        &.app-layout--nav-collapsed,
-        &.app-layout--nav-overlayed {
-          & .app-layout__grid {
-            animation: app-layout-sidebar-slide-out-with-collapsed-nav 0.3s;
-          }
+      &.app-layout--nav-collapsed,
+      &.app-layout--nav-overlayed {
+        & .app-layout__grid {
+          animation: app-layout-sidebar-slide-out-with-collapsed-nav 0.3s;
         }
       }
     }

@@ -88,6 +88,7 @@ export class SwirlAppLayout {
     "expanded";
   @State() sidebarActive: boolean;
   @State() sidebarClosing: boolean;
+  @State() sidebarOpening: boolean;
   @State() sidebarScrollState = {
     scrollable: false,
     scrolledToTop: false,
@@ -108,6 +109,7 @@ export class SwirlAppLayout {
   private mutationObserver: MutationObserver;
   private navEl: HTMLElement;
   private sidebarClosingTimeout: NodeJS.Timeout;
+  private sidebarOpeningTimeout: NodeJS.Timeout;
   private sidebarEl: HTMLElement;
   private transitionTimeout: NodeJS.Timeout;
 
@@ -186,10 +188,21 @@ export class SwirlAppLayout {
       return;
     }
 
-    this.sidebarActive = true;
-    this.changeMobileView("sidebar");
+    if (Boolean(this.sidebarOpeningTimeout)) {
+      clearTimeout(this.sidebarOpeningTimeout);
+    }
 
-    this.sidebarToggle.emit(true);
+    this.sidebarOpening = true;
+
+    const delay = isMobileViewport() || prefersReducedMotion() ? 0 : 300;
+
+    this.sidebarOpeningTimeout = setTimeout(() => {
+      this.sidebarActive = true;
+      this.sidebarOpening = false;
+
+      this.changeMobileView("sidebar");
+      this.sidebarToggle.emit(true);
+    }, delay);
   }
 
   /**
@@ -520,6 +533,7 @@ export class SwirlAppLayout {
         "app-layout--sidebar-active":
           this.mobileView === "sidebar" || this.sidebarActive,
         "app-layout--sidebar-closing": this.sidebarClosing,
+        "app-layout--sidebar-opening": this.sidebarOpening,
         "app-layout--sidebar-scrollable": this.sidebarScrollState.scrollable,
         "app-layout--sidebar-scrolled-to-top":
           this.sidebarScrollState.scrolledToTop,
