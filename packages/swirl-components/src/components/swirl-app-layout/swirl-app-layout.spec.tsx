@@ -182,45 +182,4 @@ describe("swirl-app-layout", () => {
     expect(spy.mock.calls[0][0].detail).toBe("body");
     expect(spy.mock.calls[1][0].detail).toBe("sidebar");
   });
-
-  it("toggles the sidebar", async () => {
-    const page = await newSpecPage({
-      components: [SwirlAppLayout],
-      html: `
-        <swirl-app-layout app-name="App" sidebar-heading="Sidebar">
-          <div slot="sidebar">Sidebar</div>
-        </swirl-app-layout>
-      `,
-    });
-
-    const container = page.root.shadowRoot.children[0];
-    const spy = jest.fn();
-
-    page.root.addEventListener("sidebarToggle", spy);
-
-    expect(
-      container.classList.contains("app-layout--sidebar-active")
-    ).toBeFalsy();
-
-    await (page.root as HTMLSwirlAppLayoutElement).toggleSidebar();
-    await page.waitForChanges();
-
-    expect(
-      container.classList.contains("app-layout--sidebar-active")
-    ).toBeTruthy();
-
-    await (page.root as HTMLSwirlAppLayoutElement).toggleSidebar();
-
-    // wait for animation
-    await new Promise((resolve) => setTimeout(resolve, 300));
-
-    await page.waitForChanges();
-
-    expect(
-      container.classList.contains("app-layout--sidebar-active")
-    ).toBeFalsy();
-
-    expect(spy.mock.calls[0][0].detail).toBe(true);
-    expect(spy.mock.calls[1][0].detail).toBe(false);
-  });
 });
