@@ -225,6 +225,7 @@ export namespace Components {
          */
         "hideSidebar": () => Promise<void>;
         "navigationBackButtonLabel"?: string;
+        "navigationExpansionStateStorageKey"?: string;
         "navigationLabel"?: string;
         "navigationOverlayLabel"?: string;
         "navigationToggleLabel"?: string;
@@ -5686,6 +5687,7 @@ declare namespace LocalJSX {
         "hasNavigation"?: boolean;
         "hideAppBar"?: boolean;
         "navigationBackButtonLabel"?: string;
+        "navigationExpansionStateStorageKey"?: string;
         "navigationLabel"?: string;
         "navigationOverlayLabel"?: string;
         "navigationToggleLabel"?: string;

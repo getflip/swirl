@@ -300,6 +300,10 @@
           "description": ""
         },
         {
+          "name": "navigation-expansion-state-storage-key",
+          "description": ""
+        },
+        {
           "name": "navigation-label",
           "description": ""
         },

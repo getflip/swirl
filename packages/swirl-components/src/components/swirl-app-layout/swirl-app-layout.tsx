@@ -61,6 +61,8 @@ export class SwirlAppLayout {
   @Prop({ mutable: true }) hasNavigation: boolean;
   @Prop() hideAppBar?: boolean;
   @Prop() navigationBackButtonLabel?: string = "Go back";
+  @Prop() navigationExpansionStateStorageKey?: string =
+    SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY;
   @Prop() navigationToggleLabel?: string = "Toggle navigation";
   @Prop() navigationOverlayLabel?: string = "Show navigation";
   @Prop() navigationLabel?: string;
@@ -252,7 +254,7 @@ export class SwirlAppLayout {
     this.navExpansionState = state;
 
     localStorage.setItem(
-      SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY,
+      this.navigationExpansionStateStorageKey,
       this.navExpansionState
     );
   }
@@ -442,7 +444,7 @@ export class SwirlAppLayout {
 
   private restoreNavExpansionState() {
     const restoredNavExpansionState = localStorage.getItem(
-      SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY
+      this.navigationExpansionStateStorageKey
     ) as SwirlAppLayoutNavigationExpansionState | undefined;
 
     if (Boolean(restoredNavExpansionState)) {
