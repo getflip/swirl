@@ -98,6 +98,8 @@ export class SwirlAppLayout {
   @Event() ctaClick: EventEmitter<MouseEvent>;
   @Event() mobileViewChange: EventEmitter<SwirlAppLayoutMobileView>;
   @Event() navigationBackButtonClick: EventEmitter<MouseEvent>;
+  @Event()
+  navigationExpansionStateChange: EventEmitter<SwirlAppLayoutNavigationExpansionState>;
   @Event() sidebarToggle: EventEmitter<boolean>;
 
   private contentEl: HTMLElement;
@@ -252,6 +254,8 @@ export class SwirlAppLayout {
     }
 
     this.navExpansionState = state;
+
+    this.navigationExpansionStateChange.emit(this.navExpansionState);
 
     localStorage.setItem(
       this.navigationExpansionStateStorageKey,

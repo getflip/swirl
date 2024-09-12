@@ -2600,6 +2600,7 @@ declare global {
         "ctaClick": MouseEvent;
         "mobileViewChange": SwirlAppLayoutMobileView;
         "navigationBackButtonClick": MouseEvent;
+        "navigationExpansionStateChange": SwirlAppLayoutNavigationExpansionState;
         "sidebarToggle": boolean;
     }
     interface HTMLSwirlAppLayoutElement extends Components.SwirlAppLayout, HTMLStencilElement {
@@ -5694,6 +5695,7 @@ declare namespace LocalJSX {
         "onCtaClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
         "onMobileViewChange"?: (event: SwirlAppLayoutCustomEvent<SwirlAppLayoutMobileView>) => void;
         "onNavigationBackButtonClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
+        "onNavigationExpansionStateChange"?: (event: SwirlAppLayoutCustomEvent<SwirlAppLayoutNavigationExpansionState>) => void;
         "onSidebarToggle"?: (event: SwirlAppLayoutCustomEvent<boolean>) => void;
         "showNavigationBackButton"?: boolean;
         "sidebarCloseButtonLabel"?: string;
