@@ -28,6 +28,9 @@ export type SwirlAppLayoutNavigationExpansionState =
 
 export type SwirlAppLayoutTransitionStyle = "none" | "slides" | "dialog";
 
+const SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY =
+  "SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE";
+
 /**
  * @slot content - Main content area
  * @slot navigation - The navigation area content
@@ -127,6 +130,7 @@ export class SwirlAppLayout {
     queueMicrotask(() => {
       this.isDesktop = this.desktopMediaQuery.matches;
 
+      this.restoreNavExpansionState();
       this.updateContentScrollState();
       this.updateSidebarScrollState();
       this.updateNavScrollState();
@@ -153,14 +157,14 @@ export class SwirlAppLayout {
       event.composedPath().includes(this.headerEl);
 
     if (!clickedInsideOfOverlayedNav) {
-      this.navExpansionState = "collapsed";
+      this.setCollapsibleNavigationState("collapsed");
     }
   }
 
-  @Listen("keydown", { target: "document" })
-  onDocumentKeyDown(event: KeyboardEvent) {
+  @Listen("keydown")
+  onKeyDown(event: KeyboardEvent) {
     if (event.key === "Escape" && this.navExpansionState === "overlayed") {
-      this.navExpansionState = "collapsed";
+      this.setCollapsibleNavigationState("collapsed");
     }
   }
 
@@ -227,6 +231,14 @@ export class SwirlAppLayout {
   }
 
   /**
+   * Get state of the collapsible navigation
+   */
+  @Method()
+  async getCollapsibleNavigationState() {
+    return this.navExpansionState;
+  }
+
+  /**
    * Set state of the collapsible navigation
    */
   @Method()
@@ -238,6 +250,11 @@ export class SwirlAppLayout {
     }
 
     this.navExpansionState = state;
+
+    localStorage.setItem(
+      SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY,
+      this.navExpansionState
+    );
   }
 
   /**
@@ -412,14 +429,26 @@ export class SwirlAppLayout {
       return;
     }
 
-    this.navExpansionState =
+    const newNavExpansionState =
       this.navExpansionState === "expanded" ? "collapsed" : "expanded";
+
+    this.setCollapsibleNavigationState(newNavExpansionState);
   };
 
   private overlayNavigation = (event: MouseEvent) => {
     event.stopPropagation();
-    this.navExpansionState = "overlayed";
+    this.setCollapsibleNavigationState("overlayed");
   };
+
+  private restoreNavExpansionState() {
+    const restoredNavExpansionState = localStorage.getItem(
+      SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY
+    ) as SwirlAppLayoutNavigationExpansionState | undefined;
+
+    if (Boolean(restoredNavExpansionState)) {
+      this.setCollapsibleNavigationState(restoredNavExpansionState);
+    }
+  }
 
   render() {
     const showBackToNavigationButton =
@@ -503,7 +532,7 @@ export class SwirlAppLayout {
                   <swirl-button
                     hideLabel
                     icon={
-                      this.navExpansionState === "collapsed"
+                      this.navExpansionState !== "expanded"
                         ? "<swirl-icon-dock-left-expand></swirl-icon-dock-left-expand>"
                         : "<swirl-icon-dock-left-collapse></swirl-icon-dock-left-collapse>"
                     }
