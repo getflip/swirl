@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.237.0
+
+### Minor Changes
+
+- [#804](https://github.com/getflip/swirl/pull/804)
+  [`1e4569a1`](https://github.com/getflip/swirl/commit/1e4569a196c9efb0c7d221685722253fb7ea23f9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "collapsibleNavigation" prop
+  to swirl-app-layout to allow users to collapse the navigation
+
 ## 0.236.1
 
 ### Patch Changes
