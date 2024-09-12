@@ -211,6 +211,7 @@ export namespace Components {
           * @param mobileView
          */
         "changeMobileView": (mobileView: SwirlAppLayoutMobileView, transition?: boolean) => Promise<void>;
+        "collapsibleNavigation"?: boolean;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
         "hasNavigation": boolean;
@@ -221,6 +222,8 @@ export namespace Components {
         "hideSidebar": () => Promise<void>;
         "navigationBackButtonLabel"?: string;
         "navigationLabel"?: string;
+        "navigationOverlayLabel"?: string;
+        "navigationToggleLabel"?: string;
         "showNavigationBackButton"?: boolean;
         /**
           * Show the sidebar
@@ -5669,12 +5672,15 @@ declare namespace LocalJSX {
     interface SwirlAppLayout {
         "appName": string;
         "backToNavigationViewButtonLabel"?: string;
+        "collapsibleNavigation"?: boolean;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
         "hasNavigation"?: boolean;
         "hideAppBar"?: boolean;
         "navigationBackButtonLabel"?: string;
         "navigationLabel"?: string;
+        "navigationOverlayLabel"?: string;
+        "navigationToggleLabel"?: string;
         "onCtaClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
         "onMobileViewChange"?: (event: SwirlAppLayoutCustomEvent<SwirlAppLayoutMobileView>) => void;
         "onNavigationBackButtonClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
