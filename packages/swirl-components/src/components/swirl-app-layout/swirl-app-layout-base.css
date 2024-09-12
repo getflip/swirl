@@ -216,6 +216,17 @@
         }
       }
     }
+
+    &.app-layout--nav-collapsible {
+      @media (--from-desktop) {
+        &.app-layout--nav-collapsed,
+        &.app-layout--nav-overlayed {
+          & .app-layout__grid {
+            animation: app-layout-sidebar-slide-in-with-collapsed-nav 0.3s;
+          }
+        }
+      }
+    }
   }
 
   &.app-layout--sidebar-closing {
@@ -225,6 +236,17 @@
 
         @media (prefers-reduced-motion) {
           animation: none;
+        }
+      }
+    }
+
+    &.app-layout--nav-collapsible {
+      @media (--from-desktop) {
+        &.app-layout--nav-collapsed,
+        &.app-layout--nav-overlayed {
+          & .app-layout__grid {
+            animation: app-layout-sidebar-slide-out-with-collapsed-nav 0.3s;
+          }
         }
       }
     }
