@@ -443,6 +443,10 @@ export class SwirlAppLayout {
   };
 
   private restoreNavExpansionState() {
+    if (!this.collapsibleNavigation) {
+      return;
+    }
+
     const restoredNavExpansionState = localStorage.getItem(
       this.navigationExpansionStateStorageKey
     ) as SwirlAppLayoutNavigationExpansionState | undefined;
