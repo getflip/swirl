@@ -276,6 +276,10 @@
           "description": ""
         },
         {
+          "name": "collapsible-navigation",
+          "description": ""
+        },
+        {
           "name": "cta-icon",
           "description": ""
         },
@@ -296,7 +300,19 @@
           "description": ""
         },
         {
+          "name": "navigation-expansion-state-storage-key",
+          "description": ""
+        },
+        {
           "name": "navigation-label",
+          "description": ""
+        },
+        {
+          "name": "navigation-overlay-label",
+          "description": ""
+        },
+        {
+          "name": "navigation-toggle-label",
           "description": ""
         },
         {

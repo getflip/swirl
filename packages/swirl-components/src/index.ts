@@ -5,7 +5,10 @@ export {
   WCDatepickerLabels,
 } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { Components, JSX } from "./components";
-export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
+export {
+  SwirlAppLayoutMobileView,
+  SwirlAppLayoutNavigationExpansionState,
+} from "./components/swirl-app-layout/swirl-app-layout";
 export {
   SwirlAutocompleteSuggestion,
   SwirlAutocompleteValue,

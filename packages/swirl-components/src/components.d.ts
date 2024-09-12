@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 import { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
-import { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
+import { SwirlAppLayoutMobileView, SwirlAppLayoutNavigationExpansionState } from "./components/swirl-app-layout/swirl-app-layout";
 import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 import { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
@@ -74,7 +74,7 @@ import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
-export { SwirlAppLayoutMobileView } from "./components/swirl-app-layout/swirl-app-layout";
+export { SwirlAppLayoutMobileView, SwirlAppLayoutNavigationExpansionState } from "./components/swirl-app-layout/swirl-app-layout";
 export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
 export { SwirlTextInputMode } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlAvatarBadgePosition, SwirlAvatarColor, SwirlAvatarLoading, SwirlAvatarSize, SwirlAvatarToolPosition, SwirlAvatarVariant } from "./components/swirl-avatar/swirl-avatar";
@@ -211,8 +211,13 @@ export namespace Components {
           * @param mobileView
          */
         "changeMobileView": (mobileView: SwirlAppLayoutMobileView, transition?: boolean) => Promise<void>;
+        "collapsibleNavigation"?: boolean;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
+        /**
+          * Get state of the collapsible navigation
+         */
+        "getCollapsibleNavigationState": () => Promise<SwirlAppLayoutNavigationExpansionState>;
         "hasNavigation": boolean;
         "hideAppBar"?: boolean;
         /**
@@ -220,7 +225,14 @@ export namespace Components {
          */
         "hideSidebar": () => Promise<void>;
         "navigationBackButtonLabel"?: string;
+        "navigationExpansionStateStorageKey"?: string;
         "navigationLabel"?: string;
+        "navigationOverlayLabel"?: string;
+        "navigationToggleLabel"?: string;
+        /**
+          * Set state of the collapsible navigation
+         */
+        "setCollapsibleNavigationState": (state: SwirlAppLayoutNavigationExpansionState) => Promise<void>;
         "showNavigationBackButton"?: boolean;
         /**
           * Show the sidebar
@@ -2588,6 +2600,7 @@ declare global {
         "ctaClick": MouseEvent;
         "mobileViewChange": SwirlAppLayoutMobileView;
         "navigationBackButtonClick": MouseEvent;
+        "navigationExpansionStateChange": SwirlAppLayoutNavigationExpansionState;
         "sidebarToggle": boolean;
     }
     interface HTMLSwirlAppLayoutElement extends Components.SwirlAppLayout, HTMLStencilElement {
@@ -5669,15 +5682,20 @@ declare namespace LocalJSX {
     interface SwirlAppLayout {
         "appName": string;
         "backToNavigationViewButtonLabel"?: string;
+        "collapsibleNavigation"?: boolean;
         "ctaIcon"?: string;
         "ctaLabel"?: string;
         "hasNavigation"?: boolean;
         "hideAppBar"?: boolean;
         "navigationBackButtonLabel"?: string;
+        "navigationExpansionStateStorageKey"?: string;
         "navigationLabel"?: string;
+        "navigationOverlayLabel"?: string;
+        "navigationToggleLabel"?: string;
         "onCtaClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
         "onMobileViewChange"?: (event: SwirlAppLayoutCustomEvent<SwirlAppLayoutMobileView>) => void;
         "onNavigationBackButtonClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
+        "onNavigationExpansionStateChange"?: (event: SwirlAppLayoutCustomEvent<SwirlAppLayoutNavigationExpansionState>) => void;
         "onSidebarToggle"?: (event: SwirlAppLayoutCustomEvent<boolean>) => void;
         "showNavigationBackButton"?: boolean;
         "sidebarCloseButtonLabel"?: string;

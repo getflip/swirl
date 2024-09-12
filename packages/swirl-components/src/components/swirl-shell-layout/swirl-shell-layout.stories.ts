@@ -97,7 +97,7 @@ const Template = (args) => {
       </li>
     </ul>
 
-    <swirl-app-layout app-name="App name">
+    <swirl-app-layout app-name="App name" collapsible-navigation>
       <swirl-button hide-label="true" icon="<swirl-icon-menu></swirl-icon-menu>" label="Menu" slot="navigation-mobile-menu-button"></swirl-button>
       <swirl-resource-list label="Items" slot="navigation">
         <swirl-resource-list-item description="With a description" label="This is a resource item" class="item"></swirl-resource-list-item>

@@ -334,6 +334,17 @@
   }
 }
 
+@keyframes app-layout-sidebar-slide-in-with-collapsed-nav {
+  from {
+    overflow: hidden;
+    grid-template-columns: 0 1fr 0;
+  }
+  to {
+    overflow: hidden;
+    grid-template-columns: 0 1fr 25rem;
+  }
+}
+
 @keyframes app-layout-sidebar-slide-out {
   from {
     overflow: hidden;
@@ -342,6 +353,17 @@
   to {
     overflow: hidden;
     grid-template-columns: 25rem 1fr 0;
+  }
+}
+
+@keyframes app-layout-sidebar-slide-out-with-collapsed-nav {
+  from {
+    overflow: hidden;
+    grid-template-columns: 0 1fr 25rem;
+  }
+  to {
+    overflow: hidden;
+    grid-template-columns: 0 1fr 0;
   }
 }
 

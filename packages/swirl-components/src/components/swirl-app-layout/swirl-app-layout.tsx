@@ -5,17 +5,31 @@ import {
   EventEmitter,
   h,
   Host,
+  Listen,
   Method,
   Prop,
   State,
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import { debounce, isMobileViewport, prefersReducedMotion } from "../../utils";
+import {
+  debounce,
+  getDesktopMediaQuery,
+  isMobileViewport,
+  prefersReducedMotion,
+} from "../../utils";
 
 export type SwirlAppLayoutMobileView = "navigation" | "body" | "sidebar";
 
+export type SwirlAppLayoutNavigationExpansionState =
+  | "expanded"
+  | "collapsed"
+  | "overlayed";
+
 export type SwirlAppLayoutTransitionStyle = "none" | "slides" | "dialog";
+
+const SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY =
+  "SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE";
 
 /**
  * @slot content - Main content area
@@ -41,11 +55,16 @@ export class SwirlAppLayout {
 
   @Prop() appName!: string;
   @Prop() backToNavigationViewButtonLabel?: string = "Back to navigation";
+  @Prop() collapsibleNavigation?: boolean;
   @Prop() ctaIcon?: string;
   @Prop() ctaLabel?: string;
   @Prop({ mutable: true }) hasNavigation: boolean;
   @Prop() hideAppBar?: boolean;
   @Prop() navigationBackButtonLabel?: string = "Go back";
+  @Prop() navigationExpansionStateStorageKey?: string =
+    SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY;
+  @Prop() navigationToggleLabel?: string = "Toggle navigation";
+  @Prop() navigationOverlayLabel?: string = "Show navigation";
   @Prop() navigationLabel?: string;
   @Prop() showNavigationBackButton?: boolean;
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
@@ -59,13 +78,17 @@ export class SwirlAppLayout {
   };
   @State() hasCustomAppBarBackButton: boolean;
   @State() hasSidebar: boolean;
+  @State() isDesktop: boolean;
   @State() mobileView: SwirlAppLayoutMobileView = "navigation";
   @State() navScrollState = {
     scrollable: false,
     scrolledToTop: false,
   };
+  @State() navExpansionState: SwirlAppLayoutNavigationExpansionState =
+    "expanded";
   @State() sidebarActive: boolean;
   @State() sidebarClosing: boolean;
+  @State() sidebarOpening: boolean;
   @State() sidebarScrollState = {
     scrollable: false,
     scrolledToTop: false,
@@ -76,12 +99,17 @@ export class SwirlAppLayout {
   @Event() ctaClick: EventEmitter<MouseEvent>;
   @Event() mobileViewChange: EventEmitter<SwirlAppLayoutMobileView>;
   @Event() navigationBackButtonClick: EventEmitter<MouseEvent>;
+  @Event()
+  navigationExpansionStateChange: EventEmitter<SwirlAppLayoutNavigationExpansionState>;
   @Event() sidebarToggle: EventEmitter<boolean>;
 
   private contentEl: HTMLElement;
+  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
+  private headerEl: HTMLElement;
   private mutationObserver: MutationObserver;
   private navEl: HTMLElement;
   private sidebarClosingTimeout: NodeJS.Timeout;
+  private sidebarOpeningTimeout: NodeJS.Timeout;
   private sidebarEl: HTMLElement;
   private transitionTimeout: NodeJS.Timeout;
 
@@ -103,7 +131,12 @@ export class SwirlAppLayout {
   }
 
   componentDidLoad() {
+    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+
     queueMicrotask(() => {
+      this.isDesktop = this.desktopMediaQuery.matches;
+
+      this.restoreNavExpansionState();
       this.updateContentScrollState();
       this.updateSidebarScrollState();
       this.updateNavScrollState();
@@ -111,7 +144,34 @@ export class SwirlAppLayout {
   }
 
   disconnectedCallback() {
+    this.desktopMediaQuery.removeEventListener?.(
+      "change",
+      this.desktopMediaQueryHandler
+    );
+
     this.mutationObserver?.disconnect();
+  }
+
+  @Listen("click", { target: "document" })
+  onDocumentClick(event: MouseEvent) {
+    if (!this.collapsibleNavigation || this.navExpansionState !== "overlayed") {
+      return;
+    }
+
+    const clickedInsideOfOverlayedNav =
+      event.composedPath().includes(this.navEl) ||
+      event.composedPath().includes(this.headerEl);
+
+    if (!clickedInsideOfOverlayedNav) {
+      this.setCollapsibleNavigationState("collapsed");
+    }
+  }
+
+  @Listen("keydown")
+  onKeyDown(event: KeyboardEvent) {
+    if (event.key === "Escape" && this.navExpansionState === "overlayed") {
+      this.setCollapsibleNavigationState("collapsed");
+    }
   }
 
   @Watch("mobileView")
@@ -128,10 +188,21 @@ export class SwirlAppLayout {
       return;
     }
 
-    this.sidebarActive = true;
-    this.changeMobileView("sidebar");
+    if (Boolean(this.sidebarOpeningTimeout)) {
+      clearTimeout(this.sidebarOpeningTimeout);
+    }
 
-    this.sidebarToggle.emit(true);
+    this.sidebarOpening = true;
+
+    const delay = isMobileViewport() || prefersReducedMotion() ? 0 : 300;
+
+    this.sidebarOpeningTimeout = setTimeout(() => {
+      this.sidebarActive = true;
+      this.sidebarOpening = false;
+
+      this.changeMobileView("sidebar");
+      this.sidebarToggle.emit(true);
+    }, delay);
   }
 
   /**
@@ -174,6 +245,35 @@ export class SwirlAppLayout {
     } else {
       this.showSidebar();
     }
+  }
+
+  /**
+   * Get state of the collapsible navigation
+   */
+  @Method()
+  async getCollapsibleNavigationState() {
+    return this.navExpansionState;
+  }
+
+  /**
+   * Set state of the collapsible navigation
+   */
+  @Method()
+  async setCollapsibleNavigationState(
+    state: SwirlAppLayoutNavigationExpansionState
+  ) {
+    if (!this.collapsibleNavigation) {
+      return;
+    }
+
+    this.navExpansionState = state;
+
+    this.navigationExpansionStateChange.emit(this.navExpansionState);
+
+    localStorage.setItem(
+      this.navigationExpansionStateStorageKey,
+      this.navExpansionState
+    );
   }
 
   /**
@@ -226,6 +326,10 @@ export class SwirlAppLayout {
       this.mobileViewChange.emit(this.mobileView);
     }, delay);
   }
+
+  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
+    this.isDesktop = event.matches;
+  };
 
   private checkMobileView() {
     if (
@@ -313,7 +417,6 @@ export class SwirlAppLayout {
       )
     ) {
       this.navScrollState = newNavScrollState;
-      console.log(this.navScrollState);
     }
   }
 
@@ -340,6 +443,36 @@ export class SwirlAppLayout {
     this.updateSidebarScrollState();
   }, 16);
 
+  private toggleNavigation = () => {
+    if (!this.collapsibleNavigation) {
+      return;
+    }
+
+    const newNavExpansionState =
+      this.navExpansionState === "expanded" ? "collapsed" : "expanded";
+
+    this.setCollapsibleNavigationState(newNavExpansionState);
+  };
+
+  private overlayNavigation = (event: MouseEvent) => {
+    event.stopPropagation();
+    this.setCollapsibleNavigationState("overlayed");
+  };
+
+  private restoreNavExpansionState() {
+    if (!this.collapsibleNavigation) {
+      return;
+    }
+
+    const restoredNavExpansionState = localStorage.getItem(
+      this.navigationExpansionStateStorageKey
+    ) as SwirlAppLayoutNavigationExpansionState | undefined;
+
+    if (Boolean(restoredNavExpansionState)) {
+      this.setCollapsibleNavigationState(restoredNavExpansionState);
+    }
+  }
+
   render() {
     const showBackToNavigationButton =
       (this.mobileView === "body" || this.transitioningTo) &&
@@ -364,9 +497,16 @@ export class SwirlAppLayout {
       Boolean(this.el.querySelector('[slot="floating-action-button"]')) ||
       Boolean(this.ctaLabel);
 
+    const navigationActive =
+      this.hasNavigation &&
+      (!this.collapsibleNavigation ||
+        this.navExpansionState !== "collapsed" ||
+        !this.isDesktop);
+
     const className = classnames(
       "app-layout",
       `app-layout--mobile-view-${this.mobileView}`,
+      `app-layout--nav-${this.isDesktop ? this.navExpansionState : "expanded"}`,
       `app-layout--transitioning-from-${this.transitioningFrom}`,
       `app-layout--transitioning-to-${this.transitioningTo}`,
       `app-layout--transition-style-${this.transitionStyle}`,
@@ -386,11 +526,14 @@ export class SwirlAppLayout {
         "app-layout--has-navigation": this.hasNavigation,
         "app-layout--has-sidebar": this.hasSidebar,
         "app-layout--hide-app-bar": this.hideAppBar,
+        "app-layout--nav-collapsible":
+          this.collapsibleNavigation && this.isDesktop,
         "app-layout--nav-scrollable": this.navScrollState.scrollable,
         "app-layout--nav-scrolled-to-top": this.navScrollState.scrolledToTop,
         "app-layout--sidebar-active":
           this.mobileView === "sidebar" || this.sidebarActive,
         "app-layout--sidebar-closing": this.sidebarClosing,
+        "app-layout--sidebar-opening": this.sidebarOpening,
         "app-layout--sidebar-scrollable": this.sidebarScrollState.scrollable,
         "app-layout--sidebar-scrolled-to-top":
           this.sidebarScrollState.scrolledToTop,
@@ -401,10 +544,27 @@ export class SwirlAppLayout {
       <Host>
         <section aria-labelledby="app-name" class={className}>
           <div class="app-layout__grid">
-            <header class="app-layout__header">
+            <header
+              class="app-layout__header"
+              ref={(el) => (this.headerEl = el)}
+            >
               <span class="app-layout__navigation-mobile-menu-button">
                 <slot name="navigation-mobile-menu-button"></slot>
               </span>
+              {this.collapsibleNavigation && (
+                <span class="app-layout__nav-overlay-toggle">
+                  <swirl-button
+                    hideLabel
+                    icon={
+                      this.navExpansionState !== "expanded"
+                        ? "<swirl-icon-dock-left-expand></swirl-icon-dock-left-expand>"
+                        : "<swirl-icon-dock-left-collapse></swirl-icon-dock-left-collapse>"
+                    }
+                    label={this.navigationToggleLabel}
+                    onClick={this.toggleNavigation}
+                  ></swirl-button>
+                </span>
+              )}
               {this.showNavigationBackButton && (
                 <span class="app-layout__navigation-back-button">
                   <swirl-button
@@ -422,7 +582,7 @@ export class SwirlAppLayout {
                 level={3}
                 text={this.appName}
               ></swirl-heading>
-              {this.hasNavigation && (
+              {navigationActive && (
                 <span class="app-layout__navigation-controls">
                   <slot name="navigation-controls"></slot>
                 </span>
@@ -433,6 +593,12 @@ export class SwirlAppLayout {
               class="app-layout__navigation"
               onScroll={this.onNavScroll}
               ref={(el) => (this.navEl = el)}
+              {...{
+                inert:
+                  this.isDesktop &&
+                  this.collapsibleNavigation &&
+                  this.navExpansionState === "collapsed",
+              }}
             >
               <slot name="navigation"></slot>
             </nav>
@@ -456,6 +622,17 @@ export class SwirlAppLayout {
                       ></swirl-button>
                     </span>
                   )}
+                  {this.collapsibleNavigation &&
+                    this.navExpansionState !== "expanded" && (
+                      <span class="app-layout__nav-expansion-toggle">
+                        <swirl-button
+                          hideLabel
+                          icon="<swirl-icon-hamburger-menu></swirl-icon-hamburger-menu>"
+                          label={this.navigationOverlayLabel}
+                          onClick={this.overlayNavigation}
+                        ></swirl-button>
+                      </span>
+                    )}
                   <span class="app-layout__custom-app-bar-back-button">
                     <slot name="custom-app-bar-back-button"></slot>
                   </span>
