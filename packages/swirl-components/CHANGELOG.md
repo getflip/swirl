@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.238.0
+
+### Minor Changes
+
+- [#806](https://github.com/getflip/swirl/pull/806)
+  [`e8981393`](https://github.com/getflip/swirl/commit/e8981393a765e106a8006df7a2752438aa3b9350)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add color
+  selector to tree view item icons
+
 ## 0.237.0
 
 ### Minor Changes
