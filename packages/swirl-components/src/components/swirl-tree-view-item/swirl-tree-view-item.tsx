@@ -11,6 +11,7 @@ import {
   State,
 } from "@stencil/core";
 import classNames from "classnames";
+import { SwirlIconColor } from "../swirl-icon/swirl-icon";
 
 /**
  * @slot slot - The children of the tree view item
@@ -28,6 +29,7 @@ export class SwirlTreeViewItem {
   @Prop() active?: boolean;
   @Prop() href?: string;
   @Prop() icon?: string;
+  @Prop() iconColor?: SwirlIconColor;
   @Prop() itemId!: string;
   @Prop() label!: string;
 
@@ -163,7 +165,11 @@ export class SwirlTreeViewItem {
                   {iconIsEmoji ? (
                     this.icon
                   ) : (
-                    <swirl-icon glyph={this.icon} size={24}></swirl-icon>
+                    <swirl-icon
+                      glyph={this.icon}
+                      size={24}
+                      color={this.iconColor}
+                    ></swirl-icon>
                   )}
                 </span>
               </Fragment>

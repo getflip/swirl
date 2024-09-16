@@ -2289,6 +2289,7 @@ export namespace Components {
         "expand": () => Promise<void>;
         "href"?: string;
         "icon"?: string;
+        "iconColor"?: SwirlIconColor1;
         "itemId": string;
         "label": string;
         "select": (focus?: boolean) => Promise<void>;
@@ -7631,6 +7632,7 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "href"?: string;
         "icon"?: string;
+        "iconColor"?: SwirlIconColor1;
         "itemId": string;
         "label": string;
         "onExpandedChange"?: (event: SwirlTreeViewItemCustomEvent<boolean>) => void;
