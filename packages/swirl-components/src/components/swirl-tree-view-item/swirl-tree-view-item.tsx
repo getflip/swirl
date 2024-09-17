@@ -27,6 +27,7 @@ export class SwirlTreeViewItem {
   @Element() el!: HTMLSwirlTreeViewItemElement;
 
   @Prop() active?: boolean;
+  @Prop() expandable?: boolean = true;
   @Prop() href?: string;
   @Prop() icon?: string;
   @Prop() iconColor?: SwirlIconColor;
@@ -50,7 +51,7 @@ export class SwirlTreeViewItem {
 
   @Method()
   async expand() {
-    if (this.expanded) {
+    if (this.expanded || !this.expandable) {
       return;
     }
 
@@ -60,7 +61,7 @@ export class SwirlTreeViewItem {
 
   @Method()
   async collapse() {
-    if (!this.expanded) {
+    if (!this.expanded || !this.expandable) {
       return;
     }
 
@@ -136,29 +137,35 @@ export class SwirlTreeViewItem {
             href={this.href}
             onFocus={this.onFocus}
             style={{
-              paddingLeft: `calc(${this.level} * var(--s-space-12) + var(--s-space-4))`,
+              paddingLeft: `calc(${
+                this.level
+              } * var(--s-space-12) + var(--s-space-${
+                this.expandable ? "4" : "8"
+              }))`,
             }}
             ref={(el) => (this.link = el)}
             role="treeitem"
             tabIndex={this.selected ? 0 : -1}
           >
-            <span class="tree-view-item__toggle-icon">
-              {this.hasChildren && (
-                <Fragment>
-                  {this.expanded ? (
-                    <swirl-icon-expand-more
-                      onClick={this.onClickCollapse}
-                      size={24}
-                    ></swirl-icon-expand-more>
-                  ) : (
-                    <swirl-icon-chevron-right
-                      onClick={this.onClickExpand}
-                      size={24}
-                    ></swirl-icon-chevron-right>
-                  )}
-                </Fragment>
-              )}
-            </span>
+            {this.expandable && (
+              <span class="tree-view-item__toggle-icon">
+                {this.hasChildren && (
+                  <Fragment>
+                    {this.expanded ? (
+                      <swirl-icon-expand-more
+                        onClick={this.onClickCollapse}
+                        size={24}
+                      ></swirl-icon-expand-more>
+                    ) : (
+                      <swirl-icon-chevron-right
+                        onClick={this.onClickExpand}
+                        size={24}
+                      ></swirl-icon-chevron-right>
+                    )}
+                  </Fragment>
+                )}
+              </span>
+            )}
             {Boolean(this.icon) && (
               <Fragment>
                 <span class="tree-view-item__icon">
