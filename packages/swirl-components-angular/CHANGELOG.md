@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.239.0
+
+### Minor Changes
+
+- [#810](https://github.com/getflip/swirl/pull/810)
+  [`fea94a96`](https://github.com/getflip/swirl/commit/fea94a96753fa7fb1537e5d6430b22be3d11b791)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Added prop to
+  disable expanding tree items
+
+* [#808](https://github.com/getflip/swirl/pull/808)
+  [`229add12`](https://github.com/getflip/swirl/commit/229add12139d2015c794f5108915b676de0501cf)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Replaced gif
+  icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fea94a96`](https://github.com/getflip/swirl/commit/fea94a96753fa7fb1537e5d6430b22be3d11b791),
+  [`229add12`](https://github.com/getflip/swirl/commit/229add12139d2015c794f5108915b676de0501cf)]:
+  - @getflip/swirl-components@0.239.0
+
 ## 0.238.0
 
 ### Minor Changes
