@@ -2287,6 +2287,7 @@ export namespace Components {
         "active"?: boolean;
         "collapse": () => Promise<void>;
         "expand": () => Promise<void>;
+        "expandable"?: boolean;
         "href"?: string;
         "icon"?: string;
         "iconColor"?: SwirlIconColor1;
@@ -7630,6 +7631,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTreeViewItem {
         "active"?: boolean;
+        "expandable"?: boolean;
         "href"?: string;
         "icon"?: string;
         "iconColor"?: SwirlIconColor1;
