@@ -51,7 +51,7 @@ export class SwirlTreeViewItem {
 
   @Method()
   async expand() {
-    if (this.expanded) {
+    if (this.expanded || !this.expandable) {
       return;
     }
 
@@ -61,7 +61,7 @@ export class SwirlTreeViewItem {
 
   @Method()
   async collapse() {
-    if (!this.expanded) {
+    if (!this.expanded || !this.expandable) {
       return;
     }
 
@@ -120,7 +120,6 @@ export class SwirlTreeViewItem {
     const className = classNames("tree-view-item", {
       "tree-view-item--active": this.active,
       "tree-view-item--has-tags": hasTags,
-      "tree-view-item--expandable": this.expandable,
     });
 
     return (
@@ -138,7 +137,11 @@ export class SwirlTreeViewItem {
             href={this.href}
             onFocus={this.onFocus}
             style={{
-              paddingLeft: `calc(${this.level} * var(--s-space-12) + var(--s-space-4))`,
+              paddingLeft: `calc(${
+                this.level
+              } * var(--s-space-12) + var(--s-space-${
+                this.expandable ? "4" : "8"
+              }))`,
             }}
             ref={(el) => (this.link = el)}
             role="treeitem"
