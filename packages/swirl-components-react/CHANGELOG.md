@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.239.1
+
+### Patch Changes
+
+- [`5af61856`](https://github.com/getflip/swirl/commit/5af61856e645072dda5059a285465be703252199)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-lightbox focus trap
+  being triggered too early in some cases
+
+- Updated dependencies
+  [[`5af61856`](https://github.com/getflip/swirl/commit/5af61856e645072dda5059a285465be703252199)]:
+  - @getflip/swirl-components@0.239.1
+
 ## 0.239.0
 
 ### Minor Changes
