@@ -219,6 +219,32 @@ button.image-grid-item {
   }
 }
 
+.image-grid-item__gif-controls {
+  position: absolute;
+  z-index: 1;
+  bottom: var(--s-space-8);
+  left: var(--s-space-8);
+
+  .image-grid-item__gif-controls__icon {
+    display: flex;
+    padding: var(--s-space-2);
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--s-border-radius-s);
+    color: var(--s-icon-on-image);
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .image-grid-item__gif-controls__icon--button {
+    cursor: pointer;
+  }
+
+  .image-grid-item__gif-controls__icon--label {
+    padding-left: var(--s-space-8);
+    padding-right: var(--s-space-8);
+  }
+}
+
 .image-grid-item__overlay {
   position: absolute;
   z-index: 2;
