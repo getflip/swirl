@@ -1,5 +1,12 @@
 # @getflip/bridge
 
+## 0.6.0
+
+### Minor Changes
+
+- [`17a76d54`](https://github.com/getflip/swirl/commit/17a76d54ca7a7ec8b469a8db07f68039b9ea1cde)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "setTheme" method
+
 ## 0.5.72
 
 ### Patch Changes
