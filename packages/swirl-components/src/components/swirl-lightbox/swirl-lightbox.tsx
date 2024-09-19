@@ -43,6 +43,7 @@ export class SwirlLightbox {
   @State() isOpen = false;
   @State() slides: HTMLSwirlFileViewerElement[];
 
+  private containerObserver: MutationObserver;
   private dragging: boolean = false;
   private dragStartPosition: number;
   private dragDelta: number;
@@ -66,6 +67,7 @@ export class SwirlLightbox {
   disconnectedCallback() {
     this.focusTrap?.deactivate();
     this.unlockBodyScroll();
+    this.containerObserver?.disconnect();
   }
 
   @Watch("activeSlideIndex")
@@ -100,6 +102,31 @@ export class SwirlLightbox {
     setTimeout(() => {
       this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
         allowOutsideClick: true,
+        checkCanFocusTrap: (containers) => {
+          this.containerObserver?.disconnect();
+
+          return new Promise((resolve) => {
+            const container = containers[0];
+
+            if (container.tabIndex !== -1) {
+              resolve();
+              return;
+            }
+
+            // wait for container to become focusable
+            this.containerObserver = new MutationObserver(() => {
+              if (container.tabIndex !== -1) {
+                this.containerObserver.disconnect();
+                resolve();
+              }
+            });
+
+            this.containerObserver.observe(container, {
+              attributes: true,
+              attributeFilter: ["tabindex"],
+            });
+          });
+        },
         tabbableOptions: {
           getShadowRoot: (node) => {
             return node.shadowRoot;
