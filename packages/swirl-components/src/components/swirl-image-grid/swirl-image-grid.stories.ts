@@ -27,6 +27,6 @@ SwirlImageGrid.args = {
   slot: `
     <swirl-image-grid-item alt="Cute dog in a blanket" interactive src="/sample.jpg"></swirl-image-grid-item>
     <swirl-image-grid-item alt="Cute dog in a blanket" interactive src="/sample-2.jpg"></swirl-image-grid-item>
-    <swirl-image-grid-item alt="A moving train" interactive src="/sample.gif" show-gif-controls></swirl-image-grid-item>
+    <swirl-image-grid-item alt="Blinking cat" interactive src="/sample.gif" show-gif-controls></swirl-image-grid-item>
   `,
 };
