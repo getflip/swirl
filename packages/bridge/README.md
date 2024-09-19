@@ -116,6 +116,22 @@ import { getTheme } from "@getflip/bridge";
 const theme = await getTheme();
 ```
 
+#### `setTheme`
+
+Set the theme. Pass `undefined` to reset to the user's system theme.
+
+**Param** `"light" | "dark" | undefined`
+
+**Returns** `Promise<"light" | "dark" | undefined>`
+
+**Example**
+
+```js
+import { setTheme } from "@getflip/bridge";
+
+const newTheme = await setTheme("dark");
+```
+
 ### Dialogs
 
 #### `createDialog`
@@ -375,7 +391,7 @@ Shows a toast by the host app.
 {
   text: string;
   duration?: number;
-  icon?: string; 
+  icon?: string;
   intent?: SwirlToastIntent;
 }
 ```
@@ -393,7 +409,6 @@ await showToast({
   icon: "icon",
   intent: "success",
 });
-
 ```
 
 ## Events

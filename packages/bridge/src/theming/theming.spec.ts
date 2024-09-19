@@ -1,5 +1,5 @@
 import { makeRequest } from "../messaging";
-import { getTheme } from "./theming";
+import { getTheme, setTheme } from "./theming";
 
 jest.mock("../messaging", () => ({
   makeRequest: jest.fn(),
@@ -20,6 +20,22 @@ describe("theming", () => {
     expect(makeRequestMock).toHaveBeenCalledWith({
       id: makeRequestMock.mock.calls[0][0].id,
       method: "GET_THEME",
+    });
+  });
+
+  test("'setTheme' sends correct request", async () => {
+    await setTheme("dark");
+
+    const makeRequestMock = makeRequest as unknown as jest.Mock<
+      typeof makeRequest
+    >;
+
+    expect(makeRequestMock).toHaveBeenCalledWith({
+      id: makeRequestMock.mock.calls[0][0].id,
+      method: "SET_THEME",
+      params: {
+        theme: "dark",
+      },
     });
   });
 });
