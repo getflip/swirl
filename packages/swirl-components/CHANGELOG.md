@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.240.1
+
+### Patch Changes
+
+- [`c69cf843`](https://github.com/getflip/swirl/commit/c69cf843057ad7e2459cb80b8aaf1714879dcdec)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix children update issue of
+  swirl-tree-view-item
+
 ## 0.240.0
 
 ### Minor Changes
