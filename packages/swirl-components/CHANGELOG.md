@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.240.0
+
+### Minor Changes
+
+- [#813](https://github.com/getflip/swirl/pull/813)
+  [`b6f26c1a`](https://github.com/getflip/swirl/commit/b6f26c1a8dc26eb2e0d45f3691301d75553a0122)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add gif
+  playback functionality to image grid items
+
 ## 0.239.1
 
 ### Patch Changes
