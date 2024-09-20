@@ -38,7 +38,6 @@ export class SwirlTreeViewItem {
   @Event() itemSelected!: EventEmitter<HTMLSwirlTreeViewItemElement>;
 
   @State() expanded = false;
-  @State() hasChildren = false;
   @State() level = 0;
   @State() selected = false;
 
@@ -46,7 +45,6 @@ export class SwirlTreeViewItem {
 
   componentWillLoad() {
     this.updateLevel();
-    this.hasChildren = Boolean(this.el.querySelector("swirl-tree-view-item"));
   }
 
   @Method()
@@ -122,16 +120,16 @@ export class SwirlTreeViewItem {
       "tree-view-item--has-tags": hasTags,
     });
 
+    const hasChildren = Boolean(this.el.querySelector("swirl-tree-view-item"));
+
     return (
       <Host id={this.itemId} role="none">
         <li class={className} role="none">
           <a
             aria-current={this.active ? "page" : undefined}
-            aria-expanded={
-              !this.hasChildren ? undefined : String(this.expanded)
-            }
+            aria-expanded={!hasChildren ? undefined : String(this.expanded)}
             aria-level={this.level + 1}
-            aria-owns={this.hasChildren ? `${this.itemId}-children` : undefined}
+            aria-owns={hasChildren ? `${this.itemId}-children` : undefined}
             aria-selected={String(this.selected)}
             class="tree-view-item__link"
             href={this.href}
@@ -149,7 +147,7 @@ export class SwirlTreeViewItem {
           >
             {this.expandable && (
               <span class="tree-view-item__toggle-icon">
-                {this.hasChildren && (
+                {hasChildren && (
                   <Fragment>
                     {this.expanded ? (
                       <swirl-icon-expand-more
@@ -192,7 +190,7 @@ export class SwirlTreeViewItem {
             id={`${this.itemId}-children`}
             role="group"
             style={{
-              display: !this.expanded || !this.hasChildren ? "none" : undefined,
+              display: !this.expanded || !hasChildren ? "none" : undefined,
             }}
           >
             <slot></slot>
