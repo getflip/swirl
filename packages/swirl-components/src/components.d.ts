@@ -4239,6 +4239,8 @@ declare global {
         new (): HTMLSwirlImageGridElement;
     };
     interface HTMLSwirlImageGridItemElementEventMap {
+        "gifStarted": void;
+        "gifStopped": void;
         "imageError": void;
         "imageLoad": void;
     }
@@ -6898,6 +6900,8 @@ declare namespace LocalJSX {
         "icon"?: string;
         "interactive"?: boolean;
         "loading"?: SwirlImageGridItemLoading;
+        "onGifStarted"?: (event: SwirlImageGridItemCustomEvent<void>) => void;
+        "onGifStopped"?: (event: SwirlImageGridItemCustomEvent<void>) => void;
         "onImageError"?: (event: SwirlImageGridItemCustomEvent<void>) => void;
         "onImageLoad"?: (event: SwirlImageGridItemCustomEvent<void>) => void;
         "overlay"?: string;

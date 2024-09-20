@@ -40,6 +40,8 @@ export class SwirlImageGridItem {
   @State() inViewport = false;
   @State() gifPaused = false;
 
+  @Event() gifStarted: EventEmitter<void>;
+  @Event() gifStopped: EventEmitter<void>;
   @Event() imageError: EventEmitter<void>;
   @Event() imageLoad: EventEmitter<void>;
 
@@ -52,7 +54,7 @@ export class SwirlImageGridItem {
    * @returns
    */
   @Method()
-  public async play() {
+  async play() {
     this.playGif();
   }
 
@@ -61,7 +63,7 @@ export class SwirlImageGridItem {
    * @returns
    */
   @Method()
-  public async pause() {
+  async pause() {
     this.pauseGif();
   }
 
@@ -115,15 +117,18 @@ export class SwirlImageGridItem {
   };
 
   private pauseGif = () => {
-    this.gifPaused = true;
     const imageEl = this.img;
-    this.readImageFromCanvas(imageEl.src).then((image) => {
-      imageEl.src = image;
-      this.backgroundImg.attributeStyleMap.set(
-        "background-image",
-        `url(${image})`
-      );
-    });
+    this.readImageFromCanvas(imageEl.src)
+      .then((image) => {
+        this.gifPaused = true;
+        imageEl.src = image;
+        this.backgroundImg.attributeStyleMap.set(
+          "background-image",
+          `url(${image})`
+        );
+        this.gifStopped.emit();
+      })
+      .catch(() => console.error("unable to pause GIF"));
   };
 
   private playGif = () => {
@@ -134,10 +139,16 @@ export class SwirlImageGridItem {
       "background-image",
       `url(${this.src})`
     );
+    this.gifStarted.emit();
   };
 
-  readImageFromCanvas(imageSrc: string): Promise<string> {
-    return new Promise((resolve) => {
+  private handleControlClick = (event: MouseEvent) => {
+    event.stopImmediatePropagation();
+    this.gifPaused ? this.playGif() : this.pauseGif();
+  };
+
+  private readImageFromCanvas(imageSrc: string): Promise<string> {
+    return new Promise((resolve, reject) => {
       const image: HTMLImageElement = new Image();
       image.src = imageSrc;
       image.onload = (ev) => {
@@ -149,7 +160,7 @@ export class SwirlImageGridItem {
         ctx.drawImage(el, 0, 0, el.width, el.height);
         resolve(canvas.toDataURL("image/jpeg"));
       };
-      image.onerror = () => resolve("");
+      image.onerror = () => reject();
     });
   }
 
@@ -203,10 +214,9 @@ export class SwirlImageGridItem {
               orientation="horizontal"
               spacing="4"
             >
-              <div
+              <button
                 class="image-grid-item__gif-controls__icon image-grid-item__gif-controls__icon--button"
-                onClick={this.gifPaused ? this.playGif : this.pauseGif}
-                role="button"
+                onClick={this.handleControlClick}
                 aria-label={
                   this.gifPaused ? this.gifPlayLabel : this.gifPauseLabel
                 }
@@ -216,7 +226,7 @@ export class SwirlImageGridItem {
                 ) : (
                   <swirl-icon-pause></swirl-icon-pause>
                 )}
-              </div>
+              </button>
               <div class="image-grid-item__gif-controls__icon image-grid-item__gif-controls__icon--label">
                 <swirl-icon-gif></swirl-icon-gif>
               </div>

@@ -232,10 +232,11 @@ button.image-grid-item {
     align-items: center;
     border-radius: var(--s-border-radius-s);
     color: var(--s-icon-on-image);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--s-surface-on-image-default);
   }
 
   .image-grid-item__gif-controls__icon--button {
+    border: none;
     cursor: pointer;
   }
 
