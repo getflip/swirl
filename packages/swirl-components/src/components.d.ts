@@ -1460,10 +1460,23 @@ export namespace Components {
     }
     interface SwirlImageGridItem {
         "alt": string;
+        "gifPauseLabel"?: string;
+        "gifPlayLabel"?: string;
         "icon"?: string;
         "interactive"?: boolean;
         "loading"?: SwirlImageGridItemLoading;
         "overlay"?: string;
+        /**
+          * Stop Gif playback.
+          * @returns
+         */
+        "pause": () => Promise<void>;
+        /**
+          * Start Gif playback.
+          * @returns
+         */
+        "play": () => Promise<void>;
+        "showGifControls"?: boolean;
         "src": string;
     }
     interface SwirlInlineError {
@@ -4226,6 +4239,8 @@ declare global {
         new (): HTMLSwirlImageGridElement;
     };
     interface HTMLSwirlImageGridItemElementEventMap {
+        "gifStarted": void;
+        "gifStopped": void;
         "imageError": void;
         "imageLoad": void;
     }
@@ -6880,12 +6895,17 @@ declare namespace LocalJSX {
     }
     interface SwirlImageGridItem {
         "alt": string;
+        "gifPauseLabel"?: string;
+        "gifPlayLabel"?: string;
         "icon"?: string;
         "interactive"?: boolean;
         "loading"?: SwirlImageGridItemLoading;
+        "onGifStarted"?: (event: SwirlImageGridItemCustomEvent<void>) => void;
+        "onGifStopped"?: (event: SwirlImageGridItemCustomEvent<void>) => void;
         "onImageError"?: (event: SwirlImageGridItemCustomEvent<void>) => void;
         "onImageLoad"?: (event: SwirlImageGridItemCustomEvent<void>) => void;
         "overlay"?: string;
+        "showGifControls"?: boolean;
         "src": string;
     }
     interface SwirlInlineError {

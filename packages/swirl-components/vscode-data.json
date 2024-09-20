@@ -13578,6 +13578,14 @@
           "description": ""
         },
         {
+          "name": "gif-pause-label",
+          "description": ""
+        },
+        {
+          "name": "gif-play-label",
+          "description": ""
+        },
+        {
           "name": "icon",
           "description": ""
         },
@@ -13605,6 +13613,10 @@
         },
         {
           "name": "overlay",
+          "description": ""
+        },
+        {
+          "name": "show-gif-controls",
           "description": ""
         },
         {
