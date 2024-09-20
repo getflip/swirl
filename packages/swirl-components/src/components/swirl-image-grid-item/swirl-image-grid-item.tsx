@@ -116,20 +116,18 @@ export class SwirlImageGridItem {
     this.imageError.emit();
   };
 
-  private pauseGif = () => {
+  private async pauseGif() {
     const imageEl = this.img;
-    this.readImageFromCanvas(imageEl.src)
-      .then((image) => {
-        this.gifPaused = true;
-        imageEl.src = image;
-        this.backgroundImg.attributeStyleMap.set(
-          "background-image",
-          `url(${image})`
-        );
-        this.gifStopped.emit();
-      })
-      .catch(() => console.error("unable to pause GIF"));
-  };
+    const staticImage = await this.readImageFromCanvas(imageEl.src);
+
+    this.gifPaused = true;
+    imageEl.src = staticImage;
+    this.backgroundImg.attributeStyleMap.set(
+      "background-image",
+      `url(${staticImage})`
+    );
+    this.gifStopped.emit();
+  }
 
   private playGif = () => {
     this.gifPaused = false;
