@@ -215,6 +215,7 @@ export class SwirlImageGridItem {
               <button
                 class="image-grid-item__gif-controls__icon image-grid-item__gif-controls__icon--button"
                 onClick={this.handleControlClick}
+                type="button"
                 aria-label={
                   this.gifPaused ? this.gifPlayLabel : this.gifPauseLabel
                 }
