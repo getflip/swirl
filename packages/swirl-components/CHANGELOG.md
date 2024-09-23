@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.241.1
+
+### Patch Changes
+
+- [`cf172218`](https://github.com/getflip/swirl/commit/cf172218751c3ea8d52e97020702bb1a0d1c8b5b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Reduce the amount of
+  swirl-tooltip repositionings
+
 ## 0.241.0
 
 ### Minor Changes
