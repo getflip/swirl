@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.241.0
+
+### Minor Changes
+
+- [`b3f8bbeb`](https://github.com/getflip/swirl/commit/b3f8bbeb32f85c7d4ad4a611b95c5c1439768856) -
+  Update gif controls icon size
+
 ## 0.240.1
 
 ### Patch Changes
