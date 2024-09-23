@@ -221,13 +221,13 @@ export class SwirlImageGridItem {
                 }
               >
                 {this.gifPaused ? (
-                  <swirl-icon-play-arrow></swirl-icon-play-arrow>
+                  <swirl-icon-play-arrow size={20}></swirl-icon-play-arrow>
                 ) : (
-                  <swirl-icon-pause></swirl-icon-pause>
+                  <swirl-icon-pause size={20}></swirl-icon-pause>
                 )}
               </button>
               <div class="image-grid-item__gif-controls__icon image-grid-item__gif-controls__icon--label">
-                <swirl-icon-gif></swirl-icon-gif>
+                <swirl-icon-gif size={20}></swirl-icon-gif>
               </div>
             </swirl-stack>
           )}
