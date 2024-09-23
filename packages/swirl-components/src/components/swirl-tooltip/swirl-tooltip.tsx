@@ -65,11 +65,19 @@ export class SwirlTooltip {
 
   @Listen("resize", { target: "window" })
   onWindowResize() {
+    if (!this.active) {
+      return;
+    }
+
     this.reposition();
   }
 
   @Listen("scroll", { target: "window" })
   onWindowScroll() {
+    if (!this.active || !this.visible) {
+      return;
+    }
+
     this.reposition();
   }
 
@@ -117,6 +125,10 @@ export class SwirlTooltip {
   };
 
   private show = () => {
+    if (!this.active) {
+      return;
+    }
+
     this.visible = true;
 
     requestAnimationFrame(() => {
@@ -136,6 +148,10 @@ export class SwirlTooltip {
   };
 
   private showWithDelay = () => {
+    if (!this.active) {
+      return;
+    }
+
     if (Boolean(this.showTimeout)) {
       clearTimeout(this.showTimeout);
       this.showTimeout = undefined;
