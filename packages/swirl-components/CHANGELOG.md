@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.241.2
+
+### Patch Changes
+
+- [#819](https://github.com/getflip/swirl/pull/819)
+  [`1bd66440`](https://github.com/getflip/swirl/commit/1bd66440355b44833f9b89dd7a925a0de7c44b61)
+  Thanks [@danizep](https://github.com/danizep)! - Add large size to flat, plain
+  and on-image SwirlButtons
+
 ## 0.241.1
 
 ### Patch Changes
