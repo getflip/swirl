@@ -175,6 +175,14 @@
   & .button__icon {
     color: var(--s-icon-strong);
   }
+
+  &.button--size-l {
+    padding: var(--s-space-12) var(--s-space-20);
+
+    &.button--icon-only {
+      padding: var(--s-space-12);
+    }
+  }
 }
 
 .button--variant-outline {
@@ -302,6 +310,14 @@
     margin-left: 0;
     color: var(--swirl-plain-button-text-color-default);
   }
+
+  &.button--size-l {
+    padding: var(--s-space-12) var(--s-space-20);
+
+    &.button--icon-only {
+      padding: var(--s-space-12);
+    }
+  }
 }
 
 .button--variant-on-image {
@@ -327,6 +343,14 @@
 
   & .button__icon {
     color: var(--s-icon-on-image);
+  }
+
+  &.button--size-l {
+    padding: var(--s-space-12) var(--s-space-20);
+
+    &.button--icon-only {
+      padding: var(--s-space-12);
+    }
   }
 }
 
