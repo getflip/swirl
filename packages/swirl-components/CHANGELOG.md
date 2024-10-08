@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.241.3
+
+### Patch Changes
+
+- [#821](https://github.com/getflip/swirl/pull/821)
+  [`2cdc24e3`](https://github.com/getflip/swirl/commit/2cdc24e3296d5354102d7628ae734ed25f861f93)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix
+  swirl-option-list-item applied width
+
 ## 0.241.2
 
 ### Patch Changes
