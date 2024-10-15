@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.241.4
+
+### Patch Changes
+
+- [#823](https://github.com/getflip/swirl/pull/823)
+  [`c330be6d`](https://github.com/getflip/swirl/commit/c330be6df11783c0defa2b741928b7e564183241)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Fixed positioning
+  of swirl-toolbar children through the wrap property
+
 ## 0.241.3
 
 ### Patch Changes
