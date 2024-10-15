@@ -1,4 +1,4 @@
-import { Component, Element, Host, Prop, h } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 import { getActiveElement } from "../../utils";
 
 export type SwirlToolbarOrientation = "horizontal" | "vertical";
@@ -111,6 +111,7 @@ export class SwirlToolbar {
           onKeyDown={this.onKeyDown}
           orientation={this.orientation}
           spacing="8"
+          wrap
         >
           <slot></slot>
         </swirl-stack>
