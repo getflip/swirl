@@ -25,9 +25,10 @@
 }
 
 .image-grid--item-count-3 {
-  grid-template-columns: calc(100% / 3 * 2 - var(--space-2) / 2) calc(
+  grid-template-columns: calc(100% / 3 * 2) calc(
       100% / 3 - var(--s-space-2) / 2
     );
+  grid-template-rows: calc(50% - var(--s-space-2) / 2);
 
   & ::slotted(*:nth-child(1)) {
     grid-column-start: 1;
