@@ -28,11 +28,28 @@ export class SwirlImageGrid {
     }
   };
 
+  caculateAspectRatio = () => {
+    switch (this.items.length) {
+      case 1:
+        return this.aspectRatio;
+      case 2:
+        return "2/1";
+      case 3:
+        return "3/2";
+      case 4:
+        return "1";
+      default:
+        return "1";
+    }
+  };
+
   render() {
     const className = classnames(
       "image-grid",
       `image-grid--item-count-${Math.min(4, this.items.length)}`
     );
+
+    const aspectRatio = this.caculateAspectRatio();
 
     return (
       <Host>
@@ -40,7 +57,7 @@ export class SwirlImageGrid {
           aria-label={this.label}
           class={className}
           role="list"
-          style={{ aspectRatio: this.aspectRatio }}
+          style={{ aspectRatio: aspectRatio }}
         >
           <slot onSlotchange={this.updateItems}></slot>
         </div>
