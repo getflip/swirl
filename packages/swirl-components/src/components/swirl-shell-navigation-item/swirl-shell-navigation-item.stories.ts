@@ -16,8 +16,10 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-shell-navigation-item", args);
 
   element.innerHTML = `
-    <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/237/200/300"></swirl-app-icon>
+    <swirl-app-icon slot="icon" label="link" src="https://picsum.photos/id/25/200/300"></swirl-app-icon>
   `;
+
+  element.style.width = "120px";
 
   return element;
 };
@@ -27,4 +29,8 @@ export const SwirlShellNavigationItem = Template.bind({});
 SwirlShellNavigationItem.args = {
   label: "Label",
   badgeLabel: "1",
+  tiled: true,
+  inlineLabel: true,
+  withGradient: true,
+  inlineLabelColor: "light",
 };

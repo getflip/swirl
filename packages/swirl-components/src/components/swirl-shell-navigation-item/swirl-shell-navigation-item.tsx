@@ -1,6 +1,8 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
+export type SwirlLabelColor = "light" | "dark";
+
 /**
  * @slot slot - image or icon to display
  */
@@ -17,15 +19,25 @@ export class SwirlShellNavigationItem {
   @Prop() boxed?: boolean;
   @Prop() hideLabel?: boolean;
   @Prop() href?: string;
+  @Prop() inlineLabel?: boolean;
+  @Prop() inlineLabelColor: SwirlLabelColor = "dark";
   @Prop() label!: string;
   @Prop() target?: string;
   @Prop() tiled?: boolean;
+  @Prop() withGradient?: boolean;
 
   render() {
-    const className = classnames("shell-navigation-item", {
+    const tagClassNames = classnames("shell-navigation-item", {
       "shell-navigation-item--active": this.active,
       "shell-navigation-item--boxed": this.boxed,
       "shell-navigation-item--tiled": this.tiled,
+      "shell-navigation-item--gradient": this.withGradient,
+    });
+
+    const labelClassNames = classnames("shell-navigation-item__label", {
+      "shell-navigation-item__label--light": this.inlineLabelColor === "light",
+      "shell-navigation-item__label--dark": this.inlineLabelColor === "dark",
+      "shell-navigation-item__label--inline": this.inlineLabel,
     });
 
     const isLink = Boolean(this.href);
@@ -41,7 +53,7 @@ export class SwirlShellNavigationItem {
           positioning="fixed"
         >
           <Tag
-            class={className}
+            class={tagClassNames}
             href={this.href}
             target={this.target}
             type={isLink ? undefined : "button"}
@@ -50,10 +62,10 @@ export class SwirlShellNavigationItem {
               <slot name="icon"></slot>
             </span>
             {!this.hideLabel ? (
-              <span class="shell-navigation-item__label">{this.label}</span>
+              <span class={labelClassNames}>{this.label}</span>
             ) : (
               <swirl-visually-hidden>
-                <span class="shell-navigation-item__label">{this.label}</span>
+                <span class={labelClassNames}>{this.label}</span>
               </swirl-visually-hidden>
             )}
             {this.badgeLabel !== undefined && this.badgeLabel !== null && (

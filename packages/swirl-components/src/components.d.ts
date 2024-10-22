@@ -51,6 +51,7 @@ import { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorBorderColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+import { SwirlLabelColor } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -117,6 +118,7 @@ export { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorBorderColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+export { SwirlLabelColor } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
@@ -1848,9 +1850,12 @@ export namespace Components {
         "boxed"?: boolean;
         "hideLabel"?: boolean;
         "href"?: string;
+        "inlineLabel"?: boolean;
+        "inlineLabelColor": SwirlLabelColor;
         "label": string;
         "target"?: string;
         "tiled"?: boolean;
+        "withGradient"?: boolean;
     }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
@@ -7231,9 +7236,12 @@ declare namespace LocalJSX {
         "boxed"?: boolean;
         "hideLabel"?: boolean;
         "href"?: string;
+        "inlineLabel"?: boolean;
+        "inlineLabelColor"?: SwirlLabelColor;
         "label": string;
         "target"?: string;
         "tiled"?: boolean;
+        "withGradient"?: boolean;
     }
     interface SwirlSkeletonBox {
         "animated"?: boolean;
