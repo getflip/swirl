@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.242.0
+
+### Minor Changes
+
+- [#825](https://github.com/getflip/swirl/pull/825)
+  [`5fc723fa`](https://github.com/getflip/swirl/commit/5fc723facdd2311bb8ae3e27de31ef996e274fb4)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Make image
+  grid static image sizes
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5fc723fa`](https://github.com/getflip/swirl/commit/5fc723facdd2311bb8ae3e27de31ef996e274fb4)]:
+  - @getflip/swirl-components@0.242.0
+
 ## 0.241.4
 
 ### Patch Changes
