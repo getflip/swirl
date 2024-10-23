@@ -15079,6 +15079,9 @@
               "name": "dark"
             },
             {
+              "name": "default"
+            },
+            {
               "name": "light"
             }
           ]

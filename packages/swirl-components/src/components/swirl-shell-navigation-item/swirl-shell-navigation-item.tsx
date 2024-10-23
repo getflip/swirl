@@ -1,7 +1,7 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlLabelColor = "light" | "dark";
+export type SwirlLabelColor = "default" | "light" | "dark";
 
 /**
  * @slot slot - image or icon to display
@@ -20,7 +20,7 @@ export class SwirlShellNavigationItem {
   @Prop() hideLabel: boolean = false;
   @Prop() href?: string;
   @Prop() inlineLabel?: boolean;
-  @Prop() inlineLabelColor: SwirlLabelColor = "dark";
+  @Prop() inlineLabelColor: SwirlLabelColor = "default";
   @Prop() label!: string;
   @Prop() target?: string;
   @Prop() tiled?: boolean;

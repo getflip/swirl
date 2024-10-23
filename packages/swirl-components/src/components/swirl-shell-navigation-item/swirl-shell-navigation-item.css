@@ -139,6 +139,7 @@
       white-space: normal;
       text-overflow: unset;
       overflow-wrap: anywhere;
+      color: var(--s-text-default);
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
@@ -149,11 +150,11 @@
       left: var(--s-space-8);
 
       &.shell-navigation-item__label--light {
-        color: var(--s-text-on-image);
+        color: rgba(242, 242, 242, 1);
       }
 
       &.shell-navigation-item__label--dark {
-        color: var(--s-text-default);
+        color: rgb(25, 25, 25);
       }
     }
   }
