@@ -1848,7 +1848,7 @@ export namespace Components {
         "active"?: boolean;
         "badgeLabel"?: string;
         "boxed"?: boolean;
-        "hideLabel"?: boolean;
+        "hideLabel": boolean;
         "href"?: string;
         "inlineLabel"?: boolean;
         "inlineLabelColor": SwirlLabelColor;

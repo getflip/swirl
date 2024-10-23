@@ -113,7 +113,7 @@
           content: "";
           position: absolute;
           width: 100%;
-          height: -webkit-fill-available;
+          aspect-ratio: 1;
           display: inline-block;
           border-radius: var(--s-border-radius-base);
           background-image: linear-gradient(

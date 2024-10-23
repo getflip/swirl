@@ -17,7 +17,7 @@ export class SwirlShellNavigationItem {
   @Prop() active?: boolean;
   @Prop() badgeLabel?: string;
   @Prop() boxed?: boolean;
-  @Prop() hideLabel?: boolean;
+  @Prop() hideLabel: boolean = false;
   @Prop() href?: string;
   @Prop() inlineLabel?: boolean;
   @Prop() inlineLabelColor: SwirlLabelColor = "dark";
