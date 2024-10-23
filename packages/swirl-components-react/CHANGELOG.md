@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.243.0
+
+### Minor Changes
+
+- [#828](https://github.com/getflip/swirl/pull/828)
+  [`d2cc34fa`](https://github.com/getflip/swirl/commit/d2cc34fa7bd77ffb1217334b7051f890553f0cc8)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Make
+  swirl-date-picker in the swirl-date-input open on the selected date
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d2cc34fa`](https://github.com/getflip/swirl/commit/d2cc34fa7bd77ffb1217334b7051f890553f0cc8)]:
+  - @getflip/swirl-components@0.243.0
+
 ## 0.242.0
 
 ### Minor Changes
