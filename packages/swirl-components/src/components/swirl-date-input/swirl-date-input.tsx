@@ -285,6 +285,7 @@ export class SwirlDateInput {
               locale={this.locale}
               onValueChange={this.onPickDate}
               value={dateValue}
+              startDate={dateValue}
             ></swirl-date-picker>
           </swirl-popover>
         )}
