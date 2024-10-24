@@ -11,7 +11,7 @@ import { WcDatepickerCustomEvent } from "wc-datepicker/dist/types/components";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 
 import "wc-datepicker";
-import { removeTimezoneOffset } from "../../utils";
+import { getISODateString, removeTimezoneOffset } from "../../utils";
 
 @Component({
   shadow: true,
@@ -50,7 +50,9 @@ export class SwirlDatePicker {
 
   render() {
     const startDate =
-      this.startDate instanceof Date ? this.startDate.toISOString() : undefined;
+      this.startDate instanceof Date
+        ? getISODateString(this.startDate)
+        : undefined;
 
     return (
       <Host onClick={this.onClick}>
