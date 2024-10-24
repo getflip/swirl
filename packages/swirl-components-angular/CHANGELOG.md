@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.245.0
+
+### Minor Changes
+
+- [#827](https://github.com/getflip/swirl/pull/827)
+  [`091d8868`](https://github.com/getflip/swirl/commit/091d88684f020c37ae2d40300c55e8f49e42ec36)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Update shell
+  nav item styles
+
+### Patch Changes
+
+- Updated dependencies
+  [[`091d8868`](https://github.com/getflip/swirl/commit/091d88684f020c37ae2d40300c55e8f49e42ec36)]:
+  - @getflip/swirl-components@0.245.0
+
 ## 0.244.0
 
 ### Minor Changes
