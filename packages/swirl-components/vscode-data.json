@@ -15068,6 +15068,25 @@
           "description": ""
         },
         {
+          "name": "inline-label",
+          "description": ""
+        },
+        {
+          "name": "inline-label-color",
+          "description": "",
+          "values": [
+            {
+              "name": "dark"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "light"
+            }
+          ]
+        },
+        {
           "name": "label",
           "description": ""
         },
@@ -15077,6 +15096,10 @@
         },
         {
           "name": "tiled",
+          "description": ""
+        },
+        {
+          "name": "with-gradient",
           "description": ""
         }
       ]
