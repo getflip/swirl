@@ -20,7 +20,7 @@ describe("swirl-shell-navigation-item", () => {
               <span class="shell-navigation-item__icon">
                 <slot name="icon"></slot>
               </span>
-              <span class="shell-navigation-item__label shell-navigation-item__label--dark">
+              <span class="shell-navigation-item__label">
                 Label
               </span>
             </button>
