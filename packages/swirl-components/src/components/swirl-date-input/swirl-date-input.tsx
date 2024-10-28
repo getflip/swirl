@@ -99,6 +99,13 @@ export class SwirlDateInput {
     this.setupMask();
   }
 
+  @Watch("value")
+  watchValue(newValue: string, oldValue: string) {
+    if (newValue !== oldValue) {
+      this.valueChange.emit(newValue);
+    }
+  }
+
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
     this.updateIconSize(event.matches);
   };
