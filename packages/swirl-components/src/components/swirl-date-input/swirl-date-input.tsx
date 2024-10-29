@@ -99,6 +99,13 @@ export class SwirlDateInput {
     this.setupMask();
   }
 
+  @Watch("value")
+  watchValue(newValue: string, oldValue: string) {
+    if (newValue !== oldValue) {
+      this.valueChange.emit(newValue);
+    }
+  }
+
   private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
     this.updateIconSize(event.matches);
   };
@@ -118,7 +125,6 @@ export class SwirlDateInput {
 
     if (value === "") {
       this.value = undefined;
-      this.valueChange.emit(undefined);
     }
 
     const newDate = parse(value, this.format, new Date());
@@ -142,7 +148,6 @@ export class SwirlDateInput {
     const newValue = format(newDate, internalDateFormat);
 
     this.value = newValue;
-    this.valueChange.emit(newValue);
   };
 
   private onInput = (event: InputEvent) => {
@@ -185,7 +190,6 @@ export class SwirlDateInput {
     const newValue = format(newDateValue, internalDateFormat);
 
     this.value = newValue;
-    this.valueChange.emit(newValue);
 
     this.setReadOnly(true);
     this.pickerPopover.close();
