@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.246.0
+
+### Minor Changes
+
+- [#833](https://github.com/getflip/swirl/pull/833)
+  [`02ef115a`](https://github.com/getflip/swirl/commit/02ef115a7b41be4eb2b827e1c8ba4ac03934dcfd)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Fix value
+  update issue in the swirl-date-input component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`02ef115a`](https://github.com/getflip/swirl/commit/02ef115a7b41be4eb2b827e1c8ba4ac03934dcfd)]:
+  - @getflip/swirl-components@0.246.0
+
 ## 0.245.0
 
 ### Minor Changes
