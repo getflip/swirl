@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.247.0
+
+### Minor Changes
+
+- [#835](https://github.com/getflip/swirl/pull/835)
+  [`2a7aebd1`](https://github.com/getflip/swirl/commit/2a7aebd1e210a5d98913083ea5b8520bd7421ad6)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "avatar" slot to
+  swirl-option-list-item
+
 ## 0.246.0
 
 ### Minor Changes
