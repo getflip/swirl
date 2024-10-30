@@ -110,6 +110,16 @@
     border-color: var(--s-icon-disabled);
     background-color: var(--s-surface-overlay-default);
   }
+
+  & .option-list-item__avatar {
+    filter: grayscale(100%);
+  }
+}
+
+.option-list-item--show-avatar {
+  & .option-list-item__avatar {
+    display: inline-flex;
+  }
 }
 
 .option-list-item__label-container {
@@ -142,6 +152,13 @@
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
   }
+}
+
+.option-list-item__avatar {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
 }
 
 .option-list-item__icon {
