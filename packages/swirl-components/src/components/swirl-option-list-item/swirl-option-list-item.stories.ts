@@ -28,6 +28,10 @@ const Template = (args) => {
 
   const element = generateStoryElement("swirl-option-list-item", args);
 
+  element.innerHTML = `
+    <swirl-avatar label="John Doe" initials="PS" slot="avatar" src="https://picsum.photos/id/433/144/144"></swirl-avatar>
+  `;
+
   container.append("\n  ", element, "\n");
 
   return container;
@@ -36,7 +40,6 @@ const Template = (args) => {
 export const SwirlOptionListItem = Template.bind({});
 
 SwirlOptionListItem.args = {
-  icon: `<swirl-icon-mention></swirl-icon-mention>`,
   label: "Option List Item",
   value: "Value",
 };

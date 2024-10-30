@@ -24,6 +24,7 @@ describe("swirl-option-list-item", () => {
           <span class="option-list-item__icon">
             <swirl-icon-mention size="24"></swirl-icon-mention>
           </span>
+          <span class="option-list-item__avatar"></span>
           <span class="option-list-item__label-container">
             <span class="option-list-item__label" id="${id}-label" part="option-list-item__label">
               Option List Item
@@ -35,6 +36,23 @@ describe("swirl-option-list-item", () => {
         </div>
       </swirl-option-list-item>
     `);
+  });
+
+  it("renders with avatar", async () => {
+    const page = await newSpecPage({
+      components: [SwirlOptionListItem],
+      html: `
+        <swirl-option-list-item label="Option List Item" value="Value">
+          <swirl-avatar label="John Doe" initials="PS" src="https://picsum.photos/id/433/144/144" slot="avatar"></swirl-avatar>
+        </swirl-option-list-item>
+      `,
+    });
+
+    expect(
+      page.root
+        .querySelector(".option-list-item__avatar")
+        .querySelector("swirl-avatar")
+    ).toBeDefined();
   });
 
   it("can be draggable", async () => {

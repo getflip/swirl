@@ -16,6 +16,9 @@ export type SwirlOptionListItemContext = "single-select" | "multi-select";
 
 export type SwirlOptionListItemRole = "option" | "menuitemradio";
 
+/**
+ * @slot avatar - Optional avatar displayed to the left of the label
+ */
 @Component({
   scoped: true,
   shadow: false,
@@ -98,6 +101,9 @@ export class SwirlOptionListItem {
 
     const showCheckbox = this.context === "multi-select";
     const showIcon = Boolean(this.icon) && this.context === "single-select";
+    const showAvatar =
+      this.el.querySelector('[slot="avatar"]') &&
+      this.context === "single-select";
     const showSelectionIcon = this.selected && this.context === "single-select";
 
     const className = classnames(
@@ -108,6 +114,7 @@ export class SwirlOptionListItem {
         "option-list-item--draggable": this.allowDrag,
         "option-list-item--dragging": this.dragging,
         "option-list-item--selected": this.selected,
+        "option-list-item--show-avatar": showAvatar,
       }
     );
 
@@ -141,6 +148,9 @@ export class SwirlOptionListItem {
               ref={(el) => (this.iconEl = el)}
             ></span>
           )}
+          <span class="option-list-item__avatar">
+            <slot name="avatar"></slot>
+          </span>
           {showCheckbox && (
             <span class="option-list-item__checkbox">
               <span class="option-list-item__checkbox-box">
