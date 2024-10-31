@@ -31,7 +31,7 @@ export class SwirlImageGridItem {
   @Prop() gifPlayLabel?: string = "Continue GIF playback";
   @Prop() icon?: string;
   @Prop() interactive?: boolean;
-  @Prop() loading?: SwirlImageGridItemLoading = "intersecting";
+  @Prop() loading?: SwirlImageGridItemLoading;
   @Prop() overlay?: string;
   @Prop() showGifControls?: boolean;
   @Prop() src!: string;
