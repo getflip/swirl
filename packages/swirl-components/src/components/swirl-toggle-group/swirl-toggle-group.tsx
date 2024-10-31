@@ -32,7 +32,7 @@ export class SwirlToggleGroup {
   }
 
   @Listen("click")
-  onClick(event: MouseEvent) {
+  onClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;
 
     if (target?.tagName === "SWIRL-TOGGLE-BUTTON") {
