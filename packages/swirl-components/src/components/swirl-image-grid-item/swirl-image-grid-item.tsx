@@ -40,6 +40,7 @@ export class SwirlImageGridItem {
   @State() loaded = false;
   @State() inViewport = false;
   @State() gifPaused = false;
+  @State() computedSrc?: string;
 
   @Event() gifStarted: EventEmitter<void>;
   @Event() gifStopped: EventEmitter<void>;
@@ -48,7 +49,6 @@ export class SwirlImageGridItem {
 
   private intersectionObserver: IntersectionObserver;
   private img?: HTMLImageElement;
-  private computedSrc?: string;
 
   /**
    * Start Gif playback.
