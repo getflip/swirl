@@ -125,7 +125,9 @@ export class SwirlPagination {
             {this.showPageSizeSelect && (
               <li class="pagination__list-item">
                 <label class="pagination__page-size-selection">
-                  <swirl-text>{this.pageSizeSelectLabel}</swirl-text>
+                  <swirl-text whiteSpace="inherit">
+                    {this.pageSizeSelectLabel}
+                  </swirl-text>
                   <swirl-stack
                     align="center"
                     class="pagination__page-size-select-container"

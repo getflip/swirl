@@ -16792,6 +16792,9 @@
               "name": "break-spaces"
             },
             {
+              "name": "inherit"
+            },
+            {
               "name": "normal"
             },
             {

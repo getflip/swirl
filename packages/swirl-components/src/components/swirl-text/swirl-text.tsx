@@ -29,6 +29,7 @@ export type SwirlTextTruncateDirection = "end" | "start";
 export type SwirlTextWeight = "normal" | "medium" | "semibold" | "bold";
 
 export type SwirlTextWhiteSpace =
+  | "inherit"
   | "normal"
   | "nowrap"
   | "pre"
