@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.247.1
+
+### Patch Changes
+
+- [`b36913d7`](https://github.com/getflip/swirl/commit/b36913d7e431c755cdf2bcdd8e0048dd1bbe7464)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a minor styling issue of the
+  swirl-pagination component
+
+- Updated dependencies
+  [[`b36913d7`](https://github.com/getflip/swirl/commit/b36913d7e431c755cdf2bcdd8e0048dd1bbe7464)]:
+  - @getflip/swirl-components@0.247.1
+
 ## 0.247.0
 
 ### Minor Changes
