@@ -23,10 +23,11 @@ export class SwirlToggleButton {
     return (
       <button
         class={classNames}
+        type="button"
         aria-pressed={this.isPressed ? "true" : "false"}
         onClick={this.onClick}
       >
-        <span>{this.label}</span>
+        <span class="button__label">{this.label}</span>
       </button>
     );
   }

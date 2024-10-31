@@ -13,7 +13,10 @@
   justify-content: center;
   align-items: center;
   border: none;
-  border-radius: var(--s-border-radius-base);
+  border-top-left-radius: var(--swirl-button-border-top-left-radius);
+  border-top-right-radius: var(--swirl-button-border-top-right-radius);
+  border-bottom-right-radius: var(--swirl-button-border-bottom-right-radius);
+  border-bottom-left-radius: var(--swirl-button-border-bottom-left-radius);
   color: var(--s-text-default);
   background-color: var(--swirl-ghost-button-background-default);
   font: inherit;
@@ -21,7 +24,6 @@
   line-height: var(--s-line-height-lg);
   text-decoration: none;
   cursor: pointer;
-  gap: var(--s-space-8);
 
   &:hover {
     background-color: var(--swirl-ghost-button-background-hovered);
@@ -51,4 +53,17 @@
       background-color: var(--swirl-flat-button-background-pressed);
     }
   }
+
+  @media (--from-desktop-without-touch) {
+    padding: var(--s-space-8) var(--s-space-12);
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}
+
+.button__label {
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
