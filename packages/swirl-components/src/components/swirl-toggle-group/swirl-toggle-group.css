@@ -1,0 +1,13 @@
+:host {
+  display: inline-block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.toggle-group {
+  padding: var(--s-space-4);
+  background-color: var(--s-surface-default);
+  border-radius: var(--s-border-radius-base);
+}

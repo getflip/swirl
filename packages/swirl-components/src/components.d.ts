@@ -2278,6 +2278,14 @@ export namespace Components {
          */
         "toast": (newToast: SwirlToastConfig) => Promise<SwirlToastMessage>;
     }
+    interface SwirlToggleButton {
+        "identifier": string;
+        "isPressed": boolean;
+        "label": string;
+    }
+    interface SwirlToggleGroup {
+        "selectedToggleId": string;
+    }
     interface SwirlToolbar {
         "label": string;
         "orientation"?: SwirlToolbarOrientation;
@@ -2522,6 +2530,10 @@ export interface SwirlTimeInputCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlToastElement;
+}
+export interface SwirlToggleGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlToggleGroupElement;
 }
 export interface SwirlTreeViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -5224,6 +5236,29 @@ declare global {
         prototype: HTMLSwirlToastProviderElement;
         new (): HTMLSwirlToastProviderElement;
     };
+    interface HTMLSwirlToggleButtonElement extends Components.SwirlToggleButton, HTMLStencilElement {
+    }
+    var HTMLSwirlToggleButtonElement: {
+        prototype: HTMLSwirlToggleButtonElement;
+        new (): HTMLSwirlToggleButtonElement;
+    };
+    interface HTMLSwirlToggleGroupElementEventMap {
+        "selectedToggleChange": string;
+    }
+    interface HTMLSwirlToggleGroupElement extends Components.SwirlToggleGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlToggleGroupElementEventMap>(type: K, listener: (this: HTMLSwirlToggleGroupElement, ev: SwirlToggleGroupCustomEvent<HTMLSwirlToggleGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlToggleGroupElementEventMap>(type: K, listener: (this: HTMLSwirlToggleGroupElement, ev: SwirlToggleGroupCustomEvent<HTMLSwirlToggleGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSwirlToggleGroupElement: {
+        prototype: HTMLSwirlToggleGroupElement;
+        new (): HTMLSwirlToggleGroupElement;
+    };
     interface HTMLSwirlToolbarElement extends Components.SwirlToolbar, HTMLStencilElement {
     }
     var HTMLSwirlToolbarElement: {
@@ -5640,6 +5675,8 @@ declare global {
         "swirl-time-input": HTMLSwirlTimeInputElement;
         "swirl-toast": HTMLSwirlToastElement;
         "swirl-toast-provider": HTMLSwirlToastProviderElement;
+        "swirl-toggle-button": HTMLSwirlToggleButtonElement;
+        "swirl-toggle-group": HTMLSwirlToggleGroupElement;
         "swirl-toolbar": HTMLSwirlToolbarElement;
         "swirl-tooltip": HTMLSwirlTooltipElement;
         "swirl-tree-navigation-item": HTMLSwirlTreeNavigationItemElement;
@@ -7631,6 +7668,15 @@ declare namespace LocalJSX {
          */
         "globalDuration"?: number;
     }
+    interface SwirlToggleButton {
+        "identifier": string;
+        "isPressed"?: boolean;
+        "label": string;
+    }
+    interface SwirlToggleGroup {
+        "onSelectedToggleChange"?: (event: SwirlToggleGroupCustomEvent<string>) => void;
+        "selectedToggleId": string;
+    }
     interface SwirlToolbar {
         "label"?: string;
         "orientation"?: SwirlToolbarOrientation;
@@ -8024,6 +8070,8 @@ declare namespace LocalJSX {
         "swirl-time-input": SwirlTimeInput;
         "swirl-toast": SwirlToast;
         "swirl-toast-provider": SwirlToastProvider;
+        "swirl-toggle-button": SwirlToggleButton;
+        "swirl-toggle-group": SwirlToggleGroup;
         "swirl-toolbar": SwirlToolbar;
         "swirl-tooltip": SwirlTooltip;
         "swirl-tree-navigation-item": SwirlTreeNavigationItem;
@@ -8390,6 +8438,8 @@ declare module "@stencil/core" {
             "swirl-time-input": LocalJSX.SwirlTimeInput & JSXBase.HTMLAttributes<HTMLSwirlTimeInputElement>;
             "swirl-toast": LocalJSX.SwirlToast & JSXBase.HTMLAttributes<HTMLSwirlToastElement>;
             "swirl-toast-provider": LocalJSX.SwirlToastProvider & JSXBase.HTMLAttributes<HTMLSwirlToastProviderElement>;
+            "swirl-toggle-button": LocalJSX.SwirlToggleButton & JSXBase.HTMLAttributes<HTMLSwirlToggleButtonElement>;
+            "swirl-toggle-group": LocalJSX.SwirlToggleGroup & JSXBase.HTMLAttributes<HTMLSwirlToggleGroupElement>;
             "swirl-toolbar": LocalJSX.SwirlToolbar & JSXBase.HTMLAttributes<HTMLSwirlToolbarElement>;
             "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;
             "swirl-tree-navigation-item": LocalJSX.SwirlTreeNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationItemElement>;

@@ -1,0 +1,54 @@
+:host {
+  display: inline-block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.button {
+  display: inline-flex;
+  width: 100%;
+  padding: var(--s-space-8) var(--s-space-16);
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: var(--s-border-radius-base);
+  color: var(--s-text-default);
+  background-color: var(--swirl-ghost-button-background-default);
+  font: inherit;
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-lg);
+  text-decoration: none;
+  cursor: pointer;
+  gap: var(--s-space-8);
+
+  &:hover {
+    background-color: var(--swirl-ghost-button-background-hovered);
+  }
+
+  &:active {
+    background-color: var(--swirl-ghost-button-background-pressed);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline-color: var(--s-focus-default);
+    outline-offset: var(--s-space-2);
+  }
+
+  &.button--pressed {
+    background-color: var(--swirl-flat-button-background-default);
+
+    &:hover {
+      background-color: var(--swirl-flat-button-background-hovered);
+    }
+
+    &:active {
+      background-color: var(--swirl-flat-button-background-pressed);
+    }
+  }
+}

@@ -10,5 +10,6 @@ module.exports = {
     "@stencil/decorators-context": "off",
     "@stencil/dependency-suggestions": "off",
     "@stencil/no-unused-watch": "off",
+    "@stencil/strict-boolean-conditions": "off",
   },
 };
