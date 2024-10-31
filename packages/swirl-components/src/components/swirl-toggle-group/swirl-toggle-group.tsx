@@ -4,6 +4,7 @@ import {
   Event,
   EventEmitter,
   h,
+  Listen,
   Prop,
   Watch,
 } from "@stencil/core";
@@ -27,6 +28,18 @@ export class SwirlToggleGroup {
     if (newValue !== oldValue) {
       this.selectedToggleChange.emit(newValue);
       this.setTogglePressedStates();
+    }
+  }
+
+  @Listen("click")
+  onClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+
+    if (target?.tagName === "SWIRL-TOGGLE-BUTTON") {
+      event.stopPropagation();
+
+      const toggleButton = target as HTMLSwirlToggleButtonElement;
+      this.selectedToggleId = toggleButton.identifier;
     }
   }
 
@@ -74,18 +87,6 @@ export class SwirlToggleGroup {
     });
   }
 
-  private onGroupClick = (event: MouseEvent): void => {
-    console.log("MATEJ-TEST click", event);
-    const target = event.target as HTMLElement;
-
-    if (target?.tagName === "SWIRL-TOGGLE-BUTTON") {
-      event.stopPropagation();
-
-      const toggleButton = target as HTMLSwirlToggleButtonElement;
-      this.selectedToggleId = toggleButton.identifier;
-    }
-  };
-
   render() {
     return (
       <swirl-stack
@@ -94,7 +95,6 @@ export class SwirlToggleGroup {
         orientation="horizontal"
         align="center"
         role="group"
-        onClick={this.onGroupClick}
       >
         <slot onSlotchange={this.onSlotChange}></slot>
       </swirl-stack>

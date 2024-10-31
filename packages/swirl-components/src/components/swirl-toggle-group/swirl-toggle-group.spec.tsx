@@ -82,15 +82,7 @@ describe("swirl-toggle-group", () => {
     expect(toggleButtons[1].isPressed).toEqual(true);
     expect(toggleButtons[2].isPressed).toEqual(false);
 
-    toggleButtons[0].dispatchEvent(new MouseEvent("click", { bubbles: true }));
-
-    // new EventTarget().dispatchEvent(new MouseEvent("click", { bubbles: true }));
-
-    // const group = page.root.shadowRoot.querySelector(".toggle-group");
-
-    // group.dispatchEvent(
-    //   new Event("click", { target: toggleButtons[0] })
-    // );
+    toggleButtons[0].click();
 
     await page.waitForChanges();
 
