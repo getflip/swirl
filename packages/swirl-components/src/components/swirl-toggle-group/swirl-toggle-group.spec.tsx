@@ -28,8 +28,8 @@ describe("swirl-toggle-group", () => {
         </mock:shadow-root>
         <swirl-toggle-button identifier="toggle-1" label="Toggle #1">
           <mock:shadow-root>
-            <button aria-pressed="false" class="button">
-              <span>
+            <button aria-pressed="false" class="button" type="button">
+              <span class="button__label">
                 Toggle #1
               </span>
             </button>
@@ -37,8 +37,8 @@ describe("swirl-toggle-group", () => {
         </swirl-toggle-button>
         <swirl-toggle-button identifier="toggle-2" label="Toggle #2">
           <mock:shadow-root>
-            <button aria-pressed="true" class="button button--pressed">
-              <span>
+            <button aria-pressed="true" class="button button--pressed" type="button">
+              <span class="button__label">
                 Toggle #2
               </span>
             </button>
@@ -46,8 +46,8 @@ describe("swirl-toggle-group", () => {
         </swirl-toggle-button>
         <swirl-toggle-button identifier="toggle-3" label="Toggle #3">
           <mock:shadow-root>
-            <button aria-pressed="false" class="button">
-              <span>
+            <button aria-pressed="false" class="button" type="button">
+              <span class="button__label">
                 Toggle #3
               </span>
             </button>

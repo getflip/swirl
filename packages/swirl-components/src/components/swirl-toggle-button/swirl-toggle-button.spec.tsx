@@ -12,8 +12,8 @@ describe("swirl-toggle-button", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toggle-button identifier="identifier" label="Label">
         <mock:shadow-root>
-          <button aria-pressed="false" class="button">
-            <span>
+          <button aria-pressed="false" class="button" type="button">
+            <span class="button__label">
               Label
             </span>
           </button>
@@ -38,8 +38,8 @@ describe("swirl-toggle-button", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toggle-button identifier="identifier" label="Label">
         <mock:shadow-root>
-          <button aria-pressed="true" class="button button--pressed">
-            <span>
+          <button aria-pressed="true" class="button button--pressed" type="button">
+            <span class="button__label">
               Label
             </span>
           </button>
