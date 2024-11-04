@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.248.0
+
+### Minor Changes
+
+- [`14e5b4b6`](https://github.com/getflip/swirl/commit/14e5b4b6c32e54dcd44dbccde5179b1dd0dc153b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "standalone" prop to
+  swirl-select
+
+### Patch Changes
+
+- Updated dependencies
+  [[`14e5b4b6`](https://github.com/getflip/swirl/commit/14e5b4b6c32e54dcd44dbccde5179b1dd0dc153b)]:
+  - @getflip/swirl-components@0.248.0
+
 ## 0.247.1
 
 ### Patch Changes
