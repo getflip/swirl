@@ -40,6 +40,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
   @Prop() searchLoading?: boolean;
   @Prop() searchPlaceholder?: string;
   @Prop() selectId?: string = Math.round(Math.random() * 1000000).toString();
+  @Prop() standalone?: boolean;
   @Prop() swirlAriaDescribedby?: string;
   @Prop({ mutable: true, reflect: true }) value?: string[];
   @Prop() withSearch?: boolean;
@@ -160,8 +161,8 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     this.searchChange.emit((event.target as HTMLInputElement).value);
   };
 
-  render() {
-    const label = Boolean(this.value)
+  private getValueLabel() {
+    return Boolean(this.value)
       ? this.value
           ?.map(
             (value) =>
@@ -169,6 +170,10 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
           )
           .join(", ")
       : "";
+  }
+
+  render() {
+    const label = this.getValueLabel();
 
     const ariaInvalid =
       this.invalid === true || this.invalid === false
@@ -179,10 +184,11 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
       HTMLSwirlFormControlElement | undefined
     >("swirl-form-control");
 
-    const offset =
-      formControl?.inline || formControl?.labelPosition === "outside"
-        ? -12
-        : -16;
+    const offset = this.standalone
+      ? [-8, 0]
+      : formControl?.inline || formControl?.labelPosition === "outside"
+      ? [0, -12]
+      : [0, -16];
 
     const className = classnames(
       "select",
@@ -192,6 +198,7 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
         "select--inline": this.inline,
         "select--multi": this.multiSelect,
         "select--search-loading": this.searchLoading,
+        "select--standalone": this.standalone,
       }
     );
 
@@ -202,17 +209,24 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             swirlPopover={this.swirlPopover}
             setAriaAttributes={false}
           >
-            <input
-              aria-describedby={this.swirlAriaDescribedby}
-              aria-disabled={this.disabled ? "true" : undefined}
-              aria-invalid={ariaInvalid}
-              class="select__input"
-              disabled={this.disabled}
-              readOnly={true}
-              ref={(el) => (this.input = el)}
-              type="text"
-              value={label}
-            ></input>
+            <swirl-stack class="select__value-container">
+              {this.standalone && (
+                <span aria-hidden="true" class="select__resize-helper">
+                  {label}
+                </span>
+              )}
+              <input
+                aria-describedby={this.swirlAriaDescribedby}
+                aria-disabled={this.disabled ? "true" : undefined}
+                aria-invalid={ariaInvalid}
+                class="select__input"
+                disabled={this.disabled}
+                readOnly={true}
+                ref={(el) => (this.input = el)}
+                type="text"
+                value={label}
+              ></input>
+            </swirl-stack>
           </swirl-popover-trigger>
           <span class="select__multi-select-values">
             {this.value
@@ -231,9 +245,13 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
           </span>
           <span class="select__indicator">
             {this.open ? (
-              <swirl-icon-expand-less></swirl-icon-expand-less>
+              <swirl-icon-expand-less
+                size={this.standalone ? 20 : 24}
+              ></swirl-icon-expand-less>
             ) : (
-              <swirl-icon-expand-more></swirl-icon-expand-more>
+              <swirl-icon-expand-more
+                size={this.standalone ? 20 : 24}
+              ></swirl-icon-expand-more>
             )}
           </span>
           <swirl-popover
@@ -241,11 +259,11 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
             class="select__popover"
             id={`select-options-${this.selectId}`}
             label={this.label}
-            offset={[0, offset]}
+            offset={offset}
             onPopoverClose={this.onClose}
             onPopoverOpen={this.onOpen}
             ref={(el) => (this.swirlPopover = el)}
-            useContainerWidth="swirl-form-control"
+            useContainerWidth={this.standalone ? false : "swirl-form-control"}
           >
             {this.withSearch && (
               <div class="select__search">

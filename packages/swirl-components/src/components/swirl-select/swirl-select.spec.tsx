@@ -31,11 +31,13 @@ describe("swirl-select", () => {
       <swirl-select invalid="true" label="Select" required="true">
         <div class="select select--placement-undefined">
           <swirl-popover-trigger>
-            <input aria-invalid="true" class="select__input" readonly="" type="text" value="">
+            <swirl-stack class="select__value-container">
+              <input aria-invalid="true" class="select__input" readonly="" type="text" value="">
+            </swirl-stack>
           </swirl-popover-trigger>
           <span class="select__multi-select-values"></span>
           <span class="select__indicator">
-            <swirl-icon-expand-more></swirl-icon-expand-more>
+            <swirl-icon-expand-more size="24"></swirl-icon-expand-more>
           </span>
           <swirl-popover animation="scale-in-y" class="select__popover" id="select-options-${page.root.selectId}" label="Select" usecontainerwidth="swirl-form-control">
             <swirl-option-list allowdeselect="">
