@@ -17221,6 +17221,40 @@
       ]
     },
     {
+      "name": "swirl-toggle-button",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "identifier",
+          "description": ""
+        },
+        {
+          "name": "is-pressed",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-toggle-group",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "selected-toggle-id",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-toolbar",
       "description": {
         "kind": "markdown",

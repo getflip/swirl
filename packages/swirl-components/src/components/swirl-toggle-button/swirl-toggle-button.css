@@ -1,0 +1,69 @@
+:host {
+  display: inline-block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.button {
+  display: inline-flex;
+  width: 100%;
+  padding: var(--s-space-8) var(--s-space-16);
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-top-left-radius: var(--swirl-button-border-top-left-radius);
+  border-top-right-radius: var(--swirl-button-border-top-right-radius);
+  border-bottom-right-radius: var(--swirl-button-border-bottom-right-radius);
+  border-bottom-left-radius: var(--swirl-button-border-bottom-left-radius);
+  color: var(--s-text-default);
+  background-color: var(--swirl-ghost-button-background-default);
+  font: inherit;
+  font-weight: var(--s-font-weight-medium);
+  line-height: var(--s-line-height-lg);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--swirl-ghost-button-background-hovered);
+  }
+
+  &:active {
+    background-color: var(--swirl-ghost-button-background-pressed);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline-color: var(--s-focus-default);
+    outline-offset: var(--s-space-2);
+  }
+
+  &.button--pressed {
+    background-color: var(--swirl-flat-button-background-default);
+
+    &:hover {
+      background-color: var(--swirl-flat-button-background-hovered);
+    }
+
+    &:active {
+      background-color: var(--swirl-flat-button-background-pressed);
+    }
+  }
+
+  @media (--from-desktop-without-touch) {
+    padding: var(--s-space-8) var(--s-space-12);
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}
+
+.button__label {
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
