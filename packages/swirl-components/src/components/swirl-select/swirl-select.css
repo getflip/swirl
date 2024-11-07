@@ -91,7 +91,6 @@
 
 .select__resize-helper {
   display: block;
-  overflow: hidden;
   width: auto;
   height: 0;
   margin: 0;
@@ -102,8 +101,8 @@
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-base);
   text-align: left;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  white-space: pre;
+  white-space: pre;
   vertical-align: top;
   user-select: none;
   opacity: 0;
