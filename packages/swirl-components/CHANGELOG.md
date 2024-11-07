@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.249.1
+
+### Patch Changes
+
+- [`6a531e70`](https://github.com/getflip/swirl/commit/6a531e7041d5208604f2f6dd3fa7429acd6aa3ff)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Minor styling fix for
+  swirl-select
+
 ## 0.249.0
 
 ### Minor Changes
