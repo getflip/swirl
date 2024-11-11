@@ -8,6 +8,7 @@ import {
   Method,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import classnames from "classnames";
 
@@ -39,6 +40,7 @@ export class SwirlImageGridItem {
   @State() loaded = false;
   @State() inViewport = false;
   @State() gifPaused = false;
+  @State() computedSrc?: string;
 
   @Event() gifStarted: EventEmitter<void>;
   @Event() gifStopped: EventEmitter<void>;
@@ -47,7 +49,6 @@ export class SwirlImageGridItem {
 
   private intersectionObserver: IntersectionObserver;
   private img?: HTMLImageElement;
-  private backgroundImg?: HTMLDivElement;
 
   /**
    * Start Gif playback.
@@ -67,8 +68,16 @@ export class SwirlImageGridItem {
     this.pauseGif();
   }
 
+  @Watch("src")
+  watchSrcProp() {
+    this.computedSrc = this.src;
+    this.gifPaused = false;
+  }
+
   componentDidLoad() {
     this.setupIntersectionObserver();
+
+    this.computedSrc = this.src;
 
     if (this.img?.complete) {
       this.loaded = true;
@@ -83,6 +92,7 @@ export class SwirlImageGridItem {
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
+    this.computedSrc = "";
   }
 
   private setupIntersectionObserver() {
@@ -121,22 +131,13 @@ export class SwirlImageGridItem {
     const staticImage = await this.readImageFromCanvas(imageEl.src);
 
     this.gifPaused = true;
-    imageEl.src = staticImage;
-    this.backgroundImg.attributeStyleMap.set(
-      "background-image",
-      `url(${staticImage})`
-    );
+    this.computedSrc = staticImage;
     this.gifStopped.emit();
   }
 
   private playGif = () => {
     this.gifPaused = false;
-    const imageEl = this.img;
-    imageEl.src = this.src;
-    this.backgroundImg.attributeStyleMap.set(
-      "background-image",
-      `url(${this.src})`
-    );
+    this.computedSrc = this.src;
     this.gifStarted.emit();
   };
 
@@ -166,6 +167,7 @@ export class SwirlImageGridItem {
     const Tag = this.interactive ? "button" : "div";
 
     const showBlurredBackground =
+      this.gifPaused ||
       !Boolean(this.loading) ||
       this.loading === "eager" ||
       (this.loaded && (this.loading !== "intersecting" || this.inViewport));
@@ -185,12 +187,13 @@ export class SwirlImageGridItem {
             class="image-grid-item__background"
             style={{
               backgroundImage: showBlurredBackground
-                ? `url(${this.src})`
+                ? `url(${this.computedSrc})`
                 : undefined,
             }}
-            ref={(el) => (this.backgroundImg = el)}
           ></div>
-          {this.loading !== "intersecting" || this.inViewport ? (
+          {this.loading !== "intersecting" ||
+          this.inViewport ||
+          this.gifPaused ? (
             <img
               alt={this.alt}
               class="image-grid-item__image"
@@ -200,7 +203,7 @@ export class SwirlImageGridItem {
               onError={this.onError}
               onLoad={this.onLoad}
               ref={(el) => (this.img = el)}
-              src={this.src}
+              src={this.computedSrc}
             />
           ) : (
             <div class="image-grid-item__loading-placeholder"></div>
