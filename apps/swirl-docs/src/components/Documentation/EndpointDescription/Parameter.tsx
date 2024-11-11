@@ -9,12 +9,14 @@ import {
   HttpStatusCode,
   isValidStatusCode,
 } from "../HttpStatusCodeMapper";
+import { isProdDeployment } from "@swirl/lib/env";
 
 interface ParameterProps {
   children?: ReactNode;
   name: string;
   type?: string;
   required?: boolean;
+  hidden?: boolean;
   description?: string;
   enumValues?: string[];
 }
@@ -25,12 +27,17 @@ export function Parameter({
   type,
   description,
   required,
+  hidden,
   enumValues,
 }: ParameterProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   function toggle() {
     setIsExpanded((expanded) => !expanded);
+  }
+
+  if (isProdDeployment && hidden) {
+    return null;
   }
 
   return (
@@ -58,6 +65,7 @@ export function Parameter({
         </code>
         {type && <Tag content={type} />}
         {required && <Tag content="required" scheme="critical" />}
+        {hidden && <Tag content="hidden for public" scheme="info" /> }
       </div>
       {description && (
         <DocumentationMarkdown className="text-sm text-text-default mt-2">

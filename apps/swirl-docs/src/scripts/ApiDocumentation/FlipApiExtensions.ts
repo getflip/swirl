@@ -1,4 +1,5 @@
 import { Operation } from "oas";
+import { SchemaObject } from "oas/dist/rmoas.types";
 
 export class FlipApiExtensions {
   static getErrorCodes(operation: Operation): string[] | undefined {
@@ -31,5 +32,22 @@ export class FlipApiExtensions {
     if (typeof resourceName === "string") {
       return resourceName;
     }
+  }
+
+  static getHiddenParams(schemaObject: SchemaObject): string[] | undefined {
+    if (!schemaObject) {
+      return;
+    }
+
+    if (!("x-flip-hidden" in schemaObject)) {
+      return;
+    }
+
+    const hiddenFields = schemaObject["x-flip-hidden"];
+    if (!Array.isArray(hiddenFields)) {
+      return;
+    }
+
+    return hiddenFields;
   }
 }

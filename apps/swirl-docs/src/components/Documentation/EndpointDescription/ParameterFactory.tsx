@@ -57,6 +57,7 @@ class ObjectParameterRenderer implements ParameterRenderer {
         name={parameter.name}
         type={parameter.type}
         description={parameter.description}
+        hidden={parameter.hidden}
         required={
           parameter.required || schema?.required?.includes(parameter.name)
         }
@@ -83,6 +84,7 @@ class PrimitiveParameterRenderer implements ParameterRenderer {
         name={parameter.name}
         type={parameter.type}
         description={parameter.description}
+        hidden={parameter.hidden}
         required={
           parameter.required || schema?.required?.includes(parameter.name)
         }
@@ -103,6 +105,7 @@ class ArrayParameterRenderer implements ParameterRenderer {
           name={parameter.name}
           type={parameter.type}
           description={parameter.description}
+          hidden={parameter.hidden}
           required={
             parameter.required || schema?.required?.includes(parameter.name)
           }
@@ -117,6 +120,7 @@ class ArrayParameterRenderer implements ParameterRenderer {
                 name={name}
                 type={parameter.items?.properties[name].type}
                 description={parameter.items?.properties[name].description}
+                hidden={parameter.hidden}
                 required={isRequired}
               />
             );
@@ -131,6 +135,7 @@ class ArrayParameterRenderer implements ParameterRenderer {
         name={parameter.name}
         type={parameter.type}
         description={parameter.description}
+        hidden={parameter.hidden}
         required={
           parameter.required || schema?.required?.includes(parameter.name)
         }
@@ -141,6 +146,7 @@ class ArrayParameterRenderer implements ParameterRenderer {
             name={parameter.items.format ? parameter.items.format : "enum"}
             type={parameter.items?.type}
             enumValues={parameter.items.enum}
+            hidden={parameter.hidden}
             description={
               parameter.items.enum ? parameter.items.enum.join(", ") : "null"
             }
