@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.250.0
+
+### Minor Changes
+
+- [#839](https://github.com/getflip/swirl/pull/839)
+  [`de49d0e6`](https://github.com/getflip/swirl/commit/de49d0e6abc6452ec334bf848a1eb0709d129897)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Improve
+  loading and gif handling
+
 ## 0.249.1
 
 ### Patch Changes
