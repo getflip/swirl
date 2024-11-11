@@ -95,6 +95,7 @@ export type OperationSchemaObject = {
     | OpenAPIV3_1.NonArraySchemaObjectType;
   description: string;
   required: boolean;
+  hidden: boolean;
   properties?: OperationSchemaObject[];
   items?: any;
   statusCode?: string;

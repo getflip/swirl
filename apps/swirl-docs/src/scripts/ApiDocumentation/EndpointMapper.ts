@@ -87,6 +87,7 @@ export class EndpointMapper {
 
     return responseBodySchemas.map((response) => {
       const requiredProperties = response.schema?.required || [];
+      const hiddenProperties = FlipApiExtensions.getHiddenParams(response.schema) || [];
       const parameters: Array<OperationSchemaObject> = Object.entries(
         response.schema?.properties || {}
       ).map(([name, property]) => {
@@ -99,6 +100,7 @@ export class EndpointMapper {
           required: requiredProperties.includes(name),
           properties: this.getEndpointOperationSchemaObject(prop),
           items: this.getEndpointParamArrayItems(prop),
+          hidden: hiddenProperties.includes(String(name))
         };
       });
 
@@ -117,7 +119,9 @@ export class EndpointMapper {
       const label = parameter.label || "other";
       const type = parameter.type as OperationParamType;
       const requiredParams = parameter.schema.required || [];
+      const hiddenParams = FlipApiExtensions.getHiddenParams(parameter.schema) || [];
       const parametersObject = parameter.schema.properties || {};
+
       if (
         typeof parametersObject === "object" &&
         Array.isArray(requiredParams)
@@ -132,6 +136,7 @@ export class EndpointMapper {
             type: prop.type as OperationSchemaObject["type"],
             description: prop.description || "",
             required: requiredParams.includes(parameter),
+            hidden: hiddenParams.includes(parameter),
             properties: this.getEndpointOperationSchemaObject(prop),
             items: this.getEndpointParamArrayItems(prop),
           };
@@ -153,6 +158,7 @@ export class EndpointMapper {
   private getEndpointOperationSchemaObject(
     prop: SchemaObject
   ): OperationSchemaObject[] | undefined {
+    const hiddenProps = FlipApiExtensions.getHiddenParams(prop) || [];
     if (prop.type === "object") {
       if (prop.properties) {
         return Object.entries(prop.properties).map(([name, prop]) => {
@@ -162,6 +168,7 @@ export class EndpointMapper {
             description: prop.description || "",
             required: prop.required || false,
             properties: this.getEndpointOperationSchemaObject(prop),
+            hidden: hiddenProps.includes(name),
           };
         });
       }
