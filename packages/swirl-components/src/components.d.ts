@@ -2300,9 +2300,13 @@ export namespace Components {
     }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
+        "collapse": () => Promise<void>;
+        "expand": () => Promise<void>;
+        "expandable"?: boolean;
         "href"?: string;
         "icon"?: string;
         "label": string;
+        "navigationItemId": string;
         "target"?: string;
     }
     interface SwirlTreeView {
@@ -2535,6 +2539,10 @@ export interface SwirlToastCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlToggleGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlToggleGroupElement;
+}
+export interface SwirlTreeNavigationItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlTreeNavigationItemElement;
 }
 export interface SwirlTreeViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -5272,7 +5280,18 @@ declare global {
         prototype: HTMLSwirlTooltipElement;
         new (): HTMLSwirlTooltipElement;
     };
+    interface HTMLSwirlTreeNavigationItemElementEventMap {
+        "expandedChange": boolean;
+    }
     interface HTMLSwirlTreeNavigationItemElement extends Components.SwirlTreeNavigationItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTreeNavigationItemElementEventMap>(type: K, listener: (this: HTMLSwirlTreeNavigationItemElement, ev: SwirlTreeNavigationItemCustomEvent<HTMLSwirlTreeNavigationItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTreeNavigationItemElementEventMap>(type: K, listener: (this: HTMLSwirlTreeNavigationItemElement, ev: SwirlTreeNavigationItemCustomEvent<HTMLSwirlTreeNavigationItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTreeNavigationItemElement: {
         prototype: HTMLSwirlTreeNavigationItemElement;
@@ -7692,9 +7711,12 @@ declare namespace LocalJSX {
     }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
+        "expandable"?: boolean;
         "href"?: string;
         "icon"?: string;
         "label": string;
+        "navigationItemId": string;
+        "onExpandedChange"?: (event: SwirlTreeNavigationItemCustomEvent<boolean>) => void;
         "target"?: string;
     }
     interface SwirlTreeView {

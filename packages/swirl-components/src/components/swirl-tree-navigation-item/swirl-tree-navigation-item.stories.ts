@@ -25,12 +25,14 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-tree-navigation-item", args);
 
+  element.innerHTML = `<swirl-tree-navigation-item icon="<swirl-icon-arrow-right-small></swirl-icon-arrow-right-small>" label="Label"></swirl-tree-navigation-item>`;
+
   return element;
 };
 
 export const SwirlTreeNavigationItem = Template.bind({});
 
 SwirlTreeNavigationItem.args = {
-  icon: "<swirl-icon-arrow-right-small></swirl-icon-arrow-right-small>",
+  icon: "<swirl-icon-person></swirl-icon-person>",
   label: "Label",
 };

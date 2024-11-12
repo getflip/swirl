@@ -17342,6 +17342,10 @@
           "description": ""
         },
         {
+          "name": "expandable",
+          "description": ""
+        },
+        {
           "name": "href",
           "description": ""
         },
@@ -17351,6 +17355,10 @@
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "navigation-item-id",
           "description": ""
         },
         {

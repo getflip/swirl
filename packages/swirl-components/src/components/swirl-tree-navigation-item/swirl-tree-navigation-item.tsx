@@ -1,4 +1,15 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+} from "@stencil/core";
 import classnames from "classnames";
 
 @Component({
@@ -7,13 +18,51 @@ import classnames from "classnames";
   tag: "swirl-tree-navigation-item",
 })
 export class SwirlTreeNavigationItem {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLSwirlTreeNavigationItemElement;
 
   @Prop() active?: boolean;
   @Prop() href?: string;
   @Prop() icon?: string;
   @Prop() label!: string;
   @Prop() target?: string;
+  @Prop() expandable?: boolean = true;
+  @Prop() navigationItemId!: string;
+
+  @Event() expandedChange!: EventEmitter<boolean>;
+
+  @State() expanded = false;
+
+  @Method()
+  async expand() {
+    if (this.expanded || !this.expandable) {
+      return;
+    }
+
+    this.expanded = true;
+    this.expandedChange.emit(this.expanded);
+  }
+
+  @Method()
+  async collapse() {
+    if (!this.expanded || !this.expandable) {
+      return;
+    }
+
+    this.expanded = false;
+    this.expandedChange.emit(this.expanded);
+  }
+
+  private onClickCollapse = (event: Event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    this.collapse();
+  };
+
+  private onClickExpand = (event: Event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    this.expand();
+  };
 
   render() {
     const isLink = Boolean(this.href);
@@ -25,22 +74,60 @@ export class SwirlTreeNavigationItem {
       "tree-navigation-item--has-icon": Boolean(this.icon),
     });
 
+    const hasChildren = Boolean(
+      this.el.querySelector("swirl-tree-navigation-item")
+    );
+
     return (
       <Host>
-        <Tag
-          class={className}
-          href={this.href}
-          target={this.target}
-          type={isLink ? undefined : "button"}
-        >
-          {this.icon && (
-            <span
-              class="tree-navigation-item__icon"
-              innerHTML={this.icon}
-            ></span>
-          )}
-          <span class="tree-navigation-item__label">{this.label}</span>
-        </Tag>
+        <li class={className}>
+          <Tag
+            class="tree-navigation-item__link"
+            href={this.href}
+            target={this.target}
+            type={isLink ? undefined : "button"}
+          >
+            <span class="tree-navigation-item__content">
+              {this.icon && (
+                <span
+                  class="tree-navigation-item__icon"
+                  innerHTML={this.icon}
+                ></span>
+              )}
+              <span class="tree-navigation-item__label">{this.label}</span>
+            </span>
+            {this.expandable && (
+              <span class="tree-navigation-item__toggle-icon">
+                {hasChildren && (
+                  <Fragment>
+                    {this.expanded ? (
+                      <swirl-icon-expand-more
+                        onClick={this.onClickCollapse}
+                        size={16}
+                      ></swirl-icon-expand-more>
+                    ) : (
+                      <swirl-icon-chevron-right
+                        onClick={this.onClickExpand}
+                        size={16}
+                      ></swirl-icon-chevron-right>
+                    )}
+                  </Fragment>
+                )}
+              </span>
+            )}
+          </Tag>
+          <ul
+            aria-label={this.label}
+            class="tree-navigation-item__children"
+            id={`${this.navigationItemId}-children`}
+            role="group"
+            style={{
+              display: !this.expanded || !hasChildren ? "none" : undefined,
+            }}
+          >
+            <slot></slot>
+          </ul>
+        </li>
       </Host>
     );
   }
