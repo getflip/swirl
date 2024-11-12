@@ -13,6 +13,10 @@
 
 .shell-navigation-item {
   --swirl-app-icon-size: 1.5rem;
+  --swirl-shell-navigation-item-gradient: linear-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.8)
+  );
 
   position: relative;
   display: flex;
@@ -80,7 +84,7 @@
     padding: 0;
     align-items: start;
     flex-direction: column;
-    container-type: unset;
+    container-type: inline-size;
     gap: var(--s-space-8);
 
     &:hover {
@@ -123,10 +127,7 @@
           aspect-ratio: 1;
           display: inline-block;
           border-radius: var(--s-border-radius-base);
-          background-image: linear-gradient(
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0.8)
-          );
+          background-image: var(--swirl-shell-navigation-item-gradient);
         }
       }
     }
@@ -237,6 +238,10 @@
     top: var(--s-space-4);
     right: var(--s-space-4);
     padding: var(--s-space-2);
+  }
+
+  .shell-navigation-item--gradient .shell-navigation-item__icon {
+    --swirl-shell-navigation-item-gradient: none;
   }
 
   .shell-navigation-item__badge--dot {
