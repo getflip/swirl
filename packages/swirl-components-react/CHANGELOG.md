@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.251.0
+
+### Minor Changes
+
+- [#846](https://github.com/getflip/swirl/pull/846)
+  [`9012ceca`](https://github.com/getflip/swirl/commit/9012cecaf6816a262388ff4f021b92fe5d6e2770)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Remove
+  duplicate menu shadow
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9012ceca`](https://github.com/getflip/swirl/commit/9012cecaf6816a262388ff4f021b92fe5d6e2770)]:
+  - @getflip/swirl-components@0.251.0
+
 ## 0.250.0
 
 ### Minor Changes
