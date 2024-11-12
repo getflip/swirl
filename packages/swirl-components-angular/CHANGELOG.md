@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.252.0
+
+### Minor Changes
+
+- [#845](https://github.com/getflip/swirl/pull/845)
+  [`63609b09`](https://github.com/getflip/swirl/commit/63609b0941b8121e542cbed881ab1c8ae91cd1a9)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix
+  swirl-app-bar to allow truncation of heading
+
+### Patch Changes
+
+- Updated dependencies
+  [[`63609b09`](https://github.com/getflip/swirl/commit/63609b0941b8121e542cbed881ab1c8ae91cd1a9)]:
+  - @getflip/swirl-components@0.252.0
+
 ## 0.251.0
 
 ### Minor Changes
