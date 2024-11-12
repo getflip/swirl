@@ -17,10 +17,6 @@
   padding-left: var(--s-space-16);
   align-items: center;
   gap: var(--s-space-16);
-
-  @media (--from-desktop) {
-    min-width: min-content;
-  }
 }
 
 .app-bar--has-cta {
@@ -58,7 +54,7 @@
   align-items: center;
 
   @media (--from-desktop) {
-    min-width: min-content;
+    min-width: 0;
     flex-grow: 0;
   }
 }
