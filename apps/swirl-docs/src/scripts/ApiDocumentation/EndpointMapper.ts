@@ -86,22 +86,12 @@ export class EndpointMapper {
     }));
 
     return responseBodySchemas.map((response) => {
-      const requiredProperties = response.schema?.required || [];
-      const hiddenProperties = FlipApiExtensions.getHiddenParams(response.schema) || [];
       const parameters: Array<OperationSchemaObject> = Object.entries(
         response.schema?.properties || {}
       ).map(([name, property]) => {
         const prop = property as SchemaObject;
 
-        return {
-          name: String(name),
-          type: prop.type as OperationSchemaObject["type"],
-          description: prop.description || "",
-          required: requiredProperties.includes(name),
-          properties: this.getEndpointOperationSchemaObject(prop),
-          items: this.getEndpointParamArrayItems(prop),
-          hidden: hiddenProperties.includes(String(name))
-        };
+        return this.toOperationSchemaObject(name, prop, response.schema);
       });
 
       return {
@@ -116,63 +106,68 @@ export class EndpointMapper {
     parameters?: ReturnType<Endpoint["operation"]["getParametersAsJSONSchema"]>
   ): OperationSchemas | undefined {
     return parameters?.map((parameter) => {
-      const label = parameter.label || "other";
       const type = parameter.type as OperationParamType;
-      const requiredParams = parameter.schema.required || [];
-      const hiddenParams = FlipApiExtensions.getHiddenParams(parameter.schema) || [];
-      const parametersObject = parameter.schema.properties || {};
+      const label = parameter.label || "other";
 
-      if (
-        typeof parametersObject === "object" &&
-        Array.isArray(requiredParams)
-      ) {
-        const parameters: Array<OperationSchemaObject> = Object.keys(
-          parametersObject
-        ).map((parameter) => {
-          const prop = parametersObject[parameter] as SchemaObject;
-
-          return {
-            name: String(parameter),
-            type: prop.type as OperationSchemaObject["type"],
-            description: prop.description || "",
-            required: requiredParams.includes(parameter),
-            hidden: hiddenParams.includes(parameter),
-            properties: this.getEndpointOperationSchemaObject(prop),
-            items: this.getEndpointParamArrayItems(prop),
-          };
-        });
-        return { title: label, type, parameters: parameters };
+      return {
+        type,
+        title: label,
+        parameters: this.getEndpointTopLevelSchema(parameter.schema) ?? [],
       }
-      return { title: label, type, parameters: [] };
     });
   }
-  private getEndpointParamArrayItems(
-    prop: SchemaObject
-  ): Array<any> | undefined {
-    if (prop.type === "array" && prop.items) {
-      return prop.items as Array<any>;
+
+  private getEndpointTopLevelSchema(
+    parent: SchemaObject
+  ): OperationSchemaObject[] | undefined {
+    if (parent.type !== "object") {
+      return undefined;
     }
-    return undefined;
+
+    if (!parent.properties) {
+      return undefined;
+    }
+
+    return Object.entries(parent.properties).map(([name, child]) => {
+      return this.toOperationSchemaObject(name, child, parent);
+    });
   }
 
-  private getEndpointOperationSchemaObject(
-    prop: SchemaObject
-  ): OperationSchemaObject[] | undefined {
-    const hiddenProps = FlipApiExtensions.getHiddenParams(prop) || [];
-    if (prop.type === "object") {
-      if (prop.properties) {
-        return Object.entries(prop.properties).map(([name, prop]) => {
-          return {
-            name,
-            type: prop.type as OperationSchemaObject["type"],
-            description: prop.description || "",
-            required: prop.required || false,
-            properties: this.getEndpointOperationSchemaObject(prop),
-            hidden: hiddenProps.includes(name),
-          };
-        });
-      }
+  private toOperationSchemaObject(name: string, prop: SchemaObject, parentObject?: SchemaObject): OperationSchemaObject {
+    const hiddenProps = parentObject ?
+      (FlipApiExtensions.getHiddenParams(parentObject) || [])
+      : [];
+
+    const requiredPropsInParent = this.determineRequiredProperties(parentObject);
+    const childProperties = prop.properties || {};
+    const hasRequiredFlag = typeof prop.required === "boolean" && prop.required;
+
+    if (prop.type == "array") {
+      // If the property is an array, we want to render the items only.
+      return this.toOperationSchemaObject(name, prop.items as SchemaObject, prop);
     }
-    return undefined;
+
+    return {
+      name,
+      array: parentObject?.type === "array", // Used to determine whether this property is rendered as part of an array.
+      type: prop.type as OperationSchemaObject["type"],
+      description: prop.description || "",
+      required: hasRequiredFlag || requiredPropsInParent.includes(name) || false,
+      properties: Object.entries(childProperties).map(([name, child]) => this.toOperationSchemaObject(name, child, prop)),
+      hidden: hiddenProps.includes(name),
+      enum: prop.enum as string[],
+    };
+  }
+
+  private determineRequiredProperties(parentObject?: SchemaObject): string[] {
+    if (!parentObject) {
+      return [];
+    }
+
+    if (!Array.isArray(parentObject.required)) {
+      return [];
+    }
+
+    return parentObject.required;
   }
 }
