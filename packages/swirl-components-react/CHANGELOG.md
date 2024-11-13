@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.252.1
+
+### Patch Changes
+
+- [#850](https://github.com/getflip/swirl/pull/850)
+  [`d97f762b`](https://github.com/getflip/swirl/commit/d97f762b1b38fcb0d5136845b78256046059c729)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Hide the
+  swirl-shell-navigation-item gradient if collapsed
+
+- Updated dependencies
+  [[`d97f762b`](https://github.com/getflip/swirl/commit/d97f762b1b38fcb0d5136845b78256046059c729)]:
+  - @getflip/swirl-components@0.252.1
+
 ## 0.252.0
 
 ### Minor Changes
