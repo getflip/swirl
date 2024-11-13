@@ -10,6 +10,7 @@
 .tree-navigation-item {
   width: 100%;
   list-style: none;
+  border-radius: var(--s-border-radius-sm);
 }
 
 .tree-navigation-item__link {
@@ -17,7 +18,7 @@
   width: 100%;
   height: 2.25rem;
   padding-right: var(--s-space-16);
-  padding-left: var(--s-space-8);
+  padding-left: var(--tree-nav-item-padding, var(--s-space-8));
   flex-shrink: 0;
   justify-content: flex-start;
   align-items: center;
@@ -27,10 +28,12 @@
   background-color: transparent;
   font: inherit;
   font-size: var(--s-font-size-sm);
+  font-weight: var(--tree-nav-item-label-weight, var(--s-font-weight-medium));
   line-height: var(--s-line-height-sm);
   text-decoration: none;
   cursor: pointer;
   gap: calc(var(--s-space-8) - var(--s-space-2));
+  margin-bottom: var(--s-space-2);
 
   &:hover {
     background-color: var(--s-surface-hovered);
@@ -38,6 +41,7 @@
 
   &:active {
     background-color: var(--s-surface-pressed);
+    color: var(--s-text-highlight);
   }
 
   &:focus {
@@ -54,7 +58,9 @@
 
 .tree-navigation-item__link--active {
   background-color: var(--s-surface-raised-default);
-  box-shadow: inset 0.25rem 0 0 0 var(--s-border-highlight);
+  color: var(--s-text-highlight);
+  --tree-nav-item-color: var(--s-text-highlight);
+  --tree-nav-item-label-weight: var(--s-font-weight-medium);
 }
 
 .tree-navigation-item__link--active:hover {
@@ -63,10 +69,6 @@
 
 .tree-navigation-item__link--active:active {
   background-color: var(--s-surface-raised-pressed);
-}
-
-.tree-navigation-item__link--has-icon {
-  padding-left: var(--s-space-16);
 }
 
 .tree-navigation-item--expanded {
@@ -95,6 +97,7 @@
   padding-left: var(--s-space-2);
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: var(--tree-nav-item-color, inherit);
 }
 
 .tree-navigation-item__children {
@@ -103,4 +106,9 @@
   padding: 0;
   flex-direction: column;
   gap: var(--s-space-2);
+}
+
+.tree-navigation-item__children > ::slotted(swirl-tree-navigation-item) {
+  --tree-nav-item-padding: 36px;
+  --tree-nav-item-label-weight: var(--s-font-weight-normal);
 }

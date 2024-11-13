@@ -70,8 +70,8 @@ export class SwirlTreeNavigationItem {
     const Tag = isLink ? "a" : "button";
 
     const className = classnames("tree-navigation-item", {
-      "tree-navigation-item--active": this.active,
-      "tree-navigation-item--has-icon": Boolean(this.icon),
+      "tree-navigation-item__link--active": this.active,
+      "tree-navigation-item__link--has-icon": Boolean(this.icon),
     });
 
     const hasChildren = Boolean(
@@ -89,10 +89,11 @@ export class SwirlTreeNavigationItem {
           >
             <span class="tree-navigation-item__content">
               {this.icon && (
-                <span
+                <swirl-icon
                   class="tree-navigation-item__icon"
-                  innerHTML={this.icon}
-                ></span>
+                  glyph={this.icon}
+                  size={20}
+                ></swirl-icon>
               )}
               <span class="tree-navigation-item__label">{this.label}</span>
             </span>
