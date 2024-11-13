@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.253.0
+
+### Minor Changes
+
+- [`2a44f406`](https://github.com/getflip/swirl/commit/2a44f4067ddf8636c2e9b03fdde9d7e8bf72af4c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "tooltip" prop to swirl-radio
+
+### Patch Changes
+
+- Updated dependencies
+  [[`2a44f406`](https://github.com/getflip/swirl/commit/2a44f4067ddf8636c2e9b03fdde9d7e8bf72af4c)]:
+  - @getflip/swirl-components@0.253.0
+
 ## 0.252.1
 
 ### Patch Changes
