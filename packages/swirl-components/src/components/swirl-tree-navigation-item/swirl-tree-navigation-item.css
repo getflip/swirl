@@ -15,13 +15,16 @@
 
 .tree-navigation-item__link {
   display: inline-flex;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: center;
+
   width: 100%;
   height: 2.25rem;
   padding-right: var(--s-space-16);
   padding-left: var(--tree-nav-item-padding, var(--s-space-8));
-  flex-shrink: 0;
-  justify-content: flex-start;
-  align-items: center;
+  margin-bottom: var(--s-space-2);
+
   border: none;
   border-radius: var(--s-border-radius-sm);
   color: var(--s-text-default);
@@ -33,15 +36,13 @@
   text-decoration: none;
   cursor: pointer;
   gap: calc(var(--s-space-8) - var(--s-space-2));
-  margin-bottom: var(--s-space-2);
 
   &:hover {
-    background-color: var(--s-surface-hovered);
+    background-color: var(--s-background-hovered);
   }
 
   &:active {
-    background-color: var(--s-surface-pressed);
-    color: var(--s-text-highlight);
+    background-color: var(--s-background-pressed);
   }
 
   &:focus {
@@ -88,6 +89,7 @@
 
 .tree-navigation-item__toggle-icon {
   max-height: 1rem;
+  color: var(--s-icon-default);
 }
 
 .tree-navigation-item__label {
@@ -105,7 +107,6 @@
   margin: 0;
   padding: 0;
   flex-direction: column;
-  gap: var(--s-space-2);
 }
 
 .tree-navigation-item__children > ::slotted(swirl-tree-navigation-item) {

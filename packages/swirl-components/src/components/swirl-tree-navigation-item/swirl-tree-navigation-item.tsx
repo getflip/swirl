@@ -69,7 +69,7 @@ export class SwirlTreeNavigationItem {
 
     const Tag = isLink ? "a" : "button";
 
-    const className = classnames("tree-navigation-item", {
+    const linkClassName = classnames("tree-navigation-item__link", {
       "tree-navigation-item__link--active": this.active,
       "tree-navigation-item__link--has-icon": Boolean(this.icon),
     });
@@ -80,9 +80,10 @@ export class SwirlTreeNavigationItem {
 
     return (
       <Host>
-        <li class={className}>
+        <li class="tree-navigation-item">
           <Tag
-            class="tree-navigation-item__link"
+            onClick={this.expanded ? this.onClickCollapse : this.onClickExpand}
+            class={linkClassName}
             href={this.href}
             target={this.target}
             type={isLink ? undefined : "button"}
@@ -103,12 +104,10 @@ export class SwirlTreeNavigationItem {
                   <Fragment>
                     {this.expanded ? (
                       <swirl-icon-expand-more
-                        onClick={this.onClickCollapse}
                         size={16}
                       ></swirl-icon-expand-more>
                     ) : (
                       <swirl-icon-chevron-right
-                        onClick={this.onClickExpand}
                         size={16}
                       ></swirl-icon-chevron-right>
                     )}
