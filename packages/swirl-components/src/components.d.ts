@@ -2306,6 +2306,7 @@ export namespace Components {
         "href"?: string;
         "icon"?: string;
         "label": string;
+        "level"?: number;
         "navigationItemId": string;
         "target"?: string;
     }
@@ -7715,6 +7716,7 @@ declare namespace LocalJSX {
         "href"?: string;
         "icon"?: string;
         "label": string;
+        "level"?: number;
         "navigationItemId": string;
         "onExpandedChange"?: (event: SwirlTreeNavigationItemCustomEvent<boolean>) => void;
         "target"?: string;
