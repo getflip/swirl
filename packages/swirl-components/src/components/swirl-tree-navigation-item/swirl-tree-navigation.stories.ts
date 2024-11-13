@@ -14,12 +14,12 @@ export default {
 
 const Template = () => {
   const element2 = `
-    <swirl-tree-navigation-item label="Home" icon='home'></swirl-tree-navigation-item>
+    <swirl-tree-navigation-item label="Home" icon='home' href='#home'></swirl-tree-navigation-item>
     <swirl-tree-navigation-item label="User Management" icon='person'>
       <swirl-tree-navigation-item label="Users" active='true'></swirl-tree-navigation-item>
       <swirl-tree-navigation-item label="User groups"></swirl-tree-navigation-item>
     </swirl-tree-navigation-item>
-    <swirl-tree-navigation-item label="File" icon='file'></swirl-tree-navigation-item>
+    <swirl-tree-navigation-item href='https://getflip.com' target='__blank' label="File" icon='file' external='true'></swirl-tree-navigation-item>
   `;
 
   return element2;

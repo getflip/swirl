@@ -2303,6 +2303,7 @@ export namespace Components {
         "collapse": () => Promise<void>;
         "expand": () => Promise<void>;
         "expandable"?: boolean;
+        "external"?: boolean;
         "href"?: string;
         "icon"?: string;
         "label": string;
@@ -7713,6 +7714,7 @@ declare namespace LocalJSX {
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
         "expandable"?: boolean;
+        "external"?: boolean;
         "href"?: string;
         "icon"?: string;
         "label": string;

@@ -25,9 +25,10 @@ export class SwirlTreeNavigationItem {
   @Prop() icon?: string;
   @Prop() label!: string;
   @Prop() target?: string;
-  @Prop() expandable?: boolean = true;
   @Prop() navigationItemId!: string;
-  @Prop() level?: number = 1; // Add level prop for ARIA
+  @Prop() level?: number = 1;
+  @Prop() expandable?: boolean = true;
+  @Prop() external?: boolean = false;
 
   @Event() expandedChange!: EventEmitter<boolean>;
   @State() expanded = false;
@@ -90,13 +91,15 @@ export class SwirlTreeNavigationItem {
   };
 
   private toggleExpanded = (event: Event) => {
-    event.preventDefault();
-    event.stopPropagation();
+    if (!this.href) {
+      event.preventDefault();
+      event.stopPropagation();
 
-    if (this.expanded) {
-      this.collapse();
-    } else {
-      this.expand();
+      if (this.expanded) {
+        this.collapse();
+      } else {
+        this.expand();
+      }
     }
   };
 
@@ -141,7 +144,7 @@ export class SwirlTreeNavigationItem {
               )}
               <span class="tree-navigation-item__label">{this.label}</span>
             </span>
-            {this.expandable && this.hasChildren && (
+            {this.expandable && this.hasChildren && !this.external && (
               <span
                 class="tree-navigation-item__toggle-icon"
                 aria-hidden="true"
@@ -159,6 +162,18 @@ export class SwirlTreeNavigationItem {
                     aria-label="Expand"
                   ></swirl-icon-chevron-right>
                 )}
+              </span>
+            )}
+            {this.external && (
+              <span
+                class="tree-navigation-item__external-icon"
+                aria-hidden="true"
+              >
+                <swirl-icon-open-in-new
+                  size={16}
+                  role="img"
+                  aria-label="External link"
+                ></swirl-icon-open-in-new>
               </span>
             )}
           </Tag>

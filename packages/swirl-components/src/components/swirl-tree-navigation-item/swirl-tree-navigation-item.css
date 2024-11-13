@@ -22,7 +22,7 @@
   height: 2.25rem;
   padding: 0 var(--s-space-16) 0 var(--tree-nav-item-padding, var(--s-space-8));
   margin-bottom: var(--s-space-2);
-  gap: calc(var(--s-space-8) - var(--s-space-2));
+  gap: calc(var(--s-space-4) - var(--s-space-2));
 
   /* Reset button/link styles */
   border: none;
@@ -93,6 +93,11 @@
 }
 
 .tree-navigation-item__toggle-icon {
+  max-height: 1rem;
+  color: var(--s-icon-default);
+}
+
+.tree-navigation-item__external-icon {
   max-height: 1rem;
   color: var(--s-icon-default);
 }
