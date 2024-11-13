@@ -14530,6 +14530,10 @@
           "description": ""
         },
         {
+          "name": "tooltip",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         },

@@ -25,6 +25,7 @@ export class SwirlRadio {
   @Prop() inputName!: string;
   @Prop() invalid?: boolean;
   @Prop() label?: string;
+  @Prop() tooltip?: string;
   @Prop() value!: string;
   @Prop() variant?: SwirlRadioVariant = "default";
 
@@ -80,7 +81,20 @@ export class SwirlRadio {
             <span aria-hidden="true" class="radio__box"></span>
           </span>
           <span class="radio__label-container">
-            {this.label && <span class="radio__label">{this.label}</span>}
+            {this.label && (
+              <span class="radio__label">
+                {this.label}
+                {this.tooltip && (
+                  <swirl-tooltip content={this.tooltip} position="top">
+                    <swirl-icon-help
+                      color="default"
+                      size={20}
+                      tabIndex={0}
+                    ></swirl-icon-help>
+                  </swirl-tooltip>
+                )}
+              </span>
+            )}
             {this.description && (
               <span
                 class="radio__description"

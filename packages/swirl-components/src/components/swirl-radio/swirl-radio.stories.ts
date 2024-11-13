@@ -26,5 +26,6 @@ SwirlRadio.args = {
   inputId: "radio",
   inputName: "radio",
   label: "Radio button",
+  tooltip: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
   value: "Value",
 };

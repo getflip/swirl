@@ -1733,6 +1733,7 @@ export namespace Components {
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
+        "tooltip"?: string;
         "value": string;
         "variant"?: SwirlRadioVariant;
     }
@@ -7148,6 +7149,7 @@ declare namespace LocalJSX {
         "invalid"?: boolean;
         "label"?: string;
         "onValueChange"?: (event: SwirlRadioCustomEvent<string>) => void;
+        "tooltip"?: string;
         "value": string;
         "variant"?: SwirlRadioVariant;
     }
