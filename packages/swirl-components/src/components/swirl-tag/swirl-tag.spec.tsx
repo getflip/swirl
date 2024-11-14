@@ -12,7 +12,7 @@ describe("swirl-tag", () => {
     expect(page.root).toEqualHtml(`
       <swirl-tag intent="info" label="Label">
         <mock:shadow-root>
-          <span class="tag tag--intent-info tag--size-m tag--variant-default" part="tag">
+          <span class="tag tag--icon-position-start tag--intent-info tag--size-m tag--variant-default" part="tag">
             <span class="tag__label">
               Label
             </span>
@@ -31,7 +31,7 @@ describe("swirl-tag", () => {
     expect(page.root).toEqualHtml(`
       <swirl-tag icon="<swirl-icon-mail></swirl-icon-mail>" intent="info" label="Label">
         <mock:shadow-root>
-          <span class="tag tag--intent-info tag--size-m tag--variant-default" part="tag">
+          <span class="tag tag--icon-position-start tag--intent-info tag--size-m tag--variant-default" part="tag">
             <span class="tag__icon">
               <swirl-icon-mail size="16"></swirl-icon-mail>
             </span>
@@ -53,7 +53,7 @@ describe("swirl-tag", () => {
     expect(page.root).toEqualHtml(`
       <swirl-tag icon="<swirl-icon-mail></swirl-icon-mail>" intent="info" label="Label" variant="strong" bordered="true">
         <mock:shadow-root>
-          <span class="tag tag--intent-info tag--size-m tag--variant-outline" part="tag">
+          <span class="tag tag--icon-position-start tag--intent-info tag--size-m tag--variant-outline" part="tag">
             <span class="tag__icon">
               <swirl-icon-mail size="16"></swirl-icon-mail>
             </span>
