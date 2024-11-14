@@ -182,4 +182,7 @@ export const SwirlFormControl = Template.bind({});
 SwirlFormControl.args = {
   description: "Optional description of the control.",
   label: "Form Control Label",
+  "label-position": "outside",
+  tooltip: "asdfasdf",
+  secondaryLabel: "lololol",
 };

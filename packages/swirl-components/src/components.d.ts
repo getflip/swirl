@@ -696,6 +696,7 @@ export namespace Components {
         "invalid"?: boolean;
         "label": string;
         "labelPosition"?: SwirlFormControlLabelPosition;
+        "secondaryLabel"?: string;
         "tooltip"?: string;
     }
     interface SwirlFormGroup {
@@ -6184,6 +6185,7 @@ declare namespace LocalJSX {
         "invalid"?: boolean;
         "label": string;
         "labelPosition"?: SwirlFormControlLabelPosition;
+        "secondaryLabel"?: string;
         "tooltip"?: string;
     }
     interface SwirlFormGroup {

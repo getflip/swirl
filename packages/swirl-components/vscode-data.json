@@ -2650,6 +2650,10 @@
           ]
         },
         {
+          "name": "secondary-label",
+          "description": ""
+        },
+        {
           "name": "tooltip",
           "description": ""
         }
