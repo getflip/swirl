@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.254.1
+
+### Patch Changes
+
+- [`59d8466f`](https://github.com/getflip/swirl/commit/59d8466fbfa2e53b416233759100c03574cd8b8e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix disabled styles of
+  swirl-button when used as a link
+
 ## 0.254.0
 
 ### Minor Changes
