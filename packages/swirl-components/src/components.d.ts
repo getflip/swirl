@@ -1236,6 +1236,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconPostApproval {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconPresent {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3921,6 +3925,12 @@ declare global {
         prototype: HTMLSwirlIconPollElement;
         new (): HTMLSwirlIconPollElement;
     };
+    interface HTMLSwirlIconPostApprovalElement extends Components.SwirlIconPostApproval, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPostApprovalElement: {
+        prototype: HTMLSwirlIconPostApprovalElement;
+        new (): HTMLSwirlIconPostApprovalElement;
+    };
     interface HTMLSwirlIconPresentElement extends Components.SwirlIconPresent, HTMLStencilElement {
     }
     var HTMLSwirlIconPresentElement: {
@@ -5511,6 +5521,7 @@ declare global {
         "swirl-icon-place": HTMLSwirlIconPlaceElement;
         "swirl-icon-play-arrow": HTMLSwirlIconPlayArrowElement;
         "swirl-icon-poll": HTMLSwirlIconPollElement;
+        "swirl-icon-post-approval": HTMLSwirlIconPostApprovalElement;
         "swirl-icon-present": HTMLSwirlIconPresentElement;
         "swirl-icon-print": HTMLSwirlIconPrintElement;
         "swirl-icon-public": HTMLSwirlIconPublicElement;
@@ -6713,6 +6724,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconPostApproval {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconPresent {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -7908,6 +7923,7 @@ declare namespace LocalJSX {
         "swirl-icon-place": SwirlIconPlace;
         "swirl-icon-play-arrow": SwirlIconPlayArrow;
         "swirl-icon-poll": SwirlIconPoll;
+        "swirl-icon-post-approval": SwirlIconPostApproval;
         "swirl-icon-present": SwirlIconPresent;
         "swirl-icon-print": SwirlIconPrint;
         "swirl-icon-public": SwirlIconPublic;
@@ -8276,6 +8292,7 @@ declare module "@stencil/core" {
             "swirl-icon-place": LocalJSX.SwirlIconPlace & JSXBase.HTMLAttributes<HTMLSwirlIconPlaceElement>;
             "swirl-icon-play-arrow": LocalJSX.SwirlIconPlayArrow & JSXBase.HTMLAttributes<HTMLSwirlIconPlayArrowElement>;
             "swirl-icon-poll": LocalJSX.SwirlIconPoll & JSXBase.HTMLAttributes<HTMLSwirlIconPollElement>;
+            "swirl-icon-post-approval": LocalJSX.SwirlIconPostApproval & JSXBase.HTMLAttributes<HTMLSwirlIconPostApprovalElement>;
             "swirl-icon-present": LocalJSX.SwirlIconPresent & JSXBase.HTMLAttributes<HTMLSwirlIconPresentElement>;
             "swirl-icon-print": LocalJSX.SwirlIconPrint & JSXBase.HTMLAttributes<HTMLSwirlIconPrintElement>;
             "swirl-icon-public": LocalJSX.SwirlIconPublic & JSXBase.HTMLAttributes<HTMLSwirlIconPublicElement>;
