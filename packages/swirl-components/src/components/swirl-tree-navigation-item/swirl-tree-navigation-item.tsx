@@ -70,7 +70,6 @@ export class SwirlTreeNavigationItem {
 
   private onKeyDown = (event: KeyboardEvent) => {
     switch (event.key) {
-      case "Enter":
       case " ":
         event.preventDefault();
         this.toggleExpanded(event);
