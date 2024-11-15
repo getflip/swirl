@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.255.0
+
+### Minor Changes
+
+- [#856](https://github.com/getflip/swirl/pull/856)
+  [`f0ad90c4`](https://github.com/getflip/swirl/commit/f0ad90c49defa3aa8332b99339075001c8386564)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Added secondary
+  label and changed tooltip color
+
+* [#857](https://github.com/getflip/swirl/pull/857)
+  [`d3a68077`](https://github.com/getflip/swirl/commit/d3a68077f15c596f6fed41bc375c2e319ae75b89)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  iconPosition prop to swirl-tag
+
 ## 0.254.1
 
 ### Patch Changes
