@@ -23,6 +23,7 @@
   padding: 0 var(--s-space-16) 0 var(--tree-nav-item-padding, var(--s-space-8));
   margin-bottom: var(--s-space-2);
   gap: calc(var(--s-space-4) - var(--s-space-2));
+  min-width: 0;
 
   /* Reset button/link styles */
   border: none;
@@ -82,6 +83,8 @@
 .tree-navigation-item__content {
   display: inline-flex;
   align-items: center;
+  min-width: 0;
+  flex: 1;
 }
 
 /* Icon styles */
@@ -92,6 +95,7 @@
 }
 
 .tree-navigation-item__toggle-icon {
+  flex-shrink: 0;
   max-height: 1rem;
   color: var(--s-icon-default);
 }
@@ -121,6 +125,6 @@
 
 /* Nested items */
 .tree-navigation-item__children > ::slotted(swirl-tree-navigation-item) {
-  --tree-nav-item-padding: 36px;
+  --tree-nav-item-padding: 2.25rem;
   --tree-nav-item-label-weight: var(--s-font-weight-normal);
 }
