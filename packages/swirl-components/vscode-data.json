@@ -16627,6 +16627,18 @@
           "description": ""
         },
         {
+          "name": "icon-position",
+          "description": "",
+          "values": [
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            }
+          ]
+        },
+        {
           "name": "intent",
           "description": "",
           "values": [
