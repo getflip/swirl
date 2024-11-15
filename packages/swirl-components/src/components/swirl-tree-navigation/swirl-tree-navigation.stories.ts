@@ -21,6 +21,10 @@ const Template = (args) => {
       <swirl-tree-navigation-item label="Users" active='true' href='#users'></swirl-tree-navigation-item>
       <swirl-tree-navigation-item label="User groups" href='#user-groups'></swirl-tree-navigation-item>
     </swirl-tree-navigation-item>
+    <swirl-tree-navigation-item label="Settings" icon='settings'>
+      <swirl-tree-navigation-item label="Languages" href='#users'></swirl-tree-navigation-item>
+      <swirl-tree-navigation-item label="General" href='#user-groups'></swirl-tree-navigation-item>
+    </swirl-tree-navigation-item>
     <swirl-tree-navigation-item href='https://getflip.com' target='__blank' label="File" icon='file' external='true'></swirl-tree-navigation-item>
   `;
 
