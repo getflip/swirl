@@ -30,7 +30,7 @@ export class SwirlTreeNavigationItem {
   @Prop() expandable?: boolean = true;
   @Prop() external?: boolean = false;
 
-  @Event() expandedChange!: EventEmitter<boolean>;
+  @Event() expansionChange!: EventEmitter<boolean>;
   @State() expanded = false;
   @State() hasChildren = false;
 
@@ -43,7 +43,7 @@ export class SwirlTreeNavigationItem {
 
   @Watch("expanded")
   handleExpandedChange() {
-    this.expandedChange.emit(this.expanded);
+    this.expansionChange.emit(this.expanded);
   }
 
   private checkForChildren() {
