@@ -2298,6 +2298,9 @@ export namespace Components {
         "position"?: SwirlTooltipPosition;
         "positioning"?: Strategy;
     }
+    interface SwirlTreeNavigation {
+        "label": string;
+    }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
         "collapse": () => Promise<void>;
@@ -5282,6 +5285,12 @@ declare global {
         prototype: HTMLSwirlTooltipElement;
         new (): HTMLSwirlTooltipElement;
     };
+    interface HTMLSwirlTreeNavigationElement extends Components.SwirlTreeNavigation, HTMLStencilElement {
+    }
+    var HTMLSwirlTreeNavigationElement: {
+        prototype: HTMLSwirlTreeNavigationElement;
+        new (): HTMLSwirlTreeNavigationElement;
+    };
     interface HTMLSwirlTreeNavigationItemElementEventMap {
         "expansionChange": boolean;
     }
@@ -5701,6 +5710,7 @@ declare global {
         "swirl-toggle-group": HTMLSwirlToggleGroupElement;
         "swirl-toolbar": HTMLSwirlToolbarElement;
         "swirl-tooltip": HTMLSwirlTooltipElement;
+        "swirl-tree-navigation": HTMLSwirlTreeNavigationElement;
         "swirl-tree-navigation-item": HTMLSwirlTreeNavigationItemElement;
         "swirl-tree-view": HTMLSwirlTreeViewElement;
         "swirl-tree-view-item": HTMLSwirlTreeViewItemElement;
@@ -7711,6 +7721,9 @@ declare namespace LocalJSX {
         "position"?: SwirlTooltipPosition;
         "positioning"?: Strategy;
     }
+    interface SwirlTreeNavigation {
+        "label"?: string;
+    }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
         "expandable"?: boolean;
@@ -8102,6 +8115,7 @@ declare namespace LocalJSX {
         "swirl-toggle-group": SwirlToggleGroup;
         "swirl-toolbar": SwirlToolbar;
         "swirl-tooltip": SwirlTooltip;
+        "swirl-tree-navigation": SwirlTreeNavigation;
         "swirl-tree-navigation-item": SwirlTreeNavigationItem;
         "swirl-tree-view": SwirlTreeView;
         "swirl-tree-view-item": SwirlTreeViewItem;
@@ -8470,6 +8484,7 @@ declare module "@stencil/core" {
             "swirl-toggle-group": LocalJSX.SwirlToggleGroup & JSXBase.HTMLAttributes<HTMLSwirlToggleGroupElement>;
             "swirl-toolbar": LocalJSX.SwirlToolbar & JSXBase.HTMLAttributes<HTMLSwirlToolbarElement>;
             "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;
+            "swirl-tree-navigation": LocalJSX.SwirlTreeNavigation & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationElement>;
             "swirl-tree-navigation-item": LocalJSX.SwirlTreeNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationItemElement>;
             "swirl-tree-view": LocalJSX.SwirlTreeView & JSXBase.HTMLAttributes<HTMLSwirlTreeViewElement>;
             "swirl-tree-view-item": LocalJSX.SwirlTreeViewItem & JSXBase.HTMLAttributes<HTMLSwirlTreeViewItemElement>;

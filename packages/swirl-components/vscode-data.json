@@ -17331,6 +17331,19 @@
       ]
     },
     {
+      "name": "swirl-tree-navigation",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-tree-navigation-item",
       "description": {
         "kind": "markdown",

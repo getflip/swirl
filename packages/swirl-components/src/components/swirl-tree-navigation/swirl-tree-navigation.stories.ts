@@ -1,19 +1,21 @@
+import { generateStoryElement } from "../../utils";
+import Docs from "./swirl-tree-navigation.mdx";
+
 export default {
-  component: "swirl-tree-navigation-item",
+  component: "swirl-tree-navigation",
   tags: ["autodocs"],
-  title: "Admin/SwirlTreeNavigation",
   parameters: {
     docs: {
-      description: {
-        component:
-          "This is not a component but rather an example usage of [swirl-navigation-item](/docs/admin-swirltreenavigationitem--docs). It demonstrates how to implement the navigation item in different states.",
-      },
+      page: Docs,
     },
   },
+  title: "Admin/SwirlTreeNavigation",
 };
 
-const Template = () => {
-  const element2 = `
+const Template = (args) => {
+  const element = generateStoryElement("swirl-tree-navigation", args);
+
+  element.innerHTML = `
     <swirl-tree-navigation-item label="Home" icon='home' href='#home'></swirl-tree-navigation-item>
     <swirl-tree-navigation-item label="User Management" icon='person'>
       <swirl-tree-navigation-item label="Users" active='true' href='#users'></swirl-tree-navigation-item>
@@ -22,9 +24,11 @@ const Template = () => {
     <swirl-tree-navigation-item href='https://getflip.com' target='__blank' label="File" icon='file' external='true'></swirl-tree-navigation-item>
   `;
 
-  return element2;
+  return element;
 };
 
-export const SwirlTreeNavigationItem = Template.bind({});
+export const SwirlTreeNavigation = Template.bind({});
 
-SwirlTreeNavigationItem.args = {};
+SwirlTreeNavigation.args = {
+  label: "Label",
+};
