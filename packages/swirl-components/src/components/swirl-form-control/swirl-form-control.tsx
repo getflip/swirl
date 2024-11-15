@@ -131,7 +131,13 @@ export class SwirlFormControl {
       return;
     }
 
-    this.inputEl.setAttribute("label", this.label);
+    let label = this.label;
+
+    if (this.secondaryLabel) {
+      label += ` ${this.secondaryLabel}`;
+    }
+
+    this.inputEl.setAttribute("label", label);
   }
 
   @Listen("click", { target: "window" })
