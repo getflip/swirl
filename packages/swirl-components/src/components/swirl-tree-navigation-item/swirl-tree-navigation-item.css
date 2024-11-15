@@ -62,8 +62,7 @@
 /* Active link styles */
 .tree-navigation-item__link--active {
   background-color: var(--s-surface-raised-default);
-  color: var(--s-text-highlight);
-  --tree-nav-item-color: var(--s-text-highlight);
+  color: var(--tree-nav-item-color--active, var(--s-text-highlight));
   --tree-nav-item-label-weight: var(--s-font-weight-medium);
 }
 
