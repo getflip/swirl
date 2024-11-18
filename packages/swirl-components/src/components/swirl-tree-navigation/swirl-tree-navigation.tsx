@@ -6,7 +6,7 @@ import { Component, h, Host, Prop } from "@stencil/core";
   tag: "swirl-tree-navigation",
 })
 export class SwirlTreeNavigation {
-  @Prop() label: string;
+  @Prop() label!: string;
 
   render() {
     return (
