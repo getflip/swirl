@@ -90,7 +90,7 @@ export class SwirlTreeNavigationItem {
   };
 
   private toggleExpanded = (event: Event) => {
-    if (!this.href) {
+    if (!this.href || !this.expandable) {
       event.preventDefault();
       event.stopPropagation();
 
