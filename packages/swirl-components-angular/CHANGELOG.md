@@ -1,5 +1,24 @@
 # @getflip/swirl-components-angular
 
+## 0.256.2
+
+### Patch Changes
+
+- [#862](https://github.com/getflip/swirl/pull/862)
+  [`f5d91707`](https://github.com/getflip/swirl/commit/f5d91707d06757e62d5d27e152aed97d9c80b92e)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Made check for
+  expandable component clearer
+
+* [#862](https://github.com/getflip/swirl/pull/862)
+  [`f5d91707`](https://github.com/getflip/swirl/commit/f5d91707d06757e62d5d27e152aed97d9c80b92e)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Fixed expandable
+  event swollowing
+
+* Updated dependencies
+  [[`f5d91707`](https://github.com/getflip/swirl/commit/f5d91707d06757e62d5d27e152aed97d9c80b92e),
+  [`f5d91707`](https://github.com/getflip/swirl/commit/f5d91707d06757e62d5d27e152aed97d9c80b92e)]:
+  - @getflip/swirl-components@0.256.2
+
 ## 0.256.1
 
 ### Patch Changes
