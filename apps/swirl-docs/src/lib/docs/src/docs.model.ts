@@ -90,15 +90,14 @@ export type ApiDoc = {
 
 export type OperationSchemaObject = {
   name: string;
-  type:
-    | OpenAPIV3_1.ArraySchemaObjectType
-    | OpenAPIV3_1.NonArraySchemaObjectType;
+  type: OpenAPIV3_1.NonArraySchemaObjectType;
   description: string;
   required: boolean;
   hidden: boolean;
+  array: boolean;
   properties?: OperationSchemaObject[];
-  items?: any;
   statusCode?: string;
+  enum?: string[];
 };
 
 export type OperationParamType =

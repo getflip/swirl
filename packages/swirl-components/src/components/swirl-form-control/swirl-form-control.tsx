@@ -44,6 +44,7 @@ export class SwirlFormControl {
   @Prop() label!: string;
   @Prop() labelPosition?: SwirlFormControlLabelPosition = "inside";
   @Prop() tooltip?: string;
+  @Prop() secondaryLabel?: string;
 
   @State() hasFocus: boolean;
   @State() inputValue: string;
@@ -130,7 +131,13 @@ export class SwirlFormControl {
       return;
     }
 
-    this.inputEl.setAttribute("label", this.label);
+    let label = this.label;
+
+    if (this.secondaryLabel) {
+      label += ` ${this.secondaryLabel}`;
+    }
+
+    this.inputEl.setAttribute("label", label);
   }
 
   @Listen("click", { target: "window" })
@@ -248,6 +255,11 @@ export class SwirlFormControl {
             <LabelTag class="form-control__label" onClick={this.onLabelClick}>
               <span class="form-control__label-text" id={this.labelId}>
                 {this.label}
+                {this.secondaryLabel && this.labelPosition === "outside" && (
+                  <span class="form-control__secondary-label">
+                    {this.secondaryLabel}
+                  </span>
+                )}
                 {this.tooltip && this.labelPosition === "outside" && (
                   <span class="form-control__tooltip">
                     <swirl-tooltip
@@ -260,7 +272,6 @@ export class SwirlFormControl {
                   </span>
                 )}
               </span>
-
               <span class="form-control__input">
                 <slot></slot>
               </span>

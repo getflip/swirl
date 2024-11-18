@@ -170,6 +170,16 @@
 .tag__icon {
   display: inline-flex;
   margin-left: calc(-1 * var(--s-space-4));
+  flex-shrink: 0;
+  order: 0;
+}
+
+.tag--icon-position-end {
+  & .tag__icon {
+    margin-right: calc(-1 * var(--s-space-4));
+    margin-left: 0;
+    order: 2;
+  }
 }
 
 .tag__label {
@@ -177,6 +187,7 @@
   min-width: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
+  order: 1;
 }
 
 .tag__removal-button {
@@ -187,6 +198,8 @@
   color: var(--s-icon-strong);
   background-color: transparent;
   cursor: pointer;
+  flex-shrink: 0;
+  order: 3;
 
   &:focus:not(:focus-visible) {
     outline: none;

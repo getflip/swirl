@@ -74,10 +74,12 @@ export class SwirlImageGridItem {
     this.gifPaused = false;
   }
 
+  componentWillLoad() {
+    this.computedSrc = this.src;
+  }
+
   componentDidLoad() {
     this.setupIntersectionObserver();
-
-    this.computedSrc = this.src;
 
     if (this.img?.complete) {
       this.loaded = true;

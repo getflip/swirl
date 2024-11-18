@@ -76,22 +76,22 @@ const Template = (args) => {
 
     <ul slot="secondary-nav">
       <li>
-        <swirl-shell-navigation-item label="Reporting hub">
+        <swirl-shell-navigation-item label="Reporting hub" with-gradient>
           <swirl-app-icon src="/menu-item-1.png" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>
       </li>
       <li>
-        <swirl-shell-navigation-item label="My absences">
+        <swirl-shell-navigation-item label="My absences" with-gradient>
           <swirl-app-icon src="/menu-item-2.png" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>
       </li>
       <li>
-        <swirl-shell-navigation-item label="IT self-service">
+        <swirl-shell-navigation-item label="IT self-service" with-gradient>
           <swirl-app-icon src="/menu-item-3.png" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>
       </li>
       <li>
-        <swirl-shell-navigation-item label="Office door key">
+        <swirl-shell-navigation-item label="Office door key" with-gradient>
           <swirl-app-icon src="/menu-item-4.png" slot="icon"></swirl-app-icon>
         </swirl-shell-navigation-item>
       </li>

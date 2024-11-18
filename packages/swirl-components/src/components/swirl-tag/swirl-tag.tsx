@@ -22,6 +22,8 @@ export type SwirlTagSize = "s" | "m";
 
 export type SwirlTagVariant = "default" | "outline" | "strong";
 
+export type SwirlTagIconPosition = "start" | "end";
+
 @Component({
   shadow: true,
   styleUrl: "swirl-tag.css",
@@ -31,6 +33,7 @@ export class SwirlTag {
   @Element() el: HTMLElement;
 
   @Prop() icon?: string;
+  @Prop() iconPosition: SwirlTagIconPosition = "start";
   @Prop() intent?: SwirlTagIntent = "default";
   @Prop() label!: string;
   @Prop() removable?: boolean;
@@ -73,6 +76,7 @@ export class SwirlTag {
   render() {
     const className = classnames(
       "tag",
+      `tag--icon-position-${this.iconPosition}`,
       `tag--intent-${this.intent}`,
       `tag--size-${this.size}`,
       `tag--variant-${this.variant}`

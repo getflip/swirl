@@ -1,5 +1,12 @@
 # @getflip/swirl-icons
 
+## 0.45.0
+
+### Minor Changes
+
+- [`31540c9a`](https://github.com/getflip/swirl/commit/31540c9a09aa3bcf8cebe3406f0cd2fb54f9682f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add post approval icon
+
 ## 0.44.0
 
 ### Minor Changes

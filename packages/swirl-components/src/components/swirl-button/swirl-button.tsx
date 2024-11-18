@@ -150,6 +150,7 @@ export class SwirlButton {
       `button--text-align-${this.textAlign}`,
       `button--variant-${this.variant}`,
       {
+        "button--disabled": this.disabled,
         "button--has-icon": hasIcon,
         "button--icon-only": hideLabel,
         "button--pill": this.pill,

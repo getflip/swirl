@@ -174,7 +174,10 @@
 }
 
 .radio__label {
+  display: flex;
+  align-items: center;
   font-weight: var(--s-font-weight-medium);
+  gap: var(--s-space-8);
 
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);

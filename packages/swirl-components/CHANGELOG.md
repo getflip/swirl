@@ -1,5 +1,65 @@
 # @getflip/swirl-components
 
+## 0.255.0
+
+### Minor Changes
+
+- [#856](https://github.com/getflip/swirl/pull/856)
+  [`f0ad90c4`](https://github.com/getflip/swirl/commit/f0ad90c49defa3aa8332b99339075001c8386564)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Added secondary
+  label and changed tooltip color
+
+* [#857](https://github.com/getflip/swirl/pull/857)
+  [`d3a68077`](https://github.com/getflip/swirl/commit/d3a68077f15c596f6fed41bc375c2e319ae75b89)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  iconPosition prop to swirl-tag
+
+## 0.254.1
+
+### Patch Changes
+
+- [`59d8466f`](https://github.com/getflip/swirl/commit/59d8466fbfa2e53b416233759100c03574cd8b8e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix disabled styles of
+  swirl-button when used as a link
+
+## 0.254.0
+
+### Minor Changes
+
+- [`31540c9a`](https://github.com/getflip/swirl/commit/31540c9a09aa3bcf8cebe3406f0cd2fb54f9682f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add post approval icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`31540c9a`](https://github.com/getflip/swirl/commit/31540c9a09aa3bcf8cebe3406f0cd2fb54f9682f)]:
+  - @getflip/swirl-icons@0.45.0
+
+## 0.253.0
+
+### Minor Changes
+
+- [`2a44f406`](https://github.com/getflip/swirl/commit/2a44f4067ddf8636c2e9b03fdde9d7e8bf72af4c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "tooltip" prop to swirl-radio
+
+## 0.252.1
+
+### Patch Changes
+
+- [#850](https://github.com/getflip/swirl/pull/850)
+  [`d97f762b`](https://github.com/getflip/swirl/commit/d97f762b1b38fcb0d5136845b78256046059c729)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Hide the
+  swirl-shell-navigation-item gradient if collapsed
+
+## 0.252.0
+
+### Minor Changes
+
+- [#845](https://github.com/getflip/swirl/pull/845)
+  [`63609b09`](https://github.com/getflip/swirl/commit/63609b0941b8121e542cbed881ab1c8ae91cd1a9)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix
+  swirl-app-bar to allow truncation of heading
+
 ## 0.251.0
 
 ### Minor Changes

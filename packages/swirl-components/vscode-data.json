@@ -2650,6 +2650,10 @@
           ]
         },
         {
+          "name": "secondary-label",
+          "description": ""
+        },
+        {
           "name": "tooltip",
           "description": ""
         }
@@ -10360,6 +10364,64 @@
       ]
     },
     {
+      "name": "swirl-icon-post-approval",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-present",
       "description": {
         "kind": "markdown",
@@ -14530,6 +14592,10 @@
           "description": ""
         },
         {
+          "name": "tooltip",
+          "description": ""
+        },
+        {
           "name": "value",
           "description": ""
         },
@@ -16563,6 +16629,18 @@
         {
           "name": "icon",
           "description": ""
+        },
+        {
+          "name": "icon-position",
+          "description": "",
+          "values": [
+            {
+              "name": "end"
+            },
+            {
+              "name": "start"
+            }
+          ]
         },
         {
           "name": "intent",

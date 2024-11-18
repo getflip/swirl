@@ -63,7 +63,7 @@ import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 import { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 import { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1 } from "./components/swirl-tab-bar/swirl-tab-bar";
-import { SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
+import { SwirlTagIconPosition, SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 import { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 import { SwirlTextInputFontSize, SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 import { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
@@ -130,7 +130,7 @@ export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 export { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 export { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1 } from "./components/swirl-tab-bar/swirl-tab-bar";
-export { SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
+export { SwirlTagIconPosition, SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
 export { SwirlTextAlign, SwirlTextColor, SwirlTextFontFamily, SwirlTextFontStyle, SwirlTextSize, SwirlTextTruncateDirection, SwirlTextWeight, SwirlTextWhiteSpace } from "./components/swirl-text/swirl-text";
 export { SwirlTextInputFontSize, SwirlTextInputMode as SwirlTextInputMode1, SwirlTextInputType } from "./components/swirl-text-input/swirl-text-input";
 export { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } from "./components/swirl-theme-provider/swirl-theme-provider.types";
@@ -696,6 +696,7 @@ export namespace Components {
         "invalid"?: boolean;
         "label": string;
         "labelPosition"?: SwirlFormControlLabelPosition;
+        "secondaryLabel"?: string;
         "tooltip"?: string;
     }
     interface SwirlFormGroup {
@@ -1236,6 +1237,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconPostApproval {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconPresent {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -1733,6 +1738,7 @@ export namespace Components {
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
+        "tooltip"?: string;
         "value": string;
         "variant"?: SwirlRadioVariant;
     }
@@ -2141,6 +2147,7 @@ export namespace Components {
     interface SwirlTag {
         "bordered"?: boolean;
         "icon"?: string;
+        "iconPosition": SwirlTagIconPosition;
         "intent"?: SwirlTagIntent;
         "label": string;
         "removable"?: boolean;
@@ -3933,6 +3940,12 @@ declare global {
         prototype: HTMLSwirlIconPollElement;
         new (): HTMLSwirlIconPollElement;
     };
+    interface HTMLSwirlIconPostApprovalElement extends Components.SwirlIconPostApproval, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPostApprovalElement: {
+        prototype: HTMLSwirlIconPostApprovalElement;
+        new (): HTMLSwirlIconPostApprovalElement;
+    };
     interface HTMLSwirlIconPresentElement extends Components.SwirlIconPresent, HTMLStencilElement {
     }
     var HTMLSwirlIconPresentElement: {
@@ -5540,6 +5553,7 @@ declare global {
         "swirl-icon-place": HTMLSwirlIconPlaceElement;
         "swirl-icon-play-arrow": HTMLSwirlIconPlayArrowElement;
         "swirl-icon-poll": HTMLSwirlIconPollElement;
+        "swirl-icon-post-approval": HTMLSwirlIconPostApprovalElement;
         "swirl-icon-present": HTMLSwirlIconPresentElement;
         "swirl-icon-print": HTMLSwirlIconPrintElement;
         "swirl-icon-public": HTMLSwirlIconPublicElement;
@@ -6203,6 +6217,7 @@ declare namespace LocalJSX {
         "invalid"?: boolean;
         "label": string;
         "labelPosition"?: SwirlFormControlLabelPosition;
+        "secondaryLabel"?: string;
         "tooltip"?: string;
     }
     interface SwirlFormGroup {
@@ -6743,6 +6758,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconPostApproval {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconPresent {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -7179,6 +7198,7 @@ declare namespace LocalJSX {
         "invalid"?: boolean;
         "label"?: string;
         "onValueChange"?: (event: SwirlRadioCustomEvent<string>) => void;
+        "tooltip"?: string;
         "value": string;
         "variant"?: SwirlRadioVariant;
     }
@@ -7588,6 +7608,7 @@ declare namespace LocalJSX {
     interface SwirlTag {
         "bordered"?: boolean;
         "icon"?: string;
+        "iconPosition"?: SwirlTagIconPosition;
         "intent"?: SwirlTagIntent;
         "label": string;
         "onRemove"?: (event: SwirlTagCustomEvent<MouseEvent>) => void;
@@ -7945,6 +7966,7 @@ declare namespace LocalJSX {
         "swirl-icon-place": SwirlIconPlace;
         "swirl-icon-play-arrow": SwirlIconPlayArrow;
         "swirl-icon-poll": SwirlIconPoll;
+        "swirl-icon-post-approval": SwirlIconPostApproval;
         "swirl-icon-present": SwirlIconPresent;
         "swirl-icon-print": SwirlIconPrint;
         "swirl-icon-public": SwirlIconPublic;
@@ -8314,6 +8336,7 @@ declare module "@stencil/core" {
             "swirl-icon-place": LocalJSX.SwirlIconPlace & JSXBase.HTMLAttributes<HTMLSwirlIconPlaceElement>;
             "swirl-icon-play-arrow": LocalJSX.SwirlIconPlayArrow & JSXBase.HTMLAttributes<HTMLSwirlIconPlayArrowElement>;
             "swirl-icon-poll": LocalJSX.SwirlIconPoll & JSXBase.HTMLAttributes<HTMLSwirlIconPollElement>;
+            "swirl-icon-post-approval": LocalJSX.SwirlIconPostApproval & JSXBase.HTMLAttributes<HTMLSwirlIconPostApprovalElement>;
             "swirl-icon-present": LocalJSX.SwirlIconPresent & JSXBase.HTMLAttributes<HTMLSwirlIconPresentElement>;
             "swirl-icon-print": LocalJSX.SwirlIconPrint & JSXBase.HTMLAttributes<HTMLSwirlIconPrintElement>;
             "swirl-icon-public": LocalJSX.SwirlIconPublic & JSXBase.HTMLAttributes<HTMLSwirlIconPublicElement>;
