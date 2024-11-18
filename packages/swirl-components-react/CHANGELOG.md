@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.256.0
+
+### Minor Changes
+
+- [#853](https://github.com/getflip/swirl/pull/853)
+  [`9ef1d493`](https://github.com/getflip/swirl/commit/9ef1d4938a1fe84e9f56d8f60396824604fb59bc)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Refactored Swirl
+  Tree Navigation Item
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9ef1d493`](https://github.com/getflip/swirl/commit/9ef1d4938a1fe84e9f56d8f60396824604fb59bc)]:
+  - @getflip/swirl-components@0.256.0
+
 ## 0.255.0
 
 ### Minor Changes
