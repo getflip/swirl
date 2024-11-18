@@ -7743,7 +7743,7 @@ declare namespace LocalJSX {
         "positioning"?: Strategy;
     }
     interface SwirlTreeNavigation {
-        "label"?: string;
+        "label": string;
     }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
