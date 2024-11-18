@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.256.1
+
+### Patch Changes
+
+- [#860](https://github.com/getflip/swirl/pull/860)
+  [`fc1e576a`](https://github.com/getflip/swirl/commit/fc1e576a90245b42bacb5fa79304d16857c34d21)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Fixed expandable
+  event swollowing
+
+- Updated dependencies
+  [[`fc1e576a`](https://github.com/getflip/swirl/commit/fc1e576a90245b42bacb5fa79304d16857c34d21)]:
+  - @getflip/swirl-components@0.256.1
+
 ## 0.256.0
 
 ### Minor Changes
