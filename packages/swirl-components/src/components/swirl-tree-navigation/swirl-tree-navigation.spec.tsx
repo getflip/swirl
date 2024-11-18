@@ -12,7 +12,9 @@ describe("swirl-tree-navigation", () => {
     expect(page.root).toEqualHtml(`
       <swirl-tree-navigation>
         <mock:shadow-root>
-          Hello World
+          <ul class="tree-navigation" role="tree">
+           <slot></slot>
+          </ul>
         </mock:shadow-root>
       </swirl-tree-navigation>
     `);
