@@ -2,16 +2,6 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-tree-navigation-item.mdx";
 
 export default {
-  argTypes: {
-    icon: {
-      table: {
-        type: {
-          detail: "e.g. <swirl-icon-close></swirl-icon-close>",
-          summary: "swirl-icon-*",
-        },
-      },
-    },
-  },
   component: "swirl-tree-navigation-item",
   tags: ["autodocs"],
   parameters: {
@@ -31,6 +21,6 @@ const Template = (args) => {
 export const SwirlTreeNavigationItem = Template.bind({});
 
 SwirlTreeNavigationItem.args = {
-  icon: "<swirl-icon-arrow-right-small></swirl-icon-arrow-right-small>",
+  icon: "file",
   label: "Label",
 };

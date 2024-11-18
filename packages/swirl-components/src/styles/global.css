@@ -71,6 +71,8 @@
 
   --swirl-text-input-placeholder-size: var(--s-font-size-base);
 
+  --tree-nav-item-color--active: var(--s-text-highlight);
+
   @media (--from-desktop-without-touch) {
     --swirl-button-border-top-right-radius: var(--s-border-radius-sm);
     --swirl-button-border-top-left-radius: var(--s-border-radius-sm);
@@ -87,6 +89,7 @@
 
 html.theme-dark {
   --swirl-carousel-gradient: 25, 26, 28;
+  --tree-nav-item-color--active: var(--s-text-default);
   color-scheme: dark;
 }
 

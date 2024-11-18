@@ -17409,6 +17409,19 @@
       ]
     },
     {
+      "name": "swirl-tree-navigation",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-tree-navigation-item",
       "description": {
         "kind": "markdown",
@@ -17417,6 +17430,14 @@
       "attributes": [
         {
           "name": "active",
+          "description": ""
+        },
+        {
+          "name": "expandable",
+          "description": ""
+        },
+        {
+          "name": "external",
           "description": ""
         },
         {
@@ -17429,6 +17450,14 @@
         },
         {
           "name": "label",
+          "description": ""
+        },
+        {
+          "name": "level",
+          "description": ""
+        },
+        {
+          "name": "navigation-item-id",
           "description": ""
         },
         {

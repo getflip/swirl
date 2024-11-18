@@ -2305,11 +2305,20 @@ export namespace Components {
         "position"?: SwirlTooltipPosition;
         "positioning"?: Strategy;
     }
+    interface SwirlTreeNavigation {
+        "label": string;
+    }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
+        "collapse": () => Promise<void>;
+        "expand": () => Promise<void>;
+        "expandable"?: boolean;
+        "external"?: boolean;
         "href"?: string;
         "icon"?: string;
         "label": string;
+        "level"?: number;
+        "navigationItemId": string;
         "target"?: string;
     }
     interface SwirlTreeView {
@@ -2542,6 +2551,10 @@ export interface SwirlToastCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlToggleGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlToggleGroupElement;
+}
+export interface SwirlTreeNavigationItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlTreeNavigationItemElement;
 }
 export interface SwirlTreeViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -5285,7 +5298,24 @@ declare global {
         prototype: HTMLSwirlTooltipElement;
         new (): HTMLSwirlTooltipElement;
     };
+    interface HTMLSwirlTreeNavigationElement extends Components.SwirlTreeNavigation, HTMLStencilElement {
+    }
+    var HTMLSwirlTreeNavigationElement: {
+        prototype: HTMLSwirlTreeNavigationElement;
+        new (): HTMLSwirlTreeNavigationElement;
+    };
+    interface HTMLSwirlTreeNavigationItemElementEventMap {
+        "expansionChange": boolean;
+    }
     interface HTMLSwirlTreeNavigationItemElement extends Components.SwirlTreeNavigationItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTreeNavigationItemElementEventMap>(type: K, listener: (this: HTMLSwirlTreeNavigationItemElement, ev: SwirlTreeNavigationItemCustomEvent<HTMLSwirlTreeNavigationItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTreeNavigationItemElementEventMap>(type: K, listener: (this: HTMLSwirlTreeNavigationItemElement, ev: SwirlTreeNavigationItemCustomEvent<HTMLSwirlTreeNavigationItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTreeNavigationItemElement: {
         prototype: HTMLSwirlTreeNavigationItemElement;
@@ -5694,6 +5724,7 @@ declare global {
         "swirl-toggle-group": HTMLSwirlToggleGroupElement;
         "swirl-toolbar": HTMLSwirlToolbarElement;
         "swirl-tooltip": HTMLSwirlTooltipElement;
+        "swirl-tree-navigation": HTMLSwirlTreeNavigationElement;
         "swirl-tree-navigation-item": HTMLSwirlTreeNavigationItemElement;
         "swirl-tree-view": HTMLSwirlTreeViewElement;
         "swirl-tree-view-item": HTMLSwirlTreeViewItemElement;
@@ -7711,11 +7742,19 @@ declare namespace LocalJSX {
         "position"?: SwirlTooltipPosition;
         "positioning"?: Strategy;
     }
+    interface SwirlTreeNavigation {
+        "label"?: string;
+    }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
+        "expandable"?: boolean;
+        "external"?: boolean;
         "href"?: string;
         "icon"?: string;
         "label": string;
+        "level"?: number;
+        "navigationItemId": string;
+        "onExpansionChange"?: (event: SwirlTreeNavigationItemCustomEvent<boolean>) => void;
         "target"?: string;
     }
     interface SwirlTreeView {
@@ -8098,6 +8137,7 @@ declare namespace LocalJSX {
         "swirl-toggle-group": SwirlToggleGroup;
         "swirl-toolbar": SwirlToolbar;
         "swirl-tooltip": SwirlTooltip;
+        "swirl-tree-navigation": SwirlTreeNavigation;
         "swirl-tree-navigation-item": SwirlTreeNavigationItem;
         "swirl-tree-view": SwirlTreeView;
         "swirl-tree-view-item": SwirlTreeViewItem;
@@ -8467,6 +8507,7 @@ declare module "@stencil/core" {
             "swirl-toggle-group": LocalJSX.SwirlToggleGroup & JSXBase.HTMLAttributes<HTMLSwirlToggleGroupElement>;
             "swirl-toolbar": LocalJSX.SwirlToolbar & JSXBase.HTMLAttributes<HTMLSwirlToolbarElement>;
             "swirl-tooltip": LocalJSX.SwirlTooltip & JSXBase.HTMLAttributes<HTMLSwirlTooltipElement>;
+            "swirl-tree-navigation": LocalJSX.SwirlTreeNavigation & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationElement>;
             "swirl-tree-navigation-item": LocalJSX.SwirlTreeNavigationItem & JSXBase.HTMLAttributes<HTMLSwirlTreeNavigationItemElement>;
             "swirl-tree-view": LocalJSX.SwirlTreeView & JSXBase.HTMLAttributes<HTMLSwirlTreeViewElement>;
             "swirl-tree-view-item": LocalJSX.SwirlTreeViewItem & JSXBase.HTMLAttributes<HTMLSwirlTreeViewItemElement>;

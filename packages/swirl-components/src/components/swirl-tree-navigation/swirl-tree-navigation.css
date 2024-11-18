@@ -1,0 +1,12 @@
+:host {
+  display: block;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.tree-navigation {
+  margin: 0;
+  padding: 0;
+}
