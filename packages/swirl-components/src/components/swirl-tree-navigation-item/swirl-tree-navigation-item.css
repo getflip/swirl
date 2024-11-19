@@ -56,17 +56,17 @@
 
 /* Active link styles */
 .tree-navigation-item__link--active {
-  background-color: var(--s-surface-raised-default);
-  color: var(--tree-nav-item-color--active, var(--s-text-highlight));
+  background-color: var(--s-background-hovered);
+  color: var(--s-text-highlight);
   --tree-nav-item-label-weight: var(--s-font-weight-medium);
 }
 
 .tree-navigation-item__link--active:hover {
-  background-color: var(--s-surface-raised-hovered);
+  background-color: var(--s-background-pressed);
 }
 
 .tree-navigation-item__link--active:active {
-  background-color: var(--s-surface-raised-pressed);
+  background-color: var(--s-background-pressed);
 }
 
 /* Layout components */
