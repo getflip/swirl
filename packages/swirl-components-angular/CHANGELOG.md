@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.257.0
+
+### Minor Changes
+
+- [#864](https://github.com/getflip/swirl/pull/864)
+  [`ecbd8609`](https://github.com/getflip/swirl/commit/ecbd860903169e635c00a8c2384b1c4139201915)
+  Thanks [@webspaceadam](https://github.com/webspaceadam)! - Added animation and
+  wrapper element to swirl navigation item component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ecbd8609`](https://github.com/getflip/swirl/commit/ecbd860903169e635c00a8c2384b1c4139201915)]:
+  - @getflip/swirl-components@0.257.0
+
 ## 0.256.2
 
 ### Patch Changes
