@@ -33,17 +33,33 @@ export class SwirlTreeNavigationItem {
   @Event() expansionChange!: EventEmitter<boolean>;
   @State() expanded = false;
   @State() hasChildren = false;
+  @State() childrenHeight = "0";
 
   private buttonId = `${this.navigationItemId}-button`;
   private childrenId = `${this.navigationItemId}-children`;
+  private childrenRef?: HTMLUListElement;
 
   componentWillLoad() {
     this.checkForChildren();
   }
 
+  componentDidLoad() {
+    if (this.hasChildren && this.expanded) {
+      this.updateChildrenHeight();
+    }
+  }
+
+  private updateChildrenHeight() {
+    if (this.childrenRef) {
+      const height = this.expanded ? `${this.childrenRef.scrollHeight}px` : "0";
+      this.childrenHeight = height;
+    }
+  }
+
   @Watch("expanded")
   handleExpandedChange() {
     this.expansionChange.emit(this.expanded);
+    this.updateChildrenHeight();
   }
 
   private checkForChildren() {
@@ -113,7 +129,10 @@ export class SwirlTreeNavigationItem {
     return (
       <Host role="none">
         <li
-          class="tree-navigation-item"
+          class={{
+            "tree-navigation-item": true,
+            "tree-navigation-item--expanded": this.expanded,
+          }}
           role="treeitem"
           aria-expanded={this.hasChildren ? this.expanded : undefined}
           aria-level={this.level}
@@ -184,8 +203,9 @@ export class SwirlTreeNavigationItem {
               id={this.childrenId}
               role="group"
               aria-label={`${this.label} submenu`}
+              ref={(el) => (this.childrenRef = el as HTMLUListElement)}
               style={{
-                display: !this.expanded ? "none" : undefined,
+                height: this.childrenHeight,
               }}
             >
               <slot></slot>
