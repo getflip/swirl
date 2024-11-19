@@ -141,40 +141,42 @@ export class SwirlTreeNavigationItem {
                   aria-label={`${this.label} icon`}
                 ></swirl-icon>
               )}
-              <span class="tree-navigation-item__label">{this.label}</span>
-            </span>
-            {this.expandable && this.hasChildren && !this.external && (
-              <span
-                class="tree-navigation-item__toggle-icon"
-                aria-hidden="true"
-              >
-                {this.expanded ? (
-                  <swirl-icon-expand-more
-                    size={16}
-                    role="img"
-                    aria-label="Collapse"
-                  ></swirl-icon-expand-more>
-                ) : (
-                  <swirl-icon-chevron-right
-                    size={16}
-                    role="img"
-                    aria-label="Expand"
-                  ></swirl-icon-chevron-right>
+              <span class="tree-navigation-item__label">
+                {this.label}
+                {this.expandable && this.hasChildren && !this.external && (
+                  <span
+                    class="tree-navigation-item__toggle-icon"
+                    aria-hidden="true"
+                  >
+                    {this.expanded ? (
+                      <swirl-icon-expand-more
+                        size={16}
+                        role="img"
+                        aria-label="Collapse"
+                      ></swirl-icon-expand-more>
+                    ) : (
+                      <swirl-icon-chevron-right
+                        size={16}
+                        role="img"
+                        aria-label="Expand"
+                      ></swirl-icon-chevron-right>
+                    )}
+                  </span>
+                )}
+                {this.external && (
+                  <span
+                    class="tree-navigation-item__external-icon"
+                    aria-hidden="true"
+                  >
+                    <swirl-icon-open-in-new
+                      size={16}
+                      role="img"
+                      aria-label="External link"
+                    ></swirl-icon-open-in-new>
+                  </span>
                 )}
               </span>
-            )}
-            {this.external && (
-              <span
-                class="tree-navigation-item__external-icon"
-                aria-hidden="true"
-              >
-                <swirl-icon-open-in-new
-                  size={16}
-                  role="img"
-                  aria-label="External link"
-                ></swirl-icon-open-in-new>
-              </span>
-            )}
+            </span>
           </Tag>
           {this.hasChildren && (
             <ul

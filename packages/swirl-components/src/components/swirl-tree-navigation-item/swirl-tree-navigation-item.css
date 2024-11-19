@@ -98,15 +98,19 @@
   flex-shrink: 0;
   max-height: 1rem;
   color: var(--s-icon-default);
+  margin-left: var(--s-space-4);
 }
 
 .tree-navigation-item__external-icon {
   max-height: 1rem;
   color: var(--s-icon-default);
+  margin-left: var(--s-space-4);
 }
 
 /* Label styles */
 .tree-navigation-item__label {
+  display: inline-flex;
+  align-items: center;
   overflow: hidden;
   min-width: 0;
   padding: 0 var(--s-space-2);
