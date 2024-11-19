@@ -161,25 +161,19 @@ export class SwirlTreeNavigationItem {
                 ></swirl-icon>
               )}
               <span class="tree-navigation-item__label">
-                {this.label}
+                <span class="tree-navigation-item__label-text">
+                  {this.label}
+                </span>
                 {this.expandable && this.hasChildren && !this.external && (
                   <span
                     class="tree-navigation-item__toggle-icon"
                     aria-hidden="true"
                   >
-                    {this.expanded ? (
-                      <swirl-icon-expand-more
-                        size={16}
-                        role="img"
-                        aria-label="Collapse"
-                      ></swirl-icon-expand-more>
-                    ) : (
-                      <swirl-icon-chevron-right
-                        size={16}
-                        role="img"
-                        aria-label="Expand"
-                      ></swirl-icon-chevron-right>
-                    )}
+                    <swirl-icon-chevron-right
+                      size={16}
+                      role="img"
+                      aria-label="Expand"
+                    ></swirl-icon-chevron-right>
                   </span>
                 )}
                 {this.external && (
