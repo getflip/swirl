@@ -16,7 +16,9 @@ describe("swirl-tree-navigation-item", () => {
               <span class="tree-navigation-item__content">
                 <swirl-icon aria-hidden="true" aria-label="Label icon" class="tree-navigation-item__icon" glyph="Icon" role="img" size="20"></swirl-icon>
                 <span class="tree-navigation-item__label">
-                  Label
+                  <span class="tree-navigation-item__label-text">
+                    Label
+                  </span>
                 </span>
               </span>
             </button>
