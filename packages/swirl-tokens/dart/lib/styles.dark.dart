@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Tue, 19 Nov 2024 07:33:30 GMT
+// Generated on Wed, 20 Nov 2024 10:52:12 GMT
 
 
 
@@ -31,7 +31,7 @@ class SwirlDesignTokensDark {
     static const backgroundPressed = Color(0xFF2B2B2B); /* Used if a component with “Background/Default” has a pressed state. */
     static const borderCritical = Color(0xFFE46464); /* Usally used as an border on critical components. */
     static const borderDefault = Color(0x1FFFFFFF); /* Usually used for low emphasis borders and espacially divider elements. */
-    static const borderHighlight = Color(0xFF568FDE); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
+    static const borderHighlight = Color(0xFF6DA8FB); /* Used as border color on containers that need to be highlighted (e.g. form fields). */
     static const borderInfo = Color(0xFF648EE9); /* Usally used as an border on info components. */
     static const borderOnHighlight = Color(0xFF5C76AE); /* Used as border color on containers that have an highlight surface */
     static const borderRadiusBase = 12.00;
@@ -53,9 +53,9 @@ class SwirlDesignTokensDark {
     static const coreCustomerColorDark2Default = Color(0xFF2D477F);
     static const coreCustomerColorDark2Hovered = Color(0xFF34508D);
     static const coreCustomerColorDark2Pressed = Color(0xFF405B97);
-    static const coreCustomerColorDark3Default = Color(0xFF568FDE);
-    static const coreCustomerColorDark3Hovered = Color(0xFF79A4DF);
-    static const coreCustomerColorDark3Pressed = Color(0xFF96B5E0);
+    static const coreCustomerColorDark3Default = Color(0xFF6DA8FB);
+    static const coreCustomerColorDark3Hovered = Color(0xFF8DBCFF);
+    static const coreCustomerColorDark3Pressed = Color(0xFFB6D5FF);
     static const coreCustomerColorLight1Default = Color(0xFF145AF5);
     static const coreCustomerColorLight1Hovered = Color(0xFF3773F7);
     static const coreCustomerColorLight1Pressed = Color(0xFF5B8BF8);
@@ -171,7 +171,7 @@ class SwirlDesignTokensDark {
     static const decorativeRadishSurface = Color(0xFFF278CC); /* Used as a decorative color. */
     static const decorativeRadishSurfaceSubdued = Color(0xFF4F3045); /* Used as a decorative color. */
     static const decorativeRadishText = Color(0xFFF278CC); /* Used as a decorative color. */
-    static const focusDefault = Color(0xFF568FDE);
+    static const focusDefault = Color(0xFF6DA8FB);
     static const fontFamilyCode = "'Fira Mono', Courier, monospace";
     static const fontFamilyText = "'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif";
     static const fontFamilyTextArabic = "-apple-system, system-ui";
@@ -192,7 +192,7 @@ class SwirlDesignTokensDark {
     static const iconDark = Color(0xFF191919); /* Used for low contrast decorative colors. */
     static const iconDefault = Color(0xFF9E9E9E); /* Used for low emphasis icons. */
     static const iconDisabled = Color(0xFF515151); /* Used if a icon element is disabled. */
-    static const iconHighlight = Color(0xFF568FDE); /* Used to highlight icons. */
+    static const iconHighlight = Color(0xFF6DA8FB); /* Used to highlight icons. */
     static const iconInfo = Color(0xFF648EE9); /* Used as info icon color */
     static const iconOnActionPrimary = Color(0xFF000000); /* Used as a icon color on containers with action primary color. */
     static const iconOnImage = Color(0xFFFFFFFF); /* Used as a icon color on “Surface On Image/Default”. */
@@ -210,10 +210,10 @@ class SwirlDesignTokensDark {
     static const interactiveNeutralDisabled = Color(0xFF515151); /* Used if a component with “Interactive Neutral/Default” has a disabled state. */
     static const interactiveNeutralHovered = Color(0xFF6E6E6E); /* Used if a component with “Interactive Neutral/Default” has a hovered state. */
     static const interactiveNeutralPressed = Color(0xFF6E6E6E); /* Used if a component with “Interactive Neutral/Default” has a pressed state. */
-    static const interactivePrimaryDefault = Color(0xFF568FDE); /* Used for icon and text that are high emphasis interactive elements. */
+    static const interactivePrimaryDefault = Color(0xFF6DA8FB); /* Used for icon and text that are high emphasis interactive elements. */
     static const interactivePrimaryDisabled = Color(0xFF515151); /* Used if a component with “Interactive Primary/Default” has a disabled state. */
-    static const interactivePrimaryHovered = Color(0xFF79A4DF); /* Used if a component with “Interactive Primary/Default” has a hovered state. */
-    static const interactivePrimaryPressed = Color(0xFF96B5E0); /* Used if a component with “Interactive Primary/Default” has a pressed state. */
+    static const interactivePrimaryHovered = Color(0xFF8DBCFF); /* Used if a component with “Interactive Primary/Default” has a hovered state. */
+    static const interactivePrimaryPressed = Color(0xFFB6D5FF); /* Used if a component with “Interactive Primary/Default” has a pressed state. */
     static const letterSpacingNormal = 0.00;
     static const letterSpacingTight = -0.22;
     static const letterSpacingTighter = -0.32;
@@ -268,7 +268,7 @@ class SwirlDesignTokensDark {
     static const textDark = Color(0xFF191919); /* Used for low contrast decorative colors. */
     static const textDefault = Color(0xFFF2F2F2); /* Used for high emphasis text. */
     static const textDisabled = Color(0xFF515151); /* Used if a text element is disabled. */
-    static const textHighlight = Color(0xFF568FDE); /* Used to highlight text. */
+    static const textHighlight = Color(0xFF6DA8FB); /* Used to highlight text. */
     static const textInfo = Color(0xFF648EE9); /* Used as info text color */
     static const textOnActionPrimary = Color(0xFF000000); /* Used as a text color on containers with action primary color. */
     static const textOnImage = Color(0xFFFFFFFF); /* Used as a text color on “Surface On Image/Default”. */

@@ -353,15 +353,15 @@
     "type": "color"
   },
   "core-customer-color-dark-3-default": {
-    "value": "rgba(86, 143, 222, 1)",
+    "value": "rgba(109, 168, 251, 1)",
     "type": "color"
   },
   "core-customer-color-dark-3-hovered": {
-    "value": "rgba(121, 164, 223, 1)",
+    "value": "rgba(141, 188, 255, 1)",
     "type": "color"
   },
   "core-customer-color-dark-3-pressed": {
-    "value": "rgba(150, 181, 224, 1)",
+    "value": "rgba(182, 213, 255, 1)",
     "type": "color"
   },
   "core-on-customer-color-dark-1": {
