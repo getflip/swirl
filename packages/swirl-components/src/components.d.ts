@@ -1601,6 +1601,8 @@ export namespace Components {
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
+        "hideSecondaryContent"?: boolean;
+        "hideSecondaryContentBorders"?: boolean;
         "label": string;
         "maxHeight"?: string;
         "maxWidth"?: string;
@@ -1610,7 +1612,12 @@ export namespace Components {
         "open": () => Promise<void>;
         "padded"?: boolean;
         "primaryActionLabel"?: string;
+        "primaryContentFlex"?: string;
+        "primaryContentMaxWidth"?: string;
+        "removeSecondaryContentPadding"?: boolean;
         "secondaryActionLabel"?: string;
+        "secondaryContentFlex"?: string;
+        "secondaryContentMaxWidth"?: string;
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
@@ -7064,6 +7071,8 @@ declare namespace LocalJSX {
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
+        "hideSecondaryContent"?: boolean;
+        "hideSecondaryContentBorders"?: boolean;
         "label": string;
         "maxHeight"?: string;
         "maxWidth"?: string;
@@ -7074,7 +7083,12 @@ declare namespace LocalJSX {
         "onSecondaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "padded"?: boolean;
         "primaryActionLabel"?: string;
+        "primaryContentFlex"?: string;
+        "primaryContentMaxWidth"?: string;
+        "removeSecondaryContentPadding"?: boolean;
         "secondaryActionLabel"?: string;
+        "secondaryContentFlex"?: string;
+        "secondaryContentMaxWidth"?: string;
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {

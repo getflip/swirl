@@ -14031,6 +14031,14 @@
           "description": ""
         },
         {
+          "name": "hide-secondary-content",
+          "description": ""
+        },
+        {
+          "name": "hide-secondary-content-borders",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
@@ -14051,7 +14059,27 @@
           "description": ""
         },
         {
+          "name": "primary-content-flex",
+          "description": ""
+        },
+        {
+          "name": "primary-content-max-width",
+          "description": ""
+        },
+        {
+          "name": "remove-secondary-content-padding",
+          "description": ""
+        },
+        {
           "name": "secondary-action-label",
+          "description": ""
+        },
+        {
+          "name": "secondary-content-flex",
+          "description": ""
+        },
+        {
+          "name": "secondary-content-max-width",
           "description": ""
         },
         {

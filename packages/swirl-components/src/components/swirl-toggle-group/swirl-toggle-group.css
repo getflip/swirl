@@ -10,4 +10,5 @@
   padding: var(--s-space-4);
   background-color: var(--s-surface-default);
   border-radius: var(--s-border-radius-base);
+  box-shadow: var(--s-shadow-level-1);
 }

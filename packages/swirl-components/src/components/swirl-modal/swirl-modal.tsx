@@ -43,6 +43,13 @@ export class SwirlModal {
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
   @Prop() variant?: SwirlModalVariant = "default";
+  @Prop() hideSecondaryContent?: boolean;
+  @Prop() primaryContentMaxWidth?: string;
+  @Prop() secondaryContentMaxWidth?: string;
+  @Prop() primaryContentFlex?: string;
+  @Prop() secondaryContentFlex?: string;
+  @Prop() hideSecondaryContentBorders?: boolean;
+  @Prop() removeSecondaryContentPadding?: boolean;
 
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
@@ -235,12 +242,16 @@ export class SwirlModal {
       "modal--has-custom-footer": this.hasCustomFooter,
       "modal--has-custom-header": this.hasCustomHeader,
       "modal--has-header-tools": this.hasHeaderTools,
-      "modal--has-secondary-content": this.hasSecondaryContent,
+      "modal--has-secondary-content":
+        this.hasSecondaryContent && !this.hideSecondaryContent,
       "modal--hide-label": this.hideLabel,
       "modal--padded": this.padded,
       "modal--scrollable": this.scrollable,
       "modal--scrolled": this.scrolled,
       "modal--scrolled-down": this.scrolledDown,
+      "modal--hide-secondary-content-borders": this.hideSecondaryContentBorders,
+      "modal--remove-secondary-content-padding":
+        this.removeSecondaryContentPadding,
     });
 
     return (
@@ -294,7 +305,13 @@ export class SwirlModal {
               </header>
             )}
             <div class="modal__content-container">
-              <div class="modal__primary-content">
+              <div
+                class="modal__primary-content"
+                style={{
+                  maxWidth: this.primaryContentMaxWidth,
+                  flex: this.primaryContentFlex,
+                }}
+              >
                 <div class="modal__header-tools">
                   <slot name="header-tools"></slot>
                 </div>
@@ -306,7 +323,13 @@ export class SwirlModal {
                   <slot></slot>
                 </div>
               </div>
-              <div class="modal__secondary-content">
+              <div
+                class="modal__secondary-content"
+                style={{
+                  maxWidth: this.secondaryContentMaxWidth,
+                  flex: this.secondaryContentFlex,
+                }}
+              >
                 <slot name="secondary-content"></slot>
               </div>
             </div>
