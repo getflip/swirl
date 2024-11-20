@@ -23,6 +23,10 @@ export class SwirlImageGrid {
       this.el.children
     ) as HTMLSwirlImageGridItemElement[];
 
+    this.items.forEach((item) => {
+      item.overlay = undefined;
+    });
+
     if (this.items.length > 4) {
       this.items[3].overlay = `+${this.items.length - 4}`;
     }

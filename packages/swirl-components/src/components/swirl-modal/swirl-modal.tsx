@@ -16,6 +16,17 @@ import * as focusTrap from "focus-trap";
 
 export type SwirlModalVariant = "default" | "drawer";
 
+export type SwirlModalPadding =
+  | "0"
+  | "2"
+  | "4"
+  | "8"
+  | "12"
+  | "16"
+  | "20"
+  | "24"
+  | "32";
+
 /**
  * @slot slot - Modal contents
  * @slot secondary-content - Secondary content
@@ -43,6 +54,17 @@ export class SwirlModal {
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
   @Prop() variant?: SwirlModalVariant = "default";
+  @Prop() hideSecondaryContent?: boolean;
+  @Prop() primaryContentMaxWidth?: string;
+  @Prop() secondaryContentMaxWidth?: string;
+  @Prop() primaryContentFlex?: string;
+  @Prop() secondaryContentFlex?: string;
+  @Prop() hideSecondaryContentBorders?: boolean;
+  @Prop() secondaryContentPadding?: SwirlModalPadding;
+  @Prop() secondaryContentPaddingBlockEnd?: SwirlModalPadding;
+  @Prop() secondaryContentPaddingBlockStart?: SwirlModalPadding;
+  @Prop() secondaryContentPaddingInlineEnd?: SwirlModalPadding;
+  @Prop() secondaryContentPaddingInlineStart?: SwirlModalPadding;
 
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
@@ -235,12 +257,14 @@ export class SwirlModal {
       "modal--has-custom-footer": this.hasCustomFooter,
       "modal--has-custom-header": this.hasCustomHeader,
       "modal--has-header-tools": this.hasHeaderTools,
-      "modal--has-secondary-content": this.hasSecondaryContent,
+      "modal--has-secondary-content":
+        this.hasSecondaryContent && !this.hideSecondaryContent,
       "modal--hide-label": this.hideLabel,
       "modal--padded": this.padded,
       "modal--scrollable": this.scrollable,
       "modal--scrolled": this.scrolled,
       "modal--scrolled-down": this.scrolledDown,
+      "modal--hide-secondary-content-borders": this.hideSecondaryContentBorders,
     });
 
     return (
@@ -294,7 +318,13 @@ export class SwirlModal {
               </header>
             )}
             <div class="modal__content-container">
-              <div class="modal__primary-content">
+              <div
+                class="modal__primary-content"
+                style={{
+                  maxWidth: this.primaryContentMaxWidth,
+                  flex: this.primaryContentFlex,
+                }}
+              >
                 <div class="modal__header-tools">
                   <slot name="header-tools"></slot>
                 </div>
@@ -306,7 +336,34 @@ export class SwirlModal {
                   <slot></slot>
                 </div>
               </div>
-              <div class="modal__secondary-content">
+              <div
+                class="modal__secondary-content"
+                style={{
+                  maxWidth: this.secondaryContentMaxWidth,
+                  flex: this.secondaryContentFlex,
+                  padding: Boolean(this.secondaryContentPadding)
+                    ? `var(--s-space-${this.secondaryContentPadding})`
+                    : undefined,
+                  paddingBlockEnd: Boolean(this.secondaryContentPaddingBlockEnd)
+                    ? `var(--s-space-${this.secondaryContentPaddingBlockEnd})`
+                    : undefined,
+                  paddingBlockStart: Boolean(
+                    this.secondaryContentPaddingBlockStart
+                  )
+                    ? `var(--s-space-${this.secondaryContentPaddingBlockStart})`
+                    : undefined,
+                  paddingInlineEnd: Boolean(
+                    this.secondaryContentPaddingInlineEnd
+                  )
+                    ? `var(--s-space-${this.secondaryContentPaddingInlineEnd})`
+                    : undefined,
+                  paddingInlineStart: Boolean(
+                    this.secondaryContentPaddingInlineStart
+                  )
+                    ? `var(--s-space-${this.secondaryContentPaddingInlineStart})`
+                    : undefined,
+                }}
+              >
                 <slot name="secondary-content"></slot>
               </div>
             </div>

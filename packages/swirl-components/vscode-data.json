@@ -14031,6 +14031,14 @@
           "description": ""
         },
         {
+          "name": "hide-secondary-content",
+          "description": ""
+        },
+        {
+          "name": "hide-secondary-content-borders",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
@@ -14051,8 +14059,189 @@
           "description": ""
         },
         {
+          "name": "primary-content-flex",
+          "description": ""
+        },
+        {
+          "name": "primary-content-max-width",
+          "description": ""
+        },
+        {
           "name": "secondary-action-label",
           "description": ""
+        },
+        {
+          "name": "secondary-content-flex",
+          "description": ""
+        },
+        {
+          "name": "secondary-content-max-width",
+          "description": ""
+        },
+        {
+          "name": "secondary-content-padding",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "20"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
+          "name": "secondary-content-padding-block-end",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "20"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
+          "name": "secondary-content-padding-block-start",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "20"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
+          "name": "secondary-content-padding-inline-end",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "20"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
+          "name": "secondary-content-padding-inline-start",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "20"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
         },
         {
           "name": "variant",

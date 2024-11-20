@@ -25,8 +25,10 @@
   --swirl-modal-max-height: 90vh;
   --swirl-modal-view-height: 100vh;
   --swirl-modal-max-width: 40rem;
-  --swirl-modal-footer-padding-small: var(--s-space-12) var(--s-space-16) var(--s-space-12) var(--s-space-16);
-  --swirl-modal-footer-padding-large: var(--s-space-16) var(--s-space-24) var(--s-space-16) var(--s-space-24);
+  --swirl-modal-footer-padding-small: var(--s-space-12) var(--s-space-16)
+    var(--s-space-12) var(--s-space-16);
+  --swirl-modal-footer-padding-large: var(--s-space-16) var(--s-space-24)
+    var(--s-space-16) var(--s-space-24);
 
   @supports (height: 100dvh) {
     --swirl-modal-max-height: 90dvh;
@@ -207,21 +209,23 @@
     max-width: 64rem;
   }
 
-  &:not(.modal--has-header-tools) .modal__header {
+  &:not(.modal--has-header-tools):not(.modal--hide-secondary-content-borders)
+    .modal__header {
     border-bottom-color: var(--s-border-default);
   }
 
-  &.modal--has-header-tools .modal__header-tools {
+  &.modal--has-header-tools:not(.modal--hide-secondary-content-borders)
+    .modal__header-tools {
     border-bottom-color: var(--s-border-default);
   }
 
-  &.modal--has-custom-footer {
+  &.modal--has-custom-footer:not(.modal--hide-secondary-content-borders) {
     & .modal__custom-footer {
       border-top: var(--s-border-width-default) solid var(--s-border-default);
     }
   }
 
-  &:not(.modal--has-custom-footer) {
+  &:not(.modal--has-custom-footer):not(.modal--hide-secondary-content-borders) {
     & .modal__controls {
       border-top: var(--s-border-width-default) solid var(--s-border-default);
     }
