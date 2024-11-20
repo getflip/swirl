@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Tue, 19 Nov 2024 07:33:30 GMT
+// Generated on Wed, 20 Nov 2024 10:49:58 GMT
 
 
 
@@ -53,9 +53,9 @@ class SwirlDesignTokensLight {
     static const coreCustomerColorDark2Default = Color(0xFF2D477F);
     static const coreCustomerColorDark2Hovered = Color(0xFF34508D);
     static const coreCustomerColorDark2Pressed = Color(0xFF405B97);
-    static const coreCustomerColorDark3Default = Color(0xFF568FDE);
-    static const coreCustomerColorDark3Hovered = Color(0xFF79A4DF);
-    static const coreCustomerColorDark3Pressed = Color(0xFF96B5E0);
+    static const coreCustomerColorDark3Default = Color(0xFF6DA8FB);
+    static const coreCustomerColorDark3Hovered = Color(0xFF8DBCFF);
+    static const coreCustomerColorDark3Pressed = Color(0xFFB6D5FF);
     static const coreCustomerColorLight1Default = Color(0xFF145AF5);
     static const coreCustomerColorLight1Hovered = Color(0xFF3773F7);
     static const coreCustomerColorLight1Pressed = Color(0xFF5B8BF8);
