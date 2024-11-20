@@ -40,7 +40,7 @@ import { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swi
 import { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 import { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
 import { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
-import { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
+import { SwirlModalPadding, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 import { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
@@ -107,7 +107,7 @@ export { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swi
 export { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 export { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
 export { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
-export { SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
+export { SwirlModalPadding, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 export { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
@@ -1614,10 +1614,14 @@ export namespace Components {
         "primaryActionLabel"?: string;
         "primaryContentFlex"?: string;
         "primaryContentMaxWidth"?: string;
-        "removeSecondaryContentPadding"?: boolean;
         "secondaryActionLabel"?: string;
         "secondaryContentFlex"?: string;
         "secondaryContentMaxWidth"?: string;
+        "secondaryContentPadding"?: SwirlModalPadding;
+        "secondaryContentPaddingBlockEnd"?: SwirlModalPadding;
+        "secondaryContentPaddingBlockStart"?: SwirlModalPadding;
+        "secondaryContentPaddingInlineEnd"?: SwirlModalPadding;
+        "secondaryContentPaddingInlineStart"?: SwirlModalPadding;
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
@@ -7085,10 +7089,14 @@ declare namespace LocalJSX {
         "primaryActionLabel"?: string;
         "primaryContentFlex"?: string;
         "primaryContentMaxWidth"?: string;
-        "removeSecondaryContentPadding"?: boolean;
         "secondaryActionLabel"?: string;
         "secondaryContentFlex"?: string;
         "secondaryContentMaxWidth"?: string;
+        "secondaryContentPadding"?: SwirlModalPadding;
+        "secondaryContentPaddingBlockEnd"?: SwirlModalPadding;
+        "secondaryContentPaddingBlockStart"?: SwirlModalPadding;
+        "secondaryContentPaddingInlineEnd"?: SwirlModalPadding;
+        "secondaryContentPaddingInlineStart"?: SwirlModalPadding;
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {

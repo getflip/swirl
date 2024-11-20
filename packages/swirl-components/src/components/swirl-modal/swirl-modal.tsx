@@ -16,6 +16,17 @@ import * as focusTrap from "focus-trap";
 
 export type SwirlModalVariant = "default" | "drawer";
 
+export type SwirlModalPadding =
+  | "0"
+  | "2"
+  | "4"
+  | "8"
+  | "12"
+  | "16"
+  | "20"
+  | "24"
+  | "32";
+
 /**
  * @slot slot - Modal contents
  * @slot secondary-content - Secondary content
@@ -49,7 +60,11 @@ export class SwirlModal {
   @Prop() primaryContentFlex?: string;
   @Prop() secondaryContentFlex?: string;
   @Prop() hideSecondaryContentBorders?: boolean;
-  @Prop() removeSecondaryContentPadding?: boolean;
+  @Prop() secondaryContentPadding?: SwirlModalPadding;
+  @Prop() secondaryContentPaddingBlockEnd?: SwirlModalPadding;
+  @Prop() secondaryContentPaddingBlockStart?: SwirlModalPadding;
+  @Prop() secondaryContentPaddingInlineEnd?: SwirlModalPadding;
+  @Prop() secondaryContentPaddingInlineStart?: SwirlModalPadding;
 
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
@@ -250,8 +265,6 @@ export class SwirlModal {
       "modal--scrolled": this.scrolled,
       "modal--scrolled-down": this.scrolledDown,
       "modal--hide-secondary-content-borders": this.hideSecondaryContentBorders,
-      "modal--remove-secondary-content-padding":
-        this.removeSecondaryContentPadding,
     });
 
     return (
@@ -328,6 +341,27 @@ export class SwirlModal {
                 style={{
                   maxWidth: this.secondaryContentMaxWidth,
                   flex: this.secondaryContentFlex,
+                  padding: Boolean(this.secondaryContentPadding)
+                    ? `var(--s-space-${this.secondaryContentPadding})`
+                    : undefined,
+                  paddingBlockEnd: Boolean(this.secondaryContentPaddingBlockEnd)
+                    ? `var(--s-space-${this.secondaryContentPaddingBlockEnd})`
+                    : undefined,
+                  paddingBlockStart: Boolean(
+                    this.secondaryContentPaddingBlockStart
+                  )
+                    ? `var(--s-space-${this.secondaryContentPaddingBlockStart})`
+                    : undefined,
+                  paddingInlineEnd: Boolean(
+                    this.secondaryContentPaddingInlineEnd
+                  )
+                    ? `var(--s-space-${this.secondaryContentPaddingInlineEnd})`
+                    : undefined,
+                  paddingInlineStart: Boolean(
+                    this.secondaryContentPaddingInlineStart
+                  )
+                    ? `var(--s-space-${this.secondaryContentPaddingInlineStart})`
+                    : undefined,
                 }}
               >
                 <slot name="secondary-content"></slot>

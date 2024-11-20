@@ -433,12 +433,6 @@
   }
 }
 
-.modal--remove-secondary-content-padding {
-  & .modal__secondary-content {
-    padding: 0;
-  }
-}
-
 @keyframes modal-scale-in {
   from {
     transform: scale(0);
