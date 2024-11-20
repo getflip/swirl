@@ -1,5 +1,14 @@
 # swirl-tokens
 
+## 2.7.0
+
+### Minor Changes
+
+- [#866](https://github.com/getflip/swirl/pull/866)
+  [`e93a6372`](https://github.com/getflip/swirl/commit/e93a63721e7c227019080155b0b64e2597d6f2ca)
+  Thanks [@lukasballier](https://github.com/lukasballier)! - Adjust customer
+  core color tokens
+
 ## 2.6.0
 
 ### Minor Changes
