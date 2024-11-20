@@ -509,15 +509,15 @@
           "type": "color"
         },
         "3-default": {
-          "value": "#568FDE",
+          "value": "#6DA8FB",
           "type": "color"
         },
         "3-hovered": {
-          "value": "#79A4DF",
+          "value": "#8DBCFF",
           "type": "color"
         },
         "3-pressed": {
-          "value": "#96B5E0",
+          "value": "#B6D5FF",
           "type": "color"
         }
       },
@@ -2653,11 +2653,6 @@
     }
   ],
   "$metadata": {
-    "tokenSetOrder": [
-      "core",
-      "core-colors",
-      "light",
-      "dark"
-    ]
+    "tokenSetOrder": ["core", "core-colors", "light", "dark"]
   }
 }
