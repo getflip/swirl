@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.259.1
+
+### Patch Changes
+
+- [`b033e434`](https://github.com/getflip/swirl/commit/b033e43439f9f6cd72c6d21066ba7256f65a64d1)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Force swirl-date-input popover to
+  front on mobile viewports
+
+- Updated dependencies
+  [[`b033e434`](https://github.com/getflip/swirl/commit/b033e43439f9f6cd72c6d21066ba7256f65a64d1)]:
+  - @getflip/swirl-components@0.259.1
+
 ## 0.259.0
 
 ### Minor Changes
