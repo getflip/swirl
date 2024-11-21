@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.259.0
+
+### Minor Changes
+
+- [`228e7beb`](https://github.com/getflip/swirl/commit/228e7beb348f3d9939ae9bfb734082827941aef0) -
+  Update Shell Badge position
+
 ## 0.258.0
 
 ### Minor Changes
