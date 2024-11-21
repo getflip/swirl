@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.258.0
+
+### Minor Changes
+
+- [#868](https://github.com/getflip/swirl/pull/868)
+  [`ed1c605d`](https://github.com/getflip/swirl/commit/ed1c605d0cd7904c2bf6576780456aca4f339260)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Fix
+  swirl-image-grid overlays and add additional swirl-modal customizations
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ed1c605d`](https://github.com/getflip/swirl/commit/ed1c605d0cd7904c2bf6576780456aca4f339260)]:
+  - @getflip/swirl-components@0.258.0
+
 ## 0.257.1
 
 ### Patch Changes
