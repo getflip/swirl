@@ -47,7 +47,7 @@ describe("swirl-date-input", () => {
             </button>
           </swirl-popover-trigger>
         </div>
-        <swirl-popover animation="scale-in-y" id="popover-swirl-date-input-0" label="Date picker" placement="bottom-end">
+        <swirl-popover animation="scale-in-y" class="date-input__date-picker-popover" id="popover-swirl-date-input-0" label="Date picker" placement="bottom-end">
           <swirl-date-picker firstdayofweek="0" locale="en-US"></swirl-date-picker>
         </swirl-popover>
       </swirl-date-input>

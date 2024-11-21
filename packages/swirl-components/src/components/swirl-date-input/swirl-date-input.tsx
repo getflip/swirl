@@ -277,6 +277,7 @@ export class SwirlDateInput {
         {!this.disabled && (
           <swirl-popover
             animation="scale-in-y"
+            class="date-input__date-picker-popover"
             id={`popover-${this.id}`}
             label={this.datePickerLabel}
             placement="bottom-end"

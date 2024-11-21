@@ -84,3 +84,9 @@
     top: -0.625rem;
   }
 }
+
+.date-input__date-picker-popover {
+  @media (--to-tablet) {
+    position: fixed;
+  }
+}
