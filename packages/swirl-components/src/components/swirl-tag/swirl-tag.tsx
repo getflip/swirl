@@ -54,6 +54,10 @@ export class SwirlTag {
     this.forceVariant();
   }
 
+  componentDidRender() {
+    this.forceIconProps();
+  }
+
   private forceIconProps() {
     const icon = this.iconEl?.children[0];
 
