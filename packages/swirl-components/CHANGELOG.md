@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.260.0
+
+### Minor Changes
+
+- [#872](https://github.com/getflip/swirl/pull/872)
+  [`fa7e7a99`](https://github.com/getflip/swirl/commit/fa7e7a99a7d6dfc89d7c2c8c3d756f8bea764ccd)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Force icon
+  props on icon change in swirl-tag
+
 ## 0.259.1
 
 ### Patch Changes
