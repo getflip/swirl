@@ -16,7 +16,7 @@ import * as focusTrap from "focus-trap";
 
 export type SwirlModalVariant = "default" | "drawer";
 
-export type SwirlModalPadding =
+export type SwirlModalSpacing =
   | "0"
   | "2"
   | "4"
@@ -55,18 +55,18 @@ export class SwirlModal {
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
   @Prop() variant?: SwirlModalVariant = "default";
-  @Prop() contentGap?: string;
+  @Prop() contentGap?: SwirlModalSpacing;
   @Prop() hideSecondaryContent?: boolean;
   @Prop() primaryContentMaxWidth?: string;
   @Prop() secondaryContentMaxWidth?: string;
   @Prop() primaryContentFlex?: string;
   @Prop() secondaryContentFlex?: string;
   @Prop() hideSecondaryContentBorders?: boolean;
-  @Prop() secondaryContentPadding?: SwirlModalPadding;
-  @Prop() secondaryContentPaddingBlockEnd?: SwirlModalPadding;
-  @Prop() secondaryContentPaddingBlockStart?: SwirlModalPadding;
-  @Prop() secondaryContentPaddingInlineEnd?: SwirlModalPadding;
-  @Prop() secondaryContentPaddingInlineStart?: SwirlModalPadding;
+  @Prop() secondaryContentPadding?: SwirlModalSpacing;
+  @Prop() secondaryContentPaddingBlockEnd?: SwirlModalSpacing;
+  @Prop() secondaryContentPaddingBlockStart?: SwirlModalSpacing;
+  @Prop() secondaryContentPaddingInlineEnd?: SwirlModalSpacing;
+  @Prop() secondaryContentPaddingInlineStart?: SwirlModalSpacing;
 
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
@@ -322,7 +322,11 @@ export class SwirlModal {
             )}
             <div
               class="modal__content-container"
-              style={{ gap: this.contentGap }}
+              style={{
+                gap: this.contentGap
+                  ? `var(--s-space-${this.contentGap})`
+                  : undefined,
+              }}
             >
               <div
                 class="modal__primary-content"
