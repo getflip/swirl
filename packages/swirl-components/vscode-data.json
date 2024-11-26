@@ -14019,6 +14019,39 @@
           "description": ""
         },
         {
+          "name": "content-gap",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "20"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
           "name": "height",
           "description": ""
         },
@@ -14048,6 +14081,10 @@
         },
         {
           "name": "max-width",
+          "description": ""
+        },
+        {
+          "name": "min-height",
           "description": ""
         },
         {
@@ -15668,6 +15705,10 @@
               "name": "start"
             }
           ]
+        },
+        {
+          "name": "swirl-aria-label",
+          "description": ""
         },
         {
           "name": "value",

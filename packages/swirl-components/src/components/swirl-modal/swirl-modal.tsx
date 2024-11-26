@@ -16,7 +16,7 @@ import * as focusTrap from "focus-trap";
 
 export type SwirlModalVariant = "default" | "drawer";
 
-export type SwirlModalPadding =
+export type SwirlModalSpacing =
   | "0"
   | "2"
   | "4"
@@ -49,22 +49,24 @@ export class SwirlModal {
   @Prop() hideLabel?: boolean;
   @Prop() label!: string;
   @Prop() maxHeight?: string;
+  @Prop() minHeight?: string;
   @Prop() maxWidth?: string;
   @Prop() padded?: boolean = true;
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
   @Prop() variant?: SwirlModalVariant = "default";
+  @Prop() contentGap?: SwirlModalSpacing;
   @Prop() hideSecondaryContent?: boolean;
   @Prop() primaryContentMaxWidth?: string;
   @Prop() secondaryContentMaxWidth?: string;
   @Prop() primaryContentFlex?: string;
   @Prop() secondaryContentFlex?: string;
   @Prop() hideSecondaryContentBorders?: boolean;
-  @Prop() secondaryContentPadding?: SwirlModalPadding;
-  @Prop() secondaryContentPaddingBlockEnd?: SwirlModalPadding;
-  @Prop() secondaryContentPaddingBlockStart?: SwirlModalPadding;
-  @Prop() secondaryContentPaddingInlineEnd?: SwirlModalPadding;
-  @Prop() secondaryContentPaddingInlineStart?: SwirlModalPadding;
+  @Prop() secondaryContentPadding?: SwirlModalSpacing;
+  @Prop() secondaryContentPaddingBlockEnd?: SwirlModalSpacing;
+  @Prop() secondaryContentPaddingBlockStart?: SwirlModalSpacing;
+  @Prop() secondaryContentPaddingInlineEnd?: SwirlModalSpacing;
+  @Prop() secondaryContentPaddingInlineStart?: SwirlModalSpacing;
 
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
@@ -284,6 +286,7 @@ export class SwirlModal {
             style={{
               "--swirl-modal-max-height": this.maxHeight,
               "--swirl-modal-height": this.height,
+              minHeight: this.minHeight,
               maxWidth: this.maxWidth,
             }}
           >
@@ -317,7 +320,14 @@ export class SwirlModal {
                 </div>
               </header>
             )}
-            <div class="modal__content-container">
+            <div
+              class="modal__content-container"
+              style={{
+                gap: this.contentGap
+                  ? `var(--s-space-${this.contentGap})`
+                  : undefined,
+              }}
+            >
               <div
                 class="modal__primary-content"
                 style={{

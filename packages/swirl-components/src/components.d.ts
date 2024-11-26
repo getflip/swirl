@@ -40,7 +40,7 @@ import { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swi
 import { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 import { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
 import { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
-import { SwirlModalPadding, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
+import { SwirlModalSpacing, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 import { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 import { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
@@ -107,7 +107,7 @@ export { SwirlInlineStatusIntent, SwirlInlineStatusSize } from "./components/swi
 export { SwirlLinkColor, SwirlLinkTarget } from "./components/swirl-link/swirl-link";
 export { SwirlMenuVariant } from "./components/swirl-menu/swirl-menu";
 export { SwirlActionListItemIntent as SwirlActionListItemIntent1 } from "./components/swirl-action-list-item/swirl-action-list-item";
-export { SwirlModalPadding, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
+export { SwirlModalSpacing, SwirlModalVariant } from "./components/swirl-modal/swirl-modal";
 export { SwirlOptionListItemContext, SwirlOptionListItemRole } from "./components/swirl-option-list-item/swirl-option-list-item";
 export { SwirlPaginationVariant } from "./components/swirl-pagination/swirl-pagination";
 export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover";
@@ -1598,6 +1598,7 @@ export namespace Components {
          */
         "close": (force?: boolean) => Promise<void>;
         "closeButtonLabel"?: string;
+        "contentGap"?: SwirlModalSpacing;
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
@@ -1606,6 +1607,7 @@ export namespace Components {
         "label": string;
         "maxHeight"?: string;
         "maxWidth"?: string;
+        "minHeight"?: string;
         /**
           * Open the modal.
          */
@@ -1617,11 +1619,11 @@ export namespace Components {
         "secondaryActionLabel"?: string;
         "secondaryContentFlex"?: string;
         "secondaryContentMaxWidth"?: string;
-        "secondaryContentPadding"?: SwirlModalPadding;
-        "secondaryContentPaddingBlockEnd"?: SwirlModalPadding;
-        "secondaryContentPaddingBlockStart"?: SwirlModalPadding;
-        "secondaryContentPaddingInlineEnd"?: SwirlModalPadding;
-        "secondaryContentPaddingInlineStart"?: SwirlModalPadding;
+        "secondaryContentPadding"?: SwirlModalSpacing;
+        "secondaryContentPaddingBlockEnd"?: SwirlModalSpacing;
+        "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
+        "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
+        "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
@@ -1912,6 +1914,7 @@ export namespace Components {
         "inputName": string;
         "label"?: string;
         "labelPosition"?: SwirlSwitchLabelPosition;
+        "swirlAriaLabel"?: string;
         /**
           * Toggle the switch state programmatically.
          */
@@ -7072,6 +7075,7 @@ declare namespace LocalJSX {
     interface SwirlModal {
         "closable"?: boolean;
         "closeButtonLabel"?: string;
+        "contentGap"?: SwirlModalSpacing;
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
@@ -7080,6 +7084,7 @@ declare namespace LocalJSX {
         "label": string;
         "maxHeight"?: string;
         "maxWidth"?: string;
+        "minHeight"?: string;
         "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
@@ -7092,11 +7097,11 @@ declare namespace LocalJSX {
         "secondaryActionLabel"?: string;
         "secondaryContentFlex"?: string;
         "secondaryContentMaxWidth"?: string;
-        "secondaryContentPadding"?: SwirlModalPadding;
-        "secondaryContentPaddingBlockEnd"?: SwirlModalPadding;
-        "secondaryContentPaddingBlockStart"?: SwirlModalPadding;
-        "secondaryContentPaddingInlineEnd"?: SwirlModalPadding;
-        "secondaryContentPaddingInlineStart"?: SwirlModalPadding;
+        "secondaryContentPadding"?: SwirlModalSpacing;
+        "secondaryContentPaddingBlockEnd"?: SwirlModalSpacing;
+        "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
+        "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
+        "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
@@ -7393,6 +7398,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "labelPosition"?: SwirlSwitchLabelPosition;
         "onValueChange"?: (event: SwirlSwitchCustomEvent<boolean>) => void;
+        "swirlAriaLabel"?: string;
         "value"?: string;
     }
     interface SwirlSymbol {
