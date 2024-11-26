@@ -49,11 +49,13 @@ export class SwirlModal {
   @Prop() hideLabel?: boolean;
   @Prop() label!: string;
   @Prop() maxHeight?: string;
+  @Prop() minHeight?: string;
   @Prop() maxWidth?: string;
   @Prop() padded?: boolean = true;
   @Prop() primaryActionLabel?: string;
   @Prop() secondaryActionLabel?: string;
   @Prop() variant?: SwirlModalVariant = "default";
+  @Prop() contentGap?: string;
   @Prop() hideSecondaryContent?: boolean;
   @Prop() primaryContentMaxWidth?: string;
   @Prop() secondaryContentMaxWidth?: string;
@@ -284,6 +286,7 @@ export class SwirlModal {
             style={{
               "--swirl-modal-max-height": this.maxHeight,
               "--swirl-modal-height": this.height,
+              minHeight: this.minHeight,
               maxWidth: this.maxWidth,
             }}
           >
@@ -317,7 +320,10 @@ export class SwirlModal {
                 </div>
               </header>
             )}
-            <div class="modal__content-container">
+            <div
+              class="modal__content-container"
+              style={{ gap: this.contentGap }}
+            >
               <div
                 class="modal__primary-content"
                 style={{

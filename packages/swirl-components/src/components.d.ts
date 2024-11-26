@@ -1598,6 +1598,7 @@ export namespace Components {
          */
         "close": (force?: boolean) => Promise<void>;
         "closeButtonLabel"?: string;
+        "contentGap"?: string;
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
@@ -1606,6 +1607,7 @@ export namespace Components {
         "label": string;
         "maxHeight"?: string;
         "maxWidth"?: string;
+        "minHeight"?: string;
         /**
           * Open the modal.
          */
@@ -1912,6 +1914,7 @@ export namespace Components {
         "inputName": string;
         "label"?: string;
         "labelPosition"?: SwirlSwitchLabelPosition;
+        "swirlAriaLabel"?: string;
         /**
           * Toggle the switch state programmatically.
          */
@@ -7072,6 +7075,7 @@ declare namespace LocalJSX {
     interface SwirlModal {
         "closable"?: boolean;
         "closeButtonLabel"?: string;
+        "contentGap"?: string;
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
@@ -7080,6 +7084,7 @@ declare namespace LocalJSX {
         "label": string;
         "maxHeight"?: string;
         "maxWidth"?: string;
+        "minHeight"?: string;
         "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
@@ -7393,6 +7398,7 @@ declare namespace LocalJSX {
         "label"?: string;
         "labelPosition"?: SwirlSwitchLabelPosition;
         "onValueChange"?: (event: SwirlSwitchCustomEvent<boolean>) => void;
+        "swirlAriaLabel"?: string;
         "value"?: string;
     }
     interface SwirlSymbol {

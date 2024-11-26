@@ -14019,6 +14019,10 @@
           "description": ""
         },
         {
+          "name": "content-gap",
+          "description": ""
+        },
+        {
           "name": "height",
           "description": ""
         },
@@ -14048,6 +14052,10 @@
         },
         {
           "name": "max-width",
+          "description": ""
+        },
+        {
+          "name": "min-height",
           "description": ""
         },
         {
@@ -15668,6 +15676,10 @@
               "name": "start"
             }
           ]
+        },
+        {
+          "name": "swirl-aria-label",
+          "description": ""
         },
         {
           "name": "value",

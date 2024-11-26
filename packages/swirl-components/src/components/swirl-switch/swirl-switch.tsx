@@ -35,6 +35,7 @@ export class SwirlSwitch {
   @Prop() label?: string;
   @Prop() labelPosition?: SwirlSwitchLabelPosition = "end";
   @Prop() value?: string;
+  @Prop() swirlAriaLabel?: string;
 
   @StencilEvent() valueChange: EventEmitter<boolean>;
 
@@ -76,6 +77,11 @@ export class SwirlSwitch {
             <swirl-visually-hidden>
               <input
                 aria-checked={ariaCheckedLabel}
+                aria-label={
+                  !this.hideLabel && this.swirlAriaLabel
+                    ? this.swirlAriaLabel
+                    : undefined
+                }
                 checked={on}
                 class="switch__input"
                 disabled={this.disabled}
@@ -93,8 +99,10 @@ export class SwirlSwitch {
           {this.label && !this.hideLabel && (
             <span class="switch__label">{this.label}</span>
           )}
-          {this.label && this.hideLabel && (
-            <swirl-visually-hidden>{this.label}</swirl-visually-hidden>
+          {this.hideLabel && (
+            <swirl-visually-hidden>
+              {this.swirlAriaLabel || this.label}
+            </swirl-visually-hidden>
           )}
         </label>
       </Host>
