@@ -1,5 +1,15 @@
 # @getflip/swirl-components
 
+## 0.261.0
+
+### Minor Changes
+
+- [#874](https://github.com/getflip/swirl/pull/874)
+  [`7e350123`](https://github.com/getflip/swirl/commit/7e350123bc7fba58e1dfee000247cdc2905a4c39)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add option to
+  modify minHeight and contentGap of swirl-modal, add option to add an
+  aria-label to swirl-switch
+
 ## 0.260.0
 
 ### Minor Changes
