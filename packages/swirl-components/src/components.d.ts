@@ -1133,6 +1133,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconMenuBookFilled {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconMenuFilled {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3798,6 +3802,12 @@ declare global {
         prototype: HTMLSwirlIconMenuBookElement;
         new (): HTMLSwirlIconMenuBookElement;
     };
+    interface HTMLSwirlIconMenuBookFilledElement extends Components.SwirlIconMenuBookFilled, HTMLStencilElement {
+    }
+    var HTMLSwirlIconMenuBookFilledElement: {
+        prototype: HTMLSwirlIconMenuBookFilledElement;
+        new (): HTMLSwirlIconMenuBookFilledElement;
+    };
     interface HTMLSwirlIconMenuFilledElement extends Components.SwirlIconMenuFilled, HTMLStencilElement {
     }
     var HTMLSwirlIconMenuFilledElement: {
@@ -5541,6 +5551,7 @@ declare global {
         "swirl-icon-mention": HTMLSwirlIconMentionElement;
         "swirl-icon-menu": HTMLSwirlIconMenuElement;
         "swirl-icon-menu-book": HTMLSwirlIconMenuBookElement;
+        "swirl-icon-menu-book-filled": HTMLSwirlIconMenuBookFilledElement;
         "swirl-icon-menu-filled": HTMLSwirlIconMenuFilledElement;
         "swirl-icon-message": HTMLSwirlIconMessageElement;
         "swirl-icon-mic": HTMLSwirlIconMicElement;
@@ -6665,6 +6676,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenuBook {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconMenuBookFilled {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -7968,6 +7983,7 @@ declare namespace LocalJSX {
         "swirl-icon-mention": SwirlIconMention;
         "swirl-icon-menu": SwirlIconMenu;
         "swirl-icon-menu-book": SwirlIconMenuBook;
+        "swirl-icon-menu-book-filled": SwirlIconMenuBookFilled;
         "swirl-icon-menu-filled": SwirlIconMenuFilled;
         "swirl-icon-message": SwirlIconMessage;
         "swirl-icon-mic": SwirlIconMic;
@@ -8338,6 +8354,7 @@ declare module "@stencil/core" {
             "swirl-icon-mention": LocalJSX.SwirlIconMention & JSXBase.HTMLAttributes<HTMLSwirlIconMentionElement>;
             "swirl-icon-menu": LocalJSX.SwirlIconMenu & JSXBase.HTMLAttributes<HTMLSwirlIconMenuElement>;
             "swirl-icon-menu-book": LocalJSX.SwirlIconMenuBook & JSXBase.HTMLAttributes<HTMLSwirlIconMenuBookElement>;
+            "swirl-icon-menu-book-filled": LocalJSX.SwirlIconMenuBookFilled & JSXBase.HTMLAttributes<HTMLSwirlIconMenuBookFilledElement>;
             "swirl-icon-menu-filled": LocalJSX.SwirlIconMenuFilled & JSXBase.HTMLAttributes<HTMLSwirlIconMenuFilledElement>;
             "swirl-icon-message": LocalJSX.SwirlIconMessage & JSXBase.HTMLAttributes<HTMLSwirlIconMessageElement>;
             "swirl-icon-mic": LocalJSX.SwirlIconMic & JSXBase.HTMLAttributes<HTMLSwirlIconMicElement>;
