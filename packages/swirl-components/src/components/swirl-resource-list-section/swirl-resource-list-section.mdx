@@ -1,0 +1,33 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-resource-list-section.stories";
+
+<Meta title="Components/SwirlResourceListSection" />
+
+# SwirlResourceListSection
+
+The SwirlResourceListSection component is used to group related
+[SwirlResourceListItems](?path=/docs/components-swirlresourcelistitem--docs).
+
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-resource-list-section)**
+
+## Usage
+
+<Canvas of={Stories.SwirlResourceListSection} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlResourceListSection} />
+
+## Theming
+
+| Variable                      | Usage                           |
+| ----------------------------- | ------------------------------- |
+| `--s-surface-overlay-default` | Background color of the section |
+| `--s-text-subdued`            | Text color of the section label |
+| `--s-border-default`          | Border color of the section     |
+
+## Accessibility
+
+### ARIA
+
+| ARIA              | Usage                                                   |
+| ----------------- | ------------------------------------------------------- |
+| `role="rowgroup"` | The resource list section has `role` set to `rowgroup`. |
