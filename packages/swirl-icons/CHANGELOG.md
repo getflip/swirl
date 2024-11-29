@@ -1,5 +1,12 @@
 # @getflip/swirl-icons
 
+## 0.47.0
+
+### Minor Changes
+
+- [`2ca763ad`](https://github.com/getflip/swirl/commit/2ca763ad5ba6ba5190a370342fc857244fa8c772)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "key" icon
+
 ## 0.46.0
 
 ### Minor Changes
