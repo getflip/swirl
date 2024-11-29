@@ -1807,6 +1807,7 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlResourceListSection {
+        "hasSeparator"?: boolean;
         "label": string;
         "spacing"?: SwirlStackSpacing;
     }
@@ -7312,6 +7313,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlResourceListSection {
+        "hasSeparator"?: boolean;
         "label": string;
         "spacing"?: SwirlStackSpacing;
     }

@@ -12,19 +12,17 @@ import { SwirlStackSpacing } from "../swirl-stack/swirl-stack";
 export class SwirlResourceListSection {
   @Prop() label!: string;
   @Prop() spacing?: SwirlStackSpacing = "0";
+  @Prop() hasSeparator?: boolean = false;
 
   render() {
     return (
       <Host>
-        <div
-          aria-labelledby="label"
-          class="resource-list-section"
-          role="rowgroup"
-        >
+        {this.hasSeparator && <swirl-separator spacing="4"></swirl-separator>}
+        <div aria-labelledby="label" role="rowgroup">
           <span
-            class="resource-list-section__label"
             id="label"
-            part="resource-list-section__label"
+            class="resource-list-section-label"
+            part="resource-list-section-label"
           >
             {this.label}
           </span>

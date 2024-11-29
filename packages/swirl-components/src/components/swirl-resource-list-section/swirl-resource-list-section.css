@@ -9,23 +9,16 @@
   }
 }
 
-.resource-list-section {
-  background-color: var(--s-surface-overlay-default);
-}
-
-.resource-list-section__label {
-  display: block;
-  width: 100%;
-  padding: var(--s-space-8) var(--s-space-16);
-  border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+.resource-list-section-label {
+  display: flex;
+  padding: var(--s-space-8);
   color: var(--s-text-subdued);
   font-weight: var(--s-font-weight-medium);
-  line-height: var(--s-line-height-base);
-  text-align: left;
+  font-size: var(--s-font-size-base);
+  line-height: var(--s-line-height-lg);
 
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
-    padding: var(--s-space-8) var(--s-space-12);
   }
 }

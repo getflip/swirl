@@ -55,7 +55,7 @@ export class SwirlResourceList {
     this.setupControllingElement();
     this.setItemAllowDragState();
     this.setupDragDrop();
-    this.propagateSpacingToSections();
+    this.setSectionSpacingAndSeparator();
   }
 
   componentDidRender() {
@@ -72,6 +72,7 @@ export class SwirlResourceList {
     this.observer = new MutationObserver(() => {
       this.collectItems();
       this.setItemAllowDragState();
+      this.setSectionSpacingAndSeparator();
     });
 
     this.observer.observe(this.el, {
@@ -357,8 +358,19 @@ export class SwirlResourceList {
     }
   };
 
-  propagateSpacingToSections(): void {
-    this.sections.forEach((section) => (section.spacing = this.spacing));
+  setSectionSpacingAndSeparator(): void {
+    this.sections.forEach((section, index) => {
+      // First section should not have a separator if there are no items above
+      if (
+        index === 0 &&
+        section.previousElementSibling?.tagName !== "SWIRL-RESOURCE-LIST-ITEM"
+      ) {
+        section.hasSeparator = false;
+      } else {
+        section.hasSeparator = true;
+      }
+      section.spacing = this.spacing;
+    });
   }
 
   render() {
