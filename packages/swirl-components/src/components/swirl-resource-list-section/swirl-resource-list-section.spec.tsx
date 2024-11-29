@@ -17,8 +17,8 @@ describe("swirl-resource-list-section", () => {
     expect(page.root).toEqualHtml(`
       <swirl-resource-list-section label="Resource section!">
         <mock:shadow-root>
-          <div aria-labelledby="label" class="resource-list-section" role="rowgroup">
-            <span class="resource-list-section__label" id="label" part="resource-list-section__label">
+          <div aria-labelledby="label" role="rowgroup">
+            <span id="label" class="resource-list-section-label" part="resource-list-section-label">
               Resource section!
             </span>
             <swirl-stack spacing="0">
