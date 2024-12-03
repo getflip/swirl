@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.264.0
+
+### Minor Changes
+
+- [`e5b37c97`](https://github.com/getflip/swirl/commit/e5b37c97692309b064b01cfeab54cb6ed58536e2)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e5b37c97`](https://github.com/getflip/swirl/commit/e5b37c97692309b064b01cfeab54cb6ed58536e2)]:
+  - @getflip/swirl-components@0.264.0
+
 ## 0.263.0
 
 ### Minor Changes
