@@ -1365,6 +1365,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconStars {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconStop {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -4154,6 +4158,12 @@ declare global {
         prototype: HTMLSwirlIconSpellcheckElement;
         new (): HTMLSwirlIconSpellcheckElement;
     };
+    interface HTMLSwirlIconStarsElement extends Components.SwirlIconStars, HTMLStencilElement {
+    }
+    var HTMLSwirlIconStarsElement: {
+        prototype: HTMLSwirlIconStarsElement;
+        new (): HTMLSwirlIconStarsElement;
+    };
     interface HTMLSwirlIconStopElement extends Components.SwirlIconStop, HTMLStencilElement {
     }
     var HTMLSwirlIconStopElement: {
@@ -5619,6 +5629,7 @@ declare global {
         "swirl-icon-short-text": HTMLSwirlIconShortTextElement;
         "swirl-icon-simplify": HTMLSwirlIconSimplifyElement;
         "swirl-icon-spellcheck": HTMLSwirlIconSpellcheckElement;
+        "swirl-icon-stars": HTMLSwirlIconStarsElement;
         "swirl-icon-stop": HTMLSwirlIconStopElement;
         "swirl-icon-sync": HTMLSwirlIconSyncElement;
         "swirl-icon-tasks": HTMLSwirlIconTasksElement;
@@ -6922,6 +6933,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconStars {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconStop {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -8056,6 +8071,7 @@ declare namespace LocalJSX {
         "swirl-icon-short-text": SwirlIconShortText;
         "swirl-icon-simplify": SwirlIconSimplify;
         "swirl-icon-spellcheck": SwirlIconSpellcheck;
+        "swirl-icon-stars": SwirlIconStars;
         "swirl-icon-stop": SwirlIconStop;
         "swirl-icon-sync": SwirlIconSync;
         "swirl-icon-tasks": SwirlIconTasks;
@@ -8428,6 +8444,7 @@ declare module "@stencil/core" {
             "swirl-icon-short-text": LocalJSX.SwirlIconShortText & JSXBase.HTMLAttributes<HTMLSwirlIconShortTextElement>;
             "swirl-icon-simplify": LocalJSX.SwirlIconSimplify & JSXBase.HTMLAttributes<HTMLSwirlIconSimplifyElement>;
             "swirl-icon-spellcheck": LocalJSX.SwirlIconSpellcheck & JSXBase.HTMLAttributes<HTMLSwirlIconSpellcheckElement>;
+            "swirl-icon-stars": LocalJSX.SwirlIconStars & JSXBase.HTMLAttributes<HTMLSwirlIconStarsElement>;
             "swirl-icon-stop": LocalJSX.SwirlIconStop & JSXBase.HTMLAttributes<HTMLSwirlIconStopElement>;
             "swirl-icon-sync": LocalJSX.SwirlIconSync & JSXBase.HTMLAttributes<HTMLSwirlIconSyncElement>;
             "swirl-icon-tasks": LocalJSX.SwirlIconTasks & JSXBase.HTMLAttributes<HTMLSwirlIconTasksElement>;
