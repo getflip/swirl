@@ -15381,6 +15381,9 @@
               "name": "default"
             },
             {
+              "name": "highlight"
+            },
+            {
               "name": "strong"
             }
           ]

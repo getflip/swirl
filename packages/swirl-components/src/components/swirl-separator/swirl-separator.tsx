@@ -1,7 +1,7 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlSeparatorBorderColor = "default" | "strong";
+export type SwirlSeparatorBorderColor = "default" | "strong" | "highlight";
 export type SwirlSeparatorOrientation = "horizontal" | "vertical";
 
 export type SwirlSeparatorSpacing =

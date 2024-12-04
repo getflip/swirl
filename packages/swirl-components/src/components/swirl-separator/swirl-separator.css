@@ -23,6 +23,12 @@
       background-color: var(--s-border-strong);
     }
   }
+
+  &(.separator--border-color-highlight) {
+    & .separator__line {
+      background-color: var(--s-border-highlight);
+    }
+  }
 }
 
 .separator__line {
