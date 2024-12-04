@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.265.0
+
+### Minor Changes
+
+- [#882](https://github.com/getflip/swirl/pull/882)
+  [`dc338d7c`](https://github.com/getflip/swirl/commit/dc338d7c58d9d5eab61a44b450bcf0c4201b9444)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add highlight
+  color to swirl-separator
+
 ## 0.264.0
 
 ### Minor Changes
