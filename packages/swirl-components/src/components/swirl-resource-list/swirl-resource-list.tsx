@@ -45,6 +45,7 @@ export class SwirlResourceList {
   private focusedIndex = 0;
   private gridEl: HTMLElement;
   private items: HTMLSwirlResourceListItemElement[];
+  private sections: HTMLSwirlResourceListSectionElement[];
   private observer: MutationObserver;
   private sortable: Sortable;
 
@@ -54,6 +55,7 @@ export class SwirlResourceList {
     this.setupControllingElement();
     this.setItemAllowDragState();
     this.setupDragDrop();
+    this.setSectionSpacingAndSeparator();
   }
 
   componentDidRender() {
@@ -70,6 +72,7 @@ export class SwirlResourceList {
     this.observer = new MutationObserver(() => {
       this.collectItems();
       this.setItemAllowDragState();
+      this.setSectionSpacingAndSeparator();
     });
 
     this.observer.observe(this.el, {
@@ -89,6 +92,12 @@ export class SwirlResourceList {
     this.items = Array.from(
       this.el.querySelectorAll<HTMLSwirlResourceListItemElement>(
         "swirl-resource-list-item, swirl-resource-list-file-item, [data-resource-list-item]"
+      )
+    ).filter((el) => el.isConnected);
+
+    this.sections = Array.from(
+      this.el.querySelectorAll<HTMLSwirlResourceListSectionElement>(
+        "swirl-resource-list-section"
       )
     ).filter((el) => el.isConnected);
 
@@ -137,10 +146,15 @@ export class SwirlResourceList {
 
   private setItemAllowDragState() {
     if (this.allowDrag) {
-      this.items.forEach((item) => {
-        item.setAttribute("allow-drag", "true");
-        item.addEventListener("toggleDrag", this.toggleDrag);
-      });
+      // Dragging items inside a `swirl-resource-list-section` is not currently allowed
+      this.items
+        .filter((item) =>
+          this.sections.every((section) => !section.contains(item))
+        )
+        .forEach((item) => {
+          item.setAttribute("allow-drag", "true");
+          item.addEventListener("toggleDrag", this.toggleDrag);
+        });
     } else {
       this.items.forEach((item) => {
         item.removeAttribute("allow-drag");
@@ -343,6 +357,21 @@ export class SwirlResourceList {
       this.focusItemAtIndex(this.items.length - 1);
     }
   };
+
+  setSectionSpacingAndSeparator(): void {
+    this.sections.forEach((section, index) => {
+      // First section should not have a separator if there are no items above
+      if (
+        index === 0 &&
+        section.previousElementSibling?.tagName !== "SWIRL-RESOURCE-LIST-ITEM"
+      ) {
+        section.hasSeparator = false;
+      } else {
+        section.hasSeparator = true;
+      }
+      section.spacing = this.spacing;
+    });
+  }
 
   render() {
     return (
