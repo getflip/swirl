@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.266.0
+
+### Minor Changes
+
+- [#880](https://github.com/getflip/swirl/pull/880)
+  [`96ee1752`](https://github.com/getflip/swirl/commit/96ee1752afc61f04f34bf7f327e924683dacf895)
+  Thanks [@tobias-bahls](https://github.com/tobias-bahls)! - Add new
+  deployed-code icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`96ee1752`](https://github.com/getflip/swirl/commit/96ee1752afc61f04f34bf7f327e924683dacf895)]:
+  - @getflip/swirl-components@0.266.0
+
 ## 0.265.0
 
 ### Minor Changes
