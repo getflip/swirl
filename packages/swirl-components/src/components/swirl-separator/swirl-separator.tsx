@@ -1,7 +1,7 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlSeparatorBorderColor = "default" | "strong" | "highlight";
+export type SwirlSeparatorColor = "default" | "strong" | "highlight";
 export type SwirlSeparatorOrientation = "horizontal" | "vertical";
 
 export type SwirlSeparatorSpacing =
@@ -20,9 +20,23 @@ export type SwirlSeparatorSpacing =
   tag: "swirl-separator",
 })
 export class SwirlSeparator {
-  @Prop() borderColor?: SwirlSeparatorBorderColor = "default";
+  @Prop() borderColor?: SwirlSeparatorColor = "default";
+  @Prop({ mutable: true }) color?: SwirlSeparatorColor = "default";
   @Prop() orientation?: SwirlSeparatorOrientation = "horizontal";
   @Prop() spacing?: SwirlSeparatorSpacing = "8";
+
+  componentWillLoad() {
+    this.forceColor();
+  }
+
+  private forceColor() {
+    if (this.borderColor !== "default") {
+      console.warn(
+        '[Swirl] The "borderColor" prop of swirl-separator is deprecated and will be removed with the next major release. Please use the "color" prop to achieve the same result.'
+      );
+      this.color = this.borderColor;
+    }
+  }
 
   render() {
     const styles =
@@ -38,7 +52,7 @@ export class SwirlSeparator {
 
     const className = classnames(
       "separator",
-      `separator--border-color-${this.borderColor}`,
+      `separator--color-${this.color}`,
       `separator--orientation-${this.orientation}`
     );
 

@@ -18,13 +18,13 @@
     }
   }
 
-  &(.separator--border-color-strong) {
+  &(.separator--color-strong) {
     & .separator__line {
       background-color: var(--s-border-strong);
     }
   }
 
-  &(.separator--border-color-highlight) {
+  &(.separator--color-highlight) {
     & .separator__line {
       background-color: var(--s-border-highlight);
     }

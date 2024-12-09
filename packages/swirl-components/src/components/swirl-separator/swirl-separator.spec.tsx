@@ -10,7 +10,7 @@ describe("swirl-separator", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-separator aria-orientation="horizontal" class="separator separator--border-color-default separator--orientation-horizontal" role="separator" style="padding-top: var(--s-space-8); padding-bottom: var(--s-space-8);">
+      <swirl-separator aria-orientation="horizontal" class="separator separator--color-default separator--orientation-horizontal" role="separator" style="padding-top: var(--s-space-8); padding-bottom: var(--s-space-8);">
         <mock:shadow-root>
           <span class="separator__line"></span>
         </mock:shadow-root>
@@ -18,14 +18,29 @@ describe("swirl-separator", () => {
     `);
   });
 
-  it("renders with strong border color", async () => {
+  it("renders with strong color", async () => {
     const page = await newSpecPage({
       components: [SwirlSeparator],
-      html: `<swirl-separator border-color="strong"></swirl-separator>`,
+      html: `<swirl-separator color="strong"></swirl-separator>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-separator aria-orientation="horizontal" border-color="strong" class="separator separator--border-color-strong separator--orientation-horizontal" role="separator" style="padding-top: var(--s-space-8); padding-bottom: var(--s-space-8);">
+      <swirl-separator aria-orientation="horizontal" color="strong" class="separator separator--color-strong separator--orientation-horizontal" role="separator" style="padding-top: var(--s-space-8); padding-bottom: var(--s-space-8);">
+        <mock:shadow-root>
+          <span class="separator__line"></span>
+        </mock:shadow-root>
+      </swirl-separator>
+    `);
+  });
+
+  it("renders with highlight color", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSeparator],
+      html: `<swirl-separator color="highlight"></swirl-separator>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-separator aria-orientation="horizontal" color="highlight" class="separator separator--color-highlight separator--orientation-horizontal" role="separator" style="padding-top: var(--s-space-8); padding-bottom: var(--s-space-8);">
         <mock:shadow-root>
           <span class="separator__line"></span>
         </mock:shadow-root>
