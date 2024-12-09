@@ -15447,6 +15447,25 @@
           ]
         },
         {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "strong"
+            }
+          ]
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
           "name": "orientation",
           "description": "",
           "values": [
