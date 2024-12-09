@@ -24,6 +24,10 @@
     & .separator__line {
       background-color: var(--s-border-strong);
     }
+
+    & .separator__label {
+      color: var(--s-text-subdued);
+    }
   }
 
   &(.separator--color-highlight) {
@@ -48,5 +52,5 @@
   flex-shrink: 0;
   width: fit-content;
   font-size: var(--s-font-size-sm);
-  color: var(--s-text-subdued);
+  color: var(--s-text-disabled);
 }
