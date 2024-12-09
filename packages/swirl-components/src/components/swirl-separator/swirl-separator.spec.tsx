@@ -47,4 +47,21 @@ describe("swirl-separator", () => {
       </swirl-separator>
     `);
   });
+
+  it("renders the label", async () => {
+    const page = await newSpecPage({
+      components: [SwirlSeparator],
+      html: `<swirl-separator label="Label"></swirl-separator>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-separator aria-orientation="horizontal" label="Label" class="separator separator--color-default separator--orientation-horizontal" role="separator" style="padding-top: var(--s-space-8); padding-bottom: var(--s-space-8);">
+        <mock:shadow-root>
+          <span class="separator__line"></span>
+          <span class="separator__label">Label</span>
+          <span class="separator__line"></span>
+        </mock:shadow-root>
+      </swirl-separator>
+    `);
+  });
 });

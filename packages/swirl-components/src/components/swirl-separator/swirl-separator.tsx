@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, Fragment, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlSeparatorColor = "default" | "strong" | "highlight";
@@ -22,6 +22,7 @@ export type SwirlSeparatorSpacing =
 export class SwirlSeparator {
   @Prop() borderColor?: SwirlSeparatorColor = "default";
   @Prop({ mutable: true }) color?: SwirlSeparatorColor = "default";
+  @Prop() label?: string;
   @Prop() orientation?: SwirlSeparatorOrientation = "horizontal";
   @Prop() spacing?: SwirlSeparatorSpacing = "8";
 
@@ -64,6 +65,12 @@ export class SwirlSeparator {
         style={styles}
       >
         <span class="separator__line"></span>
+        {this.label && (
+          <Fragment>
+            <span class="separator__label">{this.label}</span>
+            <span class="separator__line"></span>
+          </Fragment>
+        )}
       </Host>
     );
   }

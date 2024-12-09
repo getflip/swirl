@@ -1850,6 +1850,7 @@ export namespace Components {
     interface SwirlSeparator {
         "borderColor"?: SwirlSeparatorColor;
         "color"?: SwirlSeparatorColor;
+        "label"?: string;
         "orientation"?: SwirlSeparatorOrientation;
         "spacing"?: SwirlSeparatorSpacing;
     }
@@ -7384,6 +7385,7 @@ declare namespace LocalJSX {
     interface SwirlSeparator {
         "borderColor"?: SwirlSeparatorColor;
         "color"?: SwirlSeparatorColor;
+        "label"?: string;
         "orientation"?: SwirlSeparatorOrientation;
         "spacing"?: SwirlSeparatorSpacing;
     }

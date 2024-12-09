@@ -2,6 +2,7 @@
   display: flex;
   width: 100%;
   align-items: center;
+  gap: var(--s-space-8);
 
   & * {
     box-sizing: border-box;
@@ -10,6 +11,7 @@
   &(.separator--orientation-vertical) {
     display: inline-flex;
     width: auto;
+    flex-direction: column;
 
     & .separator__line {
       width: var(--s-border-width-default);
@@ -28,6 +30,10 @@
     & .separator__line {
       background-color: var(--s-border-highlight);
     }
+
+    & .separator__label {
+      color: var(--s-text-highlight);
+    }
   }
 }
 
@@ -36,4 +42,11 @@
   width: 100%;
   height: var(--s-border-width-default);
   background-color: var(--s-border-default);
+}
+
+.separator__label {
+  flex-shrink: 0;
+  width: fit-content;
+  font-size: var(--s-font-size-sm);
+  color: var(--s-text-subdued);
 }
