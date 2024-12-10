@@ -460,7 +460,7 @@ export class SwirlShellLayout {
               <slot name="nav" onSlotchange={this.collectNavItems}></slot>
               <div class="shell-layout__secondary-nav">
                 <swirl-separator
-                  borderColor="strong"
+                  color="strong"
                   spacing="16"
                 ></swirl-separator>
                 {this.enableSecondaryNavGridLayout && (
