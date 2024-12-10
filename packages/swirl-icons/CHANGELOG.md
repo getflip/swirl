@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.50.0
+
+### Minor Changes
+
+- [#887](https://github.com/getflip/swirl/pull/887)
+  [`20797647`](https://github.com/getflip/swirl/commit/2079764764e6fb98752dc8ca7cd93f1d0aff5125)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  inventory-off icon
+
 ## 0.49.0
 
 ### Minor Changes

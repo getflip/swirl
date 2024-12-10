@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.268.0
+
+### Minor Changes
+
+- [#887](https://github.com/getflip/swirl/pull/887)
+  [`20797647`](https://github.com/getflip/swirl/commit/2079764764e6fb98752dc8ca7cd93f1d0aff5125)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  inventory-off icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`20797647`](https://github.com/getflip/swirl/commit/2079764764e6fb98752dc8ca7cd93f1d0aff5125)]:
+  - @getflip/swirl-components@0.268.0
+
 ## 0.267.0
 
 ### Minor Changes
