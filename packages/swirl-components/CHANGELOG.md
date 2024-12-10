@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.267.0
+
+### Minor Changes
+
+- [#885](https://github.com/getflip/swirl/pull/885)
+  [`f329dddb`](https://github.com/getflip/swirl/commit/f329dddbb3f2b75756061f09d082ac780625d1a1)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add color and
+  label prop to swirl-separator
+
 ## 0.266.0
 
 ### Minor Changes
