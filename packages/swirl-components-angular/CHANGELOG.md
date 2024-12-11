@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.269.0
+
+### Minor Changes
+
+- [#878](https://github.com/getflip/swirl/pull/878)
+  [`9834809c`](https://github.com/getflip/swirl/commit/9834809c8c283d03183c54c3fcc794d4770853c4)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add a
+  swirl-resource-list-section component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9834809c`](https://github.com/getflip/swirl/commit/9834809c8c283d03183c54c3fcc794d4770853c4)]:
+  - @getflip/swirl-components@0.269.0
+
 ## 0.268.0
 
 ### Minor Changes
