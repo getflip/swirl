@@ -1822,6 +1822,11 @@ export namespace Components {
         "swirlAriaLabel"?: string;
         "value"?: string;
     }
+    interface SwirlResourceListSection {
+        "hasSeparator"?: boolean;
+        "label": string;
+        "spacing"?: SwirlStackSpacing;
+    }
     interface SwirlSearch {
         "autoFocus"?: boolean;
         "clearButtonLabel"?: string;
@@ -4661,6 +4666,12 @@ declare global {
         prototype: HTMLSwirlResourceListItemElement;
         new (): HTMLSwirlResourceListItemElement;
     };
+    interface HTMLSwirlResourceListSectionElement extends Components.SwirlResourceListSection, HTMLStencilElement {
+    }
+    var HTMLSwirlResourceListSectionElement: {
+        prototype: HTMLSwirlResourceListSectionElement;
+        new (): HTMLSwirlResourceListSectionElement;
+    };
     interface HTMLSwirlSearchElementEventMap {
         "inputBlur": FocusEvent;
         "inputFocus": FocusEvent;
@@ -5704,6 +5715,7 @@ declare global {
         "swirl-resource-list": HTMLSwirlResourceListElement;
         "swirl-resource-list-file-item": HTMLSwirlResourceListFileItemElement;
         "swirl-resource-list-item": HTMLSwirlResourceListItemElement;
+        "swirl-resource-list-section": HTMLSwirlResourceListSectionElement;
         "swirl-search": HTMLSwirlSearchElement;
         "swirl-select": HTMLSwirlSelectElement;
         "swirl-separator": HTMLSwirlSeparatorElement;
@@ -7362,6 +7374,11 @@ declare namespace LocalJSX {
         "swirlAriaLabel"?: string;
         "value"?: string;
     }
+    interface SwirlResourceListSection {
+        "hasSeparator"?: boolean;
+        "label": string;
+        "spacing"?: SwirlStackSpacing;
+    }
     interface SwirlSearch {
         "autoFocus"?: boolean;
         "clearButtonLabel"?: string;
@@ -8158,6 +8175,7 @@ declare namespace LocalJSX {
         "swirl-resource-list": SwirlResourceList;
         "swirl-resource-list-file-item": SwirlResourceListFileItem;
         "swirl-resource-list-item": SwirlResourceListItem;
+        "swirl-resource-list-section": SwirlResourceListSection;
         "swirl-search": SwirlSearch;
         "swirl-select": SwirlSelect;
         "swirl-separator": SwirlSeparator;
@@ -8533,6 +8551,7 @@ declare module "@stencil/core" {
             "swirl-resource-list": LocalJSX.SwirlResourceList & JSXBase.HTMLAttributes<HTMLSwirlResourceListElement>;
             "swirl-resource-list-file-item": LocalJSX.SwirlResourceListFileItem & JSXBase.HTMLAttributes<HTMLSwirlResourceListFileItemElement>;
             "swirl-resource-list-item": LocalJSX.SwirlResourceListItem & JSXBase.HTMLAttributes<HTMLSwirlResourceListItemElement>;
+            "swirl-resource-list-section": LocalJSX.SwirlResourceListSection & JSXBase.HTMLAttributes<HTMLSwirlResourceListSectionElement>;
             "swirl-search": LocalJSX.SwirlSearch & JSXBase.HTMLAttributes<HTMLSwirlSearchElement>;
             "swirl-select": LocalJSX.SwirlSelect & JSXBase.HTMLAttributes<HTMLSwirlSelectElement>;
             "swirl-separator": LocalJSX.SwirlSeparator & JSXBase.HTMLAttributes<HTMLSwirlSeparatorElement>;

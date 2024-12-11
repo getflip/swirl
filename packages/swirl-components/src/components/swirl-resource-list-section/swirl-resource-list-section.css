@@ -1,0 +1,24 @@
+@import "../../styles/media-queries.css";
+
+:host {
+  display: block;
+  width: 100%;
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.resource-list-section-label {
+  display: flex;
+  padding: var(--s-space-8);
+  color: var(--s-text-subdued);
+  font-weight: var(--s-font-weight-medium);
+  font-size: var(--s-font-size-base);
+  line-height: var(--s-line-height-lg);
+
+  @media (--from-desktop-without-touch) {
+    font-size: var(--s-font-size-sm);
+    line-height: var(--s-line-height-sm);
+  }
+}
