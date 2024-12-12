@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.270.0
+
+### Minor Changes
+
+- [#890](https://github.com/getflip/swirl/pull/890)
+  [`759d7b39`](https://github.com/getflip/swirl/commit/759d7b39631bdb8321a06eedf6d88409133083fb)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Fix layout
+  of multi-select values in select component
+
+### Patch Changes
+
+- Updated dependencies
+  [[`759d7b39`](https://github.com/getflip/swirl/commit/759d7b39631bdb8321a06eedf6d88409133083fb)]:
+  - @getflip/swirl-components@0.270.0
+
 ## 0.269.0
 
 ### Minor Changes
