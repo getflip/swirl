@@ -147,6 +147,7 @@
   min-height: 1.25rem;
   padding-right: calc(1.5rem + var(--s-space-8));
   flex-wrap: wrap;
+  flex-shrink: 0;
   gap: var(--s-space-8);
 
   & ::part(tag) {
