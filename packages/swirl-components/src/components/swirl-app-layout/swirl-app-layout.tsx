@@ -60,6 +60,7 @@ export class SwirlAppLayout {
   @Prop() ctaLabel?: string;
   @Prop({ mutable: true }) hasNavigation: boolean;
   @Prop() hideAppBar?: boolean;
+  @Prop() initialMobileView?: SwirlAppLayoutMobileView;
   @Prop() navigationBackButtonLabel?: string = "Go back";
   @Prop() navigationExpansionStateStorageKey?: string =
     SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY;
@@ -114,6 +115,10 @@ export class SwirlAppLayout {
   private transitionTimeout: NodeJS.Timeout;
 
   componentWillLoad() {
+    if (this.initialMobileView) {
+      this.mobileView = this.initialMobileView;
+    }
+
     this.mutationObserver = new MutationObserver(() => {
       this.updateCustomAppBarBackButtonStatus();
       this.updateNavigationStatus();

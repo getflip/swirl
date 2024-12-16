@@ -226,6 +226,7 @@ export namespace Components {
           * Hide the sidebar
          */
         "hideSidebar": () => Promise<void>;
+        "initialMobileView"?: SwirlAppLayoutMobileView;
         "navigationBackButtonLabel"?: string;
         "navigationExpansionStateStorageKey"?: string;
         "navigationLabel"?: string;
@@ -5875,6 +5876,7 @@ declare namespace LocalJSX {
         "ctaLabel"?: string;
         "hasNavigation"?: boolean;
         "hideAppBar"?: boolean;
+        "initialMobileView"?: SwirlAppLayoutMobileView;
         "navigationBackButtonLabel"?: string;
         "navigationExpansionStateStorageKey"?: string;
         "navigationLabel"?: string;
