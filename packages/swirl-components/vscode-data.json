@@ -296,6 +296,21 @@
           "description": ""
         },
         {
+          "name": "initial-mobile-view",
+          "description": "",
+          "values": [
+            {
+              "name": "body"
+            },
+            {
+              "name": "navigation"
+            },
+            {
+              "name": "sidebar"
+            }
+          ]
+        },
+        {
           "name": "navigation-back-button-label",
           "description": ""
         },
