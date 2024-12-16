@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.271.0
+
+### Minor Changes
+
+- [#892](https://github.com/getflip/swirl/pull/892)
+  [`4c864573`](https://github.com/getflip/swirl/commit/4c8645735afa277c12c4f71464ac2965a3ac5e90)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "initial-mobile-view" prop to
+  swirl-app-layout
+
 ## 0.270.0
 
 ### Minor Changes
