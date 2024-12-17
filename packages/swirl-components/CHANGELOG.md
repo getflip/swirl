@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.273.0
+
+### Minor Changes
+
+- [#896](https://github.com/getflip/swirl/pull/896)
+  [`1285c17b`](https://github.com/getflip/swirl/commit/1285c17b47c806a1381ae226b3accd4dcc1a7b7d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Let swirl-date-picker determine
+  the first day of the week via the locale
+
 ## 0.272.0
 
 ### Minor Changes
