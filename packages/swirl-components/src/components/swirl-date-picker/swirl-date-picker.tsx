@@ -13,10 +13,10 @@ import { getISODateString, removeTimezoneOffset } from "../../utils";
 
 import "wc-datepicker";
 
+// Extend Locale interface with getWeekInfo data
+// (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getWeekInfo)
 interface WeekInfo {
   firstDay: number;
-  weekendStart: number;
-  weekendEnd: number;
 }
 
 interface LocaleWithWeekInfo extends Intl.Locale {
