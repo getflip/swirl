@@ -49,7 +49,7 @@ export class SwirlDatePicker {
       this.firstDayOfWeek =
         "getWeekInfo" in locale
           ? locale.getWeekInfo().firstDay
-          : locale.weekInfo?.firstDay;
+          : locale.weekInfo?.firstDay ?? 0;
     }
   }
 
