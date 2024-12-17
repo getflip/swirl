@@ -9,9 +9,20 @@ import {
 } from "@stencil/core";
 import { WcDatepickerCustomEvent } from "wc-datepicker/dist/types/components";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
+import { getISODateString, removeTimezoneOffset } from "../../utils";
 
 import "wc-datepicker";
-import { getISODateString, removeTimezoneOffset } from "../../utils";
+
+// Extend Locale interface with getWeekInfo data
+// (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getWeekInfo)
+interface WeekInfo {
+  firstDay: number;
+}
+
+interface LocaleWithWeekInfo extends Intl.Locale {
+  getWeekInfo?(): WeekInfo;
+  weekInfo?: WeekInfo;
+}
 
 @Component({
   shadow: true,
@@ -22,7 +33,7 @@ export class SwirlDatePicker {
   @Element() el: HTMLElement;
 
   @Prop() disableDate?: (date: Date) => boolean = () => false;
-  @Prop() firstDayOfWeek?: number = 0;
+  @Prop({ mutable: true }) firstDayOfWeek?: number = 0;
   @Prop() labels?: WCDatepickerLabels;
   @Prop() locale?: string = "en-US";
   @Prop() range?: boolean;
@@ -30,6 +41,17 @@ export class SwirlDatePicker {
   @Prop({ mutable: true }) value?: Date | Date[];
 
   @Event({ bubbles: false }) valueChange: EventEmitter<Date | Date[]>;
+
+  componentWillLoad() {
+    if (!this.firstDayOfWeek) {
+      const locale = new Intl.Locale(this.locale) as LocaleWithWeekInfo;
+
+      this.firstDayOfWeek =
+        "getWeekInfo" in locale
+          ? locale.getWeekInfo().firstDay
+          : locale.weekInfo?.firstDay ?? 0;
+    }
+  }
 
   private onClick = (event: MouseEvent) => {
     event.stopPropagation();
