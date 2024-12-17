@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.272.0
+
+### Minor Changes
+
+- [#894](https://github.com/getflip/swirl/pull/894)
+  [`96108e15`](https://github.com/getflip/swirl/commit/96108e15d55955d2e929b52bd7812f27fd692ff6)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Intersecting
+  image-grid-item images only load if they're visible in the final state
+
+### Patch Changes
+
+- Updated dependencies
+  [[`96108e15`](https://github.com/getflip/swirl/commit/96108e15d55955d2e929b52bd7812f27fd692ff6)]:
+  - @getflip/swirl-components@0.272.0
+
 ## 0.271.0
 
 ### Minor Changes
