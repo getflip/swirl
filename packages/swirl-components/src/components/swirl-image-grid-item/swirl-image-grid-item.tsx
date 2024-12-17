@@ -11,6 +11,7 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
+import { debounce } from "../../utils";
 
 export type SwirlImageGridItemLoading =
   | "lazy"
@@ -102,19 +103,19 @@ export class SwirlImageGridItem {
       return;
     }
 
-    this.intersectionObserver = new IntersectionObserver(
-      this.onVisibilityChange.bind(this),
-      {
-        threshold: 0,
-      }
-    );
+    this.intersectionObserver = new IntersectionObserver((entries) => {
+      this.handleIntersectionEntries(entries);
+    });
 
     this.intersectionObserver.observe(this.el);
   }
 
-  private onVisibilityChange(entries: IntersectionObserverEntry[]) {
-    this.inViewport = entries.some((entry) => entry.isIntersecting);
-  }
+  private handleIntersectionEntries = debounce(
+    (entries: IntersectionObserverEntry[]) => {
+      this.inViewport = entries[entries.length - 1].isIntersecting;
+    },
+    250
+  );
 
   private onLoad = () => {
     this.error = false;
