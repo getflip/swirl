@@ -2418,6 +2418,10 @@ export interface SwirlBannerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlBannerElement;
 }
+export interface SwirlCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlCardElement;
+}
 export interface SwirlCarouselCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlCarouselElement;
@@ -2795,7 +2799,18 @@ declare global {
         prototype: HTMLSwirlButtonGroupElement;
         new (): HTMLSwirlButtonGroupElement;
     };
+    interface HTMLSwirlCardElementEventMap {
+        "componentLoad": void;
+    }
     interface HTMLSwirlCardElement extends Components.SwirlCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlCardElementEventMap>(type: K, listener: (this: HTMLSwirlCardElement, ev: SwirlCardCustomEvent<HTMLSwirlCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlCardElementEventMap>(type: K, listener: (this: HTMLSwirlCardElement, ev: SwirlCardCustomEvent<HTMLSwirlCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlCardElement: {
         prototype: HTMLSwirlCardElement;
@@ -6034,6 +6049,7 @@ declare namespace LocalJSX {
         "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
+        "onComponentLoad"?: (event: SwirlCardCustomEvent<void>) => void;
         "overflow"?: SwirlCardOverflow;
         "padding"?: SwirlCardPadding;
         "paddingBlockEnd"?: SwirlCardPadding;

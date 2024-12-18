@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Method,
@@ -75,6 +77,8 @@ export class SwirlCard {
   @Prop() swirlAriaLabel?: string;
   @Prop() swirlAriaLabelledby?: string;
 
+  @Event() componentLoad: EventEmitter<void>;
+
   @State() flashing = false;
 
   private flashingTimeout?: NodeJS.Timeout;
@@ -94,6 +98,10 @@ export class SwirlCard {
     this.flashingTimeout = setTimeout(() => {
       this.flashing = false;
     }, duration);
+  }
+
+  componentDidLoad() {
+    this.componentLoad.emit();
   }
 
   render() {
