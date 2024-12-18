@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.274.0
+
+### Minor Changes
+
+- [#898](https://github.com/getflip/swirl/pull/898)
+  [`7d3fd460`](https://github.com/getflip/swirl/commit/7d3fd460644f5a61b8b4f00b294f27caef80bfa4)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Emit a
+  componentLoad event from swirl-card
+
+### Patch Changes
+
+- Updated dependencies
+  [[`7d3fd460`](https://github.com/getflip/swirl/commit/7d3fd460644f5a61b8b4f00b294f27caef80bfa4)]:
+  - @getflip/swirl-components@0.274.0
+
 ## 0.273.0
 
 ### Minor Changes
