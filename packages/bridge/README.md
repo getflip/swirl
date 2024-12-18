@@ -501,6 +501,21 @@ Fires when the user theme changes.
 }
 ```
 
+### `TITLE_CHANGE`
+
+Fires when the HTML title tag value of the app changes.
+
+**Event**
+
+```js
+{
+  data: {
+    title: string;
+  }
+  type: BridgeEventType.TITLE_CHANGE;
+}
+```
+
 ## Error Handling
 
 All provided functions return promises that throw an error if the execution

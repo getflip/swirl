@@ -7,6 +7,7 @@ export enum BridgeEventType {
   LANG_CHANGE = "LANG_CHANGE",
   SECONDARY_ACTION_CLICK = "SECONDARY_ACTION_CLICK",
   THEME_CHANGE = "THEME_CHANGE",
+  TITLE_CHANGE = "TITLE_CHANGE",
 }
 
 export type BridgeEvent<DataType = unknown> = {
