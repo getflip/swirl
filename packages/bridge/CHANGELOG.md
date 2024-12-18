@@ -1,5 +1,12 @@
 # @getflip/bridge
 
+## 0.8.0
+
+### Minor Changes
+
+- [`23ec2801`](https://github.com/getflip/swirl/commit/23ec280173b42c0f2deacb02bc7c465e5c80b668)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "TITLE_CHANGE" event
+
 ## 0.7.8
 
 ### Patch Changes
