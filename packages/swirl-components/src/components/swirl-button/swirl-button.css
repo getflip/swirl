@@ -281,19 +281,19 @@
   &.button--intent-primary {
     color: var(--s-interactive-primary-default);
 
-    &:hover {
-      color: var(--s-interactive-primary-default);
-
-      & .button__icon {
-        color: var(--s-interactive-primary-default);
-      }
-    }
-
-    &:active {
+    &:hover:not(:disabled):not(.button--disabled) {
       color: var(--s-interactive-primary-hovered);
 
       & .button__icon {
         color: var(--s-interactive-primary-hovered);
+      }
+    }
+
+    &:active:not(:disabled):not(.button--disabled) {
+      color: var(--s-interactive-primary-pressed);
+
+      & .button__icon {
+        color: var(--s-interactive-primary-pressed);
       }
     }
 
