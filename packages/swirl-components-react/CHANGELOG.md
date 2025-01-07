@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.274.1
+
+### Patch Changes
+
+- [#901](https://github.com/getflip/swirl/pull/901)
+  [`deda36d9`](https://github.com/getflip/swirl/commit/deda36d9c5047e07ab5f6e6658d249280a82e433)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix hover and active state
+  swirl-button colors for plain/primary variant.
+
+- Updated dependencies
+  [[`deda36d9`](https://github.com/getflip/swirl/commit/deda36d9c5047e07ab5f6e6658d249280a82e433)]:
+  - @getflip/swirl-components@0.274.1
+
 ## 0.274.0
 
 ### Minor Changes
