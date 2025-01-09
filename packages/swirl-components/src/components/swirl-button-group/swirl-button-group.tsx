@@ -1,8 +1,13 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
-import { SwirlStackOrientation } from "../swirl-stack/swirl-stack";
+import {
+  SwirlStackOrientation,
+  SwirlStackSpacing,
+} from "../swirl-stack/swirl-stack";
 
 export type SwirlButtonGroupOrientation = SwirlStackOrientation;
+
+export type SwirlButtonGroupSpacing = SwirlStackSpacing;
 
 @Component({
   shadow: true,
@@ -12,11 +17,12 @@ export type SwirlButtonGroupOrientation = SwirlStackOrientation;
 export class SwirlButtonGroup {
   @Prop() orientation?: SwirlButtonGroupOrientation = "horizontal";
   @Prop() segmented?: boolean;
+  @Prop() spacing?: SwirlButtonGroupSpacing = "8";
   @Prop() stretch?: boolean;
   @Prop() wrap?: boolean;
 
   render() {
-    const spacing = this.segmented ? "0" : "8";
+    const spacing = this.segmented ? "0" : this.spacing;
 
     const className = classnames("button-group", {
       "button-group--segmented": this.segmented,
