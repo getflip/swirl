@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.275.0
+
+### Minor Changes
+
+- [#903](https://github.com/getflip/swirl/pull/903)
+  [`6ec35326`](https://github.com/getflip/swirl/commit/6ec35326a414074d124be6b8ec71524dfd213d71)
+  Thanks [@danizep](https://github.com/danizep)! - Allow to specify
+  SwirlButtonGroup spacing
+
 ## 0.274.1
 
 ### Patch Changes
