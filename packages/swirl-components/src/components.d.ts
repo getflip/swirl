@@ -16,7 +16,7 @@ import { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./component
 import { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 import { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
-import { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
+import { SwirlButtonGroupOrientation, SwirlButtonGroupSpacing } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
@@ -83,7 +83,7 @@ export { SwirlBadgeIntent, SwirlBadgeSize, SwirlBadgeVariant } from "./component
 export { SwirlBannerAriaRole, SwirlBannerIntent, SwirlBannerSize } from "./components/swirl-banner/swirl-banner";
 export { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPosition } from "./components/swirl-box/swirl-box";
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
-export { SwirlButtonGroupOrientation } from "./components/swirl-button-group/swirl-button-group";
+export { SwirlButtonGroupOrientation, SwirlButtonGroupSpacing } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
@@ -368,6 +368,7 @@ export namespace Components {
     interface SwirlButtonGroup {
         "orientation"?: SwirlButtonGroupOrientation;
         "segmented"?: boolean;
+        "spacing"?: SwirlButtonGroupSpacing;
         "stretch"?: boolean;
         "wrap"?: boolean;
     }
@@ -6031,6 +6032,7 @@ declare namespace LocalJSX {
     interface SwirlButtonGroup {
         "orientation"?: SwirlButtonGroupOrientation;
         "segmented"?: boolean;
+        "spacing"?: SwirlButtonGroupSpacing;
         "stretch"?: boolean;
         "wrap"?: boolean;
     }
