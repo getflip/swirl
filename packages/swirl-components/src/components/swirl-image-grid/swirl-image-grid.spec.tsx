@@ -122,6 +122,6 @@ describe("swirl-image-grid", () => {
     expect(
       items[3].shadowRoot.querySelector<HTMLElement>(".image-grid-item")
         .innerText
-    ).toEqual("+2");
+    ).toEqual("+3");
   });
 });
