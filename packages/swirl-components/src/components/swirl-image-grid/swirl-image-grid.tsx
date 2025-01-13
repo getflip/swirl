@@ -28,7 +28,7 @@ export class SwirlImageGrid {
     });
 
     if (this.items.length > 4) {
-      this.items[3].overlay = `+${this.items.length - 4}`;
+      this.items[3].overlay = `+${this.items.length - 3}`;
     }
   };
 
