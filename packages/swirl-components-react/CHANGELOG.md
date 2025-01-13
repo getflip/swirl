@@ -1,5 +1,26 @@
 # @getflip/swirl-components-react
 
+## 0.276.0
+
+### Minor Changes
+
+- [#906](https://github.com/getflip/swirl/pull/906)
+  [`4252eaa3`](https://github.com/getflip/swirl/commit/4252eaa32a21506c187c2462f7caad47cd05b33d)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Adjust hidden
+  images count in swirl-image-grid
+
+* [#908](https://github.com/getflip/swirl/pull/908)
+  [`34e336cd`](https://github.com/getflip/swirl/commit/34e336cd0e51907264981eac40b9441c23846123)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add option for
+  swirl-button to inherit font size and line height
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4252eaa3`](https://github.com/getflip/swirl/commit/4252eaa32a21506c187c2462f7caad47cd05b33d),
+  [`34e336cd`](https://github.com/getflip/swirl/commit/34e336cd0e51907264981eac40b9441c23846123)]:
+  - @getflip/swirl-components@0.276.0
+
 ## 0.275.0
 
 ### Minor Changes
