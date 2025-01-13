@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.277.0
+
+### Minor Changes
+
+- [#905](https://github.com/getflip/swirl/pull/905)
+  [`951c9da3`](https://github.com/getflip/swirl/commit/951c9da368fe13549a1e76a160ac55bf6c084804)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update Inter font files, adding a
+  separate italic font
+
+### Patch Changes
+
+- Updated dependencies
+  [[`951c9da3`](https://github.com/getflip/swirl/commit/951c9da368fe13549a1e76a160ac55bf6c084804)]:
+  - @getflip/swirl-components@0.277.0
+
 ## 0.276.0
 
 ### Minor Changes
