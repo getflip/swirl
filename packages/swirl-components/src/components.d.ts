@@ -347,6 +347,7 @@ export namespace Components {
         "href"?: string;
         "icon"?: string;
         "iconPosition": SwirlButtonIconPosition;
+        "inheritFontSize"?: boolean;
         "intent"?: SwirlButtonIntent;
         "label": string;
         "name"?: string;
@@ -6011,6 +6012,7 @@ declare namespace LocalJSX {
         "href"?: string;
         "icon"?: string;
         "iconPosition"?: SwirlButtonIconPosition;
+        "inheritFontSize"?: boolean;
         "intent"?: SwirlButtonIntent;
         "label": string;
         "name"?: string;

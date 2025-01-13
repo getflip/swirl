@@ -63,6 +63,7 @@ export class SwirlButton {
   @Prop() type?: SwirlButtonType = "button";
   @Prop() value?: string;
   @Prop() variant?: SwirlButtonVariant = "ghost";
+  @Prop() inheritFontSize?: boolean;
 
   private buttonEl: HTMLElement;
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
@@ -181,6 +182,11 @@ export class SwirlButton {
           target={isLink ? this.target : undefined}
           type={isLink ? undefined : this.type}
           value={isLink ? undefined : this.value}
+          style={
+            this.inheritFontSize
+              ? { fontSize: "inherit", lineHeight: "inherit" }
+              : {}
+          }
         >
           {Boolean(this.icon) && (
             <span

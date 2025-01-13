@@ -1120,6 +1120,10 @@
           ]
         },
         {
+          "name": "inherit-font-size",
+          "description": ""
+        },
+        {
           "name": "intent",
           "description": "",
           "values": [
