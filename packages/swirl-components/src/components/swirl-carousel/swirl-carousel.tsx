@@ -32,9 +32,11 @@ export type SwirlCarouselPadding =
   | "8"
   | "12"
   | "16"
-  | "20"
   | "24"
-  | "32";
+  | "32"
+  | "40"
+  | "48"
+  | "64";
 
 /**
  * slot - The slides
