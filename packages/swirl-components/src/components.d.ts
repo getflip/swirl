@@ -18,6 +18,7 @@ import { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPositio
 import { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 import { SwirlButtonGroupOrientation, SwirlButtonGroupSpacing } from "./components/swirl-button-group/swirl-button-group";
 import { SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
+import { SwirlCarouselPadding, SwirlCarouselSpacing } from "./components/swirl-carousel/swirl-carousel";
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
@@ -85,6 +86,7 @@ export { SwirlBoxBorderColor, SwirlBoxOverflow, SwirlBoxPadding, SwirlBoxPositio
 export { SwirlButtonIconPosition, SwirlButtonIntent, SwirlButtonSize, SwirlButtonTextAlign, SwirlButtonType, SwirlButtonVariant } from "./components/swirl-button/swirl-button";
 export { SwirlButtonGroupOrientation, SwirlButtonGroupSpacing } from "./components/swirl-button-group/swirl-button-group";
 export { SwirlCardBorderRadius, SwirlCardElevationLevel, SwirlCardIntent, SwirlCardJustifyContent, SwirlCardOverflow, SwirlCardPadding } from "./components/swirl-card/swirl-card";
+export { SwirlCarouselPadding, SwirlCarouselSpacing } from "./components/swirl-carousel/swirl-carousel";
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
@@ -408,11 +410,17 @@ export namespace Components {
         "label": string;
         "loopAround"?: boolean;
         "nextSlideButtonLabel"?: string;
+        "padding"?: SwirlCarouselPadding;
+        "paddingBlockEnd"?: SwirlCarouselPadding;
+        "paddingBlockStart"?: SwirlCarouselPadding;
+        "paddingInlineEnd"?: SwirlCarouselPadding;
+        "paddingInlineStart"?: SwirlCarouselPadding;
         "previousSlideButtonLabel"?: string;
         /**
           * Scroll to slide with id.
          */
         "scrollToSlide": (id: string) => Promise<void>;
+        "spacing"?: SwirlCarouselSpacing;
     }
     /**
      * slot - The slide contents
@@ -6071,7 +6079,13 @@ declare namespace LocalJSX {
         "loopAround"?: boolean;
         "nextSlideButtonLabel"?: string;
         "onActiveSlidesChange"?: (event: SwirlCarouselCustomEvent<HTMLSwirlCarouselSlideElement[]>) => void;
+        "padding"?: SwirlCarouselPadding;
+        "paddingBlockEnd"?: SwirlCarouselPadding;
+        "paddingBlockStart"?: SwirlCarouselPadding;
+        "paddingInlineEnd"?: SwirlCarouselPadding;
+        "paddingInlineStart"?: SwirlCarouselPadding;
         "previousSlideButtonLabel"?: string;
+        "spacing"?: SwirlCarouselSpacing;
     }
     /**
      * slot - The slide contents
