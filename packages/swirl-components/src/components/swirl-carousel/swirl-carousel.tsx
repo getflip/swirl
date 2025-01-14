@@ -12,6 +12,32 @@ import {
 } from "@stencil/core";
 import { debounce } from "../../utils";
 
+export type SwirlCarouselSpacing =
+  | "0"
+  | "2"
+  | "4"
+  | "8"
+  | "12"
+  | "16"
+  | "24"
+  | "32"
+  | "40"
+  | "48"
+  | "64";
+
+export type SwirlCarouselPadding =
+  | "0"
+  | "2"
+  | "4"
+  | "8"
+  | "12"
+  | "16"
+  | "24"
+  | "32"
+  | "40"
+  | "48"
+  | "64";
+
 /**
  * slot - The slides
  */
@@ -27,6 +53,9 @@ export class SwirlCarousel {
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
   @Prop() loopAround?: boolean = false;
+  @Prop() paddingInlineEnd?: SwirlCarouselPadding;
+  @Prop() paddingInlineStart?: SwirlCarouselPadding;
+  @Prop() spacing?: SwirlCarouselSpacing = "16";
 
   @State() isAtEnd: boolean;
   @State() isAtStart: boolean;
@@ -165,6 +194,20 @@ export class SwirlCarousel {
   };
 
   render() {
+    this.el.style.setProperty("--swirl-carousel-spacing", `${this.spacing}px`);
+
+    const slidesStyles = {
+      paddingInlineEnd: Boolean(this.paddingInlineEnd)
+        ? `var(--s-space-${this.paddingInlineEnd})`
+        : undefined,
+      paddingInlineStart: Boolean(this.paddingInlineStart)
+        ? `var(--s-space-${this.paddingInlineStart})`
+        : undefined,
+      scrollPadding: Boolean(this.paddingInlineStart)
+        ? `var(--s-space-${this.paddingInlineStart})`
+        : undefined,
+    };
+
     return (
       <Host
         aria-label={this.label}
@@ -197,6 +240,7 @@ export class SwirlCarousel {
           <div
             aria-live="polite"
             class="carousel__slides"
+            style={slidesStyles}
             onScroll={this.onScroll}
             ref={(el) => (this.slidesContainer = el)}
           >

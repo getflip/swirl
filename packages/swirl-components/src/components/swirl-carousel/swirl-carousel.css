@@ -1,6 +1,8 @@
 @import "../../styles/media-queries.css";
 
 :host {
+  --swirl-carousel-spacing: var(--s-space-16);
+
   position: relative;
   display: block;
   overflow: hidden;
@@ -37,8 +39,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
-  padding: var(--s-space-24) var(--s-space-16) var(--s-space-24)
-    var(--s-space-16);
+  padding: var(--s-space-24) var(--s-space-16);
   scroll-padding: var(--s-space-16);
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
@@ -49,20 +50,10 @@
   }
 
   & ::slotted(*) {
-    margin-left: var(--s-space-16);
+    margin-left: var(--swirl-carousel-spacing);
     flex-grow: 0;
     flex-shrink: 0;
     scroll-snap-align: start;
-
-    @media (--from-tablet) {
-      margin-left: var(--s-space-24);
-    }
-  }
-
-  @media (--from-tablet) {
-    padding-right: var(--s-space-24);
-    padding-left: var(--s-space-24);
-    scroll-padding: var(--s-space-24);
   }
 }
 
