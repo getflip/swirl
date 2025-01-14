@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.278.0
+
+### Minor Changes
+
+- [`304b9f20`](https://github.com/getflip/swirl/commit/304b9f20d85764eee1be4de401c57e60baaf53df) -
+  Fix Resource list separator
+
 ## 0.277.0
 
 ### Minor Changes
