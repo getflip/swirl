@@ -7,6 +7,8 @@
   display: block;
   overflow: hidden;
   width: 100%;
+  margin-top: calc(-1 * var(--s-space-24));
+  margin-bottom: calc(-1 * var(--s-space-24));
 
   &(:hover) {
     & .carousel__previous-slide-button {
@@ -37,6 +39,8 @@
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
+  padding: var(--s-space-24) var(--s-space-16);
+  scroll-padding: var(--s-space-16);
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;

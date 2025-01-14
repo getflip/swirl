@@ -10,10 +10,10 @@ describe("swirl-carousel", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-carousel aria-roledescription="carousel" role="group" style="--swirl-carousel-spacing: 16px; margin-top: calc(-1 * var(--s-space-16)); margin-bottom: calc(-1 * var(--s-space-16));">
+      <swirl-carousel aria-roledescription="carousel" role="group" style="--swirl-carousel-spacing: 16px;">
         <mock:shadow-root>
           <div class="carousel">
-            <div aria-live="polite" class="carousel__slides" style="padding: var(--s-space-16); scroll-padding: var(--s-space-16);">
+            <div aria-live="polite" class="carousel__slides">
               <slot></slot>
             </div>
           </div>

@@ -51,9 +51,6 @@ export class SwirlCarousel {
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
   @Prop() loopAround?: boolean = false;
-  @Prop() padding?: SwirlCarouselPadding = "16";
-  @Prop() paddingBlockEnd?: SwirlCarouselPadding;
-  @Prop() paddingBlockStart?: SwirlCarouselPadding;
   @Prop() paddingInlineEnd?: SwirlCarouselPadding;
   @Prop() paddingInlineStart?: SwirlCarouselPadding;
   @Prop() spacing?: SwirlCarouselSpacing = "16";
@@ -198,15 +195,6 @@ export class SwirlCarousel {
     this.el.style.setProperty("--swirl-carousel-spacing", `${this.spacing}px`);
 
     const slidesStyles = {
-      padding: Boolean(this.padding)
-        ? `var(--s-space-${this.padding})`
-        : undefined,
-      paddingBlockEnd: Boolean(this.paddingBlockEnd)
-        ? `var(--s-space-${this.paddingBlockEnd})`
-        : undefined,
-      paddingBlockStart: Boolean(this.paddingBlockStart)
-        ? `var(--s-space-${this.paddingBlockStart})`
-        : undefined,
       paddingInlineEnd: Boolean(this.paddingInlineEnd)
         ? `var(--s-space-${this.paddingInlineEnd})`
         : undefined,
@@ -215,21 +203,6 @@ export class SwirlCarousel {
         : undefined,
       scrollPadding: Boolean(this.paddingInlineStart)
         ? `var(--s-space-${this.paddingInlineStart})`
-        : Boolean(this.padding)
-        ? `var(--s-space-${this.padding})`
-        : undefined,
-    };
-
-    const hostStyles = {
-      marginTop: Boolean(this.paddingBlockStart)
-        ? `calc(-1 * var(--s-space-${this.paddingBlockStart}))`
-        : Boolean(this.padding)
-        ? `calc(-1 * var(--s-space-${this.padding}))`
-        : undefined,
-      marginBottom: Boolean(this.paddingBlockEnd)
-        ? `calc(-1 * var(--s-space-${this.paddingBlockEnd}))`
-        : Boolean(this.padding)
-        ? `calc(-1 * var(--s-space-${this.padding}))`
         : undefined,
     };
 
@@ -238,7 +211,6 @@ export class SwirlCarousel {
         aria-label={this.label}
         aria-roledescription="carousel"
         role="group"
-        style={hostStyles}
       >
         <div class="carousel">
           {this.isScrollable && !this.isAtStart && (
