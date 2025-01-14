@@ -366,8 +366,6 @@ export class SwirlResourceList {
         section.previousElementSibling?.tagName !== "SWIRL-RESOURCE-LIST-ITEM"
       ) {
         section.hasSeparator = false;
-      } else {
-        section.hasSeparator = true;
       }
       section.spacing = this.spacing;
     });

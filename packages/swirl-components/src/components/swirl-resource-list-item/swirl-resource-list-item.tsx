@@ -14,7 +14,11 @@ import {
 
 import { getDesktopMediaQuery } from "../../utils";
 
-export type SwirlResourceListItemLabelWeight = "medium" | "regular";
+export type SwirlResourceListItemLabelWeight =
+  | "medium"
+  | "regular"
+  | "semibold"
+  | "bold";
 
 /**
  * @slot control - Used to add a menu button to the item

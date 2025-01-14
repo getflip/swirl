@@ -13,19 +13,22 @@ export default {
 };
 
 const Template = (args) => {
-  const container = document.createElement("div");
+  const container = document.createElement("swirl-resource-list");
 
   container.setAttribute("role", "menu");
 
-  const element = generateStoryElement("swirl-resource-list-section", args);
+  const sectionOne = generateStoryElement("swirl-resource-list-section", args);
+  const sectionTwo = generateStoryElement("swirl-resource-list-section", args);
 
-  element.innerHTML = `
-    <swirl-resource-list-item label="Resource list item"></swirl-resource-list-item>
+  sectionOne.innerHTML = `
     <swirl-resource-list-item label="Resource list item"></swirl-resource-list-item>
     <swirl-resource-list-item label="Resource list item"></swirl-resource-list-item>
   `;
 
-  container.append("\n  ", element, "\n");
+  sectionTwo.innerHTML = sectionOne.innerHTML;
+
+  container.append("\n  ", sectionOne, "\n");
+  container.append("\n  ", sectionTwo, "\n");
 
   return container;
 };

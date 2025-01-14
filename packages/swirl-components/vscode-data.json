@@ -15381,10 +15381,16 @@
           "description": "",
           "values": [
             {
+              "name": "bold"
+            },
+            {
               "name": "medium"
             },
             {
               "name": "regular"
+            },
+            {
+              "name": "semibold"
             }
           ]
         },

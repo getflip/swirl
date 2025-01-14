@@ -117,6 +117,16 @@
     font-weight: var(--s-font-weight-medium);
   }
 }
+.resource-list-item--label-weight-semibold {
+  & .resource-list-item__label {
+    font-weight: var(--s-font-weight-semibold);
+  }
+}
+.resource-list-item--label-weight-bold {
+  & .resource-list-item__label {
+    font-weight: var(--s-font-weight-bold);
+  }
+}
 
 .resource-list-item--show-control-on-focus {
   &:hover,
