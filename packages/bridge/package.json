@@ -15,6 +15,7 @@
     "dev": "tsc -w",
     "start": "yarn dev",
     "test": "jest",
+    "test:coverage": "jest --coverage --no-cache",
     "test:watch": "jest --watchAll"
   },
   "dependencies": {

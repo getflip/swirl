@@ -29,6 +29,7 @@
     "start": "yarn stencil:build && concurrently \"npm:*:start\"",
     "dev": "yarn start",
     "test": "yarn stencil:test",
+    "test:coverage": "yarn stencil:test:coverage",
     "build": "yarn stencil:build && yarn storybook:build",
     "generate": "plop",
     "lint": "eslint src/**/*{.ts,.tsx}",

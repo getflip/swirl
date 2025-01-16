@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "author": "Flip GmbH",
   "engines": {
-    "node": "^14.17.0 || ^16.13.0 || ^18.17.0"
+    "node": "^14.17.0 || ^16.13.0 || ^18.17.0 || ^20.18.0"
   },
   "workspaces": [
     "./packages/bridge",
@@ -22,6 +22,7 @@
     "dev:docs": "turbo run dev --filter='swirl-docs'",
     "lint": "turbo run lint",
     "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
     "clean": "turbo run clean && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "format": "prettier . --write",
     "type-check": "tsc --build",
