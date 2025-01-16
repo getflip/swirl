@@ -207,6 +207,7 @@
     }
   }
 
+  &.button--intent-primary:not(:disabled):not(.button--disabled),
   &.button--pressed {
     color: var(--s-text-highlight);
     box-shadow: inset 0 0 0 var(--s-border-width-default)
