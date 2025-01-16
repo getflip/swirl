@@ -16,6 +16,9 @@
     "test": {
       "dependsOn": []
     },
+    "test:coverage": {
+      "dependsOn": []
+    },
     "lint": {
       "outputs": [".eslintcache"]
     },
