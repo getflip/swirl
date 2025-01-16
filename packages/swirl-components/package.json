@@ -28,7 +28,8 @@
   "scripts": {
     "start": "yarn stencil:build && concurrently \"npm:*:start\"",
     "dev": "yarn start",
-    "test": "yarn stencil:test",
+    "test": "yarn stencil:test:coverage",
+    "test:watch": "yarn stencil:test:watch",
     "build": "yarn stencil:build && yarn storybook:build",
     "generate": "plop",
     "lint": "eslint src/**/*{.ts,.tsx}",
