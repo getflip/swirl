@@ -1,5 +1,12 @@
 # @getflip/swirl-icons
 
+## 0.51.0
+
+### Minor Changes
+
+- [`0642fecf`](https://github.com/getflip/swirl/commit/0642fecf4c43a5f11d0e3136cb41261b1ab75f54) -
+  add ai-filled icon
+
 ## 0.50.0
 
 ### Minor Changes
