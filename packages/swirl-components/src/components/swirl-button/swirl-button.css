@@ -51,7 +51,7 @@
     }
   }
 
-  &:focus:not(:focus-visible) {
+  &:focus:where(:not(:focus-visible)) {
     outline: none;
   }
 
@@ -81,7 +81,7 @@
 }
 
 .button--variant-ghost {
-  &.button--intent-strong:not(:disabled):not(.button--disabled) {
+  &.button--intent-strong:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-default);
 
     & .button__icon {
@@ -89,7 +89,7 @@
     }
   }
 
-  &.button--intent-primary:not(:disabled):not(.button--disabled) {
+  &.button--intent-primary:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-highlight);
 
     & .button__icon {
@@ -97,7 +97,7 @@
     }
   }
 
-  &.button--intent-critical:not(:disabled):not(.button--disabled) {
+  &.button--intent-critical:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-critical);
 
     & .button__icon {
@@ -140,7 +140,7 @@
     background-color: var(--swirl-flat-button-background-disabled);
   }
 
-  &.button--intent-primary:not(:disabled):not(.button--disabled) {
+  &.button--intent-primary:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-on-action-primary);
     background-color: var(--s-action-primary-default);
 
@@ -157,7 +157,7 @@
     }
   }
 
-  &.button--intent-critical:not(:disabled):not(.button--disabled) {
+  &.button--intent-critical:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-on-status);
     background-color: var(--s-action-critical-default);
 
@@ -197,7 +197,7 @@
       var(--s-border-default);
   }
 
-  &.button--intent-critical:not(:disabled):not(.button--disabled) {
+  &.button--intent-critical:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-critical);
     box-shadow: inset 0 0 0 var(--s-border-width-default)
       var(--s-border-critical);
@@ -207,6 +207,7 @@
     }
   }
 
+  &.button--intent-primary:where(:not(:disabled):not(.button--disabled)),
   &.button--pressed {
     color: var(--s-text-highlight);
     box-shadow: inset 0 0 0 var(--s-border-width-default)
@@ -236,7 +237,7 @@
   color: var(--swirl-plain-button-text-color-default);
   background-color: transparent;
 
-  &:hover:not(:disabled):not(.button--disabled) {
+  &:hover:where(:not(:disabled):not(.button--disabled)) {
     color: var(--swirl-plain-button-text-color-hovered);
     background-color: transparent;
     text-decoration: underline;
@@ -247,7 +248,7 @@
     }
   }
 
-  &:active:not(:disabled):not(.button--disabled) {
+  &:active:where(:not(:disabled):not(.button--disabled)) {
     color: var(--swirl-plain-button-text-color-pressed);
     background-color: transparent;
 
@@ -270,7 +271,7 @@
     padding: 0;
   }
 
-  &.button--intent-strong:not(:disabled):not(.button--disabled) {
+  &.button--intent-strong:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-default);
 
     & .button__icon {
@@ -281,7 +282,7 @@
   &.button--intent-primary {
     color: var(--s-interactive-primary-default);
 
-    &:hover:not(:disabled):not(.button--disabled) {
+    &:hover:where(:not(:disabled):not(.button--disabled)) {
       color: var(--s-interactive-primary-hovered);
 
       & .button__icon {
@@ -289,7 +290,7 @@
       }
     }
 
-    &:active:not(:disabled):not(.button--disabled) {
+    &:active:where(:not(:disabled):not(.button--disabled)) {
       color: var(--s-interactive-primary-pressed);
 
       & .button__icon {
@@ -385,12 +386,12 @@
     color: var(--s-text-on-action-primary);
     background-color: var(--s-action-primary-default);
 
-    &:hover:not(:disabled):not(.button--disabled) {
+    &:hover:where(:not(:disabled):not(.button--disabled)) {
       color: var(--s-text-on-action-primary);
       background-color: var(--s-action-primary-hovered);
     }
 
-    &:active:not(:disabled):not(.button--disabled) {
+    &:active:where(:not(:disabled):not(.button--disabled)) {
       color: var(--s-text-on-action-primary);
       background-color: var(--s-action-primary-pressed);
     }
