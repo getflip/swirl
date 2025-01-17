@@ -419,7 +419,8 @@
     grid-template-rows: auto 1fr;
     grid-template-areas:
       "banner"
-      "content";
+      "content"
+      "bottom-bar";
   }
 }
 

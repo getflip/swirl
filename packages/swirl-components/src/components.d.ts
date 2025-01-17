@@ -749,6 +749,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconAiFilled {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconApps {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3260,6 +3264,12 @@ declare global {
         prototype: HTMLSwirlIconAiElement;
         new (): HTMLSwirlIconAiElement;
     };
+    interface HTMLSwirlIconAiFilledElement extends Components.SwirlIconAiFilled, HTMLStencilElement {
+    }
+    var HTMLSwirlIconAiFilledElement: {
+        prototype: HTMLSwirlIconAiFilledElement;
+        new (): HTMLSwirlIconAiFilledElement;
+    };
     interface HTMLSwirlIconAppsElement extends Components.SwirlIconApps, HTMLStencilElement {
     }
     var HTMLSwirlIconAppsElement: {
@@ -5529,6 +5539,7 @@ declare global {
         "swirl-icon-add-reaction": HTMLSwirlIconAddReactionElement;
         "swirl-icon-admin-panel-settings": HTMLSwirlIconAdminPanelSettingsElement;
         "swirl-icon-ai": HTMLSwirlIconAiElement;
+        "swirl-icon-ai-filled": HTMLSwirlIconAiFilledElement;
         "swirl-icon-apps": HTMLSwirlIconAppsElement;
         "swirl-icon-arrow-back": HTMLSwirlIconArrowBackElement;
         "swirl-icon-arrow-downward": HTMLSwirlIconArrowDownwardElement;
@@ -6372,6 +6383,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAi {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconAiFilled {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -7996,6 +8011,7 @@ declare namespace LocalJSX {
         "swirl-icon-add-reaction": SwirlIconAddReaction;
         "swirl-icon-admin-panel-settings": SwirlIconAdminPanelSettings;
         "swirl-icon-ai": SwirlIconAi;
+        "swirl-icon-ai-filled": SwirlIconAiFilled;
         "swirl-icon-apps": SwirlIconApps;
         "swirl-icon-arrow-back": SwirlIconArrowBack;
         "swirl-icon-arrow-downward": SwirlIconArrowDownward;
@@ -8372,6 +8388,7 @@ declare module "@stencil/core" {
             "swirl-icon-add-reaction": LocalJSX.SwirlIconAddReaction & JSXBase.HTMLAttributes<HTMLSwirlIconAddReactionElement>;
             "swirl-icon-admin-panel-settings": LocalJSX.SwirlIconAdminPanelSettings & JSXBase.HTMLAttributes<HTMLSwirlIconAdminPanelSettingsElement>;
             "swirl-icon-ai": LocalJSX.SwirlIconAi & JSXBase.HTMLAttributes<HTMLSwirlIconAiElement>;
+            "swirl-icon-ai-filled": LocalJSX.SwirlIconAiFilled & JSXBase.HTMLAttributes<HTMLSwirlIconAiFilledElement>;
             "swirl-icon-apps": LocalJSX.SwirlIconApps & JSXBase.HTMLAttributes<HTMLSwirlIconAppsElement>;
             "swirl-icon-arrow-back": LocalJSX.SwirlIconArrowBack & JSXBase.HTMLAttributes<HTMLSwirlIconArrowBackElement>;
             "swirl-icon-arrow-downward": LocalJSX.SwirlIconArrowDownward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowDownwardElement>;
