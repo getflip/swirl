@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.281.0
+
+### Minor Changes
+
+- [`151b6628`](https://github.com/getflip/swirl/commit/151b6628f927613e6980bd193a4a7aa73fc5a9d0) -
+  Add separator spacing prop to resource list section
+
 ## 0.280.0
 
 ### Minor Changes
