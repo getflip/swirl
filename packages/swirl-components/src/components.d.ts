@@ -50,8 +50,9 @@ import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./com
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 import { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
+import { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
-import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
 import { SwirlLabelColor } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
 import { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
@@ -118,8 +119,9 @@ export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./com
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
 export { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
+export { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
-export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
 export { SwirlLabelColor } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
 export { SwirlSkeletonBoxBorderRadius } from "./components/swirl-skeleton-box/swirl-skeleton-box";
 export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-skeleton-text";
@@ -1837,6 +1839,7 @@ export namespace Components {
     interface SwirlResourceListSection {
         "hasSeparator"?: boolean;
         "label": string;
+        "separatorSpacing"?: SwirlSeparatorSpacing;
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlSearch {
@@ -1873,7 +1876,7 @@ export namespace Components {
         "color"?: SwirlSeparatorColor;
         "label"?: string;
         "orientation"?: SwirlSeparatorOrientation;
-        "spacing"?: SwirlSeparatorSpacing;
+        "spacing"?: SwirlSeparatorSpacing1;
     }
     interface SwirlShellLayout {
         "brandedHeader"?: boolean;
@@ -7422,6 +7425,7 @@ declare namespace LocalJSX {
     interface SwirlResourceListSection {
         "hasSeparator"?: boolean;
         "label": string;
+        "separatorSpacing"?: SwirlSeparatorSpacing;
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlSearch {
@@ -7464,7 +7468,7 @@ declare namespace LocalJSX {
         "color"?: SwirlSeparatorColor;
         "label"?: string;
         "orientation"?: SwirlSeparatorOrientation;
-        "spacing"?: SwirlSeparatorSpacing;
+        "spacing"?: SwirlSeparatorSpacing1;
     }
     interface SwirlShellLayout {
         "brandedHeader"?: boolean;

@@ -1,4 +1,5 @@
 import { Component, h, Host, Prop } from "@stencil/core";
+import { SwirlSeparatorSpacing } from "../swirl-separator/swirl-separator";
 import { SwirlStackSpacing } from "../swirl-stack/swirl-stack";
 
 /**
@@ -11,13 +12,16 @@ import { SwirlStackSpacing } from "../swirl-stack/swirl-stack";
 })
 export class SwirlResourceListSection {
   @Prop() label!: string;
+  @Prop() separatorSpacing?: SwirlSeparatorSpacing = "4";
   @Prop() spacing?: SwirlStackSpacing = "0";
   @Prop() hasSeparator?: boolean = false;
 
   render() {
     return (
       <Host>
-        {this.hasSeparator && <swirl-separator spacing="4"></swirl-separator>}
+        {this.hasSeparator && (
+          <swirl-separator spacing={this.separatorSpacing}></swirl-separator>
+        )}
         <div aria-labelledby="label" role="rowgroup">
           <span
             id="label"
