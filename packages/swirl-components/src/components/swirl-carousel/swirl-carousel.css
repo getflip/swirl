@@ -49,8 +49,11 @@
     display: none;
   }
 
-  & ::slotted(*) {
+  & ::slotted(*:not(:first-of-type)) {
     margin-left: var(--swirl-carousel-spacing);
+  }
+
+  & ::slotted(*) {
     flex-grow: 0;
     flex-shrink: 0;
     scroll-snap-align: start;
