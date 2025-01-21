@@ -11,6 +11,7 @@ import {
   State,
 } from "@stencil/core";
 import { debounce } from "../../utils";
+import classnames from "classnames";
 
 export type SwirlCarouselSpacing =
   | "0"
@@ -52,6 +53,7 @@ export class SwirlCarousel {
   @Prop() label!: string;
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
+  @Prop() fade?: boolean = false;
   @Prop() loopAround?: boolean = false;
   @Prop() paddingInlineEnd?: SwirlCarouselPadding;
   @Prop() paddingInlineStart?: SwirlCarouselPadding;
@@ -208,13 +210,19 @@ export class SwirlCarousel {
         : undefined,
     };
 
+    const className = classnames("carousel", {
+      "carousel--fade": this.fade,
+      "carousel--is-at-start": this.isScrollable && this.isAtStart,
+      "carousel--is-at-end": this.isScrollable && this.isAtEnd,
+    });
+
     return (
       <Host
         aria-label={this.label}
         aria-roledescription="carousel"
         role="group"
       >
-        <div class="carousel">
+        <div class={className}>
           {this.isScrollable && !this.isAtStart && (
             <swirl-button
               class="carousel__previous-slide-button"
