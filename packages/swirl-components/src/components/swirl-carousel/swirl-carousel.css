@@ -11,11 +11,7 @@
   margin-bottom: calc(-1 * var(--s-space-24));
 
   &(:hover) {
-    & .carousel__previous-slide-button {
-      pointer-events: auto;
-      opacity: 1;
-    }
-
+    & .carousel__previous-slide-button,
     & .carousel__next-slide-button {
       pointer-events: auto;
       opacity: 1;
@@ -60,11 +56,11 @@
   }
 }
 
-.carousel__previous-slide-button {
+.carousel__previous-slide-button,
+.carousel__next-slide-button {
   position: absolute;
   z-index: 1;
   top: calc(50% - var(--s-space-12));
-  left: var(--s-space-4);
   visibility: hidden;
   transition: opacity 0.2s;
   transform: translateY(-50%) scale(0.72);
@@ -76,18 +72,10 @@
   }
 }
 
-.carousel__next-slide-button {
-  position: absolute;
-  z-index: 1;
-  top: calc(50% - var(--s-space-12));
-  right: var(--s-space-4);
-  visibility: hidden;
-  transition: opacity 0.2s;
-  transform: translateY(-50%) scale(0.72);
-  pointer-events: none;
-  opacity: 0;
+.carousel__previous-slide-button {
+  left: var(--s-space-4);
+}
 
-  @media (--from-tablet) {
-    visibility: visible;
-  }
+.carousel__next-slide-button {
+  right: var(--s-space-4);
 }
