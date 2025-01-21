@@ -409,6 +409,7 @@ export namespace Components {
      * slot - The slides
      */
     interface SwirlCarousel {
+        "fade"?: boolean;
         "label": string;
         "loopAround"?: boolean;
         "nextSlideButtonLabel"?: string;
@@ -6086,6 +6087,7 @@ declare namespace LocalJSX {
      * slot - The slides
      */
     interface SwirlCarousel {
+        "fade"?: boolean;
         "label": string;
         "loopAround"?: boolean;
         "nextSlideButtonLabel"?: string;

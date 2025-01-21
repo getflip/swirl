@@ -27,6 +27,41 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+
+  &:before,
+  &:after {
+    content: '';
+    width: 120px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    opacity: 0;
+  }
+
+  &:before {
+    left: 0;
+    background: linear-gradient(90deg, var(--s-background-default) 0%, transparent 100%);
+  }
+
+  &:after {
+    right: 0;
+    background: linear-gradient(270deg, var(--s-background-default) 0%, transparent 100%);
+  }
+}
+
+.carousel--fade {
+  &:before,
+  &:after {
+    opacity: 1;
+  }
+}
+
+.carousel--is-at-start:before,
+.carousel--is-at-end:after {
+  opacity: 0;
 }
 
 .carousel__slides {
@@ -59,7 +94,7 @@
 .carousel__previous-slide-button,
 .carousel__next-slide-button {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: calc(50% - var(--s-space-12));
   visibility: hidden;
   transition: opacity 0.2s;

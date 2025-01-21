@@ -12,7 +12,7 @@ describe("swirl-carousel", () => {
     expect(page.root).toEqualHtml(`
       <swirl-carousel aria-roledescription="carousel" role="group" style="--swirl-carousel-spacing: 16px;">
         <mock:shadow-root>
-          <div class="carousel">
+          <div class="carousel carousel--is-at-end carousel--is-at-start">
             <div aria-live="polite" class="carousel__slides">
               <slot></slot>
             </div>

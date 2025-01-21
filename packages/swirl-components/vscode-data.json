@@ -1627,6 +1627,10 @@
       },
       "attributes": [
         {
+          "name": "fade",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
