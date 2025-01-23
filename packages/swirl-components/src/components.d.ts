@@ -409,9 +409,13 @@ export namespace Components {
      * slot - The slides
      */
     interface SwirlCarousel {
+        "fade"?: boolean;
         "label": string;
         "loopAround"?: boolean;
         "nextSlideButtonLabel"?: string;
+        "padding"?: SwirlCarouselPadding;
+        "paddingBlockEnd"?: SwirlCarouselPadding;
+        "paddingBlockStart"?: SwirlCarouselPadding;
         "paddingInlineEnd"?: SwirlCarouselPadding;
         "paddingInlineStart"?: SwirlCarouselPadding;
         "previousSlideButtonLabel"?: string;
@@ -6086,10 +6090,14 @@ declare namespace LocalJSX {
      * slot - The slides
      */
     interface SwirlCarousel {
+        "fade"?: boolean;
         "label": string;
         "loopAround"?: boolean;
         "nextSlideButtonLabel"?: string;
         "onActiveSlidesChange"?: (event: SwirlCarouselCustomEvent<HTMLSwirlCarouselSlideElement[]>) => void;
+        "padding"?: SwirlCarouselPadding;
+        "paddingBlockEnd"?: SwirlCarouselPadding;
+        "paddingBlockStart"?: SwirlCarouselPadding;
         "paddingInlineEnd"?: SwirlCarouselPadding;
         "paddingInlineStart"?: SwirlCarouselPadding;
         "previousSlideButtonLabel"?: string;

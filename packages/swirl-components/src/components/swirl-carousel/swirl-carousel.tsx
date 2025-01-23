@@ -11,6 +11,7 @@ import {
   State,
 } from "@stencil/core";
 import { debounce } from "../../utils";
+import classnames from "classnames";
 
 export type SwirlCarouselSpacing =
   | "0"
@@ -52,7 +53,11 @@ export class SwirlCarousel {
   @Prop() label!: string;
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
+  @Prop() fade?: boolean = false;
   @Prop() loopAround?: boolean = false;
+  @Prop() padding?: SwirlCarouselPadding = "16";
+  @Prop() paddingBlockEnd?: SwirlCarouselPadding;
+  @Prop() paddingBlockStart?: SwirlCarouselPadding;
   @Prop() paddingInlineEnd?: SwirlCarouselPadding;
   @Prop() paddingInlineStart?: SwirlCarouselPadding;
   @Prop() spacing?: SwirlCarouselSpacing = "16";
@@ -197,6 +202,15 @@ export class SwirlCarousel {
     this.el.style.setProperty("--swirl-carousel-spacing", `${this.spacing}px`);
 
     const slidesStyles = {
+      padding: Boolean(this.padding)
+        ? `var(--s-space-${this.padding})`
+        : undefined,
+      paddingBlockEnd: Boolean(this.paddingBlockEnd)
+        ? `var(--s-space-${this.paddingBlockEnd})`
+        : undefined,
+      paddingBlockStart: Boolean(this.paddingBlockStart)
+        ? `var(--s-space-${this.paddingBlockStart})`
+        : undefined,
       paddingInlineEnd: Boolean(this.paddingInlineEnd)
         ? `var(--s-space-${this.paddingInlineEnd})`
         : undefined,
@@ -205,8 +219,16 @@ export class SwirlCarousel {
         : undefined,
       scrollPadding: Boolean(this.paddingInlineStart)
         ? `var(--s-space-${this.paddingInlineStart})`
+        : Boolean(this.padding)
+        ? `var(--s-space-${this.padding})`
         : undefined,
     };
+
+    const className = classnames("carousel", {
+      "carousel--fade": this.fade,
+      "carousel--is-at-start": this.isAtStart,
+      "carousel--is-at-end": this.isAtEnd,
+    });
 
     return (
       <Host
@@ -214,7 +236,7 @@ export class SwirlCarousel {
         aria-roledescription="carousel"
         role="group"
       >
-        <div class="carousel">
+        <div class={className}>
           {this.isScrollable && !this.isAtStart && (
             <swirl-button
               class="carousel__previous-slide-button"
