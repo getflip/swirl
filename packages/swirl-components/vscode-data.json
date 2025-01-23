@@ -1643,6 +1643,123 @@
           "description": ""
         },
         {
+          "name": "padding",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "40"
+            },
+            {
+              "name": "48"
+            },
+            {
+              "name": "64"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
+          "name": "padding-block-end",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "40"
+            },
+            {
+              "name": "48"
+            },
+            {
+              "name": "64"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
+          "name": "padding-block-start",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "40"
+            },
+            {
+              "name": "48"
+            },
+            {
+              "name": "64"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
           "name": "padding-inline-end",
           "description": "",
           "values": [

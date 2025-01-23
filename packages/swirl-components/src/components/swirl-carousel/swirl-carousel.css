@@ -2,14 +2,11 @@
 
 :host {
   --swirl-carousel-spacing: var(--s-space-16);
-  --swirl-carousel-padding-block: var(--s-space-24);
 
   position: relative;
   display: block;
   overflow: hidden;
   width: 100%;
-  margin-top: calc(-1 * var(--swirl-carousel-padding-block));
-  margin-bottom: calc(-1 * var(--swirl-carousel-padding-block));
 
   &(:hover) {
     & .carousel__previous-slide-button,
@@ -33,9 +30,9 @@
   &:after {
     content: '';
     width: var(--s-space-32);
-    height: calc(100% - var(--swirl-carousel-padding-block) * 2);
+    height: 100%;
     position: absolute;
-    top: var(--swirl-carousel-padding-block);
+    top: 0;
     z-index: 1;
     pointer-events: none;
     transition: opacity 0.2s;
@@ -71,8 +68,6 @@
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
-  padding: var(--swirl-carousel-padding-block) var(--s-space-16);
-  scroll-padding: var(--s-space-16);
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;

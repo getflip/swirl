@@ -13,7 +13,7 @@ describe("swirl-carousel", () => {
       <swirl-carousel aria-roledescription="carousel" role="group" style="--swirl-carousel-spacing: 16px;">
         <mock:shadow-root>
           <div class="carousel carousel--is-at-end carousel--is-at-start">
-            <div aria-live="polite" class="carousel__slides">
+            <div aria-live="polite" class="carousel__slides" style="padding: var(--s-space-16); scroll-padding: var(--s-space-16);">
               <slot></slot>
             </div>
           </div>

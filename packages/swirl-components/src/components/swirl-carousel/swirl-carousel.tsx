@@ -55,6 +55,9 @@ export class SwirlCarousel {
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
   @Prop() fade?: boolean = false;
   @Prop() loopAround?: boolean = false;
+  @Prop() padding?: SwirlCarouselPadding = "16";
+  @Prop() paddingBlockEnd?: SwirlCarouselPadding;
+  @Prop() paddingBlockStart?: SwirlCarouselPadding;
   @Prop() paddingInlineEnd?: SwirlCarouselPadding;
   @Prop() paddingInlineStart?: SwirlCarouselPadding;
   @Prop() spacing?: SwirlCarouselSpacing = "16";
@@ -199,6 +202,15 @@ export class SwirlCarousel {
     this.el.style.setProperty("--swirl-carousel-spacing", `${this.spacing}px`);
 
     const slidesStyles = {
+      padding: Boolean(this.padding)
+        ? `var(--s-space-${this.padding})`
+        : undefined,
+      paddingBlockEnd: Boolean(this.paddingBlockEnd)
+        ? `var(--s-space-${this.paddingBlockEnd})`
+        : undefined,
+      paddingBlockStart: Boolean(this.paddingBlockStart)
+        ? `var(--s-space-${this.paddingBlockStart})`
+        : undefined,
       paddingInlineEnd: Boolean(this.paddingInlineEnd)
         ? `var(--s-space-${this.paddingInlineEnd})`
         : undefined,
@@ -207,6 +219,8 @@ export class SwirlCarousel {
         : undefined,
       scrollPadding: Boolean(this.paddingInlineStart)
         ? `var(--s-space-${this.paddingInlineStart})`
+        : Boolean(this.padding)
+        ? `var(--s-space-${this.padding})`
         : undefined,
     };
 
