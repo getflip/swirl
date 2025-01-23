@@ -12,9 +12,6 @@ export default {
         },
       },
     },
-    locale: {
-      control: { type: "object" },
-    },
   },
   component: "swirl-time-input",
   tags: ["autodocs"],
