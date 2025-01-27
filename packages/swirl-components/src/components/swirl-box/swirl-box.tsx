@@ -1,4 +1,13 @@
-import { Component, Element, h, Host, Prop, State } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+} from "@stencil/core";
 import classnames from "classnames";
 
 export type SwirlBoxBorderColor = "default" | "strong";
@@ -72,6 +81,8 @@ export class SwirlBox {
   @Prop() width?: string;
   @Prop() zIndex?: string;
 
+  @Event() componentLoad: EventEmitter<void>;
+
   @State() scrollState = {
     scrollable: false,
     scrolledToBottom: false,
@@ -79,6 +90,8 @@ export class SwirlBox {
   };
 
   componentDidLoad() {
+    this.componentLoad.emit();
+
     queueMicrotask(() => {
       this.updateScrollState();
     });
