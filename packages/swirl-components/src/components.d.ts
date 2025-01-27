@@ -1749,6 +1749,11 @@ export namespace Components {
         "disableScrollLock"?: boolean;
         "enableFlip"?: boolean;
         "fullscreenBottomSheet"?: boolean;
+        /**
+          * Return whether the popover is open.
+          * @returns Promise<boolean>
+         */
+        "isOpen": () => Promise<boolean>;
         "label": string;
         "maxHeight"?: string;
         "offset"?: number | number[];
