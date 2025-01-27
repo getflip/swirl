@@ -111,4 +111,31 @@ describe("swirl-popover", () => {
 
     expect(isOpen()).toBeFalsy();
   });
+
+  it("returns the open state", async () => {
+    const page = await newSpecPage({
+      components: [SwirlPopover, SwirlPopoverTrigger],
+      html: template,
+    });
+
+    const popover = page.body.querySelector("swirl-popover");
+    const trigger = page.body.querySelector("swirl-popover-trigger");
+
+    expect(await popover.isOpen()).toBeFalsy();
+
+    trigger.click();
+    expect(await popover.isOpen()).toBeTruthy();
+
+    await popover.close();
+    expect(await popover.isOpen()).toBeFalsy();
+    await new Promise((resolve) => setTimeout(resolve, 150));
+
+    await popover.open();
+    expect(await popover.isOpen()).toBeTruthy();
+
+    popover.shadowRoot
+      .querySelector(".popover")
+      .dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
+    expect(await popover.isOpen()).toBeFalsy();
+  });
 });
