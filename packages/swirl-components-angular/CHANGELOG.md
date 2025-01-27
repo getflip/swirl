@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.284.0
+
+### Minor Changes
+
+- [`38ad9d21`](https://github.com/getflip/swirl/commit/38ad9d21c06021f045a8cf214c4bcaf6163aeb23)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "componentLoad" event to
+  swirl-box
+
+### Patch Changes
+
+- Updated dependencies
+  [[`38ad9d21`](https://github.com/getflip/swirl/commit/38ad9d21c06021f045a8cf214c4bcaf6163aeb23)]:
+  - @getflip/swirl-components@0.284.0
+
 ## 0.283.1
 
 ### Patch Changes
