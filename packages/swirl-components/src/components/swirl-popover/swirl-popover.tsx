@@ -224,6 +224,15 @@ export class SwirlPopover {
     });
   }
 
+  /**
+   * Return whether the popover is open.
+   * @returns
+   */
+  @Method()
+  public async isOpen() {
+    return this.active && !this.closing;
+  }
+
   toggle = (event: Event) => {
     event.stopPropagation();
 
