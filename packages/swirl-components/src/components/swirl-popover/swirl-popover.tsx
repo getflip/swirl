@@ -180,7 +180,7 @@ export class SwirlPopover {
 
   /**
    * Open the popover.
-   * @returns
+   * @returns Promise<boolean>
    */
   @Method()
   public async open(triggerEl?: HTMLElement, disableFocus?: boolean) {
