@@ -1759,7 +1759,7 @@ export namespace Components {
         "offset"?: number | number[];
         /**
           * Open the popover.
-          * @returns
+          * @returns Promise<boolean>
          */
         "open": (triggerEl?: HTMLElement, disableFocus?: boolean) => Promise<void>;
         "placement"?: Placement;
