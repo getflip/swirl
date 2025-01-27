@@ -351,6 +351,10 @@
   gap: var(--s-space-2);
 }
 
+.resource-list-item__meta-text {
+  white-space: nowrap;
+}
+
 .resource-list-item__badges {
   display: inline-flex;
   width: max-content;
