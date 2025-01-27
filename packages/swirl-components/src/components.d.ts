@@ -1751,7 +1751,7 @@ export namespace Components {
         "fullscreenBottomSheet"?: boolean;
         /**
           * Return whether the popover is open.
-          * @returns
+          * @returns Promise<boolean>
          */
         "isOpen": () => Promise<boolean>;
         "label": string;
@@ -1759,7 +1759,7 @@ export namespace Components {
         "offset"?: number | number[];
         /**
           * Open the popover.
-          * @returns Promise<boolean>
+          * @returns
          */
         "open": (triggerEl?: HTMLElement, disableFocus?: boolean) => Promise<void>;
         "placement"?: Placement;
