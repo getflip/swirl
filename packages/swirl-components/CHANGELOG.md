@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.283.0
+
+### Minor Changes
+
+- [#921](https://github.com/getflip/swirl/pull/921)
+  [`ee1d6789`](https://github.com/getflip/swirl/commit/ee1d6789dc736a85a8034820a33b4f17fee998a7)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "isOpen" method to
+  swirl-popover
+
 ## 0.282.0
 
 ### Minor Changes
