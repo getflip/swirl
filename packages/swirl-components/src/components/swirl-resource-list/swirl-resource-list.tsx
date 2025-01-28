@@ -335,7 +335,7 @@ export class SwirlResourceList {
       ) {
         event.preventDefault();
         this.stopDrag(this.dragging);
-      } else if (Boolean(this.controllingElement)) {
+      } else if (Boolean(this.controllingElement) && event.code === "Enter") {
         const item = this.items[this.focusedIndex];
 
         if (!Boolean(item) || !item.isConnected) {
