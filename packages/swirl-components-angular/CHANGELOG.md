@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.285.0
+
+### Minor Changes
+
+- [#925](https://github.com/getflip/swirl/pull/925)
+  [`0086a777`](https://github.com/getflip/swirl/commit/0086a777acef1270846e55f1ba8fc540c3e6490d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Only activate items of
+  swirl-resource-list via Enter when having a controlling element
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0086a777`](https://github.com/getflip/swirl/commit/0086a777acef1270846e55f1ba8fc540c3e6490d)]:
+  - @getflip/swirl-components@0.285.0
+
 ## 0.284.0
 
 ### Minor Changes
