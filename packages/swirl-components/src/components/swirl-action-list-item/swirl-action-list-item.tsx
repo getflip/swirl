@@ -62,8 +62,8 @@ export class SwirlActionListItem {
     icon?.setAttribute("size", smallIcon ? "20" : "24");
 
     const iconBadge = this.iconBadgeEl?.children[0];
-    iconBadge.setAttribute("size", "xs");
-    iconBadge.setAttribute("variant", "dot");
+    iconBadge?.setAttribute("size", "xs");
+    iconBadge?.setAttribute("variant", "dot");
 
     if (suffix?.tagName === "SWIRL-TAG") return;
 
