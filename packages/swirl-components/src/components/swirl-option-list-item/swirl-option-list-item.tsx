@@ -37,6 +37,7 @@ export class SwirlOptionListItem {
   @Prop() dragHandleDescription?: string = "Press spacebar to toggle grab";
   @Prop() dragHandleLabel?: string = "Move option";
   @Prop() icon?: string;
+  @Prop() iconBadge?: string;
   @Prop() label!: string;
   @Prop({ mutable: true }) selected?: boolean = false;
   @Prop() swirlAriaRole?: SwirlOptionListItemRole = "option";
@@ -101,6 +102,7 @@ export class SwirlOptionListItem {
 
     const showCheckbox = this.context === "multi-select";
     const showIcon = Boolean(this.icon) && this.context === "single-select";
+    const showIconBadge = Boolean(this.iconBadge);
     const showAvatar =
       this.el.querySelector('[slot="avatar"]') &&
       this.context === "single-select";
@@ -146,7 +148,14 @@ export class SwirlOptionListItem {
               class="option-list-item__icon"
               innerHTML={this.icon}
               ref={(el) => (this.iconEl = el)}
-            ></span>
+            >
+              {showIconBadge && (
+                <span
+                  class="option-list-item__icon__badge"
+                  innerHTML={this.iconBadge}
+                ></span>
+              )}
+            </span>
           )}
           <span class="option-list-item__avatar">
             <slot name="avatar"></slot>

@@ -24,6 +24,7 @@ export class SwirlMenuItem {
   @Prop() disabled?: boolean;
   @Prop() expanded?: boolean;
   @Prop() icon?: string;
+  @Prop() iconBadge?: string;
   @Prop() intent?: SwirlActionListItemIntent = "default";
   @Prop() label!: string;
   @Prop() suffix?: string;
@@ -143,6 +144,7 @@ export class SwirlMenuItem {
         description={this.description}
         disabled={this.disabled}
         icon={this.icon}
+        iconBadge={this.iconBadge}
         intent={this.intent}
         label={this.label}
         onClick={this.onActionListItemClick}
@@ -157,6 +159,7 @@ export class SwirlMenuItem {
       <swirl-option-list-item
         disabled={this.disabled}
         icon={this.icon}
+        iconBadge={this.iconBadge}
         label={this.label}
         onClick={this.onOptionListItemClick}
         onKeyDown={this.onOptionListItemKeyDown}

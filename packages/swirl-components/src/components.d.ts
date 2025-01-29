@@ -183,6 +183,7 @@ export namespace Components {
         "description"?: string;
         "disabled"?: boolean;
         "icon"?: string;
+        "iconBadge"?: string;
         "intent"?: SwirlActionListItemIntent;
         "label": string;
         "size"?: SwirlActionListItemSize;
@@ -872,6 +873,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconComment {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconContrast {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -1624,6 +1629,7 @@ export namespace Components {
          */
         "getSubMenu": () => Promise<HTMLSwirlMenuElement>;
         "icon"?: string;
+        "iconBadge"?: string;
         "intent"?: SwirlActionListItemIntent1;
         "label": string;
         "suffix"?: string;
@@ -1685,6 +1691,7 @@ export namespace Components {
         "dragHandleLabel"?: string;
         "dragging"?: boolean;
         "icon"?: string;
+        "iconBadge"?: string;
         "label": string;
         "selected"?: boolean;
         "swirlAriaRole"?: SwirlOptionListItemRole;
@@ -3470,6 +3477,12 @@ declare global {
     var HTMLSwirlIconCommentElement: {
         prototype: HTMLSwirlIconCommentElement;
         new (): HTMLSwirlIconCommentElement;
+    };
+    interface HTMLSwirlIconContrastElement extends Components.SwirlIconContrast, HTMLStencilElement {
+    }
+    var HTMLSwirlIconContrastElement: {
+        prototype: HTMLSwirlIconContrastElement;
+        new (): HTMLSwirlIconContrastElement;
     };
     interface HTMLSwirlIconCopyElement extends Components.SwirlIconCopy, HTMLStencilElement {
     }
@@ -5596,6 +5609,7 @@ declare global {
         "swirl-icon-cloud-upload": HTMLSwirlIconCloudUploadElement;
         "swirl-icon-column": HTMLSwirlIconColumnElement;
         "swirl-icon-comment": HTMLSwirlIconCommentElement;
+        "swirl-icon-contrast": HTMLSwirlIconContrastElement;
         "swirl-icon-copy": HTMLSwirlIconCopyElement;
         "swirl-icon-crop": HTMLSwirlIconCropElement;
         "swirl-icon-dark-mode": HTMLSwirlIconDarkModeElement;
@@ -5898,6 +5912,7 @@ declare namespace LocalJSX {
         "description"?: string;
         "disabled"?: boolean;
         "icon"?: string;
+        "iconBadge"?: string;
         "intent"?: SwirlActionListItemIntent;
         "label": string;
         "size"?: SwirlActionListItemSize;
@@ -6535,6 +6550,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconComment {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconContrast {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -7233,6 +7252,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "expanded"?: boolean;
         "icon"?: string;
+        "iconBadge"?: string;
         "intent"?: SwirlActionListItemIntent1;
         "label": string;
         "suffix"?: string;
@@ -7297,6 +7317,7 @@ declare namespace LocalJSX {
         "dragHandleLabel"?: string;
         "dragging"?: boolean;
         "icon"?: string;
+        "iconBadge"?: string;
         "label": string;
         "onToggleDrag"?: (event: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElement>) => void;
         "selected"?: boolean;
@@ -8074,6 +8095,7 @@ declare namespace LocalJSX {
         "swirl-icon-cloud-upload": SwirlIconCloudUpload;
         "swirl-icon-column": SwirlIconColumn;
         "swirl-icon-comment": SwirlIconComment;
+        "swirl-icon-contrast": SwirlIconContrast;
         "swirl-icon-copy": SwirlIconCopy;
         "swirl-icon-crop": SwirlIconCrop;
         "swirl-icon-dark-mode": SwirlIconDarkMode;
@@ -8451,6 +8473,7 @@ declare module "@stencil/core" {
             "swirl-icon-cloud-upload": LocalJSX.SwirlIconCloudUpload & JSXBase.HTMLAttributes<HTMLSwirlIconCloudUploadElement>;
             "swirl-icon-column": LocalJSX.SwirlIconColumn & JSXBase.HTMLAttributes<HTMLSwirlIconColumnElement>;
             "swirl-icon-comment": LocalJSX.SwirlIconComment & JSXBase.HTMLAttributes<HTMLSwirlIconCommentElement>;
+            "swirl-icon-contrast": LocalJSX.SwirlIconContrast & JSXBase.HTMLAttributes<HTMLSwirlIconContrastElement>;
             "swirl-icon-copy": LocalJSX.SwirlIconCopy & JSXBase.HTMLAttributes<HTMLSwirlIconCopyElement>;
             "swirl-icon-crop": LocalJSX.SwirlIconCrop & JSXBase.HTMLAttributes<HTMLSwirlIconCropElement>;
             "swirl-icon-dark-mode": LocalJSX.SwirlIconDarkMode & JSXBase.HTMLAttributes<HTMLSwirlIconDarkModeElement>;

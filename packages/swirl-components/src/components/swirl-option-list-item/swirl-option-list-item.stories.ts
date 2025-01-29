@@ -42,4 +42,6 @@ export const SwirlOptionListItem = Template.bind({});
 SwirlOptionListItem.args = {
   label: "Option List Item",
   value: "Value",
+  icon: `<swirl-icon-mention></swirl-icon-mention>`,
+  iconBadge: `<swirl-badge></swirl-badge>`,
 };
