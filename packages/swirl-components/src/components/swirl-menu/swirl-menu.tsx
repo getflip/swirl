@@ -240,6 +240,29 @@ export class SwirlMenu {
   @Method()
   async updateSelection(item: HTMLSwirlOptionListItemElement) {
     this.valueChange.emit(item.value);
+    this.value = item.value;
+    this.updateActiveItem();
+  }
+
+  /**
+   * Update the displayed active item.
+   * @returns
+   */
+  @Method()
+  async updateActiveItem() {
+    const menuItems = querySelectorAllDeep(this.el, "swirl-menu-item").filter(
+      (item) => {
+        return closestPassShadow(item, "swirl-menu") === this.el;
+      }
+    ) as HTMLSwirlMenuItemElement[];
+
+    menuItems.forEach((item) => {
+      item.updateValue();
+    });
+
+    if (this.parentMenu && this.parentMenu.variant === "action") {
+      this.parentMenu.updateActiveItem();
+    }
   }
 
   private observeSlotChanges() {

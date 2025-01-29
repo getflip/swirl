@@ -1,6 +1,7 @@
 import {
   Component,
   Element,
+  forceUpdate,
   h,
   Host,
   Method,
@@ -58,6 +59,14 @@ export class SwirlMenuItem {
   @Method()
   async getSubMenu() {
     return this.subMenu;
+  }
+
+  /**
+   * Update the selected value
+   */
+  @Method()
+  async updateValue() {
+    forceUpdate(this);
   }
 
   /**
@@ -155,6 +164,8 @@ export class SwirlMenuItem {
   }
 
   private renderOptionListItem() {
+    const selected = this.parentMenu?.value === this.value;
+
     return (
       <swirl-option-list-item
         disabled={this.disabled}
@@ -165,7 +176,7 @@ export class SwirlMenuItem {
         onKeyDown={this.onOptionListItemKeyDown}
         onKeyUp={this.onOptionListItemKeyUp}
         ref={(el) => (this.optionListItem = el)}
-        selected={this.parentMenu?.value === this.value}
+        selected={selected}
         swirlAriaRole="menuitemradio"
         value={this.value}
       ></swirl-option-list-item>

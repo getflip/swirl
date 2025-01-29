@@ -47,6 +47,7 @@ export class SwirlPopover {
   @Prop() label!: string;
   @Prop() maxHeight?: string = "22rem";
   @Prop() offset?: number | number[] = 8;
+  @Prop() padded?: boolean = true;
   @Prop() popoverId?: string;
   @Prop() placement?: Placement = "bottom-start";
   @Prop() returnFocusToTrigger?: boolean = true;
@@ -393,6 +394,7 @@ export class SwirlPopover {
         "popover--fullscreen-bottom-sheet": this.fullscreenBottomSheet,
         "popover--inactive": !this.active,
         "popover--transparent": this.transparent,
+        "popover--padded": this.padded,
       }
     );
 

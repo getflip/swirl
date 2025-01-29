@@ -1609,6 +1609,11 @@ export namespace Components {
         "mobileCloseMenuButtonLabel"?: string;
         "mobileDoneButtonLabel"?: string;
         /**
+          * Update the displayed active item.
+          * @returns
+         */
+        "updateActiveItem": () => Promise<void>;
+        /**
           * Update the selection of a menu with variant "selection".
           * @returns
          */
@@ -1633,6 +1638,10 @@ export namespace Components {
         "intent"?: SwirlActionListItemIntent1;
         "label": string;
         "suffix"?: string;
+        /**
+          * Update the selected value
+         */
+        "updateValue": () => Promise<void>;
         "value"?: string;
     }
     interface SwirlModal {
@@ -1769,6 +1778,7 @@ export namespace Components {
           * @returns
          */
         "open": (triggerEl?: HTMLElement, disableFocus?: boolean) => Promise<void>;
+        "padded"?: boolean;
         "placement"?: Placement;
         "popoverId"?: string;
         "returnFocusToTrigger"?: boolean;
@@ -7379,6 +7389,7 @@ declare namespace LocalJSX {
         "offset"?: number | number[];
         "onPopoverClose"?: (event: SwirlPopoverCustomEvent<void>) => void;
         "onPopoverOpen"?: (event: SwirlPopoverCustomEvent<{ position: ComputePositionReturn }>) => void;
+        "padded"?: boolean;
         "placement"?: Placement;
         "popoverId"?: string;
         "returnFocusToTrigger"?: boolean;

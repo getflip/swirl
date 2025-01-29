@@ -15,6 +15,10 @@ export default {
         type: "number",
       },
     },
+    padded: {
+      description:
+        "Adds a small amount of free space to the top and bottom of the popover.",
+    },
     returnFocusToTrigger: {
       description:
         "By default, the focus is returned to the trigger element when the popover is closed. Pass false to disable this behavior.",
