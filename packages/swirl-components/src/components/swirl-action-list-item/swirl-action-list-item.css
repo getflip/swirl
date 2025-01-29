@@ -134,5 +134,5 @@
 .action-list-item__suffix {
   display: inline-flex;
   flex-shrink: 0;
-  color: var(--s-icon-highlight);
+  color: var(--s-icon-default);
 }
