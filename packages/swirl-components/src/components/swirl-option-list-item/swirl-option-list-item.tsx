@@ -151,7 +151,7 @@ export class SwirlOptionListItem {
             >
               {showIconBadge && (
                 <span
-                  class="option-list-item__icon__badge"
+                  class="option-list-item__icon-badge"
                   innerHTML={this.iconBadge}
                 ></span>
               )}

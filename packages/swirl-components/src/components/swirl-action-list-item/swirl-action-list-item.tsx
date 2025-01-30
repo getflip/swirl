@@ -103,7 +103,7 @@ export class SwirlActionListItem {
             >
               {showIconBadge && (
                 <span
-                  class="action-list-item__icon__badge"
+                  class="action-list-item__icon-badge"
                   innerHTML={this.iconBadge}
                   ref={(el) => (this.iconBadgeEl = el)}
                 ></span>

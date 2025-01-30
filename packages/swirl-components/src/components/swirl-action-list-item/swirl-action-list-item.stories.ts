@@ -36,7 +36,7 @@ SwirlActionListItem.args = {
   badge: "Badge",
   description: "Description of the action list item",
   icon: `<swirl-icon-mention></swirl-icon-mention>`,
-  iconBadge: `<swirl-badge></swirl-badge>`,
+  iconBadge: `<swirl-badge label="1"></swirl-badge>`,
   label: "This is an action",
   suffix: `<swirl-icon-chevron-right></swirl-icon-chevron-right>`,
 };

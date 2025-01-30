@@ -99,7 +99,7 @@
   }
 }
 
-.action-list-item__icon__badge {
+.action-list-item__icon-badge {
   position: absolute;
   display: grid;
   bottom: 0;

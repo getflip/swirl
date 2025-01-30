@@ -117,6 +117,11 @@ export class SwirlMenu {
     );
   }
 
+  @Watch("value")
+  watchValue() {
+    this.updateActiveItem();
+  }
+
   /**
    * Activate a menu item with a sub menu. Only callable on a root menu.
    * @returns
@@ -240,8 +245,6 @@ export class SwirlMenu {
   @Method()
   async updateSelection(item: HTMLSwirlOptionListItemElement) {
     this.valueChange.emit(item.value);
-    this.value = item.value;
-    this.updateActiveItem();
   }
 
   /**

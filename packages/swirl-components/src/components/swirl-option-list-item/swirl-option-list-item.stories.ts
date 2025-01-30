@@ -43,5 +43,5 @@ SwirlOptionListItem.args = {
   label: "Option List Item",
   value: "Value",
   icon: `<swirl-icon-mention></swirl-icon-mention>`,
-  iconBadge: `<swirl-badge></swirl-badge>`,
+  iconBadge: `<swirl-badge label="1"></swirl-badge>`,
 };
