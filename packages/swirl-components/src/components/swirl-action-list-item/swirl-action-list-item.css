@@ -87,6 +87,7 @@
 
 .action-list-item__icon {
   display: inline-flex;
+  position: relative;
   width: 1.5rem;
   height: 1.5rem;
   flex-shrink: 0;
@@ -96,6 +97,13 @@
     width: 1.25rem;
     height: 1.25rem;
   }
+}
+
+.action-list-item__icon-badge {
+  position: absolute;
+  display: grid;
+  bottom: 0;
+  right: 0;
 }
 
 .action-list-item__label-container {

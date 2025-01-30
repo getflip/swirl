@@ -4,6 +4,7 @@ import {
   ComputePositionReturn,
   flip,
   offset,
+  shift,
 } from "@floating-ui/dom";
 import {
   Component,
@@ -114,6 +115,11 @@ export class SwirlMenu {
       this.menuContainer,
       this.reposition
     );
+  }
+
+  @Watch("value")
+  watchValue() {
+    this.updateActiveItem();
   }
 
   /**
@@ -239,6 +245,27 @@ export class SwirlMenu {
   @Method()
   async updateSelection(item: HTMLSwirlOptionListItemElement) {
     this.valueChange.emit(item.value);
+  }
+
+  /**
+   * Update the displayed active item.
+   * @returns
+   */
+  @Method()
+  async updateActiveItem() {
+    const menuItems = querySelectorAllDeep(this.el, "swirl-menu-item").filter(
+      (item) => {
+        return closestPassShadow(item, "swirl-menu") === this.el;
+      }
+    ) as HTMLSwirlMenuItemElement[];
+
+    menuItems.forEach((item) => {
+      item.updateValue();
+    });
+
+    if (this.parentMenu && this.parentMenu.variant === "action") {
+      this.parentMenu.updateActiveItem();
+    }
   }
 
   private observeSlotChanges() {
@@ -370,11 +397,12 @@ export class SwirlMenu {
     if (!Boolean(trigger) || !Boolean(this.menuContainer)) {
       return;
     }
-
-    this.position = await computePosition(trigger, this.menuContainer, {
-      placement: "right-start",
-      strategy: "fixed",
-      middleware: [offset({ mainAxis: -10, crossAxis: 0 }), flip()],
+    requestAnimationFrame(async () => {
+      this.position = await computePosition(trigger, this.menuContainer, {
+        placement: "right-start",
+        strategy: "fixed",
+        middleware: [offset({ mainAxis: -10, crossAxis: 0 }), shift(), flip()],
+      });
     });
   };
 

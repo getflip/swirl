@@ -201,8 +201,17 @@
 
   @media (--from-tablet) {
     max-height: 22rem;
-    padding-top: var(--s-space-8);
-    padding-bottom: var(--s-space-8);
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.popover--padded {
+  .popover__scroll-container {
+    @media (--from-tablet) {
+      padding-top: var(--s-space-8);
+      padding-bottom: var(--s-space-8);
+    }
   }
 }
 

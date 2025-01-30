@@ -21,6 +21,7 @@ export class SwirlActionListItem {
   @Prop() disabled?: boolean;
   @Prop() description?: string;
   @Prop() icon?: string;
+  @Prop() iconBadge?: string;
   @Prop() intent?: SwirlActionListItemIntent = "default";
   @Prop() label!: string;
   @Prop() size?: SwirlActionListItemSize = "m";
@@ -30,6 +31,7 @@ export class SwirlActionListItem {
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
+  private iconBadgeEl: HTMLElement;
   private suffixEl: HTMLElement;
 
   componentDidLoad() {
@@ -59,6 +61,10 @@ export class SwirlActionListItem {
 
     icon?.setAttribute("size", smallIcon ? "20" : "24");
 
+    const iconBadge = this.iconBadgeEl?.children[0];
+    iconBadge?.setAttribute("size", "xs");
+    iconBadge?.setAttribute("variant", "dot");
+
     if (suffix?.tagName === "SWIRL-TAG") return;
 
     suffix?.setAttribute("size", smallIcon ? "20" : "24");
@@ -66,6 +72,7 @@ export class SwirlActionListItem {
 
   render() {
     const showBadge = Boolean(this.badge);
+    const showIconBadge = Boolean(this.iconBadge);
     const showSuffixSlot = Boolean(this.el.querySelector('[slot="suffix"]'));
     const showSuffix =
       (Boolean(this.suffix) || showSuffixSlot) && !this.disabled;
@@ -93,8 +100,17 @@ export class SwirlActionListItem {
               class="action-list-item__icon"
               innerHTML={this.icon}
               ref={(el) => (this.iconEl = el)}
-            ></span>
+            >
+              {showIconBadge && (
+                <span
+                  class="action-list-item__icon-badge"
+                  innerHTML={this.iconBadge}
+                  ref={(el) => (this.iconBadgeEl = el)}
+                ></span>
+              )}
+            </span>
           )}
+
           <span class="action-list-item__label-container">
             <span class="action-list-item__label">{this.label}</span>
             {this.description && (

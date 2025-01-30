@@ -39,7 +39,7 @@ const Template = (args) => {
         </swirl-menu>
       </swirl-menu-item>
       <swirl-menu-item icon="<swirl-icon-edit></swirl-icon-edit>" label="Colors">
-        <swirl-menu label="Colors menu" selection">
+        <swirl-menu label="Colors menu">
           <swirl-menu-item label="Text color">
             <swirl-menu label="Text color menu" value="blue" variant="selection">
               <swirl-menu-item label="Red" value="red"></swirl-menu-item>
@@ -48,7 +48,7 @@ const Template = (args) => {
             </swirl-menu>
           </swirl-menu-item>
           <swirl-menu-item label="Background color">
-            <swirl-menu label="Background color menu" variant="selection">
+            <swirl-menu label="Background color menu" value="light" variant="selection">
               <swirl-menu-item label="Light" value="light"></swirl-menu-item>
               <swirl-menu-item label="Dark" value="dark"></swirl-menu-item>
             </swirl-menu>
