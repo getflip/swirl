@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.52.0
+
+### Minor Changes
+
+- [#929](https://github.com/getflip/swirl/pull/929)
+  [`2d1cab48`](https://github.com/getflip/swirl/commit/2d1cab480796727ae447f4c31d7e7457cbe5ab21)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add contrast
+  icon and Improve menu option functionality
+
 ## 0.51.0
 
 ### Minor Changes
