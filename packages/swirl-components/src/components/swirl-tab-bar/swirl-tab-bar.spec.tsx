@@ -31,18 +31,18 @@ describe("swirl-tab-bar", () => {
 
     expect(page.root).toEqualHtml(`
       <swirl-tab-bar label="Tabs">
-        <div aria-label="Tabs" class="tab-bar tab-bar--justify-start" role="tablist">
-          <button aria-controls="tab1" aria-selected="false" class="tab-bar__tab" id="tab-tab1" role="tab" tabindex="-1" type="button">
+        <div aria-label="Tabs" class="tab-bar tab-bar--justify-start tab-bar--variant-default" role="tablist">
+          <button aria-controls="tab1" aria-selected="false" class="tab-bar__tab tab-bar__tab--variant-default" id="tab-tab1" role="tab" tabindex="-1" type="button">
             <span class="tab-bar__tab-label">
               Tab #1
             </span>
           </button>
-          <button aria-controls="tab2" aria-selected="true" class="tab-bar__tab tab-bar__tab--active" id="tab-tab2" role="tab" tabindex="0" type="button">
+          <button aria-controls="tab2" aria-selected="true" class="tab-bar__tab tab-bar__tab--variant-default tab-bar__tab--active" id="tab-tab2" role="tab" tabindex="0" type="button">
             <span class="tab-bar__tab-label">
               Tab #2
             </span>
           </button>
-          <button aria-controls="tab3" aria-selected="false" class="tab-bar__tab" id="tab-tab3" role="tab" tabindex="-1" type="button">
+          <button aria-controls="tab3" aria-selected="false" class="tab-bar__tab  tab-bar__tab--variant-default" id="tab-tab3" role="tab" tabindex="-1" type="button">
             <span class="tab-bar__tab-label">
               Tab #3
             </span>
