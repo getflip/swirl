@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.287.0
+
+### Minor Changes
+
+- [#931](https://github.com/getflip/swirl/pull/931)
+  [`3494448f`](https://github.com/getflip/swirl/commit/3494448fd1cd871f80fd75e68300cde1d89fb101)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add avatar
+  slot for menu items
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3494448f`](https://github.com/getflip/swirl/commit/3494448fd1cd871f80fd75e68300cde1d89fb101)]:
+  - @getflip/swirl-components@0.287.0
+
 ## 0.286.0
 
 ### Minor Changes
