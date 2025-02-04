@@ -1,5 +1,14 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from "@stencil/core";
 import classnames from "classnames";
+import { getCircularArrayIndex } from "../../utils";
 
 export type SwirlTabBarTab = {
   active?: boolean;
@@ -29,6 +38,8 @@ export type SwirlTabBarVariant = "default" | "pill";
   tag: "swirl-tab-bar",
 })
 export class SwirlTabBar {
+  @Element() el: HTMLElement;
+
   @Prop() disableTabSemantics?: boolean;
   @Prop() label!: string;
   @Prop() justify?: SwirlTabBarJustify = "start";
@@ -36,7 +47,6 @@ export class SwirlTabBar {
   @Prop() paddingBlockStart?: SwirlTabBarPadding;
   @Prop() paddingInlineEnd?: SwirlTabBarPadding;
   @Prop() paddingInlineStart?: SwirlTabBarPadding;
-
   @Prop() tabs: SwirlTabBarTab[] = [];
   @Prop() variant?: SwirlTabBarVariant = "default";
 
@@ -47,12 +57,31 @@ export class SwirlTabBar {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowLeft") {
       event.preventDefault();
+      this.focusAdjacentTab(true);
       this.activatePreviousTab.emit();
     } else if (event.code === "ArrowRight") {
       event.preventDefault();
+      this.focusAdjacentTab(false);
       this.activateNextTab.emit();
     }
   };
+
+  private focusAdjacentTab(previous: boolean): void {
+    const tabs = this.getTabs();
+    const selectedTabIndex = tabs.findIndex(
+      (tab) => tab.ariaSelected === "true"
+    );
+    const nextIndex = getCircularArrayIndex(
+      previous ? selectedTabIndex - 1 : selectedTabIndex + 1,
+      tabs.length
+    );
+
+    tabs[nextIndex].focus();
+  }
+
+  private getTabs(): HTMLElement[] {
+    return Array.from(this.el.querySelectorAll('[role="tab"]'));
+  }
 
   render() {
     const className = classnames(
