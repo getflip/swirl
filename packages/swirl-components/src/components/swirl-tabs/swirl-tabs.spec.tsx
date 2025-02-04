@@ -20,7 +20,7 @@ describe("swirl-tabs", () => {
     expect(page.root).toEqualHtml(`
       <swirl-tabs label="Tabs">
         <div class="tabs">
-          <swirl-tab-bar label="Tabs"></swirl-tab-bar>
+          <swirl-tab-bar label="Tabs" variant="default"></swirl-tab-bar>
         </div>
         <swirl-tab aria-labelledby="tab-tab-1" class="tab tab--active" id="tab-1" label="Tab #1" role="tabpanel" tab-id="tab-1" tabindex="0" style="padding: var(--s-space-8);">
           <mock:shadow-root>
