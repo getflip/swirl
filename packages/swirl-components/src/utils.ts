@@ -310,8 +310,9 @@ export function getISODateString(date: Date): string {
  *
  * This function is needed due to a known Javascript issue with the modulo operator.
  * https://stackoverflow.com/questions/4467539/javascript-modulo-gives-a-negative-result-for-negative-numbers
+ *
  * @param index - The next desired index
- * @param arrayLength - The lenght of the array
+ * @param arrayLength - The length of the array
  * @returns The adjusted index
  */
 export function getCircularArrayIndex(
