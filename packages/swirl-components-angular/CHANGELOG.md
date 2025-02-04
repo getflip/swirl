@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.288.0
+
+### Minor Changes
+
+- [`df507fb0`](https://github.com/getflip/swirl/commit/df507fb01042282d01ec59d7036a64269457bf55) -
+  Fix spacing of option list items
+
+### Patch Changes
+
+- Updated dependencies
+  [[`df507fb0`](https://github.com/getflip/swirl/commit/df507fb01042282d01ec59d7036a64269457bf55)]:
+  - @getflip/swirl-components@0.288.0
+
 ## 0.287.0
 
 ### Minor Changes
