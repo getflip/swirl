@@ -13,6 +13,9 @@ import classnames from "classnames";
 import { closestPassShadow, parentsPassShadow } from "../../utils";
 import { SwirlActionListItemIntent } from "../swirl-action-list-item/swirl-action-list-item";
 
+/**
+ * @slot avatar - Avatar displayed inside the item
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-menu-item.css",
@@ -159,7 +162,9 @@ export class SwirlMenuItem {
         onClick={this.onActionListItemClick}
         ref={(el) => (this.actionListItem = el)}
         suffix={this.suffix}
-      ></swirl-action-list-item>
+      >
+        <slot slot="avatar" name="avatar"></slot>
+      </swirl-action-list-item>
     );
   }
 
@@ -179,7 +184,9 @@ export class SwirlMenuItem {
         selected={selected}
         swirlAriaRole="menuitemradio"
         value={this.value}
-      ></swirl-option-list-item>
+      >
+        <slot slot="avatar" name="avatar"></slot>
+      </swirl-option-list-item>
     );
   }
 

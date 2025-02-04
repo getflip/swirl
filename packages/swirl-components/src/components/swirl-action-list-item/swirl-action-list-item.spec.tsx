@@ -13,6 +13,7 @@ describe("swirl-action-list-item", () => {
       <swirl-action-list-item description="Description" icon="<swirl-icon-close></swirl-icon-close>" label="Label" suffix="<swirl-icon-chevron-right></swirl-icon-chevron-right>">
         <mock:shadow-root>
           <button class="action-list-item action-list-item--intent-default action-list-item--size-m" part="action-list-item" role="menuitem" tabindex="-1" type="button">
+            <slot name="avatar"></slot>
             <span class="action-list-item__icon">
               <swirl-icon-close size="24"></swirl-icon-close>
             </span>
