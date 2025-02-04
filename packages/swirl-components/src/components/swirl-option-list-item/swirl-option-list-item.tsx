@@ -103,9 +103,7 @@ export class SwirlOptionListItem {
     const showCheckbox = this.context === "multi-select";
     const showIcon = Boolean(this.icon) && this.context === "single-select";
     const showIconBadge = Boolean(this.iconBadge);
-    const showAvatar =
-      this.el.querySelector('[slot="avatar"]') &&
-      this.context === "single-select";
+    const showAvatar = this.el.querySelector('[slot="avatar"]');
     const showSelectionIcon = this.selected && this.context === "single-select";
 
     const className = classnames(
@@ -157,9 +155,6 @@ export class SwirlOptionListItem {
               )}
             </span>
           )}
-          <span class="option-list-item__avatar">
-            <slot name="avatar"></slot>
-          </span>
           {showCheckbox && (
             <span class="option-list-item__checkbox">
               <span class="option-list-item__checkbox-box">
@@ -172,6 +167,9 @@ export class SwirlOptionListItem {
               </span>
             </span>
           )}
+          <span class="option-list-item__avatar">
+            <slot name="avatar"></slot>
+          </span>
           <span class="option-list-item__label-container">
             <span
               class="option-list-item__label"
