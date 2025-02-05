@@ -8,26 +8,39 @@ import {
   Listen,
   Method,
   Prop,
+  Watch,
 } from "@stencil/core";
+import Sortable, { SortableEvent } from "sortablejs";
+
+export type SwirlTreeViewDropItemEvent = Pick<
+  SortableEvent,
+  "from" | "to" | "oldIndex" | "newIndex" | "item"
+> & { sourceParentItemId: string; targetParentItemId: string };
 
 /**
  * @slot slot - The tree view items
  */
 @Component({
-  shadow: true,
+  shadow: false,
+  scoped: true,
   styleUrl: "swirl-tree-view.css",
   tag: "swirl-tree-view",
 })
 export class SwirlTreeView {
   @Element() el!: HTMLSwirlTreeViewElement;
 
+  @Prop() enableDragDrop?: boolean;
   @Prop() initiallyExpandedItemIds?: string[];
   @Prop() label!: string;
 
+  @Event() dropItem!: EventEmitter<SwirlTreeViewDropItemEvent>;
   @Event() itemExpansionChanged!: EventEmitter<{
     itemId: string;
     expanded: boolean;
   }>;
+
+  private listElement?: HTMLElement;
+  private sortable: Sortable | undefined;
 
   componentDidLoad() {
     if (Boolean(this.initiallyExpandedItemIds)) {
@@ -35,6 +48,16 @@ export class SwirlTreeView {
     }
 
     this.init();
+    this.setUpDragDrop();
+  }
+
+  disconnectedCallback() {
+    this.sortable?.destroy();
+  }
+
+  @Watch("enableDragDrop")
+  handleEnableDragDropChange() {
+    this.setUpDragDrop();
   }
 
   @Method()
@@ -44,6 +67,12 @@ export class SwirlTreeView {
     );
 
     items.forEach((item) => item.expand());
+  }
+
+  @Listen("dropTreeViewItem")
+  onItemDrop(event: CustomEvent<SwirlTreeViewDropItemEvent>) {
+    event.stopPropagation();
+    this.dropItem.emit(event.detail);
   }
 
   @Listen("keydown")
@@ -100,6 +129,39 @@ export class SwirlTreeView {
       selectedItem.select();
     } else {
       allItems[0]?.select();
+    }
+  }
+
+  private setUpDragDrop() {
+    if (this.sortable) {
+      this.sortable.destroy();
+      this.sortable = undefined;
+    }
+
+    if (this.enableDragDrop) {
+      this.sortable = new Sortable(this.listElement, {
+        animation: 150,
+        draggable: "swirl-tree-view-item",
+        fallbackOnBody: true,
+        group: "swirl-tree-view",
+        onEnd: (event) => {
+          event.stopPropagation();
+
+          const { from, to, newIndex, oldIndex, item } = event;
+          const sourceParentItemId = undefined;
+          const targetParentItemId = to.closest("swirl-tree-view-item")?.itemId;
+
+          this.dropItem.emit({
+            from,
+            to,
+            newIndex,
+            oldIndex,
+            item,
+            sourceParentItemId,
+            targetParentItemId,
+          });
+        },
+      });
     }
   }
 
@@ -302,7 +364,12 @@ export class SwirlTreeView {
   render() {
     return (
       <Host>
-        <ul aria-label={this.label} class="tree-view" role="tree">
+        <ul
+          aria-label={this.label}
+          class="tree-view"
+          role="tree"
+          ref={(el) => (this.listElement = el)}
+        >
           <slot onSlotchange={this.onSlotChange}></slot>
         </ul>
       </Host>

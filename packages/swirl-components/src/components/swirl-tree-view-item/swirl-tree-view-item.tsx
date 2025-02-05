@@ -11,7 +11,9 @@ import {
   State,
 } from "@stencil/core";
 import classNames from "classnames";
+import Sortable from "sortablejs";
 import { SwirlIconColor } from "../swirl-icon/swirl-icon";
+import { SwirlTreeViewDropItemEvent } from "../swirl-tree-view/swirl-tree-view";
 
 /**
  * @slot slot - The children of the tree view item
@@ -34,6 +36,7 @@ export class SwirlTreeViewItem {
   @Prop() itemId!: string;
   @Prop() label!: string;
 
+  @Event() dropTreeViewItem!: EventEmitter<SwirlTreeViewDropItemEvent>;
   @Event() expandedChange!: EventEmitter<boolean>;
   @Event() itemSelected!: EventEmitter<HTMLSwirlTreeViewItemElement>;
 
@@ -41,10 +44,16 @@ export class SwirlTreeViewItem {
   @State() level = 0;
   @State() selected = false;
 
+  private childList?: HTMLElement;
   private link?: HTMLAnchorElement;
+  private sortable: Sortable | undefined;
 
   componentWillLoad() {
     this.updateLevel();
+  }
+
+  componentDidLoad() {
+    this.setUpDragDrop();
   }
 
   @Method()
@@ -81,6 +90,43 @@ export class SwirlTreeViewItem {
   @Method()
   async unselect() {
     this.selected = false;
+  }
+
+  private setUpDragDrop() {
+    if (this.sortable) {
+      this.sortable.destroy();
+      this.sortable = undefined;
+    }
+
+    const enableDragDrop = this.el.closest("swirl-tree-view")?.enableDragDrop;
+
+    if (enableDragDrop && this.childList) {
+      this.sortable = new Sortable(this.childList, {
+        animation: 150,
+        draggable: "swirl-tree-view-item",
+        fallbackOnBody: true,
+        group: "swirl-tree-view",
+        onEnd: (event) => {
+          event.stopPropagation();
+
+          const { from, to, newIndex, oldIndex, item } = event;
+          const sourceParentItemId = from.closest(
+            "swirl-tree-view-item"
+          )?.itemId;
+          const targetParentItemId = to.closest("swirl-tree-view-item")?.itemId;
+
+          this.dropTreeViewItem.emit({
+            from,
+            to,
+            newIndex,
+            oldIndex,
+            item,
+            sourceParentItemId,
+            targetParentItemId,
+          });
+        },
+      });
+    }
   }
 
   private updateLevel() {
@@ -188,6 +234,7 @@ export class SwirlTreeViewItem {
             aria-label={this.label}
             class="tree-view-item__children"
             id={`${this.itemId}-children`}
+            ref={(el) => (this.childList = el)}
             role="group"
             style={{
               display: !this.expanded || !hasChildren ? "none" : undefined,
