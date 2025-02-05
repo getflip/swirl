@@ -9,10 +9,12 @@ import {
   Prop,
   State,
 } from "@stencil/core";
+import { getCircularArrayIndex } from "../../utils";
 import {
   SwirlTabBarJustify,
   SwirlTabBarPadding,
   SwirlTabBarTab,
+  SwirlTabBarVariant,
 } from "../swirl-tab-bar/swirl-tab-bar";
 
 @Component({
@@ -27,8 +29,11 @@ export class SwirlTabs {
   @Prop() initialTab?: string;
   @Prop() label!: string;
   @Prop() justifyTabBar?: SwirlTabBarJustify;
+  @Prop() tabBarPaddingBlockEnd?: SwirlTabBarPadding;
+  @Prop() tabBarPaddingBlockStart?: SwirlTabBarPadding;
   @Prop() tabBarPaddingInlineEnd?: SwirlTabBarPadding;
   @Prop() tabBarPaddingInlineStart?: SwirlTabBarPadding;
+  @Prop() tabBarVariant?: SwirlTabBarVariant = "default";
 
   @State() activeTab?: string;
   @State() tabBarTabs: SwirlTabBarTab[] = [];
@@ -72,7 +77,7 @@ export class SwirlTabs {
       (tab) => tab.tabId === this.activeTab
     );
 
-    const nextIndex = Math.min(this.tabs.length - 1, currentIndex + 1);
+    const nextIndex = getCircularArrayIndex(currentIndex + 1, this.tabs.length);
 
     this.activateTab(this.tabs[nextIndex].tabId);
 
@@ -86,7 +91,10 @@ export class SwirlTabs {
       (tab) => tab.tabId === this.activeTab
     );
 
-    const previousIndex = Math.max(0, currentIndex - 1);
+    const previousIndex = getCircularArrayIndex(
+      currentIndex - 1,
+      this.tabs.length
+    );
 
     this.activateTab(this.tabs[previousIndex].tabId);
 
@@ -141,8 +149,11 @@ export class SwirlTabs {
             onActivateTab={this.onActivateTab}
             tabs={this.tabBarTabs}
             justify={this.justifyTabBar}
+            paddingBlockEnd={this.tabBarPaddingBlockEnd}
+            paddingBlockStart={this.tabBarPaddingBlockStart}
             paddingInlineEnd={this.tabBarPaddingInlineEnd}
             paddingInlineStart={this.tabBarPaddingInlineStart}
+            variant={this.tabBarVariant}
           ></swirl-tab-bar>
         </div>
         <slot></slot>

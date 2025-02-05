@@ -1,5 +1,14 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+} from "@stencil/core";
 import classnames from "classnames";
+import { getCircularArrayIndex } from "../../utils";
 
 export type SwirlTabBarTab = {
   active?: boolean;
@@ -20,6 +29,8 @@ export type SwirlTabBarPadding =
   | "20"
   | "24";
 
+export type SwirlTabBarVariant = "default" | "pill";
+
 @Component({
   scoped: true,
   shadow: false,
@@ -27,12 +38,17 @@ export type SwirlTabBarPadding =
   tag: "swirl-tab-bar",
 })
 export class SwirlTabBar {
+  @Element() el: HTMLElement;
+
   @Prop() disableTabSemantics?: boolean;
   @Prop() label!: string;
   @Prop() justify?: SwirlTabBarJustify = "start";
+  @Prop() paddingBlockEnd?: SwirlTabBarPadding;
+  @Prop() paddingBlockStart?: SwirlTabBarPadding;
   @Prop() paddingInlineEnd?: SwirlTabBarPadding;
   @Prop() paddingInlineStart?: SwirlTabBarPadding;
   @Prop() tabs: SwirlTabBarTab[] = [];
+  @Prop() variant?: SwirlTabBarVariant = "default";
 
   @Event() activateNextTab: EventEmitter<void>;
   @Event() activatePreviousTab: EventEmitter<void>;
@@ -41,21 +57,53 @@ export class SwirlTabBar {
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowLeft") {
       event.preventDefault();
+      this.focusAdjacentTab(true);
       this.activatePreviousTab.emit();
     } else if (event.code === "ArrowRight") {
       event.preventDefault();
+      this.focusAdjacentTab(false);
       this.activateNextTab.emit();
     }
   };
 
+  private focusAdjacentTab(previous: boolean): void {
+    const tabs = this.getTabs();
+    const selectedTabIndex = tabs.findIndex(
+      (tab) => tab.ariaSelected === "true"
+    );
+    const nextIndex = getCircularArrayIndex(
+      previous ? selectedTabIndex - 1 : selectedTabIndex + 1,
+      tabs.length
+    );
+
+    tabs[nextIndex].focus();
+  }
+
+  private getTabs(): HTMLElement[] {
+    return Array.from(this.el.querySelectorAll('[role="tab"]'));
+  }
+
   render() {
-    const className = classnames("tab-bar", `tab-bar--justify-${this.justify}`);
+    const className = classnames(
+      "tab-bar",
+      `tab-bar--justify-${this.justify}`,
+      {
+        "tab-bar--variant-pill": this.variant === "pill",
+        "tab-bar--variant-default": this.variant === "default",
+      }
+    );
     const styles = {
       paddingInlineEnd: Boolean(this.paddingInlineEnd)
         ? `var(--s-space-${this.paddingInlineEnd})`
         : undefined,
       paddingInlineStart: Boolean(this.paddingInlineStart)
         ? `var(--s-space-${this.paddingInlineStart})`
+        : undefined,
+      paddingBlockEnd: Boolean(this.paddingBlockEnd)
+        ? `var(--s-space-${this.paddingBlockEnd})`
+        : undefined,
+      paddingBlockStart: Boolean(this.paddingBlockStart)
+        ? `var(--s-space-${this.paddingBlockStart})`
         : undefined,
     };
 
@@ -71,6 +119,12 @@ export class SwirlTabBar {
           {this.tabs.map((tab) => {
             const className = classnames("tab-bar__tab", {
               "tab-bar__tab--active": tab.active,
+              "tab-bar__tab--variant-pill": this.variant === "pill",
+              "tab-bar__tab--variant-default": this.variant === "default",
+            });
+
+            const labelClassName = classnames("tab-bar__tab-label", {
+              "tab-bar__tab-label--variant-pill": this.variant === "pill",
             });
 
             return (
@@ -97,7 +151,7 @@ export class SwirlTabBar {
                 {tab.icon && (
                   <span class="tab-bar__tab-icon" innerHTML={tab.icon}></span>
                 )}
-                <span class="tab-bar__tab-label">{tab.label}</span>
+                <span class={labelClassName}>{tab.label}</span>
               </button>
             );
           })}

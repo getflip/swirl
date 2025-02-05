@@ -302,3 +302,22 @@ export function getISODateString(date: Date): string {
     "0"
   )}-${String(date.getDate()).padStart(2, "0")}`;
 }
+
+/**
+ * Adjusts the index to fit inside the length of the array, going in a circular fashion.
+ * Index of 5 in a list of length = 5 becomes 0 (first item).
+ * Index of -1 in a list of length = 5 becomes 4 (last item).
+ *
+ * This function is needed due to a known Javascript issue with the modulo operator.
+ * https://stackoverflow.com/questions/4467539/javascript-modulo-gives-a-negative-result-for-negative-numbers
+ *
+ * @param index - The next desired index
+ * @param arrayLength - The length of the array
+ * @returns The adjusted index
+ */
+export function getCircularArrayIndex(
+  index: number,
+  arrayLength: number
+): number {
+  return ((index % arrayLength) + arrayLength) % arrayLength;
+}
