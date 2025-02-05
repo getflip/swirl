@@ -13,19 +13,23 @@ export default {
 };
 
 const Template = (args) => {
-  const container = document.createElement("div");
+  const container = document.createElement("swirl-action-list");
 
   container.setAttribute("role", "menu");
 
-  const element = generateStoryElement("swirl-action-list-section", args);
+  const sectionOne = generateStoryElement("swirl-action-list-section", args);
+  const sectionTwo = generateStoryElement("swirl-action-list-section", args);
 
-  element.innerHTML = `
+  sectionOne.innerHTML = `
     <swirl-action-list-item label="This is an action"></swirl-action-list-item>
     <swirl-action-list-item label="This is an action"></swirl-action-list-item>
     <swirl-action-list-item label="This is an action"></swirl-action-list-item>
   `;
 
-  container.append("\n  ", element, "\n");
+  sectionTwo.innerHTML = sectionOne.innerHTML;
+
+  container.append("\n  ", sectionOne, "\n");
+  container.append("\n  ", sectionTwo, "\n");
 
   return container;
 };
@@ -34,4 +38,5 @@ export const SwirlActionListSection = Template.bind({});
 
 SwirlActionListSection.args = {
   label: "Section label",
+  hasSeparator: true,
 };

@@ -16,6 +16,7 @@
   min-width: 15rem;
   min-height: 3rem;
   padding: var(--s-space-12) var(--s-space-16);
+  border-radius: var(--s-border-radius-sm);
   align-items: center;
   background-color: var(--s-surface-overlay-default);
   cursor: pointer;

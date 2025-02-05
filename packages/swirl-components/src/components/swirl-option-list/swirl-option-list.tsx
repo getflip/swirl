@@ -9,12 +9,12 @@ import {
   State,
   Watch,
 } from "@stencil/core";
+import Sortable, { SortableEvent } from "sortablejs";
 import {
   closestPassShadow,
-  SwirlFormInput,
   querySelectorAllDeep,
+  SwirlFormInput,
 } from "../../utils";
-import Sortable, { SortableEvent } from "sortablejs";
 
 @Component({
   /**
@@ -68,6 +68,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.setItemContext();
     this.syncItemsWithValue();
     this.setupDragDrop();
+    this.setSectionSeparator();
   }
 
   componentDidRender() {
@@ -473,6 +474,24 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
     this.assistiveText = `${this.assistiveTextItemMoving} ${
       this.getItemIndex(this.dragging) + 1
     }`;
+  }
+
+  private setSectionSeparator(): void {
+    const sections = Array.from(
+      this.el.querySelectorAll<HTMLSwirlOptionListSectionElement>(
+        "swirl-option-list-section"
+      )
+    ).filter((el) => el.isConnected);
+
+    sections.forEach((section, index) => {
+      // First section should not have a separator if there are no items above
+      if (
+        index === 0 &&
+        section.previousElementSibling?.tagName !== "SWIRL-OPTION-LIST-ITEM"
+      ) {
+        section.hasSeparator = false;
+      }
+    });
   }
 
   render() {

@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 import { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
+import { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+import { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
 import { SwirlAppLayoutMobileView, SwirlAppLayoutNavigationExpansionState } from "./components/swirl-app-layout/swirl-app-layout";
 import { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
@@ -48,9 +50,7 @@ import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 import { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
-import { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
-import { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
 import { SwirlLabelColor } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
@@ -76,6 +76,8 @@ import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolba
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
+export { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
+export { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
 export { SwirlAppLayoutMobileView, SwirlAppLayoutNavigationExpansionState } from "./components/swirl-app-layout/swirl-app-layout";
 export { SwirlAutocompleteSuggestion, SwirlAutocompleteValue } from "./components/swirl-autocomplete/swirl-autocomplete";
@@ -117,9 +119,7 @@ export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 export { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
-export { SwirlStackSpacing } from "./components/swirl-stack/swirl-stack";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
-export { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
 export { SwirlLabelColor } from "./components/swirl-shell-navigation-item/swirl-shell-navigation-item";
@@ -192,7 +192,10 @@ export namespace Components {
         "swirlAriaHaspopup"?: string;
     }
     interface SwirlActionListSection {
+        "hasSeparator"?: boolean;
         "label": string;
+        "separatorSpacing"?: SwirlSeparatorSpacing;
+        "spacing"?: SwirlStackSpacing;
     }
     interface SwirlAppBar {
         "backButtonLabel"?: string;
@@ -1707,7 +1710,10 @@ export namespace Components {
         "value": string;
     }
     interface SwirlOptionListSection {
+        "hasSeparator"?: boolean;
         "label": string;
+        "separatorSpacing"?: SwirlSeparatorSpacing;
+        "spacing"?: SwirlStackSpacing;
     }
     interface SwirlPagination {
         "firstPageButtonLabel"?: string;
@@ -5937,7 +5943,10 @@ declare namespace LocalJSX {
         "swirlAriaHaspopup"?: string;
     }
     interface SwirlActionListSection {
+        "hasSeparator"?: boolean;
         "label": string;
+        "separatorSpacing"?: SwirlSeparatorSpacing;
+        "spacing"?: SwirlStackSpacing;
     }
     interface SwirlAppBar {
         "backButtonLabel"?: string;
@@ -7341,7 +7350,10 @@ declare namespace LocalJSX {
         "value": string;
     }
     interface SwirlOptionListSection {
+        "hasSeparator"?: boolean;
         "label": string;
+        "separatorSpacing"?: SwirlSeparatorSpacing;
+        "spacing"?: SwirlStackSpacing;
     }
     interface SwirlPagination {
         "firstPageButtonLabel"?: string;

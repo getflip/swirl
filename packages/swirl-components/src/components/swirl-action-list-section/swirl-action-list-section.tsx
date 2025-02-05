@@ -1,4 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
+import { SwirlSeparatorSpacing } from "../swirl-separator/swirl-separator";
+import { SwirlStackSpacing } from "../swirl-stack/swirl-stack";
 
 /**
  * @slot slot - The action list item components
@@ -10,10 +12,16 @@ import { Component, h, Host, Prop } from "@stencil/core";
 })
 export class SwirlActionListSection {
   @Prop() label!: string;
+  @Prop() separatorSpacing?: SwirlSeparatorSpacing = "4";
+  @Prop() spacing?: SwirlStackSpacing = "0";
+  @Prop() hasSeparator?: boolean = false;
 
   render() {
     return (
       <Host>
+        {this.hasSeparator && (
+          <swirl-separator spacing={this.separatorSpacing}></swirl-separator>
+        )}
         <div aria-labelledby="label" class="action-list-section" role="group">
           <span
             class="action-list-section__label"
@@ -22,9 +30,9 @@ export class SwirlActionListSection {
           >
             {this.label}
           </span>
-          <div class="action-list-section__items">
+          <swirl-stack spacing={this.spacing} align="stretch">
             <slot></slot>
-          </div>
+          </swirl-stack>
         </div>
       </Host>
     );
