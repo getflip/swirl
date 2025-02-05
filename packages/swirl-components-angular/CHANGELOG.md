@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.289.0
+
+### Minor Changes
+
+- [#934](https://github.com/getflip/swirl/pull/934)
+  [`4d629ead`](https://github.com/getflip/swirl/commit/4d629ead6891b59cdecee7dbe51a4bb73b5ede1d)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Display a modal
+  custom header border only if it's scrolled
+
+* [#930](https://github.com/getflip/swirl/pull/930)
+  [`6f1c2f8a`](https://github.com/getflip/swirl/commit/6f1c2f8aa83d560c22fd5f30d4417e8bdd815bb0)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add a pill
+  variant to swirl-tab-bar
+
+### Patch Changes
+
+- Updated dependencies
+  [[`4d629ead`](https://github.com/getflip/swirl/commit/4d629ead6891b59cdecee7dbe51a4bb73b5ede1d),
+  [`6f1c2f8a`](https://github.com/getflip/swirl/commit/6f1c2f8aa83d560c22fd5f30d4417e8bdd815bb0)]:
+  - @getflip/swirl-components@0.289.0
+
 ## 0.288.0
 
 ### Minor Changes
