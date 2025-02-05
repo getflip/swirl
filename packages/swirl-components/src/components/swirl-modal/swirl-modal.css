@@ -264,6 +264,10 @@
     &.modal--has-header-tools .modal__header-tools {
       border-bottom-color: var(--s-border-default);
     }
+
+    .modal__custom-header {
+      border-bottom-color: var(--s-border-default);
+    }
   }
 }
 
@@ -351,6 +355,10 @@
   display: none;
   flex-shrink: 0;
   border-bottom: var(--s-border-width-default) solid var(--s-border-default);
+
+  @media (--from-tablet) {
+    border-bottom-color: transparent;
+  }
 }
 
 .modal__heading {
