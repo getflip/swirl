@@ -21,9 +21,9 @@ describe("swirl-option-list-section", () => {
             <span class="option-list-section__label" id="label" part="option-list-section__label">
               Label
             </span>
-            <div class="option-list-section__items">
+            <swirl-stack align="stretch" spacing="0">
               <slot></slot>
-            </div>
+            </swirl-stack>
           </div>
         </mock:shadow-root>
         <swirl-option-list-item label="This is an option" value="1"></swirl-option-list-item>
