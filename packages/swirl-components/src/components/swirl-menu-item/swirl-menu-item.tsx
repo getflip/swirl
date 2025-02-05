@@ -13,6 +13,9 @@ import classnames from "classnames";
 import { closestPassShadow, parentsPassShadow } from "../../utils";
 import { SwirlActionListItemIntent } from "../swirl-action-list-item/swirl-action-list-item";
 
+/**
+ * @slot avatar - Avatar displayed inside the item
+ */
 @Component({
   shadow: true,
   styleUrl: "swirl-menu-item.css",
@@ -31,6 +34,7 @@ export class SwirlMenuItem {
   @Prop() suffix?: string;
   @Prop() value?: string;
 
+  @State() hasAvatar: boolean = false;
   @State() parentMenu?: HTMLSwirlMenuElement;
   @State() subMenu?: HTMLSwirlMenuElement;
 
@@ -46,6 +50,8 @@ export class SwirlMenuItem {
 
     this.rootMenu = parentsPassShadow(this.el, "swirl-menu").pop();
     this.subMenu = this.el.querySelector("swirl-menu");
+
+    this.updateAvatarState();
   }
 
   @Watch("expanded")
@@ -140,6 +146,15 @@ export class SwirlMenuItem {
     }
   };
 
+  private updateAvatarState() {
+    const avatarContainer = this.el.querySelector('[slot="avatar"]');
+    const hasAvatar = Boolean(avatarContainer);
+
+    if (hasAvatar !== this.hasAvatar) {
+      this.hasAvatar = hasAvatar;
+    }
+  }
+
   private renderActionListItem() {
     const badge = Boolean(this.subMenu?.value)
       ? Array.from(
@@ -159,7 +174,9 @@ export class SwirlMenuItem {
         onClick={this.onActionListItemClick}
         ref={(el) => (this.actionListItem = el)}
         suffix={this.suffix}
-      ></swirl-action-list-item>
+      >
+        {this.hasAvatar && <slot name="avatar" slot="avatar"></slot>}
+      </swirl-action-list-item>
     );
   }
 
@@ -179,7 +196,9 @@ export class SwirlMenuItem {
         selected={selected}
         swirlAriaRole="menuitemradio"
         value={this.value}
-      ></swirl-option-list-item>
+      >
+        {this.hasAvatar && <slot name="avatar" slot="avatar"></slot>}
+      </swirl-option-list-item>
     );
   }
 

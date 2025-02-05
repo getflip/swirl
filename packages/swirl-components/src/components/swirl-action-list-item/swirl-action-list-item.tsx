@@ -8,6 +8,7 @@ export type SwirlActionListItemSize = "m" | "l";
 
 /**
  * @slot suffix - Used to add custom content to the end of the action list item.
+ * @slot avatar - Optional avatar displayed to the left of the label
  */
 @Component({
   shadow: true,
@@ -95,6 +96,7 @@ export class SwirlActionListItem {
           tabIndex={-1}
           type="button"
         >
+          <slot name="avatar"></slot>
           {this.icon && (
             <span
               class="action-list-item__icon"
