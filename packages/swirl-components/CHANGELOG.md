@@ -1,5 +1,21 @@
 # @getflip/swirl-components
 
+## 0.288.0
+
+### Minor Changes
+
+- [`df507fb0`](https://github.com/getflip/swirl/commit/df507fb01042282d01ec59d7036a64269457bf55) -
+  Fix spacing of option list items
+
+## 0.287.0
+
+### Minor Changes
+
+- [#931](https://github.com/getflip/swirl/pull/931)
+  [`3494448f`](https://github.com/getflip/swirl/commit/3494448fd1cd871f80fd75e68300cde1d89fb101)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add avatar
+  slot for menu items
+
 ## 0.286.0
 
 ### Minor Changes
