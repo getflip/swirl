@@ -54,6 +54,14 @@ export class SwirlTabBar {
   @Event() activatePreviousTab: EventEmitter<void>;
   @Event() activateTab: EventEmitter<string>;
 
+  private onTabFocus(event: FocusEvent): void {
+    (event.target as HTMLElement).scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }
+
   private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "ArrowLeft") {
       event.preventDefault();
@@ -142,6 +150,7 @@ export class SwirlTabBar {
                 key={tab.id}
                 // eslint-disable-next-line react/jsx-no-bind
                 onClick={() => this.activateTab.emit(tab.id)}
+                onFocus={this.onTabFocus}
                 role={this.disableTabSemantics ? undefined : "tab"}
                 tabIndex={
                   this.disableTabSemantics ? undefined : tab.active ? 0 : -1
