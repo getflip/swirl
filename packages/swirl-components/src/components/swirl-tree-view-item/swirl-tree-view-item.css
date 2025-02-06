@@ -24,7 +24,7 @@
 
 .tree-view-item--ghost {
   position: relative;
-  height: 0.375rem;
+  height: 0;
 
   &:before {
     position: absolute;
@@ -71,9 +71,8 @@
 .tree-view-item__children {
   display: flex;
   margin: 0;
-  padding: var(--s-space-2) 0 0 var(--s-space-12);
+  padding: 0 0 0 var(--s-space-12);
   flex-direction: column;
-  gap: var(--s-space-2);
 }
 
 .tree-view-item__link {
@@ -111,6 +110,7 @@
 }
 
 .tree-view-item__drag-handle {
+  display: inline-flex;
   cursor: grab;
 
   &:active {

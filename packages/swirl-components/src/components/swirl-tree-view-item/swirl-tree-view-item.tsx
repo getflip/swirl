@@ -251,7 +251,11 @@ export class SwirlTreeViewItem {
             ref={(el) => (this.childList = el)}
             role="group"
             style={{
-              display: !this.expanded || !hasChildren ? "none" : undefined,
+              display:
+                (!this.expanded || !hasChildren) &&
+                !(this.enableDragDrop && !hasChildren)
+                  ? "none"
+                  : undefined,
             }}
           >
             <slot></slot>
