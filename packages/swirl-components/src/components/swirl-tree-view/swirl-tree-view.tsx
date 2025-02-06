@@ -11,6 +11,7 @@ import {
   Watch,
 } from "@stencil/core";
 import Sortable, { SortableEvent } from "sortablejs";
+import { treeViewDragDropConfig } from "./swirl-tree-view.config";
 
 export type SwirlTreeViewDropItemEvent = Pick<
   SortableEvent,
@@ -22,7 +23,7 @@ export type SwirlTreeViewDropItemEvent = Pick<
  */
 @Component({
   shadow: false,
-  scoped: true,
+  scoped: false,
   styleUrl: "swirl-tree-view.css",
   tag: "swirl-tree-view",
 })
@@ -140,12 +141,14 @@ export class SwirlTreeView {
 
     if (this.enableDragDrop) {
       this.sortable = new Sortable(this.listElement, {
-        animation: 150,
-        draggable: "swirl-tree-view-item",
-        fallbackOnBody: true,
-        group: "swirl-tree-view",
+        ...treeViewDragDropConfig,
+        onStart: (event) => {
+          treeViewDragDropConfig.onStart?.(event);
+        },
         onEnd: (event) => {
           event.stopPropagation();
+
+          treeViewDragDropConfig.onEnd?.(event);
 
           const { from, to, newIndex, oldIndex, item } = event;
           const sourceParentItemId = undefined;

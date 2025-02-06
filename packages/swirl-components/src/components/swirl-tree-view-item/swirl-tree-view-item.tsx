@@ -14,13 +14,14 @@ import classNames from "classnames";
 import Sortable from "sortablejs";
 import { SwirlIconColor } from "../swirl-icon/swirl-icon";
 import { SwirlTreeViewDropItemEvent } from "../swirl-tree-view/swirl-tree-view";
+import { treeViewDragDropConfig } from "../swirl-tree-view/swirl-tree-view.config";
 
 /**
  * @slot slot - The children of the tree view item
  * @slot tags - The tags of the tree view item
  */
 @Component({
-  scoped: true,
+  scoped: false,
   shadow: false,
   styleUrl: "swirl-tree-view-item.css",
   tag: "swirl-tree-view-item",
@@ -102,12 +103,14 @@ export class SwirlTreeViewItem {
 
     if (enableDragDrop && this.childList) {
       this.sortable = new Sortable(this.childList, {
-        animation: 150,
-        draggable: "swirl-tree-view-item",
-        fallbackOnBody: true,
-        group: "swirl-tree-view",
+        ...treeViewDragDropConfig,
+        onStart: (event) => {
+          treeViewDragDropConfig.onStart?.(event);
+        },
         onEnd: (event) => {
           event.stopPropagation();
+
+          treeViewDragDropConfig.onEnd?.(event);
 
           const { from, to, newIndex, oldIndex, item } = event;
           const sourceParentItemId = from.closest(
@@ -157,6 +160,7 @@ export class SwirlTreeViewItem {
   };
 
   render() {
+    const hasChildren = Boolean(this.el.querySelector("swirl-tree-view-item"));
     const hasTags = Boolean(this.el.querySelector('[slot="tags"]'));
     const iconIsEmoji =
       Boolean(this.icon) && /\p{Extended_Pictographic}/u.test(this.icon);
@@ -165,8 +169,6 @@ export class SwirlTreeViewItem {
       "tree-view-item--active": this.active,
       "tree-view-item--has-tags": hasTags,
     });
-
-    const hasChildren = Boolean(this.el.querySelector("swirl-tree-view-item"));
 
     return (
       <Host id={this.itemId} role="none">
@@ -180,13 +182,6 @@ export class SwirlTreeViewItem {
             class="tree-view-item__link"
             href={this.href}
             onFocus={this.onFocus}
-            style={{
-              paddingLeft: `calc(${
-                this.level
-              } * var(--s-space-12) + var(--s-space-${
-                this.expandable ? "4" : "8"
-              }))`,
-            }}
             ref={(el) => (this.link = el)}
             role="treeitem"
             tabIndex={this.selected ? 0 : -1}
