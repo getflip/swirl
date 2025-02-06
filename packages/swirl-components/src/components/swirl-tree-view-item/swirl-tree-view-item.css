@@ -14,14 +14,11 @@
 }
 
 .tree-view-item--chosen:not(.tree-view-item--ghost) {
+  border-radius: var(--s-border-radius-sm);
   box-shadow: var(--s-shadow-level-3);
 
   & .tree-view-item__link {
     background-color: var(--s-background-default);
-  }
-
-  & .tree-view-item__children {
-    display: none;
   }
 }
 
@@ -74,8 +71,7 @@
 .tree-view-item__children {
   display: flex;
   margin: 0;
-  padding: 0;
-  padding-left: var(--s-space-12);
+  padding: var(--s-space-2) 0 0 var(--s-space-12);
   flex-direction: column;
   gap: var(--s-space-2);
 }
@@ -111,6 +107,14 @@
 
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
+  }
+}
+
+.tree-view-item__drag-handle {
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
   }
 }
 

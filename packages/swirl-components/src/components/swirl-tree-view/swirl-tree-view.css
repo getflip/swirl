@@ -19,6 +19,8 @@
 }
 
 .tree-view--dragging {
+  cursor: grabbing;
+
   & .tree-view-item__link:hover,
   & .tree-view-item__link:active {
     background-color: var(--s-background-default) !important;

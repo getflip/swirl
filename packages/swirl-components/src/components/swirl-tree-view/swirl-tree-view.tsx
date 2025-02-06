@@ -10,7 +10,7 @@ import {
   Prop,
   Watch,
 } from "@stencil/core";
-import Sortable, { SortableEvent } from "sortablejs";
+import Sortable, { MoveEvent, SortableEvent } from "sortablejs";
 import { treeViewDragDropConfig } from "./swirl-tree-view.config";
 
 export type SwirlTreeViewDropItemEvent = Pick<
@@ -30,6 +30,7 @@ export type SwirlTreeViewDropItemEvent = Pick<
 export class SwirlTreeView {
   @Element() el!: HTMLSwirlTreeViewElement;
 
+  @Prop() canDrop?: (event: MoveEvent) => boolean;
   @Prop() enableDragDrop?: boolean;
   @Prop() initiallyExpandedItemIds?: string[];
   @Prop() label!: string;
@@ -142,6 +143,13 @@ export class SwirlTreeView {
     if (this.enableDragDrop) {
       this.sortable = new Sortable(this.listElement, {
         ...treeViewDragDropConfig,
+        onMove: (event) => {
+          if (typeof this.canDrop === "function") {
+            return this.canDrop(event);
+          }
+
+          return true;
+        },
         onStart: (event) => {
           treeViewDragDropConfig.onStart?.(event);
         },

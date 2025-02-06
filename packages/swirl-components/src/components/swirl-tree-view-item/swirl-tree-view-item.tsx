@@ -11,7 +11,7 @@ import {
   State,
 } from "@stencil/core";
 import classNames from "classnames";
-import Sortable from "sortablejs";
+import Sortable, { MoveEvent } from "sortablejs";
 import { SwirlIconColor } from "../swirl-icon/swirl-icon";
 import { SwirlTreeViewDropItemEvent } from "../swirl-tree-view/swirl-tree-view";
 import { treeViewDragDropConfig } from "../swirl-tree-view/swirl-tree-view.config";
@@ -30,6 +30,7 @@ export class SwirlTreeViewItem {
   @Element() el!: HTMLSwirlTreeViewItemElement;
 
   @Prop() active?: boolean;
+  @Prop() disableDrag?: boolean;
   @Prop() expandable?: boolean = true;
   @Prop() href?: string;
   @Prop() icon?: string;
@@ -41,6 +42,8 @@ export class SwirlTreeViewItem {
   @Event() expandedChange!: EventEmitter<boolean>;
   @Event() itemSelected!: EventEmitter<HTMLSwirlTreeViewItemElement>;
 
+  @State() canDrop?: (event: MoveEvent) => boolean;
+  @State() enableDragDrop = false;
   @State() expanded = false;
   @State() level = 0;
   @State() selected = false;
@@ -94,16 +97,26 @@ export class SwirlTreeViewItem {
   }
 
   private setUpDragDrop() {
+    const treeView = this.el.closest("swirl-tree-view");
+
+    this.enableDragDrop = treeView?.enableDragDrop;
+    this.canDrop = treeView?.canDrop;
+
     if (this.sortable) {
       this.sortable.destroy();
       this.sortable = undefined;
     }
 
-    const enableDragDrop = this.el.closest("swirl-tree-view")?.enableDragDrop;
-
-    if (enableDragDrop && this.childList) {
+    if (this.enableDragDrop && this.childList) {
       this.sortable = new Sortable(this.childList, {
         ...treeViewDragDropConfig,
+        onMove: (event) => {
+          if (typeof this.canDrop === "function") {
+            return this.canDrop(event);
+          }
+
+          return true;
+        },
         onStart: (event) => {
           treeViewDragDropConfig.onStart?.(event);
         },
@@ -167,6 +180,7 @@ export class SwirlTreeViewItem {
 
     const className = classNames("tree-view-item", {
       "tree-view-item--active": this.active,
+      "tree-view-item--disable-drag": this.disableDrag,
       "tree-view-item--has-tags": hasTags,
     });
 
@@ -186,6 +200,11 @@ export class SwirlTreeViewItem {
             role="treeitem"
             tabIndex={this.selected ? 0 : -1}
           >
+            {!this.disableDrag && this.enableDragDrop && (
+              <span class="tree-view-item__drag-handle">
+                <swirl-icon-drag-handle size={20}></swirl-icon-drag-handle>
+              </span>
+            )}
             {this.expandable && (
               <span class="tree-view-item__toggle-icon">
                 {hasChildren && (

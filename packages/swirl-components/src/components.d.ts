@@ -74,6 +74,7 @@ import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
+import { MoveEvent } from "sortablejs";
 import { SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
@@ -145,6 +146,7 @@ export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
+export { MoveEvent } from "sortablejs";
 export { SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 export namespace Components {
@@ -2414,6 +2416,7 @@ export namespace Components {
         "target"?: string;
     }
     interface SwirlTreeView {
+        "canDrop"?: (event: MoveEvent) => boolean;
         "enableDragDrop"?: boolean;
         "expandItems": (itemIds: string[]) => Promise<void>;
         "initiallyExpandedItemIds"?: string[];
@@ -2422,6 +2425,7 @@ export namespace Components {
     interface SwirlTreeViewItem {
         "active"?: boolean;
         "collapse": () => Promise<void>;
+        "disableDrag"?: boolean;
         "expand": () => Promise<void>;
         "expandable"?: boolean;
         "href"?: string;
@@ -8011,6 +8015,7 @@ declare namespace LocalJSX {
         "target"?: string;
     }
     interface SwirlTreeView {
+        "canDrop"?: (event: MoveEvent) => boolean;
         "enableDragDrop"?: boolean;
         "initiallyExpandedItemIds"?: string[];
         "label": string;
@@ -8022,6 +8027,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTreeViewItem {
         "active"?: boolean;
+        "disableDrag"?: boolean;
         "expandable"?: boolean;
         "href"?: string;
         "icon"?: string;
