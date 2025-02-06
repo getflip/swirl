@@ -256,6 +256,11 @@ export class SwirlTreeViewItem {
                 !(this.enableDragDrop && !hasChildren)
                   ? "none"
                   : undefined,
+              // minHeight/marginTop is needed to provide a drop target for leaf nodes
+              minHeight:
+                this.enableDragDrop && !hasChildren ? "0.25rem" : undefined,
+              marginTop:
+                this.enableDragDrop && !hasChildren ? "-0.25rem" : undefined,
             }}
           >
             <slot></slot>

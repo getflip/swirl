@@ -3,6 +3,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  forceUpdate,
   h,
   Host,
   Listen,
@@ -75,6 +76,16 @@ export class SwirlTreeView {
   onItemDrop(event: CustomEvent<SwirlTreeViewDropItemEvent>) {
     event.stopPropagation();
     this.dropItem.emit(event.detail);
+
+    // force update the new parent of the dropped item to reflect new hierarchy
+    const parentItem = this.el.querySelector(
+      "#" + event.detail.targetParentItemId
+    ) as HTMLSwirlTreeViewItemElement | undefined;
+
+    if (parentItem) {
+      forceUpdate(parentItem);
+      parentItem.expand();
+    }
   }
 
   @Listen("keydown")
