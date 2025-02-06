@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.290.0
+
+### Minor Changes
+
+- [#938](https://github.com/getflip/swirl/pull/938)
+  [`fd04bac4`](https://github.com/getflip/swirl/commit/fd04bac4398bdf884a068e9bede9917a672aa99d)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Scroll into
+  swirl-tab-bar tabs when focused
+
+### Patch Changes
+
+- Updated dependencies
+  [[`fd04bac4`](https://github.com/getflip/swirl/commit/fd04bac4398bdf884a068e9bede9917a672aa99d)]:
+  - @getflip/swirl-components@0.290.0
+
 ## 0.289.0
 
 ### Minor Changes
