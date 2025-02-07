@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.291.0
+
+### Minor Changes
+
+- [#937](https://github.com/getflip/swirl/pull/937)
+  [`8ec6f10c`](https://github.com/getflip/swirl/commit/8ec6f10c1cba69f1cb45c87d6a26c281498e7748)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Update menus
+  and list stylings
+
+### Patch Changes
+
+- Updated dependencies
+  [[`8ec6f10c`](https://github.com/getflip/swirl/commit/8ec6f10c1cba69f1cb45c87d6a26c281498e7748)]:
+  - @getflip/swirl-components@0.291.0
+
 ## 0.290.0
 
 ### Minor Changes
