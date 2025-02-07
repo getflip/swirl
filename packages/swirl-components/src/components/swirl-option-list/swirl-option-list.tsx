@@ -514,7 +514,7 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
           role="listbox"
           tabIndex={tabIndex}
         >
-          <slot></slot>
+          <slot onSlotchange={this.setSectionSeparator}></slot>
         </div>
       </Host>
     );

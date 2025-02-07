@@ -141,7 +141,7 @@ export class SwirlActionList {
           ref={(el) => (this.container = el)}
           role="menu"
         >
-          <slot></slot>
+          <slot onSlotchange={this.setSectionSeparator}></slot>
         </div>
       </Host>
     );
