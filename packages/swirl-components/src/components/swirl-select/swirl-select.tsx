@@ -4,14 +4,14 @@ import {
   Element,
   Event,
   EventEmitter,
+  h,
   Host,
   Listen,
   Prop,
   State,
-  h,
 } from "@stencil/core";
 import classnames from "classnames";
-import { SwirlFormInput, querySelectorAllDeep } from "../../utils";
+import { querySelectorAllDeep, SwirlFormInput } from "../../utils";
 
 @Component({
   /**
@@ -239,7 +239,9 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
                   label={option?.label}
                   // eslint-disable-next-line react/jsx-no-bind
                   onRemove={() => this.unselectOption(option?.value)}
-                  removable={!this.disabled && this.allowDeselect}
+                  removable={
+                    !this.disabled && this.allowDeselect && !option?.disabled
+                  }
                 ></swirl-tag>
               ))}
           </span>
