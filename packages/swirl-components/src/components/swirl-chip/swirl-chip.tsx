@@ -47,7 +47,7 @@ export class SwirlChip {
   @Prop() variant?: SwirlChipVariant = "outline";
 
   @Event() chipClick: EventEmitter<MouseEvent>;
-  @Event() remove: EventEmitter<MouseEvent>;
+  @Event({ eventName: "remove" }) removeChip?: EventEmitter<MouseEvent>;
 
   private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
@@ -140,7 +140,7 @@ export class SwirlChip {
           <button
             aria-label={this.removeButtonLabel}
             class="chip__remove-button"
-            onClick={this.remove.emit}
+            onClick={this.removeChip.emit}
             type="button"
           >
             <swirl-icon-close size={20}></swirl-icon-close>
