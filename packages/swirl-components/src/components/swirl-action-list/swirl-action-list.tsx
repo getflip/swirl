@@ -24,6 +24,7 @@ export class SwirlActionList {
         this.container.setAttribute("tabindex", "0");
       }
     });
+    this.setSectionSeparator();
   }
 
   private getItems() {
@@ -109,6 +110,24 @@ export class SwirlActionList {
     );
   }
 
+  private setSectionSeparator(): void {
+    const sections = Array.from(
+      this.el.querySelectorAll<HTMLSwirlActionListSectionElement>(
+        "swirl-action-list-section"
+      )
+    ).filter((el) => el.isConnected);
+
+    sections.forEach((section, index) => {
+      // First section should not have a separator if there are no items above
+      if (
+        index === 0 &&
+        section.previousElementSibling?.tagName !== "SWIRL-ACTION-LIST-ITEM"
+      ) {
+        section.hasSeparator = false;
+      }
+    });
+  }
+
   render() {
     return (
       <Host>
@@ -122,7 +141,7 @@ export class SwirlActionList {
           ref={(el) => (this.container = el)}
           role="menu"
         >
-          <slot></slot>
+          <slot onSlotchange={this.setSectionSeparator}></slot>
         </div>
       </Host>
     );

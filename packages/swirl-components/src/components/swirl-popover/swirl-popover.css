@@ -184,7 +184,7 @@
     bottom: unset;
     left: unset;
     max-width: 22.5rem;
-    border-radius: var(--s-border-radius-sm);
+    border-radius: var(--s-border-radius-base);
     animation: none;
     box-shadow: var(--s-shadow-level-2);
   }
@@ -209,8 +209,7 @@
 .popover--padded {
   .popover__scroll-container {
     @media (--from-tablet) {
-      padding-top: var(--s-space-8);
-      padding-bottom: var(--s-space-8);
+      padding: var(--s-space-4);
     }
   }
 }

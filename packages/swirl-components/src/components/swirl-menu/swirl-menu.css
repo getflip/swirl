@@ -54,8 +54,9 @@
     & .menu__menu {
       z-index: 1;
       max-width: 22.5rem;
-      border-radius: var(--s-border-radius-sm);
+      border-radius: var(--s-border-radius-base);
       box-shadow: var(--s-shadow-level-1);
+      padding: var(--s-space-4);
     }
   }
 
@@ -102,7 +103,5 @@
 }
 
 .menu__menu {
-  padding-top: var(--s-space-8);
-  padding-bottom: var(--s-space-8);
   background-color: var(--s-surface-overlay-default);
 }
