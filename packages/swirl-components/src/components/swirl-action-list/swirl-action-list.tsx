@@ -111,6 +111,10 @@ export class SwirlActionList {
   }
 
   private setSectionSeparator(): void {
+    if (!this.el) {
+      return;
+    }
+
     const sections = Array.from(
       this.el.querySelectorAll<HTMLSwirlActionListSectionElement>(
         "swirl-action-list-section"
