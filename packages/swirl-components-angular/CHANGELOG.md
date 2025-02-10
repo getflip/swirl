@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.292.0
+
+### Minor Changes
+
+- [`d5000a48`](https://github.com/getflip/swirl/commit/d5000a482b78bf9e8fd4b59f204c221ab46bf4f5) -
+  Fix undefined element error
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d5000a48`](https://github.com/getflip/swirl/commit/d5000a482b78bf9e8fd4b59f204c221ab46bf4f5)]:
+  - @getflip/swirl-components@0.292.0
+
 ## 0.291.0
 
 ### Minor Changes
