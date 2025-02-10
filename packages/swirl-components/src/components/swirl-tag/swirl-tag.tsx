@@ -42,7 +42,7 @@ export class SwirlTag {
   @Prop() removalButtonLabel?: string = "Remove";
   @Prop({ mutable: true }) variant?: SwirlTagVariant = "default";
 
-  @Event() remove?: EventEmitter<MouseEvent>;
+  @Event({ eventName: "remove" }) removeTag?: EventEmitter<MouseEvent>;
 
   private iconEl: HTMLElement;
 
@@ -74,7 +74,7 @@ export class SwirlTag {
   }
 
   private onRemove = (event: MouseEvent) => {
-    this.remove?.emit(event);
+    this.removeTag?.emit(event);
   };
 
   render() {
