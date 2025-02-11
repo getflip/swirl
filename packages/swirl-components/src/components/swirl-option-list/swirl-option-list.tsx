@@ -477,6 +477,10 @@ export class SwirlOptionList implements SwirlFormInput<string[]> {
   }
 
   private setSectionSeparator(): void {
+    if (!this.el) {
+      return;
+    }
+
     const sections = Array.from(
       this.el.querySelectorAll<HTMLSwirlOptionListSectionElement>(
         "swirl-option-list-section"
