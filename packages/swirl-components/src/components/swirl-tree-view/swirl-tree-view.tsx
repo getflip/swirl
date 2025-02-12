@@ -3,31 +3,47 @@ import {
   Element,
   Event,
   EventEmitter,
+  forceUpdate,
   h,
   Host,
   Listen,
   Method,
   Prop,
+  Watch,
 } from "@stencil/core";
+import Sortable, { MoveEvent, SortableEvent } from "sortablejs";
+import { treeViewDragDropConfig } from "./swirl-tree-view.config";
+
+export type SwirlTreeViewDropItemEvent = Pick<
+  SortableEvent,
+  "from" | "to" | "oldIndex" | "newIndex" | "item"
+> & { sourceParentItemId: string; targetParentItemId: string };
 
 /**
  * @slot slot - The tree view items
  */
 @Component({
-  shadow: true,
+  shadow: false,
+  scoped: false,
   styleUrl: "swirl-tree-view.css",
   tag: "swirl-tree-view",
 })
 export class SwirlTreeView {
   @Element() el!: HTMLSwirlTreeViewElement;
 
+  @Prop() canDrop?: (event: MoveEvent) => boolean;
+  @Prop() enableDragDrop?: boolean;
   @Prop() initiallyExpandedItemIds?: string[];
   @Prop() label!: string;
 
+  @Event() dropItem!: EventEmitter<SwirlTreeViewDropItemEvent>;
   @Event() itemExpansionChanged!: EventEmitter<{
     itemId: string;
     expanded: boolean;
   }>;
+
+  private listElement?: HTMLElement;
+  private sortable: Sortable | undefined;
 
   componentDidLoad() {
     if (Boolean(this.initiallyExpandedItemIds)) {
@@ -35,6 +51,16 @@ export class SwirlTreeView {
     }
 
     this.init();
+    this.setUpDragDrop();
+  }
+
+  disconnectedCallback() {
+    this.sortable?.destroy();
+  }
+
+  @Watch("enableDragDrop")
+  handleEnableDragDropChange() {
+    this.setUpDragDrop();
   }
 
   @Method()
@@ -44,6 +70,22 @@ export class SwirlTreeView {
     );
 
     items.forEach((item) => item.expand());
+  }
+
+  @Listen("dropTreeViewItem")
+  onItemDrop(event: CustomEvent<SwirlTreeViewDropItemEvent>) {
+    event.stopPropagation();
+    this.dropItem.emit(event.detail);
+
+    // force update the new parent of the dropped item to reflect new hierarchy
+    const parentItem = this.el.querySelector(
+      "#" + event.detail.targetParentItemId
+    ) as HTMLSwirlTreeViewItemElement | undefined;
+
+    if (parentItem) {
+      forceUpdate(parentItem);
+      parentItem.expand();
+    }
   }
 
   @Listen("keydown")
@@ -100,6 +142,48 @@ export class SwirlTreeView {
       selectedItem.select();
     } else {
       allItems[0]?.select();
+    }
+  }
+
+  private setUpDragDrop() {
+    if (this.sortable) {
+      this.sortable.destroy();
+      this.sortable = undefined;
+    }
+
+    if (this.enableDragDrop) {
+      this.sortable = new Sortable(this.listElement, {
+        ...treeViewDragDropConfig,
+        onMove: (event) => {
+          if (typeof this.canDrop === "function") {
+            return this.canDrop(event);
+          }
+
+          return true;
+        },
+        onStart: (event) => {
+          treeViewDragDropConfig.onStart?.(event);
+        },
+        onEnd: (event) => {
+          event.stopPropagation();
+
+          treeViewDragDropConfig.onEnd?.(event);
+
+          const { from, to, newIndex, oldIndex, item } = event;
+          const sourceParentItemId = undefined;
+          const targetParentItemId = to.closest("swirl-tree-view-item")?.itemId;
+
+          this.dropItem.emit({
+            from,
+            to,
+            newIndex,
+            oldIndex,
+            item,
+            sourceParentItemId,
+            targetParentItemId,
+          });
+        },
+      });
     }
   }
 
@@ -302,7 +386,12 @@ export class SwirlTreeView {
   render() {
     return (
       <Host>
-        <ul aria-label={this.label} class="tree-view" role="tree">
+        <ul
+          aria-label={this.label}
+          class="tree-view"
+          role="tree"
+          ref={(el) => (this.listElement = el)}
+        >
           <slot onSlotchange={this.onSlotChange}></slot>
         </ul>
       </Host>

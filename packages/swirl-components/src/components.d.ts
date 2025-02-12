@@ -74,6 +74,9 @@ import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
+import { MoveEvent } from "sortablejs";
+import { SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
+import { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlSeparatorSpacing } from "./components/swirl-separator/swirl-separator";
@@ -143,6 +146,9 @@ export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
 export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
+export { MoveEvent } from "sortablejs";
+export { SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
+export { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 export namespace Components {
     interface FileManager {
     }
@@ -2416,6 +2422,8 @@ export namespace Components {
         "target"?: string;
     }
     interface SwirlTreeView {
+        "canDrop"?: (event: MoveEvent) => boolean;
+        "enableDragDrop"?: boolean;
         "expandItems": (itemIds: string[]) => Promise<void>;
         "initiallyExpandedItemIds"?: string[];
         "label": string;
@@ -2423,6 +2431,7 @@ export namespace Components {
     interface SwirlTreeViewItem {
         "active"?: boolean;
         "collapse": () => Promise<void>;
+        "disableDrag"?: boolean;
         "expand": () => Promise<void>;
         "expandable"?: boolean;
         "href"?: string;
@@ -5494,6 +5503,7 @@ declare global {
         new (): HTMLSwirlTreeNavigationItemElement;
     };
     interface HTMLSwirlTreeViewElementEventMap {
+        "dropItem": SwirlTreeViewDropItemEvent;
         "itemExpansionChanged": {
     itemId: string;
     expanded: boolean;
@@ -5514,6 +5524,7 @@ declare global {
         new (): HTMLSwirlTreeViewElement;
     };
     interface HTMLSwirlTreeViewItemElementEventMap {
+        "dropTreeViewItem": SwirlTreeViewDropItemEvent1;
         "expandedChange": boolean;
         "itemSelected": HTMLSwirlTreeViewItemElement;
     }
@@ -8016,8 +8027,11 @@ declare namespace LocalJSX {
         "target"?: string;
     }
     interface SwirlTreeView {
+        "canDrop"?: (event: MoveEvent) => boolean;
+        "enableDragDrop"?: boolean;
         "initiallyExpandedItemIds"?: string[];
         "label": string;
+        "onDropItem"?: (event: SwirlTreeViewCustomEvent<SwirlTreeViewDropItemEvent>) => void;
         "onItemExpansionChanged"?: (event: SwirlTreeViewCustomEvent<{
     itemId: string;
     expanded: boolean;
@@ -8025,12 +8039,14 @@ declare namespace LocalJSX {
     }
     interface SwirlTreeViewItem {
         "active"?: boolean;
+        "disableDrag"?: boolean;
         "expandable"?: boolean;
         "href"?: string;
         "icon"?: string;
         "iconColor"?: SwirlIconColor1;
         "itemId": string;
         "label": string;
+        "onDropTreeViewItem"?: (event: SwirlTreeViewItemCustomEvent<SwirlTreeViewDropItemEvent1>) => void;
         "onExpandedChange"?: (event: SwirlTreeViewItemCustomEvent<boolean>) => void;
         "onItemSelected"?: (event: SwirlTreeViewItemCustomEvent<HTMLSwirlTreeViewItemElement>) => void;
     }

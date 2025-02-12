@@ -1,3 +1,4 @@
+import { MoveEvent } from "sortablejs";
 import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-tree-view.mdx";
 
@@ -13,24 +14,40 @@ export default {
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("swirl-tree-view", args);
+  const element = generateStoryElement(
+    "swirl-tree-view",
+    args
+  ) as HTMLSwirlTreeViewElement;
 
   element.innerHTML = `
-    <swirl-tree-view-item href="#" icon="🪁" item-id="item-1" label="Item 1">
-      <swirl-tree-view-item href="#" icon="🍄" item-id="item-2" label="Item 1.1"></swirl-tree-view-item>
-      <swirl-tree-view-item href="#" icon="🌎" item-id="item-3" label="Item 1.2">
-        <swirl-tree-view-item href="#" icon="❄️" item-id="item-4" label="Item 1.2.1"></swirl-tree-view-item>
-        <swirl-tree-view-item href="#" icon="🌭" item-id="item-5" label="Item 1.2.2"></swirl-tree-view-item>
+    <swirl-tree-view-item disable-drag href="#" icon="🪁" item-id="item-1" label="Item 1">
+      <swirl-tree-view-item href="#" icon="🍄" item-id="item-1-1" label="Item 1.1"></swirl-tree-view-item>
+      <swirl-tree-view-item href="#" icon="🌎" item-id="item-1-2" label="Item 1.2">
+        <swirl-tree-view-item href="#" icon="❄️" item-id="item-1-2-1" label="Item 1.2.1"></swirl-tree-view-item>
+        <swirl-tree-view-item href="#" icon="🌭" item-id="item-1-2-2" label="Item 1.2.2">
+          <swirl-tag bordered item-id="item-2" label="Draft" size="s" slot="tags"></swirl-tag>
+        </swirl-tree-view-item>
       </swirl-tree-view-item>
-      <swirl-tree-view-item href="#" icon="🎾" item-id="item-6" label="Item 1.3"></swirl-tree-view-item>
+      <swirl-tree-view-item href="#" icon="🎾" item-id="item-1-3" label="Item 1.3">
+        <swirl-tag bordered item-id="item-2" label="Draft" size="s" slot="tags"></swirl-tag>
+      </swirl-tree-view-item>
     </swirl-tree-view-item>
-    <swirl-tree-view-item active href="#" icon="🎷" item-id="item-7" label="Item 2">
-      <swirl-tag bordered item-id="item-2" label="Draft" size="s" slot="tags"></swirl-tag>
-    </swirl-tree-view-item>
-    <swirl-tree-view-item href="#" icon="file" item-id="item-8" label="Item 3">
-      <swirl-tree-view-item href="#" icon="💈" item-id="item-9" label="Item 3.1"></swirl-tree-view-item>
+    <swirl-tree-view-item disable-drag active href="#" icon="🎷" item-id="item-2" label="Item 2"></swirl-tree-view-item>
+    <swirl-tree-view-item disable-drag href="#" icon="file" item-id="item-3" label="Item 3">
+      <swirl-tree-view-item href="#" icon="💈" item-id="item-3-1" label="Item 3.1"></swirl-tree-view-item>
     </swirl-tree-view-item>
   `;
+
+  element.canDrop = (event: MoveEvent) => {
+    const tryingToDropOnRootLevel =
+      event.to.closest("swirl-tree-view-item")?.itemId === undefined;
+
+    return !tryingToDropOnRootLevel;
+  };
+
+  element.addEventListener("dropItem", (event: CustomEvent) => {
+    console.log(event.detail);
+  });
 
   return element;
 };
@@ -38,5 +55,7 @@ const Template = (args) => {
 export const SwirlTreeView = Template.bind({});
 
 SwirlTreeView.args = {
+  enableDragDrop: true,
+  initiallyExpandedItemIds: ["item-1", "item-1-2", "item-3"],
   label: "Tree view",
 };

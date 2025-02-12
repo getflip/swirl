@@ -25,3 +25,4 @@ export {
   SwirlThemeRgbaColor as ThemeRgbaColor,
   SwirlThemes as Themes,
 } from "./components/swirl-theme-provider/swirl-theme-provider.types";
+export { SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
