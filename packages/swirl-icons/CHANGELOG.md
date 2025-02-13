@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.53.0
+
+### Minor Changes
+
+- [#943](https://github.com/getflip/swirl/pull/943)
+  [`28d4e1a5`](https://github.com/getflip/swirl/commit/28d4e1a560768af032d6f792c9fc45c6cd859453)
+  Thanks [@danizep](https://github.com/danizep)! - Add open-door and stop-circle
+  icons
+
 ## 0.52.0
 
 ### Minor Changes
