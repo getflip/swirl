@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.293.0
+
+### Minor Changes
+
+- [#943](https://github.com/getflip/swirl/pull/943)
+  [`28d4e1a5`](https://github.com/getflip/swirl/commit/28d4e1a560768af032d6f792c9fc45c6cd859453)
+  Thanks [@danizep](https://github.com/danizep)! - Add open-door and stop-circle
+  icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`28d4e1a5`](https://github.com/getflip/swirl/commit/28d4e1a560768af032d6f792c9fc45c6cd859453)]:
+  - @getflip/swirl-components@0.293.0
+
 ## 0.292.0
 
 ### Minor Changes
