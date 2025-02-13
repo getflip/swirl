@@ -939,6 +939,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconDoorOpen {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconDot {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -1404,6 +1408,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconStop {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconStopCircle {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -3590,6 +3598,12 @@ declare global {
         prototype: HTMLSwirlIconDockLeftExpandElement;
         new (): HTMLSwirlIconDockLeftExpandElement;
     };
+    interface HTMLSwirlIconDoorOpenElement extends Components.SwirlIconDoorOpen, HTMLStencilElement {
+    }
+    var HTMLSwirlIconDoorOpenElement: {
+        prototype: HTMLSwirlIconDoorOpenElement;
+        new (): HTMLSwirlIconDoorOpenElement;
+    };
     interface HTMLSwirlIconDotElement extends Components.SwirlIconDot, HTMLStencilElement {
     }
     var HTMLSwirlIconDotElement: {
@@ -4291,6 +4305,12 @@ declare global {
     var HTMLSwirlIconStopElement: {
         prototype: HTMLSwirlIconStopElement;
         new (): HTMLSwirlIconStopElement;
+    };
+    interface HTMLSwirlIconStopCircleElement extends Components.SwirlIconStopCircle, HTMLStencilElement {
+    }
+    var HTMLSwirlIconStopCircleElement: {
+        prototype: HTMLSwirlIconStopCircleElement;
+        new (): HTMLSwirlIconStopCircleElement;
     };
     interface HTMLSwirlIconSyncElement extends Components.SwirlIconSync, HTMLStencilElement {
     }
@@ -5646,6 +5666,7 @@ declare global {
         "swirl-icon-dock-left": HTMLSwirlIconDockLeftElement;
         "swirl-icon-dock-left-collapse": HTMLSwirlIconDockLeftCollapseElement;
         "swirl-icon-dock-left-expand": HTMLSwirlIconDockLeftExpandElement;
+        "swirl-icon-door-open": HTMLSwirlIconDoorOpenElement;
         "swirl-icon-dot": HTMLSwirlIconDotElement;
         "swirl-icon-double-arrow-left": HTMLSwirlIconDoubleArrowLeftElement;
         "swirl-icon-double-arrow-right": HTMLSwirlIconDoubleArrowRightElement;
@@ -5763,6 +5784,7 @@ declare global {
         "swirl-icon-spellcheck": HTMLSwirlIconSpellcheckElement;
         "swirl-icon-stars": HTMLSwirlIconStarsElement;
         "swirl-icon-stop": HTMLSwirlIconStopElement;
+        "swirl-icon-stop-circle": HTMLSwirlIconStopCircleElement;
         "swirl-icon-sync": HTMLSwirlIconSyncElement;
         "swirl-icon-tasks": HTMLSwirlIconTasksElement;
         "swirl-icon-tasks-filled": HTMLSwirlIconTasksFilledElement;
@@ -6638,6 +6660,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconDoorOpen {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconDot {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -7103,6 +7129,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconStop {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconStopCircle {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -8145,6 +8175,7 @@ declare namespace LocalJSX {
         "swirl-icon-dock-left": SwirlIconDockLeft;
         "swirl-icon-dock-left-collapse": SwirlIconDockLeftCollapse;
         "swirl-icon-dock-left-expand": SwirlIconDockLeftExpand;
+        "swirl-icon-door-open": SwirlIconDoorOpen;
         "swirl-icon-dot": SwirlIconDot;
         "swirl-icon-double-arrow-left": SwirlIconDoubleArrowLeft;
         "swirl-icon-double-arrow-right": SwirlIconDoubleArrowRight;
@@ -8262,6 +8293,7 @@ declare namespace LocalJSX {
         "swirl-icon-spellcheck": SwirlIconSpellcheck;
         "swirl-icon-stars": SwirlIconStars;
         "swirl-icon-stop": SwirlIconStop;
+        "swirl-icon-stop-circle": SwirlIconStopCircle;
         "swirl-icon-sync": SwirlIconSync;
         "swirl-icon-tasks": SwirlIconTasks;
         "swirl-icon-tasks-filled": SwirlIconTasksFilled;
@@ -8523,6 +8555,7 @@ declare module "@stencil/core" {
             "swirl-icon-dock-left": LocalJSX.SwirlIconDockLeft & JSXBase.HTMLAttributes<HTMLSwirlIconDockLeftElement>;
             "swirl-icon-dock-left-collapse": LocalJSX.SwirlIconDockLeftCollapse & JSXBase.HTMLAttributes<HTMLSwirlIconDockLeftCollapseElement>;
             "swirl-icon-dock-left-expand": LocalJSX.SwirlIconDockLeftExpand & JSXBase.HTMLAttributes<HTMLSwirlIconDockLeftExpandElement>;
+            "swirl-icon-door-open": LocalJSX.SwirlIconDoorOpen & JSXBase.HTMLAttributes<HTMLSwirlIconDoorOpenElement>;
             "swirl-icon-dot": LocalJSX.SwirlIconDot & JSXBase.HTMLAttributes<HTMLSwirlIconDotElement>;
             "swirl-icon-double-arrow-left": LocalJSX.SwirlIconDoubleArrowLeft & JSXBase.HTMLAttributes<HTMLSwirlIconDoubleArrowLeftElement>;
             "swirl-icon-double-arrow-right": LocalJSX.SwirlIconDoubleArrowRight & JSXBase.HTMLAttributes<HTMLSwirlIconDoubleArrowRightElement>;
@@ -8640,6 +8673,7 @@ declare module "@stencil/core" {
             "swirl-icon-spellcheck": LocalJSX.SwirlIconSpellcheck & JSXBase.HTMLAttributes<HTMLSwirlIconSpellcheckElement>;
             "swirl-icon-stars": LocalJSX.SwirlIconStars & JSXBase.HTMLAttributes<HTMLSwirlIconStarsElement>;
             "swirl-icon-stop": LocalJSX.SwirlIconStop & JSXBase.HTMLAttributes<HTMLSwirlIconStopElement>;
+            "swirl-icon-stop-circle": LocalJSX.SwirlIconStopCircle & JSXBase.HTMLAttributes<HTMLSwirlIconStopCircleElement>;
             "swirl-icon-sync": LocalJSX.SwirlIconSync & JSXBase.HTMLAttributes<HTMLSwirlIconSyncElement>;
             "swirl-icon-tasks": LocalJSX.SwirlIconTasks & JSXBase.HTMLAttributes<HTMLSwirlIconTasksElement>;
             "swirl-icon-tasks-filled": LocalJSX.SwirlIconTasksFilled & JSXBase.HTMLAttributes<HTMLSwirlIconTasksFilledElement>;
