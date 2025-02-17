@@ -1,5 +1,14 @@
 # @getflip/error-code-generator
 
+## 0.7.1
+
+### Patch Changes
+
+- [#945](https://github.com/getflip/swirl/pull/945)
+  [`62d53ad4`](https://github.com/getflip/swirl/commit/62d53ad41bf54c21b1f5c14697deec6bd994819f)
+  Thanks [@danizep](https://github.com/danizep)! - Update oas@25.3.0 to fix
+  vulnerability
+
 ## 0.7.0
 
 ### Minor Changes
