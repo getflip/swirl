@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "fix-tsup-cjs": "^1.2.0",
-    "oas": "^22.0.0",
+    "oas": "^25.3.0",
     "oas-normalize": "^11.0.0",
     "prettier": "^3.0.3",
     "yargs": "^17.7.2"

@@ -1,4 +1,4 @@
-import type Operation from "oas/dist/operation";
+import type { Operation as OASOperation } from "oas/dist/operation";
 import { CodeGenerator } from "../factories/CodeGeneratorFactory";
 
 export interface Handler {
@@ -8,7 +8,7 @@ export interface Handler {
 
 export type Endpoint = {
   title: string;
-  operation: Operation;
+  operation: OASOperation;
   errorCodes?: {
     type: string;
     enum: Array<string>;
