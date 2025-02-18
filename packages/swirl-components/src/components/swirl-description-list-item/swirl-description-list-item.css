@@ -16,7 +16,7 @@
   align-items: flex-start;
   color: var(--s-text-default);
   line-height: var(--s-line-height-base);
-  justfiy-content: space-between;
+  justify-content: space-between;
   gap: var(--s-space-16);
 
   @media (--from-desktop-without-touch) {

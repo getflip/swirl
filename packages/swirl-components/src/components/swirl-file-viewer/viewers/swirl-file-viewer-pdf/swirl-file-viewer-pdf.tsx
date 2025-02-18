@@ -348,7 +348,8 @@ export class SwirlFileViewerPdf {
       if (visiblePagesVisibleHeight.length > 0) {
         const firstMostVisiblePage = visiblePagesVisibleHeight.reduce(
           (previous, current) =>
-            current.visibleHeight > previous.visibleHeight ? current : previous
+            current.visibleHeight > previous.visibleHeight ? current : previous,
+          undefined
         );
 
         currentPage = firstMostVisiblePage.pageNumber;
