@@ -62,7 +62,7 @@ const Template = (args) => {
   `;
 
   element.querySelector(".info-button").addEventListener("click", () => {
-    element.changeMobileView("sidebar");
+    element.toggleSidebar();
   });
 
   element.querySelectorAll(".item").forEach((el) => {
