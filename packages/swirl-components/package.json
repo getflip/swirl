@@ -59,7 +59,7 @@
     "papaparse": "^5.3.2",
     "pdfjs-dist": "^2.16.105",
     "shave": "^5.0.2",
-    "sortablejs": "^1.15.0",
+    "sortablejs": "^1.15.6",
     "vanilla-colorful": "^0.7.2",
     "wc-datepicker": "^0.5.3"
   },
