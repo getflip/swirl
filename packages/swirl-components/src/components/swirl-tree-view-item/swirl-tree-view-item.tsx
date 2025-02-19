@@ -178,6 +178,8 @@ export class SwirlTreeViewItem {
     const iconIsEmoji =
       Boolean(this.icon) && /\p{Extended_Pictographic}/u.test(this.icon);
 
+    const shouldShowChildrenDropZone = this.enableDragDrop && !hasChildren;
+
     const className = classNames("tree-view-item", {
       "tree-view-item--active": this.active,
       "tree-view-item--disable-drag": this.disableDrag,
@@ -241,21 +243,19 @@ export class SwirlTreeViewItem {
           </a>
           <ul
             aria-label={this.label}
-            class="tree-view-item__children"
+            class={`tree-view-item__children ${
+              shouldShowChildrenDropZone
+                ? "tree-view-item__children--drop-zone"
+                : ""
+            }`}
             id={`${this.itemId}-children`}
             ref={(el) => (this.childList = el)}
             role="group"
             style={{
               display:
-                (!this.expanded || !hasChildren) &&
-                !(this.enableDragDrop && !hasChildren)
+                (!this.expanded || !hasChildren) && !shouldShowChildrenDropZone
                   ? "none"
                   : undefined,
-              // minHeight/marginTop is needed to provide a drop target for leaf nodes
-              minHeight:
-                this.enableDragDrop && !hasChildren ? "0.25rem" : undefined,
-              marginTop:
-                this.enableDragDrop && !hasChildren ? "-0.25rem" : undefined,
             }}
           >
             <slot></slot>

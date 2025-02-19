@@ -46,6 +46,11 @@
   flex-direction: column;
 }
 
+.tree-view-item__children--drop-zone {
+  min-height: 0.5rem;
+  margin-top: -0.5rem;
+}
+
 .tree-view-item__link {
   display: flex;
   height: 2.25rem;
