@@ -109,15 +109,6 @@
   }
 }
 
-.tree-view-item__drag-handle {
-  display: inline-flex;
-  cursor: grab;
-
-  &:active {
-    cursor: grabbing;
-  }
-}
-
 .tree-view-item__icon {
   display: block;
   width: 1.5rem;
