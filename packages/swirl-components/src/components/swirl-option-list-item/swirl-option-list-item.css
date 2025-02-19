@@ -127,6 +127,14 @@
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  overflow: hidden;
+
+  & > * {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .option-list-item__label {
@@ -194,6 +202,7 @@
   width: 1.5rem;
   height: 1.5rem;
   padding: var(--s-space-2);
+  flex-shrink: 0;
 
   @media (--from-desktop-without-touch) {
     width: 1.375rem;
