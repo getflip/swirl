@@ -210,6 +210,7 @@ export class SwirlTreeViewItem {
 
     this.endKeyboardMoveEvent.emit(eventData);
     // TODO: trigger dropTreeViewItem event
+    // this.dropTreeViewItem.emit({})
   }
 
   private startKeyboardMove() {
