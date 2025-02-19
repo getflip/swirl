@@ -77,14 +77,24 @@ export class SwirlTreeView {
     event.stopPropagation();
     this.dropItem.emit(event.detail);
 
-    // force update the new parent of the dropped item to reflect new hierarchy
-    const parentItem = this.el.querySelector(
+    // force update the new and old parent of the dropped item to reflect
+    // new hierarchy
+    const newParentItem = this.el.querySelector(
       "#" + event.detail.targetParentItemId
     ) as HTMLSwirlTreeViewItemElement | undefined;
 
-    if (parentItem) {
-      forceUpdate(parentItem);
-      parentItem.expand();
+    if (newParentItem) {
+      forceUpdate(newParentItem);
+      newParentItem.expand();
+    }
+
+    const oldParentItem = this.el.querySelector(
+      "#" + event.detail.sourceParentItemId
+    ) as HTMLSwirlTreeViewItemElement | undefined;
+
+    if (oldParentItem) {
+      forceUpdate(oldParentItem);
+      oldParentItem.expand();
     }
   }
 
