@@ -4,6 +4,7 @@ export const treeViewDragDropConfig: Partial<Sortable.Options> = {
   animation: 100,
   chosenClass: "tree-view-item--chosen",
   direction: "vertical",
+  dragClass: "tree-view-item--drag",
   draggable: "swirl-tree-view-item",
   emptyInsertThreshold: 0,
   fallbackOnBody: true,

@@ -13,7 +13,7 @@
   list-style: none;
 }
 
-.tree-view-item--chosen:not(.tree-view-item--ghost) {
+.tree-view-item--chosen.tree-view-item--drag:not(.tree-view-item--ghost) {
   border-radius: var(--s-border-radius-sm);
   box-shadow: var(--s-shadow-level-3);
 
@@ -23,37 +23,8 @@
 }
 
 .tree-view-item--ghost {
-  position: relative;
-  height: 0;
-
-  &:before {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    height: 0.125rem;
-    background-color: var(--s-border-highlight);
-    content: "";
-    transform: translateY(-50%);
-  }
-
-  &:after {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 0.375rem;
-    height: 0.375rem;
-    border: 0.125rem solid var(--s-border-highlight);
-    border-radius: 50%;
-    background-color: var(--s-background-default);
-    content: "";
-    transform: translateY(-50%);
-  }
-
-  & .tree-view-item__link,
-  & .tree-view-item__children {
-    display: none;
-  }
+  border: var(--s-border-width-default) solid var(--s-border-highlight);
+  border-radius: var(--s-border-radius-sm);
 }
 
 .tree-view-item--active {
