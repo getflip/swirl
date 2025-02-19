@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.294.0
+
+### Minor Changes
+
+- [#949](https://github.com/getflip/swirl/pull/949)
+  [`838516d1`](https://github.com/getflip/swirl/commit/838516d154c9f3b91d87dc3578f0971516026266)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Fix
+  swirl-avatar intersection observer
+
+### Patch Changes
+
+- Updated dependencies
+  [[`838516d1`](https://github.com/getflip/swirl/commit/838516d154c9f3b91d87dc3578f0971516026266)]:
+  - @getflip/swirl-components@0.294.0
+
 ## 0.293.0
 
 ### Minor Changes
