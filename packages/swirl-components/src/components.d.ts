@@ -1546,6 +1546,7 @@ export namespace Components {
     }
     interface SwirlInlineNotification {
         "heading": string;
+        "hideHeading"?: boolean;
         "importance"?: SwirlInlineNotificationAriaRole;
         "intent"?: SwirlInlineNotificationIntent;
     }
@@ -7261,6 +7262,7 @@ declare namespace LocalJSX {
     }
     interface SwirlInlineNotification {
         "heading": string;
+        "hideHeading"?: boolean;
         "importance"?: SwirlInlineNotificationAriaRole;
         "intent"?: SwirlInlineNotificationIntent;
     }
