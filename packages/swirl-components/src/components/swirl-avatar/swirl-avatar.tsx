@@ -78,6 +78,7 @@ export class SwirlAvatar {
   @State() loaded = false;
   @State() imageAvailable: boolean | undefined;
   @State() inViewport = false;
+  @State() componentLoaded = false;
 
   @Event() imageError: EventEmitter<void>;
   @Event() imageLoad: EventEmitter<void>;
@@ -86,6 +87,13 @@ export class SwirlAvatar {
 
   componentDidLoad() {
     this.setupIntersectionObserver();
+    this.componentLoaded = true;
+  }
+
+  connectedCallback() {
+    if (this.componentLoaded) {
+      this.setupIntersectionObserver();
+    }
   }
 
   disconnectedCallback() {
