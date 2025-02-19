@@ -68,6 +68,11 @@ export class SwirlTreeViewItem {
 
   componentWillLoad() {
     this.updateLevel();
+
+    const treeView = this.el.closest("swirl-tree-view");
+
+    this.enableDragDrop = treeView?.enableDragDrop;
+    this.canDrop = treeView?.canDrop;
   }
 
   componentDidLoad() {
@@ -111,11 +116,6 @@ export class SwirlTreeViewItem {
   }
 
   private setUpDragDrop() {
-    const treeView = this.el.closest("swirl-tree-view");
-
-    this.enableDragDrop = treeView?.enableDragDrop;
-    this.canDrop = treeView?.canDrop;
-
     if (this.sortable) {
       this.sortable.destroy();
       this.sortable = undefined;
