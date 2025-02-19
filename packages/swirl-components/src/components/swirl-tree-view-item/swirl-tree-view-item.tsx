@@ -177,7 +177,10 @@ export class SwirlTreeViewItem {
     >("swirl-tree-view-item, swirl-tree-view");
 
     const siblings = Array.from(
-      parentItem.querySelectorAll("swirl-tree-view-item")
+      parentItem.querySelectorAll(`
+        :scope > .tree-view-item > .tree-view-item__children > swirl-tree-view-item,
+        :scope > .tree-view > swirl-tree-view-item
+      `)
     );
 
     if (!parentItem) {
@@ -186,7 +189,7 @@ export class SwirlTreeViewItem {
 
     return {
       parentLabel: parentItem.label,
-      childrenCount: parentItem.querySelectorAll("swirl-tree-view-item").length,
+      childrenCount: siblings.length,
       itemLabel: this.label,
       position: siblings.findIndex((el) => el === this.el) + 1,
     };
