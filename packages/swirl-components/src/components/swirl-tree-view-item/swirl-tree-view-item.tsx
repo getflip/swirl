@@ -16,6 +16,13 @@ import { SwirlIconColor } from "../swirl-icon/swirl-icon";
 import { SwirlTreeViewDropItemEvent } from "../swirl-tree-view/swirl-tree-view";
 import { treeViewDragDropConfig } from "../swirl-tree-view/swirl-tree-view.config";
 
+export type SwirlTreeViewItemKeyboardMoveEvent = {
+  childrenCount: number;
+  itemLabel: string;
+  parentLabel: string;
+  position: number;
+};
+
 /**
  * @slot slot - The children of the tree view item
  * @slot tags - The tags of the tree view item
@@ -41,11 +48,18 @@ export class SwirlTreeViewItem {
   @Event() dropTreeViewItem!: EventEmitter<SwirlTreeViewDropItemEvent>;
   @Event() expandedChange!: EventEmitter<boolean>;
   @Event() itemSelected!: EventEmitter<HTMLSwirlTreeViewItemElement>;
+  @Event({ eventName: "startKeyboardMove" })
+  startKeyboardMoveEvent!: EventEmitter<SwirlTreeViewItemKeyboardMoveEvent>;
+  @Event({ eventName: "endKeyboardMove" })
+  endKeyboardMoveEvent!: EventEmitter<SwirlTreeViewItemKeyboardMoveEvent>;
+  @Event({ eventName: "keyboardMove" })
+  keyboardMoveEvent!: EventEmitter<SwirlTreeViewItemKeyboardMoveEvent>;
 
   @State() canDrop?: (event: MoveEvent) => boolean;
   @State() enableDragDrop = false;
   @State() expanded = false;
   @State() level = 0;
+  @State() movingViaKeyboard = false;
   @State() selected = false;
 
   private childList?: HTMLElement;
@@ -154,9 +168,112 @@ export class SwirlTreeViewItem {
     }
   }
 
+  private getKeyboardMoveEventData():
+    | SwirlTreeViewItemKeyboardMoveEvent
+    | undefined {
+    const parentItem = this.el.parentElement?.closest<
+      HTMLSwirlTreeViewItemElement | HTMLSwirlTreeViewElement
+    >("swirl-tree-view-item, swirl-tree-view");
+
+    const siblings = Array.from(
+      parentItem.querySelectorAll("swirl-tree-view-item")
+    );
+
+    if (!parentItem) {
+      return undefined;
+    }
+
+    return {
+      parentLabel: parentItem.label,
+      childrenCount: parentItem.querySelectorAll("swirl-tree-view-item").length,
+      itemLabel: this.label,
+      position: siblings.findIndex((el) => el === this.el) + 1,
+    };
+  }
+
+  private toggleKeyboardMove() {
+    if (this.movingViaKeyboard) {
+      this.endKeyboardMove();
+    } else {
+      this.startKeyboardMove();
+    }
+  }
+
+  private endKeyboardMove() {
+    this.movingViaKeyboard = false;
+
+    const eventData = this.getKeyboardMoveEventData();
+
+    if (!eventData) {
+      return;
+    }
+
+    this.endKeyboardMoveEvent.emit(eventData);
+    // TODO: trigger dropTreeViewItem event
+  }
+
+  private startKeyboardMove() {
+    this.movingViaKeyboard = true;
+
+    const eventData = this.getKeyboardMoveEventData();
+
+    if (!eventData) {
+      return;
+    }
+
+    this.startKeyboardMoveEvent.emit(eventData);
+  }
+
+  private moveItemDown() {
+    // TODO: move
+
+    const eventData = this.getKeyboardMoveEventData();
+
+    if (!eventData) {
+      return;
+    }
+
+    this.keyboardMoveEvent.emit(eventData);
+  }
+
+  private moveItemUp() {
+    // TODO: move
+
+    const eventData = this.getKeyboardMoveEventData();
+
+    if (!eventData) {
+      return;
+    }
+
+    this.keyboardMoveEvent.emit(eventData);
+  }
+
   private onFocus = () => {
     if (!this.selected) {
       this.select();
+    }
+  };
+
+  private onKeyUp = (event: KeyboardEvent) => {
+    if (event.code === "Space") {
+      event.preventDefault();
+      this.toggleKeyboardMove();
+    }
+  };
+
+  private onKeyDown = (event: KeyboardEvent) => {
+    if (!this.movingViaKeyboard) {
+      return;
+    }
+
+    if (event.code === "ArrowDown") {
+      event.preventDefault();
+      event.stopPropagation();
+      this.moveItemDown();
+    } else if (event.code === "ArrowUp") {
+      event.preventDefault();
+      event.stopPropagation();
+      this.moveItemUp();
     }
   };
 
@@ -182,6 +299,7 @@ export class SwirlTreeViewItem {
 
     const className = classNames("tree-view-item", {
       "tree-view-item--active": this.active,
+      "tree-view-item--moving-via-keyboard": this.movingViaKeyboard,
       "tree-view-item--disable-drag": this.disableDrag,
       "tree-view-item--has-tags": hasTags,
     });
@@ -198,6 +316,8 @@ export class SwirlTreeViewItem {
             class="tree-view-item__link"
             href={this.href}
             onFocus={this.onFocus}
+            onKeyUp={this.onKeyUp}
+            onKeyDown={this.onKeyDown}
             ref={(el) => (this.link = el)}
             role="treeitem"
             tabIndex={this.selected ? 0 : -1}

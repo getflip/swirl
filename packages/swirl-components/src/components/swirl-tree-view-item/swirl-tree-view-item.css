@@ -27,6 +27,22 @@
   border-radius: var(--s-border-radius-sm);
 }
 
+.tree-view-item--moving-via-keyboard {
+  position: relative;
+  z-index: 1;
+  border: var(--s-border-width-default) solid var(--s-border-highlight);
+  border-radius: var(--s-border-radius-sm);
+  box-shadow: var(--s-shadow-level-3);
+
+  & .tree-view-item__link {
+    background-color: var(--s-background-default);
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
+
 .tree-view-item--active {
   & > .tree-view-item__link {
     background-color: var(--s-background-hovered);

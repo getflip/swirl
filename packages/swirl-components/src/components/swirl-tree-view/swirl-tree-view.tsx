@@ -9,9 +9,11 @@ import {
   Listen,
   Method,
   Prop,
+  State,
   Watch,
 } from "@stencil/core";
 import Sortable, { MoveEvent, SortableEvent } from "sortablejs";
+import { SwirlTreeViewItemKeyboardMoveEvent } from "../swirl-tree-view-item/swirl-tree-view-item";
 import { treeViewDragDropConfig } from "./swirl-tree-view.config";
 
 export type SwirlTreeViewDropItemEvent = Pick<
@@ -32,6 +34,14 @@ export class SwirlTreeView {
   @Element() el!: HTMLSwirlTreeViewElement;
 
   @Prop() canDrop?: (event: MoveEvent) => boolean;
+  @Prop() dragDropInstructions = {
+    end: "{itemLabel}, dropped. Parent item: {parentLabel}. Final position in list: {position} of {childrenCount}.",
+    initial: "Press space to move items.",
+    moved:
+      "{itemLabel}. Parent item: {parentLabel}. Current position in list: {position} of {childrenCount}.",
+    start:
+      "{itemLabel}, grabbed. Parent item: {parentLabel}. Current position in list: {position} of {childrenCount}. Press up and down arrow keys to change position, Space to drop.",
+  };
   @Prop() enableDragDrop?: boolean;
   @Prop() initiallyExpandedItemIds?: string[];
   @Prop() label!: string;
@@ -41,6 +51,8 @@ export class SwirlTreeView {
     itemId: string;
     expanded: boolean;
   }>;
+
+  @State() liveRegionText = "";
 
   private listElement?: HTMLElement;
   private sortable: Sortable | undefined;
@@ -140,6 +152,21 @@ export class SwirlTreeView {
         expanded: event.detail,
       });
     }
+  }
+
+  @Listen("endKeyboardMove")
+  onEndKeyboardMove(event: CustomEvent<SwirlTreeViewItemKeyboardMoveEvent>) {
+    this.updateLiveRegionText("end", event.detail);
+  }
+
+  @Listen("startKeyboardMove")
+  onStartKeyboardMove(event: CustomEvent<SwirlTreeViewItemKeyboardMoveEvent>) {
+    this.updateLiveRegionText("start", event.detail);
+  }
+
+  @Listen("keyboardMove")
+  onKeyboardMove(event: CustomEvent<SwirlTreeViewItemKeyboardMoveEvent>) {
+    this.updateLiveRegionText("moved", event.detail);
   }
 
   private init() {
@@ -389,18 +416,57 @@ export class SwirlTreeView {
     return (nestedSibling as HTMLSwirlTreeViewItemElement) ?? undefined;
   }
 
+  private updateLiveRegionText(
+    key?: keyof typeof this.dragDropInstructions,
+    data?: SwirlTreeViewItemKeyboardMoveEvent
+  ) {
+    let newText = key ? this.dragDropInstructions[key] : "";
+
+    for (const [key, value] of Object.entries(data ?? {})) {
+      newText = newText.replaceAll(`{${key}}`, String(value));
+    }
+
+    if (newText !== this.liveRegionText) {
+      this.liveRegionText = newText;
+    }
+  }
+
   private onSlotChange = () => {
     this.init();
+  };
+
+  private onFocus = () => {
+    if (this.liveRegionText === "") {
+      this.updateLiveRegionText("initial");
+    }
+  };
+
+  private onBlur = (event: FocusEvent) => {
+    const newlyFocusedElement = event.relatedTarget as HTMLElement | undefined;
+
+    if (this.el.contains(newlyFocusedElement)) {
+      return;
+    }
+
+    if (this.liveRegionText !== "") {
+      this.updateLiveRegionText();
+    }
   };
 
   render() {
     return (
       <Host>
+        {this.enableDragDrop && (
+          <span aria-live="assertive">{this.liveRegionText}</span>
+        )}
         <ul
           aria-label={this.label}
           class="tree-view"
+          onFocusin={this.onFocus}
+          onFocusout={this.onBlur}
           role="tree"
           ref={(el) => (this.listElement = el)}
+          tabIndex={-1}
         >
           <slot onSlotchange={this.onSlotChange}></slot>
         </ul>

@@ -77,6 +77,7 @@ import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 import { MoveEvent } from "sortablejs";
 import { SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
+import { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
 export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
 export { SwirlActionListItemIntent, SwirlActionListItemSize } from "./components/swirl-action-list-item/swirl-action-list-item";
 export { SwirlAppBarPadding } from "./components/swirl-app-bar/swirl-app-bar";
@@ -149,6 +150,7 @@ export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { MoveEvent } from "sortablejs";
 export { SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
+export { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
 export namespace Components {
     interface FileManager {
     }
@@ -2417,6 +2419,7 @@ export namespace Components {
     }
     interface SwirlTreeView {
         "canDrop"?: (event: MoveEvent) => boolean;
+        "dragDropInstructions": { end: string; initial: string; moved: string; start: string; };
         "enableDragDrop"?: boolean;
         "expandItems": (itemIds: string[]) => Promise<void>;
         "initiallyExpandedItemIds"?: string[];
@@ -5521,6 +5524,9 @@ declare global {
         "dropTreeViewItem": SwirlTreeViewDropItemEvent1;
         "expandedChange": boolean;
         "itemSelected": HTMLSwirlTreeViewItemElement;
+        "startKeyboardMove": SwirlTreeViewItemKeyboardMoveEvent;
+        "endKeyboardMove": SwirlTreeViewItemKeyboardMoveEvent;
+        "keyboardMove": SwirlTreeViewItemKeyboardMoveEvent;
     }
     interface HTMLSwirlTreeViewItemElement extends Components.SwirlTreeViewItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlTreeViewItemElementEventMap>(type: K, listener: (this: HTMLSwirlTreeViewItemElement, ev: SwirlTreeViewItemCustomEvent<HTMLSwirlTreeViewItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -8016,6 +8022,7 @@ declare namespace LocalJSX {
     }
     interface SwirlTreeView {
         "canDrop"?: (event: MoveEvent) => boolean;
+        "dragDropInstructions"?: { end: string; initial: string; moved: string; start: string; };
         "enableDragDrop"?: boolean;
         "initiallyExpandedItemIds"?: string[];
         "label": string;
@@ -8035,8 +8042,11 @@ declare namespace LocalJSX {
         "itemId": string;
         "label": string;
         "onDropTreeViewItem"?: (event: SwirlTreeViewItemCustomEvent<SwirlTreeViewDropItemEvent1>) => void;
+        "onEndKeyboardMove"?: (event: SwirlTreeViewItemCustomEvent<SwirlTreeViewItemKeyboardMoveEvent>) => void;
         "onExpandedChange"?: (event: SwirlTreeViewItemCustomEvent<boolean>) => void;
         "onItemSelected"?: (event: SwirlTreeViewItemCustomEvent<HTMLSwirlTreeViewItemElement>) => void;
+        "onKeyboardMove"?: (event: SwirlTreeViewItemCustomEvent<SwirlTreeViewItemKeyboardMoveEvent>) => void;
+        "onStartKeyboardMove"?: (event: SwirlTreeViewItemCustomEvent<SwirlTreeViewItemKeyboardMoveEvent>) => void;
     }
     interface SwirlVideoThumbnail {
         "duration"?: string;
