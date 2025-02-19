@@ -3,6 +3,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  forceUpdate,
   Fragment,
   h,
   Host,
@@ -225,8 +226,38 @@ export class SwirlTreeViewItem {
     this.startKeyboardMoveEvent.emit(eventData);
   }
 
-  private moveItemDown() {
-    // TODO: move
+  private async moveItemDown() {
+    const parentItem = this.el.parentElement.closest("swirl-tree-view-item");
+    const nextSibling = this.el.nextElementSibling as
+      | HTMLSwirlTreeViewItemElement
+      | undefined;
+
+    if (nextSibling) {
+      // move inside the next sibling
+      nextSibling.querySelector(".tree-view-item__children").prepend(this.el);
+
+      // update new and previous parent items
+      if (parentItem) {
+        forceUpdate(parentItem);
+      }
+
+      forceUpdate(nextSibling);
+      await nextSibling.expand();
+    } else {
+      if (parentItem) {
+        // move after the parent item
+        parentItem.parentElement.insertBefore(
+          this.el,
+          parentItem.nextElementSibling
+        );
+
+        forceUpdate(parentItem);
+      }
+    }
+
+    requestAnimationFrame(() => {
+      this.link.focus();
+    });
 
     const eventData = this.getKeyboardMoveEventData();
 
@@ -237,8 +268,37 @@ export class SwirlTreeViewItem {
     this.keyboardMoveEvent.emit(eventData);
   }
 
-  private moveItemUp() {
-    // TODO: move
+  private async moveItemUp() {
+    const parentItem = this.el.parentElement.closest("swirl-tree-view-item");
+    const prevSibling = this.el.previousElementSibling as
+      | HTMLSwirlTreeViewItemElement
+      | undefined;
+
+    if (prevSibling) {
+      // move before the previous sibling
+      prevSibling
+        .querySelector(".tree-view-item__children")
+        .appendChild(this.el);
+
+      // update new and previous parent items
+      if (parentItem) {
+        forceUpdate(parentItem);
+      }
+
+      forceUpdate(prevSibling);
+      await prevSibling.expand();
+    } else {
+      if (parentItem) {
+        // move before the parent item
+        parentItem.parentElement.insertBefore(this.el, parentItem);
+
+        forceUpdate(parentItem);
+      }
+    }
+
+    requestAnimationFrame(() => {
+      this.link.focus();
+    });
 
     const eventData = this.getKeyboardMoveEventData();
 
