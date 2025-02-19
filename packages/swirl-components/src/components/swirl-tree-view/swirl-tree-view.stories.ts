@@ -1,4 +1,3 @@
-import { MoveEvent } from "sortablejs";
 import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-tree-view.mdx";
 
@@ -37,17 +36,6 @@ const Template = (args) => {
       <swirl-tree-view-item href="#" icon="💈" item-id="item-3-1" label="Item 3.1"></swirl-tree-view-item>
     </swirl-tree-view-item>
   `;
-
-  element.canDrop = (event: MoveEvent) => {
-    const tryingToDropOnRootLevel =
-      event.to.closest("swirl-tree-view-item")?.itemId === undefined;
-
-    return !tryingToDropOnRootLevel;
-  };
-
-  element.addEventListener("dropItem", (event: CustomEvent) => {
-    console.log(event.detail);
-  });
 
   return element;
 };
