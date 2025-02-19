@@ -457,7 +457,9 @@ export class SwirlTreeView {
     return (
       <Host>
         {this.enableDragDrop && (
-          <span aria-live="assertive">{this.liveRegionText}</span>
+          <swirl-visually-hidden>
+            <span aria-live="assertive">{this.liveRegionText}</span>
+          </swirl-visually-hidden>
         )}
         <ul
           aria-label={this.label}
