@@ -18,5 +18,6 @@ export const treeViewDragDropConfig: Partial<Sortable.Options> = {
   onStart: (event) => {
     event.item.closest(".tree-view")?.classList.add("tree-view--dragging");
   },
-  swapThreshold: 0.5,
+  swapThreshold: 0.75,
+  invertedSwapThreshold: 1,
 };
