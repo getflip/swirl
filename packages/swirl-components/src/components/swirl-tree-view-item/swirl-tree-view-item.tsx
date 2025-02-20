@@ -194,22 +194,20 @@ export class SwirlTreeViewItem {
     position: number;
     siblingCount: number;
   } {
-    const parent = this.el.parentElement?.closest<
-      HTMLSwirlTreeViewItemElement | HTMLSwirlTreeViewElement
-    >("swirl-tree-view-item, swirl-tree-view");
+    const parent =
+      this.getParentTreeViewItem() ?? this.el.closest("swirl-tree-view");
 
-    // TODO: make work with custom selector
     const siblings = Array.from(
       parent.querySelectorAll(`
-        :scope > .tree-view-item > .tree-view-item__children > swirl-tree-view-item,
-        :scope > .tree-view > swirl-tree-view-item
+        :scope > .tree-view-item > .tree-view-item__children > ${this.dragDropItemSelector},
+        :scope > .tree-view > ${this.dragDropItemSelector}
       `)
     );
 
     return {
       canDrop: !this.cannotKeyboardDropInCurrentPosition,
       parent,
-      position: siblings.indexOf(this.el) + 1,
+      position: siblings.indexOf(this.el),
       siblingCount: siblings.length,
     };
   }
@@ -279,8 +277,8 @@ export class SwirlTreeViewItem {
     this.dropTreeViewItem.emit({
       item: this.getElementToMove(),
       itemId: this.itemId,
-      newIndex: position - 1,
-      oldIndex: this.positionBeforeKeyboardMove.position - 1,
+      newIndex: position,
+      oldIndex: this.positionBeforeKeyboardMove.position,
       sourceParentItemId:
         this.positionBeforeKeyboardMove.parent.id ?? undefined,
       targetParentItemId: this.getParentItem()?.id,
