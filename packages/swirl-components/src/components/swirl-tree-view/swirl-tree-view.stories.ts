@@ -37,8 +37,6 @@ const Template = (args) => {
     </swirl-tree-view-item>
   `;
 
-  element.addEventListener("dropItem", (event) => console.log(event.detail));
-
   return element;
 };
 
