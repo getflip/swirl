@@ -18,8 +18,8 @@ import { treeViewDragDropConfig } from "./swirl-tree-view.config";
 
 export type SwirlTreeViewDropItemEvent = Pick<
   SortableEvent,
-  "from" | "to" | "oldIndex" | "newIndex" | "item"
-> & { sourceParentItemId: string; targetParentItemId: string };
+  "oldIndex" | "newIndex" | "item"
+> & { itemId: string; sourceParentItemId: string; targetParentItemId: string };
 
 /**
  * @slot slot - The tree view items
@@ -91,22 +91,26 @@ export class SwirlTreeView {
 
     // force update the new and old parent of the dropped item to reflect
     // new hierarchy
-    const newParentItem = this.el.querySelector(
-      "#" + event.detail.targetParentItemId
-    ) as HTMLSwirlTreeViewItemElement | undefined;
+    if (event.detail.targetParentItemId) {
+      const newParentItem = this.el.querySelector(
+        "#" + event.detail.targetParentItemId
+      ) as HTMLSwirlTreeViewItemElement | undefined;
 
-    if (newParentItem) {
-      forceUpdate(newParentItem);
-      newParentItem.expand();
+      if (newParentItem) {
+        forceUpdate(newParentItem);
+        newParentItem.expand();
+      }
     }
 
-    const oldParentItem = this.el.querySelector(
-      "#" + event.detail.sourceParentItemId
-    ) as HTMLSwirlTreeViewItemElement | undefined;
+    if (event.detail.sourceParentItemId) {
+      const oldParentItem = this.el.querySelector(
+        "#" + event.detail.sourceParentItemId
+      ) as HTMLSwirlTreeViewItemElement | undefined;
 
-    if (oldParentItem) {
-      forceUpdate(oldParentItem);
-      oldParentItem.expand();
+      if (oldParentItem) {
+        forceUpdate(oldParentItem);
+        oldParentItem.expand();
+      }
     }
   }
 
@@ -206,16 +210,15 @@ export class SwirlTreeView {
 
           treeViewDragDropConfig.onEnd?.(event);
 
-          const { from, to, newIndex, oldIndex, item } = event;
+          const { to, newIndex, oldIndex, item } = event;
           const sourceParentItemId = undefined;
           const targetParentItemId = to.closest("swirl-tree-view-item")?.itemId;
 
           this.dropItem.emit({
-            from,
-            to,
             newIndex,
             oldIndex,
             item,
+            itemId: item.id,
             sourceParentItemId,
             targetParentItemId,
           });

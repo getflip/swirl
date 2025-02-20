@@ -64,6 +64,10 @@ export class SwirlTreeViewItem {
   @State() selected = false;
 
   private childList?: HTMLElement;
+  private positionBeforeKeyboardMove?: {
+    parent: HTMLSwirlTreeViewItemElement | HTMLSwirlTreeViewElement;
+    position: number;
+  };
   private link?: HTMLAnchorElement;
   private sortable: Sortable | undefined;
 
@@ -147,11 +151,10 @@ export class SwirlTreeViewItem {
           const targetParentItemId = to.closest("swirl-tree-view-item")?.itemId;
 
           this.dropTreeViewItem.emit({
-            from,
-            to,
             newIndex,
             oldIndex,
             item,
+            itemId: item.id,
             sourceParentItemId,
             targetParentItemId,
           });
@@ -212,12 +215,48 @@ export class SwirlTreeViewItem {
       return;
     }
 
+    const parentItem = this.el.parentElement.closest<
+      HTMLSwirlTreeViewElement | HTMLSwirlTreeViewItemElement
+    >("swirl-tree-view-item, swirl-tree-view");
+
+    const siblings = Array.from(
+      parentItem.querySelectorAll(`
+        :scope > .tree-view-item > .tree-view-item__children > swirl-tree-view-item,
+        :scope > .tree-view > swirl-tree-view-item
+      `)
+    );
+
     this.endKeyboardMoveEvent.emit(eventData);
-    // TODO: trigger dropTreeViewItem event
-    // this.dropTreeViewItem.emit({})
+    this.dropTreeViewItem.emit({
+      item: this.el,
+      itemId: this.itemId,
+      newIndex: siblings.indexOf(this.el),
+      oldIndex: this.positionBeforeKeyboardMove.position,
+      sourceParentItemId:
+        this.positionBeforeKeyboardMove.parent.id ?? undefined,
+      targetParentItemId: this.el.parentElement.closest("swirl-tree-view-item")
+        ?.id,
+    });
   }
 
   private startKeyboardMove() {
+    // TODO: fix moving of level 0 item
+    const parentItem = this.el.parentElement.closest<
+      HTMLSwirlTreeViewElement | HTMLSwirlTreeViewItemElement
+    >("swirl-tree-view-item, swirl-tree-view");
+
+    const siblings = Array.from(
+      parentItem.querySelectorAll(`
+        :scope > .tree-view-item > .tree-view-item__children > swirl-tree-view-item,
+        :scope > .tree-view > swirl-tree-view-item
+      `)
+    );
+
+    this.positionBeforeKeyboardMove = {
+      parent: parentItem,
+      position: Array.from(siblings).indexOf(this.el),
+    };
+
     this.movingViaKeyboard = true;
 
     const eventData = this.getKeyboardMoveEventData();
