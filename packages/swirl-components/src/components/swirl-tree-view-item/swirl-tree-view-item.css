@@ -57,6 +57,10 @@
   }
 }
 
+.tree-view-item--cannot-keyboard-drop {
+  opacity: 0.5;
+}
+
 .tree-view-item--active {
   & > .tree-view-item__link {
     background-color: var(--s-background-hovered);

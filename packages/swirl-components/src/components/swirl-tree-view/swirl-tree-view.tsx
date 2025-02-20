@@ -12,7 +12,7 @@ import {
   State,
   Watch,
 } from "@stencil/core";
-import Sortable, { MoveEvent, SortableEvent } from "sortablejs";
+import Sortable, { SortableEvent } from "sortablejs";
 import { SwirlTreeViewItemKeyboardMoveEvent } from "../swirl-tree-view-item/swirl-tree-view-item";
 import { treeViewDragDropConfig } from "./swirl-tree-view.config";
 
@@ -20,6 +20,11 @@ export type SwirlTreeViewDropItemEvent = Pick<
   SortableEvent,
   "oldIndex" | "newIndex" | "item"
 > & { itemId: string; sourceParentItemId: string; targetParentItemId: string };
+
+export type SwirlTreeViewCanDropHandler = (location: {
+  parentId: string;
+  position: number;
+}) => boolean;
 
 /**
  * @slot slot - The tree view items
@@ -33,8 +38,9 @@ export type SwirlTreeViewDropItemEvent = Pick<
 export class SwirlTreeView {
   @Element() el!: HTMLSwirlTreeViewElement;
 
-  @Prop() canDrop?: (event: MoveEvent) => boolean;
+  @Prop() canDrop?: SwirlTreeViewCanDropHandler;
   @Prop() dragDropInstructions = {
+    cannotBeDropped: "Cannot drop here.",
     end: "{itemLabel}, dropped. Parent item: {parentLabel}. Final position in list: {position} of {childrenCount}.",
     initial: "Press space to move items.",
     moved:
@@ -197,7 +203,14 @@ export class SwirlTreeView {
         ...treeViewDragDropConfig,
         onMove: (event) => {
           if (typeof this.canDrop === "function") {
-            return this.canDrop(event);
+            return this.canDrop({
+              parentId: event.to.closest("swirl-tree-view-item")?.itemId,
+              position:
+                Math.max(
+                  Array.from(event.to.children).indexOf(event.related),
+                  0
+                ) + 1,
+            });
           }
 
           return true;
@@ -424,6 +437,10 @@ export class SwirlTreeView {
     data?: SwirlTreeViewItemKeyboardMoveEvent
   ) {
     let newText = key ? this.dragDropInstructions[key] : "";
+
+    if (!data?.canDrop) {
+      newText += ` ${this.dragDropInstructions.cannotBeDropped}`;
+    }
 
     for (const [key, value] of Object.entries(data ?? {})) {
       newText = newText.replaceAll(`{${key}}`, String(value));

@@ -26,4 +26,7 @@ export {
   SwirlThemes as Themes,
 } from "./components/swirl-theme-provider/swirl-theme-provider.types";
 export { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
-export { SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
+export {
+  SwirlTreeViewCanDropHandler,
+  SwirlTreeViewDropItemEvent,
+} from "./components/swirl-tree-view/swirl-tree-view";
