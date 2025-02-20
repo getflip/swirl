@@ -14619,6 +14619,10 @@
           "description": ""
         },
         {
+          "name": "hide-heading",
+          "description": ""
+        },
+        {
           "name": "importance",
           "description": "",
           "values": [

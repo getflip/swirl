@@ -16,6 +16,7 @@ export type SwirlInlineNotificationIntent =
 })
 export class SwirlInlineNotification {
   @Prop() heading!: string;
+  @Prop() hideHeading?: boolean;
   @Prop() importance?: SwirlInlineNotificationAriaRole = "status";
   @Prop() intent?: SwirlInlineNotificationIntent = "info";
 
@@ -48,13 +49,17 @@ export class SwirlInlineNotification {
             )}
           </span>
           <span class="inline-notification__content" id="content">
-            <swirl-text
-              class="inline-notification__heading"
-              size="sm"
-              weight="semibold"
-            >
-              {this.heading}
-            </swirl-text>
+            {(this.hideHeading && (
+              <swirl-visually-hidden>{this.heading}</swirl-visually-hidden>
+            )) || (
+              <swirl-text
+                class="inline-notification__heading"
+                size="sm"
+                weight="semibold"
+              >
+                {this.heading}
+              </swirl-text>
+            )}
             <slot></slot>
           </span>
         </div>
