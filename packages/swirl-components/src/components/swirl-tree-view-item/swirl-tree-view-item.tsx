@@ -248,6 +248,10 @@ export class SwirlTreeViewItem {
   }
 
   private startKeyboardMove() {
+    if (this.disableDrag) {
+      return;
+    }
+
     const { parent, position } = this.getItemContext();
 
     this.positionBeforeKeyboardMove = {

@@ -19,7 +19,7 @@ const Template = (args) => {
   ) as HTMLSwirlTreeViewElement;
 
   element.innerHTML = `
-    <swirl-tree-view-item href="#" icon="🪁" item-id="item-1" label="Item 1">
+    <swirl-tree-view-item disable-drag href="#" icon="🪁" item-id="item-1" label="Item 1">
       <swirl-tree-view-item href="#" icon="🍄" item-id="item-1-1" label="Item 1.1"></swirl-tree-view-item>
       <swirl-tree-view-item href="#" icon="🌎" item-id="item-1-2" label="Item 1.2">
         <swirl-tree-view-item href="#" icon="❄️" item-id="item-1-2-1" label="Item 1.2.1"></swirl-tree-view-item>
@@ -31,8 +31,8 @@ const Template = (args) => {
         <swirl-tag bordered item-id="item-2" label="Draft" size="s" slot="tags"></swirl-tag>
       </swirl-tree-view-item>
     </swirl-tree-view-item>
-    <swirl-tree-view-item href="#" icon="🎷" item-id="item-2" label="Item 2"></swirl-tree-view-item>
-    <swirl-tree-view-item href="#" icon="file" item-id="item-3" label="Item 3">
+    <swirl-tree-view-item disable-drag href="#" icon="🎷" item-id="item-2" label="Item 2"></swirl-tree-view-item>
+    <swirl-tree-view-item disable-drag href="#" icon="file" item-id="item-3" label="Item 3">
       <swirl-tree-view-item href="#" icon="💈" item-id="item-3-1" label="Item 3.1"></swirl-tree-view-item>
     </swirl-tree-view-item>
   `;

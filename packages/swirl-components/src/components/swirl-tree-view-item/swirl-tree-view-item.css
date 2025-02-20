@@ -19,12 +19,26 @@
 
   & .tree-view-item__link {
     background-color: var(--s-background-default);
+
+    &:hover {
+      & .tree-view-item__drag-handle {
+        opacity: 0;
+      }
+    }
   }
 }
 
 .tree-view-item--ghost {
   border: var(--s-border-width-default) solid var(--s-border-highlight);
   border-radius: var(--s-border-radius-sm);
+
+  & .tree-view-item__link {
+    &:hover {
+      & .tree-view-item__drag-handle {
+        opacity: 0;
+      }
+    }
+  }
 }
 
 .tree-view-item--moving-via-keyboard {
@@ -83,6 +97,10 @@
 
   &:hover {
     background-color: var(--s-background-hovered);
+
+    & .tree-view-item__drag-handle {
+      opacity: 1;
+    }
   }
 
   &:active {
@@ -105,6 +123,7 @@
 .tree-view-item__drag-handle {
   display: inline-flex;
   cursor: grab;
+  opacity: 0;
 
   &:active {
     cursor: grabbing;
