@@ -198,6 +198,7 @@ export class SwirlTreeViewItem {
       HTMLSwirlTreeViewItemElement | HTMLSwirlTreeViewElement
     >("swirl-tree-view-item, swirl-tree-view");
 
+    // TODO: make work with custom selector
     const siblings = Array.from(
       parent.querySelectorAll(`
         :scope > .tree-view-item > .tree-view-item__children > swirl-tree-view-item,
@@ -213,8 +214,20 @@ export class SwirlTreeViewItem {
     };
   }
 
-  private getParentItem(): HTMLSwirlTreeViewItemElement | undefined {
+  private getParentItem(): HTMLElement | null {
+    return this.getElementToMove().parentElement.closest(
+      this.dragDropItemSelector
+    );
+  }
+
+  private getParentTreeViewItem(): HTMLSwirlTreeViewItemElement | null {
     return this.el.parentElement.closest("swirl-tree-view-item");
+  }
+
+  private getElementToMove(): HTMLElement {
+    return this.dragDropItemSelector
+      ? this.el.closest(this.dragDropItemSelector)
+      : this.el;
   }
 
   private getKeyboardMoveEventData():
@@ -264,10 +277,10 @@ export class SwirlTreeViewItem {
 
     this.endKeyboardMoveEvent.emit(eventData);
     this.dropTreeViewItem.emit({
-      item: this.el,
+      item: this.getElementToMove(),
       itemId: this.itemId,
-      newIndex: position,
-      oldIndex: this.positionBeforeKeyboardMove.position,
+      newIndex: position - 1,
+      oldIndex: this.positionBeforeKeyboardMove.position - 1,
       sourceParentItemId:
         this.positionBeforeKeyboardMove.parent.id ?? undefined,
       targetParentItemId: this.getParentItem()?.id,
@@ -297,32 +310,41 @@ export class SwirlTreeViewItem {
     this.startKeyboardMoveEvent.emit(eventData);
   }
 
-  private async moveItemDown() {
+  private moveItemDown() {
+    const elementToMove = this.getElementToMove();
     const parentItem = this.getParentItem();
-    const nextSibling = this.el.nextElementSibling as
-      | HTMLSwirlTreeViewItemElement
-      | undefined;
+    const parentTreeViewItem = this.getParentTreeViewItem();
+    const nextSibling = elementToMove.nextElementSibling as HTMLElement | null;
 
     if (nextSibling) {
       // move inside the next sibling
-      nextSibling.querySelector(".tree-view-item__children").prepend(this.el);
+      nextSibling
+        .querySelector(".tree-view-item__children")
+        .prepend(elementToMove);
 
-      // update new and previous parent items
-      if (parentItem) {
-        forceUpdate(parentItem);
+      // update parent tree view item
+      if (parentTreeViewItem) {
+        forceUpdate(parentTreeViewItem);
       }
 
-      forceUpdate(nextSibling);
-      await nextSibling.expand();
+      const siblingTreeItem =
+        nextSibling.tagName === "SWIRL-TREE-VIEW-ITEM"
+          ? (nextSibling as HTMLSwirlTreeViewItemElement)
+          : nextSibling.querySelector("swirl-tree-view-item");
+
+      forceUpdate(siblingTreeItem);
+      siblingTreeItem.expand();
     } else {
       if (parentItem) {
         // move after the parent item
         parentItem.parentElement.insertBefore(
-          this.el,
+          elementToMove,
           parentItem.nextElementSibling
         );
 
-        forceUpdate(parentItem);
+        if (parentTreeViewItem) {
+          forceUpdate(parentTreeViewItem);
+        }
       }
     }
 
@@ -341,31 +363,39 @@ export class SwirlTreeViewItem {
     this.keyboardMoveEvent.emit(eventData);
   }
 
-  private async moveItemUp() {
+  private moveItemUp() {
+    const elementToMove = this.getElementToMove();
     const parentItem = this.getParentItem();
-    const prevSibling = this.el.previousElementSibling as
-      | HTMLSwirlTreeViewItemElement
-      | undefined;
+    const parentTreeViewItem = this.getParentTreeViewItem();
+    const prevSibling =
+      elementToMove.previousElementSibling as HTMLElement | null;
 
     if (prevSibling) {
       // move before the previous sibling
       prevSibling
         .querySelector(".tree-view-item__children")
-        .appendChild(this.el);
+        .appendChild(elementToMove);
 
-      // update new and previous parent items
-      if (parentItem) {
-        forceUpdate(parentItem);
+      // update parent tree view item
+      if (parentTreeViewItem) {
+        forceUpdate(parentTreeViewItem);
       }
 
-      forceUpdate(prevSibling);
-      await prevSibling.expand();
+      const siblingTreeItem =
+        prevSibling.tagName === "SWIRL-TREE-VIEW-ITEM"
+          ? (prevSibling as HTMLSwirlTreeViewItemElement)
+          : prevSibling.querySelector("swirl-tree-view-item");
+
+      forceUpdate(siblingTreeItem);
+      siblingTreeItem.expand();
     } else {
       if (parentItem) {
         // move before the parent item
-        parentItem.parentElement.insertBefore(this.el, parentItem);
+        parentItem.parentElement.insertBefore(elementToMove, parentItem);
 
-        forceUpdate(parentItem);
+        if (parentTreeViewItem) {
+          forceUpdate(parentTreeViewItem);
+        }
       }
     }
 
@@ -394,7 +424,7 @@ export class SwirlTreeViewItem {
       return;
     }
 
-    this.cannotKeyboardDropInCurrentPosition = true;
+    this.cannotKeyboardDropInCurrentPosition = false;
   }
 
   private onFocus = () => {
