@@ -2418,6 +2418,7 @@ export namespace Components {
     interface SwirlTreeView {
         "canDrop"?: SwirlTreeViewCanDropHandler;
         "dragDropInstructions": { cannotBeDropped: string; end: string; initial: string; moved: string; start: string; };
+        "dragDropItemSelector"?: string;
         "enableDragDrop"?: boolean;
         "expandItems": (itemIds: string[]) => Promise<void>;
         "initiallyExpandedItemIds"?: string[];
@@ -8021,6 +8022,7 @@ declare namespace LocalJSX {
     interface SwirlTreeView {
         "canDrop"?: SwirlTreeViewCanDropHandler;
         "dragDropInstructions"?: { cannotBeDropped: string; end: string; initial: string; moved: string; start: string; };
+        "dragDropItemSelector"?: string;
         "enableDragDrop"?: boolean;
         "initiallyExpandedItemIds"?: string[];
         "label": string;

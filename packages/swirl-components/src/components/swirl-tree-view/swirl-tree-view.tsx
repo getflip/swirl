@@ -48,6 +48,7 @@ export class SwirlTreeView {
     start:
       "{itemLabel}, grabbed. Parent item: {parentLabel}. Current position in list: {position} of {childrenCount}. Press up and down arrow keys to change position, Space to drop.",
   };
+  @Prop() dragDropItemSelector?: string = "swirl-tree-view-item";
   @Prop() enableDragDrop?: boolean;
   @Prop() initiallyExpandedItemIds?: string[];
   @Prop() label!: string;
@@ -98,9 +99,10 @@ export class SwirlTreeView {
     // force update the new and old parent of the dropped item to reflect
     // new hierarchy
     if (event.detail.targetParentItemId) {
-      const newParentItem = this.el.querySelector(
-        "#" + event.detail.targetParentItemId
-      ) as HTMLSwirlTreeViewItemElement | undefined;
+      const newParentItem = this.el.querySelector(`
+        swirl-tree-view-item#${event.detail.targetParentItemId},
+        #${event.detail.targetParentItemId} > swirl-tree-view-item
+      `) as HTMLSwirlTreeViewItemElement | undefined;
 
       if (newParentItem) {
         forceUpdate(newParentItem);
@@ -109,9 +111,10 @@ export class SwirlTreeView {
     }
 
     if (event.detail.sourceParentItemId) {
-      const oldParentItem = this.el.querySelector(
-        "#" + event.detail.sourceParentItemId
-      ) as HTMLSwirlTreeViewItemElement | undefined;
+      const oldParentItem = this.el.querySelector(`
+        swirl-tree-view-item#${event.detail.sourceParentItemId},
+        #${event.detail.sourceParentItemId} > swirl-tree-view-item
+      `) as HTMLSwirlTreeViewItemElement | undefined;
 
       if (oldParentItem) {
         forceUpdate(oldParentItem);
@@ -201,6 +204,7 @@ export class SwirlTreeView {
     if (this.enableDragDrop) {
       this.sortable = new Sortable(this.listElement, {
         ...treeViewDragDropConfig,
+        draggable: this.dragDropItemSelector,
         onMove: (event) => {
           if (typeof this.canDrop === "function") {
             return this.canDrop({
@@ -225,15 +229,21 @@ export class SwirlTreeView {
 
           const { to, newIndex, oldIndex, item } = event;
           const sourceParentItemId = undefined;
-          const targetParentItemId = to.closest("swirl-tree-view-item")?.itemId;
+          const targetParentItem = to.closest("swirl-tree-view-item");
+
+          if (targetParentItem) {
+            forceUpdate(targetParentItem);
+            targetParentItem.expand();
+          }
 
           this.dropItem.emit({
             newIndex,
             oldIndex,
             item,
-            itemId: item.id,
+            itemId:
+              item.id ?? item.querySelector(":scope > swirl-tree-view-item").id,
             sourceParentItemId,
-            targetParentItemId,
+            targetParentItemId: targetParentItem?.itemId,
           });
         },
       });

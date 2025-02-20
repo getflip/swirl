@@ -18680,6 +18680,10 @@
       },
       "attributes": [
         {
+          "name": "drag-drop-item-selector",
+          "description": ""
+        },
+        {
           "name": "enable-drag-drop",
           "description": ""
         },

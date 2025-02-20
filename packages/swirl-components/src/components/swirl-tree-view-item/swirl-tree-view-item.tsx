@@ -62,6 +62,7 @@ export class SwirlTreeViewItem {
 
   @State() canDrop?: SwirlTreeViewCanDropHandler;
   @State() cannotKeyboardDropInCurrentPosition = false;
+  @State() dragDropItemSelector?: string = "swirl-tree-view-item";
   @State() enableDragDrop = false;
   @State() expanded = false;
   @State() level = 0;
@@ -83,6 +84,7 @@ export class SwirlTreeViewItem {
 
     this.enableDragDrop = treeView?.enableDragDrop;
     this.canDrop = treeView?.canDrop;
+    this.dragDropItemSelector = treeView?.dragDropItemSelector;
   }
 
   componentDidLoad() {
@@ -134,6 +136,7 @@ export class SwirlTreeViewItem {
     if (this.enableDragDrop && this.childList) {
       this.sortable = new Sortable(this.childList, {
         ...treeViewDragDropConfig,
+        draggable: this.dragDropItemSelector,
         onMove: (event) => {
           if (typeof this.canDrop === "function") {
             return this.canDrop({
@@ -166,7 +169,8 @@ export class SwirlTreeViewItem {
             newIndex,
             oldIndex,
             item,
-            itemId: item.id,
+            itemId:
+              item.id ?? item.querySelector(":scope > swirl-tree-view-item").id,
             sourceParentItemId,
             targetParentItemId,
           });
@@ -386,16 +390,11 @@ export class SwirlTreeViewItem {
     if (typeof this.canDrop === "function") {
       const canBeDroppedHere = this.canDrop({ parentId: parent.id, position });
 
-      if (this.cannotKeyboardDropInCurrentPosition !== !canBeDroppedHere) {
-        this.cannotKeyboardDropInCurrentPosition = !canBeDroppedHere;
-      }
-
+      this.cannotKeyboardDropInCurrentPosition = !canBeDroppedHere;
       return;
     }
 
-    if (!this.cannotKeyboardDropInCurrentPosition) {
-      this.cannotKeyboardDropInCurrentPosition = true;
-    }
+    this.cannotKeyboardDropInCurrentPosition = true;
   }
 
   private onFocus = () => {
