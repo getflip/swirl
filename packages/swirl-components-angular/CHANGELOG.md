@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.296.0
+
+### Minor Changes
+
+- [#936](https://github.com/getflip/swirl/pull/936)
+  [`c74b22a3`](https://github.com/getflip/swirl/commit/c74b22a3504a188dc11a65c01600054256b6f255)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add drag & drop support to
+  swirl-tree-view
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c74b22a3`](https://github.com/getflip/swirl/commit/c74b22a3504a188dc11a65c01600054256b6f255)]:
+  - @getflip/swirl-components@0.296.0
+
 ## 0.295.0
 
 ### Minor Changes
