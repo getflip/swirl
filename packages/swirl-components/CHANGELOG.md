@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.296.2
+
+### Patch Changes
+
+- [`fca7ce87`](https://github.com/getflip/swirl/commit/fca7ce8707f6e23eafc29bcc7a04ad14dec85b2c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a swirl-theme-provider
+  styling issue
+
 ## 0.296.1
 
 ### Patch Changes
