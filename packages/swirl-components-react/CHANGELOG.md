@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.296.1
+
+### Patch Changes
+
+- [`9faf344b`](https://github.com/getflip/swirl/commit/9faf344b30743adf05ba511c682d41ec82bc5381)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a CSS scoping issue caused by
+  swirl-tree-view styles
+
+- Updated dependencies
+  [[`9faf344b`](https://github.com/getflip/swirl/commit/9faf344b30743adf05ba511c682d41ec82bc5381)]:
+  - @getflip/swirl-components@0.296.1
+
 ## 0.296.0
 
 ### Minor Changes
