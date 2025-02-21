@@ -13,6 +13,54 @@
   list-style: none;
 }
 
+.tree-view-item--chosen.tree-view-item--drag:not(.tree-view-item--ghost) {
+  border-radius: var(--s-border-radius-sm);
+  box-shadow: var(--s-shadow-level-3);
+
+  & .tree-view-item__link {
+    background-color: var(--s-background-default);
+
+    &:hover {
+      & .tree-view-item__drag-handle {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.tree-view-item--ghost {
+  border: var(--s-border-width-default) solid var(--s-border-highlight);
+  border-radius: var(--s-border-radius-sm);
+
+  & .tree-view-item__link {
+    &:hover {
+      & .tree-view-item__drag-handle {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.tree-view-item--moving-via-keyboard {
+  position: relative;
+  z-index: 1;
+  border: var(--s-border-width-default) solid var(--s-border-highlight);
+  border-radius: var(--s-border-radius-sm);
+  box-shadow: var(--s-shadow-level-3);
+
+  & .tree-view-item__link {
+    background-color: var(--s-background-default);
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
+
+.tree-view-item--cannot-keyboard-drop {
+  opacity: 0.5;
+}
+
 .tree-view-item--active {
   & > .tree-view-item__link {
     background-color: var(--s-background-hovered);
@@ -28,15 +76,21 @@
 .tree-view-item__children {
   display: flex;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 var(--s-space-12);
+  padding-top: var(--s-space-2);
   flex-direction: column;
   gap: var(--s-space-2);
+}
+
+.tree-view-item__children--drop-zone {
+  min-height: 0.5rem;
+  margin-top: -0.5rem;
 }
 
 .tree-view-item__link {
   display: flex;
   height: 2.25rem;
-  padding: var(--s-space-4) var(--s-space-8) var(--s-space-4) var(--s-space-4);
+  padding: var(--s-space-4) var(--s-space-8);
   align-items: center;
   border-radius: var(--s-border-radius-sm);
   color: var(--s-text-default);
@@ -48,6 +102,10 @@
 
   &:hover {
     background-color: var(--s-background-hovered);
+
+    & .tree-view-item__drag-handle {
+      opacity: 1;
+    }
   }
 
   &:active {
@@ -64,6 +122,16 @@
 
   @media (--from-desktop-without-touch) {
     font-size: var(--s-font-size-sm);
+  }
+}
+
+.tree-view-item__drag-handle {
+  display: inline-flex;
+  cursor: grab;
+  opacity: 0;
+
+  &:active {
+    cursor: grabbing;
   }
 }
 

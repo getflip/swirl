@@ -18946,6 +18946,14 @@
       },
       "attributes": [
         {
+          "name": "drag-drop-item-selector",
+          "description": ""
+        },
+        {
+          "name": "enable-drag-drop",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         }
@@ -18960,6 +18968,10 @@
       "attributes": [
         {
           "name": "active",
+          "description": ""
+        },
+        {
+          "name": "disable-drag",
           "description": ""
         },
         {

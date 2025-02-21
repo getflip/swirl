@@ -9,7 +9,24 @@
 .tree-view {
   display: flex;
   margin: 0;
-  padding: 0;
+  /*
+  * 4px bottom padding is important to provide a drop area for items at the
+  * end of the tree
+  */
+  padding: 0 0 var(--s-space-4);
   flex-direction: column;
   gap: var(--s-space-2);
+}
+
+.tree-view--dragging {
+  cursor: grabbing;
+
+  & .tree-view-item__link:hover,
+  & .tree-view-item__link:active {
+    background-color: var(--s-background-default) !important;
+
+    & .tree-view-item__drag-handle {
+      opacity: 0;
+    }
+  }
 }

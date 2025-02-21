@@ -13,7 +13,7 @@ describe("swirl-tree-view-item", () => {
       <swirl-tree-view-item id="item" item-id="item" label="Label" role="none">
         <!---->
         <li class="tree-view-item" role="none">
-          <a aria-level="1" aria-selected="false" class="tree-view-item__link" role="treeitem" tabindex="-1" style="padding-left: calc(0 * var(--s-space-12) + var(--s-space-4));">
+          <a aria-level="1" aria-selected="false" class="tree-view-item__link" role="treeitem" tabindex="-1">
             <span class="tree-view-item__toggle-icon"></span>
             <span class="tree-view-item__label">
               Label

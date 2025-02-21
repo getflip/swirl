@@ -3,31 +3,74 @@ import {
   Element,
   Event,
   EventEmitter,
+  forceUpdate,
   h,
   Host,
   Listen,
   Method,
   Prop,
+  State,
+  Watch,
 } from "@stencil/core";
+import Sortable, { SortableEvent } from "sortablejs";
+import { SwirlTreeViewItemKeyboardMoveEvent } from "../swirl-tree-view-item/swirl-tree-view-item";
+import { treeViewDragDropConfig } from "./swirl-tree-view.config";
+
+export type SwirlTreeViewDropItemEvent = Pick<
+  SortableEvent,
+  "oldIndex" | "newIndex" | "item"
+> & {
+  itemId: string;
+  newNextSiblingItemId: string | undefined;
+  newPrevSiblingItemId: string | undefined;
+  sourceParentItemId: string;
+  targetParentItemId: string;
+};
+
+export type SwirlTreeViewCanDropHandler = (location: {
+  parentId: string;
+  position: number;
+}) => boolean;
+
+const defaultDragDropInstructions = {
+  cannotBeDropped: "Cannot drop here.",
+  end: "{itemLabel}, dropped. Parent item: {parentLabel}. Final position in list: {position} of {childrenCount}.",
+  initial: "Press space to move items.",
+  moved:
+    "{itemLabel}. Parent item: {parentLabel}. Current position in list: {position} of {childrenCount}.",
+  start:
+    "{itemLabel}, grabbed. Parent item: {parentLabel}. Current position in list: {position} of {childrenCount}. Press up and down arrow keys to change position, Space to drop.",
+};
 
 /**
  * @slot slot - The tree view items
  */
 @Component({
-  shadow: true,
+  shadow: false,
+  scoped: false,
   styleUrl: "swirl-tree-view.css",
   tag: "swirl-tree-view",
 })
 export class SwirlTreeView {
   @Element() el!: HTMLSwirlTreeViewElement;
 
+  @Prop() canDrop?: SwirlTreeViewCanDropHandler;
+  @Prop() dragDropInstructions = defaultDragDropInstructions;
+  @Prop() dragDropItemSelector?: string = "swirl-tree-view-item";
+  @Prop() enableDragDrop?: boolean;
   @Prop() initiallyExpandedItemIds?: string[];
   @Prop() label!: string;
 
+  @Event() dropItem!: EventEmitter<SwirlTreeViewDropItemEvent>;
   @Event() itemExpansionChanged!: EventEmitter<{
     itemId: string;
     expanded: boolean;
   }>;
+
+  @State() liveRegionText = "";
+
+  private listElement?: HTMLElement;
+  private sortable: Sortable | undefined;
 
   componentDidLoad() {
     if (Boolean(this.initiallyExpandedItemIds)) {
@@ -35,6 +78,16 @@ export class SwirlTreeView {
     }
 
     this.init();
+    this.setUpDragDrop();
+  }
+
+  disconnectedCallback() {
+    this.sortable?.destroy();
+  }
+
+  @Watch("enableDragDrop")
+  handleEnableDragDropChange() {
+    this.setUpDragDrop();
   }
 
   @Method()
@@ -44,6 +97,38 @@ export class SwirlTreeView {
     );
 
     items.forEach((item) => item.expand());
+  }
+
+  @Listen("dropTreeViewItem")
+  onItemDrop(event: CustomEvent<SwirlTreeViewDropItemEvent>) {
+    event.stopPropagation();
+    this.dropItem.emit(event.detail);
+
+    // force update the new and old parent of the dropped item to reflect
+    // new hierarchy
+    if (event.detail.targetParentItemId) {
+      const newParentItem = this.el.querySelector(`
+        swirl-tree-view-item#${event.detail.targetParentItemId},
+        #${event.detail.targetParentItemId} > swirl-tree-view-item
+      `) as HTMLSwirlTreeViewItemElement | undefined;
+
+      if (newParentItem) {
+        forceUpdate(newParentItem);
+        newParentItem.expand();
+      }
+    }
+
+    if (event.detail.sourceParentItemId) {
+      const oldParentItem = this.el.querySelector(`
+        swirl-tree-view-item#${event.detail.sourceParentItemId},
+        #${event.detail.sourceParentItemId} > swirl-tree-view-item
+      `) as HTMLSwirlTreeViewItemElement | undefined;
+
+      if (oldParentItem) {
+        forceUpdate(oldParentItem);
+        oldParentItem.expand();
+      }
+    }
   }
 
   @Listen("keydown")
@@ -90,6 +175,21 @@ export class SwirlTreeView {
     }
   }
 
+  @Listen("endKeyboardMove")
+  onEndKeyboardMove(event: CustomEvent<SwirlTreeViewItemKeyboardMoveEvent>) {
+    this.updateLiveRegionText("end", event.detail);
+  }
+
+  @Listen("startKeyboardMove")
+  onStartKeyboardMove(event: CustomEvent<SwirlTreeViewItemKeyboardMoveEvent>) {
+    this.updateLiveRegionText("start", event.detail);
+  }
+
+  @Listen("keyboardMove")
+  onKeyboardMove(event: CustomEvent<SwirlTreeViewItemKeyboardMoveEvent>) {
+    this.updateLiveRegionText("moved", event.detail);
+  }
+
   private init() {
     const selectedItem = this.getSelectedItem();
     const allItems = this.getItems();
@@ -100,6 +200,67 @@ export class SwirlTreeView {
       selectedItem.select();
     } else {
       allItems[0]?.select();
+    }
+  }
+
+  private setUpDragDrop() {
+    if (this.sortable) {
+      this.sortable.destroy();
+      this.sortable = undefined;
+    }
+
+    if (this.enableDragDrop) {
+      this.sortable = new Sortable(this.listElement, {
+        ...treeViewDragDropConfig,
+        draggable: this.dragDropItemSelector,
+        onMove: (event) => {
+          if (typeof this.canDrop === "function") {
+            return this.canDrop({
+              parentId: event.to.closest("swirl-tree-view-item")?.itemId,
+              position:
+                Math.max(
+                  Array.from(event.to.children).indexOf(event.related),
+                  0
+                ) + 1,
+            });
+          }
+
+          return true;
+        },
+        onStart: (event) => {
+          treeViewDragDropConfig.onStart?.(event);
+        },
+        onEnd: (event) => {
+          event.stopPropagation();
+
+          treeViewDragDropConfig.onEnd?.(event);
+
+          const { to, newIndex, oldIndex, item } = event;
+          const sourceParentItemId = undefined;
+          const targetParentItem = to.closest("swirl-tree-view-item");
+
+          if (targetParentItem) {
+            forceUpdate(targetParentItem);
+            targetParentItem.expand();
+          }
+
+          this.dropItem.emit({
+            newIndex,
+            oldIndex,
+            item,
+            itemId:
+              item.id ?? item.querySelector(":scope > swirl-tree-view-item").id,
+            newNextSiblingItemId:
+              newIndex < to.children.length - 1
+                ? to.children[newIndex + 1].id
+                : undefined,
+            newPrevSiblingItemId:
+              newIndex > 0 ? to.children[newIndex - 1].id : undefined,
+            sourceParentItemId,
+            targetParentItemId: targetParentItem?.itemId,
+          });
+        },
+      });
     }
   }
 
@@ -295,14 +456,64 @@ export class SwirlTreeView {
     return (nestedSibling as HTMLSwirlTreeViewItemElement) ?? undefined;
   }
 
+  private updateLiveRegionText(
+    key?: keyof typeof this.dragDropInstructions,
+    data?: SwirlTreeViewItemKeyboardMoveEvent
+  ) {
+    let newText = key ? this.dragDropInstructions[key] : "";
+
+    if (!data?.canDrop) {
+      newText += ` ${this.dragDropInstructions.cannotBeDropped}`;
+    }
+
+    for (const [key, value] of Object.entries(data ?? {})) {
+      newText = newText.replaceAll(`{${key}}`, String(value));
+    }
+
+    if (newText !== this.liveRegionText) {
+      this.liveRegionText = newText;
+    }
+  }
+
   private onSlotChange = () => {
     this.init();
+  };
+
+  private onFocus = () => {
+    if (this.liveRegionText === "") {
+      this.updateLiveRegionText("initial");
+    }
+  };
+
+  private onBlur = (event: FocusEvent) => {
+    const newlyFocusedElement = event.relatedTarget as HTMLElement | undefined;
+
+    if (this.el.contains(newlyFocusedElement)) {
+      return;
+    }
+
+    if (this.liveRegionText !== "") {
+      this.updateLiveRegionText();
+    }
   };
 
   render() {
     return (
       <Host>
-        <ul aria-label={this.label} class="tree-view" role="tree">
+        {this.enableDragDrop && (
+          <swirl-visually-hidden>
+            <span aria-live="assertive">{this.liveRegionText}</span>
+          </swirl-visually-hidden>
+        )}
+        <ul
+          aria-label={this.label}
+          class="tree-view"
+          onFocusin={this.onFocus}
+          onFocusout={this.onBlur}
+          role="tree"
+          ref={(el) => (this.listElement = el)}
+          tabIndex={-1}
+        >
           <slot onSlotchange={this.onSlotChange}></slot>
         </ul>
       </Host>
