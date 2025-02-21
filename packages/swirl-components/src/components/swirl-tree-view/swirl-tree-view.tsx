@@ -21,6 +21,7 @@ export type SwirlTreeViewDropItemEvent = Pick<
   "oldIndex" | "newIndex" | "item"
 > & {
   itemId: string;
+  newNextSiblingItemId: string | undefined;
   newPrevSiblingItemId: string | undefined;
   sourceParentItemId: string;
   targetParentItemId: string;
@@ -249,6 +250,10 @@ export class SwirlTreeView {
             item,
             itemId:
               item.id ?? item.querySelector(":scope > swirl-tree-view-item").id,
+            newNextSiblingItemId:
+              newIndex < to.children.length - 1
+                ? to.children[newIndex + 1].id
+                : undefined,
             newPrevSiblingItemId:
               newIndex > 0 ? to.children[newIndex - 1].id : undefined,
             sourceParentItemId,
