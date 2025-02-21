@@ -307,91 +307,76 @@ export class SwirlTreeViewItem {
     this.startKeyboardMoveEvent.emit(eventData);
   }
 
-  private moveItemDown() {
+  moveItem(direction: "up" | "down") {
     const elementToMove = this.getElementToMove();
     const parentItem = this.getParentItem();
     const parentTreeViewItem = this.getParentTreeViewItem();
-    const nextSibling = elementToMove.nextElementSibling as HTMLElement | null;
 
-    if (nextSibling) {
-      // move inside the next sibling
-      nextSibling
-        .querySelector(".tree-view-item__children")
-        .prepend(elementToMove);
+    if (direction === "down") {
+      const nextSibling =
+        elementToMove.nextElementSibling as HTMLElement | null;
 
-      // update parent tree view item
-      if (parentTreeViewItem) {
-        forceUpdate(parentTreeViewItem);
-      }
+      if (nextSibling) {
+        // move inside the next sibling
+        nextSibling
+          .querySelector(".tree-view-item__children")
+          .prepend(elementToMove);
 
-      const siblingTreeItem =
-        nextSibling.tagName === "SWIRL-TREE-VIEW-ITEM"
-          ? (nextSibling as HTMLSwirlTreeViewItemElement)
-          : nextSibling.querySelector("swirl-tree-view-item");
-
-      forceUpdate(siblingTreeItem);
-      siblingTreeItem.expand();
-    } else {
-      if (parentItem) {
-        // move after the parent item
-        parentItem.parentElement.insertBefore(
-          elementToMove,
-          parentItem.nextElementSibling
-        );
-
+        // update parent tree view item
         if (parentTreeViewItem) {
           forceUpdate(parentTreeViewItem);
         }
+
+        const siblingTreeItem =
+          nextSibling.tagName === "SWIRL-TREE-VIEW-ITEM"
+            ? (nextSibling as HTMLSwirlTreeViewItemElement)
+            : nextSibling.querySelector("swirl-tree-view-item");
+
+        forceUpdate(siblingTreeItem);
+        siblingTreeItem.expand();
+      } else {
+        if (parentItem) {
+          // move after the parent item
+          parentItem.parentElement.insertBefore(
+            elementToMove,
+            parentItem.nextElementSibling
+          );
+
+          if (parentTreeViewItem) {
+            forceUpdate(parentTreeViewItem);
+          }
+        }
       }
-    }
+    } else if (direction === "up") {
+      const prevSibling =
+        elementToMove.previousElementSibling as HTMLElement | null;
 
-    requestAnimationFrame(() => {
-      this.link.focus();
-    });
+      if (prevSibling) {
+        // move before the previous sibling
+        prevSibling
+          .querySelector(".tree-view-item__children")
+          .appendChild(elementToMove);
 
-    this.checkKeyboardDropStatus();
-
-    const eventData = this.getKeyboardMoveEventData();
-
-    if (!eventData) {
-      return;
-    }
-
-    this.keyboardMoveEvent.emit(eventData);
-  }
-
-  private moveItemUp() {
-    const elementToMove = this.getElementToMove();
-    const parentItem = this.getParentItem();
-    const parentTreeViewItem = this.getParentTreeViewItem();
-    const prevSibling =
-      elementToMove.previousElementSibling as HTMLElement | null;
-
-    if (prevSibling) {
-      // move before the previous sibling
-      prevSibling
-        .querySelector(".tree-view-item__children")
-        .appendChild(elementToMove);
-
-      // update parent tree view item
-      if (parentTreeViewItem) {
-        forceUpdate(parentTreeViewItem);
-      }
-
-      const siblingTreeItem =
-        prevSibling.tagName === "SWIRL-TREE-VIEW-ITEM"
-          ? (prevSibling as HTMLSwirlTreeViewItemElement)
-          : prevSibling.querySelector("swirl-tree-view-item");
-
-      forceUpdate(siblingTreeItem);
-      siblingTreeItem.expand();
-    } else {
-      if (parentItem) {
-        // move before the parent item
-        parentItem.parentElement.insertBefore(elementToMove, parentItem);
-
+        // update parent tree view item
         if (parentTreeViewItem) {
           forceUpdate(parentTreeViewItem);
+        }
+
+        const siblingTreeItem =
+          prevSibling.tagName === "SWIRL-TREE-VIEW-ITEM"
+            ? (prevSibling as HTMLSwirlTreeViewItemElement)
+            : prevSibling.querySelector("swirl-tree-view-item");
+
+        forceUpdate(siblingTreeItem);
+        siblingTreeItem.expand();
+      } else {
+        if (parentItem) {
+          // move before the parent item
+          parentItem.parentElement.insertBefore(elementToMove, parentItem);
+
+          if (parentTreeViewItem) {
+            forceUpdate(parentTreeViewItem);
+          }
         }
       }
     }
@@ -445,11 +430,11 @@ export class SwirlTreeViewItem {
     if (event.code === "ArrowDown") {
       event.preventDefault();
       event.stopPropagation();
-      this.moveItemDown();
+      this.moveItem("down");
     } else if (event.code === "ArrowUp") {
       event.preventDefault();
       event.stopPropagation();
-      this.moveItemUp();
+      this.moveItem("up");
     }
   };
 
