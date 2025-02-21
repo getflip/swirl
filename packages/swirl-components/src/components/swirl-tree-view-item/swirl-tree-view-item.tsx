@@ -415,14 +415,13 @@ export class SwirlTreeViewItem {
     }
   };
 
-  private onKeyUp = (event: KeyboardEvent) => {
+  private onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Space") {
       event.preventDefault();
       this.toggleKeyboardMove();
+      return;
     }
-  };
 
-  private onKeyDown = (event: KeyboardEvent) => {
     if (!this.movingViaKeyboard) {
       return;
     }
@@ -479,7 +478,6 @@ export class SwirlTreeViewItem {
             class="tree-view-item__link"
             href={this.href}
             onFocus={this.onFocus}
-            onKeyUp={this.onKeyUp}
             onKeyDown={this.onKeyDown}
             ref={(el) => (this.link = el)}
             role="treeitem"
