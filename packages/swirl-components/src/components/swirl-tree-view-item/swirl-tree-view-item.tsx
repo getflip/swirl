@@ -141,11 +141,10 @@ export class SwirlTreeViewItem {
           if (typeof this.canDrop === "function") {
             return this.canDrop({
               parentId: event.to.closest("swirl-tree-view-item")?.itemId,
-              position:
-                Math.max(
-                  Array.from(event.to.children).indexOf(event.related),
-                  0
-                ) + 1,
+              position: Math.max(
+                Array.from(event.to.children).indexOf(event.related),
+                0
+              ),
             });
           }
 

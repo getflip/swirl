@@ -26,6 +26,16 @@ export type SwirlTreeViewCanDropHandler = (location: {
   position: number;
 }) => boolean;
 
+const defaultDragDropInstructions = {
+  cannotBeDropped: "Cannot drop here.",
+  end: "{itemLabel}, dropped. Parent item: {parentLabel}. Final position in list: {position} of {childrenCount}.",
+  initial: "Press space to move items.",
+  moved:
+    "{itemLabel}. Parent item: {parentLabel}. Current position in list: {position} of {childrenCount}.",
+  start:
+    "{itemLabel}, grabbed. Parent item: {parentLabel}. Current position in list: {position} of {childrenCount}. Press up and down arrow keys to change position, Space to drop.",
+};
+
 /**
  * @slot slot - The tree view items
  */
@@ -39,15 +49,7 @@ export class SwirlTreeView {
   @Element() el!: HTMLSwirlTreeViewElement;
 
   @Prop() canDrop?: SwirlTreeViewCanDropHandler;
-  @Prop() dragDropInstructions = {
-    cannotBeDropped: "Cannot drop here.",
-    end: "{itemLabel}, dropped. Parent item: {parentLabel}. Final position in list: {position} of {childrenCount}.",
-    initial: "Press space to move items.",
-    moved:
-      "{itemLabel}. Parent item: {parentLabel}. Current position in list: {position} of {childrenCount}.",
-    start:
-      "{itemLabel}, grabbed. Parent item: {parentLabel}. Current position in list: {position} of {childrenCount}. Press up and down arrow keys to change position, Space to drop.",
-  };
+  @Prop() dragDropInstructions = defaultDragDropInstructions;
   @Prop() dragDropItemSelector?: string = "swirl-tree-view-item";
   @Prop() enableDragDrop?: boolean;
   @Prop() initiallyExpandedItemIds?: string[];
