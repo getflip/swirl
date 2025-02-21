@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Event,
   EventEmitter,
   h,
@@ -15,6 +16,7 @@ export type SwirlDialogIntent = "primary" | "critical";
 
 /**
  * @slot slot - The dialog content
+ * @slot left-controls - Controls displayed on the left side of the default ones
  */
 @Component({
   shadow: true,
@@ -22,6 +24,8 @@ export type SwirlDialogIntent = "primary" | "critical";
   tag: "swirl-dialog",
 })
 export class SwirlDialog {
+  @Element() el: HTMLElement;
+
   @Prop() hideLabel?: boolean;
   @Prop() intent?: SwirlDialogIntent = "primary";
   @Prop() label!: string;
@@ -103,6 +107,7 @@ export class SwirlDialog {
 
   render() {
     const className = classnames("dialog", { "dialog--closing": this.closing });
+    const hasLeftControls = Boolean(this.el.querySelector('[slot="left-controls"]'));
 
     return (
       <Host>
@@ -131,6 +136,11 @@ export class SwirlDialog {
               class="dialog__controls"
               ref={(el) => (this.controlsContainerEl = el)}
             >
+              {hasLeftControls && (
+                <div class="dialog__left_controls">
+                  <slot name="left-controls"></slot>
+                </div>
+              )}
               {this.secondaryActionLabel && (
                 <swirl-button
                   label={this.secondaryActionLabel}
