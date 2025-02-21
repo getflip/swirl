@@ -14,7 +14,10 @@ import {
 } from "@stencil/core";
 import Sortable, { SortableEvent } from "sortablejs";
 import { SwirlTreeViewItemKeyboardMoveEvent } from "../swirl-tree-view-item/swirl-tree-view-item";
+import { DragOnTopPlugin } from "./drag-on-top.plugin";
 import { treeViewDragDropConfig } from "./swirl-tree-view.config";
+
+Sortable.mount(DragOnTopPlugin);
 
 export type SwirlTreeViewDropItemEvent = Pick<
   SortableEvent,

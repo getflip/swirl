@@ -1,10 +1,13 @@
 import type Sortable from "sortablejs";
 
-export const treeViewDragDropConfig: Partial<Sortable.Options> = {
+export const treeViewDragDropConfig: Partial<
+  Sortable.Options & { dragOnTop: boolean }
+> = {
   animation: 100,
   chosenClass: "tree-view-item--chosen",
   direction: "vertical",
   dragClass: "tree-view-item--drag",
+  dragOnTop: true,
   emptyInsertThreshold: 0,
   fallbackOnBody: true,
   filter: ".tree-view-item--disable-drag",

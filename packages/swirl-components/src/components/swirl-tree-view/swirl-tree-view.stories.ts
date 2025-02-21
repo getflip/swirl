@@ -37,6 +37,8 @@ const Template = (args) => {
     </swirl-tree-view-item>
   `;
 
+  element.addEventListener("dropItem", (event) => console.log(event.detail));
+
   return element;
 };
 
@@ -44,6 +46,6 @@ export const SwirlTreeView = Template.bind({});
 
 SwirlTreeView.args = {
   enableDragDrop: true,
-  initiallyExpandedItemIds: ["item-1", "item-1-2", "item-3"],
+  initiallyExpandedItemIds: ["item-1"],
   label: "Tree view",
 };

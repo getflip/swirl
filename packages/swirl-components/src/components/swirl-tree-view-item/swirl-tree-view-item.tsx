@@ -455,15 +455,15 @@ export class SwirlTreeViewItem {
     const iconIsEmoji =
       Boolean(this.icon) && /\p{Extended_Pictographic}/u.test(this.icon);
 
-    const shouldShowChildrenDropZone = this.enableDragDrop && !hasChildren;
-
     const className = classNames("tree-view-item", {
       "tree-view-item--active": this.active,
       "tree-view-item--cannot-keyboard-drop":
         this.cannotKeyboardDropInCurrentPosition,
-      "tree-view-item--moving-via-keyboard": this.movingViaKeyboard,
+      "tree-view-item--expanded": this.expanded,
       "tree-view-item--disable-drag": this.disableDrag,
+      "tree-view-item--has-children": hasChildren,
       "tree-view-item--has-tags": hasTags,
+      "tree-view-item--moving-via-keyboard": this.movingViaKeyboard,
     });
 
     return (
@@ -529,19 +529,12 @@ export class SwirlTreeViewItem {
           </a>
           <ul
             aria-label={this.label}
-            class={`tree-view-item__children ${
-              shouldShowChildrenDropZone
-                ? "tree-view-item__children--drop-zone"
-                : ""
-            }`}
+            class={`tree-view-item__children`}
             id={`${this.itemId}-children`}
             ref={(el) => (this.childList = el)}
             role="group"
             style={{
-              display:
-                (!this.expanded || !hasChildren) && !shouldShowChildrenDropZone
-                  ? "none"
-                  : undefined,
+              display: !this.expanded || !hasChildren ? "none" : undefined,
             }}
           >
             <slot></slot>
