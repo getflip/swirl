@@ -1,6 +1,6 @@
 @import "../../styles/media-queries.css";
 
-:host {
+swirl-tree-view-item {
   display: block;
   flex-grow: 1;
 
