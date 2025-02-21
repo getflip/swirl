@@ -19,7 +19,12 @@ import { treeViewDragDropConfig } from "./swirl-tree-view.config";
 export type SwirlTreeViewDropItemEvent = Pick<
   SortableEvent,
   "oldIndex" | "newIndex" | "item"
-> & { itemId: string; sourceParentItemId: string; targetParentItemId: string };
+> & {
+  itemId: string;
+  newPrevSiblingItemId: string | undefined;
+  sourceParentItemId: string;
+  targetParentItemId: string;
+};
 
 export type SwirlTreeViewCanDropHandler = (location: {
   parentId: string;
@@ -244,6 +249,8 @@ export class SwirlTreeView {
             item,
             itemId:
               item.id ?? item.querySelector(":scope > swirl-tree-view-item").id,
+            newPrevSiblingItemId:
+              newIndex > 0 ? to.children[newIndex - 1].id : undefined,
             sourceParentItemId,
             targetParentItemId: targetParentItem?.itemId,
           });

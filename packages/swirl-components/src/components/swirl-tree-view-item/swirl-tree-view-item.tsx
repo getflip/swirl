@@ -170,6 +170,8 @@ export class SwirlTreeViewItem {
             item,
             itemId:
               item.id ?? item.querySelector(":scope > swirl-tree-view-item").id,
+            newPrevSiblingItemId:
+              newIndex > 0 ? to.children[newIndex - 1].id : undefined,
             sourceParentItemId,
             targetParentItemId,
           });
@@ -278,6 +280,10 @@ export class SwirlTreeViewItem {
       itemId: this.itemId,
       newIndex: position,
       oldIndex: this.positionBeforeKeyboardMove.position,
+      newPrevSiblingItemId:
+        eventData.position > 0
+          ? this.getElementToMove().previousElementSibling?.id
+          : undefined,
       sourceParentItemId:
         this.positionBeforeKeyboardMove.parent.id ?? undefined,
       targetParentItemId: this.getParentItem()?.id,
