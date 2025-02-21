@@ -132,7 +132,21 @@
   }
 
   @media (--from-desktop) {
+    flex-wrap: nowrap;
     justify-content: flex-end;
+  }
+}
+
+.dialog__left_controls {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  padding-left: var(--s-space-8);
+  width: 100%;
+  min-width: 0;
+
+  @media (--from-desktop) {
+    width: auto;
   }
 }
 
