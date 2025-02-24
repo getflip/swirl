@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.297.0
+
+### Minor Changes
+
+- [#954](https://github.com/getflip/swirl/pull/954)
+  [`27cab029`](https://github.com/getflip/swirl/commit/27cab02933936921886587349303a8305e357ac5)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  left-controls slot to swirl-dialog
+
+### Patch Changes
+
+- Updated dependencies
+  [[`27cab029`](https://github.com/getflip/swirl/commit/27cab02933936921886587349303a8305e357ac5)]:
+  - @getflip/swirl-components@0.297.0
+
 ## 0.296.2
 
 ### Patch Changes
