@@ -30,6 +30,37 @@ describe("swirl-dialog", () => {
     `);
   });
 
+  it("renders left controls", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDialog],
+      html: `<swirl-dialog label="Dialog"><div slot="left-controls">Left</div></swirl-dialog>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-dialog label="Dialog">
+        <mock:shadow-root>
+          <div aria-describedby="content" aria-hidden="true" aria-labelledby="label" aria-modal="true" class="dialog" role="alertdialog" tabindex="-1">
+            <div class="dialog__backdrop"></div>
+            <div class="dialog__body" part="dialog__body" role="document">
+              <h2 class="dialog__heading" part="dialog__heading" id="label">
+                Dialog
+              </h2>
+              <div class="dialog__content" part="dialog__content" id="content">
+                <slot></slot>
+              </div>
+              <div class="dialog__controls">
+                <div class="dialog__left_controls">
+                  <slot name="left-controls"></slot>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </mock:shadow-root>
+        <div slot="left-controls">Left</div>
+      </swirl-dialog>
+    `);
+  });
+
   it("can hide the label", async () => {
     const page = await newSpecPage({
       components: [SwirlDialog],
