@@ -11,6 +11,7 @@ import {
 import classnames from "classnames";
 
 export type SwirlSwitchLabelPosition = "start" | "end";
+export type SwirlSwitchLabelWeight = "medium" | "regular";
 
 @Component({
   /**
@@ -34,6 +35,7 @@ export class SwirlSwitch {
   @Prop() inputName!: string;
   @Prop() label?: string;
   @Prop() labelPosition?: SwirlSwitchLabelPosition = "end";
+  @Prop() labelWeight?: SwirlSwitchLabelWeight = "medium";
   @Prop() value?: string;
   @Prop() swirlAriaLabel?: string;
 
@@ -63,6 +65,7 @@ export class SwirlSwitch {
     const className = classnames(
       "switch",
       `switch--label-position-${this.labelPosition}`,
+      `switch--label-weight-${this.labelWeight}`,
       {
         "switch--off": off,
         "switch--on": on,

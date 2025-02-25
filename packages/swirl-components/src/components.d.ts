@@ -59,7 +59,7 @@ import { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-sk
 import { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 import { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing as SwirlStackSpacing1 } from "./components/swirl-stack/swirl-stack";
 import { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
-import { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch";
+import { SwirlSwitchLabelPosition, SwirlSwitchLabelWeight } from "./components/swirl-switch/swirl-switch";
 import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 import { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab, SwirlTabBarVariant } from "./components/swirl-tab-bar/swirl-tab-bar";
@@ -131,7 +131,7 @@ export { SwirlSkeletonTextSize } from "./components/swirl-skeleton-text/swirl-sk
 export { SwirlSpinnerSize } from "./components/swirl-spinner/swirl-spinner";
 export { SwirlStackAlign, SwirlStackJustify, SwirlStackOrientation, SwirlStackSpacing as SwirlStackSpacing1 } from "./components/swirl-stack/swirl-stack";
 export { SwirlStatusIndicatorIntent } from "./components/swirl-status-indicator/swirl-status-indicator";
-export { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch";
+export { SwirlSwitchLabelPosition, SwirlSwitchLabelWeight } from "./components/swirl-switch/swirl-switch";
 export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 export { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab, SwirlTabBarVariant } from "./components/swirl-tab-bar/swirl-tab-bar";
@@ -2003,6 +2003,7 @@ export namespace Components {
         "inputName": string;
         "label"?: string;
         "labelPosition"?: SwirlSwitchLabelPosition;
+        "labelWeight"?: SwirlSwitchLabelWeight;
         "swirlAriaLabel"?: string;
         /**
           * Toggle the switch state programmatically.
@@ -7669,6 +7670,7 @@ declare namespace LocalJSX {
         "inputName": string;
         "label"?: string;
         "labelPosition"?: SwirlSwitchLabelPosition;
+        "labelWeight"?: SwirlSwitchLabelWeight;
         "onValueChange"?: (event: SwirlSwitchCustomEvent<boolean>) => void;
         "swirlAriaLabel"?: string;
         "value"?: string;

@@ -30,6 +30,12 @@
   }
 }
 
+.switch--label-weight-regular {
+  & .switch__label {
+    font-weight: var(--s-font-weight-regular);
+  }
+}
+
 .switch--on {
   & .switch__thumb {
     left: calc(100% - 1.25rem - var(--s-space-2));

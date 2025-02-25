@@ -16805,6 +16805,18 @@
           ]
         },
         {
+          "name": "label-weight",
+          "description": "",
+          "values": [
+            {
+              "name": "medium"
+            },
+            {
+              "name": "regular"
+            }
+          ]
+        },
+        {
           "name": "swirl-aria-label",
           "description": ""
         },
