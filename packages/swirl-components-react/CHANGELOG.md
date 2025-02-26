@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.298.0
+
+### Minor Changes
+
+- [#959](https://github.com/getflip/swirl/pull/959)
+  [`ca2694b3`](https://github.com/getflip/swirl/commit/ca2694b3d70ef0050f9f3ea28e08220878b2f35c)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Fix media query
+  listeners
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ca2694b3`](https://github.com/getflip/swirl/commit/ca2694b3d70ef0050f9f3ea28e08220878b2f35c)]:
+  - @getflip/swirl-components@0.298.0
+
 ## 0.297.0
 
 ### Minor Changes
