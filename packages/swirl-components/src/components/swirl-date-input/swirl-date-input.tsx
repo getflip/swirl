@@ -77,7 +77,10 @@ export class SwirlDateInput {
 
     this.updateIconSize(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+    this.desktopMediaQuery.addEventListener(
+      "change",
+      this.desktopMediaQueryHandler
+    );
 
     // see https://stackoverflow.com/a/27314017
     if (this.autoFocus) {

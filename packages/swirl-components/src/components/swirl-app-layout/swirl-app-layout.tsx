@@ -136,7 +136,10 @@ export class SwirlAppLayout {
   }
 
   componentDidLoad() {
-    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+    this.desktopMediaQuery.addEventListener(
+      "change",
+      this.desktopMediaQueryHandler
+    );
 
     queueMicrotask(() => {
       this.isDesktop = this.desktopMediaQuery.matches;
