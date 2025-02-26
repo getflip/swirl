@@ -38,7 +38,10 @@ export class SwirlActionListItem {
   componentDidLoad() {
     this.forceIconProps(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+    this.desktopMediaQuery.addEventListener(
+      "change",
+      this.desktopMediaQueryHandler
+    );
   }
 
   componentDidRender() {

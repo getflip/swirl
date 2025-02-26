@@ -77,7 +77,10 @@ export class SwirlResourceListItem {
     this.forceIconProps(this.desktopMediaQuery.matches);
     this.updateIconSize(this.desktopMediaQuery.matches);
 
-    this.desktopMediaQuery.onchange = this.desktopMediaQueryHandler;
+    this.desktopMediaQuery.addEventListener(
+      "change",
+      this.desktopMediaQueryHandler
+    );
     this.makeControlUnfocusable();
 
     if (Boolean(this.menuTriggerId)) {
