@@ -55,7 +55,3 @@ div {
 #### LESS
 
 - [List of Less variables](https://unpkg.com/browse/@getflip/swirl-tokens/dist/less/styles.light.less)
-
-#### SASS
-
-- [List of SASS Variables](https://unpkg.com/browse/@getflip/swirl-tokens/dist/sass/styles.light.sass)
