@@ -132,7 +132,7 @@ Run commands across all workspaces. This uses
 
 | Command          | Runs                              |
 | ---------------- | --------------------------------- |
-| `yarn dev`       | Start dev environment (Storybook) |
+| `yarn dev`       | Start dev environment (Storybook, Next.js website project) |
 | `yarn changeset` | Adds a new changelog entry        |
 | `yarn lint`      | Lints all workspaces              |
 | `yarn test`      | Tests all workspaces              |
