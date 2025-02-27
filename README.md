@@ -7,6 +7,22 @@
 | ------ | -------------- | ------------------------------------------------------------------------------------------------ |
 | Active | @getflip/swirl | [New issue](https://github.com/getflip/swirl/issues/new?assignees=&labels=bug&template=ISSUE.md) |
 
+- [Swirl](#swirl)
+  - [About this repo](#about-this-repo)
+    - [swirl-icons](#swirl-icons)
+    - [swirl-tokens](#swirl-tokens)
+    - [swirl-components](#swirl-components)
+    - [swirl-components-angular](#swirl-components-angular)
+    - [swirl-components-react](#swirl-components-react)
+    - [bridge](#bridge)
+    - [error-code-generator](#error-code-generator)
+    - [swirl-docs](#swirl-docs)
+  - [Getting started](#getting-started)
+    - [Install dependencies and build workspaces](#install-dependencies-and-build-workspaces)
+    - [Run a command using Turbo](#run-a-command-using-turbo)
+    - [Run commands directly](#run-commands-directly)
+  - [Licenses](#licenses)
+
 ## About this repo
 
 The Flip/swirl repository is a monorepo made up of NPM packages and websites.
@@ -23,6 +39,9 @@ packages/
 apps/
 ├── swirl-docs                  # Documentation website for Swirl and our public APIs (getflip.dev)
 ```
+
+> [!NOTE] Please see the README files inside the package and app directories for
+> more information.
 
 ### swirl-icons
 
@@ -78,7 +97,15 @@ Our documentation website provides API specs and Swirl-related information. The
 website is build using Next.js and Tailwind. API documentation is automatically
 generated from our OpenAPI specs.
 
-## Commands
+## Getting started
+
+You need to have [Node.js](https://nodejs.org/en) installed on your machine. We
+recommend using [nvm](https://github.com/nvm-sh/nvm) for that. You will also
+need to install [yarn](https://classic.yarnpkg.com/en/).
+
+```sh
+npm install --global yarn@1
+```
 
 ### Install dependencies and build workspaces
 
@@ -86,7 +113,11 @@ generated from our OpenAPI specs.
 yarn && yarn build
 ```
 
-### Run a command
+### Run a command using Turbo
+
+We are using [Turborepo](https://turbo.build/repo/docs) for our monorepo and
+workflows. You can run commands for any workspace from the root directory of the
+repo:
 
 **One workspace**
 
@@ -99,15 +130,24 @@ flag.
 Run commands across all workspaces. This uses
 [`turbo run <command>`](https://turborepo.org/docs/reference/command-line-reference#turbo-run-task).
 
-| Command           | Runs                                  |
-| ----------------- | ------------------------------------- |
-| `yarn dev`        | Start dev environment (Storybook)     |
-| `yarn changeset`  | Adds a new changelog entry            |
-| `yarn lint`       | Lints all workspaces                  |
-| `yarn test`       | Tests all workspaces                  |
-| `yarn type-check` | Build types and check for type errors |
-| `yarn clean`      | Remove generated files                |
-| `yarn format`     | Format files with prettier            |
+| Command          | Runs                              |
+| ---------------- | --------------------------------- |
+| `yarn dev`       | Start dev environment (Storybook) |
+| `yarn changeset` | Adds a new changelog entry        |
+| `yarn lint`      | Lints all workspaces              |
+| `yarn test`      | Tests all workspaces              |
+| `yarn clean`     | Remove generated files            |
+| `yarn format`    | Format all files with prettier    |
+
+### Run commands directly
+
+You can also change to a specific package or app directory and run commands
+using `yarn`. E.g.
+
+```sh
+cd packages/swirl-components
+yarn dev
+```
 
 ## Licenses
 
