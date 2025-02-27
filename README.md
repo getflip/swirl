@@ -40,8 +40,8 @@ apps/
 ├── swirl-docs                  # Documentation website for Swirl and our public APIs (getflip.dev)
 ```
 
-> [!NOTE] Please see the README files inside the package and app directories for
-> more information.
+> [!NOTE]
+> Please see the README files inside the package and app directories for more information.
 
 ### swirl-icons
 
