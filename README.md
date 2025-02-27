@@ -62,7 +62,7 @@ The swirl-components package includes all reusable Web Components used to build
 the UI for our applications. These components are implemented using
 [Stencil](https://stenciljs.com/) and compiled into standards-compliant Web
 Components. We use [Storybook](https://storybook.js.org/) for developing and
-documentation. See [swirl-storybook.flip-app.dev](swirl-storybook.flip-app.dev)
+documentation. See [swirl-storybook.flip-app.dev](https://swirl-storybook.flip-app.dev/)
 
 ### swirl-components-angular
 
