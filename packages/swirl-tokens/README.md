@@ -26,7 +26,7 @@ npm install @getflip/swirl-tokens
 
 Accessing all of the available token groups
 
-- [List of JSON tokens](https://unpkg.com/browse/@getflip/swirl-tokens/dist/styles.json)
+- [List of JSON tokens](https://unpkg.com/browse/@getflip/swirl-tokens/dist/styles.light.json)
 
 ```js
 import styles from "@getflip/swirl-tokens/dist/styles.json";
@@ -38,7 +38,7 @@ console.log("background-default", styles["background-default"]);
 
 Importing all of the css variables. CSS variables are prefixed with `--s`
 
-- [List of CSS-Custom-Properties](https://unpkg.com/browse/@getflip/swirl-tokens/dist/css/styles.custom-properties.css)
+- [List of CSS-Custom-Properties](https://unpkg.com/browse/@getflip/swirl-tokens/dist/css/styles.light.custom-properties.css)
 
 ```css
 @import "@getflip/swirl-tokens/dist/css/styles.custom-properties.css";
@@ -50,12 +50,8 @@ div {
 
 #### SCSS
 
-- [List of SCSS variables](https://unpkg.com/browse/@getflip/swirl-tokens/dist/scss/styles.scss)
+- [List of SCSS variables](https://unpkg.com/browse/@getflip/swirl-tokens/dist/scss/styles.light.scss)
 
 #### LESS
 
-- [List of Less variables](https://unpkg.com/browse/@getflip/swirl-tokens/dist/less/styles.less)
-
-#### SASS
-
-- [List of SASS Variables](https://unpkg.com/browse/@getflip/swirl-tokens/dist/sass/styles.sass)
+- [List of Less variables](https://unpkg.com/browse/@getflip/swirl-tokens/dist/less/styles.light.less)
