@@ -26,7 +26,7 @@ npm install @getflip/swirl-tokens
 
 Accessing all of the available token groups
 
-- [List of JSON tokens](https://unpkg.com/browse/@getflip/swirl-tokens/dist/styles.json)
+- [List of JSON tokens](https://unpkg.com/browse/@getflip/swirl-tokens/dist/styles.light.json)
 
 ```js
 import styles from "@getflip/swirl-tokens/dist/styles.json";
