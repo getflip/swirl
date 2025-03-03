@@ -225,7 +225,8 @@ export class SwirlLightbox {
   }
 
   private getCurrentFileName() {
-    return this.slides[this.activeSlideIndex]?.file?.split("/").pop();
+    const activeSlide = this.slides[this.activeSlideIndex];
+    return activeSlide?.fileName || activeSlide?.file?.split("/").pop();
   }
 
   private getCurrentFileType() {
