@@ -2,6 +2,12 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-table.mdx";
 
 export default {
+  argTypes: {
+    dragDropHandle: {
+      description:
+        'CSS selector for the drag handle. Needs to be set when "enableDragDrop" is true.',
+    },
+  },
   component: "swirl-table",
   tags: ["autodocs"],
   parameters: {
