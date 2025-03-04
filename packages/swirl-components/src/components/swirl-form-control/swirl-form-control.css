@@ -34,17 +34,20 @@
     & .form-control__label-text {
       font-size: var(--s-font-size-base);
       opacity: 1;
+
+      @media (--from-desktop-without-touch) {
+        font-size: var(--s-font-size-sm);
+        line-height: var(--s-line-height-sm);
+      }
+    }
+
+    &:not(.form-control--label-position-outside) .form-control__label-text {
       position: absolute;
       top: 0;
       bottom: 0;
       display: flex;
       align-items: center;
       height: auto;
-
-      @media (--from-desktop-without-touch) {
-        font-size: var(--s-font-size-sm);
-        line-height: var(--s-line-height-sm);
-      }
     }
 
     .form-control--font-size-sm {
@@ -77,18 +80,22 @@
 
     & .form-control__label-text {
       font-size: var(--s-font-size-base);
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      height: auto;
       opacity: 1;
 
       @media (--from-desktop-without-touch) {
         font-size: var(--s-font-size-sm);
         line-height: var(--s-line-height-sm);
       }
+    }
+
+    &:not(.form-control--label-position-outside) .form-control__label-text {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      height: auto;
+      pointer-events: auto;
     }
 
     &.form-control--font-size-base {
@@ -99,6 +106,10 @@
           font-size: var(--s-font-size-base);
         }
       }
+    }
+
+    & .form-control__tooltip {
+      pointer-events: auto;
     }
   }
 
