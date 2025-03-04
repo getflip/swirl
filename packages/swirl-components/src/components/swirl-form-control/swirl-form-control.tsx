@@ -260,7 +260,7 @@ export class SwirlFormControl {
                     {this.secondaryLabel}
                   </span>
                 )}
-                {this.tooltip && this.labelPosition === "outside" && (
+                {this.tooltip && (
                   <span class="form-control__tooltip">
                     <swirl-tooltip
                       content={this.tooltip}
