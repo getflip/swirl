@@ -64,6 +64,7 @@ export class SwirlTable {
 
   private bodyEl: HTMLElement;
   private container: HTMLElement;
+  private dragDropContainer: HTMLElement;
   private intersectionObserver: IntersectionObserver;
   private movingViaKeyboard: boolean;
   private positionBeforeKeyboardMove?: number;
@@ -71,7 +72,10 @@ export class SwirlTable {
 
   async componentDidLoad() {
     this.setupIntersectionObserver();
-    this.setupDragDrop();
+
+    queueMicrotask(() => {
+      this.setupDragDrop();
+    });
   }
 
   disconnectedCallback() {
@@ -81,7 +85,9 @@ export class SwirlTable {
 
   @Watch("enableDragDrop")
   handleEnableDragDropChange() {
-    this.setupDragDrop();
+    queueMicrotask(() => {
+      this.setupDragDrop();
+    });
   }
 
   /**
@@ -126,7 +132,14 @@ export class SwirlTable {
         return;
       }
 
-      this.sortable = new Sortable(this.bodyEl, {
+      const slottedEl = this.el.querySelector('[slot="rows"]') as HTMLElement;
+
+      this.dragDropContainer =
+        slottedEl?.tagName !== "SWIRL-TABLE-ROW"
+          ? slottedEl ?? this.bodyEl
+          : this.bodyEl;
+
+      this.sortable = new Sortable(this.dragDropContainer, {
         animation: 100,
         direction: "vertical",
         handle: this.dragDropHandle,
@@ -557,20 +570,33 @@ export class SwirlTable {
     let newIndex: number;
 
     if (direction === "up") {
-      const currentIndex = Array.from(this.bodyEl.children).indexOf(row);
+      const currentIndex = Array.from(this.dragDropContainer.children).indexOf(
+        row
+      );
       newIndex = Math.max(0, currentIndex - 1);
 
-      this.bodyEl.insertBefore(row, this.bodyEl.children[newIndex]);
+      this.dragDropContainer.insertBefore(
+        row,
+        this.dragDropContainer.children[newIndex]
+      );
     } else {
-      const currentIndex = Array.from(this.bodyEl.children).indexOf(row);
-      newIndex = Math.min(this.bodyEl.children.length - 1, currentIndex + 1);
+      const currentIndex = Array.from(this.dragDropContainer.children).indexOf(
+        row
+      );
+      newIndex = Math.min(
+        this.dragDropContainer.children.length - 1,
+        currentIndex + 1
+      );
 
-      this.bodyEl.insertBefore(row, this.bodyEl.children[newIndex + 1]);
+      this.dragDropContainer.insertBefore(
+        row,
+        this.dragDropContainer.children[newIndex + 1]
+      );
     }
 
     this.updateLiveRegionText("moved", {
       position: newIndex + 1,
-      rowCount: this.bodyEl.children.length,
+      rowCount: this.dragDropContainer.children.length,
     });
 
     const handle = querySelectorAllDeep(row, this.dragDropHandle)?.[0];

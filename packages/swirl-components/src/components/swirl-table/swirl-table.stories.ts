@@ -5,7 +5,7 @@ export default {
   argTypes: {
     dragDropHandle: {
       description:
-        'CSS selector for the drag handle. Needs to be set when "enableDragDrop" is true.',
+        'CSS selector for the drag handle. Needs to be set when "enableDragDrop" is true. The handle should be a button.',
     },
   },
   component: "swirl-table",
@@ -40,104 +40,106 @@ const Template = (args) => {
       <swirl-table-column>User status</swirl-table-column>
       <swirl-table-column sticky width="74px"><swirl-visually-hidden>Tools</swirl-visually-hidden></swirl-table-column>
     </div>
-    <swirl-table-row slot="rows" id="1">
-      <swirl-table-cell>
-        <swirl-checkbox swirl-aria-label="Select Isabel Lakin" input-id="select-1" input-name="select-1">
-      </swirl-table-cell>
-      <swirl-table-cell>
-        <swirl-text size="sm" weight="medium">Isabel Lakin</swirl-text>
-      </swirl-table-cell>
-      <swirl-table-cell>
-        <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
-      </swirl-table-cell>
-      <swirl-table-cell>
-        <swirl-text size="sm" truncate>1234567890</swirl-text>
-      </swirl-table-cell>
-      <swirl-table-cell>
-        <swirl-text size="sm"><swirl-link href="#" label="isabel.lakin@flipapp.de"></swirl-link></swirl-text>
-      </swirl-table-cell>
-      <swirl-table-cell>
-        <swirl-text size="sm">DE</swirl-text>
-      </swirl-table-cell>
-      <swirl-table-cell>
-        <swirl-text size="sm" truncate>21</swirl-text>
-      </swirl-table-cell>
-      <swirl-table-cell>
-        <swirl-text size="sm">24.11.2022 13:39</swirl-text>
-      </swirl-table-cell>
-      <swirl-table-cell>
-        <swirl-tag label="Active" intent="success"></swirl-tag>
-      </swirl-table-cell>
-      <swirl-table-cell>
-        <swirl-tooltip position="left" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.">
-          <swirl-button label="Test"></swirl-button>
-        </swirl-tooltip>
-      </swirl-table-cell>
-    </swirl-table-row>
-      <swirl-table-row slot="rows" id="2">
+    <div slot="rows">
+      <swirl-table-row class="dr" id="1">
         <swirl-table-cell>
-          <swirl-checkbox swirl-aria-label="Select Doyle Stoltenberg" input-id="select-2" input-name="select-2">
+          <swirl-checkbox swirl-aria-label="Select Isabel Lakin" input-id="select-1" input-name="select-1">
         </swirl-table-cell>
         <swirl-table-cell>
-          <swirl-text size="sm" weight="medium">Doyle Stoltenberg</swirl-text>
+          <swirl-text size="sm" weight="medium">Isabel Lakin</swirl-text>
         </swirl-table-cell>
         <swirl-table-cell>
           <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
         </swirl-table-cell>
         <swirl-table-cell>
-          <swirl-text size="sm" truncate>0987654321</swirl-text>
+          <swirl-text size="sm" truncate>1234567890</swirl-text>
         </swirl-table-cell>
         <swirl-table-cell>
-          <swirl-text size="sm"><swirl-link href="#" label="john.doe@flipapp.de"></swirl-link></swirl-text>
+          <swirl-text size="sm"><swirl-link href="#" label="isabel.lakin@flipapp.de"></swirl-link></swirl-text>
         </swirl-table-cell>
         <swirl-table-cell>
           <swirl-text size="sm">DE</swirl-text>
         </swirl-table-cell>
         <swirl-table-cell>
-          <swirl-text size="sm" truncate>432</swirl-text>
+          <swirl-text size="sm" truncate>21</swirl-text>
         </swirl-table-cell>
         <swirl-table-cell>
           <swirl-text size="sm">24.11.2022 13:39</swirl-text>
         </swirl-table-cell>
         <swirl-table-cell>
-          <swirl-tag label="Pending" intent="warning"></swirl-tag>
+          <swirl-tag label="Active" intent="success"></swirl-tag>
         </swirl-table-cell>
         <swirl-table-cell>
-          <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
+          <swirl-tooltip position="left" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.">
+            <swirl-button label="Test"></swirl-button>
+          </swirl-tooltip>
         </swirl-table-cell>
       </swirl-table-row>
-      <swirl-table-row slot="rows" highlighted id="3">
-        <swirl-table-cell>
-          <swirl-checkbox checked="true" swirl-aria-label="Select Don Conroy" input-id="select-3" input-name="select-3">
-        </swirl-table-cell>
-        <swirl-table-cell>
-          <swirl-text size="sm" weight="medium">Don Conroy</swirl-text>
-        </swirl-table-cell>
-        <swirl-table-cell>
-          <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
-        </swirl-table-cell>
-        <swirl-table-cell>
-          <swirl-text size="sm" truncate>5432167890</swirl-text>
-        </swirl-table-cell>
-        <swirl-table-cell>
-          <swirl-text size="sm"><swirl-link href="#" label="don.conroy@flipapp.de"></swirl-link></swirl-text>
-        </swirl-table-cell>
-        <swirl-table-cell>
-          <swirl-text size="sm">DE</swirl-text>
-        </swirl-table-cell>
-        <swirl-table-cell>
-          <swirl-text size="sm" truncate>0</swirl-text>
-        </swirl-table-cell>
-        <swirl-table-cell>
-          <swirl-text size="sm">-</swirl-text>
-        </swirl-table-cell>
-        <swirl-table-cell>
-          <swirl-tag label="Pending" intent="warning"></swirl-tag>
-        </swirl-table-cell>
-        <swirl-table-cell>
-          <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
-        </swirl-table-cell>
-      </swirl-table-row>
+        <swirl-table-row class="dr" id="2">
+          <swirl-table-cell>
+            <swirl-checkbox swirl-aria-label="Select Doyle Stoltenberg" input-id="select-2" input-name="select-2">
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" weight="medium">Doyle Stoltenberg</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>0987654321</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm"><swirl-link href="#" label="john.doe@flipapp.de"></swirl-link></swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">DE</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>432</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">24.11.2022 13:39</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-tag label="Pending" intent="warning"></swirl-tag>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
+          </swirl-table-cell>
+        </swirl-table-row>
+        <swirl-table-row class="dr" highlighted id="3">
+          <swirl-table-cell>
+            <swirl-checkbox checked="true" swirl-aria-label="Select Don Conroy" input-id="select-3" input-name="select-3">
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" weight="medium">Don Conroy</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>5432167890</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm"><swirl-link href="#" label="don.conroy@flipapp.de"></swirl-link></swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">DE</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm" truncate>0</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-text size="sm">-</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-tag label="Pending" intent="warning"></swirl-tag>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
+          </swirl-table-cell>
+        </swirl-table-row>
+      </div>
   `;
 
   return element;
