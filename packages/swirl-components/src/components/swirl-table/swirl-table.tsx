@@ -589,6 +589,7 @@ export class SwirlTable {
   private onSlotChange = async () => {
     await this.updateLayout();
     this.updateEmptyState();
+    this.setupDragDrop();
   };
 
   private onFocus = (event: FocusEvent) => {
@@ -622,6 +623,13 @@ export class SwirlTable {
     }
 
     const row = (event.target as HTMLElement)?.closest("swirl-table-row");
+    const focusedDragHandle = !!(event.target as HTMLElement)?.closest(
+      this.dragDropHandle
+    );
+
+    if (!focusedDragHandle) {
+      return;
+    }
 
     if (event.code === "Space") {
       event.preventDefault();
