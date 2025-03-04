@@ -207,6 +207,10 @@
   }
 }
 
+.form-control--disabled .form-control__label-text .form-control__tooltip {
+  color: var(--s-text-disabled);
+}
+
 .form-control--invalid {
   &.form-control--has-focus:not(.form-control--disabled) {
     & .form-control__label {
