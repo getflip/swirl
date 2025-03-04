@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.300.0
+
+### Minor Changes
+
+- [#965](https://github.com/getflip/swirl/pull/965)
+  [`c38f59cb`](https://github.com/getflip/swirl/commit/c38f59cb6be085e5f107cadb28977dc7d1b9ea84)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add drag & drop to swirl-table
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c38f59cb`](https://github.com/getflip/swirl/commit/c38f59cb6be085e5f107cadb28977dc7d1b9ea84)]:
+  - @getflip/swirl-components@0.300.0
+
 ## 0.299.0
 
 ### Minor Changes
