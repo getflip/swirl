@@ -7,6 +7,13 @@
   }
 }
 
+.table--keyboard-move {
+  &:focus-within {
+    --swirl-table-moving-row-border: var(--s-border-width-default) solid
+      var(--s-border-highlight);
+  }
+}
+
 .table__container {
   position: relative;
   overflow: auto;

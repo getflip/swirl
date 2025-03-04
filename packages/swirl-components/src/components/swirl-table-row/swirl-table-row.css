@@ -10,7 +10,7 @@
   }
 
   &(.table-row--moving) {
-    border: var(--s-border-width-default) solid var(--s-border-highlight);
+    border: var(--swirl-table-moving-row-border);
   }
 
   & ::slotted(.table-cell) {

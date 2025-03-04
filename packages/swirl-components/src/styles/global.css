@@ -75,6 +75,7 @@
 
   --swirl-table-sticky-left-shadow: none;
   --swirl-table-sticky-right-shadow: none;
+  --swirl-table-moving-row-border: none;
 
   --swirl-tab-bar-border-width: var(--s-border-width-default);
   --swirl-tab-bar-height: auto;

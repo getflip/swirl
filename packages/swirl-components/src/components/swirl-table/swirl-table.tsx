@@ -14,6 +14,7 @@ import {
   Watch,
 } from "@stencil/core";
 
+import classNames from "classnames";
 import Sortable, { SortableEvent } from "sortablejs";
 import { debounce, isMobileViewport, querySelectorAllDeep } from "../../utils";
 
@@ -64,6 +65,7 @@ export class SwirlTable {
 
   private bodyEl: HTMLElement;
   private container: HTMLElement;
+  private dragDropCancelTimeout: NodeJS.Timeout;
   private dragDropContainer: HTMLElement;
   private intersectionObserver: IntersectionObserver;
   private movingViaKeyboard: boolean;
@@ -517,15 +519,15 @@ export class SwirlTable {
 
   private startKeyboardMove(row: HTMLSwirlTableRowElement) {
     this.movingViaKeyboard = true;
-    this.positionBeforeKeyboardMove = Array.from(this.bodyEl.children).indexOf(
-      row
-    );
+    this.positionBeforeKeyboardMove = Array.from(
+      this.dragDropContainer.children
+    ).indexOf(row);
 
     row.classList.add("table-row--moving");
 
     this.updateLiveRegionText("start", {
-      position: Array.from(this.bodyEl.children).indexOf(row) + 1,
-      rowCount: this.bodyEl.children.length,
+      position: Array.from(this.dragDropContainer.children).indexOf(row) + 1,
+      rowCount: this.dragDropContainer.children.length,
     });
   }
 
@@ -535,31 +537,53 @@ export class SwirlTable {
     row.classList.remove("table-row--moving");
 
     this.updateLiveRegionText("end", {
-      position: Array.from(this.bodyEl.children).indexOf(row) + 1,
-      rowCount: this.bodyEl.children.length,
+      position: Array.from(this.dragDropContainer.children).indexOf(row) + 1,
+      rowCount: this.dragDropContainer.children.length,
     });
 
     this.dropRow.emit({
       item: row,
-      newIndex: Array.from(this.bodyEl.children).indexOf(row),
+      newIndex: Array.from(this.dragDropContainer.children).indexOf(row),
       oldIndex: this.positionBeforeKeyboardMove,
       itemId: row.id,
       newNextSiblingItemId:
-        Array.from(this.bodyEl.children).indexOf(row) <
-        this.bodyEl.children.length - 1
-          ? this.bodyEl.children[
-              Array.from(this.bodyEl.children).indexOf(row) + 1
+        Array.from(this.dragDropContainer.children).indexOf(row) <
+        this.dragDropContainer.children.length - 1
+          ? this.dragDropContainer.children[
+              Array.from(this.dragDropContainer.children).indexOf(row) + 1
             ].id
           : undefined,
       newPrevSiblingItemId:
-        Array.from(this.bodyEl.children).indexOf(row) > 0
-          ? this.bodyEl.children[
-              Array.from(this.bodyEl.children).indexOf(row) - 1
+        Array.from(this.dragDropContainer.children).indexOf(row) > 0
+          ? this.dragDropContainer.children[
+              Array.from(this.dragDropContainer.children).indexOf(row) - 1
             ].id
           : undefined,
     });
 
     this.positionBeforeKeyboardMove = undefined;
+  }
+
+  private cancelKeyboardMove() {
+    if (!this.movingViaKeyboard) {
+      return;
+    }
+
+    const row = this.el.querySelector(".table-row--moving");
+
+    if (!row) {
+      return;
+    }
+
+    row.classList.remove("table-row--moving");
+    this.movingViaKeyboard = false;
+
+    if (this.positionBeforeKeyboardMove !== undefined) {
+      this.dragDropContainer.insertBefore(
+        row,
+        this.dragDropContainer.children[this.positionBeforeKeyboardMove]
+      );
+    }
   }
 
   private moveRow(row: HTMLSwirlTableRowElement, direction: "up" | "down") {
@@ -663,16 +687,31 @@ export class SwirlTable {
 
       this.toggleKeyboardMove(row);
     } else if (event.code === "ArrowUp") {
+      event.preventDefault();
+      event.stopPropagation();
+
       this.moveRow(row, "up");
     } else if (event.code === "ArrowDown") {
+      event.preventDefault();
+      event.stopPropagation();
+
       this.moveRow(row, "down");
+    } else if (event.code === "Escape") {
+      event.preventDefault();
+      event.stopPropagation();
+
+      this.cancelKeyboardMove();
     }
   };
 
   render() {
+    const className = classNames("table", {
+      "table--keyboard-move": this.movingViaKeyboard,
+    });
+
     return (
       <Host>
-        <div class="table">
+        <div class={className}>
           {this.enableDragDrop && (
             <swirl-visually-hidden>
               <span aria-live="assertive">{this.liveRegionText}</span>
