@@ -3,22 +3,36 @@ import debouncePromise from "debounce-promise";
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
   Method,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 
+import Sortable, { SortableEvent } from "sortablejs";
 import { debounce, isMobileViewport } from "../../utils";
+
+export type SwirlTableDropRowEvent = Pick<
+  SortableEvent,
+  "oldIndex" | "newIndex" | "item"
+> & {
+  itemId: string;
+  newNextSiblingItemId: string | undefined;
+  newPrevSiblingItemId: string | undefined;
+};
 
 /**
  * @slot columns - Column container, should contain SwirlTableColumns.
  * @slot rows - Row container, should contain SwirlTableRows.
  */
 @Component({
-  shadow: true,
+  shadow: false,
+  scoped: true,
   styleUrl: "swirl-table.css",
   tag: "swirl-table",
 })
@@ -26,23 +40,36 @@ export class SwirlTable {
   @Element() el: HTMLElement;
 
   @Prop() caption?: string;
+  @Prop() dragDropHandle?: string;
   @Prop() emptyStateLabel?: string = "No results found.";
+  @Prop() enableDragDrop?: boolean;
   @Prop() label!: string;
+
+  @Event() dropRow: EventEmitter<SwirlTableDropRowEvent>;
 
   @State() empty: boolean;
   @State() scrollable: boolean;
   @State() scrolled: boolean;
   @State() scrolledToEnd: boolean;
 
+  private bodyEl: HTMLElement;
   private container: HTMLElement;
   private intersectionObserver: IntersectionObserver;
+  private sortable: Sortable | undefined;
 
   async componentDidLoad() {
     this.setupIntersectionObserver();
+    this.setupDragDrop();
   }
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
+    this.sortable?.destroy();
+  }
+
+  @Watch("enableDragDrop")
+  handleEnableDragDropChange() {
+    this.setupDragDrop();
   }
 
   /**
@@ -59,6 +86,57 @@ export class SwirlTable {
     );
 
     this.intersectionObserver.observe(this.container);
+  }
+
+  private setupDragDrop() {
+    if (this.sortable) {
+      this.sortable.destroy();
+      this.sortable = undefined;
+    }
+
+    if (this.enableDragDrop) {
+      const tableHasRowGroups = !!this.el.querySelector(
+        "swirl-table-row-group"
+      );
+
+      if (tableHasRowGroups) {
+        // Drag & drop for multiple row groups is not yet implemented.
+        console.warn(
+          '[Swirl] Drag & drop is not yet supported for swirl-tables using the "swirl-table-row-group" component.'
+        );
+        return;
+      }
+
+      this.sortable = new Sortable(this.bodyEl, {
+        animation: 100,
+        chosenClass: "table-row--chosen",
+        direction: "vertical",
+        dragClass: "table-row--drag",
+        handle: this.dragDropHandle,
+        fallbackOnBody: true,
+        ghostClass: "table-row--ghost",
+        group: "swirl-table",
+        onEnd: (event) => {
+          event.stopPropagation();
+
+          const { to, newIndex, oldIndex, item } = event;
+
+          this.dropRow.emit({
+            newIndex,
+            oldIndex,
+            item,
+            itemId:
+              item.id ?? item.querySelector(":scope > swirl-table-row").id,
+            newNextSiblingItemId:
+              newIndex < to.children.length - 1
+                ? to.children[newIndex + 1].id
+                : undefined,
+            newPrevSiblingItemId:
+              newIndex > 0 ? to.children[newIndex - 1].id : undefined,
+          });
+        },
+      });
+    }
   }
 
   private async onVisibilityChange(entries: IntersectionObserverEntry[]) {
@@ -101,8 +179,7 @@ export class SwirlTable {
   );
 
   private resetEmptyRowStyles() {
-    const emptyRow =
-      this.el.shadowRoot.querySelector<HTMLElement>(".table__empty-row");
+    const emptyRow = this.el.querySelector<HTMLElement>(".table__empty-row");
 
     if (!Boolean(emptyRow)) {
       return;
@@ -229,15 +306,14 @@ export class SwirlTable {
   );
 
   private layoutEmptyRow() {
-    const emptyRow =
-      this.el.shadowRoot.querySelector<HTMLElement>(".table__empty-row");
+    const emptyRow = this.el.querySelector<HTMLElement>(".table__empty-row");
 
     if (!Boolean(emptyRow)) {
       return;
     }
 
     const scrollWidth = `${
-      this.el.shadowRoot.querySelector(".table__container").scrollWidth
+      this.el.querySelector(".table__container").scrollWidth
     }px`;
 
     emptyRow.style.width = scrollWidth;
@@ -249,7 +325,7 @@ export class SwirlTable {
     );
 
     const scrollWidth = `${
-      this.el.shadowRoot.querySelector(".table__container")?.scrollWidth
+      this.el.querySelector(".table__container")?.scrollWidth
     }px`;
 
     tableRowGroups.forEach((tableRowGroup) => {
@@ -421,7 +497,7 @@ export class SwirlTable {
                   <slot name="columns" onSlotchange={this.onSlotChange}></slot>
                 </div>
               </div>
-              <div class="table__body">
+              <div class="table__body" ref={(el) => (this.bodyEl = el)}>
                 <slot name="rows" onSlotchange={this.onSlotChange}></slot>
                 {this.empty && (
                   <div class="table__empty-row" role="row">

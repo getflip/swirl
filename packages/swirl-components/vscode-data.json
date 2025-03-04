@@ -17829,7 +17829,15 @@
           "description": ""
         },
         {
+          "name": "drag-drop-handle",
+          "description": ""
+        },
+        {
           "name": "empty-state-label",
+          "description": ""
+        },
+        {
+          "name": "enable-drag-drop",
           "description": ""
         },
         {
