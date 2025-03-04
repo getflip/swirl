@@ -1,7 +1,12 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
 
-export type SwirlSkeletonBoxBorderRadius = "s" | "sm" | "base" | "pill";
+export type SwirlSkeletonBoxBorderRadius =
+  | "s"
+  | "sm"
+  | "base"
+  | "pill"
+  | "none";
 
 @Component({
   shadow: true,
@@ -36,7 +41,7 @@ export class SwirlSkeletonBox {
           style={{
             aspectRatio: this.aspectRatio,
             borderRadius:
-              this.borderRadius !== "pill"
+              this.borderRadius !== "pill" && this.borderRadius !== "none"
                 ? `var(--s-border-radius-${this.borderRadius})`
                 : undefined,
             height: this.height,

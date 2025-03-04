@@ -47,3 +47,7 @@
 .skeleton-box--border-radius-pill {
   border-radius: 100rem;
 }
+
+.skeleton-box--border-radius-none {
+  border-radius: 0;
+}
