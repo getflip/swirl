@@ -32,10 +32,14 @@
     }
 
     & .form-control__label-text {
-      bottom: 50%;
       font-size: var(--s-font-size-base);
-      transform: translateY(50%);
       opacity: 1;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      height: auto;
 
       @media (--from-desktop-without-touch) {
         font-size: var(--s-font-size-sm);
@@ -72,9 +76,13 @@
     }
 
     & .form-control__label-text {
-      bottom: 50%;
       font-size: var(--s-font-size-base);
-      transform: translateY(50%);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      height: auto;
       opacity: 1;
 
       @media (--from-desktop-without-touch) {
@@ -166,23 +174,23 @@
   @media (--from-desktop-without-touch) {
     --swirl-text-input-placeholder-size: var(--s-font-size-sm);
   }
+}
 
-  & .form-control__label-text {
+.form-control__label-text {
+  @media (--from-desktop-without-touch) {
+    display: flex;
+    align-items: center;
+  }
+
+  & .form-control__tooltip {
+    display: none;
+    color: var(--s-icon-default);
     @media (--from-desktop-without-touch) {
       display: flex;
-      align-items: center;
-    }
+      margin-left: var(--s-space-4);
 
-    & .form-control__tooltip {
-      display: none;
-      color: var(--s-icon-default);
-      @media (--from-desktop-without-touch) {
-        display: flex;
-        margin-left: var(--s-space-4);
-
-        &:hover {
-          cursor: default;
-        }
+      &:hover {
+        cursor: default;
       }
     }
   }
