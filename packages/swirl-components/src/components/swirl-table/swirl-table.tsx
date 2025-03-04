@@ -112,7 +112,7 @@ export class SwirlTable {
         direction: "vertical",
         handle: this.dragDropHandle,
         fallbackOnBody: true,
-        group: "swirl-table",
+        group: `swirl-table-${Math.random().toString().substring(2)}`,
         onEnd: (event) => {
           event.stopPropagation();
 
