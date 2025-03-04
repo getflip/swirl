@@ -31,7 +31,7 @@ describe("swirl-table", () => {
     expect(page.root).toEqualHtml(`
       <swirl-table caption=\"Caption\" label=\"Label\">
         <div class=\"table\">
-          <div class=\"table__container\">
+          <div class=\"table__container\" tabIndex=\"-1\">
             <div aria-describedby=\"caption\" aria-label=\"Label\" class=\"table__table\" role=\"table\">
               <swirl-visually-hidden>
                 <div id=\"caption\">

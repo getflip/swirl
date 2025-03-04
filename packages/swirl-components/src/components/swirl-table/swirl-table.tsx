@@ -15,7 +15,7 @@ import {
 } from "@stencil/core";
 
 import Sortable, { SortableEvent } from "sortablejs";
-import { debounce, isMobileViewport } from "../../utils";
+import { debounce, isMobileViewport, querySelectorAllDeep } from "../../utils";
 
 export type SwirlTableDropRowEvent = Pick<
   SortableEvent,
@@ -24,6 +24,14 @@ export type SwirlTableDropRowEvent = Pick<
   itemId: string;
   newNextSiblingItemId: string | undefined;
   newPrevSiblingItemId: string | undefined;
+};
+
+const defaultDragDropInstructions = {
+  end: "Dropped. Final position in table: {position} of {rowCount}.",
+  initial: "Press space to move the row.",
+  moved: "Current position in table: {position} of {rowCount}.",
+  start:
+    "Row grabbed. Current position in table: {position} of {rowCount}. Press up and down arrow keys to change position, Space to drop.",
 };
 
 /**
@@ -41,6 +49,7 @@ export class SwirlTable {
 
   @Prop() caption?: string;
   @Prop() dragDropHandle?: string;
+  @Prop() dragDropInstructions = defaultDragDropInstructions;
   @Prop() emptyStateLabel?: string = "No results found.";
   @Prop() enableDragDrop?: boolean;
   @Prop() label!: string;
@@ -48,6 +57,7 @@ export class SwirlTable {
   @Event() dropRow: EventEmitter<SwirlTableDropRowEvent>;
 
   @State() empty: boolean;
+  @State() liveRegionText = "";
   @State() scrollable: boolean;
   @State() scrolled: boolean;
   @State() scrolledToEnd: boolean;
@@ -55,6 +65,8 @@ export class SwirlTable {
   private bodyEl: HTMLElement;
   private container: HTMLElement;
   private intersectionObserver: IntersectionObserver;
+  private movingViaKeyboard: boolean;
+  private positionBeforeKeyboardMove?: number;
   private sortable: Sortable | undefined;
 
   async componentDidLoad() {
@@ -103,6 +115,13 @@ export class SwirlTable {
         // Drag & drop for multiple row groups is not yet implemented.
         console.warn(
           '[Swirl] Drag & drop is not yet supported for swirl-tables using the "swirl-table-row-group" component.'
+        );
+        return;
+      }
+
+      if (!this.dragDropHandle) {
+        console.warn(
+          '[Swirl] swirl-table required the "dragDropHandle" prop to be set when drag & drop is enabled.'
         );
         return;
       }
@@ -460,6 +479,109 @@ export class SwirlTable {
     this.empty = !Boolean(rowsContainer) || rowsContainer.children.length === 0;
   }
 
+  private updateLiveRegionText(
+    key?: keyof typeof this.dragDropInstructions,
+    data: { position?: number; rowCount?: number } = {}
+  ) {
+    let newText = key ? this.dragDropInstructions[key] : "";
+
+    for (const [key, value] of Object.entries(data ?? {})) {
+      newText = newText.replaceAll(`{${key}}`, String(value));
+    }
+
+    if (newText !== this.liveRegionText) {
+      this.liveRegionText = newText;
+    }
+  }
+
+  private toggleKeyboardMove(row: HTMLSwirlTableRowElement) {
+    if (this.movingViaKeyboard) {
+      this.endKeyboardMove(row);
+    } else {
+      this.startKeyboardMove(row);
+    }
+  }
+
+  private startKeyboardMove(row: HTMLSwirlTableRowElement) {
+    this.movingViaKeyboard = true;
+    this.positionBeforeKeyboardMove = Array.from(this.bodyEl.children).indexOf(
+      row
+    );
+
+    row.classList.add("table-row--moving");
+
+    this.updateLiveRegionText("start", {
+      position: Array.from(this.bodyEl.children).indexOf(row) + 1,
+      rowCount: this.bodyEl.children.length,
+    });
+  }
+
+  private endKeyboardMove(row: HTMLSwirlTableRowElement) {
+    this.movingViaKeyboard = false;
+
+    row.classList.remove("table-row--moving");
+
+    this.updateLiveRegionText("end", {
+      position: Array.from(this.bodyEl.children).indexOf(row) + 1,
+      rowCount: this.bodyEl.children.length,
+    });
+
+    this.dropRow.emit({
+      item: row,
+      newIndex: Array.from(this.bodyEl.children).indexOf(row),
+      oldIndex: this.positionBeforeKeyboardMove,
+      itemId: row.id,
+      newNextSiblingItemId:
+        Array.from(this.bodyEl.children).indexOf(row) <
+        this.bodyEl.children.length - 1
+          ? this.bodyEl.children[
+              Array.from(this.bodyEl.children).indexOf(row) + 1
+            ].id
+          : undefined,
+      newPrevSiblingItemId:
+        Array.from(this.bodyEl.children).indexOf(row) > 0
+          ? this.bodyEl.children[
+              Array.from(this.bodyEl.children).indexOf(row) - 1
+            ].id
+          : undefined,
+    });
+
+    this.positionBeforeKeyboardMove = undefined;
+  }
+
+  private moveRow(row: HTMLSwirlTableRowElement, direction: "up" | "down") {
+    if (!this.movingViaKeyboard) {
+      return;
+    }
+
+    let newIndex: number;
+
+    if (direction === "up") {
+      const currentIndex = Array.from(this.bodyEl.children).indexOf(row);
+      newIndex = Math.max(0, currentIndex - 1);
+
+      this.bodyEl.insertBefore(row, this.bodyEl.children[newIndex]);
+    } else {
+      const currentIndex = Array.from(this.bodyEl.children).indexOf(row);
+      newIndex = Math.min(this.bodyEl.children.length - 1, currentIndex + 1);
+
+      this.bodyEl.insertBefore(row, this.bodyEl.children[newIndex + 1]);
+    }
+
+    this.updateLiveRegionText("moved", {
+      position: newIndex + 1,
+      rowCount: this.bodyEl.children.length,
+    });
+
+    const handle = querySelectorAllDeep(row, this.dragDropHandle)?.[0];
+
+    if (handle.tagName === "BUTTON") {
+      handle.focus();
+    } else {
+      handle.querySelector("button")?.focus();
+    }
+  }
+
   private onScroll = () => {
     this.updateScrolledState();
   };
@@ -469,14 +591,68 @@ export class SwirlTable {
     this.updateEmptyState();
   };
 
+  private onFocus = (event: FocusEvent) => {
+    const focusedDragHandle = !!(event.target as HTMLElement)?.closest(
+      this.dragDropHandle
+    );
+
+    if (this.liveRegionText === "" && focusedDragHandle) {
+      this.updateLiveRegionText("initial");
+    }
+  };
+
+  private onBlur = (event: FocusEvent) => {
+    const newlyFocusedElement = event.relatedTarget as HTMLElement | undefined;
+    const focusedDragHandle = !!newlyFocusedElement?.closest(
+      this.dragDropHandle
+    );
+
+    if (this.el.contains(newlyFocusedElement) && focusedDragHandle) {
+      return;
+    }
+
+    if (this.liveRegionText !== "") {
+      this.updateLiveRegionText();
+    }
+  };
+
+  private onKeyDown = (event: KeyboardEvent) => {
+    if (!this.enableDragDrop) {
+      return;
+    }
+
+    const row = (event.target as HTMLElement)?.closest("swirl-table-row");
+
+    if (event.code === "Space") {
+      event.preventDefault();
+      event.stopPropagation();
+
+      this.toggleKeyboardMove(row);
+    } else if (event.code === "ArrowUp") {
+      this.moveRow(row, "up");
+    } else if (event.code === "ArrowDown") {
+      this.moveRow(row, "down");
+    }
+  };
+
   render() {
     return (
       <Host>
         <div class="table">
+          {this.enableDragDrop && (
+            <swirl-visually-hidden>
+              <span aria-live="assertive">{this.liveRegionText}</span>
+            </swirl-visually-hidden>
+          )}
+
           <div
             class="table__container"
+            onFocusin={this.onFocus}
+            onFocusout={this.onBlur}
+            onKeyDown={this.onKeyDown}
             onScroll={this.onScroll}
             ref={(el) => (this.container = el)}
+            tabIndex={-1}
           >
             <div
               aria-describedby={Boolean(this.caption) ? "caption" : undefined}

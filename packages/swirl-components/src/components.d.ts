@@ -2214,6 +2214,7 @@ export namespace Components {
     interface SwirlTable {
         "caption"?: string;
         "dragDropHandle"?: string;
+        "dragDropInstructions": { end: string; initial: string; moved: string; start: string; };
         "emptyStateLabel"?: string;
         "enableDragDrop"?: boolean;
         "label": string;
@@ -7897,6 +7898,7 @@ declare namespace LocalJSX {
     interface SwirlTable {
         "caption"?: string;
         "dragDropHandle"?: string;
+        "dragDropInstructions"?: { end: string; initial: string; moved: string; start: string; };
         "emptyStateLabel"?: string;
         "enableDragDrop"?: boolean;
         "label": string;

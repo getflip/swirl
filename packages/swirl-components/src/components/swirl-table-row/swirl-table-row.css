@@ -9,6 +9,10 @@
     }
   }
 
+  &(.table-row--moving) {
+    border: var(--s-border-width-default) solid var(--s-border-highlight);
+  }
+
   & ::slotted(.table-cell) {
     border-bottom: var(--s-border-width-default) solid var(--s-border-default);
   }
