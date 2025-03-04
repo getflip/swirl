@@ -109,12 +109,9 @@ export class SwirlTable {
 
       this.sortable = new Sortable(this.bodyEl, {
         animation: 100,
-        chosenClass: "table-row--chosen",
         direction: "vertical",
-        dragClass: "table-row--drag",
         handle: this.dragDropHandle,
         fallbackOnBody: true,
-        ghostClass: "table-row--ghost",
         group: "swirl-table",
         onEnd: (event) => {
           event.stopPropagation();
