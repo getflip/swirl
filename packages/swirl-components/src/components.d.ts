@@ -63,6 +63,7 @@ import { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch
 import { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 import { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 import { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab, SwirlTabBarVariant } from "./components/swirl-tab-bar/swirl-tab-bar";
+import { SwirlTableDropRowEvent } from "./components/swirl-table/swirl-table";
 import { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 import { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1, SwirlTabBarVariant as SwirlTabBarVariant1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 import { SwirlTagIconPosition, SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
@@ -135,6 +136,7 @@ export { SwirlSwitchLabelPosition } from "./components/swirl-switch/swirl-switch
 export { SwirlSymbolSize } from "./components/swirl-symbol/swirl-symbol.types";
 export { SwirlTabPadding } from "./components/swirl-tab/swirl-tab";
 export { SwirlTabBarJustify, SwirlTabBarPadding, SwirlTabBarTab, SwirlTabBarVariant } from "./components/swirl-tab-bar/swirl-tab-bar";
+export { SwirlTableDropRowEvent } from "./components/swirl-table/swirl-table";
 export { SwirlTableColumnSort } from "./components/swirl-table-column/swirl-table-column";
 export { SwirlTabBarJustify as SwirlTabBarJustify1, SwirlTabBarPadding as SwirlTabBarPadding1, SwirlTabBarVariant as SwirlTabBarVariant1 } from "./components/swirl-tab-bar/swirl-tab-bar";
 export { SwirlTagIconPosition, SwirlTagIntent, SwirlTagSize, SwirlTagVariant } from "./components/swirl-tag/swirl-tag";
@@ -2211,7 +2213,10 @@ export namespace Components {
     }
     interface SwirlTable {
         "caption"?: string;
+        "dragDropHandle"?: string;
+        "dragDropInstructions": { end: string; initial: string; moved: string; start: string; };
         "emptyStateLabel"?: string;
+        "enableDragDrop"?: boolean;
         "label": string;
         /**
           * Force a re-render of the table
@@ -2641,6 +2646,10 @@ export interface SwirlSwitchCustomEvent<T> extends CustomEvent<T> {
 export interface SwirlTabBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlTabBarElement;
+}
+export interface SwirlTableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlTableElement;
 }
 export interface SwirlTabsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -5299,7 +5308,18 @@ declare global {
         prototype: HTMLSwirlTabBarElement;
         new (): HTMLSwirlTabBarElement;
     };
+    interface HTMLSwirlTableElementEventMap {
+        "dropRow": SwirlTableDropRowEvent;
+    }
     interface HTMLSwirlTableElement extends Components.SwirlTable, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlTableElementEventMap>(type: K, listener: (this: HTMLSwirlTableElement, ev: SwirlTableCustomEvent<HTMLSwirlTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlTableElementEventMap>(type: K, listener: (this: HTMLSwirlTableElement, ev: SwirlTableCustomEvent<HTMLSwirlTableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLSwirlTableElement: {
         prototype: HTMLSwirlTableElement;
@@ -7877,8 +7897,12 @@ declare namespace LocalJSX {
     }
     interface SwirlTable {
         "caption"?: string;
+        "dragDropHandle"?: string;
+        "dragDropInstructions"?: { end: string; initial: string; moved: string; start: string; };
         "emptyStateLabel"?: string;
+        "enableDragDrop"?: boolean;
         "label": string;
+        "onDropRow"?: (event: SwirlTableCustomEvent<SwirlTableDropRowEvent>) => void;
     }
     interface SwirlTableCell {
     }

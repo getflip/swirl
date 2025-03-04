@@ -13,6 +13,7 @@ export {
   SwirlAutocompleteSuggestion,
   SwirlAutocompleteValue,
 } from "./components/swirl-autocomplete/swirl-autocomplete";
+export { SwirlTableDropRowEvent } from "./components/swirl-table/swirl-table";
 export {
   SwirlOSTheme,
   SwirlOSThemeChangeEventData,
