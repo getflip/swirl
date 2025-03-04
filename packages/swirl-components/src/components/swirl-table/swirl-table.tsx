@@ -65,7 +65,6 @@ export class SwirlTable {
 
   private bodyEl: HTMLElement;
   private container: HTMLElement;
-  private dragDropCancelTimeout: NodeJS.Timeout;
   private dragDropContainer: HTMLElement;
   private intersectionObserver: IntersectionObserver;
   private movingViaKeyboard: boolean;
@@ -623,6 +622,10 @@ export class SwirlTable {
       rowCount: this.dragDropContainer.children.length,
     });
 
+    this.focusDragHandleOfRow(row);
+  }
+
+  private focusDragHandleOfRow(row: HTMLElement) {
     const handle = querySelectorAllDeep(row, this.dragDropHandle)?.[0];
 
     if (handle.tagName === "BUTTON") {
@@ -643,6 +646,15 @@ export class SwirlTable {
   };
 
   private onFocus = (event: FocusEvent) => {
+    if (this.movingViaKeyboard) {
+      const movingRow =
+        this.el.querySelector<HTMLElement>(".table-row--moving");
+
+      if (movingRow) {
+        this.focusDragHandleOfRow(movingRow);
+      }
+    }
+
     const focusedDragHandle = !!(event.target as HTMLElement)?.closest(
       this.dragDropHandle
     );
