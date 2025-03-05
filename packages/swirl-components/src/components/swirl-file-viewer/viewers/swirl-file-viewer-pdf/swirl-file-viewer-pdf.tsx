@@ -349,7 +349,7 @@ export class SwirlFileViewerPdf {
         const firstMostVisiblePage = visiblePagesVisibleHeight.reduce(
           (previous, current) =>
             current.visibleHeight > previous.visibleHeight ? current : previous,
-          undefined
+          visiblePagesVisibleHeight[0]
         );
 
         currentPage = firstMostVisiblePage.pageNumber;
@@ -447,9 +447,6 @@ export class SwirlFileViewerPdf {
     win.focus();
 
     await new Promise((resolve) => setTimeout(resolve, 100));
-
-    // var wnd = window.open("about:blank", "", "_blank");
-    // wnd.document.write(html);
 
     win.print();
     iframe.remove();
