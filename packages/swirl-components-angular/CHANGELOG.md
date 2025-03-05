@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.300.1
+
+### Patch Changes
+
+- [#968](https://github.com/getflip/swirl/pull/968)
+  [`00445145`](https://github.com/getflip/swirl/commit/0044514588c3ca33149dec8f53415cd18b2daf87)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-file-viewer-pdf page
+  rendering
+
+- Updated dependencies
+  [[`00445145`](https://github.com/getflip/swirl/commit/0044514588c3ca33149dec8f53415cd18b2daf87)]:
+  - @getflip/swirl-components@0.300.1
+
 ## 0.300.0
 
 ### Minor Changes
