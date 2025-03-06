@@ -29,7 +29,7 @@ export class SwirlFileViewerImage {
 
   @Event() activate: EventEmitter<HTMLElement>;
 
-  private imageEl: HTMLImageElement;
+  private imageEl: HTMLImageElement | undefined;
   private panning: boolean;
   private panX: number = 0;
   private panY: number = 0;
@@ -43,6 +43,11 @@ export class SwirlFileViewerImage {
 
   componentDidLoad() {
     this.activate.emit(this.el);
+  }
+
+  disconnectedCallback() {
+    this.imageEl?.removeEventListener("load", this.onLoad);
+    this.imageEl?.removeEventListener("error", this.onError);
   }
 
   @Watch("file")
@@ -281,6 +286,18 @@ export class SwirlFileViewerImage {
     this.panning = false;
   };
 
+  private onImageElementUpdate = (el: HTMLImageElement) => {
+    this.imageEl?.removeEventListener("load", this.onLoad);
+    this.imageEl?.removeEventListener("error", this.onError);
+
+    this.imageEl = el;
+
+    if (this.imageEl) {
+      this.imageEl.addEventListener("load", this.onLoad);
+      this.imageEl.addEventListener("error", this.onError);
+    }
+  };
+
   render() {
     return (
       <Host
@@ -303,9 +320,7 @@ export class SwirlFileViewerImage {
         <img
           alt={this.description}
           class="file-viewer-image__image"
-          onError={this.onError}
-          onLoad={this.onLoad}
-          ref={(el) => (this.imageEl = el)}
+          ref={this.onImageElementUpdate}
           src={this.file}
         />
         {this.loading && (

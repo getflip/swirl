@@ -49,7 +49,7 @@ export class SwirlImageGridItem {
   @Event() imageLoad: EventEmitter<void>;
 
   private intersectionObserver: IntersectionObserver;
-  private img?: HTMLImageElement;
+  private img: HTMLImageElement | undefined;
 
   /**
    * Start Gif playback.
@@ -96,6 +96,8 @@ export class SwirlImageGridItem {
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
     this.computedSrc = "";
+    this.img?.removeEventListener("load", this.onLoad);
+    this.img?.removeEventListener("error", this.onError);
   }
 
   private setupIntersectionObserver() {
@@ -167,6 +169,18 @@ export class SwirlImageGridItem {
     });
   }
 
+  private onImageElementUpdate = (el: HTMLImageElement) => {
+    this.img?.removeEventListener("load", this.onLoad);
+    this.img?.removeEventListener("error", this.onError);
+
+    this.img = el;
+
+    if (this.img) {
+      this.img.addEventListener("load", this.onLoad);
+      this.img.addEventListener("error", this.onError);
+    }
+  };
+
   render() {
     const Tag = this.interactive ? "button" : "div";
 
@@ -204,9 +218,7 @@ export class SwirlImageGridItem {
               loading={
                 this.loading !== "intersecting" ? this.loading : undefined
               }
-              onError={this.onError}
-              onLoad={this.onLoad}
-              ref={(el) => (this.img = el)}
+              ref={this.onImageElementUpdate}
               src={this.computedSrc}
             />
           ) : (
