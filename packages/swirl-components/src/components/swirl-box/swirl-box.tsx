@@ -102,6 +102,10 @@ export class SwirlBox {
   };
 
   private updateScrollState() {
+    if (!this.el.isConnected) {
+      return;
+    }
+
     const newScrollState = {
       scrollable: this.el.scrollHeight > this.el.clientHeight,
       scrolledToTop: this.el.scrollTop === 0,
