@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.300.2
+
+### Patch Changes
+
+- [#970](https://github.com/getflip/swirl/pull/970)
+  [`4698229a`](https://github.com/getflip/swirl/commit/4698229a7de8e582b1860f6877d34808d539ef3c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Correctly unsubscribe from img
+  onLoad and onError events when unmounted
+
+- Updated dependencies
+  [[`4698229a`](https://github.com/getflip/swirl/commit/4698229a7de8e582b1860f6877d34808d539ef3c)]:
+  - @getflip/swirl-components@0.300.2
+
 ## 0.300.1
 
 ### Patch Changes
