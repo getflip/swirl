@@ -198,11 +198,15 @@
     color: var(--s-icon-default);
     @media (--from-desktop-without-touch) {
       display: flex;
-      margin-left: var(--s-space-4);
 
       &:hover {
         cursor: default;
       }
+    }
+
+    & .form-control__tooltip-container {
+      display: flex;
+      padding: var(--s-space-8);
     }
   }
 }
