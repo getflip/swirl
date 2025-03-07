@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.300.3
+
+### Patch Changes
+
+- [#972](https://github.com/getflip/swirl/pull/972)
+  [`a4bdc9dc`](https://github.com/getflip/swirl/commit/a4bdc9dcad1bb160640ab020397795ff35115c9e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a swirl-box issue causing
+  state updates after the component was disconnected from the DOM"
+
+* [#972](https://github.com/getflip/swirl/pull/972)
+  [`a4bdc9dc`](https://github.com/getflip/swirl/commit/a4bdc9dcad1bb160640ab020397795ff35115c9e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Correctly unsubscribe from img
+  onLoad and onError events when unmounted
+
 ## 0.300.2
 
 ### Patch Changes
