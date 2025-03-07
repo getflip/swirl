@@ -12,7 +12,6 @@
     & .carousel__previous-slide-button,
     & .carousel__next-slide-button {
       pointer-events: auto;
-      opacity: 1;
     }
   }
 
@@ -28,25 +27,33 @@
 
   &:before,
   &:after {
-    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
     width: var(--s-space-32);
     height: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    pointer-events: none;
+    content: "";
     transition: opacity 0.2s;
+    pointer-events: none;
     opacity: 0;
   }
 
   &:before {
     left: 0;
-    background: linear-gradient(90deg, var(--s-background-default) 0%, transparent 100%);
+    background: linear-gradient(
+      90deg,
+      var(--s-background-default) 0%,
+      transparent 100%
+    );
   }
 
   &:after {
     right: 0;
-    background: linear-gradient(270deg, var(--s-background-default) 0%, transparent 100%);
+    background: linear-gradient(
+      270deg,
+      var(--s-background-default) 0%,
+      transparent 100%
+    );
   }
 }
 
@@ -91,16 +98,9 @@
 .carousel__next-slide-button {
   position: absolute;
   z-index: 2;
-  top: calc(50% - var(--s-space-12));
-  visibility: hidden;
-  transition: opacity 0.2s;
+  top: 50%;
   transform: translateY(-50%) scale(0.72);
   pointer-events: none;
-  opacity: 0;
-
-  @media (--from-tablet) {
-    visibility: visible;
-  }
 }
 
 .carousel__previous-slide-button {
