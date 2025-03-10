@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.300.4
+
+### Patch Changes
+
+- [#974](https://github.com/getflip/swirl/pull/974)
+  [`698958b0`](https://github.com/getflip/swirl/commit/698958b0dedaf8dfd6973a10d3c34a9904e8a88e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add some minor style adjustments
+  for the swirl-carousel
+
 ## 0.300.3
 
 ### Patch Changes
