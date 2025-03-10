@@ -8,6 +8,16 @@
   & * {
     box-sizing: border-box;
   }
+
+  --swirl-resource-list-item-background-default: var(
+    --s-surface-overlay-default
+  );
+  --swirl-resource-list-item-background-hovered: var(
+    --s-surface-overlay-hovered
+  );
+  --swirl-resource-list-item-background-pressed: var(
+    --s-surface-overlay-pressed
+  );
 }
 
 .popover--active:not(.popover--closing) {

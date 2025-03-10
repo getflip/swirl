@@ -12,12 +12,31 @@ export class SwirlAppIcon {
 
   @State() imageAvailable: boolean | undefined;
 
+  private imgEl: HTMLImageElement | undefined;
+
+  disconnectedCallback() {
+    this.imgEl?.removeEventListener("load", this.setImageAvailable);
+    this.imgEl?.removeEventListener("error", this.setImageUnavailable);
+  }
+
   private setImageAvailable = () => {
     this.imageAvailable = true;
   };
 
   private setImageUnavailable = () => {
     this.imageAvailable = false;
+  };
+
+  private onImageElementUpdate = (el: HTMLImageElement) => {
+    this.imgEl?.removeEventListener("load", this.setImageAvailable);
+    this.imgEl?.removeEventListener("error", this.setImageUnavailable);
+
+    this.imgEl = el;
+
+    if (this.imgEl) {
+      this.imgEl.addEventListener("load", this.setImageAvailable);
+      this.imgEl.addEventListener("error", this.setImageUnavailable);
+    }
   };
 
   render() {
@@ -39,8 +58,7 @@ export class SwirlAppIcon {
             <img
               alt=""
               height="256"
-              onError={this.setImageUnavailable}
-              onLoad={this.setImageAvailable}
+              ref={this.onImageElementUpdate}
               src={this.src}
               width="256"
             />

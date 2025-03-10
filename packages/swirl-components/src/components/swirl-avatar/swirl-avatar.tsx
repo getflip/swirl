@@ -78,11 +78,12 @@ export class SwirlAvatar {
   @State() loaded = false;
   @State() imageAvailable: boolean | undefined;
   @State() inViewport = false;
-  @State() componentLoaded = false;
 
   @Event() imageError: EventEmitter<void>;
   @Event() imageLoad: EventEmitter<void>;
 
+  private componentLoaded = false;
+  private imgEl: HTMLImageElement | undefined;
   private intersectionObserver: IntersectionObserver;
 
   componentDidLoad() {
@@ -98,6 +99,8 @@ export class SwirlAvatar {
 
   disconnectedCallback() {
     this.intersectionObserver?.disconnect();
+    this.imgEl?.removeEventListener("load", this.setImageAvailable);
+    this.imgEl?.removeEventListener("error", this.setImageUnavailable);
   }
 
   @Watch("src")
@@ -123,6 +126,18 @@ export class SwirlAvatar {
   private onVisibilityChange(entries: IntersectionObserverEntry[]) {
     this.inViewport = entries.some((entry) => entry.isIntersecting);
   }
+
+  private onImageElementUpdate = (el: HTMLImageElement) => {
+    this.imgEl?.removeEventListener("load", this.setImageAvailable);
+    this.imgEl?.removeEventListener("error", this.setImageUnavailable);
+
+    this.imgEl = el;
+
+    if (this.imgEl) {
+      this.imgEl.addEventListener("load", this.setImageAvailable);
+      this.imgEl.addEventListener("error", this.setImageUnavailable);
+    }
+  };
 
   private setImageAvailable = () => {
     this.imageAvailable = true;
@@ -214,8 +229,7 @@ export class SwirlAvatar {
                 loading={
                   this.loading !== "intersecting" ? this.loading : undefined
                 }
-                onError={this.setImageUnavailable}
-                onLoad={this.setImageAvailable}
+                ref={this.onImageElementUpdate}
                 src={this.src}
                 width={swirlAvatarSizeMappings[this.size]}
               />

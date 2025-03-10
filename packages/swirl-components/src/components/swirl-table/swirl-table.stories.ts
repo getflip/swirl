@@ -2,6 +2,12 @@ import { generateStoryElement } from "../../utils";
 import Docs from "./swirl-table.mdx";
 
 export default {
+  argTypes: {
+    dragDropHandle: {
+      description:
+        'CSS selector for the drag handle. Needs to be set when "enableDragDrop" is true. The handle should be a button.',
+    },
+  },
   component: "swirl-table",
   tags: ["autodocs"],
   parameters: {
@@ -13,7 +19,10 @@ export default {
 };
 
 const Template = (args) => {
-  const element = generateStoryElement("swirl-table", args);
+  const element = generateStoryElement(
+    "swirl-table",
+    args
+  ) as HTMLSwirlTableElement;
 
   element.innerHTML = `
     <div slot="columns">
@@ -22,6 +31,7 @@ const Template = (args) => {
         </swirl-checkbox><swirl-visually-hidden>Select</swirl-visually-hidden>
       </swirl-table-column>
       <swirl-table-column min-width="160px" sticky>User</swirl-table-column>
+      <swirl-table-column>Drag</swirl-table-column>
       <swirl-table-column min-width="120px">User ID</swirl-table-column>
       <swirl-table-column min-width="200px" sortable sort="descending">Email</swirl-table-column>
       <swirl-table-column>Location</swirl-table-column>
@@ -31,13 +41,15 @@ const Template = (args) => {
       <swirl-table-column sticky width="74px"><swirl-visually-hidden>Tools</swirl-visually-hidden></swirl-table-column>
     </div>
     <div slot="rows">
-    <swirl-table-row-group label="Active users">
-      <swirl-table-row>
+      <swirl-table-row id="1">
         <swirl-table-cell>
           <swirl-checkbox swirl-aria-label="Select Isabel Lakin" input-id="select-1" input-name="select-1">
         </swirl-table-cell>
         <swirl-table-cell>
           <swirl-text size="sm" weight="medium">Isabel Lakin</swirl-text>
+        </swirl-table-cell>
+        <swirl-table-cell>
+          <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
         </swirl-table-cell>
         <swirl-table-cell>
           <swirl-text size="sm" truncate>1234567890</swirl-text>
@@ -63,14 +75,15 @@ const Template = (args) => {
           </swirl-tooltip>
         </swirl-table-cell>
       </swirl-table-row>
-      </swirl-table-row-group>
-      <swirl-table-row-group label="Pending users">
-        <swirl-table-row>
+        <swirl-table-row id="2">
           <swirl-table-cell>
             <swirl-checkbox swirl-aria-label="Select Doyle Stoltenberg" input-id="select-2" input-name="select-2">
           </swirl-table-cell>
           <swirl-table-cell>
             <swirl-text size="sm" weight="medium">Doyle Stoltenberg</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
           </swirl-table-cell>
           <swirl-table-cell>
             <swirl-text size="sm" truncate>0987654321</swirl-text>
@@ -94,12 +107,15 @@ const Template = (args) => {
             <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
           </swirl-table-cell>
         </swirl-table-row>
-        <swirl-table-row highlighted>
+        <swirl-table-row highlighted id="3">
           <swirl-table-cell>
             <swirl-checkbox checked="true" swirl-aria-label="Select Don Conroy" input-id="select-3" input-name="select-3">
           </swirl-table-cell>
           <swirl-table-cell>
             <swirl-text size="sm" weight="medium">Don Conroy</swirl-text>
+          </swirl-table-cell>
+          <swirl-table-cell>
+            <swirl-button class="drag-handle" hide-label icon="<swirl-icon-drag-handle></swirl-icon-drag-handle>" label="Drag" variant="plain"></swirl-button>
           </swirl-table-cell>
           <swirl-table-cell>
             <swirl-text size="sm" truncate>5432167890</swirl-text>
@@ -123,9 +139,7 @@ const Template = (args) => {
             <swirl-button hide-label icon="<swirl-icon-more-vertikal></swirl-icon-more-vertikal>" label="Options"></swirl-button>
           </swirl-table-cell>
         </swirl-table-row>
-        
-      </swirl-table-row-group>
-    </div>
+      </div>
   `;
 
   return element;
@@ -135,5 +149,7 @@ export const SwirlTable = Template.bind({});
 
 SwirlTable.args = {
   caption: "A table displaying data.",
+  dragDropHandle: ".drag-handle",
+  enableDragDrop: true,
   label: "Table",
 };

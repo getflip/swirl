@@ -1,5 +1,105 @@
 # @getflip/swirl-components-angular
 
+## 0.301.0
+
+### Minor Changes
+
+- [#978](https://github.com/getflip/swirl/pull/978)
+  [`347ebb8f`](https://github.com/getflip/swirl/commit/347ebb8f7b67ae31e2c1b3e6d0bb3b3a273b941c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add padding props to
+  swirl-resource-list
+
+### Patch Changes
+
+- Updated dependencies
+  [[`347ebb8f`](https://github.com/getflip/swirl/commit/347ebb8f7b67ae31e2c1b3e6d0bb3b3a273b941c)]:
+  - @getflip/swirl-components@0.301.0
+
+## 0.300.5
+
+### Patch Changes
+
+- [#976](https://github.com/getflip/swirl/pull/976)
+  [`d1a46fad`](https://github.com/getflip/swirl/commit/d1a46fadc0e65d6db065b4f96804f40bedf66385)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update swirl-carousel scroll
+  status when slot changes
+
+- Updated dependencies
+  [[`d1a46fad`](https://github.com/getflip/swirl/commit/d1a46fadc0e65d6db065b4f96804f40bedf66385)]:
+  - @getflip/swirl-components@0.300.5
+
+## 0.300.4
+
+### Patch Changes
+
+- [#974](https://github.com/getflip/swirl/pull/974)
+  [`698958b0`](https://github.com/getflip/swirl/commit/698958b0dedaf8dfd6973a10d3c34a9904e8a88e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add some minor style adjustments
+  for the swirl-carousel
+
+- Updated dependencies
+  [[`698958b0`](https://github.com/getflip/swirl/commit/698958b0dedaf8dfd6973a10d3c34a9904e8a88e)]:
+  - @getflip/swirl-components@0.300.4
+
+## 0.300.3
+
+### Patch Changes
+
+- [#972](https://github.com/getflip/swirl/pull/972)
+  [`a4bdc9dc`](https://github.com/getflip/swirl/commit/a4bdc9dcad1bb160640ab020397795ff35115c9e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix a swirl-box issue causing
+  state updates after the component was disconnected from the DOM"
+
+* [#972](https://github.com/getflip/swirl/pull/972)
+  [`a4bdc9dc`](https://github.com/getflip/swirl/commit/a4bdc9dcad1bb160640ab020397795ff35115c9e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Correctly unsubscribe from img
+  onLoad and onError events when unmounted
+
+* Updated dependencies
+  [[`a4bdc9dc`](https://github.com/getflip/swirl/commit/a4bdc9dcad1bb160640ab020397795ff35115c9e),
+  [`a4bdc9dc`](https://github.com/getflip/swirl/commit/a4bdc9dcad1bb160640ab020397795ff35115c9e)]:
+  - @getflip/swirl-components@0.300.3
+
+## 0.300.2
+
+### Patch Changes
+
+- [#970](https://github.com/getflip/swirl/pull/970)
+  [`4698229a`](https://github.com/getflip/swirl/commit/4698229a7de8e582b1860f6877d34808d539ef3c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Correctly unsubscribe from img
+  onLoad and onError events when unmounted
+
+- Updated dependencies
+  [[`4698229a`](https://github.com/getflip/swirl/commit/4698229a7de8e582b1860f6877d34808d539ef3c)]:
+  - @getflip/swirl-components@0.300.2
+
+## 0.300.1
+
+### Patch Changes
+
+- [#968](https://github.com/getflip/swirl/pull/968)
+  [`00445145`](https://github.com/getflip/swirl/commit/0044514588c3ca33149dec8f53415cd18b2daf87)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-file-viewer-pdf page
+  rendering
+
+- Updated dependencies
+  [[`00445145`](https://github.com/getflip/swirl/commit/0044514588c3ca33149dec8f53415cd18b2daf87)]:
+  - @getflip/swirl-components@0.300.1
+
+## 0.300.0
+
+### Minor Changes
+
+- [#965](https://github.com/getflip/swirl/pull/965)
+  [`c38f59cb`](https://github.com/getflip/swirl/commit/c38f59cb6be085e5f107cadb28977dc7d1b9ea84)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add drag & drop to swirl-table
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c38f59cb`](https://github.com/getflip/swirl/commit/c38f59cb6be085e5f107cadb28977dc7d1b9ea84)]:
+  - @getflip/swirl-components@0.300.0
+
 ## 0.299.0
 
 ### Minor Changes
