@@ -10,8 +10,8 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { debounce } from "../../utils";
 import classnames from "classnames";
+import { debounce } from "../../utils";
 
 export type SwirlCarouselSpacing =
   | "0"
@@ -78,6 +78,10 @@ export class SwirlCarousel {
 
   componentDidLoad() {
     queueMicrotask(() => {
+      if (!this.el.isConnected) {
+        return;
+      }
+
       this.checkScrollStatus();
       this.checkScrollPosition();
     });
@@ -191,6 +195,9 @@ export class SwirlCarousel {
   private onSlotChange = () => {
     // restore scroll position to active slide when slides are removed or added after first render
     this.activeSlides[0]?.scrollIntoView({ block: "nearest", inline: "start" });
+
+    this.checkScrollStatus();
+    this.checkScrollPosition();
   };
 
   private onScroll = () => {
