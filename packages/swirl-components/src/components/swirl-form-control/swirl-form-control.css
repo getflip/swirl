@@ -107,10 +107,6 @@
         }
       }
     }
-
-    & .form-control__tooltip {
-      pointer-events: auto;
-    }
   }
 
   @media (--from-desktop-without-touch) {
@@ -191,6 +187,7 @@
   @media (--from-desktop-without-touch) {
     display: flex;
     align-items: center;
+    z-index: 10;
   }
 
   & .form-control__tooltip {
