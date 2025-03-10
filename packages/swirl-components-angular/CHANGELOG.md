@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.300.5
+
+### Patch Changes
+
+- [#976](https://github.com/getflip/swirl/pull/976)
+  [`d1a46fad`](https://github.com/getflip/swirl/commit/d1a46fadc0e65d6db065b4f96804f40bedf66385)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Update swirl-carousel scroll
+  status when slot changes
+
+- Updated dependencies
+  [[`d1a46fad`](https://github.com/getflip/swirl/commit/d1a46fadc0e65d6db065b4f96804f40bedf66385)]:
+  - @getflip/swirl-components@0.300.5
+
 ## 0.300.4
 
 ### Patch Changes
