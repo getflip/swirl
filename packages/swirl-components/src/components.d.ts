@@ -1890,6 +1890,7 @@ export namespace Components {
         "meta"?: string;
         "selectable"?: boolean;
         "swirlAriaLabel"?: string;
+        "unsetLabelMinHeight"?: boolean;
         "value"?: string;
     }
     interface SwirlResourceListSection {
@@ -7579,6 +7580,7 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: SwirlResourceListItemCustomEvent<boolean>) => void;
         "selectable"?: boolean;
         "swirlAriaLabel"?: string;
+        "unsetLabelMinHeight"?: boolean;
         "value"?: string;
     }
     interface SwirlResourceListSection {
