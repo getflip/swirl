@@ -32,15 +32,22 @@
     }
 
     & .form-control__label-text {
-      bottom: 50%;
       font-size: var(--s-font-size-base);
-      transform: translateY(50%);
       opacity: 1;
 
       @media (--from-desktop-without-touch) {
         font-size: var(--s-font-size-sm);
         line-height: var(--s-line-height-sm);
       }
+    }
+
+    &:not(.form-control--label-position-outside) .form-control__label-text {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      height: auto;
     }
 
     .form-control--font-size-sm {
@@ -72,15 +79,23 @@
     }
 
     & .form-control__label-text {
-      bottom: 50%;
       font-size: var(--s-font-size-base);
-      transform: translateY(50%);
       opacity: 1;
 
       @media (--from-desktop-without-touch) {
         font-size: var(--s-font-size-sm);
         line-height: var(--s-line-height-sm);
       }
+    }
+
+    &:not(.form-control--label-position-outside) .form-control__label-text {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      height: auto;
+      pointer-events: auto;
     }
 
     &.form-control--font-size-base {
@@ -166,23 +181,31 @@
   @media (--from-desktop-without-touch) {
     --swirl-text-input-placeholder-size: var(--s-font-size-sm);
   }
+}
 
-  & .form-control__label-text {
+.form-control__label-text {
+  @media (--from-desktop-without-touch) {
+    display: flex;
+    align-items: center;
+  }
+
+  & .form-control__tooltip {
+    display: none;
+    color: var(--s-icon-default);
     @media (--from-desktop-without-touch) {
       display: flex;
-      align-items: center;
-    }
+      position: relative;
+      padding: var(--s-space-4);
+      z-index: 10;
 
-    & .form-control__tooltip {
-      display: none;
-      color: var(--s-icon-default);
-      @media (--from-desktop-without-touch) {
-        display: flex;
-        margin-left: var(--s-space-4);
+      &:hover {
+        cursor: default;
+      }
 
-        &:hover {
-          cursor: default;
-        }
+      swirl-tooltip::after {
+        content: "";
+        position: absolute;
+        inset: calc(-1 * var(--s-space-4));
       }
     }
   }
