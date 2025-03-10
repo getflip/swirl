@@ -187,7 +187,6 @@
   @media (--from-desktop-without-touch) {
     display: flex;
     align-items: center;
-    z-index: 10;
   }
 
   & .form-control__tooltip {
@@ -195,21 +194,21 @@
     color: var(--s-icon-default);
     @media (--from-desktop-without-touch) {
       display: flex;
+      position: relative;
+      padding: var(--s-space-4);
+      z-index: 10;
 
       &:hover {
         cursor: default;
       }
-    }
 
-    & .form-control__tooltip-container {
-      display: flex;
-      padding: var(--s-space-8);
+      swirl-tooltip::after {
+        content: "";
+        position: absolute;
+        inset: calc(-1 * var(--s-space-4));
+      }
     }
   }
-}
-
-.form-control--disabled .form-control__label-text .form-control__tooltip {
-  color: var(--s-text-disabled);
 }
 
 .form-control--invalid {
