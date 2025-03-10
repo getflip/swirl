@@ -13,6 +13,8 @@ import Sortable, { SortableEvent } from "sortablejs";
 import { v4 as uuid } from "uuid";
 import { SwirlStackSpacing } from "../swirl-stack/swirl-stack";
 
+export type SwirlBoxPadding = "0" | "2" | "4" | "8" | "12" | "16";
+
 @Component({
   scoped: true,
   shadow: false,
@@ -29,6 +31,11 @@ export class SwirlResourceList {
   @Prop() assistiveTextItemMoved?: string = "Item moved. New position:";
   @Prop() controllingElement?: HTMLElement;
   @Prop() label?: string;
+  @Prop() padding?: SwirlBoxPadding;
+  @Prop() paddingBlockEnd?: SwirlBoxPadding;
+  @Prop() paddingBlockStart?: SwirlBoxPadding;
+  @Prop() paddingInlineEnd?: SwirlBoxPadding;
+  @Prop() paddingInlineStart?: SwirlBoxPadding;
   @Prop() spacing?: SwirlStackSpacing = "0";
 
   @State() assistiveText: string;
@@ -377,7 +384,12 @@ export class SwirlResourceList {
         <swirl-visually-hidden role="alert">
           {this.assistiveText}
         </swirl-visually-hidden>
-        <swirl-box paddingInlineEnd="8" paddingInlineStart="8">
+        <swirl-box
+          paddingBlockEnd={this.paddingBlockEnd ?? this.padding}
+          paddingBlockStart={this.paddingBlockStart ?? this.padding}
+          paddingInlineEnd={this.paddingInlineEnd ?? this.padding ?? "8"}
+          paddingInlineStart={this.paddingInlineStart ?? this.padding ?? "8"}
+        >
           <swirl-stack
             aria-label={this.label}
             class="resource-list"
