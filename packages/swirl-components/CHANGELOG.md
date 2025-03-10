@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.301.1
+
+### Patch Changes
+
+- [#967](https://github.com/getflip/swirl/pull/967)
+  [`1250d328`](https://github.com/getflip/swirl/commit/1250d328e4ffe2a3b4363f8f0fa29f55adcde3be)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Show
+  tooltip for label form controls that are positioned inside as well
+
 ## 0.301.0
 
 ### Minor Changes
