@@ -50,6 +50,7 @@ import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 import { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
+import { SwirlBoxPadding as SwirlBoxPadding1 } from "./components/swirl-resource-list/swirl-resource-list";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
@@ -123,6 +124,7 @@ export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 export { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
+export { SwirlBoxPadding as SwirlBoxPadding1 } from "./components/swirl-resource-list/swirl-resource-list";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
@@ -1849,6 +1851,11 @@ export namespace Components {
         "assistiveTextItemMoving"?: string;
         "controllingElement"?: HTMLElement;
         "label"?: string;
+        "padding"?: SwirlBoxPadding1;
+        "paddingBlockEnd"?: SwirlBoxPadding1;
+        "paddingBlockStart"?: SwirlBoxPadding1;
+        "paddingInlineEnd"?: SwirlBoxPadding1;
+        "paddingInlineStart"?: SwirlBoxPadding1;
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlResourceListFileItem {
@@ -7530,6 +7537,11 @@ declare namespace LocalJSX {
     oldIndex: number;
     newIndex: number;
   }>) => void;
+        "padding"?: SwirlBoxPadding1;
+        "paddingBlockEnd"?: SwirlBoxPadding1;
+        "paddingBlockStart"?: SwirlBoxPadding1;
+        "paddingInlineEnd"?: SwirlBoxPadding1;
+        "paddingInlineStart"?: SwirlBoxPadding1;
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlResourceListFileItem {
