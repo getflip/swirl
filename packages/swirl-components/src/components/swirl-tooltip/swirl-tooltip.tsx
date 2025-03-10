@@ -33,7 +33,7 @@ export class SwirlTooltip {
 
   @Prop() active = true;
   @Prop() content!: string;
-  @Prop() delay?: number = 300;
+  @Prop() delay?: number = 200;
   @Prop() position?: SwirlTooltipPosition = "top";
   @Prop() positioning?: Strategy = "absolute";
 
