@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.301.0
+
+### Minor Changes
+
+- [#978](https://github.com/getflip/swirl/pull/978)
+  [`347ebb8f`](https://github.com/getflip/swirl/commit/347ebb8f7b67ae31e2c1b3e6d0bb3b3a273b941c)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add padding props to
+  swirl-resource-list
+
+### Patch Changes
+
+- Updated dependencies
+  [[`347ebb8f`](https://github.com/getflip/swirl/commit/347ebb8f7b67ae31e2c1b3e6d0bb3b3a273b941c)]:
+  - @getflip/swirl-components@0.301.0
+
 ## 0.300.5
 
 ### Patch Changes
