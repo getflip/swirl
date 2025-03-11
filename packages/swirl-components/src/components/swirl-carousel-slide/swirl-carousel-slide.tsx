@@ -10,6 +10,7 @@ import classnames from "classnames";
   tag: "swirl-carousel-slide",
 })
 export class SwirlCarouselSlide {
+  @Prop() aspectRatio?: string;
   @Prop() label?: string;
   @Prop() minHeight?: string;
   @Prop() width?: string = "15.5rem";
@@ -25,7 +26,11 @@ export class SwirlCarouselSlide {
         aria-label={this.label}
         class={className}
         role="group"
-        style={{ flexBasis: this.width, minHeight: this.minHeight }}
+        style={{
+          aspectRatio: this.aspectRatio,
+          flexBasis: this.width,
+          minHeight: this.minHeight,
+        }}
         tabIndex={0}
       >
         <slot></slot>

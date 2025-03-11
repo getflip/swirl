@@ -443,6 +443,7 @@ export namespace Components {
      * slot - The slide contents
      */
     interface SwirlCarouselSlide {
+        "aspectRatio"?: string;
         "label"?: string;
         "minHeight"?: string;
         "width"?: string;
@@ -6235,6 +6236,7 @@ declare namespace LocalJSX {
      * slot - The slide contents
      */
     interface SwirlCarouselSlide {
+        "aspectRatio"?: string;
         "label"?: string;
         "minHeight"?: string;
         "width"?: string;
