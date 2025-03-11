@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.303.0
+
+### Minor Changes
+
+- [#982](https://github.com/getflip/swirl/pull/982)
+  [`684646c5`](https://github.com/getflip/swirl/commit/684646c5fecd804b513eb9a0ca9b01f4caf3b2af)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add aspect-ratio prop to
+  swirl-carousel-slide
+
 ## 0.302.0
 
 ### Minor Changes
