@@ -1883,6 +1883,7 @@ export namespace Components {
         "href"?: string;
         "interactive"?: boolean;
         "label": string;
+        "labelMinHeight"?: string;
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "labelWrap"?: boolean;
         "menuTriggerId"?: string;
@@ -7570,6 +7571,7 @@ declare namespace LocalJSX {
         "href"?: string;
         "interactive"?: boolean;
         "label": string;
+        "labelMinHeight"?: string;
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "labelWrap"?: boolean;
         "menuTriggerId"?: string;

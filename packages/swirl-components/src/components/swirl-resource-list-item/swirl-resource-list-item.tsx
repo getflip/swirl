@@ -51,6 +51,7 @@ export class SwirlResourceListItem {
   @Prop() label!: string;
   @Prop() labelWeight?: SwirlResourceListItemLabelWeight = "medium";
   @Prop() labelWrap?: boolean;
+  @Prop() labelMinHeight?: string;
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
@@ -206,14 +207,15 @@ export class SwirlResourceListItem {
     const ariaChecked = this.selectable ? String(this.checked) : undefined;
     const role = this.interactive && this.selectable ? "checkbox" : undefined;
 
-    const labelContainerStyles =
-      !showMeta && Boolean(this.controlContainer)
-        ? {
-            paddingRight: `calc(${
+    const labelContainerStyles = {
+      paddingRight:
+        !showMeta && Boolean(this.controlContainer)
+          ? `calc(${
               this.controlContainer?.getBoundingClientRect().width
-            }px + var(--s-space-16))`,
-          }
-        : undefined;
+            }px + var(--s-space-16))`
+          : undefined,
+      minHeight: this.labelMinHeight ?? undefined,
+    };
 
     const className = classnames(
       "resource-list-item",

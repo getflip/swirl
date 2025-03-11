@@ -16133,6 +16133,10 @@
           "description": ""
         },
         {
+          "name": "label-min-height",
+          "description": ""
+        },
+        {
           "name": "label-weight",
           "description": "",
           "values": [
