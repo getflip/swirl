@@ -1,5 +1,21 @@
 # @getflip/swirl-components-react
 
+## 0.302.0
+
+### Minor Changes
+
+- [#980](https://github.com/getflip/swirl/pull/980)
+  [`9b9fa1f4`](https://github.com/getflip/swirl/commit/9b9fa1f41b268874bcf0f4ac335ed085f3eee738)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add option to
+  set swirl-resource-list-item label min-height
+
+### Patch Changes
+
+- Updated dependencies
+  [[`1250d328`](https://github.com/getflip/swirl/commit/1250d328e4ffe2a3b4363f8f0fa29f55adcde3be),
+  [`9b9fa1f4`](https://github.com/getflip/swirl/commit/9b9fa1f41b268874bcf0f4ac335ed085f3eee738)]:
+  - @getflip/swirl-components@0.302.0
+
 ## 0.301.0
 
 ### Minor Changes
