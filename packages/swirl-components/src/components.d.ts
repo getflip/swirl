@@ -1883,6 +1883,7 @@ export namespace Components {
         "href"?: string;
         "interactive"?: boolean;
         "label": string;
+        "labelMinHeight"?: string;
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "labelWrap"?: boolean;
         "menuTriggerId"?: string;
@@ -1890,7 +1891,6 @@ export namespace Components {
         "meta"?: string;
         "selectable"?: boolean;
         "swirlAriaLabel"?: string;
-        "unsetLabelMinHeight"?: boolean;
         "value"?: string;
     }
     interface SwirlResourceListSection {
@@ -7571,6 +7571,7 @@ declare namespace LocalJSX {
         "href"?: string;
         "interactive"?: boolean;
         "label": string;
+        "labelMinHeight"?: string;
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "labelWrap"?: boolean;
         "menuTriggerId"?: string;
@@ -7580,7 +7581,6 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: SwirlResourceListItemCustomEvent<boolean>) => void;
         "selectable"?: boolean;
         "swirlAriaLabel"?: string;
-        "unsetLabelMinHeight"?: boolean;
         "value"?: string;
     }
     interface SwirlResourceListSection {

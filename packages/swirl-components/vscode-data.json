@@ -16133,6 +16133,10 @@
           "description": ""
         },
         {
+          "name": "label-min-height",
+          "description": ""
+        },
+        {
           "name": "label-weight",
           "description": "",
           "values": [
@@ -16172,10 +16176,6 @@
         },
         {
           "name": "swirl-aria-label",
-          "description": ""
-        },
-        {
-          "name": "unset-label-min-height",
           "description": ""
         },
         {

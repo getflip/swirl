@@ -51,7 +51,7 @@ export class SwirlResourceListItem {
   @Prop() label!: string;
   @Prop() labelWeight?: SwirlResourceListItemLabelWeight = "medium";
   @Prop() labelWrap?: boolean;
-  @Prop() unsetLabelMinHeight?: boolean;
+  @Prop() labelMinHeight?: string;
   @Prop() menuTriggerId?: string;
   @Prop() menuTriggerLabel?: string = "Options";
   @Prop() meta?: string;
@@ -214,7 +214,7 @@ export class SwirlResourceListItem {
               this.controlContainer?.getBoundingClientRect().width
             }px + var(--s-space-16))`
           : undefined,
-      minHeight: this.unsetLabelMinHeight ? "unset" : undefined,
+      minHeight: this.labelMinHeight ?? undefined,
     };
 
     const className = classnames(
