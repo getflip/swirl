@@ -1967,6 +1967,10 @@
       },
       "attributes": [
         {
+          "name": "aspect-ratio",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
