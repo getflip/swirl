@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": minor
 ---
 
-Add option to unset swirl-resource-list-item label min-height
+Add option to set swirl-resource-list-item label min-height
