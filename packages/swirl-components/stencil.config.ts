@@ -111,6 +111,7 @@ export const config: Config = {
   ],
   extras: {
     enableImportInjection: true,
+    experimentalSlotFixes: true,
   },
   plugins: [
     postcss({
