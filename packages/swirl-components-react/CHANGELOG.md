@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.304.0
+
+### Minor Changes
+
+- [#984](https://github.com/getflip/swirl/pull/984)
+  [`c0565ff5`](https://github.com/getflip/swirl/commit/c0565ff54deddc5fcb81a4851361ce3e224a840e)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Integrate experimental slot fixes
+  (https://stenciljs.com/docs/config-extras#experimentalslotfixes)
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c0565ff5`](https://github.com/getflip/swirl/commit/c0565ff54deddc5fcb81a4851361ce3e224a840e)]:
+  - @getflip/swirl-components@0.304.0
+
 ## 0.303.0
 
 ### Minor Changes
