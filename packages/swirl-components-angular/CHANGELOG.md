@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.305.0
+
+### Minor Changes
+
+- [#986](https://github.com/getflip/swirl/pull/986)
+  [`b88f941f`](https://github.com/getflip/swirl/commit/b88f941f74fe95367c68d5a2cca5e8726f26545c)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  picture-in-picture icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b88f941f`](https://github.com/getflip/swirl/commit/b88f941f74fe95367c68d5a2cca5e8726f26545c)]:
+  - @getflip/swirl-components@0.305.0
+
 ## 0.304.0
 
 ### Minor Changes

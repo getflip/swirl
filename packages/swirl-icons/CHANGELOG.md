@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.54.0
+
+### Minor Changes
+
+- [#986](https://github.com/getflip/swirl/pull/986)
+  [`b88f941f`](https://github.com/getflip/swirl/commit/b88f941f74fe95367c68d5a2cca5e8726f26545c)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  picture-in-picture icon
+
 ## 0.53.0
 
 ### Minor Changes
