@@ -103,10 +103,12 @@ export class SwirlCarousel {
   }
 
   private scrollToElement(element: HTMLElement) {
-    this.slidesContainer.scroll({
-      left: element.offsetLeft,
-      behavior: "smooth",
-    });
+    if (this.slidesContainer && element.offsetLeft) {
+      this.slidesContainer?.scroll({
+        left: element.offsetLeft,
+        behavior: "smooth",
+      });
+    }
   }
 
   private previousSlide() {
@@ -202,10 +204,7 @@ export class SwirlCarousel {
   private onSlotChange = () => {
     // restore scroll position to active slide when slides are removed or added after first render
     if (this.activeSlides.length) {
-      this.slidesContainer.scroll({
-        left: this.activeSlides[0].offsetLeft,
-        behavior: "smooth",
-      });
+      this.scrollToElement(this.activeSlides[0]);
     }
 
     this.checkScrollStatus();

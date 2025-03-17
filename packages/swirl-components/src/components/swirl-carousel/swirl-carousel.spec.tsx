@@ -37,9 +37,8 @@ describe("swirl-carousel", () => {
     });
 
     const spy = jest.fn();
-    const slide = page.root.querySelector("#3");
 
-    slide.scrollIntoView = spy;
+    page.rootInstance.scrollToElement = spy;
 
     page.rootInstance.scrollToSlide("3");
 
@@ -88,7 +87,7 @@ describe("swirl-carousel", () => {
     const slide = page.root.querySelector("#3");
     const slot = page.root.shadowRoot.querySelector("slot");
 
-    slide.scrollIntoView = spy;
+    page.rootInstance.scrollToElement = spy;
     page.rootInstance.activeSlides = [slide];
 
     slot.dispatchEvent(new Event("slotchange"));
