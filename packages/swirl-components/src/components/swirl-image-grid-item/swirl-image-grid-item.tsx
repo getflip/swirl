@@ -222,7 +222,9 @@ export class SwirlImageGridItem {
               src={this.computedSrc}
             />
           ) : (
-            <div class="image-grid-item__loading-placeholder"></div>
+            <div class="image-grid-item__loading-placeholder">
+              <swirl-visually-hidden>{this.alt}</swirl-visually-hidden>
+            </div>
           )}
 
           {this.showGifControls && (
