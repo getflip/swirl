@@ -115,7 +115,8 @@ export class SwirlImageGridItem {
   private handleIntersectionEntries = debounce(
     (entries: IntersectionObserverEntry[]) => {
       const sorted = [...entries].sort((a, b) => a.time - b.time);
-      this.inViewport = sorted.at(-1).isIntersecting;
+      console.log(sorted);
+      // this.inViewport = sorted.at(-1).isIntersecting;
     },
     250
   );
@@ -222,7 +223,9 @@ export class SwirlImageGridItem {
               src={this.computedSrc}
             />
           ) : (
-            <div class="image-grid-item__loading-placeholder"></div>
+            <div class="image-grid-item__loading-placeholder">
+              <swirl-visually-hidden>{this.alt}</swirl-visually-hidden>
+            </div>
           )}
 
           {this.showGifControls && (
