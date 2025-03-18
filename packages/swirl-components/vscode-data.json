@@ -2653,11 +2653,19 @@
           "description": ""
         },
         {
+          "name": "description-allow-html",
+          "description": ""
+        },
+        {
           "name": "disabled",
           "description": ""
         },
         {
           "name": "drag-drop-label",
+          "description": ""
+        },
+        {
+          "name": "hide-label",
           "description": ""
         },
         {

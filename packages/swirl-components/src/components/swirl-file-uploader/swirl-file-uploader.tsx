@@ -27,8 +27,10 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
   @Prop() accept?: string;
   @Prop() ctaLabel?: string = "Click to upload";
   @Prop() description?: string;
+  @Prop() descriptionAllowHtml?: boolean = false;
   @Prop() disabled?: boolean;
   @Prop() dragDropLabel?: string = "or drag and drop.";
+  @Prop() hideLabel?: boolean = false;
   @Prop() inputId!: string;
   @Prop() inputName!: string;
   @Prop() label!: string;
@@ -75,20 +77,29 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
     return (
       <Host>
         <div class={className}>
-          <label
-            class="file-uploader__label"
-            htmlFor={this.inputId}
-            id={`${this.inputId}-label`}
-          >
-            {this.label}
-          </label>
+          {this.hideLabel ? (
+            <swirl-visually-hidden>
+              <label htmlFor={this.inputId}>{this.label}</label>
+            </swirl-visually-hidden>
+          ) : (
+            <label
+              class="file-uploader__label"
+              htmlFor={this.inputId}
+              id={`${this.inputId}-label`}
+            >
+              {this.label}
+            </label>
+          )}
 
           {this.description && (
             <span
               class="file-uploader__description"
               id={`${this.inputId}-description`}
+              innerHTML={
+                this.descriptionAllowHtml ? this.description : undefined
+              }
             >
-              {this.description}
+              {!this.descriptionAllowHtml && this.description}
             </span>
           )}
 
