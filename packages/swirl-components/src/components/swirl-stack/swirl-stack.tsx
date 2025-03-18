@@ -42,12 +42,18 @@ export class SwirlStack {
   @Prop() height?: string;
   @Prop() justify?: SwirlStackJustify = "start";
   @Prop() orientation?: SwirlStackOrientation = "vertical";
+  @Prop() columnSpacing?: SwirlStackSpacing;
+  @Prop() rowSpacing?: SwirlStackSpacing;
   @Prop() spacing?: SwirlStackSpacing = "0";
   @Prop() wrap?: boolean = false;
 
   render() {
     const Tag = this.as;
-
+    const styles = {
+      columnGap: `var(--s-space-${this.columnSpacing || this.spacing})`,
+      rowGap: `var(--s-space-${this.rowSpacing || this.spacing})`,
+      height: this.height,
+    };
     const className = classnames(
       "stack",
       `stack--align-${this.align}`,
@@ -58,10 +64,7 @@ export class SwirlStack {
 
     return (
       <Host style={{ height: this.height }}>
-        <Tag
-          class={className}
-          style={{ gap: `var(--s-space-${this.spacing})`, height: this.height }}
-        >
+        <Tag class={className} style={styles}>
           <slot></slot>
         </Tag>
       </Host>
