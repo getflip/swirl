@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.306.0
+
+### Minor Changes
+
+- [#990](https://github.com/getflip/swirl/pull/990)
+  [`58c4a94f`](https://github.com/getflip/swirl/commit/58c4a94fcd2e33f5d56651255463b1b2364dc4c1)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Fix carousel
+  slide scrolling
+
+### Patch Changes
+
+- [#988](https://github.com/getflip/swirl/pull/988)
+  [`4b3236a0`](https://github.com/getflip/swirl/commit/4b3236a03a248f5bcbf7b76229bf87847e84c58d)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make sure interactive
+  swirl-image-grid-item has a label while loading
+
+- Updated dependencies
+  [[`58c4a94f`](https://github.com/getflip/swirl/commit/58c4a94fcd2e33f5d56651255463b1b2364dc4c1),
+  [`4b3236a0`](https://github.com/getflip/swirl/commit/4b3236a03a248f5bcbf7b76229bf87847e84c58d)]:
+  - @getflip/swirl-components@0.306.0
+
 ## 0.305.0
 
 ### Minor Changes
