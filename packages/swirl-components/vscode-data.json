@@ -16834,6 +16834,45 @@
           "description": ""
         },
         {
+          "name": "column-spacing",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "40"
+            },
+            {
+              "name": "48"
+            },
+            {
+              "name": "64"
+            },
+            {
+              "name": "8"
+            }
+          ]
+        },
+        {
           "name": "height",
           "description": ""
         },
@@ -16879,6 +16918,45 @@
             },
             {
               "name": "vertical-reverse"
+            }
+          ]
+        },
+        {
+          "name": "row-spacing",
+          "description": "",
+          "values": [
+            {
+              "name": "0"
+            },
+            {
+              "name": "12"
+            },
+            {
+              "name": "16"
+            },
+            {
+              "name": "2"
+            },
+            {
+              "name": "24"
+            },
+            {
+              "name": "32"
+            },
+            {
+              "name": "4"
+            },
+            {
+              "name": "40"
+            },
+            {
+              "name": "48"
+            },
+            {
+              "name": "64"
+            },
+            {
+              "name": "8"
             }
           ]
         },

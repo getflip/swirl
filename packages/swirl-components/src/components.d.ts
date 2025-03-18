@@ -2002,9 +2002,11 @@ export namespace Components {
     interface SwirlStack {
         "align"?: SwirlStackAlign;
         "as"?: string;
+        "columnSpacing"?: SwirlStackSpacing1;
         "height"?: string;
         "justify"?: SwirlStackJustify;
         "orientation"?: SwirlStackOrientation;
+        "rowSpacing"?: SwirlStackSpacing1;
         "spacing"?: SwirlStackSpacing1;
         "wrap"?: boolean;
     }
@@ -7706,9 +7708,11 @@ declare namespace LocalJSX {
     interface SwirlStack {
         "align"?: SwirlStackAlign;
         "as"?: string;
+        "columnSpacing"?: SwirlStackSpacing1;
         "height"?: string;
         "justify"?: SwirlStackJustify;
         "orientation"?: SwirlStackOrientation;
+        "rowSpacing"?: SwirlStackSpacing1;
         "spacing"?: SwirlStackSpacing1;
         "wrap"?: boolean;
     }
