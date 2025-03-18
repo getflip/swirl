@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.307.0
+
+### Minor Changes
+
+- [#993](https://github.com/getflip/swirl/pull/993)
+  [`ec68c1f7`](https://github.com/getflip/swirl/commit/ec68c1f7dedb6deb12c72248e5b6fba30c82e29e)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add
+  columnSpacing and rowSpacing props to swirl-stack
+
+* [#992](https://github.com/getflip/swirl/pull/992)
+  [`c2093f6a`](https://github.com/getflip/swirl/commit/c2093f6a36716dd7760e8f34ee929ee9fc2e11df)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add hidelabel
+  and allowhtml props to file uploader
+
 ## 0.306.0
 
 ### Minor Changes
