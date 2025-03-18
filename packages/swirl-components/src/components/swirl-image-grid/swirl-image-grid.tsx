@@ -35,19 +35,18 @@ export class SwirlImageGrid {
   caculateAspectRatio = () => {
     if (this.aspectRatio) {
       return this.aspectRatio;
-    } else {
-      switch (this.items.length) {
-        case 1:
-          return "1";
-        case 2:
-          return "2/1";
-        case 3:
-          return "3/2";
-        case 4:
-          return "1";
-        default:
-          return "1";
-      }
+    }
+    switch (this.items.length) {
+      case 1:
+        return "1";
+      case 2:
+        return "2/1";
+      case 3:
+        return "3/2";
+      case 4:
+        return "1";
+      default:
+        return "1";
     }
   };
 
