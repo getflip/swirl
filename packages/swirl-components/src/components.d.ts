@@ -608,8 +608,10 @@ export namespace Components {
         "accept"?: string;
         "ctaLabel"?: string;
         "description"?: string;
+        "descriptionAllowHtml"?: boolean;
         "disabled"?: boolean;
         "dragDropLabel"?: string;
+        "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
         "label": string;
@@ -6407,8 +6409,10 @@ declare namespace LocalJSX {
         "accept"?: string;
         "ctaLabel"?: string;
         "description"?: string;
+        "descriptionAllowHtml"?: boolean;
         "disabled"?: boolean;
         "dragDropLabel"?: string;
+        "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
         "label": string;
