@@ -99,17 +99,26 @@ export class SwirlCarousel {
       return;
     }
 
-    slide.scrollIntoView({ block: "nearest", inline: "start" });
+    this.scrollToElement(slide);
+  }
+
+  private scrollToElement(element: HTMLElement) {
+    if (this.slidesContainer && element.offsetLeft) {
+      this.slidesContainer?.scroll({
+        left: element.offsetLeft,
+        behavior: "smooth",
+      });
+    }
   }
 
   private previousSlide() {
     const slides = this.getSlides();
     const activeSlides = this.getActiveSlides();
-    const previouSlide =
+    const previousSlide =
       activeSlides[0].previousElementSibling ||
       (this.loopAround ? slides[slides.length - 1] : activeSlides[0]);
 
-    previouSlide?.scrollIntoView({ block: "nearest", inline: "start" });
+    this.scrollToElement(previousSlide as HTMLElement);
   }
 
   private nextSlide() {
@@ -124,7 +133,7 @@ export class SwirlCarousel {
         ? slides[0]
         : activeSlides[0].nextElementSibling;
 
-    nextSlide?.scrollIntoView({ block: "nearest", inline: "start" });
+    this.scrollToElement(nextSlide as HTMLElement);
   }
 
   private getSlides() {
@@ -194,7 +203,9 @@ export class SwirlCarousel {
 
   private onSlotChange = () => {
     // restore scroll position to active slide when slides are removed or added after first render
-    this.activeSlides[0]?.scrollIntoView({ block: "nearest", inline: "start" });
+    if (this.activeSlides.length) {
+      this.scrollToElement(this.activeSlides[0]);
+    }
 
     this.checkScrollStatus();
     this.checkScrollPosition();
