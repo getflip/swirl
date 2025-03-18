@@ -91,21 +91,17 @@ export class SwirlFileUploader implements SwirlFormInput<FileList> {
             </label>
           )}
 
-          {this.description &&
-            (this.descriptionAllowHtml ? (
-              <span
-                class="file-uploader__description"
-                id={`${this.inputId}-description`}
-                innerHTML={this.description}
-              ></span>
-            ) : (
-              <span
-                class="file-uploader__description"
-                id={`${this.inputId}-description`}
-              >
-                {this.description}
-              </span>
-            ))}
+          {this.description && (
+            <span
+              class="file-uploader__description"
+              id={`${this.inputId}-description`}
+              innerHTML={
+                this.descriptionAllowHtml ? this.description : undefined
+              }
+            >
+              {!this.descriptionAllowHtml && this.description}
+            </span>
+          )}
 
           <div class="file-uploader__dropzone">
             {this.showDropzone ? (
