@@ -9,7 +9,7 @@ import classnames from "classnames";
 export class SwirlImageGrid {
   @Element() el: HTMLSwirlImageGridElement;
 
-  @Prop() aspectRatio?: string = "1/1";
+  @Prop() aspectRatio?: string;
   @Prop() label?: string;
 
   @State() items: HTMLSwirlImageGridItemElement[] = [];
