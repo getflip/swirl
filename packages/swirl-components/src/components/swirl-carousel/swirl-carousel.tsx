@@ -103,7 +103,7 @@ export class SwirlCarousel {
   }
 
   private scrollToElement(element: HTMLElement) {
-    if (this.slidesContainer && element.offsetLeft) {
+    if (this.slidesContainer && element) {
       this.slidesContainer?.scroll({
         left: element.offsetLeft,
         behavior: "smooth",
