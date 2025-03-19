@@ -1504,6 +1504,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconViewAgenda {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconVisibility {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -4465,6 +4469,12 @@ declare global {
         prototype: HTMLSwirlIconVideoPlayerElement;
         new (): HTMLSwirlIconVideoPlayerElement;
     };
+    interface HTMLSwirlIconViewAgendaElement extends Components.SwirlIconViewAgenda, HTMLStencilElement {
+    }
+    var HTMLSwirlIconViewAgendaElement: {
+        prototype: HTMLSwirlIconViewAgendaElement;
+        new (): HTMLSwirlIconViewAgendaElement;
+    };
     interface HTMLSwirlIconVisibilityElement extends Components.SwirlIconVisibility, HTMLStencilElement {
     }
     var HTMLSwirlIconVisibilityElement: {
@@ -5865,6 +5875,7 @@ declare global {
         "swirl-icon-video-camera-off": HTMLSwirlIconVideoCameraOffElement;
         "swirl-icon-video-library": HTMLSwirlIconVideoLibraryElement;
         "swirl-icon-video-player": HTMLSwirlIconVideoPlayerElement;
+        "swirl-icon-view-agenda": HTMLSwirlIconViewAgendaElement;
         "swirl-icon-visibility": HTMLSwirlIconVisibilityElement;
         "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
         "swirl-icon-voice": HTMLSwirlIconVoiceElement;
@@ -7277,6 +7288,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconViewAgenda {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconVisibility {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -8406,6 +8421,7 @@ declare namespace LocalJSX {
         "swirl-icon-video-camera-off": SwirlIconVideoCameraOff;
         "swirl-icon-video-library": SwirlIconVideoLibrary;
         "swirl-icon-video-player": SwirlIconVideoPlayer;
+        "swirl-icon-view-agenda": SwirlIconViewAgenda;
         "swirl-icon-visibility": SwirlIconVisibility;
         "swirl-icon-visibility-off": SwirlIconVisibilityOff;
         "swirl-icon-voice": SwirlIconVoice;
@@ -8787,6 +8803,7 @@ declare module "@stencil/core" {
             "swirl-icon-video-camera-off": LocalJSX.SwirlIconVideoCameraOff & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraOffElement>;
             "swirl-icon-video-library": LocalJSX.SwirlIconVideoLibrary & JSXBase.HTMLAttributes<HTMLSwirlIconVideoLibraryElement>;
             "swirl-icon-video-player": LocalJSX.SwirlIconVideoPlayer & JSXBase.HTMLAttributes<HTMLSwirlIconVideoPlayerElement>;
+            "swirl-icon-view-agenda": LocalJSX.SwirlIconViewAgenda & JSXBase.HTMLAttributes<HTMLSwirlIconViewAgendaElement>;
             "swirl-icon-visibility": LocalJSX.SwirlIconVisibility & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityElement>;
             "swirl-icon-visibility-off": LocalJSX.SwirlIconVisibilityOff & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
             "swirl-icon-voice": LocalJSX.SwirlIconVoice & JSXBase.HTMLAttributes<HTMLSwirlIconVoiceElement>;

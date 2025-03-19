@@ -195,11 +195,12 @@ class SwirlIcons {
   static const IconData video_camera_off = IconData(0xec2f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData video_library = IconData(0xec32, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData video_player = IconData(0xec35, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData visibility = IconData(0xec38, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData visibility_off = IconData(0xec3b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData voice = IconData(0xec3e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData warning = IconData(0xec41, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData web_asset = IconData(0xec44, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData web_asset_off = IconData(0xec47, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData work = IconData(0xec4a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData view_agenda = IconData(0xec38, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData visibility = IconData(0xec3b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData visibility_off = IconData(0xec3e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData voice = IconData(0xec41, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData warning = IconData(0xec44, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData web_asset = IconData(0xec47, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData web_asset_off = IconData(0xec4a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData work = IconData(0xec4d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
