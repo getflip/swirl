@@ -16,9 +16,9 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-toggle-group", args);
 
   element.innerHTML = `
-    <swirl-toggle-button identifier="1" label="Toggle #1" ></swirl-toggle-button>
-    <swirl-toggle-button identifier="2" label="Toggle #2" ></swirl-toggle-button>
-    <swirl-toggle-button identifier="3" label="Toggle #3" ></swirl-toggle-button>
+    <swirl-toggle-button identifier="1" label="Toggle #1" icon="add"></swirl-toggle-button>
+    <swirl-toggle-button identifier="2" label="Toggle #2"></swirl-toggle-button>
+    <swirl-toggle-button identifier="3" label="Toggle #3" icon="voice"></swirl-toggle-button>
   `;
 
   return element;

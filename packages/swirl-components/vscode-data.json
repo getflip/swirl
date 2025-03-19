@@ -19061,6 +19061,10 @@
       },
       "attributes": [
         {
+          "name": "icon",
+          "description": ""
+        },
+        {
           "name": "identifier",
           "description": ""
         },

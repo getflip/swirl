@@ -8,6 +8,7 @@
 
 .button {
   display: inline-flex;
+  gap: 6px;
   width: 100%;
   padding: var(--s-space-8) var(--s-space-16);
   justify-content: center;

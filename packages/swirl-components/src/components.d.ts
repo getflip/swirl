@@ -2418,6 +2418,7 @@ export namespace Components {
         "toast": (newToast: SwirlToastConfig) => Promise<SwirlToastMessage>;
     }
     interface SwirlToggleButton {
+        "icon"?: string;
         "identifier": string;
         "isPressed": boolean;
         "label": string;
@@ -8092,6 +8093,7 @@ declare namespace LocalJSX {
         "globalDuration"?: number;
     }
     interface SwirlToggleButton {
+        "icon"?: string;
         "identifier": string;
         "isPressed"?: boolean;
         "label": string;
