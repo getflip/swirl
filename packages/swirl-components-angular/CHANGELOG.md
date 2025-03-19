@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.308.0
+
+### Minor Changes
+
+- [`5b95338f`](https://github.com/getflip/swirl/commit/5b95338fcd1fd466f9d5f360c9e5d4ba60db7733) -
+  Fix swirl-carousel undefined check
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5b95338f`](https://github.com/getflip/swirl/commit/5b95338fcd1fd466f9d5f360c9e5d4ba60db7733)]:
+  - @getflip/swirl-components@0.308.0
+
 ## 0.307.0
 
 ### Minor Changes
