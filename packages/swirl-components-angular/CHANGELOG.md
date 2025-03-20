@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.309.0
+
+### Minor Changes
+
+- [#996](https://github.com/getflip/swirl/pull/996)
+  [`f4dba8ca`](https://github.com/getflip/swirl/commit/f4dba8ca8b858e962a1f46d5a414c5297ed13fe5)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add border-radius prop to
+  swirl-image-grid
+
+### Patch Changes
+
+- Updated dependencies
+  [[`f4dba8ca`](https://github.com/getflip/swirl/commit/f4dba8ca8b858e962a1f46d5a414c5297ed13fe5)]:
+  - @getflip/swirl-components@0.309.0
+
 ## 0.308.0
 
 ### Minor Changes
