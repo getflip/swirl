@@ -14588,6 +14588,10 @@
           "description": ""
         },
         {
+          "name": "border-radius",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         }

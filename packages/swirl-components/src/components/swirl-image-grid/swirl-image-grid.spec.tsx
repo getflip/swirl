@@ -17,7 +17,7 @@ describe("swirl-image-grid", () => {
     expect(page.root).toEqualHtml(`
       <swirl-image-grid aspect-ratio="4 / 3">
         <mock:shadow-root>
-          <div class="image-grid image-grid--item-count-1" role="list" style="aspect-ratio: 4 / 3;">
+          <div class="image-grid image-grid--item-count-1" role="list" style="aspect-ratio: 4 / 3; border-radius: var(--s-border-radius-sm);">
             <slot></slot>
           </div>
         </mock:shadow-root>

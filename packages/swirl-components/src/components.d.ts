@@ -36,6 +36,7 @@ import { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadin
 import { SwirlIconColor } from "./components/swirl-icon/swirl-icon";
 import { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 import { SwirlIconColor as SwirlIconColor1 } from "./components/swirl-icon/swirl-icon";
+import { SwirlImageGridBorderRadius } from "./components/swirl-image-grid/swirl-image-grid";
 import { SwirlImageGridItemLoading } from "./components/swirl-image-grid-item/swirl-image-grid-item";
 import { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 import { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
@@ -110,6 +111,7 @@ export { SwirlHeadingAlign, SwirlHeadingLevel as SwirlHeadingLevel1, SwirlHeadin
 export { SwirlIconColor } from "./components/swirl-icon/swirl-icon";
 export { SwirlIconSize } from "./components/swirl-icon/swirl-icon.types";
 export { SwirlIconColor as SwirlIconColor1 } from "./components/swirl-icon/swirl-icon";
+export { SwirlImageGridBorderRadius } from "./components/swirl-image-grid/swirl-image-grid";
 export { SwirlImageGridItemLoading } from "./components/swirl-image-grid-item/swirl-image-grid-item";
 export { SwirlInlineErrorSize } from "./components/swirl-inline-error/swirl-inline-error";
 export { SwirlInlineNotificationAriaRole, SwirlInlineNotificationIntent } from "./components/swirl-inline-notification/swirl-inline-notification";
@@ -1534,6 +1536,7 @@ export namespace Components {
     }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
+        "borderRadius"?: SwirlImageGridBorderRadius;
         "label"?: string;
     }
     interface SwirlImageGridItem {
@@ -7306,6 +7309,7 @@ declare namespace LocalJSX {
     }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
+        "borderRadius"?: SwirlImageGridBorderRadius;
         "label"?: string;
     }
     interface SwirlImageGridItem {

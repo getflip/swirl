@@ -176,8 +176,6 @@ button.card,
   gap: var(--s-space-16);
 }
 
-.card__header {
-}
-
 .card__content {
+  min-height: 100%;
 }

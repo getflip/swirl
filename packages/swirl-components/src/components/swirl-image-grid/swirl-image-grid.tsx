@@ -1,6 +1,18 @@
 import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 import classnames from "classnames";
 
+const swirlImageGridBorderRadiusTokens = [
+  "xs",
+  "sm",
+  "base",
+  "l",
+  "xl",
+] as const;
+
+export type SwirlImageGridBorderRadius =
+  | (typeof swirlImageGridBorderRadiusTokens)[number]
+  | string;
+
 @Component({
   shadow: true,
   styleUrl: "swirl-image-grid.css",
@@ -10,6 +22,7 @@ export class SwirlImageGrid {
   @Element() el: HTMLSwirlImageGridElement;
 
   @Prop() aspectRatio?: string;
+  @Prop() borderRadius?: SwirlImageGridBorderRadius = "sm";
   @Prop() label?: string;
 
   @State() items: HTMLSwirlImageGridItemElement[] = [];
@@ -58,13 +71,22 @@ export class SwirlImageGrid {
 
     const aspectRatio = this.caculateAspectRatio();
 
+    const styles = {
+      aspectRatio: aspectRatio,
+      borderRadius: swirlImageGridBorderRadiusTokens.includes(
+        this.borderRadius as (typeof swirlImageGridBorderRadiusTokens)[number]
+      )
+        ? `var(--s-border-radius-${this.borderRadius})`
+        : this.borderRadius,
+    };
+
     return (
       <Host>
         <div
           aria-label={this.label}
           class={className}
           role="list"
-          style={{ aspectRatio: aspectRatio }}
+          style={styles}
         >
           <slot onSlotchange={this.updateItems}></slot>
         </div>
