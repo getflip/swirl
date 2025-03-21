@@ -7,30 +7,5 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "html.customData": ["./packages/swirl-components/vscode-data.json"],
-  "conventionalCommits.scopes": [
-    "documentation",
-    "tokens",
-    "api"
-  ],
-  "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#90b647",
-    "activityBar.background": "#90b647",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#e8f1f6",
-    "activityBarBadge.foreground": "#15202b",
-    "commandCenter.border": "#e7e7e799",
-    "sash.hoverBorder": "#90b647",
-    "statusBar.background": "#739139",
-    "statusBar.foreground": "#e7e7e7",
-    "statusBarItem.hoverBackground": "#90b647",
-    "statusBarItem.remoteBackground": "#739139",
-    "statusBarItem.remoteForeground": "#e7e7e7",
-    "tab.activeBorder": "#90b647",
-    "titleBar.activeBackground": "#739139",
-    "titleBar.activeForeground": "#e7e7e7",
-    "titleBar.inactiveBackground": "#73913999",
-    "titleBar.inactiveForeground": "#e7e7e799"
-  },
-  "peacock.color": "#739139"
+  "conventionalCommits.scopes": ["documentation", "tokens", "api"]
 }
