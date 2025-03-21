@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.55.0
+
+### Minor Changes
+
+- [#1000](https://github.com/getflip/swirl/pull/1000)
+  [`101322e2`](https://github.com/getflip/swirl/commit/101322e20b3456013bcbe64198b96e5ecb5412ae)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add ViewAgenda
+  icon
+
 ## 0.54.0
 
 ### Minor Changes
