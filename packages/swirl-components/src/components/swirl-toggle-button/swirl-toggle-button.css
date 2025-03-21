@@ -43,6 +43,7 @@
   &.button--pressed {
     background-color: var(--s-surface-default);
     color: var(--s-text-highlight);
+    box-shadow: var(--s-shadow-level-1);
 
     .button__icon {
       color: var(--s-icon-highlight);
