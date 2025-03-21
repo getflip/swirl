@@ -1,5 +1,26 @@
 # @getflip/swirl-components-angular
 
+## 0.310.0
+
+### Minor Changes
+
+- [#1000](https://github.com/getflip/swirl/pull/1000)
+  [`101322e2`](https://github.com/getflip/swirl/commit/101322e20b3456013bcbe64198b96e5ecb5412ae)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Improve the
+  swirl-toggle-group and swirl-toggle-button components
+
+* [#1000](https://github.com/getflip/swirl/pull/1000)
+  [`101322e2`](https://github.com/getflip/swirl/commit/101322e20b3456013bcbe64198b96e5ecb5412ae)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add ViewAgenda
+  icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`101322e2`](https://github.com/getflip/swirl/commit/101322e20b3456013bcbe64198b96e5ecb5412ae),
+  [`101322e2`](https://github.com/getflip/swirl/commit/101322e20b3456013bcbe64198b96e5ecb5412ae)]:
+  - @getflip/swirl-components@0.310.0
+
 ## 0.309.1
 
 ### Patch Changes
