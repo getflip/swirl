@@ -22,7 +22,7 @@ describe("swirl-toggle-group", () => {
     expect(page.root).toEqualHtml(`
       <swirl-toggle-group selected-toggle-id=\"toggle-2\">
         <mock:shadow-root>
-          <swirl-stack align=\"center\" class=\"toggle-group\" orientation=\"horizontal\" role=\"group\" spacing=\"4\">
+          <swirl-stack align=\"center\" class=\"toggle-group toggle-group--variant-flat\" orientation=\"horizontal\" role=\"group\" spacing=\"4\">
             <slot></slot>
           </swirl-stack>
         </mock:shadow-root>
