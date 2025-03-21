@@ -23,5 +23,5 @@ export const SwirlToggleButton = Template.bind({});
 SwirlToggleButton.args = {
   label: "Label",
   identifier: "identifier",
-  icon: "add",
+  icon: "mention",
 };

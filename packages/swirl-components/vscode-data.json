@@ -19146,6 +19146,18 @@
         {
           "name": "selected-toggle-id",
           "description": ""
+        },
+        {
+          "name": "variant",
+          "description": "",
+          "values": [
+            {
+              "name": "flat"
+            },
+            {
+              "name": "outline"
+            }
+          ]
         }
       ]
     },

@@ -28,7 +28,9 @@ export class SwirlToggleButton {
         aria-pressed={this.isPressed ? "true" : "false"}
         onClick={this.onClick}
       >
-        {this.icon && <swirl-icon glyph={this.icon} size={20}></swirl-icon>}
+        {this.icon && (
+          <swirl-icon class="button__icon" glyph={this.icon}></swirl-icon>
+        )}
         <span class="button__label">{this.label}</span>
       </button>
     );
