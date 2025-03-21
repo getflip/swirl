@@ -11,7 +11,8 @@
   "exports": {
     ".": {
       "import": "./dist/swirl-components-react.js",
-      "require": "./dist/swirl-components-react.umd.cjs"
+      "require": "./dist/swirl-components-react.umd.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "scripts": {
