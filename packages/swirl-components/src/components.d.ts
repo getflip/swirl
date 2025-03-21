@@ -75,6 +75,7 @@ import { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } f
 import { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 import { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
+import { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 import { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
@@ -150,6 +151,7 @@ export { SwirlOSTheme, SwirlOSThemeChangeEventData, SwirlThemeProviderConfig } f
 export { SwirlThumbnailFormat, SwirlThumbnailSize } from "./components/swirl-thumbnail/swirl-thumbnail";
 export { SwirlToastIntent } from "./components/swirl-toast/swirl-toast";
 export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-provider/swirl-toast-provider";
+export { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
 export { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
@@ -1506,6 +1508,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconViewAgenda {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconVisibility {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -2421,12 +2427,14 @@ export namespace Components {
         "toast": (newToast: SwirlToastConfig) => Promise<SwirlToastMessage>;
     }
     interface SwirlToggleButton {
+        "icon"?: string;
         "identifier": string;
         "isPressed": boolean;
         "label": string;
     }
     interface SwirlToggleGroup {
         "selectedToggleId": string;
+        "variant"?: SwirlToggleGroupVariant;
     }
     interface SwirlToolbar {
         "label": string;
@@ -4467,6 +4475,12 @@ declare global {
         prototype: HTMLSwirlIconVideoPlayerElement;
         new (): HTMLSwirlIconVideoPlayerElement;
     };
+    interface HTMLSwirlIconViewAgendaElement extends Components.SwirlIconViewAgenda, HTMLStencilElement {
+    }
+    var HTMLSwirlIconViewAgendaElement: {
+        prototype: HTMLSwirlIconViewAgendaElement;
+        new (): HTMLSwirlIconViewAgendaElement;
+    };
     interface HTMLSwirlIconVisibilityElement extends Components.SwirlIconVisibility, HTMLStencilElement {
     }
     var HTMLSwirlIconVisibilityElement: {
@@ -5867,6 +5881,7 @@ declare global {
         "swirl-icon-video-camera-off": HTMLSwirlIconVideoCameraOffElement;
         "swirl-icon-video-library": HTMLSwirlIconVideoLibraryElement;
         "swirl-icon-video-player": HTMLSwirlIconVideoPlayerElement;
+        "swirl-icon-view-agenda": HTMLSwirlIconViewAgendaElement;
         "swirl-icon-visibility": HTMLSwirlIconVisibilityElement;
         "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
         "swirl-icon-voice": HTMLSwirlIconVoiceElement;
@@ -7279,6 +7294,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconViewAgenda {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconVisibility {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -8096,6 +8115,7 @@ declare namespace LocalJSX {
         "globalDuration"?: number;
     }
     interface SwirlToggleButton {
+        "icon"?: string;
         "identifier": string;
         "isPressed"?: boolean;
         "label": string;
@@ -8103,6 +8123,7 @@ declare namespace LocalJSX {
     interface SwirlToggleGroup {
         "onSelectedToggleChange"?: (event: SwirlToggleGroupCustomEvent<string>) => void;
         "selectedToggleId": string;
+        "variant"?: SwirlToggleGroupVariant;
     }
     interface SwirlToolbar {
         "label"?: string;
@@ -8408,6 +8429,7 @@ declare namespace LocalJSX {
         "swirl-icon-video-camera-off": SwirlIconVideoCameraOff;
         "swirl-icon-video-library": SwirlIconVideoLibrary;
         "swirl-icon-video-player": SwirlIconVideoPlayer;
+        "swirl-icon-view-agenda": SwirlIconViewAgenda;
         "swirl-icon-visibility": SwirlIconVisibility;
         "swirl-icon-visibility-off": SwirlIconVisibilityOff;
         "swirl-icon-voice": SwirlIconVoice;
@@ -8789,6 +8811,7 @@ declare module "@stencil/core" {
             "swirl-icon-video-camera-off": LocalJSX.SwirlIconVideoCameraOff & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraOffElement>;
             "swirl-icon-video-library": LocalJSX.SwirlIconVideoLibrary & JSXBase.HTMLAttributes<HTMLSwirlIconVideoLibraryElement>;
             "swirl-icon-video-player": LocalJSX.SwirlIconVideoPlayer & JSXBase.HTMLAttributes<HTMLSwirlIconVideoPlayerElement>;
+            "swirl-icon-view-agenda": LocalJSX.SwirlIconViewAgenda & JSXBase.HTMLAttributes<HTMLSwirlIconViewAgendaElement>;
             "swirl-icon-visibility": LocalJSX.SwirlIconVisibility & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityElement>;
             "swirl-icon-visibility-off": LocalJSX.SwirlIconVisibilityOff & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
             "swirl-icon-voice": LocalJSX.SwirlIconVoice & JSXBase.HTMLAttributes<HTMLSwirlIconVoiceElement>;

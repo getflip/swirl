@@ -9,6 +9,7 @@ import classnames from "classnames";
 export class SwirlToggleButton {
   @Prop() identifier!: string;
   @Prop() label!: string;
+  @Prop() icon?: string;
   @Prop({ mutable: true }) isPressed = false;
 
   private onClick = (): void => {
@@ -27,6 +28,9 @@ export class SwirlToggleButton {
         aria-pressed={this.isPressed ? "true" : "false"}
         onClick={this.onClick}
       >
+        {this.icon && (
+          <swirl-icon class="button__icon" glyph={this.icon}></swirl-icon>
+        )}
         <span class="button__label">{this.label}</span>
       </button>
     );

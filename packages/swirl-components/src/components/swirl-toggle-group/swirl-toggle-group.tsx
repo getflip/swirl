@@ -8,6 +8,9 @@ import {
   Prop,
   Watch,
 } from "@stencil/core";
+import classnames from "classnames";
+
+export type SwirlToggleGroupVariant = "flat" | "outline";
 
 @Component({
   shadow: true,
@@ -17,6 +20,7 @@ import {
 export class SwirlToggleGroup {
   @Element() el: HTMLElement;
 
+  @Prop() variant?: SwirlToggleGroupVariant = "flat";
   @Prop({ mutable: true }) selectedToggleId!: string;
 
   @Event() selectedToggleChange: EventEmitter<string>;
@@ -88,9 +92,14 @@ export class SwirlToggleGroup {
   }
 
   render() {
+    const className = classnames(
+      "toggle-group",
+      `toggle-group--variant-${this.variant}`
+    );
+
     return (
       <swirl-stack
-        class="toggle-group"
+        class={className}
         spacing="4"
         orientation="horizontal"
         align="center"

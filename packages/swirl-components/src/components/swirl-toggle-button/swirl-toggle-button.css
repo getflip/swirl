@@ -8,17 +8,15 @@
 
 .button {
   display: inline-flex;
+  gap: var(--s-space-8);
   width: 100%;
-  padding: var(--s-space-8) var(--s-space-16);
+  padding: 0.375rem var(--s-space-8);
   justify-content: center;
   align-items: center;
   border: none;
-  border-top-left-radius: var(--swirl-button-border-top-left-radius);
-  border-top-right-radius: var(--swirl-button-border-top-right-radius);
-  border-bottom-right-radius: var(--swirl-button-border-bottom-right-radius);
-  border-bottom-left-radius: var(--swirl-button-border-bottom-left-radius);
+  border-radius: 0.375rem;
   color: var(--s-text-default);
-  background-color: var(--swirl-ghost-button-background-default);
+  background-color: var(--s-surface-sunken-default);
   font: inherit;
   font-weight: var(--s-font-weight-medium);
   line-height: var(--s-line-height-lg);
@@ -26,11 +24,11 @@
   cursor: pointer;
 
   &:hover {
-    background-color: var(--swirl-ghost-button-background-hovered);
+    background-color: var(--s-surface-sunken-hovered);
   }
 
   &:active {
-    background-color: var(--swirl-ghost-button-background-pressed);
+    background-color: var(--s-surface-sunken-pressed);
   }
 
   &:focus:not(:focus-visible) {
@@ -43,21 +41,19 @@
   }
 
   &.button--pressed {
-    background-color: var(--swirl-flat-button-background-default);
+    background-color: var(--s-surface-default);
+    color: var(--s-text-highlight);
+    box-shadow: var(--s-shadow-level-1);
 
-    &:hover {
-      background-color: var(--swirl-flat-button-background-hovered);
-    }
-
-    &:active {
-      background-color: var(--swirl-flat-button-background-pressed);
+    .button__icon {
+      color: var(--s-icon-highlight);
     }
   }
 
   @media (--from-desktop-without-touch) {
-    padding: var(--s-space-8) var(--s-space-12);
     font-size: var(--s-font-size-sm);
     line-height: var(--s-line-height-sm);
+    gap: var(--s-space-4);
   }
 }
 
@@ -66,4 +62,15 @@
   max-width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.button__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--s-icon-default);
+
+  @media (--from-desktop-without-touch) {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 }
