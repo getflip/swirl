@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.309.1
+
+### Patch Changes
+
+- [#998](https://github.com/getflip/swirl/pull/998)
+  [`61c702d0`](https://github.com/getflip/swirl/commit/61c702d033062c1df03fd6567736b5c3824132de)
+  Thanks [@th1nkful](https://github.com/th1nkful)! - Add missing `types`
+  property in package.json exports
+
+- Updated dependencies
+  [[`61c702d0`](https://github.com/getflip/swirl/commit/61c702d033062c1df03fd6567736b5c3824132de)]:
+  - @getflip/swirl-components@0.309.1
+
 ## 0.309.0
 
 ### Minor Changes
