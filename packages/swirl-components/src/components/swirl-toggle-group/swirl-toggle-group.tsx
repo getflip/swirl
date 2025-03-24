@@ -21,6 +21,7 @@ export class SwirlToggleGroup {
   @Element() el: HTMLElement;
 
   @Prop() variant?: SwirlToggleGroupVariant = "flat";
+  @Prop() swirlAriaLabel?: string;
   @Prop({ mutable: true }) selectedToggleId!: string;
 
   @Event() selectedToggleChange: EventEmitter<string>;
@@ -100,6 +101,7 @@ export class SwirlToggleGroup {
     return (
       <swirl-stack
         class={className}
+        aria-label={this.swirlAriaLabel}
         spacing="4"
         orientation="horizontal"
         align="center"
