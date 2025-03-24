@@ -19152,6 +19152,10 @@
           "description": ""
         },
         {
+          "name": "swirl-aria-label",
+          "description": ""
+        },
+        {
           "name": "variant",
           "description": "",
           "values": [

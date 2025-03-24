@@ -2434,6 +2434,7 @@ export namespace Components {
     }
     interface SwirlToggleGroup {
         "selectedToggleId": string;
+        "swirlAriaLabel"?: string;
         "variant"?: SwirlToggleGroupVariant;
     }
     interface SwirlToolbar {
@@ -8123,6 +8124,7 @@ declare namespace LocalJSX {
     interface SwirlToggleGroup {
         "onSelectedToggleChange"?: (event: SwirlToggleGroupCustomEvent<string>) => void;
         "selectedToggleId": string;
+        "swirlAriaLabel"?: string;
         "variant"?: SwirlToggleGroupVariant;
     }
     interface SwirlToolbar {
