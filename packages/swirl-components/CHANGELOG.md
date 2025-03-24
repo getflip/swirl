@@ -1,5 +1,21 @@
 # @getflip/swirl-components
 
+## 0.311.0
+
+### Minor Changes
+
+- [#1004](https://github.com/getflip/swirl/pull/1004)
+  [`f91c1676`](https://github.com/getflip/swirl/commit/f91c1676b05e561e7c191d8ed921de573a43fc20)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add aria-label
+  prop to swirl-toggle-group
+
+### Patch Changes
+
+- [#1002](https://github.com/getflip/swirl/pull/1002)
+  [`580e4fdb`](https://github.com/getflip/swirl/commit/580e4fdbada50a2472b56752309e6e3aad1795ba)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix component clean up of
+  disconnected swirl-lightbox
+
 ## 0.310.0
 
 ### Minor Changes
