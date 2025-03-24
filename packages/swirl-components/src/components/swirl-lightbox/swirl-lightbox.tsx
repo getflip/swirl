@@ -43,6 +43,8 @@ export class SwirlLightbox {
   @State() isOpen = false;
   @State() slides: HTMLSwirlFileViewerElement[];
 
+  private activateSlideTimeout: NodeJS.Timeout;
+  private closingTimeout: NodeJS.Timeout;
   private containerObserver: MutationObserver;
   private dragging: boolean = false;
   private dragStartPosition: number;
@@ -68,6 +70,14 @@ export class SwirlLightbox {
     this.focusTrap?.deactivate();
     this.unlockBodyScroll();
     this.containerObserver?.disconnect();
+
+    if (this.activateSlideTimeout) {
+      clearTimeout(this.activateSlideTimeout);
+    }
+
+    if (this.closingTimeout) {
+      clearTimeout(this.closingTimeout);
+    }
   }
 
   @Watch("activeSlideIndex")
@@ -151,7 +161,12 @@ export class SwirlLightbox {
     this.focusTrap?.deactivate();
     this.unlockBodyScroll();
 
-    setTimeout(() => {
+    if (this.closingTimeout) {
+      clearTimeout(this.closingTimeout);
+      this.closingTimeout = undefined;
+    }
+
+    this.closingTimeout = setTimeout(() => {
       this.isOpen = false;
       this.resetImageZoom();
       this.stopAllMediaPlayers();
@@ -189,8 +204,13 @@ export class SwirlLightbox {
       }%, 0, 0)`;
     });
 
+    if (this.activateSlideTimeout) {
+      clearTimeout(this.activateSlideTimeout);
+      this.activateSlideTimeout = undefined;
+    }
+
     // wait for slide animation before deactivating the slide
-    setTimeout(() => {
+    this.activateSlideTimeout = setTimeout(() => {
       this.slides.forEach((slide, index) => {
         if (
           index !== this.activeSlideIndex &&
