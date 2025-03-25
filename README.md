@@ -1,6 +1,6 @@
 # Swirl
 
-> Flips’s design system to help us work together to build a great experience for
+> Flip’s design system to help us work together to build a great experience for
 > all of our customers.
 
 | Status | Owner          | Help                                                                                             |
