@@ -1,5 +1,19 @@
 # @getflip/swirl-components-angular
 
+## 0.313.0
+
+### Minor Changes
+
+- [#1008](https://github.com/getflip/swirl/pull/1008)
+  [`74b9c76a`](https://github.com/getflip/swirl/commit/74b9c76ac340ef1f22e0a5983024c931648037c9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add min-height prop to swirl-card
+
+### Patch Changes
+
+- Updated dependencies
+  [[`74b9c76a`](https://github.com/getflip/swirl/commit/74b9c76ac340ef1f22e0a5983024c931648037c9)]:
+  - @getflip/swirl-components@0.313.0
+
 ## 0.312.0
 
 ### Minor Changes
