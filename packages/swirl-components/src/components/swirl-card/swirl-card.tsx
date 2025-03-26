@@ -44,7 +44,9 @@ export type SwirlCardPadding =
   | "32";
 
 /**
- * @slot slot - The card contents
+ * @slot content - The card contents
+ * @slot image - Optional image or image grid
+ * @slot floating-controls - Optional controls displayed on hover in the top right corner
  */
 @Component({
   shadow: true,
@@ -107,6 +109,9 @@ export class SwirlCard {
   render() {
     const Tag = Boolean(this.href) ? "a" : this.as;
 
+    const hasFloatingControls = Boolean(
+      this.el.querySelector('[slot="floating-controls"]')
+    );
     const hasImage = Boolean(this.el.querySelector('[slot="image"]'));
 
     const styles = {
@@ -146,6 +151,7 @@ export class SwirlCard {
       {
         "card--elevated": this.elevated,
         "card--flashing": this.flashing,
+        "card--has-floating-controls": hasFloatingControls,
         "card--has-image": hasImage,
         "card--highlighted": this.highlighted,
         "card--interactive": this.interactive || this.href,
@@ -173,6 +179,9 @@ export class SwirlCard {
             style={{ aspectRatio: this.imageAspectRatio }}
           >
             <slot name="image"></slot>
+          </div>
+          <div class="card__floating-controls">
+            <slot name="floating-controls"></slot>
           </div>
           <div class="card__body" style={bodyStyles}>
             <div class="card__content">

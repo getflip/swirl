@@ -16,6 +16,9 @@ describe("swirl-card", () => {
             <div class="card__image">
               <slot name="image"></slot>
             </div>
+            <div class="card__floating-controls">
+              <slot name="floating-controls"></slot>
+            </div>
             <div class="card__body">
               <div class="card__content">
                 <slot name="content"></slot>
@@ -40,6 +43,9 @@ describe("swirl-card", () => {
           <a class="card card--elevation-level-3 card--intent-default card--interactive card--justify-content-start" href="#" rel="noreferrer" style="border-radius: var(--s-border-radius-base);" target="_blank">
             <div class="card__image">
               <slot name="image"></slot>
+            </div>
+            <div class="card__floating-controls">
+              <slot name="floating-controls"></slot>
             </div>
             <div class="card__body">
               <div class="card__content">
@@ -80,6 +86,9 @@ describe("swirl-card", () => {
           <div class="card card--elevation-level-3 card--intent-default card--justify-content-start" style="border-radius: var(--s-border-radius-base);">
             <div class="card__image">
               <slot name="image"></slot>
+            </div>
+            <div class="card__floating-controls">
+              <slot name="floating-controls"></slot>
             </div>
             <div class="card__body" style="padding: var(--s-space-16); padding-block-end: var(--s-space-4); padding-block-start: var(--s-space-2); padding-inline-end: var(--s-space-12); padding-inline-start: var(--s-space-8);">
               <div class="card__content">
