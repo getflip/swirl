@@ -1507,6 +1507,10 @@
           "description": ""
         },
         {
+          "name": "min-height",
+          "description": ""
+        },
+        {
           "name": "overflow",
           "description": "",
           "values": [
