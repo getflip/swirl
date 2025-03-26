@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.312.0
+
+### Minor Changes
+
+- [#1006](https://github.com/getflip/swirl/pull/1006)
+  [`aee3a076`](https://github.com/getflip/swirl/commit/aee3a076261bc1519a4d508ec12ade6ecea54d5f)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "floating-controls" slot to
+  swirl-card
+
 ## 0.311.0
 
 ### Minor Changes
