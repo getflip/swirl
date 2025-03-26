@@ -414,6 +414,7 @@ export namespace Components {
         "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
+        "minHeight"?: string;
         "overflow"?: SwirlCardOverflow;
         "padding"?: SwirlCardPadding;
         "paddingBlockEnd"?: SwirlCardPadding;
@@ -6239,6 +6240,7 @@ declare namespace LocalJSX {
         "isBorderless"?: boolean;
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
+        "minHeight"?: string;
         "onComponentLoad"?: (event: SwirlCardCustomEvent<void>) => void;
         "overflow"?: SwirlCardOverflow;
         "padding"?: SwirlCardPadding;

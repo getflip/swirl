@@ -70,6 +70,7 @@ export class SwirlCard {
   @Prop() interactive?: boolean;
   @Prop() justifyContent?: SwirlCardJustifyContent = "start";
   @Prop() linkTarget?: string;
+  @Prop() minHeight?: string;
   @Prop() overflow?: SwirlCardOverflow;
   @Prop() padding?: SwirlCardPadding;
   @Prop() paddingBlockEnd?: SwirlCardPadding;
@@ -121,6 +122,7 @@ export class SwirlCard {
         ? `var(--s-border-radius-${this.borderRadius})`
         : this.borderRadius,
       height: this.height,
+      minHeight: this.minHeight,
       overflow: this.overflow,
     };
 
