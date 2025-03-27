@@ -127,6 +127,7 @@ swirl-tree-view-item {
 
 .tree-view-item__drag-handle {
   display: inline-flex;
+  flex-shrink: 0;
   cursor: grab;
   opacity: 0;
 
