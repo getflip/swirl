@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.313.1
+
+### Patch Changes
+
+- [#1010](https://github.com/getflip/swirl/pull/1010)
+  [`3c6e2647`](https://github.com/getflip/swirl/commit/3c6e2647ad83eeb22333cc772b30c0100b6adae3)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent swirl-tree-view-item drag
+  handle from shrinking
+
+- Updated dependencies
+  [[`3c6e2647`](https://github.com/getflip/swirl/commit/3c6e2647ad83eeb22333cc772b30c0100b6adae3)]:
+  - @getflip/swirl-components@0.313.1
+
 ## 0.313.0
 
 ### Minor Changes
