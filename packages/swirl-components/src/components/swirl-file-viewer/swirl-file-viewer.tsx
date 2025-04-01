@@ -46,7 +46,9 @@ export class SwirlFileViewer {
   @Method()
   async download() {
     this.downloadStart.emit();
-    if (this.skipNativeDownload) return;
+    if (this.skipNativeDownload) {
+      return;
+    }
 
     const fileName = this.fileName || this.file.split("/").pop();
 
