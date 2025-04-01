@@ -647,6 +647,7 @@ export namespace Components {
           * Print the file. Applicable to PDFs only.
          */
         "print": () => Promise<void>;
+        "skipNativeDownload"?: boolean;
         "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;
@@ -3184,6 +3185,7 @@ declare global {
     interface HTMLSwirlFileViewerElementEventMap {
         "activate": HTMLElement;
         "visiblePagesChange": number[];
+        "downloadStart": void;
     }
     interface HTMLSwirlFileViewerElement extends Components.SwirlFileViewer, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlFileViewerElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerElement, ev: SwirlFileViewerCustomEvent<HTMLSwirlFileViewerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -6455,8 +6457,10 @@ declare namespace LocalJSX {
         "file": string;
         "fileName"?: string;
         "onActivate"?: (event: SwirlFileViewerCustomEvent<HTMLElement>) => void;
+        "onDownloadStart"?: (event: SwirlFileViewerCustomEvent<void>) => void;
         "onVisiblePagesChange"?: (event: SwirlFileViewerCustomEvent<number[]>) => void;
         "pdfWorkerSrc"?: string;
+        "skipNativeDownload"?: boolean;
         "thumbnailUrl"?: string;
         "type": string;
         "typeUnsupportedMessage"?: string;

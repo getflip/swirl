@@ -13,6 +13,11 @@ export default {
       control: { type: "text" },
       description: "Applicable to PDFs only.",
     },
+    skipNativeDownload: {
+      control: { type: "boolean" },
+      description:
+        "Use in conjuction with the `downloadStart` event to handle downloads manually.",
+    },
   },
   component: "swirl-file-viewer",
   tags: ["autodocs"],
