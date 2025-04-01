@@ -33,6 +33,7 @@ export type SwirlModalSpacing =
  * @slot header-tools - Used to display elements inside the sticky header, below the label
  * @slot custom-header - Optional custom header; should be used hidden label
  * @slot custom-footer - Optional custom footer; replaces the default footer with primary and secondary actions
+ * @slot sidebar-content - Sidebar content
  */
 @Component({
   shadow: false,
@@ -67,6 +68,8 @@ export class SwirlModal {
   @Prop() secondaryContentPaddingBlockStart?: SwirlModalSpacing;
   @Prop() secondaryContentPaddingInlineEnd?: SwirlModalSpacing;
   @Prop() secondaryContentPaddingInlineStart?: SwirlModalSpacing;
+  @Prop() sidebarLabel?: string;
+  @Prop() hideSidebarContent?: boolean;
 
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
@@ -83,6 +86,7 @@ export class SwirlModal {
   @State() scrollable = false;
   @State() scrolled = false;
   @State() scrolledDown = false;
+  @State() hasSidebarContent: boolean;
 
   private focusTrap: focusTrap.FocusTrap;
   private modalEl: HTMLElement;
@@ -105,6 +109,7 @@ export class SwirlModal {
       this.updateCustomHeaderStatus();
       this.updateHeaderToolsStatus();
       this.updateSecondaryContentStatus();
+      this.updateSidebarContentStatus();
     });
   }
 
@@ -214,6 +219,12 @@ export class SwirlModal {
     );
   }
 
+  private updateSidebarContentStatus() {
+    this.hasSidebarContent = Boolean(
+      this.el.querySelector('[slot="sidebar-content"]')
+    );
+  }
+
   private determineScrollStatus = () => {
     const scrolled = this.scrollContainer?.scrollTop > 0;
 
@@ -267,6 +278,8 @@ export class SwirlModal {
       "modal--scrolled": this.scrolled,
       "modal--scrolled-down": this.scrolledDown,
       "modal--hide-secondary-content-borders": this.hideSecondaryContentBorders,
+      "modal--has-sidebar-content":
+        this.hasSidebarContent && !this.hideSidebarContent,
     });
 
     return (
@@ -290,116 +303,136 @@ export class SwirlModal {
               maxWidth: this.maxWidth,
             }}
           >
-            <header class="modal__custom-header">
-              <slot name="custom-header"></slot>
-            </header>
-            {(!this.hideLabel || !this.hideCloseButton) && (
-              <header class="modal__header">
-                <div class="modal__header-bar">
-                  {!this.hideCloseButton && (
-                    <swirl-button
-                      class="modal__close-button"
-                      hideLabel
-                      icon={
-                        this.variant === "default"
-                          ? "<swirl-icon-close></swirl-icon-close>"
-                          : "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
-                      }
-                      label={this.closeButtonLabel}
-                      onClick={this.onCloseButtonClick}
-                    ></swirl-button>
-                  )}
-                  {!this.hideLabel && (
-                    <swirl-heading
-                      as="h2"
-                      class="modal__heading"
-                      level={3}
-                      text={this.label}
-                    ></swirl-heading>
-                  )}
-                </div>
+            <aside class="modal__sidebar">
+              {this.sidebarLabel && (
+                <header class="modal__sidebar-header">
+                  <swirl-heading
+                    as="h3"
+                    class="modal__sidebar-heading"
+                    level={4}
+                    text={this.sidebarLabel}
+                  ></swirl-heading>
+                </header>
+              )}
+              <div class="modal__sidebar-content">
+                <slot name="sidebar-content"></slot>
+              </div>
+            </aside>
+
+            <div class="modal__main-content">
+              <header class="modal__custom-header">
+                <slot name="custom-header"></slot>
               </header>
-            )}
-            <div
-              class="modal__content-container"
-              style={{
-                gap: this.contentGap
-                  ? `var(--s-space-${this.contentGap})`
-                  : undefined,
-              }}
-            >
+              {(!this.hideLabel || !this.hideCloseButton) && (
+                <header class="modal__header">
+                  <div class="modal__header-bar">
+                    {!this.hideCloseButton && (
+                      <swirl-button
+                        class="modal__close-button"
+                        hideLabel
+                        icon={
+                          this.variant === "default"
+                            ? "<swirl-icon-close></swirl-icon-close>"
+                            : "<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
+                        }
+                        label={this.closeButtonLabel}
+                        onClick={this.onCloseButtonClick}
+                      ></swirl-button>
+                    )}
+                    {!this.hideLabel && (
+                      <swirl-heading
+                        as="h2"
+                        class="modal__heading"
+                        level={3}
+                        text={this.label}
+                      ></swirl-heading>
+                    )}
+                  </div>
+                </header>
+              )}
               <div
-                class="modal__primary-content"
+                class="modal__content-container"
                 style={{
-                  maxWidth: this.primaryContentMaxWidth,
-                  flex: this.primaryContentFlex,
+                  gap: this.contentGap
+                    ? `var(--s-space-${this.contentGap})`
+                    : undefined,
                 }}
               >
-                <div class="modal__header-tools">
-                  <slot name="header-tools"></slot>
+                <div
+                  class="modal__primary-content"
+                  style={{
+                    maxWidth: this.primaryContentMaxWidth,
+                    flex: this.primaryContentFlex,
+                  }}
+                >
+                  <div class="modal__header-tools">
+                    <slot name="header-tools"></slot>
+                  </div>
+                  <div
+                    class="modal__content"
+                    onScroll={this.determineScrollStatus}
+                    ref={(el) => (this.scrollContainer = el)}
+                  >
+                    <slot></slot>
+                  </div>
                 </div>
                 <div
-                  class="modal__content"
-                  onScroll={this.determineScrollStatus}
-                  ref={(el) => (this.scrollContainer = el)}
+                  class="modal__secondary-content"
+                  style={{
+                    maxWidth: this.secondaryContentMaxWidth,
+                    flex: this.secondaryContentFlex,
+                    padding: Boolean(this.secondaryContentPadding)
+                      ? `var(--s-space-${this.secondaryContentPadding})`
+                      : undefined,
+                    paddingBlockEnd: Boolean(
+                      this.secondaryContentPaddingBlockEnd
+                    )
+                      ? `var(--s-space-${this.secondaryContentPaddingBlockEnd})`
+                      : undefined,
+                    paddingBlockStart: Boolean(
+                      this.secondaryContentPaddingBlockStart
+                    )
+                      ? `var(--s-space-${this.secondaryContentPaddingBlockStart})`
+                      : undefined,
+                    paddingInlineEnd: Boolean(
+                      this.secondaryContentPaddingInlineEnd
+                    )
+                      ? `var(--s-space-${this.secondaryContentPaddingInlineEnd})`
+                      : undefined,
+                    paddingInlineStart: Boolean(
+                      this.secondaryContentPaddingInlineStart
+                    )
+                      ? `var(--s-space-${this.secondaryContentPaddingInlineStart})`
+                      : undefined,
+                  }}
                 >
-                  <slot></slot>
+                  <slot name="secondary-content"></slot>
                 </div>
               </div>
-              <div
-                class="modal__secondary-content"
-                style={{
-                  maxWidth: this.secondaryContentMaxWidth,
-                  flex: this.secondaryContentFlex,
-                  padding: Boolean(this.secondaryContentPadding)
-                    ? `var(--s-space-${this.secondaryContentPadding})`
-                    : undefined,
-                  paddingBlockEnd: Boolean(this.secondaryContentPaddingBlockEnd)
-                    ? `var(--s-space-${this.secondaryContentPaddingBlockEnd})`
-                    : undefined,
-                  paddingBlockStart: Boolean(
-                    this.secondaryContentPaddingBlockStart
-                  )
-                    ? `var(--s-space-${this.secondaryContentPaddingBlockStart})`
-                    : undefined,
-                  paddingInlineEnd: Boolean(
-                    this.secondaryContentPaddingInlineEnd
-                  )
-                    ? `var(--s-space-${this.secondaryContentPaddingInlineEnd})`
-                    : undefined,
-                  paddingInlineStart: Boolean(
-                    this.secondaryContentPaddingInlineStart
-                  )
-                    ? `var(--s-space-${this.secondaryContentPaddingInlineStart})`
-                    : undefined,
-                }}
-              >
-                <slot name="secondary-content"></slot>
+              <div class="modal__custom-footer">
+                <slot name="custom-footer"></slot>
               </div>
+              {showControls && (
+                <footer class="modal__controls">
+                  <swirl-button-group wrap>
+                    {this.secondaryActionLabel && (
+                      <swirl-button
+                        label={this.secondaryActionLabel}
+                        onClick={this.onSecondaryAction}
+                      ></swirl-button>
+                    )}
+                    {this.primaryActionLabel && (
+                      <swirl-button
+                        intent="primary"
+                        label={this.primaryActionLabel}
+                        onClick={this.onPrimaryAction}
+                        variant="flat"
+                      ></swirl-button>
+                    )}
+                  </swirl-button-group>
+                </footer>
+              )}
             </div>
-            <div class="modal__custom-footer">
-              <slot name="custom-footer"></slot>
-            </div>
-            {showControls && (
-              <footer class="modal__controls">
-                <swirl-button-group wrap>
-                  {this.secondaryActionLabel && (
-                    <swirl-button
-                      label={this.secondaryActionLabel}
-                      onClick={this.onSecondaryAction}
-                    ></swirl-button>
-                  )}
-                  {this.primaryActionLabel && (
-                    <swirl-button
-                      intent="primary"
-                      label={this.primaryActionLabel}
-                      onClick={this.onPrimaryAction}
-                      variant="flat"
-                    ></swirl-button>
-                  )}
-                </swirl-button-group>
-              </footer>
-            )}
           </div>
         </section>
       </Host>

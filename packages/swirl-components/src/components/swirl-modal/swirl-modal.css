@@ -255,6 +255,61 @@
   }
 }
 
+.modal__main-content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.modal__sidebar {
+  display: none;
+}
+
+.modal--has-sidebar-content {
+  & .modal__body {
+    /* max-width: 112rem; */
+  }
+
+  & .modal__sidebar {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex-shrink: 0;
+    max-width: 25rem;
+    border-right: var(--s-border-width-default) solid var(--s-border-default);
+
+    & .modal__sidebar-header {
+      display: flex;
+      height: 3.5rem;
+      padding-top: var(--s-space-8);
+      padding-right: var(--s-space-16);
+      padding-bottom: var(--s-space-8);
+      padding-left: var(--s-space-16);
+      flex-shrink: 0;
+      align-items: center;
+      gap: var(--s-space-8);
+      border-bottom: var(--s-border-width-default) solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    & .modal__sidebar-content {
+      display: block;
+      padding-left: var(--s-space-24);
+      padding-right: var(--s-space-24);
+      padding-bottom: var(--s-space-16);
+      padding-top: var(--s-space-16);
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+  }
+
+  @media (--from-desktop) {
+    & .modal__primary-content {
+      flex-basis: calc(100% - 20rem);
+    }
+  }
+}
+
 .modal--scrolled {
   @media (--from-tablet) {
     &:not(.modal--has-header-tools) .modal__header {
@@ -267,6 +322,10 @@
 
     .modal__custom-header {
       border-bottom-color: var(--s-border-default);
+    }
+
+    .modal__sidebar-header {
+      border-bottom: var(--s-border-width-default) solid var(--s-border-default);
     }
   }
 }
@@ -289,11 +348,11 @@
   position: relative;
   z-index: var(--s-z-40);
   display: flex;
+  flex-direction: row;
   overflow: hidden;
   width: 100vw;
   height: var(--swirl-modal-view-height);
   background-color: var(--s-surface-overlay-default);
-  flex-direction: column;
 
   @media (--from-tablet) {
     width: 90vw;
@@ -386,6 +445,8 @@
 .modal__primary-content {
   display: flex;
   overflow: hidden;
+  overflow-y: auto;
+  flex-grow: 1;
   flex-basis: 100%;
   flex-direction: column;
 }
@@ -423,6 +484,7 @@
     padding-bottom: var(--s-space-16);
     padding-left: 0;
     flex-basis: 50%;
+    flex-grow: 1;
   }
 }
 

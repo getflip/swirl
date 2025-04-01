@@ -15111,6 +15111,10 @@
           "description": ""
         },
         {
+          "name": "hide-sidebar-content",
+          "description": ""
+        },
+        {
           "name": "label",
           "description": ""
         },
@@ -15318,6 +15322,10 @@
               "name": "8"
             }
           ]
+        },
+        {
+          "name": "sidebar-label",
+          "description": ""
         },
         {
           "name": "variant",
