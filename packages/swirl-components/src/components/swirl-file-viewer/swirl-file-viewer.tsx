@@ -32,9 +32,11 @@ export class SwirlFileViewer {
   @Prop() typeUnsupportedMessage?: string = "File type is not supported.";
   @Prop() viewMode?: SwirlFileViewerPdfViewMode = "single";
   @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
+  @Prop() skipNativeDownload?: boolean = false;
 
   @Event() activate: EventEmitter<HTMLElement>;
   @Event() visiblePagesChange: EventEmitter<number[]>;
+  @Event() downloadStart: EventEmitter<void>;
 
   private viewer: HTMLElement;
 
@@ -43,7 +45,13 @@ export class SwirlFileViewer {
    */
   @Method()
   async download() {
+    this.downloadStart.emit();
+    if (this.skipNativeDownload) {
+      return;
+    }
+
     const fileName = this.fileName || this.file.split("/").pop();
+
     const file = await fetch(this.file);
 
     saveAs(await file.blob(), fileName);

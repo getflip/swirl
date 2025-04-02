@@ -245,6 +245,28 @@ describe("swirl-file-viewer", () => {
     `);
   });
 
+  it("skips native file download and triggers startDownload event", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFileViewer],
+      html: `
+        <swirl-file-viewer
+          file="/sample.pdf"
+          type="application/pdf"
+          skip-native-download="true"
+        ></swirl-file-viewer>
+      `,
+    });
+
+    const downloadStartSpy = jest.fn();
+    page.root.addEventListener("downloadStart", downloadStartSpy);
+
+    await (page.root as HTMLSwirlFileViewerElement).download();
+    await page.waitForChanges();
+
+    expect(downloadStartSpy).toHaveBeenCalled();
+    expect(saveAsMock).not.toHaveBeenCalled();
+  });
+
   it("allows to download files", async () => {
     const res = new MockResponse("", {
       url: "/sample.pdf",
