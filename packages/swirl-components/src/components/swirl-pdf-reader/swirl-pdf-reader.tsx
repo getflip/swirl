@@ -52,7 +52,6 @@ export class SwirlPdfReader {
 
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
-  @Event() downloadStart: EventEmitter<void>;
 
   @State() active = false;
   @State() closing = false;
@@ -255,10 +254,6 @@ export class SwirlPdfReader {
     page?.scrollIntoView();
   };
 
-  private onDownloadStart = () => {
-    this.downloadStart.emit();
-  };
-
   render() {
     const hasMenuItems =
       Boolean(this.el.querySelector("[slot='menu-items']")) ||
@@ -411,7 +406,6 @@ export class SwirlPdfReader {
                 viewMode={this.viewMode}
                 zoom={this.zoom}
                 skipNativeDownload={this.skipNativeDownload}
-                onDownloadStart={this.onDownloadStart}
               ></swirl-file-viewer>
               <div class="pdf-reader__mobile-zoom-controls">
                 <button

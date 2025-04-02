@@ -4715,7 +4715,6 @@ declare global {
     interface HTMLSwirlPdfReaderElementEventMap {
         "modalClose": void;
         "modalOpen": void;
-        "downloadStart": void;
     }
     interface HTMLSwirlPdfReaderElement extends Components.SwirlPdfReader, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlPdfReaderElementEventMap>(type: K, listener: (this: HTMLSwirlPdfReaderElement, ev: SwirlPdfReaderCustomEvent<HTMLSwirlPdfReaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -7521,7 +7520,6 @@ declare namespace LocalJSX {
         "label": string;
         "menuLabel"?: string;
         "menuTriggerLabel"?: string;
-        "onDownloadStart"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "onModalClose"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "pdfWorkerSrc"?: string;
