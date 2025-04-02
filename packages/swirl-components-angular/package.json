@@ -1,6 +1,6 @@
 {
   "name": "@getflip/swirl-components-angular",
-  "version": "0.313.2",
+  "version": "0.314.0",
   "scripts": {
     "ng": "ng",
     "build": "ng build"
