@@ -18,10 +18,18 @@ export default {
     },
   },
   title: "Components/SwirlPdfReader",
+  argTypes: {
+    skipNativeDownload: {
+      control: { type: "boolean" },
+      description:
+        "Use in conjuction with the `downloadStart` event to handle downloads manually.",
+    },
+  },
 };
 
 const Template = (args) => {
   const container = document.createElement("div");
+  container.setAttribute("style", "min-height: 250px;");
   const trigger = document.createElement("swirl-button");
   const element = generateStoryElement(
     "swirl-pdf-reader",

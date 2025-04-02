@@ -1791,6 +1791,7 @@ export namespace Components {
         "printButtonEnabled"?: boolean;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
+        "skipNativeDownload"?: boolean;
         "thumbnailButtonLabel"?: string;
         "thumbnailsButtonLabel"?: string;
         "thumbnailsLabel"?: string;
@@ -3237,6 +3238,7 @@ declare global {
     };
     interface HTMLSwirlFileViewerFallbackElementEventMap {
         "activate": HTMLElement;
+        "download": void;
     }
     interface HTMLSwirlFileViewerFallbackElement extends Components.SwirlFileViewerFallback, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlFileViewerFallbackElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerFallbackElement, ev: SwirlFileViewerFallbackCustomEvent<HTMLSwirlFileViewerFallbackElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4711,6 +4713,7 @@ declare global {
     interface HTMLSwirlPdfReaderElementEventMap {
         "modalClose": void;
         "modalOpen": void;
+        "downloadStart": void;
     }
     interface HTMLSwirlPdfReaderElement extends Components.SwirlPdfReader, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlPdfReaderElementEventMap>(type: K, listener: (this: HTMLSwirlPdfReaderElement, ev: SwirlPdfReaderCustomEvent<HTMLSwirlPdfReaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -6484,6 +6487,7 @@ declare namespace LocalJSX {
         "file": string;
         "fileName"?: string;
         "onActivate"?: (event: SwirlFileViewerFallbackCustomEvent<HTMLElement>) => void;
+        "onDownload"?: (event: SwirlFileViewerFallbackCustomEvent<void>) => void;
     }
     interface SwirlFileViewerImage {
         "description"?: string;
@@ -7513,12 +7517,14 @@ declare namespace LocalJSX {
         "label": string;
         "menuLabel"?: string;
         "menuTriggerLabel"?: string;
+        "onDownloadStart"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "onModalClose"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "pdfWorkerSrc"?: string;
         "printButtonEnabled"?: boolean;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
+        "skipNativeDownload"?: boolean;
         "thumbnailButtonLabel"?: string;
         "thumbnailsButtonLabel"?: string;
         "thumbnailsLabel"?: string;

@@ -15681,6 +15681,10 @@
           "description": ""
         },
         {
+          "name": "skip-native-download",
+          "description": ""
+        },
+        {
           "name": "thumbnail-button-label",
           "description": ""
         },
