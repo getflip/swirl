@@ -1793,6 +1793,7 @@ export namespace Components {
         "printButtonEnabled"?: boolean;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
+        "skipNativeDownload"?: boolean;
         "thumbnailButtonLabel"?: string;
         "thumbnailsButtonLabel"?: string;
         "thumbnailsLabel"?: string;
@@ -3239,6 +3240,7 @@ declare global {
     };
     interface HTMLSwirlFileViewerFallbackElementEventMap {
         "activate": HTMLElement;
+        "download": void;
     }
     interface HTMLSwirlFileViewerFallbackElement extends Components.SwirlFileViewerFallback, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlFileViewerFallbackElementEventMap>(type: K, listener: (this: HTMLSwirlFileViewerFallbackElement, ev: SwirlFileViewerFallbackCustomEvent<HTMLSwirlFileViewerFallbackElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -6486,6 +6488,7 @@ declare namespace LocalJSX {
         "file": string;
         "fileName"?: string;
         "onActivate"?: (event: SwirlFileViewerFallbackCustomEvent<HTMLElement>) => void;
+        "onDownload"?: (event: SwirlFileViewerFallbackCustomEvent<void>) => void;
     }
     interface SwirlFileViewerImage {
         "description"?: string;
@@ -7523,6 +7526,7 @@ declare namespace LocalJSX {
         "printButtonEnabled"?: boolean;
         "printButtonLabel"?: string;
         "sideBySideButtonLabel"?: string;
+        "skipNativeDownload"?: boolean;
         "thumbnailButtonLabel"?: string;
         "thumbnailsButtonLabel"?: string;
         "thumbnailsLabel"?: string;

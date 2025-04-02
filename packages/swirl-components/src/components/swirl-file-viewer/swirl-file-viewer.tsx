@@ -75,6 +75,10 @@ export class SwirlFileViewer {
     this.visiblePagesChange.emit(event.detail);
   };
 
+  private onFallbackDownload = () => {
+    this.download();
+  };
+
   render() {
     const unsupportedType =
       !Boolean(this.type) ||
@@ -159,6 +163,7 @@ export class SwirlFileViewer {
                   disableDownload={this.disableDownload}
                   file={this.file}
                   fileName={this.fileName}
+                  onDownload={this.onFallbackDownload}
                 ></swirl-file-viewer-fallback>
               )}
             </div>

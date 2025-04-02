@@ -27,6 +27,7 @@ export default {
 
 const Template = (args) => {
   const container = document.createElement("div");
+  container.setAttribute("style", "min-height: 250px;");
   const trigger = document.createElement("swirl-button");
   const element = generateStoryElement(
     "swirl-lightbox",
@@ -42,6 +43,7 @@ const Template = (args) => {
     <swirl-file-viewer description="Black puppy." file="/sample-3.jpg" thumbnail-url="/sample-3.jpg" type="image/jpeg"></swirl-file-viewer>
     <swirl-file-viewer file="/sample.mp4" type="video/mp4"></swirl-file-viewer>
     <swirl-file-viewer file="/sample-with-audio.mp4" type="video/mp4"></swirl-file-viewer>
+    <swirl-file-viewer file="/sample.csv" type="application/csv"></swirl-file-viewer>
 
     <swirl-action-list-item
       icon="<swirl-icon-attachment></swirl-icon-attachment>"
