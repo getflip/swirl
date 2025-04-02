@@ -2373,6 +2373,10 @@
           "description": ""
         },
         {
+          "name": "labels",
+          "description": ""
+        },
+        {
           "name": "locale",
           "description": ""
         },
@@ -2415,6 +2419,10 @@
       "attributes": [
         {
           "name": "first-day-of-week",
+          "description": ""
+        },
+        {
+          "name": "labels",
           "description": ""
         },
         {
