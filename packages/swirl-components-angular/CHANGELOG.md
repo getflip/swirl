@@ -1,5 +1,12 @@
 # @getflip/swirl-components-angular
 
+## 0.314.0
+
+### Minor Changes
+
+- [`e7c5c9b7`](https://github.com/getflip/swirl/commit/e7c5c9b705358a3ce74d25eef0921d08f6f492ed) -
+  Support manual file download for files in swirl-file-viewer
+
 ## 0.313.2
 
 ### Patch Changes
