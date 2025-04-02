@@ -292,7 +292,6 @@
 
         & .modal__sidebar-heading {
           display: flex;
-          flex-shrink: 0;
           align-items: center;
           height: var(--swirl-modal-header-height);
           padding-top: var(--s-space-12);
