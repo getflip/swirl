@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.315.1
+
+### Patch Changes
+
+- [#1018](https://github.com/getflip/swirl/pull/1018)
+  [`8f04a228`](https://github.com/getflip/swirl/commit/8f04a228bc00ccf6427ee6b7d548a11a6e69bcb0)
+  Thanks [@maraikeschneider](https://github.com/maraikeschneider)! - Make sure
+  that content uses full width of the SwirlModal
+
 ## 0.315.0
 
 ### Minor Changes
