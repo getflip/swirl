@@ -24,6 +24,7 @@ import { SwirlCarouselPadding, SwirlCarouselSpacing } from "./components/swirl-c
 import { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 import { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 import { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
+import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 import { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 import { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
@@ -99,6 +100,7 @@ export { SwirlCarouselPadding, SwirlCarouselSpacing } from "./components/swirl-c
 export { SwirlCheckboxLabelWeight, SwirlCheckboxState, SwirlCheckboxVariant } from "./components/swirl-checkbox/swirl-checkbox";
 export { SwirlChipBorderRadius, SwirlChipIconColor, SwirlChipIntent, SwirlChipSize, SwirlChipVariant } from "./components/swirl-chip/swirl-chip";
 export { SwirlColumnsSpacing } from "./components/swirl-columns/swirl-columns";
+export { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 export { SwirlDialogIntent } from "./components/swirl-dialog/swirl-dialog";
 export { SwirlEmojiSize } from "./components/swirl-emoji/swirl-emoji.types";
 export { SwirlButtonVariant as SwirlButtonVariant1 } from "./components/swirl-button/swirl-button";
