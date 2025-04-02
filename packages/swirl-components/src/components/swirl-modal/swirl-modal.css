@@ -333,7 +333,11 @@
     .modal__custom-header {
       border-bottom-color: var(--s-border-default);
     }
+  }
+}
 
+.modal--sidebar-scrolled {
+  @media (--from-tablet) {
     .modal__sidebar .modal__sidebar-header {
       border-bottom-color: var(--s-border-default);
     }

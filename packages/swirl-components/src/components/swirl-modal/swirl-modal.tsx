@@ -85,12 +85,14 @@ export class SwirlModal {
   @State() hasSecondaryContent: boolean;
   @State() scrollable = false;
   @State() scrolled = false;
+  @State() sidebarScrolled = false;
   @State() scrolledDown = false;
   @State() hasSidebarContent: boolean;
 
   private focusTrap: focusTrap.FocusTrap;
   private modalEl: HTMLElement;
   private scrollContainer: HTMLElement;
+  private sidebarScrollContainer: HTMLElement;
 
   componentDidLoad() {
     this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
@@ -226,6 +228,11 @@ export class SwirlModal {
   }
 
   private determineScrollStatus = () => {
+    this.determineMainScrollStatus();
+    this.determineSidebarScrollStatus();
+  };
+
+  private determineMainScrollStatus = () => {
     const scrolled = this.scrollContainer?.scrollTop > 0;
 
     const scrolledDown =
@@ -249,16 +256,25 @@ export class SwirlModal {
     }
   };
 
+  private determineSidebarScrollStatus = () => {
+    const scrolled = this.sidebarScrollContainer?.scrollTop > 0;
+    if (scrolled !== this.sidebarScrolled) {
+      this.sidebarScrolled = scrolled;
+    }
+  };
+
   private handleAutoFocus() {
     this.modalEl.querySelector<HTMLInputElement>("input[autofocus]")?.focus();
   }
 
   private lockBodyScroll() {
     disableBodyScroll(this.scrollContainer);
+    disableBodyScroll(this.sidebarScrollContainer);
   }
 
   private unlockBodyScroll() {
     enableBodyScroll(this.scrollContainer);
+    enableBodyScroll(this.sidebarScrollContainer);
   }
 
   render() {
@@ -276,6 +292,7 @@ export class SwirlModal {
       "modal--padded": this.padded,
       "modal--scrollable": this.scrollable,
       "modal--scrolled": this.scrolled,
+      "modal--sidebar-scrolled": this.sidebarScrolled,
       "modal--scrolled-down": this.scrolledDown,
       "modal--hide-secondary-content-borders": this.hideSecondaryContentBorders,
       "modal--has-sidebar-content":
@@ -314,7 +331,11 @@ export class SwirlModal {
                   ></swirl-heading>
                 </header>
               )}
-              <div class="modal__sidebar-content">
+              <div
+                class="modal__sidebar-content"
+                onScroll={this.determineSidebarScrollStatus}
+                ref={(el) => (this.sidebarScrollContainer = el)}
+              >
                 <slot name="sidebar-content"></slot>
               </div>
             </aside>
@@ -370,7 +391,7 @@ export class SwirlModal {
                   </div>
                   <div
                     class="modal__content"
-                    onScroll={this.determineScrollStatus}
+                    onScroll={this.determineMainScrollStatus}
                     ref={(el) => (this.scrollContainer = el)}
                   >
                     <slot></slot>
