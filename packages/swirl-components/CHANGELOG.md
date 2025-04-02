@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.314.0
+
+### Minor Changes
+
+- [#1013](https://github.com/getflip/swirl/pull/1013)
+  [`d044dc56`](https://github.com/getflip/swirl/commit/d044dc56027b7432fea4a762134f5520e4c1a303)
+  Thanks [@konnic](https://github.com/konnic)! - Support manual file download
+  for files in swirl-file-viewer
+
 ## 0.313.1
 
 ### Patch Changes
