@@ -10,30 +10,49 @@ describe("swirl-modal", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <swirl-modal label="Dialog">
-        <section aria-hidden="true" aria-label="Dialog" aria-modal="true" class="modal modal--padded modal--variant-default" role="dialog">
-          <div class="modal__backdrop"></div>
-          <div class="modal__body">
-            <header class="modal__custom-header"></header>
-            <header class="modal__header">
-              <div class="modal__header-bar">
-                <swirl-button class="modal__close-button" hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Close modal"></swirl-button>
-                <swirl-heading as="h2" class="modal__heading" level="3" text="Dialog"></swirl-heading>
-              </div>
-            </header>
-            <div class="modal__content-container">
-              <div class="modal__primary-content">
-                <div class="modal__header-tools"></div>
-                <div class="modal__content">
-                  Content
-                </div>
-              </div>
-              <div class="modal__secondary-content"></div>
-            </div>
-            <div class="modal__custom-footer"></div>
+     <swirl-modal label="Dialog">
+  <section
+    aria-hidden="true"
+    aria-label="Dialog"
+    aria-modal="true"
+    class="modal modal--padded modal--variant-default"
+    role="dialog"
+  >
+    <div class="modal__backdrop"></div>
+    <div class="modal__body">
+      <aside class="modal__sidebar">
+        <div class="modal__sidebar-content"></div>
+      </aside>
+      <div class="modal__main-content">
+        <header class="modal__custom-header"></header>
+        <header class="modal__header">
+          <div class="modal__header-bar">
+            <swirl-button
+              class="modal__close-button"
+              hidelabel=""
+              icon="<swirl-icon-close></swirl-icon-close>"
+              label="Close modal"
+            ></swirl-button>
+            <swirl-heading
+              as="h2"
+              class="modal__heading"
+              level="3"
+              text="Dialog"
+            ></swirl-heading>
           </div>
-        </section>
-      </swirl-modal>
+        </header>
+        <div class="modal__content-container">
+          <div class="modal__primary-content">
+            <div class="modal__header-tools"></div>
+            <div class="modal__content">Content</div>
+          </div>
+          <div class="modal__secondary-content"></div>
+        </div>
+        <div class="modal__custom-footer"></div>
+      </div>
+    </div>
+  </section>
+</swirl-modal>
     `);
   });
 

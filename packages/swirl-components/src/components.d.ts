@@ -1697,6 +1697,7 @@ export namespace Components {
         "hideLabel"?: boolean;
         "hideSecondaryContent"?: boolean;
         "hideSecondaryContentBorders"?: boolean;
+        "hideSidebarContent"?: boolean;
         "label": string;
         "maxHeight"?: string;
         "maxWidth"?: string;
@@ -1717,6 +1718,7 @@ export namespace Components {
         "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
+        "sidebarLabel"?: string;
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
@@ -7421,6 +7423,7 @@ declare namespace LocalJSX {
         "hideLabel"?: boolean;
         "hideSecondaryContent"?: boolean;
         "hideSecondaryContentBorders"?: boolean;
+        "hideSidebarContent"?: boolean;
         "label": string;
         "maxHeight"?: string;
         "maxWidth"?: string;
@@ -7442,6 +7445,7 @@ declare namespace LocalJSX {
         "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
+        "sidebarLabel"?: string;
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {

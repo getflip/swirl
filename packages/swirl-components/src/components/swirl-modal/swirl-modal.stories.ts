@@ -8,7 +8,7 @@ export default {
     docs: {
       page: Docs,
       source: {
-        code: `<swirl-modal id="modal" label="Dialog" primary-action-label="Primary" secondary-action-label="Cancel">
+        code: `<swirl-modal id="modal" label="Dialog" primary-action-label="Primary" secondary-action-label="Cancel" sidebar-label="Sidebar" >
   <swirl-text>
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
     eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
@@ -65,9 +65,24 @@ const Template = (args) => {
     </swirl-text>
   </swirl-card>
 </swirl-box>
+<swirl-box  slot="sidebar-content">
+  <swirl-text >
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+    eirmod tempor invidunt.
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+    amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+    diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+    sit amet.
+  </swirl-text>
+</swirl-box>
 <swirl-box padding-block-start="4" padding-block-end="16" slot="header-tools">
   <swirl-search auto-focus label="Search"></swirl-search>
-</div>
+</swirl-box>
   `;
 
   container.append(trigger, element);
@@ -81,4 +96,5 @@ SwirlModal.args = {
   label: "Label",
   primaryActionLabel: "Primary",
   secondaryActionLabel: "Secondary",
+  sidebarLabel: "Sidebar",
 };

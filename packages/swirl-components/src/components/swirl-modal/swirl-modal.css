@@ -24,7 +24,11 @@
   --swirl-modal-height: auto;
   --swirl-modal-max-height: 90vh;
   --swirl-modal-view-height: 100vh;
+  --swirl-modal-header-height: 3.75rem;
+
   --swirl-modal-max-width: 40rem;
+  --swirl-modal-sidebar-width: 25rem;
+  --swirl-modal-max-secondary-content-width: 24rem;
   --swirl-modal-footer-padding-small: var(--s-space-12) var(--s-space-16)
     var(--s-space-12) var(--s-space-16);
   --swirl-modal-footer-padding-large: var(--s-space-16) var(--s-space-24)
@@ -206,7 +210,10 @@
 
 .modal--has-secondary-content {
   & .modal__body {
-    max-width: 64rem;
+    max-width: calc(
+      var(--swirl-modal-max-width) +
+        var(--swirl-modal-max-secondary-content-width)
+    );
   }
 
   &:not(.modal--has-header-tools):not(.modal--hide-secondary-content-borders)
@@ -244,14 +251,72 @@
     flex-basis: auto;
 
     @media (--from-desktop) {
-      max-width: calc(100% - 24rem);
+      max-width: calc(100% - var(--swirl-modal-max-secondary-content-width));
       max-height: none;
-      flex-basis: calc(100% - 24rem);
+      flex-basis: calc(100% - var(--swirl-modal-max-secondary-content-width));
     }
   }
 
   & .modal__secondary-content {
     display: block;
+  }
+}
+
+.modal__main-content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.modal__sidebar {
+  display: none;
+}
+
+.modal--has-sidebar-content {
+  & .modal__body {
+    max-width: calc(
+      var(--swirl-modal-max-width) + var(--swirl-modal-sidebar-width)
+    );
+  }
+  @media (--from-tablet) {
+    & .modal__sidebar {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      flex-shrink: 0;
+      width: var(--swirl-modal-sidebar-width);
+      border-right: var(--s-border-width-default) solid var(--s-border-default);
+
+      & .modal__sidebar-header {
+        border-bottom: var(--s-border-width-default) solid transparent;
+
+        & .modal__sidebar-heading {
+          display: flex;
+          align-items: center;
+          height: var(--swirl-modal-header-height);
+          padding-top: var(--s-space-12);
+          padding-right: var(--s-space-24);
+          padding-bottom: var(--s-space-12);
+          padding-left: var(--s-space-24);
+        }
+      }
+
+      & .modal__sidebar-content {
+        display: block;
+        padding-left: var(--s-space-24);
+        padding-right: var(--s-space-24);
+        padding-bottom: var(--s-space-16);
+        padding-top: var(--s-space-16);
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+    }
+  }
+
+  @media (--from-desktop) {
+    & .modal__primary-content {
+      flex-basis: calc(100% - 20rem);
+    }
   }
 }
 
@@ -266,6 +331,14 @@
     }
 
     .modal__custom-header {
+      border-bottom-color: var(--s-border-default);
+    }
+  }
+}
+
+.modal--sidebar-scrolled {
+  @media (--from-tablet) {
+    .modal__sidebar .modal__sidebar-header {
       border-bottom-color: var(--s-border-default);
     }
   }
@@ -289,11 +362,11 @@
   position: relative;
   z-index: var(--s-z-40);
   display: flex;
+  flex-direction: row;
   overflow: hidden;
   width: 100vw;
   height: var(--swirl-modal-view-height);
   background-color: var(--s-surface-overlay-default);
-  flex-direction: column;
 
   @media (--from-tablet) {
     width: 90vw;
@@ -328,7 +401,7 @@
   gap: var(--s-space-8);
 
   @media (--from-tablet) {
-    height: 3.75rem;
+    height: var(--swirl-modal-header-height);
     padding-top: var(--s-space-12);
     padding-right: var(--s-space-24);
     padding-bottom: var(--s-space-12);
@@ -386,6 +459,8 @@
 .modal__primary-content {
   display: flex;
   overflow: hidden;
+  overflow-y: auto;
+  flex-grow: 1;
   flex-basis: 100%;
   flex-direction: column;
 }
@@ -417,12 +492,13 @@
   @media (--from-desktop) {
     overflow-x: hidden;
     overflow-y: auto;
-    max-width: 24rem;
+    max-width: var(--swirl-modal-max-secondary-content-width);
     max-height: none;
     padding-right: var(--s-space-24);
     padding-bottom: var(--s-space-16);
     padding-left: 0;
     flex-basis: 50%;
+    flex-grow: 1;
   }
 }
 
@@ -438,6 +514,15 @@
 
   @media (--from-tablet) {
     padding: var(--swirl-modal-footer-padding-large);
+  }
+}
+
+.modal--has-secondary-content.modal--has-sidebar-content {
+  & .modal__body {
+    max-width: calc(
+      var(--swirl-modal-max-width) + var(--swirl-modal-sidebar-width) +
+        var(--swirl-modal-max-secondary-content-width)
+    );
   }
 }
 
