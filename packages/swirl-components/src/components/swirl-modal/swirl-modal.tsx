@@ -326,7 +326,7 @@ export class SwirlModal {
                   <swirl-heading
                     as="h3"
                     class="modal__sidebar-heading"
-                    level={4}
+                    level={3}
                     text={this.sidebarLabel}
                   ></swirl-heading>
                 </header>
