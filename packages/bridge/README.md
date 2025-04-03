@@ -14,6 +14,7 @@ App or Flip Admin Console.
   - [Dialogs](#dialogs)
   - [Modals](#modals)
   - [Toasts](#toasts)
+  - [Downloads](#download)
 - [Events](#events)
 - [Error Handling](#error-handling)
 - [Development](#development)
@@ -408,6 +409,37 @@ await showToast({
   duration: 5000,
   icon: "icon",
   intent: "success",
+});
+```
+
+### Downloads
+
+#### `download`
+
+Downloads a file via the host app.
+
+**Param**
+
+```js
+{
+  fileName: string; // filename
+  fileType: string; // file type
+  url?: string; // optional file URL
+  dataUrl?: string; // optional base64 encoded file data
+}
+```
+
+**Returns** `Promise<boolean>`
+
+**Example**
+
+```js
+import { download } from "@getflip/bridge";
+
+await download({
+  fileName: "my-file.txt",
+  fileType: "text/plain",
+  url: "https://example.com/my-file.txt",
 });
 ```
 
