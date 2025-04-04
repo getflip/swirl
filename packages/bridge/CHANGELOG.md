@@ -1,5 +1,13 @@
 # @getflip/bridge
 
+## 0.9.0
+
+### Minor Changes
+
+- [#1020](https://github.com/getflip/swirl/pull/1020)
+  [`99632589`](https://github.com/getflip/swirl/commit/99632589302b33776c6a9ccc8361a9e6c89c17e3)
+  Thanks [@konnic](https://github.com/konnic)! - Add bridge download method
+
 ## 0.8.53
 
 ### Patch Changes
