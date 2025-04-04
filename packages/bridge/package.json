@@ -1,6 +1,6 @@
 {
   "name": "@getflip/bridge",
-  "version": "0.8.53",
+  "version": "0.9.0",
   "description": "Flip JavaScript Bridge for external integrations.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.mjs",
