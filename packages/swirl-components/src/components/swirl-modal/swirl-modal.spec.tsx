@@ -15,13 +15,14 @@ describe("swirl-modal", () => {
     aria-hidden="true"
     aria-label="Dialog"
     aria-modal="true"
-    class="modal modal--padded modal--variant-default"
+    class="modal modal--padded modal--sidebar-footer-padded modal--sidebar-padded modal--variant-default"
     role="dialog"
   >
     <div class="modal__backdrop"></div>
     <div class="modal__body">
       <aside class="modal__sidebar">
         <div class="modal__sidebar-content"></div>
+        <div class="modal__sidebar-footer"></div>
       </aside>
       <div class="modal__main-content">
         <header class="modal__custom-header"></header>
