@@ -4,6 +4,7 @@ import {
   DestroyDialogResult,
   OpenDialogResult,
 } from "./dialog";
+import { DownloadResult } from "./download";
 import { SubscribeResult, UnsubscribeResult } from "./events/events.types";
 import { GetAvailableLangsResult, GetLangResult } from "./i18n";
 import {
@@ -47,6 +48,7 @@ export enum BridgeMethod {
   SHOW_TOAST = "SHOW_TOAST",
   SUBSCRIBE = "SUBSCRIBE",
   UNSUBSCRIBE = "UNSUBSCRIBE",
+  DOWNLOAD = "DOWNLOAD",
 }
 
 export type BridgeMethodResultMapping = {
@@ -66,4 +68,5 @@ export type BridgeMethodResultMapping = {
   [BridgeMethod.SHOW_TOAST]: ShowToastResult;
   [BridgeMethod.SUBSCRIBE]: SubscribeResult;
   [BridgeMethod.UNSUBSCRIBE]: UnsubscribeResult;
+  [BridgeMethod.DOWNLOAD]: DownloadResult;
 };
