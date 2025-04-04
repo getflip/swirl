@@ -80,6 +80,8 @@ const Template = (args) => {
     sit amet.
   </swirl-text>
 </swirl-box>
+<div slot="sidebar-footer">hello</div>
+<div slot="custom-footer">hello</div>
 <swirl-box padding-block-start="4" padding-block-end="16" slot="header-tools">
   <swirl-search auto-focus label="Search"></swirl-search>
 </swirl-box>

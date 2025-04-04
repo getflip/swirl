@@ -15328,7 +15328,15 @@
           ]
         },
         {
+          "name": "sidebar-footer-padded",
+          "description": ""
+        },
+        {
           "name": "sidebar-label",
+          "description": ""
+        },
+        {
+          "name": "sidebar-padded",
           "description": ""
         },
         {
