@@ -1718,7 +1718,9 @@ export namespace Components {
         "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
+        "sidebarFooterPadded"?: boolean;
         "sidebarLabel"?: string;
+        "sidebarPadded"?: boolean;
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
@@ -7448,7 +7450,9 @@ declare namespace LocalJSX {
         "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
+        "sidebarFooterPadded"?: boolean;
         "sidebarLabel"?: string;
+        "sidebarPadded"?: boolean;
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
