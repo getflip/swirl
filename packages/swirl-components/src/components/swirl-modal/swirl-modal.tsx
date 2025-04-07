@@ -33,7 +33,8 @@ export type SwirlModalSpacing =
  * @slot header-tools - Used to display elements inside the sticky header, below the label
  * @slot custom-header - Optional custom header; should be used hidden label
  * @slot custom-footer - Optional custom footer; replaces the default footer with primary and secondary actions
- * @slot sidebar-content - Sidebar content
+ * @slot sidebar-content - Sidebar content; Only visible on viewports larger than tablet
+ * @slot sidebar-footer - Optional custom footer below the Sidebar
  */
 @Component({
   shadow: false,
@@ -69,6 +70,8 @@ export class SwirlModal {
   @Prop() secondaryContentPaddingInlineEnd?: SwirlModalSpacing;
   @Prop() secondaryContentPaddingInlineStart?: SwirlModalSpacing;
   @Prop() sidebarLabel?: string;
+  @Prop() sidebarPadded?: boolean = true;
+  @Prop() sidebarFooterPadded?: boolean = true;
   @Prop() hideSidebarContent?: boolean;
 
   @Event() modalClose: EventEmitter<void>;
@@ -85,9 +88,12 @@ export class SwirlModal {
   @State() hasSecondaryContent: boolean;
   @State() scrollable = false;
   @State() scrolled = false;
-  @State() sidebarScrolled = false;
   @State() scrolledDown = false;
   @State() hasSidebarContent: boolean;
+  @State() hasSidebarFooter: boolean;
+  @State() sidebarScrolled = false;
+  @State() sidebarScrolledDown = false;
+  @State() sidebarScrollable = false;
 
   private focusTrap: focusTrap.FocusTrap;
   private modalEl: HTMLElement;
@@ -112,6 +118,7 @@ export class SwirlModal {
       this.updateHeaderToolsStatus();
       this.updateSecondaryContentStatus();
       this.updateSidebarContentStatus();
+      this.updateSidebarFooterStatus();
     });
   }
 
@@ -227,6 +234,12 @@ export class SwirlModal {
     );
   }
 
+  private updateSidebarFooterStatus() {
+    this.hasSidebarFooter = Boolean(
+      this.el.querySelector('[slot="sidebar-footer"]')
+    );
+  }
+
   private determineScrollStatus = () => {
     this.determineMainScrollStatus();
     this.determineSidebarScrollStatus();
@@ -258,8 +271,27 @@ export class SwirlModal {
 
   private determineSidebarScrollStatus = () => {
     const scrolled = this.sidebarScrollContainer?.scrollTop > 0;
+
+    const scrolledDown =
+      Math.ceil(
+        this.sidebarScrollContainer?.scrollTop +
+          this.sidebarScrollContainer?.offsetHeight
+      ) >= this.sidebarScrollContainer?.scrollHeight;
+
+    const scrollable =
+      this.sidebarScrollContainer?.scrollHeight >
+      this.sidebarScrollContainer?.offsetHeight;
+
     if (scrolled !== this.sidebarScrolled) {
       this.sidebarScrolled = scrolled;
+    }
+
+    if (scrolledDown !== this.sidebarScrolledDown) {
+      this.sidebarScrolledDown = scrolledDown;
+    }
+
+    if (scrollable !== this.sidebarScrollable) {
+      this.sidebarScrollable = scrollable;
     }
   };
 
@@ -292,11 +324,19 @@ export class SwirlModal {
       "modal--padded": this.padded,
       "modal--scrollable": this.scrollable,
       "modal--scrolled": this.scrolled,
-      "modal--sidebar-scrolled": this.sidebarScrolled,
       "modal--scrolled-down": this.scrolledDown,
       "modal--hide-secondary-content-borders": this.hideSecondaryContentBorders,
       "modal--has-sidebar-content":
         this.hasSidebarContent && !this.hideSidebarContent,
+      "modal--sidebar-padded": this.sidebarPadded,
+      "modal--has-sidebar-footer":
+        this.hasSidebarFooter &&
+        this.hasSidebarContent &&
+        !this.hideSidebarContent,
+      "modal--sidebar-footer-padded": this.sidebarFooterPadded,
+      "modal--sidebar-scrolled": this.sidebarScrolled,
+      "modal--sidebar-scrolled-down": this.sidebarScrolledDown,
+      "modal--sidebar-scrollable": this.sidebarScrollable,
     });
 
     return (
@@ -337,6 +377,10 @@ export class SwirlModal {
                 ref={(el) => (this.sidebarScrollContainer = el)}
               >
                 <slot name="sidebar-content"></slot>
+              </div>
+
+              <div class="modal__sidebar-footer">
+                <slot name="sidebar-footer"></slot>
               </div>
             </aside>
 
