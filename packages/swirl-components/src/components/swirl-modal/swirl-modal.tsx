@@ -33,7 +33,7 @@ export type SwirlModalSpacing =
  * @slot header-tools - Used to display elements inside the sticky header, below the label
  * @slot custom-header - Optional custom header; should be used hidden label
  * @slot custom-footer - Optional custom footer; replaces the default footer with primary and secondary actions
- * @slot sidebar-content - Sidebar content
+ * @slot sidebar-content - Sidebar content; Only visible on viewports larger than tablet
  * @slot sidebar-footer - Optional custom footer below the Sidebar
  */
 @Component({
