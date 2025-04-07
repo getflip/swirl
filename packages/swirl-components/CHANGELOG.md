@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.316.0
+
+### Minor Changes
+
+- [#1022](https://github.com/getflip/swirl/pull/1022)
+  [`22a3995a`](https://github.com/getflip/swirl/commit/22a3995a9c21f6e747bd55e52866e2bfa91fa0df)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add
+  Additional Props to swirl modal sidebar
+
 ## 0.315.1
 
 ### Patch Changes
