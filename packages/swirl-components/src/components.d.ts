@@ -838,6 +838,14 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconCall {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconCallEnd {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconCancel {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -1523,6 +1531,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconVoice {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconVolumeUp {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -3477,6 +3489,18 @@ declare global {
         prototype: HTMLSwirlIconBookmarkFilledElement;
         new (): HTMLSwirlIconBookmarkFilledElement;
     };
+    interface HTMLSwirlIconCallElement extends Components.SwirlIconCall, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCallElement: {
+        prototype: HTMLSwirlIconCallElement;
+        new (): HTMLSwirlIconCallElement;
+    };
+    interface HTMLSwirlIconCallEndElement extends Components.SwirlIconCallEnd, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCallEndElement: {
+        prototype: HTMLSwirlIconCallEndElement;
+        new (): HTMLSwirlIconCallEndElement;
+    };
     interface HTMLSwirlIconCancelElement extends Components.SwirlIconCancel, HTMLStencilElement {
     }
     var HTMLSwirlIconCancelElement: {
@@ -4508,6 +4532,12 @@ declare global {
     var HTMLSwirlIconVoiceElement: {
         prototype: HTMLSwirlIconVoiceElement;
         new (): HTMLSwirlIconVoiceElement;
+    };
+    interface HTMLSwirlIconVolumeUpElement extends Components.SwirlIconVolumeUp, HTMLStencilElement {
+    }
+    var HTMLSwirlIconVolumeUpElement: {
+        prototype: HTMLSwirlIconVolumeUpElement;
+        new (): HTMLSwirlIconVolumeUpElement;
     };
     interface HTMLSwirlIconWarningElement extends Components.SwirlIconWarning, HTMLStencilElement {
     }
@@ -5723,6 +5753,8 @@ declare global {
         "swirl-icon-block": HTMLSwirlIconBlockElement;
         "swirl-icon-bookmark": HTMLSwirlIconBookmarkElement;
         "swirl-icon-bookmark-filled": HTMLSwirlIconBookmarkFilledElement;
+        "swirl-icon-call": HTMLSwirlIconCallElement;
+        "swirl-icon-call-end": HTMLSwirlIconCallEndElement;
         "swirl-icon-cancel": HTMLSwirlIconCancelElement;
         "swirl-icon-chat-bubble": HTMLSwirlIconChatBubbleElement;
         "swirl-icon-chats": HTMLSwirlIconChatsElement;
@@ -5895,6 +5927,7 @@ declare global {
         "swirl-icon-visibility": HTMLSwirlIconVisibilityElement;
         "swirl-icon-visibility-off": HTMLSwirlIconVisibilityOffElement;
         "swirl-icon-voice": HTMLSwirlIconVoiceElement;
+        "swirl-icon-volume-up": HTMLSwirlIconVolumeUpElement;
         "swirl-icon-warning": HTMLSwirlIconWarningElement;
         "swirl-icon-web-asset": HTMLSwirlIconWebAssetElement;
         "swirl-icon-web-asset-off": HTMLSwirlIconWebAssetOffElement;
@@ -6636,6 +6669,14 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconCall {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconCallEnd {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconCancel {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -7321,6 +7362,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVoice {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconVolumeUp {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -8281,6 +8326,8 @@ declare namespace LocalJSX {
         "swirl-icon-block": SwirlIconBlock;
         "swirl-icon-bookmark": SwirlIconBookmark;
         "swirl-icon-bookmark-filled": SwirlIconBookmarkFilled;
+        "swirl-icon-call": SwirlIconCall;
+        "swirl-icon-call-end": SwirlIconCallEnd;
         "swirl-icon-cancel": SwirlIconCancel;
         "swirl-icon-chat-bubble": SwirlIconChatBubble;
         "swirl-icon-chats": SwirlIconChats;
@@ -8453,6 +8500,7 @@ declare namespace LocalJSX {
         "swirl-icon-visibility": SwirlIconVisibility;
         "swirl-icon-visibility-off": SwirlIconVisibilityOff;
         "swirl-icon-voice": SwirlIconVoice;
+        "swirl-icon-volume-up": SwirlIconVolumeUp;
         "swirl-icon-warning": SwirlIconWarning;
         "swirl-icon-web-asset": SwirlIconWebAsset;
         "swirl-icon-web-asset-off": SwirlIconWebAssetOff;
@@ -8663,6 +8711,8 @@ declare module "@stencil/core" {
             "swirl-icon-block": LocalJSX.SwirlIconBlock & JSXBase.HTMLAttributes<HTMLSwirlIconBlockElement>;
             "swirl-icon-bookmark": LocalJSX.SwirlIconBookmark & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkElement>;
             "swirl-icon-bookmark-filled": LocalJSX.SwirlIconBookmarkFilled & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkFilledElement>;
+            "swirl-icon-call": LocalJSX.SwirlIconCall & JSXBase.HTMLAttributes<HTMLSwirlIconCallElement>;
+            "swirl-icon-call-end": LocalJSX.SwirlIconCallEnd & JSXBase.HTMLAttributes<HTMLSwirlIconCallEndElement>;
             "swirl-icon-cancel": LocalJSX.SwirlIconCancel & JSXBase.HTMLAttributes<HTMLSwirlIconCancelElement>;
             "swirl-icon-chat-bubble": LocalJSX.SwirlIconChatBubble & JSXBase.HTMLAttributes<HTMLSwirlIconChatBubbleElement>;
             "swirl-icon-chats": LocalJSX.SwirlIconChats & JSXBase.HTMLAttributes<HTMLSwirlIconChatsElement>;
@@ -8835,6 +8885,7 @@ declare module "@stencil/core" {
             "swirl-icon-visibility": LocalJSX.SwirlIconVisibility & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityElement>;
             "swirl-icon-visibility-off": LocalJSX.SwirlIconVisibilityOff & JSXBase.HTMLAttributes<HTMLSwirlIconVisibilityOffElement>;
             "swirl-icon-voice": LocalJSX.SwirlIconVoice & JSXBase.HTMLAttributes<HTMLSwirlIconVoiceElement>;
+            "swirl-icon-volume-up": LocalJSX.SwirlIconVolumeUp & JSXBase.HTMLAttributes<HTMLSwirlIconVolumeUpElement>;
             "swirl-icon-warning": LocalJSX.SwirlIconWarning & JSXBase.HTMLAttributes<HTMLSwirlIconWarningElement>;
             "swirl-icon-web-asset": LocalJSX.SwirlIconWebAsset & JSXBase.HTMLAttributes<HTMLSwirlIconWebAssetElement>;
             "swirl-icon-web-asset-off": LocalJSX.SwirlIconWebAssetOff & JSXBase.HTMLAttributes<HTMLSwirlIconWebAssetOffElement>;
