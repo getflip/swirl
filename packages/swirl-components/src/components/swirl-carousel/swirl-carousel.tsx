@@ -74,6 +74,7 @@ export class SwirlCarousel {
   @Listen("resize", { target: "window" })
   onWindowResize() {
     this.checkScrollStatus();
+    this.checkScrollPosition();
   }
 
   componentDidLoad() {
