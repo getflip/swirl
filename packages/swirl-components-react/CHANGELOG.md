@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.317.2
+
+### Patch Changes
+
+- [#1028](https://github.com/getflip/swirl/pull/1028)
+  [`aad3f757`](https://github.com/getflip/swirl/commit/aad3f75716d309d8d36ec4a2523fd0206dc02050)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Trigger valueChange event of
+  swirl-select when value was updated externally via the "value" property
+- Updated dependencies
+  [[`aad3f757`](https://github.com/getflip/swirl/commit/aad3f75716d309d8d36ec4a2523fd0206dc02050)]:
+  - @getflip/swirl-components@0.317.2
+
 ## 0.317.1
 
 ### Patch Changes
