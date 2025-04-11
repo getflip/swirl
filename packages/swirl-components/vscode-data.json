@@ -1712,6 +1712,18 @@
           "description": ""
         },
         {
+          "name": "fade-color",
+          "description": "",
+          "values": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "on-surface-overlay"
+            }
+          ]
+        },
+        {
           "name": "label",
           "description": ""
         },
