@@ -132,5 +132,10 @@ describe("swirl-select", () => {
     await page.waitForChanges();
 
     expect(spy.mock.calls[0][0].detail).toEqual(["2"]);
+
+    page.root.value = ["1"];
+    await page.waitForChanges();
+
+    expect(spy.mock.calls[1][0].detail).toEqual(["1"]);
   });
 });
