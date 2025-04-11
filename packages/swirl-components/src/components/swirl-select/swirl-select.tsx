@@ -9,6 +9,7 @@ import {
   Listen,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import classnames from "classnames";
 import { querySelectorAllDeep, SwirlFormInput } from "../../utils";
@@ -76,6 +77,19 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     }
   }
 
+  @Watch("value")
+  onValueChange(newValue: string[], oldValue: string[]) {
+    const isValueUnchanged =
+      newValue?.length === oldValue?.length &&
+      newValue?.every((v) => oldValue?.includes(v));
+
+    if (isValueUnchanged) {
+      return;
+    }
+
+    this.valueChange.emit(this.value);
+  }
+
   private observeSlotChanges() {
     this.observer = new MutationObserver(() => {
       this.updateOptions();
@@ -98,7 +112,6 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     event.stopPropagation();
 
     this.value = event.detail;
-    this.valueChange.emit(this.value);
 
     if (!this.multiSelect) {
       this.swirlPopover.close();
@@ -111,7 +124,6 @@ export class SwirlSelect implements SwirlFormInput<string[]> {
     }
 
     this.value = this.value.filter((v) => v !== value);
-    this.valueChange.emit(this.value);
   };
 
   private onSlotChange = () => {
