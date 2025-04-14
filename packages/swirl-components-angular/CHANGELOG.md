@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.318.0
+
+### Minor Changes
+
+- [#1030](https://github.com/getflip/swirl/pull/1030)
+  [`55179465`](https://github.com/getflip/swirl/commit/55179465c3ba9c8b7b42dcf7f967aeb44e415dc8)
+  Thanks [@danizep](https://github.com/danizep)! - Allow different fade colors
+  on SwirlCarousel
+
+### Patch Changes
+
+- Updated dependencies
+  [[`55179465`](https://github.com/getflip/swirl/commit/55179465c3ba9c8b7b42dcf7f967aeb44e415dc8)]:
+  - @getflip/swirl-components@0.318.0
+
 ## 0.317.2
 
 ### Patch Changes
