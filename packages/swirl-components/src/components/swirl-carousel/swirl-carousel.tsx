@@ -73,13 +73,10 @@ export class SwirlCarousel {
 
   private slidesContainer: HTMLElement;
   private activeSlides: HTMLSwirlCarouselSlideElement[] = [];
-  private carouselFadeColorMap: Map<SwirlCarouselFadeColor, string> = new Map<
-    SwirlCarouselFadeColor,
-    string
-  >([
-    ["default", "var(--s-background-default)"],
-    ["on-surface-overlay", "var(--s-surface-overlay-default)"],
-  ]);
+  private carouselFadeColorMap: Record<SwirlCarouselFadeColor, string> = {
+    default: "var(--s-background-default)",
+    "on-surface-overlay": "var(--s-surface-overlay-default)",
+  };
 
   @Listen("resize", { target: "window" })
   onWindowResize() {
@@ -231,7 +228,7 @@ export class SwirlCarousel {
     this.el.style.setProperty("--swirl-carousel-spacing", `${this.spacing}px`);
     this.el.style.setProperty(
       "--swirl-carousel-fade-color",
-      this.carouselFadeColorMap.get(this.fadeColor)
+      this.carouselFadeColorMap[this.fadeColor]
     );
 
     const slidesStyles = {
