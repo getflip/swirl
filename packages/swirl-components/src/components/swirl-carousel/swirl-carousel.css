@@ -2,6 +2,7 @@
 
 :host {
   --swirl-carousel-spacing: var(--s-space-16);
+  --swirl-carousel-fade-color: var(--s-background-default);
 
   position: relative;
   display: block;
@@ -42,7 +43,7 @@
     left: 0;
     background: linear-gradient(
       90deg,
-      var(--s-background-default) 0%,
+      var(--swirl-carousel-fade-color) 0%,
       transparent 100%
     );
   }
@@ -51,7 +52,7 @@
     right: 0;
     background: linear-gradient(
       270deg,
-      var(--s-background-default) 0%,
+      var(--swirl-carousel-fade-color) 0%,
       transparent 100%
     );
   }

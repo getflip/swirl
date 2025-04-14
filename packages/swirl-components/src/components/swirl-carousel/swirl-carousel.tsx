@@ -13,6 +13,8 @@ import {
 import classnames from "classnames";
 import { debounce } from "../../utils";
 
+export type SwirlCarouselFadeColor = "default" | "on-surface-overlay";
+
 export type SwirlCarouselSpacing =
   | "0"
   | "2"
@@ -54,6 +56,7 @@ export class SwirlCarousel {
   @Prop() nextSlideButtonLabel?: string = "Next slide";
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
   @Prop() fade?: boolean = false;
+  @Prop() fadeColor?: SwirlCarouselFadeColor = "default";
   @Prop() loopAround?: boolean = false;
   @Prop() padding?: SwirlCarouselPadding = "16";
   @Prop() paddingBlockEnd?: SwirlCarouselPadding;
@@ -70,6 +73,10 @@ export class SwirlCarousel {
 
   private slidesContainer: HTMLElement;
   private activeSlides: HTMLSwirlCarouselSlideElement[] = [];
+  private carouselFadeColorMap: Record<SwirlCarouselFadeColor, string> = {
+    default: "var(--s-background-default)",
+    "on-surface-overlay": "var(--s-surface-overlay-default)",
+  };
 
   @Listen("resize", { target: "window" })
   onWindowResize() {
@@ -219,6 +226,10 @@ export class SwirlCarousel {
 
   render() {
     this.el.style.setProperty("--swirl-carousel-spacing", `${this.spacing}px`);
+    this.el.style.setProperty(
+      "--swirl-carousel-fade-color",
+      this.carouselFadeColorMap[this.fadeColor]
+    );
 
     const slidesStyles = {
       padding: Boolean(this.padding)
