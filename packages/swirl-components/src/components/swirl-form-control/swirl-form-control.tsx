@@ -256,9 +256,11 @@ export class SwirlFormControl {
               <slot name="prefix"></slot>
             </span>
             <LabelTag class="form-control__label" onClick={this.onLabelClick}>
-              <span class="form-control__icon">
-                <slot name="icon"></slot>
-              </span>
+              {hasIcon && (
+                <span class="form-control__icon">
+                  <slot name="icon"></slot>
+                </span>
+              )}
               <span class="form-control__label-text" id={this.labelId}>
                 {this.label}
                 {this.secondaryLabel && this.labelPosition === "outside" && (
