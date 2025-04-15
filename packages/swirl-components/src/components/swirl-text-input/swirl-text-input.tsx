@@ -62,7 +62,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() max?: number;
   @Prop() min?: number;
   @Prop() mode?: SwirlTextInputMode;
-  @Prop() name?: string;
+  @Prop() inputName?: string;
   @Prop() passwordToggleLabel?: string = "Toggle password display";
   @Prop() placeholder?: string;
   @Prop() prefixLabel?: string;
@@ -321,7 +321,7 @@ export class SwirlTextInput implements SwirlFormInput {
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             role={this.swirlRole}
-            name={this.name}
+            name={this.inputName}
             rows={this.rows > 1 ? this.rows : this.autoGrow ? 1 : undefined}
             spellcheck={this.spellCheck}
             step={this.type === "number" ? this.step : undefined}

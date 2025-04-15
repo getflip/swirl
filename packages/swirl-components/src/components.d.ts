@@ -730,6 +730,7 @@ export namespace Components {
         "errorMessage"?: string;
         "fontSize"?: SwirlFormControlFontSize;
         "hideLabel"?: boolean;
+        "icon"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
@@ -2347,12 +2348,12 @@ export namespace Components {
         "focusInput": () => Promise<void>;
         "fontSize"?: SwirlTextInputFontSize;
         "inline"?: boolean;
+        "inputName"?: string;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
         "min"?: number;
         "mode"?: SwirlTextInputMode1;
-        "name"?: string;
         "passwordToggleLabel"?: string;
         "placeholder"?: string;
         "prefixLabel"?: string;
@@ -6574,6 +6575,7 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "fontSize"?: SwirlFormControlFontSize;
         "hideLabel"?: boolean;
+        "icon"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
@@ -8117,12 +8119,12 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "fontSize"?: SwirlTextInputFontSize;
         "inline"?: boolean;
+        "inputName"?: string;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
         "min"?: number;
         "mode"?: SwirlTextInputMode1;
-        "name"?: string;
         "onInputBlur"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlTextInputCustomEvent<string>) => void;

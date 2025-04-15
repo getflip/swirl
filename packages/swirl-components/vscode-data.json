@@ -3031,6 +3031,10 @@
           "description": ""
         },
         {
+          "name": "icon",
+          "description": ""
+        },
+        {
           "name": "inline",
           "description": ""
         },
@@ -19043,6 +19047,10 @@
           "description": ""
         },
         {
+          "name": "input-name",
+          "description": ""
+        },
+        {
           "name": "invalid",
           "description": ""
         },
@@ -19084,10 +19092,6 @@
               "name": "url"
             }
           ]
-        },
-        {
-          "name": "name",
-          "description": ""
         },
         {
           "name": "password-toggle-label",

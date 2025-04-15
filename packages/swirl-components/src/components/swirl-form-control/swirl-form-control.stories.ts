@@ -154,12 +154,12 @@ const Template = (args) => {
 
   const iconPrefix = generateStoryElement("swirl-form-control", {
     ...args,
-    label: "With Icon Prefix",
+    label: "With leading Icon",
+    icon: "location-on",
   });
 
   iconPrefix.innerHTML = `
     <swirl-text-input type="text"></swirl-text-input>
-    <swirl-icon-location-on slot="icon" size="20"></swirl-icon-location-on>
   `;
 
   container.append(
