@@ -159,7 +159,7 @@ const Template = (args) => {
 
   iconPrefix.innerHTML = `
     <swirl-text-input type="text"></swirl-text-input>
-    <swirl-icon-location-on slot="prefix" size="24"></swirl-icon-location-on>
+    <swirl-icon-location-on slot="icon" size="20"></swirl-icon-location-on>
   `;
 
   container.append(
