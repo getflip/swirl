@@ -730,6 +730,7 @@ export namespace Components {
         "errorMessage"?: string;
         "fontSize"?: SwirlFormControlFontSize;
         "hideLabel"?: boolean;
+        "icon"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
@@ -1148,6 +1149,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconLoad {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconLocationOn {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -2343,6 +2348,7 @@ export namespace Components {
         "focusInput": () => Promise<void>;
         "fontSize"?: SwirlTextInputFontSize;
         "inline"?: boolean;
+        "inputName"?: string;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
@@ -3957,6 +3963,12 @@ declare global {
     var HTMLSwirlIconLoadElement: {
         prototype: HTMLSwirlIconLoadElement;
         new (): HTMLSwirlIconLoadElement;
+    };
+    interface HTMLSwirlIconLocationOnElement extends Components.SwirlIconLocationOn, HTMLStencilElement {
+    }
+    var HTMLSwirlIconLocationOnElement: {
+        prototype: HTMLSwirlIconLocationOnElement;
+        new (): HTMLSwirlIconLocationOnElement;
     };
     interface HTMLSwirlIconLockElement extends Components.SwirlIconLock, HTMLStencilElement {
     }
@@ -5832,6 +5844,7 @@ declare global {
         "swirl-icon-link": HTMLSwirlIconLinkElement;
         "swirl-icon-live": HTMLSwirlIconLiveElement;
         "swirl-icon-load": HTMLSwirlIconLoadElement;
+        "swirl-icon-location-on": HTMLSwirlIconLocationOnElement;
         "swirl-icon-lock": HTMLSwirlIconLockElement;
         "swirl-icon-lock-open": HTMLSwirlIconLockOpenElement;
         "swirl-icon-lock-person": HTMLSwirlIconLockPersonElement;
@@ -6562,6 +6575,7 @@ declare namespace LocalJSX {
         "errorMessage"?: string;
         "fontSize"?: SwirlFormControlFontSize;
         "hideLabel"?: boolean;
+        "icon"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
@@ -6980,6 +6994,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLoad {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconLocationOn {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -8101,6 +8119,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "fontSize"?: SwirlTextInputFontSize;
         "inline"?: boolean;
+        "inputName"?: string;
         "invalid"?: boolean;
         "max"?: number;
         "maxLength"?: number;
@@ -8406,6 +8425,7 @@ declare namespace LocalJSX {
         "swirl-icon-link": SwirlIconLink;
         "swirl-icon-live": SwirlIconLive;
         "swirl-icon-load": SwirlIconLoad;
+        "swirl-icon-location-on": SwirlIconLocationOn;
         "swirl-icon-lock": SwirlIconLock;
         "swirl-icon-lock-open": SwirlIconLockOpen;
         "swirl-icon-lock-person": SwirlIconLockPerson;
@@ -8791,6 +8811,7 @@ declare module "@stencil/core" {
             "swirl-icon-link": LocalJSX.SwirlIconLink & JSXBase.HTMLAttributes<HTMLSwirlIconLinkElement>;
             "swirl-icon-live": LocalJSX.SwirlIconLive & JSXBase.HTMLAttributes<HTMLSwirlIconLiveElement>;
             "swirl-icon-load": LocalJSX.SwirlIconLoad & JSXBase.HTMLAttributes<HTMLSwirlIconLoadElement>;
+            "swirl-icon-location-on": LocalJSX.SwirlIconLocationOn & JSXBase.HTMLAttributes<HTMLSwirlIconLocationOnElement>;
             "swirl-icon-lock": LocalJSX.SwirlIconLock & JSXBase.HTMLAttributes<HTMLSwirlIconLockElement>;
             "swirl-icon-lock-open": LocalJSX.SwirlIconLockOpen & JSXBase.HTMLAttributes<HTMLSwirlIconLockOpenElement>;
             "swirl-icon-lock-person": LocalJSX.SwirlIconLockPerson & JSXBase.HTMLAttributes<HTMLSwirlIconLockPersonElement>;

@@ -16,8 +16,8 @@ export type SwirlFormControlFontSize = "default" | "sm" | "base";
 export type SwirlFormControlLabelPosition = "inside" | "outside";
 
 /**
+ * @slot prefix - The prefix element, e.g. `<select slot="prefix">…</select>`
  * @slot slot - The input element, e.g. `<swirl-text-input></swirl-text-input>`
- * @slot prefix - The prefix element, e.g. `<select slot="prefix">…</select>` or `<swirl-icon-poll></swirl-icon-poll>`
  */
 @Component({
   /**
@@ -39,6 +39,7 @@ export class SwirlFormControl {
   @Prop() errorMessage?: string;
   @Prop() fontSize?: SwirlFormControlFontSize = "default";
   @Prop() hideLabel?: boolean;
+  @Prop() icon?: string;
   @Prop() inline?: boolean;
   @Prop() invalid?: boolean;
   @Prop() label!: string;
@@ -207,6 +208,7 @@ export class SwirlFormControl {
     );
 
     const hasPrefix = Boolean(this.el.querySelector('[slot="prefix"]'));
+    const hasIcon = Boolean(this.icon);
 
     const hasValue = Array.isArray(this.inputValue)
       ? this.inputValue.length > 0
@@ -231,6 +233,7 @@ export class SwirlFormControl {
         "form-control--has-focus": this.hasFocus,
         "form-control--has-placeholder": hasPlaceholder,
         "form-control--has-prefix": hasPrefix,
+        "form-control--has-icon": hasIcon,
         "form-control--has-value": hasValue,
         "form-control--hide-label": this.hideLabel,
         "form-control--inline": this.inline,
@@ -253,6 +256,11 @@ export class SwirlFormControl {
               <slot name="prefix"></slot>
             </span>
             <LabelTag class="form-control__label" onClick={this.onLabelClick}>
+              {hasIcon && (
+                <span class="form-control__icon">
+                  <swirl-icon glyph={this.icon} size={20}></swirl-icon>
+                </span>
+              )}
               <span class="form-control__label-text" id={this.labelId}>
                 {this.label}
                 {this.secondaryLabel && this.labelPosition === "outside" && (

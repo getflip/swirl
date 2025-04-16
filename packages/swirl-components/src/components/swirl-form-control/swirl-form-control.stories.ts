@@ -152,6 +152,16 @@ const Template = (args) => {
     <div contenteditable="plaintext-only" role="textbox"></div>
   `;
 
+  const iconPrefix = generateStoryElement("swirl-form-control", {
+    ...args,
+    label: "With leading Icon",
+    icon: "location-on",
+  });
+
+  iconPrefix.innerHTML = `
+    <swirl-text-input type="text"></swirl-text-input>
+  `;
+
   container.append(
     "\n  ",
     textInput,
@@ -171,6 +181,8 @@ const Template = (args) => {
     multilineInput,
     "\n  ",
     contenteditable,
+    "\n",
+    iconPrefix,
     "\n"
   );
 

@@ -401,6 +401,26 @@
   }
 }
 
+.form-control__icon {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--s-space-20);
+}
+
+.form-control--has-icon {
+  .form-control__label-text {
+    margin-left: calc(var(--s-space-20) + var(--s-space-12));
+  }
+  .form-control__input {
+    margin-left: calc(var(--s-space-20) + var(--s-space-12));
+  }
+}
+
 .form-control__description {
   display: block;
   margin-top: var(--s-space-4);
