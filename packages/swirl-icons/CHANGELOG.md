@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.57.0
+
+### Minor Changes
+
+- [#1032](https://github.com/getflip/swirl/pull/1032)
+  [`9118942a`](https://github.com/getflip/swirl/commit/9118942a2b4192e28c60fa3c81742ca4a504aeb5)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add location
+  icon and new icon slot to form control
+
 ## 0.56.0
 
 ### Minor Changes

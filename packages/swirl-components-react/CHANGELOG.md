@@ -1,5 +1,20 @@
 # @getflip/swirl-components-react
 
+## 0.319.0
+
+### Minor Changes
+
+- [#1032](https://github.com/getflip/swirl/pull/1032)
+  [`9118942a`](https://github.com/getflip/swirl/commit/9118942a2b4192e28c60fa3c81742ca4a504aeb5)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add location
+  icon and new icon slot to form control
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9118942a`](https://github.com/getflip/swirl/commit/9118942a2b4192e28c60fa3c81742ca4a504aeb5)]:
+  - @getflip/swirl-components@0.319.0
+
 ## 0.318.0
 
 ### Minor Changes
