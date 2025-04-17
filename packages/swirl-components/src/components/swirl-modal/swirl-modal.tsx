@@ -103,6 +103,11 @@ export class SwirlModal {
   componentDidLoad() {
     this.focusTrap = focusTrap.createFocusTrap(this.modalEl, {
       allowOutsideClick: true,
+
+      // We don't always close the modal when ESC is pressed. So we manage the
+      // deactivation of the focus trap manually.
+      escapeDeactivates: false,
+
       tabbableOptions: {
         getShadowRoot: (node) => {
           return node.shadowRoot;
