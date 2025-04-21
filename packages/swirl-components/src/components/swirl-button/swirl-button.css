@@ -189,18 +189,17 @@
 
 .button--variant-outline {
   color: var(--s-text-default);
-  box-shadow: inset 0 0 0 var(--s-border-width-default) var(--s-border-strong);
+  outline: var(--s-border-width-default) solid var(--s-border-strong);
+  outline-offset: calc(var(--s-border-width-default) * -1);
 
   &:disabled,
   &.button--disabled {
-    box-shadow: inset 0 0 0 var(--s-border-width-default)
-      var(--s-border-default);
+    outline-color: var(--s-border-default);
   }
 
   &.button--intent-critical:where(:not(:disabled):not(.button--disabled)) {
     color: var(--s-text-critical);
-    box-shadow: inset 0 0 0 var(--s-border-width-default)
-      var(--s-border-critical);
+    outline-color: var(--s-border-critical);
 
     & .button__icon {
       color: var(--s-icon-critical);
@@ -210,8 +209,7 @@
   &.button--intent-primary:where(:not(:disabled):not(.button--disabled)),
   &.button--pressed {
     color: var(--s-text-highlight);
-    box-shadow: inset 0 0 0 var(--s-border-width-default)
-      var(--s-border-highlight);
+    outline-color: var(--s-border-highlight);
 
     & .button__icon {
       color: var(--s-icon-highlight);
