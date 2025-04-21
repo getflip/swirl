@@ -2460,6 +2460,7 @@ export namespace Components {
         "label": string;
     }
     interface SwirlToggleGroup {
+        "elevated"?: boolean;
         "selectedToggleId": string;
         "swirlAriaLabel"?: string;
         "variant"?: SwirlToggleGroupVariant;
@@ -8208,6 +8209,7 @@ declare namespace LocalJSX {
         "label": string;
     }
     interface SwirlToggleGroup {
+        "elevated"?: boolean;
         "onSelectedToggleChange"?: (event: SwirlToggleGroupCustomEvent<string>) => void;
         "selectedToggleId": string;
         "swirlAriaLabel"?: string;

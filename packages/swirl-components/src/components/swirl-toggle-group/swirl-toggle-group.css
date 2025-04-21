@@ -10,8 +10,14 @@
   padding: var(--s-space-2);
   background-color: var(--s-surface-sunken-default);
   border-radius: var(--s-space-8);
-}
+  transition: box-shadow 0.3s;
 
-.toggle-group--variant-outline {
-  box-shadow: inset 0 0 0 var(--s-border-width-default) var(--s-border-strong);
+  &--elevated {
+    box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.25);
+  }
+
+  &--variant-outline {
+    outline: var(--s-border-width-default) solid var(--s-border-strong);
+    outline-offset: calc(var(--s-border-width-default) * -1);
+  }
 }

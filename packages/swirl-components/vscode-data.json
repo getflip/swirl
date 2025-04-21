@@ -19432,6 +19432,10 @@
       },
       "attributes": [
         {
+          "name": "elevated",
+          "description": ""
+        },
+        {
           "name": "selected-toggle-id",
           "description": ""
         },
