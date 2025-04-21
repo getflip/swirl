@@ -364,6 +364,7 @@ export namespace Components {
     interface SwirlButton {
         "disabled"?: boolean;
         "download"?: string;
+        "elevated"?: boolean;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
@@ -6249,6 +6250,7 @@ declare namespace LocalJSX {
     interface SwirlButton {
         "disabled"?: boolean;
         "download"?: string;
+        "elevated"?: boolean;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;

@@ -29,6 +29,7 @@
   text-decoration: none;
   cursor: pointer;
   gap: var(--s-space-8);
+  transition: box-shadow 0.3s;
 
   &:hover {
     background-color: var(--swirl-ghost-button-background-hovered);
@@ -38,6 +39,10 @@
 
   &:active {
     background-color: var(--swirl-ghost-button-background-pressed);
+  }
+
+  &--elevated {
+    box-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.25);
   }
 
   &:disabled,
@@ -362,7 +367,10 @@
 .button--variant-floating {
   color: var(--s-text-default);
   background-color: var(--s-surface-overlay-default);
-  box-shadow: var(--s-shadow-level-1);
+
+  &:not(.button--elevated) {
+    box-shadow: var(--s-shadow-level-1);
+  }
 
   &:hover {
     color: var(--s-text-on-action-primary);
