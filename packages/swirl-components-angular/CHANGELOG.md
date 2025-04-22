@@ -1,5 +1,17 @@
 # @getflip/swirl-components-angular
 
+## 0.319.1
+
+### Patch Changes
+
+- [#1034](https://github.com/getflip/swirl/pull/1034)
+  [`4082f2c4`](https://github.com/getflip/swirl/commit/4082f2c4432c5991cf073d951f72bf1fe36ba7cb)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix an issue resulting in the
+  deactivation of the swirl-modal focus trap even when the modal is still open
+- Updated dependencies
+  [[`4082f2c4`](https://github.com/getflip/swirl/commit/4082f2c4432c5991cf073d951f72bf1fe36ba7cb)]:
+  - @getflip/swirl-components@0.319.1
+
 ## 0.319.0
 
 ### Minor Changes
