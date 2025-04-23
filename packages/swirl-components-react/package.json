@@ -18,16 +18,20 @@
   "scripts": {
     "build": "tsc && vite build"
   },
-  "dependencies": {
-    "@getflip/swirl-components": "^0.319.1",
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@getflip/swirl-components": "^0.319.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",
     "typescript": "^4.6.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "vite": "^3.2.10",
     "vite-plugin-dts": "^1.6.6"
   }
