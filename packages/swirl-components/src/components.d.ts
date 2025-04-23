@@ -364,6 +364,7 @@ export namespace Components {
     interface SwirlButton {
         "disabled"?: boolean;
         "download"?: string;
+        "elevated"?: boolean;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
@@ -2459,6 +2460,7 @@ export namespace Components {
         "label": string;
     }
     interface SwirlToggleGroup {
+        "elevated"?: boolean;
         "selectedToggleId": string;
         "swirlAriaLabel"?: string;
         "variant"?: SwirlToggleGroupVariant;
@@ -6249,6 +6251,7 @@ declare namespace LocalJSX {
     interface SwirlButton {
         "disabled"?: boolean;
         "download"?: string;
+        "elevated"?: boolean;
         "form"?: string;
         "hideLabel"?: boolean;
         "href"?: string;
@@ -8206,6 +8209,7 @@ declare namespace LocalJSX {
         "label": string;
     }
     interface SwirlToggleGroup {
+        "elevated"?: boolean;
         "onSelectedToggleChange"?: (event: SwirlToggleGroupCustomEvent<string>) => void;
         "selectedToggleId": string;
         "swirlAriaLabel"?: string;

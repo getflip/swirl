@@ -20,6 +20,7 @@ export type SwirlToggleGroupVariant = "flat" | "outline";
 export class SwirlToggleGroup {
   @Element() el: HTMLElement;
 
+  @Prop() elevated?: boolean;
   @Prop() variant?: SwirlToggleGroupVariant = "flat";
   @Prop() swirlAriaLabel?: string;
   @Prop({ mutable: true }) selectedToggleId!: string;
@@ -95,7 +96,10 @@ export class SwirlToggleGroup {
   render() {
     const className = classnames(
       "toggle-group",
-      `toggle-group--variant-${this.variant}`
+      `toggle-group--variant-${this.variant}`,
+      {
+        "toggle-group--elevated": this.elevated,
+      }
     );
 
     return (

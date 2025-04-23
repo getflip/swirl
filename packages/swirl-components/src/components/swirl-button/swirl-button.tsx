@@ -39,6 +39,7 @@ export type SwirlButtonVariant =
 export class SwirlButton {
   @Element() el: HTMLElement;
 
+  @Prop() elevated?: boolean;
   @Prop() disabled?: boolean;
   @Prop() download?: string;
   @Prop() swirlAriaControls?: string;
@@ -154,6 +155,7 @@ export class SwirlButton {
       `button--text-align-${this.textAlign}`,
       `button--variant-${this.variant}`,
       {
+        "button--elevated": this.elevated,
         "button--disabled": this.disabled,
         "button--has-icon": hasIcon,
         "button--icon-only": hideLabel,
