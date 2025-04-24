@@ -183,11 +183,12 @@ export class SwirlImageGridItem {
 
   render() {
     const Tag = this.interactive ? "button" : "div";
-    const showImage =
-      this.loading !== "intersecting" ||
-      this.inViewport ||
-      this.loaded ||
-      this.gifPaused;
+
+    const showBlurredBackground =
+      this.gifPaused ||
+      !Boolean(this.loading) ||
+      this.loading === "eager" ||
+      (this.loaded && (this.loading !== "intersecting" || this.inViewport));
 
     const siblingCount =
       Math.min(this.el.parentElement?.children.length, 4) ?? 1;
@@ -203,12 +204,14 @@ export class SwirlImageGridItem {
           <div
             class="image-grid-item__background"
             style={{
-              backgroundImage: showImage
+              backgroundImage: showBlurredBackground
                 ? `url(${this.computedSrc})`
                 : undefined,
             }}
           ></div>
-          {showImage ? (
+          {this.loading !== "intersecting" ||
+          this.inViewport ||
+          this.gifPaused ? (
             <img
               alt={this.alt}
               class="image-grid-item__image"
