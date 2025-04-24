@@ -1,5 +1,26 @@
 # @getflip/swirl-components-react
 
+## 0.320.0
+
+### Minor Changes
+
+- [#1035](https://github.com/getflip/swirl/pull/1035)
+  [`847f88b9`](https://github.com/getflip/swirl/commit/847f88b9f870a9e4ebe026bd44af53db967f5053)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add elevated
+  prop to swirl-button
+
+### Patch Changes
+
+- [#1040](https://github.com/getflip/swirl/pull/1040)
+  [`be7cc8e5`](https://github.com/getflip/swirl/commit/be7cc8e59336f67bb9f8ec7b9414f8f955a880d0)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Use swirl token
+  for elevated shadow in swirl-button and swirl-toggle-group
+
+- Updated dependencies
+  [[`847f88b9`](https://github.com/getflip/swirl/commit/847f88b9f870a9e4ebe026bd44af53db967f5053),
+  [`be7cc8e5`](https://github.com/getflip/swirl/commit/be7cc8e59336f67bb9f8ec7b9414f8f955a880d0)]:
+  - @getflip/swirl-components@0.320.0
+
 ## 0.319.2
 
 ### Patch Changes
