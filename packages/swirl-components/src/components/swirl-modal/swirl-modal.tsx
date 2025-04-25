@@ -310,8 +310,13 @@ export class SwirlModal {
   }
 
   private unlockBodyScroll() {
-    enableBodyScroll(this.scrollContainer);
-    enableBodyScroll(this.sidebarScrollContainer);
+    if (this.scrollContainer) {
+      enableBodyScroll(this.scrollContainer);
+    }
+
+    if (this.sidebarScrollContainer) {
+      enableBodyScroll(this.sidebarScrollContainer);
+    }
   }
 
   render() {
