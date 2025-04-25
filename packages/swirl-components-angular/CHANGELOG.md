@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.320.1
+
+### Patch Changes
+
+- [#1042](https://github.com/getflip/swirl/pull/1042)
+  [`3126f77f`](https://github.com/getflip/swirl/commit/3126f77f837dff2947a8d253e241616a005e9493)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix exception caused by unlocking
+  the swirl-modal body scroll
+
+- Updated dependencies
+  [[`3126f77f`](https://github.com/getflip/swirl/commit/3126f77f837dff2947a8d253e241616a005e9493)]:
+  - @getflip/swirl-components@0.320.1
+
 ## 0.320.0
 
 ### Minor Changes
