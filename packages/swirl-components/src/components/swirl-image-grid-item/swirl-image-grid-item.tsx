@@ -200,6 +200,7 @@ export class SwirlImageGridItem {
     const className = classnames("image-grid-item", {
       "image-grid-item--has-error": this.error,
       "image-grid-item--has-overlay": this.overlay,
+      "image-grid-item--loaded": this.loaded,
     });
 
     return (

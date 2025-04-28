@@ -160,9 +160,6 @@ button.image-grid-item {
   }
 }
 
-.image-grid-item--sibling-count-1 {
-}
-
 .image-grid-item--has-error {
   & .image-grid-item__image {
     display: none;
@@ -181,6 +178,8 @@ button.image-grid-item {
   background-size: cover;
   inset: -40px;
   filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
 }
 
 .image-grid-item__image {
@@ -190,6 +189,15 @@ button.image-grid-item {
   height: 100%;
   object-fit: contain;
   object-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.image-grid-item--loaded {
+  & .image-grid-item__image,
+  & .image-grid-item__background {
+    opacity: 1;
+  }
 }
 
 .image-grid-item__loading-placeholder {
