@@ -266,13 +266,9 @@ button.image-grid-item {
   inset: 0;
 }
 
-.image-grid-item__spinner {
+.image-grid-item__skeleton {
   position: absolute;
   z-index: 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
   inset: 0;
 }
 
