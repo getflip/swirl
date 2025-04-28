@@ -116,6 +116,10 @@ export class SwirlImageGridItem {
     (entries: IntersectionObserverEntry[]) => {
       const sorted = [...entries].sort((a, b) => a.time - b.time);
       this.inViewport = sorted.at(-1).isIntersecting;
+
+      if (!this.inViewport) {
+        this.loaded = false;
+      }
     },
     250
   );
