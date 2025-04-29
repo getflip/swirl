@@ -1,5 +1,13 @@
 # @getflip/swirl-components
 
+## 0.321.0
+
+### Minor Changes
+
+- [#1044](https://github.com/getflip/swirl/pull/1044)
+  [`9818d0f0`](https://github.com/getflip/swirl/commit/9818d0f0d596be5993d0b03c9433a689a32c3035)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "upload" icon
+
 ## 0.320.1
 
 ### Patch Changes
