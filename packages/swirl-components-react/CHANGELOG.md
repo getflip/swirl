@@ -1,5 +1,19 @@
 # @getflip/swirl-components-react
 
+## 0.321.0
+
+### Minor Changes
+
+- [#1044](https://github.com/getflip/swirl/pull/1044)
+  [`9818d0f0`](https://github.com/getflip/swirl/commit/9818d0f0d596be5993d0b03c9433a689a32c3035)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "upload" icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9818d0f0`](https://github.com/getflip/swirl/commit/9818d0f0d596be5993d0b03c9433a689a32c3035)]:
+  - @getflip/swirl-components@0.321.0
+
 ## 0.320.1
 
 ### Patch Changes
