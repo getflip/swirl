@@ -15347,6 +15347,10 @@
           ]
         },
         {
+          "name": "has-sidebar-close-button",
+          "description": ""
+        },
+        {
           "name": "height",
           "description": ""
         },
@@ -15578,6 +15582,10 @@
               "name": "8"
             }
           ]
+        },
+        {
+          "name": "sidebar-close-button-label",
+          "description": ""
         },
         {
           "name": "sidebar-footer-padded",

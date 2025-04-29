@@ -290,15 +290,20 @@
 
       & .modal__sidebar-header {
         border-bottom: var(--s-border-width-default) solid transparent;
+        display: flex;
+        align-items: center;
+        gap: var(--s-space-8);
+        padding-right: var(--s-space-24);
+        padding-left: var(--s-space-24);
+
+        &.modal__sidebar-header--has-close-button {
+          padding-left: var(--s-space-16);
+        }
 
         & .modal__sidebar-heading {
           display: flex;
           align-items: center;
           height: var(--swirl-modal-header-height);
-          padding-top: var(--s-space-12);
-          padding-right: var(--s-space-24);
-          padding-bottom: var(--s-space-12);
-          padding-left: var(--s-space-24);
         }
       }
 
