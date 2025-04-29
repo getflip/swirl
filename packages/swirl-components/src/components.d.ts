@@ -1501,6 +1501,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconUpload {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconUserAdd {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -4490,6 +4494,12 @@ declare global {
         prototype: HTMLSwirlIconUnlockPersonElement;
         new (): HTMLSwirlIconUnlockPersonElement;
     };
+    interface HTMLSwirlIconUploadElement extends Components.SwirlIconUpload, HTMLStencilElement {
+    }
+    var HTMLSwirlIconUploadElement: {
+        prototype: HTMLSwirlIconUploadElement;
+        new (): HTMLSwirlIconUploadElement;
+    };
     interface HTMLSwirlIconUserAddElement extends Components.SwirlIconUserAdd, HTMLStencilElement {
     }
     var HTMLSwirlIconUserAddElement: {
@@ -5936,6 +5946,7 @@ declare global {
         "swirl-icon-tree-structure": HTMLSwirlIconTreeStructureElement;
         "swirl-icon-undo": HTMLSwirlIconUndoElement;
         "swirl-icon-unlock-person": HTMLSwirlIconUnlockPersonElement;
+        "swirl-icon-upload": HTMLSwirlIconUploadElement;
         "swirl-icon-user-add": HTMLSwirlIconUserAddElement;
         "swirl-icon-user-assign": HTMLSwirlIconUserAssignElement;
         "swirl-icon-video-camera": HTMLSwirlIconVideoCameraElement;
@@ -7351,6 +7362,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconUpload {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconUserAdd {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -8522,6 +8537,7 @@ declare namespace LocalJSX {
         "swirl-icon-tree-structure": SwirlIconTreeStructure;
         "swirl-icon-undo": SwirlIconUndo;
         "swirl-icon-unlock-person": SwirlIconUnlockPerson;
+        "swirl-icon-upload": SwirlIconUpload;
         "swirl-icon-user-add": SwirlIconUserAdd;
         "swirl-icon-user-assign": SwirlIconUserAssign;
         "swirl-icon-video-camera": SwirlIconVideoCamera;
@@ -8908,6 +8924,7 @@ declare module "@stencil/core" {
             "swirl-icon-tree-structure": LocalJSX.SwirlIconTreeStructure & JSXBase.HTMLAttributes<HTMLSwirlIconTreeStructureElement>;
             "swirl-icon-undo": LocalJSX.SwirlIconUndo & JSXBase.HTMLAttributes<HTMLSwirlIconUndoElement>;
             "swirl-icon-unlock-person": LocalJSX.SwirlIconUnlockPerson & JSXBase.HTMLAttributes<HTMLSwirlIconUnlockPersonElement>;
+            "swirl-icon-upload": LocalJSX.SwirlIconUpload & JSXBase.HTMLAttributes<HTMLSwirlIconUploadElement>;
             "swirl-icon-user-add": LocalJSX.SwirlIconUserAdd & JSXBase.HTMLAttributes<HTMLSwirlIconUserAddElement>;
             "swirl-icon-user-assign": LocalJSX.SwirlIconUserAssign & JSXBase.HTMLAttributes<HTMLSwirlIconUserAssignElement>;
             "swirl-icon-video-camera": LocalJSX.SwirlIconVideoCamera & JSXBase.HTMLAttributes<HTMLSwirlIconVideoCameraElement>;
