@@ -15,9 +15,7 @@ describe("swirl-image-grid-item", () => {
           <div class="image-grid-item">
             <div class="image-grid-item__background" style="background-image: url(/image.jpg);"></div>
             <img alt="Dog in a blanket" class="image-grid-item__image" src="/image.jpg">
-            <div class="image-grid-item__spinner">
-              <swirl-spinner></swirl-spinner>
-            </div>
+            <swirl-skeleton-box borderradius="none" class="image-grid-item__skeleton" height="100%" width="100%"></swirl-skeleton-box>
           </div>
         </mock:shadow-root>
       </swirl-image-grid-item>

@@ -116,6 +116,10 @@ export class SwirlImageGridItem {
     (entries: IntersectionObserverEntry[]) => {
       const sorted = [...entries].sort((a, b) => a.time - b.time);
       this.inViewport = sorted.at(-1).isIntersecting;
+
+      if (!this.inViewport) {
+        this.loaded = false;
+      }
     },
     250
   );
@@ -196,6 +200,7 @@ export class SwirlImageGridItem {
     const className = classnames("image-grid-item", {
       "image-grid-item--has-error": this.error,
       "image-grid-item--has-overlay": this.overlay,
+      "image-grid-item--loaded": this.loaded,
     });
 
     return (
@@ -262,9 +267,12 @@ export class SwirlImageGridItem {
             <div class="image-grid-item__overlay">{this.overlay}</div>
           )}
           {!this.loaded && (
-            <div class="image-grid-item__spinner">
-              <swirl-spinner></swirl-spinner>
-            </div>
+            <swirl-skeleton-box
+              class="image-grid-item__skeleton"
+              height="100%"
+              width="100%"
+              borderRadius="none"
+            ></swirl-skeleton-box>
           )}
           {this.loaded && this.error && (
             <div class="image-grid-item__error">
