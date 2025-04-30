@@ -58,6 +58,8 @@ corresponding svg file.
 have to be named in PascalCase followed by the size, e.g. `AddPhoto16.svg`!**
 
 1. Modify the icon files in a new branch
+   - For custom icons: Copy the svg files to the `icons` directory
+   - For Material Symbols: Edit the `material-symbols.json` file in the `scripts` directory and run `yarn copy:material-symbols`
 2. Run `yarn generate`, select "icons" when prompted
 3. Run `yarn changeset` to create a corresponding changelog item
 4. Run `yarn build`
