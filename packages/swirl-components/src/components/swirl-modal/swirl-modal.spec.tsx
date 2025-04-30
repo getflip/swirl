@@ -82,4 +82,90 @@ describe("swirl-modal", () => {
     expect(primarySpy).toHaveBeenCalled();
     expect(secondarySpy).toHaveBeenCalled();
   });
+
+  it("renders the sidebar with the close button", async () => {
+    const page = await newSpecPage({
+      components: [SwirlModal],
+      html: `
+        <swirl-modal label="Dialog" sidebar-label="Sidebar label" has-sidebar-close-button="true">
+          Main Content 
+
+          <swirl-box slot="sidebar-content">
+            <swirl-text>
+              Sidebar Content
+            </swirl-text>
+          </swirl-box>
+
+        </swirl-modal>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+      <swirl-modal has-sidebar-close-button="true" label="Dialog" sidebar-label="Sidebar label">
+   <section
+     aria-hidden="true"
+     aria-label="Dialog"
+     aria-modal="true"
+     class="modal modal--has-sidebar-content modal--padded modal--sidebar-footer-padded modal--sidebar-padded modal--variant-default"
+     role="dialog"
+   >
+     <div class="modal__backdrop"></div>
+     <div class="modal__body">
+       <aside class="modal__sidebar">
+        <header class="modal__sidebar-header modal__sidebar-header--has-close-button">
+          <swirl-button hidelabel="" icon="<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>" label="Close sidebar"></swirl-button>
+          <swirl-heading as="h3" class="modal__sidebar-heading" level="5" text="Sidebar label"></swirl-heading>
+        </header>
+        <div class="modal__sidebar-content">
+        <swirl-box slot="sidebar-content">
+          <swirl-text>
+          Sidebar Content
+          </swirl-text>
+        </swirl-box>
+        </div>
+        <div class="modal__sidebar-footer"></div>
+       </aside>
+       <div class="modal__main-content">
+         <header class="modal__custom-header"></header>
+         <header class="modal__header">
+           <div class="modal__header-bar">
+             <swirl-button
+               class="modal__close-button"
+               hidelabel=""
+               icon="<swirl-icon-close></swirl-icon-close>"
+               label="Close modal"
+             ></swirl-button>
+             <swirl-heading
+               as="h2"
+               class="modal__heading"
+               level="3"
+               text="Dialog"
+             ></swirl-heading>
+           </div>
+         </header>
+         <div class="modal__content-container">
+           <div class="modal__primary-content">
+             <div class="modal__header-tools"></div>
+             <div class="modal__content">Main Content</div>
+           </div>
+           <div class="modal__secondary-content"></div>
+         </div>
+         <div class="modal__custom-footer"></div>
+       </div>
+     </div>
+   </section>
+ </swirl-modal>
+     `);
+
+    const sidebarCloseSpy = jest.fn();
+
+    const closeButton = page.root.querySelector<HTMLSwirlButtonElement>(
+      ".modal__sidebar-header swirl-button"
+    );
+
+    page.root.addEventListener("sidebarClose", sidebarCloseSpy);
+
+    closeButton.click();
+
+    expect(sidebarCloseSpy).toHaveBeenCalled();
+  });
 });

@@ -73,12 +73,15 @@ export class SwirlModal {
   @Prop() sidebarPadded?: boolean = true;
   @Prop() sidebarFooterPadded?: boolean = true;
   @Prop() hideSidebarContent?: boolean;
+  @Prop() hasSidebarCloseButton?: boolean;
+  @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
 
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
   @Event() primaryAction: EventEmitter<MouseEvent>;
   @Event() requestModalClose: EventEmitter<void>;
   @Event() secondaryAction: EventEmitter<MouseEvent>;
+  @Event() sidebarClose: EventEmitter<void>;
 
   @State() isOpen = false;
   @State() closing = false;
@@ -199,6 +202,11 @@ export class SwirlModal {
 
   private onCloseButtonClick = () => {
     this.close();
+  };
+
+  private onSidebarCloseButtonClick = () => {
+    this.hideSidebarContent = true;
+    this.sidebarClose.emit();
   };
 
   private onPrimaryAction = (event: MouseEvent) => {
@@ -372,11 +380,25 @@ export class SwirlModal {
           >
             <aside class="modal__sidebar">
               {this.sidebarLabel && (
-                <header class="modal__sidebar-header">
+                <header
+                  class={classnames("modal__sidebar-header", {
+                    "modal__sidebar-header--has-close-button":
+                      this.hasSidebarCloseButton,
+                  })}
+                >
+                  {this.hasSidebarCloseButton && (
+                    <swirl-button
+                      hideLabel
+                      icon="<swirl-icon-double-arrow-right></swirl-icon-double-arrow-right>"
+                      label={this.sidebarCloseButtonLabel}
+                      onClick={this.onSidebarCloseButtonClick}
+                    ></swirl-button>
+                  )}
+
                   <swirl-heading
                     as="h3"
                     class="modal__sidebar-heading"
-                    level={3}
+                    level={5}
                     text={this.sidebarLabel}
                   ></swirl-heading>
                 </header>

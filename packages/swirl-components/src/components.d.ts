@@ -1715,6 +1715,7 @@ export namespace Components {
         "close": (force?: boolean) => Promise<void>;
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
+        "hasSidebarCloseButton"?: boolean;
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
@@ -1741,6 +1742,7 @@ export namespace Components {
         "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
+        "sidebarCloseButtonLabel"?: string;
         "sidebarFooterPadded"?: boolean;
         "sidebarLabel"?: string;
         "sidebarPadded"?: boolean;
@@ -4691,6 +4693,7 @@ declare global {
         "primaryAction": MouseEvent;
         "requestModalClose": void;
         "secondaryAction": MouseEvent;
+        "sidebarClose": void;
     }
     interface HTMLSwirlModalElement extends Components.SwirlModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlModalElementEventMap>(type: K, listener: (this: HTMLSwirlModalElement, ev: SwirlModalCustomEvent<HTMLSwirlModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -7506,6 +7509,7 @@ declare namespace LocalJSX {
         "closable"?: boolean;
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
+        "hasSidebarCloseButton"?: boolean;
         "height"?: string;
         "hideCloseButton"?: boolean;
         "hideLabel"?: boolean;
@@ -7521,6 +7525,7 @@ declare namespace LocalJSX {
         "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "onRequestModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onSecondaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
+        "onSidebarClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "padded"?: boolean;
         "primaryActionLabel"?: string;
         "primaryContentFlex"?: string;
@@ -7533,6 +7538,7 @@ declare namespace LocalJSX {
         "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
+        "sidebarCloseButtonLabel"?: string;
         "sidebarFooterPadded"?: boolean;
         "sidebarLabel"?: string;
         "sidebarPadded"?: boolean;
