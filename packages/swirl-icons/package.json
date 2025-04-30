@@ -22,6 +22,7 @@
   },
   "scripts": {
     "clean": "rimraf dist",
+    "copy:material-symbols": "ts-node scripts/copy-material-symbols.ts",
     "build:dart": "ts-node ./scripts/build-dart-package.ts",
     "build:fonts": "svgtofont --sources ./icons --output ./dist --css true --fontName swirl-icons && rimraf dist/react",
     "build:legacy:fonts": "svgtofont --sources ./legacy-icons --output ./dist/legacy-icons --css true --fontName flip-legacy-icons && rimraf dist/legacy-icons/react",
