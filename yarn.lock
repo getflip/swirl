@@ -3145,6 +3145,11 @@
     globby "^11.0.0"
     read-yaml-file "^1.1.0"
 
+"@material-symbols/svg-400@0.31.2":
+  version "0.31.2"
+  resolved "https://registry.yarnpkg.com/@material-symbols/svg-400/-/svg-400-0.31.2.tgz#757eac33a568f53e1d98c3758ee5c07eeb68946a"
+  integrity sha512-XKl1pC00ogBHw2NGqJt31XgwXX5bLVk9BgujxPe6lAE015L5Ji5BIG8le6/6xf5QViIqcRj4IWyh69JlJO/Gyg==
+
 "@mdx-js/loader@^2.1.3":
   version "2.3.0"
   resolved "https://registry.npmjs.org/@mdx-js/loader/-/loader-2.3.0.tgz"
