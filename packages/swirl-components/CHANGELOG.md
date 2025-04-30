@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.322.0
+
+### Minor Changes
+
+- [#1046](https://github.com/getflip/swirl/pull/1046)
+  [`2dbb1c42`](https://github.com/getflip/swirl/commit/2dbb1c42121064e2aa9d83e8f1283f5b39b217c0)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add a close
+  button to the swirl-modal sidebar
+
 ## 0.321.0
 
 ### Minor Changes
