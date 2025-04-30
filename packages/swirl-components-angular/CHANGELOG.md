@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.323.0
+
+### Minor Changes
+
+- [#1041](https://github.com/getflip/swirl/pull/1041)
+  [`2d2b0db3`](https://github.com/getflip/swirl/commit/2d2b0db38ba55923a37e495281aa065345799331)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix redundant
+  image loads in swirl-image-grid
+
+### Patch Changes
+
+- Updated dependencies
+  [[`2d2b0db3`](https://github.com/getflip/swirl/commit/2d2b0db38ba55923a37e495281aa065345799331)]:
+  - @getflip/swirl-components@0.323.0
+
 ## 0.322.0
 
 ### Minor Changes
