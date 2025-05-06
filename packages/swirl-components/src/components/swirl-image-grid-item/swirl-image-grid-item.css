@@ -178,8 +178,6 @@ button.image-grid-item {
   background-size: cover;
   inset: -40px;
   filter: blur(20px);
-  opacity: 0;
-  transition: opacity 0.3s ease-in;
 }
 
 .image-grid-item__image {
@@ -194,8 +192,7 @@ button.image-grid-item {
 }
 
 .image-grid-item--loaded {
-  & .image-grid-item__image,
-  & .image-grid-item__background {
+  & .image-grid-item__image {
     opacity: 1;
   }
 }
