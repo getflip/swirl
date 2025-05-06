@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.324.0
+
+### Minor Changes
+
+- [#1050](https://github.com/getflip/swirl/pull/1050)
+  [`bad8c269`](https://github.com/getflip/swirl/commit/bad8c269434597598a42206a34f4c819b484cb9c)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Improve image
+  grid background loading
+
 ## 0.323.0
 
 ### Minor Changes
