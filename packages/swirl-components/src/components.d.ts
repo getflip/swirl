@@ -997,6 +997,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconEditNote {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconEmojiMood {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -1090,6 +1094,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconHome {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconHrResting {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -1442,6 +1450,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconStars {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconStickyNote {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -3738,6 +3750,12 @@ declare global {
         prototype: HTMLSwirlIconEditElement;
         new (): HTMLSwirlIconEditElement;
     };
+    interface HTMLSwirlIconEditNoteElement extends Components.SwirlIconEditNote, HTMLStencilElement {
+    }
+    var HTMLSwirlIconEditNoteElement: {
+        prototype: HTMLSwirlIconEditNoteElement;
+        new (): HTMLSwirlIconEditNoteElement;
+    };
     interface HTMLSwirlIconEmojiMoodElement extends Components.SwirlIconEmojiMood, HTMLStencilElement {
     }
     var HTMLSwirlIconEmojiMoodElement: {
@@ -3881,6 +3899,12 @@ declare global {
     var HTMLSwirlIconHomeElement: {
         prototype: HTMLSwirlIconHomeElement;
         new (): HTMLSwirlIconHomeElement;
+    };
+    interface HTMLSwirlIconHrRestingElement extends Components.SwirlIconHrResting, HTMLStencilElement {
+    }
+    var HTMLSwirlIconHrRestingElement: {
+        prototype: HTMLSwirlIconHrRestingElement;
+        new (): HTMLSwirlIconHrRestingElement;
     };
     interface HTMLSwirlIconImageElement extends Components.SwirlIconImage, HTMLStencilElement {
     }
@@ -4409,6 +4433,12 @@ declare global {
     var HTMLSwirlIconStarsElement: {
         prototype: HTMLSwirlIconStarsElement;
         new (): HTMLSwirlIconStarsElement;
+    };
+    interface HTMLSwirlIconStickyNoteElement extends Components.SwirlIconStickyNote, HTMLStencilElement {
+    }
+    var HTMLSwirlIconStickyNoteElement: {
+        prototype: HTMLSwirlIconStickyNoteElement;
+        new (): HTMLSwirlIconStickyNoteElement;
     };
     interface HTMLSwirlIconStopElement extends Components.SwirlIconStop, HTMLStencilElement {
     }
@@ -5820,6 +5850,7 @@ declare global {
         "swirl-icon-download": HTMLSwirlIconDownloadElement;
         "swirl-icon-drag-handle": HTMLSwirlIconDragHandleElement;
         "swirl-icon-edit": HTMLSwirlIconEditElement;
+        "swirl-icon-edit-note": HTMLSwirlIconEditNoteElement;
         "swirl-icon-emoji-mood": HTMLSwirlIconEmojiMoodElement;
         "swirl-icon-emoji-satisfied": HTMLSwirlIconEmojiSatisfiedElement;
         "swirl-icon-error": HTMLSwirlIconErrorElement;
@@ -5844,6 +5875,7 @@ declare global {
         "swirl-icon-highlight": HTMLSwirlIconHighlightElement;
         "swirl-icon-history": HTMLSwirlIconHistoryElement;
         "swirl-icon-home": HTMLSwirlIconHomeElement;
+        "swirl-icon-hr-resting": HTMLSwirlIconHrRestingElement;
         "swirl-icon-image": HTMLSwirlIconImageElement;
         "swirl-icon-improve-text": HTMLSwirlIconImproveTextElement;
         "swirl-icon-info": HTMLSwirlIconInfoElement;
@@ -5932,6 +5964,7 @@ declare global {
         "swirl-icon-simplify": HTMLSwirlIconSimplifyElement;
         "swirl-icon-spellcheck": HTMLSwirlIconSpellcheckElement;
         "swirl-icon-stars": HTMLSwirlIconStarsElement;
+        "swirl-icon-sticky-note": HTMLSwirlIconStickyNoteElement;
         "swirl-icon-stop": HTMLSwirlIconStopElement;
         "swirl-icon-stop-circle": HTMLSwirlIconStopCircleElement;
         "swirl-icon-sync": HTMLSwirlIconSyncElement;
@@ -6858,6 +6891,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconEditNote {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconEmojiMood {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -6951,6 +6988,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHome {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconHrResting {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -7303,6 +7344,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconStars {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconStickyNote {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -8411,6 +8456,7 @@ declare namespace LocalJSX {
         "swirl-icon-download": SwirlIconDownload;
         "swirl-icon-drag-handle": SwirlIconDragHandle;
         "swirl-icon-edit": SwirlIconEdit;
+        "swirl-icon-edit-note": SwirlIconEditNote;
         "swirl-icon-emoji-mood": SwirlIconEmojiMood;
         "swirl-icon-emoji-satisfied": SwirlIconEmojiSatisfied;
         "swirl-icon-error": SwirlIconError;
@@ -8435,6 +8481,7 @@ declare namespace LocalJSX {
         "swirl-icon-highlight": SwirlIconHighlight;
         "swirl-icon-history": SwirlIconHistory;
         "swirl-icon-home": SwirlIconHome;
+        "swirl-icon-hr-resting": SwirlIconHrResting;
         "swirl-icon-image": SwirlIconImage;
         "swirl-icon-improve-text": SwirlIconImproveText;
         "swirl-icon-info": SwirlIconInfo;
@@ -8523,6 +8570,7 @@ declare namespace LocalJSX {
         "swirl-icon-simplify": SwirlIconSimplify;
         "swirl-icon-spellcheck": SwirlIconSpellcheck;
         "swirl-icon-stars": SwirlIconStars;
+        "swirl-icon-sticky-note": SwirlIconStickyNote;
         "swirl-icon-stop": SwirlIconStop;
         "swirl-icon-stop-circle": SwirlIconStopCircle;
         "swirl-icon-sync": SwirlIconSync;
@@ -8798,6 +8846,7 @@ declare module "@stencil/core" {
             "swirl-icon-download": LocalJSX.SwirlIconDownload & JSXBase.HTMLAttributes<HTMLSwirlIconDownloadElement>;
             "swirl-icon-drag-handle": LocalJSX.SwirlIconDragHandle & JSXBase.HTMLAttributes<HTMLSwirlIconDragHandleElement>;
             "swirl-icon-edit": LocalJSX.SwirlIconEdit & JSXBase.HTMLAttributes<HTMLSwirlIconEditElement>;
+            "swirl-icon-edit-note": LocalJSX.SwirlIconEditNote & JSXBase.HTMLAttributes<HTMLSwirlIconEditNoteElement>;
             "swirl-icon-emoji-mood": LocalJSX.SwirlIconEmojiMood & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiMoodElement>;
             "swirl-icon-emoji-satisfied": LocalJSX.SwirlIconEmojiSatisfied & JSXBase.HTMLAttributes<HTMLSwirlIconEmojiSatisfiedElement>;
             "swirl-icon-error": LocalJSX.SwirlIconError & JSXBase.HTMLAttributes<HTMLSwirlIconErrorElement>;
@@ -8822,6 +8871,7 @@ declare module "@stencil/core" {
             "swirl-icon-highlight": LocalJSX.SwirlIconHighlight & JSXBase.HTMLAttributes<HTMLSwirlIconHighlightElement>;
             "swirl-icon-history": LocalJSX.SwirlIconHistory & JSXBase.HTMLAttributes<HTMLSwirlIconHistoryElement>;
             "swirl-icon-home": LocalJSX.SwirlIconHome & JSXBase.HTMLAttributes<HTMLSwirlIconHomeElement>;
+            "swirl-icon-hr-resting": LocalJSX.SwirlIconHrResting & JSXBase.HTMLAttributes<HTMLSwirlIconHrRestingElement>;
             "swirl-icon-image": LocalJSX.SwirlIconImage & JSXBase.HTMLAttributes<HTMLSwirlIconImageElement>;
             "swirl-icon-improve-text": LocalJSX.SwirlIconImproveText & JSXBase.HTMLAttributes<HTMLSwirlIconImproveTextElement>;
             "swirl-icon-info": LocalJSX.SwirlIconInfo & JSXBase.HTMLAttributes<HTMLSwirlIconInfoElement>;
@@ -8910,6 +8960,7 @@ declare module "@stencil/core" {
             "swirl-icon-simplify": LocalJSX.SwirlIconSimplify & JSXBase.HTMLAttributes<HTMLSwirlIconSimplifyElement>;
             "swirl-icon-spellcheck": LocalJSX.SwirlIconSpellcheck & JSXBase.HTMLAttributes<HTMLSwirlIconSpellcheckElement>;
             "swirl-icon-stars": LocalJSX.SwirlIconStars & JSXBase.HTMLAttributes<HTMLSwirlIconStarsElement>;
+            "swirl-icon-sticky-note": LocalJSX.SwirlIconStickyNote & JSXBase.HTMLAttributes<HTMLSwirlIconStickyNoteElement>;
             "swirl-icon-stop": LocalJSX.SwirlIconStop & JSXBase.HTMLAttributes<HTMLSwirlIconStopElement>;
             "swirl-icon-stop-circle": LocalJSX.SwirlIconStopCircle & JSXBase.HTMLAttributes<HTMLSwirlIconStopCircleElement>;
             "swirl-icon-sync": LocalJSX.SwirlIconSync & JSXBase.HTMLAttributes<HTMLSwirlIconSyncElement>;
