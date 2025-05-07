@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.58.0
+
+### Minor Changes
+
+- [#1052](https://github.com/getflip/swirl/pull/1052)
+  [`5b41363f`](https://github.com/getflip/swirl/commit/5b41363f3d1f76be2c7baafa68c2d6fe7d6d9315)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add EditNote,
+  HrResting and StickyNote icons
+
 ## 0.57.0
 
 ### Minor Changes
