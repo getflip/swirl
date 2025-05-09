@@ -30,8 +30,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-      - name: Install dependencies
-        run: yarn install --verbose
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
