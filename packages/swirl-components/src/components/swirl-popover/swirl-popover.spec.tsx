@@ -15,7 +15,7 @@ describe("swirl-popover", () => {
       <swirl-popover-trigger swirl-popover="popover">
         <button id="trigger">Trigger popover</button>
       </swirl-popover-trigger>
-      <swirl-popover label="Popover" id="popover">
+      <swirl-popover label="Popover" id="popover" style="display: none;">
         <div>Content</div>
       </swirl-popover>
     </div>
@@ -42,7 +42,7 @@ describe("swirl-popover", () => {
         <swirl-popover-trigger swirl-popover="popover">
           <button aria-controls="popover" aria-expanded="false" aria-haspopup="dialog" id="trigger">Trigger popover</button>
         </swirl-popover-trigger>
-        <swirl-popover id="popover" label="Popover">
+        <swirl-popover id="popover" label="Popover" style="display: none;">
           <mock:shadow-root>
             <div class="popover popover--animation-scale-in-xy popover--inactive popover--padded popover--placement-undefined">
               <div aria-hidden="true" aria-label="Popover" class="popover__content" part="popover__content" role="dialog" tabindex="-1">

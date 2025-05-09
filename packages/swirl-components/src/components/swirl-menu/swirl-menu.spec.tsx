@@ -83,7 +83,7 @@ describe("swirl-menu", () => {
             </button>
           </swirl-button>
         </swirl-popover-trigger>
-        <swirl-popover id="menu" label="Menu">
+        <swirl-popover id="menu" label="Menu" style="display: none;">
           <mock:shadow-root>
             <div class="popover popover--animation-scale-in-xy popover--inactive popover--padded popover--placement-undefined">
               <div aria-hidden="true" aria-label="Menu" class="popover__content" part="popover__content" role="dialog" tabindex="-1">

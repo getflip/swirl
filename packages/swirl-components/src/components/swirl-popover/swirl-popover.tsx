@@ -399,7 +399,7 @@ export class SwirlPopover {
     );
 
     return (
-      <Host>
+      <Host style={{ display: this.active ? "inline-flex" : "none" }}>
         <div class={className} onKeyDown={this.onKeydown}>
           <div
             aria-hidden={!this.active ? "true" : "false"}

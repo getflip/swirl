@@ -3,7 +3,6 @@
 :host {
   position: relative;
   z-index: var(--s-z-40);
-  display: inline-flex;
 
   & * {
     box-sizing: border-box;
