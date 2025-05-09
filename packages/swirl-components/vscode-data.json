@@ -4281,6 +4281,122 @@
       ]
     },
     {
+      "name": "swirl-icon-beach-access",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-beach-access-filled",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-block",
       "description": {
         "kind": "markdown",
@@ -4398,6 +4514,122 @@
     },
     {
       "name": "swirl-icon-bookmark-filled",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-calendar-add-on-filled",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-calendar-today",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -7471,6 +7703,64 @@
       ]
     },
     {
+      "name": "swirl-icon-format-list-bulleted",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-fullscreen",
       "description": {
         "kind": "markdown",
@@ -7878,6 +8168,64 @@
     },
     {
       "name": "swirl-icon-hamburger-menu",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-health-and-safety",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -8400,6 +8748,64 @@
     },
     {
       "name": "swirl-icon-insert-below",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-insert-chart",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -10487,6 +10893,64 @@
       ]
     },
     {
+      "name": "swirl-icon-next-plan",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-notifications",
       "description": {
         "kind": "markdown",
@@ -11764,6 +12228,64 @@
     },
     {
       "name": "swirl-icon-public-off",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-published-with-changes",
       "description": {
         "kind": "markdown",
         "value": ""
@@ -13446,6 +13968,64 @@
     },
     {
       "name": "swirl-icon-stop-circle",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "swirl-icon-sunny",
       "description": {
         "kind": "markdown",
         "value": ""
