@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: yarn && yarn test:coverage
+      - run: yarn install --ignore-scripts && yarn test:coverage
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
