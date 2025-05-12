@@ -26,13 +26,13 @@ const Template = (args) => {
   const element = generateStoryElement("swirl-action-list-item", args);
 
   element.innerHTML = `
-  <swirl-avatar
-    slot="avatar"
-    label="Jane Doe"
-    size="l"
-    src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"></swirl-avatar>
-  <swirl-switch checked hide-label label="Test" slot="suffix"></swirl-switch>
-  `;
+<swirl-avatar
+  slot="avatar"
+  label="Jane Doe"
+  size="l"
+  src="https://api.dicebear.com/7.x/bottts-neutral/svg?size=144&seed=a"></swirl-avatar>
+<swirl-switch checked hide-label label="Test" slot="suffix"></swirl-switch>
+`;
 
   return element;
 };
