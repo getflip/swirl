@@ -1,5 +1,17 @@
 # @getflip/swirl-components-react
 
+## 0.325.1
+
+### Patch Changes
+
+- [#1054](https://github.com/getflip/swirl/pull/1054)
+  [`2821a010`](https://github.com/getflip/swirl/commit/2821a010014128b483a70f8e2490397dc937cfb9)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Completely hide closed
+  swirl-popovers to prevent them from messing with the layout flow"
+- Updated dependencies
+  [[`2821a010`](https://github.com/getflip/swirl/commit/2821a010014128b483a70f8e2490397dc937cfb9)]:
+  - @getflip/swirl-components@0.325.1
+
 ## 0.325.0
 
 ### Minor Changes
