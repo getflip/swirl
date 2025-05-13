@@ -389,7 +389,7 @@ export class SwirlTextInput implements SwirlFormInput {
             </span>
           )}
           {this.showCharacterCounter && (
-            <span class="text-input__character-counter">
+            <span class="text-input__character-counter" aria-live="polite">
               {this.value?.length || 0}{" "}
               {Boolean(this.maxLength) ? `/ ${this.maxLength}` : ""}
             </span>
