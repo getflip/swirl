@@ -1,5 +1,21 @@
 # @getflip/swirl-components-angular
 
+## 0.326.0
+
+### Minor Changes
+
+- [#1055](https://github.com/getflip/swirl/pull/1055)
+  [`5c67650d`](https://github.com/getflip/swirl/commit/5c67650d42e9a0dcbbf6308038d11609400b8201)
+  Thanks [@danizep](https://github.com/danizep)! - Add icons: BeachAccess,
+  BeachAccessFilled, CalebdarAddOnFilled, CalendarToday, FormatListBulleted,
+  HealthAndSafety, InsertChart, NextPlan, PublishedWithChanges, Sunny
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5c67650d`](https://github.com/getflip/swirl/commit/5c67650d42e9a0dcbbf6308038d11609400b8201)]:
+  - @getflip/swirl-components@0.326.0
+
 ## 0.325.1
 
 ### Patch Changes
