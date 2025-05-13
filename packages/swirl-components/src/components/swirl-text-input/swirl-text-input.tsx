@@ -51,6 +51,7 @@ export class SwirlTextInput implements SwirlFormInput {
   @Prop() autoFocus?: boolean;
   @Prop() autoGrow?: boolean;
   @Prop() autoSelect?: boolean;
+  @Prop() characterCounterLabel?: string = "Used characters";
   @Prop() clearable?: boolean;
   @Prop() clearButtonLabel?: string = "Clear input";
   @Prop() disabled?: boolean;
@@ -389,7 +390,10 @@ export class SwirlTextInput implements SwirlFormInput {
             </span>
           )}
           {this.showCharacterCounter && (
-            <span class="text-input__character-counter">
+            <span class="text-input__character-counter" aria-live="polite">
+              <swirl-visually-hidden>
+                {this.characterCounterLabel}
+              </swirl-visually-hidden>
               {this.value?.length || 0}{" "}
               {Boolean(this.maxLength) ? `/ ${this.maxLength}` : ""}
             </span>
