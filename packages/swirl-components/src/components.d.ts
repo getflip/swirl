@@ -825,6 +825,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconAudioFile {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconBarChart {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3537,6 +3541,12 @@ declare global {
         prototype: HTMLSwirlIconAttachmentElement;
         new (): HTMLSwirlIconAttachmentElement;
     };
+    interface HTMLSwirlIconAudioFileElement extends Components.SwirlIconAudioFile, HTMLStencilElement {
+    }
+    var HTMLSwirlIconAudioFileElement: {
+        prototype: HTMLSwirlIconAudioFileElement;
+        new (): HTMLSwirlIconAudioFileElement;
+    };
     interface HTMLSwirlIconBarChartElement extends Components.SwirlIconBarChart, HTMLStencilElement {
     }
     var HTMLSwirlIconBarChartElement: {
@@ -5918,6 +5928,7 @@ declare global {
         "swirl-icon-arrow-upward": HTMLSwirlIconArrowUpwardElement;
         "swirl-icon-aspect-ratio": HTMLSwirlIconAspectRatioElement;
         "swirl-icon-attachment": HTMLSwirlIconAttachmentElement;
+        "swirl-icon-audio-file": HTMLSwirlIconAudioFileElement;
         "swirl-icon-bar-chart": HTMLSwirlIconBarChartElement;
         "swirl-icon-beach-access": HTMLSwirlIconBeachAccessElement;
         "swirl-icon-beach-access-filled": HTMLSwirlIconBeachAccessFilledElement;
@@ -6838,6 +6849,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAttachment {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconAudioFile {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -8580,6 +8595,7 @@ declare namespace LocalJSX {
         "swirl-icon-arrow-upward": SwirlIconArrowUpward;
         "swirl-icon-aspect-ratio": SwirlIconAspectRatio;
         "swirl-icon-attachment": SwirlIconAttachment;
+        "swirl-icon-audio-file": SwirlIconAudioFile;
         "swirl-icon-bar-chart": SwirlIconBarChart;
         "swirl-icon-beach-access": SwirlIconBeachAccess;
         "swirl-icon-beach-access-filled": SwirlIconBeachAccessFilled;
@@ -8981,6 +8997,7 @@ declare module "@stencil/core" {
             "swirl-icon-arrow-upward": LocalJSX.SwirlIconArrowUpward & JSXBase.HTMLAttributes<HTMLSwirlIconArrowUpwardElement>;
             "swirl-icon-aspect-ratio": LocalJSX.SwirlIconAspectRatio & JSXBase.HTMLAttributes<HTMLSwirlIconAspectRatioElement>;
             "swirl-icon-attachment": LocalJSX.SwirlIconAttachment & JSXBase.HTMLAttributes<HTMLSwirlIconAttachmentElement>;
+            "swirl-icon-audio-file": LocalJSX.SwirlIconAudioFile & JSXBase.HTMLAttributes<HTMLSwirlIconAudioFileElement>;
             "swirl-icon-bar-chart": LocalJSX.SwirlIconBarChart & JSXBase.HTMLAttributes<HTMLSwirlIconBarChartElement>;
             "swirl-icon-beach-access": LocalJSX.SwirlIconBeachAccess & JSXBase.HTMLAttributes<HTMLSwirlIconBeachAccessElement>;
             "swirl-icon-beach-access-filled": LocalJSX.SwirlIconBeachAccessFilled & JSXBase.HTMLAttributes<HTMLSwirlIconBeachAccessFilledElement>;
