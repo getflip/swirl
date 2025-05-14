@@ -1337,6 +1337,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconPictureAsPdf {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconPictureInPicture {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -2400,6 +2404,7 @@ export namespace Components {
         "autoGrow"?: boolean;
         "autoSelect"?: boolean;
         "blurInput": () => Promise<void>;
+        "characterCounterLabel"?: string;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
@@ -4300,6 +4305,12 @@ declare global {
         prototype: HTMLSwirlIconPhotoCameraElement;
         new (): HTMLSwirlIconPhotoCameraElement;
     };
+    interface HTMLSwirlIconPictureAsPdfElement extends Components.SwirlIconPictureAsPdf, HTMLStencilElement {
+    }
+    var HTMLSwirlIconPictureAsPdfElement: {
+        prototype: HTMLSwirlIconPictureAsPdfElement;
+        new (): HTMLSwirlIconPictureAsPdfElement;
+    };
     interface HTMLSwirlIconPictureInPictureElement extends Components.SwirlIconPictureInPicture, HTMLStencilElement {
     }
     var HTMLSwirlIconPictureInPictureElement: {
@@ -6035,6 +6046,7 @@ declare global {
         "swirl-icon-person-off": HTMLSwirlIconPersonOffElement;
         "swirl-icon-phone": HTMLSwirlIconPhoneElement;
         "swirl-icon-photo-camera": HTMLSwirlIconPhotoCameraElement;
+        "swirl-icon-picture-as-pdf": HTMLSwirlIconPictureAsPdfElement;
         "swirl-icon-picture-in-picture": HTMLSwirlIconPictureInPictureElement;
         "swirl-icon-pin": HTMLSwirlIconPinElement;
         "swirl-icon-pin-off": HTMLSwirlIconPinOffElement;
@@ -7341,6 +7353,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconPictureAsPdf {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconPictureInPicture {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -8332,6 +8348,7 @@ declare namespace LocalJSX {
         "autoFocus"?: boolean;
         "autoGrow"?: boolean;
         "autoSelect"?: boolean;
+        "characterCounterLabel"?: string;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
@@ -8691,6 +8708,7 @@ declare namespace LocalJSX {
         "swirl-icon-person-off": SwirlIconPersonOff;
         "swirl-icon-phone": SwirlIconPhone;
         "swirl-icon-photo-camera": SwirlIconPhotoCamera;
+        "swirl-icon-picture-as-pdf": SwirlIconPictureAsPdf;
         "swirl-icon-picture-in-picture": SwirlIconPictureInPicture;
         "swirl-icon-pin": SwirlIconPin;
         "swirl-icon-pin-off": SwirlIconPinOff;
@@ -9091,6 +9109,7 @@ declare module "@stencil/core" {
             "swirl-icon-person-off": LocalJSX.SwirlIconPersonOff & JSXBase.HTMLAttributes<HTMLSwirlIconPersonOffElement>;
             "swirl-icon-phone": LocalJSX.SwirlIconPhone & JSXBase.HTMLAttributes<HTMLSwirlIconPhoneElement>;
             "swirl-icon-photo-camera": LocalJSX.SwirlIconPhotoCamera & JSXBase.HTMLAttributes<HTMLSwirlIconPhotoCameraElement>;
+            "swirl-icon-picture-as-pdf": LocalJSX.SwirlIconPictureAsPdf & JSXBase.HTMLAttributes<HTMLSwirlIconPictureAsPdfElement>;
             "swirl-icon-picture-in-picture": LocalJSX.SwirlIconPictureInPicture & JSXBase.HTMLAttributes<HTMLSwirlIconPictureInPictureElement>;
             "swirl-icon-pin": LocalJSX.SwirlIconPin & JSXBase.HTMLAttributes<HTMLSwirlIconPinElement>;
             "swirl-icon-pin-off": LocalJSX.SwirlIconPinOff & JSXBase.HTMLAttributes<HTMLSwirlIconPinOffElement>;
