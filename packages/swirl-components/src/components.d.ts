@@ -2400,6 +2400,7 @@ export namespace Components {
         "autoGrow"?: boolean;
         "autoSelect"?: boolean;
         "blurInput": () => Promise<void>;
+        "characterCounterLabel"?: string;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
@@ -8332,6 +8333,7 @@ declare namespace LocalJSX {
         "autoFocus"?: boolean;
         "autoGrow"?: boolean;
         "autoSelect"?: boolean;
+        "characterCounterLabel"?: string;
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;

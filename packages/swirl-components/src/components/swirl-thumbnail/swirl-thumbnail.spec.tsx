@@ -37,7 +37,7 @@ describe("swirl-thumbnail", () => {
             </span>
             <swirl-button-group class="thumbnail__buttons">
               <span>
-                <swirl-button hidelabel="" icon="<swirl-icon-close></swirl-icon-close>" label="Remove" pill="" variant="on-image"></swirl-button>
+                <swirl-button hidelabel="" icon="<swirl-icon-delete></swirl-icon-delete>" label="Remove" pill="" variant="on-image"></swirl-button>
               </span>
             </swirl-button-group>
             <span class="thumbnail__timestamp">

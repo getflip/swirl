@@ -100,7 +100,7 @@ export class SwirlThumbnail {
                 <span>
                   <swirl-button
                     hideLabel
-                    icon="<swirl-icon-close></swirl-icon-close>"
+                    icon="<swirl-icon-delete></swirl-icon-delete>"
                     label={this.removeButtonLabel}
                     onClick={this.remove.emit}
                     pill={this.size === "xl"}

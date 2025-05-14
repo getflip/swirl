@@ -19836,6 +19836,10 @@
           "description": ""
         },
         {
+          "name": "character-counter-label",
+          "description": ""
+        },
+        {
           "name": "clear-button-label",
           "description": ""
         },
