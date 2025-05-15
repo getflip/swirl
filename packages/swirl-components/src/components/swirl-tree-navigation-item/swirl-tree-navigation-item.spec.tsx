@@ -8,7 +8,7 @@ describe("swirl-tree-navigation-item", () => {
       html: `<swirl-tree-navigation-item icon="Icon" label="Label"></swirl-tree-navigation-item>`,
     });
 
-    expect(page.root).toMatchInlineSnapshot(`
+    expect(page.root).toEqualHtml(`
       <swirl-tree-navigation-item icon="Icon" label="Label" role="none">
         <mock:shadow-root>
           <li aria-level="1" class="tree-navigation-item" role="treeitem">

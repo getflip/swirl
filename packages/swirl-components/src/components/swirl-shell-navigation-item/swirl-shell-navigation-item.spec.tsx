@@ -12,7 +12,7 @@ describe("swirl-shell-navigation-item", () => {
       </swirl-shell-navigation-item>`,
     });
 
-    expect(page.root).toMatchInlineSnapshot(`
+    expect(page.root).toEqualHtml(`
       <swirl-shell-navigation-item label="Label">
         <mock:shadow-root>
           <swirl-tooltip content="Label" delay="100" position="right" positioning="fixed">

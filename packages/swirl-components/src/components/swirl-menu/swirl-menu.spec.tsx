@@ -69,12 +69,10 @@ describe("swirl-menu", () => {
       html: template,
     });
 
-    expect(page.body.children[0]).toMatchInlineSnapshot(`
+    expect(page.body.children[0]).toEqualHtml(`
       <div>
         <swirl-popover-trigger swirl-popover="menu">
-          <!---->
           <swirl-button label="Trigger" swirl-aria-controls="menu" swirl-aria-expanded="false" swirl-aria-haspopup="dialog">
-            <!---->
             <button aria-controls="menu" aria-expanded="false" aria-haspopup="dialog" class="button button--icon-position-start button--intent-default button--size-m button--text-align-center button--variant-ghost" type="button">
               <span class="button__icon"></span>
               <span class="button__label">
@@ -99,7 +97,6 @@ describe("swirl-menu", () => {
               <div class="menu menu--active menu--level-0 menu--mobile menu--root">
                 <div class="menu__mobile-header">
                   <swirl-button>
-                    <!---->
                     <button aria-label="Close menu" class="button button--has-icon button--icon-only button--icon-position-start button--intent-default button--size-m button--text-align-center button--variant-plain" type="button">
                       <span class="button__icon">
                         <swirl-icon-close size="24"></swirl-icon-close>
@@ -110,7 +107,6 @@ describe("swirl-menu", () => {
                     <swirl-heading align="center" as="span" level="4" text="Menu" truncate=""></swirl-heading>
                   </span>
                   <swirl-button class="menu__done-button">
-                    <!---->
                     <button class="button button--icon-position-start button--intent-primary button--size-m button--text-align-center button--variant-ghost" type="button">
                       <span class="button__icon"></span>
                       <span class="button__label">
@@ -144,7 +140,6 @@ describe("swirl-menu", () => {
                   <div class="menu menu--active menu--level-1 menu--mobile menu--root">
                     <div class="menu__mobile-header">
                       <swirl-button>
-                        <!---->
                         <button aria-label="Close menu" class="button button--has-icon button--icon-only button--icon-position-start button--intent-default button--size-m button--text-align-center button--variant-plain" type="button">
                           <span class="button__icon">
                             <swirl-icon-close size="24"></swirl-icon-close>
@@ -155,7 +150,6 @@ describe("swirl-menu", () => {
                         <swirl-heading align="center" as="span" level="4" text="Sub menu" truncate=""></swirl-heading>
                       </span>
                       <swirl-button class="menu__done-button">
-                        <!---->
                         <button class="button button--icon-position-start button--intent-primary button--size-m button--text-align-center button--variant-ghost" type="button">
                           <span class="button__icon"></span>
                           <span class="button__label">
