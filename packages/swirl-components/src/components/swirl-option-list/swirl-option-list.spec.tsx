@@ -35,7 +35,7 @@ import { SwirlOptionList } from "./swirl-option-list";
   observe() {}
 };
 
-xdescribe("swirl-option-list", () => {
+describe("swirl-option-list", () => {
   const template = `
     <swirl-option-list label="Option List" multi-select="true">
       <swirl-option-list-item label="This is an option" value="1"></swirl-option-list-item>

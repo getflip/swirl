@@ -8,7 +8,7 @@ import { SwirlTable } from "./swirl-table";
   observe() {}
 };
 
-xdescribe("swirl-table", () => {
+describe("swirl-table", () => {
   it("renders its columns and rows", async () => {
     const page = await newSpecPage({
       components: [SwirlTable],

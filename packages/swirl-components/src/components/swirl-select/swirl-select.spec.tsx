@@ -10,7 +10,7 @@ import { SwirlSelect } from "./swirl-select";
   observe() {}
 };
 
-xdescribe("swirl-select", () => {
+describe("swirl-select", () => {
   it("renders its option list", async () => {
     const page = await newSpecPage({
       components: [SwirlSelect],
