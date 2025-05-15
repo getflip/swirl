@@ -1,0 +1,13 @@
+diff --git a/node_modules/@stencil/core/internal/testing/index.js b/node_modules/@stencil/core/internal/testing/index.js
+index f72bcf4..153522b 100644
+--- a/node_modules/@stencil/core/internal/testing/index.js
++++ b/node_modules/@stencil/core/internal/testing/index.js
+@@ -298,7 +298,7 @@ var plt = {
+   $resourcesUrl$: "",
+   jmp: (h2) => h2(),
+   raf: (h2) => requestAnimationFrame(h2),
+-  ael: (el, eventName, listener, opts) => el.addEventListener(eventName, listener, opts),
++  ael: (el, eventName, listener, opts) => 'addEventListener' in el ? el.addEventListener(eventName, listener, opts) : undefined,
+   rel: (el, eventName, listener, opts) => el.removeEventListener(eventName, listener, opts),
+   ce: (eventName, opts) => new win.CustomEvent(eventName, opts)
+ };
