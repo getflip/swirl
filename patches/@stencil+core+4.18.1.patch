@@ -1,0 +1,32 @@
+diff --git a/node_modules/@stencil/core/internal/client/shadow-css.js b/node_modules/@stencil/core/internal/client/shadow-css.js
+index a811f97..d9d0beb 100644
+--- a/node_modules/@stencil/core/internal/client/shadow-css.js
++++ b/node_modules/@stencil/core/internal/client/shadow-css.js
+@@ -51,7 +51,26 @@ var _polyfillHostNoCombinatorRe = /-shadowcsshost-no-combinator([^\s]*)/;
+ var _shadowDOMSelectorsRe = [/::shadow/g, /::content/g];
+ var _selectorReSuffix = "([>\\s~+[.,{:][\\s\\S]*)?$";
+ var _polyfillHostRe = /-shadowcsshost/gim;
+-var createSupportsRuleRe = (selector) => new RegExp(`((?<!(^@supports(.*)))|(?<={.*))(${selector}\\b)`, "gim");
++const createSupportsRuleRe = (selector) => {
++  // We need to match any occurrence of the selector that's NOT inside @supports selector(...)
++  const safeSelector = escapeRegExpSpecialCharacters(selector);
++
++  // This regex needs to:
++  // 1. Skip selectors inside @supports selector(...) rule conditions
++  // 2. Match selectors in normal CSS rules
++  // 3. Match selectors inside declaration blocks of @supports rules
++
++  // To avoid matching selectors inside @supports selector() conditions, we need to carefully
++  // construct the pattern to look for context that indicates we're NOT inside such a condition.
++  return new RegExp(
++    // First capture group: match any context before the selector that's not inside @supports selector()
++    // Using negative lookahead to avoid matching inside @supports selector(...) condition
++    `(^|[^@]|@(?!supports\\s+selector\\s*\\([^{]*?${safeSelector}))` +
++    // Then match the selector
++    `(${safeSelector}\\b)`,
++    'g',
++  );
++};
+ var _colonSlottedRe = createSupportsRuleRe("::slotted");
+ var _colonHostRe = createSupportsRuleRe(":host");
+ var _colonHostContextRe = createSupportsRuleRe(":host-context");
