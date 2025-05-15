@@ -1,7 +1,8 @@
 import autoprefixer from "autoprefixer";
 import postcssCustomMedia from "postcss-custom-media";
 import postcssNested from "postcss-nested";
-import nodePolyfills from 'rollup-plugin-node-polyfills';
+import nodePolyfills from "rollup-plugin-node-polyfills";
+import rollupPluginInjectProcessEnv from "rollup-plugin-inject-process-env";
 
 import {
   angularOutputTarget,
@@ -115,7 +116,7 @@ export const config: Config = {
     experimentalSlotFixes: true,
   },
   rollupPlugins: {
-    after: [nodePolyfills()],
+    after: [nodePolyfills(), rollupPluginInjectProcessEnv()],
   },
   plugins: [
     postcss({
