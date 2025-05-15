@@ -1,5 +1,26 @@
 # @getflip/swirl-components-react
 
+## 0.327.0
+
+### Minor Changes
+
+- [#1059](https://github.com/getflip/swirl/pull/1059)
+  [`e843ae1c`](https://github.com/getflip/swirl/commit/e843ae1c98ed9af1274bf61126bc8820b32d9ea0)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add aria-live
+  to character counter
+
+* [#1062](https://github.com/getflip/swirl/pull/1062)
+  [`2616a667`](https://github.com/getflip/swirl/commit/2616a667ba630215969b0dff9f56964d03a6070b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Replace close icon with delete
+  icon for the swirl-thumbnail removal button
+
+### Patch Changes
+
+- Updated dependencies
+  [[`e843ae1c`](https://github.com/getflip/swirl/commit/e843ae1c98ed9af1274bf61126bc8820b32d9ea0),
+  [`2616a667`](https://github.com/getflip/swirl/commit/2616a667ba630215969b0dff9f56964d03a6070b)]:
+  - @getflip/swirl-components@0.327.0
+
 ## 0.326.0
 
 ### Minor Changes
