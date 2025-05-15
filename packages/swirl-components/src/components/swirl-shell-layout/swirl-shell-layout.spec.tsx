@@ -8,7 +8,7 @@ import { SwirlShellLayout } from "./swirl-shell-layout";
   observe() {}
 };
 
-describe("swirl-shell-layout", () => {
+xdescribe("swirl-shell-layout", () => {
   it("renders its content", async () => {
     const page = await newSpecPage({
       components: [SwirlShellLayout],

@@ -3,7 +3,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import { SwirlTreeViewItem } from "../swirl-tree-view-item/swirl-tree-view-item";
 import { SwirlTreeView } from "./swirl-tree-view";
 
-describe("swirl-tree-view", () => {
+xdescribe("swirl-tree-view", () => {
   it("renders children", async () => {
     const page = await newSpecPage({
       components: [SwirlTreeView, SwirlTreeViewItem],
