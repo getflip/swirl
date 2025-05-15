@@ -8,9 +8,9 @@ describe("swirl-tree-navigation-item", () => {
       html: `<swirl-tree-navigation-item icon="Icon" label="Label"></swirl-tree-navigation-item>`,
     });
 
-    expect(page.root).toEqualHtml(`
+    expect(page.root).toMatchInlineSnapshot(`
       <swirl-tree-navigation-item icon="Icon" label="Label" role="none">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <li aria-level="1" class="tree-navigation-item" role="treeitem">
             <button class="tree-navigation-item__link tree-navigation-item__link--has-icon" id="undefined-button" type="button">
               <span class="tree-navigation-item__content">
@@ -23,7 +23,7 @@ describe("swirl-tree-navigation-item", () => {
               </span>
             </button>
           </li>
-        </mock:shadow-root>
+        </template>
       </swirl-tree-navigation-item>
     `);
   });
