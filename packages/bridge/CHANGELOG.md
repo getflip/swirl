@@ -1,5 +1,13 @@
 # @getflip/bridge
 
+## 0.10.0
+
+### Minor Changes
+
+- [#1066](https://github.com/getflip/swirl/pull/1066)
+  [`df58aa57`](https://github.com/getflip/swirl/commit/df58aa57692b78b0866f8823033c1c10328b917a)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add missing "download" exports
+
 ## 0.9.19
 
 ### Patch Changes
