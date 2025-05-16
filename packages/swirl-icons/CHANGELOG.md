@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.60.0
+
+### Minor Changes
+
+- [#1061](https://github.com/getflip/swirl/pull/1061)
+  [`da2dbf21`](https://github.com/getflip/swirl/commit/da2dbf21281825440365f8749ba313fb34fec6fb)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add Preview,
+  PictureAsPdf and AudioFile icons
+
 ## 0.59.0
 
 ### Minor Changes
