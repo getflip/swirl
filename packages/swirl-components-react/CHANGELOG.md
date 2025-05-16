@@ -1,5 +1,26 @@
 # @getflip/swirl-components-react
 
+## 0.328.0
+
+### Minor Changes
+
+- [#1061](https://github.com/getflip/swirl/pull/1061)
+  [`da2dbf21`](https://github.com/getflip/swirl/commit/da2dbf21281825440365f8749ba313fb34fec6fb)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add Preview,
+  PictureAsPdf and AudioFile icons
+
+### Patch Changes
+
+- [#1064](https://github.com/getflip/swirl/pull/1064)
+  [`25bb98e0`](https://github.com/getflip/swirl/commit/25bb98e0e0cd011ad68dde042bbc5318b1bac168)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix
+  @stencil/core regex issue in iOS 16
+
+- Updated dependencies
+  [[`25bb98e0`](https://github.com/getflip/swirl/commit/25bb98e0e0cd011ad68dde042bbc5318b1bac168),
+  [`da2dbf21`](https://github.com/getflip/swirl/commit/da2dbf21281825440365f8749ba313fb34fec6fb)]:
+  - @getflip/swirl-components@0.328.0
+
 ## 0.327.0
 
 ### Minor Changes
