@@ -1,9 +1,10 @@
 import { BridgeOptions } from "./types";
 
-export * from "./types";
 export * from "./messaging/messaging.types";
+export * from "./types";
 
 export * from "./dialog";
+export * from "./download";
 export * from "./events";
 export * from "./i18n";
 export * from "./modal";
