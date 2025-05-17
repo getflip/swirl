@@ -28,7 +28,8 @@
     "prepare-dart-packages": "node packages/swirl-tokens/scripts/update-dart-package-version.js && node packages/swirl-icons/scripts/update-dart-package-version.js",
     "release": "turbo run build --filter=!swirl-docs && changeset publish",
     "preversion": "echo \"Error: use @changsets/cli to version packages\" && exit 1",
-    "prebuild": "patch-package"
+    "prebuild": "patch-package",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.4",
