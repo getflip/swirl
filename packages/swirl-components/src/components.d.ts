@@ -3280,8 +3280,8 @@ declare global {
         new (): HTMLSwirlEmptyStateElement;
     };
     interface HTMLSwirlFileChipElementEventMap {
-        "previewClick": void;
-        "downloadClick": void;
+        "preview": void;
+        "download": void;
     }
     interface HTMLSwirlFileChipElement extends Components.SwirlFileChip, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlFileChipElementEventMap>(type: K, listener: (this: HTMLSwirlFileChipElement, ev: SwirlFileChipCustomEvent<HTMLSwirlFileChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -6720,8 +6720,8 @@ declare namespace LocalJSX {
         "loading"?: boolean;
         "loadingLabel"?: string;
         "name": string;
-        "onDownloadClick"?: (event: SwirlFileChipCustomEvent<void>) => void;
-        "onPreviewClick"?: (event: SwirlFileChipCustomEvent<void>) => void;
+        "onDownload"?: (event: SwirlFileChipCustomEvent<void>) => void;
+        "onPreview"?: (event: SwirlFileChipCustomEvent<void>) => void;
         "previewButtonLabel"?: string;
         "showDownloadButton"?: boolean;
         "showPreviewButton"?: boolean;

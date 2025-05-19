@@ -158,30 +158,30 @@ describe("swirl-file-chip", () => {
     expect(downloadButton.icon).toContain("swirl-icon-download");
   });
 
-  it("emits previewClick event when preview button is clicked", async () => {
+  it("emits preview event when preview button is clicked", async () => {
     const page = await newSpecPage({
       components: [SwirlFileChip, SwirlButtonGroup, SwirlButton],
       html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf" show-preview-button="true"></swirl-file-chip>`,
     });
-    const previewClickSpy = jest.fn();
+    const previewSpy = jest.fn();
 
-    page.root.addEventListener("previewClick", previewClickSpy);
+    page.root.addEventListener("preview", previewSpy);
     page.root.shadowRoot.querySelector("swirl-button").click();
 
-    expect(previewClickSpy).toHaveBeenCalled();
+    expect(previewSpy).toHaveBeenCalled();
   });
 
-  it("emits downloadClick event when download button is clicked", async () => {
+  it("emits download event when download button is clicked", async () => {
     const page = await newSpecPage({
       components: [SwirlFileChip],
       html: `<swirl-file-chip url="/sample.pdf" name="sample.pdf" type="application/pdf" show-download-button="true" skip-native-download="true"></swirl-file-chip>`,
     });
-    const downloadClickSpy = jest.fn();
+    const downloadSpy = jest.fn();
 
-    page.root.addEventListener("downloadClick", downloadClickSpy);
+    page.root.addEventListener("download", downloadSpy);
     page.root.shadowRoot.querySelector("swirl-button").click();
 
-    expect(downloadClickSpy).toHaveBeenCalled();
+    expect(downloadSpy).toHaveBeenCalled();
   });
 
   it("downloads file when download button is clicked", async () => {

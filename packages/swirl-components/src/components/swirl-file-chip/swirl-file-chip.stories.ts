@@ -15,14 +15,6 @@ export default {
 const Template = (args) => {
   const element = generateStoryElement("swirl-file-chip", args);
 
-  element.addEventListener("previewClick", () => {
-    console.log("Preview clicked");
-  });
-
-  element.addEventListener("downloadClick", () => {
-    console.log("Download clicked");
-  });
-
   return element;
 };
 

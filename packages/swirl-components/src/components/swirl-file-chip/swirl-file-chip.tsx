@@ -35,13 +35,13 @@ export class SwirlFileChip {
   @Prop() downloadButtonLabel?: string;
   @Prop() previewButtonLabel?: string;
 
-  @Event() previewClick: EventEmitter<void>;
-  @Event() downloadClick: EventEmitter<void>;
+  @Event() preview: EventEmitter<void>;
+  @Event() download: EventEmitter<void>;
 
   @State() isHovered: boolean = false;
 
   private handleDownloadClick = () => {
-    this.downloadClick.emit();
+    this.download.emit();
 
     if (this.skipNativeDownload) {
       return;
@@ -57,7 +57,7 @@ export class SwirlFileChip {
   };
 
   private handlePreviewClick = () => {
-    this.previewClick.emit();
+    this.preview.emit();
   };
 
   private getFileIcon() {
@@ -81,8 +81,7 @@ export class SwirlFileChip {
   }
 
   render() {
-    const actionCount =
-      (this.showPreviewButton ? 1 : 0) + (this.showDownloadButton ? 1 : 0);
+    const actionCount = +this.showPreviewButton + +this.showDownloadButton;
 
     const className = classnames("file-chip", {
       "file-chip--loading": this.loading,
@@ -98,7 +97,9 @@ export class SwirlFileChip {
             <span class="file-chip__name" title={this.name}>
               {this.name}
             </span>
-            {this.description && <span class="file-chip__description">{this.description}</span>}
+            {this.description && (
+              <span class="file-chip__description">{this.description}</span>
+            )}
           </span>
           <swirl-button-group class="file-chip__actions">
             {this.showPreviewButton && (
