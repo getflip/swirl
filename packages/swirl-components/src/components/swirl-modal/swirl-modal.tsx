@@ -120,14 +120,12 @@ export class SwirlModal {
 
     this.determineScrollStatus();
 
-    queueMicrotask(() => {
-      this.updateCustomFooterStatus();
-      this.updateCustomHeaderStatus();
-      this.updateHeaderToolsStatus();
-      this.updateSecondaryContentStatus();
-      this.updateSidebarContentStatus();
-      this.updateSidebarFooterStatus();
-    });
+    this.updateCustomFooterStatus();
+    this.updateCustomHeaderStatus();
+    this.updateHeaderToolsStatus();
+    this.updateSecondaryContentStatus();
+    this.updateSidebarContentStatus();
+    this.updateSidebarFooterStatus();
   }
 
   componentDidRender() {
@@ -412,10 +410,7 @@ export class SwirlModal {
               </div>
 
               <div class="modal__sidebar-footer">
-                <slot
-                  name="sidebar-footer"
-                  onSlotchange={this.updateSidebarFooterStatus}
-                ></slot>
+                <slot name="sidebar-footer"></slot>
               </div>
             </aside>
 
@@ -510,10 +505,7 @@ export class SwirlModal {
                 </div>
               </div>
               <div class="modal__custom-footer">
-                <slot
-                  name="custom-footer"
-                  onSlotchange={this.updateCustomFooterStatus}
-                ></slot>
+                <slot name="custom-footer"></slot>
               </div>
               {showControls && (
                 <footer class="modal__controls">
