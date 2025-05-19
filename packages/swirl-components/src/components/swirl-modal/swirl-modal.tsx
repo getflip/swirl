@@ -412,7 +412,10 @@ export class SwirlModal {
               </div>
 
               <div class="modal__sidebar-footer">
-                <slot name="sidebar-footer"></slot>
+                <slot
+                  name="sidebar-footer"
+                  onSlotchange={this.updateSidebarFooterStatus}
+                ></slot>
               </div>
             </aside>
 
@@ -507,7 +510,10 @@ export class SwirlModal {
                 </div>
               </div>
               <div class="modal__custom-footer">
-                <slot name="custom-footer"></slot>
+                <slot
+                  name="custom-footer"
+                  onSlotchange={this.updateCustomFooterStatus}
+                ></slot>
               </div>
               {showControls && (
                 <footer class="modal__controls">
