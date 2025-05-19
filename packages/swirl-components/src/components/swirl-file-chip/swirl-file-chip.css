@@ -20,8 +20,6 @@
 
 
 .file-chip:hover {
-  background-color: var(--s-surface-hovered);
-
   &.file-chip--one-action .file-chip__info > * {
     width: calc(100% - 44px - var(--s-space-12));
   }
