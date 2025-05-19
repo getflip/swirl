@@ -28,7 +28,7 @@ describe("swirl-file-chip", () => {
     expect(page.root).toEqualHtml(`
       <swirl-file-chip name="sample.pdf" type="application/pdf" url="/sample.pdf">
         <mock:shadow-root>
-          <span class="file-chip">
+          <span class="file-chip" role="group">
             <span class="file-chip__icon">
               <swirl-icon-picture-as-pdf></swirl-icon-picture-as-pdf>
             </span>
@@ -53,7 +53,7 @@ describe("swirl-file-chip", () => {
     expect(page.root).toEqualHtml(`
       <swirl-file-chip name="sample.pdf" description="2.5 MB" type="application/pdf" url="/sample.pdf">
         <mock:shadow-root>
-          <span class="file-chip">
+          <span class="file-chip" role="group">
             <span class="file-chip__icon">
               <swirl-icon-picture-as-pdf></swirl-icon-picture-as-pdf>
             </span>

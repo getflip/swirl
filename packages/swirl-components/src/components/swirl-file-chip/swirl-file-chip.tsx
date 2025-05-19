@@ -91,7 +91,7 @@ export class SwirlFileChip {
 
     return (
       <Host>
-        <span class={className}>
+        <span role="group" class={className}>
           <span class="file-chip__icon">{this.getFileIcon()}</span>
           <span class="file-chip__info">
             <span class="file-chip__name" title={this.name}>
