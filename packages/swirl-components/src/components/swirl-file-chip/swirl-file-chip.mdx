@@ -1,0 +1,54 @@
+import { Controls, Canvas, Meta, Story } from "@storybook/addon-docs";
+import * as Stories from "./swirl-file-chip.stories";
+
+<Meta title="Components/SwirlFileChip" />
+
+# SwirlFileChip
+
+The SwirlFileChip component is used to display file information in a chip format.
+
+- **[Figma Design Specs](#)**
+- **[Source Code](https://github.com/flip-corp/swirl/tree/main/packages/swirl-components/src/components/swirl-file-chip)**
+
+## Usage
+
+<Canvas of={Stories.SwirlChip} sourceState="shown"></Canvas>
+
+<Controls of={Stories.SwirlChip} />
+
+## Events
+
+| Event            | Description                                |
+| ---------------- | ------------------------------------------ |
+| `previewClick`   | Emitted when the preview button is clicked |
+| `downloadClick`  | Emitted when the download button is clicked|
+
+## Theming
+
+| Variable                          | Usage                                |
+| --------------------------------- | ------------------------------------ |
+| `--s-surface-default`             | The chip background color            |
+| `--s-surface-hovered`             | The chip background color on hover   |
+| `--s-border-strong`               | The chip border color                |
+| `--s-surface-sunken-hovered`      | The chip icon background color       |
+| `--s-icon-default`                | The icon color                       |
+| `--s-text-default`                | The file name text color             |
+| `--s-text-subdued`                | The file description text color      |
+
+## Accessibility
+
+### ARIA
+
+The component uses buttons for interactive elements with appropriate titles for screen readers.
+
+| ARIA            | Usage                                                                                |
+| --------------- | ------------------------------------------------------------------------------------ |
+| `title`         | The file name is set as a title on the name element for tooltip on overflow          |
+| Button titles   | The preview and download buttons have titles for screen readers                      |
+
+### Keyboard
+
+| Key              | Action                                |
+| ---------------- | ------------------------------------- |
+| <kbd>ENTER</kbd> | Activates the preview/download button |
+| <kbd>SPACE</kbd> | Activates the preview/download button |

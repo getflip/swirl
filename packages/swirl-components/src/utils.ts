@@ -321,3 +321,30 @@ export function getCircularArrayIndex(
 ): number {
   return ((index % arrayLength) + arrayLength) % arrayLength;
 }
+
+export function isImageMimeType(mimeType: string): boolean {
+  return mimeType.startsWith("image/");
+}
+
+export function isVideoMimeType(mimeType: string): boolean {
+  return mimeType.startsWith("video/");
+}
+
+export function isAudioMimeType(mimeType: string): boolean {
+  return mimeType.startsWith("audio/");
+}
+
+export function isPdfMimeType(mimeType: string): boolean {
+  return mimeType.startsWith("application/pdf");
+}
+
+export function isCompressedArchiveMimeType(mimeType: string): boolean {
+  return (
+    mimeType.startsWith("application/zip") ||
+    mimeType.startsWith("application/x-zip") ||
+    mimeType.startsWith("application/vnd.rar") ||
+    mimeType.startsWith("application/x-7z") ||
+    mimeType.startsWith("application/x-tar") ||
+    mimeType.startsWith("application/x-gzip")
+  );
+}
