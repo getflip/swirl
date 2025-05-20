@@ -120,14 +120,12 @@ export class SwirlModal {
 
     this.determineScrollStatus();
 
-    queueMicrotask(() => {
-      this.updateCustomFooterStatus();
-      this.updateCustomHeaderStatus();
-      this.updateHeaderToolsStatus();
-      this.updateSecondaryContentStatus();
-      this.updateSidebarContentStatus();
-      this.updateSidebarFooterStatus();
-    });
+    this.updateCustomFooterStatus();
+    this.updateCustomHeaderStatus();
+    this.updateHeaderToolsStatus();
+    this.updateSecondaryContentStatus();
+    this.updateSidebarContentStatus();
+    this.updateSidebarFooterStatus();
   }
 
   componentDidRender() {
