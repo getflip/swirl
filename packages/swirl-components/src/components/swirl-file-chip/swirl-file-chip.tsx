@@ -28,12 +28,12 @@ export class SwirlFileChip {
   @Prop() type!: string;
   @Prop() description?: string;
   @Prop() loading?: boolean;
-  @Prop() loadingLabel?: string;
+  @Prop() loadingLabel?: string = "Loading";
   @Prop() skipNativeDownload?: boolean;
   @Prop() showDownloadButton?: boolean;
   @Prop() showPreviewButton?: boolean;
-  @Prop() downloadButtonLabel?: string;
-  @Prop() previewButtonLabel?: string;
+  @Prop() downloadButtonLabel?: string = "Download";
+  @Prop() previewButtonLabel?: string = "Preview";
 
   @Event() preview: EventEmitter<void>;
   @Event() download: EventEmitter<void>;
@@ -114,7 +114,6 @@ export class SwirlFileChip {
             {this.showDownloadButton && (
               <swirl-button
                 variant="flat"
-
                 icon="<swirl-icon-download></swirl-icon-download>"
                 onClick={this.handleDownloadClick}
                 label={this.previewButtonLabel}
