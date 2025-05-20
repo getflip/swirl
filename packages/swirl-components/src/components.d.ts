@@ -611,6 +611,19 @@ export namespace Components {
         "heading"?: string;
         "illustration"?: string;
     }
+    interface SwirlFileChip {
+        "description"?: string;
+        "downloadButtonLabel"?: string;
+        "loading"?: boolean;
+        "loadingLabel"?: string;
+        "name": string;
+        "previewButtonLabel"?: string;
+        "showDownloadButton"?: boolean;
+        "showPreviewButton"?: boolean;
+        "skipNativeDownload"?: boolean;
+        "type": string;
+        "url": string;
+    }
     interface SwirlFileUploader {
         "accept"?: string;
         "ctaLabel"?: string;
@@ -2663,6 +2676,10 @@ export interface SwirlDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlDialogElement;
 }
+export interface SwirlFileChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwirlFileChipElement;
+}
 export interface SwirlFileUploaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLSwirlFileUploaderElement;
@@ -3261,6 +3278,24 @@ declare global {
     var HTMLSwirlEmptyStateElement: {
         prototype: HTMLSwirlEmptyStateElement;
         new (): HTMLSwirlEmptyStateElement;
+    };
+    interface HTMLSwirlFileChipElementEventMap {
+        "preview": void;
+        "download": void;
+    }
+    interface HTMLSwirlFileChipElement extends Components.SwirlFileChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwirlFileChipElementEventMap>(type: K, listener: (this: HTMLSwirlFileChipElement, ev: SwirlFileChipCustomEvent<HTMLSwirlFileChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwirlFileChipElementEventMap>(type: K, listener: (this: HTMLSwirlFileChipElement, ev: SwirlFileChipCustomEvent<HTMLSwirlFileChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSwirlFileChipElement: {
+        prototype: HTMLSwirlFileChipElement;
+        new (): HTMLSwirlFileChipElement;
     };
     interface HTMLSwirlFileUploaderElementEventMap {
         "valueChange": FileList;
@@ -5908,6 +5943,7 @@ declare global {
         "swirl-emoji-sad": HTMLSwirlEmojiSadElement;
         "swirl-emoji-thumbs-up": HTMLSwirlEmojiThumbsUpElement;
         "swirl-empty-state": HTMLSwirlEmptyStateElement;
+        "swirl-file-chip": HTMLSwirlFileChipElement;
         "swirl-file-uploader": HTMLSwirlFileUploaderElement;
         "swirl-file-viewer": HTMLSwirlFileViewerElement;
         "swirl-file-viewer-audio": HTMLSwirlFileViewerAudioElement;
@@ -6677,6 +6713,21 @@ declare namespace LocalJSX {
     interface SwirlEmptyState {
         "heading"?: string;
         "illustration"?: string;
+    }
+    interface SwirlFileChip {
+        "description"?: string;
+        "downloadButtonLabel"?: string;
+        "loading"?: boolean;
+        "loadingLabel"?: string;
+        "name": string;
+        "onDownload"?: (event: SwirlFileChipCustomEvent<void>) => void;
+        "onPreview"?: (event: SwirlFileChipCustomEvent<void>) => void;
+        "previewButtonLabel"?: string;
+        "showDownloadButton"?: boolean;
+        "showPreviewButton"?: boolean;
+        "skipNativeDownload"?: boolean;
+        "type": string;
+        "url": string;
     }
     interface SwirlFileUploader {
         "accept"?: string;
@@ -8580,6 +8631,7 @@ declare namespace LocalJSX {
         "swirl-emoji-sad": SwirlEmojiSad;
         "swirl-emoji-thumbs-up": SwirlEmojiThumbsUp;
         "swirl-empty-state": SwirlEmptyState;
+        "swirl-file-chip": SwirlFileChip;
         "swirl-file-uploader": SwirlFileUploader;
         "swirl-file-viewer": SwirlFileViewer;
         "swirl-file-viewer-audio": SwirlFileViewerAudio;
@@ -8983,6 +9035,7 @@ declare module "@stencil/core" {
             "swirl-emoji-sad": LocalJSX.SwirlEmojiSad & JSXBase.HTMLAttributes<HTMLSwirlEmojiSadElement>;
             "swirl-emoji-thumbs-up": LocalJSX.SwirlEmojiThumbsUp & JSXBase.HTMLAttributes<HTMLSwirlEmojiThumbsUpElement>;
             "swirl-empty-state": LocalJSX.SwirlEmptyState & JSXBase.HTMLAttributes<HTMLSwirlEmptyStateElement>;
+            "swirl-file-chip": LocalJSX.SwirlFileChip & JSXBase.HTMLAttributes<HTMLSwirlFileChipElement>;
             "swirl-file-uploader": LocalJSX.SwirlFileUploader & JSXBase.HTMLAttributes<HTMLSwirlFileUploaderElement>;
             "swirl-file-viewer": LocalJSX.SwirlFileViewer & JSXBase.HTMLAttributes<HTMLSwirlFileViewerElement>;
             "swirl-file-viewer-audio": LocalJSX.SwirlFileViewerAudio & JSXBase.HTMLAttributes<HTMLSwirlFileViewerAudioElement>;

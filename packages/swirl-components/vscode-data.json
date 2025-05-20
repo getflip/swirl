@@ -2654,6 +2654,59 @@
       ]
     },
     {
+      "name": "swirl-file-chip",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "description",
+          "description": ""
+        },
+        {
+          "name": "download-button-label",
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "description": ""
+        },
+        {
+          "name": "loading-label",
+          "description": ""
+        },
+        {
+          "name": "name",
+          "description": ""
+        },
+        {
+          "name": "preview-button-label",
+          "description": ""
+        },
+        {
+          "name": "show-download-button",
+          "description": ""
+        },
+        {
+          "name": "show-preview-button",
+          "description": ""
+        },
+        {
+          "name": "skip-native-download",
+          "description": ""
+        },
+        {
+          "name": "type",
+          "description": ""
+        },
+        {
+          "name": "url",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-file-uploader",
       "description": {
         "kind": "markdown",
