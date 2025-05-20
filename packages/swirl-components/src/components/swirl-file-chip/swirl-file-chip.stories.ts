@@ -18,9 +18,9 @@ const Template = (args) => {
   return element;
 };
 
-export const SwirlChip = Template.bind({});
+export const SwirlFileChip = Template.bind({});
 
-SwirlChip.args = {
+SwirlFileChip.args = {
   url: "/sample.pdf",
   name: "sample.pdf",
   type: "application/pdf",
