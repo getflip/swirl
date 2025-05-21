@@ -107,8 +107,9 @@ export class SwirlFileChip {
                 variant="flat"
                 icon="<swirl-icon-preview></swirl-icon-preview>"
                 onClick={this.handlePreviewClick}
-                label={this.downloadButtonLabel}
+                label={this.previewButtonLabel}
                 hideLabel
+                part="file-chip__preview"
               ></swirl-button>
             )}
             {this.showDownloadButton && (
@@ -116,8 +117,9 @@ export class SwirlFileChip {
                 variant="flat"
                 icon="<swirl-icon-download></swirl-icon-download>"
                 onClick={this.handleDownloadClick}
-                label={this.previewButtonLabel}
+                label={this.downloadButtonLabel}
                 hideLabel
+                part="file-chip__download"
               ></swirl-button>
             )}
           </swirl-button-group>
