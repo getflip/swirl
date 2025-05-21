@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.330.0
+
+### Minor Changes
+
+- [#1072](https://github.com/getflip/swirl/pull/1072)
+  [`b9f73730`](https://github.com/getflip/swirl/commit/b9f73730905a18d1b3030785aa63705003376d43)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add preview and
+  download part attributes to swirl-file-chip
+
 ## 0.329.0
 
 ### Minor Changes
