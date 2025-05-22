@@ -236,6 +236,10 @@
 
   &:focus-visible {
     background-color: var(--s-background-hovered);
+    outline-color: var(--s-focus-default);
+    outline-style: solid;
+    outline-width: 0.125rem;
+    z-index: 1;
 
     & .resource-list-item__media {
       --swirl-avatar-group-border-color: var(--s-background-hovered);
