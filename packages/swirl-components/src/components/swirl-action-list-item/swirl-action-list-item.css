@@ -10,6 +10,7 @@
 
 .action-list-item {
   display: inline-flex;
+  position: relative;
   width: 100%;
   min-width: 15rem;
   margin: 0;
@@ -38,6 +39,10 @@
 
   &:focus-visible {
     background-color: var(--s-surface-overlay-hovered);
+    outline-color: var(--s-focus-default);
+    outline-style: solid;
+    outline-width: 0.125rem;
+    z-index: 1;
   }
 
   &:active {
