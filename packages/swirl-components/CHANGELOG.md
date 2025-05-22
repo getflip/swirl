@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.331.0
+
+### Minor Changes
+
+- [#1074](https://github.com/getflip/swirl/pull/1074)
+  [`197c77ab`](https://github.com/getflip/swirl/commit/197c77abb041a1894c6722cb1c4380bc322cea8e)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Add focus
+  outline to list items
+
 ## 0.330.0
 
 ### Minor Changes
