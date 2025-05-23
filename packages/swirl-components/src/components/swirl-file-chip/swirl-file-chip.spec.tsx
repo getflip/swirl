@@ -108,6 +108,18 @@ describe("swirl-file-chip", () => {
     expect(iconElement).toBeTruthy();
   });
 
+  it("renders document file type", async () => {
+    const page = await newSpecPage({
+      components: [SwirlFileChip],
+      html: `<swirl-file-chip url="https://example.com/document.doc" name="document.doc" type="application/msword"></swirl-file-chip>`,
+    });
+    const iconElement = page.root.shadowRoot.querySelector(
+      ".file-chip__icon swirl-icon-file"
+    );
+
+    expect(iconElement).toBeTruthy();
+  });
+
   it("renders text file type", async () => {
     const page = await newSpecPage({
       components: [SwirlFileChip],

@@ -348,3 +348,13 @@ export function isCompressedArchiveMimeType(mimeType: string): boolean {
     mimeType.startsWith("application/x-gzip")
   );
 }
+
+export function isDocumentMimeType(mimeType: string): boolean {
+  return (
+    mimeType.startsWith("application/msword") ||
+    mimeType.startsWith(
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ) ||
+    mimeType.startsWith("application/vnd.apple.pages")
+  );
+}
