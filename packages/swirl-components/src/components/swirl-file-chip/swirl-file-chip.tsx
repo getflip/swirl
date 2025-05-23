@@ -12,6 +12,7 @@ import classnames from "classnames";
 import {
   isAudioMimeType,
   isCompressedArchiveMimeType,
+  isDocumentMimeType,
   isImageMimeType,
   isPdfMimeType,
   isVideoMimeType,
@@ -75,6 +76,8 @@ export class SwirlFileChip {
       return <swirl-icon-picture-as-pdf></swirl-icon-picture-as-pdf>;
     } else if (isCompressedArchiveMimeType(this.type)) {
       return <swirl-icon-folder></swirl-icon-folder>;
+    } else if (isDocumentMimeType(this.type)) {
+      return <swirl-icon-file></swirl-icon-file>;
     } else {
       return <swirl-icon-attachment></swirl-icon-attachment>;
     }
