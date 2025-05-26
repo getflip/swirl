@@ -312,6 +312,7 @@
   top: 50%;
   right: var(--s-space-8);
   transform: translateY(-50%);
+  z-index: 2;
 }
 
 .resource-list-item__checkbox {
