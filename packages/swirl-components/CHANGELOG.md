@@ -1,5 +1,17 @@
 # @getflip/swirl-components
 
+## 0.332.0
+
+### Minor Changes
+
+- [#1076](https://github.com/getflip/swirl/pull/1076)
+  [`cacc9871`](https://github.com/getflip/swirl/commit/cacc987142c0e8c22cefd91782e8f1dc4d8afaf8)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Support
+  document mime types in swirl-file-chip
+
+* [`796a7f46`](https://github.com/getflip/swirl/commit/796a7f46ca92e27e6ab1324fe913b3cc1a9f21ab) -
+  Fix resource list item focus
+
 ## 0.331.0
 
 ### Minor Changes
