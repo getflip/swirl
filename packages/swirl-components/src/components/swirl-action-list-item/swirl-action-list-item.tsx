@@ -1,6 +1,6 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
-import { getDesktopMediaQuery } from "../../utils";
+import { DesktopMediaQuery } from "../../services/media-query.service";
 
 export type SwirlActionListItemIntent = "default" | "critical";
 
@@ -30,34 +30,20 @@ export class SwirlActionListItem {
   @Prop() swirlAriaHaspopup?: string;
   @Prop() suffix?: string;
 
-  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
   private iconBadgeEl: HTMLElement;
   private suffixEl: HTMLElement;
+  private mediaQueryUnsubscribe: () => void = () => {};
 
   componentDidLoad() {
-    this.forceIconProps(this.desktopMediaQuery.matches);
-
-    this.desktopMediaQuery.addEventListener(
-      "change",
-      this.desktopMediaQueryHandler
-    );
-  }
-
-  componentDidRender() {
-    this.forceIconProps(this.desktopMediaQuery.matches);
+    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
+      this.forceIconProps(isDesktop);
+    });
   }
 
   disconnectedCallback() {
-    this.desktopMediaQuery.removeEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe();
   }
-
-  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
-    this.forceIconProps(event.matches);
-  };
 
   private forceIconProps(smallIcon: boolean) {
     const icon = this.iconEl?.children[0];

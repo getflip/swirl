@@ -13,7 +13,7 @@ import classnames from "classnames";
 import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
-import { getDesktopMediaQuery } from "../../utils";
+import { DesktopMediaQuery } from "../../services/media-query.service";
 
 const internalTimeFormat = "HH:mm:ss";
 
@@ -49,10 +49,10 @@ export class SwirlTimeInput {
   @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
 
-  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private id: string;
   private inputEl: HTMLInputElement;
   private mask: Maska;
+  private mediaQueryUnsubscribe: () => void = () => {};
 
   componentWillLoad() {
     const index = Array.from(
@@ -65,12 +65,9 @@ export class SwirlTimeInput {
   componentDidLoad() {
     this.setupMask();
 
-    this.updateIconSize(this.desktopMediaQuery.matches);
-
-    this.desktopMediaQuery.addEventListener(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
+      this.updateIconSize(isDesktop);
+    });
 
     // see https://stackoverflow.com/a/27314017
     if (this.autoFocus) {
@@ -83,20 +80,13 @@ export class SwirlTimeInput {
   disconnectedCallback() {
     this.mask?.destroy();
 
-    this.desktopMediaQuery.removeEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe();
   }
 
   @Watch("format")
   watchFormat() {
     this.setupMask();
   }
-
-  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
-    this.updateIconSize(event.matches);
-  };
 
   private updateIconSize(smallIcon: boolean) {
     this.iconSize = smallIcon ? 20 : 24;

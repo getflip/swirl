@@ -10,7 +10,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { v4 as uuid } from "uuid";
-import { getDesktopMediaQuery } from "../../utils";
+import { DesktopMediaQuery } from "../../services/media-query.service";
 
 export type SwirlOptionListItemContext = "single-select" | "multi-select";
 
@@ -48,31 +48,20 @@ export class SwirlOptionListItem {
   @State() iconSize: 20 | 24 = 24;
   @State() focused: boolean;
 
-  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
   private elementId = uuid();
+  private mediaQueryUnsubscribe: () => void = () => {};
 
   componentDidLoad() {
-    this.forceIconProps(this.desktopMediaQuery.matches);
-    this.updateIconSize(this.desktopMediaQuery.matches);
-
-    this.desktopMediaQuery.addEventListener(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
+      this.forceIconProps(isDesktop);
+      this.updateIconSize(isDesktop);
+    });
   }
 
   disconnectedCallback() {
-    this.desktopMediaQuery.removeEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe();
   }
-
-  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
-    this.forceIconProps(event.matches);
-    this.updateIconSize(event.matches);
-  };
 
   private forceIconProps(smallIcon: boolean) {
     const icon = this.iconEl?.children[0];

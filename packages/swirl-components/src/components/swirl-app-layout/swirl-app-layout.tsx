@@ -12,12 +12,8 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import {
-  debounce,
-  getDesktopMediaQuery,
-  isMobileViewport,
-  prefersReducedMotion,
-} from "../../utils";
+import { DesktopMediaQuery } from "../../services/media-query.service";
+import { debounce, isMobileViewport, prefersReducedMotion } from "../../utils";
 
 export type SwirlAppLayoutMobileView = "navigation" | "body" | "sidebar";
 
@@ -105,7 +101,6 @@ export class SwirlAppLayout {
   @Event() sidebarToggle: EventEmitter<boolean>;
 
   private contentEl: HTMLElement;
-  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private headerEl: HTMLElement;
   private mutationObserver: MutationObserver;
   private navEl: HTMLElement;
@@ -113,6 +108,7 @@ export class SwirlAppLayout {
   private sidebarOpeningTimeout: NodeJS.Timeout;
   private sidebarEl: HTMLElement;
   private transitionTimeout: NodeJS.Timeout;
+  private mediaQueryUnsubscribe: () => void = () => {};
 
   componentWillLoad() {
     if (this.initialMobileView) {
@@ -136,14 +132,11 @@ export class SwirlAppLayout {
   }
 
   componentDidLoad() {
-    this.desktopMediaQuery.addEventListener(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
+      this.isDesktop = isDesktop;
+    });
 
     queueMicrotask(() => {
-      this.isDesktop = this.desktopMediaQuery.matches;
-
       this.restoreNavExpansionState();
       this.updateContentScrollState();
       this.updateSidebarScrollState();
@@ -152,11 +145,7 @@ export class SwirlAppLayout {
   }
 
   disconnectedCallback() {
-    this.desktopMediaQuery.removeEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
-
+    this.mediaQueryUnsubscribe();
     this.mutationObserver?.disconnect();
   }
 
@@ -334,10 +323,6 @@ export class SwirlAppLayout {
       this.mobileViewChange.emit(this.mobileView);
     }, delay);
   }
-
-  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
-    this.isDesktop = event.matches;
-  };
 
   private checkMobileView() {
     if (

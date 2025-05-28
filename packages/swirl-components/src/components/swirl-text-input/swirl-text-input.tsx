@@ -10,7 +10,8 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import { getDesktopMediaQuery, SwirlFormInput } from "../../utils";
+import { DesktopMediaQuery } from "../../services/media-query.service";
+import { SwirlFormInput } from "../../utils";
 
 export type SwirlTextInputFontSize = "default" | "sm" | "base";
 
@@ -88,16 +89,13 @@ export class SwirlTextInput implements SwirlFormInput {
   @Event() inputFocus: EventEmitter<FocusEvent>;
   @Event() valueChange: EventEmitter<string>;
 
-  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private inputEl: HTMLInputElement;
+  private mediaQueryUnsubscribe: () => void = () => {};
 
   componentDidLoad() {
-    this.updateIconSize(this.desktopMediaQuery.matches);
-
-    this.desktopMediaQuery.addEventListener(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
+      this.updateIconSize(isDesktop);
+    });
 
     // see https://stackoverflow.com/a/27314017
     if (this.autoFocus) {
@@ -112,10 +110,7 @@ export class SwirlTextInput implements SwirlFormInput {
   }
 
   disconnectedCallback() {
-    this.desktopMediaQuery.removeEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe();
   }
 
   @Method()
@@ -134,10 +129,6 @@ export class SwirlTextInput implements SwirlFormInput {
       this.valueChange.emit(newValue);
     }
   }
-
-  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
-    this.updateIconSize(event.matches);
-  };
 
   private updateIconSize(smallIcon: boolean) {
     this.iconSize = smallIcon ? 20 : 24;

@@ -14,7 +14,8 @@ import { format, isValid, parse } from "date-fns";
 import { create as createMask } from "maska/dist/es6/maska";
 import Maska from "maska/types/maska";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
-import { getDesktopMediaQuery, isMobileViewport } from "../../utils";
+import { DesktopMediaQuery } from "../../services/media-query.service";
+import { isMobileViewport } from "../../utils";
 
 const internalDateFormat = "yyyy-MM-dd";
 
@@ -57,11 +58,11 @@ export class SwirlDateInput {
   @Event() invalidInput: EventEmitter<string>;
   @Event() valueChange: EventEmitter<string>;
 
-  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private id: string;
   private inputEl: HTMLInputElement;
   private mask: Maska;
   private pickerPopover: HTMLSwirlPopoverElement;
+  private mediaQueryUnsubscribe: () => void = () => {};
 
   componentWillLoad() {
     const index = Array.from(
@@ -75,12 +76,9 @@ export class SwirlDateInput {
   componentDidLoad() {
     this.setupMask();
 
-    this.updateIconSize(this.desktopMediaQuery.matches);
-
-    this.desktopMediaQuery.addEventListener(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
+      this.updateIconSize(isDesktop);
+    });
 
     // see https://stackoverflow.com/a/27314017
     if (this.autoFocus) {
@@ -90,11 +88,7 @@ export class SwirlDateInput {
 
   disconnectedCallback() {
     this.mask?.destroy();
-
-    this.desktopMediaQuery.removeEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe();
   }
 
   @Watch("format")
@@ -108,10 +102,6 @@ export class SwirlDateInput {
       this.valueChange.emit(newValue);
     }
   }
-
-  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
-    this.updateIconSize(event.matches);
-  };
 
   private focus(): void {
     setTimeout(() => {
