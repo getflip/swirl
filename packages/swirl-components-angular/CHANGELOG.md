@@ -1,5 +1,32 @@
 # @getflip/swirl-components-angular
 
+## 0.333.0
+
+### Minor Changes
+
+- [#1081](https://github.com/getflip/swirl/pull/1081)
+  [`708001f2`](https://github.com/getflip/swirl/commit/708001f28f4cf3fab13cbb0de3a51f916ed4bead)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Make
+  swirl-file-chip buttons visible on focus
+
+* [#1078](https://github.com/getflip/swirl/pull/1078)
+  [`1fdb5124`](https://github.com/getflip/swirl/commit/1fdb51240d0dd44f00df10ed2b2eb584dd85bfb1)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Set
+  aria-describedby attribute for error messages in swirl-form-control
+
+- [#1079](https://github.com/getflip/swirl/pull/1079)
+  [`53b77d90`](https://github.com/getflip/swirl/commit/53b77d90355538b77fae00e9d95ede7d1aa30887)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Improve the
+  performance of desktop media queries
+
+### Patch Changes
+
+- Updated dependencies
+  [[`708001f2`](https://github.com/getflip/swirl/commit/708001f28f4cf3fab13cbb0de3a51f916ed4bead),
+  [`1fdb5124`](https://github.com/getflip/swirl/commit/1fdb51240d0dd44f00df10ed2b2eb584dd85bfb1),
+  [`53b77d90`](https://github.com/getflip/swirl/commit/53b77d90355538b77fae00e9d95ede7d1aa30887)]:
+  - @getflip/swirl-components@0.333.0
+
 ## 0.332.0
 
 ### Minor Changes
