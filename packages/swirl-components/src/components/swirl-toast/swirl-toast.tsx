@@ -8,7 +8,7 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import { getDesktopMediaQuery } from "../../utils";
+import { DesktopMediaQuery } from "../../services/media-query.service";
 
 export type SwirlToastIntent = "default" | "critical" | "success";
 
@@ -28,10 +28,10 @@ export class SwirlToast {
 
   @Event() dismiss: EventEmitter<string>;
 
-  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private dismissIconEl: HTMLElement;
   private iconEl: HTMLElement;
   private timeout: NodeJS.Timeout;
+  private mediaQueryUnsubscribe: () => void = () => {};
 
   @Watch("duration")
   watchDuration() {
@@ -41,24 +41,14 @@ export class SwirlToast {
   componentDidLoad() {
     this.startTimer();
 
-    this.forceIconProps(this.desktopMediaQuery.matches);
-
-    this.desktopMediaQuery.addEventListener(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
+      this.forceIconProps(isDesktop);
+    });
   }
 
   disconnectedCallback() {
-    this.desktopMediaQuery.removeEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe();
   }
-
-  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
-    this.forceIconProps(event.matches);
-  };
 
   private forceIconProps(smallIcon: boolean) {
     const icon = this.iconEl?.children[0];

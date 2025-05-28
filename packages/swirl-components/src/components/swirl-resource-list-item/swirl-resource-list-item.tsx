@@ -11,8 +11,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-
-import { getDesktopMediaQuery } from "../../utils";
+import { DesktopMediaQuery } from "../../services/media-query.service";
 
 export type SwirlResourceListItemLabelWeight =
   | "medium"
@@ -66,22 +65,20 @@ export class SwirlResourceListItem {
   @Event() valueChange: EventEmitter<boolean>;
 
   private controlContainer: HTMLElement;
-  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private elementId = uuid();
   private iconEl: HTMLElement;
+  private mediaQueryUnsubscribe: () => void = () => {};
 
   componentWillLoad() {
     this.updateMediaState();
   }
 
   componentDidLoad() {
-    this.forceIconProps(this.desktopMediaQuery.matches);
-    this.updateIconSize(this.desktopMediaQuery.matches);
+    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
+      this.forceIconProps(isDesktop);
+      this.updateIconSize(isDesktop);
+    });
 
-    this.desktopMediaQuery.addEventListener(
-      "change",
-      this.desktopMediaQueryHandler
-    );
     this.makeControlUnfocusable();
 
     if (Boolean(this.menuTriggerId)) {
@@ -92,16 +89,8 @@ export class SwirlResourceListItem {
   }
 
   disconnectedCallback() {
-    this.desktopMediaQuery.removeEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe();
   }
-
-  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
-    this.forceIconProps(event.matches);
-    this.updateIconSize(event.matches);
-  };
 
   private forceIconProps(smallIcon: boolean) {
     const icon = this.iconEl?.children[0];

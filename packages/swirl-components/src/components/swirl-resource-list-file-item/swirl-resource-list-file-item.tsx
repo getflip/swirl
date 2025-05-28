@@ -1,6 +1,6 @@
 import { Component, Event, EventEmitter, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
-import { getDesktopMediaQuery } from "../../utils";
+import { DesktopMediaQuery } from "../../services/media-query.service";
 
 @Component({
   scoped: true,
@@ -19,28 +19,18 @@ export class SwirlResourceListFileItem {
 
   @Event() remove: EventEmitter<MouseEvent>;
 
-  private desktopMediaQuery: MediaQueryList = getDesktopMediaQuery();
   private iconEl: HTMLElement;
+  private mediaQueryUnsubscribe: () => void = () => {};
 
   componentDidLoad() {
-    this.forceIconProps(this.desktopMediaQuery.matches);
-
-    this.desktopMediaQuery.addEventListener(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe = DesktopMediaQuery.subscribe((isDesktop) => {
+      this.forceIconProps(isDesktop);
+    });
   }
 
   disconnectedCallback() {
-    this.desktopMediaQuery.removeEventListener?.(
-      "change",
-      this.desktopMediaQueryHandler
-    );
+    this.mediaQueryUnsubscribe();
   }
-
-  private desktopMediaQueryHandler = (event: MediaQueryListEvent) => {
-    this.forceIconProps(event.matches);
-  };
 
   private forceIconProps(smallIcon: boolean) {
     if (!Boolean(this.iconEl)) {
