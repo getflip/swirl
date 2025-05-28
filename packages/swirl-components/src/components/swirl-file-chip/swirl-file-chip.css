@@ -19,7 +19,8 @@
 }
 
 
-.file-chip:hover {
+.file-chip:hover,
+.file-chip:focus-within {
   &.file-chip--one-action .file-chip__info > * {
     width: calc(100% - 44px - var(--s-space-12));
   }
