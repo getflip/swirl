@@ -3,12 +3,12 @@ import { getDesktopMediaQuery } from "../utils";
 type CallbackFn = (isDesktop: boolean) => void;
 
 class DesktopMediaQueryService {
-  private mql: MediaQueryList;
+  private mediaQueryList: MediaQueryList;
   private listeners = new Set<CallbackFn>();
 
   constructor() {
-    this.mql = getDesktopMediaQuery();
-    this.mql.addEventListener("change", this.onChange);
+    this.mediaQueryList = getDesktopMediaQuery();
+    this.mediaQueryList.addEventListener("change", this.onChange);
   }
 
   private onChange = (e: MediaQueryListEvent) => {
@@ -17,7 +17,7 @@ class DesktopMediaQueryService {
 
   public subscribe(callback: CallbackFn): () => void {
     this.listeners.add(callback);
-    callback(this.mql.matches);
+    callback(this.mediaQueryList.matches);
 
     return () => {
       this.listeners.delete(callback);
