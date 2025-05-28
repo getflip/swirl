@@ -75,16 +75,13 @@ export class SwirlFormControl {
   }
 
   @Watch("description")
-  associateDescriptionWithInputElement() {
-    if (!Boolean(this.description) || !Boolean(this.inputEl)) {
-      return;
-    }
+  watchDescription() {
+    this.associateDescriptionWithInputElement();
+  }
 
-    if (Boolean(this.inputEl.getAttribute("contenteditable"))) {
-      this.inputEl.setAttribute("aria-describedby", this.descriptionId);
-    } else {
-      this.inputEl.setAttribute("swirl-aria-describedby", this.descriptionId);
-    }
+  @Watch("errorMessage")
+  watchErrorMessage() {
+    this.associateDescriptionWithInputElement();
   }
 
   @Watch("disabled")
@@ -165,6 +162,23 @@ export class SwirlFormControl {
 
     this.inputEl.setAttribute("aria-labelledby", this.labelId);
     this.inputEl.setAttribute("aria-describedby", this.descriptionId);
+  }
+
+  private associateDescriptionWithInputElement() {
+    if (!Boolean(this.inputEl)) {
+      return;
+    }
+
+    if (Boolean(this.description) || Boolean(this.errorMessage)) {
+      if (Boolean(this.inputEl.getAttribute("contenteditable"))) {
+        this.inputEl.setAttribute("aria-describedby", this.descriptionId);
+      } else {
+        this.inputEl.setAttribute("swirl-aria-describedby", this.descriptionId);
+      }
+    } else {
+      this.inputEl.removeAttribute("aria-describedby");
+      this.inputEl.removeAttribute("swirl-aria-describedby");
+    }
   }
 
   private listenToInputValueChanges = () => {
