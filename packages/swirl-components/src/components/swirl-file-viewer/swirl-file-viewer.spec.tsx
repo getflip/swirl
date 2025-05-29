@@ -38,12 +38,12 @@ describe("swirl-file-viewer", () => {
             <div class="file-viewer__file">
               <swirl-file-viewer-image>
                 <mock:shadow-root>
-                  <div role="figure" class="file-viewer-image">
+                  <figure class="file-viewer-image">
                     <img alt="Description" class="file-viewer-image__image" src="https://picsum.photos/id/1025/1000/1000">
                     <div class="file-viewer-image__spinner">
                       <swirl-spinner></swirl-spinner>
                     </div>
-                  </div>
+                  </figure>
                 </mock:shadow-root>
               </swirl-file-viewer-image>
             </div>

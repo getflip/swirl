@@ -88,7 +88,6 @@ export class SwirlLightbox {
 
   @Listen("keydown", { target: "window" })
   onKeyDown(event: KeyboardEvent) {
-    console.log("onKeyDown", event.code, "isOpen", this.isOpen);
     if (!this.isOpen) {
       return;
     }

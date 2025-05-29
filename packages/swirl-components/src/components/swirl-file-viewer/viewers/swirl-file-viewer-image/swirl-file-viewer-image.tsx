@@ -316,7 +316,7 @@ export class SwirlFileViewerImage {
             message={this.errorMessage}
           ></swirl-inline-error>
         )}
-        <div role="figure" class="file-viewer-image">
+        <figure class="file-viewer-image">
           <img
             alt={this.description}
             class="file-viewer-image__image"
@@ -328,7 +328,7 @@ export class SwirlFileViewerImage {
               <swirl-spinner></swirl-spinner>
             </div>
           )}
-        </div>
+        </figure>
       </Host>
     );
   }

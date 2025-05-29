@@ -11,8 +11,8 @@
 
 .file-viewer-image {
   display: inline-flex;
-  pointer-events: none;
   justify-content: center;
+  margin: 0;
 }
 
 .file-viewer-image__image {
