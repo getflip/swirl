@@ -153,7 +153,7 @@ describe("swirl-lightbox", () => {
 
     const slides = page.rootInstance.slides;
 
-    page.root.dispatchEvent(
+    page.win.dispatchEvent(
       new KeyboardEvent("keydown", { code: "ArrowRight" })
     );
 
@@ -165,7 +165,7 @@ describe("swirl-lightbox", () => {
     expect(slides[2].getAttribute("active")).toBe("true");
     expect(page.rootInstance.activeSlideIndex).toBe(1);
 
-    page.root.dispatchEvent(
+    page.win.dispatchEvent(
       new KeyboardEvent("keydown", { code: "ArrowLeft" })
     );
 
