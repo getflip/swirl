@@ -109,7 +109,7 @@ describe("swirl-lightbox", () => {
       components: [SwirlLightbox],
       html: `
         <swirl-lightbox label="Lightbox">
-          <swirl-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer description="Cute dog in a blanket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
         </swirl-lightbox>
       `,
     });
