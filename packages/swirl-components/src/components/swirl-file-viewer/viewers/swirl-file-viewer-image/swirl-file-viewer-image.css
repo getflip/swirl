@@ -2,14 +2,21 @@
   position: relative;
   display: inline-flex;
   max-height: 100%;
-  pointer-events: auto;
+  pointer-events: none;
 
   & * {
     box-sizing: border-box;
   }
 }
 
+.file-viewer-image {
+  display: inline-flex;
+  pointer-events: none;
+  justify-content: center;
+}
+
 .file-viewer-image__image {
+  pointer-events: auto;
   max-width: 100%;
   object-fit: contain;
 }
