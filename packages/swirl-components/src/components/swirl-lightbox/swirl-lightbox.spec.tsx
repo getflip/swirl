@@ -81,6 +81,55 @@ describe("swirl-lightbox", () => {
     `);
   });
 
+  it("closes when pressing Escape key", async () => {
+    const page = await newSpecPage({
+      components: [SwirlLightbox],
+      html: `
+        <swirl-lightbox label="Lightbox">
+          <swirl-file-viewer description="Cute dog in a blanket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+        </swirl-lightbox>
+      `,
+    });
+
+    const closeSpy = jest.fn();
+
+    page.rootInstance.isOpen = true;
+    page.rootInstance.close = closeSpy;
+
+    // wait for animation
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    page.win.dispatchEvent(new KeyboardEvent("keydown", { code: "Escape" }));
+
+    expect(closeSpy).toHaveBeenCalled();
+  });
+
+  it("closes when clicking on backdrop", async () => {
+    const page = await newSpecPage({
+      components: [SwirlLightbox],
+      html: `
+        <swirl-lightbox label="Lightbox">
+          <swirl-file-viewer description="Cute dog in a blanket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+        </swirl-lightbox>
+      `,
+    });
+
+    const closeSpy = jest.fn();
+
+    page.rootInstance.isOpen = true;
+    page.rootInstance.close = closeSpy;
+
+    // wait for animation
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    const slidesContainer =
+      page.root.shadowRoot.querySelector<HTMLElement>(".lightbox__slides");
+
+    slidesContainer.click();
+
+    expect(closeSpy).toHaveBeenCalled();
+  });
+
   it("navigates through slides via buttons", async () => {
     const page = await newSpecPage({
       components: [SwirlLightbox],
@@ -153,7 +202,7 @@ describe("swirl-lightbox", () => {
 
     const slides = page.rootInstance.slides;
 
-    page.root.dispatchEvent(
+    page.win.dispatchEvent(
       new KeyboardEvent("keydown", { code: "ArrowRight" })
     );
 
@@ -165,9 +214,7 @@ describe("swirl-lightbox", () => {
     expect(slides[2].getAttribute("active")).toBe("true");
     expect(page.rootInstance.activeSlideIndex).toBe(1);
 
-    page.root.dispatchEvent(
-      new KeyboardEvent("keydown", { code: "ArrowLeft" })
-    );
+    page.win.dispatchEvent(new KeyboardEvent("keydown", { code: "ArrowLeft" }));
 
     // wait for animation
     await new Promise((resolve) => setTimeout(resolve, 300));

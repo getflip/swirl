@@ -5,6 +5,7 @@ import {
   EventEmitter,
   h,
   Host,
+  Listen,
   Method,
   Prop,
   State,
@@ -85,7 +86,8 @@ export class SwirlLightbox {
     this.activeSlideChange.emit(this.activeSlideIndex);
   }
 
-  onKeyDown = (event: KeyboardEvent) => {
+  @Listen("keydown", { target: "window" })
+  onKeyDown(event: KeyboardEvent) {
     if (!this.isOpen) {
       return;
     }
@@ -98,7 +100,7 @@ export class SwirlLightbox {
     } else if (event.code === "ArrowRight") {
       this.onNextSlideClick();
     }
-  };
+  }
 
   /**
    * Open the lightbox.
@@ -434,7 +436,7 @@ export class SwirlLightbox {
     });
 
     return (
-      <Host onKeydown={this.onKeyDown}>
+      <Host>
         <section
           aria-hidden={String(!this.isOpen)}
           aria-label={this.label}
