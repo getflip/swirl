@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.334.0
+
+### Minor Changes
+
+- [#1082](https://github.com/getflip/swirl/pull/1082)
+  [`3c075d2b`](https://github.com/getflip/swirl/commit/3c075d2ba5fb111ca0b98182b4c964d19b95e72e)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix
+  swirl-lightbox closing with backdrop click and Escape key
+
 ## 0.333.0
 
 ### Minor Changes
