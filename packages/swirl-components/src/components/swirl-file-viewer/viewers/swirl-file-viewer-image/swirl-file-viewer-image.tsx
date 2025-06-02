@@ -301,7 +301,6 @@ export class SwirlFileViewerImage {
   render() {
     return (
       <Host
-        class="file-viewer-image"
         onDblClick={this.onDblClick}
         onWheel={this.onWheel}
         onPointerDown={this.onPointerDown}
@@ -317,17 +316,19 @@ export class SwirlFileViewerImage {
             message={this.errorMessage}
           ></swirl-inline-error>
         )}
-        <img
-          alt={this.description}
-          class="file-viewer-image__image"
-          ref={this.onImageElementUpdate}
-          src={this.file}
-        />
-        {this.loading && (
-          <div class="file-viewer-image__spinner">
-            <swirl-spinner></swirl-spinner>
-          </div>
-        )}
+        <figure class="file-viewer-image">
+          <img
+            alt={this.description}
+            class="file-viewer-image__image"
+            ref={this.onImageElementUpdate}
+            src={this.file}
+          />
+          {this.loading && (
+            <div class="file-viewer-image__spinner">
+              <swirl-spinner></swirl-spinner>
+            </div>
+          )}
+        </figure>
       </Host>
     );
   }
