@@ -1,4 +1,8 @@
 {
+  "font-size-xs": {
+    "value": "0.75rem",
+    "type": "fontSizes"
+  },
   "font-size-sm": {
     "value": "0.875rem",
     "type": "fontSizes",
@@ -40,6 +44,10 @@
     "value": 700,
     "type": "fontWeights"
   },
+  "line-height-xs": {
+    "value": "1rem",
+    "type": "lineHeights"
+  },
   "line-height-sm": {
     "value": "1.25rem",
     "type": "lineHeights"
@@ -51,14 +59,6 @@
   "line-height-lg": {
     "value": "1.5rem",
     "type": "lineHeights"
-  },
-  "letter-spacing-tighter": {
-    "value": "-0.02rem",
-    "type": "letterSpacing"
-  },
-  "letter-spacing-tight": {
-    "value": "-0.01375rem",
-    "type": "letterSpacing"
   },
   "letter-spacing-normal": {
     "value": 0,
@@ -189,7 +189,7 @@
     "type": "borderWidth"
   },
   "line-height-xl": {
-    "value": "1.625rem",
+    "value": "1.75rem",
     "type": "lineHeights"
   },
   "line-height-2xl": {
@@ -1208,19 +1208,11 @@
   "shadow-level-2": {
     "value": [
       {
-        "color": "rgba(23,23,23,0.04)",
+        "color": "rgba(23,23,23,0.2)",
         "type": "dropShadow",
         "x": "0",
         "y": "4",
-        "blur": "16",
-        "spread": "0"
-      },
-      {
-        "color": "rgba(23,23,23,0.16)",
-        "type": "dropShadow",
-        "x": "0",
-        "y": "1",
-        "blur": "4",
+        "blur": "8",
         "spread": "0"
       }
     ],
