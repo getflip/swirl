@@ -16403,6 +16403,10 @@
       },
       "attributes": [
         {
+          "name": "allow-fullscreen",
+          "description": ""
+        },
+        {
           "name": "closable",
           "description": ""
         },
@@ -16442,6 +16446,10 @@
               "name": "8"
             }
           ]
+        },
+        {
+          "name": "fullscreen-button-label",
+          "description": ""
         },
         {
           "name": "has-sidebar-close-button",

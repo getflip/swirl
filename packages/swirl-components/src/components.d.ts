@@ -1789,6 +1789,7 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlModal {
+        "allowFullscreen"?: boolean;
         "closable"?: boolean;
         /**
           * Close the modal. Pass `true` to force close even if the modal is not closable.
@@ -1796,6 +1797,7 @@ export namespace Components {
         "close": (force?: boolean) => Promise<void>;
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
+        "fullscreenButtonLabel"?: string;
         "hasSidebarCloseButton"?: boolean;
         "height"?: string;
         "hideCloseButton"?: boolean;
@@ -1823,6 +1825,7 @@ export namespace Components {
         "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
+        "setFullscreen": (isFullscreen: boolean) => Promise<void>;
         "sidebarCloseButtonLabel"?: string;
         "sidebarFooterPadded"?: boolean;
         "sidebarLabel"?: string;
@@ -4894,6 +4897,7 @@ declare global {
         new (): HTMLSwirlMenuItemElement;
     };
     interface HTMLSwirlModalElementEventMap {
+        "fullscreenChanged": boolean;
         "modalClose": void;
         "modalOpen": void;
         "primaryAction": MouseEvent;
@@ -7813,9 +7817,11 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlModal {
+        "allowFullscreen"?: boolean;
         "closable"?: boolean;
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
+        "fullscreenButtonLabel"?: string;
         "hasSidebarCloseButton"?: boolean;
         "height"?: string;
         "hideCloseButton"?: boolean;
@@ -7827,6 +7833,7 @@ declare namespace LocalJSX {
         "maxHeight"?: string;
         "maxWidth"?: string;
         "minHeight"?: string;
+        "onFullscreenChanged"?: (event: SwirlModalCustomEvent<boolean>) => void;
         "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;

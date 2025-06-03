@@ -44,8 +44,10 @@ export type SwirlModalSpacing =
 export class SwirlModal {
   @Element() el: HTMLElement;
 
+  @Prop() allowFullscreen?: boolean;
   @Prop() closable?: boolean = true;
   @Prop() closeButtonLabel?: string = "Close modal";
+  @Prop() fullscreenButtonLabel?: string = "Fullscreen";
   @Prop() height?: string;
   @Prop() hideCloseButton?: boolean;
   @Prop() hideLabel?: boolean;
@@ -76,6 +78,7 @@ export class SwirlModal {
   @Prop() hasSidebarCloseButton?: boolean;
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
 
+  @Event() fullscreenChanged: EventEmitter<boolean>;
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
   @Event() primaryAction: EventEmitter<MouseEvent>;
@@ -84,6 +87,8 @@ export class SwirlModal {
   @Event() sidebarClose: EventEmitter<void>;
 
   @State() isOpen = false;
+  @State() isFullscreen = false;
+  @State() isFullscreenTransitioning = false;
   @State() closing = false;
   @State() hasCustomHeader: boolean;
   @State() hasCustomFooter: boolean;
@@ -187,6 +192,19 @@ export class SwirlModal {
     }, 150);
   }
 
+  @Method()
+  async setFullscreen(isFullscreen: boolean) {
+    if (this.isFullscreen === isFullscreen) {
+      return;
+    }
+
+    this.isFullscreenTransitioning = true;
+    this.isFullscreen = isFullscreen;
+    this.fullscreenChanged.emit(this.isFullscreen);
+
+    setTimeout(() => (this.isFullscreenTransitioning = false), 150);
+  }
+
   onKeyDown = (event: KeyboardEvent) => {
     if (event.code === "Escape") {
       event.stopImmediatePropagation();
@@ -200,6 +218,10 @@ export class SwirlModal {
 
   private onCloseButtonClick = () => {
     this.close();
+  };
+
+  private onFullscreenButtonClick = () => {
+    this.setFullscreen(!this.isFullscreen);
   };
 
   private onSidebarCloseButtonClick = () => {
@@ -331,6 +353,8 @@ export class SwirlModal {
 
     const className = classnames("modal", `modal--variant-${this.variant}`, {
       "modal--closing": this.closing,
+      "modal--fullscreen": this.isFullscreen,
+      "modal--fullscreen-transitioning": this.isFullscreenTransitioning,
       "modal--has-custom-footer": this.hasCustomFooter,
       "modal--has-custom-header": this.hasCustomHeader,
       "modal--has-header-tools": this.hasHeaderTools,
@@ -369,12 +393,14 @@ export class SwirlModal {
           <div class="modal__backdrop" onClick={this.onBackdropClick}></div>
           <div
             class="modal__body"
-            style={{
-              "--swirl-modal-max-height": this.maxHeight,
-              "--swirl-modal-height": this.height,
-              minHeight: this.minHeight,
-              maxWidth: this.maxWidth,
-            }}
+            style={
+              !this.isFullscreen && {
+                "--swirl-modal-max-height": this.maxHeight,
+                "--swirl-modal-height": this.height,
+                minHeight: this.minHeight,
+                maxWidth: this.maxWidth,
+              }
+            }
           >
             <aside class="modal__sidebar">
               {this.sidebarLabel && (
@@ -432,6 +458,19 @@ export class SwirlModal {
                         }
                         label={this.closeButtonLabel}
                         onClick={this.onCloseButtonClick}
+                      ></swirl-button>
+                    )}
+                    {this.allowFullscreen && (
+                      <swirl-button
+                        class="modal__fullscreen-button"
+                        hideLabel
+                        icon={
+                          this.isFullscreen
+                            ? "<swirl-icon-close-fullscreen></swirl-icon-close-fullscreen>"
+                            : "<swirl-icon-open-in-full></swirl-icon-open-in-full>"
+                        }
+                        label={this.fullscreenButtonLabel}
+                        onClick={this.onFullscreenButtonClick}
                       ></swirl-button>
                     )}
                     {!this.hideLabel && (
