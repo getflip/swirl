@@ -1,5 +1,14 @@
 # swirl-tokens
 
+## 2.8.0
+
+### Minor Changes
+
+- [#1084](https://github.com/getflip/swirl/pull/1084)
+  [`9965846d`](https://github.com/getflip/swirl/commit/9965846d98d48cdd21b2e552e5fb42e0735fe757)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "xs" font size (tokens +
+  swirl-text)
+
 ## 2.7.0
 
 ### Minor Changes

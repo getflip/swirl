@@ -1,5 +1,20 @@
 # @getflip/swirl-components
 
+## 0.335.0
+
+### Minor Changes
+
+- [#1084](https://github.com/getflip/swirl/pull/1084)
+  [`9965846d`](https://github.com/getflip/swirl/commit/9965846d98d48cdd21b2e552e5fb42e0735fe757)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Add "xs" font size (tokens +
+  swirl-text)
+
+### Patch Changes
+
+- Updated dependencies
+  [[`9965846d`](https://github.com/getflip/swirl/commit/9965846d98d48cdd21b2e552e5fb42e0735fe757)]:
+  - @getflip/swirl-tokens@2.8.0
+
 ## 0.334.0
 
 ### Minor Changes
