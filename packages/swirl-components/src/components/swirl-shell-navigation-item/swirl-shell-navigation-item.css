@@ -228,10 +228,6 @@
 }
 
 @container (max-width: 4rem) {
-  .shell-navigation-item__label {
-    display: none;
-  }
-
   .shell-navigation-item__badge {
     position: absolute;
     top: var(--s-space-4);
