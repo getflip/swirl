@@ -926,6 +926,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconCloseFullscreen {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconCloseSmall {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -3712,6 +3716,12 @@ declare global {
         prototype: HTMLSwirlIconCloseElement;
         new (): HTMLSwirlIconCloseElement;
     };
+    interface HTMLSwirlIconCloseFullscreenElement extends Components.SwirlIconCloseFullscreen, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCloseFullscreenElement: {
+        prototype: HTMLSwirlIconCloseFullscreenElement;
+        new (): HTMLSwirlIconCloseFullscreenElement;
+    };
     interface HTMLSwirlIconCloseSmallElement extends Components.SwirlIconCloseSmall, HTMLStencilElement {
     }
     var HTMLSwirlIconCloseSmallElement: {
@@ -5996,6 +6006,7 @@ declare global {
         "swirl-icon-chevron-left": HTMLSwirlIconChevronLeftElement;
         "swirl-icon-chevron-right": HTMLSwirlIconChevronRightElement;
         "swirl-icon-close": HTMLSwirlIconCloseElement;
+        "swirl-icon-close-fullscreen": HTMLSwirlIconCloseFullscreenElement;
         "swirl-icon-close-small": HTMLSwirlIconCloseSmallElement;
         "swirl-icon-cloud-upload": HTMLSwirlIconCloudUploadElement;
         "swirl-icon-column": HTMLSwirlIconColumnElement;
@@ -6999,6 +7010,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconClose {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconCloseFullscreen {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -8684,6 +8699,7 @@ declare namespace LocalJSX {
         "swirl-icon-chevron-left": SwirlIconChevronLeft;
         "swirl-icon-chevron-right": SwirlIconChevronRight;
         "swirl-icon-close": SwirlIconClose;
+        "swirl-icon-close-fullscreen": SwirlIconCloseFullscreen;
         "swirl-icon-close-small": SwirlIconCloseSmall;
         "swirl-icon-cloud-upload": SwirlIconCloudUpload;
         "swirl-icon-column": SwirlIconColumn;
@@ -9088,6 +9104,7 @@ declare module "@stencil/core" {
             "swirl-icon-chevron-left": LocalJSX.SwirlIconChevronLeft & JSXBase.HTMLAttributes<HTMLSwirlIconChevronLeftElement>;
             "swirl-icon-chevron-right": LocalJSX.SwirlIconChevronRight & JSXBase.HTMLAttributes<HTMLSwirlIconChevronRightElement>;
             "swirl-icon-close": LocalJSX.SwirlIconClose & JSXBase.HTMLAttributes<HTMLSwirlIconCloseElement>;
+            "swirl-icon-close-fullscreen": LocalJSX.SwirlIconCloseFullscreen & JSXBase.HTMLAttributes<HTMLSwirlIconCloseFullscreenElement>;
             "swirl-icon-close-small": LocalJSX.SwirlIconCloseSmall & JSXBase.HTMLAttributes<HTMLSwirlIconCloseSmallElement>;
             "swirl-icon-cloud-upload": LocalJSX.SwirlIconCloudUpload & JSXBase.HTMLAttributes<HTMLSwirlIconCloudUploadElement>;
             "swirl-icon-column": LocalJSX.SwirlIconColumn & JSXBase.HTMLAttributes<HTMLSwirlIconColumnElement>;
