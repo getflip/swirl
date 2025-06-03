@@ -22,7 +22,7 @@ export type SwirlTextFontFamily = "code" | "text";
 
 export type SwirlTextFontStyle = "normal" | "italic";
 
-export type SwirlTextSize = "sm" | "base" | "lg" | "xl" | "2xl";
+export type SwirlTextSize = "xs" | "sm" | "base" | "lg" | "xl" | "2xl";
 
 export type SwirlTextTruncateDirection = "end" | "start";
 

@@ -71,6 +71,11 @@
   color: var(--s-text-warning);
 }
 
+.text--size-xs {
+  font-size: var(--s-font-size-xs);
+  line-height: var(--s-line-height-xs);
+}
+
 .text--size-sm {
   font-size: var(--s-font-size-sm);
   line-height: var(--s-line-height-sm);
