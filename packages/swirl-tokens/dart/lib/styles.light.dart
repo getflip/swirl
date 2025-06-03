@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Tue, 03 Jun 2025 06:36:11 GMT
+// Generated on Tue, 03 Jun 2025 09:05:21 GMT
 
 
 
@@ -224,7 +224,7 @@ class SwirlDesignTokensLight {
     static const lineHeightXs = 16.00;
     static const onSurfaceHighlightDefault = Color(0xFFD5E2FF); /* Used to place containers on “Surface Highlight/Default”. */
     static const shadowLevel1 = [BoxShadow(color: Color(0x0A171717), offset: Offset(0, 4), blurRadius: 16), BoxShadow(color: Color(0x0A171717), offset: Offset(0, 1), blurRadius: 4)];
-    static const shadowLevel2 = [BoxShadow(color: Color(0x0A171717), offset: Offset(0, 4), blurRadius: 16), BoxShadow(color: Color(0x29171717), offset: Offset(0, 1), blurRadius: 4)];
+    static const shadowLevel2 = [BoxShadow(color: Color(0x33171717), offset: Offset(0, 4), blurRadius: 8)];
     static const shadowLevel3 = [BoxShadow(color: Color(0x1F171717), offset: Offset(0, 12), blurRadius: 32), BoxShadow(color: Color(0x14171717), offset: Offset(0, 4), blurRadius: 12)];
     static const space0 = 0.00;
     static const space12 = 12.00;
