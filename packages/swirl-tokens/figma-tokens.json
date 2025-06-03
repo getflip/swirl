@@ -1,5 +1,9 @@
 {
   "core": {
+    "font-size-xs": {
+      "value": "12",
+      "type": "fontSizes"
+    },
     "font-size-sm": {
       "value": "14",
       "type": "fontSizes",
@@ -41,6 +45,10 @@
       "value": "Bold",
       "type": "fontWeights"
     },
+    "line-height-xs": {
+      "value": "16",
+      "type": "lineHeights"
+    },
     "line-height-sm": {
       "value": "20",
       "type": "lineHeights"
@@ -52,14 +60,6 @@
     "line-height-lg": {
       "value": "24",
       "type": "lineHeights"
-    },
-    "letter-spacing-tighter": {
-      "value": "-0.32",
-      "type": "letterSpacing"
-    },
-    "letter-spacing-tight": {
-      "value": "-0.22",
-      "type": "letterSpacing"
     },
     "letter-spacing-normal": {
       "value": "0",
@@ -335,7 +335,7 @@
       "type": "borderWidth"
     },
     "line-height-xl": {
-      "value": "26",
+      "value": "28",
       "type": "lineHeights"
     },
     "line-height-2xl": {
@@ -2207,6 +2207,7 @@
     {
       "id": "f4c7659549aa25d5ab75f63512e73fa7283d5f05",
       "name": "Light",
+      "group": "Color",
       "selectedTokenSets": {
         "core-colors": "source",
         "core": "source",
@@ -2478,11 +2479,12 @@
         "interactive-critical.pressed": "S:b97c028222963ec92fcf71cdff2d08f9530e5916,",
         "interactive-critical.disabled": "S:cf687712ea330c967738e691e659a0bce4eef161,"
       },
-      "group": "Color"
+      "$figmaVariableReferences": {}
     },
     {
       "id": "42468b6ed8dc2332e804197d2777f0a3046af3d3",
       "name": "Dark",
+      "group": "Color",
       "selectedTokenSets": {
         "core-colors": "source",
         "core": "source",
@@ -2640,16 +2642,17 @@
         "Decorative.6 Default": "S:e0e99ebc91e015ff50921c14eb4fdb16f691f440,",
         "Decorative.7 Default": "S:7716164482a7029c41fb7d63e819f8c855ccca66,"
       },
-      "group": "Color"
+      "$figmaVariableReferences": {}
     },
     {
       "id": "be70e5aab0d5e0114972cfd25f229215f463c526",
       "name": "values",
-      "$figmaStyleReferences": {},
+      "group": "Layout",
       "selectedTokenSets": {
         "core": "enabled"
       },
-      "group": "Layout"
+      "$figmaStyleReferences": {},
+      "$figmaVariableReferences": {}
     }
   ],
   "$metadata": {

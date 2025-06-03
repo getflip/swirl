@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Wed, 14 May 2025 09:03:37 GMT
+// Generated on Tue, 03 Jun 2025 06:36:11 GMT
 
 
 
@@ -184,6 +184,7 @@ class SwirlDesignTokensLight {
     static const fontSizeLg = 18.00; /* Usually used as level 3 headline */
     static const fontSizeSm = 14.00; /* Usually used for labels and captions */
     static const fontSizeXl = 20.00; /* Usually used as level 2 headline */
+    static const fontSizeXs = 12.00;
     static const fontWeightBold = FontWeight.w700;
     static const fontWeightMedium = FontWeight.w500;
     static const fontWeightNormal = FontWeight.w400;
@@ -215,13 +216,12 @@ class SwirlDesignTokensLight {
     static const interactivePrimaryHovered = Color(0xFF2655BB); /* Used if a component with “Interactive Primary/Default” has a hovered state. */
     static const interactivePrimaryPressed = Color(0xFF4D77C7); /* Used if a component with “Interactive Primary/Default” has a pressed state. */
     static const letterSpacingNormal = 0.00;
-    static const letterSpacingTight = -0.22;
-    static const letterSpacingTighter = -0.32;
     static const lineHeight2xl = 36.00;
     static const lineHeightBase = 22.00;
     static const lineHeightLg = 24.00;
     static const lineHeightSm = 20.00;
-    static const lineHeightXl = 26.00;
+    static const lineHeightXl = 28.00;
+    static const lineHeightXs = 16.00;
     static const onSurfaceHighlightDefault = Color(0xFFD5E2FF); /* Used to place containers on “Surface Highlight/Default”. */
     static const shadowLevel1 = [BoxShadow(color: Color(0x0A171717), offset: Offset(0, 4), blurRadius: 16), BoxShadow(color: Color(0x0A171717), offset: Offset(0, 1), blurRadius: 4)];
     static const shadowLevel2 = [BoxShadow(color: Color(0x0A171717), offset: Offset(0, 4), blurRadius: 16), BoxShadow(color: Color(0x29171717), offset: Offset(0, 1), blurRadius: 4)];
