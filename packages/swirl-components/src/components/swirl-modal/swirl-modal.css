@@ -467,7 +467,6 @@
     padding-bottom: var(--s-space-12);
     padding-left: var(--s-space-24);
     flex-direction: row-reverse;
-    gap: var(--s-space-16);
   }
 }
 
