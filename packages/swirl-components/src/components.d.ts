@@ -1797,7 +1797,8 @@ export namespace Components {
         "close": (force?: boolean) => Promise<void>;
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
-        "fullscreenButtonLabel"?: string;
+        "fullscreenDisableButtonLabel"?: string;
+        "fullscreenEnableButtonLabel"?: string;
         "hasSidebarCloseButton"?: boolean;
         "height"?: string;
         "hideCloseButton"?: boolean;
@@ -7821,7 +7822,8 @@ declare namespace LocalJSX {
         "closable"?: boolean;
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
-        "fullscreenButtonLabel"?: string;
+        "fullscreenDisableButtonLabel"?: string;
+        "fullscreenEnableButtonLabel"?: string;
         "hasSidebarCloseButton"?: boolean;
         "height"?: string;
         "hideCloseButton"?: boolean;

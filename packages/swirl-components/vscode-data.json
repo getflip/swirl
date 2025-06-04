@@ -16448,7 +16448,11 @@
           ]
         },
         {
-          "name": "fullscreen-button-label",
+          "name": "fullscreen-disable-button-label",
+          "description": ""
+        },
+        {
+          "name": "fullscreen-enable-button-label",
           "description": ""
         },
         {

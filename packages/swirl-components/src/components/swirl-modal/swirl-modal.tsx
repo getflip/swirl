@@ -47,7 +47,8 @@ export class SwirlModal {
   @Prop() allowFullscreen?: boolean;
   @Prop() closable?: boolean = true;
   @Prop() closeButtonLabel?: string = "Close modal";
-  @Prop() fullscreenButtonLabel?: string = "Fullscreen";
+  @Prop() fullscreenEnableButtonLabel?: string = "Full screen";
+  @Prop() fullscreenDisableButtonLabel?: string = "Exit full screen";
   @Prop() height?: string;
   @Prop() hideCloseButton?: boolean;
   @Prop() hideLabel?: boolean;
@@ -469,7 +470,11 @@ export class SwirlModal {
                             ? "<swirl-icon-close-fullscreen></swirl-icon-close-fullscreen>"
                             : "<swirl-icon-open-in-full></swirl-icon-open-in-full>"
                         }
-                        label={this.fullscreenButtonLabel}
+                        label={
+                          this.isFullscreen
+                            ? this.fullscreenDisableButtonLabel
+                            : this.fullscreenEnableButtonLabel
+                        }
                         onClick={this.onFullscreenButtonClick}
                       ></swirl-button>
                     )}

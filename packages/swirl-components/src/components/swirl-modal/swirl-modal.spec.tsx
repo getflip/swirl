@@ -180,7 +180,7 @@ describe("swirl-modal", () => {
     );
 
     expect(fullscreenButton).not.toBeNull();
-    expect(fullscreenButton.getAttribute("label")).toEqual("Fullscreen");
+    expect(fullscreenButton.getAttribute("label")).toEqual("Full screen");
     expect(fullscreenButton.getAttribute("icon")).toEqual(
       "<swirl-icon-open-in-full></swirl-icon-open-in-full>"
     );
@@ -204,6 +204,7 @@ describe("swirl-modal", () => {
     await page.waitForChanges();
 
     expect(page.root.querySelector(".modal--fullscreen")).not.toBeNull();
+    expect(fullscreenButton.getAttribute("label")).toEqual("Exit full screen");
     expect(fullscreenButton.getAttribute("icon")).toEqual(
       "<swirl-icon-close-fullscreen></swirl-icon-close-fullscreen>"
     );
@@ -216,6 +217,7 @@ describe("swirl-modal", () => {
     expect(spy).toHaveBeenCalledTimes(2);
     expect(spy.mock.calls[0][0].detail).toBe(true);
     expect(spy.mock.calls[1][0].detail).toBe(false);
+    expect(fullscreenButton.getAttribute("label")).toEqual("Full screen");
     expect(fullscreenButton.getAttribute("icon")).toEqual(
       "<swirl-icon-open-in-full></swirl-icon-open-in-full>"
     );
