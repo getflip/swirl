@@ -4897,7 +4897,7 @@ declare global {
         new (): HTMLSwirlMenuItemElement;
     };
     interface HTMLSwirlModalElementEventMap {
-        "fullscreenChanged": boolean;
+        "toggleFullscreen": boolean;
         "modalClose": void;
         "modalOpen": void;
         "primaryAction": MouseEvent;
@@ -7833,13 +7833,13 @@ declare namespace LocalJSX {
         "maxHeight"?: string;
         "maxWidth"?: string;
         "minHeight"?: string;
-        "onFullscreenChanged"?: (event: SwirlModalCustomEvent<boolean>) => void;
         "onModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlModalCustomEvent<void>) => void;
         "onPrimaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "onRequestModalClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onSecondaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "onSidebarClose"?: (event: SwirlModalCustomEvent<void>) => void;
+        "onToggleFullscreen"?: (event: SwirlModalCustomEvent<boolean>) => void;
         "padded"?: boolean;
         "primaryActionLabel"?: string;
         "primaryContentFlex"?: string;

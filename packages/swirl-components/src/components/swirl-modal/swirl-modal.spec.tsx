@@ -196,7 +196,7 @@ describe("swirl-modal", () => {
     );
     const spy = jest.fn();
 
-    page.root.addEventListener("fullscreenChanged", spy);
+    page.root.addEventListener("toggleFullscreen", spy);
 
     expect(page.root.querySelector(".modal--fullscreen")).toBeNull();
 

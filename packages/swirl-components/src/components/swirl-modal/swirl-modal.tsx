@@ -78,7 +78,7 @@ export class SwirlModal {
   @Prop() hasSidebarCloseButton?: boolean;
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
 
-  @Event() fullscreenChanged: EventEmitter<boolean>;
+  @Event() toggleFullscreen: EventEmitter<boolean>;
   @Event() modalClose: EventEmitter<void>;
   @Event() modalOpen: EventEmitter<void>;
   @Event() primaryAction: EventEmitter<MouseEvent>;
@@ -200,7 +200,7 @@ export class SwirlModal {
 
     this.isFullscreenTransitioning = true;
     this.isFullscreen = isFullscreen;
-    this.fullscreenChanged.emit(this.isFullscreen);
+    this.toggleFullscreen.emit(this.isFullscreen);
 
     setTimeout(() => (this.isFullscreenTransitioning = false), 150);
   }
