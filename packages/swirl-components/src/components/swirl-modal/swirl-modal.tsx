@@ -395,12 +395,14 @@ export class SwirlModal {
           <div
             class="modal__body"
             style={
-              !this.isFullscreen && {
-                "--swirl-modal-max-height": this.maxHeight,
-                "--swirl-modal-height": this.height,
-                minHeight: this.minHeight,
-                maxWidth: this.maxWidth,
-              }
+              !this.isFullscreen
+                ? {
+                    "--swirl-modal-max-height": this.maxHeight,
+                    "--swirl-modal-height": this.height,
+                    minHeight: this.minHeight,
+                    maxWidth: this.maxWidth,
+                  }
+                : {}
             }
           >
             <aside class="modal__sidebar">
