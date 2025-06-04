@@ -169,10 +169,10 @@ describe("swirl-modal", () => {
     expect(sidebarCloseSpy).toHaveBeenCalled();
   });
 
-  it("renders fullscreen button when allowFullscreen is true", async () => {
+  it("renders fullscreen button when showFullscreenButton is true", async () => {
     const page = await newSpecPage({
       components: [SwirlModal],
-      html: `<swirl-modal label="Dialog" allow-fullscreen="true">Content</swirl-modal>`,
+      html: `<swirl-modal label="Dialog" show-fullscreen-button="true">Content</swirl-modal>`,
     });
 
     const fullscreenButton = page.root.querySelector<HTMLSwirlButtonElement>(
@@ -189,7 +189,7 @@ describe("swirl-modal", () => {
   it("toggles the fullscreen state when clicking the fullscreen button", async () => {
     const page = await newSpecPage({
       components: [SwirlModal],
-      html: `<swirl-modal label="Dialog" allow-fullscreen="true">Content</swirl-modal>`,
+      html: `<swirl-modal label="Dialog" show-fullscreen-button="true">Content</swirl-modal>`,
     });
     const fullscreenButton = page.root.querySelector<HTMLSwirlButtonElement>(
       ".modal__fullscreen-button"

@@ -1789,7 +1789,6 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlModal {
-        "allowFullscreen"?: boolean;
         "closable"?: boolean;
         /**
           * Close the modal. Pass `true` to force close even if the modal is not closable.
@@ -1827,6 +1826,7 @@ export namespace Components {
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
         "setFullscreen": (isFullscreen: boolean) => Promise<void>;
+        "showFullscreenButton": boolean;
         "sidebarCloseButtonLabel"?: string;
         "sidebarFooterPadded"?: boolean;
         "sidebarLabel"?: string;
@@ -7818,7 +7818,6 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlModal {
-        "allowFullscreen"?: boolean;
         "closable"?: boolean;
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
@@ -7854,6 +7853,7 @@ declare namespace LocalJSX {
         "secondaryContentPaddingBlockStart"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
+        "showFullscreenButton"?: boolean;
         "sidebarCloseButtonLabel"?: string;
         "sidebarFooterPadded"?: boolean;
         "sidebarLabel"?: string;

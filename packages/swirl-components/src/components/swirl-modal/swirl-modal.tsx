@@ -44,7 +44,6 @@ export type SwirlModalSpacing =
 export class SwirlModal {
   @Element() el: HTMLElement;
 
-  @Prop() allowFullscreen?: boolean;
   @Prop() closable?: boolean = true;
   @Prop() closeButtonLabel?: string = "Close modal";
   @Prop() fullscreenEnableButtonLabel?: string = "Full screen";
@@ -72,6 +71,7 @@ export class SwirlModal {
   @Prop() secondaryContentPaddingBlockStart?: SwirlModalSpacing;
   @Prop() secondaryContentPaddingInlineEnd?: SwirlModalSpacing;
   @Prop() secondaryContentPaddingInlineStart?: SwirlModalSpacing;
+  @Prop() showFullscreenButton: boolean;
   @Prop() sidebarLabel?: string;
   @Prop() sidebarPadded?: boolean = true;
   @Prop() sidebarFooterPadded?: boolean = true;
@@ -463,7 +463,7 @@ export class SwirlModal {
                         onClick={this.onCloseButtonClick}
                       ></swirl-button>
                     )}
-                    {this.allowFullscreen && (
+                    {this.showFullscreenButton && (
                       <swirl-button
                         class="modal__fullscreen-button"
                         hideLabel
