@@ -1,5 +1,14 @@
 # @getflip/swirl-icons
 
+## 0.61.0
+
+### Minor Changes
+
+- [#1087](https://github.com/getflip/swirl/pull/1087)
+  [`b9a306b3`](https://github.com/getflip/swirl/commit/b9a306b397beb240fb1afe8c488005bedc0e82a3)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Add fullscreen
+  support to swirl-modal
+
 ## 0.60.0
 
 ### Minor Changes
