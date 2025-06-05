@@ -870,6 +870,10 @@ export namespace Components {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
+    interface SwirlIconCalendarRespond {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
     interface SwirlIconCalendarToday {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
@@ -883,6 +887,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconCancel {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconCancelFilled {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -903,6 +911,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckCircle {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconCheckCircleFilled {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -1127,6 +1139,10 @@ export namespace Components {
         "size": SwirlIconSize;
     }
     interface SwirlIconHelp {
+        "color"?: SwirlIconColor1;
+        "size": SwirlIconSize;
+    }
+    interface SwirlIconHelpFilled {
         "color"?: SwirlIconColor1;
         "size": SwirlIconSize;
     }
@@ -3636,6 +3652,12 @@ declare global {
         prototype: HTMLSwirlIconCalendarAddOnFilledElement;
         new (): HTMLSwirlIconCalendarAddOnFilledElement;
     };
+    interface HTMLSwirlIconCalendarRespondElement extends Components.SwirlIconCalendarRespond, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCalendarRespondElement: {
+        prototype: HTMLSwirlIconCalendarRespondElement;
+        new (): HTMLSwirlIconCalendarRespondElement;
+    };
     interface HTMLSwirlIconCalendarTodayElement extends Components.SwirlIconCalendarToday, HTMLStencilElement {
     }
     var HTMLSwirlIconCalendarTodayElement: {
@@ -3659,6 +3681,12 @@ declare global {
     var HTMLSwirlIconCancelElement: {
         prototype: HTMLSwirlIconCancelElement;
         new (): HTMLSwirlIconCancelElement;
+    };
+    interface HTMLSwirlIconCancelFilledElement extends Components.SwirlIconCancelFilled, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCancelFilledElement: {
+        prototype: HTMLSwirlIconCancelFilledElement;
+        new (): HTMLSwirlIconCancelFilledElement;
     };
     interface HTMLSwirlIconChatBubbleElement extends Components.SwirlIconChatBubble, HTMLStencilElement {
     }
@@ -3689,6 +3717,12 @@ declare global {
     var HTMLSwirlIconCheckCircleElement: {
         prototype: HTMLSwirlIconCheckCircleElement;
         new (): HTMLSwirlIconCheckCircleElement;
+    };
+    interface HTMLSwirlIconCheckCircleFilledElement extends Components.SwirlIconCheckCircleFilled, HTMLStencilElement {
+    }
+    var HTMLSwirlIconCheckCircleFilledElement: {
+        prototype: HTMLSwirlIconCheckCircleFilledElement;
+        new (): HTMLSwirlIconCheckCircleFilledElement;
     };
     interface HTMLSwirlIconCheckSmallElement extends Components.SwirlIconCheckSmall, HTMLStencilElement {
     }
@@ -4025,6 +4059,12 @@ declare global {
     var HTMLSwirlIconHelpElement: {
         prototype: HTMLSwirlIconHelpElement;
         new (): HTMLSwirlIconHelpElement;
+    };
+    interface HTMLSwirlIconHelpFilledElement extends Components.SwirlIconHelpFilled, HTMLStencilElement {
+    }
+    var HTMLSwirlIconHelpFilledElement: {
+        prototype: HTMLSwirlIconHelpFilledElement;
+        new (): HTMLSwirlIconHelpFilledElement;
     };
     interface HTMLSwirlIconHighlightElement extends Components.SwirlIconHighlight, HTMLStencilElement {
     }
@@ -5997,15 +6037,18 @@ declare global {
         "swirl-icon-bookmark": HTMLSwirlIconBookmarkElement;
         "swirl-icon-bookmark-filled": HTMLSwirlIconBookmarkFilledElement;
         "swirl-icon-calendar-add-on-filled": HTMLSwirlIconCalendarAddOnFilledElement;
+        "swirl-icon-calendar-respond": HTMLSwirlIconCalendarRespondElement;
         "swirl-icon-calendar-today": HTMLSwirlIconCalendarTodayElement;
         "swirl-icon-call": HTMLSwirlIconCallElement;
         "swirl-icon-call-end": HTMLSwirlIconCallEndElement;
         "swirl-icon-cancel": HTMLSwirlIconCancelElement;
+        "swirl-icon-cancel-filled": HTMLSwirlIconCancelFilledElement;
         "swirl-icon-chat-bubble": HTMLSwirlIconChatBubbleElement;
         "swirl-icon-chats": HTMLSwirlIconChatsElement;
         "swirl-icon-chats-filled": HTMLSwirlIconChatsFilledElement;
         "swirl-icon-check": HTMLSwirlIconCheckElement;
         "swirl-icon-check-circle": HTMLSwirlIconCheckCircleElement;
+        "swirl-icon-check-circle-filled": HTMLSwirlIconCheckCircleFilledElement;
         "swirl-icon-check-small": HTMLSwirlIconCheckSmallElement;
         "swirl-icon-check-strong": HTMLSwirlIconCheckStrongElement;
         "swirl-icon-chevron-left": HTMLSwirlIconChevronLeftElement;
@@ -6062,6 +6105,7 @@ declare global {
         "swirl-icon-hamburger-menu": HTMLSwirlIconHamburgerMenuElement;
         "swirl-icon-health-and-safety": HTMLSwirlIconHealthAndSafetyElement;
         "swirl-icon-help": HTMLSwirlIconHelpElement;
+        "swirl-icon-help-filled": HTMLSwirlIconHelpFilledElement;
         "swirl-icon-highlight": HTMLSwirlIconHighlightElement;
         "swirl-icon-history": HTMLSwirlIconHistoryElement;
         "swirl-icon-home": HTMLSwirlIconHomeElement;
@@ -6962,6 +7006,10 @@ declare namespace LocalJSX {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
+    interface SwirlIconCalendarRespond {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
     interface SwirlIconCalendarToday {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
@@ -6975,6 +7023,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCancel {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconCancelFilled {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -6995,6 +7047,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheckCircle {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconCheckCircleFilled {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -7219,6 +7275,10 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHelp {
+        "color"?: SwirlIconColor1;
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconHelpFilled {
         "color"?: SwirlIconColor1;
         "size"?: SwirlIconSize;
     }
@@ -8694,15 +8754,18 @@ declare namespace LocalJSX {
         "swirl-icon-bookmark": SwirlIconBookmark;
         "swirl-icon-bookmark-filled": SwirlIconBookmarkFilled;
         "swirl-icon-calendar-add-on-filled": SwirlIconCalendarAddOnFilled;
+        "swirl-icon-calendar-respond": SwirlIconCalendarRespond;
         "swirl-icon-calendar-today": SwirlIconCalendarToday;
         "swirl-icon-call": SwirlIconCall;
         "swirl-icon-call-end": SwirlIconCallEnd;
         "swirl-icon-cancel": SwirlIconCancel;
+        "swirl-icon-cancel-filled": SwirlIconCancelFilled;
         "swirl-icon-chat-bubble": SwirlIconChatBubble;
         "swirl-icon-chats": SwirlIconChats;
         "swirl-icon-chats-filled": SwirlIconChatsFilled;
         "swirl-icon-check": SwirlIconCheck;
         "swirl-icon-check-circle": SwirlIconCheckCircle;
+        "swirl-icon-check-circle-filled": SwirlIconCheckCircleFilled;
         "swirl-icon-check-small": SwirlIconCheckSmall;
         "swirl-icon-check-strong": SwirlIconCheckStrong;
         "swirl-icon-chevron-left": SwirlIconChevronLeft;
@@ -8759,6 +8822,7 @@ declare namespace LocalJSX {
         "swirl-icon-hamburger-menu": SwirlIconHamburgerMenu;
         "swirl-icon-health-and-safety": SwirlIconHealthAndSafety;
         "swirl-icon-help": SwirlIconHelp;
+        "swirl-icon-help-filled": SwirlIconHelpFilled;
         "swirl-icon-highlight": SwirlIconHighlight;
         "swirl-icon-history": SwirlIconHistory;
         "swirl-icon-home": SwirlIconHome;
@@ -9099,15 +9163,18 @@ declare module "@stencil/core" {
             "swirl-icon-bookmark": LocalJSX.SwirlIconBookmark & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkElement>;
             "swirl-icon-bookmark-filled": LocalJSX.SwirlIconBookmarkFilled & JSXBase.HTMLAttributes<HTMLSwirlIconBookmarkFilledElement>;
             "swirl-icon-calendar-add-on-filled": LocalJSX.SwirlIconCalendarAddOnFilled & JSXBase.HTMLAttributes<HTMLSwirlIconCalendarAddOnFilledElement>;
+            "swirl-icon-calendar-respond": LocalJSX.SwirlIconCalendarRespond & JSXBase.HTMLAttributes<HTMLSwirlIconCalendarRespondElement>;
             "swirl-icon-calendar-today": LocalJSX.SwirlIconCalendarToday & JSXBase.HTMLAttributes<HTMLSwirlIconCalendarTodayElement>;
             "swirl-icon-call": LocalJSX.SwirlIconCall & JSXBase.HTMLAttributes<HTMLSwirlIconCallElement>;
             "swirl-icon-call-end": LocalJSX.SwirlIconCallEnd & JSXBase.HTMLAttributes<HTMLSwirlIconCallEndElement>;
             "swirl-icon-cancel": LocalJSX.SwirlIconCancel & JSXBase.HTMLAttributes<HTMLSwirlIconCancelElement>;
+            "swirl-icon-cancel-filled": LocalJSX.SwirlIconCancelFilled & JSXBase.HTMLAttributes<HTMLSwirlIconCancelFilledElement>;
             "swirl-icon-chat-bubble": LocalJSX.SwirlIconChatBubble & JSXBase.HTMLAttributes<HTMLSwirlIconChatBubbleElement>;
             "swirl-icon-chats": LocalJSX.SwirlIconChats & JSXBase.HTMLAttributes<HTMLSwirlIconChatsElement>;
             "swirl-icon-chats-filled": LocalJSX.SwirlIconChatsFilled & JSXBase.HTMLAttributes<HTMLSwirlIconChatsFilledElement>;
             "swirl-icon-check": LocalJSX.SwirlIconCheck & JSXBase.HTMLAttributes<HTMLSwirlIconCheckElement>;
             "swirl-icon-check-circle": LocalJSX.SwirlIconCheckCircle & JSXBase.HTMLAttributes<HTMLSwirlIconCheckCircleElement>;
+            "swirl-icon-check-circle-filled": LocalJSX.SwirlIconCheckCircleFilled & JSXBase.HTMLAttributes<HTMLSwirlIconCheckCircleFilledElement>;
             "swirl-icon-check-small": LocalJSX.SwirlIconCheckSmall & JSXBase.HTMLAttributes<HTMLSwirlIconCheckSmallElement>;
             "swirl-icon-check-strong": LocalJSX.SwirlIconCheckStrong & JSXBase.HTMLAttributes<HTMLSwirlIconCheckStrongElement>;
             "swirl-icon-chevron-left": LocalJSX.SwirlIconChevronLeft & JSXBase.HTMLAttributes<HTMLSwirlIconChevronLeftElement>;
@@ -9164,6 +9231,7 @@ declare module "@stencil/core" {
             "swirl-icon-hamburger-menu": LocalJSX.SwirlIconHamburgerMenu & JSXBase.HTMLAttributes<HTMLSwirlIconHamburgerMenuElement>;
             "swirl-icon-health-and-safety": LocalJSX.SwirlIconHealthAndSafety & JSXBase.HTMLAttributes<HTMLSwirlIconHealthAndSafetyElement>;
             "swirl-icon-help": LocalJSX.SwirlIconHelp & JSXBase.HTMLAttributes<HTMLSwirlIconHelpElement>;
+            "swirl-icon-help-filled": LocalJSX.SwirlIconHelpFilled & JSXBase.HTMLAttributes<HTMLSwirlIconHelpFilledElement>;
             "swirl-icon-highlight": LocalJSX.SwirlIconHighlight & JSXBase.HTMLAttributes<HTMLSwirlIconHighlightElement>;
             "swirl-icon-history": LocalJSX.SwirlIconHistory & JSXBase.HTMLAttributes<HTMLSwirlIconHistoryElement>;
             "swirl-icon-home": LocalJSX.SwirlIconHome & JSXBase.HTMLAttributes<HTMLSwirlIconHomeElement>;
