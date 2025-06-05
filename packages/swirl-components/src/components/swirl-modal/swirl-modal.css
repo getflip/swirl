@@ -128,6 +128,10 @@
       margin-left: calc(-1 * var(--s-space-8));
     }
 
+    & .modal__fullscreen-button {
+      display: none;
+    }
+
     @media (--from-tablet) {
       flex-direction: row;
     }
@@ -209,7 +213,7 @@
 }
 
 .modal--has-secondary-content {
-  & .modal__body {
+  &:not(.modal--fullscreen) .modal__body {
     max-width: calc(
       var(--swirl-modal-max-width) +
         var(--swirl-modal-max-secondary-content-width)
@@ -274,7 +278,7 @@
 }
 
 .modal--has-sidebar-content {
-  & .modal__body {
+  &:not(.modal--fullscreen) .modal__body {
     max-width: calc(
       var(--swirl-modal-max-width) + var(--swirl-modal-sidebar-width)
     );
@@ -406,19 +410,34 @@
   flex-direction: row;
   overflow: hidden;
   width: 100vw;
+  max-width: 100vw;
   height: var(--swirl-modal-view-height);
+  max-height: var(--swirl-modal-view-height);
   background-color: var(--s-surface-overlay-default);
+}
 
-  @media (--from-tablet) {
-    width: 90vw;
-    max-width: var(--swirl-modal-max-width);
-    max-height: var(--swirl-modal-max-height);
-    border-radius: var(--s-border-radius-base);
-    box-shadow: var(--s-shadow-level-3);
-  }
+.modal--fullscreen .modal__body {
+  min-height: var(--swirl-modal-view-height);
+}
 
-  @media (--from-desktop) {
-    height: var(--swirl-modal-height);
+.modal--fullscreen-transitioning .modal__body {
+  transition: width 0.15s ease-out, max-width 0.15s ease-out, max-height 0.15s ease-out, min-height 0.15s ease-out;
+}
+
+.modal:not(.modal--fullscreen) {
+  & .modal__body {
+    @media (--from-tablet) {
+      width: 90vw;
+      max-width: var(--swirl-modal-max-width);
+      max-height: var(--swirl-modal-max-height);
+      min-height: 0;
+      border-radius: var(--s-border-radius-base);
+      box-shadow: var(--s-shadow-level-3);
+    }
+
+    @media (--from-desktop) {
+      height: var(--swirl-modal-height);
+    }
   }
 }
 
@@ -448,7 +467,14 @@
     padding-bottom: var(--s-space-12);
     padding-left: var(--s-space-24);
     flex-direction: row-reverse;
-    gap: var(--s-space-16);
+  }
+}
+
+.modal__fullscreen-button {
+  display: none;
+
+  @media (--from-tablet) {
+    display: block;
   }
 }
 
@@ -559,7 +585,7 @@
 }
 
 .modal--has-secondary-content.modal--has-sidebar-content {
-  & .modal__body {
+  &:not(.modal--fullscreen) .modal__body {
     max-width: calc(
       var(--swirl-modal-max-width) + var(--swirl-modal-sidebar-width) +
         var(--swirl-modal-max-secondary-content-width)

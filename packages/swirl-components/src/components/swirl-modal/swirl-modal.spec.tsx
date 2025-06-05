@@ -88,7 +88,7 @@ describe("swirl-modal", () => {
       components: [SwirlModal],
       html: `
         <swirl-modal label="Dialog" sidebar-label="Sidebar label" has-sidebar-close-button="true">
-          Main Content 
+          Main Content
 
           <swirl-box slot="sidebar-content">
             <swirl-text>
@@ -167,5 +167,59 @@ describe("swirl-modal", () => {
     closeButton.click();
 
     expect(sidebarCloseSpy).toHaveBeenCalled();
+  });
+
+  it("renders fullscreen button when showFullscreenButton is true", async () => {
+    const page = await newSpecPage({
+      components: [SwirlModal],
+      html: `<swirl-modal label="Dialog" show-fullscreen-button="true">Content</swirl-modal>`,
+    });
+
+    const fullscreenButton = page.root.querySelector<HTMLSwirlButtonElement>(
+      ".modal__fullscreen-button"
+    );
+
+    expect(fullscreenButton).not.toBeNull();
+    expect(fullscreenButton.getAttribute("label")).toEqual("Full screen");
+    expect(fullscreenButton.getAttribute("icon")).toEqual(
+      "<swirl-icon-open-in-full></swirl-icon-open-in-full>"
+    );
+  });
+
+  it("toggles the fullscreen state when clicking the fullscreen button", async () => {
+    const page = await newSpecPage({
+      components: [SwirlModal],
+      html: `<swirl-modal label="Dialog" show-fullscreen-button="true">Content</swirl-modal>`,
+    });
+    const fullscreenButton = page.root.querySelector<HTMLSwirlButtonElement>(
+      ".modal__fullscreen-button"
+    );
+    const spy = jest.fn();
+
+    page.root.addEventListener("toggleFullscreen", spy);
+
+    expect(page.root.querySelector(".modal--fullscreen")).toBeNull();
+
+    fullscreenButton.click();
+    await page.waitForChanges();
+
+    expect(page.root.querySelector(".modal--fullscreen")).not.toBeNull();
+    expect(fullscreenButton.getAttribute("label")).toEqual("Exit full screen");
+    expect(fullscreenButton.getAttribute("icon")).toEqual(
+      "<swirl-icon-close-fullscreen></swirl-icon-close-fullscreen>"
+    );
+
+    fullscreenButton.click();
+    await page.waitForChanges();
+
+    expect(page.root.querySelector(".modal--fullscreen")).toBeNull();
+
+    expect(spy).toHaveBeenCalledTimes(2);
+    expect(spy.mock.calls[0][0].detail).toBe(true);
+    expect(spy.mock.calls[1][0].detail).toBe(false);
+    expect(fullscreenButton.getAttribute("label")).toEqual("Full screen");
+    expect(fullscreenButton.getAttribute("icon")).toEqual(
+      "<swirl-icon-open-in-full></swirl-icon-open-in-full>"
+    );
   });
 });

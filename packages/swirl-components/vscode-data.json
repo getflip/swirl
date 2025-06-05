@@ -5552,6 +5552,64 @@
       ]
     },
     {
+      "name": "swirl-icon-close-fullscreen",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "color",
+          "description": "",
+          "values": [
+            {
+              "name": "critical"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "highlight"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "on-action-primary"
+            },
+            {
+              "name": "on-image"
+            },
+            {
+              "name": "on-status"
+            },
+            {
+              "name": "on-surface-highlight"
+            },
+            {
+              "name": "on-surface-highlight-subdued"
+            },
+            {
+              "name": "strong"
+            },
+            {
+              "name": "success"
+            },
+            {
+              "name": "warning"
+            }
+          ]
+        },
+        {
+          "name": "size",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "swirl-icon-close-small",
       "description": {
         "kind": "markdown",
@@ -16386,6 +16444,14 @@
           ]
         },
         {
+          "name": "fullscreen-disable-button-label",
+          "description": ""
+        },
+        {
+          "name": "fullscreen-enable-button-label",
+          "description": ""
+        },
+        {
           "name": "has-sidebar-close-button",
           "description": ""
         },
@@ -16621,6 +16687,10 @@
               "name": "8"
             }
           ]
+        },
+        {
+          "name": "show-fullscreen-button",
+          "description": ""
         },
         {
           "name": "sidebar-close-button-label",
