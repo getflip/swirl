@@ -1,5 +1,19 @@
 # @getflip/swirl-components
 
+## 0.337.0
+
+### Minor Changes
+
+- [#1088](https://github.com/getflip/swirl/pull/1088)
+  [`24389875`](https://github.com/getflip/swirl/commit/2438987570fc779df33c3d12cf39f442345b5eb9)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add RSVP icons
+
+### Patch Changes
+
+- Updated dependencies
+  [[`24389875`](https://github.com/getflip/swirl/commit/2438987570fc779df33c3d12cf39f442345b5eb9)]:
+  - @getflip/swirl-icons@0.62.0
+
 ## 0.336.0
 
 ### Minor Changes
