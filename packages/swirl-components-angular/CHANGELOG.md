@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.338.0
+
+### Minor Changes
+
+- [#1090](https://github.com/getflip/swirl/pull/1090)
+  [`b85ad64a`](https://github.com/getflip/swirl/commit/b85ad64a2f80b78cddeca065712341aef9ffc6a1)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Fix
+  swirl-table-row-group collapse
+
+### Patch Changes
+
+- Updated dependencies
+  [[`b85ad64a`](https://github.com/getflip/swirl/commit/b85ad64a2f80b78cddeca065712341aef9ffc6a1)]:
+  - @getflip/swirl-components@0.338.0
+
 ## 0.337.0
 
 ### Minor Changes
