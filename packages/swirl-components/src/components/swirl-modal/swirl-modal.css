@@ -424,7 +424,7 @@
   transition: width 0.15s ease-out, max-width 0.15s ease-out, max-height 0.15s ease-out, min-height 0.15s ease-out;
 }
 
-.modal:not(.modal--fullscreen) {
+.modal.modal--variant-default:not(.modal--fullscreen) {
   & .modal__body {
     @media (--from-tablet) {
       width: 90vw;
