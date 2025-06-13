@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.338.1
+
+### Patch Changes
+
+- [#1092](https://github.com/getflip/swirl/pull/1092)
+  [`ac161a84`](https://github.com/getflip/swirl/commit/ac161a845bb0fad0d73d70e2bf2458c38987f96b)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Fix swirl-modal
+  styles in drawer variant
+
 ## 0.338.0
 
 ### Minor Changes
