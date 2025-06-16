@@ -1134,7 +1134,7 @@ export namespace Components {
          */
         "viewMode"?: SwirlFileViewerPdfViewMode1;
         /**
-          * @default "/pdfjs/pdf.worker.min.js"
+          * @default "/pdfjs/pdf.worker.min.mjs"
          */
         "workerSrc"?: string;
         /**
@@ -9161,7 +9161,7 @@ declare namespace LocalJSX {
          */
         "viewMode"?: SwirlFileViewerPdfViewMode1;
         /**
-          * @default "/pdfjs/pdf.worker.min.js"
+          * @default "/pdfjs/pdf.worker.min.mjs"
          */
         "workerSrc"?: string;
         /**
