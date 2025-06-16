@@ -32,6 +32,7 @@ describe("swirl-form-control", () => {
               </span>
             </label>
           </span>
+          <span aria-live="polite"></span>
         </div>
       </swirl-form-control>
     `);
