@@ -110,7 +110,7 @@ describe("swirl-file-viewer", () => {
   });
 
   it("renders plain text", async () => {
-    mockFetch.text("TEXT");
+    mockFetch.text("TEXT", 'https://www.w3.org/TR/2003/REC-PNG-20031110/iso_8859-1.txt');
 
     const page = await newSpecPage({
       components: [SwirlFileViewer, SwirlFileViewerText],
@@ -139,7 +139,7 @@ describe("swirl-file-viewer", () => {
   });
 
   it("renders csv", async () => {
-    mockFetch.text("Col1,Col2,Col3\nCell1,Cell2,Cell3");
+    mockFetch.text("Col1,Col2,Col3\nCell1,Cell2,Cell3",'/sample.csv');
 
     const page = await newSpecPage({
       components: [SwirlFileViewer, SwirlFileViewerCsv],
@@ -274,7 +274,7 @@ describe("swirl-file-viewer", () => {
       ]),
     });
 
-    mockFetch.response(Object.assign(res, { blob: () => "Blob" }));
+    mockFetch.response(Object.assign(res, { blob: () => "Blob" }),'/sample.pdf');
 
     const page = await newSpecPage({
       components: [SwirlFileViewer],
