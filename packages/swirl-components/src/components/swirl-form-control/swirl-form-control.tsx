@@ -58,7 +58,7 @@ export class SwirlFormControl {
   private inputEl: HTMLElement;
 
   componentWillLoad() {
-    this.inputEl = this.el.children[0] as HTMLElement;
+    this.inputEl = this.el.firstElementChild as HTMLElement;
 
     this.associateDescriptionWithInputElement();
     this.associateLabelWithInputElement();
