@@ -45,7 +45,7 @@
     "@floating-ui/dom": "1.0.1",
     "@getflip/swirl-icons": "^0.62.0",
     "@getflip/swirl-tokens": "^2.8.0",
-    "@stencil/core": "^4.18.1",
+    "@stencil/core": "^4.35.0",
     "a11y-dialog": "^7.5.2",
     "balance-text": "^3.3.1",
     "body-scroll-lock": "^4.0.0-beta.0",
