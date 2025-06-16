@@ -1110,7 +1110,7 @@ export namespace Components {
         /**
           * Get thumbnails of all pages.
          */
-        "getThumbnails": () => Promise<any>;
+        "getThumbnails": () => Promise<HTMLCanvasElement[]>;
         /**
           * Navigate to next page, if single page mode is enabled.
          */
@@ -1133,7 +1133,7 @@ export namespace Components {
          */
         "viewMode"?: SwirlFileViewerPdfViewMode1;
         /**
-          * @default "/pdfjs/pdf.worker.min.js"
+          * @default "/pdfjs/pdf.worker.min.mjs"
          */
         "workerSrc"?: string;
         /**
@@ -9159,7 +9159,7 @@ declare namespace LocalJSX {
          */
         "viewMode"?: SwirlFileViewerPdfViewMode1;
         /**
-          * @default "/pdfjs/pdf.worker.min.js"
+          * @default "/pdfjs/pdf.worker.min.mjs"
          */
         "workerSrc"?: string;
         /**

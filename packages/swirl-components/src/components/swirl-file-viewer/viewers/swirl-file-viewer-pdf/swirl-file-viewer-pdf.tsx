@@ -12,12 +12,13 @@ import {
   Watch,
 } from "@stencil/core";
 import classnames from "classnames";
-import pdf, {
+import * as pdf from "pdfjs-dist/legacy/build/pdf.mjs";
+import {
   getDocument,
   PDFDocumentProxy,
   PDFPageProxy,
-  renderTextLayer,
-} from "pdfjs-dist/legacy/build/pdf.js";
+  TextLayer,
+} from "pdfjs-dist/legacy/build/pdf.mjs";
 import {
   debounce,
   getVisibleHeight,
@@ -48,7 +49,7 @@ export class SwirlFileViewerPdf {
   @Prop() file!: string;
   @Prop() singlePageMode: boolean;
   @Prop() viewMode?: SwirlFileViewerPdfViewMode = "single";
-  @Prop() workerSrc?: string = "/pdfjs/pdf.worker.min.js";
+  @Prop() workerSrc?: string = "/pdfjs/pdf.worker.min.mjs";
   @Prop() zoom?: SwirlFileViewerPdfZoom = 1;
 
   @State() currentPage: number = null;
@@ -375,13 +376,13 @@ export class SwirlFileViewerPdf {
   }
 
   private async renderTextLayer(page: PDFPageProxy, container: HTMLElement) {
-    renderTextLayer({
+    return new TextLayer({
       container,
-      textContent: await page.getTextContent(),
+      textContentSource: await page.getTextContent(),
       viewport: page.getViewport({
         scale: this.getScale(page),
       }),
-    });
+    }).render();
   }
 
   private async openPrintDialog() {
