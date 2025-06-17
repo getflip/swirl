@@ -1,5 +1,18 @@
 # @getflip/swirl-components-angular
 
+## 0.338.2
+
+### Patch Changes
+
+- [#1094](https://github.com/getflip/swirl/pull/1094)
+  [`12ca690d`](https://github.com/getflip/swirl/commit/12ca690db4e2edf06129ac7d6ff881648adfce14)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Fix
+  swirl-form-control error aria-live positioning
+
+- Updated dependencies
+  [[`12ca690d`](https://github.com/getflip/swirl/commit/12ca690db4e2edf06129ac7d6ff881648adfce14)]:
+  - @getflip/swirl-components@0.338.2
+
 ## 0.338.1
 
 ### Patch Changes
