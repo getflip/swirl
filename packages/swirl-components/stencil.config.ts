@@ -61,8 +61,8 @@ export const config: Config = {
     {
       copy: [
         {
-          src: "../../../node_modules/pdfjs-dist/legacy/build/pdf.worker.min.js",
-          dest: "src/assets/pdfjs/pdf.worker.min.js",
+          src: "../../../node_modules/pdfjs-dist/legacy/build/pdf.worker.min.mjs",
+          dest: "src/assets/pdfjs/pdf.worker.min.mjs",
           warn: true,
         },
         {

@@ -75,7 +75,7 @@ export class SwirlModal {
   @Prop() sidebarLabel?: string;
   @Prop() sidebarPadded?: boolean = true;
   @Prop() sidebarFooterPadded?: boolean = true;
-  @Prop() hideSidebarContent?: boolean;
+  @Prop({ mutable: true }) hideSidebarContent?: boolean;
   @Prop() hasSidebarCloseButton?: boolean;
   @Prop() sidebarCloseButtonLabel?: string = "Close sidebar";
 

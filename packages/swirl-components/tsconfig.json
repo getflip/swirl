@@ -5,6 +5,7 @@
     "declaration": false,
     "experimentalDecorators": true,
     "lib": ["dom", "es2021"],
+    "skipLibCheck": true,
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es2021",
