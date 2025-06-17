@@ -152,6 +152,8 @@ export class SwirlDateInput {
 
     this.inputEl.value = format(newDateValue, this.pattern);
 
+    this.mask.updateValue();
+
     this.setReadOnly(true);
     this.pickerPopover.close();
   };
@@ -176,6 +178,8 @@ export class SwirlDateInput {
   }
 
   private setupMask() {
+    this.mask?.destroy();
+
     // Due to automatic padding with 0s, we need to replace single characters with full length blocks.
     this.pattern = this.format
       .replace(/(?<!d)d(?!d)/g, "dd")
@@ -189,45 +193,38 @@ export class SwirlDateInput {
 
     this.mask = IMask(this.inputEl, {
       mask: Date,
-
       pattern: this.pattern,
+      autofix: "pad",
+      lazy: true,
+      overwrite: true,
+      eager: "append",
 
       blocks: {
         dd: {
           mask: IMask.MaskedRange,
-          placeholderChar: "d",
           from: 1,
           to: 31,
           maxLength: 2,
         },
         MM: {
           mask: IMask.MaskedRange,
-          placeholderChar: "m",
           from: 1,
           to: 12,
           maxLength: 2,
         },
         yy: {
           mask: IMask.MaskedRange,
-          placeholderChar: "y",
           from: 0,
           to: 99,
           maxLength: 2,
         },
         yyyy: {
           mask: IMask.MaskedRange,
-          placeholderChar: "y",
           from: 1000,
           to: 9999,
           maxLength: 4,
         },
       },
-
-      autofix: "pad",
-
-      lazy: false,
-
-      overwrite: true,
 
       // define date -> str conversion
       format: (date) => {
@@ -235,10 +232,10 @@ export class SwirlDateInput {
 
         if (!isValid(date)) {
           this.invalidInput.emit(date);
-        } else {
-          this.value = format(date, internalDateFormat);
+          return "";
         }
 
+        this.value = format(date, internalDateFormat);
         return newDate;
       },
 
