@@ -20,7 +20,6 @@ export class SwirlFileViewerVideo {
   @Prop() autoplay?: boolean;
   @Prop() disableDownload?: boolean;
   @Prop() file!: string;
-  @Prop() type!: string;
 
   @Event() activate: EventEmitter<HTMLElement>;
 
@@ -49,11 +48,10 @@ export class SwirlFileViewerVideo {
         <video
           autoplay={this.autoplay}
           class="file-viewer-video__video"
+          src={this.file}
           controls
           ref={(el) => (this.videoEl = el)}
-        >
-          <source src={this.file} type={this.type}></source>
-        </video>
+        ></video>
       </Host>
     );
   }

@@ -672,7 +672,6 @@ export namespace Components {
     interface SwirlFileViewerAudio {
         "autoplay"?: boolean;
         "file": string;
-        "type": string;
     }
     interface SwirlFileViewerCsv {
         "errorMessage"?: string;
@@ -736,7 +735,6 @@ export namespace Components {
         "autoplay"?: boolean;
         "disableDownload"?: boolean;
         "file": string;
-        "type": string;
     }
     interface SwirlFormControl {
         "description"?: string;
@@ -6830,7 +6828,6 @@ declare namespace LocalJSX {
         "autoplay"?: boolean;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerAudioCustomEvent<HTMLElement>) => void;
-        "type": string;
     }
     interface SwirlFileViewerCsv {
         "errorMessage"?: string;
@@ -6872,7 +6869,6 @@ declare namespace LocalJSX {
         "disableDownload"?: boolean;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerVideoCustomEvent<HTMLElement>) => void;
-        "type": string;
     }
     interface SwirlFormControl {
         "description"?: string;

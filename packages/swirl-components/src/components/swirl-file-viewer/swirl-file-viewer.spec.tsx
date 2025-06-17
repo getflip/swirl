@@ -71,9 +71,7 @@ describe("swirl-file-viewer", () => {
             <div class="file-viewer__file">
               <swirl-file-viewer-video class="file-viewer-video">
                 <mock:shadow-root>
-                  <video class="file-viewer-video__video" controls="">
-                    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
-                  </video>
+                   <video class="file-viewer-video__video" controls="" src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></video>
                 </mock:shadow-root>
               </swirl-file-viewer-video>
             </div>
@@ -101,9 +99,7 @@ describe("swirl-file-viewer", () => {
             <div class="file-viewer__file">
               <swirl-file-viewer-audio class="file-viewer-audio">
                 <mock:shadow-root>
-                  <audio class="file-viewer-audio__audio" controls="">
-                    <source src="https://raw.githubusercontent.com/exaile/exaile-test-files/master/art.mp3" type="audio/mp3">
-                  </audio>
+                   <audio class="file-viewer-audio__audio" controls="" src="https://raw.githubusercontent.com/exaile/exaile-test-files/master/art.mp3"></audio>
                 </mock:shadow-root>
               </swirl-file-viewer-audio>
             </div>
