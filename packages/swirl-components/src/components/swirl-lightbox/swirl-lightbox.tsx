@@ -38,6 +38,7 @@ export class SwirlLightbox {
   @Prop() previousSlideButtonLabel?: string = "Previous slide";
 
   @Event() activeSlideChange: EventEmitter<number>;
+  @Event() lightboxClose: EventEmitter<void>;
 
   @State() activeSlideIndex: number = 0;
   @State() closing = false;
@@ -173,6 +174,7 @@ export class SwirlLightbox {
       this.resetImageZoom();
       this.stopAllMediaPlayers();
       this.closing = false;
+      this.lightboxClose.emit();
     }, 150);
   }
 

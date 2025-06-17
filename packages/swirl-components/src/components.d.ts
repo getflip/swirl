@@ -4884,6 +4884,7 @@ declare global {
     };
     interface HTMLSwirlLightboxElementEventMap {
         "activeSlideChange": number;
+        "lightboxClose": void;
     }
     interface HTMLSwirlLightboxElement extends Components.SwirlLightbox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlLightboxElementEventMap>(type: K, listener: (this: HTMLSwirlLightboxElement, ev: SwirlLightboxCustomEvent<HTMLSwirlLightboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -7840,6 +7841,7 @@ declare namespace LocalJSX {
         "menuTriggerLabel"?: string;
         "nextSlideButtonLabel"?: string;
         "onActiveSlideChange"?: (event: SwirlLightboxCustomEvent<number>) => void;
+        "onLightboxClose"?: (event: SwirlLightboxCustomEvent<void>) => void;
         "previousSlideButtonLabel"?: string;
     }
     interface SwirlLink {

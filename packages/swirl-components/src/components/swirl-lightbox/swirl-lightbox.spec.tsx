@@ -358,4 +358,26 @@ describe("swirl-lightbox", () => {
       expect.objectContaining({ detail: 0 })
     );
   });
+
+  it("fires close events", async () => {
+    const page = await newSpecPage({
+      components: [SwirlLightbox],
+      html: `
+        <swirl-lightbox label="Lightbox">
+          <swirl-file-viewer description="Cute dog in a blaket." file="/sample.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer description="Another dog in a blaket." file="/sample-2.jpg" type="image/jpeg"></swirl-file-viewer>
+          <swirl-file-viewer file="/sample.mp4" type="video/mp4"></swirl-file-viewer>
+        </swirl-lightbox>
+      `,
+    });
+
+    const spy = jest.fn();
+
+    page.root.addEventListener("lightboxClose", spy);
+
+    await page.root.close();
+    await new Promise((resolve) => setTimeout(resolve, 150));
+
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
 });
