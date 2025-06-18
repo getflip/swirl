@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.339.0
+
+### Minor Changes
+
+- [#1096](https://github.com/getflip/swirl/pull/1096)
+  [`366cffd4`](https://github.com/getflip/swirl/commit/366cffd40d2f5c0b9567eb6e0dc6e1d6d2bacf1a)
+  Thanks [@joseabernardes](https://github.com/joseabernardes)! - Ensure audio
+  and video sources are reloaded when file change in swirl-file-viewer
+
 ## 0.338.2
 
 ### Patch Changes
