@@ -18,7 +18,6 @@ export class SwirlFileViewerAudio {
 
   @Prop() autoplay?: boolean;
   @Prop() file!: string;
-  @Prop() type!: string;
 
   @Event() activate: EventEmitter<HTMLElement>;
 
@@ -32,10 +31,9 @@ export class SwirlFileViewerAudio {
         <audio
           autoplay={this.autoplay}
           class="file-viewer-audio__audio"
+          src={this.file}
           controls
-        >
-          <source src={this.file} type={this.type}></source>
-        </audio>
+        ></audio>
       </Host>
     );
   }

@@ -2887,10 +2887,6 @@
         {
           "name": "file",
           "description": ""
-        },
-        {
-          "name": "type",
-          "description": ""
         }
       ]
     },
@@ -3041,10 +3037,6 @@
         },
         {
           "name": "file",
-          "description": ""
-        },
-        {
-          "name": "type",
           "description": ""
         }
       ]

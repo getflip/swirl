@@ -672,7 +672,6 @@ export namespace Components {
     interface SwirlFileViewerAudio {
         "autoplay"?: boolean;
         "file": string;
-        "type": string;
     }
     interface SwirlFileViewerCsv {
         "errorMessage"?: string;
@@ -736,7 +735,6 @@ export namespace Components {
         "autoplay"?: boolean;
         "disableDownload"?: boolean;
         "file": string;
-        "type": string;
     }
     interface SwirlFormControl {
         "description"?: string;
@@ -4886,6 +4884,7 @@ declare global {
     };
     interface HTMLSwirlLightboxElementEventMap {
         "activeSlideChange": number;
+        "lightboxClose": void;
     }
     interface HTMLSwirlLightboxElement extends Components.SwirlLightbox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlLightboxElementEventMap>(type: K, listener: (this: HTMLSwirlLightboxElement, ev: SwirlLightboxCustomEvent<HTMLSwirlLightboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -6830,7 +6829,6 @@ declare namespace LocalJSX {
         "autoplay"?: boolean;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerAudioCustomEvent<HTMLElement>) => void;
-        "type": string;
     }
     interface SwirlFileViewerCsv {
         "errorMessage"?: string;
@@ -6872,7 +6870,6 @@ declare namespace LocalJSX {
         "disableDownload"?: boolean;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerVideoCustomEvent<HTMLElement>) => void;
-        "type": string;
     }
     interface SwirlFormControl {
         "description"?: string;
@@ -7844,6 +7841,7 @@ declare namespace LocalJSX {
         "menuTriggerLabel"?: string;
         "nextSlideButtonLabel"?: string;
         "onActiveSlideChange"?: (event: SwirlLightboxCustomEvent<number>) => void;
+        "onLightboxClose"?: (event: SwirlLightboxCustomEvent<void>) => void;
         "previousSlideButtonLabel"?: string;
     }
     interface SwirlLink {
