@@ -114,12 +114,16 @@ export class SwirlTimeInput {
   private handleAutoSelect(event: FocusEvent) {
     if (!this.autoSelect) {
       setTimeout(() => {
-        (event.target as HTMLInputElement).setSelectionRange(0, 0);
+        if (event.target && event.target instanceof HTMLInputElement) {
+          event.target.setSelectionRange(0, 0);
+        }
       }, 1);
       return;
     }
 
-    (event.target as HTMLInputElement).select();
+    if (event.target && event.target instanceof HTMLInputElement) {
+      event.target.select();
+    }
   }
 
   private setupMask() {
@@ -178,6 +182,15 @@ export class SwirlTimeInput {
         return parse(str, pattern, new Date());
       },
     });
+
+    // Set the initial value if it exists
+    if (this.value) {
+      const dateValue = parse(this.value, internalTimeFormat, new Date());
+      const formattedValue = format(dateValue, pattern);
+      if (isValid(dateValue)) {
+        this.mask.value = formattedValue;
+      }
+    }
   }
 
   render() {
