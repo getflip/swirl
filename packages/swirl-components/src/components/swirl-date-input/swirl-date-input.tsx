@@ -193,7 +193,7 @@ export class SwirlDateInput {
 
     this.mask = IMask(this.inputEl, {
       mask: Date,
-      pattern: this.pattern,
+      pattern: this.pattern.replace(/([^A-Za-z0-9])/g, "$1`"), // Add backticks to separators to prevent symbols from shifting back
       autofix: "pad",
       lazy: true,
       overwrite: true,
