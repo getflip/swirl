@@ -11,8 +11,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { format, isValid, parse } from "date-fns";
-import { create as createMask } from "maska/dist/es6/maska";
-import Maska from "maska/types/maska";
+import IMask, { InputMask } from "imask";
 import { WCDatepickerLabels } from "wc-datepicker/dist/types/components/wc-datepicker/wc-datepicker";
 import { DesktopMediaQuery } from "../../services/media-query.service";
 import { isMobileViewport } from "../../utils";
@@ -60,7 +59,8 @@ export class SwirlDateInput {
 
   private id: string;
   private inputEl: HTMLInputElement;
-  private mask: Maska;
+  private mask: InputMask<any>;
+  private pattern: string;
   private pickerPopover: HTMLSwirlPopoverElement;
   private mediaQueryUnsubscribe: () => void = () => {};
 
@@ -113,40 +113,6 @@ export class SwirlDateInput {
     this.iconSize = smallIcon ? 20 : 24;
   }
 
-  private onChange = (event: Event) => {
-    const value = (event.target as HTMLInputElement).value;
-
-    if (value === "") {
-      this.value = undefined;
-    }
-
-    const newDate = parse(value, this.format, new Date());
-
-    // First, escape any backslashes in the format string
-    const escapedFormat = this.format.replace(/\\/g, "\\\\");
-    // Then construct the RegExp using the escaped format string
-    const formatRegExp = new RegExp(
-      `^${escapedFormat.replace(/[ydM]/g, "\\d")}$`
-    );
-
-    if (!Boolean(value.match(formatRegExp))) {
-      return;
-    }
-
-    if (!isValid(newDate)) {
-      this.invalidInput.emit(value);
-      return;
-    }
-
-    const newValue = format(newDate, internalDateFormat);
-
-    this.value = newValue;
-  };
-
-  private onInput = (event: InputEvent) => {
-    this.onChange(event);
-  };
-
   private onClick = (event: MouseEvent) => {
     event.preventDefault();
 
@@ -184,16 +150,26 @@ export class SwirlDateInput {
 
     this.value = newValue;
 
+    this.inputEl.value = format(newDateValue, this.pattern);
+    this.mask.updateValue();
+
     this.setReadOnly(true);
     this.pickerPopover.close();
   };
 
   private handleAutoSelect(event: FocusEvent) {
     if (!this.autoSelect) {
+      setTimeout(() => {
+        if (event.target && event.target instanceof HTMLInputElement) {
+          event.target.setSelectionRange(0, 0);
+        }
+      }, 1);
       return;
     }
 
-    (event.target as HTMLInputElement).select();
+    if (event.target && event.target instanceof HTMLInputElement) {
+      event.target.select();
+    }
   }
 
   private setReadOnly(readOnly: boolean) {
@@ -207,9 +183,80 @@ export class SwirlDateInput {
   private setupMask() {
     this.mask?.destroy();
 
-    this.mask = createMask(`#${this.id}`, {
-      mask: this.format.replace(/[ydM]/g, "#"),
+    // Due to automatic padding with 0s, we need to replace single characters with full length blocks.
+    this.pattern = this.format
+      .replace(/(?<!d)d(?!d)/g, "dd")
+      .replace(/(?<!M)M(?!M)/g, "MM")
+      .replace(/(?<!y)y(?!y)/g, "yyyy")
+      .replace(/(?<!y)yyy(?!y)/g, "yyyy");
+
+    if (!this.pattern) {
+      this.pattern = internalDateFormat;
+    }
+
+    this.mask = IMask(this.inputEl, {
+      mask: Date,
+      pattern: this.pattern.replace(/([^A-Za-z0-9])/g, "$1`"), // Add backticks to separators to prevent symbols from shifting back
+      autofix: "pad",
+      lazy: true,
+      overwrite: true,
+      eager: "append",
+
+      blocks: {
+        dd: {
+          mask: IMask.MaskedRange,
+          from: 1,
+          to: 31,
+          maxLength: 2,
+        },
+        MM: {
+          mask: IMask.MaskedRange,
+          from: 1,
+          to: 12,
+          maxLength: 2,
+        },
+        yy: {
+          mask: IMask.MaskedRange,
+          from: 0,
+          to: 99,
+          maxLength: 2,
+        },
+        yyyy: {
+          mask: IMask.MaskedRange,
+          from: 1000,
+          to: 9999,
+          maxLength: 4,
+        },
+      },
+
+      // define date -> str conversion
+      format: (date) => {
+        const newDate = format(date, this.pattern);
+
+        if (!isValid(date)) {
+          this.invalidInput.emit(date);
+          return "";
+        }
+
+        this.value = format(date, internalDateFormat);
+        return newDate;
+      },
+
+      // define str -> date conversion
+      parse: (str) => {
+        const newString = parse(str, this.pattern, new Date());
+        return newString;
+      },
     });
+
+    // Set the initial value if it exists
+    if (this.value) {
+      const dateValue = parse(this.value, internalDateFormat, new Date());
+      const formattedValue = format(dateValue, this.pattern);
+      if (isValid(dateValue)) {
+        this.mask.value = formattedValue;
+      }
+    }
   }
 
   render() {
@@ -220,10 +267,6 @@ export class SwirlDateInput {
 
     const dateValue = Boolean(this.value)
       ? parse(this.value, internalDateFormat, new Date())
-      : undefined;
-
-    const displayValue = isValid(dateValue)
-      ? format(dateValue, this.format)
       : undefined;
 
     const className = classnames("date-input", {
@@ -247,12 +290,10 @@ export class SwirlDateInput {
             onMouseDown={this.onMouseDown}
             onFocus={this.onFocus}
             onBlur={this.onBlur}
-            onInput={this.onInput}
             placeholder={this.placeholder}
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             type="text"
-            value={displayValue}
           />
 
           <swirl-popover-trigger swirlPopover={`popover-${this.id}`}>
