@@ -1,5 +1,12 @@
 # @getflip/swirl-components
 
+## 0.340.0
+
+### Minor Changes
+
+- [`1ca1ddbf`](https://github.com/getflip/swirl/commit/1ca1ddbf1681257d7122eda3755b593acc107f6a) -
+  Update StencilJS to 4.25.0
+
 ## 0.339.0
 
 ### Minor Changes
