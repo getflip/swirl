@@ -84,7 +84,7 @@ describe("swirl-menu", () => {
           </swirl-button>
         </swirl-popover-trigger>
         <swirl-popover id="menu" label="Menu" style="display: none;">
-          <mock:shadow-root>
+          <template shadowrootmode="open">
             <div class="popover popover--animation-scale-in-xy popover--inactive popover--padded popover--placement-undefined">
               <div aria-hidden="true" aria-label="Menu" class="popover__content" part="popover__content" role="dialog" tabindex="-1">
                 <span class="popover__handle"></span>
@@ -93,9 +93,9 @@ describe("swirl-menu", () => {
                 </div>
               </div>
             </div>
-          </mock:shadow-root>
+          </template>
           <swirl-menu label="Menu">
-            <mock:shadow-root>
+            <template shadowrootmode="open">
               <div class="menu menu--active menu--level-0 menu--mobile menu--root">
                 <div class="menu__mobile-header">
                   <swirl-button>
@@ -123,24 +123,24 @@ describe("swirl-menu", () => {
                   <slot></slot>
                 </div>
               </div>
-            </mock:shadow-root>
+            </template>
             <swirl-menu-item label="Item 1">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="menu-item">
                   <swirl-action-list-item intent="default" label="Item 1"></swirl-action-list-item>
                   <slot></slot>
                 </div>
-              </mock:shadow-root>
+              </template>
             </swirl-menu-item>
             <swirl-menu-item label="Item 2">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="menu-item">
                   <swirl-action-list-item intent="default" label="Item 2"></swirl-action-list-item>
                   <slot></slot>
                 </div>
-              </mock:shadow-root>
+              </template>
               <swirl-menu label="Sub menu" variant="selection">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="menu menu--active menu--level-1 menu--mobile menu--root">
                     <div class="menu__mobile-header">
                       <swirl-button>
@@ -168,32 +168,32 @@ describe("swirl-menu", () => {
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <swirl-menu-item label="Sub item 1" value="1">
-                  <mock:shadow-root>
+                  <template shadowrootmode="open">
                     <div class="menu-item">
                       <swirl-option-list-item label="Sub item 1" swirlariarole="menuitemradio" value="1"></swirl-option-list-item>
                       <slot></slot>
                     </div>
-                  </mock:shadow-root>
+                  </template>
                 </swirl-menu-item>
                 <swirl-menu-item label="Sub item 2" value="2">
-                  <mock:shadow-root>
+                  <template shadowrootmode="open">
                     <div class="menu-item">
                       <swirl-option-list-item label="Sub item 2" swirlariarole="menuitemradio" value="2"></swirl-option-list-item>
                       <slot></slot>
                     </div>
-                  </mock:shadow-root>
+                  </template>
                 </swirl-menu-item>
               </swirl-menu>
             </swirl-menu-item>
             <swirl-menu-item label="Item 3">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="menu-item">
                   <swirl-action-list-item intent="default" label="Item 3"></swirl-action-list-item>
                   <slot></slot>
                 </div>
-              </mock:shadow-root>
+              </template>
             </swirl-menu-item>
           </swirl-menu>
         </swirl-popover>

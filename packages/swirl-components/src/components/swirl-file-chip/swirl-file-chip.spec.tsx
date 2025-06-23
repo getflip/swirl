@@ -209,7 +209,10 @@ describe("swirl-file-chip", () => {
       ]),
     });
 
-    mockFetch.response(Object.assign(res, { blob: () => "Blob" }));
+    mockFetch.response(
+      Object.assign(res, { blob: () => "Blob" }),
+      "/sample.pdf"
+    );
     page.root.shadowRoot.querySelector("swirl-button").click();
     await page.waitForChanges();
 
