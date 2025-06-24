@@ -160,10 +160,14 @@ export class SwirlDateInput {
   private handleAutoSelect(event: FocusEvent) {
     if (!this.autoSelect) {
       setTimeout(() => {
-        if (event.target && event.target instanceof HTMLInputElement) {
+        if (
+          event.target &&
+          event.target instanceof HTMLInputElement &&
+          event.target.setSelectionRange
+        ) {
           event.target.setSelectionRange(0, 0);
         }
-      }, 1);
+      });
       return;
     }
 
@@ -252,9 +256,12 @@ export class SwirlDateInput {
     // Set the initial value if it exists
     if (this.value) {
       const dateValue = parse(this.value, internalDateFormat, new Date());
-      const formattedValue = format(dateValue, this.pattern);
+
       if (isValid(dateValue)) {
+        const formattedValue = format(dateValue, this.pattern);
         this.mask.value = formattedValue;
+      } else {
+        this.invalidInput.emit(this.value);
       }
     }
   }
@@ -265,9 +272,11 @@ export class SwirlDateInput {
         ? String(this.invalid)
         : undefined;
 
-    const dateValue = Boolean(this.value)
+    const newDate = Boolean(this.value)
       ? parse(this.value, internalDateFormat, new Date())
       : undefined;
+
+    const dateValue = isValid(newDate) ? newDate : undefined;
 
     const className = classnames("date-input", {
       "date-input--inline": this.inline,

@@ -84,29 +84,26 @@ describe("swirl-date-input", () => {
     input.value = "01.12.2022";
     input.dispatchEvent(new Event("input"));
 
-    expect(spy.mock.calls[1][0].detail).toBe("2022-12-01");
+    expect(spy.mock.calls[2][0].detail).toBe("2022-12-01");
   });
 
-  it("fires invalidInPut event for invalid values", async () => {
+  it("corrects partial input values", async () => {
     const page = await newSpecPage({
       components: [SwirlDateInput],
       html: `<swirl-date-input></swirl-date-input>`,
     });
 
-    const spy = jest.fn();
     const input = page.root.querySelector("input");
-
-    page.root.addEventListener("invalidInput", spy);
 
     input.value = "2022-12-12";
     input.dispatchEvent(new Event("input"));
 
-    expect(spy).toHaveBeenCalledTimes(0);
+    expect(input.value).toBe("2022-12-12");
 
-    input.value = "2022-22-22";
+    input.value = "2022-5-6";
     input.dispatchEvent(new Event("input"));
 
-    expect(spy.mock.calls[0][0].detail).toBe("2022-22-22");
+    expect(input.value).toBe("2022-05-06");
   });
 
   it("opens the datepicker when input gets clicked and preferredInputMode is 'pick'", async () => {

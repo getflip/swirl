@@ -14786,11 +14786,6 @@ marked@^4.3.0:
   resolved "https://registry.npmjs.org/marked/-/marked-4.3.0.tgz"
   integrity sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==
 
-maska@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/maska/-/maska-1.5.0.tgz"
-  integrity sha512-BwZXzs5gHeu6wtn3iWFqrKRtcsM3sTpkHvfAngVNVNlN7tl9ZyQUeHTz11s9Sy7Bq1MoQ+xyR/+IzghY8nR84Q==
-
 maxstache-stream@^1.0.0:
   version "1.0.4"
   resolved "https://registry.npmjs.org/maxstache-stream/-/maxstache-stream-1.0.4.tgz"
