@@ -49,14 +49,21 @@ describe("swirl-date-input", () => {
   });
 
   it("handles different formats", async () => {
-    const page = await newSpecPage({
+    await newSpecPage({
       components: [SwirlDateInput],
-      html: `<swirl-date-input value="2022-12-11" format="dd.MM.yyyy"></swirl-date-input>`,
+      html: `<swirl-date-input value="2022-12-11" format="yyyy-MM-dd"></swirl-date-input>`,
+    }).then((page) => {
+      const input = page.root.querySelector("input");
+      expect(input.value).toBe("2022-12-11");
     });
 
-    const input = page.root.querySelector("input");
-
-    expect(input.value).toBe("11.12.2022");
+    await newSpecPage({
+      components: [SwirlDateInput],
+      html: `<swirl-date-input value="2022-12-11" format="dd.MM.yyyy"></swirl-date-input>`,
+    }).then((page) => {
+      const input = page.root.querySelector("input");
+      expect(input.value).toBe("11.12.2022");
+    });
   });
 
   it("fires valueChange events for valid values", async () => {
