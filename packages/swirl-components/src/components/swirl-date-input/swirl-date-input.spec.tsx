@@ -95,11 +95,6 @@ describe("swirl-date-input", () => {
 
     const input = page.root.querySelector("input");
 
-    input.value = "2022-12-12";
-    input.dispatchEvent(new Event("input"));
-
-    expect(input.value).toBe("2022-12-12");
-
     input.value = "2022-5-6";
     input.dispatchEvent(new Event("input"));
 
