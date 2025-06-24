@@ -449,6 +449,10 @@
           "description": ""
         },
         {
+          "name": "generate-suggestions",
+          "description": ""
+        },
+        {
           "name": "inline",
           "description": ""
         },
@@ -509,6 +513,10 @@
         },
         {
           "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "value",
           "description": ""
         }
       ]
@@ -2361,6 +2369,10 @@
           "description": ""
         },
         {
+          "name": "date-picker-disable-date",
+          "description": ""
+        },
+        {
           "name": "date-picker-label",
           "description": ""
         },
@@ -2386,6 +2398,10 @@
         },
         {
           "name": "invalid",
+          "description": ""
+        },
+        {
+          "name": "labels",
           "description": ""
         },
         {
@@ -2430,7 +2446,15 @@
       },
       "attributes": [
         {
+          "name": "disable-date",
+          "description": ""
+        },
+        {
           "name": "first-day-of-week",
+          "description": ""
+        },
+        {
+          "name": "labels",
           "description": ""
         },
         {
@@ -2439,6 +2463,14 @@
         },
         {
           "name": "range",
+          "description": ""
+        },
+        {
+          "name": "start-date",
+          "description": ""
+        },
+        {
+          "name": "value",
           "description": ""
         }
       ]
@@ -2887,10 +2919,6 @@
         {
           "name": "file",
           "description": ""
-        },
-        {
-          "name": "type",
-          "description": ""
         }
       ]
     },
@@ -3041,10 +3069,6 @@
         },
         {
           "name": "file",
-          "description": ""
-        },
-        {
-          "name": "type",
           "description": ""
         }
       ]
@@ -16996,6 +17020,10 @@
         {
           "name": "option-list-id",
           "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
         }
       ]
     },
@@ -17199,6 +17227,10 @@
         },
         {
           "name": "page-size",
+          "description": ""
+        },
+        {
+          "name": "page-size-options",
           "description": ""
         },
         {
@@ -17436,6 +17468,10 @@
           "description": ""
         },
         {
+          "name": "trigger-container",
+          "description": ""
+        },
+        {
           "name": "use-container-width",
           "description": ""
         }
@@ -17458,6 +17494,10 @@
         },
         {
           "name": "hover-linger-duration",
+          "description": ""
+        },
+        {
+          "name": "parent-scroll-container",
           "description": ""
         },
         {
@@ -17622,6 +17662,10 @@
         },
         {
           "name": "assistive-text-item-moving",
+          "description": ""
+        },
+        {
+          "name": "controlling-element",
           "description": ""
         },
         {
@@ -18145,6 +18189,10 @@
         },
         {
           "name": "swirl-aria-describedby",
+          "description": ""
+        },
+        {
+          "name": "value",
           "description": ""
         },
         {
@@ -19767,6 +19815,10 @@
           ]
         },
         {
+          "name": "tabs",
+          "description": ""
+        },
+        {
           "name": "variant",
           "description": "",
           "values": [
@@ -19793,6 +19845,10 @@
         },
         {
           "name": "drag-drop-handle",
+          "description": ""
+        },
+        {
+          "name": "drag-drop-instructions",
           "description": ""
         },
         {
@@ -20554,7 +20610,12 @@
         "kind": "markdown",
         "value": ""
       },
-      "attributes": []
+      "attributes": [
+        {
+          "name": "config",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "swirl-thumbnail",
@@ -20955,11 +21016,23 @@
       },
       "attributes": [
         {
+          "name": "can-drop",
+          "description": ""
+        },
+        {
+          "name": "drag-drop-instructions",
+          "description": ""
+        },
+        {
           "name": "drag-drop-item-selector",
           "description": ""
         },
         {
           "name": "enable-drag-drop",
+          "description": ""
+        },
+        {
+          "name": "initially-expanded-item-ids",
           "description": ""
         },
         {

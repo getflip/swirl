@@ -58,7 +58,7 @@ export class SwirlFormControl {
   private inputEl: HTMLElement;
 
   componentWillLoad() {
-    this.inputEl = this.el.children[0] as HTMLElement;
+    this.inputEl = this.el.firstElementChild as HTMLElement;
 
     this.associateDescriptionWithInputElement();
     this.associateLabelWithInputElement();
@@ -304,18 +304,16 @@ export class SwirlFormControl {
               {this.description}
             </span>
           )}
-          {showErrorMessage && (
-            <span
-              aria-live="polite"
-              class="form-control__error-message"
-              id={this.descriptionId}
-            >
-              <swirl-inline-error
-                message={this.errorMessage}
-                size="s"
-              ></swirl-inline-error>
-            </span>
-          )}
+          <span aria-live="polite">
+            {showErrorMessage && (
+              <span class="form-control__error-message" id={this.descriptionId}>
+                <swirl-inline-error
+                  message={this.errorMessage}
+                  size="s"
+                ></swirl-inline-error>
+              </span>
+            )}
+          </span>
         </div>
       </Host>
     );

@@ -143,7 +143,6 @@ export class SwirlFileViewer {
                   disableDownload={this.disableDownload}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
-                  type={this.type}
                 ></swirl-file-viewer-video>
               )}
 
@@ -153,7 +152,6 @@ export class SwirlFileViewer {
                   autoplay={this.autoplay}
                   file={this.file}
                   ref={(el) => (this.viewer = el)}
-                  type={this.type}
                 ></swirl-file-viewer-audio>
               )}
 

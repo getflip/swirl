@@ -182,8 +182,14 @@ export namespace Components {
          */
         "expand": () => Promise<void>;
         "heading": string;
+        /**
+          * @default 2
+         */
         "headingLevel"?: SwirlHeadingLevel;
         "initiallyOpen"?: boolean;
+        /**
+          * @default uuid()
+         */
         "itemId"?: string;
         /**
           * Toggles the accordion item.
@@ -198,29 +204,65 @@ export namespace Components {
         "disabled"?: boolean;
         "icon"?: string;
         "iconBadge"?: string;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlActionListItemIntent;
         "label": string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlActionListItemSize;
         "suffix"?: string;
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
     }
     interface SwirlActionListSection {
+        /**
+          * @default false
+         */
         "hasSeparator"?: boolean;
         "label": string;
+        /**
+          * @default "4"
+         */
         "separatorSpacing"?: SwirlSeparatorSpacing;
+        /**
+          * @default "0"
+         */
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlAppBar {
+        /**
+          * @default "Go back"
+         */
         "backButtonLabel"?: string;
+        /**
+          * @default "<swirl-icon-close></swirl-icon-close>"
+         */
         "closeButtonIcon"?: string;
+        /**
+          * @default "Close"
+         */
         "closeButtonLabel"?: string;
+        /**
+          * @default "16"
+         */
         "paddingInlineEnd"?: SwirlAppBarPadding;
+        /**
+          * @default "16"
+         */
         "paddingInlineStart"?: SwirlAppBarPadding;
         "showBackButton"?: boolean;
         "showCloseButton"?: boolean;
         "showStepperControls"?: boolean;
+        /**
+          * @default "Next item"
+         */
         "stepDownButtonLabel"?: string;
+        /**
+          * @default "Previous item"
+         */
         "stepUpButtonLabel"?: string;
     }
     interface SwirlAppIcon {
@@ -229,6 +271,9 @@ export namespace Components {
     }
     interface SwirlAppLayout {
         "appName": string;
+        /**
+          * @default "Back to navigation"
+         */
         "backToNavigationViewButtonLabel"?: string;
         /**
           * Change the currently displayed view on mobile viewports
@@ -249,10 +294,22 @@ export namespace Components {
          */
         "hideSidebar": () => Promise<void>;
         "initialMobileView"?: SwirlAppLayoutMobileView;
+        /**
+          * @default "Go back"
+         */
         "navigationBackButtonLabel"?: string;
+        /**
+          * @default SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY
+         */
         "navigationExpansionStateStorageKey"?: string;
         "navigationLabel"?: string;
+        /**
+          * @default "Show navigation"
+         */
         "navigationOverlayLabel"?: string;
+        /**
+          * @default "Toggle navigation"
+         */
         "navigationToggleLabel"?: string;
         /**
           * Set state of the collapsible navigation
@@ -263,25 +320,43 @@ export namespace Components {
           * Show the sidebar
          */
         "showSidebar": () => Promise<void>;
+        /**
+          * @default "Close sidebar"
+         */
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
         /**
           * Toggle the sidebar
          */
         "toggleSidebar": () => Promise<void>;
+        /**
+          * @default "slides"
+         */
         "transitionStyle"?: string;
     }
     interface SwirlAutocomplete {
         "autoSelect"?: boolean;
+        /**
+          * @default "Clear input"
+         */
         "clearButtonLabel"?: string;
+        /**
+          * @default true
+         */
         "clearable"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default async () => []
+         */
         "generateSuggestions"?: (
     term: string
   ) => Promise<SwirlAutocompleteSuggestion[]>;
         "inline"?: boolean;
         "invalid"?: boolean;
         "maxLength"?: number;
+        /**
+          * @default "Suggestions"
+         */
         "menuLabel"?: string;
         "mode"?: SwirlTextInputMode;
         "multiSelect"?: boolean;
@@ -293,17 +368,38 @@ export namespace Components {
     }
     interface SwirlAvatar {
         "badge"?: string;
+        /**
+          * @default "bottom"
+         */
         "badgePosition"?: SwirlAvatarBadgePosition;
+        /**
+          * @default "kiwi"
+         */
         "color"?: SwirlAvatarColor;
         "icon"?: string;
         "initials"?: string;
+        /**
+          * @default false
+         */
         "interactive"?: boolean;
         "label": string;
         "loading"?: SwirlAvatarLoading;
+        /**
+          * @default false
+         */
         "showLabel"?: boolean;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlAvatarSize;
         "src"?: string;
+        /**
+          * @default "bottom"
+         */
         "toolPosition"?: SwirlAvatarToolPosition;
+        /**
+          * @default "round"
+         */
         "variant"?: SwirlAvatarVariant;
     }
     interface SwirlAvatarGroup {
@@ -311,24 +407,54 @@ export namespace Components {
     }
     interface SwirlBadge {
         "icon"?: string;
+        /**
+          * @default "critical"
+         */
         "intent"?: SwirlBadgeIntent;
         "label": string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlBadgeSize;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlBadgeVariant;
     }
     interface SwirlBanner {
         "actionLabel"?: string;
         "content": string;
+        /**
+          * @default "Dismiss"
+         */
         "dismissLabel"?: string;
+        /**
+          * @default false
+         */
         "dismissable"?: boolean;
         "icon"?: string;
+        /**
+          * @default "status"
+         */
         "importance"?: SwirlBannerAriaRole;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlBannerIntent;
+        /**
+          * @default false
+         */
         "showIcon"?: boolean;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlBannerSize;
     }
     interface SwirlBox {
         "basis"?: string;
+        /**
+          * @default "default"
+         */
         "borderColor"?: SwirlBoxBorderColor;
         "bordered"?: boolean;
         "borderedBlockEnd"?: boolean;
@@ -348,7 +474,13 @@ export namespace Components {
         "maxWidth"?: string;
         "minHeight"?: string;
         "minWidth"?: string;
+        /**
+          * @default "visible"
+         */
         "overflow"?: SwirlBoxOverflow;
+        /**
+          * @default "0"
+         */
         "padding"?: SwirlBoxPadding;
         "paddingBlockEnd"?: SwirlBoxPadding;
         "paddingBlockStart"?: SwirlBoxPadding;
@@ -369,13 +501,22 @@ export namespace Components {
         "hideLabel"?: boolean;
         "href"?: string;
         "icon"?: string;
+        /**
+          * @default "start"
+         */
         "iconPosition": SwirlButtonIconPosition;
         "inheritFontSize"?: boolean;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlButtonIntent;
         "label": string;
         "name"?: string;
         "pill"?: boolean;
         "pressed"?: boolean;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlButtonSize;
         "swirlAriaControls"?: string;
         "swirlAriaCurrent"?: string;
@@ -384,23 +525,47 @@ export namespace Components {
         "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
         "target"?: string;
+        /**
+          * @default "center"
+         */
         "textAlign"?: SwirlButtonTextAlign;
+        /**
+          * @default "button"
+         */
         "type"?: SwirlButtonType;
         "value"?: string;
+        /**
+          * @default "ghost"
+         */
         "variant"?: SwirlButtonVariant;
     }
     interface SwirlButtonGroup {
+        /**
+          * @default "horizontal"
+         */
         "orientation"?: SwirlButtonGroupOrientation;
         "segmented"?: boolean;
+        /**
+          * @default "8"
+         */
         "spacing"?: SwirlButtonGroupSpacing;
         "stretch"?: boolean;
         "wrap"?: boolean;
     }
     interface SwirlCard {
+        /**
+          * @default "div"
+         */
         "as"?: string;
+        /**
+          * @default "base"
+         */
         "borderRadius"?: SwirlCardBorderRadius;
         "customBackgroundColor"?: string;
         "elevated"?: boolean;
+        /**
+          * @default 3
+         */
         "elevationLevel"?: SwirlCardElevationLevel;
         /**
           * Flashes the card to draw focus.
@@ -410,9 +575,15 @@ export namespace Components {
         "highlighted"?: boolean;
         "href"?: string;
         "imageAspectRatio"?: string;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlCardIntent;
         "interactive"?: boolean;
         "isBorderless"?: boolean;
+        /**
+          * @default "start"
+         */
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
         "minHeight"?: string;
@@ -429,21 +600,42 @@ export namespace Components {
      * slot - The slides
      */
     interface SwirlCarousel {
+        /**
+          * @default false
+         */
         "fade"?: boolean;
+        /**
+          * @default "default"
+         */
         "fadeColor"?: SwirlCarouselFadeColor;
         "label": string;
+        /**
+          * @default false
+         */
         "loopAround"?: boolean;
+        /**
+          * @default "Next slide"
+         */
         "nextSlideButtonLabel"?: string;
+        /**
+          * @default "16"
+         */
         "padding"?: SwirlCarouselPadding;
         "paddingBlockEnd"?: SwirlCarouselPadding;
         "paddingBlockStart"?: SwirlCarouselPadding;
         "paddingInlineEnd"?: SwirlCarouselPadding;
         "paddingInlineStart"?: SwirlCarouselPadding;
+        /**
+          * @default "Previous slide"
+         */
         "previousSlideButtonLabel"?: string;
         /**
           * Scroll to slide with id.
          */
         "scrollToSlide": (id: string) => Promise<void>;
+        /**
+          * @default "16"
+         */
         "spacing"?: SwirlCarouselSpacing;
     }
     /**
@@ -453,35 +645,74 @@ export namespace Components {
         "aspectRatio"?: string;
         "label"?: string;
         "minHeight"?: string;
+        /**
+          * @default "15.5rem"
+         */
         "width"?: string;
     }
     interface SwirlCheckbox {
+        /**
+          * @default false
+         */
         "checked"?: SwirlCheckboxState;
         "description"?: string;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
+        /**
+          * @default "medium"
+         */
         "labelWeight"?: SwirlCheckboxLabelWeight;
         "swirlAriaDescribedby"?: string;
         "swirlAriaLabel"?: string;
         "value"?: string;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlCheckboxVariant;
     }
     interface SwirlChip {
+        /**
+          * @default "pill"
+         */
         "borderRadius"?: SwirlChipBorderRadius;
         "icon"?: string;
+        /**
+          * @default "default"
+         */
         "iconColor"?: SwirlChipIconColor;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlChipIntent;
+        /**
+          * @default false
+         */
         "interactive"?: boolean;
         "label": string;
         "pressed"?: boolean;
         "progress"?: number;
+        /**
+          * @default "Loading progress"
+         */
         "progressBarLabel"?: string;
         "removable"?: boolean;
+        /**
+          * @default "Remove"
+         */
         "removeButtonLabel"?: string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlChipSize;
+        /**
+          * @default "outline"
+         */
         "variant"?: SwirlChipVariant;
     }
     interface SwirlColorInput {
@@ -490,7 +721,13 @@ export namespace Components {
         "disabled"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
+        /**
+          * @default "Open color picker"
+         */
         "pickerButtonLabel"?: string;
+        /**
+          * @default "Color picker"
+         */
         "pickerLabel"?: string;
         "placeholder"?: string;
         "required"?: boolean;
@@ -498,24 +735,45 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlColumns {
+        /**
+          * @default "repeat(3, minmax(0, 1fr))"
+         */
         "columns"?: string;
         "spacing"?: SwirlColumnsSpacing;
     }
     interface SwirlConsoleLayout {
         "appName"?: string;
+        /**
+          * @default "Back"
+         */
         "backButonLabel"?: string;
         "heading"?: string;
+        /**
+          * @default "Help"
+         */
         "helpButonLabel"?: string;
+        /**
+          * @default "Hide main navigation"
+         */
         "hideNavigationButtonLabel"?: string;
         /**
           * Hide the mobile navigation.
          */
         "hideSidebar": () => Promise<void>;
+        /**
+          * @default "Admin"
+         */
         "logoText"?: string;
         "maxContentWidth"?: string;
+        /**
+          * @default "Main"
+         */
         "navigationLabel"?: string;
         "showBackButton"?: boolean;
         "showHelpButton"?: boolean;
+        /**
+          * @default "Show main navigation"
+         */
         "showNavigationButtonLabel"?: string;
         /**
           * Show the mobile navigation.
@@ -530,26 +788,59 @@ export namespace Components {
     interface SwirlDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
+        /**
+          * @default () => false
+         */
         "datePickerDisableDate"?: (date: Date) => boolean;
+        /**
+          * @default "Date picker"
+         */
         "datePickerLabel"?: string;
+        /**
+          * @default "Open date picker"
+         */
         "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
+        /**
+          * @default 0
+         */
         "firstDayOfWeek"?: number;
+        /**
+          * @default "yyyy-MM-dd"
+         */
         "format"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "labels"?: WCDatepickerLabels;
+        /**
+          * @default "en-US"
+         */
         "locale"?: string;
+        /**
+          * @default "yyyy-mm-dd"
+         */
         "placeholder"?: string;
+        /**
+          * @default "input"
+         */
         "preferredInputMode"?: "input" | "pick";
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
     interface SwirlDatePicker {
+        /**
+          * @default () => false
+         */
         "disableDate"?: (date: Date) => boolean;
+        /**
+          * @default 0
+         */
         "firstDayOfWeek"?: number;
         "labels"?: WCDatepickerLabels;
+        /**
+          * @default "en-US"
+         */
         "locale"?: string;
         "range"?: boolean;
         "startDate"?: Date;
@@ -558,6 +849,9 @@ export namespace Components {
     interface SwirlDescriptionList {
     }
     interface SwirlDescriptionListItem {
+        /**
+          * @default true
+         */
         "bordered"?: boolean;
         "maxWidth"?: string;
         "term": string;
@@ -569,6 +863,9 @@ export namespace Components {
          */
         "close": () => Promise<void>;
         "hideLabel"?: boolean;
+        /**
+          * @default "primary"
+         */
         "intent"?: SwirlDialogIntent;
         "label": string;
         /**
@@ -579,32 +876,74 @@ export namespace Components {
         "secondaryActionLabel"?: string;
     }
     interface SwirlEmoji {
+        /**
+          * @default ""
+         */
         "label"?: string;
         "name": string;
+        /**
+          * @default 24
+         */
         "size": SwirlEmojiSize;
     }
     interface SwirlEmojiClap {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiHappy {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiIdea {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiLove {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiSad {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiThumbsUp {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmptyState {
@@ -613,10 +952,19 @@ export namespace Components {
     }
     interface SwirlFileChip {
         "description"?: string;
+        /**
+          * @default "Download"
+         */
         "downloadButtonLabel"?: string;
         "loading"?: boolean;
+        /**
+          * @default "Loading"
+         */
         "loadingLabel"?: string;
         "name": string;
+        /**
+          * @default "Preview"
+         */
         "previewButtonLabel"?: string;
         "showDownloadButton"?: boolean;
         "showPreviewButton"?: boolean;
@@ -626,11 +974,23 @@ export namespace Components {
     }
     interface SwirlFileUploader {
         "accept"?: string;
+        /**
+          * @default "Click to upload"
+         */
         "ctaLabel"?: string;
         "description"?: string;
+        /**
+          * @default false
+         */
         "descriptionAllowHtml"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default "or drag and drop."
+         */
         "dragDropLabel"?: string;
+        /**
+          * @default false
+         */
         "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
@@ -640,12 +1000,24 @@ export namespace Components {
           * Reset the file input.
          */
         "reset": () => Promise<void>;
+        /**
+          * @default true
+         */
         "showDropzone"?: boolean;
         "uploadButtonIcon"?: string;
+        /**
+          * @default "Select file"
+         */
         "uploadButtonLabel"?: string;
+        /**
+          * @default "flat"
+         */
         "uploadButtonVariant"?: SwirlButtonVariant1;
     }
     interface SwirlFileViewer {
+        /**
+          * @default true
+         */
         "active"?: boolean;
         "autoplay"?: boolean;
         "description"?: string;
@@ -654,6 +1026,9 @@ export namespace Components {
           * Download the file.
          */
         "download": () => Promise<void>;
+        /**
+          * @default "File could not be loaded."
+         */
         "errorMessage"?: string;
         "file": string;
         "fileName"?: string;
@@ -662,30 +1037,53 @@ export namespace Components {
           * Print the file. Applicable to PDFs only.
          */
         "print": () => Promise<void>;
+        /**
+          * @default false
+         */
         "skipNativeDownload"?: boolean;
         "thumbnailUrl"?: string;
         "type": string;
+        /**
+          * @default "File type is not supported."
+         */
         "typeUnsupportedMessage"?: string;
+        /**
+          * @default "single"
+         */
         "viewMode"?: SwirlFileViewerPdfViewMode;
+        /**
+          * @default 1
+         */
         "zoom"?: SwirlFileViewerPdfZoom;
     }
     interface SwirlFileViewerAudio {
         "autoplay"?: boolean;
         "file": string;
-        "type": string;
     }
     interface SwirlFileViewerCsv {
+        /**
+          * @default "File could not be loaded."
+         */
         "errorMessage"?: string;
         "file": string;
     }
     interface SwirlFileViewerFallback {
         "disableDownload"?: boolean;
+        /**
+          * @default "Download"
+         */
         "downloadButtonLabel"?: string;
         "file": string;
         "fileName"?: string;
     }
     interface SwirlFileViewerImage {
+        /**
+          * @default ""
+         */
         "description"?: string;
+        /**
+          * @default "File could not be loaded."
+         */
         "errorMessage"?: string;
         "file": string;
         /**
@@ -693,6 +1091,9 @@ export namespace Components {
           * @returns
          */
         "getZoom": () => Promise<number>;
+        /**
+          * @default 3
+         */
         "maxZoom"?: number;
         /**
           * Resets the zoom.
@@ -701,6 +1102,9 @@ export namespace Components {
         "resetZoom": () => Promise<void>;
     }
     interface SwirlFileViewerPdf {
+        /**
+          * @default "File could not be loaded."
+         */
         "errorMessage"?: string;
         "file": string;
         /**
@@ -724,11 +1128,23 @@ export namespace Components {
          */
         "setPage": (page: number) => Promise<void>;
         "singlePageMode": boolean;
+        /**
+          * @default "single"
+         */
         "viewMode"?: SwirlFileViewerPdfViewMode1;
+        /**
+          * @default "/pdfjs/pdf.worker.min.mjs"
+         */
         "workerSrc"?: string;
+        /**
+          * @default 1
+         */
         "zoom"?: SwirlFileViewerPdfZoom1;
     }
     interface SwirlFileViewerText {
+        /**
+          * @default "File could not be loaded."
+         */
         "errorMessage"?: string;
         "file": string;
     }
@@ -736,30 +1152,47 @@ export namespace Components {
         "autoplay"?: boolean;
         "disableDownload"?: boolean;
         "file": string;
-        "type": string;
     }
     interface SwirlFormControl {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
+        /**
+          * @default "default"
+         */
         "fontSize"?: SwirlFormControlFontSize;
         "hideLabel"?: boolean;
         "icon"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
+        /**
+          * @default "inside"
+         */
         "labelPosition"?: SwirlFormControlLabelPosition;
         "secondaryLabel"?: string;
         "tooltip"?: string;
     }
     interface SwirlFormGroup {
+        /**
+          * @default "vertical"
+         */
         "orientation": SwirlFormGroupOrientation;
     }
     interface SwirlHeading {
+        /**
+          * @default "start"
+         */
         "align"?: SwirlHeadingAlign;
         "as"?: SwirlHeadingTag;
+        /**
+          * @default true
+         */
         "balance"?: boolean;
         "headingId"?: string;
+        /**
+          * @default 1
+         */
         "level"?: SwirlHeadingLevel1;
         "lines"?: number;
         "text": string;
@@ -768,908 +1201,1589 @@ export namespace Components {
     interface SwirlIcon {
         "color"?: SwirlIconColor;
         "glyph": string;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconAdd {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconAddModerator {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconAddPhoto {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconAddReaction {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconAdminPanelSettings {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconAi {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconAiFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconApps {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowBack {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowDownward {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowForward {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowLeft {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowRight {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowRightSmall {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconArrowUpward {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconAspectRatio {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconAttachment {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconAudioFile {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconBarChart {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconBeachAccess {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconBeachAccessFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconBlock {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconBookmark {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconBookmarkFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCalendarAddOnFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCalendarRespond {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCalendarToday {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCall {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCallEnd {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCancel {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCancelFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconChatBubble {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconChats {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconChatsFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCheck {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckCircle {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckCircleFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckSmall {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCheckStrong {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconChevronLeft {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconChevronRight {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconClose {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCloseFullscreen {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCloseSmall {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCloudUpload {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconColumn {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconComment {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconContrast {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCopy {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconCrop {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDarkMode {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDateRange {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDelete {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDeployedCode {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDescription {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDesktop {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDirectory {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDirectoryFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDiscover {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDockLeft {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDockLeftCollapse {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDockLeftExpand {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDoorOpen {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDot {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDoubleArrowLeft {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDoubleArrowRight {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDownload {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconDragHandle {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconEdit {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconEditNote {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconEmojiMood {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconEmojiSatisfied {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconError {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconExpandLess {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconExpandMore {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconExperiment {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconFile {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconFileCopy {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconFilter {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconFolder {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconFolderShared {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconFormatHOne {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconFormatListBulleted {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconFullscreen {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconFullscreenExit {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconGif {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupAdd {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupAssign {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconGroups {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconGroupsFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconHamburgerMenu {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconHealthAndSafety {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconHelp {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconHelpFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconHighlight {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconHistory {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconHome {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconHrResting {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconImage {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconImproveText {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconInfo {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconInsertBelow {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconInsertChart {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconInsertOnTop {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconInventory {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconInventoryOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconKey {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconKeyboard {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconKeyboardHide {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLightMode {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLike {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLink {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLive {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLoad {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLocationOn {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLock {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLockOpen {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLockPerson {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLogin {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLogout {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconLongText {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMail {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconManageAccounts {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMarkChatRead {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMarkChatUnread {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMention {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMenu {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuBook {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuBookFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMenuFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMessage {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMic {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMicOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMoreHorizontal {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconMoreVertikal {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconNews {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconNewsFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconNewsOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconNextPlan {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconNotifications {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconNotificationsActive {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconNotificationsOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconOpenInFull {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconOpenInNew {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPause {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPauseCircle {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPeopleAlt {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPerson {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPersonOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPhone {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPhotoCamera {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPictureAsPdf {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPictureInPicture {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPin {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPinOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPlace {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPlayArrow {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPoll {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPostApproval {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPresent {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPreview {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPrint {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPublic {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPublicOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconPublishedWithChanges {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioFourToThree {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioFreeform {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioSixteenToNine {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioSquare {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioThreeToFour {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRatioThreeToTwo {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRecieved {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRemove {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRemoveCircle {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRemoveModerator {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconReply {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconReport {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRoadmap {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRotateLeft {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconRotateRight {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconScreenshare {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconScreenshareOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconSearch {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconSearchStrong {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconSecure {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconSend {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconSettings {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconShortText {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconSimplify {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconSpellcheck {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconStars {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconStickyNote {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconStop {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconStopCircle {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconSunny {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconSync {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconTasks {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconTasksFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconTerminal {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconTime {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconTimeFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconToday {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconTodayFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconTranslate {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconTreeStructure {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconUndo {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconUnlockPerson {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconUpload {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconUserAdd {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconUserAssign {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoCamera {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoCameraOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoLibrary {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconVideoPlayer {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconViewAgenda {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconVisibility {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconVisibilityOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconVoice {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconVolumeUp {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconWarning {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconWebAsset {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconWebAssetOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlIconWork {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size": SwirlIconSize;
     }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
+        /**
+          * @default "sm"
+         */
         "borderRadius"?: SwirlImageGridBorderRadius;
         "label"?: string;
     }
     interface SwirlImageGridItem {
         "alt": string;
+        /**
+          * @default "Pause GIF playback"
+         */
         "gifPauseLabel"?: string;
+        /**
+          * @default "Continue GIF playback"
+         */
         "gifPlayLabel"?: string;
         "icon"?: string;
         "interactive"?: boolean;
@@ -1690,18 +2804,30 @@ export namespace Components {
     }
     interface SwirlInlineError {
         "message": string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlInlineErrorSize;
     }
     interface SwirlInlineNotification {
         "heading": string;
         "hideHeading"?: boolean;
+        /**
+          * @default "status"
+         */
         "importance"?: SwirlInlineNotificationAriaRole;
+        /**
+          * @default "info"
+         */
         "intent"?: SwirlInlineNotificationIntent;
     }
     interface SwirlInlineStatus {
         "icon"?: string;
         "intent": SwirlInlineStatusIntent;
         "message": string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlInlineStatusSize;
     }
     interface SwirlLightbox {
@@ -1714,21 +2840,45 @@ export namespace Components {
           * Close the lightbox.
          */
         "close": () => Promise<void>;
+        /**
+          * @default "Close modal"
+         */
         "closeButtonLabel"?: string;
+        /**
+          * @default true
+         */
         "downloadButtonEnabled"?: boolean;
+        /**
+          * @default "Download"
+         */
         "downloadButtonLabel"?: string;
         "hideMenu"?: boolean;
         "label": string;
+        /**
+          * @default "Slide options"
+         */
         "menuLabel"?: string;
+        /**
+          * @default "Open slide menu"
+         */
         "menuTriggerLabel"?: string;
+        /**
+          * @default "Next slide"
+         */
         "nextSlideButtonLabel"?: string;
         /**
           * Open the lightbox.
          */
         "open": () => Promise<void>;
+        /**
+          * @default "Previous slide"
+         */
         "previousSlideButtonLabel"?: string;
     }
     interface SwirlLink {
+        /**
+          * @default "default"
+         */
         "color"?: SwirlLinkColor;
         "href": string;
         "label": string;
@@ -1742,6 +2892,9 @@ export namespace Components {
           * @returns
          */
         "activateMenuItem": (menuItem: HTMLSwirlMenuItemElement) => Promise<void>;
+        /**
+          * @default true
+         */
         "active"?: boolean;
         /**
           * Close and reset the menu. Only callable on a root menu.
@@ -1764,9 +2917,21 @@ export namespace Components {
          */
         "goBack": () => Promise<void>;
         "label": string;
+        /**
+          * @default 0
+         */
         "level"?: number;
+        /**
+          * @default "Back"
+         */
         "mobileBackButtonLabel"?: string;
+        /**
+          * @default "Close menu"
+         */
         "mobileCloseMenuButtonLabel"?: string;
+        /**
+          * @default "Done"
+         */
         "mobileDoneButtonLabel"?: string;
         /**
           * Update the displayed active item.
@@ -1779,6 +2944,9 @@ export namespace Components {
          */
         "updateSelection": (item: HTMLSwirlOptionListItemElement) => Promise<void>;
         "value"?: string;
+        /**
+          * @default "action"
+         */
         "variant"?: SwirlMenuVariant;
     }
     interface SwirlMenuItem {
@@ -1795,6 +2963,9 @@ export namespace Components {
         "getSubMenu": () => Promise<HTMLSwirlMenuElement>;
         "icon"?: string;
         "iconBadge"?: string;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlActionListItemIntent1;
         "label": string;
         "suffix"?: string;
@@ -1805,14 +2976,26 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlModal {
+        /**
+          * @default true
+         */
         "closable"?: boolean;
         /**
           * Close the modal. Pass `true` to force close even if the modal is not closable.
          */
         "close": (force?: boolean) => Promise<void>;
+        /**
+          * @default "Close modal"
+         */
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
+        /**
+          * @default "Exit full screen"
+         */
         "fullscreenDisableButtonLabel"?: string;
+        /**
+          * @default "Full screen"
+         */
         "fullscreenEnableButtonLabel"?: string;
         "hasSidebarCloseButton"?: boolean;
         "height"?: string;
@@ -1829,6 +3012,9 @@ export namespace Components {
           * Open the modal.
          */
         "open": () => Promise<void>;
+        /**
+          * @default true
+         */
         "padded"?: boolean;
         "primaryActionLabel"?: string;
         "primaryContentFlex"?: string;
@@ -1843,93 +3029,228 @@ export namespace Components {
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
         "setFullscreen": (isFullscreen: boolean) => Promise<void>;
         "showFullscreenButton": boolean;
+        /**
+          * @default "Close sidebar"
+         */
         "sidebarCloseButtonLabel"?: string;
+        /**
+          * @default true
+         */
         "sidebarFooterPadded"?: boolean;
         "sidebarLabel"?: string;
+        /**
+          * @default true
+         */
         "sidebarPadded"?: boolean;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
+        /**
+          * @default true
+         */
         "allowDeselect"?: boolean;
         "allowDrag"?: boolean;
+        /**
+          * @default "Item grabbed. Use arrow keys to move item up or down. Use spacebar to save position."
+         */
         "assistiveTextItemGrabbed"?: string;
+        /**
+          * @default "Item moved. New position:"
+         */
         "assistiveTextItemMoved"?: string;
+        /**
+          * @default "Current position:"
+         */
         "assistiveTextItemMoving"?: string;
         "disabled"?: boolean;
         "label"?: string;
         "multiSelect"?: boolean;
         "optionListId"?: string;
+        /**
+          * @default []
+         */
         "value"?: string[];
     }
     interface SwirlOptionListItem {
         "allowDrag"?: boolean;
+        /**
+          * @default "single-select"
+         */
         "context"?: SwirlOptionListItemContext;
         "description"?: string;
         "disabled"?: boolean;
+        /**
+          * @default "Press spacebar to toggle grab"
+         */
         "dragHandleDescription"?: string;
+        /**
+          * @default "Move option"
+         */
         "dragHandleLabel"?: string;
         "dragging"?: boolean;
         "icon"?: string;
         "iconBadge"?: string;
         "label": string;
+        /**
+          * @default false
+         */
         "selected"?: boolean;
+        /**
+          * @default "option"
+         */
         "swirlAriaRole"?: SwirlOptionListItemRole;
         "value": string;
     }
     interface SwirlOptionListSection {
+        /**
+          * @default false
+         */
         "hasSeparator"?: boolean;
         "label": string;
+        /**
+          * @default "4"
+         */
         "separatorSpacing"?: SwirlSeparatorSpacing;
+        /**
+          * @default "0"
+         */
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlPagination {
+        /**
+          * @default "First page"
+         */
         "firstPageButtonLabel"?: string;
         "label": string;
+        /**
+          * @default "Last page"
+         */
         "lastPageButtonLabel"?: string;
+        /**
+          * @default "Next page"
+         */
         "nextButtonLabel"?: string;
         "page": number;
+        /**
+          * @default "out of"
+         */
         "pageLabel"?: string;
+        /**
+          * @default "Select a page"
+         */
         "pageSelectLabel"?: string;
+        /**
+          * @default 10
+         */
         "pageSize"?: number;
+        /**
+          * @default [10, 25, 50]
+         */
         "pageSizeOptions"?: number[];
+        /**
+          * @default "Items per page:"
+         */
         "pageSizeSelectLabel"?: string;
         "pages": number;
+        /**
+          * @default "Previous page"
+         */
         "prevButtonLabel"?: string;
         "showPageSizeSelect"?: boolean;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlPaginationVariant;
     }
     interface SwirlPdfReader {
+        /**
+          * @default "Full width"
+         */
         "autoZoomLabel"?: string;
         /**
           * Close the reader.
          */
         "close": () => Promise<void>;
+        /**
+          * @default "Close PDF viewer"
+         */
         "closeButtonLabel"?: string;
+        /**
+          * @default true
+         */
         "downloadButtonEnabled"?: boolean;
+        /**
+          * @default "Download PDF"
+         */
         "downloadButtonLabel"?: string;
         "file": string;
         "fileName"?: string;
+        /**
+          * @default "PDF Document"
+         */
         "fileTypeLabel"?: string;
         "label": string;
+        /**
+          * @default "File menu"
+         */
         "menuLabel"?: string;
+        /**
+          * @default "Open file menu"
+         */
         "menuTriggerLabel"?: string;
         /**
           * Open the reader.
          */
         "open": () => Promise<void>;
         "pdfWorkerSrc"?: string;
+        /**
+          * @default true
+         */
         "printButtonEnabled"?: boolean;
+        /**
+          * @default "Print PDF"
+         */
         "printButtonLabel"?: string;
+        /**
+          * @default "Toggle side by side view"
+         */
         "sideBySideButtonLabel"?: string;
+        /**
+          * @default false
+         */
         "skipNativeDownload"?: boolean;
+        /**
+          * @default "Scroll to page"
+         */
         "thumbnailButtonLabel"?: string;
+        /**
+          * @default "Toggle thumbnails"
+         */
         "thumbnailsButtonLabel"?: string;
+        /**
+          * @default "Page thumbnails"
+         */
         "thumbnailsLabel"?: string;
+        /**
+          * @default "Zoom in"
+         */
         "zoomInButtonLabel"?: string;
+        /**
+          * @default "Zoom out"
+         */
         "zoomOutButtonLabel"?: string;
+        /**
+          * @default "Select zoom"
+         */
         "zoomSelectLabel"?: string;
     }
     interface SwirlPopover {
+        /**
+          * @default "scale-in-xy"
+         */
         "animation"?: SwirlPopoverAnimation;
         /**
           * Close the popover.
@@ -1937,6 +3258,9 @@ export namespace Components {
          */
         "close": (disableFocus?: boolean) => Promise<void>;
         "disableScrollLock"?: boolean;
+        /**
+          * @default true
+         */
         "enableFlip"?: boolean;
         "fullscreenBottomSheet"?: boolean;
         /**
@@ -1945,16 +3269,31 @@ export namespace Components {
          */
         "isOpen": () => Promise<boolean>;
         "label": string;
+        /**
+          * @default "22rem"
+         */
         "maxHeight"?: string;
+        /**
+          * @default 8
+         */
         "offset"?: number | number[];
         /**
           * Open the popover.
           * @returns
          */
         "open": (triggerEl?: HTMLElement, disableFocus?: boolean) => Promise<void>;
+        /**
+          * @default true
+         */
         "padded"?: boolean;
+        /**
+          * @default "bottom-start"
+         */
         "placement"?: Placement;
         "popoverId"?: string;
+        /**
+          * @default true
+         */
         "returnFocusToTrigger"?: boolean;
         "transparent"?: boolean;
         "trigger"?: string | HTMLElement;
@@ -1962,24 +3301,51 @@ export namespace Components {
         "useContainerWidth"?: boolean | string;
     }
     interface SwirlPopoverTrigger {
+        /**
+          * @default true
+         */
         "hidePopoverWhenInvisible"?: boolean;
         "hoverDelay"?: number;
         "hoverLingerDuration"?: number;
         "parentScrollContainer"?: HTMLElement;
+        /**
+          * @default true
+         */
         "setAriaAttributes"?: boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement;
+        /**
+          * @default true
+         */
         "triggerOnClick"?: boolean;
+        /**
+          * @default false
+         */
         "triggerOnHover"?: boolean;
     }
     interface SwirlProgressIndicator {
         "label": string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlProgressIndicatorSize;
+        /**
+          * @default 0
+         */
         "value"?: number;
+        /**
+          * @default "bar"
+         */
         "variant"?: SwirlProgressIndicatorVariant;
     }
     interface SwirlRadio {
+        /**
+          * @default false
+         */
         "checked"?: SwirlRadioState;
         "description"?: string;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
@@ -1987,6 +3353,9 @@ export namespace Components {
         "label"?: string;
         "tooltip"?: string;
         "value": string;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlRadioVariant;
     }
     interface SwirlRadioGroup {
@@ -1995,8 +3364,17 @@ export namespace Components {
     }
     interface SwirlResourceList {
         "allowDrag"?: boolean;
+        /**
+          * @default "Item grabbed. Use arrow keys to move item up or down. Use spacebar to save position."
+         */
         "assistiveTextItemGrabbed"?: string;
+        /**
+          * @default "Item moved. New position:"
+         */
         "assistiveTextItemMoved"?: string;
+        /**
+          * @default "Current position:"
+         */
         "assistiveTextItemMoving"?: string;
         "controllingElement"?: HTMLElement;
         "label"?: string;
@@ -2005,37 +3383,67 @@ export namespace Components {
         "paddingBlockStart"?: SwirlBoxPadding1;
         "paddingInlineEnd"?: SwirlBoxPadding1;
         "paddingInlineStart"?: SwirlBoxPadding1;
+        /**
+          * @default "0"
+         */
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlResourceListFileItem {
         "description"?: string;
         "errorMessage"?: string;
+        /**
+          * @default "<swirl-icon-file></swirl-icon-file>"
+         */
         "icon"?: string;
         "label": string;
         "loading": boolean;
         "removable"?: boolean;
+        /**
+          * @default "Remove file"
+         */
         "removeButtonLabel"?: string;
     }
     interface SwirlResourceListItem {
         "active"?: boolean;
         "allowDrag"?: boolean;
+        /**
+          * @default true
+         */
         "allowHtml"?: boolean;
+        /**
+          * @default false
+         */
         "checked"?: boolean;
         "compact"?: boolean;
         "description"?: string;
         "descriptionWrap"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default "Press spacebar to toggle grab"
+         */
         "dragHandleDescription"?: string;
+        /**
+          * @default "Move item"
+         */
         "dragHandleLabel"?: string;
         "dragging"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
+        /**
+          * @default true
+         */
         "interactive"?: boolean;
         "label": string;
         "labelMinHeight"?: string;
+        /**
+          * @default "medium"
+         */
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "labelWrap"?: boolean;
         "menuTriggerId"?: string;
+        /**
+          * @default "Options"
+         */
         "menuTriggerLabel"?: string;
         "meta"?: string;
         "selectable"?: boolean;
@@ -2043,34 +3451,64 @@ export namespace Components {
         "value"?: string;
     }
     interface SwirlResourceListSection {
+        /**
+          * @default false
+         */
         "hasSeparator"?: boolean;
         "label": string;
+        /**
+          * @default "4"
+         */
         "separatorSpacing"?: SwirlSeparatorSpacing;
+        /**
+          * @default "0"
+         */
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlSearch {
         "autoFocus"?: boolean;
+        /**
+          * @default "Clear search term"
+         */
         "clearButtonLabel"?: string;
         "disabled"?: boolean;
         "inputId"?: string;
         "inputName"?: string;
         "label"?: string;
+        /**
+          * @default "Search …"
+         */
         "placeholder"?: string;
         "value"?: string;
+        /**
+          * @default "filled"
+         */
         "variant"?: SwirlSearchVariant;
     }
     interface SwirlSelect {
+        /**
+          * @default true
+         */
         "allowDeselect"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default "No results found."
+         */
         "emptyListLabel"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
         "multiSelect"?: boolean;
         "required"?: boolean;
+        /**
+          * @default "Search options"
+         */
         "searchInputLabel"?: string;
         "searchLoading"?: boolean;
         "searchPlaceholder"?: string;
+        /**
+          * @default Math.round(Math.random() * 1000000).toString()
+         */
         "selectId"?: string;
         "standalone"?: boolean;
         "swirlAriaDescribedby"?: string;
@@ -2078,28 +3516,73 @@ export namespace Components {
         "withSearch"?: boolean;
     }
     interface SwirlSeparator {
+        /**
+          * @default "default"
+         */
         "borderColor"?: SwirlSeparatorColor;
+        /**
+          * @default "default"
+         */
         "color"?: SwirlSeparatorColor;
         "label"?: string;
+        /**
+          * @default "horizontal"
+         */
         "orientation"?: SwirlSeparatorOrientation;
+        /**
+          * @default "8"
+         */
         "spacing"?: SwirlSeparatorSpacing1;
     }
     interface SwirlShellLayout {
         "brandedHeader"?: boolean;
+        /**
+          * @default "Navigate back"
+         */
         "browserBackButtonLabel"?: string;
+        /**
+          * @default "Navigate forward"
+         */
         "browserForwardButtonLabel"?: string;
+        /**
+          * @default "Collapse navigation"
+         */
         "collapseNavigationButtonLabel"?: string;
+        /**
+          * @default true
+         */
         "enableSecondaryNavGridLayout"?: boolean;
+        /**
+          * @default "Expand navigation"
+         */
         "expandNavigationButtonLabel"?: string;
+        /**
+          * @default "Grid"
+         */
         "gridNavLayoutToggleLabel"?: string;
         /**
           * Hides the mobile navigation.
          */
         "hideMobileNavigation": () => Promise<void>;
+        /**
+          * @default "Close navigation"
+         */
         "hideMobileNavigationButtonLabel"?: string;
+        /**
+          * @default "List"
+         */
         "listNavLayoutToggleLabel"?: string;
+        /**
+          * @default "Main"
+         */
         "navigationLabel"?: string;
+        /**
+          * @default "Show less"
+         */
         "secondaryNavCollapseLabel"?: string;
+        /**
+          * @default "Show more"
+         */
         "secondaryNavExpandLabel"?: string;
         /**
           * Opens the mobile navigation.
@@ -2108,17 +3591,32 @@ export namespace Components {
         "sidebarActive"?: boolean;
         "sidebarToggleBadge"?: string | boolean;
         "sidebarToggleBadgeAriaLabel"?: string;
+        /**
+          * @default "notifications"
+         */
         "sidebarToggleIcon"?: string;
+        /**
+          * @default "Toggle sidebar"
+         */
         "sidebarToggleLabel"?: string;
+        /**
+          * @default "Skip to main content"
+         */
         "skipLinkLabel"?: string;
     }
     interface SwirlShellNavigationItem {
         "active"?: boolean;
         "badgeLabel"?: string;
         "boxed"?: boolean;
+        /**
+          * @default false
+         */
         "hideLabel": boolean;
         "href"?: string;
         "inlineLabel"?: boolean;
+        /**
+          * @default "default"
+         */
         "inlineLabelColor": SwirlLabelColor;
         "label": string;
         "target"?: string;
@@ -2126,30 +3624,66 @@ export namespace Components {
         "withGradient"?: boolean;
     }
     interface SwirlSkeletonBox {
+        /**
+          * @default true
+         */
         "animated"?: boolean;
         "aspectRatio"?: string;
+        /**
+          * @default "base"
+         */
         "borderRadius"?: SwirlSkeletonBoxBorderRadius;
         "height"?: string;
         "width"?: string;
     }
     interface SwirlSkeletonText {
+        /**
+          * @default true
+         */
         "animated"?: boolean;
+        /**
+          * @default 1
+         */
         "lines"?: number;
+        /**
+          * @default "base"
+         */
         "size"?: SwirlSkeletonTextSize;
     }
     interface SwirlSpinner {
         "label"?: string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlSpinnerSize;
     }
     interface SwirlStack {
+        /**
+          * @default "start"
+         */
         "align"?: SwirlStackAlign;
+        /**
+          * @default "div"
+         */
         "as"?: string;
         "columnSpacing"?: SwirlStackSpacing1;
         "height"?: string;
+        /**
+          * @default "start"
+         */
         "justify"?: SwirlStackJustify;
+        /**
+          * @default "vertical"
+         */
         "orientation"?: SwirlStackOrientation;
         "rowSpacing"?: SwirlStackSpacing1;
+        /**
+          * @default "0"
+         */
         "spacing"?: SwirlStackSpacing1;
+        /**
+          * @default false
+         */
         "wrap"?: boolean;
     }
     interface SwirlStatusIndicator {
@@ -2157,12 +3691,21 @@ export namespace Components {
         "label": string;
     }
     interface SwirlSwitch {
+        /**
+          * @default false
+         */
         "checked"?: boolean;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
         "label"?: string;
+        /**
+          * @default "end"
+         */
         "labelPosition"?: SwirlSwitchLabelPosition;
         "swirlAriaLabel"?: string;
         /**
@@ -2173,207 +3716,405 @@ export namespace Components {
     }
     interface SwirlSymbol {
         "glyph": string;
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolAccountCircle {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolAlternateEmail {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolAndroid {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolAnnouncement {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolBackup {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolBeachAccess {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolBookmark {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolCloud {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolCoronavirus {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolDesktopWindows {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolDirectionsCarFilled {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolEditCalendar {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolEmail {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolEmojiFoodBeverage {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolEventMenu {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolFacebook {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolFavorite {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolFitnessCenter {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolFlag {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolFolder {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolGlobe {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolGroups {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolHelp {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolImage {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolInfoMenu {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolInstagram {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolIos {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolLanguage {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolLeaderboard {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolLightbulb {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolLinkedin {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolLocationOn {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolLoyalty {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolMapsHomeWork {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolNotifications {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolOpenInNew {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolPedalBike {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolPinterest {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolPolicy {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolPushPin {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolRedeem {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolReportProblem {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolRestaurant {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolRoadmap {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolRoom {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolSavings {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolSettingsVoice {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolShoppingCart {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolSmartphone {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolStar {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolSupervisorAccount {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolThumbsUpDown {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolTwitter {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolWbSunny {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolWechat {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolWeibo {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolWork {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolXing {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlSymbolYoutube {
+        /**
+          * @default 24
+         */
         "size": SwirlSymbolSize;
     }
     interface SwirlTab {
         "active"?: boolean;
         "icon"?: string;
         "label": string;
+        /**
+          * @default "8"
+         */
         "padding"?: SwirlTabPadding;
         "tabId": string;
     }
     interface SwirlTabBar {
         "disableTabSemantics"?: boolean;
+        /**
+          * @default "start"
+         */
         "justify"?: SwirlTabBarJustify;
         "label": string;
         "paddingBlockEnd"?: SwirlTabBarPadding;
         "paddingBlockStart"?: SwirlTabBarPadding;
         "paddingInlineEnd"?: SwirlTabBarPadding;
         "paddingInlineStart"?: SwirlTabBarPadding;
+        /**
+          * @default []
+         */
         "tabs": SwirlTabBarTab[];
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlTabBarVariant;
     }
     interface SwirlTable {
         "caption"?: string;
         "dragDropHandle"?: string;
+        /**
+          * @default defaultDragDropInstructions
+         */
         "dragDropInstructions": { end: string; initial: string; moved: string; start: string; };
+        /**
+          * @default "No results found."
+         */
         "emptyStateLabel"?: string;
         "enableDragDrop"?: boolean;
         "label": string;
@@ -2386,6 +4127,9 @@ export namespace Components {
     }
     interface SwirlTableColumn {
         "maxWidth"?: string;
+        /**
+          * @default "fit-content"
+         */
         "minWidth"?: string;
         "sort"?: SwirlTableColumnSort;
         "sortable"?: boolean;
@@ -2397,7 +4141,13 @@ export namespace Components {
         "index"?: number;
     }
     interface SwirlTableRowGroup {
+        /**
+          * @default "Previous slide"
+         */
         "collapseButtonLabel"?: string;
+        /**
+          * @default false
+         */
         "collapsible"?: boolean;
         "label": string;
         "tooltip"?: string;
@@ -2415,46 +4165,106 @@ export namespace Components {
         "tabBarPaddingBlockStart"?: SwirlTabBarPadding1;
         "tabBarPaddingInlineEnd"?: SwirlTabBarPadding1;
         "tabBarPaddingInlineStart"?: SwirlTabBarPadding1;
+        /**
+          * @default "default"
+         */
         "tabBarVariant"?: SwirlTabBarVariant1;
     }
     interface SwirlTag {
         "bordered"?: boolean;
         "icon"?: string;
+        /**
+          * @default "start"
+         */
         "iconPosition": SwirlTagIconPosition;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlTagIntent;
         "label": string;
         "removable"?: boolean;
+        /**
+          * @default "Remove"
+         */
         "removalButtonLabel"?: string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlTagSize;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlTagVariant;
     }
     interface SwirlText {
+        /**
+          * @default "start"
+         */
         "align"?: SwirlTextAlign;
+        /**
+          * @default "p"
+         */
         "as"?: string;
         "balance"?: boolean;
+        /**
+          * @default "default"
+         */
         "color"?: SwirlTextColor;
+        /**
+          * @default "text"
+         */
         "fontFamily"?: SwirlTextFontFamily;
+        /**
+          * @default "normal"
+         */
         "fontStyle"?: SwirlTextFontStyle;
         "lines"?: number;
+        /**
+          * @default true
+         */
         "responsive"?: boolean;
+        /**
+          * @default "base"
+         */
         "size"?: SwirlTextSize;
         "truncate"?: boolean;
+        /**
+          * @default "end"
+         */
         "truncateDirection"?: SwirlTextTruncateDirection;
+        /**
+          * @default "normal"
+         */
         "weight"?: SwirlTextWeight;
+        /**
+          * @default "normal"
+         */
         "whiteSpace"?: SwirlTextWhiteSpace;
     }
     interface SwirlTextInput {
+        /**
+          * @default "on"
+         */
         "autoComplete"?: string;
         "autoFocus"?: boolean;
         "autoGrow"?: boolean;
         "autoSelect"?: boolean;
         "blurInput": () => Promise<void>;
+        /**
+          * @default "Used characters"
+         */
         "characterCounterLabel"?: string;
+        /**
+          * @default "Clear input"
+         */
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
         "focusInput": () => Promise<void>;
+        /**
+          * @default "default"
+         */
         "fontSize"?: SwirlTextInputFontSize;
         "inline"?: boolean;
         "inputName"?: string;
@@ -2463,10 +4273,16 @@ export namespace Components {
         "maxLength"?: number;
         "min"?: number;
         "mode"?: SwirlTextInputMode1;
+        /**
+          * @default "Toggle password display"
+         */
         "passwordToggleLabel"?: string;
         "placeholder"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
+        /**
+          * @default 1
+         */
         "rows"?: number;
         "showCharacterCounter"?: boolean;
         "spellCheck"?: boolean;
@@ -2477,6 +4293,9 @@ export namespace Components {
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
         "swirlRole"?: string;
+        /**
+          * @default "text"
+         */
         "type"?: SwirlTextInputType;
         "value"?: string;
     }
@@ -2503,15 +4322,33 @@ export namespace Components {
     }
     interface SwirlThumbnail {
         "alt": string;
+        /**
+          * @default "<swirl-icon-crop></swirl-icon-crop>"
+         */
         "editButtonIcon"?: string;
+        /**
+          * @default "Edit"
+         */
         "editButtonLabel"?: string;
+        /**
+          * @default "landscape"
+         */
         "format"?: SwirlThumbnailFormat;
         "interactive"?: boolean;
         "progress"?: number;
+        /**
+          * @default "Loading progress"
+         */
         "progressLabel"?: string;
+        /**
+          * @default "Remove"
+         */
         "removeButtonLabel"?: string;
         "showEditButton"?: boolean;
         "showRemoveButton"?: boolean;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlThumbnailSize;
         "src": string;
         "timestamp"?: string;
@@ -2520,20 +4357,32 @@ export namespace Components {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default "HH:mm"
+         */
         "format"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
+        /**
+          * @default "hh:mm"
+         */
         "placeholder"?: string;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
     interface SwirlToast {
+        /**
+          * @default "Dismiss"
+         */
         "accessibleDismissLabel"?: string;
         "content"?: string;
         "dismissLabel"?: string;
         "duration"?: number;
         "icon"?: string;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlToastIntent;
         "toastId": string;
     }
@@ -2564,6 +4413,9 @@ export namespace Components {
     interface SwirlToggleButton {
         "icon"?: string;
         "identifier": string;
+        /**
+          * @default false
+         */
         "isPressed": boolean;
         "label": string;
     }
@@ -2571,17 +4423,35 @@ export namespace Components {
         "elevated"?: boolean;
         "selectedToggleId": string;
         "swirlAriaLabel"?: string;
+        /**
+          * @default "flat"
+         */
         "variant"?: SwirlToggleGroupVariant;
     }
     interface SwirlToolbar {
         "label": string;
+        /**
+          * @default "horizontal"
+         */
         "orientation"?: SwirlToolbarOrientation;
     }
     interface SwirlTooltip {
+        /**
+          * @default true
+         */
         "active": boolean;
         "content": string;
+        /**
+          * @default 200
+         */
         "delay"?: number;
+        /**
+          * @default "top"
+         */
         "position"?: SwirlTooltipPosition;
+        /**
+          * @default "absolute"
+         */
         "positioning"?: Strategy;
     }
     interface SwirlTreeNavigation {
@@ -2591,18 +4461,33 @@ export namespace Components {
         "active"?: boolean;
         "collapse": () => Promise<void>;
         "expand": () => Promise<void>;
+        /**
+          * @default true
+         */
         "expandable"?: boolean;
+        /**
+          * @default false
+         */
         "external"?: boolean;
         "href"?: string;
         "icon"?: string;
         "label": string;
+        /**
+          * @default 1
+         */
         "level"?: number;
         "navigationItemId": string;
         "target"?: string;
     }
     interface SwirlTreeView {
         "canDrop"?: SwirlTreeViewCanDropHandler;
+        /**
+          * @default defaultDragDropInstructions
+         */
         "dragDropInstructions": { cannotBeDropped: string; end: string; initial: string; moved: string; start: string; };
+        /**
+          * @default "swirl-tree-view-item"
+         */
         "dragDropItemSelector"?: string;
         "enableDragDrop"?: boolean;
         "expandItems": (itemIds: string[]) => Promise<void>;
@@ -2614,6 +4499,9 @@ export namespace Components {
         "collapse": () => Promise<void>;
         "disableDrag"?: boolean;
         "expand": () => Promise<void>;
+        /**
+          * @default true
+         */
         "expandable"?: boolean;
         "href"?: string;
         "icon"?: string;
@@ -2625,6 +4513,9 @@ export namespace Components {
     }
     interface SwirlVideoThumbnail {
         "duration"?: string;
+        /**
+          * @default "Duration"
+         */
         "durationLabel"?: string;
         "label": string;
         "src": string;
@@ -4886,6 +6777,7 @@ declare global {
     };
     interface HTMLSwirlLightboxElementEventMap {
         "activeSlideChange": number;
+        "lightboxClose": void;
     }
     interface HTMLSwirlLightboxElement extends Components.SwirlLightbox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLSwirlLightboxElementEventMap>(type: K, listener: (this: HTMLSwirlLightboxElement, ev: SwirlLightboxCustomEvent<HTMLSwirlLightboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -6369,8 +8261,14 @@ declare namespace LocalJSX {
         "description"?: string;
         "disabled"?: boolean;
         "heading": string;
+        /**
+          * @default 2
+         */
         "headingLevel"?: SwirlHeadingLevel;
         "initiallyOpen"?: boolean;
+        /**
+          * @default uuid()
+         */
         "itemId"?: string;
         "onExpansionChange"?: (event: SwirlAccordionItemCustomEvent<boolean>) => void;
     }
@@ -6382,33 +8280,69 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "icon"?: string;
         "iconBadge"?: string;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlActionListItemIntent;
         "label": string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlActionListItemSize;
         "suffix"?: string;
         "swirlAriaExpanded"?: string;
         "swirlAriaHaspopup"?: string;
     }
     interface SwirlActionListSection {
+        /**
+          * @default false
+         */
         "hasSeparator"?: boolean;
         "label": string;
+        /**
+          * @default "4"
+         */
         "separatorSpacing"?: SwirlSeparatorSpacing;
+        /**
+          * @default "0"
+         */
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlAppBar {
+        /**
+          * @default "Go back"
+         */
         "backButtonLabel"?: string;
+        /**
+          * @default "<swirl-icon-close></swirl-icon-close>"
+         */
         "closeButtonIcon"?: string;
+        /**
+          * @default "Close"
+         */
         "closeButtonLabel"?: string;
         "onBackButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
         "onCloseButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
         "onStepDownButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
         "onStepUpButtonClick"?: (event: SwirlAppBarCustomEvent<MouseEvent>) => void;
+        /**
+          * @default "16"
+         */
         "paddingInlineEnd"?: SwirlAppBarPadding;
+        /**
+          * @default "16"
+         */
         "paddingInlineStart"?: SwirlAppBarPadding;
         "showBackButton"?: boolean;
         "showCloseButton"?: boolean;
         "showStepperControls"?: boolean;
+        /**
+          * @default "Next item"
+         */
         "stepDownButtonLabel"?: string;
+        /**
+          * @default "Previous item"
+         */
         "stepUpButtonLabel"?: string;
     }
     interface SwirlAppIcon {
@@ -6417,6 +8351,9 @@ declare namespace LocalJSX {
     }
     interface SwirlAppLayout {
         "appName": string;
+        /**
+          * @default "Back to navigation"
+         */
         "backToNavigationViewButtonLabel"?: string;
         "collapsibleNavigation"?: boolean;
         "ctaIcon"?: string;
@@ -6424,10 +8361,22 @@ declare namespace LocalJSX {
         "hasNavigation"?: boolean;
         "hideAppBar"?: boolean;
         "initialMobileView"?: SwirlAppLayoutMobileView;
+        /**
+          * @default "Go back"
+         */
         "navigationBackButtonLabel"?: string;
+        /**
+          * @default SWIRL_APP_LAYOUT_NAV_EXPANSION_STATE_STORAGE_KEY
+         */
         "navigationExpansionStateStorageKey"?: string;
         "navigationLabel"?: string;
+        /**
+          * @default "Show navigation"
+         */
         "navigationOverlayLabel"?: string;
+        /**
+          * @default "Toggle navigation"
+         */
         "navigationToggleLabel"?: string;
         "onCtaClick"?: (event: SwirlAppLayoutCustomEvent<MouseEvent>) => void;
         "onMobileViewChange"?: (event: SwirlAppLayoutCustomEvent<SwirlAppLayoutMobileView>) => void;
@@ -6435,21 +8384,39 @@ declare namespace LocalJSX {
         "onNavigationExpansionStateChange"?: (event: SwirlAppLayoutCustomEvent<SwirlAppLayoutNavigationExpansionState>) => void;
         "onSidebarToggle"?: (event: SwirlAppLayoutCustomEvent<boolean>) => void;
         "showNavigationBackButton"?: boolean;
+        /**
+          * @default "Close sidebar"
+         */
         "sidebarCloseButtonLabel"?: string;
         "sidebarHeading"?: string;
+        /**
+          * @default "slides"
+         */
         "transitionStyle"?: string;
     }
     interface SwirlAutocomplete {
         "autoSelect"?: boolean;
+        /**
+          * @default "Clear input"
+         */
         "clearButtonLabel"?: string;
+        /**
+          * @default true
+         */
         "clearable"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default async () => []
+         */
         "generateSuggestions"?: (
     term: string
   ) => Promise<SwirlAutocompleteSuggestion[]>;
         "inline"?: boolean;
         "invalid"?: boolean;
         "maxLength"?: number;
+        /**
+          * @default "Suggestions"
+         */
         "menuLabel"?: string;
         "mode"?: SwirlTextInputMode;
         "multiSelect"?: boolean;
@@ -6462,19 +8429,40 @@ declare namespace LocalJSX {
     }
     interface SwirlAvatar {
         "badge"?: string;
+        /**
+          * @default "bottom"
+         */
         "badgePosition"?: SwirlAvatarBadgePosition;
+        /**
+          * @default "kiwi"
+         */
         "color"?: SwirlAvatarColor;
         "icon"?: string;
         "initials"?: string;
+        /**
+          * @default false
+         */
         "interactive"?: boolean;
         "label": string;
         "loading"?: SwirlAvatarLoading;
         "onImageError"?: (event: SwirlAvatarCustomEvent<void>) => void;
         "onImageLoad"?: (event: SwirlAvatarCustomEvent<void>) => void;
+        /**
+          * @default false
+         */
         "showLabel"?: boolean;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlAvatarSize;
         "src"?: string;
+        /**
+          * @default "bottom"
+         */
         "toolPosition"?: SwirlAvatarToolPosition;
+        /**
+          * @default "round"
+         */
         "variant"?: SwirlAvatarVariant;
     }
     interface SwirlAvatarGroup {
@@ -6482,26 +8470,56 @@ declare namespace LocalJSX {
     }
     interface SwirlBadge {
         "icon"?: string;
+        /**
+          * @default "critical"
+         */
         "intent"?: SwirlBadgeIntent;
         "label": string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlBadgeSize;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlBadgeVariant;
     }
     interface SwirlBanner {
         "actionLabel"?: string;
         "content": string;
+        /**
+          * @default "Dismiss"
+         */
         "dismissLabel"?: string;
+        /**
+          * @default false
+         */
         "dismissable"?: boolean;
         "icon"?: string;
+        /**
+          * @default "status"
+         */
         "importance"?: SwirlBannerAriaRole;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlBannerIntent;
         "onAction"?: (event: SwirlBannerCustomEvent<MouseEvent>) => void;
         "onDismiss"?: (event: SwirlBannerCustomEvent<MouseEvent>) => void;
+        /**
+          * @default false
+         */
         "showIcon"?: boolean;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlBannerSize;
     }
     interface SwirlBox {
         "basis"?: string;
+        /**
+          * @default "default"
+         */
         "borderColor"?: SwirlBoxBorderColor;
         "bordered"?: boolean;
         "borderedBlockEnd"?: boolean;
@@ -6522,7 +8540,13 @@ declare namespace LocalJSX {
         "minHeight"?: string;
         "minWidth"?: string;
         "onComponentLoad"?: (event: SwirlBoxCustomEvent<void>) => void;
+        /**
+          * @default "visible"
+         */
         "overflow"?: SwirlBoxOverflow;
+        /**
+          * @default "0"
+         */
         "padding"?: SwirlBoxPadding;
         "paddingBlockEnd"?: SwirlBoxPadding;
         "paddingBlockStart"?: SwirlBoxPadding;
@@ -6543,13 +8567,22 @@ declare namespace LocalJSX {
         "hideLabel"?: boolean;
         "href"?: string;
         "icon"?: string;
+        /**
+          * @default "start"
+         */
         "iconPosition"?: SwirlButtonIconPosition;
         "inheritFontSize"?: boolean;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlButtonIntent;
         "label": string;
         "name"?: string;
         "pill"?: boolean;
         "pressed"?: boolean;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlButtonSize;
         "swirlAriaControls"?: string;
         "swirlAriaCurrent"?: string;
@@ -6558,31 +8591,61 @@ declare namespace LocalJSX {
         "swirlAriaHaspopup"?: string;
         "swirlAriaLabel"?: string;
         "target"?: string;
+        /**
+          * @default "center"
+         */
         "textAlign"?: SwirlButtonTextAlign;
+        /**
+          * @default "button"
+         */
         "type"?: SwirlButtonType;
         "value"?: string;
+        /**
+          * @default "ghost"
+         */
         "variant"?: SwirlButtonVariant;
     }
     interface SwirlButtonGroup {
+        /**
+          * @default "horizontal"
+         */
         "orientation"?: SwirlButtonGroupOrientation;
         "segmented"?: boolean;
+        /**
+          * @default "8"
+         */
         "spacing"?: SwirlButtonGroupSpacing;
         "stretch"?: boolean;
         "wrap"?: boolean;
     }
     interface SwirlCard {
+        /**
+          * @default "div"
+         */
         "as"?: string;
+        /**
+          * @default "base"
+         */
         "borderRadius"?: SwirlCardBorderRadius;
         "customBackgroundColor"?: string;
         "elevated"?: boolean;
+        /**
+          * @default 3
+         */
         "elevationLevel"?: SwirlCardElevationLevel;
         "height"?: string;
         "highlighted"?: boolean;
         "href"?: string;
         "imageAspectRatio"?: string;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlCardIntent;
         "interactive"?: boolean;
         "isBorderless"?: boolean;
+        /**
+          * @default "start"
+         */
         "justifyContent"?: SwirlCardJustifyContent;
         "linkTarget"?: string;
         "minHeight"?: string;
@@ -6600,18 +8663,39 @@ declare namespace LocalJSX {
      * slot - The slides
      */
     interface SwirlCarousel {
+        /**
+          * @default false
+         */
         "fade"?: boolean;
+        /**
+          * @default "default"
+         */
         "fadeColor"?: SwirlCarouselFadeColor;
         "label": string;
+        /**
+          * @default false
+         */
         "loopAround"?: boolean;
+        /**
+          * @default "Next slide"
+         */
         "nextSlideButtonLabel"?: string;
         "onActiveSlidesChange"?: (event: SwirlCarouselCustomEvent<HTMLSwirlCarouselSlideElement[]>) => void;
+        /**
+          * @default "16"
+         */
         "padding"?: SwirlCarouselPadding;
         "paddingBlockEnd"?: SwirlCarouselPadding;
         "paddingBlockStart"?: SwirlCarouselPadding;
         "paddingInlineEnd"?: SwirlCarouselPadding;
         "paddingInlineStart"?: SwirlCarouselPadding;
+        /**
+          * @default "Previous slide"
+         */
         "previousSlideButtonLabel"?: string;
+        /**
+          * @default "16"
+         */
         "spacing"?: SwirlCarouselSpacing;
     }
     /**
@@ -6621,38 +8705,77 @@ declare namespace LocalJSX {
         "aspectRatio"?: string;
         "label"?: string;
         "minHeight"?: string;
+        /**
+          * @default "15.5rem"
+         */
         "width"?: string;
     }
     interface SwirlCheckbox {
+        /**
+          * @default false
+         */
         "checked"?: SwirlCheckboxState;
         "description"?: string;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
         "invalid"?: boolean;
         "label"?: string;
+        /**
+          * @default "medium"
+         */
         "labelWeight"?: SwirlCheckboxLabelWeight;
         "onValueChange"?: (event: SwirlCheckboxCustomEvent<boolean>) => void;
         "swirlAriaDescribedby"?: string;
         "swirlAriaLabel"?: string;
         "value"?: string;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlCheckboxVariant;
     }
     interface SwirlChip {
+        /**
+          * @default "pill"
+         */
         "borderRadius"?: SwirlChipBorderRadius;
         "icon"?: string;
+        /**
+          * @default "default"
+         */
         "iconColor"?: SwirlChipIconColor;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlChipIntent;
+        /**
+          * @default false
+         */
         "interactive"?: boolean;
         "label": string;
         "onChipClick"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
         "onRemove"?: (event: SwirlChipCustomEvent<MouseEvent>) => void;
         "pressed"?: boolean;
         "progress"?: number;
+        /**
+          * @default "Loading progress"
+         */
         "progressBarLabel"?: string;
         "removable"?: boolean;
+        /**
+          * @default "Remove"
+         */
         "removeButtonLabel"?: string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlChipSize;
+        /**
+          * @default "outline"
+         */
         "variant"?: SwirlChipVariant;
     }
     interface SwirlColorInput {
@@ -6664,7 +8787,13 @@ declare namespace LocalJSX {
         "onInputBlur"?: (event: SwirlColorInputCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlColorInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlColorInputCustomEvent<string>) => void;
+        /**
+          * @default "Open color picker"
+         */
         "pickerButtonLabel"?: string;
+        /**
+          * @default "Color picker"
+         */
         "pickerLabel"?: string;
         "placeholder"?: string;
         "required"?: boolean;
@@ -6672,50 +8801,104 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlColumns {
+        /**
+          * @default "repeat(3, minmax(0, 1fr))"
+         */
         "columns"?: string;
         "spacing"?: SwirlColumnsSpacing;
     }
     interface SwirlConsoleLayout {
         "appName"?: string;
+        /**
+          * @default "Back"
+         */
         "backButonLabel"?: string;
         "heading"?: string;
+        /**
+          * @default "Help"
+         */
         "helpButonLabel"?: string;
+        /**
+          * @default "Hide main navigation"
+         */
         "hideNavigationButtonLabel"?: string;
+        /**
+          * @default "Admin"
+         */
         "logoText"?: string;
         "maxContentWidth"?: string;
+        /**
+          * @default "Main"
+         */
         "navigationLabel"?: string;
         "onBackButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
         "onHelpButtonClick"?: (event: SwirlConsoleLayoutCustomEvent<MouseEvent>) => void;
         "showBackButton"?: boolean;
         "showHelpButton"?: boolean;
+        /**
+          * @default "Show main navigation"
+         */
         "showNavigationButtonLabel"?: string;
         "subheading"?: string;
     }
     interface SwirlDateInput {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
+        /**
+          * @default () => false
+         */
         "datePickerDisableDate"?: (date: Date) => boolean;
+        /**
+          * @default "Date picker"
+         */
         "datePickerLabel"?: string;
+        /**
+          * @default "Open date picker"
+         */
         "datePickerTriggerLabel"?: string;
         "disabled"?: boolean;
+        /**
+          * @default 0
+         */
         "firstDayOfWeek"?: number;
+        /**
+          * @default "yyyy-MM-dd"
+         */
         "format"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "labels"?: WCDatepickerLabels;
+        /**
+          * @default "en-US"
+         */
         "locale"?: string;
         "onInvalidInput"?: (event: SwirlDateInputCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlDateInputCustomEvent<string>) => void;
+        /**
+          * @default "yyyy-mm-dd"
+         */
         "placeholder"?: string;
+        /**
+          * @default "input"
+         */
         "preferredInputMode"?: "input" | "pick";
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
     interface SwirlDatePicker {
+        /**
+          * @default () => false
+         */
         "disableDate"?: (date: Date) => boolean;
+        /**
+          * @default 0
+         */
         "firstDayOfWeek"?: number;
         "labels"?: WCDatepickerLabels;
+        /**
+          * @default "en-US"
+         */
         "locale"?: string;
         "onValueChange"?: (event: SwirlDatePickerCustomEvent<Date | Date[]>) => void;
         "range"?: boolean;
@@ -6725,6 +8908,9 @@ declare namespace LocalJSX {
     interface SwirlDescriptionList {
     }
     interface SwirlDescriptionListItem {
+        /**
+          * @default true
+         */
         "bordered"?: boolean;
         "maxWidth"?: string;
         "term": string;
@@ -6732,6 +8918,9 @@ declare namespace LocalJSX {
     }
     interface SwirlDialog {
         "hideLabel"?: boolean;
+        /**
+          * @default "primary"
+         */
         "intent"?: SwirlDialogIntent;
         "label": string;
         "onDialogClose"?: (event: SwirlDialogCustomEvent<void>) => void;
@@ -6742,32 +8931,74 @@ declare namespace LocalJSX {
         "secondaryActionLabel"?: string;
     }
     interface SwirlEmoji {
+        /**
+          * @default ""
+         */
         "label"?: string;
         "name": string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiClap {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiHappy {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiIdea {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiLove {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiSad {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmojiThumbsUp {
+        /**
+          * @default ""
+         */
         "label"?: string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlEmojiSize;
     }
     interface SwirlEmptyState {
@@ -6776,12 +9007,21 @@ declare namespace LocalJSX {
     }
     interface SwirlFileChip {
         "description"?: string;
+        /**
+          * @default "Download"
+         */
         "downloadButtonLabel"?: string;
         "loading"?: boolean;
+        /**
+          * @default "Loading"
+         */
         "loadingLabel"?: string;
         "name": string;
         "onDownload"?: (event: SwirlFileChipCustomEvent<void>) => void;
         "onPreview"?: (event: SwirlFileChipCustomEvent<void>) => void;
+        /**
+          * @default "Preview"
+         */
         "previewButtonLabel"?: string;
         "showDownloadButton"?: boolean;
         "showPreviewButton"?: boolean;
@@ -6791,27 +9031,54 @@ declare namespace LocalJSX {
     }
     interface SwirlFileUploader {
         "accept"?: string;
+        /**
+          * @default "Click to upload"
+         */
         "ctaLabel"?: string;
         "description"?: string;
+        /**
+          * @default false
+         */
         "descriptionAllowHtml"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default "or drag and drop."
+         */
         "dragDropLabel"?: string;
+        /**
+          * @default false
+         */
         "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
         "label": string;
         "multiple"?: boolean;
         "onValueChange"?: (event: SwirlFileUploaderCustomEvent<FileList>) => void;
+        /**
+          * @default true
+         */
         "showDropzone"?: boolean;
         "uploadButtonIcon"?: string;
+        /**
+          * @default "Select file"
+         */
         "uploadButtonLabel"?: string;
+        /**
+          * @default "flat"
+         */
         "uploadButtonVariant"?: SwirlButtonVariant1;
     }
     interface SwirlFileViewer {
+        /**
+          * @default true
+         */
         "active"?: boolean;
         "autoplay"?: boolean;
         "description"?: string;
         "disableDownload"?: boolean;
+        /**
+          * @default "File could not be loaded."
+         */
         "errorMessage"?: string;
         "file": string;
         "fileName"?: string;
@@ -6819,26 +9086,43 @@ declare namespace LocalJSX {
         "onDownloadStart"?: (event: SwirlFileViewerCustomEvent<void>) => void;
         "onVisiblePagesChange"?: (event: SwirlFileViewerCustomEvent<number[]>) => void;
         "pdfWorkerSrc"?: string;
+        /**
+          * @default false
+         */
         "skipNativeDownload"?: boolean;
         "thumbnailUrl"?: string;
         "type": string;
+        /**
+          * @default "File type is not supported."
+         */
         "typeUnsupportedMessage"?: string;
+        /**
+          * @default "single"
+         */
         "viewMode"?: SwirlFileViewerPdfViewMode;
+        /**
+          * @default 1
+         */
         "zoom"?: SwirlFileViewerPdfZoom;
     }
     interface SwirlFileViewerAudio {
         "autoplay"?: boolean;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerAudioCustomEvent<HTMLElement>) => void;
-        "type": string;
     }
     interface SwirlFileViewerCsv {
+        /**
+          * @default "File could not be loaded."
+         */
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerCsvCustomEvent<HTMLElement>) => void;
     }
     interface SwirlFileViewerFallback {
         "disableDownload"?: boolean;
+        /**
+          * @default "Download"
+         */
         "downloadButtonLabel"?: string;
         "file": string;
         "fileName"?: string;
@@ -6846,23 +9130,47 @@ declare namespace LocalJSX {
         "onDownload"?: (event: SwirlFileViewerFallbackCustomEvent<void>) => void;
     }
     interface SwirlFileViewerImage {
+        /**
+          * @default ""
+         */
         "description"?: string;
+        /**
+          * @default "File could not be loaded."
+         */
         "errorMessage"?: string;
         "file": string;
+        /**
+          * @default 3
+         */
         "maxZoom"?: number;
         "onActivate"?: (event: SwirlFileViewerImageCustomEvent<HTMLElement>) => void;
     }
     interface SwirlFileViewerPdf {
+        /**
+          * @default "File could not be loaded."
+         */
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerPdfCustomEvent<HTMLElement>) => void;
         "onVisiblePagesChange"?: (event: SwirlFileViewerPdfCustomEvent<number[]>) => void;
         "singlePageMode"?: boolean;
+        /**
+          * @default "single"
+         */
         "viewMode"?: SwirlFileViewerPdfViewMode1;
+        /**
+          * @default "/pdfjs/pdf.worker.min.mjs"
+         */
         "workerSrc"?: string;
+        /**
+          * @default 1
+         */
         "zoom"?: SwirlFileViewerPdfZoom1;
     }
     interface SwirlFileViewerText {
+        /**
+          * @default "File could not be loaded."
+         */
         "errorMessage"?: string;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerTextCustomEvent<HTMLElement>) => void;
@@ -6872,30 +9180,47 @@ declare namespace LocalJSX {
         "disableDownload"?: boolean;
         "file": string;
         "onActivate"?: (event: SwirlFileViewerVideoCustomEvent<HTMLElement>) => void;
-        "type": string;
     }
     interface SwirlFormControl {
         "description"?: string;
         "disabled"?: boolean;
         "errorMessage"?: string;
+        /**
+          * @default "default"
+         */
         "fontSize"?: SwirlFormControlFontSize;
         "hideLabel"?: boolean;
         "icon"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "label": string;
+        /**
+          * @default "inside"
+         */
         "labelPosition"?: SwirlFormControlLabelPosition;
         "secondaryLabel"?: string;
         "tooltip"?: string;
     }
     interface SwirlFormGroup {
+        /**
+          * @default "vertical"
+         */
         "orientation"?: SwirlFormGroupOrientation;
     }
     interface SwirlHeading {
+        /**
+          * @default "start"
+         */
         "align"?: SwirlHeadingAlign;
         "as"?: SwirlHeadingTag;
+        /**
+          * @default true
+         */
         "balance"?: boolean;
         "headingId"?: string;
+        /**
+          * @default 1
+         */
         "level"?: SwirlHeadingLevel1;
         "lines"?: number;
         "text": string;
@@ -6904,908 +9229,1589 @@ declare namespace LocalJSX {
     interface SwirlIcon {
         "color"?: SwirlIconColor;
         "glyph": string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAdd {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAddModerator {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAddPhoto {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAddReaction {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAdminPanelSettings {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAi {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAiFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconApps {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowBack {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowDownward {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowForward {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowLeft {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowRight {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowRightSmall {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconArrowUpward {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAspectRatio {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAttachment {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconAudioFile {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBarChart {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBeachAccess {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBeachAccessFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBlock {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBookmark {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconBookmarkFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCalendarAddOnFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCalendarRespond {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCalendarToday {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCall {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCallEnd {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCancel {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCancelFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconChatBubble {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconChats {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconChatsFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheck {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheckCircle {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheckCircleFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheckSmall {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCheckStrong {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconChevronLeft {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconChevronRight {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconClose {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCloseFullscreen {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCloseSmall {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCloudUpload {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconColumn {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconComment {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconContrast {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCopy {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconCrop {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDarkMode {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDateRange {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDelete {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDeployedCode {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDescription {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDesktop {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDirectory {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDirectoryFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDiscover {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDockLeft {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDockLeftCollapse {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDockLeftExpand {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDoorOpen {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDot {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDoubleArrowLeft {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDoubleArrowRight {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDownload {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconDragHandle {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconEdit {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconEditNote {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconEmojiMood {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconEmojiSatisfied {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconError {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconExpandLess {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconExpandMore {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconExperiment {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFile {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFileCopy {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFilter {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFolder {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFolderShared {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFormatHOne {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFormatListBulleted {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFullscreen {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconFullscreenExit {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGif {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroupAdd {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroupAssign {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroups {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconGroupsFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHamburgerMenu {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHealthAndSafety {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHelp {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHelpFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHighlight {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHistory {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHome {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconHrResting {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconImage {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconImproveText {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInfo {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInsertBelow {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInsertChart {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInsertOnTop {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInventory {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInventoryOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconKey {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconKeyboard {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconKeyboardHide {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLightMode {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLike {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLink {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLive {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLoad {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLocationOn {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLock {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLockOpen {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLockPerson {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLogin {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLogout {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconLongText {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMail {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconManageAccounts {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMarkChatRead {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMarkChatUnread {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMention {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenu {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenuBook {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenuBookFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMenuFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMessage {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMic {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMicOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMoreHorizontal {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconMoreVertikal {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNews {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNewsFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNewsOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNextPlan {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNotifications {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNotificationsActive {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconNotificationsOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconOpenInFull {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconOpenInNew {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPause {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPauseCircle {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPeopleAlt {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPerson {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPersonOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPhone {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPhotoCamera {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPictureAsPdf {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPictureInPicture {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPin {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPinOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPlace {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPlayArrow {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPoll {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPostApproval {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPresent {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPreview {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPrint {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPublic {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPublicOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconPublishedWithChanges {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRatioFourToThree {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRatioFreeform {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRatioSixteenToNine {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRatioSquare {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRatioThreeToFour {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRatioThreeToTwo {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRecieved {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRemove {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRemoveCircle {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRemoveModerator {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconReply {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconReport {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRoadmap {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRotateLeft {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconRotateRight {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconScreenshare {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconScreenshareOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSearch {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSearchStrong {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSecure {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSend {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSettings {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconShortText {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSimplify {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSpellcheck {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconStars {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconStickyNote {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconStop {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconStopCircle {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSunny {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconSync {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTasks {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTasksFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTerminal {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTime {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTimeFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconToday {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTodayFilled {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTranslate {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconTreeStructure {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUndo {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUnlockPerson {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUpload {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUserAdd {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconUserAssign {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVideoCamera {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVideoCameraOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVideoLibrary {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVideoPlayer {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconViewAgenda {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVisibility {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVisibilityOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVoice {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconVolumeUp {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconWarning {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconWebAsset {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconWebAssetOff {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlIconWork {
         "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
         "size"?: SwirlIconSize;
     }
     interface SwirlImageGrid {
         "aspectRatio"?: string;
+        /**
+          * @default "sm"
+         */
         "borderRadius"?: SwirlImageGridBorderRadius;
         "label"?: string;
     }
     interface SwirlImageGridItem {
         "alt": string;
+        /**
+          * @default "Pause GIF playback"
+         */
         "gifPauseLabel"?: string;
+        /**
+          * @default "Continue GIF playback"
+         */
         "gifPlayLabel"?: string;
         "icon"?: string;
         "interactive"?: boolean;
@@ -7820,33 +10826,70 @@ declare namespace LocalJSX {
     }
     interface SwirlInlineError {
         "message": string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlInlineErrorSize;
     }
     interface SwirlInlineNotification {
         "heading": string;
         "hideHeading"?: boolean;
+        /**
+          * @default "status"
+         */
         "importance"?: SwirlInlineNotificationAriaRole;
+        /**
+          * @default "info"
+         */
         "intent"?: SwirlInlineNotificationIntent;
     }
     interface SwirlInlineStatus {
         "icon"?: string;
         "intent": SwirlInlineStatusIntent;
         "message": string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlInlineStatusSize;
     }
     interface SwirlLightbox {
+        /**
+          * @default "Close modal"
+         */
         "closeButtonLabel"?: string;
+        /**
+          * @default true
+         */
         "downloadButtonEnabled"?: boolean;
+        /**
+          * @default "Download"
+         */
         "downloadButtonLabel"?: string;
         "hideMenu"?: boolean;
         "label": string;
+        /**
+          * @default "Slide options"
+         */
         "menuLabel"?: string;
+        /**
+          * @default "Open slide menu"
+         */
         "menuTriggerLabel"?: string;
+        /**
+          * @default "Next slide"
+         */
         "nextSlideButtonLabel"?: string;
         "onActiveSlideChange"?: (event: SwirlLightboxCustomEvent<number>) => void;
+        "onLightboxClose"?: (event: SwirlLightboxCustomEvent<void>) => void;
+        /**
+          * @default "Previous slide"
+         */
         "previousSlideButtonLabel"?: string;
     }
     interface SwirlLink {
+        /**
+          * @default "default"
+         */
         "color"?: SwirlLinkColor;
         "href": string;
         "label": string;
@@ -7855,15 +10898,33 @@ declare namespace LocalJSX {
     interface SwirlList {
     }
     interface SwirlMenu {
+        /**
+          * @default true
+         */
         "active"?: boolean;
         "label": string;
+        /**
+          * @default 0
+         */
         "level"?: number;
+        /**
+          * @default "Back"
+         */
         "mobileBackButtonLabel"?: string;
+        /**
+          * @default "Close menu"
+         */
         "mobileCloseMenuButtonLabel"?: string;
+        /**
+          * @default "Done"
+         */
         "mobileDoneButtonLabel"?: string;
         "onDone"?: (event: SwirlMenuCustomEvent<void>) => void;
         "onValueChange"?: (event: SwirlMenuCustomEvent<string>) => void;
         "value"?: string;
+        /**
+          * @default "action"
+         */
         "variant"?: SwirlMenuVariant;
     }
     interface SwirlMenuItem {
@@ -7872,16 +10933,31 @@ declare namespace LocalJSX {
         "expanded"?: boolean;
         "icon"?: string;
         "iconBadge"?: string;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlActionListItemIntent1;
         "label": string;
         "suffix"?: string;
         "value"?: string;
     }
     interface SwirlModal {
+        /**
+          * @default true
+         */
         "closable"?: boolean;
+        /**
+          * @default "Close modal"
+         */
         "closeButtonLabel"?: string;
         "contentGap"?: SwirlModalSpacing;
+        /**
+          * @default "Exit full screen"
+         */
         "fullscreenDisableButtonLabel"?: string;
+        /**
+          * @default "Full screen"
+         */
         "fullscreenEnableButtonLabel"?: string;
         "hasSidebarCloseButton"?: boolean;
         "height"?: string;
@@ -7901,6 +10977,9 @@ declare namespace LocalJSX {
         "onSecondaryAction"?: (event: SwirlModalCustomEvent<MouseEvent>) => void;
         "onSidebarClose"?: (event: SwirlModalCustomEvent<void>) => void;
         "onToggleFullscreen"?: (event: SwirlModalCustomEvent<boolean>) => void;
+        /**
+          * @default true
+         */
         "padded"?: boolean;
         "primaryActionLabel"?: string;
         "primaryContentFlex"?: string;
@@ -7914,17 +10993,41 @@ declare namespace LocalJSX {
         "secondaryContentPaddingInlineEnd"?: SwirlModalSpacing;
         "secondaryContentPaddingInlineStart"?: SwirlModalSpacing;
         "showFullscreenButton"?: boolean;
+        /**
+          * @default "Close sidebar"
+         */
         "sidebarCloseButtonLabel"?: string;
+        /**
+          * @default true
+         */
         "sidebarFooterPadded"?: boolean;
         "sidebarLabel"?: string;
+        /**
+          * @default true
+         */
         "sidebarPadded"?: boolean;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlModalVariant;
     }
     interface SwirlOptionList {
+        /**
+          * @default true
+         */
         "allowDeselect"?: boolean;
         "allowDrag"?: boolean;
+        /**
+          * @default "Item grabbed. Use arrow keys to move item up or down. Use spacebar to save position."
+         */
         "assistiveTextItemGrabbed"?: string;
+        /**
+          * @default "Item moved. New position:"
+         */
         "assistiveTextItemMoved"?: string;
+        /**
+          * @default "Current position:"
+         */
         "assistiveTextItemMoving"?: string;
         "disabled"?: boolean;
         "label"?: string;
@@ -7936,86 +11039,215 @@ declare namespace LocalJSX {
   }>) => void;
         "onValueChange"?: (event: SwirlOptionListCustomEvent<string[]>) => void;
         "optionListId"?: string;
+        /**
+          * @default []
+         */
         "value"?: string[];
     }
     interface SwirlOptionListItem {
         "allowDrag"?: boolean;
+        /**
+          * @default "single-select"
+         */
         "context"?: SwirlOptionListItemContext;
         "description"?: string;
         "disabled"?: boolean;
+        /**
+          * @default "Press spacebar to toggle grab"
+         */
         "dragHandleDescription"?: string;
+        /**
+          * @default "Move option"
+         */
         "dragHandleLabel"?: string;
         "dragging"?: boolean;
         "icon"?: string;
         "iconBadge"?: string;
         "label": string;
         "onToggleDrag"?: (event: SwirlOptionListItemCustomEvent<HTMLSwirlOptionListItemElement>) => void;
+        /**
+          * @default false
+         */
         "selected"?: boolean;
+        /**
+          * @default "option"
+         */
         "swirlAriaRole"?: SwirlOptionListItemRole;
         "value": string;
     }
     interface SwirlOptionListSection {
+        /**
+          * @default false
+         */
         "hasSeparator"?: boolean;
         "label": string;
+        /**
+          * @default "4"
+         */
         "separatorSpacing"?: SwirlSeparatorSpacing;
+        /**
+          * @default "0"
+         */
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlPagination {
+        /**
+          * @default "First page"
+         */
         "firstPageButtonLabel"?: string;
         "label": string;
+        /**
+          * @default "Last page"
+         */
         "lastPageButtonLabel"?: string;
+        /**
+          * @default "Next page"
+         */
         "nextButtonLabel"?: string;
         "onSetPage"?: (event: SwirlPaginationCustomEvent<number>) => void;
         "onSetPageSize"?: (event: SwirlPaginationCustomEvent<number>) => void;
         "page": number;
+        /**
+          * @default "out of"
+         */
         "pageLabel"?: string;
+        /**
+          * @default "Select a page"
+         */
         "pageSelectLabel"?: string;
+        /**
+          * @default 10
+         */
         "pageSize"?: number;
+        /**
+          * @default [10, 25, 50]
+         */
         "pageSizeOptions"?: number[];
+        /**
+          * @default "Items per page:"
+         */
         "pageSizeSelectLabel"?: string;
         "pages": number;
+        /**
+          * @default "Previous page"
+         */
         "prevButtonLabel"?: string;
         "showPageSizeSelect"?: boolean;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlPaginationVariant;
     }
     interface SwirlPdfReader {
+        /**
+          * @default "Full width"
+         */
         "autoZoomLabel"?: string;
+        /**
+          * @default "Close PDF viewer"
+         */
         "closeButtonLabel"?: string;
+        /**
+          * @default true
+         */
         "downloadButtonEnabled"?: boolean;
+        /**
+          * @default "Download PDF"
+         */
         "downloadButtonLabel"?: string;
         "file": string;
         "fileName"?: string;
+        /**
+          * @default "PDF Document"
+         */
         "fileTypeLabel"?: string;
         "label": string;
+        /**
+          * @default "File menu"
+         */
         "menuLabel"?: string;
+        /**
+          * @default "Open file menu"
+         */
         "menuTriggerLabel"?: string;
         "onModalClose"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "onModalOpen"?: (event: SwirlPdfReaderCustomEvent<void>) => void;
         "pdfWorkerSrc"?: string;
+        /**
+          * @default true
+         */
         "printButtonEnabled"?: boolean;
+        /**
+          * @default "Print PDF"
+         */
         "printButtonLabel"?: string;
+        /**
+          * @default "Toggle side by side view"
+         */
         "sideBySideButtonLabel"?: string;
+        /**
+          * @default false
+         */
         "skipNativeDownload"?: boolean;
+        /**
+          * @default "Scroll to page"
+         */
         "thumbnailButtonLabel"?: string;
+        /**
+          * @default "Toggle thumbnails"
+         */
         "thumbnailsButtonLabel"?: string;
+        /**
+          * @default "Page thumbnails"
+         */
         "thumbnailsLabel"?: string;
+        /**
+          * @default "Zoom in"
+         */
         "zoomInButtonLabel"?: string;
+        /**
+          * @default "Zoom out"
+         */
         "zoomOutButtonLabel"?: string;
+        /**
+          * @default "Select zoom"
+         */
         "zoomSelectLabel"?: string;
     }
     interface SwirlPopover {
+        /**
+          * @default "scale-in-xy"
+         */
         "animation"?: SwirlPopoverAnimation;
         "disableScrollLock"?: boolean;
+        /**
+          * @default true
+         */
         "enableFlip"?: boolean;
         "fullscreenBottomSheet"?: boolean;
         "label": string;
+        /**
+          * @default "22rem"
+         */
         "maxHeight"?: string;
+        /**
+          * @default 8
+         */
         "offset"?: number | number[];
         "onPopoverClose"?: (event: SwirlPopoverCustomEvent<void>) => void;
         "onPopoverOpen"?: (event: SwirlPopoverCustomEvent<{ position: ComputePositionReturn }>) => void;
+        /**
+          * @default true
+         */
         "padded"?: boolean;
+        /**
+          * @default "bottom-start"
+         */
         "placement"?: Placement;
         "popoverId"?: string;
+        /**
+          * @default true
+         */
         "returnFocusToTrigger"?: boolean;
         "transparent"?: boolean;
         "trigger"?: string | HTMLElement;
@@ -8023,24 +11255,51 @@ declare namespace LocalJSX {
         "useContainerWidth"?: boolean | string;
     }
     interface SwirlPopoverTrigger {
+        /**
+          * @default true
+         */
         "hidePopoverWhenInvisible"?: boolean;
         "hoverDelay"?: number;
         "hoverLingerDuration"?: number;
         "parentScrollContainer"?: HTMLElement;
+        /**
+          * @default true
+         */
         "setAriaAttributes"?: boolean;
         "swirlPopover": string | HTMLSwirlPopoverElement;
+        /**
+          * @default true
+         */
         "triggerOnClick"?: boolean;
+        /**
+          * @default false
+         */
         "triggerOnHover"?: boolean;
     }
     interface SwirlProgressIndicator {
         "label": string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlProgressIndicatorSize;
+        /**
+          * @default 0
+         */
         "value"?: number;
+        /**
+          * @default "bar"
+         */
         "variant"?: SwirlProgressIndicatorVariant;
     }
     interface SwirlRadio {
+        /**
+          * @default false
+         */
         "checked"?: SwirlRadioState;
         "description"?: string;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "inputId": string;
         "inputName": string;
@@ -8049,6 +11308,9 @@ declare namespace LocalJSX {
         "onValueChange"?: (event: SwirlRadioCustomEvent<string>) => void;
         "tooltip"?: string;
         "value": string;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlRadioVariant;
     }
     interface SwirlRadioGroup {
@@ -8058,8 +11320,17 @@ declare namespace LocalJSX {
     }
     interface SwirlResourceList {
         "allowDrag"?: boolean;
+        /**
+          * @default "Item grabbed. Use arrow keys to move item up or down. Use spacebar to save position."
+         */
         "assistiveTextItemGrabbed"?: string;
+        /**
+          * @default "Item moved. New position:"
+         */
         "assistiveTextItemMoved"?: string;
+        /**
+          * @default "Current position:"
+         */
         "assistiveTextItemMoving"?: string;
         "controllingElement"?: HTMLElement;
         "label"?: string;
@@ -8073,38 +11344,68 @@ declare namespace LocalJSX {
         "paddingBlockStart"?: SwirlBoxPadding1;
         "paddingInlineEnd"?: SwirlBoxPadding1;
         "paddingInlineStart"?: SwirlBoxPadding1;
+        /**
+          * @default "0"
+         */
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlResourceListFileItem {
         "description"?: string;
         "errorMessage"?: string;
+        /**
+          * @default "<swirl-icon-file></swirl-icon-file>"
+         */
         "icon"?: string;
         "label": string;
         "loading"?: boolean;
         "onRemove"?: (event: SwirlResourceListFileItemCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
+        /**
+          * @default "Remove file"
+         */
         "removeButtonLabel"?: string;
     }
     interface SwirlResourceListItem {
         "active"?: boolean;
         "allowDrag"?: boolean;
+        /**
+          * @default true
+         */
         "allowHtml"?: boolean;
+        /**
+          * @default false
+         */
         "checked"?: boolean;
         "compact"?: boolean;
         "description"?: string;
         "descriptionWrap"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default "Press spacebar to toggle grab"
+         */
         "dragHandleDescription"?: string;
+        /**
+          * @default "Move item"
+         */
         "dragHandleLabel"?: string;
         "dragging"?: boolean;
         "hideDivider"?: boolean;
         "href"?: string;
+        /**
+          * @default true
+         */
         "interactive"?: boolean;
         "label": string;
         "labelMinHeight"?: string;
+        /**
+          * @default "medium"
+         */
         "labelWeight"?: SwirlResourceListItemLabelWeight;
         "labelWrap"?: boolean;
         "menuTriggerId"?: string;
+        /**
+          * @default "Options"
+         */
         "menuTriggerLabel"?: string;
         "meta"?: string;
         "onToggleDrag"?: (event: SwirlResourceListItemCustomEvent<HTMLSwirlResourceListItemElement>) => void;
@@ -8114,13 +11415,25 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface SwirlResourceListSection {
+        /**
+          * @default false
+         */
         "hasSeparator"?: boolean;
         "label": string;
+        /**
+          * @default "4"
+         */
         "separatorSpacing"?: SwirlSeparatorSpacing;
+        /**
+          * @default "0"
+         */
         "spacing"?: SwirlStackSpacing;
     }
     interface SwirlSearch {
         "autoFocus"?: boolean;
+        /**
+          * @default "Clear search term"
+         */
         "clearButtonLabel"?: string;
         "disabled"?: boolean;
         "inputId"?: string;
@@ -8130,13 +11443,25 @@ declare namespace LocalJSX {
         "onInputFocus"?: (event: SwirlSearchCustomEvent<FocusEvent>) => void;
         "onInputInput"?: (event: SwirlSearchCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlSearchCustomEvent<string>) => void;
+        /**
+          * @default "Search …"
+         */
         "placeholder"?: string;
         "value"?: string;
+        /**
+          * @default "filled"
+         */
         "variant"?: SwirlSearchVariant;
     }
     interface SwirlSelect {
+        /**
+          * @default true
+         */
         "allowDeselect"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default "No results found."
+         */
         "emptyListLabel"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
@@ -8145,9 +11470,15 @@ declare namespace LocalJSX {
         "onSearchChange"?: (event: SwirlSelectCustomEvent<string>) => void;
         "onValueChange"?: (event: SwirlSelectCustomEvent<string[]>) => void;
         "required"?: boolean;
+        /**
+          * @default "Search options"
+         */
         "searchInputLabel"?: string;
         "searchLoading"?: boolean;
         "searchPlaceholder"?: string;
+        /**
+          * @default Math.round(Math.random() * 1000000).toString()
+         */
         "selectId"?: string;
         "standalone"?: boolean;
         "swirlAriaDescribedby"?: string;
@@ -8155,41 +11486,101 @@ declare namespace LocalJSX {
         "withSearch"?: boolean;
     }
     interface SwirlSeparator {
+        /**
+          * @default "default"
+         */
         "borderColor"?: SwirlSeparatorColor;
+        /**
+          * @default "default"
+         */
         "color"?: SwirlSeparatorColor;
         "label"?: string;
+        /**
+          * @default "horizontal"
+         */
         "orientation"?: SwirlSeparatorOrientation;
+        /**
+          * @default "8"
+         */
         "spacing"?: SwirlSeparatorSpacing1;
     }
     interface SwirlShellLayout {
         "brandedHeader"?: boolean;
+        /**
+          * @default "Navigate back"
+         */
         "browserBackButtonLabel"?: string;
+        /**
+          * @default "Navigate forward"
+         */
         "browserForwardButtonLabel"?: string;
+        /**
+          * @default "Collapse navigation"
+         */
         "collapseNavigationButtonLabel"?: string;
+        /**
+          * @default true
+         */
         "enableSecondaryNavGridLayout"?: boolean;
+        /**
+          * @default "Expand navigation"
+         */
         "expandNavigationButtonLabel"?: string;
+        /**
+          * @default "Grid"
+         */
         "gridNavLayoutToggleLabel"?: string;
+        /**
+          * @default "Close navigation"
+         */
         "hideMobileNavigationButtonLabel"?: string;
+        /**
+          * @default "List"
+         */
         "listNavLayoutToggleLabel"?: string;
+        /**
+          * @default "Main"
+         */
         "navigationLabel"?: string;
         "onSidebarToggleClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
         "onSkipLinkClick"?: (event: SwirlShellLayoutCustomEvent<MouseEvent>) => void;
+        /**
+          * @default "Show less"
+         */
         "secondaryNavCollapseLabel"?: string;
+        /**
+          * @default "Show more"
+         */
         "secondaryNavExpandLabel"?: string;
         "sidebarActive"?: boolean;
         "sidebarToggleBadge"?: string | boolean;
         "sidebarToggleBadgeAriaLabel"?: string;
+        /**
+          * @default "notifications"
+         */
         "sidebarToggleIcon"?: string;
+        /**
+          * @default "Toggle sidebar"
+         */
         "sidebarToggleLabel"?: string;
+        /**
+          * @default "Skip to main content"
+         */
         "skipLinkLabel"?: string;
     }
     interface SwirlShellNavigationItem {
         "active"?: boolean;
         "badgeLabel"?: string;
         "boxed"?: boolean;
+        /**
+          * @default false
+         */
         "hideLabel"?: boolean;
         "href"?: string;
         "inlineLabel"?: boolean;
+        /**
+          * @default "default"
+         */
         "inlineLabelColor"?: SwirlLabelColor;
         "label": string;
         "target"?: string;
@@ -8197,30 +11588,66 @@ declare namespace LocalJSX {
         "withGradient"?: boolean;
     }
     interface SwirlSkeletonBox {
+        /**
+          * @default true
+         */
         "animated"?: boolean;
         "aspectRatio"?: string;
+        /**
+          * @default "base"
+         */
         "borderRadius"?: SwirlSkeletonBoxBorderRadius;
         "height"?: string;
         "width"?: string;
     }
     interface SwirlSkeletonText {
+        /**
+          * @default true
+         */
         "animated"?: boolean;
+        /**
+          * @default 1
+         */
         "lines"?: number;
+        /**
+          * @default "base"
+         */
         "size"?: SwirlSkeletonTextSize;
     }
     interface SwirlSpinner {
         "label"?: string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlSpinnerSize;
     }
     interface SwirlStack {
+        /**
+          * @default "start"
+         */
         "align"?: SwirlStackAlign;
+        /**
+          * @default "div"
+         */
         "as"?: string;
         "columnSpacing"?: SwirlStackSpacing1;
         "height"?: string;
+        /**
+          * @default "start"
+         */
         "justify"?: SwirlStackJustify;
+        /**
+          * @default "vertical"
+         */
         "orientation"?: SwirlStackOrientation;
         "rowSpacing"?: SwirlStackSpacing1;
+        /**
+          * @default "0"
+         */
         "spacing"?: SwirlStackSpacing1;
+        /**
+          * @default false
+         */
         "wrap"?: boolean;
     }
     interface SwirlStatusIndicator {
@@ -8228,12 +11655,21 @@ declare namespace LocalJSX {
         "label": string;
     }
     interface SwirlSwitch {
+        /**
+          * @default false
+         */
         "checked"?: boolean;
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "hideLabel"?: boolean;
         "inputId": string;
         "inputName": string;
         "label"?: string;
+        /**
+          * @default "end"
+         */
         "labelPosition"?: SwirlSwitchLabelPosition;
         "onValueChange"?: (event: SwirlSwitchCustomEvent<boolean>) => void;
         "swirlAriaLabel"?: string;
@@ -8241,194 +11677,380 @@ declare namespace LocalJSX {
     }
     interface SwirlSymbol {
         "glyph": string;
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolAccountCircle {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolAlternateEmail {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolAndroid {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolAnnouncement {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolBackup {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolBeachAccess {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolBookmark {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolCloud {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolCoronavirus {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolDesktopWindows {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolDirectionsCarFilled {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolEditCalendar {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolEmail {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolEmojiFoodBeverage {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolEventMenu {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolFacebook {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolFavorite {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolFitnessCenter {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolFlag {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolFolder {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolGlobe {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolGroups {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolHelp {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolImage {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolInfoMenu {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolInstagram {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolIos {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolLanguage {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolLeaderboard {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolLightbulb {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolLinkedin {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolLocationOn {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolLoyalty {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolMapsHomeWork {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolNotifications {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolOpenInNew {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolPedalBike {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolPinterest {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolPolicy {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolPushPin {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolRedeem {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolReportProblem {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolRestaurant {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolRoadmap {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolRoom {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolSavings {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolSettingsVoice {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolShoppingCart {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolSmartphone {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolStar {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolSupervisorAccount {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolThumbsUpDown {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolTwitter {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolWbSunny {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolWechat {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolWeibo {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolWork {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolXing {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlSymbolYoutube {
+        /**
+          * @default 24
+         */
         "size"?: SwirlSymbolSize;
     }
     interface SwirlTab {
         "active"?: boolean;
         "icon"?: string;
         "label": string;
+        /**
+          * @default "8"
+         */
         "padding"?: SwirlTabPadding;
         "tabId": string;
     }
     interface SwirlTabBar {
         "disableTabSemantics"?: boolean;
+        /**
+          * @default "start"
+         */
         "justify"?: SwirlTabBarJustify;
         "label": string;
         "onActivateNextTab"?: (event: SwirlTabBarCustomEvent<void>) => void;
@@ -8438,13 +12060,25 @@ declare namespace LocalJSX {
         "paddingBlockStart"?: SwirlTabBarPadding;
         "paddingInlineEnd"?: SwirlTabBarPadding;
         "paddingInlineStart"?: SwirlTabBarPadding;
+        /**
+          * @default []
+         */
         "tabs"?: SwirlTabBarTab[];
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlTabBarVariant;
     }
     interface SwirlTable {
         "caption"?: string;
         "dragDropHandle"?: string;
+        /**
+          * @default defaultDragDropInstructions
+         */
         "dragDropInstructions"?: { end: string; initial: string; moved: string; start: string; };
+        /**
+          * @default "No results found."
+         */
         "emptyStateLabel"?: string;
         "enableDragDrop"?: boolean;
         "label": string;
@@ -8454,6 +12088,9 @@ declare namespace LocalJSX {
     }
     interface SwirlTableColumn {
         "maxWidth"?: string;
+        /**
+          * @default "fit-content"
+         */
         "minWidth"?: string;
         "sort"?: SwirlTableColumnSort;
         "sortable"?: boolean;
@@ -8465,7 +12102,13 @@ declare namespace LocalJSX {
         "index"?: number;
     }
     interface SwirlTableRowGroup {
+        /**
+          * @default "Previous slide"
+         */
         "collapseButtonLabel"?: string;
+        /**
+          * @default false
+         */
         "collapsible"?: boolean;
         "label": string;
         "tooltip"?: string;
@@ -8479,45 +12122,105 @@ declare namespace LocalJSX {
         "tabBarPaddingBlockStart"?: SwirlTabBarPadding1;
         "tabBarPaddingInlineEnd"?: SwirlTabBarPadding1;
         "tabBarPaddingInlineStart"?: SwirlTabBarPadding1;
+        /**
+          * @default "default"
+         */
         "tabBarVariant"?: SwirlTabBarVariant1;
     }
     interface SwirlTag {
         "bordered"?: boolean;
         "icon"?: string;
+        /**
+          * @default "start"
+         */
         "iconPosition"?: SwirlTagIconPosition;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlTagIntent;
         "label": string;
         "onRemove"?: (event: SwirlTagCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
+        /**
+          * @default "Remove"
+         */
         "removalButtonLabel"?: string;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlTagSize;
+        /**
+          * @default "default"
+         */
         "variant"?: SwirlTagVariant;
     }
     interface SwirlText {
+        /**
+          * @default "start"
+         */
         "align"?: SwirlTextAlign;
+        /**
+          * @default "p"
+         */
         "as"?: string;
         "balance"?: boolean;
+        /**
+          * @default "default"
+         */
         "color"?: SwirlTextColor;
+        /**
+          * @default "text"
+         */
         "fontFamily"?: SwirlTextFontFamily;
+        /**
+          * @default "normal"
+         */
         "fontStyle"?: SwirlTextFontStyle;
         "lines"?: number;
+        /**
+          * @default true
+         */
         "responsive"?: boolean;
+        /**
+          * @default "base"
+         */
         "size"?: SwirlTextSize;
         "truncate"?: boolean;
+        /**
+          * @default "end"
+         */
         "truncateDirection"?: SwirlTextTruncateDirection;
+        /**
+          * @default "normal"
+         */
         "weight"?: SwirlTextWeight;
+        /**
+          * @default "normal"
+         */
         "whiteSpace"?: SwirlTextWhiteSpace;
     }
     interface SwirlTextInput {
+        /**
+          * @default "on"
+         */
         "autoComplete"?: string;
         "autoFocus"?: boolean;
         "autoGrow"?: boolean;
         "autoSelect"?: boolean;
+        /**
+          * @default "Used characters"
+         */
         "characterCounterLabel"?: string;
+        /**
+          * @default "Clear input"
+         */
         "clearButtonLabel"?: string;
         "clearable"?: boolean;
         "disableDynamicWidth"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default "default"
+         */
         "fontSize"?: SwirlTextInputFontSize;
         "inline"?: boolean;
         "inputName"?: string;
@@ -8529,10 +12232,16 @@ declare namespace LocalJSX {
         "onInputBlur"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlTextInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlTextInputCustomEvent<string>) => void;
+        /**
+          * @default "Toggle password display"
+         */
         "passwordToggleLabel"?: string;
         "placeholder"?: string;
         "prefixLabel"?: string;
         "required"?: boolean;
+        /**
+          * @default 1
+         */
         "rows"?: number;
         "showCharacterCounter"?: boolean;
         "spellCheck"?: boolean;
@@ -8543,6 +12252,9 @@ declare namespace LocalJSX {
         "swirlAriaDescribedby"?: string;
         "swirlAriaExpanded"?: string;
         "swirlRole"?: string;
+        /**
+          * @default "text"
+         */
         "type"?: SwirlTextInputType;
         "value"?: string;
     }
@@ -8553,18 +12265,36 @@ declare namespace LocalJSX {
     }
     interface SwirlThumbnail {
         "alt": string;
+        /**
+          * @default "<swirl-icon-crop></swirl-icon-crop>"
+         */
         "editButtonIcon"?: string;
+        /**
+          * @default "Edit"
+         */
         "editButtonLabel"?: string;
+        /**
+          * @default "landscape"
+         */
         "format"?: SwirlThumbnailFormat;
         "interactive"?: boolean;
         "onEdit"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "onRemove"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "onThumbnailClick"?: (event: SwirlThumbnailCustomEvent<MouseEvent>) => void;
         "progress"?: number;
+        /**
+          * @default "Loading progress"
+         */
         "progressLabel"?: string;
+        /**
+          * @default "Remove"
+         */
         "removeButtonLabel"?: string;
         "showEditButton"?: boolean;
         "showRemoveButton"?: boolean;
+        /**
+          * @default "m"
+         */
         "size"?: SwirlThumbnailSize;
         "src": string;
         "timestamp"?: string;
@@ -8573,23 +12303,35 @@ declare namespace LocalJSX {
         "autoFocus"?: boolean;
         "autoSelect"?: boolean;
         "disabled"?: boolean;
+        /**
+          * @default "HH:mm"
+         */
         "format"?: string;
         "inline"?: boolean;
         "invalid"?: boolean;
         "onInputBlur"?: (event: SwirlTimeInputCustomEvent<FocusEvent>) => void;
         "onInputFocus"?: (event: SwirlTimeInputCustomEvent<FocusEvent>) => void;
         "onValueChange"?: (event: SwirlTimeInputCustomEvent<string>) => void;
+        /**
+          * @default "hh:mm"
+         */
         "placeholder"?: string;
         "required"?: boolean;
         "swirlAriaDescribedby"?: string;
         "value"?: string;
     }
     interface SwirlToast {
+        /**
+          * @default "Dismiss"
+         */
         "accessibleDismissLabel"?: string;
         "content"?: string;
         "dismissLabel"?: string;
         "duration"?: number;
         "icon"?: string;
+        /**
+          * @default "default"
+         */
         "intent"?: SwirlToastIntent;
         "onDismiss"?: (event: SwirlToastCustomEvent<string>) => void;
         "toastId": string;
@@ -8603,6 +12345,9 @@ declare namespace LocalJSX {
     interface SwirlToggleButton {
         "icon"?: string;
         "identifier": string;
+        /**
+          * @default false
+         */
         "isPressed"?: boolean;
         "label": string;
     }
@@ -8611,17 +12356,35 @@ declare namespace LocalJSX {
         "onSelectedToggleChange"?: (event: SwirlToggleGroupCustomEvent<string>) => void;
         "selectedToggleId": string;
         "swirlAriaLabel"?: string;
+        /**
+          * @default "flat"
+         */
         "variant"?: SwirlToggleGroupVariant;
     }
     interface SwirlToolbar {
         "label"?: string;
+        /**
+          * @default "horizontal"
+         */
         "orientation"?: SwirlToolbarOrientation;
     }
     interface SwirlTooltip {
+        /**
+          * @default true
+         */
         "active"?: boolean;
         "content": string;
+        /**
+          * @default 200
+         */
         "delay"?: number;
+        /**
+          * @default "top"
+         */
         "position"?: SwirlTooltipPosition;
+        /**
+          * @default "absolute"
+         */
         "positioning"?: Strategy;
     }
     interface SwirlTreeNavigation {
@@ -8629,11 +12392,20 @@ declare namespace LocalJSX {
     }
     interface SwirlTreeNavigationItem {
         "active"?: boolean;
+        /**
+          * @default true
+         */
         "expandable"?: boolean;
+        /**
+          * @default false
+         */
         "external"?: boolean;
         "href"?: string;
         "icon"?: string;
         "label": string;
+        /**
+          * @default 1
+         */
         "level"?: number;
         "navigationItemId": string;
         "onExpansionChange"?: (event: SwirlTreeNavigationItemCustomEvent<boolean>) => void;
@@ -8641,7 +12413,13 @@ declare namespace LocalJSX {
     }
     interface SwirlTreeView {
         "canDrop"?: SwirlTreeViewCanDropHandler;
+        /**
+          * @default defaultDragDropInstructions
+         */
         "dragDropInstructions"?: { cannotBeDropped: string; end: string; initial: string; moved: string; start: string; };
+        /**
+          * @default "swirl-tree-view-item"
+         */
         "dragDropItemSelector"?: string;
         "enableDragDrop"?: boolean;
         "initiallyExpandedItemIds"?: string[];
@@ -8655,6 +12433,9 @@ declare namespace LocalJSX {
     interface SwirlTreeViewItem {
         "active"?: boolean;
         "disableDrag"?: boolean;
+        /**
+          * @default true
+         */
         "expandable"?: boolean;
         "href"?: string;
         "icon"?: string;
@@ -8670,6 +12451,9 @@ declare namespace LocalJSX {
     }
     interface SwirlVideoThumbnail {
         "duration"?: string;
+        /**
+          * @default "Duration"
+         */
         "durationLabel"?: string;
         "label": string;
         "src": string;
