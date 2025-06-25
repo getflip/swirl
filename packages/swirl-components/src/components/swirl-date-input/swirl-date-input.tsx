@@ -234,11 +234,11 @@ export class SwirlDateInput {
       },
 
       // define date -> str conversion
-      format: (date) => {
+      format: (date: Date) => {
         const newDate = format(date, this.pattern);
 
         if (!isValid(date)) {
-          this.invalidInput.emit(date);
+          this.invalidInput.emit(date.toString());
           return "";
         }
 
@@ -247,7 +247,7 @@ export class SwirlDateInput {
       },
 
       // define str -> date conversion
-      parse: (str) => {
+      parse: (str: string) => {
         const newString = parse(str, this.pattern, new Date());
         return newString;
       },

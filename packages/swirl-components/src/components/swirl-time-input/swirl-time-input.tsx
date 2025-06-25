@@ -175,14 +175,14 @@ export class SwirlTimeInput {
         },
       },
 
-      format: (date) => {
+      format: (date: Date) => {
         if (!isValid(date)) {
           return "";
         }
         this.value = format(date, internalTimeFormat);
         return format(date, pattern);
       },
-      parse: (str) => {
+      parse: (str: string) => {
         return parse(str, pattern, new Date());
       },
     });
