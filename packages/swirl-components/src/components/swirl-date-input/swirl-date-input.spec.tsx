@@ -108,6 +108,9 @@ describe("swirl-date-input", () => {
 
     page.root.value = "9999-99-99";
     expect(spy).toHaveBeenCalledTimes(1);
+
+    page.root.value = "42";
+    expect(spy).toHaveBeenCalledTimes(2);
   });
 
   it("corrects partial input values", async () => {
