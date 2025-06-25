@@ -99,7 +99,11 @@ export class SwirlDateInput {
   @Watch("value")
   watchValue(newValue: string, oldValue: string) {
     if (newValue !== oldValue) {
-      this.valueChange.emit(newValue);
+      if (isValid(parse(newValue, internalDateFormat, new Date()))) {
+        this.valueChange.emit(newValue);
+      } else {
+        this.invalidInput.emit(newValue);
+      }
     }
   }
 
