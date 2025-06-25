@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.340.1
+
+### Patch Changes
+
+- [#1100](https://github.com/getflip/swirl/pull/1100)
+  [`288d3d71`](https://github.com/getflip/swirl/commit/288d3d71c6a2f94e015123f3ff371d65b936cdca)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Fix swirl-modal max width when
+  used with sidebar or secondary content
+
+- Updated dependencies
+  [[`288d3d71`](https://github.com/getflip/swirl/commit/288d3d71c6a2f94e015123f3ff371d65b936cdca)]:
+  - @getflip/swirl-components@0.340.1
+
 ## 0.340.0
 
 ### Minor Changes
