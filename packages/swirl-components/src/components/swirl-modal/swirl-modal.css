@@ -213,7 +213,8 @@
 }
 
 .modal--has-secondary-content {
-  &:not(.modal--fullscreen) .modal__body {
+  &.modal.modal--variant-default:not(.modal--fullscreen) .modal__body,
+  &.modal.modal--variant-drawer:not(.modal--fullscreen) .modal__body {
     max-width: calc(
       var(--swirl-modal-max-width) +
         var(--swirl-modal-max-secondary-content-width)
@@ -277,12 +278,14 @@
   display: none;
 }
 
-.modal--has-sidebar-content {
-  &:not(.modal--fullscreen) .modal__body {
+.modal.modal--has-sidebar-content {
+  &.modal.modal--variant-default:not(.modal--fullscreen) .modal__body,
+  &.modal.modal--variant-drawer:not(.modal--fullscreen) .modal__body {
     max-width: calc(
       var(--swirl-modal-max-width) + var(--swirl-modal-sidebar-width)
     );
   }
+
   @media (--from-tablet) {
     & .modal__sidebar {
       display: flex;
@@ -421,7 +424,8 @@
 }
 
 .modal--fullscreen-transitioning .modal__body {
-  transition: width 0.15s ease-out, max-width 0.15s ease-out, max-height 0.15s ease-out, min-height 0.15s ease-out;
+  transition: width 0.15s ease-out, max-width 0.15s ease-out,
+    max-height 0.15s ease-out, min-height 0.15s ease-out;
 }
 
 .modal.modal--variant-default:not(.modal--fullscreen) {
