@@ -1,5 +1,20 @@
 # @getflip/swirl-components-angular
 
+## 0.341.0
+
+### Minor Changes
+
+- [#1097](https://github.com/getflip/swirl/pull/1097)
+  [`5be08fbb`](https://github.com/getflip/swirl/commit/5be08fbb02db31da58d00e224041f675f8b4cd18)
+  Thanks [@AshleyBekemeier](https://github.com/AshleyBekemeier)! - Update date
+  and time input mask
+
+### Patch Changes
+
+- Updated dependencies
+  [[`5be08fbb`](https://github.com/getflip/swirl/commit/5be08fbb02db31da58d00e224041f675f8b4cd18)]:
+  - @getflip/swirl-components@0.341.0
+
 ## 0.340.1
 
 ### Patch Changes
