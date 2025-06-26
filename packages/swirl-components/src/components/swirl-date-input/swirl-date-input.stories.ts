@@ -7,7 +7,8 @@ export default {
       description: "See https://date-fns.org/v2.29.3/docs/format.",
       table: {
         type: {
-          detail: '"d", "M", "y", and separators (e.g. ".", "-", "/", " ")',
+          detail:
+            '"dd", "MM", "yy", "yyyy" and separators (e.g. ".", "-", "/", " ")',
           summary: "Allowed patterns",
         },
       },

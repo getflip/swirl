@@ -11,8 +11,7 @@ import {
 } from "@stencil/core";
 import classnames from "classnames";
 import { format, isValid, parse } from "date-fns";
-import { create as createMask } from "maska/dist/es6/maska";
-import Maska from "maska/types/maska";
+import IMask, { InputMask } from "imask";
 import { DesktopMediaQuery } from "../../services/media-query.service";
 
 const internalTimeFormat = "HH:mm:ss";
@@ -51,7 +50,7 @@ export class SwirlTimeInput {
 
   private id: string;
   private inputEl: HTMLInputElement;
-  private mask: Maska;
+  private mask: InputMask<any>;
   private mediaQueryUnsubscribe: () => void = () => {};
 
   componentWillLoad() {
@@ -88,61 +87,19 @@ export class SwirlTimeInput {
     this.setupMask();
   }
 
+  @Watch("value")
+  watchValue(newValue: string, oldValue: string) {
+    if (newValue !== oldValue) {
+      this.valueChange.emit(newValue);
+    }
+  }
+
   private updateIconSize(smallIcon: boolean) {
     this.iconSize = smallIcon ? 20 : 24;
   }
 
-  private onChange = (event: Event) => {
-    const value = (event.target as HTMLInputElement).value;
-    let newValue: string;
-
-    if (value === "") {
-      this.value = undefined;
-      this.valueChange.emit(undefined);
-    }
-
-    const newDate = parse(value, this.format, new Date());
-
-    const formatRegExp = new RegExp(
-      `^${this.format.replace(/[Hhms]/g, "\\d")}$`
-    );
-
-    if (!Boolean(value.match(formatRegExp))) {
-      return;
-    }
-
-    if (!isValid(newDate)) {
-      newValue = format(new Date(), internalTimeFormat);
-    } else {
-      newValue = format(newDate, internalTimeFormat);
-    }
-
-    this.value = newValue;
-    this.valueChange.emit(newValue);
-  };
-
   private onBlur = (event: FocusEvent) => {
     this.inputBlur.emit(event);
-
-    const input = event.target as HTMLInputElement;
-
-    const dateValue = parse(input.value, this.format, new Date());
-
-    if (!isValid(dateValue) && Boolean(this.value)) {
-      const currentDateValue = Boolean(this.value)
-        ? parse(this.value, internalTimeFormat, new Date())
-        : undefined;
-
-      if (!Boolean(currentDateValue) || !isValid(currentDateValue)) {
-        this.value = "";
-      }
-
-      input.value = format(currentDateValue, this.format);
-    }
-  };
-
-  private onInput = (event: InputEvent) => {
-    this.onChange(event);
   };
 
   private onClick = (event: MouseEvent) => {
@@ -156,18 +113,88 @@ export class SwirlTimeInput {
 
   private handleAutoSelect(event: FocusEvent) {
     if (!this.autoSelect) {
+      setTimeout(() => {
+        if (
+          event.target &&
+          event.target instanceof HTMLInputElement &&
+          event.target.setSelectionRange
+        ) {
+          event.target.setSelectionRange(0, 0);
+        }
+      });
       return;
     }
 
-    (event.target as HTMLInputElement).select();
+    if (event.target && event.target instanceof HTMLInputElement) {
+      event.target.select();
+    }
   }
 
   private setupMask() {
     this.mask?.destroy();
 
-    this.mask = createMask(`#${this.id}`, {
-      mask: this.format.replace(/[Hhms]/g, "#"),
+    // Due to automatic padding with 0s, we need to replace single characters with full length blocks.
+    const pattern = this.format
+      .replace(/(?<!H)H(?!H)/g, "HH")
+      .replace(/(?<!h)h(?!h)/g, "hh")
+      .replace(/(?<!m)m(?!m)/g, "mm")
+      .replace(/(?<!s)s(?!s)/g, "ss");
+
+    this.mask = IMask(this.inputEl, {
+      mask: Date,
+      pattern: pattern.replace(/([^A-Za-z0-9])/g, "$1`"), // Add backticks to separators to prevent symbols from shifting back
+      autofix: "pad",
+      lazy: true,
+      overwrite: true,
+      eager: "append",
+
+      blocks: {
+        HH: {
+          mask: IMask.MaskedRange,
+          from: 0,
+          to: 23,
+          maxLength: 2,
+        },
+        hh: {
+          mask: IMask.MaskedRange,
+          from: 1,
+          to: 12,
+          maxLength: 2,
+        },
+        mm: {
+          mask: IMask.MaskedRange,
+          from: 0,
+          to: 59,
+          maxLength: 2,
+        },
+        ss: {
+          mask: IMask.MaskedRange,
+          from: 0,
+          to: 59,
+          maxLength: 2,
+        },
+      },
+
+      format: (date: Date) => {
+        if (!isValid(date)) {
+          return "";
+        }
+        this.value = format(date, internalTimeFormat);
+        return format(date, pattern);
+      },
+      parse: (str: string) => {
+        return parse(str, pattern, new Date());
+      },
     });
+
+    // Set the initial value if it exists
+    if (this.value) {
+      const dateValue = parse(this.value, internalTimeFormat, new Date());
+      if (isValid(dateValue)) {
+        const formattedValue = format(dateValue, pattern);
+        this.mask.value = formattedValue;
+      }
+    }
   }
 
   render() {
@@ -175,14 +202,6 @@ export class SwirlTimeInput {
       this.invalid === true || this.invalid === false
         ? String(this.invalid)
         : undefined;
-
-    const dateValue = Boolean(this.value)
-      ? parse(this.value, internalTimeFormat, new Date())
-      : undefined;
-
-    const displayValue = isValid(dateValue)
-      ? format(dateValue, this.format)
-      : undefined;
 
     const className = classnames("time-input", {
       "time-input--inline": this.inline,
@@ -203,12 +222,10 @@ export class SwirlTimeInput {
             onBlur={this.onBlur}
             onClick={this.onClick}
             onFocus={this.onFocus}
-            onInput={this.onInput}
             placeholder={this.placeholder}
             ref={(el) => (this.inputEl = el)}
             required={this.required}
             type="text"
-            value={displayValue}
           />
 
           <span class="time-input__icon">

@@ -1,9 +1,4 @@
-const maskSpy = jest.fn();
 const isMobileViewportSpy = jest.fn();
-
-jest.mock("maska/dist/es6/maska", () => ({
-  create: maskSpy,
-}));
 
 jest.mock("../../utils", () => {
   const original = jest.requireActual("../../utils");
@@ -27,7 +22,6 @@ import { SwirlDateInput } from "./swirl-date-input";
 
 describe("swirl-date-input", () => {
   beforeEach(() => {
-    maskSpy.mockReset();
     isMobileViewportSpy.mockReset();
   });
 
@@ -55,35 +49,20 @@ describe("swirl-date-input", () => {
   });
 
   it("handles different formats", async () => {
-    const page = await newSpecPage({
+    await newSpecPage({
       components: [SwirlDateInput],
-      html: `<swirl-date-input value="2022-12-11"></swirl-date-input>`,
+      html: `<swirl-date-input value="2022-12-11" format="yyyy-MM-dd"></swirl-date-input>`,
+    }).then((page) => {
+      const input = page.root.querySelector("input");
+      expect(input.value).toBe("2022-12-11");
     });
 
-    const input = page.root.querySelector("input");
-
-    expect(input.value).toBe("2022-12-11");
-
-    page.root.format = "dd.MM.yyyy";
-    await page.waitForChanges();
-
-    expect(input.value).toBe("11.12.2022");
-  });
-
-  it("masks values according to the format", async () => {
-    const page = await newSpecPage({
+    await newSpecPage({
       components: [SwirlDateInput],
-      html: `<swirl-date-input></swirl-date-input>`,
-    });
-
-    expect(maskSpy).toHaveBeenCalledWith("#swirl-date-input-0", {
-      mask: "####-##-##",
-    });
-
-    page.root.format = "dd.MM.yyyy";
-
-    expect(maskSpy).toHaveBeenCalledWith("#swirl-date-input-0", {
-      mask: "##.##.####",
+      html: `<swirl-date-input value="2022-12-11" format="dd.MM.yyyy"></swirl-date-input>`,
+    }).then((page) => {
+      const input = page.root.querySelector("input");
+      expect(input.value).toBe("11.12.2022");
     });
   });
 
@@ -112,29 +91,40 @@ describe("swirl-date-input", () => {
     input.value = "01.12.2022";
     input.dispatchEvent(new Event("input"));
 
-    expect(spy.mock.calls[1][0].detail).toBe("2022-12-01");
+    expect(spy.mock.calls[2][0].detail).toBe("2022-12-01");
   });
 
-  it("fires invalidInPut event for invalid values", async () => {
+  it("fires invalidInput event for invalid value", async () => {
+    const page = await newSpecPage({
+      components: [SwirlDateInput],
+      html: `<swirl-date-input format="dd-MM-yyyy"></swirl-date-input>`,
+    });
+
+    const spy = jest.fn();
+
+    page.root.addEventListener("invalidInput", spy);
+    page.root.value = "2022-12-11";
+    expect(spy).toHaveBeenCalledTimes(0);
+
+    page.root.value = "9999-99-99";
+    expect(spy).toHaveBeenCalledTimes(1);
+
+    page.root.value = "42";
+    expect(spy).toHaveBeenCalledTimes(2);
+  });
+
+  it("corrects partial input values", async () => {
     const page = await newSpecPage({
       components: [SwirlDateInput],
       html: `<swirl-date-input></swirl-date-input>`,
     });
 
-    const spy = jest.fn();
     const input = page.root.querySelector("input");
 
-    page.root.addEventListener("invalidInput", spy);
-
-    input.value = "2022-12-12";
+    input.value = "2022-5-6";
     input.dispatchEvent(new Event("input"));
 
-    expect(spy).toHaveBeenCalledTimes(0);
-
-    input.value = "2022-22-22";
-    input.dispatchEvent(new Event("input"));
-
-    expect(spy.mock.calls[0][0].detail).toBe("2022-22-22");
+    expect(input.value).toBe("2022-05-06");
   });
 
   it("opens the datepicker when input gets clicked and preferredInputMode is 'pick'", async () => {
