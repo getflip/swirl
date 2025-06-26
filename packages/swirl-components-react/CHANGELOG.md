@@ -1,5 +1,18 @@
 # @getflip/swirl-components-react
 
+## 0.341.1
+
+### Patch Changes
+
+- [#1103](https://github.com/getflip/swirl/pull/1103)
+  [`7624c8f0`](https://github.com/getflip/swirl/commit/7624c8f0d14991967465e4d76d180792507f6dc0)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Prevent PDF printing of high-res
+  files to crash the browser
+
+- Updated dependencies
+  [[`7624c8f0`](https://github.com/getflip/swirl/commit/7624c8f0d14991967465e4d76d180792507f6dc0)]:
+  - @getflip/swirl-components@0.341.1
+
 ## 0.341.0
 
 ### Minor Changes
