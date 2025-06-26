@@ -94,7 +94,7 @@ describe("swirl-date-input", () => {
     expect(spy.mock.calls[2][0].detail).toBe("2022-12-01");
   });
 
-  it.only("fires invalidInput event for invalid value", async () => {
+  it("fires invalidInput event for invalid value", async () => {
     const page = await newSpecPage({
       components: [SwirlDateInput],
       html: `<swirl-date-input format="dd-MM-yyyy"></swirl-date-input>`,
