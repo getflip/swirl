@@ -99,11 +99,7 @@ export class SwirlDateInput {
   @Watch("value")
   watchValue(newValue: string, oldValue: string) {
     if (newValue !== oldValue) {
-      if (isValid(parse(newValue, internalDateFormat, new Date()))) {
-        this.valueChange.emit(newValue);
-      } else {
-        this.invalidInput.emit(newValue);
-      }
+      this.updateValue();
     }
   }
 
@@ -257,13 +253,16 @@ export class SwirlDateInput {
       },
     });
 
-    // Set the initial value if it exists
+    this.updateValue();
+  }
+
+  updateValue() {
     if (this.value) {
       const dateValue = parse(this.value, internalDateFormat, new Date());
-
       if (isValid(dateValue)) {
         const formattedValue = format(dateValue, this.pattern);
         this.mask.value = formattedValue;
+        this.valueChange.emit(this.value);
       } else {
         this.invalidInput.emit(this.value);
       }
