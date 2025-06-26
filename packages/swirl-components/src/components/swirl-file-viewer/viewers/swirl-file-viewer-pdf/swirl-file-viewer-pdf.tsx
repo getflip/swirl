@@ -272,7 +272,7 @@ export class SwirlFileViewerPdf {
 
     this.renderingPageNumbers = [...this.renderingPageNumbers, page.pageNumber];
 
-    const scale = forPrint ? 2 : this.getScale(page);
+    const scale = forPrint ? this.getPrintScale(page) : this.getScale(page);
     const outputScale = window.devicePixelRatio || 1;
 
     const transform =
@@ -463,6 +463,14 @@ export class SwirlFileViewerPdf {
     }
 
     return this.zoom;
+  }
+
+  private getPrintScale(page: PDFPageProxy) {
+    // For performance reasons we have to limit the print scale. The resulting
+    // width of a page should not exceed 2480px in width, and 3508px in height.
+    // This relates to the maximum resolution of an A4 page at 300 DPI, which
+    // should be sufficient for a decent print quality.
+    return Math.min(Math.min(2480 / page.view[2], 3508 / page.view[3]), 2);
   }
 
   private restoreScrollPosition() {
