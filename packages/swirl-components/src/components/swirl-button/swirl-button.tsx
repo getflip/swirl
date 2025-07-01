@@ -23,6 +23,7 @@ export type SwirlButtonVariant =
 /**
  * @slot icon - Icon to be displayed inside the button.
  * @slot tag - Tag to be displayed inside the button.
+ * @slot trailing - Trailing slot for content to be displayed on the right.
  */
 @Component({
   /**
@@ -137,6 +138,8 @@ export class SwirlButton {
 
     const hasTag = Boolean(this.el.querySelector("[slot='tag']"));
 
+    const hasTrailingSlot = Boolean(this.el.querySelector("[slot='trailing']"));
+
     const className = classnames(
       "button",
       `button--icon-position-${this.iconPosition}`,
@@ -200,6 +203,11 @@ export class SwirlButton {
             <span class="button__tag">
               <slot name="tag"></slot>
             </span>
+          )}
+          {hasTrailingSlot && (
+            <div class="button__trailing-slot">
+              <slot name="trailing"></slot>
+            </div>
           )}
         </Tag>
       </Host>
