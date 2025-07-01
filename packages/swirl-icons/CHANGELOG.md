@@ -1,5 +1,13 @@
 # @getflip/swirl-icons
 
+## 0.63.0
+
+### Minor Changes
+
+- [#1108](https://github.com/getflip/swirl/pull/1108)
+  [`64e6c227`](https://github.com/getflip/swirl/commit/64e6c2279dcfebc36474ded2eeab42a16fc7e5a7)
+  Thanks [@danizep](https://github.com/danizep)! - Add iPhone icon
+
 ## 0.62.0
 
 ### Minor Changes
