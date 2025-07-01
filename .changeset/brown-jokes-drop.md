@@ -4,4 +4,4 @@
 "@getflip/swirl-components-react": patch
 ---
 
-Make swirl-menu-items keyboard accessible when added after the first render"
+Make swirl-menu-items keyboard accessible when added after the first render
