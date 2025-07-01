@@ -1,5 +1,25 @@
 # @getflip/swirl-components-angular
 
+## 0.342.0
+
+### Minor Changes
+
+- [#1110](https://github.com/getflip/swirl/pull/1110)
+  [`d3d1aace`](https://github.com/getflip/swirl/commit/d3d1aace55072175c15fd499677370154df3a54b)
+  Thanks [@matvlaovi-flip](https://github.com/matvlaovi-flip)! - Add trailing
+  slot to swirl-button
+
+* [#1108](https://github.com/getflip/swirl/pull/1108)
+  [`64e6c227`](https://github.com/getflip/swirl/commit/64e6c2279dcfebc36474ded2eeab42a16fc7e5a7)
+  Thanks [@danizep](https://github.com/danizep)! - Add iPhone icon
+
+### Patch Changes
+
+- Updated dependencies
+  [[`d3d1aace`](https://github.com/getflip/swirl/commit/d3d1aace55072175c15fd499677370154df3a54b),
+  [`64e6c227`](https://github.com/getflip/swirl/commit/64e6c2279dcfebc36474ded2eeab42a16fc7e5a7)]:
+  - @getflip/swirl-components@0.342.0
+
 ## 0.341.2
 
 ### Patch Changes
