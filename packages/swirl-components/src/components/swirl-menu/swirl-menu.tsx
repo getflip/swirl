@@ -270,7 +270,9 @@ export class SwirlMenu {
 
   private observeSlotChanges() {
     this.observer = new MutationObserver(() => {
-      this.updateItems();
+      requestAnimationFrame(() => {
+        this.updateItems();
+      });
     });
 
     this.observer.observe(this.el, { childList: true });
