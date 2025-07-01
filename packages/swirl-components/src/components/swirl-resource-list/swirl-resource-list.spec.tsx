@@ -68,6 +68,24 @@ describe("swirl-resource-list", () => {
     `);
   });
 
+  it("renders with list semantics", async () => {
+    const page = await newSpecPage({
+      components: [SwirlResourceList, SwirlResourceListItem],
+      html: `
+        <swirl-resource-list label="Label" semantics="list">
+          <swirl-resource-list-item label="This is a resource item"></swirl-resource-list-item>
+          <swirl-resource-list-item label="This is a resource item"></swirl-resource-list-item>
+        </swirl-resource-list>
+      `,
+    });
+
+    expect(page.root.querySelector('[role="list"]')).toBeDefined();
+    expect(page.root.querySelectorAll('[role="listitem"]')).toHaveLength(2);
+    expect(
+      page.root.querySelectorAll('[role="row"], [role="gridcell"]')
+    ).toHaveLength(0);
+  });
+
   it("manages focus via keyboard events", async () => {
     const page = await newSpecPage({
       components: [SwirlResourceList, SwirlResourceListItem],

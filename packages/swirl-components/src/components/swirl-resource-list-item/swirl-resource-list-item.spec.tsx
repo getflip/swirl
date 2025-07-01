@@ -7,12 +7,14 @@ describe("swirl-resource-list-item", () => {
     const page = await newSpecPage({
       components: [SwirlResourceListItem],
       html: `
-        <swirl-resource-list-item
-          description="Description"
-          label="Label"
-        >
-          <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>
-        </swirl-resource-list-item>
+        <div role="grid">
+          <swirl-resource-list-item
+            description="Description"
+            label="Label"
+          >
+            <swirl-avatar label="John Doe" src="https://picsum.photos/id/433/144/144" slot="media"></swirl-avatar>
+          </swirl-resource-list-item>
+        </div>
       `,
     });
 
@@ -44,7 +46,9 @@ describe("swirl-resource-list-item", () => {
     const page = await newSpecPage({
       components: [SwirlResourceListItem],
       html: `
-        <swirl-resource-list-item href="#" label="Label"></swirl-resource-list-item>
+        <div role="grid">
+          <swirl-resource-list-item href="#" label="Label"></swirl-resource-list-item>
+        </div>
       `,
     });
 
@@ -58,7 +62,9 @@ describe("swirl-resource-list-item", () => {
     const page = await newSpecPage({
       components: [SwirlResourceListItem],
       html: `
-        <swirl-resource-list-item label="Label" selectable="true"></swirl-resource-list-item>
+        <div role="grid">
+          <swirl-resource-list-item label="Label" selectable="true"></swirl-resource-list-item>
+        </div>
       `,
     });
 
@@ -88,7 +94,9 @@ describe("swirl-resource-list-item", () => {
     const page = await newSpecPage({
       components: [SwirlResourceListItem],
       html: `
-        <swirl-resource-list-item label="Label" meta="Meta"></swirl-resource-list-item>
+        <div role="grid">
+          <swirl-resource-list-item label="Label" meta="Meta"></swirl-resource-list-item>
+        </div>
       `,
     });
 
@@ -99,9 +107,11 @@ describe("swirl-resource-list-item", () => {
     const page = await newSpecPage({
       components: [SwirlResourceListItem],
       html: `
-        <swirl-resource-list-item label="Label">
-          <swirl-button label="Label" slot="control"></swirl-button>
-        </swirl-resource-list-item>
+        <div role="grid">
+          <swirl-resource-list-item label="Label">
+            <swirl-button label="Label" slot="control"></swirl-button>
+          </swirl-resource-list-item>
+        </div>
       `,
     });
 
@@ -113,7 +123,11 @@ describe("swirl-resource-list-item", () => {
   it("can be draggable", async () => {
     const page = await newSpecPage({
       components: [SwirlResourceListItem],
-      html: `<swirl-resource-list-item allow-drag="true" label="Resource List Item"></swirl-resource-list-item>`,
+      html: `
+        <div role="grid">
+          <swirl-resource-list-item allow-drag="true" label="Resource List Item"></swirl-resource-list-item>
+        </div>
+      `,
     });
 
     const spy = jest.fn();
@@ -139,8 +153,9 @@ describe("swirl-resource-list-item", () => {
     const page = await newSpecPage({
       components: [SwirlResourceListItem],
       html: `
-        <swirl-resource-list-item label="<button>Button</button>" allow-html="false" description="<button>Description</button>">
-        </swirl-resource-list-item>
+        <div role="grid">
+          <swirl-resource-list-item label="<button>Button</button>" allow-html="false" description="<button>Description</button>"></swirl-resource-list-item>
+        </div>
       `,
     });
 

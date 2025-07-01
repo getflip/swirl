@@ -51,7 +51,7 @@ import { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 import { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 import { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 import { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
-import { SwirlBoxPadding as SwirlBoxPadding1 } from "./components/swirl-resource-list/swirl-resource-list";
+import { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
 import { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 import { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 import { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
@@ -127,7 +127,7 @@ export { SwirlPopoverAnimation } from "./components/swirl-popover/swirl-popover"
 export { ComputePositionReturn, Placement, Strategy } from "@floating-ui/dom";
 export { SwirlProgressIndicatorSize, SwirlProgressIndicatorVariant } from "./components/swirl-progress-indicator/swirl-progress-indicator";
 export { SwirlRadioState, SwirlRadioVariant } from "./components/swirl-radio/swirl-radio";
-export { SwirlBoxPadding as SwirlBoxPadding1 } from "./components/swirl-resource-list/swirl-resource-list";
+export { SwirlBoxPadding as SwirlBoxPadding1, SwirlResourceListSemantics } from "./components/swirl-resource-list/swirl-resource-list";
 export { SwirlResourceListItemLabelWeight } from "./components/swirl-resource-list-item/swirl-resource-list-item";
 export { SwirlSearchVariant } from "./components/swirl-search/swirl-search";
 export { SwirlSeparatorColor, SwirlSeparatorOrientation, SwirlSeparatorSpacing as SwirlSeparatorSpacing1 } from "./components/swirl-separator/swirl-separator";
@@ -3384,6 +3384,10 @@ export namespace Components {
         "paddingInlineEnd"?: SwirlBoxPadding1;
         "paddingInlineStart"?: SwirlBoxPadding1;
         /**
+          * @default "grid"
+         */
+        "semantics"?: SwirlResourceListSemantics;
+        /**
           * @default "0"
          */
         "spacing"?: SwirlStackSpacing;
@@ -3681,6 +3685,7 @@ export namespace Components {
           * @default "0"
          */
         "spacing"?: SwirlStackSpacing1;
+        "swirlAriaRole"?: string;
         /**
           * @default false
          */
@@ -11345,6 +11350,10 @@ declare namespace LocalJSX {
         "paddingInlineEnd"?: SwirlBoxPadding1;
         "paddingInlineStart"?: SwirlBoxPadding1;
         /**
+          * @default "grid"
+         */
+        "semantics"?: SwirlResourceListSemantics;
+        /**
           * @default "0"
          */
         "spacing"?: SwirlStackSpacing;
@@ -11645,6 +11654,7 @@ declare namespace LocalJSX {
           * @default "0"
          */
         "spacing"?: SwirlStackSpacing1;
+        "swirlAriaRole"?: string;
         /**
           * @default false
          */

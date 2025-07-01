@@ -17793,6 +17793,18 @@
           ]
         },
         {
+          "name": "semantics",
+          "description": "",
+          "values": [
+            {
+              "name": "grid"
+            },
+            {
+              "name": "list"
+            }
+          ]
+        },
+        {
           "name": "spacing",
           "description": "",
           "values": [
@@ -18737,6 +18749,10 @@
               "name": "8"
             }
           ]
+        },
+        {
+          "name": "swirl-aria-role",
+          "description": ""
         },
         {
           "name": "wrap",

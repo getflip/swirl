@@ -14,6 +14,7 @@ import { v4 as uuid } from "uuid";
 import { SwirlStackSpacing } from "../swirl-stack/swirl-stack";
 
 export type SwirlBoxPadding = "0" | "2" | "4" | "8" | "12" | "16";
+export type SwirlResourceListSemantics = "grid" | "list";
 
 @Component({
   scoped: true,
@@ -36,6 +37,7 @@ export class SwirlResourceList {
   @Prop() paddingBlockStart?: SwirlBoxPadding;
   @Prop() paddingInlineEnd?: SwirlBoxPadding;
   @Prop() paddingInlineStart?: SwirlBoxPadding;
+  @Prop() semantics?: SwirlResourceListSemantics = "grid";
   @Prop() spacing?: SwirlStackSpacing = "0";
 
   @State() assistiveText: string;
@@ -133,6 +135,10 @@ export class SwirlResourceList {
   }
 
   private removeItemsFromTabOrder() {
+    if (this.semantics !== "grid") {
+      return;
+    }
+
     this.items.forEach((item) => {
       const focusableEl = item?.querySelector(
         ".resource-list-item__content, .resource-list-file-item, [data-resource-list-item-button]"
@@ -312,56 +318,56 @@ export class SwirlResourceList {
   }
 
   private onKeyDown = (event: KeyboardEvent) => {
-    if (event.code === "ArrowDown") {
-      event.preventDefault();
-
-      if (!Boolean(this.dragging)) {
+    if (this.semantics === "grid" && !Boolean(this.dragging)) {
+      if (event.code === "ArrowDown") {
+        event.preventDefault();
         this.focusItemAtIndex((this.focusedIndex + 1) % this.items.length);
-      } else {
-        this.moveDraggedItemDown();
-      }
-    } else if (event.code === "ArrowUp") {
-      event.preventDefault();
+      } else if (event.code === "ArrowUp") {
+        event.preventDefault();
 
-      if (!Boolean(this.dragging)) {
         const prevIndex =
           this.focusedIndex === 0
             ? this.items.length - 1
             : this.focusedIndex - 1;
 
         this.focusItemAtIndex(prevIndex);
-      } else {
-        this.moveDraggedItemUp();
-      }
-    } else if (event.code === "Space" || event.code === "Enter") {
-      const target = event.composedPath()[0] as HTMLElement;
+      } else if (event.code === "Space" || event.code === "Enter") {
+        if (Boolean(this.controllingElement) && event.code === "Enter") {
+          const item = this.items[this.focusedIndex];
 
-      if (
-        Boolean(this.dragging) &&
-        !target?.classList.contains("resource-list-item__drag-handle")
-      ) {
-        event.preventDefault();
-        this.stopDrag(this.dragging);
-      } else if (Boolean(this.controllingElement) && event.code === "Enter") {
-        const item = this.items[this.focusedIndex];
+          if (!Boolean(item) || !item.isConnected) {
+            return;
+          }
 
-        if (!Boolean(item) || !item.isConnected) {
-          return;
+          event.stopPropagation();
+          event.preventDefault();
+
+          item.click();
         }
-
-        event.stopPropagation();
+      } else if (event.code === "Home") {
         event.preventDefault();
-
-        item.click();
+        this.focusItemAtIndex(0);
+      } else if (event.code === "End") {
+        event.preventDefault();
+        this.focusItemAtIndex(this.items.length - 1);
       }
-    } else if (event.code === "Home") {
-      event.preventDefault();
+    }
 
-      this.focusItemAtIndex(0);
-    } else if (event.code === "End") {
-      event.preventDefault();
+    if (Boolean(this.dragging)) {
+      if (event.code === "ArrowDown") {
+        event.preventDefault();
+        this.moveDraggedItemDown();
+      } else if (event.code === "ArrowUp") {
+        event.preventDefault();
+        this.moveDraggedItemUp();
+      } else if (event.code === "Space" || event.code === "Enter") {
+        const target = event.composedPath()[0] as HTMLElement;
 
-      this.focusItemAtIndex(this.items.length - 1);
+        if (!target?.classList.contains("resource-list-item__drag-handle")) {
+          event.preventDefault();
+          this.stopDrag(this.dragging);
+        }
+      }
     }
   };
 
@@ -395,7 +401,7 @@ export class SwirlResourceList {
             class="resource-list"
             id={this.listId}
             ref={(el) => (this.gridEl = el)}
-            role="grid"
+            role={this.semantics}
             spacing={this.spacing}
           >
             <slot></slot>

@@ -7,10 +7,12 @@ describe("swirl-resource-list-section", () => {
     const page = await newSpecPage({
       components: [SwirlResourceListSection],
       html: `
-        <swirl-resource-list-section label="Resource section!">
-          <swirl-resource-list-item label="Item #1"></swirl-resource-list-item>
-          <swirl-resource-list-item label="Item #2"></swirl-resource-list-item>
-        </swirl-resource-list-section>
+        <div role="grid">
+          <swirl-resource-list-section label="Resource section!">
+            <swirl-resource-list-item label="Item #1"></swirl-resource-list-item>
+            <swirl-resource-list-item label="Item #2"></swirl-resource-list-item>
+          </swirl-resource-list-section>
+        </div>
       `,
     });
 
