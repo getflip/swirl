@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.341.2
+
+### Patch Changes
+
+- [#1105](https://github.com/getflip/swirl/pull/1105)
+  [`101232aa`](https://github.com/getflip/swirl/commit/101232aa6c8e12a4c49b43d7000636a745d19e6b)
+  Thanks [@Sqrrl](https://github.com/Sqrrl)! - Make swirl-menu-items keyboard
+  accessible when added after the first render
+
 ## 0.341.1
 
 ### Patch Changes
