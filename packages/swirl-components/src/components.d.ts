@@ -1948,6 +1948,13 @@ export namespace Components {
          */
         "size": SwirlIconSize;
     }
+    interface SwirlIconIphone {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size": SwirlIconSize;
+    }
     interface SwirlIconKey {
         "color"?: SwirlIconColor1;
         /**
@@ -6029,6 +6036,12 @@ declare global {
         prototype: HTMLSwirlIconInventoryOffElement;
         new (): HTMLSwirlIconInventoryOffElement;
     };
+    interface HTMLSwirlIconIphoneElement extends Components.SwirlIconIphone, HTMLStencilElement {
+    }
+    var HTMLSwirlIconIphoneElement: {
+        prototype: HTMLSwirlIconIphoneElement;
+        new (): HTMLSwirlIconIphoneElement;
+    };
     interface HTMLSwirlIconKeyElement extends Components.SwirlIconKey, HTMLStencilElement {
     }
     var HTMLSwirlIconKeyElement: {
@@ -8010,6 +8023,7 @@ declare global {
         "swirl-icon-insert-on-top": HTMLSwirlIconInsertOnTopElement;
         "swirl-icon-inventory": HTMLSwirlIconInventoryElement;
         "swirl-icon-inventory-off": HTMLSwirlIconInventoryOffElement;
+        "swirl-icon-iphone": HTMLSwirlIconIphoneElement;
         "swirl-icon-key": HTMLSwirlIconKeyElement;
         "swirl-icon-keyboard": HTMLSwirlIconKeyboardElement;
         "swirl-icon-keyboard-hide": HTMLSwirlIconKeyboardHideElement;
@@ -9970,6 +9984,13 @@ declare namespace LocalJSX {
         "size"?: SwirlIconSize;
     }
     interface SwirlIconInventoryOff {
+        "color"?: SwirlIconColor1;
+        /**
+          * @default 24
+         */
+        "size"?: SwirlIconSize;
+    }
+    interface SwirlIconIphone {
         "color"?: SwirlIconColor1;
         /**
           * @default 24
@@ -12619,6 +12640,7 @@ declare namespace LocalJSX {
         "swirl-icon-insert-on-top": SwirlIconInsertOnTop;
         "swirl-icon-inventory": SwirlIconInventory;
         "swirl-icon-inventory-off": SwirlIconInventoryOff;
+        "swirl-icon-iphone": SwirlIconIphone;
         "swirl-icon-key": SwirlIconKey;
         "swirl-icon-keyboard": SwirlIconKeyboard;
         "swirl-icon-keyboard-hide": SwirlIconKeyboardHide;
@@ -13028,6 +13050,7 @@ declare module "@stencil/core" {
             "swirl-icon-insert-on-top": LocalJSX.SwirlIconInsertOnTop & JSXBase.HTMLAttributes<HTMLSwirlIconInsertOnTopElement>;
             "swirl-icon-inventory": LocalJSX.SwirlIconInventory & JSXBase.HTMLAttributes<HTMLSwirlIconInventoryElement>;
             "swirl-icon-inventory-off": LocalJSX.SwirlIconInventoryOff & JSXBase.HTMLAttributes<HTMLSwirlIconInventoryOffElement>;
+            "swirl-icon-iphone": LocalJSX.SwirlIconIphone & JSXBase.HTMLAttributes<HTMLSwirlIconIphoneElement>;
             "swirl-icon-key": LocalJSX.SwirlIconKey & JSXBase.HTMLAttributes<HTMLSwirlIconKeyElement>;
             "swirl-icon-keyboard": LocalJSX.SwirlIconKeyboard & JSXBase.HTMLAttributes<HTMLSwirlIconKeyboardElement>;
             "swirl-icon-keyboard-hide": LocalJSX.SwirlIconKeyboardHide & JSXBase.HTMLAttributes<HTMLSwirlIconKeyboardHideElement>;
