@@ -23,7 +23,7 @@ export type SwirlButtonVariant =
 /**
  * @slot icon - Icon to be displayed inside the button.
  * @slot tag - Tag to be displayed inside the button.
- * @slot trailing - Trailing slot for content to be displayed on the right.
+ * @slot trailing - Trailing slot for content to be displayed at the end.
  */
 @Component({
   /**
