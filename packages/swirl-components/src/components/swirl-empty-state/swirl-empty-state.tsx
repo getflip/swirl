@@ -50,7 +50,8 @@ export class SwirlEmptyState {
               {this.heading && (
                 <swirl-heading
                   align="center"
-                  level={this.headingLevel}
+                  as={`h${this.headingLevel}`}
+                  level={4}
                   text={this.heading}
                 ></swirl-heading>
               )}
