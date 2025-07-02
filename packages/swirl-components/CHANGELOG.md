@@ -1,5 +1,14 @@
 # @getflip/swirl-components
 
+## 0.342.1
+
+### Patch Changes
+
+- [#1111](https://github.com/getflip/swirl/pull/1111)
+  [`18766aa0`](https://github.com/getflip/swirl/commit/18766aa052d3a06262e33da56e080cfbeb3795ad)
+  Thanks [@nunofaria11](https://github.com/nunofaria11)! - Fix SwirlEmptyState
+  accessibility issue
+
 ## 0.342.0
 
 ### Minor Changes
