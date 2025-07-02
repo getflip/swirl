@@ -78,7 +78,7 @@ import { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-pr
 import { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 import { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 import { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
-import { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
+import { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent, SwirlTreeViewSemantics } from "./components/swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 import { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
 export { SwirlHeadingLevel } from "./components/swirl-heading/swirl-heading";
@@ -154,7 +154,7 @@ export { SwirlToastConfig, SwirlToastMessage } from "./components/swirl-toast-pr
 export { SwirlToggleGroupVariant } from "./components/swirl-toggle-group/swirl-toggle-group";
 export { SwirlToolbarOrientation } from "./components/swirl-toolbar/swirl-toolbar";
 export { SwirlTooltipPosition } from "./components/swirl-tooltip/swirl-tooltip";
-export { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent } from "./components/swirl-tree-view/swirl-tree-view";
+export { SwirlTreeViewCanDropHandler, SwirlTreeViewDropItemEvent, SwirlTreeViewSemantics } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewDropItemEvent as SwirlTreeViewDropItemEvent1 } from "./components/swirl-tree-view/swirl-tree-view";
 export { SwirlTreeViewItemKeyboardMoveEvent } from "./components/swirl-tree-view-item/swirl-tree-view-item";
 export namespace Components {
@@ -4498,6 +4498,10 @@ export namespace Components {
         "expandItems": (itemIds: string[]) => Promise<void>;
         "initiallyExpandedItemIds"?: string[];
         "label": string;
+        /**
+          * @default "tree"
+         */
+        "semantics"?: SwirlTreeViewSemantics;
     }
     interface SwirlTreeViewItem {
         "active"?: boolean;
@@ -12439,6 +12443,10 @@ declare namespace LocalJSX {
     itemId: string;
     expanded: boolean;
   }>) => void;
+        /**
+          * @default "tree"
+         */
+        "semantics"?: SwirlTreeViewSemantics;
     }
     interface SwirlTreeViewItem {
         "active"?: boolean;

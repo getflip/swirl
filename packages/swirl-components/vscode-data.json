@@ -21054,6 +21054,18 @@
         {
           "name": "label",
           "description": ""
+        },
+        {
+          "name": "semantics",
+          "description": "",
+          "values": [
+            {
+              "name": "list"
+            },
+            {
+              "name": "tree"
+            }
+          ]
         }
       ]
     },

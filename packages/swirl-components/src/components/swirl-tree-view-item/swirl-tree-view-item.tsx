@@ -93,7 +93,7 @@ export class SwirlTreeViewItem {
 
   @Method()
   async expand() {
-    if (this.expanded || !this.expandable) {
+    if (this.expanded || !this.expandable || this.getSemantics() !== "tree") {
       return;
     }
 
@@ -103,7 +103,7 @@ export class SwirlTreeViewItem {
 
   @Method()
   async collapse() {
-    if (!this.expanded || !this.expandable) {
+    if (!this.expanded || !this.expandable || this.getSemantics() !== "tree") {
       return;
     }
 
@@ -113,6 +113,10 @@ export class SwirlTreeViewItem {
 
   @Method()
   async select(focus?: boolean) {
+    if (this.getSemantics() !== "tree") {
+      return;
+    }
+
     this.selected = true;
 
     if (focus) {
@@ -124,6 +128,10 @@ export class SwirlTreeViewItem {
 
   @Method()
   async unselect() {
+    if (this.getSemantics() !== "tree") {
+      return;
+    }
+
     this.selected = false;
   }
 
@@ -424,7 +432,7 @@ export class SwirlTreeViewItem {
   }
 
   private onFocus = () => {
-    if (!this.selected) {
+    if (!this.selected && this.getSemantics() === "tree") {
       this.select();
     }
   };
@@ -463,6 +471,12 @@ export class SwirlTreeViewItem {
     this.expand();
   };
 
+  private getSemantics(): "tree" | "list" {
+    const hasTreeSemantics = this.el.closest('[role="tree"]');
+
+    return hasTreeSemantics ? "tree" : "list";
+  }
+
   render() {
     const hasChildren = Boolean(this.el.querySelector("swirl-tree-view-item"));
     const hasTags = Boolean(this.el.querySelector('[slot="tags"]'));
@@ -470,6 +484,11 @@ export class SwirlTreeViewItem {
       Boolean(this.icon) && /\p{Extended_Pictographic}/u.test(this.icon);
 
     const shouldShowChildrenDropZone = this.enableDragDrop && !hasChildren;
+
+    const semantics = this.getSemantics();
+    const expanded = this.expanded || semantics !== "tree";
+    const tabIndex =
+      semantics === "tree" ? (this.selected ? 0 : -1) : undefined;
 
     const className = classNames("tree-view-item", {
       "tree-view-item--active": this.active,
@@ -482,31 +501,41 @@ export class SwirlTreeViewItem {
 
     return (
       <Host id={this.itemId} role="none">
-        <li class={className} role="none">
+        <li class={className} role={semantics === "tree" ? "none" : undefined}>
           <a
             aria-current={this.active ? "page" : undefined}
-            aria-expanded={!hasChildren ? undefined : String(this.expanded)}
-            aria-level={this.level + 1}
-            aria-owns={hasChildren ? `${this.itemId}-children` : undefined}
-            aria-selected={String(this.selected)}
+            aria-expanded={
+              !hasChildren || semantics !== "tree"
+                ? undefined
+                : String(expanded)
+            }
+            aria-level={semantics === "tree" ? this.level + 1 : undefined}
+            aria-owns={
+              hasChildren && semantics === "tree"
+                ? `${this.itemId}-children`
+                : undefined
+            }
+            aria-selected={
+              semantics === "tree" ? String(this.selected) : undefined
+            }
             class="tree-view-item__link"
             href={this.href}
             onFocus={this.onFocus}
             onKeyDown={this.onKeyDown}
             ref={(el) => (this.link = el)}
-            role="treeitem"
-            tabIndex={this.selected ? 0 : -1}
+            role={semantics === "tree" ? "treeitem" : undefined}
+            tabIndex={tabIndex}
           >
             {!this.disableDrag && this.enableDragDrop && (
               <span class="tree-view-item__drag-handle">
                 <swirl-icon-drag-handle size={20}></swirl-icon-drag-handle>
               </span>
             )}
-            {this.expandable && (
+            {this.expandable && semantics === "tree" && (
               <span class="tree-view-item__toggle-icon">
                 {hasChildren && (
                   <Fragment>
-                    {this.expanded ? (
+                    {expanded ? (
                       <swirl-icon-expand-more
                         onClick={this.onClickCollapse}
                         size={24}
@@ -553,7 +582,7 @@ export class SwirlTreeViewItem {
             role="group"
             style={{
               display:
-                (!this.expanded || !hasChildren) && !shouldShowChildrenDropZone
+                (!expanded || !hasChildren) && !shouldShowChildrenDropZone
                   ? "none"
                   : undefined,
             }}

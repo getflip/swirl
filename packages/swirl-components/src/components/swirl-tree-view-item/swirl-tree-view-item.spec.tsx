@@ -6,7 +6,11 @@ describe("swirl-tree-view-item", () => {
   it("renders label and ID", async () => {
     const page = await newSpecPage({
       components: [SwirlTreeViewItem],
-      html: `<swirl-tree-view-item item-id="item" label="Label"></swirl-tree-view-item>`,
+      html: `
+        <div role="tree">
+          <swirl-tree-view-item item-id="item" label="Label"></swirl-tree-view-item>
+        </div>
+      `,
     });
 
     expect(page.root).toMatchInlineSnapshot(`
@@ -30,10 +34,12 @@ describe("swirl-tree-view-item", () => {
     const page = await newSpecPage({
       components: [SwirlTreeViewItem],
       html: `
-        <swirl-tree-view-item itemId="1" label="Label">
-          <swirl-tree-view-item itemId="2" label="Label"></swirl-tree-view-item>
-          <swirl-tree-view-item itemId="3" label="Label"></swirl-tree-view-item>
-        </swirl-tree-view-item>
+        <div role="tree">
+          <swirl-tree-view-item itemId="1" label="Label">
+            <swirl-tree-view-item itemId="2" label="Label"></swirl-tree-view-item>
+            <swirl-tree-view-item itemId="3" label="Label"></swirl-tree-view-item>
+          </swirl-tree-view-item>
+        </div>
       `,
     });
 
@@ -62,7 +68,9 @@ describe("swirl-tree-view-item", () => {
     const page = await newSpecPage({
       components: [SwirlTreeViewItem],
       html: `
-        <swirl-tree-view-item itemId="1" label="Label"></swirl-tree-view-item>
+        <div role="tree">
+          <swirl-tree-view-item itemId="1" label="Label"></swirl-tree-view-item>
+        </div>
       `,
     });
 

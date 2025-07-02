@@ -191,4 +191,21 @@ describe("swirl-tree-view", () => {
       </swirl-tree-view>
     `);
   });
+
+  it("renders with list semantics", async () => {
+    const page = await newSpecPage({
+      components: [SwirlTreeView, SwirlTreeViewItem],
+      html: `
+          <swirl-tree-view label="Label" semantics="list">
+            <swirl-tree-view-item label="This is a resource item"></swirl-tree-view-item>
+            <swirl-tree-view-item label="This is a resource item"></swirl-tree-view-item>
+          </swirl-tree-view>
+        `,
+    });
+
+    expect(page.root.querySelector("ul")).toBeDefined();
+    expect(page.root.querySelector('ul[role="tree"]')).toBeNull();
+    expect(page.root.querySelectorAll("li")).toHaveLength(2);
+    expect(page.root.querySelectorAll('li[role="treeitem"]')).toHaveLength(0);
+  });
 });
