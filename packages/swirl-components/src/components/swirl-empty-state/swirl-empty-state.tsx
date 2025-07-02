@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import classnames from "classnames";
+import { SwirlHeadingLevel } from "../swirl-heading/swirl-heading";
 
 /**
  * @slot slot - The component content
@@ -15,6 +16,7 @@ export class SwirlEmptyState {
   @Element() el: HTMLElement;
 
   @Prop() heading?: string;
+  @Prop() headingLevel: SwirlHeadingLevel = 4;
   @Prop() illustration?: string;
 
   render() {
@@ -48,7 +50,7 @@ export class SwirlEmptyState {
               {this.heading && (
                 <swirl-heading
                   align="center"
-                  as="p"
+                  as={`h${this.headingLevel}`}
                   level={4}
                   text={this.heading}
                 ></swirl-heading>

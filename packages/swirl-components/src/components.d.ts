@@ -948,6 +948,10 @@ export namespace Components {
     }
     interface SwirlEmptyState {
         "heading"?: string;
+        /**
+          * @default 4
+         */
+        "headingLevel": SwirlHeadingLevel;
         "illustration"?: string;
     }
     interface SwirlFileChip {
@@ -9017,6 +9021,10 @@ declare namespace LocalJSX {
     }
     interface SwirlEmptyState {
         "heading"?: string;
+        /**
+          * @default 4
+         */
+        "headingLevel"?: SwirlHeadingLevel;
         "illustration"?: string;
     }
     interface SwirlFileChip {
